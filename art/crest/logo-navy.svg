@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300" role="img" aria-label="The Tiffin Girls' School">
+  <defs>
+    <clipPath id="oval">
+      <ellipse cx="120" cy="150" rx="100" ry="130"/>
+    </clipPath>
+    <path id="tgs-name" d="M138 46 A78 104 0 0 1 196 168"/>
+    <path id="tgs-motto" d="M52 206 A78 104 0 0 0 168 256"/>
+  </defs>
+  <ellipse cx="120" cy="150" rx="104" ry="134" fill="#16324a" stroke="#f4f1ea" stroke-width="6"/>
+  <g clip-path="url(#oval)" fill="none" stroke="#f4f1ea">
+    <path d="M126 30 C160 78, 170 128, 164 186 C158 228, 140 256, 120 274" stroke-width="2" stroke-linecap="round"/>
+    <g stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M62 96 C84 82, 122 84, 148 96 L138 104 C118 94, 90 92, 70 104 Z"/>
+      <path d="M148 96 L164 86 L156 108 Z"/>
+      <path d="M80 94 C98 90, 120 92, 136 98"/>
+      <circle cx="72" cy="94" r="1.7" fill="#f4f1ea" stroke="none"/>
+
+      <path d="M56 136 C80 120, 124 122, 154 136 L144 145 C122 134, 88 132, 66 144 Z"/>
+      <path d="M154 136 L172 124 L164 150 Z"/>
+      <path d="M78 133 C98 128, 122 130, 140 136"/>
+      <circle cx="68" cy="133" r="1.7" fill="#f4f1ea" stroke="none"/>
+
+      <path d="M62 178 C84 164, 124 166, 152 178 L142 187 C122 176, 90 174, 70 186 Z"/>
+      <path d="M152 178 L168 168 L160 192 Z"/>
+      <path d="M80 176 C98 172, 120 174, 136 180"/>
+      <circle cx="72" cy="176" r="1.7" fill="#f4f1ea" stroke="none"/>
+    </g>
+    <text fill="#f4f1ea" stroke="none" font-family="Georgia, 'Times New Roman', serif" font-size="11" font-weight="700" letter-spacing="0.8">
+      <textPath href="#tgs-name" startOffset="0">THE TIFFIN GIRLS' SCHOOL</textPath>
+    </text>
+    <text fill="#f4f1ea" stroke="none" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="700" letter-spacing="2.2">
+      <textPath href="#tgs-motto" startOffset="6">SAPERE AUDE</textPath>
+    </text>
+  </g>
+</svg>
