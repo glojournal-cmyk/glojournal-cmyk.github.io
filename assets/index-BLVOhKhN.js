@@ -7,7 +7,7 @@ const FRENCH_DAILY_HREF = "/session/french-vocab";
 const cat = collectibles.find((item) => item.id === "cat-companion");
 if (cat) {
   cat.needIf = { ...(cat.needIf || {}), studyDays: Math.max(7, cat.needIf?.studyDays || 0) };
-  cat.need = "Play 3 different learning games and complete 12 qualifying learning games and study on 7 different days";
+  cat.need = "Play 3 different learning games and complete 12 qualifying learning games across different days, and study on 7 different days";
 }
 
 function localDayFromIso(value) {
@@ -54,7 +54,9 @@ function normalizeDaily(daily) {
   return changed ? next : daily;
 }
 
+let normalizing = false;
 function normalizeState() {
+  if (normalizing) return;
   const state = store.getState();
   const patch = {};
 
@@ -71,7 +73,11 @@ function normalizeState() {
   const daily = normalizeDaily(state.daily);
   if (daily !== state.daily) patch.daily = daily;
 
-  if (Object.keys(patch).length) store.setState(patch);
+  if (Object.keys(patch).length) {
+    normalizing = true;
+    store.setState(patch);
+    normalizing = false;
+  }
 }
 
 const initial = store.getState();
@@ -97,20 +103,39 @@ function patchedRecordGame(gameId, points, stars, level) {
   const before = store.getState();
   const day = todayKey();
   const beforeCount = before.gameRewardByDay?.[day]?.[gameId] || 0;
+  const beforeQualifying = before.qualifyingGamePlays || 0;
+  const qualifyingByDay = { ...(before.qualifyingGameByDay || {}) };
+  const dayQualifying = { ...(qualifyingByDay[day] || {}) };
+  const alreadyQualifiedToday = !!dayQualifying[gameId];
+
   const result = originalRecordGame(gameId, points, stars, level);
+  const after = store.getState();
+  const patch = {};
 
   // A failed 0-star attempt must not consume the day's first rewarded completion slot.
   if (stars <= 0) {
-    const after = store.getState();
     const ledger = { ...(after.gameRewardByDay || {}) };
     const dayLedger = { ...(ledger[day] || {}) };
     if ((dayLedger[gameId] || 0) !== beforeCount) {
       if (beforeCount > 0) dayLedger[gameId] = beforeCount;
       else delete dayLedger[gameId];
       ledger[day] = dayLedger;
-      store.setState({ gameRewardByDay: ledger });
+      patch.gameRewardByDay = ledger;
     }
   }
+
+  // Formal progression counts a qualifying 2-3★ completion once per game per calendar day.
+  if (stars >= 2) {
+    const increment = alreadyQualifiedToday ? 0 : 1;
+    dayQualifying[gameId] = true;
+    qualifyingByDay[day] = dayQualifying;
+    patch.qualifyingGameByDay = qualifyingByDay;
+    patch.qualifyingGamePlays = beforeQualifying + increment;
+  } else if ((after.qualifyingGamePlays || 0) !== beforeQualifying) {
+    patch.qualifyingGamePlays = beforeQualifying;
+  }
+
+  if (Object.keys(patch).length) store.setState(patch);
   return result;
 }
 
@@ -121,4 +146,5 @@ store.setState({
 });
 
 normalizeState();
+store.subscribe(() => normalizeState());
 store.persist?.onFinishHydration?.(() => normalizeState());
