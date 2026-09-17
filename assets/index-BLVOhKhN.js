@@ -1,7 +1,31 @@
 export * from "./index-BLVOhKhN.core.js";
-import { C as store, U as collectibles, Ut as todayKey } from "./index-BLVOhKhN.core.js";
+import {
+  C as store,
+  U as collectibles,
+  Ut as todayKey,
+  Ot as frenchVocab,
+  bt as latinVocab,
+  ht as englishVocab,
+  yt as latinLegacyQuestions,
+  Dt as frenchLegacyQuestions,
+  Nt as biologyLegacyQuestions,
+  st as getTopicCatalog,
+} from "./index-BLVOhKhN.core.js";
 
+const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
+const SUBJECT_LABELS = {
+  latin: "Latin",
+  french: "French",
+  biology: "Biology",
+  chemistry: "Chemistry",
+  physics: "Physics",
+  english: "English",
+};
 const FRENCH_DAILY_HREF = "/session/french-vocab";
+const MASTERY_MIN_ATTEMPTS = 6;
+const MASTERY_ACCURACY = 0.85;
+const SECURE_MIN_ATTEMPTS = 5;
+const SECURE_ACCURACY = 0.8;
 
 // Keep Cat Companion as a genuine multi-day reward even if games are replayed heavily.
 const cat = collectibles.find((item) => item.id === "cat-companion");
@@ -27,7 +51,6 @@ function verifiedLegacyPeDays(state) {
   const sessions = Math.max(0, state.peSessions || 0);
   if (!peDays.length || peDays.length !== sessions) return null;
 
-  // v9 -> v10 previously fabricated a perfect consecutive run ending on migration day.
   const today = todayKey();
   const expected = new Set(Array.from({ length: peDays.length }, (_, i) => shiftDay(today, -i)));
   if (!peDays.every((day) => expected.has(day))) return null;
@@ -37,21 +60,202 @@ function verifiedLegacyPeDays(state) {
     .map((entry) => localDayFromIso(entry.at))
     .filter(Boolean))];
 
-  // If history supports every date, this can be a genuine run. Otherwise keep only verifiable dates.
   return fromHistory.length < peDays.length ? fromHistory : null;
 }
 
-function normalizeDaily(daily) {
-  if (!Array.isArray(daily)) return daily;
-  let changed = false;
-  const next = daily.map((task) => {
-    if (task?.id === "french-vocab" && task.href !== FRENCH_DAILY_HREF) {
-      changed = true;
-      return { ...task, href: FRENCH_DAILY_HREF, detail: "Eight verified French vocabulary questions." };
-    }
-    return task;
-  });
-  return changed ? next : daily;
+function slug(value) {
+  return String(value || "topic")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "") || "topic";
+}
+
+function legacyTopicId(subject, topic) {
+  const prefix = subject === "biology" ? "bio" : subject === "chemistry" ? "chem" : subject === "physics" ? "phys" : subject === "english" ? "eng" : subject;
+  return `${prefix}-legacy-${slug(topic)}`;
+}
+
+const QUESTION_META = new Map();
+function addQuestionMeta(items, subject, isVocab = false) {
+  for (const item of items || []) {
+    if (!item?.id) continue;
+    QUESTION_META.set(item.id, {
+      subject,
+      topicId: legacyTopicId(subject, item.topic || (isVocab ? "vocabulary" : "core")),
+      topicTitle: item.topic || (isVocab ? "Vocabulary" : "Core"),
+    });
+  }
+}
+addQuestionMeta(latinVocab, "latin", true);
+addQuestionMeta(frenchVocab, "french", true);
+addQuestionMeta(englishVocab, "english", true);
+addQuestionMeta(latinLegacyQuestions, "latin");
+addQuestionMeta(frenchLegacyQuestions, "french");
+addQuestionMeta(biologyLegacyQuestions, "biology");
+
+function inferSubjectFromTopic(topicId) {
+  const id = String(topicId || "").toLowerCase();
+  if (id.startsWith("la-") || id.startsWith("latin")) return "latin";
+  if (id.startsWith("fr-") || id.startsWith("french")) return "french";
+  if (id.startsWith("bio-") || id.startsWith("bi-")) return "biology";
+  if (id.startsWith("chem-") || id.startsWith("ch-")) return "chemistry";
+  if (id.startsWith("phys-") || id.startsWith("ph-")) return "physics";
+  if (id.startsWith("eng-") || id.startsWith("en-")) return "english";
+  return null;
+}
+
+function inferAttemptMeta(questionId, subject, meta = {}) {
+  const known = QUESTION_META.get(questionId) || {};
+  const resolvedSubject = SUBJECTS.includes(subject) ? subject : known.subject || inferSubjectFromTopic(meta.topicId);
+  const topicId = meta.topicId || known.topicId || (resolvedSubject ? legacyTopicId(resolvedSubject, "general") : null);
+  return {
+    ...meta,
+    subject: resolvedSubject,
+    topicId,
+    topicTitle: meta.topicTitle || known.topicTitle || null,
+  };
+}
+
+function isVisible(el) {
+  if (!el || el.disabled) return false;
+  const rect = el.getBoundingClientRect?.();
+  if (!rect || rect.width <= 0 || rect.height <= 0) return false;
+  const style = window.getComputedStyle?.(el);
+  return !style || (style.display !== "none" && style.visibility !== "hidden");
+}
+
+function isIndependentProduction(meta) {
+  if (meta?.production === true) return true;
+  if (meta?.production === false) return false;
+  const format = String(meta?.format || "");
+  if (["typed_exact", "typed_short", "controlled_translation", "extended_response", "practical_design", "mark_points", "calculation", "spelling_restore", "unordered_set"].includes(format)) return true;
+  if (["mc_single", "matching", "sorting", "diagram_label", "word_tiles", "sequence"].includes(format)) return false;
+  if (typeof document === "undefined" || typeof window === "undefined") return false;
+  return [...document.querySelectorAll("main form input:not([type='hidden']), main form textarea")].some(isVisible);
+}
+
+function topicState(attempted, correct, productionCorrect) {
+  const accuracy = attempted > 0 ? correct / attempted : 0;
+  if (attempted >= MASTERY_MIN_ATTEMPTS && accuracy >= MASTERY_ACCURACY && productionCorrect > 0) return "mastered";
+  if (attempted >= SECURE_MIN_ATTEMPTS && accuracy >= SECURE_ACCURACY) return "secure";
+  if (attempted >= 2 || correct > 0) return "practising";
+  return "learning";
+}
+
+function normalizeTopicStat(stat = {}) {
+  const attempted = Math.max(0, Number(stat.attempted) || 0);
+  const correct = Math.max(0, Math.min(attempted, Number(stat.correct) || 0));
+  const productionIds = Array.isArray(stat.productionIds) ? [...new Set(stat.productionIds)].slice(-20) : [];
+  const productionCorrect = Math.max(Number(stat.productionCorrect) || 0, productionIds.length);
+  const accuracy = attempted ? correct / attempted : 0;
+  return {
+    ...stat,
+    attempted,
+    correct,
+    accuracy,
+    productionAttempted: Math.max(0, Number(stat.productionAttempted) || 0),
+    productionCorrect,
+    productionIds,
+    state: topicState(attempted, correct, productionCorrect),
+    masteryRule: 1,
+  };
+}
+
+function topicTitle(state, topicId, subject) {
+  try {
+    const catalog = getTopicCatalog(subject, state.year);
+    const found = catalog?.find((topic) => topic.topicId === topicId);
+    if (found?.title) return found.title;
+  } catch {}
+  return String(topicId || "Focus topic")
+    .replace(/^(latin|french|bio|chem|phys|eng)-legacy-/, "")
+    .replace(/^(la|fr|bio|chem|phys|eng)-y\d+-/, "")
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+function inferReviewSubject(questionId, review) {
+  return review?.subject || inferSubjectFromTopic(review?.topicId) || QUESTION_META.get(questionId)?.subject || null;
+}
+
+function adaptiveFocus(state) {
+  const today = todayKey();
+  const due = [];
+  for (const [questionId, review] of Object.entries(state.reviews || {})) {
+    if (!review?.due || review.due > today) continue;
+    const subject = inferReviewSubject(questionId, review);
+    if (!SUBJECTS.includes(subject)) continue;
+    due.push({ questionId, subject, topicId: review.topicId || QUESTION_META.get(questionId)?.topicId || null });
+  }
+
+  if (due.length) {
+    const counts = new Map();
+    for (const item of due) counts.set(item.subject, (counts.get(item.subject) || 0) + 1);
+    const subject = [...counts.entries()].sort((a, b) => b[1] - a[1])[0][0];
+    const subjectDue = due.filter((item) => item.subject === subject);
+    const topicCounts = new Map();
+    for (const item of subjectDue) if (item.topicId) topicCounts.set(item.topicId, (topicCounts.get(item.topicId) || 0) + 1);
+    const topicId = [...topicCounts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] || null;
+    return { subject, topicId, reason: "due", dueCount: subjectDue.length };
+  }
+
+  const weak = Object.entries(state.topicStats || {})
+    .map(([topicId, raw]) => ({ topicId, ...normalizeTopicStat(raw), subject: inferSubjectFromTopic(topicId) }))
+    .filter((item) => SUBJECTS.includes(item.subject) && item.attempted >= 2 && item.state !== "mastered")
+    .sort((a, b) => {
+      const aProdPenalty = a.productionCorrect > 0 ? 0 : 0.08;
+      const bProdPenalty = b.productionCorrect > 0 ? 0 : 0.08;
+      return (a.accuracy - aProdPenalty) - (b.accuracy - bProdPenalty) || b.attempted - a.attempted;
+    });
+  if (weak.length) return { subject: weak[0].subject, topicId: weak[0].topicId, reason: "weak", accuracy: weak[0].accuracy };
+
+  if (SUBJECTS.includes(state.lastSubject)) return { subject: state.lastSubject, topicId: state.lastTopic || null, reason: "continue" };
+  const rotation = ["latin", "biology", "chemistry", "physics", "french", "english"];
+  return { subject: rotation[new Date().getDay() % rotation.length], topicId: null, reason: "rotate" };
+}
+
+function focusHref(focus, state) {
+  if (focus.subject === "french" && state.year === 9) return FRENCH_DAILY_HREF;
+  const base = `/study/${focus.subject}/practise`;
+  if (focus.reason === "due") return `${base}?mode=due`;
+  if (focus.reason === "weak") return `${base}?mode=weak`;
+  return base;
+}
+
+function buildAdaptiveDaily(state) {
+  const previous = new Map((state.daily || []).map((task) => [task.id, task]));
+  const existingPlan = previous.get("study-session");
+  const locked = existingPlan?.planDate === state.today && SUBJECTS.includes(existingPlan.focusSubject);
+  const focus = locked
+    ? { subject: existingPlan.focusSubject, topicId: existingPlan.focusTopic || null, reason: existingPlan.focusReason || "continue", dueCount: existingPlan.focusDueCount || 0, accuracy: existingPlan.focusAccuracy }
+    : adaptiveFocus(state);
+  const label = SUBJECT_LABELS[focus.subject] || "Study";
+  const title = locked ? existingPlan.title : focus.reason === "due"
+    ? `Review due ${label}`
+    : focus.reason === "weak" && focus.topicId
+      ? `Strengthen ${topicTitle(state, focus.topicId, focus.subject)}`
+      : `Continue ${label}`;
+  const detail = locked ? existingPlan.detail : focus.reason === "due"
+    ? `${focus.dueCount} review item${focus.dueCount === 1 ? "" : "s"} due · use spaced review.`
+    : focus.reason === "weak"
+      ? `${Math.round((focus.accuracy || 0) * 100)}% so far · build towards ≥85%.`
+      : `Eight focused questions in ${label}.`;
+
+  const studyProgress = Math.min(8, existingPlan?.progress || 0);
+  const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;
+  const frenchCarry = focus.subject === "french" ? (previous.get("french-vocab")?.progress || 0) : 0;
+  const focusProgress = Math.min(4, Math.max(oldFocusProgress, frenchCarry));
+  const garden = previous.get("tend-garden") || { id: "tend-garden", title: "Water your plants", detail: "Tend the Scholar’s Garden.", href: "/garden", target: 1, progress: 0, xp: 10 };
+  const game = previous.get("play-game") || { id: "play-game", title: "Play a quick game", detail: "One short learning game.", href: "/play", target: 1, progress: 0, xp: 10 };
+
+  return [
+    { id: "study-session", title, detail, href: locked ? existingPlan.href : focusHref(focus, state), target: 8, progress: studyProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusReason: focus.reason, focusDueCount: focus.dueCount || 0, focusAccuracy: focus.accuracy },
+    { id: "adaptive-focus", title: `${label} focus`, detail: "Four questions in today’s priority subject. Mastery needs ≥85% plus one independent typed or spelled answer.", href: locked ? existingPlan.href : focusHref(focus, state), target: 4, progress: focusProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusReason: focus.reason },
+    { ...garden, progress: Math.min(garden.target || 1, garden.progress || 0) },
+    { ...game, progress: Math.min(game.target || 1, game.progress || 0) },
+  ];
 }
 
 let normalizing = false;
@@ -66,12 +270,21 @@ function normalizeState() {
     patch.peSessions = verified.length;
   } else {
     const peCount = Array.isArray(state.peDays) ? state.peDays.length : 0;
-    // PE reward progress is based on different PE days only. Never allow session count to act as days.
     if ((state.peSessions || 0) !== peCount) patch.peSessions = peCount;
   }
 
-  const daily = normalizeDaily(state.daily);
-  if (daily !== state.daily) patch.daily = daily;
+  const normalizedTopics = {};
+  let topicsChanged = false;
+  for (const [topicId, raw] of Object.entries(state.topicStats || {})) {
+    const next = normalizeTopicStat(raw);
+    normalizedTopics[topicId] = next;
+    if (raw.masteryRule !== 1 || raw.state !== next.state || raw.accuracy !== next.accuracy || !Array.isArray(raw.productionIds)) topicsChanged = true;
+  }
+  if (topicsChanged) patch.topicStats = normalizedTopics;
+
+  const stateForDaily = { ...state, ...(patch.topicStats ? { topicStats: patch.topicStats } : {}) };
+  const daily = buildAdaptiveDaily(stateForDaily);
+  if (JSON.stringify(daily) !== JSON.stringify(state.daily || [])) patch.daily = daily;
 
   if (Object.keys(patch).length) {
     normalizing = true;
@@ -84,6 +297,9 @@ const initial = store.getState();
 const originalHydrateDay = initial.hydrateDay;
 const originalRecordPe = initial.recordPe;
 const originalRecordGame = initial.recordGame;
+const originalRecordAttempt = initial.recordAttempt;
+const originalRecordSpelling = initial.recordSpelling;
+const originalBumpDaily = initial.bumpDaily;
 
 function patchedHydrateDay(...args) {
   const result = originalHydrateDay(...args);
@@ -112,7 +328,6 @@ function patchedRecordGame(gameId, points, stars, level) {
   const after = store.getState();
   const patch = {};
 
-  // A failed 0-star attempt must not consume the day's first rewarded completion slot.
   if (stars <= 0) {
     const ledger = { ...(after.gameRewardByDay || {}) };
     const dayLedger = { ...(ledger[day] || {}) };
@@ -124,7 +339,6 @@ function patchedRecordGame(gameId, points, stars, level) {
     }
   }
 
-  // Formal progression counts a qualifying 2-3★ completion once per game per calendar day.
   if (stars >= 2) {
     const increment = alreadyQualifiedToday ? 0 : 1;
     dayQualifying[gameId] = true;
@@ -139,12 +353,111 @@ function patchedRecordGame(gameId, points, stars, level) {
   return result;
 }
 
+function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
+  const before = store.getState();
+  const resolved = inferAttemptMeta(questionId, subject, meta || {});
+  const production = isIndependentProduction(resolved);
+
+  // Keep core XP/review scheduling, but stop its old streak-only topic mastery from running.
+  const coreMeta = { ...meta, topicId: undefined };
+  const result = originalRecordAttempt(questionId, correct, subject, coreMeta);
+  const after = store.getState();
+
+  if (!resolved.topicId) return result;
+  const current = normalizeTopicStat(before.topicStats?.[resolved.topicId] || {});
+  const attempted = current.attempted + 1;
+  const correctCount = current.correct + (correct ? 1 : 0);
+  const productionIds = [...(current.productionIds || [])];
+  if (production && correct && !productionIds.includes(questionId)) productionIds.push(questionId);
+  const productionCorrect = productionIds.length;
+  const errorKind = meta?.errorKind && meta.errorKind !== "none" ? meta.errorKind : null;
+  const errors = { ...(current.errors || {}) };
+  if (errorKind) errors[errorKind] = (errors[errorKind] || 0) + 1;
+  const review = after.reviews?.[questionId];
+  const accuracy = attempted ? correctCount / attempted : 0;
+  const nextTopic = {
+    ...current,
+    attempted,
+    correct: correctCount,
+    accuracy,
+    productionAttempted: current.productionAttempted + (production ? 1 : 0),
+    productionCorrect,
+    productionIds: productionIds.slice(-20),
+    state: topicState(attempted, correctCount, productionCorrect),
+    due: review?.due || current.due,
+    errors,
+    masteryRule: 1,
+    lastAttempt: todayKey(),
+  };
+  const reviews = { ...(after.reviews || {}) };
+  if (review) reviews[questionId] = { ...review, subject: resolved.subject, topicId: resolved.topicId, production: !!production };
+  store.setState({
+    topicStats: { ...(after.topicStats || {}), [resolved.topicId]: nextTopic },
+    reviews,
+    lastTopic: resolved.topicId,
+    lastSubject: resolved.subject || subject,
+  });
+
+  const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
+  if (focus && focus.focusSubject === (resolved.subject || subject)) originalBumpDaily("adaptive-focus", 1);
+  normalizeState();
+  return result;
+}
+
+function patchedRecordSpelling(questionId, correct) {
+  const result = originalRecordSpelling(questionId, correct);
+  if (!correct) return result;
+  const after = store.getState();
+  const known = QUESTION_META.get(questionId);
+  if (!known?.topicId) return result;
+  const current = normalizeTopicStat(after.topicStats?.[known.topicId] || {});
+  const productionIds = current.productionIds.includes(questionId) ? current.productionIds : [...current.productionIds, questionId].slice(-20);
+  const productionCorrect = productionIds.length;
+  const next = {
+    ...current,
+    productionCorrect,
+    productionIds,
+    state: topicState(current.attempted, current.correct, productionCorrect),
+    masteryRule: 1,
+    lastProduction: todayKey(),
+  };
+  store.setState({ topicStats: { ...(after.topicStats || {}), [known.topicId]: next } });
+  normalizeState();
+  return result;
+}
+
 store.setState({
   hydrateDay: patchedHydrateDay,
   recordPe: patchedRecordPe,
   recordGame: patchedRecordGame,
+  recordAttempt: patchedRecordAttempt,
+  recordSpelling: patchedRecordSpelling,
 });
+
+function applyPracticeModeFromUrl() {
+  if (typeof document === "undefined" || typeof window === "undefined") return;
+  if (!/^\/study\/[^/]+\/practise\/?$/.test(window.location.pathname)) return;
+  const mode = new URL(window.location.href).searchParams.get("mode");
+  if (mode !== "due" && mode !== "weak") return;
+  const key = `${window.location.pathname}${window.location.search}`;
+  if (applyPracticeModeFromUrl.lastKey === key) return;
+  const wanted = mode === "due" ? "Due Review" : "Weakness Review";
+  const button = [...document.querySelectorAll("main button")].find((node) => node.textContent?.includes(wanted));
+  if (!button) return;
+  applyPracticeModeFromUrl.lastKey = key;
+  button.click();
+}
+applyPracticeModeFromUrl.lastKey = "";
 
 normalizeState();
 store.subscribe(() => normalizeState());
 store.persist?.onFinishHydration?.(() => normalizeState());
+
+if (typeof document !== "undefined") {
+  queueMicrotask(applyPracticeModeFromUrl);
+  new MutationObserver(applyPracticeModeFromUrl).observe(document.documentElement, { childList: true, subtree: true });
+  window.addEventListener("popstate", () => {
+    applyPracticeModeFromUrl.lastKey = "";
+    applyPracticeModeFromUrl();
+  });
+}
