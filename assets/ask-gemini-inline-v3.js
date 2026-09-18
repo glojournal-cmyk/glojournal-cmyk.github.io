@@ -3,7 +3,6 @@
   const ENDPOINT = "https://glojournal-cmyk-github-io.vercel.app/api/ask-ai";
   let current = null;
   let timer = null;
-  let ready = null;
 
   function visible(el) {
     if (!el) return false;
@@ -37,18 +36,6 @@
       if (seen.has(key)) p.remove();
       else seen.add(key);
     }
-  }
-
-  async function checkReady() {
-    if (ready !== null) return ready;
-    try {
-      const response = await fetch(ENDPOINT, { method: "GET", cache: "no-store" });
-      const data = await response.json().catch(() => ({}));
-      ready = !!(response.ok && data?.ok && data?.configured);
-    } catch {
-      ready = false;
-    }
-    return ready;
   }
 
   function hash(value) {
@@ -132,11 +119,6 @@
     const host = feedbackHost();
     if (!host || !payload) return false;
     cleanWhyDuplicates(host);
-
-    if (!(await checkReady())) {
-      document.getElementById(PANEL_ID)?.remove();
-      return true;
-    }
 
     document.getElementById(PANEL_ID)?.remove();
 
