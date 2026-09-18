@@ -288,7 +288,7 @@ function topicTitle(state, topicId, subject) {
 }
 
 function inferReviewSubject(questionId, review) {
-  return review?.subject || inferSubjectFromTopic(review?.topicId) || QUESTION_META.get(questionId)?.subject || null;
+  return review?.subject || inferSubjectFromTopic(review?.topicId) || QUESTION_META.get(questionId)?.subject || inferSubjectFromTopic(questionId) || null;
 }
 
 function adaptiveFocus(state) {
@@ -658,9 +658,14 @@ function buildProgressDashboard(state, subject, year = state?.year) {
   const topicIds = new Set(catalog.map((topic) => topic.topicId));
   const titleMap = new Map(catalog.map((topic) => [topic.topicId, topic.title]));
 
-  // Include legacy topic stats for the selected subject so old revision work remains visible.
-  for (const topicId of Object.keys(state.topicStats || {})) {
-    if (subjectForTopic(topicId) === subject) topicIds.add(topicId);
+  // Keep formal progress scoped to the selected school year. Only fall back to stored
+  // subject topics when a subject has no year-specific catalogue at all.
+  if (!catalog.length) {
+    for (const topicId of Object.keys(state.topicStats || {})) {
+      if (subjectForTopic(topicId) !== subject) continue;
+      const explicitYear = String(topicId).match(/-y(\d+)-/i)?.[1];
+      if (!explicitYear || Number(explicitYear) === Number(year)) topicIds.add(topicId);
+    }
   }
 
   const reviewByTopic = new Map();
@@ -669,11 +674,12 @@ function buildProgressDashboard(state, subject, year = state?.year) {
     const reviewSubject = inferReviewSubject(questionId, review);
     if (reviewSubject !== subject) continue;
     const topicId = review.topicId || QUESTION_META.get(questionId)?.topicId || null;
-    if (!topicId) continue;
+    if (review.due && review.due <= today) dueReviews += 1;
+    if (!topicId || !topicIds.has(topicId)) continue;
     const entry = reviewByTopic.get(topicId) || { dueCount: 0, nextDue: null };
     if (review.due) {
       if (!entry.nextDue || review.due < entry.nextDue) entry.nextDue = review.due;
-      if (review.due <= today) { entry.dueCount += 1; dueReviews += 1; }
+      if (review.due <= today) entry.dueCount += 1;
     }
     reviewByTopic.set(topicId, entry);
   }
