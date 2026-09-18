@@ -675,10 +675,10 @@ function applyPracticeModeFromUrl() {
   if (typeof document === "undefined" || typeof window === "undefined") return;
   if (!/^\/study\/[^/]+\/practise\/?$/.test(window.location.pathname)) return;
   const mode = new URL(window.location.href).searchParams.get("mode");
-  if (mode !== "due" && mode !== "weak") return;
+  if (mode !== "due" && mode !== "weak" && mode !== "exam") return;
   const key = `${window.location.pathname}${window.location.search}`;
   if (applyPracticeModeFromUrl.lastKey === key) return;
-  const wanted = mode === "due" ? "Due Review" : "Weakness Review";
+  const wanted = mode === "due" ? "Due Review" : mode === "weak" ? "Weakness Review" : "Exam Mix 15";
   const button = [...document.querySelectorAll("main button")].find((node) => node.textContent?.includes(wanted));
   if (!button) return;
   applyPracticeModeFromUrl.lastKey = key;
