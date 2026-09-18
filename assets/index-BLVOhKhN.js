@@ -617,14 +617,20 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   };
   const reviews = { ...(after.reviews || {}) };
   if (review) reviews[questionId] = { ...review, subject: resolved.subject, topicId: resolved.topicId, production: !!production, repair: isRepair, errorType: errorType || review.errorType || null };
+  // A wrong formal answer must never become due again on the same day.
+  // Treat the first miss as stage 1: retry after 2 days; a later success then moves to 7 days.
+  if (!correct && !isRepair && reviews[questionId]) {
+    const day = todayKey();
+    reviews[questionId] = { ...reviews[questionId], stage: 1, streak: 1, due: shiftDay(day, 2), last: day, retriedToday: day };
+  }
   if (isRepair && meta?.repairOf && reviews[meta.repairOf]) {
     const original = reviews[meta.repairOf];
     const day = todayKey();
     reviews[meta.repairOf] = {
       ...original,
-      stage: correct ? Math.max(1, original.stage || 0) : Math.max(0, (original.stage || 1) - 1),
-      streak: correct ? Math.max(1, original.streak || 0) : 0,
-      due: correct ? shiftDay(day, 2) : day,
+      stage: Math.max(1, original.stage || 0),
+      streak: Math.max(1, original.streak || 0),
+      due: shiftDay(day, 2),
       last: day,
       retriedToday: day,
       repairedBy: questionId,
@@ -634,7 +640,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   if (isRepair && meta?.repairOf && questionId !== meta.repairOf) delete reviews[questionId];
   const recentQuestionIds = [...(after.recentQuestionIds || []).filter((id) => id !== questionId), questionId].slice(-20);
   store.setState({
-    topicStats: { ...(after.topicStats || {}), [resolved.topicId]: nextTopic },
+    topicStats: { ...(after.topicStats || {}), [resolved.topicId]: { ...nextTopic, due: reviews[meta?.repairOf || questionId]?.due || nextTopic.due } },
     reviews,
     recentQuestionIds,
     lastTopic: resolved.topicId,
