@@ -11,6 +11,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Check practice runtime syntax
+        run: |
+          node --check assets/study._subject.practise-D_PWgUd7.js
+          node --check assets/quiz-session-rWAnuDVj.js
+      - name: Test French session diversity
+        run: node tests/french-session-diversity.mjs
       - name: Audit every question answer key
         env:
           STRICT: "1"
