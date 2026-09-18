@@ -95,4 +95,4 @@ console.log("FRENCH_CATEGORY_OUTLIERS "+JSON.stringify(report.categoryOutliers.s
 console.log("FRENCH_LENGTH_OUTLIERS "+JSON.stringify(report.lengthOutliers.slice(0,80)));
 console.log("FRENCH_DUPLICATES "+JSON.stringify(report.exactDuplicates.slice(0,80)));
 fs.mkdirSync("test-results",{recursive:true});
-fs.writeFileSync("test-results/french-content-quality.json",JSON.stringify(report,null,2));
+fs.writeFileSync("test-results/french-content-quality.json",JSON.stringify(report,null,2));\nif(report.duplicateOptions.length) process.exitCode=1;
