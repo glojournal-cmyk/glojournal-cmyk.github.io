@@ -1625,16 +1625,25 @@
       "conceptId": "bio-y9-b16-app-protein-route-concept",
       "topicId": "bio-y9-b16",
       "topic": "Uses of glucose from photosynthesis",
-      "format": "sequence",
+      "format": "word_tiles",
       "prompt": "Put the route from photosynthesis to plant protein in order.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "sequence"
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "photosynthesis makes glucose the plant combines glucose-derived material with nitrate ions amino acids are formed amino acids are joined to make proteins"
+        ]
       },
       "stimulus": {
         "items": [
+          "the plant combines glucose-derived material with nitrate ions",
+          "amino acids are joined to make proteins",
+          "photosynthesis makes glucose",
+          "amino acids are formed"
+        ],
+        "tiles": [
           "the plant combines glucose-derived material with nitrate ions",
           "amino acids are joined to make proteins",
           "photosynthesis makes glucose",
@@ -1652,8 +1661,8 @@
         "remember": "photosynthesis makes glucose → the plant combines glucose-derived material with nitrate ions → amino acids are formed → amino acids are joined to make proteins"
       },
       "task": {
-        "label": "ORDER",
-        "instruction": "Put every step in the correct order."
+        "label": "ORDER THE STEPS",
+        "instruction": "Tap each tile in the correct order."
       },
       "preview": true,
       "ordinary": true
@@ -1669,7 +1678,7 @@
     "mark_points": 8,
     "typed_short": 1,
     "matching": 3,
-    "sequence": 1
+    "word_tiles": 1
   },
   "gated": false,
   "note": {
