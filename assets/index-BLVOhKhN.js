@@ -753,6 +753,7 @@ function buildProgressDashboard(state, subject, year = state?.year) {
   const weekStart = calendarWeekStart();
   const topicIds = new Set(catalog.map((topic) => topic.topicId));
   const titleMap = new Map(catalog.map((topic) => [topic.topicId, topic.title]));
+  const assessmentIds = new Set(catalog.filter((topic) => topic.unitId === "french-y9-assessment").map((topic) => topic.topicId));
 
   // Keep formal progress scoped to the selected school year. Only fall back to stored
   // subject topics when a subject has no year-specific catalogue at all.
@@ -841,6 +842,22 @@ function buildProgressDashboard(state, subject, year = state?.year) {
     .slice(0, 5)
     .map(([type, count]) => ({ type, label: errorLabel(type), count }));
 
+  const assessmentRows = topics.filter((row) => assessmentIds.has(row.topicId));
+  const assessmentAttemptedRows = assessmentRows.filter((row) => row.attempted > 0);
+  const assessmentAttempted = assessmentAttemptedRows.reduce((sum, row) => sum + row.attempted, 0);
+  const assessmentCorrect = assessmentAttemptedRows.reduce((sum, row) => sum + row.correct, 0);
+  const assessmentPractice = assessmentRows.length ? {
+    totalTopics: assessmentRows.length,
+    exploredTopics: assessmentAttemptedRows.length,
+    attempted: assessmentAttempted,
+    correct: assessmentCorrect,
+    accuracy: assessmentAttempted ? assessmentCorrect / assessmentAttempted : 0,
+    secureOrMastered: assessmentRows.filter((row) => row.state === "secure" || row.state === "mastered").length,
+    mastered: assessmentRows.filter((row) => row.state === "mastered").length,
+    productionTopics: assessmentRows.filter((row) => row.productionOk).length,
+    topics: assessmentRows,
+  } : null;
+
   const activity7 = Array.from({ length: 7 }, (_, index) => {
     const date = daysAgoKey(6 - index);
     const d = new Date(`${date}T12:00:00`);
@@ -863,6 +880,7 @@ function buildProgressDashboard(state, subject, year = state?.year) {
     improving,
     recentMastered,
     errorPatterns,
+    assessmentPractice,
     topics: topics.sort((a, b) => b.dueCount - a.dueCount || ({ learning: 0, practising: 1, secure: 2, mastered: 3 }[a.state] - ({ learning: 0, practising: 1, secure: 2, mastered: 3 }[b.state])) || a.accuracy - b.accuracy || a.title.localeCompare(b.title)),
     activity7,
   };
