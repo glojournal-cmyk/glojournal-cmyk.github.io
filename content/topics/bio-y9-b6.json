@@ -2204,10 +2204,11 @@
       },
       "task": {
         "label": "BOSS ANSWER",
-        "instruction": "Build a linked answer, then self-check against the mark-point rubric."
+        "instruction": "Build a linked answer, then self-check against the mark-point rubric. Self-check against the approved mark points; this open response does not affect formal Mastery."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b6-app-therapeutic-rejection",
