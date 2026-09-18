@@ -1925,16 +1925,25 @@
       "conceptId": "bio-y9-b5-app-cell-cycle-order-concept",
       "topicId": "bio-y9-b5",
       "topic": "Chromosomes, the cell cycle and mitosis",
-      "format": "sequence",
+      "format": "word_tiles",
       "prompt": "Put the overall stages of the cell cycle in order.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "sequence"
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "cell grows and sub-cellular structures increase DNA replicates mitosis separates chromosome sets and the nucleus divides cytoplasm and cell membrane divide"
+        ]
       },
       "stimulus": {
         "items": [
+          "DNA replicates",
+          "cytoplasm and cell membrane divide",
+          "mitosis separates chromosome sets and the nucleus divides",
+          "cell grows and sub-cellular structures increase"
+        ],
+        "tiles": [
           "DNA replicates",
           "cytoplasm and cell membrane divide",
           "mitosis separates chromosome sets and the nucleus divides",
@@ -1952,8 +1961,8 @@
         "remember": "cell grows and sub-cellular structures increase → DNA replicates → mitosis separates chromosome sets and the nucleus divides → cytoplasm and cell membrane divide"
       },
       "task": {
-        "label": "ORDER",
-        "instruction": "Put every step in the correct order."
+        "label": "ORDER THE STEPS",
+        "instruction": "Tap each tile in the correct order."
       },
       "preview": true,
       "ordinary": true
@@ -2106,8 +2115,8 @@
     "mark_points": 11,
     "typed_short": 3,
     "matching": 2,
-    "sequence": 1,
-    "diagram_label": 1
+    "diagram_label": 1,
+    "word_tiles": 1
   },
   "gated": false,
   "note": {
