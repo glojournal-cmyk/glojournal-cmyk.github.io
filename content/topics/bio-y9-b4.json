@@ -2572,16 +2572,28 @@
       "conceptId": "bio-y9-b4-app-streak-order-concept",
       "topicId": "bio-y9-b4",
       "topic": "Culturing microorganisms and aseptic technique — Required Practical 2",
-      "format": "sequence",
+      "format": "word_tiles",
       "prompt": "Put these streak-plate actions in a safe working order.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "sequence"
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "sterilise the loop and allow it to cool lift the lid only slightly streak the first agar area re-sterilise and cool the loop drag a small amount into a fresh area and repeat replace and tape the lid at a few points invert and incubate at no more than 25°C"
+        ]
       },
       "stimulus": {
         "items": [
+          "sterilise the loop and allow it to cool",
+          "re-sterilise and cool the loop",
+          "invert and incubate at no more than 25°C",
+          "drag a small amount into a fresh area and repeat",
+          "lift the lid only slightly",
+          "replace and tape the lid at a few points",
+          "streak the first agar area"
+        ],
+        "tiles": [
           "sterilise the loop and allow it to cool",
           "re-sterilise and cool the loop",
           "invert and incubate at no more than 25°C",
@@ -2602,8 +2614,8 @@
         "remember": "sterilise the loop and allow it to cool → lift the lid only slightly → streak the first agar area → re-sterilise and cool the loop → drag a small amount into a fresh area and repeat → replace and tape the lid at a few points → invert and incubate at no more than 25°C"
       },
       "task": {
-        "label": "ORDER",
-        "instruction": "Put every step in the correct order."
+        "label": "ORDER THE STEPS",
+        "instruction": "Tap each tile in the correct order."
       },
       "preview": true,
       "ordinary": true
@@ -2781,9 +2793,9 @@
     "spelling_restore": 12,
     "mark_points": 14,
     "matching": 3,
-    "sequence": 1,
     "practical_design": 1,
-    "calculation": 1
+    "calculation": 1,
+    "word_tiles": 1
   },
   "gated": false,
   "note": {
