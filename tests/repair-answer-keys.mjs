@@ -19,7 +19,11 @@ const manual=new Map(Object.entries({
   "la-y8-src-18aug-model-tense-05":"imperfect",
   "la-y8-src-18aug-model-tense-06":"imperfect",
   "la-y8-src-18aug-model-tense-07":"imperfect",
-  "la-y8-src-18aug-model-tense-08":"imperfect"
+  "la-y8-src-18aug-model-tense-08":"imperfect",
+  "la-y8-gen-15aug-adj-2-f-mc":"pulchrae",
+  "la-y8-gen-16aug-perfect-01-mc":"custodivit",
+  "la-y8-gen-16aug-perfect-22-mc":"cupivit",
+  "la-y8-gen-15aug-pron-15-2-3-mc":"nostri / nostrum"
 }));
 const stats={mc:0,sequence:0,diagram:0,calcNumeric:0,calcSelfCheck:0,calcModel:0,files:0};
 const unresolved=[];
