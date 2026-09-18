@@ -2616,11 +2616,11 @@
   "gated": false,
   "note": {
     "title": "Osmosis and Required Practical 3",
-    "overview": "",
+    "overview": "Osmosis is the net movement of water through a partially permeable membrane from a dilute solution (higher water concentration) to a more concentrated solution (lower water concentration). You must be able to predict mass change in plant tissue, calculate percentage change, interpret a concentration graph and explain Required Practical 3.",
     "learningGoals": [
-      "Recall the core knowledge and vocabulary for Osmosis and Required Practical 3.",
-      "Explain or produce the answer independently rather than relying only on recognition.",
-      "Apply the idea accurately to a new prompt and check every required detail."
+      "Define osmosis precisely and predict the direction of water movement across a partially permeable membrane.",
+      "Calculate percentage change in plant-tissue mass and interpret positive, negative and zero-change results.",
+      "Plan, analyse and evaluate Required Practical 3 using concentration as the independent variable."
     ],
     "mustMemoriseRules": [
       "osmosis → the diffusion of water from a dilute solution to a concentrated solution through a partially permeable membrane",
@@ -2634,7 +2634,48 @@
       "osmosis dependent variable → change or percentage change in plant-tissue mass",
       "osmosis controls → tissue type and size, solution volume, time, temperature and blotting method"
     ],
-    "mustMemoriseVocabulary": [],
+    "mustMemoriseVocabulary": [
+      {
+        "term": "osmosis",
+        "meaning": "net movement of water from a dilute solution to a more concentrated solution through a partially permeable membrane",
+        "direction": ""
+      },
+      {
+        "term": "partially permeable membrane",
+        "meaning": "a membrane that allows some small molecules, including water, to pass but restricts others",
+        "direction": ""
+      },
+      {
+        "term": "dilute solution",
+        "meaning": "a solution with a relatively high concentration of water",
+        "direction": ""
+      },
+      {
+        "term": "concentrated solution",
+        "meaning": "a solution with a relatively low concentration of water",
+        "direction": ""
+      },
+      {
+        "term": "percentage mass change",
+        "meaning": "(final mass − initial mass) ÷ initial mass × 100",
+        "direction": ""
+      },
+      {
+        "term": "zero-change point",
+        "meaning": "the concentration at which the tissue shows approximately 0% mass change",
+        "direction": ""
+      },
+      {
+        "term": "independent variable",
+        "meaning": "concentration of the salt or sugar solution",
+        "direction": ""
+      },
+      {
+        "term": "dependent variable",
+        "meaning": "change or percentage change in plant-tissue mass",
+        "direction": ""
+      }
+    ],
     "workedExamples": [
       {
         "prompt": "In B9, write the scientific term, rule or named idea described. the diffusion of water from a dilute solution to a concentrated solution through a partially permeable membrane",
@@ -2663,20 +2704,25 @@
       }
     ],
     "commonMistakes": [
-      "Osmosis is only the movement of water.",
-      "A membrane must be involved.",
-      "Do not say water moves from “high concentration to low concentration” without specifying water concentration/dilute-to-concentrated solution.",
-      "--",
-      "A partly correct response can still miss a required form, unit, relationship or mark point."
+      "Osmosis is the movement of water, not the movement of any solute.",
+      "A partially permeable membrane must be involved.",
+      "Do not say only “high concentration to low concentration” without identifying water or dilute-to-concentrated solution.",
+      "Always divide percentage mass change by the initial mass, not the final mass.",
+      "Blot tissue consistently before reweighing; surface liquid can falsely increase the measured mass."
     ],
     "detailedExplanation": [
-      "A partially permeable membrane allows some small molecules such as water to pass but restricts others. If plant tissue is placed in a more dilute solution, water can enter cells by osmosis and mass may increase. In a more concentrated solution, water leaves cells and mass may decrease.",
-      "Explain biological ideas as linked steps: name the structure or process, state what happens, and connect it to the effect on the cell, organism or ecosystem. Use precise scientific terms rather than everyday substitutes."
+      "This topic is verified against The Tiffin Girls’ School Year 9 Biology Curriculum Outline 2026–27, which places diffusion, osmosis and active transport in Spring 1 and specifically requires Practical 3 on the effect of salt or sugar concentration on plant-tissue mass.",
+      "Osmosis concerns water only. Water moves across a partially permeable membrane from the side with more available water (the more dilute solution) towards the side with less available water (the more concentrated solution). Do not describe osmosis simply as particles moving from high concentration to low concentration; that wording is too vague because the substance moving is water.",
+      "In plant tissue placed in a dilute external solution, water enters cells by osmosis. The cells become more turgid and the tissue usually gains mass. In a concentrated external solution, water leaves the cells, the cells lose turgor and the tissue usually loses mass.",
+      "For Required Practical 3, use equal-sized pieces of the same plant tissue, measure each initial mass, place them in a range of known salt or sugar concentrations, and keep time, temperature, solution volume, tissue type/size and blotting method constant. After the set time, blot each piece in the same way and measure final mass.",
+      "Calculate percentage mass change using: (final mass − initial mass) ÷ initial mass × 100. A positive result means mass gain; a negative result means mass loss. Repeat each concentration, calculate a mean and plot solution concentration against percentage mass change.",
+      "The point where the graph crosses 0% mass change estimates the concentration at which there is no net change in tissue mass. In exam answers, explain results as a chain: concentration difference → water movement by osmosis → cell/tissue mass change."
     ],
     "examTips": [
-      "Use the command word and number of marks to decide how many distinct points are required.",
-      "Use precise terminology and link cause to effect rather than listing disconnected facts.",
-      "For calculations, show the relationship, substitution, working and unit."
+      "For a 3–4 mark explanation, write a chain: outside concentration → direction of water movement → effect on cells/tissue mass.",
+      "For percentage change, show final − initial first; keep the sign so a mass loss stays negative.",
+      "On a concentration graph, use the 0% mass-change crossing to estimate the zero-change/isotonic concentration.",
+      "For practical design, state the independent variable, dependent variable, at least three controls, repeats/mean and how results will be graphed."
     ],
     "quickCheck": [
       {
@@ -2703,12 +2749,18 @@
     "beforeStartingPractice": [],
     "additionalSourceSections": [
       {
-        "heading": "Definition",
-        "body": ""
+        "heading": "Required Practical 3 — method and graph",
+        "body": "IV: salt/sugar concentration\nDV: change or % change in plant-tissue mass\nControls: tissue type and size, solution volume, time, temperature, blotting method\nQuality: repeats + mean\nGraph: concentration on x-axis; % mass change on y-axis; estimate the zero-change point where the line crosses 0%."
       },
       {
-        "heading": "Required Practical 3",
-        "body": ""
+        "source": "The Tiffin Girls’ School Year 9 Biology Curriculum Outline 2026–27",
+        "locator": "Spring 1 · 1.3 Cell movement · 1.3.2 Osmosis · Required Practical 3",
+        "url": "https://fra1.digitaloceanspaces.com/tiffingirls.org/wp-content/uploads/2026/07/14114039/Bio-Y9-curriculum-outline-2026-27.pdf"
+      },
+      {
+        "source": "AQA GCSE Biology 8461",
+        "locator": "4.1.3.2 Osmosis / Required practical activity 3",
+        "url": "https://www.aqa.org.uk/subjects/biology/gcse/biology-8461/specification/subject-content/cell-biology"
       }
     ]
   }
