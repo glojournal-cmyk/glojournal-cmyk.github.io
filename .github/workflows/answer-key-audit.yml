@@ -17,6 +17,8 @@ jobs:
           node --check assets/quiz-session-rWAnuDVj.js
       - name: Test French session diversity
         run: node tests/french-session-diversity.mjs
+      - name: Audit French content quality
+        run: node tests/french-content-quality-audit.mjs
       - name: Audit every question answer key
         env:
           STRICT: "1"
@@ -24,4 +26,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: answer-key-audit
-          path: |\n            test-results/answer-key-audit.json\n            test-results/french-content-quality.json
+          path: |
+            test-results/answer-key-audit.json
+            test-results/french-content-quality.json
