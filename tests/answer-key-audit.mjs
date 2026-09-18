@@ -78,7 +78,7 @@ const summary={
   fatalCount:report.fatal.length,
   mcMissingAccepted:Object.fromEntries(Object.entries(report.mcMissingAccepted).map(([k,v])=>[k,v.length])),
   mcAcceptedNotOption:Object.fromEntries(Object.entries(report.mcAcceptedNotOption).map(([k,v])=>[k,v.length])),
-  obviousMcKeyMismatch:Object.fromEntries(Object.entries(report.obviousMcKeyMismatch).map(([k,v])=>[k,v.length])),
+  obviousMcKeyMismatch:Object.fromEntries(Object.entries(report.obviousMcKeyMismatch).map(([k,v])=>[k,v.length])),\n  recoverableMissingMC:Object.fromEntries(Object.entries(report.recoverableMissingMC).map(([k,v])=>[k,v.length])),\n  unresolvedMissingMC:Object.fromEntries(Object.entries(report.unresolvedMissingMC).map(([k,v])=>[k,v.length])),
   missingScorableAnswer:Object.fromEntries(Object.entries(report.missingScorableAnswer).map(([k,v])=>[k,v.length])),
   duplicateIds:report.duplicateIds.length
 };
