@@ -87,6 +87,10 @@ for(const file of files){
   let changed=false;
   for(const q of doc.questions||[]){
     q.answer=q.answer||{};
+    if(Array.isArray(q.answer.markPoints) && q.answer.markPoints.some(mp=>mp && typeof mp==="object")){
+      q.answer.markPoints=q.answer.markPoints.map(mp=>typeof mp==="string"?mp:String(mp?.text??mp?.label??mp?.answer??"").trim()).filter(Boolean);
+      changed=true;
+    }
     if(q.format==="mc_single" && !(Array.isArray(q.answer.accepted)&&q.answer.accepted.length)){
       const candidate=recoverMc(q);
       if(!candidate || !(q.options||[]).some(o=>norm(o)===norm(candidate))){unresolved.push({file,id:q.id,type:"mc",candidate}); continue;}
