@@ -1932,16 +1932,23 @@
       "conceptId": "bio-y9-b14-app-photosynthesis-equation-concept",
       "topicId": "bio-y9-b14",
       "topic": "Photosynthesis",
-      "format": "sequence",
+      "format": "word_tiles",
       "prompt": "Put the reactant side and product side in order to make the photosynthesis word equation.",
       "difficulty": 1,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "sequence"
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "carbon dioxide + water glucose + oxygen"
+        ]
       },
       "stimulus": {
         "items": [
+          "glucose + oxygen",
+          "carbon dioxide + water"
+        ],
+        "tiles": [
           "glucose + oxygen",
           "carbon dioxide + water"
         ]
@@ -1957,8 +1964,8 @@
         "remember": "carbon dioxide + water → glucose + oxygen"
       },
       "task": {
-        "label": "ORDER",
-        "instruction": "Put every step in the correct order."
+        "label": "ORDER THE STEPS",
+        "instruction": "Tap each tile in the correct order."
       },
       "preview": true,
       "ordinary": true
@@ -2054,7 +2061,7 @@
     "mark_points": 11,
     "typed_short": 5,
     "matching": 2,
-    "sequence": 1
+    "word_tiles": 1
   },
   "gated": false,
   "note": {
