@@ -24,4 +24,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: answer-key-audit
-          path: test-results/answer-key-audit.json
+          path: |\n            test-results/answer-key-audit.json\n            test-results/french-content-quality.json
