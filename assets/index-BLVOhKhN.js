@@ -510,6 +510,20 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   };
   const reviews = { ...(after.reviews || {}) };
   if (review) reviews[questionId] = { ...review, subject: resolved.subject, topicId: resolved.topicId, production: !!production, repair: isRepair, errorType: errorType || review.errorType || null };
+  if (isRepair && meta?.repairOf && reviews[meta.repairOf]) {
+    const original = reviews[meta.repairOf];
+    const day = todayKey();
+    reviews[meta.repairOf] = {
+      ...original,
+      stage: correct ? Math.max(1, original.stage || 0) : Math.max(0, (original.stage || 1) - 1),
+      streak: correct ? Math.max(1, original.streak || 0) : 0,
+      due: shiftDay(day, 2),
+      last: day,
+      retriedToday: day,
+      repairedBy: questionId,
+      repairCorrect: !!correct,
+    };
+  }
   const recentQuestionIds = [...(after.recentQuestionIds || []).filter((id) => id !== questionId), questionId].slice(-20);
   store.setState({
     topicStats: { ...(after.topicStats || {}), [resolved.topicId]: nextTopic },
