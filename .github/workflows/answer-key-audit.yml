@@ -19,6 +19,8 @@ jobs:
         run: node tests/french-session-diversity.mjs
       - name: Audit French content quality
         run: node tests/french-content-quality-audit.mjs
+      - name: Test Latin session diversity
+        run: node tests/latin-session-diversity.mjs
       - name: Audit Latin content quality
         run: node tests/latin-content-quality-audit.mjs
       - name: Audit every question answer key
