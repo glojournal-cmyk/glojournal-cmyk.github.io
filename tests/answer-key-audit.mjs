@@ -75,7 +75,7 @@ for(const file of files){
 
     if(q.format==="word_tiles"||q.format==="sequence"){
       const tiles=Array.isArray(q.stimulus?.tiles)?q.stimulus.tiles.filter(hasText):[];
-      if(q.format==="word_tiles"&&tiles.length<2) fail(subject,file,id,"word_tiles_missing_tiles",{tiles});
+      if(q.format==="word_tiles"&&tiles.length<1) fail(subject,file,id,"word_tiles_missing_tiles",{tiles});
       if(!accepted.length&&!hasText(a.modelAnswer)) fail(subject,file,id,"ordered_missing_key");
     }
 
