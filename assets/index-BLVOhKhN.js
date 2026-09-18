@@ -569,8 +569,10 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const after = store.getState();
 
   if (meta?.formal === false) {
+    const reviews = { ...(after.reviews || {}) };
+    delete reviews[questionId];
     const recentQuestionIds = [...(after.recentQuestionIds || []).filter((id) => id !== questionId), questionId].slice(-20);
-    store.setState({ recentQuestionIds, lastSubject: resolved.subject || subject });
+    store.setState({ reviews, recentQuestionIds, lastSubject: resolved.subject || subject });
     return result;
   }
   if (!resolved.topicId) return result;
