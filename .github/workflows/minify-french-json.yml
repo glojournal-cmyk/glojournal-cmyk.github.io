@@ -1,0 +1,37 @@
+name: compact French JSON once
+on:
+  push:
+    branches: [main]
+    paths:
+      - tests/minify-french-json.mjs
+      - .github/workflows/minify-french-json.yml
+permissions:
+  contents: write
+jobs:
+  compact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Compact French JSON
+        run: node tests/minify-french-json.mjs
+      - name: Validate runtime and French sessions
+        run: |
+          node --check assets/study._subject.practise-D_PWgUd7.js
+          node --check assets/quiz-session-rWAnuDVj.js
+          node tests/french-session-diversity.mjs
+          node tests/french-content-quality-audit.mjs
+          STRICT=1 node tests/answer-key-audit.mjs
+      - name: Commit compacted French bank
+        run: |
+          if git diff --quiet -- content/topics; then
+            echo "No compaction changes needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/topics
+          git commit -m "Compact French question bank JSON"
+          git push
