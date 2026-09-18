@@ -38,10 +38,11 @@ function clean(value, max = 3000) {
 }
 
 function getModelChain() {
-  const preferred = clean(process.env.GEMINI_MODEL, 100) || "gemini-3.5-flash";
+  const preferred = clean(process.env.GEMINI_MODEL, 100) || "gemini-3.1-flash-lite";
   return [...new Set([
     preferred,
     "gemini-3.1-flash-lite",
+    "gemini-3.5-flash",
     "gemini-3.5-flash-lite",
   ])];
 }
