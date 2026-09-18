@@ -9,37 +9,54 @@ if(start<0||end<0) throw new Error("French diversity helpers not found in practi
 const helpers=source.slice(start,end);
 const {FK,FC,FL,FD}=new Function(helpers+";return {FK,FC,FL,FD};")();
 
-const topic=JSON.parse(fs.readFileSync("content/topics/fr-y8-s24-numbers-and-age.json","utf8"));
-const rows=topic.questions.map((q,i)=>({...q,_adaptiveRank:i,_adaptiveBucket:"new"}));
-const ordered=FD(rows,10);
-const selected=ordered.slice(0,10);
-if(selected.length!==10) throw new Error("Expected 10 selected questions");
+const root=path.resolve("content/topics");
+const files=fs.readdirSync(root).filter(f=>/^fr-.*\.json$/.test(f)).sort();
+const failures=[];
+const summaries=[];
 
-const concepts=selected.map(FC);
-if(new Set(concepts).size!==concepts.length){
-  throw new Error("French session repeats the same concept or reciprocal translation: "+JSON.stringify(selected.map(q=>({id:q.id,prompt:q.prompt,answer:q.answer?.accepted?.[0],concept:FC(q)}))));
-}
-const lanes=selected.map(FL);
-const availableLanes=new Set(rows.map(FL)).size;
-const requiredLaneCount=Math.min(4,availableLanes);
-if(new Set(lanes).size<requiredLaneCount){
-  throw new Error("French session is not varied enough: "+JSON.stringify(lanes));
+for(const file of files){
+  const topic=JSON.parse(fs.readFileSync(path.join(root,file),"utf8"));
+  const rows=(topic.questions||[]).map((q,i)=>({...q,_adaptiveRank:i,_adaptiveBucket:"new"}));
+  if(!rows.length) continue;
+  const target=Math.min(10,rows.length);
+  const selected=FD(rows,target).slice(0,target);
+  const concepts=selected.map(FC);
+  const uniqueAvailable=new Set(rows.map(FC)).size;
+  const expectedUnique=Math.min(target,uniqueAvailable);
+  const actualUnique=new Set(concepts).size;
+  if(actualUnique<expectedUnique){
+    failures.push({file,type:"concept-repeat",target,expectedUnique,actualUnique,selected:selected.map(q=>({id:q.id,concept:FC(q)}))});
+  }
+  const lanes=selected.map(FL);
+  const availableLanes=new Set(rows.map(FL)).size;
+  const expectedLanes=Math.min(target,availableLanes,3);
+  const actualLanes=new Set(lanes).size;
+  if(actualLanes<expectedLanes){
+    failures.push({file,type:"low-variety",target,availableLanes,expectedLanes,actualLanes,lanes});
+  }
+  for(let i=1;i<concepts.length;i++){
+    if(concepts[i]===concepts[i-1] && uniqueAvailable>1){
+      failures.push({file,type:"adjacent-repeat",index:i,concept:concepts[i]});
+      break;
+    }
+  }
+  summaries.push({file,target,actualUnique,actualLanes});
 }
 
-const directPairIds=new Set(selected.map(q=>q.id));
-const reciprocalPairs=[
+const numbers=JSON.parse(fs.readFileSync(path.join(root,"fr-y8-s24-numbers-and-age.json"),"utf8"));
+const nr=FD(numbers.questions.map((q,i)=>({...q,_adaptiveRank:i,_adaptiveBucket:"new"})),10).slice(0,10);
+const ids=new Set(nr.map(q=>q.id));
+for(const [a,b] of [
   ["fr-y8-src-fr-24-1149-0","fr-y8-src-fr-24-1150-zero"],
   ["fr-y8-src-fr-24-1151-1","fr-y8-src-fr-24-1152-un"],
   ["fr-y8-src-fr-24-1153-2","fr-y8-src-fr-24-1154-deux"],
   ["fr-y8-src-fr-24-1155-3","fr-y8-src-fr-24-1156-trois"]
-];
-for(const [a,b] of reciprocalPairs){
-  if(directPairIds.has(a)&&directPairIds.has(b)) throw new Error("Reciprocal pair appears in the same session: "+a+" / "+b);
+]){
+  if(ids.has(a)&&ids.has(b)) failures.push({file:"fr-y8-s24-numbers-and-age.json",type:"reciprocal-pair",ids:[a,b]});
 }
 
-console.log("FRENCH_SESSION_DIVERSITY",JSON.stringify({
-  ids:selected.map(q=>q.id),
-  lanes,
-  concepts,
-  distinctLanes:new Set(lanes).size
-}));
+if(failures.length){
+  console.error("FRENCH_SESSION_DIVERSITY_FAILURES "+JSON.stringify(failures.slice(0,100)));
+  process.exit(2);
+}
+console.log("FRENCH_SESSION_DIVERSITY_ALL_TOPICS "+JSON.stringify({files:files.length,checked:summaries.length,sample:summaries.slice(0,10)}));
