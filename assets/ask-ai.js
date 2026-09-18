@@ -7,7 +7,7 @@ function endpoint() {
     window.__SCHOLAR_AI_ENDPOINT__ ||
     document.querySelector('meta[name="scholar-ai-endpoint"]')?.content ||
     localStorage.getItem(ENDPOINT_KEY) ||
-    ""
+    "https://glojournal-cmyk-github-io.vercel.app/api/ask-ai"
   ).trim();
 }
 
