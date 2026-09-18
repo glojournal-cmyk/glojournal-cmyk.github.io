@@ -287,6 +287,11 @@ function topicTitle(state, topicId, subject) {
     .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+function topicMatchesYear(topicId, year) {
+  const match = String(topicId || "").match(/-y(\d+)-/i);
+  return !match || Number(match[1]) === Number(year);
+}
+
 function inferReviewSubject(questionId, review) {
   return review?.subject || inferSubjectFromTopic(review?.topicId) || QUESTION_META.get(questionId)?.subject || inferSubjectFromTopic(questionId) || null;
 }
@@ -296,9 +301,11 @@ function adaptiveFocus(state) {
   const due = [];
   for (const [questionId, review] of Object.entries(state.reviews || {})) {
     if (!review?.due || review.due > today) continue;
+    const reviewTopicId = review.topicId || QUESTION_META.get(questionId)?.topicId || null;
+    if (!topicMatchesYear(reviewTopicId, state.year)) continue;
     const subject = inferReviewSubject(questionId, review);
     if (!SUBJECTS.includes(subject)) continue;
-    due.push({ questionId, subject, topicId: review.topicId || QUESTION_META.get(questionId)?.topicId || null });
+    due.push({ questionId, subject, topicId: reviewTopicId });
   }
 
   if (due.length) {
@@ -314,7 +321,7 @@ function adaptiveFocus(state) {
 
   const weak = Object.entries(state.topicStats || {})
     .map(([topicId, raw]) => ({ topicId, ...normalizeTopicStat(raw), subject: inferSubjectFromTopic(topicId) }))
-    .filter((item) => SUBJECTS.includes(item.subject) && item.attempted >= 2 && item.state !== "mastered")
+    .filter((item) => SUBJECTS.includes(item.subject) && topicMatchesYear(item.topicId, state.year) && item.attempted >= 2 && item.state !== "mastered")
     .sort((a, b) => {
       const aProdPenalty = a.productionCorrect > 0 ? 0 : 0.08;
       const bProdPenalty = b.productionCorrect > 0 ? 0 : 0.08;
@@ -337,7 +344,7 @@ function focusHref(focus, state) {
 function buildAdaptiveDaily(state) {
   const previous = new Map((state.daily || []).map((task) => [task.id, task]));
   const existingPlan = previous.get("study-session");
-  const locked = existingPlan?.planDate === state.today && SUBJECTS.includes(existingPlan.focusSubject);
+  const locked = existingPlan?.planDate === state.today && SUBJECTS.includes(existingPlan.focusSubject) && !(state.year === 9 && existingPlan.focusSubject === "french" && existingPlan.href === FRENCH_DAILY_HREF);
   const focus = locked
     ? { subject: existingPlan.focusSubject, topicId: existingPlan.focusTopic || null, reason: existingPlan.focusReason || "continue", dueCount: existingPlan.focusDueCount || 0, accuracy: existingPlan.focusAccuracy, errorType: existingPlan.focusErrorType || null }
     : adaptiveFocus(state);
@@ -355,7 +362,7 @@ function buildAdaptiveDaily(state) {
 
   const studyProgress = Math.min(8, existingPlan?.progress || 0);
   const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;
-  const frenchCarry = focus.subject === "french" ? (previous.get("french-vocab")?.progress || 0) : 0;
+  const frenchCarry = focus.subject === "french" && state.year !== 9 ? (previous.get("french-vocab")?.progress || 0) : 0;
   const focusProgress = Math.min(4, Math.max(oldFocusProgress, frenchCarry));
   const garden = previous.get("tend-garden") || { id: "tend-garden", title: "Water your plants", detail: "Tend the Scholar’s Garden.", href: "/garden", target: 1, progress: 0, xp: 10 };
   const game = previous.get("play-game") || { id: "play-game", title: "Play a quick game", detail: "One short learning game.", href: "/play", target: 1, progress: 0, xp: 10 };
@@ -673,8 +680,8 @@ function buildProgressDashboard(state, subject, year = state?.year) {
     const reviewSubject = inferReviewSubject(questionId, review);
     if (reviewSubject !== subject) continue;
     const topicId = review.topicId || QUESTION_META.get(questionId)?.topicId || null;
-    if (review.due && review.due <= today) dueReviews += 1;
     if (!topicId || !topicIds.has(topicId)) continue;
+    if (review.due && review.due <= today) dueReviews += 1;
     const entry = reviewByTopic.get(topicId) || { dueCount: 0, nextDue: null };
     if (review.due) {
       if (!entry.nextDue || review.due < entry.nextDue) entry.nextDue = review.due;
