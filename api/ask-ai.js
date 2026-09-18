@@ -37,6 +37,15 @@ function clean(value, max = 3000) {
   return String(value ?? "").slice(0, max).trim();
 }
 
+function getModelChain() {
+  const preferred = clean(process.env.GEMINI_MODEL, 100) || "gemini-3.5-flash";
+  return [...new Set([
+    preferred,
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-lite",
+  ])];
+}
+
 function actionInstruction(action, correct) {
   const map = {
     why_correct: "Explain why the student's answer is correct.",
@@ -97,14 +106,114 @@ function extractText(data) {
     .trim();
 }
 
-function cacheKeyFor(prompt, model) {
+function cacheKeyFor(prompt, models) {
   let h = 2166136261;
-  const value = model + "|" + prompt;
+  const value = models.join(",") + "|" + prompt;
   for (let i = 0; i < value.length; i++) {
     h ^= value.charCodeAt(i);
     h = Math.imul(h, 16777619);
   }
   return String(h >>> 0);
+}
+
+function canFallback(status) {
+  return status === 404 || status === 429 || status >= 500;
+}
+
+async function callGemini(model, prompt, { temperature = 0.2, maxOutputTokens = 420 } = {}) {
+  try {
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-goog-api-key": process.env.GEMINI_API_KEY,
+        },
+        body: JSON.stringify({
+          contents: [{ role: "user", parts: [{ text: prompt }] }],
+          generationConfig: { temperature, maxOutputTokens },
+        }),
+      }
+    );
+
+    const data = await response.json().catch(() => ({}));
+    return {
+      ok: response.ok,
+      status: response.status,
+      data,
+      text: response.ok ? extractText(data) : "",
+      code: clean(data?.error?.status || data?.error?.code, 80) || "unknown",
+      message: clean(data?.error?.message, 500) || "",
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      status: 599,
+      data: {},
+      text: "",
+      code: "NETWORK_OR_RUNTIME_ERROR",
+      message: clean(error?.message, 500) || "Gemini request could not be completed.",
+    };
+  }
+}
+
+async function callWithFallback(prompt, options = {}) {
+  const models = getModelChain();
+  const attempts = [];
+
+  for (const model of models) {
+    const result = await callGemini(model, prompt, options);
+    attempts.push({ model, status: result.status, code: result.code });
+
+    if (result.ok && result.text) {
+      return { ok: true, modelUsed: model, text: result.text, attempts };
+    }
+
+    if (result.ok && !result.text) {
+      const blocked = result.data?.promptFeedback?.blockReason || result.data?.candidates?.[0]?.finishReason;
+      return {
+        ok: false,
+        modelUsed: model,
+        status: result.status,
+        code: clean(blocked, 80) || "EMPTY_RESPONSE",
+        message: blocked ? `Gemini could not answer this request (${blocked}).` : "Gemini returned an empty explanation.",
+        attempts,
+      };
+    }
+
+    if (!canFallback(result.status)) {
+      return {
+        ok: false,
+        modelUsed: model,
+        status: result.status,
+        code: result.code,
+        message: result.message,
+        attempts,
+      };
+    }
+  }
+
+  const last = attempts.at(-1) || {};
+  return {
+    ok: false,
+    modelUsed: last.model || models.at(-1),
+    status: last.status || 503,
+    code: last.code || "UNAVAILABLE",
+    message: "All available free-tier Gemini models are temporarily unavailable.",
+    attempts,
+  };
+}
+
+function publicError(result) {
+  const status = result.status || 502;
+  let error = "AI explanation is unavailable right now.";
+  if (status === 400) error = "Gemini rejected the explanation request.";
+  else if (status === 401 || status === 403) error = "Gemini rejected the API key or its permissions.";
+  else if (status === 404) error = "The selected Gemini models are not available to this project.";
+  else if (status === 429) error = "Gemini free-tier limit reached. Please try again later.";
+  else if (status >= 500) error = "Gemini is temporarily busy. Please try again shortly.";
+  return error;
 }
 
 export default async function handler(req, res) {
@@ -114,7 +223,7 @@ export default async function handler(req, res) {
 
   if (req.method === "OPTIONS") return res.status(204).end();
 
-  const model = process.env.GEMINI_MODEL || "gemini-3.5-flash";
+  const models = getModelChain();
 
   if (req.method === "GET") {
     const configured = !!process.env.GEMINI_API_KEY;
@@ -125,7 +234,8 @@ export default async function handler(req, res) {
         ok: true,
         provider: "google-gemini",
         configured,
-        model,
+        model: models[0],
+        fallbackModels: models.slice(1),
       });
     }
 
@@ -134,59 +244,42 @@ export default async function handler(req, res) {
         ok: false,
         provider: "google-gemini",
         configured: false,
-        model,
+        model: models[0],
+        fallbackModels: models.slice(1),
         diagnostic: "missing_key",
       });
     }
 
-    try {
-      const testResponse = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-goog-api-key": process.env.GEMINI_API_KEY,
-          },
-          body: JSON.stringify({
-            contents: [{ role: "user", parts: [{ text: "Reply with exactly OK" }] }],
-            generationConfig: { temperature: 0, maxOutputTokens: 20 },
-          }),
-        }
-      );
+    const test = await callWithFallback("Reply with exactly OK", {
+      temperature: 0,
+      maxOutputTokens: 20,
+    });
 
-      const testData = await testResponse.json().catch(() => ({}));
-      const geminiText = extractText(testData);
-
-      if (!testResponse.ok) {
-        return res.status(200).json({
-          ok: false,
-          provider: "google-gemini",
-          configured: true,
-          model,
-          googleStatus: testResponse.status,
-          googleCode: clean(testData?.error?.status || testData?.error?.code, 80) || "unknown",
-          message: clean(testData?.error?.message, 500) || "Gemini request failed.",
-        });
-      }
-
+    if (test.ok) {
       return res.status(200).json({
         ok: true,
         provider: "google-gemini",
         configured: true,
-        model,
-        generation: geminiText || "OK",
-      });
-    } catch (error) {
-      return res.status(200).json({
-        ok: false,
-        provider: "google-gemini",
-        configured: true,
-        model,
-        diagnostic: "network_or_runtime_error",
-        message: clean(error?.message, 500) || "Gemini request could not be completed.",
+        model: models[0],
+        fallbackModels: models.slice(1),
+        modelUsed: test.modelUsed,
+        generation: test.text || "OK",
+        attempts: test.attempts,
       });
     }
+
+    return res.status(200).json({
+      ok: false,
+      provider: "google-gemini",
+      configured: true,
+      model: models[0],
+      fallbackModels: models.slice(1),
+      modelUsed: test.modelUsed,
+      googleStatus: test.status,
+      googleCode: test.code,
+      message: clean(test.message, 500) || "Gemini request failed.",
+      attempts: test.attempts,
+    });
   }
 
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed." });
@@ -202,60 +295,32 @@ export default async function handler(req, res) {
   const prompt = buildPrompt(body);
   if (prompt.length > 10000) return res.status(413).json({ error: "Question context is too large." });
 
-  const cacheKey = cacheKeyFor(prompt, model);
+  const cacheKey = cacheKeyFor(prompt, models);
   const cached = cache.get(cacheKey);
   if (cached && Date.now() - cached.at < 24 * 60 * 60 * 1000) {
-    return res.status(200).json({ explanation: cached.text, cached: true });
+    return res.status(200).json({
+      explanation: cached.text,
+      cached: true,
+      modelUsed: cached.modelUsed,
+    });
   }
 
-  try {
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-goog-api-key": process.env.GEMINI_API_KEY,
-        },
-        body: JSON.stringify({
-          contents: [{ role: "user", parts: [{ text: prompt }] }],
-          generationConfig: {
-            temperature: 0.2,
-            maxOutputTokens: 420,
-          },
-        }),
-      }
-    );
+  const result = await callWithFallback(prompt);
 
-    const data = await response.json().catch(() => ({}));
-    if (!response.ok) {
-      const code = String(data?.error?.status || data?.error?.code || "unknown");
-      const googleMessage = clean(data?.error?.message, 400);
-      console.error("Gemini API error", response.status, code);
-      let error = "AI explanation is unavailable right now.";
-      if (response.status === 400) error = "Gemini rejected the explanation request.";
-      else if (response.status === 401 || response.status === 403) error = "Gemini rejected the API key or its permissions.";
-      else if (response.status === 404) error = "The selected Gemini model is not available to this project.";
-      else if (response.status === 429) error = "Gemini free-tier limit reached. Please try again later.";
-      else if (response.status >= 500) error = "Gemini is temporarily unavailable. Please try again shortly.";
-      return res.status(502).json({
-        error,
-        diagnostic: code,
-        googleStatus: response.status,
-        detail: googleMessage,
-      });
-    }
-
-    const explanation = extractText(data);
-    if (!explanation) {
-      const blocked = data?.promptFeedback?.blockReason || data?.candidates?.[0]?.finishReason;
-      return res.status(502).json({ error: blocked ? `Gemini could not answer this request (${blocked}).` : "Gemini returned an empty explanation." });
-    }
-
-    cache.set(cacheKey, { text: explanation, at: Date.now() });
-    return res.status(200).json({ explanation });
-  } catch (error) {
-    console.error("Gemini backend error", error?.message || error);
-    return res.status(502).json({ error: "AI explanation is unavailable right now." });
+  if (!result.ok) {
+    console.error("Gemini API failure", result.status, result.code, result.attempts);
+    return res.status(502).json({
+      error: publicError(result),
+      diagnostic: result.code,
+      googleStatus: result.status,
+      detail: clean(result.message, 400),
+      triedModels: result.attempts.map((attempt) => attempt.model),
+    });
   }
+
+  cache.set(cacheKey, { text: result.text, modelUsed: result.modelUsed, at: Date.now() });
+  return res.status(200).json({
+    explanation: result.text,
+    modelUsed: result.modelUsed,
+  });
 }
