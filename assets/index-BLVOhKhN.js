@@ -459,7 +459,7 @@ function patchedAward(kind, options = {}) {
   }
 
   // All remaining study/session rewards are capped by kind + detail within the local day.
-  const key = `${kind}::${detail}`;
+  const key = `${kind}::${String(options?.subject || "")}::${detail}`;
   if (dayLedger[key]) return originalAward(kind, { ...options, amount: 0 });
   const result = originalAward(kind, { ...options, amount: base });
   dayLedger[key] = true;
@@ -617,13 +617,14 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
       ...original,
       stage: correct ? Math.max(1, original.stage || 0) : Math.max(0, (original.stage || 1) - 1),
       streak: correct ? Math.max(1, original.streak || 0) : 0,
-      due: shiftDay(day, 2),
+      due: correct ? shiftDay(day, 2) : day,
       last: day,
       retriedToday: day,
       repairedBy: questionId,
       repairCorrect: !!correct,
     };
   }
+  if (isRepair && meta?.repairOf && questionId !== meta.repairOf) delete reviews[questionId];
   const recentQuestionIds = [...(after.recentQuestionIds || []).filter((id) => id !== questionId), questionId].slice(-20);
   store.setState({
     topicStats: { ...(after.topicStats || {}), [resolved.topicId]: nextTopic },
