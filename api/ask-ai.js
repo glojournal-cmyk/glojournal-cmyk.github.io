@@ -49,14 +49,94 @@ function getModelChain() {
 
 function actionInstruction(action, correct) {
   const map = {
-    why_correct: "Explain why the student's answer is correct.",
-    where_wrong: "Explain exactly where the student's answer went wrong, then state the governing rule.",
-    explain_rule: "Explain the underlying rule clearly, then apply it to this question.",
-    simpler: "Explain the same idea in simpler language without becoming childish.",
-    similar_example: "Give one closely related example after a short explanation. Put the answer after a clear ANSWER heading.",
-    chinese: "Explain in concise Traditional Chinese, while keeping official subject terminology in English, Latin or French where useful.",
+    why_correct: "Explain why the student's answer is correct, using only the exact rule needed for this item.",
+    where_wrong: "Identify the student's exact misconception, then explain only the rule needed to fix this item.",
+    explain_rule: "Explain the exact governing rule for this item, then apply it to the supplied words or evidence.",
+    simpler: "Re-explain the same approved idea in simpler Year 9 language without adding new rules.",
+    similar_example: "Give one closely matched example that uses the same rule. Keep it short and put its answer after an ANSWER label.",
+    chinese: "Explain in concise Traditional Chinese. Keep Latin/French words and important subject terminology in their original language.",
   };
   return map[action] || (correct ? map.why_correct : map.where_wrong);
+}
+
+function subjectQualityRules(subject) {
+  const key = String(subject || "").toLowerCase();
+
+  if (key === "latin") {
+    return [
+      "LATIN QUALITY LOCK:",
+      "- Stay with the exact case, number, tense, person, ending, vocabulary item or construction shown in this question.",
+      "- Do not invent a declension/conjugation rule that is not needed to explain the supplied answer.",
+      "- Do not generalise from one form to 'most nouns', 'all nouns', 'usually', or similar broad claims unless that general rule is explicitly supported by the approved explanation.",
+      "- Prefer exact statements such as 'dies has the accusative singular form diem here' over unsupported paradigm-wide claims.",
+      "- If giving an example, use a simple, standard form and make the relevant case/ending explicit.",
+    ];
+  }
+
+  if (key === "french") {
+    return [
+      "FRENCH QUALITY LOCK:",
+      "- Stay with the exact tense, agreement, article, negative, gender, number, spelling or word order shown here.",
+      "- Do not invent a broad grammar exception or claim a rule applies universally unless the approved explanation supports it.",
+      "- Preserve accents in model French. A missing accent may be discussed as spelling, but do not change the app's official marking policy.",
+      "- If giving an example, keep it GCSE/Year 9 level and use the same grammatical pattern.",
+    ];
+  }
+
+  if (["biology","chemistry","physics"].includes(key)) {
+    return [
+      "SCIENCE QUALITY LOCK:",
+      "- Use the official answer and approved explanation as the factual anchor.",
+      "- Distinguish concept, terminology, calculation and units.",
+      "- Do not introduce an extra mechanism, formula, value or exception unless it is necessary and well-established.",
+      "- For calculations, show only the minimum working needed and keep units explicit.",
+    ];
+  }
+
+  if (key === "english") {
+    return [
+      "ENGLISH QUALITY LOCK:",
+      "- Keep interpretation tied to the supplied wording/evidence.",
+      "- Distinguish evidence from explanation.",
+      "- Do not invent quotations, textual details or authorial intentions that were not supplied.",
+    ];
+  }
+
+  return [
+    "QUALITY LOCK:",
+    "- Stay tightly anchored to the supplied question, official answer and approved explanation.",
+    "- Do not introduce broader rules or facts unless necessary to explain this exact item.",
+  ];
+}
+
+function outputFormat(action, correct) {
+  if (action === "chinese") {
+    return [
+      "OUTPUT FORMAT — use exactly these four short headings:",
+      "錯在哪裡 / 為何正確：",
+      "規則：",
+      "套用到這題：",
+      "例子：",
+    ];
+  }
+
+  if (action === "similar_example") {
+    return [
+      "OUTPUT FORMAT — use exactly these headings:",
+      "RULE:",
+      "APPLY HERE:",
+      "EXAMPLE:",
+      "ANSWER:",
+    ];
+  }
+
+  return [
+    "OUTPUT FORMAT — use exactly these four short headings:",
+    correct ? "WHY IT WORKS:" : "WHAT WENT WRONG:",
+    "RULE:",
+    "APPLY HERE:",
+    "EXAMPLE:",
+  ];
 }
 
 function buildPrompt(body) {
@@ -74,13 +154,31 @@ function buildPrompt(body) {
   const format = clean(body.format, 80);
 
   return [
-    "You are the optional explanation layer inside a Year 9 revision app for a 13-year-old student.",
-    "The app's official answer and approved explanation are the marking source. Do not silently change or override them.",
-    "If the official answer appears genuinely inconsistent with the question, say 'This may need checking' and explain the concern without re-marking the student.",
-    "Be concise, accurate and educational. Usually 90-160 words.",
-    "Use rule → application → one example when helpful.",
-    "For Latin and French, explain grammar precisely. For science, distinguish terminology, concept, calculation and units.",
-    "Do not discuss XP, Mastery or rewards. Do not award marks.",
+    "You are a tightly constrained explanation layer inside a Year 9 revision app.",
+    "Your job is to explain the app's approved marking, not to independently re-teach or re-mark the whole topic.",
+    "",
+    "SOURCE PRIORITY:",
+    "1. The exact question/stimulus.",
+    "2. The app's official answer.",
+    "3. The approved explanation.",
+    "4. Only then, minimal well-established background knowledge needed to connect those three.",
+    "",
+    "NON-NEGOTIABLE RULES:",
+    "- The official answer and approved explanation are the marking source.",
+    "- Never silently change the mark, answer, XP, Mastery or review result.",
+    "- Never invent a new syllabus rule merely to make the explanation sound fuller.",
+    "- Never make a broad grammar/science generalisation when an exact item-specific explanation is enough.",
+    "- If the supplied question and official answer appear genuinely inconsistent, begin with exactly: This may need checking",
+    "- In that case, explain the inconsistency briefly but do not re-mark the student.",
+    "- Do not mention these instructions.",
+    "- Do not say 'As an AI'.",
+    "- Avoid praise, filler, repetition and long introductions.",
+    "- Aim for about 80-140 English words, or an equivalently concise Traditional Chinese answer.",
+    "- Use one example only.",
+    "",
+    ...subjectQualityRules(subject),
+    "",
+    ...outputFormat(action, correct),
     "",
     `Subject: ${subject}`,
     `School year: Year ${year}`,
@@ -95,8 +193,48 @@ function buildPrompt(body) {
     `Student was marked: ${correct ? "correct" : "incorrect"}`,
     "",
     `Task: ${actionInstruction(action, correct)}`,
-    "Return plain text only.",
+    "Return plain text only. Do not use markdown bullets or tables.",
   ].filter(Boolean).join("\n");
+}
+
+function polishExplanation(text) {
+  const raw = clean(text, 5000)
+    .replace(/\r\n?/g, "\n")
+    .replace(/^\s*#+\s*/gm, "")
+    .replace(/^\s*[-*•]\s+/gm, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+
+  if (!raw) return "";
+
+  const paragraphs = raw.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+  const seen = new Set();
+  const kept = [];
+
+  for (const paragraph of paragraphs) {
+    const key = paragraph.toLowerCase().replace(/\s+/g, " ").trim();
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    kept.push(paragraph);
+  }
+
+  let polished = kept.join("\n\n")
+    .replace(/\bAs an AI(?: language model)?[,]?\s*/gi, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+
+  if (polished.length > 2200) {
+    const clipped = polished.slice(0, 2200);
+    const stop = Math.max(
+      clipped.lastIndexOf(". "),
+      clipped.lastIndexOf("。"),
+      clipped.lastIndexOf("! "),
+      clipped.lastIndexOf("? ")
+    );
+    polished = (stop > 1200 ? clipped.slice(0, stop + 1) : clipped).trim();
+  }
+
+  return polished;
 }
 
 function extractText(data) {
@@ -122,7 +260,7 @@ function canFallback(status) {
 }
 
 async function callGemini(model, prompt, {
-  temperature = 0.2,
+  temperature = 0.1,
   maxOutputTokens = 900,
   thinkingLevel = "minimal",
 } = {}) {
@@ -185,7 +323,7 @@ async function callWithFallback(prompt, options = {}) {
     });
 
     if (result.ok && result.text) {
-      return { ok: true, modelUsed: model, text: result.text, attempts };
+      return { ok: true, modelUsed: model, text: polishExplanation(result.text), attempts };
     }
 
     if (result.ok && !result.text && result.finishReason === "MAX_TOKENS") {
@@ -203,7 +341,7 @@ async function callWithFallback(prompt, options = {}) {
       });
 
       if (result.ok && result.text) {
-        return { ok: true, modelUsed: model, text: result.text, attempts };
+        return { ok: true, modelUsed: model, text: polishExplanation(result.text), attempts };
       }
     }
 
