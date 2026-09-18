@@ -110,6 +110,13 @@ export default async function handler(req, res) {
   for (const [key, value] of Object.entries(access.headers)) res.setHeader(key, value);
 
   if (req.method === "OPTIONS") return res.status(204).end();
+  if (req.method === "GET") {
+    return res.status(200).json({
+      ok: true,
+      configured: !!process.env.OPENAI_API_KEY,
+      model: process.env.OPENAI_MODEL || "gpt-5.6-luna"
+    });
+  }
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed." });
   if (!access.allowed) return res.status(403).json({ error: "Origin not allowed." });
   if (!process.env.OPENAI_API_KEY) return res.status(503).json({ error: "AI service is not configured yet." });
