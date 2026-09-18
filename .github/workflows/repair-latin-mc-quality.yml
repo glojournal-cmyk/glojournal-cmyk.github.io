@@ -1,0 +1,37 @@
+name: repair Latin question quality once
+on:
+  push:
+    branches: [main]
+    paths:
+      - tests/repair-latin-mc-quality.mjs
+      - .github/workflows/repair-latin-mc-quality.yml
+permissions:
+  contents: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Rebuild Latin distractors
+        run: node tests/repair-latin-mc-quality.mjs
+      - name: Validate scoring and sessions
+        run: |
+          node --check assets/study._subject.practise-D_PWgUd7.js
+          node --check assets/quiz-session-rWAnuDVj.js
+          node tests/latin-session-diversity.mjs
+          node tests/latin-content-quality-audit.mjs
+          STRICT=1 node tests/answer-key-audit.mjs
+      - name: Commit improved Latin bank
+        run: |
+          if git diff --quiet -- content/topics; then
+            echo "No Latin changes needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/topics
+          git commit -m "Improve Latin question quality"
+          git push
