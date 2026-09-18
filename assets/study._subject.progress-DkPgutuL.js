@@ -154,8 +154,8 @@ function Progress(){
     J.jsxs(Card,{className:"p-5",children:[
       J.jsxs("div",{className:"flex flex-wrap items-center justify-between gap-3",children:[
         J.jsxs("div",{children:[
-          J.jsx("h2",{className:"font-display text-2xl font-semibold",children:"7-day study activity"}),
-          J.jsx("p",{className:"mt-1 text-sm text-muted",children:"Question activity plus genuine study-day markers."})
+          J.jsx("h2",{className:"font-display text-2xl font-semibold",children:"Overall 7-day study activity"}),
+          J.jsx("p",{className:"mt-1 text-sm text-muted",children:"All-question activity across the app plus genuine study-day markers."})
         ]}),
         J.jsxs("p",{className:"text-sm text-muted",children:[data.activity7.filter(x=>x.studied).length," / 7 days studied"]})
       ]}),
