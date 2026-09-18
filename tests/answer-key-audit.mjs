@@ -16,22 +16,43 @@ const bump=(obj,k,n=1)=>obj[k]=(obj[k]||0)+n;
 const add=(bucket,subject,item)=>{ if(!bucket[subject]) bucket[subject]=[]; bucket[subject].push(item); };
 
 function recoverMcCandidate(q, options) {
-  const positive=[q.feedback?.short,...(q.feedback?.steps||[]),q.feedback?.remember].filter(Boolean).join(" ");
-  const pnorm=norm(positive);
-  let candidates=options.filter(o=>norm(o) && pnorm.includes(norm(o)));
-  candidates=[...new Set(candidates)];
-  if(candidates.length===1) return candidates;
-  const patterns=[
+  const positiveLines=[q.feedback?.short,...(q.feedback?.steps||[]),q.feedback?.remember].filter(Boolean).map(String);
+  const positive=positiveLines.join(" ");
+  const mapToOption = raw => {
+    const r=norm(raw);
+    if(!r) return null;
+    return options.find(o=>norm(o)===r) || options.find(o=>r.includes(norm(o)) && norm(o).length>=3) || null;
+  };
+  const strongPatterns=[
+    /the correct choice is [“"]([^”"]+)[”"]/i,
+    /the required source meaning is [“"]([^”"]+)[”"]/i,
+    /write and check the latin answer:\s*[“"]([^”"]+)[”"]/i,
+    /the required source (?:answer|latin|form|translation) is [“"]([^”"]+)[”"]/i,
+    /correct answer(?: is|:)?\s*[“"]([^”"]+)[”"]/i,
     /key answer:\s*([^\n]+)/i,
-    /source-locked answer:\s*([^\n]+)/i,
-    /required source (?:meaning|answer|latin|form) is [“"]([^”"]+)[”"]/i,
-    /correct answer(?: is|:)?\s*[“"]?([^”"\n]+)[”"]?/i
+    /source-locked answer:\s*([^\n]+)/i
   ];
-  for(const re of patterns){
-    const m=positive.match(re); if(!m) continue;
-    const hit=options.find(o=>norm(o)===norm(m[1])||norm(m[1]).includes(norm(o)));
+  for (const line of positiveLines) {
+    for (const re of strongPatterns) {
+      const m=line.match(re);
+      if(!m) continue;
+      const hit=mapToOption(m[1]);
+      if(hit) return [hit];
+    }
+  }
+  const short=String(q.feedback?.short||"");
+  const colon=short.match(/^\s*([^:]{1,100})\s*:/);
+  if(colon){
+    const hit=mapToOption(colon[1]);
     if(hit) return [hit];
   }
+  const eq=String(q.feedback?.remember||"").match(/^\s*([^=→:]{1,100})\s*(?:=|→|:)\s*/);
+  if(eq){
+    const hit=mapToOption(eq[1]);
+    if(hit) return [hit];
+  }
+  const pnorm=norm(positive);
+  const candidates=[...new Set(options.filter(o=>norm(o).length>=3 && pnorm.includes(norm(o))))];
   return candidates;
 }
 
@@ -62,10 +83,13 @@ for (const file of files) {
         report.fatal.push({subject,file,id,type:"mc_missing_accepted"});
       } else {
         const optionNorms=new Set(options.map(norm));
+        const matchingAccepted=accepted.filter(v=>optionNorms.has(norm(v)));
         const bad=accepted.filter(v=>!optionNorms.has(norm(v)));
-        if(bad.length){
+        if(!matchingAccepted.length){
           const item={file,id,accepted,bad,options};
-          add(report.mcAcceptedNotOption,subject,item); report.fatal.push({subject,file,id,type:"mc_accepted_not_option",bad});
+          add(report.mcAcceptedNotOption,subject,item); report.fatal.push({subject,file,id,type:"mc_no_accepted_option",bad});
+        } else if(bad.length) {
+          report.warnings.push({subject,file,id,type:"mc_extra_accepted_synonyms",extra:bad});
         }
         const candidates=recoverMcCandidate(q,options);
         if(candidates.length===1 && !accepted.some(v=>norm(v)===norm(candidates[0]))){
