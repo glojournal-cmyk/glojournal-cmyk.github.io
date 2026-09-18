@@ -143,7 +143,7 @@ function Progress(){
           J.jsx("h2",{className:"mt-1 font-display text-2xl font-semibold",children:"Assessment practice"}),
           J.jsx("p",{className:"mt-1 text-sm text-muted",children:"App practice evidence only — not a prediction of the school grade."})
         ]}),
-        J.jsx("a",{href:"/study/french/practise",className:"rounded-xl bg-navy px-3 py-2 text-sm text-card",children:"Open Exam Mix 15"})
+        J.jsx("a",{href:"/study/french/practise?mode=exam",className:"rounded-xl bg-navy px-3 py-2 text-sm text-card",children:"Open Exam Mix 15"})
       ]}),
       J.jsxs("div",{className:"mt-4 grid gap-3 sm:grid-cols-4",children:[
         J.jsx(Metric,{label:"Explored",value:assessment.exploredTopics+"/"+assessment.totalTopics,detail:"Assessment-practice topics attempted."}),
