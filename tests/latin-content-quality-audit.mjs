@@ -31,7 +31,7 @@ for(const file of files){
   const stat={questions:qs.length,mc:0,vocabMc:0,exactDuplicates:0,duplicateOptions:0,categoryOutliers:0,lengthOutliers:0};
   for(const q of qs){
     const ans=q.answer?.accepted?.[0]||q.answer?.modelAnswer||"";
-    const exact=norm(q.prompt)+"||"+norm(ans);
+    const exact=norm(q.prompt)+"||"+norm(q.stimulus?.text||q.stimulus?.masked||"")+"||"+norm(ans);
     if(seen.has(exact)){report.exactDuplicates.push({file,id:q.id,other:seen.get(exact),prompt:q.prompt,answer:ans});stat.exactDuplicates++;}
     else seen.set(exact,{file,id:q.id});
     const concept=q.conceptId||[norm(corePrompt(q.prompt)),norm(ans)].sort().join("::");
