@@ -2634,16 +2634,26 @@
       "conceptId": "chem-y9-c1-app-evidence-cycle-concept",
       "topicId": "chem-y9-c1",
       "topic": "Development of the Periodic Table — Newlands and Mendeleev",
-      "format": "sequence",
+      "format": "word_tiles",
       "prompt": "Put these scientific-thinking stages in order.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "sequence"
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "propose a testable hypothesis make a prediction collect evidence compare evidence with the prediction support or revise the model"
+        ]
       },
       "stimulus": {
         "items": [
+          "propose a testable hypothesis",
+          "support or revise the model",
+          "compare evidence with the prediction",
+          "make a prediction",
+          "collect evidence"
+        ],
+        "tiles": [
           "propose a testable hypothesis",
           "support or revise the model",
           "compare evidence with the prediction",
@@ -2662,8 +2672,8 @@
         "remember": "propose a testable hypothesis → make a prediction → collect evidence → compare evidence with the prediction → support or revise the model"
       },
       "task": {
-        "label": "ORDER",
-        "instruction": "Put every step in the correct order."
+        "label": "ORDER THE STEPS",
+        "instruction": "Tap each tile in the correct order."
       },
       "preview": true,
       "ordinary": true
@@ -2720,7 +2730,7 @@
     "mark_points": 14,
     "typed_short": 7,
     "matching": 3,
-    "sequence": 1
+    "word_tiles": 1
   },
   "gated": false,
   "note": {

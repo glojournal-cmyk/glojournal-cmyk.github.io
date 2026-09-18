@@ -1536,16 +1536,24 @@
       "conceptId": "chem-y9-c15-app-atmosphere-order-concept",
       "topicId": "chem-y9-c15",
       "topic": "Earth’s present atmosphere",
-      "format": "sequence",
+      "format": "word_tiles",
       "prompt": "Order these from largest to smaller proportion in today's atmosphere: oxygen, nitrogen, carbon dioxide.",
       "difficulty": 1,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "sequence"
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "nitrogen oxygen carbon dioxide"
+        ]
       },
       "stimulus": {
         "items": [
+          "nitrogen",
+          "oxygen",
+          "carbon dioxide"
+        ],
+        "tiles": [
           "nitrogen",
           "oxygen",
           "carbon dioxide"
@@ -1562,8 +1570,8 @@
         "remember": "nitrogen → oxygen → carbon dioxide"
       },
       "task": {
-        "label": "ORDER",
-        "instruction": "Put every step in the correct order."
+        "label": "ORDER THE STEPS",
+        "instruction": "Tap each tile in the correct order."
       },
       "preview": true,
       "ordinary": true
@@ -1658,8 +1666,8 @@
     "mark_points": 8,
     "typed_exact": 1,
     "matching": 2,
-    "sequence": 1,
-    "calculation": 1
+    "calculation": 1,
+    "word_tiles": 1
   },
   "gated": false,
   "note": {

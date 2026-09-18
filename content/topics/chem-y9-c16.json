@@ -2383,16 +2383,26 @@
       "conceptId": "chem-y9-c16-app-atmosphere-sequence-concept",
       "topicId": "chem-y9-c16",
       "topic": "Earth’s early atmosphere and how it changed",
-      "format": "sequence",
+      "format": "word_tiles",
       "prompt": "Put these changes in a sensible chronological order.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "sequence"
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "volcanic gases form an early carbon-dioxide-rich atmosphere Earth cools and water vapour condenses into oceans carbon dioxide dissolves and becomes locked in rocks photosynthetic organisms remove carbon dioxide and release oxygen the atmosphere approaches its present composition"
+        ]
       },
       "stimulus": {
         "items": [
+          "volcanic gases form an early carbon-dioxide-rich atmosphere",
+          "Earth cools and water vapour condenses into oceans",
+          "carbon dioxide dissolves and becomes locked in rocks",
+          "the atmosphere approaches its present composition",
+          "photosynthetic organisms remove carbon dioxide and release oxygen"
+        ],
+        "tiles": [
           "volcanic gases form an early carbon-dioxide-rich atmosphere",
           "Earth cools and water vapour condenses into oceans",
           "carbon dioxide dissolves and becomes locked in rocks",
@@ -2411,8 +2421,8 @@
         "remember": "volcanic gases form an early carbon-dioxide-rich atmosphere → Earth cools and water vapour condenses into oceans → carbon dioxide dissolves and becomes locked in rocks → photosynthetic organisms remove carbon dioxide and release oxygen → the atmosphere approaches its present composition"
       },
       "task": {
-        "label": "ORDER",
-        "instruction": "Put every step in the correct order."
+        "label": "ORDER THE STEPS",
+        "instruction": "Tap each tile in the correct order."
       },
       "preview": true,
       "ordinary": true
@@ -2510,7 +2520,7 @@
     "mark_points": 13,
     "typed_short": 5,
     "matching": 3,
-    "sequence": 1
+    "word_tiles": 1
   },
   "gated": false,
   "note": {

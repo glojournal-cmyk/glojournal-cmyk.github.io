@@ -3055,16 +3055,27 @@
       "conceptId": "chem-y9-c4-app-chromatography-order-concept",
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
-      "format": "sequence",
+      "format": "word_tiles",
       "prompt": "Put these chromatography actions in order.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "sequence"
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "draw a pencil baseline place small sample spots above the solvent level stand the paper in solvent with spots above the liquid allow the solvent to rise remove the paper and mark the solvent front promptly measure spot and solvent-front distances"
+        ]
       },
       "stimulus": {
         "items": [
+          "place small sample spots above the solvent level",
+          "stand the paper in solvent with spots above the liquid",
+          "allow the solvent to rise",
+          "measure spot and solvent-front distances",
+          "draw a pencil baseline",
+          "remove the paper and mark the solvent front promptly"
+        ],
+        "tiles": [
           "place small sample spots above the solvent level",
           "stand the paper in solvent with spots above the liquid",
           "allow the solvent to rise",
@@ -3084,8 +3095,8 @@
         "remember": "draw a pencil baseline → place small sample spots above the solvent level → stand the paper in solvent with spots above the liquid → allow the solvent to rise → remove the paper and mark the solvent front promptly → measure spot and solvent-front distances"
       },
       "task": {
-        "label": "ORDER",
-        "instruction": "Put every step in the correct order."
+        "label": "ORDER THE STEPS",
+        "instruction": "Tap each tile in the correct order."
       },
       "preview": true,
       "ordinary": true
@@ -3131,10 +3142,11 @@
       },
       "task": {
         "label": "DESIGN",
-        "instruction": "Give variables, method, controls, quality steps and analysis where relevant."
+        "instruction": "Give variables, method, controls, quality steps and analysis where relevant. Self-check against the approved mark points; this open response does not affect formal Mastery."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c4-app-rf-identify-caution",
@@ -3246,9 +3258,9 @@
     "typed_short": 3,
     "matching": 3,
     "calculation": 1,
-    "sequence": 1,
     "practical_design": 1,
-    "diagram_label": 1
+    "diagram_label": 1,
+    "word_tiles": 1
   },
   "gated": false,
   "note": {
