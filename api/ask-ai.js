@@ -41,8 +41,8 @@ function getModelChain() {
   const preferred = clean(process.env.GEMINI_MODEL, 100) || "gemini-3.5-flash";
   return [...new Set([
     preferred,
-    "gemini-2.5-flash",
-    "gemini-2.5-flash-lite",
+    "gemini-3.1-flash-lite",
+    "gemini-3.5-flash-lite",
   ])];
 }
 
