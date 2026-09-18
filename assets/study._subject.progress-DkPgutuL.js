@@ -112,6 +112,7 @@ function Progress(){
   const masteryProgress=data.totalTopics?Math.round(data.masteredCount/data.totalTopics*100):0;
   const productionProgress=data.exploredTopics?Math.round(data.productionTopics/data.exploredTopics*100):0;
   const maxActivity=Math.max(1,...data.activity7.map(x=>x.value));
+  const assessment=data.assessmentPractice;
 
   return J.jsxs("div",{className:"space-y-6",children:[
     J.jsxs("p",{className:"text-xs text-muted",children:[
@@ -134,6 +135,30 @@ function Progress(){
       J.jsx(Metric,{label:"Topics explored",value:data.exploredTopics+"/"+data.totalTopics,detail:"Topics with at least one formal attempt."}),
       J.jsx(Metric,{label:"Independent production",value:data.productionTopics+"/"+data.exploredTopics,detail:"Explored topics with typed/spelled evidence.",progress:productionProgress})
     ]}),
+
+    assessment?J.jsxs(Card,{className:"p-5",children:[
+      J.jsxs("div",{className:"flex flex-wrap items-start justify-between gap-3",children:[
+        J.jsxs("div",{children:[
+          J.jsx("p",{className:"text-xs tracking-[0.16em] text-navy uppercase",children:"Year 9 French"}),
+          J.jsx("h2",{className:"mt-1 font-display text-2xl font-semibold",children:"Assessment practice"}),
+          J.jsx("p",{className:"mt-1 text-sm text-muted",children:"App practice evidence only — not a prediction of the school grade."})
+        ]}),
+        J.jsx("a",{href:"/study/french/practise",className:"rounded-xl bg-navy px-3 py-2 text-sm text-card",children:"Open Exam Mix 15"})
+      ]}),
+      J.jsxs("div",{className:"mt-4 grid gap-3 sm:grid-cols-4",children:[
+        J.jsx(Metric,{label:"Explored",value:assessment.exploredTopics+"/"+assessment.totalTopics,detail:"Assessment-practice topics attempted."}),
+        J.jsx(Metric,{label:"Accuracy",value:assessment.attempted?pct(assessment.accuracy)+"%":"—",detail:assessment.attempted?assessment.correct+" / "+assessment.attempted+" correct":"No assessment attempts yet.",progress:assessment.attempted?pct(assessment.accuracy):0}),
+        J.jsx(Metric,{label:"Production evidence",value:assessment.productionTopics+"/"+assessment.totalTopics,detail:"Topics with independent typed evidence."}),
+        J.jsx(Metric,{label:"Secure / Mastered",value:assessment.secureOrMastered+"/"+assessment.totalTopics,detail:assessment.mastered+" fully Mastered."})
+      ]}),
+      J.jsx("ul",{className:"mt-4 grid gap-2 sm:grid-cols-2",children:assessment.topics.map(row=>J.jsxs("li",{className:"rounded-xl bg-sage p-3 text-sm",children:[
+        J.jsxs("div",{className:"flex items-center justify-between gap-3",children:[
+          J.jsx("span",{className:"font-medium",children:row.title.replace("Assessment Practice — ","")}),
+          J.jsx("span",{className:"text-xs text-muted",children:stateLabel(row.state)})
+        ]}),
+        J.jsx("p",{className:"mt-1 text-xs text-muted",children:row.attempted?pct(row.accuracy)+"% · "+row.attempted+" attempts":"Not started"})
+      ]},row.topicId))})
+    ]}):null,
 
     J.jsxs("div",{className:"flex flex-wrap gap-2",children:[
       J.jsx("a",{href:"/study/"+subject+"/practise?mode=due",className:"rounded-xl bg-navy px-3 py-2 text-sm text-card",children:"Do due reviews"}),
