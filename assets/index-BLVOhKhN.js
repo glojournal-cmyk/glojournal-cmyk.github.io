@@ -568,6 +568,11 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const result = originalRecordAttempt(questionId, correct, subject, coreMeta);
   const after = store.getState();
 
+  if (meta?.formal === false) {
+    const recentQuestionIds = [...(after.recentQuestionIds || []).filter((id) => id !== questionId), questionId].slice(-20);
+    store.setState({ recentQuestionIds, lastSubject: resolved.subject || subject });
+    return result;
+  }
   if (!resolved.topicId) return result;
   const current = normalizeTopicStat(before.topicStats?.[resolved.topicId] || {});
   const isRepair = !!meta?.repair;
