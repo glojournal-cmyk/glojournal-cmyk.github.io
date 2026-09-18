@@ -328,7 +328,6 @@ function adaptiveFocus(state) {
 }
 
 function focusHref(focus, state) {
-  if (focus.subject === "french" && state.year === 9) return FRENCH_DAILY_HREF;
   const base = `/study/${focus.subject}/practise`;
   if (focus.reason === "due") return `${base}?mode=due`;
   if (focus.reason === "weak") return `${base}?mode=weak`;
