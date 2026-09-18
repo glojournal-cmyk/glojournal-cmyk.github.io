@@ -2466,16 +2466,28 @@
       "conceptId": "bio-y9-b3-app-micro-method-order-concept",
       "topicId": "bio-y9-b3",
       "topic": "Microscopy and Required Practical 1",
-      "format": "sequence",
+      "format": "word_tiles",
       "prompt": "Put the main microscopy steps in order.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "sequence"
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "place a thin specimen on a clean slide add an appropriate stain if needed lower a coverslip carefully start with the lowest-power objective focus with coarse then fine control move to higher power if required make a clear labelled biological drawing"
+        ]
       },
       "stimulus": {
         "items": [
+          "focus with coarse then fine control",
+          "add an appropriate stain if needed",
+          "lower a coverslip carefully",
+          "start with the lowest-power objective",
+          "place a thin specimen on a clean slide",
+          "make a clear labelled biological drawing",
+          "move to higher power if required"
+        ],
+        "tiles": [
           "focus with coarse then fine control",
           "add an appropriate stain if needed",
           "lower a coverslip carefully",
@@ -2496,8 +2508,8 @@
         "remember": "place a thin specimen on a clean slide → add an appropriate stain if needed → lower a coverslip carefully → start with the lowest-power objective → focus with coarse then fine control → move to higher power if required → make a clear labelled biological drawing"
       },
       "task": {
-        "label": "ORDER",
-        "instruction": "Put every step in the correct order."
+        "label": "ORDER THE STEPS",
+        "instruction": "Tap each tile in the correct order."
       },
       "preview": true,
       "ordinary": true
@@ -2657,9 +2669,9 @@
     "typed_short": 4,
     "matching": 3,
     "calculation": 2,
-    "sequence": 1,
     "practical_design": 1,
-    "diagram_label": 1
+    "diagram_label": 1,
+    "word_tiles": 1
   },
   "gated": false,
   "note": {
