@@ -2528,11 +2528,11 @@
   "gated": false,
   "note": {
     "title": "Aerobic and anaerobic respiration",
-    "overview": "",
+    "overview": "Respiration is an exothermic process in living cells that transfers energy from glucose. You need to compare aerobic and anaerobic respiration, know the word equations, explain why anaerobic respiration transfers less energy and distinguish cellular respiration from breathing.",
     "learningGoals": [
-      "Recall the core knowledge and vocabulary for Aerobic and anaerobic respiration.",
-      "Explain or produce the answer independently rather than relying only on recognition.",
-      "Apply the idea accurately to a new prompt and check every required detail."
+      "Recall and use the aerobic and anaerobic respiration word equations.",
+      "Compare aerobic respiration in cells with anaerobic respiration in muscles and fermentation in yeast/plants.",
+      "Explain how energy transferred by respiration is used in organisms."
     ],
     "mustMemoriseRules": [
       "respiration → an exothermic chemical process occurring continuously in living cells that transfers energy from glucose",
@@ -2546,7 +2546,38 @@
       "respiration for movement → energy transferred by respiration used for muscle contraction",
       "respiration for temperature → energy transferred by respiration helping mammals and birds maintain body temperature"
     ],
-    "mustMemoriseVocabulary": [],
+    "mustMemoriseVocabulary": [
+      {
+        "term": "respiration",
+        "meaning": "an exothermic process in cells that transfers energy from glucose",
+        "direction": ""
+      },
+      {
+        "term": "aerobic respiration",
+        "meaning": "respiration using oxygen; glucose is fully broken down to carbon dioxide and water",
+        "direction": ""
+      },
+      {
+        "term": "anaerobic respiration",
+        "meaning": "respiration without oxygen; less energy is transferred because glucose is not fully broken down",
+        "direction": ""
+      },
+      {
+        "term": "lactic acid",
+        "meaning": "product of anaerobic respiration in muscle cells",
+        "direction": ""
+      },
+      {
+        "term": "fermentation",
+        "meaning": "anaerobic respiration in yeast/plants producing ethanol and carbon dioxide",
+        "direction": ""
+      },
+      {
+        "term": "exothermic",
+        "meaning": "releases/transfers energy to the surroundings",
+        "direction": ""
+      }
+    ],
     "workedExamples": [
       {
         "prompt": "In B11, write the scientific term, rule or named idea described. an exothermic chemical process occurring continuously in living cells that transfers energy from glucose",
@@ -2575,20 +2606,25 @@
       }
     ],
     "commonMistakes": [
-      "Respiration happens all the time in living cells, not only when exercising.",
+      "Respiration happens all the time in living cells, not only during exercise.",
+      "Breathing/ventilation is movement of air; respiration is a chemical process in cells.",
       "Plants respire as well as photosynthesise.",
-      "Breathing ventilates lungs; respiration is a chemical process in cells.",
-      "--",
-      "A partly correct response can still miss a required form, unit, relationship or mark point."
+      "Anaerobic respiration transfers less energy because glucose is not fully broken down.",
+      "Muscle cells produce lactic acid; yeast produces ethanol and carbon dioxide."
     ],
     "detailedExplanation": [
-      "Respiration is an exothermic chemical process that occurs continuously in living cells and transfers energy from glucose for cellular processes. It is not the same as breathing.",
-      "Explain biological ideas as linked steps: name the structure or process, state what happens, and connect it to the effect on the cell, organism or ecosystem. Use precise scientific terms rather than everyday substitutes."
+      "This topic is verified against The Tiffin Girls’ School Year 9 Biology Curriculum Outline 2026–27, which teaches aerobic and anaerobic respiration in Spring 2 as part of how organisms transfer energy into usable forms.",
+      "Respiration is a chemical process in cells, not the same as breathing. It occurs continuously in living organisms. The energy transferred from glucose is used for processes such as muscle contraction, building larger molecules and maintaining body temperature in mammals and birds.",
+      "Aerobic respiration uses oxygen. Word equation: glucose + oxygen → carbon dioxide + water. In eukaryotic cells, most aerobic respiration occurs in mitochondria. Because glucose is fully broken down, aerobic respiration transfers much more energy than anaerobic respiration.",
+      "When muscle cells cannot receive enough oxygen for the required rate of aerobic respiration, some anaerobic respiration occurs. In animals: glucose → lactic acid. Glucose is only partly broken down, so less energy is transferred.",
+      "In yeast and plant cells, anaerobic respiration is fermentation: glucose → ethanol + carbon dioxide. Be careful not to write lactic acid as the product for yeast.",
+      "Comparison questions score best when you compare the same feature on both sides: oxygen needed/not needed; products; relative energy transfer; and where/when the process occurs."
     ],
     "examTips": [
-      "Use the command word and number of marks to decide how many distinct points are required.",
-      "Use precise terminology and link cause to effect rather than listing disconnected facts.",
-      "For calculations, show the relationship, substitution, working and unit."
+      "Memorise the three word equations exactly.",
+      "If asked to compare, make paired statements rather than two separate lists.",
+      "Use “transfers energy” rather than saying cells simply “make energy”.",
+      "Link organelle to process precisely: mitochondria are the main site of aerobic respiration in eukaryotic cells."
     ],
     "quickCheck": [
       {
@@ -2615,12 +2651,18 @@
     "beforeStartingPractice": [],
     "additionalSourceSections": [
       {
-        "heading": "Aerobic Respiration",
-        "body": ""
+        "heading": "Aerobic vs anaerobic respiration",
+        "body": "Aerobic: glucose + oxygen → carbon dioxide + water\n• oxygen required\n• much more energy transferred\n• mainly in mitochondria\n\nMuscle anaerobic: glucose → lactic acid\n• no oxygen required\n• less energy transferred\n\nYeast/plant fermentation: glucose → ethanol + carbon dioxide"
       },
       {
-        "heading": "Anaerobic Respiration In Muscles",
-        "body": ""
+        "source": "The Tiffin Girls’ School Year 9 Biology Curriculum Outline 2026–27",
+        "locator": "Spring 2 · 4.4.2.1 Aerobic and anaerobic respiration",
+        "url": "https://fra1.digitaloceanspaces.com/tiffingirls.org/wp-content/uploads/2026/07/14114039/Bio-Y9-curriculum-outline-2026-27.pdf"
+      },
+      {
+        "source": "AQA GCSE Biology 8461",
+        "locator": "4.4.2.1 Aerobic and anaerobic respiration",
+        "url": "https://www.aqa.org.uk/subjects/biology/gcse/biology-8461/specification/subject-content/bioenergetics"
       }
     ]
   }
