@@ -491,6 +491,10 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const review = after.reviews?.[questionId];
   const accuracy = attempted ? correctCount / attempted : 0;
   const repairs = { attempted: (current.repairs?.attempted || 0) + (isRepair ? 1 : 0), correct: (current.repairs?.correct || 0) + (isRepair && correct ? 1 : 0) };
+  const nextState = topicState(attempted, correctCount, productionCorrect);
+  const recentOutcomes = isRepair
+    ? [...(current.recentOutcomes || [])]
+    : [...(current.recentOutcomes || []), { date: todayKey(), correct: !!correct }].slice(-20);
   const nextTopic = {
     ...current,
     attempted,
@@ -499,12 +503,14 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     productionAttempted: current.productionAttempted + (!isRepair && production ? 1 : 0),
     productionCorrect,
     productionIds: productionIds.slice(-20),
-    state: topicState(attempted, correctCount, productionCorrect),
+    state: nextState,
     due: review?.due || current.due,
     errors,
     errorTypes,
     lastErrorType: errorType || current.lastErrorType || null,
     repairs,
+    recentOutcomes,
+    masteredAt: nextState === "mastered" ? (current.state === "mastered" && current.masteredAt ? current.masteredAt : todayKey()) : current.masteredAt || null,
     masteryRule: 1,
     lastAttempt: todayKey(),
   };
@@ -597,4 +603,167 @@ if (typeof document !== "undefined") {
   });
 }
 
-export { rankAdaptiveQuestions };
+
+function subjectForTopic(topicId) {
+  return inferSubjectFromTopic(topicId);
+}
+
+function daysAgoKey(days) {
+  return shiftDay(todayKey(), -days);
+}
+
+function calendarWeekStart() {
+  const d = new Date();
+  const offset = (d.getDay() + 6) % 7;
+  d.setDate(d.getDate() - offset);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+function improvementDelta(stat) {
+  const outcomes = Array.isArray(stat?.recentOutcomes) ? stat.recentOutcomes.slice(-10) : [];
+  if (outcomes.length < 6) return null;
+  const split = Math.max(3, Math.floor(outcomes.length / 2));
+  const prior = outcomes.slice(0, split);
+  const recent = outcomes.slice(split);
+  if (prior.length < 3 || recent.length < 3) return null;
+  const mean = (items) => items.reduce((sum, item) => sum + (item.correct ? 1 : 0), 0) / items.length;
+  return mean(recent) - mean(prior);
+}
+
+function minCorrectToMaster(attempted, correct) {
+  if (attempted >= MASTERY_MIN_ATTEMPTS && attempted > 0 && correct / attempted >= MASTERY_ACCURACY) return 0;
+  let n = 0;
+  while (n < 50 && (attempted + n < MASTERY_MIN_ATTEMPTS || (correct + n) / Math.max(1, attempted + n) < MASTERY_ACCURACY)) n += 1;
+  return n;
+}
+
+function progressNextAction(row) {
+  if (row.dueCount > 0) return `Complete ${row.dueCount} due review${row.dueCount === 1 ? "" : "s"}.`;
+  if (row.state === "mastered") return "Keep it fresh with occasional retrieval.";
+  if (row.attempted === 0) return "Start with the core questions.";
+  if (row.accuracy < MASTERY_ACCURACY || row.attempted < MASTERY_MIN_ATTEMPTS) {
+    const more = minCorrectToMaster(row.attempted, row.correct);
+    return more > 0 ? `Aim for ${more} more correct recall${more === 1 ? "" : "s"} without new errors.` : "Build accuracy to at least 85%.";
+  }
+  if (row.productionCorrect < 1) return "Add one independent typed or spelled answer.";
+  return "One more strong retrieval session.";
+}
+
+function buildProgressDashboard(state, subject, year = state?.year) {
+  const catalog = (() => {
+    try { return getTopicCatalog(subject, year) || []; } catch { return []; }
+  })();
+  const today = todayKey();
+  const weekStart = calendarWeekStart();
+  const topicIds = new Set(catalog.map((topic) => topic.topicId));
+  const titleMap = new Map(catalog.map((topic) => [topic.topicId, topic.title]));
+
+  // Include legacy topic stats for the selected subject so old revision work remains visible.
+  for (const topicId of Object.keys(state.topicStats || {})) {
+    if (subjectForTopic(topicId) === subject) topicIds.add(topicId);
+  }
+
+  const reviewByTopic = new Map();
+  let dueReviews = 0;
+  for (const [questionId, review] of Object.entries(state.reviews || {})) {
+    const reviewSubject = inferReviewSubject(questionId, review);
+    if (reviewSubject !== subject) continue;
+    const topicId = review.topicId || QUESTION_META.get(questionId)?.topicId || null;
+    if (!topicId) continue;
+    const entry = reviewByTopic.get(topicId) || { dueCount: 0, nextDue: null };
+    if (review.due) {
+      if (!entry.nextDue || review.due < entry.nextDue) entry.nextDue = review.due;
+      if (review.due <= today) { entry.dueCount += 1; dueReviews += 1; }
+    }
+    reviewByTopic.set(topicId, entry);
+  }
+
+  const topics = [...topicIds].map((topicId) => {
+    const stat = normalizeTopicStat(state.topicStats?.[topicId] || {});
+    const review = reviewByTopic.get(topicId) || { dueCount: 0, nextDue: null };
+    const errorType = dominantError(stat);
+    const improvement = improvementDelta(stat);
+    const row = {
+      topicId,
+      title: titleMap.get(topicId) || topicTitle(state, topicId, subject),
+      state: stat.state,
+      attempted: stat.attempted,
+      correct: stat.correct,
+      accuracy: stat.attempted ? stat.correct / stat.attempted : 0,
+      productionAttempted: stat.productionAttempted || 0,
+      productionCorrect: stat.productionCorrect || 0,
+      productionOk: (stat.productionCorrect || 0) > 0,
+      dueCount: review.dueCount,
+      nextDue: review.nextDue,
+      errorType,
+      errorCount: errorType ? (stat.errorTypes?.[errorType] || 0) : 0,
+      improvement,
+      masteredAt: stat.masteredAt || null,
+      lastAttempt: stat.lastAttempt || null,
+      repairs: stat.repairs || { attempted: 0, correct: 0 },
+    };
+    row.nextAction = progressNextAction(row);
+    return row;
+  });
+
+  const attemptedTopics = topics.filter((row) => row.attempted > 0);
+  const attempted = attemptedTopics.reduce((sum, row) => sum + row.attempted, 0);
+  const correct = attemptedTopics.reduce((sum, row) => sum + row.correct, 0);
+  const accuracy = attempted ? correct / attempted : 0;
+  const mastered = topics.filter((row) => row.state === "mastered");
+  const secure = topics.filter((row) => row.state === "secure");
+  const productionTopics = topics.filter((row) => row.productionOk).length;
+
+  const weakest = attemptedTopics
+    .filter((row) => row.state !== "mastered")
+    .sort((a, b) => b.dueCount - a.dueCount || a.accuracy - b.accuracy || b.attempted - a.attempted)
+    .slice(0, 3);
+
+  const improving = attemptedTopics
+    .filter((row) => typeof row.improvement === "number" && row.improvement > 0)
+    .sort((a, b) => b.improvement - a.improvement || b.attempted - a.attempted)
+    .slice(0, 3);
+
+  const recentMastered = mastered
+    .filter((row) => row.masteredAt)
+    .sort((a, b) => String(b.masteredAt).localeCompare(String(a.masteredAt)))
+    .slice(0, 3);
+
+  const errorTotals = {};
+  for (const row of attemptedTopics) {
+    const stat = state.topicStats?.[row.topicId] || {};
+    for (const [kind, count] of Object.entries(stat.errorTypes || {})) errorTotals[kind] = (errorTotals[kind] || 0) + count;
+  }
+  const errorPatterns = Object.entries(errorTotals)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([type, count]) => ({ type, label: errorLabel(type), count }));
+
+  const activity7 = Array.from({ length: 7 }, (_, index) => {
+    const date = daysAgoKey(6 - index);
+    const d = new Date(`${date}T12:00:00`);
+    return { date, label: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d.getDay()], value: state.activity?.[date] || 0, studied: (state.studyDays || []).includes(date) };
+  });
+
+  return {
+    subject,
+    weekStudyDays: (state.studyDays || []).filter((date) => date >= weekStart && date <= today).length,
+    accuracy,
+    attempted,
+    correct,
+    dueReviews,
+    totalTopics: topics.length,
+    exploredTopics: attemptedTopics.length,
+    masteredCount: mastered.length,
+    secureCount: secure.length,
+    productionTopics,
+    weakest,
+    improving,
+    recentMastered,
+    errorPatterns,
+    topics: topics.sort((a, b) => b.dueCount - a.dueCount || ({ learning: 0, practising: 1, secure: 2, mastered: 3 }[a.state] - ({ learning: 0, practising: 1, secure: 2, mastered: 3 }[b.state])) || a.accuracy - b.accuracy || a.title.localeCompare(b.title)),
+    activity7,
+  };
+}
+
+export { rankAdaptiveQuestions, buildProgressDashboard };
