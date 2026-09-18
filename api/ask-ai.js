@@ -117,12 +117,76 @@ export default async function handler(req, res) {
   const model = process.env.GEMINI_MODEL || "gemini-3.5-flash";
 
   if (req.method === "GET") {
-    return res.status(200).json({
-      ok: true,
-      provider: "google-gemini",
-      configured: !!process.env.GEMINI_API_KEY,
-      model,
-    });
+    const configured = !!process.env.GEMINI_API_KEY;
+    const wantsTest = String(req.query?.test || "") === "1";
+
+    if (!wantsTest) {
+      return res.status(200).json({
+        ok: true,
+        provider: "google-gemini",
+        configured,
+        model,
+      });
+    }
+
+    if (!configured) {
+      return res.status(503).json({
+        ok: false,
+        provider: "google-gemini",
+        configured: false,
+        model,
+        diagnostic: "missing_key",
+      });
+    }
+
+    try {
+      const testResponse = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-goog-api-key": process.env.GEMINI_API_KEY,
+          },
+          body: JSON.stringify({
+            contents: [{ role: "user", parts: [{ text: "Reply with exactly OK" }] }],
+            generationConfig: { temperature: 0, maxOutputTokens: 20 },
+          }),
+        }
+      );
+
+      const testData = await testResponse.json().catch(() => ({}));
+      const geminiText = extractText(testData);
+
+      if (!testResponse.ok) {
+        return res.status(200).json({
+          ok: false,
+          provider: "google-gemini",
+          configured: true,
+          model,
+          googleStatus: testResponse.status,
+          googleCode: clean(testData?.error?.status || testData?.error?.code, 80) || "unknown",
+          message: clean(testData?.error?.message, 500) || "Gemini request failed.",
+        });
+      }
+
+      return res.status(200).json({
+        ok: true,
+        provider: "google-gemini",
+        configured: true,
+        model,
+        generation: geminiText || "OK",
+      });
+    } catch (error) {
+      return res.status(200).json({
+        ok: false,
+        provider: "google-gemini",
+        configured: true,
+        model,
+        diagnostic: "network_or_runtime_error",
+        message: clean(error?.message, 500) || "Gemini request could not be completed.",
+      });
+    }
   }
 
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed." });
@@ -166,13 +230,20 @@ export default async function handler(req, res) {
     const data = await response.json().catch(() => ({}));
     if (!response.ok) {
       const code = String(data?.error?.status || data?.error?.code || "unknown");
+      const googleMessage = clean(data?.error?.message, 400);
       console.error("Gemini API error", response.status, code);
       let error = "AI explanation is unavailable right now.";
       if (response.status === 400) error = "Gemini rejected the explanation request.";
       else if (response.status === 401 || response.status === 403) error = "Gemini rejected the API key or its permissions.";
       else if (response.status === 404) error = "The selected Gemini model is not available to this project.";
       else if (response.status === 429) error = "Gemini free-tier limit reached. Please try again later.";
-      return res.status(502).json({ error });
+      else if (response.status >= 500) error = "Gemini is temporarily unavailable. Please try again shortly.";
+      return res.status(502).json({
+        error,
+        diagnostic: code,
+        googleStatus: response.status,
+        detail: googleMessage,
+      });
     }
 
     const explanation = extractText(data);
