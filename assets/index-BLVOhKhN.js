@@ -136,6 +136,117 @@ function isIndependentProduction(meta) {
   return [...document.querySelectorAll("main form input:not([type='hidden']), main form textarea")].some(isVisible);
 }
 
+function diagnoseError(subject, topicId, errorKind, format, topicTitle) {
+  if (!errorKind || errorKind === "none") return null;
+  const text = `${topicId || ""} ${topicTitle || ""}`.toLowerCase();
+  if (errorKind === "blank") return "incomplete";
+  if (errorKind === "partial") return "incomplete";
+  if (subject === "latin") {
+    if (errorKind === "spelling") return "spelling";
+    if (/case|dative|ablative|accusative|nominative|genitive|declen|preposition/.test(text)) return "case";
+    if (/person|number/.test(text)) return "person-number";
+    if (/tense|perfect|imperfect|present|pluperfect|verb/.test(text)) return errorKind === "ending" ? "verb-ending" : "tense";
+    if (/vocab|noun|adjective|pronoun|word/.test(text)) return "vocabulary";
+    if (/translat|sentence|comprehension|passage/.test(text)) return "translation";
+    return errorKind === "ending" ? "ending" : "grammar/concept";
+  }
+  if (subject === "french") {
+    if (errorKind === "spelling" || errorKind === "accent") return errorKind;
+    if (/negat|pas de|article/.test(text)) return "negative/article";
+    if (/gender|mascul|femin|article/.test(text)) return "gender/article";
+    if (/agree|adjective|plural/.test(text)) return "agreement";
+    if (/tense|imperfect|present|perfect|past|future|verb/.test(text)) return errorKind === "ending" ? "verb-ending" : "tense";
+    if (/order|sentence|translat|phrase/.test(text)) return "word-order/translation";
+    if (/vocab|word|town|school|family|food|time|opinion/.test(text)) return "vocabulary";
+    return errorKind === "ending" ? "agreement/ending" : "grammar/concept";
+  }
+  if (["biology", "chemistry", "physics"].includes(subject)) {
+    if (format === "calculation") return "calculation";
+    if (/unit|measure|convert/.test(text)) return "unit/measurement";
+    if (/name|identify|term|definition|vocab/.test(text)) return "terminology";
+    return "concept";
+  }
+  if (subject === "english") {
+    if (/evidence|quote|explain|analysis/.test(text)) return "evidence/explanation";
+    if (/term|technique|language/.test(text)) return "terminology";
+    return "concept";
+  }
+  return errorKind;
+}
+
+function errorLabel(value) {
+  return String(value || "").replace(/[-/]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+function dominantError(stat) {
+  const entries = Object.entries(stat?.errorTypes || {}).filter(([, count]) => count > 0);
+  return entries.sort((a, b) => b[1] - a[1])[0]?.[0] || null;
+}
+
+function questionTopicId(item, subject) {
+  return item?.topicId || legacyTopicId(subject, item?.topic || "general");
+}
+
+function rankAdaptiveQuestions(items, subject, size = 10) {
+  const state = store.getState();
+  const today = todayKey();
+  const seen = state.seenTotal || {};
+  const recent = new Set((state.recentQuestionIds || []).slice(-8));
+  const rows = (items || []).map((item, index) => {
+    const topicId = questionTopicId(item, subject);
+    const stat = normalizeTopicStat(state.topicStats?.[topicId] || {});
+    const review = state.reviews?.[item.id];
+    const due = !!review?.due && review.due <= today;
+    const unseen = !(seen[item.id] > 0);
+    const mastered = stat.state === "mastered";
+    const weak = !mastered && stat.attempted >= 2 && (stat.accuracy < MASTERY_ACCURACY || stat.productionCorrect < 1);
+    return { item, index, topicId, stat, review, due, unseen, mastered, weak, recent: recent.has(item.id) };
+  });
+
+  const byNeed = (a, b) =>
+    Number(a.recent) - Number(b.recent) ||
+    (a.review?.due || "9999-12-31").localeCompare(b.review?.due || "9999-12-31") ||
+    a.stat.accuracy - b.stat.accuracy ||
+    (seen[a.item.id] || 0) - (seen[b.item.id] || 0) ||
+    a.index - b.index;
+
+  const buckets = {
+    due: rows.filter((r) => r.due).sort(byNeed),
+    weak: rows.filter((r) => !r.due && r.weak).sort(byNeed),
+    new: rows.filter((r) => !r.due && !r.weak && r.unseen).sort(byNeed),
+    mastered: rows.filter((r) => !r.due && r.mastered).sort(byNeed),
+    other: rows.filter((r) => !r.due && !r.weak && !r.unseen && !r.mastered).sort(byNeed),
+  };
+
+  const target = Math.max(1, Math.min(Number(size) || 10, rows.length));
+  const quotas = {
+    due: Math.ceil(target * 0.4),
+    weak: Math.ceil(target * 0.3),
+    new: Math.max(1, Math.round(target * 0.2)),
+    mastered: target >= 5 ? 1 : 0,
+  };
+  const picked = [];
+  const ids = new Set();
+  const take = (name, count) => {
+    for (const row of buckets[name]) {
+      if (picked.length >= target || count <= 0) break;
+      if (ids.has(row.item.id)) continue;
+      ids.add(row.item.id);
+      picked.push({ ...row, bucket: name });
+      count -= 1;
+    }
+  };
+  take("due", quotas.due);
+  take("weak", quotas.weak);
+  take("new", quotas.new);
+  take("mastered", quotas.mastered);
+  for (const name of ["due", "weak", "new", "other", "mastered"]) take(name, target - picked.length);
+
+  const leftovers = rows.filter((row) => !ids.has(row.item.id)).sort(byNeed);
+  const ordered = [...picked, ...leftovers.map((row) => ({ ...row, bucket: "other" }))];
+  return ordered.map((row, index) => ({ ...row.item, _adaptiveRank: index, _adaptiveBucket: row.bucket }));
+}
+
 function topicState(attempted, correct, productionCorrect) {
   const accuracy = attempted > 0 ? correct / attempted : 0;
   if (attempted >= MASTERY_MIN_ATTEMPTS && accuracy >= MASTERY_ACCURACY && productionCorrect > 0) return "mastered";
@@ -209,7 +320,7 @@ function adaptiveFocus(state) {
       const bProdPenalty = b.productionCorrect > 0 ? 0 : 0.08;
       return (a.accuracy - aProdPenalty) - (b.accuracy - bProdPenalty) || b.attempted - a.attempted;
     });
-  if (weak.length) return { subject: weak[0].subject, topicId: weak[0].topicId, reason: "weak", accuracy: weak[0].accuracy };
+  if (weak.length) return { subject: weak[0].subject, topicId: weak[0].topicId, reason: "weak", accuracy: weak[0].accuracy, errorType: dominantError(weak[0]) };
 
   if (SUBJECTS.includes(state.lastSubject)) return { subject: state.lastSubject, topicId: state.lastTopic || null, reason: "continue" };
   const rotation = ["latin", "biology", "chemistry", "physics", "french", "english"];
@@ -229,7 +340,7 @@ function buildAdaptiveDaily(state) {
   const existingPlan = previous.get("study-session");
   const locked = existingPlan?.planDate === state.today && SUBJECTS.includes(existingPlan.focusSubject);
   const focus = locked
-    ? { subject: existingPlan.focusSubject, topicId: existingPlan.focusTopic || null, reason: existingPlan.focusReason || "continue", dueCount: existingPlan.focusDueCount || 0, accuracy: existingPlan.focusAccuracy }
+    ? { subject: existingPlan.focusSubject, topicId: existingPlan.focusTopic || null, reason: existingPlan.focusReason || "continue", dueCount: existingPlan.focusDueCount || 0, accuracy: existingPlan.focusAccuracy, errorType: existingPlan.focusErrorType || null }
     : adaptiveFocus(state);
   const label = SUBJECT_LABELS[focus.subject] || "Study";
   const title = locked ? existingPlan.title : focus.reason === "due"
@@ -240,7 +351,7 @@ function buildAdaptiveDaily(state) {
   const detail = locked ? existingPlan.detail : focus.reason === "due"
     ? `${focus.dueCount} review item${focus.dueCount === 1 ? "" : "s"} due · use spaced review.`
     : focus.reason === "weak"
-      ? `${Math.round((focus.accuracy || 0) * 100)}% so far · build towards ≥85%.`
+      ? `${Math.round((focus.accuracy || 0) * 100)}% so far · build towards ≥85%${focus.errorType ? ` · main issue: ${errorLabel(focus.errorType)}` : ""}.`
       : `Eight focused questions in ${label}.`;
 
   const studyProgress = Math.min(8, existingPlan?.progress || 0);
@@ -251,7 +362,7 @@ function buildAdaptiveDaily(state) {
   const game = previous.get("play-game") || { id: "play-game", title: "Play a quick game", detail: "One short learning game.", href: "/play", target: 1, progress: 0, xp: 10 };
 
   return [
-    { id: "study-session", title, detail, href: locked ? existingPlan.href : focusHref(focus, state), target: 8, progress: studyProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusReason: focus.reason, focusDueCount: focus.dueCount || 0, focusAccuracy: focus.accuracy },
+    { id: "study-session", title, detail, href: locked ? existingPlan.href : focusHref(focus, state), target: 8, progress: studyProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusReason: focus.reason, focusDueCount: focus.dueCount || 0, focusAccuracy: focus.accuracy, focusErrorType: focus.errorType || null },
     { id: "adaptive-focus", title: `${label} focus`, detail: "Four questions in today’s priority subject. Mastery needs ≥85% plus one independent typed or spelled answer.", href: locked ? existingPlan.href : focusHref(focus, state), target: 4, progress: focusProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusReason: focus.reason },
     { ...garden, progress: Math.min(garden.target || 1, garden.progress || 0) },
     { ...game, progress: Math.min(game.target || 1, game.progress || 0) },
@@ -365,35 +476,45 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
 
   if (!resolved.topicId) return result;
   const current = normalizeTopicStat(before.topicStats?.[resolved.topicId] || {});
-  const attempted = current.attempted + 1;
-  const correctCount = current.correct + (correct ? 1 : 0);
+  const isRepair = !!meta?.repair;
+  const attempted = current.attempted + (isRepair ? 0 : 1);
+  const correctCount = current.correct + (!isRepair && correct ? 1 : 0);
   const productionIds = [...(current.productionIds || [])];
-  if (production && correct && !productionIds.includes(questionId)) productionIds.push(questionId);
+  if (!isRepair && production && correct && !productionIds.includes(questionId)) productionIds.push(questionId);
   const productionCorrect = productionIds.length;
   const errorKind = meta?.errorKind && meta.errorKind !== "none" ? meta.errorKind : null;
+  const errorType = !correct && !isRepair ? diagnoseError(resolved.subject, resolved.topicId, errorKind, meta?.format, resolved.topicTitle || meta?.topicTitle) : null;
   const errors = { ...(current.errors || {}) };
-  if (errorKind) errors[errorKind] = (errors[errorKind] || 0) + 1;
+  const errorTypes = { ...(current.errorTypes || {}) };
+  if (errorKind && !isRepair) errors[errorKind] = (errors[errorKind] || 0) + 1;
+  if (errorType) errorTypes[errorType] = (errorTypes[errorType] || 0) + 1;
   const review = after.reviews?.[questionId];
   const accuracy = attempted ? correctCount / attempted : 0;
+  const repairs = { attempted: (current.repairs?.attempted || 0) + (isRepair ? 1 : 0), correct: (current.repairs?.correct || 0) + (isRepair && correct ? 1 : 0) };
   const nextTopic = {
     ...current,
     attempted,
     correct: correctCount,
     accuracy,
-    productionAttempted: current.productionAttempted + (production ? 1 : 0),
+    productionAttempted: current.productionAttempted + (!isRepair && production ? 1 : 0),
     productionCorrect,
     productionIds: productionIds.slice(-20),
     state: topicState(attempted, correctCount, productionCorrect),
     due: review?.due || current.due,
     errors,
+    errorTypes,
+    lastErrorType: errorType || current.lastErrorType || null,
+    repairs,
     masteryRule: 1,
     lastAttempt: todayKey(),
   };
   const reviews = { ...(after.reviews || {}) };
-  if (review) reviews[questionId] = { ...review, subject: resolved.subject, topicId: resolved.topicId, production: !!production };
+  if (review) reviews[questionId] = { ...review, subject: resolved.subject, topicId: resolved.topicId, production: !!production, repair: isRepair, errorType: errorType || review.errorType || null };
+  const recentQuestionIds = [...(after.recentQuestionIds || []).filter((id) => id !== questionId), questionId].slice(-20);
   store.setState({
     topicStats: { ...(after.topicStats || {}), [resolved.topicId]: nextTopic },
     reviews,
+    recentQuestionIds,
     lastTopic: resolved.topicId,
     lastSubject: resolved.subject || subject,
   });
@@ -461,3 +582,5 @@ if (typeof document !== "undefined") {
     applyPracticeModeFromUrl();
   });
 }
+
+export { rankAdaptiveQuestions };
