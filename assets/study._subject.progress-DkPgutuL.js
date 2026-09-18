@@ -131,9 +131,10 @@ function Progress(){
       J.jsx(Metric,{label:"Mastered",value:data.masteredCount+"/"+data.totalTopics,detail:data.secureCount+" more Secure.",progress:masteryProgress})
     ]}),
 
-    J.jsxs("div",{className:"grid gap-3 sm:grid-cols-2",children:[
+    J.jsxs("div",{className:"grid gap-3 sm:grid-cols-3",children:[
       J.jsx(Metric,{label:"Topics explored",value:data.exploredTopics+"/"+data.totalTopics,detail:"Topics with at least one formal attempt."}),
-      J.jsx(Metric,{label:"Independent production",value:data.productionTopics+"/"+data.exploredTopics,detail:"Explored topics with typed/spelled evidence.",progress:productionProgress})
+      J.jsx(Metric,{label:"Independent production",value:data.productionTopics+"/"+data.exploredTopics,detail:"Explored topics with typed/spelled evidence.",progress:productionProgress}),
+      J.jsx(Metric,{label:"AI explanations this week",value:data.aiHelpWeek||0,detail:data.aiHelpWeek?(data.aiHelpActions.slice(0,2).map(x=>x.label+" "+x.count).join(" · ")+" · not part of Mastery/XP"):"Optional Ask AI use; not part of Mastery/XP."})
     ]}),
 
     assessment?J.jsxs(Card,{className:"p-5",children:[
