@@ -2566,11 +2566,11 @@
   "gated": false,
   "note": {
     "title": "Rate of photosynthesis and Required Practical 6",
-    "overview": "",
+    "overview": "The rate of photosynthesis can be limited by light intensity, carbon dioxide concentration, temperature or chlorophyll amount. You must interpret limiting-factor graphs, calculate rate and plan Required Practical 6 using pondweed to investigate the effect of light intensity.",
     "learningGoals": [
-      "Recall the core knowledge and vocabulary for Rate of photosynthesis and Required Practical 6.",
-      "Explain or produce the answer independently rather than relying only on recognition.",
-      "Apply the idea accurately to a new prompt and check every required detail."
+      "Explain how light intensity, carbon dioxide concentration, temperature and chlorophyll amount affect photosynthesis rate.",
+      "Interpret rate graphs, identify the limiting factor and explain why a graph plateaus or falls.",
+      "Plan and evaluate Required Practical 6, calculate rate and identify variables and controls."
     ],
     "mustMemoriseRules": [
       "limiting factor → the factor in shortest supply that restricts the rate of photosynthesis",
@@ -2584,7 +2584,43 @@
       "photosynthesis practical controls → temperature, carbon dioxide availability, pondweed length or species, and measurement time",
       "repeats and mean → a method for improving confidence and reducing the influence of random variation"
     ],
-    "mustMemoriseVocabulary": [],
+    "mustMemoriseVocabulary": [
+      {
+        "term": "limiting factor",
+        "meaning": "the factor in shortest supply that restricts the rate of photosynthesis",
+        "direction": ""
+      },
+      {
+        "term": "light intensity",
+        "meaning": "amount of light reaching the plant; can limit the energy available for photosynthesis",
+        "direction": ""
+      },
+      {
+        "term": "carbon dioxide concentration",
+        "meaning": "concentration of a reactant needed for photosynthesis",
+        "direction": ""
+      },
+      {
+        "term": "temperature",
+        "meaning": "affects enzyme-controlled reactions involved in photosynthesis",
+        "direction": ""
+      },
+      {
+        "term": "chlorophyll",
+        "meaning": "pigment that absorbs light energy for photosynthesis",
+        "direction": ""
+      },
+      {
+        "term": "rate",
+        "meaning": "amount of product formed or change measured per unit time",
+        "direction": ""
+      },
+      {
+        "term": "control variable",
+        "meaning": "a factor kept constant so only the independent variable explains the change in rate",
+        "direction": ""
+      }
+    ],
     "workedExamples": [
       {
         "prompt": "In B15, write the scientific term, rule or named idea described. the factor in shortest supply that restricts the rate of photosynthesis",
@@ -2613,15 +2649,25 @@
       }
     ],
     "commonMistakes": [
-      "A partly correct response can still miss a required form, unit, relationship or mark point."
+      "Do not assume light is always the limiting factor; a plateau means another factor is restricting the rate.",
+      "Do not say high temperature always increases photosynthesis; above the optimum, enzyme function is disrupted and rate falls.",
+      "Rate needs a time component, for example oxygen volume per minute.",
+      "Keep temperature controlled when moving a lamp because lamps can also heat the water.",
+      "Bubble count can be less reliable than gas volume because bubble size varies."
     ],
     "detailedExplanation": [
-      "Explain biological ideas as linked steps: name the structure or process, state what happens, and connect it to the effect on the cell, organism or ecosystem. Use precise scientific terms rather than everyday substitutes."
+      "This topic is verified against The Tiffin Girls’ School Year 9 Biology Curriculum Outline 2026–27, which includes rate of photosynthesis in Spring 2 and specifically requires Practical 6 on the effect of light intensity using an aquatic organism such as pondweed.",
+      "When light is limiting, increasing light intensity increases the rate because more light energy is available. Once another factor becomes limiting, increasing light further produces little or no increase, so the graph reaches a plateau.",
+      "Increasing carbon dioxide concentration can increase the rate while carbon dioxide is limiting. Again, the rate eventually plateaus when another factor limits photosynthesis.",
+      "Temperature affects enzyme-controlled reactions. At low temperatures the rate is slower. Increasing temperature raises the rate up to an optimum; at temperatures that are too high, enzymes lose their functional shape and the rate falls. Low chlorophyll amount can also reduce the rate because less light energy is absorbed.",
+      "For Required Practical 6, vary light intensity by changing lamp distance or measuring light intensity. Measure oxygen production over a fixed time; measuring gas volume is more reliable than simply counting bubbles because bubbles can differ in size. Keep temperature, carbon dioxide availability, pondweed species/length and measurement time constant.",
+      "Repeat each light condition and calculate a mean. Calculate rate as oxygen volume ÷ time, then plot rate against light intensity (or the specified distance measure). When explaining the graph, identify which factor is limiting in each region rather than merely describing the line."
     ],
     "examTips": [
-      "Use the command word and number of marks to decide how many distinct points are required.",
-      "Use precise terminology and link cause to effect rather than listing disconnected facts.",
-      "For calculations, show the relationship, substitution, working and unit."
+      "For a graph question, describe the pattern and then explain the limiting factor causing each region.",
+      "For practical design, name IV, DV, key controls, repeats/mean and the graph you would plot.",
+      "Use rate = amount of oxygen produced ÷ time and always include units.",
+      "If a graph plateaus, state that the tested factor is no longer limiting and another factor is now in shortest supply."
     ],
     "quickCheck": [
       {
@@ -2648,12 +2694,18 @@
     "beforeStartingPractice": [],
     "additionalSourceSections": [
       {
-        "heading": "Limiting Factors",
-        "body": ""
+        "heading": "Required Practical 6 — pondweed",
+        "body": "IV: light intensity (or lamp distance as instructed)\nDV: rate of oxygen production\nControls: temperature, carbon dioxide availability, pondweed species/length, measurement time\nQuality: repeat each condition and calculate a mean\nRate: oxygen volume ÷ time\nGraph: light intensity on x-axis; photosynthesis rate on y-axis."
       },
       {
-        "heading": "Required Practical 6",
-        "body": ""
+        "source": "The Tiffin Girls’ School Year 9 Biology Curriculum Outline 2026–27",
+        "locator": "Spring 2 · 4.4.1.2 Rate of photosynthesis · Required Practical 6",
+        "url": "https://fra1.digitaloceanspaces.com/tiffingirls.org/wp-content/uploads/2026/07/14114039/Bio-Y9-curriculum-outline-2026-27.pdf"
+      },
+      {
+        "source": "AQA GCSE Biology 8461",
+        "locator": "4.4.1.2 Rate of photosynthesis / Required practical activity 6",
+        "url": "https://www.aqa.org.uk/subjects/biology/gcse/biology-8461/specification/subject-content/bioenergetics"
       }
     ]
   }
