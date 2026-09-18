@@ -23,6 +23,8 @@ jobs:
         run: node tests/latin-session-diversity.mjs
       - name: Audit Latin content quality
         run: node tests/latin-content-quality-audit.mjs
+      - name: Smoke-test live French and Latin practice
+        run: node tests/live-practice-smoke.mjs
       - name: Audit every question answer key
         env:
           STRICT: "1"
@@ -34,3 +36,4 @@ jobs:
             test-results/answer-key-audit.json
             test-results/french-content-quality.json
             test-results/latin-content-quality.json
+            test-results/live-practice-smoke.json
