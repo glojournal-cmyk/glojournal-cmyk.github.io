@@ -671,6 +671,51 @@ store.setState({
   recordSpelling: patchedRecordSpelling,
 });
 
+function aiHelpActionLabel(action) {
+  return ({
+    why_correct: "Why correct",
+    simpler: "Simpler explanation",
+    similar_example: "Similar example",
+    chinese: "中文解釋",
+    where_wrong: "Where went wrong",
+    explain_rule: "Explain rule",
+  })[action] || String(action || "AI help").replace(/_/g, " ");
+}
+
+function recordAiHelpUsage(detail = {}) {
+  const subject = SUBJECTS.includes(detail.subject) ? detail.subject : null;
+  if (!subject) return;
+  const state = store.getState();
+  const day = todayKey();
+  const year = Number(detail.year || state.year || 9);
+  const scope = `${subject}:y${year}`;
+  const questionKey = String(detail.questionId || detail.topicId || "unknown");
+  const action = String(detail.action || "help");
+  const ledgerKey = `${scope}::${questionKey}::${action}`;
+
+  const ledgers = { ...(state.aiHelpLedgerByDay || {}) };
+  const dayLedger = { ...(ledgers[day] || {}) };
+  if (dayLedger[ledgerKey]) return;
+  dayLedger[ledgerKey] = true;
+  ledgers[day] = dayLedger;
+
+  const byDay = { ...(state.aiHelpByDay || {}) };
+  const rawDay = byDay[day] || {};
+  const scopes = { ...(rawDay.scopes || {}) };
+  const rawScope = scopes[scope] || {};
+  const actions = { ...(rawScope.actions || {}) };
+  const topics = { ...(rawScope.topics || {}) };
+  actions[action] = (actions[action] || 0) + 1;
+  if (detail.topicId) topics[detail.topicId] = (topics[detail.topicId] || 0) + 1;
+  scopes[scope] = { total: (rawScope.total || 0) + 1, actions, topics };
+  byDay[day] = { ...rawDay, scopes };
+
+  for (const key of Object.keys(ledgers).sort().slice(0, Math.max(0, Object.keys(ledgers).length - 30))) delete ledgers[key];
+  for (const key of Object.keys(byDay).sort().slice(0, Math.max(0, Object.keys(byDay).length - 90))) delete byDay[key];
+
+  store.setState({ aiHelpByDay: byDay, aiHelpLedgerByDay: ledgers });
+}
+
 function applyPracticeModeFromUrl() {
   if (typeof document === "undefined" || typeof window === "undefined") return;
   if (!/^\/study\/[^/]+\/practise\/?$/.test(window.location.pathname)) return;
@@ -691,6 +736,10 @@ store.subscribe(() => normalizeState());
 store.persist?.onFinishHydration?.(() => normalizeState());
 
 if (typeof document !== "undefined") {
+  if (!window.__SCHOLAR_AI_USAGE_LISTENER__) {
+    window.__SCHOLAR_AI_USAGE_LISTENER__ = true;
+    window.addEventListener("scholar:ai-help-used", (event) => recordAiHelpUsage(event.detail || {}));
+  }
   queueMicrotask(applyPracticeModeFromUrl);
   new MutationObserver(applyPracticeModeFromUrl).observe(document.documentElement, { childList: true, subtree: true });
   window.addEventListener("popstate", () => {
@@ -858,6 +907,20 @@ function buildProgressDashboard(state, subject, year = state?.year) {
     topics: assessmentRows,
   } : null;
 
+  const aiScope = `${subject}:y${Number(year)}`;
+  const aiHelpActionsMap = {};
+  let aiHelpWeek = 0;
+  for (const [date, day] of Object.entries(state.aiHelpByDay || {})) {
+    if (date < weekStart || date > today) continue;
+    const usage = day?.scopes?.[aiScope];
+    if (!usage) continue;
+    aiHelpWeek += Number(usage.total) || 0;
+    for (const [action, count] of Object.entries(usage.actions || {})) aiHelpActionsMap[action] = (aiHelpActionsMap[action] || 0) + Number(count || 0);
+  }
+  const aiHelpActions = Object.entries(aiHelpActionsMap)
+    .sort((a, b) => b[1] - a[1])
+    .map(([action, count]) => ({ action, label: aiHelpActionLabel(action), count }));
+
   const activity7 = Array.from({ length: 7 }, (_, index) => {
     const date = daysAgoKey(6 - index);
     const d = new Date(`${date}T12:00:00`);
@@ -881,6 +944,8 @@ function buildProgressDashboard(state, subject, year = state?.year) {
     recentMastered,
     errorPatterns,
     assessmentPractice,
+    aiHelpWeek,
+    aiHelpActions,
     topics: topics.sort((a, b) => b.dueCount - a.dueCount || ({ learning: 0, practising: 1, secure: 2, mastered: 3 }[a.state] - ({ learning: 0, practising: 1, secure: 2, mastered: 3 }[b.state])) || a.accuracy - b.accuracy || a.title.localeCompare(b.title)),
     activity7,
   };
