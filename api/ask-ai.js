@@ -155,8 +155,33 @@ export default async function handler(req, res) {
 
     const data = await response.json().catch(() => ({}));
     if (!response.ok) {
-      console.error("OpenAI API error", response.status, data?.error?.code || data?.error?.type || "unknown");
-      return res.status(502).json({ error: "AI explanation is unavailable right now." });
+      const code = String(data?.error?.code || data?.error?.type || "unknown");
+      console.error("OpenAI API error", response.status, code);
+
+      let error = "AI explanation is unavailable right now.";
+      let diagnostic = "openai_error";
+
+      if (response.status === 401) {
+        error = "OpenAI rejected the API key. Check the Vercel OPENAI_API_KEY value.";
+        diagnostic = "invalid_api_key";
+      } else if (response.status === 403) {
+        error = "The OpenAI API key does not have permission for this request.";
+        diagnostic = "permission_denied";
+      } else if (response.status === 429 && /quota|credit|billing/i.test(code)) {
+        error = "OpenAI API billing or credits are required for this project.";
+        diagnostic = "billing_or_credits";
+      } else if (response.status === 429) {
+        error = "OpenAI API rate limit reached. Please try again shortly.";
+        diagnostic = "rate_limit";
+      } else if (response.status === 404 || /model.*not.*found|model_not_found/i.test(code)) {
+        error = "The selected OpenAI model is not available to this API project.";
+        diagnostic = "model_unavailable";
+      } else if (response.status === 400) {
+        error = "OpenAI rejected the explanation request.";
+        diagnostic = "bad_request";
+      }
+
+      return res.status(502).json({ error, diagnostic });
     }
 
     const explanation = extractText(data);
