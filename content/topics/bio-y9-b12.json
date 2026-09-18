@@ -1981,16 +1981,26 @@
       "conceptId": "bio-y9-b12-app-after-exercise-concept",
       "topicId": "bio-y9-b12",
       "topic": "Response to exercise",
-      "format": "sequence",
+      "format": "word_tiles",
       "prompt": "Put the events in order from vigorous exercise to recovery.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "sequence"
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "oxygen delivery cannot meet muscle demand some anaerobic respiration occurs lactic acid accumulates additional oxygen is taken in after exercise lactic acid is carried to the liver and converted back into glucose"
+        ]
       },
       "stimulus": {
         "items": [
+          "oxygen delivery cannot meet muscle demand",
+          "lactic acid accumulates",
+          "lactic acid is carried to the liver and converted back into glucose",
+          "additional oxygen is taken in after exercise",
+          "some anaerobic respiration occurs"
+        ],
+        "tiles": [
           "oxygen delivery cannot meet muscle demand",
           "lactic acid accumulates",
           "lactic acid is carried to the liver and converted back into glucose",
@@ -2009,8 +2019,8 @@
         "remember": "oxygen delivery cannot meet muscle demand → some anaerobic respiration occurs → lactic acid accumulates → additional oxygen is taken in after exercise → lactic acid is carried to the liver and converted back into glucose"
       },
       "task": {
-        "label": "ORDER",
-        "instruction": "Put every step in the correct order."
+        "label": "ORDER THE STEPS",
+        "instruction": "Tap each tile in the correct order."
       },
       "preview": true,
       "ordinary": true
@@ -2066,7 +2076,7 @@
     "mark_points": 11,
     "typed_exact": 1,
     "matching": 2,
-    "sequence": 1
+    "word_tiles": 1
   },
   "gated": false,
   "note": {
