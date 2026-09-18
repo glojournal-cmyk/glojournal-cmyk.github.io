@@ -646,12 +646,30 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
 }
 
 function patchedRecordSpelling(questionId, correct) {
+  const before = store.getState();
+  const previous = before.spellingDue?.[questionId] || null;
   const result = originalRecordSpelling(questionId, correct);
-  if (!correct) return result;
   const after = store.getState();
+  const day = todayKey();
+  const spellingDue = { ...(after.spellingDue || {}) };
+
+  if (!correct) {
+    spellingDue[questionId] = { due: shiftDay(day, 2), stage: 1, wrong: true, last: day };
+  } else if (previous) {
+    const stage = Math.max(1, Number(previous.stage) || 1);
+    spellingDue[questionId] = {
+      due: shiftDay(day, stage >= 2 ? 30 : 7),
+      stage: stage >= 2 ? 3 : 2,
+      wrong: false,
+      last: day,
+    };
+  }
+  store.setState({ spellingDue });
+
+  if (!correct) return result;
   const known = QUESTION_META.get(questionId);
   if (!known?.topicId) return result;
-  const current = normalizeTopicStat(after.topicStats?.[known.topicId] || {});
+  const current = normalizeTopicStat(store.getState().topicStats?.[known.topicId] || {});
   const productionIds = current.productionIds.includes(questionId) ? current.productionIds : [...current.productionIds, questionId].slice(-20);
   const productionCorrect = productionIds.length;
   const next = {
@@ -660,9 +678,9 @@ function patchedRecordSpelling(questionId, correct) {
     productionIds,
     state: topicState(current.attempted, current.correct, productionCorrect),
     masteryRule: 1,
-    lastProduction: todayKey(),
+    lastProduction: day,
   };
-  store.setState({ topicStats: { ...(after.topicStats || {}), [known.topicId]: next } });
+  store.setState({ topicStats: { ...(store.getState().topicStats || {}), [known.topicId]: next } });
   normalizeState();
   return result;
 }
