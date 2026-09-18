@@ -177,6 +177,10 @@ let renderTimer = null;
 
 function schedule() {
   clearTimeout(renderTimer);
+  if (!endpoint()) {
+    document.getElementById(PANEL_ID)?.remove();
+    return;
+  }
   let attempts = 0;
   const tryRender = () => {
     attempts += 1;
