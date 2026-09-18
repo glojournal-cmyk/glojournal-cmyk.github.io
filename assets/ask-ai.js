@@ -1,44 +1,5 @@
 const PANEL_ID = "scholar-ai-panel";
-const ENDPOINT_KEY = "scholar-ai-endpoint";
-
-function endpoint() {
-  if (typeof window === "undefined") return "";
-  return String(
-    window.__SCHOLAR_AI_ENDPOINT__ ||
-    document.querySelector('meta[name="scholar-ai-endpoint"]')?.content ||
-    localStorage.getItem(ENDPOINT_KEY) ||
-    "https://glojournal-cmyk-github-io.vercel.app/api/ask-ai"
-  ).trim();
-}
-
-function hash(value) {
-  let h = 2166136261;
-  for (let i = 0; i < value.length; i++) {
-    h ^= value.charCodeAt(i);
-    h = Math.imul(h, 16777619);
-  }
-  return (h >>> 0).toString(36);
-}
-
-function cacheKey(payload, action) {
-  return "scholar-ai-cache:" + hash(JSON.stringify({ ...payload, action }));
-}
-
-function readCache(key) {
-  try {
-    const item = JSON.parse(sessionStorage.getItem(key) || "null");
-    if (!item?.text) return null;
-    return item.text;
-  } catch {
-    return null;
-  }
-}
-
-function writeCache(key, text) {
-  try {
-    sessionStorage.setItem(key, JSON.stringify({ text, at: Date.now() }));
-  } catch {}
-}
+const CHATGPT_URL = "https://chatgpt.com/";
 
 function visible(el) {
   if (!el) return false;
@@ -58,56 +19,105 @@ function feedbackHost() {
   return spelling?.closest("div.mt-5") || spelling?.parentElement || null;
 }
 
-function makeButton(label, action, payload, output, status) {
+function actionInstruction(action, correct) {
+  const map = {
+    why_correct: "Explain why my answer is correct. Use a clear rule → application → example structure.",
+    where_wrong: "Explain exactly where I went wrong. Identify my misconception, explain the governing rule, and show how to apply it here.",
+    explain_rule: "Explain the underlying rule clearly, then apply it to this question.",
+    simpler: "Explain this more simply for a 13-year-old Year 9 student, without being childish.",
+    similar_example: "Give me one closely related practice example. Let me try it first, then put the answer underneath a clear ANSWER heading.",
+    chinese: "用簡潔繁體中文解釋，但重要學科術語保留英文、Latin 或 French。請解釋規則、我這題怎樣應用，以及一個例子。",
+  };
+  return map[action] || (correct ? map.why_correct : map.where_wrong);
+}
+
+function buildPrompt(payload, action) {
+  const lines = [
+    "I am a Year 9 student revising in Scholar's Garden.",
+    "",
+    "Please help me understand this exact question. The app's official answer below is the marking source; do not silently change it. If you think it may genuinely be inconsistent with the question, say 'This may need checking' and explain why.",
+    "",
+    `Subject: ${payload.subject || "School subject"}`,
+    `Year: ${payload.year || 9}`,
+    payload.topic ? `Topic: ${payload.topic}` : "",
+    payload.format ? `Question format: ${payload.format}` : "",
+    "",
+    `Question: ${payload.question || ""}`,
+    payload.stimulus ? `Context: ${payload.stimulus}` : "",
+    `My answer: ${payload.studentAnswer || "(blank)"}`,
+    `Official answer: ${payload.officialAnswer || ""}`,
+    payload.staticExplanation ? `Approved explanation: ${payload.staticExplanation}` : "",
+    payload.errorKind && payload.errorKind !== "none" ? `Recorded error type: ${payload.errorKind}` : "",
+    `I was marked: ${payload.correct ? "correct" : "incorrect"}`,
+    "",
+    "Please keep the explanation concise, accurate and suitable for Year 9.",
+    actionInstruction(action, !!payload.correct),
+  ].filter(Boolean);
+  return lines.join("\n");
+}
+
+async function copyText(text) {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {}
+  }
+
+  const box = document.createElement("textarea");
+  box.value = text;
+  box.setAttribute("readonly", "");
+  box.style.position = "fixed";
+  box.style.left = "-9999px";
+  document.body.appendChild(box);
+  box.select();
+  let ok = false;
+  try { ok = document.execCommand("copy"); } catch {}
+  box.remove();
+  return ok;
+}
+
+function makeButton(label, action, payload, status) {
   const button = document.createElement("button");
   button.type = "button";
-  button.className = "min-h-10 rounded-lg bg-card px-3 py-2 text-left text-xs ring-1 ring-line hover:bg-sage disabled:opacity-50";
+  button.className = "min-h-10 rounded-lg bg-card px-3 py-2 text-left text-xs ring-1 ring-line hover:bg-sage";
   button.textContent = label;
+
   button.addEventListener("click", async () => {
-    const url = endpoint();
-    if (!url) {
-      status.textContent = "AI explanation is not connected yet. The approved explanation above remains available.";
-      output.textContent = "";
-      return;
-    }
+    const prompt = buildPrompt(payload, action);
 
-    const key = cacheKey(payload, action);
-    const cached = readCache(key);
-    if (cached) {
-      status.textContent = "AI explanation";
-      output.textContent = cached;
-      return;
-    }
+    // Open synchronously from the click so iPad/Safari does not treat it as a popup.
+    const tab = window.open(CHATGPT_URL, "_blank", "noopener,noreferrer");
+    const copied = await copyText(prompt);
 
-    for (const node of button.parentElement?.querySelectorAll("button") || []) node.disabled = true;
-    status.textContent = "Thinking…";
-    output.textContent = "";
-
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 20000);
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...payload, action }),
-        signal: controller.signal,
-      });
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(data?.error || "AI explanation is unavailable right now.");
-      const text = String(data?.explanation || "").trim();
-      if (!text) throw new Error("AI returned an empty explanation.");
-      writeCache(key, text);
-      status.textContent = "AI explanation";
-      output.textContent = text;
-    } catch (error) {
-      status.textContent = error?.name === "AbortError" ? "AI took too long. Try again." : (error?.message || "AI explanation is unavailable right now.");
-      output.textContent = "";
-    } finally {
-      clearTimeout(timer);
-      for (const node of button.parentElement?.querySelectorAll("button") || []) node.disabled = false;
+    if (copied && tab) {
+      status.textContent = "Prompt copied. Paste it into ChatGPT.";
+    } else if (copied) {
+      status.textContent = "Prompt copied. Open ChatGPT and paste it.";
+    } else if (tab) {
+      status.textContent = "ChatGPT opened. Copy the prompt below manually.";
+      showManualPrompt(prompt, status);
+    } else {
+      status.textContent = "Your browser blocked the new tab. Use Copy prompt, then open ChatGPT.";
+      showManualPrompt(prompt, status);
     }
   });
+
   return button;
+}
+
+function showManualPrompt(prompt, status) {
+  const old = status.parentElement?.querySelector("[data-scholar-prompt]");
+  old?.remove();
+
+  const box = document.createElement("textarea");
+  box.dataset.scholarPrompt = "1";
+  box.readOnly = true;
+  box.value = prompt;
+  box.className = "mt-3 min-h-32 w-full rounded-lg bg-sage/60 p-3 text-xs leading-relaxed ring-1 ring-line";
+  status.insertAdjacentElement("afterend", box);
+  box.focus();
+  box.select();
 }
 
 function render(payload) {
@@ -120,29 +130,16 @@ function render(payload) {
   panel.id = PANEL_ID;
   panel.className = "rounded-lg bg-card p-4 text-sm ring-1 ring-line";
 
-  const top = document.createElement("div");
-  top.className = "flex flex-wrap items-start justify-between gap-2";
-
-  const heading = document.createElement("div");
   const kicker = document.createElement("p");
   kicker.className = "text-xs tracking-[0.16em] text-navy uppercase";
-  kicker.textContent = "Ask AI";
+  kicker.textContent = "Ask ChatGPT";
+
   const copy = document.createElement("p");
   copy.className = "mt-1 text-sm text-muted";
-  copy.textContent = "Optional help with this exact question. AI never changes the official answer, XP or Mastery.";
-  heading.append(kicker, copy);
-  top.appendChild(heading);
-  panel.appendChild(top);
+  copy.textContent = "Free option: the app copies this question into a ready-made prompt and opens ChatGPT. Paste the prompt there for an explanation.";
 
   const buttons = document.createElement("div");
   buttons.className = "mt-3 grid gap-2 sm:grid-cols-2";
-
-  const status = document.createElement("p");
-  status.className = "mt-3 text-xs text-muted";
-
-  const output = document.createElement("div");
-  output.className = "mt-2 whitespace-pre-wrap rounded-lg bg-sage/60 p-3 text-sm leading-relaxed";
-  output.textContent = "";
 
   const options = payload.correct
     ? [
@@ -158,13 +155,19 @@ function render(payload) {
         ["中文解釋", "chinese"],
       ];
 
-  for (const [label, action] of options) buttons.appendChild(makeButton(label, action, payload, output, status));
-  panel.append(buttons, status, output);
+  const status = document.createElement("p");
+  status.className = "mt-3 text-xs text-muted";
+  status.setAttribute("aria-live", "polite");
+
+  for (const [label, action] of options) {
+    buttons.appendChild(makeButton(label, action, payload, status));
+  }
 
   const note = document.createElement("p");
   note.className = "mt-3 text-[11px] text-muted";
-  note.textContent = "AI can make mistakes. The approved answer and explanation above remain the marking source.";
-  panel.appendChild(note);
+  note.textContent = "No paid API is used. ChatGPT opens separately and does not change the app's official answer, XP or Mastery.";
+
+  panel.append(kicker, copy, buttons, status, note);
 
   const whyBox = [...host.children].find((node) => node.textContent?.trim().startsWith("Why?"));
   if (whyBox?.nextSibling) host.insertBefore(panel, whyBox.nextSibling);
@@ -177,10 +180,6 @@ let renderTimer = null;
 
 function schedule() {
   clearTimeout(renderTimer);
-  if (!endpoint()) {
-    document.getElementById(PANEL_ID)?.remove();
-    return;
-  }
   let attempts = 0;
   const tryRender = () => {
     attempts += 1;
@@ -205,8 +204,7 @@ new MutationObserver(() => {
   if (current && !document.getElementById(PANEL_ID)) schedule();
 }).observe(document.documentElement, { childList: true, subtree: true });
 
-export function setScholarAiEndpoint(url) {
-  const value = String(url || "").trim();
-  if (value) localStorage.setItem(ENDPOINT_KEY, value);
-  else localStorage.removeItem(ENDPOINT_KEY);
+// Kept only for compatibility with the earlier API-backed build.
+export function setScholarAiEndpoint() {
+  try { localStorage.removeItem("scholar-ai-endpoint"); } catch {}
 }
