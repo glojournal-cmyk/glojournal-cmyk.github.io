@@ -1,0 +1,30 @@
+name: repair answer keys once
+on:
+  push:
+    branches: [main]
+    paths:
+      - tests/repair-answer-keys.mjs
+      - .github/workflows/repair-answer-keys.yml
+permissions:
+  contents: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Repair scoring schemas
+        run: node tests/repair-answer-keys.mjs
+      - name: Commit repaired question bank
+        run: |
+          if git diff --quiet -- content/topics; then
+            echo "No content changes needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/topics
+          git commit -m "Repair question-bank scoring schemas"
+          git push
