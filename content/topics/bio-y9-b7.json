@@ -2575,16 +2575,26 @@
       "conceptId": "bio-y9-b7-app-dna-hierarchy-concept",
       "topicId": "bio-y9-b7",
       "topic": "DNA and the genome; DNA structure",
-      "format": "sequence",
+      "format": "word_tiles",
       "prompt": "Put these in order from largest context to smallest section: gene, cell, chromosome, DNA, nucleus.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "sequence"
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "cell nucleus chromosome DNA gene"
+        ]
       },
       "stimulus": {
         "items": [
+          "nucleus",
+          "gene",
+          "chromosome",
+          "cell",
+          "DNA"
+        ],
+        "tiles": [
           "nucleus",
           "gene",
           "chromosome",
@@ -2603,8 +2613,8 @@
         "remember": "cell → nucleus → chromosome → DNA → gene"
       },
       "task": {
-        "label": "ORDER",
-        "instruction": "Put every step in the correct order."
+        "label": "ORDER THE STEPS",
+        "instruction": "Tap each tile in the correct order."
       },
       "preview": true,
       "ordinary": true
@@ -2814,9 +2824,9 @@
     "mark_points": 14,
     "typed_short": 2,
     "matching": 3,
-    "sequence": 1,
     "unordered_set": 1,
-    "diagram_label": 1
+    "diagram_label": 1,
+    "word_tiles": 1
   },
   "gated": false,
   "note": {
