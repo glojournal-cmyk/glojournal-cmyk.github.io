@@ -64,6 +64,21 @@
     try { sessionStorage.setItem(key, JSON.stringify({ text, at: Date.now() })); } catch {}
   }
 
+  function reportUse(payload, action, cached) {
+    try {
+      window.dispatchEvent(new CustomEvent("scholar:ai-help-used", {
+        detail: {
+          subject: payload?.subject || "",
+          year: payload?.year || null,
+          topicId: payload?.topicId || "",
+          questionId: payload?.questionId || "",
+          action,
+          cached: !!cached,
+        },
+      }));
+    } catch {}
+  }
+
   function makeButton(label, action, payload, status, output) {
     const button = document.createElement("button");
     button.type = "button";
@@ -78,6 +93,7 @@
       if (cached) {
         status.textContent = "AI explanation";
         output.textContent = cached;
+        reportUse(payload, action, true);
         return;
       }
 
@@ -102,6 +118,7 @@
         writeCache(key, text);
         status.textContent = "AI explanation";
         output.textContent = text;
+        reportUse(payload, action, false);
       } catch (error) {
         status.textContent = error?.name === "AbortError" ? "AI took too long. Try again." : (error?.message || "AI explanation is unavailable right now.");
         output.textContent = "";
