@@ -120,7 +120,11 @@ function canFallback(status) {
   return status === 404 || status === 429 || status >= 500;
 }
 
-async function callGemini(model, prompt, { temperature = 0.2, maxOutputTokens = 420 } = {}) {
+async function callGemini(model, prompt, {
+  temperature = 0.2,
+  maxOutputTokens = 900,
+  thinkingLevel = "minimal",
+} = {}) {
   try {
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
@@ -132,17 +136,23 @@ async function callGemini(model, prompt, { temperature = 0.2, maxOutputTokens = 
         },
         body: JSON.stringify({
           contents: [{ role: "user", parts: [{ text: prompt }] }],
-          generationConfig: { temperature, maxOutputTokens },
+          generationConfig: {
+            temperature,
+            maxOutputTokens,
+            thinkingConfig: { thinkingLevel },
+          },
         }),
       }
     );
 
     const data = await response.json().catch(() => ({}));
+    const finishReason = clean(data?.candidates?.[0]?.finishReason, 80) || "";
     return {
       ok: response.ok,
       status: response.status,
       data,
       text: response.ok ? extractText(data) : "",
+      finishReason,
       code: clean(data?.error?.status || data?.error?.code, 80) || "unknown",
       message: clean(data?.error?.message, 500) || "",
     };
@@ -152,6 +162,7 @@ async function callGemini(model, prompt, { temperature = 0.2, maxOutputTokens = 
       status: 599,
       data: {},
       text: "",
+      finishReason: "",
       code: "NETWORK_OR_RUNTIME_ERROR",
       message: clean(error?.message, 500) || "Gemini request could not be completed.",
     };
@@ -161,25 +172,54 @@ async function callGemini(model, prompt, { temperature = 0.2, maxOutputTokens = 
 async function callWithFallback(prompt, options = {}) {
   const models = getModelChain();
   const attempts = [];
+  const baseMax = Number(options.maxOutputTokens) || 900;
 
   for (const model of models) {
-    const result = await callGemini(model, prompt, options);
-    attempts.push({ model, status: result.status, code: result.code });
+    let result = await callGemini(model, prompt, options);
+    attempts.push({
+      model,
+      status: result.status,
+      code: result.code,
+      finishReason: result.finishReason || undefined,
+    });
 
     if (result.ok && result.text) {
       return { ok: true, modelUsed: model, text: result.text, attempts };
     }
 
-    if (result.ok && !result.text) {
-      const blocked = result.data?.promptFeedback?.blockReason || result.data?.candidates?.[0]?.finishReason;
-      return {
-        ok: false,
-        modelUsed: model,
+    if (result.ok && !result.text && result.finishReason === "MAX_TOKENS") {
+      result = await callGemini(model, prompt, {
+        ...options,
+        maxOutputTokens: Math.max(baseMax * 2, 1200),
+        thinkingLevel: "minimal",
+      });
+      attempts.push({
+        model,
         status: result.status,
-        code: clean(blocked, 80) || "EMPTY_RESPONSE",
-        message: blocked ? `Gemini could not answer this request (${blocked}).` : "Gemini returned an empty explanation.",
-        attempts,
-      };
+        code: result.code,
+        finishReason: result.finishReason || undefined,
+        retry: "larger_output_budget",
+      });
+
+      if (result.ok && result.text) {
+        return { ok: true, modelUsed: model, text: result.text, attempts };
+      }
+    }
+
+    if (result.ok && !result.text) {
+      const blocked = result.data?.promptFeedback?.blockReason || result.finishReason;
+      if (blocked && blocked !== "MAX_TOKENS") {
+        return {
+          ok: false,
+          modelUsed: model,
+          status: result.status,
+          code: clean(blocked, 80) || "EMPTY_RESPONSE",
+          message: `Gemini could not answer this request (${blocked}).`,
+          attempts,
+        };
+      }
+      // Empty/MAX_TOKENS after retry: try the next free-tier model.
+      continue;
     }
 
     if (!canFallback(result.status)) {
@@ -199,7 +239,7 @@ async function callWithFallback(prompt, options = {}) {
     ok: false,
     modelUsed: last.model || models.at(-1),
     status: last.status || 503,
-    code: last.code || "UNAVAILABLE",
+    code: last.code || last.finishReason || "UNAVAILABLE",
     message: "All available free-tier Gemini models are temporarily unavailable.",
     attempts,
   };
@@ -252,7 +292,8 @@ export default async function handler(req, res) {
 
     const test = await callWithFallback("Reply with exactly OK", {
       temperature: 0,
-      maxOutputTokens: 20,
+      maxOutputTokens: 128,
+      thinkingLevel: "minimal",
     });
 
     if (test.ok) {
