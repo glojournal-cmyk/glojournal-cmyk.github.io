@@ -1,6 +1,7 @@
 import{t as jx}from"./jsx-runtime-Cltr0gcK.js";
 import{C as useStore,t as router,rt as unavailable,buildProgressDashboard as buildDashboard}from"./index-BLVOhKhN.js";
 import{t as Card}from"./card-t5JqoXqT.js";
+import{t as YearSelect}from"./study-year-select-Dx5P4Ogw.js";
 import{n as getSubject}from"./subjects-B4IlB2zW.js";
 
 var J=jx();
@@ -118,7 +119,8 @@ function Progress(){
     ]}),
     J.jsxs("header",{children:[
       J.jsxs("h1",{className:"font-display text-4xl font-semibold",children:[subjectInfo.name," Progress"]}),
-      J.jsx("p",{className:"mt-2 text-muted",children:"Parent view · Mastered means ≥85% accuracy plus at least one independent typed or spelled answer."})
+      J.jsx("p",{className:"mt-2 text-muted",children:"Parent view · Mastered means ≥85% accuracy plus at least one independent typed or spelled answer."}),
+      J.jsx("div",{className:"mt-3",children:J.jsx(YearSelect,{subjectName:subjectInfo.name})})
     ]}),
 
     J.jsxs("div",{className:"grid gap-3 sm:grid-cols-2 lg:grid-cols-4",children:[
