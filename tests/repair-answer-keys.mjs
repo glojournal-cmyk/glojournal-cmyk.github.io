@@ -48,6 +48,9 @@ function recoverMc(q){
   const short=String(q.feedback?.short||"");
   const colon=short.match(/^\s*([^:]{1,100})\s*:/);
   if(colon){const hit=mapToOption(colon[1],options); if(hit) return hit;}
+  const whole=norm(lines.join(" "));
+  const mentioned=[...new Set(options.filter(o=>norm(o).length>=2 && whole.includes(norm(o))))];
+  if(mentioned.length===1) return mentioned[0];
   return null;
 }
 function sequenceItems(q){
@@ -119,6 +122,13 @@ for(const file of files){
           q.task={...(q.task||{}),instruction:"Show the method and all requested results, then self-check against the approved mark points. This open response does not affect formal Mastery."};
           stats.calcSelfCheck++; changed=true;
         }
+      } else if(q.answer.mode==="structured" && q.answer.working){
+        q.format="mark_points"; q.formal=false; q.answer.mode="mark_points";
+        const model=String(q.feedback?.remember||q.feedback?.short||q.answer.working).replace(/^\s*Key answer:\s*/i,"").trim();
+        q.answer.markPoints=[q.answer.working, model].filter((v,i,a)=>v&&a.indexOf(v)===i);
+        q.answer.modelAnswer=model;
+        q.task={...(q.task||{}),instruction:"Show the method and all requested results, then self-check against the approved answer. This multi-part response does not affect formal Mastery."};
+        stats.calcSelfCheck++; changed=true;
       } else {
         unresolved.push({file,id:q.id,type:"calculation"});
       }
