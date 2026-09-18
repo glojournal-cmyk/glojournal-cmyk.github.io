@@ -412,11 +412,63 @@ function normalizeState() {
 
 const initial = store.getState();
 const originalHydrateDay = initial.hydrateDay;
+const originalAward = initial.award;
 const originalRecordPe = initial.recordPe;
 const originalRecordGame = initial.recordGame;
 const originalRecordAttempt = initial.recordAttempt;
 const originalRecordSpelling = initial.recordSpelling;
 const originalBumpDaily = initial.bumpDaily;
+
+const STUDY_REWARD_XP = {
+  daily_complete: 40,
+  practice_first_correct: 4,
+  practice_repeat_correct: 1,
+  due_review_correct: 6,
+  spelling_first: 8,
+  spelling_repair: 2,
+  vocab_review: 8,
+  quiz_complete_80: 16,
+  quiz_bonus_90: 8,
+  writing_complete: 20,
+};
+
+function patchedAward(kind, options = {}) {
+  if (options?.amount != null || !(kind in STUDY_REWARD_XP)) return originalAward(kind, options);
+
+  const state = store.getState();
+  const day = todayKey();
+  const detail = String(options?.detail || kind);
+  const dayLedger = { ...(state.rewardLedgerByDay?.[day] || {}) };
+  const allLedger = { ...(state.rewardLedgerByDay || {}) };
+  const base = STUDY_REWARD_XP[kind];
+
+  // First-correct and genuinely due reviews are already constrained by question state.
+  // Give them their designed base value rather than the core's lifetime event-count scaling.
+  if (kind === "practice_first_correct" || kind === "due_review_correct") {
+    return originalAward(kind, { ...options, amount: base });
+  }
+
+  // A writing task is a one-time learning reward, even if its text is edited later.
+  if (kind === "writing_complete") {
+    const rewarded = { ...(state.rewardedWriting || {}) };
+    if (rewarded[detail]) return originalAward(kind, { ...options, amount: 0 });
+    const result = originalAward(kind, { ...options, amount: base });
+    rewarded[detail] = day;
+    store.setState({ rewardedWriting: rewarded });
+    return result;
+  }
+
+  // All remaining study/session rewards are capped by kind + detail within the local day.
+  const key = `${kind}::${detail}`;
+  if (dayLedger[key]) return originalAward(kind, { ...options, amount: 0 });
+  const result = originalAward(kind, { ...options, amount: base });
+  dayLedger[key] = true;
+  allLedger[day] = dayLedger;
+  const days = Object.keys(allLedger).sort();
+  while (days.length > 14) delete allLedger[days.shift()];
+  store.setState({ rewardLedgerByDay: allLedger });
+  return result;
+}
 
 function patchedHydrateDay(...args) {
   const result = originalHydrateDay(...args);
@@ -424,11 +476,47 @@ function patchedHydrateDay(...args) {
   return result;
 }
 
-function patchedRecordPe(...args) {
-  const result = originalRecordPe(...args);
+function patchedRecordPe(points, stars, level) {
+  const before = store.getState();
+  const day = todayKey();
+  const rewards = { ...(before.peRewardByDay || {}) };
+  const previousReward = Math.max(0, Number(rewards[day]) || 0);
+  const targetReward = stars >= 2 ? 8 : stars === 1 ? 4 : 0;
+  const hadRealDay = Array.isArray(before.peDays) && before.peDays.includes(day);
+
+  // On a repeat attempt, make core see today as already rewarded so it cannot pay again.
+  let insertedTemporaryDay = false;
+  if (previousReward > 0 && !hadRealDay) {
+    store.setState({ peDays: [...(before.peDays || []), day] });
+    insertedTemporaryDay = true;
+  }
+
+  const result = originalRecordPe(points, stars, level);
   const after = store.getState();
-  const peCount = Array.isArray(after.peDays) ? after.peDays.length : 0;
-  if ((after.peSessions || 0) !== peCount) store.setState({ peSessions: peCount });
+  let peDays = [...new Set(after.peDays || [])];
+
+  if (stars >= 2) {
+    if (!peDays.includes(day)) peDays.push(day);
+  } else if (insertedTemporaryDay && !hadRealDay) {
+    peDays = peDays.filter((value) => value !== day);
+  }
+
+  // If a 1-star attempt earned 4 earlier and the learner later reaches 2 stars,
+  // award only the 4-XP difference so PE can never exceed 8 XP in one day.
+  const topUp = Math.max(0, targetReward - previousReward);
+  if (previousReward > 0 && topUp > 0) {
+    originalAward("pe_complete", { detail: "PE circuit upgrade", amount: topUp });
+  }
+
+  rewards[day] = Math.max(previousReward, targetReward);
+  const rewardDays = Object.keys(rewards).sort();
+  while (rewardDays.length > 30) delete rewards[rewardDays.shift()];
+
+  store.setState({
+    peDays,
+    peSessions: peDays.length,
+    peRewardByDay: rewards,
+  });
   return result;
 }
 
@@ -574,6 +662,7 @@ function patchedRecordSpelling(questionId, correct) {
 }
 
 store.setState({
+  award: patchedAward,
   hydrateDay: patchedHydrateDay,
   recordPe: patchedRecordPe,
   recordGame: patchedRecordGame,
