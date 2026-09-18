@@ -130,7 +130,7 @@ function isIndependentProduction(meta) {
   if (meta?.production === true) return true;
   if (meta?.production === false) return false;
   const format = String(meta?.format || "");
-  if (["typed_exact", "typed_short", "controlled_translation", "extended_response", "practical_design", "mark_points", "calculation", "spelling_restore", "unordered_set"].includes(format)) return true;
+  if (["typed_exact", "typed_short", "typed_equivalent", "controlled_translation", "extended_response", "practical_design", "mark_points", "calculation", "spelling_restore", "unordered_set"].includes(format)) return true;
   if (["mc_single", "matching", "sorting", "diagram_label", "word_tiles", "sequence"].includes(format)) return false;
   if (typeof document === "undefined" || typeof window === "undefined") return false;
   return [...document.querySelectorAll("main form input:not([type='hidden']), main form textarea")].some(isVisible);

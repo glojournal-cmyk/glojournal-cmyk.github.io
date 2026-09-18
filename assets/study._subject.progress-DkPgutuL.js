@@ -1,5 +1,5 @@
 import{t as jx}from"./jsx-runtime-Cltr0gcK.js";
-import{C as useStore,t as router,rt as unavailable,buildProgressDashboard as buildDashboard}from"./index-BLVOhKhN.js";
+import{C as useStore,t as router,rt as unavailable,dt as useCatalog,buildProgressDashboard as buildDashboard}from"./index-BLVOhKhN.js";
 import{t as Card}from"./card-t5JqoXqT.js";
 import{t as YearSelect}from"./study-year-select-Dx5P4Ogw.js";
 import{n as getSubject}from"./subjects-B4IlB2zW.js";
@@ -101,6 +101,8 @@ function Progress(){
   const subjectInfo=getSubject(subject);
   const state=useStore(s=>s);
   const year=state.year;
+  const catalog=useCatalog();
+  if(!catalog)return J.jsx(Card,{className:"p-6 text-sm text-muted",children:"Loading the verified curriculum progress…"});
   const waiting=unavailable(subject,year);
   const data=buildDashboard(state,subject,year);
 
@@ -163,7 +165,8 @@ function Progress(){
 
     J.jsxs("div",{className:"flex flex-wrap gap-2",children:[
       J.jsx("a",{href:"/study/"+subject+"/practise?mode=due",className:"rounded-xl bg-navy px-3 py-2 text-sm text-card",children:"Do due reviews"}),
-      J.jsx("a",{href:"/study/"+subject+"/practise?mode=weak",className:"rounded-xl bg-sage px-3 py-2 text-sm text-navy",children:"Practise weak areas"})
+      J.jsx("a",{href:"/study/"+subject+"/practise?mode=weak",className:"rounded-xl bg-sage px-3 py-2 text-sm text-navy",children:"Practise weak areas"}),
+      subject==="english"&&year===9?J.jsx("a",{href:"/study/english/practise?mode=engmix",className:"rounded-xl bg-sage px-3 py-2 text-sm text-navy",children:"Open Year 9 Mix 15"}):null
     ]}),
 
     J.jsxs("section",{children:[
