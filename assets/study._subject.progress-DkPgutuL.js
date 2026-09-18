@@ -130,7 +130,7 @@ function Progress(){
 
     J.jsxs("div",{className:"grid gap-3 sm:grid-cols-2",children:[
       J.jsx(Metric,{label:"Topics explored",value:data.exploredTopics+"/"+data.totalTopics,detail:"Topics with at least one formal attempt."}),
-      J.jsx(Metric,{label:"Independent production",value:data.productionTopics+"/"+Math.max(1,data.exploredTopics),detail:"Explored topics with typed/spelled evidence.",progress:productionProgress})
+      J.jsx(Metric,{label:"Independent production",value:data.productionTopics+"/"+data.exploredTopics,detail:"Explored topics with typed/spelled evidence.",progress:productionProgress})
     ]}),
 
     J.jsxs("div",{className:"flex flex-wrap gap-2",children:[
