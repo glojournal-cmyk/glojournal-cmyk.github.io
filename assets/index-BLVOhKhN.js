@@ -575,6 +575,49 @@ function patchedRecordPe(points, stars, level) {
   return result;
 }
 
+function recordGamePractice(gameId, conceptKey, correct, options = {}) {
+  if (!gameId || !conceptKey) return;
+  const state = store.getState();
+  const all = { ...(state.gamePractice || {}) };
+  const game = { ...(all[gameId] || {}) };
+  const concepts = { ...(game.concepts || {}) };
+  const key = String(conceptKey).slice(0, 120);
+  const previous = concepts[key] || { attempts: 0, correct: 0, errors: 0, repairs: 0, repairCorrect: 0, streak: 0 };
+  const repair = !!options.repair;
+  const next = {
+    ...previous,
+    label: String(options.label || previous.label || key).slice(0, 120),
+    attempts: (previous.attempts || 0) + (repair ? 0 : 1),
+    correct: (previous.correct || 0) + (!repair && correct ? 1 : 0),
+    errors: (previous.errors || 0) + (!repair && !correct ? 1 : 0),
+    repairs: (previous.repairs || 0) + (repair ? 1 : 0),
+    repairCorrect: (previous.repairCorrect || 0) + (repair && correct ? 1 : 0),
+    streak: correct ? Math.min(12, (previous.streak || 0) + 1) : 0,
+    lastSeen: todayKey(),
+    lastError: !correct ? todayKey() : previous.lastError || null,
+    itemKey: String(options.itemKey || previous.itemKey || "").slice(0, 120),
+  };
+  concepts[key] = next;
+
+  const conceptEntries = Object.entries(concepts);
+  if (conceptEntries.length > 80) {
+    conceptEntries
+      .sort((a, b) => String(b[1]?.lastSeen || "").localeCompare(String(a[1]?.lastSeen || "")))
+      .slice(80)
+      .forEach(([oldKey]) => delete concepts[oldKey]);
+  }
+
+  const recent = [...(game.recent || []), {
+    concept: key,
+    correct: !!correct,
+    repair,
+    at: new Date().toISOString(),
+  }].slice(-60);
+
+  all[gameId] = { concepts, recent };
+  store.setState({ gamePractice: all });
+}
+
 function patchedRecordGame(gameId, points, stars, level) {
   const before = store.getState();
   const day = todayKey();
@@ -753,6 +796,7 @@ store.setState({
   hydrateDay: patchedHydrateDay,
   recordPe: patchedRecordPe,
   recordGame: patchedRecordGame,
+  recordGamePractice,
   recordAttempt: patchedRecordAttempt,
   recordSpelling: patchedRecordSpelling,
 });
