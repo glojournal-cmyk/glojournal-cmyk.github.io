@@ -4,7 +4,7 @@ const core=fs.readFileSync("assets/index-BLVOhKhN.core.js","utf8");
 const wrapper=fs.readFileSync("assets/index-BLVOhKhN.js","utf8");
 const scholar=fs.readFileSync("assets/scholar-iJ2ilQWG.js","utf8");
 const failures=[];
-const requiredState=["topicStats:{}","skillStats:{}","learningEvents:[]","gamePractice:{}","reviews:{}"];
+const requiredState=["topicStats:{}","skillStats:{}","learningEvents:[]","gamePractice:{}","dailyVocabByDay:{}","reviews:{}"];
 for(const token of requiredState)if(!core.includes(token))failures.push({type:"missing-default-state",token});
 for(const token of ["topicStats:n.topicStats??{}","skillStats:n.skillStats??{}","learningEvents:Array.isArray(n.learningEvents)","gamePractice:n.gamePractice??{}"])if(!core.includes(token))failures.push({type:"missing-import-migration",token});
 if(!core.includes("exportProgress:()=>")||!core.includes("state:BT(t())"))failures.push({type:"export-does-not-use-full-state"});
