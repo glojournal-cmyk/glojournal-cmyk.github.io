@@ -1041,8 +1041,8 @@ function buildAdaptiveDaily(state) {
 
   const studyProgress = Math.min(8, Math.max(existingPlan?.progress || 0, state.questionsToday || 0));
   const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;
-  const frenchCarry = focus.subject === "french" && state.year !== 9 ? (previous.get("french-vocab")?.progress || 0) : 0;
-  const focusEvidence = focusAttemptsToday(state, focus);\n  const focusProgress = Math.min(4, Math.max(oldFocusProgress, frenchCarry, focusEvidence));
+  const focusEvidence = focusAttemptsToday(state, focus);
+  const focusProgress = Math.min(4, Math.max(oldFocusProgress, focusEvidence));
   const frenchVocab = vocabGateState(state, "french");
   const latinVocab = vocabGateState(state, "latin");
   const garden = previous.get("tend-garden") || { id: "tend-garden", title: "Water your plants", detail: "Tend the Scholar’s Garden.", href: "/garden", target: 1, progress: 0, xp: 10 };
