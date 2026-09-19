@@ -26,6 +26,8 @@ jobs:
         run: node tests/route-shell-qa.mjs
       - name: Audit progress backup schema
         run: node tests/backup-schema-qa.mjs
+      - name: Audit daily task persistence
+        run: node tests/daily-task-persistence-qa.mjs
       - name: Test French session diversity
         run: node tests/french-session-diversity.mjs
       - name: Audit French content quality
@@ -86,3 +88,4 @@ jobs:
             test-results/biology-session-quality.json
             test-results/route-shell-qa.json
             test-results/backup-schema-qa.json
+            test-results/daily-task-persistence-qa.json
