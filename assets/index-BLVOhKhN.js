@@ -378,6 +378,37 @@ function questionTopicId(item, subject) {
   return item?.topicId || legacyTopicId(subject, item?.topic || "general");
 }
 
+function adaptiveCognitiveDepth(item) {
+  const explicit = Number(item?.cognitiveDepth || item?.cognitiveLevel);
+  if (Number.isFinite(explicit) && explicit >= 1) return Math.max(1, Math.min(4, Math.round(explicit)));
+  const format = String(item?.format || "");
+  const text = [item?.prompt, item?.task?.label, item?.task?.instruction, item?.stimulus?.text].filter(Boolean).join(" ").toLowerCase();
+  let depth = 2;
+  if (format === "mc_single") depth = 1;
+  else if (["matching", "sorting", "diagram_label", "word_tiles", "spelling_restore", "typed_exact", "typed_short", "typed_equivalent"].includes(format)) depth = 2;
+  else if (["controlled_translation", "unordered_set", "sequence", "calculation"].includes(format)) depth = 3;
+  else if (["mark_points", "extended_response", "practical_design"].includes(format)) depth = 4;
+  if (/\b(explain|justify|evaluate|analyse|analyze|discuss|compare|why|give a reason|using evidence|design)\b/.test(text)) depth = Math.max(depth, 4);
+  else if (/\b(apply|calculate|work out|determine|predict|interpret|use the data|use this|translate|construct|derive)\b/.test(text)) depth = Math.max(depth, 3);
+  else if (/\b(name|state|identify|define|complete|conjugate|recall|give the term)\b/.test(text)) depth = Math.max(depth, 2);
+  const difficulty = Number(item?.difficulty) || 0;
+  if (difficulty >= 4) depth = Math.max(depth, 4);
+  else if (difficulty >= 3) depth = Math.max(depth, 3);
+  return Math.max(1, Math.min(4, depth));
+}
+
+function adaptiveSkillTargetDepth(stat = {}) {
+  const normalized = normalizeSkillStat(stat);
+  let level = normalized.challengeLevel || 2;
+  const recent = (normalized.recentOutcomes || []).slice(-3);
+  const lastTwo = recent.slice(-2);
+  if (normalized.retentionFailed) return Math.max(1, level - 1);
+  if (lastTwo.length === 2 && lastTwo.every((row) => row.correct === false)) return Math.max(1, level - 1);
+  if (normalized.attempted >= 2 && normalized.accuracy < 0.6) return 1;
+  if (normalized.needsPractice || (normalized.attempted >= 2 && normalized.accuracy < SECURE_ACCURACY)) return Math.min(2, level);
+  return Math.max(1, Math.min(4, level));
+}
+
 function adaptiveFormatLane(item) {
   const format = String(item?.format || "");
   if (format === "mc_single") return "recognition";
@@ -459,6 +490,17 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
       retentionSkillDue, nextSkillDue, review, due, unseen, mastered, weak, fresh, mistake, retention,
       recent: recentIds.has(item.id), recentConcept: recentConcepts.has(conceptKey),
       lane: adaptiveFormatLane(item), production: adaptiveIsProduction(item),
+      depth: adaptiveCognitiveDepth(item),
+      targetDepth: skillRows.length
+        ? Math.min(...skillRows.map(({ stat }) => adaptiveSkillTargetDepth(stat)))
+        : adaptiveSkillTargetDepth({
+            attempted: stat.attempted,
+            correct: stat.correct,
+            accuracy: stat.accuracy,
+            productionCorrect: stat.productionCorrect,
+            recentOutcomes: stat.recentOutcomes,
+            challengeLevel: stat.state === "mastered" ? 4 : stat.state === "secure" ? 3 : 2,
+          }),
     };
   });
 
@@ -466,6 +508,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     Number(a.recent || a.recentConcept) - Number(b.recent || b.recentConcept) ||
     Number(b.due || b.retentionSkillDue) - Number(a.due || a.retentionSkillDue) ||
     (a.review?.due || a.nextSkillDue || "9999-12-31").localeCompare(b.review?.due || b.nextSkillDue || "9999-12-31") ||
+    Math.abs(a.depth - a.targetDepth) - Math.abs(b.depth - b.targetDepth) ||
     a.skillAccuracy - b.skillAccuracy ||
     a.stat.accuracy - b.stat.accuracy ||
     (seen[a.item.id] || 0) - (seen[b.item.id] || 0) ||
@@ -582,6 +625,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
   const recentSkillWindow = [];
   let lastLane = null;
   let lastProduction = false;
+  let lastDepth = null;
 
   const pickCandidate = (position) => {
     const preferredBucket = bucketPattern[position % bucketPattern.length];
@@ -630,9 +674,14 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
         if (!(row.production && lastProduction)) value += 4;
         if (wantsProduction === row.production) value += 5;
         if (position === 0 && row.production) value -= 5;
-        const difficulty = Number(row.item.difficulty) || 2;
-        if (position < Math.min(3, target)) value += Math.max(0, 4 - difficulty);
-        if (position >= Math.max(3, target - 3)) value += difficulty;
+        const phaseTarget = position < 2
+          ? Math.max(1, row.targetDepth - 1)
+          : position >= Math.max(3, target - 3)
+            ? Math.min(4, row.targetDepth + 1)
+            : row.targetDepth;
+        value += Math.max(0, 10 - Math.abs(row.depth - phaseTarget) * 4);
+        if (lastDepth != null && Math.abs(row.depth - lastDepth) > 1) value -= 8;
+        if (position === 0 && row.depth > 2) value -= 10;
         value -= (row.recent || row.recentConcept) ? 4 : 0;
         return value;
       };
@@ -653,6 +702,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     while (recentSkillWindow.length > 1) recentSkillWindow.shift();
     lastLane = row.lane;
     lastProduction = row.production;
+    lastDepth = row.depth;
   }
 
   const chosenIds = new Set(composed.map((row) => row.item.id));
@@ -667,6 +717,8 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     _sessionConcept: row.conceptKey,
     _sessionPrimarySkill: row.primarySkill,
     _sessionProduction: !!row.production,
+    _sessionDepth: row.depth,
+    _sessionTargetDepth: row.targetDepth,
   }));
 }
 function topicState(attempted, correct, productionCorrect) {
@@ -720,6 +772,13 @@ function normalizeSkillStat(stat = {}) {
     retentionFailures: Math.max(0, Number(stat.retentionFailures) || 0),
     recoveryStreak: Math.max(0, Number(stat.recoveryStreak) || 0),
     needsPractice: !!stat.needsPractice,
+    challengeLevel: Math.max(1, Math.min(4, Number(stat.challengeLevel) || (
+      attempted >= 6 && accuracy >= 0.9 && (Number(stat.productionCorrect) || 0) >= 2 ? 4 :
+      attempted >= 3 && accuracy >= MASTERY_ACCURACY && (Number(stat.productionCorrect) || 0) > 0 ? 3 :
+      attempted >= 2 && accuracy < 0.6 ? 1 : 2
+    ))),
+    challengeStreak: Math.max(0, Number(stat.challengeStreak) || 0),
+    lastChallengeDepth: Math.max(0, Math.min(4, Number(stat.lastChallengeDepth) || 0)),
     recentOutcomes: Array.isArray(stat.recentOutcomes) ? stat.recentOutcomes.slice(-20) : [],
   };
 }
@@ -1091,7 +1150,7 @@ function patchedRecordGame(gameId, points, stars, level) {
   return result;
 }
 
-function applyFormalSkillAttempt(skillStats, skills, questionId, correct, production, isRepair, errorType, topicId) {
+function applyFormalSkillAttempt(skillStats, skills, questionId, correct, production, isRepair, errorType, topicId, cognitiveDepth = 2) {
   const next = { ...(skillStats || {}) };
   const day = todayKey();
   for (const rawSkill of skills || []) {
@@ -1107,10 +1166,25 @@ function applyFormalSkillAttempt(skillStats, skills, questionId, correct, produc
       attempted: (current.repairs?.attempted || 0) + (isRepair ? 1 : 0),
       correct: (current.repairs?.correct || 0) + (isRepair && correct ? 1 : 0),
     };
+    const depth = Math.max(1, Math.min(4, Number(cognitiveDepth) || 2));
     const recentOutcomes = isRepair
       ? [...(current.recentOutcomes || [])]
-      : [...(current.recentOutcomes || []), { date: day, correct: !!correct }].slice(-20);
+      : [...(current.recentOutcomes || []), { date: day, correct: !!correct, depth }].slice(-20);
     const accuracy = attempted ? correctCount / attempted : 0;
+    let challengeLevel = current.challengeLevel || 2;
+    let challengeStreak = current.challengeStreak || 0;
+    if (!isRepair) {
+      if (correct) {
+        challengeStreak = depth >= challengeLevel ? challengeStreak + 1 : Math.max(0, challengeStreak - 1);
+        if (challengeStreak >= 2 && accuracy >= SECURE_ACCURACY && depth >= challengeLevel) {
+          challengeLevel = Math.min(4, challengeLevel + 1);
+          challengeStreak = 0;
+        }
+      } else {
+        if (depth >= challengeLevel) challengeLevel = Math.max(1, challengeLevel - 1);
+        challengeStreak = 0;
+      }
+    }
     const wasDue = !isRepair && !!current.retentionDue && current.retentionDue <= day;
     let retentionStage = current.retentionStage || 0;
     let retentionDue = current.retentionDue || null;
@@ -1172,6 +1246,9 @@ function applyFormalSkillAttempt(skillStats, skills, questionId, correct, produc
       retentionFailures,
       recoveryStreak,
       needsPractice,
+      challengeLevel,
+      challengeStreak,
+      lastChallengeDepth: isRepair ? current.lastChallengeDepth || 0 : depth,
     };
   }
   return next;
@@ -1266,7 +1343,8 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     production,
     isRepair,
     errorType,
-    resolved.topicId
+    resolved.topicId,
+    meta?.cognitiveDepth || 2
   );
   store.setState({
     topicStats: { ...(after.topicStats || {}), [resolved.topicId]: { ...nextTopic, due: reviews[meta?.repairOf || questionId]?.due || nextTopic.due } },
