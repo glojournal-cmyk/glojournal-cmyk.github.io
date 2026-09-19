@@ -1690,10 +1690,55 @@
       "Apply the idea accurately to a new prompt and check every required detail."
     ],
     "mustMemoriseRules": [
-      "Glucose → respiration / starch / cellulose / amino acids + nitrates / lipids.",
-      "--"
+      "Glucose can be used in respiration to transfer energy for cell processes.",
+      "Glucose can be converted into insoluble starch for storage.",
+      "Glucose can be used to make cellulose, which strengthens plant cell walls.",
+      "Glucose can be converted into lipids or oils for storage, especially in seeds.",
+      "Plants use glucose together with nitrate ions absorbed from the soil to make amino acids.",
+      "Amino acids are joined to make proteins."
     ],
-    "mustMemoriseVocabulary": [],
+    "mustMemoriseVocabulary": [
+      {
+        "term": "glucose",
+        "meaning": "the sugar made by photosynthesis and used in respiration or to make other biological molecules",
+        "direction": ""
+      },
+      {
+        "term": "starch",
+        "meaning": "an insoluble storage carbohydrate made from glucose in plants",
+        "direction": ""
+      },
+      {
+        "term": "cellulose",
+        "meaning": "a carbohydrate made from glucose that strengthens plant cell walls",
+        "direction": ""
+      },
+      {
+        "term": "lipid / oil",
+        "meaning": "a storage molecule that plants can make from glucose, especially in seeds",
+        "direction": ""
+      },
+      {
+        "term": "nitrate ion",
+        "meaning": "a mineral ion absorbed from soil and used with glucose-derived material to make amino acids",
+        "direction": ""
+      },
+      {
+        "term": "amino acid",
+        "meaning": "a small molecule used to build proteins",
+        "direction": ""
+      },
+      {
+        "term": "protein",
+        "meaning": "a biological molecule made from amino acids",
+        "direction": ""
+      },
+      {
+        "term": "insoluble",
+        "meaning": "not dissolving in water; this makes starch suitable for storage without strongly affecting osmosis",
+        "direction": ""
+      }
+    ],
     "workedExamples": [
       {
         "prompt": "In B16, write the scientific term, rule or named idea described. use of glucose to transfer energy for cell processes",
@@ -1722,6 +1767,9 @@
       }
     ],
     "commonMistakes": [
+      "Plants do not obtain glucose directly from the soil; they make glucose by photosynthesis.",
+      "Do not forget nitrate ions: plants need them, together with glucose-derived material, to make amino acids and then proteins.",
+      "Starch is used for storage because it is insoluble; cellulose is mainly used to strengthen cell walls.",
       "A partly correct response can still miss a required form, unit, relationship or mark point."
     ],
     "detailedExplanation": [
