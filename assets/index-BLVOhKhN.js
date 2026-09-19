@@ -592,6 +592,33 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     }
   }
 
+  // Keep calibrated difficulty varied: target depth should dominate, not monopolise the session.
+  const maxSameDepth = target >= 5 ? Math.ceil(target * 0.5) : target;
+  const depthCount = (depth) => selected.filter((row) => row.depth === depth).length;
+  for (let depth = 1; depth <= 4; depth += 1) {
+    let count = depthCount(depth);
+    if (count <= maxSameDepth) continue;
+    for (let index = selected.length - 1; index >= 0 && count > maxSameDepth; index -= 1) {
+      const current = selected[index];
+      if (current.depth !== depth) continue;
+      const alternate = rows
+        .filter((row) =>
+          row.conceptKey === current.conceptKey &&
+          row.depth !== depth &&
+          !ids.has(row.item.id)
+        )
+        .sort((a, b) =>
+          Math.abs(a.depth - current.targetDepth) - Math.abs(b.depth - current.targetDepth) ||
+          byNeed(a, b)
+        )[0];
+      if (!alternate) continue;
+      ids.delete(current.item.id);
+      ids.add(alternate.item.id);
+      selected[index] = { ...alternate, bucket: current.bucket };
+      count -= 1;
+    }
+  }
+
   // Avoid a session becoming mostly MC just because each concept's first bank variant is recognition.
   const maxRecognition = target >= 5 ? Math.ceil(target * 0.5) : target;
   let recognitionCount = selected.filter((row) => row.lane === "recognition").length;
