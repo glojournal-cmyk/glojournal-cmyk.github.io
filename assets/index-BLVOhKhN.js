@@ -1006,7 +1006,7 @@ function normalizeState() {
       skillsChanged = true;
     }
     normalizedSkills[skillId] = next;
-    if (raw.accuracy !== next.accuracy || !Array.isArray(raw.recentOutcomes) || !raw.repairs || raw.retentionStage == null || raw.retentionReady == null || raw.needsPractice == null) skillsChanged = true;
+    if (raw.accuracy !== next.accuracy || !Array.isArray(raw.recentOutcomes) || !raw.repairs || raw.retentionStage == null || raw.retentionReady == null || raw.needsPractice == null || raw.challengeLevel == null || raw.challengeStreak == null || raw.lastChallengeDepth == null) skillsChanged = true;
   }
   if (skillsChanged) patch.skillStats = normalizedSkills;
 
