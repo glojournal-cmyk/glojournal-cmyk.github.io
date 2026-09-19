@@ -27,6 +27,8 @@ jobs:
         run: node tests/live-practice-smoke.mjs
       - name: Test marking interactions
         run: node tests/marking-interaction-qa.mjs
+      - name: Test repair and review progress
+        run: node tests/progress-repair-qa.mjs
       - name: Audit every question answer key
         env:
           STRICT: "1"
@@ -40,3 +42,4 @@ jobs:
             test-results/latin-content-quality.json
             test-results/live-practice-smoke.json
             test-results/marking-interaction-qa.json
+            test-results/progress-repair-qa.json
