@@ -20,6 +20,8 @@ jobs:
           node --check assets/study._subject.progress-DkPgutuL.js
           node --check assets/play._game-BbpxhxeZ.js
           node --check assets/scholar-iJ2ilQWG.js
+      - name: Audit Year 9 school runtime update
+        run: node tests/year9-school-update-qa.mjs
       - name: Test French practice regressions
         run: node --test tests/french-practice-regression.mjs
       - name: Audit production route shells
@@ -83,6 +85,7 @@ jobs:
           name: answer-key-audit
           path: |
             test-results/answer-key-audit.json
+            test-results/year9-school-update-qa.json
             test-results/french-content-quality.json
             test-results/latin-content-quality.json
             test-results/live-practice-smoke.json
