@@ -35,6 +35,28 @@ function skillStatusLabel(value){
 function challengeLabel(level){
   return ["","Recognition","Recall","Application","Explanation"][Math.max(1,Math.min(4,Number(level)||2))]||"Recall";
 }
+function LearningEventRow({event}){
+  const label=event.type==="challenge-up"?"Challenge level increased":event.type==="challenge-down"?"Challenge level reduced":event.type==="retention-failed"?"Retention slipped":event.type==="retention-recovered"?"Retention recovered":event.type==="retention-passed"?"Retention check passed":"Spaced repair secured";
+  const detail=event.type==="challenge-up"||event.type==="challenge-down"
+    ?event.fromLabel+" → "+event.toLabel
+    :event.type==="retention-failed"
+      ?"Return to "+(event.toLabel||"the current level")+" before stretching higher."
+      :event.type==="retention-recovered"
+        ?"Formal evidence recovered after the earlier retention miss."
+        :event.type==="retention-passed"
+          ?"The skill stayed secure when checked again."
+          :"Repair evidence was secured; Mastery was not changed by the repair.";
+  return J.jsxs("li",{className:"rounded-xl bg-card p-4 ring-1 ring-line",children:[
+    J.jsxs("div",{className:"flex flex-wrap items-start justify-between gap-2",children:[
+      J.jsxs("div",{children:[
+        J.jsx("p",{className:"font-medium",children:event.skillLabel}),
+        J.jsx("p",{className:"mt-1 text-sm text-muted",children:label})
+      ]}),
+      J.jsx("span",{className:"text-xs text-muted",children:event.day||""})
+    ]}),
+    J.jsx("p",{className:"mt-2 text-sm",children:detail})
+  ]});
+}
 function SkillRow({row,subject}){
   const game=row.game?.attempts
     ?row.game.attempts+" game attempt"+(row.game.attempts===1?"":"s")+" · "+row.game.repairCorrect+" repair"+(row.game.repairCorrect===1?"":"s")+" secured"
@@ -228,6 +250,13 @@ function Progress(){
         J.jsx(Metric,{label:"Retention ready",value:data.skillRetentionReady,detail:"Stable formal skills with a future check scheduled."})
       ]}),
       data.skills.length?J.jsx("ul",{className:"mt-4 grid gap-3 lg:grid-cols-2",children:data.skills.map(row=>J.jsx(SkillRow,{row,subject},row.skillId))}):J.jsx(Empty,{children:"Skill-level evidence starts appearing after formal Practice attempts."})
+    ]}),
+
+    J.jsxs("section",{children:[
+      J.jsx("p",{className:"text-xs tracking-[0.16em] text-navy uppercase",children:"Learning history"}),
+      J.jsx("h2",{className:"mt-1 font-display text-3xl font-semibold",children:"Meaningful changes over time"}),
+      J.jsx("p",{className:"mt-2 max-w-3xl text-sm text-muted",children:"Only level changes, retention outcomes and secured spaced repairs are saved here. Routine answers are not logged."}),
+      data.learningHistory?.length?J.jsx("ul",{className:"mt-4 grid gap-3 lg:grid-cols-2",children:data.learningHistory.map((event,index)=>J.jsx(LearningEventRow,{event},event.at+"-"+event.skillId+"-"+event.type+"-"+index))}):J.jsx(Empty,{children:"Learning-history events will appear after challenge levels change, retention is checked, or a spaced repair is secured."})
     ]}),
 
     J.jsxs("section",{children:[
