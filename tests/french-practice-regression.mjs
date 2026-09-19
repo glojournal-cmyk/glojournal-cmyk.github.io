@@ -39,6 +39,7 @@ function hooks(){
  const same=(a,b)=>a&&b&&a.length===b.length&&a.every((x,i)=>Object.is(x,b[i]));
  return {api:{
   useState(initial){const i=cursor++;if(!(i in cells))cells[i]=typeof initial==='function'?initial():initial;return[cells[i],v=>{const next=typeof v==='function'?v(cells[i]):v;if(!Object.is(next,cells[i])){cells[i]=next;dirty=true;}}];},
+  useRef(initial){const i=cursor++;if(!(i in cells))cells[i]={current:initial};return cells[i];},
   useMemo(fn,deps){const i=cursor++;if(!cells[i]||!same(cells[i].deps,deps))cells[i]={deps,value:fn()};return cells[i].value;},
   useEffect(fn,deps){const i=cursor++;if(!cells[i]||!same(cells[i].deps,deps)){const prev=cells[i];cells[i]={deps};effects.push(()=>{prev?.cleanup?.();cells[i].cleanup=fn();});}}
  },render(fn){let result,n=0;do{dirty=false;cursor=0;effects=[];result=fn();for(const effect of effects)effect();assert.ok(++n<20,'render must settle');}while(dirty);return result;}};
@@ -58,17 +59,18 @@ test('a full ten-question session survives parent/store rerenders and finishes 1
  vm.runInContext(practice.slice(practice.indexOf('function E()'),practice.indexOf('export{')),pc);
  let parent=pr.render(()=>pc.E());await new Promise(resolve=>setImmediate(resolve));parent=pr.render(()=>pc.E());
  const props=tree=>flatten(tree).find(n=>n?.type==='Quiz')?.props;
- let qp=props(parent);assert.equal(qp.items.length,10);
+ let qp=props(parent);assert.equal(qp.items.length,10);const frozenItems=[...qp.items];
  const qc=vm.createContext({...context,...env(state,hr)});vm.runInContext(quiz.slice(quiz.indexOf('function re('),quiz.indexOf('function ie(')),qc);
  let tree=hr.render(()=>qc.H(qp));
  for(let i=0;i<10;i++){
   assert.ok(textOf(tree).includes(`Question ${i+1} / 10`),textOf(tree));
-  const current=qp.items[i];
+  const current=frozenItems[i];
   if(current.format==='mc_single')button(tree,current.answer.accepted[0]).props.onClick();
   else{const input=flatten(tree).find(n=>n?.type==='Input');input.props.onChange({target:{value:current.answer.accepted[0]}});tree=hr.render(()=>qc.H(qp));flatten(tree).find(n=>n?.type==='form').props.onSubmit({preventDefault:empty});}
-  parent=pr.render(()=>pc.E());const nextProps=props(parent);assert.equal(nextProps.items,qp.items,'store update must not reselect questions');qp=nextProps;
-  tree=hr.render(()=>qc.H(qp));assert.ok(textOf(tree).includes(current.prompt),'feedback remains attached to submitted question');assert.ok(textOf(tree).includes(`Question ${i+1} / 10`));
+  parent=pr.render(()=>pc.E());const nextProps=props(parent);assert.equal(nextProps.items.length,10,'parent may re-rank but keeps a complete candidate session');qp=nextProps;
+  tree=hr.render(()=>qc.H(qp));assert.ok(textOf(tree).includes(current.prompt),'active Quiz must keep the submitted question after parent/store rerender');assert.ok(textOf(tree).includes(`Question ${i+1} / 10`));
   button(tree,i===9?'Finish':'Next question').props.onClick();tree=hr.render(()=>qc.H(qp));
+  if(i<9)assert.ok(textOf(tree).includes(frozenItems[i+1].prompt),'active Quiz must keep the original session order');
  }
  assert.ok(textOf(tree).includes('10 / 10 formal scored · 100%'),textOf(tree));
 });
