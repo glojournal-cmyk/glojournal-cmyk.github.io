@@ -29,6 +29,37 @@ function Metric({label,value,detail,progress}){
   ]});
 }
 function Empty({children}){return J.jsx("p",{className:"mt-2 text-sm text-muted",children})}
+function skillStatusLabel(value){
+  return value==="needs-practice"?"Needs practice":value==="retention-due"?"Retention due":value==="retention-ready"?"Retention ready":"Building evidence";
+}
+function SkillRow({row,subject}){
+  const game=row.game?.attempts
+    ?row.game.attempts+" game attempt"+(row.game.attempts===1?"":"s")+" · "+row.game.repairCorrect+" repair"+(row.game.repairCorrect===1?"":"s")+" secured"
+    :"No game evidence yet";
+  const practiceHref=row.status==="retention-due"?"/study/"+subject+"/practise?mode=due":"/study/"+subject+"/practise?mode=weak";
+  return J.jsxs("li",{className:"rounded-xl bg-card p-4 ring-1 ring-line",children:[
+    J.jsxs("div",{className:"flex flex-wrap items-start justify-between gap-3",children:[
+      J.jsxs("div",{children:[
+        J.jsx("p",{className:"font-medium",children:row.label}),
+        J.jsxs("p",{className:"mt-1 text-xs text-muted",children:[
+          "Formal: ",row.attempted?pct(row.accuracy)+"% · "+row.correct+" / "+row.attempted:"No attempts",
+          row.productionCorrect?" · production ✓":" · production evidence building"
+        ]})
+      ]}),
+      J.jsx("span",{className:"rounded-full bg-sage px-3 py-1 text-xs text-navy",children:skillStatusLabel(row.status)})
+    ]}),
+    row.attempted?J.jsx(Bar,{value:pct(row.accuracy)}):null,
+    J.jsxs("div",{className:"mt-3 grid gap-2 sm:grid-cols-2",children:[
+      J.jsxs("p",{className:"text-xs text-muted",children:["Retention: ",row.retentionDue?reviewLabel(row.retentionDue):"Not scheduled yet"]}),
+      J.jsxs("p",{className:"text-xs text-muted",children:["Game practice: ",game]})
+    ]}),
+    J.jsx("p",{className:"mt-3 text-sm",children:row.nextAction}),
+    J.jsxs("div",{className:"mt-3 flex flex-wrap gap-2",children:[
+      J.jsx("a",{href:practiceHref,className:"rounded-lg bg-navy px-3 py-2 text-xs text-card",children:row.status==="retention-due"?"Do retention check":"Formal practice"}),
+      J.jsx("a",{href:row.gameSuggestion.href,className:"rounded-lg bg-sage px-3 py-2 text-xs text-navy",children:"Game · "+row.gameSuggestion.label})
+    ]})
+  ]},row.skillId);
+}
 function SmallTopic({row,mode}){
   const second=mode==="improving"&&typeof row.improvement==="number"
     ?"+"+Math.round(row.improvement*100)+" percentage points in recent practice"
@@ -129,7 +160,7 @@ function Progress(){
     J.jsxs("div",{className:"grid gap-3 sm:grid-cols-2 lg:grid-cols-4",children:[
       J.jsx(Metric,{label:"Study days this week",value:data.weekStudyDays,detail:"Genuine study days only."}),
       J.jsx(Metric,{label:"Subject accuracy",value:data.attempted?pct(data.accuracy)+"%":"—",detail:data.attempted?data.correct+" / "+data.attempted+" correct":"No attempts yet.",progress:data.attempted?pct(data.accuracy):0}),
-      J.jsx(Metric,{label:"Due reviews",value:data.dueReviews,detail:data.dueReviews?"Spaced reviews waiting now.":"Nothing overdue."}),
+      J.jsx(Metric,{label:"Due reviews",value:data.dueReviews+data.skillRetentionDue,detail:(data.dueReviews||data.skillRetentionDue)?data.dueReviews+" question review"+(data.dueReviews===1?"":"s")+" · "+data.skillRetentionDue+" skill retention check"+(data.skillRetentionDue===1?"":"s"):"Nothing overdue."}),
       J.jsx(Metric,{label:"Mastered",value:data.masteredCount+"/"+data.totalTopics,detail:data.secureCount+" more Secure.",progress:masteryProgress})
     ]}),
 
@@ -163,6 +194,17 @@ function Progress(){
       ]},row.topicId))})
     ]}):null,
 
+    data.nextBestAction?J.jsxs(Card,{className:"p-5",children:[
+      J.jsx("p",{className:"text-xs tracking-[0.16em] text-navy uppercase",children:"Next best action"}),
+      J.jsx("h2",{className:"mt-1 font-display text-2xl font-semibold",children:data.nextBestAction.title}),
+      J.jsx("p",{className:"mt-2 text-sm text-muted",children:data.nextBestAction.detail}),
+      J.jsxs("div",{className:"mt-4 flex flex-wrap gap-2",children:[
+        J.jsx("a",{href:data.nextBestAction.practiceHref,className:"rounded-xl bg-navy px-3 py-2 text-sm text-card",children:data.nextBestAction.type==="retention-due"?"Run formal retention check":"Open formal Practice"}),
+        J.jsx("a",{href:data.nextBestAction.gameHref,className:"rounded-xl bg-sage px-3 py-2 text-sm text-navy",children:"Game support · "+data.nextBestAction.gameLabel})
+      ]}),
+      J.jsx("p",{className:"mt-3 text-xs text-muted",children:"Formal skill evidence chooses the action. Game activity is supporting evidence only and never changes Mastery."})
+    ]}):null,
+
     J.jsxs("div",{className:"flex flex-wrap gap-2",children:[
       J.jsx("a",{href:"/study/"+subject+"/practise?mode=due",className:"rounded-xl bg-navy px-3 py-2 text-sm text-card",children:"Do due reviews"}),
       J.jsx("a",{href:"/study/"+subject+"/practise?mode=weak",className:"rounded-xl bg-sage px-3 py-2 text-sm text-navy",children:"Practise weak areas"}),
@@ -170,6 +212,18 @@ function Progress(){
       subject==="biology"&&year===9?J.jsx("a",{href:"/study/biology/practise?mode=biomix",className:"rounded-xl bg-sage px-3 py-2 text-sm text-navy",children:"Open Year 9 Mix 16"}):null,
       subject==="chemistry"&&year===9?J.jsx("a",{href:"/study/chemistry/practise?mode=chemmix",className:"rounded-xl bg-sage px-3 py-2 text-sm text-navy",children:"Open Year 9 Mix 15"}):null,
       subject==="physics"&&year===9?J.jsx("a",{href:"/study/physics/practise?mode=physmix",className:"rounded-xl bg-sage px-3 py-2 text-sm text-navy",children:"Open Year 9 Mix 15"}):null
+    ]}),
+
+    J.jsxs("section",{children:[
+      J.jsx("p",{className:"text-xs tracking-[0.16em] text-navy uppercase",children:"Skill map"}),
+      J.jsx("h2",{className:"mt-1 font-display text-3xl font-semibold",children:"What the learner can do"}),
+      J.jsx("p",{className:"mt-2 max-w-3xl text-sm text-muted",children:"Skill status is calculated from formal Practice. Game attempts and repairs are shown separately so play can guide practice without inflating Mastery."}),
+      J.jsxs("div",{className:"mt-4 grid gap-3 sm:grid-cols-3",children:[
+        J.jsx(Metric,{label:"Needs practice",value:data.skillWeakCount,detail:"Skills below the secure threshold or failed at retention."}),
+        J.jsx(Metric,{label:"Retention due",value:data.skillRetentionDue,detail:"Previously stable skills that need a fresh formal check."}),
+        J.jsx(Metric,{label:"Retention ready",value:data.skillRetentionReady,detail:"Stable formal skills with a future check scheduled."})
+      ]}),
+      data.skills.length?J.jsx("ul",{className:"mt-4 grid gap-3 lg:grid-cols-2",children:data.skills.map(row=>J.jsx(SkillRow,{row,subject},row.skillId))}):J.jsx(Empty,{children:"Skill-level evidence starts appearing after formal Practice attempts."})
     ]}),
 
     J.jsxs("section",{children:[
