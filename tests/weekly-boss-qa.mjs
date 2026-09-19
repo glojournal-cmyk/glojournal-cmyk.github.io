@@ -41,7 +41,7 @@ for(const token of [
   "const SCIENCE=[",
   "subjectProfile(state)",
   "weakRows(state,subject)",
-  "recent learningEvents",
+  "state.learningEvents||[]",
   "retentionFailed",
   "retentionDue",
   "gamePractice",
