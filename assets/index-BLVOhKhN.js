@@ -490,6 +490,27 @@ function adaptiveFocus(state) {
     return { subject, topicId, reason: "due", dueCount: subjectDue.length };
   }
 
+  const dueSkills = Object.entries(state.skillStats || {})
+    .map(([skillId, raw]) => ({ skillId, ...normalizeSkillStat(raw), subject: skillId.split(":")[0] }))
+    .filter((item) => SUBJECTS.includes(item.subject) && item.retentionDue && item.retentionDue <= today && (!item.lastTopicId || topicMatchesYear(item.lastTopicId, state.year)));
+  if (dueSkills.length) {
+    const counts = new Map();
+    for (const item of dueSkills) counts.set(item.subject, (counts.get(item.subject) || 0) + 1);
+    const subject = [...counts.entries()].sort((a, b) => b[1] - a[1])[0][0];
+    const subjectDue = dueSkills.filter((item) => item.subject === subject).sort((a, b) => String(a.retentionDue).localeCompare(String(b.retentionDue)) || a.accuracy - b.accuracy);
+    const first = subjectDue[0];
+    return { subject, topicId: first.lastTopicId || null, skillId: first.skillId, skillLabel: skillLabel(first.skillId), reason: "due", dueCount: subjectDue.length };
+  }
+
+  const weakSkillRows = Object.entries(state.skillStats || {})
+    .map(([skillId, raw]) => ({ skillId, ...normalizeSkillStat(raw), subject: skillId.split(":")[0] }))
+    .filter((item) => SUBJECTS.includes(item.subject) && item.attempted >= 2 && (item.needsPractice || item.accuracy < SECURE_ACCURACY) && (!item.lastTopicId || topicMatchesYear(item.lastTopicId, state.year)))
+    .sort((a, b) => Number(b.retentionFailed) - Number(a.retentionFailed) || a.accuracy - b.accuracy || b.attempted - a.attempted);
+  if (weakSkillRows.length) {
+    const first = weakSkillRows[0];
+    return { subject: first.subject, topicId: first.lastTopicId || null, skillId: first.skillId, skillLabel: skillLabel(first.skillId), reason: "weak", accuracy: first.accuracy, errorType: first.lastErrorType || null };
+  }
+
   const weak = Object.entries(state.topicStats || {})
     .map(([topicId, raw]) => ({ topicId, ...normalizeTopicStat(raw), subject: inferSubjectFromTopic(topicId) }))
     .filter((item) => SUBJECTS.includes(item.subject) && topicMatchesYear(item.topicId, state.year) && item.attempted >= 2 && item.state !== "mastered")
@@ -517,14 +538,16 @@ function buildAdaptiveDaily(state) {
   const existingPlan = previous.get("study-session");
   const locked = existingPlan?.planDate === state.today && SUBJECTS.includes(existingPlan.focusSubject) && (!existingPlan.focusTopic || topicMatchesYear(existingPlan.focusTopic, state.year)) && !(state.year === 9 && existingPlan.focusSubject === "french" && existingPlan.href === FRENCH_DAILY_HREF);
   const focus = locked
-    ? { subject: existingPlan.focusSubject, topicId: existingPlan.focusTopic || null, reason: existingPlan.focusReason || "continue", dueCount: existingPlan.focusDueCount || 0, accuracy: existingPlan.focusAccuracy, errorType: existingPlan.focusErrorType || null }
+    ? { subject: existingPlan.focusSubject, topicId: existingPlan.focusTopic || null, skillId: existingPlan.focusSkill || null, skillLabel: existingPlan.focusSkillLabel || null, reason: existingPlan.focusReason || "continue", dueCount: existingPlan.focusDueCount || 0, accuracy: existingPlan.focusAccuracy, errorType: existingPlan.focusErrorType || null }
     : adaptiveFocus(state);
   const label = SUBJECT_LABELS[focus.subject] || "Study";
   const title = locked ? existingPlan.title : focus.reason === "due"
-    ? `Review due ${label}`
-    : focus.reason === "weak" && focus.topicId
-      ? `Strengthen ${topicTitle(state, focus.topicId, focus.subject)}`
-      : `Continue ${label}`;
+    ? focus.skillLabel ? `Retention check · ${focus.skillLabel}` : `Review due ${label}`
+    : focus.reason === "weak" && focus.skillLabel
+      ? `Strengthen ${focus.skillLabel}`
+      : focus.reason === "weak" && focus.topicId
+        ? `Strengthen ${topicTitle(state, focus.topicId, focus.subject)}`
+        : `Continue ${label}`;
   const detail = locked ? existingPlan.detail : focus.reason === "due"
     ? `${focus.dueCount} review item${focus.dueCount === 1 ? "" : "s"} due · use spaced review.`
     : focus.reason === "weak"
@@ -539,8 +562,8 @@ function buildAdaptiveDaily(state) {
   const game = previous.get("play-game") || { id: "play-game", title: "Play a quick game", detail: "One short learning game.", href: "/play", target: 1, progress: 0, xp: 10 };
 
   return [
-    { id: "study-session", title, detail, href: locked ? existingPlan.href : focusHref(focus, state), target: 8, progress: studyProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusReason: focus.reason, focusDueCount: focus.dueCount || 0, focusAccuracy: focus.accuracy, focusErrorType: focus.errorType || null },
-    { id: "adaptive-focus", title: `${label} focus`, detail: "Four questions in today’s priority subject. Mastery needs ≥85% plus one independent typed or spelled answer.", href: locked ? existingPlan.href : focusHref(focus, state), target: 4, progress: focusProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusReason: focus.reason },
+    { id: "study-session", title, detail, href: locked ? existingPlan.href : focusHref(focus, state), target: 8, progress: studyProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason, focusDueCount: focus.dueCount || 0, focusAccuracy: focus.accuracy, focusErrorType: focus.errorType || null },
+    { id: "adaptive-focus", title: focus.skillLabel ? `${focus.skillLabel} focus` : `${label} focus`, detail: "Four questions in today’s priority subject. Mastery needs ≥85% plus one independent typed or spelled answer.", href: locked ? existingPlan.href : focusHref(focus, state), target: 4, progress: focusProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason },
     { ...garden, progress: Math.min(garden.target || 1, garden.progress || 0) },
     { ...game, progress: Math.min(game.target || 1, game.progress || 0) },
   ];
@@ -574,8 +597,13 @@ function normalizeState() {
   let skillsChanged = false;
   for (const [skillId, raw] of Object.entries(state.skillStats || {})) {
     const next = normalizeSkillStat(raw);
+    if (next.retentionReady && !next.retentionDue) {
+      next.retentionStage = Math.max(1, next.retentionStage || 0);
+      next.retentionDue = shiftDay(todayKey(), 14);
+      skillsChanged = true;
+    }
     normalizedSkills[skillId] = next;
-    if (raw.accuracy !== next.accuracy || !Array.isArray(raw.recentOutcomes) || !raw.repairs) skillsChanged = true;
+    if (raw.accuracy !== next.accuracy || !Array.isArray(raw.recentOutcomes) || !raw.repairs || raw.retentionStage == null || raw.retentionReady == null || raw.needsPractice == null) skillsChanged = true;
   }
   if (skillsChanged) patch.skillStats = normalizedSkills;
 
