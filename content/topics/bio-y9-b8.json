@@ -2378,7 +2378,7 @@
       "topicId": "bio-y9-b8",
       "topic": "Diffusion",
       "format": "mark_points",
-      "prompt": "Explain three adaptations of an alveolus for rapid diffusion.",
+      "prompt": "Explain four features of an alveolus that help rapid gas exchange by diffusion.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2588,9 +2588,46 @@
       "shorter diffusion distance → an exchange-surface feature increasing diffusion rate",
       "surface-area-to-volume ratio → a ratio that decreases as an organism becomes larger",
       "specialised exchange surface → a surface needed by large multicellular organisms because direct surface exchange is insufficient",
-      "effective blood supply → an exchange-surface feature maintaining a concentration gradient in animals"
+      "effective blood supply → an exchange-surface feature maintaining a concentration gradient in animals",
+      "Ventilation increases gas exchange by helping maintain a steep concentration gradient."
     ],
-    "mustMemoriseVocabulary": [],
+    "mustMemoriseVocabulary": [
+      {
+        "term": "diffusion",
+        "meaning": "the net movement of particles from a region of higher concentration to a region of lower concentration",
+        "direction": ""
+      },
+      {
+        "term": "concentration gradient",
+        "meaning": "a difference in concentration between two regions",
+        "direction": ""
+      },
+      {
+        "term": "surface area to volume ratio",
+        "meaning": "surface area compared with volume; it generally decreases as organism size increases",
+        "direction": ""
+      },
+      {
+        "term": "exchange surface",
+        "meaning": "a specialised surface across which substances move between an organism and its environment",
+        "direction": ""
+      },
+      {
+        "term": "diffusion distance",
+        "meaning": "the distance particles must travel; a shorter distance increases diffusion rate",
+        "direction": ""
+      },
+      {
+        "term": "blood supply",
+        "meaning": "in animals, blood flow that maintains concentration gradients at an exchange surface",
+        "direction": ""
+      },
+      {
+        "term": "ventilation",
+        "meaning": "movement of air or water that maintains concentration gradients for gas exchange",
+        "direction": ""
+      }
+    ],
     "workedExamples": [
       {
         "prompt": "In B8, write the scientific term, rule or named idea described. the net movement of particles from a region of higher concentration to a region of lower concentration",
