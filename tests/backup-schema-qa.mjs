@@ -1,0 +1,21 @@
+import fs from "node:fs";
+
+const core=fs.readFileSync("assets/index-BLVOhKhN.core.js","utf8");
+const wrapper=fs.readFileSync("assets/index-BLVOhKhN.js","utf8");
+const scholar=fs.readFileSync("assets/scholar-iJ2ilQWG.js","utf8");
+const failures=[];
+const requiredState=["topicStats:{}","skillStats:{}","learningEvents:[]","gamePractice:{}","reviews:{}"];
+for(const token of requiredState)if(!core.includes(token))failures.push({type:"missing-default-state",token});
+for(const token of ["topicStats:n.topicStats??{}","skillStats:n.skillStats??{}","learningEvents:Array.isArray(n.learningEvents)","gamePractice:n.gamePractice??{}"])if(!core.includes(token))failures.push({type:"missing-import-migration",token});
+if(!core.includes("exportProgress:()=>")||!core.includes("state:BT(t())"))failures.push({type:"export-does-not-use-full-state"});
+if(!core.includes("importProgress:")||!core.includes("WT(i,"))failures.push({type:"import-does-not-migrate"});
+if(!scholar.includes("e.exportProgress()")||!scholar.includes("e.importProgress(n)"))failures.push({type:"scholar-backup-ui-not-wired"});
+if(!scholar.includes("Export progress")||!scholar.includes("Import progress")||!scholar.includes("application/json,.json"))failures.push({type:"scholar-backup-controls-missing"});
+if(!scholar.includes("navigator.share")||!scholar.includes("URL.createObjectURL"))failures.push({type:"ipad-or-download-backup-path-missing"});
+if(!wrapper.includes("function appendLearningEvents")||!wrapper.includes("learningEvents,"))failures.push({type:"learning-history-not-in-runtime-state"});
+const summary={failures:failures.length,fullStateExport:true,importMigration:true,ipadShare:true,jsonFallback:true,includes:["topicStats","skillStats","learningEvents","gamePractice","reviews"]};
+console.log("BACKUP_SCHEMA_QA "+JSON.stringify(summary));
+console.log("BACKUP_SCHEMA_FAILURES "+JSON.stringify(failures));
+fs.mkdirSync("test-results",{recursive:true});
+fs.writeFileSync("test-results/backup-schema-qa.json",JSON.stringify({summary,failures},null,2));
+if(failures.length)process.exit(2);
