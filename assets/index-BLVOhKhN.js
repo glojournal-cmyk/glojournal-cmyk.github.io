@@ -769,6 +769,42 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     lastDepth = row.depth;
   }
 
+  // Final small-bank rebalance: when repeated concepts are unavoidable, interleave
+  // them rather than leaving a duplicate stranded at the end of the session.
+  const sequencePenalty = (list) => {
+    let penalty = 0;
+    for (let i = 0; i < list.length; i += 1) {
+      for (let j = Math.max(0, i - 2); j < i; j += 1) {
+        if (list[i].conceptKey === list[j].conceptKey) penalty += 100;
+      }
+      if (i > 0) {
+        if (list[i].lane === list[i - 1].lane) penalty += 2;
+        if (list[i].production && list[i - 1].production) penalty += 3;
+        if (Math.abs((list[i].depth || 2) - (list[i - 1].depth || 2)) > 1) penalty += 1;
+      }
+    }
+    return penalty;
+  };
+  let currentPenalty = sequencePenalty(composed);
+  for (let pass = 0; pass < composed.length * 2 && currentPenalty >= 100; pass += 1) {
+    let bestPenalty = currentPenalty;
+    let bestSwap = null;
+    for (let i = 0; i < composed.length - 1; i += 1) {
+      for (let j = i + 1; j < composed.length; j += 1) {
+        const candidate = [...composed];
+        [candidate[i], candidate[j]] = [candidate[j], candidate[i]];
+        const penalty = sequencePenalty(candidate);
+        if (penalty < bestPenalty) {
+          bestPenalty = penalty;
+          bestSwap = [i, j];
+        }
+      }
+    }
+    if (!bestSwap) break;
+    [composed[bestSwap[0]], composed[bestSwap[1]]] = [composed[bestSwap[1]], composed[bestSwap[0]]];
+    currentPenalty = bestPenalty;
+  }
+
   const chosenIds = new Set(composed.map((row) => row.item.id));
   const leftovers = rows.filter((row) => !chosenIds.has(row.item.id)).sort(byNeed);
   const ordered = [...composed, ...leftovers.map((row) => ({ ...row, bucket: bucketName(row) }))];
