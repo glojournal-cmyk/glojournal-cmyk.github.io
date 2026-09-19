@@ -1320,6 +1320,52 @@ function applyFormalSkillAttempt(skillStats, skills, questionId, correct, produc
   return next;
 }
 
+function appendLearningEvents(existing, beforeSkills, afterSkills, skills, context = {}) {
+  const rows = Array.isArray(existing) ? [...existing] : [];
+  const now = new Date().toISOString();
+  const day = todayKey();
+  const push = (event) => {
+    const row = { at: now, day, ...event };
+    const duplicate = rows.some((old) =>
+      old.day === row.day &&
+      old.skillId === row.skillId &&
+      old.type === row.type &&
+      old.questionId === row.questionId
+    );
+    if (!duplicate) rows.unshift(row);
+  };
+  for (const rawSkill of skills || []) {
+    const skillId = canonicalSkill(rawSkill);
+    if (!skillId) continue;
+    const before = normalizeSkillStat(beforeSkills?.[skillId] || {});
+    const after = normalizeSkillStat(afterSkills?.[skillId] || {});
+    const common = {
+      skillId,
+      subject: context.subject || skillId.split(":")[0],
+      year: Number(context.year || store.getState().year || 9),
+      topicId: context.topicId || after.lastTopicId || before.lastTopicId || null,
+      questionId: context.questionId || null,
+    };
+    if (after.challengeLevel > before.challengeLevel) {
+      push({ ...common, type: "challenge-up", fromLevel: before.challengeLevel, toLevel: after.challengeLevel });
+    } else if (after.challengeLevel < before.challengeLevel) {
+      push({ ...common, type: "challenge-down", fromLevel: before.challengeLevel, toLevel: after.challengeLevel });
+    }
+    if (!before.retentionFailed && after.retentionFailed) {
+      push({ ...common, type: "retention-failed", fromLevel: before.challengeLevel, toLevel: after.challengeLevel });
+    } else if (before.retentionFailed && !after.retentionFailed) {
+      push({ ...common, type: "retention-recovered", fromLevel: before.challengeLevel, toLevel: after.challengeLevel });
+    }
+    if ((after.retentionPasses || 0) > (before.retentionPasses || 0)) {
+      push({ ...common, type: "retention-passed", fromLevel: before.challengeLevel, toLevel: after.challengeLevel });
+    }
+    if (context.isRepair && context.correct) {
+      push({ ...common, type: "repair-secured", fromLevel: before.challengeLevel, toLevel: after.challengeLevel });
+    }
+  }
+  return rows.slice(0, 80);
+}
+
 function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const before = store.getState();
   const resolved = inferAttemptMeta(questionId, subject, meta || {});
@@ -1412,9 +1458,24 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     resolved.topicId,
     meta?.cognitiveDepth || 2
   );
+  const learningEvents = appendLearningEvents(
+    after.learningEvents || [],
+    after.skillStats || {},
+    skillStats,
+    resolved.skills || [],
+    {
+      subject: resolved.subject || subject,
+      year: after.year || before.year || 9,
+      topicId: resolved.topicId,
+      questionId,
+      isRepair,
+      correct,
+    }
+  );
   store.setState({
     topicStats: { ...(after.topicStats || {}), [resolved.topicId]: { ...nextTopic, due: reviews[meta?.repairOf || questionId]?.due || nextTopic.due } },
     skillStats,
+    learningEvents,
     reviews,
     recentQuestionIds,
     lastTopic: resolved.topicId,
@@ -1781,6 +1842,16 @@ function buildProgressDashboard(state, subject, year = state?.year) {
     skillId: nextSkill.skillId,
   } : null;
 
+  const learningHistory = (state.learningEvents || [])
+    .filter((event) => event.subject === subject && Number(event.year || year) === Number(year))
+    .slice(0, 12)
+    .map((event) => ({
+      ...event,
+      skillLabel: skillLabel(event.skillId),
+      fromLabel: event.fromLevel ? ["","Recognition","Recall","Application","Explanation"][event.fromLevel] : null,
+      toLabel: event.toLevel ? ["","Recognition","Recall","Application","Explanation"][event.toLevel] : null,
+    }));
+
   const attemptedTopics = topics.filter((row) => row.attempted > 0);
   const attempted = attemptedTopics.reduce((sum, row) => sum + row.attempted, 0);
   const correct = attemptedTopics.reduce((sum, row) => sum + row.correct, 0);
@@ -1861,6 +1932,7 @@ function buildProgressDashboard(state, subject, year = state?.year) {
     skillRetentionDue,
     skillRetentionReady,
     skills: skillRows,
+    learningHistory,
     nextBestAction,
     totalTopics: topics.length,
     exploredTopics: attemptedTopics.length,
