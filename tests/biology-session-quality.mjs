@@ -9,7 +9,7 @@ const {FC,FL,FD}=new Function(practice.slice(hs,he)+";return {FC,FL,FD};")();
 
 const selectorTail=practice.slice(practice.lastIndexOf("let ranked=RQ(t,e,W)"));
 const biologyEnabled=selectorTail.includes('let ranked=RQ(t,e,W);return ranked.slice(0,Math.min(ranked.length,W+6))');
-const biomixEnabled=practice.includes("_adaptiveBucket:\`biology-mix\`});return FD(mixed,W).slice(0,W)}if(E===\`engmix\`)");
+const biomixEnabled=practice.includes("if(E===`biomix`)")&&practice.includes("return FD(ranked,W).slice(0,W)}if(E===`engmix`)");
 
 const root=path.resolve("content/topics");
 const files=fs.readdirSync(root).filter(f=>/^bio-y9-b\d+\.json$/.test(f)).sort((a,b)=>Number(a.match(/b(\d+)/)[1])-Number(b.match(/b(\d+)/)[1]));
