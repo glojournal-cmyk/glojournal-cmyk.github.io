@@ -30,7 +30,7 @@ need(route,"route",'from"./error-hunter-20260919.js"');
 need(route,"route","if(e===`error-hunter`)return(0,G.jsx)(ErrorHunter,{level:m})");
 need(hub,"hub","children:`Challenge Lab`");
 need(subjectPlay,"subject-play","[`latin`,`french`,`physics`,`chemistry`].includes(e)");
-need(shell,"shell","/play/error-hunter");
+need(shell,"shell","/assets/play._game-BbpxhxeZ.js");
 
 const ids=(game.match(/id:`eh-(?:fr|la|ph|ch)-\d+`/g)||[]);
 if(ids.length<52)failures.push({type:"case-bank-too-small",count:ids.length});
