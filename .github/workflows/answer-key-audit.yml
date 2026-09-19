@@ -28,6 +28,8 @@ jobs:
         run: node tests/backup-schema-qa.mjs
       - name: Audit daily task persistence
         run: node tests/daily-task-persistence-qa.mjs
+      - name: Audit daily vocab gates
+        run: node tests/daily-vocab-gate-qa.mjs
       - name: Audit repair score fairness
         run: node tests/repair-score-qa.mjs
       - name: Test French session diversity
@@ -92,3 +94,4 @@ jobs:
             test-results/backup-schema-qa.json
             test-results/daily-task-persistence-qa.json
             test-results/repair-score-qa.json
+            test-results/daily-vocab-gate-qa.json
