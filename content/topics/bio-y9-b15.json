@@ -2461,25 +2461,26 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "gas volume measures the amount of oxygen produced",
-          "bubble counting records only the number of bubbles",
-          "the supplied practical identifies gas volume over time as the preferred measure"
+          "measuring gas volume directly measures the amount of oxygen produced",
+          "bubbles can vary in size",
+          "the same bubble count can therefore represent different gas volumes, making bubble count less reliable"
         ],
         "totalMarks": 3,
-        "modelAnswer": "gas volume measures the amount of oxygen produced bubble counting records only the number of bubbles the supplied practical identifies gas volume over time as the preferred measure"
+        "modelAnswer": "measuring gas volume directly measures the amount of oxygen produced bubbles can vary in size the same bubble count can therefore represent different gas volumes, making bubble count less reliable"
       },
       "stimulus": {
         "marks": 3
       },
       "feedback": {
-        "short": "gas volume measures the amount of oxygen produced bubble counting records only the number of bubbles the supplied practical identifies gas volume over time as the preferred measure",
+        "short": "Gas volume is more reliable because bubbles vary in size, so the same bubble count can represent different volumes of oxygen.",
         "steps": [
-          "gas volume measures the amount of oxygen produced bubble counting records only the number of bubbles the supplied practical identifies gas volume over time as the preferred measure",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: gas volume measures the amount of oxygen produced bubble counting records only the number of bubbles the supplied practical identifies gas volume over time as the preferred measure"
+          "Measure the amount of oxygen produced, not just the number of bubbles.",
+          "Bubbles can be different sizes.",
+          "Therefore the same number of bubbles can represent different gas volumes, so bubble count is less reliable.",
+          "Suggested answer: Gas volume directly measures oxygen produced; bubble size varies, so equal bubble counts may represent different oxygen volumes."
         ],
         "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "gas volume measures the amount of oxygen produced bubble counting records only the number of bubbles the supplied practical identifies gas volume over time as the preferred measure"
+        "remember": "Gas volume is preferable to bubble count because bubble size varies."
       },
       "task": {
         "label": "EXPLAIN",
