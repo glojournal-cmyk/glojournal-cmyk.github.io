@@ -49,7 +49,6 @@ if(g.passed||g.progress!==4) failures.push({type:"four-words-must-not-pass",g});
 
 items=apply(items,"e",false);
 g=gate(items);
-if(g.passed||g.correct!==4?false:false) {}
 if(g.passed!==true) failures.push({type:"five-tested-four-correct-should-pass",g});
 
 let three={};
