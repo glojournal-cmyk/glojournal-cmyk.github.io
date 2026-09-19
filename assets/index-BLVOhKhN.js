@@ -1056,7 +1056,7 @@ function buildAdaptiveDaily(state) {
     ? `${focus.dueCount} review item${focus.dueCount === 1 ? "" : "s"} due · use spaced review.`
     : focus.reason === "weak"
       ? `${Math.round((focus.accuracy || 0) * 100)}% so far · build towards ≥85%${focus.errorType ? ` · main issue: ${errorLabel(focus.errorType)}` : ""}.`
-      : `Eight focused questions in ${label}.`;
+      : `Ten focused questions in ${label}.`;
 
   const studyProgress = Math.min(10, Math.max(existingPlan?.progress || 0, state.questionsToday || 0));
   const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;
@@ -1071,10 +1071,10 @@ function buildAdaptiveDaily(state) {
   const game = previous.get("play-game") || { id: "play-game", title: "Play a quick game", detail: "One short learning game.", href: "/play", target: 1, progress: 0, xp: 10 };
 
   return [
-    { id: "study-session", title, detail, href: locked ? existingPlan.href : focusHref(focus, state), target: 10, progress: studyProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason, focusDueCount: focus.dueCount || 0, focusAccuracy: focus.accuracy, focusErrorType: focus.errorType || null },
+    { id: "study-session", title, detail, href: focusHref(focus, state), target: 10, progress: studyProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason, focusDueCount: focus.dueCount || 0, focusAccuracy: focus.accuracy, focusErrorType: focus.errorType || null },
     { id: "french-vocab", title: "French vocab check", detail: `5 different French words minimum · ${frenchVocab.correct}/4 correct · ${frenchVocab.attempts} tested${frenchVocab.passed ? " · passed" : frenchVocab.attempts >= 5 ? " · keep going until 4 are correct" : ""}.`, href: "/session/french-vocab", target: 5, progress: frenchVocab.progress, xp: 10, requiredAttempts: 5, requiredCorrect: 4, attempts: frenchVocab.attempts, correct: frenchVocab.correct, planDate: state.today },
     { id: "latin-vocab", title: "Latin vocab check", detail: `5 different Latin words minimum · ${latinVocab.correct}/4 correct · ${latinVocab.attempts} tested${latinVocab.passed ? " · passed" : latinVocab.attempts >= 5 ? " · keep going until 4 are correct" : ""}.`, href: "/session/latin-vocab", target: 5, progress: latinVocab.progress, xp: 10, requiredAttempts: 5, requiredCorrect: 4, attempts: latinVocab.attempts, correct: latinVocab.correct, planDate: state.today },
-    { id: "adaptive-focus", title: focus.skillLabel ? `${focus.skillLabel} focus` : `${label} focus`, detail: "Four questions in today’s priority subject. Mastery needs ≥85% plus one independent typed or spelled answer.", href: locked ? existingPlan.href : focusHref(focus, state), target: 4, progress: focusProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason },
+    { id: "adaptive-focus", title: focus.skillLabel ? `${focus.skillLabel} focus` : `${label} focus`, detail: "Four questions in today’s priority subject. Mastery needs ≥85% plus one independent typed or spelled answer.", href: focusHref(focus, state), target: 4, progress: focusProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason },
     { id: "year8-long-review", title: `Year 8 deep review · ${year8Review.label}`, detail: "15-question consolidation · mixed recall plus at least one longer or multi-step task when available · system assigned.", href: year8Review.href, target: 15, progress: year8ReviewProgress, xp: 20, planDate: state.today, reviewYear: 8, reviewSubject: year8Review.subject },
     { ...garden, progress: Math.min(garden.target || 1, garden.progress || 0) },
     { ...game, progress: Math.min(game.target || 1, game.progress || 0) },
