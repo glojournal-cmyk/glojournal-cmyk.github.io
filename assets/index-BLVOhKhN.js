@@ -191,62 +191,100 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
   const state = store.getState();
   const today = todayKey();
   const seen = state.seenTotal || {};
-  const recent = new Set((state.recentQuestionIds || []).slice(-8));
-  const rows = (items || []).map((item, index) => {
+  const correct = state.seenCorrect || {};
+  const recentIds = new Set((state.recentQuestionIds || []).slice(-12));
+  const source = items || [];
+  const recentConcepts = new Set(
+    source
+      .filter((item) => recentIds.has(item.id))
+      .map((item) => item.conceptId || questionTopicId(item, subject))
+      .filter(Boolean)
+  );
+  const rows = source.map((item, index) => {
     const topicId = questionTopicId(item, subject);
+    const conceptKey = item.conceptId || topicId;
     const stat = normalizeTopicStat(state.topicStats?.[topicId] || {});
     const review = state.reviews?.[item.id];
     const due = !!review?.due && review.due <= today;
-    const unseen = !(seen[item.id] > 0);
+    const seenCount = seen[item.id] || 0;
+    const correctCount = correct[item.id] || 0;
+    const unseen = seenCount === 0;
     const mastered = stat.state === "mastered";
     const weak = !mastered && stat.attempted >= 2 && (stat.accuracy < MASTERY_ACCURACY || stat.productionCorrect < 1);
-    return { item, index, topicId, stat, review, due, unseen, mastered, weak, recent: recent.has(item.id) };
+    const mistake = !unseen && (due || correctCount < seenCount || !!review?.wrong || (!!review && (review.stage || 1) < 3));
+    const retention = !unseen && !mistake && (mastered || stat.accuracy >= MASTERY_ACCURACY);
+    return { item, index, topicId, conceptKey, stat, review, due, unseen, mastered, weak, mistake, retention, recent: recentIds.has(item.id), recentConcept: recentConcepts.has(conceptKey) };
   });
 
   const byNeed = (a, b) =>
-    Number(a.recent) - Number(b.recent) ||
+    Number(a.recent || a.recentConcept) - Number(b.recent || b.recentConcept) ||
+    Number(b.due) - Number(a.due) ||
     (a.review?.due || "9999-12-31").localeCompare(b.review?.due || "9999-12-31") ||
     a.stat.accuracy - b.stat.accuracy ||
     (seen[a.item.id] || 0) - (seen[b.item.id] || 0) ||
     a.index - b.index;
 
   const buckets = {
-    due: rows.filter((r) => r.due).sort(byNeed),
-    weak: rows.filter((r) => !r.due && r.weak).sort(byNeed),
-    new: rows.filter((r) => !r.due && !r.weak && r.unseen).sort(byNeed),
-    mastered: rows.filter((r) => !r.due && r.mastered).sort(byNeed),
-    other: rows.filter((r) => !r.due && !r.weak && !r.unseen && !r.mastered).sort(byNeed),
+    weak: rows.filter((r) => r.weak).sort(byNeed),
+    new: rows.filter((r) => r.unseen).sort(byNeed),
+    mistake: rows.filter((r) => r.mistake).sort(byNeed),
+    retention: rows.filter((r) => r.retention).sort(byNeed),
+    other: rows.filter((r) => !r.weak && !r.unseen && !r.mistake && !r.retention).sort(byNeed),
   };
 
   const target = Math.max(1, Math.min(Number(size) || 10, rows.length));
   const quotas = {
-    due: Math.ceil(target * 0.4),
-    weak: Math.ceil(target * 0.3),
-    new: Math.max(1, Math.round(target * 0.2)),
-    mastered: target >= 5 ? 1 : 0,
+    weak: Math.round(target * 0.4),
+    mistake: Math.round(target * 0.2),
+    retention: target >= 5 ? Math.max(1, Math.round(target * 0.1)) : 0,
   };
-  const picked = [];
+  quotas.new = Math.max(0, target - quotas.weak - quotas.mistake - quotas.retention);
+
+  const selected = { weak: [], new: [], mistake: [], retention: [] };
   const ids = new Set();
-  const take = (name, count) => {
+  const concepts = new Set();
+  const takeInto = (name, count, allowConceptRepeat = false) => {
     for (const row of buckets[name]) {
-      if (picked.length >= target || count <= 0) break;
+      if (count <= 0) break;
+      if (ids.has(row.item.id)) continue;
+      if (!allowConceptRepeat && concepts.has(row.conceptKey)) continue;
+      ids.add(row.item.id);
+      concepts.add(row.conceptKey);
+      selected[name].push({ ...row, bucket: name });
+      count -= 1;
+    }
+    return count;
+  };
+
+  for (const name of ["weak", "new", "mistake", "retention"]) {
+    let left = takeInto(name, quotas[name], false);
+    if (left > 0) takeInto(name, left, true);
+  }
+
+  const picked = [];
+  const order = ["weak", "new", "mistake", "weak", "retention", "new"];
+  let cursor = 0;
+  while (picked.length < target && Object.values(selected).some((list) => list.length)) {
+    const name = order[cursor % order.length];
+    const row = selected[name]?.shift();
+    if (row) picked.push(row);
+    cursor += 1;
+    if (cursor > target * 20) break;
+  }
+
+  for (const name of ["weak", "mistake", "new", "retention", "other"]) {
+    for (const row of buckets[name]) {
+      if (picked.length >= target) break;
       if (ids.has(row.item.id)) continue;
       ids.add(row.item.id);
       picked.push({ ...row, bucket: name });
-      count -= 1;
     }
-  };
-  take("due", quotas.due);
-  take("weak", quotas.weak);
-  take("new", quotas.new);
-  take("mastered", quotas.mastered);
-  for (const name of ["due", "weak", "new", "other", "mastered"]) take(name, target - picked.length);
+  }
 
   const leftovers = rows.filter((row) => !ids.has(row.item.id)).sort(byNeed);
   const ordered = [...picked, ...leftovers.map((row) => ({ ...row, bucket: "other" }))];
   return ordered.map((row, index) => ({ ...row.item, _adaptiveRank: index, _adaptiveBucket: row.bucket }));
 }
-
 function topicState(attempted, correct, productionCorrect) {
   const accuracy = attempted > 0 ? correct / attempted : 0;
   if (attempted >= MASTERY_MIN_ATTEMPTS && accuracy >= MASTERY_ACCURACY && productionCorrect > 0) return "mastered";
