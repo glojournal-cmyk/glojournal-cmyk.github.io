@@ -19,7 +19,7 @@ need(subjectHome,"subject-home","mode=dictation&scope=all");
 need(subjectHome,"subject-home","Browse and search all learned Year 8 + Year 9 words.");
 const y9Items=(y9.match(/"id":"fy9p-/g)||[]).length;
 if(y9Items<80)failures.push({type:"year9-vocab-bank-too-small",y9Items});
-const summary={failures:failures.length,allLearnedDefault:true,year8PlusYear9French:true,dictationFromBank:true,subjectHomeEntrances:true,year9Items};
+const summary={failures:failures.length,allLearnedDefault:true,year8PlusYear9French:true,dictationFromBank:true,subjectHomeEntrances:true,y9Items};
 console.log("VOCAB_BANK_DICTATION_QA "+JSON.stringify(summary));
 console.log("VOCAB_BANK_DICTATION_FAILURES "+JSON.stringify(failures));
 fs.mkdirSync("test-results",{recursive:true});
