@@ -28,7 +28,7 @@ function extractFunction(src,name){
   throw new Error("Unclosed function: "+name);
 }
 
-const rankBlockStart=indexSrc.indexOf("function adaptiveCognitiveDepth");
+const rankBlockStart=indexSrc.indexOf("function adaptiveContentKey");
 const rankBlockEnd=indexSrc.indexOf("function topicState",rankBlockStart);
 const skillNormStart=indexSrc.indexOf("function normalizeSkillStat");
 const skillNormEnd=indexSrc.indexOf("function topicTitle",skillNormStart);
