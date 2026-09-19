@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import {buildAdaptiveRuntime,sessionConcept,sessionLane,countWindowRepeats} from "./adaptive-runtime-test-utils.mjs";
 
 const practice=fs.readFileSync("assets/study._subject.practise-D_PWgUd7.js","utf8");
 const hs=practice.indexOf("function FK("), he=practice.indexOf("function E(){",hs);
@@ -7,13 +8,14 @@ if(hs<0||he<0) throw new Error("diversity helper missing");
 const {FC,FL,FD}=new Function(practice.slice(hs,he)+";return {FC,FL,FD};")();
 
 const selectorTail=practice.slice(practice.lastIndexOf("let ranked=RQ(t,e,W)"));
-const physicsEnabled=selectorTail.includes('e===`physics`')&&selectorTail.includes('FD(ranked,W)');
+const physicsEnabled=selectorTail.includes('let ranked=RQ(t,e,W);return ranked.slice(0,Math.min(ranked.length,W+6))');
 const physmixEnabled=practice.includes('return FD(mixed,W).slice(0,W)}if(E===`chemmix`)');
 const root=path.resolve("content/topics");
 const files=fs.readdirSync(root).filter(f=>/^phys-.*\.json$/.test(f)).sort();
 const failures=[],sessions=[];
+const adaptive=buildAdaptiveRuntime();
 
-if(!physicsEnabled) failures.push({type:"runtime-not-using-diversifier"});
+if(!physicsEnabled) failures.push({type:"runtime-not-using-adaptive-composer"});
 if(!physmixEnabled) failures.push({type:"physmix-not-using-diversifier"});
 
 for(const file of files){
@@ -22,17 +24,19 @@ for(const file of files){
  for(const size of [5,10,15]){
    const legacy=rows.slice(0,Math.min(size,rows.length));
    const legacyKeys=legacy.map(FC);
-   const runtime=FD(rows,size).slice(0,Math.min(size,rows.length));
-   const keys=runtime.map(FC), uniqueAvailable=new Set(rows.map(FC)).size;
+   adaptive.setState({});
+   const runtime=adaptive.rankAdaptiveQuestions(rows,"physics",size).slice(0,Math.min(size,rows.length));
+   const keys=runtime.map(sessionConcept), uniqueAvailable=new Set(rows.map(q=>q.conceptId||q.id)).size;
    const expectedUnique=Math.min(size,uniqueAvailable), actualUnique=new Set(keys).size;
-   if(actualUnique<expectedUnique) failures.push({file,size,type:"runtime-concept-repeat",expectedUnique,actualUnique,selected:runtime.map(q=>({id:q.id,key:FC(q)}))});
+   if(actualUnique<expectedUnique) failures.push({file,size,type:"runtime-concept-repeat",expectedUnique,actualUnique,selected:runtime.map(q=>({id:q.id,key:sessionConcept(q)}))});
    for(let i=1;i<keys.length;i++) if(keys[i]===keys[i-1]&&uniqueAvailable>1) failures.push({file,size,type:"runtime-adjacent-repeat",index:i,key:keys[i]});
+   if(countWindowRepeats(runtime)>0&&uniqueAvailable>=3) failures.push({file,size,type:"runtime-two-question-window-repeat",count:countWindowRepeats(runtime)});
    sessions.push({
      file,size,
      legacyDistinct:new Set(legacyKeys).size,
      legacyRepeats:legacyKeys.length-new Set(legacyKeys).size,
      runtimeDistinct:actualUnique,
-     runtimeLanes:[...new Set(runtime.map(FL))]
+     runtimeLanes:[...new Set(runtime.map(sessionLane))],windowRepeats:countWindowRepeats(runtime)
    });
  }
 }
