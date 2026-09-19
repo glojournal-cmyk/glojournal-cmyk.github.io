@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import {buildAdaptiveRuntime,sessionConcept,sessionLane,countWindowRepeats} from "./adaptive-runtime-test-utils.mjs";
 
 const practice=fs.readFileSync("assets/study._subject.practise-D_PWgUd7.js","utf8");
 const hs=practice.indexOf("function FK("),he=practice.indexOf("function E(){",hs);
@@ -7,13 +8,14 @@ if(hs<0||he<0) throw new Error("diversity helper missing");
 const {FC,FL,FD}=new Function(practice.slice(hs,he)+";return {FC,FL,FD};")();
 
 const selectorTail=practice.slice(practice.lastIndexOf("let ranked=RQ(t,e,W)"));
-const chemistryEnabled=selectorTail.includes('e===`chemistry`')&&selectorTail.includes('FD(ranked,W)');
+const chemistryEnabled=selectorTail.includes('let ranked=RQ(t,e,W);return ranked.slice(0,Math.min(ranked.length,W+6))');
 const chemmixEnabled=practice.includes('return FD(mixed,W).slice(0,W)}if(E===`biomix`)');
 
 const root=path.resolve("content/topics");
 const files=fs.readdirSync(root).filter(f=>/^chem-.*\.json$/.test(f)).sort();
 const sessions=[],failures=[];
-if(!chemistryEnabled) failures.push({type:"runtime-not-using-diversifier"});
+const adaptive=buildAdaptiveRuntime();
+if(!chemistryEnabled) failures.push({type:"runtime-not-using-adaptive-composer"});
 if(!chemmixEnabled) failures.push({type:"chemmix-not-using-diversifier"});
 
 for(const file of files){
@@ -21,11 +23,13 @@ for(const file of files){
  const rows=(doc.questions||[]).map((q,i)=>({...q,_adaptiveRank:i,_adaptiveBucket:"new"}));
  for(const size of [5,10,15]){
    const legacy=rows.slice(0,Math.min(size,rows.length)), legacyKeys=legacy.map(FC);
-   const runtime=FD(rows,size).slice(0,Math.min(size,rows.length)), keys=runtime.map(FC);
-   const expected=Math.min(size,new Set(rows.map(FC)).size), actual=new Set(keys).size;
-   if(actual<expected) failures.push({file,size,type:"runtime-concept-repeat",expected,actual,selected:runtime.map(q=>({id:q.id,key:FC(q)}))});
-   for(let i=1;i<keys.length;i++) if(keys[i]===keys[i-1]&&new Set(rows.map(FC)).size>1) failures.push({file,size,type:"runtime-adjacent-repeat",index:i,key:keys[i]});
-   sessions.push({file,size,legacyDistinct:new Set(legacyKeys).size,legacyRepeats:legacyKeys.length-new Set(legacyKeys).size,runtimeDistinct:actual,lanes:[...new Set(runtime.map(FL))]});
+   adaptive.setState({});
+   const runtime=adaptive.rankAdaptiveQuestions(rows,"chemistry",size).slice(0,Math.min(size,rows.length)), keys=runtime.map(sessionConcept);
+   const uniqueAvailable=new Set(rows.map(q=>q.conceptId||q.id)).size, expected=Math.min(size,uniqueAvailable), actual=new Set(keys).size;
+   if(actual<expected) failures.push({file,size,type:"runtime-concept-repeat",expected,actual,selected:runtime.map(q=>({id:q.id,key:sessionConcept(q)}))});
+   for(let i=1;i<keys.length;i++) if(keys[i]===keys[i-1]&&uniqueAvailable>1) failures.push({file,size,type:"runtime-adjacent-repeat",index:i,key:keys[i]});
+   if(countWindowRepeats(runtime)>0&&uniqueAvailable>=3) failures.push({file,size,type:"runtime-two-question-window-repeat",count:countWindowRepeats(runtime)});
+   sessions.push({file,size,legacyDistinct:new Set(legacyKeys).size,legacyRepeats:legacyKeys.length-new Set(legacyKeys).size,runtimeDistinct:actual,lanes:[...new Set(runtime.map(sessionLane))],windowRepeats:countWindowRepeats(runtime)});
  }
 }
 
