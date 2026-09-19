@@ -29,6 +29,12 @@ jobs:
         run: node tests/marking-interaction-qa.mjs
       - name: Test repair and review progress
         run: node tests/progress-repair-qa.mjs
+      - name: Audit Physics content quality
+        run: node tests/physics-content-quality-audit.mjs
+      - name: Test Physics calculation marking
+        run: node tests/physics-calculation-marking-qa.mjs
+      - name: Audit Physics session quality
+        run: node tests/physics-session-quality.mjs
       - name: Audit every question answer key
         env:
           STRICT: "1"
@@ -43,3 +49,6 @@ jobs:
             test-results/live-practice-smoke.json
             test-results/marking-interaction-qa.json
             test-results/progress-repair-qa.json
+            test-results/physics-content-quality.json
+            test-results/physics-calculation-marking.json
+            test-results/physics-session-quality.json
