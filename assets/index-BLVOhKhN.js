@@ -993,6 +993,20 @@ function focusHref(focus, state) {
   return base;
 }
 
+function focusAttemptsToday(state, focus) {
+  const day = state.today || todayKey();
+  let total = 0;
+  for (const [topicId, stat] of Object.entries(state.topicStats || {})) {
+    if (focus.topicId) {
+      if (topicId !== focus.topicId) continue;
+    } else if (inferSubjectFromTopic(topicId) !== focus.subject) {
+      continue;
+    }
+    total += (stat?.recentOutcomes || []).filter((row) => row?.date === day).length;
+  }
+  return total;
+}
+
 function buildAdaptiveDaily(state) {
   const previous = new Map((state.daily || []).map((task) => [task.id, task]));
   const existingPlan = previous.get("study-session");
@@ -1014,10 +1028,10 @@ function buildAdaptiveDaily(state) {
       ? `${Math.round((focus.accuracy || 0) * 100)}% so far · build towards ≥85%${focus.errorType ? ` · main issue: ${errorLabel(focus.errorType)}` : ""}.`
       : `Eight focused questions in ${label}.`;
 
-  const studyProgress = Math.min(8, existingPlan?.progress || 0);
+  const studyProgress = Math.min(8, Math.max(existingPlan?.progress || 0, state.questionsToday || 0));
   const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;
   const frenchCarry = focus.subject === "french" && state.year !== 9 ? (previous.get("french-vocab")?.progress || 0) : 0;
-  const focusProgress = Math.min(4, Math.max(oldFocusProgress, frenchCarry));
+  const focusEvidence = focusAttemptsToday(state, focus);\n  const focusProgress = Math.min(4, Math.max(oldFocusProgress, frenchCarry, focusEvidence));
   const garden = previous.get("tend-garden") || { id: "tend-garden", title: "Water your plants", detail: "Tend the Scholar’s Garden.", href: "/garden", target: 1, progress: 0, xp: 10 };
   const game = previous.get("play-game") || { id: "play-game", title: "Play a quick game", detail: "One short learning game.", href: "/play", target: 1, progress: 0, xp: 10 };
 
