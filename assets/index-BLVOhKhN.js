@@ -13,6 +13,8 @@ import {
 } from "./index-BLVOhKhN.core.js?v=20260919-y9-1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
+const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
+const YEAR8_MASTERY_SUBJECTS = ["latin", "french"];
 const SUBJECT_LABELS = {
   latin: "Latin",
   french: "French",
@@ -935,7 +937,7 @@ function adaptiveFocus(state) {
     const reviewTopicId = review.topicId || QUESTION_META.get(questionId)?.topicId || null;
     if (!topicMatchesYear(reviewTopicId, state.year)) continue;
     const subject = inferReviewSubject(questionId, review);
-    if (!SUBJECTS.includes(subject)) continue;
+    if (!DAILY_SUBJECTS.includes(subject)) continue;
     due.push({ questionId, subject, topicId: reviewTopicId });
   }
 
@@ -952,7 +954,7 @@ function adaptiveFocus(state) {
 
   const dueSkills = Object.entries(state.skillStats || {})
     .map(([skillId, raw]) => ({ skillId, ...normalizeSkillStat(raw), subject: skillId.split(":")[0] }))
-    .filter((item) => SUBJECTS.includes(item.subject) && item.retentionDue && item.retentionDue <= today && (!item.lastTopicId || topicMatchesYear(item.lastTopicId, state.year)));
+    .filter((item) => DAILY_SUBJECTS.includes(item.subject) && item.retentionDue && item.retentionDue <= today && (!item.lastTopicId || topicMatchesYear(item.lastTopicId, state.year)));
   if (dueSkills.length) {
     const counts = new Map();
     for (const item of dueSkills) counts.set(item.subject, (counts.get(item.subject) || 0) + 1);
@@ -964,7 +966,7 @@ function adaptiveFocus(state) {
 
   const weakSkillRows = Object.entries(state.skillStats || {})
     .map(([skillId, raw]) => ({ skillId, ...normalizeSkillStat(raw), subject: skillId.split(":")[0] }))
-    .filter((item) => SUBJECTS.includes(item.subject) && item.attempted >= 2 && (item.needsPractice || item.accuracy < SECURE_ACCURACY) && (!item.lastTopicId || topicMatchesYear(item.lastTopicId, state.year)))
+    .filter((item) => DAILY_SUBJECTS.includes(item.subject) && item.attempted >= 2 && (item.needsPractice || item.accuracy < SECURE_ACCURACY) && (!item.lastTopicId || topicMatchesYear(item.lastTopicId, state.year)))
     .sort((a, b) => Number(b.retentionFailed) - Number(a.retentionFailed) || a.accuracy - b.accuracy || b.attempted - a.attempted);
   if (weakSkillRows.length) {
     const first = weakSkillRows[0];
@@ -973,7 +975,7 @@ function adaptiveFocus(state) {
 
   const weak = Object.entries(state.topicStats || {})
     .map(([topicId, raw]) => ({ topicId, ...normalizeTopicStat(raw), subject: inferSubjectFromTopic(topicId) }))
-    .filter((item) => SUBJECTS.includes(item.subject) && topicMatchesYear(item.topicId, state.year) && item.attempted >= 2 && item.state !== "mastered")
+    .filter((item) => DAILY_SUBJECTS.includes(item.subject) && topicMatchesYear(item.topicId, state.year) && item.attempted >= 2 && item.state !== "mastered")
     .sort((a, b) => {
       const aProdPenalty = a.productionCorrect > 0 ? 0 : 0.08;
       const bProdPenalty = b.productionCorrect > 0 ? 0 : 0.08;
@@ -981,8 +983,8 @@ function adaptiveFocus(state) {
     });
   if (weak.length) return { subject: weak[0].subject, topicId: weak[0].topicId, reason: "weak", accuracy: weak[0].accuracy, errorType: dominantError(weak[0]) };
 
-  if (SUBJECTS.includes(state.lastSubject)) return { subject: state.lastSubject, topicId: state.lastTopic || null, reason: "continue" };
-  const rotation = ["latin", "biology", "chemistry", "physics", "french", "english"];
+  if (DAILY_SUBJECTS.includes(state.lastSubject)) return { subject: state.lastSubject, topicId: state.lastTopic || null, reason: "continue" };
+  const rotation = ["latin", "biology", "chemistry", "physics", "french"];
   return { subject: rotation[new Date().getDay() % rotation.length], topicId: null, reason: "rotate" };
 }
 
@@ -1025,22 +1027,57 @@ function vocabGateState(state, subject) {
 }
 
 function year8ReviewPlan(state) {
-  const subjects = ["latin", "french", "biology", "chemistry", "physics", "english"];
   const day = state.today || todayKey();
   const seed = [...day].reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
-  const subject = subjects[seed % subjects.length];
+
+  const candidates = Object.entries(state.topicStats || {})
+    .map(([topicId, raw]) => ({
+      topicId,
+      ...normalizeTopicStat(raw),
+      subject: inferSubjectFromTopic(topicId),
+    }))
+    .filter((item) =>
+      YEAR8_MASTERY_SUBJECTS.includes(item.subject) &&
+      topicMatchesYear(item.topicId, 8) &&
+      item.state !== "mastered"
+    )
+    .sort((a, b) => {
+      const aStarted = a.attempted > 0 ? 0 : 1;
+      const bStarted = b.attempted > 0 ? 0 : 1;
+      const aProdPenalty = a.productionCorrect > 0 ? 0 : 0.08;
+      const bProdPenalty = b.productionCorrect > 0 ? 0 : 0.08;
+      return aStarted - bStarted ||
+        (a.accuracy - aProdPenalty) - (b.accuracy - bProdPenalty) ||
+        b.attempted - a.attempted ||
+        a.topicId.localeCompare(b.topicId);
+    });
+
+  const chosen = candidates[0] || null;
+  const subject = chosen?.subject || YEAR8_MASTERY_SUBJECTS[seed % YEAR8_MASTERY_SUBJECTS.length];
+  const topicId = chosen?.topicId || null;
   const label = SUBJECT_LABELS[subject] || subject;
+  const topicLabel = topicId ? topicTitle({ ...state, year: 8 }, topicId, subject) : null;
+
+  const params = new URLSearchParams();
+  params.set("daily", "1");
+  params.set("locked", "1");
+  params.set("year", "8");
+  params.set("mode", "year8long");
+  if (topicId) params.set("topic", topicId);
+
   return {
     subject,
+    topicId,
     label,
-    href: `/study/${subject}/practise?daily=1&locked=1&year=8&mode=year8long`,
+    topicLabel,
+    href: `/study/${subject}/practise?${params.toString()}`,
   };
 }
 
 function buildAdaptiveDaily(state) {
   const previous = new Map((state.daily || []).map((task) => [task.id, task]));
   const existingPlan = previous.get("study-session");
-  const locked = existingPlan?.planDate === state.today && SUBJECTS.includes(existingPlan.focusSubject) && (!existingPlan.focusTopic || topicMatchesYear(existingPlan.focusTopic, state.year)) && !(state.year === 9 && existingPlan.focusSubject === "french" && existingPlan.href === FRENCH_DAILY_HREF);
+  const locked = existingPlan?.planDate === state.today && DAILY_SUBJECTS.includes(existingPlan.focusSubject) && (!existingPlan.focusTopic || topicMatchesYear(existingPlan.focusTopic, state.year)) && !(state.year === 9 && existingPlan.focusSubject === "french" && existingPlan.href === FRENCH_DAILY_HREF);
   const focus = locked
     ? { subject: existingPlan.focusSubject, topicId: existingPlan.focusTopic || null, skillId: existingPlan.focusSkill || null, skillLabel: existingPlan.focusSkillLabel || null, reason: existingPlan.focusReason || "continue", dueCount: existingPlan.focusDueCount || 0, accuracy: existingPlan.focusAccuracy, errorType: existingPlan.focusErrorType || null }
     : adaptiveFocus(state);
@@ -1066,7 +1103,8 @@ function buildAdaptiveDaily(state) {
   const frenchVocab = vocabGateState(state, "french");
   const latinVocab = vocabGateState(state, "latin");
   const oldYear8Review = previous.get("year8-long-review") || {};
-  const year8ReviewProgress = Math.min(15, oldYear8Review.progress || 0);
+  const sameYear8Plan = oldYear8Review.planDate === state.today && oldYear8Review.reviewSubject === year8Review.subject && (oldYear8Review.reviewTopic || null) === (year8Review.topicId || null);
+  const year8ReviewProgress = sameYear8Plan ? Math.min(15, oldYear8Review.progress || 0) : 0;
   const garden = previous.get("tend-garden") || { id: "tend-garden", title: "Water your plants", detail: "Tend the Scholar’s Garden.", href: "/garden", target: 1, progress: 0, xp: 10 };
   const game = previous.get("play-game") || { id: "play-game", title: "Play a quick game", detail: "One short learning game.", href: "/play", target: 1, progress: 0, xp: 10 };
 
@@ -1075,7 +1113,7 @@ function buildAdaptiveDaily(state) {
     { id: "french-vocab", title: "French vocab check", detail: `5 different French words minimum · ${frenchVocab.correct}/4 correct · ${frenchVocab.attempts} tested${frenchVocab.passed ? " · passed" : frenchVocab.attempts >= 5 ? " · keep going until 4 are correct" : ""}.`, href: "/session/french-vocab", target: 5, progress: frenchVocab.progress, xp: 10, requiredAttempts: 5, requiredCorrect: 4, attempts: frenchVocab.attempts, correct: frenchVocab.correct, planDate: state.today },
     { id: "latin-vocab", title: "Latin vocab check", detail: `5 different Latin words minimum · ${latinVocab.correct}/4 correct · ${latinVocab.attempts} tested${latinVocab.passed ? " · passed" : latinVocab.attempts >= 5 ? " · keep going until 4 are correct" : ""}.`, href: "/session/latin-vocab", target: 5, progress: latinVocab.progress, xp: 10, requiredAttempts: 5, requiredCorrect: 4, attempts: latinVocab.attempts, correct: latinVocab.correct, planDate: state.today },
     { id: "adaptive-focus", title: focus.skillLabel ? `${focus.skillLabel} focus` : `${label} focus`, detail: "Four questions in today’s priority subject. Mastery needs ≥85% plus one independent typed or spelled answer.", href: focusHref(focus, state), target: 4, progress: focusProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason },
-    { id: "year8-long-review", title: `Year 8 deep review · ${year8Review.label}`, detail: "15-question consolidation · mixed recall plus at least one longer or multi-step task when available · system assigned.", href: year8Review.href, target: 15, progress: year8ReviewProgress, xp: 20, planDate: state.today, reviewYear: 8, reviewSubject: year8Review.subject },
+    { id: "year8-long-review", title: year8Review.topicLabel ? `Year 8 ${year8Review.label} mastery · ${year8Review.topicLabel}` : `Year 8 ${year8Review.label} topic mastery`, detail: "15-question topic mastery review · Latin/French only · prioritises an unmastered or weaker Year 8 topic.", href: year8Review.href, target: 15, progress: year8ReviewProgress, xp: 20, planDate: state.today, reviewYear: 8, reviewSubject: year8Review.subject, reviewTopic: year8Review.topicId || null },
     { ...garden, progress: Math.min(garden.target || 1, garden.progress || 0) },
     { ...game, progress: Math.min(game.target || 1, game.progress || 0) },
   ];
