@@ -28,13 +28,12 @@ function extractFunction(src,name){
   throw new Error("Unclosed function: "+name);
 }
 
-const helperStart=practice.indexOf("function FK(");
-const helperEnd=practice.indexOf("function E(){",helperStart);
-if(helperStart<0||helperEnd<0) throw new Error("Practice diversity helpers missing");
-const {FK,FC,FL,FD}=new Function(practice.slice(helperStart,helperEnd)+";return {FK,FC,FL,FD};")();
-
-const rankText=extractFunction(indexSrc,"rankAdaptiveQuestions");
-const today="2026-09-18";
+const rankBlockStart=indexSrc.indexOf("function adaptiveCognitiveDepth");
+const rankBlockEnd=indexSrc.indexOf("function topicState",rankBlockStart);
+const skillNormStart=indexSrc.indexOf("function normalizeSkillStat");
+const skillNormEnd=indexSrc.indexOf("function topicTitle",skillNormStart);
+if(rankBlockStart<0||rankBlockEnd<0||skillNormStart<0||skillNormEnd<0) throw new Error("Adaptive composer helpers missing");
+const today="2026-09-19";
 let currentState={};
 const store={getState:()=>currentState};
 const todayKey=()=>today;
@@ -55,13 +54,19 @@ function normalizeTopicStat(stat={}){
   const productionIds=Array.isArray(stat.productionIds)?[...new Set(stat.productionIds)].slice(-20):[];
   const productionCorrect=Math.max(Number(stat.productionCorrect)||0,productionIds.length);
   const accuracy=attempted?correct/attempted:0;
-  return {...stat,attempted,correct,accuracy,productionAttempted:Math.max(0,Number(stat.productionAttempted)||0),productionCorrect,productionIds,state:topicState(attempted,correct,productionCorrect),masteryRule:1};
+  return {...stat,attempted,correct,accuracy,productionAttempted:Math.max(0,Number(stat.productionAttempted)||0),productionCorrect,productionIds,state:topicState(attempted,correct,productionCorrect),recentOutcomes:stat.recentOutcomes||[],masteryRule:1};
 }
+const normalizeSkillStat=new Function("MASTERY_ACCURACY",indexSrc.slice(skillNormStart,skillNormEnd)+";return normalizeSkillStat;")(MASTERY_ACCURACY);
 function questionTopicId(item){return item?.topicId||"unknown";}
-const rankAdaptiveQuestions=new Function(
-  "store","todayKey","questionTopicId","normalizeTopicStat","MASTERY_ACCURACY",
-  rankText+"; return rankAdaptiveQuestions;"
-)(store,todayKey,questionTopicId,normalizeTopicStat,MASTERY_ACCURACY);
+function getQuestionSkills(item,subject){
+  if(Array.isArray(item?.skills)&&item.skills.length)return item.skills;
+  const concept=String(item?.conceptId||item?.topicId||item?.id||"general").toLowerCase().replace(/[^a-z0-9]+/g,"-");
+  return [subject+":test:"+concept];
+}
+const {rankAdaptiveQuestions}=new Function(
+  "store","todayKey","questionTopicId","normalizeTopicStat","normalizeSkillStat","getQuestionSkills","MASTERY_ACCURACY","SECURE_ACCURACY",
+  indexSrc.slice(rankBlockStart,rankBlockEnd)+"; return {rankAdaptiveQuestions};"
+)(store,todayKey,questionTopicId,normalizeTopicStat,normalizeSkillStat,getQuestionSkills,MASTERY_ACCURACY,SECURE_ACCURACY);
 
 const root=path.resolve("content/topics");
 const allFiles=fs.readdirSync(root).filter(f=>/^(fr|la)-.*\.json$/.test(f)).sort();
@@ -69,7 +74,7 @@ const docs=new Map(allFiles.map(file=>[file,JSON.parse(fs.readFileSync(path.join
 const norm=v=>String(v??"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[’‘\`]/g,"'").toLowerCase().replace(/\s+/g," ").trim();
 
 function stateFor(rows,scenario){
-  const state={seenTotal:{},recentQuestionIds:[],reviews:{},topicStats:{}};
+  const state={seenTotal:{},seenCorrect:{},recentQuestionIds:[],reviews:{},topicStats:{},skillStats:{}};
   if(scenario==="fresh") return state;
   const topicIds=[...new Set(rows.map(q=>q.topicId).filter(Boolean))];
   for(let i=0;i<topicIds.length;i++){
@@ -101,16 +106,16 @@ function validateSession(label,rows,subject,size,scenario){
   if(!rows.length)return;
   currentState=stateFor(rows,scenario);
   const ranked=rankAdaptiveQuestions(rows,subject,size);
-  const selected=FD(ranked,size).slice(0,Math.min(size,rows.length));
+  const selected=ranked.slice(0,Math.min(size,rows.length));
   const expected=Math.min(size,rows.length);
   if(selected.length!==expected) failures.push({label,subject,size,scenario,type:"wrong-length",got:selected.length,expected});
   const ids=selected.map(q=>q.id);
   if(new Set(ids).size!==ids.length) failures.push({label,subject,size,scenario,type:"duplicate-id",ids});
-  const keys=selected.map(FC);
-  const distinctAvailable=new Set(rows.map(FC)).size;
+  const keys=selected.map(q=>q._sessionConcept||q.conceptId||q.id);
+  const distinctAvailable=new Set(rows.map(q=>q.conceptId||q.id)).size;
   const expectedUnique=Math.min(expected,distinctAvailable);
   const actualUnique=new Set(keys).size;
-  if(actualUnique<expectedUnique) failures.push({label,subject,size,scenario,type:"duplicate-concept",expectedUnique,actualUnique,selected:selected.map(q=>({id:q.id,key:FC(q)}))});
+  if(actualUnique<expectedUnique) failures.push({label,subject,size,scenario,type:"duplicate-concept",expectedUnique,actualUnique,selected:selected.map(q=>({id:q.id,key:q._sessionConcept||q.conceptId||q.id}))});
   for(let i=1;i<keys.length;i++){
     if(keys[i]===keys[i-1]&&distinctAvailable>1){failures.push({label,subject,size,scenario,type:"adjacent-concept-repeat",index:i,key:keys[i]});break;}
   }
@@ -122,8 +127,14 @@ function validateSession(label,rows,subject,size,scenario){
       if(!opts.some(o=>norm(o)===norm(acc))) failures.push({label,subject,size,scenario,type:"mc-correct-missing",id:q.id,accepted:acc,options:opts});
     }
   }
-  const lanes=selected.map(FL);
-  sessions.push({label,subject,size,scenario,questions:selected.map(q=>q.id),distinctConcepts:actualUnique,distinctLanes:new Set(lanes).size,lanes});
+  const lanes=selected.map(q=>q._sessionLane||q.format||"other");
+  let windowRepeats=0,depthJumps=0;
+  for(let i=0;i<selected.length;i++){
+    for(let j=Math.max(0,i-2);j<i;j++) if(keys[i]===keys[j]) windowRepeats++;
+    if(i>0&&Number.isFinite(selected[i]._sessionDepth)&&Number.isFinite(selected[i-1]._sessionDepth)&&Math.abs(selected[i]._sessionDepth-selected[i-1]._sessionDepth)>1) depthJumps++;
+  }
+  if(windowRepeats&&distinctAvailable>=expected) failures.push({label,subject,size,scenario,type:"two-question-window-concept-repeat",windowRepeats});
+  sessions.push({label,subject,size,scenario,questions:selected.map(q=>q.id),distinctConcepts:actualUnique,distinctLanes:new Set(lanes).size,lanes,windowRepeats,depthJumps,depths:selected.map(q=>q._sessionDepth)});
 }
 
 for(const subject of ["french","latin"]){
