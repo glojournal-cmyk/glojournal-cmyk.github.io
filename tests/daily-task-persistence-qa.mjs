@@ -18,7 +18,7 @@ const requiredWrapper=[
   'const studyProgress = Math.min(8, Math.max(existingPlan?.progress || 0, state.questionsToday || 0));',
   'const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;',
   'const focusEvidence = focusAttemptsToday(state, focus);',
-  'const focusProgress = Math.min(4, Math.max(oldFocusProgress, frenchCarry, focusEvidence));',
+  'const focusProgress = Math.min(4, Math.max(oldFocusProgress, focusEvidence));',
   '{ id: "adaptive-focus"',
   "normalizeState();",
   "store.subscribe(() => normalizeState());"
@@ -29,12 +29,14 @@ function migrateFixture(input){
   const aliases={
     "study-session":["study-session","latin-practice"],
     "french-vocab":["french-vocab","vocab-pass"],
+    "latin-vocab":["latin-vocab"],
     "play-game":["play-game","blitz"],
     "tend-garden":["tend-garden"]
   };
   const defaults=[
     {id:"study-session",target:8,progress:0},
-    {id:"french-vocab",target:8,progress:0},
+    {id:"french-vocab",target:5,progress:0},
+    {id:"latin-vocab",target:5,progress:0},
     {id:"tend-garden",target:1,progress:0},
     {id:"play-game",target:1,progress:0}
   ];
