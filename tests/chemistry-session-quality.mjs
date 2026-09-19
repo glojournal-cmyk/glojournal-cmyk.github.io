@@ -6,7 +6,8 @@ const hs=practice.indexOf("function FK("),he=practice.indexOf("function E(){",hs
 if(hs<0||he<0) throw new Error("diversity helper missing");
 const {FC,FL,FD}=new Function(practice.slice(hs,he)+";return {FC,FL,FD};")();
 
-const selectorTail=practice.slice(practice.lastIndexOf("let ranked=RQ(t,e,W)"));\nconst chemistryEnabled=selectorTail.includes('e===`chemistry`')&&selectorTail.includes('FD(ranked,W)');
+const selectorTail=practice.slice(practice.lastIndexOf("let ranked=RQ(t,e,W)"));
+const chemistryEnabled=selectorTail.includes('e===`chemistry`')&&selectorTail.includes('FD(ranked,W)');
 const chemmixEnabled=practice.includes('return FD(mixed,W).slice(0,W)}if(E===`biomix`)');
 
 const root=path.resolve("content/topics");
