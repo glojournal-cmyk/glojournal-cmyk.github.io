@@ -117,7 +117,7 @@ for(const q of questions){
   }
 
   if(q.__subject==="latin"&&q.format==="controlled_translation"&&first.split(/\s+/).length>=3){
-    const targetEnglish=/translate into english|english meaning/i.test(String(q.prompt||"")+" "+String(q.task?.label||"")+" "+String(q.stimulus?.direction||""));
+    const meta=String(q.prompt||"")+" "+String(q.task?.label||"")+" "+String(q.stimulus?.direction||"");\n    const targetEnglish=/translate into english|english meaning|latin\\s*(?:→|->|to)\\s*english/i.test(meta);
     const reversed=first.split(/\s+/).reverse().join(" ");
     const r=B(q,reversed,"latin",{});
     if(targetEnglish&&r.ok&&AS(reversed)!==AS(first)){
