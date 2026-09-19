@@ -110,14 +110,19 @@ for(const q of questions){
         const missing=values.slice(0,-1).join(", ");
         const r=B(q,missing,q.__subject,{});
         if(r.ok) failures.push({type:"unordered-set-false-positive-missing-item",input:missing,details,result:r});
+        else if(!Array.isArray(r.missing)||!r.missing.length) failures.push({type:"unordered-set-missing-hint-absent",input:missing,details,result:r});
       }
+      const extra=values.join(", ")+", xyz";
+      const er=B(q,extra,q.__subject,{});
+      if(er.ok) failures.push({type:"unordered-set-false-positive-extra-item",input:extra,details,result:er});
     } else {
       failures.push({type:"unordered-set-schema-unhandled",details});
     }
   }
 
   if(q.__subject==="latin"&&q.format==="controlled_translation"&&first.split(/\s+/).length>=3){
-    const meta=String(q.prompt||"")+" "+String(q.task?.label||"")+" "+String(q.stimulus?.direction||"");\n    const targetEnglish=/translate into english|english meaning|latin\\s*(?:→|->|to)\\s*english/i.test(meta);
+    const meta=String(q.prompt||"")+" "+String(q.task?.label||"")+" "+String(q.stimulus?.direction||"");
+    const targetEnglish=/translate into english|english meaning|latin\s*(?:→|->|to)\s*english/i.test(meta);
     const reversed=first.split(/\s+/).reverse().join(" ");
     const r=B(q,reversed,"latin",{});
     if(targetEnglish&&r.ok&&AS(reversed)!==AS(first)){
