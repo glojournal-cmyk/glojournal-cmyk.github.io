@@ -136,6 +136,8 @@ function getQuestionSkills(item = {}, subject) {
     if (/map location|place matters/.test(text)) add("latin:culture:places");
     if (/research question/.test(text)) add("latin:research");
   } else if (resolved === "french") {
+    if (item.format === "spelling_restore" || /correct (?:the )?(?:error|spelling)|rewrite correctly|spell(?:ing)?/.test(text)) add("french:spelling");
+    if (/accent|é|è|ê|à|ç|ù|ô|î|ï|ë/.test(text) && /accent|spelling|rewrite correctly|correct the error/.test(text)) add("french:accents");
     for (const value of ["present","imperfect","perfect","past","future","conditional"]) if (text.includes(value)) add(`french:tense:${value === "past" ? "past" : value}`);
     if (/pass[ée] compos|past participle/.test(text)) add("french:tense:perfect");
     if (/negat|pas de|ne\s+.*pas/.test(text)) add("french:negation");
