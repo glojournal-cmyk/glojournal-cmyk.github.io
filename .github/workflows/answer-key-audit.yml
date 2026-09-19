@@ -40,6 +40,8 @@ jobs:
         run: node tests/game-progression-qa.mjs
       - name: Audit Latin Case Detective
         run: node tests/case-detective-qa.mjs
+      - name: Audit Error Hunter
+        run: node tests/error-hunter-qa.mjs
       - name: Audit vocab bank and dictation
         run: node tests/vocab-bank-dictation-qa.mjs
       - name: Audit repair score fairness
@@ -112,4 +114,5 @@ jobs:
             test-results/mastery-reward-qa.json
             test-results/game-progression-qa.json
             test-results/case-detective-qa.json
+            test-results/error-hunter-qa.json
             test-results/vocab-bank-dictation-qa.json
