@@ -43,6 +43,12 @@ jobs:
         run: node tests/chemistry-notation-qa.mjs
       - name: Audit Chemistry session quality
         run: node tests/chemistry-session-quality.mjs
+      - name: Audit Biology content quality
+        run: node tests/biology-content-quality-audit.mjs
+      - name: Test Biology calculation marking
+        run: node tests/biology-calculation-marking-qa.mjs
+      - name: Audit Biology session quality
+        run: node tests/biology-session-quality.mjs
       - name: Audit every question answer key
         env:
           STRICT: "1"
@@ -64,3 +70,6 @@ jobs:
             test-results/chemistry-calculation-marking.json
             test-results/chemistry-notation-qa.json
             test-results/chemistry-session-quality.json
+            test-results/biology-content-quality.json
+            test-results/biology-calculation-marking.json
+            test-results/biology-session-quality.json
