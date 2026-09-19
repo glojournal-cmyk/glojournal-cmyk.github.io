@@ -286,8 +286,10 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     const conceptKey = item.conceptId || itemSkills[0] || topicId;
     const stat = normalizeTopicStat(state.topicStats?.[topicId] || {});
     const skillRows = itemSkills.map((skill) => ({ skill, stat: normalizeSkillStat(state.skillStats?.[skill] || {}) }));
-    const weakSkill = skillRows.some(({ stat }) => stat.attempted >= 2 && stat.accuracy < SECURE_ACCURACY);
-    const retentionSkill = skillRows.some(({ stat }) => stat.attempted >= 2 && stat.accuracy >= MASTERY_ACCURACY);
+    const weakSkill = skillRows.some(({ stat }) => stat.needsPractice || (stat.attempted >= 2 && stat.accuracy < SECURE_ACCURACY));
+    const retentionSkill = skillRows.some(({ stat }) => stat.retentionReady || (stat.attempted >= 2 && stat.accuracy >= MASTERY_ACCURACY));
+    const retentionSkillDue = skillRows.some(({ stat }) => !!stat.retentionDue && stat.retentionDue <= today);
+    const nextSkillDue = skillRows.map(({ stat }) => stat.retentionDue).filter(Boolean).sort()[0] || null;
     const review = state.reviews?.[item.id];
     const due = !!review?.due && review.due <= today;
     const seenCount = seen[item.id] || 0;
@@ -297,16 +299,16 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     const weakTopic = !mastered && stat.attempted >= 2 && (stat.accuracy < MASTERY_ACCURACY || stat.productionCorrect < 1);
     const mistake = !unseen && (due || correctCount < seenCount || !!review?.wrong || (!!review && (review.stage || 1) < 3));
     const weak = (weakTopic || weakSkill) && !mistake;
-    const fresh = unseen && !weakTopic && !weakSkill;
-    const retention = !unseen && !mistake && !weak && (mastered || stat.accuracy >= MASTERY_ACCURACY || retentionSkill);
+    const fresh = unseen && !weakTopic && !weakSkill && !retentionSkillDue;
+    const retention = !mistake && !weak && (retentionSkillDue || (!unseen && (mastered || stat.accuracy >= MASTERY_ACCURACY || retentionSkill)));
     const skillAccuracy = skillRows.length ? Math.min(...skillRows.filter(({ stat }) => stat.attempted > 0).map(({ stat }) => stat.accuracy), 1) : 1;
-    return { item, index, topicId, conceptKey, stat, skillRows, skillAccuracy, review, due, unseen, mastered, weak, fresh, mistake, retention, recent: recentIds.has(item.id), recentConcept: recentConcepts.has(conceptKey) };
+    return { item, index, topicId, conceptKey, stat, skillRows, skillAccuracy, retentionSkillDue, nextSkillDue, review, due, unseen, mastered, weak, fresh, mistake, retention, recent: recentIds.has(item.id), recentConcept: recentConcepts.has(conceptKey) };
   });
 
   const byNeed = (a, b) =>
     Number(a.recent || a.recentConcept) - Number(b.recent || b.recentConcept) ||
-    Number(b.due) - Number(a.due) ||
-    (a.review?.due || "9999-12-31").localeCompare(b.review?.due || "9999-12-31") ||
+    Number(b.due || b.retentionSkillDue) - Number(a.due || a.retentionSkillDue) ||
+    (a.review?.due || a.nextSkillDue || "9999-12-31").localeCompare(b.review?.due || b.nextSkillDue || "9999-12-31") ||
     a.skillAccuracy - b.skillAccuracy ||
     a.stat.accuracy - b.stat.accuracy ||
     (seen[a.item.id] || 0) - (seen[b.item.id] || 0) ||
@@ -431,6 +433,14 @@ function normalizeSkillStat(stat = {}) {
       attempted: Math.max(0, Number(stat.repairs?.attempted) || 0),
       correct: Math.max(0, Number(stat.repairs?.correct) || 0),
     },
+    retentionStage: Math.max(0, Math.min(3, Number(stat.retentionStage) || 0)),
+    retentionDue: stat.retentionDue || null,
+    retentionReady: !!stat.retentionReady,
+    retentionFailed: !!stat.retentionFailed,
+    retentionPasses: Math.max(0, Number(stat.retentionPasses) || 0),
+    retentionFailures: Math.max(0, Number(stat.retentionFailures) || 0),
+    recoveryStreak: Math.max(0, Number(stat.recoveryStreak) || 0),
+    needsPractice: !!stat.needsPractice,
     recentOutcomes: Array.isArray(stat.recentOutcomes) ? stat.recentOutcomes.slice(-20) : [],
   };
 }
@@ -776,6 +786,7 @@ function patchedRecordGame(gameId, points, stars, level) {
 
 function applyFormalSkillAttempt(skillStats, skills, questionId, correct, production, isRepair, errorType, topicId) {
   const next = { ...(skillStats || {}) };
+  const day = todayKey();
   for (const rawSkill of skills || []) {
     const skill = canonicalSkill(rawSkill);
     if (!skill) continue;
@@ -791,8 +802,48 @@ function applyFormalSkillAttempt(skillStats, skills, questionId, correct, produc
     };
     const recentOutcomes = isRepair
       ? [...(current.recentOutcomes || [])]
-      : [...(current.recentOutcomes || []), { date: todayKey(), correct: !!correct }].slice(-20);
+      : [...(current.recentOutcomes || []), { date: day, correct: !!correct }].slice(-20);
     const accuracy = attempted ? correctCount / attempted : 0;
+    const wasDue = !isRepair && !!current.retentionDue && current.retentionDue <= day;
+    let retentionStage = current.retentionStage || 0;
+    let retentionDue = current.retentionDue || null;
+    let retentionFailed = current.retentionFailed || false;
+    let retentionPasses = current.retentionPasses || 0;
+    let retentionFailures = current.retentionFailures || 0;
+    let recoveryStreak = current.recoveryStreak || 0;
+
+    if (!isRepair && wasDue) {
+      if (correct) {
+        retentionStage = Math.min(3, Math.max(1, retentionStage) + 1);
+        retentionDue = shiftDay(day, retentionStage >= 3 ? 60 : 30);
+        retentionFailed = false;
+        retentionPasses += 1;
+        recoveryStreak = 0;
+      } else {
+        retentionStage = 0;
+        retentionDue = shiftDay(day, 2);
+        retentionFailed = true;
+        retentionFailures += 1;
+        recoveryStreak = 0;
+      }
+    } else if (!isRepair && retentionFailed) {
+      recoveryStreak = correct ? recoveryStreak + 1 : 0;
+      if (recoveryStreak >= 2 && accuracy >= SECURE_ACCURACY) {
+        retentionFailed = false;
+        retentionStage = 1;
+        retentionDue = shiftDay(day, 14);
+        recoveryStreak = 0;
+      }
+    }
+
+    const qualifiesForRetention = attempted >= 3 && accuracy >= MASTERY_ACCURACY && productionCorrect > 0 && !retentionFailed;
+    if (!isRepair && !wasDue && qualifiesForRetention && !retentionDue) {
+      retentionStage = Math.max(1, retentionStage);
+      retentionDue = shiftDay(day, 14);
+    }
+    const retentionReady = qualifiesForRetention;
+    const needsPractice = retentionFailed || (attempted >= 2 && accuracy < SECURE_ACCURACY);
+
     next[skill] = {
       ...current,
       attempted,
@@ -805,9 +856,15 @@ function applyFormalSkillAttempt(skillStats, skills, questionId, correct, produc
       recentOutcomes,
       lastErrorType: !correct && !isRepair ? (errorType || current.lastErrorType || null) : current.lastErrorType || null,
       lastTopicId: topicId || current.lastTopicId || null,
-      lastAttempt: todayKey(),
-      retentionReady: attempted >= 3 && accuracy >= MASTERY_ACCURACY,
-      needsPractice: attempted >= 2 && accuracy < SECURE_ACCURACY,
+      lastAttempt: day,
+      retentionStage,
+      retentionDue,
+      retentionReady,
+      retentionFailed,
+      retentionPasses,
+      retentionFailures,
+      recoveryStreak,
+      needsPractice,
     };
   }
   return next;
