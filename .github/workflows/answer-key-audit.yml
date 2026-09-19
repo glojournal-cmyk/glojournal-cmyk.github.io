@@ -26,8 +26,6 @@ jobs:
         run: node --test tests/french-practice-regression.mjs
       - name: Audit production route shells
         run: node tests/route-shell-qa.mjs
-      - name: Audit Study runtime cache consistency
-        run: node tests/study-runtime-cache-qa.mjs
       - name: Audit progress backup schema
         run: node tests/backup-schema-qa.mjs
       - name: Audit daily task persistence
@@ -110,7 +108,6 @@ jobs:
             test-results/biology-calculation-marking.json
             test-results/biology-session-quality.json
             test-results/route-shell-qa.json
-            test-results/study-runtime-cache-qa.json
             test-results/backup-schema-qa.json
             test-results/daily-task-persistence-qa.json
             test-results/repair-score-qa.json

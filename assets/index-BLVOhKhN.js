@@ -1,4 +1,4 @@
-export * from "./index-BLVOhKhN.core.js?v=20260919-studyfix1";
+export * from "./index-BLVOhKhN.core.js?v=20260919-y9-1";
 import {
   C as store,
   U as collectibles,
@@ -10,7 +10,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20260919-studyfix1";
+} from "./index-BLVOhKhN.core.js?v=20260919-y9-1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const SUBJECT_LABELS = {
