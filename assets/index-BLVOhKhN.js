@@ -426,6 +426,7 @@ function normalizeSkillStat(stat = {}) {
     accuracy,
     productionAttempted: Math.max(0, Number(stat.productionAttempted) || 0),
     productionCorrect: Math.max(0, Number(stat.productionCorrect) || 0),
+    productionIds: Array.isArray(stat.productionIds) ? [...new Set(stat.productionIds)].slice(-20) : [],
     repairs: {
       attempted: Math.max(0, Number(stat.repairs?.attempted) || 0),
       correct: Math.max(0, Number(stat.repairs?.correct) || 0),
@@ -773,6 +774,45 @@ function patchedRecordGame(gameId, points, stars, level) {
   return result;
 }
 
+function applyFormalSkillAttempt(skillStats, skills, questionId, correct, production, isRepair, errorType, topicId) {
+  const next = { ...(skillStats || {}) };
+  for (const rawSkill of skills || []) {
+    const skill = canonicalSkill(rawSkill);
+    if (!skill) continue;
+    const current = normalizeSkillStat(next[skill] || {});
+    const attempted = current.attempted + (isRepair ? 0 : 1);
+    const correctCount = current.correct + (!isRepair && correct ? 1 : 0);
+    const productionIds = Array.isArray(current.productionIds) ? [...current.productionIds] : [];
+    if (!isRepair && production && correct && questionId && !productionIds.includes(questionId)) productionIds.push(questionId);
+    const productionCorrect = productionIds.length;
+    const repairs = {
+      attempted: (current.repairs?.attempted || 0) + (isRepair ? 1 : 0),
+      correct: (current.repairs?.correct || 0) + (isRepair && correct ? 1 : 0),
+    };
+    const recentOutcomes = isRepair
+      ? [...(current.recentOutcomes || [])]
+      : [...(current.recentOutcomes || []), { date: todayKey(), correct: !!correct }].slice(-20);
+    const accuracy = attempted ? correctCount / attempted : 0;
+    next[skill] = {
+      ...current,
+      attempted,
+      correct: correctCount,
+      accuracy,
+      productionAttempted: current.productionAttempted + (!isRepair && production ? 1 : 0),
+      productionCorrect,
+      productionIds: productionIds.slice(-20),
+      repairs,
+      recentOutcomes,
+      lastErrorType: !correct && !isRepair ? (errorType || current.lastErrorType || null) : current.lastErrorType || null,
+      lastTopicId: topicId || current.lastTopicId || null,
+      lastAttempt: todayKey(),
+      retentionReady: attempted >= 3 && accuracy >= MASTERY_ACCURACY,
+      needsPractice: attempted >= 2 && accuracy < SECURE_ACCURACY,
+    };
+  }
+  return next;
+}
+
 function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const before = store.getState();
   const resolved = inferAttemptMeta(questionId, subject, meta || {});
@@ -831,7 +871,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     lastAttempt: todayKey(),
   };
   const reviews = { ...(after.reviews || {}) };
-  if (review) reviews[questionId] = { ...review, subject: resolved.subject, topicId: resolved.topicId, production: !!production, repair: isRepair, errorType: errorType || review.errorType || null };
+  if (review) reviews[questionId] = { ...review, subject: resolved.subject, topicId: resolved.topicId, skills: resolved.skills || [], production: !!production, repair: isRepair, errorType: errorType || review.errorType || null };
   // A wrong formal answer must never become due again on the same day.
   // Treat the first miss as stage 1: retry after 2 days; a later success then moves to 7 days.
   if (!correct && !isRepair && reviews[questionId]) {
@@ -854,8 +894,19 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   }
   if (isRepair && meta?.repairOf && questionId !== meta.repairOf) delete reviews[questionId];
   const recentQuestionIds = [...(after.recentQuestionIds || []).filter((id) => id !== questionId), questionId].slice(-20);
+  const skillStats = applyFormalSkillAttempt(
+    after.skillStats || {},
+    resolved.skills || [],
+    questionId,
+    correct,
+    production,
+    isRepair,
+    errorType,
+    resolved.topicId
+  );
   store.setState({
     topicStats: { ...(after.topicStats || {}), [resolved.topicId]: { ...nextTopic, due: reviews[meta?.repairOf || questionId]?.due || nextTopic.due } },
+    skillStats,
     reviews,
     recentQuestionIds,
     lastTopic: resolved.topicId,
