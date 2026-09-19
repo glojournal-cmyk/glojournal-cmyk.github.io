@@ -28,7 +28,8 @@ for(const file of files){
    const runtime=adaptive.rankAdaptiveQuestions(rows,"physics",size).slice(0,Math.min(size,rows.length));
    const keys=runtime.map(sessionConcept), uniqueAvailable=new Set(rows.map(q=>q.conceptId||q.id)).size;
    const expectedUnique=Math.min(size,uniqueAvailable), actualUnique=new Set(keys).size;
-   if(actualUnique<expectedUnique) failures.push({file,size,type:"runtime-concept-repeat",expectedUnique,actualUnique,selected:runtime.map(q=>({id:q.id,key:sessionConcept(q)}))});
+   const contentAvailable=new Set(rows.map(q=>adaptive.adaptiveContentKey(q))).size, runtimeContent=new Set(runtime.map(q=>q._sessionContent)).size;
+   if(runtimeContent<Math.min(size,contentAvailable)) failures.push({file,size,type:"runtime-exact-content-repeat",expected:Math.min(size,contentAvailable),actual:runtimeContent});
    for(let i=1;i<keys.length;i++) if(keys[i]===keys[i-1]&&uniqueAvailable>1) failures.push({file,size,type:"runtime-adjacent-repeat",index:i,key:keys[i]});
    if(countWindowRepeats(runtime)>0&&uniqueAvailable>=3) failures.push({file,size,type:"runtime-two-question-window-repeat",count:countWindowRepeats(runtime)});
    sessions.push({
@@ -36,7 +37,7 @@ for(const file of files){
      legacyDistinct:new Set(legacyKeys).size,
      legacyRepeats:legacyKeys.length-new Set(legacyKeys).size,
      runtimeDistinct:actualUnique,
-     runtimeLanes:[...new Set(runtime.map(sessionLane))],windowRepeats:countWindowRepeats(runtime)
+     runtimeLanes:[...new Set(runtime.map(sessionLane))],windowRepeats:countWindowRepeats(runtime),runtimeContent
    });
  }
 }
