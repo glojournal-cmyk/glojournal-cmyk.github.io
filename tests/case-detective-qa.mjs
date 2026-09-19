@@ -18,6 +18,10 @@ need(games,"games",'[`identify`,`evidence`,`repair`,`role`]');
 need(games,"games",'Repair check');
 need(games,"games",'practice?.(`case-locker`,concept,ok,{repair:!0');
 need(games,"games",'endless?endlessSize(game,cap,6,12)');
+need(games,"games","e<=1?caseDetectiveCases.slice(0,4)");
+need(games,"games","e===2?caseDetectiveCases.slice(0,6)");
+need(games,"games","e===3?caseDetectiveCases.slice(0,9)");
+need(games,"games","caseDetectiveCases.slice(0,15)");
 need(games,"games",'mission.boss?2:mission.tier>=5?2:3');
 need(games,"games",'Rating changes the number of case files and distractor pressure.');
 need(games,"games",'if(n===`case-locker`)return /case|dative|ablative');
@@ -53,6 +57,7 @@ const summary={
  cases:6,
  mechanics:["identify","role","evidence","repair"],
  trainingLevels:12,
+ progressiveTraining:true,
  endless:true,
  adaptiveWeakDue:true,
  delayedRepair:true,
