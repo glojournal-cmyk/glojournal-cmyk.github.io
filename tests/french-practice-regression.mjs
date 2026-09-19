@@ -72,7 +72,7 @@ test('a full ten-question session survives parent/store rerenders and finishes 1
   button(tree,i===9?'Finish':'Next question').props.onClick();tree=hr.render(()=>qc.H(qp));
   if(i<9)assert.ok(textOf(tree).includes(frozenItems[i+1].prompt),'active Quiz must keep the original session order');
  }
- assert.ok(textOf(tree).includes('10 / 10 formal scored · 100%'),textOf(tree));
+ assert.ok(textOf(tree).includes('10 / 10 first-pass correct · 100%'),textOf(tree));
 });
 test('French dictation handles accents and does not reshuffle after scheduling a review',()=>{
  const state=newState();state.recordAttempt=empty;state.recordSpelling=(id)=>{state.spellingDue={...state.spellingDue,[id]:{due:'2026-09-20'}};};
