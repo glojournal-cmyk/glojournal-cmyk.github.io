@@ -572,6 +572,8 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
 
     let candidates = pool.filter((row) => row.bucket === preferredBucket);
     if (!candidates.length) candidates = pool;
+    const globalStrict = pool.filter(strict);
+    if (globalStrict.length && !candidates.some(strict)) candidates = globalStrict;
     let allowed = candidates.filter(strict);
     if (!allowed.length) allowed = candidates.filter(conceptSpaced);
     if (!allowed.length) allowed = candidates.filter(laneSpaced);
