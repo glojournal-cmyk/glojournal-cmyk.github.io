@@ -2,7 +2,7 @@ import fs from "node:fs";
 
 export function buildAdaptiveRuntime(){
   const src=fs.readFileSync("assets/index-BLVOhKhN.js","utf8");
-  const rankStart=src.indexOf("function adaptiveCognitiveDepth");
+  const rankStart=src.indexOf("function adaptiveContentKey");
   const rankEnd=src.indexOf("function topicState",rankStart);
   const normStart=src.indexOf("function normalizeSkillStat");
   const normEnd=src.indexOf("function topicTitle",normStart);
