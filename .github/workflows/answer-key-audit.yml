@@ -35,6 +35,14 @@ jobs:
         run: node tests/physics-calculation-marking-qa.mjs
       - name: Audit Physics session quality
         run: node tests/physics-session-quality.mjs
+      - name: Audit Chemistry content quality
+        run: node tests/chemistry-content-quality-audit.mjs
+      - name: Test Chemistry calculation marking
+        run: node tests/chemistry-calculation-marking-qa.mjs
+      - name: Test Chemistry notation marking
+        run: node tests/chemistry-notation-qa.mjs
+      - name: Audit Chemistry session quality
+        run: node tests/chemistry-session-quality.mjs
       - name: Audit every question answer key
         env:
           STRICT: "1"
@@ -52,3 +60,7 @@ jobs:
             test-results/physics-content-quality.json
             test-results/physics-calculation-marking.json
             test-results/physics-session-quality.json
+            test-results/chemistry-content-quality.json
+            test-results/chemistry-calculation-marking.json
+            test-results/chemistry-notation-qa.json
+            test-results/chemistry-session-quality.json
