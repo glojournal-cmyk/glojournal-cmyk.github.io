@@ -1030,33 +1030,42 @@ function year8ReviewPlan(state) {
   const day = state.today || todayKey();
   const seed = [...day].reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
 
-  const candidates = Object.entries(state.topicStats || {})
-    .map(([topicId, raw]) => ({
-      topicId,
-      ...normalizeTopicStat(raw),
-      subject: inferSubjectFromTopic(topicId),
-    }))
-    .filter((item) =>
-      YEAR8_MASTERY_SUBJECTS.includes(item.subject) &&
-      topicMatchesYear(item.topicId, 8) &&
-      item.state !== "mastered"
-    )
-    .sort((a, b) => {
-      const aStarted = a.attempted > 0 ? 0 : 1;
-      const bStarted = b.attempted > 0 ? 0 : 1;
-      const aProdPenalty = a.productionCorrect > 0 ? 0 : 0.08;
-      const bProdPenalty = b.productionCorrect > 0 ? 0 : 0.08;
-      return aStarted - bStarted ||
-        (a.accuracy - aProdPenalty) - (b.accuracy - bProdPenalty) ||
-        b.attempted - a.attempted ||
-        a.topicId.localeCompare(b.topicId);
-    });
+  const allTopics = YEAR8_MASTERY_SUBJECTS.flatMap((subject) => {
+    try {
+      return (getTopicCatalog(subject, 8) || []).map((topic) => {
+        const stat = normalizeTopicStat(state.topicStats?.[topic.topicId] || {});
+        return {
+          ...stat,
+          subject,
+          topicId: topic.topicId,
+          topicLabel: topic.title || topicTitle({ ...state, year: 8 }, topic.topicId, subject),
+        };
+      });
+    } catch {
+      return [];
+    }
+  }).filter((item) => item.topicId && item.state !== "mastered");
 
-  const chosen = candidates[0] || null;
+  const sortWeakest = (rows) => [...rows].sort((a, b) => {
+    const aProdPenalty = a.productionCorrect > 0 ? 0 : 0.08;
+    const bProdPenalty = b.productionCorrect > 0 ? 0 : 0.08;
+    return (a.accuracy - aProdPenalty) - (b.accuracy - bProdPenalty) ||
+      b.attempted - a.attempted ||
+      a.topicId.localeCompare(b.topicId);
+  });
+
+  const started = sortWeakest(allTopics.filter((item) => item.attempted > 0));
+  let chosen = started[0] || null;
+
+  if (!chosen) {
+    const preferredSubject = YEAR8_MASTERY_SUBJECTS[seed % YEAR8_MASTERY_SUBJECTS.length];
+    chosen = allTopics.find((item) => item.subject === preferredSubject) || allTopics[0] || null;
+  }
+
   const subject = chosen?.subject || YEAR8_MASTERY_SUBJECTS[seed % YEAR8_MASTERY_SUBJECTS.length];
   const topicId = chosen?.topicId || null;
   const label = SUBJECT_LABELS[subject] || subject;
-  const topicLabel = topicId ? topicTitle({ ...state, year: 8 }, topicId, subject) : null;
+  const topicLabel = chosen?.topicLabel || null;
 
   const params = new URLSearchParams();
   params.set("daily", "1");
