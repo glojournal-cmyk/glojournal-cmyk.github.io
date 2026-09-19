@@ -15,6 +15,10 @@ need(core,"core",'missionNo%5===0');
 need(core,"core",'Math.min(1000,rating+delta)');
 need(core,"core",'i>=3?36:i===2?18:i===1?-12:-24');
 need(core,"core",'detail:endless?\`${n} · endless mission ${missions}\`:n');
+need(core,"core","daily.plays>=2&&daily.twoStar>=2");
+need(core,"core","weekly.plays>=8&&weekly.twoStar>=6&&weekly.boss>=1");
+need(core,"core","game_daily_challenge");
+need(core,"core","game_weekly_challenge");
 
 need(pe,"pe","levels:8");
 need(pe,"pe","How to play");
@@ -37,6 +41,10 @@ need(games,"games",'hideCue=endless');
 need(games,"games",'mode=endless?(mission.boss?\`boss\`:mission.mode)');
 need(games,"games",'label:isDue(o)?\`${s} retention\`:s');
 need(games,"games",'Game results never mark a topic Mastered.');
+need(games,"games","Daily endless challenge");
+need(games,"games","Weekly endless challenge");
+need(games,"games","Complete 2 endless missions with at least 2★ in each.");
+need(games,"games","8 missions · 6 at 2★+ · clear 1 recurring boss.");
 need(games,"games","Cold build · reconstruct the French sentence");
 need(games,"games","Final pressure board: the widest mixed set");
 need(games,"games","Final pressure board: the largest mixed vocabulary set");
@@ -70,7 +78,9 @@ const summary={
  recurringBossEvery:5,
  progressiveMatchCounts:matchCounts,
  adaptiveWeakDueRetention:true,
- formalMasteryExcluded:true
+ formalMasteryExcluded:true,
+ dailyChallenge:{missions:2,strong:2,xp:12},
+ weeklyChallenge:{missions:8,strong:6,boss:1,xp:35}
 };
 console.log("GAME_PROGRESSION_QA "+JSON.stringify(summary));
 console.log("GAME_PROGRESSION_FAILURES "+JSON.stringify(failures));
