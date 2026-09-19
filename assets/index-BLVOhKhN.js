@@ -378,6 +378,45 @@ function questionTopicId(item, subject) {
   return item?.topicId || legacyTopicId(subject, item?.topic || "general");
 }
 
+function adaptiveFormatLane(item) {
+  const format = String(item?.format || "");
+  if (format === "mc_single") return "recognition";
+  if (["matching", "sorting", "diagram_label", "word_tiles", "sequence"].includes(format)) return "interaction";
+  if (["extended_response", "practical_design", "mark_points"].includes(format)) return "explanation";
+  if (format === "calculation") return "calculation";
+  if (format === "spelling_restore") return "spelling";
+  if (["typed_exact", "typed_short", "typed_equivalent", "controlled_translation", "unordered_set"].includes(format)) return "typed";
+  return format || "other";
+}
+
+function adaptiveIsProduction(item) {
+  return ["typed", "explanation", "calculation", "spelling"].includes(adaptiveFormatLane(item));
+}
+
+function adaptiveQuotaPlan(target) {
+  const weights = { weak: 0.4, new: 0.3, mistake: 0.2, retention: 0.1 };
+  const order = ["weak", "new", "mistake", "retention"];
+  const quotas = {};
+  let used = 0;
+  const fractions = [];
+  for (const name of order) {
+    const exact = target * weights[name];
+    quotas[name] = Math.floor(exact);
+    used += quotas[name];
+    fractions.push({ name, fraction: exact - Math.floor(exact), priority: order.indexOf(name) });
+  }
+  fractions.sort((a, b) => b.fraction - a.fraction || a.priority - b.priority);
+  for (let i = 0; used < target; i += 1, used += 1) quotas[fractions[i % fractions.length].name] += 1;
+  if (target >= 8 && quotas.retention === 0) {
+    const donor = quotas.new > 1 ? "new" : quotas.weak > 1 ? "weak" : null;
+    if (donor) {
+      quotas[donor] -= 1;
+      quotas.retention = 1;
+    }
+  }
+  return quotas;
+}
+
 function rankAdaptiveQuestions(items, subject, size = 10) {
   const state = store.getState();
   const today = todayKey();
@@ -395,6 +434,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     const topicId = questionTopicId(item, subject);
     const itemSkills = item.skills || [];
     const conceptKey = item.conceptId || itemSkills[0] || topicId;
+    const primarySkill = itemSkills[0] || topicId;
     const stat = normalizeTopicStat(state.topicStats?.[topicId] || {});
     const skillRows = itemSkills.map((skill) => ({ skill, stat: normalizeSkillStat(state.skillStats?.[skill] || {}) }));
     const weakSkill = skillRows.some(({ stat }) => stat.needsPractice || (stat.attempted >= 2 && stat.accuracy < SECURE_ACCURACY));
@@ -412,8 +452,14 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     const weak = (weakTopic || weakSkill) && !mistake;
     const fresh = unseen && !weakTopic && !weakSkill && !retentionSkillDue;
     const retention = !mistake && !weak && (retentionSkillDue || (!unseen && (mastered || stat.accuracy >= MASTERY_ACCURACY || retentionSkill)));
-    const skillAccuracy = skillRows.length ? Math.min(...skillRows.filter(({ stat }) => stat.attempted > 0).map(({ stat }) => stat.accuracy), 1) : 1;
-    return { item, index, topicId, conceptKey, stat, skillRows, skillAccuracy, retentionSkillDue, nextSkillDue, review, due, unseen, mastered, weak, fresh, mistake, retention, recent: recentIds.has(item.id), recentConcept: recentConcepts.has(conceptKey) };
+    const attemptedSkillRows = skillRows.filter(({ stat }) => stat.attempted > 0);
+    const skillAccuracy = attemptedSkillRows.length ? Math.min(...attemptedSkillRows.map(({ stat }) => stat.accuracy)) : 1;
+    return {
+      item, index, topicId, conceptKey, primarySkill, stat, skillRows, skillAccuracy,
+      retentionSkillDue, nextSkillDue, review, due, unseen, mastered, weak, fresh, mistake, retention,
+      recent: recentIds.has(item.id), recentConcept: recentConcepts.has(conceptKey),
+      lane: adaptiveFormatLane(item), production: adaptiveIsProduction(item),
+    };
   });
 
   const byNeed = (a, b) =>
@@ -425,6 +471,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     (seen[a.item.id] || 0) - (seen[b.item.id] || 0) ||
     a.index - b.index;
 
+  const bucketName = (row) => row.mistake ? "mistake" : row.weak ? "weak" : row.fresh ? "new" : row.retention ? "retention" : "other";
   const buckets = {
     weak: rows.filter((r) => r.weak).sort(byNeed),
     new: rows.filter((r) => r.fresh).sort(byNeed),
@@ -434,14 +481,8 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
   };
 
   const target = Math.max(1, Math.min(Number(size) || 10, rows.length));
-  const quotas = {
-    weak: Math.round(target * 0.4),
-    mistake: Math.round(target * 0.2),
-    retention: target >= 5 ? Math.max(1, Math.round(target * 0.1)) : 0,
-  };
-  quotas.new = Math.max(0, target - quotas.weak - quotas.mistake - quotas.retention);
-
-  const selected = { weak: [], new: [], mistake: [], retention: [] };
+  const quotas = adaptiveQuotaPlan(target);
+  const selected = [];
   const ids = new Set();
   const concepts = new Set();
 
@@ -451,7 +492,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
       if (ids.has(row.item.id) || concepts.has(row.conceptKey)) continue;
       ids.add(row.item.id);
       concepts.add(row.conceptKey);
-      selected[name].push({ ...row, bucket: name });
+      selected.push({ ...row, bucket: name });
       count -= 1;
     }
     return count;
@@ -460,8 +501,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
   const deficits = {};
   for (const name of ["weak", "new", "mistake", "retention"]) deficits[name] = takeDistinct(name, quotas[name]);
 
-  // Refill missing quota slots from the most useful *different concepts* first.
-  let missing = Object.values(deficits).reduce((a, b) => a + b, 0);
+  let missing = Object.values(deficits).reduce((sum, value) => sum + value, 0);
   if (missing > 0) {
     const refill = [...buckets.weak, ...buckets.mistake, ...buckets.new, ...buckets.retention, ...buckets.other]
       .filter((row) => !ids.has(row.item.id) && !concepts.has(row.conceptKey))
@@ -470,36 +510,127 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
       if (missing <= 0) break;
       ids.add(row.item.id);
       concepts.add(row.conceptKey);
-      const name = row.mistake ? "mistake" : row.weak ? "weak" : row.fresh ? "new" : row.retention ? "retention" : "new";
-      selected[name].push({ ...row, bucket: name });
+      selected.push({ ...row, bucket: bucketName(row) === "other" ? "new" : bucketName(row) });
       missing -= 1;
     }
   }
 
-  const picked = [];
-  const order = ["weak", "new", "mistake", "weak", "retention", "new"];
-  let cursor = 0;
-  while (picked.length < target && Object.values(selected).some((list) => list.length)) {
-    const name = order[cursor % order.length];
-    const row = selected[name]?.shift();
-    if (row) picked.push(row);
-    cursor += 1;
-    if (cursor > target * 24) break;
-  }
-
-  // Only if the bank is too small do we allow a concept to repeat.
   for (const name of ["weak", "mistake", "new", "retention", "other"]) {
     for (const row of buckets[name]) {
-      if (picked.length >= target) break;
+      if (selected.length >= target) break;
       if (ids.has(row.item.id)) continue;
       ids.add(row.item.id);
-      picked.push({ ...row, bucket: name });
+      selected.push({ ...row, bucket: name });
     }
   }
 
-  const leftovers = rows.filter((row) => !ids.has(row.item.id)).sort(byNeed);
-  const ordered = [...picked, ...leftovers.map((row) => ({ ...row, bucket: "other" }))];
-  return ordered.map((row, index) => ({ ...row.item, _adaptiveRank: index, _adaptiveBucket: row.bucket }));
+  // Guarantee independent production evidence when the bank can support it.
+  const desiredProduction = target >= 15 ? 3 : target >= 10 ? 2 : target >= 5 ? 1 : 0;
+  let productionCount = selected.filter((row) => row.production).length;
+  if (productionCount < desiredProduction) {
+    const candidates = rows.filter((row) => row.production && !ids.has(row.item.id)).sort(byNeed);
+    for (const candidate of candidates) {
+      if (productionCount >= desiredProduction) break;
+      const replaceIndex = [...selected].reverse().findIndex((row) => !row.production && row.bucket !== "mistake" && row.bucket !== "retention");
+      if (replaceIndex < 0) break;
+      const actualIndex = selected.length - 1 - replaceIndex;
+      const removed = selected[actualIndex];
+      ids.delete(removed.item.id);
+      ids.add(candidate.item.id);
+      selected[actualIndex] = { ...candidate, bucket: bucketName(candidate) === "other" ? removed.bucket : bucketName(candidate) };
+      productionCount += 1;
+    }
+  }
+
+  // Compose the session rather than merely sorting it.
+  const pool = [...selected];
+  const composed = [];
+  const bucketPattern = ["weak", "new", "mistake", "weak", "retention", "new"];
+  const productionSlots = new Set(
+    target >= 15 ? [3, 8, 12] : target >= 10 ? [3, 7] : target >= 5 ? [3] : []
+  );
+  const recentConceptWindow = [];
+  const recentSkillWindow = [];
+  let lastLane = null;
+  let lastProduction = false;
+
+  const pickCandidate = (position) => {
+    const preferredBucket = bucketPattern[position % bucketPattern.length];
+    const alternativesExist = (predicate) => pool.some(predicate);
+    const strict = (row) =>
+      !recentConceptWindow.includes(row.conceptKey) &&
+      !recentSkillWindow.includes(row.primarySkill) &&
+      row.lane !== lastLane &&
+      !(row.production && lastProduction);
+    const conceptSpaced = (row) =>
+      !recentConceptWindow.includes(row.conceptKey) &&
+      row.lane !== lastLane &&
+      !(row.production && lastProduction);
+    const laneSpaced = (row) =>
+      !recentConceptWindow.includes(row.conceptKey) &&
+      !(row.production && lastProduction);
+
+    let candidates = pool.filter((row) => row.bucket === preferredBucket);
+    if (!candidates.length) candidates = pool;
+    let allowed = candidates.filter(strict);
+    if (!allowed.length) allowed = candidates.filter(conceptSpaced);
+    if (!allowed.length) allowed = candidates.filter(laneSpaced);
+    if (!allowed.length) allowed = candidates;
+
+    // If another bucket has a much better spacing option, prefer the healthier rhythm.
+    if (allowed.every((row) => recentConceptWindow.includes(row.conceptKey)) && alternativesExist(strict)) {
+      allowed = pool.filter(strict);
+    }
+
+    const wantsProduction = productionSlots.has(position);
+    allowed.sort((x, y) => {
+      const score = (row) => {
+        let value = 0;
+        if (row.bucket === preferredBucket) value += 12;
+        if (!recentConceptWindow.includes(row.conceptKey)) value += 10;
+        if (!recentSkillWindow.includes(row.primarySkill)) value += 4;
+        if (row.lane !== lastLane) value += 5;
+        if (!(row.production && lastProduction)) value += 4;
+        if (wantsProduction === row.production) value += 5;
+        if (position === 0 && row.production) value -= 5;
+        const difficulty = Number(row.item.difficulty) || 2;
+        if (position < Math.min(3, target)) value += Math.max(0, 4 - difficulty);
+        if (position >= Math.max(3, target - 3)) value += difficulty;
+        value -= (row.recent || row.recentConcept) ? 4 : 0;
+        return value;
+      };
+      return score(y) - score(x) || byNeed(x, y);
+    });
+    return allowed[0] || pool[0];
+  };
+
+  while (composed.length < target && pool.length) {
+    const position = composed.length;
+    const row = pickCandidate(position);
+    const index = pool.indexOf(row);
+    pool.splice(index, 1);
+    composed.push(row);
+    recentConceptWindow.push(row.conceptKey);
+    recentSkillWindow.push(row.primarySkill);
+    while (recentConceptWindow.length > 2) recentConceptWindow.shift();
+    while (recentSkillWindow.length > 1) recentSkillWindow.shift();
+    lastLane = row.lane;
+    lastProduction = row.production;
+  }
+
+  const chosenIds = new Set(composed.map((row) => row.item.id));
+  const leftovers = rows.filter((row) => !chosenIds.has(row.item.id)).sort(byNeed);
+  const ordered = [...composed, ...leftovers.map((row) => ({ ...row, bucket: bucketName(row) }))];
+  return ordered.map((row, index) => ({
+    ...row.item,
+    _adaptiveRank: index,
+    _adaptiveBucket: row.bucket,
+    _sessionComposed: index < target,
+    _sessionLane: row.lane,
+    _sessionConcept: row.conceptKey,
+    _sessionPrimarySkill: row.primarySkill,
+    _sessionProduction: !!row.production,
+  }));
 }
 function topicState(attempted, correct, productionCorrect) {
   const accuracy = attempted > 0 ? correct / attempted : 0;
