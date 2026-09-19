@@ -531,13 +531,19 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     const candidates = rows.filter((row) => row.production && !ids.has(row.item.id)).sort(byNeed);
     for (const candidate of candidates) {
       if (productionCount >= desiredProduction) break;
-      const replaceIndex = [...selected].reverse().findIndex((row) => !row.production && row.bucket !== "mistake" && row.bucket !== "retention");
-      if (replaceIndex < 0) break;
-      const actualIndex = selected.length - 1 - replaceIndex;
-      const removed = selected[actualIndex];
+      const replaceable = selected
+        .map((row, index) => ({ row, index }))
+        .filter(({ row }) => !row.production && row.bucket !== "mistake" && row.bucket !== "retention")
+        .reverse();
+      let choice = replaceable.find(({ index }) =>
+        !selected.some((row, otherIndex) => otherIndex !== index && row.conceptKey === candidate.conceptKey)
+      );
+      if (!choice) choice = replaceable[0];
+      if (!choice) break;
+      const removed = selected[choice.index];
       ids.delete(removed.item.id);
       ids.add(candidate.item.id);
-      selected[actualIndex] = { ...candidate, bucket: bucketName(candidate) === "other" ? removed.bucket : bucketName(candidate) };
+      selected[choice.index] = { ...candidate, bucket: bucketName(candidate) === "other" ? removed.bucket : bucketName(candidate) };
       productionCount += 1;
     }
   }
@@ -585,6 +591,12 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     }
 
     const wantsProduction = productionSlots.has(position);
+    const remainingProduction = pool.filter((row) => row.production).length;
+    const remainingNonProduction = pool.length - remainingProduction;
+    if (!lastProduction && position > 0 && remainingProduction >= remainingNonProduction) {
+      const productionAllowed = allowed.filter((row) => row.production);
+      if (productionAllowed.length) allowed = productionAllowed;
+    }
     allowed.sort((x, y) => {
       const score = (row) => {
         let value = 0;
