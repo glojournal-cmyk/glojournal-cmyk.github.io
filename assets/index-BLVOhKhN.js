@@ -599,11 +599,10 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
         .map((row, index) => ({ row, index }))
         .filter(({ row }) => !row.production && row.bucket !== "mistake" && row.bucket !== "retention")
         .reverse();
-      let choice = replaceable.find(({ index }) =>
+      const choice = replaceable.find(({ index }) =>
         !selected.some((row, otherIndex) => otherIndex !== index && (row.conceptKey === candidate.conceptKey || row.contentKey === candidate.contentKey))
       );
-      if (!choice) choice = replaceable[0];
-      if (!choice) break;
+      if (!choice) continue;
       const removed = selected[choice.index];
       ids.delete(removed.item.id);
       ids.add(candidate.item.id);
