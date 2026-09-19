@@ -6,7 +6,8 @@ const hs=practice.indexOf("function FK("), he=practice.indexOf("function E(){",h
 if(hs<0||he<0) throw new Error("diversity helper missing");
 const {FC,FL,FD}=new Function(practice.slice(hs,he)+";return {FC,FL,FD};")();
 
-const selectorTail=practice.slice(practice.lastIndexOf("let ranked=RQ(t,e,W)"));\nconst physicsEnabled=selectorTail.includes('e===`physics`')&&selectorTail.includes('FD(ranked,W)');
+const selectorTail=practice.slice(practice.lastIndexOf("let ranked=RQ(t,e,W)"));
+const physicsEnabled=selectorTail.includes('e===`physics`')&&selectorTail.includes('FD(ranked,W)');
 const physmixEnabled=practice.includes('return FD(mixed,W).slice(0,W)}if(E===`chemmix`)');
 const root=path.resolve("content/topics");
 const files=fs.readdirSync(root).filter(f=>/^phys-.*\.json$/.test(f)).sort();
