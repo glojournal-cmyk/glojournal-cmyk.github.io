@@ -32,6 +32,8 @@ jobs:
         run: node tests/daily-vocab-gate-qa.mjs
       - name: Audit daily plan rigor
         run: node tests/daily-plan-rigor-qa.mjs
+      - name: Audit mastery rewards
+        run: node tests/mastery-reward-qa.mjs
       - name: Audit repair score fairness
         run: node tests/repair-score-qa.mjs
       - name: Test French session diversity
@@ -98,3 +100,4 @@ jobs:
             test-results/repair-score-qa.json
             test-results/daily-vocab-gate-qa.json
             test-results/daily-plan-rigor-qa.json
+            test-results/mastery-reward-qa.json
