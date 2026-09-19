@@ -33,7 +33,7 @@ for(const file of files){
       const issue=[];
       if(typeof a.value!=="number"||!Number.isFinite(a.value)) issue.push("missing numeric value");
       if(!a.modelAnswer) issue.push("missing modelAnswer");
-      if(!Array.isArray(a.markPoints)||!a.markPoints.length) issue.push("missing markPoints");
+      if((!Array.isArray(a.markPoints)||!a.markPoints.length)&&!a.working) issue.push("missing working/markPoints");
       if(typeof a.tolerance!=="number"||a.tolerance<0) issue.push("missing/invalid tolerance");
       if(issue.length) report.calculationSchema.push({file,id:q.id,prompt:q.prompt,issue,answer:a});
       const key=units.join(" | ")||"(no unit)";
