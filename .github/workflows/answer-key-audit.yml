@@ -25,6 +25,8 @@ jobs:
         run: node tests/latin-content-quality-audit.mjs
       - name: Smoke-test live French and Latin practice
         run: node tests/live-practice-smoke.mjs
+      - name: Test marking interactions
+        run: node tests/marking-interaction-qa.mjs
       - name: Audit every question answer key
         env:
           STRICT: "1"
@@ -37,3 +39,4 @@ jobs:
             test-results/french-content-quality.json
             test-results/latin-content-quality.json
             test-results/live-practice-smoke.json
+            test-results/marking-interaction-qa.json
