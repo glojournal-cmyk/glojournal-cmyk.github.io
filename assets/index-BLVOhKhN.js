@@ -1150,6 +1150,7 @@ const STUDY_REWARD_XP = {
   quiz_complete_80: 16,
   quiz_bonus_90: 8,
   writing_complete: 20,
+  mastery_retention: 10,
 };
 
 function patchedAward(kind, options = {}) {
@@ -1475,8 +1476,68 @@ function appendLearningEvents(existing, beforeSkills, afterSkills, skills, conte
   return rows.slice(0, 80);
 }
 
+const TOPIC_MASTERY_XP = 50;
+
+function emitMasteryReward(detail) {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new CustomEvent("scholar:mastery-earned", { detail }));
+}
+
+function awardFirstTopicMastery(topicId, subject, title, previousState, nextState) {
+  if (!topicId || nextState !== "mastered" || previousState === "mastered") return null;
+  const state = store.getState();
+  const stat = state.topicStats?.[topicId] || {};
+  if (stat.masteryRewardedAt) return null;
+
+  const reward = originalAward("topic_mastered", {
+    subject,
+    detail: `Mastery · ${title || topicId}`,
+    amount: TOPIC_MASTERY_XP,
+  });
+  const latest = store.getState();
+  const latestStat = latest.topicStats?.[topicId] || stat;
+  store.setState({
+    topicStats: {
+      ...(latest.topicStats || {}),
+      [topicId]: {
+        ...latestStat,
+        masteryRewardedAt: todayKey(),
+        masteryRewardXp: TOPIC_MASTERY_XP,
+      },
+    },
+  });
+  emitMasteryReward({
+    kind: "mastery",
+    topicId,
+    subject,
+    title: title || topicId,
+    xp: reward?.awarded ?? TOPIC_MASTERY_XP,
+    unlocked: reward?.unlocked || [],
+  });
+  return reward;
+}
+
+function awardMasteryRetention(topicId, subject, title) {
+  const reward = patchedAward("mastery_retention", {
+    subject,
+    detail: `Mastery retention · ${topicId}`,
+  });
+  if ((reward?.awarded || 0) > 0) {
+    emitMasteryReward({
+      kind: "retention",
+      topicId,
+      subject,
+      title: title || topicId,
+      xp: reward.awarded,
+      unlocked: reward?.unlocked || [],
+    });
+  }
+  return reward;
+}
+
 function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const before = store.getState();
+  const dueBefore = !!before.reviews?.[questionId]?.due && before.reviews[questionId].due <= todayKey();
   const resolved = inferAttemptMeta(questionId, subject, meta || {});
   const production = isIndependentProduction(resolved);
 
@@ -1591,6 +1652,13 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     lastSubject: resolved.subject || subject,
   });
 
+  const masteryTitle = resolved.topicTitle || meta?.topicTitle || topicTitle({ ...store.getState(), year: meta?.yearOverride || store.getState().year }, resolved.topicId, resolved.subject || subject);
+  if (!isRepair && nextState === "mastered" && current.state !== "mastered") {
+    awardFirstTopicMastery(resolved.topicId, resolved.subject || subject, masteryTitle, current.state, nextState);
+  } else if (!isRepair && correct && current.state === "mastered" && dueBefore) {
+    awardMasteryRetention(resolved.topicId, resolved.subject || subject, masteryTitle);
+  }
+
   const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
   if (!isRepair && !meta?.excludeGeneralDaily && focus && focus.focusSubject === (resolved.subject || subject)) originalBumpDaily("adaptive-focus", 1);
   normalizeState();
@@ -1651,6 +1719,10 @@ function patchedRecordSpelling(questionId, correct) {
     lastProduction: day,
   };
   store.setState({ topicStats: { ...(store.getState().topicStats || {}), [known.topicId]: next } });
+  if (next.state === "mastered" && current.state !== "mastered") {
+    const masteryTitle = known.topicTitle || topicTitle(store.getState(), known.topicId, known.subject || "french");
+    awardFirstTopicMastery(known.topicId, known.subject || "french", masteryTitle, current.state, next.state);
+  }
   normalizeState();
   return result;
 }
