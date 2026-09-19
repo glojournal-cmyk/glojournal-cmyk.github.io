@@ -192,7 +192,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
   const today = todayKey();
   const seen = state.seenTotal || {};
   const correct = state.seenCorrect || {};
-  const recentIds = new Set((state.recentQuestionIds || []).slice(-12));
+  const recentIds = new Set((state.recentQuestionIds || []).slice(-16));
   const source = items || [];
   const recentConcepts = new Set(
     source
@@ -210,10 +210,12 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     const correctCount = correct[item.id] || 0;
     const unseen = seenCount === 0;
     const mastered = stat.state === "mastered";
-    const weak = !mastered && stat.attempted >= 2 && (stat.accuracy < MASTERY_ACCURACY || stat.productionCorrect < 1);
+    const weakTopic = !mastered && stat.attempted >= 2 && (stat.accuracy < MASTERY_ACCURACY || stat.productionCorrect < 1);
     const mistake = !unseen && (due || correctCount < seenCount || !!review?.wrong || (!!review && (review.stage || 1) < 3));
-    const retention = !unseen && !mistake && (mastered || stat.accuracy >= MASTERY_ACCURACY);
-    return { item, index, topicId, conceptKey, stat, review, due, unseen, mastered, weak, mistake, retention, recent: recentIds.has(item.id), recentConcept: recentConcepts.has(conceptKey) };
+    const weak = weakTopic && !mistake;
+    const fresh = unseen && !weakTopic;
+    const retention = !unseen && !mistake && !weak && (mastered || stat.accuracy >= MASTERY_ACCURACY);
+    return { item, index, topicId, conceptKey, stat, review, due, unseen, mastered, weak, fresh, mistake, retention, recent: recentIds.has(item.id), recentConcept: recentConcepts.has(conceptKey) };
   });
 
   const byNeed = (a, b) =>
@@ -226,10 +228,10 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
 
   const buckets = {
     weak: rows.filter((r) => r.weak).sort(byNeed),
-    new: rows.filter((r) => r.unseen).sort(byNeed),
+    new: rows.filter((r) => r.fresh).sort(byNeed),
     mistake: rows.filter((r) => r.mistake).sort(byNeed),
     retention: rows.filter((r) => r.retention).sort(byNeed),
-    other: rows.filter((r) => !r.weak && !r.unseen && !r.mistake && !r.retention).sort(byNeed),
+    other: rows.filter((r) => !r.weak && !r.fresh && !r.mistake && !r.retention).sort(byNeed),
   };
 
   const target = Math.max(1, Math.min(Number(size) || 10, rows.length));
@@ -243,11 +245,11 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
   const selected = { weak: [], new: [], mistake: [], retention: [] };
   const ids = new Set();
   const concepts = new Set();
-  const takeInto = (name, count, allowConceptRepeat = false) => {
+
+  const takeDistinct = (name, count) => {
     for (const row of buckets[name]) {
       if (count <= 0) break;
-      if (ids.has(row.item.id)) continue;
-      if (!allowConceptRepeat && concepts.has(row.conceptKey)) continue;
+      if (ids.has(row.item.id) || concepts.has(row.conceptKey)) continue;
       ids.add(row.item.id);
       concepts.add(row.conceptKey);
       selected[name].push({ ...row, bucket: name });
@@ -256,9 +258,23 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     return count;
   };
 
-  for (const name of ["weak", "new", "mistake", "retention"]) {
-    let left = takeInto(name, quotas[name], false);
-    if (left > 0) takeInto(name, left, true);
+  const deficits = {};
+  for (const name of ["weak", "new", "mistake", "retention"]) deficits[name] = takeDistinct(name, quotas[name]);
+
+  // Refill missing quota slots from the most useful *different concepts* first.
+  let missing = Object.values(deficits).reduce((a, b) => a + b, 0);
+  if (missing > 0) {
+    const refill = [...buckets.weak, ...buckets.mistake, ...buckets.new, ...buckets.retention, ...buckets.other]
+      .filter((row) => !ids.has(row.item.id) && !concepts.has(row.conceptKey))
+      .sort(byNeed);
+    for (const row of refill) {
+      if (missing <= 0) break;
+      ids.add(row.item.id);
+      concepts.add(row.conceptKey);
+      const name = row.mistake ? "mistake" : row.weak ? "weak" : row.fresh ? "new" : row.retention ? "retention" : "new";
+      selected[name].push({ ...row, bucket: name });
+      missing -= 1;
+    }
   }
 
   const picked = [];
@@ -269,9 +285,10 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     const row = selected[name]?.shift();
     if (row) picked.push(row);
     cursor += 1;
-    if (cursor > target * 20) break;
+    if (cursor > target * 24) break;
   }
 
+  // Only if the bank is too small do we allow a concept to repeat.
   for (const name of ["weak", "mistake", "new", "retention", "other"]) {
     for (const row of buckets[name]) {
       if (picked.length >= target) break;
