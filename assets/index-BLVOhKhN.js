@@ -592,9 +592,44 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     }
   }
 
-  // Keep calibrated difficulty varied: target depth should dominate, not monopolise the session.
-  const maxSameDepth = target >= 5 ? Math.ceil(target * 0.5) : target;
+  // Keep calibrated difficulty varied: the learner's level should lead the mix without monopolising it.
+  const targetDepths = selected.map((row) => row.targetDepth || 2).sort((a, b) => a - b);
+  const sessionTargetDepth = targetDepths.length ? targetDepths[Math.floor(targetDepths.length / 2)] : 2;
+  const maxSameDepthRatio = sessionTargetDepth <= 1 ? 0.7 : sessionTargetDepth === 2 ? 0.6 : sessionTargetDepth === 3 ? 0.6 : 0.5;
+  const maxSameDepth = target >= 5 ? Math.ceil(target * maxSameDepthRatio) : target;
   const depthCount = (depth) => selected.filter((row) => row.depth === depth).length;
+
+  // For higher-level learners, reserve some genuine application as a bridge between recall and explanation.
+  const desiredApplication = sessionTargetDepth >= 4
+    ? Math.max(1, Math.round(target * 0.2))
+    : sessionTargetDepth === 3
+      ? Math.max(1, Math.round(target * 0.35))
+      : 0;
+  if (desiredApplication > 0 && depthCount(3) < desiredApplication) {
+    const selectedConcepts = new Set(selected.map((row) => row.conceptKey));
+    const applicationPool = rows
+      .filter((row) => row.depth === 3 && !ids.has(row.item.id) && !selectedConcepts.has(row.conceptKey))
+      .sort(byNeed);
+    for (const candidate of applicationPool) {
+      if (depthCount(3) >= desiredApplication) break;
+      const replaceable = selected
+        .map((row, index) => ({ row, index }))
+        .filter(({ row }) => row.depth !== 3 && row.bucket !== "mistake" && row.bucket !== "retention")
+        .sort((a, b) =>
+          Math.abs(b.row.depth - sessionTargetDepth) - Math.abs(a.row.depth - sessionTargetDepth) ||
+          b.index - a.index
+        );
+      const choice = replaceable[0];
+      if (!choice) break;
+      const removed = selected[choice.index];
+      ids.delete(removed.item.id);
+      selectedConcepts.delete(removed.conceptKey);
+      ids.add(candidate.item.id);
+      selectedConcepts.add(candidate.conceptKey);
+      selected[choice.index] = { ...candidate, bucket: removed.bucket };
+    }
+  }
+
   for (let depth = 1; depth <= 4; depth += 1) {
     let count = depthCount(depth);
     if (count <= maxSameDepth) continue;
@@ -609,6 +644,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
         )
         .sort((a, b) =>
           Math.abs(a.depth - current.targetDepth) - Math.abs(b.depth - current.targetDepth) ||
+          b.depth - a.depth ||
           byNeed(a, b)
         )[0];
       if (!alternate) continue;
@@ -619,8 +655,9 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     }
   }
 
-  // Avoid a session becoming mostly MC just because each concept's first bank variant is recognition.
-  const maxRecognition = target >= 5 ? Math.ceil(target * 0.5) : target;
+  // Recognition allowance also adapts: more support at Level 1, much less at higher levels.
+  const recognitionRatio = sessionTargetDepth <= 1 ? 0.7 : sessionTargetDepth === 2 ? 0.4 : sessionTargetDepth === 3 ? 0.3 : 0.2;
+  const maxRecognition = target >= 5 ? Math.ceil(target * recognitionRatio) : target;
   let recognitionCount = selected.filter((row) => row.lane === "recognition").length;
   if (recognitionCount > maxRecognition) {
     for (let index = selected.length - 1; index >= 0 && recognitionCount > maxRecognition; index -= 1) {
@@ -746,6 +783,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     _sessionProduction: !!row.production,
     _sessionDepth: row.depth,
     _sessionTargetDepth: row.targetDepth,
+    _sessionCalibratedLevel: sessionTargetDepth,
   }));
 }
 function topicState(attempted, correct, productionCorrect) {
