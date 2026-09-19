@@ -77,6 +77,84 @@ function legacyTopicId(subject, topic) {
   return `${prefix}-legacy-${slug(topic)}`;
 }
 
+const SHARED_SKILL_PREFIXES = ["latin", "french", "biology", "chemistry", "physics", "english"];
+function canonicalSkill(value) {
+  const skill = String(value || "").trim().toLowerCase().replace(/\s+/g, "-");
+  return SHARED_SKILL_PREFIXES.some((prefix) => skill.startsWith(`${prefix}:`)) ? skill : null;
+}
+function getQuestionSkills(item = {}, subject) {
+  const known = [...new Set((item.skills || []).map(canonicalSkill).filter(Boolean))];
+  if (known.length) return known;
+  const resolved = SUBJECTS.includes(subject) ? subject : inferSubjectFromTopic(item.topicId) || null;
+  if (!resolved || !SHARED_SKILL_PREFIXES.includes(resolved)) return [];
+  const text = [
+    item.topicId, item.topic, item.topicTitle, item.conceptId, item.prompt,
+    item.task?.label, item.feedback?.short, item.feedback?.remember,
+  ].filter(Boolean).join(" ").toLowerCase();
+  const out = [];
+  const add = (...skills) => skills.forEach((skill) => {
+    const value = canonicalSkill(skill);
+    if (value && !out.includes(value)) out.push(value);
+  });
+  if (resolved === "latin") {
+    for (const value of ["dative","ablative","accusative","nominative","genitive","vocative"]) if (text.includes(value)) add(`latin:case:${value}`);
+    if (/\bcase\b|declen/.test(text)) add("latin:cases");
+    for (const value of ["perfect","imperfect","present","pluperfect","future"]) if (text.includes(value)) add(`latin:tense:${value}`);
+    const persons = [
+      ["1st-singular", /1st\s*(?:person\s*)?singular|first\s+person\s+singular/],
+      ["2nd-singular", /2nd\s*(?:person\s*)?singular|second\s+person\s+singular/],
+      ["3rd-singular", /3rd\s*(?:person\s*)?singular|third\s+person\s+singular/],
+      ["1st-plural", /1st\s*(?:person\s*)?plural|first\s+person\s+plural/],
+      ["2nd-plural", /2nd\s*(?:person\s*)?plural|second\s+person\s+plural/],
+      ["3rd-plural", /3rd\s*(?:person\s*)?plural|third\s+person\s+plural/],
+    ];
+    for (const [value, re] of persons) if (re.test(text)) add(`latin:person:${value}`);
+    if (/conjug|verb|ending|person|tense/.test(text)) add("latin:verb-forms");
+    if (/\bin\b/.test(text) && /preposition|place|movement|ablative|accusative/.test(text)) add("latin:preposition:in");
+    if (/\bad\b/.test(text) && /preposition|movement|accusative/.test(text)) add("latin:preposition:ad");
+    if (/\bcum\b/.test(text) && /preposition|ablative/.test(text)) add("latin:preposition:cum");
+    if (/word.?order|syntax|sentence/.test(text)) add("latin:syntax:word-order");
+    if (/translat|comprehension|passage/.test(text)) add("latin:translation");
+    if (/vocab|meaning|noun|adjective|pronoun/.test(text)) add("latin:vocabulary");
+  } else if (resolved === "french") {
+    for (const value of ["present","imperfect","perfect","past","future"]) if (text.includes(value)) add(`french:tense:${value === "past" ? "past" : value}`);
+    if (/negat|pas de|ne\s+.*pas/.test(text)) add("french:negation");
+    if (/gender|mascul|femin/.test(text)) add("french:gender");
+    if (/agree|agreement|plural|adjective/.test(text)) add("french:agreement");
+    if (/compar|plus de|moins de|aussi/.test(text)) add("french:comparisons");
+    if (/time|heure|clock|date/.test(text)) add("french:time");
+    if (/word.?order|sentence|phrase/.test(text)) add("french:word-order");
+    if (/translat/.test(text)) add("french:translation");
+    if (/vocab|word|family|school|town|food|travel|opinion|weather/.test(text)) add("french:vocabulary");
+  } else if (resolved === "biology") {
+    if (/cell|organelle|nucleus|mitochond|membrane|ribosome|vacuole|cytoplasm/.test(text)) add("biology:cells","biology:cell-structure-function");
+    if (/photo|chloroplast|chlorophyll|glucose|palisade/.test(text)) add("biology:photosynthesis");
+    if (/respir/.test(text)) add("biology:respiration");
+    if (/enzyme/.test(text)) add("biology:enzymes");
+    if (/eco|producer|consumer|food chain|organism/.test(text)) add("biology:ecology");
+  } else if (resolved === "chemistry") {
+    if (/periodic|element|symbol|halogen|alkali|metal|group\s*[17]/.test(text)) add("chemistry:periodic-table","chemistry:elements");
+    if (/atom|particle|proton|neutron|electron/.test(text)) add("chemistry:atomic-structure");
+    if (/react|acid|alkali|neutral|oxid|combust/.test(text)) add("chemistry:reactions");
+    if (/bond|ionic|covalent/.test(text)) add("chemistry:bonding");
+  } else if (resolved === "physics") {
+    if (/wave|frequency|hertz|amplitude|wavelength|sound/.test(text)) add("physics:waves");
+    if (/force|newton|friction|weight|balanced/.test(text)) add("physics:forces");
+    if (/energy|joule|kinetic|gravitational|elastic|thermal|chemical/.test(text)) add("physics:energy-stores");
+    if (/unit|measure|convert|metre|second|kilogram|pascal|watt/.test(text)) add("physics:units");
+    if (/speed|velocity|distance.*time/.test(text)) add("physics:speed");
+    if (/pressure/.test(text)) add("physics:pressure");
+  } else if (resolved === "english") {
+    if (/language technique|simile|metaphor|alliteration|personification|onomatopoeia|hyperbole|imagery/.test(text)) add("english:language-techniques");
+    if (/narrative|tone|mood|climax|protagonist|character/.test(text)) add("english:narrative");
+    if (/word class|noun|verb|adjective|adverb/.test(text)) add("english:word-classes");
+    if (/writing|stanza|paragraph|structure/.test(text)) add("english:writing");
+    if (/evidence|quote|analysis|explain/.test(text)) add("english:evidence-analysis");
+  }
+  if (!out.length) add(`${resolved}:topic:${slug(item.topicId || item.topic || item.topicTitle || "general")}`);
+  return out;
+}
+
 const QUESTION_META = new Map();
 function addQuestionMeta(items, subject, isVocab = false) {
   for (const item of items || []) {
@@ -85,6 +163,7 @@ function addQuestionMeta(items, subject, isVocab = false) {
       subject,
       topicId: legacyTopicId(subject, item.topic || (isVocab ? "vocabulary" : "core")),
       topicTitle: item.topic || (isVocab ? "Vocabulary" : "Core"),
+      skills: getQuestionSkills(item, subject),
     });
   }
 }
@@ -115,6 +194,7 @@ function inferAttemptMeta(questionId, subject, meta = {}) {
     subject: resolvedSubject,
     topicId,
     topicTitle: meta.topicTitle || known.topicTitle || null,
+    skills: [...new Set((meta.skills?.length ? meta.skills : known.skills || []).map(canonicalSkill).filter(Boolean))],
   };
 }
 
@@ -193,17 +273,21 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
   const seen = state.seenTotal || {};
   const correct = state.seenCorrect || {};
   const recentIds = new Set((state.recentQuestionIds || []).slice(-16));
-  const source = items || [];
+  const source = (items || []).map((item) => ({ ...item, skills: getQuestionSkills(item, subject) }));
   const recentConcepts = new Set(
     source
       .filter((item) => recentIds.has(item.id))
-      .map((item) => item.conceptId || questionTopicId(item, subject))
+      .map((item) => item.conceptId || item.skills?.[0] || questionTopicId(item, subject))
       .filter(Boolean)
   );
   const rows = source.map((item, index) => {
     const topicId = questionTopicId(item, subject);
-    const conceptKey = item.conceptId || topicId;
+    const itemSkills = item.skills || [];
+    const conceptKey = item.conceptId || itemSkills[0] || topicId;
     const stat = normalizeTopicStat(state.topicStats?.[topicId] || {});
+    const skillRows = itemSkills.map((skill) => ({ skill, stat: normalizeSkillStat(state.skillStats?.[skill] || {}) }));
+    const weakSkill = skillRows.some(({ stat }) => stat.attempted >= 2 && stat.accuracy < SECURE_ACCURACY);
+    const retentionSkill = skillRows.some(({ stat }) => stat.attempted >= 2 && stat.accuracy >= MASTERY_ACCURACY);
     const review = state.reviews?.[item.id];
     const due = !!review?.due && review.due <= today;
     const seenCount = seen[item.id] || 0;
@@ -212,16 +296,18 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     const mastered = stat.state === "mastered";
     const weakTopic = !mastered && stat.attempted >= 2 && (stat.accuracy < MASTERY_ACCURACY || stat.productionCorrect < 1);
     const mistake = !unseen && (due || correctCount < seenCount || !!review?.wrong || (!!review && (review.stage || 1) < 3));
-    const weak = weakTopic && !mistake;
-    const fresh = unseen && !weakTopic;
-    const retention = !unseen && !mistake && !weak && (mastered || stat.accuracy >= MASTERY_ACCURACY);
-    return { item, index, topicId, conceptKey, stat, review, due, unseen, mastered, weak, fresh, mistake, retention, recent: recentIds.has(item.id), recentConcept: recentConcepts.has(conceptKey) };
+    const weak = (weakTopic || weakSkill) && !mistake;
+    const fresh = unseen && !weakTopic && !weakSkill;
+    const retention = !unseen && !mistake && !weak && (mastered || stat.accuracy >= MASTERY_ACCURACY || retentionSkill);
+    const skillAccuracy = skillRows.length ? Math.min(...skillRows.filter(({ stat }) => stat.attempted > 0).map(({ stat }) => stat.accuracy), 1) : 1;
+    return { item, index, topicId, conceptKey, stat, skillRows, skillAccuracy, review, due, unseen, mastered, weak, fresh, mistake, retention, recent: recentIds.has(item.id), recentConcept: recentConcepts.has(conceptKey) };
   });
 
   const byNeed = (a, b) =>
     Number(a.recent || a.recentConcept) - Number(b.recent || b.recentConcept) ||
     Number(b.due) - Number(a.due) ||
     (a.review?.due || "9999-12-31").localeCompare(b.review?.due || "9999-12-31") ||
+    a.skillAccuracy - b.skillAccuracy ||
     a.stat.accuracy - b.stat.accuracy ||
     (seen[a.item.id] || 0) - (seen[b.item.id] || 0) ||
     a.index - b.index;
@@ -326,6 +412,25 @@ function normalizeTopicStat(stat = {}) {
     productionIds,
     state: topicState(attempted, correct, productionCorrect),
     masteryRule: 1,
+  };
+}
+
+function normalizeSkillStat(stat = {}) {
+  const attempted = Math.max(0, Number(stat.attempted) || 0);
+  const correct = Math.max(0, Math.min(attempted, Number(stat.correct) || 0));
+  const accuracy = attempted ? correct / attempted : 0;
+  return {
+    ...stat,
+    attempted,
+    correct,
+    accuracy,
+    productionAttempted: Math.max(0, Number(stat.productionAttempted) || 0),
+    productionCorrect: Math.max(0, Number(stat.productionCorrect) || 0),
+    repairs: {
+      attempted: Math.max(0, Number(stat.repairs?.attempted) || 0),
+      correct: Math.max(0, Number(stat.repairs?.correct) || 0),
+    },
+    recentOutcomes: Array.isArray(stat.recentOutcomes) ? stat.recentOutcomes.slice(-20) : [],
   };
 }
 
@@ -453,6 +558,15 @@ function normalizeState() {
     if (raw.masteryRule !== 1 || raw.state !== next.state || raw.accuracy !== next.accuracy || !Array.isArray(raw.productionIds)) topicsChanged = true;
   }
   if (topicsChanged) patch.topicStats = normalizedTopics;
+
+  const normalizedSkills = {};
+  let skillsChanged = false;
+  for (const [skillId, raw] of Object.entries(state.skillStats || {})) {
+    const next = normalizeSkillStat(raw);
+    normalizedSkills[skillId] = next;
+    if (raw.accuracy !== next.accuracy || !Array.isArray(raw.recentOutcomes) || !raw.repairs) skillsChanged = true;
+  }
+  if (skillsChanged) patch.skillStats = normalizedSkills;
 
   const stateForDaily = { ...state, ...(patch.topicStats ? { topicStats: patch.topicStats } : {}) };
   const daily = buildAdaptiveDaily(stateForDaily);
@@ -1084,4 +1198,4 @@ function buildProgressDashboard(state, subject, year = state?.year) {
   };
 }
 
-export { rankAdaptiveQuestions, buildProgressDashboard };
+export { rankAdaptiveQuestions, buildProgressDashboard, getQuestionSkills };
