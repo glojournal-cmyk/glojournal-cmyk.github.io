@@ -1149,6 +1149,47 @@ function progressNextAction(row) {
   return "One more strong retrieval session.";
 }
 
+function skillLabel(skillId) {
+  const parts = String(skillId || "").split(":");
+  const subject = parts.shift() || "";
+  const nice = (value) => String(value || "").replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  if (subject === "latin" && parts[0] === "case" && parts[1]) return `${nice(parts[1])} case`;
+  if (subject === "latin" && parts[0] === "tense" && parts[1]) return `${nice(parts[1])} tense`;
+  if (subject === "latin" && parts[0] === "person" && parts[1]) return nice(parts[1]);
+  if (subject === "latin" && parts[0] === "ending" && parts[1]) return `${parts[1]} ending`;
+  if (subject === "chemistry" && parts[0] === "periodic-table" && parts[1]) return `${nice(parts[1])} · Periodic table`;
+  return parts.map(nice).join(" · ") || nice(skillId);
+}
+
+function gamePracticeEvidence(state, skillId) {
+  const result = { attempts: 0, correct: 0, errors: 0, repairs: 0, repairCorrect: 0, recoveryCorrect: 0, games: [] };
+  for (const [gameId, game] of Object.entries(state.gamePractice || {})) {
+    const row = game?.concepts?.[skillId];
+    if (!row) continue;
+    result.attempts += Number(row.attempts) || 0;
+    result.correct += Number(row.correct) || 0;
+    result.errors += Number(row.errors) || 0;
+    result.repairs += Number(row.repairs) || 0;
+    result.repairCorrect += Number(row.repairCorrect) || 0;
+    result.recoveryCorrect += Number(row.recoveryCorrect) || 0;
+    result.games.push(gameId);
+  }
+  return result;
+}
+
+function skillGameSuggestion(skillId, subject) {
+  if (subject === "latin") {
+    if (/^latin:(case|cases|preposition|grammar-evidence|place-where|movement-to)/.test(skillId)) return { label: "Manuscript Mystery", href: "/play/manuscript" };
+    if (/^latin:(syntax|translation|agreement)/.test(skillId)) return { label: "Sentence Mosaic", href: "/play/sentence-mosaic" };
+    if (/^latin:(tense|person|conjugation|ending|verb|vocabulary:verb)/.test(skillId)) return { label: "Forma Forge", href: "/play/forma-forge" };
+  }
+  if (subject === "biology") return { label: "Biology Match", href: "/play/organelle-match" };
+  if (subject === "chemistry") return { label: "Chemistry Match", href: "/play/element-match" };
+  if (subject === "physics") return { label: "Physics Match", href: "/play/force-match" };
+  if (subject === "english") return { label: "English Match", href: "/play/word-match" };
+  return { label: `${SUBJECT_LABELS[subject] || "Subject"} games`, href: `/study/${subject}/play` };
+}
+
 function buildProgressDashboard(state, subject, year = state?.year) {
   const catalog = (() => {
     try { return getTopicCatalog(subject, year) || []; } catch { return []; }
@@ -1212,6 +1253,78 @@ function buildProgressDashboard(state, subject, year = state?.year) {
     row.nextAction = progressNextAction(row);
     return row;
   });
+
+  const skillRows = Object.entries(state.skillStats || {})
+    .filter(([skillId, raw]) => skillId.startsWith(`${subject}:`) && (Number(raw?.attempted) || 0) > 0)
+    .map(([skillId, raw]) => {
+      const stat = normalizeSkillStat(raw);
+      const dueNow = !!stat.retentionDue && stat.retentionDue <= today;
+      const game = gamePracticeEvidence(state, skillId);
+      const gameSuggestion = skillGameSuggestion(skillId, subject);
+      const status = stat.retentionFailed || stat.needsPractice
+        ? "needs-practice"
+        : dueNow
+          ? "retention-due"
+          : stat.retentionReady
+            ? "retention-ready"
+            : "building";
+      const nextAction = status === "needs-practice"
+        ? `Repair ${skillLabel(skillId)} in formal Practice.`
+        : status === "retention-due"
+          ? `Retention check due now for ${skillLabel(skillId)}.`
+          : status === "retention-ready"
+            ? `Keep it fresh · next formal retention check ${stat.retentionDue || "will be scheduled"}.`
+            : `Build more formal evidence for ${skillLabel(skillId)}.`;
+      return {
+        skillId,
+        label: skillLabel(skillId),
+        attempted: stat.attempted,
+        correct: stat.correct,
+        accuracy: stat.accuracy,
+        productionCorrect: stat.productionCorrect,
+        needsPractice: !!stat.needsPractice,
+        retentionReady: !!stat.retentionReady,
+        retentionFailed: !!stat.retentionFailed,
+        retentionDue: stat.retentionDue,
+        retentionStage: stat.retentionStage || 0,
+        dueNow,
+        status,
+        lastErrorType: stat.lastErrorType || null,
+        lastTopicId: stat.lastTopicId || null,
+        game,
+        gameSuggestion,
+        nextAction,
+      };
+    })
+    .filter((row) => !row.lastTopicId || topicMatchesYear(row.lastTopicId, year))
+    .sort((a, b) => {
+      const priority = { "needs-practice": 0, "retention-due": 1, building: 2, "retention-ready": 3 };
+      return (priority[a.status] ?? 4) - (priority[b.status] ?? 4) || a.accuracy - b.accuracy || b.attempted - a.attempted || a.label.localeCompare(b.label);
+    });
+  const skillWeakCount = skillRows.filter((row) => row.status === "needs-practice").length;
+  const skillRetentionDue = skillRows.filter((row) => row.status === "retention-due").length;
+  const skillRetentionReady = skillRows.filter((row) => row.status === "retention-ready").length;
+  const nextSkill = skillRows.find((row) => row.retentionFailed)
+    || skillRows.find((row) => row.status === "retention-due")
+    || skillRows.find((row) => row.status === "needs-practice")
+    || skillRows.find((row) => row.status === "building")
+    || skillRows.find((row) => row.status === "retention-ready")
+    || null;
+  const nextBestAction = nextSkill ? {
+    type: nextSkill.status,
+    title: nextSkill.status === "retention-due"
+      ? `Check retention: ${nextSkill.label}`
+      : nextSkill.status === "needs-practice"
+        ? `Repair ${nextSkill.label}`
+        : nextSkill.status === "building"
+          ? `Build evidence: ${nextSkill.label}`
+          : `Keep ${nextSkill.label} fresh`,
+    detail: nextSkill.nextAction,
+    practiceHref: nextSkill.status === "retention-due" ? `/study/${subject}/practise?mode=due` : `/study/${subject}/practise?mode=weak`,
+    gameLabel: nextSkill.gameSuggestion.label,
+    gameHref: nextSkill.gameSuggestion.href,
+    skillId: nextSkill.skillId,
+  } : null;
 
   const attemptedTopics = topics.filter((row) => row.attempted > 0);
   const attempted = attemptedTopics.reduce((sum, row) => sum + row.attempted, 0);
@@ -1289,6 +1402,11 @@ function buildProgressDashboard(state, subject, year = state?.year) {
     attempted,
     correct,
     dueReviews,
+    skillWeakCount,
+    skillRetentionDue,
+    skillRetentionReady,
+    skills: skillRows,
+    nextBestAction,
     totalTopics: topics.length,
     exploredTopics: attemptedTopics.length,
     masteredCount: mastered.length,
