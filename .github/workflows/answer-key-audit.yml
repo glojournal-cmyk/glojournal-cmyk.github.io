@@ -11,10 +11,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Check practice runtime syntax
+      - name: Check production runtime syntax
         run: |
+          node --check assets/index-BLVOhKhN.core.js
+          node --check assets/index-BLVOhKhN.js
           node --check assets/study._subject.practise-D_PWgUd7.js
           node --check assets/quiz-session-rWAnuDVj.js
+          node --check assets/study._subject.progress-DkPgutuL.js
+          node --check assets/play._game-BbpxhxeZ.js
+          node --check assets/scholar-iJ2ilQWG.js
+      - name: Test French practice regressions
+        run: node --test tests/french-practice-regression.mjs
+      - name: Audit production route shells
+        run: node tests/route-shell-qa.mjs
+      - name: Audit progress backup schema
+        run: node tests/backup-schema-qa.mjs
       - name: Test French session diversity
         run: node tests/french-session-diversity.mjs
       - name: Audit French content quality
@@ -73,3 +84,5 @@ jobs:
             test-results/biology-content-quality.json
             test-results/biology-calculation-marking.json
             test-results/biology-session-quality.json
+            test-results/route-shell-qa.json
+            test-results/backup-schema-qa.json
