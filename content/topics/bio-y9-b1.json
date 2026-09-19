@@ -2992,9 +2992,11 @@
       "answer": {
         "mode": "category_map",
         "categories": {
-          "plant and animal eukaryotic cells": [
-            "nucleus",
+          "found in plant, animal and bacterial cells": [
             "ribosome"
+          ],
+          "found in plant and animal eukaryotic cells from this list": [
+            "nucleus"
           ],
           "plant cells only from this list": [
             "chloroplast",
@@ -3014,20 +3016,22 @@
           "nucleus"
         ],
         "categories": [
-          "plant and animal eukaryotic cells",
+          "found in plant, animal and bacterial cells",
+          "found in plant and animal eukaryotic cells from this list",
           "plant cells only from this list",
           "bacterial cells only from this list"
         ]
       },
       "feedback": {
-        "short": "plant and animal eukaryotic cells: nucleus, ribosome; plant cells only from this list: chloroplast, permanent vacuole; bacterial cells only from this list: plasmid",
+        "short": "found in plant, animal and bacterial cells: ribosome; found in plant and animal eukaryotic cells from this list: nucleus; plant cells only from this list: chloroplast, permanent vacuole; bacterial cells only from this list: plasmid",
         "steps": [
-          "plant and animal eukaryotic cells: nucleus, ribosome; plant cells only from this list: chloroplast, permanent vacuole; bacterial cells only from this list: plasmid",
-          "Classify every item using the defining rule for each category. Check that no item is omitted or placed twice.",
-          "Suggested answer: plant and animal eukaryotic cells: nucleus, ribosome; plant cells only from this list: chloroplast, permanent vacuole; bacterial cells only from this list: plasmid"
+          "found in plant, animal and bacterial cells: ribosome; found in plant and animal eukaryotic cells from this list: nucleus; plant cells only from this list: chloroplast, permanent vacuole; bacterial cells only from this list: plasmid",
+          "Ribosomes are present in bacterial cells as well as plant and animal cells. A bacterial cell has no nucleus, but it does contain ribosomes.",
+          "Classify every structure by where it is actually found, not by the cell type in which it is most often drawn.",
+          "Suggested answer: found in plant, animal and bacterial cells: ribosome; found in plant and animal eukaryotic cells from this list: nucleus; plant cells only from this list: chloroplast, permanent vacuole; bacterial cells only from this list: plasmid"
         ],
         "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "plant and animal eukaryotic cells: nucleus, ribosome; plant cells only from this list: chloroplast, permanent vacuole; bacterial cells only from this list: plasmid"
+        "remember": "Ribosomes occur in prokaryotic and eukaryotic cells; bacteria do not have a nucleus."
       },
       "task": {
         "label": "SORT",
