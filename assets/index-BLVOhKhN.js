@@ -508,6 +508,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
       .sort(byNeed);
     for (const row of refill) {
       if (missing <= 0) break;
+      if (concepts.has(row.conceptKey)) continue;
       ids.add(row.item.id);
       concepts.add(row.conceptKey);
       selected.push({ ...row, bucket: bucketName(row) === "other" ? "new" : bucketName(row) });
