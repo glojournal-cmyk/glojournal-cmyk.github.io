@@ -167,7 +167,7 @@ function Progress(){
       J.jsx("a",{href:"/study/"+subject+"/practise?mode=due",className:"rounded-xl bg-navy px-3 py-2 text-sm text-card",children:"Do due reviews"}),
       J.jsx("a",{href:"/study/"+subject+"/practise?mode=weak",className:"rounded-xl bg-sage px-3 py-2 text-sm text-navy",children:"Practise weak areas"}),
       subject==="english"&&year===9?J.jsx("a",{href:"/study/english/practise?mode=engmix",className:"rounded-xl bg-sage px-3 py-2 text-sm text-navy",children:"Open Year 9 Mix 15"}):null,
-      subject==="biology"&&year===9?J.jsx("a",{href:"/study/biology/practise?mode=biomix",className:"rounded-xl bg-sage px-3 py-2 text-sm text-navy",children:"Open Year 9 Mix 15"}):null,
+      subject==="biology"&&year===9?J.jsx("a",{href:"/study/biology/practise?mode=biomix",className:"rounded-xl bg-sage px-3 py-2 text-sm text-navy",children:"Open Year 9 Mix 16"}):null,
       subject==="chemistry"&&year===9?J.jsx("a",{href:"/study/chemistry/practise?mode=chemmix",className:"rounded-xl bg-sage px-3 py-2 text-sm text-navy",children:"Open Year 9 Mix 15"}):null,
       subject==="physics"&&year===9?J.jsx("a",{href:"/study/physics/practise?mode=physmix",className:"rounded-xl bg-sage px-3 py-2 text-sm text-navy",children:"Open Year 9 Mix 15"}):null
     ]}),
