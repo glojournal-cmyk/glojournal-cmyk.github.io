@@ -40,14 +40,17 @@ for(const token of [
   'ex urbe venit',
   'sine amico manet',
   'pro amico pugnat',
-  'per viam ambulat'
+  'per viam ambulat',
+  'puella patri aquam dat',
+  'in templo stat',
+  'Serve, veni!'
 ]) need(games,"case-bank",token);
 
 for(const caseName of ["nominative","accusative","dative","genitive","ablative","vocative"]){
   if(!games.includes(`caseName:\`${caseName}\``)) failures.push({type:"missing-case",caseName});
 }
 const itemCount=(games.match(/\{id:\`cd\d+\`/g)||[]).length;
-if(itemCount<20) failures.push({type:"case-bank-too-small",itemCount});
+if(itemCount<40) failures.push({type:"case-bank-too-small",itemCount});
 
 need(banks,"banks",'e===`manuscript`||e===`case-locker`');
 
