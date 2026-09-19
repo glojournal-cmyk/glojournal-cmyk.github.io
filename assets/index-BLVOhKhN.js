@@ -378,6 +378,13 @@ function questionTopicId(item, subject) {
   return item?.topicId || legacyTopicId(subject, item?.topic || "general");
 }
 
+function adaptiveContentKey(item) {
+  const clean = (value) => String(value ?? "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const answer = item?.answer?.accepted?.[0] ?? item?.answer?.modelAnswer ?? item?.answer?.value ?? item?.answer?.correct ?? "";
+  const stimulus = item?.stimulus?.text ?? item?.stimulus?.masked ?? item?.stimulus?.audio ?? "";
+  return [clean(item?.prompt), clean(stimulus), clean(answer)].join("|");
+}
+
 function adaptiveCognitiveDepth(item) {
   const explicit = Number(item?.cognitiveDepth || item?.cognitiveLevel);
   if (Number.isFinite(explicit) && explicit >= 1) return Math.max(1, Math.min(4, Math.round(explicit)));
@@ -486,7 +493,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     const attemptedSkillRows = skillRows.filter(({ stat }) => stat.attempted > 0);
     const skillAccuracy = attemptedSkillRows.length ? Math.min(...attemptedSkillRows.map(({ stat }) => stat.accuracy)) : 1;
     return {
-      item, index, topicId, conceptKey, primarySkill, stat, skillRows, skillAccuracy,
+      item, index, topicId, conceptKey, primarySkill, contentKey: adaptiveContentKey(item), stat, skillRows, skillAccuracy,
       retentionSkillDue, nextSkillDue, review, due, unseen, mastered, weak, fresh, mistake, retention,
       recent: recentIds.has(item.id), recentConcept: recentConcepts.has(conceptKey),
       lane: adaptiveFormatLane(item), production: adaptiveIsProduction(item),
@@ -528,13 +535,15 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
   const selected = [];
   const ids = new Set();
   const concepts = new Set();
+  const contents = new Set();
 
   const takeDistinct = (name, count) => {
     for (const row of buckets[name]) {
       if (count <= 0) break;
-      if (ids.has(row.item.id) || concepts.has(row.conceptKey)) continue;
+      if (ids.has(row.item.id) || concepts.has(row.conceptKey) || contents.has(row.contentKey)) continue;
       ids.add(row.item.id);
       concepts.add(row.conceptKey);
+      contents.add(row.contentKey);
       selected.push({ ...row, bucket: name });
       count -= 1;
     }
@@ -547,13 +556,14 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
   let missing = Object.values(deficits).reduce((sum, value) => sum + value, 0);
   if (missing > 0) {
     const refill = [...buckets.weak, ...buckets.mistake, ...buckets.new, ...buckets.retention, ...buckets.other]
-      .filter((row) => !ids.has(row.item.id) && !concepts.has(row.conceptKey))
+      .filter((row) => !ids.has(row.item.id) && !concepts.has(row.conceptKey) && !contents.has(row.contentKey))
       .sort(byNeed);
     for (const row of refill) {
       if (missing <= 0) break;
-      if (concepts.has(row.conceptKey)) continue;
+      if (concepts.has(row.conceptKey) || contents.has(row.contentKey)) continue;
       ids.add(row.item.id);
       concepts.add(row.conceptKey);
+      contents.add(row.contentKey);
       selected.push({ ...row, bucket: bucketName(row) === "other" ? "new" : bucketName(row) });
       missing -= 1;
     }
@@ -562,9 +572,19 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
   for (const name of ["weak", "mistake", "new", "retention", "other"]) {
     for (const row of buckets[name]) {
       if (selected.length >= target) break;
+      if (ids.has(row.item.id) || contents.has(row.contentKey)) continue;
+      ids.add(row.item.id);
+      contents.add(row.contentKey);
+      selected.push({ ...row, bucket: name });
+    }
+  }
+
+  if (selected.length < target) {
+    for (const row of rows.sort(byNeed)) {
+      if (selected.length >= target) break;
       if (ids.has(row.item.id)) continue;
       ids.add(row.item.id);
-      selected.push({ ...row, bucket: name });
+      selected.push({ ...row, bucket: bucketName(row) === "other" ? "new" : bucketName(row) });
     }
   }
 
@@ -580,7 +600,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
         .filter(({ row }) => !row.production && row.bucket !== "mistake" && row.bucket !== "retention")
         .reverse();
       let choice = replaceable.find(({ index }) =>
-        !selected.some((row, otherIndex) => otherIndex !== index && row.conceptKey === candidate.conceptKey)
+        !selected.some((row, otherIndex) => otherIndex !== index && (row.conceptKey === candidate.conceptKey || row.contentKey === candidate.contentKey))
       );
       if (!choice) choice = replaceable[0];
       if (!choice) break;
@@ -776,6 +796,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     for (let i = 0; i < list.length; i += 1) {
       for (let j = Math.max(0, i - 2); j < i; j += 1) {
         if (list[i].conceptKey === list[j].conceptKey) penalty += 100;
+        if (list[i].contentKey === list[j].contentKey) penalty += 200;
       }
       if (i > 0) {
         if (list[i].lane === list[i - 1].lane) penalty += 2;
@@ -815,6 +836,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     _sessionComposed: index < target,
     _sessionLane: row.lane,
     _sessionConcept: row.conceptKey,
+    _sessionContent: row.contentKey,
     _sessionPrimarySkill: row.primarySkill,
     _sessionProduction: !!row.production,
     _sessionDepth: row.depth,
