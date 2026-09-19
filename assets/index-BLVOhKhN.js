@@ -1007,6 +1007,17 @@ function focusAttemptsToday(state, focus) {
   return total;
 }
 
+function vocabGateState(state, subject) {
+  const day = state.today || todayKey();
+  const row = state.dailyVocabByDay?.[day]?.[subject] || {};
+  const items = row.items && typeof row.items === "object" ? row.items : {};
+  const attempts = Object.keys(items).length;
+  const correct = Object.values(items).filter(Boolean).length;
+  const passed = attempts >= 5 && correct >= 4;
+  const progress = passed ? 5 : Math.min(4, attempts);
+  return { attempts, correct, passed, progress };
+}
+
 function buildAdaptiveDaily(state) {
   const previous = new Map((state.daily || []).map((task) => [task.id, task]));
   const existingPlan = previous.get("study-session");
@@ -1032,11 +1043,15 @@ function buildAdaptiveDaily(state) {
   const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;
   const frenchCarry = focus.subject === "french" && state.year !== 9 ? (previous.get("french-vocab")?.progress || 0) : 0;
   const focusEvidence = focusAttemptsToday(state, focus);\n  const focusProgress = Math.min(4, Math.max(oldFocusProgress, frenchCarry, focusEvidence));
+  const frenchVocab = vocabGateState(state, "french");
+  const latinVocab = vocabGateState(state, "latin");
   const garden = previous.get("tend-garden") || { id: "tend-garden", title: "Water your plants", detail: "Tend the Scholar’s Garden.", href: "/garden", target: 1, progress: 0, xp: 10 };
   const game = previous.get("play-game") || { id: "play-game", title: "Play a quick game", detail: "One short learning game.", href: "/play", target: 1, progress: 0, xp: 10 };
 
   return [
     { id: "study-session", title, detail, href: locked ? existingPlan.href : focusHref(focus, state), target: 8, progress: studyProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason, focusDueCount: focus.dueCount || 0, focusAccuracy: focus.accuracy, focusErrorType: focus.errorType || null },
+    { id: "french-vocab", title: "French vocab check", detail: `5 different French words minimum · ${frenchVocab.correct}/4 correct · ${frenchVocab.attempts} tested${frenchVocab.passed ? " · passed" : frenchVocab.attempts >= 5 ? " · keep going until 4 are correct" : ""}.`, href: "/session/french-vocab", target: 5, progress: frenchVocab.progress, xp: 10, requiredAttempts: 5, requiredCorrect: 4, attempts: frenchVocab.attempts, correct: frenchVocab.correct, planDate: state.today },
+    { id: "latin-vocab", title: "Latin vocab check", detail: `5 different Latin words minimum · ${latinVocab.correct}/4 correct · ${latinVocab.attempts} tested${latinVocab.passed ? " · passed" : latinVocab.attempts >= 5 ? " · keep going until 4 are correct" : ""}.`, href: "/session/latin-vocab", target: 5, progress: latinVocab.progress, xp: 10, requiredAttempts: 5, requiredCorrect: 4, attempts: latinVocab.attempts, correct: latinVocab.correct, planDate: state.today },
     { id: "adaptive-focus", title: focus.skillLabel ? `${focus.skillLabel} focus` : `${label} focus`, detail: "Four questions in today’s priority subject. Mastery needs ≥85% plus one independent typed or spelled answer.", href: locked ? existingPlan.href : focusHref(focus, state), target: 4, progress: focusProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason },
     { ...garden, progress: Math.min(garden.target || 1, garden.progress || 0) },
     { ...game, progress: Math.min(game.target || 1, game.progress || 0) },
@@ -1559,6 +1574,24 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   return result;
 }
 
+function recordDailyVocabAttempt(subject, questionId, correct) {
+  if (!["french", "latin"].includes(subject) || !questionId) return;
+  const state = store.getState();
+  const day = todayKey();
+  const all = { ...(state.dailyVocabByDay || {}) };
+  const dayRow = { ...(all[day] || {}) };
+  const current = dayRow[subject] || {};
+  const items = { ...(current.items || {}) };
+  items[String(questionId)] = !!correct || !!items[String(questionId)];
+  dayRow[subject] = { items, updatedAt: new Date().toISOString() };
+  all[day] = dayRow;
+  const days = Object.keys(all).sort();
+  while (days.length > 30) delete all[days.shift()];
+  store.setState({ dailyVocabByDay: all });
+  normalizeState();
+  originalBumpDaily(subject === "french" ? "french-vocab" : "latin-vocab", 0);
+}
+
 function patchedRecordSpelling(questionId, correct) {
   const before = store.getState();
   const previous = before.spellingDue?.[questionId] || null;
@@ -1607,6 +1640,7 @@ store.setState({
   recordGamePractice,
   recordAttempt: patchedRecordAttempt,
   recordSpelling: patchedRecordSpelling,
+  recordDailyVocabAttempt,
 });
 
 function aiHelpActionLabel(action) {
