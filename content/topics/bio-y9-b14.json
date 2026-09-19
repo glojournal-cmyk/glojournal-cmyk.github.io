@@ -1933,7 +1933,7 @@
       "topicId": "bio-y9-b14",
       "topic": "Photosynthesis",
       "format": "word_tiles",
-      "prompt": "Put the reactant side and product side in order to make the photosynthesis word equation.",
+      "prompt": "Put the two sides of the photosynthesis word equation in the correct order: reactants first, then products.",
       "difficulty": 1,
       "status": "enabled",
       "options": null,
@@ -2081,10 +2081,45 @@
       "chloroplast → the plant or algal cell organelle containing chlorophyll",
       "photosynthesis reactants → carbon dioxide and water",
       "photosynthesis products → glucose and oxygen",
-      "food-chain foundation → photosynthesis providing chemical energy and carbon-containing molecules supporting most food chains",
-      "photosynthesis → an endothermic process that uses light energy absorbed by chlorophyll to make glucose; photosynthesis word equation → carbon dioxide plus water produces glucose and oxygen; photosynthesis symbol equation → 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂; endothermic → a process that transfers energy from the environment into the reacting system"
+      "food-chain foundation → photosynthesis providing chemical energy and carbon-containing molecules supporting most food chains"
     ],
-    "mustMemoriseVocabulary": [],
+    "mustMemoriseVocabulary": [
+      {
+        "term": "photosynthesis",
+        "meaning": "an endothermic process in which light energy absorbed by chlorophyll is used to make glucose",
+        "direction": ""
+      },
+      {
+        "term": "endothermic",
+        "meaning": "a process that transfers energy from the environment into the reacting system",
+        "direction": ""
+      },
+      {
+        "term": "chlorophyll",
+        "meaning": "the green pigment that absorbs light energy for photosynthesis",
+        "direction": ""
+      },
+      {
+        "term": "chloroplast",
+        "meaning": "the organelle in plant and algal cells that contains chlorophyll and carries out photosynthesis",
+        "direction": ""
+      },
+      {
+        "term": "reactant",
+        "meaning": "a substance used up in a chemical reaction; carbon dioxide and water are photosynthesis reactants",
+        "direction": ""
+      },
+      {
+        "term": "product",
+        "meaning": "a substance made in a chemical reaction; glucose and oxygen are photosynthesis products",
+        "direction": ""
+      },
+      {
+        "term": "glucose",
+        "meaning": "the sugar made in photosynthesis and used for respiration or to make other biological molecules",
+        "direction": ""
+      }
+    ],
     "workedExamples": [
       {
         "prompt": "In B14, write the scientific term, rule or named idea described. an endothermic process that uses light energy absorbed by chlorophyll to make glucose",
