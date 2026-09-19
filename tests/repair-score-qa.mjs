@@ -14,8 +14,8 @@ for(const token of [
 ]) if(!quiz.includes(token)) failures.push({type:"missing-repair-score-runtime",token});
 
 for(const token of [
-  "questionsToday:(o.questionsToday??0)+(repair?0:1)",
-  "repair||(t().bumpDaily(`study-session`,1)"
+  "questionsToday:(o.questionsToday??0)+(repair||a?.formal===!1?0:1)",
+  "repair||a?.formal===!1||t().bumpDaily(`study-session`,1)"
 ]) if(!core.includes(token)) failures.push({type:"repair-counted-as-formal-daily",token});
 
 if(!wrapper.includes('if (!isRepair && focus && focus.focusSubject === (resolved.subject || subject)) originalBumpDaily("adaptive-focus", 1);')){
