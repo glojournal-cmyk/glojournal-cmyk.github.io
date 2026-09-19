@@ -1246,7 +1246,8 @@ function applyFormalSkillAttempt(skillStats, skills, questionId, correct, produc
           challengeStreak = 0;
         }
       } else {
-        if (depth >= challengeLevel) challengeLevel = Math.max(1, challengeLevel - 1);
+        const retentionMiss = !!current.retentionDue && current.retentionDue <= day;
+        if (depth >= challengeLevel || retentionMiss) challengeLevel = Math.max(1, challengeLevel - 1);
         challengeStreak = 0;
       }
     }
