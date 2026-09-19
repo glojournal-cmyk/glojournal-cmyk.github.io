@@ -549,6 +549,28 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     }
   }
 
+  // Avoid a session becoming mostly MC just because each concept's first bank variant is recognition.
+  const maxRecognition = target >= 5 ? Math.ceil(target * 0.5) : target;
+  let recognitionCount = selected.filter((row) => row.lane === "recognition").length;
+  if (recognitionCount > maxRecognition) {
+    for (let index = selected.length - 1; index >= 0 && recognitionCount > maxRecognition; index -= 1) {
+      const current = selected[index];
+      if (current.lane !== "recognition") continue;
+      const alternate = rows
+        .filter((row) =>
+          row.conceptKey === current.conceptKey &&
+          row.lane !== "recognition" &&
+          !ids.has(row.item.id)
+        )
+        .sort(byNeed)[0];
+      if (!alternate) continue;
+      ids.delete(current.item.id);
+      ids.add(alternate.item.id);
+      selected[index] = { ...alternate, bucket: current.bucket };
+      recognitionCount -= 1;
+    }
+  }
+
   // Compose the session rather than merely sorting it.
   const pool = [...selected];
   const composed = [];
