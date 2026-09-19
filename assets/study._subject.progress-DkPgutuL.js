@@ -32,6 +32,9 @@ function Empty({children}){return J.jsx("p",{className:"mt-2 text-sm text-muted"
 function skillStatusLabel(value){
   return value==="needs-practice"?"Needs practice":value==="retention-due"?"Retention due":value==="retention-ready"?"Retention ready":"Building evidence";
 }
+function challengeLabel(level){
+  return ["","Recognition","Recall","Application","Explanation"][Math.max(1,Math.min(4,Number(level)||2))]||"Recall";
+}
 function SkillRow({row,subject}){
   const game=row.game?.attempts
     ?row.game.attempts+" game attempt"+(row.game.attempts===1?"":"s")+" · "+row.game.repairCorrect+" repair"+(row.game.repairCorrect===1?"":"s")+" secured"
@@ -49,7 +52,8 @@ function SkillRow({row,subject}){
       J.jsx("span",{className:"rounded-full bg-sage px-3 py-1 text-xs text-navy",children:skillStatusLabel(row.status)})
     ]}),
     row.attempted?J.jsx(Bar,{value:pct(row.accuracy)}):null,
-    J.jsxs("div",{className:"mt-3 grid gap-2 sm:grid-cols-2",children:[
+    J.jsxs("div",{className:"mt-3 grid gap-2 sm:grid-cols-3",children:[
+      J.jsxs("p",{className:"text-xs text-muted",children:["Challenge: ",challengeLabel(row.targetDepth||row.challengeLevel)]}),
       J.jsxs("p",{className:"text-xs text-muted",children:["Retention: ",row.retentionDue?reviewLabel(row.retentionDue):"Not scheduled yet"]}),
       J.jsxs("p",{className:"text-xs text-muted",children:["Game practice: ",game]})
     ]}),
