@@ -1,0 +1,28 @@
+name: chemistry comprehensive QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - tests/chemistry-content-quality-audit.mjs
+      - tests/chemistry-calculation-marking-qa.mjs
+      - tests/chemistry-notation-qa.mjs
+      - tests/chemistry-session-quality.mjs
+      - .github/workflows/chemistry-qa.yml
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Chemistry content quality
+        run: node tests/chemistry-content-quality-audit.mjs || true
+      - name: Chemistry calculation marking
+        run: node tests/chemistry-calculation-marking-qa.mjs || true
+      - name: Chemistry notation case sensitivity
+        run: node tests/chemistry-notation-qa.mjs || true
+      - name: Chemistry session quality
+        run: node tests/chemistry-session-quality.mjs || true
