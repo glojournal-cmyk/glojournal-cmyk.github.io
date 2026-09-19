@@ -1574,7 +1574,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     resolved.skills || [],
     {
       subject: resolved.subject || subject,
-      year: after.year || before.year || 9,
+      year: meta?.yearOverride || after.year || before.year || 9,
       topicId: resolved.topicId,
       questionId,
       isRepair,
@@ -1592,7 +1592,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   });
 
   const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
-  if (!isRepair && focus && focus.focusSubject === (resolved.subject || subject)) originalBumpDaily("adaptive-focus", 1);
+  if (!isRepair && !meta?.excludeGeneralDaily && focus && focus.focusSubject === (resolved.subject || subject)) originalBumpDaily("adaptive-focus", 1);
   normalizeState();
   return result;
 }
