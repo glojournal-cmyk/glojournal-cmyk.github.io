@@ -582,8 +582,10 @@ function recordGamePractice(gameId, conceptKey, correct, options = {}) {
   const game = { ...(all[gameId] || {}) };
   const concepts = { ...(game.concepts || {}) };
   const key = String(conceptKey).slice(0, 120);
-  const previous = concepts[key] || { attempts: 0, correct: 0, errors: 0, repairs: 0, repairCorrect: 0, streak: 0 };
+  const previous = concepts[key] || { attempts: 0, correct: 0, errors: 0, repairs: 0, repairCorrect: 0, recoveryCorrect: 0, streak: 0 };
   const repair = !!options.repair;
+  const unresolvedBefore = Math.max(0, (previous.errors || 0) - (previous.repairCorrect || 0) - (previous.recoveryCorrect || 0));
+  const recoveryCredit = !repair && correct && (previous.streak || 0) >= 1 && unresolvedBefore > 0 ? 1 : 0;
   const next = {
     ...previous,
     label: String(options.label || previous.label || key).slice(0, 120),
@@ -592,6 +594,7 @@ function recordGamePractice(gameId, conceptKey, correct, options = {}) {
     errors: (previous.errors || 0) + (!repair && !correct ? 1 : 0),
     repairs: (previous.repairs || 0) + (repair ? 1 : 0),
     repairCorrect: (previous.repairCorrect || 0) + (repair && correct ? 1 : 0),
+    recoveryCorrect: (previous.recoveryCorrect || 0) + recoveryCredit,
     streak: correct ? Math.min(12, (previous.streak || 0) + 1) : 0,
     lastSeen: todayKey(),
     lastError: !correct ? todayKey() : previous.lastError || null,
