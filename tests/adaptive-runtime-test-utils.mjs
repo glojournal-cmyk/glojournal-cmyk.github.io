@@ -34,7 +34,7 @@ export function buildAdaptiveRuntime(){
   };
   const api=new Function(
     "store","todayKey","questionTopicId","normalizeTopicStat","normalizeSkillStat","getQuestionSkills","MASTERY_ACCURACY","SECURE_ACCURACY",
-    src.slice(rankStart,rankEnd)+";return {rankAdaptiveQuestions,adaptiveCognitiveDepth,adaptiveFormatLane};"
+    src.slice(rankStart,rankEnd)+";return {rankAdaptiveQuestions,adaptiveCognitiveDepth,adaptiveFormatLane,adaptiveContentKey};"
   )(store,todayKey,questionTopicId,normalizeTopicStat,normalizeSkillStat,getQuestionSkills,MASTERY_ACCURACY,SECURE_ACCURACY);
   return {
     ...api,
