@@ -8,7 +8,7 @@ const need=(src,name,token)=>{if(!src.includes(token))failures.push({type:"missi
 need(core,"core",'id:`case-locker`,name:`Case Detective`');
 need(core,"core",'"case-locker":`latin`');
 need(core,"core",'"case-locker":12');
-need(core,"core",'`sentence-mosaic`,`case-locker`,`verbum-match`');
+need(core,"core",'`sentence-mosaic`,`case-locker`,`error-hunter`,`verbum-match`');
 
 need(games,"games",'const caseDetectiveCases=[');
 need(games,"games",'function CaseDetective({level:e})');
