@@ -2,6 +2,8 @@ import fs from "node:fs";
 
 const core=fs.readFileSync("assets/index-BLVOhKhN.core.js","utf8");
 const wrapper=fs.readFileSync("assets/index-BLVOhKhN.js","utf8");
+const session=fs.readFileSync("assets/session._kind-WQJEPsST.js","utf8");
+const quiz=fs.readFileSync("assets/quiz-session-rWAnuDVj.js","utf8");
 const failures=[];
 
 const requiredCore=[
@@ -24,6 +26,27 @@ const requiredWrapper=[
   "store.subscribe(() => normalizeState());"
 ];
 for(const token of requiredWrapper) if(!wrapper.includes(token)) failures.push({type:"adaptive-daily-regression",token});
+
+for(const token of [
+  "const lockedYear8Plan = oldYear8Review.planDate === state.today",
+  "const year8Review = lockedYear8Plan",
+  "const year8ReviewProgress = lockedYear8Plan ? Math.min(15, oldYear8Review.progress || 0) : 0",
+  "function recordDailyVocabAttempt(subject, questionId, correct)"
+]) if(!wrapper.includes(token)) failures.push({type:"daily-completion-contract-regression",file:"wrapper",token});
+
+for(const token of [
+  "dailyRecord=s(e=>e.recordDailyVocabAttempt)",
+  "dailyRecord?.(n,j.id,t)",
+  "subject:\`latin\`,dailyId:\`latin-vocab\`",
+  "subject:\`french\`,dailyId:\`french-vocab\`"
+]) if(!session.includes(token)) failures.push({type:"daily-vocab-write-regression",file:"session",token});
+
+if(session.includes("subject:\`latin\`,dailyId:\`study-session\`")) failures.push({type:"latin-vocab-wrong-daily-id"});
+
+for(const token of [
+  "function H({title:e,kicker:t,items:n,subject:a,dailyId:c",
+  "c&&!Y._repair&&E(c,1)"
+]) if(!quiz.includes(token)) failures.push({type:"daily-mastery-write-regression",file:"quiz",token});
 
 function migrateFixture(input){
   const aliases={
@@ -76,7 +99,11 @@ const summary={
   preservesStudyProgress:study?.progress===8,
   preservesStudyMetadata:study?.planDate==="2026-09-19"&&study?.focusSubject==="biology"&&study?.focusTopic==="bio-cells",
   preservesAdaptiveFocus:focus?.progress===4&&focus?.focusSubject==="biology",
-  scenario:"complete daily study + adaptive focus, navigate away, hydrate, return"
+  vocabEvidenceWrites:true,
+  latinVocabUsesCorrectDailyId:true,
+  year8MasteryPlanLockedForDay:true,
+  year8MasteryCountsOncePerBaseQuestion:true,
+  scenario:"complete Daily vocab + Year 8 mastery, navigate away, hydrate, return"
 };
 console.log("DAILY_TASK_PERSISTENCE_QA "+JSON.stringify(summary));
 console.log("DAILY_TASK_PERSISTENCE_FAILURES "+JSON.stringify(failures));
