@@ -12,19 +12,39 @@ function getStage(leaves){let s=1;thresholds.forEach(function(t,i){if(leaves>=t)
 function dueMastery(state){const d=new Date();const today=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");return Object.values(state.skillStats||{}).filter(function(s){return s&&s.retentionDue&&s.retentionDue<=today&&(s.retentionReady||s.retentionPasses>0)}).length}
 function displayName(p){return p.name||pets[p.species]||"Companion"}
 function artId(species,stage){return species==="moss-hornling"?"moss-hornling-stage-"+Math.max(1,Math.min(5,stage)):species}
+let spriteReady=false;
+async function ensurePetSprite(){
+  if(document.getElementById("pet-sprite-root")){spriteReady=true;return}
+  const res=await fetch("/pet/pets.svg?v=20260920-p3",{cache:"force-cache"});
+  if(!res.ok) throw new Error("Unable to load pet artwork");
+  const source=await res.text();
+  const parsed=new DOMParser().parseFromString(source,"image/svg+xml");
+  const root=parsed.documentElement;
+  const holder=document.createElementNS("http://www.w3.org/2000/svg","svg");
+  holder.id="pet-sprite-root";
+  holder.setAttribute("aria-hidden","true");
+  holder.setAttribute("focusable","false");
+  holder.style.position="absolute";
+  holder.style.width="0";
+  holder.style.height="0";
+  holder.style.overflow="hidden";
+  holder.innerHTML=root.innerHTML;
+  document.body.prepend(holder);
+  spriteReady=true;
+}
 
 function ensureStyle(){
   if(document.getElementById("mastery-pet-home-style"))return;
   const style=document.createElement("style");
   style.id="mastery-pet-home-style";
   style.textContent=
-  '#mastery-pet-home{position:absolute;right:3.5%;bottom:3.2%;z-index:26;width:clamp(108px,21%,170px);text-decoration:none;color:#17324d;display:flex;flex-direction:column;align-items:center;pointer-events:auto;transform-origin:bottom center;transition:transform .18s ease,filter .18s ease}'+
+  '#mastery-pet-home{position:absolute;right:2.5%;bottom:2.2%;z-index:26;width:clamp(150px,31%,210px);text-decoration:none;color:#17324d;display:flex;flex-direction:column;align-items:center;pointer-events:auto;transform-origin:bottom center;transition:transform .18s ease,filter .18s ease}'+
   '#mastery-pet-home:hover{transform:translateY(-3px);filter:brightness(1.02)}'+
   '#mastery-pet-home.evolving .mph-svg{animation:mphEvolve 2.4s ease both}'+
   '#mastery-pet-home.evolving .mph-glow{animation:mphGlow 2.4s ease both}'+
   '#mastery-pet-home .mph-glow{position:absolute;width:90%;aspect-ratio:1;bottom:14px;border-radius:50%;background:radial-gradient(circle,rgba(247,240,223,.94) 0,rgba(196,154,85,.22) 48%,transparent 72%);filter:blur(1px);pointer-events:none}'+
   '#mastery-pet-home .mph-svg{position:relative;width:100%;aspect-ratio:1;filter:drop-shadow(0 10px 10px rgba(23,50,77,.22));overflow:visible}'+
-  '#mastery-pet-home[data-stage="1"] .mph-svg{transform:scale(.78)}#mastery-pet-home[data-stage="2"] .mph-svg{transform:scale(.85)}#mastery-pet-home[data-stage="3"] .mph-svg{transform:scale(.91)}#mastery-pet-home[data-stage="4"] .mph-svg{transform:scale(.97)}#mastery-pet-home[data-stage="5"] .mph-svg{transform:scale(1.03)}'+
+  '#mastery-pet-home[data-stage="1"] .mph-svg{transform:scale(.96)}#mastery-pet-home[data-stage="2"] .mph-svg{transform:scale(1)}#mastery-pet-home[data-stage="3"] .mph-svg{transform:scale(1.04)}#mastery-pet-home[data-stage="4"] .mph-svg{transform:scale(1.08)}#mastery-pet-home[data-stage="5"] .mph-svg{transform:scale(1.12)}'+
   '#mastery-pet-home .mph-tag{position:relative;margin-top:-8px;max-width:100%;background:rgba(255,252,245,.94);border:1px solid rgba(23,50,77,.14);border-radius:999px;padding:5px 9px;box-shadow:0 7px 18px rgba(23,50,77,.13);backdrop-filter:blur(8px);font-size:10px;line-height:1.15;text-align:center;white-space:nowrap}'+
   '#mastery-pet-home .mph-tag b{font-family:"Cormorant Garamond",serif;font-size:12px}'+
   '#mastery-pet-home .mph-leaf{position:absolute;right:4%;top:13%;display:grid;place-items:center;min-width:25px;height:25px;padding:0 5px;border-radius:999px;background:#71865f;color:#fff;border:2px solid rgba(255,255,255,.88);font-size:9px;font-weight:800;box-shadow:0 4px 10px rgba(23,50,77,.18)}'+
@@ -34,7 +54,7 @@ function ensureStyle(){
   '@keyframes mphGlow{0%,100%{opacity:.65}40%{opacity:1;transform:scale(1.28)}}'+
   '#mastery-pet-toast{position:fixed;left:50%;top:18px;z-index:1000;transform:translate(-50%,-18px);opacity:0;background:#fffaf0;color:#17324d;border:1px solid rgba(196,154,85,.46);border-radius:20px;padding:11px 16px;box-shadow:0 16px 45px rgba(23,50,77,.2);font-size:13px;transition:.28s ease;max-width:min(92vw,440px);text-align:center}'+
   '#mastery-pet-toast.show{opacity:1;transform:translate(-50%,0)}#mastery-pet-toast b{font-family:"Cormorant Garamond",serif;font-size:18px;display:block}'+
-  '@media(max-width:640px){#mastery-pet-home{right:2.5%;bottom:2.5%;width:clamp(92px,25%,122px)}#mastery-pet-home .mph-tag{font-size:9px;padding:4px 7px}#mastery-pet-home .mph-tag b{font-size:11px}}';
+  '@media(max-width:640px){#mastery-pet-home{right:1.5%;bottom:2%;width:clamp(118px,30%,150px)}#mastery-pet-home .mph-tag{font-size:9px;padding:4px 7px}#mastery-pet-home .mph-tag b{font-size:11px}}';
   document.head.appendChild(style);
 }
 function findHero(){
@@ -74,8 +94,8 @@ function render(){
   const status=due>0?due+" retention ready":leaves+" Mastery "+(leaves===1?"Leaf":"Leaves");
   a.dataset.stage=String(stage);
   a.innerHTML='<span class="mph-glow"></span><span class="mph-star s1"></span><span class="mph-star s2"></span>'+
-    '<svg class="mph-svg" viewBox="0 0 240 240" aria-hidden="true"><use href="/pet/pets.svg#'+artId(pet.species,stage)+'"></use></svg>'+
-    '<span class="mph-leaf">'+leaves+'</span>'+
+    '<svg class="mph-svg" viewBox="0 0 240 240" aria-hidden="true"><use href="#'+artId(pet.species,stage)+'"></use></svg>'+
+    (leaves>0?'<span class="mph-leaf">'+leaves+'</span>':'')+
     '<span class="mph-tag"><b>'+displayName(pet)+'</b><br>'+stageNames[stage-1]+' · '+status+'</span>';
   try{
     const key="lux-pet-last-stage-v1";
@@ -90,7 +110,7 @@ function render(){
   consumeCelebration();
 }
 let queued=false;
-function schedule(){if(queued)return;queued=true;requestAnimationFrame(function(){queued=false;render()})}
+function schedule(){if(!spriteReady||queued)return;queued=true;requestAnimationFrame(function(){queued=false;render()})}
 new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true});
 window.addEventListener("popstate",schedule);
 window.addEventListener("storage",schedule);
@@ -101,4 +121,11 @@ window.addEventListener("scholar:mastery-earned",function(event){
   if(d.kind==="mastery"){try{localStorage.setItem(CELEBRATE_KEY,JSON.stringify({at:Date.now(),title:d.title||""}))}catch{}}
   schedule();
 });
-schedule();
+(async function boot(){
+  try{
+    await ensurePetSprite();
+    render();
+  }catch(error){
+    console.error("Home pet artwork failed to initialise",error);
+  }
+})();
