@@ -1754,18 +1754,6 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
   if (!isRepair && !meta?.excludeGeneralDaily && focus && focus.focusSubject === (resolved.subject || subject)) originalBumpDaily("adaptive-focus", 1);
 
-  // The dedicated Year 8 mastery review is a Daily task of its own.
-  // Count each formal base question exactly once and keep the locked topic for the whole day.
-  if (!isRepair && meta?.excludeGeneralDaily && Number(meta?.yearOverride) === 8) {
-    const dailyReview = store.getState().daily?.find((task) => task.id === "year8-long-review");
-    const reviewSubject = resolved.subject || subject;
-    const sameReview = dailyReview &&
-      dailyReview.planDate === todayKey() &&
-      dailyReview.reviewSubject === reviewSubject &&
-      (!dailyReview.reviewTopic || dailyReview.reviewTopic === resolved.topicId);
-    if (sameReview) originalBumpDaily("year8-long-review", 1);
-  }
-
   normalizeState();
   return result;
 }
