@@ -29,8 +29,7 @@ for(const token of requiredWrapper) if(!wrapper.includes(token)) failures.push({
 
 for(const token of [
   "const lockedYear8Plan = oldYear8Review.planDate === state.today",
-  "const year8Review = lockedYear8Plan",
-  "const year8ReviewProgress = lockedYear8Plan ? Math.min(15, oldYear8Review.progress || 0) : 0",
+  "const year8Review = recoveredYear8Review || (lockedYear8Plan",
   "function recordDailyVocabAttempt(subject, questionId, correct)",
   "function completedYear8ReviewEvidence(state)",
   "const recoveredYear8Review = completedYear8ReviewEvidence(state)",
