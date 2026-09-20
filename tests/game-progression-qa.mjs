@@ -21,10 +21,11 @@ need(core,"core","game_daily_challenge");
 need(core,"core","game_weekly_challenge");
 
 need(pe,"pe","levels:8");
-need(pe,"pe","How to play");
-need(pe,"pe","Reach 68+ for 2★ to unlock the next circuit");
-need(pe,"pe","Pressure circuit");
-need(pe,"pe","House final");
+need(pe,"pe","r>=88?3:r>=70?2:+(r>=45)");
+need(pe,"pe","Circuit stations");
+need(pe,"pe","2★ unlocks the next circuit.");
+need(pe,"pe","title:`Pressure`");
+need(pe,"pe","title:`House Final`");
 
 need(games,"games",'const endlessRanks=[{name:\`Bronze\`,min:100},{name:\`Silver\`,min:250},{name:\`Gold\`,min:400},{name:\`Scholar\`,min:550},{name:\`Master\`,min:700},{name:\`Grandmaster\`,min:850}]');
 need(games,"games",'n%5===0');
