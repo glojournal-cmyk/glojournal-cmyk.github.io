@@ -73,7 +73,7 @@ function render(){
   ensureStyle();
   const state=readApp(),pet=readPet(),leaves=masteryCount(state),stage=Math.max(1,Math.min(5,Number(pet.petLevels&&pet.petLevels[pet.species])||1)),due=dueMastery(state);
   let a=existing;
-  if(!a){a=document.createElement("a");a.id="mastery-pet-home";a.href="/pet/";a.setAttribute("aria-label","Open Companion Corner");host.appendChild(a)}
+  if(!a){a=document.createElement("a");a.id="mastery-pet-home";a.href="/pet/";a.setAttribute("aria-label","Open Companion Corner");a.addEventListener("click",function(event){event.preventDefault();event.stopImmediatePropagation();window.location.assign("/pet/")});host.appendChild(a)}
   else if(a.parentElement!==host)host.appendChild(a);
   const status=pet.masteryPoints+" MP · "+(due>0?due+" retention ready":leaves+" Mastery "+(leaves===1?"Leaf":"Leaves"));
   a.dataset.stage=String(stage);
@@ -93,7 +93,19 @@ function render(){
   }catch{}
   consumeCelebration();
   let mobile=mobileExisting;
-  if(!mobile){mobile=document.createElement("a");mobile.id="mastery-pet-mobile-link";mobile.href="/pet/";mobile.setAttribute("aria-label","Open Pets and Mastery Points");mobile.innerHTML='<span aria-hidden="true">✦</span> Pets';document.body.appendChild(mobile)}
+  if(!mobile){
+    mobile=document.createElement("a");
+    mobile.id="mastery-pet-mobile-link";
+    mobile.href="/pet/";
+    mobile.setAttribute("aria-label","Open Pets and Mastery Points");
+    mobile.innerHTML='<span aria-hidden="true">✦</span> Pets';
+    mobile.addEventListener("click",function(event){
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      window.location.assign("/pet/");
+    });
+    document.body.appendChild(mobile);
+  }
 }
 let queued=false;
 function schedule(){if(queued)return;queued=true;requestAnimationFrame(function(){queued=false;render()})}
