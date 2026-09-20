@@ -46,9 +46,10 @@ const petVoices = {
   "star-toadlet":{close:"Star Toadlet predicts a breakthrough",due:"Star Toadlet has not forgotten",steady:"Star Toadlet counts every bright step",waiting:"Star Toadlet waits for the first star"}
 };
 
-const PET_ART_VERSION="20260920-level4-2";
+const PET_ART_VERSION="20260920-level5-1";
 function petArtUrl(species,level=1){
   const safe=pets.some(p=>p.id===species)?species:"moss-hornling";
+  if(Number(level)>=5) return `/pet/art-evolution/level-5/${safe}.webp?v=${PET_ART_VERSION}`;
   if(Number(level)>=4) return `/pet/art-evolution/level-4/${safe}.webp?v=${PET_ART_VERSION}`;
   if(Number(level)>=3) return `/pet/art-evolution/level-3/${safe}.webp?v=${PET_ART_VERSION}`;
   if(Number(level)>=2) return `/pet/art-evolution/level-2/${safe}.webp?v=${PET_ART_VERSION}`;

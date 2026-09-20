@@ -9,9 +9,10 @@ function readPet(){try{const p=JSON.parse(localStorage.getItem(PET_KEY)||"{}");c
 function masteryCount(state){return Object.values(state.topicStats||{}).filter(function(s){return s&&s.state==="mastered"}).length}
 function dueMastery(state){const d=new Date();const today=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");return Object.values(state.skillStats||{}).filter(function(s){return s&&s.retentionDue&&s.retentionDue<=today&&(s.retentionReady||s.retentionPasses>0)}).length}
 function displayName(p){return p.name||pets[p.species]||"Companion"}
-const PET_ART_VERSION="20260920-level4-2";
+const PET_ART_VERSION="20260920-level5-1";
 function spriteStyle(species,level=1){
   const safe=pets[species]?species:"moss-hornling";
+  if(Number(level)>=5)return "background-image:url('/pet/art-evolution/level-5/"+safe+".webp?v="+PET_ART_VERSION+"')";
   if(Number(level)>=4)return "background-image:url('/pet/art-evolution/level-4/"+safe+".webp?v="+PET_ART_VERSION+"')";
   if(Number(level)>=3)return "background-image:url('/pet/art-evolution/level-3/"+safe+".webp?v="+PET_ART_VERSION+"')";
   if(Number(level)>=2)return "background-image:url('/pet/art-evolution/level-2/"+safe+".webp?v="+PET_ART_VERSION+"')";
