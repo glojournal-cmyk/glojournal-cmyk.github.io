@@ -1,0 +1,80 @@
+name: Build HD Pet Art
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pet/art-source-hd/**'
+      - '.github/workflows/build-hd-pet-art.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build 1024px transparent master and live assets
+        run: |
+          npm install --no-save sharp@0.33.5
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+          const sharp = require('sharp');
+
+          const pets = [
+            'moss-hornling','antler-bean','inkling','pebble-wisp','moon-puff',
+            'mothling','bloom-snail','velvet-batling','sprig-dragon','star-toadlet'
+          ];
+          const newSource = new Set([
+            'moss-hornling','antler-bean','inkling','pebble-wisp','moon-puff'
+          ]);
+
+          fs.mkdirSync('pet/art-master', {recursive:true});
+          fs.mkdirSync('pet/art-hd', {recursive:true});
+
+          (async () => {
+            for (const pet of pets) {
+              const src = newSource.has(pet)
+                ? `pet/art-source-hd/${pet}.avif`
+                : `pet/art-production/${pet}.webp`;
+
+              const base = sharp(src, { failOn: 'none' }).ensureAlpha().resize(1024, 1024, {
+                fit: 'contain',
+                position: 'centre',
+                background: {r:0,g:0,b:0,alpha:0},
+                kernel: sharp.kernel.lanczos3
+              });
+
+              await base.clone()
+                .sharpen({sigma:0.55, m1:0.7, m2:1.2})
+                .png({compressionLevel:9, adaptiveFiltering:true})
+                .toFile(`pet/art-master/${pet}.png`);
+
+              await base.clone()
+                .sharpen({sigma:0.45, m1:0.6, m2:1.1})
+                .webp({quality:96, alphaQuality:100, smartSubsample:true})
+                .toFile(`pet/art-hd/${pet}.webp`);
+            }
+          })().catch(err => { console.error(err); process.exit(1); });
+          NODE
+
+      - name: Commit generated pet art
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/art-master pet/art-hd
+          if git diff --cached --quiet; then
+            echo "No generated changes."
+            exit 0
+          fi
+          git commit -m "Build HD pet artwork [skip actions]"
+          git push
