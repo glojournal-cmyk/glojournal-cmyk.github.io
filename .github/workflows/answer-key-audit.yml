@@ -19,6 +19,7 @@ jobs:
           node --check assets/quiz-session-rWAnuDVj.js
           node --check assets/study._subject.progress-DkPgutuL.js
           node --check assets/play._game-BbpxhxeZ.js
+          node --check assets/pe-circuit-v3-20260920.js
           node --check assets/scholar-iJ2ilQWG.js
       - name: Audit Year 9 school runtime update
         run: node tests/year9-school-update-qa.mjs
