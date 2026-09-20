@@ -163,7 +163,7 @@ function growthMessage(state,species){
     const subject=subjectMeta[close.subject]?.label||"Study";
     return {
       title:voice.close,
-      body:`${subject} · ${prettyTopic(close.id)} · ${close.attempted} formal attempts at ${Math.round(close.accuracy*100)}%.`
+      body:`A little more focused ${subject} practice could bring the next Mastery Leaf.`
     };
   }
   if(due>0){

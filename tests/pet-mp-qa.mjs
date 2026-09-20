@@ -14,6 +14,7 @@ for(const token of ["mpCount","evolvePet","confirmEvolution","XP, Mastery Points
 need(home,"home","pet.petLevels&&pet.petLevels[pet.species]");
 if(pet.includes("getStage(leaves)")) failures.push("pet: automatic leaf evolution still present");
 if(home.includes("computedStage=getStage(leaves)")) failures.push("home: automatic leaf evolution still present");
+if(pet.includes("formal attempts at")) failures.push("pet: technical attempt statistics leaked into companion insight");
 
 const costs=[50,90,140,200];
 if(costs.reduce((a,b)=>a+b,0)!==480) failures.push("costs do not total 480 MP");
