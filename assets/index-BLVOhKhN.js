@@ -1032,7 +1032,7 @@ function year8ReviewPlan(state) {
 
   const allTopics = YEAR8_MASTERY_SUBJECTS.flatMap((subject) => {
     try {
-      return (getTopicCatalog(subject, 8) || []).map((topic) => {
+      return (getTopicCatalog(subject, 8) || []).filter((topic) => topic?.status === "enabled" && Number(topic?.enabled ?? topic?.questions ?? 0) > 0).map((topic) => {
         const stat = normalizeTopicStat(state.topicStats?.[topic.topicId] || {});
         return {
           ...stat,
