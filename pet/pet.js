@@ -33,25 +33,8 @@ const subjectMeta = {
   english:{label:"English",icon:"✎"}
 };
 
-let spriteReady=false;
-async function ensurePetSprite(){
-  if(document.getElementById("pet-sprite-root")){spriteReady=true;return}
-  const res=await fetch("/pet/pets.svg?v=20260920-p3",{cache:"force-cache"});
-  if(!res.ok) throw new Error("Unable to load pet artwork");
-  const source=await res.text();
-  const parsed=new DOMParser().parseFromString(source,"image/svg+xml");
-  const root=parsed.documentElement;
-  const holder=document.createElementNS("http://www.w3.org/2000/svg","svg");
-  holder.id="pet-sprite-root";
-  holder.setAttribute("aria-hidden","true");
-  holder.setAttribute("focusable","false");
-  holder.style.position="absolute";
-  holder.style.width="0";
-  holder.style.height="0";
-  holder.style.overflow="hidden";
-  holder.innerHTML=root.innerHTML;
-  document.body.prepend(holder);
-  spriteReady=true;
+function artSrc(species,stage=1){
+  return `/pet/art-production/${species}.webp?v=20260920-art1`;
 }
 
 function readAppState(){
@@ -184,10 +167,6 @@ function petDisplayName(pet){
   return pet.name || pets.find(p=>p.id===pet.species)?.name || "Companion";
 }
 function petById(id){return pets.find(p=>p.id===id)||pets[0]}
-function artId(species,stage=1){
-  return species==="moss-hornling" ? `moss-hornling-stage-${Math.max(1,Math.min(5,stage))}` : species;
-}
-
 function render(){
   const state=readAppState();
   const pet=readPet();
@@ -211,7 +190,9 @@ function render(){
   document.title=`${petDisplayName(pet)} · Companion Corner · Lux et Labor`;
   document.getElementById("petTitle").textContent=petDisplayName(pet);
   document.getElementById("petSubtitle").textContent=species.tag;
-  document.getElementById("petUse").setAttribute("href",`#${artId(pet.species,stage)}`);
+  const petImage=document.getElementById("petImage");
+  petImage.src=artSrc(pet.species,stage);
+  petImage.alt=`${petDisplayName(pet)} · ${stageNames[stage-1]}`;
   document.getElementById("petAvatar").className=`pet-avatar stage-${stage}`;
   document.getElementById("petAura").className=`pet-aura stage-${stage}`;
   document.getElementById("stageLabel").textContent=`Stage ${stage} · ${stageNames[stage-1]}`;
@@ -253,7 +234,7 @@ function buildChooser(){
   const grid=document.getElementById("petGrid");
   grid.innerHTML=pets.map(p=>`
     <button class="pet-choice" type="button" data-pet="${p.id}" aria-label="Choose ${p.name}">
-      <svg viewBox="0 0 240 240" aria-hidden="true"><use href="#${artId(p.id,1)}"></use></svg>
+      <img src="${artSrc(p.id,1)}" alt="" loading="lazy" decoding="async">
       <b>${p.name}</b><small>${p.tag}</small>
       <span class="selected-mark">Current companion</span>
     </button>
@@ -275,16 +256,8 @@ document.getElementById("saveName").addEventListener("click",()=>{
 document.getElementById("petNameInput").addEventListener("keydown",e=>{
   if(e.key==="Enter") document.getElementById("saveName").click();
 });
-window.addEventListener("storage",()=>{if(spriteReady)render()});
-window.addEventListener("focus",()=>{if(spriteReady)render()});
-window.addEventListener("scholar:pet-changed",()=>{if(spriteReady)render()});
-async function boot(){
-  try{
-    await ensurePetSprite();
-    buildChooser();
-    render();
-  }catch(error){
-    console.error("Pet artwork failed to initialise",error);
-  }
-}
-boot();
+window.addEventListener("storage",render);
+window.addEventListener("focus",render);
+window.addEventListener("scholar:pet-changed",render);
+buildChooser();
+render();
