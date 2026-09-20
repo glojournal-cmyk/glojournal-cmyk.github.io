@@ -33,7 +33,7 @@ const subjectMeta = {
   english:{label:"English",icon:"✎"}
 };
 
-const PET_ART_VERSION="20260920-png1";
+const PET_ART_VERSION="20260920-png2";
 function petArtUrl(species){
   const safe=pets.some(p=>p.id===species)?species:"moss-hornling";
   return `/pet/art-master/${safe}.png?v=${PET_ART_VERSION}`;
