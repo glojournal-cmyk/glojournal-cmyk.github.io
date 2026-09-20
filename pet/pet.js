@@ -33,8 +33,11 @@ const subjectMeta = {
   english:{label:"English",icon:"✎"}
 };
 
+const HQ_PETS=new Set(["moss-hornling","antler-bean","inkling","pebble-wisp","moon-puff"]);
 function artSrc(species,stage=1){
-  return `/pet/art-production/${species}.webp?v=20260920-art1`;
+  return HQ_PETS.has(species)
+    ? `/pet/art-master/${species}.avif?v=20260920-hq1`
+    : `/pet/art-production/${species}.webp?v=20260920-art2`;
 }
 
 function readAppState(){
