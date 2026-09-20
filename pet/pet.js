@@ -47,9 +47,10 @@ function readPet(){
     const parsed=raw?JSON.parse(raw):{};
     return {
       species:pets.some(p=>p.id===parsed?.species)?parsed.species:"moss-hornling",
-      name:String(parsed?.name||"").trim()
+      name:String(parsed?.name||"").trim(),
+      highestStage:Math.max(1,Math.min(5,Number(parsed?.highestStage)||1))
     };
-  }catch{return {species:"moss-hornling",name:""}}
+  }catch{return {species:"moss-hornling",name:"",highestStage:1}}
 }
 function savePet(next){
   localStorage.setItem(PET_KEY,JSON.stringify(next));
@@ -162,13 +163,22 @@ function petDisplayName(pet){
   return pet.name || pets.find(p=>p.id===pet.species)?.name || "Companion";
 }
 function petById(id){return pets.find(p=>p.id===id)||pets[0]}
+function artId(species,stage=1){
+  return species==="moss-hornling" ? `moss-hornling-stage-${Math.max(1,Math.min(5,stage))}` : species;
+}
 
 function render(){
   const state=readAppState();
   const pet=readPet();
   const species=petById(pet.species);
   const leaves=masteryCount(state);
-  const stage=getStage(leaves);
+  const computedStage=getStage(leaves);
+  const stage=Math.max(computedStage,pet.highestStage||1);
+  if(stage>(pet.highestStage||1)){
+    const updated={...pet,highestStage:stage};
+    localStorage.setItem(PET_KEY,JSON.stringify(updated));
+    pet.highestStage=stage;
+  }
   const next=nextThreshold(stage);
   const remaining=Math.max(0,next-leaves);
   const progress=stageProgress(leaves,stage);
@@ -180,7 +190,7 @@ function render(){
   document.title=`${petDisplayName(pet)} · Companion Corner · Lux et Labor`;
   document.getElementById("petTitle").textContent=petDisplayName(pet);
   document.getElementById("petSubtitle").textContent=species.tag;
-  document.getElementById("petUse").setAttribute("href",`/pet/pets.svg#${pet.species}`);
+  document.getElementById("petUse").setAttribute("href",`/pet/pets.svg#${artId(pet.species,stage)}`);
   document.getElementById("petAvatar").className=`pet-avatar stage-${stage}`;
   document.getElementById("petAura").className=`pet-aura stage-${stage}`;
   document.getElementById("stageLabel").textContent=`Stage ${stage} · ${stageNames[stage-1]}`;
@@ -222,7 +232,7 @@ function buildChooser(){
   const grid=document.getElementById("petGrid");
   grid.innerHTML=pets.map(p=>`
     <button class="pet-choice" type="button" data-pet="${p.id}" aria-label="Choose ${p.name}">
-      <svg viewBox="0 0 200 200" aria-hidden="true"><use href="/pet/pets.svg#${p.id}"></use></svg>
+      <svg viewBox="0 0 240 240" aria-hidden="true"><use href="/pet/pets.svg#${artId(p.id,1)}"></use></svg>
       <b>${p.name}</b><small>${p.tag}</small>
       <span class="selected-mark">Current companion</span>
     </button>
