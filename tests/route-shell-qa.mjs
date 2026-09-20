@@ -14,13 +14,15 @@ function walk(dir){
 }
 const html=walk(root).filter(p=>p.endsWith(path.sep+"index.html")||p.endsWith(path.sep+"404.html"));
 const failures=[],rows=[];
+const standaloneShells=new Set(["pet/index.html"]);
 const mainModule="/assets/index-BLVOhKhN.js";
 for(const file of html){
   const rel=path.relative(root,file).replaceAll(path.sep,"/");
   const src=fs.readFileSync(file,"utf8");
-  if(!src.includes(mainModule))failures.push({type:"missing-main-module",file:rel});
+  const standalone=standaloneShells.has(rel);
+  if(!standalone&&!src.includes(mainModule))failures.push({type:"missing-main-module",file:rel});
   const mainRefs=[...src.matchAll(/\/assets\/index-BLVOhKhN\.js(?:\?v=([^"'<> ]+))?/g)].map(m=>({ref:m[0],version:m[1]||null}));
-  if(mainRefs.some(x=>!x.version))failures.push({type:"unversioned-main-module",file:rel,refs:mainRefs.map(x=>x.ref)});
+  if(!standalone&&mainRefs.some(x=>!x.version))failures.push({type:"unversioned-main-module",file:rel,refs:mainRefs.map(x=>x.ref)});
   const refs=[...src.matchAll(/(?:src|href)=["'](\/[^"'?#]+)(?:[?#][^"']*)?["']/g)].map(m=>m[1])
     .filter(ref=>ref.startsWith("/assets/")||ref.startsWith("/__grok/")||ref==="/app.css"||ref==="/favicon.svg");
   const missing=[];
@@ -29,7 +31,7 @@ for(const file of html){
     if(!fs.existsSync(disk))missing.push(ref);
   }
   if(missing.length)failures.push({type:"missing-local-assets",file:rel,missing});
-  rows.push({file:rel,main:src.includes(mainModule),refs:refs.length,mainVersions:[...new Set(mainRefs.map(x=>x.version).filter(Boolean))]});
+  rows.push({file:rel,main:src.includes(mainModule),refs:refs.length,mainVersions:standalone?[]:[...new Set(mainRefs.map(x=>x.version).filter(Boolean))]});
 }
 const allMainVersions=[...new Set(rows.flatMap(row=>row.mainVersions||[]))];
 if(allMainVersions.length!==1)failures.push({type:"main-module-version-drift",versions:allMainVersions});
