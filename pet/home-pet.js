@@ -36,8 +36,9 @@ function ensureStyle(){
   '@keyframes mphGlow{0%,100%{opacity:.65}40%{opacity:1;transform:scale(1.28)}}'+
   '#mastery-pet-toast{position:fixed;left:50%;top:18px;z-index:1000;transform:translate(-50%,-18px);opacity:0;background:#fffaf0;color:#17324d;border:1px solid rgba(196,154,85,.46);border-radius:20px;padding:11px 16px;box-shadow:0 16px 45px rgba(23,50,77,.2);font-size:13px;transition:.28s ease;max-width:min(92vw,440px);text-align:center}'+
   '#mastery-pet-toast.show{opacity:1;transform:translate(-50%,0)}#mastery-pet-toast b{font-family:"Cormorant Garamond",serif;font-size:18px;display:block}'+
-  '#mastery-pet-mobile-link{display:none}'+
-  '@media(max-width:640px){#mastery-pet-home{right:1.5%;bottom:2%;z-index:35;width:clamp(118px,30%,150px);touch-action:manipulation}#mastery-pet-home .mph-tag{font-size:9px;padding:4px 7px}#mastery-pet-home .mph-tag b{font-size:11px}#mastery-pet-mobile-link{position:fixed;right:14px;bottom:82px;z-index:70;display:flex;min-height:46px;align-items:center;justify-content:center;gap:6px;border:1px solid rgba(196,154,85,.55);border-radius:999px;background:#17324d;color:#fff;padding:10px 16px;text-decoration:none;box-shadow:0 10px 28px rgba(23,50,77,.3);font-size:14px;font-weight:800;letter-spacing:.04em;touch-action:manipulation}}';
+  '#mastery-pet-mobile-link{position:fixed;right:24px;bottom:24px;z-index:70;display:flex;min-height:48px;align-items:center;justify-content:center;gap:6px;border:1px solid rgba(196,154,85,.55);border-radius:999px;background:#17324d;color:#fff;padding:11px 18px;text-decoration:none;box-shadow:0 10px 28px rgba(23,50,77,.3);font-size:14px;font-weight:800;letter-spacing:.04em;touch-action:manipulation}'+
+  '#mastery-pet-mobile-link:hover{background:#243a58;transform:translateY(-1px)}'+
+  '@media(max-width:640px){#mastery-pet-home{right:1.5%;bottom:2%;z-index:35;width:clamp(118px,30%,150px);touch-action:manipulation}#mastery-pet-home .mph-tag{font-size:9px;padding:4px 7px}#mastery-pet-home .mph-tag b{font-size:11px}#mastery-pet-mobile-link{right:14px;bottom:82px;min-height:46px;padding:10px 16px}}';
   document.head.appendChild(style);
 }
 function findHero(){
