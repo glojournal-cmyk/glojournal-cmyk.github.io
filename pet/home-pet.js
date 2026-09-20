@@ -41,6 +41,31 @@ function ensureStyle(){
   '@media(max-width:640px){#mastery-pet-home{right:1.5%;bottom:2%;z-index:35;width:clamp(118px,30%,150px);touch-action:manipulation}#mastery-pet-home .mph-tag{font-size:9px;padding:4px 7px}#mastery-pet-home .mph-tag b{font-size:11px}#mastery-pet-mobile-link{right:14px;bottom:82px;min-height:46px;padding:10px 16px}}';
   document.head.appendChild(style);
 }
+function petNavIcon(){
+  return '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4" aria-hidden="true"><circle cx="11" cy="4" r="2"></circle><circle cx="18" cy="8" r="2"></circle><circle cx="4" cy="8" r="2"></circle><path d="M12 11c-3.6 0-6.5 2.5-6.5 5.5 0 2.1 1.6 3.5 3.6 3.5 1.2 0 2-.7 2.9-.7s1.7.7 2.9.7c2 0 3.6-1.4 3.6-3.5 0-3-2.9-5.5-6.5-5.5Z"></path></svg>';
+}
+function openPets(event){
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  window.location.assign("/pet/");
+}
+function ensureNavigation(){
+  const navs=[].slice.call(document.querySelectorAll("nav"));
+  navs.forEach(function(nav){
+    if(nav.querySelector('[data-pet-nav="true"]'))return;
+    const play=[].slice.call(nav.querySelectorAll('a[href="/play"],a[href="/play/"]')).find(function(a){return a.parentElement===nav});
+    if(!play)return;
+    const link=document.createElement("a");
+    link.href="/pet/";
+    link.dataset.petNav="true";
+    link.setAttribute("aria-label","Open Pets and Mastery Points");
+    link.className=play.className;
+    link.innerHTML=petNavIcon()+"Pets";
+    link.addEventListener("click",openPets);
+    play.insertAdjacentElement("afterend",link);
+    if(!nav.closest("aside"))nav.style.gridTemplateColumns="repeat(6,minmax(0,1fr))";
+  });
+}
 function findHero(){
   const scholar=[].slice.call(document.querySelectorAll('img[src^="/art/doll/"],img[src*="/art/doll/"]')).find(function(img){return img.closest("main")});
   if(!scholar)return null;
@@ -68,7 +93,9 @@ function consumeCelebration(){
 function render(){
   const existing=document.getElementById("mastery-pet-home");
   const mobileExisting=document.getElementById("mastery-pet-mobile-link");
-  if(location.pathname!=="/"){if(existing)existing.remove();if(mobileExisting)mobileExisting.remove();return}
+  ensureNavigation();
+  if(mobileExisting)mobileExisting.remove();
+  if(location.pathname!=="/"){if(existing)existing.remove();return}
   const host=findHero();if(!host)return;
   ensureStyle();
   const state=readApp(),pet=readPet(),leaves=masteryCount(state),stage=Math.max(1,Math.min(5,Number(pet.petLevels&&pet.petLevels[pet.species])||1)),due=dueMastery(state);
@@ -92,20 +119,6 @@ function render(){
     localStorage.setItem(key,String(Math.max(previous,stage)));
   }catch{}
   consumeCelebration();
-  let mobile=mobileExisting;
-  if(!mobile){
-    mobile=document.createElement("a");
-    mobile.id="mastery-pet-mobile-link";
-    mobile.href="/pet/";
-    mobile.setAttribute("aria-label","Open Pets and Mastery Points");
-    mobile.innerHTML='<span aria-hidden="true">✦</span> Pets';
-    mobile.addEventListener("click",function(event){
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      window.location.assign("/pet/");
-    });
-    document.body.appendChild(mobile);
-  }
 }
 let queued=false;
 function schedule(){if(queued)return;queued=true;requestAnimationFrame(function(){queued=false;render()})}
