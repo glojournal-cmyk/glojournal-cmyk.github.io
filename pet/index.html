@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#17324d">
+  <title>Companion Corner · Lux et Labor</title>
+  <link rel="icon" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/pet/pet.css?v=20260920-p1">
+</head>
+<body>
+  <main class="pet-shell">
+    <header class="pet-topbar">
+      <a class="pet-brand" href="/">
+        <span class="pet-brand-mark">L</span>
+        <span><strong>Lux et Labor</strong><small>The Scholar’s Garden</small></span>
+      </a>
+      <a class="pet-back" href="/">← Back to Scholar</a>
+    </header>
+
+    <section class="pet-hero">
+      <article class="pet-stage-card">
+        <p class="pet-kicker">Mastery Companion</p>
+        <h1 class="pet-title" id="petTitle">Moss Hornling</h1>
+        <p class="pet-subtitle" id="petSubtitle">A little forest heart, always finding light.</p>
+
+        <div class="pet-display">
+          <div class="pet-aura stage-1" id="petAura"></div>
+          <div class="pet-sparkles" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="pet-avatar stage-1" id="petAvatar">
+            <svg viewBox="0 0 200 200" role="img" aria-label="Current pet companion">
+              <use id="petUse" href="/pet/pets.svg#moss-hornling"></use>
+            </svg>
+          </div>
+        </div>
+
+        <div class="pet-stage-footer">
+          <div>
+            <div class="pet-kicker">Current form</div>
+            <div class="pet-stage-label" id="stageLabel">Stage 1 · Foundling</div>
+          </div>
+          <div class="pet-stage-note" id="stageNote">A small companion has joined the Scholar’s Garden.</div>
+        </div>
+      </article>
+
+      <div class="pet-side">
+        <section class="pet-panel">
+          <p class="pet-kicker">Growth from real learning</p>
+          <h2>Mastery Growth</h2>
+          <div class="pet-stat-row">
+            <div class="pet-stat"><b id="leafCount">0</b><span>Mastery Leaves</span></div>
+            <div class="pet-stat"><b id="retentionCount">0</b><span>Retention passes</span></div>
+            <div class="pet-stat"><b id="glowStatus">Bright</b><span>Glow</span></div>
+          </div>
+          <div class="pet-progress-wrap">
+            <div class="pet-progress-head"><strong id="nextText">3 more mastered topics to reach Stage 2.</strong><span id="growthPct">0%</span></div>
+            <div class="pet-progress"><i id="growthBar" style="width:0%"></i></div>
+          </div>
+          <div class="pet-steps" id="stageSteps"></div>
+        </section>
+
+        <section class="pet-panel">
+          <p class="pet-kicker">Companion insight</p>
+          <div class="pet-message">
+            <strong id="messageTitle">Your companion is waiting</strong>
+            <span id="messageBody">The first Mastery Leaf appears when a topic reaches formal Mastery.</span>
+          </div>
+          <p class="pet-rule" id="dueNote">No mastered material is currently overdue.</p>
+        </section>
+
+        <section class="pet-panel">
+          <p class="pet-kicker">Identity</p>
+          <h2>Name your companion</h2>
+          <div class="pet-name-row">
+            <input id="petNameInput" maxlength="28" placeholder="Optional pet name" aria-label="Pet name">
+            <button id="saveName" type="button">Save</button>
+          </div>
+          <p class="pet-rule">A custom name does not change mastery or rewards. It simply makes the companion yours.</p>
+        </section>
+
+        <section class="pet-panel">
+          <p class="pet-kicker">Learning marks</p>
+          <h2>Subject Charms</h2>
+          <div class="pet-charms" id="subjectCharms"></div>
+          <p class="pet-rule">Formal mastery leaves permanent marks. Games can animate or delight the pet, but they do not make it evolve.</p>
+        </section>
+      </div>
+    </section>
+
+    <section class="pet-chooser">
+      <div class="pet-chooser-head">
+        <div><p class="pet-kicker">Choose your companion</p><h2>Ten little worlds</h2></div>
+        <p>Your choice appears beside the Scholar on the Home screen.</p>
+      </div>
+      <div class="pet-grid" id="petGrid"></div>
+    </section>
+
+    <p class="pet-footer-note">Mastery never gets taken away. Retention can dim or brighten the companion’s glow, but earned stages remain yours.</p>
+  </main>
+  <script type="module" src="/pet/pet.js?v=20260920-p1"></script>
+</body>
+</html>
