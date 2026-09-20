@@ -76,6 +76,8 @@ jobs:
         run: node tests/chemistry-notation-qa.mjs
       - name: Audit Chemistry session quality
         run: node tests/chemistry-session-quality.mjs
+      - name: Audit English content and session quality
+        run: node tests/english-content-quality-audit.mjs
       - name: Audit Biology content quality
         run: node tests/biology-content-quality-audit.mjs
       - name: Test Biology calculation marking
@@ -104,6 +106,7 @@ jobs:
             test-results/chemistry-calculation-marking.json
             test-results/chemistry-notation-qa.json
             test-results/chemistry-session-quality.json
+            test-results/english-content-quality.json
             test-results/biology-content-quality.json
             test-results/biology-calculation-marking.json
             test-results/biology-session-quality.json
