@@ -9,9 +9,10 @@ function readPet(){try{const p=JSON.parse(localStorage.getItem(PET_KEY)||"{}");c
 function masteryCount(state){return Object.values(state.topicStats||{}).filter(function(s){return s&&s.state==="mastered"}).length}
 function dueMastery(state){const d=new Date();const today=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");return Object.values(state.skillStats||{}).filter(function(s){return s&&s.retentionDue&&s.retentionDue<=today&&(s.retentionReady||s.retentionPasses>0)}).length}
 function displayName(p){return p.name||pets[p.species]||"Companion"}
-const PET_ART_VERSION="20260920-png3";
-function spriteStyle(species){
+const PET_ART_VERSION="20260920-level2-1";
+function spriteStyle(species,level=1){
   const safe=pets[species]?species:"moss-hornling";
+  if(Number(level)>=2)return "background-image:url('/pet/art-evolution/level-2/"+safe+".webp?v="+PET_ART_VERSION+"')";
   return "background-image:url('/pet/art-master/"+safe+".png?v="+PET_ART_VERSION+"')";
 }
 
@@ -105,7 +106,7 @@ function render(){
   const status=pet.masteryPoints+" MP · "+(due>0?due+" retention ready":leaves+" Mastery "+(leaves===1?"Leaf":"Leaves"));
   a.dataset.stage=String(stage);
   a.innerHTML='<span class="mph-glow"></span><span class="mph-star s1"></span><span class="mph-star s2"></span>'+
-    '<span class="mph-art" style="'+spriteStyle(pet.species)+'" aria-hidden="true"></span>'+
+    '<span class="mph-art" style="'+spriteStyle(pet.species,stage)+'" aria-hidden="true"></span>'+
     (leaves>0?'<span class="mph-leaf">'+leaves+'</span>':'')+
     '<span class="mph-tag"><b>'+displayName(pet)+'</b><br>'+stageNames[stage-1]+' · '+status+'</span>';
   try{

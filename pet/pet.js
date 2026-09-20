@@ -46,16 +46,17 @@ const petVoices = {
   "star-toadlet":{close:"Star Toadlet predicts a breakthrough",due:"Star Toadlet has not forgotten",steady:"Star Toadlet counts every bright step",waiting:"Star Toadlet waits for the first star"}
 };
 
-const PET_ART_VERSION="20260920-png3";
-function petArtUrl(species){
+const PET_ART_VERSION="20260920-level2-1";
+function petArtUrl(species,level=1){
   const safe=pets.some(p=>p.id===species)?species:"moss-hornling";
+  if(Number(level)>=2) return `/pet/art-evolution/level-2/${safe}.webp?v=${PET_ART_VERSION}`;
   return `/pet/art-master/${safe}.png?v=${PET_ART_VERSION}`;
 }
-function spriteStyle(species){
-  return `background-image:url('${petArtUrl(species)}')`;
+function spriteStyle(species,level=1){
+  return `background-image:url('${petArtUrl(species,level)}')`;
 }
-function applyPetSprite(el,species){
-  el.style.backgroundImage=`url("${petArtUrl(species)}")`;
+function applyPetSprite(el,species,level=1){
+  el.style.backgroundImage=`url("${petArtUrl(species,level)}")`;
 }
 
 function readAppState(){
@@ -205,7 +206,7 @@ function render(){
   document.getElementById("petTitle").textContent=petDisplayName(pet);
   document.getElementById("petSubtitle").textContent=species.tag;
   const petImage=document.getElementById("petImage");
-  applyPetSprite(petImage,pet.species);
+  applyPetSprite(petImage,pet.species,stage);
   petImage.setAttribute("aria-label",`${petDisplayName(pet)} · ${stageNames[stage-1]}`);
   document.getElementById("petAvatar").className=`pet-avatar stage-${stage}`;
   document.getElementById("petAura").className=`pet-aura stage-${stage}`;
@@ -246,6 +247,8 @@ function render(){
 
   document.querySelectorAll(".pet-choice").forEach(btn=>{
     btn.classList.toggle("selected",btn.dataset.pet===pet.species);
+    const art=btn.querySelector(".pet-choice-art");
+    if(art) applyPetSprite(art,btn.dataset.pet,petLevel(pet,btn.dataset.pet));
   });
   document.querySelectorAll("[data-level-for]").forEach(el=>{
     el.textContent=`Level ${petLevel(pet,el.dataset.levelFor)}`;
