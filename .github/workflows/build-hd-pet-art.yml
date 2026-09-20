@@ -20,7 +20,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Build 1024px transparent master and live assets
         run: |
@@ -34,18 +34,14 @@ jobs:
             'moss-hornling','antler-bean','inkling','pebble-wisp','moon-puff',
             'mothling','bloom-snail','velvet-batling','sprig-dragon','star-toadlet'
           ];
-          const newSource = new Set([
-            'moss-hornling','antler-bean','inkling','pebble-wisp','moon-puff'
-          ]);
-
+          // Rebuild every companion from the known-good production art.
+          // This avoids browser-side scaling and also rewrites any problematic WebP container.
           fs.mkdirSync('pet/art-master', {recursive:true});
           fs.mkdirSync('pet/art-hd', {recursive:true});
 
           (async () => {
             for (const pet of pets) {
-              const src = newSource.has(pet)
-                ? `pet/art-source-hd/${pet}.avif`
-                : `pet/art-production/${pet}.webp`;
+              const src = `pet/art-production/${pet}.webp`;
 
               const base = sharp(src, { failOn: 'none' }).ensureAlpha().resize(1024, 1024, {
                 fit: 'contain',
