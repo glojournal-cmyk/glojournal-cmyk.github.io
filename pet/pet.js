@@ -33,18 +33,16 @@ const subjectMeta = {
   english:{label:"English",icon:"✎"}
 };
 
-const PET_POS={
-  "moss-hornling":[0,0],"antler-bean":[25,0],"inkling":[50,0],"pebble-wisp":[75,0],"moon-puff":[100,0],
-  "mothling":[0,100],"bloom-snail":[25,100],"velvet-batling":[50,100],"sprig-dragon":[75,100],"star-toadlet":[100,100]
-};
+const PET_ART_VERSION="20260920-png1";
+function petArtUrl(species){
+  const safe=pets.some(p=>p.id===species)?species:"moss-hornling";
+  return `/pet/art-master/${safe}.png?v=${PET_ART_VERSION}`;
+}
 function spriteStyle(species){
-  const p=PET_POS[species]||PET_POS["moss-hornling"];
-  return `--pet-x:${p[0]}%;--pet-y:${p[1]}%`;
+  return `background-image:url("${petArtUrl(species)}")`;
 }
 function applyPetSprite(el,species){
-  const p=PET_POS[species]||PET_POS["moss-hornling"];
-  el.style.setProperty("--pet-x",p[0]+"%");
-  el.style.setProperty("--pet-y",p[1]+"%");
+  el.style.backgroundImage=`url("${petArtUrl(species)}")`;
 }
 
 function readAppState(){
