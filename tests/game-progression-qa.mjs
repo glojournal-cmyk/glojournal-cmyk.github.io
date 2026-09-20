@@ -1,6 +1,6 @@
 import fs from "node:fs";
 const core=fs.readFileSync("assets/index-BLVOhKhN.core.js","utf8");
-const pe=fs.readFileSync("assets/pe-circuit-DPe2o8eH.js","utf8");
+const pe=fs.readFileSync("assets/pe-circuit-v3-20260920.js","utf8");
 const games=fs.readFileSync("assets/play._game-BbpxhxeZ.js","utf8");
 const physics=fs.readFileSync("assets/physics-DT4AA9JX.js","utf8");
 const failures=[];
@@ -21,11 +21,15 @@ need(core,"core","game_daily_challenge");
 need(core,"core","game_weekly_challenge");
 
 need(pe,"pe","levels:8");
-need(pe,"pe","r>=88?3:r>=70?2:+(r>=45)");
-need(pe,"pe","Circuit stations");
-need(pe,"pe","2★ unlocks the next circuit.");
-need(pe,"pe","title:`Pressure`");
-need(pe,"pe","title:`House Final`");
+need(pe,"pe","Scholar Sprint 3.0");
+need(pe,"pe",'stars=v=>v>=86?3:v>=68?2:v>=45?1:0');
+for(const token of ["Quick Feet","Reaction Dash","Precision Kick","Footwork Memory","Balance Hold","Dodge Lane"]) need(pe,"pe",token);
+need(pe,"pe","Wrong-side taps do not end the station.");
+need(pe,"pe","Early tap = retry");
+need(pe,"pe",'onPointerDown:down');
+need(pe,"pe",'touchAction:"none"');
+need(pe,"pe","no instant game-over.");
+need(games,"games",'pe-circuit-v3-20260920.js?v=20260920-pe3');
 
 need(games,"games",'const endlessRanks=[{name:\`Bronze\`,min:100},{name:\`Silver\`,min:250},{name:\`Gold\`,min:400},{name:\`Scholar\`,min:550},{name:\`Master\`,min:700},{name:\`Grandmaster\`,min:850}]');
 need(games,"games",'n%5===0');
@@ -72,6 +76,8 @@ if(updateRating(990,3,true)!==1000)failures.push({type:"rating-ceiling"});
 const summary={
  failures:failures.length,
  peCircuits:8,
+ peEngine:"Scholar Sprint 3.0",
+ peMechanics:6,
  trainingLevels:{match:10,latinDeep:12},
  endless:true,
  ranks:6,
