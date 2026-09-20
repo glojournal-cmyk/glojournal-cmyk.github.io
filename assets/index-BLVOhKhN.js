@@ -1524,6 +1524,34 @@ function appendLearningEvents(existing, beforeSkills, afterSkills, skills, conte
 }
 
 const TOPIC_MASTERY_XP = 50;
+const PET_REWARD_KEY = "lux-pet-companion-v1";
+const FIRST_MASTERY_MP = 10;
+const RETENTION_MASTERY_MP = 2;
+
+function awardMasteryPoints(kind, topicId) {
+  if (typeof window === "undefined" || !topicId) return 0;
+  try {
+    const raw = JSON.parse(localStorage.getItem(PET_REWARD_KEY) || "{}");
+    const petState = raw && typeof raw === "object" ? raw : {};
+    const ledger = petState.mpLedger && typeof petState.mpLedger === "object" ? { ...petState.mpLedger } : {};
+    const key = kind === "mastery"
+      ? `mastery:${topicId}`
+      : `retention:${topicId}:${todayKey()}`;
+    if (ledger[key]) return 0;
+    const amount = kind === "mastery" ? FIRST_MASTERY_MP : RETENTION_MASTERY_MP;
+    ledger[key] = { kind, topicId, amount, earnedAt: new Date().toISOString() };
+    const next = {
+      ...petState,
+      masteryPoints: Math.max(0, Number(petState.masteryPoints) || 0) + amount,
+      mpLedger: ledger,
+    };
+    localStorage.setItem(PET_REWARD_KEY, JSON.stringify(next));
+    window.dispatchEvent(new CustomEvent("scholar:mp-changed", { detail: { amount, balance: next.masteryPoints, kind, topicId } }));
+    return amount;
+  } catch {
+    return 0;
+  }
+}
 
 function emitMasteryReward(detail) {
   if (typeof window === "undefined") return;
@@ -1553,12 +1581,14 @@ function awardFirstTopicMastery(topicId, subject, title, previousState, nextStat
       },
     },
   });
+  const mp = awardMasteryPoints("mastery", topicId);
   emitMasteryReward({
     kind: "mastery",
     topicId,
     subject,
     title: title || topicId,
     xp: reward?.awarded ?? TOPIC_MASTERY_XP,
+    mp,
     unlocked: reward?.unlocked || [],
   });
   return reward;
@@ -1570,12 +1600,14 @@ function awardMasteryRetention(topicId, subject, title) {
     detail: `Mastery retention · ${topicId}`,
   });
   if ((reward?.awarded || 0) > 0) {
+    const mp = awardMasteryPoints("retention", topicId);
     emitMasteryReward({
       kind: "retention",
       topicId,
       subject,
       title: title || topicId,
       xp: reward.awarded,
+      mp,
       unlocked: reward?.unlocked || [],
     });
   }

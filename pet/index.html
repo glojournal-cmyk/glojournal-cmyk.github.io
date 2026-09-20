@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/pet/pet.css?v=20260920-png3">
+  <link rel="stylesheet" href="/pet/pet.css?v=20260920-mp1">
 </head>
 <body>
   <main class="pet-shell">
@@ -49,6 +49,7 @@
           <p class="pet-kicker">Growth from real learning</p>
           <h2>Mastery Growth</h2>
           <div class="pet-stat-row">
+            <div class="pet-stat pet-stat-mp"><b><span id="mpCount">0</span> MP</b><span>Shared wallet</span></div>
             <div class="pet-stat"><b id="leafCount">0</b><span>Mastery Leaves</span></div>
             <div class="pet-stat"><b id="retentionCount">0</b><span>Retention passes</span></div>
             <div class="pet-stat"><b id="glowStatus">Bright</b><span>Glow</span></div>
@@ -56,6 +57,10 @@
           <div class="pet-progress-wrap">
             <div class="pet-progress-head"><strong id="nextText">3 more mastered topics to reach Stage 2.</strong><span id="growthPct">0%</span></div>
             <div class="pet-progress"><i id="growthBar" style="width:0%"></i></div>
+          </div>
+          <div class="pet-evolve-box">
+            <button class="pet-action pet-evolve" id="evolvePet" type="button">Evolve companion — 50 MP</button>
+            <span id="evolveBalance">Balance after evolution: 0 MP</span>
           </div>
           <div class="pet-steps" id="stageSteps"></div>
         </section>
@@ -83,7 +88,7 @@
           <p class="pet-kicker">Learning marks</p>
           <h2>Subject Charms</h2>
           <div class="pet-charms" id="subjectCharms"></div>
-          <p class="pet-rule">Formal mastery leaves permanent marks. Games can animate or delight the pet, but they do not make it evolve.</p>
+          <p class="pet-rule">Mastery Leaves remain permanent. First-time topic Mastery earns 10 MP; a scheduled 2-day or 7-day retention pass earns 2 MP once per cycle. Ordinary repeats earn 0 MP.</p>
         </section>
       </div>
     </section>
@@ -91,13 +96,24 @@
     <section class="pet-chooser">
       <div class="pet-chooser-head">
         <div><p class="pet-kicker">Choose your companion</p><h2>Ten little worlds</h2></div>
-        <p>Your choice appears beside the Scholar on the Home screen.</p>
+        <p>Each companion keeps its own level. MP is shared, so you choose where to invest it.</p>
       </div>
       <div class="pet-grid" id="petGrid"></div>
     </section>
 
-    <p class="pet-footer-note">Mastery never gets taken away. Retention can dim or brighten the companion’s glow, but earned stages remain yours.</p>
+    <p class="pet-footer-note">XP, Mastery Points and Mastery Leaves are separate. Evolution spends MP only; Leaves and evolved levels are permanent.</p>
   </main>
-  <script type="module" src="/pet/pet.js?v=20260920-png3"></script>
+  <dialog class="pet-confirm" id="confirmEvolution" aria-labelledby="confirmTitle">
+    <div class="pet-confirm-inner">
+      <p class="pet-kicker">Confirm evolution</p>
+      <h2 id="confirmTitle">Evolve companion?</h2>
+      <p id="confirmCopy">This will spend Mastery Points.</p>
+      <div class="pet-confirm-actions">
+        <button class="pet-cancel" id="cancelEvolution" type="button">Not yet</button>
+        <button class="pet-action" id="confirmEvolutionButton" type="button">Confirm evolution</button>
+      </div>
+    </div>
+  </dialog>
+  <script type="module" src="/pet/pet.js?v=20260920-mp1"></script>
 </body>
 </html>

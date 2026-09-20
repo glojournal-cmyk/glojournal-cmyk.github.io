@@ -2,13 +2,11 @@ const APP_KEY="lux-scholar-garden-v1";
 const PET_KEY="lux-pet-companion-v1";
 const CELEBRATE_KEY="lux-pet-pending-celebration";
 const pets={"moss-hornling":"Moss Hornling","antler-bean":"Antler Bean","inkling":"Inkling","pebble-wisp":"Pebble Wisp","moon-puff":"Moon Puff","mothling":"Mothling","bloom-snail":"Bloom Snail","velvet-batling":"Velvet Batling","sprig-dragon":"Sprig Dragon","star-toadlet":"Star Toadlet"};
-const thresholds=[0,3,8,15,25];
 const stageNames=["Foundling","Curious Companion","Scholar Familiar","Garden Familiar","Mastery Companion"];
 
 function readApp(){try{const p=JSON.parse(localStorage.getItem(APP_KEY)||"{}");return p&&p.state?p.state:p||{}}catch{return{}}}
-function readPet(){try{const p=JSON.parse(localStorage.getItem(PET_KEY)||"{}");const species=pets[p&&p.species]?p.species:"moss-hornling";return{species:species,name:String((p&&p.name)||"").trim(),highestStage:Math.max(1,Math.min(5,Number((p&&p.highestStage)||1)))}}catch{return{species:"moss-hornling",name:"",highestStage:1}}}
+function readPet(){try{const p=JSON.parse(localStorage.getItem(PET_KEY)||"{}");const species=pets[p&&p.species]?p.species:"moss-hornling";const levels=p&&p.petLevels&&typeof p.petLevels==="object"?Object.assign({},p.petLevels):{};if(!levels[species]&&Number(p&&p.highestStage)>1)levels[species]=Math.max(1,Math.min(5,Number(p.highestStage)));return Object.assign({},p,{species:species,name:String((p&&p.name)||"").trim(),masteryPoints:Math.max(0,Number(p&&p.masteryPoints)||0),petLevels:levels})}catch{return{species:"moss-hornling",name:"",masteryPoints:0,petLevels:{}}}}
 function masteryCount(state){return Object.values(state.topicStats||{}).filter(function(s){return s&&s.state==="mastered"}).length}
-function getStage(leaves){let s=1;thresholds.forEach(function(t,i){if(leaves>=t)s=i+1});return Math.min(5,s)}
 function dueMastery(state){const d=new Date();const today=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");return Object.values(state.skillStats||{}).filter(function(s){return s&&s.retentionDue&&s.retentionDue<=today&&(s.retentionReady||s.retentionPasses>0)}).length}
 function displayName(p){return p.name||pets[p.species]||"Companion"}
 const PET_ART_VERSION="20260920-png3";
@@ -70,12 +68,11 @@ function render(){
   if(location.pathname!=="/"){if(existing)existing.remove();return}
   const host=findHero();if(!host)return;
   ensureStyle();
-  const state=readApp(),pet=readPet(),leaves=masteryCount(state),computedStage=getStage(leaves),stage=Math.max(computedStage,pet.highestStage||1),due=dueMastery(state);
-  if(stage>(pet.highestStage||1)){pet.highestStage=stage;try{localStorage.setItem(PET_KEY,JSON.stringify(pet))}catch{}}
+  const state=readApp(),pet=readPet(),leaves=masteryCount(state),stage=Math.max(1,Math.min(5,Number(pet.petLevels&&pet.petLevels[pet.species])||1)),due=dueMastery(state);
   let a=existing;
   if(!a){a=document.createElement("a");a.id="mastery-pet-home";a.href="/pet/";a.setAttribute("aria-label","Open Companion Corner");host.appendChild(a)}
   else if(a.parentElement!==host)host.appendChild(a);
-  const status=due>0?due+" retention ready":leaves+" Mastery "+(leaves===1?"Leaf":"Leaves");
+  const status=pet.masteryPoints+" MP · "+(due>0?due+" retention ready":leaves+" Mastery "+(leaves===1?"Leaf":"Leaves"));
   a.dataset.stage=String(stage);
   a.innerHTML='<span class="mph-glow"></span><span class="mph-star s1"></span><span class="mph-star s2"></span>'+
     '<span class="mph-art" style="'+spriteStyle(pet.species)+'" aria-hidden="true"></span>'+
@@ -100,6 +97,7 @@ window.addEventListener("popstate",schedule);
 window.addEventListener("storage",schedule);
 window.addEventListener("focus",schedule);
 window.addEventListener("scholar:pet-changed",schedule);
+window.addEventListener("scholar:mp-changed",schedule);
 window.addEventListener("scholar:mastery-earned",function(event){
   const d=event.detail||{};
   if(d.kind==="mastery"){try{localStorage.setItem(CELEBRATE_KEY,JSON.stringify({at:Date.now(),title:d.title||""}))}catch{}}
