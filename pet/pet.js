@@ -33,6 +33,19 @@ const subjectMeta = {
   english:{label:"English",icon:"✎"}
 };
 
+const petVoices = {
+  "moss-hornling":{close:"Moss Hornling senses new growth",due:"Moss Hornling rustles a reminder",steady:"Moss Hornling sees steady roots",waiting:"Moss Hornling is ready to grow"},
+  "antler-bean":{close:"Antler Bean spots a breakthrough",due:"Antler Bean remembers something",steady:"Antler Bean is quietly impressed",waiting:"Antler Bean has found a study nook"},
+  "inkling":{close:"Inkling has an idea",due:"Inkling marks a page to revisit",steady:"Inkling records your progress",waiting:"Inkling opens a fresh page"},
+  "pebble-wisp":{close:"Pebble Wisp feels the answer near",due:"Pebble Wisp leaves a gentle reminder",steady:"Pebble Wisp notices every small step",waiting:"Pebble Wisp waits beside the first step"},
+  "moon-puff":{close:"Moon Puff sees mastery on the horizon",due:"Moon Puff lights the way back",steady:"Moon Puff glows with steady progress",waiting:"Moon Puff is watching for the first spark"},
+  "mothling":{close:"Mothling follows a bright idea",due:"Mothling circles back to an old lesson",steady:"Mothling keeps the learning light",waiting:"Mothling waits for the first glow"},
+  "bloom-snail":{close:"Bloom Snail sees a lesson about to flower",due:"Bloom Snail carries a reminder",steady:"Bloom Snail celebrates patient progress",waiting:"Bloom Snail is planting the first seed"},
+  "velvet-batling":{close:"Velvet Batling hears mastery approaching",due:"Velvet Batling echoes a reminder",steady:"Velvet Batling approves from the shadows",waiting:"Velvet Batling is listening for the first answer"},
+  "sprig-dragon":{close:"Sprig Dragon guards a nearly-mastered skill",due:"Sprig Dragon protects an important review",steady:"Sprig Dragon sees your knowledge growing",waiting:"Sprig Dragon is ready for the first quest"},
+  "star-toadlet":{close:"Star Toadlet predicts a breakthrough",due:"Star Toadlet has not forgotten",steady:"Star Toadlet counts every bright step",waiting:"Star Toadlet waits for the first star"}
+};
+
 const PET_ART_VERSION="20260920-png3";
 function petArtUrl(species){
   const safe=pets.some(p=>p.id===species)?species:"moss-hornling";
@@ -142,26 +155,27 @@ function subjectCounts(state){
   }
   return counts;
 }
-function growthMessage(state){
+function growthMessage(state,species){
+  const voice=petVoices[species]||petVoices["moss-hornling"];
   const due=dueMasteryCount(state);
   const close=closeToMastery(state);
   if(close && close.score>.62){
     const subject=subjectMeta[close.subject]?.label||"Study";
     return {
-      title:"Close to mastery",
+      title:voice.close,
       body:`${subject} · ${prettyTopic(close.id)} · ${close.attempted} formal attempts at ${Math.round(close.accuracy*100)}%.`
     };
   }
   if(due>0){
     return {
-      title:"Keep the glow bright",
+      title:voice.due,
       body:`${due} mastered ${due===1?"item is":"items are"} ready for retention. Nothing is lost — they simply need refreshing.`
     };
   }
   const leaves=masteryCount(state);
   return leaves
-    ? {title:"Steady growth",body:`${leaves} Mastery ${leaves===1?"Leaf":"Leaves"} gathered through real learning evidence.`}
-    : {title:"Your companion is waiting",body:"The first Mastery Leaf appears when a topic reaches formal Mastery."};
+    ? {title:voice.steady,body:`${leaves} Mastery ${leaves===1?"Leaf":"Leaves"} gathered through real learning evidence.`}
+    : {title:voice.waiting,body:"The first Mastery Leaf appears when a topic reaches formal Mastery."};
 }
 function glowLabel(state){
   const due=dueMasteryCount(state);
@@ -184,7 +198,7 @@ function render(){
   const progress=stageProgress(balance,stage);
   const due=dueMasteryCount(state);
   const passes=retentionPasses(state);
-  const msg=growthMessage(state);
+  const msg=growthMessage(state,pet.species);
   const counts=subjectCounts(state);
 
   document.title=`${petDisplayName(pet)} · Companion Corner · Lux et Labor`;
