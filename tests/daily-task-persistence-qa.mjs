@@ -31,7 +31,11 @@ for(const token of [
   "const lockedYear8Plan = oldYear8Review.planDate === state.today",
   "const year8Review = lockedYear8Plan",
   "const year8ReviewProgress = lockedYear8Plan ? Math.min(15, oldYear8Review.progress || 0) : 0",
-  "function recordDailyVocabAttempt(subject, questionId, correct)"
+  "function recordDailyVocabAttempt(subject, questionId, correct)",
+  "function completedYear8ReviewEvidence(state)",
+  "const recoveredYear8Review = completedYear8ReviewEvidence(state)",
+  "const year8ReviewProgress = recoveredYear8Review ? 15",
+  "const bank = subject === \"french\" ? frenchVocab : subject === \"latin\" ? latinVocab : []"
 ]) if(!wrapper.includes(token)) failures.push({type:"daily-completion-contract-regression",file:"wrapper",token});
 
 for(const token of [

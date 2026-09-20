@@ -1018,7 +1018,19 @@ function focusAttemptsToday(state, focus) {
 function vocabGateState(state, subject) {
   const day = state.today || todayKey();
   const row = state.dailyVocabByDay?.[day]?.[subject] || {};
-  const items = row.items && typeof row.items === "object" ? row.items : {};
+  const items = row.items && typeof row.items === "object" ? { ...row.items } : {};
+
+  // Recover same-day vocabulary evidence created by the older session route,
+  // which recorded reviews but did not yet write dailyVocabByDay.
+  const bank = subject === "french" ? frenchVocab : subject === "latin" ? latinVocab : [];
+  for (const item of bank || []) {
+    const id = String(item?.id || "");
+    if (!id || Object.prototype.hasOwnProperty.call(items, id)) continue;
+    const review = state.reviews?.[id];
+    if (review?.last !== day) continue;
+    items[id] = review?.wrong !== true;
+  }
+
   const attempts = Object.keys(items).length;
   const correct = Object.values(items).filter(Boolean).length;
   const passed = attempts >= 5 && correct >= 4;
@@ -1083,6 +1095,50 @@ function year8ReviewPlan(state) {
   };
 }
 
+function completedYear8ReviewEvidence(state) {
+  const day = state.today || todayKey();
+  let best = null;
+
+  for (const subject of YEAR8_MASTERY_SUBJECTS) {
+    let topics = [];
+    try {
+      topics = (getTopicCatalog(subject, 8) || []).filter(
+        (topic) => topic?.status === "enabled" && Number(topic?.enabled ?? topic?.questions ?? 0) > 0
+      );
+    } catch {}
+
+    for (const topic of topics) {
+      const stat = normalizeTopicStat(state.topicStats?.[topic.topicId] || {});
+      const attemptsToday = (stat.recentOutcomes || []).filter((row) => row?.date === day).length;
+      if (attemptsToday < 15) continue;
+      if (!best || attemptsToday > best.attemptsToday) {
+        best = {
+          subject,
+          topicId: topic.topicId,
+          topicLabel: topic.title || topicTitle({ ...state, year: 8 }, topic.topicId, subject),
+          attemptsToday,
+        };
+      }
+    }
+  }
+
+  if (!best) return null;
+  const params = new URLSearchParams();
+  params.set("daily", "1");
+  params.set("locked", "1");
+  params.set("year", "8");
+  params.set("mode", "year8long");
+  if (best.topicId) params.set("topic", best.topicId);
+
+  return {
+    subject: best.subject,
+    topicId: best.topicId,
+    label: SUBJECT_LABELS[best.subject] || best.subject,
+    topicLabel: best.topicLabel,
+    href: `/study/${best.subject}/practise?${params.toString()}`,
+  };
+}
+
 function buildAdaptiveDaily(state) {
   const previous = new Map((state.daily || []).map((task) => [task.id, task]));
   const existingPlan = previous.get("study-session");
@@ -1109,13 +1165,14 @@ function buildAdaptiveDaily(state) {
   const focusEvidence = focusAttemptsToday(state, focus);
   const focusProgress = Math.min(4, Math.max(oldFocusProgress, focusEvidence));
   const plannedYear8Review = year8ReviewPlan(state);
+  const recoveredYear8Review = completedYear8ReviewEvidence(state);
   const frenchVocab = vocabGateState(state, "french");
   const latinVocab = vocabGateState(state, "latin");
   const oldYear8Review = previous.get("year8-long-review") || {};
   const lockedYear8Plan = oldYear8Review.planDate === state.today &&
     YEAR8_MASTERY_SUBJECTS.includes(oldYear8Review.reviewSubject) &&
     !!oldYear8Review.href;
-  const year8Review = lockedYear8Plan
+  const year8Review = recoveredYear8Review || (lockedYear8Plan
     ? {
         subject: oldYear8Review.reviewSubject,
         topicId: oldYear8Review.reviewTopic || null,
@@ -1125,8 +1182,8 @@ function buildAdaptiveDaily(state) {
           : null,
         href: oldYear8Review.href,
       }
-    : plannedYear8Review;
-  const year8ReviewProgress = lockedYear8Plan ? Math.min(15, oldYear8Review.progress || 0) : 0;
+    : plannedYear8Review);
+  const year8ReviewProgress = recoveredYear8Review ? 15 : lockedYear8Plan ? Math.min(15, oldYear8Review.progress || 0) : 0;
   const garden = previous.get("tend-garden") || { id: "tend-garden", title: "Water your plants", detail: "Tend the Scholar’s Garden.", href: "/garden", target: 1, progress: 0, xp: 10 };
   const game = previous.get("play-game") || { id: "play-game", title: "Play a quick game", detail: "One short learning game.", href: "/play", target: 1, progress: 0, xp: 10 };
 
