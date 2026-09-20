@@ -1,122 +1,344 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
 <defs>
-  <style>
-    .o{stroke:#17324d;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
-    .eye{fill:#17324d}.cream{fill:#f7efd9}.sage{fill:#9cae82}.leaf{fill:#6f8660}
-    .gold{fill:#c49a55}.navy{fill:#243a58}.blush{fill:#e9b8ad}.stone{fill:#9b9b91}
-    .ink{fill:#1e2f50}.lav{fill:#aaa3c7}.white{fill:#fffaf0}
-  </style>
+  <linearGradient id="furCream" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fffaf0"/><stop offset=".55" stop-color="#f4e7cf"/><stop offset="1" stop-color="#dcc8a9"/>
+  </linearGradient>
+  <linearGradient id="furSage" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#b9c797"/><stop offset=".55" stop-color="#829368"/><stop offset="1" stop-color="#586a4d"/>
+  </linearGradient>
+  <linearGradient id="navyGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#324765"/><stop offset=".55" stop-color="#21344f"/><stop offset="1" stop-color="#13243c"/>
+  </linearGradient>
+  <linearGradient id="lavGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#dcdcf0"/><stop offset=".55" stop-color="#aaa8cd"/><stop offset="1" stop-color="#74769f"/>
+  </linearGradient>
+  <linearGradient id="stoneGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#d7d3c8"/><stop offset=".55" stop-color="#aaa99e"/><stop offset="1" stop-color="#77796f"/>
+  </linearGradient>
+  <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f4df9f"/><stop offset=".45" stop-color="#d4ad61"/><stop offset="1" stop-color="#9d7138"/>
+  </linearGradient>
+  <radialGradient id="eyeAmber" cx=".34" cy=".25" r=".8">
+    <stop offset="0" stop-color="#fff7d1"/><stop offset=".18" stop-color="#eacb75"/><stop offset=".58" stop-color="#9b6f34"/><stop offset="1" stop-color="#33251d"/>
+  </radialGradient>
+  <radialGradient id="eyeBlue" cx=".34" cy=".25" r=".8">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".18" stop-color="#dce7ff"/><stop offset=".58" stop-color="#6f84bb"/><stop offset="1" stop-color="#25345b"/>
+  </radialGradient>
+  <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
+    <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#14283f" flood-opacity=".18"/>
+  </filter>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+
+  <g id="leaf">
+    <path d="M0 0C9-8 18-7 23-4C17 6 9 11 0 10C4 7 7 4 10 1C6 3 3 3 0 0Z" fill="#73845d"/>
+    <path d="M3 7C9 5 14 2 19-2" fill="none" stroke="#58684b" stroke-width="1"/>
+  </g>
+  <g id="flower">
+    <g fill="#fff8e7" stroke="#c9a86b" stroke-width=".7">
+      <ellipse rx="5" ry="9" transform="rotate(0) translate(0 -6)"/>
+      <ellipse rx="5" ry="9" transform="rotate(72) translate(0 -6)"/>
+      <ellipse rx="5" ry="9" transform="rotate(144) translate(0 -6)"/>
+      <ellipse rx="5" ry="9" transform="rotate(216) translate(0 -6)"/>
+      <ellipse rx="5" ry="9" transform="rotate(288) translate(0 -6)"/>
+    </g>
+    <circle r="3.2" fill="#d8a959"/>
+  </g>
+  <g id="sparkle">
+    <path d="M0-7L2-2L7 0L2 2L0 7L-2 2L-7 0L-2-2Z" fill="#d6ad62"/>
+  </g>
+  <g id="eyePairAmber">
+    <ellipse cx="-14" cy="0" rx="10" ry="13" fill="url(#eyeAmber)" stroke="#4a3526" stroke-width="1.8"/>
+    <ellipse cx="14" cy="0" rx="10" ry="13" fill="url(#eyeAmber)" stroke="#4a3526" stroke-width="1.8"/>
+    <circle cx="-18" cy="-5" r="3.2" fill="#fff"/><circle cx="10" cy="-5" r="3.2" fill="#fff"/>
+    <circle cx="-11" cy="4" r="1.2" fill="#f9e49d"/><circle cx="17" cy="4" r="1.2" fill="#f9e49d"/>
+  </g>
+  <g id="eyePairBlue">
+    <ellipse cx="-14" cy="0" rx="10" ry="13" fill="url(#eyeBlue)" stroke="#29355d" stroke-width="1.8"/>
+    <ellipse cx="14" cy="0" rx="10" ry="13" fill="url(#eyeBlue)" stroke="#29355d" stroke-width="1.8"/>
+    <circle cx="-18" cy="-5" r="3.2" fill="#fff"/><circle cx="10" cy="-5" r="3.2" fill="#fff"/>
+  </g>
 </defs>
 
-<symbol id="moss-hornling" viewBox="0 0 200 200">
-  <ellipse cx="100" cy="155" rx="61" ry="18" fill="#17324d" opacity=".12"/>
-  <path class="o leaf" d="M58 91c-21-17-34-9-34-9 7 26 28 30 41 29"/>
-  <path class="o leaf" d="M142 91c21-17 34-9 34-9-7 26-28 30-41 29"/>
-  <path class="o" fill="none" d="M79 73C66 55 68 37 82 26M79 58l-14-8M78 49l9-13M121 73c13-18 11-36-3-47M121 58l14-8M122 49l-9-13"/>
-  <path class="o sage" d="M46 123c0-41 24-68 54-68s54 27 54 68c0 32-23 48-54 48s-54-16-54-48z"/>
-  <circle class="eye" cx="82" cy="119" r="5"/><circle class="eye" cx="118" cy="119" r="5"/>
-  <path d="M91 137c6 4 12 4 18 0" fill="none" class="o"/>
-  <circle class="cream" cx="69" cy="142" r="8"/><circle class="cream" cx="133" cy="93" r="7"/>
-  <circle class="gold" cx="100" cy="75" r="5"/>
+<!-- MOSS HORNLING STAGE 1 -->
+<symbol id="moss-hornling-stage-1" viewBox="0 0 240 240">
+  <g filter="url(#softShadow)">
+    <ellipse cx="120" cy="200" rx="60" ry="13" fill="#17324d" opacity=".09"/>
+    <path d="M72 132C67 98 82 74 111 68C145 60 171 83 174 122C177 161 158 190 121 194C88 197 76 172 72 132Z" fill="url(#furCream)" stroke="#8a795f" stroke-width="2"/>
+    <path d="M84 102C67 89 58 82 49 89C53 109 68 118 84 116Z" fill="#f8ead9" stroke="#8a795f" stroke-width="2"/>
+    <path d="M157 103C174 88 184 83 192 91C188 109 173 118 157 116Z" fill="#f8ead9" stroke="#8a795f" stroke-width="2"/>
+    <path d="M91 78C88 64 92 54 100 49C105 58 106 68 103 80Z" fill="#a98a5d" stroke="#6d5439" stroke-width="2"/>
+    <path d="M142 78C145 64 141 54 133 49C128 58 127 68 130 80Z" fill="#a98a5d" stroke="#6d5439" stroke-width="2"/>
+    <path d="M87 80C100 72 138 69 151 82L149 98C132 91 105 91 89 98Z" fill="#71845d" opacity=".72"/>
+    <use href="#leaf" transform="translate(94 73) scale(.7) rotate(-30)"/>
+    <use href="#leaf" transform="translate(142 73) scale(.65) rotate(150)"/>
+    <use href="#flower" transform="translate(117 79) scale(.56)"/>
+    <g transform="translate(120 125)"><use href="#eyePairAmber"/></g>
+    <path d="M115 145Q120 149 125 145" fill="none" stroke="#6e4e42" stroke-width="2" stroke-linecap="round"/>
+    <ellipse cx="93" cy="145" rx="8" ry="4" fill="#e9b6a8" opacity=".45"/><ellipse cx="147" cy="145" rx="8" ry="4" fill="#e9b6a8" opacity=".45"/>
+    <path d="M86 160Q100 151 110 160Q102 176 92 177Z" fill="#71845d" opacity=".85"/>
+    <path d="M154 160Q140 151 130 160Q138 176 148 177Z" fill="#71845d" opacity=".85"/>
+  </g>
 </symbol>
 
-<symbol id="antler-bean" viewBox="0 0 200 200">
-  <ellipse cx="102" cy="158" rx="58" ry="16" fill="#17324d" opacity=".12"/>
-  <path class="o cream" d="M55 135c-7-44 18-78 49-78 34 0 53 31 47 73-5 34-30 45-55 42-25-3-36-15-41-37z"/>
-  <path class="o" fill="none" d="M86 65C72 48 75 34 87 26M82 49l-13-5M115 65c14-17 11-31-1-39M119 49l13-5"/>
-  <path class="o leaf" d="M99 54c1-18 10-28 24-30-1 16-9 26-24 30z"/>
-  <circle class="eye" cx="84" cy="119" r="5"/><circle class="eye" cx="119" cy="119" r="5"/>
-  <path d="M94 136c5 3 10 3 15 0" fill="none" class="o"/>
-  <circle class="blush" cx="72" cy="133" r="7"/><circle class="blush" cx="132" cy="133" r="7"/>
+<!-- MOSS HORNLING STAGE 2 -->
+<symbol id="moss-hornling-stage-2" viewBox="0 0 240 240">
+  <g filter="url(#softShadow)">
+    <ellipse cx="120" cy="202" rx="64" ry="13" fill="#17324d" opacity=".09"/>
+    <path d="M66 132C61 94 80 68 112 62C148 56 177 81 178 123C179 165 158 194 120 197C85 199 70 173 66 132Z" fill="url(#furCream)" stroke="#87735a" stroke-width="2"/>
+    <path d="M80 101C59 85 51 81 42 91C48 112 65 121 82 116Z" fill="#f7e8d7" stroke="#87735a" stroke-width="2"/>
+    <path d="M160 101C181 85 189 81 198 91C192 112 175 121 158 116Z" fill="#f7e8d7" stroke="#87735a" stroke-width="2"/>
+    <path d="M92 76C85 59 89 43 102 34C108 48 106 64 102 78Z" fill="#a17d4e" stroke="#694e32" stroke-width="2"/>
+    <path d="M148 76C155 59 151 43 138 34C132 48 134 64 138 78Z" fill="#a17d4e" stroke="#694e32" stroke-width="2"/>
+    <path d="M94 52L83 45M99 45L105 34M146 52L157 45M141 45L135 34" fill="none" stroke="#7d5d3b" stroke-width="4" stroke-linecap="round"/>
+    <path d="M84 77C101 68 140 67 156 81L152 100C132 91 107 91 87 101Z" fill="url(#furSage)" opacity=".9"/>
+    <use href="#leaf" transform="translate(87 64) scale(.75) rotate(-20)"/><use href="#leaf" transform="translate(153 64) scale(.75) rotate(160)"/>
+    <use href="#flower" transform="translate(105 72) scale(.58)"/><use href="#flower" transform="translate(142 75) scale(.45)"/>
+    <g transform="translate(120 126)"><use href="#eyePairAmber"/></g>
+    <path d="M115 146Q120 150 125 146" fill="none" stroke="#6e4e42" stroke-width="2" stroke-linecap="round"/>
+    <ellipse cx="92" cy="146" rx="8" ry="4" fill="#e9b6a8" opacity=".45"/><ellipse cx="148" cy="146" rx="8" ry="4" fill="#e9b6a8" opacity=".45"/>
+    <path d="M82 159Q99 148 112 159Q101 179 89 180Z" fill="#6e8359" opacity=".9"/>
+    <path d="M158 159Q141 148 128 159Q139 179 151 180Z" fill="#6e8359" opacity=".9"/>
+    <use href="#leaf" transform="translate(120 164) scale(.55) rotate(90)"/>
+  </g>
 </symbol>
 
-<symbol id="inkling" viewBox="0 0 200 200">
-  <ellipse cx="100" cy="159" rx="57" ry="15" fill="#17324d" opacity=".12"/>
-  <path class="o ink" d="M100 34c17 25 47 47 47 84 0 32-22 51-47 51s-47-19-47-51c0-37 30-59 47-84z"/>
-  <circle class="white" cx="83" cy="119" r="6"/><circle class="white" cx="118" cy="119" r="6"/>
-  <circle class="eye" cx="84" cy="120" r="3"/><circle class="eye" cx="117" cy="120" r="3"/>
-  <path d="M91 137c6 4 12 4 18 0" fill="none" stroke="#fffaf0" stroke-width="4" stroke-linecap="round"/>
-  <path class="o cream" d="M128 68c8-25 25-36 38-39-3 17-13 34-31 48z"/>
-  <path d="M128 83l33-51" class="o" fill="none"/>
-  <circle class="gold" cx="55" cy="105" r="5"/><circle class="lav" cx="145" cy="114" r="6"/>
+<!-- MOSS HORNLING STAGE 3 -->
+<symbol id="moss-hornling-stage-3" viewBox="0 0 240 240">
+  <g filter="url(#softShadow)">
+    <ellipse cx="120" cy="203" rx="68" ry="13" fill="#17324d" opacity=".1"/>
+    <path d="M63 131C58 91 79 63 112 57C150 51 181 79 181 124C181 169 158 198 119 200C82 201 66 174 63 131Z" fill="url(#furCream)" stroke="#816d52" stroke-width="2"/>
+    <path d="M77 99C55 81 45 80 37 91C44 114 63 123 81 117Z" fill="#f7e7d4" stroke="#816d52" stroke-width="2"/>
+    <path d="M163 99C185 81 195 80 203 91C196 114 177 123 159 117Z" fill="#f7e7d4" stroke="#816d52" stroke-width="2"/>
+    <path d="M91 74C80 54 84 32 101 20C109 39 107 59 102 77Z" fill="#9d7749" stroke="#65492e" stroke-width="2"/>
+    <path d="M149 74C160 54 156 32 139 20C131 39 133 59 138 77Z" fill="#9d7749" stroke="#65492e" stroke-width="2"/>
+    <path d="M92 51L77 41M97 41L101 24M148 51L163 41M143 41L139 24" fill="none" stroke="#785735" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M84 74C101 62 140 63 157 79L153 101C131 91 107 91 86 102Z" fill="url(#furSage)" opacity=".95"/>
+    <use href="#leaf" transform="translate(83 61) scale(.8) rotate(-25)"/><use href="#leaf" transform="translate(158 61) scale(.8) rotate(155)"/>
+    <use href="#leaf" transform="translate(96 42) scale(.55) rotate(-70)"/><use href="#leaf" transform="translate(145 42) scale(.55) rotate(200)"/>
+    <use href="#flower" transform="translate(102 69) scale(.62)"/><use href="#flower" transform="translate(142 69) scale(.62)"/>
+    <g transform="translate(120 126)"><use href="#eyePairAmber"/></g>
+    <path d="M115 146Q120 150 125 146" fill="none" stroke="#6e4e42" stroke-width="2" stroke-linecap="round"/>
+    <ellipse cx="92" cy="146" rx="8" ry="4" fill="#e9b6a8" opacity=".45"/><ellipse cx="148" cy="146" rx="8" ry="4" fill="#e9b6a8" opacity=".45"/>
+    <path d="M78 159Q99 145 113 159Q102 182 88 183Z" fill="#687d54"/>
+    <path d="M162 159Q141 145 127 159Q138 182 152 183Z" fill="#687d54"/>
+    <circle cx="120" cy="169" r="10" fill="url(#goldGrad)" stroke="#845f33" stroke-width="1.3"/>
+    <path d="M120 163l2 4 5 1-4 3 1 5-4-2-4 2 1-5-4-3 5-1z" fill="#fff4c4"/>
+  </g>
 </symbol>
 
-<symbol id="pebble-wisp" viewBox="0 0 200 200">
-  <ellipse cx="100" cy="161" rx="61" ry="15" fill="#17324d" opacity=".12"/>
-  <path class="o stone" d="M47 145c4-45 24-72 55-72 30 0 49 27 52 72-15 20-94 20-107 0z"/>
-  <path class="o leaf" d="M99 74c0-25-14-36-28-41 0 21 10 34 28 41z"/>
-  <path class="o sage" d="M101 73c4-25 19-34 34-35-4 20-15 31-34 35z"/>
-  <circle class="eye" cx="83" cy="130" r="5"/><circle class="eye" cx="119" cy="130" r="5"/>
-  <path d="M94 145c4 3 8 3 12 0" fill="none" class="o"/>
-  <circle class="cream" cx="66" cy="147" r="5"/><circle class="cream" cx="135" cy="100" r="6"/>
+<!-- MOSS HORNLING STAGE 4 -->
+<symbol id="moss-hornling-stage-4" viewBox="0 0 240 240">
+  <g filter="url(#softShadow)">
+    <ellipse cx="120" cy="204" rx="70" ry="13" fill="#17324d" opacity=".1"/>
+    <path d="M60 130C55 87 78 58 112 53C152 47 184 77 184 124C184 172 158 201 119 202C80 203 63 175 60 130Z" fill="url(#furCream)" stroke="#7e694e" stroke-width="2"/>
+    <path d="M75 98C51 79 40 79 32 91C40 116 61 125 80 117Z" fill="#f7e6d2" stroke="#7e694e" stroke-width="2"/>
+    <path d="M165 98C189 79 200 79 208 91C200 116 179 125 160 117Z" fill="#f7e6d2" stroke="#7e694e" stroke-width="2"/>
+    <path d="M89 73C76 50 79 26 100 12C109 34 106 57 101 77Z" fill="#987044" stroke="#61452c" stroke-width="2"/>
+    <path d="M151 73C164 50 161 26 140 12C131 34 134 57 139 77Z" fill="#987044" stroke="#61452c" stroke-width="2"/>
+    <path d="M89 50L70 37M96 38L100 17M151 50L170 37M144 38L140 17M84 61L68 58M156 61L172 58" fill="none" stroke="#735231" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M81 71C101 59 140 60 160 78L154 103C131 91 106 91 84 103Z" fill="url(#furSage)"/>
+    <use href="#leaf" transform="translate(78 59) scale(.85) rotate(-25)"/><use href="#leaf" transform="translate(162 59) scale(.85) rotate(155)"/>
+    <use href="#leaf" transform="translate(92 35) scale(.65) rotate(-70)"/><use href="#leaf" transform="translate(148 35) scale(.65) rotate(200)"/>
+    <use href="#flower" transform="translate(98 66) scale(.67)"/><use href="#flower" transform="translate(142 66) scale(.67)"/>
+    <use href="#flower" transform="translate(87 43) scale(.45)"/><use href="#flower" transform="translate(154 43) scale(.45)"/>
+    <g transform="translate(120 126)"><use href="#eyePairAmber"/></g>
+    <path d="M115 146Q120 150 125 146" fill="none" stroke="#6e4e42" stroke-width="2" stroke-linecap="round"/>
+    <ellipse cx="92" cy="146" rx="8" ry="4" fill="#e9b6a8" opacity=".45"/><ellipse cx="148" cy="146" rx="8" ry="4" fill="#e9b6a8" opacity=".45"/>
+    <path d="M74 158Q98 142 114 158Q102 184 86 185Z" fill="#647a51"/>
+    <path d="M166 158Q142 142 126 158Q138 184 154 185Z" fill="#647a51"/>
+    <g transform="translate(120 170)">
+      <path d="M-17-8Q0-20 17-8L13 8Q0 1-13 8Z" fill="#78895f"/>
+      <use href="#flower" transform="scale(.48)"/>
+    </g>
+    <use href="#sparkle" transform="translate(62 78) scale(.65)"/><use href="#sparkle" transform="translate(180 82) scale(.48)"/>
+  </g>
 </symbol>
 
-<symbol id="moon-puff" viewBox="0 0 200 200">
-  <ellipse cx="100" cy="158" rx="62" ry="17" fill="#17324d" opacity=".12"/>
-  <circle class="o white" cx="70" cy="120" r="34"/><circle class="o white" cx="104" cy="111" r="45"/><circle class="o white" cx="137" cy="126" r="30"/>
-  <path class="o white" d="M76 78c-19-34-7-53 6-60 8 24 13 42 9 61"/>
-  <path class="o white" d="M127 79c18-34 6-53-7-60-8 24-13 42-8 61"/>
-  <circle class="eye" cx="88" cy="119" r="5"/><circle class="eye" cx="118" cy="119" r="5"/>
-  <path d="M97 136c4 3 8 3 12 0" fill="none" class="o"/>
-  <path class="gold" d="M101 49c-17-9-18-27-7-38-1 13 7 24 22 25-4 8-8 11-15 13z"/>
-  <circle class="lav" cx="143" cy="86" r="5"/>
+<!-- MOSS HORNLING STAGE 5 -->
+<symbol id="moss-hornling-stage-5" viewBox="0 0 240 240">
+  <g filter="url(#softShadow)">
+    <ellipse cx="120" cy="205" rx="72" ry="13" fill="#17324d" opacity=".11"/>
+    <path d="M57 130C52 84 76 54 112 49C153 43 188 74 188 124C188 174 160 203 119 204C78 205 60 176 57 130Z" fill="url(#furCream)" stroke="#786247" stroke-width="2"/>
+    <path d="M73 96C48 76 35 77 27 90C36 117 58 126 78 117Z" fill="#f8e5d0" stroke="#786247" stroke-width="2"/>
+    <path d="M167 96C192 76 205 77 213 90C204 117 182 126 162 117Z" fill="#f8e5d0" stroke="#786247" stroke-width="2"/>
+    <path d="M88 71C73 47 76 21 99 7C110 31 106 56 101 76Z" fill="#927043" stroke="#5d4228" stroke-width="2"/>
+    <path d="M152 71C167 47 164 21 141 7C130 31 134 56 139 76Z" fill="#927043" stroke="#5d4228" stroke-width="2"/>
+    <path d="M87 48L66 33M96 35L100 10M84 58L63 54M153 48L174 33M144 35L140 10M156 58L177 54" fill="none" stroke="#6f4e2e" stroke-width="5" stroke-linecap="round"/>
+    <path d="M79 68C101 56 140 57 162 76L155 104C131 91 106 91 82 104Z" fill="url(#furSage)"/>
+    <use href="#leaf" transform="translate(75 57) scale(.9) rotate(-25)"/><use href="#leaf" transform="translate(165 57) scale(.9) rotate(155)"/>
+    <use href="#leaf" transform="translate(90 31) scale(.7) rotate(-70)"/><use href="#leaf" transform="translate(151 31) scale(.7) rotate(200)"/>
+    <use href="#leaf" transform="translate(66 42) scale(.55) rotate(-5)"/><use href="#leaf" transform="translate(174 42) scale(.55) rotate(185)"/>
+    <use href="#flower" transform="translate(96 63) scale(.7)"/><use href="#flower" transform="translate(144 63) scale(.7)"/>
+    <use href="#flower" transform="translate(83 39) scale(.5)"/><use href="#flower" transform="translate(158 39) scale(.5)"/>
+    <g transform="translate(120 126)"><use href="#eyePairAmber"/></g>
+    <path d="M115 146Q120 150 125 146" fill="none" stroke="#6e4e42" stroke-width="2" stroke-linecap="round"/>
+    <ellipse cx="92" cy="146" rx="8" ry="4" fill="#e9b6a8" opacity=".45"/><ellipse cx="148" cy="146" rx="8" ry="4" fill="#e9b6a8" opacity=".45"/>
+    <path d="M72 158Q98 140 114 158Q102 186 84 187Z" fill="#60774d"/>
+    <path d="M168 158Q142 140 126 158Q138 186 156 187Z" fill="#60774d"/>
+    <g transform="translate(120 169)">
+      <path d="M-20-9Q0-23 20-9L15 10Q0 1-15 10Z" fill="#6f8259"/>
+      <use href="#flower" transform="scale(.52)"/>
+      <path d="M0 6L7 15L0 24L-7 15Z" fill="url(#goldGrad)" stroke="#805b2f" stroke-width="1"/>
+    </g>
+    <path d="M70 35l4 7 8 1-6 5 2 8-8-4-7 4 1-8-6-5 8-1z" fill="#d9b567" opacity=".85"/>
+    <path d="M170 35l4 7 8 1-6 5 2 8-8-4-7 4 1-8-6-5 8-1z" fill="#d9b567" opacity=".85"/>
+    <use href="#sparkle" transform="translate(51 74) scale(.75)"/><use href="#sparkle" transform="translate(190 78) scale(.65)"/>
+  </g>
 </symbol>
 
-<symbol id="mothling" viewBox="0 0 200 200">
-  <ellipse cx="100" cy="160" rx="62" ry="15" fill="#17324d" opacity=".12"/>
-  <path class="o lav" d="M91 106C66 66 27 62 25 99c-2 32 35 48 67 30z"/>
-  <path class="o lav" d="M109 106c25-40 64-44 66-7 2 32-35 48-67 30z"/>
-  <ellipse class="o cream" cx="100" cy="124" rx="28" ry="46"/>
-  <path d="M91 80C84 61 74 55 65 49M109 80c7-19 17-25 26-31" class="o" fill="none"/>
-  <circle class="gold" cx="64" cy="48" r="5"/><circle class="gold" cx="136" cy="48" r="5"/>
-  <circle class="eye" cx="91" cy="117" r="4"/><circle class="eye" cx="109" cy="117" r="4"/>
-  <path d="M94 132c4 3 8 3 12 0" fill="none" class="o"/>
-  <circle class="white" cx="50" cy="101" r="8"/><circle class="white" cx="150" cy="101" r="8"/>
+<symbol id="moss-hornling" viewBox="0 0 240 240"><use href="#moss-hornling-stage-1"/></symbol>
+
+<!-- ANTLER BEAN -->
+<symbol id="antler-bean" viewBox="0 0 240 240">
+  <g filter="url(#softShadow)">
+    <ellipse cx="120" cy="202" rx="62" ry="12" fill="#17324d" opacity=".09"/>
+    <path d="M67 144C61 105 82 76 116 71C151 66 178 94 174 136C171 174 151 197 119 199C87 201 71 179 67 144Z" fill="url(#furCream)" stroke="#887258" stroke-width="2"/>
+    <path d="M96 75C90 57 93 42 103 33C109 47 108 60 106 76Z" fill="#a98050" stroke="#674a31" stroke-width="2"/>
+    <path d="M145 77C151 57 147 43 137 34C131 47 132 62 134 78Z" fill="#a98050" stroke="#674a31" stroke-width="2"/>
+    <path d="M95 57L84 50M145 57L156 50" stroke="#785536" stroke-width="4" stroke-linecap="round"/>
+    <path d="M104 69C102 49 111 38 125 34C126 49 120 61 104 69Z" fill="#73845d"/>
+    <g transform="translate(120 132)"><use href="#eyePairAmber"/></g>
+    <path d="M115 151Q120 155 125 151" fill="none" stroke="#704c41" stroke-width="2" stroke-linecap="round"/>
+    <ellipse cx="92" cy="151" rx="8" ry="4" fill="#e9b6a8" opacity=".5"/><ellipse cx="148" cy="151" rx="8" ry="4" fill="#e9b6a8" opacity=".5"/>
+    <use href="#flower" transform="translate(151 91) scale(.55)"/>
+    <use href="#leaf" transform="translate(155 99) scale(.55) rotate(70)"/>
+  </g>
 </symbol>
 
-<symbol id="bloom-snail" viewBox="0 0 200 200">
-  <ellipse cx="101" cy="160" rx="70" ry="14" fill="#17324d" opacity=".12"/>
-  <path class="o cream" d="M42 143c10-31 34-38 58-24 18 10 32 7 52 0 8 19 0 40-22 42H63c-22 0-29-6-21-18z"/>
-  <circle class="o sage" cx="118" cy="105" r="44"/>
-  <path class="o" fill="none" d="M118 80c25 0 31 37 4 45-20 6-34-18-20-31"/>
-  <path class="o leaf" d="M118 60c0-20 10-31 26-35 0 18-10 29-26 35z"/>
-  <path d="M58 119v-29M83 119V87" class="o" fill="none"/>
-  <circle class="eye" cx="58" cy="87" r="4"/><circle class="eye" cx="83" cy="84" r="4"/>
-  <circle class="cream" cx="133" cy="70" r="6"/><circle class="gold" cx="95" cy="72" r="5"/>
+<!-- INKLING -->
+<symbol id="inkling" viewBox="0 0 240 240">
+  <g filter="url(#softShadow)">
+    <ellipse cx="120" cy="203" rx="66" ry="12" fill="#17324d" opacity=".11"/>
+    <path d="M71 144C72 101 91 72 120 58C151 76 169 105 169 145C169 179 150 199 120 200C90 199 71 179 71 144Z" fill="url(#navyGrad)" stroke="#13243c" stroke-width="2"/>
+    <path d="M81 98L67 67L99 85Z" fill="#283d5b" stroke="#13243c" stroke-width="2"/>
+    <path d="M159 98L173 67L141 85Z" fill="#283d5b" stroke="#13243c" stroke-width="2"/>
+    <g transform="translate(120 132)"><use href="#eyePairBlue"/></g>
+    <path d="M115 151Q120 155 125 151" fill="none" stroke="#f0e9dc" stroke-width="2" stroke-linecap="round"/>
+    <path d="M157 83C165 56 181 41 197 36C195 54 185 70 163 88Z" fill="#f1dfbd" stroke="#a17a45" stroke-width="1.5"/>
+    <path d="M160 91L194 39" stroke="#c69a59" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="55" cy="123" r="7" fill="#243a58"/><circle cx="52" cy="111" r="4" fill="#314a70"/><circle cx="185" cy="134" r="5" fill="#243a58"/>
+    <use href="#sparkle" transform="translate(87 76) scale(.6)"/><use href="#sparkle" transform="translate(162 116) scale(.45)"/>
+  </g>
 </symbol>
 
-<symbol id="velvet-batling" viewBox="0 0 200 200">
-  <ellipse cx="100" cy="160" rx="62" ry="15" fill="#17324d" opacity=".12"/>
-  <path class="o navy" d="M83 105C59 74 24 77 22 111c17-12 26 7 38 11 11 4 18 1 28-5z"/>
-  <path class="o navy" d="M117 105c24-31 59-28 61 6-17-12-26 7-38 11-11 4-18 1-28-5z"/>
-  <path class="o navy" d="M63 67l27 21 10-12 10 12 27-21-7 47c-4 31-17 50-30 50s-26-19-30-50z"/>
-  <path class="o navy" d="M76 76L64 43c18 2 29 15 30 34M124 76l12-33c-18 2-29 15-30 34"/>
-  <circle class="white" cx="87" cy="110" r="5"/><circle class="white" cx="113" cy="110" r="5"/>
-  <circle class="eye" cx="87" cy="110" r="3"/><circle class="eye" cx="113" cy="110" r="3"/>
-  <path d="M93 128c5 3 9 3 14 0" fill="none" stroke="#fffaf0" stroke-width="4" stroke-linecap="round"/>
-  <path class="gold" d="M100 34l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z"/>
+<!-- PEBBLE WISP -->
+<symbol id="pebble-wisp" viewBox="0 0 240 240">
+  <g filter="url(#softShadow)">
+    <ellipse cx="120" cy="202" rx="69" ry="12" fill="#17324d" opacity=".1"/>
+    <path d="M54 166C58 108 82 77 120 75C158 77 182 108 186 166C169 191 72 191 54 166Z" fill="url(#stoneGrad)" stroke="#6f7169" stroke-width="2"/>
+    <path d="M120 76C118 49 103 34 86 28C87 51 99 67 120 76Z" fill="#6e8158"/>
+    <path d="M121 76C126 48 144 36 161 37C155 59 143 70 121 76Z" fill="#87986c"/>
+    <g transform="translate(120 143)"><use href="#eyePairAmber"/></g>
+    <path d="M115 161Q120 165 125 161" fill="none" stroke="#5f5146" stroke-width="2" stroke-linecap="round"/>
+    <use href="#flower" transform="translate(157 104) scale(.6)"/><use href="#flower" transform="translate(78 121) scale(.42)"/>
+    <use href="#leaf" transform="translate(151 117) scale(.6) rotate(55)"/><use href="#leaf" transform="translate(77 136) scale(.5) rotate(210)"/>
+    <path d="M69 169Q80 160 91 168" fill="none" stroke="#84877f" stroke-width="2"/><path d="M149 168Q160 159 171 169" fill="none" stroke="#84877f" stroke-width="2"/>
+  </g>
 </symbol>
 
-<symbol id="sprig-dragon" viewBox="0 0 200 200">
-  <ellipse cx="101" cy="161" rx="65" ry="14" fill="#17324d" opacity=".12"/>
-  <path class="o cream" d="M63 135c0-38 23-65 52-65 30 0 43 22 40 49-4 32-28 44-54 44-23 0-38-8-38-28z"/>
-  <path class="o sage" d="M97 83C78 52 58 49 43 59c14 5 16 24 16 40z"/>
-  <path class="o sage" d="M124 80c13-31 34-36 50-26-13 7-14 28-13 42z"/>
-  <path class="o" fill="none" d="M148 137c30 10 38-17 24-28M126 71l8-24M115 71l-4-25"/>
-  <path class="o leaf" d="M128 47c0-17 8-27 21-31-1 16-8 25-21 31z"/>
-  <circle class="eye" cx="95" cy="119" r="5"/><circle class="eye" cx="125" cy="119" r="5"/>
-  <path d="M103 136c5 3 9 3 14 0" fill="none" class="o"/>
-  <circle class="cream" cx="151" cy="103" r="7"/>
+<!-- MOON PUFF -->
+<symbol id="moon-puff" viewBox="0 0 240 240">
+  <g filter="url(#softShadow)">
+    <ellipse cx="120" cy="202" rx="68" ry="12" fill="#17324d" opacity=".08"/>
+    <circle cx="89" cy="145" r="41" fill="#faf7ee" stroke="#cfc8be" stroke-width="2"/>
+    <circle cx="123" cy="130" r="52" fill="#fffaf2" stroke="#cfc8be" stroke-width="2"/>
+    <circle cx="159" cy="149" r="36" fill="#f4f1ec" stroke="#cfc8be" stroke-width="2"/>
+    <path d="M91 96C70 57 80 31 97 19C108 47 109 72 101 98Z" fill="#fff9f2" stroke="#cfc8be" stroke-width="2"/>
+    <path d="M151 98C170 58 160 32 144 20C133 47 132 72 140 99Z" fill="#fff9f2" stroke="#cfc8be" stroke-width="2"/>
+    <path d="M91 77C98 62 108 56 120 55C110 67 105 79 104 90Z" fill="#d6d7ec"/>
+    <path d="M149 79C142 64 132 58 120 57C130 69 135 81 136 92Z" fill="#d6d7ec"/>
+    <g transform="translate(121 137)"><use href="#eyePairBlue"/></g>
+    <path d="M116 156Q121 160 126 156" fill="none" stroke="#76584b" stroke-width="2" stroke-linecap="round"/>
+    <path d="M121 70C102 59 102 37 116 25C115 39 124 50 140 51C136 61 130 67 121 70Z" fill="url(#goldGrad)"/>
+    <use href="#sparkle" transform="translate(175 91) scale(.55)"/><use href="#sparkle" transform="translate(70 116) scale(.4)"/>
+  </g>
 </symbol>
 
-<symbol id="star-toadlet" viewBox="0 0 200 200">
-  <ellipse cx="100" cy="160" rx="66" ry="15" fill="#17324d" opacity=".12"/>
-  <path class="o lav" d="M47 139c0-35 20-63 53-63s53 28 53 63c0 19-18 27-53 27s-53-8-53-27z"/>
-  <circle class="o lav" cx="72" cy="99" r="20"/><circle class="o lav" cx="128" cy="99" r="20"/>
-  <circle class="white" cx="72" cy="98" r="9"/><circle class="white" cx="128" cy="98" r="9"/>
-  <circle class="eye" cx="74" cy="99" r="5"/><circle class="eye" cx="126" cy="99" r="5"/>
-  <path d="M89 137c7 4 15 4 22 0" fill="none" class="o"/>
-  <path class="gold" d="M100 43l7 15 17 2-12 12 3 17-15-8-15 8 3-17-12-12 17-2z"/>
-  <circle class="cream" cx="62" cy="138" r="7"/><circle class="cream" cx="138" cy="138" r="7"/>
+<!-- MOTHLING -->
+<symbol id="mothling" viewBox="0 0 240 240">
+  <g filter="url(#softShadow)">
+    <ellipse cx="120" cy="202" rx="70" ry="12" fill="#17324d" opacity=".08"/>
+    <path d="M107 116C83 71 39 65 28 98C20 122 46 148 99 145Z" fill="url(#lavGrad)" stroke="#626589" stroke-width="2"/>
+    <path d="M133 116C157 71 201 65 212 98C220 122 194 148 141 145Z" fill="url(#lavGrad)" stroke="#626589" stroke-width="2"/>
+    <path d="M102 147C74 141 50 151 49 177C67 190 91 187 108 168Z" fill="#d7d5eb" stroke="#77799d" stroke-width="2"/>
+    <path d="M138 147C166 141 190 151 191 177C173 190 149 187 132 168Z" fill="#d7d5eb" stroke="#77799d" stroke-width="2"/>
+    <ellipse cx="120" cy="142" rx="31" ry="50" fill="url(#furCream)" stroke="#9c8b73" stroke-width="2"/>
+    <path d="M109 96C101 72 90 62 78 57M131 96C139 72 150 62 162 57" fill="none" stroke="#826d52" stroke-width="2.5"/>
+    <circle cx="78" cy="57" r="4.5" fill="url(#goldGrad)"/><circle cx="162" cy="57" r="4.5" fill="url(#goldGrad)"/>
+    <g transform="translate(120 138)"><use href="#eyePairAmber"/></g>
+    <path d="M115 157Q120 161 125 157" fill="none" stroke="#704c41" stroke-width="2" stroke-linecap="round"/>
+    <path d="M55 105C67 91 79 91 92 105M185 105C173 91 161 91 148 105" fill="none" stroke="#f2e6bf" stroke-width="3" opacity=".8"/>
+    <use href="#sparkle" transform="translate(61 121) scale(.5)"/><use href="#sparkle" transform="translate(179 121) scale(.5)"/>
+  </g>
+</symbol>
+
+<!-- BLOOM SNAIL -->
+<symbol id="bloom-snail" viewBox="0 0 240 240">
+  <g filter="url(#softShadow)">
+    <ellipse cx="121" cy="204" rx="78" ry="11" fill="#17324d" opacity=".08"/>
+    <path d="M44 173C55 136 83 128 111 143C130 153 154 145 182 133C194 159 181 193 153 197H71C48 197 38 189 44 173Z" fill="url(#furCream)" stroke="#89745a" stroke-width="2"/>
+    <circle cx="148" cy="120" r="53" fill="url(#furSage)" stroke="#65734f" stroke-width="2"/>
+    <circle cx="148" cy="120" r="34" fill="#d9d7bf" opacity=".6"/>
+    <path d="M148 94C177 94 183 138 151 145C127 150 113 123 128 106" fill="none" stroke="#8e744d" stroke-width="4" stroke-linecap="round"/>
+    <path d="M79 141V102M103 142V99" stroke="#8c775d" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="79" cy="98" r="5" fill="#4b3628"/><circle cx="103" cy="95" r="5" fill="#4b3628"/>
+    <circle cx="78" cy="97" r="1.8" fill="#fff"/><circle cx="102" cy="94" r="1.8" fill="#fff"/>
+    <path d="M82 154Q90 160 98 154" fill="none" stroke="#6e4e42" stroke-width="2" stroke-linecap="round"/>
+    <use href="#flower" transform="translate(148 70) scale(.65)"/><use href="#flower" transform="translate(179 97) scale(.5)"/><use href="#flower" transform="translate(119 82) scale(.45)"/>
+    <use href="#leaf" transform="translate(137 75) scale(.7) rotate(-25)"/><use href="#leaf" transform="translate(170 93) scale(.65) rotate(75)"/>
+  </g>
+</symbol>
+
+<!-- VELVET BATLING -->
+<symbol id="velvet-batling" viewBox="0 0 240 240">
+  <g filter="url(#softShadow)">
+    <ellipse cx="120" cy="203" rx="70" ry="12" fill="#17324d" opacity=".1"/>
+    <path d="M103 124C74 84 33 79 24 112C44 102 49 125 69 133C81 138 93 134 106 129Z" fill="url(#navyGrad)" stroke="#13243c" stroke-width="2"/>
+    <path d="M137 124C166 84 207 79 216 112C196 102 191 125 171 133C159 138 147 134 134 129Z" fill="url(#navyGrad)" stroke="#13243c" stroke-width="2"/>
+    <path d="M75 85L96 105L120 92L144 105L165 85L158 147C153 181 139 199 120 200C101 199 87 181 82 147Z" fill="url(#navyGrad)" stroke="#13243c" stroke-width="2"/>
+    <path d="M92 97L79 54C99 57 112 73 114 95M148 97L161 54C141 57 128 73 126 95" fill="#f2e3d7" stroke="#8d705c" stroke-width="2"/>
+    <g transform="translate(120 136)"><use href="#eyePairAmber"/></g>
+    <path d="M115 155Q120 160 125 155" fill="none" stroke="#f7eee4" stroke-width="2" stroke-linecap="round"/>
+    <path d="M64 119l10 6-7 9M176 119l-10 6 7 9" fill="none" stroke="#d1a95d" stroke-width="2"/>
+    <path d="M120 47l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z" fill="url(#goldGrad)"/>
+    <use href="#flower" transform="translate(151 104) scale(.45)"/>
+  </g>
+</symbol>
+
+<!-- SPRIG DRAGON -->
+<symbol id="sprig-dragon" viewBox="0 0 240 240">
+  <g filter="url(#softShadow)">
+    <ellipse cx="122" cy="203" rx="72" ry="12" fill="#17324d" opacity=".09"/>
+    <path d="M63 151C63 104 87 73 122 72C158 71 177 100 174 139C171 178 149 199 116 199C83 199 63 183 63 151Z" fill="url(#furCream)" stroke="#807158" stroke-width="2"/>
+    <path d="M102 89C78 50 52 48 36 63C54 70 58 95 58 119Z" fill="#a8b98b" stroke="#65754f" stroke-width="2"/>
+    <path d="M139 86C154 49 180 43 201 57C184 69 181 96 183 119Z" fill="#a8b98b" stroke="#65754f" stroke-width="2"/>
+    <path d="M146 162C187 172 196 139 181 121" fill="none" stroke="#7f6b4f" stroke-width="5" stroke-linecap="round"/>
+    <path d="M109 72L103 44M131 72L139 44" stroke="#806848" stroke-width="4" stroke-linecap="round"/>
+    <path d="M103 44C102 29 111 20 124 17C124 32 117 40 103 44Z" fill="#71845d"/>
+    <path d="M139 44C141 29 150 22 162 21C158 36 151 42 139 44Z" fill="#71845d"/>
+    <g transform="translate(120 136)"><use href="#eyePairAmber"/></g>
+    <path d="M115 155Q120 160 125 155" fill="none" stroke="#704c41" stroke-width="2" stroke-linecap="round"/>
+    <use href="#flower" transform="translate(157 107) scale(.45)"/><use href="#leaf" transform="translate(163 117) scale(.55) rotate(75)"/>
+  </g>
+</symbol>
+
+<!-- STAR TOADLET -->
+<symbol id="star-toadlet" viewBox="0 0 240 240">
+  <g filter="url(#softShadow)">
+    <ellipse cx="120" cy="203" rx="74" ry="12" fill="#17324d" opacity=".09"/>
+    <path d="M49 164C49 121 76 87 120 87C164 87 191 121 191 164C191 188 168 200 120 200C72 200 49 188 49 164Z" fill="url(#lavGrad)" stroke="#65688e" stroke-width="2"/>
+    <circle cx="83" cy="112" r="24" fill="#9fa4cd" stroke="#65688e" stroke-width="2"/>
+    <circle cx="157" cy="112" r="24" fill="#9fa4cd" stroke="#65688e" stroke-width="2"/>
+    <ellipse cx="83" cy="111" rx="12" ry="14" fill="url(#eyeAmber)" stroke="#48372b" stroke-width="1.5"/>
+    <ellipse cx="157" cy="111" rx="12" ry="14" fill="url(#eyeAmber)" stroke="#48372b" stroke-width="1.5"/>
+    <circle cx="79" cy="106" r="3.2" fill="#fff"/><circle cx="153" cy="106" r="3.2" fill="#fff"/>
+    <path d="M109 159Q120 164 131 159" fill="none" stroke="#67504a" stroke-width="2" stroke-linecap="round"/>
+    <path d="M120 47l8 16 18 3-13 13 3 18-16-8-16 8 3-18-13-13 18-3z" fill="url(#goldGrad)"/>
+    <use href="#leaf" transform="translate(91 69) scale(.65) rotate(-20)"/><use href="#leaf" transform="translate(150 71) scale(.65) rotate(160)"/>
+    <use href="#flower" transform="translate(139 79) scale(.45)"/>
+    <use href="#sparkle" transform="translate(63 151) scale(.5)"/><use href="#sparkle" transform="translate(179 149) scale(.5)"/>
+  </g>
 </symbol>
 </svg>
