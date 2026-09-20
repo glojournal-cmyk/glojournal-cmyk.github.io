@@ -11,11 +11,13 @@ function masteryCount(state){return Object.values(state.topicStats||{}).filter(f
 function getStage(leaves){let s=1;thresholds.forEach(function(t,i){if(leaves>=t)s=i+1});return Math.min(5,s)}
 function dueMastery(state){const d=new Date();const today=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");return Object.values(state.skillStats||{}).filter(function(s){return s&&s.retentionDue&&s.retentionDue<=today&&(s.retentionReady||s.retentionPasses>0)}).length}
 function displayName(p){return p.name||pets[p.species]||"Companion"}
-const HQ_PETS=new Set(["moss-hornling","antler-bean","inkling","pebble-wisp","moon-puff"]);
-function artSrc(species,stage){
-  return HQ_PETS.has(species)
-    ? "/pet/art-master/"+species+".avif?v=20260920-hq1"
-    : "/pet/art-production/"+species+".webp?v=20260920-art2";
+const PET_POS={
+  "moss-hornling":[0,0],"antler-bean":[25,0],"inkling":[50,0],"pebble-wisp":[75,0],"moon-puff":[100,0],
+  "mothling":[0,100],"bloom-snail":[25,100],"velvet-batling":[50,100],"sprig-dragon":[75,100],"star-toadlet":[100,100]
+};
+function spriteStyle(species){
+  const p=PET_POS[species]||PET_POS["moss-hornling"];
+  return "--pet-x:"+p[0]+"%;--pet-y:"+p[1]+"%";
 }
 
 function ensureStyle(){
@@ -28,7 +30,7 @@ function ensureStyle(){
   '#mastery-pet-home.evolving .mph-art{animation:mphEvolve 2.4s ease both}'+
   '#mastery-pet-home.evolving .mph-glow{animation:mphGlow 2.4s ease both}'+
   '#mastery-pet-home .mph-glow{position:absolute;width:90%;aspect-ratio:1;bottom:14px;border-radius:50%;background:radial-gradient(circle,rgba(247,240,223,.94) 0,rgba(196,154,85,.22) 48%,transparent 72%);filter:blur(1px);pointer-events:none}'+
-  '#mastery-pet-home .mph-art{position:relative;width:100%;aspect-ratio:1;object-fit:contain;display:block;filter:drop-shadow(0 10px 10px rgba(23,50,77,.22));overflow:visible}'+
+  '#mastery-pet-home .mph-art{position:relative;width:100%;aspect-ratio:1;display:block;background-image:url("/pet/art-master/pet-stage1-sheet.webp?v=20260920-hq2");background-size:500% 200%;background-position:var(--pet-x,0%) var(--pet-y,0%);background-repeat:no-repeat;filter:drop-shadow(0 10px 10px rgba(23,50,77,.22));overflow:visible}'+
   '#mastery-pet-home[data-stage="1"] .mph-art{transform:scale(.96)}#mastery-pet-home[data-stage="2"] .mph-art{transform:scale(1)}#mastery-pet-home[data-stage="3"] .mph-art{transform:scale(1.04)}#mastery-pet-home[data-stage="4"] .mph-art{transform:scale(1.08)}#mastery-pet-home[data-stage="5"] .mph-art{transform:scale(1.12)}'+
   '#mastery-pet-home .mph-tag{position:relative;margin-top:-8px;max-width:100%;background:rgba(255,252,245,.94);border:1px solid rgba(23,50,77,.14);border-radius:999px;padding:5px 9px;box-shadow:0 7px 18px rgba(23,50,77,.13);backdrop-filter:blur(8px);font-size:10px;line-height:1.15;text-align:center;white-space:nowrap}'+
   '#mastery-pet-home .mph-tag b{font-family:"Cormorant Garamond",serif;font-size:12px}'+
@@ -79,7 +81,7 @@ function render(){
   const status=due>0?due+" retention ready":leaves+" Mastery "+(leaves===1?"Leaf":"Leaves");
   a.dataset.stage=String(stage);
   a.innerHTML='<span class="mph-glow"></span><span class="mph-star s1"></span><span class="mph-star s2"></span>'+
-    '<img class="mph-art" src="'+artSrc(pet.species,stage)+'" alt="" decoding="async">'+
+    '<span class="mph-art" style="'+spriteStyle(pet.species)+'" aria-hidden="true"></span>'+
     (leaves>0?'<span class="mph-leaf">'+leaves+'</span>':'')+
     '<span class="mph-tag"><b>'+displayName(pet)+'</b><br>'+stageNames[stage-1]+' · '+status+'</span>';
   try{
