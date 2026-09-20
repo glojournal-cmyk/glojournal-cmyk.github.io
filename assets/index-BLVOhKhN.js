@@ -1108,12 +1108,25 @@ function buildAdaptiveDaily(state) {
   const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;
   const focusEvidence = focusAttemptsToday(state, focus);
   const focusProgress = Math.min(4, Math.max(oldFocusProgress, focusEvidence));
-  const year8Review = year8ReviewPlan(state);
+  const plannedYear8Review = year8ReviewPlan(state);
   const frenchVocab = vocabGateState(state, "french");
   const latinVocab = vocabGateState(state, "latin");
   const oldYear8Review = previous.get("year8-long-review") || {};
-  const sameYear8Plan = oldYear8Review.planDate === state.today && oldYear8Review.reviewSubject === year8Review.subject && (oldYear8Review.reviewTopic || null) === (year8Review.topicId || null);
-  const year8ReviewProgress = sameYear8Plan ? Math.min(15, oldYear8Review.progress || 0) : 0;
+  const lockedYear8Plan = oldYear8Review.planDate === state.today &&
+    YEAR8_MASTERY_SUBJECTS.includes(oldYear8Review.reviewSubject) &&
+    !!oldYear8Review.href;
+  const year8Review = lockedYear8Plan
+    ? {
+        subject: oldYear8Review.reviewSubject,
+        topicId: oldYear8Review.reviewTopic || null,
+        label: SUBJECT_LABELS[oldYear8Review.reviewSubject] || oldYear8Review.reviewSubject,
+        topicLabel: oldYear8Review.reviewTopic
+          ? topicTitle({ ...state, year: 8 }, oldYear8Review.reviewTopic, oldYear8Review.reviewSubject)
+          : null,
+        href: oldYear8Review.href,
+      }
+    : plannedYear8Review;
+  const year8ReviewProgress = lockedYear8Plan ? Math.min(15, oldYear8Review.progress || 0) : 0;
   const garden = previous.get("tend-garden") || { id: "tend-garden", title: "Water your plants", detail: "Tend the Scholar’s Garden.", href: "/garden", target: 1, progress: 0, xp: 10 };
   const game = previous.get("play-game") || { id: "play-game", title: "Play a quick game", detail: "One short learning game.", href: "/play", target: 1, progress: 0, xp: 10 };
 
@@ -1740,6 +1753,19 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
 
   const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
   if (!isRepair && !meta?.excludeGeneralDaily && focus && focus.focusSubject === (resolved.subject || subject)) originalBumpDaily("adaptive-focus", 1);
+
+  // The dedicated Year 8 mastery review is a Daily task of its own.
+  // Count each formal base question exactly once and keep the locked topic for the whole day.
+  if (!isRepair && meta?.excludeGeneralDaily && Number(meta?.yearOverride) === 8) {
+    const dailyReview = store.getState().daily?.find((task) => task.id === "year8-long-review");
+    const reviewSubject = resolved.subject || subject;
+    const sameReview = dailyReview &&
+      dailyReview.planDate === todayKey() &&
+      dailyReview.reviewSubject === reviewSubject &&
+      (!dailyReview.reviewTopic || dailyReview.reviewTopic === resolved.topicId);
+    if (sameReview) originalBumpDaily("year8-long-review", 1);
+  }
+
   normalizeState();
   return result;
 }
