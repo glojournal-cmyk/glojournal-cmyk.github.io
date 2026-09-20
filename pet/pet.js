@@ -33,13 +33,13 @@ const subjectMeta = {
   english:{label:"English",icon:"✎"}
 };
 
-const PET_ART_VERSION="20260920-png2";
+const PET_ART_VERSION="20260920-png3";
 function petArtUrl(species){
   const safe=pets.some(p=>p.id===species)?species:"moss-hornling";
   return `/pet/art-master/${safe}.png?v=${PET_ART_VERSION}`;
 }
 function spriteStyle(species){
-  return `background-image:url("${petArtUrl(species)}")`;
+  return `background-image:url('${petArtUrl(species)}')`;
 }
 function applyPetSprite(el,species){
   el.style.backgroundImage=`url("${petArtUrl(species)}")`;

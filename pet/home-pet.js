@@ -11,10 +11,10 @@ function masteryCount(state){return Object.values(state.topicStats||{}).filter(f
 function getStage(leaves){let s=1;thresholds.forEach(function(t,i){if(leaves>=t)s=i+1});return Math.min(5,s)}
 function dueMastery(state){const d=new Date();const today=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");return Object.values(state.skillStats||{}).filter(function(s){return s&&s.retentionDue&&s.retentionDue<=today&&(s.retentionReady||s.retentionPasses>0)}).length}
 function displayName(p){return p.name||pets[p.species]||"Companion"}
-const PET_ART_VERSION="20260920-png2";
+const PET_ART_VERSION="20260920-png3";
 function spriteStyle(species){
   const safe=pets[species]?species:"moss-hornling";
-  return 'background-image:url("/pet/art-master/'+safe+'.png?v='+PET_ART_VERSION+'")';
+  return "background-image:url('/pet/art-master/"+safe+".png?v="+PET_ART_VERSION+"')";
 }
 
 function ensureStyle(){
