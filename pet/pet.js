@@ -33,11 +33,18 @@ const subjectMeta = {
   english:{label:"English",icon:"✎"}
 };
 
-const HQ_PETS=new Set(["moss-hornling","antler-bean","inkling","pebble-wisp","moon-puff"]);
-function artSrc(species,stage=1){
-  return HQ_PETS.has(species)
-    ? `/pet/art-master/${species}.avif?v=20260920-hq1`
-    : `/pet/art-production/${species}.webp?v=20260920-art2`;
+const PET_POS={
+  "moss-hornling":[0,0],"antler-bean":[25,0],"inkling":[50,0],"pebble-wisp":[75,0],"moon-puff":[100,0],
+  "mothling":[0,100],"bloom-snail":[25,100],"velvet-batling":[50,100],"sprig-dragon":[75,100],"star-toadlet":[100,100]
+};
+function spriteStyle(species){
+  const p=PET_POS[species]||PET_POS["moss-hornling"];
+  return `--pet-x:${p[0]}%;--pet-y:${p[1]}%`;
+}
+function applyPetSprite(el,species){
+  const p=PET_POS[species]||PET_POS["moss-hornling"];
+  el.style.setProperty("--pet-x",p[0]+"%");
+  el.style.setProperty("--pet-y",p[1]+"%");
 }
 
 function readAppState(){
@@ -194,8 +201,8 @@ function render(){
   document.getElementById("petTitle").textContent=petDisplayName(pet);
   document.getElementById("petSubtitle").textContent=species.tag;
   const petImage=document.getElementById("petImage");
-  petImage.src=artSrc(pet.species,stage);
-  petImage.alt=`${petDisplayName(pet)} · ${stageNames[stage-1]}`;
+  applyPetSprite(petImage,pet.species);
+  petImage.setAttribute("aria-label",`${petDisplayName(pet)} · ${stageNames[stage-1]}`);
   document.getElementById("petAvatar").className=`pet-avatar stage-${stage}`;
   document.getElementById("petAura").className=`pet-aura stage-${stage}`;
   document.getElementById("stageLabel").textContent=`Stage ${stage} · ${stageNames[stage-1]}`;
@@ -237,7 +244,7 @@ function buildChooser(){
   const grid=document.getElementById("petGrid");
   grid.innerHTML=pets.map(p=>`
     <button class="pet-choice" type="button" data-pet="${p.id}" aria-label="Choose ${p.name}">
-      <img src="${artSrc(p.id,1)}" alt="" loading="lazy" decoding="async">
+      <span class="pet-choice-art pet-sprite" style="${spriteStyle(p.id)}" aria-hidden="true"></span>
       <b>${p.name}</b><small>${p.tag}</small>
       <span class="selected-mark">Current companion</span>
     </button>
