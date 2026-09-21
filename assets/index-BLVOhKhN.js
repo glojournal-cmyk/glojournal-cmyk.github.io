@@ -1255,6 +1255,9 @@ const originalRecordGame = initial.recordGame;
 const originalRecordAttempt = initial.recordAttempt;
 const originalRecordSpelling = initial.recordSpelling;
 const originalBumpDaily = initial.bumpDaily;
+const originalExportProgress = initial.exportProgress;
+const originalImportProgress = initial.importProgress;
+const originalResetAll = initial.resetAll;
 
 const STUDY_REWARD_XP = {
   daily_complete: 40,
@@ -1628,6 +1631,59 @@ function emitMasteryReward(detail) {
   window.dispatchEvent(new CustomEvent("scholar:mastery-earned", { detail }));
 }
 
+function readPetBackupState() {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = JSON.parse(localStorage.getItem(PET_REWARD_KEY) || "null");
+    return raw && typeof raw === "object" ? raw : null;
+  } catch {
+    return null;
+  }
+}
+
+function patchedExportProgress() {
+  try {
+    const base = JSON.parse(originalExportProgress());
+    return JSON.stringify({
+      ...base,
+      petBackupVersion: 1,
+      petCompanion: readPetBackupState(),
+    }, null, 2);
+  } catch {
+    return originalExportProgress();
+  }
+}
+
+function patchedImportProgress(text) {
+  let parsed = null;
+  try { parsed = JSON.parse(text); } catch {}
+  const result = originalImportProgress(text);
+  if (!result?.ok || typeof window === "undefined") return result;
+  const pet = parsed?.petCompanion;
+  if (pet && typeof pet === "object") {
+    try {
+      localStorage.setItem(PET_REWARD_KEY, JSON.stringify(pet));
+      window.dispatchEvent(new CustomEvent("scholar:pet-changed", { detail: pet }));
+      window.dispatchEvent(new CustomEvent("scholar:mp-changed", { detail: { balance: Math.max(0, Number(pet.masteryPoints) || 0), restored: true } }));
+    } catch {}
+  }
+  return result;
+}
+
+function patchedResetAll() {
+  const result = originalResetAll();
+  if (typeof window !== "undefined") {
+    try {
+      localStorage.removeItem(PET_REWARD_KEY);
+      localStorage.removeItem("lux-pet-last-stage-v1");
+      localStorage.removeItem("lux-pet-pending-celebration");
+      window.dispatchEvent(new CustomEvent("scholar:pet-changed", { detail: null }));
+      window.dispatchEvent(new CustomEvent("scholar:mp-changed", { detail: { balance: 0, reset: true } }));
+    } catch {}
+  }
+  return result;
+}
+
 function awardFirstTopicMastery(topicId, subject, title, previousState, nextState) {
   if (!topicId || nextState !== "mastered" || previousState === "mastered") return null;
   const state = store.getState();
@@ -1886,6 +1942,9 @@ store.setState({
   recordAttempt: patchedRecordAttempt,
   recordSpelling: patchedRecordSpelling,
   recordDailyVocabAttempt,
+  exportProgress: patchedExportProgress,
+  importProgress: patchedImportProgress,
+  resetAll: patchedResetAll,
 });
 
 function aiHelpActionLabel(action) {
