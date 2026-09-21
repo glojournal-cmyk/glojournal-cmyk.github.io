@@ -1334,7 +1334,27 @@ function patchedRecordPe(points, stars, level) {
 
   const result = originalRecordPe(points, stars, level);
   const after = store.getState();
-  let peDays = [...new Set(after.peDays || [])];
+
+  // Scholar Sprint rule: every 2★+ clear of the currently unlocked circuit opens the next one.
+  // The legacy core limited progression to one unlock per calendar day, which made later
+  // same-day clears look broken even though the learner had passed the circuit.
+  const beforePe = before.games?.["pe-circuit"] || { unlocked: 1 };
+  const afterPe = after.games?.["pe-circuit"] || { points: 0, unlocked: 1, stars: [] };
+  if (stars >= 2 && level >= Math.max(1, Number(beforePe.unlocked) || 1) && (afterPe.unlocked || 1) <= level) {
+    store.setState({
+      games: {
+        ...(after.games || {}),
+        "pe-circuit": {
+          ...afterPe,
+          unlocked: Math.min(8, level + 1),
+          lastUnlock: `circuit-${level}`,
+        },
+      },
+    });
+  }
+
+  const afterUnlock = store.getState();
+  let peDays = [...new Set(afterUnlock.peDays || [])];
 
   if (stars >= 2) {
     if (!peDays.includes(day)) peDays.push(day);
