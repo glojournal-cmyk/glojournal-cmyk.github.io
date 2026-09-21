@@ -43,7 +43,7 @@ for(const file of js){
   const missing=[...new Set(imports.filter(x=>!fileSet.has(x)))];
   if(missing.length) failures.push({type:"missing-js-import",file:r,missing});
   if(r!=="assets/index-BLVOhKhN.js"&&r!=="assets/index-BLVOhKhN.core.js"){
-    const runtimeImports=[...src.matchAll(/from["\']\\.\\/index-BLVOhKhN\\.js(?:\\?v=([^"\']+))?["\']/g)];
+    const runtimeImports=[...src.matchAll(/from"\\.\\/index-BLVOhKhN\\.js(?:\\?v=([^"]+))?"/g)];
     for(const m of runtimeImports){
       if(m[1]!=="20260920-dailyfix1") failures.push({type:"runtime-import-cache-drift",file:r,version:m[1]||null});
     }
