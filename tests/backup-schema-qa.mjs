@@ -13,7 +13,9 @@ if(!scholar.includes("e.exportProgress()")||!scholar.includes("e.importProgress(
 if(!scholar.includes("Export progress")||!scholar.includes("Import progress")||!scholar.includes("application/json,.json"))failures.push({type:"scholar-backup-controls-missing"});
 if(!scholar.includes("navigator.share")||!scholar.includes("URL.createObjectURL"))failures.push({type:"ipad-or-download-backup-path-missing"});
 if(!wrapper.includes("function appendLearningEvents")||!wrapper.includes("learningEvents,"))failures.push({type:"learning-history-not-in-runtime-state"});
-const summary={failures:failures.length,fullStateExport:true,importMigration:true,ipadShare:true,jsonFallback:true,includes:["topicStats","skillStats","learningEvents","gamePractice","reviews"]};
+for(const token of ["petBackupVersion: 1","petCompanion: readPetBackupState()","exportProgress: patchedExportProgress","importProgress: patchedImportProgress","resetAll: patchedResetAll"])if(!wrapper.includes(token))failures.push({type:"pet-backup-integration-missing",token});
+if(!scholar.includes("Companion choice, evolution levels and MP"))failures.push({type:"pet-backup-ui-copy-missing"});
+const summary={failures:failures.length,fullStateExport:true,importMigration:true,ipadShare:true,jsonFallback:true,includes:["topicStats","skillStats","learningEvents","gamePractice","reviews","petCompanion","masteryPoints","petLevels"]};
 console.log("BACKUP_SCHEMA_QA "+JSON.stringify(summary));
 console.log("BACKUP_SCHEMA_FAILURES "+JSON.stringify(failures));
 fs.mkdirSync("test-results",{recursive:true});
