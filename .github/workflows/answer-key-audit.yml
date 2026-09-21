@@ -27,6 +27,10 @@ jobs:
         run: node --test tests/french-practice-regression.mjs
       - name: Audit production route shells
         run: node tests/route-shell-qa.mjs
+      - name: Audit whole app integration
+        run: node tests/overall-app-qa.mjs
+      - name: Audit pet mastery and evolution
+        run: node tests/pet-mp-qa.mjs
       - name: Audit progress backup schema
         run: node tests/backup-schema-qa.mjs
       - name: Audit daily task persistence
@@ -112,6 +116,7 @@ jobs:
             test-results/biology-calculation-marking.json
             test-results/biology-session-quality.json
             test-results/route-shell-qa.json
+            test-results/overall-app-qa.json
             test-results/backup-schema-qa.json
             test-results/daily-task-persistence-qa.json
             test-results/repair-score-qa.json
