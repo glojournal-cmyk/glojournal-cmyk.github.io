@@ -2,6 +2,7 @@ import fs from "node:fs";
 const core=fs.readFileSync("assets/index-BLVOhKhN.core.js","utf8");
 const pe=fs.readFileSync("assets/pe-circuit-v3-20260920.js","utf8");
 const games=fs.readFileSync("assets/play._game-BbpxhxeZ.js","utf8");
+const wrapper=fs.readFileSync("assets/index-BLVOhKhN.js","utf8");
 const physics=fs.readFileSync("assets/physics-DT4AA9JX.js","utf8");
 const failures=[];
 const need=(src,name,token)=>{if(!src.includes(token))failures.push({type:"missing-token",name,token});};
@@ -30,6 +31,9 @@ need(pe,"pe",'onPointerDown:down');
 need(pe,"pe",'touchAction:"none"');
 need(pe,"pe","no instant game-over.");
 need(games,"games",'pe-circuit-v3-20260920.js?v=20260920-pe3');
+need(wrapper,"pe unlock","every 2★+ clear of the currently unlocked circuit opens the next one");
+need(wrapper,"pe unlock","unlocked: Math.min(8, level + 1)");
+need(wrapper,"pe unlock","lastUnlock: `circuit-${level}`");
 
 need(games,"games",'const endlessRanks=[{name:\`Bronze\`,min:100},{name:\`Silver\`,min:250},{name:\`Gold\`,min:400},{name:\`Scholar\`,min:550},{name:\`Master\`,min:700},{name:\`Grandmaster\`,min:850}]');
 need(games,"games",'n%5===0');
