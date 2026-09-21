@@ -41,6 +41,8 @@ jobs:
         run: node tests/daily-plan-rigor-qa.mjs
       - name: Audit mastery rewards
         run: node tests/mastery-reward-qa.mjs
+      - name: Audit companion wardrobe
+        run: node tests/companion-wardrobe-qa.mjs
       - name: Audit game progression
         run: node tests/game-progression-qa.mjs
       - name: Audit Latin Case Detective
@@ -123,6 +125,7 @@ jobs:
             test-results/daily-vocab-gate-qa.json
             test-results/daily-plan-rigor-qa.json
             test-results/mastery-reward-qa.json
+            test-results/companion-wardrobe-qa.json
             test-results/game-progression-qa.json
             test-results/case-detective-qa.json
             test-results/error-hunter-qa.json
