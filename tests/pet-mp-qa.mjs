@@ -12,8 +12,10 @@ for(const token of ["const evolutionCosts = [50,90,140,200]","masteryPoints:pet.
 for(const token of ["Moss Hornling senses new growth","Moon Puff sees mastery on the horizon","Star Toadlet predicts a breakthrough","growthMessage(state,pet.species)"]) need(pet,"pet voice",token);
 for(const token of ["mpCount","evolvePet","confirmEvolution","XP, Mastery Points and Mastery Leaves are separate"] ) need(html,"html",token);
 need(home,"home","pet.petLevels&&pet.petLevels[pet.species]");
+for(const token of ["renderSignature","if(a.dataset.renderSignature!==signature)","escapeHtml(displayName(pet))"]) need(home,"home render stability",token);
 if(pet.includes("getStage(leaves)")) failures.push("pet: automatic leaf evolution still present");
 if(home.includes("computedStage=getStage(leaves)")) failures.push("home: automatic leaf evolution still present");
+if(/a\.innerHTML=.*displayName\(pet\)/.test(home)&&!home.includes("renderSignature")) failures.push("home: pet DOM may self-trigger MutationObserver render loop");
 if(pet.includes("formal attempts at")) failures.push("pet: technical attempt statistics leaked into companion insight");
 
 const costs=[50,90,140,200];
