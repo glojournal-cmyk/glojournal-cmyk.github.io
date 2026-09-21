@@ -9,6 +9,7 @@ function readPet(){try{const p=JSON.parse(localStorage.getItem(PET_KEY)||"{}");c
 function masteryCount(state){return Object.values(state.topicStats||{}).filter(function(s){return s&&s.state==="mastered"}).length}
 function dueMastery(state){const d=new Date();const today=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");return Object.values(state.skillStats||{}).filter(function(s){return s&&s.retentionDue&&s.retentionDue<=today&&(s.retentionReady||s.retentionPasses>0)}).length}
 function displayName(p){return p.name||pets[p.species]||"Companion"}
+function escapeHtml(value){return String(value??"").replace(/[&<>"']/g,function(ch){return({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[ch]})}
 const PET_ART_VERSION="20260920-level5-1";
 function spriteStyle(species,level=1){
   const safe=pets[species]?species:"moss-hornling";
@@ -107,11 +108,15 @@ function render(){
   if(!a){a=document.createElement("a");a.id="mastery-pet-home";a.href="/pet/";a.setAttribute("aria-label","Open Companion Corner");a.addEventListener("click",function(event){event.preventDefault();event.stopImmediatePropagation();window.location.assign("/pet/")});host.appendChild(a)}
   else if(a.parentElement!==host)host.appendChild(a);
   const status=pet.masteryPoints+" MP · "+(due>0?due+" retention ready":leaves+" Mastery "+(leaves===1?"Leaf":"Leaves"));
+  const signature=[pet.species,stage,pet.masteryPoints,due,leaves,displayName(pet)].join("|");
   a.dataset.stage=String(stage);
-  a.innerHTML='<span class="mph-glow"></span><span class="mph-star s1"></span><span class="mph-star s2"></span>'+
-    '<span class="mph-art" style="'+spriteStyle(pet.species,stage)+'" aria-hidden="true"></span>'+
-    (leaves>0?'<span class="mph-leaf">'+leaves+'</span>':'')+
-    '<span class="mph-tag"><b>'+displayName(pet)+'</b><br>'+stageNames[stage-1]+' · '+status+'</span>';
+  if(a.dataset.renderSignature!==signature){
+    a.dataset.renderSignature=signature;
+    a.innerHTML='<span class="mph-glow"></span><span class="mph-star s1"></span><span class="mph-star s2"></span>'+
+      '<span class="mph-art" style="'+spriteStyle(pet.species,stage)+'" aria-hidden="true"></span>'+
+      (leaves>0?'<span class="mph-leaf">'+leaves+'</span>':'')+
+      '<span class="mph-tag"><b>'+escapeHtml(displayName(pet))+'</b><br>'+escapeHtml(stageNames[stage-1]+' · '+status)+'</span>';
+  }
   try{
     const key="lux-pet-last-stage-v1";
     const previous=Math.max(1,Number(localStorage.getItem(key))||stage);
