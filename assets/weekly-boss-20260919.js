@@ -1,4 +1,4 @@
-import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{t as r}from"./link-bW0ClP5B.js";import{C as o}from"./index-BLVOhKhN.js";import{t as a}from"./button-CgT0JZ5s.js";import{t as s}from"./card-t5JqoXqT.js";var W=e(t(),1),G=n();
+import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{t as r}from"./link-bW0ClP5B.js";import{C as o}from"./index-BLVOhKhN.js?v=20260920-dailyfix1";import{t as a}from"./button-CgT0JZ5s.js";import{t as s}from"./card-t5JqoXqT.js";var W=e(t(),1),G=n();
 
 const META={id:`weekly-boss`,name:`Weekly Boss Mission`,kicker:`8–12 minute adaptive mission`,blurb:`One locked mission each week, built from recent weak and due concepts. Clear it for a Boss-only collectible, prestige outfit or special scene.`,levels:1};
 const LABELS={french:`French`,physics:`Physics`,chemistry:`Chemistry`,biology:`Biology`};
