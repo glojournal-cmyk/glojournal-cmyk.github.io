@@ -1,5 +1,5 @@
 import{t as jx}from"./jsx-runtime-Cltr0gcK.js";
-import{C as useStore,t as router,rt as unavailable,dt as useCatalog,buildProgressDashboard as buildDashboard}from"./index-BLVOhKhN.js?v=20260920-dailyfix1";
+import{C as useStore,t as router,rt as unavailable,dt as useCatalog,buildProgressDashboard as buildDashboard}from"./index-BLVOhKhN.js?v=20260921-companion1";
 import{t as Card}from"./card-t5JqoXqT.js";
 import{t as YearSelect}from"./study-year-select-Dx5P4Ogw.js";
 import{n as getSubject}from"./subjects-B4IlB2zW.js";

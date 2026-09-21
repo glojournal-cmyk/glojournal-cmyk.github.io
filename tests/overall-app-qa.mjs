@@ -33,7 +33,7 @@ for(const file of html){
   if(missing.length) failures.push({type:"missing-local-ref",file:r,missing});
   if(r!=="pet/index.html"){
     if(!src.includes('name="viewport"')||!src.includes("viewport-fit=cover")) failures.push({type:"mobile-viewport",file:r});
-    if(!src.includes("/assets/index-BLVOhKhN.js?v=20260920-dailyfix1")) failures.push({type:"main-runtime-version",file:r});
+    if(!src.includes("/assets/index-BLVOhKhN.js?v=20260921-companion1")) failures.push({type:"main-runtime-version",file:r});
   }
 }
 
@@ -50,7 +50,7 @@ for(const file of js){
       const quote=src.indexOf('"',valueStart);
       const suffix=quote>=0?src.slice(valueStart,quote):"";
       const version=suffix.startsWith("?v=")?suffix.slice(3):null;
-      if(version!=="20260920-dailyfix1") failures.push({type:"runtime-import-cache-drift",file:r,version});
+      if(version!=="20260921-companion1") failures.push({type:"runtime-import-cache-drift",file:r,version});
       pos=quote>=0?quote+1:valueStart+1;
     }
   }

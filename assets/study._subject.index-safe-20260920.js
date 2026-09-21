@@ -1,4 +1,4 @@
-import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{C as r,st as i,Ut as a}from"./index-BLVOhKhN.js?v=20260920-dailyfix1";var o=e(t(),1),s=n();
+import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{C as r,st as i,Ut as a}from"./index-BLVOhKhN.js?v=20260921-companion1";var o=e(t(),1),s=n();
 
 const META={
   latin:{name:"Latin",quote:"Lingua Latina per semper.",art:"/art/subjects/latin.jpg"},

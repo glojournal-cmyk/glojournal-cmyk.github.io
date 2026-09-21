@@ -1,5 +1,5 @@
 export { component } from "./routes-BEd1a0JC.core.js";
-import { C as store } from "./index-BLVOhKhN.js?v=20260920-dailyfix1";
+import { C as store } from "./index-BLVOhKhN.js?v=20260921-companion1";
 
 const SUBJECTS = new Set(["latin", "french", "biology", "chemistry", "physics", "english"]);
 
