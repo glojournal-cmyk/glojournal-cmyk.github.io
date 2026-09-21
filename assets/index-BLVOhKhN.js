@@ -1203,6 +1203,9 @@ function normalizeState() {
   if (normalizing) return;
   const state = store.getState();
   const patch = {};
+  if (state.companionWardrobeBaselineMastered == null) {
+    patch.companionWardrobeBaselineMastered = Object.values(state.topicStats || {}).filter((row) => row?.state === "mastered").length;
+  }
 
   const verified = verifiedLegacyPeDays(state);
   if (verified) {
