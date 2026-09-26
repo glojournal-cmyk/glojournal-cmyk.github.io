@@ -47,7 +47,7 @@ const avg = (a) => (a.length ? Math.round(a.reduce((x, y) => x + y, 0) / a.lengt
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const starsOf = (v) => (v >= 86 ? 3 : v >= 68 ? 2 : v >= 45 ? 1 : 0);
 
-const ART = { field: null, run: [], pose: [], started: false, ready: false };
+const ART = { field: null, doll: null, run: [], pose: [], started: false, ready: false };
 function ensureArt() {
   if (ART.started) return;
   ART.started = true;
@@ -60,12 +60,14 @@ function ensureArt() {
     });
   Promise.all([
     load("/art/pe-sprint/field.jpg"),
+    load("/art/doll/pe.png"),
     ...[1, 2, 3, 4].map((n) => load(`/art/pe-sprint/run-${n}.png`)),
     ...[1, 2, 3, 4].map((n) => load(`/art/pe-sprint/pose-${n}.png`)),
   ]).then((all) => {
     ART.field = all[0];
-    ART.run = all.slice(1, 5).filter(Boolean);
-    ART.pose = all.slice(5, 9).filter(Boolean);
+    ART.doll = all[1];
+    ART.run = all.slice(2, 6).filter(Boolean);
+    ART.pose = all.slice(6, 10).filter(Boolean);
     ART.ready = true;
   });
 }
@@ -170,8 +172,6 @@ function label(ctx, text, x, y, font, color, align = "left", base = "middle") {
   ctx.fillStyle = color;
   ctx.textAlign = align;
   ctx.textBaseline = base;
-  ctx.shadowColor = "rgba(6,16,24,0.45)";
-  ctx.shadowBlur = 8;
   ctx.fillText(text, x, y);
   ctx.restore();
 }
@@ -182,32 +182,38 @@ function drawField(ctx, w, h) {
     const scale = Math.max(w / img.width, h / img.height);
     const dw = img.width * scale;
     const dh = img.height * scale;
-    ctx.drawImage(img, (w - dw) / 2, h - dh, dw, dh);
-  } else {
-    const sky = ctx.createLinearGradient(0, 0, 0, h);
-    sky.addColorStop(0, "#1b4664");
-    sky.addColorStop(0.45, "#d7b07a");
-    sky.addColorStop(0.62, "#2f6a45");
-    sky.addColorStop(1, "#8d4a3a");
-    ctx.fillStyle = sky;
+    ctx.drawImage(img, (w - dw) / 2, (h - dh) / 2, dw, dh);
+    const wash = ctx.createLinearGradient(0, 0, 0, h);
+    wash.addColorStop(0, "rgba(243,238,228,0.28)");
+    wash.addColorStop(0.4, "rgba(243,238,228,0.05)");
+    wash.addColorStop(1, "rgba(22,50,74,0.18)");
+    ctx.fillStyle = wash;
     ctx.fillRect(0, 0, w, h);
+    return;
   }
-  const veil = ctx.createLinearGradient(0, 0, 0, Math.min(150, h * 0.22));
-  veil.addColorStop(0, "rgba(8,20,32,0.62)");
-  veil.addColorStop(1, "rgba(8,20,32,0)");
-  ctx.fillStyle = veil;
-  ctx.fillRect(0, 0, w, Math.min(160, h * 0.24));
+  const sky = ctx.createLinearGradient(0, 0, 0, h);
+  sky.addColorStop(0, "#e7eef6");
+  sky.addColorStop(0.45, "#f3eee4");
+  sky.addColorStop(1, "#d5e3cc");
+  ctx.fillStyle = sky;
+  ctx.fillRect(0, 0, w, h);
+}
+
+function plate(ctx, x, y, w, h) {
+  rr(ctx, x, y, w, h, 18);
+  ctx.fillStyle = "rgba(255,253,248,0.92)";
+  ctx.fill();
 }
 
 function drawScholar(ctx, pose, frame, x, feetY, height, flip) {
-  const set = pose === "run" ? ART.run : ART.pose;
-  const img = set[Math.abs(frame) % Math.max(1, set.length)] || set[0] || ART.run[0];
+  const img = ART.doll;
+  const bob = pose === "run" || pose === "kick" ? Math.sin(frame * 1.3) * height * 0.025 : 0;
   ctx.save();
-  ctx.translate(x, feetY);
+  ctx.translate(x, feetY + bob);
   if (flip) ctx.scale(-1, 1);
-  ctx.fillStyle = "rgba(20,16,12,0.28)";
+  ctx.fillStyle = "rgba(22,50,74,0.12)";
   ctx.beginPath();
-  ctx.ellipse(0, -4, height * 0.16, height * 0.045, 0, 0, Math.PI * 2);
+  ctx.ellipse(0, -4, height * 0.18, height * 0.04, 0, 0, Math.PI * 2);
   ctx.fill();
   if (img) {
     const aspect = img.width / img.height;
@@ -226,13 +232,13 @@ function stone(ctx, x, y, w, h, hot, pulse) {
     g.addColorStop(0, `rgba(255,236,196,${0.92})`);
     g.addColorStop(1, `rgba(212,164,78,${0.92})`);
   } else {
-    g.addColorStop(0, "rgba(255,255,255,0.16)");
-    g.addColorStop(1, "rgba(8,22,34,0.42)");
+    g.addColorStop(0, "rgba(255,253,248,0.96)");
+    g.addColorStop(1, "rgba(238,243,232,0.96)");
   }
   ctx.fillStyle = g;
   ctx.fill();
   ctx.lineWidth = hot ? 3 : 1.5;
-  ctx.strokeStyle = hot ? `rgba(255,248,230,${0.7 + pulse * 0.3})` : "rgba(255,255,255,0.28)";
+  ctx.strokeStyle = hot ? "rgba(122,98,64,0.45)" : "rgba(22,50,74,0.16)";
   ctx.stroke();
   ctx.restore();
 }
@@ -562,10 +568,17 @@ function layout(w, h) {
 }
 
 function hud(ctx, L, title, sub, right) {
-  label(ctx, "SCHOLAR SPRINT", 22, 28, `600 12px ${SANS}`, "rgba(255,244,220,0.72)");
-  label(ctx, title, 22, 56, `600 ${L.land ? 34 : 30}px ${DISPLAY}`, "#fff8ee");
-  if (sub) label(ctx, sub, 22, 82, `500 14px ${SANS}`, "rgba(255,248,238,0.8)");
-  if (right) label(ctx, right, L.w - 108, 48, `600 15px ${SANS}`, "#fff4d4", "right");
+  const boxH = sub ? 92 : 74;
+  rr(ctx, 14, 12, Math.min(L.w - 140, 480), boxH, 20);
+  ctx.fillStyle = "rgba(255,253,248,0.94)";
+  ctx.fill();
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = "rgba(22,50,74,0.1)";
+  ctx.stroke();
+  label(ctx, "SCHOLAR SPRINT", 28, 32, `600 11px ${SANS}`, "#7a6240");
+  label(ctx, title, 28, 58, `600 ${L.land ? 32 : 28}px ${DISPLAY}`, "#16324a");
+  if (sub) label(ctx, sub, 28, 84, `500 14px ${SANS}`, "#6d7874");
+  if (right) label(ctx, right, L.w - 32, 48, `600 15px ${SANS}`, "#16324a", "right");
 }
 
 function drawPips(ctx, L, list, at) {
@@ -576,7 +589,7 @@ function drawPips(ctx, L, list, at) {
   const y = L.land ? 70 : 86;
   list.forEach((_, i) => {
     rr(ctx, x, y, w, 6, 3);
-    ctx.fillStyle = i < at ? "#e4c27a" : i === at ? "#fff8ea" : "rgba(255,255,255,0.28)";
+    ctx.fillStyle = i < at ? "#3f6b52" : i === at ? "#16324a" : "rgba(22,50,74,0.16)";
     ctx.fill();
     x += w + gap;
   });
@@ -611,7 +624,7 @@ function twoPads(ctx, hits, L, hot) {
   [["left", 18], ["right", 18 + w + gap]].forEach(([id, x]) => {
     stone(ctx, x, y, w, L.padH, hot === id, pulse);
     hits.push({ id, x, y, w, h: L.padH });
-    chevron(ctx, x + w / 2, y + L.padH / 2, id, hot === id ? "#3a2a12" : "#fff8ee");
+    chevron(ctx, x + w / 2, y + L.padH / 2, id, hot === id ? "#3a2a12" : "#16324a");
   });
 }
 
@@ -648,8 +661,8 @@ function drawPlay(ctx, L, sim, now, hits, stationAt, stations, runScore) {
     ctx.beginPath();
     ctx.arc(L.w / 2, y + 36, 14, 0, Math.PI * 2);
     ctx.fill();
-    label(ctx, sim.text, L.w / 2, y + h * 0.58, `600 ${L.land ? 64 : 48}px ${DISPLAY}`, sim.phase === "go" ? "#3a2a12" : "#fff8ee", "center");
-    label(ctx, `${Math.min(sim.scores.length + 1, sim.total)} / ${sim.total}`, L.w - 36, y + 28, `600 14px ${SANS}`, "rgba(255,248,238,0.8)", "right");
+    label(ctx, sim.text, L.w / 2, y + h * 0.58, `600 ${L.land ? 64 : 48}px ${DISPLAY}`, "#16324a", "center");
+    label(ctx, `${Math.min(sim.scores.length + 1, sim.total)} / ${sim.total}`, L.w - 36, y + 28, `600 14px ${SANS}`, "#6d7874", "right");
   } else if (sim.mode === "target") {
     pose = sim.ball && now - sim.ball.t < 280 ? "kick" : "idle";
     frame = pose === "kick" ? 2 : 0;
@@ -659,9 +672,9 @@ function drawPlay(ctx, L, sim, now, hits, stationAt, stations, runScore) {
     const gw = L.land ? L.w * 0.46 : L.w - 36;
     const gh = L.padTop - gy - 18;
     rr(ctx, gx, gy, gw, gh, 18);
-    ctx.fillStyle = "rgba(10,28,22,0.45)";
+    ctx.fillStyle = "rgba(255,253,248,0.72)";
     ctx.fill();
-    ctx.strokeStyle = "rgba(255,248,230,0.7)";
+    ctx.strokeStyle = "rgba(22,50,74,0.28)";
     ctx.lineWidth = 3;
     ctx.stroke();
     const center = targetCenter(sim);
@@ -671,11 +684,11 @@ function drawPlay(ctx, L, sim, now, hits, stationAt, stations, runScore) {
     ctx.fillStyle = "rgba(126,196,122,0.55)";
     ctx.fillRect(zoneX, gy + 8, zoneW, gh - 16);
     const mx = gx + (pos / 100) * gw;
-    ctx.fillStyle = "#fff8ee";
+    ctx.fillStyle = "#16324a";
     rr(ctx, mx - 5, gy + 10, 10, gh - 20, 5);
     ctx.fill();
     hits.push({ id: "goal", x: gx, y: gy, w: gw, h: gh });
-    label(ctx, sim.locked ? "Locked" : "Tap the goal", gx + gw / 2, gy + gh - 22, `600 14px ${SANS}`, "rgba(255,248,238,0.85)", "center");
+    label(ctx, sim.locked ? "Locked" : "Tap the goal", gx + gw / 2, gy + gh - 22, `600 14px ${SANS}`, "#16324a", "center");
   } else if (sim.mode === "memory") {
     pose = "idle";
     frame = 0;
@@ -721,7 +734,7 @@ function drawPlay(ctx, L, sim, now, hits, stationAt, stations, runScore) {
     stone(ctx, 18, L.padTop, L.w - 36, L.padH, sim.holding, pulse);
     hits.push({ id: "hold", x: 18, y: L.padTop, w: L.w - 36, h: L.padH });
     const ratio = sim.elapsed / sim.target;
-    ctx.strokeStyle = "rgba(255,248,238,0.35)";
+    ctx.strokeStyle = "rgba(22,50,74,0.18)";
     ctx.lineWidth = 8;
     ctx.beginPath();
     ctx.arc(sx, sy - L.scholarH * 0.48, L.scholarH * 0.42, 0, Math.PI * 2);
@@ -730,8 +743,8 @@ function drawPlay(ctx, L, sim, now, hits, stationAt, stations, runScore) {
     ctx.beginPath();
     ctx.arc(sx, sy - L.scholarH * 0.48, L.scholarH * 0.42, -Math.PI / 2, -Math.PI / 2 + Math.min(ratio, 1.35) * Math.PI * 2);
     ctx.stroke();
-    label(ctx, sim.holding ? `${(sim.elapsed / 1000).toFixed(2)}` : "HOLD", L.w / 2, L.padTop + L.padH / 2, `600 28px ${SANS}`, sim.holding ? "#3a2a12" : "#fff8ee", "center");
-    label(ctx, `Mark ${(sim.target / 1000).toFixed(2)}s`, L.w / 2, L.padTop + 22, `600 13px ${SANS}`, sim.holding ? "#3a2a12" : "rgba(255,248,238,0.8)", "center");
+    label(ctx, sim.holding ? `${(sim.elapsed / 1000).toFixed(2)}` : "HOLD", L.w / 2, L.padTop + L.padH / 2, `600 28px ${SANS}`, "#16324a", "center");
+    label(ctx, `Mark ${(sim.target / 1000).toFixed(2)}s`, L.w / 2, L.padTop + 22, `600 13px ${SANS}`, "#6d7874", "center");
   } else if (sim.mode === "dodge") {
     pose = "run";
     frame = sim.started ? Math.floor(now / 90) % 4 : 0;
@@ -748,7 +761,7 @@ function drawPlay(ctx, L, sim, now, hits, stationAt, stations, runScore) {
       const gap = 14;
       const pw = (L.w - 36 - gap) / 2;
       const hx = danger === "left" ? 18 + pw - travel * pw : 18 + pw + gap + travel * (pw * 0.3);
-      ctx.fillStyle = "rgba(255,248,238,0.9)";
+      ctx.fillStyle = "rgba(22,50,74,0.85)";
       rr(ctx, hx, L.padTop + 18, 18, L.padH - 36, 6);
       ctx.fill();
       if (lane === "left") sx = L.w * 0.28;
@@ -766,97 +779,126 @@ function drawPlay(ctx, L, sim, now, hits, stationAt, stations, runScore) {
 }
 
 function MapScreen({ onPick, unlocked = 1, stars = [], points = 0, streak = 0, count = 8 }) {
-  useLockScroll();
-  const hits = useRef([]);
-  const ref = useCanvas((ctx, w, h, now) => {
-    const list = [];
-    const land = w / h > 1.02;
-    drawField(ctx, w, h);
-    if (ART.run[0]) drawScholar(ctx, "run", Math.floor(now / 140) % 4, land ? w * 0.9 : w * 0.84, land ? h * 0.93 : h * 0.93, land ? 220 : 180, false);
-    label(ctx, "HOUSE GAMES", 22, 28, `600 12px ${SANS}`, "rgba(255,244,220,0.75)");
-    label(ctx, "Scholar Sprint", 22, 62, `600 ${w > h ? 48 : 40}px ${DISPLAY}`, "#fff8ee");
-    label(ctx, `${points} pts   ·   streak ${streak}`, 22, w > h ? 96 : 94, `500 14px ${SANS}`, "rgba(255,248,238,0.82)");
-    label(ctx, "Two stars open the next circuit", 22, w > h ? 118 : 116, `500 14px ${SANS}`, "rgba(255,248,238,0.82)");
-    const n = Math.max(1, Math.min(8, count || 8));
-    const nodes = [];
-    if (land) {
-      const y = h * 0.66;
-      const left = 78;
-      const right = w - 78;
-      for (let i = 0; i < n; i++) nodes.push({ i, x: n === 1 ? w / 2 : left + ((right - left) * i) / (n - 1), y, r: 36 });
-    } else {
-      const top = h * 0.22;
-      const bot = h * 0.9;
-      for (let i = 0; i < n; i++) {
-        const y = n === 1 ? (top + bot) / 2 : top + ((bot - top) * i) / (n - 1);
-        nodes.push({ i, x: i % 2 ? w * 0.58 : w * 0.28, y, r: 34 });
-      }
-    }
-    if (nodes.length > 1) {
-      ctx.beginPath();
-      ctx.moveTo(nodes[0].x, nodes[0].y);
-      nodes.forEach((nd) => ctx.lineTo(nd.x, nd.y));
-      ctx.strokeStyle = "rgba(255,244,220,0.45)";
-      ctx.lineWidth = 3;
-      ctx.stroke();
-    }
-    nodes.forEach((nd) => {
-      const level = nd.i + 1;
-      const open = level <= unlocked;
-      const earned = stars[nd.i] || 0;
-      const hot = open && level === unlocked;
-      ctx.beginPath();
-      ctx.arc(nd.x, nd.y, nd.r, 0, Math.PI * 2);
-      ctx.fillStyle = open ? (hot ? "#f2d48a" : "rgba(255,248,238,0.92)") : "rgba(16,28,38,0.55)";
-      ctx.fill();
-      ctx.lineWidth = hot ? 4 : 2;
-      ctx.strokeStyle = hot ? "#fff8ee" : "rgba(255,248,238,0.45)";
-      ctx.stroke();
-      label(ctx, String(level), nd.x, nd.y - 2, `600 22px ${DISPLAY}`, open ? "#2a2116" : "rgba(255,248,238,0.7)", "center");
-      const name = CIRCUITS[nd.i][0];
-      label(ctx, name, nd.x, nd.y + nd.r + 16, `600 13px ${SANS}`, "#fff8ee", "center");
-      for (let s = 0; s < 3; s++) star(ctx, nd.x - 16 + s * 16, nd.y + nd.r + 32, 6, s < earned ? "#f2d48a" : "rgba(255,248,238,0.28)");
-      if (open) list.push({ id: `map-${level}`, x: nd.x, y: nd.y, r: nd.r + 12 });
-    });
-    hits.current = list;
-  });
-  const go = (e) => {
-    const id = hitAt(hits.current, point(e, ref.current).x, point(e, ref.current).y);
-    if (id && id.startsWith("map-")) onPick?.(Number(id.slice(4)));
-  };
+  const n = Math.max(1, Math.min(8, count || 8));
+  const openLevel = Math.max(1, Math.min(n, unlocked));
+  const current = CIRCUITS[openLevel - 1];
   return jsx.jsxs("div", {
-    style: shellStyle(),
+    className: "mx-auto max-w-3xl space-y-6",
     children: [
-      jsx.jsx("canvas", {
-        ref,
-        style: { width: "100%", height: "100%", display: "block", touchAction: "none" },
-        onPointerUp: go,
-      }),
       jsx.jsx("a", {
         href: "/play",
-        style: {
-          position: "absolute",
-          top: "calc(env(safe-area-inset-top) + 14px)",
-          right: 18,
-          zIndex: 2,
-          color: "#fff8ee",
-          fontFamily: SANS,
-          fontSize: 14,
-          fontWeight: 600,
-          textDecoration: "none",
-          background: "rgba(8,20,32,0.45)",
-          border: "1px solid rgba(255,248,238,0.28)",
-          borderRadius: 999,
-          padding: "8px 14px",
-        },
-        children: "Leave",
+        className: "inline-flex items-center gap-2 text-sm text-muted hover:text-ink",
+        children: "←  Play",
+      }),
+      jsx.jsxs("header", {
+        className: "flex flex-wrap items-end justify-between gap-4",
+        children: [
+          jsx.jsxs("div", {
+            className: "max-w-xl",
+            children: [
+              jsx.jsx("p", { className: "text-xs font-semibold tracking-[0.22em] text-navy uppercase", children: "PE · House Games" }),
+              jsx.jsx("h1", { className: "mt-2 font-display text-4xl font-semibold text-ink", children: "Scholar Sprint" }),
+              jsx.jsx("p", { className: "mt-2 text-muted", children: "Eight circuits on the house track. Two stars open the next one." }),
+            ],
+          }),
+          jsx.jsxs("div", {
+            className: "flex gap-2 text-sm text-ink",
+            children: [
+              jsx.jsx("span", { className: "rounded-full bg-sage px-3 py-1.5", children: `${points} pts` }),
+              jsx.jsx("span", { className: "rounded-full bg-sage px-3 py-1.5", children: `Streak ${streak}` }),
+            ],
+          }),
+        ],
+      }),
+      jsx.jsxs("section", {
+        className: "panel relative overflow-hidden",
+        children: [
+          jsx.jsx("img", { src: "/art/pe-sprint/field.jpg", alt: "", className: "h-72 w-full object-cover sm:h-80", style: { objectPosition: "center 62%" } }),
+          jsx.jsx("img", { src: "/art/doll/pe.png", alt: "", className: "pointer-events-none absolute bottom-0 right-[4%] h-[94%] w-auto drop-shadow" }),
+          jsx.jsx("div", { className: "pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/75 via-navy/5 to-transparent" }),
+          jsx.jsxs("div", {
+            className: "absolute inset-x-0 bottom-0 p-5 text-card sm:p-6",
+            children: [
+              jsx.jsx("p", { className: "text-xs font-semibold tracking-[0.18em] text-gold uppercase", children: `Circuit ${openLevel} open` }),
+              jsx.jsx("p", { className: "font-display text-3xl font-semibold leading-none", children: current[0] }),
+              jsx.jsx("p", { className: "mt-1 max-w-sm text-sm text-card/80", children: current[1] }),
+            ],
+          }),
+        ],
+      }),
+      jsx.jsx("div", {
+        className: "grid gap-3 sm:grid-cols-2",
+        children: Array.from({ length: n }, (_, i) => {
+          const level = i + 1;
+          const open = level <= unlocked;
+          const earned = stars[i] || 0;
+          const hot = level === openLevel;
+          const [title, focus] = CIRCUITS[i];
+          return jsx.jsxs("button", {
+            type: "button",
+            disabled: !open,
+            onClick: () => open && onPick?.(level),
+            className: `panel flex min-h-[5.5rem] items-center gap-4 p-4 text-left transition ${hot ? "ring-2 ring-navy" : ""} ${open ? "hover:-translate-y-0.5" : "cursor-not-allowed opacity-50"}`,
+            children: [
+              jsx.jsx("span", {
+                className: `grid size-12 shrink-0 place-items-center rounded-full font-display text-2xl ${hot ? "bg-navy text-card" : "bg-sage text-navy"}`,
+                children: String(level),
+              }),
+              jsx.jsxs("span", {
+                className: "min-w-0 flex-1",
+                children: [
+                  jsx.jsx("span", { className: "block font-display text-2xl leading-none text-ink", children: title }),
+                  jsx.jsx("span", { className: "mt-1 block text-sm text-muted", children: open ? focus : "Need 2 stars on the circuit before" }),
+                  jsx.jsx("span", { className: "mt-1 block text-sm tracking-[0.2em] text-bronze", children: `${"★".repeat(earned)}${"☆".repeat(3 - earned)}` }),
+                ],
+              }),
+            ],
+          }, String(level));
+        }),
       }),
     ],
   });
 }
 
+function useChromeBox() {
+  const [box, setBox] = useState({ top: 64, bottom: 0, left: 0 });
+  useEffect(() => {
+    const measure = () => {
+      const header = document.querySelector("header");
+      const nav = document.querySelector("nav.fixed");
+      const today = document.getElementById("lux-today");
+      let top = 0;
+      if (header) {
+        const s = getComputedStyle(header);
+        if (s.display !== "none" && (s.position === "sticky" || s.position === "fixed")) top = header.getBoundingClientRect().height;
+      }
+      if (today && !today.hidden && today.dataset.place !== "aside") top = Math.max(top, today.getBoundingClientRect().bottom);
+      let bottom = 0;
+      if (nav) {
+        const r = nav.getBoundingClientRect();
+        if (getComputedStyle(nav).display !== "none" && r.height > 20 && r.bottom >= window.innerHeight - 4) bottom = Math.max(0, window.innerHeight - r.top);
+      }
+      let left = 0;
+      const aside = document.querySelector("aside");
+      if (aside && getComputedStyle(aside).display !== "none" && aside.getBoundingClientRect().width > 40 && window.innerWidth >= 1280) {
+        left = Math.round(aside.getBoundingClientRect().width);
+      }
+      setBox({ top: Math.round(top), bottom: Math.round(bottom), left });
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    const id = setInterval(measure, 500);
+    return () => {
+      window.removeEventListener("resize", measure);
+      clearInterval(id);
+    };
+  }, []);
+  return box;
+}
+
 function Arena({ level, onExit }) {
   useLockScroll();
+  const chrome = useChromeBox();
   const record = useStore((s) => s.recordPe);
   const sound = useStore((s) => s.sound);
   const cfg = CIRCUITS[Math.min(8, Math.max(1, level)) - 1];
@@ -898,11 +940,16 @@ function Arena({ level, onExit }) {
     if (sim.current && phase === "play") tickSim(sim.current, now);
     if (phase === "intro") {
       drawField(ctx, w, h);
-      drawScholar(ctx, "idle", 0, w * 0.72, h * 0.78, Math.min(340, h * 0.46), false);
-      hud(ctx, L, `Circuit ${level}`, cfg[0], null);
-      label(ctx, cfg[1], 22, 108, `500 16px ${SANS}`, "rgba(255,248,238,0.86)");
+      drawScholar(ctx, "idle", 0, w * 0.72, h * 0.72, Math.min(420, h * 0.5), false);
+      const rows = cfg[2].length;
+      const boxW = Math.min(420, w - 130);
+      const boxH = 96 + rows * 30;
+      plate(ctx, 16, 16, boxW, boxH);
+      label(ctx, "SCHOLAR SPRINT", 32, 38, `600 11px ${SANS}`, "#7a6240");
+      label(ctx, cfg[0], 32, 66, `600 30px ${DISPLAY}`, "#16324a");
+      label(ctx, cfg[1], 32, 96, `500 15px ${SANS}`, "#6d7874");
       cfg[2].forEach((m, i) => {
-        label(ctx, `${i + 1}   ${NAME[m]}`, 22, 150 + i * 28, `600 16px ${SANS}`, "#fff8ee");
+        label(ctx, `${i + 1}    ${NAME[m]}`, 32, 128 + i * 28, `600 16px ${SANS}`, "#16324a");
       });
       const bw = Math.min(280, w - 48);
       const bh = 74;
@@ -919,21 +966,26 @@ function Arena({ level, onExit }) {
       ctx.restore();
     } else if (phase === "done") {
       drawField(ctx, w, h);
-      drawScholar(ctx, "cheer", 3, w * 0.5, h * 0.62, Math.min(360, h * 0.48), false);
-      hud(ctx, L, cfg[0], "Circuit complete", null);
+      drawScholar(ctx, "cheer", 3, w * 0.72, h * 0.7, Math.min(400, h * 0.48), false);
+      const rows = cfg[2].length;
+      const boxW = Math.min(360, w - 48);
+      const boxH = 150 + rows * 26;
+      plate(ctx, (w - boxW) / 2, 16, boxW, boxH);
+      label(ctx, "SCHOLAR SPRINT", w / 2, 40, `600 11px ${SANS}`, "#7a6240", "center");
+      label(ctx, cfg[0], w / 2, 70, `600 30px ${DISPLAY}`, "#16324a", "center");
       const st = result?.stars || 0;
-      for (let i = 0; i < 3; i++) star(ctx, w / 2 - 36 + i * 36, L.land ? 130 : 140, 14, i < st ? "#f2d48a" : "rgba(255,248,238,0.3)");
-      label(ctx, `${result?.avg ?? 0} / 100`, w / 2, L.land ? 168 : 176, `600 22px ${SANS}`, "#fff8ee", "center");
-      label(ctx, `${result?.awarded ?? 0} XP`, w / 2, L.land ? 196 : 204, `500 15px ${SANS}`, "rgba(255,248,238,0.8)", "center");
+      for (let i = 0; i < 3; i++) star(ctx, w / 2 - 36 + i * 36, 108, 14, i < st ? "#b08968" : "rgba(22,50,74,0.16)");
+      label(ctx, `${result?.avg ?? 0} / 100`, w / 2, 140, `600 18px ${SANS}`, "#16324a", "center");
+      label(ctx, `${result?.awarded ?? 0} XP`, w / 2, 162, `500 14px ${SANS}`, "#6d7874", "center");
       cfg[2].forEach((m, i) => {
-        label(ctx, `${NAME[m]}   ${scores[i] ?? 0}`, w / 2, 230 + i * 26, `600 16px ${SANS}`, "#fff8ee", "center");
+        label(ctx, `${NAME[m]}    ${scores[i] ?? 0}`, w / 2, 196 + i * 24, `600 16px ${SANS}`, "#16324a", "center");
       });
       const bw = Math.min(220, (w - 56) / 2);
       const by = h - 96;
       stone(ctx, 22, by, bw, 68, true, 0.4);
       stone(ctx, w - 22 - bw, by, bw, 68, false, 0);
       label(ctx, "Again", 22 + bw / 2, by + 34, `600 20px ${SANS}`, "#3a2a12", "center");
-      label(ctx, "Circuits", w - 22 - bw / 2, by + 34, `600 20px ${SANS}`, "#fff8ee", "center");
+      label(ctx, "Circuits", w - 22 - bw / 2, by + 34, `600 20px ${SANS}`, "#16324a", "center");
       list.push({ id: "again", x: 22, y: by, w: bw, h: 68 });
       list.push({ id: "back", x: w - 22 - bw, y: by, w: bw, h: 68 });
     }
@@ -968,7 +1020,16 @@ function Arena({ level, onExit }) {
   };
 
   return jsx.jsxs("div", {
-    style: shellStyle(),
+    style: {
+      position: "fixed",
+      top: chrome.top,
+      left: chrome.left,
+      right: 0,
+      bottom: chrome.bottom,
+      zIndex: 35,
+      background: "#f3eee4",
+      touchAction: "none",
+    },
     children: [
       jsx.jsx("canvas", {
         ref,
@@ -980,20 +1041,20 @@ function Arena({ level, onExit }) {
       }),
       jsx.jsx("button", {
         type: "button",
-        onClick: () => (phase === "play" || phase === "intro" ? onExit?.() : onExit?.()),
+        onClick: () => onExit?.(),
         style: {
           position: "absolute",
-          top: "calc(env(safe-area-inset-top) + 12px)",
-          right: 16,
+          top: 18,
+          right: 18,
           zIndex: 2,
-          background: "rgba(8,20,32,0.4)",
-          color: "#fff8ee",
-          border: "1px solid rgba(255,248,238,0.28)",
+          background: "#16324a",
+          color: "#fffdf8",
+          border: 0,
           borderRadius: 999,
           padding: "8px 14px",
           fontFamily: SANS,
           fontSize: 14,
-          fontWeight: 600,
+          fontWeight: 650,
         },
         children: "Leave",
       }),
