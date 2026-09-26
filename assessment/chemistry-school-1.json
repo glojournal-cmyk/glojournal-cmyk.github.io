@@ -1,0 +1,1167 @@
+{
+  "id": "chemistry-school-1",
+  "title": "Year 9 Chemistry: Periodic Table, separation and RP6",
+  "timeMinutes": 45,
+  "totalMarks": 45,
+  "dueDate": "2026-09-29",
+  "questions": [
+    {
+      "id": "chem-school-1-01",
+      "topic": "Periodic table",
+      "prompt": "Who made an early list that included some substances later found not to be elements?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "Lavoisier"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-02",
+      "topic": "Periodic table",
+      "prompt": "Newlands arranged elements in increasing order of what?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "atomic mass"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-03",
+      "topic": "Periodic table",
+      "prompt": "Under Newlands’ Law of Octaves, similar properties recurred at which interval?",
+      "format": "mc_single",
+      "options": [
+        "every eighth element",
+        "every second element",
+        "every tenth element",
+        "random intervals"
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "every eighth element"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-04",
+      "topic": "Periodic table",
+      "prompt": "Which problem occurred in Newlands’ table?",
+      "format": "mc_single",
+      "options": [
+        "Very different elements were placed together.",
+        "He left too many gaps.",
+        "He used atomic number.",
+        "He separated metals perfectly."
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "Very different elements were placed together."
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-05",
+      "topic": "Periodic table",
+      "prompt": "Mendeleev arranged elements mainly by which property?",
+      "format": "mc_single",
+      "options": [
+        "atomic mass",
+        "atomic number",
+        "electron number",
+        "melting point"
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "atomic mass"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-06",
+      "topic": "Periodic table",
+      "prompt": "Mendeleev grouped elements with similar what?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "chemical properties",
+          "properties"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-07",
+      "topic": "Periodic table",
+      "prompt": "What did Mendeleev deliberately leave for undiscovered elements?",
+      "format": "mc_single",
+      "options": [
+        "gaps",
+        "isotopes",
+        "fractions",
+        "solvents"
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "gaps"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-08",
+      "topic": "Periodic table",
+      "prompt": "Why did Mendeleev swap the order of some elements?",
+      "format": "mc_single",
+      "options": [
+        "To keep elements with similar properties together.",
+        "To make the masses identical.",
+        "To fit the Law of Octaves.",
+        "To remove all gaps."
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "To keep elements with similar properties together."
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-09",
+      "topic": "Periodic table",
+      "prompt": "The modern Periodic Table orders elements by increasing what?",
+      "format": "mc_single",
+      "options": [
+        "atomic number",
+        "atomic mass",
+        "density",
+        "boiling point"
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "atomic number"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-10",
+      "topic": "Separation",
+      "prompt": "Which method separates an insoluble solid such as sand from water?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "filtration"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-11",
+      "topic": "Separation",
+      "prompt": "In filtration, what is the solid left on the paper called?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "residue"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-12",
+      "topic": "Separation",
+      "prompt": "What is the liquid that passes through filter paper called?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "filtrate"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-13",
+      "topic": "Separation",
+      "prompt": "Which method leaves a soluble solid behind by removing the solvent?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "evaporation"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-14",
+      "topic": "Separation",
+      "prompt": "Which method grows pure crystals from a solution after partial evaporation and cooling?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "crystallisation"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-15",
+      "topic": "Separation",
+      "prompt": "Which method collects a solvent from a solution by boiling and condensing it?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "simple distillation"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-16",
+      "topic": "Separation",
+      "prompt": "Which method uses a fractionating column to separate miscible liquids?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "fractional distillation"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-17",
+      "topic": "Separation",
+      "prompt": "Salt is insoluble in ethanol while sugar dissolves. What should be added first to separate them?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "ethanol"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-18",
+      "topic": "Separation",
+      "prompt": "After dissolving sugar in ethanol, which method separates the undissolved salt?",
+      "format": "mc_single",
+      "options": [
+        "filtration",
+        "fractional distillation",
+        "chromatography",
+        "condensation"
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "filtration"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-19",
+      "topic": "Separation",
+      "prompt": "After filtration, where is the salt?",
+      "format": "mc_single",
+      "options": [
+        "on the filter paper as residue",
+        "dissolved in the filtrate",
+        "in the condenser",
+        "in the solvent front"
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "on the filter paper as residue"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-20",
+      "topic": "Separation",
+      "prompt": "How can the sugar be recovered from the ethanol filtrate?",
+      "format": "mc_single",
+      "options": [
+        "evaporate the ethanol",
+        "filter the sugar",
+        "add more salt",
+        "draw a pencil line"
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "evaporate the ethanol"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-21",
+      "topic": "RP6 method",
+      "prompt": "What should be used to draw the start line?",
+      "format": "mc_single",
+      "options": [
+        "pencil",
+        "ink pen",
+        "felt tip",
+        "paint"
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "pencil"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-22",
+      "topic": "RP6 method",
+      "prompt": "Why use pencil rather than ink?",
+      "format": "mc_single",
+      "options": [
+        "Pencil does not dissolve in the solvent.",
+        "Pencil is more colourful.",
+        "Pencil raises the solvent level.",
+        "Ink stops evaporation."
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "Pencil does not dissolve in the solvent."
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-23",
+      "topic": "RP6 method",
+      "prompt": "Where must the start line be relative to the solvent level?",
+      "format": "mc_single",
+      "options": [
+        "above the solvent",
+        "below the solvent",
+        "at the bottom of the beaker",
+        "exactly level with the solvent"
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "above the solvent"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-24",
+      "topic": "RP6 method",
+      "prompt": "Why keep the spots small?",
+      "format": "mc_single",
+      "options": [
+        "To prevent smearing and overlap.",
+        "To increase Rf above 1.",
+        "To make solvent evaporate.",
+        "To avoid using paper."
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "To prevent smearing and overlap."
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-25",
+      "topic": "RP6 method",
+      "prompt": "When should the solvent front be marked?",
+      "format": "mc_single",
+      "options": [
+        "immediately after removing the paper",
+        "the next day",
+        "before adding solvent",
+        "only after drying overnight"
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "immediately after removing the paper"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-26",
+      "topic": "RP6 method",
+      "prompt": "Why mark the solvent front immediately?",
+      "format": "mc_single",
+      "options": [
+        "The solvent evaporates.",
+        "The pencil line dissolves.",
+        "The paper changes colour.",
+        "The dyes turn to gas."
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "The solvent evaporates."
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-27",
+      "topic": "RP6 errors",
+      "prompt": "Figure 1: Which start-line error is shown?",
+      "format": "mc_single",
+      "options": [
+        "It is drawn in ink.",
+        "It is drawn in pencil.",
+        "It is too high above the solvent.",
+        "There is no line."
+      ],
+      "diagram": "setup.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "It is drawn in ink."
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-28",
+      "topic": "RP6 errors",
+      "prompt": "Figure 1: What effect can the ink start line have?",
+      "format": "mc_single",
+      "options": [
+        "It may dissolve and interfere with the results.",
+        "It makes Rf exactly 1.",
+        "It prevents any solvent rising.",
+        "It has no effect."
+      ],
+      "diagram": "setup.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "It may dissolve and interfere with the results."
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-29",
+      "topic": "RP6 errors",
+      "prompt": "Figure 1: Where are the sample spots relative to the solvent?",
+      "format": "mc_single",
+      "options": [
+        "below the solvent level",
+        "above the solvent level",
+        "at the solvent front",
+        "outside the paper"
+      ],
+      "diagram": "setup.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "below the solvent level"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-30",
+      "topic": "RP6 errors",
+      "prompt": "Figure 1: What could happen to spots below the solvent?",
+      "format": "mc_single",
+      "options": [
+        "They may dissolve into the beaker solvent and wash off.",
+        "They become pure substances.",
+        "They rise more accurately.",
+        "They become permanent."
+      ],
+      "diagram": "setup.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "They may dissolve into the beaker solvent and wash off."
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-31",
+      "topic": "RP6 errors",
+      "prompt": "Figure 1: What is wrong with the position of the paper?",
+      "format": "mc_single",
+      "options": [
+        "It touches the beaker wall.",
+        "It is too short to reach solvent.",
+        "It is made of plastic.",
+        "It has no sample spots."
+      ],
+      "diagram": "setup.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "It touches the beaker wall."
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-32",
+      "topic": "RP6 errors",
+      "prompt": "What can happen when paper touches the beaker wall?",
+      "format": "mc_single",
+      "options": [
+        "The solvent may travel unevenly.",
+        "The spots become atomic numbers.",
+        "The Rf must be zero.",
+        "The solvent cannot evaporate."
+      ],
+      "diagram": "setup.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "The solvent may travel unevenly."
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-33",
+      "topic": "Chromatogram",
+      "prompt": "Figure 2: Which inks are mixtures?",
+      "format": "mc_single",
+      "options": [
+        "B and D",
+        "A and C",
+        "A and B",
+        "C and D"
+      ],
+      "diagram": "inks.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "B and D"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-34",
+      "topic": "Chromatogram",
+      "prompt": "Figure 2: Which inks are single dyes?",
+      "format": "mc_single",
+      "options": [
+        "A and C",
+        "B and D",
+        "A and D",
+        "B and C"
+      ],
+      "diagram": "inks.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "A and C"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-35",
+      "topic": "Chromatogram",
+      "prompt": "Figure 2: What observation shows B is a mixture?",
+      "format": "mc_single",
+      "options": [
+        "It produces three spots.",
+        "It produces one spot.",
+        "It is on the start line.",
+        "It has the lowest label."
+      ],
+      "diagram": "inks.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "It produces three spots."
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-36",
+      "topic": "Chromatogram",
+      "prompt": "Figure 2: Which coloured spot is most soluble in this solvent?",
+      "format": "mc_single",
+      "options": [
+        "yellow",
+        "green",
+        "red",
+        "blue"
+      ],
+      "diagram": "inks.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "yellow"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "The yellow spot travelled furthest towards the solvent front."
+      }
+    },
+    {
+      "id": "chem-school-1-37",
+      "topic": "Rf",
+      "prompt": "Figure 3: What is the solvent-front distance travelled from the start line, in mm?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": "rf.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "50",
+          "50 mm"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": "55 mm − 5 mm = 50 mm."
+      }
+    },
+    {
+      "id": "chem-school-1-38",
+      "topic": "Rf",
+      "prompt": "Figure 3: What distance did the blue dye travel from the start line, in mm?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": "rf.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "30",
+          "30 mm"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": "Measure to the centre: 35 mm − 5 mm = 30 mm."
+      }
+    },
+    {
+      "id": "chem-school-1-39",
+      "topic": "Rf",
+      "prompt": "Figure 3: Calculate Rf for the blue dye (no unit).",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": "rf.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.60",
+          "0.6"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": "Rf = 30 ÷ 50 = 0.60; it has no unit."
+      }
+    },
+    {
+      "id": "chem-school-1-40",
+      "topic": "Rf",
+      "prompt": "Figure 3: Which reference dye matches an Rf of 0.60?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": "rf.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "green"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": "This matches the reference value for green under the same conditions."
+      }
+    },
+    {
+      "id": "chem-school-1-41",
+      "topic": "Solvents",
+      "prompt": "Figure 4: Which solvent separated the three dyes more clearly?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": "solvents.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "water"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-42",
+      "topic": "Solvents",
+      "prompt": "Figure 4: What evidence supports that choice?",
+      "format": "mc_single",
+      "options": [
+        "The spots are more spread out and distinct.",
+        "The spots overlap more.",
+        "The labels are darker.",
+        "The start line is higher."
+      ],
+      "diagram": "solvents.svg",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "The spots are more spread out and distinct."
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-43",
+      "topic": "RP6",
+      "prompt": "What does one spot from a sample usually suggest?",
+      "format": "mc_single",
+      "options": [
+        "It is pure or contains one dye.",
+        "It contains three dyes.",
+        "It has an Rf above 1.",
+        "It is insoluble in all solvents."
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "It is pure or contains one dye."
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    },
+    {
+      "id": "chem-school-1-44",
+      "topic": "RP6",
+      "prompt": "Name one advantage of gas chromatography over paper chromatography.",
+      "format": "mc_single",
+      "options": [
+        "greater sensitivity",
+        "less sensitivity",
+        "no separation possible",
+        "requires no sample"
+      ],
+      "diagram": "",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "greater sensitivity"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "It can detect smaller amounts and separate complex mixtures precisely."
+      }
+    },
+    {
+      "id": "chem-school-1-45",
+      "topic": "RP6",
+      "prompt": "How can an unknown dye be identified from a chromatogram?",
+      "format": "mc_single",
+      "options": [
+        "Compare its Rf with known dyes under the same conditions.",
+        "Compare only the colour of the beaker.",
+        "Use any solvent without recording it.",
+        "Ignore the solvent front."
+      ],
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "Compare its Rf with known dyes under the same conditions."
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": ""
+      }
+    }
+  ]
+}
