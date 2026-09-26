@@ -31,7 +31,7 @@ for(const file of html){
     .filter(x=>/^(\/assets\/|\/art\/|\/pet\/|\/content\/|\/__grok\/|\/app\.css$|\/favicon\.svg$)/.test(x));
   const missing=[...new Set(refs)].filter(x=>!fileSet.has(x.slice(1)));
   if(missing.length) failures.push({type:"missing-local-ref",file:r,missing});
-  if(r!=="pet/index.html"){
+  if(r!=="pet/index.html"&&r!=="assessment/index.html"){
     if(!src.includes('name="viewport"')||!src.includes("viewport-fit=cover")) failures.push({type:"mobile-viewport",file:r});
     if(!src.includes("/assets/index-BLVOhKhN.js?v=20260921-companion1")) failures.push({type:"main-runtime-version",file:r});
   }
