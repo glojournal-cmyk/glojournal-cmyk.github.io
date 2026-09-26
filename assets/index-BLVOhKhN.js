@@ -1,4 +1,4 @@
-export * from "./index-BLVOhKhN.core.js?v=20260926-qa6";
+export * from "./index-BLVOhKhN.core.js?v=20260926-y8daily";
 import {
   C as store,
   U as collectibles,
@@ -10,7 +10,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20260926-qa6";
+} from "./index-BLVOhKhN.core.js?v=20260926-y8daily";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -1038,6 +1038,63 @@ function vocabGateState(state, subject) {
   return { attempts, correct, passed, progress };
 }
 
+const YEAR8_ASSIGNED_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
+
+function year8AssignedPool() {
+  const pool = [];
+  for (const subject of YEAR8_ASSIGNED_SUBJECTS) {
+    let topics = [];
+    try {
+      topics = (getTopicCatalog(subject, 8) || []).filter((topic) => topic?.status === "enabled" && Number(topic?.enabled ?? topic?.questions ?? 0) >= 15);
+    } catch {}
+    for (const topic of topics) {
+      if (!topic?.topicId) continue;
+      pool.push({
+        subject,
+        topicId: topic.topicId,
+        topicLabel: topic.title || topic.topicId,
+        label: SUBJECT_LABELS[subject] || subject,
+      });
+    }
+  }
+  pool.sort((a, b) => a.subject.localeCompare(b.subject) || a.topicId.localeCompare(b.topicId));
+  return pool;
+}
+
+function pickYear8Assigned(pool, seed, avoidIds) {
+  if (!pool.length) return null;
+  const avoid = new Set((avoidIds || []).filter(Boolean));
+  const start = Math.abs(Number(seed) || 0) % pool.length;
+  for (let i = 0; i < pool.length; i++) {
+    const item = pool[(start + i) % pool.length];
+    if (!avoid.has(item.topicId)) return item;
+  }
+  return pool[start];
+}
+
+function year8AssignedHref(item, mode) {
+  const params = new URLSearchParams();
+  params.set("daily", "1");
+  params.set("locked", "1");
+  params.set("year", "8");
+  params.set("mode", mode);
+  params.set("task", mode === "mastery" ? "y8-mastery" : "y8-practise");
+  if (item?.topicId) params.set("topic", item.topicId);
+  return `/study/${item?.subject || "latin"}/practise?${params.toString()}`;
+}
+
+function year8AssignedTitle(kind, pick) {
+  const base = kind === "mastery" ? "Mastery a Year 8 topic" : "Practise a Year 8 topic";
+  return pick?.topicLabel ? `${base} · ${pick.topicLabel}` : pick?.label ? `${base} · ${pick.label}` : base;
+}
+
+function topicAttemptsToday(state, topicId) {
+  if (!topicId) return 0;
+  const day = state.today || todayKey();
+  const stat = state.topicStats?.[topicId] || {};
+  return (stat.recentOutcomes || []).filter((row) => row?.date === day).length;
+}
+
 function year8ReviewPlan(state) {
   const day = state.today || todayKey();
   const seed = [...day].reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
@@ -1184,6 +1241,44 @@ function buildAdaptiveDaily(state) {
       }
     : plannedYear8Review);
   const year8ReviewProgress = recoveredYear8Review ? 15 : lockedYear8Plan ? Math.min(15, oldYear8Review.progress || 0) : 0;
+  const assignedPool = year8AssignedPool();
+  const assignedSeed = [...(state.today || todayKey())].reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
+  const oldPractise = previous.get("y8-practise") || {};
+  const oldMastery = previous.get("y8-mastery") || {};
+  const practiseLocked = oldPractise.planDate === state.today && oldPractise.assignedTopic && oldPractise.href
+    ? { subject: oldPractise.assignedSubject, topicId: oldPractise.assignedTopic, topicLabel: oldPractise.assignedLabel, label: SUBJECT_LABELS[oldPractise.assignedSubject] || oldPractise.assignedSubject }
+    : null;
+  const masteryLocked = oldMastery.planDate === state.today && oldMastery.assignedTopic && oldMastery.href
+    ? { subject: oldMastery.assignedSubject, topicId: oldMastery.assignedTopic, topicLabel: oldMastery.assignedLabel, label: SUBJECT_LABELS[oldMastery.assignedSubject] || oldMastery.assignedSubject }
+    : null;
+  const practisePick = practiseLocked || pickYear8Assigned(assignedPool, assignedSeed, [year8Review.topicId]);
+  const masteryPick = masteryLocked || pickYear8Assigned(assignedPool, assignedSeed + 97, [year8Review.topicId, practisePick?.topicId]);
+  const y8PractiseTask = {
+    id: "y8-practise",
+    title: year8AssignedTitle("practise", practisePick),
+    detail: "10 questions on today’s assigned Year 8 topic. The topic is locked — you cannot choose.",
+    href: year8AssignedHref(practisePick, "standard"),
+    target: 10,
+    progress: Math.min(10, Math.max(oldPractise.progress || 0, topicAttemptsToday(state, practisePick?.topicId))),
+    xp: 15,
+    planDate: state.today,
+    assignedSubject: practisePick?.subject || null,
+    assignedTopic: practisePick?.topicId || null,
+    assignedLabel: practisePick?.topicLabel || null,
+  };
+  const y8MasteryTask = {
+    id: "y8-mastery",
+    title: year8AssignedTitle("mastery", masteryPick),
+    detail: "15 questions on today’s assigned Year 8 topic. The topic is locked — you cannot choose.",
+    href: year8AssignedHref(masteryPick, "mastery"),
+    target: 15,
+    progress: Math.min(15, Math.max(oldMastery.progress || 0, topicAttemptsToday(state, masteryPick?.topicId))),
+    xp: 20,
+    planDate: state.today,
+    assignedSubject: masteryPick?.subject || null,
+    assignedTopic: masteryPick?.topicId || null,
+    assignedLabel: masteryPick?.topicLabel || null,
+  };
   const garden = previous.get("tend-garden") || { id: "tend-garden", title: "Water your plants", detail: "Tend the Scholar’s Garden.", href: "/garden", target: 1, progress: 0, xp: 10 };
   const game = previous.get("play-game") || { id: "play-game", title: "Play a quick game", detail: "One short learning game.", href: "/play", target: 1, progress: 0, xp: 10 };
 
@@ -1193,6 +1288,8 @@ function buildAdaptiveDaily(state) {
     { id: "latin-vocab", title: "Latin vocab check", detail: `5 different Latin words minimum · ${latinVocab.correct}/4 correct · ${latinVocab.attempts} tested${latinVocab.passed ? " · passed" : latinVocab.attempts >= 5 ? " · keep going until 4 are correct" : ""}.`, href: "/session/latin-vocab", target: 5, progress: latinVocab.progress, xp: 10, requiredAttempts: 5, requiredCorrect: 4, attempts: latinVocab.attempts, correct: latinVocab.correct, planDate: state.today },
     { id: "adaptive-focus", title: focus.skillLabel ? `${focus.skillLabel} focus` : `${label} focus`, detail: "Four questions in today’s priority subject. Mastery needs ≥85% plus one independent typed or spelled answer.", href: focusHref(focus, state), target: 4, progress: focusProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason },
     { id: "year8-long-review", title: year8Review.topicLabel ? `Year 8 ${year8Review.label} mastery · ${year8Review.topicLabel}` : `Year 8 ${year8Review.label} topic mastery`, detail: "15-question topic mastery review · Latin/French only · prioritises an unmastered or weaker Year 8 topic.", href: year8Review.href, target: 15, progress: year8ReviewProgress, xp: 20, planDate: state.today, reviewYear: 8, reviewSubject: year8Review.subject, reviewTopic: year8Review.topicId || null },
+    y8PractiseTask,
+    y8MasteryTask,
     { ...garden, progress: Math.min(garden.target || 1, garden.progress || 0) },
     { ...game, progress: Math.min(game.target || 1, game.progress || 0) },
   ];
@@ -2034,6 +2131,18 @@ applyPracticeModeFromUrl.lastKey = "";
 store.subscribe(() => normalizeState());
 store.persist?.onFinishHydration?.(() => normalizeState());
 setTimeout(() => { allowNormalize = true; normalizeState(); }, 0);
+setTimeout(() => {
+  let tries = 0;
+  const timer = setInterval(() => {
+    tries += 1;
+    let ready = false;
+    try { ready = (getTopicCatalog("latin", 8) || []).length > 0; } catch {}
+    if (ready || tries > 40) {
+      clearInterval(timer);
+      if (ready) normalizeState();
+    }
+  }, 250);
+}, 0);
 
 if (typeof document !== "undefined") {
   if (!window.__SCHOLAR_AI_USAGE_LISTENER__) {
