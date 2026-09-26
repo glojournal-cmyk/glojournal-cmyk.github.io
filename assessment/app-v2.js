@@ -4,6 +4,31 @@ const PAPERS=[
   {id:'latin-creusa',name:'Latin · The Loss of Creusa',subtitle:'English-text comprehension · Aeneid Book II · school reading',bank:'/assessment/latin-creusa-1.json',count:24,minutes:40,groups:{'Escape from Troy':6,'The search':6,'Creusa’s ghost':6,'Prophecy and themes':6}},
   ...['latin','biology','physics','english'].map(id=>({id,name:id[0].toUpperCase()+id.slice(1)+' · Year 9 assessment',subtitle:'Mixed topics from the Year 9 question bank',bank:`/assessment/banks/${id}.json`,count:30,minutes:35}))
 ];
+const GARDEN_KEY='lux-scholar-garden-v1';
+const PRIZES={
+  french:{outfit:'breton',name:'Breton'},
+  chemistry:{outfit:'lab-coat',name:'Laboratory Coat'},
+  'latin-creusa':{outfit:'stola',name:'Latin Play'},
+  latin:{outfit:'latin',name:'Prize Day'},
+  biology:{outfit:'lab-goggles',name:'Science Practical'},
+  physics:{outfit:'blazer',name:'School Blazer'},
+  english:{outfit:'concert-blouse',name:'Concert Blouse'}
+};
+function grantWardrobe(id){
+  const prize=PRIZES[id];
+  if(!prize)return null;
+  let raw;try{raw=JSON.parse(localStorage.getItem(GARDEN_KEY)||'{}')}catch{raw={}}
+  const wrapped=!!(raw&&raw.state&&typeof raw.state==='object'&&!Array.isArray(raw.state));
+  const garden=wrapped?raw.state:(raw&&typeof raw==='object'?raw:{});
+  const passed=Array.isArray(garden.passedPapers)?garden.passedPapers:[];
+  const owned=Array.isArray(garden.unlockedOutfits)?garden.unlockedOutfits:['day'];
+  const already=passed.includes(id)||owned.includes(prize.outfit);
+  if(!passed.includes(id))garden.passedPapers=[...passed,id];
+  if(!owned.includes(prize.outfit))garden.unlockedOutfits=[...owned,prize.outfit];
+  if(wrapped)raw.state=garden;else raw=garden;
+  localStorage.setItem(GARDEN_KEY,JSON.stringify(raw));
+  return {...prize,fresh:!already};
+}
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
 let state;try{state=JSON.parse(localStorage.getItem(KEY))||{}}catch{state={}}
 state.tracker||=[];state.results||=[];state.drafts||={};state.recent||={};
@@ -12,7 +37,7 @@ function save(){localStorage.setItem(KEY,JSON.stringify(state))}
 function esc(x){return String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function show(tab){clearInterval(timer);timer=null;document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('selected',b.dataset.tab===tab));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('hidden',p.id!==tab));if(tab==='tracker')tracker();if(tab==='history')history()}
 document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>show(b.dataset.tab)));
-function cards(){$('#paper-list').innerHTML=PAPERS.map(p=>`<article class="card"><span class="tag">${p.minutes} min · ${p.count} questions · pass 85%</span><h3>${esc(p.name)}</h3><p>${esc(p.subtitle)}</p><button class="primary" data-paper="${p.id}">${state.drafts[p.id]?.version===2?'Continue test':'Start new paper'}</button></article>`).join('')}
+function cards(){$('#paper-list').innerHTML=PAPERS.map(p=>{const prize=PRIZES[p.id];return `<article class="card"><span class="tag">${p.minutes} min · ${p.count} questions · pass 85%</span><h3>${esc(p.name)}</h3><p>${esc(p.subtitle)}</p>${prize?`<p class="muted">Pass once to unlock ${esc(prize.name)} in the wardrobe.</p>`:''}<button class="primary" data-paper="${p.id}">${state.drafts[p.id]?.version===2?'Continue test':'Start new paper'}</button></article>`}).join('')}
 cards();$('#paper-list').addEventListener('click',e=>{const b=e.target.closest('[data-paper]');if(b)start(b.dataset.paper)});
 $('#track-form').addEventListener('submit',e=>{e.preventDefault();state.tracker.push({...Object.fromEntries(new FormData(e.target)),id:crypto.randomUUID()});save();e.target.reset();tracker()});
 function tracker(){const entries=[...state.tracker].sort((a,b)=>a.date.localeCompare(b.date));$('#tracker-list').innerHTML=entries.length?entries.map(x=>`<article class="entry"><div><span class="tag">${esc(x.subject)} · ${esc(x.date)} · ${esc(x.status)}</span><h3>${esc(x.title)}</h3>${x.score?`<p><b>Result:</b> ${esc(x.score)}</p>`:''}${x.notes?`<p>${esc(x.notes)}</p>`:''}</div><button data-delete="${x.id}">Delete</button></article>`).join(''):'<p class="muted">No school assessments recorded yet.</p>'}
@@ -72,7 +97,7 @@ function showAnswer(q){
   return list.join(' / ');
 }
 function finish(p,d){clearInterval(timer);timer=null;let earned=0;const rows=d.questions.map((q,i)=>{const answer=d.answers[i]||'',right=correct(q,answer);if(right)earned++;return `<article class="entry"><div><span class="tag">Question ${i+1} · ${right?'Correct':'Incorrect'} · ${esc(q.topic||'')}</span><p>${esc(q.prompt)}</p><p><b>Your answer:</b> ${esc(answer)||'—'}</p><p><b>Model answer:</b> ${esc(showAnswer(q))}</p>${p.id==='chemistry'||q.markKeywords?`<p><b>Marking keywords:</b> ${esc((q.markKeywords||q.answer.accepted).join(' · '))}</p><p class="muted"><b>Hint for next time:</b> ${esc(q.hint||q.feedback?.short||'Check the evidence in the question before choosing a method.')}</p>`:q.feedback?.short?`<p class="muted">${esc(q.feedback.short)}</p>`:''}</div></article>`});
- const score=Math.round(earned/d.questions.length*100);const missed={};d.questions.forEach((q,i)=>{if(!correct(q,d.answers[i]||''))missed[q.topic||'Other']=(missed[q.topic||'Other']||0)+1});const focus=Object.entries(missed).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([topic,n])=>`${esc(topic)} (${n})`).join(' · ');state.results.push({date:new Date().toLocaleDateString('en-GB'),paper:p.name,correct:earned,total:d.questions.length});state.recent[p.id]=d.questions.map(q=>q.id);delete state.drafts[p.id];save();cards();
- $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${earned}/${d.questions.length} correct. Pass mark: 85/100. Review the answers below, then start a new paper for a different selection.</p>${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='chemistry'?'<p class="muted">Each question is worth one mark. The keywords show the idea needed for that mark; the hint suggests what to check next time.</p>':''}<button id="back-to-papers" class="primary">New paper</button><div class="entries">${rows.join('')}</div>`;
+ const score=Math.round(earned/d.questions.length*100);const missed={};d.questions.forEach((q,i)=>{if(!correct(q,d.answers[i]||''))missed[q.topic||'Other']=(missed[q.topic||'Other']||0)+1});const focus=Object.entries(missed).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([topic,n])=>`${esc(topic)} (${n})`).join(' · ');const prize=PRIZES[p.id];const reward=score>=85?grantWardrobe(p.id):null;const wardrobe=reward?`<p class="feedback"><b>${reward.fresh?'Wardrobe unlocked':'Already in the wardrobe'}:</b> ${esc(reward.name)}. Open Scholar and choose it.</p>`:prize?`<p class="muted">85% unlocks ${esc(prize.name)} in the wardrobe. This paper stays locked.</p>`:'';state.results.push({date:new Date().toLocaleDateString('en-GB'),paper:p.name,correct:earned,total:d.questions.length});state.recent[p.id]=d.questions.map(q=>q.id);delete state.drafts[p.id];save();cards();
+ $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${earned}/${d.questions.length} correct. Pass mark: 85/100. Review the answers below, then start a new paper for a different selection.</p>${wardrobe}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='chemistry'?'<p class="muted">Each question is worth one mark. The keywords show the idea needed for that mark; the hint suggests what to check next time.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
  $('#back-to-papers').onclick=()=>show('papers')
 }
