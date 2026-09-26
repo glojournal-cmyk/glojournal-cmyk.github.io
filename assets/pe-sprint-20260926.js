@@ -876,7 +876,9 @@ function useChromeBox() {
       let bottom = 0;
       if (nav) {
         const r = nav.getBoundingClientRect();
-        if (getComputedStyle(nav).display !== "none" && r.height > 20 && r.bottom >= window.innerHeight - 4) bottom = Math.max(0, window.innerHeight - r.top);
+        const style = getComputedStyle(nav);
+        const docked = style.display !== "none" && r.height > 20 && r.top < window.innerHeight - 8 && r.bottom > window.innerHeight * 0.55;
+        if (docked) bottom = Math.max(bottom, window.innerHeight - r.top);
       }
       let left = 0;
       const aside = document.querySelector("aside");
