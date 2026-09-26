@@ -48,10 +48,29 @@ function show(tab){
 }
 document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>show(b.dataset.tab)));
 
+function examToday(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function examWhen(exam){if(!exam)return '';const [y,m,day]=exam.split('-').map(Number);return new Date(y,m-1,day).toLocaleDateString('en-GB',{day:'numeric',month:'long'})}
+const EXAM_GROUPS=[
+  {subject:'Latin',exam:'2026-09-28',ids:['latin-creusa','latin']},
+  {subject:'Chemistry',exam:'2026-09-29',ids:['chemistry']},
+  {subject:'English',exam:'2026-09-30',ids:['english']},
+  {subject:'French',exam:'2026-10-08',ids:['french']},
+  {subject:'Biology',exam:'',ids:['biology']},
+  {subject:'Physics',exam:'',ids:['physics']}
+];
+function groupBlurb(group,today){
+  const when=group.exam?examWhen(group.exam):'';
+  if(group.subject==='Latin')return today>group.exam?`Exam ${when} has passed. The Loss of Creusa is now in Practise. Year 9 grammar was already there.`:`Exam ${when}. The Loss of Creusa joins Practise the next day. Year 9 grammar is already in Practise.`;
+  if(group.subject==='English')return `Exam ${when}. These Year 9 questions are already in Practise.`;
+  if(group.exam)return today>group.exam?`Exam ${when} has passed. These questions are now in Practise.`:`Exam ${when}. These questions join Practise the next day.`;
+  return 'Mixed questions from the Year 9 bank. Already in Practise.';
+}
 function cards(){
-  $('#paper-list').innerHTML=PAPERS.map(p=>{
-    const prize=PRIZES[p.id];
-    return `<article class="card"><span class="tag">${p.minutes} min · ${p.count} questions · pass 85%</span><h3>${esc(p.name)}</h3><p>${esc(p.subtitle)}</p>${prize?`<p class="muted">Pass once to unlock ${esc(prize.name)} in the wardrobe.</p>`:''}<button class="primary" data-paper="${p.id}">${state.drafts[p.id]?.version===2?'Continue test':'Start new paper'}</button></article>`;
+  if(!document.getElementById('exam-group-style')){const s=document.createElement('style');s.id='exam-group-style';s.textContent='.subject-list{display:flex;flex-direction:column;gap:28px}.subject-block{padding-top:4px;border-top:1px solid #d5ddd6}.subject-block:first-child{border-top:0;padding-top:0}.subject-block h2{font-size:34px}.subject-block .when{margin:6px 0 0;color:#62717a;max-width:42rem}.subject-block .cards{margin-top:12px}';document.head.appendChild(s)}
+  const root=$('#paper-list');root.className='subject-list';const today=examToday();
+  root.innerHTML=EXAM_GROUPS.map(group=>{
+    const papers=group.ids.map(id=>PAPERS.find(p=>p.id===id)).filter(Boolean);
+    return `<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="when">${esc(groupBlurb(group,today))}</p><div class="cards">${papers.map(p=>{const prize=PRIZES[p.id];return `<article class="card"><span class="tag">${p.minutes} min · ${p.count} questions · pass 85%</span><h3>${esc(p.name)}</h3><p>${esc(p.subtitle)}</p>${prize?`<p class="muted">Pass once to unlock ${esc(prize.name)} in the wardrobe.</p>`:''}<button class="primary" data-paper="${p.id}">${state.drafts[p.id]?.version===2?'Continue test':'Start new paper'}</button></article>`}).join('')}</div></section>`
   }).join('');
 }
 cards();
