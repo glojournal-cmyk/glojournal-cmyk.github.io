@@ -13,22 +13,21 @@
           "topic": "Escape from Troy",
           "passage": "Troy was burning as Aeneas tried to lead his family out of the city. He carried his elderly father Anchises on his shoulders and held the hand of his young son Ascanius, also called Iulus. Creusa, his wife, followed behind them. They agreed to meet at a place outside the city. In the confusion and darkness, Creusa became separated from them. Only after reaching the meeting place did Aeneas realise she was missing.",
           "prompt": "Who was Aeneas carrying?",
-          "options": [
-            "Anchises",
-            "Ascanius",
-            "Creusa",
-            "A Greek soldier"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "exact_or_equivalent",
             "accepted": [
-              "Anchises"
+              "Anchises",
+              "his father",
+              "his elderly father"
             ],
-            "normalization": {}
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "Anchises was his elderly father."
-          }
+          },
+          "modelAnswer": "Anchises"
         },
         {
           "id": "creusa-1-02",
@@ -51,7 +50,8 @@
           },
           "feedback": {
             "short": "Ascanius, also called Iulus, was his son."
-          }
+          },
+          "modelAnswer": "Ascanius"
         },
         {
           "id": "creusa-1-03",
@@ -74,7 +74,8 @@
           },
           "feedback": {
             "short": "Creusa was his wife."
-          }
+          },
+          "modelAnswer": "Creusa"
         },
         {
           "id": "creusa-1-04",
@@ -82,22 +83,36 @@
           "topic": "Escape from Troy",
           "passage": "Troy was burning as Aeneas tried to lead his family out of the city. He carried his elderly father Anchises on his shoulders and held the hand of his young son Ascanius, also called Iulus. Creusa, his wife, followed behind them. They agreed to meet at a place outside the city. In the confusion and darkness, Creusa became separated from them. Only after reaching the meeting place did Aeneas realise she was missing.",
           "prompt": "Why was it difficult for the family to stay together?",
-          "options": [
-            "They were travelling by sea",
-            "Creusa refused to leave",
-            "They had no meeting place",
-            "The burning city was dark and confused"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "keywords",
             "accepted": [
-              "The burning city was dark and confused"
+              "The fire, darkness and confusion in the burning city made it easy to become separated."
             ],
-            "normalization": {}
+            "required": [
+              [
+                "fire",
+                "burning"
+              ],
+              [
+                "dark",
+                "confus",
+                "chaos",
+                "crowd",
+                "panic"
+              ]
+            ],
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "Use the setting: fire, darkness and confusion."
-          }
+          },
+          "modelAnswer": "The fire, darkness and confusion in the burning city made it easy to become separated.",
+          "markKeywords": [
+            "fire / burning",
+            "dark / confus / chaos / crowd / panic"
+          ]
         },
         {
           "id": "creusa-1-05",
@@ -120,7 +135,8 @@
           },
           "feedback": {
             "short": "He realised after reaching the agreed meeting place."
-          }
+          },
+          "modelAnswer": "At the meeting place outside Troy"
         },
         {
           "id": "creusa-1-06",
@@ -128,22 +144,23 @@
           "topic": "Escape from Troy",
           "passage": "Troy was burning as Aeneas tried to lead his family out of the city. He carried his elderly father Anchises on his shoulders and held the hand of his young son Ascanius, also called Iulus. Creusa, his wife, followed behind them. They agreed to meet at a place outside the city. In the confusion and darkness, Creusa became separated from them. Only after reaching the meeting place did Aeneas realise she was missing.",
           "prompt": "What had they agreed before separating?",
-          "options": [
-            "To fight the Greeks",
-            "To meet outside the city",
-            "To travel to Greece",
-            "To leave Ascanius behind"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "exact_or_equivalent",
             "accepted": [
-              "To meet outside the city"
+              "outside the city",
+              "at a meeting place outside Troy",
+              "outside Troy",
+              "a meeting place outside the city",
+              "At a meeting place outside the city"
             ],
-            "normalization": {}
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "They had agreed on a meeting place."
-          }
+          },
+          "modelAnswer": "At a meeting place outside the city"
         },
         {
           "id": "creusa-1-07",
@@ -166,7 +183,8 @@
           },
           "feedback": {
             "short": "The passage explicitly gives both names."
-          }
+          },
+          "modelAnswer": "Iulus"
         },
         {
           "id": "creusa-1-08",
@@ -174,22 +192,23 @@
           "topic": "Escape from Troy",
           "passage": "Troy was burning as Aeneas tried to lead his family out of the city. He carried his elderly father Anchises on his shoulders and held the hand of his young son Ascanius, also called Iulus. Creusa, his wife, followed behind them. They agreed to meet at a place outside the city. In the confusion and darkness, Creusa became separated from them. Only after reaching the meeting place did Aeneas realise she was missing.",
           "prompt": "What was happening to Troy?",
-          "options": [
-            "It was being rebuilt",
-            "It was celebrating",
-            "It was flooding",
-            "It was burning"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "exact_or_equivalent",
             "accepted": [
-              "It was burning"
+              "burning",
+              "it was burning",
+              "on fire",
+              "Troy was on fire",
+              "Troy was burning"
             ],
-            "normalization": {}
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "The scene is the fall of Troy."
-          }
+          },
+          "modelAnswer": "Troy was burning"
         },
         {
           "id": "creusa-1-09",
@@ -212,7 +231,8 @@
           },
           "feedback": {
             "short": "Keep the family relationships clear."
-          }
+          },
+          "modelAnswer": "Creusa was Aeneas’ wife"
         },
         {
           "id": "creusa-1-10",
@@ -220,22 +240,35 @@
           "topic": "Escape from Troy",
           "passage": "Troy was burning as Aeneas tried to lead his family out of the city. He carried his elderly father Anchises on his shoulders and held the hand of his young son Ascanius, also called Iulus. Creusa, his wife, followed behind them. They agreed to meet at a place outside the city. In the confusion and darkness, Creusa became separated from them. Only after reaching the meeting place did Aeneas realise she was missing.",
           "prompt": "What does carrying Anchises show about Aeneas?",
-          "options": [
-            "He thinks Anchises can fight",
-            "He accepts responsibility for his father",
-            "He has abandoned his family",
-            "He wants to stay and rule Troy"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "keywords",
             "accepted": [
-              "He accepts responsibility for his father"
+              "Carrying his elderly father shows that Aeneas accepts responsibility for and protects his family."
             ],
-            "normalization": {}
+            "required": [
+              [
+                "father",
+                "Anchises"
+              ],
+              [
+                "responsib",
+                "duty",
+                "protect",
+                "care"
+              ]
+            ],
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "Use an action as evidence for family duty."
-          }
+          },
+          "modelAnswer": "Carrying his elderly father shows that Aeneas accepts responsibility for and protects his family.",
+          "markKeywords": [
+            "father / Anchises",
+            "responsib / duty / protect / care"
+          ]
         }
       ]
     },
@@ -249,22 +282,24 @@
           "topic": "The search",
           "passage": "Aeneas left his father and son safely outside Troy and rushed back into the ruined city. He called Creusa by name and searched streets and houses, though the Greeks and the fires made the journey dangerous. He could not find her. Suddenly her ghost appeared. Aeneas wanted to reach her, but she was no longer a living person he could bring away.",
           "prompt": "Why did Aeneas return to Troy?",
-          "options": [
-            "To find treasure",
-            "To surrender to the Greeks",
-            "To rebuild his house",
-            "To search for Creusa"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "exact_or_equivalent",
             "accepted": [
+              "to search for Creusa",
+              "to find Creusa",
+              "he went back to look for Creusa",
+              "to look for his wife",
+              "to find his wife",
               "To search for Creusa"
             ],
-            "normalization": {}
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "His reason was to find his missing wife."
-          }
+          },
+          "modelAnswer": "To search for Creusa"
         },
         {
           "id": "creusa-2-02",
@@ -287,7 +322,8 @@
           },
           "feedback": {
             "short": "His father and son were safe outside."
-          }
+          },
+          "modelAnswer": "Anchises and Ascanius"
         },
         {
           "id": "creusa-2-03",
@@ -295,22 +331,26 @@
           "topic": "The search",
           "passage": "Aeneas left his father and son safely outside Troy and rushed back into the ruined city. He called Creusa by name and searched streets and houses, though the Greeks and the fires made the journey dangerous. He could not find her. Suddenly her ghost appeared. Aeneas wanted to reach her, but she was no longer a living person he could bring away.",
           "prompt": "Give one danger in the city.",
-          "options": [
-            "The king of Italy",
-            "The Greeks",
-            "The river Tiber",
-            "A sea storm"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "exact_or_equivalent",
             "accepted": [
-              "The Greeks"
+              "the Greeks",
+              "Greeks",
+              "the fires",
+              "fire",
+              "flames",
+              "Greek soldiers",
+              "the burning city",
+              "The Greeks or the fires"
             ],
-            "normalization": {}
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "The Greeks and fires both made the search dangerous."
-          }
+          },
+          "modelAnswer": "The Greeks or the fires"
         },
         {
           "id": "creusa-2-04",
@@ -333,7 +373,8 @@
           },
           "feedback": {
             "short": "A specific action supports the answer."
-          }
+          },
+          "modelAnswer": "He called Creusa by name"
         },
         {
           "id": "creusa-2-05",
@@ -341,22 +382,23 @@
           "topic": "The search",
           "passage": "Aeneas left his father and son safely outside Troy and rushed back into the ruined city. He called Creusa by name and searched streets and houses, though the Greeks and the fires made the journey dangerous. He could not find her. Suddenly her ghost appeared. Aeneas wanted to reach her, but she was no longer a living person he could bring away.",
           "prompt": "What appeared when he could not find her?",
-          "options": [
-            "A Greek king",
-            "A ship",
-            "A new city",
-            "Creusa’s ghost"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "exact_or_equivalent",
             "accepted": [
-              "Creusa’s ghost"
+              "Creusa’s ghost",
+              "the ghost of Creusa",
+              "Creusa’s shade",
+              "Creusa",
+              "her ghost"
             ],
-            "normalization": {}
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "She appeared as a ghost."
-          }
+          },
+          "modelAnswer": "Creusa’s ghost"
         },
         {
           "id": "creusa-2-06",
@@ -364,22 +406,38 @@
           "topic": "The search",
           "passage": "Aeneas left his father and son safely outside Troy and rushed back into the ruined city. He called Creusa by name and searched streets and houses, though the Greeks and the fires made the journey dangerous. He could not find her. Suddenly her ghost appeared. Aeneas wanted to reach her, but she was no longer a living person he could bring away.",
           "prompt": "What does his return suggest about his feelings?",
-          "options": [
-            "He loved Creusa and was desperate to find her",
-            "He was indifferent to her",
-            "He wanted to abandon his son",
-            "He trusted the Greeks"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "keywords",
             "accepted": [
-              "He loved Creusa and was desperate to find her"
+              "He loved Creusa and was desperate to find her, since he risked returning to the dangerous city."
             ],
-            "normalization": {}
+            "required": [
+              [
+                "love",
+                "care",
+                "worried",
+                "desper",
+                "grief"
+              ],
+              [
+                "search",
+                "return",
+                "risk",
+                "danger"
+              ]
+            ],
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "Connect the risk he took to his grief and love."
-          }
+          },
+          "modelAnswer": "He loved Creusa and was desperate to find her, since he risked returning to the dangerous city.",
+          "markKeywords": [
+            "love / care / worried / desper / grief",
+            "search / return / risk / danger"
+          ]
         },
         {
           "id": "creusa-2-07",
@@ -402,7 +460,8 @@
           },
           "feedback": {
             "short": "The setting makes the search perilous."
-          }
+          },
+          "modelAnswer": "A ruined city with fire and enemies"
         },
         {
           "id": "creusa-2-08",
@@ -425,7 +484,8 @@
           },
           "feedback": {
             "short": "Distinguish her ghost from a living person."
-          }
+          },
+          "modelAnswer": "She was a ghost, not a living person"
         },
         {
           "id": "creusa-2-09",
@@ -433,22 +493,37 @@
           "topic": "The search",
           "passage": "Aeneas left his father and son safely outside Troy and rushed back into the ruined city. He called Creusa by name and searched streets and houses, though the Greeks and the fires made the journey dangerous. He could not find her. Suddenly her ghost appeared. Aeneas wanted to reach her, but she was no longer a living person he could bring away.",
           "prompt": "What does the dangerous search show about Aeneas?",
-          "options": [
-            "He gives up immediately",
-            "He has forgotten Creusa",
-            "He wants the Greeks to win",
-            "He risks himself for family"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "keywords",
             "accepted": [
-              "He risks himself for family"
+              "Aeneas risks his life in the burning city to search for his missing wife, showing devotion to his family."
             ],
-            "normalization": {}
+            "required": [
+              [
+                "risk",
+                "danger",
+                "fire",
+                "burn"
+              ],
+              [
+                "wife",
+                "Creusa",
+                "family",
+                "love"
+              ]
+            ],
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "Infer character from action."
-          }
+          },
+          "modelAnswer": "Aeneas risks his life in the burning city to search for his missing wife, showing devotion to his family.",
+          "markKeywords": [
+            "risk / danger / fire / burn",
+            "wife / Creusa / family / love"
+          ]
         },
         {
           "id": "creusa-2-10",
@@ -471,7 +546,8 @@
           },
           "feedback": {
             "short": "Track the sequence in the extract."
-          }
+          },
+          "modelAnswer": "Aeneas left his father and son outside"
         }
       ]
     },
@@ -500,7 +576,8 @@
           },
           "feedback": {
             "short": "Creusa explains the role of divine will."
-          }
+          },
+          "modelAnswer": "The gods did not allow it"
         },
         {
           "id": "creusa-3-02",
@@ -508,22 +585,23 @@
           "topic": "Creusa’s ghost",
           "passage": "Creusa’s ghost told Aeneas not to surrender to his grief. She said the gods did not allow her to travel with him. His journey would take him far across the sea. Aeneas tried three times to embrace her, and three times the ghost slipped from his hands, as light as air. At last he had to turn back to the living family who still needed him.",
           "prompt": "How many times did Aeneas try to embrace her?",
-          "options": [
-            "One",
-            "Two",
-            "Seven",
-            "Three"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "exact_or_equivalent",
             "accepted": [
-              "Three"
+              "three times",
+              "three",
+              "3",
+              "3 times",
+              "Three times"
             ],
-            "normalization": {}
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "Notice the repeated attempt."
-          }
+          },
+          "modelAnswer": "Three times"
         },
         {
           "id": "creusa-3-03",
@@ -546,7 +624,8 @@
           },
           "feedback": {
             "short": "The ghost cannot be physically held."
-          }
+          },
+          "modelAnswer": "She slipped from his hands"
         },
         {
           "id": "creusa-3-04",
@@ -554,22 +633,41 @@
           "topic": "Creusa’s ghost",
           "passage": "Creusa’s ghost told Aeneas not to surrender to his grief. She said the gods did not allow her to travel with him. His journey would take him far across the sea. Aeneas tried three times to embrace her, and three times the ghost slipped from his hands, as light as air. At last he had to turn back to the living family who still needed him.",
           "prompt": "What does “as light as air” suggest?",
-          "options": [
-            "She has become a goddess",
-            "Her ghost has no solid body",
-            "She can fly a ship",
-            "She is no longer sad"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "keywords",
             "accepted": [
-              "Her ghost has no solid body"
+              "The simile suggests her ghost is insubstantial and cannot be held like a living person."
             ],
-            "normalization": {}
+            "required": [
+              [
+                "ghost",
+                "spirit",
+                "shade",
+                "body"
+              ],
+              [
+                "solid",
+                "hold",
+                "touch",
+                "grasp",
+                "physical",
+                "air",
+                "held",
+                "insubstantial"
+              ]
+            ],
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "Explain the image rather than copying it."
-          }
+          },
+          "modelAnswer": "The simile suggests her ghost is insubstantial and cannot be held like a living person.",
+          "markKeywords": [
+            "ghost / spirit / shade / body",
+            "solid / hold / touch / grasp / physical / air"
+          ]
         },
         {
           "id": "creusa-3-05",
@@ -592,7 +690,8 @@
           },
           "feedback": {
             "short": "The repeated action reveals his feelings."
-          }
+          },
+          "modelAnswer": "Grief and longing"
         },
         {
           "id": "creusa-3-06",
@@ -600,22 +699,38 @@
           "topic": "Creusa’s ghost",
           "passage": "Creusa’s ghost told Aeneas not to surrender to his grief. She said the gods did not allow her to travel with him. His journey would take him far across the sea. Aeneas tried three times to embrace her, and three times the ghost slipped from his hands, as light as air. At last he had to turn back to the living family who still needed him.",
           "prompt": "What does Creusa tell him about his grief?",
-          "options": [
-            "Forget his father",
-            "Stay in Troy forever",
-            "Punish Ascanius",
-            "Do not surrender to it"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "keywords",
             "accepted": [
-              "Do not surrender to it"
+              "She tells him not to surrender to grief and to continue his journey."
             ],
-            "normalization": {}
+            "required": [
+              [
+                "grief",
+                "sad",
+                "sorrow",
+                "mourn"
+              ],
+              [
+                "continue",
+                "journey",
+                "move on",
+                "give up",
+                "surrender"
+              ]
+            ],
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "She urges him to continue."
-          }
+          },
+          "modelAnswer": "She tells him not to surrender to grief and to continue his journey.",
+          "markKeywords": [
+            "grief / sad / sorrow / mourn",
+            "continue / journey / move on / give up / surrender"
+          ]
         },
         {
           "id": "creusa-3-07",
@@ -638,7 +753,8 @@
           },
           "feedback": {
             "short": "The gods determine what can happen."
-          }
+          },
+          "modelAnswer": "Divine will"
         },
         {
           "id": "creusa-3-08",
@@ -646,22 +762,26 @@
           "topic": "Creusa’s ghost",
           "passage": "Creusa’s ghost told Aeneas not to surrender to his grief. She said the gods did not allow her to travel with him. His journey would take him far across the sea. Aeneas tried three times to embrace her, and three times the ghost slipped from his hands, as light as air. At last he had to turn back to the living family who still needed him.",
           "prompt": "Who still needs Aeneas after he sees the ghost?",
-          "options": [
-            "The king of Troy",
-            "His living family",
-            "The Greek army",
-            "Creusa’s new husband"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "exact_or_equivalent",
             "accepted": [
-              "His living family"
+              "his living family",
+              "his father and son",
+              "Anchises and Ascanius",
+              "Ascanius and Anchises",
+              "his son and father",
+              "his son",
+              "Ascanius",
+              "His living family, especially Anchises and Ascanius"
             ],
-            "normalization": {}
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "His duty to the living continues."
-          }
+          },
+          "modelAnswer": "His living family, especially Anchises and Ascanius"
         },
         {
           "id": "creusa-3-09",
@@ -684,7 +804,8 @@
           },
           "feedback": {
             "short": "Consider why the same failed action repeats."
-          }
+          },
+          "modelAnswer": "The permanent separation and his reluctance to let go"
         },
         {
           "id": "creusa-3-10",
@@ -692,22 +813,38 @@
           "topic": "Creusa’s ghost",
           "passage": "Creusa’s ghost told Aeneas not to surrender to his grief. She said the gods did not allow her to travel with him. His journey would take him far across the sea. Aeneas tried three times to embrace her, and three times the ghost slipped from his hands, as light as air. At last he had to turn back to the living family who still needed him.",
           "prompt": "What conflict must Aeneas face?",
-          "options": [
-            "Choosing between two ships",
-            "Whether to fight his son",
-            "Whether to remain king of Troy",
-            "His grief versus his duty to continue"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "keywords",
             "accepted": [
-              "His grief versus his duty to continue"
+              "He grieves for Creusa but must leave her and care for his living family."
             ],
-            "normalization": {}
+            "required": [
+              [
+                "grief",
+                "love",
+                "Creusa",
+                "loss"
+              ],
+              [
+                "duty",
+                "family",
+                "son",
+                "continue",
+                "leave"
+              ]
+            ],
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "He cannot stay with Creusa, but his family needs him."
-          }
+          },
+          "modelAnswer": "He grieves for Creusa but must leave her and care for his living family.",
+          "markKeywords": [
+            "grief / love / Creusa / loss",
+            "duty / family / son / continue / leave"
+          ]
         }
       ]
     },
@@ -721,22 +858,20 @@
           "topic": "Prophecy and themes",
           "passage": "Creusa foretold that Aeneas would endure a long exile and cross the sea to Hesperia, the land of Italy. There he would reach the river Tiber, gain a kingdom and have a royal wife. She asked him to care for their son Ascanius. Her words gave him a future beyond the destruction of Troy, although he still had to suffer the loss of his wife.",
           "prompt": "What is Hesperia in the prophecy?",
-          "options": [
-            "The underworld",
-            "Italy",
-            "Greece",
-            "Troy"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "exact_or_equivalent",
             "accepted": [
-              "Italy"
+              "Italy",
+              "the land of Italy"
             ],
-            "normalization": {}
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "Hesperia names the land of Italy."
-          }
+          },
+          "modelAnswer": "Italy"
         },
         {
           "id": "creusa-4-02",
@@ -759,7 +894,8 @@
           },
           "feedback": {
             "short": "The Tiber is in Italy."
-          }
+          },
+          "modelAnswer": "The Tiber"
         },
         {
           "id": "creusa-4-03",
@@ -767,22 +903,24 @@
           "topic": "Prophecy and themes",
           "passage": "Creusa foretold that Aeneas would endure a long exile and cross the sea to Hesperia, the land of Italy. There he would reach the river Tiber, gain a kingdom and have a royal wife. She asked him to care for their son Ascanius. Her words gave him a future beyond the destruction of Troy, although he still had to suffer the loss of his wife.",
           "prompt": "What does exile mean here?",
-          "options": [
-            "A battle inside Troy",
-            "A celebration",
-            "A return to Creusa",
-            "A long period away from home"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "exact_or_equivalent",
             "accepted": [
+              "a long time away from home",
+              "a long period away from home",
+              "being away from home",
+              "forced to live away from home",
+              "life away from home",
               "A long period away from home"
             ],
-            "normalization": {}
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "Aeneas must leave his destroyed home."
-          }
+          },
+          "modelAnswer": "A long period away from home"
         },
         {
           "id": "creusa-4-04",
@@ -805,7 +943,8 @@
           },
           "feedback": {
             "short": "The prophecy promises a kingdom."
-          }
+          },
+          "modelAnswer": "Kingship"
         },
         {
           "id": "creusa-4-05",
@@ -813,22 +952,24 @@
           "topic": "Prophecy and themes",
           "passage": "Creusa foretold that Aeneas would endure a long exile and cross the sea to Hesperia, the land of Italy. There he would reach the river Tiber, gain a kingdom and have a royal wife. She asked him to care for their son Ascanius. Her words gave him a future beyond the destruction of Troy, although he still had to suffer the loss of his wife.",
           "prompt": "Whom does Creusa ask Aeneas to care for?",
-          "options": [
-            "The enemy soldiers",
-            "Ascanius",
-            "The Greek king",
-            "A new wife"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "exact_or_equivalent",
             "accepted": [
-              "Ascanius"
+              "Ascanius",
+              "Iulus",
+              "their son",
+              "his son",
+              "Ascanius Iulus",
+              "Their son Ascanius (Iulus)"
             ],
-            "normalization": {}
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "Their son is Ascanius."
-          }
+          },
+          "modelAnswer": "Their son Ascanius (Iulus)"
         },
         {
           "id": "creusa-4-06",
@@ -851,7 +992,8 @@
           },
           "feedback": {
             "short": "Identify the purpose of Creusa’s speech."
-          }
+          },
+          "modelAnswer": "A statement about future events"
         },
         {
           "id": "creusa-4-07",
@@ -859,22 +1001,37 @@
           "topic": "Prophecy and themes",
           "passage": "Creusa foretold that Aeneas would endure a long exile and cross the sea to Hesperia, the land of Italy. There he would reach the river Tiber, gain a kingdom and have a royal wife. She asked him to care for their son Ascanius. Her words gave him a future beyond the destruction of Troy, although he still had to suffer the loss of his wife.",
           "prompt": "What contrasts with the promise of a new future?",
-          "options": [
-            "The safety of Troy",
-            "Aeneas’ desire to fight Greece",
-            "The return of the old kingdom",
-            "The pain of losing Creusa"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "keywords",
             "accepted": [
-              "The pain of losing Creusa"
+              "The hopeful promise of a new life in Italy contrasts with Aeneas’ grief over losing Creusa."
             ],
-            "normalization": {}
+            "required": [
+              [
+                "future",
+                "hope",
+                "Italy",
+                "new life"
+              ],
+              [
+                "loss",
+                "grief",
+                "Creusa",
+                "wife"
+              ]
+            ],
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "Hope and personal loss appear together."
-          }
+          },
+          "modelAnswer": "The hopeful promise of a new life in Italy contrasts with Aeneas’ grief over losing Creusa.",
+          "markKeywords": [
+            "future / hope / Italy / new life",
+            "loss / grief / Creusa / wife"
+          ]
         },
         {
           "id": "creusa-4-08",
@@ -897,7 +1054,8 @@
           },
           "feedback": {
             "short": "Fate is linked to divine will."
-          }
+          },
+          "modelAnswer": "Fate"
         },
         {
           "id": "creusa-4-09",
@@ -905,22 +1063,38 @@
           "topic": "Prophecy and themes",
           "passage": "Creusa foretold that Aeneas would endure a long exile and cross the sea to Hesperia, the land of Italy. There he would reach the river Tiber, gain a kingdom and have a royal wife. She asked him to care for their son Ascanius. Her words gave him a future beyond the destruction of Troy, although he still had to suffer the loss of his wife.",
           "prompt": "Why is this episode important to Aeneas’ wider story?",
-          "options": [
-            "It makes him a Greek soldier",
-            "It turns him from Troy toward a future in Italy",
-            "It lets him rebuild Troy immediately",
-            "It ends his responsibility for Ascanius"
-          ],
           "answer": {
-            "mode": "choice",
+            "mode": "keywords",
             "accepted": [
-              "It turns him from Troy toward a future in Italy"
+              "Creusa’s loss ends Aeneas’ life in Troy and the prophecy directs him towards a new future in Italy."
             ],
-            "normalization": {}
+            "required": [
+              [
+                "Troy",
+                "old life",
+                "loss",
+                "Creusa"
+              ],
+              [
+                "Italy",
+                "Hesperia",
+                "future",
+                "destiny",
+                "journey"
+              ]
+            ],
+            "normalization": {
+              "ignorePunctuationForScore": true
+            }
           },
           "feedback": {
             "short": "Explain the shift from old home to new destiny."
-          }
+          },
+          "modelAnswer": "Creusa’s loss ends Aeneas’ life in Troy and the prophecy directs him towards a new future in Italy.",
+          "markKeywords": [
+            "Troy / old life / loss / Creusa",
+            "Italy / Hesperia / future / destiny / journey"
+          ]
         },
         {
           "id": "creusa-4-10",
@@ -943,7 +1117,8 @@
           },
           "feedback": {
             "short": "Tie the request to his role as a father."
-          }
+          },
+          "modelAnswer": "Creusa asks him to care for Ascanius"
         }
       ]
     }

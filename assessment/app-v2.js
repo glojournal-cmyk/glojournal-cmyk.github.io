@@ -26,14 +26,26 @@ function select(questions,count,recent=[],quotas=null){
  take(pool.filter(q=>!old.has(q.id)),count-chosen.length);take(pool.filter(q=>old.has(q.id)),count-chosen.length);
  return shuffle(chosen.slice(0,count));
 }
+function selectCreusa(questions,recent){
+ const picked=[];
+ for(const topic of ['Escape from Troy','The search','Creusa’s ghost','Prophecy and themes']){
+  const group=questions.filter(q=>q.topic===topic);
+  picked.push(...select(group.filter(q=>q.options?.length),3,recent));
+  picked.push(...select(group.filter(q=>!q.options?.length),3,recent));
+ }
+ return shuffle(picked);
+}
 function normal(x,rule={}){let s=String(x).trim().toLowerCase().replace(/[’‘]/g,"'").replace(/\s+/g,' ').replace(/[.!?]+$/,'');if(rule.ignoreFrenchDiacriticsForScore)s=s.normalize('NFD').replace(/[\u0300-\u036f]/g,'');return rule.ignorePunctuationForScore?s.replace(/[^a-z0-9]/g,''):s}
-function correct(q,value){if(!value?.trim())return false;const rule=q.answer?.normalization||{};return (q.answer?.accepted||[]).some(a=>normal(a,rule)===normal(value,rule))}
+function correct(q,value){if(!value?.trim())return false;const rule=q.answer?.normalization||{};if(q.answer?.mode==='keywords'){
+  const response=String(value).toLowerCase().replace(/[’‘]/g,"'").replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
+  return q.answer.required.every(group=>group.some(term=>response.includes(term.toLowerCase())));
+ }return (q.answer?.accepted||[]).some(a=>normal(a,rule)===normal(value,rule))}
 async function start(id){const p=PAPERS.find(x=>x.id===id);if(!p)return;show('exam');$('#exam').innerHTML='<h2>Preparing a new paper…</h2>';
- try{let draft=state.drafts[id];if(draft?.version!==2){delete state.drafts[id];draft=null}
+ try{let draft=state.drafts[id];if(draft?.version!==2||(id==='latin-creusa'&&draft.questions.every(q=>q.options?.length))){delete state.drafts[id];draft=null}
   if(draft&&id==='chemistry'&&draft.questions.some(q=>!q.markKeywords?.length)){const fresh=await fetch(p.bank).then(r=>r.json());const byId=new Map(fresh.questions.map(q=>[q.id,q]));draft.questions=draft.questions.map(q=>byId.get(q.id)||q);save()}
   if(!draft){const res=await fetch(p.bank);if(!res.ok)throw Error('Question bank unavailable');const bank=await res.json();const pool=bank.groups?bank.groups.flatMap(g=>g.questions):bank.questions;
-   const valid=pool.filter(q=>q.prompt&&q.answer?.accepted?.length&&['choice','exact_or_equivalent'].includes(q.answer.mode));
-   const previous=state.recent[id]||[];let quotas=p.groups;if(!quotas&&bank.groups){quotas={};bank.groups.forEach((g,i)=>{quotas[g.title]=Math.floor(p.count/bank.groups.length)+(i<p.count%bank.groups.length?1:0)})}let selected=select(valid,p.count,previous,quotas);
+   const valid=pool.filter(q=>q.prompt&&q.answer?.accepted?.length&&['choice','exact_or_equivalent','keywords'].includes(q.answer.mode));
+   const previous=state.recent[id]||[];let quotas=p.groups;if(!quotas&&bank.groups){quotas={};bank.groups.forEach((g,i)=>{quotas[g.title]=Math.floor(p.count/bank.groups.length)+(i<p.count%bank.groups.length?1:0)})}let selected=id==='latin-creusa'?selectCreusa(valid,previous):select(valid,p.count,previous,quotas);
    if(selected.length<p.count)throw Error('Not enough questions in this bank');
    if(previous.length&&selected.map(q=>q.id).join('|')===previous.join('|'))selected=shuffle(selected);
    draft={version:2,questions:selected,answers:{},index:0,remaining:p.minutes*60,running:true,started:Date.now()};state.drafts[id]=draft;save()
@@ -51,7 +63,7 @@ function renderTest(p,d){
  }
  draw();timer=setInterval(tick,1000)
 }
-function finish(p,d){clearInterval(timer);timer=null;let earned=0;const rows=d.questions.map((q,i)=>{const answer=d.answers[i]||'',right=correct(q,answer);if(right)earned++;return `<article class="entry"><div><span class="tag">Question ${i+1} · ${right?'Correct':'Incorrect'} · ${esc(q.topic||'')}</span><p>${esc(q.prompt)}</p><p><b>Your answer:</b> ${esc(answer)||'—'}</p><p><b>Model answer:</b> ${esc(q.answer.accepted.join(' / '))}</p>${p.id==='chemistry'?`<p><b>Marking keywords:</b> ${esc((q.markKeywords||q.answer.accepted).join(' · '))}</p><p class="muted"><b>Hint for next time:</b> ${esc(q.hint||q.feedback?.short||'Check the evidence in the question before choosing a method.')}</p>`:q.feedback?.short?`<p class="muted">${esc(q.feedback.short)}</p>`:''}</div></article>`});
+function finish(p,d){clearInterval(timer);timer=null;let earned=0;const rows=d.questions.map((q,i)=>{const answer=d.answers[i]||'',right=correct(q,answer);if(right)earned++;return `<article class="entry"><div><span class="tag">Question ${i+1} · ${right?'Correct':'Incorrect'} · ${esc(q.topic||'')}</span><p>${esc(q.prompt)}</p><p><b>Your answer:</b> ${esc(answer)||'—'}</p><p><b>Model answer:</b> ${esc(q.modelAnswer||q.answer.accepted.join(' / '))}</p>${p.id==='chemistry'||q.markKeywords?`<p><b>Marking keywords:</b> ${esc((q.markKeywords||q.answer.accepted).join(' · '))}</p><p class="muted"><b>Hint for next time:</b> ${esc(q.hint||q.feedback?.short||'Check the evidence in the question before choosing a method.')}</p>`:q.feedback?.short?`<p class="muted">${esc(q.feedback.short)}</p>`:''}</div></article>`});
  const score=Math.round(earned/d.questions.length*100);const missed={};d.questions.forEach((q,i)=>{if(!correct(q,d.answers[i]||''))missed[q.topic||'Other']=(missed[q.topic||'Other']||0)+1});const focus=Object.entries(missed).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([topic,n])=>`${esc(topic)} (${n})`).join(' · ');state.results.push({date:new Date().toLocaleDateString('en-GB'),paper:p.name,correct:earned,total:d.questions.length});state.recent[p.id]=d.questions.map(q=>q.id);delete state.drafts[p.id];save();cards();
  $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${earned}/${d.questions.length} correct. Pass mark: 85/100. Review the answers below, then start a new paper for a different selection.</p>${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='chemistry'?'<p class="muted">Each question is worth one mark. The keywords show the idea needed for that mark; the hint suggests what to check next time.</p>':''}<button id="back-to-papers" class="primary">New paper</button><div class="entries">${rows.join('')}</div>`;
  $('#back-to-papers').onclick=()=>show('papers')
