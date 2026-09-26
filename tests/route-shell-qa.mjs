@@ -14,7 +14,7 @@ function walk(dir){
 }
 const html=walk(root).filter(p=>p.endsWith(path.sep+"index.html")||p.endsWith(path.sep+"404.html"));
 const failures=[],rows=[];
-const standaloneShells=new Set(["pet/index.html"]);
+const standaloneShells=new Set(["pet/index.html","assessment/index.html"]);
 const mainModule="/assets/index-BLVOhKhN.js";
 for(const file of html){
   const rel=path.relative(root,file).replaceAll(path.sep,"/");
