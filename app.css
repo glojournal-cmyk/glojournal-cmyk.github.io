@@ -6,3 +6,22 @@
   main a{touch-action:manipulation}
   main input:not([type="checkbox"]):not([type="radio"]),main textarea,main select{font-size:16px}
 }
+
+
+/* iPad tab bar: seven items, one row, content not covered */
+@media (max-width: 1279px) {
+  nav.fixed.grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  }
+  nav.fixed.grid > a {
+    min-width: 0;
+    white-space: nowrap;
+    font-size: 11px;
+    line-height: 1.15;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  .paper-wash {
+    padding-bottom: 6.75rem;
+  }
+}

@@ -63,7 +63,15 @@ function renderTest(p,d){
  }
  draw();timer=setInterval(tick,1000)
 }
-function finish(p,d){clearInterval(timer);timer=null;let earned=0;const rows=d.questions.map((q,i)=>{const answer=d.answers[i]||'',right=correct(q,answer);if(right)earned++;return `<article class="entry"><div><span class="tag">Question ${i+1} · ${right?'Correct':'Incorrect'} · ${esc(q.topic||'')}</span><p>${esc(q.prompt)}</p><p><b>Your answer:</b> ${esc(answer)||'—'}</p><p><b>Model answer:</b> ${esc(q.modelAnswer||q.answer.accepted.join(' / '))}</p>${p.id==='chemistry'||q.markKeywords?`<p><b>Marking keywords:</b> ${esc((q.markKeywords||q.answer.accepted).join(' · '))}</p><p class="muted"><b>Hint for next time:</b> ${esc(q.hint||q.feedback?.short||'Check the evidence in the question before choosing a method.')}</p>`:q.feedback?.short?`<p class="muted">${esc(q.feedback.short)}</p>`:''}</div></article>`});
+
+function showAnswer(q){
+  const clean=s=>String(s||'').replace(/\s*(?:\.{3}|…)+\s*$/g,'').trim();
+  const model=clean(q.modelAnswer);
+  if(model) return model;
+  const list=[...new Set((q.answer?.accepted||[]).map(clean).filter(Boolean))];
+  return list.join(' / ');
+}
+function finish(p,d){clearInterval(timer);timer=null;let earned=0;const rows=d.questions.map((q,i)=>{const answer=d.answers[i]||'',right=correct(q,answer);if(right)earned++;return `<article class="entry"><div><span class="tag">Question ${i+1} · ${right?'Correct':'Incorrect'} · ${esc(q.topic||'')}</span><p>${esc(q.prompt)}</p><p><b>Your answer:</b> ${esc(answer)||'—'}</p><p><b>Model answer:</b> ${esc(showAnswer(q))}</p>${p.id==='chemistry'||q.markKeywords?`<p><b>Marking keywords:</b> ${esc((q.markKeywords||q.answer.accepted).join(' · '))}</p><p class="muted"><b>Hint for next time:</b> ${esc(q.hint||q.feedback?.short||'Check the evidence in the question before choosing a method.')}</p>`:q.feedback?.short?`<p class="muted">${esc(q.feedback.short)}</p>`:''}</div></article>`});
  const score=Math.round(earned/d.questions.length*100);const missed={};d.questions.forEach((q,i)=>{if(!correct(q,d.answers[i]||''))missed[q.topic||'Other']=(missed[q.topic||'Other']||0)+1});const focus=Object.entries(missed).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([topic,n])=>`${esc(topic)} (${n})`).join(' · ');state.results.push({date:new Date().toLocaleDateString('en-GB'),paper:p.name,correct:earned,total:d.questions.length});state.recent[p.id]=d.questions.map(q=>q.id);delete state.drafts[p.id];save();cards();
  $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${earned}/${d.questions.length} correct. Pass mark: 85/100. Review the answers below, then start a new paper for a different selection.</p>${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='chemistry'?'<p class="muted">Each question is worth one mark. The keywords show the idea needed for that mark; the hint suggests what to check next time.</p>':''}<button id="back-to-papers" class="primary">New paper</button><div class="entries">${rows.join('')}</div>`;
  $('#back-to-papers').onclick=()=>show('papers')

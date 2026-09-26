@@ -1,5 +1,5 @@
 export { component } from "./routes-BEd1a0JC.core.js";
-import { C as store } from "./index-BLVOhKhN.js?v=20260921-companion1";
+import { C as store } from "./index-BLVOhKhN.js?v=20260926-qa6";
 
 const SUBJECTS = new Set(["latin", "french", "biology", "chemistry", "physics", "english"]);
 
@@ -44,8 +44,10 @@ function schedulePatch() {
 }
 
 if (typeof document !== "undefined") {
-  schedulePatch();
-  new MutationObserver(schedulePatch).observe(document.documentElement, { childList: true, subtree: true, characterData: true });
-  store.subscribe(schedulePatch);
-  window.addEventListener("popstate", schedulePatch);
+  setTimeout(() => {
+    schedulePatch();
+    new MutationObserver(schedulePatch).observe(document.documentElement, { childList: true, subtree: true, characterData: true });
+    store.subscribe(schedulePatch);
+    window.addEventListener("popstate", schedulePatch);
+  }, 0);
 }

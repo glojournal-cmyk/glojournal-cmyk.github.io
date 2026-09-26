@@ -68,7 +68,7 @@ function ensureNavigation(){
     link.innerHTML=petNavIcon()+"Pets";
     link.addEventListener("click",openPets);
     play.insertAdjacentElement("afterend",link);
-    if(!nav.closest("aside"))nav.style.gridTemplateColumns="repeat(6,minmax(0,1fr))";
+    if(!nav.closest("aside"))nav.style.gridTemplateColumns="repeat(7,minmax(0,1fr))";
   });
 }
 function findHero(){

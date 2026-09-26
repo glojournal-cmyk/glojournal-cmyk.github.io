@@ -1,4 +1,4 @@
-import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{C as r,st as i,Ut as a}from"./index-BLVOhKhN.js?v=20260921-companion1";var o=e(t(),1),s=n();
+import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{C as r,st as i,Ut as a,dt as loadCatalog}from"./index-BLVOhKhN.js?v=20260926-qa6";var o=e(t(),1),s=n();
 
 const META={
   latin:{name:"Latin",quote:"Lingua Latina per semper.",art:"/art/subjects/latin.jpg"},
@@ -24,6 +24,7 @@ function Card({href,title,detail,tone="ivory",children}){
   ]})});
 }
 function c(){
+  loadCatalog();
   const subject=subjectFromPath(),meta=META[subject];
   const year=r(x=>x.year),setYear=r(x=>x.setYear),topicStats=r(x=>x.topicStats||{}),reviews=r(x=>x.reviews||{});
   const catalog=(i(subject,year)||[]).filter(x=>x?.status!=="disabled");

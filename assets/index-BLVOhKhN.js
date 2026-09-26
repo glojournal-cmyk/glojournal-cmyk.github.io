@@ -1,4 +1,4 @@
-export * from "./index-BLVOhKhN.core.js?v=20260921-companion1";
+export * from "./index-BLVOhKhN.core.js?v=20260926-qa6";
 import {
   C as store,
   U as collectibles,
@@ -10,7 +10,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20260921-companion1";
+} from "./index-BLVOhKhN.core.js?v=20260926-qa6";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -1199,8 +1199,9 @@ function buildAdaptiveDaily(state) {
 }
 
 let normalizing = false;
+let allowNormalize = false;
 function normalizeState() {
-  if (normalizing) return;
+  if (!allowNormalize || normalizing) return;
   const state = store.getState();
   const patch = {};
   if (state.companionWardrobeBaselineMastered == null) {
@@ -2030,9 +2031,9 @@ function applyPracticeModeFromUrl() {
 }
 applyPracticeModeFromUrl.lastKey = "";
 
-normalizeState();
 store.subscribe(() => normalizeState());
 store.persist?.onFinishHydration?.(() => normalizeState());
+setTimeout(() => { allowNormalize = true; normalizeState(); }, 0);
 
 if (typeof document !== "undefined") {
   if (!window.__SCHOLAR_AI_USAGE_LISTENER__) {

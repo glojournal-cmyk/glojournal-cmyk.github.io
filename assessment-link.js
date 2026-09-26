@@ -7,7 +7,7 @@
         const a=document.createElement('a');a.href='/assessment';a.innerHTML=icon+'<span>Assessments</span>';
         const sample=nav.querySelector('a[href="/study"]');a.className=sample.className;
         a.setAttribute('aria-label','School assessments and long tests');sample.after(a);
-        if(nav.classList.contains('grid'))nav.style.gridTemplateColumns='repeat(6,minmax(0,1fr))';
+        if(nav.classList.contains('grid'))nav.style.gridTemplateColumns='repeat(7,minmax(0,1fr))';
       }
     });
     if(location.pathname==='/'&&!document.getElementById('school-assessment-home')){
@@ -20,5 +20,7 @@
       main.prepend(card);
     }
   }
-  add();document.addEventListener('DOMContentLoaded',add);setTimeout(add,1200);
+  add();
+  document.addEventListener('DOMContentLoaded', add);
+  new MutationObserver(add).observe(document.documentElement, {childList:true, subtree:true});
 })();
