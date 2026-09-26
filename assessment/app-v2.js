@@ -1,6 +1,6 @@
 const PAPERS=[
   {id:'french',name:'French · Unit 1 vocabulary',subtitle:'Une visite en France · school test 8 Oct',bank:'/assessment/french-school-1.json',count:25,minutes:25,groups:{'Core phrases':4,'Intensifiers':3,'Descriptive adjectives':5,'Positive adjectives':5,'Pronouns':5,'Transport':3}},
-  {id:'chemistry',name:'Chemistry · school test and RP6',subtitle:'Periodic Table, separation and chromatography',bank:'/assessment/chemistry-school-1.json',count:30,minutes:45,groups:{'Periodic table':6,'Separation':7,'RP6 method':4,'RP6 errors':4,'Chromatogram':3,'Rf':4,'Solvents':1,'RP6':1}},
+  {id:'chemistry',name:'Chemistry · school test and RP6',subtitle:'Periodic Table, separation and chromatography',bank:'/assessment/chemistry-school-1.json',count:30,minutes:45,groups:{'Periodic table':6,'Separation':8,'RP6 method':5,'RP6 errors':1,'Chromatogram':2,'Rf':5,'Solvents':1,'RP6':2}},
   {id:'latin-creusa',name:'Latin · The Loss of Creusa',subtitle:'English-text comprehension · Aeneid Book II · school reading',bank:'/assessment/latin-creusa-1.json',count:24,minutes:40,groups:{'Escape from Troy':6,'The search':6,'Creusa’s ghost':6,'Prophecy and themes':6}},
   ...['latin','biology','physics','english'].map(id=>({id,name:id[0].toUpperCase()+id.slice(1)+' · Year 9 assessment',subtitle:'Mixed topics from the Year 9 question bank',bank:`/assessment/banks/${id}.json`,count:30,minutes:35}))
 ];
@@ -33,6 +33,15 @@ function grantWardrobe(id){
 }
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
+const CHEMISTRY_REVISION='20260926-chem-quality1';
+const bankUrl=p=>p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:p.bank;
+const DIAGRAM_ALTS={
+  'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
+  'inks.svg':'Figure 2: chromatogram with ink samples A to D',
+  'rf.svg':'Figure 3: chromatogram and millimetre ruler measured from the start line',
+  'solvents.svg':'Figure 4: two chromatograms made using water and ethanol',
+  'teacher-style.svg':'Chromatogram with reference colours A to E and an unknown black sample'
+};
 let state;try{state=JSON.parse(localStorage.getItem(KEY))||{}}catch{state={}}
 state.tracker||=[];state.results||=[];state.drafts||={};state.recent||={};
 let timer=null;
@@ -70,11 +79,19 @@ function cards(){
   const root=$('#paper-list');root.className='subject-list';const today=examToday();
   root.innerHTML=EXAM_GROUPS.map(group=>{
     const papers=group.ids.map(id=>PAPERS.find(p=>p.id===id)).filter(Boolean);
-    return `<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="when">${esc(groupBlurb(group,today))}</p><div class="cards">${papers.map(p=>{const prize=PRIZES[p.id];return `<article class="card"><span class="tag">${p.minutes} min · ${p.count} questions · pass 85%</span><h3>${esc(p.name)}</h3><p>${esc(p.subtitle)}</p>${prize?`<p class="muted">Pass once to unlock ${esc(prize.name)} in the wardrobe.</p>`:''}<button class="primary" data-paper="${p.id}">${state.drafts[p.id]?.version===2?'Continue test':'Start new paper'}</button></article>`}).join('')}</div></section>`
+    return `<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="when">${esc(groupBlurb(group,today))}</p><div class="cards">${papers.map(p=>{const prize=PRIZES[p.id];return `<article class="card"><span class="tag">${p.minutes} min · ${p.count} questions · pass 85%</span><h3>${esc(p.name)}</h3><p>${esc(p.subtitle)}</p>${prize?`<p class="muted">Pass once to unlock ${esc(prize.name)} in the wardrobe.</p>`:''}<button class="primary" data-paper="${p.id}">${state.drafts[p.id]?.version===2?'Continue test':'Start new paper'}</button>${p.id==='chemistry'&&state.drafts[p.id]?.version===2?` <button data-reset-paper="chemistry">Discard draft and start a fresh paper</button>`:''}</article>`}).join('')}</div></section>`
   }).join('');
 }
 cards();
-$('#paper-list').addEventListener('click',e=>{const b=e.target.closest('[data-paper]');if(b)start(b.dataset.paper)});
+$('#paper-list').addEventListener('click',e=>{
+  const reset=e.target.closest('[data-reset-paper]');
+  if(reset){
+    const draft=state.drafts.chemistry;
+    if(draft&&Object.keys(draft.answers||{}).length&&!confirm('Discard your saved Chemistry answers and start a fresh paper?'))return;
+    delete state.drafts.chemistry;save();cards();start('chemistry');return;
+  }
+  const b=e.target.closest('[data-paper]');if(b)start(b.dataset.paper);
+});
 
 $('#track-form').addEventListener('submit',e=>{
   e.preventDefault();
@@ -129,6 +146,33 @@ function select(questions,count,recent=[],quotas=null){
   take(pool.filter(q=>!old.has(q.id)),count-chosen.length);
   take(pool.filter(q=>old.has(q.id)),count-chosen.length);
   return shuffle(chosen.slice(0,count));
+}
+function selectChemistry(questions,count,recent=[],quotas={}){
+  const old=new Set(recent),chosen=[],concepts=new Set(),diagrams=new Set(),ids=new Set();
+  const groups=Object.keys(quotas);
+  const bucket=(q)=>q.options?.length?'choice':'written';
+  const take=(items,n)=>{
+    let added=0;
+    for(const q of items){
+      if(chosen.length>=count||added>=n)break;
+      const concept=q.conceptId||q.id;
+      if(ids.has(q.id)||concepts.has(concept)||(q.diagram&&diagrams.has(q.diagram)))continue;
+      chosen.push(q);ids.add(q.id);concepts.add(concept);
+      if(q.diagram)diagrams.add(q.diagram);
+      added++;
+    }
+    return added;
+  };
+  const ordered=(items)=>{
+    const fresh=items.filter(q=>!old.has(q.id)),seen=items.filter(q=>old.has(q.id));
+    return [...shuffle(fresh.filter(q=>bucket(q)==='written')),
+      ...shuffle(seen.filter(q=>bucket(q)==='written')),
+      ...shuffle(fresh.filter(q=>bucket(q)==='choice')),
+      ...shuffle(seen.filter(q=>bucket(q)==='choice'))];
+  };
+  for(const group of groups)take(ordered(questions.filter(q=>q.topic===group)),quotas[group]);
+  take(ordered(questions),count-chosen.length);
+  return shuffle(chosen);
 }
 function selectCreusa(questions,recent){
   const picked=[];
@@ -234,13 +278,16 @@ async function start(id){
   try{
     let draft=state.drafts[id];
     if(draft?.version!==2||(id==='latin-creusa'&&draft.questions.every(q=>q.options?.length))){delete state.drafts[id];draft=null}
+    if(draft&&id==='chemistry'&&!Object.keys(draft.answers||{}).length&&draft.questions.some(q=>!q.conceptId)){
+      delete state.drafts[id];draft=null;save();
+    }
     if(draft&&id==='chemistry'&&draft.questions.some(q=>!q.markKeywords?.length)){
-      const fresh=await fetch(p.bank).then(r=>r.json());
+      const fresh=await fetch(bankUrl(p)).then(r=>r.json());
       const byId=new Map(fresh.questions.map(q=>[q.id,q]));
       draft.questions=draft.questions.map(q=>byId.get(q.id)||q);save();
     }
     if(!draft){
-      const res=await fetch(p.bank);if(!res.ok)throw Error('Question bank unavailable');
+      const res=await fetch(bankUrl(p));if(!res.ok)throw Error('Question bank unavailable');
       const bank=await res.json();
       const pool=bank.groups?bank.groups.flatMap(g=>g.questions):bank.questions;
       const valid=pool.filter(q=>q.prompt&&q.answer?.accepted?.length&&['choice','exact_or_equivalent','keywords'].includes(q.answer.mode));
@@ -250,7 +297,7 @@ async function start(id){
         quotas={};
         bank.groups.forEach((g,i)=>{quotas[g.title]=Math.floor(p.count/bank.groups.length)+(i<p.count%bank.groups.length?1:0)});
       }
-      let selected=id==='latin-creusa'?selectCreusa(valid,previous):select(valid,p.count,previous,quotas);
+      let selected=id==='latin-creusa'?selectCreusa(valid,previous):id==='chemistry'?selectChemistry(valid,p.count,previous,quotas):select(valid,p.count,previous,quotas);
       if(selected.length<p.count)throw Error('Not enough questions in this bank');
       if(previous.length&&selected.map(q=>q.id).join('|')===previous.join('|'))selected=shuffle(selected);
       draft={version:2,questions:selected,answers:{},index:0,remaining:p.minutes*60,running:true,started:Date.now()};
@@ -278,7 +325,7 @@ function renderTest(p,d){
   }
   function draw(){
     const i=d.index,q=d.questions[i],answer=d.answers[i]||'';
-    $('#exam').innerHTML=`<div class="exam-top"><div><span class="tag">${esc(p.name)} · ${p.minutes} min · pass 85%</span><h2>Question ${i+1} of ${d.questions.length}</h2></div><strong id="clock" aria-label="Time remaining"></strong></div><div class="progress"><div style="width:${100*(i+1)/d.questions.length}%"></div></div><p class="muted">Answers are saved. Marking and model answers appear after you submit the whole paper.</p>${q.passage?`<div class="feedback" style="white-space:pre-line;line-height:1.7"><b>Read the extract</b><br>${esc(q.passage)}</div>`:''}<p class="question">${esc(q.prompt)}</p>${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}" alt="Question diagram">`:''}${Array.isArray(q.options)&&q.options.length?`<div id="choices">${q.options.map(o=>`<button class="choice ${answer===String(o)?'chosen':''}" data-choice="${esc(o)}">${esc(o)}</button>`).join('')}</div>`:`<label>Your answer<textarea class="answer" id="response" placeholder="Write your answer here">${esc(answer)}</textarea></label>`}<div class="exam-actions"><button id="prev" ${i===0?'disabled':''}>Previous</button><button id="next" class="primary">${i===d.questions.length-1?'Submit whole paper':'Next question'}</button></div><div class="exam-actions" style="margin-top:18px"><button id="pause">${d.running?'Pause timer':'Resume timer'}</button><button id="exit">Back to assessments</button></div>`;
+    $('#exam').innerHTML=`<div class="exam-top"><div><span class="tag">${esc(p.name)} · ${p.minutes} min · pass 85%</span><h2>Question ${i+1} of ${d.questions.length}</h2></div><strong id="clock" aria-label="Time remaining"></strong></div><div class="progress"><div style="width:${100*(i+1)/d.questions.length}%"></div></div><p class="muted">Answers are saved. Marking and model answers appear after you submit the whole paper.</p>${q.passage?`<div class="feedback" style="white-space:pre-line;line-height:1.7"><b>Read the extract</b><br>${esc(q.passage)}</div>`:''}<p class="question">${esc(q.prompt)}</p>${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}?v=${CHEMISTRY_REVISION}" alt="${esc(DIAGRAM_ALTS[q.diagram]||'Chemistry question diagram')}">`:''}${Array.isArray(q.options)&&q.options.length?`<div id="choices">${q.options.map(o=>`<button class="choice ${answer===String(o)?'chosen':''}" data-choice="${esc(o)}">${esc(o)}</button>`).join('')}</div>`:`<label>Your answer<textarea class="answer" id="response" placeholder="Write your answer here">${esc(answer)}</textarea></label>`}<div class="exam-actions"><button id="prev" ${i===0?'disabled':''}>Previous</button><button id="next" class="primary">${i===d.questions.length-1?'Submit whole paper':'Next question'}</button></div><div class="exam-actions" style="margin-top:18px"><button id="pause">${d.running?'Pause timer':'Resume timer'}</button><button id="exit">Back to assessments</button></div>`;
     $('#response')?.addEventListener('input',e=>{d.answers[i]=e.target.value;save()});
     $('#choices')?.addEventListener('click',e=>{const b=e.target.closest('[data-choice]');if(b){d.answers[i]=b.dataset.choice;save();draw()}});
     $('#prev').onclick=()=>{d.index--;save();draw()};
