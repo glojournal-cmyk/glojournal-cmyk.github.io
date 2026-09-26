@@ -1,7 +1,7 @@
 import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{C as r,st as i,Ut as a,dt as loadCatalog}from"./index-BLVOhKhN.js?v=20260926-qa6";var o=e(t(),1),s=n();
 
 const META={
-  latin:{name:"Latin",quote:"Lingua Latina per semper.",art:"/art/subjects/latin.jpg"},
+  latin:{name:"Latin",quote:"Lingua Latina in aeternum.",art:"/art/subjects/latin.jpg"},
   french:{name:"French",quote:"Un monde plus grand t’attend.",art:"/art/subjects/french.jpg"},
   biology:{name:"Biology",quote:"Small wonders, big connections.",art:"/art/subjects/biology.jpg"},
   chemistry:{name:"Chemistry",quote:"Change creates opportunity.",art:"/art/subjects/chemistry.jpg"},

@@ -1,4 +1,4 @@
-export * from "./index-BLVOhKhN.core.js?v=20260926-v23";
+export * from "./index-BLVOhKhN.core.js?v=20260926-shell2";
 import {
   C as store,
   U as collectibles,
@@ -10,7 +10,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20260926-v23";
+} from "./index-BLVOhKhN.core.js?v=20260926-shell2";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
