@@ -2934,5 +2934,41 @@ function mountDailyGlance() {
   }, 250);
 }
 
+function mountDailyRecordButton() {
+  if (typeof document === "undefined" || window.__luxRecordBtn) return;
+  window.__luxRecordBtn = true;
+  const place = () => {
+    const header = document.querySelector("header.sticky");
+    if (!header || getComputedStyle(header).display === "none") return;
+    const slot = [...header.children].find((el) => el.classList.contains("flex")) || header;
+    if (slot.querySelector("[data-lux-record-btn]")) return;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.dataset.luxRecordBtn = "1";
+    btn.textContent = "30 days";
+    btn.setAttribute("aria-label", "Open the 30 day record");
+    btn.style.cssText = "min-height:28px;padding:4px 10px;border:0;border-radius:999px;background:#16324a;color:#fffdf8;font-size:11px;font-weight:700;letter-spacing:.02em;line-height:1.2;cursor:pointer;";
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      window.__luxOpenDailyRecord?.();
+    });
+    const pill = slot.querySelector(".rounded-full");
+    if (pill) pill.before(btn);
+    else slot.append(btn);
+  };
+  let frame = 0;
+  const schedule = () => {
+    if (frame) return;
+    frame = requestAnimationFrame(() => {
+      frame = 0;
+      place();
+    });
+  };
+  place();
+  new MutationObserver(schedule).observe(document.documentElement, { childList: true, subtree: true });
+  window.addEventListener("popstate", () => setTimeout(place, 80));
+}
+
 mountDailyRecord();
-mountDailyGlance();
+mountDailyRecordButton();
