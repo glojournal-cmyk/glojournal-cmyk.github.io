@@ -13,6 +13,18 @@ const pets = [
   {id:"sprig-dragon",name:"Sprig Dragon",tag:"A kinder magic for everyday wonders."},
   {id:"star-toadlet",name:"Star Toadlet",tag:"Odd, earnest, and full of light."}
 ];
+const character = {
+  "moss-hornling": {nature:"Gentle, stubborn and quietly brave",habit:"Plants a seed wherever it finds a difficult question.",forms:["Tiny forest scout","Leaf-horn forager","Mossland runner","Canopy guardian","Ancient grove keeper"]},
+  "antler-bean": {nature:"Curious, clumsy and loyal",habit:"Collects curious facts and remembers who taught them.",forms:["Little woodland bean","Branching wanderer","Young forest explorer","Great antler guardian","Celestial elk"]},
+  "inkling": {nature:"Inventive, quick and a little dramatic",habit:"Draws ideas in the air with its ink-feather tail.",forms:["First spark of ink","Curl-tailed sketcher","Quill-wing scholar","Ink phoenix","Midnight master phoenix"]},
+  "pebble-wisp": {nature:"Patient, observant and surprisingly funny",habit:"Rearranges its stones whenever a puzzle clicks.",forms:["Little floating pebble","Orbiting stones","Rune cluster","Stone sentinel","Crystal constellation"]},
+  "moon-puff": {nature:"Dreamy, kind and fiercely attentive",habit:"Keeps a tiny light on for lessons worth revisiting.",forms:["Sleepy moon cloud","Crescent-eared puff","Moon hare","Lunar runner","Cloud-tail guardian"]},
+  "mothling": {nature:"Soft-spoken, fearless around new ideas",habit:"Follows questions like lanterns through the dark.",forms:["Little lantern moth","Unfolding wings","Four-wing explorer","Silk-wing guardian","Lunar emperor moth"]},
+  "bloom-snail": {nature:"Unhurried, persistent and generous",habit:"Carries a living garden and celebrates slow progress.",forms:["Seed-shell snail","Greenhouse shell","Walking flower garden","Garden guardian","Elder bloom keeper"]},
+  "velvet-batling": {nature:"Witty, alert and fond of mysteries",habit:"Listens for the answer everyone else missed.",forms:["Little velvet bat","Scallop-wing glider","Echo explorer","Night-wing guardian","Crescent sentinel"]},
+  "sprig-dragon": {nature:"Bold, protective and endlessly curious",habit:"Guards new knowledge until it takes root.",forms:["Tiny sprig dragon","Branch-horn hatchling","Vine-tail flier","Verdant dragon","Ancient canopy dragon"]},
+  "star-toadlet": {nature:"Odd, earnest and unexpectedly wise",habit:"Counts small victories as if they were stars.",forms:["Little star toad","Glowing jumper","Star-finned explorer","Cosmic marsh guardian","Constellation sovereign"]}
+};
 
 const stageNames = ["Foundling","Curious Companion","Scholar Familiar","Garden Familiar","Mastery Companion"];
 const evolutionCosts = [50,90,140,200];
@@ -46,20 +58,20 @@ const petVoices = {
   "star-toadlet":{close:"Star Toadlet predicts a breakthrough",due:"Star Toadlet has not forgotten",steady:"Star Toadlet counts every bright step",waiting:"Star Toadlet waits for the first star"}
 };
 
-const PET_ART_VERSION="20260920-level5-1";
+const PET_ART_VERSION="20260926-evolution2";
 function petArtUrl(species,level=1){
   const safe=pets.some(p=>p.id===species)?species:"moss-hornling";
-  if(Number(level)>=5) return `/pet/art-evolution/level-5/${safe}.webp?v=${PET_ART_VERSION}`;
-  if(Number(level)>=4) return `/pet/art-evolution/level-4/${safe}.webp?v=${PET_ART_VERSION}`;
-  if(Number(level)>=3) return `/pet/art-evolution/level-3/${safe}.webp?v=${PET_ART_VERSION}`;
-  if(Number(level)>=2) return `/pet/art-evolution/level-2/${safe}.webp?v=${PET_ART_VERSION}`;
+  if(Number(level)>=2) return `/pet/art-evolution-v2/${safe}.webp?v=${PET_ART_VERSION}`;
   return `/pet/art-master/${safe}.png?v=${PET_ART_VERSION}`;
 }
+function artPosition(level){return ["center","0% 0%","100% 0%","0% 100%","100% 100%"][Math.max(1,Math.min(5,Number(level)||1))-1]}
 function spriteStyle(species,level=1){
-  return `background-image:url('${petArtUrl(species,level)}')`;
+  return `background-image:url('${petArtUrl(species,level)}');background-size:${level>1?"200% 200%":"contain"};background-position:${artPosition(level)}`;
 }
 function applyPetSprite(el,species,level=1){
   el.style.backgroundImage=`url("${petArtUrl(species,level)}")`;
+  el.style.backgroundSize=level>1?"200% 200%":"contain";
+  el.style.backgroundPosition=artPosition(level);
 }
 
 function readAppState(){
@@ -208,6 +220,9 @@ function render(){
   document.title=`${petDisplayName(pet)} · Companion Corner · Lux et Labor`;
   document.getElementById("petTitle").textContent=petDisplayName(pet);
   document.getElementById("petSubtitle").textContent=species.tag;
+  const identity=character[pet.species];
+  document.getElementById("petPersonality").innerHTML=`<strong>${identity.nature}</strong><span>${identity.habit}</span>`;
+  document.getElementById("petFormGrid").innerHTML=identity.forms.map((form,i)=>`<div class="pet-form ${stage===i+1?"is-current":""}"><span class="pet-form-art pet-sprite" style="${spriteStyle(pet.species,i+1)}" role="img" aria-label="${species.name}, level ${i+1}: ${form}"></span><span class="pet-form-level">Level ${i+1}${stage===i+1?" · Current":""}</span><strong>${form}</strong></div>`).join("");
   const petImage=document.getElementById("petImage");
   applyPetSprite(petImage,pet.species,stage);
   petImage.setAttribute("aria-label",`${petDisplayName(pet)} · ${stageNames[stage-1]}`);

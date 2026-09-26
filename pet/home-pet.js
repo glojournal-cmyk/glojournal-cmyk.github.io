@@ -10,13 +10,13 @@ function masteryCount(state){return Object.values(state.topicStats||{}).filter(f
 function dueMastery(state){const d=new Date();const today=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");return Object.values(state.skillStats||{}).filter(function(s){return s&&s.retentionDue&&s.retentionDue<=today&&(s.retentionReady||s.retentionPasses>0)}).length}
 function displayName(p){return p.name||pets[p.species]||"Companion"}
 function escapeHtml(value){return String(value??"").replace(/[&<>"']/g,function(ch){return({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[ch]})}
-const PET_ART_VERSION="20260920-level5-1";
+const PET_ART_VERSION="20260926-evolution2";
 function spriteStyle(species,level=1){
   const safe=pets[species]?species:"moss-hornling";
-  if(Number(level)>=5)return "background-image:url('/pet/art-evolution/level-5/"+safe+".webp?v="+PET_ART_VERSION+"')";
-  if(Number(level)>=4)return "background-image:url('/pet/art-evolution/level-4/"+safe+".webp?v="+PET_ART_VERSION+"')";
-  if(Number(level)>=3)return "background-image:url('/pet/art-evolution/level-3/"+safe+".webp?v="+PET_ART_VERSION+"')";
-  if(Number(level)>=2)return "background-image:url('/pet/art-evolution/level-2/"+safe+".webp?v="+PET_ART_VERSION+"')";
+  if(Number(level)>=2){
+    const position={2:"0% 0%",3:"100% 0%",4:"0% 100%",5:"100% 100%"}[Number(level)]||"0% 0%";
+    return "background-image:url('/pet/art-evolution-v2/"+safe+".webp?v="+PET_ART_VERSION+"');background-size:200% 200%;background-position:"+position;
+  }
   return "background-image:url('/pet/art-master/"+safe+".png?v="+PET_ART_VERSION+"')";
 }
 
@@ -30,14 +30,14 @@ function ensureStyle(){
   '#mastery-pet-home.evolving .mph-art{animation:mphEvolve 2.4s ease both}'+
   '#mastery-pet-home.evolving .mph-glow{animation:mphGlow 2.4s ease both}'+
   '#mastery-pet-home .mph-glow{position:absolute;width:90%;aspect-ratio:1;bottom:14px;border-radius:50%;background:radial-gradient(circle,rgba(247,240,223,.94) 0,rgba(196,154,85,.22) 48%,transparent 72%);filter:blur(1px);pointer-events:none}'+
-  '#mastery-pet-home .mph-art{position:relative;width:100%;aspect-ratio:1;display:block;background-size:contain;background-position:center;background-repeat:no-repeat;filter:drop-shadow(0 10px 10px rgba(23,50,77,.22));overflow:visible}'+
-  '#mastery-pet-home[data-stage="1"] .mph-art{transform:scale(.96)}#mastery-pet-home[data-stage="2"] .mph-art{transform:scale(1)}#mastery-pet-home[data-stage="3"] .mph-art{transform:scale(1.04)}#mastery-pet-home[data-stage="4"] .mph-art{transform:scale(1.08)}#mastery-pet-home[data-stage="5"] .mph-art{transform:scale(1.12)}'+
+  '#mastery-pet-home .mph-art{position:relative;width:100%;aspect-ratio:1;display:block;background-size:contain;background-position:center;background-repeat:no-repeat;filter:drop-shadow(0 10px 10px rgba(23,50,77,.22));overflow:visible;transform-origin:bottom center;transform:scaleX(-1) scale(var(--pet-size,.65));transition:transform .45s ease}'+
+  '#mastery-pet-home[data-stage="1"]{--pet-size:.62}#mastery-pet-home[data-stage="2"]{--pet-size:.76}#mastery-pet-home[data-stage="3"]{--pet-size:.90}#mastery-pet-home[data-stage="4"]{--pet-size:1.05}#mastery-pet-home[data-stage="5"]{--pet-size:1.20}'+
   '#mastery-pet-home .mph-tag{position:relative;margin-top:-8px;max-width:100%;background:rgba(255,252,245,.94);border:1px solid rgba(23,50,77,.14);border-radius:999px;padding:5px 9px;box-shadow:0 7px 18px rgba(23,50,77,.13);backdrop-filter:blur(8px);font-size:10px;line-height:1.15;text-align:center;white-space:nowrap}'+
   '#mastery-pet-home .mph-tag b{font-family:"Cormorant Garamond",serif;font-size:12px}'+
   '#mastery-pet-home .mph-leaf{position:absolute;right:4%;top:13%;display:grid;place-items:center;min-width:25px;height:25px;padding:0 5px;border-radius:999px;background:#71865f;color:#fff;border:2px solid rgba(255,255,255,.88);font-size:9px;font-weight:800;box-shadow:0 4px 10px rgba(23,50,77,.18)}'+
   '#mastery-pet-home .mph-star{position:absolute;width:7px;height:7px;background:#c49a55;transform:rotate(45deg);animation:mphTwinkle 2.3s ease-in-out infinite}#mastery-pet-home .mph-star.s1{left:14%;top:28%}#mastery-pet-home .mph-star.s2{right:8%;top:38%;animation-delay:.8s}'+
   '@keyframes mphTwinkle{0%,100%{opacity:.25;scale:.7}50%{opacity:1;scale:1.3}}'+
-  '@keyframes mphEvolve{0%{transform:scale(.82);filter:brightness(1)}35%{transform:scale(1.12);filter:brightness(1.35)}70%{transform:scale(.96)}100%{transform:scale(1)}}'+
+  '@keyframes mphEvolve{0%{transform:scaleX(-1) scale(.7);filter:brightness(1)}35%{transform:scaleX(-1) scale(1.25);filter:brightness(1.35)}70%{transform:scaleX(-1) scale(.96)}100%{transform:scaleX(-1) scale(var(--pet-size))}}'+
   '@keyframes mphGlow{0%,100%{opacity:.65}40%{opacity:1;transform:scale(1.28)}}'+
   '#mastery-pet-toast{position:fixed;left:50%;top:18px;z-index:1000;transform:translate(-50%,-18px);opacity:0;background:#fffaf0;color:#17324d;border:1px solid rgba(196,154,85,.46);border-radius:20px;padding:11px 16px;box-shadow:0 16px 45px rgba(23,50,77,.2);font-size:13px;transition:.28s ease;max-width:min(92vw,440px);text-align:center}'+
   '#mastery-pet-toast.show{opacity:1;transform:translate(-50%,0)}#mastery-pet-toast b{font-family:"Cormorant Garamond",serif;font-size:18px;display:block}'+
