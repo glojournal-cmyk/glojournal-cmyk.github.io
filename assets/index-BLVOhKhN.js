@@ -1,4 +1,4 @@
-export * from "./index-BLVOhKhN.core.js?v=20260926-y8daily3";
+export * from "./index-BLVOhKhN.core.js?v=20260926-record30";
 import {
   C as store,
   U as collectibles,
@@ -10,7 +10,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20260926-y8daily3";
+} from "./index-BLVOhKhN.core.js?v=20260926-record30";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -1015,26 +1015,16 @@ function focusAttemptsToday(state, focus) {
   return total;
 }
 
+const DAILY_VOCAB_TARGET = 30;
+
 function vocabGateState(state, subject) {
   const day = state.today || todayKey();
   const row = state.dailyVocabByDay?.[day]?.[subject] || {};
-  const items = row.items && typeof row.items === "object" ? { ...row.items } : {};
-
-  // Recover same-day vocabulary evidence created by the older session route,
-  // which recorded reviews but did not yet write dailyVocabByDay.
-  const bank = subject === "french" ? frenchVocab : subject === "latin" ? latinVocab : [];
-  for (const item of bank || []) {
-    const id = String(item?.id || "");
-    if (!id || Object.prototype.hasOwnProperty.call(items, id)) continue;
-    const review = state.reviews?.[id];
-    if (review?.last !== day) continue;
-    items[id] = review?.wrong !== true;
-  }
-
+  const items = row.items && typeof row.items === "object" ? row.items : {};
   const attempts = Object.keys(items).length;
   const correct = Object.values(items).filter(Boolean).length;
-  const passed = attempts >= 5 && correct >= 4;
-  const progress = passed ? 5 : Math.min(4, attempts);
+  const passed = correct >= DAILY_VOCAB_TARGET;
+  const progress = Math.min(DAILY_VOCAB_TARGET, correct);
   return { attempts, correct, passed, progress };
 }
 
@@ -1284,8 +1274,8 @@ function buildAdaptiveDaily(state) {
 
   return [
     { id: "study-session", title, detail, href: focusHref(focus, state), target: 10, progress: studyProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason, focusDueCount: focus.dueCount || 0, focusAccuracy: focus.accuracy, focusErrorType: focus.errorType || null },
-    { id: "french-vocab", title: "French vocab check", detail: `5 different French words minimum · ${frenchVocab.correct}/4 correct · ${frenchVocab.attempts} tested${frenchVocab.passed ? " · passed" : frenchVocab.attempts >= 5 ? " · keep going until 4 are correct" : ""}.`, href: "/session/french-vocab", target: 5, progress: frenchVocab.progress, xp: 10, requiredAttempts: 5, requiredCorrect: 4, attempts: frenchVocab.attempts, correct: frenchVocab.correct, planDate: state.today },
-    { id: "latin-vocab", title: "Latin vocab check", detail: `5 different Latin words minimum · ${latinVocab.correct}/4 correct · ${latinVocab.attempts} tested${latinVocab.passed ? " · passed" : latinVocab.attempts >= 5 ? " · keep going until 4 are correct" : ""}.`, href: "/session/latin-vocab", target: 5, progress: latinVocab.progress, xp: 10, requiredAttempts: 5, requiredCorrect: 4, attempts: latinVocab.attempts, correct: latinVocab.correct, planDate: state.today },
+    { id: "french-vocab", title: "Year 8 French vocab", detail: `Random Year 8 French words · ${frenchVocab.correct}/30 correct. Wrong answers do not count, and the words cannot be chosen.`, href: "/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab", target: 30, progress: frenchVocab.progress, xp: 15, requiredCorrect: 30, attempts: frenchVocab.attempts, correct: frenchVocab.correct, planDate: state.today },
+    { id: "latin-vocab", title: "Year 8 Latin vocab", detail: `Random Year 8 Latin words · ${latinVocab.correct}/30 correct. Wrong answers do not count, and the words cannot be chosen.`, href: "/study/latin/practise?daily=1&locked=1&year=8&mode=y8vocab&task=latin-vocab", target: 30, progress: latinVocab.progress, xp: 15, requiredCorrect: 30, attempts: latinVocab.attempts, correct: latinVocab.correct, planDate: state.today },
     { id: "adaptive-focus", title: focus.skillLabel ? `${focus.skillLabel} focus` : `${label} focus`, detail: "Four questions in today’s priority subject. Mastery needs ≥85% plus one independent typed or spelled answer.", href: focusHref(focus, state), target: 4, progress: focusProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason },
     { id: "year8-long-review", title: year8Review.topicLabel ? `Year 8 ${year8Review.label} mastery · ${year8Review.topicLabel}` : `Year 8 ${year8Review.label} topic mastery`, detail: "15-question topic mastery review · Latin/French only · prioritises an unmastered or weaker Year 8 topic.", href: year8Review.href, target: 15, progress: year8ReviewProgress, xp: 20, planDate: state.today, reviewYear: 8, reviewSubject: year8Review.subject, reviewTopic: year8Review.topicId || null },
     y8PractiseTask,
@@ -1297,9 +1287,65 @@ function buildAdaptiveDaily(state) {
 
 let normalizing = false;
 let allowNormalize = false;
+let sealingDay = false;
+
+function compactDailyTasks(daily) {
+  return (Array.isArray(daily) ? daily : []).filter((task) => {
+    if (!task?.id) return false;
+    return !/^\/study\/english\/(learn|practise)(?:\/|$|\?)/.test(String(task.href || ""));
+  }).map((task) => {
+    const target = Math.max(1, Number(task.target) || 1);
+    const progress = Math.min(target, Math.max(0, Number(task.progress) || 0));
+    return {
+      id: String(task.id),
+      title: String(task.title || task.id),
+      progress,
+      target,
+      done: progress >= target,
+    };
+  });
+}
+
+function writeDailyLog(existing, date, daily) {
+  const base = existing && typeof existing === "object" ? existing : {};
+  if (!date) return base;
+  const tasks = compactDailyTasks(daily);
+  if (!tasks.length) return base;
+  const done = tasks.filter((task) => task.done).length;
+  const row = { date, done, total: tasks.length, complete: done === tasks.length, tasks };
+  const prev = base[date];
+  if (prev && prev.done === row.done && prev.total === row.total && prev.complete === row.complete && JSON.stringify(prev.tasks) === JSON.stringify(row.tasks)) {
+    return base;
+  }
+  const log = { ...base, [date]: row };
+  const keys = Object.keys(log).sort();
+  while (keys.length > 45) delete log[keys.shift()];
+  return log;
+}
+
+function sealDailyLog(date, daily, existing) {
+  const base = existing && typeof existing === "object" ? existing : {};
+  const next = writeDailyLog(base, date, daily);
+  if (next !== base) {
+    sealingDay = true;
+    store.setState({ dailyLog: next });
+    sealingDay = false;
+  }
+  return next;
+}
+
 function normalizeState() {
-  if (!allowNormalize || normalizing) return;
+  if (!allowNormalize || normalizing || sealingDay) return;
   const state = store.getState();
+  const calendarToday = todayKey();
+  if (state.today && state.today !== calendarToday && Array.isArray(state.daily) && state.daily.length) {
+    normalizing = true;
+    sealDailyLog(state.today, state.daily, state.dailyLog);
+    originalHydrateDay();
+    normalizing = false;
+    normalizeState();
+    return;
+  }
   const patch = {};
   if (state.companionWardrobeBaselineMastered == null) {
     patch.companionWardrobeBaselineMastered = Object.values(state.topicStats || {}).filter((row) => row?.state === "mastered").length;
@@ -1340,6 +1386,9 @@ function normalizeState() {
   const stateForDaily = { ...state, ...(patch.topicStats ? { topicStats: patch.topicStats } : {}) };
   const daily = buildAdaptiveDaily(stateForDaily);
   if (JSON.stringify(daily) !== JSON.stringify(state.daily || [])) patch.daily = daily;
+  const currentLog = state.dailyLog && typeof state.dailyLog === "object" ? state.dailyLog : {};
+  const nextLog = writeDailyLog(currentLog, state.today || calendarToday, daily);
+  if (nextLog !== currentLog) patch.dailyLog = nextLog;
 
   if (Object.keys(patch).length) {
     normalizing = true;
@@ -1413,6 +1462,11 @@ function patchedAward(kind, options = {}) {
 }
 
 function patchedHydrateDay(...args) {
+  const before = store.getState();
+  const calendar = todayKey();
+  if (before.today && before.today !== calendar && Array.isArray(before.daily) && before.daily.length) {
+    sealDailyLog(before.today, before.daily, before.dailyLog);
+  }
   const result = originalHydrateDay(...args);
   normalizeState();
   return result;
@@ -1793,6 +1847,7 @@ function patchedImportProgress(text) {
 
 function patchedResetAll() {
   const result = originalResetAll();
+  store.setState({ dailyLog: {} });
   if (typeof window !== "undefined") {
     try {
       localStorage.removeItem(PET_REWARD_KEY);
@@ -1987,6 +2042,9 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
 
   const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
   if (!isRepair && !meta?.excludeGeneralDaily && focus && focus.focusSubject === (resolved.subject || subject)) originalBumpDaily("adaptive-focus", 1);
+  if (!isRepair && (meta?.dailyVocab === "french" || meta?.dailyVocab === "latin")) {
+    recordDailyVocabAttempt(meta.dailyVocab, questionId, !!correct);
+  }
 
   normalizeState();
   return result;
@@ -2494,3 +2552,387 @@ function buildProgressDashboard(state, subject, year = state?.year) {
 }
 
 export { rankAdaptiveQuestions, buildProgressDashboard, getQuestionSkills };
+
+function formatRecordDate(iso) {
+  const d = new Date(`${iso}T12:00:00`);
+  const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d.getDay()];
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return { weekday, label: `${d.getDate()} ${months[d.getMonth()]}` };
+}
+
+function recordDayStatus(row) {
+  if (!row) return { kind: "closed", label: "Not opened" };
+  if (row.complete) return { kind: "done", label: "All done" };
+  const left = Math.max(0, row.total - row.done);
+  if (row.done === 0) return { kind: "missed", label: "Nothing finished" };
+  return { kind: "missed", label: left === 1 ? "1 still to do" : `${left} still to do` };
+}
+
+function mountDailyRecord() {
+  if (typeof document === "undefined" || window.__luxRecordMounted) return;
+  window.__luxRecordMounted = true;
+
+  const root = document.createElement("div");
+  root.id = "lux-record";
+  root.hidden = true;
+  const ensure = () => {
+    if (!root.isConnected) document.documentElement.appendChild(root);
+  };
+  ensure();
+
+  let open = false;
+  let selected = "";
+  let lastKey = "";
+  let focusSelected = false;
+
+  const hide = () => {
+    open = false;
+    root.hidden = true;
+    document.body.classList.remove("lux-record-open");
+  };
+
+  const close = () => {
+    const fromHistory = !!history.state?.luxRecord;
+    hide();
+    if (fromHistory) history.back();
+  };
+
+  const render = () => {
+    if (!open) return;
+    ensure();
+    const state = store.getState();
+    const today = state.today || todayKey();
+    const days = [];
+    for (let i = 29; i >= 0; i -= 1) days.push(shiftDay(today, -i));
+    if (!selected || !days.includes(selected)) selected = today;
+    const log = { ...(state.dailyLog || {}) };
+    const live = compactDailyTasks(state.daily);
+    if (live.length) {
+      const done = live.filter((task) => task.done).length;
+      log[today] = { date: today, done, total: live.length, complete: done === live.length, tasks: live };
+    }
+    const key = `${selected}|${days.map((day) => {
+      const row = log[day];
+      return row ? `${day}:${row.done}/${row.total}:${row.tasks.map((task) => task.progress).join(".")}` : `${day}:x`;
+    }).join(",")}`;
+    if (key === lastKey) return;
+    lastKey = key;
+
+    const counts = days.reduce((sum, day) => {
+      const kind = recordDayStatus(log[day]).kind;
+      sum[kind] += 1;
+      return sum;
+    }, { done: 0, missed: 0, closed: 0 });
+
+    const previousScroll = root.querySelector(".lux-record-sheet")?.scrollTop || 0;
+    root.replaceChildren();
+    const sheet = document.createElement("section");
+    sheet.className = "lux-record-sheet";
+    sheet.setAttribute("role", "dialog");
+    sheet.setAttribute("aria-modal", "true");
+    sheet.setAttribute("aria-label", "30 day daily record");
+
+    const head = document.createElement("header");
+    head.className = "lux-record-head";
+    const titles = document.createElement("div");
+    const kicker = document.createElement("p");
+    kicker.textContent = "Last 30 days";
+    const title = document.createElement("h2");
+    title.textContent = "Daily record";
+    const note = document.createElement("p");
+    note.className = "lux-record-note";
+    note.textContent = "Saved on this iPad from the first day you open this update. A blank day was not saved.";
+    titles.append(kicker, title, note);
+    const closeBtn = document.createElement("button");
+    closeBtn.type = "button";
+    closeBtn.className = "lux-record-close";
+    closeBtn.textContent = "Close";
+    closeBtn.addEventListener("click", close);
+    head.append(titles, closeBtn);
+
+    const tally = document.createElement("p");
+    tally.className = "lux-record-tally";
+    tally.textContent = `${counts.done} finished · ${counts.missed} unfinished · ${counts.closed} not opened`;
+
+    const dots = document.createElement("div");
+    dots.className = "lux-record-dots";
+    for (const day of days) {
+      const row = log[day];
+      const status = recordDayStatus(row);
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = `lux-record-dot is-${status.kind}${day === selected ? " is-selected" : ""}${day === today ? " is-today" : ""}`;
+      const when = formatRecordDate(day);
+      dot.setAttribute("aria-label", `${when.weekday} ${when.label}, ${status.label}`);
+      dot.title = `${when.weekday} ${when.label} · ${status.label}`;
+      dot.addEventListener("click", () => {
+        selected = day;
+        focusSelected = true;
+        lastKey = "";
+        render();
+      });
+      dots.append(dot);
+    }
+
+    const legend = document.createElement("p");
+    legend.className = "lux-record-legend";
+    legend.innerHTML = `<i class="is-done"></i> Finished <i class="is-missed"></i> Unfinished <i class="is-closed"></i> Not opened`;
+
+    const list = document.createElement("div");
+    list.className = "lux-record-list";
+    for (const day of [...days].reverse()) {
+      const row = log[day];
+      const status = recordDayStatus(row);
+      const when = formatRecordDate(day);
+      const item = document.createElement("article");
+      item.className = `lux-record-day is-${status.kind}${day === selected ? " is-open" : ""}`;
+      const summary = document.createElement("button");
+      summary.type = "button";
+      summary.className = "lux-record-summary";
+      const dateEl = document.createElement("span");
+      dateEl.className = "lux-record-date";
+      dateEl.innerHTML = `<b>${when.weekday}</b> ${when.label}${day === today ? `<em>Today</em>` : ""}`;
+      const score = document.createElement("span");
+      score.className = "lux-record-score";
+      score.textContent = row ? `${status.label} · ${row.done}/${row.total}` : status.label;
+      summary.append(dateEl, score);
+      summary.addEventListener("click", () => {
+        if (selected === day) return;
+        selected = day;
+        lastKey = "";
+        render();
+      });
+      item.append(summary);
+      if (day === selected) {
+        const detail = document.createElement("div");
+        detail.className = "lux-record-detail";
+        if (!row) {
+          const empty = document.createElement("p");
+          empty.textContent = "No record. The app was not opened, so the tasks for this day were not saved.";
+          detail.append(empty);
+        } else {
+          const missed = row.tasks.filter((task) => !task.done);
+          const finished = row.tasks.filter((task) => task.done);
+          const addGroup = (heading, tasks, done) => {
+            if (!tasks.length) return;
+            const h = document.createElement("h3");
+            h.textContent = heading;
+            detail.append(h);
+            for (const task of tasks) {
+              const line = document.createElement("p");
+              line.className = done ? "is-done" : "is-missed";
+              const count = task.target === 1 ? (done ? "Done" : "Not done") : `${task.progress}/${task.target}`;
+              line.textContent = `${done ? "Done" : "Not done"} · ${task.title} · ${count}`;
+              detail.append(line);
+            }
+          };
+          if (!missed.length) {
+            const all = document.createElement("p");
+            all.className = "is-done";
+            all.textContent = "Every daily task was finished.";
+            detail.append(all);
+          }
+          addGroup("Not finished", missed, false);
+          addGroup("Finished", finished, true);
+        }
+        item.append(detail);
+      }
+      list.append(item);
+    }
+
+    sheet.append(head, tally, dots, legend, list);
+    root.append(sheet);
+    const openItem = list.querySelector(".lux-record-day.is-open");
+    if (focusSelected && openItem) sheet.scrollTop = Math.max(0, openItem.offsetTop - 12);
+    else sheet.scrollTop = previousScroll;
+    focusSelected = false;
+  };
+
+  const openRecord = () => {
+    ensure();
+    open = true;
+    root.hidden = false;
+    document.body.classList.add("lux-record-open");
+    lastKey = "";
+    if (!history.state?.luxRecord) history.pushState({ luxRecord: 1 }, "");
+    render();
+    root.querySelector(".lux-record-close")?.focus();
+  };
+
+  root.addEventListener("click", (event) => {
+    if (event.target === root) close();
+  });
+  window.addEventListener("popstate", () => {
+    if (open) hide();
+  });
+  window.addEventListener("keydown", (event) => {
+    if (open && event.key === "Escape") close();
+  });
+  store.subscribe(() => {
+    if (open) render();
+  });
+  window.__luxOpenDailyRecord = openRecord;
+}
+
+function luxGlanceShortLabel(task) {
+  const id = String(task?.id || "");
+  const known = {
+    "latin-vocab": "Latin",
+    "french-vocab": "French",
+    "study-session": "Study",
+    "adaptive-focus": "Focus",
+    "year8-long-review": "Year 8",
+    "y8-practise": "Practise",
+    "y8-mastery": "Mastery",
+    "tend-garden": "Water",
+    "play-game": "Game",
+    "pe-circuit": "PE",
+  };
+  if (known[id]) return known[id];
+  const title = String(task?.title || "Task").split("·")[0].trim();
+  return title.length > 14 ? title.slice(0, 13) + "…" : title;
+}
+
+function luxGlanceTasks() {
+  const daily = store.getState()?.daily || [];
+  return daily.filter((task) => {
+    const href = String(task?.href || "");
+    return !/^\/study\/english\/(learn|practise)(?:\/|$|\?)/.test(href);
+  }).map((task) => {
+    const target = Math.max(1, Number(task?.target) || 1);
+    const progress = Math.max(0, Number(task?.progress) || 0);
+    const done = progress >= target;
+    const shown = Math.min(progress, target);
+    return {
+      id: task.id || task.title,
+      label: luxGlanceShortLabel(task),
+      href: task.href || "/",
+      done,
+      count: target === 1 ? (done ? "Done" : "To do") : `${shown}/${target}`,
+    };
+  });
+}
+
+function mountDailyGlance() {
+  if (typeof document === "undefined" || window.__luxGlanceMounted) return;
+  window.__luxGlanceMounted = true;
+  window.__luxStore = store;
+
+  const board = document.createElement("section");
+  board.id = "lux-today";
+  board.setAttribute("aria-label", "Today's tasks");
+  board.hidden = true;
+  const ensure = () => {
+    if (!board.isConnected) document.documentElement.appendChild(board);
+  };
+  ensure();
+
+  let lastKey = "";
+  const render = () => {
+    const tasks = luxGlanceTasks();
+    if (!tasks.length) {
+      board.hidden = true;
+      document.body.classList.remove("lux-today-on");
+      return;
+    }
+    const done = tasks.filter((task) => task.done).length;
+    const left = tasks.length - done;
+    const complete = left === 0;
+    const verdict = complete ? "All done" : left === 1 ? "1 still to do" : `${left} still to do`;
+    const key = `${verdict}|${tasks.map((task) => `${task.id}:${task.count}:${task.done}`).join(",")}`;
+    board.hidden = false;
+    board.classList.toggle("is-complete", complete);
+    board.setAttribute("aria-live", "polite");
+    if (key !== lastKey) {
+      lastKey = key;
+      board.replaceChildren();
+      const verdictEl = document.createElement("div");
+      verdictEl.className = "lux-today-verdict";
+      const kicker = document.createElement("span");
+      kicker.textContent = "Today";
+      const title = document.createElement("strong");
+      title.textContent = verdict;
+      const count = document.createElement("em");
+      count.textContent = `${done} / ${tasks.length}`;
+      verdictEl.append(kicker, title, count);
+      const recordBtn = document.createElement("button");
+      recordBtn.type = "button";
+      recordBtn.className = "lux-record-open";
+      recordBtn.textContent = "30 days";
+      recordBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        window.__luxOpenDailyRecord?.();
+      });
+      verdictEl.append(recordBtn);
+      const grid = document.createElement("div");
+      grid.className = "lux-today-grid";
+      for (const task of tasks) {
+        const link = document.createElement("a");
+        link.className = task.done ? "lux-chip is-done" : "lux-chip";
+        link.href = task.href || "/";
+        const name = document.createElement("b");
+        name.textContent = `${task.done ? "✓ " : ""}${task.label}`;
+        const meta = document.createElement("span");
+        meta.textContent = task.count;
+        link.append(name, meta);
+        grid.append(link);
+      }
+      board.append(verdictEl, grid);
+    }
+    document.body.classList.add("lux-today-on");
+  };
+
+  const place = () => {
+    if (board.hidden) return;
+    const header = document.querySelector("header.sticky");
+    const aside = document.querySelector("aside");
+    const headerBox = header ? header.getBoundingClientRect() : null;
+    const headerVisible = !!(header && getComputedStyle(header).display !== "none" && headerBox.height > 8);
+    const asideVisible = !!(aside && getComputedStyle(aside).display !== "none" && aside.getBoundingClientRect().width > 8);
+    if (!headerVisible && asideVisible) {
+      board.dataset.place = "aside";
+      board.style.top = "auto";
+      board.style.bottom = "12px";
+      board.style.left = "8px";
+      board.style.right = "auto";
+      board.style.width = "12.25rem";
+      document.body.classList.add("lux-today-aside");
+    } else {
+      board.dataset.place = "header";
+      board.style.top = `${headerVisible ? Math.round(headerBox.height) : 0}px`;
+      board.style.left = "0";
+      board.style.right = "0";
+      board.style.bottom = "auto";
+      board.style.width = "auto";
+      document.body.classList.remove("lux-today-aside");
+    }
+    const height = board.getBoundingClientRect().height;
+    if (height > 0) document.documentElement.style.setProperty("--lux-today-h", `${Math.ceil(height)}px`);
+  };
+
+  const tick = () => {
+    ensure();
+    render();
+    place();
+  };
+  store.subscribe(() => {
+    if (mountDailyGlance._frame) return;
+    mountDailyGlance._frame = requestAnimationFrame(() => {
+      mountDailyGlance._frame = 0;
+      tick();
+    });
+  });
+  window.addEventListener("resize", place);
+  window.addEventListener("popstate", () => setTimeout(tick, 50));
+  tick();
+  let tries = 0;
+  const timer = setInterval(() => {
+    tries += 1;
+    tick();
+    if (tries > 12) clearInterval(timer);
+  }, 250);
+}
+
+mountDailyRecord();
+mountDailyGlance();

@@ -6,20 +6,20 @@ const quiz=fs.readFileSync("assets/quiz-session-rWAnuDVj.js","utf8");
 const failures=[];
 
 for(const token of [
-  "French vocab check",
-  "Latin vocab check",
-  "requiredAttempts:5,requiredCorrect:4",
+  "Year 8 French vocab",
+  "Year 8 Latin vocab",
+  "requiredCorrect:30",
   "dailyVocabByDay:{}"
 ]) if(!core.includes(token)) failures.push({type:"missing-core-vocab-gate",token});
 
 for(const token of [
   "function vocabGateState(state, subject)",
-  "const passed = attempts >= 5 && correct >= 4;",
-  "const progress = passed ? 5 : Math.min(4, attempts);",
+  "const passed = correct >= DAILY_VOCAB_TARGET;",
+  "const progress = Math.min(DAILY_VOCAB_TARGET, correct);",
   "function recordDailyVocabAttempt(subject, questionId, correct)",
   'items[String(questionId)] = !!correct || !!items[String(questionId)];',
-  'id: "french-vocab", title: "French vocab check"',
-  'id: "latin-vocab", title: "Latin vocab check"'
+  'id: "french-vocab", title: "Year 8 French vocab"',
+  'id: "latin-vocab", title: "Year 8 Latin vocab"'
 ]) if(!wrapper.includes(token)) failures.push({type:"missing-runtime-vocab-gate",token});
 
 for(const token of [
@@ -37,40 +37,35 @@ function apply(items,id,correct){
 function gate(items){
   const attempts=Object.keys(items).length;
   const correct=Object.values(items).filter(Boolean).length;
-  const passed=attempts>=5&&correct>=4;
-  const progress=passed?5:Math.min(4,attempts);
+  const passed=correct>=30;
+  const progress=Math.min(30, correct);
   return{attempts,correct,passed,progress};
 }
 
 let items={};
-for(const id of ["a","b","c","d"]) items=apply(items,id,true);
+for(let n=0;n<29;n++) items=apply(items,"w"+n,true);
 let g=gate(items);
-if(g.passed||g.progress!==4) failures.push({type:"four-words-must-not-pass",g});
+if(g.passed||g.progress!==29||g.correct!==29) failures.push({type:"twenty-nine-must-not-pass",g});
 
-items=apply(items,"e",false);
+items=apply(items,"wrong",false);
 g=gate(items);
-if(g.passed!==true) failures.push({type:"five-tested-four-correct-should-pass",g});
+if(g.passed||g.correct!==29) failures.push({type:"wrong-answer-must-not-count",g});
 
-let three={};
-for(const [id,ok] of [["a",true],["b",true],["c",true],["d",false],["e",false]]) three=apply(three,id,ok);
-g=gate(three);
-if(g.passed||g.progress!==4||g.correct!==3) failures.push({type:"five-tested-three-correct-must-not-pass",g});
+items=apply(items,"w29",true);
+g=gate(items);
+if(!g.passed||g.correct!==30||g.progress!==30) failures.push({type:"thirty-correct-should-pass",g});
 
-three=apply(three,"d",true);
-g=gate(three);
-if(!g.passed||g.correct!==4||g.attempts!==5) failures.push({type:"repair-same-word-should-recover-without-extra-word",g});
-
-const before=gate(three);
-three=apply(three,"d",true);
-const after=gate(three);
-if(after.attempts!==before.attempts) failures.push({type:"duplicate-word-counted-twice",before,after});
+const before=gate(items);
+items=apply(items,"w29",true);
+const after=gate(items);
+if(after.attempts!==before.attempts||after.correct!==30) failures.push({type:"duplicate-word-counted-twice",before,after});
 
 const summary={
   failures:failures.length,
-  french:{minimumWords:5,minimumCorrect:4},
-  latin:{minimumWords:5,minimumCorrect:4},
+  french:{correctTarget:30,randomYear8:true},
+  latin:{correctTarget:30,randomYear8:true},
   distinctWords:true,
-  sameWordRepairCanRecover:true,
+  wrongDoesNotCount:true,
   formalMasteryExcluded:true
 };
 console.log("DAILY_VOCAB_GATE_QA "+JSON.stringify(summary));

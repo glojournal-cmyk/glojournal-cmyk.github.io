@@ -25,3 +25,309 @@
     padding-bottom: 6.75rem;
   }
 }
+
+/* Today glance: every daily task, done or not, in one look */
+#lux-today {
+  position: fixed;
+  z-index: 28;
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 12px 10px;
+  background: #fffdf8f2;
+  border-bottom: 1px solid #e2d7c4;
+  box-shadow: 0 12px 28px -20px #16324a66;
+  backdrop-filter: blur(10px);
+}
+#lux-today[hidden] { display: none !important; }
+#lux-today.is-complete {
+  background: #e7f0e4f2;
+  border-bottom-color: #c5d7c4;
+}
+#lux-today[data-place="aside"] {
+  display: block;
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 0 0 1px #16324a14, 0 12px 28px -16px #16324a55;
+  padding: 10px;
+}
+.lux-today-verdict {
+  flex: 0 0 auto;
+  min-width: 5.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+}
+.lux-today-verdict span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #16324a;
+}
+.lux-today-verdict strong {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #7a6240;
+}
+#lux-today.is-complete .lux-today-verdict strong { color: #2f6b4f; }
+.lux-today-verdict em {
+  font-style: normal;
+  font-size: 11px;
+  color: #6d7874;
+  font-variant-numeric: tabular-nums;
+}
+.lux-today-grid {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 6px;
+}
+#lux-today[data-place="aside"] .lux-today-verdict { margin-bottom: 8px; }
+#lux-today[data-place="aside"] .lux-today-grid { display: grid; grid-template-columns: 1fr 1fr; }
+#lux-today[data-place="aside"] .lux-chip { max-width: none; }
+.lux-chip {
+  display: flex;
+  flex: 1 1 92px;
+  max-width: 148px;
+  min-width: 0;
+  min-height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  background: #eef3e8;
+  color: #1c3348;
+  text-decoration: none;
+}
+.lux-chip b {
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lux-chip span {
+  font-size: 11px;
+  line-height: 1.1;
+  color: #6d7874;
+  font-variant-numeric: tabular-nums;
+}
+.lux-chip.is-done {
+  background: #3f6b52;
+  color: #fffdf8;
+}
+.lux-chip.is-done span { color: #fffdf8cc; }
+@media (max-width: 1279px) {
+  body.lux-today-on main {
+    padding-top: calc(var(--lux-today-h, 72px) + 10px) !important;
+  }
+}
+body.lux-today-on:not(.lux-today-aside) main {
+  padding-top: calc(var(--lux-today-h, 72px) + 10px) !important;
+}
+@media (min-width: 80rem) {
+  body.lux-today-aside aside {
+    padding-bottom: calc(var(--lux-today-h, 180px) + 16px);
+    overflow-y: auto;
+  }
+}
+
+.lux-record-open {
+  align-self: flex-start;
+  margin-top: 4px;
+  min-height: 28px;
+  padding: 3px 8px;
+  border: 0;
+  border-radius: 999px;
+  background: #16324a;
+  color: #fffdf8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+#lux-today[data-place="aside"] .lux-record-open { margin-top: 6px; }
+body.lux-record-open { overflow: hidden; }
+#lux-record {
+  position: fixed;
+  z-index: 80;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  background: #16324a66;
+}
+#lux-record[hidden] { display: none !important; }
+.lux-record-sheet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(680px, 100%);
+  max-height: min(92dvh, 900px);
+  overflow: auto;
+  padding: 18px 16px 20px;
+  border-radius: 28px;
+  background: #fffdf8;
+  color: #1c3348;
+  box-shadow: 0 24px 60px -28px #16324a;
+}
+.lux-record-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.lux-record-head p {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7a6240;
+}
+.lux-record-head h2 {
+  margin: 2px 0 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #16324a;
+}
+.lux-record-note {
+  margin-top: 6px !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  line-height: 1.35;
+  color: #6d7874 !important;
+}
+.lux-record-close {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: #16324a;
+  color: #fffdf8;
+  font-size: 14px;
+  font-weight: 700;
+}
+.lux-record-tally {
+  margin: 14px 0 10px;
+  font-size: 15px;
+  font-weight: 650;
+}
+.lux-record-dots {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 6px;
+}
+.lux-record-dot {
+  aspect-ratio: 1;
+  min-height: 28px;
+  border: 0;
+  border-radius: 999px;
+  background: #e2d7c4;
+  box-shadow: inset 0 0 0 1px #16324a14;
+}
+.lux-record-dot.is-done { background: #3f6b52; }
+.lux-record-dot.is-missed { background: #b08968; }
+.lux-record-dot.is-selected { box-shadow: 0 0 0 2px #fffdf8, 0 0 0 4px #16324a; }
+.lux-record-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin: 8px 0 12px;
+  font-size: 12px;
+  color: #6d7874;
+}
+.lux-record-legend i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 4px;
+  border-radius: 999px;
+  background: #e2d7c4;
+  vertical-align: -1px;
+}
+.lux-record-legend i.is-done { background: #3f6b52; }
+.lux-record-legend i.is-missed { background: #b08968; }
+.lux-record-list { display: flex; flex-direction: column; gap: 8px; }
+.lux-record-day {
+  border-radius: 16px;
+  background: #f3eee4;
+}
+.lux-record-day.is-done { background: #e7f0e4; }
+.lux-record-day.is-missed { background: #f8f1e6; }
+.lux-record-summary {
+  display: flex;
+  width: 100%;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+}
+.lux-record-date {
+  font-size: 15px;
+  font-weight: 650;
+}
+.lux-record-date b { margin-right: 6px; }
+.lux-record-date em {
+  margin-left: 8px;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #16324a;
+}
+.lux-record-score {
+  flex: 0 0 auto;
+  font-size: 13px;
+  font-weight: 700;
+  color: #7a6240;
+  font-variant-numeric: tabular-nums;
+}
+.lux-record-day.is-done .lux-record-score { color: #2f6b4f; }
+.lux-record-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 12px 12px;
+}
+.lux-record-detail h3 {
+  margin: 4px 0 0;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6d7874;
+}
+.lux-record-detail p {
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: #fffdf8;
+  font-size: 14px;
+  line-height: 1.35;
+}
+.lux-record-detail p.is-missed { color: #8f3d3d; }
+.lux-record-detail p.is-done { color: #2f6b4f; }
