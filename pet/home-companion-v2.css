@@ -496,3 +496,18 @@
     transition: none !important;
   }
 }
+
+
+/* Pebble Wisp v3 · approved five-form evolution sheet.
+   The inline style still identifies the selected species; these rules only
+   replace Pebble Wisp art and leave every other companion untouched. */
+#mastery-pet-home .mph-art[style*="pebble-wisp"] {
+  background-image: url('/pet/art-evolution-v3/pebble-wisp.avif?v=20260927-pebble-v3') !important;
+  background-size: 300% 200% !important;
+  background-repeat: no-repeat !important;
+}
+#mastery-pet-home[data-stage="1"] .mph-art[style*="pebble-wisp"] { background-position: 0% 0% !important; }
+#mastery-pet-home[data-stage="2"] .mph-art[style*="pebble-wisp"] { background-position: 50% 0% !important; }
+#mastery-pet-home[data-stage="3"] .mph-art[style*="pebble-wisp"] { background-position: 100% 0% !important; }
+#mastery-pet-home[data-stage="4"] .mph-art[style*="pebble-wisp"] { background-position: 0% 100% !important; }
+#mastery-pet-home[data-stage="5"] .mph-art[style*="pebble-wisp"] { background-position: 50% 100% !important; }

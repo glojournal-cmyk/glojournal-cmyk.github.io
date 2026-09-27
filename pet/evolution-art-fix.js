@@ -1,4 +1,6 @@
-const EVOLUTION_ART_VERSION = "20260927-evolution3";
+const EVOLUTION_ART_VERSION = "20260927-pebble-v3";
+const PEBBLE_SHEET = `/pet/art-evolution-v3/pebble-wisp.avif?v=${EVOLUTION_ART_VERSION}`;
+const PEBBLE_SOURCE_RE = /\/pet\/(?:art-master\/pebble-wisp\.png|art-evolution-v2\/pebble-wisp\.webp)/i;
 const LEGACY_SPRITE_RE = /\/pet\/art-evolution-v2\/([a-z0-9-]+)\.webp/i;
 
 function clampLevel(value) {
@@ -35,9 +37,31 @@ function inferLevel(el) {
   return clampLevel(levelFromPosition(position) || 1);
 }
 
+function pebblePosition(level) {
+  return {
+    1: "0% 0%",
+    2: "50% 0%",
+    3: "100% 0%",
+    4: "0% 100%",
+    5: "50% 100%",
+  }[clampLevel(level)];
+}
+
+function patchPebble(el, background) {
+  if (!PEBBLE_SOURCE_RE.test(background)) return false;
+  const level = inferLevel(el);
+  el.style.backgroundImage = `url("${PEBBLE_SHEET}")`;
+  el.style.backgroundSize = "300% 200%";
+  el.style.backgroundPosition = pebblePosition(level);
+  el.style.backgroundRepeat = "no-repeat";
+  el.dataset.evolutionArt = `pebble-wisp:${level}:v3`;
+  return true;
+}
+
 function patchSprite(el) {
   if (!(el instanceof HTMLElement)) return false;
   const background = el.style.backgroundImage || "";
+  if (patchPebble(el, background)) return true;
   const match = background.match(LEGACY_SPRITE_RE);
   if (!match) return false;
 
