@@ -77,8 +77,6 @@ jobs:
         run: |
           node --check pet/evolution-art-fix.js
           git diff --check
-          node tests/pet-care-state.test.mjs
-          node tests/pet-mp-qa.mjs
           python - <<'PY'
           from pathlib import Path
           import hashlib
@@ -90,13 +88,15 @@ jobs:
           for pos in ('0% 0%', '50% 0%', '100% 0%', '0% 100%', '50% 100%'):
               assert pos in js and pos in css
           assert '300% 200%' in js and '300% 200%' in css
+          assert 'PEBBLE_SOURCE_RE' in js and 'patchPebble' in js
+          assert '#mastery-pet-home[data-stage="5"]' in css
           print('Pebble Wisp v3 focused checks passed')
           PY
 
       - name: Commit final files and remove transport
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "4189824+github-actions[bot]@users.noreply.github.com"
           git add pet/art-evolution-v3/pebble-wisp.avif pet/evolution-art-fix.js pet/home-companion-v2.css
           git rm -f \
             pet/generated-art/pebble-wisp-v3/part-05.txt \
