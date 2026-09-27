@@ -251,9 +251,13 @@ function renderCompanion(host) {
   } else if (hud.parentElement !== host) {
     host.appendChild(hud);
   }
-  hud.innerHTML =
-    `<span class="mph-hud-title"><b>${escapeHtml(name)}</b><small>${escapeHtml(summary.tier?.label || "Acquainted")} · ${escapeHtml(status)}</small></span>` +
-    `<span class="mph-mini-stats">${compactMetric("Bond", care.bond)}${compactMetric("Mood", care.mood)}${compactMetric("Energy", care.energy)}</span>`;
+  const hudSignature = [name, summary.tier?.label, status, care.bond, care.mood, care.energy].join("|");
+  if (hud.dataset.renderSignature !== hudSignature) {
+    hud.dataset.renderSignature = hudSignature;
+    hud.innerHTML =
+      `<span class="mph-hud-title"><b>${escapeHtml(name)}</b><small>${escapeHtml(summary.tier?.label || "Acquainted")} · ${escapeHtml(status)}</small></span>` +
+      `<span class="mph-mini-stats">${compactMetric("Bond", care.bond)}${compactMetric("Mood", care.mood)}${compactMetric("Energy", care.energy)}</span>`;
+  }
 
   try {
     const key = "lux-pet-last-stage-v1";
