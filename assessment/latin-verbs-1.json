@@ -1,0 +1,2738 @@
+{
+  "id": "latin-verbs-1",
+  "title": "Regular verbs: present, imperfect and perfect",
+  "dueDate": "2026-09-28",
+  "source": "School verb table scanned 27 September 2026. Regular verbs only: porto, moneo, traho, audio.",
+  "questions": [
+    {
+      "id": "lv-porto-present-1s",
+      "conceptId": "lv-porto-present-1s",
+      "topic": "Present",
+      "prompt": "Translate into English: porto",
+      "format": "typed_exact",
+      "modelAnswer": "I carry",
+      "feedback": {
+        "short": "1st conjugation, present, 1st person singular. porto = I carry."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "I carry",
+          "I do carry"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-present-2s",
+      "conceptId": "lv-porto-present-2s",
+      "topic": "Present",
+      "prompt": "Translate into English: portas",
+      "format": "typed_exact",
+      "modelAnswer": "you (singular) carry",
+      "feedback": {
+        "short": "1st conjugation, present, 2nd person singular. portas = you (singular) carry."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you carry",
+          "you (singular) carry",
+          "you (s) carry",
+          "you (s.) carry",
+          "you (sg) carry",
+          "you singular carry",
+          "you do carry",
+          "you (singular) do carry",
+          "you (s) do carry",
+          "you (s.) do carry",
+          "you (sg) do carry",
+          "you singular do carry"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-present-3s",
+      "conceptId": "lv-porto-present-3s",
+      "topic": "Present",
+      "prompt": "Translate into English: portat",
+      "format": "typed_exact",
+      "modelAnswer": "he/she/it carries",
+      "feedback": {
+        "short": "1st conjugation, present, 3rd person singular. portat = he/she/it carries."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "he carries",
+          "she carries",
+          "it carries",
+          "he/she/it carries",
+          "he/she carries",
+          "she/he carries",
+          "he or she carries",
+          "he, she or it carries",
+          "he she or it carries",
+          "he or she or it carries",
+          "s/he carries",
+          "he does carry",
+          "she does carry",
+          "it does carry",
+          "he/she/it does carry",
+          "he/she does carry",
+          "she/he does carry",
+          "he or she does carry",
+          "he, she or it does carry",
+          "he she or it does carry",
+          "he or she or it does carry",
+          "s/he does carry"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-present-1p",
+      "conceptId": "lv-porto-present-1p",
+      "topic": "Present",
+      "prompt": "Translate into English: portamus",
+      "format": "typed_exact",
+      "modelAnswer": "we carry",
+      "feedback": {
+        "short": "1st conjugation, present, 1st person plural. portamus = we carry."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "we carry",
+          "we do carry"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-present-2p",
+      "conceptId": "lv-porto-present-2p",
+      "topic": "Present",
+      "prompt": "Translate into English: portatis",
+      "format": "typed_exact",
+      "modelAnswer": "you (plural) carry",
+      "feedback": {
+        "short": "1st conjugation, present, 2nd person plural. portatis = you (plural) carry."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you carry",
+          "you (plural) carry",
+          "you (pl) carry",
+          "you (pl.) carry",
+          "you plural carry",
+          "you all carry",
+          "all of you carry",
+          "you do carry",
+          "you (plural) do carry",
+          "you (pl) do carry",
+          "you (pl.) do carry",
+          "you plural do carry",
+          "you all do carry",
+          "all of you do carry"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-present-3p",
+      "conceptId": "lv-porto-present-3p",
+      "topic": "Present",
+      "prompt": "Translate into English: portant",
+      "format": "typed_exact",
+      "modelAnswer": "they carry",
+      "feedback": {
+        "short": "1st conjugation, present, 3rd person plural. portant = they carry."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "they carry",
+          "they do carry"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-imperfect-1s",
+      "conceptId": "lv-porto-imperfect-1s",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: portabam",
+      "format": "typed_exact",
+      "modelAnswer": "I was carrying",
+      "feedback": {
+        "short": "1st conjugation, imperfect, 1st person singular. portabam = I was carrying."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "I was carrying",
+          "I used to carry"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-imperfect-2s",
+      "conceptId": "lv-porto-imperfect-2s",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: portabas",
+      "format": "typed_exact",
+      "modelAnswer": "you (singular) were carrying",
+      "feedback": {
+        "short": "1st conjugation, imperfect, 2nd person singular. portabas = you (singular) were carrying."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you were carrying",
+          "you (singular) were carrying",
+          "you (s) were carrying",
+          "you (s.) were carrying",
+          "you (sg) were carrying",
+          "you singular were carrying",
+          "you used to carry",
+          "you (singular) used to carry",
+          "you (s) used to carry",
+          "you (s.) used to carry",
+          "you (sg) used to carry",
+          "you singular used to carry"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-imperfect-3s",
+      "conceptId": "lv-porto-imperfect-3s",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: portabat",
+      "format": "typed_exact",
+      "modelAnswer": "he/she/it was carrying",
+      "feedback": {
+        "short": "1st conjugation, imperfect, 3rd person singular. portabat = he/she/it was carrying."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "he was carrying",
+          "she was carrying",
+          "it was carrying",
+          "he/she/it was carrying",
+          "he/she was carrying",
+          "she/he was carrying",
+          "he or she was carrying",
+          "he, she or it was carrying",
+          "he she or it was carrying",
+          "he or she or it was carrying",
+          "s/he was carrying",
+          "he used to carry",
+          "she used to carry",
+          "it used to carry",
+          "he/she/it used to carry",
+          "he/she used to carry",
+          "she/he used to carry",
+          "he or she used to carry",
+          "he, she or it used to carry",
+          "he she or it used to carry",
+          "he or she or it used to carry",
+          "s/he used to carry"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-imperfect-1p",
+      "conceptId": "lv-porto-imperfect-1p",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: portabamus",
+      "format": "typed_exact",
+      "modelAnswer": "we were carrying",
+      "feedback": {
+        "short": "1st conjugation, imperfect, 1st person plural. portabamus = we were carrying."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "we were carrying",
+          "we used to carry"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-imperfect-2p",
+      "conceptId": "lv-porto-imperfect-2p",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: portabatis",
+      "format": "typed_exact",
+      "modelAnswer": "you (plural) were carrying",
+      "feedback": {
+        "short": "1st conjugation, imperfect, 2nd person plural. portabatis = you (plural) were carrying."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you were carrying",
+          "you (plural) were carrying",
+          "you (pl) were carrying",
+          "you (pl.) were carrying",
+          "you plural were carrying",
+          "you all were carrying",
+          "all of you were carrying",
+          "you used to carry",
+          "you (plural) used to carry",
+          "you (pl) used to carry",
+          "you (pl.) used to carry",
+          "you plural used to carry",
+          "you all used to carry",
+          "all of you used to carry"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-imperfect-3p",
+      "conceptId": "lv-porto-imperfect-3p",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: portabant",
+      "format": "typed_exact",
+      "modelAnswer": "they were carrying",
+      "feedback": {
+        "short": "1st conjugation, imperfect, 3rd person plural. portabant = they were carrying."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "they were carrying",
+          "they used to carry"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-perfect-1s",
+      "conceptId": "lv-porto-perfect-1s",
+      "topic": "Perfect",
+      "prompt": "Translate into English: portavi",
+      "format": "typed_exact",
+      "modelAnswer": "I carried",
+      "feedback": {
+        "short": "1st conjugation, perfect, 1st person singular. portavi = I carried."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "I carried",
+          "I have carried",
+          "I did carry",
+          "I've carried"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-perfect-2s",
+      "conceptId": "lv-porto-perfect-2s",
+      "topic": "Perfect",
+      "prompt": "Translate into English: portavisti",
+      "format": "typed_exact",
+      "modelAnswer": "you (singular) carried",
+      "feedback": {
+        "short": "1st conjugation, perfect, 2nd person singular. portavisti = you (singular) carried."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you carried",
+          "you (singular) carried",
+          "you (s) carried",
+          "you (s.) carried",
+          "you (sg) carried",
+          "you singular carried",
+          "you have carried",
+          "you (singular) have carried",
+          "you (s) have carried",
+          "you (s.) have carried",
+          "you (sg) have carried",
+          "you singular have carried",
+          "you did carry",
+          "you (singular) did carry",
+          "you (s) did carry",
+          "you (s.) did carry",
+          "you (sg) did carry",
+          "you singular did carry",
+          "you've carried"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-perfect-3s",
+      "conceptId": "lv-porto-perfect-3s",
+      "topic": "Perfect",
+      "prompt": "Translate into English: portavit",
+      "format": "typed_exact",
+      "modelAnswer": "he/she/it carried",
+      "feedback": {
+        "short": "1st conjugation, perfect, 3rd person singular. portavit = he/she/it carried."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "he carried",
+          "she carried",
+          "it carried",
+          "he/she/it carried",
+          "he/she carried",
+          "she/he carried",
+          "he or she carried",
+          "he, she or it carried",
+          "he she or it carried",
+          "he or she or it carried",
+          "s/he carried",
+          "he has carried",
+          "she has carried",
+          "it has carried",
+          "he/she/it has carried",
+          "he/she has carried",
+          "she/he has carried",
+          "he or she has carried",
+          "he, she or it has carried",
+          "he she or it has carried",
+          "he or she or it has carried",
+          "s/he has carried",
+          "he did carry",
+          "she did carry",
+          "it did carry",
+          "he/she/it did carry",
+          "he/she did carry",
+          "she/he did carry",
+          "he or she did carry",
+          "he, she or it did carry",
+          "he she or it did carry",
+          "he or she or it did carry",
+          "s/he did carry",
+          "he's carried",
+          "she's carried",
+          "it's carried",
+          "he/she/it's carried"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-perfect-1p",
+      "conceptId": "lv-porto-perfect-1p",
+      "topic": "Perfect",
+      "prompt": "Translate into English: portavimus",
+      "format": "typed_exact",
+      "modelAnswer": "we carried",
+      "feedback": {
+        "short": "1st conjugation, perfect, 1st person plural. portavimus = we carried."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "we carried",
+          "we have carried",
+          "we did carry",
+          "we've carried"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-perfect-2p",
+      "conceptId": "lv-porto-perfect-2p",
+      "topic": "Perfect",
+      "prompt": "Translate into English: portavistis",
+      "format": "typed_exact",
+      "modelAnswer": "you (plural) carried",
+      "feedback": {
+        "short": "1st conjugation, perfect, 2nd person plural. portavistis = you (plural) carried."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you carried",
+          "you (plural) carried",
+          "you (pl) carried",
+          "you (pl.) carried",
+          "you plural carried",
+          "you all carried",
+          "all of you carried",
+          "you have carried",
+          "you (plural) have carried",
+          "you (pl) have carried",
+          "you (pl.) have carried",
+          "you plural have carried",
+          "you all have carried",
+          "all of you have carried",
+          "you did carry",
+          "you (plural) did carry",
+          "you (pl) did carry",
+          "you (pl.) did carry",
+          "you plural did carry",
+          "you all did carry",
+          "all of you did carry",
+          "you've carried"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-porto-perfect-3p",
+      "conceptId": "lv-porto-perfect-3p",
+      "topic": "Perfect",
+      "prompt": "Translate into English: portaverunt",
+      "format": "typed_exact",
+      "modelAnswer": "they carried",
+      "feedback": {
+        "short": "1st conjugation, perfect, 3rd person plural. portaverunt = they carried."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "they carried",
+          "they have carried",
+          "they did carry",
+          "they've carried"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-present-1s",
+      "conceptId": "lv-moneo-present-1s",
+      "topic": "Present",
+      "prompt": "Translate into English: moneo",
+      "format": "typed_exact",
+      "modelAnswer": "I warn",
+      "feedback": {
+        "short": "2nd conjugation, present, 1st person singular. moneo = I warn."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "I warn",
+          "I do warn",
+          "I advise"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-present-2s",
+      "conceptId": "lv-moneo-present-2s",
+      "topic": "Present",
+      "prompt": "Translate into English: mones",
+      "format": "typed_exact",
+      "modelAnswer": "you (singular) warn",
+      "feedback": {
+        "short": "2nd conjugation, present, 2nd person singular. mones = you (singular) warn."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you warn",
+          "you (singular) warn",
+          "you (s) warn",
+          "you (s.) warn",
+          "you (sg) warn",
+          "you singular warn",
+          "you do warn",
+          "you (singular) do warn",
+          "you (s) do warn",
+          "you (s.) do warn",
+          "you (sg) do warn",
+          "you singular do warn",
+          "you advise",
+          "you (singular) advise",
+          "you (s) advise",
+          "you (s.) advise",
+          "you (sg) advise",
+          "you singular advise"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-present-3s",
+      "conceptId": "lv-moneo-present-3s",
+      "topic": "Present",
+      "prompt": "Translate into English: monet",
+      "format": "typed_exact",
+      "modelAnswer": "he/she/it warns",
+      "feedback": {
+        "short": "2nd conjugation, present, 3rd person singular. monet = he/she/it warns."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "he warns",
+          "she warns",
+          "it warns",
+          "he/she/it warns",
+          "he/she warns",
+          "she/he warns",
+          "he or she warns",
+          "he, she or it warns",
+          "he she or it warns",
+          "he or she or it warns",
+          "s/he warns",
+          "he does warn",
+          "she does warn",
+          "it does warn",
+          "he/she/it does warn",
+          "he/she does warn",
+          "she/he does warn",
+          "he or she does warn",
+          "he, she or it does warn",
+          "he she or it does warn",
+          "he or she or it does warn",
+          "s/he does warn",
+          "he advises",
+          "she advises",
+          "it advises",
+          "he/she/it advises",
+          "he/she advises",
+          "she/he advises",
+          "he or she advises",
+          "he, she or it advises",
+          "he she or it advises",
+          "he or she or it advises",
+          "s/he advises"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-present-1p",
+      "conceptId": "lv-moneo-present-1p",
+      "topic": "Present",
+      "prompt": "Translate into English: monemus",
+      "format": "typed_exact",
+      "modelAnswer": "we warn",
+      "feedback": {
+        "short": "2nd conjugation, present, 1st person plural. monemus = we warn."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "we warn",
+          "we do warn",
+          "we advise"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-present-2p",
+      "conceptId": "lv-moneo-present-2p",
+      "topic": "Present",
+      "prompt": "Translate into English: monetis",
+      "format": "typed_exact",
+      "modelAnswer": "you (plural) warn",
+      "feedback": {
+        "short": "2nd conjugation, present, 2nd person plural. monetis = you (plural) warn."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you warn",
+          "you (plural) warn",
+          "you (pl) warn",
+          "you (pl.) warn",
+          "you plural warn",
+          "you all warn",
+          "all of you warn",
+          "you do warn",
+          "you (plural) do warn",
+          "you (pl) do warn",
+          "you (pl.) do warn",
+          "you plural do warn",
+          "you all do warn",
+          "all of you do warn",
+          "you advise",
+          "you (plural) advise",
+          "you (pl) advise",
+          "you (pl.) advise",
+          "you plural advise",
+          "you all advise",
+          "all of you advise"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-present-3p",
+      "conceptId": "lv-moneo-present-3p",
+      "topic": "Present",
+      "prompt": "Translate into English: monent",
+      "format": "typed_exact",
+      "modelAnswer": "they warn",
+      "feedback": {
+        "short": "2nd conjugation, present, 3rd person plural. monent = they warn."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "they warn",
+          "they do warn",
+          "they advise"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-imperfect-1s",
+      "conceptId": "lv-moneo-imperfect-1s",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: monebam",
+      "format": "typed_exact",
+      "modelAnswer": "I was warning",
+      "feedback": {
+        "short": "2nd conjugation, imperfect, 1st person singular. monebam = I was warning."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "I was warning",
+          "I used to warn",
+          "I was advising",
+          "I used to advise"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-imperfect-2s",
+      "conceptId": "lv-moneo-imperfect-2s",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: monebas",
+      "format": "typed_exact",
+      "modelAnswer": "you (singular) were warning",
+      "feedback": {
+        "short": "2nd conjugation, imperfect, 2nd person singular. monebas = you (singular) were warning."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you were warning",
+          "you (singular) were warning",
+          "you (s) were warning",
+          "you (s.) were warning",
+          "you (sg) were warning",
+          "you singular were warning",
+          "you used to warn",
+          "you (singular) used to warn",
+          "you (s) used to warn",
+          "you (s.) used to warn",
+          "you (sg) used to warn",
+          "you singular used to warn",
+          "you were advising",
+          "you (singular) were advising",
+          "you (s) were advising",
+          "you (s.) were advising",
+          "you (sg) were advising",
+          "you singular were advising",
+          "you used to advise",
+          "you (singular) used to advise",
+          "you (s) used to advise",
+          "you (s.) used to advise",
+          "you (sg) used to advise",
+          "you singular used to advise"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-imperfect-3s",
+      "conceptId": "lv-moneo-imperfect-3s",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: monebat",
+      "format": "typed_exact",
+      "modelAnswer": "he/she/it was warning",
+      "feedback": {
+        "short": "2nd conjugation, imperfect, 3rd person singular. monebat = he/she/it was warning."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "he was warning",
+          "she was warning",
+          "it was warning",
+          "he/she/it was warning",
+          "he/she was warning",
+          "she/he was warning",
+          "he or she was warning",
+          "he, she or it was warning",
+          "he she or it was warning",
+          "he or she or it was warning",
+          "s/he was warning",
+          "he used to warn",
+          "she used to warn",
+          "it used to warn",
+          "he/she/it used to warn",
+          "he/she used to warn",
+          "she/he used to warn",
+          "he or she used to warn",
+          "he, she or it used to warn",
+          "he she or it used to warn",
+          "he or she or it used to warn",
+          "s/he used to warn",
+          "he was advising",
+          "she was advising",
+          "it was advising",
+          "he/she/it was advising",
+          "he/she was advising",
+          "she/he was advising",
+          "he or she was advising",
+          "he, she or it was advising",
+          "he she or it was advising",
+          "he or she or it was advising",
+          "s/he was advising",
+          "he used to advise",
+          "she used to advise",
+          "it used to advise",
+          "he/she/it used to advise",
+          "he/she used to advise",
+          "she/he used to advise",
+          "he or she used to advise",
+          "he, she or it used to advise",
+          "he she or it used to advise",
+          "he or she or it used to advise",
+          "s/he used to advise"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-imperfect-1p",
+      "conceptId": "lv-moneo-imperfect-1p",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: monebamus",
+      "format": "typed_exact",
+      "modelAnswer": "we were warning",
+      "feedback": {
+        "short": "2nd conjugation, imperfect, 1st person plural. monebamus = we were warning."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "we were warning",
+          "we used to warn",
+          "we were advising",
+          "we used to advise"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-imperfect-2p",
+      "conceptId": "lv-moneo-imperfect-2p",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: monebatis",
+      "format": "typed_exact",
+      "modelAnswer": "you (plural) were warning",
+      "feedback": {
+        "short": "2nd conjugation, imperfect, 2nd person plural. monebatis = you (plural) were warning."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you were warning",
+          "you (plural) were warning",
+          "you (pl) were warning",
+          "you (pl.) were warning",
+          "you plural were warning",
+          "you all were warning",
+          "all of you were warning",
+          "you used to warn",
+          "you (plural) used to warn",
+          "you (pl) used to warn",
+          "you (pl.) used to warn",
+          "you plural used to warn",
+          "you all used to warn",
+          "all of you used to warn",
+          "you were advising",
+          "you (plural) were advising",
+          "you (pl) were advising",
+          "you (pl.) were advising",
+          "you plural were advising",
+          "you all were advising",
+          "all of you were advising",
+          "you used to advise",
+          "you (plural) used to advise",
+          "you (pl) used to advise",
+          "you (pl.) used to advise",
+          "you plural used to advise",
+          "you all used to advise",
+          "all of you used to advise"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-imperfect-3p",
+      "conceptId": "lv-moneo-imperfect-3p",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: monebant",
+      "format": "typed_exact",
+      "modelAnswer": "they were warning",
+      "feedback": {
+        "short": "2nd conjugation, imperfect, 3rd person plural. monebant = they were warning."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "they were warning",
+          "they used to warn",
+          "they were advising",
+          "they used to advise"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-perfect-1s",
+      "conceptId": "lv-moneo-perfect-1s",
+      "topic": "Perfect",
+      "prompt": "Translate into English: monui",
+      "format": "typed_exact",
+      "modelAnswer": "I warned",
+      "feedback": {
+        "short": "2nd conjugation, perfect, 1st person singular. monui = I warned."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "I warned",
+          "I have warned",
+          "I did warn",
+          "I advised",
+          "I have advised",
+          "I've warned",
+          "I've advised"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-perfect-2s",
+      "conceptId": "lv-moneo-perfect-2s",
+      "topic": "Perfect",
+      "prompt": "Translate into English: monuisti",
+      "format": "typed_exact",
+      "modelAnswer": "you (singular) warned",
+      "feedback": {
+        "short": "2nd conjugation, perfect, 2nd person singular. monuisti = you (singular) warned."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you warned",
+          "you (singular) warned",
+          "you (s) warned",
+          "you (s.) warned",
+          "you (sg) warned",
+          "you singular warned",
+          "you have warned",
+          "you (singular) have warned",
+          "you (s) have warned",
+          "you (s.) have warned",
+          "you (sg) have warned",
+          "you singular have warned",
+          "you did warn",
+          "you (singular) did warn",
+          "you (s) did warn",
+          "you (s.) did warn",
+          "you (sg) did warn",
+          "you singular did warn",
+          "you advised",
+          "you (singular) advised",
+          "you (s) advised",
+          "you (s.) advised",
+          "you (sg) advised",
+          "you singular advised",
+          "you have advised",
+          "you (singular) have advised",
+          "you (s) have advised",
+          "you (s.) have advised",
+          "you (sg) have advised",
+          "you singular have advised",
+          "you've warned"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-perfect-3s",
+      "conceptId": "lv-moneo-perfect-3s",
+      "topic": "Perfect",
+      "prompt": "Translate into English: monuit",
+      "format": "typed_exact",
+      "modelAnswer": "he/she/it warned",
+      "feedback": {
+        "short": "2nd conjugation, perfect, 3rd person singular. monuit = he/she/it warned."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "he warned",
+          "she warned",
+          "it warned",
+          "he/she/it warned",
+          "he/she warned",
+          "she/he warned",
+          "he or she warned",
+          "he, she or it warned",
+          "he she or it warned",
+          "he or she or it warned",
+          "s/he warned",
+          "he has warned",
+          "she has warned",
+          "it has warned",
+          "he/she/it has warned",
+          "he/she has warned",
+          "she/he has warned",
+          "he or she has warned",
+          "he, she or it has warned",
+          "he she or it has warned",
+          "he or she or it has warned",
+          "s/he has warned",
+          "he did warn",
+          "she did warn",
+          "it did warn",
+          "he/she/it did warn",
+          "he/she did warn",
+          "she/he did warn",
+          "he or she did warn",
+          "he, she or it did warn",
+          "he she or it did warn",
+          "he or she or it did warn",
+          "s/he did warn",
+          "he advised",
+          "she advised",
+          "it advised",
+          "he/she/it advised",
+          "he/she advised",
+          "she/he advised",
+          "he or she advised",
+          "he, she or it advised",
+          "he she or it advised",
+          "he or she or it advised",
+          "s/he advised",
+          "he has advised",
+          "she has advised",
+          "it has advised",
+          "he/she/it has advised",
+          "he/she has advised",
+          "she/he has advised",
+          "he or she has advised",
+          "he, she or it has advised",
+          "he she or it has advised",
+          "he or she or it has advised",
+          "s/he has advised",
+          "he's warned",
+          "she's warned",
+          "it's warned",
+          "he/she/it's warned",
+          "he's advised",
+          "she's advised",
+          "it's advised"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-perfect-1p",
+      "conceptId": "lv-moneo-perfect-1p",
+      "topic": "Perfect",
+      "prompt": "Translate into English: monuimus",
+      "format": "typed_exact",
+      "modelAnswer": "we warned",
+      "feedback": {
+        "short": "2nd conjugation, perfect, 1st person plural. monuimus = we warned."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "we warned",
+          "we have warned",
+          "we did warn",
+          "we advised",
+          "we have advised",
+          "we've warned",
+          "we've advised"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-perfect-2p",
+      "conceptId": "lv-moneo-perfect-2p",
+      "topic": "Perfect",
+      "prompt": "Translate into English: monuistis",
+      "format": "typed_exact",
+      "modelAnswer": "you (plural) warned",
+      "feedback": {
+        "short": "2nd conjugation, perfect, 2nd person plural. monuistis = you (plural) warned."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you warned",
+          "you (plural) warned",
+          "you (pl) warned",
+          "you (pl.) warned",
+          "you plural warned",
+          "you all warned",
+          "all of you warned",
+          "you have warned",
+          "you (plural) have warned",
+          "you (pl) have warned",
+          "you (pl.) have warned",
+          "you plural have warned",
+          "you all have warned",
+          "all of you have warned",
+          "you did warn",
+          "you (plural) did warn",
+          "you (pl) did warn",
+          "you (pl.) did warn",
+          "you plural did warn",
+          "you all did warn",
+          "all of you did warn",
+          "you advised",
+          "you (plural) advised",
+          "you (pl) advised",
+          "you (pl.) advised",
+          "you plural advised",
+          "you all advised",
+          "all of you advised",
+          "you have advised",
+          "you (plural) have advised",
+          "you (pl) have advised",
+          "you (pl.) have advised",
+          "you plural have advised",
+          "you all have advised",
+          "all of you have advised",
+          "you've warned"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-moneo-perfect-3p",
+      "conceptId": "lv-moneo-perfect-3p",
+      "topic": "Perfect",
+      "prompt": "Translate into English: monuerunt",
+      "format": "typed_exact",
+      "modelAnswer": "they warned",
+      "feedback": {
+        "short": "2nd conjugation, perfect, 3rd person plural. monuerunt = they warned."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "they warned",
+          "they have warned",
+          "they did warn",
+          "they advised",
+          "they have advised",
+          "they've warned",
+          "they've advised"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-present-1s",
+      "conceptId": "lv-traho-present-1s",
+      "topic": "Present",
+      "prompt": "Translate into English: traho",
+      "format": "typed_exact",
+      "modelAnswer": "I drag",
+      "feedback": {
+        "short": "3rd conjugation, present, 1st person singular. traho = I drag."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "I drag",
+          "I do drag",
+          "I pull"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-present-2s",
+      "conceptId": "lv-traho-present-2s",
+      "topic": "Present",
+      "prompt": "Translate into English: trahis",
+      "format": "typed_exact",
+      "modelAnswer": "you (singular) drag",
+      "feedback": {
+        "short": "3rd conjugation, present, 2nd person singular. trahis = you (singular) drag."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you drag",
+          "you (singular) drag",
+          "you (s) drag",
+          "you (s.) drag",
+          "you (sg) drag",
+          "you singular drag",
+          "you do drag",
+          "you (singular) do drag",
+          "you (s) do drag",
+          "you (s.) do drag",
+          "you (sg) do drag",
+          "you singular do drag",
+          "you pull",
+          "you (singular) pull",
+          "you (s) pull",
+          "you (s.) pull",
+          "you (sg) pull",
+          "you singular pull"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-present-3s",
+      "conceptId": "lv-traho-present-3s",
+      "topic": "Present",
+      "prompt": "Translate into English: trahit",
+      "format": "typed_exact",
+      "modelAnswer": "he/she/it drags",
+      "feedback": {
+        "short": "3rd conjugation, present, 3rd person singular. trahit = he/she/it drags."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "he drags",
+          "she drags",
+          "it drags",
+          "he/she/it drags",
+          "he/she drags",
+          "she/he drags",
+          "he or she drags",
+          "he, she or it drags",
+          "he she or it drags",
+          "he or she or it drags",
+          "s/he drags",
+          "he does drag",
+          "she does drag",
+          "it does drag",
+          "he/she/it does drag",
+          "he/she does drag",
+          "she/he does drag",
+          "he or she does drag",
+          "he, she or it does drag",
+          "he she or it does drag",
+          "he or she or it does drag",
+          "s/he does drag",
+          "he pulls",
+          "she pulls",
+          "it pulls",
+          "he/she/it pulls",
+          "he/she pulls",
+          "she/he pulls",
+          "he or she pulls",
+          "he, she or it pulls",
+          "he she or it pulls",
+          "he or she or it pulls",
+          "s/he pulls"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-present-1p",
+      "conceptId": "lv-traho-present-1p",
+      "topic": "Present",
+      "prompt": "Translate into English: trahimus",
+      "format": "typed_exact",
+      "modelAnswer": "we drag",
+      "feedback": {
+        "short": "3rd conjugation, present, 1st person plural. trahimus = we drag."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "we drag",
+          "we do drag",
+          "we pull"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-present-2p",
+      "conceptId": "lv-traho-present-2p",
+      "topic": "Present",
+      "prompt": "Translate into English: trahitis",
+      "format": "typed_exact",
+      "modelAnswer": "you (plural) drag",
+      "feedback": {
+        "short": "3rd conjugation, present, 2nd person plural. trahitis = you (plural) drag."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you drag",
+          "you (plural) drag",
+          "you (pl) drag",
+          "you (pl.) drag",
+          "you plural drag",
+          "you all drag",
+          "all of you drag",
+          "you do drag",
+          "you (plural) do drag",
+          "you (pl) do drag",
+          "you (pl.) do drag",
+          "you plural do drag",
+          "you all do drag",
+          "all of you do drag",
+          "you pull",
+          "you (plural) pull",
+          "you (pl) pull",
+          "you (pl.) pull",
+          "you plural pull",
+          "you all pull",
+          "all of you pull"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-present-3p",
+      "conceptId": "lv-traho-present-3p",
+      "topic": "Present",
+      "prompt": "Translate into English: trahunt",
+      "format": "typed_exact",
+      "modelAnswer": "they drag",
+      "feedback": {
+        "short": "3rd conjugation, present, 3rd person plural. trahunt = they drag."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "they drag",
+          "they do drag",
+          "they pull"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-imperfect-1s",
+      "conceptId": "lv-traho-imperfect-1s",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: trahebam",
+      "format": "typed_exact",
+      "modelAnswer": "I was dragging",
+      "feedback": {
+        "short": "3rd conjugation, imperfect, 1st person singular. trahebam = I was dragging."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "I was dragging",
+          "I used to drag",
+          "I was pulling",
+          "I used to pull"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-imperfect-2s",
+      "conceptId": "lv-traho-imperfect-2s",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: trahebas",
+      "format": "typed_exact",
+      "modelAnswer": "you (singular) were dragging",
+      "feedback": {
+        "short": "3rd conjugation, imperfect, 2nd person singular. trahebas = you (singular) were dragging."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you were dragging",
+          "you (singular) were dragging",
+          "you (s) were dragging",
+          "you (s.) were dragging",
+          "you (sg) were dragging",
+          "you singular were dragging",
+          "you used to drag",
+          "you (singular) used to drag",
+          "you (s) used to drag",
+          "you (s.) used to drag",
+          "you (sg) used to drag",
+          "you singular used to drag",
+          "you were pulling",
+          "you (singular) were pulling",
+          "you (s) were pulling",
+          "you (s.) were pulling",
+          "you (sg) were pulling",
+          "you singular were pulling",
+          "you used to pull",
+          "you (singular) used to pull",
+          "you (s) used to pull",
+          "you (s.) used to pull",
+          "you (sg) used to pull",
+          "you singular used to pull"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-imperfect-3s",
+      "conceptId": "lv-traho-imperfect-3s",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: trahebat",
+      "format": "typed_exact",
+      "modelAnswer": "he/she/it was dragging",
+      "feedback": {
+        "short": "3rd conjugation, imperfect, 3rd person singular. trahebat = he/she/it was dragging."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "he was dragging",
+          "she was dragging",
+          "it was dragging",
+          "he/she/it was dragging",
+          "he/she was dragging",
+          "she/he was dragging",
+          "he or she was dragging",
+          "he, she or it was dragging",
+          "he she or it was dragging",
+          "he or she or it was dragging",
+          "s/he was dragging",
+          "he used to drag",
+          "she used to drag",
+          "it used to drag",
+          "he/she/it used to drag",
+          "he/she used to drag",
+          "she/he used to drag",
+          "he or she used to drag",
+          "he, she or it used to drag",
+          "he she or it used to drag",
+          "he or she or it used to drag",
+          "s/he used to drag",
+          "he was pulling",
+          "she was pulling",
+          "it was pulling",
+          "he/she/it was pulling",
+          "he/she was pulling",
+          "she/he was pulling",
+          "he or she was pulling",
+          "he, she or it was pulling",
+          "he she or it was pulling",
+          "he or she or it was pulling",
+          "s/he was pulling",
+          "he used to pull",
+          "she used to pull",
+          "it used to pull",
+          "he/she/it used to pull",
+          "he/she used to pull",
+          "she/he used to pull",
+          "he or she used to pull",
+          "he, she or it used to pull",
+          "he she or it used to pull",
+          "he or she or it used to pull",
+          "s/he used to pull"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-imperfect-1p",
+      "conceptId": "lv-traho-imperfect-1p",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: trahebamus",
+      "format": "typed_exact",
+      "modelAnswer": "we were dragging",
+      "feedback": {
+        "short": "3rd conjugation, imperfect, 1st person plural. trahebamus = we were dragging."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "we were dragging",
+          "we used to drag",
+          "we were pulling",
+          "we used to pull"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-imperfect-2p",
+      "conceptId": "lv-traho-imperfect-2p",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: trahebatis",
+      "format": "typed_exact",
+      "modelAnswer": "you (plural) were dragging",
+      "feedback": {
+        "short": "3rd conjugation, imperfect, 2nd person plural. trahebatis = you (plural) were dragging."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you were dragging",
+          "you (plural) were dragging",
+          "you (pl) were dragging",
+          "you (pl.) were dragging",
+          "you plural were dragging",
+          "you all were dragging",
+          "all of you were dragging",
+          "you used to drag",
+          "you (plural) used to drag",
+          "you (pl) used to drag",
+          "you (pl.) used to drag",
+          "you plural used to drag",
+          "you all used to drag",
+          "all of you used to drag",
+          "you were pulling",
+          "you (plural) were pulling",
+          "you (pl) were pulling",
+          "you (pl.) were pulling",
+          "you plural were pulling",
+          "you all were pulling",
+          "all of you were pulling",
+          "you used to pull",
+          "you (plural) used to pull",
+          "you (pl) used to pull",
+          "you (pl.) used to pull",
+          "you plural used to pull",
+          "you all used to pull",
+          "all of you used to pull"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-imperfect-3p",
+      "conceptId": "lv-traho-imperfect-3p",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: trahebant",
+      "format": "typed_exact",
+      "modelAnswer": "they were dragging",
+      "feedback": {
+        "short": "3rd conjugation, imperfect, 3rd person plural. trahebant = they were dragging."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "they were dragging",
+          "they used to drag",
+          "they were pulling",
+          "they used to pull"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-perfect-1s",
+      "conceptId": "lv-traho-perfect-1s",
+      "topic": "Perfect",
+      "prompt": "Translate into English: traxi",
+      "format": "typed_exact",
+      "modelAnswer": "I dragged",
+      "feedback": {
+        "short": "3rd conjugation, perfect, 1st person singular. traxi = I dragged."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "I dragged",
+          "I have dragged",
+          "I did drag",
+          "I pulled",
+          "I have pulled",
+          "I've dragged",
+          "I've pulled"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-perfect-2s",
+      "conceptId": "lv-traho-perfect-2s",
+      "topic": "Perfect",
+      "prompt": "Translate into English: traxisti",
+      "format": "typed_exact",
+      "modelAnswer": "you (singular) dragged",
+      "feedback": {
+        "short": "3rd conjugation, perfect, 2nd person singular. traxisti = you (singular) dragged."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you dragged",
+          "you (singular) dragged",
+          "you (s) dragged",
+          "you (s.) dragged",
+          "you (sg) dragged",
+          "you singular dragged",
+          "you have dragged",
+          "you (singular) have dragged",
+          "you (s) have dragged",
+          "you (s.) have dragged",
+          "you (sg) have dragged",
+          "you singular have dragged",
+          "you did drag",
+          "you (singular) did drag",
+          "you (s) did drag",
+          "you (s.) did drag",
+          "you (sg) did drag",
+          "you singular did drag",
+          "you pulled",
+          "you (singular) pulled",
+          "you (s) pulled",
+          "you (s.) pulled",
+          "you (sg) pulled",
+          "you singular pulled",
+          "you have pulled",
+          "you (singular) have pulled",
+          "you (s) have pulled",
+          "you (s.) have pulled",
+          "you (sg) have pulled",
+          "you singular have pulled",
+          "you've dragged"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-perfect-3s",
+      "conceptId": "lv-traho-perfect-3s",
+      "topic": "Perfect",
+      "prompt": "Translate into English: traxit",
+      "format": "typed_exact",
+      "modelAnswer": "he/she/it dragged",
+      "feedback": {
+        "short": "3rd conjugation, perfect, 3rd person singular. traxit = he/she/it dragged."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "he dragged",
+          "she dragged",
+          "it dragged",
+          "he/she/it dragged",
+          "he/she dragged",
+          "she/he dragged",
+          "he or she dragged",
+          "he, she or it dragged",
+          "he she or it dragged",
+          "he or she or it dragged",
+          "s/he dragged",
+          "he has dragged",
+          "she has dragged",
+          "it has dragged",
+          "he/she/it has dragged",
+          "he/she has dragged",
+          "she/he has dragged",
+          "he or she has dragged",
+          "he, she or it has dragged",
+          "he she or it has dragged",
+          "he or she or it has dragged",
+          "s/he has dragged",
+          "he did drag",
+          "she did drag",
+          "it did drag",
+          "he/she/it did drag",
+          "he/she did drag",
+          "she/he did drag",
+          "he or she did drag",
+          "he, she or it did drag",
+          "he she or it did drag",
+          "he or she or it did drag",
+          "s/he did drag",
+          "he pulled",
+          "she pulled",
+          "it pulled",
+          "he/she/it pulled",
+          "he/she pulled",
+          "she/he pulled",
+          "he or she pulled",
+          "he, she or it pulled",
+          "he she or it pulled",
+          "he or she or it pulled",
+          "s/he pulled",
+          "he has pulled",
+          "she has pulled",
+          "it has pulled",
+          "he/she/it has pulled",
+          "he/she has pulled",
+          "she/he has pulled",
+          "he or she has pulled",
+          "he, she or it has pulled",
+          "he she or it has pulled",
+          "he or she or it has pulled",
+          "s/he has pulled",
+          "he's dragged",
+          "she's dragged",
+          "it's dragged",
+          "he/she/it's dragged",
+          "he's pulled",
+          "she's pulled",
+          "it's pulled"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-perfect-1p",
+      "conceptId": "lv-traho-perfect-1p",
+      "topic": "Perfect",
+      "prompt": "Translate into English: traximus",
+      "format": "typed_exact",
+      "modelAnswer": "we dragged",
+      "feedback": {
+        "short": "3rd conjugation, perfect, 1st person plural. traximus = we dragged."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "we dragged",
+          "we have dragged",
+          "we did drag",
+          "we pulled",
+          "we have pulled",
+          "we've dragged",
+          "we've pulled"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-perfect-2p",
+      "conceptId": "lv-traho-perfect-2p",
+      "topic": "Perfect",
+      "prompt": "Translate into English: traxistis",
+      "format": "typed_exact",
+      "modelAnswer": "you (plural) dragged",
+      "feedback": {
+        "short": "3rd conjugation, perfect, 2nd person plural. traxistis = you (plural) dragged."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you dragged",
+          "you (plural) dragged",
+          "you (pl) dragged",
+          "you (pl.) dragged",
+          "you plural dragged",
+          "you all dragged",
+          "all of you dragged",
+          "you have dragged",
+          "you (plural) have dragged",
+          "you (pl) have dragged",
+          "you (pl.) have dragged",
+          "you plural have dragged",
+          "you all have dragged",
+          "all of you have dragged",
+          "you did drag",
+          "you (plural) did drag",
+          "you (pl) did drag",
+          "you (pl.) did drag",
+          "you plural did drag",
+          "you all did drag",
+          "all of you did drag",
+          "you pulled",
+          "you (plural) pulled",
+          "you (pl) pulled",
+          "you (pl.) pulled",
+          "you plural pulled",
+          "you all pulled",
+          "all of you pulled",
+          "you have pulled",
+          "you (plural) have pulled",
+          "you (pl) have pulled",
+          "you (pl.) have pulled",
+          "you plural have pulled",
+          "you all have pulled",
+          "all of you have pulled",
+          "you've dragged"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-traho-perfect-3p",
+      "conceptId": "lv-traho-perfect-3p",
+      "topic": "Perfect",
+      "prompt": "Translate into English: traxerunt",
+      "format": "typed_exact",
+      "modelAnswer": "they dragged",
+      "feedback": {
+        "short": "3rd conjugation, perfect, 3rd person plural. traxerunt = they dragged."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "they dragged",
+          "they have dragged",
+          "they did drag",
+          "they pulled",
+          "they have pulled",
+          "they've dragged",
+          "they've pulled"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-present-1s",
+      "conceptId": "lv-audio-present-1s",
+      "topic": "Present",
+      "prompt": "Translate into English: audio",
+      "format": "typed_exact",
+      "modelAnswer": "I hear",
+      "feedback": {
+        "short": "4th conjugation, present, 1st person singular. audio = I hear."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "I hear",
+          "I do hear"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-present-2s",
+      "conceptId": "lv-audio-present-2s",
+      "topic": "Present",
+      "prompt": "Translate into English: audis",
+      "format": "typed_exact",
+      "modelAnswer": "you (singular) hear",
+      "feedback": {
+        "short": "4th conjugation, present, 2nd person singular. audis = you (singular) hear."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you hear",
+          "you (singular) hear",
+          "you (s) hear",
+          "you (s.) hear",
+          "you (sg) hear",
+          "you singular hear",
+          "you do hear",
+          "you (singular) do hear",
+          "you (s) do hear",
+          "you (s.) do hear",
+          "you (sg) do hear",
+          "you singular do hear"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-present-3s",
+      "conceptId": "lv-audio-present-3s",
+      "topic": "Present",
+      "prompt": "Translate into English: audit",
+      "format": "typed_exact",
+      "modelAnswer": "he/she/it hears",
+      "feedback": {
+        "short": "4th conjugation, present, 3rd person singular. audit = he/she/it hears."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "he hears",
+          "she hears",
+          "it hears",
+          "he/she/it hears",
+          "he/she hears",
+          "she/he hears",
+          "he or she hears",
+          "he, she or it hears",
+          "he she or it hears",
+          "he or she or it hears",
+          "s/he hears",
+          "he does hear",
+          "she does hear",
+          "it does hear",
+          "he/she/it does hear",
+          "he/she does hear",
+          "she/he does hear",
+          "he or she does hear",
+          "he, she or it does hear",
+          "he she or it does hear",
+          "he or she or it does hear",
+          "s/he does hear"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-present-1p",
+      "conceptId": "lv-audio-present-1p",
+      "topic": "Present",
+      "prompt": "Translate into English: audimus",
+      "format": "typed_exact",
+      "modelAnswer": "we hear",
+      "feedback": {
+        "short": "4th conjugation, present, 1st person plural. audimus = we hear."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "we hear",
+          "we do hear"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-present-2p",
+      "conceptId": "lv-audio-present-2p",
+      "topic": "Present",
+      "prompt": "Translate into English: auditis",
+      "format": "typed_exact",
+      "modelAnswer": "you (plural) hear",
+      "feedback": {
+        "short": "4th conjugation, present, 2nd person plural. auditis = you (plural) hear."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you hear",
+          "you (plural) hear",
+          "you (pl) hear",
+          "you (pl.) hear",
+          "you plural hear",
+          "you all hear",
+          "all of you hear",
+          "you do hear",
+          "you (plural) do hear",
+          "you (pl) do hear",
+          "you (pl.) do hear",
+          "you plural do hear",
+          "you all do hear",
+          "all of you do hear"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-present-3p",
+      "conceptId": "lv-audio-present-3p",
+      "topic": "Present",
+      "prompt": "Translate into English: audiunt",
+      "format": "typed_exact",
+      "modelAnswer": "they hear",
+      "feedback": {
+        "short": "4th conjugation, present, 3rd person plural. audiunt = they hear."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "they hear",
+          "they do hear"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-imperfect-1s",
+      "conceptId": "lv-audio-imperfect-1s",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: audiebam",
+      "format": "typed_exact",
+      "modelAnswer": "I was hearing",
+      "feedback": {
+        "short": "4th conjugation, imperfect, 1st person singular. audiebam = I was hearing."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "I was hearing",
+          "I used to hear"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-imperfect-2s",
+      "conceptId": "lv-audio-imperfect-2s",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: audiebas",
+      "format": "typed_exact",
+      "modelAnswer": "you (singular) were hearing",
+      "feedback": {
+        "short": "4th conjugation, imperfect, 2nd person singular. audiebas = you (singular) were hearing."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you were hearing",
+          "you (singular) were hearing",
+          "you (s) were hearing",
+          "you (s.) were hearing",
+          "you (sg) were hearing",
+          "you singular were hearing",
+          "you used to hear",
+          "you (singular) used to hear",
+          "you (s) used to hear",
+          "you (s.) used to hear",
+          "you (sg) used to hear",
+          "you singular used to hear"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-imperfect-3s",
+      "conceptId": "lv-audio-imperfect-3s",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: audiebat",
+      "format": "typed_exact",
+      "modelAnswer": "he/she/it was hearing",
+      "feedback": {
+        "short": "4th conjugation, imperfect, 3rd person singular. audiebat = he/she/it was hearing."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "he was hearing",
+          "she was hearing",
+          "it was hearing",
+          "he/she/it was hearing",
+          "he/she was hearing",
+          "she/he was hearing",
+          "he or she was hearing",
+          "he, she or it was hearing",
+          "he she or it was hearing",
+          "he or she or it was hearing",
+          "s/he was hearing",
+          "he used to hear",
+          "she used to hear",
+          "it used to hear",
+          "he/she/it used to hear",
+          "he/she used to hear",
+          "she/he used to hear",
+          "he or she used to hear",
+          "he, she or it used to hear",
+          "he she or it used to hear",
+          "he or she or it used to hear",
+          "s/he used to hear"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-imperfect-1p",
+      "conceptId": "lv-audio-imperfect-1p",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: audiebamus",
+      "format": "typed_exact",
+      "modelAnswer": "we were hearing",
+      "feedback": {
+        "short": "4th conjugation, imperfect, 1st person plural. audiebamus = we were hearing."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "we were hearing",
+          "we used to hear"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-imperfect-2p",
+      "conceptId": "lv-audio-imperfect-2p",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: audiebatis",
+      "format": "typed_exact",
+      "modelAnswer": "you (plural) were hearing",
+      "feedback": {
+        "short": "4th conjugation, imperfect, 2nd person plural. audiebatis = you (plural) were hearing."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you were hearing",
+          "you (plural) were hearing",
+          "you (pl) were hearing",
+          "you (pl.) were hearing",
+          "you plural were hearing",
+          "you all were hearing",
+          "all of you were hearing",
+          "you used to hear",
+          "you (plural) used to hear",
+          "you (pl) used to hear",
+          "you (pl.) used to hear",
+          "you plural used to hear",
+          "you all used to hear",
+          "all of you used to hear"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-imperfect-3p",
+      "conceptId": "lv-audio-imperfect-3p",
+      "topic": "Imperfect",
+      "prompt": "Translate into English: audiebant",
+      "format": "typed_exact",
+      "modelAnswer": "they were hearing",
+      "feedback": {
+        "short": "4th conjugation, imperfect, 3rd person plural. audiebant = they were hearing."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "they were hearing",
+          "they used to hear"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-perfect-1s",
+      "conceptId": "lv-audio-perfect-1s",
+      "topic": "Perfect",
+      "prompt": "Translate into English: audivi",
+      "format": "typed_exact",
+      "modelAnswer": "I heard",
+      "feedback": {
+        "short": "4th conjugation, perfect, 1st person singular. audivi = I heard."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "I heard",
+          "I have heard",
+          "I did hear",
+          "I've heard"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-perfect-2s",
+      "conceptId": "lv-audio-perfect-2s",
+      "topic": "Perfect",
+      "prompt": "Translate into English: audivisti",
+      "format": "typed_exact",
+      "modelAnswer": "you (singular) heard",
+      "feedback": {
+        "short": "4th conjugation, perfect, 2nd person singular. audivisti = you (singular) heard."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you heard",
+          "you (singular) heard",
+          "you (s) heard",
+          "you (s.) heard",
+          "you (sg) heard",
+          "you singular heard",
+          "you have heard",
+          "you (singular) have heard",
+          "you (s) have heard",
+          "you (s.) have heard",
+          "you (sg) have heard",
+          "you singular have heard",
+          "you did hear",
+          "you (singular) did hear",
+          "you (s) did hear",
+          "you (s.) did hear",
+          "you (sg) did hear",
+          "you singular did hear",
+          "you've heard"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-perfect-3s",
+      "conceptId": "lv-audio-perfect-3s",
+      "topic": "Perfect",
+      "prompt": "Translate into English: audivit",
+      "format": "typed_exact",
+      "modelAnswer": "he/she/it heard",
+      "feedback": {
+        "short": "4th conjugation, perfect, 3rd person singular. audivit = he/she/it heard."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "he heard",
+          "she heard",
+          "it heard",
+          "he/she/it heard",
+          "he/she heard",
+          "she/he heard",
+          "he or she heard",
+          "he, she or it heard",
+          "he she or it heard",
+          "he or she or it heard",
+          "s/he heard",
+          "he has heard",
+          "she has heard",
+          "it has heard",
+          "he/she/it has heard",
+          "he/she has heard",
+          "she/he has heard",
+          "he or she has heard",
+          "he, she or it has heard",
+          "he she or it has heard",
+          "he or she or it has heard",
+          "s/he has heard",
+          "he did hear",
+          "she did hear",
+          "it did hear",
+          "he/she/it did hear",
+          "he/she did hear",
+          "she/he did hear",
+          "he or she did hear",
+          "he, she or it did hear",
+          "he she or it did hear",
+          "he or she or it did hear",
+          "s/he did hear",
+          "he's heard",
+          "she's heard",
+          "it's heard",
+          "he/she/it's heard"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-perfect-1p",
+      "conceptId": "lv-audio-perfect-1p",
+      "topic": "Perfect",
+      "prompt": "Translate into English: audivimus",
+      "format": "typed_exact",
+      "modelAnswer": "we heard",
+      "feedback": {
+        "short": "4th conjugation, perfect, 1st person plural. audivimus = we heard."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "we heard",
+          "we have heard",
+          "we did hear",
+          "we've heard"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-perfect-2p",
+      "conceptId": "lv-audio-perfect-2p",
+      "topic": "Perfect",
+      "prompt": "Translate into English: audivistis",
+      "format": "typed_exact",
+      "modelAnswer": "you (plural) heard",
+      "feedback": {
+        "short": "4th conjugation, perfect, 2nd person plural. audivistis = you (plural) heard."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "you heard",
+          "you (plural) heard",
+          "you (pl) heard",
+          "you (pl.) heard",
+          "you plural heard",
+          "you all heard",
+          "all of you heard",
+          "you have heard",
+          "you (plural) have heard",
+          "you (pl) have heard",
+          "you (pl.) have heard",
+          "you plural have heard",
+          "you all have heard",
+          "all of you have heard",
+          "you did hear",
+          "you (plural) did hear",
+          "you (pl) did hear",
+          "you (pl.) did hear",
+          "you plural did hear",
+          "you all did hear",
+          "all of you did hear",
+          "you've heard"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    },
+    {
+      "id": "lv-audio-perfect-3p",
+      "conceptId": "lv-audio-perfect-3p",
+      "topic": "Perfect",
+      "prompt": "Translate into English: audiverunt",
+      "format": "typed_exact",
+      "modelAnswer": "they heard",
+      "feedback": {
+        "short": "4th conjugation, perfect, 3rd person plural. audiverunt = they heard."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "they heard",
+          "they have heard",
+          "they did hear",
+          "they've heard"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignorePunctuationForScore": true
+        }
+      }
+    }
+  ]
+}
