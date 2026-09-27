@@ -34,7 +34,7 @@ for(const token of [
   "function completedYear8ReviewEvidence(state)",
   "const recoveredYear8Review = completedYear8ReviewEvidence(state)",
   "const year8ReviewProgress = recoveredYear8Review ? 15",
-  "const bank = subject === \"french\" ? frenchVocab : subject === \"latin\" ? latinVocab : []"
+  'originalBumpDaily(subject === "french" ? "french-vocab" : "latin-vocab", 0)'
 ]) if(!wrapper.includes(token)) failures.push({type:"daily-completion-contract-regression",file:"wrapper",token});
 
 for(const token of [

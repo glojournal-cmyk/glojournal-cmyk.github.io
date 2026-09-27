@@ -31,7 +31,7 @@ for(const token of [
 
 for(const token of [
   'excludeGeneralDaily:!!Y._dailyYear8',
-  'yearOverride:Y._dailyYear8?8:void 0',
+  'yearOverride:Y._dailyYear8||Y._dailyVocab?8:void 0',
   'c&&!Y._repair&&E(c,1)'
 ]) requireToken(quiz,"quiz",token);
 

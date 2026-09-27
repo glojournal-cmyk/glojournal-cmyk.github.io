@@ -1029,6 +1029,36 @@ function vocabGateState(state, subject) {
 }
 
 const YEAR8_ASSIGNED_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
+// Catalog entries are alphabetical. Daily assignments follow the teaching sequence instead.
+const LATIN_YEAR8_FOUNDATIONS = [
+  "stage-1-vocabulary", "stage-2-vocabulary", "stage-3-vocabulary",
+  "core-verbs", "nouns-and-dictionary-entries", "present-person-and-number",
+  "prepositions", "stage-4-vocabulary", "stage-5-vocabulary", "stage-6-vocabulary",
+  "stage-7-vocabulary", "stage-8-vocabulary", "stage-9-vocabulary",
+  "stage-10-vocabulary", "stage-11-vocabulary", "stage-12-vocabulary",
+  "adjective-agreement", "personal-pronouns", "ille-singular", "ille-plural",
+  "nouns-with-genitives", "set-text-translation", "perfect-cues",
+];
+
+function year8TopicRank(item) {
+  if (item.subject === "latin") {
+    const index = LATIN_YEAR8_FOUNDATIONS.findIndex((slug) => item.topicId === `la-y8-${slug}`);
+    return index < 0 ? 100 : index;
+  }
+  if (item.subject === "french") return Number(item.topicId.match(/^fr-y8-s(\d+)-/)?.[1] || 100);
+  return 0;
+}
+
+function orderYear8Topics(rows) {
+  return rows.sort((a, b) => a.subject.localeCompare(b.subject) ||
+    year8TopicRank(a) - year8TopicRank(b) || a.topicId.localeCompare(b.topicId));
+}
+
+function firstUnmastered(rows, state, subject) {
+  return rows.find((item) => item.subject === subject &&
+    normalizeTopicStat(state.topicStats?.[item.topicId] || {}).state !== "mastered") ||
+    rows.find((item) => item.subject === subject) || null;
+}
 
 function year8AssignedPool() {
   const pool = [];
@@ -1047,19 +1077,13 @@ function year8AssignedPool() {
       });
     }
   }
-  pool.sort((a, b) => a.subject.localeCompare(b.subject) || a.topicId.localeCompare(b.topicId));
-  return pool;
+  return orderYear8Topics(pool);
 }
 
-function pickYear8Assigned(pool, seed, avoidIds) {
+function pickYear8Assigned(pool, state, seed) {
   if (!pool.length) return null;
-  const avoid = new Set((avoidIds || []).filter(Boolean));
-  const start = Math.abs(Number(seed) || 0) % pool.length;
-  for (let i = 0; i < pool.length; i++) {
-    const item = pool[(start + i) % pool.length];
-    if (!avoid.has(item.topicId)) return item;
-  }
-  return pool[start];
+  const subject = YEAR8_ASSIGNED_SUBJECTS[Math.abs(Number(seed) || 0) % YEAR8_ASSIGNED_SUBJECTS.length];
+  return firstUnmastered(pool, state, subject) || pool[0];
 }
 
 function year8AssignedHref(item, mode) {
@@ -1089,7 +1113,7 @@ function year8ReviewPlan(state) {
   const day = state.today || todayKey();
   const seed = [...day].reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
 
-  const allTopics = YEAR8_MASTERY_SUBJECTS.flatMap((subject) => {
+  const allTopics = orderYear8Topics(YEAR8_MASTERY_SUBJECTS.flatMap((subject) => {
     try {
       return (getTopicCatalog(subject, 8) || []).filter((topic) => topic?.status === "enabled" && Number(topic?.enabled ?? topic?.questions ?? 0) > 0).map((topic) => {
         const stat = normalizeTopicStat(state.topicStats?.[topic.topicId] || {});
@@ -1103,23 +1127,10 @@ function year8ReviewPlan(state) {
     } catch {
       return [];
     }
-  }).filter((item) => item.topicId && item.state !== "mastered");
+  }).filter((item) => item.topicId && item.state !== "mastered"));
 
-  const sortWeakest = (rows) => [...rows].sort((a, b) => {
-    const aProdPenalty = a.productionCorrect > 0 ? 0 : 0.08;
-    const bProdPenalty = b.productionCorrect > 0 ? 0 : 0.08;
-    return (a.accuracy - aProdPenalty) - (b.accuracy - bProdPenalty) ||
-      b.attempted - a.attempted ||
-      a.topicId.localeCompare(b.topicId);
-  });
-
-  const started = sortWeakest(allTopics.filter((item) => item.attempted > 0));
-  let chosen = started[0] || null;
-
-  if (!chosen) {
-    const preferredSubject = YEAR8_MASTERY_SUBJECTS[seed % YEAR8_MASTERY_SUBJECTS.length];
-    chosen = allTopics.find((item) => item.subject === preferredSubject) || allTopics[0] || null;
-  }
+  const preferredSubject = YEAR8_MASTERY_SUBJECTS[seed % YEAR8_MASTERY_SUBJECTS.length];
+  const chosen = allTopics.find((item) => item.subject === preferredSubject) || allTopics[0] || null;
 
   const subject = chosen?.subject || YEAR8_MASTERY_SUBJECTS[seed % YEAR8_MASTERY_SUBJECTS.length];
   const topicId = chosen?.topicId || null;
@@ -1130,7 +1141,7 @@ function year8ReviewPlan(state) {
   params.set("daily", "1");
   params.set("locked", "1");
   params.set("year", "8");
-  params.set("mode", "year8long");
+  params.set("mode", chosen && chosen.attempted >= 10 ? "year8long" : "standard");
   if (topicId) params.set("topic", topicId);
 
   return {
@@ -1138,12 +1149,16 @@ function year8ReviewPlan(state) {
     topicId,
     label,
     topicLabel,
+    ready: !!chosen && chosen.attempted >= 10,
     href: `/study/${subject}/practise?${params.toString()}`,
   };
 }
 
 function completedYear8ReviewEvidence(state) {
   const day = state.today || todayKey();
+  const completed = (state.daily || []).find((task) => task.id === "year8-long-review" &&
+    task.planDate === day && task.progress >= 15 && task.reviewTopic);
+  if (!completed) return null;
   let best = null;
 
   for (const subject of YEAR8_MASTERY_SUBJECTS) {
@@ -1155,6 +1170,7 @@ function completedYear8ReviewEvidence(state) {
     } catch {}
 
     for (const topic of topics) {
+      if (topic.topicId !== completed.reviewTopic) continue;
       const stat = normalizeTopicStat(state.topicStats?.[topic.topicId] || {});
       const attemptsToday = (stat.recentOutcomes || []).filter((row) => row?.date === day).length;
       if (attemptsToday < 15) continue;
@@ -1183,6 +1199,7 @@ function completedYear8ReviewEvidence(state) {
     label: SUBJECT_LABELS[best.subject] || best.subject,
     topicLabel: best.topicLabel,
     href: `/study/${best.subject}/practise?${params.toString()}`,
+    ready: true,
   };
 }
 
@@ -1218,7 +1235,11 @@ function buildAdaptiveDaily(state) {
   const oldYear8Review = previous.get("year8-long-review") || {};
   const lockedYear8Plan = oldYear8Review.planDate === state.today &&
     YEAR8_MASTERY_SUBJECTS.includes(oldYear8Review.reviewSubject) &&
-    !!oldYear8Review.href;
+    !!oldYear8Review.href &&
+    (oldYear8Review.progress >= 15 || oldYear8Review.reviewTopic === plannedYear8Review.topicId ||
+      (oldYear8Review.reviewSubject === plannedYear8Review.subject &&
+        year8TopicRank({ subject: oldYear8Review.reviewSubject, topicId: oldYear8Review.reviewTopic }) <
+        year8TopicRank(plannedYear8Review)));
   const year8Review = recoveredYear8Review || (lockedYear8Plan
     ? {
         subject: oldYear8Review.reviewSubject,
@@ -1228,21 +1249,34 @@ function buildAdaptiveDaily(state) {
           ? topicTitle({ ...state, year: 8 }, oldYear8Review.reviewTopic, oldYear8Review.reviewSubject)
           : null,
         href: oldYear8Review.href,
+        ready: (state.topicStats?.[oldYear8Review.reviewTopic]?.attempted || 0) >= 10,
       }
     : plannedYear8Review);
-  const year8ReviewProgress = recoveredYear8Review ? 15 : lockedYear8Plan ? Math.min(15, oldYear8Review.progress || 0) : 0;
+  const year8ReviewProgress = recoveredYear8Review ? 15 : year8Review.ready && lockedYear8Plan ? Math.min(15, oldYear8Review.progress || 0) : 0;
   const assignedPool = year8AssignedPool();
   const assignedSeed = [...(state.today || todayKey())].reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
   const oldPractise = previous.get("y8-practise") || {};
   const oldMastery = previous.get("y8-mastery") || {};
-  const practiseLocked = oldPractise.planDate === state.today && oldPractise.assignedTopic && oldPractise.href
+  const practiseFrontier = pickYear8Assigned(assignedPool, state, assignedSeed);
+  const masterySubject = YEAR8_MASTERY_SUBJECTS[(assignedSeed + 1) % YEAR8_MASTERY_SUBJECTS.length];
+  const masteryFrontier = firstUnmastered(assignedPool, state, masterySubject);
+  const stillFoundational = (old, frontier) => old.assignedSubject === frontier?.subject &&
+    year8TopicRank({ subject: old.assignedSubject, topicId: old.assignedTopic }) <= year8TopicRank(frontier);
+  const practiseLocked = oldPractise.planDate === state.today && oldPractise.assignedTopic && oldPractise.href &&
+    (oldPractise.progress >= 10 || stillFoundational(oldPractise, firstUnmastered(assignedPool, state, oldPractise.assignedSubject)))
     ? { subject: oldPractise.assignedSubject, topicId: oldPractise.assignedTopic, topicLabel: oldPractise.assignedLabel, label: SUBJECT_LABELS[oldPractise.assignedSubject] || oldPractise.assignedSubject }
     : null;
-  const masteryLocked = oldMastery.planDate === state.today && oldMastery.assignedTopic && oldMastery.href
+  const masteryLocked = oldMastery.planDate === state.today && oldMastery.assignedTopic && oldMastery.href &&
+    (oldMastery.progress >= 15 || stillFoundational(oldMastery, firstUnmastered(assignedPool, state, oldMastery.assignedSubject)))
     ? { subject: oldMastery.assignedSubject, topicId: oldMastery.assignedTopic, topicLabel: oldMastery.assignedLabel, label: SUBJECT_LABELS[oldMastery.assignedSubject] || oldMastery.assignedSubject }
     : null;
-  const practisePick = practiseLocked || pickYear8Assigned(assignedPool, assignedSeed, [year8Review.topicId]);
-  const masteryPick = masteryLocked || pickYear8Assigned(assignedPool, assignedSeed + 97, [year8Review.topicId, practisePick?.topicId]);
+  const practisePick = practiseLocked || practiseFrontier;
+  const masteryPick = masteryLocked || masteryFrontier;
+  const masteryReady = (state.topicStats?.[masteryPick?.topicId]?.attempted || 0) >= 10;
+  const masteryStartAttempts = masteryReady
+    ? oldMastery.assignedTopic === masteryPick?.topicId && Number.isFinite(oldMastery.masteryStartAttempts)
+      ? oldMastery.masteryStartAttempts : topicAttemptsToday(state, masteryPick?.topicId)
+    : null;
   const y8PractiseTask = {
     id: "y8-practise",
     title: year8AssignedTitle("practise", practisePick),
@@ -1258,16 +1292,17 @@ function buildAdaptiveDaily(state) {
   };
   const y8MasteryTask = {
     id: "y8-mastery",
-    title: year8AssignedTitle("mastery", masteryPick),
-    detail: "15 questions on today’s assigned Year 8 topic. The topic is locked — you cannot choose.",
-    href: year8AssignedHref(masteryPick, "mastery"),
+    title: masteryReady ? year8AssignedTitle("mastery", masteryPick) : `Practise first · ${masteryPick?.topicLabel || masteryPick?.label || "Year 8 topic"}`,
+    detail: masteryReady ? "15 questions on this Year 8 topic after foundational practice." : `Complete 10 practice questions on ${masteryPick?.topicLabel || "this topic"} before the mastery check.`,
+    href: year8AssignedHref(masteryPick, masteryReady ? "mastery" : "standard"),
     target: 15,
-    progress: Math.min(15, Math.max(oldMastery.progress || 0, topicAttemptsToday(state, masteryPick?.topicId))),
+    progress: masteryReady ? Math.min(15, Math.max(oldMastery.assignedTopic === masteryPick?.topicId && masteryStartAttempts !== null ? oldMastery.progress || 0 : 0, topicAttemptsToday(state, masteryPick?.topicId) - masteryStartAttempts)) : 0,
     xp: 20,
     planDate: state.today,
     assignedSubject: masteryPick?.subject || null,
     assignedTopic: masteryPick?.topicId || null,
     assignedLabel: masteryPick?.topicLabel || null,
+    masteryStartAttempts,
   };
   const garden = previous.get("tend-garden") || { id: "tend-garden", title: "Water your plants", detail: "Tend the Scholar’s Garden.", href: "/garden", target: 1, progress: 0, xp: 10 };
   const game = previous.get("play-game") || { id: "play-game", title: "Play a quick game", detail: "One short learning game.", href: "/play", target: 1, progress: 0, xp: 10 };
@@ -1277,7 +1312,7 @@ function buildAdaptiveDaily(state) {
     { id: "french-vocab", title: "Year 8 French vocab", detail: `Random Year 8 French words · ${frenchVocab.correct}/30 correct. Wrong answers do not count, and the words cannot be chosen.`, href: "/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab", target: 30, progress: frenchVocab.progress, xp: 15, requiredCorrect: 30, attempts: frenchVocab.attempts, correct: frenchVocab.correct, planDate: state.today },
     { id: "latin-vocab", title: "Year 8 Latin vocab", detail: `Random Year 8 Latin words · ${latinVocab.correct}/30 correct. Wrong answers do not count, and the words cannot be chosen.`, href: "/study/latin/practise?daily=1&locked=1&year=8&mode=y8vocab&task=latin-vocab", target: 30, progress: latinVocab.progress, xp: 15, requiredCorrect: 30, attempts: latinVocab.attempts, correct: latinVocab.correct, planDate: state.today },
     { id: "adaptive-focus", title: focus.skillLabel ? `${focus.skillLabel} focus` : `${label} focus`, detail: "Four questions in today’s priority subject. Mastery needs ≥85% plus one independent typed or spelled answer.", href: focusHref(focus, state), target: 4, progress: focusProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason },
-    { id: "year8-long-review", title: year8Review.topicLabel ? `Year 8 ${year8Review.label} mastery · ${year8Review.topicLabel}` : `Year 8 ${year8Review.label} topic mastery`, detail: "15-question topic mastery review · Latin/French only · prioritises an unmastered or weaker Year 8 topic.", href: year8Review.href, target: 15, progress: year8ReviewProgress, xp: 20, planDate: state.today, reviewYear: 8, reviewSubject: year8Review.subject, reviewTopic: year8Review.topicId || null },
+    { id: "year8-long-review", title: year8Review.ready ? `Year 8 ${year8Review.label} mastery · ${year8Review.topicLabel}` : `Year 8 ${year8Review.label} practice first · ${year8Review.topicLabel}`, detail: year8Review.ready ? "15-question topic mastery review after foundational practice." : "Complete 10 practice questions on this early topic before its mastery review.", href: year8Review.ready ? year8Review.href.replace(/mode=standard/, "mode=year8long") : year8Review.href.replace(/mode=year8long/, "mode=standard"), target: 15, progress: year8ReviewProgress, xp: 20, planDate: state.today, reviewYear: 8, reviewSubject: year8Review.subject, reviewTopic: year8Review.topicId || null },
     y8PractiseTask,
     y8MasteryTask,
     { ...garden, progress: Math.min(garden.target || 1, garden.progress || 0) },
