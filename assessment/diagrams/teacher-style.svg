@@ -1,11 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 430" role="img" aria-labelledby="title desc">
-<title id="title">Chromatogram of reference food colours and black sample</title><desc id="desc">Lanes A to E and a black sample are shown on one chromatogram. Compare horizontal spot positions to identify components.</desc>
-<rect width="640" height="430" rx="18" fill="#fcfbf6"/>
-<text x="28" y="38" fill="#17384a" font-family="Arial,sans-serif" font-weight="700" font-size="21">Reference food colours and unknown sample</text>
-<rect x="44" y="72" width="475" height="284" fill="#fff" stroke="#49636e" stroke-width="3"/>
-<path d="M44 110h475" stroke="#17384a" stroke-width="2.5" stroke-dasharray="8 5"/><path d="M44 321h475" stroke="#17384a" stroke-width="3"/>
-<g fill="#788c9c"><circle cx="81" cy="277" r="12"/><circle cx="155" cy="321" r="9"/><circle cx="229" cy="245" r="12"/><circle cx="303" cy="198" r="12"/><circle cx="377" cy="224" r="12"/></g>
-<g fill="#303d49"><circle cx="475" cy="277" r="12"/><circle cx="475" cy="224" r="12"/><circle cx="475" cy="148" r="12"/></g>
-<g fill="#17384a" font-family="Arial,sans-serif" font-size="18" font-weight="700"><text x="75" y="390">A</text><text x="149" y="390">B</text><text x="223" y="390">C</text><text x="297" y="390">D</text><text x="371" y="390">E</text><text x="447" y="390">Black</text></g>
-<path d="M519 110h14 M519 321h14" stroke="#536a71" stroke-width="2"/><g fill="#536a71" font-family="Arial,sans-serif" font-size="15"><text x="537" y="116">Solvent</text><text x="537" y="136">front</text><text x="537" y="327">Start</text><text x="537" y="347">line</text></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-labelledby="title desc">
+  <title id="title">Chromatogram of reference food colours and black sample</title>
+  <desc id="desc">Reference samples A to E and a black mixture are shown on the same chromatogram. The black sample has three spots; two align exactly with A and E.</desc>
+  <defs>
+    <filter id="paperShadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#17384a" flood-opacity="0.10"/></filter>
+    <filter id="spotShadow" x="-35%" y="-35%" width="170%" height="170%"><feDropShadow dx="0" dy="2" stdDeviation="2.2" flood-color="#17384a" flood-opacity="0.16"/></filter>
+  </defs>
+  <rect width="900" height="675" rx="24" fill="#fffdf8"/>
+  <text x="48" y="62" fill="#112f46" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="32">Reference food colours and unknown sample</text>
+  <text x="48" y="92" fill="#60747f" font-family="Arial,Helvetica,sans-serif" font-size="17">Compare spots at the same height to identify components of the black sample.</text>
+
+  <g filter="url(#paperShadow)">
+    <rect x="72" y="122" width="660" height="420" rx="3" fill="#ffffff" stroke="#3f5f6e" stroke-width="3.5"/>
+  </g>
+  <line x1="72" y1="170" x2="732" y2="170" stroke="#17384a" stroke-width="3" stroke-dasharray="11 8"/>
+  <line x1="72" y1="500" x2="732" y2="500" stroke="#17384a" stroke-width="3.5"/>
+
+  <g filter="url(#spotShadow)">
+    <circle cx="150" cy="410" r="19" fill="#8197a7" stroke="#687f90" stroke-width="2.2"/>
+    <circle cx="245" cy="500" r="14" fill="#8197a7" stroke="#687f90" stroke-width="2.2"/>
+    <circle cx="340" cy="360" r="19" fill="#8197a7" stroke="#687f90" stroke-width="2.2"/>
+    <circle cx="435" cy="290" r="19" fill="#8197a7" stroke="#687f90" stroke-width="2.2"/>
+    <circle cx="530" cy="330" r="19" fill="#8197a7" stroke="#687f90" stroke-width="2.2"/>
+
+    <circle cx="650" cy="410" r="19" fill="#2f3f4c" stroke="#22303b" stroke-width="2.2"/>
+    <circle cx="650" cy="330" r="19" fill="#2f3f4c" stroke="#22303b" stroke-width="2.2"/>
+    <circle cx="650" cy="220" r="19" fill="#2f3f4c" stroke="#22303b" stroke-width="2.2"/>
+  </g>
+
+  <g fill="#15364a" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">
+    <text x="150" y="592">A</text><text x="245" y="592">B</text><text x="340" y="592">C</text><text x="435" y="592">D</text><text x="530" y="592">E</text><text x="650" y="592">Black</text>
+  </g>
+
+  <g stroke="#536f7a" stroke-width="2.2" fill="none">
+    <line x1="732" y1="170" x2="762" y2="170"/><line x1="732" y1="500" x2="762" y2="500"/>
+  </g>
+  <g fill="#365363" font-family="Arial,Helvetica,sans-serif" font-size="18">
+    <text x="772" y="166">Solvent</text><text x="772" y="190">front</text><text x="772" y="506">Start line</text>
+  </g>
 </svg>
