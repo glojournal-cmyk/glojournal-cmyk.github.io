@@ -1,0 +1,22 @@
+name: Finish Pebble Wisp v3
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/pebble-wisp-v3-finish.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  finish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Assemble approved AVIF and integrate sprite
+        run: |
+          echo staged by git-data commit
