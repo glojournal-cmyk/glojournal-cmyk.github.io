@@ -223,3 +223,6 @@
     if (current && (!panel || panel.dataset.geminiInline !== "7")) schedule();
   }).observe(document.documentElement, { childList: true, subtree: true });
 })();
+
+// Foundation-first guard for automatic Daily/Adaptive study. Manual Year 9 study remains available.
+import("/assets/progression-guard-20260927.js?v=20260927-foundation-first-1").catch(() => {});
