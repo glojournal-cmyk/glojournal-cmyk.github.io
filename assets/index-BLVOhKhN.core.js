@@ -139,11 +139,11 @@ function schoolY9Unit_20260919(t){
 function schoolY9Meta_20260919(t){let[u,n]=schoolY9Unit_20260919(t);return{subject:t.subject,year:t.year,topicId:t.topicId,title:t.title,status:"enabled",questions:t.questions.length,enabled:t.questions.length,preview:0,disabled:0,formats:t.formats,gated:false,unitId:u,unitName:n,sourceId:"school-update-20260919",contentTier:"school_year9_booklet"}}
 let school20260926Promise;
 async function loadSchool20260926(){
- if(!school20260926Promise) school20260926Promise=fetch("/content/school-update-20260926/delta.json?v=20260927-bio-school2").then(r=>{if(!r.ok)throw Error("School update 26 Sep missing");return r.json()}).then(d=>new Map((d.topics||[]).map(t=>[t.topicId,t]))).catch(err=>{school20260926Promise=null;throw err});
+ if(!school20260926Promise) school20260926Promise=fetch("/content/school-update-20260926/delta.json?v=20260926-v23").then(r=>{if(!r.ok)throw Error("School update 26 Sep missing");return r.json()}).then(d=>new Map((d.topics||[]).map(t=>[t.topicId,t]))).catch(err=>{school20260926Promise=null;throw err});
  return school20260926Promise
 }
 function school20260926Counts(items){let enabled=items.filter(q=>q.status==="enabled").length,preview=items.filter(q=>q.status==="preview").length,formats={};for(let q of items)formats[q.format]=(formats[q.format]||0)+1;return{questions:items.length,enabled,preview,disabled:items.length-enabled-preview,formats}}
-function school20260926Meta(t){let c=school20260926Counts(t.questions),[unitId,unitName]=t.subject==="chemistry"?["chemistry-y9-u02","Unit 2 · Separating mixtures & RP6"]:t.subject==="biology"?["bio-y9-school-cells","School cells & practicals"]:schoolY9Unit_20260919(t);return{subject:t.subject,year:t.year,topicId:t.topicId,title:t.title,status:"enabled",...c,gated:false,unitId,unitName,sourceId:"school-update-20260926",contentTier:"school_confirmed_current"}}
+function school20260926Meta(t){let c=school20260926Counts(t.questions),[unitId,unitName]=t.subject==="chemistry"?["chemistry-y9-u02","Unit 2 · Separating mixtures & RP6"]:schoolY9Unit_20260919(t);return{subject:t.subject,year:t.year,topicId:t.topicId,title:t.title,status:"enabled",...c,gated:false,unitId,unitName,sourceId:"school-update-20260926",contentTier:"school_confirmed_current"}}
 async function CC(){
  if(bC)return bC;
  let e=await fetch("/content/catalog.json");if(!e.ok)throw Error("Catalog missing");bC=await e.json();
