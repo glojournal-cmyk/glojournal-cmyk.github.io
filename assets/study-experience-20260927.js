@@ -86,7 +86,7 @@ function evidenceCopy(state, subject, topicId) {
 }
 
 function patchStudyLanding() {
-  if (location.pathname !== "/study") return;
+  if (location.pathname !== "/study" && location.pathname !== "/study/") return;
   const state=store.getState?.();
   if (!state) return;
   const rec=recommended(state);
@@ -94,8 +94,8 @@ function patchStudyLanding() {
   const main=document.querySelector("main");
   if (!main) return;
 
-  const pageTitle=[...main.querySelectorAll("h1")].find(el=>/Continue Learning/i.test(el.textContent||""));
-  if (pageTitle) pageTitle.textContent="Study";
+  const pageTitle=[...main.querySelectorAll("h1")].find(el=>/Continue Learning/i.test(el.textContent||"")||el.dataset.foundationStudyTitle);
+  if (pageTitle) { pageTitle.textContent="Study"; pageTitle.dataset.foundationStudyTitle="1"; }
   const kicker=pageTitle?.parentElement?.querySelector("p.kicker");
   if (kicker) kicker.textContent="Foundation first · school learning stays available";
 
@@ -112,15 +112,28 @@ function patchStudyLanding() {
       if (h2) h2.textContent=`${LABELS[rec.subject]} · ${rec.topic.title || rec.topic.topicId}`;
       if (desc) desc.textContent=evidenceCopy(state,rec.subject,rec.topic.topicId);
       if (link) {
-        link.setAttribute("href",`/study/${rec.subject}/practise?daily=1&locked=1&year=8&mode=standard&task=study-recommended&topic=${encodeURIComponent(rec.topic.topicId)}`);
+        const safeHref=`/study/${rec.subject}/practise?daily=1&locked=1&year=8&mode=standard&task=study-recommended&topic=${encodeURIComponent(rec.topic.topicId)}`;
+        link.setAttribute("href",safeHref);
+        link.dataset.foundationHref=safeHref;
         link.textContent="Practise next →";
+        if (!link.dataset.foundationClick) {
+          link.dataset.foundationClick="1";
+          link.addEventListener("click",event=>{
+            const target=event.currentTarget?.dataset?.foundationHref;
+            if (!target) return;
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            location.assign(target);
+          },true);
+        }
       }
     }
   }
 
-  const todayHeading=[...main.querySelectorAll("h2")].find(el=>el.textContent?.trim()==="Today");
+  const todayHeading=[...main.querySelectorAll("h2")].find(el=>el.textContent?.trim()==="Today"||el.dataset.schoolLessonsHeading);
   if (todayHeading) {
     todayHeading.textContent="School lessons · Year 9 content";
+    todayHeading.dataset.schoolLessonsHeading="1";
     const sub=todayHeading.parentElement?.querySelector("p.text-sm.text-muted");
     if (sub) sub.textContent="Current school content stays available here. It does not override the foundation-first Daily progression.";
     const sec=todayHeading.closest("section");
@@ -141,15 +154,23 @@ let questionStarted=performance.now();
 function resetQuestionClock(){questionStarted=performance.now();}
 function captureFastCorrect(event){
   const d=event?.detail||{};
-  if (!d.correct || !d.questionId || !SUBJECTS.includes(d.subject)) return;
+  if (!d.questionId || !SUBJECTS.includes(d.subject)) return;
   const format=String(d.format||"");
   const depth=Math.max(1,Number(d.cognitiveDepth)||2);
   const production=/typed|controlled_translation|mark_points|extended_response|word_tiles|sequence|unordered_set|practical_design/i.test(format);
   if (!production) return;
   const elapsed=Math.max(0,performance.now()-questionStarted);
   const threshold=(depth>=3||/mark_points|extended_response|controlled_translation|practical_design/i.test(format))?5500:2500;
-  if (elapsed>=threshold) return;
   const rows=pruneConfirm(readConfirm());
+  const existing=rows[d.questionId];
+
+  if (d.correct && existing?.due && existing.due<=todayKeyLocal() && elapsed>=threshold) {
+    delete rows[d.questionId];
+    writeConfirm(rows);
+    return;
+  }
+  if (!d.correct || elapsed>=threshold) return;
+
   const expiry=new Date(); expiry.setDate(expiry.getDate()+14);
   const expires=`${expiry.getFullYear()}-${String(expiry.getMonth()+1).padStart(2,"0")}-${String(expiry.getDate()).padStart(2,"0")}`;
   rows[d.questionId]={subject:d.subject,topicId:d.topicId||"",skills:Array.isArray(d.skills)?d.skills:[],due:tomorrowKey(),expires,responseMs:Math.round(elapsed),reason:"fast-correct-needs-confirmation"};
