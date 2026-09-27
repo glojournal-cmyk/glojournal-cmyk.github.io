@@ -1,6 +1,6 @@
 import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20260926-verbs";
 
-const VERSION = "20260927-foundation-first-1";
+const VERSION = "20260927-foundation-first-2";
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
 const LABELS = {
   latin: "Latin",
@@ -41,6 +41,11 @@ const LATIN_YEAR8_ORDER = [
 
 const STRONG_FOUNDATION_RE = /present-person-and-number|present-tense|regular-present|core-verbs|verb-forms/i;
 const ADVANCED_TENSE_RE = /perfect|imperfect|pluperfect|past-tense|future-tense|conditional/i;
+
+function todayKey() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
 
 function numericRank(topicId = "") {
   const id = String(topicId);
@@ -290,6 +295,65 @@ function patchDaily() {
   }
 }
 
+function todayPrecision(state) {
+  const day = state.today || todayKey();
+  const rows = [];
+  for (const stat of Object.values(state.topicStats || {})) {
+    for (const row of Array.isArray(stat?.recentOutcomes) ? stat.recentOutcomes : []) {
+      const rowDay = row?.date || row?.day || (row?.at ? String(row.at).slice(0, 10) : null);
+      if (rowDay === day) rows.push(row);
+    }
+  }
+  const attempted = rows.length;
+  const correct = rows.filter((row) => row?.correct === true).length;
+  const misses = Math.max(0, attempted - correct);
+  const score = attempted ? Math.round((correct / attempted) * 100) : null;
+  const due = Object.values(state.skillStats || {}).filter((stat) => stat?.retentionDue && stat.retentionDue <= day).length;
+  return { attempted, correct, misses, score, due };
+}
+
+function renderPrecisionPanel() {
+  if (location.pathname !== "/") return;
+  const state = store.getState?.();
+  if (!state) return;
+  const heading = [...document.querySelectorAll("h2")].find((node) => /raise her today/i.test(node.textContent || ""));
+  if (!heading) return;
+  let journey = heading.parentElement;
+  while (journey && journey !== document.body && !journey.querySelector("ul")) journey = journey.parentElement;
+  if (!journey || journey === document.body || !journey.parentElement) return;
+
+  const stats = todayPrecision(state);
+  const frontiers = SUBJECTS.map((subject) => ({ subject, topic: firstImmature(state, subject) })).filter((row) => row.topic);
+  const next = frontiers[0];
+  let panel = document.getElementById("daily-precision-panel");
+  if (!panel) {
+    panel = document.createElement("div");
+    panel.id = "daily-precision-panel";
+    panel.className = "rounded-[28px] bg-card text-ink shadow-[var(--shadow-border)] p-5";
+    journey.insertAdjacentElement("afterend", panel);
+  }
+  const scoreText = stats.score == null ? "—" : `${stats.score}%`;
+  const scoreNote = stats.attempted ? `${stats.correct}/${stats.attempted} first-pass answers correct` : "Starts counting after the first formal question";
+  const frontierText = next
+    ? `${LABELS[next.subject]} · ${next.topic.title || next.topic.topicId}`
+    : "Year 8 foundations mature";
+  panel.innerHTML = `
+    <div class="flex items-start justify-between gap-3">
+      <div>
+        <p class="kicker">Today’s precision</p>
+        <h2 class="font-display text-2xl font-semibold">Make every mark count</h2>
+      </div>
+      <div class="rounded-full bg-sage px-3 py-1 text-sm font-semibold text-navy tabular-nums">${scoreText}</div>
+    </div>
+    <div class="mt-4 grid grid-cols-3 gap-2 text-center">
+      <div class="rounded-2xl bg-sage/70 px-2 py-3"><div class="font-display text-2xl font-semibold tabular-nums">${stats.attempted}</div><div class="text-[10px] tracking-wide text-muted uppercase">First attempts</div></div>
+      <div class="rounded-2xl bg-sage/70 px-2 py-3"><div class="font-display text-2xl font-semibold tabular-nums">${stats.misses}</div><div class="text-[10px] tracking-wide text-muted uppercase">Misses to tighten</div></div>
+      <div class="rounded-2xl bg-sage/70 px-2 py-3"><div class="font-display text-2xl font-semibold tabular-nums">${stats.due}</div><div class="text-[10px] tracking-wide text-muted uppercase">Retention due</div></div>
+    </div>
+    <p class="mt-3 text-sm text-muted">${scoreNote}. Repairs do not inflate this score.</p>
+    <div class="mt-3 rounded-xl bg-paper/70 px-3 py-2 text-sm"><b class="text-navy">Foundation first:</b> ${frontierText}. Daily study will not jump to Year 9 or a deeper tense until earlier Year 8 work is mature.</div>`;
+}
+
 function showNotice(subject, frontier) {
   const id = "foundation-first-notice";
   document.getElementById(id)?.remove();
@@ -342,21 +406,25 @@ function guardCurrentDailyRoute() {
   if (`${location.pathname}${location.search}` !== safe) location.replace(safe);
 }
 
-function boot() {
+function refresh() {
   patchDaily();
   guardCurrentDailyRoute();
+  renderPrecisionPanel();
+}
+
+function boot() {
+  refresh();
   document.addEventListener("click", guardDailyClick, true);
   store.subscribe?.(() => {
     window.clearTimeout(boot._timer);
-    boot._timer = window.setTimeout(() => {
-      patchDaily();
-      guardCurrentDailyRoute();
-    }, 40);
+    boot._timer = window.setTimeout(refresh, 40);
   });
-  window.addEventListener("pageshow", () => {
-    patchDaily();
-    guardCurrentDailyRoute();
+  window.addEventListener("pageshow", refresh);
+  const observer = new MutationObserver(() => {
+    window.clearTimeout(boot._domTimer);
+    boot._domTimer = window.setTimeout(renderPrecisionPanel, 60);
   });
+  observer.observe(document.documentElement, { childList: true, subtree: true });
 }
 
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot, { once: true });
