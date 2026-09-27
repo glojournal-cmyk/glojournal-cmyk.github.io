@@ -1086,13 +1086,13 @@ function pickYear8Assigned(pool, state, seed) {
   return firstUnmastered(pool, state, subject) || pool[0];
 }
 
-function year8AssignedHref(item, mode) {
+function year8AssignedHref(item, mode, taskId = mode === "mastery" ? "y8-mastery" : "y8-practise") {
   const params = new URLSearchParams();
   params.set("daily", "1");
   params.set("locked", "1");
   params.set("year", "8");
   params.set("mode", mode);
-  params.set("task", mode === "mastery" ? "y8-mastery" : "y8-practise");
+  params.set("task", taskId);
   if (item?.topicId) params.set("topic", item.topicId);
   return `/study/${item?.subject || "latin"}/practise?${params.toString()}`;
 }
@@ -1142,6 +1142,7 @@ function year8ReviewPlan(state) {
   params.set("locked", "1");
   params.set("year", "8");
   params.set("mode", chosen && chosen.attempted >= 10 ? "year8long" : "standard");
+  params.set("task", "y8-mastery");
   if (topicId) params.set("topic", topicId);
 
   return {
@@ -1294,7 +1295,7 @@ function buildAdaptiveDaily(state) {
     id: "y8-mastery",
     title: masteryReady ? year8AssignedTitle("mastery", masteryPick) : `Practise first · ${masteryPick?.topicLabel || masteryPick?.label || "Year 8 topic"}`,
     detail: masteryReady ? "15 questions on this Year 8 topic after foundational practice." : `Complete 10 practice questions on ${masteryPick?.topicLabel || "this topic"} before the mastery check.`,
-    href: year8AssignedHref(masteryPick, masteryReady ? "mastery" : "standard"),
+    href: year8AssignedHref(masteryPick, masteryReady ? "mastery" : "standard", "y8-mastery"),
     target: 15,
     progress: masteryReady ? Math.min(15, Math.max(oldMastery.assignedTopic === masteryPick?.topicId && masteryStartAttempts !== null ? oldMastery.progress || 0 : 0, topicAttemptsToday(state, masteryPick?.topicId) - masteryStartAttempts)) : 0,
     xp: 20,
@@ -1312,7 +1313,7 @@ function buildAdaptiveDaily(state) {
     { id: "french-vocab", title: "Year 8 French vocab", detail: `Random Year 8 French words · ${frenchVocab.correct}/30 correct. Wrong answers do not count, and the words cannot be chosen.`, href: "/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab", target: 30, progress: frenchVocab.progress, xp: 15, requiredCorrect: 30, attempts: frenchVocab.attempts, correct: frenchVocab.correct, planDate: state.today },
     { id: "latin-vocab", title: "Year 8 Latin vocab", detail: `Random Year 8 Latin words · ${latinVocab.correct}/30 correct. Wrong answers do not count, and the words cannot be chosen.`, href: "/study/latin/practise?daily=1&locked=1&year=8&mode=y8vocab&task=latin-vocab", target: 30, progress: latinVocab.progress, xp: 15, requiredCorrect: 30, attempts: latinVocab.attempts, correct: latinVocab.correct, planDate: state.today },
     { id: "adaptive-focus", title: focus.skillLabel ? `${focus.skillLabel} focus` : `${label} focus`, detail: "Four questions in today’s priority subject. Mastery needs ≥85% plus one independent typed or spelled answer.", href: focusHref(focus, state), target: 4, progress: focusProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason },
-    { id: "year8-long-review", title: year8Review.ready ? `Year 8 ${year8Review.label} mastery · ${year8Review.topicLabel}` : `Year 8 ${year8Review.label} practice first · ${year8Review.topicLabel}`, detail: year8Review.ready ? "15-question topic mastery review after foundational practice." : "Complete 10 practice questions on this early topic before its mastery review.", href: year8Review.ready ? year8Review.href.replace(/mode=standard/, "mode=year8long") : year8Review.href.replace(/mode=year8long/, "mode=standard"), target: 15, progress: year8ReviewProgress, xp: 20, planDate: state.today, reviewYear: 8, reviewSubject: year8Review.subject, reviewTopic: year8Review.topicId || null },
+    { id: "year8-long-review", title: year8Review.ready ? `Year 8 ${year8Review.label} mastery · ${year8Review.topicLabel}` : `Year 8 ${year8Review.label} practice first · ${year8Review.topicLabel}`, detail: year8Review.ready ? "15-question topic mastery review after foundational practice." : "Complete 10 practice questions on this early topic before its mastery review.", href: `${year8Review.ready ? year8Review.href.replace(/mode=standard/, "mode=year8long") : year8Review.href.replace(/mode=year8long/, "mode=standard")}${year8Review.href.includes("task=") ? "" : "&task=y8-mastery"}`, target: 15, progress: year8ReviewProgress, xp: 20, planDate: state.today, reviewYear: 8, reviewSubject: year8Review.subject, reviewTopic: year8Review.topicId || null },
     y8PractiseTask,
     y8MasteryTask,
     { ...garden, progress: Math.min(garden.target || 1, garden.progress || 0) },
