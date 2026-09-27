@@ -3162,6 +3162,924 @@
         "wider separation"
       ],
       "hint": "Compare the spacing of the three spots."
+    },
+    {
+      "id": "chem-school-1-101",
+      "topic": "Rf",
+      "prompt": "A blue spot travelled 21 mm from the start line; the solvent front travelled 60 mm. Calculate Rf to two decimal places.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.35",
+          ".35"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Rf = 21 ÷ 60 = 0.35."
+      },
+      "markKeywords": [
+        "0.35"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-direct",
+      "modelAnswer": "0.35",
+      "workedSolution": "Rf = 21 ÷ 60 = 0.35."
+    },
+    {
+      "id": "chem-school-1-102",
+      "topic": "Rf",
+      "prompt": "An orange spot travelled 38 mm from the start line; the solvent front travelled 80 mm. Calculate Rf to two decimal places.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.48",
+          ".48"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Rf = 38 ÷ 80 = 0.475, which rounds to 0.48."
+      },
+      "markKeywords": [
+        "0.48"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-direct",
+      "modelAnswer": "0.48",
+      "workedSolution": "Rf = 38 ÷ 80 = 0.475, which rounds to 0.48."
+    },
+    {
+      "id": "chem-school-1-103",
+      "topic": "Rf",
+      "prompt": "On a ruler, the pencil start line is at 12 mm, the centre of a spot at 47 mm and the solvent front at 82 mm. Calculate Rf to two decimal places.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.50",
+          "0.5",
+          ".50"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Spot distance = 47 − 12 = 35 mm; front distance = 82 − 12 = 70 mm; Rf = 35 ÷ 70 = 0.50."
+      },
+      "markKeywords": [
+        "0.50"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-offset",
+      "modelAnswer": "0.50",
+      "workedSolution": "Spot distance = 47 − 12 = 35 mm; front distance = 82 − 12 = 70 mm; Rf = 35 ÷ 70 = 0.50."
+    },
+    {
+      "id": "chem-school-1-104",
+      "topic": "Rf",
+      "prompt": "A chromatogram ruler reads 15 mm at the start line, 42 mm at the centre of the spot and 75 mm at the solvent front. Calculate Rf to two decimal places.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.45",
+          ".45"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Spot distance = 42 − 15 = 27 mm; front distance = 75 − 15 = 60 mm; Rf = 27 ÷ 60 = 0.45."
+      },
+      "markKeywords": [
+        "0.45"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-offset",
+      "modelAnswer": "0.45",
+      "workedSolution": "Spot distance = 42 − 15 = 27 mm; front distance = 75 − 15 = 60 mm; Rf = 27 ÷ 60 = 0.45."
+    },
+    {
+      "id": "chem-school-1-105",
+      "topic": "Rf",
+      "prompt": "The solvent front is 72 mm above the start line and a dye has Rf 0.25. How far above the start line is the centre of its spot? Give mm.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "18",
+          "18 mm",
+          "18mm"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Dye distance = Rf × solvent distance = 0.25 × 72 = 18 mm."
+      },
+      "markKeywords": [
+        "18"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-spot-distance",
+      "modelAnswer": "18",
+      "workedSolution": "Dye distance = Rf × solvent distance = 0.25 × 72 = 18 mm."
+    },
+    {
+      "id": "chem-school-1-106",
+      "topic": "Rf",
+      "prompt": "The solvent front moved 65 mm from the start line. A reference dye has Rf 0.40. How many mm would that dye travel?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "26",
+          "26 mm",
+          "26mm"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Dye distance = 0.40 × 65 = 26 mm."
+      },
+      "markKeywords": [
+        "26"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-spot-distance",
+      "modelAnswer": "26",
+      "workedSolution": "Dye distance = 0.40 × 65 = 26 mm."
+    },
+    {
+      "id": "chem-school-1-107",
+      "topic": "Rf",
+      "prompt": "A spot travelled 36 mm from the start line and has Rf 0.45. How far did the solvent front travel? Give mm.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "80",
+          "80 mm",
+          "80mm"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Solvent-front distance = spot distance ÷ Rf = 36 ÷ 0.45 = 80 mm."
+      },
+      "markKeywords": [
+        "80"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-front-distance",
+      "modelAnswer": "80",
+      "workedSolution": "Solvent-front distance = spot distance ÷ Rf = 36 ÷ 0.45 = 80 mm."
+    },
+    {
+      "id": "chem-school-1-108",
+      "topic": "Rf",
+      "prompt": "A spot is 28 mm from the start line and its Rf is 0.35. Find the solvent-front distance in mm.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "80",
+          "80 mm",
+          "80mm"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Solvent-front distance = 28 ÷ 0.35 = 80 mm."
+      },
+      "markKeywords": [
+        "80"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-front-distance",
+      "modelAnswer": "80",
+      "workedSolution": "Solvent-front distance = 28 ÷ 0.35 = 80 mm."
+    },
+    {
+      "id": "chem-school-1-109",
+      "topic": "Rf",
+      "prompt": "The solvent front travelled 80 mm and an unknown spot travelled 52 mm. Reference Rf values in the same solvent are red 0.40, yellow 0.65 and blue 0.80. Which reference is a possible match?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "yellow"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Unknown Rf = 52 ÷ 80 = 0.65, matching yellow in the same solvent."
+      },
+      "markKeywords": [
+        "yellow"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-reference-match",
+      "modelAnswer": "yellow",
+      "workedSolution": "Unknown Rf = 52 ÷ 80 = 0.65, matching yellow in the same solvent."
+    },
+    {
+      "id": "chem-school-1-110",
+      "topic": "Rf",
+      "prompt": "An unknown spot moved 18 mm while the solvent moved 60 mm. In the same solvent, reference Rf values are P 0.30, Q 0.45 and R 0.60. Which reference is a possible match?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "P"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Unknown Rf = 18 ÷ 60 = 0.30, matching reference P."
+      },
+      "markKeywords": [
+        "P"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-reference-match",
+      "modelAnswer": "P",
+      "workedSolution": "Unknown Rf = 18 ÷ 60 = 0.30, matching reference P."
+    },
+    {
+      "id": "chem-school-1-111",
+      "topic": "Rf",
+      "prompt": "On the same chromatogram the solvent travelled 80 mm, spot A travelled 24 mm and spot B travelled 56 mm. How much greater is B’s Rf than A’s? Answer to two decimal places.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.40",
+          "0.4",
+          ".40"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Rf(A) = 24 ÷ 80 = 0.30; Rf(B) = 56 ÷ 80 = 0.70; difference = 0.40."
+      },
+      "markKeywords": [
+        "0.40"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-two-spots",
+      "modelAnswer": "0.40",
+      "workedSolution": "Rf(A) = 24 ÷ 80 = 0.30; Rf(B) = 56 ÷ 80 = 0.70; difference = 0.40."
+    },
+    {
+      "id": "chem-school-1-112",
+      "topic": "Rf",
+      "prompt": "The front travelled 75 mm. One spot travelled 15 mm and another 45 mm. What is the difference between their Rf values? Give two decimal places.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.40",
+          "0.4",
+          ".40"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. The Rf values are 15 ÷ 75 = 0.20 and 45 ÷ 75 = 0.60; difference = 0.40."
+      },
+      "markKeywords": [
+        "0.40"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-two-spots",
+      "modelAnswer": "0.40",
+      "workedSolution": "The Rf values are 15 ÷ 75 = 0.20 and 45 ÷ 75 = 0.60; difference = 0.40."
+    },
+    {
+      "id": "chem-school-1-113",
+      "topic": "Rf",
+      "prompt": "In three repeat runs under the same conditions, a dye has Rf values 0.42, 0.45 and 0.48. Calculate the mean Rf to two decimal places.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.45",
+          ".45"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Mean Rf = (0.42 + 0.45 + 0.48) ÷ 3 = 0.45."
+      },
+      "markKeywords": [
+        "0.45"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-mean-rf",
+      "modelAnswer": "0.45",
+      "workedSolution": "Mean Rf = (0.42 + 0.45 + 0.48) ÷ 3 = 0.45."
+    },
+    {
+      "id": "chem-school-1-114",
+      "topic": "Rf",
+      "prompt": "Three trials for a dye in the same solvent give Rf values 0.36, 0.39 and 0.42. Find the mean Rf to two decimal places.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.39",
+          ".39"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Mean Rf = (0.36 + 0.39 + 0.42) ÷ 3 = 0.39."
+      },
+      "markKeywords": [
+        "0.39"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-mean-rf",
+      "modelAnswer": "0.39",
+      "workedSolution": "Mean Rf = (0.36 + 0.39 + 0.42) ÷ 3 = 0.39."
+    },
+    {
+      "id": "chem-school-1-115",
+      "topic": "Rf",
+      "prompt": "A spot moved 2.4 cm and the solvent front moved 60 mm. Calculate Rf to two decimal places.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.40",
+          "0.4",
+          ".40"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. 2.4 cm = 24 mm; Rf = 24 ÷ 60 = 0.40. Use the same units for both distances."
+      },
+      "markKeywords": [
+        "0.40"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-unit-conversion",
+      "modelAnswer": "0.40",
+      "workedSolution": "2.4 cm = 24 mm; Rf = 24 ÷ 60 = 0.40. Use the same units for both distances."
+    },
+    {
+      "id": "chem-school-1-116",
+      "topic": "Rf",
+      "prompt": "A dye travelled 35 mm and the solvent front travelled 7.0 cm. Calculate Rf to two decimal places.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.50",
+          "0.5",
+          ".50"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. 7.0 cm = 70 mm; Rf = 35 ÷ 70 = 0.50."
+      },
+      "markKeywords": [
+        "0.50"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-unit-conversion",
+      "modelAnswer": "0.50",
+      "workedSolution": "7.0 cm = 70 mm; Rf = 35 ÷ 70 = 0.50."
+    },
+    {
+      "id": "chem-school-1-117",
+      "topic": "Rf",
+      "prompt": "A ruler reads 10 mm at the start line, 40 mm at a spot and 70 mm at the front. A pupil uses 40 ÷ 70. What is the correct Rf to two decimal places?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.50",
+          "0.5",
+          ".50"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Measure from the start line: (40 − 10) ÷ (70 − 10) = 30 ÷ 60 = 0.50."
+      },
+      "markKeywords": [
+        "0.50"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-wrong-denominator",
+      "modelAnswer": "0.50",
+      "workedSolution": "Measure from the start line: (40 − 10) ÷ (70 − 10) = 30 ÷ 60 = 0.50."
+    },
+    {
+      "id": "chem-school-1-118",
+      "topic": "Rf",
+      "prompt": "The start line is at ruler mark 5 mm, the spot at 29 mm and the solvent front at 65 mm. A pupil divides 29 by 65. Find the correct Rf to two decimal places.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.40",
+          "0.4",
+          ".40"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Spot distance = 29 − 5 = 24 mm; front distance = 65 − 5 = 60 mm; Rf = 0.40."
+      },
+      "markKeywords": [
+        "0.40"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-wrong-denominator",
+      "modelAnswer": "0.40",
+      "workedSolution": "Spot distance = 29 − 5 = 24 mm; front distance = 65 − 5 = 60 mm; Rf = 0.40."
+    },
+    {
+      "id": "chem-school-1-119",
+      "topic": "Rf",
+      "prompt": "A dye travels 24 mm when the front travels 40 mm. In a second run in the same solvent, the front travels 70 mm. Assuming the same Rf, how far would the dye travel? Give mm.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "42",
+          "42 mm",
+          "42mm"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. First Rf = 24 ÷ 40 = 0.60; predicted distance = 0.60 × 70 = 42 mm."
+      },
+      "markKeywords": [
+        "42"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-same-dye-new-front",
+      "modelAnswer": "42",
+      "workedSolution": "First Rf = 24 ÷ 40 = 0.60; predicted distance = 0.60 × 70 = 42 mm."
+    },
+    {
+      "id": "chem-school-1-120",
+      "topic": "Rf",
+      "prompt": "A reference travels 30 mm with a 50 mm solvent front. The same solvent is used and the front now travels 80 mm. Assuming its Rf stays constant, predict the spot distance in mm.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "48",
+          "48 mm",
+          "48mm"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Reference Rf = 30 ÷ 50 = 0.60; predicted spot distance = 0.60 × 80 = 48 mm."
+      },
+      "markKeywords": [
+        "48"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-same-dye-new-front",
+      "modelAnswer": "48",
+      "workedSolution": "Reference Rf = 30 ÷ 50 = 0.60; predicted spot distance = 0.60 × 80 = 48 mm."
+    },
+    {
+      "id": "chem-school-1-121",
+      "topic": "Rf",
+      "prompt": "A chromatogram has a solvent front at 80 mm. Spot A is at 24 mm, spot B has Rf 0.55, and spot C is at 64 mm. What is the spot B distance in mm?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "44",
+          "44 mm",
+          "44mm"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Spot B distance = 0.55 × 80 = 44 mm."
+      },
+      "markKeywords": [
+        "44"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-unknown-table",
+      "modelAnswer": "44",
+      "workedSolution": "Spot B distance = 0.55 × 80 = 44 mm."
+    },
+    {
+      "id": "chem-school-1-122",
+      "topic": "Rf",
+      "prompt": "The solvent front is 90 mm from the start line. A table lists red at 27 mm, green at 54 mm and blue with Rf 0.70. Find the blue spot distance in mm.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "63",
+          "63 mm",
+          "63mm"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Blue distance = 0.70 × 90 = 63 mm."
+      },
+      "markKeywords": [
+        "63"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-unknown-table",
+      "modelAnswer": "63",
+      "workedSolution": "Blue distance = 0.70 × 90 = 63 mm."
+    },
+    {
+      "id": "chem-school-1-123",
+      "topic": "Rf",
+      "prompt": "Run 1: a dye travels 18 mm with a 60 mm front. Run 2: a dye travels 27 mm with a 90 mm front in the same solvent. What is the difference between their Rf values to two decimal places?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.00",
+          "0.0",
+          ".00"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Run 1 Rf = 18 ÷ 60 = 0.30; run 2 Rf = 27 ÷ 90 = 0.30; difference = 0.00."
+      },
+      "markKeywords": [
+        "0.00"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-two-runs",
+      "modelAnswer": "0.00",
+      "workedSolution": "Run 1 Rf = 18 ÷ 60 = 0.30; run 2 Rf = 27 ÷ 90 = 0.30; difference = 0.00."
+    },
+    {
+      "id": "chem-school-1-124",
+      "topic": "Rf",
+      "prompt": "In the same solvent, dye A travels 20 mm with a 50 mm front and dye B travels 36 mm with an 80 mm front. By how much does B’s Rf exceed A’s? Give two decimal places.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.05",
+          ".05"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Rf(A) = 20 ÷ 50 = 0.40; Rf(B) = 36 ÷ 80 = 0.45; difference = 0.05."
+      },
+      "markKeywords": [
+        "0.05"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-two-runs",
+      "modelAnswer": "0.05",
+      "workedSolution": "Rf(A) = 20 ÷ 50 = 0.40; Rf(B) = 36 ÷ 80 = 0.45; difference = 0.05."
+    },
+    {
+      "id": "chem-school-1-125",
+      "topic": "Rf",
+      "prompt": "A dye has Rf 0.75 when the solvent front is 64 mm from the start line. How many mm remain between the dye centre and the solvent front?",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "16",
+          "16 mm",
+          "16mm"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Spot distance = 0.75 × 64 = 48 mm; gap = 64 − 48 = 16 mm."
+      },
+      "markKeywords": [
+        "16"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-fraction-distance",
+      "modelAnswer": "16",
+      "workedSolution": "Spot distance = 0.75 × 64 = 48 mm; gap = 64 − 48 = 16 mm."
+    },
+    {
+      "id": "chem-school-1-126",
+      "topic": "Rf",
+      "prompt": "A spot has Rf 0.60 and the front has travelled 75 mm. Find the gap between the spot centre and solvent front in mm.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "30",
+          "30 mm",
+          "30mm"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. Spot distance = 0.60 × 75 = 45 mm; gap = 75 − 45 = 30 mm."
+      },
+      "markKeywords": [
+        "30"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-fraction-distance",
+      "modelAnswer": "30",
+      "workedSolution": "Spot distance = 0.60 × 75 = 45 mm; gap = 75 − 45 = 30 mm."
+    },
+    {
+      "id": "chem-school-1-127",
+      "topic": "Rf",
+      "prompt": "A spot has Rf 0.50 and lies 30 mm below the solvent front. Find the distance from the start line to the solvent front in mm.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "60",
+          "60 mm",
+          "60mm"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. The gap is (1 − 0.50) of the front distance; front distance = 30 ÷ 0.50 = 60 mm."
+      },
+      "markKeywords": [
+        "60"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-front-from-gap",
+      "modelAnswer": "60",
+      "workedSolution": "The gap is (1 − 0.50) of the front distance; front distance = 30 ÷ 0.50 = 60 mm."
+    },
+    {
+      "id": "chem-school-1-128",
+      "topic": "Rf",
+      "prompt": "A spot has Rf 0.75 and sits 20 mm below the solvent front. How far did the front travel from the start line? Give mm.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "80",
+          "80 mm",
+          "80mm"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. The gap is 1 − 0.75 = 0.25 of front distance; 20 ÷ 0.25 = 80 mm."
+      },
+      "markKeywords": [
+        "80"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-front-from-gap",
+      "modelAnswer": "80",
+      "workedSolution": "The gap is 1 − 0.75 = 0.25 of front distance; 20 ÷ 0.25 = 80 mm."
+    },
+    {
+      "id": "chem-school-1-129",
+      "topic": "Rf",
+      "prompt": "A spot moves 37 mm and the solvent front moves 60 mm. Calculate Rf to two decimal places.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.62",
+          ".62"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. 37 ÷ 60 = 0.6166…; to two decimal places Rf = 0.62."
+      },
+      "markKeywords": [
+        "0.62"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-rounded-rf",
+      "modelAnswer": "0.62",
+      "workedSolution": "37 ÷ 60 = 0.6166…; to two decimal places Rf = 0.62."
+    },
+    {
+      "id": "chem-school-1-130",
+      "topic": "Rf",
+      "prompt": "The front is 72 mm from the start line and a spot is 41 mm from it. Calculate Rf to two decimal places.",
+      "format": "typed_exact",
+      "options": null,
+      "diagram": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.57",
+          ".57"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Calculate from distances measured from the pencil start line. 41 ÷ 72 = 0.5694…; to two decimal places Rf = 0.57."
+      },
+      "markKeywords": [
+        "0.57"
+      ],
+      "hint": "Rf = spot distance ÷ solvent-front distance. Both distances must be from the start line; rearrange if needed.",
+      "conceptId": "chem-rf-calc-rounded-rf",
+      "modelAnswer": "0.57",
+      "workedSolution": "41 ÷ 72 = 0.5694…; to two decimal places Rf = 0.57."
     }
   ],
   "bankSize": 100

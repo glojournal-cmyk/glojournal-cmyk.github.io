@@ -1,6 +1,6 @@
 const PAPERS=[
   {id:'french',name:'French · Unit 1 vocabulary',subtitle:'Une visite en France · school test 8 Oct',bank:'/assessment/french-school-1.json',count:25,minutes:25,groups:{'Core phrases':4,'Intensifiers':3,'Descriptive adjectives':5,'Positive adjectives':5,'Pronouns':5,'Transport':3}},
-  {id:'chemistry',name:'Chemistry · school test and RP6',subtitle:'Periodic Table, separation and chromatography',bank:'/assessment/chemistry-school-1.json',count:30,minutes:45,groups:{'Periodic table':6,'Separation':8,'RP6 method':5,'RP6 errors':1,'Chromatogram':2,'Rf':5,'Solvents':1,'RP6':2}},
+  {id:'chemistry',name:'Chemistry · school test and RP6',subtitle:'Periodic Table, separation and chromatography',bank:'/assessment/chemistry-school-1.json',count:30,minutes:45,groups:{'Periodic table':4,'Separation':4,'RP6 method':4,'RP6 errors':2,'Chromatogram':4,'Rf':9,'Solvents':1,'RP6':2}},
   {id:'latin-verbs',name:'Latin · Regular verbs',subtitle:'Tomorrow’s table · Latin → English · porto, moneo, traho, audio · present, imperfect and perfect only',bank:'/assessment/latin-verbs-1.json',count:24,minutes:25,groups:{'Present':8,'Imperfect':8,'Perfect':8}},
   {id:'latin-creusa',name:'Latin · The Loss of Creusa',subtitle:'English-text comprehension · Aeneid Book II · school reading',bank:'/assessment/latin-creusa-1.json',count:24,minutes:40,groups:{'Escape from Troy':6,'The search':6,'Creusa’s ghost':6,'Prophecy and themes':6}},
   {id:'latin-conjugations',name:'Latin · Present and imperfect verbs',subtitle:'School assessment 28 Sep · conjugations, endings and two-way translation',bank:'/assessment/latin-conjugations-20260928.json',count:25,minutes:35,groups:{'Conjugation and stems':4,'English to Latin':12,'Latin to English':6,'Spot and repair':3}},
@@ -37,7 +37,7 @@ function grantWardrobe(id){
 }
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
-const CHEMISTRY_REVISION='20260927-chem-diagrams3';
+const CHEMISTRY_REVISION='20260927-chem-calculations1';
 const bankUrl=p=>p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:p.bank;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
@@ -366,7 +366,7 @@ function finish(p,d){
     earned+=m.credit;
     if(m.credit>=0.999)full++; else if(m.credit>0)partial++;
     const partialNote=m.credit>0&&m.credit<1?`<p class="muted"><b>Partial credit:</b> ${formatMarks(m.credit)} mark. You included ${m.matched} of ${m.total} required ideas.</p>`:'';
-    return `<article class="entry"><div><span class="tag">Question ${i+1} · ${m.status} · ${esc(q.topic||'')}</span><p>${esc(q.prompt)}</p><p><b>Your answer:</b> ${esc(answer)||'—'}</p><p><b>Model answer:</b> ${esc(showAnswer(q))}</p>${partialNote}${p.id==='chemistry'||q.markKeywords?`<p><b>Marking keywords:</b> ${esc((q.markKeywords||q.answer.accepted).join(' · '))}</p><p class="muted"><b>Hint for next time:</b> ${esc(q.hint||q.feedback?.short||'Check the evidence in the question before choosing a method.')}</p>`:q.feedback?.short?`<p class="muted">${esc(q.feedback.short)}</p>`:''}</div></article>`;
+    return `<article class="entry"><div><span class="tag">Question ${i+1} · ${m.status} · ${esc(q.topic||'')}</span><p>${esc(q.prompt)}</p><p><b>Your answer:</b> ${esc(answer)||'—'}</p><p><b>Model answer:</b> ${esc(showAnswer(q))}</p>${q.workedSolution?`<p><b>Working:</b> ${esc(q.workedSolution)}</p>`:''}${partialNote}${p.id==='chemistry'||q.markKeywords?`<p><b>Marking keywords:</b> ${esc((q.markKeywords||q.answer.accepted).join(' · '))}</p><p class="muted"><b>Hint for next time:</b> ${esc(q.hint||q.feedback?.short||'Check the evidence in the question before choosing a method.')}</p>`:q.feedback?.short?`<p class="muted">${esc(q.feedback.short)}</p>`:''}</div></article>`;
   });
 
   const score=Math.round(earned/d.questions.length*100);

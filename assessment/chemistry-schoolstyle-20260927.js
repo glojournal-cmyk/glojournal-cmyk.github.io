@@ -3,6 +3,14 @@
   const BASE_PATH='/assessment/chemistry-school-1.json';
   const ADDON_PATH=`/assessment/chemistry-school-style-20260927.json?v=${VERSION}`;
   const originalFetch=window.fetch.bind(window);
+  const calculationConcepts={
+    'chem-schoolstyle-201':'chem-rf-calc-direct',
+    'chem-schoolstyle-204':'chem-rf-calc-direct',
+    'chem-schoolstyle-205':'chem-rf-calc-direct',
+    'chem-schoolstyle-212':'chem-rf-calc-direct',
+    'chem-schoolstyle-217':'chem-rf-calc-direct',
+    'chem-schoolstyle-219':'chem-rf-calc-spot-distance'
+  };
   const diagramMap={
     'setup.svg':'setup-v2-20260927.svg',
     'inks.svg':'inks-v2-20260927.svg',
@@ -24,7 +32,7 @@
     const base=await baseRes.json();
     const addon=addonRes.ok?await addonRes.json():{questions:[]};
     const baseQuestions=(base.questions||[]).map(q=>q.diagram&&diagramMap[q.diagram]?{...q,diagram:diagramMap[q.diagram]}:q);
-    const merged={...base,questions:[...baseQuestions,...(addon.questions||[])]};
+    const merged={...base,questions:[...baseQuestions,...(addon.questions||[]).map(q=>calculationConcepts[q.id]?{...q,conceptId:calculationConcepts[q.id]}:q)]};
     return new Response(JSON.stringify(merged),{status:200,statusText:'OK',headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});
   };
 
@@ -34,14 +42,14 @@
       if(chemistry){
         chemistry.subtitle='Periodic Table, separation, chromatography, Rf and school-style data questions';
         chemistry.groups={
-          'Periodic table':5,
-          'Separation':5,
+          'Periodic table':4,
+          'Separation':4,
           'RP6 method':4,
           'RP6 errors':2,
           'Chromatogram':4,
-          'Rf':6,
+          'Rf':9,
           'Solvents':1,
-          'RP6':3
+          'RP6':2
         };
         cards();
       }
