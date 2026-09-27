@@ -150,8 +150,14 @@ function enhanceHomeCards() {
   if (!main) return;
 
   [...main.querySelectorAll("h2")].forEach((heading) => {
-    if (/raise her today|scholar level/i.test(heading.textContent || "")) {
-      heading.closest("div.rounded-\\[28px\\]")?.classList.add("lux-home-card");
+    if (!/raise her today|scholar level/i.test(heading.textContent || "")) return;
+    let node = heading.parentElement;
+    while (node && node !== main) {
+      if (String(node.className || "").includes("rounded-[28px]")) {
+        node.classList.add("lux-home-card");
+        break;
+      }
+      node = node.parentElement;
     }
   });
 
