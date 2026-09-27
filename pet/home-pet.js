@@ -1,4 +1,6 @@
-import("/assets/progression-guard-20260927.js?v=20260927-year8-route").catch(()=>{});
+// The progression guard imports the React app bundle. Loading it on the
+// standalone Pet page makes React replace that page with an empty root.
+if(!location.pathname.startsWith("/pet")) import("/assets/progression-guard-20260927.js?v=20260927-year8-route").catch(()=>{});
 
 const APP_KEY="lux-scholar-garden-v1";
 const PET_KEY="lux-pet-companion-v1";
