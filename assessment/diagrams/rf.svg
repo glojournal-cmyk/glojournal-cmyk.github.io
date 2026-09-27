@@ -1,14 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 430" role="img" aria-labelledby="title desc">
-<title id="title">Figure 3: chromatogram and millimetre ruler</title><desc id="desc">A chromatogram has a start line, blue spot and solvent front aligned to a millimetre ruler. Distances on the ruler are measured from the start line.</desc>
-<rect width="640" height="430" rx="18" fill="#fcfbf6"/>
-<text x="28" y="38" fill="#17384a" font-family="Arial,sans-serif" font-weight="700" font-size="21">Figure 3 · Measure from the start line</text>
-<text x="28" y="64" fill="#536a71" font-family="Arial,sans-serif" font-size="15">Read to the centre of the spot and to the solvent front.</text>
-<rect x="135" y="76" width="224" height="300" fill="#fff" stroke="#49636e" stroke-width="3"/>
-<path d="M135 335H359" stroke="#17384a" stroke-width="3"/><path d="M135 105H359" stroke="#17384a" stroke-width="3" stroke-dasharray="8 5"/>
-<circle cx="247" cy="197" r="17" fill="#68a6db" opacity=".9"/><circle cx="247" cy="197" r="4" fill="#153f79"/>
-<path d="M455 59V335" stroke="#17384a" stroke-width="2.5"/>
-<g stroke="#17384a" stroke-width="2"><path d="M455 335h22 M455 289h14 M455 243h14 M455 197h22 M455 151h14 M455 105h22 M455 59h14"/></g>
-<g fill="#17384a" font-family="Arial,sans-serif" font-size="18"><text x="488" y="341">0</text><text x="488" y="295">10</text><text x="488" y="249">20</text><text x="488" y="203">30</text><text x="488" y="157">40</text><text x="488" y="111">50</text><text x="488" y="65">60</text></g>
-<text x="454" y="380" fill="#536a71" font-family="Arial,sans-serif" font-size="17">Distance / mm</text>
-<text x="135" y="405" fill="#536a71" font-family="Arial,sans-serif" font-size="16">Start line = 0 mm</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-labelledby="title desc">
+  <title id="title">Figure 3: chromatogram and millimetre ruler</title>
+  <desc id="desc">The start line is zero millimetres. The blue dye has travelled 30 millimetres and the solvent front 50 millimetres.</desc>
+  <defs>
+    <filter id="paperShadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#17384a" flood-opacity="0.10"/></filter>
+    <filter id="spotShadow" x="-35%" y="-35%" width="170%" height="170%"><feDropShadow dx="0" dy="2" stdDeviation="2.2" flood-color="#17384a" flood-opacity="0.18"/></filter>
+  </defs>
+  <rect width="900" height="675" rx="24" fill="#fffdf8"/>
+  <text x="48" y="58" fill="#112f46" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="32">Figure 3 · Measure from the start line</text>
+  <text x="48" y="88" fill="#60747f" font-family="Arial,Helvetica,sans-serif" font-size="17">Read to the centre of the spot and to the solvent front.</text>
+
+  <g filter="url(#paperShadow)">
+    <rect x="170" y="126" width="310" height="430" rx="3" fill="#ffffff" stroke="#3f5f6e" stroke-width="3.5"/>
+  </g>
+  <line x1="170" y1="200" x2="480" y2="200" stroke="#17384a" stroke-width="3" stroke-dasharray="11 8"/>
+  <line x1="170" y1="500" x2="480" y2="500" stroke="#17384a" stroke-width="3.5"/>
+
+  <g filter="url(#spotShadow)">
+    <circle cx="325" cy="320" r="24" fill="#6ba9df" stroke="#4f8fc8" stroke-width="2.5"/>
+    <circle cx="325" cy="320" r="6" fill="#174f89"/>
+  </g>
+
+  <g stroke="#17384a" fill="none">
+    <line x1="605" y1="140" x2="605" y2="500" stroke-width="3"/>
+    <line x1="605" y1="500" x2="640" y2="500" stroke-width="3"/>
+    <line x1="605" y1="440" x2="630" y2="440" stroke-width="2.5"/>
+    <line x1="605" y1="380" x2="630" y2="380" stroke-width="2.5"/>
+    <line x1="605" y1="320" x2="640" y2="320" stroke-width="3"/>
+    <line x1="605" y1="260" x2="630" y2="260" stroke-width="2.5"/>
+    <line x1="605" y1="200" x2="640" y2="200" stroke-width="3"/>
+    <line x1="605" y1="140" x2="630" y2="140" stroke-width="2.5"/>
+  </g>
+
+  <g fill="#15364a" font-family="Arial,Helvetica,sans-serif" font-size="22">
+    <text x="658" y="508">0</text><text x="658" y="448">10</text><text x="658" y="388">20</text><text x="658" y="328">30</text><text x="658" y="268">40</text><text x="658" y="208">50</text><text x="658" y="148">60</text>
+  </g>
+  <text x="603" y="555" fill="#526b77" font-family="Arial,Helvetica,sans-serif" font-size="19">Distance / mm</text>
+  <text x="170" y="600" fill="#526b77" font-family="Arial,Helvetica,sans-serif" font-size="19">Start line = 0 mm</text>
+
+  <g stroke="#9db0b8" stroke-width="1.5" stroke-dasharray="5 6" opacity="0.6">
+    <line x1="480" y1="320" x2="605" y2="320"/>
+    <line x1="480" y1="200" x2="605" y2="200"/>
+  </g>
 </svg>
