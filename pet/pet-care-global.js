@@ -1,9 +1,9 @@
 import { C as store } from "/assets/index-BLVOhKhN.core.js?v=20260926-verbs";
-import { awardBond, getPetSnapshot, localDayKey } from "/pet/pet-care-state.js?v=20260927-care1";
+import { awardBond, localDayKey } from "/pet/pet-care-state.js?v=20260927-care2";
 
 const STUDY_SESSION_IDS = new Set(["study-session", "adaptive-focus"]);
 let previousTasks = null;
-let previousLevels = null;
+let previousBosses = null;
 
 function taskSnapshot(state = {}) {
   const out = new Map();
@@ -11,19 +11,22 @@ function taskSnapshot(state = {}) {
     if (!task?.id) continue;
     const target = Math.max(1, Number(task.target) || 1);
     const progress = Math.max(0, Number(task.progress) || 0);
-    out.set(String(task.id), {
-      id: String(task.id),
-      done: progress >= target,
-      progress,
-      target,
-    });
+    out.set(String(task.id), { id: String(task.id), done: progress >= target, progress, target });
   }
   return out;
 }
 
-function stageSnapshot(pet) {
-  const levels = pet?.petLevels && typeof pet.petLevels === "object" ? pet.petLevels : {};
-  return Object.fromEntries(Object.entries(levels).map(([id, level]) => [id, Math.max(1, Math.min(5, Number(level) || 1))]));
+function bossSnapshot(state = {}) {
+  const weeks = state?.weeklyBoss?.weeks && typeof state.weeklyBoss.weeks === "object" ? state.weeklyBoss.weeks : {};
+  const out = new Map();
+  for (const [week, raw] of Object.entries(weeks)) {
+    const row = raw && typeof raw === "object" ? raw : {};
+    out.set(String(week), {
+      passed: row.passed === true,
+      missionId: String(row.missionId || "weekly-boss"),
+    });
+  }
+  return out;
 }
 
 function syncDailyBond(state) {
@@ -34,49 +37,48 @@ function syncDailyBond(state) {
   }
 
   const day = state?.today || localDayKey();
-  for (const [id, row] of next) {
-    const before = previousTasks.get(id);
-    if (!row.done || !before || before.done) continue;
+  const previous = previousTasks;
+  previousTasks = next;
 
+  for (const [id, row] of next) {
+    const before = previous.get(id);
+    if (!row.done || !before || before.done) continue;
     const isStudySession = STUDY_SESSION_IDS.has(id);
     awardBond(isStudySession ? 2 : 1, {
       key: `${isStudySession ? "study" : "quest"}:${day}:${id}`,
       reason: isStudySession ? "Study session complete" : "Today's quest complete",
+      moodDelta: isStudySession ? 2 : 1,
+      bypassDailyCap: true,
     });
   }
-
-  previousTasks = next;
 }
 
-function syncEvolutionBond(pet) {
-  const next = stageSnapshot(pet);
-  if (previousLevels == null) {
-    previousLevels = next;
+function syncWeeklyBossBond(state) {
+  const next = bossSnapshot(state);
+  if (previousBosses == null) {
+    previousBosses = next;
     return;
   }
 
-  // Bond writes dispatch another pet-changed event synchronously. Record the
-  // new levels first so the nested event cannot reward the same evolution twice.
-  const previous = previousLevels;
-  previousLevels = next;
-  for (const [species, level] of Object.entries(next)) {
-    const before = Math.max(1, Number(previous[species]) || 1);
-    if (level <= before) continue;
-    for (let stage = before + 1; stage <= level; stage++) {
-      awardBond(5, {
-        key: `evolve:${species}:${stage}`,
-        reason: "Companion evolution",
-      });
-    }
+  const previous = previousBosses;
+  previousBosses = next;
+  for (const [week, row] of next) {
+    const before = previous.get(week);
+    if (!row.passed || before?.passed) continue;
+    awardBond(4, {
+      key: `weekly-boss:${week}:${row.missionId}`,
+      reason: "Weekly Boss cleared",
+      moodDelta: 5,
+      bypassDailyCap: true,
+    });
   }
 }
 
-function refreshBaseline() {
+function sync() {
   try {
-    syncDailyBond(store.getState?.() || {});
-  } catch {}
-  try {
-    syncEvolutionBond(getPetSnapshot({ persistRecovery: false }));
+    const state = store.getState?.() || {};
+    syncDailyBond(state);
+    syncWeeklyBossBond(state);
   } catch {}
 }
 
@@ -86,24 +88,12 @@ function schedule() {
   queued = true;
   queueMicrotask(() => {
     queued = false;
-    try {
-      syncDailyBond(store.getState?.() || {});
-    } catch {}
+    sync();
   });
 }
 
-refreshBaseline();
+sync();
 store.subscribe?.(schedule);
 
-window.addEventListener("scholar:pet-changed", (event) => {
-  try {
-    syncEvolutionBond(event.detail || getPetSnapshot({ persistRecovery: false }));
-  } catch {}
-});
-
-window.addEventListener("storage", (event) => {
-  if (event.key !== "lux-pet-companion-v1") return;
-  try {
-    previousLevels = stageSnapshot(getPetSnapshot({ persistRecovery: false }));
-  } catch {}
-});
+window.addEventListener("pageshow", schedule);
+window.addEventListener("focus", schedule);
