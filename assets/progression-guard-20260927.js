@@ -193,6 +193,17 @@ function foundationHref(subject, frontier, mode = "standard", task = "foundation
   return `/study/${subject}/practise?${params.toString()}`;
 }
 
+// The app router sometimes serialises query values as JSON strings (daily=%221%22).
+// Read both forms so a cached Daily link cannot strand the learner on an empty Year 9 bank.
+function queryValue(params, key) {
+  const value = params.get(key);
+  if (value == null) return null;
+  if (value.startsWith('"') && value.endsWith('"')) {
+    try { return String(JSON.parse(value)); } catch { return value.slice(1, -1); }
+  }
+  return value;
+}
+
 function taskSubject(task = {}) {
   if (SUBJECTS.includes(task.assignedSubject)) return task.assignedSubject;
   if (SUBJECTS.includes(task.reviewSubject)) return task.reviewSubject;
@@ -209,8 +220,10 @@ function taskTopic(task = {}) {
 
 function taskIsAutomaticYear9(task = {}) {
   const href = String(task.href || "");
-  if (!href.includes("daily=1")) return false;
-  if (/year=9(?:&|$)/.test(href)) return true;
+  let params;
+  try { params = new URL(href, location.origin).searchParams; } catch { return false; }
+  if (queryValue(params, "daily") !== "1") return false;
+  if (queryValue(params, "year") === "9") return true;
   return /-y9-/i.test(String(taskTopic(task) || ""));
 }
 
@@ -370,7 +383,7 @@ function guardDailyClick(event) {
   if (!anchor) return;
   let url;
   try { url = new URL(anchor.href, location.origin); } catch { return; }
-  if (url.origin !== location.origin || url.searchParams.get("daily") !== "1") return;
+  if (url.origin !== location.origin || queryValue(url.searchParams, "daily") !== "1") return;
 
   const subject = SUBJECTS.find((name) => url.pathname.includes(`/study/${name}/`));
   if (!subject) return;
@@ -379,30 +392,30 @@ function guardDailyClick(event) {
   const frontier = firstImmature(state, subject);
   if (!frontier) return;
 
-  const year = Number(url.searchParams.get("year") || state.year || 9);
-  const topic = url.searchParams.get("topic");
+  const year = Number(queryValue(url.searchParams, "year") || state.year || 9);
+  const topic = queryValue(url.searchParams, "topic");
   if (year <= 8 && !isTooDeep(state, subject, topic, frontier)) return;
 
   event.preventDefault();
   event.stopPropagation();
   showNotice(subject, frontier);
-  location.href = foundationHref(subject, frontier, "standard", url.searchParams.get("task") || "foundation-first");
+  location.href = foundationHref(subject, frontier, "standard", queryValue(url.searchParams, "task") || "foundation-first");
 }
 
 function guardCurrentDailyRoute() {
   if (!location.pathname.includes("/practise")) return;
   const params = new URLSearchParams(location.search);
-  if (params.get("daily") !== "1") return;
+  if (queryValue(params, "daily") !== "1") return;
   const subject = SUBJECTS.find((name) => location.pathname.includes(`/study/${name}/`));
   if (!subject) return;
   const state = store.getState?.();
   if (!state) return;
   const frontier = firstImmature(state, subject);
   if (!frontier) return;
-  const year = Number(params.get("year") || state.year || 9);
-  const topic = params.get("topic");
+  const year = Number(queryValue(params, "year") || state.year || 9);
+  const topic = queryValue(params, "topic");
   if (year <= 8 && !isTooDeep(state, subject, topic, frontier)) return;
-  const safe = foundationHref(subject, frontier, "standard", params.get("task") || "foundation-first");
+  const safe = foundationHref(subject, frontier, "standard", queryValue(params, "task") || "foundation-first");
   if (`${location.pathname}${location.search}` !== safe) location.replace(safe);
 }
 
