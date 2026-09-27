@@ -1,0 +1,1419 @@
+{
+  "id": "biology-school-20260927",
+  "subject": "biology",
+  "title": "Year 9 cells and practical biology",
+  "sourceNote": "Original practice adapted from supplied school slides and worksheets. Not a copy of the teacher’s assessment.",
+  "questions": [
+    {
+      "id": "bio-school-20260927-001",
+      "conceptId": "bio-school-20260927-001",
+      "topic": "Cell structure",
+      "prompt": "A cell has a nucleus containing DNA. Is it eukaryotic or prokaryotic?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "eukaryotic",
+          "eukaryote"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "eukaryotic",
+      "markKeywords": [
+        "eukaryotic"
+      ],
+      "hint": "A membrane-bound nucleus identifies a eukaryote."
+    },
+    {
+      "id": "bio-school-20260927-002",
+      "conceptId": "bio-school-20260927-002",
+      "topic": "Cell structure",
+      "prompt": "Name the organelle in an animal cell that contains its DNA.",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "nucleus",
+          "the nucleus"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "nucleus",
+      "markKeywords": [
+        "nucleus"
+      ],
+      "hint": "The nucleus encloses the chromosomes."
+    },
+    {
+      "id": "bio-school-20260927-003",
+      "conceptId": "bio-school-20260927-003",
+      "topic": "Cell structure",
+      "prompt": "Which cell structure is the main site of aerobic respiration?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "mitochondria",
+          "mitochondrion"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "mitochondria",
+      "markKeywords": [
+        "mitochondria"
+      ],
+      "hint": "Energy is released during aerobic respiration there."
+    },
+    {
+      "id": "bio-school-20260927-004",
+      "conceptId": "bio-school-20260927-004",
+      "topic": "Cell structure",
+      "prompt": "Which cell structure makes proteins?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "ribosomes",
+          "ribosome"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "ribosomes",
+      "markKeywords": [
+        "ribosomes"
+      ],
+      "hint": "Ribosomes are also found in bacteria."
+    },
+    {
+      "id": "bio-school-20260927-005",
+      "conceptId": "bio-school-20260927-005",
+      "topic": "Cell structure",
+      "prompt": "A cell has a cellulose wall and a large permanent vacuole. Is it a plant cell, an animal cell or a bacterium?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "plant cell",
+          "a plant cell"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "plant cell",
+      "markKeywords": [
+        "plant cell"
+      ],
+      "hint": "Bacterial walls are not cellulose."
+    },
+    {
+      "id": "bio-school-20260927-006",
+      "conceptId": "bio-school-20260927-006",
+      "topic": "Cell structure",
+      "prompt": "What are the small extra rings of DNA found in some bacteria called?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "plasmids",
+          "plasmid"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "plasmids",
+      "markKeywords": [
+        "plasmids"
+      ],
+      "hint": "These are separate from the main circular chromosome."
+    },
+    {
+      "id": "bio-school-20260927-007",
+      "conceptId": "bio-school-20260927-007",
+      "topic": "Cell structure",
+      "prompt": "Where is the main circular DNA of a bacterium located: nucleus or cytoplasm?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "cytoplasm",
+          "in the cytoplasm"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "cytoplasm",
+      "markKeywords": [
+        "cytoplasm"
+      ],
+      "hint": "Bacteria have no membrane-bound nucleus."
+    },
+    {
+      "id": "bio-school-20260927-008",
+      "conceptId": "bio-school-20260927-008",
+      "topic": "Cell structure",
+      "prompt": "Which structure controls movement of substances in and out of a cell?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "cell membrane",
+          "the cell membrane",
+          "membrane"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "cell membrane",
+      "markKeywords": [
+        "cell membrane"
+      ],
+      "hint": "It forms the boundary of all three cell types."
+    },
+    {
+      "id": "bio-school-20260927-009",
+      "conceptId": "bio-school-20260927-009",
+      "topic": "Cell structure",
+      "prompt": "Why should an onion bulb epidermal cell usually be drawn without chloroplasts?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "It grows underground and normally does not photosynthesise.",
+          "It grows underground and does not photosynthesise.",
+          "No light reaches it underground, so it cannot photosynthesise.",
+          "The bulb is underground and receives little light.",
+          "It is underground and gets no light."
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "It grows underground and normally does not photosynthesise.",
+      "markKeywords": [
+        "It grows underground and normally does not photosynthesise."
+      ],
+      "hint": "Do not put leaf-cell features into every plant cell."
+    },
+    {
+      "id": "bio-school-20260927-010",
+      "conceptId": "bio-school-20260927-010",
+      "topic": "Cell structure",
+      "prompt": "Which structure in a green leaf cell absorbs light for photosynthesis?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "chloroplasts",
+          "chloroplast"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "chloroplasts",
+      "markKeywords": [
+        "chloroplasts"
+      ],
+      "hint": "Chlorophyll is inside chloroplasts."
+    },
+    {
+      "id": "bio-school-20260927-011",
+      "conceptId": "bio-school-20260927-011",
+      "topic": "Cell structure",
+      "prompt": "Why does a plant cell wall help support the cell?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "keywords",
+        "accepted": [
+          "Its rigid cellulose wall resists changes in shape."
+        ],
+        "required": [
+          [
+            "rigid",
+            "strong",
+            "stiff"
+          ],
+          [
+            "cellulose",
+            "cell wall"
+          ]
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "Its rigid cellulose wall resists changes in shape.",
+      "markKeywords": [
+        "Its rigid cellulose wall resists changes in shape."
+      ],
+      "hint": "Connect rigidity to the wall material."
+    },
+    {
+      "id": "bio-school-20260927-012",
+      "conceptId": "bio-school-20260927-012",
+      "topic": "Size and scale",
+      "prompt": "Convert 0.046 mm into micrometres. Include the unit.",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "46 μm",
+          "46 um",
+          "46 µm",
+          "46 micrometres",
+          "46 micrometers"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "46 μm",
+      "markKeywords": [
+        "46 μm"
+      ],
+      "hint": "Multiply millimetres by 1,000."
+    },
+    {
+      "id": "bio-school-20260927-013",
+      "conceptId": "bio-school-20260927-013",
+      "topic": "Size and scale",
+      "prompt": "Convert 750 μm into millimetres. Include the unit.",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.75 mm",
+          "0.750 mm",
+          "0.75 millimetres"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "0.75 mm",
+      "markKeywords": [
+        "0.75 mm"
+      ],
+      "hint": "Divide micrometres by 1,000."
+    },
+    {
+      "id": "bio-school-20260927-014",
+      "conceptId": "bio-school-20260927-014",
+      "topic": "Size and scale",
+      "prompt": "How many nanometres are in 0.004 μm? Include the unit.",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "4 nm",
+          "4 nanometres"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "4 nm",
+      "markKeywords": [
+        "4 nm"
+      ],
+      "hint": "1 μm = 1,000 nm."
+    },
+    {
+      "id": "bio-school-20260927-015",
+      "conceptId": "bio-school-20260927-015",
+      "topic": "Size and scale",
+      "prompt": "A cell image is 24 mm wide at ×800. What is its actual width in μm?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "30 μm",
+          "30 um",
+          "30 µm",
+          "30 micrometres"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "30 μm",
+      "markKeywords": [
+        "30 μm"
+      ],
+      "hint": "24 ÷ 800 = 0.03 mm, then convert to μm."
+    },
+    {
+      "id": "bio-school-20260927-016",
+      "conceptId": "bio-school-20260927-016",
+      "topic": "Size and scale",
+      "prompt": "An actual cell is 40 μm wide. Its drawing is 20 mm wide. What is the image magnification?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "×500",
+          "500",
+          "x500",
+          "500 times"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "×500",
+      "markKeywords": [
+        "×500"
+      ],
+      "hint": "First convert 20 mm to 20,000 μm."
+    },
+    {
+      "id": "bio-school-20260927-017",
+      "conceptId": "bio-school-20260927-016",
+      "topic": "Size and scale",
+      "prompt": "An image is 15 mm long and the actual specimen is 0.05 mm long. Find the magnification.",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "×300",
+          "300",
+          "x300",
+          "300 times"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "×300",
+      "markKeywords": [
+        "×300"
+      ],
+      "hint": "Keep both lengths in mm: 15 ÷ 0.05."
+    },
+    {
+      "id": "bio-school-20260927-018",
+      "conceptId": "bio-school-20260927-015",
+      "topic": "Size and scale",
+      "prompt": "An image is 18 mm long at ×600. What is the actual length in mm?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0.03 mm",
+          "0.030 mm"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "0.03 mm",
+      "markKeywords": [
+        "0.03 mm"
+      ],
+      "hint": "Actual size = image size ÷ magnification."
+    },
+    {
+      "id": "bio-school-20260927-019",
+      "conceptId": "bio-school-20260927-019",
+      "topic": "Size and scale",
+      "prompt": "A structure is 8 μm across. What is that width in nanometres?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "8000 nm",
+          "8,000 nm",
+          "8000 nanometres",
+          "8,000 nanometres"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "8000 nm",
+      "markKeywords": [
+        "8000 nm"
+      ],
+      "hint": "Multiply μm by 1,000."
+    },
+    {
+      "id": "bio-school-20260927-020",
+      "conceptId": "bio-school-20260927-020",
+      "topic": "Size and scale",
+      "prompt": "What is the term for the ability to distinguish two close points as separate?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "resolution",
+          "resolving power"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "resolution",
+      "markKeywords": [
+        "resolution"
+      ],
+      "hint": "A sharper image reveals more detail."
+    },
+    {
+      "id": "bio-school-20260927-021",
+      "conceptId": "bio-school-20260927-021",
+      "topic": "Size and scale",
+      "prompt": "Which microscope type has the higher resolution: a light microscope or an electron microscope?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "electron microscope",
+          "an electron microscope"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "electron microscope",
+      "markKeywords": [
+        "electron microscope"
+      ],
+      "hint": "Electron beams allow finer detail than visible light."
+    },
+    {
+      "id": "bio-school-20260927-022",
+      "conceptId": "bio-school-20260927-022",
+      "topic": "Size and scale",
+      "prompt": "Why does enlarging a blurred microscope image not reveal new fine detail?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "keywords",
+        "accepted": [
+          "Magnification increases image size, but does not improve its resolution."
+        ],
+        "required": [
+          [
+            "magnification",
+            "enlarging",
+            "bigger"
+          ],
+          [
+            "resolution",
+            "detail",
+            "resolve"
+          ]
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "Magnification increases image size, but does not improve its resolution.",
+      "markKeywords": [
+        "Magnification increases image size, but does not improve its resolution."
+      ],
+      "hint": "Distinguish enlargement from separation of two close points."
+    },
+    {
+      "id": "bio-school-20260927-023",
+      "conceptId": "bio-school-20260927-023",
+      "topic": "Microscopy practical",
+      "prompt": "A ×10 eyepiece and ×40 objective are used. State the total microscope magnification.",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "×400",
+          "400",
+          "x400",
+          "400 times"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "×400",
+      "markKeywords": [
+        "×400"
+      ],
+      "hint": "Multiply eyepiece by objective."
+    },
+    {
+      "id": "bio-school-20260927-024",
+      "conceptId": "bio-school-20260927-024",
+      "topic": "Microscopy practical",
+      "prompt": "Which objective should be selected first when locating a specimen: lowest or highest magnification?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "lowest magnification",
+          "lowest",
+          "low power",
+          "low-power objective"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "lowest magnification",
+      "markKeywords": [
+        "lowest magnification"
+      ],
+      "hint": "A wider field makes the specimen easier to locate."
+    },
+    {
+      "id": "bio-school-20260927-025",
+      "conceptId": "bio-school-20260927-025",
+      "topic": "Microscopy practical",
+      "prompt": "Which focusing control should sharpen a specimen after it has been brought into view?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "fine focus",
+          "fine adjustment",
+          "fine focusing knob",
+          "fine focussing knob"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "fine focus",
+      "markKeywords": [
+        "fine focus"
+      ],
+      "hint": "Use fine focus for final clarity."
+    },
+    {
+      "id": "bio-school-20260927-026",
+      "conceptId": "bio-school-20260927-026",
+      "topic": "Microscopy practical",
+      "prompt": "Why is a stain used when viewing pale cells? Give one purpose.",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "to improve contrast",
+          "improve contrast",
+          "make cell structures easier to see",
+          "to make structures more visible",
+          "to make the nucleus easier to see"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "to improve contrast",
+      "markKeywords": [
+        "to improve contrast"
+      ],
+      "hint": "Staining makes pale structures more visible."
+    },
+    {
+      "id": "bio-school-20260927-027",
+      "conceptId": "bio-school-20260927-027",
+      "topic": "Microscopy practical",
+      "prompt": "What should a coverslip be lowered at an angle to reduce?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "air bubbles",
+          "trapped air bubbles",
+          "bubbles"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "air bubbles",
+      "markKeywords": [
+        "air bubbles"
+      ],
+      "hint": "Air bubbles can obscure the specimen."
+    },
+    {
+      "id": "bio-school-20260927-028",
+      "conceptId": "bio-school-20260927-028",
+      "topic": "Microscopy practical",
+      "prompt": "Five onion cells span a field of view with a diameter of 0.50 mm. Estimate one cell width in μm.",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "100 μm",
+          "100 um",
+          "100 µm",
+          "100 micrometres"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "100 μm",
+      "markKeywords": [
+        "100 μm"
+      ],
+      "hint": "0.50 mm = 500 μm; divide by five.",
+      "diagram": "biology-field-20260927.svg"
+    },
+    {
+      "id": "bio-school-20260927-029",
+      "conceptId": "bio-school-20260927-028",
+      "topic": "Microscopy practical",
+      "prompt": "A 1.2 mm field of view spans six similar cells. Estimate one cell width in μm.",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "200 μm",
+          "200 um",
+          "200 µm",
+          "200 micrometres"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "200 μm",
+      "markKeywords": [
+        "200 μm"
+      ],
+      "hint": "1.2 mm = 1,200 μm; divide by six."
+    },
+    {
+      "id": "bio-school-20260927-030",
+      "conceptId": "bio-school-20260927-030",
+      "topic": "Microscopy practical",
+      "prompt": "A drawn cell measures 32 mm; actual cell width is 80 μm. What is the drawing magnification?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "×400",
+          "400",
+          "x400",
+          "400 times"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "×400",
+      "markKeywords": [
+        "×400"
+      ],
+      "hint": "32 mm = 32,000 μm; divide by 80."
+    },
+    {
+      "id": "bio-school-20260927-031",
+      "conceptId": "bio-school-20260927-031",
+      "topic": "Microscopy practical",
+      "prompt": "Should a biological drawing use shading or clear single lines?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "clear single lines",
+          "single clear lines",
+          "clean single lines",
+          "clear lines",
+          "single lines"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "clear single lines",
+      "markKeywords": [
+        "clear single lines"
+      ],
+      "hint": "The school mark scheme rejects shading and overlapping lines."
+    },
+    {
+      "id": "bio-school-20260927-032",
+      "conceptId": "bio-school-20260927-032",
+      "topic": "Microscopy practical",
+      "prompt": "Why must a biological drawing include a scale or magnification?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "keywords",
+        "accepted": [
+          "It lets the reader estimate the actual size of the cell."
+        ],
+        "required": [
+          [
+            "actual size",
+            "real size",
+            "how big",
+            "estimate size",
+            "size of the cell"
+          ]
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "It lets the reader estimate the actual size of the cell.",
+      "markKeywords": [
+        "It lets the reader estimate the actual size of the cell."
+      ],
+      "hint": "The drawn size alone does not tell the real size."
+    },
+    {
+      "id": "bio-school-20260927-033",
+      "conceptId": "bio-school-20260927-033",
+      "topic": "Microscopy practical",
+      "prompt": "What measurement should be divided by the number of cells across a microscope view to estimate cell width?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "field of view diameter",
+          "field diameter",
+          "diameter of the field of view"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "field of view diameter",
+      "markKeywords": [
+        "field of view diameter"
+      ],
+      "hint": "Use the diameter at the same magnification as the cells."
+    },
+    {
+      "id": "bio-school-20260927-034",
+      "conceptId": "bio-school-20260927-034",
+      "topic": "Specialised cells",
+      "prompt": "What is the process by which an unspecialised cell becomes adapted for a function?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "differentiation",
+          "cell differentiation"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "differentiation",
+      "markKeywords": [
+        "differentiation"
+      ],
+      "hint": "Cells develop a specialised structure."
+    },
+    {
+      "id": "bio-school-20260927-035",
+      "conceptId": "bio-school-20260927-035",
+      "topic": "Specialised cells",
+      "prompt": "Which molecule in red blood cells binds oxygen?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "haemoglobin",
+          "hemoglobin"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "haemoglobin",
+      "markKeywords": [
+        "haemoglobin"
+      ],
+      "hint": "It increases the blood cell’s oxygen capacity."
+    },
+    {
+      "id": "bio-school-20260927-036",
+      "conceptId": "bio-school-20260927-036",
+      "topic": "Specialised cells",
+      "prompt": "How does the lack of a nucleus help a mature red blood cell transport oxygen?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "more space for haemoglobin",
+          "space for haemoglobin",
+          "more room for haemoglobin",
+          "allows more haemoglobin",
+          "more space for hemoglobin"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "more space for haemoglobin",
+      "markKeywords": [
+        "more space for haemoglobin"
+      ],
+      "hint": "Removing the nucleus frees internal space."
+    },
+    {
+      "id": "bio-school-20260927-037",
+      "conceptId": "bio-school-20260927-037",
+      "topic": "Specialised cells",
+      "prompt": "What is the shape of a mature red blood cell called?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "biconcave disc",
+          "biconcave disk",
+          "biconcave"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "biconcave disc",
+      "markKeywords": [
+        "biconcave disc"
+      ],
+      "hint": "Its indented surfaces help diffusion."
+    },
+    {
+      "id": "bio-school-20260927-038",
+      "conceptId": "bio-school-20260927-038",
+      "topic": "Specialised cells",
+      "prompt": "Which long part of a neurone carries impulses away from the cell body?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "axon",
+          "the axon"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "axon",
+      "markKeywords": [
+        "axon"
+      ],
+      "hint": "Dendrites are shorter branches that receive signals."
+    },
+    {
+      "id": "bio-school-20260927-039",
+      "conceptId": "bio-school-20260927-039",
+      "topic": "Specialised cells",
+      "prompt": "Which part of a sperm cell contains enzymes that help it enter an egg?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "acrosome",
+          "the acrosome"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "acrosome",
+      "markKeywords": [
+        "acrosome"
+      ],
+      "hint": "It sits in the head of the sperm cell."
+    },
+    {
+      "id": "bio-school-20260927-040",
+      "conceptId": "bio-school-20260927-040",
+      "topic": "Specialised cells",
+      "prompt": "What feature of a root hair cell increases surface area for absorption?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "long hair-like extension",
+          "root hair",
+          "long projection",
+          "hair-like projection",
+          "long extension"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "long hair-like extension",
+      "markKeywords": [
+        "long hair-like extension"
+      ],
+      "hint": "More surface is in contact with soil water."
+    },
+    {
+      "id": "bio-school-20260927-041",
+      "conceptId": "bio-school-20260927-041",
+      "topic": "Specialised cells",
+      "prompt": "Which transport tissue is formed from dead hollow cells and carries water?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "xylem",
+          "xylem tissue"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "xylem",
+      "markKeywords": [
+        "xylem"
+      ],
+      "hint": "Lignin strengthens the tube walls."
+    },
+    {
+      "id": "bio-school-20260927-042",
+      "conceptId": "bio-school-20260927-042",
+      "topic": "Specialised cells",
+      "prompt": "Which transport tissue carries dissolved sugars from leaves?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "phloem",
+          "phloem tissue"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "phloem",
+      "markKeywords": [
+        "phloem"
+      ],
+      "hint": "Companion cells help load sugars."
+    },
+    {
+      "id": "bio-school-20260927-043",
+      "conceptId": "bio-school-20260927-043",
+      "topic": "Specialised cells",
+      "prompt": "Why do phloem companion cells have many mitochondria?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "keywords",
+        "accepted": [
+          "They release energy for active transport of sugars."
+        ],
+        "required": [
+          [
+            "energy",
+            "atp",
+            "respiration"
+          ],
+          [
+            "active transport",
+            "loading",
+            "transport of sugars"
+          ]
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "They release energy for active transport of sugars.",
+      "markKeywords": [
+        "They release energy for active transport of sugars."
+      ],
+      "hint": "Link respiration to sugar transport."
+    },
+    {
+      "id": "bio-school-20260927-044",
+      "conceptId": "bio-school-20260927-044",
+      "topic": "Specialised cells",
+      "prompt": "Which cells in a leaf have many chloroplasts for photosynthesis?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "palisade cells",
+          "palisade mesophyll cells",
+          "palisade mesophyll"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "palisade cells",
+      "markKeywords": [
+        "palisade cells"
+      ],
+      "hint": "They are densely packed near the top of a leaf."
+    },
+    {
+      "id": "bio-school-20260927-045",
+      "conceptId": "bio-school-20260927-045",
+      "topic": "Specialised cells",
+      "prompt": "Where are plant meristem cells typically found?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "root and shoot tips",
+          "tips of roots and shoots",
+          "root tips and shoot tips"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "root and shoot tips",
+      "markKeywords": [
+        "root and shoot tips"
+      ],
+      "hint": "These growth regions retain dividing cells."
+    },
+    {
+      "id": "bio-school-20260927-046",
+      "conceptId": "bio-school-20260927-046",
+      "topic": "Bacteria and division",
+      "prompt": "What type of cell division produces two daughter bacterial cells?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "binary fission",
+          "fission"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "binary fission",
+      "markKeywords": [
+        "binary fission"
+      ],
+      "hint": "This is not mitosis in a eukaryotic nucleus."
+    },
+    {
+      "id": "bio-school-20260927-047",
+      "conceptId": "bio-school-20260927-047",
+      "topic": "Bacteria and division",
+      "prompt": "One bacterial cell divides three times under ideal conditions. How many cells result?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "8",
+          "8 cells"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "8",
+      "markKeywords": [
+        "8"
+      ],
+      "hint": "1 × 2³ = 8."
+    },
+    {
+      "id": "bio-school-20260927-048",
+      "conceptId": "bio-school-20260927-048",
+      "topic": "Bacteria and division",
+      "prompt": "One bacterium divides every 30 minutes. How long does it take to make 128 cells from one, assuming every cell divides each round?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "3.5 hours",
+          "3.5 h",
+          "210 minutes",
+          "210 min",
+          "3 hours 30 minutes"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "3.5 hours",
+      "markKeywords": [
+        "3.5 hours"
+      ],
+      "hint": "128 = 2⁷, so seven 30-minute rounds."
+    },
+    {
+      "id": "bio-school-20260927-049",
+      "conceptId": "bio-school-20260927-049",
+      "topic": "Bacteria and division",
+      "prompt": "One cell yields 64 cells after six equal division rounds in 270 minutes. What is the mean division time?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "45 minutes",
+          "45 min",
+          "0.75 hours"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "45 minutes",
+      "markKeywords": [
+        "45 minutes"
+      ],
+      "hint": "270 ÷ 6 rounds."
+    },
+    {
+      "id": "bio-school-20260927-050",
+      "conceptId": "bio-school-20260927-047",
+      "topic": "Bacteria and division",
+      "prompt": "Starting with 4 bacteria, how many result after three ideal doubling rounds?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "32",
+          "32 bacteria",
+          "32 cells"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "32",
+      "markKeywords": [
+        "32"
+      ],
+      "hint": "4 × 2³ = 32."
+    },
+    {
+      "id": "bio-school-20260927-051",
+      "conceptId": "bio-school-20260927-051",
+      "topic": "Bacteria and division",
+      "prompt": "What is copied before a bacterium separates into two daughter cells?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "circular DNA",
+          "the main circular DNA",
+          "its DNA",
+          "main DNA"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "circular DNA",
+      "markKeywords": [
+        "circular DNA"
+      ],
+      "hint": "The chromosome is replicated before fission."
+    },
+    {
+      "id": "bio-school-20260927-052",
+      "conceptId": "bio-school-20260927-052",
+      "topic": "Bacteria and division",
+      "prompt": "Do all bacterial cells contain plasmids? Answer yes or no.",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "no",
+          "not all",
+          "no, only some"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "no",
+      "markKeywords": [
+        "no"
+      ],
+      "hint": "Some bacteria carry these extra DNA rings."
+    },
+    {
+      "id": "bio-school-20260927-053",
+      "conceptId": "bio-school-20260927-053",
+      "topic": "Bacteria and division",
+      "prompt": "Name one factor that can stop an ideal bacterial doubling pattern continuing indefinitely.",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "limited nutrients",
+          "lack of nutrients",
+          "limited space",
+          "lack of space",
+          "waste build-up",
+          "insufficient nutrients"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "limited nutrients",
+      "markKeywords": [
+        "limited nutrients"
+      ],
+      "hint": "Real populations face limiting conditions."
+    },
+    {
+      "id": "bio-school-20260927-054",
+      "conceptId": "bio-school-20260927-007",
+      "topic": "Bacteria and division",
+      "prompt": "In which cell compartment is bacterial DNA found?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "cytoplasm",
+          "the cytoplasm"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "cytoplasm",
+      "markKeywords": [
+        "cytoplasm"
+      ],
+      "hint": "There is no membrane-bound nucleus."
+    },
+    {
+      "id": "bio-school-20260927-055",
+      "conceptId": "bio-school-20260927-055",
+      "topic": "Bacteria and division",
+      "prompt": "One cell becomes 256 by ideal binary fission. How many rounds of division occurred?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "8",
+          "8 rounds",
+          "eight"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "8",
+      "markKeywords": [
+        "8"
+      ],
+      "hint": "256 = 2⁸."
+    },
+    {
+      "id": "bio-school-20260927-056",
+      "conceptId": "bio-school-20260927-056",
+      "topic": "Aseptic reasoning",
+      "prompt": "A sterile-water control plate develops colonies. What is the most likely problem with the investigation?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "contamination",
+          "the control was contaminated",
+          "contaminated control"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "contamination",
+      "markKeywords": [
+        "contamination"
+      ],
+      "hint": "The negative control should have no growth."
+    },
+    {
+      "id": "bio-school-20260927-057",
+      "conceptId": "bio-school-20260927-057",
+      "topic": "Aseptic reasoning",
+      "prompt": "Why does the school practical keep a culture dish open for as little time as possible?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "to reduce contamination",
+          "reduce contamination",
+          "to prevent airborne microbes entering",
+          "to reduce entry of airborne microorganisms"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "to reduce contamination",
+      "markKeywords": [
+        "to reduce contamination"
+      ],
+      "hint": "Less exposure reduces unwanted microbes."
+    },
+    {
+      "id": "bio-school-20260927-058",
+      "conceptId": "bio-school-20260927-058",
+      "topic": "Aseptic reasoning",
+      "prompt": "Which part of a culture dish should carry its identifying label: lid or base?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "base",
+          "the base",
+          "agar side"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "base",
+      "markKeywords": [
+        "base"
+      ],
+      "hint": "The base stays with the sample if lids are moved."
+    },
+    {
+      "id": "bio-school-20260927-059",
+      "conceptId": "bio-school-20260927-059",
+      "topic": "Aseptic reasoning",
+      "prompt": "Why does the school method invert the culture dish during incubation?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "to prevent condensation dripping onto the agar",
+          "prevent condensation dripping on the agar",
+          "to stop water droplets falling on the culture",
+          "to prevent condensate dripping on the culture"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "to prevent condensation dripping onto the agar",
+      "markKeywords": [
+        "to prevent condensation dripping onto the agar"
+      ],
+      "hint": "Water droplets could spread colonies."
+    },
+    {
+      "id": "bio-school-20260927-060",
+      "conceptId": "bio-school-20260927-060",
+      "topic": "Aseptic reasoning",
+      "prompt": "What does an autoclave use to sterilise laboratory equipment?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "steam under pressure",
+          "high-temperature steam under pressure",
+          "pressurised steam"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "steam under pressure",
+      "markKeywords": [
+        "steam under pressure"
+      ],
+      "hint": "High heat and pressure kill microorganisms."
+    },
+    {
+      "id": "bio-school-20260927-061",
+      "conceptId": "bio-school-20260927-056",
+      "topic": "Aseptic reasoning",
+      "prompt": "What is the purpose of a sterile-water negative control?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "to check for contamination",
+          "check for contamination",
+          "to show no growth is expected without bacteria",
+          "to check that the method is sterile"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "to check for contamination",
+      "markKeywords": [
+        "to check for contamination"
+      ],
+      "hint": "Unexpected growth indicates a problem."
+    },
+    {
+      "id": "bio-school-20260927-062",
+      "conceptId": "bio-school-20260927-062",
+      "topic": "Aseptic reasoning",
+      "prompt": "Is “a flame” a hazard, a risk or a control measure in a lab risk assessment?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "hazard",
+          "a hazard"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "hazard",
+      "markKeywords": [
+        "hazard"
+      ],
+      "hint": "A burn is a possible harm caused by the hazard."
+    },
+    {
+      "id": "bio-school-20260927-063",
+      "conceptId": "bio-school-20260927-063",
+      "topic": "Aseptic reasoning",
+      "prompt": "Is “burning your skin” a hazard or a risk from a Bunsen flame?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "risk",
+          "a risk"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "risk",
+      "markKeywords": [
+        "risk"
+      ],
+      "hint": "The flame is the source of harm."
+    },
+    {
+      "id": "bio-school-20260927-064",
+      "conceptId": "bio-school-20260927-064",
+      "topic": "Aseptic reasoning",
+      "prompt": "Is disinfecting a work surface a hazard or a control measure?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "control measure",
+          "a control measure",
+          "precaution"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "control measure",
+      "markKeywords": [
+        "control measure"
+      ],
+      "hint": "It reduces contamination and exposure."
+    },
+    {
+      "id": "bio-school-20260927-065",
+      "conceptId": "bio-school-20260927-065",
+      "topic": "Aseptic reasoning",
+      "prompt": "What does nutrient agar provide that allows microorganisms to grow?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "nutrients",
+          "food",
+          "nutrients and water",
+          "a nutrient medium"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "nutrients",
+      "markKeywords": [
+        "nutrients"
+      ],
+      "hint": "Agar is the medium; nutrients support growth."
+    }
+  ]
+}

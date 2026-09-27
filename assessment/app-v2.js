@@ -3,6 +3,7 @@ const PAPERS=[
   {id:'chemistry',name:'Chemistry · school test and RP6',subtitle:'Periodic Table, separation and chromatography',bank:'/assessment/chemistry-school-1.json',count:30,minutes:45,groups:{'Periodic table':6,'Separation':8,'RP6 method':5,'RP6 errors':1,'Chromatogram':2,'Rf':5,'Solvents':1,'RP6':2}},
   {id:'latin-creusa',name:'Latin · The Loss of Creusa',subtitle:'English-text comprehension · Aeneid Book II · school reading',bank:'/assessment/latin-creusa-1.json',count:24,minutes:40,groups:{'Escape from Troy':6,'The search':6,'Creusa’s ghost':6,'Prophecy and themes':6}},
   {id:'latin-conjugations',name:'Latin · Present and imperfect verbs',subtitle:'School assessment 28 Sep · conjugations, endings and two-way translation',bank:'/assessment/latin-conjugations-20260928.json',count:25,minutes:35,groups:{'Conjugation and stems':4,'English to Latin':12,'Latin to English':6,'Spot and repair':3}},
+  {id:'biology-school',name:'Biology · Cells and practicals',subtitle:'Year 9 school lessons · structures, size, microscopy, specialised cells, bacteria and aseptic reasoning',bank:'/assessment/biology-school-20260927.json',count:30,minutes:45,groups:{'Cell structure':5,'Size and scale':5,'Microscopy practical':5,'Specialised cells':5,'Bacteria and division':5,'Aseptic reasoning':5}},
   ...['latin','biology','physics','english'].map(id=>({id,name:id[0].toUpperCase()+id.slice(1)+' · Year 9 assessment',subtitle:'Mixed topics from the Year 9 question bank',bank:`/assessment/banks/${id}.json`,count:30,minutes:35}))
 ];
 
@@ -40,6 +41,7 @@ const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
   'inks.svg':'Figure 2: chromatogram with ink samples A to D',
   'rf.svg':'Figure 3: chromatogram and millimetre ruler measured from the start line',
+  'biology-field-20260927.svg':'Five onion epidermal cells span a microscope field of view measuring 0.50 millimetres across',
   'solvents.svg':'Figure 4: two chromatograms made using water and ethanol',
   'teacher-style.svg':'Chromatogram with reference colours A to E and an unknown black sample'
 };
@@ -65,13 +67,14 @@ const EXAM_GROUPS=[
   {subject:'Chemistry',exam:'2026-09-29',ids:['chemistry']},
   {subject:'English',exam:'2026-09-30',ids:['english']},
   {subject:'French',exam:'2026-10-08',ids:['french']},
-  {subject:'Biology',exam:'',ids:['biology']},
+  {subject:'Biology',exam:'',ids:['biology-school','biology']},
   {subject:'Physics',exam:'',ids:['physics']}
 ];
 function groupBlurb(group,today){
   const when=group.exam?examWhen(group.exam):'';
   if(group.subject==='Latin')return today>group.exam?`Exam ${when} has passed. Present and imperfect verb practice remains available here. The Loss of Creusa is now in Practise.`:`Exam ${when}. Practise present and imperfect verb forms here today. The Loss of Creusa joins Practise the next day.`;
   if(group.subject==='English')return `Exam ${when}. These Year 9 questions are already in Practise.`;
+  if(group.subject==='Biology')return 'School lessons so far: cells and practical biology. This 45-minute paper draws 30 short questions from 65.';
   if(group.exam)return today>group.exam?`Exam ${when} has passed. These questions are now in Practise.`:`Exam ${when}. These questions join Practise the next day.`;
   return 'Mixed questions from the Year 9 bank. Already in Practise.';
 }
