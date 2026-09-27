@@ -1,10 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 430" role="img" aria-labelledby="title desc">
-<title id="title">Figure 2: chromatogram of four inks</title><desc id="desc">Four labelled sample lanes A to D each show coloured spots between a start line and solvent front.</desc>
-<rect width="640" height="430" rx="18" fill="#fcfbf6"/>
-<text x="28" y="38" fill="#17384a" font-family="Arial,sans-serif" font-weight="700" font-size="21">Figure 2 · Four ink samples</text>
-<rect x="102" y="74" width="378" height="286" fill="#fff" stroke="#49636e" stroke-width="3"/>
-<path d="M102 111H480" stroke="#17384a" stroke-width="2.5" stroke-dasharray="8 5"/><path d="M102 325H480" stroke="#17384a" stroke-width="3"/>
-<g opacity=".94"><circle cx="146" cy="217" r="14" fill="#d45559"/><circle cx="241" cy="152" r="14" fill="#8359a4"/><circle cx="241" cy="218" r="14" fill="#3b7fbd"/><circle cx="241" cy="284" r="14" fill="#70a45d"/><circle cx="335" cy="188" r="14" fill="#de8b43"/><circle cx="430" cy="137" r="14" fill="#e8c749" stroke="#b79b30" stroke-width="2"/><circle cx="430" cy="218" r="14" fill="#8c603e"/></g>
-<g fill="#17384a" font-family="Arial,sans-serif" font-size="20" font-weight="700"><text x="139" y="390">A</text><text x="234" y="390">B</text><text x="328" y="390">C</text><text x="423" y="390">D</text></g>
-<path d="M480 111h22 M480 325h22" stroke="#536a71" stroke-width="2"/><g fill="#536a71" font-family="Arial,sans-serif" font-size="16"><text x="507" y="117">Solvent</text><text x="507" y="138">front</text><text x="507" y="331">Start line</text></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-labelledby="title desc">
+  <title id="title">Figure 2: chromatogram of four inks</title>
+  <desc id="desc">Four labelled sample lanes A to D show coloured spots between a start line and solvent front. B has three components and D has two.</desc>
+  <defs>
+    <filter id="paperShadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#17384a" flood-opacity="0.10"/></filter>
+    <filter id="spotShadow" x="-35%" y="-35%" width="170%" height="170%"><feDropShadow dx="0" dy="2" stdDeviation="2.2" flood-color="#17384a" flood-opacity="0.18"/></filter>
+  </defs>
+  <rect width="900" height="675" rx="24" fill="#fffdf8"/>
+  <text x="48" y="62" fill="#112f46" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="34">Figure 2 · Four ink samples</text>
+  <text x="48" y="92" fill="#60747f" font-family="Arial,Helvetica,sans-serif" font-size="17">Compare the number and height of the separated spots.</text>
+
+  <g filter="url(#paperShadow)">
+    <rect x="118" y="122" width="582" height="420" rx="3" fill="#ffffff" stroke="#3f5f6e" stroke-width="3.5"/>
+  </g>
+  <line x1="118" y1="170" x2="700" y2="170" stroke="#17384a" stroke-width="3" stroke-dasharray="11 8"/>
+  <line x1="118" y1="500" x2="700" y2="500" stroke="#17384a" stroke-width="3.5"/>
+
+  <g filter="url(#spotShadow)">
+    <circle cx="190" cy="350" r="21" fill="#e35562" stroke="#c84450" stroke-width="2.5"/>
+    <circle cx="330" cy="230" r="21" fill="#895fb2" stroke="#6d469a" stroke-width="2.5"/>
+    <circle cx="330" cy="350" r="21" fill="#438bd0" stroke="#286fb7" stroke-width="2.5"/>
+    <circle cx="330" cy="430" r="21" fill="#79ad64" stroke="#5c9148" stroke-width="2.5"/>
+    <circle cx="470" cy="290" r="21" fill="#ef9147" stroke="#d87329" stroke-width="2.5"/>
+    <circle cx="610" cy="205" r="21" fill="#f2c84a" stroke="#c49b24" stroke-width="2.5"/>
+    <circle cx="610" cy="350" r="21" fill="#9a6a47" stroke="#7b5032" stroke-width="2.5"/>
+  </g>
+
+  <g fill="#15364a" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" text-anchor="middle">
+    <text x="190" y="592">A</text><text x="330" y="592">B</text><text x="470" y="592">C</text><text x="610" y="592">D</text>
+  </g>
+
+  <g stroke="#536f7a" stroke-width="2.2" fill="none">
+    <line x1="700" y1="170" x2="735" y2="170"/><line x1="700" y1="500" x2="735" y2="500"/>
+  </g>
+  <g fill="#365363" font-family="Arial,Helvetica,sans-serif" font-size="19">
+    <text x="748" y="166">Solvent</text><text x="748" y="190">front</text><text x="748" y="506">Start line</text>
+  </g>
 </svg>
