@@ -1,4 +1,5 @@
 (()=>{
+  if(!location.pathname.startsWith('/pet')) import('/pet/pet-care-global.js?v=20260927-care2').catch(()=>{});
   const icon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide size-4" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3.5h6M9 9h6M9 13h6M9 17h3"/><path d="m14 17 1.5 1.5L18 16"/></svg>';
   const assessmentUrl='/assessment/?v=20260926-v3';
   function add(){
