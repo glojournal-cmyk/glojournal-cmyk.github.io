@@ -31,6 +31,12 @@ function patchHome() {
       p.textContent = text.replace(/waiting in Latin\.$/, "due today.");
     }
   }
+
+  for (const span of document.querySelectorAll("span.font-medium")) {
+    const text=(span.textContent||"").trim();
+    if (text === "Year 8 French vocab") span.textContent="French Daily 30";
+    if (text === "Year 8 Latin vocab") span.textContent="Latin Daily 30";
+  }
 }
 
 let queued = false;
