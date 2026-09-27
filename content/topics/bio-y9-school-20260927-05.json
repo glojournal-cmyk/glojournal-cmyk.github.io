@@ -1,0 +1,552 @@
+{
+  "subject": "biology",
+  "year": 9,
+  "topicId": "bio-y9-school-20260927-05",
+  "title": "Bacteria and division",
+  "status": "enabled",
+  "questions": [
+    {
+      "id": "bio-school-20260927-046",
+      "conceptId": "bio-school-20260927-046",
+      "topic": "Bacteria and division",
+      "prompt": "What type of cell division produces two daughter bacterial cells?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "binary fission",
+          "fission"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "binary fission",
+      "markKeywords": [
+        "binary fission"
+      ],
+      "hint": "This is not mitosis in a eukaryotic nucleus.",
+      "subject": "biology",
+      "year": 9,
+      "topicId": "bio-y9-school-20260927-05",
+      "status": "enabled",
+      "difficulty": 2,
+      "contentTier": "school_confirmed_current",
+      "task": {
+        "label": "WRITE YOUR ANSWER",
+        "instruction": "What type of cell division produces two daughter bacterial cells?",
+        "answerFormat": "Type a short answer."
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "This is not mitosis in a eukaryotic nucleus.",
+        "steps": [
+          "This is not mitosis in a eukaryotic nucleus.",
+          "binary fission"
+        ]
+      },
+      "review": {
+        "onWrong": {
+          "nextDueDays": 2,
+          "thenDueDays": 7
+        },
+        "immediateRepeat": "Do not repeat this concept in the same session."
+      }
+    },
+    {
+      "id": "bio-school-20260927-047",
+      "conceptId": "bio-school-20260927-047",
+      "topic": "Bacteria and division",
+      "prompt": "One bacterial cell divides three times under ideal conditions. How many cells result?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "8",
+          "8 cells"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "8",
+      "markKeywords": [
+        "8"
+      ],
+      "hint": "1 × 2³ = 8.",
+      "subject": "biology",
+      "year": 9,
+      "topicId": "bio-y9-school-20260927-05",
+      "status": "enabled",
+      "difficulty": 2,
+      "contentTier": "school_confirmed_current",
+      "task": {
+        "label": "WRITE YOUR ANSWER",
+        "instruction": "One bacterial cell divides three times under ideal conditions. How many cells result?",
+        "answerFormat": "Type a short answer."
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "1 × 2³ = 8.",
+        "steps": [
+          "1 × 2³ = 8.",
+          "8"
+        ]
+      },
+      "review": {
+        "onWrong": {
+          "nextDueDays": 2,
+          "thenDueDays": 7
+        },
+        "immediateRepeat": "Do not repeat this concept in the same session."
+      }
+    },
+    {
+      "id": "bio-school-20260927-048",
+      "conceptId": "bio-school-20260927-048",
+      "topic": "Bacteria and division",
+      "prompt": "One bacterium divides every 30 minutes. How long does it take to make 128 cells from one, assuming every cell divides each round?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "3.5 hours",
+          "3.5 h",
+          "210 minutes",
+          "210 min",
+          "3 hours 30 minutes"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "3.5 hours",
+      "markKeywords": [
+        "3.5 hours"
+      ],
+      "hint": "128 = 2⁷, so seven 30-minute rounds.",
+      "subject": "biology",
+      "year": 9,
+      "topicId": "bio-y9-school-20260927-05",
+      "status": "enabled",
+      "difficulty": 2,
+      "contentTier": "school_confirmed_current",
+      "task": {
+        "label": "WRITE YOUR ANSWER",
+        "instruction": "One bacterium divides every 30 minutes. How long does it take to make 128 cells from one, assuming every cell divides each round?",
+        "answerFormat": "Type a short answer."
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "128 = 2⁷, so seven 30-minute rounds.",
+        "steps": [
+          "128 = 2⁷, so seven 30-minute rounds.",
+          "3.5 hours"
+        ]
+      },
+      "review": {
+        "onWrong": {
+          "nextDueDays": 2,
+          "thenDueDays": 7
+        },
+        "immediateRepeat": "Do not repeat this concept in the same session."
+      }
+    },
+    {
+      "id": "bio-school-20260927-049",
+      "conceptId": "bio-school-20260927-049",
+      "topic": "Bacteria and division",
+      "prompt": "One cell yields 64 cells after six equal division rounds in 270 minutes. What is the mean division time?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "45 minutes",
+          "45 min",
+          "0.75 hours"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "45 minutes",
+      "markKeywords": [
+        "45 minutes"
+      ],
+      "hint": "270 ÷ 6 rounds.",
+      "subject": "biology",
+      "year": 9,
+      "topicId": "bio-y9-school-20260927-05",
+      "status": "enabled",
+      "difficulty": 2,
+      "contentTier": "school_confirmed_current",
+      "task": {
+        "label": "WRITE YOUR ANSWER",
+        "instruction": "One cell yields 64 cells after six equal division rounds in 270 minutes. What is the mean division time?",
+        "answerFormat": "Type a short answer."
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "270 ÷ 6 rounds.",
+        "steps": [
+          "270 ÷ 6 rounds.",
+          "45 minutes"
+        ]
+      },
+      "review": {
+        "onWrong": {
+          "nextDueDays": 2,
+          "thenDueDays": 7
+        },
+        "immediateRepeat": "Do not repeat this concept in the same session."
+      }
+    },
+    {
+      "id": "bio-school-20260927-050",
+      "conceptId": "bio-school-20260927-047",
+      "topic": "Bacteria and division",
+      "prompt": "Starting with 4 bacteria, how many result after three ideal doubling rounds?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "32",
+          "32 bacteria",
+          "32 cells"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "32",
+      "markKeywords": [
+        "32"
+      ],
+      "hint": "4 × 2³ = 32.",
+      "subject": "biology",
+      "year": 9,
+      "topicId": "bio-y9-school-20260927-05",
+      "status": "enabled",
+      "difficulty": 2,
+      "contentTier": "school_confirmed_current",
+      "task": {
+        "label": "WRITE YOUR ANSWER",
+        "instruction": "Starting with 4 bacteria, how many result after three ideal doubling rounds?",
+        "answerFormat": "Type a short answer."
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "4 × 2³ = 32.",
+        "steps": [
+          "4 × 2³ = 32.",
+          "32"
+        ]
+      },
+      "review": {
+        "onWrong": {
+          "nextDueDays": 2,
+          "thenDueDays": 7
+        },
+        "immediateRepeat": "Do not repeat this concept in the same session."
+      }
+    },
+    {
+      "id": "bio-school-20260927-051",
+      "conceptId": "bio-school-20260927-051",
+      "topic": "Bacteria and division",
+      "prompt": "What is copied before a bacterium separates into two daughter cells?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "circular DNA",
+          "the main circular DNA",
+          "its DNA",
+          "main DNA"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "circular DNA",
+      "markKeywords": [
+        "circular DNA"
+      ],
+      "hint": "The chromosome is replicated before fission.",
+      "subject": "biology",
+      "year": 9,
+      "topicId": "bio-y9-school-20260927-05",
+      "status": "enabled",
+      "difficulty": 2,
+      "contentTier": "school_confirmed_current",
+      "task": {
+        "label": "WRITE YOUR ANSWER",
+        "instruction": "What is copied before a bacterium separates into two daughter cells?",
+        "answerFormat": "Type a short answer."
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "The chromosome is replicated before fission.",
+        "steps": [
+          "The chromosome is replicated before fission.",
+          "circular DNA"
+        ]
+      },
+      "review": {
+        "onWrong": {
+          "nextDueDays": 2,
+          "thenDueDays": 7
+        },
+        "immediateRepeat": "Do not repeat this concept in the same session."
+      }
+    },
+    {
+      "id": "bio-school-20260927-052",
+      "conceptId": "bio-school-20260927-052",
+      "topic": "Bacteria and division",
+      "prompt": "Do all bacterial cells contain plasmids? Answer yes or no.",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "no",
+          "not all",
+          "no, only some"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "no",
+      "markKeywords": [
+        "no"
+      ],
+      "hint": "Some bacteria carry these extra DNA rings.",
+      "subject": "biology",
+      "year": 9,
+      "topicId": "bio-y9-school-20260927-05",
+      "status": "enabled",
+      "difficulty": 2,
+      "contentTier": "school_confirmed_current",
+      "task": {
+        "label": "WRITE YOUR ANSWER",
+        "instruction": "Do all bacterial cells contain plasmids? Answer yes or no.",
+        "answerFormat": "Type a short answer."
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Some bacteria carry these extra DNA rings.",
+        "steps": [
+          "Some bacteria carry these extra DNA rings.",
+          "no"
+        ]
+      },
+      "review": {
+        "onWrong": {
+          "nextDueDays": 2,
+          "thenDueDays": 7
+        },
+        "immediateRepeat": "Do not repeat this concept in the same session."
+      }
+    },
+    {
+      "id": "bio-school-20260927-053",
+      "conceptId": "bio-school-20260927-053",
+      "topic": "Bacteria and division",
+      "prompt": "Name one factor that can stop an ideal bacterial doubling pattern continuing indefinitely.",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "limited nutrients",
+          "lack of nutrients",
+          "limited space",
+          "lack of space",
+          "waste build-up",
+          "insufficient nutrients"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "limited nutrients",
+      "markKeywords": [
+        "limited nutrients"
+      ],
+      "hint": "Real populations face limiting conditions.",
+      "subject": "biology",
+      "year": 9,
+      "topicId": "bio-y9-school-20260927-05",
+      "status": "enabled",
+      "difficulty": 2,
+      "contentTier": "school_confirmed_current",
+      "task": {
+        "label": "WRITE YOUR ANSWER",
+        "instruction": "Name one factor that can stop an ideal bacterial doubling pattern continuing indefinitely.",
+        "answerFormat": "Type a short answer."
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Real populations face limiting conditions.",
+        "steps": [
+          "Real populations face limiting conditions.",
+          "limited nutrients"
+        ]
+      },
+      "review": {
+        "onWrong": {
+          "nextDueDays": 2,
+          "thenDueDays": 7
+        },
+        "immediateRepeat": "Do not repeat this concept in the same session."
+      }
+    },
+    {
+      "id": "bio-school-20260927-054",
+      "conceptId": "bio-school-20260927-007",
+      "topic": "Bacteria and division",
+      "prompt": "In which cell compartment is bacterial DNA found?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "cytoplasm",
+          "the cytoplasm"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "cytoplasm",
+      "markKeywords": [
+        "cytoplasm"
+      ],
+      "hint": "There is no membrane-bound nucleus.",
+      "subject": "biology",
+      "year": 9,
+      "topicId": "bio-y9-school-20260927-05",
+      "status": "enabled",
+      "difficulty": 2,
+      "contentTier": "school_confirmed_current",
+      "task": {
+        "label": "WRITE YOUR ANSWER",
+        "instruction": "In which cell compartment is bacterial DNA found?",
+        "answerFormat": "Type a short answer."
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "There is no membrane-bound nucleus.",
+        "steps": [
+          "There is no membrane-bound nucleus.",
+          "cytoplasm"
+        ]
+      },
+      "review": {
+        "onWrong": {
+          "nextDueDays": 2,
+          "thenDueDays": 7
+        },
+        "immediateRepeat": "Do not repeat this concept in the same session."
+      }
+    },
+    {
+      "id": "bio-school-20260927-055",
+      "conceptId": "bio-school-20260927-055",
+      "topic": "Bacteria and division",
+      "prompt": "One cell becomes 256 by ideal binary fission. How many rounds of division occurred?",
+      "format": "typed_exact",
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "8",
+          "8 rounds",
+          "eight"
+        ],
+        "normalization": {}
+      },
+      "modelAnswer": "8",
+      "markKeywords": [
+        "8"
+      ],
+      "hint": "256 = 2⁸.",
+      "subject": "biology",
+      "year": 9,
+      "topicId": "bio-y9-school-20260927-05",
+      "status": "enabled",
+      "difficulty": 2,
+      "contentTier": "school_confirmed_current",
+      "task": {
+        "label": "WRITE YOUR ANSWER",
+        "instruction": "One cell becomes 256 by ideal binary fission. How many rounds of division occurred?",
+        "answerFormat": "Type a short answer."
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "256 = 2⁸.",
+        "steps": [
+          "256 = 2⁸.",
+          "8"
+        ]
+      },
+      "review": {
+        "onWrong": {
+          "nextDueDays": 2,
+          "thenDueDays": 7
+        },
+        "immediateRepeat": "Do not repeat this concept in the same session."
+      }
+    }
+  ],
+  "enabled": 10,
+  "preview": 0,
+  "disabled": 0,
+  "formats": {
+    "typed_exact": 10
+  },
+  "gated": false,
+  "note": {
+    "id": "bio-y9-school-20260927-05-note",
+    "topicId": "bio-y9-school-20260927-05",
+    "subject": "biology",
+    "year": 9,
+    "title": "Bacteria and division",
+    "status": "enabled",
+    "contentTier": "school_confirmed_current",
+    "overview": "Describe bacterial structure and growth by binary fission; use the doubling model correctly.",
+    "learningGoals": [
+      "Explain the key idea using school examples.",
+      "Apply it to a short-answer or calculation question."
+    ],
+    "mustMemoriseRules": [
+      "Bacteria are prokaryotes with no membrane-bound nucleus. Some have plasmids.",
+      "In binary fission the DNA is copied, the cell grows and two daughter cells form.",
+      "Under ideal conditions, population = starting population × 2^(number of rounds). Real growth is limited by conditions."
+    ],
+    "detailedExplanation": [
+      "Bacteria are prokaryotes with no membrane-bound nucleus. Some have plasmids.",
+      "In binary fission the DNA is copied, the cell grows and two daughter cells form.",
+      "Under ideal conditions, population = starting population × 2^(number of rounds). Real growth is limited by conditions."
+    ],
+    "workedExamples": [
+      {
+        "prompt": "Worked school example",
+        "answer": "One cell to 128 cells takes seven rounds because 2⁷ = 128. At 30 minutes per round this is 3.5 hours.",
+        "why": "Follow the units and the biological reason given in the explanation."
+      }
+    ],
+    "commonMistakes": [
+      "Do not count 128 divisions for a final population of 128.",
+      "Do not describe bacterial division as mitosis of a nucleus."
+    ],
+    "quickCheck": [
+      {
+        "question": "What type of cell division produces two daughter bacterial cells?",
+        "answer": "binary fission",
+        "explanation": "Review the key rule above, then try again."
+      },
+      {
+        "question": "One bacterial cell divides three times under ideal conditions. How many cells result?",
+        "answer": "8",
+        "explanation": "Review the key rule above, then try again."
+      }
+    ],
+    "source": {
+      "documents": [
+        "bacterial cells and cell size 2022 - student.pptx",
+        "Lesson 4 Bacterial cells.docx"
+      ],
+      "note": "Original paraphrase of school lessons and handouts; school practice, not a predicted test."
+    },
+    "additionalSourceSections": [],
+    "examTips": [
+      "Do not count 128 divisions for a final population of 128.",
+      "Do not describe bacterial division as mitosis of a nucleus."
+    ],
+    "beforeStartingPractice": [
+      "Explain the key idea using school examples.",
+      "Apply it to a short-answer or calculation question."
+    ]
+  }
+}
