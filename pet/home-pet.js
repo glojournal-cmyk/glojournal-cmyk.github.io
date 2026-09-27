@@ -1,3 +1,5 @@
+import("/assets/progression-guard-20260927.js?v=20260927-foundation-first-1").catch(()=>{});
+
 const APP_KEY="lux-scholar-garden-v1";
 const PET_KEY="lux-pet-companion-v1";
 const CELEBRATE_KEY="lux-pet-pending-celebration";
