@@ -1,3 +1,4 @@
+import("/pet/pet-care-global.js?v=20260927-care1").catch(()=>{});
 export * from "./index-BLVOhKhN.core.js?v=20260926-verbs";
 import {
   C as store,

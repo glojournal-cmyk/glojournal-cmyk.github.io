@@ -1,0 +1,150 @@
+/* Lux et Labor responsive foundation v1
+   Shared contract for the current app and the upcoming Home dashboard. */
+
+:root {
+  --lux-page-max: 1536px;
+  --lux-page-pad: clamp(12px, 2vw, 28px);
+  --lux-card-gap: clamp(12px, 1.5vw, 20px);
+  --lux-touch-target: 44px;
+  --lux-sidebar-left: 300px;
+  --lux-sidebar-right: 300px;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-width: 0;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+.lux-page,
+[data-lux-page] {
+  width: min(100%, var(--lux-page-max));
+  margin-inline: auto;
+  padding-inline: var(--lux-page-pad);
+}
+
+.lux-responsive-grid {
+  display: grid;
+  gap: var(--lux-card-gap);
+  grid-template-columns:
+    minmax(250px, var(--lux-sidebar-left))
+    minmax(0, 1fr)
+    minmax(260px, var(--lux-sidebar-right));
+}
+
+.lux-responsive-grid > * {
+  min-width: 0;
+}
+
+/* Coarse pointers need a real tap target even when the visual button is compact. */
+@media (pointer: coarse) {
+  button,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  .lux-shell-nav a {
+    min-height: var(--lux-touch-target);
+  }
+}
+
+/* Small desktop / landscape tablet */
+@media (max-width: 1279px) {
+  .lux-responsive-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 300px);
+  }
+
+  .lux-responsive-grid > [data-lux-column="scholar"] {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  :root {
+    --lux-page-pad: clamp(14px, 2.4vw, 22px);
+  }
+
+  .lux-responsive-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(230px, 280px);
+  }
+
+  .lux-shell-nav {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  :root {
+    --lux-page-pad: 12px;
+    --lux-card-gap: 12px;
+  }
+
+  .lux-responsive-grid {
+    display: block;
+  }
+
+  .lux-responsive-grid > * + * {
+    margin-top: var(--lux-card-gap);
+  }
+
+  .lux-shell-nav {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    gap: 2px;
+    border-radius: 16px;
+  }
+
+  .lux-shell-nav a {
+    min-height: 52px;
+    padding-inline: 2px;
+    font-size: 9px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .lux-shell-nav a svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .lux-shell-header {
+    padding-inline: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .lux-shell-nav a {
+    font-size: 8px;
+    letter-spacing: 0;
+  }
+
+  .lux-shell-lv {
+    padding-inline: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
