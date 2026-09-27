@@ -1,0 +1,498 @@
+/* Lux et Labor · Home companion layout v2
+   Keeps the existing artwork but makes Scholar + Companion read as one scene. */
+
+:root {
+  --lux-home-navy: #17324d;
+  --lux-home-paper: #fffaf0;
+  --lux-home-leaf: #71865f;
+  --lux-home-gold: #c49a55;
+  --lux-home-line: rgba(23, 50, 77, .14);
+  --lux-home-shadow: 0 16px 40px rgba(23, 50, 77, .16);
+}
+
+.lux-scholar-pet-scene {
+  isolation: isolate;
+  overflow: hidden !important;
+}
+
+.lux-scholar-pet-scene::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 18;
+  height: 26%;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(16, 40, 58, .32), rgba(16, 40, 58, 0));
+}
+
+.lux-scholar-stage-scholar {
+  justify-content: flex-start !important;
+  padding-left: clamp(1rem, 5vw, 4rem) !important;
+  padding-right: clamp(5.5rem, 22vw, 12rem) !important;
+}
+
+.lux-scholar-character {
+  transform: translateX(-2%);
+  transition: transform .35s ease;
+}
+
+#mastery-pet-home {
+  --pet-size: .66;
+  position: absolute;
+  right: clamp(3%, 5vw, 8%);
+  bottom: 1.8%;
+  z-index: 28;
+  width: clamp(150px, 29%, 220px);
+  color: var(--lux-home-navy);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+  transform-origin: bottom center;
+  transition: transform .18s ease, filter .18s ease;
+}
+
+#mastery-pet-home:hover,
+#mastery-pet-home:focus-visible {
+  transform: translateY(-4px);
+  filter: brightness(1.025);
+}
+
+#mastery-pet-home:focus-visible,
+#mastery-pet-home-hud:focus-visible {
+  outline: 3px solid rgba(196, 154, 85, .9);
+  outline-offset: 4px;
+}
+
+#mastery-pet-home[data-stage="1"] { --pet-size: .60; }
+#mastery-pet-home[data-stage="2"] { --pet-size: .74; }
+#mastery-pet-home[data-stage="3"] { --pet-size: .88; }
+#mastery-pet-home[data-stage="4"] { --pet-size: 1.02; }
+#mastery-pet-home[data-stage="5"] { --pet-size: 1.16; }
+
+#mastery-pet-home .mph-glow {
+  position: absolute;
+  width: 92%;
+  aspect-ratio: 1;
+  bottom: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 250, 240, .96) 0, rgba(196, 154, 85, .24) 46%, transparent 73%);
+  filter: blur(1px);
+  pointer-events: none;
+}
+
+#mastery-pet-home[data-mood="glowing"] .mph-glow {
+  background: radial-gradient(circle, rgba(255, 250, 228, 1) 0, rgba(222, 187, 103, .58) 44%, rgba(196, 154, 85, .08) 70%, transparent 78%);
+  animation: mphGlowSoft 2.6s ease-in-out infinite;
+}
+
+#mastery-pet-home .mph-art {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  display: block;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 12px 12px rgba(23, 50, 77, .24));
+  overflow: visible;
+  transform-origin: bottom center;
+  transform: scaleX(-1) scale(var(--pet-size));
+  transition: transform .45s ease;
+}
+
+#mastery-pet-home .mph-tag {
+  position: relative;
+  margin-top: -12px;
+  max-width: 100%;
+  min-width: min(168px, 96%);
+  background: rgba(255, 252, 245, .94);
+  border: 1px solid rgba(255, 255, 255, .74);
+  border-radius: 18px;
+  padding: 7px 10px 6px;
+  box-shadow: 0 9px 22px rgba(23, 50, 77, .16);
+  backdrop-filter: blur(10px);
+  line-height: 1.05;
+  text-align: center;
+}
+
+#mastery-pet-home .mph-tag b,
+#mastery-pet-home .mph-tag small {
+  display: block;
+}
+
+#mastery-pet-home .mph-tag b {
+  overflow: hidden;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  line-height: 1.05;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#mastery-pet-home .mph-tag small {
+  margin-top: 2px;
+  color: rgba(23, 50, 77, .72);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+#mastery-pet-home .mph-leaf {
+  position: absolute;
+  right: 5%;
+  top: 10%;
+  display: grid;
+  place-items: center;
+  min-width: 27px;
+  height: 27px;
+  padding-inline: 6px;
+  border-radius: 999px;
+  background: var(--lux-home-leaf);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, .9);
+  font-size: 9px;
+  font-weight: 800;
+  box-shadow: 0 5px 12px rgba(23, 50, 77, .2);
+}
+
+#mastery-pet-home .mph-star {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: var(--lux-home-gold);
+  transform: rotate(45deg);
+  animation: mphTwinkle 2.3s ease-in-out infinite;
+}
+
+#mastery-pet-home .mph-star.s1 { left: 13%; top: 27%; }
+#mastery-pet-home .mph-star.s2 { right: 8%; top: 39%; animation-delay: .8s; }
+
+#mastery-pet-home.evolving .mph-art { animation: mphEvolve 2.4s ease both; }
+#mastery-pet-home.evolving .mph-glow { animation: mphEvolveGlow 2.4s ease both; }
+
+#mastery-pet-home-hud {
+  position: absolute;
+  left: clamp(12px, 2vw, 22px);
+  bottom: clamp(12px, 2vw, 20px);
+  z-index: 30;
+  display: flex;
+  width: min(310px, 47%);
+  min-height: 66px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, .36);
+  border-radius: 18px;
+  background: rgba(255, 250, 240, .88);
+  color: var(--lux-home-navy);
+  text-decoration: none;
+  box-shadow: var(--lux-home-shadow);
+  backdrop-filter: blur(12px);
+}
+
+.mph-hud-title,
+.mph-hud-title b,
+.mph-hud-title small {
+  display: block;
+  min-width: 0;
+}
+
+.mph-hud-title {
+  flex: 1 1 auto;
+}
+
+.mph-hud-title b {
+  overflow: hidden;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  line-height: 1.05;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mph-hud-title small {
+  margin-top: 3px;
+  overflow: hidden;
+  color: rgba(23, 50, 77, .66);
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mph-mini-stats {
+  display: grid;
+  flex: none;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.mph-mini-stat {
+  min-width: 42px;
+  padding: 5px 5px 4px;
+  border-radius: 11px;
+  background: rgba(23, 50, 77, .07);
+  text-align: center;
+}
+
+.mph-mini-stat small,
+.mph-mini-stat b {
+  display: block;
+}
+
+.mph-mini-stat small {
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  opacity: .64;
+}
+
+.mph-mini-stat b {
+  margin-top: 1px;
+  font-size: 12px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+#mastery-pet-toast {
+  position: fixed;
+  left: 50%;
+  top: max(18px, env(safe-area-inset-top));
+  z-index: 1000;
+  transform: translate(-50%, -18px);
+  opacity: 0;
+  background: #fffaf0;
+  color: var(--lux-home-navy);
+  border: 1px solid rgba(196, 154, 85, .46);
+  border-radius: 20px;
+  padding: 11px 16px;
+  box-shadow: 0 16px 45px rgba(23, 50, 77, .2);
+  font-size: 13px;
+  transition: .28s ease;
+  max-width: min(92vw, 440px);
+  text-align: center;
+}
+
+#mastery-pet-toast.show { opacity: 1; transform: translate(-50%, 0); }
+#mastery-pet-toast b { display: block; font-family: "Cormorant Garamond", serif; font-size: 18px; }
+#mastery-pet-toast span { display: block; margin-top: 2px; }
+
+.lux-home-quick-action {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 20px !important;
+  box-shadow: 0 10px 20px rgba(23, 50, 77, .10);
+  transition: transform .16s ease, box-shadow .16s ease !important;
+}
+
+.lux-home-quick-action::after {
+  content: "";
+  position: absolute;
+  width: 72px;
+  aspect-ratio: 1;
+  right: -26px;
+  top: -28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .10);
+  pointer-events: none;
+}
+
+.lux-home-quick-action:hover,
+.lux-home-quick-action:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(23, 50, 77, .16);
+}
+
+.lux-home-quick-action svg {
+  width: 22px !important;
+  height: 22px !important;
+  padding: 4px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, .13);
+  box-sizing: content-box;
+}
+
+.lux-home-card {
+  border: 1px solid rgba(23, 50, 77, .06);
+}
+
+.lux-companion-bottom-nav {
+  transition: box-shadow .2s ease;
+}
+
+.lux-companion-bottom-nav > a {
+  min-width: 0;
+}
+
+.lux-companion-bottom-nav > a[data-pet-nav="true"] {
+  color: var(--lux-home-navy);
+}
+
+@keyframes mphTwinkle {
+  0%, 100% { opacity: .25; scale: .7; }
+  50% { opacity: 1; scale: 1.3; }
+}
+
+@keyframes mphGlowSoft {
+  0%, 100% { opacity: .72; transform: scale(.94); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+
+@keyframes mphEvolve {
+  0% { transform: scaleX(-1) scale(.7); filter: brightness(1); }
+  35% { transform: scaleX(-1) scale(1.25); filter: brightness(1.35); }
+  70% { transform: scaleX(-1) scale(.96); }
+  100% { transform: scaleX(-1) scale(var(--pet-size)); }
+}
+
+@keyframes mphEvolveGlow {
+  0%, 100% { opacity: .65; }
+  40% { opacity: 1; transform: scale(1.28); }
+}
+
+@media (max-width: 1023px) {
+  .lux-scholar-stage-scholar {
+    padding-left: clamp(.5rem, 4vw, 2.5rem) !important;
+    padding-right: clamp(5rem, 24vw, 9rem) !important;
+  }
+
+  #mastery-pet-home {
+    right: 2.5%;
+    width: clamp(140px, 28%, 190px);
+  }
+
+  #mastery-pet-home-hud {
+    width: min(300px, 54%);
+  }
+
+  .lux-companion-bottom-nav {
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    inset-inline: 10px !important;
+  }
+
+  .lux-companion-bottom-nav > a {
+    min-height: 54px;
+    padding-inline: 2px !important;
+    font-size: 9px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .lux-main-with-companion-nav {
+    padding-bottom: calc(150px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .lux-scholar-stage-scholar {
+    justify-content: flex-start !important;
+    padding-left: 0 !important;
+    padding-right: 5.8rem !important;
+  }
+
+  .lux-scholar-character {
+    transform: translateX(-4%);
+    max-width: 94% !important;
+  }
+
+  #mastery-pet-home {
+    right: 1.5%;
+    bottom: 3%;
+    z-index: 35;
+    width: clamp(105px, 31%, 138px);
+    touch-action: manipulation;
+  }
+
+  #mastery-pet-home .mph-tag {
+    min-width: 0;
+    width: 100%;
+    margin-top: -8px;
+    padding: 5px 6px;
+    border-radius: 14px;
+  }
+
+  #mastery-pet-home .mph-tag b { font-size: 12px; }
+  #mastery-pet-home .mph-tag small { font-size: 7.5px; letter-spacing: 0; }
+  #mastery-pet-home .mph-leaf { min-width: 23px; height: 23px; font-size: 8px; }
+
+  #mastery-pet-home-hud {
+    left: 9px;
+    bottom: 9px;
+    width: min(248px, 66%);
+    min-height: 54px;
+    gap: 7px;
+    padding: 7px 8px;
+    border-radius: 15px;
+  }
+
+  .mph-hud-title b { font-size: 14px; }
+  .mph-hud-title small { font-size: 7.5px; }
+  .mph-mini-stats { gap: 3px; }
+  .mph-mini-stat { min-width: 34px; padding: 4px 3px; border-radius: 9px; }
+  .mph-mini-stat small { font-size: 6px; }
+  .mph-mini-stat b { font-size: 10px; }
+
+  .lux-companion-bottom-nav {
+    left: 8px !important;
+    right: 8px !important;
+    bottom: 8px !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    grid-auto-rows: minmax(48px, auto);
+    gap: 3px !important;
+    padding: 4px !important;
+    border-radius: 18px !important;
+  }
+
+  .lux-companion-bottom-nav > a {
+    min-height: 48px !important;
+    padding: 3px 2px !important;
+    border-radius: 12px !important;
+    font-size: 9px !important;
+    line-height: 1 !important;
+  }
+
+  .lux-companion-bottom-nav > a svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+
+  .lux-home-quick-action {
+    min-height: 5rem !important;
+    border-radius: 17px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  #mastery-pet-home-hud {
+    width: 62%;
+  }
+
+  .mph-hud-title small {
+    display: none;
+  }
+
+  .mph-mini-stat {
+    min-width: 31px;
+  }
+
+  .lux-companion-header {
+    padding-inline: 12px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mastery-pet-home,
+  #mastery-pet-home .mph-art,
+  #mastery-pet-home .mph-glow,
+  #mastery-pet-toast,
+  .lux-home-quick-action {
+    animation: none !important;
+    transition: none !important;
+  }
+}
