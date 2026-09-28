@@ -17,50 +17,57 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Integrate approved Moss Hornling art
+      - name: Restore approved Moss Hornling art and integrate
         run: |
           python <<'PY'
           from pathlib import Path
-          import hashlib
+          import base64, hashlib
 
-          sprite = Path('pet/art-evolution-v3/moss-hornling.webp')
-          data = sprite.read_bytes()
-          assert len(data) == 125638, len(data)
-          assert hashlib.sha256(data).hexdigest() == 'c03b167967042bca227a312da86f0f7e05ef52450e49d17833ce1c267198c570'
-          assert data[:4] == b'RIFF' and data[8:12] == b'WEBP'
+          root = Path('.')
+          transport = root / 'pet/generated-art/moss-hornling-v3'
+          payload = ''.join((transport / f'part-{i:02d}.txt').read_text().strip() for i in range(1, 16))
+          assert len(payload) == 56548, len(payload)
+          data = base64.b64decode(payload, validate=True)
+          assert len(data) == 42409, len(data)
+          assert hashlib.sha256(data).hexdigest() == 'ff04fc0e3cd5c1ed948b39ccdba3a9bd78e9aedb0fadb94bd0393d7b1c137752'
+          assert data[4:12] == b'ftypavif'
+          out = root / 'pet/art-evolution-v3/moss-hornling.avif'
+          out.write_bytes(data)
 
-          js_path = Path('pet/evolution-art-fix.js')
+          js_path = root / 'pet/evolution-art-fix.js'
           js = js_path.read_text()
           assert 'MOSS_SHEET' not in js
           needle = 'const PEBBLE_SOURCE_RE = /\\/pet\\/(?:art-master\\/pebble-wisp\\.png|art-evolution-v2\\/pebble-wisp\\.webp)/i;\n'
-          insert = needle + 'const MOSS_SHEET = "/pet/art-evolution-v3/moss-hornling.webp?v=20260928-moss-v3";\nconst MOSS_SOURCE_RE = /\\/pet\\/(?:art-master\\/moss-hornling\\.png|art-evolution-v2\\/moss-hornling\\.webp)/i;\n'
+          insert = needle + 'const MOSS_SHEET = "/pet/art-evolution-v3/moss-hornling.avif?v=20260928-moss-v3";\nconst MOSS_SOURCE_RE = /\\/pet\\/(?:art-master\\/moss-hornling\\.png|art-evolution-v2\\/moss-hornling\\.webp)/i;\n'
           assert needle in js
           js = js.replace(needle, insert, 1)
+
           marker = 'function pebblePosition(level) {'
           moss = '''function mossPosition(level) {\n  return {\n    1: "0% 0%",\n    2: "50% 0%",\n    3: "100% 0%",\n    4: "0% 100%",\n    5: "50% 100%",\n  }[clampLevel(level)];\n}\n\nfunction patchMoss(el, background) {\n  if (!MOSS_SOURCE_RE.test(background)) return false;\n  const level = inferLevel(el);\n  el.style.backgroundImage = `url("${MOSS_SHEET}")`;\n  el.style.backgroundSize = "300% 200%";\n  el.style.backgroundPosition = mossPosition(level);\n  el.style.backgroundRepeat = "no-repeat";\n  el.dataset.evolutionArt = `moss-hornling:${level}:v3`;\n  return true;\n}\n\n'''
           assert marker in js
           js = js.replace(marker, moss + marker, 1)
+
           needle2 = '  const background = el.style.backgroundImage || "";\n  if (patchPebble(el, background)) return true;'
-          replace2 = '  const background = el.style.backgroundImage || "";\n  if (patchMoss(el, background)) return true;\n  if (patchPebble(el, background)) return true;'
+          replacement2 = '  const background = el.style.backgroundImage || "";\n  if (patchMoss(el, background)) return true;\n  if (patchPebble(el, background)) return true;'
           assert needle2 in js
-          js = js.replace(needle2, replace2, 1)
+          js = js.replace(needle2, replacement2, 1)
           js_path.write_text(js)
 
-          home_path = Path('pet/home-pet.js')
+          home_path = root / 'pet/home-pet.js'
           home = home_path.read_text()
           old = '''function spriteStyle(species, level = 1) {\n  const safe = pets[species] ? species : "moss-hornling";\n  if (Number(level) >= 2) {\n    const position = { 2: "0% 0%", 3: "100% 0%", 4: "0% 100%", 5: "100% 100%" }[Number(level)] || "0% 0%";\n    return `background-image:url('/pet/art-evolution-v2/${safe}.webp?v=${PET_ART_VERSION}');background-size:200% 200%;background-position:${position}`;\n  }\n  return `background-image:url('/pet/art-master/${safe}.png?v=${PET_ART_VERSION}')`;\n}\n'''
-          new = '''function spriteStyle(species, level = 1) {\n  const safe = pets[species] ? species : "moss-hornling";\n  const stage = Math.max(1, Math.min(5, Number(level) || 1));\n  if (safe === "moss-hornling") {\n    const position = { 1: "0% 0%", 2: "50% 0%", 3: "100% 0%", 4: "0% 100%", 5: "50% 100%" }[stage];\n    return `background-image:url('/pet/art-evolution-v3/moss-hornling.webp?v=20260928-moss-v3');background-size:300% 200%;background-position:${position}`;\n  }\n  if (stage >= 2) {\n    const position = { 2: "0% 0%", 3: "100% 0%", 4: "0% 100%", 5: "100% 100%" }[stage] || "0% 0%";\n    return `background-image:url('/pet/art-evolution-v2/${safe}.webp?v=${PET_ART_VERSION}');background-size:200% 200%;background-position:${position}`;\n  }\n  return `background-image:url('/pet/art-master/${safe}.png?v=${PET_ART_VERSION}')`;\n}\n'''
+          new = '''function spriteStyle(species, level = 1) {\n  const safe = pets[species] ? species : "moss-hornling";\n  const stage = Math.max(1, Math.min(5, Number(level) || 1));\n  if (safe === "moss-hornling") {\n    const position = { 1: "0% 0%", 2: "50% 0%", 3: "100% 0%", 4: "0% 100%", 5: "50% 100%" }[stage];\n    return `background-image:url('/pet/art-evolution-v3/moss-hornling.avif?v=20260928-moss-v3');background-size:300% 200%;background-position:${position};background-repeat:no-repeat`;\n  }\n  if (stage >= 2) {\n    const position = { 2: "0% 0%", 3: "100% 0%", 4: "0% 100%", 5: "100% 100%" }[stage] || "0% 0%";\n    return `background-image:url('/pet/art-evolution-v2/${safe}.webp?v=${PET_ART_VERSION}');background-size:200% 200%;background-position:${position}`;\n  }\n  return `background-image:url('/pet/art-master/${safe}.png?v=${PET_ART_VERSION}')`;\n}\n'''
           assert old in home
           home = home.replace(old, new, 1)
           home_path.write_text(home)
 
-          root = Path('index.html')
-          root_html = root.read_text()
+          root_index = root / 'index.html'
+          root_html = root_index.read_text()
           old_loader = '/pet/home-pet.js?v=20260927-year8-route'
           assert root_html.count(old_loader) == 1
-          root.write_text(root_html.replace(old_loader, '/pet/home-pet.js?v=20260928-moss-v3', 1))
+          root_index.write_text(root_html.replace(old_loader, '/pet/home-pet.js?v=20260928-moss-v3', 1))
 
-          pet_index = Path('pet/index.html')
+          pet_index = root / 'pet/index.html'
           pet_html = pet_index.read_text()
           old_router = '/pet/evolution-art-fix.js?v=20260927-evolution3'
           assert pet_html.count(old_router) == 1
@@ -72,17 +79,33 @@ jobs:
           node --check pet/evolution-art-fix.js
           node --check pet/home-pet.js
           git diff --check
-          grep -q 'moss-hornling.webp?v=20260928-moss-v3' pet/evolution-art-fix.js
-          grep -q 'moss-hornling.webp?v=20260928-moss-v3' pet/home-pet.js
-          grep -q 'home-pet.js?v=20260928-moss-v3' index.html
-          grep -q 'evolution-art-fix.js?v=20260928-moss-v3' pet/index.html
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          p = Path('pet/art-evolution-v3/moss-hornling.avif')
+          assert p.stat().st_size == 42409
+          assert hashlib.sha256(p.read_bytes()).hexdigest() == 'ff04fc0e3cd5c1ed948b39ccdba3a9bd78e9aedb0fadb94bd0393d7b1c137752'
+          js = Path('pet/evolution-art-fix.js').read_text()
+          home = Path('pet/home-pet.js').read_text()
+          assert 'MOSS_SHEET' in js and 'patchMoss' in js
+          for pos in ('0% 0%', '50% 0%', '100% 0%', '0% 100%', '50% 100%'):
+              assert pos in js and pos in home
+          assert 'moss-hornling.avif?v=20260928-moss-v3' in js
+          assert 'moss-hornling.avif?v=20260928-moss-v3' in home
+          assert 'home-pet.js?v=20260928-moss-v3' in Path('index.html').read_text()
+          assert 'evolution-art-fix.js?v=20260928-moss-v3' in Path('pet/index.html').read_text()
+          print('Moss Hornling v3 focused checks passed')
+          PY
 
       - name: Commit final Moss Hornling integration
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "4189824+github-actions[bot]@users.noreply.github.com"
-          git add pet/art-evolution-v3/moss-hornling.webp pet/evolution-art-fix.js pet/home-pet.js index.html pet/index.html
+          git add pet/art-evolution-v3/moss-hornling.avif pet/evolution-art-fix.js pet/home-pet.js index.html pet/index.html
+          git rm -f pet/art-evolution-v3/moss-hornling.webp
+          git rm -f pet/generated-art/moss-hornling-v3/part-*.txt
           git rm -f .github/workflows/moss-hornling-v3-finish.yml
           git diff --cached --check
+          git status --short
           git commit -m "Use approved Moss Hornling five-stage evolution art"
           git push
