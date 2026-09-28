@@ -169,10 +169,30 @@
   footer a.on { color: var(--navy); }
   .hint { display: none; }
   @media (max-width: 980px) {
-    .hint { display: block; padding: 10px 16px; background: #1a3148; color: #f4ead8; font-size: 14px; }
     nav.top { display: none; }
-    main { grid-template-columns: 1fr; }
-    .portrait { min-height: 420px; }
+    .col, aside.col { display: contents; }
+    main {
+      grid-template-columns: 1.15fr .85fr;
+      grid-template-areas:
+        "hero pet"
+        "banner banner"
+        "study study"
+        "tasks tasks"
+        "garden garden"
+        "rewards rewards";
+    }
+    .portrait { grid-area: hero; height: 280px; min-height: 280px; }
+    .portrait img.full { height: 280px; object-position: 50% 10%; }
+    .pet { grid-area: pet; }
+    .banner { grid-area: banner; height: 132px; }
+    .banner h2 { font-size: 34px; }
+    .continue { grid-area: study; grid-template-columns: 108px 1fr; }
+    .continue img { width: 108px; height: 72px; }
+    .continue .go { display: none; }
+    .tasks { grid-area: tasks; }
+    .garden { grid-area: garden; }
+    .rewards { grid-area: rewards; }
+    .note { display: none; }
   }
 </style>
 </head>
@@ -217,7 +237,7 @@
         </div>
         <button class="go">Continue</button>
       </article>
-      <article class="panel" style="flex:1">
+      <article class="panel tasks">
         <div class="headrow">
           <div><p class="eyebrow">TODAY</p><h3>Today’s tasks</h3></div>
           <span class="count">3 / 9</span>
