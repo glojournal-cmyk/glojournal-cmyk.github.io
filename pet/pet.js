@@ -65,11 +65,11 @@ const petVoices = {
 };
 
 const PET_ART_VERSION="20260926-evolution2";
-const PET_3D_ART_VERSION="20260928-3d1";
+const PET_3D_ART_VERSION="20260928-3d2";
 const PET_3D_SPECIES=new Set(["antler-bean","moss-hornling","inkling","moon-puff","mothling","bloom-snail","velvet-batling","sprig-dragon","star-toadlet"]);
 function petArtUrl(species,level=1){
   const safe=pets.some(p=>p.id===species)?species:"moss-hornling";
-  if(PET_3D_SPECIES.has(safe)) return `/pet/art-3d-v1/${safe}.png?v=${PET_3D_ART_VERSION}`;
+  if(PET_3D_SPECIES.has(safe)) return `/pet/art-3d-v2/level-${Math.max(1,Math.min(5,Number(level)||1))}/${safe}.webp?v=${PET_3D_ART_VERSION}`;
   if(pets.find(p=>p.id===safe)?.secret) return `/pet/art-secret/${safe}.png?v=20260928-secret1`;
   if(Number(level)>=2) return `/pet/art-evolution-v2/${safe}.webp?v=${PET_ART_VERSION}`;
   return `/pet/art-master/${safe}.png?v=${PET_ART_VERSION}`;
@@ -77,14 +77,14 @@ function petArtUrl(species,level=1){
 function artPosition(level){return ["center","0% 0%","100% 0%","0% 100%","100% 100%"][Math.max(1,Math.min(5,Number(level)||1))-1]}
 function secretPosition(level){return ["0% 0%","50% 0%","100% 0%","0% 100%","50% 100%"][Math.max(1,Math.min(5,Number(level)||1))-1]}
 function spriteStyle(species,level=1){
-  if(PET_3D_SPECIES.has(species)) return `background-image:url('${petArtUrl(species,level)}');background-size:300% 200%;background-position:${secretPosition(level)};background-repeat:no-repeat`;
+  if(PET_3D_SPECIES.has(species)) return `background-image:url('${petArtUrl(species,level)}');background-size:contain;background-position:center;background-repeat:no-repeat`;
   if(pets.find(p=>p.id===species)?.secret) return `background-image:url('${petArtUrl(species,level)}');background-size:300% 200%;background-position:${secretPosition(level)};background-repeat:no-repeat`;
   return `background-image:url('${petArtUrl(species,level)}');background-size:${level>1?"200% 200%":"contain"};background-position:${artPosition(level)}`;
 }
 function applyPetSprite(el,species,level=1){
   el.style.backgroundImage=`url("${petArtUrl(species,level)}")`;
-  el.style.backgroundSize=PET_3D_SPECIES.has(species)||pets.find(p=>p.id===species)?.secret?"300% 200%":level>1?"200% 200%":"contain";
-  el.style.backgroundPosition=PET_3D_SPECIES.has(species)||pets.find(p=>p.id===species)?.secret?secretPosition(level):artPosition(level);
+  el.style.backgroundSize=PET_3D_SPECIES.has(species)?"contain":pets.find(p=>p.id===species)?.secret?"300% 200%":level>1?"200% 200%":"contain";
+  el.style.backgroundPosition=PET_3D_SPECIES.has(species)?"center":pets.find(p=>p.id===species)?.secret?secretPosition(level):artPosition(level);
   el.style.backgroundRepeat="no-repeat";
 }
 
