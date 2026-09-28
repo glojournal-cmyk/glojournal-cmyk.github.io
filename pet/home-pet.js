@@ -93,7 +93,7 @@ function spriteStyle(species, level = 1) {
   }
   if (safe === "antler-bean") {
     const position = { 1: "0% 0%", 2: "50% 0%", 3: "100% 0%", 4: "0% 100%", 5: "50% 100%" }[stage];
-    return `background-image:url('/pet/art-evolution-v3/antler-bean.webp?v=20260928-antler-v3');background-size:300% 200%;background-position:${position};background-repeat:no-repeat`;
+    return `background-image:url('/pet/art-evolution-v3/antler-bean.webp?v=20260928-antler-v3b');background-size:300% 200%;background-position:${position};background-repeat:no-repeat`;
   }
   if (stage >= 2) {
     const position = { 2: "0% 0%", 3: "100% 0%", 4: "0% 100%", 5: "100% 100%" }[stage] || "0% 0%";
