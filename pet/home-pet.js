@@ -86,8 +86,13 @@ function escapeHtml(value) {
 
 function spriteStyle(species, level = 1) {
   const safe = pets[species] ? species : "moss-hornling";
-  if (Number(level) >= 2) {
-    const position = { 2: "0% 0%", 3: "100% 0%", 4: "0% 100%", 5: "100% 100%" }[Number(level)] || "0% 0%";
+  const stage = Math.max(1, Math.min(5, Number(level) || 1));
+  if (safe === "moss-hornling") {
+    const position = { 1: "0% 0%", 2: "50% 0%", 3: "100% 0%", 4: "0% 100%", 5: "50% 100%" }[stage];
+    return `background-image:url('/pet/art-evolution-v3/moss-hornling.avif?v=20260928-moss-v3');background-size:300% 200%;background-position:${position};background-repeat:no-repeat`;
+  }
+  if (stage >= 2) {
+    const position = { 2: "0% 0%", 3: "100% 0%", 4: "0% 100%", 5: "100% 100%" }[stage] || "0% 0%";
     return `background-image:url('/pet/art-evolution-v2/${safe}.webp?v=${PET_ART_VERSION}');background-size:200% 200%;background-position:${position}`;
   }
   return `background-image:url('/pet/art-master/${safe}.png?v=${PET_ART_VERSION}')`;
