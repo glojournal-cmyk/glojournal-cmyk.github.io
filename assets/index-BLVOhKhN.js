@@ -1107,7 +1107,8 @@ function topicAttemptsToday(state, topicId) {
   if (!topicId) return 0;
   const day = state.today || todayKey();
   const stat = state.topicStats?.[topicId] || {};
-  return (stat.recentOutcomes || []).filter((row) => row?.date === day).length;
+  const recent = (stat.recentOutcomes || []).filter((row) => row?.date === day).length;
+  return Math.max(recent, Number(state.dailyTopicAttemptsByDay?.[day]?.[topicId]) || 0);
 }
 
 function year8ReviewPlan(state) {
@@ -1431,6 +1432,14 @@ function normalizeState() {
     normalizing = true;
     store.setState(patch);
     normalizing = false;
+  }
+  // Evidence-driven tasks can become complete without a bumpDaily call.
+  // Reconcile the completion award after the canonical daily list is stored.
+  const settled = store.getState();
+  if (settled.today === calendarToday && settled.daily?.length &&
+      settled.daily.every((task) => task.progress >= task.target) &&
+      !settled.dailyCompleteAwarded?.[calendarToday]) {
+    originalBumpDaily("study-session", 0);
   }
 }
 
@@ -2060,8 +2069,20 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
       correct,
     }
   );
+  const attemptDay = todayKey();
+  const dailyTopicAttemptsByDay = { ...(after.dailyTopicAttemptsByDay || {}) };
+  if (!isRepair) {
+    const dayCounts = { ...(dailyTopicAttemptsByDay[attemptDay] || {}) };
+    dayCounts[resolved.topicId] = Math.max(
+      Number(dayCounts[resolved.topicId]) || 0,
+      topicAttemptsToday(before, resolved.topicId)
+    ) + 1;
+    dailyTopicAttemptsByDay[attemptDay] = dayCounts;
+    for (const oldDay of Object.keys(dailyTopicAttemptsByDay).sort().slice(0, -45)) delete dailyTopicAttemptsByDay[oldDay];
+  }
   store.setState({
     topicStats: { ...(after.topicStats || {}), [resolved.topicId]: { ...nextTopic, due: reviews[meta?.repairOf || questionId]?.due || nextTopic.due } },
+    dailyTopicAttemptsByDay,
     skillStats,
     learningEvents,
     reviews,
