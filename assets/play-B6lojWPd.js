@@ -1,1 +1,1 @@
-import{t as e}from"./jsx-runtime-Cltr0gcK.js";import{tn as t}from"./index-BLVOhKhN.js?v=20260929-dailyfix12";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as component};
+import{t as e}from"./jsx-runtime-Cltr0gcK.js";import{tn as t}from"./index-BLVOhKhN.js?v=20260929-dailyfix13";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as component};
