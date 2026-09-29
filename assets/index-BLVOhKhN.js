@@ -1,4 +1,4 @@
-import("/pet/pet-care-global.js?v=20260927-care1").catch(()=>{});
+import("/pet/pet-care-global.js?v=20260929-dailyfix4").catch(()=>{});
 export * from "./index-BLVOhKhN.core.js?v=20260929-dailyfix1";
 import {
   C as store,
