@@ -1,5 +1,5 @@
-import("/pet/pet-care-global.js?v=20260929-dailyfix14").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20260929-dailyfix6";
+import("/pet/pet-care-global.js?v=20260929-dailyfix15").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20260929-dailyfix7";
 import {
   C as store,
   U as collectibles,
@@ -11,7 +11,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20260929-dailyfix6";
+} from "./index-BLVOhKhN.core.js?v=20260929-dailyfix7";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -1231,7 +1231,7 @@ function buildAdaptiveDaily(state) {
       ? `${Math.round((focus.accuracy || 0) * 100)}% so far · build towards ≥85%${focus.errorType ? ` · main issue: ${errorLabel(focus.errorType)}` : ""}.`
       : `Ten focused questions in ${label}.`;
 
-  const studyProgress = Math.min(10, Math.max(state.questionsToday || 0, existingPlan?.planDate === state.today ? existingPlan.progress || 0 : 0));
+  const studyProgress = Math.min(10, Math.max(0, Number(state.questionsToday) || 0));
   const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;
   const focusEvidence = focusAttemptsToday(state, focus);
   const focusProgress = Math.min(4, focusEvidence > 0 ? focusEvidence : oldFocusProgress);
