@@ -55,7 +55,7 @@ for(const marker of [
   'bC.version="2.4.0+school-20260919"',
   'sourceId:"school-update-20260919"'
 ])if(!core.includes(marker))failures.push({type:"loader-marker-missing",marker});
-if(!wrapper.includes("index-BLVOhKhN.core.js?v=20260921-companion1"))failures.push({type:"cache-bust-missing"});
+if(!/index-BLVOhKhN\.core\.js\?v=[0-9]{8}-[a-z0-9-]+/.test(wrapper))failures.push({type:"cache-bust-missing"});
 
 const summary={parts:parts.length,topics:topics.length,questions,bySubject,topicIds:topicIds.size,questionIds:questionIds.size,failures:failures.length};
 console.log("YEAR9_SCHOOL_UPDATE_QA "+JSON.stringify(summary));
