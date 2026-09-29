@@ -17,15 +17,26 @@ for(const token of requiredCore) if(!core.includes(token)) failures.push({type:"
 const requiredWrapper=[
   'const existingPlan = previous.get("study-session");',
   'function focusAttemptsToday(state, focus) {',
-  'const studyProgress = Math.min(10, Math.max(existingPlan?.progress || 0, state.questionsToday || 0));',
+  'const studyProgress = Math.min(10, Math.max(state.questionsToday || 0, existingPlan?.planDate === state.today ? existingPlan.progress || 0 : 0));',
   'const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;',
   'const focusEvidence = focusAttemptsToday(state, focus);',
-  'const focusProgress = Math.min(4, Math.max(oldFocusProgress, focusEvidence));',
+  'const focusProgress = Math.min(4, focusEvidence > 0 ? focusEvidence : oldFocusProgress);',
   '{ id: "adaptive-focus"',
   "normalizeState();",
   "store.subscribe(() => normalizeState());"
 ];
 for(const token of requiredWrapper) if(!wrapper.includes(token)) failures.push({type:"adaptive-daily-regression",token});
+const coreVersions=[...wrapper.matchAll(/index-BLVOhKhN\.core\.js\?v=([^"]+)/g)].map((match)=>match[1]);
+if(coreVersions.length!==2||new Set(coreVersions).size!==1) failures.push({type:"split-progress-store",coreVersions});
+for(const token of [
+  'const practiseLocked = oldPractise.planDate === state.today && oldPractise.assignedTopic && oldPractise.href',
+  'const masteryLocked = oldMastery.planDate === state.today && oldMastery.assignedTopic && oldMastery.href',
+  'const legacyReviews = Object.entries(state.reviews || {}).filter',
+  'target: 25, progress: year8ReviewProgress',
+  'target: 25,',
+  'reviewStartAttempts',
+  'masteryStartAttempts',
+]) if(!wrapper.includes(token)) failures.push({type:"year8-credit-regression",token});
 
 for(const token of [
   "const lockedYear8Plan = oldYear8Review.planDate === state.today",
@@ -33,7 +44,7 @@ for(const token of [
   "function recordDailyVocabAttempt(subject, questionId, correct)",
   "function completedYear8ReviewEvidence(state)",
   "const recoveredYear8Review = completedYear8ReviewEvidence(state)",
-  "const year8ReviewProgress = recoveredYear8Review ? 15",
+  "const year8ReviewProgress = recoveredYear8Review ? 25",
   'originalBumpDaily(subject === "french" ? "french-vocab" : "latin-vocab", 0)'
 ]) if(!wrapper.includes(token)) failures.push({type:"daily-completion-contract-regression",file:"wrapper",token});
 
