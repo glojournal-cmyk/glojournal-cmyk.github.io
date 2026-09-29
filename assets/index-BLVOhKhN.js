@@ -1108,7 +1108,11 @@ function topicAttemptsToday(state, topicId) {
   const day = state.today || todayKey();
   const stat = state.topicStats?.[topicId] || {};
   const recent = (stat.recentOutcomes || []).filter((row) => row?.date === day).length;
-  return Math.max(recent, Number(state.dailyTopicAttemptsByDay?.[day]?.[topicId]) || 0);
+  // Recover formal work saved before the shared-store fix from each question's review date.
+  const legacyReviews = Object.entries(state.reviews || {}).filter(([id, review]) =>
+    review?.last === day && !review?.repair &&
+    (review.topicId === topicId || id.startsWith(topicId + "-") || id.startsWith(topicId + ":"))).length;
+  return Math.max(recent, legacyReviews, Number(state.dailyTopicAttemptsByDay?.[day]?.[topicId]) || 0);
 }
 
 function year8ReviewPlan(state) {
@@ -1175,7 +1179,7 @@ function completedYear8ReviewEvidence(state) {
     for (const topic of topics) {
       if (topic.topicId !== completed.reviewTopic) continue;
       const stat = normalizeTopicStat(state.topicStats?.[topic.topicId] || {});
-      const attemptsToday = (stat.recentOutcomes || []).filter((row) => row?.date === day).length;
+      const attemptsToday = topicAttemptsToday(state, topic.topicId);
       if (attemptsToday < 15) continue;
       if (!best || attemptsToday > best.attemptsToday) {
         best = {
