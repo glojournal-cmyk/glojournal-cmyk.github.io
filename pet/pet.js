@@ -323,8 +323,17 @@ function buildChooser(){
     if(pets.find(p=>p.id===btn.dataset.pet)?.secret&&!hiddenUnlocked(current,btn.dataset.pet,readAppState())) return;
     savePet({...current,species:btn.dataset.pet});
     render();
+    document.getElementById("petChooserDialog")?.close();
   });
 }
+const chooserDialog=document.getElementById("petChooserDialog");
+for(const id of ["openPetChooser","openPetCollection"]){
+  document.getElementById(id)?.addEventListener("click",()=>chooserDialog?.showModal());
+}
+document.getElementById("closePetChooser")?.addEventListener("click",()=>chooserDialog?.close());
+chooserDialog?.addEventListener("click",event=>{
+  if(event.target===chooserDialog) chooserDialog.close();
+});
 document.getElementById("saveName").addEventListener("click",()=>{
   const current=readPet();
   const name=document.getElementById("petNameInput").value.trim().slice(0,28);

@@ -96,7 +96,7 @@ function createPanel() {
       </div>
     </div>
 
-    <p class="pet-care-explainer" id="petCareExplainer">Bond never decays. Energy recovers automatically.</p>
+    <details class="pet-care-help"><summary>How care works</summary><p class="pet-care-explainer" id="petCareExplainer">Bond never decays. Energy recovers automatically.</p></details>
     <div class="pet-care-actions" id="petCareActions"></div>
     <p class="pet-care-status" id="petCareStatus" role="status" aria-live="polite"></p>
   `;
@@ -109,8 +109,8 @@ function ensurePanel() {
   const side = document.querySelector(".pet-side");
   if (!side) return null;
   panel = createPanel();
-  const firstPanel = side.querySelector(".pet-panel");
-  if (firstPanel) firstPanel.insertAdjacentElement("afterend", panel);
+  const growthPanel = side.querySelector("#petGrowth");
+  if (growthPanel) growthPanel.insertAdjacentElement("beforebegin", panel);
   else side.prepend(panel);
 
   panel.querySelector("#petCareActions")?.addEventListener("click", (event) => {
@@ -138,7 +138,7 @@ function setStatus(message) {
 function renderActions(summary) {
   const host = document.getElementById("petCareActions");
   if (!host) return;
-  host.innerHTML = ACTION_ORDER.map((id) => {
+  const actionButton = (id) => {
     const action = PET_ACTIONS[id];
     const meta = actionMeta(action, summary);
     const disabled = meta.locked || meta.noEnergy || meta.done;
@@ -149,7 +149,9 @@ function renderActions(summary) {
         ${suffix ? `<em>${suffix}</em>` : ""}
       </button>
     `;
-  }).join("");
+  };
+  host.innerHTML = ACTION_ORDER.slice(0, 3).map(actionButton).join("") +
+    `<details class="pet-more-actions"><summary>More activities</summary><div class="pet-more-action-list">${ACTION_ORDER.slice(3).map(actionButton).join("")}</div></details>`;
 }
 
 function render() {

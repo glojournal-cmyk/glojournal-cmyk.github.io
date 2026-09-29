@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/responsive-foundation.css?v=20260927-care1">
   <link rel="stylesheet" href="/pet/pet-care.css?v=20260927-care2">
   <link rel="stylesheet" href="/shell-frame.css?v=20260926-shell">
+  <link rel="stylesheet" href="/pet/pet-game-layout.css?v=20260929-game1">
   <script src="/shell-frame.js?v=20260926-shell" defer></script>
 <script type="module" src="/pet/home-pet.js?v=20260929-dailyfix15"></script></head>
 <body>
@@ -25,11 +26,13 @@
       <a class="pet-back" href="/">← Back to Scholar</a>
     </header>
 
+    <div class="pet-page-intro"><p class="pet-kicker">Companion sanctuary</p><h2>A companion to grow with</h2></div>
     <section class="pet-hero">
       <article class="pet-stage-card">
-        <p class="pet-kicker">Mastery Companion</p>
-        <h1 class="pet-title" id="petTitle">Moss Hornling</h1>
-        <p class="pet-subtitle" id="petSubtitle">A little forest heart, always finding light.</p>
+        <div class="pet-stage-toolbar">
+          <span class="pet-current-badge">Current pet</span>
+          <button class="pet-choose-button" id="openPetChooser" type="button" aria-haspopup="dialog" aria-controls="petChooserDialog">Choose Pet</button>
+        </div>
 
         <div class="pet-display">
           <div class="pet-aura stage-1" id="petAura"></div>
@@ -41,16 +44,19 @@
 
         <div class="pet-stage-footer">
           <div>
-            <div class="pet-kicker">Current form</div>
+            <h1 class="pet-title" id="petTitle">Moss Hornling</h1>
+            <p class="pet-subtitle" id="petSubtitle">A little forest heart, always finding light.</p>
             <div class="pet-stage-label" id="stageLabel">Stage 1 · Foundling</div>
           </div>
           <div class="pet-stage-note" id="stageNote">A small companion has joined the Scholar’s Garden.</div>
         </div>
-        <div class="pet-personality" id="petPersonality"></div>
       </article>
 
       <div class="pet-side">
-        <section class="pet-panel">
+        <nav class="pet-side-nav" aria-label="Companion sections">
+          <a href="#petCarePanel">Care</a><a href="#petGrowth">Evolve</a><button id="openPetCollection" type="button" aria-haspopup="dialog" aria-controls="petChooserDialog">Collection</button>
+        </nav>
+        <section class="pet-panel pet-growth-panel" id="petGrowth">
           <p class="pet-kicker">Growth from real learning</p>
           <h2>Mastery Growth</h2>
           <div class="pet-stat-row">
@@ -70,12 +76,17 @@
           <div class="pet-steps" id="stageSteps"></div>
         </section>
 
+      </div>
+    </section>
+
+    <section class="pet-extras">
         <section class="pet-panel">
           <p class="pet-kicker">Companion insight</p>
           <div class="pet-message">
             <strong id="messageTitle">Your companion is waiting</strong>
             <span id="messageBody">The first Mastery Leaf appears when a topic reaches formal Mastery.</span>
           </div>
+          <div class="pet-personality" id="petPersonality"></div>
           <p class="pet-rule" id="dueNote">No mastered material is currently overdue.</p>
         </section>
 
@@ -95,7 +106,6 @@
           <div class="pet-charms" id="subjectCharms"></div>
           <p class="pet-rule">Mastery Leaves remain permanent. First-time topic Mastery earns 10 MP; a scheduled 2-day or 7-day retention pass earns 2 MP once per cycle. Ordinary repeats earn 0 MP.</p>
         </section>
-      </div>
     </section>
 
     <section class="pet-evolution-gallery" aria-labelledby="evolutionTitle">
@@ -103,16 +113,16 @@
       <div class="pet-form-grid" id="petFormGrid"></div>
     </section>
 
-    <section class="pet-chooser">
-      <div class="pet-chooser-head">
-        <div><p class="pet-kicker">Choose your companion</p><h2>Ten little worlds · two secrets</h2></div>
-        <p>Unlock hidden companions through formal Mastery. Each keeps its own level; MP is shared.</p>
-      </div>
-      <div class="pet-grid" id="petGrid"></div>
-    </section>
-
     <p class="pet-footer-note">XP, Mastery Points and Mastery Leaves are separate. Evolution spends MP only; Leaves and evolved levels are permanent.</p>
   </main>
+  <dialog class="pet-chooser-dialog" id="petChooserDialog" aria-labelledby="petChooserTitle">
+    <div class="pet-chooser-head">
+      <div><p class="pet-kicker">Companion collection</p><h2 id="petChooserTitle">Choose your companion</h2></div>
+      <button class="pet-chooser-close" id="closePetChooser" type="button" aria-label="Close companion collection">Close</button>
+    </div>
+    <p class="pet-chooser-copy">Each companion keeps its own level. Your MP wallet is shared.</p>
+    <div class="pet-grid" id="petGrid"></div>
+  </dialog>
   <dialog class="pet-confirm" id="confirmEvolution" aria-labelledby="confirmTitle">
     <div class="pet-confirm-inner">
       <p class="pet-kicker">Confirm evolution</p>
@@ -124,8 +134,8 @@
       </div>
     </div>
   </dialog>
-  <script type="module" src="/pet/pet-care-ui.js?v=20260927-care2"></script>
-  <script type="module" src="/pet/pet.js?v=20260928-3d2"></script>
+  <script type="module" src="/pet/pet-care-ui.js?v=20260929-game1"></script>
+  <script type="module" src="/pet/pet.js?v=20260929-game1"></script>
   <script type="module" src="/pet/evolution-art-fix.js?v=20260928-antler-v3b"></script>
 <script src="/assessment-link.js?v=20260927-evolution3" defer></script></body>
 </html>
