@@ -1,5 +1,5 @@
-import("/pet/pet-care-global.js?v=20260929-dailyfix11").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20260929-dailyfix3";
+import("/pet/pet-care-global.js?v=20260929-dailyfix12").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20260929-dailyfix4";
 import {
   C as store,
   U as collectibles,
@@ -11,7 +11,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20260929-dailyfix3";
+} from "./index-BLVOhKhN.core.js?v=20260929-dailyfix4";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -1259,7 +1259,7 @@ function buildAdaptiveDaily(state) {
   const reviewAttempts = topicAttemptsToday(state, year8Review.topicId);
   const reviewStartAttempts = year8Review.ready
     ? oldYear8Review.reviewTopic === year8Review.topicId && Number.isFinite(oldYear8Review.reviewStartAttempts)
-      ? oldYear8Review.reviewStartAttempts : reviewAttempts
+      ? oldYear8Review.reviewStartAttempts : Math.min(10, reviewAttempts)
     : null;
   const year8ReviewProgress = recoveredYear8Review ? 25 : Math.min(25,
     Math.min(10, Math.max(reviewAttempts, year8Review.ready ? 10 : 0)) + (reviewStartAttempts === null ? 0 :
@@ -1284,7 +1284,7 @@ function buildAdaptiveDaily(state) {
   const masteryReady = (state.topicStats?.[masteryPick?.topicId]?.attempted || 0) >= 10;
   const masteryStartAttempts = masteryReady
     ? oldMastery.assignedTopic === masteryPick?.topicId && Number.isFinite(oldMastery.masteryStartAttempts)
-      ? oldMastery.masteryStartAttempts : topicAttemptsToday(state, masteryPick?.topicId)
+      ? oldMastery.masteryStartAttempts : Math.min(10, topicAttemptsToday(state, masteryPick?.topicId))
     : null;
   const y8PractiseTask = {
     id: "y8-practise",
