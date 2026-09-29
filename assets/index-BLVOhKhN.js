@@ -11,7 +11,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20260929-dailyfix1";
+} from "./index-BLVOhKhN.core.js?v=20260929-dailyfix3";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
