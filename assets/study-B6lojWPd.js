@@ -1,1 +1,1 @@
-import"./study-experience-20260927.js?v=20260927-study-foundation1";import{t as e}from"./jsx-runtime-Cltr0gcK.js";import{tn as t}from"./index-BLVOhKhN.js?v=20260929-dailyfix4";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as component};
+import"./study-experience-20260927.js?v=20260927-study-foundation1";import{t as e}from"./jsx-runtime-Cltr0gcK.js";import{tn as t}from"./index-BLVOhKhN.js?v=20260929-dailyfix5";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as component};

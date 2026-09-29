@@ -1046,7 +1046,7 @@ function year8TopicRank(item) {
     const index = LATIN_YEAR8_FOUNDATIONS.findIndex((slug) => item.topicId === `la-y8-${slug}`);
     return index < 0 ? 100 : index;
   }
-  if (item.subject === "french") return Number(item.topicId.match(/^fr-y8-s(\d+)-/)?.[1] || 100);
+  if (item.subject === "french") return Number(String(item.topicId || "").match(/^fr-y8-s(\d+)-/)?.[1] || 100);
   return 0;
 }
 
