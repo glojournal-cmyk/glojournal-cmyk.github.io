@@ -1,0 +1,13 @@
+#daily-save-panel{margin-top:1.2rem;padding:1rem;border:1px solid #c7c7ab;border-radius:18px;background:linear-gradient(135deg,#f4f5e9,#fffaf0);color:#183447}
+.daily-save-heading strong{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.45rem;line-height:1.1}
+#daily-save-status{font-size:.83rem;margin:.25rem 0 .75rem;color:#4c625e}
+#daily-save-status[data-tone="error"]{color:#a23b35}
+#daily-save-status[data-tone="success"]{color:#286354}
+#daily-save-status[data-tone="warning"]{color:#86611d}
+.daily-save-actions{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.daily-save-actions button,.daily-file-button{min-height:44px;border-radius:11px;padding:.62rem .9rem;font:700 .84rem "Source Sans 3",sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center}
+#daily-save-button{background:#183b51;color:white;border:1px solid #183b51;box-shadow:0 3px 0 #bfa577}
+#daily-save-button:disabled{opacity:.65;cursor:wait}
+#daily-restore-button,.daily-file-button{background:#fffdf6;color:#183b51;border:1px solid #b8c2b9}
+.daily-save-note{font-size:.75rem;line-height:1.35;color:#566862;margin:.75rem 0 0}
+@media(max-width:600px){#daily-save-panel{padding:.8rem}.daily-save-actions>*{flex:1 1 100%}}
