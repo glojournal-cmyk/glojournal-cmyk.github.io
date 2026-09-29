@@ -1160,7 +1160,7 @@ function year8ReviewPlan(state) {
 function completedYear8ReviewEvidence(state) {
   const day = state.today || todayKey();
   const completed = (state.daily || []).find((task) => task.id === "year8-long-review" &&
-    task.planDate === day && task.progress >= 15 && task.reviewTopic);
+    task.planDate === day && task.progress >= task.target && task.reviewTopic);
   if (!completed) return null;
   let best = null;
 
@@ -1227,7 +1227,7 @@ function buildAdaptiveDaily(state) {
       ? `${Math.round((focus.accuracy || 0) * 100)}% so far · build towards ≥85%${focus.errorType ? ` · main issue: ${errorLabel(focus.errorType)}` : ""}.`
       : `Ten focused questions in ${label}.`;
 
-  const studyProgress = Math.min(10, state.questionsToday > 0 ? state.questionsToday : (existingPlan?.progress || 0));
+  const studyProgress = Math.min(10, Math.max(state.questionsToday || 0, existingPlan?.planDate === state.today ? existingPlan.progress || 0 : 0));
   const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;
   const focusEvidence = focusAttemptsToday(state, focus);
   const focusProgress = Math.min(4, focusEvidence > 0 ? focusEvidence : oldFocusProgress);
@@ -1239,10 +1239,7 @@ function buildAdaptiveDaily(state) {
   const lockedYear8Plan = oldYear8Review.planDate === state.today &&
     YEAR8_MASTERY_SUBJECTS.includes(oldYear8Review.reviewSubject) &&
     !!oldYear8Review.href &&
-    (oldYear8Review.progress >= 15 || oldYear8Review.reviewTopic === plannedYear8Review.topicId ||
-      (oldYear8Review.reviewSubject === plannedYear8Review.subject &&
-        year8TopicRank({ subject: oldYear8Review.reviewSubject, topicId: oldYear8Review.reviewTopic }) <
-        year8TopicRank(plannedYear8Review)));
+    true;
   const year8Review = recoveredYear8Review || (lockedYear8Plan
     ? {
         subject: oldYear8Review.reviewSubject,
@@ -1255,7 +1252,14 @@ function buildAdaptiveDaily(state) {
         ready: (state.topicStats?.[oldYear8Review.reviewTopic]?.attempted || 0) >= 10,
       }
     : plannedYear8Review);
-  const year8ReviewProgress = recoveredYear8Review ? 15 : year8Review.ready && lockedYear8Plan ? Math.min(15, oldYear8Review.progress || 0) : 0;
+  const reviewAttempts = topicAttemptsToday(state, year8Review.topicId);
+  const reviewStartAttempts = year8Review.ready
+    ? oldYear8Review.reviewTopic === year8Review.topicId && Number.isFinite(oldYear8Review.reviewStartAttempts)
+      ? oldYear8Review.reviewStartAttempts : reviewAttempts
+    : null;
+  const year8ReviewProgress = recoveredYear8Review ? 25 : Math.min(25,
+    Math.min(10, Math.max(reviewAttempts, year8Review.ready ? 10 : 0)) + (reviewStartAttempts === null ? 0 :
+      Math.min(15, Math.max(0, reviewAttempts - reviewStartAttempts))));
   const assignedPool = year8AssignedPool();
   const assignedSeed = [...(state.today || todayKey())].reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
   const oldPractise = previous.get("y8-practise") || {};
@@ -1265,12 +1269,10 @@ function buildAdaptiveDaily(state) {
   const masteryFrontier = firstUnmastered(assignedPool, state, masterySubject);
   const stillFoundational = (old, frontier) => old.assignedSubject === frontier?.subject &&
     year8TopicRank({ subject: old.assignedSubject, topicId: old.assignedTopic }) <= year8TopicRank(frontier);
-  const practiseLocked = oldPractise.planDate === state.today && oldPractise.assignedTopic && oldPractise.href &&
-    (oldPractise.progress >= 10 || stillFoundational(oldPractise, firstUnmastered(assignedPool, state, oldPractise.assignedSubject)))
+  const practiseLocked = oldPractise.planDate === state.today && oldPractise.assignedTopic && oldPractise.href
     ? { subject: oldPractise.assignedSubject, topicId: oldPractise.assignedTopic, topicLabel: oldPractise.assignedLabel, label: SUBJECT_LABELS[oldPractise.assignedSubject] || oldPractise.assignedSubject }
     : null;
-  const masteryLocked = oldMastery.planDate === state.today && oldMastery.assignedTopic && oldMastery.href &&
-    (oldMastery.progress >= 15 || stillFoundational(oldMastery, firstUnmastered(assignedPool, state, oldMastery.assignedSubject)))
+  const masteryLocked = oldMastery.planDate === state.today && oldMastery.assignedTopic && oldMastery.href
     ? { subject: oldMastery.assignedSubject, topicId: oldMastery.assignedTopic, topicLabel: oldMastery.assignedLabel, label: SUBJECT_LABELS[oldMastery.assignedSubject] || oldMastery.assignedSubject }
     : null;
   const practisePick = practiseLocked || practiseFrontier;
@@ -1295,11 +1297,13 @@ function buildAdaptiveDaily(state) {
   };
   const y8MasteryTask = {
     id: "y8-mastery",
-    title: masteryReady ? year8AssignedTitle("mastery", masteryPick) : `Practise first (${Math.min(10, Number(state.topicStats?.[masteryPick?.topicId]?.attempted) || 0)}/10) · ${masteryPick?.topicLabel || masteryPick?.label || "Year 8 topic"}`,
-    detail: masteryReady ? "15 questions on this Year 8 topic after foundational practice." : `Complete 10 practice questions on ${masteryPick?.topicLabel || "this topic"} before the mastery check.`,
+    title: `Practice + mastery · ${masteryPick?.topicLabel || masteryPick?.label || "Year 8 topic"}`,
+    detail: "10 foundational practice questions, then 15 mastery questions on the assigned topic.",
     href: year8AssignedHref(masteryPick, masteryReady ? "mastery" : "standard", "y8-mastery"),
-    target: 15,
-    progress: masteryReady ? Math.min(15, Math.max(oldMastery.assignedTopic === masteryPick?.topicId && masteryStartAttempts !== null ? oldMastery.progress || 0 : 0, topicAttemptsToday(state, masteryPick?.topicId) - masteryStartAttempts)) : 0,
+    target: 25,
+    progress: Math.min(25, Math.min(10, Math.max(topicAttemptsToday(state, masteryPick?.topicId), masteryReady ? 10 : 0)) +
+      (masteryStartAttempts === null ? 0 : Math.min(15, Math.max(0, topicAttemptsToday(state, masteryPick?.topicId) - masteryStartAttempts)))),
+
     xp: 20,
     planDate: state.today,
     assignedSubject: masteryPick?.subject || null,
@@ -1320,7 +1324,7 @@ function buildAdaptiveDaily(state) {
     { id: "french-vocab", title: "Year 8 French vocab", detail: `Random Year 8 French words · ${frenchVocab.correct}/30 correct. Wrong answers do not count, and the words cannot be chosen.`, href: "/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab", target: 30, progress: frenchVocab.progress, xp: 15, requiredCorrect: 30, attempts: frenchVocab.attempts, correct: frenchVocab.correct, planDate: state.today },
     { id: "latin-vocab", title: "Year 8 Latin vocab", detail: `Random Year 8 Latin words · ${latinVocab.correct}/30 correct. Wrong answers do not count, and the words cannot be chosen.`, href: "/study/latin/practise?daily=1&locked=1&year=8&mode=y8vocab&task=latin-vocab", target: 30, progress: latinVocab.progress, xp: 15, requiredCorrect: 30, attempts: latinVocab.attempts, correct: latinVocab.correct, planDate: state.today },
     { id: "adaptive-focus", title: focus.skillLabel ? `${focus.skillLabel} focus` : `${label} focus`, detail: "Four questions in today’s priority subject. Mastery needs ≥85% plus one independent typed or spelled answer.", href: focusHref(focus, state), target: 4, progress: focusProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason },
-    { id: "year8-long-review", title: year8Review.ready ? `Year 8 ${year8Review.label} mastery · ${year8Review.topicLabel || "Year 8 topic"}` : `Year 8 ${year8Review.label} practice first (${Math.min(10, Number(state.topicStats?.[year8Review.topicId]?.attempted) || 0)}/10) · ${year8Review.topicLabel || "Year 8 topic"}`, detail: year8Review.ready ? "15-question topic mastery review after foundational practice." : "Complete 10 practice questions on this early topic before its mastery review.", href: `${year8Review.ready ? year8Review.href.replace(/mode=standard/, "mode=year8long") : year8Review.href.replace(/mode=year8long/, "mode=standard")}${year8Review.href.includes("task=") ? "" : "&task=y8-mastery"}`, target: 15, progress: year8ReviewProgress, xp: 20, planDate: state.today, reviewYear: 8, reviewSubject: year8Review.subject, reviewTopic: year8Review.topicId || null },
+    { id: "year8-long-review", title: `Year 8 ${year8Review.label} practice + mastery · ${year8Review.topicLabel || "Year 8 topic"}`, detail: "10 foundational practice questions, then a 15-question mastery review.", href: `${year8Review.ready ? year8Review.href.replace(/mode=standard/, "mode=year8long") : year8Review.href.replace(/mode=year8long/, "mode=standard")}${year8Review.href.includes("task=") ? "" : "&task=y8-mastery"}`, target: 25, progress: year8ReviewProgress, xp: 20, planDate: state.today, reviewYear: 8, reviewSubject: year8Review.subject, reviewTopic: year8Review.topicId || null, reviewStartAttempts },
     y8PractiseTask,
     y8MasteryTask,
     { ...garden, progress: Math.min(garden.target || 1, Math.max(garden.progress || 0, gardenDoneToday ? 1 : 0)) },
