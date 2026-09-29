@@ -1227,10 +1227,10 @@ function buildAdaptiveDaily(state) {
       ? `${Math.round((focus.accuracy || 0) * 100)}% so far · build towards ≥85%${focus.errorType ? ` · main issue: ${errorLabel(focus.errorType)}` : ""}.`
       : `Ten focused questions in ${label}.`;
 
-  const studyProgress = Math.min(10, Math.max(existingPlan?.progress || 0, state.questionsToday || 0));
+  const studyProgress = Math.min(10, state.questionsToday > 0 ? state.questionsToday : (existingPlan?.progress || 0));
   const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;
   const focusEvidence = focusAttemptsToday(state, focus);
-  const focusProgress = Math.min(4, Math.max(oldFocusProgress, focusEvidence));
+  const focusProgress = Math.min(4, focusEvidence > 0 ? focusEvidence : oldFocusProgress);
   const plannedYear8Review = year8ReviewPlan(state);
   const recoveredYear8Review = completedYear8ReviewEvidence(state);
   const frenchVocab = vocabGateState(state, "french");
@@ -2112,7 +2112,6 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   }
 
   const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
-  if (!isRepair && !meta?.excludeGeneralDaily && focus && focus.focusSubject === (resolved.subject || subject)) originalBumpDaily("adaptive-focus", 1);
   if (!isRepair && (meta?.dailyVocab === "french" || meta?.dailyVocab === "latin")) {
     recordDailyVocabAttempt(meta.dailyVocab, questionId, !!correct);
   }

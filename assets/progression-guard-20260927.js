@@ -1,4 +1,4 @@
-import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20260929-dailyfix6";
+import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20260929-dailyfix7";
 
 const VERSION = "20260927-foundation-first-2";
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -428,6 +428,14 @@ function refresh() {
 
 function boot() {
   refresh();
+  let catalogChecks = 0;
+  const catalogTimer = window.setInterval(() => {
+    catalogChecks += 1;
+    if (SUBJECTS.some((subject) => catalogue(subject).length) || catalogChecks >= 60) {
+      window.clearInterval(catalogTimer);
+      refresh();
+    }
+  }, 250);
   document.addEventListener("click", guardDailyClick, true);
   store.subscribe?.(() => {
     window.clearTimeout(boot._timer);
