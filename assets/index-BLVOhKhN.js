@@ -1309,6 +1309,11 @@ function buildAdaptiveDaily(state) {
   };
   const garden = previous.get("tend-garden") || { id: "tend-garden", title: "Water your plants", detail: "Tend the Scholar’s Garden.", href: "/garden", target: 1, progress: 0, xp: 10 };
   const game = previous.get("play-game") || { id: "play-game", title: "Play a quick game", detail: "One short learning game.", href: "/play", target: 1, progress: 0, xp: 10 };
+  const gardenDoneToday = state.wateredOn === state.today;
+  const gameDoneToday = !!state.dailyGamePlayedByDay?.[state.today] ||
+    Object.values(state.gameRewardByDay?.[state.today] || {}).some((count) => Number(count) > 0) ||
+    Number(state.peRewardByDay?.[state.today]) > 0 ||
+    Object.values(state.weeklyBoss?.weeks || {}).some((week) => week?.completedAt && localDayFromIso(week.completedAt) === state.today);
 
   return [
     { id: "study-session", title, detail, href: focusHref(focus, state), target: 10, progress: studyProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason, focusDueCount: focus.dueCount || 0, focusAccuracy: focus.accuracy, focusErrorType: focus.errorType || null },
@@ -1318,8 +1323,8 @@ function buildAdaptiveDaily(state) {
     { id: "year8-long-review", title: year8Review.ready ? `Year 8 ${year8Review.label} mastery · ${year8Review.topicLabel}` : `Year 8 ${year8Review.label} practice first · ${year8Review.topicLabel}`, detail: year8Review.ready ? "15-question topic mastery review after foundational practice." : "Complete 10 practice questions on this early topic before its mastery review.", href: `${year8Review.ready ? year8Review.href.replace(/mode=standard/, "mode=year8long") : year8Review.href.replace(/mode=year8long/, "mode=standard")}${year8Review.href.includes("task=") ? "" : "&task=y8-mastery"}`, target: 15, progress: year8ReviewProgress, xp: 20, planDate: state.today, reviewYear: 8, reviewSubject: year8Review.subject, reviewTopic: year8Review.topicId || null },
     y8PractiseTask,
     y8MasteryTask,
-    { ...garden, progress: Math.min(garden.target || 1, garden.progress || 0) },
-    { ...game, progress: Math.min(game.target || 1, game.progress || 0) },
+    { ...garden, progress: Math.min(garden.target || 1, Math.max(garden.progress || 0, gardenDoneToday ? 1 : 0)) },
+    { ...game, progress: Math.min(game.target || 1, Math.max(game.progress || 0, gameDoneToday ? 1 : 0)) },
   ];
 }
 
@@ -1534,6 +1539,7 @@ function patchedRecordPe(points, stars, level) {
   }
 
   const result = originalRecordPe(points, stars, level);
+  store.setState({ dailyGamePlayedByDay: markDailyGamePlayed(store.getState().dailyGamePlayedByDay, day) });
   const after = store.getState();
 
   // Scholar Sprint rule: every 2★+ clear of the currently unlocked circuit opens the next one.
@@ -1628,6 +1634,12 @@ function recordGamePractice(gameId, conceptKey, correct, options = {}) {
   store.setState({ gamePractice: all });
 }
 
+function markDailyGamePlayed(existing, day) {
+  const days = { ...(existing || {}), [day]: true };
+  for (const oldDay of Object.keys(days).sort().slice(0, -45)) delete days[oldDay];
+  return days;
+}
+
 function patchedRecordGame(gameId, points, stars, level) {
   const before = store.getState();
   const day = todayKey();
@@ -1638,6 +1650,7 @@ function patchedRecordGame(gameId, points, stars, level) {
   const alreadyQualifiedToday = !!dayQualifying[gameId];
 
   const result = originalRecordGame(gameId, points, stars, level);
+  store.setState({ dailyGamePlayedByDay: markDailyGamePlayed(store.getState().dailyGamePlayedByDay, day) });
   const after = store.getState();
   const patch = {};
 
