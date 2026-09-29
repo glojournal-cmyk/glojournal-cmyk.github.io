@@ -1,5 +1,5 @@
-import("/pet/pet-care-global.js?v=20260929-dailyfix4").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20260929-dailyfix1";
+import("/pet/pet-care-global.js?v=20260929-dailyfix10").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20260929-dailyfix2";
 import {
   C as store,
   U as collectibles,
