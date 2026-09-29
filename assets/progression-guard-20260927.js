@@ -1,4 +1,4 @@
-import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20260929-dailyfix5";
+import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20260929-dailyfix6";
 
 const VERSION = "20260927-foundation-first-2";
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -261,6 +261,7 @@ function patchDaily() {
 
   let changed = false;
   const nextDaily = state.daily.map((task) => {
+    if (task.planDate === state.today && Number(task.progress) >= Number(task.target)) return task;
     const subject = taskSubject(task);
     const frontier = subject ? frontiers[subject] : null;
     if (!subject || !frontier || !taskNeedsFoundation(state, task, frontier)) return task;
