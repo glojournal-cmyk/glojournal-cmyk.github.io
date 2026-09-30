@@ -1148,7 +1148,7 @@ function year8ReviewPlan(state) {
   params.set("locked", "1");
   params.set("year", "8");
   params.set("mode", chosen && chosen.attempted >= 10 ? "year8long" : "standard");
-  params.set("task", "y8-mastery");
+  params.set("task", "year8-long-review");
   if (topicId) params.set("topic", topicId);
 
   return {
@@ -1243,7 +1243,7 @@ function buildAdaptiveDaily(state) {
   const lockedYear8Plan = oldYear8Review.planDate === state.today &&
     YEAR8_MASTERY_SUBJECTS.includes(oldYear8Review.reviewSubject) &&
     !!oldYear8Review.href &&
-    true;
+    !!oldYear8Review.reviewTopic;
   const year8Review = recoveredYear8Review || (lockedYear8Plan
     ? {
         subject: oldYear8Review.reviewSubject,

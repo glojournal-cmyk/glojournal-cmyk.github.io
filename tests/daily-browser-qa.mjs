@@ -9,6 +9,7 @@ const results=[];
 try{
 for(const [subject,task,mode] of [["french","french-vocab","y8vocab"],["latin","latin-vocab","y8vocab"],["latin","y8-mastery","standard"]]){
 const page=await browser.newPage();
+page.setDefaultTimeout(8000);
 const errors=[];page.on("pageerror",e=>errors.push(e.message));
 const route="/study/"+subject+"/practise?daily=%221%22&locked=%221%22&year=%228%22&mode="+mode+"&task="+task;
 await page.goto(base+route);
@@ -29,7 +30,8 @@ for(let step=0;step<2;step++){
  assert.ok(question,"Could not identify question: "+JSON.stringify(visible)+" errors "+JSON.stringify(errors));
  const answer=question.answer?.accepted?.[0]||question.answer?.modelAnswer;
  assert.ok(typeof answer==="string","Unsupported test answer "+question.id+" "+JSON.stringify(question.answer));
- if(question.format==="mc_single")await page.getByRole("button",{name:answer,exact:true}).click();
+ console.log("DAILY_BROWSER_STEP "+JSON.stringify({subject,task,step,id:question.id,format:question.format,answer,visible,errors}));
+ if(await page.getByRole("button",{name:answer,exact:true}).count())await page.getByRole("button",{name:answer,exact:true}).click();
  else{const field=page.locator("form input, form textarea").first();await field.fill(answer);await field.press("Enter");}
  await page.waitForTimeout(350);
  const snapshot=await page.evaluate(()=>({events:window.qaEvents,day:window.qaStore.getState().today,daily:window.qaStore.getState().daily,ledger:window.qaStore.getState().dailyVocabByDay,attempts:window.qaStore.getState().dailyTopicAttemptsByDay,saved:JSON.parse(localStorage.getItem("lux-scholar-garden-v1")||"null")?.state}));
