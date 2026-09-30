@@ -167,9 +167,20 @@
     ].join('');
     document.head.appendChild(s);
   }
+  function showSearch() {
+    document.querySelectorAll('header.sticky button, header.lux-companion-header button').forEach((btn) => {
+      if (btn.dataset.luxTool || btn.querySelector('.lux-search-label')) return;
+      if (!btn.querySelector('.lucide-search') && !/search/i.test(btn.getAttribute('aria-label') || '')) return;
+      const span = document.createElement('span');
+      span.className = 'lux-search-label';
+      span.textContent = 'Search';
+      btn.appendChild(span);
+    });
+  }
   function paint() {
     try {
       ensureIconLayout();
+      showSearch();
       swapNavIcons(document);
       decorateTasks();
       lineUpIcons();
