@@ -81,7 +81,7 @@ header.lux-companion-header button:has(.lucide-search) {
 .lux-tool { display:inline-flex; align-items:center; gap:6px; height:32px; padding:0 12px; border-radius:999px; font-family:var(--lux-sans); font-size:12px; font-weight:700; }
 .lux-tool svg { width:14px; height:14px; }
 h1, h2, .font-display, .lux-title { font-family: var(--lux-serif); }
-aside.bg-navy svg, nav svg, header.sticky.top-0.z-30 svg, header.lux-companion-header svg, .lux-shell-header svg, svg[data-lux-icon] {
+aside.bg-navy nav svg, header.sticky.top-0.z-30 svg, header.lux-companion-header svg, .lux-shell-header svg, svg[data-lux-icon] {
   width: 16px !important;
   height: 16px !important;
   max-width: 16px !important;
@@ -98,7 +98,28 @@ main select.rounded-full {
   border: 1px solid rgba(196,164,106,.8);
   box-shadow: none;
 }
-aside.bg-navy a.active, aside.bg-navy a[aria-current="page"] {
+aside.bg-navy > a,
+aside.bg-navy > a.active,
+aside.bg-navy > a[aria-current="page"] {
+  background: transparent !important;
+  color: #f7f1e6 !important;
+  box-shadow: none !important;
+}
+aside.bg-navy > a strong,
+aside.bg-navy > a .font-display { color: #f7f1e6 !important; }
+aside.bg-navy > a small { color: rgba(247,241,230,.68) !important; }
+aside.bg-navy nav a {
+  color: rgba(247,241,230,.88);
+}
+aside.bg-navy nav a svg,
+aside.bg-navy nav svg[data-lux-icon] {
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+}
+aside.bg-navy nav a.active,
+aside.bg-navy nav a[aria-current="page"] {
   background: #fffaf3 !important;
   color: var(--lux-navy) !important;
 }
@@ -118,7 +139,7 @@ nav.lux-companion-bottom-nav a.bg-sage, nav.fixed.inset-x-3.bottom-3 a.bg-sage {
   box-shadow: 0 0 0 1px var(--lux-line-gold), 0 8px 22px rgba(48,36,20,.05) !important;
 }
 .lux-ico { flex:none; width:32px; height:32px; border-radius:50%; display:grid; place-items:center; color:#fff; }
-.lux-ico svg { width:16px; height:16px; }
+.lux-ico svg { width:16px !important; height:16px !important; max-width:16px !important; max-height:16px !important; }
 span:has(> .lux-ico){display:inline-flex !important;flex-direction:row !important;flex-wrap:nowrap !important;align-items:center !important;gap:10px !important;}
 a:has(> .lux-ico),button:has(> .lux-ico){display:flex !important;flex-wrap:wrap !important;align-items:center !important;column-gap:10px !important;}
 a:has(> .lux-ico) > .lux-ico,button:has(> .lux-ico) > .lux-ico{flex:0 0 32px !important;}
