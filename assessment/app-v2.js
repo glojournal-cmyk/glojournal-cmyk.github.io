@@ -80,13 +80,18 @@ function groupBlurb(group,today){
   if(group.exam)return today>group.exam?`Exam ${when} has passed. These questions are now in Practise.`:`Exam ${when}. These questions join Practise the next day.`;
   return 'Mixed questions from the Year 9 bank. Already in Practise.';
 }
+function paperCard(p){
+  const prize=PRIZES[p.id];
+  return `<article class="card"><span class="tag">${p.minutes} min · ${p.count} questions · pass 85%</span><h3>${esc(p.name)}</h3><p>${esc(p.subtitle)}</p>${prize?`<p class="muted">Pass once to unlock ${esc(prize.name)} in the wardrobe.</p>`:''}<button class="primary" data-paper="${p.id}">${state.drafts[p.id]?.version===2?'Continue test':'Start new paper'}</button>${p.id==='chemistry'&&state.drafts[p.id]?.version===2?` <button data-reset-paper="chemistry">Discard draft and start a fresh paper</button>`:''}</article>`
+}
 function cards(){
-  if(!document.getElementById('exam-group-style')){const s=document.createElement('style');s.id='exam-group-style';s.textContent='.subject-list{display:flex;flex-direction:column;gap:28px}.subject-block{padding-top:4px;border-top:1px solid #d5ddd6}.subject-block:first-child{border-top:0;padding-top:0}.subject-block h2{font-size:34px}.subject-block .when{margin:6px 0 0;color:#62717a;max-width:42rem}.subject-block .cards{margin-top:12px}';document.head.appendChild(s)}
+  if(!document.getElementById('exam-group-style')){const s=document.createElement('style');s.id='exam-group-style';s.textContent='.subject-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:2px 0 14px;position:sticky;top:8px;z-index:4;background:#f6f1e6;padding:8px 0}.subject-bar button{border-radius:999px;padding:8px 14px;background:#fffaf3;border:1px solid rgba(196,164,106,.75);color:#1A3148}.subject-bar button.on{background:#1A3148;color:#f7f1e6;border-color:#1A3148}.subject-bar .add-assess{margin-left:auto}.subject-list{display:flex;flex-direction:column;gap:12px}.subject-block{padding-top:0;border-top:0}.subject-block h2{font-size:32px}.subject-block .when{margin:6px 0 0;color:#62717a;max-width:42rem}.subject-block .cards{margin-top:12px}.subject-block .card p{min-height:0}';document.head.appendChild(s)}
+  if(!document.getElementById('subject-bar')){const bar=document.createElement('div');bar.id='subject-bar';bar.className='subject-bar';$('#paper-list').before(bar);bar.addEventListener('click',e=>{if(e.target.closest('[data-add-assess]')){show('tracker');document.getElementById('track-form')?.querySelector('input,select')?.focus();return}const b=e.target.closest('[data-subject]');if(!b)return;sessionStorage.setItem('lux-assess-subject',b.dataset.subject);cards()})}
+  const group=EXAM_GROUPS.find(g=>g.subject===sessionStorage.getItem('lux-assess-subject'))||EXAM_GROUPS[0];
+  $('#subject-bar').innerHTML=EXAM_GROUPS.map(g=>`<button type="button" data-subject="${esc(g.subject)}" class="${g.subject===group.subject?'on':''}">${esc(g.subject)}</button>`).join('')+'<button type="button" class="add-assess" data-add-assess>Add assessment</button>';
+  const papers=group.ids.map(id=>PAPERS.find(p=>p.id===id)).filter(Boolean);
   const root=$('#paper-list');root.className='subject-list';const today=examToday();
-  root.innerHTML=EXAM_GROUPS.map(group=>{
-    const papers=group.ids.map(id=>PAPERS.find(p=>p.id===id)).filter(Boolean);
-    return `<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="when">${esc(groupBlurb(group,today))}</p><div class="cards">${papers.map(p=>{const prize=PRIZES[p.id];return `<article class="card"><span class="tag">${p.minutes} min · ${p.count} questions · pass 85%</span><h3>${esc(p.name)}</h3><p>${esc(p.subtitle)}</p>${prize?`<p class="muted">Pass once to unlock ${esc(prize.name)} in the wardrobe.</p>`:''}<button class="primary" data-paper="${p.id}">${state.drafts[p.id]?.version===2?'Continue test':'Start new paper'}</button>${p.id==='chemistry'&&state.drafts[p.id]?.version===2?` <button data-reset-paper="chemistry">Discard draft and start a fresh paper</button>`:''}</article>`}).join('')}</div></section>`
-  }).join('');
+  root.innerHTML=`<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="when">${esc(groupBlurb(group,today))}</p><div class="cards">${papers.map(paperCard).join('')}</div></section>`;
 }
 cards();
 $('#paper-list').addEventListener('click',e=>{
