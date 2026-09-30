@@ -37,7 +37,7 @@ function grantWardrobe(id){
 }
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
-const CHEMISTRY_REVISION='20260927-chem-calculations1';
+const CHEMISTRY_REVISION='20260930-chem-aqa1';
 const bankUrl=p=>p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:p.bank;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
@@ -176,7 +176,14 @@ function selectChemistry(questions,count,recent=[],quotas={}){
       ...shuffle(fresh.filter(q=>bucket(q)==='choice')),
       ...shuffle(seen.filter(q=>bucket(q)==='choice'))];
   };
-  for(const group of groups)take(ordered(questions.filter(q=>q.topic===group)),quotas[group]);
+  for(const group of groups){
+    const items=questions.filter(q=>q.topic===group);
+    const style=items.filter(q=>q.contentTier==='school_aqa_style');
+    take(ordered(style),Math.ceil(quotas[group]/2));
+    const remaining=()=>quotas[group]-chosen.filter(q=>q.topic===group).length;
+    take(ordered(items.filter(q=>q.contentTier!=='school_aqa_style')),remaining());
+    take(ordered(style),remaining());
+  }
   take(ordered(questions),count-chosen.length);
   return shuffle(chosen);
 }
@@ -242,11 +249,29 @@ function equivalentCreusa(q,value){
 
 const CREUSA_PROMPT_CONTEXT=new Set(['creusa-2-06','creusa-3-06']);
 
+function chemistryTermMatch(text,term){
+  const words=s=>textWords(s).map(canonWord).filter(w=>w&&!STOP_WORDS.has(w));
+  const hay=words(text),needles=words(term);
+  return needles.length>0&&needles.every(n=>hay.includes(n)||hay.some(h=>Math.min(h.length,n.length)>=4&&(h.startsWith(n)||n.startsWith(h))));
+}
+
 function mark(q,value){
   if(!String(value||'').trim())return {credit:0,status:'Incorrect',matched:0,total:1};
   const mode=q.answer?.mode;
   const rule=q.answer?.normalization||{};
   const flexible=String(q.id||'').startsWith('creusa-');
+
+  if(mode==='chemistry_rubric'){
+    const points=q.answer.points||[];
+    const response=String(value).normalize('NFKC').replace(/[’‘]/g,"'");
+    const matched=points.filter(point=>
+      !(point.rejectPatterns||[]).some(pattern=>new RegExp(pattern,'i').test(response))&&
+      ((point.alternatives||[]).some(term=>chemistryTermMatch(response,term))||
+       (point.patterns||[]).some(pattern=>new RegExp(pattern,'i').test(response)))
+    ).length;
+    const credit=points.length?matched/points.length:0;
+    return {credit,status:credit>=0.999?'Correct':credit>0?'Partly correct':'Incorrect',matched,total:points.length||1};
+  }
 
   if(mode==='choice'){
     const ok=(q.answer?.accepted||[]).some(a=>normal(a,rule)===normal(value,rule));
@@ -296,7 +321,7 @@ async function start(id){
       const res=await fetch(bankUrl(p));if(!res.ok)throw Error('Question bank unavailable');
       const bank=await res.json();
       const pool=bank.groups?bank.groups.flatMap(g=>g.questions):bank.questions;
-      const valid=pool.filter(q=>q.prompt&&q.answer?.accepted?.length&&['choice','exact_or_equivalent','keywords'].includes(q.answer.mode));
+      const valid=pool.filter(q=>q.prompt&&q.answer?.accepted?.length&&['choice','exact_or_equivalent','keywords','chemistry_rubric'].includes(q.answer.mode));
       const previous=state.recent[id]||[];
       let quotas=p.groups;
       if(!quotas&&bank.groups){
@@ -331,7 +356,7 @@ function renderTest(p,d){
   }
   function draw(){
     const i=d.index,q=d.questions[i],answer=d.answers[i]||'';
-    $('#exam').innerHTML=`<div class="exam-top"><div><span class="tag">${esc(p.name)} · ${p.minutes} min · pass 85%</span><h2>Question ${i+1} of ${d.questions.length}</h2></div><strong id="clock" aria-label="Time remaining"></strong></div><div class="progress"><div style="width:${100*(i+1)/d.questions.length}%"></div></div><p class="muted">Answers are saved. Marking and model answers appear after you submit the whole paper.</p>${p.id==='latin-verbs'?'<p class="muted">From the verb table only. Present: I carry. Imperfect: I was carrying. Perfect: I carried. I have carried and I used to carry are also accepted. Say he, she or it for the third person singular.</p>':''}${q.passage?`<div class="feedback" style="white-space:pre-line;line-height:1.7"><b>Read the extract</b><br>${esc(q.passage)}</div>`:''}<p class="question">${esc(q.prompt)}</p>${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}?v=${CHEMISTRY_REVISION}" alt="${esc(DIAGRAM_ALTS[q.diagram]||'Chemistry question diagram')}">`:''}${Array.isArray(q.options)&&q.options.length?`<div id="choices">${q.options.map(o=>`<button class="choice ${answer===String(o)?'chosen':''}" data-choice="${esc(o)}">${esc(o)}</button>`).join('')}</div>`:`<label>Your answer<textarea class="answer" id="response" placeholder="Write your answer here">${esc(answer)}</textarea></label>`}<div class="exam-actions"><button id="prev" ${i===0?'disabled':''}>Previous</button><button id="next" class="primary">${i===d.questions.length-1?'Submit whole paper':'Next question'}</button></div><div class="exam-actions" style="margin-top:18px"><button id="pause">${d.running?'Pause timer':'Resume timer'}</button><button id="exit">Back to assessments</button></div>`;
+    $('#exam').innerHTML=`<div class="exam-top"><div><span class="tag">${esc(p.name)} · ${p.minutes} min · pass 85%</span><h2>Question ${i+1} of ${d.questions.length}</h2></div><strong id="clock" aria-label="Time remaining"></strong></div><div class="progress"><div style="width:${100*(i+1)/d.questions.length}%"></div></div><p class="muted">Answers are saved. Marking and model answers appear after you submit the whole paper.</p>${p.id==='latin-verbs'?'<p class="muted">From the verb table only. Present: I carry. Imperfect: I was carrying. Perfect: I carried. I have carried and I used to carry are also accepted. Say he, she or it for the third person singular.</p>':''}${q.passage?`<div class="feedback" style="white-space:pre-line;line-height:1.7"><b>Read the extract</b><br>${esc(q.passage)}</div>`:''}<p class="question">${esc(q.prompt)}</p>${q.answer?.mode==='chemistry_rubric'?`<p class="muted">${questionMarks(q)} marks · Give distinct points; show your working for calculations.</p>`:''}${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}?v=${CHEMISTRY_REVISION}" alt="${esc(DIAGRAM_ALTS[q.diagram]||'Chemistry question diagram')}">`:''}${Array.isArray(q.options)&&q.options.length?`<div id="choices">${q.options.map(o=>`<button class="choice ${answer===String(o)?'chosen':''}" data-choice="${esc(o)}">${esc(o)}</button>`).join('')}</div>`:`<label>Your answer<textarea class="answer" id="response" placeholder="Write your answer here">${esc(answer)}</textarea></label>`}<div class="exam-actions"><button id="prev" ${i===0?'disabled':''}>Previous</button><button id="next" class="primary">${i===d.questions.length-1?'Submit whole paper':'Next question'}</button></div><div class="exam-actions" style="margin-top:18px"><button id="pause">${d.running?'Pause timer':'Resume timer'}</button><button id="exit">Back to assessments</button></div>`;
     $('#response')?.addEventListener('input',e=>{d.answers[i]=e.target.value;save()});
     $('#choices')?.addEventListener('click',e=>{const b=e.target.closest('[data-choice]');if(b){d.answers[i]=b.dataset.choice;save();draw()}});
     $('#prev').onclick=()=>{d.index--;save();draw()};
@@ -357,22 +382,25 @@ function showAnswer(q){
   return list.join(' / ');
 }
 
+function questionMarks(q){return q.answer?.mode==='chemistry_rubric'?q.answer.points.length:1}
+
 function finish(p,d){
   clearInterval(timer);timer=null;
   let earned=0,full=0,partial=0;
+  const totalMarks=d.questions.reduce((sum,q)=>sum+questionMarks(q),0);
   const marks=d.questions.map((q,i)=>mark(q,d.answers[i]||''));
   const rows=d.questions.map((q,i)=>{
     const answer=d.answers[i]||'',m=marks[i];
-    earned+=m.credit;
+    earned+=m.credit*questionMarks(q);
     if(m.credit>=0.999)full++; else if(m.credit>0)partial++;
-    const partialNote=m.credit>0&&m.credit<1?`<p class="muted"><b>Partial credit:</b> ${formatMarks(m.credit)} mark. You included ${m.matched} of ${m.total} required ideas.</p>`:'';
+    const partialNote=m.credit>0&&m.credit<1?`<p class="muted"><b>Partial credit:</b> ${formatMarks(m.credit*questionMarks(q))} of ${questionMarks(q)} marks. You included ${m.matched} of ${m.total} required ideas.</p>`:'';
     return `<article class="entry"><div><span class="tag">Question ${i+1} · ${m.status} · ${esc(q.topic||'')}</span><p>${esc(q.prompt)}</p><p><b>Your answer:</b> ${esc(answer)||'—'}</p><p><b>Model answer:</b> ${esc(showAnswer(q))}</p>${q.workedSolution?`<p><b>Working:</b> ${esc(q.workedSolution)}</p>`:''}${partialNote}${p.id==='chemistry'||q.markKeywords?`<p><b>Marking keywords:</b> ${esc((q.markKeywords||q.answer.accepted).join(' · '))}</p><p class="muted"><b>Hint for next time:</b> ${esc(q.hint||q.feedback?.short||'Check the evidence in the question before choosing a method.')}</p>`:q.feedback?.short?`<p class="muted">${esc(q.feedback.short)}</p>`:''}</div></article>`;
   });
 
-  const score=Math.round(earned/d.questions.length*100);
+  const score=p.id==='chemistry'?Math.floor(earned/totalMarks*100):Math.round(earned/totalMarks*100);
   const missed={};
   d.questions.forEach((q,i)=>{
-    const loss=1-marks[i].credit;
+    const loss=(1-marks[i].credit)*questionMarks(q);
     if(loss>0)missed[q.topic||'Other']=(missed[q.topic||'Other']||0)+loss;
   });
   const focus=Object.entries(missed).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([topic,n])=>`${esc(topic)} (${formatMarks(n)})`).join(' · ');
@@ -387,7 +415,7 @@ function finish(p,d){
     correct:full,
     partial,
     marks:earned,
-    total:d.questions.length,
+    total:totalMarks,
     score,
     questions:d.questions,
     answers:d.answers
@@ -395,7 +423,7 @@ function finish(p,d){
   state.recent[p.id]=d.questions.map(q=>q.id);
   delete state.drafts[p.id];save();cards();
 
-  const resultSummary=partial?`${full} correct · ${partial} partly correct · ${formatMarks(earned)}/${d.questions.length} marks`:`${full}/${d.questions.length} correct`;
-  $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${resultSummary}. Pass mark: 85/100. Review the answers below, then start a new paper for a different selection.</p>${wardrobe}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='latin-verbs'?'<p class="muted">English follows the verb table. Present is simple (I carry), imperfect is I was carrying, perfect is I carried. I have carried and I used to carry also score. you carry is accepted for both singular and plural; the model answer shows which one it is.</p>':''}${p.id==='latin-creusa'?'<p class="muted">Comprehension marking accepts equivalent wording. Where an answer contains only some required ideas, partial credit is awarded instead of an automatic zero.</p>':''}${p.id==='chemistry'?'<p class="muted">Each question is worth one mark. The keywords show the idea needed for that mark; the hint suggests what to check next time.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
+  const resultSummary=`${full}/${d.questions.length} correct${partial?` · ${partial} partly correct`:''} · ${formatMarks(earned)}/${totalMarks} marks`;
+  $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${resultSummary}. Pass mark: 85/100. Review the answers below, then start a new paper for a different selection.</p>${wardrobe}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='latin-verbs'?'<p class="muted">English follows the verb table. Present is simple (I carry), imperfect is I was carrying, perfect is I carried. I have carried and I used to carry also score. you carry is accepted for both singular and plural; the model answer shows which one it is.</p>':''}${p.id==='latin-creusa'?'<p class="muted">Comprehension marking accepts equivalent wording. Where an answer contains only some required ideas, partial credit is awarded instead of an automatic zero.</p>':''}${p.id==='chemistry'?'<p class="muted">Marks are shown on the new exam-style questions. Each distinct correct point earns a mark, including method and final-answer marks for calculations. Older short questions remain worth one mark.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
   $('#back-to-papers').onclick=()=>show('papers');
 }

@@ -8,7 +8,7 @@ const context=vm.createContext({Math,Set,String,Object});
 vm.runInContext(script.slice(script.indexOf('function shuffle(a)'),script.indexOf('function selectCreusa(')),context);
 vm.runInContext(script.slice(script.indexOf('function normal('),script.indexOf('async function start(')),context);
 
-assert.equal(bank.questions.length,130);
+assert.equal(bank.questions.length,190);
 assert.equal(new Set(bank.questions.map(q=>q.id)).size,bank.questions.length);
 assert.ok(bank.questions.every(q=>q.conceptId),'Every chemistry question needs a concept ID');
 for(const q of bank.questions.filter(q=>Number(q.id.split('-').at(-1))>=88)){
@@ -22,8 +22,8 @@ for(const id of mappedIds)assert.ok(scriptAddon.includes(`'${id}':'chem-rf-calc-
 const combined=[...bank.questions,...addon.questions.map(q=>mappedIds.includes(q.id)?{...q,conceptId:'chem-rf-calc-direct'}:q.id==='chem-schoolstyle-219'?{...q,conceptId:'chem-rf-calc-spot-distance'}:q)];
 const quotas={'Periodic table':4,'Separation':4,'RP6 method':4,'RP6 errors':2,'Chromatogram':4,'Rf':9,'Solvents':1,'RP6':2};
 assert.equal(Object.values(quotas).reduce((a,b)=>a+b,0),30);
-assert.equal(new Set(bank.questions.slice(100).map(q=>q.conceptId)).size,15);
-for(const q of bank.questions.slice(100)){
+assert.equal(new Set(bank.questions.slice(100,130).map(q=>q.conceptId)).size,15);
+for(const q of bank.questions.slice(100,130)){
   assert.equal(q.topic,'Rf');
   assert.equal(context.mark(q,q.modelAnswer).credit,1,`${q.id} must accept its final answer`);
   assert.equal(context.mark(q,'99').credit,0,`${q.id} must reject a wrong number`);
@@ -42,4 +42,5 @@ for(let attempt=0;attempt<500;attempt++){
   assert.ok(paper.filter(q=>!q.options?.length).length>=15,'Paper needs substantial written work');
   previous=paper.map(q=>q.id);
 }
-console.log('Chemistry bank: 130 base + 28 school-style questions, 500 papers checked for unique concepts, figures and nine Rf questions.');
+console.log('Chemistry bank: 190 base + 28 school-style questions, 500 papers checked for unique concepts, figures and nine Rf questions.');
+

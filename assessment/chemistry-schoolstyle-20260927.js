@@ -32,7 +32,7 @@
     const base=await baseRes.json();
     const addon=addonRes.ok?await addonRes.json():{questions:[]};
     const baseQuestions=(base.questions||[]).map(q=>q.diagram&&diagramMap[q.diagram]?{...q,diagram:diagramMap[q.diagram]}:q);
-    const merged={...base,questions:[...baseQuestions,...(addon.questions||[]).map(q=>calculationConcepts[q.id]?{...q,conceptId:calculationConcepts[q.id]}:q)]};
+    const merged={...base,bankSize:baseQuestions.length+(addon.questions||[]).length,questions:[...baseQuestions,...(addon.questions||[]).map(q=>calculationConcepts[q.id]?{...q,conceptId:calculationConcepts[q.id]}:q)]};
     return new Response(JSON.stringify(merged),{status:200,statusText:'OK',headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});
   };
 
@@ -40,7 +40,7 @@
     try{
       const chemistry=PAPERS.find(p=>p.id==='chemistry');
       if(chemistry){
-        chemistry.subtitle='Periodic Table, separation, chromatography, Rf and school-style data questions';
+        chemistry.subtitle='Taught Year 9 lessons · 218 questions · AQA-style short answers, practical reasoning and calculations';
         chemistry.groups={
           'Periodic table':4,
           'Separation':4,
@@ -56,3 +56,4 @@
     }catch(e){console.warn('Chemistry school-style enhancement could not initialise',e)}
   });
 })();
+

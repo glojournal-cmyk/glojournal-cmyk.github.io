@@ -3247,22 +3247,1457 @@
       },
       "preview": true,
       "ordinary": true
+    },
+    {
+      "id": "chem-aqa-20260930-031-practice",
+      "conceptId": "chem-school-aqa-setup-dimensions",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "The start line is 20 mm above the paper’s bottom edge. The solvent depth is 10 mm. Explain why this arrangement lets chromatography start without washing the samples into the beaker.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "bottom paper dips solvent",
+          "start line above solvent"
+        ],
+        "markPointAlternatives": [
+          [
+            "solvent enters paper"
+          ],
+          [
+            "spots not submerged"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The bottom of the paper dips in the solvent, so solvent can move up it. The start line stays above the solvent surface, so the sample spots are not submerged."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The bottom of the paper dips in the solvent, so solvent can move up it. The start line stays above the solvent surface, so the sample spots are not submerged.",
+        "steps": [
+          "The bottom of the paper dips in the solvent, so solvent can move up it. The start line stays above the solvent surface, so the sample spots are not submerged.",
+          "Both contact with solvent and the position of the sample spots matter."
+        ],
+        "commonError": "Both contact with solvent and the position of the sample spots matter.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-032-practice",
+      "conceptId": "chem-school-aqa-fair-solvent-test",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "A pupil compares water and ethanol as chromatography solvents. State the independent variable and two factors that should be kept the same.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "solvent",
+          "same ink",
+          "same paper type"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "same sample"
+          ],
+          [
+            "same type paper"
+          ]
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Change the solvent. Keep the same ink sample and the same type of chromatography paper."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Change the solvent. Keep the same ink sample and the same type of chromatography paper.",
+        "steps": [
+          "Change the solvent. Keep the same ink sample and the same type of chromatography paper.",
+          "Change one factor and compare the same sample using the same paper."
+        ],
+        "commonError": "Change one factor and compare the same sample using the same paper.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-033-practice",
+      "conceptId": "chem-school-aqa-repeat-quality",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "Describe how repeats could increase confidence in a calculated Rf value.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "repeat same conditions",
+          "Rf values agree",
+          "mean consistent results"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "compare repeat values",
+            "check consistency"
+          ],
+          [
+            "mean repeat values"
+          ]
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Repeat the chromatography under the same conditions. Check whether the Rf values agree and calculate a mean of consistent results."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Repeat the chromatography under the same conditions. Check whether the Rf values agree and calculate a mean of consistent results.",
+        "steps": [
+          "Repeat the chromatography under the same conditions. Check whether the Rf values agree and calculate a mean of consistent results.",
+          "Repeating alone does not remove a systematic measurement error."
+        ],
+        "commonError": "Repeating alone does not remove a systematic measurement error.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-034-practice",
+      "conceptId": "chem-school-aqa-label-contamination",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "A pupil labels the sample positions with a coloured pen. Explain a possible effect on the result and state a better way to label them.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "ink dissolve extra spots",
+          "label pencil"
+        ],
+        "markPointAlternatives": [
+          [
+            "pen extra spots"
+          ],
+          [
+            "use pencil"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Pen ink may dissolve and produce extra spots. Label the positions in pencil."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Pen ink may dissolve and produce extra spots. Label the positions in pencil.",
+        "steps": [
+          "Pen ink may dissolve and produce extra spots. Label the positions in pencil.",
+          "Include the effect on the evidence, not only the rule to use pencil."
+        ],
+        "commonError": "Include the effect on the evidence, not only the rule to use pencil.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-035-practice",
+      "conceptId": "chem-school-aqa-front-delay-bias",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "A student removes the paper but marks the front only after it has dried. Explain why the Rf calculation may be unreliable.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "solvent evaporates",
+          "front no longer visible",
+          "distance not accurate"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "front disappears"
+          ],
+          [
+            "cannot measure accurately"
+          ]
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "The solvent evaporates, so the original solvent front is no longer visible. The front distance cannot be measured accurately."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "The solvent evaporates, so the original solvent front is no longer visible. The front distance cannot be measured accurately.",
+        "steps": [
+          "The solvent evaporates, so the original solvent front is no longer visible. The front distance cannot be measured accurately.",
+          "Mark the front immediately while its position is visible."
+        ],
+        "commonError": "Mark the front immediately while its position is visible.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-036-practice",
+      "conceptId": "chem-school-aqa-sample-washing",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "The solvent level is above the sample spots. Explain why this can prevent a useful chromatogram.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "sample dissolves beaker",
+          "spots missing"
+        ],
+        "markPointAlternatives": [
+          [
+            "sample washes off"
+          ],
+          [
+            "no separated spots",
+            "cannot analyse sample"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The sample dissolves into the solvent in the beaker and may wash off the paper, so its separated spots may be missing."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The sample dissolves into the solvent in the beaker and may wash off the paper, so its separated spots may be missing.",
+        "steps": [
+          "The sample dissolves into the solvent in the beaker and may wash off the paper, so its separated spots may be missing.",
+          "State where the sample goes and how that changes the result."
+        ],
+        "commonError": "State where the sample goes and how that changes the result.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-037-practice",
+      "conceptId": "chem-school-aqa-spot-width-effect",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "A student adds a spot 12 mm wide instead of the suggested 2–3 mm spot. Explain how this makes interpretation harder.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "smear",
+          "harder count dyes"
+        ],
+        "markPointAlternatives": [
+          [
+            "overlap"
+          ],
+          [
+            "harder measure centre",
+            "centre not accurate"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The wide spot can smear or overlap other spots. It is harder to count separate dyes or measure each spot centre accurately."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The wide spot can smear or overlap other spots. It is harder to count separate dyes or measure each spot centre accurately.",
+        "steps": [
+          "The wide spot can smear or overlap other spots. It is harder to count separate dyes or measure each spot centre accurately.",
+          "Connect the large spot to a specific interpretation or measurement problem."
+        ],
+        "commonError": "Connect the large spot to a specific interpretation or measurement problem.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-038-practice",
+      "conceptId": "chem-school-aqa-centre-bias",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "A pupil measures to the top of a spot instead of its centre, with a correctly measured solvent front. Predict the effect on Rf and explain why.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Rf too high",
+          "spot distance too large"
+        ],
+        "markPointAlternatives": [
+          [
+            "Rf larger"
+          ],
+          [
+            "spot distance overestimated"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Rf will be too high because the measured spot distance is too large while the solvent-front distance is unchanged."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Rf will be too high because the measured spot distance is too large while the solvent-front distance is unchanged.",
+        "steps": [
+          "Rf will be too high because the measured spot distance is too large while the solvent-front distance is unchanged.",
+          "A larger numerator gives a larger ratio."
+        ],
+        "commonError": "A larger numerator gives a larger ratio.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-039-practice",
+      "conceptId": "chem-school-aqa-overlap-purity",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "Ink K gives one spot in water but two spots in ethanol. Explain what this shows about the claim that K is pure.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "mixture two spots ethanol",
+          "overlapped water",
+          "one spot not prove purity"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "not separated water"
+          ],
+          []
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "K is a mixture because it separates into two spots in ethanol. The dyes overlapped or were not separated by water, so one spot in water did not prove purity."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "K is a mixture because it separates into two spots in ethanol. The dyes overlapped or were not separated by water, so one spot in water did not prove purity.",
+        "steps": [
+          "K is a mixture because it separates into two spots in ethanol. The dyes overlapped or were not separated by water, so one spot in water did not prove purity.",
+          "Use the result from both solvents."
+        ],
+        "commonError": "Use the result from both solvents.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-040-practice",
+      "conceptId": "chem-school-aqa-component-set",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "In the same solvent, ink A produces spots with Rf 0.20 and 0.70. Ink B produces spots at 0.20, 0.45 and 0.70. What does this suggest about B compared with A?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "two Rf values match",
+          "additional component 0.45"
+        ],
+        "markPointAlternatives": [
+          [
+            "same two dyes may"
+          ],
+          [
+            "extra dye 0.45"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "B may contain the same two dyes as A because two Rf values match. B has at least one additional separated component at Rf 0.45."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "B may contain the same two dyes as A because two Rf values match. B has at least one additional separated component at Rf 0.45.",
+        "steps": [
+          "B may contain the same two dyes as A because two Rf values match. B has at least one additional separated component at Rf 0.45.",
+          "Matching values suggest a shared component, while the extra spot adds evidence of another."
+        ],
+        "commonError": "Matching values suggest a shared component, while the extra spot adds evidence of another.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-041-practice",
+      "conceptId": "chem-school-aqa-minimum-components",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "A sample produces four distinct spots. State the minimum number of separated components and explain why the actual number could be greater.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "at least four",
+          "substances overlap"
+        ],
+        "markPointAlternatives": [
+          [
+            "minimum four",
+            "at least 4"
+          ],
+          [
+            "more than one substance single spot"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "At least four components are present. More than one substance could overlap in a single spot."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "At least four components are present. More than one substance could overlap in a single spot.",
+        "steps": [
+          "At least four components are present. More than one substance could overlap in a single spot.",
+          "Spot count gives a minimum when overlap is possible."
+        ],
+        "commonError": "Spot count gives a minimum when overlap is possible.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-042-practice",
+      "conceptId": "chem-school-aqa-colour-v-rf",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "Two dyes have the same visible colour but different Rf values when run in the same solvent under the same conditions. Explain whether the colour alone is enough to identify them as the same dye.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "colour alone not enough",
+          "different Rf evidence different"
+        ],
+        "markPointAlternatives": [
+          [
+            "same colour not prove same"
+          ],
+          [
+            "different Rf different substances"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Colour alone is not enough. The different Rf values provide evidence that the dyes behave differently and are different substances under these conditions."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Colour alone is not enough. The different Rf values provide evidence that the dyes behave differently and are different substances under these conditions.",
+        "steps": [
+          "Colour alone is not enough. The different Rf values provide evidence that the dyes behave differently and are different substances under these conditions.",
+          "Use the chromatography evidence as well as the colour."
+        ],
+        "commonError": "Use the chromatography evidence as well as the colour.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-043-practice",
+      "conceptId": "chem-school-aqa-front-normalisation",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "Two identical dyes travel different distances on two pieces of paper because the solvent fronts travel different distances. Explain why comparing raw spot distances could be misleading.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "different solvent front distances",
+          "Rf fraction front distance"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "Rf ratio spot front"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The runs have different solvent-front distances. Rf compares the spot distance as a fraction of the front distance, allowing comparison under the same conditions."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The runs have different solvent-front distances. Rf compares the spot distance as a fraction of the front distance, allowing comparison under the same conditions.",
+        "steps": [
+          "The runs have different solvent-front distances. Rf compares the spot distance as a fraction of the front distance, allowing comparison under the same conditions.",
+          "Compare ratios rather than distances from runs stopped at different times."
+        ],
+        "commonError": "Compare ratios rather than distances from runs stopped at different times.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-044-practice",
+      "conceptId": "chem-school-aqa-separation-evidence",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "Water gives two spots whose centres are only 2 mm apart. Ethanol gives the same sample’s two spots 15 mm apart with similar spot widths. Which solvent gives clearer separation? Explain.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "ethanol",
+          "further apart",
+          "less overlap"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "15 mm apart"
+          ],
+          [
+            "easier distinguish"
+          ]
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Ethanol gives clearer separation because the spot centres are further apart, so the spots are easier to distinguish and less likely to overlap."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Ethanol gives clearer separation because the spot centres are further apart, so the spots are easier to distinguish and less likely to overlap.",
+        "steps": [
+          "Ethanol gives clearer separation because the spot centres are further apart, so the spots are easier to distinguish and less likely to overlap.",
+          "Use spacing and distinguishability, not just how high the spots travel."
+        ],
+        "commonError": "Use spacing and distinguishability, not just how high the spots travel.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-045-practice",
+      "conceptId": "chem-school-aqa-immobile-solvent",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "A sample stays at the start line in water but forms three separated spots in ethanol. Suggest why ethanol is more useful for analysing this sample.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "dyes dissolve ethanol",
+          "separated spots reveal components"
+        ],
+        "markPointAlternatives": [
+          [
+            "dyes travel ethanol"
+          ],
+          [
+            "water not reveal components"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The dyes dissolve and travel in ethanol, giving separated spots. Water does not move the sample enough to reveal its components."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The dyes dissolve and travel in ethanol, giving separated spots. Water does not move the sample enough to reveal its components.",
+        "steps": [
+          "The dyes dissolve and travel in ethanol, giving separated spots. Water does not move the sample enough to reveal its components.",
+          "A sample that does not move cannot give useful separation in that solvent."
+        ],
+        "commonError": "A sample that does not move cannot give useful separation in that solvent.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-046-practice",
+      "conceptId": "chem-school-aqa-safety-cause",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "A student proposes heating an ethanol chromatography beaker with a Bunsen burner. Identify the hazard and suggest a safer action.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "ethanol flammable",
+          "away naked flames"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "no Bunsen heating",
+            "do not use flame"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Ethanol is flammable. Keep it away from naked flames and carry out chromatography without Bunsen heating."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Ethanol is flammable. Keep it away from naked flames and carry out chromatography without Bunsen heating.",
+        "steps": [
+          "Ethanol is flammable. Keep it away from naked flames and carry out chromatography without Bunsen heating.",
+          "Pair a specific hazard with a specific risk reduction."
+        ],
+        "commonError": "Pair a specific hazard with a specific risk reduction.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-047-practice",
+      "conceptId": "chem-school-aqa-confidence-limits",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "A dye matches a reference Rf in one solvent. Suggest a further chromatography check and explain why it helps.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "different solvent unknown reference",
+          "matching conditions",
+          "match again adds evidence"
+        ],
+        "markPointAlternatives": [
+          [
+            "another solvent unknown reference"
+          ],
+          [],
+          [
+            "second match supports identity"
+          ]
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Run the unknown and reference again using a different solvent under matching conditions. If their Rf values match again, this adds evidence for the suggested identity."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Run the unknown and reference again using a different solvent under matching conditions. If their Rf values match again, this adds evidence for the suggested identity.",
+        "steps": [
+          "Run the unknown and reference again using a different solvent under matching conditions. If their Rf values match again, this adds evidence for the suggested identity.",
+          "Another solvent can separate substances that coincidentally share one Rf value."
+        ],
+        "commonError": "Another solvent can separate substances that coincidentally share one Rf value.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-048-practice",
+      "conceptId": "chem-school-aqa-repeat-v-systematic",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "All three repeat Rf values agree, but the pupil measured every spot from the bottom of the paper instead of the start line. Evaluate the conclusion that agreement proves accuracy.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "repeats consistent",
+          "wrong origin",
+          "agreement not prove accuracy"
+        ],
+        "markPointAlternatives": [
+          [
+            "repeatable results"
+          ],
+          [
+            "systematic error"
+          ],
+          [
+            "consistent not accurate"
+          ]
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "The repeats are consistent, but all use the wrong origin and share a systematic error. Agreement alone does not prove accuracy."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "The repeats are consistent, but all use the wrong origin and share a systematic error. Agreement alone does not prove accuracy.",
+        "steps": [
+          "The repeats are consistent, but all use the wrong origin and share a systematic error. Agreement alone does not prove accuracy.",
+          "A repeated mistake can produce repeatable but inaccurate results."
+        ],
+        "commonError": "A repeated mistake can produce repeatable but inaccurate results.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-049-practice",
+      "conceptId": "chem-school-aqa-measurement-record",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "State two distances needed for an Rf calculation and describe exactly where each should be measured from and to.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "start line centre dye spot",
+          "start line solvent front"
+        ],
+        "markPointAlternatives": [
+          [
+            "start line middle spot"
+          ],
+          []
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Measure from the start line to the centre of the dye spot, and from the same start line to the solvent front."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Measure from the start line to the centre of the dye spot, and from the same start line to the solvent front.",
+        "steps": [
+          "Measure from the start line to the centre of the dye spot, and from the same start line to the solvent front.",
+          "Use the same origin for both measurements."
+        ],
+        "commonError": "Use the same origin for both measurements.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-050-practice",
+      "conceptId": "chem-school-aqa-applicator-contamination",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "A student uses the same unwashed applicator to transfer two different inks onto separate positions. Explain how this could affect the conclusions and suggest an improvement.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "second ink contaminated",
+          "extra spots",
+          "clean applicator each ink"
+        ],
+        "markPointAlternatives": [
+          [
+            "first ink transferred second"
+          ],
+          [
+            "incorrect dye identity"
+          ],
+          [
+            "different applicator each ink"
+          ]
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "The second ink may be contaminated by the first and produce extra spots. Use a clean applicator for each ink."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "The second ink may be contaminated by the first and produce extra spots. Use a clean applicator for each ink.",
+        "steps": [
+          "The second ink may be contaminated by the first and produce extra spots. Use a clean applicator for each ink.",
+          "Prevent transfer between samples before comparing their components."
+        ],
+        "commonError": "Prevent transfer between samples before comparing their components.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-051-practice",
+      "conceptId": "chem-school-aqa-offset-multistep",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "calculation",
+      "prompt": "A ruler reads 12 mm at the start line, 52 mm at the spot centre and 92 mm at the front. Calculate Rf, showing how you find both travel distances.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 0.5,
+        "units": [],
+        "working": "Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50.",
+        "tolerance": 1e-05,
+        "modelAnswer": "0.5"
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50. Final answer: 0.5.",
+        "steps": [
+          "Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50.",
+          "Show the distance calculation or rearranged relationship, then give the final answer."
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Enter your final value with the required unit. The worked method appears after submission."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-052-practice",
+      "conceptId": "chem-school-aqa-mixed-unit-multistep",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "calculation",
+      "prompt": "A dye moves 3.6 cm and the solvent front moves 80 mm. Calculate Rf. Show your unit conversion.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 0.45,
+        "units": [],
+        "working": "3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45.",
+        "tolerance": 1e-05,
+        "modelAnswer": "0.45"
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45. Final answer: 0.45.",
+        "steps": [
+          "3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45.",
+          "Show the distance calculation or rearranged relationship, then give the final answer."
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Enter your final value with the required unit. The worked method appears after submission."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-053-practice",
+      "conceptId": "chem-school-aqa-inverse-front-data",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "calculation",
+      "prompt": "A dye spot travels 42 mm and has Rf 0.60. Calculate the solvent-front travel distance. Show your rearrangement and give mm.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 70,
+        "units": [
+          "mm"
+        ],
+        "working": "Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm.",
+        "tolerance": 1e-05,
+        "modelAnswer": "70 mm"
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm. Final answer: 70 mm.",
+        "steps": [
+          "Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm.",
+          "Show the distance calculation or rearranged relationship, then give the final answer."
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Enter your final value with the required unit. The worked method appears after submission."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-054-practice",
+      "conceptId": "chem-school-aqa-spot-to-ruler-position",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "calculation",
+      "prompt": "A start line is at ruler reading 9 mm. The front travels 80 mm from that line and the dye has Rf 0.40. Calculate the ruler reading at the spot centre, in mm.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 41,
+        "units": [
+          "mm"
+        ],
+        "working": "Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm.",
+        "tolerance": 1e-05,
+        "modelAnswer": "41 mm"
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm. Final answer: 41 mm.",
+        "steps": [
+          "Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm.",
+          "Show the distance calculation or rearranged relationship, then give the final answer."
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Enter your final value with the required unit. The worked method appears after submission."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-055-practice",
+      "conceptId": "chem-school-aqa-mean-excluding-anomaly",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "calculation",
+      "prompt": "Four Rf readings are 0.41, 0.42, 0.80 and 0.43. The 0.80 run had a documented measurement error. Calculate the mean of the other three values, showing your working.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 0.42,
+        "units": [],
+        "working": "Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42.",
+        "tolerance": 1e-05,
+        "modelAnswer": "0.42"
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42. Final answer: 0.42.",
+        "steps": [
+          "Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42.",
+          "Show the distance calculation or rearranged relationship, then give the final answer."
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Enter your final value with the required unit. The worked method appears after submission."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-056-practice",
+      "conceptId": "chem-school-aqa-spot-centre-from-edges",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "calculation",
+      "prompt": "A spot extends from ruler reading 28 mm to 34 mm. The start line is at 10 mm and front at 70 mm. Calculate Rf using the centre of the spot.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 0.35,
+        "units": [],
+        "working": "Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35.",
+        "tolerance": 1e-05,
+        "modelAnswer": "0.35"
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35. Final answer: 0.35.",
+        "steps": [
+          "Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35.",
+          "Show the distance calculation or rearranged relationship, then give the final answer."
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Enter your final value with the required unit. The worked method appears after submission."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-057-practice",
+      "conceptId": "chem-school-aqa-front-gap-prediction",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "calculation",
+      "prompt": "A dye travels 18 mm when the front travels 30 mm. In a new run under the same conditions the front travels 90 mm. Calculate the gap between the dye centre and the new solvent front, in mm.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 36,
+        "units": [
+          "mm"
+        ],
+        "working": "Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm.",
+        "tolerance": 1e-05,
+        "modelAnswer": "36 mm"
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm. Final answer: 36 mm.",
+        "steps": [
+          "Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm.",
+          "Show the distance calculation or rearranged relationship, then give the final answer."
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Enter your final value with the required unit. The worked method appears after submission."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-058-practice",
+      "conceptId": "chem-school-aqa-rf-difference-offset",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "calculation",
+      "prompt": "The start line is at 5 mm, front at 85 mm, spot A at 25 mm and spot B at 61 mm. Calculate how much B’s Rf exceeds A’s.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 0.45,
+        "units": [],
+        "working": "Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45.",
+        "tolerance": 1e-05,
+        "modelAnswer": "0.45"
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45. Final answer: 0.45.",
+        "steps": [
+          "Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45.",
+          "Show the distance calculation or rearranged relationship, then give the final answer."
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Enter your final value with the required unit. The worked method appears after submission."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-059-practice",
+      "conceptId": "chem-school-aqa-front-distance-unit-result",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "calculation",
+      "prompt": "A spot travelled 4.8 cm and has Rf 0.80. Calculate the solvent-front distance in mm.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 60,
+        "units": [
+          "mm"
+        ],
+        "working": "Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm.",
+        "tolerance": 1e-05,
+        "modelAnswer": "60 mm"
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm. Final answer: 60 mm.",
+        "steps": [
+          "Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm.",
+          "Show the distance calculation or rearranged relationship, then give the final answer."
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Enter your final value with the required unit. The worked method appears after submission."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-060-practice",
+      "conceptId": "chem-school-aqa-round-from-centre",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "calculation",
+      "prompt": "A start line is at 7 mm, a dye centre at 36 mm and the front at 71 mm. Calculate Rf to two decimal places, showing your distances.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 0.45,
+        "units": [],
+        "working": "Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45.",
+        "tolerance": 1e-05,
+        "modelAnswer": "0.45"
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45. Final answer: 0.45.",
+        "steps": [
+          "Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45.",
+          "Show the distance calculation or rearranged relationship, then give the final answer."
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Enter your final value with the required unit. The worked method appears after submission."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "contentTier": "school_aqa_style"
     }
   ],
-  "enabled": 79,
+  "enabled": 109,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 28,
     "typed_exact": 11,
     "spelling_restore": 14,
-    "mark_points": 16,
+    "mark_points": 36,
     "typed_short": 3,
     "matching": 3,
-    "calculation": 1,
+    "calculation": 11,
+    "word_tiles": 1,
     "practical_design": 1,
-    "diagram_label": 1,
-    "word_tiles": 1
+    "diagram_label": 1
   },
   "gated": false,
   "note": {
@@ -3368,6 +4803,11 @@
         "source": "The Tiffin Girls’ School Year 9 Chemistry Curriculum Outline 2026–27",
         "locator": "Department: Chemistry · Year 9 · AQA GCSE Chemistry 8462",
         "url": "https://fra1.digitaloceanspaces.com/tiffingirls.org/wp-content/uploads/2026/07/10113937/Year-9-Chemistry-Curriculum-Outline-2026-2027.docx.pdf"
+      },
+      {
+        "source": "Supplied school lessons and RP6 lab book, reread 30 September 2026",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7",
+        "body": "Original GCSE AQA-style short questions, restricted to the relevant taught content. Use evidence, explain cause and effect, and show calculation working."
       }
     ]
   }

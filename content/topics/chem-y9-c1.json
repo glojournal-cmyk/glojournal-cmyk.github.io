@@ -2718,16 +2718,631 @@
       },
       "preview": true,
       "ordinary": true
+    },
+    {
+      "id": "chem-aqa-20260930-001-practice",
+      "conceptId": "chem-school-aqa-mass-v-properties",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "format": "mark_points",
+      "prompt": "Elements X and Y have similar chemical properties, but strict atomic-mass order would put them in different groups. Explain why Mendeleev could place them together.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "similar chemical properties",
+          "changed atomic mass order"
+        ],
+        "markPointAlternatives": [
+          [
+            "similar properties"
+          ],
+          [
+            "swapped positions",
+            "not strict mass order"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "He prioritised similar chemical properties and changed the strict atomic-mass order where needed."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "He prioritised similar chemical properties and changed the strict atomic-mass order where needed.",
+        "steps": [
+          "He prioritised similar chemical properties and changed the strict atomic-mass order where needed.",
+          "Link the chosen grouping to the decision to change the order."
+        ],
+        "commonError": "Link the chosen grouping to the decision to change the order.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-002-practice",
+      "conceptId": "chem-school-aqa-gaps-v-forcing",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "format": "mark_points",
+      "prompt": "A table leaves no gaps and puts unlike elements in one group. Explain two changes Mendeleev made to improve this arrangement.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "gaps for undiscovered elements",
+          "similar chemical properties"
+        ],
+        "markPointAlternatives": [
+          [
+            "spaces for undiscovered elements"
+          ],
+          [
+            "similar properties together"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "He left gaps for undiscovered elements and grouped elements with similar chemical properties."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "He left gaps for undiscovered elements and grouped elements with similar chemical properties.",
+        "steps": [
+          "He left gaps for undiscovered elements and grouped elements with similar chemical properties.",
+          "State two different improvements, rather than repeating the same point."
+        ],
+        "commonError": "State two different improvements, rather than repeating the same point.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-003-practice",
+      "conceptId": "chem-school-aqa-prediction-evidence",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "format": "mark_points",
+      "prompt": "A newly discovered element has almost the same properties as Mendeleev predicted for an empty position. Explain why this supports his table.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "predicted properties matched observed properties",
+          "supported grouping"
+        ],
+        "markPointAlternatives": [
+          [
+            "prediction matched discovery"
+          ],
+          [
+            "supported gap",
+            "supported table"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The predicted properties matched the observed properties of the new element. This supported the grouping and the gap he had proposed."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The predicted properties matched the observed properties of the new element. This supported the grouping and the gap he had proposed.",
+        "steps": [
+          "The predicted properties matched the observed properties of the new element. This supported the grouping and the gap he had proposed.",
+          "Describe the matching evidence and explain which part of the model it supports."
+        ],
+        "commonError": "Describe the matching evidence and explain which part of the model it supports.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-004-practice",
+      "conceptId": "chem-school-aqa-overclaim-proof",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "format": "mark_points",
+      "prompt": "A pupil says one successful prediction proves every part of Mendeleev’s table is correct. Evaluate this claim.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "matching discovery supports table",
+          "does not prove every part"
+        ],
+        "markPointAlternatives": [
+          [
+            "prediction supports table"
+          ],
+          [
+            "not prove whole table",
+            "further evidence needed"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The matching discovery supports the table, but one prediction does not prove every part. Further evidence is needed."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The matching discovery supports the table, but one prediction does not prove every part. Further evidence is needed.",
+        "steps": [
+          "The matching discovery supports the table, but one prediction does not prove every part. Further evidence is needed.",
+          "Distinguish evidence that supports a model from proof that the whole model must be correct."
+        ],
+        "commonError": "Distinguish evidence that supports a model from proof that the whole model must be correct.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-005-practice",
+      "conceptId": "chem-school-aqa-octaves-application",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "format": "mark_points",
+      "prompt": "Newlands’ pattern puts copper and potassium together despite their very different reactions. Explain why this is a weakness of the arrangement.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "different chemical properties",
+          "pattern does not group similar elements"
+        ],
+        "markPointAlternatives": [
+          [
+            "different properties"
+          ],
+          [
+            "pattern failed",
+            "unlike elements grouped"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The elements have different chemical properties, so the repeating pattern does not group similar elements successfully."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The elements have different chemical properties, so the repeating pattern does not group similar elements successfully.",
+        "steps": [
+          "The elements have different chemical properties, so the repeating pattern does not group similar elements successfully.",
+          "Use the properties given in the question to explain the weakness."
+        ],
+        "commonError": "Use the properties given in the question to explain the weakness.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-006-practice",
+      "conceptId": "chem-school-aqa-mass-modern-distinction",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "format": "mark_points",
+      "prompt": "Compare the ordering used by Newlands with the ordering of the modern periodic table.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Newlands increasing relative atomic mass",
+          "modern atomic number"
+        ],
+        "markPointAlternatives": [
+          [
+            "Newlands atomic mass",
+            "Newlands atomic weight"
+          ],
+          [
+            "modern proton number"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Newlands used increasing relative atomic mass. The modern table uses increasing atomic number."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Newlands used increasing relative atomic mass. The modern table uses increasing atomic number.",
+        "steps": [
+          "Newlands used increasing relative atomic mass. The modern table uses increasing atomic number.",
+          "Keep atomic mass and atomic number distinct."
+        ],
+        "commonError": "Keep atomic mass and atomic number distinct.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-007-practice",
+      "conceptId": "chem-school-aqa-gaps-testable",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "format": "mark_points",
+      "prompt": "Explain how an empty position in Mendeleev’s table could lead to a testable prediction.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "undiscovered element",
+          "group predict properties",
+          "compare later discovery"
+        ],
+        "markPointAlternatives": [
+          [
+            "missing element"
+          ],
+          [
+            "similar elements predict properties"
+          ],
+          [
+            "compare observed properties",
+            "test predicted properties"
+          ]
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "The gap suggested an undiscovered element. The properties of elements in its group could be used to predict its properties, then compared with a later discovery."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "The gap suggested an undiscovered element. The properties of elements in its group could be used to predict its properties, then compared with a later discovery.",
+        "steps": [
+          "The gap suggested an undiscovered element. The properties of elements in its group could be used to predict its properties, then compared with a later discovery.",
+          "Include the gap, the prediction and a way to test it."
+        ],
+        "commonError": "Include the gap, the prediction and a way to test it.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-008-practice",
+      "conceptId": "chem-school-aqa-newlands-evidence",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "format": "mark_points",
+      "prompt": "A table follows atomic-mass order, leaves no gaps and sometimes puts two elements in one place. Give two observations that explain why the arrangement was criticised.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "no gaps",
+          "two elements one place"
+        ],
+        "markPointAlternatives": [
+          [
+            "no spaces"
+          ],
+          [
+            "two elements same position"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "It left no gaps for undiscovered elements and sometimes put two elements in one place."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "It left no gaps for undiscovered elements and sometimes put two elements in one place.",
+        "steps": [
+          "It left no gaps for undiscovered elements and sometimes put two elements in one place.",
+          "Use two pieces of evidence from the description."
+        ],
+        "commonError": "Use two pieces of evidence from the description.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-009-practice",
+      "conceptId": "chem-school-aqa-incomplete-list",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "format": "mark_points",
+      "prompt": "An early list includes substances later shown to be compounds. Explain why those substances should be removed from a list of elements.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "more than one element chemically combined",
+          "not an element"
+        ],
+        "markPointAlternatives": [
+          [
+            "two elements chemically combined"
+          ],
+          [
+            "not itself element"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "A compound contains more than one element chemically combined. It is not itself an element."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "A compound contains more than one element chemically combined. It is not itself an element.",
+        "steps": [
+          "A compound contains more than one element chemically combined. It is not itself an element.",
+          "Use the distinction between an element and a compound."
+        ],
+        "commonError": "Use the distinction between an element and a compound.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-010-practice",
+      "conceptId": "chem-school-aqa-discovery-revision",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "format": "mark_points",
+      "prompt": "An element discovered after a table was published does not fit the expected properties. Suggest what scientists should do and explain why.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "check evidence",
+          "revise arrangement",
+          "account observed properties"
+        ],
+        "markPointAlternatives": [
+          [
+            "repeat measurements",
+            "check measurements"
+          ],
+          [
+            "revise model",
+            "change table"
+          ],
+          [
+            "fit evidence",
+            "explain evidence"
+          ]
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "They should check the new evidence and revise the arrangement if needed, because the model must account for the observed properties."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "They should check the new evidence and revise the arrangement if needed, because the model must account for the observed properties.",
+        "steps": [
+          "They should check the new evidence and revise the arrangement if needed, because the model must account for the observed properties.",
+          "Checking evidence comes before accepting or rejecting a model."
+        ],
+        "commonError": "Checking evidence comes before accepting or rejecting a model.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-011-practice",
+      "conceptId": "chem-school-aqa-only-known-elements",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "format": "mark_points",
+      "prompt": "A pupil says Mendeleev could only arrange elements already known, so he could not predict new ones. Explain why this statement is wrong.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "gaps for undiscovered elements",
+          "similar properties predict"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "pattern predict properties"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "He left gaps for undiscovered elements and used the pattern of similar properties to predict what would fit those gaps."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "He left gaps for undiscovered elements and used the pattern of similar properties to predict what would fit those gaps.",
+        "steps": [
+          "He left gaps for undiscovered elements and used the pattern of similar properties to predict what would fit those gaps.",
+          "His predictions used the pattern in known elements."
+        ],
+        "commonError": "His predictions used the pattern in known elements.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-012-practice",
+      "conceptId": "chem-school-aqa-scientist-comparison",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "format": "mark_points",
+      "prompt": "Both Newlands and Mendeleev used atomic mass. Give one important difference in their treatment of undiscovered elements and one difference in their treatment of chemical properties.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Newlands no gaps Mendeleev gaps",
+          "prioritised similar properties"
+        ],
+        "markPointAlternatives": [
+          [
+            "Mendeleev left gaps Newlands did not"
+          ],
+          [
+            "unlike elements repeating pattern"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Newlands left no gaps, whereas Mendeleev left gaps. Mendeleev prioritised similar chemical properties instead of forcing unlike elements into the repeating pattern."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Newlands left no gaps, whereas Mendeleev left gaps. Mendeleev prioritised similar chemical properties instead of forcing unlike elements into the repeating pattern.",
+        "steps": [
+          "Newlands left no gaps, whereas Mendeleev left gaps. Mendeleev prioritised similar chemical properties instead of forcing unlike elements into the repeating pattern.",
+          "Answer both comparisons explicitly."
+        ],
+        "commonError": "Answer both comparisons explicitly.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "contentTier": "school_aqa_style"
     }
   ],
-  "enabled": 66,
+  "enabled": 78,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 24,
     "typed_exact": 5,
     "spelling_restore": 12,
-    "mark_points": 14,
+    "mark_points": 26,
     "typed_short": 7,
     "matching": 3,
     "word_tiles": 1
@@ -2833,6 +3448,11 @@
         "source": "The Tiffin Girls’ School Year 9 Chemistry Curriculum Outline 2026–27",
         "locator": "Department: Chemistry · Year 9 · AQA GCSE Chemistry 8462",
         "url": "https://fra1.digitaloceanspaces.com/tiffingirls.org/wp-content/uploads/2026/07/10113937/Year-9-Chemistry-Curriculum-Outline-2026-2027.docx.pdf"
+      },
+      {
+        "source": "Supplied school lessons and RP6 lab book, reread 30 September 2026",
+        "locator": "slides 1–7; revision notes page 1",
+        "body": "Original GCSE AQA-style short questions, restricted to the relevant taught content. Use evidence, explain cause and effect, and show calculation working."
       }
     ]
   }

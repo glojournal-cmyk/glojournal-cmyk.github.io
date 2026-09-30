@@ -2,7 +2,7 @@
   "id": "chemistry-school-1",
   "title": "Year 9 Chemistry: Periodic Table, separation and RP6",
   "timeMinutes": 45,
-  "totalMarks": 30,
+  "totalMarks": null,
   "dueDate": "2026-09-29",
   "questions": [
     {
@@ -4080,7 +4080,4004 @@
       "conceptId": "chem-rf-calc-rounded-rf",
       "modelAnswer": "0.57",
       "workedSolution": "41 ÷ 72 = 0.5694…; to two decimal places Rf = 0.57."
+    },
+    {
+      "id": "chem-aqa-20260930-001",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-mass-v-properties",
+      "prompt": "Elements X and Y have similar chemical properties, but strict atomic-mass order would put them in different groups. Explain why Mendeleev could place them together.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "He prioritised similar chemical properties and changed the strict atomic-mass order where needed."
+        ],
+        "points": [
+          {
+            "label": "similar chemical properties",
+            "alternatives": [
+              "similar chemical properties",
+              "similar properties"
+            ]
+          },
+          {
+            "label": "changed atomic mass order",
+            "alternatives": [
+              "changed atomic mass order",
+              "swapped positions",
+              "not strict mass order"
+            ]
+          }
+        ],
+        "modelAnswer": "He prioritised similar chemical properties and changed the strict atomic-mass order where needed.",
+        "markPoints": [
+          "similar chemical properties",
+          "changed atomic mass order"
+        ],
+        "markPointAlternatives": [
+          [
+            "similar properties"
+          ],
+          [
+            "swapped positions",
+            "not strict mass order"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "He prioritised similar chemical properties and changed the strict atomic-mass order where needed.",
+      "markKeywords": [
+        "similar chemical properties",
+        "changed atomic mass order"
+      ],
+      "hint": "Link the chosen grouping to the decision to change the order.",
+      "feedback": {
+        "short": "He prioritised similar chemical properties and changed the strict atomic-mass order where needed.",
+        "commonError": "Link the chosen grouping to the decision to change the order."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-002",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-gaps-v-forcing",
+      "prompt": "A table leaves no gaps and puts unlike elements in one group. Explain two changes Mendeleev made to improve this arrangement.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "He left gaps for undiscovered elements and grouped elements with similar chemical properties."
+        ],
+        "points": [
+          {
+            "label": "gaps for undiscovered elements",
+            "alternatives": [
+              "gaps for undiscovered elements",
+              "spaces for undiscovered elements"
+            ]
+          },
+          {
+            "label": "similar chemical properties",
+            "alternatives": [
+              "similar chemical properties",
+              "similar properties together"
+            ]
+          }
+        ],
+        "modelAnswer": "He left gaps for undiscovered elements and grouped elements with similar chemical properties.",
+        "markPoints": [
+          "gaps for undiscovered elements",
+          "similar chemical properties"
+        ],
+        "markPointAlternatives": [
+          [
+            "spaces for undiscovered elements"
+          ],
+          [
+            "similar properties together"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "He left gaps for undiscovered elements and grouped elements with similar chemical properties.",
+      "markKeywords": [
+        "gaps for undiscovered elements",
+        "similar chemical properties"
+      ],
+      "hint": "State two different improvements, rather than repeating the same point.",
+      "feedback": {
+        "short": "He left gaps for undiscovered elements and grouped elements with similar chemical properties.",
+        "commonError": "State two different improvements, rather than repeating the same point."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-003",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-prediction-evidence",
+      "prompt": "A newly discovered element has almost the same properties as Mendeleev predicted for an empty position. Explain why this supports his table.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The predicted properties matched the observed properties of the new element. This supported the grouping and the gap he had proposed."
+        ],
+        "points": [
+          {
+            "label": "predicted properties matched observed properties",
+            "alternatives": [
+              "predicted properties matched observed properties",
+              "prediction matched discovery"
+            ]
+          },
+          {
+            "label": "supported grouping",
+            "alternatives": [
+              "supported grouping",
+              "supported gap",
+              "supported table"
+            ]
+          }
+        ],
+        "modelAnswer": "The predicted properties matched the observed properties of the new element. This supported the grouping and the gap he had proposed.",
+        "markPoints": [
+          "predicted properties matched observed properties",
+          "supported grouping"
+        ],
+        "markPointAlternatives": [
+          [
+            "prediction matched discovery"
+          ],
+          [
+            "supported gap",
+            "supported table"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "The predicted properties matched the observed properties of the new element. This supported the grouping and the gap he had proposed.",
+      "markKeywords": [
+        "predicted properties matched observed properties",
+        "supported grouping"
+      ],
+      "hint": "Describe the matching evidence and explain which part of the model it supports.",
+      "feedback": {
+        "short": "The predicted properties matched the observed properties of the new element. This supported the grouping and the gap he had proposed.",
+        "commonError": "Describe the matching evidence and explain which part of the model it supports."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-004",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-overclaim-proof",
+      "prompt": "A pupil says one successful prediction proves every part of Mendeleev’s table is correct. Evaluate this claim.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The matching discovery supports the table, but one prediction does not prove every part. Further evidence is needed."
+        ],
+        "points": [
+          {
+            "label": "matching discovery supports table",
+            "alternatives": [
+              "matching discovery supports table",
+              "prediction supports table"
+            ]
+          },
+          {
+            "label": "does not prove every part",
+            "alternatives": [
+              "does not prove every part",
+              "not prove whole table",
+              "further evidence needed"
+            ]
+          }
+        ],
+        "modelAnswer": "The matching discovery supports the table, but one prediction does not prove every part. Further evidence is needed.",
+        "markPoints": [
+          "matching discovery supports table",
+          "does not prove every part"
+        ],
+        "markPointAlternatives": [
+          [
+            "prediction supports table"
+          ],
+          [
+            "not prove whole table",
+            "further evidence needed"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "The matching discovery supports the table, but one prediction does not prove every part. Further evidence is needed.",
+      "markKeywords": [
+        "matching discovery supports table",
+        "does not prove every part"
+      ],
+      "hint": "Distinguish evidence that supports a model from proof that the whole model must be correct.",
+      "feedback": {
+        "short": "The matching discovery supports the table, but one prediction does not prove every part. Further evidence is needed.",
+        "commonError": "Distinguish evidence that supports a model from proof that the whole model must be correct."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-005",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-octaves-application",
+      "prompt": "Newlands’ pattern puts copper and potassium together despite their very different reactions. Explain why this is a weakness of the arrangement.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The elements have different chemical properties, so the repeating pattern does not group similar elements successfully."
+        ],
+        "points": [
+          {
+            "label": "different chemical properties",
+            "alternatives": [
+              "different chemical properties",
+              "different properties"
+            ]
+          },
+          {
+            "label": "pattern does not group similar elements",
+            "alternatives": [
+              "pattern does not group similar elements",
+              "pattern failed",
+              "unlike elements grouped"
+            ]
+          }
+        ],
+        "modelAnswer": "The elements have different chemical properties, so the repeating pattern does not group similar elements successfully.",
+        "markPoints": [
+          "different chemical properties",
+          "pattern does not group similar elements"
+        ],
+        "markPointAlternatives": [
+          [
+            "different properties"
+          ],
+          [
+            "pattern failed",
+            "unlike elements grouped"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "The elements have different chemical properties, so the repeating pattern does not group similar elements successfully.",
+      "markKeywords": [
+        "different chemical properties",
+        "pattern does not group similar elements"
+      ],
+      "hint": "Use the properties given in the question to explain the weakness.",
+      "feedback": {
+        "short": "The elements have different chemical properties, so the repeating pattern does not group similar elements successfully.",
+        "commonError": "Use the properties given in the question to explain the weakness."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-006",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-mass-modern-distinction",
+      "prompt": "Compare the ordering used by Newlands with the ordering of the modern periodic table.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Newlands used increasing relative atomic mass. The modern table uses increasing atomic number."
+        ],
+        "points": [
+          {
+            "label": "Newlands increasing relative atomic mass",
+            "alternatives": [
+              "Newlands increasing relative atomic mass",
+              "Newlands atomic mass",
+              "Newlands atomic weight"
+            ]
+          },
+          {
+            "label": "modern atomic number",
+            "alternatives": [
+              "modern atomic number",
+              "modern proton number"
+            ]
+          }
+        ],
+        "modelAnswer": "Newlands used increasing relative atomic mass. The modern table uses increasing atomic number.",
+        "markPoints": [
+          "Newlands increasing relative atomic mass",
+          "modern atomic number"
+        ],
+        "markPointAlternatives": [
+          [
+            "Newlands atomic mass",
+            "Newlands atomic weight"
+          ],
+          [
+            "modern proton number"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "Newlands used increasing relative atomic mass. The modern table uses increasing atomic number.",
+      "markKeywords": [
+        "Newlands increasing relative atomic mass",
+        "modern atomic number"
+      ],
+      "hint": "Keep atomic mass and atomic number distinct.",
+      "feedback": {
+        "short": "Newlands used increasing relative atomic mass. The modern table uses increasing atomic number.",
+        "commonError": "Keep atomic mass and atomic number distinct."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-007",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-gaps-testable",
+      "prompt": "Explain how an empty position in Mendeleev’s table could lead to a testable prediction.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The gap suggested an undiscovered element. The properties of elements in its group could be used to predict its properties, then compared with a later discovery."
+        ],
+        "points": [
+          {
+            "label": "undiscovered element",
+            "alternatives": [
+              "undiscovered element",
+              "missing element"
+            ]
+          },
+          {
+            "label": "group predict properties",
+            "alternatives": [
+              "group predict properties",
+              "similar elements predict properties"
+            ]
+          },
+          {
+            "label": "compare later discovery",
+            "alternatives": [
+              "compare later discovery",
+              "compare observed properties",
+              "test predicted properties"
+            ]
+          }
+        ],
+        "modelAnswer": "The gap suggested an undiscovered element. The properties of elements in its group could be used to predict its properties, then compared with a later discovery.",
+        "markPoints": [
+          "undiscovered element",
+          "group predict properties",
+          "compare later discovery"
+        ],
+        "markPointAlternatives": [
+          [
+            "missing element"
+          ],
+          [
+            "similar elements predict properties"
+          ],
+          [
+            "compare observed properties",
+            "test predicted properties"
+          ]
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "The gap suggested an undiscovered element. The properties of elements in its group could be used to predict its properties, then compared with a later discovery.",
+      "markKeywords": [
+        "undiscovered element",
+        "group predict properties",
+        "compare later discovery"
+      ],
+      "hint": "Include the gap, the prediction and a way to test it.",
+      "feedback": {
+        "short": "The gap suggested an undiscovered element. The properties of elements in its group could be used to predict its properties, then compared with a later discovery.",
+        "commonError": "Include the gap, the prediction and a way to test it."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-008",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-newlands-evidence",
+      "prompt": "A table follows atomic-mass order, leaves no gaps and sometimes puts two elements in one place. Give two observations that explain why the arrangement was criticised.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "It left no gaps for undiscovered elements and sometimes put two elements in one place."
+        ],
+        "points": [
+          {
+            "label": "no gaps",
+            "alternatives": [
+              "no gaps",
+              "no spaces"
+            ]
+          },
+          {
+            "label": "two elements one place",
+            "alternatives": [
+              "two elements one place",
+              "two elements same position"
+            ]
+          }
+        ],
+        "modelAnswer": "It left no gaps for undiscovered elements and sometimes put two elements in one place.",
+        "markPoints": [
+          "no gaps",
+          "two elements one place"
+        ],
+        "markPointAlternatives": [
+          [
+            "no spaces"
+          ],
+          [
+            "two elements same position"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "It left no gaps for undiscovered elements and sometimes put two elements in one place.",
+      "markKeywords": [
+        "no gaps",
+        "two elements one place"
+      ],
+      "hint": "Use two pieces of evidence from the description.",
+      "feedback": {
+        "short": "It left no gaps for undiscovered elements and sometimes put two elements in one place.",
+        "commonError": "Use two pieces of evidence from the description."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-009",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-incomplete-list",
+      "prompt": "An early list includes substances later shown to be compounds. Explain why those substances should be removed from a list of elements.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "A compound contains more than one element chemically combined. It is not itself an element."
+        ],
+        "points": [
+          {
+            "label": "more than one element chemically combined",
+            "alternatives": [
+              "more than one element chemically combined",
+              "two elements chemically combined"
+            ]
+          },
+          {
+            "label": "not an element",
+            "alternatives": [
+              "not an element",
+              "not itself element"
+            ]
+          }
+        ],
+        "modelAnswer": "A compound contains more than one element chemically combined. It is not itself an element.",
+        "markPoints": [
+          "more than one element chemically combined",
+          "not an element"
+        ],
+        "markPointAlternatives": [
+          [
+            "two elements chemically combined"
+          ],
+          [
+            "not itself element"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "A compound contains more than one element chemically combined. It is not itself an element.",
+      "markKeywords": [
+        "more than one element chemically combined",
+        "not an element"
+      ],
+      "hint": "Use the distinction between an element and a compound.",
+      "feedback": {
+        "short": "A compound contains more than one element chemically combined. It is not itself an element.",
+        "commonError": "Use the distinction between an element and a compound."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-010",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-discovery-revision",
+      "prompt": "An element discovered after a table was published does not fit the expected properties. Suggest what scientists should do and explain why.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "They should check the new evidence and revise the arrangement if needed, because the model must account for the observed properties."
+        ],
+        "points": [
+          {
+            "label": "check evidence",
+            "alternatives": [
+              "check evidence",
+              "repeat measurements",
+              "check measurements"
+            ]
+          },
+          {
+            "label": "revise arrangement",
+            "alternatives": [
+              "revise arrangement",
+              "revise model",
+              "change table"
+            ]
+          },
+          {
+            "label": "account observed properties",
+            "alternatives": [
+              "account observed properties",
+              "fit evidence",
+              "explain evidence"
+            ]
+          }
+        ],
+        "modelAnswer": "They should check the new evidence and revise the arrangement if needed, because the model must account for the observed properties.",
+        "markPoints": [
+          "check evidence",
+          "revise arrangement",
+          "account observed properties"
+        ],
+        "markPointAlternatives": [
+          [
+            "repeat measurements",
+            "check measurements"
+          ],
+          [
+            "revise model",
+            "change table"
+          ],
+          [
+            "fit evidence",
+            "explain evidence"
+          ]
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "They should check the new evidence and revise the arrangement if needed, because the model must account for the observed properties.",
+      "markKeywords": [
+        "check evidence",
+        "revise arrangement",
+        "account observed properties"
+      ],
+      "hint": "Checking evidence comes before accepting or rejecting a model.",
+      "feedback": {
+        "short": "They should check the new evidence and revise the arrangement if needed, because the model must account for the observed properties.",
+        "commonError": "Checking evidence comes before accepting or rejecting a model."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-011",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-only-known-elements",
+      "prompt": "A pupil says Mendeleev could only arrange elements already known, so he could not predict new ones. Explain why this statement is wrong.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "He left gaps for undiscovered elements and used the pattern of similar properties to predict what would fit those gaps."
+        ],
+        "points": [
+          {
+            "label": "gaps for undiscovered elements",
+            "alternatives": [
+              "gaps for undiscovered elements"
+            ]
+          },
+          {
+            "label": "similar properties predict",
+            "alternatives": [
+              "similar properties predict",
+              "pattern predict properties"
+            ]
+          }
+        ],
+        "modelAnswer": "He left gaps for undiscovered elements and used the pattern of similar properties to predict what would fit those gaps.",
+        "markPoints": [
+          "gaps for undiscovered elements",
+          "similar properties predict"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "pattern predict properties"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "He left gaps for undiscovered elements and used the pattern of similar properties to predict what would fit those gaps.",
+      "markKeywords": [
+        "gaps for undiscovered elements",
+        "similar properties predict"
+      ],
+      "hint": "His predictions used the pattern in known elements.",
+      "feedback": {
+        "short": "He left gaps for undiscovered elements and used the pattern of similar properties to predict what would fit those gaps.",
+        "commonError": "His predictions used the pattern in known elements."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-012",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-scientist-comparison",
+      "prompt": "Both Newlands and Mendeleev used atomic mass. Give one important difference in their treatment of undiscovered elements and one difference in their treatment of chemical properties.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Newlands left no gaps, whereas Mendeleev left gaps. Mendeleev prioritised similar chemical properties instead of forcing unlike elements into the repeating pattern."
+        ],
+        "points": [
+          {
+            "label": "Newlands no gaps Mendeleev gaps",
+            "alternatives": [
+              "Newlands no gaps Mendeleev gaps",
+              "Mendeleev left gaps Newlands did not"
+            ],
+            "rejectPatterns": [
+              "Newlands\\s+(?:left|leaves|had)\\s+gaps",
+              "Mendeleev\\s+(?:left|leaves|had)\\s+no\\s+gaps"
+            ]
+          },
+          {
+            "label": "prioritised similar properties",
+            "alternatives": [
+              "prioritised similar properties",
+              "unlike elements repeating pattern"
+            ]
+          }
+        ],
+        "modelAnswer": "Newlands left no gaps, whereas Mendeleev left gaps. Mendeleev prioritised similar chemical properties instead of forcing unlike elements into the repeating pattern.",
+        "markPoints": [
+          "Newlands no gaps Mendeleev gaps",
+          "prioritised similar properties"
+        ],
+        "markPointAlternatives": [
+          [
+            "Mendeleev left gaps Newlands did not"
+          ],
+          [
+            "unlike elements repeating pattern"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "Newlands left no gaps, whereas Mendeleev left gaps. Mendeleev prioritised similar chemical properties instead of forcing unlike elements into the repeating pattern.",
+      "markKeywords": [
+        "Newlands no gaps Mendeleev gaps",
+        "prioritised similar properties"
+      ],
+      "hint": "Answer both comparisons explicitly.",
+      "feedback": {
+        "short": "Newlands left no gaps, whereas Mendeleev left gaps. Mendeleev prioritised similar chemical properties instead of forcing unlike elements into the repeating pattern.",
+        "commonError": "Answer both comparisons explicitly."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-013",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-sand-salt-recovery",
+      "prompt": "A mixture contains sand and sodium chloride. Sodium chloride dissolves in water; sand does not. Describe how to obtain dry sand and salt crystals.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 4,
+      "difficulty": 4,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Add water and stir to dissolve the salt. Filter to collect the sand residue. Dry the sand. Partially evaporate the filtrate and cool it to form salt crystals, then separate and dry the crystals."
+        ],
+        "points": [
+          {
+            "label": "water dissolve salt",
+            "alternatives": [
+              "water dissolve salt"
+            ]
+          },
+          {
+            "label": "filter sand residue",
+            "alternatives": [
+              "filter sand residue"
+            ]
+          },
+          {
+            "label": "dry sand",
+            "alternatives": [
+              "dry sand"
+            ]
+          },
+          {
+            "label": "evaporate filtrate cool crystals",
+            "alternatives": [
+              "evaporate filtrate cool crystals",
+              "partially evaporate cool crystallise"
+            ]
+          }
+        ],
+        "modelAnswer": "Add water and stir to dissolve the salt. Filter to collect the sand residue. Dry the sand. Partially evaporate the filtrate and cool it to form salt crystals, then separate and dry the crystals.",
+        "markPoints": [
+          "water dissolve salt",
+          "filter sand residue",
+          "dry sand",
+          "evaporate filtrate cool crystals"
+        ],
+        "markPointAlternatives": [
+          [],
+          [],
+          [],
+          [
+            "partially evaporate cool crystallise"
+          ]
+        ],
+        "totalMarks": 4
+      },
+      "modelAnswer": "Add water and stir to dissolve the salt. Filter to collect the sand residue. Dry the sand. Partially evaporate the filtrate and cool it to form salt crystals, then separate and dry the crystals.",
+      "markKeywords": [
+        "water dissolve salt",
+        "filter sand residue",
+        "dry sand",
+        "evaporate filtrate cool crystals"
+      ],
+      "hint": "Follow both components through the method. Filter before crystallising.",
+      "feedback": {
+        "short": "Add water and stir to dissolve the salt. Filter to collect the sand residue. Dry the sand. Partially evaporate the filtrate and cool it to form salt crystals, then separate and dry the crystals.",
+        "commonError": "Follow both components through the method. Filter before crystallising."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-014",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-salt-through-filter",
+      "prompt": "A pupil filters salt solution but no salt is left on the filter paper. Explain this observation.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The salt is dissolved in the water. The dissolved salt passes through the filter with the water."
+        ],
+        "points": [
+          {
+            "label": "salt dissolved",
+            "alternatives": [
+              "salt dissolved",
+              "dissolved salt"
+            ]
+          },
+          {
+            "label": "passes through filter",
+            "alternatives": [
+              "passes through filter",
+              "passes with water"
+            ]
+          }
+        ],
+        "modelAnswer": "The salt is dissolved in the water. The dissolved salt passes through the filter with the water.",
+        "markPoints": [
+          "salt dissolved",
+          "passes through filter"
+        ],
+        "markPointAlternatives": [
+          [
+            "dissolved salt"
+          ],
+          [
+            "passes with water"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "The salt is dissolved in the water. The dissolved salt passes through the filter with the water.",
+      "markKeywords": [
+        "salt dissolved",
+        "passes through filter"
+      ],
+      "hint": "Filtration removes insoluble particles, rather than a dissolved solute.",
+      "feedback": {
+        "short": "The salt is dissolved in the water. The dissolved salt passes through the filter with the water.",
+        "commonError": "Filtration removes insoluble particles, rather than a dissolved solute."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-015",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-filtrate-not-pure",
+      "prompt": "Cloudy salt water is filtered and becomes clear. A pupil says the filtrate must be pure water. Evaluate this conclusion.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Filtration removes the insoluble particles, but dissolved salt remains in the filtrate. Clear appearance does not show that it is pure water."
+        ],
+        "points": [
+          {
+            "label": "removes insoluble particles",
+            "alternatives": [
+              "removes insoluble particles"
+            ]
+          },
+          {
+            "label": "dissolved salt remains",
+            "alternatives": [
+              "dissolved salt remains",
+              "salt still dissolved"
+            ]
+          },
+          {
+            "label": "clear does not show pure",
+            "alternatives": [
+              "clear does not show pure",
+              "clear not necessarily pure"
+            ]
+          }
+        ],
+        "modelAnswer": "Filtration removes the insoluble particles, but dissolved salt remains in the filtrate. Clear appearance does not show that it is pure water.",
+        "markPoints": [
+          "removes insoluble particles",
+          "dissolved salt remains",
+          "clear does not show pure"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "salt still dissolved"
+          ],
+          [
+            "clear not necessarily pure"
+          ]
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "Filtration removes the insoluble particles, but dissolved salt remains in the filtrate. Clear appearance does not show that it is pure water.",
+      "markKeywords": [
+        "removes insoluble particles",
+        "dissolved salt remains",
+        "clear does not show pure"
+      ],
+      "hint": "Appearance alone does not show whether dissolved substances are present.",
+      "feedback": {
+        "short": "Filtration removes the insoluble particles, but dissolved salt remains in the filtrate. Clear appearance does not show that it is pure water.",
+        "commonError": "Appearance alone does not show whether dissolved substances are present."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-016",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-retain-water",
+      "prompt": "A pupil wants to collect water from a salt solution and heats it in an open evaporating basin. Explain why this fails and name a better technique.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The water escapes as vapour instead of being collected. Use simple distillation to condense and collect the water."
+        ],
+        "points": [
+          {
+            "label": "water escapes vapour",
+            "alternatives": [
+              "water escapes vapour",
+              "water evaporates escapes"
+            ]
+          },
+          {
+            "label": "simple distillation condense collect",
+            "alternatives": [
+              "simple distillation condense collect",
+              "distillation condense water"
+            ]
+          }
+        ],
+        "modelAnswer": "The water escapes as vapour instead of being collected. Use simple distillation to condense and collect the water.",
+        "markPoints": [
+          "water escapes vapour",
+          "simple distillation condense collect"
+        ],
+        "markPointAlternatives": [
+          [
+            "water evaporates escapes"
+          ],
+          [
+            "distillation condense water"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "The water escapes as vapour instead of being collected. Use simple distillation to condense and collect the water.",
+      "markKeywords": [
+        "water escapes vapour",
+        "simple distillation condense collect"
+      ],
+      "hint": "Choose a technique that collects the component the pupil wants.",
+      "feedback": {
+        "short": "The water escapes as vapour instead of being collected. Use simple distillation to condense and collect the water.",
+        "commonError": "Choose a technique that collects the component the pupil wants."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-017",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-condenser-cause",
+      "prompt": "In simple distillation, water vapour enters a cooled condenser. Describe what happens and why.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The vapour loses heat and condenses into liquid water, which can be collected as the distillate."
+        ],
+        "points": [
+          {
+            "label": "loses heat",
+            "alternatives": [
+              "loses heat",
+              "cools down"
+            ]
+          },
+          {
+            "label": "condenses liquid water",
+            "alternatives": [
+              "condenses liquid water",
+              "condensation liquid"
+            ]
+          },
+          {
+            "label": "collected distillate",
+            "alternatives": [
+              "collected distillate",
+              "collect liquid"
+            ]
+          }
+        ],
+        "modelAnswer": "The vapour loses heat and condenses into liquid water, which can be collected as the distillate.",
+        "markPoints": [
+          "loses heat",
+          "condenses liquid water",
+          "collected distillate"
+        ],
+        "markPointAlternatives": [
+          [
+            "cools down"
+          ],
+          [
+            "condensation liquid"
+          ],
+          [
+            "collect liquid"
+          ]
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "The vapour loses heat and condenses into liquid water, which can be collected as the distillate.",
+      "markKeywords": [
+        "loses heat",
+        "condenses liquid water",
+        "collected distillate"
+      ],
+      "hint": "Distinguish boiling in the flask from condensation in the condenser.",
+      "feedback": {
+        "short": "The vapour loses heat and condenses into liquid water, which can be collected as the distillate.",
+        "commonError": "Distinguish boiling in the flask from condensation in the condenser."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-018",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-fractional-data",
+      "prompt": "Liquids A and B mix together. Their boiling points are 65 °C and 80 °C. Name the separation technique and predict which is collected first.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Use fractional distillation. Liquid A is collected first because it has the lower boiling point."
+        ],
+        "points": [
+          {
+            "label": "fractional distillation",
+            "alternatives": [
+              "fractional distillation"
+            ]
+          },
+          {
+            "label": "A lower boiling point",
+            "alternatives": [
+              "A lower boiling point",
+              "A boils first"
+            ]
+          }
+        ],
+        "modelAnswer": "Use fractional distillation. Liquid A is collected first because it has the lower boiling point.",
+        "markPoints": [
+          "fractional distillation",
+          "A lower boiling point"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "A boils first"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "Use fractional distillation. Liquid A is collected first because it has the lower boiling point.",
+      "markKeywords": [
+        "fractional distillation",
+        "A lower boiling point"
+      ],
+      "hint": "Use the boiling-point data in your prediction.",
+      "feedback": {
+        "short": "Use fractional distillation. Liquid A is collected first because it has the lower boiling point.",
+        "commonError": "Use the boiling-point data in your prediction."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-019",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-column-purpose",
+      "prompt": "Explain why a fractionating column helps separate a mixture of liquids with different boiling points.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "It allows repeated vaporisation and condensation. Higher-boiling liquids condense lower in the column while the lower-boiling vapour passes further up."
+        ],
+        "points": [
+          {
+            "label": "repeated vaporisation condensation",
+            "alternatives": [
+              "repeated vaporisation condensation",
+              "repeated evaporation condensation"
+            ]
+          },
+          {
+            "label": "higher boiling condense lower",
+            "alternatives": [
+              "higher boiling condense lower",
+              "lower boiling vapour passes up"
+            ]
+          }
+        ],
+        "modelAnswer": "It allows repeated vaporisation and condensation. Higher-boiling liquids condense lower in the column while the lower-boiling vapour passes further up.",
+        "markPoints": [
+          "repeated vaporisation condensation",
+          "higher boiling condense lower"
+        ],
+        "markPointAlternatives": [
+          [
+            "repeated evaporation condensation"
+          ],
+          [
+            "lower boiling vapour passes up"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "It allows repeated vaporisation and condensation. Higher-boiling liquids condense lower in the column while the lower-boiling vapour passes further up.",
+      "markKeywords": [
+        "repeated vaporisation condensation",
+        "higher boiling condense lower"
+      ],
+      "hint": "Describe what the column does rather than just naming it.",
+      "feedback": {
+        "short": "It allows repeated vaporisation and condensation. Higher-boiling liquids condense lower in the column while the lower-boiling vapour passes further up.",
+        "commonError": "Describe what the column does rather than just naming it."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-020",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-crystals-heat-sensitive",
+      "prompt": "A dissolved solid decomposes if strongly heated to dryness. Describe a suitable way to obtain its crystals.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Gently evaporate some solvent to concentrate the solution, then allow it to cool and form crystals. Separate and dry the crystals."
+        ],
+        "points": [
+          {
+            "label": "evaporate some solvent",
+            "alternatives": [
+              "evaporate some solvent",
+              "partially evaporate",
+              "concentrate solution"
+            ]
+          },
+          {
+            "label": "cool form crystals",
+            "alternatives": [
+              "cool form crystals",
+              "cool crystallise"
+            ]
+          },
+          {
+            "label": "separate dry crystals",
+            "alternatives": [
+              "separate dry crystals",
+              "filter dry crystals"
+            ]
+          }
+        ],
+        "modelAnswer": "Gently evaporate some solvent to concentrate the solution, then allow it to cool and form crystals. Separate and dry the crystals.",
+        "markPoints": [
+          "evaporate some solvent",
+          "cool form crystals",
+          "separate dry crystals"
+        ],
+        "markPointAlternatives": [
+          [
+            "partially evaporate",
+            "concentrate solution"
+          ],
+          [
+            "cool crystallise"
+          ],
+          [
+            "filter dry crystals"
+          ]
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "Gently evaporate some solvent to concentrate the solution, then allow it to cool and form crystals. Separate and dry the crystals.",
+      "markKeywords": [
+        "evaporate some solvent",
+        "cool form crystals",
+        "separate dry crystals"
+      ],
+      "hint": "Do not heat all the way to dryness.",
+      "feedback": {
+        "short": "Gently evaporate some solvent to concentrate the solution, then allow it to cool and form crystals. Separate and dry the crystals.",
+        "commonError": "Do not heat all the way to dryness."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-021",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-cooling-solubility-data",
+      "prompt": "A solute dissolves much better in hot water than cold water. Explain why cooling a concentrated hot solution can form crystals.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The solubility decreases as the solution cools. The excess dissolved solute forms solid crystals."
+        ],
+        "points": [
+          {
+            "label": "solubility decreases cooling",
+            "alternatives": [
+              "solubility decreases cooling",
+              "less soluble cold"
+            ]
+          },
+          {
+            "label": "excess solute forms crystals",
+            "alternatives": [
+              "excess solute forms crystals",
+              "solute crystallises"
+            ]
+          }
+        ],
+        "modelAnswer": "The solubility decreases as the solution cools. The excess dissolved solute forms solid crystals.",
+        "markPoints": [
+          "solubility decreases cooling",
+          "excess solute forms crystals"
+        ],
+        "markPointAlternatives": [
+          [
+            "less soluble cold"
+          ],
+          [
+            "solute crystallises"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "The solubility decreases as the solution cools. The excess dissolved solute forms solid crystals.",
+      "markKeywords": [
+        "solubility decreases cooling",
+        "excess solute forms crystals"
+      ],
+      "hint": "Link the solubility change to formation of a solid.",
+      "feedback": {
+        "short": "The solubility decreases as the solution cools. The excess dissolved solute forms solid crystals.",
+        "commonError": "Link the solubility change to formation of a solid."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-022",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-crystal-drying-error",
+      "prompt": "A pupil weighs newly filtered crystals while they are still wet. Explain how this affects the measured mass and suggest an improvement.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Water on the crystals makes the measured mass too high. Dry the crystals before weighing."
+        ],
+        "points": [
+          {
+            "label": "water mass too high",
+            "alternatives": [
+              "water mass too high",
+              "wet mass too high",
+              "water increases measured mass"
+            ]
+          },
+          {
+            "label": "dry crystals before weighing",
+            "alternatives": [
+              "dry crystals before weighing"
+            ]
+          }
+        ],
+        "modelAnswer": "Water on the crystals makes the measured mass too high. Dry the crystals before weighing.",
+        "markPoints": [
+          "water mass too high",
+          "dry crystals before weighing"
+        ],
+        "markPointAlternatives": [
+          [
+            "wet mass too high",
+            "water increases measured mass"
+          ],
+          []
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "Water on the crystals makes the measured mass too high. Dry the crystals before weighing.",
+      "markKeywords": [
+        "water mass too high",
+        "dry crystals before weighing"
+      ],
+      "hint": "Name the extra material being weighed and the direction of the error.",
+      "feedback": {
+        "short": "Water on the crystals makes the measured mass too high. Dry the crystals before weighing.",
+        "commonError": "Name the extra material being weighed and the direction of the error."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-023",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-solubility-stem",
+      "prompt": "Solid X dissolves in solvent Z, but solid Y does not. Describe how to separate X and Y and recover both dry solids.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 4,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Add solvent Z to dissolve X. Filter to collect Y as residue and dry it. Remove solvent Z from the filtrate to recover X."
+        ],
+        "points": [
+          {
+            "label": "Z dissolve X",
+            "alternatives": [
+              "Z dissolve X",
+              "solvent dissolve X"
+            ]
+          },
+          {
+            "label": "filter Y residue",
+            "alternatives": [
+              "filter Y residue"
+            ]
+          },
+          {
+            "label": "dry Y",
+            "alternatives": [
+              "dry Y",
+              "dry residue"
+            ]
+          },
+          {
+            "label": "remove solvent filtrate recover X",
+            "alternatives": [
+              "remove solvent filtrate recover X",
+              "evaporate filtrate X"
+            ]
+          }
+        ],
+        "modelAnswer": "Add solvent Z to dissolve X. Filter to collect Y as residue and dry it. Remove solvent Z from the filtrate to recover X.",
+        "markPoints": [
+          "Z dissolve X",
+          "filter Y residue",
+          "dry Y",
+          "remove solvent filtrate recover X"
+        ],
+        "markPointAlternatives": [
+          [
+            "solvent dissolve X"
+          ],
+          [],
+          [
+            "dry residue"
+          ],
+          [
+            "evaporate filtrate X"
+          ]
+        ],
+        "totalMarks": 4
+      },
+      "modelAnswer": "Add solvent Z to dissolve X. Filter to collect Y as residue and dry it. Remove solvent Z from the filtrate to recover X.",
+      "markKeywords": [
+        "Z dissolve X",
+        "filter Y residue",
+        "dry Y",
+        "remove solvent filtrate recover X"
+      ],
+      "hint": "Use the solubility facts supplied rather than assuming both solids dissolve.",
+      "feedback": {
+        "short": "Add solvent Z to dissolve X. Filter to collect Y as residue and dry it. Remove solvent Z from the filtrate to recover X.",
+        "commonError": "Use the solubility facts supplied rather than assuming both solids dissolve."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-024",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-water-both-soluble",
+      "prompt": "Two solids both dissolve in water. Explain why adding water and filtering will not separate them.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Both solids dissolve and both pass through the filter in the solution. Neither is retained as a separate insoluble residue."
+        ],
+        "points": [
+          {
+            "label": "both solids dissolve",
+            "alternatives": [
+              "both solids dissolve",
+              "both dissolve"
+            ]
+          },
+          {
+            "label": "both pass through filter",
+            "alternatives": [
+              "both pass through filter",
+              "neither insoluble residue"
+            ]
+          }
+        ],
+        "modelAnswer": "Both solids dissolve and both pass through the filter in the solution. Neither is retained as a separate insoluble residue.",
+        "markPoints": [
+          "both solids dissolve",
+          "both pass through filter"
+        ],
+        "markPointAlternatives": [
+          [
+            "both dissolve"
+          ],
+          [
+            "neither insoluble residue"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "Both solids dissolve and both pass through the filter in the solution. Neither is retained as a separate insoluble residue.",
+      "markKeywords": [
+        "both solids dissolve",
+        "both pass through filter"
+      ],
+      "hint": "An insoluble component is needed for this filtration plan.",
+      "feedback": {
+        "short": "Both solids dissolve and both pass through the filter in the solution. Neither is retained as a separate insoluble residue.",
+        "commonError": "An insoluble component is needed for this filtration plan."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-025",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-distillation-salt-location",
+      "prompt": "After simple distillation of salt solution, where is the salt? Explain your answer.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The salt remains in the distillation flask. Water vaporises and is collected, while the salt does not vaporise at the water’s boiling temperature."
+        ],
+        "points": [
+          {
+            "label": "salt remains flask",
+            "alternatives": [
+              "salt remains flask",
+              "salt left flask"
+            ]
+          },
+          {
+            "label": "water vaporises",
+            "alternatives": [
+              "water vaporises",
+              "water evaporates"
+            ]
+          },
+          {
+            "label": "salt does not vaporise",
+            "alternatives": [
+              "salt does not vaporise",
+              "salt not evaporate"
+            ]
+          }
+        ],
+        "modelAnswer": "The salt remains in the distillation flask. Water vaporises and is collected, while the salt does not vaporise at the water’s boiling temperature.",
+        "markPoints": [
+          "salt remains flask",
+          "water vaporises",
+          "salt does not vaporise"
+        ],
+        "markPointAlternatives": [
+          [
+            "salt left flask"
+          ],
+          [
+            "water evaporates"
+          ],
+          [
+            "salt not evaporate"
+          ]
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "The salt remains in the distillation flask. Water vaporises and is collected, while the salt does not vaporise at the water’s boiling temperature.",
+      "markKeywords": [
+        "salt remains flask",
+        "water vaporises",
+        "salt does not vaporise"
+      ],
+      "hint": "Track the solute and solvent separately.",
+      "feedback": {
+        "short": "The salt remains in the distillation flask. Water vaporises and is collected, while the salt does not vaporise at the water’s boiling temperature.",
+        "commonError": "Track the solute and solvent separately."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-026",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-mixed-method-choice",
+      "prompt": "A water sample contains suspended sand and dissolved salt. Describe how to obtain water without either contaminant.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Filter first to remove the sand. Then use simple distillation to vaporise and condense the water, leaving dissolved salt behind."
+        ],
+        "points": [
+          {
+            "label": "filter remove sand",
+            "alternatives": [
+              "filter remove sand"
+            ]
+          },
+          {
+            "label": "simple distillation",
+            "alternatives": [
+              "simple distillation",
+              "distil water"
+            ]
+          },
+          {
+            "label": "condense water salt behind",
+            "alternatives": [
+              "condense water salt behind",
+              "water collected salt remains"
+            ]
+          }
+        ],
+        "modelAnswer": "Filter first to remove the sand. Then use simple distillation to vaporise and condense the water, leaving dissolved salt behind.",
+        "markPoints": [
+          "filter remove sand",
+          "simple distillation",
+          "condense water salt behind"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "distil water"
+          ],
+          [
+            "water collected salt remains"
+          ]
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "Filter first to remove the sand. Then use simple distillation to vaporise and condense the water, leaving dissolved salt behind.",
+      "markKeywords": [
+        "filter remove sand",
+        "simple distillation",
+        "condense water salt behind"
+      ],
+      "hint": "The two contaminants require different separation steps.",
+      "feedback": {
+        "short": "Filter first to remove the sand. Then use simple distillation to vaporise and condense the water, leaving dissolved salt behind.",
+        "commonError": "The two contaminants require different separation steps."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-027",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-distillate-term",
+      "prompt": "A distillation experiment collects a colourless liquid from blue dye solution. Name the collected liquid as a piece of distillation vocabulary and explain why the blue dye is not expected to be collected with it.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The collected liquid is the distillate. The solvent vaporises and condenses, while the dissolved non-volatile dye remains in the flask."
+        ],
+        "points": [
+          {
+            "label": "distillate",
+            "alternatives": [
+              "distillate"
+            ]
+          },
+          {
+            "label": "solvent vaporises condenses",
+            "alternatives": [
+              "solvent vaporises condenses"
+            ]
+          },
+          {
+            "label": "dye remains flask",
+            "alternatives": [
+              "dye remains flask",
+              "non volatile dye remains"
+            ]
+          }
+        ],
+        "modelAnswer": "The collected liquid is the distillate. The solvent vaporises and condenses, while the dissolved non-volatile dye remains in the flask.",
+        "markPoints": [
+          "distillate",
+          "solvent vaporises condenses",
+          "dye remains flask"
+        ],
+        "markPointAlternatives": [
+          [],
+          [],
+          [
+            "non volatile dye remains"
+          ]
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "The collected liquid is the distillate. The solvent vaporises and condenses, while the dissolved non-volatile dye remains in the flask.",
+      "markKeywords": [
+        "distillate",
+        "solvent vaporises condenses",
+        "dye remains flask"
+      ],
+      "hint": "Colourless alone does not prove purity, but the method explains the separation.",
+      "feedback": {
+        "short": "The collected liquid is the distillate. The solvent vaporises and condenses, while the dissolved non-volatile dye remains in the flask.",
+        "commonError": "Colourless alone does not prove purity, but the method explains the separation."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-028",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-physical-separation",
+      "prompt": "Salt solution is separated into salt and water. Explain why this separation is a physical process.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "No new substances are formed. The salt and water retain their chemical identities."
+        ],
+        "points": [
+          {
+            "label": "no new substances",
+            "alternatives": [
+              "no new substances",
+              "not form new substance"
+            ]
+          },
+          {
+            "label": "retain chemical identities",
+            "alternatives": [
+              "retain chemical identities",
+              "chemical properties unchanged",
+              "still salt water"
+            ]
+          }
+        ],
+        "modelAnswer": "No new substances are formed. The salt and water retain their chemical identities.",
+        "markPoints": [
+          "no new substances",
+          "retain chemical identities"
+        ],
+        "markPointAlternatives": [
+          [
+            "not form new substance"
+          ],
+          [
+            "chemical properties unchanged",
+            "still salt water"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "No new substances are formed. The salt and water retain their chemical identities.",
+      "markKeywords": [
+        "no new substances",
+        "retain chemical identities"
+      ],
+      "hint": "Do not describe separation as making a new compound.",
+      "feedback": {
+        "short": "No new substances are formed. The salt and water retain their chemical identities.",
+        "commonError": "Do not describe separation as making a new compound."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-029",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-evap-v-crystallise",
+      "prompt": "Compare evaporation to dryness with crystallisation from a concentrated solution.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Evaporation to dryness removes all the solvent. Crystallisation uses partial evaporation followed by cooling to form crystals."
+        ],
+        "points": [
+          {
+            "label": "dryness all solvent",
+            "alternatives": [
+              "dryness all solvent",
+              "evaporation all solvent"
+            ]
+          },
+          {
+            "label": "crystallisation partial evaporation cooling",
+            "alternatives": [
+              "crystallisation partial evaporation cooling",
+              "crystallisation cool concentrated solution"
+            ]
+          }
+        ],
+        "modelAnswer": "Evaporation to dryness removes all the solvent. Crystallisation uses partial evaporation followed by cooling to form crystals.",
+        "markPoints": [
+          "dryness all solvent",
+          "crystallisation partial evaporation cooling"
+        ],
+        "markPointAlternatives": [
+          [
+            "evaporation all solvent"
+          ],
+          [
+            "crystallisation cool concentrated solution"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "Evaporation to dryness removes all the solvent. Crystallisation uses partial evaporation followed by cooling to form crystals.",
+      "markKeywords": [
+        "dryness all solvent",
+        "crystallisation partial evaporation cooling"
+      ],
+      "hint": "Mention the amount of solvent removed and the cooling stage.",
+      "feedback": {
+        "short": "Evaporation to dryness removes all the solvent. Crystallisation uses partial evaporation followed by cooling to form crystals.",
+        "commonError": "Mention the amount of solvent removed and the cooling stage."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-030",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-solvent-reuse",
+      "prompt": "A laboratory wants to recover both a dissolved solid and its solvent. Explain why distillation is more suitable than leaving the solution to evaporate in an open dish.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Distillation condenses and collects the solvent for reuse, while the dissolved solid remains. Open evaporation loses the solvent to the surroundings."
+        ],
+        "points": [
+          {
+            "label": "distillation condenses collects solvent",
+            "alternatives": [
+              "distillation condenses collects solvent"
+            ]
+          },
+          {
+            "label": "solid remains",
+            "alternatives": [
+              "solid remains"
+            ]
+          },
+          {
+            "label": "open evaporation loses solvent",
+            "alternatives": [
+              "open evaporation loses solvent"
+            ]
+          }
+        ],
+        "modelAnswer": "Distillation condenses and collects the solvent for reuse, while the dissolved solid remains. Open evaporation loses the solvent to the surroundings.",
+        "markPoints": [
+          "distillation condenses collects solvent",
+          "solid remains",
+          "open evaporation loses solvent"
+        ],
+        "markPointAlternatives": [
+          [],
+          [],
+          []
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "Distillation condenses and collects the solvent for reuse, while the dissolved solid remains. Open evaporation loses the solvent to the surroundings.",
+      "markKeywords": [
+        "distillation condenses collects solvent",
+        "solid remains",
+        "open evaporation loses solvent"
+      ],
+      "hint": "The aim includes recovering the solvent, not only the solid.",
+      "feedback": {
+        "short": "Distillation condenses and collects the solvent for reuse, while the dissolved solid remains. Open evaporation loses the solvent to the surroundings.",
+        "commonError": "The aim includes recovering the solvent, not only the solid."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-031",
+      "topic": "RP6 method",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-setup-dimensions",
+      "prompt": "The start line is 20 mm above the paper’s bottom edge. The solvent depth is 10 mm. Explain why this arrangement lets chromatography start without washing the samples into the beaker.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The bottom of the paper dips in the solvent, so solvent can move up it. The start line stays above the solvent surface, so the sample spots are not submerged."
+        ],
+        "points": [
+          {
+            "label": "bottom paper dips solvent",
+            "alternatives": [
+              "bottom paper dips solvent",
+              "solvent enters paper"
+            ]
+          },
+          {
+            "label": "start line above solvent",
+            "alternatives": [
+              "start line above solvent",
+              "spots not submerged"
+            ]
+          }
+        ],
+        "modelAnswer": "The bottom of the paper dips in the solvent, so solvent can move up it. The start line stays above the solvent surface, so the sample spots are not submerged.",
+        "markPoints": [
+          "bottom paper dips solvent",
+          "start line above solvent"
+        ],
+        "markPointAlternatives": [
+          [
+            "solvent enters paper"
+          ],
+          [
+            "spots not submerged"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "The bottom of the paper dips in the solvent, so solvent can move up it. The start line stays above the solvent surface, so the sample spots are not submerged.",
+      "markKeywords": [
+        "bottom paper dips solvent",
+        "start line above solvent"
+      ],
+      "hint": "Both contact with solvent and the position of the sample spots matter.",
+      "feedback": {
+        "short": "The bottom of the paper dips in the solvent, so solvent can move up it. The start line stays above the solvent surface, so the sample spots are not submerged.",
+        "commonError": "Both contact with solvent and the position of the sample spots matter."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-032",
+      "topic": "RP6 method",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-fair-solvent-test",
+      "prompt": "A pupil compares water and ethanol as chromatography solvents. State the independent variable and two factors that should be kept the same.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Change the solvent. Keep the same ink sample and the same type of chromatography paper."
+        ],
+        "points": [
+          {
+            "label": "solvent",
+            "alternatives": [
+              "solvent"
+            ]
+          },
+          {
+            "label": "same ink",
+            "alternatives": [
+              "same ink",
+              "same sample"
+            ]
+          },
+          {
+            "label": "same paper type",
+            "alternatives": [
+              "same paper type",
+              "same type paper"
+            ]
+          }
+        ],
+        "modelAnswer": "Change the solvent. Keep the same ink sample and the same type of chromatography paper.",
+        "markPoints": [
+          "solvent",
+          "same ink",
+          "same paper type"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "same sample"
+          ],
+          [
+            "same type paper"
+          ]
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "Change the solvent. Keep the same ink sample and the same type of chromatography paper.",
+      "markKeywords": [
+        "solvent",
+        "same ink",
+        "same paper type"
+      ],
+      "hint": "Change one factor and compare the same sample using the same paper.",
+      "feedback": {
+        "short": "Change the solvent. Keep the same ink sample and the same type of chromatography paper.",
+        "commonError": "Change one factor and compare the same sample using the same paper."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-033",
+      "topic": "RP6 method",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-repeat-quality",
+      "prompt": "Describe how repeats could increase confidence in a calculated Rf value.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Repeat the chromatography under the same conditions. Check whether the Rf values agree and calculate a mean of consistent results."
+        ],
+        "points": [
+          {
+            "label": "repeat same conditions",
+            "alternatives": [
+              "repeat same conditions"
+            ]
+          },
+          {
+            "label": "Rf values agree",
+            "alternatives": [
+              "Rf values agree",
+              "compare repeat values",
+              "check consistency"
+            ]
+          },
+          {
+            "label": "mean consistent results",
+            "alternatives": [
+              "mean consistent results",
+              "mean repeat values"
+            ]
+          }
+        ],
+        "modelAnswer": "Repeat the chromatography under the same conditions. Check whether the Rf values agree and calculate a mean of consistent results.",
+        "markPoints": [
+          "repeat same conditions",
+          "Rf values agree",
+          "mean consistent results"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "compare repeat values",
+            "check consistency"
+          ],
+          [
+            "mean repeat values"
+          ]
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "Repeat the chromatography under the same conditions. Check whether the Rf values agree and calculate a mean of consistent results.",
+      "markKeywords": [
+        "repeat same conditions",
+        "Rf values agree",
+        "mean consistent results"
+      ],
+      "hint": "Repeating alone does not remove a systematic measurement error.",
+      "feedback": {
+        "short": "Repeat the chromatography under the same conditions. Check whether the Rf values agree and calculate a mean of consistent results.",
+        "commonError": "Repeating alone does not remove a systematic measurement error."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-034",
+      "topic": "RP6 method",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-label-contamination",
+      "prompt": "A pupil labels the sample positions with a coloured pen. Explain a possible effect on the result and state a better way to label them.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Pen ink may dissolve and produce extra spots. Label the positions in pencil."
+        ],
+        "points": [
+          {
+            "label": "ink dissolve extra spots",
+            "alternatives": [
+              "ink dissolve extra spots",
+              "pen extra spots"
+            ]
+          },
+          {
+            "label": "label pencil",
+            "alternatives": [
+              "label pencil",
+              "use pencil"
+            ]
+          }
+        ],
+        "modelAnswer": "Pen ink may dissolve and produce extra spots. Label the positions in pencil.",
+        "markPoints": [
+          "ink dissolve extra spots",
+          "label pencil"
+        ],
+        "markPointAlternatives": [
+          [
+            "pen extra spots"
+          ],
+          [
+            "use pencil"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "Pen ink may dissolve and produce extra spots. Label the positions in pencil.",
+      "markKeywords": [
+        "ink dissolve extra spots",
+        "label pencil"
+      ],
+      "hint": "Include the effect on the evidence, not only the rule to use pencil.",
+      "feedback": {
+        "short": "Pen ink may dissolve and produce extra spots. Label the positions in pencil.",
+        "commonError": "Include the effect on the evidence, not only the rule to use pencil."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-035",
+      "topic": "RP6 errors",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-front-delay-bias",
+      "prompt": "A student removes the paper but marks the front only after it has dried. Explain why the Rf calculation may be unreliable.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The solvent evaporates, so the original solvent front is no longer visible. The front distance cannot be measured accurately."
+        ],
+        "points": [
+          {
+            "label": "solvent evaporates",
+            "alternatives": [
+              "solvent evaporates"
+            ]
+          },
+          {
+            "label": "front no longer visible",
+            "alternatives": [
+              "front no longer visible",
+              "front disappears"
+            ]
+          },
+          {
+            "label": "distance not accurate",
+            "alternatives": [
+              "distance not accurate",
+              "cannot measure accurately"
+            ]
+          }
+        ],
+        "modelAnswer": "The solvent evaporates, so the original solvent front is no longer visible. The front distance cannot be measured accurately.",
+        "markPoints": [
+          "solvent evaporates",
+          "front no longer visible",
+          "distance not accurate"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "front disappears"
+          ],
+          [
+            "cannot measure accurately"
+          ]
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "The solvent evaporates, so the original solvent front is no longer visible. The front distance cannot be measured accurately.",
+      "markKeywords": [
+        "solvent evaporates",
+        "front no longer visible",
+        "distance not accurate"
+      ],
+      "hint": "Mark the front immediately while its position is visible.",
+      "feedback": {
+        "short": "The solvent evaporates, so the original solvent front is no longer visible. The front distance cannot be measured accurately.",
+        "commonError": "Mark the front immediately while its position is visible."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-036",
+      "topic": "RP6 errors",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-sample-washing",
+      "prompt": "The solvent level is above the sample spots. Explain why this can prevent a useful chromatogram.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The sample dissolves into the solvent in the beaker and may wash off the paper, so its separated spots may be missing."
+        ],
+        "points": [
+          {
+            "label": "sample dissolves beaker",
+            "alternatives": [
+              "sample dissolves beaker",
+              "sample washes off"
+            ]
+          },
+          {
+            "label": "spots missing",
+            "alternatives": [
+              "spots missing",
+              "no separated spots",
+              "cannot analyse sample"
+            ]
+          }
+        ],
+        "modelAnswer": "The sample dissolves into the solvent in the beaker and may wash off the paper, so its separated spots may be missing.",
+        "markPoints": [
+          "sample dissolves beaker",
+          "spots missing"
+        ],
+        "markPointAlternatives": [
+          [
+            "sample washes off"
+          ],
+          [
+            "no separated spots",
+            "cannot analyse sample"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "The sample dissolves into the solvent in the beaker and may wash off the paper, so its separated spots may be missing.",
+      "markKeywords": [
+        "sample dissolves beaker",
+        "spots missing"
+      ],
+      "hint": "State where the sample goes and how that changes the result.",
+      "feedback": {
+        "short": "The sample dissolves into the solvent in the beaker and may wash off the paper, so its separated spots may be missing.",
+        "commonError": "State where the sample goes and how that changes the result."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-037",
+      "topic": "RP6 errors",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-spot-width-effect",
+      "prompt": "A student adds a spot 12 mm wide instead of the suggested 2–3 mm spot. Explain how this makes interpretation harder.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The wide spot can smear or overlap other spots. It is harder to count separate dyes or measure each spot centre accurately."
+        ],
+        "points": [
+          {
+            "label": "smear",
+            "alternatives": [
+              "smear",
+              "overlap"
+            ]
+          },
+          {
+            "label": "harder count dyes",
+            "alternatives": [
+              "harder count dyes",
+              "harder measure centre",
+              "centre not accurate"
+            ]
+          }
+        ],
+        "modelAnswer": "The wide spot can smear or overlap other spots. It is harder to count separate dyes or measure each spot centre accurately.",
+        "markPoints": [
+          "smear",
+          "harder count dyes"
+        ],
+        "markPointAlternatives": [
+          [
+            "overlap"
+          ],
+          [
+            "harder measure centre",
+            "centre not accurate"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "The wide spot can smear or overlap other spots. It is harder to count separate dyes or measure each spot centre accurately.",
+      "markKeywords": [
+        "smear",
+        "harder count dyes"
+      ],
+      "hint": "Connect the large spot to a specific interpretation or measurement problem.",
+      "feedback": {
+        "short": "The wide spot can smear or overlap other spots. It is harder to count separate dyes or measure each spot centre accurately.",
+        "commonError": "Connect the large spot to a specific interpretation or measurement problem."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-038",
+      "topic": "RP6 errors",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-centre-bias",
+      "prompt": "A pupil measures to the top of a spot instead of its centre, with a correctly measured solvent front. Predict the effect on Rf and explain why.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Rf will be too high because the measured spot distance is too large while the solvent-front distance is unchanged."
+        ],
+        "points": [
+          {
+            "label": "Rf too high",
+            "alternatives": [
+              "Rf too high",
+              "Rf larger"
+            ]
+          },
+          {
+            "label": "spot distance too large",
+            "alternatives": [
+              "spot distance too large",
+              "spot distance overestimated"
+            ]
+          }
+        ],
+        "modelAnswer": "Rf will be too high because the measured spot distance is too large while the solvent-front distance is unchanged.",
+        "markPoints": [
+          "Rf too high",
+          "spot distance too large"
+        ],
+        "markPointAlternatives": [
+          [
+            "Rf larger"
+          ],
+          [
+            "spot distance overestimated"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "Rf will be too high because the measured spot distance is too large while the solvent-front distance is unchanged.",
+      "markKeywords": [
+        "Rf too high",
+        "spot distance too large"
+      ],
+      "hint": "A larger numerator gives a larger ratio.",
+      "feedback": {
+        "short": "Rf will be too high because the measured spot distance is too large while the solvent-front distance is unchanged.",
+        "commonError": "A larger numerator gives a larger ratio."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-039",
+      "topic": "Chromatogram",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-overlap-purity",
+      "prompt": "Ink K gives one spot in water but two spots in ethanol. Explain what this shows about the claim that K is pure.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "K is a mixture because it separates into two spots in ethanol. The dyes overlapped or were not separated by water, so one spot in water did not prove purity."
+        ],
+        "points": [
+          {
+            "label": "mixture two spots ethanol",
+            "alternatives": [
+              "mixture two spots ethanol"
+            ]
+          },
+          {
+            "label": "overlapped water",
+            "alternatives": [
+              "overlapped water",
+              "not separated water"
+            ]
+          },
+          {
+            "label": "one spot not prove purity",
+            "alternatives": [
+              "one spot not prove purity"
+            ]
+          }
+        ],
+        "modelAnswer": "K is a mixture because it separates into two spots in ethanol. The dyes overlapped or were not separated by water, so one spot in water did not prove purity.",
+        "markPoints": [
+          "mixture two spots ethanol",
+          "overlapped water",
+          "one spot not prove purity"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "not separated water"
+          ],
+          []
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "K is a mixture because it separates into two spots in ethanol. The dyes overlapped or were not separated by water, so one spot in water did not prove purity.",
+      "markKeywords": [
+        "mixture two spots ethanol",
+        "overlapped water",
+        "one spot not prove purity"
+      ],
+      "hint": "Use the result from both solvents.",
+      "feedback": {
+        "short": "K is a mixture because it separates into two spots in ethanol. The dyes overlapped or were not separated by water, so one spot in water did not prove purity.",
+        "commonError": "Use the result from both solvents."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-040",
+      "topic": "Chromatogram",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-component-set",
+      "prompt": "In the same solvent, ink A produces spots with Rf 0.20 and 0.70. Ink B produces spots at 0.20, 0.45 and 0.70. What does this suggest about B compared with A?",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "B may contain the same two dyes as A because two Rf values match. B has at least one additional separated component at Rf 0.45."
+        ],
+        "points": [
+          {
+            "label": "two Rf values match",
+            "alternatives": [
+              "two Rf values match",
+              "same two dyes may"
+            ]
+          },
+          {
+            "label": "additional component 0.45",
+            "alternatives": [
+              "additional component 0.45",
+              "extra dye 0.45"
+            ]
+          }
+        ],
+        "modelAnswer": "B may contain the same two dyes as A because two Rf values match. B has at least one additional separated component at Rf 0.45.",
+        "markPoints": [
+          "two Rf values match",
+          "additional component 0.45"
+        ],
+        "markPointAlternatives": [
+          [
+            "same two dyes may"
+          ],
+          [
+            "extra dye 0.45"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "B may contain the same two dyes as A because two Rf values match. B has at least one additional separated component at Rf 0.45.",
+      "markKeywords": [
+        "two Rf values match",
+        "additional component 0.45"
+      ],
+      "hint": "Matching values suggest a shared component, while the extra spot adds evidence of another.",
+      "feedback": {
+        "short": "B may contain the same two dyes as A because two Rf values match. B has at least one additional separated component at Rf 0.45.",
+        "commonError": "Matching values suggest a shared component, while the extra spot adds evidence of another."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-041",
+      "topic": "Chromatogram",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-minimum-components",
+      "prompt": "A sample produces four distinct spots. State the minimum number of separated components and explain why the actual number could be greater.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "At least four components are present. More than one substance could overlap in a single spot."
+        ],
+        "points": [
+          {
+            "label": "at least four",
+            "alternatives": [
+              "at least four",
+              "minimum four",
+              "at least 4"
+            ]
+          },
+          {
+            "label": "substances overlap",
+            "alternatives": [
+              "substances overlap",
+              "more than one substance single spot"
+            ]
+          }
+        ],
+        "modelAnswer": "At least four components are present. More than one substance could overlap in a single spot.",
+        "markPoints": [
+          "at least four",
+          "substances overlap"
+        ],
+        "markPointAlternatives": [
+          [
+            "minimum four",
+            "at least 4"
+          ],
+          [
+            "more than one substance single spot"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "At least four components are present. More than one substance could overlap in a single spot.",
+      "markKeywords": [
+        "at least four",
+        "substances overlap"
+      ],
+      "hint": "Spot count gives a minimum when overlap is possible.",
+      "feedback": {
+        "short": "At least four components are present. More than one substance could overlap in a single spot.",
+        "commonError": "Spot count gives a minimum when overlap is possible."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-042",
+      "topic": "Chromatogram",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-colour-v-rf",
+      "prompt": "Two dyes have the same visible colour but different Rf values when run in the same solvent under the same conditions. Explain whether the colour alone is enough to identify them as the same dye.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Colour alone is not enough. The different Rf values provide evidence that the dyes behave differently and are different substances under these conditions."
+        ],
+        "points": [
+          {
+            "label": "colour alone not enough",
+            "alternatives": [
+              "colour alone not enough",
+              "same colour not prove same"
+            ]
+          },
+          {
+            "label": "different Rf evidence different",
+            "alternatives": [
+              "different Rf evidence different",
+              "different Rf different substances"
+            ]
+          }
+        ],
+        "modelAnswer": "Colour alone is not enough. The different Rf values provide evidence that the dyes behave differently and are different substances under these conditions.",
+        "markPoints": [
+          "colour alone not enough",
+          "different Rf evidence different"
+        ],
+        "markPointAlternatives": [
+          [
+            "same colour not prove same"
+          ],
+          [
+            "different Rf different substances"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "Colour alone is not enough. The different Rf values provide evidence that the dyes behave differently and are different substances under these conditions.",
+      "markKeywords": [
+        "colour alone not enough",
+        "different Rf evidence different"
+      ],
+      "hint": "Use the chromatography evidence as well as the colour.",
+      "feedback": {
+        "short": "Colour alone is not enough. The different Rf values provide evidence that the dyes behave differently and are different substances under these conditions.",
+        "commonError": "Use the chromatography evidence as well as the colour."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-043",
+      "topic": "Chromatogram",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-front-normalisation",
+      "prompt": "Two identical dyes travel different distances on two pieces of paper because the solvent fronts travel different distances. Explain why comparing raw spot distances could be misleading.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The runs have different solvent-front distances. Rf compares the spot distance as a fraction of the front distance, allowing comparison under the same conditions."
+        ],
+        "points": [
+          {
+            "label": "different solvent front distances",
+            "alternatives": [
+              "different solvent front distances"
+            ]
+          },
+          {
+            "label": "Rf fraction front distance",
+            "alternatives": [
+              "Rf fraction front distance",
+              "Rf ratio spot front"
+            ]
+          }
+        ],
+        "modelAnswer": "The runs have different solvent-front distances. Rf compares the spot distance as a fraction of the front distance, allowing comparison under the same conditions.",
+        "markPoints": [
+          "different solvent front distances",
+          "Rf fraction front distance"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "Rf ratio spot front"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "The runs have different solvent-front distances. Rf compares the spot distance as a fraction of the front distance, allowing comparison under the same conditions.",
+      "markKeywords": [
+        "different solvent front distances",
+        "Rf fraction front distance"
+      ],
+      "hint": "Compare ratios rather than distances from runs stopped at different times.",
+      "feedback": {
+        "short": "The runs have different solvent-front distances. Rf compares the spot distance as a fraction of the front distance, allowing comparison under the same conditions.",
+        "commonError": "Compare ratios rather than distances from runs stopped at different times."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-044",
+      "topic": "Solvents",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-separation-evidence",
+      "prompt": "Water gives two spots whose centres are only 2 mm apart. Ethanol gives the same sample’s two spots 15 mm apart with similar spot widths. Which solvent gives clearer separation? Explain.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Ethanol gives clearer separation because the spot centres are further apart, so the spots are easier to distinguish and less likely to overlap."
+        ],
+        "points": [
+          {
+            "label": "ethanol",
+            "alternatives": [
+              "ethanol"
+            ]
+          },
+          {
+            "label": "further apart",
+            "alternatives": [
+              "further apart",
+              "15 mm apart"
+            ]
+          },
+          {
+            "label": "less overlap",
+            "alternatives": [
+              "less overlap",
+              "easier distinguish"
+            ]
+          }
+        ],
+        "modelAnswer": "Ethanol gives clearer separation because the spot centres are further apart, so the spots are easier to distinguish and less likely to overlap.",
+        "markPoints": [
+          "ethanol",
+          "further apart",
+          "less overlap"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "15 mm apart"
+          ],
+          [
+            "easier distinguish"
+          ]
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "Ethanol gives clearer separation because the spot centres are further apart, so the spots are easier to distinguish and less likely to overlap.",
+      "markKeywords": [
+        "ethanol",
+        "further apart",
+        "less overlap"
+      ],
+      "hint": "Use spacing and distinguishability, not just how high the spots travel.",
+      "feedback": {
+        "short": "Ethanol gives clearer separation because the spot centres are further apart, so the spots are easier to distinguish and less likely to overlap.",
+        "commonError": "Use spacing and distinguishability, not just how high the spots travel."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-045",
+      "topic": "Solvents",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-immobile-solvent",
+      "prompt": "A sample stays at the start line in water but forms three separated spots in ethanol. Suggest why ethanol is more useful for analysing this sample.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The dyes dissolve and travel in ethanol, giving separated spots. Water does not move the sample enough to reveal its components."
+        ],
+        "points": [
+          {
+            "label": "dyes dissolve ethanol",
+            "alternatives": [
+              "dyes dissolve ethanol",
+              "dyes travel ethanol"
+            ]
+          },
+          {
+            "label": "separated spots reveal components",
+            "alternatives": [
+              "separated spots reveal components",
+              "water not reveal components"
+            ]
+          }
+        ],
+        "modelAnswer": "The dyes dissolve and travel in ethanol, giving separated spots. Water does not move the sample enough to reveal its components.",
+        "markPoints": [
+          "dyes dissolve ethanol",
+          "separated spots reveal components"
+        ],
+        "markPointAlternatives": [
+          [
+            "dyes travel ethanol"
+          ],
+          [
+            "water not reveal components"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "The dyes dissolve and travel in ethanol, giving separated spots. Water does not move the sample enough to reveal its components.",
+      "markKeywords": [
+        "dyes dissolve ethanol",
+        "separated spots reveal components"
+      ],
+      "hint": "A sample that does not move cannot give useful separation in that solvent.",
+      "feedback": {
+        "short": "The dyes dissolve and travel in ethanol, giving separated spots. Water does not move the sample enough to reveal its components.",
+        "commonError": "A sample that does not move cannot give useful separation in that solvent."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-046",
+      "topic": "RP6",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-safety-cause",
+      "prompt": "A student proposes heating an ethanol chromatography beaker with a Bunsen burner. Identify the hazard and suggest a safer action.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Ethanol is flammable. Keep it away from naked flames and carry out chromatography without Bunsen heating."
+        ],
+        "points": [
+          {
+            "label": "ethanol flammable",
+            "alternatives": [
+              "ethanol flammable"
+            ],
+            "rejectPatterns": [
+              "ethanol\\s+(?:is\\s+)?not\\s+flammable",
+              "ethanol\\s+(?:is\\s+)?non[- ]flammable"
+            ]
+          },
+          {
+            "label": "away naked flames",
+            "alternatives": [
+              "away naked flames",
+              "no Bunsen heating",
+              "do not use flame"
+            ]
+          }
+        ],
+        "modelAnswer": "Ethanol is flammable. Keep it away from naked flames and carry out chromatography without Bunsen heating.",
+        "markPoints": [
+          "ethanol flammable",
+          "away naked flames"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "no Bunsen heating",
+            "do not use flame"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "Ethanol is flammable. Keep it away from naked flames and carry out chromatography without Bunsen heating.",
+      "markKeywords": [
+        "ethanol flammable",
+        "away naked flames"
+      ],
+      "hint": "Pair a specific hazard with a specific risk reduction.",
+      "feedback": {
+        "short": "Ethanol is flammable. Keep it away from naked flames and carry out chromatography without Bunsen heating.",
+        "commonError": "Pair a specific hazard with a specific risk reduction."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-047",
+      "topic": "RP6",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-confidence-limits",
+      "prompt": "A dye matches a reference Rf in one solvent. Suggest a further chromatography check and explain why it helps.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Run the unknown and reference again using a different solvent under matching conditions. If their Rf values match again, this adds evidence for the suggested identity."
+        ],
+        "points": [
+          {
+            "label": "different solvent unknown reference",
+            "alternatives": [
+              "different solvent unknown reference",
+              "another solvent unknown reference"
+            ]
+          },
+          {
+            "label": "matching conditions",
+            "alternatives": [
+              "matching conditions"
+            ]
+          },
+          {
+            "label": "match again adds evidence",
+            "alternatives": [
+              "match again adds evidence",
+              "second match supports identity"
+            ]
+          }
+        ],
+        "modelAnswer": "Run the unknown and reference again using a different solvent under matching conditions. If their Rf values match again, this adds evidence for the suggested identity.",
+        "markPoints": [
+          "different solvent unknown reference",
+          "matching conditions",
+          "match again adds evidence"
+        ],
+        "markPointAlternatives": [
+          [
+            "another solvent unknown reference"
+          ],
+          [],
+          [
+            "second match supports identity"
+          ]
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "Run the unknown and reference again using a different solvent under matching conditions. If their Rf values match again, this adds evidence for the suggested identity.",
+      "markKeywords": [
+        "different solvent unknown reference",
+        "matching conditions",
+        "match again adds evidence"
+      ],
+      "hint": "Another solvent can separate substances that coincidentally share one Rf value.",
+      "feedback": {
+        "short": "Run the unknown and reference again using a different solvent under matching conditions. If their Rf values match again, this adds evidence for the suggested identity.",
+        "commonError": "Another solvent can separate substances that coincidentally share one Rf value."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-048",
+      "topic": "RP6",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-repeat-v-systematic",
+      "prompt": "All three repeat Rf values agree, but the pupil measured every spot from the bottom of the paper instead of the start line. Evaluate the conclusion that agreement proves accuracy.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The repeats are consistent, but all use the wrong origin and share a systematic error. Agreement alone does not prove accuracy."
+        ],
+        "points": [
+          {
+            "label": "repeats consistent",
+            "alternatives": [
+              "repeats consistent",
+              "repeatable results"
+            ]
+          },
+          {
+            "label": "wrong origin",
+            "alternatives": [
+              "wrong origin",
+              "systematic error"
+            ]
+          },
+          {
+            "label": "agreement not prove accuracy",
+            "alternatives": [
+              "agreement not prove accuracy",
+              "consistent not accurate"
+            ]
+          }
+        ],
+        "modelAnswer": "The repeats are consistent, but all use the wrong origin and share a systematic error. Agreement alone does not prove accuracy.",
+        "markPoints": [
+          "repeats consistent",
+          "wrong origin",
+          "agreement not prove accuracy"
+        ],
+        "markPointAlternatives": [
+          [
+            "repeatable results"
+          ],
+          [
+            "systematic error"
+          ],
+          [
+            "consistent not accurate"
+          ]
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "The repeats are consistent, but all use the wrong origin and share a systematic error. Agreement alone does not prove accuracy.",
+      "markKeywords": [
+        "repeats consistent",
+        "wrong origin",
+        "agreement not prove accuracy"
+      ],
+      "hint": "A repeated mistake can produce repeatable but inaccurate results.",
+      "feedback": {
+        "short": "The repeats are consistent, but all use the wrong origin and share a systematic error. Agreement alone does not prove accuracy.",
+        "commonError": "A repeated mistake can produce repeatable but inaccurate results."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-049",
+      "topic": "RP6 method",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-measurement-record",
+      "prompt": "State two distances needed for an Rf calculation and describe exactly where each should be measured from and to.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Measure from the start line to the centre of the dye spot, and from the same start line to the solvent front."
+        ],
+        "points": [
+          {
+            "label": "start line centre dye spot",
+            "alternatives": [
+              "start line centre dye spot",
+              "start line middle spot"
+            ]
+          },
+          {
+            "label": "start line solvent front",
+            "alternatives": [
+              "start line solvent front"
+            ]
+          }
+        ],
+        "modelAnswer": "Measure from the start line to the centre of the dye spot, and from the same start line to the solvent front.",
+        "markPoints": [
+          "start line centre dye spot",
+          "start line solvent front"
+        ],
+        "markPointAlternatives": [
+          [
+            "start line middle spot"
+          ],
+          []
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "Measure from the start line to the centre of the dye spot, and from the same start line to the solvent front.",
+      "markKeywords": [
+        "start line centre dye spot",
+        "start line solvent front"
+      ],
+      "hint": "Use the same origin for both measurements.",
+      "feedback": {
+        "short": "Measure from the start line to the centre of the dye spot, and from the same start line to the solvent front.",
+        "commonError": "Use the same origin for both measurements."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-050",
+      "topic": "RP6 errors",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-applicator-contamination",
+      "prompt": "A student uses the same unwashed applicator to transfer two different inks onto separate positions. Explain how this could affect the conclusions and suggest an improvement.",
+      "format": "typed_short",
+      "options": null,
+      "diagram": null,
+      "marks": 3,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The second ink may be contaminated by the first and produce extra spots. Use a clean applicator for each ink."
+        ],
+        "points": [
+          {
+            "label": "second ink contaminated",
+            "alternatives": [
+              "second ink contaminated",
+              "first ink transferred second"
+            ]
+          },
+          {
+            "label": "extra spots",
+            "alternatives": [
+              "extra spots",
+              "incorrect dye identity"
+            ]
+          },
+          {
+            "label": "clean applicator each ink",
+            "alternatives": [
+              "clean applicator each ink",
+              "different applicator each ink"
+            ]
+          }
+        ],
+        "modelAnswer": "The second ink may be contaminated by the first and produce extra spots. Use a clean applicator for each ink.",
+        "markPoints": [
+          "second ink contaminated",
+          "extra spots",
+          "clean applicator each ink"
+        ],
+        "markPointAlternatives": [
+          [
+            "first ink transferred second"
+          ],
+          [
+            "incorrect dye identity"
+          ],
+          [
+            "different applicator each ink"
+          ]
+        ],
+        "totalMarks": 3
+      },
+      "modelAnswer": "The second ink may be contaminated by the first and produce extra spots. Use a clean applicator for each ink.",
+      "markKeywords": [
+        "second ink contaminated",
+        "extra spots",
+        "clean applicator each ink"
+      ],
+      "hint": "Prevent transfer between samples before comparing their components.",
+      "feedback": {
+        "short": "The second ink may be contaminated by the first and produce extra spots. Use a clean applicator for each ink.",
+        "commonError": "Prevent transfer between samples before comparing their components."
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-051",
+      "topic": "Rf",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-offset-multistep",
+      "prompt": "A ruler reads 12 mm at the start line, 52 mm at the spot centre and 92 mm at the front. Calculate Rf, showing how you find both travel distances.",
+      "format": "calculation",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50. Final answer: 0.5."
+        ],
+        "points": [
+          {
+            "label": "correct method",
+            "patterns": [
+              "(?:40\\s*(?:÷|/|divided by)\\s*80|\\(?\\s*52\\s*[-−]\\s*12\\s*\\)?\\s*(?:÷|/)\\s*\\(?\\s*92\\s*[-−]\\s*12)"
+            ]
+          },
+          {
+            "label": "correct final answer with no unit",
+            "patterns": [
+              "(?:^|=|answer\\s*:?\\s*)\\s*0?\\.50*\\s*[.!]?\\s*$"
+            ]
+          }
+        ],
+        "modelAnswer": "Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50. Final answer: 0.5.",
+        "value": 0.5,
+        "units": [],
+        "working": "Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50.",
+        "tolerance": 1e-05
+      },
+      "modelAnswer": "Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50. Final answer: 0.5.",
+      "markKeywords": [
+        "correct method",
+        "correct final answer"
+      ],
+      "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
+      "feedback": {
+        "short": "Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50. Final answer: 0.5.",
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+      },
+      "workedSolution": "Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50.",
+      "calculation": {
+        "value": 0.5,
+        "units": [],
+        "working": "Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50.",
+        "tolerance": 1e-05
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-052",
+      "topic": "Rf",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-mixed-unit-multistep",
+      "prompt": "A dye moves 3.6 cm and the solvent front moves 80 mm. Calculate Rf. Show your unit conversion.",
+      "format": "calculation",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45. Final answer: 0.45."
+        ],
+        "points": [
+          {
+            "label": "correct method",
+            "patterns": [
+              "(?:36\\s*(?:÷|/|divided by)\\s*80|3\\.6\\s*(?:÷|/)\\s*8)"
+            ]
+          },
+          {
+            "label": "correct final answer with no unit",
+            "patterns": [
+              "(?:^|=|answer\\s*:?\\s*)\\s*0?\\.450*\\s*[.!]?\\s*$"
+            ]
+          }
+        ],
+        "modelAnswer": "3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45. Final answer: 0.45.",
+        "value": 0.45,
+        "units": [],
+        "working": "3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45.",
+        "tolerance": 1e-05
+      },
+      "modelAnswer": "3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45. Final answer: 0.45.",
+      "markKeywords": [
+        "correct method",
+        "correct final answer"
+      ],
+      "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
+      "feedback": {
+        "short": "3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45. Final answer: 0.45.",
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+      },
+      "workedSolution": "3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45.",
+      "calculation": {
+        "value": 0.45,
+        "units": [],
+        "working": "3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45.",
+        "tolerance": 1e-05
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-053",
+      "topic": "Rf",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-inverse-front-data",
+      "prompt": "A dye spot travels 42 mm and has Rf 0.60. Calculate the solvent-front travel distance. Show your rearrangement and give mm.",
+      "format": "calculation",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm. Final answer: 70 mm."
+        ],
+        "points": [
+          {
+            "label": "correct method",
+            "patterns": [
+              "42\\s*(?:÷|/|divided by)\\s*0?\\.60*"
+            ]
+          },
+          {
+            "label": "correct final answer in mm",
+            "patterns": [
+              "(?:^|=|answer\\s*:?\\s*)\\s*70(?:\\.0+)?\\s*mm\\s*[.!]?\\s*$"
+            ]
+          }
+        ],
+        "modelAnswer": "Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm. Final answer: 70 mm.",
+        "value": 70,
+        "units": [
+          "mm"
+        ],
+        "working": "Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm.",
+        "tolerance": 1e-05
+      },
+      "modelAnswer": "Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm. Final answer: 70 mm.",
+      "markKeywords": [
+        "correct method",
+        "correct final answer"
+      ],
+      "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
+      "feedback": {
+        "short": "Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm. Final answer: 70 mm.",
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+      },
+      "workedSolution": "Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm.",
+      "calculation": {
+        "value": 70,
+        "units": [
+          "mm"
+        ],
+        "working": "Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm.",
+        "tolerance": 1e-05
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-054",
+      "topic": "Rf",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-spot-to-ruler-position",
+      "prompt": "A start line is at ruler reading 9 mm. The front travels 80 mm from that line and the dye has Rf 0.40. Calculate the ruler reading at the spot centre, in mm.",
+      "format": "calculation",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 4,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm. Final answer: 41 mm."
+        ],
+        "points": [
+          {
+            "label": "correct method",
+            "patterns": [
+              "(?:9\\s*\\+\\s*32|32\\s*\\+\\s*9|9\\s*\\+\\s*0?\\.40*\\s*[×*x]\\s*80)"
+            ]
+          },
+          {
+            "label": "correct final answer in mm",
+            "patterns": [
+              "(?:^|=|answer\\s*:?\\s*)\\s*41(?:\\.0+)?\\s*mm\\s*[.!]?\\s*$"
+            ]
+          }
+        ],
+        "modelAnswer": "Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm. Final answer: 41 mm.",
+        "value": 41,
+        "units": [
+          "mm"
+        ],
+        "working": "Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm.",
+        "tolerance": 1e-05
+      },
+      "modelAnswer": "Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm. Final answer: 41 mm.",
+      "markKeywords": [
+        "correct method",
+        "correct final answer"
+      ],
+      "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
+      "feedback": {
+        "short": "Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm. Final answer: 41 mm.",
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+      },
+      "workedSolution": "Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm.",
+      "calculation": {
+        "value": 41,
+        "units": [
+          "mm"
+        ],
+        "working": "Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm.",
+        "tolerance": 1e-05
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-055",
+      "topic": "Rf",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-mean-excluding-anomaly",
+      "prompt": "Four Rf readings are 0.41, 0.42, 0.80 and 0.43. The 0.80 run had a documented measurement error. Calculate the mean of the other three values, showing your working.",
+      "format": "calculation",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42. Final answer: 0.42."
+        ],
+        "points": [
+          {
+            "label": "correct method",
+            "patterns": [
+              "0?\\.41\\s*\\+\\s*0?\\.42\\s*\\+\\s*0?\\.43\\s*\\)?\\s*(?:÷|/)\\s*3"
+            ]
+          },
+          {
+            "label": "correct final answer with no unit",
+            "patterns": [
+              "(?:^|=|answer\\s*:?\\s*)\\s*0?\\.420*\\s*[.!]?\\s*$"
+            ]
+          }
+        ],
+        "modelAnswer": "Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42. Final answer: 0.42.",
+        "value": 0.42,
+        "units": [],
+        "working": "Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42.",
+        "tolerance": 1e-05
+      },
+      "modelAnswer": "Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42. Final answer: 0.42.",
+      "markKeywords": [
+        "correct method",
+        "correct final answer"
+      ],
+      "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
+      "feedback": {
+        "short": "Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42. Final answer: 0.42.",
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+      },
+      "workedSolution": "Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42.",
+      "calculation": {
+        "value": 0.42,
+        "units": [],
+        "working": "Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42.",
+        "tolerance": 1e-05
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-056",
+      "topic": "Rf",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-spot-centre-from-edges",
+      "prompt": "A spot extends from ruler reading 28 mm to 34 mm. The start line is at 10 mm and front at 70 mm. Calculate Rf using the centre of the spot.",
+      "format": "calculation",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 4,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35. Final answer: 0.35."
+        ],
+        "points": [
+          {
+            "label": "correct method",
+            "patterns": [
+              "21\\s*(?:÷|/|divided by)\\s*60"
+            ]
+          },
+          {
+            "label": "correct final answer with no unit",
+            "patterns": [
+              "(?:^|=|answer\\s*:?\\s*)\\s*0?\\.350*\\s*[.!]?\\s*$"
+            ]
+          }
+        ],
+        "modelAnswer": "Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35. Final answer: 0.35.",
+        "value": 0.35,
+        "units": [],
+        "working": "Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35.",
+        "tolerance": 1e-05
+      },
+      "modelAnswer": "Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35. Final answer: 0.35.",
+      "markKeywords": [
+        "correct method",
+        "correct final answer"
+      ],
+      "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
+      "feedback": {
+        "short": "Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35. Final answer: 0.35.",
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+      },
+      "workedSolution": "Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35.",
+      "calculation": {
+        "value": 0.35,
+        "units": [],
+        "working": "Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35.",
+        "tolerance": 1e-05
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-057",
+      "topic": "Rf",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-front-gap-prediction",
+      "prompt": "A dye travels 18 mm when the front travels 30 mm. In a new run under the same conditions the front travels 90 mm. Calculate the gap between the dye centre and the new solvent front, in mm.",
+      "format": "calculation",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 4,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm. Final answer: 36 mm."
+        ],
+        "points": [
+          {
+            "label": "correct method",
+            "patterns": [
+              "90\\s*[-−]\\s*54"
+            ]
+          },
+          {
+            "label": "correct final answer in mm",
+            "patterns": [
+              "(?:^|=|answer\\s*:?\\s*)\\s*36(?:\\.0+)?\\s*mm\\s*[.!]?\\s*$"
+            ]
+          }
+        ],
+        "modelAnswer": "Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm. Final answer: 36 mm.",
+        "value": 36,
+        "units": [
+          "mm"
+        ],
+        "working": "Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm.",
+        "tolerance": 1e-05
+      },
+      "modelAnswer": "Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm. Final answer: 36 mm.",
+      "markKeywords": [
+        "correct method",
+        "correct final answer"
+      ],
+      "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
+      "feedback": {
+        "short": "Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm. Final answer: 36 mm.",
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+      },
+      "workedSolution": "Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm.",
+      "calculation": {
+        "value": 36,
+        "units": [
+          "mm"
+        ],
+        "working": "Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm.",
+        "tolerance": 1e-05
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-058",
+      "topic": "Rf",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-rf-difference-offset",
+      "prompt": "The start line is at 5 mm, front at 85 mm, spot A at 25 mm and spot B at 61 mm. Calculate how much B’s Rf exceeds A’s.",
+      "format": "calculation",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 4,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45. Final answer: 0.45."
+        ],
+        "points": [
+          {
+            "label": "correct method",
+            "patterns": [
+              "(?:0?\\.70*\\s*[-−]\\s*0?\\.25|\\(?\\s*56\\s*[-−]\\s*20\\s*\\)?\\s*(?:÷|/)\\s*80)"
+            ]
+          },
+          {
+            "label": "correct final answer with no unit",
+            "patterns": [
+              "(?:^|=|answer\\s*:?\\s*)\\s*0?\\.450*\\s*[.!]?\\s*$"
+            ]
+          }
+        ],
+        "modelAnswer": "Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45. Final answer: 0.45.",
+        "value": 0.45,
+        "units": [],
+        "working": "Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45.",
+        "tolerance": 1e-05
+      },
+      "modelAnswer": "Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45. Final answer: 0.45.",
+      "markKeywords": [
+        "correct method",
+        "correct final answer"
+      ],
+      "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
+      "feedback": {
+        "short": "Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45. Final answer: 0.45.",
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+      },
+      "workedSolution": "Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45.",
+      "calculation": {
+        "value": 0.45,
+        "units": [],
+        "working": "Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45.",
+        "tolerance": 1e-05
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-059",
+      "topic": "Rf",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-front-distance-unit-result",
+      "prompt": "A spot travelled 4.8 cm and has Rf 0.80. Calculate the solvent-front distance in mm.",
+      "format": "calculation",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm. Final answer: 60 mm."
+        ],
+        "points": [
+          {
+            "label": "correct method",
+            "patterns": [
+              "(?:4\\.8\\s*(?:÷|/)\\s*0?\\.80*|48\\s*(?:÷|/)\\s*0?\\.80*)"
+            ]
+          },
+          {
+            "label": "correct final answer in mm",
+            "patterns": [
+              "(?:^|=|answer\\s*:?\\s*)\\s*60(?:\\.0+)?\\s*mm\\s*[.!]?\\s*$"
+            ]
+          }
+        ],
+        "modelAnswer": "Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm. Final answer: 60 mm.",
+        "value": 60,
+        "units": [
+          "mm"
+        ],
+        "working": "Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm.",
+        "tolerance": 1e-05
+      },
+      "modelAnswer": "Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm. Final answer: 60 mm.",
+      "markKeywords": [
+        "correct method",
+        "correct final answer"
+      ],
+      "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
+      "feedback": {
+        "short": "Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm. Final answer: 60 mm.",
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+      },
+      "workedSolution": "Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm.",
+      "calculation": {
+        "value": 60,
+        "units": [
+          "mm"
+        ],
+        "working": "Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm.",
+        "tolerance": 1e-05
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-060",
+      "topic": "Rf",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-round-from-centre",
+      "prompt": "A start line is at 7 mm, a dye centre at 36 mm and the front at 71 mm. Calculate Rf to two decimal places, showing your distances.",
+      "format": "calculation",
+      "options": null,
+      "diagram": null,
+      "marks": 2,
+      "difficulty": 3,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45. Final answer: 0.45."
+        ],
+        "points": [
+          {
+            "label": "correct method",
+            "patterns": [
+              "29\\s*(?:÷|/|divided by)\\s*64"
+            ]
+          },
+          {
+            "label": "correct final answer with no unit",
+            "patterns": [
+              "(?:^|=|answer\\s*:?\\s*)\\s*0?\\.450*\\s*[.!]?\\s*$"
+            ]
+          }
+        ],
+        "modelAnswer": "Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45. Final answer: 0.45.",
+        "value": 0.45,
+        "units": [],
+        "working": "Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45.",
+        "tolerance": 1e-05
+      },
+      "modelAnswer": "Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45. Final answer: 0.45.",
+      "markKeywords": [
+        "correct method",
+        "correct final answer"
+      ],
+      "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
+      "feedback": {
+        "short": "Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45. Final answer: 0.45.",
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+      },
+      "workedSolution": "Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45.",
+      "calculation": {
+        "value": 0.45,
+        "units": [],
+        "working": "Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45.",
+        "tolerance": 1e-05
+      }
     }
   ],
-  "bankSize": 100
+  "bankSize": 190,
+  "sourceScope": {
+    "year": 9,
+    "sharedFoundations": "Year 8 separation and working scientifically revisited in the supplied Year 9 lessons",
+    "included": [
+      "Periodic table development",
+      "Separation techniques",
+      "RP6 chromatography"
+    ],
+    "excluded": [
+      "RP1–4 Year 10",
+      "RP7–8 Year 11",
+      "Later Year 9 chapters not established as taught"
+    ],
+    "questionStyle": "Original AQA GCSE-style questions, not official AQA past-paper questions"
+  },
+  "marking": {
+    "defaultMarks": 1,
+    "paperTotal": "Sum of the selected questions’ marks"
+  }
 }

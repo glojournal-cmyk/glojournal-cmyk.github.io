@@ -2310,16 +2310,937 @@
       },
       "preview": true,
       "ordinary": true
+    },
+    {
+      "id": "chem-aqa-20260930-013-practice",
+      "conceptId": "chem-school-aqa-sand-salt-recovery",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "A mixture contains sand and sodium chloride. Sodium chloride dissolves in water; sand does not. Describe how to obtain dry sand and salt crystals.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "water dissolve salt",
+          "filter sand residue",
+          "dry sand",
+          "evaporate filtrate cool crystals"
+        ],
+        "markPointAlternatives": [
+          [],
+          [],
+          [],
+          [
+            "partially evaporate cool crystallise"
+          ]
+        ],
+        "totalMarks": 4,
+        "modelAnswer": "Add water and stir to dissolve the salt. Filter to collect the sand residue. Dry the sand. Partially evaporate the filtrate and cool it to form salt crystals, then separate and dry the crystals."
+      },
+      "stimulus": {
+        "marks": 4
+      },
+      "feedback": {
+        "short": "Add water and stir to dissolve the salt. Filter to collect the sand residue. Dry the sand. Partially evaporate the filtrate and cool it to form salt crystals, then separate and dry the crystals.",
+        "steps": [
+          "Add water and stir to dissolve the salt. Filter to collect the sand residue. Dry the sand. Partially evaporate the filtrate and cool it to form salt crystals, then separate and dry the crystals.",
+          "Follow both components through the method. Filter before crystallising."
+        ],
+        "commonError": "Follow both components through the method. Filter before crystallising.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 4 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-014-practice",
+      "conceptId": "chem-school-aqa-salt-through-filter",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "A pupil filters salt solution but no salt is left on the filter paper. Explain this observation.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "salt dissolved",
+          "passes through filter"
+        ],
+        "markPointAlternatives": [
+          [
+            "dissolved salt"
+          ],
+          [
+            "passes with water"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The salt is dissolved in the water. The dissolved salt passes through the filter with the water."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The salt is dissolved in the water. The dissolved salt passes through the filter with the water.",
+        "steps": [
+          "The salt is dissolved in the water. The dissolved salt passes through the filter with the water.",
+          "Filtration removes insoluble particles, rather than a dissolved solute."
+        ],
+        "commonError": "Filtration removes insoluble particles, rather than a dissolved solute.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-015-practice",
+      "conceptId": "chem-school-aqa-filtrate-not-pure",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "Cloudy salt water is filtered and becomes clear. A pupil says the filtrate must be pure water. Evaluate this conclusion.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "removes insoluble particles",
+          "dissolved salt remains",
+          "clear does not show pure"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "salt still dissolved"
+          ],
+          [
+            "clear not necessarily pure"
+          ]
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Filtration removes the insoluble particles, but dissolved salt remains in the filtrate. Clear appearance does not show that it is pure water."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Filtration removes the insoluble particles, but dissolved salt remains in the filtrate. Clear appearance does not show that it is pure water.",
+        "steps": [
+          "Filtration removes the insoluble particles, but dissolved salt remains in the filtrate. Clear appearance does not show that it is pure water.",
+          "Appearance alone does not show whether dissolved substances are present."
+        ],
+        "commonError": "Appearance alone does not show whether dissolved substances are present.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-016-practice",
+      "conceptId": "chem-school-aqa-retain-water",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "A pupil wants to collect water from a salt solution and heats it in an open evaporating basin. Explain why this fails and name a better technique.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "water escapes vapour",
+          "simple distillation condense collect"
+        ],
+        "markPointAlternatives": [
+          [
+            "water evaporates escapes"
+          ],
+          [
+            "distillation condense water"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The water escapes as vapour instead of being collected. Use simple distillation to condense and collect the water."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The water escapes as vapour instead of being collected. Use simple distillation to condense and collect the water.",
+        "steps": [
+          "The water escapes as vapour instead of being collected. Use simple distillation to condense and collect the water.",
+          "Choose a technique that collects the component the pupil wants."
+        ],
+        "commonError": "Choose a technique that collects the component the pupil wants.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-017-practice",
+      "conceptId": "chem-school-aqa-condenser-cause",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "In simple distillation, water vapour enters a cooled condenser. Describe what happens and why.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "loses heat",
+          "condenses liquid water",
+          "collected distillate"
+        ],
+        "markPointAlternatives": [
+          [
+            "cools down"
+          ],
+          [
+            "condensation liquid"
+          ],
+          [
+            "collect liquid"
+          ]
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "The vapour loses heat and condenses into liquid water, which can be collected as the distillate."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "The vapour loses heat and condenses into liquid water, which can be collected as the distillate.",
+        "steps": [
+          "The vapour loses heat and condenses into liquid water, which can be collected as the distillate.",
+          "Distinguish boiling in the flask from condensation in the condenser."
+        ],
+        "commonError": "Distinguish boiling in the flask from condensation in the condenser.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-018-practice",
+      "conceptId": "chem-school-aqa-fractional-data",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "Liquids A and B mix together. Their boiling points are 65 °C and 80 °C. Name the separation technique and predict which is collected first.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "fractional distillation",
+          "A lower boiling point"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "A boils first"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Use fractional distillation. Liquid A is collected first because it has the lower boiling point."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Use fractional distillation. Liquid A is collected first because it has the lower boiling point.",
+        "steps": [
+          "Use fractional distillation. Liquid A is collected first because it has the lower boiling point.",
+          "Use the boiling-point data in your prediction."
+        ],
+        "commonError": "Use the boiling-point data in your prediction.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-019-practice",
+      "conceptId": "chem-school-aqa-column-purpose",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "Explain why a fractionating column helps separate a mixture of liquids with different boiling points.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "repeated vaporisation condensation",
+          "higher boiling condense lower"
+        ],
+        "markPointAlternatives": [
+          [
+            "repeated evaporation condensation"
+          ],
+          [
+            "lower boiling vapour passes up"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "It allows repeated vaporisation and condensation. Higher-boiling liquids condense lower in the column while the lower-boiling vapour passes further up."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "It allows repeated vaporisation and condensation. Higher-boiling liquids condense lower in the column while the lower-boiling vapour passes further up.",
+        "steps": [
+          "It allows repeated vaporisation and condensation. Higher-boiling liquids condense lower in the column while the lower-boiling vapour passes further up.",
+          "Describe what the column does rather than just naming it."
+        ],
+        "commonError": "Describe what the column does rather than just naming it.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-020-practice",
+      "conceptId": "chem-school-aqa-crystals-heat-sensitive",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "A dissolved solid decomposes if strongly heated to dryness. Describe a suitable way to obtain its crystals.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "evaporate some solvent",
+          "cool form crystals",
+          "separate dry crystals"
+        ],
+        "markPointAlternatives": [
+          [
+            "partially evaporate",
+            "concentrate solution"
+          ],
+          [
+            "cool crystallise"
+          ],
+          [
+            "filter dry crystals"
+          ]
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Gently evaporate some solvent to concentrate the solution, then allow it to cool and form crystals. Separate and dry the crystals."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Gently evaporate some solvent to concentrate the solution, then allow it to cool and form crystals. Separate and dry the crystals.",
+        "steps": [
+          "Gently evaporate some solvent to concentrate the solution, then allow it to cool and form crystals. Separate and dry the crystals.",
+          "Do not heat all the way to dryness."
+        ],
+        "commonError": "Do not heat all the way to dryness.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-021-practice",
+      "conceptId": "chem-school-aqa-cooling-solubility-data",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "A solute dissolves much better in hot water than cold water. Explain why cooling a concentrated hot solution can form crystals.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "solubility decreases cooling",
+          "excess solute forms crystals"
+        ],
+        "markPointAlternatives": [
+          [
+            "less soluble cold"
+          ],
+          [
+            "solute crystallises"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The solubility decreases as the solution cools. The excess dissolved solute forms solid crystals."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The solubility decreases as the solution cools. The excess dissolved solute forms solid crystals.",
+        "steps": [
+          "The solubility decreases as the solution cools. The excess dissolved solute forms solid crystals.",
+          "Link the solubility change to formation of a solid."
+        ],
+        "commonError": "Link the solubility change to formation of a solid.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-022-practice",
+      "conceptId": "chem-school-aqa-crystal-drying-error",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "A pupil weighs newly filtered crystals while they are still wet. Explain how this affects the measured mass and suggest an improvement.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "water mass too high",
+          "dry crystals before weighing"
+        ],
+        "markPointAlternatives": [
+          [
+            "wet mass too high",
+            "water increases measured mass"
+          ],
+          []
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Water on the crystals makes the measured mass too high. Dry the crystals before weighing."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Water on the crystals makes the measured mass too high. Dry the crystals before weighing.",
+        "steps": [
+          "Water on the crystals makes the measured mass too high. Dry the crystals before weighing.",
+          "Name the extra material being weighed and the direction of the error."
+        ],
+        "commonError": "Name the extra material being weighed and the direction of the error.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-023-practice",
+      "conceptId": "chem-school-aqa-solubility-stem",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "Solid X dissolves in solvent Z, but solid Y does not. Describe how to separate X and Y and recover both dry solids.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Z dissolve X",
+          "filter Y residue",
+          "dry Y",
+          "remove solvent filtrate recover X"
+        ],
+        "markPointAlternatives": [
+          [
+            "solvent dissolve X"
+          ],
+          [],
+          [
+            "dry residue"
+          ],
+          [
+            "evaporate filtrate X"
+          ]
+        ],
+        "totalMarks": 4,
+        "modelAnswer": "Add solvent Z to dissolve X. Filter to collect Y as residue and dry it. Remove solvent Z from the filtrate to recover X."
+      },
+      "stimulus": {
+        "marks": 4
+      },
+      "feedback": {
+        "short": "Add solvent Z to dissolve X. Filter to collect Y as residue and dry it. Remove solvent Z from the filtrate to recover X.",
+        "steps": [
+          "Add solvent Z to dissolve X. Filter to collect Y as residue and dry it. Remove solvent Z from the filtrate to recover X.",
+          "Use the solubility facts supplied rather than assuming both solids dissolve."
+        ],
+        "commonError": "Use the solubility facts supplied rather than assuming both solids dissolve.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 4 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-024-practice",
+      "conceptId": "chem-school-aqa-water-both-soluble",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "Two solids both dissolve in water. Explain why adding water and filtering will not separate them.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "both solids dissolve",
+          "both pass through filter"
+        ],
+        "markPointAlternatives": [
+          [
+            "both dissolve"
+          ],
+          [
+            "neither insoluble residue"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Both solids dissolve and both pass through the filter in the solution. Neither is retained as a separate insoluble residue."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Both solids dissolve and both pass through the filter in the solution. Neither is retained as a separate insoluble residue.",
+        "steps": [
+          "Both solids dissolve and both pass through the filter in the solution. Neither is retained as a separate insoluble residue.",
+          "An insoluble component is needed for this filtration plan."
+        ],
+        "commonError": "An insoluble component is needed for this filtration plan.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-025-practice",
+      "conceptId": "chem-school-aqa-distillation-salt-location",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "After simple distillation of salt solution, where is the salt? Explain your answer.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "salt remains flask",
+          "water vaporises",
+          "salt does not vaporise"
+        ],
+        "markPointAlternatives": [
+          [
+            "salt left flask"
+          ],
+          [
+            "water evaporates"
+          ],
+          [
+            "salt not evaporate"
+          ]
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "The salt remains in the distillation flask. Water vaporises and is collected, while the salt does not vaporise at the water’s boiling temperature."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "The salt remains in the distillation flask. Water vaporises and is collected, while the salt does not vaporise at the water’s boiling temperature.",
+        "steps": [
+          "The salt remains in the distillation flask. Water vaporises and is collected, while the salt does not vaporise at the water’s boiling temperature.",
+          "Track the solute and solvent separately."
+        ],
+        "commonError": "Track the solute and solvent separately.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-026-practice",
+      "conceptId": "chem-school-aqa-mixed-method-choice",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "A water sample contains suspended sand and dissolved salt. Describe how to obtain water without either contaminant.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "filter remove sand",
+          "simple distillation",
+          "condense water salt behind"
+        ],
+        "markPointAlternatives": [
+          [],
+          [
+            "distil water"
+          ],
+          [
+            "water collected salt remains"
+          ]
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Filter first to remove the sand. Then use simple distillation to vaporise and condense the water, leaving dissolved salt behind."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Filter first to remove the sand. Then use simple distillation to vaporise and condense the water, leaving dissolved salt behind.",
+        "steps": [
+          "Filter first to remove the sand. Then use simple distillation to vaporise and condense the water, leaving dissolved salt behind.",
+          "The two contaminants require different separation steps."
+        ],
+        "commonError": "The two contaminants require different separation steps.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-027-practice",
+      "conceptId": "chem-school-aqa-distillate-term",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "A distillation experiment collects a colourless liquid from blue dye solution. Name the collected liquid as a piece of distillation vocabulary and explain why the blue dye is not expected to be collected with it.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "distillate",
+          "solvent vaporises condenses",
+          "dye remains flask"
+        ],
+        "markPointAlternatives": [
+          [],
+          [],
+          [
+            "non volatile dye remains"
+          ]
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "The collected liquid is the distillate. The solvent vaporises and condenses, while the dissolved non-volatile dye remains in the flask."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "The collected liquid is the distillate. The solvent vaporises and condenses, while the dissolved non-volatile dye remains in the flask.",
+        "steps": [
+          "The collected liquid is the distillate. The solvent vaporises and condenses, while the dissolved non-volatile dye remains in the flask.",
+          "Colourless alone does not prove purity, but the method explains the separation."
+        ],
+        "commonError": "Colourless alone does not prove purity, but the method explains the separation.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-028-practice",
+      "conceptId": "chem-school-aqa-physical-separation",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "Salt solution is separated into salt and water. Explain why this separation is a physical process.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "no new substances",
+          "retain chemical identities"
+        ],
+        "markPointAlternatives": [
+          [
+            "not form new substance"
+          ],
+          [
+            "chemical properties unchanged",
+            "still salt water"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "No new substances are formed. The salt and water retain their chemical identities."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "No new substances are formed. The salt and water retain their chemical identities.",
+        "steps": [
+          "No new substances are formed. The salt and water retain their chemical identities.",
+          "Do not describe separation as making a new compound."
+        ],
+        "commonError": "Do not describe separation as making a new compound.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-029-practice",
+      "conceptId": "chem-school-aqa-evap-v-crystallise",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "Compare evaporation to dryness with crystallisation from a concentrated solution.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "dryness all solvent",
+          "crystallisation partial evaporation cooling"
+        ],
+        "markPointAlternatives": [
+          [
+            "evaporation all solvent"
+          ],
+          [
+            "crystallisation cool concentrated solution"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Evaporation to dryness removes all the solvent. Crystallisation uses partial evaporation followed by cooling to form crystals."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Evaporation to dryness removes all the solvent. Crystallisation uses partial evaporation followed by cooling to form crystals.",
+        "steps": [
+          "Evaporation to dryness removes all the solvent. Crystallisation uses partial evaporation followed by cooling to form crystals.",
+          "Mention the amount of solvent removed and the cooling stage."
+        ],
+        "commonError": "Mention the amount of solvent removed and the cooling stage.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 2 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
+    },
+    {
+      "id": "chem-aqa-20260930-030-practice",
+      "conceptId": "chem-school-aqa-solvent-reuse",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "A laboratory wants to recover both a dissolved solid and its solvent. Explain why distillation is more suitable than leaving the solution to evaporate in an open dish.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "distillation condenses collects solvent",
+          "solid remains",
+          "open evaporation loses solvent"
+        ],
+        "markPointAlternatives": [
+          [],
+          [],
+          []
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Distillation condenses and collects the solvent for reuse, while the dissolved solid remains. Open evaporation loses the solvent to the surroundings."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Distillation condenses and collects the solvent for reuse, while the dissolved solid remains. Open evaporation loses the solvent to the surroundings.",
+        "steps": [
+          "Distillation condenses and collects the solvent for reuse, while the dissolved solid remains. Open evaporation loses the solvent to the surroundings.",
+          "The aim includes recovering the solvent, not only the solid."
+        ],
+        "commonError": "The aim includes recovering the solvent, not only the solid.",
+        "remember": "Use the given evidence and link each observation to a conclusion."
+      },
+      "task": {
+        "label": "EXAM SHORT ANSWER",
+        "instruction": "Give 3 distinct mark points, using evidence from the question."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style"
     }
   ],
-  "enabled": 46,
+  "enabled": 64,
   "preview": 10,
   "disabled": 0,
   "formats": {
     "mc_single": 20,
     "typed_exact": 8,
     "spelling_restore": 10,
-    "mark_points": 12,
+    "mark_points": 30,
     "typed_short": 2,
     "matching": 3,
     "diagram_label": 1
@@ -2423,6 +3344,11 @@
         "source": "The Tiffin Girls’ School Year 9 Chemistry Curriculum Outline 2026–27",
         "locator": "Department: Chemistry · Year 9 · AQA GCSE Chemistry 8462",
         "url": "https://fra1.digitaloceanspaces.com/tiffingirls.org/wp-content/uploads/2026/07/10113937/Year-9-Chemistry-Curriculum-Outline-2026-2027.docx.pdf"
+      },
+      {
+        "source": "Supplied school lessons and RP6 lab book, reread 30 September 2026",
+        "locator": "slides 8–18; revision notes page 2",
+        "body": "Original GCSE AQA-style short questions, restricted to the relevant taught content. Use evidence, explain cause and effect, and show calculation working."
       }
     ]
   }
