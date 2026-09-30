@@ -124,7 +124,7 @@ function openPets(event) {
 function ensureNavigation() {
   document.querySelectorAll("nav").forEach((nav) => {
     const isAside = Boolean(nav.closest("aside"));
-    if (!isAside) nav.classList.add("lux-companion-bottom-nav");
+    if (!isAside && !nav.classList.contains("pet-side-nav")) nav.classList.add("lux-companion-bottom-nav");
 
     if (nav.querySelector('[data-pet-nav="true"]')) return;
     const play = [...nav.querySelectorAll('a[href="/play"],a[href="/play/"]')].find((a) => a.parentElement === nav);
