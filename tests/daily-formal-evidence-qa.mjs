@@ -34,7 +34,11 @@ assert.equal(context.focusAttemptsToday(state,focus),1,'Game cannot advance adap
 assert.equal(context.topicAttemptsToday(state,topic),1,'Game cannot advance formal Year 8 work');
 context.patchedRecordAttempt('q2',true,'french',{topicId:topic,excludeGeneralDaily:true,yearOverride:8});
 assert.equal(context.topicAttemptsToday(state,topic),2,'Formal Year 8 practice adds topic evidence');
-assert.equal(state.questionsToday,1,'Dedicated Year 8 work stays separate from general daily work');
+assert.equal(state.questionsToday,2,'Formal Year 8 work counts towards the general daily target');
 const restored=JSON.parse(JSON.stringify(state));
 assert.equal(context.topicAttemptsToday(restored,topic),2,'Saved topic evidence survives a round-trip');
-console.log('DAILY_FORMAL_EVIDENCE_QA passed: formal work retained; repairs, games and dedicated Year 8 counters kept separate.');
+for(let i=0;i<35;i++) context.patchedRecordAttempt('extra-'+i,true,'french',{topicId:topic,excludeGeneralDaily:true,yearOverride:8});
+assert.equal(context.topicAttemptsToday(state,topic),37,'Durable ledger outlives the 20-outcome window');
+assert.equal(context.focusAttemptsToday(state,focus),37,'Focus uses the durable daily count');
+assert.equal(state.questionsToday,37,'Every formal answer adds one daily attempt');
+console.log('DAILY_FORMAL_EVIDENCE_QA passed: formal work retained; Year 8 work also advances general daily progress; repairs and games stay excluded.');

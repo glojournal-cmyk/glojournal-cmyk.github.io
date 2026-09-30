@@ -1,0 +1,71 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+
+const wrapper = fs.readFileSync("assets/index-BLVOhKhN.js", "utf8");
+const practice = fs.readFileSync("assets/study._subject.practise-y8fix-20260920.js", "utf8");
+function source(text, name) {
+  const start = text.indexOf("function " + name + "(");
+  assert.ok(start >= 0);
+  const end = text.indexOf("\n}", start);
+  assert.ok(end > start);
+  return text.slice(start, end + 2);
+}
+const day = "2026-09-30";
+const topic = "la-y8-stage-1-vocabulary";
+const pick = {subject:"latin",topicId:topic,topicLabel:"Stage 1",label:"Latin"};
+const mocks = {
+  DAILY_SUBJECTS:["latin","french"], YEAR8_MASTERY_SUBJECTS:["latin","french"],
+  SUBJECT_LABELS:{latin:"Latin",french:"French"}, FRENCH_DAILY_HREF:"/session/french-vocab",
+  topicMatchesYear:()=>true, adaptiveFocus:()=>({subject:"latin",topicId:topic}),
+  topicTitle:()=> "Stage 1", focusAttemptsToday:()=>0,
+  year8ReviewPlan:()=>({...pick,ready:true,href:"/study/latin/practise?mode=year8long"}),
+  completedYear8ReviewEvidence:()=>null, vocabGateState:()=>({correct:0,progress:0,attempts:0}),
+  topicAttemptsToday:()=>0, year8AssignedPool:()=>[pick], todayKey:()=>day,
+  pickYear8Assigned:()=>pick, firstUnmastered:()=>pick, year8TopicRank:()=>0,
+  year8AssignedTitle:()=>"Stage 1", year8AssignedHref:()=>"/study/latin/practise",
+  focusHref:()=>"/study/latin/practise", localDayFromIso:s=>s.slice(0,10),
+};
+const builder = new Function(...Object.keys(mocks),
+  source(wrapper,"buildAdaptiveDaily")+";return buildAdaptiveDaily;")(...Object.values(mocks));
+const state = {
+  today:day,year:8,questionsToday:0,topicStats:{[topic]:{attempted:30}},
+  dailyTopicAttemptsByDay:{[day]:{[topic]:35}},
+  daily:[
+    {id:"study-session",planDate:day,focusSubject:"latin",focusTopic:topic,progress:10},
+    {id:"adaptive-focus",planDate:day,progress:4},
+    {id:"y8-mastery",planDate:day,assignedSubject:"latin",assignedTopic:topic,
+      href:"/study/latin/practise",progress:25,masteryStartAttempts:10},
+    {id:"year8-long-review",planDate:day,reviewSubject:"latin",reviewTopic:topic,
+      href:"/study/latin/practise?mode=year8long",progress:25,reviewStartAttempts:10},
+  ],
+};
+for (const restored of [state,JSON.parse(JSON.stringify(state))]) {
+  const tasks=builder(restored);
+  for(const [id,value] of [["study-session",10],["adaptive-focus",4],["y8-mastery",25],["year8-long-review",25]])
+    assert.equal(tasks.find(t=>t.id===id)?.progress,value,id+" must retain completion");
+  assert.ok(tasks.find(t=>t.id==="year8-long-review").href.includes("task=year8-long-review"));
+}
+const start=practice.indexOf("function buildDaily30("),end=practice.indexOf("function qp(",start);
+assert.ok(start>=0&&end>start);
+const mixMocks={
+  daily30Topics:(_subject,topics)=>topics,daily30Mature:()=>false,l:()=>day,
+  daily30Confirm:()=>({}),GQS:()=>[],daily30Shuffle:rows=>rows,FD:rows=>rows,
+};
+const buildMix=new Function(...Object.keys(mixMocks),
+  practice.slice(start,end)+";return buildDaily30;")(...Object.values(mixMocks));
+for(const subject of ["latin","french"]) {
+  const tid=subject==="latin"?topic:"fr-y8-s01-basics";
+  const items=Array.from({length:45},(_,i)=>({
+    id:subject+"-"+i,topicId:tid,format:"typed_short",prompt:"Translate a word",formal:true,
+  }));
+  const credited=Object.fromEntries(items.slice(0,10).map(q=>[q.id,true]));
+  credited[items[10].id]=false;
+  const ledger={[day]:{[subject]:{items:credited}}};
+  const mixed=buildMix(subject,items,[{topicId:tid}],{},{},{},day,"",ledger);
+  assert.equal(mixed.length,30,subject+" still receives a full refill");
+  assert.ok(mixed.every(q=>!credited[q.id]),"Credited answers must not be asked again");
+  assert.ok(mixed.some(q=>q.id===items[10].id),"Missed answers remain eligible");
+  assert.equal(new Set(mixed.map(q=>q.id)).size,30);
+}
+assert.ok(practice.includes("dailyId:dailyLocked&&[`y8-practise`,`y8-mastery`,`year8-long-review`]"));
+console.log("DAILY_COUNTING_REGRESSION_QA passed: completion survives reload; French and Latin refill exclude credited answers.");

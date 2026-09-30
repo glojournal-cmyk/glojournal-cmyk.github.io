@@ -1,0 +1,29 @@
+name: Daily progress regression
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/index-BLVOhKhN.js'
+      - 'assets/study._subject.practise-y8fix-20260920.js'
+      - 'assets/progression-guard-20260927.js'
+      - 'tests/daily-*.mjs'
+      - '.github/workflows/daily-progress-regression.yml'
+  workflow_dispatch:
+jobs:
+  daily-progress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check changed runtime syntax
+        run: |
+          node --check assets/index-BLVOhKhN.js
+          node --check assets/study._subject.practise-y8fix-20260920.js
+          node --check assets/progression-guard-20260927.js
+      - name: Test formal counting, reload and refill
+        run: |
+          node tests/daily-formal-evidence-qa.mjs
+          node tests/daily-counting-regression-qa.mjs
+          node tests/daily-task-persistence-qa.mjs

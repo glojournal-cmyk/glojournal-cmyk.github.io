@@ -272,7 +272,7 @@ function patchDaily() {
       title: titleFor(subject, frontier),
       detail: `Foundation first: this Year 8 topic must be mature before the daily queue moves deeper. Mature = accurate retrieval + spaced success${subject === "latin" || subject === "french" ? " + independent production" : ""}.`,
       href: foundationHref(subject, frontier, mode, task.id || "foundation-first"),
-      progress: 0,
+      progress: taskTopic(task) === frontier.topicId ? Math.max(0, Number(task.progress) || 0) : 0,
       planDate: state.today,
       foundationGuard: VERSION,
       foundationYear: 8,

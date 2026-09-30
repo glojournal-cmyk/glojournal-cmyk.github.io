@@ -17,10 +17,10 @@ for(const token of requiredCore) if(!core.includes(token)) failures.push({type:"
 const requiredWrapper=[
   'const existingPlan = previous.get("study-session");',
   'function focusAttemptsToday(state, focus) {',
-  'const studyProgress = Math.min(10, Math.max(0, Number(state.questionsToday) || 0));',
+  'const studyProgress = Math.min(10, Math.max(0, Number(state.questionsToday) || 0,',
   'const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;',
   'const focusEvidence = focusAttemptsToday(state, focus);',
-  'const focusProgress = Math.min(4, focusEvidence > 0 ? focusEvidence : oldFocusProgress);',
+  'const focusProgress = Math.min(4, Math.max(focusEvidence, oldFocusProgress));',
   '{ id: "adaptive-focus"',
   "normalizeState();",
   "store.subscribe(() => normalizeState());"
