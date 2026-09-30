@@ -1,0 +1,35 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+import {normalizeStudyNote,groupStudyTopics,releasedStudyNote} from '../assets/study-content-20260930.js';
+const core=fs.readFileSync('assets/index-BLVOhKhN.core.js','utf8');
+const block=core.slice(core.indexOf('async function attachReleasedExamPapers('),core.indexOf('function wC()'));
+const catalog={topics:[],bySubjectYear:[],totals:{topics:0,questions:0,enabled:0}};
+const packs=new Map();
+const ctx=vm.createContext({examReleaseToday:()=> '2026-09-30',fetch:async()=>({ok:true,json:async()=>({questions:[{id:'q',prompt:'Question',answer:{accepted:['yes']}}],groups:[{questions:[{id:'q',prompt:'Question',answer:{accepted:['yes']}}]}]})}),examReleaseQuestion:(q,p)=>({...q,topicId:p.topicId,format:'typed_exact'}),releasedStudyNote:async p=>({title:p.title,overview:'Valid lesson'}),xC:packs,console});
+vm.runInContext(block,ctx);
+await Promise.all([ctx.attachReleasedExamPapers(catalog),ctx.attachReleasedExamPapers(catalog),ctx.attachReleasedExamPapers(catalog)]);
+assert.equal(catalog.topics.length,3,'Concurrent loading must register each released paper only once');
+assert.equal(new Set(catalog.topics.map(t=>t.topicId)).size,3);
+assert.equal(catalog.totals.topics,3);
+for(const p of packs.values())assert.ok(p.note.overview,'Released topics need readable lesson notes');
+const groups=groupStudyTopics([{topicId:'a',unitId:'u1',unitName:'Unit 1'},{topicId:'a',unitId:'u1'},{topicId:'b',unitId:'u2',unitName:'Unit 2'}]);
+assert.equal(groups.length,2);assert.equal(groups.flatMap(g=>g.topics).length,2);
+const learn=fs.readFileSync('assets/study._subject.learn-BvTzW3pu.js','utf8');
+const noteRenderer=learn.slice(learn.indexOf('function O(e)'),learn.indexOf('export{'));
+const jsx=(type,props,key)=>({type,props,key}),flatten=(node,out=[])=>{if(node==null)return out;if(Array.isArray(node)){node.forEach(x=>flatten(x,out));return out;}out.push(node);if(typeof node==='object')flatten(node.props?.children,out);return out;};
+const renderCtx=vm.createContext({normalizeStudyNote,S:{useState:()=>[{},()=>{}]},C:{jsx,jsxs:jsx},v:'Card',b:'CheckIcon',s:'Input',_:'Button',r:'Link',w:'Footer',l:value=>String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim()});
+vm.runInContext(noteRenderer,renderCtx);
+for(const id of ['fr-y9-u1-paris-travel','chem-y9-c4']){
+ const pack=JSON.parse(fs.readFileSync(`content/topics/${id}.json`));
+ const note=normalizeStudyNote(pack.note);assert.equal(note.quickCheck.length,3);assert.ok(note.workedExamples.every(x=>x.prompt&&x.answer&&x.why));
+ const tree=renderCtx.k({note,title:pack.title,completed:false,onComplete:()=>{},practiseHref:'/practice',subject:pack.subject});
+ const nodes=flatten(tree);const inputs=nodes.filter(n=>n?.type==='Input');assert.equal(inputs.length,3);assert.ok(inputs.every(n=>n.props['aria-label']));
+ assert.ok(nodes.some(n=>typeof n==='string'&&n.includes(note.workedExamples[0].answer)));
+}
+const malformed=normalizeStudyNote({quickCheck:['Describe a place.'],workedExamples:['Le musée ouvre.'],additionalSourceSections:[{url:'source.pdf'}]});
+assert.equal(malformed.quickCheck.length,0,'Learning goals cannot become blank marked questions');
+assert.equal(malformed.workedExamples[0].answer,'Le musée ouvre.');
+const latin=await releasedStudyNote({topicId:'exam-latin-verbs',title:'Regular verbs: present, imperfect, perfect'});
+assert.equal(latin.quickCheck.length,3);assert.ok(latin.workedExamples.every(x=>!x.prompt.includes('future')));
+console.log('Study QA passed: concurrent releases, unique unit groups, rendered examples, accessible Quick Checks and released Latin tense notes.');

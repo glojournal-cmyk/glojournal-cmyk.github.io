@@ -1,4 +1,4 @@
-import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20260929-dailyfix15";
+import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20260930-study1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
 const LABELS = { latin: "Latin", french: "French", biology: "Biology", chemistry: "Chemistry", physics: "Physics" };
@@ -81,8 +81,8 @@ function recommended(state) {
 function evidenceCopy(state, subject, topicId) {
   const s=summary(state.topicStats?.[topicId]||{});
   const pct=s.attempted?Math.round(s.accuracy*100):0;
-  const prod=(subject==="latin"||subject==="french")?` · production ${s.productionCorrect}`:"";
-  return `Year 8 foundation · ${s.attempted} attempts · ${pct}% first-pass${prod} · ${s.days} study day${s.days===1?"":"s"}. Daily will only move deeper when this is mature.`;
+  const prod=(subject==="latin"||subject==="french")?` · ${s.productionCorrect} correct answers written independently`:"";
+  return `Year 8 foundation · ${s.attempted} attempts · ${pct}% accuracy${prod} · ${s.days} study day${s.days===1?"":"s"}. Practise on at least 2 days with 10 answers and 85% accuracy before Daily moves on.`;
 }
 
 function patchStudyLanding() {
@@ -95,27 +95,31 @@ function patchStudyLanding() {
   if (!main) return;
 
   const pageTitle=[...main.querySelectorAll("h1")].find(el=>/Continue Learning/i.test(el.textContent||"")||el.dataset.foundationStudyTitle);
-  if (pageTitle) { pageTitle.textContent="Study"; pageTitle.dataset.foundationStudyTitle="1"; }
+  if (pageTitle) { if(pageTitle.textContent!=="Study")pageTitle.textContent="Study"; pageTitle.dataset.foundationStudyTitle="1"; }
   const kicker=pageTitle?.parentElement?.querySelector("p.kicker");
-  if (kicker) kicker.textContent="Foundation first · school learning stays available";
+  if (kicker && kicker.textContent!=="Foundation first · school learning stays available") kicker.textContent="Foundation first · school learning stays available";
 
   const sections=[...main.querySelectorAll("section")];
   const hero=sections.find(s=>s.querySelector("h2") && s.querySelector("img"));
   if (hero) {
+    const source=[...main.querySelectorAll("h3")].find(h=>h.textContent===LABELS[rec.subject])?.closest("section");
+    const subjectArt=[...main.querySelectorAll("h3")].find(h=>h.textContent===LABELS[rec.subject])?.parentElement?.parentElement?.parentElement?.querySelector("img");
+    const heroArt=hero.querySelector("img");
+    if(subjectArt&&heroArt&&heroArt.getAttribute("src")!==subjectArt.getAttribute("src"))heroArt.setAttribute("src",subjectArt.getAttribute("src"));
     const card=hero.firstElementChild;
     if (card) {
       const upper=card.querySelector("p.text-xs.font-semibold");
       const h2=card.querySelector("h2");
       const desc=[...card.querySelectorAll("p")].find(p=>p!==upper && !p.classList.contains("kicker"));
       const link=card.querySelector("a[href]");
-      if (upper) upper.textContent="RECOMMENDED NEXT · FOUNDATION FIRST";
-      if (h2) h2.textContent=`${LABELS[rec.subject]} · ${rec.topic.title || rec.topic.topicId}`;
-      if (desc) desc.textContent=evidenceCopy(state,rec.subject,rec.topic.topicId);
+      if (upper && upper.textContent!=="RECOMMENDED NEXT · FOUNDATION FIRST") upper.textContent="RECOMMENDED NEXT · FOUNDATION FIRST";
+      if (h2 && h2.textContent!==`${LABELS[rec.subject]} · ${rec.topic.title || rec.topic.topicId}`) h2.textContent=`${LABELS[rec.subject]} · ${rec.topic.title || rec.topic.topicId}`;
+      if (desc && desc.textContent!==evidenceCopy(state,rec.subject,rec.topic.topicId)) desc.textContent=evidenceCopy(state,rec.subject,rec.topic.topicId);
       if (link) {
         const safeHref=`/study/${rec.subject}/practise?daily=1&locked=1&year=8&mode=standard&task=study-recommended&topic=${encodeURIComponent(rec.topic.topicId)}`;
         link.setAttribute("href",safeHref);
         link.dataset.foundationHref=safeHref;
-        link.textContent="Practise next →";
+        if(link.textContent!=="Practise next →")link.textContent="Practise next →";
         if (!link.dataset.foundationClick) {
           link.dataset.foundationClick="1";
           link.addEventListener("click",event=>{
@@ -132,12 +136,12 @@ function patchStudyLanding() {
 
   const todayHeading=[...main.querySelectorAll("h2")].find(el=>el.textContent?.trim()==="Today"||el.dataset.schoolLessonsHeading);
   if (todayHeading) {
-    todayHeading.textContent="School lessons · Year 9 content";
+    if(todayHeading.textContent!==`School lessons · Year ${state.year||9} content`)todayHeading.textContent=`School lessons · Year ${state.year||9} content`;
     todayHeading.dataset.schoolLessonsHeading="1";
     const sub=todayHeading.parentElement?.querySelector("p.text-sm.text-muted");
-    if (sub) sub.textContent="Current school content stays available here. It does not override the foundation-first Daily progression.";
+    if (sub && sub.textContent!=="Choose a school topic below. Daily tasks continue to build your foundations in order.") sub.textContent="Choose a school topic below. Daily tasks continue to build your foundations in order.";
     const sec=todayHeading.closest("section");
-    sec?.querySelectorAll("p.text-xs.text-muted").forEach(p=>{ p.textContent="School lesson · Year 9"; });
+    sec?.querySelectorAll("p.text-xs.text-muted").forEach(p=>{ if(p.textContent!==`School lesson · Year ${state.year||9}`)p.textContent=`School lesson · Year ${state.year||9}`; });
   }
 }
 

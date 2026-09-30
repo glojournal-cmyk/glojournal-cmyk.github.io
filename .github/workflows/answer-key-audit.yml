@@ -23,6 +23,8 @@ jobs:
           node --check assets/scholar-iJ2ilQWG.js
       - name: Audit Year 9 school runtime update
         run: node tests/year9-school-update-qa.mjs
+      - name: Audit Study lessons, topic grouping and released-paper concurrency
+        run: node tests/study-experience-qa.mjs
       - name: Test French practice regressions
         run: node --test tests/french-practice-regression.mjs
       - name: Audit production route shells

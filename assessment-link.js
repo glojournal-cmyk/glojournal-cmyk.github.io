@@ -8,7 +8,7 @@
     document.querySelectorAll('nav').forEach(nav=>{
       if(nav.querySelector('a[href="/study"]')&&!nav.querySelector('a[href^="/assessment"]')){
         const a=document.createElement('a');a.href=assessmentUrl;a.innerHTML=icon+'<span>Assessments</span>';
-        const sample=nav.querySelector('a[href="/study"]');a.className=sample.className;
+        const sample=nav.querySelector('a[href="/study"]');a.className=sample.className.replace(/bg-card\s+text-ink/g,"text-card/75 hover:bg-white/10").replace(/bg-sage\s+text-navy/g,"text-muted").replace(/\bactive\b/g,"");
         a.setAttribute('aria-label','School assessments and long tests');sample.after(a);
         if(nav.classList.contains('grid'))nav.style.gridTemplateColumns='repeat(7,minmax(0,1fr))';
       }

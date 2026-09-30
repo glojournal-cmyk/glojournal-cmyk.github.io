@@ -332,3 +332,13 @@ body.lux-record-open { overflow: hidden; }
 }
 .lux-record-detail p.is-missed { color: #8f3d3d; }
 .lux-record-detail p.is-done { color: #2f6b4f; }
+
+/* Study: collapse the catalogue so the question stays within easy reach. */
+.study-topic-picker>summary {min-height:44px;display:flex;align-items:center;line-height:1.5;}
+.study-unit-picker {margin-top:12px;border-top:1px solid #deddd2;padding-top:8px;}
+.study-unit-picker>summary {min-height:44px;cursor:pointer;color:#173449;font-weight:600;}
+.study-topic-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px;margin-top:8px;}
+.study-topic-button {min-height:44px;padding:10px 14px;border-radius:12px;background:#e8eee4;text-align:left;font-size:14px;line-height:1.45;}
+.study-topic-button[aria-pressed="true"] {background:#173449;color:#fff;}
+.study-topic-button:focus-visible,.study-topic-picker summary:focus-visible {outline:3px solid #947a3c;outline-offset:3px;}
+@media(max-width:900px){.study-topic-grid{grid-template-columns:1fr;}main input,main textarea{font-size:16px!important;}}

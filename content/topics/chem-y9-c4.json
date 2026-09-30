@@ -5386,29 +5386,19 @@
     "mustMemoriseVocabulary": [],
     "workedExamples": [
       {
-        "prompt": "In C4, write the scientific term, rule or named idea described. separation based on different distributions between a stationary phase and a mobile phase",
-        "answer": "chromatography",
-        "why": "separation based on different distributions between a stationary phase and a mobile phase"
+        "prompt": "A spot moves 3.0 cm and the solvent front moves 6.0 cm from the baseline. Calculate Rf. (2 marks)",
+        "answer": "Rf = 3.0 ÷ 6.0 = 0.50",
+        "why": "1 mark: correct substitution into substance distance ÷ solvent-front distance. 1 mark: 0.50. Rf has no unit."
       },
       {
-        "prompt": "Complete the missing chemistry wording.",
-        "answer": "chromatography",
-        "why": "separation based on different distributions between a stationary phase and a mobile phase"
+        "prompt": "A spot is 5.5 cm above the bottom of the paper; the baseline is at 1.5 cm and the solvent front at 9.5 cm. Calculate Rf. (3 marks)",
+        "answer": "Spot distance = 4.0 cm; solvent distance = 8.0 cm; Rf = 4.0 ÷ 8.0 = 0.50.",
+        "why": "Measure BOTH distances from the pencil baseline. Mark points: 5.5 − 1.5; 9.5 − 1.5; divide the corrected distances."
       },
       {
-        "prompt": "Define “chromatography” precisely.",
-        "answer": "separation based on different distributions between a stationary phase and a mobile phase",
-        "why": "separation based on different distributions between a stationary phase and a mobile phase"
-      },
-      {
-        "prompt": "In C4, write the scientific term, rule or named idea described. the phase that does not move during chromatography",
-        "answer": "stationary phase",
-        "why": "the phase that does not move during chromatography"
-      },
-      {
-        "prompt": "Complete the missing chemistry wording.",
-        "answer": "stationary phase",
-        "why": "the phase that does not move during chromatography"
+        "prompt": "An unknown dye and a reference dye both have Rf = 0.50 in the same solvent. Does this prove they are identical? (2 marks)",
+        "answer": "It suggests they may be the same dye, but it does not prove identity. Different substances can have the same Rf in that solvent.",
+        "why": "1 mark: qualified conclusion. 1 mark: different substances may share an Rf. Try another solvent and compare again under the same conditions."
       }
     ],
     "commonMistakes": [
@@ -5432,28 +5422,40 @@
     ],
     "quickCheck": [
       {
-        "question": "In C4, write the scientific term, rule or named idea described. separation based on different distributions between a stationary phase and a mobile phase",
-        "answer": "chromatography",
-        "explanation": "separation based on different distributions between a stationary phase and a mobile phase"
+        "question": "A spot travels 2.0 cm; the solvent front travels 5.0 cm. Calculate Rf.",
+        "answer": "0.4",
+        "accepted": [
+          "0.40"
+        ],
+        "explanation": "Divide 2.0 by 5.0; Rf has no unit."
       },
       {
-        "question": "Complete the missing chemistry wording.",
-        "answer": "chromatography",
-        "explanation": "separation based on different distributions between a stationary phase and a mobile phase"
+        "question": "A spot is at 4 cm, the baseline at 1 cm and the solvent front at 7 cm. Calculate Rf.",
+        "answer": "0.5",
+        "accepted": [
+          "0.50"
+        ],
+        "explanation": "Subtract the baseline: (4 − 1) ÷ (7 − 1) = 0.5."
       },
       {
-        "question": "Define “chromatography” precisely.",
-        "answer": "separation based on different distributions between a stationary phase and a mobile phase",
-        "explanation": "separation based on different distributions between a stationary phase and a mobile phase"
-      },
-      {
-        "question": "In C4, write the scientific term, rule or named idea described. the phase that does not move during chromatography",
-        "answer": "stationary phase",
-        "explanation": "the phase that does not move during chromatography"
+        "question": "Rf is 0.75 and the solvent front moves 8.0 cm. How far does the substance move? Include the unit.",
+        "answer": "6 cm",
+        "accepted": [
+          "6.0 cm",
+          "6cm",
+          "6.0cm"
+        ],
+        "explanation": "Rearrange: substance distance = Rf × solvent distance = 0.75 × 8.0 = 6.0 cm."
       }
     ],
     "beforeStartingPractice": [],
     "additionalSourceSections": [
+      {
+        "heading": "Measure from the baseline",
+        "body": "Solvent front: 9.5 cm from the paper bottom\nSpot centre: 5.5 cm from the paper bottom\nPencil baseline: 1.5 cm from the paper bottom\n\nSubstance distance: 5.5 − 1.5 = 4.0 cm\nSolvent distance: 9.5 − 1.5 = 8.0 cm\nRf = 4.0 / 8.0 = 0.50",
+        "diagram": "chromatography-distance",
+        "image": "/assets/chromatography-distance-20260930.svg"
+      },
       {
         "heading": "Rf Equation",
         "body": "1. Pencil baseline\n2. Small sample spots above solvent level\n3. Paper placed in solvent\n4. Solvent rises up paper\n5. Mark solvent front promptly\n6. Measure baseline → spot centre and baseline → solvent front\nRf = distance moved by substance ÷ distance moved by solvent front\nCompare Rf only under the same conditions."

@@ -1,5 +1,5 @@
 import{t as jx}from"./jsx-runtime-Cltr0gcK.js";
-import{C as useStore,t as router,rt as unavailable,dt as useCatalog,buildProgressDashboard as buildDashboard}from"./index-BLVOhKhN.js?v=20260929-dailyfix15";
+import{C as useStore,t as router,rt as unavailable,dt as useCatalog,buildProgressDashboard as buildDashboard}from"./index-BLVOhKhN.js?v=20260930-study1";
 import{t as Card}from"./card-t5JqoXqT.js";
 import{t as YearSelect}from"./study-year-select-Dx5P4Ogw.js";
 import{n as getSubject}from"./subjects-B4IlB2zW.js";
@@ -263,7 +263,8 @@ function Progress(){
       J.jsx("p",{className:"text-xs tracking-[0.16em] text-navy uppercase",children:"Parent snapshot"}),
       J.jsx("h2",{className:"mt-1 font-display text-3xl font-semibold",children:"What needs attention now"}),
       J.jsxs("div",{className:"mt-4 grid gap-4 lg:grid-cols-2",children:[
-        J.jsx(SnapshotCard,{title:"Weakest 3",items:data.weakest,empty:"No weak topic has enough evidence yet."}),
+        J.jsx(SnapshotCard,{title:"Needs practice",items:data.weakest,empty:"No topic has enough evidence to show a weakness yet."}),
+        J.jsx(SnapshotCard,{title:"Building evidence",items:data.buildingEvidence,empty:"Complete a few questions to start building evidence."}),
         J.jsx(SnapshotCard,{title:"Improving fastest",items:data.improving,mode:"improving",empty:"Trend data starts building from new practice attempts. Six or more recent attempts are needed."}),
         J.jsx(RecentMastered,{items:data.recentMastered}),
         J.jsx(ErrorCard,{items:data.errorPatterns})

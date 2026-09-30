@@ -1,5 +1,5 @@
 import("/pet/pet-care-global.js?v=20260929-dailyfix15").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20260929-dailyfix7";
+export * from "./index-BLVOhKhN.core.js?v=20260930-study1";
 import {
   C as store,
   U as collectibles,
@@ -11,7 +11,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20260929-dailyfix7";
+} from "./index-BLVOhKhN.core.js?v=20260930-study1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -2539,7 +2539,7 @@ function buildProgressDashboard(state, subject, year = state?.year) {
   const productionTopics = topics.filter((row) => row.productionOk).length;
 
   const weakest = attemptedTopics
-    .filter((row) => row.state !== "mastered")
+    .filter((row) => row.attempted >= 5 && row.accuracy < SECURE_ACCURACY)
     .sort((a, b) => b.dueCount - a.dueCount || a.accuracy - b.accuracy || b.attempted - a.attempted)
     .slice(0, 3);
 
@@ -2618,6 +2618,7 @@ function buildProgressDashboard(state, subject, year = state?.year) {
     secureCount: secure.length,
     productionTopics,
     weakest,
+    buildingEvidence: attemptedTopics.filter(row => row.attempted < 5).sort((a,b) => b.attempted-a.attempted).slice(0,3),
     improving,
     recentMastered,
     errorPatterns,
