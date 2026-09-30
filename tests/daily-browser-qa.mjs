@@ -21,7 +21,7 @@ await page.evaluate(async()=>{
   window.addEventListener("scholar:question-answered",e=>window.qaEvents.push(e.detail));
 });
 const bank=docs.filter(d=>d.subject===subject).flatMap(d=>d.questions||[]);
-for(let step=0;step<2;step++){
+for(let step=0;step<(mode==="y8vocab"?30:10);step++){
  await page.waitForTimeout(300);
  const visible=await page.evaluate(()=>({body:document.body.innerText,prompt:[...document.querySelectorAll("p")].find(p=>p.classList.contains("font-display")&&p.classList.contains("text-2xl"))?.textContent||"",stimulus:[...document.querySelectorAll("p")].find(p=>p.classList.contains("rounded-lg")&&p.classList.contains("bg-sage/60"))?.textContent||""}));
  const clean=q=>{let prompt=String(q.prompt||"").trim(),label=String(q.task?.label||"").trim();if(label&&prompt.toLowerCase().startsWith(label.toLowerCase()))prompt=prompt.slice(label.length).replace(/^[\s—–:-]+/,"").trim();if(q.format==="mc_single")prompt=prompt.replace(/^write\b/i,"Choose");return prompt;};
@@ -30,9 +30,19 @@ for(let step=0;step<2;step++){
  assert.ok(question,"Could not identify question: "+JSON.stringify(visible)+" errors "+JSON.stringify(errors));
  const answer=question.answer?.accepted?.[0]||question.answer?.modelAnswer;
  assert.ok(typeof answer==="string","Unsupported test answer "+question.id+" "+JSON.stringify(question.answer));
- console.log("DAILY_BROWSER_STEP "+JSON.stringify({subject,task,step,id:question.id,format:question.format,answer,visible,errors}));
+ console.log("DAILY_BROWSER_STEP "+JSON.stringify({subject,task,step,id:question.id,format:question.format,answer,prompt:visible.prompt,errors}));
  if(await page.getByRole("button",{name:answer,exact:true}).count())await page.getByRole("button",{name:answer,exact:true}).click();
- else{const field=page.locator("form input, form textarea").first();await field.fill(answer);await field.press("Enter");}
+ else if(question.format==="word_tiles"){
+   const tiles=page.locator("button.min-h-10.rounded-md");
+   const values=await tiles.allTextContents();
+   const norm=s=>String(s).normalize("NFKD").replace(/[\u0300-\u036f\s]/g,"").toLowerCase();
+   const target=norm(answer);
+   const search=(remaining,used=[])=>{if(!remaining)return used;for(let i=0;i<values.length;i++){const tile=norm(values[i]);if(tile&&!used.includes(i)&&remaining.startsWith(tile)){const result=search(remaining.slice(tile.length),[...used,i]);if(result)return result;}}return null;};
+   const order=search(target);assert.ok(order,"Cannot build tiles "+question.id);
+   for(const index of order)await tiles.nth(index).click();
+   await page.getByRole("button",{name:"Submit",exact:true}).click();
+ }
+ else{const field=page.locator("form input, form textarea").first();await field.fill(answer);await page.getByRole("button",{name:"Submit",exact:true}).click();}
  await page.waitForTimeout(350);
  const snapshot=await page.evaluate(()=>({events:window.qaEvents,day:window.qaStore.getState().today,daily:window.qaStore.getState().daily,ledger:window.qaStore.getState().dailyVocabByDay,attempts:window.qaStore.getState().dailyTopicAttemptsByDay,saved:JSON.parse(localStorage.getItem("lux-scholar-garden-v1")||"null")?.state}));
  const event=snapshot.events.at(-1);assert.equal(event?.correct,true,"Model answer should be accepted "+JSON.stringify(event));
