@@ -154,8 +154,22 @@
     days.addEventListener('click', openDays);
     header.appendChild(days);
   }
+  function ensureIconLayout() {
+    if (document.getElementById('lux-icon-layout')) return;
+    const s = document.createElement('style');
+    s.id = 'lux-icon-layout';
+    s.textContent = [
+      'span:has(> .lux-ico){display:inline-flex !important;flex-direction:row !important;flex-wrap:nowrap !important;align-items:center !important;gap:10px !important;}',
+      'a:has(> .lux-ico),button:has(> .lux-ico){display:flex !important;flex-wrap:wrap !important;align-items:center !important;column-gap:10px !important;}',
+      'a:has(> .lux-ico) > .lux-ico,button:has(> .lux-ico) > .lux-ico{flex:0 0 32px !important;align-self:center !important;}',
+      'a:has(> .lux-ico) > .lux-ico + *,button:has(> .lux-ico) > .lux-ico + *{flex:1 1 auto !important;min-width:0 !important;}',
+      'a:has(> .lux-ico) > .lux-ico ~ * ~ *,button:has(> .lux-ico) > .lux-ico ~ * ~ *{flex:1 1 100% !important;}'
+    ].join('');
+    document.head.appendChild(s);
+  }
   function paint() {
     try {
+      ensureIconLayout();
       swapNavIcons(document);
       decorateTasks();
       lineUpIcons();
