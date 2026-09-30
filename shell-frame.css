@@ -10,17 +10,13 @@
   gap: 12px;
   padding: 12px 16px;
   padding-top: max(12px, env(safe-area-inset-top));
-  background: #f3eee4cc;
-  border-bottom: 1px solid #e2d7c4cc;
+  background: #1A3148;
+  border-bottom: 1px solid rgba(196, 164, 106, 0.35);
   backdrop-filter: blur(12px);
   font-family: "Source Sans 3", "Avenir Next", sans-serif;
-  color: #1c3348;
+  color: #f7f1e6;
 }
-.lux-shell-header a {
-  min-width: 0;
-  color: inherit;
-  text-decoration: none;
-}
+.lux-shell-header a { min-width: 0; color: inherit; text-decoration: none; }
 .lux-shell-header strong {
   display: block;
   font-family: "Cormorant Garamond", Georgia, serif;
@@ -34,12 +30,13 @@
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #6d7874;
+  color: rgba(247, 241, 230, 0.62);
 }
 .lux-shell-lv {
   flex: none;
   border-radius: 999px;
-  background: #16324a;
+  background: transparent;
+  border: 1px solid rgba(196, 164, 106, 0.7);
   color: #fffdf8;
   padding: 4px 12px;
   font-size: 11px;
@@ -56,9 +53,9 @@
   grid-template-columns: repeat(7, minmax(0, 1fr));
   margin: 0;
   padding: 4px 4px max(4px, env(safe-area-inset-bottom));
-  border: 1px solid #e2d7c4;
+  border: 1px solid rgba(196, 164, 106, 0.55);
   border-radius: 18px;
-  background: #fffdf8f2;
+  background: #fffaf3f2;
   box-shadow: 0 0 0 1px #16324a14, 0 16px 40px -20px #16324a2e;
   backdrop-filter: blur(12px);
   font-family: "Source Sans 3", "Avenir Next", sans-serif;
@@ -72,7 +69,7 @@
   justify-content: center;
   gap: 2px;
   border-radius: 12px;
-  color: #6d7874;
+  color: #6E6256;
   font-size: 11px;
   font-weight: 600;
   line-height: 1.15;
@@ -80,18 +77,11 @@
   text-decoration: none;
   white-space: nowrap;
 }
-.lux-shell-nav a svg {
-  width: 16px;
-  height: 16px;
-}
+.lux-shell-nav a svg { width: 16px; height: 16px; }
 .lux-shell-nav a[aria-current="page"] {
-  background: #eef3e8;
-  color: #16324a;
+  background: rgba(196, 164, 106, 0.16);
+  color: #9A7430;
 }
-body.lux-shell-on {
-  padding-bottom: 92px;
-}
+body.lux-shell-on { padding-bottom: 92px; }
 body.lux-shell-on > header,
-body.lux-shell-on .pet-topbar {
-  display: none !important;
-}
+body.lux-shell-on .pet-topbar { display: none !important; }
