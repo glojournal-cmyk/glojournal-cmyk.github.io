@@ -29,3 +29,14 @@ The assessment bank now contains 190 base questions plus 28 existing school-styl
 Each new short-answer point is worth one mark. The calculation rubric separates method from final value and required unit. The 30-question, 45-minute paper blends the new multi-mark questions with older one-mark questions to retain manageable length. The existing topic quotas, including nine Rf questions, remain. Each concept and diagram can occur at most once per paper. Drafts already answered remain intact.
 
 Automated marking is based on declared alternative phrases and numerical patterns. Worked model answers and hints are shown only after submission. The same answer records also contain the standard Master-bank fields so the post-exam Practise import remains usable.
+
+## Full-mark learning follow-up
+
+- Added 12 foundation / guided application questions (4 per C1/C3/C4), bringing the base assessment bank to 202 and the merged bank to 230.
+- All 72 original AQA-style questions have command-word guidance, distinct mark criteria, a complete model answer and a common mark-loss note. Calculation methods specify the substitution and the final-answer requirement.
+- Reclassified question difficulty and ordered selected assessment questions from foundation through application and explanation to multi-step challenge. Random selection and concept/diagram deduplication remain active.
+- Submitted assessment reviews identify each awarded and missing mark. Blank answers display the whole missing-point checklist.
+- Master question feedback includes the same full-mark checklist. Full-mark success is required for these new written Chemistry rubrics; partial scores are retained. Other subjects retain their existing policy. Master numeric drills continue to mark the final value; their feedback teaches the assessment method marks separately.
+- These are original teaching rubrics, not official AQA questions or examiner-approved mark schemes. Automated selected-wording checks have limitations; model answers and criteria support review of scientifically equivalent wording.
+- Command-word guidance checked against https://www.aqa.org.uk/resources/science/gcse/teach/command-words on 2026-09-30.
+- Validation: 500 paper selections per quality suite, rubric models/partial answers/units/rounding, easy-to-hard ordering, feedback rendering and scoped 3/4-vs-4/4 Master success regression.

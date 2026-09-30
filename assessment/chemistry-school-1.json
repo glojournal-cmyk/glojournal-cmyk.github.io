@@ -4143,7 +4143,24 @@
       "hint": "Link the chosen grouping to the decision to change the order.",
       "feedback": {
         "short": "He prioritised similar chemical properties and changed the strict atomic-mass order where needed.",
-        "commonError": "Link the chosen grouping to the decision to change the order."
+        "commonError": "Link the chosen grouping to the decision to change the order.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: similar chemical properties",
+          "Mark 2: changed atomic mass order",
+          "Full-mark example: He prioritised similar chemical properties and changed the strict atomic-mass order where needed.",
+          "Avoid: Link the chosen grouping to the decision to change the order."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "similar chemical properties",
+          "changed atomic mass order"
+        ],
+        "commonError": "Link the chosen grouping to the decision to change the order.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -4206,7 +4223,24 @@
       "hint": "State two different improvements, rather than repeating the same point.",
       "feedback": {
         "short": "He left gaps for undiscovered elements and grouped elements with similar chemical properties.",
-        "commonError": "State two different improvements, rather than repeating the same point."
+        "commonError": "State two different improvements, rather than repeating the same point.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: gaps for undiscovered elements",
+          "Mark 2: similar chemical properties",
+          "Full-mark example: He left gaps for undiscovered elements and grouped elements with similar chemical properties.",
+          "Avoid: State two different improvements, rather than repeating the same point."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "gaps for undiscovered elements",
+          "similar chemical properties"
+        ],
+        "commonError": "State two different improvements, rather than repeating the same point.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -4271,7 +4305,24 @@
       "hint": "Describe the matching evidence and explain which part of the model it supports.",
       "feedback": {
         "short": "The predicted properties matched the observed properties of the new element. This supported the grouping and the gap he had proposed.",
-        "commonError": "Describe the matching evidence and explain which part of the model it supports."
+        "commonError": "Describe the matching evidence and explain which part of the model it supports.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: predicted properties matched observed properties",
+          "Mark 2: supported grouping",
+          "Full-mark example: The predicted properties matched the observed properties of the new element. This supported the grouping and the gap he had proposed.",
+          "Avoid: Describe the matching evidence and explain which part of the model it supports."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "predicted properties matched observed properties",
+          "supported grouping"
+        ],
+        "commonError": "Describe the matching evidence and explain which part of the model it supports.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -4336,7 +4387,24 @@
       "hint": "Distinguish evidence that supports a model from proof that the whole model must be correct.",
       "feedback": {
         "short": "The matching discovery supports the table, but one prediction does not prove every part. Further evidence is needed.",
-        "commonError": "Distinguish evidence that supports a model from proof that the whole model must be correct."
+        "commonError": "Distinguish evidence that supports a model from proof that the whole model must be correct.",
+        "steps": [
+          "Use the evidence to make a judgement and state the limits of the conclusion.",
+          "Mark 1: matching discovery supports table",
+          "Mark 2: does not prove every part",
+          "Full-mark example: The matching discovery supports the table, but one prediction does not prove every part. Further evidence is needed.",
+          "Avoid: Distinguish evidence that supports a model from proof that the whole model must be correct."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Evaluate",
+        "strategy": "Use the evidence to make a judgement and state the limits of the conclusion.",
+        "fullMarkChecklist": [
+          "matching discovery supports table",
+          "does not prove every part"
+        ],
+        "commonError": "Distinguish evidence that supports a model from proof that the whole model must be correct.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -4401,7 +4469,24 @@
       "hint": "Use the properties given in the question to explain the weakness.",
       "feedback": {
         "short": "The elements have different chemical properties, so the repeating pattern does not group similar elements successfully.",
-        "commonError": "Use the properties given in the question to explain the weakness."
+        "commonError": "Use the properties given in the question to explain the weakness.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: different chemical properties",
+          "Mark 2: pattern does not group similar elements",
+          "Full-mark example: The elements have different chemical properties, so the repeating pattern does not group similar elements successfully.",
+          "Avoid: Use the properties given in the question to explain the weakness."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "different chemical properties",
+          "pattern does not group similar elements"
+        ],
+        "commonError": "Use the properties given in the question to explain the weakness.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -4414,7 +4499,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
@@ -4466,7 +4551,24 @@
       "hint": "Keep atomic mass and atomic number distinct.",
       "feedback": {
         "short": "Newlands used increasing relative atomic mass. The modern table uses increasing atomic number.",
-        "commonError": "Keep atomic mass and atomic number distinct."
+        "commonError": "Keep atomic mass and atomic number distinct.",
+        "steps": [
+          "Refer to both arrangements and state the relevant similarity or difference.",
+          "Mark 1: Newlands increasing relative atomic mass",
+          "Mark 2: modern atomic number",
+          "Full-mark example: Newlands used increasing relative atomic mass. The modern table uses increasing atomic number.",
+          "Avoid: Keep atomic mass and atomic number distinct."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Compare",
+        "strategy": "Refer to both arrangements and state the relevant similarity or difference.",
+        "fullMarkChecklist": [
+          "Newlands increasing relative atomic mass",
+          "modern atomic number"
+        ],
+        "commonError": "Keep atomic mass and atomic number distinct.",
+        "stage": "Application"
       }
     },
     {
@@ -4479,7 +4581,7 @@
       "options": null,
       "diagram": null,
       "marks": 3,
-      "difficulty": 3,
+      "difficulty": 4,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
@@ -4543,7 +4645,26 @@
       "hint": "Include the gap, the prediction and a way to test it.",
       "feedback": {
         "short": "The gap suggested an undiscovered element. The properties of elements in its group could be used to predict its properties, then compared with a later discovery.",
-        "commonError": "Include the gap, the prediction and a way to test it."
+        "commonError": "Include the gap, the prediction and a way to test it.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: undiscovered element",
+          "Mark 2: group predict properties",
+          "Mark 3: compare later discovery",
+          "Full-mark example: The gap suggested an undiscovered element. The properties of elements in its group could be used to predict its properties, then compared with a later discovery.",
+          "Avoid: Include the gap, the prediction and a way to test it."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "undiscovered element",
+          "group predict properties",
+          "compare later discovery"
+        ],
+        "commonError": "Include the gap, the prediction and a way to test it.",
+        "stage": "Multi-step challenge"
       }
     },
     {
@@ -4556,7 +4677,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
@@ -4606,7 +4727,24 @@
       "hint": "Use two pieces of evidence from the description.",
       "feedback": {
         "short": "It left no gaps for undiscovered elements and sometimes put two elements in one place.",
-        "commonError": "Use two pieces of evidence from the description."
+        "commonError": "Use two pieces of evidence from the description.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: no gaps",
+          "Mark 2: two elements one place",
+          "Full-mark example: It left no gaps for undiscovered elements and sometimes put two elements in one place.",
+          "Avoid: Use two pieces of evidence from the description."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "no gaps",
+          "two elements one place"
+        ],
+        "commonError": "Use two pieces of evidence from the description.",
+        "stage": "Application"
       }
     },
     {
@@ -4669,7 +4807,24 @@
       "hint": "Use the distinction between an element and a compound.",
       "feedback": {
         "short": "A compound contains more than one element chemically combined. It is not itself an element.",
-        "commonError": "Use the distinction between an element and a compound."
+        "commonError": "Use the distinction between an element and a compound.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: more than one element chemically combined",
+          "Mark 2: not an element",
+          "Full-mark example: A compound contains more than one element chemically combined. It is not itself an element.",
+          "Avoid: Use the distinction between an element and a compound."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "more than one element chemically combined",
+          "not an element"
+        ],
+        "commonError": "Use the distinction between an element and a compound.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -4682,7 +4837,7 @@
       "options": null,
       "diagram": null,
       "marks": 3,
-      "difficulty": 3,
+      "difficulty": 4,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
@@ -4750,7 +4905,26 @@
       "hint": "Checking evidence comes before accepting or rejecting a model.",
       "feedback": {
         "short": "They should check the new evidence and revise the arrangement if needed, because the model must account for the observed properties.",
-        "commonError": "Checking evidence comes before accepting or rejecting a model."
+        "commonError": "Checking evidence comes before accepting or rejecting a model.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: check evidence",
+          "Mark 2: revise arrangement",
+          "Mark 3: account observed properties",
+          "Full-mark example: They should check the new evidence and revise the arrangement if needed, because the model must account for the observed properties.",
+          "Avoid: Checking evidence comes before accepting or rejecting a model."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "check evidence",
+          "revise arrangement",
+          "account observed properties"
+        ],
+        "commonError": "Checking evidence comes before accepting or rejecting a model.",
+        "stage": "Multi-step challenge"
       }
     },
     {
@@ -4810,7 +4984,24 @@
       "hint": "His predictions used the pattern in known elements.",
       "feedback": {
         "short": "He left gaps for undiscovered elements and used the pattern of similar properties to predict what would fit those gaps.",
-        "commonError": "His predictions used the pattern in known elements."
+        "commonError": "His predictions used the pattern in known elements.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: gaps for undiscovered elements",
+          "Mark 2: similar properties predict",
+          "Full-mark example: He left gaps for undiscovered elements and used the pattern of similar properties to predict what would fit those gaps.",
+          "Avoid: His predictions used the pattern in known elements."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "gaps for undiscovered elements",
+          "similar properties predict"
+        ],
+        "commonError": "His predictions used the pattern in known elements.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -4877,7 +5068,24 @@
       "hint": "Answer both comparisons explicitly.",
       "feedback": {
         "short": "Newlands left no gaps, whereas Mendeleev left gaps. Mendeleev prioritised similar chemical properties instead of forcing unlike elements into the repeating pattern.",
-        "commonError": "Answer both comparisons explicitly."
+        "commonError": "Answer both comparisons explicitly.",
+        "steps": [
+          "Answer every requested part with a distinct point.",
+          "Mark 1: Newlands no gaps Mendeleev gaps",
+          "Mark 2: prioritised similar properties",
+          "Full-mark example: Newlands left no gaps, whereas Mendeleev left gaps. Mendeleev prioritised similar chemical properties instead of forcing unlike elements into the repeating pattern.",
+          "Avoid: Answer both comparisons explicitly."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Give",
+        "strategy": "Answer every requested part with a distinct point.",
+        "fullMarkChecklist": [
+          "Newlands no gaps Mendeleev gaps",
+          "prioritised similar properties"
+        ],
+        "commonError": "Answer both comparisons explicitly.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -4899,7 +5107,7 @@
       "answer": {
         "mode": "chemistry_rubric",
         "accepted": [
-          "Add water and stir to dissolve the salt. Filter to collect the sand residue. Dry the sand. Partially evaporate the filtrate and cool it to form salt crystals, then separate and dry the crystals."
+          "Add water and stir to dissolve the salt. Filter to collect sand as the residue and dry the sand. Partially evaporate the filtrate, allow it to cool to form salt crystals, then collect and dry the salt crystals."
         ],
         "points": [
           {
@@ -4921,31 +5129,38 @@
             ]
           },
           {
-            "label": "evaporate filtrate cool crystals",
+            "label": "Partially evaporate filtrate, cool to crystallise, then collect and dry salt crystals",
             "alternatives": [
-              "evaporate filtrate cool crystals",
-              "partially evaporate cool crystallise"
+              "partially evaporate filtrate cool collect dry salt crystals",
+              "evaporate filtrate cool crystals dry crystals"
             ]
           }
         ],
-        "modelAnswer": "Add water and stir to dissolve the salt. Filter to collect the sand residue. Dry the sand. Partially evaporate the filtrate and cool it to form salt crystals, then separate and dry the crystals.",
+        "modelAnswer": "Add water and stir to dissolve the salt. Filter to collect sand as the residue and dry the sand. Partially evaporate the filtrate, allow it to cool to form salt crystals, then collect and dry the salt crystals.",
         "markPoints": [
           "water dissolve salt",
           "filter sand residue",
           "dry sand",
-          "evaporate filtrate cool crystals"
+          "Partially evaporate filtrate, cool to crystallise, then collect and dry salt crystals"
         ],
         "markPointAlternatives": [
-          [],
-          [],
-          [],
           [
-            "partially evaporate cool crystallise"
+            "water dissolve salt"
+          ],
+          [
+            "filter sand residue"
+          ],
+          [
+            "dry sand"
+          ],
+          [
+            "partially evaporate filtrate cool collect dry salt crystals",
+            "evaporate filtrate cool crystals dry crystals"
           ]
         ],
         "totalMarks": 4
       },
-      "modelAnswer": "Add water and stir to dissolve the salt. Filter to collect the sand residue. Dry the sand. Partially evaporate the filtrate and cool it to form salt crystals, then separate and dry the crystals.",
+      "modelAnswer": "Add water and stir to dissolve the salt. Filter to collect sand as the residue and dry the sand. Partially evaporate the filtrate, allow it to cool to form salt crystals, then collect and dry the salt crystals.",
       "markKeywords": [
         "water dissolve salt",
         "filter sand residue",
@@ -4955,7 +5170,28 @@
       "hint": "Follow both components through the method. Filter before crystallising.",
       "feedback": {
         "short": "Add water and stir to dissolve the salt. Filter to collect the sand residue. Dry the sand. Partially evaporate the filtrate and cool it to form salt crystals, then separate and dry the crystals.",
-        "commonError": "Follow both components through the method. Filter before crystallising."
+        "commonError": "Follow both components through the method. Filter before crystallising.",
+        "steps": [
+          "Give the relevant facts or method steps in a clear order.",
+          "Mark 1: water dissolve salt",
+          "Mark 2: filter sand residue",
+          "Mark 3: dry sand",
+          "Mark 4: Partially evaporate filtrate, cool to crystallise, then collect and dry salt crystals",
+          "Full-mark example: Add water and stir to dissolve the salt. Filter to collect sand as the residue and dry the sand. Partially evaporate the filtrate, allow it to cool to form salt crystals, then collect and dry the salt crystals.",
+          "Avoid: Follow both components through the method. Filter before crystallising."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Describe",
+        "strategy": "Give the relevant facts or method steps in a clear order.",
+        "fullMarkChecklist": [
+          "water dissolve salt",
+          "filter sand residue",
+          "dry sand",
+          "Partially evaporate filtrate, cool to crystallise, then collect and dry salt crystals"
+        ],
+        "commonError": "Follow both components through the method. Filter before crystallising.",
+        "stage": "Multi-step challenge"
       }
     },
     {
@@ -4968,7 +5204,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
@@ -5018,7 +5254,24 @@
       "hint": "Filtration removes insoluble particles, rather than a dissolved solute.",
       "feedback": {
         "short": "The salt is dissolved in the water. The dissolved salt passes through the filter with the water.",
-        "commonError": "Filtration removes insoluble particles, rather than a dissolved solute."
+        "commonError": "Filtration removes insoluble particles, rather than a dissolved solute.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: salt dissolved",
+          "Mark 2: passes through filter",
+          "Full-mark example: The salt is dissolved in the water. The dissolved salt passes through the filter with the water.",
+          "Avoid: Filtration removes insoluble particles, rather than a dissolved solute."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "salt dissolved",
+          "passes through filter"
+        ],
+        "commonError": "Filtration removes insoluble particles, rather than a dissolved solute.",
+        "stage": "Application"
       }
     },
     {
@@ -5090,7 +5343,26 @@
       "hint": "Appearance alone does not show whether dissolved substances are present.",
       "feedback": {
         "short": "Filtration removes the insoluble particles, but dissolved salt remains in the filtrate. Clear appearance does not show that it is pure water.",
-        "commonError": "Appearance alone does not show whether dissolved substances are present."
+        "commonError": "Appearance alone does not show whether dissolved substances are present.",
+        "steps": [
+          "Use the evidence to make a judgement and state the limits of the conclusion.",
+          "Mark 1: removes insoluble particles",
+          "Mark 2: dissolved salt remains",
+          "Mark 3: clear does not show pure",
+          "Full-mark example: Filtration removes the insoluble particles, but dissolved salt remains in the filtrate. Clear appearance does not show that it is pure water.",
+          "Avoid: Appearance alone does not show whether dissolved substances are present."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Evaluate",
+        "strategy": "Use the evidence to make a judgement and state the limits of the conclusion.",
+        "fullMarkChecklist": [
+          "removes insoluble particles",
+          "dissolved salt remains",
+          "clear does not show pure"
+        ],
+        "commonError": "Appearance alone does not show whether dissolved substances are present.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -5153,7 +5425,24 @@
       "hint": "Choose a technique that collects the component the pupil wants.",
       "feedback": {
         "short": "The water escapes as vapour instead of being collected. Use simple distillation to condense and collect the water.",
-        "commonError": "Choose a technique that collects the component the pupil wants."
+        "commonError": "Choose a technique that collects the component the pupil wants.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: water escapes vapour",
+          "Mark 2: simple distillation condense collect",
+          "Full-mark example: The water escapes as vapour instead of being collected. Use simple distillation to condense and collect the water.",
+          "Avoid: Choose a technique that collects the component the pupil wants."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "water escapes vapour",
+          "simple distillation condense collect"
+        ],
+        "commonError": "Choose a technique that collects the component the pupil wants.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -5228,7 +5517,26 @@
       "hint": "Distinguish boiling in the flask from condensation in the condenser.",
       "feedback": {
         "short": "The vapour loses heat and condenses into liquid water, which can be collected as the distillate.",
-        "commonError": "Distinguish boiling in the flask from condensation in the condenser."
+        "commonError": "Distinguish boiling in the flask from condensation in the condenser.",
+        "steps": [
+          "Give the relevant facts or method steps in a clear order.",
+          "Mark 1: loses heat",
+          "Mark 2: condenses liquid water",
+          "Mark 3: collected distillate",
+          "Full-mark example: The vapour loses heat and condenses into liquid water, which can be collected as the distillate.",
+          "Avoid: Distinguish boiling in the flask from condensation in the condenser."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Describe",
+        "strategy": "Give the relevant facts or method steps in a clear order.",
+        "fullMarkChecklist": [
+          "loses heat",
+          "condenses liquid water",
+          "collected distillate"
+        ],
+        "commonError": "Distinguish boiling in the flask from condensation in the condenser.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -5241,7 +5549,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
@@ -5288,7 +5596,24 @@
       "hint": "Use the boiling-point data in your prediction.",
       "feedback": {
         "short": "Use fractional distillation. Liquid A is collected first because it has the lower boiling point.",
-        "commonError": "Use the boiling-point data in your prediction."
+        "commonError": "Use the boiling-point data in your prediction.",
+        "steps": [
+          "Give the correct scientific name.",
+          "Mark 1: fractional distillation",
+          "Mark 2: A lower boiling point",
+          "Full-mark example: Use fractional distillation. Liquid A is collected first because it has the lower boiling point.",
+          "Avoid: Use the boiling-point data in your prediction."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Name",
+        "strategy": "Give the correct scientific name.",
+        "fullMarkChecklist": [
+          "fractional distillation",
+          "A lower boiling point"
+        ],
+        "commonError": "Use the boiling-point data in your prediction.",
+        "stage": "Application"
       }
     },
     {
@@ -5301,7 +5626,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 4,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
@@ -5351,7 +5676,24 @@
       "hint": "Describe what the column does rather than just naming it.",
       "feedback": {
         "short": "It allows repeated vaporisation and condensation. Higher-boiling liquids condense lower in the column while the lower-boiling vapour passes further up.",
-        "commonError": "Describe what the column does rather than just naming it."
+        "commonError": "Describe what the column does rather than just naming it.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: repeated vaporisation condensation",
+          "Mark 2: higher boiling condense lower",
+          "Full-mark example: It allows repeated vaporisation and condensation. Higher-boiling liquids condense lower in the column while the lower-boiling vapour passes further up.",
+          "Avoid: Describe what the column does rather than just naming it."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "repeated vaporisation condensation",
+          "higher boiling condense lower"
+        ],
+        "commonError": "Describe what the column does rather than just naming it.",
+        "stage": "Multi-step challenge"
       }
     },
     {
@@ -5428,7 +5770,26 @@
       "hint": "Do not heat all the way to dryness.",
       "feedback": {
         "short": "Gently evaporate some solvent to concentrate the solution, then allow it to cool and form crystals. Separate and dry the crystals.",
-        "commonError": "Do not heat all the way to dryness."
+        "commonError": "Do not heat all the way to dryness.",
+        "steps": [
+          "Give the relevant facts or method steps in a clear order.",
+          "Mark 1: evaporate some solvent",
+          "Mark 2: cool form crystals",
+          "Mark 3: separate dry crystals",
+          "Full-mark example: Gently evaporate some solvent to concentrate the solution, then allow it to cool and form crystals. Separate and dry the crystals.",
+          "Avoid: Do not heat all the way to dryness."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Describe",
+        "strategy": "Give the relevant facts or method steps in a clear order.",
+        "fullMarkChecklist": [
+          "evaporate some solvent",
+          "cool form crystals",
+          "separate dry crystals"
+        ],
+        "commonError": "Do not heat all the way to dryness.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -5441,7 +5802,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
@@ -5491,7 +5852,24 @@
       "hint": "Link the solubility change to formation of a solid.",
       "feedback": {
         "short": "The solubility decreases as the solution cools. The excess dissolved solute forms solid crystals.",
-        "commonError": "Link the solubility change to formation of a solid."
+        "commonError": "Link the solubility change to formation of a solid.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: solubility decreases cooling",
+          "Mark 2: excess solute forms crystals",
+          "Full-mark example: The solubility decreases as the solution cools. The excess dissolved solute forms solid crystals.",
+          "Avoid: Link the solubility change to formation of a solid."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "solubility decreases cooling",
+          "excess solute forms crystals"
+        ],
+        "commonError": "Link the solubility change to formation of a solid.",
+        "stage": "Application"
       }
     },
     {
@@ -5504,7 +5882,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
@@ -5553,7 +5931,24 @@
       "hint": "Name the extra material being weighed and the direction of the error.",
       "feedback": {
         "short": "Water on the crystals makes the measured mass too high. Dry the crystals before weighing.",
-        "commonError": "Name the extra material being weighed and the direction of the error."
+        "commonError": "Name the extra material being weighed and the direction of the error.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: water mass too high",
+          "Mark 2: dry crystals before weighing",
+          "Full-mark example: Water on the crystals makes the measured mass too high. Dry the crystals before weighing.",
+          "Avoid: Name the extra material being weighed and the direction of the error."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "water mass too high",
+          "dry crystals before weighing"
+        ],
+        "commonError": "Name the extra material being weighed and the direction of the error.",
+        "stage": "Application"
       }
     },
     {
@@ -5566,7 +5961,7 @@
       "options": null,
       "diagram": null,
       "marks": 4,
-      "difficulty": 3,
+      "difficulty": 4,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
@@ -5637,7 +6032,28 @@
       "hint": "Use the solubility facts supplied rather than assuming both solids dissolve.",
       "feedback": {
         "short": "Add solvent Z to dissolve X. Filter to collect Y as residue and dry it. Remove solvent Z from the filtrate to recover X.",
-        "commonError": "Use the solubility facts supplied rather than assuming both solids dissolve."
+        "commonError": "Use the solubility facts supplied rather than assuming both solids dissolve.",
+        "steps": [
+          "Give the relevant facts or method steps in a clear order.",
+          "Mark 1: Z dissolve X",
+          "Mark 2: filter Y residue",
+          "Mark 3: dry Y",
+          "Mark 4: remove solvent filtrate recover X",
+          "Full-mark example: Add solvent Z to dissolve X. Filter to collect Y as residue and dry it. Remove solvent Z from the filtrate to recover X.",
+          "Avoid: Use the solubility facts supplied rather than assuming both solids dissolve."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Describe",
+        "strategy": "Give the relevant facts or method steps in a clear order.",
+        "fullMarkChecklist": [
+          "Z dissolve X",
+          "filter Y residue",
+          "dry Y",
+          "remove solvent filtrate recover X"
+        ],
+        "commonError": "Use the solubility facts supplied rather than assuming both solids dissolve.",
+        "stage": "Multi-step challenge"
       }
     },
     {
@@ -5650,7 +6066,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
@@ -5700,7 +6116,24 @@
       "hint": "An insoluble component is needed for this filtration plan.",
       "feedback": {
         "short": "Both solids dissolve and both pass through the filter in the solution. Neither is retained as a separate insoluble residue.",
-        "commonError": "An insoluble component is needed for this filtration plan."
+        "commonError": "An insoluble component is needed for this filtration plan.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: both solids dissolve",
+          "Mark 2: both pass through filter",
+          "Full-mark example: Both solids dissolve and both pass through the filter in the solution. Neither is retained as a separate insoluble residue.",
+          "Avoid: An insoluble component is needed for this filtration plan."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "both solids dissolve",
+          "both pass through filter"
+        ],
+        "commonError": "An insoluble component is needed for this filtration plan.",
+        "stage": "Application"
       }
     },
     {
@@ -5775,7 +6208,26 @@
       "hint": "Track the solute and solvent separately.",
       "feedback": {
         "short": "The salt remains in the distillation flask. Water vaporises and is collected, while the salt does not vaporise at the water’s boiling temperature.",
-        "commonError": "Track the solute and solvent separately."
+        "commonError": "Track the solute and solvent separately.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: salt remains flask",
+          "Mark 2: water vaporises",
+          "Mark 3: salt does not vaporise",
+          "Full-mark example: The salt remains in the distillation flask. Water vaporises and is collected, while the salt does not vaporise at the water’s boiling temperature.",
+          "Avoid: Track the solute and solvent separately."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "salt remains flask",
+          "water vaporises",
+          "salt does not vaporise"
+        ],
+        "commonError": "Track the solute and solvent separately.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -5847,7 +6299,26 @@
       "hint": "The two contaminants require different separation steps.",
       "feedback": {
         "short": "Filter first to remove the sand. Then use simple distillation to vaporise and condense the water, leaving dissolved salt behind.",
-        "commonError": "The two contaminants require different separation steps."
+        "commonError": "The two contaminants require different separation steps.",
+        "steps": [
+          "Give the relevant facts or method steps in a clear order.",
+          "Mark 1: filter remove sand",
+          "Mark 2: simple distillation",
+          "Mark 3: condense water salt behind",
+          "Full-mark example: Filter first to remove the sand. Then use simple distillation to vaporise and condense the water, leaving dissolved salt behind.",
+          "Avoid: The two contaminants require different separation steps."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Describe",
+        "strategy": "Give the relevant facts or method steps in a clear order.",
+        "fullMarkChecklist": [
+          "filter remove sand",
+          "simple distillation",
+          "condense water salt behind"
+        ],
+        "commonError": "The two contaminants require different separation steps.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -5916,7 +6387,26 @@
       "hint": "Colourless alone does not prove purity, but the method explains the separation.",
       "feedback": {
         "short": "The collected liquid is the distillate. The solvent vaporises and condenses, while the dissolved non-volatile dye remains in the flask.",
-        "commonError": "Colourless alone does not prove purity, but the method explains the separation."
+        "commonError": "Colourless alone does not prove purity, but the method explains the separation.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: distillate",
+          "Mark 2: solvent vaporises condenses",
+          "Mark 3: dye remains flask",
+          "Full-mark example: The collected liquid is the distillate. The solvent vaporises and condenses, while the dissolved non-volatile dye remains in the flask.",
+          "Avoid: Colourless alone does not prove purity, but the method explains the separation."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "distillate",
+          "solvent vaporises condenses",
+          "dye remains flask"
+        ],
+        "commonError": "Colourless alone does not prove purity, but the method explains the separation.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -5929,7 +6419,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
@@ -5981,7 +6471,24 @@
       "hint": "Do not describe separation as making a new compound.",
       "feedback": {
         "short": "No new substances are formed. The salt and water retain their chemical identities.",
-        "commonError": "Do not describe separation as making a new compound."
+        "commonError": "Do not describe separation as making a new compound.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: no new substances",
+          "Mark 2: retain chemical identities",
+          "Full-mark example: No new substances are formed. The salt and water retain their chemical identities.",
+          "Avoid: Do not describe separation as making a new compound."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "no new substances",
+          "retain chemical identities"
+        ],
+        "commonError": "Do not describe separation as making a new compound.",
+        "stage": "Application"
       }
     },
     {
@@ -6044,7 +6551,24 @@
       "hint": "Mention the amount of solvent removed and the cooling stage.",
       "feedback": {
         "short": "Evaporation to dryness removes all the solvent. Crystallisation uses partial evaporation followed by cooling to form crystals.",
-        "commonError": "Mention the amount of solvent removed and the cooling stage."
+        "commonError": "Mention the amount of solvent removed and the cooling stage.",
+        "steps": [
+          "Refer to both arrangements and state the relevant similarity or difference.",
+          "Mark 1: dryness all solvent",
+          "Mark 2: crystallisation partial evaporation cooling",
+          "Full-mark example: Evaporation to dryness removes all the solvent. Crystallisation uses partial evaporation followed by cooling to form crystals.",
+          "Avoid: Mention the amount of solvent removed and the cooling stage."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Compare",
+        "strategy": "Refer to both arrangements and state the relevant similarity or difference.",
+        "fullMarkChecklist": [
+          "dryness all solvent",
+          "crystallisation partial evaporation cooling"
+        ],
+        "commonError": "Mention the amount of solvent removed and the cooling stage.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -6110,7 +6634,26 @@
       "hint": "The aim includes recovering the solvent, not only the solid.",
       "feedback": {
         "short": "Distillation condenses and collects the solvent for reuse, while the dissolved solid remains. Open evaporation loses the solvent to the surroundings.",
-        "commonError": "The aim includes recovering the solvent, not only the solid."
+        "commonError": "The aim includes recovering the solvent, not only the solid.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: distillation condenses collects solvent",
+          "Mark 2: solid remains",
+          "Mark 3: open evaporation loses solvent",
+          "Full-mark example: Distillation condenses and collects the solvent for reuse, while the dissolved solid remains. Open evaporation loses the solvent to the surroundings.",
+          "Avoid: The aim includes recovering the solvent, not only the solid."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "distillation condenses collects solvent",
+          "solid remains",
+          "open evaporation loses solvent"
+        ],
+        "commonError": "The aim includes recovering the solvent, not only the solid.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -6123,7 +6666,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
@@ -6173,7 +6716,24 @@
       "hint": "Both contact with solvent and the position of the sample spots matter.",
       "feedback": {
         "short": "The bottom of the paper dips in the solvent, so solvent can move up it. The start line stays above the solvent surface, so the sample spots are not submerged.",
-        "commonError": "Both contact with solvent and the position of the sample spots matter."
+        "commonError": "Both contact with solvent and the position of the sample spots matter.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: bottom paper dips solvent",
+          "Mark 2: start line above solvent",
+          "Full-mark example: The bottom of the paper dips in the solvent, so solvent can move up it. The start line stays above the solvent surface, so the sample spots are not submerged.",
+          "Avoid: Both contact with solvent and the position of the sample spots matter."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "bottom paper dips solvent",
+          "start line above solvent"
+        ],
+        "commonError": "Both contact with solvent and the position of the sample spots matter.",
+        "stage": "Application"
       }
     },
     {
@@ -6245,7 +6805,26 @@
       "hint": "Change one factor and compare the same sample using the same paper.",
       "feedback": {
         "short": "Change the solvent. Keep the same ink sample and the same type of chromatography paper.",
-        "commonError": "Change one factor and compare the same sample using the same paper."
+        "commonError": "Change one factor and compare the same sample using the same paper.",
+        "steps": [
+          "Give a precise scientific statement for each part requested.",
+          "Mark 1: solvent",
+          "Mark 2: same ink",
+          "Mark 3: same paper type",
+          "Full-mark example: Change the solvent. Keep the same ink sample and the same type of chromatography paper.",
+          "Avoid: Change one factor and compare the same sample using the same paper."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "State",
+        "strategy": "Give a precise scientific statement for each part requested.",
+        "fullMarkChecklist": [
+          "solvent",
+          "same ink",
+          "same paper type"
+        ],
+        "commonError": "Change one factor and compare the same sample using the same paper.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -6319,7 +6898,26 @@
       "hint": "Repeating alone does not remove a systematic measurement error.",
       "feedback": {
         "short": "Repeat the chromatography under the same conditions. Check whether the Rf values agree and calculate a mean of consistent results.",
-        "commonError": "Repeating alone does not remove a systematic measurement error."
+        "commonError": "Repeating alone does not remove a systematic measurement error.",
+        "steps": [
+          "Give the relevant facts or method steps in a clear order.",
+          "Mark 1: repeat same conditions",
+          "Mark 2: Rf values agree",
+          "Mark 3: mean consistent results",
+          "Full-mark example: Repeat the chromatography under the same conditions. Check whether the Rf values agree and calculate a mean of consistent results.",
+          "Avoid: Repeating alone does not remove a systematic measurement error."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Describe",
+        "strategy": "Give the relevant facts or method steps in a clear order.",
+        "fullMarkChecklist": [
+          "repeat same conditions",
+          "Rf values agree",
+          "mean consistent results"
+        ],
+        "commonError": "Repeating alone does not remove a systematic measurement error.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -6332,7 +6930,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
@@ -6382,7 +6980,24 @@
       "hint": "Include the effect on the evidence, not only the rule to use pencil.",
       "feedback": {
         "short": "Pen ink may dissolve and produce extra spots. Label the positions in pencil.",
-        "commonError": "Include the effect on the evidence, not only the rule to use pencil."
+        "commonError": "Include the effect on the evidence, not only the rule to use pencil.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: ink dissolve extra spots",
+          "Mark 2: label pencil",
+          "Full-mark example: Pen ink may dissolve and produce extra spots. Label the positions in pencil.",
+          "Avoid: Include the effect on the evidence, not only the rule to use pencil."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "ink dissolve extra spots",
+          "label pencil"
+        ],
+        "commonError": "Include the effect on the evidence, not only the rule to use pencil.",
+        "stage": "Application"
       }
     },
     {
@@ -6454,7 +7069,26 @@
       "hint": "Mark the front immediately while its position is visible.",
       "feedback": {
         "short": "The solvent evaporates, so the original solvent front is no longer visible. The front distance cannot be measured accurately.",
-        "commonError": "Mark the front immediately while its position is visible."
+        "commonError": "Mark the front immediately while its position is visible.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: solvent evaporates",
+          "Mark 2: front no longer visible",
+          "Mark 3: distance not accurate",
+          "Full-mark example: The solvent evaporates, so the original solvent front is no longer visible. The front distance cannot be measured accurately.",
+          "Avoid: Mark the front immediately while its position is visible."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "solvent evaporates",
+          "front no longer visible",
+          "distance not accurate"
+        ],
+        "commonError": "Mark the front immediately while its position is visible.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -6467,7 +7101,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
@@ -6519,7 +7153,24 @@
       "hint": "State where the sample goes and how that changes the result.",
       "feedback": {
         "short": "The sample dissolves into the solvent in the beaker and may wash off the paper, so its separated spots may be missing.",
-        "commonError": "State where the sample goes and how that changes the result."
+        "commonError": "State where the sample goes and how that changes the result.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: sample dissolves beaker",
+          "Mark 2: spots missing",
+          "Full-mark example: The sample dissolves into the solvent in the beaker and may wash off the paper, so its separated spots may be missing.",
+          "Avoid: State where the sample goes and how that changes the result."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "sample dissolves beaker",
+          "spots missing"
+        ],
+        "commonError": "State where the sample goes and how that changes the result.",
+        "stage": "Application"
       }
     },
     {
@@ -6584,7 +7235,24 @@
       "hint": "Connect the large spot to a specific interpretation or measurement problem.",
       "feedback": {
         "short": "The wide spot can smear or overlap other spots. It is harder to count separate dyes or measure each spot centre accurately.",
-        "commonError": "Connect the large spot to a specific interpretation or measurement problem."
+        "commonError": "Connect the large spot to a specific interpretation or measurement problem.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: smear",
+          "Mark 2: harder count dyes",
+          "Full-mark example: The wide spot can smear or overlap other spots. It is harder to count separate dyes or measure each spot centre accurately.",
+          "Avoid: Connect the large spot to a specific interpretation or measurement problem."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "smear",
+          "harder count dyes"
+        ],
+        "commonError": "Connect the large spot to a specific interpretation or measurement problem.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -6597,7 +7265,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
@@ -6647,7 +7315,24 @@
       "hint": "A larger numerator gives a larger ratio.",
       "feedback": {
         "short": "Rf will be too high because the measured spot distance is too large while the solvent-front distance is unchanged.",
-        "commonError": "A larger numerator gives a larger ratio."
+        "commonError": "A larger numerator gives a larger ratio.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: Rf too high",
+          "Mark 2: spot distance too large",
+          "Full-mark example: Rf will be too high because the measured spot distance is too large while the solvent-front distance is unchanged.",
+          "Avoid: A larger numerator gives a larger ratio."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "Rf too high",
+          "spot distance too large"
+        ],
+        "commonError": "A larger numerator gives a larger ratio.",
+        "stage": "Application"
       }
     },
     {
@@ -6660,7 +7345,7 @@
       "options": null,
       "diagram": null,
       "marks": 3,
-      "difficulty": 3,
+      "difficulty": 4,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
@@ -6716,7 +7401,26 @@
       "hint": "Use the result from both solvents.",
       "feedback": {
         "short": "K is a mixture because it separates into two spots in ethanol. The dyes overlapped or were not separated by water, so one spot in water did not prove purity.",
-        "commonError": "Use the result from both solvents."
+        "commonError": "Use the result from both solvents.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: mixture two spots ethanol",
+          "Mark 2: overlapped water",
+          "Mark 3: one spot not prove purity",
+          "Full-mark example: K is a mixture because it separates into two spots in ethanol. The dyes overlapped or were not separated by water, so one spot in water did not prove purity.",
+          "Avoid: Use the result from both solvents."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "mixture two spots ethanol",
+          "overlapped water",
+          "one spot not prove purity"
+        ],
+        "commonError": "Use the result from both solvents.",
+        "stage": "Multi-step challenge"
       }
     },
     {
@@ -6729,7 +7433,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
@@ -6779,7 +7483,24 @@
       "hint": "Matching values suggest a shared component, while the extra spot adds evidence of another.",
       "feedback": {
         "short": "B may contain the same two dyes as A because two Rf values match. B has at least one additional separated component at Rf 0.45.",
-        "commonError": "Matching values suggest a shared component, while the extra spot adds evidence of another."
+        "commonError": "Matching values suggest a shared component, while the extra spot adds evidence of another.",
+        "steps": [
+          "Apply the taught science to the evidence in this situation.",
+          "Mark 1: two Rf values match",
+          "Mark 2: additional component 0.45",
+          "Full-mark example: B may contain the same two dyes as A because two Rf values match. B has at least one additional separated component at Rf 0.45.",
+          "Avoid: Matching values suggest a shared component, while the extra spot adds evidence of another."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Suggest",
+        "strategy": "Apply the taught science to the evidence in this situation.",
+        "fullMarkChecklist": [
+          "two Rf values match",
+          "additional component 0.45"
+        ],
+        "commonError": "Matching values suggest a shared component, while the extra spot adds evidence of another.",
+        "stage": "Application"
       }
     },
     {
@@ -6792,7 +7513,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
@@ -6844,7 +7565,24 @@
       "hint": "Spot count gives a minimum when overlap is possible.",
       "feedback": {
         "short": "At least four components are present. More than one substance could overlap in a single spot.",
-        "commonError": "Spot count gives a minimum when overlap is possible."
+        "commonError": "Spot count gives a minimum when overlap is possible.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: at least four",
+          "Mark 2: substances overlap",
+          "Full-mark example: At least four components are present. More than one substance could overlap in a single spot.",
+          "Avoid: Spot count gives a minimum when overlap is possible."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "at least four",
+          "substances overlap"
+        ],
+        "commonError": "Spot count gives a minimum when overlap is possible.",
+        "stage": "Application"
       }
     },
     {
@@ -6907,7 +7645,24 @@
       "hint": "Use the chromatography evidence as well as the colour.",
       "feedback": {
         "short": "Colour alone is not enough. The different Rf values provide evidence that the dyes behave differently and are different substances under these conditions.",
-        "commonError": "Use the chromatography evidence as well as the colour."
+        "commonError": "Use the chromatography evidence as well as the colour.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: colour alone not enough",
+          "Mark 2: different Rf evidence different",
+          "Full-mark example: Colour alone is not enough. The different Rf values provide evidence that the dyes behave differently and are different substances under these conditions.",
+          "Avoid: Use the chromatography evidence as well as the colour."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "colour alone not enough",
+          "different Rf evidence different"
+        ],
+        "commonError": "Use the chromatography evidence as well as the colour.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -6967,7 +7722,24 @@
       "hint": "Compare ratios rather than distances from runs stopped at different times.",
       "feedback": {
         "short": "The runs have different solvent-front distances. Rf compares the spot distance as a fraction of the front distance, allowing comparison under the same conditions.",
-        "commonError": "Compare ratios rather than distances from runs stopped at different times."
+        "commonError": "Compare ratios rather than distances from runs stopped at different times.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: different solvent front distances",
+          "Mark 2: Rf fraction front distance",
+          "Full-mark example: The runs have different solvent-front distances. Rf compares the spot distance as a fraction of the front distance, allowing comparison under the same conditions.",
+          "Avoid: Compare ratios rather than distances from runs stopped at different times."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "different solvent front distances",
+          "Rf fraction front distance"
+        ],
+        "commonError": "Compare ratios rather than distances from runs stopped at different times.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -6980,7 +7752,7 @@
       "options": null,
       "diagram": null,
       "marks": 3,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
@@ -7039,7 +7811,26 @@
       "hint": "Use spacing and distinguishability, not just how high the spots travel.",
       "feedback": {
         "short": "Ethanol gives clearer separation because the spot centres are further apart, so the spots are easier to distinguish and less likely to overlap.",
-        "commonError": "Use spacing and distinguishability, not just how high the spots travel."
+        "commonError": "Use spacing and distinguishability, not just how high the spots travel.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: ethanol",
+          "Mark 2: further apart",
+          "Mark 3: less overlap",
+          "Full-mark example: Ethanol gives clearer separation because the spot centres are further apart, so the spots are easier to distinguish and less likely to overlap.",
+          "Avoid: Use spacing and distinguishability, not just how high the spots travel."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "ethanol",
+          "further apart",
+          "less overlap"
+        ],
+        "commonError": "Use spacing and distinguishability, not just how high the spots travel.",
+        "stage": "Application"
       }
     },
     {
@@ -7102,7 +7893,24 @@
       "hint": "A sample that does not move cannot give useful separation in that solvent.",
       "feedback": {
         "short": "The dyes dissolve and travel in ethanol, giving separated spots. Water does not move the sample enough to reveal its components.",
-        "commonError": "A sample that does not move cannot give useful separation in that solvent."
+        "commonError": "A sample that does not move cannot give useful separation in that solvent.",
+        "steps": [
+          "Apply the taught science to the evidence in this situation.",
+          "Mark 1: dyes dissolve ethanol",
+          "Mark 2: separated spots reveal components",
+          "Full-mark example: The dyes dissolve and travel in ethanol, giving separated spots. Water does not move the sample enough to reveal its components.",
+          "Avoid: A sample that does not move cannot give useful separation in that solvent."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Suggest",
+        "strategy": "Apply the taught science to the evidence in this situation.",
+        "fullMarkChecklist": [
+          "dyes dissolve ethanol",
+          "separated spots reveal components"
+        ],
+        "commonError": "A sample that does not move cannot give useful separation in that solvent.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -7115,7 +7923,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
@@ -7168,7 +7976,24 @@
       "hint": "Pair a specific hazard with a specific risk reduction.",
       "feedback": {
         "short": "Ethanol is flammable. Keep it away from naked flames and carry out chromatography without Bunsen heating.",
-        "commonError": "Pair a specific hazard with a specific risk reduction."
+        "commonError": "Pair a specific hazard with a specific risk reduction.",
+        "steps": [
+          "Apply the taught science to the evidence in this situation.",
+          "Mark 1: ethanol flammable",
+          "Mark 2: away naked flames",
+          "Full-mark example: Ethanol is flammable. Keep it away from naked flames and carry out chromatography without Bunsen heating.",
+          "Avoid: Pair a specific hazard with a specific risk reduction."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Suggest",
+        "strategy": "Apply the taught science to the evidence in this situation.",
+        "fullMarkChecklist": [
+          "ethanol flammable",
+          "away naked flames"
+        ],
+        "commonError": "Pair a specific hazard with a specific risk reduction.",
+        "stage": "Application"
       }
     },
     {
@@ -7181,7 +8006,7 @@
       "options": null,
       "diagram": null,
       "marks": 3,
-      "difficulty": 3,
+      "difficulty": 4,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
@@ -7240,7 +8065,26 @@
       "hint": "Another solvent can separate substances that coincidentally share one Rf value.",
       "feedback": {
         "short": "Run the unknown and reference again using a different solvent under matching conditions. If their Rf values match again, this adds evidence for the suggested identity.",
-        "commonError": "Another solvent can separate substances that coincidentally share one Rf value."
+        "commonError": "Another solvent can separate substances that coincidentally share one Rf value.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: different solvent unknown reference",
+          "Mark 2: matching conditions",
+          "Mark 3: match again adds evidence",
+          "Full-mark example: Run the unknown and reference again using a different solvent under matching conditions. If their Rf values match again, this adds evidence for the suggested identity.",
+          "Avoid: Another solvent can separate substances that coincidentally share one Rf value."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "different solvent unknown reference",
+          "matching conditions",
+          "match again adds evidence"
+        ],
+        "commonError": "Another solvent can separate substances that coincidentally share one Rf value.",
+        "stage": "Multi-step challenge"
       }
     },
     {
@@ -7253,7 +8097,7 @@
       "options": null,
       "diagram": null,
       "marks": 3,
-      "difficulty": 3,
+      "difficulty": 4,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
@@ -7315,7 +8159,26 @@
       "hint": "A repeated mistake can produce repeatable but inaccurate results.",
       "feedback": {
         "short": "The repeats are consistent, but all use the wrong origin and share a systematic error. Agreement alone does not prove accuracy.",
-        "commonError": "A repeated mistake can produce repeatable but inaccurate results."
+        "commonError": "A repeated mistake can produce repeatable but inaccurate results.",
+        "steps": [
+          "Use the evidence to make a judgement and state the limits of the conclusion.",
+          "Mark 1: repeats consistent",
+          "Mark 2: wrong origin",
+          "Mark 3: agreement not prove accuracy",
+          "Full-mark example: The repeats are consistent, but all use the wrong origin and share a systematic error. Agreement alone does not prove accuracy.",
+          "Avoid: A repeated mistake can produce repeatable but inaccurate results."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Evaluate",
+        "strategy": "Use the evidence to make a judgement and state the limits of the conclusion.",
+        "fullMarkChecklist": [
+          "repeats consistent",
+          "wrong origin",
+          "agreement not prove accuracy"
+        ],
+        "commonError": "A repeated mistake can produce repeatable but inaccurate results.",
+        "stage": "Multi-step challenge"
       }
     },
     {
@@ -7328,7 +8191,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
@@ -7375,7 +8238,24 @@
       "hint": "Use the same origin for both measurements.",
       "feedback": {
         "short": "Measure from the start line to the centre of the dye spot, and from the same start line to the solvent front.",
-        "commonError": "Use the same origin for both measurements."
+        "commonError": "Use the same origin for both measurements.",
+        "steps": [
+          "Give the relevant facts or method steps in a clear order.",
+          "Mark 1: start line centre dye spot",
+          "Mark 2: start line solvent front",
+          "Full-mark example: Measure from the start line to the centre of the dye spot, and from the same start line to the solvent front.",
+          "Avoid: Use the same origin for both measurements."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Describe",
+        "strategy": "Give the relevant facts or method steps in a clear order.",
+        "fullMarkChecklist": [
+          "start line centre dye spot",
+          "start line solvent front"
+        ],
+        "commonError": "Use the same origin for both measurements.",
+        "stage": "Application"
       }
     },
     {
@@ -7450,7 +8330,26 @@
       "hint": "Prevent transfer between samples before comparing their components.",
       "feedback": {
         "short": "The second ink may be contaminated by the first and produce extra spots. Use a clean applicator for each ink.",
-        "commonError": "Prevent transfer between samples before comparing their components."
+        "commonError": "Prevent transfer between samples before comparing their components.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: second ink contaminated",
+          "Mark 2: extra spots",
+          "Mark 3: clean applicator each ink",
+          "Full-mark example: The second ink may be contaminated by the first and produce extra spots. Use a clean applicator for each ink.",
+          "Avoid: Prevent transfer between samples before comparing their components."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "second ink contaminated",
+          "extra spots",
+          "clean applicator each ink"
+        ],
+        "commonError": "Prevent transfer between samples before comparing their components.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -7476,7 +8375,7 @@
         ],
         "points": [
           {
-            "label": "correct method",
+            "label": "Method: Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50.",
             "patterns": [
               "(?:40\\s*(?:÷|/|divided by)\\s*80|\\(?\\s*52\\s*[-−]\\s*12\\s*\\)?\\s*(?:÷|/)\\s*\\(?\\s*92\\s*[-−]\\s*12)"
             ]
@@ -7502,7 +8401,14 @@
       "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
       "feedback": {
         "short": "Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50. Final answer: 0.5.",
-        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "steps": [
+          "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+          "Mark 1: Method: Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50.",
+          "Mark 2: correct final answer with no unit",
+          "Full-mark example: Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50. Final answer: 0.5.",
+          "Avoid: Show the distance calculation or rearranged relationship, then give the final answer."
+        ]
       },
       "workedSolution": "Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50.",
       "calculation": {
@@ -7510,6 +8416,16 @@
         "units": [],
         "working": "Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50.",
         "tolerance": 1e-05
+      },
+      "examGuidance": {
+        "commandWord": "Calculate",
+        "strategy": "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+        "fullMarkChecklist": [
+          "Method: Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50.",
+          "correct final answer with no unit"
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -7522,7 +8438,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
@@ -7535,7 +8451,7 @@
         ],
         "points": [
           {
-            "label": "correct method",
+            "label": "Method: 3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45.",
             "patterns": [
               "(?:36\\s*(?:÷|/|divided by)\\s*80|3\\.6\\s*(?:÷|/)\\s*8)"
             ]
@@ -7561,7 +8477,14 @@
       "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
       "feedback": {
         "short": "3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45. Final answer: 0.45.",
-        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "steps": [
+          "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+          "Mark 1: Method: 3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45.",
+          "Mark 2: correct final answer with no unit",
+          "Full-mark example: 3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45. Final answer: 0.45.",
+          "Avoid: Show the distance calculation or rearranged relationship, then give the final answer."
+        ]
       },
       "workedSolution": "3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45.",
       "calculation": {
@@ -7569,6 +8492,16 @@
         "units": [],
         "working": "3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45.",
         "tolerance": 1e-05
+      },
+      "examGuidance": {
+        "commandWord": "Calculate",
+        "strategy": "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+        "fullMarkChecklist": [
+          "Method: 3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45.",
+          "correct final answer with no unit"
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "stage": "Application"
       }
     },
     {
@@ -7581,7 +8514,7 @@
       "options": null,
       "diagram": null,
       "marks": 2,
-      "difficulty": 3,
+      "difficulty": 2,
       "contentTier": "school_aqa_style",
       "source": {
         "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
@@ -7594,7 +8527,7 @@
         ],
         "points": [
           {
-            "label": "correct method",
+            "label": "Method: Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm.",
             "patterns": [
               "42\\s*(?:÷|/|divided by)\\s*0?\\.60*"
             ]
@@ -7622,7 +8555,14 @@
       "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
       "feedback": {
         "short": "Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm. Final answer: 70 mm.",
-        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "steps": [
+          "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+          "Mark 1: Method: Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm.",
+          "Mark 2: correct final answer in mm",
+          "Full-mark example: Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm. Final answer: 70 mm.",
+          "Avoid: Show the distance calculation or rearranged relationship, then give the final answer."
+        ]
       },
       "workedSolution": "Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm.",
       "calculation": {
@@ -7632,6 +8572,16 @@
         ],
         "working": "Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm.",
         "tolerance": 1e-05
+      },
+      "examGuidance": {
+        "commandWord": "Calculate",
+        "strategy": "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+        "fullMarkChecklist": [
+          "Method: Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm.",
+          "correct final answer in mm"
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "stage": "Application"
       }
     },
     {
@@ -7657,7 +8607,7 @@
         ],
         "points": [
           {
-            "label": "correct method",
+            "label": "Method: Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm.",
             "patterns": [
               "(?:9\\s*\\+\\s*32|32\\s*\\+\\s*9|9\\s*\\+\\s*0?\\.40*\\s*[×*x]\\s*80)"
             ]
@@ -7685,7 +8635,14 @@
       "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
       "feedback": {
         "short": "Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm. Final answer: 41 mm.",
-        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "steps": [
+          "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+          "Mark 1: Method: Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm.",
+          "Mark 2: correct final answer in mm",
+          "Full-mark example: Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm. Final answer: 41 mm.",
+          "Avoid: Show the distance calculation or rearranged relationship, then give the final answer."
+        ]
       },
       "workedSolution": "Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm.",
       "calculation": {
@@ -7695,6 +8652,16 @@
         ],
         "working": "Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm.",
         "tolerance": 1e-05
+      },
+      "examGuidance": {
+        "commandWord": "Calculate",
+        "strategy": "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+        "fullMarkChecklist": [
+          "Method: Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm.",
+          "correct final answer in mm"
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "stage": "Multi-step challenge"
       }
     },
     {
@@ -7720,7 +8687,7 @@
         ],
         "points": [
           {
-            "label": "correct method",
+            "label": "Method: Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42.",
             "patterns": [
               "0?\\.41\\s*\\+\\s*0?\\.42\\s*\\+\\s*0?\\.43\\s*\\)?\\s*(?:÷|/)\\s*3"
             ]
@@ -7746,7 +8713,14 @@
       "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
       "feedback": {
         "short": "Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42. Final answer: 0.42.",
-        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "steps": [
+          "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+          "Mark 1: Method: Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42.",
+          "Mark 2: correct final answer with no unit",
+          "Full-mark example: Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42. Final answer: 0.42.",
+          "Avoid: Show the distance calculation or rearranged relationship, then give the final answer."
+        ]
       },
       "workedSolution": "Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42.",
       "calculation": {
@@ -7754,6 +8728,16 @@
         "units": [],
         "working": "Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42.",
         "tolerance": 1e-05
+      },
+      "examGuidance": {
+        "commandWord": "Calculate",
+        "strategy": "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+        "fullMarkChecklist": [
+          "Method: Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42.",
+          "correct final answer with no unit"
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -7779,7 +8763,7 @@
         ],
         "points": [
           {
-            "label": "correct method",
+            "label": "Method: Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35.",
             "patterns": [
               "21\\s*(?:÷|/|divided by)\\s*60"
             ]
@@ -7805,7 +8789,14 @@
       "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
       "feedback": {
         "short": "Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35. Final answer: 0.35.",
-        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "steps": [
+          "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+          "Mark 1: Method: Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35.",
+          "Mark 2: correct final answer with no unit",
+          "Full-mark example: Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35. Final answer: 0.35.",
+          "Avoid: Show the distance calculation or rearranged relationship, then give the final answer."
+        ]
       },
       "workedSolution": "Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35.",
       "calculation": {
@@ -7813,6 +8804,16 @@
         "units": [],
         "working": "Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35.",
         "tolerance": 1e-05
+      },
+      "examGuidance": {
+        "commandWord": "Calculate",
+        "strategy": "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+        "fullMarkChecklist": [
+          "Method: Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35.",
+          "correct final answer with no unit"
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "stage": "Multi-step challenge"
       }
     },
     {
@@ -7838,7 +8839,7 @@
         ],
         "points": [
           {
-            "label": "correct method",
+            "label": "Method: Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm.",
             "patterns": [
               "90\\s*[-−]\\s*54"
             ]
@@ -7866,7 +8867,14 @@
       "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
       "feedback": {
         "short": "Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm. Final answer: 36 mm.",
-        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "steps": [
+          "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+          "Mark 1: Method: Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm.",
+          "Mark 2: correct final answer in mm",
+          "Full-mark example: Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm. Final answer: 36 mm.",
+          "Avoid: Show the distance calculation or rearranged relationship, then give the final answer."
+        ]
       },
       "workedSolution": "Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm.",
       "calculation": {
@@ -7876,6 +8884,16 @@
         ],
         "working": "Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm.",
         "tolerance": 1e-05
+      },
+      "examGuidance": {
+        "commandWord": "Calculate",
+        "strategy": "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+        "fullMarkChecklist": [
+          "Method: Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm.",
+          "correct final answer in mm"
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "stage": "Multi-step challenge"
       }
     },
     {
@@ -7901,7 +8919,7 @@
         ],
         "points": [
           {
-            "label": "correct method",
+            "label": "Method: Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45.",
             "patterns": [
               "(?:0?\\.70*\\s*[-−]\\s*0?\\.25|\\(?\\s*56\\s*[-−]\\s*20\\s*\\)?\\s*(?:÷|/)\\s*80)"
             ]
@@ -7927,7 +8945,14 @@
       "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
       "feedback": {
         "short": "Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45. Final answer: 0.45.",
-        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "steps": [
+          "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+          "Mark 1: Method: Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45.",
+          "Mark 2: correct final answer with no unit",
+          "Full-mark example: Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45. Final answer: 0.45.",
+          "Avoid: Show the distance calculation or rearranged relationship, then give the final answer."
+        ]
       },
       "workedSolution": "Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45.",
       "calculation": {
@@ -7935,6 +8960,16 @@
         "units": [],
         "working": "Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45.",
         "tolerance": 1e-05
+      },
+      "examGuidance": {
+        "commandWord": "Calculate",
+        "strategy": "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+        "fullMarkChecklist": [
+          "Method: Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45.",
+          "correct final answer with no unit"
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "stage": "Multi-step challenge"
       }
     },
     {
@@ -7960,7 +8995,7 @@
         ],
         "points": [
           {
-            "label": "correct method",
+            "label": "Method: Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm.",
             "patterns": [
               "(?:4\\.8\\s*(?:÷|/)\\s*0?\\.80*|48\\s*(?:÷|/)\\s*0?\\.80*)"
             ]
@@ -7988,7 +9023,14 @@
       "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
       "feedback": {
         "short": "Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm. Final answer: 60 mm.",
-        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "steps": [
+          "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+          "Mark 1: Method: Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm.",
+          "Mark 2: correct final answer in mm",
+          "Full-mark example: Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm. Final answer: 60 mm.",
+          "Avoid: Show the distance calculation or rearranged relationship, then give the final answer."
+        ]
       },
       "workedSolution": "Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm.",
       "calculation": {
@@ -7998,6 +9040,16 @@
         ],
         "working": "Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm.",
         "tolerance": 1e-05
+      },
+      "examGuidance": {
+        "commandWord": "Calculate",
+        "strategy": "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+        "fullMarkChecklist": [
+          "Method: Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm.",
+          "correct final answer in mm"
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "stage": "Explanation and evidence"
       }
     },
     {
@@ -8023,7 +9075,7 @@
         ],
         "points": [
           {
-            "label": "correct method",
+            "label": "Method: Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45.",
             "patterns": [
               "29\\s*(?:÷|/|divided by)\\s*64"
             ]
@@ -8049,7 +9101,14 @@
       "hint": "Show the distance calculation or rearranged relationship, then give the final answer.",
       "feedback": {
         "short": "Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45. Final answer: 0.45.",
-        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer."
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "steps": [
+          "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+          "Mark 1: Method: Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45.",
+          "Mark 2: correct final answer with no unit",
+          "Full-mark example: Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45. Final answer: 0.45.",
+          "Avoid: Show the distance calculation or rearranged relationship, then give the final answer."
+        ]
       },
       "workedSolution": "Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45.",
       "calculation": {
@@ -8057,10 +9116,875 @@
         "units": [],
         "working": "Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45.",
         "tolerance": 1e-05
+      },
+      "examGuidance": {
+        "commandWord": "Calculate",
+        "strategy": "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+        "fullMarkChecklist": [
+          "Method: Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45.",
+          "correct final answer with no unit"
+        ],
+        "commonError": "Show the distance calculation or rearranged relationship, then give the final answer.",
+        "stage": "Explanation and evidence"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-061",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-foundation-61",
+      "prompt": "Name the scientist who left gaps in his periodic table for undiscovered elements.",
+      "format": "typed_short",
+      "marks": 1,
+      "difficulty": 1,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Mendeleev."
+        ],
+        "points": [
+          {
+            "label": "Name Mendeleev",
+            "alternatives": [
+              "Mendeleev"
+            ]
+          }
+        ],
+        "modelAnswer": "Mendeleev.",
+        "markPoints": [
+          "Name Mendeleev"
+        ],
+        "markPointAlternatives": [
+          [
+            "Mendeleev"
+          ]
+        ],
+        "totalMarks": 1
+      },
+      "modelAnswer": "Mendeleev.",
+      "markKeywords": [
+        "Name Mendeleev"
+      ],
+      "hint": "Do not confuse Mendeleev with Newlands.",
+      "feedback": {
+        "short": "Mendeleev.",
+        "commonError": "Do not confuse Mendeleev with Newlands.",
+        "steps": [
+          "Give the correct scientific name.",
+          "Mark 1: Name Mendeleev",
+          "Full-mark example: Mendeleev.",
+          "Avoid: Do not confuse Mendeleev with Newlands."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Name",
+        "strategy": "Give the correct scientific name.",
+        "fullMarkChecklist": [
+          "Name Mendeleev"
+        ],
+        "commonError": "Do not confuse Mendeleev with Newlands.",
+        "stage": "Foundation"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-062",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-foundation-62",
+      "prompt": "State the quantity used to order elements in the modern periodic table.",
+      "format": "typed_short",
+      "marks": 1,
+      "difficulty": 1,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Increasing atomic number."
+        ],
+        "points": [
+          {
+            "label": "Increasing atomic number",
+            "alternatives": [
+              "increasing atomic number",
+              "increasing proton number"
+            ]
+          }
+        ],
+        "modelAnswer": "Increasing atomic number.",
+        "markPoints": [
+          "Increasing atomic number"
+        ],
+        "markPointAlternatives": [
+          [
+            "increasing atomic number",
+            "increasing proton number"
+          ]
+        ],
+        "totalMarks": 1
+      },
+      "modelAnswer": "Increasing atomic number.",
+      "markKeywords": [
+        "Increasing atomic number"
+      ],
+      "hint": "Atomic mass describes the historical ordering, not the modern ordering.",
+      "feedback": {
+        "short": "Increasing atomic number.",
+        "commonError": "Atomic mass describes the historical ordering, not the modern ordering.",
+        "steps": [
+          "Give a precise scientific statement for each part requested.",
+          "Mark 1: Increasing atomic number",
+          "Full-mark example: Increasing atomic number.",
+          "Avoid: Atomic mass describes the historical ordering, not the modern ordering."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "State",
+        "strategy": "Give a precise scientific statement for each part requested.",
+        "fullMarkChecklist": [
+          "Increasing atomic number"
+        ],
+        "commonError": "Atomic mass describes the historical ordering, not the modern ordering.",
+        "stage": "Foundation"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-063",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-foundation-63",
+      "prompt": "Newlands arranged elements by increasing atomic mass. Describe the repeating pattern he proposed.",
+      "format": "typed_short",
+      "marks": 2,
+      "difficulty": 2,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Similar properties repeated every eighth element. This was called the law of octaves."
+        ],
+        "points": [
+          {
+            "label": "Similar properties every eighth element",
+            "alternatives": [
+              "similar properties every eighth element",
+              "similar properties every 8 elements"
+            ]
+          },
+          {
+            "label": "Law of octaves",
+            "alternatives": [
+              "law of octaves"
+            ]
+          }
+        ],
+        "modelAnswer": "Similar properties repeated every eighth element. This was called the law of octaves.",
+        "markPoints": [
+          "Similar properties every eighth element",
+          "Law of octaves"
+        ],
+        "markPointAlternatives": [
+          [
+            "similar properties every eighth element",
+            "similar properties every 8 elements"
+          ],
+          [
+            "law of octaves"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "Similar properties repeated every eighth element. This was called the law of octaves.",
+      "markKeywords": [
+        "Similar properties every eighth element",
+        "Law of octaves"
+      ],
+      "hint": "State both the pattern and its name.",
+      "feedback": {
+        "short": "Similar properties repeated every eighth element. This was called the law of octaves.",
+        "commonError": "State both the pattern and its name.",
+        "steps": [
+          "Give the relevant facts or method steps in a clear order.",
+          "Mark 1: Similar properties every eighth element",
+          "Mark 2: Law of octaves",
+          "Full-mark example: Similar properties repeated every eighth element. This was called the law of octaves.",
+          "Avoid: State both the pattern and its name."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Describe",
+        "strategy": "Give the relevant facts or method steps in a clear order.",
+        "fullMarkChecklist": [
+          "Similar properties every eighth element",
+          "Law of octaves"
+        ],
+        "commonError": "State both the pattern and its name.",
+        "stage": "Application"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-064",
+      "topic": "Periodic table",
+      "topicId": "chem-y9-c1",
+      "conceptId": "chem-school-aqa-foundation-64",
+      "prompt": "Mendeleev left a gap below elements with similar properties. Explain what the gap represented and how he predicted the missing element’s properties.",
+      "format": "typed_short",
+      "marks": 2,
+      "difficulty": 2,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 1–7; revision notes page 1"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The gap represented an undiscovered element. He used the properties of elements in the same group to predict its properties."
+        ],
+        "points": [
+          {
+            "label": "Gap represents an undiscovered element",
+            "alternatives": [
+              "gap undiscovered element"
+            ]
+          },
+          {
+            "label": "Use properties of elements in the same group to predict",
+            "alternatives": [
+              "same group predict properties"
+            ]
+          }
+        ],
+        "modelAnswer": "The gap represented an undiscovered element. He used the properties of elements in the same group to predict its properties.",
+        "markPoints": [
+          "Gap represents an undiscovered element",
+          "Use properties of elements in the same group to predict"
+        ],
+        "markPointAlternatives": [
+          [
+            "gap undiscovered element"
+          ],
+          [
+            "same group predict properties"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "The gap represented an undiscovered element. He used the properties of elements in the same group to predict its properties.",
+      "markKeywords": [
+        "Gap represents an undiscovered element",
+        "Use properties of elements in the same group to predict"
+      ],
+      "hint": "A gap alone is not a prediction: explain how the group supplies evidence.",
+      "feedback": {
+        "short": "The gap represented an undiscovered element. He used the properties of elements in the same group to predict its properties.",
+        "commonError": "A gap alone is not a prediction: explain how the group supplies evidence.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: Gap represents an undiscovered element",
+          "Mark 2: Use properties of elements in the same group to predict",
+          "Full-mark example: The gap represented an undiscovered element. He used the properties of elements in the same group to predict its properties.",
+          "Avoid: A gap alone is not a prediction: explain how the group supplies evidence."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "Gap represents an undiscovered element",
+          "Use properties of elements in the same group to predict"
+        ],
+        "commonError": "A gap alone is not a prediction: explain how the group supplies evidence.",
+        "stage": "Application"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-065",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-foundation-65",
+      "prompt": "Name the method used to remove insoluble sand from water.",
+      "format": "typed_short",
+      "marks": 1,
+      "difficulty": 1,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Filtration."
+        ],
+        "points": [
+          {
+            "label": "Filtration",
+            "alternatives": [
+              "filtration",
+              "filtering"
+            ]
+          }
+        ],
+        "modelAnswer": "Filtration.",
+        "markPoints": [
+          "Filtration"
+        ],
+        "markPointAlternatives": [
+          [
+            "filtration",
+            "filtering"
+          ]
+        ],
+        "totalMarks": 1
+      },
+      "modelAnswer": "Filtration.",
+      "markKeywords": [
+        "Filtration"
+      ],
+      "hint": "Evaporation would remove water rather than filter out sand.",
+      "feedback": {
+        "short": "Filtration.",
+        "commonError": "Evaporation would remove water rather than filter out sand.",
+        "steps": [
+          "Give the correct scientific name.",
+          "Mark 1: Filtration",
+          "Full-mark example: Filtration.",
+          "Avoid: Evaporation would remove water rather than filter out sand."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Name",
+        "strategy": "Give the correct scientific name.",
+        "fullMarkChecklist": [
+          "Filtration"
+        ],
+        "commonError": "Evaporation would remove water rather than filter out sand.",
+        "stage": "Foundation"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-066",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-foundation-66",
+      "prompt": "During filtration, name the liquid that passes through the filter paper.",
+      "format": "typed_short",
+      "marks": 1,
+      "difficulty": 1,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "The filtrate."
+        ],
+        "points": [
+          {
+            "label": "Filtrate",
+            "alternatives": [
+              "filtrate"
+            ]
+          }
+        ],
+        "modelAnswer": "The filtrate.",
+        "markPoints": [
+          "Filtrate"
+        ],
+        "markPointAlternatives": [
+          [
+            "filtrate"
+          ]
+        ],
+        "totalMarks": 1
+      },
+      "modelAnswer": "The filtrate.",
+      "markKeywords": [
+        "Filtrate"
+      ],
+      "hint": "The residue is the solid left on the filter paper.",
+      "feedback": {
+        "short": "The filtrate.",
+        "commonError": "The residue is the solid left on the filter paper.",
+        "steps": [
+          "Give the correct scientific name.",
+          "Mark 1: Filtrate",
+          "Full-mark example: The filtrate.",
+          "Avoid: The residue is the solid left on the filter paper."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Name",
+        "strategy": "Give the correct scientific name.",
+        "fullMarkChecklist": [
+          "Filtrate"
+        ],
+        "commonError": "The residue is the solid left on the filter paper.",
+        "stage": "Foundation"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-067",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-foundation-67",
+      "prompt": "Sand is insoluble in water. Explain why filtration separates sand from water.",
+      "format": "typed_short",
+      "marks": 2,
+      "difficulty": 2,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Sand particles are trapped by the filter paper. Water passes through the filter paper."
+        ],
+        "points": [
+          {
+            "label": "Sand particles trapped by filter paper",
+            "alternatives": [
+              "sand trapped filter paper",
+              "sand retained filter paper"
+            ]
+          },
+          {
+            "label": "Water passes through filter paper",
+            "alternatives": [
+              "water passes filter paper"
+            ]
+          }
+        ],
+        "modelAnswer": "Sand particles are trapped by the filter paper. Water passes through the filter paper.",
+        "markPoints": [
+          "Sand particles trapped by filter paper",
+          "Water passes through filter paper"
+        ],
+        "markPointAlternatives": [
+          [
+            "sand trapped filter paper",
+            "sand retained filter paper"
+          ],
+          [
+            "water passes filter paper"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "Sand particles are trapped by the filter paper. Water passes through the filter paper.",
+      "markKeywords": [
+        "Sand particles trapped by filter paper",
+        "Water passes through filter paper"
+      ],
+      "hint": "Explain what happens to each part of the mixture.",
+      "feedback": {
+        "short": "Sand particles are trapped by the filter paper. Water passes through the filter paper.",
+        "commonError": "Explain what happens to each part of the mixture.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: Sand particles trapped by filter paper",
+          "Mark 2: Water passes through filter paper",
+          "Full-mark example: Sand particles are trapped by the filter paper. Water passes through the filter paper.",
+          "Avoid: Explain what happens to each part of the mixture."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "Sand particles trapped by filter paper",
+          "Water passes through filter paper"
+        ],
+        "commonError": "Explain what happens to each part of the mixture.",
+        "stage": "Application"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-068",
+      "topic": "Separation",
+      "topicId": "chem-y9-c3",
+      "conceptId": "chem-school-aqa-foundation-68",
+      "prompt": "Name the technique used to collect water from a salt solution. State what the condenser does.",
+      "format": "typed_short",
+      "marks": 2,
+      "difficulty": 2,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Simple distillation. The condenser cools water vapour so it condenses to liquid water."
+        ],
+        "points": [
+          {
+            "label": "Simple distillation",
+            "alternatives": [
+              "simple distillation"
+            ]
+          },
+          {
+            "label": "Condenser turns water vapour into liquid water",
+            "alternatives": [
+              "water vapour condenses liquid",
+              "water vapor condenses liquid"
+            ]
+          }
+        ],
+        "modelAnswer": "Simple distillation. The condenser cools water vapour so it condenses to liquid water.",
+        "markPoints": [
+          "Simple distillation",
+          "Condenser turns water vapour into liquid water"
+        ],
+        "markPointAlternatives": [
+          [
+            "simple distillation"
+          ],
+          [
+            "water vapour condenses liquid",
+            "water vapor condenses liquid"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "Simple distillation. The condenser cools water vapour so it condenses to liquid water.",
+      "markKeywords": [
+        "Simple distillation",
+        "Condenser turns water vapour into liquid water"
+      ],
+      "hint": "Collecting the solvent requires condensation, not just evaporation.",
+      "feedback": {
+        "short": "Simple distillation. The condenser cools water vapour so it condenses to liquid water.",
+        "commonError": "Collecting the solvent requires condensation, not just evaporation.",
+        "steps": [
+          "Give a precise scientific statement for each part requested.",
+          "Mark 1: Simple distillation",
+          "Mark 2: Condenser turns water vapour into liquid water",
+          "Full-mark example: Simple distillation. The condenser cools water vapour so it condenses to liquid water.",
+          "Avoid: Collecting the solvent requires condensation, not just evaporation."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "State",
+        "strategy": "Give a precise scientific statement for each part requested.",
+        "fullMarkChecklist": [
+          "Simple distillation",
+          "Condenser turns water vapour into liquid water"
+        ],
+        "commonError": "Collecting the solvent requires condensation, not just evaporation.",
+        "stage": "Application"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-069",
+      "topic": "RP6 method",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-foundation-69",
+      "prompt": "State what should be used to draw the start line for paper chromatography.",
+      "format": "typed_short",
+      "marks": 1,
+      "difficulty": 1,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "A pencil."
+        ],
+        "points": [
+          {
+            "label": "Pencil",
+            "alternatives": [
+              "pencil"
+            ]
+          }
+        ],
+        "modelAnswer": "A pencil.",
+        "markPoints": [
+          "Pencil"
+        ],
+        "markPointAlternatives": [
+          [
+            "pencil"
+          ]
+        ],
+        "totalMarks": 1
+      },
+      "modelAnswer": "A pencil.",
+      "markKeywords": [
+        "Pencil"
+      ],
+      "hint": "Pen ink could dissolve and interfere with the chromatogram.",
+      "feedback": {
+        "short": "A pencil.",
+        "commonError": "Pen ink could dissolve and interfere with the chromatogram.",
+        "steps": [
+          "Give a precise scientific statement for each part requested.",
+          "Mark 1: Pencil",
+          "Full-mark example: A pencil.",
+          "Avoid: Pen ink could dissolve and interfere with the chromatogram."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "State",
+        "strategy": "Give a precise scientific statement for each part requested.",
+        "fullMarkChecklist": [
+          "Pencil"
+        ],
+        "commonError": "Pen ink could dissolve and interfere with the chromatogram.",
+        "stage": "Foundation"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-070",
+      "topic": "RP6 method",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-foundation-70",
+      "prompt": "State where the sample spots must be relative to the solvent level when chromatography begins.",
+      "format": "typed_short",
+      "marks": 1,
+      "difficulty": 1,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Above the solvent level."
+        ],
+        "points": [
+          {
+            "label": "Spots above solvent level",
+            "alternatives": [
+              "above solvent level",
+              "above solvent surface"
+            ]
+          }
+        ],
+        "modelAnswer": "Above the solvent level.",
+        "markPoints": [
+          "Spots above solvent level"
+        ],
+        "markPointAlternatives": [
+          [
+            "above solvent level",
+            "above solvent surface"
+          ]
+        ],
+        "totalMarks": 1
+      },
+      "modelAnswer": "Above the solvent level.",
+      "markKeywords": [
+        "Spots above solvent level"
+      ],
+      "hint": "Do not submerge the sample spots.",
+      "feedback": {
+        "short": "Above the solvent level.",
+        "commonError": "Do not submerge the sample spots.",
+        "steps": [
+          "Give a precise scientific statement for each part requested.",
+          "Mark 1: Spots above solvent level",
+          "Full-mark example: Above the solvent level.",
+          "Avoid: Do not submerge the sample spots."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "State",
+        "strategy": "Give a precise scientific statement for each part requested.",
+        "fullMarkChecklist": [
+          "Spots above solvent level"
+        ],
+        "commonError": "Do not submerge the sample spots.",
+        "stage": "Foundation"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-071",
+      "topic": "Rf",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-foundation-71",
+      "prompt": "A dye moves 24 mm from the start line. The solvent front moves 60 mm from the same line. Calculate Rf and show your working.",
+      "format": "calculation",
+      "marks": 2,
+      "difficulty": 2,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "Rf = 24 / 60 = 0.40."
+        ],
+        "points": [
+          {
+            "label": "Substitute dye distance / solvent-front distance: 24 / 60",
+            "alternatives": [],
+            "patterns": [
+              "24\\s*(?:÷|/|divided by)\\s*60"
+            ]
+          },
+          {
+            "label": "Rf = 0.40 with no unit",
+            "alternatives": [],
+            "patterns": [
+              "(?:^|=|answer\\s*:?\\s*)\\s*0?\\.40*\\s*[.!]?\\s*$"
+            ]
+          }
+        ],
+        "modelAnswer": "Rf = 24 / 60 = 0.40.",
+        "markPoints": [
+          "Substitute dye distance / solvent-front distance: 24 / 60",
+          "Rf = 0.40 with no unit"
+        ],
+        "markPointAlternatives": [
+          [],
+          []
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "Rf = 24 / 60 = 0.40.",
+      "markKeywords": [
+        "Substitute dye distance / solvent-front distance: 24 / 60",
+        "Rf = 0.40 with no unit"
+      ],
+      "hint": "Rf is a ratio and has no unit.",
+      "feedback": {
+        "short": "Rf = 24 / 60 = 0.40.",
+        "commonError": "Rf is a ratio and has no unit.",
+        "steps": [
+          "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+          "Mark 1: Substitute dye distance / solvent-front distance: 24 / 60",
+          "Mark 2: Rf = 0.40 with no unit",
+          "Full-mark example: Rf = 24 / 60 = 0.40.",
+          "Avoid: Rf is a ratio and has no unit."
+        ]
+      },
+      "workedSolution": "Rf = dye distance / solvent-front distance = 24 / 60 = 0.40. Both distances are measured from the start line in mm; the units cancel.",
+      "calculation": {
+        "value": 0.4,
+        "units": [],
+        "working": "Rf = dye distance / solvent-front distance = 24 / 60 = 0.40. Both distances are measured from the start line in mm; the units cancel.",
+        "tolerance": 1e-05
+      },
+      "examGuidance": {
+        "commandWord": "Calculate",
+        "strategy": "Write the relationship, substitute the correct distances in matching units, and give the requested value and rounding. Rf has no unit; distances need a unit.",
+        "fullMarkChecklist": [
+          "Substitute dye distance / solvent-front distance: 24 / 60",
+          "Rf = 0.40 with no unit"
+        ],
+        "commonError": "Rf is a ratio and has no unit.",
+        "stage": "Application"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-072",
+      "topic": "Chromatogram",
+      "topicId": "chem-y9-c4",
+      "conceptId": "chem-school-aqa-foundation-72",
+      "prompt": "One ink produces three distinct spots on a chromatogram. State the minimum number of components and explain why the ink is a mixture.",
+      "format": "typed_short",
+      "marks": 2,
+      "difficulty": 2,
+      "contentTier": "school_aqa_style",
+      "source": {
+        "file": "Psyche Chan - GCSE AQA Chemistry Required Practical Lab Book(2).pdf",
+        "locator": "pages 43–48; RP6 PPQ slides 2–7"
+      },
+      "answer": {
+        "mode": "chemistry_rubric",
+        "accepted": [
+          "There are at least three components. Different components separate into different spots, so more than one substance is present."
+        ],
+        "points": [
+          {
+            "label": "At least three components",
+            "alternatives": [
+              "at least three components",
+              "at least 3 components"
+            ]
+          },
+          {
+            "label": "More than one substance present",
+            "alternatives": [
+              "more than one substance",
+              "different components separate different spots"
+            ]
+          }
+        ],
+        "modelAnswer": "There are at least three components. Different components separate into different spots, so more than one substance is present.",
+        "markPoints": [
+          "At least three components",
+          "More than one substance present"
+        ],
+        "markPointAlternatives": [
+          [
+            "at least three components",
+            "at least 3 components"
+          ],
+          [
+            "more than one substance",
+            "different components separate different spots"
+          ]
+        ],
+        "totalMarks": 2
+      },
+      "modelAnswer": "There are at least three components. Different components separate into different spots, so more than one substance is present.",
+      "markKeywords": [
+        "At least three components",
+        "More than one substance present"
+      ],
+      "hint": "Count separated spots; do not assume one spot always proves purity.",
+      "feedback": {
+        "short": "There are at least three components. Different components separate into different spots, so more than one substance is present.",
+        "commonError": "Count separated spots; do not assume one spot always proves purity.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: At least three components",
+          "Mark 2: More than one substance present",
+          "Full-mark example: There are at least three components. Different components separate into different spots, so more than one substance is present.",
+          "Avoid: Count separated spots; do not assume one spot always proves purity."
+        ]
+      },
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "At least three components",
+          "More than one substance present"
+        ],
+        "commonError": "Count separated spots; do not assume one spot always proves purity.",
+        "stage": "Application"
       }
     }
   ],
-  "bankSize": 190,
+  "bankSize": 202,
   "sourceScope": {
     "year": 9,
     "sharedFoundations": "Year 8 separation and working scientifically revisited in the supplied Year 9 lessons",

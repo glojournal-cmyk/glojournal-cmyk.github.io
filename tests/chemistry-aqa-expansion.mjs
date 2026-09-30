@@ -13,11 +13,11 @@ vm.runInContext(src.slice(src.indexOf('function questionMarks('),src.indexOf('fu
 vm.runInContext(read('assessment/marking-hotfix-v3.js'),context);
 
 const fresh=bank.questions.filter(q=>q.contentTier==='school_aqa_style');
-assert.equal(fresh.length,60);
-assert.equal(bank.bankSize,190);
-assert.equal(bank.questions.length+addon.questions.length,218);
-assert.equal(new Set(fresh.map(q=>q.conceptId)).size,60);
-assert.ok(fresh.every(q=>q.source.file&&q.source.locator&&q.marks>=2&&q.marks<=4));
+assert.equal(fresh.length,72);
+assert.equal(bank.bankSize,202);
+assert.equal(bank.questions.length+addon.questions.length,230);
+assert.equal(new Set(fresh.map(q=>q.conceptId)).size,72);
+assert.ok(fresh.every(q=>q.source.file&&q.source.locator&&q.marks>=1&&q.marks<=4));
 assert.ok(fresh.every(q=>['chem-y9-c1','chem-y9-c3','chem-y9-c4'].includes(q.topicId)));
 for(const q of fresh){
   assert.equal(context.mark(q,q.modelAnswer).credit,1,q.id+' model answer');
@@ -55,12 +55,13 @@ for(let i=0;i<500;i++){
   assert.ok(paper.filter(q=>q.contentTier==='school_aqa_style').length>=16,'AQA-style questions must appear');
   assert.equal(paper.filter(q=>q.topic==='Rf').length,9);
   const total=paper.reduce((sum,q)=>sum+context.questionMarks(q),0);
-  assert.ok(total>=46&&total<=62,'45-minute blend of one-mark and multi-mark questions');
+  assert.ok(total>=38&&total<=62,'45-minute blend of one-mark and multi-mark questions');
+  assert.ok(paper.every((q,j)=>j===0||context.chemistryLevel(paper[j-1])<=context.chemistryLevel(q)),'Easy-to-hard progression');
   previous=paper.map(q=>q.id);
 }
 
 const catalog=JSON.parse(read('content/catalog.json'));
-for(const [id,added] of [['chem-y9-c1',12],['chem-y9-c3',18],['chem-y9-c4',30]]){
+for(const [id,added] of [['chem-y9-c1',16],['chem-y9-c3',22],['chem-y9-c4',34]]){
   const doc=JSON.parse(read('content/topics/'+id+'.json'));
   const entry=catalog.topics.find(t=>t.topicId===id);
   assert.equal(doc.questions.filter(q=>q.contentTier==='school_aqa_style').length,added);
@@ -82,5 +83,20 @@ context.finish(paper,draft);
 assert.equal(context.state.results[0].marks,2);
 assert.equal(context.state.results[0].total,3);
 assert.equal(context.state.results[0].score,66);
+assert.ok(rendered.includes('How to earn full marks'));
+assert.ok(rendered.includes('Awarded · 1 mark:'));
+assert.ok(rendered.includes('Missing · 1 mark:'));
 assert.ok(rendered.includes('1 of 2 marks'),'Partial-credit feedback uses actual marks');
-console.log('60 source-scoped questions; rubrics, units, partial marks, history totals, Master metadata and 500 new paper selections passed.');
+console.log('72 source-scoped questions; rubrics, units, partial marks, history totals, Master metadata and 500 new paper selections passed.');
+// Full-mark mastery is scoped to these chemistry rubrics; existing subjects keep their policy.
+const masterSrc=read('assets/quiz-session-rWAnuDVj.js');
+const startB=masterSrc.indexOf('function B(e,t,n,r)');
+const endB=masterSrc.indexOf('function ',startB+9);
+const master=vm.createContext({L:q=>q.answer.modelAnswer,I:()=>[],R:()=>3,Math});
+vm.runInContext(masterSrc.slice(startB,endB),master);
+const fourPoint={format:'mark_points',answer:{markPoints:['a','b','c','d'],requireFullMarks:true}};
+assert.equal(master.B(fourPoint,'response','chemistry').ok,false,'3/4 is partial, not full mastery');
+assert.equal(master.B(fourPoint,'response','chemistry').score,3,'Keep earned partial marks');
+assert.equal(master.B({...fourPoint,answer:{...fourPoint.answer,requireFullMarks:false}},'response','biology').ok,true,'Existing marking policy unchanged');
+master.R=()=>4;
+assert.equal(master.B(fourPoint,'response','chemistry').ok,true,'4/4 completes mastery');

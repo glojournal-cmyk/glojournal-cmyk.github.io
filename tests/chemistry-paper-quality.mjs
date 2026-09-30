@@ -8,7 +8,7 @@ const context=vm.createContext({Math,Set,String,Object});
 vm.runInContext(script.slice(script.indexOf('function shuffle(a)'),script.indexOf('function selectCreusa(')),context);
 vm.runInContext(script.slice(script.indexOf('function normal('),script.indexOf('async function start(')),context);
 
-assert.equal(bank.questions.length,190);
+assert.equal(bank.questions.length,202);
 assert.equal(new Set(bank.questions.map(q=>q.id)).size,bank.questions.length);
 assert.ok(bank.questions.every(q=>q.conceptId),'Every chemistry question needs a concept ID');
 for(const q of bank.questions.filter(q=>Number(q.id.split('-').at(-1))>=88)){
@@ -42,5 +42,5 @@ for(let attempt=0;attempt<500;attempt++){
   assert.ok(paper.filter(q=>!q.options?.length).length>=15,'Paper needs substantial written work');
   previous=paper.map(q=>q.id);
 }
-console.log('Chemistry bank: 190 base + 28 school-style questions, 500 papers checked for unique concepts, figures and nine Rf questions.');
+console.log('Chemistry bank: 202 base + 28 school-style questions, 500 papers checked for unique concepts, figures and nine Rf questions.');
 

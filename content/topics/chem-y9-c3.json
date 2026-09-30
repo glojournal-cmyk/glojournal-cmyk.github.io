@@ -2327,41 +2327,66 @@
           "water dissolve salt",
           "filter sand residue",
           "dry sand",
-          "evaporate filtrate cool crystals"
+          "Partially evaporate filtrate, cool to crystallise, then collect and dry salt crystals"
         ],
         "markPointAlternatives": [
-          [],
-          [],
-          [],
           [
-            "partially evaporate cool crystallise"
+            "water dissolve salt"
+          ],
+          [
+            "filter sand residue"
+          ],
+          [
+            "dry sand"
+          ],
+          [
+            "partially evaporate filtrate cool collect dry salt crystals",
+            "evaporate filtrate cool crystals dry crystals"
           ]
         ],
         "totalMarks": 4,
-        "modelAnswer": "Add water and stir to dissolve the salt. Filter to collect the sand residue. Dry the sand. Partially evaporate the filtrate and cool it to form salt crystals, then separate and dry the crystals."
+        "modelAnswer": "Add water and stir to dissolve the salt. Filter to collect sand as the residue and dry the sand. Partially evaporate the filtrate, allow it to cool to form salt crystals, then collect and dry the salt crystals.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 4
       },
       "feedback": {
-        "short": "Add water and stir to dissolve the salt. Filter to collect the sand residue. Dry the sand. Partially evaporate the filtrate and cool it to form salt crystals, then separate and dry the crystals.",
-        "steps": [
-          "Add water and stir to dissolve the salt. Filter to collect the sand residue. Dry the sand. Partially evaporate the filtrate and cool it to form salt crystals, then separate and dry the crystals.",
-          "Follow both components through the method. Filter before crystallising."
-        ],
+        "short": "Add water and stir to dissolve the salt. Filter to collect sand as the residue and dry the sand. Partially evaporate the filtrate, allow it to cool to form salt crystals, then collect and dry the salt crystals.",
         "commonError": "Follow both components through the method. Filter before crystallising.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Give the relevant facts or method steps in a clear order.",
+          "Mark 1: water dissolve salt",
+          "Mark 2: filter sand residue",
+          "Mark 3: dry sand",
+          "Mark 4: Partially evaporate filtrate, cool to crystallise, then collect and dry salt crystals",
+          "Full-mark example: Add water and stir to dissolve the salt. Filter to collect sand as the residue and dry the sand. Partially evaporate the filtrate, allow it to cool to form salt crystals, then collect and dry the salt crystals.",
+          "Avoid: Follow both components through the method. Filter before crystallising."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 4 distinct mark points, using evidence from the question."
+        "label": "DESCRIBE",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Describe",
+        "strategy": "Give the relevant facts or method steps in a clear order.",
+        "fullMarkChecklist": [
+          "water dissolve salt",
+          "filter sand residue",
+          "dry sand",
+          "Partially evaporate filtrate, cool to crystallise, then collect and dry salt crystals"
+        ],
+        "commonError": "Follow both components through the method. Filter before crystallising.",
+        "stage": "Multi-step challenge"
+      }
     },
     {
       "id": "chem-aqa-20260930-014-practice",
@@ -2370,7 +2395,7 @@
       "topic": "Separation techniques — filtration and distillation",
       "format": "mark_points",
       "prompt": "A pupil filters salt solution but no salt is left on the filter paper. Explain this observation.",
-      "difficulty": 3,
+      "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
@@ -2388,30 +2413,44 @@
           ]
         ],
         "totalMarks": 2,
-        "modelAnswer": "The salt is dissolved in the water. The dissolved salt passes through the filter with the water."
+        "modelAnswer": "The salt is dissolved in the water. The dissolved salt passes through the filter with the water.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 2
       },
       "feedback": {
         "short": "The salt is dissolved in the water. The dissolved salt passes through the filter with the water.",
-        "steps": [
-          "The salt is dissolved in the water. The dissolved salt passes through the filter with the water.",
-          "Filtration removes insoluble particles, rather than a dissolved solute."
-        ],
         "commonError": "Filtration removes insoluble particles, rather than a dissolved solute.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: salt dissolved",
+          "Mark 2: passes through filter",
+          "Full-mark example: The salt is dissolved in the water. The dissolved salt passes through the filter with the water.",
+          "Avoid: Filtration removes insoluble particles, rather than a dissolved solute."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 2 distinct mark points, using evidence from the question."
+        "label": "EXPLAIN",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "salt dissolved",
+          "passes through filter"
+        ],
+        "commonError": "Filtration removes insoluble particles, rather than a dissolved solute.",
+        "stage": "Application"
+      }
     },
     {
       "id": "chem-aqa-20260930-015-practice",
@@ -2440,30 +2479,46 @@
           ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "Filtration removes the insoluble particles, but dissolved salt remains in the filtrate. Clear appearance does not show that it is pure water."
+        "modelAnswer": "Filtration removes the insoluble particles, but dissolved salt remains in the filtrate. Clear appearance does not show that it is pure water.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 3
       },
       "feedback": {
         "short": "Filtration removes the insoluble particles, but dissolved salt remains in the filtrate. Clear appearance does not show that it is pure water.",
-        "steps": [
-          "Filtration removes the insoluble particles, but dissolved salt remains in the filtrate. Clear appearance does not show that it is pure water.",
-          "Appearance alone does not show whether dissolved substances are present."
-        ],
         "commonError": "Appearance alone does not show whether dissolved substances are present.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Use the evidence to make a judgement and state the limits of the conclusion.",
+          "Mark 1: removes insoluble particles",
+          "Mark 2: dissolved salt remains",
+          "Mark 3: clear does not show pure",
+          "Full-mark example: Filtration removes the insoluble particles, but dissolved salt remains in the filtrate. Clear appearance does not show that it is pure water.",
+          "Avoid: Appearance alone does not show whether dissolved substances are present."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 3 distinct mark points, using evidence from the question."
+        "label": "EVALUATE",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Evaluate",
+        "strategy": "Use the evidence to make a judgement and state the limits of the conclusion.",
+        "fullMarkChecklist": [
+          "removes insoluble particles",
+          "dissolved salt remains",
+          "clear does not show pure"
+        ],
+        "commonError": "Appearance alone does not show whether dissolved substances are present.",
+        "stage": "Explanation and evidence"
+      }
     },
     {
       "id": "chem-aqa-20260930-016-practice",
@@ -2490,30 +2545,44 @@
           ]
         ],
         "totalMarks": 2,
-        "modelAnswer": "The water escapes as vapour instead of being collected. Use simple distillation to condense and collect the water."
+        "modelAnswer": "The water escapes as vapour instead of being collected. Use simple distillation to condense and collect the water.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 2
       },
       "feedback": {
         "short": "The water escapes as vapour instead of being collected. Use simple distillation to condense and collect the water.",
-        "steps": [
-          "The water escapes as vapour instead of being collected. Use simple distillation to condense and collect the water.",
-          "Choose a technique that collects the component the pupil wants."
-        ],
         "commonError": "Choose a technique that collects the component the pupil wants.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: water escapes vapour",
+          "Mark 2: simple distillation condense collect",
+          "Full-mark example: The water escapes as vapour instead of being collected. Use simple distillation to condense and collect the water.",
+          "Avoid: Choose a technique that collects the component the pupil wants."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 2 distinct mark points, using evidence from the question."
+        "label": "EXPLAIN",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "water escapes vapour",
+          "simple distillation condense collect"
+        ],
+        "commonError": "Choose a technique that collects the component the pupil wants.",
+        "stage": "Explanation and evidence"
+      }
     },
     {
       "id": "chem-aqa-20260930-017-practice",
@@ -2544,30 +2613,46 @@
           ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "The vapour loses heat and condenses into liquid water, which can be collected as the distillate."
+        "modelAnswer": "The vapour loses heat and condenses into liquid water, which can be collected as the distillate.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 3
       },
       "feedback": {
         "short": "The vapour loses heat and condenses into liquid water, which can be collected as the distillate.",
-        "steps": [
-          "The vapour loses heat and condenses into liquid water, which can be collected as the distillate.",
-          "Distinguish boiling in the flask from condensation in the condenser."
-        ],
         "commonError": "Distinguish boiling in the flask from condensation in the condenser.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Give the relevant facts or method steps in a clear order.",
+          "Mark 1: loses heat",
+          "Mark 2: condenses liquid water",
+          "Mark 3: collected distillate",
+          "Full-mark example: The vapour loses heat and condenses into liquid water, which can be collected as the distillate.",
+          "Avoid: Distinguish boiling in the flask from condensation in the condenser."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 3 distinct mark points, using evidence from the question."
+        "label": "DESCRIBE",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Describe",
+        "strategy": "Give the relevant facts or method steps in a clear order.",
+        "fullMarkChecklist": [
+          "loses heat",
+          "condenses liquid water",
+          "collected distillate"
+        ],
+        "commonError": "Distinguish boiling in the flask from condensation in the condenser.",
+        "stage": "Explanation and evidence"
+      }
     },
     {
       "id": "chem-aqa-20260930-018-practice",
@@ -2576,7 +2661,7 @@
       "topic": "Separation techniques — filtration and distillation",
       "format": "mark_points",
       "prompt": "Liquids A and B mix together. Their boiling points are 65 °C and 80 °C. Name the separation technique and predict which is collected first.",
-      "difficulty": 3,
+      "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
@@ -2592,30 +2677,44 @@
           ]
         ],
         "totalMarks": 2,
-        "modelAnswer": "Use fractional distillation. Liquid A is collected first because it has the lower boiling point."
+        "modelAnswer": "Use fractional distillation. Liquid A is collected first because it has the lower boiling point.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 2
       },
       "feedback": {
         "short": "Use fractional distillation. Liquid A is collected first because it has the lower boiling point.",
-        "steps": [
-          "Use fractional distillation. Liquid A is collected first because it has the lower boiling point.",
-          "Use the boiling-point data in your prediction."
-        ],
         "commonError": "Use the boiling-point data in your prediction.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Give the correct scientific name.",
+          "Mark 1: fractional distillation",
+          "Mark 2: A lower boiling point",
+          "Full-mark example: Use fractional distillation. Liquid A is collected first because it has the lower boiling point.",
+          "Avoid: Use the boiling-point data in your prediction."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 2 distinct mark points, using evidence from the question."
+        "label": "NAME",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Name",
+        "strategy": "Give the correct scientific name.",
+        "fullMarkChecklist": [
+          "fractional distillation",
+          "A lower boiling point"
+        ],
+        "commonError": "Use the boiling-point data in your prediction.",
+        "stage": "Application"
+      }
     },
     {
       "id": "chem-aqa-20260930-019-practice",
@@ -2624,7 +2723,7 @@
       "topic": "Separation techniques — filtration and distillation",
       "format": "mark_points",
       "prompt": "Explain why a fractionating column helps separate a mixture of liquids with different boiling points.",
-      "difficulty": 3,
+      "difficulty": 4,
       "status": "enabled",
       "options": null,
       "answer": {
@@ -2642,30 +2741,44 @@
           ]
         ],
         "totalMarks": 2,
-        "modelAnswer": "It allows repeated vaporisation and condensation. Higher-boiling liquids condense lower in the column while the lower-boiling vapour passes further up."
+        "modelAnswer": "It allows repeated vaporisation and condensation. Higher-boiling liquids condense lower in the column while the lower-boiling vapour passes further up.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 2
       },
       "feedback": {
         "short": "It allows repeated vaporisation and condensation. Higher-boiling liquids condense lower in the column while the lower-boiling vapour passes further up.",
-        "steps": [
-          "It allows repeated vaporisation and condensation. Higher-boiling liquids condense lower in the column while the lower-boiling vapour passes further up.",
-          "Describe what the column does rather than just naming it."
-        ],
         "commonError": "Describe what the column does rather than just naming it.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: repeated vaporisation condensation",
+          "Mark 2: higher boiling condense lower",
+          "Full-mark example: It allows repeated vaporisation and condensation. Higher-boiling liquids condense lower in the column while the lower-boiling vapour passes further up.",
+          "Avoid: Describe what the column does rather than just naming it."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 2 distinct mark points, using evidence from the question."
+        "label": "EXPLAIN",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "repeated vaporisation condensation",
+          "higher boiling condense lower"
+        ],
+        "commonError": "Describe what the column does rather than just naming it.",
+        "stage": "Multi-step challenge"
+      }
     },
     {
       "id": "chem-aqa-20260930-020-practice",
@@ -2697,30 +2810,46 @@
           ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "Gently evaporate some solvent to concentrate the solution, then allow it to cool and form crystals. Separate and dry the crystals."
+        "modelAnswer": "Gently evaporate some solvent to concentrate the solution, then allow it to cool and form crystals. Separate and dry the crystals.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 3
       },
       "feedback": {
         "short": "Gently evaporate some solvent to concentrate the solution, then allow it to cool and form crystals. Separate and dry the crystals.",
-        "steps": [
-          "Gently evaporate some solvent to concentrate the solution, then allow it to cool and form crystals. Separate and dry the crystals.",
-          "Do not heat all the way to dryness."
-        ],
         "commonError": "Do not heat all the way to dryness.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Give the relevant facts or method steps in a clear order.",
+          "Mark 1: evaporate some solvent",
+          "Mark 2: cool form crystals",
+          "Mark 3: separate dry crystals",
+          "Full-mark example: Gently evaporate some solvent to concentrate the solution, then allow it to cool and form crystals. Separate and dry the crystals.",
+          "Avoid: Do not heat all the way to dryness."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 3 distinct mark points, using evidence from the question."
+        "label": "DESCRIBE",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Describe",
+        "strategy": "Give the relevant facts or method steps in a clear order.",
+        "fullMarkChecklist": [
+          "evaporate some solvent",
+          "cool form crystals",
+          "separate dry crystals"
+        ],
+        "commonError": "Do not heat all the way to dryness.",
+        "stage": "Explanation and evidence"
+      }
     },
     {
       "id": "chem-aqa-20260930-021-practice",
@@ -2729,7 +2858,7 @@
       "topic": "Separation techniques — filtration and distillation",
       "format": "mark_points",
       "prompt": "A solute dissolves much better in hot water than cold water. Explain why cooling a concentrated hot solution can form crystals.",
-      "difficulty": 3,
+      "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
@@ -2747,30 +2876,44 @@
           ]
         ],
         "totalMarks": 2,
-        "modelAnswer": "The solubility decreases as the solution cools. The excess dissolved solute forms solid crystals."
+        "modelAnswer": "The solubility decreases as the solution cools. The excess dissolved solute forms solid crystals.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 2
       },
       "feedback": {
         "short": "The solubility decreases as the solution cools. The excess dissolved solute forms solid crystals.",
-        "steps": [
-          "The solubility decreases as the solution cools. The excess dissolved solute forms solid crystals.",
-          "Link the solubility change to formation of a solid."
-        ],
         "commonError": "Link the solubility change to formation of a solid.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: solubility decreases cooling",
+          "Mark 2: excess solute forms crystals",
+          "Full-mark example: The solubility decreases as the solution cools. The excess dissolved solute forms solid crystals.",
+          "Avoid: Link the solubility change to formation of a solid."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 2 distinct mark points, using evidence from the question."
+        "label": "EXPLAIN",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "solubility decreases cooling",
+          "excess solute forms crystals"
+        ],
+        "commonError": "Link the solubility change to formation of a solid.",
+        "stage": "Application"
+      }
     },
     {
       "id": "chem-aqa-20260930-022-practice",
@@ -2779,7 +2922,7 @@
       "topic": "Separation techniques — filtration and distillation",
       "format": "mark_points",
       "prompt": "A pupil weighs newly filtered crystals while they are still wet. Explain how this affects the measured mass and suggest an improvement.",
-      "difficulty": 3,
+      "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
@@ -2796,30 +2939,44 @@
           []
         ],
         "totalMarks": 2,
-        "modelAnswer": "Water on the crystals makes the measured mass too high. Dry the crystals before weighing."
+        "modelAnswer": "Water on the crystals makes the measured mass too high. Dry the crystals before weighing.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 2
       },
       "feedback": {
         "short": "Water on the crystals makes the measured mass too high. Dry the crystals before weighing.",
-        "steps": [
-          "Water on the crystals makes the measured mass too high. Dry the crystals before weighing.",
-          "Name the extra material being weighed and the direction of the error."
-        ],
         "commonError": "Name the extra material being weighed and the direction of the error.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: water mass too high",
+          "Mark 2: dry crystals before weighing",
+          "Full-mark example: Water on the crystals makes the measured mass too high. Dry the crystals before weighing.",
+          "Avoid: Name the extra material being weighed and the direction of the error."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 2 distinct mark points, using evidence from the question."
+        "label": "EXPLAIN",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "water mass too high",
+          "dry crystals before weighing"
+        ],
+        "commonError": "Name the extra material being weighed and the direction of the error.",
+        "stage": "Application"
+      }
     },
     {
       "id": "chem-aqa-20260930-023-practice",
@@ -2828,7 +2985,7 @@
       "topic": "Separation techniques — filtration and distillation",
       "format": "mark_points",
       "prompt": "Solid X dissolves in solvent Z, but solid Y does not. Describe how to separate X and Y and recover both dry solids.",
-      "difficulty": 3,
+      "difficulty": 4,
       "status": "enabled",
       "options": null,
       "answer": {
@@ -2852,30 +3009,48 @@
           ]
         ],
         "totalMarks": 4,
-        "modelAnswer": "Add solvent Z to dissolve X. Filter to collect Y as residue and dry it. Remove solvent Z from the filtrate to recover X."
+        "modelAnswer": "Add solvent Z to dissolve X. Filter to collect Y as residue and dry it. Remove solvent Z from the filtrate to recover X.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 4
       },
       "feedback": {
         "short": "Add solvent Z to dissolve X. Filter to collect Y as residue and dry it. Remove solvent Z from the filtrate to recover X.",
-        "steps": [
-          "Add solvent Z to dissolve X. Filter to collect Y as residue and dry it. Remove solvent Z from the filtrate to recover X.",
-          "Use the solubility facts supplied rather than assuming both solids dissolve."
-        ],
         "commonError": "Use the solubility facts supplied rather than assuming both solids dissolve.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Give the relevant facts or method steps in a clear order.",
+          "Mark 1: Z dissolve X",
+          "Mark 2: filter Y residue",
+          "Mark 3: dry Y",
+          "Mark 4: remove solvent filtrate recover X",
+          "Full-mark example: Add solvent Z to dissolve X. Filter to collect Y as residue and dry it. Remove solvent Z from the filtrate to recover X.",
+          "Avoid: Use the solubility facts supplied rather than assuming both solids dissolve."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 4 distinct mark points, using evidence from the question."
+        "label": "DESCRIBE",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Describe",
+        "strategy": "Give the relevant facts or method steps in a clear order.",
+        "fullMarkChecklist": [
+          "Z dissolve X",
+          "filter Y residue",
+          "dry Y",
+          "remove solvent filtrate recover X"
+        ],
+        "commonError": "Use the solubility facts supplied rather than assuming both solids dissolve.",
+        "stage": "Multi-step challenge"
+      }
     },
     {
       "id": "chem-aqa-20260930-024-practice",
@@ -2884,7 +3059,7 @@
       "topic": "Separation techniques — filtration and distillation",
       "format": "mark_points",
       "prompt": "Two solids both dissolve in water. Explain why adding water and filtering will not separate them.",
-      "difficulty": 3,
+      "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
@@ -2902,30 +3077,44 @@
           ]
         ],
         "totalMarks": 2,
-        "modelAnswer": "Both solids dissolve and both pass through the filter in the solution. Neither is retained as a separate insoluble residue."
+        "modelAnswer": "Both solids dissolve and both pass through the filter in the solution. Neither is retained as a separate insoluble residue.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 2
       },
       "feedback": {
         "short": "Both solids dissolve and both pass through the filter in the solution. Neither is retained as a separate insoluble residue.",
-        "steps": [
-          "Both solids dissolve and both pass through the filter in the solution. Neither is retained as a separate insoluble residue.",
-          "An insoluble component is needed for this filtration plan."
-        ],
         "commonError": "An insoluble component is needed for this filtration plan.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: both solids dissolve",
+          "Mark 2: both pass through filter",
+          "Full-mark example: Both solids dissolve and both pass through the filter in the solution. Neither is retained as a separate insoluble residue.",
+          "Avoid: An insoluble component is needed for this filtration plan."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 2 distinct mark points, using evidence from the question."
+        "label": "EXPLAIN",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "both solids dissolve",
+          "both pass through filter"
+        ],
+        "commonError": "An insoluble component is needed for this filtration plan.",
+        "stage": "Application"
+      }
     },
     {
       "id": "chem-aqa-20260930-025-practice",
@@ -2956,30 +3145,46 @@
           ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "The salt remains in the distillation flask. Water vaporises and is collected, while the salt does not vaporise at the water’s boiling temperature."
+        "modelAnswer": "The salt remains in the distillation flask. Water vaporises and is collected, while the salt does not vaporise at the water’s boiling temperature.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 3
       },
       "feedback": {
         "short": "The salt remains in the distillation flask. Water vaporises and is collected, while the salt does not vaporise at the water’s boiling temperature.",
-        "steps": [
-          "The salt remains in the distillation flask. Water vaporises and is collected, while the salt does not vaporise at the water’s boiling temperature.",
-          "Track the solute and solvent separately."
-        ],
         "commonError": "Track the solute and solvent separately.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: salt remains flask",
+          "Mark 2: water vaporises",
+          "Mark 3: salt does not vaporise",
+          "Full-mark example: The salt remains in the distillation flask. Water vaporises and is collected, while the salt does not vaporise at the water’s boiling temperature.",
+          "Avoid: Track the solute and solvent separately."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 3 distinct mark points, using evidence from the question."
+        "label": "EXPLAIN",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "salt remains flask",
+          "water vaporises",
+          "salt does not vaporise"
+        ],
+        "commonError": "Track the solute and solvent separately.",
+        "stage": "Explanation and evidence"
+      }
     },
     {
       "id": "chem-aqa-20260930-026-practice",
@@ -3008,30 +3213,46 @@
           ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "Filter first to remove the sand. Then use simple distillation to vaporise and condense the water, leaving dissolved salt behind."
+        "modelAnswer": "Filter first to remove the sand. Then use simple distillation to vaporise and condense the water, leaving dissolved salt behind.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 3
       },
       "feedback": {
         "short": "Filter first to remove the sand. Then use simple distillation to vaporise and condense the water, leaving dissolved salt behind.",
-        "steps": [
-          "Filter first to remove the sand. Then use simple distillation to vaporise and condense the water, leaving dissolved salt behind.",
-          "The two contaminants require different separation steps."
-        ],
         "commonError": "The two contaminants require different separation steps.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Give the relevant facts or method steps in a clear order.",
+          "Mark 1: filter remove sand",
+          "Mark 2: simple distillation",
+          "Mark 3: condense water salt behind",
+          "Full-mark example: Filter first to remove the sand. Then use simple distillation to vaporise and condense the water, leaving dissolved salt behind.",
+          "Avoid: The two contaminants require different separation steps."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 3 distinct mark points, using evidence from the question."
+        "label": "DESCRIBE",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Describe",
+        "strategy": "Give the relevant facts or method steps in a clear order.",
+        "fullMarkChecklist": [
+          "filter remove sand",
+          "simple distillation",
+          "condense water salt behind"
+        ],
+        "commonError": "The two contaminants require different separation steps.",
+        "stage": "Explanation and evidence"
+      }
     },
     {
       "id": "chem-aqa-20260930-027-practice",
@@ -3058,30 +3279,46 @@
           ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "The collected liquid is the distillate. The solvent vaporises and condenses, while the dissolved non-volatile dye remains in the flask."
+        "modelAnswer": "The collected liquid is the distillate. The solvent vaporises and condenses, while the dissolved non-volatile dye remains in the flask.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 3
       },
       "feedback": {
         "short": "The collected liquid is the distillate. The solvent vaporises and condenses, while the dissolved non-volatile dye remains in the flask.",
-        "steps": [
-          "The collected liquid is the distillate. The solvent vaporises and condenses, while the dissolved non-volatile dye remains in the flask.",
-          "Colourless alone does not prove purity, but the method explains the separation."
-        ],
         "commonError": "Colourless alone does not prove purity, but the method explains the separation.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: distillate",
+          "Mark 2: solvent vaporises condenses",
+          "Mark 3: dye remains flask",
+          "Full-mark example: The collected liquid is the distillate. The solvent vaporises and condenses, while the dissolved non-volatile dye remains in the flask.",
+          "Avoid: Colourless alone does not prove purity, but the method explains the separation."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 3 distinct mark points, using evidence from the question."
+        "label": "EXPLAIN",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "distillate",
+          "solvent vaporises condenses",
+          "dye remains flask"
+        ],
+        "commonError": "Colourless alone does not prove purity, but the method explains the separation.",
+        "stage": "Explanation and evidence"
+      }
     },
     {
       "id": "chem-aqa-20260930-028-practice",
@@ -3090,7 +3327,7 @@
       "topic": "Separation techniques — filtration and distillation",
       "format": "mark_points",
       "prompt": "Salt solution is separated into salt and water. Explain why this separation is a physical process.",
-      "difficulty": 3,
+      "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
@@ -3109,30 +3346,44 @@
           ]
         ],
         "totalMarks": 2,
-        "modelAnswer": "No new substances are formed. The salt and water retain their chemical identities."
+        "modelAnswer": "No new substances are formed. The salt and water retain their chemical identities.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 2
       },
       "feedback": {
         "short": "No new substances are formed. The salt and water retain their chemical identities.",
-        "steps": [
-          "No new substances are formed. The salt and water retain their chemical identities.",
-          "Do not describe separation as making a new compound."
-        ],
         "commonError": "Do not describe separation as making a new compound.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: no new substances",
+          "Mark 2: retain chemical identities",
+          "Full-mark example: No new substances are formed. The salt and water retain their chemical identities.",
+          "Avoid: Do not describe separation as making a new compound."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 2 distinct mark points, using evidence from the question."
+        "label": "EXPLAIN",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "no new substances",
+          "retain chemical identities"
+        ],
+        "commonError": "Do not describe separation as making a new compound.",
+        "stage": "Application"
+      }
     },
     {
       "id": "chem-aqa-20260930-029-practice",
@@ -3159,30 +3410,44 @@
           ]
         ],
         "totalMarks": 2,
-        "modelAnswer": "Evaporation to dryness removes all the solvent. Crystallisation uses partial evaporation followed by cooling to form crystals."
+        "modelAnswer": "Evaporation to dryness removes all the solvent. Crystallisation uses partial evaporation followed by cooling to form crystals.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 2
       },
       "feedback": {
         "short": "Evaporation to dryness removes all the solvent. Crystallisation uses partial evaporation followed by cooling to form crystals.",
-        "steps": [
-          "Evaporation to dryness removes all the solvent. Crystallisation uses partial evaporation followed by cooling to form crystals.",
-          "Mention the amount of solvent removed and the cooling stage."
-        ],
         "commonError": "Mention the amount of solvent removed and the cooling stage.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Refer to both arrangements and state the relevant similarity or difference.",
+          "Mark 1: dryness all solvent",
+          "Mark 2: crystallisation partial evaporation cooling",
+          "Full-mark example: Evaporation to dryness removes all the solvent. Crystallisation uses partial evaporation followed by cooling to form crystals.",
+          "Avoid: Mention the amount of solvent removed and the cooling stage."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 2 distinct mark points, using evidence from the question."
+        "label": "COMPARE",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Compare",
+        "strategy": "Refer to both arrangements and state the relevant similarity or difference.",
+        "fullMarkChecklist": [
+          "dryness all solvent",
+          "crystallisation partial evaporation cooling"
+        ],
+        "commonError": "Mention the amount of solvent removed and the cooling stage.",
+        "stage": "Explanation and evidence"
+      }
     },
     {
       "id": "chem-aqa-20260930-030-practice",
@@ -3207,42 +3472,305 @@
           []
         ],
         "totalMarks": 3,
-        "modelAnswer": "Distillation condenses and collects the solvent for reuse, while the dissolved solid remains. Open evaporation loses the solvent to the surroundings."
+        "modelAnswer": "Distillation condenses and collects the solvent for reuse, while the dissolved solid remains. Open evaporation loses the solvent to the surroundings.",
+        "requireFullMarks": true
       },
       "stimulus": {
         "marks": 3
       },
       "feedback": {
         "short": "Distillation condenses and collects the solvent for reuse, while the dissolved solid remains. Open evaporation loses the solvent to the surroundings.",
-        "steps": [
-          "Distillation condenses and collects the solvent for reuse, while the dissolved solid remains. Open evaporation loses the solvent to the surroundings.",
-          "The aim includes recovering the solvent, not only the solid."
-        ],
         "commonError": "The aim includes recovering the solvent, not only the solid.",
-        "remember": "Use the given evidence and link each observation to a conclusion."
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: distillation condenses collects solvent",
+          "Mark 2: solid remains",
+          "Mark 3: open evaporation loses solvent",
+          "Full-mark example: Distillation condenses and collects the solvent for reuse, while the dissolved solid remains. Open evaporation loses the solvent to the surroundings.",
+          "Avoid: The aim includes recovering the solvent, not only the solid."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
       },
       "task": {
-        "label": "EXAM SHORT ANSWER",
-        "instruction": "Give 3 distinct mark points, using evidence from the question."
+        "label": "EXPLAIN",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
       },
       "ordinary": true,
       "source": {
         "file": "9NOW Cover work 15_09(2).pptx",
         "locator": "slides 8–18; revision notes page 2"
       },
-      "contentTier": "school_aqa_style"
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "distillation condenses collects solvent",
+          "solid remains",
+          "open evaporation loses solvent"
+        ],
+        "commonError": "The aim includes recovering the solvent, not only the solid.",
+        "stage": "Explanation and evidence"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-065-practice",
+      "conceptId": "chem-school-aqa-foundation-65",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "Name the method used to remove insoluble sand from water.",
+      "difficulty": 1,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Filtration"
+        ],
+        "markPointAlternatives": [
+          [
+            "filtration",
+            "filtering"
+          ]
+        ],
+        "totalMarks": 1,
+        "modelAnswer": "Filtration.",
+        "requireFullMarks": true
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "Filtration.",
+        "commonError": "Evaporation would remove water rather than filter out sand.",
+        "steps": [
+          "Give the correct scientific name.",
+          "Mark 1: Filtration",
+          "Full-mark example: Filtration.",
+          "Avoid: Evaporation would remove water rather than filter out sand."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
+      },
+      "task": {
+        "label": "NAME",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Name",
+        "strategy": "Give the correct scientific name.",
+        "fullMarkChecklist": [
+          "Filtration"
+        ],
+        "commonError": "Evaporation would remove water rather than filter out sand.",
+        "stage": "Foundation"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-066-practice",
+      "conceptId": "chem-school-aqa-foundation-66",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "During filtration, name the liquid that passes through the filter paper.",
+      "difficulty": 1,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Filtrate"
+        ],
+        "markPointAlternatives": [
+          [
+            "filtrate"
+          ]
+        ],
+        "totalMarks": 1,
+        "modelAnswer": "The filtrate.",
+        "requireFullMarks": true
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "The filtrate.",
+        "commonError": "The residue is the solid left on the filter paper.",
+        "steps": [
+          "Give the correct scientific name.",
+          "Mark 1: Filtrate",
+          "Full-mark example: The filtrate.",
+          "Avoid: The residue is the solid left on the filter paper."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
+      },
+      "task": {
+        "label": "NAME",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Name",
+        "strategy": "Give the correct scientific name.",
+        "fullMarkChecklist": [
+          "Filtrate"
+        ],
+        "commonError": "The residue is the solid left on the filter paper.",
+        "stage": "Foundation"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-067-practice",
+      "conceptId": "chem-school-aqa-foundation-67",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "Sand is insoluble in water. Explain why filtration separates sand from water.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Sand particles trapped by filter paper",
+          "Water passes through filter paper"
+        ],
+        "markPointAlternatives": [
+          [
+            "sand trapped filter paper",
+            "sand retained filter paper"
+          ],
+          [
+            "water passes filter paper"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Sand particles are trapped by the filter paper. Water passes through the filter paper.",
+        "requireFullMarks": true
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Sand particles are trapped by the filter paper. Water passes through the filter paper.",
+        "commonError": "Explain what happens to each part of the mixture.",
+        "steps": [
+          "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+          "Mark 1: Sand particles trapped by filter paper",
+          "Mark 2: Water passes through filter paper",
+          "Full-mark example: Sand particles are trapped by the filter paper. Water passes through the filter paper.",
+          "Avoid: Explain what happens to each part of the mixture."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "Explain",
+        "strategy": "Link the observation to a scientific reason. State each distinct required idea; repeating a keyword does not earn another mark.",
+        "fullMarkChecklist": [
+          "Sand particles trapped by filter paper",
+          "Water passes through filter paper"
+        ],
+        "commonError": "Explain what happens to each part of the mixture.",
+        "stage": "Application"
+      }
+    },
+    {
+      "id": "chem-aqa-20260930-068-practice",
+      "conceptId": "chem-school-aqa-foundation-68",
+      "topicId": "chem-y9-c3",
+      "topic": "Separation techniques — filtration and distillation",
+      "format": "mark_points",
+      "prompt": "Name the technique used to collect water from a salt solution. State what the condenser does.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Simple distillation",
+          "Condenser turns water vapour into liquid water"
+        ],
+        "markPointAlternatives": [
+          [
+            "simple distillation"
+          ],
+          [
+            "water vapour condenses liquid",
+            "water vapor condenses liquid"
+          ]
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Simple distillation. The condenser cools water vapour so it condenses to liquid water.",
+        "requireFullMarks": true
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Simple distillation. The condenser cools water vapour so it condenses to liquid water.",
+        "commonError": "Collecting the solvent requires condensation, not just evaporation.",
+        "steps": [
+          "Give a precise scientific statement for each part requested.",
+          "Mark 1: Simple distillation",
+          "Mark 2: Condenser turns water vapour into liquid water",
+          "Full-mark example: Simple distillation. The condenser cools water vapour so it condenses to liquid water.",
+          "Avoid: Collecting the solvent requires condensation, not just evaporation."
+        ],
+        "remember": "Full marks require every listed point. Use the mark-by-mark checklist after answering."
+      },
+      "task": {
+        "label": "STATE",
+        "instruction": "Answer every requested part. Use the full-mark checklist after answering."
+      },
+      "ordinary": true,
+      "source": {
+        "file": "9NOW Cover work 15_09(2).pptx",
+        "locator": "slides 8–18; revision notes page 2"
+      },
+      "contentTier": "school_aqa_style",
+      "examGuidance": {
+        "commandWord": "State",
+        "strategy": "Give a precise scientific statement for each part requested.",
+        "fullMarkChecklist": [
+          "Simple distillation",
+          "Condenser turns water vapour into liquid water"
+        ],
+        "commonError": "Collecting the solvent requires condensation, not just evaporation.",
+        "stage": "Application"
+      }
     }
   ],
-  "enabled": 64,
+  "enabled": 68,
   "preview": 10,
   "disabled": 0,
   "formats": {
-    "mc_single": 20,
     "typed_exact": 8,
     "spelling_restore": 10,
-    "mark_points": 30,
-    "typed_short": 2,
     "matching": 3,
+    "mark_points": 34,
+    "mc_single": 20,
+    "typed_short": 2,
     "diagram_label": 1
   },
   "gated": false,
