@@ -51,6 +51,8 @@ let previous=[];
 for(let i=0;i<500;i++){
   const paper=context.selectChemistry(questions,30,previous,quotas);
   assert.equal(paper.length,30);
+  assert.equal(context.chemistryLevel(paper[0]),1,'Start with foundation recall');
+  assert.ok(paper.filter(q=>context.chemistryLevel(q)===1).length>=3,'Include foundation across topics');
   assert.equal(new Set(paper.map(q=>q.conceptId)).size,30);
   assert.ok(paper.filter(q=>q.contentTier==='school_aqa_style').length>=16,'AQA-style questions must appear');
   assert.equal(paper.filter(q=>q.topic==='Rf').length,9);

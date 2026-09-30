@@ -153,7 +153,16 @@ function select(questions,count,recent=[],quotas=null){
   take(pool.filter(q=>old.has(q.id)),count-chosen.length);
   return shuffle(chosen.slice(0,count));
 }
-function chemistryLevel(q){return Number(q.difficulty)|| (q.options?.length?1:2)}
+function chemistryLevel(q){
+  if(Number(q.difficulty))return Number(q.difficulty);
+  if(q.workedSolution||q.topic==='Rf'){
+    if(/difference|gap|ruler|reading|mean|average/i.test(q.prompt))return 4;
+    if(/rearrang|front.*distance|distance.*front/i.test(q.prompt)&&/Rf.*0\./i.test(q.prompt))return 3;
+    return 2;
+  }
+  if(q.options?.length||/^(name|state|identify|give the name)/i.test(q.prompt))return 1;
+  return /explain|evaluate|why/i.test(q.prompt)?3:2;
+}
 function chemistryStage(q){return ['','Foundation','Application','Explanation and evidence','Multi-step challenge'][Math.min(4,Math.max(1,chemistryLevel(q)))]}
 function selectChemistry(questions,count,recent=[],quotas={}){
   const old=new Set(recent),chosen=[],concepts=new Set(),diagrams=new Set(),ids=new Set();
@@ -181,7 +190,10 @@ function selectChemistry(questions,count,recent=[],quotas={}){
   for(const group of groups){
     const items=questions.filter(q=>q.topic===group);
     const style=items.filter(q=>q.contentTier==='school_aqa_style');
-    take(ordered(style),Math.ceil(quotas[group]/2));
+    const foundations=style.filter(q=>chemistryLevel(q)===1);
+    if(foundations.length)take(ordered(foundations),1);
+    const selectedStyle=chosen.filter(q=>q.topic===group&&q.contentTier==='school_aqa_style').length;
+    take(ordered(style),Math.max(0,Math.ceil(quotas[group]/2)-selectedStyle));
     const remaining=()=>quotas[group]-chosen.filter(q=>q.topic===group).length;
     take(ordered(items.filter(q=>q.contentTier!=='school_aqa_style')),remaining());
     take(ordered(style),remaining());
@@ -359,7 +371,7 @@ function renderTest(p,d){
   }
   function draw(){
     const i=d.index,q=d.questions[i],answer=d.answers[i]||'';
-    $('#exam').innerHTML=`<div class="exam-top"><div><span class="tag">${esc(p.name)} · ${p.minutes} min · pass 85%</span><h2>Question ${i+1} of ${d.questions.length}</h2></div><strong id="clock" aria-label="Time remaining"></strong></div><div class="progress"><div style="width:${100*(i+1)/d.questions.length}%"></div></div><p class="muted">Answers are saved. Marking and model answers appear after you submit the whole paper.</p>${p.id==='latin-verbs'?'<p class="muted">From the verb table only. Present: I carry. Imperfect: I was carrying. Perfect: I carried. I have carried and I used to carry are also accepted. Say he, she or it for the third person singular.</p>':''}${q.passage?`<div class="feedback" style="white-space:pre-line;line-height:1.7"><b>Read the extract</b><br>${esc(q.passage)}</div>`:''}<p class="question">${esc(q.prompt)}</p>${q.answer?.mode==='chemistry_rubric'?`<p class="muted">${questionMarks(q)} marks · ${esc(chemistryStage(q))} · Give distinct points; show your working for calculations.</p>`:''}${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}?v=${CHEMISTRY_REVISION}" alt="${esc(DIAGRAM_ALTS[q.diagram]||'Chemistry question diagram')}">`:''}${Array.isArray(q.options)&&q.options.length?`<div id="choices">${q.options.map(o=>`<button class="choice ${answer===String(o)?'chosen':''}" data-choice="${esc(o)}">${esc(o)}</button>`).join('')}</div>`:`<label>Your answer<textarea class="answer" id="response" placeholder="Write your answer here">${esc(answer)}</textarea></label>`}<div class="exam-actions"><button id="prev" ${i===0?'disabled':''}>Previous</button><button id="next" class="primary">${i===d.questions.length-1?'Submit whole paper':'Next question'}</button></div><div class="exam-actions" style="margin-top:18px"><button id="pause">${d.running?'Pause timer':'Resume timer'}</button><button id="exit">Back to assessments</button></div>`;
+    $('#exam').innerHTML=`<div class="exam-top"><div><span class="tag">${esc(p.name)} · ${p.minutes} min · pass 85%</span><h2>Question ${i+1} of ${d.questions.length}</h2></div><strong id="clock" aria-label="Time remaining"></strong></div><div class="progress"><div style="width:${100*(i+1)/d.questions.length}%"></div></div><p class="muted">Answers are saved. Marking and model answers appear after you submit the whole paper.</p>${p.id==='latin-verbs'?'<p class="muted">From the verb table only. Present: I carry. Imperfect: I was carrying. Perfect: I carried. I have carried and I used to carry are also accepted. Say he, she or it for the third person singular.</p>':''}${q.passage?`<div class="feedback" style="white-space:pre-line;line-height:1.7"><b>Read the extract</b><br>${esc(q.passage)}</div>`:''}<p class="question">${esc(q.prompt)}</p>${p.id==='chemistry'?`<p class="muted">${questionMarks(q)} marks · ${esc(chemistryStage(q))} · Give distinct points; show your working for calculations.</p>`:''}${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}?v=${CHEMISTRY_REVISION}" alt="${esc(DIAGRAM_ALTS[q.diagram]||'Chemistry question diagram')}">`:''}${Array.isArray(q.options)&&q.options.length?`<div id="choices">${q.options.map(o=>`<button class="choice ${answer===String(o)?'chosen':''}" data-choice="${esc(o)}">${esc(o)}</button>`).join('')}</div>`:`<label>Your answer<textarea class="answer" id="response" placeholder="Write your answer here">${esc(answer)}</textarea></label>`}<div class="exam-actions"><button id="prev" ${i===0?'disabled':''}>Previous</button><button id="next" class="primary">${i===d.questions.length-1?'Submit whole paper':'Next question'}</button></div><div class="exam-actions" style="margin-top:18px"><button id="pause">${d.running?'Pause timer':'Resume timer'}</button><button id="exit">Back to assessments</button></div>`;
     $('#response')?.addEventListener('input',e=>{d.answers[i]=e.target.value;save()});
     $('#choices')?.addEventListener('click',e=>{const b=e.target.closest('[data-choice]');if(b){d.answers[i]=b.dataset.choice;save();draw()}});
     $('#prev').onclick=()=>{d.index--;save();draw()};
