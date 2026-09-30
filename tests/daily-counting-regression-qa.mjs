@@ -68,4 +68,15 @@ for(const subject of ["latin","french"]) {
   assert.equal(new Set(mixed.map(q=>q.id)).size,30);
 }
 assert.ok(practice.includes("dailyId:dailyLocked&&[`y8-practise`,`y8-mastery`,`year8-long-review`]"));
+
+const incomplete={...state,daily:state.daily.map(t=>t.id==="year8-long-review"?{...t,reviewTopic:null,progress:0}:t)};
+assert.equal(builder(incomplete).find(t=>t.id==="year8-long-review").reviewTopic,topic,"Plan created before catalogue loading must gain its topic");
+const resolveAssignment=new Function(source(practice,"resolveDailyAssignment")+";return resolveDailyAssignment;")();
+const params={get:key=>({daily:"1",locked:"1",year:"8",task:"y8-mastery"}[key]||null)};
+const daily=[
+ {id:"y8-mastery",assignedSubject:"french",assignedTopic:"fr-y8-s01-quick-rules"},
+ {id:"year8-long-review",reviewSubject:"latin",reviewTopic:topic}
+];
+assert.equal(resolveAssignment("latin",params,daily).id,"year8-long-review","Legacy Latin link must credit the Latin review, not the French mastery");
+assert.equal(resolveAssignment("french",params,daily).id,"y8-mastery","Correctly assigned mastery keeps its task");
 console.log("DAILY_COUNTING_REGRESSION_QA passed: completion survives reload; French and Latin refill exclude credited answers.");

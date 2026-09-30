@@ -15,18 +15,32 @@ const route="/study/"+subject+"/practise?daily=%221%22&locked=%221%22&year=%228%
 await page.goto(base+route);
 await page.waitForTimeout(4500);
 await page.evaluate(async()=>{
-  const mod=await import("/assets/index-BLVOhKhN.js?v=20260930-study2");
+  const mod=await import("/assets/index-BLVOhKhN.js?v=20260930-daily5");
   window.qaStore=mod.C;
   window.qaEvents=[];
   window.addEventListener("scholar:question-answered",e=>window.qaEvents.push(e.detail));
 });
 const bank=docs.filter(d=>d.subject===subject).flatMap(d=>d.questions||[]);
-for(let step=0;step<(mode==="y8vocab"?30:10);step++){
+for(let step=0;step<(mode==="y8vocab"?30:25);step++){
+ if(mode!=="y8vocab"&&step===10){
+   const next=await page.evaluate(({task,subject})=>{
+     const state=window.qaStore.getState();
+     const id=task==="y8-mastery"&&state.daily.find(t=>t.id===task)?.assignedSubject!==subject?"year8-long-review":task;
+     return state.daily.find(t=>t.id===id)?.href;
+   },{task,subject});
+   assert.ok(next,"Second phase needs the saved task route");
+   await page.goto(base+next);await page.waitForTimeout(2000);
+   await page.evaluate(async()=>{
+     const mod=await import("/assets/index-BLVOhKhN.js?v=20260930-daily5");
+     window.qaStore=mod.C;window.qaEvents=[];
+     window.addEventListener("scholar:question-answered",e=>window.qaEvents.push(e.detail));
+   });
+ }
  await page.waitForTimeout(300);
  const visible=await page.evaluate(()=>({body:document.body.innerText,prompt:[...document.querySelectorAll("p")].find(p=>p.classList.contains("font-display")&&p.classList.contains("text-2xl"))?.textContent||"",stimulus:[...document.querySelectorAll("p")].find(p=>p.classList.contains("rounded-lg")&&p.classList.contains("bg-sage/60"))?.textContent||""}));
  const clean=q=>{let prompt=String(q.prompt||"").trim(),label=String(q.task?.label||"").trim();if(label&&prompt.toLowerCase().startsWith(label.toLowerCase()))prompt=prompt.slice(label.length).replace(/^[\s—–:-]+/,"").trim();if(q.format==="mc_single")prompt=prompt.replace(/^write\b/i,"Choose");return prompt;};
  const candidates=bank.filter(q=>clean(q)===visible.prompt);
- const question=candidates.find(q=>!q.stimulus?.text||q.stimulus.text===q.prompt||visible.body.includes(q.stimulus.text))||candidates[0];
+ const question=candidates.find(q=>String(q.stimulus?.text||"").trim()===visible.stimulus.trim())||candidates.find(q=>!q.stimulus?.text||q.stimulus.text===q.prompt)||candidates[0];
  assert.ok(question,"Could not identify question: "+JSON.stringify(visible)+" errors "+JSON.stringify(errors));
  const answer=question.answer?.accepted?.[0]||question.answer?.modelAnswer;
  assert.ok(typeof answer==="string","Unsupported test answer "+question.id+" "+JSON.stringify(question.answer));
@@ -46,17 +60,19 @@ for(let step=0;step<(mode==="y8vocab"?30:10);step++){
  await page.waitForTimeout(350);
  const snapshot=await page.evaluate(()=>({events:window.qaEvents,day:window.qaStore.getState().today,daily:window.qaStore.getState().daily,ledger:window.qaStore.getState().dailyVocabByDay,attempts:window.qaStore.getState().dailyTopicAttemptsByDay,saved:JSON.parse(localStorage.getItem("lux-scholar-garden-v1")||"null")?.state}));
  const event=snapshot.events.at(-1);assert.equal(event?.correct,true,"Model answer should be accepted "+JSON.stringify(event));
- const live=snapshot.daily.find(t=>t.id===task);assert.ok(live?.progress>=step+1,task+" failed to count: "+JSON.stringify({live,event,ledger:snapshot.ledger,attempts:snapshot.attempts,errors}));
+ const creditedTask=task==="y8-mastery"&&subject==="latin"&&snapshot.daily.find(t=>t.id===task)?.assignedSubject!=="latin"?"year8-long-review":task;
+ const live=snapshot.daily.find(t=>t.id===creditedTask);assert.ok(live?.progress>=step+1,task+" failed to count: "+JSON.stringify({live,event,ledger:snapshot.ledger,attempts:snapshot.attempts,errors}));
  results.push({subject,task,step,progress:live.progress,topic:event.topicId});
  await page.getByRole("button",{name:/^(Next question|Finish)$/}).click();
 }
-const before=await page.evaluate(task=>window.qaStore.getState().daily.find(t=>t.id===task)?.progress,task);
+const savedTask=await page.evaluate(({task,subject})=>task==="y8-mastery"&&window.qaStore.getState().daily.find(t=>t.id===task)?.assignedSubject!==subject?"year8-long-review":task,{task,subject});
+const before=await page.evaluate(task=>window.qaStore.getState().daily.find(t=>t.id===task)?.progress,savedTask);
 await page.goto(base+"/");
 await page.waitForTimeout(1000);
-const after=await page.evaluate(async task=>{const m=await import("/assets/index-BLVOhKhN.js?v=20260930-study2");return m.C.getState().daily.find(t=>t.id===task)?.progress},task);
+const after=await page.evaluate(async task=>{const m=await import("/assets/index-BLVOhKhN.js?v=20260930-daily5");return m.C.getState().daily.find(t=>t.id===task)?.progress},savedTask);
 assert.ok(after>=before,task+" lost progress returning home");
 await page.reload();await page.waitForTimeout(1000);
-const restored=await page.evaluate(async task=>{const m=await import("/assets/index-BLVOhKhN.js?v=20260930-study2");return m.C.getState().daily.find(t=>t.id===task)?.progress},task);
+const restored=await page.evaluate(async task=>{const m=await import("/assets/index-BLVOhKhN.js?v=20260930-daily5");return m.C.getState().daily.find(t=>t.id===task)?.progress},savedTask);
 assert.ok(restored>=before,task+" lost progress reloading");
 await page.close();
 }
