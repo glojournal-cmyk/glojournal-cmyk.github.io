@@ -54,7 +54,7 @@ linear-gradient(180deg,rgba(223,230,209,.34),transparent 48%);pointer-events:non
 .pet-stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:14px}
 .pet-stat{background:#f2ead8;border-radius:18px;padding:12px;text-align:center}
 .pet-stat b{display:block;font-family:"Cormorant Garamond",serif;font-size:27px}
-.pet-stat span{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--pet-muted)}
+.pet-stat span{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--pet-muted)}.pet-stat b{font-variant-numeric:lining-nums}.pet-stat b span{font-size:inherit;font-family:inherit;letter-spacing:0;text-transform:none;color:inherit;font-variant-numeric:lining-nums}
 .pet-stat-mp{background:linear-gradient(145deg,#f7e8be,#efe0b8);box-shadow:inset 0 0 0 1px rgba(196,154,85,.2)}
 .pet-progress-wrap{margin-top:17px}
 .pet-progress-head{display:flex;justify-content:space-between;font-size:13px;gap:12px}
