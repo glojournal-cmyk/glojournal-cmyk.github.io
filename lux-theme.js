@@ -70,10 +70,31 @@
       const ico = document.createElement('span');
       ico.className = 'lux-ico is-' + spec.kind;
       ico.innerHTML = ICONS[spec.icon] || ICONS.Book;
-      a.prepend(ico);
+      const row = a.querySelector('.flex, [class*="justify-between"]');
+      const title = row && row.querySelector('span');
+      if (title) {
+        title.style.display = 'inline-flex';
+        title.style.alignItems = 'center';
+        title.style.gap = '10px';
+        title.prepend(ico);
+      } else if (row) {
+        row.prepend(ico);
+      } else {
+        a.prepend(ico);
+      }
     });
   }
-  function dayKey(d) { return d.toISOString().slice(0,10); }
+  function lineUpIcons() {
+    document.querySelectorAll('a > .lux-ico, button > .lux-ico').forEach((ico) => {
+      const row = ico.parentElement.querySelector('.flex, [class*="justify-between"]');
+      const title = row && row.querySelector('span');
+      if (!title || title === ico) return;
+      title.style.display = 'inline-flex';
+      title.style.alignItems = 'center';
+      title.style.gap = '10px';
+      title.prepend(ico);
+    });
+  }
   function readLog() { try { return JSON.parse(localStorage.getItem('lux-day-log-v1') || '{}'); } catch { return {}; } }
   function writeTodayLog() {
     const log = readLog();
@@ -132,7 +153,7 @@
     days.addEventListener('click', openDays);
     header.appendChild(days);
   }
-  function paint() { swapNavIcons(document); decorateTasks(); ensureHeaderTools(); writeTodayLog(); }
+  function paint() { swapNavIcons(document); decorateTasks(); lineUpIcons(); ensureHeaderTools(); writeTodayLog(); }
   let ticking = false;
   const mo = new MutationObserver(() => { if (ticking) return; ticking = true; requestAnimationFrame(() => { ticking = false; paint(); }); });
   function start() { paint(); mo.observe(document.body, { childList:true, subtree:true }); }
