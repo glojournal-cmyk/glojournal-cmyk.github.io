@@ -96,6 +96,15 @@ nav.lux-companion-bottom-nav a.bg-sage, nav.fixed.inset-x-3.bottom-3 a.bg-sage {
 }
 .lux-ico { flex:none; width:32px; height:32px; border-radius:50%; display:grid; place-items:center; color:#fff; }
 .lux-ico svg { width:16px; height:16px; }
+a:has(> .lux-ico) {
+  display: grid !important;
+  grid-template-columns: 40px minmax(0, 1fr);
+  column-gap: 10px;
+  align-items: center;
+}
+a:has(> .lux-ico) > .lux-ico { grid-column: 1; grid-row: 1; }
+a:has(> .lux-ico) > :nth-child(2) { grid-column: 2; grid-row: 1; min-width: 0; }
+a:has(> .lux-ico) > :nth-child(n + 3) { grid-column: 1 / -1; }
 .lux-ico.is-french { background: var(--lux-french); }
 .lux-ico.is-latin { background: var(--lux-latin); }
 .lux-ico.is-biology { background: var(--lux-biology); }
