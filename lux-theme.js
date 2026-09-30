@@ -196,6 +196,18 @@
       btn.appendChild(span);
     });
   }
+  function lockFrontDoor() {
+    if ((location.pathname === '/' || location.pathname === '') && location.search) {
+      const params = new URLSearchParams(location.search);
+      const onlyCache = [...params.keys()].every((key) => key === 'v');
+      if (onlyCache) history.replaceState(null, '', '/');
+    }
+    document.querySelectorAll('a[href="/"], a[href="https://glojournal-cmyk.github.io/"], a[href="https://glojournal-cmyk.github.io"]').forEach((a) => {
+      if (a.dataset.luxFront) return;
+      a.dataset.luxFront = '1';
+      a.setAttribute('href', '/');
+    });
+  }
   function paint() {
     try {
       ensureIconLayout();
@@ -205,6 +217,7 @@
       lineUpIcons();
       ensureHeaderTools();
       pinBar();
+      lockFrontDoor();
       writeTodayLog();
     } catch (err) {
       console.warn('lux-theme', err);
