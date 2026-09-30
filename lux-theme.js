@@ -39,7 +39,11 @@
       const wrap = document.createElement('span');
       wrap.innerHTML = ICONS[label];
       const next = wrap.firstElementChild;
-      if (next) next.setAttribute('data-lux-icon', label);
+      if (next) {
+        next.setAttribute('data-lux-icon', label);
+        next.setAttribute('width', '16');
+        next.setAttribute('height', '16');
+      }
       svg.replaceWith(next);
     });
   }
