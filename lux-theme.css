@@ -161,7 +161,23 @@ a:has(> .lux-ico) > .lux-ico ~ * ~ *,button:has(> .lux-ico) > .lux-ico ~ * ~ *{f
 }
 .lux-home-grid img { max-width:100%; height:auto; }
 main a.bg-navy, main button.bg-navy, .lux-primary { background: var(--lux-navy) !important; color:#f7f1e6 !important; }
-body.lux-shell-on { background: var(--lux-cream); }
+/* iPad: the same bottom bar on every page. The left rail stays off so the bar does not vanish at landscape width. */
+aside.bg-navy { display: none !important; }
+header.sticky.top-0.z-30 { display: flex !important; }
+nav.fixed.inset-x-3.bottom-3,
+nav.lux-companion-bottom-nav {
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  position: fixed !important;
+  left: 12px !important;
+  right: 12px !important;
+  bottom: max(12px, env(safe-area-inset-bottom)) !important;
+  z-index: 60 !important;
+}
+main, .assess-page, #lux-assess-root {
+  padding-bottom: calc(148px + env(safe-area-inset-bottom)) !important;
+}
+body.lux-shell-on { padding-bottom: calc(148px + env(safe-area-inset-bottom)) !important; }
 .lux-days { position:fixed; inset:0; z-index:80; display:none; place-items:center; background:rgba(23,50,77,.28); padding:24px; }
 .lux-days.is-open { display:grid; }
 .lux-days-sheet { width:min(560px,92vw); max-height:80vh; overflow:auto; background:var(--lux-ivory); border-radius:22px; box-shadow:0 0 0 1px var(--lux-line-gold),0 24px 60px rgba(26,49,72,.18); padding:22px; }
