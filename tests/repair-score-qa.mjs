@@ -18,7 +18,8 @@ for(const token of [
   "repair||a?.formal===!1||a?.excludeGeneralDaily||t().bumpDaily(`study-session`,1)"
 ]) if(!core.includes(token)) failures.push({type:"repair-counted-as-formal-daily",token});
 
-if(!wrapper.includes('if (!isRepair && !meta?.excludeGeneralDaily && focus && focus.focusSubject === (resolved.subject || subject)) originalBumpDaily("adaptive-focus", 1);')){
+// Adaptive focus now derives from formal outcomes instead of manually bumped counters.
+if(wrapper.includes('originalBumpDaily("adaptive-focus", 1)')||!wrapper.includes('const focusEvidence = focusAttemptsToday(state, focus);')||!wrapper.includes('const recentOutcomes = isRepair\n    ? [...(current.recentOutcomes || [])]')){
   failures.push({type:"repair-counted-in-adaptive-focus"});
 }
 

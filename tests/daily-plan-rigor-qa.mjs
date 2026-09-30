@@ -15,7 +15,7 @@ for(const token of [
   'params.set("locked", "1")',
   'params.set("topic", focus.topicId)',
   'id: "year8-long-review"',
-  'target: 15, progress: year8ReviewProgress',
+  'target: 25, progress: year8ReviewProgress',
   'target: 10, progress: studyProgress'
 ]) requireToken(wrapper,"wrapper",token);
 
@@ -43,7 +43,8 @@ for(const token of [
   'a?.excludeGeneralDaily||t().bumpDaily(`study-session`,1)'
 ]) requireToken(core,"core",token);
 
-requireToken(wrapper,"wrapper",'!meta?.excludeGeneralDaily && focus && focus.focusSubject');
+requireToken(wrapper,"wrapper",'const focusEvidence = focusAttemptsToday(state, focus);');
+requireToken(wrapper,"wrapper",'const recentOutcomes = isRepair\n    ? [...(current.recentOutcomes || [])]');
 
 function focusHrefExample(subject,topic,year,mode){
   const params=new URLSearchParams();

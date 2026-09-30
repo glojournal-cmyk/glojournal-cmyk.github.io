@@ -50,9 +50,13 @@ function textOf(node){return flatten(node).filter(n=>typeof n==='string'||typeof
 function button(tree,label){const node=flatten(tree).find(n=>n?.props?.children===label&&typeof n.props.onClick==='function');assert.ok(node,`button ${label}`);return node;}
 const empty=()=>{};
 function env(state,runner){const store=selector=>selector(state);store.getState=()=>state;return {o:store,w:runner.api,T:{jsx,jsxs:jsx},C:'Card',S:'Button',l:'Input',i:'Progress',r:'Link',ne:'Audio',s:a=>[...a],y:a=>[...a],m:()=>({}),v:q=>q.feedback,_:q=>q,ee:empty,h:empty,te:empty,u:empty,b:empty,E:empty,dayKey:()=> '2026-09-18',URLSearchParams,window:{dispatchEvent:empty,location:{search:''}},CustomEvent:class{},Event:class{}};}
+// The visible question body is separate from its task label. Feedback may also
+// repeat prompt words, so inspect the question paragraph and recorded ID directly.
+function questionBody(tree){return flatten(tree).find(n=>n?.type==='p'&&n.props.className?.includes('leading-snug'))?.props.children;}
+function expectedBody(q){const label=String(q.task?.label||'').trim(),prompt=String(q.prompt||'').trim();return label&&prompt.toLowerCase().startsWith(label.toLowerCase())?prompt.slice(label.length).replace(/^[\s—–:-]+/,'').trim():prompt;}
 function newState(){return {year:8,reviews:{},topicStats:{},lastTopic:'fr-y8-s24-numbers-and-age',seenTotal:{},spellingDue:{},sound:false,recordAttempt:empty,bumpDaily:empty,award:empty,recordSpelling:empty};}
 test('a full ten-question session survives parent/store rerenders and finishes 10/10',async()=>{
- const state=newState();state.recordAttempt=(id)=>{state.seenTotal={...state.seenTotal,[id]:1};state.reviews={...state.reviews,[id]:{due:'2026-09-20'}};state.topicStats={...state.topicStats,x:{attempted:1}};};
+ const state=newState(),attemptedIds=[];state.recordAttempt=(id)=>{attemptedIds.push(id);state.seenTotal={...state.seenTotal,[id]:1};state.reviews={...state.reviews,[id]:{due:'2026-09-20'}};state.topicStats={...state.topicStats,x:{attempted:1}};};
  const hr=hooks(),pr=hooks();const questions=numbers.filter(q=>q.answer.accepted?.length).slice(0,12).map((q,i)=>({...q,_adaptiveRank:i}));
  const catalog=()=>[{topicId:state.lastTopic,title:'Numbers and age'}];
  const pc=vm.createContext({...env(state,pr),g:{useParams:()=>({subject:'french'})},C:()=>({name:'French'}),S:()=>false,s:sel=>sel(state),p:()=>true,v:()=>false,y:catalog,d:()=>0,l:()=> '2026-09-18',u:async()=>({questions}),h:topic=>topic.questions,RQ:(qs,subject,size)=>[...qs].sort((a,b)=>(state.seenTotal[a.id]||0)-(state.seenTotal[b.id]||0)).slice(0,size),x:'Card',YS:'YearSelect',f:[],c:[],m:[],FY9:[],i:'Dictation',o:'Quiz'});
@@ -65,13 +69,15 @@ test('a full ten-question session survives parent/store rerenders and finishes 1
  for(let i=0;i<10;i++){
   assert.ok(textOf(tree).includes(`Question ${i+1} / 10`),textOf(tree));
   const current=frozenItems[i];
+  assert.equal(questionBody(tree),expectedBody(current),'Original session order before submitting');
   if(current.format==='mc_single')button(tree,current.answer.accepted[0]).props.onClick();
   else{const input=flatten(tree).find(n=>n?.type==='Input');input.props.onChange({target:{value:current.answer.accepted[0]}});tree=hr.render(()=>qc.H(qp));flatten(tree).find(n=>n?.type==='form').props.onSubmit({preventDefault:empty});}
   parent=pr.render(()=>pc.E());const nextProps=props(parent);assert.equal(nextProps.items.length,10,'parent may re-rank but keeps a complete candidate session');qp=nextProps;
-  tree=hr.render(()=>qc.H(qp));assert.ok(textOf(tree).includes(current.prompt),'active Quiz must keep the submitted question after parent/store rerender');assert.ok(textOf(tree).includes(`Question ${i+1} / 10`));
+  tree=hr.render(()=>qc.H(qp));assert.equal(questionBody(tree),expectedBody(current),'Active Quiz keeps the submitted question body after parent/store rerender');assert.equal(attemptedIds.at(-1),current.id,'Mark the original question ID');assert.ok(textOf(tree).includes(`Question ${i+1} / 10`));
   button(tree,i===9?'Finish':'Next question').props.onClick();tree=hr.render(()=>qc.H(qp));
-  if(i<9)assert.ok(textOf(tree).includes(frozenItems[i+1].prompt),'active Quiz must keep the original session order');
+  if(i<9)assert.equal(questionBody(tree),expectedBody(frozenItems[i+1]),'Active Quiz keeps the original session order');
  }
+ assert.deepEqual(attemptedIds,frozenItems.map(q=>q.id),'Exactly the original ten questions were marked once');
  assert.ok(textOf(tree).includes('10 / 10 first-pass correct · 100%'),textOf(tree));
 });
 test('French dictation handles accents and does not reshuffle after scheduling a review',()=>{

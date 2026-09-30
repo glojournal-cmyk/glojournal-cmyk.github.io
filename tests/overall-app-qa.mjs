@@ -20,6 +20,11 @@ function rel(p){return path.relative(root,p).replaceAll(path.sep,"/")}
 function need(source,label,token){if(!source.includes(token)) failures.push({type:"missing-token",label,token})}
 function forbid(source,label,token){if(source.includes(token)) failures.push({type:"stale-token",label,token})}
 
+// All app entry points must use the same version as the current root shell.
+const rootSource=fs.readFileSync("index.html","utf8");
+const runtimeVersion=rootSource.match(/\/assets\/index-BLVOhKhN\.js\?v=([^"'<> ]+)/)?.[1];
+if(!runtimeVersion)failures.push({type:"root-runtime-unversioned"});
+const standaloneShells=new Set(["pet/index.html","assessment/index.html","preview/index.html","study/biology/school-notes/index.html"]);
 const files=walk(root);
 const fileSet=new Set(files.map(rel));
 const html=files.filter(p=>p.endsWith(".html"));
@@ -31,9 +36,9 @@ for(const file of html){
     .filter(x=>/^(\/assets\/|\/art\/|\/pet\/|\/content\/|\/__grok\/|\/app\.css$|\/favicon\.svg$)/.test(x));
   const missing=[...new Set(refs)].filter(x=>!fileSet.has(x.slice(1)));
   if(missing.length) failures.push({type:"missing-local-ref",file:r,missing});
-  if(r!=="pet/index.html"&&r!=="assessment/index.html"){
-    if(!src.includes('name="viewport"')||!src.includes("viewport-fit=cover")) failures.push({type:"mobile-viewport",file:r});
-    if(!src.includes("/assets/index-BLVOhKhN.js?v=20260921-companion1")) failures.push({type:"main-runtime-version",file:r});
+  if(!src.includes('name="viewport"')||!src.includes("viewport-fit=cover")) failures.push({type:"mobile-viewport",file:r});
+  if(!standaloneShells.has(r)){
+    if(!src.includes(`/assets/index-BLVOhKhN.js?v=${runtimeVersion}`)) failures.push({type:"main-runtime-version",file:r});
   }
 }
 
@@ -50,7 +55,7 @@ for(const file of js){
       const quote=src.indexOf('"',valueStart);
       const suffix=quote>=0?src.slice(valueStart,quote):"";
       const version=suffix.startsWith("?v=")?suffix.slice(3):null;
-      if(version!=="20260921-companion1") failures.push({type:"runtime-import-cache-drift",file:r,version});
+      if(version!==runtimeVersion) failures.push({type:"runtime-import-cache-drift",file:r,version});
       pos=quote>=0?quote+1:valueStart+1;
     }
   }

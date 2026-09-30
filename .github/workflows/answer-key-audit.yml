@@ -35,6 +35,8 @@ jobs:
         run: node tests/backup-schema-qa.mjs
       - name: Audit daily task persistence
         run: node tests/daily-task-persistence-qa.mjs
+      - name: Test formal daily evidence and repair separation
+        run: node tests/daily-formal-evidence-qa.mjs
       - name: Audit daily vocab gates
         run: node tests/daily-vocab-gate-qa.mjs
       - name: Audit daily plan rigor
@@ -79,6 +81,10 @@ jobs:
         run: node tests/chemistry-content-quality-audit.mjs
       - name: Test Chemistry calculation marking
         run: node tests/chemistry-calculation-marking-qa.mjs
+      - name: Test Chemistry AQA rubrics and full-mark progression
+        run: node tests/chemistry-aqa-expansion.mjs
+      - name: Test Chemistry assessment paper quality
+        run: node tests/chemistry-paper-quality.mjs
       - name: Test Chemistry notation marking
         run: node tests/chemistry-notation-qa.mjs
       - name: Audit Chemistry session quality

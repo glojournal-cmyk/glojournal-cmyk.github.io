@@ -11,8 +11,9 @@ for(const token of ["FIRST_MASTERY_MP = 10","RETENTION_MASTERY_MP = 2","mastery:
 for(const token of ["const evolutionCosts = [50,90,140,200]","masteryPoints:pet.masteryPoints-cost","[pet.species]:stage+1","petLevels","showModal()"] ) need(pet,"pet",token);
 for(const token of ["Moss Hornling senses new growth","Moon Puff sees mastery on the horizon","Star Toadlet predicts a breakthrough","growthMessage(state,pet.species)"]) need(pet,"pet voice",token);
 for(const token of ["mpCount","evolvePet","confirmEvolution","XP, Mastery Points and Mastery Leaves are separate"] ) need(html,"html",token);
-need(home,"home","pet.petLevels&&pet.petLevels[pet.species]");
-for(const token of ["renderSignature","if(a.dataset.renderSignature!==signature)","escapeHtml(displayName(pet))"]) need(home,"home render stability",token);
+need(home,"home name","const name = displayName(pet);");
+need(home,"home","pet.petLevels?.[pet.species]");
+for(const token of ["renderSignature","if (card.dataset.renderSignature !== signature)","escapeHtml(name)"]) need(home,"home render stability",token);
 if(pet.includes("getStage(leaves)")) failures.push("pet: automatic leaf evolution still present");
 if(home.includes("computedStage=getStage(leaves)")) failures.push("home: automatic leaf evolution still present");
 if(/a\.innerHTML=.*displayName\(pet\)/.test(home)&&!home.includes("renderSignature")) failures.push("home: pet DOM may self-trigger MutationObserver render loop");

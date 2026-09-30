@@ -52,7 +52,13 @@ for(const caseName of ["nominative","accusative","dative","genitive","ablative",
 const itemCount=(games.match(/\{id:\`cd\d+\`/g)||[]).length;
 if(itemCount<40) failures.push({type:"case-bank-too-small",itemCount});
 
-need(banks,"banks",'e===`manuscript`||e===`case-locker`');
+// Covers now have one source per game; the bank module re-exports this resolver.
+need(banks,"banks",'export { gameCover as t }');
+const { gameCover }=await import("../assets/game-cover-assets-20260930.js");
+for(const id of ["case-locker","manuscript"]){
+  if(!fs.existsSync(gameCover(id).slice(1)))failures.push({type:"missing-game-cover",id});
+}
+if(gameCover("case-locker")===gameCover("manuscript"))failures.push({type:"duplicate-case-manuscript-cover"});
 
 const summary={
  failures:failures.length,
