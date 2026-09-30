@@ -95,6 +95,7 @@
       title.prepend(ico);
     });
   }
+  function dayKey(d) { return d.toISOString().slice(0, 10); }
   function readLog() { try { return JSON.parse(localStorage.getItem('lux-day-log-v1') || '{}'); } catch { return {}; } }
   function writeTodayLog() {
     const log = readLog();
@@ -153,7 +154,17 @@
     days.addEventListener('click', openDays);
     header.appendChild(days);
   }
-  function paint() { swapNavIcons(document); decorateTasks(); lineUpIcons(); ensureHeaderTools(); writeTodayLog(); }
+  function paint() {
+    try {
+      swapNavIcons(document);
+      decorateTasks();
+      lineUpIcons();
+      ensureHeaderTools();
+      writeTodayLog();
+    } catch (err) {
+      console.warn('lux-theme', err);
+    }
+  }
   let ticking = false;
   const mo = new MutationObserver(() => { if (ticking) return; ticking = true; requestAnimationFrame(() => { ticking = false; paint(); }); });
   function start() { paint(); mo.observe(document.body, { childList:true, subtree:true }); }
