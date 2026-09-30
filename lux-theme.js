@@ -145,16 +145,33 @@
     renderList(selected);
     layer.classList.add('is-open');
   }
+  function pinBar() {
+    const nav = document.querySelector('nav.fixed.bottom-3, nav.fixed.inset-x-3, nav.lux-shell-nav');
+    if (!nav) return;
+    if (nav.parentElement !== document.body) document.body.appendChild(nav);
+    const s = nav.style;
+    s.setProperty('display', 'grid', 'important');
+    s.setProperty('grid-template-columns', 'repeat(7, minmax(0, 1fr))', 'important');
+    s.setProperty('position', 'fixed', 'important');
+    s.setProperty('left', '12px', 'important');
+    s.setProperty('right', '12px', 'important');
+    s.setProperty('bottom', 'max(12px, env(safe-area-inset-bottom))', 'important');
+    s.setProperty('z-index', '80', 'important');
+    s.setProperty('visibility', 'visible', 'important');
+    s.setProperty('opacity', '1', 'important');
+    s.setProperty('background', '#fffaf3', 'important');
+  }
   function ensureHeaderTools() {
     const header = document.querySelector('header.sticky, header.lux-companion-header, .lux-shell-header');
     if (!header || header.querySelector('[data-lux-tool="days"]')) return;
+    if (/30 days/i.test(header.textContent || '')) return;
     const days = document.createElement('button');
     days.type = 'button';
     days.className = 'lux-tool';
     days.dataset.luxTool = 'days';
     days.innerHTML = ICONS.Days + '<span>30 days</span>';
     days.addEventListener('click', openDays);
-    header.appendChild(days);
+    (header.querySelector('.flex.items-center') || header).appendChild(days);
   }
   function ensureIconLayout() {
     if (document.getElementById('lux-icon-layout')) return;
@@ -187,6 +204,7 @@
       decorateTasks();
       lineUpIcons();
       ensureHeaderTools();
+      pinBar();
       writeTodayLog();
     } catch (err) {
       console.warn('lux-theme', err);
