@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process';
 const root=new URL('../',import.meta.url);
 const read=p=>process.env.REGRESSION_BASELINE==='1' ? execFileSync('git',['show',`4ed009ddfd3d5b65479d298912a5f332be5cfb19:${p}`],{cwd:root,encoding:'utf8'}) : fs.readFileSync(new URL(p,root),'utf8');
 const quiz=read('assets/quiz-session-rWAnuDVj.js');
-const practice=read('assets/study._subject.practise-D_PWgUd7.js');
+const practice=read('assets/study._subject.practise-y8fix-20260920.js');
 const norm=(value)=>String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9 ']/g,'').replace(/\s+/g,' ').trim();
 const context=vm.createContext({d:norm,a:norm,x:s=>s.normalize('NFC').trim().replace(/\s+/g,' ')});
 vm.runInContext(quiz.slice(quiz.indexOf('function A(e)'),quiz.indexOf('function re(e)')),context);
@@ -61,7 +61,7 @@ test('a full ten-question session survives parent/store rerenders and finishes 1
  const hr=hooks(),pr=hooks();const questions=numbers.filter(q=>q.answer.accepted?.length).slice(0,12).map((q,i)=>({...q,_adaptiveRank:i}));
  const catalog=()=>[{topicId:state.lastTopic,title:'Numbers and age'}];
  const pc=vm.createContext({groupStudyTopics,...env(state,pr),g:{useParams:()=>({subject:'french'})},C:()=>({name:'French'}),S:()=>false,s:sel=>sel(state),p:()=>true,v:()=>false,y:catalog,d:()=>0,l:()=> '2026-09-18',u:async()=>({questions}),h:topic=>topic.questions,RQ:(qs,subject,size)=>[...qs].sort((a,b)=>(state.seenTotal[a.id]||0)-(state.seenTotal[b.id]||0)).slice(0,size),x:'Card',YS:'YearSelect',f:[],c:[],m:[],FY9:[],i:'Dictation',o:'Quiz'});
- vm.runInContext(practice.slice(practice.indexOf('function E()'),practice.indexOf('export{')),pc);
+ vm.runInContext(practice.slice(practice.indexOf('function FK('),practice.indexOf('export{')),pc);
  let parent=pr.render(()=>pc.E());await new Promise(resolve=>setImmediate(resolve));parent=pr.render(()=>pc.E());
  const props=tree=>flatten(tree).find(n=>n?.type==='Quiz')?.props;
  let qp=props(parent);assert.equal(qp.items.length,10);const frozenItems=[...qp.items];
