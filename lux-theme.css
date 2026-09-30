@@ -81,14 +81,14 @@ header.lux-companion-header button:has(.lucide-search) {
 .lux-tool { display:inline-flex; align-items:center; gap:6px; height:32px; padding:0 12px; border-radius:999px; font-family:var(--lux-sans); font-size:12px; font-weight:700; }
 .lux-tool svg { width:14px; height:14px; }
 h1, h2, .font-display, .lux-title { font-family: var(--lux-serif); }
-aside svg, nav svg, header.sticky.top-0.z-30 svg, header.lux-companion-header svg, .lux-shell-header svg, svg[data-lux-icon] {
+aside.bg-navy svg, nav svg, header.sticky.top-0.z-30 svg, header.lux-companion-header svg, .lux-shell-header svg, svg[data-lux-icon] {
   width: 16px !important;
   height: 16px !important;
   max-width: 16px !important;
   max-height: 16px !important;
   flex: none;
 }
-aside .font-display, aside strong, .bg-navy .font-display, .bg-navy strong,
+aside.bg-card .font-display, main aside .font-display { color: var(--lux-navy) !important; }
 header.sticky.top-0.z-30 .font-display, header.sticky.top-0.z-30 strong,
 header.lux-companion-header .font-display, header.lux-companion-header strong,
 .lux-shell-header strong { color: #f7f1e6 !important; }
