@@ -45,7 +45,7 @@
     nav.innerHTML = items.map(([href, label]) => {
       const on = current(href) ? ' aria-current="page"' : "";
       const pet = label === "Pets" ? ' data-pet-nav="true"' : "";
-      return '<a href="' + href + '"' + on + pet + ">' + icons[label] + '<span>' + label + '</span></a>';
+      return '<a href="' + href + '"' + on + pet + '>' + icons[label] + '<span>' + label + '</span></a>';
     }).join("");
     document.body.appendChild(nav);
   }
