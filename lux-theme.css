@@ -65,8 +65,20 @@ header .rounded-full, header a.rounded-full, header button.rounded-full, .lux-sh
 }
 .lux-tool { display:inline-flex; align-items:center; gap:6px; height:32px; padding:0 12px; border-radius:999px; font-family:var(--lux-sans); font-size:12px; font-weight:700; }
 .lux-tool svg { width:14px; height:14px; }
-aside.bg-navy { background: var(--lux-navy) !important; }
-aside.bg-navy a.active, aside.bg-navy a[aria-current="page"] { background: rgba(196,164,106,.16) !important; color:#f7f1e6 !important; }
+h1, h2, .font-display, .lux-title { font-family: var(--lux-serif); }
+aside svg, nav svg, header svg, svg[data-lux-icon] {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  flex: none;
+}
+aside .font-display, aside strong, .bg-navy .font-display, .bg-navy strong,
+header .font-display, header strong, .lux-shell-header strong { color: #f7f1e6 !important; }
+aside.bg-navy a.active, aside.bg-navy a[aria-current="page"] {
+  background: #fffaf3 !important;
+  color: var(--lux-navy) !important;
+}
 nav.lux-companion-bottom-nav, nav.fixed.inset-x-3.bottom-3, .lux-shell-nav {
   background: #fffaf3f5 !important;
   border: 1px solid var(--lux-line-gold) !important;
@@ -82,7 +94,6 @@ nav.lux-companion-bottom-nav a.bg-sage, nav.fixed.inset-x-3.bottom-3 a.bg-sage {
   background: var(--lux-ivory) !important;
   box-shadow: 0 0 0 1px var(--lux-line-gold), 0 8px 22px rgba(48,36,20,.05) !important;
 }
-h1, h2, .font-display, .lux-title { font-family: var(--lux-serif); color: var(--lux-ink); }
 .lux-ico { flex:none; width:32px; height:32px; border-radius:50%; display:grid; place-items:center; color:#fff; }
 .lux-ico svg { width:16px; height:16px; }
 .lux-ico.is-french { background: var(--lux-french); }
