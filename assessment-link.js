@@ -1,7 +1,21 @@
+(() => {
+  if (!document.querySelector('link[href*="lux-theme.css"]')) {
+    const l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = '/lux-theme.css?v=20260930-face1';
+    document.head.appendChild(l);
+  }
+  if (!document.querySelector('script[src*="lux-theme.js"]')) {
+    const s = document.createElement('script');
+    s.src = '/lux-theme.js?v=20260930-face1';
+    s.defer = true;
+    document.head.appendChild(s);
+  }
+})();
 (()=>{
   import('/pet/evolution-art-fix.js?v=20260927-evolution3').catch(()=>{});
   if(!location.pathname.startsWith('/pet')) import('/pet/pet-care-global.js?v=20260927-care2').catch(()=>{});
-  const icon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide size-4" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3.5h6M9 9h6M9 13h6M9 17h3"/><path d="m14 17 1.5 1.5L18 16"/></svg>';
+  const icon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="size-4" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>';
   const assessmentUrl='/assessment/?v=20260926-v3';
   function add(){
     if(location.pathname.startsWith('/assessment'))return;
@@ -17,8 +31,8 @@
       const main=document.querySelector('main');if(!main)return;
       const card=document.createElement('a');card.id='school-assessment-home';card.href=assessmentUrl;
       card.setAttribute('aria-label','Open school assessments and long tests');
-      card.style.cssText='display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 20px;padding:18px 22px;border-radius:22px;background:#12384d;color:#fff;text-decoration:none;box-shadow:0 7px 20px #17304a25;min-height:84px';
-      card.innerHTML='<span style="display:flex;align-items:center;gap:16px">'+icon+'<span><strong style="display:block;font-size:20px;line-height:1.25">School assessments</strong><span style="display:block;margin-top:4px;font-size:15px;opacity:.86">Track school tests · 45-minute practice papers</span></span></span><span aria-hidden="true" style="font-size:28px">→</span>';
+      card.style.cssText='display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 20px;padding:18px 22px;border-radius:22px;background:#1A3148;color:#fffdf8;text-decoration:none;box-shadow:0 0 0 1px rgba(196,164,106,.45),0 8px 22px rgba(48,36,20,.08);min-height:84px';
+      card.innerHTML='<span style="display:flex;align-items:center;gap:16px">'+icon+'<span><strong style="display:block;font-family:Cormorant Garamond,serif;font-size:22px;line-height:1.25">School assessments</strong><span style="display:block;margin-top:4px;font-size:14px;opacity:.86">Track school tests \u00b7 45-minute practice papers</span></span></span><span aria-hidden="true" style="font-size:28px">\u2192</span>';
       card.querySelector('svg').style.cssText='width:30px;height:30px;flex-shrink:0';
       main.prepend(card);
     }
