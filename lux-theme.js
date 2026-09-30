@@ -3,7 +3,7 @@
     Home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m4 11 8-7 8 7"/><path d="M6 10.5V20h12v-9.5"/></svg>',
     Study: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.2A2.2 2.2 0 0 1 6.2 17H20"/><path d="M6.2 3H20v18H6.2A2.2 2.2 0 0 1 4 18.8V5.2A2.2 2.2 0 0 1 6.2 3z"/></svg>',
     Assessments: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>',
-    Play: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 6.2v11.6L18.4 12z"/></svg>',
+    Play: '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M7 4.8v14.4L19.2 12z"/></svg>',
     Pets: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7.5" cy="8" r="1.6"/><circle cx="16.5" cy="8" r="1.6"/><circle cx="12" cy="5.5" r="1.6"/><path d="M12 10.2c-3.4 0-6.2 2.2-6.2 5.1 0 1.9 1.5 3.2 3.4 3.2 1.1 0 1.9-.6 2.8-.6s1.7.6 2.8.6c1.9 0 3.4-1.3 3.4-3.2 0-2.9-2.8-5.1-6.2-5.1z"/></svg>',
     Garden: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21V10"/><path d="M12 10C8 9 6.2 6.2 6 3c3.6.4 6 2.4 6.8 6.2"/><path d="M12 12.5c3.2-.4 5.8-2.8 6.6-6.5-3.4 0-6 2-6.6 5.5"/></svg>',
     Scholar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c.8-3.6 3.4-5.4 7-5.4s6.2 1.8 7 5.4"/></svg>',
@@ -35,14 +35,16 @@
       const label = labelFromLink(a);
       if (!label || !ICONS[label]) return;
       const svg = a.querySelector('svg');
-      if (!svg || svg.dataset.luxIcon) return;
+      if (!svg) return;
+      if (svg.dataset.luxIcon === label && svg.dataset.luxV === '2') return;
       const wrap = document.createElement('span');
       wrap.innerHTML = ICONS[label];
       const next = wrap.firstElementChild;
       if (next) {
         next.setAttribute('data-lux-icon', label);
-        next.setAttribute('width', '16');
-        next.setAttribute('height', '16');
+        next.setAttribute('data-lux-v', '2');
+        next.setAttribute('width', '18');
+        next.setAttribute('height', '18');
       }
       svg.replaceWith(next);
     });
