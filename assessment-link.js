@@ -2,12 +2,12 @@
   if (!document.querySelector('link[href*="lux-theme.css"]')) {
     const l = document.createElement('link');
     l.rel = 'stylesheet';
-    l.href = '/lux-theme.css?v=20260930-face11';
+    l.href = '/lux-theme.css?v=20260930-face12';
     document.head.appendChild(l);
   }
   if (!document.querySelector('script[src*="lux-theme.js"]')) {
     const s = document.createElement('script');
-    s.src = '/lux-theme.js?v=20260930-face11';
+    s.src = '/lux-theme.js?v=20260930-face12';
     s.defer = true;
     document.head.appendChild(s);
   }
