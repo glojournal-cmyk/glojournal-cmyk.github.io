@@ -40,7 +40,7 @@
     try{
       const chemistry=PAPERS.find(p=>p.id==='chemistry');
       if(chemistry){
-        chemistry.subtitle='Taught Year 9 lessons · 218 questions · AQA-style short answers, practical reasoning and calculations';
+        chemistry.subtitle='Taught Year 9 lessons · 230 questions · Foundation to challenge · AQA-style answers, practical reasoning and calculations';
         chemistry.groups={
           'Periodic table':4,
           'Separation':4,
