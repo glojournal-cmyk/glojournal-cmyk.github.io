@@ -37,10 +37,10 @@ for(let step=0;step<(mode==="y8vocab"?30:25);step++){
    });
  }
  await page.waitForTimeout(300);
- const visible=await page.evaluate(()=>({body:document.body.innerText,prompt:[...document.querySelectorAll("p")].find(p=>p.classList.contains("font-display")&&p.classList.contains("text-2xl"))?.textContent||"",stimulus:[...document.querySelectorAll("p")].find(p=>p.classList.contains("rounded-lg")&&p.classList.contains("bg-sage/60"))?.textContent||""}));
+ const visible=await page.evaluate(()=>({id:document.querySelector("[data-question-id]")?.dataset.questionId,body:document.body.innerText,prompt:[...document.querySelectorAll("p")].find(p=>p.classList.contains("font-display")&&p.classList.contains("text-2xl"))?.textContent||"",stimulus:[...document.querySelectorAll("p")].find(p=>p.classList.contains("rounded-lg")&&p.classList.contains("bg-sage/60"))?.textContent||""}));
  const clean=q=>{let prompt=String(q.prompt||"").trim(),label=String(q.task?.label||"").trim();if(label&&prompt.toLowerCase().startsWith(label.toLowerCase()))prompt=prompt.slice(label.length).replace(/^[\s—–:-]+/,"").trim();if(q.format==="mc_single")prompt=prompt.replace(/^write\b/i,"Choose");return prompt;};
  const candidates=bank.filter(q=>clean(q)===visible.prompt);
- const question=candidates.find(q=>String(q.stimulus?.text||"").trim()===visible.stimulus.trim())||candidates.find(q=>!q.stimulus?.text||q.stimulus.text===q.prompt)||candidates[0];
+ const question=bank.find(q=>q.id===visible.id)||candidates.find(q=>String(q.stimulus?.text||"").trim()===visible.stimulus.trim())||candidates.find(q=>!q.stimulus?.text||q.stimulus.text===q.prompt)||candidates[0];
  assert.ok(question,"Could not identify question: "+JSON.stringify(visible)+" errors "+JSON.stringify(errors));
  const answer=question.answer?.accepted?.[0]||question.answer?.modelAnswer;
  assert.ok(typeof answer==="string","Unsupported test answer "+question.id+" "+JSON.stringify(question.answer));
