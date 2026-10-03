@@ -60,7 +60,7 @@ test('a full ten-question session survives parent/store rerenders and finishes 1
  const state=newState(),attemptedIds=[];state.recordAttempt=(id)=>{attemptedIds.push(id);state.seenTotal={...state.seenTotal,[id]:1};state.reviews={...state.reviews,[id]:{due:'2026-09-20'}};state.topicStats={...state.topicStats,x:{attempted:1}};};
  const hr=hooks(),pr=hooks();const questions=numbers.filter(q=>q.answer.accepted?.length).slice(0,12).map((q,i)=>({...q,_adaptiveRank:i}));
  const catalog=()=>[{topicId:state.lastTopic,title:'Numbers and age'}];
- const pc=vm.createContext({groupStudyTopics,...env(state,pr),g:{useParams:()=>({subject:'french'})},C:()=>({name:'French'}),S:()=>false,s:sel=>sel(state),p:()=>true,v:()=>false,y:catalog,d:()=>0,l:()=> '2026-09-18',u:async()=>({questions}),h:topic=>topic.questions,RQ:(qs,subject,size)=>[...qs].sort((a,b)=>(state.seenTotal[a.id]||0)-(state.seenTotal[b.id]||0)).slice(0,size),x:'Card',YS:'YearSelect',f:[],c:[],m:[],FY9:[],i:'Dictation',o:'Quiz'});
+ const pc=vm.createContext({TopicBrowser:"TopicBrowser",groupStudyTopics,...env(state,pr),g:{useParams:()=>({subject:'french'})},C:()=>({name:'French'}),S:()=>false,s:sel=>sel(state),p:()=>true,v:()=>false,y:catalog,d:()=>0,l:()=> '2026-09-18',u:async()=>({questions}),h:topic=>topic.questions,RQ:(qs,subject,size)=>[...qs].sort((a,b)=>(state.seenTotal[a.id]||0)-(state.seenTotal[b.id]||0)).slice(0,size),x:'Card',YS:'YearSelect',f:[],c:[],m:[],FY9:[],i:'Dictation',o:'Quiz'});
  vm.runInContext(practice.slice(practice.indexOf('function FK('),practice.indexOf('export{')),pc);
  let parent=pr.render(()=>pc.E());await new Promise(resolve=>setImmediate(resolve));parent=pr.render(()=>pc.E());
  const props=tree=>flatten(tree).find(n=>n?.type==='Quiz')?.props;

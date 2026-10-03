@@ -82,16 +82,23 @@ function groupBlurb(group,today){
 }
 function paperCard(p){
   const prize=PRIZES[p.id];
-  return `<article class="card"><span class="tag">${p.minutes} min · ${p.count} questions · pass 85%</span><h3>${esc(p.name)}</h3><p>${esc(p.subtitle)}</p>${prize?`<p class="muted">Pass once to unlock ${esc(prize.name)} in the wardrobe.</p>`:''}<button class="primary" data-paper="${p.id}">${state.drafts[p.id]?.version===2?'Continue test':'Start new paper'}</button>${p.id==='chemistry'&&state.drafts[p.id]?.version===2?` <button data-reset-paper="chemistry">Discard draft and start a fresh paper</button>`:''}</article>`
+  return `<article class="card"><span class="tag">Year 9 · ${p.bank.includes('/banks/')?'Mixed assessment':'School topic'}</span><span class="tag">${p.minutes} min · ${p.count} questions · pass 85%</span><h3>${esc(p.name.replace(/^[^·]+·\s*/,''))}</h3><p>${esc(p.subtitle)}</p>${prize?`<p class="muted">Pass once to unlock ${esc(prize.name)} in the wardrobe.</p>`:''}<button class="primary" data-paper="${p.id}">${state.drafts[p.id]?.version===2?'Continue test':'Start new paper'}</button>${p.id==='chemistry'&&state.drafts[p.id]?.version===2?` <button data-reset-paper="chemistry">Discard draft and start a fresh paper</button>`:''}</article>`
 }
 function cards(){
   if(!document.getElementById('exam-group-style')){const s=document.createElement('style');s.id='exam-group-style';s.textContent='.subject-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:2px 0 14px;position:sticky;top:8px;z-index:4;background:#f6f1e6;padding:8px 0}.subject-bar button{border-radius:999px;padding:8px 14px;background:#fffaf3;border:1px solid rgba(196,164,106,.75);color:#1A3148}.subject-bar button.on{background:#1A3148;color:#f7f1e6;border-color:#1A3148}.subject-bar .add-assess{margin-left:auto}.subject-list{display:flex;flex-direction:column;gap:12px}.subject-block{padding-top:0;border-top:0}.subject-block h2{font-size:32px}.subject-block .when{margin:6px 0 0;color:#62717a;max-width:42rem}.subject-block .cards{margin-top:12px}.subject-block .card p{min-height:0}';document.head.appendChild(s)}
   if(!document.getElementById('subject-bar')){const bar=document.createElement('div');bar.id='subject-bar';bar.className='subject-bar';$('#paper-list').before(bar);bar.addEventListener('click',e=>{if(e.target.closest('[data-add-assess]')){show('tracker');document.getElementById('track-form')?.querySelector('input,select')?.focus();return}const b=e.target.closest('[data-subject]');if(!b)return;sessionStorage.setItem('lux-assess-subject',b.dataset.subject);cards()})}
+  if(!document.getElementById('assessment-filters')){
+    const filters=document.createElement('div');filters.id='assessment-filters';filters.className='assessment-filters';
+    filters.innerHTML='<label>Find an assessment<input id="assessment-search" type="search" placeholder="Search title or topic…"></label><label>Paper type<select id="assessment-kind"><option value="all">All papers</option><option value="school">School topics</option><option value="mixed">Mixed assessments</option></select></label>';
+    $('#paper-list').before(filters);
+    filters.addEventListener('input',cards);filters.addEventListener('change',cards);
+  }
   const group=EXAM_GROUPS.find(g=>g.subject===sessionStorage.getItem('lux-assess-subject'))||EXAM_GROUPS[0];
   $('#subject-bar').innerHTML=EXAM_GROUPS.map(g=>`<button type="button" data-subject="${esc(g.subject)}" class="${g.subject===group.subject?'on':''}">${esc(g.subject)}</button>`).join('')+'<button type="button" class="add-assess" data-add-assess>Add assessment</button>';
-  const papers=group.ids.map(id=>PAPERS.find(p=>p.id===id)).filter(Boolean);
+  const allPapers=group.ids.map(id=>PAPERS.find(p=>p.id===id)).filter(Boolean),query=$('#assessment-search').value.trim().toLowerCase(),kind=$('#assessment-kind').value;
+  const papers=allPapers.filter(p=>(kind==='all'||(p.bank.includes('/banks/')?'mixed':'school')===kind)&&(!query||`${p.name} ${p.subtitle} ${Object.keys(p.groups||{}).join(' ')}`.toLowerCase().includes(query)));
   const root=$('#paper-list');root.className='subject-list';const today=examToday();
-  root.innerHTML=`<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="when">${esc(groupBlurb(group,today))}</p><div class="cards">${papers.map(paperCard).join('')}</div></section>`;
+  root.innerHTML=`<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="muted">Year 9 · ${papers.length} of ${allPapers.length} papers · <a href="/study/${group.subject.toLowerCase()}/">Browse notes and topic practice →</a></p><p class="when">${esc(groupBlurb(group,today))}</p><div class="cards">${papers.length?papers.map(paperCard).join(''):'<p class="muted" role="status">No matching papers. Try another keyword or paper type.</p>'}</div></section>`;
 }
 cards();
 $('#paper-list').addEventListener('click',e=>{
