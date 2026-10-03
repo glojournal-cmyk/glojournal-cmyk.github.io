@@ -1,5 +1,5 @@
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js";
-import("/pet/pet-care-global.js?v=20261003-cellpractice2").catch(()=>{});
+import("/pet/pet-care-global.js?v=20261003-priority4").catch(()=>{});
 export * from "./index-BLVOhKhN.core.js?v=20261003-cellpractice1";
 import {
   C as store,
