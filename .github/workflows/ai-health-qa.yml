@@ -1,0 +1,27 @@
+name: AI service health QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/ai-health-qa.yml']
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - name: Check public AI configuration, CORS and a minimal diagnostic response
+        run: |
+          node --input-type=module <<'JS'
+          const endpoint="https://glojournal-cmyk-github-io.vercel.app/api/ask-ai";
+          const headers={Origin:"https://glojournal-cmyk.github.io"};
+          const health=await fetch(endpoint,{headers,signal:AbortSignal.timeout(25000)});
+          const body=await health.json();
+          console.log("AI_HEALTH_QA "+JSON.stringify({status:health.status,cors:health.headers.get("access-control-allow-origin"),...body}));
+          if(!health.ok||!body.configured||health.headers.get("access-control-allow-origin")!==headers.Origin)process.exit(1);
+          const test=await fetch(endpoint+"?test=1",{headers,signal:AbortSignal.timeout(120000)});
+          const result=await test.json();
+          console.log("AI_RESPONSE_QA "+JSON.stringify({status:test.status,...result}));
+          if(!test.ok||!result.ok)process.exit(1);
+          JS
