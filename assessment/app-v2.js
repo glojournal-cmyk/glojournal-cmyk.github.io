@@ -1,4 +1,5 @@
 const PAPERS=[
+  {id:'biology-cell-structure',name:'Biology · AQA 4.1.1 Cell structure',subtitle:'First GCSE Biology assessment · week beginning 16 November 2026 · all six sections · 60 marks',bank:'/assessment/biology-cell-structure-20261003.json',count:24,minutes:45,groups:{'Eukaryotes and prokaryotes':4,'Animal and plant cells':4,'Cell specialisation':4,'Cell differentiation':4,'Microscopy':4,'Culturing microorganisms':4}},
   {id:'french',name:'French · Unit 1 vocabulary',subtitle:'Une visite en France · school test 8 Oct',bank:'/assessment/french-school-1.json',count:25,minutes:25,groups:{'Core phrases':4,'Intensifiers':3,'Descriptive adjectives':5,'Positive adjectives':5,'Pronouns':5,'Transport':3}},
   {id:'chemistry',name:'Chemistry · school test and RP6',subtitle:'Periodic Table, separation and chromatography',bank:'/assessment/chemistry-school-1.json',count:30,minutes:45,groups:{'Periodic table':4,'Separation':4,'RP6 method':4,'RP6 errors':2,'Chromatogram':4,'Rf':9,'Solvents':1,'RP6':2}},
   {id:'latin-verbs',name:'Latin · Regular verbs',subtitle:'Tomorrow’s table · Latin → English · porto, moneo, traho, audio · present, imperfect and perfect only',bank:'/assessment/latin-verbs-1.json',count:24,minutes:25,groups:{'Present':8,'Imperfect':8,'Perfect':8}},
@@ -49,6 +50,7 @@ const DIAGRAM_ALTS={
 };
 let state;try{state=JSON.parse(localStorage.getItem(KEY))||{}}catch{state={}}
 state.tracker||=[];state.results||=[];state.drafts||={};state.recent||={};
+if(new URLSearchParams(location.search).get('subject')==='biology')sessionStorage.setItem('lux-assess-subject','Biology');
 let timer=null;
 
 function save(){localStorage.setItem(KEY,JSON.stringify(state))}
@@ -69,20 +71,20 @@ const EXAM_GROUPS=[
   {subject:'Chemistry',exam:'2026-09-29',ids:['chemistry']},
   {subject:'English',exam:'2026-09-30',ids:['english']},
   {subject:'French',exam:'2026-10-08',ids:['french']},
-  {subject:'Biology',exam:'',ids:['biology-school','biology']},
+  {subject:'Biology',exam:'',examWeek:'2026-11-16',ids:['biology-cell-structure','biology-school','biology']},
   {subject:'Physics',exam:'',ids:['physics']}
 ];
 function groupBlurb(group,today){
   const when=group.exam?examWhen(group.exam):'';
   if(group.subject==='Latin')return today>group.exam?`Exam ${when} has passed. Regular verbs and The Loss of Creusa are now in Practise.`:`Exam ${when}. Start with Regular verbs: porto, moneo, traho and audio, Latin into English, present, imperfect and perfect. Those questions, and The Loss of Creusa, join Practise the next day.`;
   if(group.subject==='English')return `Exam ${when}. These Year 9 questions are already in Practise.`;
-  if(group.subject==='Biology')return 'School lessons so far: cells and practical biology. This 45-minute paper draws 30 short questions from 65.';
+  if(group.subject==='Biology')return 'First GCSE Biology assessment: week beginning 16 November 2026 (exact lesson date to be confirmed). AQA 4.1.1 Cell structure only. New paper: 45 minutes, 24 short questions, 60 marks, pass 51/60. Includes microscopy and culturing microorganisms.';
   if(group.exam)return today>group.exam?`Exam ${when} has passed. These questions are now in Practise.`:`Exam ${when}. These questions join Practise the next day.`;
   return 'Mixed questions from the Year 9 bank. Already in Practise.';
 }
 function paperCard(p){
   const prize=PRIZES[p.id];
-  return `<article class="card"><span class="tag">Year 9 · ${p.bank.includes('/banks/')?'Mixed assessment':'School topic'}</span><span class="tag">${p.minutes} min · ${p.count} questions · pass 85%</span><h3>${esc(p.name.replace(/^[^·]+·\s*/,''))}</h3><p>${esc(p.subtitle)}</p>${prize?`<p class="muted">Pass once to unlock ${esc(prize.name)} in the wardrobe.</p>`:''}<button class="primary" data-paper="${p.id}">${state.drafts[p.id]?.version===2?'Continue test':'Start new paper'}</button>${p.id==='chemistry'&&state.drafts[p.id]?.version===2?` <button data-reset-paper="chemistry">Discard draft and start a fresh paper</button>`:''}</article>`
+  return `<article class="card"><span class="tag">Year 9 · ${p.bank.includes('/banks/')?'Mixed assessment':'School topic'}</span><span class="tag">${p.minutes} min · ${p.count} questions · pass 85%</span><h3>${esc(p.name.replace(/^[^·]+·\s*/,''))}</h3><p>${esc(p.subtitle)}</p>${p.id==='biology-cell-structure'?'<p><a href="/assessment/biology-cell-structure/">Revision guide and 72-question bank →</a></p>':''}${prize?`<p class="muted">Pass once to unlock ${esc(prize.name)} in the wardrobe.</p>`:''}<button class="primary" data-paper="${p.id}">${state.drafts[p.id]?.version===2?'Continue test':'Start new paper'}</button>${p.id==='chemistry'&&state.drafts[p.id]?.version===2?` <button data-reset-paper="chemistry">Discard draft and start a fresh paper</button>`:''}</article>`
 }
 function cards(){
   if(!document.getElementById('exam-group-style')){const s=document.createElement('style');s.id='exam-group-style';s.textContent='.subject-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:2px 0 14px;position:sticky;top:8px;z-index:4;background:#f6f1e6;padding:8px 0}.subject-bar button{border-radius:999px;padding:8px 14px;background:#fffaf3;border:1px solid rgba(196,164,106,.75);color:#1A3148}.subject-bar button.on{background:#1A3148;color:#f7f1e6;border-color:#1A3148}.subject-bar .add-assess{margin-left:auto}.subject-list{display:flex;flex-direction:column;gap:12px}.subject-block{padding-top:0;border-top:0}.subject-block h2{font-size:32px}.subject-block .when{margin:6px 0 0;color:#62717a;max-width:42rem}.subject-block .cards{margin-top:12px}.subject-block .card p{min-height:0}';document.head.appendChild(s)}
@@ -212,6 +214,32 @@ function selectChemistry(questions,count,recent=[],quotas={}){
   }
   take(ordered(questions),count-chosen.length);
   return shuffle(chosen).sort((a,b)=>chemistryLevel(a)-chemistryLevel(b));
+}
+function selectBiology(questions,recent=[],quotas={}){
+  const old=new Set(recent),out=[],usedDiagrams=new Set();
+  for(const topic of Object.keys(quotas))for(const marks of [2,3]){
+    const candidates=questions.filter(q=>q.topic===topic&&questionMarks(q)===marks);
+    const ordered=[...shuffle(candidates.filter(q=>!old.has(q.id))),...shuffle(candidates.filter(q=>old.has(q.id)))];
+    const chosen=[];
+    // At most one question per image plate. Prefer unseen questions first.
+    for(const q of ordered){
+      if(q.diagram&&usedDiagrams.has(q.diagram))continue;
+      if(chosen.length===2)break;
+      chosen.push(q);if(q.diagram)usedDiagrams.add(q.diagram);
+    }
+    if(chosen.length!==2)throw Error('Biology bank cannot satisfy balanced mark quotas');
+    out.push(...chosen);
+  }
+  // Ensure a new paper includes visual interpretation when available.
+  for(const diagram of ['cells-20261003.webp','specialised-20261003.webp','microscopy-20261003.webp']){
+    if(out.some(q=>q.diagram===diagram))continue;
+    const candidates=questions.filter(q=>q.diagram===diagram);
+    const candidate=shuffle(candidates.filter(q=>!old.has(q.id)))[0]||shuffle(candidates)[0];
+    if(!candidate)continue;
+    const i=out.findIndex(q=>q.topic===candidate.topic&&questionMarks(q)===questionMarks(candidate)&&!q.diagram);
+    if(i>=0)out[i]=candidate;
+  }
+  return out.sort((a,b)=>Object.keys(quotas).indexOf(a.topic)-Object.keys(quotas).indexOf(b.topic)||questionMarks(a)-questionMarks(b));
 }
 function selectCreusa(questions,recent){
   const picked=[];
@@ -350,14 +378,14 @@ async function start(id){
       const res=await fetch(bankUrl(p));if(!res.ok)throw Error('Question bank unavailable');
       const bank=await res.json();
       const pool=bank.groups?bank.groups.flatMap(g=>g.questions):bank.questions;
-      const valid=pool.filter(q=>q.prompt&&q.answer?.accepted?.length&&['choice','exact_or_equivalent','keywords','chemistry_rubric'].includes(q.answer.mode));
+      const valid=pool.filter(q=>q.prompt&&q.answer?.accepted?.length&&['choice','exact_or_equivalent','keywords','chemistry_rubric','biology_rubric'].includes(q.answer.mode));
       const previous=state.recent[id]||[];
       let quotas=p.groups;
       if(!quotas&&bank.groups){
         quotas={};
         bank.groups.forEach((g,i)=>{quotas[g.title]=Math.floor(p.count/bank.groups.length)+(i<p.count%bank.groups.length?1:0)});
       }
-      let selected=id==='latin-creusa'?selectCreusa(valid,previous):id==='chemistry'?selectChemistry(valid,p.count,previous,quotas):select(valid,p.count,previous,quotas);
+      let selected=id==='biology-cell-structure'?selectBiology(valid,previous,p.groups):id==='latin-creusa'?selectCreusa(valid,previous):id==='chemistry'?selectChemistry(valid,p.count,previous,quotas):select(valid,p.count,previous,quotas);
       if(selected.length<p.count)throw Error('Not enough questions in this bank');
       if(previous.length&&selected.map(q=>q.id).join('|')===previous.join('|'))selected=shuffle(selected);
       draft={version:2,questions:selected,answers:{},index:0,remaining:p.minutes*60,running:true,started:Date.now()};
@@ -385,7 +413,7 @@ function renderTest(p,d){
   }
   function draw(){
     const i=d.index,q=d.questions[i],answer=d.answers[i]||'';
-    $('#exam').innerHTML=`<div class="exam-top"><div><span class="tag">${esc(p.name)} · ${p.minutes} min · pass 85%</span><h2>Question ${i+1} of ${d.questions.length}</h2></div><strong id="clock" aria-label="Time remaining"></strong></div><div class="progress"><div style="width:${100*(i+1)/d.questions.length}%"></div></div><p class="muted">Answers are saved. Marking and model answers appear after you submit the whole paper.</p>${p.id==='latin-verbs'?'<p class="muted">From the verb table only. Present: I carry. Imperfect: I was carrying. Perfect: I carried. I have carried and I used to carry are also accepted. Say he, she or it for the third person singular.</p>':''}${q.passage?`<div class="feedback" style="white-space:pre-line;line-height:1.7"><b>Read the extract</b><br>${esc(q.passage)}</div>`:''}<p class="question">${esc(q.prompt)}</p>${p.id==='chemistry'?`<p class="muted">${questionMarks(q)} marks · ${esc(chemistryStage(q))} · Give distinct points; show your working for calculations.</p>`:''}${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}?v=${CHEMISTRY_REVISION}" alt="${esc(DIAGRAM_ALTS[q.diagram]||'Chemistry question diagram')}">`:''}${Array.isArray(q.options)&&q.options.length?`<div id="choices">${q.options.map(o=>`<button class="choice ${answer===String(o)?'chosen':''}" data-choice="${esc(o)}">${esc(o)}</button>`).join('')}</div>`:`<label>Your answer<textarea class="answer" id="response" placeholder="Write your answer here">${esc(answer)}</textarea></label>`}<div class="exam-actions"><button id="prev" ${i===0?'disabled':''}>Previous</button><button id="next" class="primary">${i===d.questions.length-1?'Submit whole paper':'Next question'}</button></div><div class="exam-actions" style="margin-top:18px"><button id="pause">${d.running?'Pause timer':'Resume timer'}</button><button id="exit">Back to assessments</button></div>`;
+    $('#exam').innerHTML=`<div class="exam-top"><div><span class="tag">${esc(p.name)} · ${p.minutes} min · pass 85%</span><h2>Question ${i+1} of ${d.questions.length}</h2></div><strong id="clock" aria-label="Time remaining"></strong></div><div class="progress"><div style="width:${100*(i+1)/d.questions.length}%"></div></div><p class="muted">Answers are saved. Marking and model answers appear after you submit the whole paper.</p>${p.id==='latin-verbs'?'<p class="muted">From the verb table only. Present: I carry. Imperfect: I was carrying. Perfect: I carried. I have carried and I used to carry are also accepted. Say he, she or it for the third person singular.</p>':''}${q.passage?`<div class="feedback" style="white-space:pre-line;line-height:1.7"><b>Read the extract</b><br>${esc(q.passage)}</div>`:''}<p class="question">${esc(q.prompt)}</p>${['chemistry','biology-cell-structure'].includes(p.id)?`<p class="muted">${questionMarks(q)} marks · ${esc(p.id==='chemistry'?chemistryStage(q):q.topic)} · Give distinct points; show your working for calculations.</p>`:''}${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}?v=${CHEMISTRY_REVISION}" alt="${esc(q.diagramAlt||DIAGRAM_ALTS[q.diagram]||'Assessment question diagram')}">`:''}${Array.isArray(q.options)&&q.options.length?`<div id="choices">${q.options.map(o=>`<button class="choice ${answer===String(o)?'chosen':''}" data-choice="${esc(o)}">${esc(o)}</button>`).join('')}</div>`:`<label>Your answer<textarea class="answer" id="response" placeholder="Write your answer here">${esc(answer)}</textarea></label>`}<div class="exam-actions"><button id="prev" ${i===0?'disabled':''}>Previous</button><button id="next" class="primary">${i===d.questions.length-1?'Submit whole paper':'Next question'}</button></div><div class="exam-actions" style="margin-top:18px"><button id="pause">${d.running?'Pause timer':'Resume timer'}</button><button id="exit">Back to assessments</button></div>`;
     $('#response')?.addEventListener('input',e=>{d.answers[i]=e.target.value;save()});
     $('#choices')?.addEventListener('click',e=>{const b=e.target.closest('[data-choice]');if(b){d.answers[i]=b.dataset.choice;save();draw()}});
     $('#prev').onclick=()=>{d.index--;save();draw()};
@@ -411,7 +439,7 @@ function showAnswer(q){
   return list.join(' / ');
 }
 
-function questionMarks(q){return q.answer?.mode==='chemistry_rubric'?q.answer.points.length:1}
+function questionMarks(q){return ['chemistry_rubric','biology_rubric'].includes(q.answer?.mode)?q.answer.points.length:1}
 
 function finish(p,d){
   clearInterval(timer);timer=null;
@@ -423,10 +451,10 @@ function finish(p,d){
     earned+=m.credit*questionMarks(q);
     if(m.credit>=0.999)full++; else if(m.credit>0)partial++;
     const partialNote=m.credit>0&&m.credit<1?`<p class="muted"><b>Partial credit:</b> ${formatMarks(m.credit*questionMarks(q))} of ${questionMarks(q)} marks. You included ${m.matched} of ${m.total} required ideas.</p>`:'';
-    return `<article class="entry"><div><span class="tag">Question ${i+1} · ${m.status} · ${esc(q.topic||'')}</span><p>${esc(q.prompt)}</p><p><b>Your answer:</b> ${esc(answer)||'—'}</p><p><b>Model answer:</b> ${esc(showAnswer(q))}</p>${q.workedSolution?`<p><b>Working:</b> ${esc(q.workedSolution)}</p>`:''}${partialNote}${q.answer?.mode==='chemistry_rubric'?`<div class="feedback"><b>How to earn full marks</b><p>${esc(q.examGuidance?.strategy||'Include each distinct required idea.')}</p><ol>${q.answer.points.map((point,j)=>`<li><b>${m.pointResults?.[j]?'Awarded':'Missing'} · 1 mark:</b> ${esc(point.label)}</li>`).join('')}</ol><p><b>Common mark loss:</b> ${esc(q.examGuidance?.commonError||q.hint)}</p><p class="muted">This is an original AQA-style practice rubric. Automated marking recognises selected wording; use the checklist and model answer to review equivalent scientific explanations.</p></div>`:''}${p.id==='chemistry'||q.markKeywords?`<p><b>Marking keywords:</b> ${esc((q.markKeywords||q.answer.accepted).join(' · '))}</p><p class="muted"><b>Hint for next time:</b> ${esc(q.hint||q.feedback?.short||'Check the evidence in the question before choosing a method.')}</p>`:q.feedback?.short?`<p class="muted">${esc(q.feedback.short)}</p>`:''}</div></article>`;
+    return `<article class="entry"><div><span class="tag">Question ${i+1} · ${m.status} · ${esc(q.topic||'')}</span><p>${esc(q.prompt)}</p><p><b>Your answer:</b> ${esc(answer)||'—'}</p><p><b>Model answer:</b> ${esc(showAnswer(q))}</p>${q.workedSolution?`<p><b>Working:</b> ${esc(q.workedSolution)}</p>`:''}${partialNote}${['chemistry_rubric','biology_rubric'].includes(q.answer?.mode)?`<div class="feedback"><b>How to earn full marks</b><p>${esc(q.examGuidance?.strategy||'Include each distinct required idea.')}</p><ol>${q.answer.points.map((point,j)=>`<li><b>${m.pointResults?.[j]?'Awarded':'Missing'} · 1 mark:</b> ${esc(point.label)}</li>`).join('')}</ol><p><b>Common mark loss:</b> ${esc(q.examGuidance?.commonError||q.hint)}</p><p class="muted">This is an original AQA-style practice rubric. Automated marking recognises selected wording; use the checklist and model answer to review equivalent scientific explanations.</p></div>`:''}${p.id==='chemistry'||q.markKeywords?`<p><b>Marking keywords:</b> ${esc((q.markKeywords||q.answer.accepted).join(' · '))}</p><p class="muted"><b>Hint for next time:</b> ${esc(q.hint||q.feedback?.short||'Check the evidence in the question before choosing a method.')}</p>`:q.feedback?.short?`<p class="muted">${esc(q.feedback.short)}</p>`:''}</div></article>`;
   });
 
-  const score=p.id==='chemistry'?Math.floor(earned/totalMarks*100):Math.round(earned/totalMarks*100);
+  const score=['chemistry','biology-cell-structure'].includes(p.id)?Math.floor(earned/totalMarks*100):Math.round(earned/totalMarks*100);
   const missed={};
   d.questions.forEach((q,i)=>{
     const loss=(1-marks[i].credit)*questionMarks(q);

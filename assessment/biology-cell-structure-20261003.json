@@ -1,0 +1,3091 @@
+{
+  "id": "biology-cell-structure-20261003",
+  "subject": "biology",
+  "title": "AQA 4.1.1 Cell structure",
+  "assessmentWeek": "2026-11-16",
+  "sourceNote": "Original practice, based on the supplied Tiffin Girls’ School lessons and AQA Biology 8461 specification 4.1.1. This is not the teacher’s actual test or an official AQA paper.",
+  "sourceUrl": "https://www.aqa.org.uk/subjects/biology/gcse/biology-8461/specification/subject-content/cell-biology",
+  "questions": [
+    {
+      "id": "bio-cell-20261003-001",
+      "conceptId": "bio-cell-20261003-001",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Compare the location of genetic material in typical animal and bacterial cells.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Animal DNA is enclosed in a nucleus. Bacterial DNA lies in the cytoplasm without a nucleus."
+        ],
+        "points": [
+          {
+            "label": "Animal DNA is enclosed in a nucleus.",
+            "patterns": [
+              "animal.{0,50}(nucleus|nuclei)"
+            ]
+          },
+          {
+            "label": "Bacterial DNA lies in the cytoplasm without a nucleus.",
+            "patterns": [
+              "(bacter|prokary).{0,70}(cytoplasm|without.{0,10}nucle|no.{0,10}nucle)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Animal DNA is enclosed in a nucleus. Bacterial DNA lies in the cytoplasm without a nucleus.",
+      "markKeywords": [
+        "Animal DNA is enclosed in a nucleus.",
+        "Bacterial DNA lies in the cytoplasm without a nucleus."
+      ],
+      "hint": "Compare both cells, rather than describing only one.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Compare both cells, rather than describing only one."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-002",
+      "conceptId": "bio-cell-20261003-002",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "A bacterial cell contains a large DNA loop and two small DNA rings. Name the small rings and explain what they contain.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The small rings are plasmids. Plasmids contain genetic material / DNA."
+        ],
+        "points": [
+          {
+            "label": "The small rings are plasmids.",
+            "patterns": [
+              "\\bplasmids?\\b"
+            ]
+          },
+          {
+            "label": "Plasmids contain genetic material / DNA.",
+            "patterns": [
+              "\\b(DNA|genetic material|genes)\\b"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The small rings are plasmids. Plasmids contain genetic material / DNA.",
+      "markKeywords": [
+        "The small rings are plasmids.",
+        "Plasmids contain genetic material / DNA."
+      ],
+      "hint": "Plasmids are DNA rings, not small nuclei.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Plasmids are DNA rings, not small nuclei."
+      },
+      "diagram": "cells-20261003.webp",
+      "diagramAlt": "Schematic animal, plant and bacterial cells, not to scale."
+    },
+    {
+      "id": "bio-cell-20261003-003",
+      "conceptId": "bio-cell-20261003-003",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "State two structures present in both typical animal cells and bacterial cells.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Both have a cell membrane. Both have cytoplasm."
+        ],
+        "points": [
+          {
+            "label": "Both have a cell membrane.",
+            "patterns": [
+              "cell membrane"
+            ]
+          },
+          {
+            "label": "Both have cytoplasm.",
+            "patterns": [
+              "cytoplasm"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Both have a cell membrane. Both have cytoplasm.",
+      "markKeywords": [
+        "Both have a cell membrane.",
+        "Both have cytoplasm."
+      ],
+      "hint": "Name shared structures; bacteria do not have mitochondria.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Name shared structures; bacteria do not have mitochondria."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-004",
+      "conceptId": "bio-cell-20261003-004",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "A student says bacteria have no DNA because they have no nucleus. Correct both errors.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Bacteria contain DNA. The DNA is free in the cytoplasm."
+        ],
+        "points": [
+          {
+            "label": "Bacteria contain DNA.",
+            "patterns": [
+              "(contain|have|possess).{0,15}DNA"
+            ]
+          },
+          {
+            "label": "The DNA is free in the cytoplasm.",
+            "patterns": [
+              "DNA.{0,50}cytoplasm|cytoplasm.{0,30}DNA"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Bacteria contain DNA. The DNA is free in the cytoplasm.",
+      "markKeywords": [
+        "Bacteria contain DNA.",
+        "The DNA is free in the cytoplasm."
+      ],
+      "hint": "No nucleus does not mean no genetic material.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "No nucleus does not mean no genetic material."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-005",
+      "conceptId": "bio-cell-20261003-005",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "An animal cell is 20 micrometres wide and a bacterium is 2 micrometres wide. Calculate the size ratio and the difference in orders of magnitude.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Size ratio = 20 / 2 = 10. The animal cell is one order of magnitude larger."
+        ],
+        "points": [
+          {
+            "label": "Size ratio = 20 / 2 = 10.",
+            "patterns": [
+              "\\b10\\b"
+            ]
+          },
+          {
+            "label": "The animal cell is one order of magnitude larger.",
+            "patterns": [
+              "(one|1).{0,20}order"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Size ratio = 20 / 2 = 10. The animal cell is one order of magnitude larger.",
+      "markKeywords": [
+        "Size ratio = 20 / 2 = 10.",
+        "The animal cell is one order of magnitude larger."
+      ],
+      "hint": "Divide the sizes; an order of magnitude is a factor of 10.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Divide the sizes; an order of magnitude is a factor of 10."
+      },
+      "workedSolution": "20 / 2 = 10 = 10^1, so one order of magnitude."
+    },
+    {
+      "id": "bio-cell-20261003-006",
+      "conceptId": "bio-cell-20261003-006",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Convert 0.002 mm into micrometres and express the original value in metres in standard form.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "0.002 mm = 2 micrometres. In metres this is 2 x 10^-6 m."
+        ],
+        "points": [
+          {
+            "label": "0.002 mm = 2 micrometres.",
+            "patterns": [
+              "\\b2\\s*(micromet|um|µm|μm)"
+            ]
+          },
+          {
+            "label": "In metres this is 2 x 10^-6 m.",
+            "patterns": [
+              "2\\s*[x×*]\\s*10\\s*\\^?\\s*-6"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "0.002 mm = 2 micrometres. In metres this is 2 x 10^-6 m.",
+      "markKeywords": [
+        "0.002 mm = 2 micrometres.",
+        "In metres this is 2 x 10^-6 m."
+      ],
+      "hint": "A millimetre is 1000 micrometres; one micrometre is 10^-6 m.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "A millimetre is 1000 micrometres; one micrometre is 10^-6 m."
+      },
+      "workedSolution": "0.002 x 1000 = 2 micrometres = 2 x 10^-6 m."
+    },
+    {
+      "id": "bio-cell-20261003-007",
+      "conceptId": "bio-cell-20261003-007",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Give three differences between a typical plant cell and a bacterial cell.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Plant cells have a nucleus; bacteria have no nucleus. Plant cells have mitochondria; bacteria have no mitochondria. Plant cells are usually larger than bacteria."
+        ],
+        "points": [
+          {
+            "label": "Plant cells have a nucleus; bacteria have no nucleus.",
+            "patterns": [
+              "plant.{0,45}nucleus.{0,50}(bacter|prokary).{0,30}(no|without|not)"
+            ]
+          },
+          {
+            "label": "Plant cells have mitochondria; bacteria have no mitochondria.",
+            "patterns": [
+              "plant.{0,45}mitochondria.{0,50}(bacter|prokary).{0,30}(no|without|not)"
+            ]
+          },
+          {
+            "label": "Plant cells are usually larger than bacteria.",
+            "patterns": [
+              "plant.{0,50}(larger|bigger)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Plant cells have a nucleus; bacteria have no nucleus. Plant cells have mitochondria; bacteria have no mitochondria. Plant cells are usually larger than bacteria.",
+      "markKeywords": [
+        "Plant cells have a nucleus; bacteria have no nucleus.",
+        "Plant cells have mitochondria; bacteria have no mitochondria.",
+        "Plant cells are usually larger than bacteria."
+      ],
+      "hint": "Each mark needs a paired comparison, not a list of plant structures.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Each mark needs a paired comparison, not a list of plant structures."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-008",
+      "conceptId": "bio-cell-20261003-008",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Describe three features of genetic material in a bacterial cell.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "A main single circular DNA loop is present. The DNA is not enclosed in a nucleus. Small DNA rings called plasmids may also be present."
+        ],
+        "points": [
+          {
+            "label": "A main single circular DNA loop is present.",
+            "patterns": [
+              "(single|main|one).{0,25}(circular|loop)|circular DNA loop"
+            ]
+          },
+          {
+            "label": "The DNA is not enclosed in a nucleus.",
+            "patterns": [
+              "(not|no|without).{0,30}nucleus"
+            ]
+          },
+          {
+            "label": "Small DNA rings called plasmids may also be present.",
+            "patterns": [
+              "plasmid"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "A main single circular DNA loop is present. The DNA is not enclosed in a nucleus. Small DNA rings called plasmids may also be present.",
+      "markKeywords": [
+        "A main single circular DNA loop is present.",
+        "The DNA is not enclosed in a nucleus.",
+        "Small DNA rings called plasmids may also be present."
+      ],
+      "hint": "The main DNA loop and plasmids are different structures.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "The main DNA loop and plasmids are different structures."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-009",
+      "conceptId": "bio-cell-20261003-009",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "A cell has a membrane, cytoplasm and ribosomes but no nucleus. Classify it, justify your answer and give an example.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It is prokaryotic. Its genetic material is not enclosed in a nucleus. A bacterium is an example."
+        ],
+        "points": [
+          {
+            "label": "It is prokaryotic.",
+            "patterns": [
+              "prokaryot"
+            ]
+          },
+          {
+            "label": "Its genetic material is not enclosed in a nucleus.",
+            "patterns": [
+              "(no|without|not).{0,40}nucleus"
+            ]
+          },
+          {
+            "label": "A bacterium is an example.",
+            "patterns": [
+              "bacter"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "It is prokaryotic. Its genetic material is not enclosed in a nucleus. A bacterium is an example.",
+      "markKeywords": [
+        "It is prokaryotic.",
+        "Its genetic material is not enclosed in a nucleus.",
+        "A bacterium is an example."
+      ],
+      "hint": "The absence of a nucleus, not the presence of a wall alone, is the key evidence.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "The absence of a nucleus, not the presence of a wall alone, is the key evidence."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-010",
+      "conceptId": "bio-cell-20261003-010",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Cells P and Q are 30 micrometres and 300 nanometres wide. Convert Q to micrometres, calculate P:Q and state the order-of-magnitude difference.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Q is 0.3 micrometres. P:Q = 100. P is two orders of magnitude larger."
+        ],
+        "points": [
+          {
+            "label": "Q is 0.3 micrometres.",
+            "patterns": [
+              "0\\.3\\s*(micromet|um|µm|μm)"
+            ]
+          },
+          {
+            "label": "P:Q = 100.",
+            "patterns": [
+              "\\b100\\b"
+            ]
+          },
+          {
+            "label": "P is two orders of magnitude larger.",
+            "patterns": [
+              "(two|2).{0,20}order"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Q is 0.3 micrometres. P:Q = 100. P is two orders of magnitude larger.",
+      "markKeywords": [
+        "Q is 0.3 micrometres.",
+        "P:Q = 100.",
+        "P is two orders of magnitude larger."
+      ],
+      "hint": "Convert both widths to the same unit before dividing.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Convert both widths to the same unit before dividing."
+      },
+      "workedSolution": "300 nm / 1000 = 0.3 micrometres. 30 / 0.3 = 100 = 10^2."
+    },
+    {
+      "id": "bio-cell-20261003-011",
+      "conceptId": "bio-cell-20261003-011",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Explain why the bacterial cell in the figure is prokaryotic. Give three observations or structural conclusions.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "There is no membrane-bound nucleus. The large DNA loop is in the cytoplasm. Small separate plasmid rings occur in the cytoplasm."
+        ],
+        "points": [
+          {
+            "label": "There is no membrane-bound nucleus.",
+            "patterns": [
+              "(no|without|not).{0,30}nucleus"
+            ]
+          },
+          {
+            "label": "The large DNA loop is in the cytoplasm.",
+            "patterns": [
+              "(DNA|loop).{0,50}cytoplasm"
+            ]
+          },
+          {
+            "label": "Small separate plasmid rings occur in the cytoplasm.",
+            "patterns": [
+              "plasmid"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "There is no membrane-bound nucleus. The large DNA loop is in the cytoplasm. Small separate plasmid rings occur in the cytoplasm.",
+      "markKeywords": [
+        "There is no membrane-bound nucleus.",
+        "The large DNA loop is in the cytoplasm.",
+        "Small separate plasmid rings occur in the cytoplasm."
+      ],
+      "hint": "Do not use apparent drawn size as evidence: the figure is not to scale.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Do not use apparent drawn size as evidence: the figure is not to scale."
+      },
+      "diagram": "cells-20261003.webp",
+      "diagramAlt": "Schematic animal, plant and bacterial cells, not to scale."
+    },
+    {
+      "id": "bio-cell-20261003-012",
+      "conceptId": "bio-cell-20261003-012",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Compare the cell walls of plants and bacteria and state a shared function.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Plant walls contain cellulose. Bacterial walls are not made of cellulose. Both walls strengthen or support the cell."
+        ],
+        "points": [
+          {
+            "label": "Plant walls contain cellulose.",
+            "patterns": [
+              "plant.{0,35}cellulose"
+            ]
+          },
+          {
+            "label": "Bacterial walls are not made of cellulose.",
+            "patterns": [
+              "bacter.{0,50}(not|no).{0,20}cellulose"
+            ]
+          },
+          {
+            "label": "Both walls strengthen or support the cell.",
+            "patterns": [
+              "(strength|support)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Plant walls contain cellulose. Bacterial walls are not made of cellulose. Both walls strengthen or support the cell.",
+      "markKeywords": [
+        "Plant walls contain cellulose.",
+        "Bacterial walls are not made of cellulose.",
+        "Both walls strengthen or support the cell."
+      ],
+      "hint": "A bacterial wall is not cellulose; do not confuse wall with membrane.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "A bacterial wall is not cellulose; do not confuse wall with membrane."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-013",
+      "conceptId": "bio-cell-20261003-013",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "State two functions of the nucleus.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It contains genetic material / DNA. It controls cell activities."
+        ],
+        "points": [
+          {
+            "label": "It contains genetic material / DNA.",
+            "patterns": [
+              "(contain|hold|store).{0,20}(DNA|genetic)"
+            ]
+          },
+          {
+            "label": "It controls cell activities.",
+            "patterns": [
+              "control.{0,20}(cell|activit)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "It contains genetic material / DNA. It controls cell activities.",
+      "markKeywords": [
+        "It contains genetic material / DNA.",
+        "It controls cell activities."
+      ],
+      "hint": "Name a function rather than describing its colour in a diagram.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Name a function rather than describing its colour in a diagram."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-014",
+      "conceptId": "bio-cell-20261003-014",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "Explain the functions of the cytoplasm and cell membrane.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Many chemical reactions occur in the cytoplasm. The membrane controls movement of substances into and out of the cell."
+        ],
+        "points": [
+          {
+            "label": "Many chemical reactions occur in the cytoplasm.",
+            "patterns": [
+              "(reaction.{0,35}cytoplasm|cytoplasm.{0,40}reaction)"
+            ]
+          },
+          {
+            "label": "The membrane controls movement of substances into and out of the cell.",
+            "patterns": [
+              "membrane.{0,70}(control|regulat).{0,60}(movement|substance|enter|in and out)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Many chemical reactions occur in the cytoplasm. The membrane controls movement of substances into and out of the cell.",
+      "markKeywords": [
+        "Many chemical reactions occur in the cytoplasm.",
+        "The membrane controls movement of substances into and out of the cell."
+      ],
+      "hint": "The membrane controls movement; the wall mainly strengthens the cell.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "The membrane controls movement; the wall mainly strengthens the cell."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-015",
+      "conceptId": "bio-cell-20261003-015",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "Name the organelles responsible for aerobic respiration and protein synthesis.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Mitochondria are the main site of aerobic respiration. Ribosomes are the site of protein synthesis."
+        ],
+        "points": [
+          {
+            "label": "Mitochondria are the main site of aerobic respiration.",
+            "patterns": [
+              "mitochondri"
+            ]
+          },
+          {
+            "label": "Ribosomes are the site of protein synthesis.",
+            "patterns": [
+              "ribosome"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Mitochondria are the main site of aerobic respiration. Ribosomes are the site of protein synthesis.",
+      "markKeywords": [
+        "Mitochondria are the main site of aerobic respiration.",
+        "Ribosomes are the site of protein synthesis."
+      ],
+      "hint": "Keep ribosomes and mitochondria distinct.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Keep ribosomes and mitochondria distinct."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-016",
+      "conceptId": "bio-cell-20261003-016",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "Name the substance in a plant cell wall and give its function.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The wall contains cellulose. It strengthens / supports the cell."
+        ],
+        "points": [
+          {
+            "label": "The wall contains cellulose.",
+            "patterns": [
+              "cellulose"
+            ]
+          },
+          {
+            "label": "It strengthens / supports the cell.",
+            "patterns": [
+              "strength|support"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The wall contains cellulose. It strengthens / supports the cell.",
+      "markKeywords": [
+        "The wall contains cellulose.",
+        "It strengthens / supports the cell."
+      ],
+      "hint": "A plant cell wall is not made of cell sap.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "A plant cell wall is not made of cell sap."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-017",
+      "conceptId": "bio-cell-20261003-017",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "State the function of chloroplasts and explain how chlorophyll helps.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Chloroplasts are the site of photosynthesis. Chlorophyll absorbs light energy."
+        ],
+        "points": [
+          {
+            "label": "Chloroplasts are the site of photosynthesis.",
+            "patterns": [
+              "photosynth"
+            ]
+          },
+          {
+            "label": "Chlorophyll absorbs light energy.",
+            "patterns": [
+              "(absorb|trap).{0,25}light"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Chloroplasts are the site of photosynthesis. Chlorophyll absorbs light energy.",
+      "markKeywords": [
+        "Chloroplasts are the site of photosynthesis.",
+        "Chlorophyll absorbs light energy."
+      ],
+      "hint": "Chlorophyll absorbs light; it does not absorb glucose.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Chlorophyll absorbs light; it does not absorb glucose."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-018",
+      "conceptId": "bio-cell-20261003-018",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "Describe the contents and one supporting role of a permanent vacuole.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It contains cell sap. It maintains turgor / helps support the plant cell."
+        ],
+        "points": [
+          {
+            "label": "It contains cell sap.",
+            "patterns": [
+              "cell sap"
+            ]
+          },
+          {
+            "label": "It maintains turgor / helps support the plant cell.",
+            "patterns": [
+              "turg|support"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "It contains cell sap. It maintains turgor / helps support the plant cell.",
+      "markKeywords": [
+        "It contains cell sap.",
+        "It maintains turgor / helps support the plant cell."
+      ],
+      "hint": "The vacuole contains cell sap, not pure air.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "The vacuole contains cell sap, not pure air."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-019",
+      "conceptId": "bio-cell-20261003-019",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "Using the diagram, name three structures present in the plant cell but absent from a typical animal cell.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "A cellulose cell wall. Chloroplasts. A large permanent vacuole."
+        ],
+        "points": [
+          {
+            "label": "A cellulose cell wall.",
+            "patterns": [
+              "cell wall"
+            ]
+          },
+          {
+            "label": "Chloroplasts.",
+            "patterns": [
+              "chloroplast"
+            ]
+          },
+          {
+            "label": "A large permanent vacuole.",
+            "patterns": [
+              "vacuole"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "A cellulose cell wall. Chloroplasts. A large permanent vacuole.",
+      "markKeywords": [
+        "A cellulose cell wall.",
+        "Chloroplasts.",
+        "A large permanent vacuole."
+      ],
+      "hint": "Name structures, not their colours.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Name structures, not their colours."
+      },
+      "diagram": "cells-20261003.webp",
+      "diagramAlt": "Schematic animal, plant and bacterial cells, not to scale."
+    },
+    {
+      "id": "bio-cell-20261003-020",
+      "conceptId": "bio-cell-20261003-020",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "A root hair cell grows underground. Explain why it can have a wall and mitochondria but no chloroplasts.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The wall strengthens the cell. Mitochondria release energy by aerobic respiration. Little or no light is available for photosynthesis underground."
+        ],
+        "points": [
+          {
+            "label": "The wall strengthens the cell.",
+            "patterns": [
+              "wall.{0,40}(strength|support)"
+            ]
+          },
+          {
+            "label": "Mitochondria release energy by aerobic respiration.",
+            "patterns": [
+              "mitochondri.{0,65}(respir|energy)"
+            ]
+          },
+          {
+            "label": "Little or no light is available for photosynthesis underground.",
+            "patterns": [
+              "(little|no|lack|without).{0,25}light|underground.{0,50}photosynth"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The wall strengthens the cell. Mitochondria release energy by aerobic respiration. Little or no light is available for photosynthesis underground.",
+      "markKeywords": [
+        "The wall strengthens the cell.",
+        "Mitochondria release energy by aerobic respiration.",
+        "Little or no light is available for photosynthesis underground."
+      ],
+      "hint": "Plant cells do not all contain chloroplasts.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Plant cells do not all contain chloroplasts."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-021",
+      "conceptId": "bio-cell-20261003-021",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "A secretory cell produces large amounts of protein. Predict two organelles it needs in large numbers and explain one prediction.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Many ribosomes. Many mitochondria. Ribosomes make proteins."
+        ],
+        "points": [
+          {
+            "label": "Many ribosomes.",
+            "patterns": [
+              "ribosome"
+            ]
+          },
+          {
+            "label": "Many mitochondria.",
+            "patterns": [
+              "mitochondri"
+            ]
+          },
+          {
+            "label": "Ribosomes make proteins.",
+            "patterns": [
+              "ribosome.{0,50}(make|synth|produc).{0,20}protein"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Many ribosomes. Many mitochondria. Ribosomes make proteins.",
+      "markKeywords": [
+        "Many ribosomes.",
+        "Many mitochondria.",
+        "Ribosomes make proteins."
+      ],
+      "hint": "Link the prediction to a function; organelle names alone earn only two marks.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Link the prediction to a function; organelle names alone earn only two marks."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-022",
+      "conceptId": "bio-cell-20261003-022",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "Correct these statements: the wall controls entry; ribosomes release energy; mitochondria make proteins.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The cell membrane controls entry and exit. Mitochondria release energy by aerobic respiration. Ribosomes make proteins."
+        ],
+        "points": [
+          {
+            "label": "The cell membrane controls entry and exit.",
+            "patterns": [
+              "membrane.{0,50}(control|regulat|entry)"
+            ]
+          },
+          {
+            "label": "Mitochondria release energy by aerobic respiration.",
+            "patterns": [
+              "mitochondri.{0,60}(energy|respir)"
+            ]
+          },
+          {
+            "label": "Ribosomes make proteins.",
+            "patterns": [
+              "ribosome.{0,50}(protein|synth)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The cell membrane controls entry and exit. Mitochondria release energy by aerobic respiration. Ribosomes make proteins.",
+      "markKeywords": [
+        "The cell membrane controls entry and exit.",
+        "Mitochondria release energy by aerobic respiration.",
+        "Ribosomes make proteins."
+      ],
+      "hint": "Write three corrected statements, not just “all wrong”.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Write three corrected statements, not just “all wrong”."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-023",
+      "conceptId": "bio-cell-20261003-023",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "Explain how the wall, vacuole and chloroplasts each help a leaf cell.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The wall strengthens / supports the cell. The vacuole maintains turgor / supports the cell. Chloroplasts carry out photosynthesis."
+        ],
+        "points": [
+          {
+            "label": "The wall strengthens / supports the cell.",
+            "patterns": [
+              "wall.{0,35}(strength|support)"
+            ]
+          },
+          {
+            "label": "The vacuole maintains turgor / supports the cell.",
+            "patterns": [
+              "vacuole.{0,45}(turg|support)"
+            ]
+          },
+          {
+            "label": "Chloroplasts carry out photosynthesis.",
+            "patterns": [
+              "chloroplast.{0,40}photosynth"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The wall strengthens / supports the cell. The vacuole maintains turgor / supports the cell. Chloroplasts carry out photosynthesis.",
+      "markKeywords": [
+        "The wall strengthens / supports the cell.",
+        "The vacuole maintains turgor / supports the cell.",
+        "Chloroplasts carry out photosynthesis."
+      ],
+      "hint": "Use separate structure-function links.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Use separate structure-function links."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-024",
+      "conceptId": "bio-cell-20261003-024",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "A mature human red blood cell has no nucleus. Explain why this does not make it a bacterium, and give two other structures normally absent from it.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It is a specialised animal / eukaryotic cell. It has no cell wall. It has no plasmids."
+        ],
+        "points": [
+          {
+            "label": "It is a specialised animal / eukaryotic cell.",
+            "patterns": [
+              "(speciali|animal|eukaryot)"
+            ]
+          },
+          {
+            "label": "It has no cell wall.",
+            "patterns": [
+              "(no|without|lack).{0,15}cell wall"
+            ]
+          },
+          {
+            "label": "It has no plasmids.",
+            "patterns": [
+              "(no|without|lack).{0,15}plasmid"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "It is a specialised animal / eukaryotic cell. It has no cell wall. It has no plasmids.",
+      "markKeywords": [
+        "It is a specialised animal / eukaryotic cell.",
+        "It has no cell wall.",
+        "It has no plasmids."
+      ],
+      "hint": "Use cell origin and the other features; specialised animal cells can lack a nucleus.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Use cell origin and the other features; specialised animal cells can lack a nucleus."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-025",
+      "conceptId": "bio-cell-20261003-025",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Explain how the tail and mitochondria of a sperm cell help fertilisation.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The tail propels the sperm towards the egg. Mitochondria release energy for movement."
+        ],
+        "points": [
+          {
+            "label": "The tail propels the sperm towards the egg.",
+            "patterns": [
+              "tail.{0,60}(propel|swim|move|movement)"
+            ]
+          },
+          {
+            "label": "Mitochondria release energy for movement.",
+            "patterns": [
+              "mitochondri.{0,65}energy.{0,25}(move|swim)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The tail propels the sperm towards the egg. Mitochondria release energy for movement.",
+      "markKeywords": [
+        "The tail propels the sperm towards the egg.",
+        "Mitochondria release energy for movement."
+      ],
+      "hint": "“Lots of mitochondria” needs the energy-to-movement link.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "“Lots of mitochondria” needs the energy-to-movement link."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-026",
+      "conceptId": "bio-cell-20261003-026",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Explain how the root hair extension helps the cell absorb water and mineral ions.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The extension increases surface area. This increases absorption of water / mineral ions."
+        ],
+        "points": [
+          {
+            "label": "The extension increases surface area.",
+            "patterns": [
+              "(increase|large|greater).{0,20}surface area"
+            ]
+          },
+          {
+            "label": "This increases absorption of water / mineral ions.",
+            "patterns": [
+              "(absorb|absorp|uptake|take up).{0,30}(water|mineral)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The extension increases surface area. This increases absorption of water / mineral ions.",
+      "markKeywords": [
+        "The extension increases surface area.",
+        "This increases absorption of water / mineral ions."
+      ],
+      "hint": "State both the increased surface area and the uptake consequence.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "State both the increased surface area and the uptake consequence."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-027",
+      "conceptId": "bio-cell-20261003-027",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Explain how a long axon and branched dendrites help a nerve cell.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "A long axon transmits impulses over long distances. Branched dendrites connect with many other cells."
+        ],
+        "points": [
+          {
+            "label": "A long axon transmits impulses over long distances.",
+            "patterns": [
+              "axon.{0,65}(impulse|signal).{0,35}(long|distance)"
+            ]
+          },
+          {
+            "label": "Branched dendrites connect with many other cells.",
+            "patterns": [
+              "dendrit.{0,65}(connect|other cell|many cell)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "A long axon transmits impulses over long distances. Branched dendrites connect with many other cells.",
+      "markKeywords": [
+        "A long axon transmits impulses over long distances.",
+        "Branched dendrites connect with many other cells."
+      ],
+      "hint": "“Long so it is faster” is not a sufficient long-distance link.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "“Long so it is faster” is not a sufficient long-distance link."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-028",
+      "conceptId": "bio-cell-20261003-028",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Explain why a muscle cell has many mitochondria.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Mitochondria carry out aerobic respiration / release energy. The released energy enables muscle contraction."
+        ],
+        "points": [
+          {
+            "label": "Mitochondria carry out aerobic respiration / release energy.",
+            "patterns": [
+              "mitochondri.{0,55}(respir|energy)"
+            ]
+          },
+          {
+            "label": "The released energy enables muscle contraction.",
+            "patterns": [
+              "energy.{0,55}contract"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Mitochondria carry out aerobic respiration / release energy. The released energy enables muscle contraction.",
+      "markKeywords": [
+        "Mitochondria carry out aerobic respiration / release energy.",
+        "The released energy enables muscle contraction."
+      ],
+      "hint": "Do not say mitochondria make energy; respiration releases it.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Do not say mitochondria make energy; respiration releases it."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-029",
+      "conceptId": "bio-cell-20261003-029",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Explain two adaptations of xylem vessels for carrying water.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Dead hollow cells form a continuous tube for water flow. Lignin strengthens walls / prevents collapse."
+        ],
+        "points": [
+          {
+            "label": "Dead hollow cells form a continuous tube for water flow.",
+            "patterns": [
+              "(hollow|continuous).{0,50}(water|flow|tube)"
+            ]
+          },
+          {
+            "label": "Lignin strengthens walls / prevents collapse.",
+            "patterns": [
+              "lignin.{0,45}(strength|collapse|support)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Dead hollow cells form a continuous tube for water flow. Lignin strengthens walls / prevents collapse.",
+      "markKeywords": [
+        "Dead hollow cells form a continuous tube for water flow.",
+        "Lignin strengthens walls / prevents collapse."
+      ],
+      "hint": "Xylem does not transport sugars.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Xylem does not transport sugars."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-030",
+      "conceptId": "bio-cell-20261003-030",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Explain how sieve plates and companion cells help phloem transport.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Sieve plate pores allow dissolved sugars to pass. Companion cells supply energy for transport."
+        ],
+        "points": [
+          {
+            "label": "Sieve plate pores allow dissolved sugars to pass.",
+            "patterns": [
+              "sieve.{0,60}(sugar|pass|flow)"
+            ]
+          },
+          {
+            "label": "Companion cells supply energy for transport.",
+            "patterns": [
+              "companion.{0,60}energy"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Sieve plate pores allow dissolved sugars to pass. Companion cells supply energy for transport.",
+      "markKeywords": [
+        "Sieve plate pores allow dissolved sugars to pass.",
+        "Companion cells supply energy for transport."
+      ],
+      "hint": "Phloem sieve tubes are living and differ from dead xylem vessels.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Phloem sieve tubes are living and differ from dead xylem vessels."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-031",
+      "conceptId": "bio-cell-20261003-031",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Identify cells A, B and C in the figure.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "A is a sperm cell. B is a root hair cell. C is a nerve cell / neurone."
+        ],
+        "points": [
+          {
+            "label": "A is a sperm cell.",
+            "patterns": [
+              "A\\s*(is|:|=|-)?\\s*(a\\s*)?sperm"
+            ]
+          },
+          {
+            "label": "B is a root hair cell.",
+            "patterns": [
+              "B\\s*(is|:|=|-)?\\s*(a\\s*)?root hair"
+            ]
+          },
+          {
+            "label": "C is a nerve cell / neurone.",
+            "patterns": [
+              "C\\s*(is|:|=|-)?\\s*(a\\s*)?(nerve|neuron)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "A is a sperm cell. B is a root hair cell. C is a nerve cell / neurone.",
+      "markKeywords": [
+        "A is a sperm cell.",
+        "B is a root hair cell.",
+        "C is a nerve cell / neurone."
+      ],
+      "hint": "Match the letters explicitly so the App can check all three.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Match the letters explicitly so the App can check all three."
+      },
+      "diagram": "specialised-20261003.webp",
+      "diagramAlt": "Three schematic cells A, B and C, not to scale."
+    },
+    {
+      "id": "bio-cell-20261003-032",
+      "conceptId": "bio-cell-20261003-032",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Explain three adaptations of a sperm cell for its function.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Its tail enables swimming towards the egg. Mitochondria release energy for movement. Acrosome enzymes digest the outer layer of the egg."
+        ],
+        "points": [
+          {
+            "label": "Its tail enables swimming towards the egg.",
+            "patterns": [
+              "tail.{0,55}(swim|move|propel)"
+            ]
+          },
+          {
+            "label": "Mitochondria release energy for movement.",
+            "patterns": [
+              "mitochondri.{0,55}energy"
+            ]
+          },
+          {
+            "label": "Acrosome enzymes digest the outer layer of the egg.",
+            "patterns": [
+              "(acrosome|enzyme).{0,60}(digest|break).{0,30}(egg|layer)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Its tail enables swimming towards the egg. Mitochondria release energy for movement. Acrosome enzymes digest the outer layer of the egg.",
+      "markKeywords": [
+        "Its tail enables swimming towards the egg.",
+        "Mitochondria release energy for movement.",
+        "Acrosome enzymes digest the outer layer of the egg."
+      ],
+      "hint": "Pair each feature with an effect; do not just list parts.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Pair each feature with an effect; do not just list parts."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-033",
+      "conceptId": "bio-cell-20261003-033",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Describe the function of xylem and explain two structural adaptations.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Xylem transports water and mineral ions. Hollow vessels allow a continuous flow. Lignin strengthens the walls."
+        ],
+        "points": [
+          {
+            "label": "Xylem transports water and mineral ions.",
+            "patterns": [
+              "water.{0,20}mineral"
+            ]
+          },
+          {
+            "label": "Hollow vessels allow a continuous flow.",
+            "patterns": [
+              "hollow.{0,45}(flow|continuous|water)"
+            ]
+          },
+          {
+            "label": "Lignin strengthens the walls.",
+            "patterns": [
+              "lignin.{0,35}(strength|support|collapse)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Xylem transports water and mineral ions. Hollow vessels allow a continuous flow. Lignin strengthens the walls.",
+      "markKeywords": [
+        "Xylem transports water and mineral ions.",
+        "Hollow vessels allow a continuous flow.",
+        "Lignin strengthens the walls."
+      ],
+      "hint": "Name both transported substances and explain the adaptations.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Name both transported substances and explain the adaptations."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-034",
+      "conceptId": "bio-cell-20261003-034",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Describe the function of phloem and explain two adaptations.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Phloem transports dissolved sugars. Sieve plates have pores through which sap can flow. Companion cells have mitochondria to supply energy."
+        ],
+        "points": [
+          {
+            "label": "Phloem transports dissolved sugars.",
+            "patterns": [
+              "(transport|carry|move).{0,25}(dissolved )?sugar"
+            ]
+          },
+          {
+            "label": "Sieve plates have pores through which sap can flow.",
+            "patterns": [
+              "sieve.{0,60}(pore|flow|pass)"
+            ]
+          },
+          {
+            "label": "Companion cells have mitochondria to supply energy.",
+            "patterns": [
+              "companion.{0,65}(mitochondri|energy)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Phloem transports dissolved sugars. Sieve plates have pores through which sap can flow. Companion cells have mitochondria to supply energy.",
+      "markKeywords": [
+        "Phloem transports dissolved sugars.",
+        "Sieve plates have pores through which sap can flow.",
+        "Companion cells have mitochondria to supply energy."
+      ],
+      "hint": "Few organelles leave space but do not make phloem a dead tissue.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Few organelles leave space but do not make phloem a dead tissue."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-035",
+      "conceptId": "bio-cell-20261003-035",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Explain three adaptations of a root hair cell for absorption.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Its long extension increases surface area. A thin wall provides a short pathway for water entry. Many mitochondria release energy for mineral ion uptake."
+        ],
+        "points": [
+          {
+            "label": "Its long extension increases surface area.",
+            "patterns": [
+              "(extension|hair).{0,60}surface area"
+            ]
+          },
+          {
+            "label": "A thin wall provides a short pathway for water entry.",
+            "patterns": [
+              "thin.{0,20}wall.{0,60}(short|water)"
+            ]
+          },
+          {
+            "label": "Many mitochondria release energy for mineral ion uptake.",
+            "patterns": [
+              "mitochondri.{0,60}energy.{0,50}(mineral|ion|uptake)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Its long extension increases surface area. A thin wall provides a short pathway for water entry. Many mitochondria release energy for mineral ion uptake.",
+      "markKeywords": [
+        "Its long extension increases surface area.",
+        "A thin wall provides a short pathway for water entry.",
+        "Many mitochondria release energy for mineral ion uptake."
+      ],
+      "hint": "The function of extra mitochondria relates to mineral ion uptake, not photosynthesis.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "The function of extra mitochondria relates to mineral ion uptake, not photosynthesis."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-036",
+      "conceptId": "bio-cell-20261003-036",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "A muscle cell stores glycogen and contains sliding protein fibres and many mitochondria. Explain all three features.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Glycogen supplies glucose for respiration. Sliding protein fibres allow contraction. Mitochondria release energy for contraction."
+        ],
+        "points": [
+          {
+            "label": "Glycogen supplies glucose for respiration.",
+            "patterns": [
+              "glycogen.{0,60}(glucose|respir)"
+            ]
+          },
+          {
+            "label": "Sliding protein fibres allow contraction.",
+            "patterns": [
+              "(fibre|protein).{0,60}contract"
+            ]
+          },
+          {
+            "label": "Mitochondria release energy for contraction.",
+            "patterns": [
+              "mitochondri.{0,65}energy"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Glycogen supplies glucose for respiration. Sliding protein fibres allow contraction. Mitochondria release energy for contraction.",
+      "markKeywords": [
+        "Glycogen supplies glucose for respiration.",
+        "Sliding protein fibres allow contraction.",
+        "Mitochondria release energy for contraction."
+      ],
+      "hint": "Do not confuse glycogen with chlorophyll.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Do not confuse glycogen with chlorophyll."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-037",
+      "conceptId": "bio-cell-20261003-037",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Define cell differentiation and state its outcome.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Differentiation is the process by which cells become specialised. The cell becomes adapted for a particular function."
+        ],
+        "points": [
+          {
+            "label": "Differentiation is the process by which cells become specialised.",
+            "patterns": [
+              "(process|differentiat).{0,70}speciali"
+            ]
+          },
+          {
+            "label": "The cell becomes adapted for a particular function.",
+            "patterns": [
+              "(particular|specific|certain).{0,20}(function|job)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Differentiation is the process by which cells become specialised. The cell becomes adapted for a particular function.",
+      "markKeywords": [
+        "Differentiation is the process by which cells become specialised.",
+        "The cell becomes adapted for a particular function."
+      ],
+      "hint": "Differentiation changes cell specialisation; it is not simply cell division.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Differentiation changes cell specialisation; it is not simply cell division."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-038",
+      "conceptId": "bio-cell-20261003-038",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Compare when most animal cells and many plant cells can differentiate.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Most animal cells differentiate early in development. Many plant cells retain this ability throughout life."
+        ],
+        "points": [
+          {
+            "label": "Most animal cells differentiate early in development.",
+            "patterns": [
+              "animal.{0,60}early"
+            ]
+          },
+          {
+            "label": "Many plant cells retain this ability throughout life.",
+            "patterns": [
+              "plant.{0,60}(throughout|life|retain)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Most animal cells differentiate early in development. Many plant cells retain this ability throughout life.",
+      "markKeywords": [
+        "Most animal cells differentiate early in development.",
+        "Many plant cells retain this ability throughout life."
+      ],
+      "hint": "Use “most” and “many”, rather than claiming all cells behave identically.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Use “most” and “many”, rather than claiming all cells behave identically."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-039",
+      "conceptId": "bio-cell-20261003-039",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "State the two main purposes of cell division in mature animals.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Repair of damaged tissues. Replacement of worn-out cells."
+        ],
+        "points": [
+          {
+            "label": "Repair of damaged tissues.",
+            "patterns": [
+              "repair"
+            ]
+          },
+          {
+            "label": "Replacement of worn-out cells.",
+            "patterns": [
+              "replac"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Repair of damaged tissues. Replacement of worn-out cells.",
+      "markKeywords": [
+        "Repair of damaged tissues.",
+        "Replacement of worn-out cells."
+      ],
+      "hint": "Growth of an embryo is not the main purpose in a mature animal.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Growth of an embryo is not the main purpose in a mature animal."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-040",
+      "conceptId": "bio-cell-20261003-040",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Explain why a multicellular organism needs differentiated cells.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Different cells carry out different specific functions. This allows tissues / organs to work effectively."
+        ],
+        "points": [
+          {
+            "label": "Different cells carry out different specific functions.",
+            "patterns": [
+              "different.{0,40}(function|job)"
+            ]
+          },
+          {
+            "label": "This allows tissues / organs to work effectively.",
+            "patterns": [
+              "(tissue|organ).{0,55}(work|effect|function)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Different cells carry out different specific functions. This allows tissues / organs to work effectively.",
+      "markKeywords": [
+        "Different cells carry out different specific functions.",
+        "This allows tissues / organs to work effectively."
+      ],
+      "hint": "Explain the benefit, not only the definition.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Explain the benefit, not only the definition."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-041",
+      "conceptId": "bio-cell-20261003-041",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A cell develops many mitochondria as it becomes a muscle cell. Name the process and link this change to its new function.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The process is differentiation. Mitochondria release energy for contraction."
+        ],
+        "points": [
+          {
+            "label": "The process is differentiation.",
+            "patterns": [
+              "differentiat"
+            ]
+          },
+          {
+            "label": "Mitochondria release energy for contraction.",
+            "patterns": [
+              "mitochondri.{0,65}energy.{0,30}contract"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The process is differentiation. Mitochondria release energy for contraction.",
+      "markKeywords": [
+        "The process is differentiation.",
+        "Mitochondria release energy for contraction."
+      ],
+      "hint": "State the process and then explain the structure-function link.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "State the process and then explain the structure-function link."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-042",
+      "conceptId": "bio-cell-20261003-042",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Explain why saying “differentiation means cells get bigger” is incomplete.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Cells become specialised for a particular function. They acquire appropriate sub-cellular structures."
+        ],
+        "points": [
+          {
+            "label": "Cells become specialised for a particular function.",
+            "patterns": [
+              "speciali.{0,50}(function|job)"
+            ]
+          },
+          {
+            "label": "They acquire appropriate sub-cellular structures.",
+            "patterns": [
+              "(acquire|develop|gain|change).{0,35}(structure|organelle)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Cells become specialised for a particular function. They acquire appropriate sub-cellular structures.",
+      "markKeywords": [
+        "Cells become specialised for a particular function.",
+        "They acquire appropriate sub-cellular structures."
+      ],
+      "hint": "An increase in size alone does not establish differentiation.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "An increase in size alone does not establish differentiation."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-043",
+      "conceptId": "bio-cell-20261003-043",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Describe what changes during differentiation and why the changes matter.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Cells become specialised. They acquire different sub-cellular structures. These structures enable a particular function."
+        ],
+        "points": [
+          {
+            "label": "Cells become specialised.",
+            "patterns": [
+              "speciali"
+            ]
+          },
+          {
+            "label": "They acquire different sub-cellular structures.",
+            "patterns": [
+              "(acquire|develop|gain|change).{0,35}(structure|organelle)"
+            ]
+          },
+          {
+            "label": "These structures enable a particular function.",
+            "patterns": [
+              "(enable|allow|perform|carry out).{0,45}(function|job)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Cells become specialised. They acquire different sub-cellular structures. These structures enable a particular function.",
+      "markKeywords": [
+        "Cells become specialised.",
+        "They acquire different sub-cellular structures.",
+        "These structures enable a particular function."
+      ],
+      "hint": "A three-mark explanation needs process, structure change and function.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "A three-mark explanation needs process, structure change and function."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-044",
+      "conceptId": "bio-cell-20261003-044",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Compare differentiation in animals and plants, and state the main role of division in mature animals.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Most animal cells differentiate early. Many plant cells differentiate throughout life. Mature animal cell division mainly repairs and replaces cells."
+        ],
+        "points": [
+          {
+            "label": "Most animal cells differentiate early.",
+            "patterns": [
+              "animal.{0,55}early"
+            ]
+          },
+          {
+            "label": "Many plant cells differentiate throughout life.",
+            "patterns": [
+              "plant.{0,55}(throughout|life)"
+            ]
+          },
+          {
+            "label": "Mature animal cell division mainly repairs and replaces cells.",
+            "patterns": [
+              "repair.{0,25}replac|replac.{0,25}repair"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Most animal cells differentiate early. Many plant cells differentiate throughout life. Mature animal cell division mainly repairs and replaces cells.",
+      "markKeywords": [
+        "Most animal cells differentiate early.",
+        "Many plant cells differentiate throughout life.",
+        "Mature animal cell division mainly repairs and replaces cells."
+      ],
+      "hint": "Do not claim mature animals can never produce new cells.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Do not claim mature animals can never produce new cells."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-045",
+      "conceptId": "bio-cell-20261003-045",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "An unspecialised cell becomes a nerve cell. State the process, one structural change and its advantage.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It differentiates. It develops a long axon. The axon transmits impulses over long distances."
+        ],
+        "points": [
+          {
+            "label": "It differentiates.",
+            "patterns": [
+              "differentiat"
+            ]
+          },
+          {
+            "label": "It develops a long axon.",
+            "patterns": [
+              "long axon"
+            ]
+          },
+          {
+            "label": "The axon transmits impulses over long distances.",
+            "patterns": [
+              "(impulse|signal).{0,40}(distance|long)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "It differentiates. It develops a long axon. The axon transmits impulses over long distances.",
+      "markKeywords": [
+        "It differentiates.",
+        "It develops a long axon.",
+        "The axon transmits impulses over long distances."
+      ],
+      "hint": "Link the structural change to nerve-cell function.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Link the structural change to nerve-cell function."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-046",
+      "conceptId": "bio-cell-20261003-046",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "An unspecialised plant cell becomes a root hair cell. Explain this change in three steps.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The cell differentiates / becomes specialised. It develops a long root hair extension. The extension increases surface area for absorption."
+        ],
+        "points": [
+          {
+            "label": "The cell differentiates / becomes specialised.",
+            "patterns": [
+              "differentiat|speciali"
+            ]
+          },
+          {
+            "label": "It develops a long root hair extension.",
+            "patterns": [
+              "(develop|grow|form).{0,35}(extension|root hair)"
+            ]
+          },
+          {
+            "label": "The extension increases surface area for absorption.",
+            "patterns": [
+              "surface area.{0,50}(absorb|uptake|absorption)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The cell differentiates / becomes specialised. It develops a long root hair extension. The extension increases surface area for absorption.",
+      "markKeywords": [
+        "The cell differentiates / becomes specialised.",
+        "It develops a long root hair extension.",
+        "The extension increases surface area for absorption."
+      ],
+      "hint": "Keep the explanation on differentiation and the resulting adaptation.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Keep the explanation on differentiation and the resulting adaptation."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-047",
+      "conceptId": "bio-cell-20261003-047",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A mature animal is healing a cut. Explain the roles of cell division and differentiation, and distinguish them.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Cell division produces more cells to repair / replace tissue. Differentiation produces cells specialised for a function. Division changes cell number; differentiation changes cell type / structure."
+        ],
+        "points": [
+          {
+            "label": "Cell division produces more cells to repair / replace tissue.",
+            "patterns": [
+              "division.{0,65}(more|new|repair|replac)"
+            ]
+          },
+          {
+            "label": "Differentiation produces cells specialised for a function.",
+            "patterns": [
+              "differentiat.{0,60}speciali"
+            ]
+          },
+          {
+            "label": "Division changes cell number; differentiation changes cell type / structure.",
+            "patterns": [
+              "number.{0,65}(type|structure)|type.{0,65}number"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Cell division produces more cells to repair / replace tissue. Differentiation produces cells specialised for a function. Division changes cell number; differentiation changes cell type / structure.",
+      "markKeywords": [
+        "Cell division produces more cells to repair / replace tissue.",
+        "Differentiation produces cells specialised for a function.",
+        "Division changes cell number; differentiation changes cell type / structure."
+      ],
+      "hint": "These processes can be related, but they are not synonyms.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "These processes can be related, but they are not synonyms."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-048",
+      "conceptId": "bio-cell-20261003-048",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Three claims are made: all plant cells lose differentiation ability; animal cells usually differentiate late; differentiation only increases cell number. Correct each.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Many plant cells retain differentiation ability throughout life. Most animal cells differentiate early. Differentiation changes cell specialisation, not just number."
+        ],
+        "points": [
+          {
+            "label": "Many plant cells retain differentiation ability throughout life.",
+            "patterns": [
+              "plant.{0,75}(throughout|retain|life)"
+            ]
+          },
+          {
+            "label": "Most animal cells differentiate early.",
+            "patterns": [
+              "animal.{0,55}early"
+            ]
+          },
+          {
+            "label": "Differentiation changes cell specialisation, not just number.",
+            "patterns": [
+              "differentiat.{0,60}speciali"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Many plant cells retain differentiation ability throughout life. Most animal cells differentiate early. Differentiation changes cell specialisation, not just number.",
+      "markKeywords": [
+        "Many plant cells retain differentiation ability throughout life.",
+        "Most animal cells differentiate early.",
+        "Differentiation changes cell specialisation, not just number."
+      ],
+      "hint": "Use the correct qualifiers and distinguish differentiation from division.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Use the correct qualifiers and distinguish differentiation from division."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-049",
+      "conceptId": "bio-cell-20261003-049",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "Distinguish magnification from resolution.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Magnification is how many times larger the image is than the object. Resolution is the ability to distinguish two close points as separate."
+        ],
+        "points": [
+          {
+            "label": "Magnification is how many times larger the image is than the object.",
+            "patterns": [
+              "(magnification.{0,70}(times|larger)|image.{0,35}object)"
+            ]
+          },
+          {
+            "label": "Resolution is the ability to distinguish two close points as separate.",
+            "patterns": [
+              "(resolution.{0,85}(two|close|separate)|two.{0,45}separate)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Magnification is how many times larger the image is than the object. Resolution is the ability to distinguish two close points as separate.",
+      "markKeywords": [
+        "Magnification is how many times larger the image is than the object.",
+        "Resolution is the ability to distinguish two close points as separate."
+      ],
+      "hint": "A larger blurred image has increased magnification without improved resolution.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "A larger blurred image has increased magnification without improved resolution."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-050",
+      "conceptId": "bio-cell-20261003-050",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "Explain two advantages of an electron microscope over a light microscope.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It has higher magnification. It has higher resolution, revealing finer sub-cellular detail."
+        ],
+        "points": [
+          {
+            "label": "It has higher magnification.",
+            "patterns": [
+              "(higher|greater|more).{0,20}magnification"
+            ]
+          },
+          {
+            "label": "It has higher resolution, revealing finer sub-cellular detail.",
+            "patterns": [
+              "(higher|greater|better).{0,20}resolution"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "It has higher magnification. It has higher resolution, revealing finer sub-cellular detail.",
+      "markKeywords": [
+        "It has higher magnification.",
+        "It has higher resolution, revealing finer sub-cellular detail."
+      ],
+      "hint": "State both magnification and resolution.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "State both magnification and resolution."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-051",
+      "conceptId": "bio-cell-20261003-051",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "Explain why an onion epidermis slide is stained and why its coverslip is lowered at an angle.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Stain increases contrast / makes structures easier to see. Lowering at an angle reduces trapped air bubbles."
+        ],
+        "points": [
+          {
+            "label": "Stain increases contrast / makes structures easier to see.",
+            "patterns": [
+              "(contrast|easier.{0,12}see|visible)"
+            ]
+          },
+          {
+            "label": "Lowering at an angle reduces trapped air bubbles.",
+            "patterns": [
+              "(reduce|prevent|avoid).{0,30}(air|bubble)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Stain increases contrast / makes structures easier to see. Lowering at an angle reduces trapped air bubbles.",
+      "markKeywords": [
+        "Stain increases contrast / makes structures easier to see.",
+        "Lowering at an angle reduces trapped air bubbles."
+      ],
+      "hint": "Stain helps visibility; it does not magnify the cells.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Stain helps visibility; it does not magnify the cells."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-052",
+      "conceptId": "bio-cell-20261003-052",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "Explain why you start with the lowest-power objective and then use fine focus at high power.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Low power gives a wider field of view, making the specimen easier to find. Fine focus makes small adjustments and avoids driving the lens into the slide."
+        ],
+        "points": [
+          {
+            "label": "Low power gives a wider field of view, making the specimen easier to find.",
+            "patterns": [
+              "(wide|larger).{0,25}field|easier.{0,25}(find|locate)"
+            ]
+          },
+          {
+            "label": "Fine focus makes small adjustments and avoids driving the lens into the slide.",
+            "patterns": [
+              "(small.{0,20}adjust|avoid.{0,40}(slide|damage)|fine.{0,40}sharp)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Low power gives a wider field of view, making the specimen easier to find. Fine focus makes small adjustments and avoids driving the lens into the slide.",
+      "markKeywords": [
+        "Low power gives a wider field of view, making the specimen easier to find.",
+        "Fine focus makes small adjustments and avoids driving the lens into the slide."
+      ],
+      "hint": "Avoid coarse focus at high power because the lens is close to the slide.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Avoid coarse focus at high power because the lens is close to the slide."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-053",
+      "conceptId": "bio-cell-20261003-053",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "An image is 12 mm wide. The actual cell width is 30 micrometres. Calculate magnification. Show unit conversion and final answer.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "12 mm = 12000 micrometres. Magnification = 400 times."
+        ],
+        "points": [
+          {
+            "label": "12 mm = 12000 micrometres.",
+            "patterns": [
+              "12000"
+            ]
+          },
+          {
+            "label": "Magnification = 400 times.",
+            "patterns": [
+              "\\b400\\s*(times|x|×)?\\b"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "12 mm = 12000 micrometres. Magnification = 400 times.",
+      "markKeywords": [
+        "12 mm = 12000 micrometres.",
+        "Magnification = 400 times."
+      ],
+      "hint": "Use matching units; magnification has no length unit.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Use matching units; magnification has no length unit."
+      },
+      "workedSolution": "12 x 1000 = 12000 micrometres. M = 12000 / 30 = 400."
+    },
+    {
+      "id": "bio-cell-20261003-054",
+      "conceptId": "bio-cell-20261003-054",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "List two conventions for a biological drawing from a light microscope.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Use clear single lines with no shading. Use straight non-crossing label lines."
+        ],
+        "points": [
+          {
+            "label": "Use clear single lines with no shading.",
+            "patterns": [
+              "(clear|single).{0,30}line|no shading"
+            ]
+          },
+          {
+            "label": "Use straight non-crossing label lines.",
+            "patterns": [
+              "(straight|non.crossing|not cross).{0,30}(label|line)|label.{0,30}(straight|not cross)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Use clear single lines with no shading. Use straight non-crossing label lines.",
+      "markKeywords": [
+        "Use clear single lines with no shading.",
+        "Use straight non-crossing label lines."
+      ],
+      "hint": "Draw what is observed, rather than copying a detailed electron-microscope diagram.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Draw what is observed, rather than copying a detailed electron-microscope diagram."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-055",
+      "conceptId": "bio-cell-20261003-055",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "Describe three stages in preparing an onion epidermis slide.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Place a thin layer of onion epidermis on a slide. Add iodine stain. Lower a coverslip at an angle to avoid bubbles."
+        ],
+        "points": [
+          {
+            "label": "Place a thin layer of onion epidermis on a slide.",
+            "patterns": [
+              "(thin|single).{0,35}(layer|epidermis)"
+            ]
+          },
+          {
+            "label": "Add iodine stain.",
+            "patterns": [
+              "iodine"
+            ]
+          },
+          {
+            "label": "Lower a coverslip at an angle to avoid bubbles.",
+            "patterns": [
+              "coverslip.{0,55}(angle|bubble)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Place a thin layer of onion epidermis on a slide. Add iodine stain. Lower a coverslip at an angle to avoid bubbles.",
+      "markKeywords": [
+        "Place a thin layer of onion epidermis on a slide.",
+        "Add iodine stain.",
+        "Lower a coverslip at an angle to avoid bubbles."
+      ],
+      "hint": "Use a thin layer so light can pass through.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Use a thin layer so light can pass through."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-056",
+      "conceptId": "bio-cell-20261003-056",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "A cell image is 5.4 mm wide at x450. Calculate actual width in micrometres. Show your working.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Use actual size = image size / magnification. Actual size = 0.012 mm. Actual size = 12 micrometres."
+        ],
+        "points": [
+          {
+            "label": "Use actual size = image size / magnification.",
+            "patterns": [
+              "(5\\.4\\s*/\\s*450|image.{0,20}/.{0,20}magnification|image size divided by magnification)"
+            ]
+          },
+          {
+            "label": "Actual size = 0.012 mm.",
+            "patterns": [
+              "0\\.012\\s*mm"
+            ]
+          },
+          {
+            "label": "Actual size = 12 micrometres.",
+            "patterns": [
+              "\\b12\\s*(micromet|um|µm|μm)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Use actual size = image size / magnification. Actual size = 0.012 mm. Actual size = 12 micrometres.",
+      "markKeywords": [
+        "Use actual size = image size / magnification.",
+        "Actual size = 0.012 mm.",
+        "Actual size = 12 micrometres."
+      ],
+      "hint": "Divide by magnification first, then convert mm to micrometres.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Divide by magnification first, then convert mm to micrometres."
+      },
+      "workedSolution": "5.4 / 450 = 0.012 mm. 0.012 x 1000 = 12 micrometres."
+    },
+    {
+      "id": "bio-cell-20261003-057",
+      "conceptId": "bio-cell-20261003-057",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "At x100 the field of view is 1.6 mm wide. At x400 ten equal cells fit across it. Estimate the width of one cell in micrometres.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "New field width = 1.6 x 100 / 400 = 0.4 mm. Cell width = 0.4 / 10 = 0.04 mm. Cell width = 40 micrometres."
+        ],
+        "points": [
+          {
+            "label": "New field width = 1.6 x 100 / 400 = 0.4 mm.",
+            "patterns": [
+              "0\\.4\\s*mm"
+            ]
+          },
+          {
+            "label": "Cell width = 0.4 / 10 = 0.04 mm.",
+            "patterns": [
+              "0\\.04\\s*mm"
+            ]
+          },
+          {
+            "label": "Cell width = 40 micrometres.",
+            "patterns": [
+              "\\b40\\s*(micromet|um|µm|μm)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "New field width = 1.6 x 100 / 400 = 0.4 mm. Cell width = 0.4 / 10 = 0.04 mm. Cell width = 40 micrometres.",
+      "markKeywords": [
+        "New field width = 1.6 x 100 / 400 = 0.4 mm.",
+        "Cell width = 0.4 / 10 = 0.04 mm.",
+        "Cell width = 40 micrometres."
+      ],
+      "hint": "Higher magnification gives a smaller field of view.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Higher magnification gives a smaller field of view."
+      },
+      "workedSolution": "Field = 1.6 x 100 / 400 = 0.4 mm. One cell = 0.4 / 10 = 0.04 mm = 40 micrometres."
+    },
+    {
+      "id": "bio-cell-20261003-058",
+      "conceptId": "bio-cell-20261003-058",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "An image is 36 mm wide and actual cell width is 18 micrometres. Calculate magnification with working.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Convert 36 mm to 36000 micrometres. Divide image size by actual size: 36000 / 18. Magnification = 2000."
+        ],
+        "points": [
+          {
+            "label": "Convert 36 mm to 36000 micrometres.",
+            "patterns": [
+              "36000"
+            ]
+          },
+          {
+            "label": "Divide image size by actual size: 36000 / 18.",
+            "patterns": [
+              "36000\\s*/\\s*18|36000.{0,15}divid.{0,15}18"
+            ]
+          },
+          {
+            "label": "Magnification = 2000.",
+            "patterns": [
+              "\\b2000\\b"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Convert 36 mm to 36000 micrometres. Divide image size by actual size: 36000 / 18. Magnification = 2000.",
+      "markKeywords": [
+        "Convert 36 mm to 36000 micrometres.",
+        "Divide image size by actual size: 36000 / 18.",
+        "Magnification = 2000."
+      ],
+      "hint": "Multiplying image size by actual size is not the magnification equation.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Multiplying image size by actual size is not the magnification equation."
+      },
+      "workedSolution": "36 x 1000 = 36000 micrometres. M = 36000 / 18 = 2000."
+    },
+    {
+      "id": "bio-cell-20261003-059",
+      "conceptId": "bio-cell-20261003-059",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "The figure represents onion bulb epidermis through a light microscope. Name two visible structures and explain why mitochondria are not shown.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Cell walls are visible. Nuclei are visible. Mitochondria are too small to resolve clearly with this school light microscope."
+        ],
+        "points": [
+          {
+            "label": "Cell walls are visible.",
+            "patterns": [
+              "cell wall"
+            ]
+          },
+          {
+            "label": "Nuclei are visible.",
+            "patterns": [
+              "nucle"
+            ]
+          },
+          {
+            "label": "Mitochondria are too small to resolve clearly with this school light microscope.",
+            "patterns": [
+              "(small|resolution|resolv)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Cell walls are visible. Nuclei are visible. Mitochondria are too small to resolve clearly with this school light microscope.",
+      "markKeywords": [
+        "Cell walls are visible.",
+        "Nuclei are visible.",
+        "Mitochondria are too small to resolve clearly with this school light microscope."
+      ],
+      "hint": "Onion bulb epidermis normally has no chloroplasts. Do not invent unseen organelles.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Onion bulb epidermis normally has no chloroplasts. Do not invent unseen organelles."
+      },
+      "diagram": "microscopy-20261003.webp",
+      "diagramAlt": "Onion epidermal cells seen under a light microscope, schematic."
+    },
+    {
+      "id": "bio-cell-20261003-060",
+      "conceptId": "bio-cell-20261003-060",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "Explain why a biological drawing needs a scale or magnification, and why a scale bar is useful if the image is resized.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It allows actual cell size to be estimated. A scale bar changes size together with the image. A stated magnification becomes wrong if an image is resized."
+        ],
+        "points": [
+          {
+            "label": "It allows actual cell size to be estimated.",
+            "patterns": [
+              "actual.{0,20}(size|width|length)"
+            ]
+          },
+          {
+            "label": "A scale bar changes size together with the image.",
+            "patterns": [
+              "scale bar.{0,60}(change|resize|together|same)"
+            ]
+          },
+          {
+            "label": "A stated magnification becomes wrong if an image is resized.",
+            "patterns": [
+              "magnification.{0,70}(wrong|invalid|change|resize)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "It allows actual cell size to be estimated. A scale bar changes size together with the image. A stated magnification becomes wrong if an image is resized.",
+      "markKeywords": [
+        "It allows actual cell size to be estimated.",
+        "A scale bar changes size together with the image.",
+        "A stated magnification becomes wrong if an image is resized."
+      ],
+      "hint": "An unscaled image cannot establish actual cell size.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "An unscaled image cannot establish actual cell size."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-061",
+      "conceptId": "bio-cell-20261003-061",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "Why must agar and Petri dishes be sterilised before a culture is prepared?",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Sterilisation kills unwanted microorganisms. This prevents contamination of the culture."
+        ],
+        "points": [
+          {
+            "label": "Sterilisation kills unwanted microorganisms.",
+            "patterns": [
+              "(kill|destroy).{0,30}(micro|bacter)"
+            ]
+          },
+          {
+            "label": "This prevents contamination of the culture.",
+            "patterns": [
+              "(prevent|avoid|reduce).{0,30}contamin"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Sterilisation kills unwanted microorganisms. This prevents contamination of the culture.",
+      "markKeywords": [
+        "Sterilisation kills unwanted microorganisms.",
+        "This prevents contamination of the culture."
+      ],
+      "hint": "“To keep it clean” needs the microorganisms and contamination explanation.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "“To keep it clean” needs the microorganisms and contamination explanation."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-062",
+      "conceptId": "bio-cell-20261003-062",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "Explain why a flamed inoculating loop must cool before touching the culture.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Flaming sterilises it / kills microorganisms. Cooling prevents the hot loop killing the intended bacteria."
+        ],
+        "points": [
+          {
+            "label": "Flaming sterilises it / kills microorganisms.",
+            "patterns": [
+              "(flam|sterili).{0,50}(kill|micro)|flaming sterilises"
+            ]
+          },
+          {
+            "label": "Cooling prevents the hot loop killing the intended bacteria.",
+            "patterns": [
+              "(cool|hot).{0,60}(prevent|avoid|kill)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Flaming sterilises it / kills microorganisms. Cooling prevents the hot loop killing the intended bacteria.",
+      "markKeywords": [
+        "Flaming sterilises it / kills microorganisms.",
+        "Cooling prevents the hot loop killing the intended bacteria."
+      ],
+      "hint": "Cooling is not an opportunity to touch the loop against the bench.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Cooling is not an opportunity to touch the loop against the bench."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-063",
+      "conceptId": "bio-cell-20261003-063",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "State the maximum incubation temperature for school cultures and explain the reason.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The maximum temperature is 25 degrees C. It reduces the risk of growth of human pathogens."
+        ],
+        "points": [
+          {
+            "label": "The maximum temperature is 25 degrees C.",
+            "patterns": [
+              "\\b25\\s*(degrees?|°|C|celsius)"
+            ]
+          },
+          {
+            "label": "It reduces the risk of growth of human pathogens.",
+            "patterns": [
+              "(reduce|lower|less).{0,60}(pathogen|harmful|disease)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The maximum temperature is 25 degrees C. It reduces the risk of growth of human pathogens.",
+      "markKeywords": [
+        "The maximum temperature is 25 degrees C.",
+        "It reduces the risk of growth of human pathogens."
+      ],
+      "hint": "Use 25 degrees C, not the 30 degrees C in one older slide; risk is reduced, not eliminated.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Use 25 degrees C, not the 30 degrees C in one older slide; risk is reduced, not eliminated."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-064",
+      "conceptId": "bio-cell-20261003-064",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "Why are school agar plates incubated upside down?",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "This prevents condensation dripping onto the agar. It prevents spreading / mixing of colonies."
+        ],
+        "points": [
+          {
+            "label": "This prevents condensation dripping onto the agar.",
+            "patterns": [
+              "(condensation|water).{0,55}(drip|drop)"
+            ]
+          },
+          {
+            "label": "It prevents spreading / mixing of colonies.",
+            "patterns": [
+              "(prevent|avoid|reduce).{0,40}(spread|mix)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "This prevents condensation dripping onto the agar. It prevents spreading / mixing of colonies.",
+      "markKeywords": [
+        "This prevents condensation dripping onto the agar.",
+        "It prevents spreading / mixing of colonies."
+      ],
+      "hint": "Inversion does not stop all bacterial growth.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Inversion does not stop all bacterial growth."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-065",
+      "conceptId": "bio-cell-20261003-065",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "Why is a Petri dish taped at a few points rather than completely sealed?",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Tape keeps the lid secure / reduces contamination. Gaps allow oxygen in and discourage anaerobic conditions."
+        ],
+        "points": [
+          {
+            "label": "Tape keeps the lid secure / reduces contamination.",
+            "patterns": [
+              "(secure|lid|contamin)"
+            ]
+          },
+          {
+            "label": "Gaps allow oxygen in and discourage anaerobic conditions.",
+            "patterns": [
+              "oxygen|anaerobic"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Tape keeps the lid secure / reduces contamination. Gaps allow oxygen in and discourage anaerobic conditions.",
+      "markKeywords": [
+        "Tape keeps the lid secure / reduces contamination.",
+        "Gaps allow oxygen in and discourage anaerobic conditions."
+      ],
+      "hint": "Do not claim a few tape strips make a plate airtight.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Do not claim a few tape strips make a plate airtight."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-066",
+      "conceptId": "bio-cell-20261003-066",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "One bacterium divides every 20 minutes. Calculate the number after 2 hours and state one assumption.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The population is 64 bacteria. Assume sufficient nutrients and a suitable temperature / unchanged division time."
+        ],
+        "points": [
+          {
+            "label": "The population is 64 bacteria.",
+            "patterns": [
+              "\\b64\\b"
+            ]
+          },
+          {
+            "label": "Assume sufficient nutrients and a suitable temperature / unchanged division time.",
+            "patterns": [
+              "(sufficient|enough).{0,20}nutrient|suitable.{0,20}temperature|constant.{0,20}(rate|division)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The population is 64 bacteria. Assume sufficient nutrients and a suitable temperature / unchanged division time.",
+      "markKeywords": [
+        "The population is 64 bacteria.",
+        "Assume sufficient nutrients and a suitable temperature / unchanged division time."
+      ],
+      "hint": "There are six doublings, not six new cells.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "There are six doublings, not six new cells."
+      },
+      "workedSolution": "120 / 20 = 6 divisions. 1 x 2^6 = 64 bacteria."
+    },
+    {
+      "id": "bio-cell-20261003-067",
+      "conceptId": "bio-cell-20261003-067",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "Describe three aseptic precautions while inoculating an agar plate.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Disinfect the bench. Sterilise the inoculating loop. Open the lid only slightly and briefly."
+        ],
+        "points": [
+          {
+            "label": "Disinfect the bench.",
+            "patterns": [
+              "disinfect.{0,25}(bench|surface)"
+            ]
+          },
+          {
+            "label": "Sterilise the inoculating loop.",
+            "patterns": [
+              "sterili.{0,30}loop"
+            ]
+          },
+          {
+            "label": "Open the lid only slightly and briefly.",
+            "patterns": [
+              "lid.{0,40}(brief|slight|partial)|open.{0,25}(brief|slight|partial)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Disinfect the bench. Sterilise the inoculating loop. Open the lid only slightly and briefly.",
+      "markKeywords": [
+        "Disinfect the bench.",
+        "Sterilise the inoculating loop.",
+        "Open the lid only slightly and briefly."
+      ],
+      "hint": "Explain contamination control using specific actions.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Explain contamination control using specific actions."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-068",
+      "conceptId": "bio-cell-20261003-068",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "An initial population of 200 bacteria doubles every 30 minutes. Calculate the population after 3 hours, with working.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Number of doublings = 180 / 30 = 6. Population = 200 x 2^6. Final population = 12800 bacteria."
+        ],
+        "points": [
+          {
+            "label": "Number of doublings = 180 / 30 = 6.",
+            "patterns": [
+              "(180\\s*/\\s*30|6.{0,12}doubl)"
+            ]
+          },
+          {
+            "label": "Population = 200 x 2^6.",
+            "patterns": [
+              "200\\s*[x×*]\\s*2\\s*\\^\\s*6"
+            ]
+          },
+          {
+            "label": "Final population = 12800 bacteria.",
+            "patterns": [
+              "\\b12,?800\\b"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Number of doublings = 180 / 30 = 6. Population = 200 x 2^6. Final population = 12800 bacteria.",
+      "markKeywords": [
+        "Number of doublings = 180 / 30 = 6.",
+        "Population = 200 x 2^6.",
+        "Final population = 12800 bacteria."
+      ],
+      "hint": "Multiply by the starting population; do not assume it is one.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Multiply by the starting population; do not assume it is one."
+      },
+      "workedSolution": "3 h = 180 min. 180 / 30 = 6. N = 200 x 2^6 = 12800."
+    },
+    {
+      "id": "bio-cell-20261003-069",
+      "conceptId": "bio-cell-20261003-069",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "One bacterium becomes 128 bacteria with a 30-minute division time. Calculate the time in hours with working.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "128 = 2^7, so seven doublings. Time = 7 x 30 = 210 minutes. Time = 3.5 hours."
+        ],
+        "points": [
+          {
+            "label": "128 = 2^7, so seven doublings.",
+            "patterns": [
+              "(seven|7).{0,15}doubl|2\\^7"
+            ]
+          },
+          {
+            "label": "Time = 7 x 30 = 210 minutes.",
+            "patterns": [
+              "210\\s*(min|minutes)"
+            ]
+          },
+          {
+            "label": "Time = 3.5 hours.",
+            "patterns": [
+              "3\\.5\\s*(h|hours)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "128 = 2^7, so seven doublings. Time = 7 x 30 = 210 minutes. Time = 3.5 hours.",
+      "markKeywords": [
+        "128 = 2^7, so seven doublings.",
+        "Time = 7 x 30 = 210 minutes.",
+        "Time = 3.5 hours."
+      ],
+      "hint": "Seven doublings are required; divide 210 minutes by 60.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Seven doublings are required; divide 210 minutes by 60."
+      },
+      "workedSolution": "128 = 2^7. 7 x 30 = 210 min = 3.5 hours."
+    },
+    {
+      "id": "bio-cell-20261003-070",
+      "conceptId": "bio-cell-20261003-070",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A circular clear zone has diameter 12 mm. Calculate its area to 1 decimal place, including working. Use pi = 3.142.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Radius = 6 mm. Area = pi r squared = 3.142 x 6^2. Area = 113.1 mm squared."
+        ],
+        "points": [
+          {
+            "label": "Radius = 6 mm.",
+            "patterns": [
+              "\\b6\\s*mm"
+            ]
+          },
+          {
+            "label": "Area = pi r squared = 3.142 x 6^2.",
+            "patterns": [
+              "(3\\.142\\s*[x×*]\\s*6|pi\\s*r\\s*(\\^2|squared)|π\\s*r)"
+            ]
+          },
+          {
+            "label": "Area = 113.1 mm squared.",
+            "patterns": [
+              "113\\.1\\s*mm\\s*(\\^?2|²|squared)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Radius = 6 mm. Area = pi r squared = 3.142 x 6^2. Area = 113.1 mm squared.",
+      "markKeywords": [
+        "Radius = 6 mm.",
+        "Area = pi r squared = 3.142 x 6^2.",
+        "Area = 113.1 mm squared."
+      ],
+      "hint": "Halve the diameter; area units are mm squared.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "Halve the diameter; area units are mm squared."
+      },
+      "workedSolution": "r = 12 / 2 = 6 mm. A = 3.142 x 6^2 = 113.112 = 113.1 mm^2."
+    },
+    {
+      "id": "bio-cell-20261003-071",
+      "conceptId": "bio-cell-20261003-071",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "In an antibiotic-disc experiment, state a suitable control, one controlled variable and how to improve reliability.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Use a disc soaked in sterile water as the control. Keep antibiotic concentration / disc size / incubation time / bacterial species constant. Repeat and calculate a mean."
+        ],
+        "points": [
+          {
+            "label": "Use a disc soaked in sterile water as the control.",
+            "patterns": [
+              "sterile water"
+            ]
+          },
+          {
+            "label": "Keep antibiotic concentration / disc size / incubation time / bacterial species constant.",
+            "patterns": [
+              "(constant|same|control).{0,50}(concentration|disc|time|species)|keep.{0,50}(same|constant)"
+            ]
+          },
+          {
+            "label": "Repeat and calculate a mean.",
+            "patterns": [
+              "repeat.{0,45}(mean|average)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Use a disc soaked in sterile water as the control. Keep antibiotic concentration / disc size / incubation time / bacterial species constant. Repeat and calculate a mean.",
+      "markKeywords": [
+        "Use a disc soaked in sterile water as the control.",
+        "Keep antibiotic concentration / disc size / incubation time / bacterial species constant.",
+        "Repeat and calculate a mean."
+      ],
+      "hint": "A control treatment and a controlled variable are different things.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "A control treatment and a controlled variable are different things."
+      }
+    },
+    {
+      "id": "bio-cell-20261003-072",
+      "conceptId": "bio-cell-20261003-072",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "Under identical conditions antibiotic A gives a 16 mm clear-zone diameter and B gives 10 mm. State the better inhibitor, explain the evidence and give a limitation.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "A is the better inhibitor in this test. A has the larger clear zone / greater inhibited area. Different diffusion rates can affect zone sizes; this does not alone establish clinical effectiveness."
+        ],
+        "points": [
+          {
+            "label": "A is the better inhibitor in this test.",
+            "patterns": [
+              "\\bA\\b.{0,45}(better|more effective|greater)"
+            ]
+          },
+          {
+            "label": "A has the larger clear zone / greater inhibited area.",
+            "patterns": [
+              "(larger|greater|bigger).{0,30}(zone|area)"
+            ]
+          },
+          {
+            "label": "Different diffusion rates can affect zone sizes; this does not alone establish clinical effectiveness.",
+            "patterns": [
+              "diffus|clinical|patient"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "A is the better inhibitor in this test. A has the larger clear zone / greater inhibited area. Different diffusion rates can affect zone sizes; this does not alone establish clinical effectiveness.",
+      "markKeywords": [
+        "A is the better inhibitor in this test.",
+        "A has the larger clear zone / greater inhibited area.",
+        "Different diffusion rates can affect zone sizes; this does not alone establish clinical effectiveness."
+      ],
+      "hint": "A larger clear zone supports inhibition under test conditions, not a guaranteed treatment recommendation.",
+      "examGuidance": {
+        "strategy": "Give one distinct scientific point per mark. Link each feature to its effect. Show working and units for calculations.",
+        "commonError": "A larger clear zone supports inhibition under test conditions, not a guaranteed treatment recommendation."
+      }
+    }
+  ]
+}
