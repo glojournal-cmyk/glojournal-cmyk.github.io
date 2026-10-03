@@ -2,7 +2,7 @@ let noteUpdatesPromise;
 export async function applyStudyNoteUpdates(pack) {
   if (!pack?.note) return pack;
   try {
-    if (!noteUpdatesPromise) noteUpdatesPromise = fetch('/content/note-updates-20261003.json?v=20261003-qa3').then(response => {
+    if (!noteUpdatesPromise) noteUpdatesPromise = fetch('/content/note-updates-20261003.json?v=20261003-notes4').then(response => {
       if (!response.ok) throw new Error('Topic note updates unavailable');
       return response.json();
     });
@@ -22,6 +22,18 @@ export function uniqueNoteText(values = []) {
     const key = x.toLowerCase().replace(/\s+/g, ' ').replace(/[.!]+$/, '');
     if (seen.has(key)) return false;
     seen.add(key); return true;
+  });
+}
+export function cleanNoteRules(values = []) {
+  const rules = uniqueNoteText(values);
+  const key = value => value.toLowerCase().replace(/\s+/g,' ').replace(/[.!]+$/,'').trim();
+  return rules.filter(rule => {
+    const parts = rule.split(';').map(key);
+    if (parts.length > 1 && parts.every(part => rules.some(other => other !== rule && key(other) === part))) return false;
+    return !rules.some(other => other !== rule && [' → ',' — ',': '].some(separator => {
+      const pair = other.split(separator);
+      return pair.length === 2 && pair.some(part => key(part) === key(rule));
+    }));
   });
 }
 export function noteBankChecks(questions = []) {
@@ -55,13 +67,18 @@ export function normalizeStudyNote(note = {}, context = {}) {
   const strings = key => uniqueNoteText(Array.isArray(note[key]) ? note[key] : []);
   const workedExamples = (note.workedExamples || []).map(x => typeof x === 'string' ? {prompt: 'Read this model sentence.', answer: x, why: ''} : x).filter(x => x?.prompt && x?.answer);
   const checks = (note.quickCheck || []).filter(x => x && typeof x === 'object' && (x.question || x.prompt) && ['string','number'].includes(typeof x.answer)).map(x => ({...x, question: x.question || x.prompt}));
-  const quickCheck = checks.length ? checks : noteBankChecks(context.questions);
+  const concepts = checks.map(check => context.questions?.find(q => q.prompt === check.question)?.conceptId).filter(Boolean);
+  const repeatedConcepts = concepts.length > 1 && new Set(concepts).size < concepts.length;
+  const bankChecks = !checks.length || repeatedConcepts ? noteBankChecks(context.questions) : [];
+  const quickCheck = bankChecks.length ? bankChecks : checks;
   const overviewKey = uniqueNoteText([note.overview])[0]?.toLowerCase().replace(/\s+/g, ' ').replace(/[.!]+$/, '');
   const detailedExplanation = strings('detailedExplanation').filter(x => x.toLowerCase().replace(/\s+/g, ' ').replace(/[.!]+$/, '') !== overviewKey);
   const sections = (note.additionalSourceSections || []).filter(x => x && typeof x === 'object' && (x.body || x.image));
+  const wrongOptions = new Set((context.questions || []).flatMap(q => (q.options || []).filter(option => !(q.answer?.accepted || []).includes(option))));
+  const commonMistakes = strings('commonMistakes').map(value => wrongOptions.has(value) ? `Common wrong answer to avoid: ${value}` : value);
   const sourceSeen = new Set();
   const additionalSourceSections = sections.filter(s => { const key = `${s.heading || ''}|${s.body || ''}|${s.image || ''}`; if(sourceSeen.has(key)) return false; sourceSeen.add(key); return true; });
-  return {...note, mustMemoriseRules:strings('mustMemoriseRules'), summary:strings('summary').length ? strings('summary') : uniqueNoteText([...strings('mustMemoriseRules'),...workedExamples.map(x=>x.why)]).slice(0,5), detailedExplanation, examTips:strings('examTips'), beforeStartingPractice:strings('beforeStartingPractice'), commonMistakes:strings('commonMistakes'), additionalSourceSections, workedExamples, quickCheck};
+  return {...note, mustMemoriseRules:cleanNoteRules(strings('mustMemoriseRules')), summary:strings('summary').length ? strings('summary') : uniqueNoteText([...cleanNoteRules(strings('mustMemoriseRules')),...workedExamples.map(x=>x.why)]).slice(0,5), detailedExplanation, examTips:strings('examTips'), beforeStartingPractice:strings('beforeStartingPractice'), commonMistakes, additionalSourceSections, workedExamples, quickCheck};
 }
 export function groupStudyTopics(topics = []) {
   const groups = new Map(), seen = new Set();

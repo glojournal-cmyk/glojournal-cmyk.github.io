@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import zlib from 'node:zlib';
-import {normalizeStudyNote,noteBankChecks,applyStudyNoteUpdates} from '../assets/study-content-20260930.js';
+import {normalizeStudyNote,noteBankChecks,applyStudyNoteUpdates,cleanNoteRules} from '../assets/study-content-20260930.js';
 const updates=JSON.parse(fs.readFileSync('content/note-updates-20261003.json'));
 globalThis.fetch=async()=>({ok:true,json:async()=>updates});
 const paths=fs.readdirSync('content/topics').filter(p=>p.endsWith('.json'));
@@ -29,6 +29,9 @@ for(const topic of school.t){
 const makeQ=(id,difficulty)=>({id,conceptId:id,prompt:`Question ${id}`,difficulty,status:'enabled',answer:{accepted:['yes']},feedback:{short:'Explanation'}});
 const bank=[makeQ('a',1),makeQ('a',2),makeQ('b',2),makeQ('c',3),{...makeQ('disabled',1),status:'disabled'}];
 assert.deepEqual(noteBankChecks(bank).map(q=>q.sourceQuestionId),['a','b','c']);
+assert.deepEqual(cleanNoteRules(['current → rate of charge flow','voltage → energy per charge','current → rate of charge flow; voltage → energy per charge','current','rate of charge flow']),['current → rate of charge flow','voltage → energy per charge']);
+const repeated=normalizeStudyNote({quickCheck:[{question:'Question a',answer:'yes'},{question:'Question a',answer:'yes'}]},{questions:bank});
+assert.deepEqual(repeated.quickCheck.map(q=>q.sourceQuestionId),['a','b','c']);
 const normalized=normalizeStudyNote({overview:'An overview.',detailedExplanation:['An overview.','An explanation.','An explanation.'],additionalSourceSections:[{heading:'One',body:'First'},{heading:'Two',body:'Second'},{heading:'One',body:'First'}],quickCheck:['A learning goal'],mustMemoriseRules:['A rule.']},{questions:bank});
 assert.deepEqual(normalized.detailedExplanation,['An explanation.']);
 assert.equal(normalized.additionalSourceSections.length,2);
