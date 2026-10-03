@@ -1,4 +1,4 @@
-import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20261003-vocab1";
+import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20261003-repeat1";
 
 const VERSION = "20260927-foundation-first-2";
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -106,12 +106,13 @@ function statSummary(raw = {}) {
     Number(raw.productionCorrect) || 0,
     Array.isArray(raw.productionIds) ? new Set(raw.productionIds).size : 0
   );
-  const dates = new Set(
-    (Array.isArray(raw.recentOutcomes) ? raw.recentOutcomes : [])
+  const dates = new Set([
+    ...(Array.isArray(raw.correctDays) ? raw.correctDays : []),
+    ...(Array.isArray(raw.recentOutcomes) ? raw.recentOutcomes : [])
       .filter((row) => row && row.correct !== false)
       .map((row) => row.date || row.day || (row.at ? String(row.at).slice(0, 10) : null))
       .filter(Boolean)
-  );
+  ]);
   return { attempted, correct, accuracy, productionCorrect, days: dates.size };
 }
 
@@ -138,10 +139,10 @@ function skillMature(state, skillId) {
   const accuracy = attempted ? correct / attempted : 0;
   const productionCorrect = Math.max(0, Number(raw.productionCorrect) || 0);
   const retentionPasses = Math.max(0, Number(raw.retentionPasses) || 0);
-  const recentDates = new Set((Array.isArray(raw.recentOutcomes) ? raw.recentOutcomes : [])
+  const recentDates = new Set([...(Array.isArray(raw.correctDays) ? raw.correctDays : []), ...(Array.isArray(raw.recentOutcomes) ? raw.recentOutcomes : [])
     .filter((row) => row && row.correct !== false)
     .map((row) => row.date || row.day || (row.at ? String(row.at).slice(0, 10) : null))
-    .filter(Boolean));
+    .filter(Boolean)]);
   return attempted >= 6 && accuracy >= 0.85 && productionCorrect >= 1 && (retentionPasses >= 1 || recentDates.size >= 2);
 }
 

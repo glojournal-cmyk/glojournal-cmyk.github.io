@@ -1,5 +1,5 @@
-import("/pet/pet-care-global.js?v=20261003-vocab1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261003-vocab1";
+import("/pet/pet-care-global.js?v=20261003-repeat1").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261003-repeat1";
 import {
   C as store,
   U as collectibles,
@@ -11,7 +11,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261003-vocab1";
+} from "./index-BLVOhKhN.core.js?v=20261003-repeat1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -463,7 +463,15 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
   const today = todayKey();
   const seen = state.seenTotal || {};
   const correct = state.seenCorrect || {};
-  const recentIds = new Set((state.recentQuestionIds || []).slice(-16));
+  const recentIds = new Set((state.recentQuestionIds || []).slice(-60));
+  // Rotate equally suitable questions without changing their learning priorities.
+  const rotationSeed = `${today}|${subject}|${Object.values(seen).reduce((sum, n) => sum + (Number(n) || 0), 0)}`;
+  const rotationRank = id => {
+    let hash = 2166136261;
+    for (const ch of `${rotationSeed}|${id}`) hash = Math.imul(hash ^ ch.charCodeAt(0), 16777619);
+    hash ^= hash >>> 16; hash = Math.imul(hash, 0x85ebca6b); hash ^= hash >>> 13;
+    return hash >>> 0;
+  };
   const source = (items || []).map((item) => ({ ...item, skills: getQuestionSkills(item, subject) }));
   const recentConcepts = new Set(
     source
@@ -489,7 +497,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     const unseen = seenCount === 0;
     const mastered = stat.state === "mastered";
     const weakTopic = !mastered && stat.attempted >= 2 && (stat.accuracy < MASTERY_ACCURACY || stat.productionCorrect < 1);
-    const mistake = !unseen && (due || correctCount < seenCount || !!review?.wrong || (!!review && (review.stage || 1) < 3));
+    const mistake = !unseen && (due || (!review?.due && (correctCount < seenCount || !!review?.wrong)));
     const weak = (weakTopic || weakSkill) && !mistake;
     const fresh = unseen && !weakTopic && !weakSkill && !retentionSkillDue;
     const retention = !mistake && !weak && (retentionSkillDue || (!unseen && (mastered || stat.accuracy >= MASTERY_ACCURACY || retentionSkill)));
@@ -517,12 +525,13 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
   const byNeed = (a, b) =>
     Number(a.recent || a.recentConcept) - Number(b.recent || b.recentConcept) ||
     Number(b.due || b.retentionSkillDue) - Number(a.due || a.retentionSkillDue) ||
+    Number(!a.unseen && !a.due && a.review?.due > today) - Number(!b.unseen && !b.due && b.review?.due > today) ||
     (a.review?.due || a.nextSkillDue || "9999-12-31").localeCompare(b.review?.due || b.nextSkillDue || "9999-12-31") ||
     Math.abs(a.depth - a.targetDepth) - Math.abs(b.depth - b.targetDepth) ||
     a.skillAccuracy - b.skillAccuracy ||
     a.stat.accuracy - b.stat.accuracy ||
     (seen[a.item.id] || 0) - (seen[b.item.id] || 0) ||
-    a.index - b.index;
+    rotationRank(a.item.id) - rotationRank(b.item.id) || a.index - b.index;
 
   const bucketName = (row) => row.mistake ? "mistake" : row.weak ? "weak" : row.fresh ? "new" : row.retention ? "retention" : "other";
   const buckets = {
@@ -870,6 +879,7 @@ function normalizeTopicStat(stat = {}) {
     productionIds,
     state: topicState(attempted, correct, productionCorrect),
     masteryRule: 1,
+    correctDays: [...new Set([...(Array.isArray(stat.correctDays) ? stat.correctDays : []), ...(stat.recentOutcomes || []).filter(row => row?.correct === true).map(row => row.date || row.day)])].filter(day => /^\d{4}-\d{2}-\d{2}$/.test(day)).sort().slice(-60),
   };
 }
 
@@ -904,6 +914,7 @@ function normalizeSkillStat(stat = {}) {
     ))),
     challengeStreak: Math.max(0, Number(stat.challengeStreak) || 0),
     lastChallengeDepth: Math.max(0, Math.min(4, Number(stat.lastChallengeDepth) || 0)),
+    correctDays: [...new Set([...(Array.isArray(stat.correctDays) ? stat.correctDays : []), ...(stat.recentOutcomes || []).filter(row => row?.correct === true).map(row => row.date || row.day)])].filter(day => /^\d{4}-\d{2}-\d{2}$/.test(day)).sort().slice(-60),
     recentOutcomes: Array.isArray(stat.recentOutcomes) ? stat.recentOutcomes.slice(-20) : [],
   };
 }
@@ -1421,7 +1432,7 @@ function normalizeState() {
   for (const [topicId, raw] of Object.entries(state.topicStats || {})) {
     const next = normalizeTopicStat(raw);
     normalizedTopics[topicId] = next;
-    if (raw.masteryRule !== 1 || raw.state !== next.state || raw.accuracy !== next.accuracy || !Array.isArray(raw.productionIds)) topicsChanged = true;
+    if (raw.masteryRule !== 1 || raw.state !== next.state || raw.accuracy !== next.accuracy || !Array.isArray(raw.productionIds) || JSON.stringify(raw.correctDays) !== JSON.stringify(next.correctDays)) topicsChanged = true;
   }
   if (topicsChanged) patch.topicStats = normalizedTopics;
 
@@ -1435,7 +1446,7 @@ function normalizeState() {
       skillsChanged = true;
     }
     normalizedSkills[skillId] = next;
-    if (raw.accuracy !== next.accuracy || !Array.isArray(raw.recentOutcomes) || !raw.repairs || raw.retentionStage == null || raw.retentionReady == null || raw.needsPractice == null || raw.challengeLevel == null || raw.challengeStreak == null || raw.lastChallengeDepth == null) skillsChanged = true;
+    if (raw.accuracy !== next.accuracy || !Array.isArray(raw.recentOutcomes) || !raw.repairs || raw.retentionStage == null || raw.retentionReady == null || raw.needsPractice == null || raw.challengeLevel == null || raw.challengeStreak == null || raw.lastChallengeDepth == null || JSON.stringify(raw.correctDays) !== JSON.stringify(next.correctDays)) skillsChanged = true;
   }
   if (skillsChanged) patch.skillStats = normalizedSkills;
 
@@ -1778,6 +1789,7 @@ function applyFormalSkillAttempt(skillStats, skills, questionId, correct, produc
       productionIds: productionIds.slice(-20),
       repairs,
       recentOutcomes,
+      correctDays: [...new Set([...(current.correctDays || []), ...(!isRepair && correct ? [day] : [])])].sort().slice(-60),
       lastErrorType: !correct && !isRepair ? (errorType || current.lastErrorType || null) : current.lastErrorType || null,
       lastTopicId: topicId || current.lastTopicId || null,
       lastAttempt: day,
@@ -2023,7 +2035,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   if (meta?.formal === false) {
     const reviews = { ...(after.reviews || {}) };
     delete reviews[questionId];
-    const recentQuestionIds = [...(after.recentQuestionIds || []).filter((id) => id !== questionId), questionId].slice(-20);
+    const recentQuestionIds = [...(before.recentQuestionIds || []).filter((id) => id !== questionId), questionId].slice(-60);
     store.setState({ reviews, recentQuestionIds, lastSubject: resolved.subject || subject });
     return result;
   }
@@ -2063,6 +2075,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     lastErrorType: errorType || current.lastErrorType || null,
     repairs,
     recentOutcomes,
+    correctDays: [...new Set([...(current.correctDays || []), ...(!isRepair && correct ? [todayKey()] : [])])].sort().slice(-60),
     masteredAt: nextState === "mastered" ? (current.state === "mastered" && current.masteredAt ? current.masteredAt : todayKey()) : current.masteredAt || null,
     masteryRule: 1,
     lastAttempt: todayKey(),
@@ -2090,7 +2103,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     };
   }
   if (isRepair && meta?.repairOf && questionId !== meta.repairOf) delete reviews[questionId];
-  const recentQuestionIds = [...(after.recentQuestionIds || []).filter((id) => id !== questionId), questionId].slice(-20);
+  const recentQuestionIds = [...(before.recentQuestionIds || []).filter((id) => id !== questionId), questionId].slice(-60);
   const skillStats = applyFormalSkillAttempt(
     after.skillStats || {},
     resolved.skills || [],

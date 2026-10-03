@@ -1,4 +1,4 @@
-import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20261003-vocab1";
+import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20261003-repeat1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
 const LABELS = { latin: "Latin", french: "French", biology: "Biology", chemistry: "Chemistry", physics: "Physics" };
@@ -38,7 +38,7 @@ function summary(raw = {}) {
   const correct = Math.max(0, Math.min(attempted, Number(raw.correct)||0));
   const accuracy = attempted ? correct/attempted : 0;
   const productionCorrect = Math.max(0, Number(raw.productionCorrect)||0, Array.isArray(raw.productionIds)?new Set(raw.productionIds).size:0);
-  const days = new Set((Array.isArray(raw.recentOutcomes)?raw.recentOutcomes:[]).filter(r=>r&&r.correct!==false).map(r=>r.date||r.day||(r.at?String(r.at).slice(0,10):null)).filter(Boolean)).size;
+  const days = new Set([...(Array.isArray(raw.correctDays)?raw.correctDays:[]), ...(Array.isArray(raw.recentOutcomes)?raw.recentOutcomes:[]).filter(r=>r&&r.correct!==false).map(r=>r.date||r.day||(r.at?String(r.at).slice(0,10):null)).filter(Boolean)]).size;
   return { attempted, accuracy, productionCorrect, days };
 }
 
