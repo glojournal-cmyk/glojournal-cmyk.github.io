@@ -1,5 +1,5 @@
 import("/pet/pet-care-global.js?v=20261003-directory3").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261003-directory3";
+export * from "./index-BLVOhKhN.core.js?v=20261003-topic-questions";
 import {
   C as store,
   U as collectibles,
@@ -11,7 +11,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261003-directory3";
+} from "./index-BLVOhKhN.core.js?v=20261003-topic-questions";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];

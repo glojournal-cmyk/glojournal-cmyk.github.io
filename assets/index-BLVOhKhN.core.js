@@ -199,7 +199,7 @@ async function TC(e){
   base={...base,questions:[...(base.questions||[]),...delta.questions]};
   if(delta.note)base.note=delta.note;
   else if(delta.noteUpdate){let n=base.note||{};base.note={...n,additionalSourceSections:[...(n.additionalSourceSections||[]),...(delta.noteUpdate.additionalSourceSections||[])],examTips:[...(n.examTips||[]),...(delta.noteUpdate.examTips||[])]}}
-  let c=school20260926Counts(base.questions);base={...base,...c}
+  let {questions:questionCount,...counts}=school20260926Counts(base.questions);base={...base,...counts,questionCount}
  }
  if(!base)throw Error(`Topic ${e} missing`);
  xC.set(e,base);return base
