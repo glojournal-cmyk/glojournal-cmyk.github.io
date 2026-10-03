@@ -55,6 +55,8 @@ jobs:
         run: node tests/error-hunter-qa.mjs
       - name: Audit Weekly Boss Mission
         run: node tests/weekly-boss-qa.mjs
+      - name: Audit complete Year 7 vocabulary and marking
+        run: node tests/year7-vocabulary-completeness-qa.mjs
       - name: Audit vocab bank and dictation
         run: node tests/vocab-bank-dictation-qa.mjs
       - name: Audit repair score fairness
