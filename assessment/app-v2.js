@@ -301,9 +301,11 @@ function mark(q,value){
   if(mode==='keywords'){
     const groups=q.answer?.required||[];
     const response=String(value);
+    // Short scientific terms such as Rf remain meaningful marking tokens.
+    const keywordMatch=/^chem[-_]/.test(String(q.id||""))?chemistryTermMatch:termMatch;
     let matched=0;
     for(const group of groups){
-      let hit=group.some(term=>termMatch(response,term));
+      let hit=group.some(term=>keywordMatch(response,term));
       if(!hit&&flexible&&CREUSA_PROMPT_CONTEXT.has(q.id)){
         hit=group.some(term=>termMatch(q.prompt,term));
       }
