@@ -508,4 +508,4 @@ function finish(p,d){
   $('#back-to-papers').onclick=()=>show('papers');
 }
 
-if(new URLSearchParams(location.search).get("tab")==="tracker")show("tracker");
+if(typeof URLSearchParams!=="undefined"&&typeof location!=="undefined"&&new URLSearchParams(location.search).get("tab")==="tracker")show("tracker");
