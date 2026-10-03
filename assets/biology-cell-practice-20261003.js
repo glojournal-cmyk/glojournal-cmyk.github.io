@@ -1,3 +1,5 @@
+import "./learning-feedback-20261003.js?v=20261003-feedback1";
+const {buildCorrection,selectTransferQuestion}=globalThis.LuxLearningFeedback;
 import {i as interop,n as reactFactory} from './jsx-runtime-Cltr0gcK.js';
 import {gradeBiologyAnswer} from './biology-cell-rubric-20261003.js';
 const R=interop(reactFactory()),h=R.createElement,KEY='scholar-biology-cell-practice-v1';
@@ -9,7 +11,7 @@ export function pickPracticeQuestions(bank,topic,size,previous=[],weak=[]){
 }
 export function BiologyCellPractice(){
  const [bank,setBank]=R.useState(null),[error,setError]=R.useState(''),[state,setState]=R.useState(read),[topic,setTopic]=R.useState('all'),[size,setSize]=R.useState(10),[saveError,setSaveError]=R.useState(false);
- R.useEffect(()=>{let live=true;fetch('/assessment/biology-cell-structure-20261003.json?v=20261003-cell3').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{if(live)setBank(d.questions)}).catch(()=>{if(live)setError('Could not load the question bank. Reload this page to try again.')});return()=>{live=false}},[]);
+ R.useEffect(()=>{let live=true;fetch('/assessment/biology-cell-structure-20261003.json?v=20261003-feedback1').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{if(live)setBank(d.questions)}).catch(()=>{if(live)setError('Could not load the question bank. Reload this page to try again.')});return()=>{live=false}},[]);
  R.useEffect(()=>{try{localStorage.setItem(KEY,JSON.stringify(state));setSaveError(false)}catch{setSaveError(true)}},[state]);
  if(error)return h('p',{role:'alert'},error);
  if(!bank)return h('p',{role:'status'},'Loading the 72 cell structure questions…');
@@ -17,6 +19,7 @@ export function BiologyCellPractice(){
  function start(){const chosen=pickPracticeQuestions(bank,topic,size,ids,weak);if(!chosen.length)return;setState(s=>({...s,ids:chosen,index:0,answers:{},sessionTopic:topic}));}
  function answer(value){setState(s=>({...s,answers:{...s.answers,[q.id]:{value}}}));}
  function check(event){event.preventDefault();if(!entry?.value?.trim()||entry.checked)return;const result=gradeBiologyAnswer(q,entry.value);setState(s=>({...s,answers:{...s.answers,[q.id]:{...entry,checked:true,result}},history:{...s.history,[q.id]:{credit:result.credit,at:Date.now()}}}));}
+ const correction=entry?.checked?buildCorrection(q,{...entry.result,given:entry.value,model:q.modelAnswer},'biology'):null,transfer=entry?.checked&&entry.result.credit<1?selectTransferQuestion(q,bank,ids):null;
  const labelStyle={display:'block',marginBottom:6},buttonStyle={padding:'10px 18px',borderRadius:12,border:'1px solid #b8c9b8',background:'#173e50',color:'white',cursor:'pointer'},cardStyle={padding:24,borderRadius:18,border:'1px solid #c9d2c5',background:'#fffdf6'};
  return h('section',{'aria-label':'Cell structure practice',style:cardStyle},
  h('h2',{className:'font-display text-3xl font-semibold'},'AQA 4.1.1 · Cell structure practice'),
@@ -30,13 +33,16 @@ export function BiologyCellPractice(){
  q&&h('form',{onSubmit:check,style:{marginTop:24}},
  h('p',null,`Question ${index+1} / ${ids.length} · ${q.topic} · ${q.marks} marks`),
  h('h3',{style:{fontSize:20,fontWeight:600,margin:'10px 0'}},q.prompt),
+ state.transferOf?.[q.id]&&h('p',{style:{fontSize:13,color:'#274d43'}},'Same idea, different question · demonstrate that you can apply the correction.'),
  q.diagram&&h('img',{src:'/assessment/diagrams/'+q.diagram,alt:q.diagramAlt||'Biology diagram for this question',style:{width:'100%',maxHeight:440,objectFit:'contain',marginBottom:16}}),
  h('label',null,h('span',{style:labelStyle},'Your answer'),h('textarea',{value:entry?.value||'',onChange:e=>answer(e.target.value),disabled:!!entry?.checked,rows:5,style:{width:'100%',padding:12,border:'1px solid #9caf9e',borderRadius:10},required:true})),
  !entry?.checked?h('button',{type:'submit',style:{...buttonStyle,marginTop:12},disabled:!entry?.value?.trim()},'Check answer'):
  h('div',{role:'status',style:{marginTop:16,padding:16,background:'#eef3e9',borderRadius:12}},
  h('strong',null,`${entry.result.matched} / ${q.marks} marks · ${entry.result.status}`),
+ correction.reason&&h('p',{style:{marginTop:8}},correction.reason),
  h('ul',{style:{margin:'12px 0',paddingLeft:20}},...q.answer.points.map((p,i)=>h('li',{key:i},`${entry.result.pointResults[i]?'✓ Awarded':'○ Missing'}: ${entry.result.pointLabels?.[i]||p.label}`))),
  h('p',null,h('strong',null,'Suggested answer: '),q.modelAnswer),h('p',{style:{marginTop:8}},h('strong',null,'Hint: '),q.hint),
+ transfer&&h('button',{type:'button',style:{...buttonStyle,marginTop:12,marginRight:8},onClick:()=>setState(s=>({...s,ids:[...s.ids.slice(0,index+1),transfer.id,...s.ids.slice(index+1)],index:index+1,transferOf:{...s.transferOf,[transfer.id]:q.id}}))},'Try a different question on this idea'),
  h('button',{type:'button',style:{...buttonStyle,marginTop:16},onClick:()=>setState(s=>({...s,index:index+1}))},index===ids.length-1?'Finish practice':'Next question'))),
  finished&&h('div',{role:'status',style:{marginTop:24}},h('h3',{style:{fontSize:22}},'Practice complete'),h('p',null,`${Object.values(state.answers||{}).reduce((n,a)=>n+(a.result?.matched||0),0)} / ${ids.reduce((n,id)=>n+(bank.find(q=>q.id===id)?.marks||0),0)} marks. Choose Retry mistakes or start another set.`)),
  h(OfficialPaperPractice),

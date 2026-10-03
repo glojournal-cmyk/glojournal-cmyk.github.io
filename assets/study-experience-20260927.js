@@ -1,4 +1,4 @@
-import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20261003-priority58";
+import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20261003-feedback1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
 const LABELS = { latin: "Latin", french: "French", biology: "Biology", chemistry: "Chemistry", physics: "Physics" };

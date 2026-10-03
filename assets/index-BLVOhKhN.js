@@ -1,6 +1,6 @@
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js";
-import("/pet/pet-care-global.js?v=20261003-priority58").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261003-priority58";
+import("/pet/pet-care-global.js?v=20261003-feedback1").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261003-feedback1";
 import {
   C as store,
   J as rewardRequirements,
@@ -13,7 +13,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261003-priority58";
+} from "./index-BLVOhKhN.core.js?v=20261003-feedback1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -3111,7 +3111,7 @@ function mountDailyRecordButton() {
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261003-priority58").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261003-feedback1").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){
