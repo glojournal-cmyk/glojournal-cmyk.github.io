@@ -1,0 +1,48 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+import zlib from 'node:zlib';
+import {normalizeStudyNote,noteBankChecks,applyStudyNoteUpdates} from '../assets/study-content-20260930.js';
+const updates=JSON.parse(fs.readFileSync('content/note-updates-20261003.json'));
+globalThis.fetch=async()=>({ok:true,json:async()=>updates});
+const paths=fs.readdirSync('content/topics').filter(p=>p.endsWith('.json'));
+let packs=0;
+for(const path of paths){
+ const pack=await applyStudyNoteUpdates(JSON.parse(fs.readFileSync(`content/topics/${path}`)));
+ if(!pack.note)continue;
+ packs++;
+ const note=normalizeStudyNote(pack.note,{questions:pack.questions});
+ assert.ok(note.summary.length,`${path}: missing topic summary`);
+ assert.ok(note.quickCheck.length,`${path}: no usable check despite topic bank`);
+ assert.ok(!note.detailedExplanation.includes(note.overview),`${path}: duplicate overview`);
+ assert.equal(new Set(note.detailedExplanation).size,note.detailedExplanation.length);
+ assert.ok(pack.questions.length,`${path}: empty question bank`);
+}
+const shards=Array.from({length:12},(_,i)=>fs.readFileSync(`content/school-update-20260919/runtime-${String(i).padStart(2,'0')}.txt`,'utf8')).join('');
+const school=JSON.parse(zlib.gunzipSync(Buffer.from(shards,'base64')));
+for(const topic of school.t){
+ const questions=topic.q.map(q=>({id:q.i,conceptId:q.i,prompt:q.p,answer:q.a,difficulty:q.d,stimulus:q.s,format:q.f,status:'enabled',feedback:{short:q.e}}));
+ const note=normalizeStudyNote(topic.n,{questions});
+ assert.ok(note.quickCheck.length,`${topic.id}: malformed school checks must use the actual bank`);
+ assert.ok(note.summary.length,`${topic.id}: missing school summary`);
+}
+const makeQ=(id,difficulty)=>({id,conceptId:id,prompt:`Question ${id}`,difficulty,status:'enabled',answer:{accepted:['yes']},feedback:{short:'Explanation'}});
+const bank=[makeQ('a',1),makeQ('a',2),makeQ('b',2),makeQ('c',3),{...makeQ('disabled',1),status:'disabled'}];
+assert.deepEqual(noteBankChecks(bank).map(q=>q.sourceQuestionId),['a','b','c']);
+const normalized=normalizeStudyNote({overview:'An overview.',detailedExplanation:['An overview.','An explanation.','An explanation.'],additionalSourceSections:[{heading:'One',body:'First'},{heading:'Two',body:'Second'},{heading:'One',body:'First'}],quickCheck:['A learning goal'],mustMemoriseRules:['A rule.']},{questions:bank});
+assert.deepEqual(normalized.detailedExplanation,['An explanation.']);
+assert.equal(normalized.additionalSourceSections.length,2);
+assert.equal(normalized.quickCheck.length,3);
+const source=fs.readFileSync('assets/study._subject.learn-BvTzW3pu.js','utf8');
+const jsx=(type,props,key)=>({type,props,key});
+const flatten=(n,out=[])=>{if(n==null)return out;if(Array.isArray(n)){n.forEach(x=>flatten(x,out));return out;}out.push(n);if(typeof n==='object')flatten(n.props?.children,out);return out;};
+const ctx=vm.createContext({normalizeStudyNote,S:{useState:()=>[{},()=>{}]},C:{jsx,jsxs:jsx},v:'Card',b:'Icon',s:'Input',_:'Button',r:'Link',w:'Footer',l:x=>String(x).toLowerCase().trim()});
+vm.runInContext(source.slice(source.indexOf('function O(e)'),source.indexOf('export{')),ctx);
+const nodes=flatten(ctx.k({note:normalized,title:'Test',questions:bank}));
+for(const text of ['First','Second','7 · Topic summary'])assert.ok(nodes.some(n=>n===text),`Missing rendered source/summary: ${text}`);
+const pack=await applyStudyNoteUpdates(JSON.parse(fs.readFileSync('content/topics/phys-y8-circuits-current-voltage.json')));
+assert.ok(pack.note.detailedExplanation.length>=4);
+assert.ok(pack.note.quickCheck[2].markPoints.length===2);
+assert.ok(source.includes('questions:F.questions'));
+assert.ok(source.includes('subject:e},F.topicId)'), 'Switching topic must reset local answer/feedback state');
+console.log(`NOTES_QUALITY_QA passed: ${packs} file packs, ${school.t.length} school topics, summaries, deduplication, source sections, real-bank fallback and topic state reset.`);

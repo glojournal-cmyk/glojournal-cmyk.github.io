@@ -2,9 +2,9 @@
   "version": "2.4.1+biology-school-20260927-chem-aqa-20260930-fullmarks2",
   "buildDate": "2026-09-30",
   "totals": {
-    "topics": 278,
-    "questions": 15923,
-    "enabled": 14798,
+    "topics": 279,
+    "questions": 15935,
+    "enabled": 14810,
     "preview": 266,
     "disabled": 859
   },
@@ -57,11 +57,11 @@
     {
       "subject": "biology",
       "year": 8,
-      "topics": 36,
-      "enabled": 989,
+      "topics": 37,
+      "enabled": 1001,
       "preview": 0,
       "disabled": 0,
-      "questions": 989
+      "questions": 1001
     },
     {
       "subject": "biology",
@@ -5622,6 +5622,23 @@
       "unitName": "School cells & practicals",
       "sourceId": "school-biology-20260927",
       "contentTier": "school_confirmed_current"
+    },
+    {
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-mixed-exam",
+      "title": "Mixed exam practice",
+      "status": "enabled",
+      "enabled": 12,
+      "preview": 0,
+      "disabled": 0,
+      "formats": {
+        "typed_exact": 12
+      },
+      "gated": false,
+      "questions": 12,
+      "unitId": "biology-y8-review",
+      "unitName": "Mixed Year 8 review"
     }
   ],
   "units": {

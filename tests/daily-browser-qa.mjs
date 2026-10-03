@@ -15,7 +15,7 @@ const route="/study/"+subject+"/practise?daily=%221%22&locked=%221%22&year=%228%
 await page.goto(base+route);
 await page.waitForTimeout(4500);
 await page.evaluate(async()=>{
-  const mod=await import("/assets/index-BLVOhKhN.js?v=20261003-qa2");
+  const mod=await import("/assets/index-BLVOhKhN.js?v=20261003-notes2");
   window.qaStore=mod.C;
   window.qaEvents=[];
   window.addEventListener("scholar:question-answered",e=>window.qaEvents.push(e.detail));
@@ -31,7 +31,7 @@ for(let step=0;step<(mode==="y8vocab"?30:25);step++){
    assert.ok(next,"Second phase needs the saved task route");
    await page.goto(base+next);await page.waitForTimeout(2000);
    await page.evaluate(async()=>{
-     const mod=await import("/assets/index-BLVOhKhN.js?v=20261003-qa2");
+     const mod=await import("/assets/index-BLVOhKhN.js?v=20261003-notes2");
      window.qaStore=mod.C;window.qaEvents=[];
      window.addEventListener("scholar:question-answered",e=>window.qaEvents.push(e.detail));
    });
@@ -69,10 +69,10 @@ const savedTask=await page.evaluate(({task,subject})=>task==="y8-mastery"&&windo
 const before=await page.evaluate(task=>window.qaStore.getState().daily.find(t=>t.id===task)?.progress,savedTask);
 await page.goto(base+"/");
 await page.waitForTimeout(1000);
-const after=await page.evaluate(async task=>{const m=await import("/assets/index-BLVOhKhN.js?v=20261003-qa2");return m.C.getState().daily.find(t=>t.id===task)?.progress},savedTask);
+const after=await page.evaluate(async task=>{const m=await import("/assets/index-BLVOhKhN.js?v=20261003-notes2");return m.C.getState().daily.find(t=>t.id===task)?.progress},savedTask);
 assert.ok(after>=before,task+" lost progress returning home");
 await page.reload();await page.waitForTimeout(1000);
-const restored=await page.evaluate(async task=>{const m=await import("/assets/index-BLVOhKhN.js?v=20261003-qa2");return m.C.getState().daily.find(t=>t.id===task)?.progress},savedTask);
+const restored=await page.evaluate(async task=>{const m=await import("/assets/index-BLVOhKhN.js?v=20261003-notes2");return m.C.getState().daily.find(t=>t.id===task)?.progress},savedTask);
 assert.ok(restored>=before,task+" lost progress reloading");
 await page.close();
 }

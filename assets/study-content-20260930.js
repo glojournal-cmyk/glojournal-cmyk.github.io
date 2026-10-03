@@ -1,9 +1,67 @@
+let noteUpdatesPromise;
+export async function applyStudyNoteUpdates(pack) {
+  if (!pack?.note) return pack;
+  try {
+    if (!noteUpdatesPromise) noteUpdatesPromise = fetch('/content/note-updates-20261003.json?v=20261003-notes2').then(response => {
+      if (!response.ok) throw new Error('Topic note updates unavailable');
+      return response.json();
+    });
+    const updates = await noteUpdatesPromise;
+    const patch = updates[pack.topicId];
+    return patch ? {...pack,note:{...pack.note,...patch}} : pack;
+  } catch (error) {
+    noteUpdatesPromise = undefined;
+    console.error('Topic note updates unavailable',error);
+    return pack;
+  }
+}
 // Shared adapters keep older note packs readable without blank activities.
-export function normalizeStudyNote(note = {}) {
-  const strings = key => (Array.isArray(note[key]) ? note[key] : []).filter(x => typeof x === 'string' && x.trim());
+export function uniqueNoteText(values = []) {
+  const seen = new Set();
+  return values.filter(x => typeof x === 'string' && x.trim()).map(x => x.trim()).filter(x => {
+    const key = x.toLowerCase().replace(/\s+/g, ' ').replace(/[.!]+$/, '');
+    if (seen.has(key)) return false;
+    seen.add(key); return true;
+  });
+}
+export function noteBankChecks(questions = []) {
+  const seen = new Set();
+  const usable = questions.filter(q => q && q.status !== 'disabled' && !q.disabled && q.prompt && q.answer?.accepted?.length && !q.stimulus?.image && !q.stimulus?.svg && !q.stimulus?.diagram && !q.stimulus?.table);
+  const selected = [];
+  // Select distinct concepts across the available difficulty range, never invent difficulty labels.
+  for (const level of [1, 2, 3, 4, 5]) {
+    const q = usable.find(q => Number(q.difficulty || 1) === level && !seen.has(q.conceptId || q.prompt));
+    if (q) { selected.push(q); seen.add(q.conceptId || q.prompt); }
+    if (selected.length === 3) break;
+  }
+  for (const q of usable) {
+    if (selected.length === 3) break;
+    if (!seen.has(q.conceptId || q.prompt)) { selected.push(q); seen.add(q.conceptId || q.prompt); }
+  }
+  return selected.map(q => ({question:q.prompt, stimulus:q.stimulus?.text || '', answer:q.answer.accepted[0], accepted:q.answer.accepted.slice(1), options:q.format === 'mc_single' ? q.options : undefined, difficulty:q.difficulty, explanation:q.feedback?.short || q.feedback?.remember || '', markPoints:q.answer.markPoints || q.answer.rubric?.points, sourceQuestionId:q.id}));
+}
+export function normalizeStudyNote(note = {}, context = {}) {
+  const schoolGuides = {
+    'Unit 1 Holidays and opinions': {
+      summary:['Use the passé composé for completed holiday activities.', 'Use the imperfect for past descriptions and opinions: c’était, ce n’était pas.', 'Give an opinion and a reason, keeping the tense consistent.'],
+      detailedExplanation:['To describe a completed holiday activity, use the school’s passé composé phrases, such as j’ai passé des vacances. Keep the auxiliary and past participle together. A time phrase tells the reader when the event occurred; the verb form tells them the tense.', 'For a past description or opinion, distinguish c’est (it is) from c’était (it was), and ce n’est pas from ce n’était pas. Use the wording in the question to decide whether the description refers to now or to the holiday.', 'Build an answer in connected parts: identify the activity or place, state an opinion, and add a reason. La meilleure chose était quand introduces the best part; la pire chose était quand introduces the worst. Check that the following detail fits the opinion.']
+    },
+    'Unit 1 Weather and future': {
+      summary:['Distinguish present weather from past weather descriptions.', 'Near future: present tense of aller + infinitive.', 'Keep time phrases and verb forms consistent.'],
+      detailedExplanation:['French weather expressions use different structures: il pleut, il fait froid and il y a du vent. Learn each expression as a complete phrase rather than inserting fait into every sentence.', 'The question Quel temps fait-il aujourd’hui ? asks about present weather. Quel temps faisait-il ? asks about past weather. Follow the school’s model phrases and keep the time reference consistent throughout the answer.', 'To describe a plan with the near future, conjugate aller and keep the next verb in the infinitive: je vais visiter. A phrase such as demain indicates future time but does not replace the verb structure.']
+    }
+  };
+  if (schoolGuides[note.title]) note = {...note,...schoolGuides[note.title]};
+  const strings = key => uniqueNoteText(Array.isArray(note[key]) ? note[key] : []);
   const workedExamples = (note.workedExamples || []).map(x => typeof x === 'string' ? {prompt: 'Read this model sentence.', answer: x, why: ''} : x).filter(x => x?.prompt && x?.answer);
-  const quickCheck = (note.quickCheck || []).filter(x => x && typeof x === 'object' && (x.question || x.prompt) && x.answer !== undefined).map(x => ({...x, question: x.question || x.prompt}));
-  return {...note, detailedExplanation: strings('detailedExplanation'), examTips: strings('examTips'), beforeStartingPractice: strings('beforeStartingPractice'), commonMistakes: strings('commonMistakes'), additionalSourceSections: (note.additionalSourceSections || []).filter(x => x && typeof x === 'object'), workedExamples, quickCheck};
+  const checks = (note.quickCheck || []).filter(x => x && typeof x === 'object' && (x.question || x.prompt) && ['string','number'].includes(typeof x.answer)).map(x => ({...x, question: x.question || x.prompt}));
+  const quickCheck = checks.length ? checks : noteBankChecks(context.questions);
+  const overviewKey = uniqueNoteText([note.overview])[0]?.toLowerCase().replace(/\s+/g, ' ').replace(/[.!]+$/, '');
+  const detailedExplanation = strings('detailedExplanation').filter(x => x.toLowerCase().replace(/\s+/g, ' ').replace(/[.!]+$/, '') !== overviewKey);
+  const sections = (note.additionalSourceSections || []).filter(x => x && typeof x === 'object' && (x.body || x.image));
+  const sourceSeen = new Set();
+  const additionalSourceSections = sections.filter(s => { const key = `${s.heading || ''}|${s.body || ''}|${s.image || ''}`; if(sourceSeen.has(key)) return false; sourceSeen.add(key); return true; });
+  return {...note, mustMemoriseRules:strings('mustMemoriseRules'), summary:strings('summary').length ? strings('summary') : uniqueNoteText([...strings('mustMemoriseRules'),...workedExamples.map(x=>x.why)]).slice(0,5), detailedExplanation, examTips:strings('examTips'), beforeStartingPractice:strings('beforeStartingPractice'), commonMistakes:strings('commonMistakes'), additionalSourceSections, workedExamples, quickCheck};
 }
 export function groupStudyTopics(topics = []) {
   const groups = new Map(), seen = new Set();

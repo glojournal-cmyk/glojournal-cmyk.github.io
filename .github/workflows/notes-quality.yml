@@ -1,0 +1,27 @@
+name: Notes quality
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/study-content-20260930.js'
+      - 'assets/study._subject.learn-BvTzW3pu.js'
+      - 'assets/index-BLVOhKhN.core.js'
+      - 'content/topics/**'
+      - 'content/note-updates-20261003.json'
+      - 'content/school-update-20260919/**'
+      - 'tests/notes-quality-qa.mjs'
+      - 'tests/study-experience-qa.mjs'
+      - '.github/workflows/notes-quality.yml'
+  workflow_dispatch:
+jobs:
+  notes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: |
+          node --check assets/study-content-20260930.js
+          node --check assets/study._subject.learn-BvTzW3pu.js
+          node tests/notes-quality-qa.mjs
+          node tests/study-experience-qa.mjs
