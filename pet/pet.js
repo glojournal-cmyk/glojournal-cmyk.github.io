@@ -251,7 +251,7 @@ function render(){
   document.getElementById("petSubtitle").textContent=species.tag;
   const identity=character[pet.species];
   document.getElementById("petPersonality").innerHTML=`<strong>${identity.nature}</strong><span>${identity.habit}</span>`;
-  document.getElementById("petFormGrid").innerHTML=identity.forms.map((form,i)=>`<div class="pet-form ${stage===i+1?"is-current":""}"><span class="pet-form-art pet-sprite" style="${spriteStyle(pet.species,i+1)}" role="img" aria-label="${species.name}, level ${i+1}: ${form}"></span><span class="pet-form-level">Level ${i+1}${stage===i+1?" · Current":""}</span><strong>${form}</strong></div>`).join("");
+  document.getElementById("petFormGrid").innerHTML=identity.forms.map((form,i)=>`<div class="pet-form ${stage===i+1?"is-current":""}"><span class="pet-form-art pet-sprite" style="${spriteStyle(pet.species,i+1)}" role="img" aria-label="${species.name}, level ${i+1}: ${form}"></span><span class="pet-form-level">Level ${i+1}${stage===i+1?" · Current":""}</span><strong>${form}</strong><small>${i+1<=stage?"Unlocked":`${evolutionCosts.slice(stage-1,i).reduce((a,b)=>a+b,0)} MP from your current level · ${Math.max(0,evolutionCosts.slice(stage-1,i).reduce((a,b)=>a+b,0)-balance)} MP more needed`}</small></div>`).join("");
   const petImage=document.getElementById("petImage");
   applyPetSprite(petImage,pet.species,stage);
   petImage.setAttribute("aria-label",`${petDisplayName(pet)} · ${stageNames[stage-1]}`);
@@ -292,7 +292,7 @@ function render(){
     ?charmRows.map(([id,n])=>`<span class="pet-charm">${subjectMeta[id].icon} ${subjectMeta[id].label} · ${n}</span>`).join("")
     :'<span class="pet-charm">Master a topic to add the first subject mark.</span>';
 
-  renderChooser(pet,state);
+  renderChooser(pet,state);renderWallet(pet);
 
   document.getElementById("dueNote").textContent=due>0
     ?`${due} retention item${due===1?"":"s"} currently ready.`
@@ -309,7 +309,7 @@ function renderChooser(pet,state){
     return `<button class="pet-choice ${p.secret?"pet-choice-secret":""} ${pet.species===p.id?"selected":""} ${locked?"is-locked":""}" type="button" data-pet="${p.id}" aria-label="${locked?`Secret companion locked: ${requirement}`:`Choose ${p.name}`}" ${locked?"disabled":""}>
       ${locked?'<span class="pet-secret-silhouette" aria-hidden="true">✦</span>':`<span class="pet-choice-art pet-sprite" style="${spriteStyle(p.id,petLevel(pet,p.id))}" aria-hidden="true"></span>`}
       <b>${locked?"Secret companion":p.name}</b><small>${locked?requirement:p.tag}</small>
-      <span class="pet-choice-level">${locked?"Undiscovered":`Level ${petLevel(pet,p.id)}`}</span>
+      <span class="pet-choice-level">${locked?"Undiscovered":`Level ${petLevel(pet,p.id)}`}</span>${!locked&&petLevel(pet,p.id)<5?`<small>Next level: ${evolutionCost(petLevel(pet,p.id))} MP · ${Math.max(0,evolutionCost(petLevel(pet,p.id))-pet.masteryPoints)} MP more needed</small>`:""}
       <span class="selected-mark">Current companion</span>
     </button>`;
   }).join("");
@@ -358,7 +358,7 @@ document.getElementById("confirmEvolutionButton").addEventListener("click",()=>{
   const stage=petLevel(pet);
   const cost=evolutionCost(stage);
   if(stage>=5||pet.masteryPoints<cost){document.getElementById("confirmEvolution").close();render();return}
-  savePet({...pet,masteryPoints:pet.masteryPoints-cost,petLevels:{...pet.petLevels,[pet.species]:stage+1}});
+  savePet({...pet,masteryPoints:pet.masteryPoints-cost,petLevels:{...pet.petLevels,[pet.species]:stage+1},mpTransactions:[...(pet.mpTransactions||[]),{id:crypto.randomUUID(),kind:'evolution',species:pet.species,from:stage,to:stage+1,amount:-cost,balance:pet.masteryPoints-cost,at:new Date().toISOString()}]});
   document.getElementById("confirmEvolution").close();
   render();
 });
@@ -368,3 +368,16 @@ window.addEventListener("scholar:pet-changed",render);
 window.addEventListener("scholar:mp-changed",render);
 buildChooser();
 render();
+
+function walletRows(pet){
+ const earned=Object.entries(pet.mpLedger||{}).map(([id,row])=>({...row,id,at:row.earnedAt}));
+ return [...earned,...(pet.mpTransactions||[])].sort((a,b)=>String(b.at||'').localeCompare(String(a.at||'')));
+}
+function safeWalletText(value){return String(value||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+let walletCatalog;
+function renderWallet(pet){
+ let panel=document.getElementById('mp-wallet-history');if(!panel){panel=document.createElement('section');panel.id='mp-wallet-history';panel.className='pet-card';document.querySelector('main').append(panel)}
+ const rows=walletRows(pet),names=walletCatalog||{};
+ panel.innerHTML=`<h2>Mastery Points · wallet history</h2><p>Available: <b>${pet.masteryPoints} MP</b>. First mastery: +10 MP; a qualifying retention pass: +2 MP. Each evolution spends MP on the selected companion only.</p><p>Earlier spending before this update was not recorded. Your saved balance is preserved.</p>${rows.length?`<table><thead><tr><th>Date</th><th>Reason</th><th>MP</th></tr></thead><tbody>${rows.slice(0,100).map(row=>`<tr><td>${safeWalletText(row.at?new Date(row.at).toLocaleString('en-GB'):'Earlier record')}</td><td>${safeWalletText(row.kind==='evolution'?`${pets.find(p=>p.id===row.species)?.name||'Companion'} · Level ${row.from} → ${row.to}`:`${row.kind==='mastery'?'First mastery':'Retention pass'} · ${names[row.topicId]||'Topic mastery'}`)}</td><td>${Number(row.amount)>0?'+':''}${Number(row.amount)||0}</td></tr>`).join('')}</tbody></table>`:'<p>No recorded transactions yet. Earn MP through formal mastery and retention.</p>'}`;
+ if(!walletCatalog){walletCatalog={};fetch('/content/catalog.json').then(r=>r.json()).then(d=>{walletCatalog=Object.fromEntries((d.topics||[]).map(t=>[t.topicId,t.title]));renderWallet(readPet())}).catch(()=>{})}
+}

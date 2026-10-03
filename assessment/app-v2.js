@@ -156,9 +156,11 @@ function history(){
   $('#history-list').innerHTML=state.results.length?[...state.results].reverse().map(x=>{
     const marks=Number.isFinite(x.marks)?x.marks:x.correct;
     const score=Number.isFinite(x.score)?x.score:Math.round(marks/x.total*100);
-    return `<article class="entry"><div><span class="tag">${esc(x.date)} · ${esc(x.paper)}</span><h3>${formatMarks(marks)}/${x.total} marks · ${score}/100 · ${score>=85?'Passed':'Revise and retry'}</h3></div></article>`;
+    return `<article class="entry"><div><span class="tag">${esc(x.date)} · ${esc(x.paper)}</span><h3>${formatMarks(marks)}/${x.total} marks · ${score}/100 · ${score>=85?'Passed':'Revise and retry'}</h3>${x.questions?.length&&followupItems(x).length?`<p>${followupItems(x).length} missed or partly correct questions to revisit.</p><button class="primary" data-followup="${state.results.indexOf(x)}">Practise these weak areas</button>`:''}</div></article>`;
   }).join(''):'<p class="muted">Finish a paper to see its result here.</p>';
 }
+
+$('#history-list').addEventListener('click',e=>{const button=e.target.closest('[data-followup]');if(button)startFollowup(Number(button.dataset.followup))});
 
 function shuffle(a){
   const b=[...a];
@@ -462,6 +464,31 @@ function showAnswer(q){
   return list.join(' / ');
 }
 
+function followupItems(result){
+ return (result?.questions||[]).filter((q,i)=>mark(q,result.answers?.[i]||'').credit<0.999);
+}
+function startFollowup(resultIndex){
+ const result=state.results[resultIndex];if(!result)return;
+ state.followups||={};const id=String(resultIndex);
+ const questions=followupItems(result);
+ if(!questions.length){show('history');return;}
+ state.followups[id]||={questions,index:0,answers:{},checked:{},paper:result.paper};
+ save();drawFollowup(id);
+}
+function drawFollowup(id){
+ const draft=state.followups?.[id];if(!draft)return;
+ show('exam');const q=draft.questions[draft.index];
+ if(!q){$('#exam').innerHTML=`<h2>Weak-area practice complete</h2><p>You practised ${draft.questions.length} missed or partly correct questions. This follow-up does not change the original test score or count as formal mastery.</p><button id="followup-results">Back to results</button>`;$('#followup-results').onclick=()=>show('history');return;}
+ const checked=draft.checked[draft.index],m=checked?mark(q,draft.answers[draft.index]||''):null;
+ const keywords=q.markKeywords||q.answer?.points?.map(p=>p.label)||q.answer?.markPoints||[];
+ $('#exam').innerHTML=`<p class="eyebrow">WEAK-AREA PRACTICE · ${draft.index+1}/${draft.questions.length}</p><h2>${esc(q.topic||draft.paper)}</h2><p>This set contains only missed or partly correct questions from your paper. Your original test score stays unchanged.</p>${q.passage?`<div class="feedback" style="white-space:pre-line">${esc(q.passage)}</div>`:''}${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}?v=${CHEMISTRY_REVISION}" alt="${esc(q.diagramAlt||DIAGRAM_ALTS[q.diagram]||'Question diagram')}">`:''}${q.options?.length?`<p><b>Options:</b> ${esc(q.options.join(' · '))}</p>`:''}${q.stimulus?.image?`<img class="assessment-diagram" src="${esc(q.stimulus.image)}" alt="Question diagram">`:''}${q.image?`<img class="assessment-diagram" src="${esc(q.image)}" alt="Question diagram">`:''}${q.stimulus?.text?`<p>${esc(q.stimulus.text)}</p>`:''}<p>${esc(q.prompt)}</p><label>Your answer<textarea id="followup-answer" rows="4" ${checked?'readonly':''}>${esc(draft.answers[draft.index]||'')}</textarea></label>${checked?`<div class="feedback"><b>${esc(m.status)}</b><p><b>Model answer:</b> ${esc(showAnswer(q))}</p>${q.workedSolution?`<p><b>Working:</b> ${esc(q.workedSolution)}</p>`:''}${q.answer?.points?.length&&m.credit<0.999?`<p><b>Missing ideas:</b> ${esc(q.answer.points.filter((point,j)=>!m.pointResults?.[j]).map(point=>point.label).join(' · '))}</p>`:''}${keywords.length?`<p><b>Keywords / required points:</b> ${esc(keywords.join(' · '))}</p>`:''}<p><b>Hint:</b> ${esc(q.hint||q.examGuidance?.strategy||q.feedback?.short||'Answer the exact question, then check each required idea. One distinct idea earns each available mark. Write a fresh answer before checking.')} </p></div><button id="followup-next" class="primary">Next question</button><button id="followup-retry">Try again without the answer</button>`:'<button id="followup-check" class="primary">Check this answer</button>'}<button id="followup-exit">Save and return to results</button>`;
+ $('#followup-answer').addEventListener('input',e=>{draft.answers[draft.index]=e.target.value;save()});
+ $('#followup-check')?.addEventListener('click',()=>{draft.checked[draft.index]=true;save();drawFollowup(id)});
+ $('#followup-next')?.addEventListener('click',()=>{draft.index++;save();drawFollowup(id)});
+ $('#followup-retry')?.addEventListener('click',()=>{delete draft.checked[draft.index];delete draft.answers[draft.index];save();drawFollowup(id)});
+ $('#followup-exit').onclick=()=>{save();show('history')};
+}
+
 function questionMarks(q){return ['chemistry_rubric','biology_rubric'].includes(q.answer?.mode)?q.answer.points.length:1}
 
 function finish(p,d){
@@ -504,8 +531,9 @@ function finish(p,d){
   delete state.drafts[p.id];save();cards();
 
   const resultSummary=`${full}/${d.questions.length} correct${partial?` · ${partial} partly correct`:''} · ${formatMarks(earned)}/${totalMarks} marks`;
-  $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${resultSummary}. Pass mark: 85/100. Review the answers below, then start a new paper for a different selection.</p>${wardrobe}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='latin-verbs'?'<p class="muted">English follows the verb table. Present is simple (I carry), imperfect is I was carrying, perfect is I carried. I have carried and I used to carry also score. you carry is accepted for both singular and plural; the model answer shows which one it is.</p>':''}${p.id==='latin-creusa'?'<p class="muted">Comprehension marking accepts equivalent wording. Where an answer contains only some required ideas, partial credit is awarded instead of an automatic zero.</p>':''}${p.id==='chemistry'?'<p class="muted">Marks are shown on the new exam-style questions. Each distinct correct point earns a mark, including method and final-answer marks for calculations. Older short questions remain worth one mark.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
+  $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${resultSummary}. Pass mark: 85/100. Review the answers below, then start a new paper for a different selection.</p>${wardrobe}${Object.keys(missed).length?'<button id="practise-weak-areas" class="primary">Practise these weak areas</button>':''}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='latin-verbs'?'<p class="muted">English follows the verb table. Present is simple (I carry), imperfect is I was carrying, perfect is I carried. I have carried and I used to carry also score. you carry is accepted for both singular and plural; the model answer shows which one it is.</p>':''}${p.id==='latin-creusa'?'<p class="muted">Comprehension marking accepts equivalent wording. Where an answer contains only some required ideas, partial credit is awarded instead of an automatic zero.</p>':''}${p.id==='chemistry'?'<p class="muted">Marks are shown on the new exam-style questions. Each distinct correct point earns a mark, including method and final-answer marks for calculations. Older short questions remain worth one mark.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
   $('#back-to-papers').onclick=()=>show('papers');
+  const followupButton=$('#practise-weak-areas');if(followupButton)followupButton.onclick=()=>startFollowup(state.results.length-1);
 }
 
 if(typeof URLSearchParams!=="undefined"&&typeof location!=="undefined"&&new URLSearchParams(location.search).get("tab")==="tracker")show("tracker");

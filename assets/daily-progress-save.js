@@ -1,4 +1,4 @@
-import { C as store } from "/assets/index-BLVOhKhN.js?v=20261003-priority4";
+import { C as store } from "/assets/index-BLVOhKhN.js?v=20261003-priority58";
 
 const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
 const AUTO_KEY = "lux-progress-auto-v1";
@@ -21,6 +21,8 @@ store.subscribe(()=>{clearTimeout(autoTimer);autoTimer=setTimeout(autoSave,250)}
 window.addEventListener("pagehide",autoSave);
 document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")autoSave()});
 window.addEventListener("scholar:learning-changed",autoSave);
+window.addEventListener("scholar:pet-changed",autoSave);
+window.addEventListener("scholar:mp-changed",autoSave);
 const PANEL_ID = "daily-save-panel";
 
 function summary(state) {

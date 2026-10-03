@@ -97,7 +97,7 @@ export function selectDailyVocabulary({subject, items = [], day, ledger = {}, re
       if (selected.length >= size || count <= 0) break;
       if (used.has(row.concept)) continue;
       used.add(row.concept);
-      selected.push({...row.question, _dailyBucket:bucket, _dailyVocab:subject, _dailyYear8:true,
+      selected.push({...row.question, _dailyBucket:bucket, _previousSeen:row.encounters, _dailyVocab:subject, _dailyYear8:true,
         _adaptiveRank:selected.length, _adaptiveBucket:bucket});
       count--;
     }

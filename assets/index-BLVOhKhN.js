@@ -1,8 +1,9 @@
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js";
-import("/pet/pet-care-global.js?v=20261003-priority4").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261003-cellpractice1";
+import("/pet/pet-care-global.js?v=20261003-priority58").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261003-priority58";
 import {
   C as store,
+  J as rewardRequirements,
   U as collectibles,
   Ut as todayKey,
   Ot as frenchVocab,
@@ -12,7 +13,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261003-cellpractice1";
+} from "./index-BLVOhKhN.core.js?v=20261003-priority58";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -505,7 +506,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     const attemptedSkillRows = skillRows.filter(({ stat }) => stat.attempted > 0);
     const skillAccuracy = attemptedSkillRows.length ? Math.min(...attemptedSkillRows.map(({ stat }) => stat.accuracy)) : 1;
     return {
-      item, index, topicId, conceptKey, primarySkill, contentKey: adaptiveContentKey(item), stat, skillRows, skillAccuracy,
+      item, index, topicId, conceptKey, primarySkill, seenCount, contentKey: adaptiveContentKey(item), stat, skillRows, skillAccuracy,
       retentionSkillDue, nextSkillDue, review, due, unseen, mastered, weak, fresh, mistake, retention,
       recent: recentIds.has(item.id), recentConcept: recentConcepts.has(conceptKey),
       lane: adaptiveFormatLane(item), production: adaptiveIsProduction(item),
@@ -845,6 +846,7 @@ function rankAdaptiveQuestions(items, subject, size = 10) {
     ...row.item,
     _adaptiveRank: index,
     _adaptiveBucket: row.bucket,
+    _previousSeen: row.seenCount,
     _sessionComposed: index < target,
     _sessionLane: row.lane,
     _sessionConcept: row.conceptKey,
@@ -3109,4 +3111,10 @@ function mountDailyRecordButton() {
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261003-priority4").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261003-priority58").catch(console.error);
+
+// Give every locked reward its concrete requirement, current evidence and remaining gap.
+export function rewardCountdown(condition,stats){
+ return rewardRequirements(condition,stats).map(row=>row.met?`✓ ${row.label}`:`${row.label} — ${row.current}/${row.target}; ${Math.max(0,row.target-row.current)} more needed`).join(' · ');
+}
+export {rewardCountdown as q};

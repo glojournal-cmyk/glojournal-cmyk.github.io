@@ -18,6 +18,9 @@ export function topicKinds(topic){
  const title=String(topic.title||'');const formats=topic.formats||{};const out=['all'];
  if(/vocab|dictionary|stage \d+.*vocab/i.test(title))out.push('vocabulary');
  if(/verb|tense|case|grammar|noun|adjectiv|pronoun|agreement|conjugat|negative|reflexive/i.test(title))out.push('grammar');
+ if(formats.diagram_label>0||Number(topic.diagramQuestions)>0)out.push('diagrams');
+ if(formats.mc_single>0)out.push('choices');
+ if(Object.keys(formats).some(k=>/typed|mark_points|controlled_translation/.test(k)))out.push('short');
  if(formats.calculation>0||/calculat|\brf\b|magnification|scale|conversion|energy balance|boyle/i.test(title))out.push('calculations');
  if(/practical|chromatogra|microscop|food test|aseptic|experiment/i.test(title)||formats.practical_design>0)out.push('practicals');
  if(/translat|comprehension|literature|othello|poetry|northanger|reading|set.text/i.test(title))out.push('reading');

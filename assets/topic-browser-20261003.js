@@ -1,8 +1,8 @@
 import{i as e,n as t,t as n}from './jsx-runtime-Cltr0gcK.js';
-import{directoryGroups,topicKinds}from './topic-directory-data-20261003.js?v=20261003-cellpractice2';
+import{directoryGroups,topicKinds}from './topic-directory-data-20261003.js?v=20261003-priority58';
 const React=e(t(),1),J=n();
 const h=J.jsx,hs=J.jsxs;
-if(typeof document!=='undefined'&&!document.getElementById('topic-directory-style')){const style=document.createElement('link');style.id='topic-directory-style';style.rel='stylesheet';style.href='/topic-directory-20261003.css?v=20261003-cellpractice2';document.head.appendChild(style);}
+if(typeof document!=='undefined'&&!document.getElementById('topic-directory-style')){const style=document.createElement('link');style.id='topic-directory-style';style.rel='stylesheet';style.href='/topic-directory-20261003.css?v=20261003-priority58';document.head.appendChild(style);}
 const buttonClass='rounded-full border border-line bg-card px-3 py-2 text-xs font-medium text-navy';
 export function TopicBrowser({topics=[],selected='',onSelect,subject,year,stats={},allowAll=false,mode='select',compact=false}){
  const [query,setQuery]=React.useState(()=>typeof window==='undefined'?'':new URLSearchParams(window.location.search).get('q')||''),[kind,setKind]=React.useState('all'),[availability,setAvailability]=React.useState('all'),[progress,setProgress]=React.useState('all');
@@ -20,7 +20,7 @@ export function TopicBrowser({topics=[],selected='',onSelect,subject,year,stats=
   select('School learning',taughtFilter,setTaughtFilter,[['all','All topics'],['taught','Already learned'],['untaught','Not learned yet']]),
   h('p',{className:'text-xs text-muted',children:'Year 7–8 foundations start as learned. Year 9 topics start as not learned yet. Daily vocabulary uses Year 7–8 only and excludes topics you mark as not learned.'}),
   h('input',{type:'search',value:query,onChange:e=>setQuery(e.target.value),placeholder:'Search a topic, skill or keyword…','aria-label':'Search topics',className:'w-full rounded-xl border border-line bg-card px-3 py-3 text-sm'}),
-  hs('div',{className:compact?'grid grid-cols-2 gap-2':'grid gap-2 sm:grid-cols-3',children:[select('Question focus',kind,setKind,[['all','All question types'],['vocabulary','Vocabulary'],['grammar','Grammar'],['calculations','Calculations'],['practicals','Practicals'],['reading','Reading & translation'],['writing','Writing & explanations']].filter(([id])=>kinds.has(id))),select('Availability',availability,setAvailability,[['all','All topics'],['ready','Ready to practise']]),select('Progress',progress,setProgress,[['all','All progress'],['unmastered','Not yet mastered'],['mastered','Mastered']])]}),
+  hs('div',{className:compact?'grid grid-cols-2 gap-2':'grid gap-2 sm:grid-cols-3',children:[select('Question focus',kind,setKind,[['all','All question types'],['vocabulary','Vocabulary'],['grammar','Grammar'],['calculations','Calculations'],['practicals','Practicals'],['reading','Reading & translation'],['writing','Writing & explanations'],['diagrams','Diagram questions'],['short','Short answers'],['choices','Multiple choice']].filter(([id])=>kinds.has(id))),select('Availability',availability,setAvailability,[['all','All topics'],['ready','Ready to practise']]),select('Progress',progress,setProgress,[['all','All progress'],['unmastered','Not yet mastered'],['mastered','Mastered']])]}),
   query||kind!=='all'||availability!=='all'||progress!=='all'||taughtFilter!=='all'?h('button',{type:'button',onClick:()=>{setQuery('');setKind('all');setAvailability('all');setProgress('all');setTaughtFilter('all')},className:buttonClass,children:'Clear filters'}):null,
   allowAll&&!query&&kind==='all'?h('button',{type:'button',onClick:()=>onSelect?.('all'),'aria-pressed':selected==='all',className:buttonClass,children:'Mixed practice · all topics'}):null,
   found===0?hs('div',{className:'rounded-xl bg-sage/40 p-4 text-sm',role:'status',children:[h('p',{children:'No topics match these filters.'}),h('p',{className:'mt-1 text-xs text-muted',children:topics.length?'Try another keyword or clear the filters.':'Choose another study year to see available topics.'})]}):null,
@@ -28,7 +28,13 @@ export function TopicBrowser({topics=[],selected='',onSelect,subject,year,stats=
    const current=topic.topicId===selected,ready=Number(topic.enabled)>0,state=stats[topic.topicId]?.state||'learning';
    const learningControl=h('button',{type:'button',onClick:()=>toggle(topic),className:buttonClass,'aria-label':`Change learned status for ${topic.title}`,children:isTaught(topic)?'✓ Learned · mark not learned':'Not learned yet · mark learned'});
    const title=hs('div',{children:[h('p',{className:'text-sm font-semibold leading-snug',children:topic.title}),h('p',{className:'mt-1 text-xs opacity-75',children:`${ready?`${topic.enabled} ready questions`:'Preview only'} · ${state==='mastered'?'Mastered':state==='secure'?'Secure':'Building confidence'}`})]});
-   return mode==='directory'?hs('article',{className:'rounded-xl border border-line bg-parchment p-4',children:[title,learningControl,actions(topic)]},topic.topicId):hs('div',{children:[learningControl,h('button',{type:'button',onClick:()=>onSelect?.(topic.topicId),'aria-pressed':current,className:`w-full rounded-xl px-3 py-3 text-left ${current?'bg-navy text-card':'bg-sage/30 text-navy hover:bg-sage'}`,children:title})]},topic.topicId);
+   return mode==='directory'?hs('article',{className:'rounded-xl border border-line bg-parchment p-4',children:[title,h('p',{className:'mt-2 text-xs text-muted',children:formatSummary(topic.formats,topic.diagramQuestions)}),learningControl,actions(topic)]},topic.topicId):hs('div',{children:[learningControl,h('button',{type:'button',onClick:()=>onSelect?.(topic.topicId),'aria-pressed':current,className:`w-full rounded-xl px-3 py-3 text-left ${current?'bg-navy text-card':'bg-sage/30 text-navy hover:bg-sage'}`,children:title})]},topic.topicId);
   })})]},group.id))})
  ]});
+}
+
+function formatSummary(formats={},diagrams=0){
+ const labels={mc_single:'Multiple choice',calculation:'Calculations',diagram_label:'Diagram labels',practical_design:'Practical reasoning',extended_response:'Longer answers',controlled_translation:'Translation',mark_points:'Short explanations',typed_exact:'Typed answers',typed_equivalent:'Typed answers',typed_short:'Short answers',spelling_restore:'Spelling',matching:'Matching',word_tiles:'Sentence building',sequence:'Sequencing',sorting:'Sorting'};
+ const totals=new Map();for(const [kind,count]of Object.entries(formats)){if(Number(count)>0){const name=labels[kind]||'Other questions';totals.set(name,(totals.get(name)||0)+Number(count))}}
+ return [...totals].map(([name,count])=>`${name}: ${count}`).join(' · ')+(diagrams>0?` · Includes diagrams: ${diagrams}`:'');
 }
