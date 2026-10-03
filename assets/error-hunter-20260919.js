@@ -1,4 +1,4 @@
-import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{t as r}from"./link-bW0ClP5B.js";import{C as o,T as i}from"./index-BLVOhKhN.js?v=20261003-directory3";import{t as a}from"./button-CgT0JZ5s.js?v=20261003-directory3";import{t as s}from"./card-t5JqoXqT.js?v=20261003-directory3";var W=e(t(),1),G=n();
+import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{t as r}from"./link-bW0ClP5B.js";import{C as o,T as i}from"./index-BLVOhKhN.js?v=20261003-holidays-fix";import{t as a}from"./button-CgT0JZ5s.js?v=20261003-holidays-fix";import{t as s}from"./card-t5JqoXqT.js?v=20261003-holidays-fix";var W=e(t(),1),G=n();
 const META={id:`error-hunter`,name:`Error Hunter`,kicker:`Cross-subject challenge`,blurb:`Inspect a student's answer, find every mistake, repair it and explain the rule. French, Latin, Physics and Chemistry.`,levels:12};
 const SUBJECTS={french:`French`,latin:`Latin`,physics:`Physics`,chemistry:`Chemistry`};
 const CASES=[

@@ -1,5 +1,5 @@
 import { i as interop, n as reactNs, t as jsxNs } from "./jsx-runtime-Cltr0gcK.js";
-import { C as useStore, Qt as toast, d as chime, g as miss, u as finishSound } from "./index-BLVOhKhN.js?v=20261003-directory3";
+import { C as useStore, Qt as toast, d as chime, g as miss, u as finishSound } from "./index-BLVOhKhN.js?v=20261003-holidays-fix";
 
 const React = interop(reactNs(), 1);
 const jsx = jsxNs();
