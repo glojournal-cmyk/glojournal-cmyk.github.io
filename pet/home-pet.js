@@ -3,7 +3,7 @@ import { getCareSummary } from "/pet/pet-care-state.js?v=20261003-care1";
 // The progression guard imports the React app bundle. Loading it on the
 // standalone Pet page makes React replace that page with an empty root.
 if (!location.pathname.startsWith("/pet")) {
-  import("/assets/progression-guard-20260927.js?v=20261003-notes2").catch(() => {});
+  import("/assets/progression-guard-20260927.js?v=20261003-qa3").catch(() => {});
 }
 
 const APP_KEY = "lux-scholar-garden-v1";

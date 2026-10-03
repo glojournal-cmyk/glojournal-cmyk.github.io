@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import {chromium,webkit} from "playwright";
-// Revision 20261003-assessment2 includes the composed Chemistry bank.
+// Revision 20261003-qa3 cancels background requests on page navigation.
 const base=process.env.QA_BASE_URL||"https://glojournal-cmyk.github.io";
 const papers=[["Latin","latin-verbs"],["Latin","latin-creusa"],["Latin","latin-conjugations"],["Latin","latin"],["Chemistry","chemistry"],["French","french"],["Biology","biology-school"],["Biology","biology"],["Physics","physics"],["English","english"]];
 const results=[];

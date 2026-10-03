@@ -1,1 +1,1 @@
-import"./study-experience-20260927.js?v=20261003-notes2";import{t as e}from"./jsx-runtime-Cltr0gcK.js";import{tn as t}from"./index-BLVOhKhN.js?v=20261003-notes2";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as component};
+import"./study-experience-20260927.js?v=20261003-qa3";import{t as e}from"./jsx-runtime-Cltr0gcK.js";import{tn as t}from"./index-BLVOhKhN.js?v=20261003-qa3";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as component};
