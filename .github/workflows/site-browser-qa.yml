@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['tests/site-browser-qa.mjs', 'tests/all-feature-qa.mjs', '.github/workflows/site-browser-qa.yml']
+    paths: ['tests/**', 'assets/**', 'content/**', 'assessment/**', 'pet/**', '**/*.html', '*.js', '*.css', '.github/workflows/site-browser-qa.yml']
 jobs:
   all-features:
     runs-on: ubuntu-latest
