@@ -366,8 +366,6 @@ window.addEventListener("storage",render);
 window.addEventListener("focus",render);
 window.addEventListener("scholar:pet-changed",render);
 window.addEventListener("scholar:mp-changed",render);
-buildChooser();
-render();
 
 function walletRows(pet){
  const earned=Object.entries(pet.mpLedger||{}).map(([id,row])=>({...row,id,at:row.earnedAt}));
@@ -381,3 +379,6 @@ function renderWallet(pet){
  panel.innerHTML=`<h2>Mastery Points · wallet history</h2><p>Available: <b>${pet.masteryPoints} MP</b>. First mastery: +10 MP; a qualifying retention pass: +2 MP. Each evolution spends MP on the selected companion only.</p><p>Earlier spending before this update was not recorded. Your saved balance is preserved.</p>${rows.length?`<table><thead><tr><th>Date</th><th>Reason</th><th>MP</th></tr></thead><tbody>${rows.slice(0,100).map(row=>`<tr><td>${safeWalletText(row.at?new Date(row.at).toLocaleString('en-GB'):'Earlier record')}</td><td>${safeWalletText(row.kind==='evolution'?`${pets.find(p=>p.id===row.species)?.name||'Companion'} · Level ${row.from} → ${row.to}`:`${row.kind==='mastery'?'First mastery':'Retention pass'} · ${names[row.topicId]||'Topic mastery'}`)}</td><td>${Number(row.amount)>0?'+':''}${Number(row.amount)||0}</td></tr>`).join('')}</tbody></table>`:'<p>No recorded transactions yet. Earn MP through formal mastery and retention.</p>'}`;
  if(!walletCatalog){walletCatalog={};fetch('/content/catalog.json').then(r=>r.json()).then(d=>{walletCatalog=Object.fromEntries((d.topics||[]).map(t=>[t.topicId,t.title]));renderWallet(readPet())}).catch(()=>{})}
 }
+
+buildChooser();
+render();
