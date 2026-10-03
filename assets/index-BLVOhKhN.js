@@ -1,6 +1,6 @@
 import {mistakeReviewTask,creditMistakeReview} from "./mistake-review-plan-20261003.js";
-import("/pet/pet-care-global.js?v=20261003-mistakes1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261003-mistakes1";
+import("/pet/pet-care-global.js?v=20261003-mistakes2").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261003-mistakes2";
 import {
   C as store,
   U as collectibles,
@@ -12,7 +12,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261003-mistakes1";
+} from "./index-BLVOhKhN.core.js?v=20261003-mistakes2";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -1122,7 +1122,7 @@ function topicAttemptsToday(state, topicId) {
   const recent = (stat.recentOutcomes || []).filter((row) => row?.date === day).length;
   // Recover formal work saved before the shared-store fix from each question's review date.
   const legacyReviews = Object.entries(state.reviews || {}).filter(([id, review]) =>
-    review?.last === day && !review?.repair &&
+    review?.last === day && !review?.repair && !review?.mistakeOnly &&
     (review.topicId === topicId || id.startsWith(topicId + "-") || id.startsWith(topicId + ":"))).length;
   return Math.max(recent, legacyReviews, Number(state.dailyTopicAttemptsByDay?.[day]?.[topicId]) || 0);
 }
@@ -2037,8 +2037,14 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   if (meta?.formal === false) {
     const reviews = { ...(after.reviews || {}) };
     delete reviews[questionId];
+    // Keep non-formal vocabulary mistakes for the dedicated task without scheduling formal review.
+    if (resolved.topicId && (meta.dailyVocab || meta.format === "dictation")) reviews[questionId] = {wrong: !correct, last: todayKey(), lastWrong: !correct ? todayKey() : before.reviews?.[questionId]?.lastWrong, subject: resolved.subject || subject, topicId: resolved.topicId, due: null, mistakeOnly: true, repair: false};
     const recentQuestionIds = [...(before.recentQuestionIds || []).filter((id) => id !== questionId), questionId].slice(-60);
     store.setState({ reviews, recentQuestionIds, lastSubject: resolved.subject || subject });
+    if (typeof window !== "undefined" && new URLSearchParams(window.location.search).get("task") === "mistake-review") {
+      store.setState({daily:(store.getState().daily||[]).map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
+    }
+    normalizeState();
     return result;
   }
   if (!resolved.topicId) return result;
