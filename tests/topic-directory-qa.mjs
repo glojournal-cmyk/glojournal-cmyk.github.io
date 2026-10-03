@@ -33,7 +33,7 @@ const topics=catalog.filter(t=>t.subject==='chemistry'&&t.year===9);
 function render(props){cursor=0;return flatten(ctx.TopicBrowser({topics,subject:'chemistry',year:9,mode:'directory',...props}));}
 let nodes=render({});
 assert.ok(nodes.some(n=>n?.props?.['aria-label']==='Search topics'));
-const details=nodes.filter(n=>n?.type==='details');assert.ok(details.length>1);assert.ok(details.every(n=>n.props.open===false));
+const details=nodes.filter(n=>n?.type==='details');assert.ok(details.length>1);assert.equal(details[0].props.open,true);assert.ok(details.slice(1).every(n=>n.props.open===false));
 const search=nodes.find(n=>n?.props?.['aria-label']==='Search topics');search.props.onChange({target:{value:'Rf'}});
 nodes=render({});assert.ok(nodes.filter(n=>n?.type==='details').every(n=>n.props.open===true));
 for(const link of nodes.filter(n=>n?.type==='a')){const url=new URL(link.props.href,'https://example.test');assert.equal(url.searchParams.get('year'),'9');assert.ok(url.searchParams.get('topic'));}
@@ -44,3 +44,17 @@ const chosen=nodes.find(n=>n?.props?.['aria-pressed']===true);assert.ok(chosen);
 for(const file of ['assets/study._subject.index-safe-20260920.js','assets/study._subject.learn-BvTzW3pu.js','assets/study._subject.practise-y8fix-20260920.js'])assert.ok(fs.readFileSync(file,'utf8').includes('TopicBrowser'),file);
 const assessment=fs.readFileSync('assessment/app-v2.js','utf8');assert.ok(assessment.includes('assessment-search'));assert.ok(assessment.includes('assessment-kind'));
 console.log('TOPIC_DIRECTORY_QA passed: all six subjects, every catalog topic exactly once, categories, accent-free search, kind/progress/availability filters, year-correct links, selection and empty/preview states.');
+// Render every subject landing route, including both study years. The directory
+// must precede the old action and progress cards so it is visible on entry.
+const landing=fs.readFileSync('assets/study._subject.index-safe-20260920.js','utf8');
+for(const subject of ['latin','french','biology','chemistry','physics','english'])for(const year of [8,9]){
+ const store=selector=>selector({year,topicStats:{},reviews:{},setYear(){}});
+ const context=vm.createContext({r:store,i:(subject,year)=>catalog.filter(t=>t.subject===subject&&t.year===year),a:()=> '2026-10-03',loadCatalog(){},s:{jsx,jsxs:jsx},TopicBrowser:'TopicBrowser',window:{location:{pathname:`/study/${subject}/`}}});
+ vm.runInContext(landing.slice(landing.indexOf('const META=')).replace('export{c as component};',''),context);
+ const page=context.c(),children=page.props.children;
+ assert.equal(children[0].type,'header');
+ const library=flatten(children[1]).find(n=>n?.type==='TopicBrowser');
+ assert.equal(library.props.subject,subject);assert.equal(library.props.year,year);assert.equal(library.props.topics.length,catalog.filter(t=>t.subject===subject&&t.year===year&&t.status!=="disabled").length);
+ assert.ok(flatten(children.slice(2)).some(n=>n?.props?.['aria-label']==='Study progress'));
+}
+console.log('DIRECTORY_VISIBILITY_QA passed: all six subject landing routes in both years expose the directory before action/progress cards.');

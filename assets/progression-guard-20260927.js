@@ -1,4 +1,4 @@
-import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20261003-directory1";
+import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20261003-directory3";
 
 const VERSION = "20260927-foundation-first-2";
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];

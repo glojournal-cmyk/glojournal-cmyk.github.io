@@ -1,5 +1,5 @@
-import {TopicBrowser} from "./topic-browser-20261003.js?v=20261003-directory1";
-import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{C as r,st as i,Ut as a,dt as loadCatalog}from"./index-BLVOhKhN.js?v=20261003-directory1";var o=e(t(),1),s=n();
+import {TopicBrowser} from "./topic-browser-20261003.js?v=20261003-directory3";
+import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{C as r,st as i,Ut as a,dt as loadCatalog}from"./index-BLVOhKhN.js?v=20261003-directory3";var o=e(t(),1),s=n();
 
 const META={
   latin:{name:"Latin",quote:"Lingua Latina in aeternum.",art:"/art/subjects/latin.jpg"},
@@ -36,33 +36,11 @@ function c(){
   const language=subject==="latin"||subject==="french";
   const focus=catalog.find(x=>topicStats?.[x.topicId]?.state!=="mastered")||catalog[0]||null;
   return (0,s.jsxs)("div",{className:"space-y-6",children:[
-    (0,s.jsxs)("header",{className:"overflow-hidden rounded-3xl",style:{background:"linear-gradient(145deg,rgba(255,250,240,.95),rgba(239,241,232,.92))",border:"1px solid rgba(23,40,63,.10)",boxShadow:"0 14px 34px rgba(23,40,63,.07)"},children:[
-      (0,s.jsxs)("div",{className:"grid md:grid-cols-[1.3fr_.7fr]",children:[
-        (0,s.jsxs)("div",{className:"p-6 sm:p-8",children:[
-          (0,s.jsx)("p",{className:"text-xs font-semibold tracking-[0.18em] text-bronze uppercase",children:"Study"}),
-          (0,s.jsx)("h1",{className:"mt-1 font-display text-5xl font-semibold text-navy",children:meta.name}),
-          (0,s.jsx)("p",{className:"mt-2 text-muted",children:meta.quote}),
-          (0,s.jsxs)("label",{className:"mt-5 inline-flex items-center gap-3 rounded-full px-4 py-2 text-sm",style:{background:"rgba(255,255,255,.72)",border:"1px solid rgba(23,40,63,.10)"},children:[
-            (0,s.jsx)("span",{className:"font-medium text-navy",children:"Study year"}),
-            (0,s.jsxs)("select",{value:year,onChange:e=>setYear(Number(e.target.value)),className:"bg-transparent font-semibold text-navy outline-none",children:[
-              (0,s.jsx)("option",{value:9,children:"Year 9"}),
-              (0,s.jsx)("option",{value:8,children:"Year 8 · Previous year revision"})
-            ]})
-          ]}),
-          (0,s.jsxs)("div",{className:"mt-5 grid gap-3 sm:grid-cols-3",children:[
-            (0,s.jsxs)("div",{className:"rounded-2xl p-4",style:{background:"rgba(201,210,190,.35)"},children:[(0,s.jsx)("p",{className:"text-xs uppercase tracking-wide text-muted",children:"Mastered"}),(0,s.jsxs)("p",{className:"mt-1 font-display text-3xl font-semibold text-navy",children:[masteryPct,"%"]}),(0,s.jsxs)("p",{className:"text-xs text-muted",children:[mastered," / ",catalog.length," topics"]})]}),
-            (0,s.jsxs)("div",{className:"rounded-2xl p-4",style:{background:"rgba(223,210,164,.26)"},children:[(0,s.jsx)("p",{className:"text-xs uppercase tracking-wide text-muted",children:"Secure + mastered"}),(0,s.jsxs)("p",{className:"mt-1 font-display text-3xl font-semibold text-navy",children:[securePct,"%"]}),(0,s.jsxs)("p",{className:"text-xs text-muted",children:[secure," / ",catalog.length," topics"]})]}),
-            (0,s.jsxs)("div",{className:"rounded-2xl p-4",style:{background:"rgba(235,218,217,.38)"},children:[(0,s.jsx)("p",{className:"text-xs uppercase tracking-wide text-muted",children:"Due now"}),(0,s.jsx)("p",{className:"mt-1 font-display text-3xl font-semibold text-navy",children:due}),(0,s.jsx)("p",{className:"text-xs text-muted",children:"retention reviews"})]})
-          ]}),
-          focus?(0,s.jsxs)("div",{className:"mt-5 rounded-2xl p-4",style:{background:"rgba(97,119,95,.12)",border:"1px solid rgba(97,119,95,.22)"},children:[
-            (0,s.jsx)("p",{className:"text-xs font-semibold tracking-[0.15em] text-navy uppercase",children:"Next mastery focus"}),
-            (0,s.jsx)("p",{className:"mt-1 font-display text-2xl font-semibold text-navy",children:focus.title}),
-            (0,s.jsx)("a",{href:`/study/${subject}/practise?mode=mastery&topic=${encodeURIComponent(focus.topicId)}&year=${year}`,className:"mt-3 inline-flex rounded-full bg-navy px-4 py-2 text-sm font-medium text-card",children:"Work towards mastery →"})
-          ]}):null
-        ]}),
-        (0,s.jsx)("img",{src:meta.art,alt:"",className:"h-56 w-full object-cover md:h-full"})
-      ]})
+    (0,s.jsxs)("header",{className:"study-directory-heading",children:[
+      (0,s.jsxs)("div",{children:[(0,s.jsx)("p",{className:"text-xs text-muted",children:"Study · Notes and question bank"}),(0,s.jsx)("h1",{className:"font-display text-4xl text-navy",children:meta.name})]}),
+      (0,s.jsxs)("label",{className:"study-directory-year",children:[(0,s.jsx)("span",{children:"Study year"}),(0,s.jsxs)("select",{value:year,onChange:e=>setYear(Number(e.target.value)),children:[(0,s.jsx)("option",{value:9,children:"Year 9"}),(0,s.jsx)("option",{value:8,children:"Year 8 · Previous year revision"})]})]})
     ]}),
+    (0,s.jsx)("section",{className:"rounded-3xl border border-line bg-card p-5 sm:p-6",children:(0,s.jsx)(TopicBrowser,{topics:catalog,subject,year,stats:topicStats,mode:"directory"},`${subject}:${year}`)}),
     (0,s.jsx)("section",{className:"grid gap-3 sm:grid-cols-2 lg:grid-cols-4",children:[
       {title:"Learn",detail:"Review the notes before formal practice.",href:`/study/${subject}/learn`,tone:"ivory"},
       {title:"Practise",detail:"Formal questions that build mastery evidence.",href:`/study/${subject}/practise`,tone:"sage"},
@@ -73,7 +51,18 @@ function c(){
       (0,s.jsx)(Card,{href:`/study/${subject}/practise?mode=vocab&scope=revision`,title:"Vocabulary Bank",detail:subject==="french"?"Year 7–8 revision vocabulary only.":"Year 7–8 revision vocabulary only.",tone:"sage"},"vocab"),
       (0,s.jsx)(Card,{href:`/study/${subject}/practise?mode=dictation&scope=revision`,title:"Dictation",detail:"Spaced spelling and recall practice from the learned bank.",tone:"blush"},"dict")
     ]}):null,
-    (0,s.jsx)("section",{className:"rounded-3xl border border-line bg-card p-5 sm:p-6",children:(0,s.jsx)(TopicBrowser,{topics:catalog,subject,year,stats:topicStats,mode:"directory"},`${subject}:${year}`)})
+    (0,s.jsxs)("section",{className:"rounded-3xl border border-line bg-card p-5",'aria-label':"Study progress",children:[
+          (0,s.jsxs)("div",{className:"mt-5 grid gap-3 sm:grid-cols-3",children:[
+            (0,s.jsxs)("div",{className:"rounded-2xl p-4",style:{background:"rgba(201,210,190,.35)"},children:[(0,s.jsx)("p",{className:"text-xs uppercase tracking-wide text-muted",children:"Mastered"}),(0,s.jsxs)("p",{className:"mt-1 font-display text-3xl font-semibold text-navy",children:[masteryPct,"%"]}),(0,s.jsxs)("p",{className:"text-xs text-muted",children:[mastered," / ",catalog.length," topics"]})]}),
+            (0,s.jsxs)("div",{className:"rounded-2xl p-4",style:{background:"rgba(223,210,164,.26)"},children:[(0,s.jsx)("p",{className:"text-xs uppercase tracking-wide text-muted",children:"Secure + mastered"}),(0,s.jsxs)("p",{className:"mt-1 font-display text-3xl font-semibold text-navy",children:[securePct,"%"]}),(0,s.jsxs)("p",{className:"text-xs text-muted",children:[secure," / ",catalog.length," topics"]})]}),
+            (0,s.jsxs)("div",{className:"rounded-2xl p-4",style:{background:"rgba(235,218,217,.38)"},children:[(0,s.jsx)("p",{className:"text-xs uppercase tracking-wide text-muted",children:"Due now"}),(0,s.jsx)("p",{className:"mt-1 font-display text-3xl font-semibold text-navy",children:due}),(0,s.jsx)("p",{className:"text-xs text-muted",children:"retention reviews"})]})
+          ]}),
+          focus?(0,s.jsxs)("div",{className:"mt-5 rounded-2xl p-4",style:{background:"rgba(97,119,95,.12)",border:"1px solid rgba(97,119,95,.22)"},children:[
+            (0,s.jsx)("p",{className:"text-xs font-semibold tracking-[0.15em] text-navy uppercase",children:"Next mastery focus"}),
+            (0,s.jsx)("p",{className:"mt-1 font-display text-2xl font-semibold text-navy",children:focus.title}),
+            (0,s.jsx)("a",{href:`/study/${subject}/practise?mode=mastery&topic=${encodeURIComponent(focus.topicId)}&year=${year}`,className:"mt-3 inline-flex rounded-full bg-navy px-4 py-2 text-sm font-medium text-card",children:"Work towards mastery →"})
+          ]}):null
+    ]})
   ]});
 }
 export{c as component};

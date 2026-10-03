@@ -24,7 +24,7 @@ function forbid(source,label,token){if(source.includes(token)) failures.push({ty
 const rootSource=fs.readFileSync("index.html","utf8");
 const runtimeVersion=rootSource.match(/\/assets\/index-BLVOhKhN\.js\?v=([^"'<> ]+)/)?.[1];
 if(!runtimeVersion)failures.push({type:"root-runtime-unversioned"});
-const standaloneShells=new Set(["pet/index.html","assessment/index.html","preview/index.html","study/biology/school-notes/index.html"]);
+const standaloneShells=new Set(["pet/index.html","assessment/index.html","assessment/biology-cell-structure/index.html","preview/index.html","study/biology/school-notes/index.html"]);
 const files=walk(root);
 const fileSet=new Set(files.map(rel));
 const html=files.filter(p=>p.endsWith(".html"));
@@ -74,9 +74,9 @@ const pe3=fs.readFileSync("assets/pe-circuit-v3-20260920.js","utf8");
 need(core,"core PE preload","assets/pe-circuit-v3-20260920.js");
 need(core,"core PE search","Scholar Sprint 3.0");
 forbid(core,"core active PE preload","assets/pe-circuit-DPe2o8eH.js");
-need(playHub,"Play hub PE import",'pe-circuit-v3-20260920.js?v=20261003-directory1');
+need(playHub,"Play hub PE import",'pe-circuit-v3-20260920.js?v=20261003-directory3');
 forbid(playHub,"Play hub","pe-circuit-DPe2o8eH.js");
-need(playGame,"Play game PE import",'pe-circuit-v3-20260920.js?v=20261003-directory1');
+need(playGame,"Play game PE import",'pe-circuit-v3-20260920.js?v=20261003-directory3');
 forbid(playGame,"Play game","pe-circuit-DPe2o8eH.js");
 for(const token of ["Quick Feet","Reaction Dash","Precision Kick","Footwork Memory","Balance Hold","Dodge Lane","no instant game-over."]) need(pe3,"PE 3.0",token);
 
