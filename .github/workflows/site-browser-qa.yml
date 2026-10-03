@@ -1,0 +1,30 @@
+name: Whole site QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['tests/site-browser-qa.mjs', 'tests/all-feature-qa.mjs', '.github/workflows/site-browser-qa.yml']
+jobs:
+  all-features:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: node tests/all-feature-qa.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: all-feature-qa, path: test-results}
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Check every published feature entry in Chromium and iPad WebKit
+        run: node tests/site-browser-qa.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: whole-site-browser-qa, path: test-results/site-browser-qa.json}
