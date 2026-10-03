@@ -15,12 +15,13 @@ const route="/study/"+subject+"/practise?daily=%221%22&locked=%221%22&year=%228%
 await page.goto(base+route);
 await page.waitForTimeout(4500);
 await page.evaluate(async()=>{
-  const mod=await import("/assets/index-BLVOhKhN.js?v=20261003-notes4");
+  const mod=await import("/assets/index-BLVOhKhN.js?v=20261003-vocab1");
   window.qaStore=mod.C;
   window.qaEvents=[];
   window.addEventListener("scholar:question-answered",e=>window.qaEvents.push(e.detail));
 });
 const bank=docs.filter(d=>d.subject===subject).flatMap(d=>d.questions||[]);
+const selectedWords=new Set();
 for(let step=0;step<(mode==="y8vocab"?30:25);step++){
  if(mode!=="y8vocab"&&step===10){
    const next=await page.evaluate(({task,subject})=>{
@@ -31,7 +32,7 @@ for(let step=0;step<(mode==="y8vocab"?30:25);step++){
    assert.ok(next,"Second phase needs the saved task route");
    await page.goto(base+next);await page.waitForTimeout(2000);
    await page.evaluate(async()=>{
-     const mod=await import("/assets/index-BLVOhKhN.js?v=20261003-notes4");
+     const mod=await import("/assets/index-BLVOhKhN.js?v=20261003-vocab1");
      window.qaStore=mod.C;window.qaEvents=[];
      window.addEventListener("scholar:question-answered",e=>window.qaEvents.push(e.detail));
    });
@@ -44,6 +45,10 @@ for(let step=0;step<(mode==="y8vocab"?30:25);step++){
  assert.ok(question,"Could not identify question: "+JSON.stringify(visible)+" errors "+JSON.stringify(errors));
  const answer=question.answer?.accepted?.[0]||question.answer?.modelAnswer;
  assert.ok(typeof answer==="string","Unsupported test answer "+question.id+" "+JSON.stringify(question.answer));
+ if(mode==="y8vocab"){
+  assert.ok(question.conceptId?.startsWith((subject==="french"?"fr":"la")+"-y8-concept-vocab-"),"Daily vocabulary must not ask grammar/comprehension: "+question.id);
+  assert.ok(!selectedWords.has(question.conceptId),"One word must not be asked twice in a set");selectedWords.add(question.conceptId);
+ }
  console.log("DAILY_BROWSER_STEP "+JSON.stringify({subject,task,step,id:question.id,format:question.format,answer,prompt:visible.prompt,errors}));
  if(await page.getByRole("button",{name:answer,exact:true}).count())await page.getByRole("button",{name:answer,exact:true}).click();
  else if(question.format==="word_tiles"){
@@ -69,10 +74,10 @@ const savedTask=await page.evaluate(({task,subject})=>task==="y8-mastery"&&windo
 const before=await page.evaluate(task=>window.qaStore.getState().daily.find(t=>t.id===task)?.progress,savedTask);
 await page.goto(base+"/");
 await page.waitForTimeout(1000);
-const after=await page.evaluate(async task=>{const m=await import("/assets/index-BLVOhKhN.js?v=20261003-notes4");return m.C.getState().daily.find(t=>t.id===task)?.progress},savedTask);
+const after=await page.evaluate(async task=>{const m=await import("/assets/index-BLVOhKhN.js?v=20261003-vocab1");return m.C.getState().daily.find(t=>t.id===task)?.progress},savedTask);
 assert.ok(after>=before,task+" lost progress returning home");
 await page.reload();await page.waitForTimeout(1000);
-const restored=await page.evaluate(async task=>{const m=await import("/assets/index-BLVOhKhN.js?v=20261003-notes4");return m.C.getState().daily.find(t=>t.id===task)?.progress},savedTask);
+const restored=await page.evaluate(async task=>{const m=await import("/assets/index-BLVOhKhN.js?v=20261003-vocab1");return m.C.getState().daily.find(t=>t.id===task)?.progress},savedTask);
 assert.ok(restored>=before,task+" lost progress reloading");
 await page.close();
 }

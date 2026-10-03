@@ -1,4 +1,4 @@
-import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20261003-notes4";
+import { C as store, st as getTopicCatalog } from "./index-BLVOhKhN.js?v=20261003-vocab1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
 const LABELS = { latin: "Latin", french: "French", biology: "Biology", chemistry: "Chemistry", physics: "Physics" };
@@ -158,6 +158,8 @@ let questionStarted=performance.now();
 function resetQuestionClock(){questionStarted=performance.now();}
 function captureFastCorrect(event){
   const d=event?.detail||{};
+  // Fast word recall is expected in Daily vocabulary; do not schedule extra speed checks.
+  if (d.dailyVocab) return;
   if (!d.questionId || !SUBJECTS.includes(d.subject)) return;
   const format=String(d.format||"");
   const depth=Math.max(1,Number(d.cognitiveDepth)||2);

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import {selectDailyVocabulary} from "../assets/daily-vocab-20261003.js";
 
 const wrapper = fs.readFileSync("assets/index-BLVOhKhN.js", "utf8");
 const practice = fs.readFileSync("assets/study._subject.practise-y8fix-20260920.js", "utf8");
@@ -47,7 +48,7 @@ for (const restored of [state,JSON.parse(JSON.stringify(state))]) {
 }
 const start=practice.indexOf("function buildDaily30("),end=practice.indexOf("function qp(",start);
 assert.ok(start>=0&&end>start);
-const mixMocks={
+const mixMocks={selectDailyVocabulary,
   daily30Topics:(_subject,topics)=>topics,daily30Mature:()=>false,l:()=>day,
   daily30Confirm:()=>({}),GQS:()=>[],daily30Shuffle:rows=>rows,FD:rows=>rows,
 };
@@ -56,7 +57,7 @@ const buildMix=new Function(...Object.keys(mixMocks),
 for(const subject of ["latin","french"]) {
   const tid=subject==="latin"?topic:"fr-y8-s01-basics";
   const items=Array.from({length:45},(_,i)=>({
-    id:subject+"-"+i,topicId:tid,format:"typed_short",prompt:"Translate a word",formal:true,
+    id:subject+"-"+i,topicId:tid,conceptId:(subject==="latin"?"la":"fr")+"-y8-concept-vocab-"+i,format:"typed_exact",prompt:"Translate a word",formal:true,answer:{accepted:["word "+i]},
   }));
   const credited=Object.fromEntries(items.slice(0,10).map(q=>[q.id,true]));
   credited[items[10].id]=false;
@@ -64,7 +65,7 @@ for(const subject of ["latin","french"]) {
   const mixed=buildMix(subject,items,[{topicId:tid}],{},{},{},day,"",ledger);
   assert.equal(mixed.length,30,subject+" still receives a full refill");
   assert.ok(mixed.every(q=>!credited[q.id]),"Credited answers must not be asked again");
-  assert.ok(mixed.some(q=>q.id===items[10].id),"Missed answers remain eligible");
+  assert.ok(buildMix(subject,[items[10]],[{topicId:tid}],{},{},{},day,"",ledger).some(q=>q.id===items[10].id),"Missed answers remain eligible");
   assert.equal(new Set(mixed.map(q=>q.id)).size,30);
 }
 assert.ok(practice.includes("dailyId:dailyLocked&&[`y8-practise`,`y8-mastery`,`year8-long-review`]"));
