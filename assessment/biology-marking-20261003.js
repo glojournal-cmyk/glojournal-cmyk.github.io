@@ -18,7 +18,12 @@
         return !/\b(not|never|cannot|can't|doesn't|don't)\b/i.test(response);
       });
     });
+    const pointLabels=points.map(p=>p.label);
+    for(const pool of q.answer.distinctPools||[]){
+      const hits=pool.options.filter(p=>new RegExp(p.pattern,'i').test(response)&&!clauses.some(c=>new RegExp(p.pattern,'i').test(c)&&/\b(not|never|cannot|can't|doesn't|don't|isn't)\b/i.test(c)));
+      pool.indices.forEach((idx,i)=>{pointResults[idx]=i<hits.length;pointLabels[idx]=hits[i]?.label||pool.missingLabel;});
+    }
     const matched=pointResults.filter(Boolean).length,credit=points.length?matched/points.length:0;
-    return {credit,status:credit===1?'Correct':credit>0?'Partly correct':'Incorrect',matched,total:points.length,pointResults};
+    return {credit,status:credit===1?'Correct':credit>0?'Partly correct':'Incorrect',matched,total:points.length,pointResults,pointLabels};
   };
 })();

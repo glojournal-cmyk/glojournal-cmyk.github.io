@@ -112,6 +112,29 @@
               "cytoplasm"
             ]
           }
+        ],
+        "distinctPools": [
+          {
+            "indices": [
+              0,
+              1
+            ],
+            "options": [
+              {
+                "label": "Cell membrane.",
+                "pattern": "cell membrane"
+              },
+              {
+                "label": "Cytoplasm.",
+                "pattern": "cytoplasm"
+              },
+              {
+                "label": "Ribosomes.",
+                "pattern": "ribosome"
+              }
+            ],
+            "missingLabel": "Name a further different shared structure: membrane, cytoplasm or ribosomes."
+          }
         ]
       },
       "modelAnswer": "Both have a cell membrane. Both have cytoplasm.",
@@ -2279,6 +2302,37 @@
               "(straight|non.crossing|not cross).{0,30}(label|line)|label.{0,30}(straight|not cross)"
             ]
           }
+        ],
+        "distinctPools": [
+          {
+            "indices": [
+              0,
+              1
+            ],
+            "options": [
+              {
+                "label": "Clear single outlines.",
+                "pattern": "(clear|single).{0,30}line"
+              },
+              {
+                "label": "No shading.",
+                "pattern": "no shading"
+              },
+              {
+                "label": "Straight non-crossing label lines.",
+                "pattern": "(straight|non.crossing).{0,35}(label|line)|label.{0,35}(straight|not cross)"
+              },
+              {
+                "label": "A clear title.",
+                "pattern": "title"
+              },
+              {
+                "label": "A magnification scale or scale bar.",
+                "pattern": "magnification|scale bar"
+              }
+            ],
+            "missingLabel": "Give a further distinct biological drawing convention."
+          }
         ]
       },
       "modelAnswer": "Use clear single lines with no shading. Use straight non-crossing label lines.",
@@ -2510,6 +2564,29 @@
             "patterns": [
               "(small|resolution|resolv)"
             ]
+          }
+        ],
+        "distinctPools": [
+          {
+            "indices": [
+              0,
+              1
+            ],
+            "options": [
+              {
+                "label": "Visible cell walls.",
+                "pattern": "cell wall"
+              },
+              {
+                "label": "Visible nuclei.",
+                "pattern": "nucle"
+              },
+              {
+                "label": "Visible cytoplasm.",
+                "pattern": "cytoplasm"
+              }
+            ],
+            "missingLabel": "Name a further visible structure: cell wall, nucleus or cytoplasm."
           }
         ]
       },

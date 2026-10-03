@@ -25,5 +25,8 @@ assert.equal(sandbox.mark(sperm,'The tail does not propel the sperm. Mitochondri
 assert.equal(sandbox.mark(bank.questions[62],'30 degrees C.').credit,0);
 assert.equal(sandbox.mark(bank.questions[50],'Stain increases contrast. Lowering at an angle prevents air bubbles.').credit,1);
 assert.equal(sandbox.mark(bank.questions[52],'12 mm = 12000 um. Magnification = 400').credit,1);
+assert.equal(sandbox.mark(bank.questions[2],'Ribosomes and cytoplasm.').credit,1);
+assert.equal(sandbox.mark(bank.questions[2],'Ribosomes, ribosomes.').credit,0.5);
+assert.equal(sandbox.mark(bank.questions[58],'Cell walls and cytoplasm. Mitochondria are too small to resolve.').credit,1);
 console.log(JSON.stringify({questions:72,modelsPassed:72-failures.length,balancedPapers:200,marks:60,overlapMin:Math.min(...overlap),overlapMax:Math.max(...overlap),partialCredit:true,negation:true},null,2));
 if(failures.length)process.exit(1);

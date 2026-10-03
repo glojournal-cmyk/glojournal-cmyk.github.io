@@ -39,7 +39,7 @@ function grantWardrobe(id){
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
 const CHEMISTRY_REVISION='20260930-chem-fullmarks3';
-const bankUrl=p=>p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261003-assessment1`;
+const bankUrl=p=>p.id==='biology-cell-structure'?`${p.bank}?v=20261003-cell2`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261003-assessment1`;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
   'inks.svg':'Figure 2: chromatogram with ink samples A to D',
@@ -366,6 +366,9 @@ async function start(id){
   try{
     let draft=state.drafts[id];
     if(draft?.version!==2||(id==='latin-creusa'&&draft.questions.every(q=>q.options?.length))){delete state.drafts[id];draft=null}
+    if(draft&&id==='biology-cell-structure'){
+      const fresh=await fetch(bankUrl(p)).then(r=>r.json());const byId=new Map(fresh.questions.map(q=>[q.id,q]));draft.questions=draft.questions.map(q=>byId.get(q.id)||q);save();
+    }
     if(draft&&id==='chemistry'&&!Object.keys(draft.answers||{}).length&&draft.questions.some(q=>!q.conceptId)){
       delete state.drafts[id];draft=null;save();
     }
@@ -451,7 +454,7 @@ function finish(p,d){
     earned+=m.credit*questionMarks(q);
     if(m.credit>=0.999)full++; else if(m.credit>0)partial++;
     const partialNote=m.credit>0&&m.credit<1?`<p class="muted"><b>Partial credit:</b> ${formatMarks(m.credit*questionMarks(q))} of ${questionMarks(q)} marks. You included ${m.matched} of ${m.total} required ideas.</p>`:'';
-    return `<article class="entry"><div><span class="tag">Question ${i+1} · ${m.status} · ${esc(q.topic||'')}</span><p>${esc(q.prompt)}</p><p><b>Your answer:</b> ${esc(answer)||'—'}</p><p><b>Model answer:</b> ${esc(showAnswer(q))}</p>${q.workedSolution?`<p><b>Working:</b> ${esc(q.workedSolution)}</p>`:''}${partialNote}${['chemistry_rubric','biology_rubric'].includes(q.answer?.mode)?`<div class="feedback"><b>How to earn full marks</b><p>${esc(q.examGuidance?.strategy||'Include each distinct required idea.')}</p><ol>${q.answer.points.map((point,j)=>`<li><b>${m.pointResults?.[j]?'Awarded':'Missing'} · 1 mark:</b> ${esc(point.label)}</li>`).join('')}</ol><p><b>Common mark loss:</b> ${esc(q.examGuidance?.commonError||q.hint)}</p><p class="muted">This is an original AQA-style practice rubric. Automated marking recognises selected wording; use the checklist and model answer to review equivalent scientific explanations.</p></div>`:''}${p.id==='chemistry'||q.markKeywords?`<p><b>Marking keywords:</b> ${esc((q.markKeywords||q.answer.accepted).join(' · '))}</p><p class="muted"><b>Hint for next time:</b> ${esc(q.hint||q.feedback?.short||'Check the evidence in the question before choosing a method.')}</p>`:q.feedback?.short?`<p class="muted">${esc(q.feedback.short)}</p>`:''}</div></article>`;
+    return `<article class="entry"><div><span class="tag">Question ${i+1} · ${m.status} · ${esc(q.topic||'')}</span><p>${esc(q.prompt)}</p><p><b>Your answer:</b> ${esc(answer)||'—'}</p><p><b>Model answer:</b> ${esc(showAnswer(q))}</p>${q.workedSolution?`<p><b>Working:</b> ${esc(q.workedSolution)}</p>`:''}${partialNote}${['chemistry_rubric','biology_rubric'].includes(q.answer?.mode)?`<div class="feedback"><b>How to earn full marks</b><p>${esc(q.examGuidance?.strategy||'Include each distinct required idea.')}</p><ol>${q.answer.points.map((point,j)=>`<li><b>${m.pointResults?.[j]?'Awarded':'Missing'} · 1 mark:</b> ${esc(m.pointLabels?.[j]||point.label)}</li>`).join('')}</ol><p><b>Common mark loss:</b> ${esc(q.examGuidance?.commonError||q.hint)}</p><p class="muted">This is an original AQA-style practice rubric. Automated marking recognises selected wording; use the checklist and model answer to review equivalent scientific explanations.</p></div>`:''}${p.id==='chemistry'||q.markKeywords?`<p><b>Marking keywords:</b> ${esc((q.markKeywords||q.answer.accepted).join(' · '))}</p><p class="muted"><b>Hint for next time:</b> ${esc(q.hint||q.feedback?.short||'Check the evidence in the question before choosing a method.')}</p>`:q.feedback?.short?`<p class="muted">${esc(q.feedback.short)}</p>`:''}</div></article>`;
   });
 
   const score=['chemistry','biology-cell-structure'].includes(p.id)?Math.floor(earned/totalMarks*100):Math.round(earned/totalMarks*100);
