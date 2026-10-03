@@ -49,22 +49,28 @@ for(const [engine,launcher]of [["chromium",chromium],["webkit",webkit]]){
  assert.equal(petBefore.care.bond,startingBond+1);await page.reload();
  assert.ok(await page.locator('[data-pet-action="pat"]').isDisabled(),"Pat limit survives reload");
  await page.goto(base+"/");await page.locator("#daily-save-button").waitFor();
- const exported=await page.evaluate(async()=>{
+ await page.evaluate(async()=>{
   const src=[...document.scripts].map(s=>s.src).find(s=>s.includes("/assets/index-BLVOhKhN.js"));
   const mod=await import(src),state=mod.C.getState();
   mod.C.setState({dailyTopicAttemptsByDay:{[state.today]:{"la-y8-stage-1-vocabulary":25}}});
-  return mod.C.getState().exportProgress();
  });
+ // Let completion rewards settle before taking the complete backup snapshot.
+ await page.waitForTimeout(500);
+ const exported=await page.evaluate(async()=>{
+  const src=[...document.scripts].map(s=>s.src).find(s=>s.includes("/assets/index-BLVOhKhN.js"));
+  const mod=await import(src);return mod.C.getState().exportProgress();
+ });
+ const petAtExport=await page.evaluate(()=>JSON.parse(localStorage.getItem("lux-pet-companion-v1")));
  await page.locator("#daily-save-button").click();
  const manual=await page.evaluate(()=>JSON.parse(localStorage.getItem("lux-daily-manual-backup-v1")));
  assert.equal(JSON.parse(manual.data).assessmentProgress.results.length,papers.length);
  const saved=JSON.parse(exported);
- assert.equal(saved.assessmentProgress.results.length,papers.length);assert.equal(saved.petCompanion.care.bond,petBefore.care.bond);
+ assert.equal(saved.assessmentProgress.results.length,papers.length);assert.equal(saved.petCompanion.care.bond,petAtExport.care.bond);
  await page.evaluate(()=>localStorage.clear());await page.reload();await page.locator("#daily-backup-file").waitFor({state:"attached"});
  await page.locator("#daily-backup-file").setInputFiles({name:"qa-progress.json",mimeType:"application/json",buffer:Buffer.from(exported)});
  await page.waitForTimeout(2500);
  const restored=await page.evaluate(()=>({app:JSON.parse(localStorage.getItem("lux-scholar-garden-v1")).state,assessment:JSON.parse(localStorage.getItem("lux-assessment-v1")),pet:JSON.parse(localStorage.getItem("lux-pet-companion-v1"))}));
- assert.equal(restored.assessment.results.length,papers.length);assert.equal(restored.pet.care.bond,petBefore.care.bond);
+ assert.equal(restored.assessment.results.length,papers.length);assert.equal(restored.pet.care.bond,petAtExport.care.bond);
  assert.equal(restored.app.dailyTopicAttemptsByDay[saved.state.today]["la-y8-stage-1-vocabulary"],25);
  assert.equal(errors.length,0,JSON.stringify(errors));
  results.push({engine,gardenReload:true,searchTopic:true,petReload:true,fileBackupRoundtrip:true});
