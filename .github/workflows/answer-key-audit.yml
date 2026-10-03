@@ -103,6 +103,8 @@ jobs:
         run: node tests/biology-content-quality-audit.mjs
       - name: Test Biology calculation marking
         run: node tests/biology-calculation-marking-qa.mjs
+      - name: Test November Biology cell-structure assessment
+        run: node tests/biology-cell-structure-qa.cjs
       - name: Audit Biology session quality
         run: node tests/biology-session-quality.mjs
       - name: Audit every question answer key
