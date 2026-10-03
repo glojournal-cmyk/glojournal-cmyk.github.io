@@ -28,5 +28,7 @@ assert.equal(sandbox.mark(bank.questions[52],'12 mm = 12000 um. Magnification = 
 assert.equal(sandbox.mark(bank.questions[2],'Ribosomes and cytoplasm.').credit,1);
 assert.equal(sandbox.mark(bank.questions[2],'Ribosomes, ribosomes.').credit,0.5);
 assert.equal(sandbox.mark(bank.questions[58],'Cell walls and cytoplasm. Mitochondria are too small to resolve.').credit,1);
+assert.equal(sandbox.mark(bank.questions[23],'It is a specialised animal cell. It has no mitochondria or ribosomes.').credit,1);
+assert.equal(sandbox.mark(bank.questions[20],'Ribosomes and mitochondria. Mitochondria release energy needed for protein production.').credit,1);
 console.log(JSON.stringify({questions:72,modelsPassed:72-failures.length,balancedPapers:200,marks:60,overlapMin:Math.min(...overlap),overlapMax:Math.max(...overlap),partialCredit:true,negation:true},null,2));
 if(failures.length)process.exit(1);

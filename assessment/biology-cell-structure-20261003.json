@@ -903,7 +903,14 @@
           {
             "label": "Ribosomes make proteins.",
             "patterns": [
-              "ribosome.{0,50}(make|synth|produc).{0,20}protein"
+              "ribosome.{0,50}(make|synth|produc).{0,20}protein",
+              "mitochondri.{0,55}(release|supply|provide).{0,20}energy"
+            ],
+            "variants": [
+              {
+                "label": "Mitochondria release energy needed for protein production.",
+                "pattern": "mitochondri.{0,55}(release|supply|provide).{0,20}energy"
+              }
             ]
           }
         ]
@@ -1043,6 +1050,41 @@
             "patterns": [
               "(no|without|lack).{0,15}plasmid"
             ]
+          }
+        ],
+        "distinctPools": [
+          {
+            "indices": [
+              1,
+              2
+            ],
+            "options": [
+              {
+                "label": "No cell wall.",
+                "pattern": "cell wall"
+              },
+              {
+                "label": "No plasmids.",
+                "pattern": "plasmid"
+              },
+              {
+                "label": "No mitochondria.",
+                "pattern": "mitochondri"
+              },
+              {
+                "label": "No ribosomes.",
+                "pattern": "ribosome"
+              },
+              {
+                "label": "No chloroplasts.",
+                "pattern": "chloroplast"
+              },
+              {
+                "label": "No permanent vacuole.",
+                "pattern": "vacuole"
+              }
+            ],
+            "missingLabel": "Name another different structure absent from a mature human red blood cell."
           }
         ]
       },
@@ -3095,7 +3137,7 @@
           {
             "label": "Keep antibiotic concentration / disc size / incubation time / bacterial species constant.",
             "patterns": [
-              "(constant|same|control).{0,50}(concentration|disc|time|species)|keep.{0,50}(same|constant)"
+              "(constant|same|control).{0,50}(concentration|disc|time|species|temperature|agar|volume|bacter)|keep.{0,50}(same|constant)"
             ]
           },
           {
