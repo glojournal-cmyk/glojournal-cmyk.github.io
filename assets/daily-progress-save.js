@@ -1,6 +1,26 @@
-import { C as store } from "/assets/index-BLVOhKhN.js?v=20261003-cellpractice2";
+import { C as store } from "/assets/index-BLVOhKhN.js?v=20261003-priority4";
 
 const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
+const AUTO_KEY = "lux-progress-auto-v1";
+let autoTimer, lastAutoData = "";
+function autoSave(){
+ clearTimeout(autoTimer);
+ try {
+  const data=store.getState().exportProgress();
+  if(data===lastAutoData)return;
+  const previous=localStorage.getItem(AUTO_KEY);
+  if(previous)localStorage.setItem(AUTO_KEY+"-previous",previous);
+  const saved={savedAt:new Date().toISOString(),...summary(store.getState()),data};
+  localStorage.setItem(AUTO_KEY,JSON.stringify(saved));
+  if(JSON.parse(localStorage.getItem(AUTO_KEY)).data!==data)throw Error("Save verification failed");
+  lastAutoData=data;
+  const el=document.getElementById("daily-auto-status");if(el)el.textContent=`Automatically saved ${new Date(saved.savedAt).toLocaleTimeString("en-GB")}`;
+ }catch(error){const el=document.getElementById("daily-auto-status");if(el)el.textContent="Automatic backup failed. Use Save progress & backup to keep a separate file.";}
+}
+store.subscribe(()=>{clearTimeout(autoTimer);autoTimer=setTimeout(autoSave,250)});
+window.addEventListener("pagehide",autoSave);
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")autoSave()});
+window.addEventListener("scholar:learning-changed",autoSave);
 const PANEL_ID = "daily-save-panel";
 
 function summary(state) {
@@ -75,8 +95,11 @@ function mount() {
   panel.setAttribute("aria-label", "Save daily progress");
   panel.innerHTML = `
     <div class="daily-save-heading"><strong>Keep your progress</strong><p id="daily-save-status" role="status" aria-live="polite"></p></div>
+    <p id="daily-auto-status" role="status" aria-live="polite"></p>
     <div class="daily-save-actions">
       <button id="daily-save-button" type="button">Save progress & backup</button>
+      <button id="daily-auto-previous" type="button">Restore previous automatic copy</button>
+      <button id="daily-auto-restore" type="button">Restore automatic backup</button>
       <button id="daily-restore-button" type="button">Restore saved copy</button>
       <label class="daily-file-button" for="daily-backup-file">Restore from Files</label>
       <input id="daily-backup-file" type="file" accept="application/json,.json" hidden>
@@ -84,6 +107,9 @@ function mount() {
     <p class="daily-save-note">Automatic progress stays in this browser. If iPad data is cleared, use the exported file kept in Files or iCloud Drive.</p>`;
   card.append(panel);
   status(savedStatus());
+  try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY)||"null");if(saved)document.getElementById("daily-auto-status").textContent=`Automatically saved ${new Date(saved.savedAt).toLocaleString("en-GB")}`;}catch{}
+  panel.querySelector("#daily-auto-previous").addEventListener("click",()=>{try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY+"-previous")||"null");if(saved)restore(saved.data,"the previous automatic backup");else status("No previous automatic backup yet.");}catch{status("Could not read the previous backup.","error")}});
+  panel.querySelector("#daily-auto-restore").addEventListener("click",()=>{try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY)||"null");if(saved)restore(saved.data,"the automatic backup");else status("No automatic backup yet.");}catch{status("Could not read the automatic backup.","error")}});
   panel.querySelector("#daily-save-button").addEventListener("click", save);
   panel.querySelector("#daily-restore-button").addEventListener("click", () => {
     const saved = savedCopy();
@@ -105,3 +131,5 @@ new MutationObserver(() => {
   queueMicrotask(() => { pending = false; mount(); });
 }).observe(document.documentElement, { childList: true, subtree: true });
 mount();
+
+// Start after the store has hydrated; never replace an older recovery copy merely on opening.

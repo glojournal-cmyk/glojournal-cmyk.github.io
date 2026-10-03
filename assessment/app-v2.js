@@ -48,12 +48,12 @@ const DIAGRAM_ALTS={
   'solvents.svg':'Figure 4: two chromatograms made using water and ethanol',
   'teacher-style.svg':'Chromatogram with reference colours A to E and an unknown black sample'
 };
-let state;try{state=JSON.parse(localStorage.getItem(KEY))||{}}catch{state={}}
+let state;try{state=JSON.parse(localStorage.getItem(KEY)||localStorage.getItem(KEY+'-recovery'))||{}}catch{try{state=JSON.parse(localStorage.getItem(KEY+'-recovery'))||{}}catch{state={}}}
 state.tracker||=[];state.results||=[];state.drafts||={};state.recent||={};
 if(new URLSearchParams(location.search).get('subject')==='biology')sessionStorage.setItem('lux-assess-subject','Biology');
 let timer=null;
 
-function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+function save(){try{const data=JSON.stringify(state);localStorage.setItem(KEY,data);localStorage.setItem(KEY+'-recovery',data);let el=document.getElementById('assessment-save-status');if(!el){el=document.createElement('p');el.id='assessment-save-status';el.setAttribute('role','status');document.querySelector('.intro').append(el)}el.textContent='Saved on this device · '+new Date().toLocaleTimeString('en-GB');}catch{let el=document.getElementById('assessment-save-status');if(!el){el=document.createElement('p');el.id='assessment-save-status';document.querySelector('.intro').append(el)}el.textContent='Save failed. Keep this page open and export your progress before closing.';}}
 function esc(x){return String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function show(tab){
   clearInterval(timer);timer=null;
@@ -68,7 +68,7 @@ function examToday(){const d=new Date();return d.getFullYear()+'-'+String(d.getM
 function examWhen(exam){if(!exam)return '';const [y,m,day]=exam.split('-').map(Number);return new Date(y,m-1,day).toLocaleDateString('en-GB',{day:'numeric',month:'long'})}
 const EXAM_GROUPS=[
   {subject:'Latin',exam:'2026-09-28',ids:['latin-verbs','latin-conjugations','latin-creusa','latin']},
-  {subject:'Chemistry',exam:'2026-09-29',ids:['chemistry']},
+  {subject:'Chemistry',exam:'2026-10-05',ids:['chemistry']},
   {subject:'English',exam:'2026-09-30',ids:['english']},
   {subject:'French',exam:'2026-10-08',ids:['french']},
   {subject:'Biology',exam:'',examWeek:'2026-11-16',ids:['biology-cell-structure','biology-school','biology']},
@@ -77,6 +77,7 @@ const EXAM_GROUPS=[
 function groupBlurb(group,today){
   const when=group.exam?examWhen(group.exam):'';
   if(group.subject==='Latin')return today>group.exam?`Exam ${when} has passed. Regular verbs and The Loss of Creusa are now in Practise.`:`Exam ${when}. Start with Regular verbs: porto, moneo, traho and audio, Latin into English, present, imperfect and perfect. Those questions, and The Loss of Creusa, join Practise the next day.`;
+  if(group.subject==='Chemistry')return 'Assessment in the week beginning 5 October 2026; exact lesson date awaits confirmation. Revise atoms, separating mixtures, history of the periodic table and RP6 chromatography.';
   if(group.subject==='English')return `Exam ${when}. These Year 9 questions are already in Practise.`;
   if(group.subject==='Biology')return 'First GCSE Biology assessment: week beginning 16 November 2026 (exact lesson date to be confirmed). AQA 4.1.1 Cell structure only. New paper: 45 minutes, 24 short questions, 60 marks, pass 51/60. Includes microscopy and culturing microorganisms.';
   if(group.exam)return today>group.exam?`Exam ${when} has passed. These questions are now in Practise.`:`Exam ${when}. These questions join Practise the next day.`;
@@ -119,9 +120,9 @@ $('#track-form').addEventListener('submit',e=>{
   save();e.target.reset();tracker();
 });
 const SCHOOL_ASSESSMENTS=[
-  {id:'school-chemistry-20261005',subject:'Chemistry',date:'2026-10-05',dateLabel:'Week beginning 5 October 2026 · exact lesson date to be confirmed',title:'Atoms, separating mixtures and chromatography',paperId:'chemistry',notes:'C1.1 Atoms; C1.3 Separating Mixtures; C2.1 History of the Periodic Table; RP6 Chromatography and Rf. Revise atomic structure, separation methods, practical method and Rf calculations.'},
-  {id:'school-french-20261008',subject:'French',date:'2026-10-08',dateLabel:'8 October 2026',title:'Unit 1 vocabulary · Une visite en France',paperId:'french',notes:'Core phrases, intensifiers, descriptive and positive adjectives, pronouns and transport. Practise recall and spelling, then try a timed vocabulary paper.'},
-  {id:'school-biology-20261116',subject:'Biology',date:'2026-11-16',dateLabel:'Week beginning 16 November 2026 · exact lesson date to be confirmed',title:'First GCSE Biology assessment · AQA 4.1.1 Cell structure',paperId:'biology-cell-structure',notes:'Eukaryotes and prokaryotes; animal and plant cells; cell specialisation; cell differentiation; microscopy; culturing microorganisms. Revise diagrams, magnification and practical reasoning. Practice paper: 45 minutes, 60 marks; pass 51/60.'}
+  {id:'school-chemistry-20261005',subject:'Chemistry',date:'2026-10-05',dateLabel:'Week beginning 5 October 2026 · exact lesson date to be confirmed',title:'Atoms, separating mixtures and chromatography',paperId:'chemistry',topics:['chem-y9-c1','chem-y9-c3','chem-y9-c4'],notes:'C1.1 Atoms; C1.3 Separating Mixtures; C2.1 History of the Periodic Table; RP6 Chromatography and Rf. Revise atomic structure, separation methods, practical method and Rf calculations.'},
+  {id:'school-french-20261008',subject:'French',date:'2026-10-08',dateLabel:'8 October 2026',title:'Unit 1 vocabulary · Une visite en France',paperId:'french',topics:['fr-y9-u1-paris-travel'],notes:'Core phrases, intensifiers, descriptive and positive adjectives, pronouns and transport. Practise recall and spelling, then try a timed vocabulary paper.'},
+  {id:'school-biology-20261116',subject:'Biology',date:'2026-11-16',dateLabel:'Week beginning 16 November 2026 · exact lesson date to be confirmed',title:'First GCSE Biology assessment · AQA 4.1.1 Cell structure',paperId:'biology-cell-structure',topics:['bio-y9-b1','bio-y9-b2','bio-y9-b3','bio-y9-b4'],notes:'Eukaryotes and prokaryotes; animal and plant cells; cell specialisation; cell differentiation; microscopy; culturing microorganisms. Revise diagrams, magnification and practical reasoning. Practice paper: 45 minutes, 60 marks; pass 51/60.'}
 ];
 function tracker(){
   const school=SCHOOL_ASSESSMENTS.filter(x=>!(state.hiddenSchoolAssessments||[]).includes(x.id));
@@ -130,9 +131,11 @@ function tracker(){
     const isSchool=school.some(s=>s.id===x.id);
     const results=isSchool?state.results.filter(r=>r.paperId===x.paperId):[];
     const latest=results[results.length-1];
-    const links=isSchool?`<p><a href="/study/${x.subject.toLowerCase()}/learn/">Notes</a> · <a href="/study/${x.subject.toLowerCase()}/practise/">Topic practice</a>${x.subject==='Biology'?' · <a href="/assessment/biology-cell-structure/">Cell structure revision guide</a>':''}</p><button class="primary" data-tracker-paper="${esc(x.paperId)}">${state.drafts[x.paperId]?.version===2?'Continue practice paper':'Start practice paper'}</button>`:'';
+    const topicLinks=(x.topics||[]).map(topic=>`<p><a href="/study/${x.subject.toLowerCase()}/learn?year=9&topic=${encodeURIComponent(topic)}">Notes · ${esc(({'chem-y9-c1':'Atoms','chem-y9-c3':'Separating mixtures','chem-y9-c4':'Chromatography','fr-y9-u1-paris-travel':'Une visite en France','bio-y9-b1':'Cell structure','bio-y9-b2':'Specialised cells','bio-y9-b3':'Microscopy','bio-y9-b4':'Culturing microorganisms'})[topic]||x.title)}</a> · <a href="/study/${x.subject.toLowerCase()}/practise?year=9&mode=standard&topic=${encodeURIComponent(topic)}">Practise this topic</a></p>`).join('');
+    const links=isSchool?`${topicLinks}<p>${x.subject==='Biology'?' · <a href="/assessment/biology-cell-structure/">Cell structure revision guide</a>':''}</p><button class="primary" data-tracker-paper="${esc(x.paperId)}">${state.drafts[x.paperId]?.version===2?'Continue practice paper':'Start practice paper'}</button>`:'';
     return `<article class="entry"><div><span class="tag">${esc(x.subject)} · ${esc(x.dateLabel||x.date)} · ${esc(x.status||(examToday()<=x.date?'Upcoming':'School result not recorded'))}</span><h3>${esc(x.title)}</h3>${x.score?`<p><b>School result:</b> ${esc(x.score)}</p>`:''}${x.notes?`<p>${esc(x.notes)}</p>`:''}${latest?`<p><b>Latest app practice:</b> ${esc(latest.score)}% · ${esc(latest.date)}</p>`:''}${links}</div><button data-delete="${esc(x.id)}">${isSchool?'Hide':'Delete'}</button></article>`;
   }).join(''):'<p class="muted">No school assessments recorded yet. Add one below.</p>';
+  $('#tracker-list').insertAdjacentHTML('beforeend','<p class="muted">Other future school assessments: dates and ranges await teacher confirmation. Practice results are separate from school grades.</p>');
 }
 $('#tracker-list').addEventListener('click',e=>{
   const paper=e.target.closest('[data-tracker-paper]');
@@ -504,3 +507,5 @@ function finish(p,d){
   $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${resultSummary}. Pass mark: 85/100. Review the answers below, then start a new paper for a different selection.</p>${wardrobe}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='latin-verbs'?'<p class="muted">English follows the verb table. Present is simple (I carry), imperfect is I was carrying, perfect is I carried. I have carried and I used to carry also score. you carry is accepted for both singular and plural; the model answer shows which one it is.</p>':''}${p.id==='latin-creusa'?'<p class="muted">Comprehension marking accepts equivalent wording. Where an answer contains only some required ideas, partial credit is awarded instead of an automatic zero.</p>':''}${p.id==='chemistry'?'<p class="muted">Marks are shown on the new exam-style questions. Each distinct correct point earns a mark, including method and final-answer marks for calculations. Older short questions remain worth one mark.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
   $('#back-to-papers').onclick=()=>show('papers');
 }
+
+if(new URLSearchParams(location.search).get("tab")==="tracker")show("tracker");

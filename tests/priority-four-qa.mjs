@@ -1,0 +1,33 @@
+import assert from 'node:assert/strict';
+import {chromium} from 'playwright';
+import {mistakeReviewTask,retainMistakeReview} from '../assets/mistake-review-plan-20261003.js';
+import {selectDailyVocabulary} from '../assets/daily-vocab-20261003.js';
+const fixed=retainMistakeReview({old:{subject:'latin',topicId:'la-y8-topic',wrong:true,lastWrong:'2026-10-01'}},'old','2026-10-03');
+assert.equal(mistakeReviewTask({today:'2026-10-04',reviews:fixed}).reviewQuestionIds.length,0);
+assert.deepEqual(mistakeReviewTask({today:'2026-10-10',reviews:fixed}).reviewQuestionIds,['old']);
+const items=['learned','unlearned'].map(topic=>({id:topic,topicId:topic,conceptId:'fr-y8-concept-vocab-'+topic,format:'typed_exact',answer:{accepted:['mot']}}));
+assert.deepEqual(selectDailyVocabulary({subject:'french',day:'2026-10-03',items,topicLearning:{unlearned:false}}).map(q=>q.id),['learned']);
+const browser=await chromium.launch({headless:true});
+try{
+ const page=await browser.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:8765/assessment/?tab=tracker');
+ await page.getByRole('heading',{name:'School assessment tracker',exact:true}).waitFor({state:'visible'});
+ assert.equal(await page.locator('[data-tracker-paper]').count(),3);
+ const links=await page.locator('#tracker-list a').evaluateAll(es=>es.map(e=>e.getAttribute('href')));
+ assert.ok(links.some(x=>x.includes('topic=bio-y9-b3')));
+ await page.goto('http://127.0.0.1:8765/study/french/');
+ await page.getByLabel('School learning',{exact:true}).waitFor();
+ const control=page.getByRole('button',{name:/Change learned status/}).first();
+ await control.click();
+ const learning=await page.evaluate(()=>JSON.parse(localStorage.getItem('lux-topic-learning-v1')));
+ assert.ok(Object.keys(learning).length>0);
+ const {C:store}=await page.evaluate(async()=>({C:null}));
+ await page.evaluate(async()=>{const {C}=await import('/assets/index-BLVOhKhN.js?v=20261003-priority4');C.setState({xp:C.getState().xp+1});});
+ await page.waitForFunction(()=>!!localStorage.getItem('lux-progress-auto-v1'));
+ const backup=await page.evaluate(()=>JSON.parse(localStorage.getItem('lux-progress-auto-v1')));
+ assert.deepEqual(JSON.parse(backup.data).topicLearning,learning);
+ await page.reload();await page.getByLabel('School learning',{exact:true}).waitFor();
+ assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('lux-topic-learning-v1'))),learning);
+ assert.deepEqual(errors,[]);
+ console.log('Priority four QA passed: populated tracker/topic links, learned toggle and reload, automatic complete backup, seven-day mistake follow-up, unlearned vocab exclusion.');
+}finally{await browser.close()}

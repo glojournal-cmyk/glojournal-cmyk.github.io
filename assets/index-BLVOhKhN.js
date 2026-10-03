@@ -1,4 +1,4 @@
-import {mistakeReviewTask,creditMistakeReview} from "./mistake-review-plan-20261003.js";
+import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js";
 import("/pet/pet-care-global.js?v=20261003-cellpractice2").catch(()=>{});
 export * from "./index-BLVOhKhN.core.js?v=20261003-cellpractice1";
 import {
@@ -1918,6 +1918,7 @@ function patchedExportProgress() {
       // The wrapper adds daily evidence and history after the core's default schema.
       // Export every serializable field so restoring cannot silently drop those ledgers.
       state: store.getState(),
+      topicLearning: JSON.parse(localStorage.getItem("lux-topic-learning-v1") || "{}"),
       assessmentBackupVersion: 1,
       assessmentProgress: readAssessmentBackupState(),
       petBackupVersion: 1,
@@ -1935,8 +1936,10 @@ function patchedImportProgress(text) {
       (typeof parsed.assessmentProgress !== "object" || Array.isArray(parsed.assessmentProgress))) {
     return { ok: false, error: "The assessment data in this backup is invalid." };
   }
+  if(parsed?.topicLearning != null && (typeof parsed.topicLearning !== "object" || Array.isArray(parsed.topicLearning))) return {ok:false,error:"Invalid learned-topic settings."};
   const result = originalImportProgress(text);
   if (!result?.ok || typeof window === "undefined") return result;
+  if(parsed?.topicLearning) localStorage.setItem("lux-topic-learning-v1",JSON.stringify(parsed.topicLearning));
   if (parsed?.assessmentProgress && typeof parsed.assessmentProgress === "object") {
     try { localStorage.setItem("lux-assessment-v1", JSON.stringify(parsed.assessmentProgress)); }
     catch { return { ok: false, error: "Could not restore assessment data. Check this device has storage available." }; }
@@ -2042,7 +2045,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     const recentQuestionIds = [...(before.recentQuestionIds || []).filter((id) => id !== questionId), questionId].slice(-60);
     store.setState({ reviews, recentQuestionIds, lastSubject: resolved.subject || subject });
     if (typeof window !== "undefined" && new URLSearchParams(window.location.search).get("task") === "mistake-review") {
-      store.setState({daily:(store.getState().daily||[]).map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
+      store.setState({reviews:correct?retainMistakeReview(store.getState().reviews,questionId,todayKey()):store.getState().reviews,daily:(store.getState().daily||[]).map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
     }
     normalizeState();
     return result;
@@ -2168,7 +2171,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
 
   if (!isRepair && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("task") === "mistake-review") {
     const currentDaily=store.getState().daily||[];
-    store.setState({daily:currentDaily.map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
+    store.setState({reviews:correct?retainMistakeReview(store.getState().reviews,questionId,todayKey()):store.getState().reviews,daily:currentDaily.map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
   }
 
   const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
@@ -3105,3 +3108,5 @@ function mountDailyRecordButton() {
 
 mountDailyRecord();
 mountDailyRecordButton();
+
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261003-priority4").catch(console.error);

@@ -20,10 +20,10 @@ function dayDistance(today, before) {
 const wordKey = text => String(text || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
   .replace(/[’‘]/g,"'").toLowerCase().replace(/\([^)]*\)/g,'').replace(/[^a-z0-9' ]/g,'').replace(/\s+/g,' ').trim();
 
-export function selectDailyVocabulary({subject, items = [], day, ledger = {}, reviews = {}, spellingDue = {}, legacyVocabulary = [], size = 30}) {
+export function selectDailyVocabulary({subject, items = [], day, ledger = {}, reviews = {}, spellingDue = {}, legacyVocabulary = [], size = 30, topicLearning = {}}) {
   const words = new Map(), byId = new Map();
   for (const q of items) {
-    if (!vocabularyQuestion(q, subject)) continue;
+    if (!vocabularyQuestion(q, subject) || topicLearning[q.topicId] === false) continue;
     byId.set(q.id, q.conceptId);
     if (!words.has(q.conceptId)) words.set(q.conceptId, []);
     words.get(q.conceptId).push(q);
