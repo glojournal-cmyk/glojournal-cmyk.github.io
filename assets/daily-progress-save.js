@@ -1,4 +1,4 @@
-import { C as store } from "/assets/index-BLVOhKhN.js?v=20261003-mistakes2";
+import { C as store } from "/assets/index-BLVOhKhN.js?v=20261003-cellpractice2";
 
 const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
 const PANEL_ID = "daily-save-panel";
