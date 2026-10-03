@@ -74,9 +74,9 @@ const pe3=fs.readFileSync("assets/pe-circuit-v3-20260920.js","utf8");
 need(core,"core PE preload","assets/pe-circuit-v3-20260920.js");
 need(core,"core PE search","Scholar Sprint 3.0");
 forbid(core,"core active PE preload","assets/pe-circuit-DPe2o8eH.js");
-need(playHub,"Play hub PE import",'pe-circuit-v3-20260920.js?v=20261003-mistakes2');
+need(playHub,"Play hub PE import",'pe-circuit-v3-20260920.js?v=20261003-cellpractice2');
 forbid(playHub,"Play hub","pe-circuit-DPe2o8eH.js");
-need(playGame,"Play game PE import",'pe-circuit-v3-20260920.js?v=20261003-mistakes2');
+need(playGame,"Play game PE import",'pe-circuit-v3-20260920.js?v=20261003-cellpractice2');
 forbid(playGame,"Play game","pe-circuit-DPe2o8eH.js");
 for(const token of ["Quick Feet","Reaction Dash","Precision Kick","Footwork Memory","Balance Hold","Dodge Lane","no instant game-over."]) need(pe3,"PE 3.0",token);
 
