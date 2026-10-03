@@ -1,6 +1,6 @@
 import {mistakeReviewTask,creditMistakeReview} from "./mistake-review-plan-20261003.js";
 import("/pet/pet-care-global.js?v=20261003-mistakes2").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261003-mistakes2";
+export * from "./index-BLVOhKhN.core.js?v=20261003-cellpractice1";
 import {
   C as store,
   U as collectibles,
@@ -12,7 +12,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261003-mistakes2";
+} from "./index-BLVOhKhN.core.js?v=20261003-cellpractice1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
