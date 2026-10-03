@@ -63,10 +63,23 @@
     if (t.includes('practise') || t.includes('practice') || t.includes('review') || t.includes('study')) return { kind:'latin', icon:'Pen' };
     return { kind:'garden', icon:'Leaf' };
   }
+  function isTaskProgress(el) {
+    const t = (el.innerText || '').replace(/\s+/g, ' ').trim();
+    // Game levels are not daily task progress. Image cards must keep their grid layout.
+    return /\d+\s*\/\s*\d+/.test(t) && t.length < 80
+      && !el.querySelector('img')
+      && !/\b(?:Lv|Level|Circuit)\s*\d+\s*\//i.test(t)
+      && !/\bpts\b/i.test(t);
+  }
+  function cleanCardIcons() {
+    document.querySelectorAll('a > .lux-ico, button > .lux-ico').forEach((ico) => {
+      const el = ico.parentElement;
+      if (el.querySelector('img') || /\b(?:Lv|Level|Circuit)\s*\d+\s*\//i.test(el.innerText || '')) ico.remove();
+    });
+  }
   function decorateTasks() {
     Array.from(document.querySelectorAll('a, button')).filter((el) => {
-      const t = (el.innerText || '').replace(/\s+/g, ' ').trim();
-      return /\d+\s*\/\s*\d+/.test(t) && t.length < 80 && !el.querySelector('.lux-ico');
+      return isTaskProgress(el) && !el.querySelector('.lux-ico');
     }).slice(0, 24).forEach((a) => {
       const spec = classifyTask(a.innerText || '');
       const ico = document.createElement('span');
@@ -102,7 +115,7 @@
   function writeTodayLog() {
     const log = readLog();
     const today = dayKey(new Date());
-    const tasks = Array.from(document.querySelectorAll('a, button')).map(el => (el.innerText || '').replace(/\s+/g,' ').trim()).filter(t => /\d+\s*\/\s*\d+/.test(t)).slice(0,12).map(t => {
+    const tasks = Array.from(document.querySelectorAll('a, button')).filter(isTaskProgress).map(el => (el.innerText || '').replace(/\s+/g,' ').trim()).filter(t => /\d+\s*\/\s*\d+/.test(t)).slice(0,12).map(t => {
       const m = t.match(/(\d+)\s*\/\s*(\d+)/);
       return { name: t.replace(/\d+\s*\/\s*\d+.*/, '').trim() || t, done: m && Number(m[1]) >= Number(m[2]) };
     });
@@ -213,6 +226,7 @@
       ensureIconLayout();
       showSearch();
       swapNavIcons(document);
+      cleanCardIcons();
       decorateTasks();
       lineUpIcons();
       ensureHeaderTools();
