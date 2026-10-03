@@ -26,7 +26,7 @@ need(game,"game","...shuffle(same),...shuffle(fallback)");
 need(game,"game","item.errors.length");
 need(game,"game","Student answer");
 need(game,"game","Find an error");
-need(route,"route",'from"./error-hunter-20260919.js?v=20261003-qa1"');
+need(route,"route",'from"./error-hunter-20260919.js?v=20261003-qa2"');
 need(route,"route","if(e===`error-hunter`)return(0,G.jsx)(ErrorHunter,{level:m})");
 need(hub,"hub","children:`Challenge Lab`");
 need(subjectPlay,"subject-play","[`latin`,`french`,`physics`,`chemistry`].includes(e)");

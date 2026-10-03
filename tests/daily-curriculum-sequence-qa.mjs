@@ -59,18 +59,22 @@ const withPractice = { ...state, topicStats: { ...state.topicStats,
 const readyPlan = context.plan(withPractice);
 const latinReady = readyPlan.find((task) => task.reviewSubject === "latin" || task.assignedSubject === "latin");
 assert.match(latinReady.href, /mode=(year8long|mastery)/);
-if (latinReady.id === "y8-mastery") assert.equal(latinReady.progress, 0, "Practice attempts must not complete mastery");
+if (latinReady.id === "y8-mastery") assert.equal(latinReady.progress, 10, "Practice completes only the first phase of the combined task");
 
 const frenchPractice = { ...state, topicStats: { ...state.topicStats,
   "fr-y8-s01-quick-rules": { attempted: 10, state: "practising", recentOutcomes: Array.from({ length: 10 }, () => ({ date: state.today })) },
 } };
 const readyMastery = context.plan(frenchPractice).find((task) => task.id === "y8-mastery");
 assert.equal(readyMastery.assignedTopic, "fr-y8-s01-quick-rules");
-assert.equal(readyMastery.progress, 0);
+assert.equal(readyMastery.progress, 10);
 assert.equal(readyMastery.masteryStartAttempts, 10);
 const afterTwo = context.plan({ ...frenchPractice, daily: [readyMastery], topicStats: { ...frenchPractice.topicStats,
   "fr-y8-s01-quick-rules": { attempted: 12, state: "practising", recentOutcomes: Array.from({ length: 12 }, () => ({ date: state.today })) },
 } }).find((task) => task.id === "y8-mastery");
-assert.equal(afterTwo.progress, 2);
+assert.equal(afterTwo.progress, 12);
 
 console.log("DAILY_CURRICULUM_SEQUENCE_QA passed: foundation first, old advanced assignment repaired, practice prerequisite");
+
+const completedAdvanced=context.plan({...previous,daily:previous.daily.map(t=>({...t,progress:25,target:25}))});
+assert.equal(completedAdvanced.find(t=>t.id==="y8-mastery").assignedTopic,"la-y8-perfect-cues","Completed work must keep its original topic");
+assert.equal(completedAdvanced.find(t=>t.id==="y8-mastery").progress,25);

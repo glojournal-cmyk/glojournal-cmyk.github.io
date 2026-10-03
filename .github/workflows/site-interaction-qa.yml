@@ -1,0 +1,19 @@
+name: Site interaction QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['tests/site-interaction-qa.mjs', '.github/workflows/site-interaction-qa.yml']
+jobs:
+  interaction:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/site-interaction-qa.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: site-interaction-qa, path: test-results/site-interaction-qa.json}

@@ -1,5 +1,5 @@
-import("/pet/pet-care-global.js?v=20261003-qa1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261003-qa1";
+import("/pet/pet-care-global.js?v=20261003-qa2").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261003-qa2";
 import {
   C as store,
   U as collectibles,
@@ -11,7 +11,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261003-qa1";
+} from "./index-BLVOhKhN.core.js?v=20261003-qa2";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -1240,10 +1240,13 @@ function buildAdaptiveDaily(state) {
   const frenchVocab = vocabGateState(state, "french");
   const latinVocab = vocabGateState(state, "latin");
   const oldYear8Review = previous.get("year8-long-review") || {};
+  const reviewFrontier = firstUnmastered(year8AssignedPool(), state, oldYear8Review.reviewSubject);
   const lockedYear8Plan = oldYear8Review.planDate === state.today &&
     YEAR8_MASTERY_SUBJECTS.includes(oldYear8Review.reviewSubject) &&
     !!oldYear8Review.href &&
-    !!oldYear8Review.reviewTopic;
+    !!oldYear8Review.reviewTopic &&
+    ((Number(oldYear8Review.progress) || 0) > 0 || !reviewFrontier ||
+      year8TopicRank({ subject: oldYear8Review.reviewSubject, topicId: oldYear8Review.reviewTopic }) <= year8TopicRank(reviewFrontier));
   const year8Review = recoveredYear8Review || (lockedYear8Plan
     ? {
         subject: oldYear8Review.reviewSubject,
@@ -1273,10 +1276,12 @@ function buildAdaptiveDaily(state) {
   const masteryFrontier = firstUnmastered(assignedPool, state, masterySubject);
   const stillFoundational = (old, frontier) => old.assignedSubject === frontier?.subject &&
     year8TopicRank({ subject: old.assignedSubject, topicId: old.assignedTopic }) <= year8TopicRank(frontier);
-  const practiseLocked = oldPractise.planDate === state.today && oldPractise.assignedTopic && oldPractise.href
+  const practiseLocked = oldPractise.planDate === state.today && oldPractise.assignedTopic && oldPractise.href &&
+    (!assignedPool.length || (Number(oldPractise.progress) || 0) > 0 || stillFoundational(oldPractise, firstUnmastered(assignedPool, state, oldPractise.assignedSubject)))
     ? { subject: oldPractise.assignedSubject, topicId: oldPractise.assignedTopic, topicLabel: oldPractise.assignedLabel, label: SUBJECT_LABELS[oldPractise.assignedSubject] || oldPractise.assignedSubject }
     : null;
-  const masteryLocked = oldMastery.planDate === state.today && oldMastery.assignedTopic && oldMastery.href
+  const masteryLocked = oldMastery.planDate === state.today && oldMastery.assignedTopic && oldMastery.href &&
+    (!assignedPool.length || (Number(oldMastery.progress) || 0) > 0 || stillFoundational(oldMastery, firstUnmastered(assignedPool, state, oldMastery.assignedSubject)))
     ? { subject: oldMastery.assignedSubject, topicId: oldMastery.assignedTopic, topicLabel: oldMastery.assignedLabel, label: SUBJECT_LABELS[oldMastery.assignedSubject] || oldMastery.assignedSubject }
     : null;
   const practisePick = practiseLocked || practiseFrontier;
