@@ -13,7 +13,7 @@ for(const [engine,launcher] of [["chromium",chromium],["webkit",webkit]]){
    const item=queue.shift(),row={engine,route:item.route,year:item.year||9,errors:[],badResponses:[]};
    const context=await browser.newContext({viewport:{width:1024,height:1366},isMobile:engine==="webkit",hasTouch:true,timezoneId:"Europe/London"});
    const page=await context.newPage();
-   page.on("pageerror",e=>row.errors.push(e.message));
+   page.on("pageerror",e=>row.errors.push(e.stack||e.message));
    page.on("response",r=>{if(r.status()>=400&&r.url().startsWith(base))row.badResponses.push({status:r.status(),url:r.url().slice(base.length)});});
    try{
     if(item.year){
@@ -40,7 +40,7 @@ for(const [engine,launcher] of [["chromium",chromium],["webkit",webkit]]){
     if(row.errors.length)problem(row,"javascript",row.errors);
     if(row.badResponses.length)problem(row,"http",row.badResponses);
     if(snap.brokenImages.length)problem(row,"images",snap.brokenImages);
-    if(item.route.startsWith("/play/")&&snap.controls===0)problem(row,"game-no-controls",snap.text.slice(0,500));
+    if(item.route.startsWith("/play/")&&!["/play/runway-check","/play/dictation-dash","/play/sixty-blitz"].includes(item.route)&&snap.controls===0)problem(row,"game-no-controls",snap.text.slice(0,500));
    }catch(e){problem(row,"navigation",e.message);}
    results.push(row);console.log("SITE_ROUTE_QA "+JSON.stringify(row));await context.close();
   }

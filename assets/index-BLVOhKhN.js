@@ -1,5 +1,5 @@
-import("/pet/pet-care-global.js?v=20260930-daily5").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20260930-search2";
+import("/pet/pet-care-global.js?v=20261003-qa1").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261003-qa1";
 import {
   C as store,
   U as collectibles,
@@ -11,7 +11,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20260930-search2";
+} from "./index-BLVOhKhN.core.js?v=20261003-qa1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -1883,11 +1883,24 @@ function readPetBackupState() {
   }
 }
 
+function readAssessmentBackupState() {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = JSON.parse(localStorage.getItem("lux-assessment-v1") || "null");
+    return raw && typeof raw === "object" && !Array.isArray(raw) ? raw : null;
+  } catch { return null; }
+}
+
 function patchedExportProgress() {
   try {
     const base = JSON.parse(originalExportProgress());
     return JSON.stringify({
       ...base,
+      // The wrapper adds daily evidence and history after the core's default schema.
+      // Export every serializable field so restoring cannot silently drop those ledgers.
+      state: store.getState(),
+      assessmentBackupVersion: 1,
+      assessmentProgress: readAssessmentBackupState(),
       petBackupVersion: 1,
       petCompanion: readPetBackupState(),
     }, null, 2);
@@ -1899,8 +1912,16 @@ function patchedExportProgress() {
 function patchedImportProgress(text) {
   let parsed = null;
   try { parsed = JSON.parse(text); } catch {}
+  if (parsed?.assessmentProgress != null &&
+      (typeof parsed.assessmentProgress !== "object" || Array.isArray(parsed.assessmentProgress))) {
+    return { ok: false, error: "The assessment data in this backup is invalid." };
+  }
   const result = originalImportProgress(text);
   if (!result?.ok || typeof window === "undefined") return result;
+  if (parsed?.assessmentProgress && typeof parsed.assessmentProgress === "object") {
+    try { localStorage.setItem("lux-assessment-v1", JSON.stringify(parsed.assessmentProgress)); }
+    catch { return { ok: false, error: "Could not restore assessment data. Check this device has storage available." }; }
+  }
   const pet = parsed?.petCompanion;
   if (pet && typeof pet === "object") {
     try {

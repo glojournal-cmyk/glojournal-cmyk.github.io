@@ -5,7 +5,7 @@ import {
   getActionEffectiveness,
   getCareSummary,
   performPetAction,
-} from "/pet/pet-care-state.js?v=20260927-care2";
+} from "/pet/pet-care-state.js?v=20261003-care1";
 
 const ACTION_ORDER = ["pat", "treat", "play", "gardenWalk", "trickTraining"];
 let statusTimer = 0;

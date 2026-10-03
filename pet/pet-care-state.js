@@ -136,8 +136,8 @@ function withSelectedCare(pet, care) {
   return { ...pet, care, careByPet: { ...(pet.careByPet || {}), [species]: care } };
 }
 
-function writePet(next, detail = {}) {
-  const normalized = normalizePet(next, Date.now());
+function writePet(next, detail = {}, now = Date.now()) {
+  const normalized = normalizePet(next, now);
   localStorage.setItem(PET_KEY, JSON.stringify(normalized));
   window.dispatchEvent(new CustomEvent("scholar:pet-care-changed", { detail: { pet: normalized, ...detail } }));
   window.dispatchEvent(new CustomEvent("scholar:pet-changed", { detail: normalized }));
@@ -228,7 +228,7 @@ export function awardBond(amount, { key, reason = "Bond reward", moodDelta = 0, 
   const pet = getPetSnapshot({ persistRecovery: false, now });
   const result = awardBondOnPet(pet, amount, { key, reason, moodDelta, bypassDailyCap }, now);
   if (!result.duplicate) {
-    writePet(result.pet, { type: "bond", amount: result.amount, moodGained: result.moodGained, reason, capped: result.capped });
+    writePet(result.pet, { type: "bond", amount: result.amount, moodGained: result.moodGained, reason, capped: result.capped }, now);
   }
   return result;
 }
@@ -263,7 +263,7 @@ export function performPetAction(actionId, { now = Date.now() } = {}) {
   const rewardKey = `action:${daily.day}:${action.id}:${used + 1}`;
   const rewarded = awardBondOnPet(touched, adjustedBond, { key: rewardKey, reason: action.label, moodDelta: 0, bypassDailyCap: false }, now);
   const next = rewarded.pet;
-  writePet(next, { type: "action", action: action.id, amount: rewarded.amount, moodGained: adjustedMood, energyCost: action.energyCost, energyGain: action.energyGain, effectiveness, capped: rewarded.capped });
+  writePet(next, { type: "action", action: action.id, amount: rewarded.amount, moodGained: adjustedMood, energyCost: action.energyCost, energyGain: action.energyGain, effectiveness, capped: rewarded.capped }, now);
 
   const energyText = action.energyCost ? ` −${action.energyCost} Energy` : action.energyGain ? ` +${action.energyGain} Energy` : "";
   const bondText = rewarded.amount > 0 ? ` +${rewarded.amount} Bond` : "";

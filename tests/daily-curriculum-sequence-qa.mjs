@@ -36,9 +36,9 @@ assert(languageTasks.some((task) => task.reviewSubject === "latin" || task.assig
 for (const task of languageTasks) {
   const topic = task.reviewTopic || task.assignedTopic;
   if ((task.reviewSubject || task.assignedSubject) === "latin") assert.equal(topic, "la-y8-stage-1-vocabulary");
-  assert.match(task.title, /[Pp]ractise|practice first/);
+  assert.match(task.title, /[Pp]racti[cs]e/);
   assert.match(task.href, /mode=standard/);
-  assert.match(task.href, /task=y8-mastery/);
+  assert.equal(new URLSearchParams(task.href.split("?")[1]).get("task"), task.id);
   assert.equal(task.progress, 0);
 }
 assert.equal(review.topicId, review.subject === "latin" ? "la-y8-stage-1-vocabulary" : "fr-y8-s01-quick-rules");

@@ -1,5 +1,5 @@
-import { C as store } from "/assets/index-BLVOhKhN.core.js?v=20260930-daily5";
-import { awardBond, localDayKey } from "/pet/pet-care-state.js?v=20260927-care2";
+import { C as store } from "/assets/index-BLVOhKhN.js?v=20261003-qa1";
+import { awardBond, localDayKey } from "/pet/pet-care-state.js?v=20261003-care1";
 
 const STUDY_SESSION_IDS = new Set(["study-session", "adaptive-focus"]);
 let previousTasks = null;
