@@ -39,6 +39,8 @@ jobs:
         run: node tests/daily-task-persistence-qa.mjs
       - name: Test formal daily evidence and repair separation
         run: node tests/daily-formal-evidence-qa.mjs
+      - name: Test Year 7–8 vocabulary mistake review
+        run: node tests/daily-mistake-review-qa.mjs
       - name: Audit daily vocab gates
         run: node tests/daily-vocab-gate-qa.mjs
       - name: Audit daily plan rigor

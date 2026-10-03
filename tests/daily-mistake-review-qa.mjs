@@ -1,0 +1,30 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {selectDailyVocabulary} from '../assets/daily-vocab-20261003.js';
+for(const subject of ['french','latin']){
+ const prefix=subject==='french'?'fr':'la';
+ const items=Array.from({length:100},(_,i)=>[0,1].map(direction=>({id:`${prefix}-${i}-${direction}`,conceptId:`${prefix}-y8-concept-vocab-${i}`,topicId:`${prefix}-y8-topic`,format:'typed_exact',status:'enabled',stimulus:{text:`word ${i}`},prompt:'Retrieve the taught word',answer:{accepted:[`word ${i}`]}}))).flat();
+ items.push({...items[0],id:'unlearned-y9',conceptId:`${prefix}-y9-concept-vocab-future`});
+ const wrong=Object.fromEntries(Array.from({length:14},(_,i)=>[`${prefix}-${i}-0`,{wrong:true,last:'2026-10-01',due:'2026-10-03'}]));
+ const regular=Object.fromEntries(Array.from({length:6},(_,i)=>[`${prefix}-${i+30}-0`,{last:'2026-10-01',due:'2026-10-03'}]));
+ const args={subject,items,day:'2026-10-03',reviews:{...wrong,...regular}};
+ const set=selectDailyVocabulary(args);
+ assert.equal(set.length,30);assert.equal(set.filter(q=>q._dailyBucket==='vocabulary-error-review').length,10);
+ assert.ok(set.slice(0,10).every(q=>Number(q.conceptId.split('-').at(-1))<14),'Wrong words must precede routine reviews');
+ assert.equal(set.filter(q=>Number(q.conceptId.split('-').at(-1))<14).length,10,'Cap includes all refill buckets');
+ assert.equal(new Set(set.map(q=>q.conceptId)).size,30);assert.ok(!set.some(q=>q.id==='unlearned-y9'));
+ const future=selectDailyVocabulary({...args,day:'2026-10-02'});assert.ok(!future.some(q=>Number(q.conceptId.split('-').at(-1))<14),'Wait two days before repeating a mistake');
+ const legacy={id:'old-vocab-id',year:8,[subject==='french'?'french':'latin']:'word 20'};
+ const old=selectDailyVocabulary({subject,items,day:'2026-10-03',legacyVocabulary:[legacy],spellingDue:{'old-vocab-id':{wrong:true,due:'2026-10-03'}}});
+ assert.equal(old[0].conceptId,`${prefix}-y8-concept-vocab-20`);assert.equal(old[0]._dailyBucket,'vocabulary-error-review');
+ const cleared=selectDailyVocabulary({subject,items,day:'2026-10-04',legacyVocabulary:[legacy],spellingDue:{'old-vocab-id':{wrong:true,due:'2026-10-03'}},reviews:{[`${prefix}-20-1`]:{last:'2026-10-03',due:'2026-10-10',streak:2}},ledger:{'2026-10-03':{[subject]:{items:{[`${prefix}-20-1`]:true}}}}});
+ assert.ok(!cleared.some(q=>q.conceptId===`${prefix}-y8-concept-vocab-20`),'Correct repair supersedes an older opposite-direction failure');
+ const sameDayFailure=selectDailyVocabulary({subject,items,day:'2026-10-05',reviews:{[`${prefix}-24-0`]:{wrong:true,last:'2026-10-03',lastAt:'2026-10-03T15:00:00Z',due:'2026-10-05'},[`${prefix}-24-1`]:{last:'2026-10-03',lastAt:'2026-10-03T14:00:00Z',due:'2026-10-10'}},ledger:{'2026-10-03':{[subject]:{items:{[`${prefix}-24-0`]:true}}}}});
+ assert.equal(sameDayFailure[0].conceptId,`${prefix}-y8-concept-vocab-24`,'A later failure beats an earlier same-day credit');
+ const ledgerOnly=selectDailyVocabulary({subject,items,day:'2026-10-03',ledger:{'2026-10-01':{[subject]:{items:{[`${prefix}-22-0`]:false}}}}});
+ assert.equal(ledgerOnly[0].conceptId,`${prefix}-y8-concept-vocab-22`);
+}
+const practise=fs.readFileSync('assets/study._subject.practise-y8fix-20260920.js','utf8');
+assert.ok(practise.includes('legacyVocabulary:subject===`french`?c:f'));assert.ok(practise.includes('spellingDue:s')||practise.includes('spellingDue:spellingDue||{}'));
+assert.ok(practise.includes('[`french-vocab`,`latin-vocab`].includes(canonicalTask)?8'),'Daily vocab must override a stored or linked Year 9');
+console.log('DAILY_MISTAKE_REVIEW_QA passed: overdue mistakes first, up to ten, old dictation records, ledger-only failures, two-day spacing, corrected words and Year 9 exclusion.');

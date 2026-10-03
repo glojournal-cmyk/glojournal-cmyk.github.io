@@ -1,4 +1,4 @@
-import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{C as r,st as i,Ut as a,dt as loadCatalog}from"./index-BLVOhKhN.js?v=20261003-vocab1";var o=e(t(),1),s=n();
+import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{C as r,st as i,Ut as a,dt as loadCatalog}from"./index-BLVOhKhN.js?v=20261003-review1";var o=e(t(),1),s=n();
 
 const META={
   latin:{name:"Latin",quote:"Lingua Latina in aeternum.",art:"/art/subjects/latin.jpg"},
@@ -69,8 +69,8 @@ function c(){
       {title:"Progress",detail:"See topic mastery and retention.",href:`/study/${subject}/progress`,tone:"gold"}
     ].map(x=>(0,s.jsx)(Card,{...x},x.title))}),
     language?(0,s.jsx)("section",{className:"grid gap-3 sm:grid-cols-2",children:[
-      (0,s.jsx)(Card,{href:`/study/${subject}/practise?mode=vocab&scope=all`,title:"Vocabulary Bank",detail:subject==="french"?"Year 8 + Year 9 learned French words.":"Full learned Latin vocabulary.",tone:"sage"},"vocab"),
-      (0,s.jsx)(Card,{href:`/study/${subject}/practise?mode=dictation&scope=all`,title:"Dictation",detail:"Spaced spelling and recall practice from the learned bank.",tone:"blush"},"dict")
+      (0,s.jsx)(Card,{href:`/study/${subject}/practise?mode=vocab&scope=revision`,title:"Vocabulary Bank",detail:subject==="french"?"Year 8 + Year 9 learned French words.":"Full learned Latin vocabulary.",tone:"sage"},"vocab"),
+      (0,s.jsx)(Card,{href:`/study/${subject}/practise?mode=dictation&scope=revision`,title:"Dictation",detail:"Spaced spelling and recall practice from the learned bank.",tone:"blush"},"dict")
     ]}):null
   ]});
 }

@@ -1,5 +1,5 @@
-import("/pet/pet-care-global.js?v=20261003-vocab1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261003-vocab1";
+import("/pet/pet-care-global.js?v=20261003-review1").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261003-review1";
 import {
   C as store,
   U as collectibles,
@@ -11,7 +11,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261003-vocab1";
+} from "./index-BLVOhKhN.core.js?v=20261003-review1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -1341,8 +1341,8 @@ function buildAdaptiveDaily(state) {
 
   return [
     { id: "study-session", title, detail, href: focusHref(focus, state), target: 10, progress: studyProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason, focusDueCount: focus.dueCount || 0, focusAccuracy: focus.accuracy, focusErrorType: focus.errorType || null },
-    { id: "french-vocab", title: "Year 8 French vocab", detail: `Year 8 French vocabulary test · ${frenchVocab.correct}/30 correct. Words and taught phrases only; spelling and meaning. Wrong answers do not count. Words rotate with scheduled review.`, href: "/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab", target: 30, progress: frenchVocab.progress, xp: 15, requiredCorrect: 30, attempts: frenchVocab.attempts, correct: frenchVocab.correct, planDate: state.today },
-    { id: "latin-vocab", title: "Year 8 Latin vocab", detail: `Year 8 Latin vocabulary test · ${latinVocab.correct}/30 correct. Words and taught phrases only; spelling and meaning. Wrong answers do not count. Words rotate with scheduled review.`, href: "/study/latin/practise?daily=1&locked=1&year=8&mode=y8vocab&task=latin-vocab", target: 30, progress: latinVocab.progress, xp: 15, requiredCorrect: 30, attempts: latinVocab.attempts, correct: latinVocab.correct, planDate: state.today },
+    { id: "french-vocab", title: "Year 7–8 French vocab", detail: `Year 7–8 French vocabulary revision · ${frenchVocab.correct}/30 correct. Words and taught phrases only; spelling and meaning. Wrong answers do not count. Due mistakes come first (up to 10 per set), followed by rotating Year 7–8 words.`, href: "/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab", target: 30, progress: frenchVocab.progress, xp: 15, requiredCorrect: 30, attempts: frenchVocab.attempts, correct: frenchVocab.correct, planDate: state.today },
+    { id: "latin-vocab", title: "Year 7–8 Latin vocab", detail: `Year 7–8 Latin vocabulary revision · ${latinVocab.correct}/30 correct. Words and taught phrases only; spelling and meaning. Wrong answers do not count. Due mistakes come first (up to 10 per set), followed by rotating Year 7–8 words.`, href: "/study/latin/practise?daily=1&locked=1&year=8&mode=y8vocab&task=latin-vocab", target: 30, progress: latinVocab.progress, xp: 15, requiredCorrect: 30, attempts: latinVocab.attempts, correct: latinVocab.correct, planDate: state.today },
     { id: "adaptive-focus", title: focus.skillLabel ? `${focus.skillLabel} focus` : `${label} focus`, detail: "Four questions in today’s priority subject. Mastery needs ≥85% plus one independent typed or spelled answer.", href: focusHref(focus, state), target: 4, progress: focusProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason },
     { id: "year8-long-review", title: `Year 8 ${year8Review.label} practice + mastery · ${year8Review.topicLabel || "Year 8 topic"}`, detail: "10 foundational practice questions, then a 15-question mastery review.", href: `${(year8Review.ready ? year8Review.href.replace(/mode=standard/, "mode=year8long") : year8Review.href.replace(/mode=year8long/, "mode=standard")).replace(/([?&])task=[^&]+/, "$1task=year8-long-review")}${year8Review.href.includes("task=") ? "" : "&task=year8-long-review"}`, target: 25, progress: year8ReviewProgress, xp: 20, planDate: state.today, reviewYear: 8, reviewSubject: year8Review.subject, reviewTopic: year8Review.topicId || null, reviewStartAttempts },
     y8PractiseTask,
@@ -2081,7 +2081,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     lastAttempt: todayKey(),
   };
   const reviews = { ...(after.reviews || {}) };
-  if (review) reviews[questionId] = { ...review, subject: resolved.subject, topicId: resolved.topicId, skills: resolved.skills || [], production: !!production, repair: isRepair, errorType: errorType || review.errorType || null };
+  if (review) reviews[questionId] = { ...review, lastAt: new Date().toISOString(), subject: resolved.subject, topicId: resolved.topicId, skills: resolved.skills || [], production: !!production, repair: isRepair, errorType: errorType || review.errorType || null };
   // A wrong formal answer must never become due again on the same day.
   // Treat the first miss as stage 1: retry after 2 days; a later success then moves to 7 days.
   if (!correct && !isRepair && reviews[questionId]) {
@@ -2194,7 +2194,7 @@ function patchedRecordSpelling(questionId, correct) {
   const spellingDue = { ...(after.spellingDue || {}) };
 
   if (!correct) {
-    spellingDue[questionId] = { due: shiftDay(day, 2), stage: 1, wrong: true, last: day };
+    spellingDue[questionId] = { due: shiftDay(day, 2), stage: 1, wrong: true, last: day, lastAt: new Date().toISOString() };
   } else if (previous) {
     const stage = Math.max(1, Number(previous.stage) || 1);
     spellingDue[questionId] = {
@@ -2202,6 +2202,7 @@ function patchedRecordSpelling(questionId, correct) {
       stage: stage >= 2 ? 3 : 2,
       wrong: false,
       last: day,
+      lastAt: new Date().toISOString(),
     };
   }
   store.setState({ spellingDue });

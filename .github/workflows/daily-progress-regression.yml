@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'assets/index-BLVOhKhN.js'
+      - 'assets/daily-vocab-20261003.js'
       - 'assets/study._subject.practise-y8fix-20260920.js'
       - 'assets/progression-guard-20260927.js'
       - 'tests/daily-*.mjs'
@@ -24,6 +25,8 @@ jobs:
           node --check assets/progression-guard-20260927.js
       - name: Test formal counting, reload and refill
         run: |
+          node tests/daily-mistake-review-qa.mjs
+          node tests/daily-vocab-only-qa.mjs
           node tests/daily-formal-evidence-qa.mjs
           node tests/daily-counting-regression-qa.mjs
           node tests/daily-task-persistence-qa.mjs
