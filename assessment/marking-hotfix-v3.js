@@ -1,8 +1,8 @@
-/* Lux et Labor assessment marking hotfix v3 · 2026-09-26
-   Keeps strict marking for other subjects while making the Latin Creusa
-   comprehension accept equivalent wording and award partial credit fairly. */
+/* Lux et Labor assessment marking hotfix · 2026-10-03
+   Latin Creusa accepts equivalent wording and partial credit fairly.
+   Chemistry is marked by scientific ideas / keywords rather than model-answer wording. */
 (function(){
-  const VERSION='20260926-v3';
+  const VERSION='20261003-chem-semantic1';
   window.__ASSESSMENT_MARKING_VERSION=VERSION;
 
   const originalMark=mark;
@@ -23,7 +23,10 @@
     if(/^(hold|held|holding|touch|touched|touching|grasp|grasped|physical|solid|insubstantial)$/.test(word))return 'physical';
     if(/^(banish|banished|banishment|exile|exiled)$/.test(word))return 'exile';
     if(word.length>4&&word.endsWith('ies'))return word.slice(0,-3)+'y';
-    if(word.length>4&&word.endsWith('s')&&!word.endsWith('ss'))return word.slice(0,-1);
+    if(word.length>5&&word.endsWith('ing'))return word.slice(0,-3);
+    if(word.length>4&&word.endsWith('ed'))return word.slice(0,-2);
+    if(word.length>4&&word.endsWith('es'))return word.slice(0,-2);
+    if(word.length>3&&word.endsWith('s')&&!word.endsWith('ss'))return word.slice(0,-1);
     return word;
   };
 
@@ -32,11 +35,9 @@
     const response=String(value||'').toLowerCase();
     const tokens=contentTokens(value);
 
-    // Direct, concise answers should not be rejected for omitting words already in the question.
     if(q.id==='creusa-3-08'&&/(family|father|son|anchises|ascanius|iulus)/.test(response))return true;
     if(String(q.prompt||'').toLowerCase().includes('exile')&&/\b(exile|exiled|banish|banished|banishment)\b/.test(response))return true;
 
-    // Accept a concise semantic core when it is wholly contained in an accepted answer.
     if(tokens.length){
       for(const a of q.answer?.accepted||[]){
         const target=contentTokens(a);
@@ -46,18 +47,118 @@
     return false;
   };
 
-  // In these questions, one required idea is explicitly supplied by the stem.
-  // The pupil should not have to repeat the stem verbatim to earn that part of the mark.
   const PROMPT_CONTEXT_IDS=new Set([
-    'creusa-1-10', // carrying Anchises -> infer care/duty
-    'creusa-2-06', // his return -> infer feelings
-    'creusa-2-09', // dangerous search -> infer devotion/love
-    'creusa-3-06'  // grief named in stem -> infer response to it
+    'creusa-1-10',
+    'creusa-2-06',
+    'creusa-2-09',
+    'creusa-3-06'
   ]);
+
+  const CHEM_STOP=new Set([
+    'a','an','the','to','of','and','or','is','are','was','were','be','been','being','it','this','that',
+    'with','for','in','on','at','from','as','by','so','than','then','there','their','into','using','use'
+  ]);
+  const CHEM_FAMILIES=[
+    [/^(colour|colours|colored|coloured|color|colors)$/,'color'],
+    [/^(travel|travels|travelled|traveled|travelling|traveling|move|moves|moved|moving)$/,'move'],
+    [/^(dissolve|dissolves|dissolved|dissolving)$/,'dissolve'],
+    [/^(soluble|solubility)$/,'soluble'],
+    [/^(insoluble|insolubility)$/,'insoluble'],
+    [/^(evaporate|evaporates|evaporated|evaporating|evaporation)$/,'evaporate'],
+    [/^(condense|condenses|condensed|condensing|condensation)$/,'condense'],
+    [/^(filter|filters|filtered|filtering|filtration)$/,'filter'],
+    [/^(separate|separates|separated|separating|separation)$/,'separate'],
+    [/^(measure|measures|measured|measuring|measurement|measurements)$/,'measure'],
+    [/^(repeat|repeats|repeated|repeating|repetition)$/,'repeat'],
+    [/^(reliable|reliability)$/,'reliable'],
+    [/^(accurate|accuracy|accurately)$/,'accurate'],
+    [/^(pure|purity)$/,'pure'],
+    [/^(contaminate|contaminates|contaminated|contaminating|contamination)$/,'contaminate'],
+    [/^(compare|compares|compared|comparing|comparison)$/,'compare'],
+    [/^(calculate|calculates|calculated|calculating|calculation)$/,'calculate'],
+    [/^(increase|increases|increased|increasing|higher|greater)$/,'increase'],
+    [/^(decrease|decreases|decreased|decreasing|lower|less)$/,'decrease']
+  ];
+
+  function chemCanon(w){
+    let word=String(w||'').toLowerCase();
+    for(const [re,root] of CHEM_FAMILIES)if(re.test(word))return root;
+    if(word.length>4&&word.endsWith('ies'))word=word.slice(0,-3)+'y';
+    else if(word.length>5&&word.endsWith('ing'))word=word.slice(0,-3);
+    else if(word.length>4&&word.endsWith('ed'))word=word.slice(0,-2);
+    else if(word.length>4&&word.endsWith('es'))word=word.slice(0,-2);
+    else if(word.length>3&&word.endsWith('s')&&!word.endsWith('ss'))word=word.slice(0,-1);
+    return word;
+  }
+
+  function chemTokens(x){
+    return String(x||'').toLowerCase().normalize('NFKD')
+      .replace(/[’‘]/g,"'")
+      .replace(/[^a-z0-9'.+-]+/g,' ')
+      .split(/\s+/).filter(Boolean)
+      .map(chemCanon).filter(w=>w&&!CHEM_STOP.has(w));
+  }
+
+  function chemistryIdeaMatch(text,term){
+    const hay=chemTokens(text),needles=chemTokens(term);
+    if(!needles.length)return false;
+    return needles.every(n=>hay.includes(n)||hay.some(h=>{
+      if(n.length<4||h.length<4)return false;
+      return h.startsWith(n)||n.startsWith(h);
+    }));
+  }
+
+  function isChemistry(q){
+    return /^chem[-_]/i.test(String(q?.id||''))||/^chem[-_]/i.test(String(q?.conceptId||''));
+  }
+
+  function chemistryFallback(q,value,base){
+    const response=String(value||'').trim();
+    if(!response)return base;
+    const mode=q.answer?.mode;
+
+    if(mode==='choice')return base;
+
+    if(mode==='chemistry_rubric'){
+      const points=q.answer?.points||[];
+      const current=Array.isArray(base?.pointResults)?base.pointResults:Array(points.length).fill(false);
+      const pointResults=points.map((point,i)=>{
+        if(current[i])return true;
+        if((point.rejectPatterns||[]).some(pattern=>new RegExp(pattern,'i').test(response)))return false;
+        return (point.alternatives||[]).some(term=>chemistryIdeaMatch(response,term))||
+          (point.patterns||[]).some(pattern=>new RegExp(pattern,'i').test(response));
+      });
+      const matched=pointResults.filter(Boolean).length;
+      const credit=points.length?matched/points.length:0;
+      return {credit,status:credit>=0.999?'Correct':credit>0?'Partly correct':'Incorrect',matched,total:points.length||1,pointResults};
+    }
+
+    if(mode==='keywords'){
+      const groups=q.answer?.required||[];
+      if(!groups.length)return base;
+      const matched=groups.filter(group=>group.some(term=>chemistryIdeaMatch(response,term))).length;
+      const credit=matched/groups.length;
+      return {credit,status:credit>=0.999?'Correct':credit>0?'Partly correct':'Incorrect',matched,total:groups.length};
+    }
+
+    if(mode==='exact_or_equivalent'){
+      if(base?.credit>=0.999)return base;
+      const candidates=[...(q.answer?.accepted||[]),...(q.markKeywords||[])].filter(Boolean);
+      const ok=candidates.some(term=>chemistryIdeaMatch(response,term));
+      if(ok)return {credit:1,status:'Correct',matched:1,total:1};
+    }
+    return base;
+  }
 
   mark=function(q,value){
     const response=String(value||'').trim();
     const flexible=String(q.id||'').startsWith('creusa-');
+
+    if(isChemistry(q)){
+      const base=originalMark(q,value);
+      return chemistryFallback(q,value,base);
+    }
+
     if(!flexible)return originalMark(q,value);
     if(!response)return {credit:0,status:'Incorrect',matched:0,total:1};
 
@@ -93,9 +194,6 @@
 
   correct=function(q,value){return mark(q,value).credit>=0.999};
 
-  // Targeted correction for the paper reported on 26 Sep 2026. The old engine
-  // stored only 14/24, so the individual answers cannot be reconstructed from localStorage.
-  // This migration is deliberately narrow: same paper, same date, same old score, no new marks field.
   let regraded=false;
   if(Array.isArray(state?.results)){
     for(let i=state.results.length-1;i>=0;i--){
