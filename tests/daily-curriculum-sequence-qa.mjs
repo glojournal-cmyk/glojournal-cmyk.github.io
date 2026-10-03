@@ -1,3 +1,4 @@
+import {mistakeReviewTask} from "../assets/mistake-review-plan-20261003.js";
 import fs from "node:fs";
 import vm from "node:vm";
 import assert from "node:assert/strict";
@@ -6,6 +7,7 @@ const source = fs.readFileSync("assets/index-BLVOhKhN.js", "utf8");
 const catalog = JSON.parse(fs.readFileSync("content/catalog.json", "utf8"));
 const segment = source.slice(source.indexOf("const YEAR8_ASSIGNED_SUBJECTS ="), source.indexOf("let normalizing = false;"));
 const context = {
+  mistakeReviewTask,
   URLSearchParams,
   Number,
   Math,

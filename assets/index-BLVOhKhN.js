@@ -1,5 +1,6 @@
-import("/pet/pet-care-global.js?v=20261003-holidays-fix").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261003-holidays-fix";
+import {mistakeReviewTask,creditMistakeReview} from "./mistake-review-plan-20261003.js";
+import("/pet/pet-care-global.js?v=20261003-mistakes1").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261003-mistakes1";
 import {
   C as store,
   U as collectibles,
@@ -11,7 +12,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261003-holidays-fix";
+} from "./index-BLVOhKhN.core.js?v=20261003-mistakes1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -1340,6 +1341,7 @@ function buildAdaptiveDaily(state) {
     Object.values(state.weeklyBoss?.weeks || {}).some((week) => week?.completedAt && localDayFromIso(week.completedAt) === state.today);
 
   return [
+    mistakeReviewTask(state),
     { id: "study-session", title, detail, href: focusHref(focus, state), target: 10, progress: studyProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason, focusDueCount: focus.dueCount || 0, focusAccuracy: focus.accuracy, focusErrorType: focus.errorType || null },
     { id: "french-vocab", title: "Year 7–8 French vocab", detail: `Year 7–8 French vocabulary revision · ${frenchVocab.correct}/30 correct. Words and taught phrases only; spelling and meaning. Wrong answers do not count. Due mistakes come first (up to 10 per set), followed by rotating Year 7–8 words.`, href: "/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab", target: 30, progress: frenchVocab.progress, xp: 15, requiredCorrect: 30, attempts: frenchVocab.attempts, correct: frenchVocab.correct, planDate: state.today },
     { id: "latin-vocab", title: "Year 7–8 Latin vocab", detail: `Year 7–8 Latin vocabulary revision · ${latinVocab.correct}/30 correct. Words and taught phrases only; spelling and meaning. Wrong answers do not count. Due mistakes come first (up to 10 per set), followed by rotating Year 7–8 words.`, href: "/study/latin/practise?daily=1&locked=1&year=8&mode=y8vocab&task=latin-vocab", target: 30, progress: latinVocab.progress, xp: 15, requiredCorrect: 30, attempts: latinVocab.attempts, correct: latinVocab.correct, planDate: state.today },
@@ -2081,7 +2083,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     lastAttempt: todayKey(),
   };
   const reviews = { ...(after.reviews || {}) };
-  if (review) reviews[questionId] = { ...review, lastAt: new Date().toISOString(), subject: resolved.subject, topicId: resolved.topicId, skills: resolved.skills || [], production: !!production, repair: isRepair, errorType: errorType || review.errorType || null };
+  if (review) reviews[questionId] = { ...review, wrong: !correct, lastWrong: !correct ? todayKey() : before.reviews?.[questionId]?.lastWrong, lastAt: new Date().toISOString(), subject: resolved.subject, topicId: resolved.topicId, skills: resolved.skills || [], production: !!production, repair: isRepair, errorType: errorType || review.errorType || null };
   // A wrong formal answer must never become due again on the same day.
   // Treat the first miss as stage 1: retry after 2 days; a later success then moves to 7 days.
   if (!correct && !isRepair && reviews[questionId]) {
@@ -2156,6 +2158,11 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     awardFirstTopicMastery(resolved.topicId, resolved.subject || subject, masteryTitle, current.state, nextState);
   } else if (!isRepair && correct && current.state === "mastered" && dueBefore) {
     awardMasteryRetention(resolved.topicId, resolved.subject || subject, masteryTitle);
+  }
+
+  if (!isRepair && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("task") === "mistake-review") {
+    const currentDaily=store.getState().daily||[];
+    store.setState({daily:currentDaily.map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
   }
 
   const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
@@ -2896,6 +2903,7 @@ function mountDailyRecord() {
 function luxGlanceShortLabel(task) {
   const id = String(task?.id || "");
   const known = {
+    "mistake-review": "Mistakes",
     "latin-vocab": "Latin",
     "french-vocab": "French",
     "study-session": "Study",

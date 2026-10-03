@@ -1,3 +1,4 @@
+import {mistakeReviewTask} from "../assets/mistake-review-plan-20261003.js";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import {selectDailyVocabulary} from "../assets/daily-vocab-20261003.js";
@@ -15,6 +16,7 @@ const day = "2026-09-30";
 const topic = "la-y8-stage-1-vocabulary";
 const pick = {subject:"latin",topicId:topic,topicLabel:"Stage 1",label:"Latin"};
 const mocks = {
+  mistakeReviewTask,
   DAILY_SUBJECTS:["latin","french"], YEAR8_MASTERY_SUBJECTS:["latin","french"],
   SUBJECT_LABELS:{latin:"Latin",french:"French"}, FRENCH_DAILY_HREF:"/session/french-vocab",
   topicMatchesYear:()=>true, adaptiveFocus:()=>({subject:"latin",topicId:topic}),
