@@ -6,11 +6,11 @@ const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 function read(key){try{const value=JSON.parse(localStorage.getItem(key)||'{}');return value&&typeof value==='object'&&!Array.isArray(value)?value:{};}catch{return {};}}
 function status(topic){
   if(topic.state==='not-taught')return 'Not taught yet';
-  if(topic.state==='needs-review')return topic.lost>0?'Marks missed in the latest paper':topic.mistakes?`${topic.mistakes} saved mistakes`:`${topic.accuracy}% in topic practice`;
+  if(topic.state==='needs-review')return topic.lost>0?'Marks missed in the latest paper':topic.mistakes?`${topic.mistakes} saved ${topic.mistakes===1?'mistake':'mistakes'}`:`${topic.accuracy}% in topic practice`;
   return {'unchecked':'No practice recorded','practising':'Still practising','mastered':'Mastered in app practice'}[topic.state];
 }
 function renderCard(x){
-  const when=x.phase==='current'?(x.dateKind==='week'?'Assessment week':'Today'):x.dateKind==='week'?`${x.days} days to assessment week`:`${x.days} days to test`;
+  const when=x.phase==='current'?(x.dateKind==='week'?'Assessment week':'Today'):x.dateKind==='week'?`${x.days} ${x.days===1?'day':'days'} to assessment week`:`${x.days} ${x.days===1?'day':'days'} to test`;
   const weaker=x.revisionTopics.filter(t=>t.state==='needs-review');
   const unchecked=x.revisionTopics.filter(t=>t.state==='unchecked');
   const focus=x.focus;
