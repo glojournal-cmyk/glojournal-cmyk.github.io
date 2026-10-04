@@ -342,3 +342,10 @@ window.addEventListener("scholar:mastery-earned", (event) => {
 });
 
 render();
+
+// Reuse the companion art rules for the selected evolution goal.
+window.addEventListener('lux:reward-goal-rendered',()=>{
+  document.querySelectorAll('.reward-goal-preview').forEach(el=>{
+    el.style.cssText=spriteStyle(el.dataset.species,Number(el.dataset.stage));
+  });
+});
