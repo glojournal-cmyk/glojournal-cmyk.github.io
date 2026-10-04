@@ -1,6 +1,7 @@
+import "./weekly-evidence-20261004.js";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js";
-import("/pet/pet-care-global.js?v=20261003-feedback1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261003-feedback1";
+import("/pet/pet-care-global.js?v=20261004-parent1").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261004-parent1";
 import {
   C as store,
   J as rewardRequirements,
@@ -13,7 +14,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261003-feedback1";
+} from "./index-BLVOhKhN.core.js?v=20261004-parent1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -1920,6 +1921,8 @@ function patchedExportProgress() {
       // The wrapper adds daily evidence and history after the core's default schema.
       // Export every serializable field so restoring cannot silently drop those ledgers.
       state: store.getState(),
+      practiceDrafts: JSON.parse(localStorage.getItem("lux-practice-drafts-v1") || "{}"),
+      biologyPractice: JSON.parse(localStorage.getItem("scholar-biology-cell-practice-v1") || "{}"),
       topicLearning: JSON.parse(localStorage.getItem("lux-topic-learning-v1") || "{}"),
       assessmentBackupVersion: 1,
       assessmentProgress: readAssessmentBackupState(),
@@ -1939,8 +1942,10 @@ function patchedImportProgress(text) {
     return { ok: false, error: "The assessment data in this backup is invalid." };
   }
   if(parsed?.topicLearning != null && (typeof parsed.topicLearning !== "object" || Array.isArray(parsed.topicLearning))) return {ok:false,error:"Invalid learned-topic settings."};
+  for (const key of ["practiceDrafts","biologyPractice"]) if (parsed?.[key] != null && (typeof parsed[key] !== "object" || Array.isArray(parsed[key]))) return {ok:false,error:"Invalid practice draft data."};
   const result = originalImportProgress(text);
   if (!result?.ok || typeof window === "undefined") return result;
+  try { if(parsed?.practiceDrafts) localStorage.setItem("lux-practice-drafts-v1",JSON.stringify(parsed.practiceDrafts)); if(parsed?.biologyPractice) localStorage.setItem("scholar-biology-cell-practice-v1",JSON.stringify(parsed.biologyPractice)); } catch { return {ok:false,error:"Could not restore practice drafts."}; }
   if(parsed?.topicLearning) localStorage.setItem("lux-topic-learning-v1",JSON.stringify(parsed.topicLearning));
   if (parsed?.assessmentProgress && typeof parsed.assessmentProgress === "object") {
     try { localStorage.setItem("lux-assessment-v1", JSON.stringify(parsed.assessmentProgress)); }
@@ -2038,6 +2043,12 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const coreMeta = { ...meta, topicId: undefined, excludeGeneralDaily: false };
   const result = originalRecordAttempt(questionId, correct, subject, coreMeta);
   const after = store.getState();
+  store.setState({formalAttemptLog: globalThis.LuxWeeklyEvidence.append(before.formalAttemptLog, {
+    at: new Date().toISOString(), questionId, correct: !!correct,
+    subject: resolved.subject || subject, year: Number(meta.yearOverride || before.year || 9),
+    topicId: resolved.topicId || null, topicTitle: resolved.topicTitle || meta.topicTitle || resolved.topicId || "General practice",
+    formal: meta.formal !== false, repair: !!meta.repair
+  }), evidenceStartedAt: before.evidenceStartedAt || new Date().toISOString()});
 
   if (meta?.formal === false) {
     const reviews = { ...(after.reviews || {}) };
@@ -3111,7 +3122,7 @@ function mountDailyRecordButton() {
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261003-feedback1").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261004-parent1").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){

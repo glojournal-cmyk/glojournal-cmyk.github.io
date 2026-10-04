@@ -1,4 +1,4 @@
-import "./learning-feedback-20261003.js?v=20261003-feedback1";
+import "./learning-feedback-20261003.js?v=20261004-parent1";
 const {buildCorrection,selectTransferQuestion}=globalThis.LuxLearningFeedback;
 import {i as interop,n as reactFactory} from './jsx-runtime-Cltr0gcK.js';
 import {gradeBiologyAnswer} from './biology-cell-rubric-20261003.js';
@@ -10,13 +10,13 @@ export function pickPracticeQuestions(bank,topic,size,previous=[],weak=[]){
  return [...shuffle(pool.filter(q=>!previous.includes(q.id))),...shuffle(pool.filter(q=>previous.includes(q.id)))].slice(0,size).map(q=>q.id);
 }
 export function BiologyCellPractice(){
- const [bank,setBank]=R.useState(null),[error,setError]=R.useState(''),[state,setState]=R.useState(read),[topic,setTopic]=R.useState('all'),[size,setSize]=R.useState(10),[saveError,setSaveError]=R.useState(false);
- R.useEffect(()=>{let live=true;fetch('/assessment/biology-cell-structure-20261003.json?v=20261003-feedback1').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{if(live)setBank(d.questions)}).catch(()=>{if(live)setError('Could not load the question bank. Reload this page to try again.')});return()=>{live=false}},[]);
+ const [resumed,setResumed]=R.useState(()=>!!read().ids?.length),[bank,setBank]=R.useState(null),[error,setError]=R.useState(''),[state,setState]=R.useState(read),[topic,setTopic]=R.useState('all'),[size,setSize]=R.useState(10),[saveError,setSaveError]=R.useState(false);
+ R.useEffect(()=>{let live=true;fetch('/assessment/biology-cell-structure-20261003.json?v=20261004-parent1').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{if(live)setBank(d.questions)}).catch(()=>{if(live)setError('Could not load the question bank. Reload this page to try again.')});return()=>{live=false}},[]);
  R.useEffect(()=>{try{localStorage.setItem(KEY,JSON.stringify(state));setSaveError(false)}catch{setSaveError(true)}},[state]);
  if(error)return h('p',{role:'alert'},error);
  if(!bank)return h('p',{role:'status'},'Loading the 72 cell structure questions…');
  const topics=[...new Set(bank.map(q=>q.topic))],weak=Object.entries(state.history||{}).filter(([,v])=>v.credit<1).map(([id])=>id),ids=state.ids||[],index=state.index||0,q=bank.find(q=>q.id===ids[index]),entry=q?state.answers?.[q.id]:null,finished=ids.length>0&&index>=ids.length;
- function start(){const chosen=pickPracticeQuestions(bank,topic,size,ids,weak);if(!chosen.length)return;setState(s=>({...s,ids:chosen,index:0,answers:{},sessionTopic:topic}));}
+ function start(){setResumed(false);const chosen=pickPracticeQuestions(bank,topic,size,ids,weak);if(!chosen.length)return;setState(s=>({...s,ids:chosen,index:0,answers:{},sessionTopic:topic}));}
  function answer(value){setState(s=>({...s,answers:{...s.answers,[q.id]:{value}}}));}
  function check(event){event.preventDefault();if(!entry?.value?.trim()||entry.checked)return;const result=gradeBiologyAnswer(q,entry.value);setState(s=>({...s,answers:{...s.answers,[q.id]:{...entry,checked:true,result}},history:{...s.history,[q.id]:{credit:result.credit,at:Date.now()}}}));}
  const correction=entry?.checked?buildCorrection(q,{...entry.result,given:entry.value,model:q.modelAnswer},'biology'):null,transfer=entry?.checked&&entry.result.credit<1?selectTransferQuestion(q,bank,ids):null;
@@ -30,6 +30,7 @@ export function BiologyCellPractice(){
  h('button',{type:'button',onClick:start,disabled:topic==='weak'&&!weak.length,style:buttonStyle},ids.length?'Start a new set':'Start practice')),
  h('p',{style:{fontSize:13,marginTop:10}},'New sets prioritise questions outside the previous set. Answers and your place save automatically on this device. This practice does not award formal mastery.'),
  saveError&&h('p',{role:'alert'},'Your browser could not save this practice. Keep this page open to retain your answers.'),
+ resumed&&q&&h('p',{role:'status'},`Resumed saved cell practice · question ${index+1} of ${ids.length}. Your answer and feedback are preserved.`),
  q&&h('form',{onSubmit:check,style:{marginTop:24}},
  h('p',null,`Question ${index+1} / ${ids.length} · ${q.topic} · ${q.marks} marks`),
  h('h3',{style:{fontSize:20,fontWeight:600,margin:'10px 0'}},q.prompt),

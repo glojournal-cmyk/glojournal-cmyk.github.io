@@ -1,3 +1,4 @@
+import('/assets/ipad-experience-20261004.js?v=20261004-parent1').catch(console.error);
 if(!location.pathname.startsWith('/assessment')) import('/assets/school-revision-home-20261004.js?v=20261004-school4').catch(error=>console.error('School revision panel could not load',error));
 (() => {
   if (!document.querySelector('link[href*="lux-theme.css"]')) {
@@ -19,6 +20,8 @@ if(!location.pathname.startsWith('/assessment')) import('/assets/school-revision
   const icon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="size-4" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>';
   const assessmentUrl='/assessment/?v=20260926-v3';
   function add(){
+    if((location.pathname==='/'||location.pathname.startsWith('/scholar')||location.pathname.endsWith('/progress/'))&&!document.getElementById('parent-weekly-entry')){const main=document.querySelector('main');if(main){const link=document.createElement('a');link.id='parent-weekly-entry';link.href='/progress/weekly/';link.textContent='Parent weekly summary · practice, independent answers & delayed checks';link.style.cssText='display:block;padding:16px;margin:0 0 18px;border:1px solid #d4c6ac;border-radius:14px;background:#fffaf0;color:#173e50';main.prepend(link)}}
+
     const entryPath=location.pathname.replace(/\/$/, '') || '/';
     const existing=document.getElementById('subject-directory-entry');
     if(entryPath!=='/'&&entryPath!=='/study')existing?.remove();

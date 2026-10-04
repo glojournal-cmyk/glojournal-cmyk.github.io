@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const data=new Map(),c=vm.createContext({Date,Intl,URL,location:{href:'https://example.test/study/latin/practise/?mode=standard&topic=case'},localStorage:{getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v)}});
+vm.runInContext(fs.readFileSync('assets/weekly-evidence-20261004.js','utf8'),c);const {append,summarize}=c.LuxWeeklyEvidence;
+const entry=(day,correct,extra={})=>({at:day+'T12:00:00Z',questionId:'case1',subject:'latin',year:9,topicId:'cases',correct,...extra});
+let rows=[];for(const e of [entry('2026-10-01',false),entry('2026-10-01',true,{repair:true}),entry('2026-10-01',true),entry('2026-10-01',true),entry('2026-10-02',true),entry('2026-10-04',true),entry('2026-10-04',true,{formal:false})])rows=append(rows,e);
+assert.equal(rows.filter(r=>r.retention).length,1,'Repairs, games and same-day/one-day repeats cannot prove retention');
+let s=summarize(rows,'2026-10-04');assert.equal(s.attempted,7);assert.equal(s.formal,5);assert.equal(s.correct,4);assert.equal(s.repairs,1);assert.equal(s.activities,1);assert.equal(s.improved.length,1);assert.equal(summarize(rows,'2026-09-24').attempted,0);assert.equal(summarize(rows,'2026-10-04','french').attempted,0);
+rows=append(rows,entry('2026-10-04',false));assert.equal(summarize(rows,'2026-10-04').improved.length,0);assert.equal(summarize(rows,'2026-10-04').followup.length,1);
+vm.runInContext(fs.readFileSync('assets/practice-drafts-20261004.js','utf8'),c);const drafts=c.LuxPracticeDrafts,k=drafts.key('latin',9,8,'cases','');const d={base:[{id:'q1'}],j:0,N:'unfinished answer',G:{ok:false},sessionLog:[{correct:false}],rr:[],ce:false};assert.ok(drafts.save(k,d));assert.equal(drafts.read(k).N,d.N);assert.equal(drafts.read(k).G.ok,false);assert.equal(drafts.read(drafts.key('latin',8,8,'cases','')),null);assert.equal(drafts.read(drafts.key('french',9,8,'cases','')),null);drafts.save(k,{...d,ce:true});assert.equal(drafts.read(k),null,'Completed session cannot replay awards');drafts.save(k,d);drafts.clear(k);assert.equal(drafts.read(k),null);
+console.log('Weekly and iPad QA passed: dated windows, delayed retention, repairs, vocabulary separation, wrong-to-correct evidence, subject/year isolation, unfinished and checked answers, completed-session expiry.');
