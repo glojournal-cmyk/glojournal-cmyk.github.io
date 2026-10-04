@@ -59,7 +59,7 @@ if(session.includes("subject:\`latin\`,dailyId:\`study-session\`")) failures.pus
 
 for(const token of [
   "function H({title:e,kicker:t,items:n,repairItems:repairBank=[],subject:a,dailyId:c",
-  "c&&!Y._repair&&![`y8-practise`,`y8-mastery`].includes(c)&&E(c,1)"
+  "c&&!Y._repair&&c!==`study-session`&&![`y8-practise`,`y8-mastery`].includes(c)&&E(c,1)"
 ]) if(!quiz.includes(token)) failures.push({type:"daily-mastery-write-regression",file:"quiz",token});
 
 function migrateFixture(input){
