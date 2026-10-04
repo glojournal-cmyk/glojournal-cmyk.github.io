@@ -1,7 +1,7 @@
 import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";
-import{C as s,Qt as u,d as ok,g as bad,u as finishSound}from"./index-BLVOhKhN.js?v=20261004-ux-rest";
-import{t as Button}from"./button-CgT0JZ5s.js?v=20261004-ux-rest";
-import{t as Card}from"./card-t5JqoXqT.js?v=20261004-ux-rest";
+import{C as s,Qt as u,d as ok,g as bad,u as finishSound}from"./index-BLVOhKhN.js?v=20261004-ux-rest2";
+import{t as Button}from"./button-CgT0JZ5s.js?v=20261004-ux-rest2";
+import{t as Card}from"./card-t5JqoXqT.js?v=20261004-ux-rest2";
 var R=e(t(),1),J=n();
 const meta={id:"pe-circuit",name:"Scholar Sprint 3.0",kicker:"PE · Active Arcade",blurb:"Eight iPad-first circuits with large controls, clear rules and a real difficulty curve.",levels:8};
 const C=[

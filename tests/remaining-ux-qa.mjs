@@ -26,3 +26,7 @@ context.previewRestore('{}','Invalid file');assert.equal(context.selectedRestore
 context.restore(data,'Previous copy');assert.equal(confirms,1);assert.equal(imports,0,'Cancelling restore preserves current progress');
 const core=fs.readFileSync('assets/index-BLVOhKhN.core.js','utf8');assert.ok(core.includes('children:e=>(0,L.jsx)(LuxReadyRouter,{router:e})'));assert.ok(core.includes("document.documentElement.setAttribute('data-lux-ready','')"));
 console.log('Remaining UX QA passed: topic-aware shared credit, remaining counts, validated restore previews without mutation, cancellation preserves progress and readiness gate is wired to committed router.');
+const readinessCode=core.slice(core.indexOf('function LuxReadyRouter('),core.indexOf('var vD=ve();'));
+let ready=false,callback,cleanup;
+const readiness=vm.createContext({I:{useEffect:effect=>{cleanup=effect()}},L:{jsx:()=>null},oc(){},setTimeout:fn=>{callback=fn;return 1},clearTimeout(){},document:{documentElement:{setAttribute:()=>{ready=true}},body:{removeAttribute(){}}}});
+vm.runInContext(readinessCode,readiness);readiness.LuxReadyRouter({router:{}});assert.equal(ready,false);callback();assert.equal(ready,true,'Ready gate opens without animation frames, including background tabs');assert.equal(typeof cleanup,'function');

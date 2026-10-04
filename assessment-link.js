@@ -1,4 +1,4 @@
-import('/assets/ipad-experience-20261004.js?v=20261004-ux-rest').catch(console.error);
+import('/assets/ipad-experience-20261004.js?v=20261004-ux-rest2').catch(console.error);
 if(!location.pathname.startsWith('/assessment')) import('/assets/school-revision-home-20261004.js?v=20261004-ux3').catch(error=>console.error('School revision panel could not load',error));
 (() => {
   if (!document.querySelector('link[href*="lux-theme.css"]')) {
@@ -16,7 +16,7 @@ if(!location.pathname.startsWith('/assessment')) import('/assets/school-revision
 })();
 (()=>{
   import('/pet/evolution-art-fix.js?v=20260927-evolution3').catch(()=>{});
-  if(!location.pathname.startsWith('/pet')) import('/pet/pet-care-global.js?v=20261004-ux-rest').catch(()=>{});
+  if(!location.pathname.startsWith('/pet')) import('/pet/pet-care-global.js?v=20261004-ux-rest2').catch(()=>{});
   const icon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="size-4" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>';
   const assessmentUrl='/assessment/?v=20260926-v3';
   function add(){
