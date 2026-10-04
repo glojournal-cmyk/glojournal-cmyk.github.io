@@ -39,7 +39,7 @@ function grantWardrobe(id){
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
 const CHEMISTRY_REVISION='20260930-chem-fullmarks3';
-const bankUrl=p=>p.id==='biology-cell-structure'?`${p.bank}?v=20261004-connections1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261004-connections1`;
+const bankUrl=p=>p.id==='biology-cell-structure'?`${p.bank}?v=20261004-journey1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261004-journey1`;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
   'inks.svg':'Figure 2: chromatogram with ink samples A to D',
@@ -422,6 +422,8 @@ async function start(id){
 }
 
 function renderTest(p,d){
+  d.title=p.name;
+  const persist=()=>{d.savedAt=Date.now();save()};
   const resumed = d.index > 0 || Object.values(d.answers||{}).some(Boolean);
   function displayClock(){
     const clock=$('#clock');
@@ -439,20 +441,20 @@ function renderTest(p,d){
     const i=d.index,q=d.questions[i],answer=d.answers[i]||'';
     $('#exam').innerHTML=`<div class="exam-top"><div><span class="tag">${esc(p.name)} · ${p.minutes} min · pass 85%</span><h2>Question ${i+1} of ${d.questions.length}</h2></div><strong id="clock" aria-label="Time remaining"></strong></div><div class="progress"><div style="width:${100*(i+1)/d.questions.length}%"></div></div>${resumed?'<p role="status" class="feedback">Resumed saved paper. Your answers and place are preserved. Check the timer before continuing.</p>':''}<p class="muted">Answers are saved. Marking and model answers appear after you submit the whole paper.</p>${p.id==='latin-verbs'?'<p class="muted">From the verb table only. Present: I carry. Imperfect: I was carrying. Perfect: I carried. I have carried and I used to carry are also accepted. Say he, she or it for the third person singular.</p>':''}${q.passage?`<div class="feedback" style="white-space:pre-line;line-height:1.7"><b>Read the extract</b><br>${esc(q.passage)}</div>`:''}<p class="question">${esc(q.prompt)}</p>${['chemistry','biology-cell-structure'].includes(p.id)?`<p class="muted">${questionMarks(q)} marks · ${esc(p.id==='chemistry'?chemistryStage(q):q.topic)} · Give distinct points; show your working for calculations.</p>`:''}${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}?v=${CHEMISTRY_REVISION}" alt="${esc(q.diagramAlt||DIAGRAM_ALTS[q.diagram]||'Assessment question diagram')}">`:''}${Array.isArray(q.options)&&q.options.length?`<div id="choices">${q.options.map(o=>`<button class="choice ${answer===String(o)?'chosen':''}" data-choice="${esc(o)}">${esc(o)}</button>`).join('')}</div>`:`<label>Your answer<textarea class="answer" id="response" placeholder="Write your answer here">${esc(answer)}</textarea></label>`}<div class="exam-actions"><button id="prev" ${i===0?'disabled':''}>Previous</button><button id="next" class="primary">${i===d.questions.length-1?'Submit whole paper':'Next question'}</button></div><div class="exam-actions" style="margin-top:18px"><button id="pause">${d.running?'Pause timer':'Resume timer'}</button><button id="exit">Back to assessments</button></div>`;
     $('#response')?.addEventListener('input',e=>{d.answers[i]=e.target.value;save()});
-    $('#choices')?.addEventListener('click',e=>{const b=e.target.closest('[data-choice]');if(b){d.answers[i]=b.dataset.choice;save();draw()}});
-    $('#prev').onclick=()=>{d.index--;save();draw()};
+    $('#choices')?.addEventListener('click',e=>{const b=e.target.closest('[data-choice]');if(b){d.answers[i]=b.dataset.choice;persist();draw()}});
+    $('#prev').onclick=()=>{d.index--;persist();draw()};
     $('#next').onclick=()=>{
       if(i===d.questions.length-1){
         if(confirm('Submit the whole paper for marking?'))finish(p,d);
       }else{
-        d.index++;save();draw();
+        d.index++;persist();draw();
       }
     };
-    $('#pause').onclick=()=>{d.running=!d.running;save();draw()};
-    $('#exit').onclick=()=>{save();show('papers');cards()};
+    $('#pause').onclick=()=>{d.running=!d.running;persist();draw()};
+    $('#exit').onclick=()=>{persist();show('papers');cards()};
     displayClock();
   }
-  draw();timer=setInterval(tick,1000);
+  persist();draw();timer=setInterval(tick,1000);
 }
 
 function showAnswer(q){
@@ -476,8 +478,8 @@ function startFollowup(resultIndex){
 }
 function drawFollowup(id){
  const draft=state.followups?.[id];if(!draft)return;
- show('exam');const q=draft.questions[draft.index];
- if(!q&&draft.daily){const secured=draft.assignedIds.filter(id=>state.dailyReviewCredits?.[draft.planDate]?.[id]).length;$('#exam').innerHTML=`<h2>Daily assessment corrections · ${secured}/${draft.assignedIds.length} secured</h2><p>Only full-mark corrections count towards the assigned daily task. Unsecured questions remain for follow-up. Successful checks return after 7 days.</p><a class="primary" href="/">Return to daily tasks</a>`;return;}
+ show('exam');draft.savedAt=Date.now();save();const q=draft.questions[draft.index];
+ if(!q&&draft.daily){const secured=draft.assignedIds.filter(id=>state.dailyReviewCredits?.[draft.planDate]?.[id]).length;$('#exam').innerHTML=`<h2>Daily assessment corrections · ${secured}/${draft.assignedIds.length} secured</h2><p>Only full-mark corrections count towards the assigned daily task. Unsecured questions remain for follow-up. Successful checks return after 7 days.</p><a class="primary" href="/">Return to daily tasks</a>`;globalThis.LuxJourney?.completionDOM($('#exam'),'mistake-review');return;}
  if(!q){$('#exam').innerHTML=`<h2>Weak-area practice complete</h2><p>You practised ${draft.questions.length} missed or partly correct questions. This follow-up does not change the original test score or count as formal mastery.</p><button id="followup-results">Back to results</button>`;$('#followup-results').onclick=()=>show('history');return;}
  const checked=draft.checked[draft.index],m=checked?mark(q,draft.answers[draft.index]||''):null;
  const correction=checked?globalThis.LuxLearningFeedback?.buildCorrection(q,{...m,given:draft.answers[draft.index]||'',model:showAnswer(q)},draft.subject):null;
@@ -585,6 +587,8 @@ function startDailyAssessmentReview(){
 
 // Open the requested paper after deferred scope and marking patches are loaded.
 if(typeof document!=='undefined')document.addEventListener('DOMContentLoaded',()=>{
+  const resumeId=new URLSearchParams(location.search).get('resumeFollowup');
+  if(resumeId!==null){const draft=state.followups?.[resumeId];if(draft&&!draft.daily&&draft.index<draft.questions.length){drawFollowup(resumeId);return;}show('history');return;}
   if(new URLSearchParams(location.search).get('task')==='mistake-review'){startDailyAssessmentReview();return;}
   const requested=new URLSearchParams(location.search).get('paper');
   const paper=PAPERS.find(p=>p.id===requested);
