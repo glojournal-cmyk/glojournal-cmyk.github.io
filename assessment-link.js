@@ -1,6 +1,6 @@
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/memory-stars-20261004.js?v=2').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/daily-task-presentation-20261004.js?v=1').catch(console.error);
-if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/companion-experience-20261004.js?v=4').catch(console.error);
+if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/companion-experience-20261004.js?v=5').catch(console.error);
 import('/assets/ipad-experience-20261004.js?v=20261004-memory1').catch(console.error);
 if(!location.pathname.startsWith('/assessment')) import('/assets/school-revision-home-20261004.js?v=20261004-memory1').catch(error=>console.error('School revision panel could not load',error));
 (() => {
