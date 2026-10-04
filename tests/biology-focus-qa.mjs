@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const bank=JSON.parse(fs.readFileSync('assessment/biology-cell-structure-20261003.json')).questions;
+let slots=[],cursor=0,effects=[],active=false;
+const h=(type,props,...children)=>({type,props:props||{},children});
+const R={createElement:h,useState(initial){const i=cursor++;if(!(i in slots))slots[i]=typeof initial==='function'?initial():initial;return [slots[i],v=>slots[i]=typeof v==='function'?v(slots[i]):v]},useEffect(fn){effects.push(fn)}};
+const storage=new Map();const c=vm.createContext({R,console,Date,Math,localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v)},fetch:async()=>({ok:true,json:async()=>({questions:bank})}),gradeBiologyAnswer:()=>({credit:1,matched:2,status:'Correct',pointResults:[true,true]}),globalThis:null});c.globalThis=c;c.LuxLearningFeedback={buildCorrection:()=>({}),selectTransferQuestion:()=>null};c.LuxPracticeBridge={appendEvidence:(rows,e)=>[...(rows||[]),e]};
+const source=fs.readFileSync('assets/biology-cell-practice-20261003.js','utf8').replace(/^import .*;$/gm,'').replace("const R=interop(reactFactory()),h=R.createElement,KEY=",'const h=R.createElement,KEY=').replace(/export function/g,'function');vm.runInContext(source,c);
+const render=()=>{cursor=0;effects=[];const tree=c.BiologyCellPractice({onSessionActive:v=>active=v});effects.forEach(fn=>fn());return tree};
+const find=(node,test)=>!node||typeof node!=='object'?null:test(node)?node:node.children?.flat(Infinity).map(n=>find(n,test)).find(Boolean);
+const button=(tree,text)=>find(tree,n=>n.type==='button'&&n.children.includes(text));
+render();await new Promise(r=>setImmediate(r));let tree=render();assert.equal(find(tree,n=>n.props['data-biology-settings']).props.open,true);button(tree,'Start practice').props.onClick();tree=render();assert.equal(active,true);assert.equal(find(tree,n=>n.props['data-biology-settings']).props.open,false);assert.equal(find(tree,n=>n.props['data-biology-references']).props.open,false);assert.ok(find(tree,n=>n.props['data-biology-question']));
+find(tree,n=>n.type==='textarea').props.onChange({target:{value:'My saved answer'}});tree=render();assert.equal(find(tree,n=>n.type==='textarea').props.value,'My saved answer');
+find(tree,n=>n.props['data-biology-references']).props.onToggle({currentTarget:{open:true}});find(tree,n=>n.props['data-biology-settings']).props.onToggle({currentTarget:{open:true}});tree=render();assert.equal(find(tree,n=>n.props['data-biology-references']).props.open,true);button(tree,'Start a new set').props.onClick();tree=render();assert.equal(find(tree,n=>n.props['data-biology-references']).props.open,false);
+slots=[];tree=render();await new Promise(r=>setImmediate(r));tree=render();assert.equal(active,true);assert.equal(find(tree,n=>n.props['data-biology-settings']).props.open,false,'Resume is focused');
+console.log('Biology focus QA passed: setup, start, question controls, answer persistence, expand references, new-set collapse and resumed-session focus.');
