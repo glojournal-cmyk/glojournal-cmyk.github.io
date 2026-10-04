@@ -1,6 +1,7 @@
-import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{t as r}from"./link-bW0ClP5B.js";import{C as o}from"./index-BLVOhKhN.js?v=20261004-feedback3";import{t as a}from"./button-CgT0JZ5s.js?v=20261004-feedback3";import{t as s}from"./card-t5JqoXqT.js?v=20261004-feedback3";var W=e(t(),1),G=n();
+import {StarMapChallenge} from './star-map-challenge-20261004.js?v=1';
+import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{t as r}from"./link-bW0ClP5B.js";import{C as o}from"./index-BLVOhKhN.js?v=20261004-starmap1";import{t as a}from"./button-CgT0JZ5s.js?v=20261004-starmap1";import{t as s}from"./card-t5JqoXqT.js?v=20261004-starmap1";var W=e(t(),1),G=n();
 
-const META={id:`weekly-boss`,name:`Weekly Boss Mission`,kicker:`8–12 minute adaptive mission`,blurb:`One locked mission each week, built from recent weak and due concepts. Clear it for a Boss-only collectible, prestige outfit or special scene.`,levels:1};
+const META={id:`weekly-boss`,name:`Repair the star map`,kicker:`Weekly themed expedition`,blurb:`Restore four sections of the observatory chart through short missions. Collect this week’s Star Map when all four are restored.`,levels:1};
 const LABELS={french:`French`,physics:`Physics`,chemistry:`Chemistry`,biology:`Biology`};
 const REWARDS=[
 {id:`boss-seal`,type:`collectible`,name:`Weekly Boss Seal`},
@@ -151,7 +152,7 @@ function calcPass(value,task){let n=norm(value).replace(/,/g,`.`);if(task.accept
 function chart(data){let max=Math.max(...data.rows.map(x=>x.value),1);return(0,G.jsxs)(`div`,{className:`mt-4 rounded-xl border border-line bg-sage/25 p-4`,children:[(0,G.jsxs)(`div`,{className:`flex justify-between text-xs font-semibold text-navy`,children:[(0,G.jsx)(`span`,{children:data.title}),(0,G.jsx)(`span`,{children:data.unit})]}),(0,G.jsx)(`div`,{className:`mt-3 space-y-2`,children:data.rows.map(row=>(0,G.jsxs)(`div`,{className:`grid grid-cols-[5.5rem_1fr_3rem] items-center gap-2 text-xs`,children:[(0,G.jsx)(`span`,{children:row.label}),(0,G.jsx)(`div`,{className:`h-3 overflow-hidden rounded-full bg-sage-2`,children:(0,G.jsx)(`div`,{className:`h-full bg-leaf`,style:{width:`${Math.max(8,row.value/max*100)}%`}})}),(0,G.jsx)(`span`,{className:`text-right tabular-nums`,children:row.value})]},row.label))})]})}
 function optionGrid(options,onPick){return(0,G.jsx)(`div`,{className:`mt-4 grid gap-2 sm:grid-cols-2`,children:options.map(v=>(0,G.jsx)(a,{variant:`outline`,className:`h-auto min-h-12 justify-start whitespace-normal text-left`,onClick:()=>onPick(v),children:v},v))})}
 
-function WeeklyBoss(){
+function LegacyWeeklyBoss(){
  const boss=o(x=>x.weeklyBoss),start=o(x=>x.startWeeklyBoss),complete=o(x=>x.completeWeeklyBoss),practice=o(x=>x.recordGamePractice),skillStats=o(x=>x.skillStats),learningEvents=o(x=>x.learningEvents),gamePractice=o(x=>x.gamePractice),collectibles=o(x=>x.collectibles),unlockedOutfits=o(x=>x.unlockedOutfits),unlockedScenes=o(x=>x.unlockedScenes);
  const week=weekKey(),stateView={skillStats,learningEvents,gamePractice,collectibles,unlockedOutfits,unlockedScenes},planned=(0,W.useMemo)(()=>chooseMission(stateView,week),[week]),saved=boss?.weeks?.[week],mission=(saved?.missionId?MISSIONS.find(m=>m.id===saved.missionId):null)||planned.mission,subject=saved?.subject||planned.subject,weakSkills=saved?.weakSkills?.length?saved.weakSkills:planned.weakSkills;
  (0,W.useEffect)(()=>{if(!saved&&mission)start(week,mission.id,subject,weakSkills)},[week,saved?.missionId,mission?.id]);
@@ -181,4 +182,5 @@ function WeeklyBoss(){
  ]})]})
 }
 
+function WeeklyBoss(){const [legacy,setLegacy]=W.useState(false);return W.createElement(W.Fragment,null,legacy?W.createElement(LegacyWeeklyBoss):W.createElement(StarMapChallenge),W.createElement("button",{type:"button",className:"sm-legacy-button",onClick:()=>setLegacy(!legacy)},legacy?"Return to the star map":"Open the original adaptive Boss mission"));}
 export{META as n,WeeklyBoss as t};
