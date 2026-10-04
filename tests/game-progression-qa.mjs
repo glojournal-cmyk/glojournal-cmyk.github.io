@@ -4,6 +4,7 @@ const pe=fs.readFileSync("assets/pe-circuit-v3-20260920.js","utf8");
 const games=fs.readFileSync("assets/play._game-BbpxhxeZ.js","utf8");
 const wrapper=fs.readFileSync("assets/index-BLVOhKhN.js","utf8");
 const physics=fs.readFileSync("assets/physics-DT4AA9JX.js","utf8");
+const runtimeVersion=fs.readFileSync('index.html','utf8').match(/\/assets\/index-BLVOhKhN\.js\?v=([^"'<> ]+)/)?.[1];
 const failures=[];
 const need=(src,name,token)=>{if(!src.includes(token))failures.push({type:"missing-token",name,token});};
 
@@ -30,7 +31,7 @@ need(pe,"pe","Early tap = retry");
 need(pe,"pe",'onPointerDown:down');
 need(pe,"pe",'touchAction:"none"');
 need(pe,"pe","no instant game-over.");
-need(games,"games",'pe-circuit-v3-20260920.js?v=20261004-journey1');
+need(games,"games",`pe-circuit-v3-20260920.js?v=${runtimeVersion}`);
 need(wrapper,"pe unlock","every 2★+ clear of the currently unlocked circuit opens the next one");
 need(wrapper,"pe unlock","unlocked: Math.min(8, level + 1)");
 need(wrapper,"pe unlock","lastUnlock: `circuit-${level}`");
