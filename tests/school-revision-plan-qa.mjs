@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import vm from 'node:vm';
 await import('../assets/school-revision-data-20261004.js');
 const {schoolAssessments,buildRevisionPlan,londonDay}=globalThis.LuxSchoolRevision;
 const chemistry=schoolAssessments.find(x=>x.subject==='Chemistry');
@@ -49,4 +50,32 @@ assert.match(app,/get\('paper'\)/);
 const markup=fs.readFileSync('assessment/index.html','utf8');
 assert.ok(markup.indexOf('/assets/school-revision-data-20261004.js')<markup.indexOf('/assessment/app-v2.js'));
 assert.match(fs.readFileSync('assessment-link.js','utf8'),/school-revision-home-20261004/);
+// Reproduce the actual deferred-script order: the older add-on registers a
+// DOMContentLoaded callback before the newer school scope is installed.
+const base=JSON.parse(fs.readFileSync('assessment/chemistry-school-1.json'));
+const addon=JSON.parse(fs.readFileSync('assessment/chemistry-school-style-20260927.json'));
+const loaded=[],saved={drafts:{},recent:{}},exam={innerHTML:''};let rendered;
+const nativeFetch=async url=>new Response(JSON.stringify(String(url).includes('chemistry-school-style')?addon:base));
+const context=vm.createContext({URL,Response,Math,Set,String,Object,console,
+  location:{href:'https://example.test/assessment/?paper=chemistry'},
+  document:{addEventListener:(name,fn)=>{if(name==='DOMContentLoaded')loaded.push(fn);}},
+  window:{fetch:nativeFetch},PAPERS:[{id:'chemistry',bank:'/assessment/chemistry-school-1.json'}],
+  EXAM_GROUPS:[{subject:'Chemistry'}],cards(){},state:saved,show(){},save(){},
+  start(){throw Error('Patched Chemistry start should be used');},
+  bankUrl:p=>p.bank,$:()=>exam,esc:x=>x,renderTest:(p,d)=>{rendered=d;},
+});
+context.fetch=(...args)=>context.window.fetch(...args);
+vm.runInContext(app.slice(app.indexOf('function shuffle(a)'),app.indexOf('function selectCreusa(')),context);
+vm.runInContext(fs.readFileSync('assessment/chemistry-schoolstyle-20260927.js','utf8'),context);
+vm.runInContext(fs.readFileSync('assessment/chemistry-oct5-patch.js','utf8'),context);
+for(const fn of loaded)fn();
+assert.equal(context.PAPERS[0].groups.Atoms,6,'Late add-on must not erase the newer Atoms quota');
+for(let i=0;i<30;i++){
+  saved.drafts={};rendered=null;await context.start('chemistry');
+  assert.ok(rendered,exam.innerHTML);assert.equal(rendered.questions.length,30);
+  for(const group of ['Atoms','Periodic table','Separation','RP6 method','Rf'])assert.ok(rendered.questions.some(q=>q.topic===group),group);
+  saved.recent.chemistry=rendered.questions.map(q=>q.id);
+}
+rendered.answers[0]='saved answer';const draft=rendered;
+await context.start('chemistry');assert.equal(rendered,draft);assert.equal(rendered.answers[0],'saved answer','Direct links resume a saved paper');
 console.log('School revision QA passed: confirmed scope links, London dates, full assessment weeks, actual weaknesses, unchecked topics, taught-only suggestions, latest papers, custom/hidden/completed tests and read-only progress.');

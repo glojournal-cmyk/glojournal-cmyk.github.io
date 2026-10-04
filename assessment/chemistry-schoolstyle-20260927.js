@@ -39,7 +39,9 @@
   document.addEventListener('DOMContentLoaded',()=>{
     try{
       const chemistry=PAPERS.find(p=>p.id==='chemistry');
-      if(chemistry){
+      // A newer school scope is already installed before DOMContentLoaded.
+      // Keep its Atoms quota and confirmed assessment range.
+      if(chemistry&&!window.__CHEMISTRY_COVERAGE_VERSION){
         chemistry.subtitle='Taught Year 9 lessons · 230 questions · Foundation to challenge · AQA-style answers, practical reasoning and calculations';
         chemistry.groups={
           'Periodic table':4,
@@ -56,4 +58,3 @@
     }catch(e){console.warn('Chemistry school-style enhancement could not initialise',e)}
   });
 })();
-
