@@ -36,7 +36,7 @@ export function sessionGains(items=[],log=[],history={}){
  return {recoveredIds:[...recovered],recovered:recovered.size,recognised:recognised.size,repaired:repairs.size,independentCorrect,priorAttempted:prior.size,lines:lines.slice(0,3)};
 }
 export function ProgressSummary({gains}){return gains?h('aside',{'aria-label':'Your progress this session','data-memory-recovered-ids':JSON.stringify(gains.recoveredIds||[]),className:'mt-4 rounded-xl bg-sage/60 p-4'},h('h2',{className:'font-display text-xl font-semibold'},'Your progress this session'),...gains.lines.map((line,i)=>h('p',{key:i,className:'mt-2 text-base'},line))):null;}
-export function SessionResult({score,formalCount,coach,errors,daily,backHref,nextHref,onAgain,marks=false,gains}){const points=improvementPoints(coach,errors);return h('section',{'aria-label':'Session result'},
+export function SessionResult({score,formalCount,coach,errors,daily,backHref,nextHref,onAgain,marks=false,gains,xpEarned}){const points=improvementPoints(coach,errors);return h('section',{'aria-label':'Session result','data-session-xp':Number.isFinite(xpEarned)?xpEarned:undefined},
  h('h1',{className:'font-display text-3xl font-semibold'},marks?'Practice complete':'Session complete'),
  h('p',{className:'mt-3 text-2xl font-semibold'},marks?`${score.firstPassCorrect} / ${formalCount} marks · ${score.percentage}%`:`${score.firstPassCorrect} / ${formalCount} first-pass correct · ${Math.round(100*score.firstPassCorrect/Math.max(1,formalCount))}%`),
  score.repairedCorrect?h('p',{className:'mt-1 text-sm text-muted'},`Session score after repairs: ${score.percentage}% · ${score.repairedCorrect} repaired · +${score.repairPoints} session points`):null,

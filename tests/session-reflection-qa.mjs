@@ -17,7 +17,7 @@ assert.equal(c.improvementPoints(coach,{spelling:4}).length,3);
 let tree=c.SessionResult({score:{firstPassCorrect:8,percentage:80},formalCount:10,coach,errors:{spelling:2},daily:jsx('section',{},'Next daily task')});
 const flat=(n,out=[])=>{if(n==null)return out;if(typeof n==='object'){out.push(n);for(const child of n.children||[])flat(child,out)}else out.push(n);return out};
 const nodes=flat(tree),details=nodes.find(n=>n?.type==='details');assert.ok(details);assert.equal(details.props.open,undefined,'Analysis is collapsed by default');assert.equal(nodes.filter(n=>n?.type==='li').length,3);assert.match(nodes.filter(n=>typeof n==='string').join(' '),/8 \/ 10 first-pass correct/);
-assert.match(fs.readFileSync('assets/quiz-session-y8fix-20260920.js','utf8'),/sessionLog,J,reviewHistory,href/);
+assert.match(fs.readFileSync('assets/quiz-session-y8fix-20260920.js','utf8'),/sessionLog,J,reviewHistory,rewardStartXP,href/);
 assert.match(fs.readFileSync('assets/index-BLVOhKhN.js','utf8'),/lastErrorKind: !correct && !isRepair/);
 console.log('Session reflection QA passed: three focus points, collapsed full analysis, true prior-error snapshots, independent/recognition/repair outcomes and actual future review dates.');
 
