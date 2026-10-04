@@ -38,7 +38,14 @@ vm.runInContext(quiz.slice(quiz.indexOf('function A(e)'),quiz.indexOf('function 
 const newQuestions=pack.questions.filter(q=>q.id.startsWith('fr-y7-foundation-'));
 assert.equal(newQuestions.length,50);
 for(const q of newQuestions){
- assert.ok(vocabularyQuestion(q,'french'),q.id+' excluded from daily');
+ if(q.status==='disabled'&&q.duplicateOf){
+  const canonical=pack.questions.find(item=>item.id===q.duplicateOf);
+  assert.ok(canonical&&vocabularyQuestion(canonical,'french'),q.id+' has no available canonical word');
+  assert.equal(canonical.prompt,q.prompt,q.id+' duplicate cue differs');
+  assert.deepEqual(canonical.stimulus,q.stimulus,q.id+' duplicate stimulus differs');
+  assert.deepEqual(canonical.answer,q.answer,q.id+' duplicate answer differs');
+  assert.equal(vocabularyQuestion(q,'french'),false,q.id+' duplicate still enters daily rotation');
+ }else assert.ok(vocabularyQuestion(q,'french'),q.id+' excluded from daily');
  for(const answer of q.answer.accepted)assert.equal(context.B(q,norm(answer),'french').ok,true,q.id+': accent-free '+answer);
  assert.equal(context.B(q,'completely unrelated answer','french').ok,false,q.id);
 }

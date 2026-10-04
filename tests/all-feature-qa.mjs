@@ -3,6 +3,7 @@ const commands=["node tests/year9-school-update-qa.mjs","node tests/study-experi
 commands.push("node tests/mistake-review-task-qa.mjs","node tests/daily-repeat-regression-qa.mjs","node tests/daily-vocab-only-qa.mjs","node tests/notes-quality-qa.mjs","node tests/assessment-model-qa.mjs","node tests/complete-backup-qa.mjs");
 commands.push("node tests/priority-four-state-qa.mjs","node tests/priority-five-eight-qa.mjs");
 commands.push("node tests/learning-feedback-qa.mjs","node tests/priority-content-integrity-qa.mjs");
+commands.push("node tests/topic-directory-qa.mjs","node tests/year7-vocabulary-completeness-qa.mjs","node tests/biology-cell-practice-qa.mjs","node tests/biology-cell-structure-qa.cjs");
 const failures=[];
 for(const command of commands){const [cmd,...args]=command.split(" ");const r=spawnSync(cmd,args,{encoding:"utf8",env:{...process.env,STRICT:"1"}});console.log(r.stdout);console.error(r.stderr);if(r.status!==0)failures.push({command,status:r.status});}
 console.log("ALL_FEATURE_AUDIT "+JSON.stringify({checks:commands.length,failures}));process.exit(failures.length?1:0);
