@@ -1,4 +1,4 @@
-import "./practice-evidence-bridge-20261004.js?v=20261004-focus2";
+import "./practice-evidence-bridge-20261004.js?v=20261004-continue3";
 const LABELS={french:'French',latin:'Latin',biology:'Biology',chemistry:'Chemistry',physics:'Physics',english:'English'};
 export function mistakeReviewTask(state,assessment=globalThis.LuxPracticeBridge.readAssessment()){
  const day=state.today,old=(state.daily||[]).find(t=>t.id==='mistake-review');

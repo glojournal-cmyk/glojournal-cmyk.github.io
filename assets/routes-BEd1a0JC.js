@@ -1,11 +1,10 @@
-export { component } from "./routes-BEd1a0JC.core.js?v=20261004-focus2";
-import { C as store } from "./index-BLVOhKhN.js?v=20261004-focus2";
-
-const SUBJECTS = new Set(["latin", "french", "biology", "chemistry", "physics", "english"]);
+export { component } from "./routes-BEd1a0JC.core.js?v=20261004-continue3";
+import { C as store } from "./index-BLVOhKhN.js?v=20261004-continue3";
 
 function continueHref() {
-  const subject = store.getState().lastSubject;
-  return `/study/${SUBJECTS.has(subject) ? subject : "latin"}/practise`;
+  const J=globalThis.LuxJourney,state=store.getState(),resume=J?.resumeCandidates(state)[0];
+  const next=state.today===J?.day()&&(state.daily||[]).find(t=>t.progress<t.target&&J.safeHref(t.href));
+  return resume?.href||J?.navigationHref(next?.href)||"/study/";
 }
 
 function patchHome() {

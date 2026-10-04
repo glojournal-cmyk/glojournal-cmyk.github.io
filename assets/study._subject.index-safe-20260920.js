@@ -1,5 +1,5 @@
-import {TopicBrowser} from "./topic-browser-20261003.js?v=20261004-focus2";
-import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{C as r,st as i,Ut as a,dt as loadCatalog}from"./index-BLVOhKhN.js?v=20261004-focus2";var o=e(t(),1),s=n();
+import {TopicBrowser} from "./topic-browser-20261003.js?v=20261004-continue3";
+import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{C as r,st as i,Ut as a,dt as loadCatalog}from"./index-BLVOhKhN.js?v=20261004-continue3";var o=e(t(),1),s=n();
 
 const META={
   latin:{name:"Latin",quote:"Lingua Latina in aeternum.",art:"/art/subjects/latin.jpg"},
