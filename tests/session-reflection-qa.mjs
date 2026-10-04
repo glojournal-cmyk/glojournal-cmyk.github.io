@@ -33,3 +33,6 @@ assert.equal(c.sessionGains([{id:'a',format:'dictation'}],[{questionId:'a',corre
 assert.equal(c.sessionGains(items,[{questionId:'fresh',correct:true}],{}).recovered,0,'no fabricated prior errors');
 assert.match(c.sessionGains(items,[],{}).lines[0],/later review/);
 console.log('Session gains QA passed: distinct independent recovery, choice recognition, repairs, first attempts, Biology partial history, dictation and absent history.');
+const actualBiology=JSON.parse(fs.readFileSync('assessment/biology-cell-structure-20261003.json','utf8')).questions[0];
+assert.equal(c.sessionGains([actualBiology],[{questionId:actualBiology.id,correct:true}],{[actualBiology.id]:{credit:0}}).recovered,1,'Use the actual Biology bank format');
+const summaryTree=c.ProgressSummary({gains:c.sessionGains(items,[{questionId:'a',correct:true}],prior)});assert.equal(summaryTree.props['aria-label'],'Your progress this session');assert.match(flat(summaryTree).filter(n=>typeof n==='string').join(' '),/independently answered 1 previously missed question/);

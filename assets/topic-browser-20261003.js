@@ -1,8 +1,8 @@
 import{i as e,n as t,t as n}from './jsx-runtime-Cltr0gcK.js';
-import{directoryGroups,topicKinds}from './topic-directory-data-20261003.js?v=20261004-gains1';
+import{directoryGroups,topicKinds}from './topic-directory-data-20261003.js?v=20261004-gains2';
 const React=e(t(),1),J=n();
 const h=J.jsx,hs=J.jsxs;
-if(typeof document!=='undefined'&&!document.getElementById('topic-directory-style')){const style=document.createElement('link');style.id='topic-directory-style';style.rel='stylesheet';style.href='/topic-directory-20261003.css?v=20261004-gains1';document.head.appendChild(style);}
+if(typeof document!=='undefined'&&!document.getElementById('topic-directory-style')){const style=document.createElement('link');style.id='topic-directory-style';style.rel='stylesheet';style.href='/topic-directory-20261003.css?v=20261004-gains2';document.head.appendChild(style);}
 const buttonClass='rounded-full border border-line bg-card px-3 py-2 text-xs font-medium text-navy';
 export function TopicBrowser({topics=[],selected='',onSelect,subject,year,stats={},allowAll=false,mode='select',compact=false}){
  const [query,setQuery]=React.useState(()=>typeof window==='undefined'?'':new URLSearchParams(window.location.search).get('q')||''),[kind,setKind]=React.useState('all'),[availability,setAvailability]=React.useState('all'),[progress,setProgress]=React.useState('all');
