@@ -22,3 +22,14 @@ assert.match(fs.readFileSync('assets/index-BLVOhKhN.js','utf8'),/lastErrorKind: 
 console.log('Session reflection QA passed: three focus points, collapsed full analysis, true prior-error snapshots, independent/recognition/repair outcomes and actual future review dates.');
 
 const repaired=c.SessionResult({score:{firstPassCorrect:4,percentage:90,repairedCorrect:1,repairPoints:.5},formalCount:5,coach:{},errors:{wrong:1}});const copy=flat(repaired).filter(n=>typeof n==='string').join(' ');assert.match(copy,/4 \/ 5 first-pass correct · 80%/);assert.match(copy,/Session score after repairs: 90%/);
+const items=[{id:'a',format:'typed_exact'},{id:'b',format:'mc_single'},{id:'c',format:'word_tiles'},{id:'repair',format:'typed_exact',_repair:true,_repairOf:'d'},{id:'d',format:'typed_short'},{id:'fresh',format:'typed_exact'}];
+const prior={a:{wrong:true},b:{lastWrong:'2026-10-02'},c:{wrong:true},d:{wrong:true}};
+let gains=c.sessionGains(items,[{questionId:'a',correct:true},{questionId:'a',correct:true},{questionId:'b',correct:true},{questionId:'c',correct:true},{questionId:'d',correct:false},{questionId:'repair',correct:true,repair:true,repairOf:'d'},{questionId:'fresh',correct:true}],prior);
+assert.equal(gains.recovered,1,'count distinct first attempts, exclude choices, tiles and repairs');assert.equal(gains.recognised,2);assert.equal(gains.repaired,1);assert.equal(gains.independentCorrect,2);assert.equal(gains.lines.length,3);
+assert.equal(c.sessionGains([{id:'a',format:'typed_exact'}],[{questionId:'a',correct:false},{questionId:'a',correct:true}],prior).recovered,0,'later retries cannot replace the first answer');
+assert.equal(c.sessionGains([{id:'a',format:'typed_exact'}],[{questionId:'a',correct:true,assisted:true}],prior).recovered,0);
+assert.equal(c.sessionGains([{id:'a',format:'mark_points'}],[{questionId:'a',correct:true}],{a:{credit:.5}}).recovered,1,'Biology history supports previous partial marks');
+assert.equal(c.sessionGains([{id:'a',format:'dictation'}],[{questionId:'a',correct:true}],prior).recovered,1);
+assert.equal(c.sessionGains(items,[{questionId:'fresh',correct:true}],{}).recovered,0,'no fabricated prior errors');
+assert.match(c.sessionGains(items,[],{}).lines[0],/later review/);
+console.log('Session gains QA passed: distinct independent recovery, choice recognition, repairs, first attempts, Biology partial history, dictation and absent history.');

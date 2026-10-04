@@ -1,6 +1,6 @@
-import {SessionResult,ReviewProgress} from "./session-reflection-20261004.js?v=20261004-reflection2";
-import "./practice-evidence-bridge-20261004.js?v=20261004-reflection2";
-import "./learning-feedback-20261003.js?v=20261004-reflection2";
+import {SessionResult,ReviewProgress,sessionGains} from "./session-reflection-20261004.js?v=20261004-gains1";
+import "./practice-evidence-bridge-20261004.js?v=20261004-gains1";
+import "./learning-feedback-20261003.js?v=20261004-gains1";
 const {buildCorrection,selectTransferQuestion}=globalThis.LuxLearningFeedback;
 import {i as interop,n as reactFactory} from './jsx-runtime-Cltr0gcK.js';
 import {gradeBiologyAnswer} from './biology-cell-rubric-20261003.js';
@@ -14,7 +14,7 @@ export function pickPracticeQuestions(bank,topic,size,previous=[],weak=[]){
 export function BiologyCellPractice({onSessionActive}={}){
  const [resumed,setResumed]=R.useState(()=>!!read().ids?.length),[bank,setBank]=R.useState(null),[error,setError]=R.useState(''),[state,setState]=R.useState(read),[topic,setTopic]=R.useState('all'),[size,setSize]=R.useState(10),[saveError,setSaveError]=R.useState(false),[settingsOpen,setSettingsOpen]=R.useState(()=>!read().ids?.length),[referencesOpen,setReferencesOpen]=R.useState(false);
  R.useEffect(()=>{onSessionActive?.(!!state.ids?.length&&(state.index||0)<state.ids.length)},[state.ids,state.index,onSessionActive]);
- R.useEffect(()=>{let live=true;fetch('/assessment/biology-cell-structure-20261003.json?v=20261004-reflection2').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{if(live)setBank(d.questions)}).catch(()=>{if(live)setError('Could not load the question bank. Reload this page to try again.')});return()=>{live=false}},[]);
+ R.useEffect(()=>{let live=true;fetch('/assessment/biology-cell-structure-20261003.json?v=20261004-gains1').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{if(live)setBank(d.questions)}).catch(()=>{if(live)setError('Could not load the question bank. Reload this page to try again.')});return()=>{live=false}},[]);
  R.useEffect(()=>{try{localStorage.setItem(KEY,JSON.stringify({...state,savedAt:Date.now()}));setSaveError(false)}catch{setSaveError(true)}},[state]);
  if(error)return h('p',{role:'alert'},error);
  if(!bank)return h('p',{role:'status'},'Loading the 72 cell structure questions…');
@@ -51,7 +51,7 @@ export function BiologyCellPractice({onSessionActive}={}){
  h('p',null,h('strong',null,'Suggested answer: '),q.modelAnswer),h('p',{style:{marginTop:8}},h('strong',null,'Hint: '),q.hint),
  transfer&&h('button',{type:'button',style:{...buttonStyle,marginTop:12,marginRight:8},onClick:()=>setState(s=>({...s,ids:[...s.ids.slice(0,index+1),transfer.id,...s.ids.slice(index+1)],index:index+1,transferOf:{...s.transferOf,[transfer.id]:q.id}}))},'Try a different question on this idea'),
  h('button',{type:'button',style:{...buttonStyle,marginTop:16},onClick:()=>setState(s=>({...s,index:index+1}))},index===ids.length-1?'Finish practice':'Next question'))),
- finished&&h(SessionResult,{score:{firstPassCorrect:ids.reduce((n,id)=>n+(state.answers?.[id]?.result?.matched||0),0),percentage:Math.round(100*ids.reduce((n,id)=>n+(state.answers?.[id]?.result?.matched||0),0)/Math.max(1,ids.reduce((n,id)=>n+(bank.find(q=>q.id===id)?.marks||0),0)))},formalCount:ids.reduce((n,id)=>n+(bank.find(q=>q.id===id)?.marks||0),0),errors:{partial:ids.filter(id=>state.answers?.[id]?.result?.credit<1).length},marks:true,onAgain:()=>{setSettingsOpen(true);document.querySelector('[data-biology-settings]')?.scrollIntoView({block:'start'})},backHref:'/study/biology/'}),
+ finished&&h(SessionResult,{gains:sessionGains(bank,ids.map(id=>({questionId:id,correct:state.answers?.[id]?.result?.credit>=.999,repair:!!state.transferOf?.[id],repairOf:state.transferOf?.[id]})),state.reviewHistory||{}),score:{firstPassCorrect:ids.reduce((n,id)=>n+(state.answers?.[id]?.result?.matched||0),0),percentage:Math.round(100*ids.reduce((n,id)=>n+(state.answers?.[id]?.result?.matched||0),0)/Math.max(1,ids.reduce((n,id)=>n+(bank.find(q=>q.id===id)?.marks||0),0)))},formalCount:ids.reduce((n,id)=>n+(bank.find(q=>q.id===id)?.marks||0),0),errors:{partial:ids.filter(id=>state.answers?.[id]?.result?.credit<1).length},marks:true,onAgain:()=>{setSettingsOpen(true);document.querySelector('[data-biology-settings]')?.scrollIntoView({block:'start'})},backHref:'/study/biology/'}),
  h('details',{'data-biology-references':true,open:referencesOpen,onToggle:e=>setReferencesOpen(e.currentTarget.open),style:{marginTop:24,borderTop:'1px solid #c9d2c5'}},
  h('summary',{style:{cursor:'pointer',minHeight:44,padding:'14px 0',fontWeight:600}},'Reference materials · official AQA papers & revision guide'),
  h(OfficialPaperPractice),
