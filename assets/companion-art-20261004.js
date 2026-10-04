@@ -1,4 +1,4 @@
-import {petNames} from './companion-goals-state-20261004.js';
+import {petNames} from './companion-goals-state-20261004.js?v=2';
 export function spriteStyle(species, level = 1) {
   const safe = petNames[species] ? species : "moss-hornling";
   const stage = Math.max(1, Math.min(5, Number(level) || 1));

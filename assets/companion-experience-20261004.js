@@ -1,5 +1,5 @@
 import {C as store,A as outfits,B as scenes,J as requirements,Y as stats} from './index-BLVOhKhN.js?v=20261004-gains2';
-import {petNames,petLevel,firstGoal,goalView,celebrationToken} from './companion-goals-state-20261004.js';
+import {petNames,petLevel,firstGoal,goalView,celebrationToken} from './companion-goals-state-20261004.js?v=2';
 import {spriteStyle} from './companion-art-20261004.js';
 const KEY='lux-companion-experience-v1',PET='lux-pet-companion-v1',catalog={outfits,scenes,requirements,stats};
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -22,7 +22,7 @@ function reveal(v){if(!v?.ready)return;const d=dialog('companion-goal-reveal','Y
 let reaction='ready',answers=0,reactTimer;
 function companionMarkup(copy){const p=pet(),name=p.name||petNames[p.species];return `<span class="cx-pet-art" role="img" aria-label="${esc(name)}" style="${spriteStyle(p.species,petLevel(p,p.species))}"></span><div><strong>${esc(name)} is beside you</strong><p data-companion-copy>${esc(copy)}</p></div><button data-motion aria-pressed="${!!read(KEY).quiet}">${read(KEY).quiet?'Animations off':'Reduce animations'}</button>`;}
 function wireMotion(el){el.querySelector('[data-motion]').onclick=()=>save({...read(KEY),quiet:!read(KEY).quiet});}
-function refresh(){const main=document.querySelector('main');if(!main)return;const prefs=read(KEY),p=pet();document.documentElement.classList.toggle('cx-quiet',!!prefs.quiet);
+function refresh(){const main=document.querySelector('main');if(!main)return;const prefs=read(KEY),p=pet();document.documentElement.classList.toggle('cx-quiet',!!prefs.quiet);document.querySelectorAll('[data-motion]').forEach(b=>{b.setAttribute('aria-pressed',String(!!prefs.quiet));const text=prefs.quiet?'Animations off':'Reduce animations';if(b.textContent!==text)b.textContent=text});
  const learning=/^\/study\/[^/]+\/(practise|play)/.test(location.pathname)||location.pathname.startsWith('/session/')||location.pathname.startsWith('/play/');
  let buddy=document.getElementById('study-companion');if(!learning){buddy?.remove()}else{if(!buddy){buddy=document.createElement('section');buddy.id='study-companion';buddy.className='cx-study-buddy';buddy.setAttribute('aria-label','Your study companion');const scholar=main.querySelector('aside');if(scholar)scholar.after(buddy);else main.prepend(buddy)}const sig=`${p.species}|${p.name}|${petLevel(p,p.species)}|${prefs.quiet}`;if(buddy.dataset.signature!==sig){buddy.dataset.signature=sig;buddy.innerHTML=companionMarkup('Let’s take one question at a time.');wireMotion(buddy)}buddy.dataset.reaction=reaction;
  const results=main.querySelector('[aria-label="Session result"]');if(results&&!results.querySelector('.cx-finish')){const finish=document.createElement('div');finish.className='cx-finish cx-study-buddy';finish.dataset.reaction='celebrate';finish.innerHTML=companionMarkup('Set complete. You kept going — let’s see your progress.');wireMotion(finish);results.append(finish);setTimeout(()=>{finish.dataset.reaction='ready'},2200);}}
