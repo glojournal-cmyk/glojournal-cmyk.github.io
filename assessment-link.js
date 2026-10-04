@@ -1,4 +1,4 @@
-if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/memory-stars-20261004.js?v=1').catch(console.error);
+if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/memory-stars-20261004.js?v=2').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/daily-task-presentation-20261004.js?v=1').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/companion-experience-20261004.js?v=4').catch(console.error);
 import('/assets/ipad-experience-20261004.js?v=20261004-memory1').catch(console.error);
