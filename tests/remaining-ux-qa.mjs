@@ -30,3 +30,12 @@ const readinessCode=core.slice(core.indexOf('function LuxReadyRouter('),core.ind
 let ready=false,callback,cleanup;
 const readiness=vm.createContext({I:{useEffect:effect=>{cleanup=effect()}},L:{jsx:()=>null},oc(){},setTimeout:fn=>{callback=fn;return 1},clearTimeout(){},document:{documentElement:{setAttribute:()=>{ready=true}},body:{removeAttribute(){}}}});
 vm.runInContext(readinessCode,readiness);readiness.LuxReadyRouter({router:{}});assert.equal(ready,false);callback();assert.equal(ready,true,'Ready gate opens without animation frames, including background tabs');assert.equal(typeof cleanup,'function');
+// The header shows XP within a level, rather than total lifetime XP.
+const wrapper=fs.readFileSync('assets/index-BLVOhKhN.js','utf8');
+const gate=wrapper.slice(wrapper.indexOf(' const showLoadedProgress=()=>{'),wrapper.indexOf(' const observe=new MutationObserver(showLoadedProgress);'));
+const levelCode=core.slice(core.indexOf('function bw('),core.indexOf('var Sw='));
+for(const [total,header,expected] of [[14,'Lv 1 · 14 XPSearch',true],[122,'Lv 2 · 2 XPSearch',true],[122,'Lv 1 · 0 XPSearch',false],[122,'Lv 1 · 122 XPSearch',false],[300,'Lv 3 · 0 XPSearch',true]]){
+ let shown=false;const ctx=vm.createContext({store:{getState:()=>({xp:total})},location:{pathname:'/study/biology/practise'},document:{documentElement:{hasAttribute:()=>false,setAttribute:()=>{shown=true}},querySelector:s=>s==='main'?{textContent:'Cell structure'}:{textContent:header}},getTopicCatalog:()=>[]});
+ vm.runInContext(levelCode+';const scholarLevelProgress=xw;'+gate+';showLoadedProgress();',ctx);assert.equal(shown,expected,`Loading gate for ${total} total XP and ${header}`);
+}
+console.log('Loading gate regression passed: level 1 and level 2 rendered XP release the page; stale level/XP stay hidden.');

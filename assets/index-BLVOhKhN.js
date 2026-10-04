@@ -1,10 +1,11 @@
 import "./journey-navigation-20261004.js?v=20261004-qa1";
 import "./weekly-evidence-20261004.js";
-import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261004-ux-rest4";
-import("/pet/pet-care-global.js?v=20261004-ux-rest4").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261004-ux-rest4";
+import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261004-qa2";
+import("/pet/pet-care-global.js?v=20261004-qa2").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261004-qa2";
 import {
   C as store,
+  Z as scholarLevelProgress,
   J as rewardRequirements,
   U as collectibles,
   Ut as todayKey,
@@ -15,7 +16,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261004-ux-rest4";
+} from "./index-BLVOhKhN.core.js?v=20261004-qa2";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -3123,7 +3124,7 @@ function mountDailyRecordButton() {
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261004-ux-rest4").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261004-qa2").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){
@@ -3142,8 +3143,8 @@ if(typeof document!=='undefined') {
   if(document.documentElement.hasAttribute('data-lux-ready'))return;
   const main=document.querySelector('main'),header=document.querySelector('header.sticky');
   if(!main||!header)return;
-  const state=store.getState(),xp=String(Number(state.xp)||0);
-  if(!new RegExp('(?:^|[^0-9])'+xp+'\\s*XP').test(header.textContent||''))return;
+  const state=store.getState(),levelProgress=scholarLevelProgress(Number(state.xp)||0),xp=String(levelProgress.into);
+  if(!new RegExp('Lv\\s*'+levelProgress.level+'\\s*·\\s*'+xp+'\\s*XP').test(header.textContent||''))return;
   if(location.pathname==='/'&&!main.querySelector('[data-home-journey]'))return;
   if(/Year 9 French is waiting|Year 9 French is waiting for a verified school source/.test(main.textContent||'')&&getTopicCatalog('french',9).some(topic=>Number(topic.enabled)>0))return;
   document.documentElement.setAttribute('data-lux-ready','');
