@@ -1,8 +1,8 @@
-import "./journey-navigation-20261004.js?v=20261004-ux-rest3";
+import "./journey-navigation-20261004.js?v=20261004-ux-rest4";
 import "./weekly-evidence-20261004.js";
-import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261004-ux-rest3";
-import("/pet/pet-care-global.js?v=20261004-ux-rest3").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261004-ux-rest3";
+import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261004-ux-rest4";
+import("/pet/pet-care-global.js?v=20261004-ux-rest4").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261004-ux-rest4";
 import {
   C as store,
   J as rewardRequirements,
@@ -15,7 +15,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261004-ux-rest3";
+} from "./index-BLVOhKhN.core.js?v=20261004-ux-rest4";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -3123,7 +3123,7 @@ function mountDailyRecordButton() {
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261004-ux-rest3").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261004-ux-rest4").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){
@@ -3143,7 +3143,7 @@ if(typeof document!=='undefined') {
   const main=document.querySelector('main'),header=document.querySelector('header.sticky');
   if(!main||!header)return;
   const state=store.getState(),xp=String(Number(state.xp)||0);
-  if(!new RegExp('(?:^|[^0-9])'+xp+'\\s*XP\\b').test(header.textContent||''))return;
+  if(!new RegExp('(?:^|[^0-9])'+xp+'\\s*XP').test(header.textContent||''))return;
   if(location.pathname==='/'&&!main.querySelector('[data-home-journey]'))return;
   if(/Year 9 French is waiting|Year 9 French is waiting for a verified school source/.test(main.textContent||'')&&getTopicCatalog('french',9).some(topic=>Number(topic.enabled)>0))return;
   document.documentElement.setAttribute('data-lux-ready','');
