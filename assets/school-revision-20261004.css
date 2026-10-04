@@ -27,3 +27,6 @@
 #school-revision-home a:focus-visible{outline:3px solid #ab8448;outline-offset:3px}
 @media(max-width:900px){#school-revision-home .school-revision-grid{grid-template-columns:1fr}#school-revision-home .school-revision-card h3{font-size:22px}}
 @media(max-width:560px){#school-revision-home{padding:18px;border-radius:20px}#school-revision-home .school-revision-heading,#school-revision-home .school-revision-today{align-items:flex-start;flex-direction:column}#school-revision-home h2{font-size:28px}#school-revision-home .school-revision-today>a{width:100%}}
+
+#school-revision-home .school-revision-details>summary{cursor:pointer;min-height:44px;padding:12px 0;font-size:14px;font-weight:600}
+#school-revision-home .school-revision-grid{margin-top:12px}

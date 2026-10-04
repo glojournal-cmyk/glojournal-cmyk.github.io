@@ -1,5 +1,5 @@
-import './school-revision-data-20261004.js?v=20261004-continue4';
-import {C as store} from './index-BLVOhKhN.js?v=20261004-continue4';
+import './school-revision-data-20261004.js?v=20261004-ux1';
+import {C as store} from './index-BLVOhKhN.js?v=20261004-ux1';
 const {buildRevisionPlan,londonDay}=globalThis.LuxSchoolRevision;
 const ID='school-revision-home';
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -22,15 +22,15 @@ function refresh(){
   document.getElementById('school-assessment-home')?.remove();
   const data=buildRevisionPlan(store.getState(),read('lux-assessment-v1'),londonDay(),read('lux-topic-learning-v1'));
   let panel=document.getElementById(ID);
-  if(!panel){panel=document.createElement('section');panel.id=ID;panel.setAttribute('aria-labelledby','school-revision-title');main.prepend(panel);}
+  if(!panel){panel=document.createElement('section');panel.id=ID;panel.setAttribute('aria-labelledby','school-revision-title');const journey=main.querySelector(`[data-home-journey]`);if(journey)journey.after(panel);else main.append(panel);}
   const suggested=data.suggestion,next=suggested?.assessment,focus=suggested?.topic;
-  const html=`<div class="school-revision-heading"><div><p class="school-revision-eyebrow">YOUR SCHOOL ASSESSMENTS</p><h2 id="school-revision-title">Revise for your next test</h2></div><a href="/assessment/?tab=tracker">School tracker →</a></div>${suggested?`<div class="school-revision-today"><div><p class="school-revision-eyebrow">TODAY’S SUGGESTION</p><h3>${esc(next.subject)} · ${esc(focus?.label||next.title)}</h3><p>${esc(suggested.reason)}${focus&&focus.state!=='mastered'?' Read the notes, then try a 10-question set.':''}</p></div><a href="${esc(suggested.href)}">${focus?.state==='mastered'?'Try practice paper':focus?'Start suggested practice':'Open tracker'} →</a></div>`:'<p class="school-revision-empty">No upcoming school tests recorded. Add the next teacher-confirmed date and range in the school tracker.</p>'}<div class="school-revision-grid">${data.active.slice(0,3).map(renderCard).join('')}</div>${data.active.length>3?`<p class="school-revision-footnote">${data.active.length-3} more upcoming assessments in the school tracker.</p>`:''}${data.past.length?`<p class="school-revision-footnote">${data.past.length} past or completed assessments · <a href="/assessment/?tab=tracker">Review the tracker</a></p>`:''}<p class="school-revision-footnote">Suggestions use saved topic practice and marked app papers on this device. No practice recorded means unchecked. App practice scores are separate from school grades.</p>`;
+  const html=`<div class="school-revision-heading"><div><p class="school-revision-eyebrow">YOUR SCHOOL ASSESSMENTS</p><h2 id="school-revision-title">Revise for your next test</h2></div><a href="/assessment/?tab=tracker">School tracker →</a></div>${suggested?`<div class="school-revision-today"><div><p class="school-revision-eyebrow">TODAY’S SUGGESTION</p><h3>${esc(next.subject)} · ${esc(focus?.label||next.title)}</h3><p>${esc(suggested.reason)}${focus&&focus.state!=='mastered'?' Read the notes, then try a 10-question set.':''}</p></div><a href="${esc(suggested.href)}">${focus?.state==='mastered'?'Try practice paper':focus?'Start suggested practice':'Open tracker'} →</a></div>`:'<p class="school-revision-empty">No upcoming school tests recorded. Add the next teacher-confirmed date and range in the school tracker.</p>'}<details class="school-revision-details"><summary>View assessment dates, topics and papers (${data.active.length})</summary><div class="school-revision-grid">${data.active.slice(0,3).map(renderCard).join('')}</div>${data.active.length>3?`<p class="school-revision-footnote">${data.active.length-3} more upcoming assessments in the school tracker.</p>`:''}${data.past.length?`<p class="school-revision-footnote">${data.past.length} past or completed assessments · <a href="/assessment/?tab=tracker">Review the tracker</a></p>`:''}<p class="school-revision-footnote">Suggestions use saved topic practice and marked app papers on this device. No practice recorded means unchecked. App practice scores are separate from school grades.</p></details>`;
   if(panel.innerHTML!==html)panel.innerHTML=html;
 }
 let queued=false;
 function schedule(){if(queued)return;queued=true;queueMicrotask(()=>{queued=false;refresh();});}
 if(typeof document!=='undefined'){
-  if(!document.getElementById('school-revision-css')){const css=document.createElement('link');css.id='school-revision-css';css.rel='stylesheet';css.href='/assets/school-revision-20261004.css?v=20261004-school1';document.head.append(css);}
+  if(!document.getElementById('school-revision-css')){const css=document.createElement('link');css.id='school-revision-css';css.rel='stylesheet';css.href='/assets/school-revision-20261004.css?v=20261004-ux1';document.head.append(css);}
   store.subscribe(schedule);
   document.addEventListener('DOMContentLoaded',schedule);
   window.addEventListener('storage',schedule);
