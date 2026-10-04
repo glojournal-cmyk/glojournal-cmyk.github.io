@@ -1,5 +1,5 @@
-import {C as store,st as getTopicCatalog} from './index-BLVOhKhN.js?v=20261004-feedback2';
-import {curriculumFrontier,curriculumHref,progressionSubjects} from './daily-curriculum-20261004.js?v=20261004-feedback2';
+import {C as store,st as getTopicCatalog} from './index-BLVOhKhN.js?v=20261004-feedback3';
+import {curriculumFrontier,curriculumHref,progressionSubjects} from './daily-curriculum-20261004.js?v=20261004-feedback3';
 function queryValue(params,key){return String(params.get(key)||'').replace(/^["']|["']$/g,'');}
 function learning(){try{return JSON.parse(localStorage.getItem('lux-topic-learning-v1')||'{}')}catch{return {}}}
 function safeDailyHref(url){
