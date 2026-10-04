@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
-import {curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,selectProgressionQuestions,isCurriculumMastered,progressionSubjects} from '../assets/daily-curriculum-20261004.js';
+import {curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,selectProgressionQuestions,isCurriculumMastered,progressionSubjects,creditCurriculumAttempt} from '../assets/daily-curriculum-20261004.js';
 const catalog=JSON.parse(fs.readFileSync('content/catalog.json','utf8')).topics;
 const get=(s,y)=>catalog.filter(t=>t.subject===s&&t.year===y);
 const master={attempted:20,correct:18,productionCorrect:2};
@@ -53,3 +53,14 @@ const store={getState:()=>({...base,daily:[{id:'y8-mastery',assignedSubject:'bio
 const context={URL,URLSearchParams,location,store,getTopicCatalog:get,curriculumFrontier,curriculumHref,progressionSubjects,localStorage:{getItem:()=>JSON.stringify({'bio-y9-b1':true})},document:{readyState:'loading',addEventListener(){}},setTimeout,clearTimeout};vm.createContext(context);vm.runInContext(source+'\nthis.guard=guardCurrentDailyRoute;',context);context.guard();assert.equal(location.redirect,undefined);
 location.href=location.href.replace('year=9','year=8');context.guard();assert.equal(location.redirect,canonical,'Stale Year 8 URL follows the Year 9 assignment');
 console.log('Daily progression QA passed: five subject routes, mastery evidence, taught-only Year 9, progress retention, phase difficulty and route continuity.');
+
+const attempt={day:base.today,task:'y8-mastery',topicId:'la-y8-stage-1-vocabulary',questionId:'q1',mode:'standard',formal:true};
+let ledger=creditCurriculumAttempt({},attempt);
+assert.equal(Object.keys(ledger[base.today]['y8-mastery'][attempt.topicId].foundation).length,1);
+assert.equal(ledger[base.today]['y8-mastery'][attempt.topicId].mastery,undefined,'Foundation answers never inflate mastery');
+ledger=creditCurriculumAttempt(ledger,{...attempt,mode:'mastery'});
+ledger=creditCurriculumAttempt(JSON.parse(JSON.stringify(ledger)),{...attempt,mode:'mastery'});
+assert.equal(Object.keys(ledger[base.today]['y8-mastery'][attempt.topicId].mastery).length,1,'Reload/repeated answer counts once per phase');
+assert.equal(creditCurriculumAttempt(ledger,{...attempt,questionId:'repair',mode:'mastery',repair:true}),ledger);
+assert.equal(creditCurriculumAttempt(ledger,{...attempt,questionId:'vocab',mode:'mastery',formal:false}),ledger);
+console.log('Phase evidence QA passed: independent counters, deduplication, repairs/non-formal excluded and JSON backup round-trip.');

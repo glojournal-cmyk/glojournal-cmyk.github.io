@@ -1,3 +1,4 @@
+import {creditCurriculumAttempt} from "../assets/daily-curriculum-20261004.js";
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
@@ -6,6 +7,7 @@ const src=fs.readFileSync('assets/index-BLVOhKhN.js','utf8');
 const day='2026-09-30',topic='fr-y8-s24-numbers-and-age';
 let state={today:day,year:8,topicStats:{},reviews:{},daily:[],questionsToday:0};
 const context=vm.createContext({
+  creditCurriculumAttempt,
   todayKey:()=>day,inferSubjectFromTopic:()=> 'french',
   store:{getState:()=>state,setState:patch=>{state={...state,...patch};}},
   originalRecordAttempt(id,correct,subject,meta){state={...state,questionsToday:state.questionsToday+(!meta.repair&&meta.formal!==false&&!meta.excludeGeneralDaily?1:0),reviews:{...state.reviews,[id]:{last:day,due:'2026-10-02'}}};},

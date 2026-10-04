@@ -72,7 +72,7 @@ const readyMastery = context.plan(frenchPractice).find((task) => task.id === "y8
 assert.equal(readyMastery.assignedTopic, "fr-y8-s01-quick-rules");
 assert.equal(readyMastery.progress, 10);
 assert.equal(readyMastery.masteryStartAttempts, 10);
-const afterTwo = context.plan({ ...frenchPractice, daily: [readyMastery], topicStats: { ...frenchPractice.topicStats,
+const afterTwo = context.plan({ ...frenchPractice, daily: [readyMastery], dailyCurriculumEvidenceByDay:{[state.today]:{"y8-mastery":{"fr-y8-s01-quick-rules":{mastery:{a:true,b:true}}}}}, topicStats: { ...frenchPractice.topicStats,
   "fr-y8-s01-quick-rules": { attempted: 12, state: "practising", recentOutcomes: Array.from({ length: 12 }, () => ({ date: state.today })) },
 } }).find((task) => task.id === "y8-mastery");
 assert.equal(afterTwo.progress, 12);

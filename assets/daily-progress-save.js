@@ -1,5 +1,5 @@
 import {backupPreview} from "./progress-backup-preview-20261004.js";
-import { C as store } from "/assets/index-BLVOhKhN.js?v=20261004-progress1";
+import { C as store } from "/assets/index-BLVOhKhN.js?v=20261004-progress2";
 
 const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
 const AUTO_KEY = "lux-progress-auto-v1";

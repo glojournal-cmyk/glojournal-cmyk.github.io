@@ -1,9 +1,9 @@
-import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref} from "./daily-curriculum-20261004.js?v=20261004-progress1";
-import "./journey-navigation-20261004.js?v=20261004-progress1";
+import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261004-progress2";
+import "./journey-navigation-20261004.js?v=20261004-progress2";
 import "./weekly-evidence-20261004.js";
-import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261004-progress1";
-import("/pet/pet-care-global.js?v=20261004-progress1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261004-progress1";
+import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261004-progress2";
+import("/pet/pet-care-global.js?v=20261004-progress2").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261004-progress2";
 import {
   C as store,
   Z as scholarLevelProgress,
@@ -17,7 +17,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261004-progress1";
+} from "./index-BLVOhKhN.core.js?v=20261004-progress2";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -1313,24 +1313,27 @@ function buildAdaptiveDaily(state) {
     assignedTopic: practisePick?.topicId || null,
     assignedYear: practisePick?.year || 8,
     assignedLabel: practisePick?.topicLabel || null,
-    curriculumVersion: 1,
+    curriculumVersion: 2,
   };
+  const masteryLegacyCredit=oldMastery.planDate===state.today&&oldMastery.assignedTopic===masteryPick?.topicId ? Math.min(15,Math.max(0,Number(oldMastery.masteryLegacyCredit)||(oldMastery.curriculumVersion!==2?Number(oldMastery.progress||0)-10:0))) : 0;
   const y8MasteryTask = {
     id: "y8-mastery",
     title: year8AssignedTitle("mastery",masteryPick),
     detail: `${pathDetail(masteryPick)} · 10 foundation questions, then 15 application and independent recall questions.`,
     href: year8AssignedHref(masteryPick, masteryReady ? "mastery" : "standard", "y8-mastery"),
     target: 25,
-    progress: Math.min(25, Math.max(oldMastery.planDate === state.today && oldMastery.assignedTopic === masteryPick?.topicId ? Number(oldMastery.progress) || 0 : 0, Math.min(10, Math.max(topicAttemptsToday(state, masteryPick?.topicId), masteryReady ? 10 : 0)) +
-      (masteryStartAttempts === null ? 0 : Math.min(15, Math.max(0, topicAttemptsToday(state, masteryPick?.topicId) - masteryStartAttempts))))),
+    progress: Math.min(25, Math.max(oldMastery.planDate === state.today && oldMastery.assignedTopic === masteryPick?.topicId ? Number(oldMastery.progress) || 0 : 0,
+      (masteryReady ? 10 : Math.min(10,topicAttemptsToday(state,masteryPick?.topicId))) +
+      Math.min(15,masteryLegacyCredit+Object.keys(state.dailyCurriculumEvidenceByDay?.[state.today]?.["y8-mastery"]?.[masteryPick?.topicId]?.mastery || {}).length))),
     xp: 20,
     planDate: state.today,
     assignedSubject: masteryPick?.subject || null,
     assignedTopic: masteryPick?.topicId || null,
     assignedYear: masteryPick?.year || 8,
     assignedLabel: masteryPick?.topicLabel || null,
-    curriculumVersion: 1,
+    curriculumVersion: 2,
     masteryStartAttempts,
+    masteryLegacyCredit,
   };
   const garden = previous.get("tend-garden") || { id: "tend-garden", title: "Water your plants", detail: "Tend the Scholar’s Garden.", href: "/garden", target: 1, progress: 0, xp: 10 };
   const game = previous.get("play-game") || { id: "play-game", title: "Play a quick game", detail: "One short learning game.", href: "/play", target: 1, progress: 0, xp: 10 };
@@ -2161,7 +2164,12 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     dailyTopicAttemptsByDay[attemptDay] = dayCounts;
     for (const oldDay of Object.keys(dailyTopicAttemptsByDay).sort().slice(0, -45)) delete dailyTopicAttemptsByDay[oldDay];
   }
+  const dailyCurriculumEvidenceByDay=creditCurriculumAttempt(after.dailyCurriculumEvidenceByDay,{
+    day:attemptDay,task:meta.progressionTask,mode:meta.progressionMode,topicId:resolved.topicId,questionId,
+    formal:meta.formal,repair:isRepair,
+  });
   store.setState({
+    dailyCurriculumEvidenceByDay,
     topicStats: { ...(after.topicStats || {}), [resolved.topicId]: { ...nextTopic, due: reviews[meta?.repairOf || questionId]?.due || nextTopic.due } },
     dailyTopicAttemptsByDay,
     skillStats,
@@ -3119,7 +3127,7 @@ function mountDailyRecordButton() {
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261004-progress1").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261004-progress2").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){

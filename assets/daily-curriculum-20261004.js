@@ -65,3 +65,11 @@ const warmIds=new Set(warm.map(q=>q.id));
  for(const {q} of ordered){if(picked.filter(production).length>=minimum)break;if(!production(q)||ids.has(q.id))continue;const i=picked.findLastIndex(x=>!production(x));if(i<0)break;ids.delete(picked[i].id);picked[i]=q;ids.add(q.id);}
  return picked.sort((a,b)=>depth(a)-depth(b)||(a._adaptiveRank??0)-(b._adaptiveRank??0)).map((q,i)=>({...q,_adaptiveRank:i,_progressionPhase:mastery?'mastery':'foundation'}));
 }
+
+export function creditCurriculumAttempt(existing,attempt){
+ if(!attempt.questionId||!attempt.topicId||attempt.formal===false||attempt.repair||!['y8-practise','y8-mastery'].includes(attempt.task))return existing||{};
+ const day=attempt.day,phase=attempt.mode==='mastery'?'mastery':'foundation';
+ const ledger={...(existing||{})},days={...(ledger[day]||{})},topics={...(days[attempt.task]||{})},old=topics[attempt.topicId]||{},ids={...(old[phase]||{})};
+ ids[attempt.questionId]=true;topics[attempt.topicId]={...old,[phase]:ids};days[attempt.task]=topics;ledger[day]=days;
+ for(const key of Object.keys(ledger).sort().slice(0,-45))delete ledger[key];return ledger;
+}
