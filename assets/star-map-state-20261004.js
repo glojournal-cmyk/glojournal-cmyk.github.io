@@ -9,7 +9,7 @@ export function missionFor(week){const seed=[...week].reduce((n,c)=>n+c.charCode
  {stage:1,title:'Reconnect the signal',prompt:'Which instrument should be connected in series to measure current?',options:['Ammeter','Voltmeter','Thermometer'],answer:'Ammeter',hint:'An ammeter measures current; it is connected in series.',skill:'physics:circuits:ammeter'},
  {stage:2,title:'Calibrate the telescope',prompt:`The telescope trolley travels ${distance} m in ${time} s. Calculate its speed, including the unit.`,numeric:speed,unit:'m/s',hint:`Speed = distance ÷ time. Divide ${distance} by ${time}, then include m/s.`,skill:'physics:speed:calculation'},
  {stage:2,title:'Calibrate the telescope',prompt:`The trolley travels at ${speed} m/s for ${time+2} s. How far does it move? Include the unit.`,numeric:speed*(time+2),unit:'m',hint:`Distance = speed × time. Multiply ${speed} by ${time+2}, then include m.`,skill:'physics:speed:distance'},
- {stage:3,title:'Reconnect the stars',prompt:'In the star map, star B has coordinates (3, 5). Which number gives its horizontal position?',options:['3','5','8'],answer:'3',hint:'Coordinates are written (x, y): horizontal position first.',skill:'maths:coordinates:x'},
+ {stage:3,title:'Reconnect the stars',prompt:'The calibration grid places star B at (7, 4). Which number gives its horizontal position?',options:['7','4','11'],answer:'7',hint:'Coordinates are written (x, y): horizontal position first.',skill:'maths:coordinates:x'},
  {stage:3,title:'Reconnect the stars',prompt:'Star A is at (2, 4) and star B is at (7, 4). How many grid units apart are they?',numeric:5,unit:'',hint:'They have the same vertical position. Subtract the horizontal coordinates: 7 − 2.',skill:'maths:coordinates:distance'}
  ];
 }
