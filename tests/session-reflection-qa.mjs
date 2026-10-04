@@ -20,3 +20,5 @@ const nodes=flat(tree),details=nodes.find(n=>n?.type==='details');assert.ok(deta
 assert.match(fs.readFileSync('assets/quiz-session-y8fix-20260920.js','utf8'),/sessionLog,J,reviewHistory,href/);
 assert.match(fs.readFileSync('assets/index-BLVOhKhN.js','utf8'),/lastErrorKind: !correct && !isRepair/);
 console.log('Session reflection QA passed: three focus points, collapsed full analysis, true prior-error snapshots, independent/recognition/repair outcomes and actual future review dates.');
+
+const repaired=c.SessionResult({score:{firstPassCorrect:4,percentage:90,repairedCorrect:1,repairPoints:.5},formalCount:5,coach:{},errors:{wrong:1}});const copy=flat(repaired).filter(n=>typeof n==='string').join(' ');assert.match(copy,/4 \/ 5 first-pass correct · 80%/);assert.match(copy,/Session score after repairs: 90%/);
