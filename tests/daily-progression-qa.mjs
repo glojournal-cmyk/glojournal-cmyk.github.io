@@ -1,0 +1,55 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+import {curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,selectProgressionQuestions,isCurriculumMastered,progressionSubjects} from '../assets/daily-curriculum-20261004.js';
+const catalog=JSON.parse(fs.readFileSync('content/catalog.json','utf8')).topics;
+const get=(s,y)=>catalog.filter(t=>t.subject===s&&t.year===y);
+const master={attempted:20,correct:18,productionCorrect:2};
+const base={today:'2026-10-04',year:9,topicStats:{}};
+for(const subject of progressionSubjects){
+ const rows=curriculumTopics(subject,8,get);assert.ok(rows.length);
+ const first=curriculumFrontier(base,subject,get);assert.equal(first.topicId,rows[0].topicId);assert.equal(first.year,8);
+ const state={...base,topicStats:Object.fromEntries(rows.map(t=>[t.topicId,{...master}]))};
+ const locked=curriculumFrontier(state,subject,get);assert.equal(locked.year,8);assert.equal(locked.waitingForTaught,true);
+ const taught9=curriculumTopics(subject,9,get,Object.fromEntries(get(subject,9).map(t=>[t.topicId,true])))[0];assert.ok(taught9);
+ const learning={[taught9.topicId]:true};
+ const next=curriculumFrontier(state,subject,get,learning);assert.equal(next.year,9);assert.equal(next.topicId,taught9.topicId);
+ const held=curriculumFrontier({...state,topicStats:{...state.topicStats,[rows[0].topicId]:{attempted:20,correct:16,productionCorrect:2}}},subject,get,learning);assert.equal(held.year,8);
+ const recalled=curriculumFrontier({...state,topicStats:{...state.topicStats,[rows[0].topicId]:{attempted:20,correct:20,productionCorrect:0}}},subject,get,learning);assert.equal(recalled.year,8,'MC-only evidence cannot advance the path');
+ const notTaught=curriculumFrontier(state,subject,get,{[taught9.topicId]:false});assert.equal(notTaught.year,8);
+ const year8=curriculumFrontier({...state,year:8},subject,get,learning);assert.equal(year8.year,8);
+ const subjectIndex=progressionSubjects.indexOf(subject);
+ const assigned=curriculumAssignment(state,subjectIndex,{},get,learning);const href=new URL(curriculumHref(assigned,'mastery','y8-mastery'),'https://example.test');assert.equal(href.searchParams.get('year'),'9');assert.equal(href.searchParams.get('topic'),taught9.topicId);
+ const old={id:'y8-mastery',planDate:base.today,assignedSubject:subject,assignedTopic:rows[0].topicId,assignedYear:8,progress:25,target:25};
+ assert.equal(curriculumAssignment(state,subjectIndex+1,old,get,learning).topicId,rows[0].topicId,'Completed task stays on its original topic today');
+ assert.equal(curriculumAssignment({...state,today:'2026-10-05'},subjectIndex,old,get,learning).year,9,'Advance on the next day');
+ const unfinished={...old,progress:8};assert.equal(curriculumAssignment(base,subjectIndex+1,unfinished,get).topicId,rows[0].topicId,'Partially completed set stays pinned');
+ const next8=curriculumFrontier({...base,topicStats:{[rows[0].topicId]:master}},subject,get);assert.equal(next8.topicId,rows[1].topicId,'Only this subject advances');
+}
+assert.equal(curriculumFrontier(base,'biology',()=>[]),null,'Loading catalog must not unlock Year 9');
+assert.ok(!curriculumTopics('latin',8,get).some(t=>t.topicId==='la-y8-choose-the-set-text-translation'),'Support-only MC bank must not permanently block the route');
+assert.equal(curriculumTopics('physics',8,get)[0].topicId,'phys-y8-energy-stores-transfers');
+assert.equal(curriculumTopics('chemistry',8,get)[0].topicId,'chem-y8-working-scientifically');
+assert.equal(isCurriculumMastered({attempted:15,correct:13,productionCorrect:1}),true);
+assert.equal(isCurriculumMastered({attempted:14,correct:14,productionCorrect:1}),false);
+const items=Array.from({length:40},(_,i)=>({id:'q'+i,format:i<10?'mc_single':i<25?'typed_exact':'mark_points',_sessionDepth:i<10?1:i<25?2:4,_adaptiveRank:i,formal:true}));
+const foundation=selectProgressionQuestions(items,'standard',10),mastery=selectProgressionQuestions(items,'mastery',15);
+assert.equal(foundation.length,10);assert.equal(mastery.length,15);
+assert.ok(foundation.filter(q=>q.format==='typed_exact').length>=3);
+assert.ok(mastery.filter(q=>q.format==='mark_points').length>=5);
+assert.ok(mastery.slice(0,3).every(q=>q._sessionDepth===1),'Mastery retains a short warm-up');
+assert.ok(mastery.reduce((n,q)=>n+q._sessionDepth,0)/15>foundation.reduce((n,q)=>n+q._sessionDepth,0)/10);
+assert.equal(new Set(mastery.map(q=>q.id)).size,15);
+assert.equal(selectProgressionQuestions([...items,{...items[0],formal:false,id:'preview'},{...items[1],status:'preview',id:'unready'}],'mastery',100).length,40);
+const bank=JSON.parse(fs.readFileSync('content/topics/bio-y8-balanced-diet.json','utf8'));
+const questions=Array.isArray(bank)?bank:bank.questions||bank.items;
+assert.ok(questions?.length);const actual=selectProgressionQuestions(questions.map((q,i)=>({...q,_adaptiveRank:i})),'mastery',15);assert.equal(actual.length,15);assert.ok(actual.some(q=>q.format==='mark_points'));
+// Route guard follows the same planner and leaves an in-flight standard set intact
+// when the tenth answer changes its next link to mastery.
+const source=fs.readFileSync('assets/progression-guard-20260927.js','utf8').replace(/^import .*\n/gm,'');
+const location={origin:'https://example.test',href:'https://example.test/study/biology/practise?daily=1&locked=1&year=9&mode=standard&task=y8-mastery&topic=bio-y9-b1',replace(v){this.redirect=v;}};
+const canonical='/study/biology/practise?daily=1&locked=1&year=9&mode=mastery&task=y8-mastery&topic=bio-y9-b1';
+const store={getState:()=>({...base,daily:[{id:'y8-mastery',assignedSubject:'biology',assignedTopic:'bio-y9-b1',assignedYear:9,href:canonical}]})};
+const context={URL,URLSearchParams,location,store,getTopicCatalog:get,curriculumFrontier,curriculumHref,progressionSubjects,localStorage:{getItem:()=>JSON.stringify({'bio-y9-b1':true})},document:{readyState:'loading',addEventListener(){}},setTimeout,clearTimeout};vm.createContext(context);vm.runInContext(source+'\nthis.guard=guardCurrentDailyRoute;',context);context.guard();assert.equal(location.redirect,undefined);
+location.href=location.href.replace('year=9','year=8');context.guard();assert.equal(location.redirect,canonical,'Stale Year 8 URL follows the Year 9 assignment');
+console.log('Daily progression QA passed: five subject routes, mastery evidence, taught-only Year 9, progress retention, phase difficulty and route continuity.');

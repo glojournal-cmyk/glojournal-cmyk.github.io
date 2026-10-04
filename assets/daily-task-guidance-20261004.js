@@ -8,7 +8,7 @@ export function dailyTaskGuidance(task, daily = []) {
   switch (task.id) {
     case 'study-session': rule = '10 formal answers across today’s study. The linked topic is your suggested starting point.'; break;
     case 'adaptive-focus': rule = topic ? '4 formal answers on the assigned priority topic.' : '4 formal answers in the assigned priority subject.'; break;
-    case 'y8-practise': rule = '10 formal answers on this assigned Year 8 topic.'; break;
+    case 'y8-practise': rule = `10 formal answers on this assigned Year ${task.assignedYear || 8} topic. Earlier topics must be mastered before the path advances.`; break;
     case 'y8-mastery': case 'year8-long-review': rule = '10 foundation questions, then 15 mastery questions. Completing this task is separate from earning formal topic mastery.'; break;
     case 'french-vocab': case 'latin-vocab': rule = '30 different Year 7–8 words answered correctly. Wrong answers do not increase this counter.'; break;
     case 'mistake-review': rule = task.target === 1 && task.progress >= task.target && /clear/i.test(task.title) ? 'No previous mistakes are due today. This task is already clear.' : 'Review the assigned previous mistakes; complete each required repair.'; break;

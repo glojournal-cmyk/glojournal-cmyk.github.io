@@ -1,3 +1,4 @@
+import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref} from "../assets/daily-curriculum-20261004.js";
 import {mistakeReviewTask} from "../assets/mistake-review-plan-20261003.js";
 import fs from "node:fs";
 import vm from "node:vm";
@@ -7,7 +8,8 @@ const source = fs.readFileSync("assets/index-BLVOhKhN.js", "utf8");
 const catalog = JSON.parse(fs.readFileSync("content/catalog.json", "utf8"));
 const segment = source.slice(source.indexOf("const YEAR8_ASSIGNED_SUBJECTS ="), source.indexOf("let normalizing = false;"));
 const context = {
-  mistakeReviewTask,
+  mistakeReviewTask,curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,
+  localStorage:{getItem:()=>"{}"},
   URLSearchParams,
   Number,
   Math,
@@ -17,7 +19,7 @@ const context = {
   getTopicCatalog: (subject, year) => catalog.topics.filter((row) => row.subject === subject && row.year === year),
   normalizeTopicStat: (raw) => ({ attempted: raw.attempted || 0, state: raw.state || "learning", recentOutcomes: raw.recentOutcomes || [] }),
   topicTitle: (_state, id) => catalog.topics.find((row) => row.topicId === id)?.title || id,
-  todayKey: () => "2026-09-27",
+  todayKey: () => "2026-10-05",
   adaptiveFocus: () => ({ subject: "biology", reason: "continue" }),
   focusAttemptsToday: () => 0,
   focusHref: () => "/study/biology/practise",
@@ -28,7 +30,7 @@ const context = {
 vm.createContext(context);
 vm.runInContext(`${segment}\nthis.plan = buildAdaptiveDaily; this.review = year8ReviewPlan;`, context);
 
-const state = { today: "2026-09-27", year: 9, daily: [], topicStats: {
+const state = { today: "2026-10-05", year: 9, daily: [], topicStats: {
   "la-y8-perfect-cues": { attempted: 20, state: "practising" },
 } };
 const review = context.review(state);

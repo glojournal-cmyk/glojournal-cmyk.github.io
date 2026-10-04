@@ -17,6 +17,7 @@ const topic = "la-y8-stage-1-vocabulary";
 const pick = {subject:"latin",topicId:topic,topicLabel:"Stage 1",label:"Latin"};
 const mocks = {
   mistakeReviewTask,
+  assignedCurriculumPick:()=>pick,curriculumFocusAllowed:()=>true,curriculumFrontier:()=>pick,readCurriculumLearning:()=>({}),getTopicCatalog:()=>[],
   DAILY_SUBJECTS:["latin","french"], YEAR8_MASTERY_SUBJECTS:["latin","french"],
   SUBJECT_LABELS:{latin:"Latin",french:"French"}, FRENCH_DAILY_HREF:"/session/french-vocab",
   topicMatchesYear:()=>true, adaptiveFocus:()=>({subject:"latin",topicId:topic}),

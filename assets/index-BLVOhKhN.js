@@ -1,8 +1,9 @@
-import "./journey-navigation-20261004.js?v=20261004-memory1";
+import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref} from "./daily-curriculum-20261004.js?v=20261004-progress1";
+import "./journey-navigation-20261004.js?v=20261004-progress1";
 import "./weekly-evidence-20261004.js";
-import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261004-memory1";
-import("/pet/pet-care-global.js?v=20261004-memory1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261004-memory1";
+import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261004-progress1";
+import("/pet/pet-care-global.js?v=20261004-progress1").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261004-progress1";
 import {
   C as store,
   Z as scholarLevelProgress,
@@ -16,7 +17,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261004-memory1";
+} from "./index-BLVOhKhN.core.js?v=20261004-progress1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -1058,14 +1059,7 @@ const LATIN_YEAR8_FOUNDATIONS = [
   "nouns-with-genitives", "set-text-translation", "perfect-cues",
 ];
 
-function year8TopicRank(item) {
-  if (item.subject === "latin") {
-    const index = LATIN_YEAR8_FOUNDATIONS.findIndex((slug) => item.topicId === `la-y8-${slug}`);
-    return index < 0 ? 100 : index;
-  }
-  if (item.subject === "french") return Number(String(item.topicId || "").match(/^fr-y8-s(\d+)-/)?.[1] || 100);
-  return 0;
-}
+function year8TopicRank(item) { return curriculumRank({...item,year:8}); }
 
 function orderYear8Topics(rows) {
   return rows.sort((a, b) => a.subject.localeCompare(b.subject) ||
@@ -1080,13 +1074,14 @@ function firstUnmastered(rows, state, subject) {
 
 function year8AssignedPool() {
   const pool = [];
+  const learning = readCurriculumLearning();
   for (const subject of YEAR8_ASSIGNED_SUBJECTS) {
     let topics = [];
     try {
       topics = (getTopicCatalog(subject, 8) || []).filter((topic) => topic?.status === "enabled" && Number(topic?.enabled ?? topic?.questions ?? 0) >= 15);
     } catch {}
     for (const topic of topics) {
-      if (!topic?.topicId) continue;
+      if (!topic?.topicId || learning[topic.topicId] === false) continue;
       pool.push({
         subject,
         topicId: topic.topicId,
@@ -1105,19 +1100,24 @@ function pickYear8Assigned(pool, state, seed) {
 }
 
 function year8AssignedHref(item, mode, taskId = mode === "mastery" ? "y8-mastery" : "y8-practise") {
-  const params = new URLSearchParams();
-  params.set("daily", "1");
-  params.set("locked", "1");
-  params.set("year", "8");
-  params.set("mode", mode);
-  params.set("task", taskId);
-  if (item?.topicId) params.set("topic", item.topicId);
-  return `/study/${item?.subject || "latin"}/practise?${params.toString()}`;
+  return curriculumHref(item,mode,taskId);
 }
-
 function year8AssignedTitle(kind, pick) {
-  const base = kind === "mastery" ? "Mastery a Year 8 topic" : "Practise a Year 8 topic";
-  return pick?.topicLabel ? `${base} · ${pick.topicLabel}` : pick?.label ? `${base} · ${pick.label}` : base;
+  return `Year ${pick?.year || 8} ${SUBJECT_LABELS[pick?.subject] || "Study"} ${kind === "mastery" ? "practice + mastery" : "practice"} · ${pick?.topicLabel || "Foundation"}`;
+}
+function readCurriculumLearning() {
+  try { return JSON.parse(localStorage.getItem("lux-topic-learning-v1") || "{}"); } catch { return {}; }
+}
+function assignedCurriculumPick(state,seed,old) {
+  const pick=curriculumAssignment(state,seed,old,getTopicCatalog,readCurriculumLearning());
+  return pick ? {...pick,label:SUBJECT_LABELS[pick.subject]} : null;
+}
+function curriculumFocusAllowed(focus,state) {
+  if (!focus?.subject || !focus.topicId) return false;
+  const learning=readCurriculumLearning(), year=Number(String(focus.topicId).match(/-y(\d+)-/)?.[1])||8;
+  if(year===8){const frontier=curriculumFrontier(state,focus.subject,getTopicCatalog,learning);return !!frontier&&curriculumTopics(focus.subject,8,getTopicCatalog,learning).some(t=>t.topicId===focus.topicId)&&(frontier.year===9||curriculumRank({...focus,year:8})<=curriculumRank(frontier));}
+  const frontier=curriculumFrontier(state,focus.subject,getTopicCatalog,learning);
+  return !!frontier&&frontier.year===9&&curriculumTopics(focus.subject,9,getTopicCatalog,learning).some(t=>t.topicId===focus.topicId)&&curriculumRank({...focus,year:9})<=curriculumRank(frontier);
 }
 
 function topicAttemptsToday(state, topicId) {
@@ -1230,10 +1230,15 @@ function completedYear8ReviewEvidence(state) {
 function buildAdaptiveDaily(state) {
   const previous = new Map((state.daily || []).map((task) => [task.id, task]));
   const existingPlan = previous.get("study-session");
-  const locked = existingPlan?.planDate === state.today && DAILY_SUBJECTS.includes(existingPlan.focusSubject) && (!existingPlan.focusTopic || topicMatchesYear(existingPlan.focusTopic, state.year) || (existingPlan.focusReason === "foundation" && topicMatchesYear(existingPlan.focusTopic, 8))) && !(state.year === 9 && existingPlan.focusSubject === "french" && existingPlan.href === FRENCH_DAILY_HREF);
-  const focus = locked
+  const locked = curriculumFocusAllowed({subject:existingPlan?.focusSubject,topicId:existingPlan?.focusTopic},state) && existingPlan?.planDate === state.today && DAILY_SUBJECTS.includes(existingPlan.focusSubject) && (!existingPlan.focusTopic || topicMatchesYear(existingPlan.focusTopic, state.year) || (existingPlan.focusReason === "foundation" && topicMatchesYear(existingPlan.focusTopic, 8))) && !(state.year === 9 && existingPlan.focusSubject === "french" && existingPlan.href === FRENCH_DAILY_HREF);
+  let focus = locked
     ? { subject: existingPlan.focusSubject, topicId: existingPlan.focusTopic || null, skillId: existingPlan.focusSkill || null, skillLabel: existingPlan.focusSkillLabel || null, reason: existingPlan.focusReason || "continue", dueCount: existingPlan.focusDueCount || 0, accuracy: existingPlan.focusAccuracy, errorType: existingPlan.focusErrorType || null }
     : adaptiveFocus(state);
+  if(!curriculumFocusAllowed(focus,state)) {
+    const subject=DAILY_SUBJECTS.includes(focus?.subject)?focus.subject:"latin";
+    const pick=curriculumFrontier(state,subject,getTopicCatalog,readCurriculumLearning());
+    if(pick)focus={subject:pick.subject,topicId:pick.topicId,reason:pick.year===8?"foundation":"continue"};
+  }
   const label = SUBJECT_LABELS[focus.subject] || "Study";
   const title = locked ? existingPlan.title : focus.reason === "due"
     ? focus.skillLabel ? `Retention check · ${focus.skillLabel}` : `Review due ${label}`
@@ -1284,57 +1289,47 @@ function buildAdaptiveDaily(state) {
   const year8ReviewProgress = recoveredYear8Review ? 25 : Math.max(oldYear8Review.planDate === state.today && oldYear8Review.reviewTopic === year8Review.topicId ? Number(oldYear8Review.progress) || 0 : 0, Math.min(25,
     Math.min(10, Math.max(reviewAttempts, year8Review.ready ? 10 : 0)) + (reviewStartAttempts === null ? 0 :
       Math.min(15, Math.max(0, reviewAttempts - reviewStartAttempts)))));
-  const assignedPool = year8AssignedPool();
   const assignedSeed = [...(state.today || todayKey())].reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
   const oldPractise = previous.get("y8-practise") || {};
   const oldMastery = previous.get("y8-mastery") || {};
-  const practiseFrontier = pickYear8Assigned(assignedPool, state, assignedSeed);
-  const masterySubject = YEAR8_MASTERY_SUBJECTS[(assignedSeed + 1) % YEAR8_MASTERY_SUBJECTS.length];
-  const masteryFrontier = firstUnmastered(assignedPool, state, masterySubject);
-  const stillFoundational = (old, frontier) => old.assignedSubject === frontier?.subject &&
-    year8TopicRank({ subject: old.assignedSubject, topicId: old.assignedTopic }) <= year8TopicRank(frontier);
-  const practiseLocked = oldPractise.planDate === state.today && oldPractise.assignedTopic && oldPractise.href &&
-    (!assignedPool.length || (Number(oldPractise.progress) || 0) > 0 || stillFoundational(oldPractise, firstUnmastered(assignedPool, state, oldPractise.assignedSubject)))
-    ? { subject: oldPractise.assignedSubject, topicId: oldPractise.assignedTopic, topicLabel: oldPractise.assignedLabel, label: SUBJECT_LABELS[oldPractise.assignedSubject] || oldPractise.assignedSubject }
-    : null;
-  const masteryLocked = oldMastery.planDate === state.today && oldMastery.assignedTopic && oldMastery.href &&
-    (!assignedPool.length || (Number(oldMastery.progress) || 0) > 0 || stillFoundational(oldMastery, firstUnmastered(assignedPool, state, oldMastery.assignedSubject)))
-    ? { subject: oldMastery.assignedSubject, topicId: oldMastery.assignedTopic, topicLabel: oldMastery.assignedLabel, label: SUBJECT_LABELS[oldMastery.assignedSubject] || oldMastery.assignedSubject }
-    : null;
-  const practisePick = practiseLocked || practiseFrontier;
-  const masteryPick = masteryLocked || masteryFrontier;
+  const practisePick = assignedCurriculumPick(state,assignedSeed,oldPractise);
+  const masteryPick = assignedCurriculumPick(state,assignedSeed+1,oldMastery);
   const masteryReady = (state.topicStats?.[masteryPick?.topicId]?.attempted || 0) >= 10;
   const masteryStartAttempts = masteryReady
     ? oldMastery.assignedTopic === masteryPick?.topicId && Number.isFinite(oldMastery.masteryStartAttempts)
       ? oldMastery.masteryStartAttempts : Math.min(10, topicAttemptsToday(state, masteryPick?.topicId))
     : null;
+  const pathDetail=pick=>pick?.waitingForTaught?"Year 8 consolidation · mark taught Year 9 topics in Topic library to continue.":`Year ${pick?.year||8} · topic ${pick?.position||1}/${pick?.total||1}${pick?.phase==='retention'?' · retention review':''}`;
   const y8PractiseTask = {
     id: "y8-practise",
     title: year8AssignedTitle("practise", practisePick),
-    detail: "10 questions on today’s assigned Year 8 topic. The topic is locked — you cannot choose.",
+    detail: `${pathDetail(practisePick)} · 10 foundation questions.`,
     href: year8AssignedHref(practisePick, "standard"),
     target: 10,
-    progress: Math.min(10, Math.max(oldPractise.progress || 0, topicAttemptsToday(state, practisePick?.topicId))),
+    progress: Math.min(10, Math.max(oldPractise.planDate===state.today&&oldPractise.assignedTopic===practisePick?.topicId?oldPractise.progress||0:0, topicAttemptsToday(state, practisePick?.topicId))),
     xp: 15,
     planDate: state.today,
     assignedSubject: practisePick?.subject || null,
     assignedTopic: practisePick?.topicId || null,
+    assignedYear: practisePick?.year || 8,
     assignedLabel: practisePick?.topicLabel || null,
+    curriculumVersion: 1,
   };
   const y8MasteryTask = {
     id: "y8-mastery",
-    title: `Practice + mastery · ${masteryPick?.topicLabel || masteryPick?.label || "Year 8 topic"}`,
-    detail: "10 foundational practice questions, then 15 mastery questions on the assigned topic.",
+    title: year8AssignedTitle("mastery",masteryPick),
+    detail: `${pathDetail(masteryPick)} · 10 foundation questions, then 15 application and independent recall questions.`,
     href: year8AssignedHref(masteryPick, masteryReady ? "mastery" : "standard", "y8-mastery"),
     target: 25,
     progress: Math.min(25, Math.max(oldMastery.planDate === state.today && oldMastery.assignedTopic === masteryPick?.topicId ? Number(oldMastery.progress) || 0 : 0, Math.min(10, Math.max(topicAttemptsToday(state, masteryPick?.topicId), masteryReady ? 10 : 0)) +
       (masteryStartAttempts === null ? 0 : Math.min(15, Math.max(0, topicAttemptsToday(state, masteryPick?.topicId) - masteryStartAttempts))))),
-
     xp: 20,
     planDate: state.today,
     assignedSubject: masteryPick?.subject || null,
     assignedTopic: masteryPick?.topicId || null,
+    assignedYear: masteryPick?.year || 8,
     assignedLabel: masteryPick?.topicLabel || null,
+    curriculumVersion: 1,
     masteryStartAttempts,
   };
   const garden = previous.get("tend-garden") || { id: "tend-garden", title: "Water your plants", detail: "Tend the Scholar’s Garden.", href: "/garden", target: 1, progress: 0, xp: 10 };
@@ -3124,7 +3119,7 @@ function mountDailyRecordButton() {
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261004-memory1").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261004-progress1").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){
@@ -3154,3 +3149,5 @@ if(typeof document!=='undefined') {
  store.subscribe(()=>setTimeout(showLoadedProgress,0));
  setTimeout(showLoadedProgress,0);
 }
+
+if(typeof window!=="undefined"&&window.addEventListener){window.addEventListener("scholar:learning-changed",normalizeState);window.addEventListener("storage",e=>{if(e.key==="lux-topic-learning-v1")normalizeState()});}

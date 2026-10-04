@@ -1,20 +1,22 @@
+import {curriculumFrontier,curriculumHref,progressionSubjects} from "../assets/daily-curriculum-20261004.js";
 import fs from "node:fs";
 import vm from "node:vm";
 import assert from "node:assert/strict";
 
 const code = fs.readFileSync("assets/progression-guard-20260927.js", "utf8")
-  .replace(/^import .*\n/, "")
-  .replace(/if \(document\.readyState === "loading"\)[\s\S]*$/, "");
+  .replace(/^import .*\n/gm, "")
+  .replace(/if\(document\.readyState[\s\S]*$/, "");
 const catalog = JSON.parse(fs.readFileSync("content/catalog.json", "utf8"));
 const state = { today: "2026-09-27", year: 9, topicStats: {}, daily: [] };
 const location = {
   origin: "https://example.test",
   pathname: "/study/biology/practise",
   search: "?daily=%221%22&locked=%221%22&year=%229%22&mode=due",
-  href: "",
+  href: "https://example.test/study/biology/practise?daily=%221%22&locked=%221%22&year=%229%22&mode=due",
   replace(url) { this.href = url; },
 };
 const context = {
+  curriculumFrontier,curriculumHref,progressionSubjects,localStorage:{getItem:()=>"{}"},
   URL, URLSearchParams, location, store: { getState: () => state },
   getTopicCatalog: (subject, year) => catalog.topics.filter((topic) => topic.subject === subject && topic.year === year),
   document: { getElementById: () => null, createElement: () => ({ style: {}, remove() {} }), body: { appendChild() {} } },

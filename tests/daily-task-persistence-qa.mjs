@@ -29,8 +29,8 @@ for(const token of requiredWrapper) if(!wrapper.includes(token)) failures.push({
 const coreVersions=[...wrapper.matchAll(/index-BLVOhKhN\.core\.js\?v=([^"]+)/g)].map((match)=>match[1]);
 if(coreVersions.length!==2||new Set(coreVersions).size!==1) failures.push({type:"split-progress-store",coreVersions});
 for(const token of [
-  'const practiseLocked = oldPractise.planDate === state.today && oldPractise.assignedTopic && oldPractise.href',
-  'const masteryLocked = oldMastery.planDate === state.today && oldMastery.assignedTopic && oldMastery.href',
+  'const practisePick = assignedCurriculumPick(state,assignedSeed,oldPractise)',
+  'const masteryPick = assignedCurriculumPick(state,assignedSeed+1,oldMastery)',
   'const legacyReviews = Object.entries(state.reviews || {}).filter',
   'target: 25, progress: year8ReviewProgress',
   'target: 25,',
