@@ -1,8 +1,8 @@
-import "./journey-navigation-20261004.js?v=20261004-ux-rest2";
+import "./journey-navigation-20261004.js?v=20261004-ux-rest3";
 import "./weekly-evidence-20261004.js";
-import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261004-ux-rest2";
-import("/pet/pet-care-global.js?v=20261004-ux-rest2").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261004-ux-rest2";
+import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261004-ux-rest3";
+import("/pet/pet-care-global.js?v=20261004-ux-rest3").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261004-ux-rest3";
 import {
   C as store,
   J as rewardRequirements,
@@ -15,7 +15,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261004-ux-rest2";
+} from "./index-BLVOhKhN.core.js?v=20261004-ux-rest3";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -3123,7 +3123,7 @@ function mountDailyRecordButton() {
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261004-ux-rest2").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261004-ux-rest3").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){
@@ -3134,3 +3134,22 @@ export {rewardCountdown as q};
 if(typeof window!=="undefined"&&window.addEventListener)window.addEventListener("storage",event=>{if(event.key==="lux-assessment-v1")normalizeState();});
 
 if(typeof window!=="undefined"&&typeof document!=="undefined")globalThis.LuxJourney.watchActions(store);
+
+// Document hydration can replace attributes on <html>; keep the loading gate
+// aligned with the rendered device state rather than a transient root attribute.
+if(typeof document!=='undefined') {
+ const showLoadedProgress=()=>{
+  if(document.documentElement.hasAttribute('data-lux-ready'))return;
+  const main=document.querySelector('main'),header=document.querySelector('header.sticky');
+  if(!main||!header)return;
+  const state=store.getState(),xp=String(Number(state.xp)||0);
+  if(!new RegExp('(?:^|[^0-9])'+xp+'\\s*XP\\b').test(header.textContent||''))return;
+  if(location.pathname==='/'&&!main.querySelector('[data-home-journey]'))return;
+  if(/Year 9 French is waiting|Year 9 French is waiting for a verified school source/.test(main.textContent||'')&&getTopicCatalog('french',9).some(topic=>Number(topic.enabled)>0))return;
+  document.documentElement.setAttribute('data-lux-ready','');
+ };
+ const observe=new MutationObserver(showLoadedProgress);
+ observe.observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['data-lux-ready']});
+ store.subscribe(()=>setTimeout(showLoadedProgress,0));
+ setTimeout(showLoadedProgress,0);
+}
