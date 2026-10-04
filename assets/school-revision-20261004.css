@@ -33,3 +33,8 @@
 
 @media(min-width:768px){[data-home-journey]{grid-template-columns:minmax(0,1.05fr) minmax(340px,.95fr)}}
 [data-home-journey]> *{min-width:0}
+
+[data-home-journey] a[aria-label^="Continue"]{flex-wrap:nowrap!important;align-items:center;justify-content:center}
+[data-home-journey] a[aria-label^="Continue"]>span{height:auto!important;max-width:100%;line-height:1.25;overflow-wrap:anywhere;flex-shrink:0}
+[data-home-journey] a[aria-label^="Continue"]>span.lux-ico{width:32px;height:32px!important}
+.study-notes-directory:has(.study-note-selector:not([open])){grid-template-columns:minmax(0,1fr)}

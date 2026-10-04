@@ -36,7 +36,7 @@ function refresh(){
 let queued=false;
 function schedule(){if(queued)return;queued=true;queueMicrotask(()=>{queued=false;refresh();});}
 if(typeof document!=='undefined'){
-  if(!document.getElementById('school-revision-css')){const css=document.createElement('link');css.id='school-revision-css';css.rel='stylesheet';css.href='/assets/school-revision-20261004.css?v=20261004-ux2';document.head.append(css);}
+  if(!document.getElementById('school-revision-css')){const css=document.createElement('link');css.id='school-revision-css';css.rel='stylesheet';css.href='/assets/school-revision-20261004.css?v=20261004-ux3';document.head.append(css);}
   store.subscribe(schedule);
   document.addEventListener('DOMContentLoaded',schedule);
   window.addEventListener('storage',schedule);
