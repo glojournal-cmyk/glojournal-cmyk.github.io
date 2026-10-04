@@ -30,3 +30,6 @@
 
 #school-revision-home .school-revision-details>summary{cursor:pointer;min-height:44px;padding:12px 0;font-size:14px;font-weight:600}
 #school-revision-home .school-revision-grid{margin-top:12px}
+
+@media(min-width:768px){[data-home-journey]{grid-template-columns:minmax(0,1.05fr) minmax(340px,.95fr)}}
+[data-home-journey]> *{min-width:0}
