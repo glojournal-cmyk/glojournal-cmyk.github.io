@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {recordRecoveries,weekOf} from '../assets/memory-stars-state-20261004.js';
+assert.equal(weekOf('2026-10-04T22:59:00Z'),'2026-09-28');
+assert.equal(weekOf('2026-10-04T23:01:00Z'),'2026-10-05');
+const first=recordRecoveries({},'latin',['q1','q1','q2'],'2026-10-04T16:00:00Z');
+assert.equal(first.added,2);assert.equal(first.state.weeks['2026-09-28'].count,2);
+assert.equal(recordRecoveries(first.state,'latin',['q1'],'2026-10-05T16:00:00Z').added,0);
+const next=recordRecoveries(first.state,'latin',['q3'],'2026-10-05T16:00:00Z');
+assert.equal(next.state.weeks['2026-10-05'].count,1);
+assert.equal(recordRecoveries(next.state,'french',['q1'],'2026-10-05T16:00:00Z').added,1);
+assert.equal(recordRecoveries({},'biology',[],'2026-10-04T16:00:00Z').state.weeks['2026-09-28'],undefined);
+assert.equal(Object.keys(first.state.earned).length,2);
+console.log('Memory stars QA passed: distinct evidence, reload/repeat guard, London weeks, separate subjects, empty evidence and no original-state mutation.');

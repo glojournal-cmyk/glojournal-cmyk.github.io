@@ -33,9 +33,9 @@ export function sessionGains(items=[],log=[],history={}){
  if(recognised.size)lines.push(`${recognised.size} previous ${recognised.size===1?'mistake':'mistakes'} answered correctly with answer choices or prompts; independent recall still needs checking.`);
  if(repairs.size)lines.push(`${repairs.size} ${repairs.size===1?'answer':'answers'} corrected in repair practice, counted separately from independent recall.`);
  if(!lines.length)lines.push(prior.size?'You revisited earlier mistakes. Keep practising before counting them as secure.':'This set is recorded. A later review will check what you remember.');
- return {recovered:recovered.size,recognised:recognised.size,repaired:repairs.size,independentCorrect,priorAttempted:prior.size,lines:lines.slice(0,3)};
+ return {recoveredIds:[...recovered],recovered:recovered.size,recognised:recognised.size,repaired:repairs.size,independentCorrect,priorAttempted:prior.size,lines:lines.slice(0,3)};
 }
-export function ProgressSummary({gains}){return gains?h('aside',{'aria-label':'Your progress this session',className:'mt-4 rounded-xl bg-sage/60 p-4'},h('h2',{className:'font-display text-xl font-semibold'},'Your progress this session'),...gains.lines.map((line,i)=>h('p',{key:i,className:'mt-2 text-base'},line))):null;}
+export function ProgressSummary({gains}){return gains?h('aside',{'aria-label':'Your progress this session','data-memory-recovered-ids':JSON.stringify(gains.recoveredIds||[]),className:'mt-4 rounded-xl bg-sage/60 p-4'},h('h2',{className:'font-display text-xl font-semibold'},'Your progress this session'),...gains.lines.map((line,i)=>h('p',{key:i,className:'mt-2 text-base'},line))):null;}
 export function SessionResult({score,formalCount,coach,errors,daily,backHref,nextHref,onAgain,marks=false,gains}){const points=improvementPoints(coach,errors);return h('section',{'aria-label':'Session result'},
  h('h1',{className:'font-display text-3xl font-semibold'},marks?'Practice complete':'Session complete'),
  h('p',{className:'mt-3 text-2xl font-semibold'},marks?`${score.firstPassCorrect} / ${formalCount} marks · ${score.percentage}%`:`${score.firstPassCorrect} / ${formalCount} first-pass correct · ${Math.round(100*score.firstPassCorrect/Math.max(1,formalCount))}%`),
