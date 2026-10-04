@@ -1,8 +1,9 @@
-import { C as store } from "/assets/index-BLVOhKhN.js?v=20261004-ux1";
+import {backupPreview} from "./progress-backup-preview-20261004.js";
+import { C as store } from "/assets/index-BLVOhKhN.js?v=20261004-ux-rest";
 
 const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
 const AUTO_KEY = "lux-progress-auto-v1";
-let autoTimer, lastAutoData = "";
+let autoTimer, lastAutoData = "", selectedRestore = null;
 function autoSave(){
  clearTimeout(autoTimer);
  try {
@@ -14,7 +15,8 @@ function autoSave(){
   localStorage.setItem(AUTO_KEY,JSON.stringify(saved));
   if(JSON.parse(localStorage.getItem(AUTO_KEY)).data!==data)throw Error("Save verification failed");
   lastAutoData=data;
-  const el=document.getElementById("daily-auto-status");if(el)el.textContent=`Automatically saved ${new Date(saved.savedAt).toLocaleTimeString("en-GB")}`;
+  refreshCopies();
+  const el=document.getElementById("daily-auto-status");if(el)el.textContent=`Saved automatically · ${new Date(saved.savedAt).toLocaleTimeString("en-GB")}`;
  }catch(error){const el=document.getElementById("daily-auto-status");if(el)el.textContent="Automatic backup failed. Use Save progress & backup to keep a separate file.";}
 }
 store.subscribe(()=>{clearTimeout(autoTimer);autoTimer=setTimeout(autoSave,250)});
@@ -79,6 +81,25 @@ async function save() {
     status(`Save failed: ${error?.message || "Please try again."}`, "error");
   } finally { button.disabled = false; }
 }
+function previewRestore(data, name, meta = {}) {
+  try {
+    const info=backupPreview(data,store.getState(),meta);
+    selectedRestore={data,name};
+    const box=document.getElementById('daily-restore-preview');box.hidden=false;
+    const when=info.savedAt&&!Number.isNaN(Date.parse(info.savedAt))?new Date(info.savedAt).toLocaleString('en-GB'):'Date not recorded';
+    document.getElementById('daily-restore-description').textContent=`${name} · ${when}. Backup: ${info.saved.day}, ${info.saved.done}/${info.saved.total} tasks, ${info.saved.xp} XP. Current: ${info.current.day}, ${info.current.done}/${info.current.total} tasks, ${info.current.xp} XP. Restoring replaces the current progress on this device.`;
+    status('Preview ready. Check the date and progress before restoring.');
+  } catch(error) { selectedRestore=null;const box=document.getElementById('daily-restore-preview');if(box)box.hidden=true;status(error.message||'Could not read this backup.','error'); }
+}
+function refreshCopies() {
+ for(const [id,key] of [['daily-auto-previous',AUTO_KEY+'-previous'],['daily-auto-restore',AUTO_KEY],['daily-restore-button',SNAPSHOT_KEY]]) {
+  const button=document.getElementById(id);if(!button)continue;
+  let saved;try{saved=JSON.parse(localStorage.getItem(key)||'null')}catch{}
+  button.disabled=!saved?.data;
+  const line=document.getElementById(id+'-info');
+  if(line)line.textContent=saved?.data?`${new Date(saved.savedAt).toLocaleString('en-GB')} · ${saved.day} · ${saved.done}/${saved.total} tasks`:'No copy saved yet';
+ }
+}
 function restore(data, name) {
   const current = summary(store.getState());
   if (!confirm(`Restore ${name}? This replaces current progress on this iPad (${current.done}/${current.total} tasks). Export the current progress first if needed.`)) return;
@@ -98,31 +119,41 @@ function mount() {
   panel.innerHTML = `
     <div class="daily-save-heading"><strong>Keep your progress</strong><p id="daily-save-status" role="status" aria-live="polite"></p></div>
     <p id="daily-auto-status" role="status" aria-live="polite"></p>
-    <div class="daily-save-actions">
-      <button id="daily-save-button" type="button">Save progress & backup</button>
-      <button id="daily-auto-previous" type="button">Restore previous automatic copy</button>
-      <button id="daily-auto-restore" type="button">Restore automatic backup</button>
-      <button id="daily-restore-button" type="button">Restore saved copy</button>
-      <label class="daily-file-button" for="daily-backup-file">Restore from Files</label>
+    <div class="daily-save-actions"><button id="daily-save-button" type="button">Save progress & backup</button></div>
+    <details id="daily-recovery-options"><summary>Backup history & restore</summary>
+      <p class="daily-save-note">Preview a copy before restoring. Files kept in Files or iCloud Drive can recover progress after browser data is cleared.</p>
+      <div class="daily-backup-copy"><button id="daily-auto-previous" type="button">Preview previous automatic copy</button><p id="daily-auto-previous-info"></p></div>
+      <div class="daily-backup-copy"><button id="daily-auto-restore" type="button">Preview latest automatic copy</button><p id="daily-auto-restore-info"></p></div>
+      <div class="daily-backup-copy"><button id="daily-restore-button" type="button">Preview manual backup</button><p id="daily-restore-button-info"></p></div>
+      <label class="daily-file-button" for="daily-backup-file">Preview backup from Files</label>
       <input id="daily-backup-file" type="file" accept="application/json,.json" hidden>
-    </div>
-    <p class="daily-save-note">Automatic progress stays in this browser. If iPad data is cleared, use the exported file kept in Files or iCloud Drive.</p>`;
+      <section id="daily-restore-preview" aria-label="Backup restore preview" hidden>
+        <strong>Check this backup</strong><p id="daily-restore-description"></p>
+        <button id="daily-restore-apply" type="button">Restore this copy</button>
+        <button id="daily-restore-cancel" type="button">Cancel</button>
+      </section>
+    </details>
+    <p class="daily-save-note">Progress saves automatically on this device. Save a backup file to keep a separate copy.</p>`;
   card.append(panel);
   status(savedStatus());
+  refreshCopies();
+  panel.querySelector('#daily-recovery-options').addEventListener('toggle',refreshCopies);
+  panel.querySelector('#daily-restore-apply').addEventListener('click',()=>{if(selectedRestore)restore(selectedRestore.data,selectedRestore.name)});
+  panel.querySelector('#daily-restore-cancel').addEventListener('click',()=>{selectedRestore=null;panel.querySelector('#daily-restore-preview').hidden=true;status(savedStatus())});
   try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY)||"null");if(saved)document.getElementById("daily-auto-status").textContent=`Automatically saved ${new Date(saved.savedAt).toLocaleString("en-GB")}`;}catch{}
-  panel.querySelector("#daily-auto-previous").addEventListener("click",()=>{try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY+"-previous")||"null");if(saved)restore(saved.data,"the previous automatic backup");else status("No previous automatic backup yet.");}catch{status("Could not read the previous backup.","error")}});
-  panel.querySelector("#daily-auto-restore").addEventListener("click",()=>{try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY)||"null");if(saved)restore(saved.data,"the automatic backup");else status("No automatic backup yet.");}catch{status("Could not read the automatic backup.","error")}});
+  panel.querySelector("#daily-auto-previous").addEventListener("click",()=>{try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY+"-previous")||"null");if(saved)previewRestore(saved.data,"Previous automatic copy",saved);else status("No previous automatic backup yet.");}catch{status("Could not read the previous backup.","error")}});
+  panel.querySelector("#daily-auto-restore").addEventListener("click",()=>{try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY)||"null");if(saved)previewRestore(saved.data,"Latest automatic copy",saved);else status("No automatic backup yet.");}catch{status("Could not read the automatic backup.","error")}});
   panel.querySelector("#daily-save-button").addEventListener("click", save);
   panel.querySelector("#daily-restore-button").addEventListener("click", () => {
     const saved = savedCopy();
     if (!saved) return status("No saved copy on this iPad.", "error");
-    restore(saved.data, `the copy from ${new Date(saved.savedAt).toLocaleString("en-GB")} (${saved.done}/${saved.total} tasks)`);
+    previewRestore(saved.data,"Manual backup",saved);
   });
   panel.querySelector("#daily-backup-file").addEventListener("change", async event => {
     const file = event.target.files?.[0];
     event.target.value = "";
     if (!file) return;
-    try { restore(await file.text(), file.name); }
+    try { previewRestore(await file.text(), file.name); }
     catch { status("Could not read that file.", "error"); }
   });
 }

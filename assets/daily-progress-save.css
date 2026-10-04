@@ -11,3 +11,10 @@
 #daily-restore-button,.daily-file-button{background:#fffdf6;color:#183b51;border:1px solid #b8c2b9}
 .daily-save-note{font-size:.75rem;line-height:1.35;color:#566862;margin:.75rem 0 0}
 @media(max-width:600px){#daily-save-panel{padding:.8rem}.daily-save-actions>*{flex:1 1 100%}}
+
+#daily-recovery-options{margin-top:12px}#daily-recovery-options>summary{min-height:44px;padding:12px 0;cursor:pointer;font-weight:600;font-size:14px}
+.daily-backup-copy{margin:12px 0;border-bottom:1px solid #d7dbcc;padding-bottom:10px}.daily-backup-copy p{font-size:12px;margin:5px 0;color:#53665d}
+.daily-backup-copy button,#daily-restore-preview button{min-height:44px;padding:10px 14px;border:1px solid #b8c2b9;border-radius:11px;background:#fffdf6;color:#183b51;cursor:pointer;font:600 14px 'Source Sans 3',sans-serif}
+.daily-backup-copy button:disabled{opacity:.5;cursor:default}
+#daily-restore-preview{margin-top:16px;padding:16px;border:1px solid #c7c7ab;border-radius:12px;background:#fffdf6}#daily-restore-preview p{font-size:14px;line-height:1.5}#daily-restore-preview #daily-restore-apply{background:#183b51;color:#fff;margin-right:8px}
+#daily-save-panel [hidden]{display:none!important}

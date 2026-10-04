@@ -1,0 +1,4 @@
+html:not([data-lux-ready]) .paper-wash{visibility:hidden}
+html:not([data-lux-ready]) body::before{content:"Loading your saved progress…";position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:linear-gradient(110deg,#f4f0e5 25%,#fffaf1 45%,#f4f0e5 65%);background-size:200% 100%;color:#1a3148;font:600 20px 'Source Sans 3',sans-serif;animation:lux-load 2s ease-in-out infinite}
+@keyframes lux-load{to{background-position:-200% 0}}
+@media(prefers-reduced-motion:reduce){html:not([data-lux-ready]) body::before{animation:none}}

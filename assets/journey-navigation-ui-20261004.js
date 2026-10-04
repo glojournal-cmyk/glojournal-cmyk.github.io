@@ -1,6 +1,7 @@
-import './journey-navigation-20261004.js?v=20261004-ux1';
+import {dailyTaskGuidance} from "./daily-task-guidance-20261004.js";
+import './journey-navigation-20261004.js?v=20261004-ux-rest';
 import {i as interop,n as factory} from './jsx-runtime-Cltr0gcK.js';
-import {C as store} from './index-BLVOhKhN.js?v=20261004-ux1';
+import {C as store} from './index-BLVOhKhN.js?v=20261004-ux-rest';
 const R=interop(factory()),h=R.createElement,J=globalThis.LuxJourney;
 const linkStyle={display:'inline-flex',alignItems:'center',minHeight:44,padding:'10px 18px',marginTop:12,borderRadius:24,background:'#173e50',color:'#fffdf6',textDecoration:'none'};
 function useJourney(){const daily=store(s=>s.daily),today=store(s=>s.today),[revision,setRevision]=R.useState(0);R.useEffect(()=>{const update=()=>setRevision(n=>n+1);window.addEventListener('storage',update);window.addEventListener('scholar:session-saved',update);return()=>{window.removeEventListener('storage',update);window.removeEventListener('scholar:session-saved',update)}},[]);return {daily,today,revision}}
@@ -8,3 +9,13 @@ export function ResumeStudy(){const state=useJourney(),resume=J.resumeCandidates
 export function DailyNext({taskId,planDate}){const state=useJourney(),data=J.completion(J.withReviewCredits(state),location.href,taskId);R.useEffect(()=>{if(data?.done)document.querySelector('[aria-label="Daily task progress"]')?.scrollIntoView({block:'start',behavior:'smooth'})},[data?.done]);if(!data||(planDate&&planDate!==J.day()))return null;return h('section',{'aria-label':'Daily task progress',role:'status',className:'mb-5 rounded-xl bg-sage p-4',style:{scrollMarginTop:88}},h('h2',{className:'font-display text-2xl font-semibold'},data.done?'Counted towards today’s tasks':'Practice saved · daily target still in progress'),h('p',{className:'mt-2'},`${data.task.title}: ${Math.min(data.task.progress,data.task.target)}/${data.task.target}. Today: ${data.completed}/${data.total} tasks complete.`),h('progress',{'aria-label':'Today’s completed tasks',value:data.completed,max:data.total,style:{display:'block',width:'100%',height:12,marginTop:12,accentColor:'#173e50'}}),!data.done&&h('p',null,`${data.remaining} more required to complete this task.`),h('div',null,!data.done&&h('a',{href:J.navigationHref(data.task.href),style:{...linkStyle,marginRight:8}},'Continue this task'),h('a',{href:data.next?.href||'/',style:linkStyle},data.next?'Next task · '+data.next.title:data.done?'Today’s tasks complete · return home':'Return to today’s tasks')))}
 
 export function ResumeAction(){const state=useJourney(),resume=J.resumeCandidates(state)[0],next=state.today===J.day()?(state.daily||[]).find(t=>t.progress<t.target&&J.safeHref(t.href)):null;return h('a',{href:resume?.href||J.navigationHref(next?.href)||'/study/','aria-label':resume?`Continue ${resume.title} · Question ${resume.index+1} / ${resume.total}`:next?`Start next task · ${next.title}`:'Browse subjects',className:'flex min-h-[5.5rem] flex-col items-center justify-center gap-1 rounded-2xl bg-navy px-2 py-3 text-card',style:{textAlign:'center'}},h('span',{className:'font-display text-lg leading-none'},resume?'Continue':next?'Next task':'Practise'),h('span',{className:'text-sm'},resume?.title||next?.title||'Browse subjects'),resume&&h('span',{className:'text-sm'},`Question ${resume.index+1} / ${resume.total}`))}
+
+export function DailyTaskRow({task,daily}) {
+ const info=dailyTaskGuidance(task,daily),done=info.remaining===0;
+ return h('li',null,h('a',{href:J.navigationHref(task.href)||'/study/',className:'block rounded-lg p-2 hover:bg-sage'},
+  h('div',{className:'flex items-center justify-between text-sm'},h('span',{className:'font-medium'},`${done?'✓ ':''}${task.id==='study-session'?'Daily study total':task.title}`),h('span',{className:'text-muted tabular-nums'},`${Math.min(task.progress,task.target)}/${task.target}`)),
+  h('progress',{value:Math.min(task.progress,task.target),max:task.target,'aria-label':task.title,style:{display:'block',width:'100%',height:6,marginTop:6,accentColor:'#526b53'}}),
+  h('p',{style:{margin:'8px 0 0',fontSize:13,lineHeight:1.45,color:'#53665d'}},info.rule),
+  h('p',{style:{margin:'4px 0 0',fontSize:12,color:done?'#286354':'#183447'}},done?'Complete for today':`${info.remaining} ${info.unit} remaining`),
+  info.shared.length?h('p',{style:{margin:'4px 0 0',fontSize:12,lineHeight:1.45,color:'#53665d'}},`Eligible answers also count towards: ${info.shared.join(' · ')}. Each task keeps its own target.`):null));
+}
