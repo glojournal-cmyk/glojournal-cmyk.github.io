@@ -39,7 +39,7 @@ function grantWardrobe(id){
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
 const CHEMISTRY_REVISION='20260930-chem-fullmarks3';
-const bankUrl=p=>p.id==='biology-cell-structure'?`${p.bank}?v=20261004-parent4`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261004-parent4`;
+const bankUrl=p=>p.id==='biology-cell-structure'?`${p.bank}?v=20261004-connections1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261004-connections1`;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
   'inks.svg':'Figure 2: chromatogram with ink samples A to D',
@@ -477,17 +477,23 @@ function startFollowup(resultIndex){
 function drawFollowup(id){
  const draft=state.followups?.[id];if(!draft)return;
  show('exam');const q=draft.questions[draft.index];
+ if(!q&&draft.daily){const secured=draft.assignedIds.filter(id=>state.dailyReviewCredits?.[draft.planDate]?.[id]).length;$('#exam').innerHTML=`<h2>Daily assessment corrections · ${secured}/${draft.assignedIds.length} secured</h2><p>Only full-mark corrections count towards the assigned daily task. Unsecured questions remain for follow-up. Successful checks return after 7 days.</p><a class="primary" href="/">Return to daily tasks</a>`;return;}
  if(!q){$('#exam').innerHTML=`<h2>Weak-area practice complete</h2><p>You practised ${draft.questions.length} missed or partly correct questions. This follow-up does not change the original test score or count as formal mastery.</p><button id="followup-results">Back to results</button>`;$('#followup-results').onclick=()=>show('history');return;}
  const checked=draft.checked[draft.index],m=checked?mark(q,draft.answers[draft.index]||''):null;
  const correction=checked?globalThis.LuxLearningFeedback?.buildCorrection(q,{...m,given:draft.answers[draft.index]||'',model:showAnswer(q)},draft.subject):null;
  const keywords=q.markKeywords||q.answer?.points?.map(p=>p.label)||q.answer?.markPoints||[];
- $('#exam').innerHTML=`<p class="eyebrow">WEAK-AREA PRACTICE · ${draft.index+1}/${draft.questions.length}</p><h2>${esc(q.topic||draft.paper)}</h2><p>Practise missed or partly correct questions, with optional same-concept variants. Your original test score stays unchanged.</p>${q.passage?`<div class="feedback" style="white-space:pre-line">${esc(q.passage)}</div>`:''}${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}?v=${CHEMISTRY_REVISION}" alt="${esc(q.diagramAlt||DIAGRAM_ALTS[q.diagram]||'Question diagram')}">`:''}${q.options?.length?`<p><b>Options:</b> ${esc(q.options.join(' · '))}</p>`:''}${q.stimulus?.image?`<img class="assessment-diagram" src="${esc(q.stimulus.image)}" alt="Question diagram">`:''}${q.image?`<img class="assessment-diagram" src="${esc(q.image)}" alt="Question diagram">`:''}${q.stimulus?.text?`<p>${esc(q.stimulus.text)}</p>`:''}${q.transferOf?'<p class="feedback">Same idea, different question — apply the correction independently.</p>':''}<p>${esc(q.prompt)}</p><label>Your answer<textarea id="followup-answer" rows="4" ${checked?'readonly':''}>${esc(draft.answers[draft.index]||'')}</textarea></label>${checked?`<div class="feedback"><b>${esc(m.status)}</b>${correction?.reason?`<p><b>Why marks were missed:</b> ${esc(correction.reason)}</p>`:''}<p><b>Model answer:</b> ${esc(showAnswer(q))}</p>${q.workedSolution?`<p><b>Working:</b> ${esc(q.workedSolution)}</p>`:''}${q.answer?.points?.length&&m.credit<0.999?`<p><b>Missing ideas:</b> ${esc(q.answer.points.filter((point,j)=>!m.pointResults?.[j]).map(point=>point.label).join(' · '))}</p>`:''}${keywords.length?`<p><b>Keywords / required points:</b> ${esc(keywords.join(' · '))}</p>`:''}<p><b>Hint:</b> ${esc(q.hint||q.examGuidance?.strategy||q.feedback?.short||'Answer the exact question, then check each required idea. One distinct idea earns each available mark. Write a fresh answer before checking.')} </p></div><button id="followup-next" class="primary">Next question</button><button id="followup-retry">Try again without the answer</button>`:'<button id="followup-check" class="primary">Check this answer</button>'}<button id="followup-exit">Save and return to results</button>`;
+ $('#exam').innerHTML=`<p class="eyebrow">${draft.daily?'DAILY ASSESSMENT CORRECTIONS':'WEAK-AREA PRACTICE'} · ${draft.index+1}/${draft.questions.length}</p><h2>${esc(q.topic||draft.paper)}</h2><p>Practise missed or partly correct questions, with optional same-concept variants. Your original test score stays unchanged.</p>${q.passage?`<div class="feedback" style="white-space:pre-line">${esc(q.passage)}</div>`:''}${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}?v=${CHEMISTRY_REVISION}" alt="${esc(q.diagramAlt||DIAGRAM_ALTS[q.diagram]||'Question diagram')}">`:''}${q.options?.length?`<p><b>Options:</b> ${esc(q.options.join(' · '))}</p>`:''}${q.stimulus?.image?`<img class="assessment-diagram" src="${esc(q.stimulus.image)}" alt="Question diagram">`:''}${q.image?`<img class="assessment-diagram" src="${esc(q.image)}" alt="Question diagram">`:''}${q.stimulus?.text?`<p>${esc(q.stimulus.text)}</p>`:''}${q.transferOf?'<p class="feedback">Same idea, different question — apply the correction independently.</p>':''}<p>${esc(q.prompt)}</p><label>Your answer<textarea id="followup-answer" rows="4" ${checked?'readonly':''}>${esc(draft.answers[draft.index]||'')}</textarea></label>${checked?`<div class="feedback"><b>${esc(m.status)}</b>${correction?.reason?`<p><b>Why marks were missed:</b> ${esc(correction.reason)}</p>`:''}<p><b>Model answer:</b> ${esc(showAnswer(q))}</p>${q.workedSolution?`<p><b>Working:</b> ${esc(q.workedSolution)}</p>`:''}${q.answer?.points?.length&&m.credit<0.999?`<p><b>Missing ideas:</b> ${esc(q.answer.points.filter((point,j)=>!m.pointResults?.[j]).map(point=>point.label).join(' · '))}</p>`:''}${keywords.length?`<p><b>Keywords / required points:</b> ${esc(keywords.join(' · '))}</p>`:''}<p><b>Hint:</b> ${esc(q.hint||q.examGuidance?.strategy||q.feedback?.short||'Answer the exact question, then check each required idea. One distinct idea earns each available mark. Write a fresh answer before checking.')} </p></div><button id="followup-next" class="primary">Next question</button><button id="followup-retry">Try again without the answer</button>`:'<button id="followup-check" class="primary">Check this answer</button>'}<button id="followup-exit">Save and return to results</button>`;
  $('#followup-answer').addEventListener('input',e=>{draft.answers[draft.index]=e.target.value;save()});
- $('#followup-check')?.addEventListener('click',()=>{draft.checked[draft.index]=true;save();drawFollowup(id)});
+ $('#followup-check')?.addEventListener('click',()=>{
+  if(draft.checked[draft.index])return;
+  const response=draft.answers[draft.index]||'',graded=mark(q,response),paperResult=state.results[Number(id)],at=new Date().toISOString(),subject=q._reviewSubject||globalThis.LuxPracticeBridge.subjectOf(paperResult||{})||'biology',marks=questionMarks(q);
+  state=globalThis.LuxPracticeBridge.recordFollowup(state,{at,questionId:q.id,subject,year:q._reviewYear||q.year||9,topicTitle:q.topic||draft.paper,correct:graded.credit>=.999,credit:graded.credit,earnedMarks:graded.credit*marks,marks,repairOf:q.transferOf||null},{daily:!!draft.daily,reviewId:q._assessmentReviewId,planDate:draft.planDate,assignedIds:draft.assignedIds});
+  draft.checked[draft.index]=true;save();drawFollowup(id);
+ });
  $('#followup-next')?.addEventListener('click',()=>{draft.index++;save();drawFollowup(id)});
  $('#followup-retry')?.addEventListener('click',()=>{delete draft.checked[draft.index];delete draft.answers[draft.index];save();drawFollowup(id)});
  $('#followup-exit').onclick=()=>{save();show('history')};
- if(checked&&m.credit<1&&globalThis.LuxLearningFeedback){
+ if(!draft.daily&&checked&&m.credit<1&&globalThis.LuxLearningFeedback){
   const button=document.createElement('button');button.textContent='Try a different question on this idea';button.id='followup-transfer';
   $('#exam').append(button);
   button.onclick=async()=>{
@@ -534,6 +540,9 @@ function finish(p,d){
   const wardrobe=reward?`<p class="feedback"><b>${reward.fresh?'Wardrobe unlocked':'Already in the wardrobe'}:</b> ${esc(reward.name)}. Open Scholar and choose it.</p>`:prize?`<p class="muted">85% unlocks ${esc(prize.name)} in the wardrobe. This paper stays locked.</p>`:'';
 
   state.results.push({
+    resultId: p.id+":"+Date.now()+":"+Math.random().toString(36).slice(2),
+    completedAt: new Date().toISOString(),
+    subject: p.id.split("-")[0],
     date:new Date().toLocaleDateString('en-GB'),
     paper:p.name,
     paperId:p.id,
@@ -546,19 +555,37 @@ function finish(p,d){
     answers:d.answers,
     revisionEvidence:d.questions.map((q,i)=>({questionId:q.id,topic:q.topic||'Other',credit:marks[i].credit,marks:questionMarks(q)}))
   });
+  state.reviewQueue=globalThis.LuxPracticeBridge.queueFor(state);
   state.recent[p.id]=d.questions.map(q=>q.id);
   delete state.drafts[p.id];save();cards();
 
   const resultSummary=`${full}/${d.questions.length} correct${partial?` · ${partial} partly correct`:''} · ${formatMarks(earned)}/${totalMarks} marks`;
-  $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${resultSummary}. Pass mark: 85/100. Review the answers below, then start a new paper for a different selection.</p>${wardrobe}${Object.keys(missed).length?'<button id="practise-weak-areas" class="primary">Practise these weak areas</button>':''}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='latin-verbs'?'<p class="muted">English follows the verb table. Present is simple (I carry), imperfect is I was carrying, perfect is I carried. I have carried and I used to carry also score. you carry is accepted for both singular and plural; the model answer shows which one it is.</p>':''}${p.id==='latin-creusa'?'<p class="muted">Comprehension marking accepts equivalent wording. Where an answer contains only some required ideas, partial credit is awarded instead of an automatic zero.</p>':''}${p.id==='chemistry'?'<p class="muted">Marks are shown on the new exam-style questions. Each distinct correct point earns a mark, including method and final-answer marks for calculations. Older short questions remain worth one mark.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
+  $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${resultSummary}. Pass mark: 85/100. Review the answers below, then start a new paper for a different selection. Missed or partly correct questions enter Previous mistakes after 2 days; successful daily corrections return after 7 days.</p>${wardrobe}${Object.keys(missed).length?'<button id="practise-weak-areas" class="primary">Practise these weak areas</button>':''}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='latin-verbs'?'<p class="muted">English follows the verb table. Present is simple (I carry), imperfect is I was carrying, perfect is I carried. I have carried and I used to carry also score. you carry is accepted for both singular and plural; the model answer shows which one it is.</p>':''}${p.id==='latin-creusa'?'<p class="muted">Comprehension marking accepts equivalent wording. Where an answer contains only some required ideas, partial credit is awarded instead of an automatic zero.</p>':''}${p.id==='chemistry'?'<p class="muted">Marks are shown on the new exam-style questions. Each distinct correct point earns a mark, including method and final-answer marks for calculations. Older short questions remain worth one mark.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
   $('#back-to-papers').onclick=()=>show('papers');
   const followupButton=$('#practise-weak-areas');if(followupButton)followupButton.onclick=()=>startFollowup(state.results.length-1);
 }
 
 if(typeof URLSearchParams!=="undefined"&&typeof location!=="undefined"&&new URLSearchParams(location.search).get("tab")==="tracker")show("tracker");
+if(typeof URLSearchParams!=="undefined"&&typeof location!=="undefined"&&new URLSearchParams(location.search).get("tab")==="history")show("history");
+
+function startDailyAssessmentReview(){
+ const bridge=globalThis.LuxPracticeBridge,today=bridge.day(Date.now()),params=new URLSearchParams(location.search);
+ let garden;try{const raw=JSON.parse(localStorage.getItem(GARDEN_KEY)||'{}');garden=raw.state||raw}catch{garden={}}
+ const task=(garden.daily||[]).find(t=>t.id==='mistake-review'&&t.reviewSource==='assessment'&&t.planDate===today);
+ show('exam');
+ if(!task||params.get('day')!==today){$('#exam').innerHTML='<h2>This daily review is no longer assigned</h2><p>Open today’s Previous mistakes task from the homepage.</p><a class="primary" href="/">Return to daily tasks</a>';return;}
+ state.reviewQueue=bridge.queueFor(state);
+ const questions=task.reviewQuestionIds.map(id=>state.reviewQueue[id]).filter(Boolean).map(r=>({...r.question,_assessmentReviewId:r.id,_reviewSubject:r.subject,_reviewYear:r.year}));
+ if(questions.length!==task.reviewQuestionIds.length){$('#exam').innerHTML='<h2>Could not restore every assigned question</h2><p>Restore the matching assessment backup, then open the daily task again.</p><a href="/">Return home</a>';return;}
+ state.followups||={};const id='daily:'+today;
+ const existing=state.followups[id];
+ if(!existing||JSON.stringify(existing.assignedIds)!==JSON.stringify(task.reviewQuestionIds))state.followups[id]={questions,index:0,answers:{},checked:{},paper:task.title,daily:true,planDate:today,assignedIds:[...task.reviewQuestionIds]};
+ save();drawFollowup(id);
+}
 
 // Open the requested paper after deferred scope and marking patches are loaded.
 if(typeof document!=='undefined')document.addEventListener('DOMContentLoaded',()=>{
+  if(new URLSearchParams(location.search).get('task')==='mistake-review'){startDailyAssessmentReview();return;}
   const requested=new URLSearchParams(location.search).get('paper');
   const paper=PAPERS.find(p=>p.id===requested);
   if(paper){const group=EXAM_GROUPS.find(g=>g.ids.includes(paper.id));if(group)sessionStorage.setItem('lux-assess-subject',group.subject);cards();start(paper.id);}

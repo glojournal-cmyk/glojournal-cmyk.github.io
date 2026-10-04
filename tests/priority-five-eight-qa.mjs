@@ -1,3 +1,4 @@
+import "../assets/practice-evidence-bridge-20261004.js";
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {buildAdaptiveRuntime} from './adaptive-runtime-test-utils.mjs';
@@ -16,7 +17,7 @@ const slice=source.slice(source.indexOf('function followupItems('),source.indexO
 const elements=new Map();const $=selector=>{if(!elements.has(selector))elements.set(selector,{innerHTML:'',addEventListener(event,callback){this[event]=callback;}});return elements.get(selector)};
 let saved=0;const state={results:[{paper:'Biology',score:50,questions:[{prompt:'Correct',answer:{accepted:['a']}},{prompt:'Missed',passage:'Original passage',diagram:'cells-20261003.webp',topic:'Cells',answer:{accepted:['b']}},{prompt:'Partial',answer:{accepted:['c']}}],answers:{0:'a',1:'wrong',2:'partial'}}]};
 const mark=(q,a)=>({credit:a===q.answer.accepted[0]?1:a==='partial'?0.5:0,status:'Marked'});
-const api=new Function('state','$','mark','save','show','esc','showAnswer','CHEMISTRY_REVISION','DIAGRAM_ALTS',slice+';return {followupItems,startFollowup,drawFollowup};')(state,$,mark,()=>saved++,()=>{},s=>String(s||''),q=>q.answer.accepted[0],'test',{});
+const api=new Function('state','$','mark','save','show','esc','showAnswer','CHEMISTRY_REVISION','DIAGRAM_ALTS','questionMarks',slice+';return {followupItems,startFollowup,drawFollowup};')(state,$,mark,()=>saved++,()=>{},s=>String(s||''),q=>q.answer.accepted[0],'test',{},()=>1);
 assert.equal(api.followupItems(state.results[0]).length,2);
 api.startFollowup(0);assert.equal(state.followups['0'].questions.length,2);assert.equal(state.results[0].score,50);
 assert.match($('#exam').innerHTML,/Original passage/);assert.match($('#exam').innerHTML,/cells-20261003.webp/);

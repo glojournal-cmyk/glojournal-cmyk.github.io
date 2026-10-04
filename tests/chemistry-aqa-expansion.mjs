@@ -7,6 +7,7 @@ const bank=JSON.parse(read('assessment/chemistry-school-1.json'));
 const addon=JSON.parse(read('assessment/chemistry-school-style-20260927.json'));
 const src=read('assessment/app-v2.js');
 const context=vm.createContext({Math,Set,String,Object,RegExp,Number,window:{},state:{results:[]},save(){},grantWardrobe(){}});
+vm.runInContext(read('assets/practice-evidence-bridge-20261004.js'),context);
 vm.runInContext(src.slice(src.indexOf('function shuffle(a)'),src.indexOf('function selectCreusa(')),context);
 vm.runInContext(src.slice(src.indexOf('function normal('),src.indexOf('async function start(')),context);
 vm.runInContext(src.slice(src.indexOf('function questionMarks('),src.indexOf('function finish(')),context);

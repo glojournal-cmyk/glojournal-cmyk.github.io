@@ -22,7 +22,7 @@ try{
  const learning=await page.evaluate(()=>JSON.parse(localStorage.getItem('lux-topic-learning-v1')));
  assert.ok(Object.keys(learning).length>0);
  const {C:store}=await page.evaluate(async()=>({C:null}));
- await page.evaluate(async()=>{const {C}=await import('/assets/index-BLVOhKhN.js?v=20261004-parent4');C.setState({xp:C.getState().xp+1});});
+ await page.evaluate(async()=>{const {C}=await import('/assets/index-BLVOhKhN.js?v=20261004-connections1');C.setState({xp:C.getState().xp+1});});
  await page.waitForFunction(()=>!!localStorage.getItem('lux-progress-auto-v1'));
  const backup=await page.evaluate(()=>JSON.parse(localStorage.getItem('lux-progress-auto-v1')));
  assert.deepEqual(JSON.parse(backup.data).topicLearning,learning);

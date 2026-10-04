@@ -1,4 +1,5 @@
-import "./learning-feedback-20261003.js?v=20261004-parent4";
+import "./practice-evidence-bridge-20261004.js?v=20261004-connections1";
+import "./learning-feedback-20261003.js?v=20261004-connections1";
 const {buildCorrection,selectTransferQuestion}=globalThis.LuxLearningFeedback;
 import {i as interop,n as reactFactory} from './jsx-runtime-Cltr0gcK.js';
 import {gradeBiologyAnswer} from './biology-cell-rubric-20261003.js';
@@ -11,14 +12,14 @@ export function pickPracticeQuestions(bank,topic,size,previous=[],weak=[]){
 }
 export function BiologyCellPractice(){
  const [resumed,setResumed]=R.useState(()=>!!read().ids?.length),[bank,setBank]=R.useState(null),[error,setError]=R.useState(''),[state,setState]=R.useState(read),[topic,setTopic]=R.useState('all'),[size,setSize]=R.useState(10),[saveError,setSaveError]=R.useState(false);
- R.useEffect(()=>{let live=true;fetch('/assessment/biology-cell-structure-20261003.json?v=20261004-parent4').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{if(live)setBank(d.questions)}).catch(()=>{if(live)setError('Could not load the question bank. Reload this page to try again.')});return()=>{live=false}},[]);
+ R.useEffect(()=>{let live=true;fetch('/assessment/biology-cell-structure-20261003.json?v=20261004-connections1').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{if(live)setBank(d.questions)}).catch(()=>{if(live)setError('Could not load the question bank. Reload this page to try again.')});return()=>{live=false}},[]);
  R.useEffect(()=>{try{localStorage.setItem(KEY,JSON.stringify(state));setSaveError(false)}catch{setSaveError(true)}},[state]);
  if(error)return h('p',{role:'alert'},error);
  if(!bank)return h('p',{role:'status'},'Loading the 72 cell structure questions…');
  const topics=[...new Set(bank.map(q=>q.topic))],weak=Object.entries(state.history||{}).filter(([,v])=>v.credit<1).map(([id])=>id),ids=state.ids||[],index=state.index||0,q=bank.find(q=>q.id===ids[index]),entry=q?state.answers?.[q.id]:null,finished=ids.length>0&&index>=ids.length;
- function start(){setResumed(false);const chosen=pickPracticeQuestions(bank,topic,size,ids,weak);if(!chosen.length)return;setState(s=>({...s,ids:chosen,index:0,answers:{},sessionTopic:topic}));}
+ function start(){setResumed(false);const chosen=pickPracticeQuestions(bank,topic,size,ids,weak);if(!chosen.length)return;setState(s=>({...s,ids:chosen,index:0,answers:{},transferOf:{},sessionTopic:topic}));}
  function answer(value){setState(s=>({...s,answers:{...s.answers,[q.id]:{value}}}));}
- function check(event){event.preventDefault();if(!entry?.value?.trim()||entry.checked)return;const result=gradeBiologyAnswer(q,entry.value);setState(s=>({...s,answers:{...s.answers,[q.id]:{...entry,checked:true,result}},history:{...s.history,[q.id]:{credit:result.credit,at:Date.now()}}}));}
+ function check(event){event.preventDefault();if(!entry?.value?.trim()||entry.checked)return;const result=gradeBiologyAnswer(q,entry.value),at=new Date().toISOString(),evidence={eventId:at+":"+q.id,at,questionId:q.id,subject:"biology",year:9,topicTitle:q.topic,source:"biology-cell",correct:result.credit>=.999,credit:result.credit,earnedMarks:result.matched,marks:q.marks,repair:!!state.transferOf?.[q.id]};setState(s=>({...s,practiceEvidence:globalThis.LuxPracticeBridge.appendEvidence(s.practiceEvidence,evidence),answers:{...s.answers,[q.id]:{...entry,checked:true,result}},history:{...s.history,[q.id]:{credit:result.credit,at:Date.now()}}}));}
  const correction=entry?.checked?buildCorrection(q,{...entry.result,given:entry.value,model:q.modelAnswer},'biology'):null,transfer=entry?.checked&&entry.result.credit<1?selectTransferQuestion(q,bank,ids):null;
  const labelStyle={display:'block',marginBottom:6},buttonStyle={padding:'10px 18px',borderRadius:12,border:'1px solid #b8c9b8',background:'#173e50',color:'white',cursor:'pointer'},cardStyle={padding:24,borderRadius:18,border:'1px solid #c9d2c5',background:'#fffdf6'};
  return h('section',{'aria-label':'Cell structure practice',style:cardStyle},
