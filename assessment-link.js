@@ -1,4 +1,4 @@
-if(!location.pathname.startsWith('/assessment')) import('/assets/school-revision-home-20261004.js?v=20261004-school2').catch(error=>console.error('School revision panel could not load',error));
+if(!location.pathname.startsWith('/assessment')) import('/assets/school-revision-home-20261004.js?v=20261004-school4').catch(error=>console.error('School revision panel could not load',error));
 (() => {
   if (!document.querySelector('link[href*="lux-theme.css"]')) {
     const l = document.createElement('link');
