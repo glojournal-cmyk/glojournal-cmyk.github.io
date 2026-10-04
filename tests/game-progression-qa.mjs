@@ -30,7 +30,7 @@ need(pe,"pe","Early tap = retry");
 need(pe,"pe",'onPointerDown:down');
 need(pe,"pe",'touchAction:"none"');
 need(pe,"pe","no instant game-over.");
-need(games,"games",'pe-circuit-v3-20260920.js?v=20261004-parent3');
+need(games,"games",'pe-circuit-v3-20260920.js?v=20261004-parent4');
 need(wrapper,"pe unlock","every 2★+ clear of the currently unlocked circuit opens the next one");
 need(wrapper,"pe unlock","unlocked: Math.min(8, level + 1)");
 need(wrapper,"pe unlock","lastUnlock: `circuit-${level}`");
