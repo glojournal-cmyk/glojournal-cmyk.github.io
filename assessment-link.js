@@ -1,3 +1,4 @@
+if(!location.pathname.startsWith('/assessment')) import('/assets/school-revision-home-20261004.js?v=20261004-school1').catch(error=>console.error('School revision panel could not load',error));
 (() => {
   if (!document.querySelector('link[href*="lux-theme.css"]')) {
     const l = document.createElement('link');
@@ -48,15 +49,7 @@
         if(nav.classList.contains('grid'))nav.style.gridTemplateColumns='repeat(7,minmax(0,1fr))';
       }
     });
-    if(location.pathname==='/'&&!document.getElementById('school-assessment-home')){
-      const main=document.querySelector('main');if(!main)return;
-      const card=document.createElement('a');card.id='school-assessment-home';card.href=assessmentUrl;
-      card.setAttribute('aria-label','Open school assessments and long tests');
-      card.style.cssText='display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 20px;padding:18px 22px;border-radius:22px;background:#1A3148;color:#fffdf8;text-decoration:none;box-shadow:0 0 0 1px rgba(196,164,106,.45),0 8px 22px rgba(48,36,20,.08);min-height:84px';
-      card.innerHTML='<span style="display:flex;align-items:center;gap:16px">'+icon+'<span><strong style="display:block;font-family:Cormorant Garamond,serif;font-size:22px;line-height:1.25">School assessments</strong><span style="display:block;margin-top:4px;font-size:14px;opacity:.86">Track school tests \u00b7 45-minute practice papers</span></span></span><span aria-hidden="true" style="font-size:28px">\u2192</span>';
-      card.querySelector('svg').style.cssText='width:30px;height:30px;flex-shrink:0';
-      main.prepend(card);
-    }
+
   }
   add();
   document.addEventListener('DOMContentLoaded', add);

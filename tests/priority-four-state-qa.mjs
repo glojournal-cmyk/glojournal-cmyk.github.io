@@ -23,6 +23,7 @@ assert.equal(JSON.parse(JSON.parse(data.get('lux-progress-auto-v1')).data).state
 localStorage.setItem=()=>{throw Error('Quota')};xp=3;api.autoSave();assert.match(el.textContent,/failed/);
 const tracker=fs.readFileSync('assessment/app-v2.js','utf8');
 const block=tracker.slice(tracker.indexOf('const SCHOOL_ASSESSMENTS='),tracker.indexOf('function tracker()'));
+await import('../assets/school-revision-data-20261004.js');
 const schools=new Function(block+';return SCHOOL_ASSESSMENTS;')();
-assert.equal(schools.length,3);for(const x of schools)for(const id of x.topics)assert.ok(fs.existsSync('content/topics/'+id+'.json'),id);
+assert.equal(schools.length,3);const schoolIds=new Set(JSON.parse(fs.readFileSync('content/school-update-20260926/delta.json','utf8')).topics.map(t=>t.topicId));for(const x of schools)for(const id of x.topics)assert.ok(fs.existsSync('content/topics/'+id+'.json')||schoolIds.has(id),id);
 console.log('Priority four state QA passed: first-day mistakes, seven-day follow-up, learned-only vocabulary, automatic backup rotation/failure handling, and every tracker topic exists.');

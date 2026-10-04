@@ -119,11 +119,7 @@ $('#track-form').addEventListener('submit',e=>{
   state.tracker.push({...Object.fromEntries(new FormData(e.target)),id:crypto.randomUUID()});
   save();e.target.reset();tracker();
 });
-const SCHOOL_ASSESSMENTS=[
-  {id:'school-chemistry-20261005',subject:'Chemistry',date:'2026-10-05',dateLabel:'Week beginning 5 October 2026 · exact lesson date to be confirmed',title:'Atoms, separating mixtures and chromatography',paperId:'chemistry',topics:['chem-y9-c1','chem-y9-c3','chem-y9-c4'],notes:'C1.1 Atoms; C1.3 Separating Mixtures; C2.1 History of the Periodic Table; RP6 Chromatography and Rf. Revise atomic structure, separation methods, practical method and Rf calculations.'},
-  {id:'school-french-20261008',subject:'French',date:'2026-10-08',dateLabel:'8 October 2026',title:'Unit 1 vocabulary · Une visite en France',paperId:'french',topics:['fr-y9-u1-paris-travel'],notes:'Core phrases, intensifiers, descriptive and positive adjectives, pronouns and transport. Practise recall and spelling, then try a timed vocabulary paper.'},
-  {id:'school-biology-20261116',subject:'Biology',date:'2026-11-16',dateLabel:'Week beginning 16 November 2026 · exact lesson date to be confirmed',title:'First GCSE Biology assessment · AQA 4.1.1 Cell structure',paperId:'biology-cell-structure',topics:['bio-y9-b1','bio-y9-b2','bio-y9-b3','bio-y9-b4'],notes:'Eukaryotes and prokaryotes; animal and plant cells; cell specialisation; cell differentiation; microscopy; culturing microorganisms. Revise diagrams, magnification and practical reasoning. Practice paper: 45 minutes, 60 marks; pass 51/60.'}
-];
+const SCHOOL_ASSESSMENTS=globalThis.LuxSchoolRevision.schoolAssessments;
 function tracker(){
   const school=SCHOOL_ASSESSMENTS.filter(x=>!(state.hiddenSchoolAssessments||[]).includes(x.id));
   const entries=[...school,...state.tracker].sort((a,b)=>(a.date||'').localeCompare(b.date||''));
@@ -131,9 +127,11 @@ function tracker(){
     const isSchool=school.some(s=>s.id===x.id);
     const results=isSchool?state.results.filter(r=>r.paperId===x.paperId):[];
     const latest=results[results.length-1];
-    const topicLinks=(x.topics||[]).map(topic=>`<p><a href="/study/${x.subject.toLowerCase()}/learn?year=9&topic=${encodeURIComponent(topic)}">Notes · ${esc(({'chem-y9-c1':'Atoms','chem-y9-c3':'Separating mixtures','chem-y9-c4':'Chromatography','fr-y9-u1-paris-travel':'Une visite en France','bio-y9-b1':'Cell structure','bio-y9-b2':'Specialised cells','bio-y9-b3':'Microscopy','bio-y9-b4':'Culturing microorganisms'})[topic]||x.title)}</a> · <a href="/study/${x.subject.toLowerCase()}/practise?year=9&mode=standard&topic=${encodeURIComponent(topic)}">Practise this topic</a></p>`).join('');
+    const phase=globalThis.LuxSchoolRevision.buildRevisionPlan({},state).active.find(a=>a.id===x.id)?.phase;
+    const trackerStatus=x.status||(phase==='current'?(x.dateKind==='week'?'Assessment week':'Today'):phase==='upcoming'?'Upcoming':'School result not recorded');
+    const topicLinks=(x.topics||[]).map(topic=>`<p><a href="/study/${x.subject.toLowerCase()}/learn?year=9&topic=${encodeURIComponent(topic)}">Notes · ${esc(({'chem-y9-c5':'Atoms','chem-y9-c1':'History of the periodic table','chem-y9-c3':'Separating mixtures','chem-y9-c4':'Chromatography','fr-y9-20260919-unit-1-holidays-and-opinions':'Holidays and opinions','fr-y9-u1-paris-travel':'Travel and transport','bio-y9-b1':'Cell structure','bio-y9-b2':'Specialised cells','bio-y9-b3':'Microscopy','bio-y9-b4':'Culturing microorganisms'})[topic]||x.title)}</a> · <a href="/study/${x.subject.toLowerCase()}/practise?year=9&mode=standard&topic=${encodeURIComponent(topic)}">Practise this topic</a></p>`).join('');
     const links=isSchool?`${topicLinks}<p>${x.subject==='Biology'?' · <a href="/assessment/biology-cell-structure/">Cell structure revision guide</a>':''}</p><button class="primary" data-tracker-paper="${esc(x.paperId)}">${state.drafts[x.paperId]?.version===2?'Continue practice paper':'Start practice paper'}</button>`:'';
-    return `<article class="entry"><div><span class="tag">${esc(x.subject)} · ${esc(x.dateLabel||x.date)} · ${esc(x.status||(examToday()<=x.date?'Upcoming':'School result not recorded'))}</span><h3>${esc(x.title)}</h3>${x.score?`<p><b>School result:</b> ${esc(x.score)}</p>`:''}${x.notes?`<p>${esc(x.notes)}</p>`:''}${latest?`<p><b>Latest app practice:</b> ${esc(latest.score)}% · ${esc(latest.date)}</p>`:''}${links}</div><button data-delete="${esc(x.id)}">${isSchool?'Hide':'Delete'}</button></article>`;
+    return `<article class="entry"><div><span class="tag">${esc(x.subject)} · ${esc(x.dateLabel||x.date)} · ${esc(trackerStatus)}</span><h3>${esc(x.title)}</h3>${x.score?`<p><b>School result:</b> ${esc(x.score)}</p>`:''}${x.notes?`<p>${esc(x.notes)}</p>`:''}${latest?`<p><b>Latest app practice:</b> ${esc(latest.score)}% · ${esc(latest.date)}</p>`:''}${links}</div><button data-delete="${esc(x.id)}">${isSchool?'Hide':'Delete'}</button></article>`;
   }).join(''):'<p class="muted">No school assessments recorded yet. Add one below.</p>';
   $('#tracker-list').insertAdjacentHTML('beforeend','<p class="muted">Other future school assessments: dates and ranges await teacher confirmation. Practice results are separate from school grades.</p>');
 }
@@ -544,7 +542,8 @@ function finish(p,d){
     total:totalMarks,
     score,
     questions:d.questions,
-    answers:d.answers
+    answers:d.answers,
+    revisionEvidence:d.questions.map((q,i)=>({questionId:q.id,topic:q.topic||'Other',credit:marks[i].credit,marks:questionMarks(q)}))
   });
   state.recent[p.id]=d.questions.map(q=>q.id);
   delete state.drafts[p.id];save();cards();
@@ -556,3 +555,10 @@ function finish(p,d){
 }
 
 if(typeof URLSearchParams!=="undefined"&&typeof location!=="undefined"&&new URLSearchParams(location.search).get("tab")==="tracker")show("tracker");
+
+// Open the requested paper after deferred scope and marking patches are loaded.
+if(typeof document!=='undefined')document.addEventListener('DOMContentLoaded',()=>{
+  const requested=new URLSearchParams(location.search).get('paper');
+  const paper=PAPERS.find(p=>p.id===requested);
+  if(paper){const group=EXAM_GROUPS.find(g=>g.ids.includes(paper.id));if(group)sessionStorage.setItem('lux-assess-subject',group.subject);cards();start(paper.id);}
+});
