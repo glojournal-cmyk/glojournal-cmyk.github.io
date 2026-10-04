@@ -1,4 +1,4 @@
-import "./learning-feedback-20261003.js?v=20261004-parent2";
+import "./learning-feedback-20261003.js?v=20261004-parent3";
 const {buildCorrection,selectTransferQuestion}=globalThis.LuxLearningFeedback;
 import {i as interop,n as reactFactory} from './jsx-runtime-Cltr0gcK.js';
 import {gradeBiologyAnswer} from './biology-cell-rubric-20261003.js';
@@ -11,7 +11,7 @@ export function pickPracticeQuestions(bank,topic,size,previous=[],weak=[]){
 }
 export function BiologyCellPractice(){
  const [resumed,setResumed]=R.useState(()=>!!read().ids?.length),[bank,setBank]=R.useState(null),[error,setError]=R.useState(''),[state,setState]=R.useState(read),[topic,setTopic]=R.useState('all'),[size,setSize]=R.useState(10),[saveError,setSaveError]=R.useState(false);
- R.useEffect(()=>{let live=true;fetch('/assessment/biology-cell-structure-20261003.json?v=20261004-parent2').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{if(live)setBank(d.questions)}).catch(()=>{if(live)setError('Could not load the question bank. Reload this page to try again.')});return()=>{live=false}},[]);
+ R.useEffect(()=>{let live=true;fetch('/assessment/biology-cell-structure-20261003.json?v=20261004-parent3').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{if(live)setBank(d.questions)}).catch(()=>{if(live)setError('Could not load the question bank. Reload this page to try again.')});return()=>{live=false}},[]);
  R.useEffect(()=>{try{localStorage.setItem(KEY,JSON.stringify(state));setSaveError(false)}catch{setSaveError(true)}},[state]);
  if(error)return h('p',{role:'alert'},error);
  if(!bank)return h('p',{role:'status'},'Loading the 72 cell structure questions…');

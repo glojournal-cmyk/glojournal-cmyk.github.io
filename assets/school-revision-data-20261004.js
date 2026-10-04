@@ -34,7 +34,7 @@
     if(!subjects.has(subject)||!topic)return '/assessment/?tab=tracker';
     return '/study/'+subject.toLowerCase()+'/'+action+'?year=9&topic='+encodeURIComponent(topic)+(action==='practise'?'&mode=standard':'');
   }
-  function paperHref(paperId) {return '/assessment/?paper='+encodeURIComponent(paperId)+'&v=20261004-parent2';}
+  function paperHref(paperId) {return '/assessment/?paper='+encodeURIComponent(paperId)+'&v=20261004-parent3';}
   function buildRevisionPlan(garden={},assessment={},today=londonDay(),topicLearning={}) {
     if(!validDay(today))today=londonDay();
     const hidden=new Set(Array.isArray(assessment.hiddenSchoolAssessments)?assessment.hiddenSchoolAssessments:[]);
