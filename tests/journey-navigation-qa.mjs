@@ -43,3 +43,11 @@ write('scholar-biology-cell-practice-v1',{ids:['b1','b2'],index:1,savedAt:at});a
 console.log('Journey navigation QA passed: latest saved session, original deep links, preserved answer position, completed/expired filtering, safe links, accurate partial and full daily credit, assessment reconciliation, next unfinished task and actual UI components.');
 
 panel=c.ResumeAction();assert.match(text(panel),/Biology · Cell structure/);assert.match(text(panel),/Question 2 \/ 2/);assert.equal(panel.props.href,J.resumeCandidates(state)[0].href);
+
+// Legacy foundation links have no task ID, and quoted/unquoted query values must match.
+state.daily=[{id:'study-session',title:'Daily study total',href:'/study/latin/practise?daily=%221%22&locked=%221%22&year=%228%22&topic=la-y8-stage-1-vocabulary&mode=standard',target:10,progress:10},{id:'french-vocab',title:'French vocabulary',href:'/study/french/practise?daily=1&task=french-vocab',target:30,progress:0}];
+const foundation='/study/latin/practise?daily=1&locked=1&year=8&topic=la-y8-stage-1-vocabulary&mode=standard';
+result=J.completion(state,foundation);assert.equal(result?.done,true,'Unquoted daily=1 must match the legacy task');assert.equal(result.next.id,'french-vocab');
+assert.equal(J.completion(state,state.daily[0].href)?.done,true,'Quoted links match too');
+c.location.href='https://glojournal-cmyk.github.io'+foundation;panel=c.DailyNext({});assert.match(text(panel),/Counted towards today/);assert.match(text(panel),/Next task/);
+console.log('Legacy daily completion QA passed: quoted and plain query values display completion and the next unfinished task.');

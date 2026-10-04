@@ -1,4 +1,4 @@
-import "./journey-navigation-20261004.js?v=20261004-ux-rest4";
+import "./journey-navigation-20261004.js?v=20261004-qa1";
 import "./weekly-evidence-20261004.js";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261004-ux-rest4";
 import("/pet/pet-care-global.js?v=20261004-ux-rest4").catch(()=>{});

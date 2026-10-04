@@ -1,5 +1,5 @@
 import {dailyTaskGuidance} from "./daily-task-guidance-20261004.js";
-import './journey-navigation-20261004.js?v=20261004-ux-rest4';
+import './journey-navigation-20261004.js?v=20261004-qa1';
 import {i as interop,n as factory} from './jsx-runtime-Cltr0gcK.js';
 import {C as store} from './index-BLVOhKhN.js?v=20261004-ux-rest4';
 const R=interop(factory()),h=R.createElement,J=globalThis.LuxJourney;
