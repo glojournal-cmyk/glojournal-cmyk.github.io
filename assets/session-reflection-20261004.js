@@ -15,7 +15,7 @@ export function improvementPoints(coach,errors){const repairs=(coach?.cards||[])
 // Compare first attempts with the snapshot taken before this set began.
 export function sessionGains(items=[],log=[],history={}){
  const questions=new Map(items.map(q=>[q.id,q])),seen=new Set(),prior=new Set(),recovered=new Set(),recognised=new Set(),repairs=new Set();let independentCorrect=0;
- const recallFormats=new Set(['typed_exact','typed_equivalent','typed_short','controlled_translation','mark_points','calculation','extended_response','unordered_set','practical_design','listen_type','short_answer','dictation']);
+ const recallFormats=new Set(['typed_exact','typed_rubric','typed_equivalent','typed_short','controlled_translation','mark_points','calculation','extended_response','unordered_set','practical_design','listen_type','short_answer','dictation']);
  for(const row of log){
   const id=row.questionId,q=questions.get(id);if(!id||!q)continue;
   if(row.repair||q._repair){if(row.correct)repairs.add(row.repairOf||q._repairOf||id);continue;}
