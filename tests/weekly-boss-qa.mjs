@@ -75,7 +75,7 @@ if(physicsMissionCount<3)failures.push({type:"physics-missions",count:physicsMis
 if(chemistryMissionCount<3)failures.push({type:"chemistry-missions",count:chemistryMissionCount});
 if(biologyMissionCount<3)failures.push({type:"biology-missions",count:biologyMissionCount});
 
-need(route,"route",'from"./weekly-boss-20260919.js?v=20261004-starmap1"');
+need(route,"route",'from"./weekly-boss-20260919.js?v=20261007-loading1"');
 need(route,"route","if(e===WeeklyBossMeta.id)return(0,G.jsx)(WeeklyBoss,{})");
 need(hub,"hub",'children:`Challenge Lab`');
 need(hub,"hub","Y.id");
