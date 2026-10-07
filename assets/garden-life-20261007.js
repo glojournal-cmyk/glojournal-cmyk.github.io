@@ -116,6 +116,37 @@
     return best;
   }
 
+  function replyFor(kind, pic, pip) {
+    pic = pic || { stage: 0, wet: false };
+    if (kind === "pot") {
+      var lines = [
+        "Nothing is up yet. The soil is waiting.",
+        "The shoot bends, then stands again.",
+        "The seed leaves feel cool.",
+        "A leaf turns toward her finger.",
+        "The leaves are thicker than yesterday.",
+        "Pepper and lemon. She was right.",
+        "The bud is tight. Not today.",
+        "The pot stays. The sprig is already on the desk."
+      ];
+      var line = lines[pic.stage] || lines[0];
+      if (pic.wet && pic.stage > 0) line += " A drop runs off.";
+      return line;
+    }
+    if (kind === "pip") {
+      var n = Number(pip) || 0;
+      if (n >= 1 && n <= pic.stage) return STAGE_LINES[n];
+      return "Stage " + n + " is still ahead.";
+    }
+    if (kind === "bookmark") return "First evening. She marked the page and left the ribbon here.";
+    if (kind === "book") return "The page is still open at today's work.";
+    if (kind === "kit") return "The kit is drying on the line.";
+    if (kind === "pawn") return "She left the piece mid-game.";
+    if (kind === "sprig") return "This sprig is for the desk, not the pot.";
+    if (kind === "water") return pic.wet ? "The leaves are already wet." : "Water finds the soil.";
+    return "";
+  }
+
   function picture(life, state, today) {
     var stage = Math.max(0, Math.min(7, (life.basilDays || []).length));
     var wet = state.wateredOn === today;
@@ -169,11 +200,11 @@
       leaves += leaf(8, 6, 5, 2.6, 0, greens[4]);
       leaves += "</g>";
     }
-    var dew = wet ? '<circle cx="60" cy="46" r="1.5" fill="#f7fbff" opacity="0.95"/><circle cx="80" cy="40" r="1.3" fill="#f7fbff"/><circle cx="72" cy="52" r="1.1" fill="#e7f3ff"/>' : "";
+    var dew = wet ? '<g class="lux-dew"><circle cx="60" cy="46" r="1.5" fill="#f7fbff"/><circle cx="80" cy="40" r="1.3" fill="#f7fbff"/><circle cx="72" cy="52" r="1.1" fill="#e7f3ff"/></g>' : "";
     var soil = wet ? "#5c4030" : "#8b684c";
-    return '<svg viewBox="0 0 140 120" aria-hidden="true">' +
+    return '<svg viewBox="0 0 140 120" aria-hidden="true"><g class="lux-sway">' +
       leaves + dew +
-      '<path d="M46 78 h48 l-6 28 h-36 z" fill="#c46a45"/>' +
+      '</g><path d="M46 78 h48 l-6 28 h-36 z" fill="#c46a45"/>' +
       '<path d="M44 74 h52 v8 h-52 z" fill="#a85436"/>' +
       '<ellipse cx="70" cy="78" rx="22" ry="5" fill="' + soil + '"/>' +
       "</svg>";
@@ -181,8 +212,16 @@
 
   function pips(stage) {
     var html = "";
-    for (var i = 1; i <= 7; i++) html += '<i class="' + (i <= stage ? "is-on" : "") + '"></i>';
+    for (var i = 1; i <= 7; i++) {
+      html += '<button type="button" class="lux-pip' + (i <= stage ? " is-on" : "") + '" data-lux-touch="pip" data-pip="' + i + '" aria-label="Basil stage ' + i + '"></button>';
+    }
     return html;
+  }
+
+  function potButton(stage, wet, extra) {
+    return '<div class="lux-pot-wrap' + (extra ? " " + extra : "") + '">' +
+      '<div class="lux-pot" role="button" tabindex="0" data-lux-touch="pot" data-stage="' + stage + '" aria-label="Touch the basil">' + potSvg(stage, wet) + "</div>" +
+      '<div class="lux-pips">' + pips(stage) + "</div></div>";
   }
 
   function signature(pic) {
@@ -212,7 +251,7 @@
     strip.dataset.sig = sig;
     strip.dataset.weather = pic.weather;
     strip.innerHTML =
-      '<div class="lux-pot" data-stage="' + pic.stage + '">' + potSvg(pic.stage, pic.wet) + '<div class="lux-pips" aria-hidden="true">' + pips(pic.stage) + "</div></div>" +
+      potButton(pic.stage, pic.wet) +
       '<div class="min-w-0">' +
       '<p class="text-xs font-semibold tracking-[0.18em] text-navy uppercase">Basil · ' + (pic.stage === 0 ? "waiting for a study day" : "stage " + pic.stage + " of 7") + "</p>" +
       '<p class="lux-life-line font-display text-xl font-semibold leading-snug">' + pic.line + "</p>" +
@@ -239,7 +278,7 @@
     bar.dataset.sig = sig;
     bar.dataset.weather = pic.weather;
     bar.innerHTML =
-      '<div class="lux-pot" data-stage="' + pic.stage + '">' + potSvg(pic.stage, pic.wet) + '<div class="lux-pips" aria-hidden="true">' + pips(pic.stage) + "</div></div>" +
+      potButton(pic.stage, pic.wet) +
       '<div class="min-w-0">' +
       '<p class="text-[10px] font-semibold tracking-[0.16em] text-navy uppercase">Basil · ' + (pic.stage === 0 ? "waiting" : pic.stage + " / 7") + "</p>" +
       '<p class="lux-life-line font-display text-lg font-semibold leading-snug">' + pic.line + "</p>" +
@@ -275,12 +314,18 @@
       layer.dataset.weather = pic.weather;
       layer.innerHTML =
         '<div class="lux-wash" data-weather="' + pic.weather + '"></div>' +
-        '<div class="lux-token lux-book"' + (pic.weather === "mind" ? "" : " hidden") + ">Book</div>" +
-        '<div class="lux-token lux-kit"' + (pic.weather === "body" ? "" : " hidden") + ">PE kit</div>" +
-        '<div class="lux-token lux-pawn"' + (pic.weather === "spark" ? "" : " hidden") + ">Pawn</div>" +
-        '<div class="lux-lawn-pot" style="left:10%;top:66%">' + potSvg(pic.stage, pic.wet) + "</div>" +
-        '<div class="lux-bookmark"' + (pic.bookmark ? "" : " hidden") + " style=\"left:32%;top:48%\">Bookmark</div>" +
-        (pic.stage >= 7 ? '<div class="lux-sprig" style="left:80%;top:28%">Sprig</div>' : "");
+        '<button type="button" class="lux-token lux-book" data-lux-touch="book"' + (pic.weather === "mind" ? "" : " hidden") + ">Book</button>" +
+        '<button type="button" class="lux-token lux-kit" data-lux-touch="kit"' + (pic.weather === "body" ? "" : " hidden") + ">PE kit</button>" +
+        '<button type="button" class="lux-token lux-pawn" data-lux-touch="pawn"' + (pic.weather === "spark" ? "" : " hidden") + ">Pawn</button>" +
+        '<div class="lux-lawn-pot" style="left:10%;top:66%">' + potButton(pic.stage, pic.wet) + "</div>" +
+        '<button type="button" class="lux-bookmark" data-lux-touch="bookmark"' + (pic.bookmark ? "" : " hidden") + ">Bookmark</button>" +
+        (pic.stage >= 7 ? '<button type="button" class="lux-sprig" data-lux-touch="sprig">Sprig</button>' : "");
+      var pot = layer.querySelector(".lux-lawn-pot");
+      if (pot && Date.now() < pourUntil) pot.classList.add("is-pouring");
+    }
+    if (Date.now() < pourUntil) {
+      var livePot = layer.querySelector(".lux-lawn-pot");
+      if (livePot) livePot.classList.add("is-pouring");
     }
     stage.querySelectorAll('img[alt="Potted Herb"]').forEach(function (img) {
       if (img.closest("button")) img.style.opacity = "0";
@@ -313,7 +358,7 @@
     overlay.innerHTML =
       '<div class="lux-return-card">' +
       '<p class="text-xs font-semibold tracking-[0.18em] text-navy uppercase">Back in the garden</p>' +
-      '<div class="lux-pot lux-pot-return" data-stage="' + pic.stage + '">' + potSvg(pic.stage, pic.wet) + "</div>" +
+      '<div class="lux-pot-return">' + potButton(pic.stage, pic.wet, "lux-pot-return") + "</div>" +
       '<p class="lux-life-line font-display text-2xl font-semibold leading-snug">' + pic.line + "</p>" +
       '<p class="mt-2 text-sm text-muted">' + sub + "</p>" +
       '<p class="mt-1 text-sm text-muted">' + pic.weatherLine + "</p>" +
@@ -322,7 +367,7 @@
       "</div>";
     document.body.appendChild(overlay);
     var close = function () { if (overlay.parentNode) overlay.parentNode.removeChild(overlay); };
-    overlay.querySelector("button").addEventListener("click", close);
+    overlay.querySelector(".lux-return-go").addEventListener("click", close);
     overlay.addEventListener("click", function (e) { if (e.target === overlay) close(); });
     root.setTimeout(close, 4000);
     life.returnShown = key;
@@ -339,6 +384,7 @@
     var synced = syncLife(readLife(), state, today);
     var life = synced.life;
     var pic = picture(life, state, today);
+    latestPic = pic;
     writeLife(life);
     if (typeof document === "undefined") return { life: life, pic: pic };
     paintHome(pic);
@@ -362,6 +408,86 @@
   }
 
   var pending = 0;
+  var pourUntil = 0;
+  var latestPic = { stage: 0, wet: false };
+  var audioCtx = null;
+
+  function whisper(text, anchor) {
+    if (!text || typeof document === "undefined") return;
+    var old = document.querySelector(".lux-whisper");
+    if (old && old.parentNode) old.parentNode.removeChild(old);
+    var node = document.createElement("p");
+    node.className = "lux-whisper";
+    node.setAttribute("data-lux-life", "whisper");
+    node.setAttribute("role", "status");
+    node.textContent = text;
+    document.body.appendChild(node);
+    var left = 16;
+    var top = 72;
+    if (anchor && anchor.getBoundingClientRect) {
+      var rect = anchor.getBoundingClientRect();
+      left = Math.max(12, Math.min((root.innerWidth || 320) - 228, rect.left));
+      top = Math.max(12, rect.top - 46);
+    }
+    node.style.left = left + "px";
+    node.style.top = top + "px";
+    root.setTimeout(function () { node.classList.add("is-out"); }, 1500);
+    root.setTimeout(function () { if (node.parentNode) node.parentNode.removeChild(node); }, 1900);
+  }
+
+  function tick() {
+    var state = readScholar();
+    if (state && state.sound === false) return;
+    try {
+      var Ctx = root.AudioContext || root.webkitAudioContext;
+      if (!Ctx) return;
+      audioCtx = audioCtx || new Ctx();
+      if (audioCtx.state === "suspended") audioCtx.resume();
+      var osc = audioCtx.createOscillator();
+      var gain = audioCtx.createGain();
+      osc.type = "sine";
+      osc.frequency.value = 494;
+      var now = audioCtx.currentTime;
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(0.02, now + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.1);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + 0.11);
+    } catch (e) {}
+  }
+
+  function onClick(event) {
+    if (!event.target || !event.target.closest) return;
+    var water = event.target.closest("button");
+    if (water && /Water the garden|Watered today/.test(water.textContent || "")) {
+      pourUntil = Date.now() + 1100;
+      var lawn = document.querySelector(".lux-lawn-pot");
+      if (lawn) {
+        lawn.classList.remove("is-pouring");
+        void lawn.offsetWidth;
+        lawn.classList.add("is-pouring");
+      }
+      whisper(replyFor("water", latestPic), water);
+      tick();
+      return;
+    }
+    var el = event.target.closest("[data-lux-touch]");
+    if (!el) return;
+    var kind = el.getAttribute("data-lux-touch");
+    if (kind === "pot") {
+      var svg = el.querySelector("svg");
+      if (svg) {
+        svg.classList.remove("is-rustle");
+        void svg.offsetWidth;
+        svg.classList.add("is-rustle");
+      }
+    }
+    if (kind === "bookmark") el.classList.toggle("is-open");
+    whisper(replyFor(kind, latestPic, el.getAttribute("data-pip")), el);
+    tick();
+  }
   function schedule() {
     if (typeof document === "undefined") return;
     root.clearTimeout(pending);
@@ -384,6 +510,14 @@
         }
       });
       obs.observe(document.body, { childList: true, subtree: true });
+      document.addEventListener("click", onClick);
+      document.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        var el = event.target && event.target.closest && event.target.closest("[data-lux-touch='pot']");
+        if (!el) return;
+        event.preventDefault();
+        el.click();
+      });
       root.addEventListener("storage", schedule);
       root.setInterval(paint, 2000);
     }
@@ -398,6 +532,7 @@
     weatherOf: weatherOf,
     picture: picture,
     potSvg: potSvg,
+    replyFor: replyFor,
     STAGE_LINES: STAGE_LINES
   };
 

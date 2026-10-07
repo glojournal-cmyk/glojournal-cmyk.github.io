@@ -21,20 +21,72 @@
   background: rgba(247, 241, 228, 0.94);
   color: #1a3148;
   box-shadow: 0 8px 24px rgba(8, 20, 32, 0.18);
-  pointer-events: none;
 }
+.lux-hero-bar .lux-pot-wrap { width: 76px; }
 .lux-hero-bar .lux-pot { width: 76px; }
 .lux-hero-bar .lux-life-line { font-size: 1.05rem; }
-.lux-pot { width: 112px; }
+.lux-pot-wrap { width: 112px; }
+.lux-pot { width: 100%; border: 0; background: transparent; padding: 0; display: block; cursor: pointer; }
 .lux-pot svg { display: block; width: 100%; height: auto; }
-.lux-pips { display: flex; gap: 4px; justify-content: center; margin-top: 2px; }
-.lux-pips i {
-  width: 7px; height: 7px; border-radius: 99px;
-  background: rgba(14, 52, 77, 0.18); display: block;
+.lux-pips { display: flex; gap: 3px; justify-content: center; margin-top: 1px; }
+.lux-pips button {
+  width: 14px; height: 14px; border: 0; padding: 0; border-radius: 99px;
+  background: rgba(14, 52, 77, 0.18); cursor: pointer;
 }
-.lux-pips i.is-on { background: #2f6b3a; }
+.lux-pips button.is-on { background: #2f6b3a; }
+.lux-sway { transform-origin: 70px 78px; animation: lux-sway 3.8s ease-in-out infinite; }
+.lux-dew circle { animation: lux-dew 2.6s ease-in-out infinite; }
+svg.is-rustle .lux-sway { animation: lux-rustle 0.48s ease; }
+@keyframes lux-sway {
+  0%, 100% { transform: rotate(-1.4deg); }
+  50% { transform: rotate(1.8deg); }
+}
+@keyframes lux-rustle {
+  0% { transform: rotate(0deg); }
+  35% { transform: rotate(-7deg); }
+  70% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+@keyframes lux-dew {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.lux-lawn-pot.is-pouring::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  width: 7px;
+  height: 7px;
+  margin-left: -3px;
+  border-radius: 50%;
+  background: #e7f3ff;
+  box-shadow: -12px 10px 0 #d5ebf8, 10px 16px 0 #f4fbff;
+  animation: lux-pour 0.95s ease-in forwards;
+  pointer-events: none;
+}
+@keyframes lux-pour {
+  from { transform: translateY(-16px); opacity: 0; }
+  25% { opacity: 1; }
+  to { transform: translateY(42px); opacity: 0; }
+}
+.lux-bookmark.is-open { transform: translate(-50%, -64%) rotate(-8deg); }
+.lux-whisper {
+  position: fixed;
+  z-index: 80;
+  width: min(216px, calc(100vw - 24px));
+  margin: 0;
+  padding: 0.45rem 0.7rem;
+  border-radius: 14px;
+  background: rgba(247, 241, 228, 0.96);
+  color: #1a3148;
+  font: 600 0.92rem/1.35 "Source Sans 3", "Source Sans", sans-serif;
+  box-shadow: 0 10px 24px rgba(8, 20, 32, 0.2);
+}
+.lux-whisper.is-out { opacity: 0; transition: opacity 0.35s ease; }
 .lux-life-line { color: #1a3148; }
 .lux-life-layer { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
+.lux-life-layer button, .lux-lawn-pot { pointer-events: auto; }
 .lux-wash { position: absolute; inset: 0; }
 .lux-wash[data-weather="mind"] { background: radial-gradient(circle at 18% 70%, rgba(255, 196, 120, 0.38), transparent 42%); }
 .lux-wash[data-weather="body"] { background: linear-gradient(to bottom, rgba(255, 244, 214, 0.28), transparent 46%); }
@@ -47,10 +99,12 @@
   position: absolute; transform: translate(-50%, -50%);
 }
 .lux-lawn-pot { width: 92px; filter: drop-shadow(0 6px 8px rgba(8, 20, 32, 0.28)); }
+.lux-lawn-pot .lux-pot-wrap, .lux-lawn-pot .lux-pot { width: 92px; }
 .lux-bookmark, .lux-sprig, .lux-token {
   font-family: "Source Sans 3", "Source Sans", sans-serif;
   font-size: 11px; letter-spacing: 0.04em; font-weight: 650;
   color: #1a3148; background: rgba(247, 241, 228, 0.94);
+  border: 0; cursor: pointer;
   border-radius: 999px; padding: 3px 8px;
   box-shadow: 0 4px 10px rgba(8, 20, 32, 0.18);
 }
@@ -82,5 +136,5 @@
   .lux-return-card { margin-bottom: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .lux-return, .lux-pot svg { animation: none; }
+  .lux-sway, .lux-dew circle, svg.is-rustle .lux-sway, .lux-lawn-pot.is-pouring::after { animation: none; }
 }

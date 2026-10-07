@@ -44,8 +44,16 @@ if (pic.stage !== 2 || !pic.wet || pic.weather !== "mind") throw new Error("pict
 if (!api.potSvg(0, false).includes("ellipse") || !api.potSvg(7, true).includes("Sprig") && !api.potSvg(7, true).includes("translate(96")) throw new Error("pot art missing");
 if (api.STAGE_LINES.length !== 8) throw new Error("need a line for stages 0 through 7");
 
+if (!/pepper and lemon/i.test(api.replyFor("pot", { stage: 5, wet: false }))) throw new Error("stage 5 touch should smell of basil");
+if (!/drop runs off/i.test(api.replyFor("pot", { stage: 2, wet: true }))) throw new Error("wet leaves should mention a drop");
+if (!/still ahead/i.test(api.replyFor("pip", { stage: 1 }, 4))) throw new Error("locked stage should stay ahead");
+if (api.replyFor("pip", { stage: 3 }, 2) !== api.STAGE_LINES[2]) throw new Error("a reached pip should recall that stage");
+if (!/already wet/i.test(api.replyFor("water", { wet: true }))) throw new Error("watering twice should not pretend to pour again");
+if (!/finds the soil/i.test(api.replyFor("water", { wet: false }))) throw new Error("first water of the day should pour");
+if (!api.potSvg(3, true).includes("lux-sway") || !api.potSvg(3, true).includes("lux-dew")) throw new Error("pot should sway and show dew");
+
 const html = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
-if (!html.includes("/assets/garden-life-20261007.js?v=20261007-loading6")) throw new Error("homepage is not loading the living garden");
-if (!html.includes("garden-life-20261007.css?v=20261007-loading6")) throw new Error("homepage is missing the living garden css");
+if (!html.includes("/assets/garden-life-20261007.js?v=20261007-loading7")) throw new Error("homepage is not loading the living garden");
+if (!html.includes("garden-life-20261007.css?v=20261007-loading7")) throw new Error("homepage is missing the living garden css");
 
 console.log("garden-life-qa ok");
