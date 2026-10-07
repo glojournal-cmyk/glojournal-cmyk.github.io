@@ -1,5 +1,5 @@
 import {backupPreview} from "./progress-backup-preview-20261004.js";
-import { C as store } from "/assets/index-BLVOhKhN.js?v=20261007-loading2";
+import { C as store } from "/assets/index-BLVOhKhN.js?v=20261007-loading3";
 
 const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
 const AUTO_KEY = "lux-progress-auto-v1";
@@ -7,10 +7,12 @@ let autoTimer, lastAutoData = "", selectedRestore = null;
 function autoSave(){
  clearTimeout(autoTimer);
  try {
-  const data=store.getState().exportProgress();
+  const dataRaw=store.getState().exportProgress();
+  let data=dataRaw;
+  try { data=JSON.stringify(JSON.parse(dataRaw)); } catch {}
   if(data===lastAutoData)return;
   const previous=localStorage.getItem(AUTO_KEY);
-  if(previous)localStorage.setItem(AUTO_KEY+"-previous",previous);
+  if(previous && previous.length<120000)localStorage.setItem(AUTO_KEY+"-previous",previous);
   const saved={savedAt:new Date().toISOString(),...summary(store.getState()),data};
   localStorage.setItem(AUTO_KEY,JSON.stringify(saved));
   if(JSON.parse(localStorage.getItem(AUTO_KEY)).data!==data)throw Error("Save verification failed");

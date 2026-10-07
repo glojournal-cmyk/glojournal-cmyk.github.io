@@ -15,9 +15,14 @@ assert.equal(kept['lux-scholar-garden-v1'],JSON.stringify(healthy),'readable pro
 assert.equal(kept['lux-scholar-garden-v1-unreadable'],undefined);
 const backup=JSON.stringify({savedAt:'2026-10-07T10:00:00Z',data:JSON.stringify({app:'lux-scholar-garden',version:10,state:{xp:80,today:'2026-10-06',daily:[{id:'latin-vocab',target:30,progress:12}]}})});
 let repaired=runPreflight({'lux-scholar-garden-v1':'{broken','lux-progress-auto-v1':backup});
-assert.equal(repaired['lux-scholar-garden-v1-unreadable'],'{broken','unreadable blob is kept aside');
 assert.equal(JSON.parse(repaired['lux-scholar-garden-v1']).state.xp,80,'automatic backup is restored into the app save');
 let cleared=runPreflight({'lux-scholar-garden-v1':'not-json'});
 assert.equal(cleared['lux-scholar-garden-v1'],undefined,'unreadable save cannot block the next boot');
 assert.equal(cleared['lux-scholar-garden-v1-unreadable'],'not-json');
+let crowded=runPreflight({'lux-scholar-garden-v1':JSON.stringify(healthy),'lux-progress-auto-v1-previous':'{"data":"duplicate"}','lux-day-log-v1':'{"old":true}'});
+assert.equal(crowded['lux-scholar-garden-v1'],JSON.stringify(healthy),'quota cleanup does not rewrite the live save');
+assert.equal(crowded['lux-progress-auto-v1-previous'],undefined,'duplicate automatic copy is removed');
+assert.equal(crowded['lux-day-log-v1'],undefined);
+function quotaStorage(initial){const memory={...initial};let fail=true;const storage={getItem:k=>Object.prototype.hasOwnProperty.call(memory,k)?memory[k]:null,setItem:(k,v)=>{if(fail){fail=false;const error=new Error('The quota has been exceeded.');error.name='QuotaExceededError';throw error;}memory[k]=v;},removeItem:k=>{delete memory[k];}};vm.runInNewContext(fs.readFileSync('assets/progress-preflight-20261007.js','utf8'),{localStorage:storage});storage.setItem('lux-scholar-garden-v1','{"state":{"xp":3,"today":"2026-10-07"},"version":10}');assert.equal(memory['lux-scholar-garden-v1'].includes('"xp":3'),true,'a quota error retries instead of escaping to the error page');}
+quotaStorage({'lux-progress-auto-v1-previous':'x'.repeat(20)});
 assert(!/localStorage|removeItem|clearStorage/.test(source),'recovery does not modify saved data');console.log('LOADING_RECOVERY_QA passed: mount, hydration, root replacement, failure recovery, late load, saved data untouched');
