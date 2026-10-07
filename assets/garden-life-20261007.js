@@ -16,9 +16,9 @@
   ];
   var WEATHER_LINES = {
     still: "The garden is quiet.",
-    mind: "The lamp is on, and a book is open on the bench.",
-    body: "The light is outdoor-bright. Her PE kit is on the line.",
-    spark: "The lantern is lit. A game piece sits on the bench."
+    mind: "The bookshelf is awake, and a book is open.",
+    body: "The garden light is outdoor-bright.",
+    spark: "The garden lantern is lit."
   };
 
   function localDay(date) {
@@ -27,7 +27,7 @@
   }
 
   function blankLife() {
-    return { v: 1, baselined: false, baseline: [], basilDays: [], bookmarkOn: null, announcedGrowthFor: "", bookmarkAnnounced: false, returnShown: "" };
+    return { v: 1, baselined: false, baseline: [], basilDays: [], secondDays: [], bookmarkOn: null, announcedGrowthFor: "", bookmarkAnnounced: false, returnShown: "", arrival: null };
   }
 
   function readScholar() {
@@ -49,10 +49,16 @@
         baselined: !!raw.baselined,
         baseline: Array.isArray(raw.baseline) ? raw.baseline.slice(0, 120) : [],
         basilDays: Array.isArray(raw.basilDays) ? raw.basilDays.slice(0, 7) : [],
+        secondDays: Array.isArray(raw.secondDays) ? raw.secondDays.slice(0, 7) : [],
         bookmarkOn: typeof raw.bookmarkOn === "string" ? raw.bookmarkOn : null,
         announcedGrowthFor: typeof raw.announcedGrowthFor === "string" ? raw.announcedGrowthFor : "",
         bookmarkAnnounced: !!raw.bookmarkAnnounced,
-        returnShown: typeof raw.returnShown === "string" ? raw.returnShown : ""
+        returnShown: typeof raw.returnShown === "string" ? raw.returnShown : "",
+        arrival: raw.arrival && typeof raw.arrival.day === "string" ? {
+          day: raw.arrival.day,
+          score: String(raw.arrival.score || "").slice(0, 80),
+          change: String(raw.arrival.change || "held")
+        } : null
       };
     } catch (e) {
       return blankLife();
@@ -73,10 +79,12 @@
       baselined: !!life.baselined,
       baseline: (life.baseline || []).slice(),
       basilDays: (life.basilDays || []).slice(0, 7),
+      secondDays: (life.secondDays || []).slice(0, 7),
       bookmarkOn: life.bookmarkOn || null,
       announcedGrowthFor: life.announcedGrowthFor || "",
       bookmarkAnnounced: !!life.bookmarkAnnounced,
-      returnShown: life.returnShown || ""
+      returnShown: life.returnShown || "",
+      arrival: life.arrival && life.arrival.day ? life.arrival : null
     };
     var days = studyDaysOf(state);
     var grew = false;
@@ -87,12 +95,21 @@
     var known = {};
     next.baseline.forEach(function (d) { known[d] = true; });
     next.basilDays.forEach(function (d) { known[d] = true; });
+    next.secondDays.forEach(function (d) { known[d] = true; });
     days.forEach(function (d) {
       if (known[d] || next.basilDays.length >= 7) return;
       next.basilDays.push(d);
       known[d] = true;
       if (d === today) grew = true;
     });
+    if (next.basilDays.length >= 7) {
+      days.forEach(function (d) {
+        if (known[d] || next.secondDays.length >= 7) return;
+        next.secondDays.push(d);
+        known[d] = true;
+        if (d === today) grew = true;
+      });
+    }
     if (!next.bookmarkOn && next.basilDays.length) next.bookmarkOn = next.basilDays[0];
     return { life: next, grew: grew };
   }
@@ -119,6 +136,8 @@
   function replyFor(kind, pic, pip) {
     pic = pic || { stage: 0, wet: false };
     if (kind === "pot") {
+      var which = pic.which === "second" ? "second" : "";
+      var potStage = which === "second" ? Number(pic.second || 0) : pic.stage;
       var lines = [
         "Nothing is up yet. The soil is waiting.",
         "The shoot bends, then stands again.",
@@ -129,39 +148,82 @@
         "The bud is tight. Not today.",
         "The pot stays. The sprig is already on the desk."
       ];
-      var line = lines[pic.stage] || lines[0];
-      if (pic.wet && pic.stage > 0) line += " A drop runs off.";
+      var line = lines[potStage] || lines[0];
+      if (which === "second" && potStage <= 0) return "The second pot is only soil. It is waiting.";
+      if (which === "second" && potStage > 0) line = "Second pot. " + line;
+      if (pic.wet && potStage > 0) line += " A drop runs off.";
       return line;
     }
     if (kind === "pip") {
       var n = Number(pip) || 0;
-      if (n >= 1 && n <= pic.stage) return STAGE_LINES[n];
+      var reached = pic.which === "second" ? Number(pic.second || 0) : pic.stage;
+      if (n >= 1 && n <= reached) return STAGE_LINES[n];
       return "Stage " + n + " is still ahead.";
     }
-    if (kind === "bookmark") return "First evening. She marked the page and left the ribbon here.";
-    if (kind === "book") return "The page is still open at today's work.";
-    if (kind === "kit") return "The kit is drying on the line.";
-    if (kind === "pawn") return "She left the piece mid-game.";
-    if (kind === "sprig") return "This sprig is for the desk, not the pot.";
+    if (kind === "bookmark") return "First evening. She left the ribbon on the wooden bench.";
+    if (kind === "book") return "The book on the shelf is open at today's work.";
+    if (kind === "sprig") return "This sprig is on the desk, not in the pot.";
     if (kind === "water") return pic.wet ? "The leaves are already wet." : "Water finds the soil.";
     return "";
   }
 
+  function plantLine(stage, which) {
+    if (which === "second" && stage <= 0) return "The sprig is on the desk. The second pot is waiting.";
+    if (which === "second" && stage >= 7) return "A second sprig is cut. Both pots stay green.";
+    var line = STAGE_LINES[stage] || STAGE_LINES[0];
+    return which === "second" ? "Second pot. " + line : line;
+  }
+
+  function scoreLine(text) {
+    text = String(text || "").replace(/\s+/g, " ").trim();
+    var score = text.match(/\d+\s*\/\s*\d+/);
+    var xp = text.match(/\+\s*\d+\s*XP/i);
+    var bits = [];
+    if (score) bits.push(score[0].replace(/\s+/g, ""));
+    if (xp) bits.push(xp[0].replace(/\s+/g, ""));
+    return (bits.join(" · ") || text.slice(0, 80)).slice(0, 80);
+  }
+
+  function changeOf(life, today, grew) {
+    if (grew && (life.secondDays || []).indexOf(today) !== -1) return "second";
+    if (grew && (life.basilDays || []).indexOf(today) !== -1) return (life.basilDays || []).length >= 7 ? "sprig" : "basil";
+    if (life.bookmarkOn === today && !life.bookmarkAnnounced) return "bookmark";
+    return "held";
+  }
+
+  function arrivalSentence(arrival) {
+    var lead = {
+      basil: "The basil grew one stage.",
+      second: "The second pot grew one stage.",
+      bookmark: "A bookmark is on the bench.",
+      sprig: "A sprig is on the desk. The second pot is waiting.",
+      held: "The pot is holding this stage."
+    }[arrival && arrival.change] || "Back in the garden.";
+    return arrival && arrival.score ? lead + " " + arrival.score + "." : lead;
+  }
+
   function picture(life, state, today) {
     var stage = Math.max(0, Math.min(7, (life.basilDays || []).length));
+    var second = Math.max(0, Math.min(7, (life.secondDays || []).length));
     var wet = state.wateredOn === today;
     var weather = weatherOf(state, today);
-    var grewToday = (life.basilDays || []).indexOf(today) !== -1;
+    var grewToday = (life.basilDays || []).indexOf(today) !== -1 || (life.secondDays || []).indexOf(today) !== -1;
+    var focus = stage >= 7 ? "second" : "basil";
+    var arrival = life.arrival && life.arrival.day === today ? life.arrival : null;
     return {
       stage: stage,
+      second: second,
+      focus: focus,
       wet: wet,
       weather: weather,
       grewToday: grewToday,
       bookmark: !!life.bookmarkOn,
-      line: STAGE_LINES[stage],
+      sprig: stage >= 7,
+      line: focus === "second" ? plantLine(second, "second") : plantLine(stage, "basil"),
       weatherLine: WEATHER_LINES[weather],
       waterLine: wet ? "Water is still on the leaves." : "The leaves are dry until you water.",
-      bookmarkLine: life.bookmarkOn ? "A paper bookmark is resting on the bench." : "Finish one study set and a bookmark will wait on the bench."
+      bookmarkLine: life.bookmarkOn ? "A paper bookmark is on the wooden bench." : "Finish one study set and a bookmark will wait on the bench.",
+      arrivalLine: arrival ? arrivalSentence(arrival) : ""
     };
   }
 
@@ -218,14 +280,15 @@
     return html;
   }
 
-  function potButton(stage, wet, extra) {
-    return '<div class="lux-pot-wrap' + (extra ? " " + extra : "") + '">' +
-      '<div class="lux-pot" role="button" tabindex="0" data-lux-touch="pot" data-stage="' + stage + '" aria-label="Touch the basil">' + potSvg(stage, wet) + "</div>" +
+  function potButton(stage, wet, extra, which) {
+    var kind = which || "basil";
+    return '<div class="lux-pot-wrap' + (extra ? " " + extra : "") + '" data-which="' + kind + '">' +
+      '<div class="lux-pot" role="button" tabindex="0" data-lux-touch="pot" data-which="' + kind + '" data-stage="' + stage + '" aria-label="' + (kind === "second" ? "Touch the second basil" : "Touch the basil") + '">' + potSvg(stage, wet) + "</div>" +
       '<div class="lux-pips">' + pips(stage) + "</div></div>";
   }
 
   function signature(pic) {
-    return [pic.stage, pic.wet ? 1 : 0, pic.weather, pic.bookmark ? 1 : 0, pic.line].join("|");
+    return [pic.stage, pic.second || 0, pic.wet ? 1 : 0, pic.weather, pic.bookmark ? 1 : 0, pic.sprig ? 1 : 0, pic.line, pic.arrivalLine || ""].join("|");
   }
 
   function stateReady(state) {
@@ -250,14 +313,16 @@
     if (strip.dataset.sig === sig) return strip;
     strip.dataset.sig = sig;
     strip.dataset.weather = pic.weather;
+    var shown = pic.focus === "second" ? pic.second : pic.stage;
     strip.innerHTML =
-      potButton(pic.stage, pic.wet) +
+      potButton(shown, pic.wet, "", pic.focus) +
       '<div class="min-w-0">' +
-      '<p class="text-xs font-semibold tracking-[0.18em] text-navy uppercase">Basil · ' + (pic.stage === 0 ? "waiting for a study day" : "stage " + pic.stage + " of 7") + "</p>" +
-      '<p class="lux-life-line font-display text-xl font-semibold leading-snug">' + pic.line + "</p>" +
-      '<p class="mt-1 text-sm text-muted">' + pic.weatherLine + "</p>" +
-      '<p class="mt-1 text-sm text-muted">' + pic.waterLine + "</p>" +
-      '<p class="mt-1 text-sm' + (pic.bookmark ? " text-navy" : " text-muted") + '">' + pic.bookmarkLine + "</p>" +
+      '<p class="text-xs font-semibold tracking-[0.18em] text-navy uppercase">' + (pic.focus === "second" ? "Second pot · " + (pic.second === 0 ? "waiting" : "stage " + pic.second + " of 7") : "Basil · " + (pic.stage === 0 ? "waiting for a study day" : "stage " + pic.stage + " of 7")) + "</p>" +
+      '<p class="lux-life-line font-display text-xl font-semibold leading-snug">' + esc(pic.line) + "</p>" +
+      '<p class="mt-1 text-sm text-muted">' + esc(pic.weatherLine) + "</p>" +
+      '<p class="mt-1 text-sm text-muted">' + esc(pic.waterLine) + "</p>" +
+      '<p class="mt-1 text-sm' + (pic.bookmark ? " text-navy" : " text-muted") + '">' + esc(pic.bookmarkLine) + "</p>" +
+      (pic.arrivalLine ? '<p class="mt-1 text-sm text-navy">' + esc(pic.arrivalLine) + "</p>" : "") +
       "</div>";
     return strip;
   }
@@ -277,13 +342,67 @@
     if (bar.dataset.sig === sig) return;
     bar.dataset.sig = sig;
     bar.dataset.weather = pic.weather;
+    var shown = pic.focus === "second" ? pic.second : pic.stage;
     bar.innerHTML =
-      potButton(pic.stage, pic.wet) +
+      potButton(shown, pic.wet, "", pic.focus) +
       '<div class="min-w-0">' +
-      '<p class="text-[10px] font-semibold tracking-[0.16em] text-navy uppercase">Basil · ' + (pic.stage === 0 ? "waiting" : pic.stage + " / 7") + "</p>" +
-      '<p class="lux-life-line font-display text-lg font-semibold leading-snug">' + pic.line + "</p>" +
-      '<p class="text-xs text-muted">' + pic.weatherLine + (pic.wet ? " Water is still on the leaves." : "") + (pic.bookmark ? " " + pic.bookmarkLine : "") + "</p>" +
+      '<p class="text-[10px] font-semibold tracking-[0.16em] text-navy uppercase">' + (pic.focus === "second" ? "Second pot · " + pic.second + " / 7" : "Basil · " + (pic.stage === 0 ? "waiting" : pic.stage + " / 7")) + "</p>" +
+      '<p class="lux-life-line font-display text-lg font-semibold leading-snug">' + esc(pic.line) + "</p>" +
+      '<p class="text-xs text-muted">' + esc(pic.weatherLine) + (pic.wet ? " Water is still on the leaves." : "") + (pic.bookmark ? " " + esc(pic.bookmarkLine) : "") + "</p>" +
       "</div>";
+  }
+
+  function esc(s) {
+    return String(s || "")
+      .replace(/&/g, "\u0026amp;")
+      .replace(/</g, "\u0026lt;")
+      .replace(/>/g, "\u0026gt;")
+      .replace(/"/g, "\u0026quot;");
+  }
+
+  function sceneButtons() {
+    var found = {};
+    document.querySelectorAll("img").forEach(function (img) {
+      var btn = img.closest && img.closest("button");
+      if (!btn) return;
+      if (img.alt === "Potted Herb") found.herb = btn;
+      else if (img.alt === "Wooden Bench") found.bench = btn;
+      else if (img.alt === "Garden Lantern") found.lantern = btn;
+      else if (img.alt === "Bookshelf") found.bookshelf = btn;
+      else if (img.alt === "Cat Companion") found.cat = btn;
+      else if (img.alt === "Stone Fountain") found.fountain = btn;
+    });
+    return found;
+  }
+
+  function syncPin(btn, kind, on, label) {
+    if (!btn) return;
+    var pin = btn.querySelector("[data-lux-pin='" + kind + "']");
+    if (!on) {
+      if (pin && pin.parentNode) pin.parentNode.removeChild(pin);
+      return;
+    }
+    if (pin) return;
+    pin = document.createElement("button");
+    pin.type = "button";
+    pin.className = "lux-pin lux-" + kind;
+    pin.setAttribute("data-lux-pin", kind);
+    pin.setAttribute("data-lux-touch", kind);
+    pin.setAttribute("data-lux-life", "pin");
+    pin.textContent = label;
+    btn.appendChild(pin);
+  }
+
+  function paintScene(pic) {
+    var pieces = sceneButtons();
+    if (pieces.lantern) pieces.lantern.classList.toggle("lux-glow", pic.weather === "spark");
+    if (pieces.bookshelf) pieces.bookshelf.classList.toggle("lux-awake", pic.weather === "mind");
+    if (pieces.herb) {
+      var photo = pieces.herb.querySelector("img");
+      if (photo) photo.style.opacity = "0";
+    }
+    syncPin(pieces.bench, "bookmark", pic.bookmark, "Bookmark");
+    syncPin(pieces.bookshelf, "sprig", pic.sprig, "Sprig");
   }
 
   function paintGarden(pic) {
@@ -314,15 +433,12 @@
       layer.dataset.weather = pic.weather;
       layer.innerHTML =
         '<div class="lux-wash" data-weather="' + pic.weather + '"></div>' +
-        '<button type="button" class="lux-token lux-book" data-lux-touch="book"' + (pic.weather === "mind" ? "" : " hidden") + ">Book</button>" +
-        '<button type="button" class="lux-token lux-kit" data-lux-touch="kit"' + (pic.weather === "body" ? "" : " hidden") + ">PE kit</button>" +
-        '<button type="button" class="lux-token lux-pawn" data-lux-touch="pawn"' + (pic.weather === "spark" ? "" : " hidden") + ">Pawn</button>" +
-        '<div class="lux-lawn-pot" style="left:10%;top:66%">' + potButton(pic.stage, pic.wet) + "</div>" +
-        '<button type="button" class="lux-bookmark" data-lux-touch="bookmark"' + (pic.bookmark ? "" : " hidden") + ">Bookmark</button>" +
-        (pic.stage >= 7 ? '<button type="button" class="lux-sprig" data-lux-touch="sprig">Sprig</button>' : "");
+        '<div class="lux-lawn-pot" style="left:10%;top:66%">' + potButton(pic.stage, pic.wet, "", "basil") + "</div>" +
+        (pic.sprig ? '<div class="lux-lawn-pot lux-second-pot">' + potButton(pic.second, pic.wet, "", "second") + "</div>" : "");
       var pot = layer.querySelector(".lux-lawn-pot");
       if (pot && Date.now() < pourUntil) pot.classList.add("is-pouring");
     }
+    paintScene(pic);
     if (Date.now() < pourUntil) {
       var livePot = layer.querySelector(".lux-lawn-pot");
       if (livePot) livePot.classList.add("is-pouring");
@@ -347,34 +463,55 @@
     if (life.returnShown === key) { resultOpen = true; return life; }
     resultOpen = true;
     var grewNow = pic.grewToday && life.announcedGrowthFor !== today;
-    var bookmarkNow = pic.bookmark && !life.bookmarkAnnounced;
+    var change = changeOf(life, today, grewNow);
+    var score = scoreLine(result.textContent);
+    life.arrival = { day: today, score: score, change: change };
+    var cardStage = change === "second" ? pic.second : pic.stage;
+    var cardWhich = change === "second" ? "second" : "basil";
     var overlay = document.createElement("div");
     overlay.className = "lux-return";
     overlay.setAttribute("data-lux-life", "return");
     overlay.setAttribute("role", "dialog");
     overlay.setAttribute("aria-modal", "true");
     overlay.setAttribute("aria-label", "Back in the garden");
-    var sub = grewNow ? "It grew one stage. The next stage waits for another study day." : (pic.grewToday ? "It is holding this stage until the next study day." : "One study day moves the basil. Water only wets the leaves.");
     overlay.innerHTML =
       '<div class="lux-return-card">' +
       '<p class="text-xs font-semibold tracking-[0.18em] text-navy uppercase">Back in the garden</p>' +
-      '<div class="lux-pot-return">' + potButton(pic.stage, pic.wet, "lux-pot-return") + "</div>" +
-      '<p class="lux-life-line font-display text-2xl font-semibold leading-snug">' + pic.line + "</p>" +
-      '<p class="mt-2 text-sm text-muted">' + sub + "</p>" +
-      '<p class="mt-1 text-sm text-muted">' + pic.weatherLine + "</p>" +
-      (bookmarkNow ? '<p class="mt-1 text-sm text-navy">A paper bookmark is now resting on the bench.</p>' : "") +
-      '<button type="button" class="lux-return-go">See the score</button>' +
+      '<div class="lux-pot-return">' + potButton(cardStage, pic.wet, "lux-pot-return", cardWhich) + "</div>" +
+      '<p class="lux-life-line font-display text-2xl font-semibold leading-snug">' + esc(pic.line) + "</p>" +
+      '<p class="mt-2 text-sm text-muted">' + esc(arrivalSentence(life.arrival)) + "</p>" +
+      '<p class="mt-1 text-sm text-muted">' + esc(pic.weatherLine) + "</p>" +
+      '<button type="button" class="lux-return-go">Back to the garden</button>' +
       "</div>";
     document.body.appendChild(overlay);
-    var close = function () { if (overlay.parentNode) overlay.parentNode.removeChild(overlay); };
-    overlay.querySelector(".lux-return-go").addEventListener("click", close);
-    overlay.addEventListener("click", function (e) { if (e.target === overlay) close(); });
-    root.setTimeout(close, 4000);
+    var left = false;
+    var leave = function () {
+      if (left) return;
+      left = true;
+      if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      goGarden();
+    };
+    overlay.querySelector(".lux-return-go").addEventListener("click", leave);
+    overlay.addEventListener("click", function (e) { if (e.target === overlay) leave(); });
+    root.setTimeout(leave, 4000);
     life.returnShown = key;
     if (grewNow) life.announcedGrowthFor = today;
-    if (bookmarkNow) life.bookmarkAnnounced = true;
+    if (pic.bookmark && !life.bookmarkAnnounced) life.bookmarkAnnounced = true;
     writeLife(life);
     return life;
+  }
+
+  function goGarden() {
+    if (typeof location === "undefined") return;
+    if (/\/garden(?:\/index\.html)?\/?$/.test(location.pathname)) return;
+    var hop = document.createElement("a");
+    hop.href = "/garden";
+    hop.setAttribute("data-lux-life", "hop");
+    document.body.appendChild(hop);
+    hop.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: root }));
+    root.setTimeout(function () {
+      if (!/\/garden(?:\/index\.html)?\/?$/.test(location.pathname)) location.assign("/garden");
+    }, 400);
   }
 
   function paint() {
@@ -485,7 +622,13 @@
       }
     }
     if (kind === "bookmark") el.classList.toggle("is-open");
-    whisper(replyFor(kind, latestPic, el.getAttribute("data-pip")), el);
+    var host = el.closest("[data-which]");
+    var touched = latestPic;
+    if (host && host.getAttribute("data-which")) {
+      touched = Object.assign({}, latestPic, { which: host.getAttribute("data-which") });
+    }
+    if (el.hasAttribute("data-lux-pin")) event.stopPropagation();
+    whisper(replyFor(kind, touched, el.getAttribute("data-pip")), el);
     tick();
   }
   function schedule() {
@@ -510,7 +653,7 @@
         }
       });
       obs.observe(document.body, { childList: true, subtree: true });
-      document.addEventListener("click", onClick);
+      document.addEventListener("click", onClick, true);
       document.addEventListener("keydown", function (event) {
         if (event.key !== "Enter" && event.key !== " ") return;
         var el = event.target && event.target.closest && event.target.closest("[data-lux-touch='pot']");
@@ -533,6 +676,9 @@
     picture: picture,
     potSvg: potSvg,
     replyFor: replyFor,
+    scoreLine: scoreLine,
+    changeOf: changeOf,
+    plantLine: plantLine,
     STAGE_LINES: STAGE_LINES
   };
 

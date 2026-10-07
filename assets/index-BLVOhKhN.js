@@ -1,9 +1,9 @@
-import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261007-loading7";
-import "./journey-navigation-20261004.js?v=20261007-loading7";
+import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261007-loading8";
+import "./journey-navigation-20261004.js?v=20261007-loading8";
 import "./weekly-evidence-20261004.js";
-import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261007-loading7";
-import("/pet/pet-care-global.js?v=20261007-loading7").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261007-loading7";
+import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261007-loading8";
+import("/pet/pet-care-global.js?v=20261007-loading8").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261007-loading8";
 import {
   C as store,
   Z as scholarLevelProgress,
@@ -17,7 +17,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261007-loading7";
+} from "./index-BLVOhKhN.core.js?v=20261007-loading8";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -3145,7 +3145,7 @@ function mountDailyRecordButton() {
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261007-loading7").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261007-loading8").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){

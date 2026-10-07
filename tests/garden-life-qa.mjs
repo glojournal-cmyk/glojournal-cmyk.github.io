@@ -29,6 +29,22 @@ for (let n = 9; n <= 20; n++) {
   many = api.syncLife(many, { studyDays: many.basilDays.concat([day]) }, day).life;
 }
 if (many.basilDays.length !== 7) throw new Error("basil must stop at 7, got " + many.basilDays.length);
+if (many.secondDays.length !== 7) throw new Error("the next seven study days belong to the second pot, got " + many.secondDays.length);
+
+let pots = api.blankLife();
+let days = [];
+for (let n = 1; n <= 8; n++) {
+  const day = "2026-11-" + String(n).padStart(2, "0");
+  days.push(day);
+  pots = api.syncLife(pots, { studyDays: days.slice() }, day).life;
+}
+if (pots.basilDays.length !== 7 || pots.secondDays.join() !== "2026-11-08") {
+  throw new Error("the seventh day cuts the sprig, and only the eighth starts the second pot: " + pots.secondDays);
+}
+if (api.changeOf(pots, "2026-11-07", true) !== "sprig") throw new Error("finishing the first pot should put the sprig on the desk");
+if (api.changeOf(pots, "2026-11-08", true) !== "second") throw new Error("the next day should grow the second pot");
+if (api.scoreLine("Correct 8 / 10. +12 XP") !== "8/10 · +12XP") throw new Error("score line should keep the mark and the XP");
+if (!/second pot is waiting/i.test(api.plantLine(0, "second"))) throw new Error("an empty second pot should be waiting, not grown");
 
 const quiet = api.weatherOf({ activity: {}, peDays: [], gameXpToday: 0 }, today);
 if (quiet !== "still") throw new Error("empty day should be still, got " + quiet);
@@ -53,7 +69,7 @@ if (!/finds the soil/i.test(api.replyFor("water", { wet: false }))) throw new Er
 if (!api.potSvg(3, true).includes("lux-sway") || !api.potSvg(3, true).includes("lux-dew")) throw new Error("pot should sway and show dew");
 
 const html = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
-if (!html.includes("/assets/garden-life-20261007.js?v=20261007-loading7")) throw new Error("homepage is not loading the living garden");
-if (!html.includes("garden-life-20261007.css?v=20261007-loading7")) throw new Error("homepage is missing the living garden css");
+if (!html.includes("/assets/garden-life-20261007.js?v=20261007-loading8")) throw new Error("homepage is not loading the living garden");
+if (!html.includes("garden-life-20261007.css?v=20261007-loading8")) throw new Error("homepage is missing the living garden css");
 
 console.log("garden-life-qa ok");

@@ -86,11 +86,11 @@ svg.is-rustle .lux-sway { animation: lux-rustle 0.48s ease; }
 .lux-whisper.is-out { opacity: 0; transition: opacity 0.35s ease; }
 .lux-life-line { color: #1a3148; }
 .lux-life-layer { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
-.lux-life-layer button, .lux-lawn-pot { pointer-events: auto; }
-.lux-wash { position: absolute; inset: 0; }
-.lux-wash[data-weather="mind"] { background: radial-gradient(circle at 18% 70%, rgba(255, 196, 120, 0.38), transparent 42%); }
-.lux-wash[data-weather="body"] { background: linear-gradient(to bottom, rgba(255, 244, 214, 0.28), transparent 46%); }
-.lux-wash[data-weather="spark"] { background: radial-gradient(circle at 78% 28%, rgba(255, 186, 72, 0.45), transparent 36%); }
+.lux-lawn-pot, .lux-lawn-pot .lux-pot, .lux-pips button { pointer-events: auto; }
+.lux-wash { position: absolute; inset: 0; pointer-events: none; }
+.lux-wash[data-weather="mind"] { background: radial-gradient(circle at 80% 30%, rgba(255, 214, 150, 0.42), transparent 28%); }
+.lux-wash[data-weather="body"] { background: linear-gradient(to bottom, rgba(255, 248, 220, 0.38), transparent 55%); }
+.lux-wash[data-weather="spark"] { background: radial-gradient(circle at 8% 40%, rgba(255, 186, 72, 0.55), transparent 26%); }
 .lux-hero-wash { position: absolute; inset: 0; pointer-events: none; z-index: 15; }
 .lux-hero-wash[data-weather="mind"] { background: radial-gradient(circle at 20% 78%, rgba(255, 196, 120, 0.34), transparent 40%); }
 .lux-hero-wash[data-weather="body"] { background: linear-gradient(to bottom, rgba(255, 248, 230, 0.22), transparent 42%); }
@@ -108,11 +108,27 @@ svg.is-rustle .lux-sway { animation: lux-rustle 0.48s ease; }
   border-radius: 999px; padding: 3px 8px;
   box-shadow: 0 4px 10px rgba(8, 20, 32, 0.18);
 }
-.lux-bookmark { left: 32%; top: 48%; }
-.lux-sprig { left: 80%; top: 28%; }
-.lux-book { left: 32%; top: 72%; }
-.lux-kit { left: 74%; top: 18%; }
-.lux-pawn { left: 56%; top: 40%; }
+.lux-second-pot { left: 23%; top: 62%; width: 64px; }
+.lux-second-pot .lux-pot-wrap, .lux-second-pot .lux-pot { width: 68px; }
+.lux-pin {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -62%);
+  border: 0;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 2px 7px;
+  background: rgba(247, 241, 228, 0.94);
+  color: #1a3148;
+  font: 650 11px/1.2 "Source Sans 3", "Source Sans", sans-serif;
+  box-shadow: 0 4px 10px rgba(8, 20, 32, 0.18);
+}
+.lux-pin.lux-sprig { top: auto; bottom: 0; transform: translate(-50%, 35%); }
+.lux-pin.is-open { transform: translate(-50%, -78%) rotate(-8deg); }
+button.lux-glow { filter: drop-shadow(0 0 10px rgba(255, 196, 110, 0.95)); }
+button.lux-awake { filter: brightness(1.12) saturate(1.15); }
 .lux-return {
   position: fixed; inset: 0; z-index: 70;
   display: grid; place-items: end center;

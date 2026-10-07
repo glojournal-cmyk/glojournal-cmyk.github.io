@@ -1,5 +1,5 @@
-import {StarMapChallenge} from './star-map-challenge-20261004.js?v=20261007-loading7';
-import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{t as r}from"./link-bW0ClP5B.js";import{C as o}from"./index-BLVOhKhN.js?v=20261007-loading7";import{t as a}from"./button-CgT0JZ5s.js?v=20261007-loading7";import{t as s}from"./card-t5JqoXqT.js?v=20261007-loading7";var W=e(t(),1),G=n();
+import {StarMapChallenge} from './star-map-challenge-20261004.js?v=20261007-loading8';
+import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js";import{t as r}from"./link-bW0ClP5B.js";import{C as o}from"./index-BLVOhKhN.js?v=20261007-loading8";import{t as a}from"./button-CgT0JZ5s.js?v=20261007-loading8";import{t as s}from"./card-t5JqoXqT.js?v=20261007-loading8";var W=e(t(),1),G=n();
 
 const META={id:`weekly-boss`,name:`Repair the star map`,kicker:`Weekly themed expedition`,blurb:`Restore four sections of the observatory chart through short missions. Collect this week’s Star Map when all four are restored.`,levels:1};
 const LABELS={french:`French`,physics:`Physics`,chemistry:`Chemistry`,biology:`Biology`};
