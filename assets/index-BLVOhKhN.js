@@ -1,9 +1,9 @@
-import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261004-starmap1";
-import "./journey-navigation-20261004.js?v=20261004-starmap1";
+import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261007-loading1";
+import "./journey-navigation-20261004.js?v=20261007-loading1";
 import "./weekly-evidence-20261004.js";
-import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261004-starmap1";
-import("/pet/pet-care-global.js?v=20261004-starmap1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261004-starmap1";
+import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261007-loading1";
+import("/pet/pet-care-global.js?v=20261007-loading1").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261007-loading1";
 import {
   C as store,
   Z as scholarLevelProgress,
@@ -17,7 +17,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261004-starmap1";
+} from "./index-BLVOhKhN.core.js?v=20261007-loading1";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -3127,7 +3127,7 @@ function mountDailyRecordButton() {
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261004-starmap1").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261007-loading1").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){
@@ -3139,22 +3139,15 @@ if(typeof window!=="undefined"&&window.addEventListener)window.addEventListener(
 
 if(typeof window!=="undefined"&&typeof document!=="undefined")globalThis.LuxJourney.watchActions(store);
 
-// Document hydration can replace attributes on <html>; keep the loading gate
-// aligned with the rendered device state rather than a transient root attribute.
+// Readiness comes from the mounted router, never from XP text or optional cards.
 if(typeof document!=='undefined') {
  const showLoadedProgress=()=>{
-  if(document.documentElement.hasAttribute('data-lux-ready'))return;
-  const main=document.querySelector('main'),header=document.querySelector('header.sticky');
-  if(!main||!header)return;
-  const state=store.getState(),levelProgress=scholarLevelProgress(Number(state.xp)||0),xp=String(levelProgress.into);
-  if(!new RegExp('Lv\\s*'+levelProgress.level+'\\s*·\\s*'+xp+'\\s*XP').test(header.textContent||''))return;
-  if(location.pathname==='/'&&!main.querySelector('[data-home-journey]'))return;
-  if(/Year 9 French is waiting|Year 9 French is waiting for a verified school source/.test(main.textContent||'')&&getTopicCatalog('french',9).some(topic=>Number(topic.enabled)>0))return;
-  document.documentElement.setAttribute('data-lux-ready','');
+  if(!window.__luxAppReady || store.persist?.hasHydrated?.()===false)return;
+  if(!document.documentElement.hasAttribute('data-lux-ready'))document.documentElement.setAttribute('data-lux-ready','');
  };
- const observe=new MutationObserver(showLoadedProgress);
- observe.observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['data-lux-ready']});
- store.subscribe(()=>setTimeout(showLoadedProgress,0));
+ new MutationObserver(showLoadedProgress).observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['data-lux-ready']});
+ window.addEventListener('lux:app-ready',showLoadedProgress);
+ store.persist?.onFinishHydration?.(showLoadedProgress);
  setTimeout(showLoadedProgress,0);
 }
 
