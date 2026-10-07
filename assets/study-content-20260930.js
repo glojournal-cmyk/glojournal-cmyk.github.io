@@ -2,7 +2,7 @@ let noteUpdatesPromise;
 export async function applyStudyNoteUpdates(pack) {
   if (!pack?.note) return pack;
   try {
-    if (!noteUpdatesPromise) noteUpdatesPromise = fetch('/content/note-updates-20261003.json?v=20261007-loading3').then(response => {
+    if (!noteUpdatesPromise) noteUpdatesPromise = fetch('/content/note-updates-20261003.json?v=20261007-loading4').then(response => {
       if (!response.ok) throw new Error('Topic note updates unavailable');
       return response.json();
     });
