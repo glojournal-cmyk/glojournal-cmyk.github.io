@@ -38,7 +38,7 @@ assert.equal(buildRevisionPlan({}, {results:[result,{...result,revisionEvidence:
 assert.equal(buildRevisionPlan({}, {results:[{paperId:'chemistry',score:51}]}, '2026-10-04').active[0].latest.score,51);
 assert.ok(buildRevisionPlan({}, {results:[{paperId:'chemistry',score:51}]}, '2026-10-04').active[0].revisionTopics.every(t=>t.state==='unchecked'));
 const mastered={topicStats:Object.fromEntries(chemistry.topics.map(id=>[id,{attempted:20,correct:20,state:'mastered'}]))};
-assert.equal(buildRevisionPlan(mastered,{},'2026-10-04').suggestion.href,'/assessment/?paper=chemistry&v=20261007-loading5');
+assert.equal(buildRevisionPlan(mastered,{},'2026-10-04').suggestion.href,'/assessment/?paper=chemistry&v=20261007-loading6');
 assert.equal(buildRevisionPlan({}, {hiddenSchoolAssessments:[chemistry.id]}, '2026-10-04').suggestion.assessment.subject,'French');
 const custom={id:'custom',subject:'Maths',date:'2026-10-04',title:'Algebra',status:'Upcoming'};
 assert.equal(buildRevisionPlan({}, {tracker:[custom]}, '2026-10-04').active[0].title,'Algebra');
