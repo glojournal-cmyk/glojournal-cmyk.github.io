@@ -67,8 +67,8 @@ const warmIds=new Set(warm.map(q=>q.id));
 }
 
 export function creditCurriculumAttempt(existing,attempt){
- if(!attempt.questionId||!attempt.topicId||attempt.formal===false||attempt.repair||!['y8-practise','y8-mastery'].includes(attempt.task))return existing||{};
- const day=attempt.day,phase=attempt.mode==='mastery'?'mastery':'foundation';
+ if(!attempt.questionId||!attempt.topicId||attempt.formal===false||attempt.repair||!['y8-practise','y8-mastery','year8-long-review'].includes(attempt.task))return existing||{};
+ const day=attempt.day,phase=attempt.mode==='mastery'||attempt.mode==='year8long'?'mastery':'foundation';
  const ledger={...(existing||{})},days={...(ledger[day]||{})},topics={...(days[attempt.task]||{})},old=topics[attempt.topicId]||{},ids={...(old[phase]||{})};
  ids[attempt.questionId]=true;topics[attempt.topicId]={...old,[phase]:ids};days[attempt.task]=topics;ledger[day]=days;
  for(const key of Object.keys(ledger).sort().slice(0,-45))delete ledger[key];return ledger;

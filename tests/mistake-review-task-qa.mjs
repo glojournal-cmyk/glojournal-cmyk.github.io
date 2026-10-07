@@ -10,6 +10,8 @@ assert.ok(!task.reviewQuestionIds.includes('today'));assert.ok(!task.reviewQuest
 assert.strictEqual(creditMistakeReview(task,task.reviewQuestionIds[0],false,state.today),task);
 task=creditMistakeReview(task,task.reviewQuestionIds[0],true,state.today);
 assert.equal(task.progress,1);assert.equal(creditMistakeReview(task,task.reviewQuestionIds[0],true,state.today).progress,1);
+const answered={...state,daily:[task],reviews:{[task.reviewQuestionIds[1]]:{subject:'french',topicId:'fr-y8-s02-weather-activities-and-opinions',wrong:false,last:state.today,lastWrong:'2026-10-02'}}};
+assert.equal(mistakeReviewTask(answered).progress,2,'A correct assigned repair counts even if the session credit call was missed');
 state.daily=[task];state.reviews={};
 assert.deepEqual(mistakeReviewTask(state),task,'Closing or clearing reviews must retain the same assigned questions and progress');
 for(const id of task.reviewQuestionIds)task=creditMistakeReview(task,id,true,state.today);

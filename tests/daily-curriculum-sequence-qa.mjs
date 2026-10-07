@@ -77,6 +77,32 @@ const afterTwo = context.plan({ ...frenchPractice, daily: [readyMastery], dailyC
 } }).find((task) => task.id === "y8-mastery");
 assert.equal(afterTwo.progress, 12);
 
+const masteredToday = Array.from({ length: 15 }, () => ({ date: state.today }));
+const finishedStats = {
+  "la-y8-stage-1-vocabulary": { attempted: 25, state: "practising", recentOutcomes: masteredToday },
+  "fr-y8-s01-quick-rules": { attempted: 25, state: "practising", recentOutcomes: masteredToday },
+};
+const finished = context.plan({ ...state, topicStats: finishedStats });
+for (const id of ["y8-mastery", "year8-long-review"]) {
+  const task = finished.find((row) => row.id === id);
+  const topic = task.reviewTopic || task.assignedTopic;
+  if (topic === "la-y8-stage-1-vocabulary" || topic === "fr-y8-s01-quick-rules") {
+    assert.equal(task.progress, 25, id + " counts 15 mastery answers done after foundation");
+    assert.equal(id === "y8-mastery" ? task.masteryStartAttempts : task.reviewStartAttempts, 0);
+  }
+}
+const swallowed = context.plan({
+  ...state,
+  daily: [{ id: "y8-mastery", planDate: state.today, assignedSubject: "french", assignedTopic: "fr-y8-s01-quick-rules", assignedYear: 8, progress: 15, target: 25, masteryStartAttempts: 10, curriculumVersion: 2, href: "/study/french/practise?mode=mastery" }],
+  topicStats: { "fr-y8-s01-quick-rules": finishedStats["fr-y8-s01-quick-rules"] },
+});
+assert.equal(swallowed.find((task) => task.id === "y8-mastery").progress, 25, "A late baseline must not leave a finished mastery set incomplete");
+const partial = context.plan({
+  ...state,
+  topicStats: { "fr-y8-s01-quick-rules": { attempted: 20, state: "practising", recentOutcomes: masteredToday } },
+});
+assert.equal(partial.find((task) => task.id === "y8-mastery").progress, 20, "Only answers after the tenth count toward the mastery 15");
+
 console.log("DAILY_CURRICULUM_SEQUENCE_QA passed: foundation first, old advanced assignment repaired, practice prerequisite");
 
 const completedAdvanced=context.plan({...previous,daily:previous.daily.map(t=>({...t,progress:25,target:25}))});

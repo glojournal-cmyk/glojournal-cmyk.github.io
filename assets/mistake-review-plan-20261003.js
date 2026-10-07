@@ -1,9 +1,17 @@
-import "./practice-evidence-bridge-20261004.js?v=20261007-loading4";
+import "./practice-evidence-bridge-20261004.js?v=20261007-loading5";
 const LABELS={french:'French',latin:'Latin',biology:'Biology',chemistry:'Chemistry',physics:'Physics',english:'English'};
+function correctedToday(state,id,day){
+ const review=state.reviews?.[id];
+ if(!review||review.repair)return false;
+ if(review.reviewedOn===day)return true;
+ const seen=review.last===day||String(review.lastAt||'').slice(0,10)===day;
+ return seen&&review.wrong===false&&(!review.lastWrong||review.lastWrong<day);
+}
 export function mistakeReviewTask(state,assessment=globalThis.LuxPracticeBridge.readAssessment()){
  const day=state.today,old=(state.daily||[]).find(t=>t.id==='mistake-review');
  if(old?.planDate===day&&old.reviewQuestionIds?.length){
-  const completed=[...new Set([...(old.reviewCompletedIds||[]),...(old.reviewSource==="assessment"?Object.keys(assessment.dailyReviewCredits?.[day]||{}).filter(id=>assessment.dailyReviewCredits[day][id]):[])])].filter(id=>old.reviewQuestionIds.includes(id));
+  const fromPractice=old.reviewSource==='assessment'?[]:(old.reviewQuestionIds||[]).filter(id=>correctedToday(state,id,day));
+  const completed=[...new Set([...(old.reviewCompletedIds||[]),...fromPractice,...(old.reviewSource==="assessment"?Object.keys(assessment.dailyReviewCredits?.[day]||{}).filter(id=>assessment.dailyReviewCredits[day][id]):[])])].filter(id=>old.reviewQuestionIds.includes(id));
   return {...old,reviewCompletedIds:completed,progress:completed.length};
  }
  const assessmentRows=globalThis.LuxPracticeBridge.dueReviews(assessment,day).map(r=>({...r,source:"assessment",date:r.lastWrong,topicId:r.paperId}));

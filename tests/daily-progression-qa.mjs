@@ -63,4 +63,7 @@ ledger=creditCurriculumAttempt(JSON.parse(JSON.stringify(ledger)),{...attempt,mo
 assert.equal(Object.keys(ledger[base.today]['y8-mastery'][attempt.topicId].mastery).length,1,'Reload/repeated answer counts once per phase');
 assert.equal(creditCurriculumAttempt(ledger,{...attempt,questionId:'repair',mode:'mastery',repair:true}),ledger);
 assert.equal(creditCurriculumAttempt(ledger,{...attempt,questionId:'vocab',mode:'mastery',formal:false}),ledger);
+const longReview=creditCurriculumAttempt({}, {...attempt,task:'year8-long-review',mode:'year8long',questionId:'long-1'});
+assert.equal(Object.keys(longReview[base.today]['year8-long-review'][attempt.topicId].mastery).length,1,'Year 8 long review stores mastery-phase answers');
+assert.equal(creditCurriculumAttempt({}, {...attempt,task:'year8-long-review',mode:'standard',questionId:'long-foundation'})[base.today]['year8-long-review'][attempt.topicId].mastery,undefined);
 console.log('Phase evidence QA passed: independent counters, deduplication, repairs/non-formal excluded and JSON backup round-trip.');

@@ -1,9 +1,9 @@
-import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261007-loading4";
-import "./journey-navigation-20261004.js?v=20261007-loading4";
+import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261007-loading5";
+import "./journey-navigation-20261004.js?v=20261007-loading5";
 import "./weekly-evidence-20261004.js";
-import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261007-loading4";
-import("/pet/pet-care-global.js?v=20261007-loading4").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261007-loading4";
+import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261007-loading5";
+import("/pet/pet-care-global.js?v=20261007-loading5").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261007-loading5";
 import {
   C as store,
   Z as scholarLevelProgress,
@@ -17,7 +17,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261007-loading4";
+} from "./index-BLVOhKhN.core.js?v=20261007-loading5";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -1228,6 +1228,26 @@ function completedYear8ReviewEvidence(state) {
 }
 
 function buildAdaptiveDaily(state) {
+  function masteryKeyCount(topicId) {
+    const day = state.today || todayKey();
+    const bucket = state.dailyCurriculumEvidenceByDay?.[day] || {};
+    const ids = new Set();
+    for (const taskId of ["y8-mastery", "year8-long-review"]) {
+      const row = bucket[taskId]?.[topicId]?.mastery;
+      if (row && typeof row === "object") for (const id of Object.keys(row)) ids.add(id);
+    }
+    return ids.size;
+  }
+  // The extra 15 is today's work after the first 10 foundation answers.
+  // A baseline saved only after those answers must not swallow them.
+  function phaseCredit(topicId, ready) {
+    const todayAttempts = topicAttemptsToday(state, topicId);
+    const lifetime = Math.max(0, Number(state.topicStats?.[topicId]?.attempted) || 0);
+    const before = Math.max(0, lifetime - todayAttempts);
+    const todayMastery = ready ? Math.max(0, Math.min(todayAttempts, lifetime - 10)) : 0;
+    const start = !ready || !topicId ? null : before >= 10 ? 0 : Math.min(10, Math.max(0, Math.min(todayAttempts, 10 - before)));
+    return { todayAttempts, todayMastery, start };
+  }
   const previous = new Map((state.daily || []).map((task) => [task.id, task]));
   const existingPlan = previous.get("study-session");
   const locked = curriculumFocusAllowed({subject:existingPlan?.focusSubject,topicId:existingPlan?.focusTopic},state) && existingPlan?.planDate === state.today && DAILY_SUBJECTS.includes(existingPlan.focusSubject) && (!existingPlan.focusTopic || topicMatchesYear(existingPlan.focusTopic, state.year) || (existingPlan.focusReason === "foundation" && topicMatchesYear(existingPlan.focusTopic, 8))) && !(state.year === 9 && existingPlan.focusSubject === "french" && existingPlan.href === FRENCH_DAILY_HREF);
@@ -1253,7 +1273,10 @@ function buildAdaptiveDaily(state) {
       ? `${Math.round((focus.accuracy || 0) * 100)}% so far · build towards ≥85%${focus.errorType ? ` · main issue: ${errorLabel(focus.errorType)}` : ""}.`
       : `Ten focused questions in ${label}.`;
 
-  const studyProgress = Math.min(10, Math.max(0, Number(state.questionsToday) || 0, ...(Object.keys(state.dailyTopicAttemptsByDay?.[state.today] || {}).length ? [Object.values(state.dailyTopicAttemptsByDay[state.today]).reduce((sum, count) => sum + Math.max(0, Number(count) || 0), 0)] : []), existingPlan?.planDate === state.today ? Number(existingPlan.progress) || 0 : 0));
+  const studyTopicIds = new Set([...Object.keys(state.topicStats || {}), ...Object.keys(state.dailyTopicAttemptsByDay?.[state.today] || {})]);
+  let studyEvidence = 0;
+  for (const topicId of studyTopicIds) studyEvidence += topicAttemptsToday(state, topicId);
+  const studyProgress = Math.min(10, Math.max(0, Number(state.questionsToday) || 0, studyEvidence, existingPlan?.planDate === state.today ? Number(existingPlan.progress) || 0 : 0));
   const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;
   const focusEvidence = focusAttemptsToday(state, focus);
   const focusProgress = Math.min(4, Math.max(focusEvidence, oldFocusProgress));
@@ -1281,24 +1304,19 @@ function buildAdaptiveDaily(state) {
         ready: (state.topicStats?.[oldYear8Review.reviewTopic]?.attempted || 0) >= 10,
       }
     : plannedYear8Review);
-  const reviewAttempts = topicAttemptsToday(state, year8Review.topicId);
-  const reviewStartAttempts = year8Review.ready
-    ? oldYear8Review.reviewTopic === year8Review.topicId && Number.isFinite(oldYear8Review.reviewStartAttempts)
-      ? oldYear8Review.reviewStartAttempts : Math.min(10, reviewAttempts)
-    : null;
+  const reviewPhase = phaseCredit(year8Review.topicId, !!year8Review.ready);
+  const reviewAttempts = reviewPhase.todayAttempts;
+  const reviewStartAttempts = reviewPhase.start;
   const year8ReviewProgress = recoveredYear8Review ? 25 : Math.max(oldYear8Review.planDate === state.today && oldYear8Review.reviewTopic === year8Review.topicId ? Number(oldYear8Review.progress) || 0 : 0, Math.min(25,
-    Math.min(10, Math.max(reviewAttempts, year8Review.ready ? 10 : 0)) + (reviewStartAttempts === null ? 0 :
-      Math.min(15, Math.max(0, reviewAttempts - reviewStartAttempts)))));
+    Math.min(10, Math.max(reviewAttempts, year8Review.ready ? 10 : 0)) + Math.min(15, Math.max(reviewPhase.todayMastery, reviewStartAttempts == null ? 0 : masteryKeyCount(year8Review.topicId)))));
   const assignedSeed = [...(state.today || todayKey())].reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
   const oldPractise = previous.get("y8-practise") || {};
   const oldMastery = previous.get("y8-mastery") || {};
   const practisePick = assignedCurriculumPick(state,assignedSeed,oldPractise);
   const masteryPick = assignedCurriculumPick(state,assignedSeed+1,oldMastery);
   const masteryReady = (state.topicStats?.[masteryPick?.topicId]?.attempted || 0) >= 10;
-  const masteryStartAttempts = masteryReady
-    ? oldMastery.assignedTopic === masteryPick?.topicId && Number.isFinite(oldMastery.masteryStartAttempts)
-      ? oldMastery.masteryStartAttempts : Math.min(10, topicAttemptsToday(state, masteryPick?.topicId))
-    : null;
+  const masteryPhase = phaseCredit(masteryPick?.topicId, masteryReady);
+  const masteryStartAttempts = masteryPhase.start;
   const pathDetail=pick=>pick?.waitingForTaught?"Year 8 consolidation · mark taught Year 9 topics in Topic library to continue.":`Year ${pick?.year||8} · topic ${pick?.position||1}/${pick?.total||1}${pick?.phase==='retention'?' · retention review':''}`;
   const y8PractiseTask = {
     id: "y8-practise",
@@ -1323,8 +1341,8 @@ function buildAdaptiveDaily(state) {
     href: year8AssignedHref(masteryPick, masteryReady ? "mastery" : "standard", "y8-mastery"),
     target: 25,
     progress: Math.min(25, Math.max(oldMastery.planDate === state.today && oldMastery.assignedTopic === masteryPick?.topicId ? Number(oldMastery.progress) || 0 : 0,
-      (masteryReady ? 10 : Math.min(10,topicAttemptsToday(state,masteryPick?.topicId))) +
-      Math.min(15,masteryLegacyCredit+Object.keys(state.dailyCurriculumEvidenceByDay?.[state.today]?.["y8-mastery"]?.[masteryPick?.topicId]?.mastery || {}).length))),
+      (masteryReady ? 10 : Math.min(10, masteryPhase.todayAttempts)) +
+      Math.min(15, Math.max(masteryLegacyCredit + masteryKeyCount(masteryPick?.topicId), masteryPhase.todayMastery)))),
     xp: 20,
     planDate: state.today,
     assignedSubject: masteryPick?.subject || null,
@@ -3127,7 +3145,7 @@ function mountDailyRecordButton() {
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261007-loading4").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261007-loading5").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){
@@ -3135,7 +3153,11 @@ export function rewardCountdown(condition,stats){
 }
 export {rewardCountdown as q};
 
-if(typeof window!=="undefined"&&window.addEventListener)window.addEventListener("storage",event=>{if(event.key==="lux-assessment-v1")normalizeState();});
+if(typeof window!=="undefined"&&window.addEventListener){
+ window.addEventListener("storage",event=>{if(!event.key||event.key==="lux-assessment-v1")normalizeState();});
+ window.addEventListener("pageshow",()=>normalizeState());
+ document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")normalizeState();});
+}
 
 if(typeof window!=="undefined"&&typeof document!=="undefined")globalThis.LuxJourney.watchActions(store);
 
