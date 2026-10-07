@@ -1,4 +1,4 @@
-import {C as store,A as outfits,B as scenes,J as requirements,Y as stats} from './index-BLVOhKhN.js?v=20261007-loading1';
+import {C as store,A as outfits,B as scenes,J as requirements,Y as stats} from './index-BLVOhKhN.js?v=20261007-loading2';
 import {petNames,petLevel,firstGoal,goalView,celebrationToken} from './companion-goals-state-20261004.js?v=2';
 import {spriteStyle} from './companion-art-20261004.js';
 const KEY='lux-companion-experience-v1',PET='lux-pet-companion-v1',catalog={outfits,scenes,requirements,stats};

@@ -1,9 +1,9 @@
-import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261007-loading1";
-import "./journey-navigation-20261004.js?v=20261007-loading1";
+import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261007-loading2";
+import "./journey-navigation-20261004.js?v=20261007-loading2";
 import "./weekly-evidence-20261004.js";
-import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261007-loading1";
-import("/pet/pet-care-global.js?v=20261007-loading1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261007-loading1";
+import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261007-loading2";
+import("/pet/pet-care-global.js?v=20261007-loading2").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261007-loading2";
 import {
   C as store,
   Z as scholarLevelProgress,
@@ -17,7 +17,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261007-loading1";
+} from "./index-BLVOhKhN.core.js?v=20261007-loading2";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -3127,7 +3127,7 @@ function mountDailyRecordButton() {
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261007-loading1").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261007-loading2").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){
@@ -3142,7 +3142,9 @@ if(typeof window!=="undefined"&&typeof document!=="undefined")globalThis.LuxJour
 // Readiness comes from the mounted router, never from XP text or optional cards.
 if(typeof document!=='undefined') {
  const showLoadedProgress=()=>{
-  if(!window.__luxAppReady || store.persist?.hasHydrated?.()===false)return;
+  // A failed or still-pending save must not leave the iPad on the spinner.
+  // React hydration can strip data-lux-ready from <html>; put it back once the shell is mounted.
+  if(!window.__luxAppReady)return;
   if(!document.documentElement.hasAttribute('data-lux-ready'))document.documentElement.setAttribute('data-lux-ready','');
  };
  new MutationObserver(showLoadedProgress).observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['data-lux-ready']});

@@ -18,7 +18,7 @@
   const panel = document.createElement('section');
   panel.id = 'lux-loading-recovery';
   panel.setAttribute('role', 'alert');
-  panel.style.cssText = 'position:fixed;inset:0;z-index:1001;display:grid;place-content:center;gap:16px;padding:28px;background:#f4f0e5;color:#1a3148;text-align:center;font:18px system-ui';
+  panel.style.cssText = 'position:fixed;inset:0;z-index:2147483000;display:grid;place-content:center;gap:16px;padding:28px;background:#f4f0e5;color:#1a3148;text-align:center;font:18px system-ui';
   const title = document.createElement('h1');title.textContent = 'The app could not finish loading.';
   const copy = document.createElement('p');copy.textContent = 'Your saved progress has not been cleared. Please retry the connection.';
   const button = document.createElement('button');button.textContent = 'Retry loading';button.type = 'button';
