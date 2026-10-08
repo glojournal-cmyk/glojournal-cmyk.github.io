@@ -86,7 +86,7 @@ if (!practise.includes("garden-life-20261007.js")) throw new Error("practice is 
 if (assessment.includes("garden-life-20261007.js")) throw new Error("assessment must not load the practice leaves");
 
 const html = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
-if (!html.includes("/assets/garden-life-20261007.js?v=20261007-loading10")) throw new Error("homepage is not loading the living garden");
-if (!html.includes("garden-life-20261007.css?v=20261007-loading10")) throw new Error("homepage is missing the living garden css");
+if (!html.includes("/assets/garden-life-20261007.js?v=20261008-pot2")) throw new Error("homepage is not loading the living garden");
+if (!html.includes("garden-life-20261007.css?v=20261008-pot2")) throw new Error("homepage is missing the living garden css");
 
 console.log("garden-life-qa ok");

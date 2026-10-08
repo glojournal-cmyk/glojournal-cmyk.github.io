@@ -279,10 +279,15 @@
     return html;
   }
 
+  function potArt(stage) {
+    var file = stage >= 7 ? "stage-7" : stage >= 4 ? "stage-4" : stage >= 1 ? "stage-2" : "stage-0";
+    return "/art/basil/" + file + ".jpg?v=20261008-pot2";
+  }
+
   function potButton(stage, wet, extra, which) {
     var kind = which || "basil";
     return '<div class="lux-pot-wrap' + (extra ? " " + extra : "") + '" data-which="' + kind + '">' +
-      '<div class="lux-pot" role="button" tabindex="0" data-lux-touch="pot" data-which="' + kind + '" data-stage="' + stage + '" aria-label="' + (kind === "second" ? "Touch the second basil" : "Touch the basil") + '">' + potSvg(stage, wet) + "</div>" +
+      '<div class="lux-pot" role="button" tabindex="0" data-lux-touch="pot" data-which="' + kind + '" data-stage="' + stage + '" aria-label="' + (kind === "second" ? "Touch the second basil" : "Touch the basil") + '"><img src="' + potArt(stage) + '" alt=""' + (wet ? ' class="is-wet"' : "") + "></div>" +
       '<div class="lux-pips">' + pips(stage) + "</div></div>";
   }
 

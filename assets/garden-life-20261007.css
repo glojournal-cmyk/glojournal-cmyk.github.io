@@ -37,7 +37,10 @@
 .lux-hero-bar .lux-life-line { font-size: 1.05rem; }
 .lux-pot-wrap { width: 88px; max-width: 88px; }
 .lux-pot { width: 88px; max-width: 88px; border: 0; background: transparent; padding: 0; display: block; cursor: pointer; }
-.lux-pot svg { display: block; width: 88px; height: 96px; max-width: 88px; }
+.lux-pot svg, .lux-pot img { display: block; width: 88px; height: 96px; max-width: 88px; object-fit: cover; border-radius: 14px; }
+.lux-pot img.is-wet { filter: saturate(1.05) brightness(1.03); }
+.lux-pips button { background: #e4d8c4; }
+.lux-pips button.is-on { background: #6f8f62; }
 .lux-pips { display: flex; gap: 3px; justify-content: center; margin-top: 1px; }
 .lux-pips button {
   width: 14px; height: 14px; border: 0; padding: 0; border-radius: 99px;
