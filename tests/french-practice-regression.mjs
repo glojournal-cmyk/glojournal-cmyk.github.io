@@ -89,7 +89,7 @@ test('French dictation handles accents and does not reshuffle after scheduling a
  const runner=hooks();const ctx=vm.createContext({...context,...env(state,runner),D:()=>[{id:'zero',prompt:'zero',answer:'zéro'},{id:'three',prompt:'three',answer:'trois'}]});
  vm.runInContext(quiz.slice(quiz.indexOf('function O('),quiz.indexOf('function k(')),ctx);
  const props={lang:'french',size:2,backHref:'/study/french'};let tree=runner.render(()=>ctx.O(props));
- for(const [i,answer] of ['zero','trois'].entries()){
+ for(const [i,answer] of ['zéro','trois'].entries()){
   flatten(tree).find(n=>n?.type==='Input').props.onChange({target:{value:answer}});tree=runner.render(()=>ctx.O(props));flatten(tree).find(n=>n?.type==='form').props.onSubmit({preventDefault:empty});tree=runner.render(()=>ctx.O(props));assert.ok(textOf(tree).includes('Well done!'));assert.ok(textOf(tree).includes(`${i+1} / 2`));button(tree,i===1?'Finish':'Next word').props.onClick();tree=runner.render(()=>ctx.O(props));
  }
  assert.ok(textOf(tree).includes('2 / 2 spelled independently.'));

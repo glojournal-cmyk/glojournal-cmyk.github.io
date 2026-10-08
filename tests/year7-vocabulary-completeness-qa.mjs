@@ -46,7 +46,10 @@ for(const q of newQuestions){
   assert.deepEqual(canonical.answer,q.answer,q.id+' duplicate answer differs');
   assert.equal(vocabularyQuestion(q,'french'),false,q.id+' duplicate still enters daily rotation');
  }else assert.ok(vocabularyQuestion(q,'french'),q.id+' excluded from daily');
- for(const answer of q.answer.accepted)assert.equal(context.B(q,norm(answer),'french').ok,true,q.id+': accent-free '+answer);
+ for(const answer of q.answer.accepted){
+  assert.equal(context.B(q,answer,'french').ok,true,q.id+': official '+answer);
+  if(/[\u0300-\u036f]/.test(String(answer).normalize('NFD')))assert.equal(context.B(q,norm(answer),'french').ok,false,q.id+': accent required '+answer);
+ }
  assert.equal(context.B(q,'completely unrelated answer','french').ok,false,q.id);
 }
 const masculine=newQuestions.find(q=>q.stimulus.text==='sweet (masculine)');

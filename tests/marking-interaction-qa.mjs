@@ -64,6 +64,10 @@ for(const q of questions){
     for(const [kind,value] of variants){
       if(!String(value).trim()) continue;
       const r=B(q,value,"french",{});
+      if(kind==="accentless" && stripAccents(first)!==first){
+        if(r.ok) failures.push({type:"accentless-counted-correct",file:q.__file,id:q.id,format:q.format,official:first,input:value,result:r});
+        continue;
+      }
       if(!r.ok) failures.push({type:"french-normalization-false-negative",kind,file:q.__file,id:q.id,format:q.format,official:first,input:value,result:r});
     }
   }
