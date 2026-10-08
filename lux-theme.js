@@ -161,6 +161,10 @@
   function pinBar() {
     const nav = document.querySelector('nav.lux-shell-nav, nav.fixed.inset-x-3.bottom-3');
     if (!nav || nav.classList.contains('pet-side-nav')) return;
+    if (document.body.classList.contains('lux-desk')) {
+      nav.style.setProperty('display', 'none', 'important');
+      return;
+    }
     if (nav.parentElement !== document.body) document.body.appendChild(nav);
     const s = nav.style;
     s.setProperty('display', 'grid', 'important');
