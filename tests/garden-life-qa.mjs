@@ -57,7 +57,7 @@ if (spark !== "spark") throw new Error("a game alone should light the lantern, g
 
 const pic = api.picture(step.life, { wateredOn: "2026-10-08", activity: { "2026-10-08": 4 } }, "2026-10-08");
 if (pic.stage !== 2 || !pic.wet || pic.weather !== "mind") throw new Error("picture mismatch " + JSON.stringify(pic));
-if (!api.potSvg(0, false).includes("ellipse") || !api.potSvg(7, true).includes("Sprig") && !api.potSvg(7, true).includes("translate(96")) throw new Error("pot art missing");
+if (!api.potSvg(0, false).includes("ellipse") || !api.potSvg(7, true).includes("lux-sprig")) throw new Error("pot art missing");
 if (api.STAGE_LINES.length !== 8) throw new Error("need a line for stages 0 through 7");
 
 if (!/pepper and lemon/i.test(api.replyFor("pot", { stage: 5, wet: false }))) throw new Error("stage 5 touch should smell of basil");

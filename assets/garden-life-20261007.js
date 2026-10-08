@@ -229,47 +229,46 @@
 
   function potSvg(stage, wet) {
     var leaves = "";
-    var greens = ["#c5d7a4", "#9cbf78", "#6fa35a", "#3f7d45", "#2f6b3a", "#245c32", "#1e5130"];
+    var greens = ["#d5e4b8", "#8fb56a", "#5f9450", "#3d7344", "#2c5c38", "#234d30", "#1b4128"];
     function leaf(x, y, rx, ry, rot, g) {
       return '<ellipse cx="' + x + '" cy="' + y + '" rx="' + rx + '" ry="' + ry + '" fill="' + g + '" transform="rotate(' + rot + ' ' + x + ' ' + y + ')"/>';
     }
-    if (stage >= 1) leaves += '<path d="M70 78 C70 62 74 52 70 44" stroke="#3f6b3a" stroke-width="2" fill="none"/>';
-    if (stage === 1) leaves += '<ellipse cx="70" cy="42" rx="3.2" ry="6" fill="#c5d7a4"/>';
+    if (stage >= 1) leaves += '<path d="M44 54 C44 44 46 38 44 32" stroke="#3d7344" stroke-width="1.6" fill="none"/>';
+    if (stage === 1) leaves += '<ellipse cx="44" cy="30" rx="2.4" ry="4.2" fill="#d5e4b8"/>';
     if (stage >= 2) {
-      leaves += leaf(62, 58, 7, 4, -30, greens[1]);
-      leaves += leaf(78, 58, 7, 4, 30, greens[1]);
+      leaves += leaf(38, 42, 6, 3.1, -32, greens[1]);
+      leaves += leaf(50, 42, 6, 3.1, 32, greens[1]);
     }
     if (stage >= 3) {
-      leaves += leaf(56, 50, 8, 4.2, -50, greens[2]);
-      leaves += leaf(84, 50, 8, 4.2, 50, greens[2]);
+      leaves += leaf(34, 36, 6.4, 3.2, -48, greens[2]);
+      leaves += leaf(54, 36, 6.4, 3.2, 48, greens[2]);
     }
     if (stage >= 4) {
-      leaves += leaf(64, 42, 9, 4.5, -20, greens[3]);
-      leaves += leaf(78, 40, 9, 4.6, 24, greens[3]);
-      leaves += '<path d="M70 58 C68 40 72 34 70 28" stroke="#2f6b3a" stroke-width="2" fill="none"/>';
+      leaves += leaf(39, 28, 6.6, 3.2, -18, greens[3]);
+      leaves += leaf(50, 27, 6.6, 3.3, 22, greens[3]);
     }
     if (stage >= 5) {
-      leaves += leaf(58, 36, 8, 4, -40, greens[4]);
-      leaves += leaf(84, 34, 8, 4, 36, greens[4]);
-      leaves += '<circle cx="48" cy="32" r="1.3" fill="#d7e7c4"/><circle cx="92" cy="30" r="1.2" fill="#d7e7c4"/>';
+      leaves += leaf(34, 24, 5.6, 2.8, -42, greens[4]);
+      leaves += leaf(55, 23, 5.6, 2.8, 38, greens[4]);
     }
-    if (stage >= 6) leaves += '<circle cx="70" cy="24" r="3.2" fill="#f3efe2" stroke="#d7c89a"/>';
+    if (stage >= 6) leaves += '<circle cx="44" cy="18" r="2.4" fill="#f4efe4" stroke="#d7c89a"/>';
     if (stage >= 7) {
-      leaves += '<g transform="translate(96 34)">';
-      leaves += '<path d="M8 28 C8 16 10 10 8 4" stroke="#2f6b3a" stroke-width="1.6" fill="none"/>';
-      leaves += leaf(4, 12, 6, 3, -40, greens[5]);
-      leaves += leaf(13, 14, 6, 3, 40, greens[5]);
-      leaves += leaf(8, 6, 5, 2.6, 0, greens[4]);
+      leaves += '<g class="lux-sprig" transform="translate(58 16)">';
+      leaves += '<path d="M6 18 C6 12 7 8 6 4" stroke="#2c5c38" stroke-width="1.3" fill="none"/>';
+      leaves += leaf(3, 10, 4.2, 2.1, -36, greens[5]);
+      leaves += leaf(10, 11, 4.2, 2.1, 36, greens[5]);
       leaves += "</g>";
     }
-    var dew = wet ? '<g class="lux-dew"><circle cx="60" cy="46" r="1.5" fill="#f7fbff"/><circle cx="80" cy="40" r="1.3" fill="#f7fbff"/><circle cx="72" cy="52" r="1.1" fill="#e7f3ff"/></g>' : "";
-    var soil = wet ? "#5c4030" : "#8b684c";
-    return '<svg viewBox="0 0 140 120" aria-hidden="true"><g class="lux-sway">' +
-      leaves + dew +
-      '</g><path d="M46 78 h48 l-6 28 h-36 z" fill="#c46a45"/>' +
-      '<path d="M44 74 h52 v8 h-52 z" fill="#a85436"/>' +
-      '<ellipse cx="70" cy="78" rx="22" ry="5" fill="' + soil + '"/>' +
-      "</svg>";
+    var dew = wet ? '<g class="lux-dew"><circle cx="36" cy="34" r="1.15" fill="#f7fbff"/><circle cx="52" cy="30" r="1" fill="#f7fbff"/></g>' : "";
+    var soil = wet ? "#5c4030" : "#7a5a40";
+    return '<svg viewBox="0 0 88 96" width="88" height="96" aria-hidden="true">' +
+      '<ellipse cx="44" cy="90" rx="26" ry="3.2" fill="#e7dcc8"/>' +
+      '<path d="M26 58 h36 l-5 24 h-26 z" fill="#c46b45"/>' +
+      '<path d="M30 62 h8 l-1.2 16 h-5.2 z" fill="#d98962" opacity="0.7"/>' +
+      '<path d="M24 54 h40 v7 h-40 z" fill="#a34e34"/>' +
+      '<path d="M27 55 h10 v3.2 h-10 z" fill="#d08a68" opacity="0.8"/>' +
+      '<ellipse cx="44" cy="58" rx="18" ry="4.2" fill="' + soil + '"/>' +
+      '<g class="lux-sway">' + leaves + dew + "</g></svg>";
   }
 
   function pips(stage) {
@@ -295,34 +294,42 @@
     return !!state && (typeof state.xp === "number" || typeof state.today === "string" || Array.isArray(state.studyDays));
   }
 
-  function placeStrip(anchor, where, pic) {
+  function placeStrip(anchor, where, pic, compact) {
     var parent = anchor && anchor.parentElement;
     if (!parent) return null;
     var strip = parent.querySelector(":scope > [data-lux-life='strip']");
     if (!strip) {
       strip = document.createElement("section");
       strip.setAttribute("data-lux-life", "strip");
-      strip.className = "lux-life-strip rounded-[28px] bg-card text-ink shadow-[var(--shadow-border)]";
       parent.insertBefore(strip, where === "before" ? anchor : anchor.nextSibling);
     } else if (where === "before" && strip.nextElementSibling !== anchor) {
       parent.insertBefore(strip, anchor);
     } else if (where === "after" && strip.previousElementSibling !== anchor) {
       parent.insertBefore(strip, anchor.nextSibling);
     }
-    var sig = signature(pic);
+    strip.className = compact
+      ? "lux-life-strip is-home"
+      : "lux-life-strip rounded-[28px] bg-card text-ink shadow-[var(--shadow-border)]";
+    var sig = signature(pic) + (compact ? "|home" : "");
     if (strip.dataset.sig === sig) return strip;
     strip.dataset.sig = sig;
     strip.dataset.weather = pic.weather;
     var shown = pic.focus === "second" ? pic.second : pic.stage;
+    var label = pic.focus === "second"
+      ? "Second pot · " + (pic.second === 0 ? "waiting" : "stage " + pic.second + " of 7")
+      : "Basil · " + (pic.stage === 0 ? "waiting for a study day" : "stage " + pic.stage + " of 7");
+    var copy = compact
+      ? '<p class="lux-life-line font-display text-lg font-semibold leading-snug">' + esc(pic.line) + "</p>"
+      : '<p class="lux-life-line font-display text-xl font-semibold leading-snug">' + esc(pic.line) + "</p>" +
+        '<p class="mt-1 text-sm text-muted">' + esc(pic.weatherLine) + "</p>" +
+        '<p class="mt-1 text-sm text-muted">' + esc(pic.waterLine) + "</p>" +
+        '<p class="mt-1 text-sm' + (pic.bookmark ? " text-navy" : " text-muted") + '">' + esc(pic.bookmarkLine) + "</p>" +
+        (pic.arrivalLine ? '<p class="mt-1 text-sm text-navy">' + esc(pic.arrivalLine) + "</p>" : "");
     strip.innerHTML =
       potButton(shown, pic.wet, "", pic.focus) +
       '<div class="min-w-0">' +
-      '<p class="text-xs font-semibold tracking-[0.18em] text-navy uppercase">' + (pic.focus === "second" ? "Second pot · " + (pic.second === 0 ? "waiting" : "stage " + pic.second + " of 7") : "Basil · " + (pic.stage === 0 ? "waiting for a study day" : "stage " + pic.stage + " of 7")) + "</p>" +
-      '<p class="lux-life-line font-display text-xl font-semibold leading-snug">' + esc(pic.line) + "</p>" +
-      '<p class="mt-1 text-sm text-muted">' + esc(pic.weatherLine) + "</p>" +
-      '<p class="mt-1 text-sm text-muted">' + esc(pic.waterLine) + "</p>" +
-      '<p class="mt-1 text-sm' + (pic.bookmark ? " text-navy" : " text-muted") + '">' + esc(pic.bookmarkLine) + "</p>" +
-      (pic.arrivalLine ? '<p class="mt-1 text-sm text-navy">' + esc(pic.arrivalLine) + "</p>" : "") +
+      '<p class="text-xs font-semibold tracking-[0.18em] text-navy uppercase">' + label + "</p>" +
+      copy +
       "</div>";
     return strip;
   }
@@ -333,7 +340,7 @@
     if (!frame || !frame.parentElement) return;
     var covered = frame.querySelector(":scope > [data-lux-life='strip']");
     if (covered && covered.parentNode) covered.parentNode.removeChild(covered);
-    placeStrip(frame, "after", pic);
+    placeStrip(frame, "after", pic, true);
   }
 
   function esc(s) {
