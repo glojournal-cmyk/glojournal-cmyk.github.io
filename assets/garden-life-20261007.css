@@ -152,5 +152,34 @@ button.lux-awake { filter: brightness(1.12) saturate(1.15); }
   .lux-return-card { margin-bottom: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .lux-sway, .lux-dew circle, svg.is-rustle .lux-sway, .lux-lawn-pot.is-pouring::after { animation: none; }
+  .lux-sway, .lux-dew circle, svg.is-rustle .lux-sway, .lux-lawn-pot.is-pouring::after, .lux-leaf-pot.is-rustle { animation: none; }
 }
+.lux-leaves {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0.65rem 0 0.15rem;
+  min-height: 28px;
+}
+.lux-leaf-row { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
+.lux-leaf {
+  width: 11px;
+  height: 15px;
+  border-radius: 0 70% 0 70%;
+  border: 1.5px solid rgba(47, 107, 58, 0.38);
+  background: transparent;
+  transform: rotate(32deg);
+}
+.lux-leaf.is-yes { background: #3d7a46; border-color: #2f6b3a; }
+.lux-leaf.is-open { border-style: dashed; }
+.lux-leaf.is-now { border-color: #1a3148; }
+.lux-leaf-pot {
+  width: 16px;
+  height: 14px;
+  flex: none;
+  border-radius: 2px 2px 6px 6px;
+  background: #8d5a3c;
+  box-shadow: inset 0 4px 0 #6f8f56;
+}
+.lux-leaf-pot.is-rustle { animation: lux-rustle 0.48s ease; }
+.lux-leaf-note { color: #5c6b76; font-size: 12px; }

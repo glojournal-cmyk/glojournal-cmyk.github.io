@@ -498,7 +498,102 @@
     }, 400);
   }
 
+  function isPracticePath(path) {
+    return /\/practise\/?$/.test(path || "");
+  }
+
+  function isAssessmentPath(path) {
+    return /^\/assessment(?:\/|$)/.test(path || "");
+  }
+
+  function applyLeaf(marks, ids, index, id, correct) {
+    var nextMarks = (marks || []).slice();
+    var nextIds = (ids || []).slice();
+    if (index === 0 && nextIds[0] && id && nextIds[0] !== id) {
+      nextMarks = [];
+      nextIds = [];
+    }
+    if (index < 0 || index > 39) return { marks: nextMarks, ids: nextIds };
+    nextIds[index] = id || "";
+    nextMarks[index] = correct ? "yes" : "no";
+    return { marks: nextMarks, ids: nextIds };
+  }
+
+  function stillAhead(total, index, answered) {
+    var remain = total - index - (answered ? 1 : 0);
+    return remain < 0 ? 0 : remain;
+  }
+
+  var leafSet = "";
+  var leafMarks = [];
+  var leafIds = [];
+
+  function practiceCounter() {
+    if (typeof document === "undefined") return null;
+    if (isAssessmentPath(location.pathname) || !isPracticePath(location.pathname)) return null;
+    if (document.querySelector("[aria-label='Session result']")) return null;
+    var nodes = document.querySelectorAll("p.tabular-nums");
+    for (var i = 0; i < nodes.length; i++) {
+      var match = /Question\s+(\d+)\s+\/\s+(\d+)/.exec(nodes[i].textContent || "");
+      if (!match) continue;
+      var total = Number(match[2]);
+      if (total < 1 || total > 40) continue;
+      return { el: nodes[i], index: Number(match[1]) - 1, total: total };
+    }
+    return null;
+  }
+
+  function paintLeaves(rustle) {
+    if (typeof document === "undefined") return;
+    var host = document.querySelector("[data-lux-leaves]");
+    var counter = practiceCounter();
+    if (!counter) {
+      if (host && host.parentNode) host.parentNode.removeChild(host);
+      return;
+    }
+    var setKey = location.pathname + location.search;
+    if (leafSet !== setKey) {
+      leafSet = setKey;
+      leafMarks = [];
+      leafIds = [];
+    }
+    if (!host) {
+      host = document.createElement("div");
+      host.setAttribute("data-lux-leaves", "1");
+      host.className = "lux-leaves";
+      counter.el.insertAdjacentElement("afterend", host);
+    } else if (host.previousElementSibling !== counter.el) {
+      counter.el.insertAdjacentElement("afterend", host);
+    }
+    var done = 0;
+    var html = "";
+    for (var i = 0; i < counter.total; i++) {
+      var mark = leafMarks[i] || "";
+      if (mark) done++;
+      html += '<span class="lux-leaf' + (mark === "yes" ? " is-yes" : mark === "no" ? " is-open" : "") + (i === counter.index && !mark ? " is-now" : "") + '"></span>';
+    }
+    var remain = stillAhead(counter.total, counter.index, !!leafMarks[counter.index]);
+    var note = remain === 0 ? "This set is complete." : remain === 1 ? "1 still ahead." : remain + " still ahead.";
+    var sig = done + "|" + counter.total + "|" + counter.index + "|" + note;
+    if (host.dataset.sig === sig && !rustle) return;
+    host.dataset.sig = sig;
+    host.innerHTML = '<span class="lux-leaf-pot' + (rustle ? " is-rustle" : "") + '" aria-hidden="true"></span><span class="lux-leaf-row">' + html + '</span><span class="lux-leaf-note">' + esc(note) + "</span>";
+    host.setAttribute("aria-label", "This practice set. " + note);
+  }
+
+  function onAnswered(event) {
+    if (isAssessmentPath(location.pathname) || !isPracticePath(location.pathname)) return;
+    var counter = practiceCounter();
+    if (!counter) return;
+    var detail = event && event.detail || {};
+    var next = applyLeaf(leafMarks, leafIds, counter.index, detail.questionId || "", !!detail.correct);
+    leafMarks = next.marks;
+    leafIds = next.ids;
+    paintLeaves(!!detail.correct);
+  }
+
   function paint() {
+    if (typeof document !== "undefined") paintLeaves(false);
     var state = readScholar();
     if (!stateReady(state)) return;
     var today = typeof state.today === "string" && state.today ? state.today : localDay();
@@ -631,13 +726,14 @@
       var obs = new MutationObserver(function (records) {
         for (var i = 0; i < records.length; i++) {
           var t = records[i].target;
-          if (t && t.closest && t.closest("[data-lux-life], .lux-return")) continue;
+          if (t && t.closest && t.closest("[data-lux-life], [data-lux-leaves], .lux-return")) continue;
           schedule();
           return;
         }
       });
       obs.observe(document.body, { childList: true, subtree: true });
       document.addEventListener("click", onClick, true);
+      root.addEventListener("scholar:question-answered", onAnswered);
       document.addEventListener("keydown", function (event) {
         if (event.key !== "Enter" && event.key !== " ") return;
         var el = event.target && event.target.closest && event.target.closest("[data-lux-touch='pot']");
@@ -663,6 +759,10 @@
     scoreLine: scoreLine,
     changeOf: changeOf,
     plantLine: plantLine,
+    isPracticePath: isPracticePath,
+    isAssessmentPath: isAssessmentPath,
+    applyLeaf: applyLeaf,
+    stillAhead: stillAhead,
     STAGE_LINES: STAGE_LINES
   };
 

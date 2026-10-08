@@ -68,8 +68,25 @@ if (!/already wet/i.test(api.replyFor("water", { wet: true }))) throw new Error(
 if (!/finds the soil/i.test(api.replyFor("water", { wet: false }))) throw new Error("first water of the day should pour");
 if (!api.potSvg(3, true).includes("lux-sway") || !api.potSvg(3, true).includes("lux-dew")) throw new Error("pot should sway and show dew");
 
+if (!api.isPracticePath("/study/french/practise")) throw new Error("daily practice should grow the leaf row");
+if (!api.isPracticePath("/study/biology/practise/")) throw new Error("a trailing slash is still practice");
+if (api.isPracticePath("/assessment") || api.isPracticePath("/assessment/") || api.isPracticePath("/study/french/learn")) throw new Error("assessments and notes are not practice");
+if (!api.isAssessmentPath("/assessment/") || api.isAssessmentPath("/study/french/practise")) throw new Error("assessment path check failed");
+let leaves = api.applyLeaf([], [], 0, "q1", true);
+if (leaves.marks[0] !== "yes") throw new Error("a right answer fills the leaf");
+leaves = api.applyLeaf(leaves.marks, leaves.ids, 1, "q2", false);
+if (leaves.marks[1] !== "no") throw new Error("a wrong answer leaves the leaf empty");
+leaves = api.applyLeaf(leaves.marks, leaves.ids, 0, "q9", true);
+if (leaves.marks.join() !== "yes" || leaves.ids[1]) throw new Error("a new practice set starts again");
+if (api.stillAhead(10, 3, false) !== 7 || api.stillAhead(10, 3, true) !== 6) throw new Error("the row should count questions still ahead");
+
+const practise = fs.readFileSync(new URL("../study/french/practise/index.html", import.meta.url), "utf8");
+const assessment = fs.readFileSync(new URL("../assessment/index.html", import.meta.url), "utf8");
+if (!practise.includes("garden-life-20261007.js")) throw new Error("practice is missing the leaf row");
+if (assessment.includes("garden-life-20261007.js")) throw new Error("assessment must not load the practice leaves");
+
 const html = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
-if (!html.includes("/assets/garden-life-20261007.js?v=20261007-loading9")) throw new Error("homepage is not loading the living garden");
-if (!html.includes("garden-life-20261007.css?v=20261007-loading9")) throw new Error("homepage is missing the living garden css");
+if (!html.includes("/assets/garden-life-20261007.js?v=20261007-loading10")) throw new Error("homepage is not loading the living garden");
+if (!html.includes("garden-life-20261007.css?v=20261007-loading10")) throw new Error("homepage is missing the living garden css");
 
 console.log("garden-life-qa ok");
