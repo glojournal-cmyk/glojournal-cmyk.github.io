@@ -95,11 +95,11 @@ console.log('72 source-scoped questions; rubrics, units, partial marks, history 
 const masterSrc=read('assets/quiz-session-rWAnuDVj.js');
 const startB=masterSrc.indexOf('function B(e,t,n,r)');
 const endB=masterSrc.indexOf('function ',startB+9);
-const master=vm.createContext({L:q=>q.answer.modelAnswer,I:()=>[],R:()=>3,Math});
+const master=vm.createContext({L:q=>q.answer.modelAnswer,I:()=>[],R:points=>['a','b','c'].includes(points[0])?1:0,Math});
 vm.runInContext(masterSrc.slice(startB,endB),master);
 const fourPoint={format:'mark_points',answer:{markPoints:['a','b','c','d'],requireFullMarks:true}};
 assert.equal(master.B(fourPoint,'response','chemistry').ok,false,'3/4 is partial, not full mastery');
 assert.equal(master.B(fourPoint,'response','chemistry').score,3,'Keep earned partial marks');
 assert.equal(master.B({...fourPoint,answer:{...fourPoint.answer,requireFullMarks:false}},'response','biology').ok,true,'Existing marking policy unchanged');
-master.R=()=>4;
+master.R=()=>1;
 assert.equal(master.B(fourPoint,'response','chemistry').ok,true,'4/4 completes mastery');
