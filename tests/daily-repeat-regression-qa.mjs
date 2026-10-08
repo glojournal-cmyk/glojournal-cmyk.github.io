@@ -23,8 +23,8 @@ for(const nextDay of ["2026-10-02","2026-10-03"]) {
 assert.equal(stat.recentOutcomes.length,20);
 assert.equal(new Set(stat.recentOutcomes.map(r=>r.date)).size,1,"Reproduce the rolling-window loss");
 assert.deepEqual(stat.correctDays,["2026-10-02","2026-10-03"],"Success on both days must survive 30 answers per day");
-const summary=new Function(extract(guard,"statSummary")+";return statSummary;")();
-const mature=new Function("statSummary","STRONG_FOUNDATION_RE",extract(guard,"topicMature")+";return topicMature;")(summary,/present-person-and-number|core-verbs/);
+const helpers=experience.slice(experience.indexOf("function summary("),experience.indexOf("function frontier("));
+const mature=new Function(helpers+";return mature;")();
 assert.equal(mature({topicStats:{[topic]:stat}},"latin",topic),true);
 assert.equal(mature({topicStats:{[topic]:{...stat,correctDays:["2026-10-03"]}}},"latin",topic),false,"One-day streak must not unlock a topic");
 assert.equal(mature({topicStats:{[topic]:{...stat,correct:30}}},"latin",topic),false,"Accuracy gate remains enforced");

@@ -15,7 +15,7 @@ const state=()=>({today:'2026-10-03',daily:[{target:1,progress:1}],exportProgres
 const store={getState:state,subscribe:fn=>events.subscription=fn};
 const document={getElementById:id=>id==='daily-auto-status'?el:null,querySelectorAll:()=>[],documentElement:{},addEventListener:(k,fn)=>events[k]=fn};
 const window={addEventListener:(k,fn)=>events[k]=fn};
-const src=fs.readFileSync('assets/daily-progress-save.js','utf8').replace(/^import[^\n]+\n/,'');
+const src=fs.readFileSync('assets/daily-progress-save.js','utf8').replace(/^import[^\n]+\n/gm,'');
 const api=new Function('store','localStorage','document','window','MutationObserver',src+';return {autoSave};')(store,localStorage,document,window,class{observe(){}});
 api.autoSave();assert.equal(JSON.parse(JSON.parse(data.get('lux-progress-auto-v1')).data).state.xp,1);
 xp=2;events.pagehide();assert.equal(JSON.parse(JSON.parse(data.get('lux-progress-auto-v1-previous')).data).state.xp,1);

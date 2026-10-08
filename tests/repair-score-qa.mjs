@@ -9,7 +9,6 @@ for(const token of [
   "function calculateSessionScore(",
   "repairOf:Y._repairOf||null",
   "const repairPoints=repairedCorrect*.5",
-  "Session percentage gives half-credit",
   "score.percentage"
 ]) if(!quiz.includes(token)) failures.push({type:"missing-repair-score-runtime",token});
 

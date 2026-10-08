@@ -50,7 +50,7 @@ function flatten(node,out=[]){if(node==null||node===false)return out;if(Array.is
 function textOf(node){return flatten(node).filter(n=>typeof n==='string'||typeof n==='number').join('');}
 function button(tree,label){const node=flatten(tree).find(n=>n?.props?.children===label&&typeof n.props.onClick==='function');assert.ok(node,`button ${label}`);return node;}
 const empty=()=>{};
-function env(state,runner){const store=selector=>selector(state);store.getState=()=>state;return {o:store,w:runner.api,T:{jsx,jsxs:jsx},C:'Card',S:'Button',l:'Input',i:'Progress',r:'Link',ne:'Audio',s:a=>[...a],y:a=>[...a],m:()=>({}),v:q=>q.feedback,_:q=>q,ee:empty,h:empty,te:empty,u:empty,b:empty,E:empty,dayKey:()=> '2026-09-18',URLSearchParams,window:{dispatchEvent:empty,location:{search:''}},CustomEvent:class{},Event:class{}};}
+function env(state,runner){const store=selector=>selector(state);store.getState=()=>state;return {o:store,w:runner.api,T:{jsx,jsxs:jsx},C:'Card',S:'Button',l:'Input',i:'Progress',r:'Link',ne:'Audio',s:a=>[...a],y:a=>[...a],m:()=>({}),v:q=>q.feedback,_:q=>q,ee:empty,h:empty,te:empty,u:empty,b:empty,E:empty,dayKey:()=> '2026-09-18',URL,URLSearchParams,location:{href:'https://glojournal-cmyk.github.io/study/french/practise/',search:'',pathname:'/study/french/practise/'},window:{dispatchEvent:empty,addEventListener:empty,removeEventListener:empty,location:{href:'https://glojournal-cmyk.github.io/study/french/practise/',search:'',pathname:'/study/french/practise/'}},CustomEvent:class{},Event:class{},LuxPracticeDrafts:{key:()=>'draft',read:()=>null,save:()=>true,clear:()=>true},LuxJourney:{day:()=>'2026-09-18',completion:()=>null},questionReason:()=>'',DailyNext:()=>null,SessionResult:()=>null,ReviewProgress:()=>null,sessionGains:()=>({}),ProgressSummary:()=>null,buildCorrection:()=>null,selectTransferQuestion:()=>null,captureReviewHistory:(items,state,saved)=>saved||Object.fromEntries(Object.entries({...state.reviews,...state.spellingDue}).filter(([id])=>new Set(items.map(q=>q.id)).has(id)))};}
 // The visible question body is separate from its task label. Feedback may also
 // repeat prompt words, so inspect the question paragraph and recorded ID directly.
 function questionBody(tree){return flatten(tree).find(n=>n?.type==='p'&&n.props.className?.includes('leading-snug'))?.props.children;}
@@ -79,7 +79,10 @@ test('a full ten-question session survives parent/store rerenders and finishes 1
   if(i<9)assert.equal(questionBody(tree),expectedBody(frozenItems[i+1]),'Active Quiz keeps the original session order');
  }
  assert.deepEqual(attemptedIds,frozenItems.map(q=>q.id),'Exactly the original ten questions were marked once');
- assert.ok(textOf(tree).includes('10 / 10 first-pass correct · 100%'),textOf(tree));
+ const resultNode=flatten(tree).find(n=>n?.props?.formalCount!=null&&n?.props?.score);
+ assert.equal(resultNode?.props?.formalCount,10);
+ assert.equal(resultNode?.props?.score?.firstPassCorrect,10);
+ assert.equal(resultNode?.props?.score?.percentage,100);
 });
 test('French dictation handles accents and does not reshuffle after scheduling a review',()=>{
  const state=newState();state.recordAttempt=empty;state.recordSpelling=(id)=>{state.spellingDue={...state.spellingDue,[id]:{due:'2026-09-20'}};};
