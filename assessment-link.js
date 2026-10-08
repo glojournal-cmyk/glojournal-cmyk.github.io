@@ -2,7 +2,7 @@ if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/star-ma
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/memory-stars-20261004.js?v=20261007-loading10').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/daily-task-presentation-20261004.js?v=1').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/companion-experience-20261004.js?v=20261007-loading10').catch(console.error);
-import('/assets/ipad-experience-20261004.js?v=20261008-desk1').catch(console.error);
+import('/assets/ipad-experience-20261004.js?v=20261008-accent1').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/school-revision-home-20261004.js?v=20261007-loading10').catch(error=>console.error('School revision panel could not load',error));
 (() => {
   if (!document.querySelector('link[href*="lux-theme.css"]')) {

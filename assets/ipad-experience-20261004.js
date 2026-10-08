@@ -26,4 +26,57 @@
  window.addEventListener('resize',scheduleDesk);window.visualViewport?.addEventListener('resize',()=>{scheduleDesk();if(document.body.classList.contains('lux-desk'))parkDesk()});
  matchMedia('(orientation: landscape)').addEventListener?.('change',scheduleDesk);
  document.addEventListener('focusin',e=>{grow(e.target);requestAnimationFrame(()=>{keepVisible();scheduleDesk()})});document.addEventListener('focusout',()=>requestAnimationFrame(keepVisible));document.addEventListener('input',e=>grow(e.target));window.visualViewport?.addEventListener('resize',()=>requestAnimationFrame(keepVisible));
+ const accentStyle=document.createElement('style');
+ accentStyle.textContent='.lux-accents{position:fixed;z-index:80;left:8px;right:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px;background:#fffaf0;border:1px solid #d4c6ac;border-radius:14px;box-shadow:0 8px 24px #17324d22}.lux-accents[hidden]{display:none!important}.lux-accents button{min-width:44px;min-height:44px;padding:0 8px;border:1px solid #17324d;border-radius:10px;background:#fff;color:#17324d;font:600 18px Georgia,serif;touch-action:manipulation}.lux-accents span{font:600 12px/1.2 system-ui;color:#5c6b62;padding-right:4px}';
+ document.head.append(accentStyle);
+ const accents=['é','è','ê','ë','à','â','ç','î','ï','ô','œ','ù','û','É','À','’'];
+ const bar=document.createElement('div');
+ bar.className='lux-accents';
+ bar.hidden=true;
+ bar.setAttribute('role','group');
+ bar.setAttribute('aria-label','French accents');
+ const label=document.createElement('span');
+ label.textContent='Accents';
+ bar.append(label);
+ let field=null;
+ function insertAccent(ch){
+  const el=field&&document.contains(field)?field:document.activeElement;
+  if(!el||!el.matches?.('input:not([type=checkbox]):not([type=radio]),textarea'))return;
+  const start=el.selectionStart??el.value.length,end=el.selectionEnd??start;
+  const proto=el.tagName==='TEXTAREA'?HTMLTextAreaElement.prototype:HTMLInputElement.prototype;
+  Object.getOwnPropertyDescriptor(proto,'value').set.call(el,el.value.slice(0,start)+ch+el.value.slice(end));
+  el.dispatchEvent(new Event('input',{bubbles:true}));
+  const pos=start+ch.length;
+  el.setSelectionRange?.(pos,pos);
+  el.focus();
+ }
+ for(const ch of accents){
+  const button=document.createElement('button');
+  button.type='button';
+  button.textContent=ch;
+  button.setAttribute('aria-label','Insert '+ch);
+  button.addEventListener('pointerdown',e=>e.preventDefault());
+  button.addEventListener('click',()=>insertAccent(ch));
+  bar.append(button);
+ }
+ if(document.body)document.body.append(bar);else document.addEventListener('DOMContentLoaded',()=>document.body.append(bar));
+ function frenchHere(){if(/french/i.test(location.pathname))return true;return /French/.test(document.querySelector('h1,h2')?.textContent||'')}
+ function textField(el){return !!(el&&el.matches?.('input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit]),textarea')&&!el.readOnly&&!el.disabled)}
+ function placeAccents(){
+  if(!bar.isConnected&&document.body)document.body.append(bar);
+  const show=frenchHere()&&textField(field);
+  bar.hidden=!show;
+  if(!show)return;
+  const view=window.visualViewport;
+  const overlap=view?Math.max(0,window.innerHeight-view.height-view.offsetTop):0;
+  bar.style.bottom=(overlap+8)+'px';
+ }
+ document.addEventListener('focusin',e=>{if(textField(e.target))field=e.target;placeAccents()});
+ window.addEventListener('focusin',e=>{if(textField(e.target))field=e.target;placeAccents()});
+ document.addEventListener('focusout',()=>setTimeout(()=>{if(!textField(document.activeElement))field=null;placeAccents()},0));
+ window.visualViewport?.addEventListener('resize',placeAccents);
+ window.visualViewport?.addEventListener('scroll',placeAccents);
+ const keep=setInterval(placeAccents,400);
+ setTimeout(()=>clearInterval(keep),8000);
+ document.addEventListener('lux:app-ready',placeAccents);
 })();
