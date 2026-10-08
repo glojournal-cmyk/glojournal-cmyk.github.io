@@ -1,6 +1,6 @@
 import {i as interop,n as factory} from './jsx-runtime-Cltr0gcK.js';
-import {C as store,d as successSound} from './index-BLVOhKhN.js?v=20261007-loading8';
-import {weekOf,missionFor,advanceMap,completedStages,nextWeek,nodes} from './star-map-state-20261004.js?v=20261007-loading8';
+import {C as store,d as successSound} from './index-BLVOhKhN.js?v=20261007-loading9';
+import {weekOf,missionFor,advanceMap,completedStages,nextWeek,nodes} from './star-map-state-20261004.js?v=20261007-loading9';
 const R=interop(factory()),h=R.createElement;
 const titles=['Restore power','Reconnect signal','Calibrate telescope','Reconnect stars'];
 export function StarMapArt({progress=0,small=false}){const lit=completedStages(progress);return h('svg',{viewBox:'0 0 100 90',className:small?'sm-badge':'sm-map',role:'img','aria-label':`Star map · ${lit} of 4 sections restored`},h('rect',{x:1,y:1,width:98,height:88,rx:8,fill:'#173649',stroke:'#b89b5d',strokeWidth:.6}),...[ [12,15],[26,45],[48,13],[87,65],[54,78],[90,10],[8,55],[70,78]].map(([x,y],i)=>h('circle',{key:'dust'+i,cx:x,cy:y,r:.4,fill:'#e5dfc0'})),...nodes.slice(1).map(([x,y],i)=>h('line',{key:'line'+i,x1:nodes[i][0],y1:nodes[i][1],x2:x,y2:y,stroke:lit>i+1?'#efd793':'#47616c',strokeWidth:lit>i+1?.9:.45,strokeDasharray:lit>i+1?undefined:'2 2'})),...nodes.map(([x,y],i)=>h('g',{key:i,className:lit>i?'sm-lit':'',style:{transformOrigin:`${x}px ${y}px`}},h('circle',{cx:x,cy:y,r:lit>i?5:3.5,fill:lit>i?'#efd793':'#577078',opacity:lit>i?.18:.35}),h('path',{d:`M${x} ${y-3}l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z`,fill:lit>i?'#ffe9a0':'#879b9e'}))));}

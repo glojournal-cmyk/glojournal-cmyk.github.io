@@ -1,5 +1,5 @@
-import {C as store} from './index-BLVOhKhN.js?v=20261007-loading8';
-import {weekOf,completedStages} from './star-map-state-20261004.js?v=20261007-loading8';
+import {C as store} from './index-BLVOhKhN.js?v=20261007-loading9';
+import {weekOf,completedStages} from './star-map-state-20261004.js?v=20261007-loading9';
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function refresh(){const main=document.querySelector('main');if(!main)return;const state=store.getState().starMapChallenge||{},week=weekOf(Date.now()),progress=state.weeks?.[week]?.progress||0;
  let home=document.getElementById('star-map-home');if(location.pathname==='/'){const journey=main.querySelector('[data-home-journey]');if(journey){if(!home){home=document.createElement('section');home.id='star-map-home';home.className='sm-home';home.setAttribute('aria-label','This week’s themed challenge');journey.after(home)}const sig=week+':'+progress;if(home.dataset.signature!==sig){home.dataset.signature=sig;home.innerHTML=`<img src="/art/challenges/star-map.svg" alt="Observatory star map"><div><p class="sm-kicker">THIS WEEK’S EXPEDITION</p><h2>Repair the star map</h2><p>${progress>=8?'This week’s map collected':`${completedStages(progress)}/4 sections restored`}</p><a href="/play/weekly-boss/">${progress>=8?'View completed expedition':'Continue the expedition'} →</a></div>`}}}else home?.remove();

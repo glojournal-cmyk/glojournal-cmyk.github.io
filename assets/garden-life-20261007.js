@@ -330,26 +330,10 @@
   function paintHome(pic) {
     var hero = document.querySelector("img.scholar-idle");
     var frame = hero && hero.closest("div.relative");
-    if (!frame) return;
-    var bar = frame.querySelector(":scope > [data-lux-life='strip']");
-    if (!bar) {
-      bar = document.createElement("section");
-      bar.setAttribute("data-lux-life", "strip");
-      bar.className = "lux-hero-bar";
-      frame.appendChild(bar);
-    }
-    var sig = signature(pic);
-    if (bar.dataset.sig === sig) return;
-    bar.dataset.sig = sig;
-    bar.dataset.weather = pic.weather;
-    var shown = pic.focus === "second" ? pic.second : pic.stage;
-    bar.innerHTML =
-      potButton(shown, pic.wet, "", pic.focus) +
-      '<div class="min-w-0">' +
-      '<p class="text-[10px] font-semibold tracking-[0.16em] text-navy uppercase">' + (pic.focus === "second" ? "Second pot · " + pic.second + " / 7" : "Basil · " + (pic.stage === 0 ? "waiting" : pic.stage + " / 7")) + "</p>" +
-      '<p class="lux-life-line font-display text-lg font-semibold leading-snug">' + esc(pic.line) + "</p>" +
-      '<p class="text-xs text-muted">' + esc(pic.weatherLine) + (pic.wet ? " Water is still on the leaves." : "") + (pic.bookmark ? " " + esc(pic.bookmarkLine) : "") + "</p>" +
-      "</div>";
+    if (!frame || !frame.parentElement) return;
+    var covered = frame.querySelector(":scope > [data-lux-life='strip']");
+    if (covered && covered.parentNode) covered.parentNode.removeChild(covered);
+    placeStrip(frame, "after", pic);
   }
 
   function esc(s) {

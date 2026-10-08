@@ -69,7 +69,7 @@ if (!/finds the soil/i.test(api.replyFor("water", { wet: false }))) throw new Er
 if (!api.potSvg(3, true).includes("lux-sway") || !api.potSvg(3, true).includes("lux-dew")) throw new Error("pot should sway and show dew");
 
 const html = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
-if (!html.includes("/assets/garden-life-20261007.js?v=20261007-loading8")) throw new Error("homepage is not loading the living garden");
-if (!html.includes("garden-life-20261007.css?v=20261007-loading8")) throw new Error("homepage is missing the living garden css");
+if (!html.includes("/assets/garden-life-20261007.js?v=20261007-loading9")) throw new Error("homepage is not loading the living garden");
+if (!html.includes("garden-life-20261007.css?v=20261007-loading9")) throw new Error("homepage is missing the living garden css");
 
 console.log("garden-life-qa ok");
