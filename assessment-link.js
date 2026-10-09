@@ -1,7 +1,7 @@
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/star-map-gallery-20261004.js?v=20261008-outfits-hd1').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/memory-stars-20261004.js?v=20261008-outfits-hd1').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/daily-task-presentation-20261004.js?v=20261008-close2').catch(console.error);
-if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/companion-experience-20261004.js?v=20261008-outfits-hd1').catch(console.error);
+if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/companion-experience-20261004.js?v=20261009-pet-hd1').catch(console.error);
 import('/assets/ipad-experience-20261004.js?v=20261008-accent1').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/school-revision-home-20261004.js?v=20261008-outfits-hd1').catch(error=>console.error('School revision panel could not load',error));
 (() => {

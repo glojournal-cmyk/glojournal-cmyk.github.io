@@ -1,6 +1,6 @@
 import {C as store,A as outfits,B as scenes,J as requirements,Y as stats} from './index-BLVOhKhN.js?v=20261008-outfits-hd1';
 import {petNames,petLevel,firstGoal,goalView,celebrationToken} from './companion-goals-state-20261004.js?v=2';
-import {spriteStyle} from './companion-art-20261004.js';
+import {spriteStyle} from './companion-art-20261004.js?v=20261009-pet-hd1';
 const KEY='lux-companion-experience-v1',PET='lux-pet-companion-v1',catalog={outfits,scenes,requirements,stats};
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function read(key){try{return JSON.parse(localStorage.getItem(key)||'{}')||{}}catch{return {}}}

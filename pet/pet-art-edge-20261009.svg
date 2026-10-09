@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <!-- Trim subpixel matte fringe at display size, then soften the alpha only. -->
+  <filter id="smooth" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+    <feMorphology in="SourceAlpha" operator="erode" radius="0.55" result="trimmed"/>
+    <feGaussianBlur in="trimmed" stdDeviation="0.18" result="edge"/>
+    <feComposite in="SourceGraphic" in2="edge" operator="in"/>
+  </filter>
+</svg>

@@ -1,3 +1,4 @@
+import {spriteStyle} from '/pet/pet-art-hd-20261009.js';
 import { getCareSummary } from "/pet/pet-care-state.js?v=20261003-care1";
 
 // The progression guard imports the React app bundle. Loading it on the
@@ -10,8 +11,7 @@ const APP_KEY = "lux-scholar-garden-v1";
 const PET_KEY = "lux-pet-companion-v1";
 const CELEBRATE_KEY = "lux-pet-pending-celebration";
 const HOME_CSS_ID = "lux-home-companion-v2";
-const HOME_CSS_HREF = "/pet/home-companion-v2.css?v=20261008-scene1";
-const PET_ART_VERSION = "20260926-evolution2";
+const HOME_CSS_HREF = "/pet/home-companion-v2.css?v=20261009-pet-hd1";
 
 const pets = {
   "moss-hornling": "Moss Hornling",
@@ -86,30 +86,6 @@ function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[ch]);
 }
 
-function spriteStyle(species, level = 1) {
-  const safe = pets[species] ? species : "moss-hornling";
-  const stage = Math.max(1, Math.min(5, Number(level) || 1));
-  if (new Set(["antler-bean", "moss-hornling", "inkling", "moon-puff", "mothling", "bloom-snail", "velvet-batling", "sprig-dragon", "star-toadlet"]).has(safe)) {
-    return `background-image:url('/pet/art-3d-v2/level-${stage}/${safe}.webp?v=20260928-3d2');background-size:contain;background-position:center;background-repeat:no-repeat`;
-  }
-  if (safe === "snow-owl" || safe === "night-spider") {
-    const position = { 1: "0% 0%", 2: "50% 0%", 3: "100% 0%", 4: "0% 100%", 5: "50% 100%" }[stage];
-    return `background-image:url('/pet/art-secret/${safe}.png?v=20260928-secret1');background-size:300% 200%;background-position:${position};background-repeat:no-repeat`;
-  }
-  if (safe === "moss-hornling") {
-    const position = { 1: "0% 0%", 2: "50% 0%", 3: "100% 0%", 4: "0% 100%", 5: "50% 100%" }[stage];
-    return `background-image:url('/pet/art-evolution-v3/moss-hornling.avif?v=20260928-moss-v3');background-size:300% 200%;background-position:${position};background-repeat:no-repeat`;
-  }
-  if (safe === "antler-bean") {
-    const position = { 1: "0% 0%", 2: "50% 0%", 3: "100% 0%", 4: "0% 100%", 5: "50% 100%" }[stage];
-    return `background-image:url('/pet/art-evolution-v3/antler-bean.webp?v=20260928-antler-v3b');background-size:300% 200%;background-position:${position};background-repeat:no-repeat`;
-  }
-  if (stage >= 2) {
-    const position = { 2: "0% 0%", 3: "100% 0%", 4: "0% 100%", 5: "100% 100%" }[stage] || "0% 0%";
-    return `background-image:url('/pet/art-evolution-v2/${safe}.webp?v=${PET_ART_VERSION}');background-size:200% 200%;background-position:${position}`;
-  }
-  return `background-image:url('/pet/art-master/${safe}.png?v=${PET_ART_VERSION}')`;
-}
 
 function petNavIcon() {
   return '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4" aria-hidden="true"><circle cx="11" cy="4" r="2"></circle><circle cx="18" cy="8" r="2"></circle><circle cx="4" cy="8" r="2"></circle><path d="M12 11c-3.6 0-6.5 2.5-6.5 5.5 0 2.1 1.6 3.5 3.6 3.5 1.2 0 2-.7 2.9-.7s1.7.7 2.9.7c2 0 3.6-1.4 3.6-3.5 0-3-2.9-5.5-6.5-5.5Z"></path></svg>';
