@@ -1,5 +1,5 @@
-export { component } from "./routes-BEd1a0JC.core.js?v=20261007-loading10";
-import { C as store } from "./index-BLVOhKhN.js?v=20261007-loading10";
+export { component } from "./routes-BEd1a0JC.core.js?v=20261008-outfits-hd1";
+import { C as store } from "./index-BLVOhKhN.js?v=20261008-outfits-hd1";
 
 function continueHref() {
   const J=globalThis.LuxJourney,state=store.getState(),resume=J?.resumeCandidates(state)[0];

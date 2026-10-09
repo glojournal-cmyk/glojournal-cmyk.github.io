@@ -1,4 +1,4 @@
-import "./practice-evidence-bridge-20261004.js?v=20261007-loading10";
+import "./practice-evidence-bridge-20261004.js?v=20261008-outfits-hd1";
 const LABELS={french:'French',latin:'Latin',biology:'Biology',chemistry:'Chemistry',physics:'Physics',english:'English'};
 function correctedToday(state,id,day){
  const review=state.reviews?.[id];

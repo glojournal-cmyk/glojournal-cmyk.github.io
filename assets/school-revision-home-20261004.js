@@ -1,5 +1,5 @@
-import './school-revision-data-20261004.js?v=20261007-loading10';
-import {C as store} from './index-BLVOhKhN.js?v=20261007-loading10';
+import './school-revision-data-20261004.js?v=20261008-outfits-hd1';
+import {C as store} from './index-BLVOhKhN.js?v=20261008-outfits-hd1';
 const {buildRevisionPlan,londonDay}=globalThis.LuxSchoolRevision;
 const ID='school-revision-home';
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -48,7 +48,7 @@ function refresh(){
 let queued=false;
 function schedule(){if(queued)return;queued=true;queueMicrotask(()=>{queued=false;refresh();});}
 if(typeof document!=='undefined'){
-  if(!document.getElementById('school-revision-css')){const css=document.createElement('link');css.id='school-revision-css';css.rel='stylesheet';css.href='/assets/school-revision-20261004.css?v=20261007-loading10';document.head.append(css);}
+  if(!document.getElementById('school-revision-css')){const css=document.createElement('link');css.id='school-revision-css';css.rel='stylesheet';css.href='/assets/school-revision-20261004.css?v=20261008-outfits-hd1';document.head.append(css);}
   store.subscribe(schedule);
   document.addEventListener('DOMContentLoaded',schedule);
   window.addEventListener('storage',schedule);
