@@ -159,6 +159,25 @@ try{
      if(errors.length)throw Error("JS errors: "+errors.slice(0,4).join("; "));
      reports.push({engine:name,viewport:vp.width,panels:3,studyAlive:true,year8Works:true});
      await page.screenshot({path:"test-results/study-nav-"+name+"-"+vp.width+".png",fullPage:true});
+     // Regression guard from the earlier blank Home release: no Study scripts
+     // may be loaded on Home and its React content must render normally.
+     const home=await page.goto(base+"/",{waitUntil:"domcontentloaded",timeout:35000});
+     assert.equal(home.status(),200,"Home route returns 200");
+     await page.waitForFunction(()=>document.querySelector("main h1")?.textContent?.includes("Scholar"),
+       null,{timeout:30000});
+     assert.ok((await page.locator("main").innerText()).length>300,"Home is not blank");
+     assert.equal(await page.locator("#lux-study-paths-v2").count(),0,"no Study-only UI on Home");
+     const homeBrand=await page.evaluate(()=>{
+       const element=window.innerWidth>=1280
+         ? document.querySelector('aside.fixed > a[href="/"] > span:first-child')
+         : document.querySelector('header a[href="/"]');
+       if(!element)return "";
+       return getComputedStyle(element,window.innerWidth>=1280?null:"::before").backgroundImage;
+     });
+     assert.ok(homeBrand.includes("lux-celestial-b-symbol-20261010.svg"),
+       "approved B logo visible on Home");
+     await page.screenshot({path:"test-results/home-b-brand-"+name+"-"+vp.width+".png",fullPage:true});
+
     }catch(e){
      failures.push({engine:name,viewport:vp.width,message:e.message,errors});
      await page.screenshot({path:"test-results/study-nav-FAILED-"+name+"-"+vp.width+".png",fullPage:true}).catch(()=>{});
