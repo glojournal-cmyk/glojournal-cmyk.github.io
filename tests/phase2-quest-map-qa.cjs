@@ -32,6 +32,7 @@ test('Home V2 remains disabled, original artwork and fallback remain',()=>{
  assert.equal(home,fallback);assert.doesNotMatch(home,/\/assets\/home-journey-v2-20261010\.js/);
  assert.match(home,/\/art\/doll\/day\.png/);
  assert.match(s,/chosen-reward-goal/);assert.match(s,/Continue studying/);
+ assert.match(s,/Waiting for all 10 daily tasks to sync/,'the six-task fallback cannot fake progress');
  for(const path of ['index.html','study/index.html']){
   const h=fs.readFileSync(path,'utf8');assert.match(h,/phase2-quest-map-20261010\.js/);
   assert.match(h,/phase2-quest-map-20261010\.css/);

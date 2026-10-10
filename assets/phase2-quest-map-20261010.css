@@ -51,3 +51,8 @@ a.lux-phase2-node:focus-visible,.lux-phase2-goal:focus-visible{outline:3px solid
  .lux-phase2-node:nth-child(6)::before{display:none}
 }
 @media(prefers-reduced-motion:reduce){.lux-phase2-node::before{transition:none}}
+
+/* Never fake a full ten-star plan while old six-row data is still hydrating. */
+.lux-phase2-pending{font-size:12px;color:#7a6651;line-height:1.5;margin:8px 0}
+.lux-phase2-sync{display:inline-flex;min-height:44px;align-items:center;
+ color:#254953;font-size:12px;text-decoration:underline;font-weight:700}

@@ -61,7 +61,20 @@ function repaint(){
  const anchor=[...document.querySelectorAll("main p")].find(p=>p.textContent.trim()==="Continue studying");
  const card=anchor?.parentElement;if(!card)return;
  let panel=card.querySelector(":scope > #lux-phase2-home");
- if(!data.ready){panel?.remove();return}
+ if(!data.ready){
+  if(!panel){panel=make("section","lux-phase2-home");panel.id="lux-phase2-home";
+    panel.setAttribute("aria-label","Your daily constellation");card.append(panel)}
+  if(panel.dataset.phase2Signature!=="pending"){
+    panel.replaceChildren();
+    const head=make("div","lux-phase2-heading");
+    head.append(make("strong",null,"TODAY'S CONSTELLATION"));
+    panel.append(head,make("p","lux-phase2-pending",
+      "Waiting for all 10 daily tasks to sync. No stars have been counted yet."));
+    const link=make("a","lux-phase2-sync","Open Study to prepare today's quests →");
+    link.href="/study/";panel.append(link);panel.dataset.phase2Signature="pending";
+  }
+  return;
+ }
  const goal=document.getElementById("chosen-reward-goal");
  const goalName=goal?.querySelector("h3")?.textContent?.trim()||"Choose your next reward";
  const goalText=goal?.querySelector("h3+p")?.textContent?.trim()||"Your selected outfit or companion goal";

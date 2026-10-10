@@ -223,10 +223,38 @@ try{
          phase2Tag:!!document.querySelector('script[src*="phase2-quest-map-20261010"]')};
      });
      console.log('PHASE2_HOME_RUNTIME '+JSON.stringify({engine:name,viewport:vp.width,...phase2State}));
+     await page.waitForFunction(()=>document.getElementById("lux-phase2-home"),
+       null,{timeout:15000});
+     if(phase2State.rows!==10||phase2State.savedDay!==phase2State.today){
+       assert.match(await page.locator("#lux-phase2-home").innerText(),/Waiting for all 10 daily tasks to sync/,
+         "an unsynchronised six-task plan must not invent completed stars");
+       // Browser-only fixture: verify the real DOM star map when the device has
+       // its ten official tasks. Do NOT write the player's local storage.
+       await page.evaluate(()=>{
+         const J=window.LuxJourney,current=J.garden(),today=J.day();
+         const fallback=[
+          ["mistake-review","Review yesterday's mistakes","/study/latin/practise?daily=1&task=mistake-review"],
+          ["adaptive-focus","Biology cell structure","/study/biology/practise?daily=1&task=adaptive-focus"],
+          ["year8-long-review","Year 8 review","/study/latin/practise?daily=1&task=year8-long-review"],
+          ["y8-mastery","Year 8 mastery","/study/latin/practise?daily=1&task=y8-mastery"],
+          ["review","Due review","/study/french/practise?daily=1&task=review"],
+          ["extra","Practice review","/study/chemistry/practise?daily=1&task=extra"]
+         ].map(([id,title,href])=>({id,title,href,target:10,progress:0}));
+         const rows=[...(current.daily||[])];
+         for(const task of fallback){
+           if(rows.length>=10)break;
+           if(!rows.some(x=>x.id===task.id))rows.push(task);
+         }
+         if(rows.length!==10)throw Error("Could not build ten-task browser fixture");
+         const state={...current,today,daily:rows};
+         J.garden=()=>state;
+         window.dispatchEvent(new Event('storage'));
+       });
+     }
      await page.waitForFunction(()=>document.querySelectorAll(
        "#lux-phase2-home .lux-phase2-node").length===10,null,{timeout:15000});
      assert.equal(await page.locator("#lux-phase2-home .lux-phase2-node").count(),10,
-       "ten Home stars reflect the existing daily plan");
+       "ten Home stars must reflect a validated ten-task plan");
      const goalLink=await page.locator("#lux-phase2-home .lux-phase2-goal").getAttribute("href");
      assert.ok(goalLink==="#chosen-reward-goal"||goalLink==="/pet/",
        "next reward must be the existing chosen goal, not a duplicate reward system");
