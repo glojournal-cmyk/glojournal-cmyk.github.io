@@ -46,6 +46,13 @@ try{
        return !!nav && !!app && /Continue Learning/i.test(app.textContent||"");
      },null,{timeout:30000});
      assert.equal(await page.locator("#lux-study-paths-v2 article").count(),3);
+     // All three destinations are now navigable in the character-and-pet scene.
+     assert.equal(await page.locator(".lux-path-portals a").count(),3);
+     assert.equal(await page.locator(".lux-path-sigils span").count(),10);
+     assert.ok((await page.locator(".lux-path-portal").first().innerText()).includes("Daily Quest"));
+     assert.ok((await page.locator(".lux-path-portal").nth(1).innerText()).includes("Scholar"));
+     assert.ok((await page.locator(".lux-path-portal").nth(2).innerText()).includes("Trial Chamber"));
+
      // Both portraits must be visible with real, unbroken existing art.
      await page.waitForFunction(()=>{
        const scholar=document.querySelector(".lux-path-hero-scholar");
