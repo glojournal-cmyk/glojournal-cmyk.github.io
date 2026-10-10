@@ -24,16 +24,16 @@ function assessmentMarker(){
 }
 function practiceMarker(){
   const source=file('assets/quiz-session-y8fix-20260920.js');
-  const start=source.indexOf('function CX(');
-  const end=source.indexOf('function V(',start);
-  assert.ok(start>=0&&end>start,'Live practice marking definitions found');
-  const context=vm.createContext({
-    I:q=>[...(q.answer.accepted||[])],
-    L:q=>q.answer.modelAnswer||q.answer.accepted?.[0]||''
-  });
-  vm.runInContext(source.slice(start,end),context,{timeout:10000});
-  assert.equal(typeof context.B,'function');
-  return context.B;
+  const start=source.indexOf('function A(e){');
+  const end=source.indexOf('function V(e){',start);
+  assert.ok(start>=0&&end>start,'Complete live Practice scoring definitions found');
+  // Use the real point matcher R and model helper I, not only the typed-answer
+  // fragment. This also tests Chemistry multi-mark partial-credit responses.
+  const normalized=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase().replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();
+  const preserved=s=>String(s??'').normalize('NFC').trim().replace(/\s+/g,' ');
+  const matcher=new Function('a','d','x',source.slice(start,end)+';return B;');
+  return matcher(normalized,normalized,preserved);
 }
 const q=id=>{
   const found=questionBank.find(row=>row.id===id);
