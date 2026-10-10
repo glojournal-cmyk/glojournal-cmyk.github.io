@@ -67,20 +67,31 @@ function repaint(){
  '<img class="lux-path-hero-scene" src="/art/stages/dusk.jpg" alt="" loading="eager">'+
  '<div class="lux-path-hero-overlay" aria-hidden="true"></div>'+
  '<div class="lux-path-hero-copy"><p class="lux-path-hero-kicker">LUX ET LABOR · THE SCHOLAR’S GARDEN</p>'+
- '<h3>Every lesson grows your story.</h3><p>Your scholar and her companion are right beside you.</p>'+
+ '<h3>Explore. Learn. Become.</h3><p>Every challenge lights another star in your Scholar’s Garden.</p>'+
+ '<div class="lux-quest-now"><span>✧ CURRENT QUEST</span><strong>'+y(d.paused?"Your saved practice":"Today’s next mission")+'</strong>'+
+ '<small>'+(d.valid?d.done+' of '+d.total+' daily quests completed':'Your daily quest awaits')+'</small>'+
+ '<a href="'+y(d.href)+'">Continue the adventure ↗</a></div>'+
  '<div class="lux-path-hero-links"><a href="/scholar/">Wardrobe ↗</a><a href="/pet/">Companion ↗</a></div></div>'+
  '<img class="lux-path-hero-pet" src="'+y(d.appearance.pet)+'" alt="'+y(d.appearance.petName)+', companion level '+d.appearance.level+'" loading="eager">'+
  '<img class="lux-path-hero-scholar" src="'+y(d.appearance.scholar)+'" alt="Scholar wearing '+y(d.appearance.outfit)+'" loading="eager">'+
- '</div>'+
+ '<nav class="lux-path-portals" aria-label="Quest destinations">'+
+ '<a class="lux-path-portal" href="'+y(d.href)+'"><span class="lux-portal-glyph">✦</span><span><small>01 · YOUR ADVENTURE</small><strong>Daily Quest</strong><em>'+d.done+' / '+d.total+' stars lit</em></span></a>'+
+ '<a class="lux-path-portal" href="#lux-study-subjects-v2"><span class="lux-portal-glyph">✧</span><span><small>02 · EXPLORE THE ARCHIVES</small><strong>Scholar’s Atlas</strong><em>Year 8 & Year 9 topics</em></span></a>'+
+ '<a class="lux-path-portal" href="/assessment/"><span class="lux-portal-glyph">⚜</span><span><small>03 · TEST YOUR MASTERY</small><strong>Trial Chamber</strong><em>School assessments</em></span></a>'+
+ '</nav></div>'+
+ '<div class="lux-path-sigil-ledger"><div><span class="lux-path-eyebrow">THE QUEST LEDGER</span><h3>Your ten daily stars</h3></div>'+
+ '<div class="lux-path-sigils" aria-label="'+d.done+' of '+d.total+' daily stars complete">'+
+ Array.from({length:10},(_,i)=>'<span class="'+(i<d.done?'lit':i===d.done?'next':'')+'" aria-hidden="true">'+(i<d.done?'✦':'✧')+'</span>').join('')+
+ '</div><p>Same ten learning tasks, now part of one unfolding journey.</p></div>'+
  '<div class="lux-path-grid">'+
- '<article class="lux-path-card lux-path-daily"><span class="lux-path-symbol" aria-hidden="true">✦</span><p class="lux-path-eyebrow">01 · YOUR ROUTINE</p><h3>Daily Journey</h3><p>Complete today’s 10 tasks and continue saved questions.</p>'+
+ '<article class="lux-path-card lux-path-daily"><span class="lux-path-symbol" aria-hidden="true">✦</span><p class="lux-path-eyebrow">01 · YOUR ROUTINE</p><h3>Daily Quest</h3><p>Keep your adventure going. Every completed task lights a star.</p>'+
  '<div class="lux-path-progress" role="progressbar" aria-label="Daily tasks completed" aria-valuemin="0" aria-valuemax="'+d.total+'" aria-valuenow="'+d.done+'"><span style="width:'+Math.min(100,d.done/d.total*100)+'%"></span></div>'+
  '<p class="lux-path-status">'+(d.valid?d.done+' / '+d.total+' tasks counted today':'Your daily tasks are on Home')+'</p>'+
  '<a class="lux-path-action" href="'+y(d.href)+'">'+(d.paused?'Resume saved practice':'Open daily journey')+' ↗</a></article>'+
- '<article class="lux-path-card"><span class="lux-path-symbol" aria-hidden="true">✧</span><p class="lux-path-eyebrow">02 · LEARN & PRACTISE</p><h3>Study Library</h3><p>Choose a subject and study at your own pace.</p>'+
+ '<article class="lux-path-card"><span class="lux-path-symbol" aria-hidden="true">✧</span><p class="lux-path-eyebrow">02 · LEARN & PRACTISE</p><h3>Scholar’s Atlas</h3><p>Explore old knowledge, discover new lessons and build mastery.</p>'+
  '<div class="lux-path-years" role="group" aria-label="Choose year"><button type="button" data-lux-year="8" aria-pressed="'+(d.year===8)+'">Year 8 revision</button><button type="button" data-lux-year="9" aria-pressed="'+(d.year===9)+'">Year 9 topics</button></div>'+
  '<a class="lux-path-textlink" href="#lux-study-subjects-v2">Browse all subjects ↓</a></article>'+
- '<article class="lux-path-card"><span class="lux-path-symbol" aria-hidden="true">✤</span><p class="lux-path-eyebrow">03 · PREPARE</p><h3>School Assessments</h3><p>Teacher tests, practice papers, marking and follow-up.</p>'+
+ '<article class="lux-path-card"><span class="lux-path-symbol" aria-hidden="true">✤</span><p class="lux-path-eyebrow">03 · PREPARE</p><h3>Trial Chamber</h3><p>Prepare for school assessments and prove what you have learned.</p>'+
  '<p class="lux-path-note">Separate from your 10 daily tasks.</p><a class="lux-path-textlink" href="/assessment/">Open assessments ↗</a></article></div>';
  for(const b of card.querySelectorAll("[data-lux-year]"))b.addEventListener("click",()=>{
   if(selectYear(Number(b.dataset.luxYear)))for(const other of card.querySelectorAll("[data-lux-year]"))
