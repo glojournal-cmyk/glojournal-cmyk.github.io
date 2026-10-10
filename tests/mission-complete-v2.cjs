@@ -92,7 +92,7 @@ test('all six school subject practice routes include mission styling and updated
  for(const subject of ['latin','french','biology','chemistry','physics','english']){
   const html=source('study/'+subject+'/practise/index.html');
   assert.match(html,/mission-complete-v2-20261010\.css/);
-  assert.match(html,/index-BLVOhKhN\.js\?v=20261010-mission-v2/);
+  assert.match(html,/index-BLVOhKhN\.js\?v=20261010-chem-marking1/);
  }
  const home=source('index.html');
  assert.doesNotMatch(home,/mission-complete-v2-20261010\.css/,'Home unaffected');

@@ -15,7 +15,7 @@ if(!scholar.includes("navigator.share")||!scholar.includes("URL.createObjectURL"
 if(!wrapper.includes("function appendLearningEvents")||!wrapper.includes("learningEvents,"))failures.push({type:"learning-history-not-in-runtime-state"});
 for(const token of ["petBackupVersion: 1","petCompanion: readPetBackupState()","exportProgress: patchedExportProgress","importProgress: patchedImportProgress","resetAll: patchedResetAll"])if(!wrapper.includes(token))failures.push({type:"pet-backup-integration-missing",token});
 if(!scholar.includes("Companion choice, evolution levels and MP"))failures.push({type:"pet-backup-ui-copy-missing"});
-for(const token of ["state: store.getState()", "assessmentProgress: readAssessmentBackupState()", 'localStorage.setItem("lux-assessment-v1"'])if(!wrapper.includes(token))failures.push({type:"complete-backup-missing",token});
+for(const token of ["state: store.getState()", "assessmentProgress: readAssessmentBackupState()", '["lux-assessment-v1", parsed?.assessmentProgress]'])if(!wrapper.includes(token))failures.push({type:"complete-backup-missing",token});
 const summary={failures:failures.length,fullStateExport:true,importMigration:true,ipadShare:true,jsonFallback:true,includes:["topicStats","skillStats","learningEvents","gamePractice","reviews","petCompanion","masteryPoints","petLevels"]};
 console.log("BACKUP_SCHEMA_QA "+JSON.stringify(summary));
 console.log("BACKUP_SCHEMA_FAILURES "+JSON.stringify(failures));
