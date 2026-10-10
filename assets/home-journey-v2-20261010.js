@@ -12,7 +12,8 @@ const element=(tag,cls,text)=>{
   return node;
 };
 function place(){
- if(location.pathname!=="/")return null;
+ // Do not insert elements into server-rendered React markup before hydration.
+ if(location.pathname!=="/" || !window.__luxAppReady)return null;
  const heading=[...document.querySelectorAll("main h2")].find(x=>x.textContent.trim()==="Raise her today");
  if(!heading)return null;
  const header=heading.parentElement?.parentElement;
