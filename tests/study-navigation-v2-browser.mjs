@@ -46,6 +46,39 @@ try{
        return !!nav && !!app && /Continue Learning/i.test(app.textContent||"");
      },null,{timeout:30000});
      assert.equal(await page.locator("#lux-study-paths-v2 article").count(),3);
+     // Both portraits must be visible with real, unbroken existing art.
+     await page.waitForFunction(()=>{
+       const scholar=document.querySelector(".lux-path-hero-scholar");
+       const pet=document.querySelector(".lux-path-hero-pet");
+       return scholar?.complete && scholar.naturalWidth>0 && pet?.complete && pet.naturalWidth>0
+         && scholar.getBoundingClientRect().height>100 && pet.getBoundingClientRect().height>50;
+     },null,{timeout:20000});
+     const art=await page.evaluate(()=>{
+       const scene=document.querySelector(".lux-path-hero");
+       const girl=document.querySelector(".lux-path-hero-scholar");
+       const pet=document.querySelector(".lux-path-hero-pet");
+       const stage=scene.getBoundingClientRect();
+       return {girl:girl.getBoundingClientRect().toJSON(),pet:pet.getBoundingClientRect().toJSON(),
+         stage:stage.toJSON(),girlSrc:girl.getAttribute("src"),petSrc:pet.getAttribute("src")};
+     });
+     assert.ok(art.girl.x>=art.stage.x-40 && art.girl.right<=art.stage.right+40,"Scholar stays in hero");
+     assert.ok(art.pet.x>=art.stage.x-40 && art.pet.right<=art.stage.right+40,"Pet stays in hero");
+     // Simulate a user who equipped Cardigan and evolved her hidden white owl.
+     await page.evaluate(async()=>{
+       localStorage.setItem("lux-pet-companion-v1",
+         JSON.stringify({species:"snow-owl",petLevels:{"snow-owl":3},name:"Moonveil"}));
+       const mod=await import("/assets/index-BLVOhKhN.js?v=20261010-chem-marking1");
+       mod.C.setState({equippedOutfit:"library"});
+       window.dispatchEvent(new Event("storage"));
+       window.dispatchEvent(new Event("scholar:pet-changed"));
+     });
+     await page.waitForFunction(()=>{
+       const a=document.querySelector(".lux-path-hero-scholar");
+       const b=document.querySelector(".lux-path-hero-pet");
+       return a?.getAttribute("src")==="/art/doll/cardigan.png"
+         && b?.getAttribute("src")?.includes("/level-3/snow-owl.webp")
+         && a.complete && a.naturalWidth>0 && b.complete && b.naturalWidth>0;
+     },null,{timeout:20000});
      assert.equal(await page.locator('a[href="/assessment/"]').count()>0,true);
      assert.equal(await page.locator("#lux-study-paths-v2 a[href^='/']").count()>0,true);
      assert.equal(await page.locator('main a[href="/study/latin"]').count()>0,true);
