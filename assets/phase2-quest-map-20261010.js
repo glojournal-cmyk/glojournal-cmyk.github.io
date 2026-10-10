@@ -16,7 +16,11 @@ function model(state,J,at=Date.now()){
  try{drafts=J?.resumeCandidates?.(state,at)||[]}catch{}
  const active=drafts.find(x=>x.daily&&x.planDate===today&&rows.some(r=>r.id===x.dailyTaskId&&!r.done&&r.href));
  const focus=rows.find(r=>r.id===active?.dailyTaskId)||rows.find(r=>!r.done&&r.href);
- return {ready:true,count:rows.filter(r=>r.done).length,total:10,rows,focus:focus?.id||null};
+ // The active draft is authoritative for where this exact question resumes.
+ // It affects navigation only; never update task credit or stored progress.
+ const resumeHref=active&&focus?.id===active.dailyTaskId?
+   (J?.navigationHref?.(active.href)||null):null;
+ return {ready:true,count:rows.filter(r=>r.done).length,total:10,rows,focus:focus?.id||null,resumeHref};
 }
 root.LuxPhase2QuestMap={model};
 if(typeof document==="undefined")return;
@@ -27,12 +31,13 @@ function renderStars(data){
  rail.setAttribute("role","group");
  rail.setAttribute("aria-label",data.count+" of 10 daily quests complete");
  for(const task of data.rows){
-  const n=make(task.href?"a":"span","lux-phase2-node"+
+  const link=task.id===data.focus&&data.resumeHref?data.resumeHref:task.href;
+  const n=make(link?"a":"span","lux-phase2-node"+
     (task.done?" is-lit":task.id===data.focus?" is-next":""));
-  if(task.href)n.href=task.href;
+  if(link)n.href=link;
   n.dataset.questId=task.id;
   n.setAttribute("aria-label",task.title+" · "+task.progress+" / "+task.target+
-    (task.done?" · complete":task.id===data.focus?" · next quest":" · not yet complete"));
+    (task.done?" · complete":task.id===data.focus?(data.resumeHref?" · resume saved question":" · next quest"):" · not yet complete"));
   n.title=task.title+" · "+task.progress+" / "+task.target;
   if(task.id===data.focus)n.setAttribute("aria-current","step");
   const orb=make("span","lux-phase2-orb",task.done?"✦":"✧");
@@ -51,7 +56,7 @@ function repaint(){
  if(/^\/study\/?$/.test(location.pathname)){
   const host=document.querySelector("#lux-study-paths-v2 .lux-path-sigils");
   if(!host||!data.ready)return;
-  const signature=JSON.stringify(data.rows.map(r=>[r.id,r.progress,r.target,r.href,r.done,r.id===data.focus]));
+  const signature=JSON.stringify([data.resumeHref,data.rows.map(r=>[r.id,r.progress,r.target,r.href,r.done,r.id===data.focus])]);
   if(host.dataset.phase2Signature===signature)return;
   host.classList.add("lux-phase2-host");
   host.replaceChildren(renderStars(data));host.dataset.phase2Signature=signature;
@@ -92,7 +97,7 @@ function repaint(){
  let resume=null;
  try{resume=root.LuxHomeContinue?.choose?.(state,root.LuxJourney)||null}catch{}
  const signature=JSON.stringify([data.rows.map(r=>[r.id,r.progress,r.target,r.href]),data.focus,
-   goalName,goalText,href,resume?.kind,resume?.href,resume?.button]);
+   goalName,goalText,href,resume?.kind,resume?.href,resume?.button,data.resumeHref]);
  if(panel?.dataset.phase2Signature===signature)return;
  if(!panel){panel=make("section","lux-phase2-home");panel.id="lux-phase2-home";
    panel.setAttribute("aria-label","Your daily constellation");insert(panel)}
@@ -106,7 +111,7 @@ function repaint(){
  }
  const next=data.rows.find(r=>r.id===data.focus);
  panel.append(make("p","lux-phase2-hint",data.count===10?"All ten quests complete":
-    next?"Next star · "+next.title:"Tap a star to choose a quest"));
+    next?(data.resumeHref?"Continue saved question · ":"Next star · ")+next.title:"Tap a star to choose a quest"));
  const reward=make("a","lux-phase2-goal");
  reward.href=href;
  reward.append(make("small",null,"NEXT UNLOCK"),make("strong",null,goalName),
