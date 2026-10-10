@@ -141,7 +141,7 @@
       const denied=[q.modelAnswer,...(q.answer?.accepted||[])].some(a=>cleaned(a)===bare);
       const declaredNegative=!denied && !/^(?:not|never)\s+(?:not|never|no)\b/i.test(response)
         && (q.answer?.points||[]).some(point=>(point.alternatives||[]).some(term=>
-          /^(?:not|never|no|without|cannot)\b/i.test(term)&&chemistryIdeaMatch(response,term)));
+          /^(?:not|never|no|without|cannot|incorrect|false)\b/i.test(term)&&chemistryIdeaMatch(response,term)));
       if(!declaredNegative)
         return {credit:0,status:'Incorrect',matched:0,total:q.answer?.points?.length||q.answer?.required?.length||1,pointResults:(q.answer?.points||[]).map(()=>false)};
     }

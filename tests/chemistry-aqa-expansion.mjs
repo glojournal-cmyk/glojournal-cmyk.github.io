@@ -39,6 +39,8 @@ for(const id of ['001','004','009']){
  for(const alt of negative)
   assert.ok(context.mark(q,alt).matched>=1,id+' intentional negative: '+alt);
 }
+assert.equal(context.mark(get('050'),'incorrect dye identity').matched,1,
+ 'Incorrect dye identity is a correct consequence of contamination');
 assert.equal(context.mark(get('001'),'not similar chemical properties').matched,0,
  'Negating the positive science must be rejected');
 assert.equal(context.mark(get('001'),'NOT '+get('001').modelAnswer).matched,0,
