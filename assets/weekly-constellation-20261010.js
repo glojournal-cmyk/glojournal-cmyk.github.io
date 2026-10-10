@@ -4,6 +4,11 @@
 "use strict";
 const KEY="lux-weekly-constellation-v1";
 const DAYS=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+const COLLECTION_KEY="lux-weekly-lantern-collection-v1";
+const SEEN_KEY="lux-weekly-lantern-seen-v1";
+function earnedWeeks(){try{const value=JSON.parse(localStorage.getItem(COLLECTION_KEY)||"[]");return Array.isArray(value)?value.filter(x=>/^\\d{4}-\\d{2}-\\d{2}$/.test(x)):[]}catch{return []}}
+function award(monday){const set=new Set(earnedWeeks());set.add(monday);try{localStorage.setItem(COLLECTION_KEY,JSON.stringify([...set].sort()))}catch{}return set.size}
+
 const make=(tag,cls,txt)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n};
 function weekStart(day){
  const d=new Date(day+"T12:00:00Z");if(!Number.isFinite(d.getTime()))return null;
@@ -46,6 +51,16 @@ style.textContent=`
 #lux-weekly-constellation .weekly-star strong{display:block;font-size:.73rem}
 #lux-weekly-constellation .weekly-star small{display:block;font-size:.68rem}
 #lux-weekly-constellation .weekly-finish{margin:12px 0 0;padding:10px;border-radius:10px;background:#e7f0e3;font-weight:600}
+#lux-weekly-constellation .weekly-award{margin-top:14px;border:1px solid #d2b56c;border-radius:16px;padding:13px;background:linear-gradient(120deg,#fff4d8,#f3f1e9);display:flex;align-items:center;gap:14px}
+#lux-weekly-constellation .weekly-award-icon{font-size:38px;flex:none;color:#a97c26}
+#lux-weekly-constellation .weekly-award strong{display:block}
+#lux-weekly-constellation .weekly-award small{display:block;color:#5c6261}
+#lux-weekly-constellation .weekly-celebrate{position:relative;overflow:hidden;padding:14px;margin-top:12px;border-radius:16px;background:linear-gradient(130deg,#192c43,#35544c);color:#fff9ee;text-align:center}
+#lux-weekly-constellation .weekly-companions{display:flex;align-items:center;justify-content:center;gap:18px;font-size:34px;margin:5px 0}
+#lux-weekly-constellation .weekly-companions img{width:75px;height:90px;object-fit:contain;filter:drop-shadow(0 4px 8px #0005)}
+#lux-weekly-constellation .weekly-celebrate button{margin-top:10px;background:#e8d3a0;color:#193247;border:0;border-radius:30px;padding:8px 16px;font-weight:700;cursor:pointer}
+#lux-weekly-constellation .weekly-celebrate button:focus-visible{outline:3px solid white;outline-offset:3px}
+@media(prefers-reduced-motion:no-preference){#lux-weekly-constellation .weekly-celebrate.is-new .weekly-companions{animation:lantern-pop .7s ease-out both}#lux-weekly-constellation .weekly-celebrate.is-new:before{content:"✦  ✧  ✦  ✧  ✦";display:block;font-size:24px;color:#f3d389;animation:lantern-pop .8s ease-out both}@keyframes lantern-pop{from{opacity:0;transform:translateY(16px) scale(.8)}to{opacity:1;transform:none}}}
 #lux-weekly-constellation .weekly-note{font-size:.73rem;opacity:.75;margin-top:12px}
 @media(max-width:440px){#lux-weekly-constellation{padding:12px}#lux-weekly-constellation .weekly-days{gap:3px}#lux-weekly-constellation .weekly-star{padding:7px 1px}#lux-weekly-constellation .weekly-star small{font-size:.57rem}}
 @media(prefers-reduced-motion:no-preference){#lux-weekly-constellation .weekly-star.lit .symbol{animation:weekly-glow 2.8s ease-in-out infinite alternate}@keyframes weekly-glow{to{text-shadow:0 0 16px #d3a44a}}}
@@ -80,8 +95,28 @@ function paint(){
   grid.append(tile);
  });
  panel.append(grid);
- if(lit===7)panel.append(make("p","weekly-finish","✦ Constellation restored! Seven lanterns are shining."));
- else panel.append(make("p","weekly-note","Complete daily quests on different days to restore the constellation. Display-only challenge: no extra XP or outfit unlocks. Earlier days can only be counted if they were recorded on this device."));
+ if(lit===7){
+  const total=award(data.monday);
+  panel.append(make("p","weekly-finish","✦ Constellation restored! Seven lanterns are shining."));
+  const awardCard=make("div","weekly-award");
+  awardCard.append(make("span","weekly-award-icon","✺"));
+  const description=make("div");
+  description.append(make("strong",null,"Seven Lanterns · Celestial Keepsake"),make("small",null,"Collected for week of "+data.monday+" · "+total+" weekly keepsake"+(total===1?"":"s")+" in this browser"));
+  awardCard.append(description);panel.append(awardCard);
+  let seen=false;try{seen=localStorage.getItem(SEEN_KEY)===data.monday}catch{}
+  const scene=make("section","weekly-celebrate"+(!seen?" is-new":""));
+  scene.setAttribute("aria-label","Scholar and companion celebration");
+  scene.append(make("strong",null,"The garden is glowing!"));
+  const companions=make("div","weekly-companions");
+  const scholar=make("img");scholar.src="/art/doll/day.png";scholar.alt="Your scholar celebrating";scholar.loading="lazy";
+  companions.append(scholar,make("span",null,"🐾 ✨"));
+  scene.append(companions,make("p",null,"Your scholar and companion celebrate seven days of learning."));
+  const replay=make("button",null,"Replay celebration");
+  replay.type="button";replay.addEventListener("click",()=>{scene.classList.remove("is-new");void scene.offsetWidth;scene.classList.add("is-new")});
+  scene.append(replay);panel.append(scene);
+  if(!seen)try{localStorage.setItem(SEEN_KEY,data.monday)}catch{}
+ }
+ else panel.append(make("p","weekly-note","Complete daily quests on different days to restore the constellation. Seven-day completion unlocks a display-only keepsake, not XP or outfits. Earlier days can only be counted if they were recorded on this device."));
  panel.dataset.weekSignature=signature;
 }
 function schedule(){if(!queued){queued=true;queueMicrotask(paint)}}
