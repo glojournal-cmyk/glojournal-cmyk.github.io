@@ -4,6 +4,7 @@ on:
     paths:
       - 'study/index.html'
       - 'assets/study-navigation-v2-20261010.*'
+      - 'assets/lux-celestial-b-symbol-20261010.svg'
       - 'tests/study-navigation-v2*'
       - '.github/workflows/study-navigation-v2-preview-qa.yml'
   workflow_dispatch:
