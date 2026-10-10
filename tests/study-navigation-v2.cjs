@@ -20,7 +20,9 @@ test('no new reward, task, progress, persistence or pet mutations',()=>{
   /\.removeItem\s*\(/,/\bdelete\s+saved\b/,/\bstate\.daily\.push\s*\(/])
   assert.doesNotMatch(js,exp);
  assert.match(js,/window\.__luxAppReady/,'wait for hydration before touching DOM');
- assert.match(js,/if\(old\)old\.replaceWith\(card\);else header\.after\(card\)/);
+ assert.match(js,/header\.before\(card\)/,'quest scene is first');
+ assert.match(js,/parent\.dataset\.luxQuestReady/,'quest-only styling begins after render');
+ assert.match(js,/luxQuestLegacyShortcut/,'duplicate shortcuts marked for collapse');
 });
 test('Study V2 preserves six existing subject cards and real native year selector',()=>{
  const shell=file('study/index.html');
@@ -74,4 +76,17 @@ test('approved B celestial branding is shared safely between Home and Study',()=
  assert.ok(home.includes('lux-celestial-b-brand-20261010.css'));
  assert.ok(study.includes('lux-celestial-b-brand-20261010.css'));
  assert.ok(!home.includes('study-navigation-v2-20261010'));
+});
+
+test('legacy subjects directory no longer blocks the first screen',()=>{
+ const script=file('assessment-link.js');
+ const study=file('study/index.html'),home=file('index.html');
+ assert.doesNotMatch(script,/textContent='Browse subjects'/);
+ assert.match(script,/getElementById\('subject-directory-entry'\)\?\.remove\(\)/);
+ assert.match(home,/assessment-link\.js\?v=20261010-firstscreen-fix1/);
+ assert.match(study,/assessment-link\.js\?v=20261010-firstscreen-fix1/);
+ assert.match(study,/study-navigation-v2-20261010\.js\?v=20261010-firstscreen-fix1/);
+ const css=file('assets/study-navigation-v2-20261010.css');
+ assert.match(css,/data-lux-quest-ready/);
+ assert.match(css,/data-lux-quest-legacy-shortcut/);
 });

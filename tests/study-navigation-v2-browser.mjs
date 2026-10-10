@@ -71,6 +71,34 @@ try{
        img.src="/assets/lux-celestial-b-symbol-20261010.png";
      }));
      assert.equal(imageLoads,true,"B logo image pixels load in this browser");
+     // Real first-screen UX: Quest Hall precedes every Study/library panel.
+     await page.waitForFunction(()=>{
+       const quest=document.querySelector("#lux-study-paths-v2");
+       const parent=quest?.parentElement;
+       return !!quest && parent?.dataset.luxQuestReady==="true"
+         && parent.firstElementChild===quest;
+     },null,{timeout:10000});
+     const fold=await page.evaluate(()=>{
+       const rect=sel=>document.querySelector(sel)?.getBoundingClientRect()?.toJSON();
+       const quest=document.querySelector("#lux-study-paths-v2");
+       const siblings=quest?.parentElement;
+       return {quest:rect("#lux-study-paths-v2"),subjects:rect("#lux-study-subjects-v2"),
+         noDirectory:!document.getElementById("subject-directory-entry"),
+         first:siblings?.firstElementChild===quest,
+         redundant:[...siblings.children].filter(el=>el.dataset.luxQuestLegacyShortcut==="true")
+           .map(el=>({name:el.querySelector("h2")?.textContent||"",
+             display:getComputedStyle(el).display})),
+         yearVisible:!!document.querySelector("main select:has(option[value='8'])")?.getClientRects().length};
+     });
+     assert.ok(fold.noDirectory,"obsolete Browse subjects directory must be removed");
+     assert.ok(fold.first,"Quest Hall must be the first Study content, not Subjects");
+     assert.ok(fold.quest.top<240,"Quest Hall must appear in first screen: "+JSON.stringify(fold));
+     assert.ok(fold.subjects.top>fold.quest.top+250,
+       "original six-subject library must come after the Quest Hall");
+     assert.ok(fold.redundant.length===2 &&
+       fold.redundant.every(x=>x.display==="none"),
+       "legacy Start your next topic and Today must not duplicate Quest Hall: "+JSON.stringify(fold));
+     assert.ok(fold.yearVisible,"native Year 8/9 picker stays visible");
      assert.equal(await page.locator("#lux-study-paths-v2 article").count(),3);
      // All three destinations are now navigable in the character-and-pet scene.
      assert.equal(await page.locator(".lux-path-portals a").count(),3);
@@ -166,6 +194,9 @@ try{
      await page.waitForFunction(()=>document.querySelector("main h1")?.textContent?.includes("Scholar"),
        null,{timeout:30000});
      assert.ok((await page.locator("main").innerText()).length>300,"Home is not blank");
+     assert.equal(await page.locator("#subject-directory-entry").count(),0,
+       "Home must not open on the obsolete Browse subjects panel");
+
      assert.equal(await page.locator("#lux-study-paths-v2").count(),0,"no Study-only UI on Home");
      const homeBrand=await page.evaluate(()=>{
        const element=window.innerWidth>=1280
