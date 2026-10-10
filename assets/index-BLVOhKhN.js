@@ -1957,25 +1957,66 @@ function patchedImportProgress(text) {
   let parsed = null;
   try { parsed = JSON.parse(text); } catch {}
   if (parsed?.assessmentProgress != null &&
-      (typeof parsed.assessmentProgress !== "object" || Array.isArray(parsed.assessmentProgress))) {
+      (typeof parsed.assessmentProgress !== "object" || Array.isArray(parsed.assessmentProgress)))
     return { ok: false, error: "The assessment data in this backup is invalid." };
+  if (parsed?.topicLearning != null &&
+      (typeof parsed.topicLearning !== "object" || Array.isArray(parsed.topicLearning)))
+    return { ok: false, error: "Invalid learned-topic settings." };
+  for (const key of ["practiceDrafts", "biologyPractice"]) {
+    if (parsed?.[key] != null && (typeof parsed[key] !== "object" || Array.isArray(parsed[key])))
+      return { ok: false, error: "Invalid practice draft data." };
   }
-  if(parsed?.topicLearning != null && (typeof parsed.topicLearning !== "object" || Array.isArray(parsed.topicLearning))) return {ok:false,error:"Invalid learned-topic settings."};
-  for (const key of ["practiceDrafts","biologyPractice"]) if (parsed?.[key] != null && (typeof parsed[key] !== "object" || Array.isArray(parsed[key]))) return {ok:false,error:"Invalid practice draft data."};
-  const result = originalImportProgress(text);
-  if (!result?.ok || typeof window === "undefined") return result;
-  try { if(parsed?.practiceDrafts) localStorage.setItem("lux-practice-drafts-v1",JSON.stringify(parsed.practiceDrafts)); if(parsed?.biologyPractice) localStorage.setItem("scholar-biology-cell-practice-v1",JSON.stringify(parsed.biologyPractice)); } catch { return {ok:false,error:"Could not restore practice drafts."}; }
-  if(parsed?.topicLearning) localStorage.setItem("lux-topic-learning-v1",JSON.stringify(parsed.topicLearning));
-  if (parsed?.assessmentProgress && typeof parsed.assessmentProgress === "object") {
-    try { localStorage.setItem("lux-assessment-v1", JSON.stringify(parsed.assessmentProgress)); }
-    catch { return { ok: false, error: "Could not restore assessment data. Check this device has storage available." }; }
+  if (parsed?.petCompanion != null &&
+      (typeof parsed.petCompanion !== "object" || Array.isArray(parsed.petCompanion)))
+    return { ok: false, error: "Invalid pet progress in the backup." };
+  if (typeof window === "undefined") return originalImportProgress(text);
+
+  // Stage and verify linked progress BEFORE replacing the main Scholar state.
+  // If quota prevents any linked save, undo all staged writes instead of
+  // reporting a failed restore after the original progress was already replaced.
+  const linked = [
+    ["lux-practice-drafts-v1", parsed?.practiceDrafts],
+    ["scholar-biology-cell-practice-v1", parsed?.biologyPractice],
+    ["lux-topic-learning-v1", parsed?.topicLearning],
+    ["lux-assessment-v1", parsed?.assessmentProgress],
+    [PET_REWARD_KEY, parsed?.petCompanion],
+  ].filter(([, value]) => value != null);
+  const original = new Map(), written = [];
+  const rollback = () => {
+    for (const key of written.reverse()) {
+      try {
+        const previous = original.get(key);
+        if (previous == null) localStorage.removeItem(key);
+        else localStorage.setItem(key, previous);
+      } catch {}
+    }
+  };
+  try {
+    for (const [key, value] of linked) {
+      original.set(key, localStorage.getItem(key));
+      const serialized = JSON.stringify(value);
+      localStorage.setItem(key, serialized);
+      written.push(key);
+      if (localStorage.getItem(key) !== serialized) throw Error("Save verification failed");
+    }
+  } catch {
+    rollback();
+    return { ok: false, error: "Restore stopped before replacing progress: the iPad could not save all linked data. Keep your backup file." };
+  }
+  let result;
+  try { result = originalImportProgress(text); }
+  catch { result = { ok: false, error: "Could not restore the Scholar progress." }; }
+  if (!result?.ok) {
+    rollback();
+    return result;
   }
   const pet = parsed?.petCompanion;
   if (pet && typeof pet === "object") {
     try {
-      localStorage.setItem(PET_REWARD_KEY, JSON.stringify(pet));
       window.dispatchEvent(new CustomEvent("scholar:pet-changed", { detail: pet }));
-      window.dispatchEvent(new CustomEvent("scholar:mp-changed", { detail: { balance: Math.max(0, Number(pet.masteryPoints) || 0), restored: true } }));
+      window.dispatchEvent(new CustomEvent("scholar:mp-changed", { detail: {
+        balance: Math.max(0, Number(pet.masteryPoints) || 0), restored: true
+      } }));
     } catch {}
   }
   return result;
