@@ -13,7 +13,7 @@ html aside.fixed > a[href="/"] > span:first-child{
   flex:0 0 132px!important;min-width:140px!important;min-height:132px!important;
   overflow:visible!important;border:0!important;border-radius:0!important;
   box-shadow:none!important;outline:0!important;
-  background:transparent url("/assets/lux-celestial-b-symbol-20261010.svg") center / contain no-repeat!important;
+  background:transparent url("/assets/lux-celestial-b-symbol-20261010.png") center / contain no-repeat!important;
 }
 html aside.fixed > a[href="/"] > span:first-child img{
   display:none!important;
@@ -38,6 +38,6 @@ html aside.fixed > a[href="/"] small{
  html header.xl\:hidden a[href="/"]::before{
    content:""!important;display:block!important;flex:0 0 35px!important;
    width:35px!important;height:35px!important;
-   background:url("/assets/lux-celestial-b-symbol-20261010.svg") center / contain no-repeat!important;
+   background:url("/assets/lux-celestial-b-symbol-20261010.png") center / contain no-repeat!important;
  }
 }
