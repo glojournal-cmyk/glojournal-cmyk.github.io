@@ -3,23 +3,69 @@ import { C as store } from "/assets/index-BLVOhKhN.js?v=20261010-chem-marking1";
 
 const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
 const AUTO_KEY = "lux-progress-auto-v1";
-let autoTimer, lastAutoData = "", selectedRestore = null;
+const BEFORE_RESTORE_KEY = "lux-progress-before-restore-v1";
+let autoTimer, lastAutoSignature = "", selectedRestore = null;
+function backupSignature(data) {
+ try {
+  const parsed = JSON.parse(data);
+  // exportProgress adds a timestamp on every call, even without a state change.
+  delete parsed.exportedAt;
+  return JSON.stringify(parsed);
+ } catch { return String(data || ""); }
+}
 function autoSave(){
  clearTimeout(autoTimer);
  try {
-  const dataRaw=store.getState().exportProgress();
-  let data=dataRaw;
-  try { data=JSON.stringify(JSON.parse(dataRaw)); } catch {}
-  if(data===lastAutoData)return;
-  const previous=localStorage.getItem(AUTO_KEY);
-  if(previous && previous.length<120000)localStorage.setItem(AUTO_KEY+"-previous",previous);
-  const saved={savedAt:new Date().toISOString(),...summary(store.getState()),data};
+  const state = store.getState();
+  const parsed = JSON.parse(state.exportProgress());
+  if(parsed.app !== "lux-scholar-garden" || !Array.isArray(parsed.state?.daily)) throw Error("Invalid progress state");
+  const data = JSON.stringify(parsed), signature = backupSignature(data);
+  if(signature === lastAutoSignature) return;
+  const previousRaw = localStorage.getItem(AUTO_KEY);
+  let previous = null;
+  try { previous = JSON.parse(previousRaw || "null"); } catch {}
+  const today = summary(state);
+  if(previous?.data && backupSignature(previous.data) === signature){
+   lastAutoSignature = signature;
+   return;
+  }
+  // Never overwrite an evidently better same-day copy after a failed hydration.
+  if(previous?.data && previous.day === today.day && Number(previous.done) > today.done){
+   const el = document.getElementById("daily-auto-status");
+   if(el) el.textContent = "A saved copy has more completed tasks. Check Backup history & restore before replacing it.";
+   return;
+  }
+  // A fresh empty state is not proof that earlier XP and completed work vanished.
+  if(previous?.data && Number(parsed.state?.xp) === 0){
+   let before;
+   try { before = JSON.parse(previous.data)?.state; } catch {}
+   if(Number(before?.xp) > 0 && (before?.daily || []).some(t => Number(t.progress) >= Number(t.target))){
+    const el = document.getElementById("daily-auto-status");
+    if(el) el.textContent = "Previous progress is protected. Review the automatic backup before saving a new blank record.";
+    return;
+   }
+  }
+  // Keep the previous calendar day's recovery copy rather than replacing it
+  // with every keystroke or every 250-ms state update.
+  if(previous?.data && previous.day !== today.day){
+   try {
+    const older = JSON.parse(localStorage.getItem(AUTO_KEY+"-previous") || "null");
+    if(!older?.data || String(older.day || "") < String(previous.day || ""))
+     localStorage.setItem(AUTO_KEY+"-previous",previousRaw);
+   } catch { /* Primary backup remains untouched if quota is tight. */ }
+  }
+  const saved = {savedAt:new Date().toISOString(),...today,data};
   localStorage.setItem(AUTO_KEY,JSON.stringify(saved));
-  if(JSON.parse(localStorage.getItem(AUTO_KEY)).data!==data)throw Error("Save verification failed");
-  lastAutoData=data;
+  if(JSON.parse(localStorage.getItem(AUTO_KEY) || "null")?.data !== data)
+   throw Error("Save verification failed");
+  lastAutoSignature = signature;
   refreshCopies();
-  const el=document.getElementById("daily-auto-status");if(el)el.textContent=`Saved automatically · ${new Date(saved.savedAt).toLocaleTimeString("en-GB")}`;
- }catch(error){const el=document.getElementById("daily-auto-status");if(el)el.textContent="Automatic backup failed. Use Save progress & backup to keep a separate file.";}
+  const el = document.getElementById("daily-auto-status");
+  if(el) el.textContent = `Saved automatically · ${new Date(saved.savedAt).toLocaleTimeString("en-GB")}`;
+ }catch(error){
+  const el = document.getElementById("daily-auto-status");
+  if(el) el.textContent = "Automatic backup failed. Use Save progress & backup to keep a separate file.";
+ }
 }
 store.subscribe(()=>{clearTimeout(autoTimer);autoTimer=setTimeout(autoSave,250)});
 window.addEventListener("pagehide",autoSave);
@@ -94,7 +140,7 @@ function previewRestore(data, name, meta = {}) {
   } catch(error) { selectedRestore=null;const box=document.getElementById('daily-restore-preview');if(box)box.hidden=true;status(error.message||'Could not read this backup.','error'); }
 }
 function refreshCopies() {
- for(const [id,key] of [['daily-auto-previous',AUTO_KEY+'-previous'],['daily-auto-restore',AUTO_KEY],['daily-restore-button',SNAPSHOT_KEY]]) {
+ for(const [id,key] of [['daily-before-restore',BEFORE_RESTORE_KEY],['daily-auto-previous',AUTO_KEY+'-previous'],['daily-auto-restore',AUTO_KEY],['daily-restore-button',SNAPSHOT_KEY]]) {
   const button=document.getElementById(id);if(!button)continue;
   let saved;try{saved=JSON.parse(localStorage.getItem(key)||'null')}catch{}
   button.disabled=!saved?.data;
@@ -105,8 +151,20 @@ function refreshCopies() {
 function restore(data, name) {
   const current = summary(store.getState());
   if (!confirm(`Restore ${name}? This replaces current progress on this iPad (${current.done}/${current.total} tasks). Export the current progress first if needed.`)) return;
+  // Preserve the current live state before any import (which may update several
+  // separate storage keys). If a secondary restore fails, this copy remains.
+  let safeguard;
+  try {
+    const currentData = store.getState().exportProgress();
+    safeguard = {savedAt:new Date().toISOString(),...current,data:currentData};
+    localStorage.setItem(BEFORE_RESTORE_KEY,JSON.stringify(safeguard));
+    if(JSON.parse(localStorage.getItem(BEFORE_RESTORE_KEY) || "null")?.data !== currentData)
+      throw Error("Could not verify recovery copy");
+  } catch {
+    return status("Restore stopped: could not protect your current progress. Export a backup file first.", "error");
+  }
   const result = store.getState().importProgress(data);
-  if (!result?.ok) return status(result?.error || "Could not restore this backup.", "error");
+  if (!result?.ok) return status((result?.error || "Restore failed.") + " Your earlier copy remains available under Backup history.", "error");
   status("Backup restored. Reloading to show the updated tasks.", "success");
   location.reload();
 }
@@ -124,6 +182,7 @@ function mount() {
     <div class="daily-save-actions"><button id="daily-save-button" type="button">Save progress & backup</button></div>
     <details id="daily-recovery-options"><summary>Backup history & restore</summary>
       <p class="daily-save-note">Preview a copy before restoring. Files kept in Files or iCloud Drive can recover progress after browser data is cleared.</p>
+      <div class="daily-backup-copy"><button id="daily-before-restore" type="button">Preview progress before last restore</button><p id="daily-before-restore-info"></p></div>
       <div class="daily-backup-copy"><button id="daily-auto-previous" type="button">Preview previous automatic copy</button><p id="daily-auto-previous-info"></p></div>
       <div class="daily-backup-copy"><button id="daily-auto-restore" type="button">Preview latest automatic copy</button><p id="daily-auto-restore-info"></p></div>
       <div class="daily-backup-copy"><button id="daily-restore-button" type="button">Preview manual backup</button><p id="daily-restore-button-info"></p></div>
@@ -143,6 +202,7 @@ function mount() {
   panel.querySelector('#daily-restore-apply').addEventListener('click',()=>{if(selectedRestore)restore(selectedRestore.data,selectedRestore.name)});
   panel.querySelector('#daily-restore-cancel').addEventListener('click',()=>{selectedRestore=null;panel.querySelector('#daily-restore-preview').hidden=true;status(savedStatus())});
   try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY)||"null");if(saved)document.getElementById("daily-auto-status").textContent=`Automatically saved ${new Date(saved.savedAt).toLocaleString("en-GB")}`;}catch{}
+  panel.querySelector("#daily-before-restore").addEventListener("click",()=>{try{const saved=JSON.parse(localStorage.getItem(BEFORE_RESTORE_KEY)||"null");if(saved)previewRestore(saved.data,"Progress before last restore",saved);else status("No pre-restore recovery copy yet.");}catch{status("Could not read the recovery copy.","error")}});
   panel.querySelector("#daily-auto-previous").addEventListener("click",()=>{try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY+"-previous")||"null");if(saved)previewRestore(saved.data,"Previous automatic copy",saved);else status("No previous automatic backup yet.");}catch{status("Could not read the previous backup.","error")}});
   panel.querySelector("#daily-auto-restore").addEventListener("click",()=>{try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY)||"null");if(saved)previewRestore(saved.data,"Latest automatic copy",saved);else status("No automatic backup yet.");}catch{status("Could not read the automatic backup.","error")}});
   panel.querySelector("#daily-save-button").addEventListener("click", save);
