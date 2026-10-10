@@ -7,6 +7,8 @@ on:
       - 'assets/home-journey-v2-*.css'
       - 'assets/journey-navigation-20261004.js'
       - 'tests/home-journey-v2.cjs'
+      - 'tests/home-continue-route-qa.cjs'
+      - 'assets/home-continue-20261010.js'
       - '.github/workflows/home-journey-v2-qa.yml'
   push:
     branches: [main]
@@ -16,6 +18,8 @@ on:
       - 'assets/home-journey-v2-*.css'
       - 'assets/journey-navigation-20261004.js'
       - 'tests/home-journey-v2.cjs'
+      - 'tests/home-continue-route-qa.cjs'
+      - 'assets/home-continue-20261010.js'
       - '.github/workflows/home-journey-v2-qa.yml'
 permissions:
   contents: read
@@ -25,6 +29,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Syntax check display module
-        run: node --check assets/home-journey-v2-20261010.js
+        run: |
+          node --check assets/home-journey-v2-20261010.js
+          node --check assets/home-continue-20261010.js
       - name: Run homepage journey regression tests
-        run: node --test tests/home-journey-v2.cjs
+        run: node --test tests/home-journey-v2.cjs tests/home-continue-route-qa.cjs

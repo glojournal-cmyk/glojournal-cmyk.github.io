@@ -8,6 +8,15 @@ on:
       - 'assets/lux-celestial-b-brand-20261010.css'
       - 'index.html'
       - 'tests/study-navigation-v2*'
+      - 'tests/study-quest-completion-qa.cjs'
+      - '.github/workflows/study-navigation-v2-preview-qa.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'study/index.html'
+      - 'assets/study-navigation-v2-20261010.*'
+      - 'tests/study-navigation-v2*'
+      - 'tests/study-quest-completion-qa.cjs'
       - '.github/workflows/study-navigation-v2-preview-qa.yml'
   workflow_dispatch:
 permissions:
@@ -21,7 +30,7 @@ jobs:
         with:
           node-version: 22
       - run: node --check assets/study-navigation-v2-20261010.js
-      - run: node --test tests/study-navigation-v2.cjs
+      - run: node --test tests/study-navigation-v2.cjs tests/study-quest-completion-qa.cjs
   study-browser:
     runs-on: ubuntu-latest
     timeout-minutes: 18
