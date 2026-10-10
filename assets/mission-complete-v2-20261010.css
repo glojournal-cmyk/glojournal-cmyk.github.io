@@ -1,0 +1,71 @@
+/* Mission Complete V2: light, elegant botanical game feedback. All rewards are
+   read from the existing store; no XP or task calculation is done here. */
+.lux-session-result-v2{color:#173447;display:grid;gap:15px}
+.lux-session-header-v2{position:relative;overflow:hidden;border-radius:22px;
+ padding:22px 22px 19px;border:1px solid #c6b485;
+ background:radial-gradient(circle at 90% 7%,rgba(240,217,151,.22),transparent 36%),
+ linear-gradient(122deg,#183748,#234d54);color:#fffaf0;
+ box-shadow:0 10px 28px rgba(24,52,57,.09)}
+.lux-session-header-v2:after{content:"✦";position:absolute;right:21px;top:11px;
+ font:36px Georgia,serif;color:#ead4a3;opacity:.75;pointer-events:none}
+.lux-session-kicker-v2{font-size:10px;letter-spacing:.18em;color:#efd9a8;
+ font-weight:750;text-transform:uppercase;margin:0 0 9px}
+.lux-session-header-v2 h1{font:600 clamp(27px,3vw,38px)/1.1 "Cormorant Garamond",Georgia,serif!important;
+ margin:0;color:#fff7e6}
+.lux-session-header-v2>p:last-child{margin:7px 0 0!important;color:#f0e7d2;font-size:13px}
+.lux-session-rewards-v2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.lux-session-reward-v2{padding:13px 14px;border:1px solid #d9d7c7;background:#fffdf7;
+ border-radius:16px;display:flex;gap:11px;align-items:center;min-width:0}
+.lux-session-reward-icon-v2{font-size:22px;color:#947f43;line-height:1}
+.lux-session-reward-v2 strong{display:block;font:700 23px/1.07 "Cormorant Garamond",Georgia,serif}
+.lux-session-reward-v2 small{display:block;font-size:11px;color:#687b6c;margin-top:2px}
+.lux-mission-v2{position:relative;overflow:hidden;background:#fffdf7;
+ border:1px solid #d6d8c6;border-radius:20px;padding:18px 19px;
+ color:#193f4e;scroll-margin-top:78px}
+.lux-mission-v2.is-complete{border-color:#b1c7b2;
+ background:linear-gradient(120deg,#f0f5e8,#fffdf6 80%)}
+.lux-mission-v2.is-unverified{border-color:#cfab76;background:#fff8ec}
+.lux-mission-v2 h2{font:650 clamp(24px,3vw,32px)/1.08 "Cormorant Garamond",Georgia,serif!important;
+ margin:4px 0 6px!important;color:#1e4c48}
+.lux-mission-eyebrow-v2{margin:0!important;font-size:10px!important;font-weight:750;
+ color:#697d64;letter-spacing:.14em;text-transform:uppercase}
+.lux-mission-message-v2{margin:0 0 11px!important;color:#577064;font-size:13px}
+.lux-mission-track-head-v2{display:flex;justify-content:space-between;gap:10px;
+ align-items:center;margin:10px 0 7px;font-size:12px;font-weight:650}
+.lux-mission-v2 progress{display:block;width:100%;height:10px;margin:0;
+ accent-color:#799a82}
+.lux-mission-stars-v2{display:flex;flex-wrap:wrap;gap:5px;margin:12px 0 10px;
+ font-size:19px;line-height:1.25}
+.lux-mission-stars-v2>span{width:22px;display:inline-flex;justify-content:center;
+ color:#b4bfae}
+.lux-mission-stars-v2>span.is-lit{color:#ae9252}
+.lux-mission-save-v2{display:flex;align-items:flex-start;gap:7px;font-size:12px;
+ line-height:1.4;font-weight:650;color:#496e5d;margin:8px 0}
+.lux-mission-v2.is-unverified .lux-mission-save-v2{color:#8b6332}
+.lux-mission-cta-v2{display:flex;align-items:center;justify-content:center;
+ text-align:center;min-height:46px;border-radius:13px;background:#1a3e4d;
+ color:#fff9e9;text-decoration:none;font-size:13px;font-weight:750;
+ padding:10px 15px;margin-top:12px}
+.lux-mission-cta-v2:hover,.lux-mission-cta-v2:focus-visible{
+ color:#fff;background:#2d5960;text-decoration:underline}
+.lux-mission-subactions-v2{display:flex;flex-wrap:wrap;gap:11px;margin-top:11px;
+ align-items:center;font-size:12px}
+.lux-mission-subactions-v2 a,.lux-mission-subactions-v2 button{
+ color:#365864;text-decoration:underline;min-height:35px;background:none;border:0;
+ padding:5px 0;cursor:pointer}
+.lux-mission-v2.is-complete .lux-mission-eyebrow-v2:before{content:"✦ ";color:#a5894f}
+.lux-mission-v2.is-celebrating:after{
+ content:"✦ ✧ ✦";position:absolute;right:13px;top:9px;letter-spacing:4px;
+ font-size:19px;color:#ad8c46;pointer-events:none;
+ animation:lux-mission-sparkle 1.15s ease-out 1 both}
+@keyframes lux-mission-sparkle{0%{opacity:0;transform:translateY(14px) scale(.8)}
+ 35%{opacity:1;transform:translateY(0) scale(1)}
+ 100%{opacity:0;transform:translateY(-18px) scale(1.05)}}
+@media(max-width:470px){.lux-session-rewards-v2{gap:7px}
+ .lux-session-reward-v2{padding:10px;gap:7px}
+ .lux-session-header-v2{padding:18px}
+ .lux-mission-v2{padding:14px}
+ .lux-session-reward-v2 strong{font-size:21px}}
+@media(prefers-reduced-motion:reduce){
+ .lux-mission-v2.is-celebrating:after{animation:none;display:none}
+}
