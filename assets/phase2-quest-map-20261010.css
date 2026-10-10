@@ -37,3 +37,17 @@ a.lux-phase2-node:focus-visible,.lux-phase2-goal:focus-visible{outline:3px solid
 }
 @media(max-width:380px){.lux-phase2-orb{width:32px;height:32px;flex-basis:32px}}
 @media(prefers-reduced-motion:reduce){.lux-phase2-node{transition:none!important}}
+
+/* Home Continue occupies a narrower column even on desktop: use a 5×2
+   constellation there, keeping each star a comfortable iPad touch target. */
+.lux-phase2-home .lux-phase2-stars{grid-template-columns:repeat(5,minmax(0,1fr));row-gap:10px}
+.lux-phase2-node::before{content:"";position:absolute;z-index:0;left:-46%;right:53%;
+ top:18px;height:1.5px;background:linear-gradient(90deg,#b9c9ad,#c5b181);
+ pointer-events:none}
+.lux-phase2-node:first-child::before{display:none}
+.lux-phase2-home .lux-phase2-node:nth-child(6)::before{display:none}
+.lux-phase2-orb,.lux-phase2-num{position:relative;z-index:1}
+@media(max-width:850px){
+ .lux-phase2-node:nth-child(6)::before{display:none}
+}
+@media(prefers-reduced-motion:reduce){.lux-phase2-node::before{transition:none}}
