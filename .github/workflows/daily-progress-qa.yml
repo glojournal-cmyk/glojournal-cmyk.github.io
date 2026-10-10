@@ -1,0 +1,30 @@
+name: Daily tasks and progress reliability
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/index-BLVOhKhN.js'
+      - 'assets/progress-preflight-20261007.js'
+      - 'assets/daily-progress-save.js'
+      - 'assets/journey-navigation-20261004.js'
+      - 'assets/practice-drafts-20261004.js'
+      - 'tests/daily-progress-reliability.cjs'
+      - '.github/workflows/daily-progress-qa.yml'
+  pull_request:
+    paths:
+      - 'assets/index-BLVOhKhN.js'
+      - 'assets/progress-preflight-20261007.js'
+      - 'assets/daily-progress-save.js'
+      - 'assets/journey-navigation-20261004.js'
+      - 'assets/practice-drafts-20261004.js'
+      - 'tests/daily-progress-reliability.cjs'
+      - '.github/workflows/daily-progress-qa.yml'
+permissions:
+  contents: read
+jobs:
+  daily-progress-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test daily task and progress reliability
+        run: node --test tests/daily-progress-reliability.cjs
