@@ -1,6 +1,7 @@
 import {spriteStyle} from '/pet/pet-art-hd-20261009.js';
 import { getCareSummary } from "/pet/pet-care-state.js?v=20261003-care1";
 import {readyHomeReaction} from '/pet/quest-home-reaction-20261010.js';
+import {getHomePersonality} from '/pet/home-personality-20261010.js';
 
 // The progression guard imports the React app bundle. Loading it on the
 // standalone Pet page makes React replace that page with an empty root.
@@ -12,7 +13,7 @@ const APP_KEY = "lux-scholar-garden-v1";
 const PET_KEY = "lux-pet-companion-v1";
 const CELEBRATE_KEY = "lux-pet-pending-celebration";
 const HOME_CSS_ID = "lux-home-companion-v2";
-const HOME_CSS_HREF = "/pet/home-companion-v2.css?v=20261010-phase1";
+const HOME_CSS_HREF = "/pet/home-companion-v2.css?v=20261010-phase3-1";
 
 const pets = {
   "moss-hornling": "Moss Hornling",
@@ -292,6 +293,79 @@ function showReturnReaction(host){
   if(!quiet)host.classList.add('lux-home-quest-cheer');
   setTimeout(()=>{host.classList.remove('lux-home-quest-cheer');note.remove()},1900);
 }
+let homeGreetingCount=0;
+let greetingCleanup=null;
+function motionReduced(){
+  try{return !!window.matchMedia('(prefers-reduced-motion: reduce)').matches||
+    document.documentElement.classList.contains('cx-quiet')}
+  catch{return true}
+}
+function playGreetingTone(){
+  // Gesture-only, short and soft. Reuse the app's saved Sound setting.
+  if(readApp().sound===false || motionReduced())return;
+  const AudioCtor=window.AudioContext||window.webkitAudioContext;
+  if(!AudioCtor)return;
+  let audio=null;
+  try{
+    audio=new AudioCtor();
+    const osc=audio.createOscillator(),volume=audio.createGain();
+    osc.type='sine';osc.frequency.setValueAtTime(523.25,audio.currentTime);
+    osc.frequency.linearRampToValueAtTime(659.25,audio.currentTime+0.14);
+    volume.gain.setValueAtTime(0.0001,audio.currentTime);
+    volume.gain.exponentialRampToValueAtTime(0.032,audio.currentTime+0.025);
+    volume.gain.exponentialRampToValueAtTime(0.0001,audio.currentTime+0.22);
+    osc.connect(volume);volume.connect(audio.destination);
+    osc.start();osc.stop(audio.currentTime+0.24);
+    osc.onended=()=>audio.close().catch(()=>{});
+  }catch{try{audio?.close()}catch{}}
+}
+function playHomeGreeting(host){
+  if(location.pathname!=='/'||document.hidden)return;
+  const summary=careSummary(),pet=summary.pet||readPet();
+  const words=getHomePersonality(pet,summary.mood?.label,homeGreetingCount++);
+  let line=host.querySelector('#lux-home-personality-line');
+  if(!line)return;
+  line.textContent=words.message;
+  line.dataset.kind=words.kind;
+  line.classList.add('is-visible');
+  host.dataset.homePersonality=words.kind;
+  host.classList.remove('lux-home-personality-playing');
+  // CSS-only movements preserve the existing doll and flipped pet orientation.
+  const animate=!motionReduced()&&!host.classList.contains('lux-home-quest-cheer')&&
+     !host.querySelector('#mastery-pet-home.evolving');
+  host.classList.toggle('lux-home-personality-playing',animate);
+  if(greetingCleanup)clearTimeout(greetingCleanup);
+  greetingCleanup=setTimeout(()=>{
+    line.classList.remove('is-visible');
+    host.classList.remove('lux-home-personality-playing');
+    greetingCleanup=null;
+  },3300);
+  if(animate)playGreetingTone();
+}
+function ensureHomePersonality(host){
+  // A single event handler and button across all React re-renders and observers.
+  let control=host.querySelector('#lux-home-personality-greet');
+  if(!control){
+    control=document.createElement('button');
+    control.type='button';
+    control.id='lux-home-personality-greet';
+    control.textContent='✧ Say hello';
+    control.setAttribute('aria-label','Greet your Scholar and companion');
+    control.addEventListener('click',()=>playHomeGreeting(host));
+    host.append(control);
+  }
+  const pet=readPet();
+  control.title='Greet '+displayName(pet);
+  if(!host.querySelector('#lux-home-personality-line')){
+    const line=document.createElement('p');
+    line.id='lux-home-personality-line';
+    line.setAttribute('role','status');
+    line.setAttribute('aria-live','polite');
+    line.setAttribute('aria-atomic','true');
+    host.append(line);
+  }
+  host.classList.toggle('lux-home-personality-idle',!motionReduced());
+}
 function render() {
   enhanceShell();
   enhanceHomeCards();
@@ -308,6 +382,7 @@ function render() {
   if (!host) return;
   renderCompanion(host);
   showReturnReaction(host);
+  ensureHomePersonality(host);
 }
 
 let queued = false;

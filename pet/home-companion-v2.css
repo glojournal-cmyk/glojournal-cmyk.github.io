@@ -492,3 +492,84 @@
 @keyframes lux-home-pet-hop{0%,100%{transform:scaleX(-1) scale(var(--pet-size))}45%{transform:scaleX(-1) scale(var(--pet-size)) translateY(-12px)}}
 @media(prefers-reduced-motion:reduce){.lux-home-quest-return,.lux-home-quest-cheer .lux-scholar-character,.lux-home-quest-cheer #mastery-pet-home .mph-art{animation:none!important}}
 .cx-quiet .lux-home-quest-return,.cx-quiet .lux-home-quest-cheer .lux-scholar-character,.cx-quiet .lux-home-quest-cheer #mastery-pet-home .mph-art{animation:none!important}
+
+
+/* Phase 3: one unobtrusive keyboard/touch greeting; NO new character artwork. */
+.lux-scholar-pet-scene #lux-home-personality-greet{
+ position:absolute;z-index:43;top:12px;right:12px;display:inline-flex;
+ align-items:center;justify-content:center;min-height:44px;min-width:108px;
+ padding:8px 12px;border:1px solid rgba(214,190,127,.8);border-radius:999px;
+ background:rgba(255,251,242,.94);color:#264454;font-size:12px;font-weight:750;
+ line-height:1.2;box-shadow:0 5px 14px rgba(18,45,60,.16);
+ cursor:pointer;touch-action:manipulation;max-width:calc(100% - 24px)
+}
+.lux-scholar-pet-scene #lux-home-personality-greet:focus-visible{
+ outline:3px solid #b58a43;outline-offset:3px
+}
+.lux-scholar-pet-scene #lux-home-personality-line{
+ position:absolute;z-index:42;top:65px;right:12px;max-width:min(275px,70%);
+ padding:10px 13px;margin:0;background:rgba(255,250,241,.97);
+ border:1px solid #dfd1b0;border-radius:15px;color:#34534e;
+ box-shadow:0 9px 26px rgba(19,45,57,.17);font-size:12px;line-height:1.5;
+ opacity:0;visibility:hidden;pointer-events:none;
+ transition:opacity .2s ease
+}
+.lux-scholar-pet-scene #lux-home-personality-line.is-visible{
+ opacity:1;visibility:visible
+}
+.lux-scholar-pet-scene.lux-home-personality-idle:not(.lux-home-quest-cheer):not(.lux-home-personality-playing) #mastery-pet-home:not(.evolving) .mph-art{
+ animation:lux-companion-idle 11s ease-in-out infinite
+}
+.lux-scholar-pet-scene.lux-home-personality-idle:not(.lux-home-quest-cheer):not(.lux-home-personality-playing) .lux-scholar-character{
+ animation:lux-scholar-idle-light 12s ease-in-out infinite
+}
+.lux-scholar-pet-scene.lux-home-personality-playing:not(.lux-home-quest-cheer) .lux-scholar-character{
+ animation:lux-scholar-hello-light 1.2s ease-out
+}
+.lux-scholar-pet-scene.lux-home-personality-playing:not(.lux-home-quest-cheer) #mastery-pet-home:not(.evolving) .mph-art{
+ animation:lux-companion-hello 1.1s ease-out
+}
+.lux-scholar-pet-scene.lux-home-personality-playing[data-home-personality="owl"] #mastery-pet-home .mph-glow,
+.lux-scholar-pet-scene.lux-home-personality-playing[data-home-personality="spider"] #mastery-pet-home .mph-glow{
+ animation:lux-companion-silver-glow 1.4s ease-out
+}
+@keyframes lux-companion-idle{
+ 0%,100%{transform:scaleX(-1) scale(var(--pet-size)) translateY(0)}
+ 50%{transform:scaleX(-1) scale(var(--pet-size)) translateY(-4px)}
+}
+@keyframes lux-scholar-idle-light{
+ 0%,100%{filter:brightness(1)}
+ 50%{filter:brightness(1.025)}
+}
+@keyframes lux-scholar-hello-light{
+ 0%,100%{filter:brightness(1)}
+ 40%{filter:brightness(1.12) drop-shadow(0 0 8px rgba(233,204,131,.7))}
+}
+@keyframes lux-companion-hello{
+ 0%,100%{transform:scaleX(-1) scale(var(--pet-size)) translateY(0)}
+ 35%{transform:scaleX(-1) scale(var(--pet-size)) translateY(-12px) rotate(-3deg)}
+ 65%{transform:scaleX(-1) scale(var(--pet-size)) translateY(-3px) rotate(2deg)}
+}
+@keyframes lux-companion-silver-glow{
+ 0%,100%{opacity:.75}
+ 45%{opacity:1;filter:drop-shadow(0 0 11px #b5c5e2)}
+}
+@media(max-width:430px){
+ .lux-scholar-pet-scene #lux-home-personality-greet{top:8px;right:9px;min-width:104px}
+ .lux-scholar-pet-scene #lux-home-personality-line{top:59px;right:9px;max-width:66%;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+ .lux-scholar-pet-scene.lux-home-personality-idle .mph-art,
+ .lux-scholar-pet-scene.lux-home-personality-idle .lux-scholar-character,
+ .lux-scholar-pet-scene.lux-home-personality-playing .mph-art,
+ .lux-scholar-pet-scene.lux-home-personality-playing .lux-scholar-character,
+ .lux-scholar-pet-scene.lux-home-personality-playing .mph-glow{
+ animation:none!important
+ }
+ .lux-scholar-pet-scene #lux-home-personality-line{transition:none!important}
+}
+.cx-quiet .lux-scholar-pet-scene .mph-art,
+.cx-quiet .lux-scholar-pet-scene .lux-scholar-character,
+.cx-quiet .lux-scholar-pet-scene .mph-glow{
+ animation:none!important
+}

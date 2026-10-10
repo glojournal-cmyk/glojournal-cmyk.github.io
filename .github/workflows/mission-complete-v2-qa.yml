@@ -15,6 +15,9 @@ on:
       - 'pet/home-pet.js'
       - 'pet/home-companion-v2.css'
       - 'pet/quest-home-reaction-20261010.js'
+      - 'pet/home-personality-20261010.js'
+      - 'tests/phase3-home-personality-qa.mjs'
+      - 'tests/phase3-home-personality-browser.mjs'
       - 'assets/companion-experience-20261004.js'
       - 'assets/companion-experience-20261004.css'
       - 'assessment-link.js'
@@ -31,6 +34,9 @@ on:
       - 'pet/home-pet.js'
       - 'pet/home-companion-v2.css'
       - 'pet/quest-home-reaction-20261010.js'
+      - 'pet/home-personality-20261010.js'
+      - 'tests/phase3-home-personality-qa.mjs'
+      - 'tests/phase3-home-personality-browser.mjs'
       - 'assets/companion-experience-20261004.js'
       - 'assets/companion-experience-20261004.css'
       - 'assessment-link.js'
@@ -54,11 +60,13 @@ jobs:
           node --check assets/quiz-session-rWAnuDVj.js
           node --check pet/home-pet.js
           node --check pet/quest-home-reaction-20261010.js
+          node --check pet/home-personality-20261010.js
           node --check assets/companion-experience-20261004.js
       - name: Verify persisted credit, XP and links
         run: |
           node --test tests/mission-complete-v2.cjs
           node tests/phase1-ux-qa.mjs
+          node tests/phase3-home-personality-qa.mjs
   browser:
     runs-on: ubuntu-latest
     timeout-minutes: 18
@@ -70,7 +78,9 @@ jobs:
       - run: npm install --no-save playwright
       - run: npx playwright install --with-deps chromium webkit
       - name: Verify Practice + Home + Mission V2 in browsers
-        run: node tests/mission-complete-v2-browser.mjs
+        run: |
+          node tests/mission-complete-v2-browser.mjs
+          node tests/phase3-home-personality-browser.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
