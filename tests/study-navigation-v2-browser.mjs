@@ -212,6 +212,17 @@ try{
      await page.waitForFunction(()=>document.querySelector("main h1")?.textContent?.includes("Scholar"),
        null,{timeout:30000});
      assert.ok((await page.locator("main").innerText()).length>300,"Home is not blank");
+     const phase2State=await page.evaluate(()=>{
+       const J=window.LuxJourney;
+       let garden=null;
+       try{garden=J?.garden?.()||null}catch{}
+       const label=[...document.querySelectorAll('main p')].find(p=>p.textContent.trim()==='Continue studying');
+       return {appReady:!!window.__luxAppReady,journey:!!J,script:!!window.LuxPhase2QuestMap,
+         today:J?.day?.(),savedDay:garden?.today,rows:garden?.daily?.length,
+         continueCard:!!label,homeMap:document.querySelectorAll('#lux-phase2-home .lux-phase2-node').length,
+         phase2Tag:!!document.querySelector('script[src*="phase2-quest-map-20261010"]')};
+     });
+     console.log('PHASE2_HOME_RUNTIME '+JSON.stringify({engine:name,viewport:vp.width,...phase2State}));
      await page.waitForFunction(()=>document.querySelectorAll(
        "#lux-phase2-home .lux-phase2-node").length===10,null,{timeout:15000});
      assert.equal(await page.locator("#lux-phase2-home .lux-phase2-node").count(),10,
