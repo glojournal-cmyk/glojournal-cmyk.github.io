@@ -57,13 +57,13 @@ try{
          height:parseFloat(style.height)};
      });
      assert.ok(brand,"branded header exists");
-     assert.match(brand.background,/lux-celestial-b-symbol-20261010\\.svg/,
+     assert.ok(brand.background.includes("lux-celestial-b-symbol-20261010.svg"),
        "approved B emblem is displayed");
      if(vp.width>=1280)assert.ok(brand.width>=130 && brand.height>=125,
        "desktop B logo is not cramped");
      const logoResponse=await page.request.get(base+"/assets/lux-celestial-b-symbol-20261010.svg");
      assert.equal(logoResponse.status(),200,"approved B logo file exists");
-     assert.match(await logoResponse.text(),/data:image\\/png;base64,/);
+     assert.ok((await logoResponse.text()).includes("data:image/png;base64,"));
      const imageLoads=await page.evaluate(()=>new Promise(resolve=>{
        const img=new Image();
        img.onload=()=>resolve(img.naturalWidth>=190&&img.naturalHeight>=180);
