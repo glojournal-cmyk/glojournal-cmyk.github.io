@@ -1,0 +1,32 @@
+/* Study V2 only. Native year selector and all existing React cards stay visible. */
+.lux-study-paths{font-family:inherit;color:#173447;margin:4px 0 2px}
+.lux-path-intro{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:15px}
+.lux-path-intro h2{font:600 clamp(29px,3vw,38px)/1.08 "Cormorant Garamond",Georgia,serif;margin:4px 0}
+.lux-path-intro>div>p:last-child{font-size:14px;color:#65796e;margin:3px 0}
+.lux-path-eyebrow{font-size:10px!important;font-weight:700;letter-spacing:.14em;color:#66806f;text-transform:uppercase;margin:0}
+.lux-path-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.lux-path-card{display:flex;flex-direction:column;min-width:0;border:1px solid #e3dfd0;
+ border-radius:22px;background:#fffefa;padding:20px 18px;box-shadow:0 8px 23px rgba(28,53,66,.045)}
+.lux-path-daily{background:linear-gradient(145deg,#f1f6ed,#fffdf8);border-color:#cadaca}
+.lux-path-symbol{font-size:24px;color:#9b9265;line-height:1.05;margin:0 0 11px}
+.lux-path-card h3{font:600 27px/1.07 "Cormorant Garamond",Georgia,serif;margin:6px 0 8px;color:#1a3148}
+.lux-path-card>p:not(.lux-path-eyebrow,.lux-path-status,.lux-path-note){font-size:13px;line-height:1.48;color:#596c64;margin:0 0 12px}
+.lux-path-progress{height:7px;border-radius:12px;background:#dfe9d9;overflow:hidden;margin-top:auto}
+.lux-path-progress>span{display:block;height:100%;background:#71957e;border-radius:12px}
+.lux-path-status{font-size:12px;color:#496e57;margin:7px 0 10px}
+.lux-path-action{display:flex;align-items:center;justify-content:center;min-height:46px;
+ padding:10px 12px;border-radius:13px;background:#1a3148;color:white;font-size:13px;font-weight:650;text-decoration:none}
+.lux-path-action:hover{background:#294c60}
+.lux-path-years{display:flex;flex-wrap:wrap;gap:7px;margin:auto 0 13px}
+.lux-path-years button{border:1px solid #d7ddce;border-radius:999px;background:#f3f5ed;color:#3a5146;
+ font-size:12px;font-weight:600;min-height:38px;padding:7px 12px;cursor:pointer}
+.lux-path-years button[aria-pressed="true"]{background:#1a3148;border-color:#1a3148;color:#fff}
+.lux-path-textlink{display:inline-flex;align-items:center;justify-content:center;margin-top:auto;min-height:44px;
+ border:1px solid #cbd5c6;border-radius:13px;color:#183e50;font-size:13px;font-weight:650;text-decoration:none;padding:9px}
+.lux-path-textlink:hover{background:#edf2e8}
+.lux-path-note{font-size:12px;color:#68806f;line-height:1.4;margin:auto 0 13px}
+#lux-study-subjects-v2{scroll-margin-top:90px}
+@media(max-width:950px){.lux-path-grid{grid-template-columns:1fr 1fr}.lux-path-card:last-child{grid-column:1 / -1}}
+@media(max-width:600px){.lux-path-grid{grid-template-columns:1fr}.lux-path-card:last-child{grid-column:auto}
+ .lux-path-card{padding:18px}.lux-path-intro h2{font-size:32px}}
+@media(prefers-reduced-motion:reduce){.lux-path-progress>span{transition:none}}
