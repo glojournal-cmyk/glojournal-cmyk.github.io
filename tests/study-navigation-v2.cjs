@@ -49,20 +49,20 @@ test('disabled on homepage and app-not-ready state',()=>{
  assert.deepEqual(calls,[],'Home untouched');
 });
 
-test('both original characters share Study hero, chosen outfit and upgraded pet are read-only',()=>{
+test('Study displays equipped Scholar, never the companion, in a compact scene',()=>{
  const js=file('assets/study-navigation-v2-20261010.js');
  const css=file('assets/study-navigation-v2-20261010.css');
+ const home=file('index.html');
  assert.match(js,/lux-path-hero-scholar/);
- assert.match(js,/lux-path-hero-pet/);
- assert.match(js,/art\/stages\/dusk\.jpg/);
+ assert.match(js,/art\\/stages\\/dusk\\.jpg/);
  assert.match(js,/equippedOutfit/);
- assert.match(js,/petLevels/);
- assert.match(js,/pet\/art-hd-20261009\/level-/);
- assert.match(js,/outfitCatalog=mod\.A/);
- assert.match(css,/\.lux-path-hero-pet/);
- assert.match(css,/\.lux-path-hero-scholar/);
- assert.match(css,/@media\(max-width:600px\)/);
- assert.doesNotMatch(js,/localStorage\.setItem\s*\(/);
+ assert.match(js,/outfitCatalog=mod\\.A/);
+ assert.doesNotMatch(js,/lux-path-hero-pet|petLevels|Companion ↗|scholar:pet-changed/);
+ assert.match(css,/height:370px!important;min-height:370px!important;max-height:370px!important/);
+ assert.match(css,/height:445px!important;min-height:445px!important;max-height:445px!important/);
+ assert.match(home,/lux-celestial-b-brand-20261010\\.css/);
+ assert.doesNotMatch(home,/study-navigation-v2-20261010/);
+ assert.doesNotMatch(js,/localStorage\\.setItem\\s*\\(/);
 });
 
 test('approved B celestial branding is shared safely between Home and Study',()=>{
