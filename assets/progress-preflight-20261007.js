@@ -5,7 +5,7 @@
   var KEY = "lux-scholar-garden-v1";
   var QUARANTINE = "lux-scholar-garden-v1-unreadable";
   var AUTO = "lux-progress-auto-v1";
-  var BACKUPS = [AUTO, AUTO + "-previous", "lux-daily-manual-backup-v1"];
+  var BACKUPS = [AUTO, "lux-progress-before-restore-v1", AUTO + "-previous", "lux-daily-manual-backup-v1"];
   // Discard temporary effects only when quota is genuinely exceeded. Never erase
   // a recovery copy, assessment history or daily log just by opening the app.
   var DUPLICATES = ["lux-memory-stars-result-v1", "lux-memory-stars-pending-v1", "lux-pet-pending-celebration"];
