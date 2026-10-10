@@ -63,12 +63,15 @@ test('both original characters share Study hero, chosen outfit and upgraded pet 
  assert.doesNotMatch(js,/localStorage\.setItem\s*\(/);
 });
 
-test('approved B logo is the only active study branding, and Home is unchanged',()=>{
+test('approved B celestial branding is shared safely between Home and Study',()=>{
  const svg=file('assets/lux-celestial-b-symbol-20261010.svg');
- const css=file('assets/study-navigation-v2-20261010.css');
+ const brand=file('assets/lux-celestial-b-brand-20261010.css');
+ const study=file('study/index.html');
  const home=file('index.html');
- assert.match(svg,/data:image\/png;base64,/);
- assert.match(css,/lux-celestial-b-symbol-20261010\.svg/);
- assert.doesNotMatch(css,/lux-scholar-crest-20261010\.svg/);
+ assert.match(svg,/data:image\\/png;base64,/);
+ assert.match(brand,/lux-celestial-b-symbol-20261010\\.svg/);
+ assert.doesNotMatch(brand,/lux-scholar-crest-20261010\\.svg/);
+ assert.match(home,/lux-celestial-b-brand-20261010\\.css/);
+ assert.match(study,/lux-celestial-b-brand-20261010\\.css/);
  assert.doesNotMatch(home,/study-navigation-v2-20261010/);
 });
