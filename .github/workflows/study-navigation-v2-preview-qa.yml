@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - 'study/index.html'
+      - 'lux-theme.js'
+      - 'assessment-link.js'
       - 'assets/study-navigation-v2-20261010.*'
       - 'assets/lux-celestial-b-symbol-20261010.png'
       - 'assets/lux-celestial-b-brand-20261010.css'
@@ -14,6 +16,8 @@ on:
     branches: [main]
     paths:
       - 'study/index.html'
+      - 'lux-theme.js'
+      - 'assessment-link.js'
       - 'assets/study-navigation-v2-20261010.*'
       - 'tests/study-navigation-v2*'
       - 'tests/study-quest-completion-qa.cjs'
@@ -29,7 +33,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node --check assets/study-navigation-v2-20261010.js
+      - run: |
+          node --check assets/study-navigation-v2-20261010.js
+          node --check lux-theme.js
       - run: node --test tests/study-navigation-v2.cjs tests/study-quest-completion-qa.cjs
   study-browser:
     runs-on: ubuntu-latest

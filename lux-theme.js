@@ -64,6 +64,9 @@
     return { kind:'garden', icon:'Leaf' };
   }
   function isTaskProgress(el) {
+    // A 0/10 star label in Study Quest Hall is navigation, not a daily task row.
+    // The old auto-icon layout otherwise turns the circular star into an oval.
+    if (el.closest?.('#lux-study-paths-v2, .lux-path-portals')) return false;
     const t = (el.innerText || '').replace(/\s+/g, ' ').trim();
     // Game levels are not daily task progress. Image cards must keep their grid layout.
     return /\d+\s*\/\s*\d+/.test(t) && t.length < 80
@@ -72,6 +75,8 @@
       && !/\bpts\b/i.test(t);
   }
   function cleanCardIcons() {
+    // Remove an icon injected by an older cached version of this theme.
+    document.querySelectorAll('#lux-study-paths-v2 .lux-ico').forEach(ico => ico.remove());
     document.querySelectorAll('a > .lux-ico, button > .lux-ico').forEach((ico) => {
       const el = ico.parentElement;
       if (el.querySelector('img') || /\b(?:Lv|Level|Circuit)\s*\d+\s*\//i.test(el.innerText || '')) ico.remove();

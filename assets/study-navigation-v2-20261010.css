@@ -369,3 +369,26 @@ main > div.space-y-8[data-lux-quest-ready="true"] > #lux-study-subjects-v2{
  .lux-study-paths .lux-path-hero-copy{width:80%!important}
  .lux-study-paths .lux-path-hero-scholar{width:43%!important;right:-3%!important}
 }
+
+/* Portal alignment guard: legacy theme can inject .lux-ico on a 0/10 link. */
+.lux-study-paths .lux-path-portal{
+ display:grid!important;grid-template-columns:34px minmax(0,1fr)!important;
+ grid-template-rows:auto!important;align-items:center!important;
+ gap:10px!important;flex-wrap:nowrap!important
+}
+.lux-study-paths .lux-path-portal > .lux-ico{display:none!important}
+.lux-study-paths .lux-path-portal > .lux-portal-glyph{
+ display:grid!important;place-items:center!important;box-sizing:border-box!important;
+ width:34px!important;height:34px!important;min-width:34px!important;
+ max-width:34px!important;flex:none!important;border-radius:50%!important;
+ justify-self:center;align-self:center
+}
+.lux-study-paths .lux-path-portal > span:last-child{
+ display:block!important;min-width:0!important;overflow-wrap:normal!important
+}
+@media(max-width:650px){
+ .lux-study-paths .lux-path-portal{grid-template-columns:27px minmax(0,1fr)!important;gap:8px!important}
+ .lux-study-paths .lux-path-portal > .lux-portal-glyph{
+  width:27px!important;height:27px!important;min-width:27px!important;max-width:27px!important
+ }
+}

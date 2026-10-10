@@ -106,6 +106,29 @@ try{
      assert.ok((await page.locator(".lux-path-portal").first().innerText()).includes("Daily Quest"));
      assert.ok((await page.locator(".lux-path-portal").nth(1).innerText()).includes("Scholar"));
      assert.ok((await page.locator(".lux-path-portal").nth(2).innerText()).includes("Trial Chamber"));
+     // Daily Quest must not be mistaken for a task progress row by the theme.
+     await page.waitForTimeout(250);
+     const portalLayout=await page.locator(".lux-path-portals .lux-path-portal").evaluateAll(links=>
+       links.map(link=>{
+         const glyph=link.querySelector(":scope > .lux-portal-glyph")?.getBoundingClientRect();
+         const card=link.getBoundingClientRect();
+         const words=link.querySelector(":scope > span:last-child")?.getBoundingClientRect();
+         return {width:glyph?.width,height:glyph?.height,cardHeight:card.height,
+           cardRight:card.right,textRight:words?.right,
+           injectedIcon:!!link.querySelector(".lux-ico")};
+       }));
+     assert.equal(portalLayout.length,3);
+     for(const [i,p] of portalLayout.entries()){
+       assert.equal(p.injectedIcon,false,
+         "unexpected green icon in portal "+i+": "+JSON.stringify(portalLayout));
+       assert.ok(p.width>=26&&p.width<=36&&Math.abs(p.width-p.height)<=2,
+         "oval star icon in portal "+i+": "+JSON.stringify(portalLayout));
+       assert.ok(p.cardHeight<132,
+         "portal wrap regression "+i+": "+JSON.stringify(portalLayout));
+       assert.ok(p.textRight<=p.cardRight+2,
+         "portal text overflow "+i+": "+JSON.stringify(portalLayout));
+     }
+
 
      // User-requested Study change: a shorter visual and NO pet, while
      // Current Quest, equipped girl and all three portal buttons remain usable.

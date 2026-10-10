@@ -13,7 +13,7 @@ if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/school-
   }
   if (!document.querySelector('script[src*="lux-theme.js"]')) {
     const s = document.createElement('script');
-    s.src = '/lux-theme.js?v=20261008-desk1';
+    s.src = '/lux-theme.js?v=20261010-portal-glyph1';
     s.defer = true;
     document.head.appendChild(s);
   }

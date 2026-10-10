@@ -85,9 +85,27 @@ test('legacy subjects directory no longer blocks the first screen',()=>{
  assert.doesNotMatch(script,/textContent='Browse subjects'/);
  assert.match(script,/getElementById\('subject-directory-entry'\)\?\.remove\(\)/);
  assert.match(home,/assessment-link\.js\?v=20261010-firstscreen-fix1/);
- assert.match(study,/assessment-link\.js\?v=20261010-firstscreen-fix1/);
+ assert.match(study,/assessment-link\.js\?v=20261010-portal-glyph1/);
  assert.match(study,/study-navigation-v2-20261010\.js\?v=20261010-quest-complete1/);
  const css=file('assets/study-navigation-v2-20261010.css');
  assert.match(css,/data-lux-quest-ready/);
  assert.match(css,/data-lux-quest-legacy-shortcut/);
+});
+
+test('legacy task decorator leaves Study portal star icons circular and alone',()=>{
+ const source=file('lux-theme.js');
+ const css=file('assets/study-navigation-v2-20261010.css');
+ const a=source.indexOf('function isTaskProgress(el)');
+ const b=source.indexOf('\n  function cleanCardIcons()',a);
+ assert.ok(a>=0&&b>a);
+ const classify=new Function(source.slice(a,b)+';return isTaskProgress;')();
+ const quest={innerText:'01 YOUR ADVENTURE Daily Quest 0 / 10 stars lit',
+   closest:()=>({}),querySelector:()=>null};
+ const daily={innerText:'French vocab 2 / 30',closest:()=>null,querySelector:()=>null};
+ assert.equal(classify(quest),false,'portal is not a task row');
+ assert.equal(classify(daily),true,'real tasks still receive icons');
+ assert.match(source,/querySelectorAll\('#lux-study-paths-v2 \.lux-ico'\)/);
+ assert.match(css,/\.lux-study-paths \.lux-path-portal\{\s*display:grid!important/);
+ assert.match(css,/\.lux-study-paths \.lux-path-portal > \.lux-ico\{display:none!important/);
+ assert.match(file('study/index.html'),/study-navigation-v2-20261010\.css\?v=20261010-portal-glyph1/);
 });
