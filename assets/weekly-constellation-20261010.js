@@ -16,6 +16,10 @@ function companion(){
  return {species,level,title,url:"/pet/art-hd-20261009/level-"+level+"/"+species+".webp?v=20261009-hd1"};
 }
 
+function playChime(){
+ if(root.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches)return;
+ try{const Audio=root.AudioContext||root.webkitAudioContext;if(!Audio)return;const ctx=new Audio();const now=ctx.currentTime;[523.25,659.25,783.99].forEach((hz,i)=>{const osc=ctx.createOscillator(),gain=ctx.createGain();osc.type="sine";osc.frequency.value=hz;gain.gain.setValueAtTime(0.0001,now+i*.12);gain.gain.exponentialRampToValueAtTime(.045,now+i*.12+.025);gain.gain.exponentialRampToValueAtTime(.0001,now+i*.12+.28);osc.connect(gain).connect(ctx.destination);osc.start(now+i*.12);osc.stop(now+i*.12+.3)});setTimeout(()=>ctx.close().catch(()=>{}),1100)}catch{}
+}
 function earnedWeeks(){try{const value=JSON.parse(localStorage.getItem(COLLECTION_KEY)||"[]");return Array.isArray(value)?value.filter(x=>/^\d{4}-\d{2}-\d{2}$/.test(x)):[]}catch{return []}}
 function award(monday){const set=new Set(earnedWeeks());set.add(monday);try{localStorage.setItem(COLLECTION_KEY,JSON.stringify([...set].sort()))}catch{}return set.size}
 
@@ -61,7 +65,7 @@ style.textContent=`
 #lux-weekly-constellation .weekly-star strong{display:block;font-size:.73rem}
 #lux-weekly-constellation .weekly-star small{display:block;font-size:.68rem}
 #lux-weekly-constellation .weekly-finish{margin:12px 0 0;padding:10px;border-radius:10px;background:#e7f0e3;font-weight:600}
-#lux-weekly-constellation .weekly-award{margin-top:14px;border:1px solid #d2b56c;border-radius:16px;padding:13px;background:linear-gradient(120deg,#fff4d8,#f3f1e9);display:flex;align-items:center;gap:14px}
+#lux-weekly-constellation .weekly-collection{margin-top:12px;border-top:1px solid #d8d5cb;padding-top:10px}#lux-weekly-constellation .weekly-collection summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}#lux-weekly-constellation .weekly-collection ul{padding-left:20px;font-size:.85rem;line-height:1.7}#lux-weekly-constellation .weekly-award{margin-top:14px;border:1px solid #d2b56c;border-radius:16px;padding:13px;background:linear-gradient(120deg,#fff4d8,#f3f1e9);display:flex;align-items:center;gap:14px}
 #lux-weekly-constellation .weekly-award-icon{font-size:38px;flex:none;color:#a97c26}
 #lux-weekly-constellation .weekly-award strong{display:block}
 #lux-weekly-constellation .weekly-award small{display:block;color:#5c6261}
@@ -125,11 +129,19 @@ function paint(){
   companions.append(scholar,make("span",null,"✧"),petImg);
   scene.append(companions,make("p",null,"Your scholar and "+pet.title+" celebrate seven days of learning."));
   const replay=make("button",null,"Replay celebration");
-  replay.type="button";replay.addEventListener("click",()=>{scene.classList.remove("is-new");void scene.offsetWidth;scene.classList.add("is-new")});
+  replay.type="button";replay.addEventListener("click",()=>{scene.classList.remove("is-new");void scene.offsetWidth;scene.classList.add("is-new");playChime()});
   scene.append(replay);panel.append(scene);
   if(!seen)try{localStorage.setItem(SEEN_KEY,data.monday)}catch{}
  }
  else panel.append(make("p","weekly-note","Complete daily quests on different days to restore the constellation. Seven-day completion unlocks a display-only keepsake, not XP or outfits. Earlier days can only be counted if they were recorded on this device."));
+ const collected=earnedWeeks();
+ if(collected.length){
+  const collection=make("details","weekly-collection");
+  collection.append(make("summary",null,"Celestial Keepsake collection · "+collected.length));
+  const list=make("ul");
+  collected.slice().reverse().forEach(w=>list.append(make("li",null,"✺ Seven Lanterns · Week of "+w)));
+  collection.append(list);panel.append(collection);
+ }
  panel.dataset.weekSignature=signature;
 }
 function schedule(){if(!queued){queued=true;queueMicrotask(paint)}}
