@@ -67,3 +67,27 @@ const longReview=creditCurriculumAttempt({}, {...attempt,task:'year8-long-review
 assert.equal(Object.keys(longReview[base.today]['year8-long-review'][attempt.topicId].mastery).length,1,'Year 8 long review stores mastery-phase answers');
 assert.equal(creditCurriculumAttempt({}, {...attempt,task:'year8-long-review',mode:'standard',questionId:'long-foundation'})[base.today]['year8-long-review'][attempt.topicId].mastery,undefined);
 console.log('Phase evidence QA passed: independent counters, deduplication, repairs/non-formal excluded and JSON backup round-trip.');
+
+// Home precision panel must not depend on undeclared bindings after SPA navigation.
+const precisionSource=fs.readFileSync('assets/progression-guard-20260927.js','utf8');
+assert.doesNotMatch(precisionSource,/\bSUBJECTS\.map\s*\(/);
+assert.doesNotMatch(precisionSource,/\bLABELS\[next\.subject\]/);
+assert.doesNotMatch(precisionSource,/\btodayKey\s*\(/);
+assert.match(precisionSource,/progressionSubjects\.map\s*\(/);
+const pruned=precisionSource.replace(/^import .*\n/gm,'');
+const homeCheck=new Function('context','return context;');
+const todayContext={
+ Intl,Date,globalThis:{LuxJourney:{day:()=>base.today}},
+};
+const from=pruned.indexOf('function todayPrecision(state)');
+const to=pruned.indexOf('\nlet precisionSignature=',from);
+assert.ok(from>=0&&to>from);
+const readPrecision=new Function('globalThis','Intl','Date',pruned.slice(from,to)+';return todayPrecision;')(
+ todayContext.globalThis,Intl,Date
+);
+const homeStats=readPrecision({today:base.today,topicStats:{
+ a:{recentOutcomes:[{day:base.today,correct:true},{day:base.today,correct:false},{day:'2026-10-03',correct:false}]}
+},skillStats:{s:{retentionDue:base.today}}});
+assert.deepEqual(homeStats,{attempted:2,correct:1,misses:1,score:50,due:1});
+assert.equal(readPrecision({topicStats:{},skillStats:{}}).attempted,0,'fallback day never ReferenceErrors');
+console.log('Home precision runtime QA passed: declared subject labels, real curriculum subjects, date fallback and score.');

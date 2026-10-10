@@ -24,9 +24,10 @@ function guardCurrentDailyRoute(){
  if(queryValue(url.searchParams,'topic')===canonical.searchParams.get('topic')&&queryValue(url.searchParams,'year')===canonical.searchParams.get('year'))return;
  location.replace(safe);
 }
+const SUBJECT_LABELS={latin:"Latin",french:"French",biology:"Biology",chemistry:"Chemistry",physics:"Physics",english:"English"};
 let timer;
 function todayPrecision(state) {
-  const day = state.today || todayKey();
+  const day = state.today || globalThis.LuxJourney?.day?.() || new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
   const rows = [];
   for (const stat of Object.values(state.topicStats || {})) {
     for (const row of Array.isArray(stat?.recentOutcomes) ? stat.recentOutcomes : []) {
@@ -54,7 +55,7 @@ function renderPrecisionPanel() {
   if (!journey || journey === document.body || !journey.parentElement) return;
 
   const stats = todayPrecision(state);
-  const frontiers = SUBJECTS.map((subject) => ({ subject, topic: curriculumFrontier(state, subject, getTopicCatalog, learning()) })).filter((row) => row.topic);
+  const frontiers = progressionSubjects.map((subject) => ({ subject, topic: curriculumFrontier(state, subject, getTopicCatalog, learning()) })).filter((row) => row.topic);
   const next = frontiers[0];
   let panel = document.getElementById("daily-precision-panel");
   if (!panel) {
@@ -66,7 +67,7 @@ function renderPrecisionPanel() {
   const scoreText = stats.score == null ? "—" : `${stats.score}%`;
   const scoreNote = stats.attempted ? `${stats.correct}/${stats.attempted} first-pass answers correct` : "Starts counting after the first formal question";
   const frontierText = next
-    ? `${LABELS[next.subject]} · ${next.topic.title || next.topic.topicId}`
+    ? `${SUBJECT_LABELS[next.subject] || next.subject} · ${next.topic.title || next.topic.topicId}`
     : "Foundations mastered · mark taught Year 9 topics to continue";
   const signature=JSON.stringify([stats,frontierText,next?.topic.year]);if(precisionSignature===signature&&panel.innerHTML)return;precisionSignature=signature;
   panel.innerHTML = `
