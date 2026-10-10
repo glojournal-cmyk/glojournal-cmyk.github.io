@@ -116,6 +116,7 @@ test('responsive homepage is wired and keeps all original artwork assets',()=>{
  assert.match(ui,/lux-v2-all-tasks/);
  assert.match(ui,/Today's learning journey/);
  assert.match(ui,/const wasOpen=/);
+ assert.match(ui,/!window\.__luxAppReady/,"never edit React SSR before hydration");
  assert.doesNotMatch(ui,/\bstore\.setState\s*\(/,'home display cannot change learning data');
  assert.doesNotMatch(ui,/\baward\s*\(/,'home display cannot award XP');
 });
