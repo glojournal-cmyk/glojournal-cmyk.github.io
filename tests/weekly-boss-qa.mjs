@@ -75,7 +75,10 @@ if(physicsMissionCount<3)failures.push({type:"physics-missions",count:physicsMis
 if(chemistryMissionCount<3)failures.push({type:"chemistry-missions",count:chemistryMissionCount});
 if(biologyMissionCount<3)failures.push({type:"biology-missions",count:biologyMissionCount});
 
-need(route,"route",'from"./weekly-boss-20260919.js?v=20261007-loading10"');
+// Follow the currently deployed module import rather than a stale loading-recovery cache key.
+need(route,"route",'from"./weekly-boss-20260919.js?v=20261010-chem-marking1"');
+if((route.match(/from"\.\/weekly-boss-20260919\.js\?v=[^"]+"/g)||[]).length!==1)
+ failures.push({type:"duplicate-weekly-boss-runtime-import"});
 need(route,"route","if(e===WeeklyBossMeta.id)return(0,G.jsx)(WeeklyBoss,{})");
 need(hub,"hub",'children:`Challenge Lab`');
 need(hub,"hub","Y.id");

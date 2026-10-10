@@ -17,7 +17,7 @@ assert.equal(J.completion(state,'/study/latin/practise?mode=y8vocab'),null,'Ordi
 state.daily[0].progress=30;state.daily[2].progress=1;result=J.completion(state,url);assert.equal(result.done,true);assert.equal(result.completed,3);assert.equal(result.next,null);
 assert.equal(J.safeHref('https://evil.test/study/biology'),null);assert.equal(J.safeHref('javascript:alert(1)'),null);
 write('scholar-biology-cell-practice-v1',{ids:['b1','b2','b3'],index:1,answers:{b1:{checked:true},b2:{value:'unfinished'}},savedAt:at-100});
-let rows=J.resumeCandidates(state,at);assert.equal(rows[0].title,'Biology · Cell structure');assert.equal(rows[0].index,1);assert.equal(rows[0].href,'/study/biology/practise/?mode=cellstructure&v=20261007-loading10');
+let rows=J.resumeCandidates(state,at);assert.equal(rows[0].title,'Biology · Cell structure');assert.equal(rows[0].index,1);assert.equal(rows[0].href,J.navigationHref('/study/biology/practise/?mode=cellstructure'));
 const key=JSON.stringify(['latin',8,30,'','latin-vocab','y8vocab','latin-vocab','','2026-10-04']);
 const draft={version:1,base:[{id:'l1'},{id:'l2'}],rr:[],j:1,N:'saved answer',G:{ok:false},ce:false,savedAt:at,title:'Latin · Vocabulary',daily:true,dailyTaskId:'latin-vocab',planDate:'2026-10-04',href:url};
 write('lux-practice-drafts-v1',{[key]:draft});assert.equal(J.resumeCandidates(state,at).length,1,'Completed daily tasks are not advertised as unfinished');
@@ -27,7 +27,7 @@ write('lux-practice-drafts-v1',{[key]:{...draft,ce:true}});assert.equal(J.resume
 write('lux-practice-drafts-v1',{[key]:{...draft,savedAt:at-8*86400000}});assert.equal(J.resumeCandidates(state,at).length,1);
 write('lux-practice-drafts-v1',{});
 write('lux-assessment-v1',{drafts:{'latin-verbs':{version:2,questions:[{id:'q1'},{id:'q2'}],index:1,started:at-50,answers:{0:'test'}}},followups:{0:{questions:[{id:'q1'}],index:0,paper:'Latin corrections',savedAt:at}}});
-rows=J.resumeCandidates(state,at);assert.equal(rows[0].href,'/assessment/?resumeFollowup=0&v=20261007-loading10');assert.equal(rows[1].href,'/assessment/?paper=latin-verbs&v=20261007-loading10');
+rows=J.resumeCandidates(state,at);assert.equal(rows[0].href,J.navigationHref('/assessment/?resumeFollowup=0'));assert.equal(rows[1].href,J.navigationHref('/assessment/?paper=latin-verbs'));
 write('scholar-biology-cell-practice-v1',{ids:['b1'],index:1,savedAt:at});assert.ok(!J.resumeCandidates(state,at).some(r=>r.href.includes('cellstructure')),'Finished biology sets are not resumable');
 const review={id:'mistake-review',title:'Daily corrections',reviewSource:'assessment',planDate:'2026-10-04',reviewQuestionIds:['r1','r2'],completedQuestionIds:[],progress:0,target:2,href:'/assessment/?task=mistake-review&day=2026-10-04'};
 state.daily.unshift(review);write('lux-scholar-garden-v1',{state});write('lux-assessment-v1',{dailyReviewCredits:{'2026-10-04':{r1:true,unassigned:true}}});result=J.completion(J.garden(),review.href);assert.equal(result.done,false);assert.equal(result.task.progress,1,'Read actual unique assigned assessment credit before home reconciliation');
