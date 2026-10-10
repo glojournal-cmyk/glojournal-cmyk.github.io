@@ -163,3 +163,13 @@
  .lux-study-paths .lux-path-hero-pet{animation:lux-quest-bob 4s ease-in-out infinite}
 }
 @keyframes lux-quest-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+
+.lux-path-expand{margin:8px 0 10px;border:1px solid #e5ddc9;border-radius:14px;
+ background:linear-gradient(110deg,#fffcf5,#f7f2e7);overflow:hidden}
+.lux-path-expand>summary{min-height:44px;cursor:pointer;display:flex;align-items:center;
+ padding:11px 16px;font-size:12px;font-weight:700;color:#465c50}
+.lux-path-expand>summary:hover{background:#f3eee1}
+.lux-path-expand .lux-path-grid{padding:6px 12px 13px;margin:0}
+.lux-path-expand .lux-path-card{min-height:185px;box-shadow:none}
+.lux-path-expand[open]{box-shadow:0 8px 18px #243f410d}
