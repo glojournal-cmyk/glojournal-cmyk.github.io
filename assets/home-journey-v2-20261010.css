@@ -1,0 +1,77 @@
+/* Scholar Garden home UX V2. No asset replacements or changes to learning logic. */
+.lux-v2-home main [data-lux-v2-legacy-daily="true"],
+.lux-v2-home main [data-lux-v2-legacy-continue="true"]{display:none!important}
+.lux-v2-home main [data-lux-home-journey-host]{
+  order:-5;padding:18px!important;background:#fffdf8;
+  border:1px solid #e2dbc9;box-shadow:0 10px 30px rgba(26,49,72,.055)
+}
+.lux-v2-journey{font-family:inherit;color:#1a3148;min-width:0}
+.lux-v2-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.lux-v2-kicker{margin:0;font-size:11px;letter-spacing:.16em;font-weight:750;color:#748675}
+.lux-v2-title{margin:3px 0 0;font:600 clamp(24px,2.5vw,29px)/1.12 "Cormorant Garamond",Georgia,serif}
+.lux-v2-count{display:inline-flex;flex-shrink:0;align-items:center;border-radius:999px;
+  padding:7px 11px;background:#e8efe5;color:#234438;font-size:13px;font-weight:750;
+  font-variant-numeric:tabular-nums}
+.lux-v2-overall{margin:16px 0 14px;height:9px;border-radius:50px;overflow:hidden;background:#e7ecdf}
+.lux-v2-overall-fill{display:block;height:100%;border-radius:50px;
+  background:linear-gradient(90deg,#698b77,#acbc87);transition:width .3s ease}
+.lux-v2-next{padding:15px 16px;border:1px solid #d9e1d4;border-radius:17px;
+  background:linear-gradient(120deg,#f4f7ef,#f9f6ec)}
+.lux-v2-next-kicker{margin:0 0 5px;color:#66816c;font-size:10px;font-weight:750;letter-spacing:.13em;text-transform:uppercase}
+.lux-v2-next-title{font:600 24px/1.13 "Cormorant Garamond",Georgia,serif;
+  overflow-wrap:anywhere;margin:0}
+.lux-v2-next-detail{margin:5px 0 12px;color:#66756e;font-size:13px;line-height:1.4}
+.lux-v2-cta,.lux-v2-open-study{display:flex;align-items:center;justify-content:center;
+  text-align:center;min-height:48px;padding:10px 17px;background:#1a3148;color:#fffdf6;
+  border-radius:13px;text-decoration:none;font-weight:650;font-size:14px;line-height:1.3}
+.lux-v2-cta:hover,.lux-v2-open-study:hover{background:#2b5063}
+.lux-v2-all{margin-top:13px;border:1px solid #e3e5d9;border-radius:13px;overflow:hidden;background:#fff}
+.lux-v2-all-summary{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  min-height:45px;cursor:pointer;padding:11px 13px;font-size:13px;font-weight:700;list-style:none}
+.lux-v2-all-summary::-webkit-details-marker{display:none}
+.lux-v2-all-summary:before{content:"▸";color:#78927c;margin-right:3px}
+.lux-v2-all[open] .lux-v2-all-summary:before{content:"▾"}
+.lux-v2-all-summary>span:first-child{flex:1}
+.lux-v2-all-hint{font-weight:500;color:#68806e;white-space:nowrap}
+.lux-v2-list{padding:2px 9px 9px!important;margin:0!important;list-style:none!important}
+.lux-v2-list-item{border-top:1px solid #edf0e9}
+.lux-v2-row-link{display:flex;align-items:center;justify-content:space-between;
+  gap:9px;min-height:44px;padding:9px 5px;text-decoration:none;color:#233947;font-size:13px}
+.lux-v2-row-link:hover{background:#f4f7f0}
+.lux-v2-row-name{flex:1;min-width:0;overflow-wrap:anywhere}
+.lux-v2-row-count{font-variant-numeric:tabular-nums;white-space:nowrap;color:#61746b}
+.lux-v2-list-item.is-complete .lux-v2-row-name{color:#557e68}
+.lux-v2-shortcuts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}
+.lux-v2-shortcut{display:grid;align-content:start;gap:3px;padding:12px 11px;min-height:92px;
+  border:1px solid #e1dfd3;border-radius:13px;background:#fcfaf5;
+  text-decoration:none;color:#1a3148}
+.lux-v2-shortcut-icon{font-size:18px;line-height:1;color:#9c8b58}
+.lux-v2-shortcut strong{font-size:12px;line-height:1.2}
+.lux-v2-shortcut small{font-size:11px;line-height:1.35;color:#657a71}
+.lux-v2-shortcut:hover{background:#f3f5ee}
+.lux-v2-footnote{font-size:10px;line-height:1.4;color:#77857e;margin:7px 0 0}
+.lux-v2-loading{font-size:13px;color:#61756e;margin:14px 0}
+.lux-v2-open-study{margin-top:12px}
+.lux-v2-home [data-lux-home-journey-host] #daily-save-panel{margin-top:15px}
+.lux-v2-home [data-lux-home-journey-host] [data-daily-hearth]{margin-top:14px}
+.lux-v2-home [data-lux-v2-stage="true"]{height:clamp(310px,42vh,470px)!important;
+  min-height:310px!important;max-height:470px!important}
+.lux-v2-home main img.scholar-idle{max-height:91%}
+@media(min-width:768px){
+ .lux-v2-home main > div.space-y-6 > div.grid:first-child{
+   grid-template-columns:minmax(0,.91fr) minmax(0,1.09fr)!important;
+   gap:18px!important;align-items:start
+ }
+ .lux-v2-home [data-lux-v2-stage="true"]{height:clamp(405px,60vh,590px)!important;
+   min-height:405px!important;max-height:590px!important}
+ .lux-v2-home main [data-lux-home-journey-host]{padding:19px!important}
+}
+@media(min-width:1280px){
+ .lux-v2-home [data-lux-v2-stage="true"]{height:clamp(465px,62vh,625px)!important;
+   min-height:465px!important;max-height:625px!important}
+}
+@media(max-width:385px){
+ .lux-v2-home [data-lux-v2-stage="true"]{height:295px!important;min-height:295px!important}
+ .lux-v2-shortcuts{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.lux-v2-overall-fill{transition:none}}
