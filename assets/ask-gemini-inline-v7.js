@@ -225,4 +225,4 @@
 })();
 
 // Foundation-first guard for automatic Daily/Adaptive study. Manual Year 9 study remains available.
-import("/assets/progression-guard-20260927.js?v=20261008-outfits-hd1").catch(() => {});
+import("/assets/progression-guard-20260927.js?v=20261010-chem-marking1").catch(() => {});
