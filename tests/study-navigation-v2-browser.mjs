@@ -95,6 +95,7 @@ try{
      const homeText=await homeResponse.text();
      assert.doesNotMatch(homeText,/study-navigation-v2-20261010/,"Home untouched");
      // The UX year buttons must delegate to the existing Study year selection.
+     await page.locator("#lux-study-paths-v2 .lux-path-expand > summary").click();
      await page.locator('#lux-study-paths-v2 button[data-lux-year="8"]').click();
      await page.waitForTimeout(700);
      assert.equal(await page.locator('main select:has(option[value="8"])').inputValue(),"8",
