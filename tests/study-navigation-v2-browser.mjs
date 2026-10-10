@@ -57,18 +57,18 @@ try{
          height:parseFloat(style.height)};
      });
      assert.ok(brand,"branded header exists");
-     assert.ok(brand.background.includes("lux-celestial-b-symbol-20261010.svg"),
+     assert.ok(brand.background.includes("lux-celestial-b-symbol-20261010.png"),
        "approved B emblem is displayed");
      if(vp.width>=1280)assert.ok(brand.width>=130 && brand.height>=125,
        "desktop B logo is not cramped");
-     const logoResponse=await page.request.get(base+"/assets/lux-celestial-b-symbol-20261010.svg");
+     const logoResponse=await page.request.get(base+"/assets/lux-celestial-b-symbol-20261010.png");
      assert.equal(logoResponse.status(),200,"approved B logo file exists");
-     assert.ok((await logoResponse.text()).includes("data:image/png;base64,"));
+     assert.match(logoResponse.headers()["content-type"] || "",/image\/png/);
      const imageLoads=await page.evaluate(()=>new Promise(resolve=>{
        const img=new Image();
        img.onload=()=>resolve(img.naturalWidth>=190&&img.naturalHeight>=180);
        img.onerror=()=>resolve(false);
-       img.src="/assets/lux-celestial-b-symbol-20261010.svg";
+       img.src="/assets/lux-celestial-b-symbol-20261010.png";
      }));
      assert.equal(imageLoads,true,"B logo image pixels load in this browser");
      assert.equal(await page.locator("#lux-study-paths-v2 article").count(),3);
@@ -174,7 +174,7 @@ try{
        if(!element)return "";
        return getComputedStyle(element,window.innerWidth>=1280?null:"::before").backgroundImage;
      });
-     assert.ok(homeBrand.includes("lux-celestial-b-symbol-20261010.svg"),
+     assert.ok(homeBrand.includes("lux-celestial-b-symbol-20261010.png"),
        "approved B logo visible on Home");
      await page.screenshot({path:"test-results/home-b-brand-"+name+"-"+vp.width+".png",fullPage:true});
 
