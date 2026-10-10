@@ -107,67 +107,54 @@ try{
      assert.ok((await page.locator(".lux-path-portal").nth(1).innerText()).includes("Scholar"));
      assert.ok((await page.locator(".lux-path-portal").nth(2).innerText()).includes("Trial Chamber"));
 
-     // Geometry QA: the footer portals must never cover the current quest or figures.
+     // User-requested Study change: a shorter visual and NO pet, while
+     // Current Quest, equipped girl and all three portal buttons remain usable.
+     assert.equal(await page.locator(".lux-path-hero-pet").count(),0,
+       "Study page must not render pet illustration");
+     assert.equal(await page.locator(".lux-path-hero-links a[href='/pet/']").count(),0,
+       "Study scene must not show a Companion shortcut");
      const layout=await page.evaluate(()=>{
        const box=sel=>document.querySelector(sel)?.getBoundingClientRect()?.toJSON();
+       const scholar=document.querySelector(".lux-path-hero-scholar");
        return {hero:box(".lux-path-hero"),stage:box(".lux-path-hero-stage"),
          quest:box(".lux-quest-now"),copy:box(".lux-path-hero-copy"),
          portals:box(".lux-path-portals"),girl:box(".lux-path-hero-scholar"),
-         pet:box(".lux-path-hero-pet"),onePortal:box(".lux-path-portal")};
+         onePortal:box(".lux-path-portal"),girlLoaded:!!scholar?.complete&&scholar.naturalWidth>0};
      });
-     assert.ok(layout.stage&&layout.quest&&layout.portals&&layout.girl&&layout.pet,
-       "all quest hall landmarks must exist");
-     const fits=(a,b,margin=1)=>a.bottom<=b.top+margin;
+     assert.ok(layout.stage&&layout.quest&&layout.portals&&layout.girl&&layout.girlLoaded,
+       "compact Study stage must show real artwork and Current Quest");
+     assert.ok(layout.stage.height<470,"scene must be smaller than old 525-625px version: "+JSON.stringify(layout));
+     if(vp.width>=1001)assert.ok(layout.stage.height<=380,
+       "desktop Study scene should be about 370px");
+     const fits=(a,b,margin=2)=>a.bottom<=b.top+margin;
      assert.ok(fits(layout.quest,layout.portals),
-       "Current Quest must be fully visible above portals: "+JSON.stringify(layout));
+       "Current Quest and portals may not overlap: "+JSON.stringify(layout));
      assert.ok(fits(layout.copy,layout.portals),
-       "Quest title and controls must not overlap portals: "+JSON.stringify(layout));
+       "Quest text and portals may not overlap: "+JSON.stringify(layout));
      assert.ok(fits(layout.girl,layout.portals),
-       "Scholar cannot be cut off by portal footer: "+JSON.stringify(layout));
-     assert.ok(fits(layout.pet,layout.portals),
-       "Pet cannot be cut off by portal footer: "+JSON.stringify(layout));
-     assert.ok(layout.onePortal.bottom<=layout.portals.bottom+1,
-       "Portal links must fit inside their footer");
+       "Girl may not be cut off by portal footer: "+JSON.stringify(layout));
+     assert.ok(layout.quest.bottom<=layout.stage.bottom+2,
+       "Entire Current Quest must fit inside shorter scene: "+JSON.stringify(layout));
+     assert.ok(layout.copy.bottom<=layout.stage.bottom+2,
+       "All Quest controls must fit inside shorter scene: "+JSON.stringify(layout));
+     assert.ok(layout.onePortal.bottom<=layout.portals.bottom+2,
+       "All three portals must fit inside footer");
      assert.ok(layout.hero.height>=layout.stage.height+layout.portals.height-2,
-       "Hero height allocates space for both scene and portal row");
-     assert.ok(layout.quest.right<=layout.stage.right+2,
-       "Current quest must not be horizontally clipped");
+       "Scene and portals require separate layout space");
      if(vp.width>=800)assert.ok(layout.girl.x>layout.quest.right-20,
-       "Desktop girl must not stand in front of Current Quest");
-
-     // Both portraits must be visible with real, unbroken existing art.
-     await page.waitForFunction(()=>{
-       const scholar=document.querySelector(".lux-path-hero-scholar");
-       const pet=document.querySelector(".lux-path-hero-pet");
-       return scholar?.complete && scholar.naturalWidth>0 && pet?.complete && pet.naturalWidth>0
-         && scholar.getBoundingClientRect().height>100 && pet.getBoundingClientRect().height>50;
-     },null,{timeout:20000});
-     const art=await page.evaluate(()=>{
-       const scene=document.querySelector(".lux-path-hero");
-       const girl=document.querySelector(".lux-path-hero-scholar");
-       const pet=document.querySelector(".lux-path-hero-pet");
-       const stage=scene.getBoundingClientRect();
-       return {girl:girl.getBoundingClientRect().toJSON(),pet:pet.getBoundingClientRect().toJSON(),
-         stage:stage.toJSON(),girlSrc:girl.getAttribute("src"),petSrc:pet.getAttribute("src")};
-     });
-     assert.ok(art.girl.x>=art.stage.x-40 && art.girl.right<=art.stage.right+40,"Scholar stays in hero");
-     assert.ok(art.pet.x>=art.stage.x-40 && art.pet.right<=art.stage.right+40,"Pet stays in hero");
-     // Simulate a user who equipped Cardigan and evolved her hidden white owl.
+       "Scholar must not stand over quest card");
+     // Changing clothes updates only the original girl sprite; the pet stays absent.
      await page.evaluate(async()=>{
-       localStorage.setItem("lux-pet-companion-v1",
-         JSON.stringify({species:"snow-owl",petLevels:{"snow-owl":3},name:"Moonveil"}));
        const mod=await import("/assets/index-BLVOhKhN.js?v=20261010-chem-marking1");
        mod.C.setState({equippedOutfit:"library"});
        window.dispatchEvent(new Event("storage"));
-       window.dispatchEvent(new Event("scholar:pet-changed"));
      });
      await page.waitForFunction(()=>{
        const a=document.querySelector(".lux-path-hero-scholar");
-       const b=document.querySelector(".lux-path-hero-pet");
        return a?.getAttribute("src")==="/art/doll/cardigan.png"
-         && b?.getAttribute("src")?.includes("/level-3/snow-owl.webp")
-         && a.complete && a.naturalWidth>0 && b.complete && b.naturalWidth>0;
+         && a.complete && a.naturalWidth>0;
      },null,{timeout:20000});
+     assert.equal(await page.locator(".lux-path-hero-pet").count(),0);
      assert.equal(await page.locator('a[href="/assessment/"]').count()>0,true);
      assert.equal(await page.locator("#lux-study-paths-v2 a[href^='/']").count()>0,true);
      assert.equal(await page.locator('main a[href="/study/latin"]').count()>0,true);
