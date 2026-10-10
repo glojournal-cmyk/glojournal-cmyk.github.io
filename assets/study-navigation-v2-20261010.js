@@ -99,7 +99,24 @@ function repaint(){
   if(selectYear(Number(b.dataset.luxYear)))for(const other of card.querySelectorAll("[data-lux-year]"))
    other.setAttribute("aria-pressed",String(other===b));
  });
- if(old)old.replaceWith(card);else header.after(card);
+ // The illustrated Quest Hall must be the FIRST visible Study region.
+ // Preserve React's native year selector and original subject cards further down.
+ const expanded=old?.querySelector(".lux-path-expand")?.open||false;
+ if(old)old.remove();
+ header.before(card);
+ const details=card.querySelector(".lux-path-expand");
+ if(details)details.open=expanded;
+ for(const section of parent.querySelectorAll(":scope > section")){
+   if(section===card||section===subjects)continue;
+   const label=section.querySelector("h2")?.textContent?.trim();
+   // These two legacy shortcut panels duplicate the quest and subject library.
+   // Hide only once the new quest DOM has successfully rendered; they remain
+   // untouched when the optional enhancement fails to load.
+   if(label==="Start your next topic"||label==="Today"){
+     section.dataset.luxQuestLegacyShortcut="true";
+   }
+ }
+ parent.dataset.luxQuestReady="true";
  signature=key;
 }
 function queue(){if(!queued){queued=true;queueMicrotask(repaint)}}
