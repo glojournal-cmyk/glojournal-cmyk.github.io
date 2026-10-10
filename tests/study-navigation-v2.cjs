@@ -49,20 +49,21 @@ test('disabled on homepage and app-not-ready state',()=>{
  assert.deepEqual(calls,[],'Home untouched');
 });
 
-test('Study displays equipped Scholar, never the companion, in a compact scene',()=>{
+test('Study displays the equipped Scholar only, with a compact scene',()=>{
  const js=file('assets/study-navigation-v2-20261010.js');
  const css=file('assets/study-navigation-v2-20261010.css');
  const home=file('index.html');
- assert.match(js,/lux-path-hero-scholar/);
- assert.match(js,/art\\/stages\\/dusk\\.jpg/);
- assert.match(js,/equippedOutfit/);
- assert.match(js,/outfitCatalog=mod\\.A/);
- assert.doesNotMatch(js,/lux-path-hero-pet|petLevels|Companion ↗|scholar:pet-changed/);
- assert.match(css,/height:370px!important;min-height:370px!important;max-height:370px!important/);
- assert.match(css,/height:445px!important;min-height:445px!important;max-height:445px!important/);
- assert.match(home,/lux-celestial-b-brand-20261010\\.css/);
- assert.doesNotMatch(home,/study-navigation-v2-20261010/);
- assert.doesNotMatch(js,/localStorage\\.setItem\\s*\\(/);
+ assert.ok(js.includes('lux-path-hero-scholar'));
+ assert.ok(js.includes('/art/stages/dusk.jpg'));
+ assert.ok(js.includes('saved.equippedOutfit'));
+ assert.ok(js.includes('outfitCatalog=mod.A'));
+ for(const petText of ['lux-path-hero-pet','petLevels','Companion ↗','scholar:pet-changed'])
+  assert.ok(!js.includes(petText),'Study must not render '+petText);
+ assert.ok(css.includes('height:370px!important;min-height:370px!important;max-height:370px!important'));
+ assert.ok(css.includes('height:445px!important;min-height:445px!important;max-height:445px!important'));
+ assert.ok(home.includes('lux-celestial-b-brand-20261010.css'));
+ assert.ok(!home.includes('study-navigation-v2-20261010'));
+ assert.ok(!js.includes('localStorage.setItem('));
 });
 
 test('approved B celestial branding is shared safely between Home and Study',()=>{
