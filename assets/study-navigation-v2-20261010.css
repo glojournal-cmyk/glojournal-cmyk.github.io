@@ -242,3 +242,43 @@
  .lux-study-paths .lux-path-hero-copy h3{font-size:33px}
  .lux-study-paths .lux-quest-now{max-width:246px}
 }
+
+
+/* Scholar's Garden brand lockup: replace only Study preview's tiny generic favicon.
+   Existing navigation, learned XP, pet and character assets are untouched. */
+html:has(#lux-study-paths-v2) aside > a[href="/"]{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1px;text-align:center;padding-top:15px;padding-bottom:13px
+}
+html:has(#lux-study-paths-v2) aside > a[href="/"] > span:first-child{
+  display:block!important;width:99px!important;height:108px!important;
+  border:0!important;border-radius:0!important;box-shadow:none!important;
+  background:url("/assets/lux-scholar-crest-20261010.svg") center / contain no-repeat!important;
+  outline:none!important
+}
+html:has(#lux-study-paths-v2) aside > a[href="/"] > span:first-child > img{display:none!important}
+html:has(#lux-study-paths-v2) aside > a[href="/"] > span:last-child{
+  display:flex;flex-direction:column;align-items:center;justify-content:center
+}
+html:has(#lux-study-paths-v2) aside > a[href="/"] strong{
+  font:600 28px/1.08 "Cormorant Garamond",Georgia,serif!important;
+  letter-spacing:-.035em;white-space:nowrap;color:#f8f0da
+}
+html:has(#lux-study-paths-v2) aside > a[href="/"] small{
+  font-size:9px!important;line-height:1.5!important;letter-spacing:.105em!important;
+  margin-top:8px!important;color:#e4cb94!important;white-space:nowrap
+}
+@media(min-width:768px) and (max-width:1260px){
+ html:has(#lux-study-paths-v2) aside > a[href="/"] > span:first-child{width:76px!important;height:83px!important}
+ html:has(#lux-study-paths-v2) aside > a[href="/"] strong{font-size:22px!important}
+ html:has(#lux-study-paths-v2) aside > a[href="/"] small{font-size:7px!important;letter-spacing:.075em!important}
+}
+@media(max-width:767px){
+ html:has(#lux-study-paths-v2) header.xl\:hidden a[href="/"]{
+  display:flex;align-items:center;gap:8px
+ }
+ html:has(#lux-study-paths-v2) header.xl\:hidden a[href="/"]::before{
+  content:"";flex:0 0 33px;width:33px;height:38px;
+  background:url("/assets/lux-scholar-crest-20261010.svg") center / contain no-repeat
+ }
+}
