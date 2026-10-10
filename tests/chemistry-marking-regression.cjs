@@ -94,3 +94,17 @@ test('daily Chemistry tolerates case, whitespace and chemical subscripts',()=>{
   for(const value of ['H2O','H₂O','H 2 O'])
     assert.equal(practice(formula,value,'chemistry').ok,true,value);
 });
+
+test('Chemistry rubric accepts declared NOT science, not bare answer denial',()=>{
+  for(const id of ['chem-aqa-20260930-001','chem-aqa-20260930-004','chem-aqa-20260930-009']){
+    const row=q(id);
+    for(const point of row.answer.points){
+      for(const alt of point.alternatives||[]){
+        if(/^not\b/i.test(alt))assert.ok(marks(row,alt).matched>=1,id+': '+alt);
+      }
+    }
+    assert.equal(marks(row,'NOT '+row.answer.accepted[0]).matched,0,id+' denied model');
+  }
+  assert.equal(marks(q('chem-aqa-20260930-001'),'not strict mass order').matched,1);
+  assert.equal(marks(q('chem-aqa-20260930-009'),'not an element').matched,1);
+});

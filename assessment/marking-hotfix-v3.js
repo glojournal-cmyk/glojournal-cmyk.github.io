@@ -131,9 +131,20 @@
   function chemistryFallback(q,value,base){
     const response=String(value||'').trim();
     if(!response)return base;
-    // An explicit blanket denial of an answer cannot score by keyword matching.
-    if(/^(?:not|never|false|incorrect)\b\s*[:\-]?/i.test(response))
-      return {credit:0,status:'Incorrect',matched:0,total:q.answer?.points?.length||q.answer?.required?.length||1,pointResults:(q.answer?.points||[]).map(()=>false)};
+    // A blanket "NOT + correct answer" is a denial, but Chemistry also
+    // has genuinely negative mark points ("not an element", "not strict mass order").
+    // Exempt only negative concepts explicitly declared in this question's rubric.
+    if(/^(?:not|never|false|incorrect)\b\s*[:\-]?/i.test(response)){
+      const cleaned=s=>String(s||'').toLowerCase().normalize('NFKC')
+        .replace(/[’‘]/g,"'").replace(/[.!?]+$/,'').replace(/\s+/g,' ').trim();
+      const bare=cleaned(response.replace(/^(?:not|never|false|incorrect)\b\s*[:\-]?/i,''));
+      const denied=[q.modelAnswer,...(q.answer?.accepted||[])].some(a=>cleaned(a)===bare);
+      const declaredNegative=!denied && !/^(?:not|never)\s+(?:not|never|no)\b/i.test(response)
+        && (q.answer?.points||[]).some(point=>(point.alternatives||[]).some(term=>
+          /^(?:not|never|no|without|cannot)\b/i.test(term)&&chemistryIdeaMatch(response,term)));
+      if(!declaredNegative)
+        return {credit:0,status:'Incorrect',matched:0,total:q.answer?.points?.length||q.answer?.required?.length||1,pointResults:(q.answer?.points||[]).map(()=>false)};
+    }
     const mode=q.answer?.mode;
 
     if(mode==='choice')return base;

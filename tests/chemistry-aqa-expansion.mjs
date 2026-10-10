@@ -31,6 +31,19 @@ for(const q of fresh){
   }
 }
 const get=id=>fresh.find(q=>q.id.endsWith('-'+id));
+// Explicit negative Chemistry statements ARE scientific facts when the rubric lists them.
+for(const id of ['001','004','009']){
+ const q=get(id);
+ const negative=(q.answer.points||[]).flatMap(p=>p.alternatives||[]).filter(t=>/^not\b/i.test(t));
+ assert.ok(negative.length,id+' has intentional negative science');
+ for(const alt of negative)
+  assert.ok(context.mark(q,alt).matched>=1,id+' intentional negative: '+alt);
+}
+assert.equal(context.mark(get('001'),'not similar chemical properties').matched,0,
+ 'Negating the positive science must be rejected');
+assert.equal(context.mark(get('001'),'NOT '+get('001').modelAnswer).matched,0,
+ 'Negating the entire model answer must be rejected');
+
 assert.equal(context.mark(get('002'),'He left gaps for undiscovered elements.').matched,1,'One distinct point earns one mark');
 assert.equal(context.mark(get('002'),'He left gaps for undiscovered elements. He left gaps for undiscovered elements.').matched,1,'Repeating one point cannot earn a second mark');
 assert.equal(context.mark(get('012'),'Newlands left gaps and Mendeleev left no gaps.').matched,0,'Reversing scientists is wrong');
