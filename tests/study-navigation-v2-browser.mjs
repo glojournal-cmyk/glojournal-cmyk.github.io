@@ -45,6 +45,20 @@ try{
        const app=document.querySelector("main h1");
        return !!nav && !!app && /Continue Learning/i.test(app.textContent||"");
      },null,{timeout:30000});
+     if(vp.width>=1280){
+       const crest=page.locator('aside > a[href="/"] > span:first-child');
+       await page.waitForFunction(()=>{
+         const anchor=document.querySelector('aside > a[href="/"] > span:first-child');
+         return anchor && getComputedStyle(anchor).backgroundImage.includes('lux-scholar-crest-20261010.svg');
+       },null,{timeout:10000});
+       const bounds=await crest.boundingBox();
+       assert.ok(bounds && bounds.width>=70 && bounds.height>=80,"Study brand crest is visible");
+       const brand=page.locator('aside > a[href="/"] strong');
+       assert.match(await brand.innerText(),/Lux et Labor/);
+       const svg=await page.request.get(base+'/assets/lux-scholar-crest-20261010.svg');
+       assert.equal(svg.status(),200,"Academy logo asset exists");
+       assert.match(await svg.text(),/botanical academy crest/);
+     }
      assert.equal(await page.locator("#lux-study-paths-v2 article").count(),3);
      // All three destinations are now navigable in the character-and-pet scene.
      assert.equal(await page.locator(".lux-path-portals a").count(),3);
