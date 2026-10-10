@@ -103,12 +103,16 @@ test('pet preview respects selected species, saved MP and evolution level',()=>{
  assert.equal(res.reward.remaining,40);
  assert.match(res.reward.label,/40 MP/);
 });
-test('responsive homepage is wired and keeps all original artwork assets',()=>{
+test('stable Home keeps original artwork and leaves rolled-back V2 disabled',()=>{
  const html=file('index.html');
  const css=file('assets/home-journey-v2-20261010.css');
  const ui=file('assets/home-journey-v2-20261010.js');
- assert.match(html,/\/assets\/home-journey-v2-20261010\.css/);
- assert.match(html,/\/assets\/home-journey-v2-20261010\.js/);
+ // Home V2 was rolled back after a blank-screen incident; never silently
+ // reactivate it just because a new shared logo CSS stylesheet was added.
+ assert.doesNotMatch(html,/\/assets\/home-journey-v2-20261010\.css/);
+ assert.doesNotMatch(html,/\/assets\/home-journey-v2-20261010\.js/);
+ assert.match(html,/\/assets\/index-BLVOhKhN\.js/);
+ assert.match(html,/lux-celestial-b-brand-20261010\.css/);
  assert.match(html,/\/art\/doll\/day\.png/);
  assert.match(html,/img class="scholar-idle|class="scholar-idle/);
  assert.match(css,/@media\(min-width:768px\)/);

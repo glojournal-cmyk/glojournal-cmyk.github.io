@@ -1,0 +1,41 @@
+name: Study Navigation V2 Preview QA
+on:
+  pull_request:
+    paths:
+      - 'study/index.html'
+      - 'assets/study-navigation-v2-20261010.*'
+      - 'assets/lux-celestial-b-symbol-20261010.png'
+      - 'assets/lux-celestial-b-brand-20261010.css'
+      - 'index.html'
+      - 'tests/study-navigation-v2*'
+      - '.github/workflows/study-navigation-v2-preview-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  study-logic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --check assets/study-navigation-v2-20261010.js
+      - run: node --test tests/study-navigation-v2.cjs
+  study-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Verify Study renders in Chromium and iPad WebKit
+        run: node tests/study-navigation-v2-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: study-navigation-v2-browser-screenshots
+          path: test-results/study-nav-*.png
