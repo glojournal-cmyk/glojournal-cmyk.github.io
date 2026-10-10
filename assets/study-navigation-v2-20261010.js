@@ -4,7 +4,22 @@
 if(!/^\/study\/?$/.test(location.pathname))return;
 const id="lux-study-paths-v2";
 const y=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-let queued=false,signature="";
+let queued=false,signature="",outfitCatalog=null;
+function appearance(saved){
+ const list=Array.isArray(outfitCatalog)?outfitCatalog:[];
+ const selected=list.find(x=>x.id===saved.equippedOutfit)||list.find(x=>x.id==="day");
+ const art=selected?.art||"/art/doll/day.png";
+ const safeArt=/^\/art\/(?:doll|looks)\/[a-zA-Z0-9_-]+\.png$/.test(art)?art:"/art/doll/day.png";
+ let pet={};
+ try{pet=JSON.parse(localStorage.getItem("lux-pet-companion-v1")||"{}")||{}}catch{}
+ const pets=new Set(["moss-hornling","antler-bean","inkling","pebble-wisp","moon-puff","mothling","bloom-snail","velvet-batling","sprig-dragon","star-toadlet","snow-owl","night-spider"]);
+ const species=pets.has(pet.species)?pet.species:"moss-hornling";
+ const level=Math.max(1,Math.min(5,Number(pet.petLevels?.[species])||(pet.species===species?Number(pet.highestStage):0)||1));
+ const name=String(pet.name||species.replace(/-/g," ").replace(/\b\w/g,c=>c.toUpperCase())).slice(0,70);
+ return {scholar:safeArt,outfit:String(selected?.name||"Day Uniform").slice(0,70),
+   pet:"/pet/art-hd-20261009/level-"+level+"/"+species+".webp?v=20261009-hd1",
+   petName:name,level};
+}
 function selectYear(year){
  const s=document.querySelector('main select:has(option[value="8"])');
  if(!s||s.disabled)return false;
@@ -28,7 +43,7 @@ function snapshot(){
  const fallback=daily.find(t=>Number(t.progress)<Number(t.target)&&J?.safeHref(t.href));
  const href=paused&&J?.safeHref(paused.href)?paused.href:J?.navigationHref(fallback?.href)||"/";
  return {total:daily.length||10,done,valid,year:Number(saved.year)===8?8:9,
-  href:href,paused:!!paused};
+  href:href,paused:!!paused,appearance:appearance(saved)};
 }
 function repaint(){
  queued=false;
@@ -48,6 +63,15 @@ function repaint(){
  card.setAttribute("aria-label","Choose your study path");
  card.innerHTML=
  '<div class="lux-path-intro"><div><p class="lux-path-eyebrow">THE SCHOLAR’S GARDEN</p><h2>Choose your path</h2><p>One place for daily learning, extra revision and school tests.</p></div></div>'+
+ '<div class="lux-path-hero" aria-label="Your scholar and companion together">'+
+ '<img class="lux-path-hero-scene" src="/art/stages/dusk.jpg" alt="" loading="eager">'+
+ '<div class="lux-path-hero-overlay" aria-hidden="true"></div>'+
+ '<div class="lux-path-hero-copy"><p class="lux-path-hero-kicker">LUX ET LABOR · THE SCHOLAR’S GARDEN</p>'+
+ '<h3>Every lesson grows your story.</h3><p>Your scholar and her companion are right beside you.</p>'+
+ '<div class="lux-path-hero-links"><a href="/scholar/">Wardrobe ↗</a><a href="/pet/">Companion ↗</a></div></div>'+
+ '<img class="lux-path-hero-pet" src="'+y(d.appearance.pet)+'" alt="'+y(d.appearance.petName)+', companion level '+d.appearance.level+'" loading="eager">'+
+ '<img class="lux-path-hero-scholar" src="'+y(d.appearance.scholar)+'" alt="Scholar wearing '+y(d.appearance.outfit)+'" loading="eager">'+
+ '</div>'+
  '<div class="lux-path-grid">'+
  '<article class="lux-path-card lux-path-daily"><span class="lux-path-symbol" aria-hidden="true">✦</span><p class="lux-path-eyebrow">01 · YOUR ROUTINE</p><h3>Daily Journey</h3><p>Complete today’s 10 tasks and continue saved questions.</p>'+
  '<div class="lux-path-progress" role="progressbar" aria-label="Daily tasks completed" aria-valuemin="0" aria-valuemax="'+d.total+'" aria-valuenow="'+d.done+'"><span style="width:'+Math.min(100,d.done/d.total*100)+'%"></span></div>'+
@@ -70,6 +94,13 @@ window.addEventListener("lux:app-ready",queue);
 window.addEventListener("pageshow",queue);
 window.addEventListener("storage",queue);
 window.addEventListener("scholar:session-saved",queue);
+window.addEventListener("scholar:pet-changed",queue);
+window.addEventListener("scholar:wardrobe-changed",queue);
+import("/assets/index-BLVOhKhN.js?v=20261010-chem-marking1").then(mod=>{
+ outfitCatalog=mod.A;
+ mod.C?.subscribe?.(queue);
+ queue();
+}).catch(()=>{ /* Original look remains available even if catalog is delayed. */ });
 document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")queue()});
 new MutationObserver(queue).observe(document.documentElement,{childList:true,subtree:true});
 queue();
