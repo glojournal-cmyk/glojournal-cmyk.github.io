@@ -69,3 +69,97 @@
  .lux-path-hero-pet{right:33%;height:41%;width:30%;bottom:2%}
 }
 @media(prefers-reduced-motion:reduce){.lux-path-hero-scholar,.lux-path-hero-pet{transition:none}}
+
+
+/* Quest Hall V3: elegant adventure, not a generic dashboard or game HUD. */
+.lux-study-paths .lux-path-intro{margin:0 0 13px}
+.lux-study-paths .lux-path-intro h2{font-size:32px}
+.lux-study-paths .lux-path-hero{
+ height:clamp(440px,46vw,535px)!important;min-height:440px;
+ border:1px solid #af9870;box-shadow:0 19px 46px rgba(17,43,55,.18);
+}
+.lux-study-paths .lux-path-hero:after{content:"";position:absolute;z-index:8;inset:10px;
+ border:1px solid rgba(224,195,129,.35);border-radius:16px;pointer-events:none}
+.lux-study-paths .lux-path-hero-overlay{
+ background:linear-gradient(90deg,rgba(13,31,44,.95),rgba(18,40,54,.8) 33%,
+ rgba(18,40,54,.22) 75%,rgba(18,40,54,.1)),
+ linear-gradient(0deg,rgba(10,29,40,.98) 0%,transparent 44%);
+}
+.lux-study-paths .lux-path-hero-copy{top:9%;left:5%;transform:none;width:41%;z-index:5}
+.lux-study-paths .lux-path-hero-copy h3{font-size:clamp(40px,4vw,56px);line-height:.97;
+ max-width:400px;margin:10px 0}
+.lux-study-paths .lux-path-hero-copy>p:not(.lux-path-hero-kicker){color:#dce7dc;
+ font-size:13px;max-width:330px}
+.lux-study-paths .lux-path-hero-scholar{height:77%;width:34%;right:1%;bottom:19%}
+.lux-study-paths .lux-path-hero-pet{height:34%;width:24%;right:29%;bottom:20%}
+.lux-study-paths .lux-path-hero-links{margin-top:10px}
+.lux-study-paths .lux-path-hero-links a{min-height:35px;padding:6px 11px}
+.lux-quest-now{max-width:300px;margin-top:14px;padding:10px 13px;background:rgba(22,47,54,.83);
+ border:1px solid #d9c48e96;border-radius:12px;backdrop-filter:blur(4px);color:#fff8eb}
+.lux-quest-now span{display:block;font-size:10px;letter-spacing:.16em;color:#e5c98d;font-weight:700}
+.lux-quest-now strong{display:block;margin-top:5px;font:600 23px/1.12 "Cormorant Garamond",Georgia,serif}
+.lux-quest-now small{display:block;font-size:11px;color:#d5e2d8;margin-top:4px}
+.lux-quest-now a{display:inline-flex;align-items:center;justify-content:center;min-height:36px;
+ margin-top:9px;padding:7px 14px;border-radius:10px;
+ background:linear-gradient(110deg,#f5e9c9,#dbc38c);color:#253b40;
+ font-size:11px;font-weight:750;text-decoration:none}
+.lux-path-portals{position:absolute;z-index:7;bottom:13px;left:14px;right:14px;
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.lux-path-portal{min-height:83px;display:flex;align-items:center;gap:9px;
+ padding:10px 12px;border-radius:13px;border:1px solid rgba(216,191,137,.73);
+ color:#fff9e9;text-decoration:none;background:linear-gradient(110deg,rgba(27,56,67,.95),rgba(38,72,68,.96));
+ backdrop-filter:blur(8px);transition:transform .18s ease,background .18s ease}
+.lux-path-portal:hover{background:linear-gradient(120deg,#365a52,#314e60);
+ border-color:#ffe6a0;transform:translateY(-3px)}
+.lux-portal-glyph{flex:0 0 34px;height:34px;border-radius:50%;border:1px solid #e6cd9391;
+ color:#f1d8a2;display:grid;place-items:center;font-size:19px}
+.lux-path-portal small{font-size:8px!important;letter-spacing:.1em;font-weight:750;color:#d6d7c4;display:block}
+.lux-path-portal strong{display:block;font:600 22px/1 "Cormorant Garamond",Georgia,serif;margin:4px 0;color:#fff7df}
+.lux-path-portal em{display:block;font-size:10px;font-style:normal;color:#d9dfc8}
+.lux-path-sigil-ledger{display:grid;grid-template-columns:1fr 1.6fr;align-items:center;gap:10px;
+ padding:16px 19px;border:1px solid #e3d9bf;border-radius:16px;
+ background:linear-gradient(120deg,#fffcf2,#f7f2e6);margin:12px 0}
+.lux-path-sigil-ledger h3{font:600 25px/1 "Cormorant Garamond",Georgia,serif;color:#324d43;margin:5px 0}
+.lux-path-sigil-ledger p{grid-column:1/-1;color:#6a806f;font-size:12px;margin:0}
+.lux-path-sigils{display:flex;justify-content:space-between;gap:4px;align-items:center}
+.lux-path-sigils span{display:grid;place-items:center;width:24px;height:24px;
+ border-radius:50%;border:1px solid #e0d4b7;color:#baa77d;background:#f9f5e8;font-size:13px}
+.lux-path-sigils span.lit{color:#fff3d8;background:#789a81;border-color:#709078}
+.lux-path-sigils span.next{color:#92763e;background:#fbefc3;border-color:#ddc489;box-shadow:0 0 0 3px #eee6ca}
+.lux-study-paths .lux-path-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.lux-study-paths .lux-path-card{background:linear-gradient(155deg,#fffdf5,#f8f3e8);
+ border-color:#e0d7bf;padding:16px 16px;min-height:235px}
+.lux-study-paths .lux-path-daily{background:linear-gradient(150deg,#f2f6eb,#fef9eb)}
+.lux-study-paths .lux-path-card h3{font-size:27px}
+.lux-study-paths .lux-path-card>p:not(.lux-path-eyebrow,.lux-path-status,.lux-path-note){font-size:12px}
+@media(max-width:1000px){
+ .lux-study-paths .lux-path-hero{height:530px!important}
+ .lux-study-paths .lux-path-hero-scholar{width:40%}
+ .lux-study-paths .lux-path-hero-pet{width:25%;right:34%}
+ .lux-path-portal{padding:9px 9px;gap:6px}
+ .lux-path-portal strong{font-size:20px}
+ .lux-path-portal small{font-size:7px!important}
+}
+@media(max-width:650px){
+ .lux-study-paths .lux-path-hero{height:605px!important;min-height:605px}
+ .lux-study-paths .lux-path-hero-copy{width:66%;top:6%;left:5%}
+ .lux-study-paths .lux-path-hero-copy h3{font-size:39px}
+ .lux-study-paths .lux-path-hero-copy>p:not(.lux-path-hero-kicker){font-size:11px}
+ .lux-study-paths .lux-path-hero-scholar{height:43%;width:56%;right:-5%;bottom:27%}
+ .lux-study-paths .lux-path-hero-pet{height:27%;width:37%;right:35%;bottom:26%}
+ .lux-path-portals{grid-template-columns:1fr;gap:5px;left:9px;right:9px;bottom:9px}
+ .lux-path-portal{min-height:58px}
+ .lux-path-portal strong{font-size:20px;margin:1px 0}
+ .lux-path-portal em{font-size:10px}
+ .lux-portal-glyph{width:27px;height:27px;flex-basis:27px;font-size:15px}
+ .lux-quest-now{margin-top:11px;padding:9px;max-width:275px}
+ .lux-quest-now strong{font-size:19px}
+ .lux-quest-now a{min-height:32px}
+ .lux-path-sigil-ledger{grid-template-columns:1fr}
+ .lux-path-sigil-ledger p{grid-column:auto}
+ .lux-study-paths .lux-path-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:no-preference){
+ .lux-study-paths .lux-path-hero-pet{animation:lux-quest-bob 4s ease-in-out infinite}
+}
+@keyframes lux-quest-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
