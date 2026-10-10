@@ -76,11 +76,11 @@ function repaint(){
  '<img class="lux-path-hero-pet" src="'+y(d.appearance.pet)+'" alt="'+y(d.appearance.petName)+', companion level '+d.appearance.level+'" loading="eager">'+
  '<img class="lux-path-hero-scholar" src="'+y(d.appearance.scholar)+'" alt="Scholar wearing '+y(d.appearance.outfit)+'" loading="eager">'+
  '</div>'+
- '<nav class="lux-path-portals" aria-label="Quest destinations">'+
+ '<div class="lux-path-portals" role="navigation" aria-label="Quest destinations">'+
  '<a class="lux-path-portal" href="'+y(d.href)+'"><span class="lux-portal-glyph">✦</span><span><small>01 · YOUR ADVENTURE</small><strong>Daily Quest</strong><em>'+d.done+' / '+d.total+' stars lit</em></span></a>'+
  '<a class="lux-path-portal" href="#lux-study-subjects-v2"><span class="lux-portal-glyph">✧</span><span><small>02 · EXPLORE THE ARCHIVES</small><strong>Scholar’s Atlas</strong><em>Year 8 & Year 9 topics</em></span></a>'+
  '<a class="lux-path-portal" href="/assessment/"><span class="lux-portal-glyph">⚜</span><span><small>03 · TEST YOUR MASTERY</small><strong>Trial Chamber</strong><em>School assessments</em></span></a>'+
- '</nav></div>'+
+ '</div></div>'+
  '<div class="lux-path-sigil-ledger"><div><span class="lux-path-eyebrow">THE QUEST LEDGER</span><h3>Your ten daily stars</h3></div>'+
  '<div class="lux-path-sigils" aria-label="'+d.done+' of '+d.total+' daily stars complete">'+
  Array.from({length:10},(_,i)=>'<span class="'+(i<d.done?'lit':i===d.done?'next':'')+'" aria-hidden="true">'+(i<d.done?'✦':'✧')+'</span>').join('')+
