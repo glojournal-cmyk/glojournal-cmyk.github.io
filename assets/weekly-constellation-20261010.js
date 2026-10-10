@@ -6,6 +6,16 @@ const KEY="lux-weekly-constellation-v1";
 const DAYS=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const COLLECTION_KEY="lux-weekly-lantern-collection-v1";
 const SEEN_KEY="lux-weekly-lantern-seen-v1";
+const PET_KEY="lux-pet-companion-v1";
+const PET_SPECIES=new Set(["moss-hornling","antler-bean","inkling","pebble-wisp","moon-puff","mothling","bloom-snail","velvet-batling","sprig-dragon","star-toadlet","snow-owl","night-spider"]);
+function companion(){
+ let saved={};try{saved=JSON.parse(localStorage.getItem(PET_KEY)||"{}")||{}}catch{}
+ const species=PET_SPECIES.has(saved.species)?saved.species:"moss-hornling";
+ const level=Math.max(1,Math.min(5,Math.floor(Number(saved.petLevels?.[species]||saved.highestStage)||1)));
+ const title=saved.name&&String(saved.name).trim()?String(saved.name).trim().slice(0,28):species.replace(/-/g," ").replace(/\b\w/g,c=>c.toUpperCase());
+ return {species,level,title,url:"/pet/art-hd-20261009/level-"+level+"/"+species+".webp?v=20261009-hd1"};
+}
+
 function earnedWeeks(){try{const value=JSON.parse(localStorage.getItem(COLLECTION_KEY)||"[]");return Array.isArray(value)?value.filter(x=>/^\d{4}-\d{2}-\d{2}$/.test(x)):[]}catch{return []}}
 function award(monday){const set=new Set(earnedWeeks());set.add(monday);try{localStorage.setItem(COLLECTION_KEY,JSON.stringify([...set].sort()))}catch{}return set.size}
 
@@ -109,8 +119,11 @@ function paint(){
   scene.append(make("strong",null,"The garden is glowing!"));
   const companions=make("div","weekly-companions");
   const scholar=make("img");scholar.src="/art/doll/day.png";scholar.alt="Your scholar celebrating";scholar.loading="lazy";
-  companions.append(scholar,make("span",null,"🐾 ✨"));
-  scene.append(companions,make("p",null,"Your scholar and companion celebrate seven days of learning."));
+  const pet=companion();
+  const petImg=make("img");petImg.src=pet.url;petImg.alt=pet.title+" · level "+pet.level;petImg.loading="lazy";
+  petImg.addEventListener("error",()=>{petImg.replaceWith(make("span",null,"✦"))},{once:true});
+  companions.append(scholar,make("span",null,"✧"),petImg);
+  scene.append(companions,make("p",null,"Your scholar and "+pet.title+" celebrate seven days of learning."));
   const replay=make("button",null,"Replay celebration");
   replay.type="button";replay.addEventListener("click",()=>{scene.classList.remove("is-new");void scene.offsetWidth;scene.classList.add("is-new")});
   scene.append(replay);panel.append(scene);
@@ -121,7 +134,7 @@ function paint(){
 }
 function schedule(){if(!queued){queued=true;queueMicrotask(paint)}}
 new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true});
-for(const e of ["lux:app-ready","pageshow","storage","scholar:session-saved","scholar:learning-changed","popstate"])root.addEventListener(e,schedule);
+for(const e of ["lux:app-ready","pageshow","storage","scholar:session-saved","scholar:learning-changed","scholar:pet-changed","lux:pet-changed","popstate"])root.addEventListener(e,schedule);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)schedule()});
 schedule();
 })(globalThis);
