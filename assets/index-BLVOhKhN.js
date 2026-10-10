@@ -3,7 +3,7 @@ import "./journey-navigation-20261004.js?v=20261010-chem-marking1";
 import "./weekly-evidence-20261004.js";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261010-chem-marking1";
 import("/pet/pet-care-global.js?v=20261010-chem-marking1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261010-chem-marking1";
+export * from "./index-BLVOhKhN.core.js?v=20261010-mission-v2";
 import {
   C as store,
   Z as scholarLevelProgress,
@@ -17,7 +17,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261010-chem-marking1";
+} from "./index-BLVOhKhN.core.js?v=20261010-mission-v2";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];

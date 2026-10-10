@@ -36,11 +36,35 @@ export function sessionGains(items=[],log=[],history={}){
  return {recoveredIds:[...recovered],recovered:recovered.size,recognised:recognised.size,repaired:repairs.size,independentCorrect,priorAttempted:prior.size,lines:lines.slice(0,3)};
 }
 export function ProgressSummary({gains}){return gains?h('aside',{'aria-label':'Your progress this session','data-memory-recovered-ids':JSON.stringify(gains.recoveredIds||[]),className:'mt-4 rounded-xl bg-sage/60 p-4'},h('h2',{className:'font-display text-xl font-semibold'},'Your progress this session'),...gains.lines.map((line,i)=>h('p',{key:i,className:'mt-2 text-base'},line))):null;}
-export function SessionResult({score,formalCount,coach,errors,daily,backHref,nextHref,onAgain,marks=false,gains,xpEarned}){const points=improvementPoints(coach,errors);return h('section',{'aria-label':'Session result','data-session-xp':Number.isFinite(xpEarned)?xpEarned:undefined},
- h('h1',{className:'font-display text-3xl font-semibold'},marks?'Practice complete':'Session complete'),
- h('p',{className:'mt-3 text-2xl font-semibold'},marks?`${score.firstPassCorrect} / ${formalCount} marks · ${score.percentage}%`:`${score.firstPassCorrect} / ${formalCount} first-pass correct · ${Math.round(100*score.firstPassCorrect/Math.max(1,formalCount))}%`),
- score.repairedCorrect?h('p',{className:'mt-1 text-sm text-muted'},`Session score after repairs: ${score.percentage}% · ${score.repairedCorrect} repaired · +${score.repairPoints} session points`):null,
- h('div',{className:'mt-4'},daily),
+export function SessionResult({score,formalCount,coach,errors,daily,backHref,nextHref,onAgain,marks=false,gains,xpEarned}){
+ const points=improvementPoints(coach,errors);
+ const first=Number(score?.firstPassCorrect)||0, total=Number(formalCount)||0;
+ const percent=marks?Number(score?.percentage)||0:Math.round(100*first/Math.max(1,total));
+ const xp=Number.isFinite(xpEarned)?Math.max(0,Math.floor(xpEarned)):null;
+ return h('section',{'aria-label':'Session result','className':'lux-session-result-v2',
+    'data-session-xp':xp==null?undefined:xp},
+  h('header',{className:'lux-session-header-v2'},
+   h('p',{className:'lux-session-kicker-v2'},'THE SCHOLAR’S GARDEN · QUEST RESULTS'),
+   h('h1',null,daily?'Your practice results':'Practice complete'),
+   h('p',null,daily?'Your daily mission is confirmed below when its progress is saved.':
+    'Your answers have been checked. Review your skills and continue when ready.')
+  ),
+  daily?h('div',{className:'lux-session-daily-v2'},daily):null,
+  h('div',{className:'lux-session-rewards-v2','aria-label':'Session result and experience'},
+   h('div',{className:'lux-session-reward-v2'},
+    h('span',{className:'lux-session-reward-icon-v2','aria-hidden':'true'},'✦'),
+    h('span',null,h('strong',null,String(first)+' / '+String(total)),
+     h('small',null,marks?'Marks · '+percent+'%':'First-pass correct · '+percent+'%'))
+   ),
+   h('div',{className:'lux-session-reward-v2'},
+    h('span',{className:'lux-session-reward-icon-v2','aria-hidden':'true'},'✧'),
+    h('span',null,h('strong',null,xp==null?'—':(xp>0?'+'+xp:'0')+' XP'),
+     h('small',null,xp==null?'XP not available':'Actual Scholar XP gained in this session'))
+   )
+  ),
+  score.repairedCorrect?h('p',{className:'mt-1 text-sm text-muted'},
+    'Session score after repairs: '+score.percentage+'% · '+score.repairedCorrect+
+    ' repaired · +'+score.repairPoints+' session points'):null,
  h(ProgressSummary,{gains}),
  points.length?h('div',{className:'mt-4'},h('h2',{className:'font-display text-xl font-semibold'},'Focus on next'),h('ul',{className:'mt-2 space-y-2'},...points.map((p,i)=>h('li',{key:i,className:'rounded-xl bg-sage/50 p-3'},h('p',{className:'font-medium'},p.title),h('p',{className:'mt-1 text-sm text-muted'},p.detail))))):h('p',{className:'mt-4 rounded-xl bg-sage/50 p-3 text-sm'},'No missed answers in this set. A later review will check what you still remember.'),
  marks&&onAgain?h('button',{type:'button',onClick:onAgain,className:'mt-4 min-h-11 rounded-full bg-navy px-5 text-card'},'Choose the next practice set'):null,
