@@ -31,7 +31,8 @@ test('Home V2 remains disabled, original artwork and fallback remain',()=>{
  const home=fs.readFileSync('index.html','utf8'),fallback=fs.readFileSync('404.html','utf8');
  assert.equal(home,fallback);assert.doesNotMatch(home,/\/assets\/home-journey-v2-20261010\.js/);
  assert.match(home,/\/art\/doll\/day\.png/);
- assert.match(s,/chosen-reward-goal/);assert.match(s,/Continue studying/);
+ assert.match(s,/chosen-reward-goal/);assert.match(s,/Raise her today/);
+ assert.match(s,/LuxHomeContinue\?\.choose/,'Home Continue keeps the original saved-draft selector');
  assert.match(s,/Waiting for all 10 daily tasks to sync/,'the six-task fallback cannot fake progress');
  for(const path of ['index.html','study/index.html']){
   const h=fs.readFileSync(path,'utf8');assert.match(h,/phase2-quest-map-20261010\.js/);

@@ -58,12 +58,22 @@ function repaint(){
   return;
  }
  if(location.pathname!=="/")return;
- const anchor=[...document.querySelectorAll("main p")].find(p=>p.textContent.trim()==="Continue studying");
- const card=anchor?.parentElement;if(!card)return;
- let panel=card.querySelector(":scope > #lux-phase2-home");
+ // Hydrated Home uses "Raise her today", while the retired SSR has an
+ // obsolete Continue studying card. Extend the real task section safely.
+ const heading=[...document.querySelectorAll("main h2")].find(h=>h.textContent.trim()==="Raise her today");
+ const header=heading?.parentElement?.parentElement;
+ const currentCard=header?.parentElement;
+ const old=[...document.querySelectorAll("main p")].find(p=>p.textContent.trim()==="Continue studying");
+ const card=currentCard||old?.parentElement;
+ if(!card)return;
+ let panel=card.querySelector("#lux-phase2-home");
+ const insert=element=>{
+   if(currentCard&&header?.parentElement===currentCard)header.after(element);
+   else card.append(element);
+ };
  if(!data.ready){
   if(!panel){panel=make("section","lux-phase2-home");panel.id="lux-phase2-home";
-    panel.setAttribute("aria-label","Your daily constellation");card.append(panel)}
+    panel.setAttribute("aria-label","Your daily constellation");insert(panel)}
   if(panel.dataset.phase2Signature!=="pending"){
     panel.replaceChildren();
     const head=make("div","lux-phase2-heading");
@@ -79,14 +89,21 @@ function repaint(){
  const goalName=goal?.querySelector("h3")?.textContent?.trim()||"Choose your next reward";
  const goalText=goal?.querySelector("h3+p")?.textContent?.trim()||"Your selected outfit or companion goal";
  const href=goal?"#chosen-reward-goal":"/pet/";
- const signature=JSON.stringify([data.rows.map(r=>[r.id,r.progress,r.target,r.href]),data.focus,goalName,goalText,href]);
+ let resume=null;
+ try{resume=root.LuxHomeContinue?.choose?.(state,root.LuxJourney)||null}catch{}
+ const signature=JSON.stringify([data.rows.map(r=>[r.id,r.progress,r.target,r.href]),data.focus,
+   goalName,goalText,href,resume?.kind,resume?.href,resume?.button]);
  if(panel?.dataset.phase2Signature===signature)return;
  if(!panel){panel=make("section","lux-phase2-home");panel.id="lux-phase2-home";
-   panel.setAttribute("aria-label","Your daily constellation");card.append(panel)}
+   panel.setAttribute("aria-label","Your daily constellation");insert(panel)}
  panel.replaceChildren();
  const head=make("div","lux-phase2-heading");
  head.append(make("strong",null,"TODAY'S CONSTELLATION"),make("span",null,data.count+" / 10 stars"));
  panel.append(head,renderStars(data));
+ if(resume?.href&&resume.kind!=="library"){
+   const action=make("a","lux-phase2-resume",resume.button||"Continue saved study →");
+   action.href=resume.href;panel.append(action);
+ }
  const next=data.rows.find(r=>r.id===data.focus);
  panel.append(make("p","lux-phase2-hint",data.count===10?"All ten quests complete":
     next?"Next star · "+next.title:"Tap a star to choose a quest"));
