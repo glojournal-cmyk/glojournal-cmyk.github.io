@@ -27,15 +27,16 @@ function snapshot(){
  let saved={};
  try{const entry=JSON.parse(localStorage.getItem("lux-scholar-garden-v1")||"{}");saved=entry.state||entry;}catch{}
  const J=globalThis.LuxJourney;
- const valid=saved.today===J?.day?.()&&Array.isArray(saved.daily);
+ const valid=saved.today===J?.day?.()&&Array.isArray(saved.daily)&&saved.daily.length===10;
  const daily=valid?saved.daily:[];
  const done=daily.filter(t=>Number(t.target)>0&&Number(t.progress)>=Number(t.target)).length;
  let resume=[];
  try{resume=J?.resumeCandidates(saved)||[]}catch{}
- const paused=resume.find(x=>x.daily&&x.planDate===saved.today)||resume[0];
+ const paused=resume.find(x=>x.daily&&x.planDate===saved.today)||resume.find(x=>!x.daily)||null;
  const fallback=daily.find(t=>Number(t.progress)<Number(t.target)&&J?.safeHref(t.href));
- const href=paused&&J?.safeHref(paused.href)?paused.href:J?.navigationHref(fallback?.href)||"/";
- return {total:daily.length||10,done,valid,year:Number(saved.year)===8?8:9,
+ const complete=valid&&done===10;
+ const href=paused&&J?.safeHref(paused.href)?paused.href:complete?"/garden":J?.navigationHref(fallback?.href)||"#lux-study-subjects-v2";
+ return {total:10,done,valid,complete,year:Number(saved.year)===8?8:9,
   href:href,paused:!!paused,appearance:appearance(saved)};
 }
 function repaint(){
@@ -62,9 +63,9 @@ function repaint(){
  '<div class="lux-path-hero-overlay" aria-hidden="true"></div>'+
  '<div class="lux-path-hero-copy"><p class="lux-path-hero-kicker">LUX ET LABOR · THE SCHOLAR’S GARDEN</p>'+
  '<h3>Explore. Learn. Become.</h3><p>Every challenge lights another star in your Scholar’s Garden.</p>'+
- '<div class="lux-quest-now"><span>✧ CURRENT QUEST</span><strong>'+y(d.paused?"Your saved practice":"Today’s next mission")+'</strong>'+
+ '<div class="lux-quest-now"><span>✧ CURRENT QUEST</span><strong>'+y(d.paused?"Your saved practice":d.complete?"All ten stars lit":d.valid?"Today’s next mission":"Choose a subject")+'</strong>'+
  '<small>'+(d.valid?d.done+' of '+d.total+' daily quests completed':'Your daily quest awaits')+'</small>'+
- '<a href="'+y(d.href)+'">Continue the adventure ↗</a></div>'+
+ '<a href="'+y(d.href)+'">'+(d.paused?"Resume your practice ↗":d.complete?"Visit the garden ↗":d.valid?"Continue the adventure ↗":"Browse subjects ↓")+'</a></div>'+
  '<div class="lux-path-hero-links"><a href="/scholar/">Wardrobe ↗</a></div></div>'+
  '<img class="lux-path-hero-scholar" src="'+y(d.appearance.scholar)+'" alt="Scholar wearing '+y(d.appearance.outfit)+'" loading="eager">'+
  '</div>'+
@@ -81,7 +82,7 @@ function repaint(){
  '<article class="lux-path-card lux-path-daily"><span class="lux-path-symbol" aria-hidden="true">✦</span><p class="lux-path-eyebrow">01 · YOUR ROUTINE</p><h3>Daily Quest</h3><p>Keep your adventure going. Every completed task lights a star.</p>'+
  '<div class="lux-path-progress" role="progressbar" aria-label="Daily tasks completed" aria-valuemin="0" aria-valuemax="'+d.total+'" aria-valuenow="'+d.done+'"><span style="width:'+Math.min(100,d.done/d.total*100)+'%"></span></div>'+
  '<p class="lux-path-status">'+(d.valid?d.done+' / '+d.total+' tasks counted today':'Your daily tasks are on Home')+'</p>'+
- '<a class="lux-path-action" href="'+y(d.href)+'">'+(d.paused?'Resume saved practice':'Open daily journey')+' ↗</a></article>'+
+ '<a class="lux-path-action" href="'+y(d.href)+'">'+(d.paused?'Resume saved practice':d.complete?'Visit the garden':d.valid?'Open daily journey':'Browse subjects')+' ↗</a></article>'+
  '<article class="lux-path-card"><span class="lux-path-symbol" aria-hidden="true">✧</span><p class="lux-path-eyebrow">02 · LEARN & PRACTISE</p><h3>Scholar’s Atlas</h3><p>Explore old knowledge, discover new lessons and build mastery.</p>'+
  '<div class="lux-path-years" role="group" aria-label="Choose year"><button type="button" data-lux-year="8" aria-pressed="'+(d.year===8)+'">Year 8 revision</button><button type="button" data-lux-year="9" aria-pressed="'+(d.year===9)+'">Year 9 topics</button></div>'+
  '<a class="lux-path-textlink" href="#lux-study-subjects-v2">Browse all subjects ↓</a></article>'+
