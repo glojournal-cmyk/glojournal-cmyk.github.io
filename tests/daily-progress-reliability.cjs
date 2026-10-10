@@ -166,3 +166,39 @@ test('restore safeguards old progress and refuses to import when safeguard canno
  ctx.restoreTest(payload(state(0)),'Backup');
  assert.equal(imported,false);assert.equal(reloaded,false);
 });
+
+test('linked progress restore is atomic when one secondary save fails',()=>{
+ const source=file('assets/index-BLVOhKhN.js');
+ const i=source.indexOf('function patchedImportProgress(text) {');
+ const j=source.indexOf('\nfunction patchedResetAll()',i);
+ assert.ok(i>=0&&j>i);
+ const originalDraft='{"keep":"original"}',originalAssessment='{"passedPapers":["latin"]}';
+ const storage=new StorageMock({
+  'lux-practice-drafts-v1':originalDraft,
+  'lux-assessment-v1':originalAssessment
+ });
+ const native=storage.setItem.bind(storage);
+ let blockAssessment=true,coreImports=0;
+ storage.setItem=(key,value)=>{
+  if(blockAssessment&&key==='lux-assessment-v1')
+   throw Object.assign(new Error('The quota has been exceeded'),{name:'QuotaExceededError'});
+  return native(key,value);
+ };
+ const ctx=vm.createContext({localStorage:storage,window:{dispatchEvent:()=>{}},
+  originalImportProgress:()=>{coreImports++;return {ok:true}},
+  PET_REWARD_KEY:'lux-pet-companion-test',CustomEvent:class{},Date,JSON});
+ vm.runInContext(source.slice(i,j)+'\nthis.importTest=patchedImportProgress',ctx,{timeout:4000});
+ const backup=JSON.stringify({
+  app:'lux-scholar-garden',version:10,state:state(2),
+  practiceDrafts:{newDraft:true},assessmentProgress:{newResult:true}
+ });
+ const failed=ctx.importTest(backup);
+ assert.equal(failed.ok,false);assert.equal(coreImports,0,'main progress unchanged');
+ assert.equal(storage.getItem('lux-practice-drafts-v1'),originalDraft);
+ assert.equal(storage.getItem('lux-assessment-v1'),originalAssessment);
+ blockAssessment=false;
+ const passed=ctx.importTest(backup);
+ assert.equal(passed.ok,true);assert.equal(coreImports,1);
+ assert.equal(JSON.parse(storage.getItem('lux-practice-drafts-v1')).newDraft,true);
+ assert.equal(JSON.parse(storage.getItem('lux-assessment-v1')).newResult,true);
+});
