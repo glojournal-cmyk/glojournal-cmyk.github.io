@@ -58,10 +58,23 @@ try{
       assert.equal(ui.buttonCount,1,'one greeting control after rerenders');
       assert.match(ui.originalHero,/\/art\/doll\/.+\.png/);
       assert.match(ui.sprite,/sprite|background|url/i,'original pet art remains');
-      const before=await page.evaluate(()=>({
-        state:localStorage.getItem('lux-scholar-garden-v1'),
-        pet:localStorage.getItem('lux-pet-companion-v1')
-      }));
+      await page.waitForFunction(()=>{
+        try{return JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}')?.state?.daily?.length===10}
+        catch{return false}
+      },null,{timeout:15000});
+      // Normal app hydration writes the initial ten-task plan after first paint.
+      // Snapshot authoritative reward/task fields only when hydration has settled.
+      const snapshot=()=>page.evaluate(()=>{
+        const saved=JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}');
+        const state=saved.state||saved;
+        const pet=JSON.parse(localStorage.getItem('lux-pet-companion-v1')||'{}');
+        return {xp:Number(state.xp)||0,
+          tasks:(state.daily||[]).map(t=>[t.id,Number(t.progress)||0,Number(t.target)||0]),
+          unlocked:[...(state.unlockedOutfits||[])],equipped:state.equippedOutfit,
+          species:pet.species||'',masteryPoints:Number(pet.masteryPoints)||0,
+          care:pet.care||null,petLevels:pet.petLevels||null};
+      });
+      const before=await snapshot();
       const button=page.locator('#lux-home-personality-greet');
       await button.focus();
       await page.keyboard.press('Enter');
@@ -70,20 +83,17 @@ try{
       assert.ok(greeting.length>15,'companion has a personality response');
       assert.equal(await page.locator('#lux-home-personality-line').getAttribute('role'),'status');
       assert.equal(new URL(page.url()).pathname,'/','greeting never navigates away');
-      const after=await page.evaluate(()=>({
-        state:localStorage.getItem('lux-scholar-garden-v1'),
-        pet:localStorage.getItem('lux-pet-companion-v1'),
+      const after=await snapshot();
+      assert.deepEqual(after,before,'greeting cannot award XP, credit, outfits, pet Bond or Energy');
+      const animation=await page.evaluate(()=>({
         art:document.getElementById('mastery-pet-home')?.querySelector('.mph-art')?.getAttribute('style'),
         hero:document.querySelector('main img.scholar-idle')?.getAttribute('src'),
-        anim:getComputedStyle(document.querySelector('#mastery-pet-home .mph-art')).animationName,
         playing:document.querySelector('.lux-scholar-pet-scene')?.classList.contains('lux-home-personality-playing')
       }));
-      assert.equal(after.state,before.state,'greeting does not change app XP or task credit');
-      assert.equal(after.pet,before.pet,'greeting does not modify bond/energy/pet data');
-      assert.equal(after.art,ui.sprite,'pet appearance remains unchanged');
-      assert.equal(after.hero,ui.originalHero,'scholar appearance remains unchanged');
-      if(vp.width===390)assert.equal(after.playing,false,'reduced motion disables movement');
-      else assert.equal(after.playing,true,'manual greeting gives subtle reaction');
+      assert.equal(animation.art,ui.sprite,'pet appearance remains unchanged');
+      assert.equal(animation.hero,ui.originalHero,'scholar appearance remains unchanged');
+      if(vp.width===390)assert.equal(animation.playing,false,'reduced motion disables movement');
+      else assert.equal(animation.playing,true,'manual greeting gives subtle reaction');
       assert.equal(await page.locator('#mastery-pet-home').count(),1);
       await page.screenshot({path:'test-results/phase3-home-'+engine+'-'+vp.width+'.png',fullPage:false});
       if(errors.length)throw new Error('JavaScript errors: '+errors.slice(0,3).join('; '));
