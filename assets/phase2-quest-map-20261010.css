@@ -1,0 +1,39 @@
+/* Phase 2: ten original Daily Quest tasks as elegant, accessible star links. */
+.lux-phase2-stars{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;min-width:0}
+.lux-phase2-node{position:relative;display:flex;flex-direction:column;gap:2px;
+ align-items:center;justify-content:center;min-width:0;min-height:50px;
+ text-decoration:none;border-radius:10px;color:#657a70;transition:transform .16s ease,background .16s ease}
+.lux-phase2-orb{display:grid;place-items:center;flex:0 0 36px;
+ width:36px;height:36px;box-sizing:border-box;border-radius:50%;
+ border:1px solid #b0beaa;background:#fbfaf5;font-size:20px;line-height:1;
+ box-shadow:0 2px 8px #2847531f}
+.lux-phase2-node.is-lit .lux-phase2-orb{background:#1d4951;border-color:#b59852;
+ color:#f5dba0;box-shadow:0 0 0 3px #e3d4afaa}
+.lux-phase2-node.is-next .lux-phase2-orb{background:#fff5da;border:2px solid #a78945;color:#906f31;
+ box-shadow:0 0 0 3px #f4e9d1}
+.lux-phase2-num{font-size:9px;line-height:1;font-weight:750;color:#718577}
+a.lux-phase2-node:hover{background:#edf2e9;transform:translateY(-2px)}
+a.lux-phase2-node:focus-visible,.lux-phase2-goal:focus-visible{outline:3px solid #ae914b;outline-offset:2px}
+.lux-phase2-home{padding-top:12px;margin-top:12px;border-top:1px solid #e1dfd0;min-width:0}
+.lux-phase2-heading{display:flex;justify-content:space-between;align-items:center;gap:7px;margin-bottom:8px}
+.lux-phase2-heading strong{font-size:10px;letter-spacing:.12em;color:#456a61}
+.lux-phase2-heading span{font-size:11px;font-weight:700;color:#90723a}
+.lux-phase2-hint{font-size:11px!important;line-height:1.4;color:#69806d;margin:6px 0 10px!important}
+.lux-phase2-goal{display:flex;flex-direction:column;gap:3px;border:1px solid #e0d3b5;
+ border-radius:12px;padding:9px 12px;min-height:48px;background:#fffaf1;
+ text-decoration:none;color:#244854;overflow-wrap:anywhere}
+.lux-phase2-goal small{font-size:9px;letter-spacing:.12em;font-weight:800;color:#987b48}
+.lux-phase2-goal strong{font:650 19px/1.1 "Cormorant Garamond",Georgia,serif}
+.lux-phase2-goal span{font-size:11px;line-height:1.4;color:#697769}
+.lux-phase2-goal:hover{background:#f5efdf}
+.lux-study-paths .lux-path-sigil-ledger{grid-template-columns:1fr;gap:6px}
+.lux-study-paths .lux-path-sigils.lux-phase2-host{display:block!important;min-width:0;width:100%}
+.lux-study-paths .lux-path-sigils .lux-phase2-stars{width:100%}
+.lux-study-paths .lux-path-sigils .lux-phase2-orb{width:36px!important;height:36px!important;
+ min-width:36px!important;max-width:36px!important}
+.lux-study-paths .lux-path-sigil-ledger p{grid-column:auto}
+@media(max-width:850px){
+ .lux-phase2-stars{grid-template-columns:repeat(5,minmax(0,1fr));row-gap:9px}
+}
+@media(max-width:380px){.lux-phase2-orb{width:32px;height:32px;flex-basis:32px}}
+@media(prefers-reduced-motion:reduce){.lux-phase2-node{transition:none!important}}

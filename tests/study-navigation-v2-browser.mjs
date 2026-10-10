@@ -103,6 +103,14 @@ try{
      // All three destinations are now navigable in the character-and-pet scene.
      assert.equal(await page.locator(".lux-path-portals a").count(),3);
      assert.equal(await page.locator(".lux-path-sigils span").count(),10);
+     await page.waitForFunction(()=>document.querySelectorAll(
+       ".lux-path-sigils .lux-phase2-node").length===10,null,{timeout:15000});
+     const mapped=await page.locator(".lux-path-sigils .lux-phase2-node").evaluateAll(nodes=>
+       nodes.map(n=>({height:n.getBoundingClientRect().height,
+         title:n.getAttribute("aria-label"),href:n.getAttribute("href")})));
+     assert.equal(mapped.length,10,"all ten quests have nodes");
+     assert.ok(mapped.every(n=>n.height>=44&&n.title),"quest nodes are tappable and labelled");
+
      assert.ok((await page.locator(".lux-path-portal").first().innerText()).includes("Daily Quest"));
      assert.ok((await page.locator(".lux-path-portal").nth(1).innerText()).includes("Scholar"));
      assert.ok((await page.locator(".lux-path-portal").nth(2).innerText()).includes("Trial Chamber"));
@@ -204,6 +212,14 @@ try{
      await page.waitForFunction(()=>document.querySelector("main h1")?.textContent?.includes("Scholar"),
        null,{timeout:30000});
      assert.ok((await page.locator("main").innerText()).length>300,"Home is not blank");
+     await page.waitForFunction(()=>document.querySelectorAll(
+       "#lux-phase2-home .lux-phase2-node").length===10,null,{timeout:15000});
+     assert.equal(await page.locator("#lux-phase2-home .lux-phase2-node").count(),10,
+       "ten Home stars reflect the existing daily plan");
+     const goalLink=await page.locator("#lux-phase2-home .lux-phase2-goal").getAttribute("href");
+     assert.ok(goalLink==="#chosen-reward-goal"||goalLink==="/pet/",
+       "next reward must be the existing chosen goal, not a duplicate reward system");
+
      assert.equal(await page.locator("#subject-directory-entry").count(),0,
        "Home must not open on the obsolete Browse subjects panel");
 

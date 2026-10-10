@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - 'index.html'
+      - 'assets/phase2-quest-map-20261010.*'
+      - 'tests/phase2-quest-map-qa.cjs'
       - 'assets/home-journey-v2-*.js'
       - 'assets/home-journey-v2-*.css'
       - 'assets/journey-navigation-20261004.js'
@@ -14,6 +16,8 @@ on:
     branches: [main]
     paths:
       - 'index.html'
+      - 'assets/phase2-quest-map-20261010.*'
+      - 'tests/phase2-quest-map-qa.cjs'
       - 'assets/home-journey-v2-*.js'
       - 'assets/home-journey-v2-*.css'
       - 'assets/journey-navigation-20261004.js'
@@ -32,5 +36,6 @@ jobs:
         run: |
           node --check assets/home-journey-v2-20261010.js
           node --check assets/home-continue-20261010.js
+          node --check assets/phase2-quest-map-20261010.js
       - name: Run homepage journey regression tests
-        run: node --test tests/home-journey-v2.cjs tests/home-continue-route-qa.cjs
+        run: node --test tests/home-journey-v2.cjs tests/home-continue-route-qa.cjs tests/phase2-quest-map-qa.cjs

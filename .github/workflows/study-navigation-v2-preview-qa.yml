@@ -9,6 +9,8 @@ on:
       - 'assets/lux-celestial-b-symbol-20261010.png'
       - 'assets/lux-celestial-b-brand-20261010.css'
       - 'index.html'
+      - 'assets/phase2-quest-map-20261010.*'
+      - 'tests/phase2-quest-map-qa.cjs'
       - 'tests/study-navigation-v2*'
       - 'tests/study-quest-completion-qa.cjs'
       - '.github/workflows/study-navigation-v2-preview-qa.yml'
@@ -36,7 +38,8 @@ jobs:
       - run: |
           node --check assets/study-navigation-v2-20261010.js
           node --check lux-theme.js
-      - run: node --test tests/study-navigation-v2.cjs tests/study-quest-completion-qa.cjs
+          node --check assets/phase2-quest-map-20261010.js
+      - run: node --test tests/study-navigation-v2.cjs tests/study-quest-completion-qa.cjs tests/phase2-quest-map-qa.cjs
   study-browser:
     runs-on: ubuntu-latest
     timeout-minutes: 18
