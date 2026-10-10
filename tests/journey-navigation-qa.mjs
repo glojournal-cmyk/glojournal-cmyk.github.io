@@ -35,10 +35,27 @@ write('lux-assessment-v1',{dailyReviewCredits:{'2026-10-04':{r1:true,r2:true}}})
 // Exercise the shipped React components against the same ledger, including both target outcomes.
 let ui=fs.readFileSync('assets/journey-navigation-ui-20261004.js','utf8').replace(/^import .*;$/gm,'').replace(/^const R=.*;$/m,"const h=R.createElement,J=globalThis.LuxJourney;").replace(/export function/g,'function');
 const render=(type,props,...children)=>({type,props:props||{},children});c.R={createElement:render,useState:()=>[0,()=>{}],useEffect:()=>{}};c.store=select=>select(state);
+c.store.getState=()=>state;
+vm.runInContext(fs.readFileSync('assets/mission-complete-v2-core-20261010.js','utf8'),c);
 vm.runInContext(ui,c);const text=node=>typeof node==='string'?node:!node?'':(node.children||[]).map(text).join(' ');
 c.location.href='https://glojournal-cmyk.github.io'+url;
-let panel=c.DailyNext({taskId:'latin-vocab'});assert.match(text(panel),/daily target still in progress/);assert.match(text(panel),/15 more/);assert.match(text(panel),/Continue this task/);
-state.daily[1].progress=30;panel=c.DailyNext({taskId:'latin-vocab'});assert.match(text(panel),/Counted towards today/);assert.doesNotMatch(text(panel),/15 more/);
+let panel=c.DailyNext({taskId:'latin-vocab'});
+assert.equal(panel.props['data-mission-save-status'],'verified','persisted incomplete credit is verifiable');
+assert.match(text(panel),/Practice saved · keep going/);
+assert.match(text(panel),/15 more needed/);
+assert.match(text(panel),/Continue this task/);
+// React completing a task does not prove it was saved to this device.
+state.daily[1].progress=30;
+panel=c.DailyNext({taskId:'latin-vocab'});
+assert.equal(panel.props['data-mission-save-status'],'unverified','a stale storage copy must not claim full credit');
+assert.match(text(panel),/Save not verified/);
+// Only a confirmed persisted daily record may display "Mission Complete".
+write('lux-scholar-garden-v1',{state});
+panel=c.DailyNext({taskId:'latin-vocab'});
+assert.equal(panel.props['data-mission-save-status'],'verified','daily credit confirmed from storage');
+assert.match(text(panel),/Mission Complete/);
+assert.match(text(panel),/Saved and counted towards today/);
+assert.doesNotMatch(text(panel),/15 more needed/);
 write('scholar-biology-cell-practice-v1',{ids:['b1','b2'],index:1,savedAt:at});assert.match(text(c.ResumeStudy()),/Biology · Cell structure/);assert.match(text(c.ResumeStudy()),/Question 2 \/ 2/);
 console.log('Journey navigation QA passed: latest saved session, original deep links, preserved answer position, completed/expired filtering, safe links, accurate partial and full daily credit, assessment reconciliation, next unfinished task and actual UI components.');
 
