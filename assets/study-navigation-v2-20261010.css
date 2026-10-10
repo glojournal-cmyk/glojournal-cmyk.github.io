@@ -30,3 +30,42 @@
 @media(max-width:600px){.lux-path-grid{grid-template-columns:1fr}.lux-path-card:last-child{grid-column:auto}
  .lux-path-card{padding:18px}.lux-path-intro h2{font-size:32px}}
 @media(prefers-reduced-motion:reduce){.lux-path-progress>span{transition:none}}
+
+
+/* Hero: use the actual doll artwork, equipped outfit and selected pet sprites. */
+.lux-path-hero{height:clamp(260px,31vw,342px);position:relative;overflow:hidden;
+  margin:0 0 16px;border-radius:24px;background:#253d4e;border:1px solid #b8b9a7;isolation:isolate}
+.lux-path-hero-scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:center 60%;z-index:0}
+.lux-path-hero-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(15,35,49,.92) 0%,rgba(15,35,49,.86) 27%,
+    rgba(15,35,49,.33) 57%,rgba(15,35,49,.05) 100%)}
+.lux-path-hero-copy{position:absolute;z-index:4;top:50%;left:5%;transform:translateY(-50%);
+  width:44%;color:#fffdf5}
+.lux-path-hero-kicker{font-size:10px!important;letter-spacing:.15em;font-weight:750;
+  color:#e4d49a!important;line-height:1.4;margin:0 0 9px}
+.lux-path-hero-copy h3{font:600 clamp(26px,3.4vw,40px)/1.08 "Cormorant Garamond",Georgia,serif;
+  color:#fffdf5;margin:0 0 12px;text-wrap:balance}
+.lux-path-hero-copy>p:not(.lux-path-hero-kicker){font-size:13px;line-height:1.5;
+  color:#f4eedf;margin:0}
+.lux-path-hero-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.lux-path-hero-links a{display:inline-flex;min-height:40px;align-items:center;justify-content:center;
+  border:1px solid #d7d8c8;background:rgba(255,252,245,.94);padding:8px 12px;
+  border-radius:999px;color:#243e4d;font-size:12px;font-weight:700;text-decoration:none}
+.lux-path-hero-links a:hover{background:white}
+.lux-path-hero-scholar{position:absolute;z-index:3;right:2%;bottom:-1%;height:96%;width:34%;
+  object-fit:contain;object-position:center bottom;filter:drop-shadow(0 7px 11px rgba(8,24,30,.25))}
+.lux-path-hero-pet{position:absolute;z-index:4;right:29%;bottom:3%;height:53%;width:23%;
+  object-fit:contain;object-position:center bottom;filter:drop-shadow(0 5px 6px rgba(8,24,30,.33))}
+@media(max-width:600px){
+ .lux-path-hero{height:272px;margin-bottom:14px}
+ .lux-path-hero-copy{left:5%;top:45%;width:48%}
+ .lux-path-hero-copy h3{font-size:25px}
+ .lux-path-hero-copy>p:not(.lux-path-hero-kicker){font-size:11px}
+ .lux-path-hero-kicker{font-size:8px!important}
+ .lux-path-hero-links{margin-top:11px;gap:5px}
+ .lux-path-hero-links a{font-size:10px;padding:6px 8px;min-height:36px}
+ .lux-path-hero-scholar{right:-5%;height:89%;width:47%}
+ .lux-path-hero-pet{right:33%;height:41%;width:30%;bottom:2%}
+}
+@media(prefers-reduced-motion:reduce){.lux-path-hero-scholar,.lux-path-hero-pet{transition:none}}
