@@ -1,6 +1,6 @@
-import {SessionResult,ReviewProgress,captureReviewHistory,sessionGains,ProgressSummary} from "./session-reflection-20261004.js?v=20261010-chem-marking1";
+import {SessionResult,ReviewProgress,captureReviewHistory,sessionGains,ProgressSummary} from "./session-reflection-20261004.js?v=20261010-mission-v2";
 import "./practice-drafts-20261004.js?v=20261010-chem-marking1";
-import {DailyNext} from "./journey-navigation-ui-20261004.js?v=20261010-chem-marking1";
+import {DailyNext} from "./journey-navigation-ui-20261004.js?v=20261010-mission-v2";
 import "./learning-feedback-20261003.js?v=20261010-chem-marking1";
 const {buildCorrection,selectTransferQuestion}=globalThis.LuxLearningFeedback;
 import {questionReason} from "./question-reason-20261003.js";
