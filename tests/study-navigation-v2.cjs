@@ -29,7 +29,7 @@ test('Study V2 preserves six existing subject cards and real native year selecto
  assert.match(shell,/<option value="9"/);
  assert.match(shell,/<option value="8"/);
  const js=file('assets/study-navigation-v2-20261010.js');
- for(const text of ['Daily Journey','Study Library','School Assessments','Year 8 revision','Year 9 topics'])
+ for(const text of ['Daily Quest','Scholar’s Atlas','Trial Chamber','Year 8 revision','Year 9 topics'])
   assert.ok(js.includes(text),text);
  assert.match(js,/\/assessment\//);
 });
