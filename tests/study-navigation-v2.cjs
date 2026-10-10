@@ -62,3 +62,13 @@ test('both original characters share Study hero, chosen outfit and upgraded pet 
  assert.match(css,/@media\(max-width:600px\)/);
  assert.doesNotMatch(js,/localStorage\.setItem\s*\(/);
 });
+
+test('approved B logo is the only active study branding, and Home is unchanged',()=>{
+ const svg=file('assets/lux-celestial-b-symbol-20261010.svg');
+ const css=file('assets/study-navigation-v2-20261010.css');
+ const home=file('index.html');
+ assert.match(svg,/data:image\/png;base64,/);
+ assert.match(css,/lux-celestial-b-symbol-20261010\.svg/);
+ assert.doesNotMatch(css,/lux-scholar-crest-20261010\.svg/);
+ assert.doesNotMatch(home,/study-navigation-v2-20261010/);
+});
