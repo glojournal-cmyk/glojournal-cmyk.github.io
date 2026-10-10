@@ -2,7 +2,7 @@
  const SUBJECTS=['latin','french','biology','chemistry','physics','english'];
  const day=(at=Date.now())=>new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(at));
  function read(key){try{return JSON.parse(localStorage.getItem(key)||'{}')}catch{return {}}}
- function withReviewCredits(state){const credits=read('lux-assessment-v1').dailyReviewCredits?.[state.today]||{};return {...state,daily:(state.daily||[]).map(t=>t.id==='mistake-review'&&t.reviewSource==='assessment'&&t.planDate===state.today?{...t,progress:Math.min(t.target,new Set([...(t.completedQuestionIds||[]),...(t.reviewQuestionIds||[]).filter(id=>credits[id])]).size)}:t)}}
+ function withReviewCredits(state){const credits=read('lux-assessment-v1').dailyReviewCredits?.[state.today]||{};return {...state,daily:(state.daily||[]).map(t=>t.id==='mistake-review'&&t.reviewSource==='assessment'&&t.planDate===state.today?{...t,progress:Math.min(t.target,new Set([...(t.reviewCompletedIds||[]),...(t.completedQuestionIds||[]),...(t.reviewQuestionIds||[]).filter(id=>credits[id])]).size)}:t)}}
  function garden(){const x=read('lux-scholar-garden-v1');return withReviewCredits(x.state||x)}
  function safeHref(value){try{const u=new URL(value,'https://glojournal-cmyk.github.io');return u.origin==='https://glojournal-cmyk.github.io'&&/^\/(study(?:\/|$)|assessment(?:\/|$)|garden(?:\/|$)|play(?:\/|$))/.test(u.pathname)?u.pathname+u.search:null}catch{return null}}
  function navigationHref(value){const href=safeHref(value);if(!href)return null;const u=new URL(href,'https://glojournal-cmyk.github.io');u.searchParams.set('v','20261010-chem-marking1');return u.pathname+u.search}

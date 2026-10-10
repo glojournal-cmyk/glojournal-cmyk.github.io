@@ -1277,7 +1277,8 @@ function buildAdaptiveDaily(state) {
   let studyEvidence = 0;
   for (const topicId of studyTopicIds) studyEvidence += topicAttemptsToday(state, topicId);
   const studyProgress = Math.min(10, Math.max(0, Number(state.questionsToday) || 0, studyEvidence, existingPlan?.planDate === state.today ? Number(existingPlan.progress) || 0 : 0));
-  const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;
+  const oldFocus = previous.get("adaptive-focus");
+  const oldFocusProgress = oldFocus?.planDate === state.today ? Number(oldFocus.progress) || 0 : 0;
   const focusEvidence = focusAttemptsToday(state, focus);
   const focusProgress = Math.min(4, Math.max(focusEvidence, oldFocusProgress));
   const plannedYear8Review = year8ReviewPlan(state);
@@ -1370,8 +1371,8 @@ function buildAdaptiveDaily(state) {
     { id: "year8-long-review", title: `Year 8 ${year8Review.label} practice + mastery · ${year8Review.topicLabel || "Year 8 topic"}`, detail: "10 foundational practice questions, then a 15-question mastery review.", href: `${(year8Review.ready ? year8Review.href.replace(/mode=standard/, "mode=year8long") : year8Review.href.replace(/mode=year8long/, "mode=standard")).replace(/([?&])task=[^&]+/, "$1task=year8-long-review")}${year8Review.href.includes("task=") ? "" : "&task=year8-long-review"}`, target: 25, progress: year8ReviewProgress, xp: 20, planDate: state.today, reviewYear: 8, reviewSubject: year8Review.subject, reviewTopic: year8Review.topicId || null, reviewStartAttempts },
     y8PractiseTask,
     y8MasteryTask,
-    { ...garden, progress: Math.min(garden.target || 1, Math.max(garden.progress || 0, gardenDoneToday ? 1 : 0)) },
-    { ...game, progress: Math.min(game.target || 1, Math.max(game.progress || 0, gameDoneToday ? 1 : 0)) },
+    { ...garden, planDate: state.today, progress: Math.min(garden.target || 1, Math.max(garden.planDate === state.today ? Number(garden.progress) || 0 : 0, gardenDoneToday ? 1 : 0)) },
+    { ...game, planDate: state.today, progress: Math.min(game.target || 1, Math.max(game.planDate === state.today ? Number(game.progress) || 0 : 0, gameDoneToday ? 1 : 0)) },
   ];
 }
 
@@ -1956,25 +1957,66 @@ function patchedImportProgress(text) {
   let parsed = null;
   try { parsed = JSON.parse(text); } catch {}
   if (parsed?.assessmentProgress != null &&
-      (typeof parsed.assessmentProgress !== "object" || Array.isArray(parsed.assessmentProgress))) {
+      (typeof parsed.assessmentProgress !== "object" || Array.isArray(parsed.assessmentProgress)))
     return { ok: false, error: "The assessment data in this backup is invalid." };
+  if (parsed?.topicLearning != null &&
+      (typeof parsed.topicLearning !== "object" || Array.isArray(parsed.topicLearning)))
+    return { ok: false, error: "Invalid learned-topic settings." };
+  for (const key of ["practiceDrafts", "biologyPractice"]) {
+    if (parsed?.[key] != null && (typeof parsed[key] !== "object" || Array.isArray(parsed[key])))
+      return { ok: false, error: "Invalid practice draft data." };
   }
-  if(parsed?.topicLearning != null && (typeof parsed.topicLearning !== "object" || Array.isArray(parsed.topicLearning))) return {ok:false,error:"Invalid learned-topic settings."};
-  for (const key of ["practiceDrafts","biologyPractice"]) if (parsed?.[key] != null && (typeof parsed[key] !== "object" || Array.isArray(parsed[key]))) return {ok:false,error:"Invalid practice draft data."};
-  const result = originalImportProgress(text);
-  if (!result?.ok || typeof window === "undefined") return result;
-  try { if(parsed?.practiceDrafts) localStorage.setItem("lux-practice-drafts-v1",JSON.stringify(parsed.practiceDrafts)); if(parsed?.biologyPractice) localStorage.setItem("scholar-biology-cell-practice-v1",JSON.stringify(parsed.biologyPractice)); } catch { return {ok:false,error:"Could not restore practice drafts."}; }
-  if(parsed?.topicLearning) localStorage.setItem("lux-topic-learning-v1",JSON.stringify(parsed.topicLearning));
-  if (parsed?.assessmentProgress && typeof parsed.assessmentProgress === "object") {
-    try { localStorage.setItem("lux-assessment-v1", JSON.stringify(parsed.assessmentProgress)); }
-    catch { return { ok: false, error: "Could not restore assessment data. Check this device has storage available." }; }
+  if (parsed?.petCompanion != null &&
+      (typeof parsed.petCompanion !== "object" || Array.isArray(parsed.petCompanion)))
+    return { ok: false, error: "Invalid pet progress in the backup." };
+  if (typeof window === "undefined") return originalImportProgress(text);
+
+  // Stage and verify linked progress BEFORE replacing the main Scholar state.
+  // If quota prevents any linked save, undo all staged writes instead of
+  // reporting a failed restore after the original progress was already replaced.
+  const linked = [
+    ["lux-practice-drafts-v1", parsed?.practiceDrafts],
+    ["scholar-biology-cell-practice-v1", parsed?.biologyPractice],
+    ["lux-topic-learning-v1", parsed?.topicLearning],
+    ["lux-assessment-v1", parsed?.assessmentProgress],
+    [PET_REWARD_KEY, parsed?.petCompanion],
+  ].filter(([, value]) => value != null);
+  const original = new Map(), written = [];
+  const rollback = () => {
+    for (const key of written.reverse()) {
+      try {
+        const previous = original.get(key);
+        if (previous == null) localStorage.removeItem(key);
+        else localStorage.setItem(key, previous);
+      } catch {}
+    }
+  };
+  try {
+    for (const [key, value] of linked) {
+      original.set(key, localStorage.getItem(key));
+      const serialized = JSON.stringify(value);
+      localStorage.setItem(key, serialized);
+      written.push(key);
+      if (localStorage.getItem(key) !== serialized) throw Error("Save verification failed");
+    }
+  } catch {
+    rollback();
+    return { ok: false, error: "Restore stopped before replacing progress: the iPad could not save all linked data. Keep your backup file." };
+  }
+  let result;
+  try { result = originalImportProgress(text); }
+  catch { result = { ok: false, error: "Could not restore the Scholar progress." }; }
+  if (!result?.ok) {
+    rollback();
+    return result;
   }
   const pet = parsed?.petCompanion;
   if (pet && typeof pet === "object") {
     try {
-      localStorage.setItem(PET_REWARD_KEY, JSON.stringify(pet));
       window.dispatchEvent(new CustomEvent("scholar:pet-changed", { detail: pet }));
-      window.dispatchEvent(new CustomEvent("scholar:mp-changed", { detail: { balance: Math.max(0, Number(pet.masteryPoints) || 0), restored: true } }));
+      window.dispatchEvent(new CustomEvent("scholar:mp-changed", { detail: {
+        balance: Math.max(0, Number(pet.masteryPoints) || 0), restored: true
+      } }));
     } catch {}
   }
   return result;
