@@ -68,10 +68,10 @@ test('approved B celestial branding is shared safely between Home and Study',()=
  const brand=file('assets/lux-celestial-b-brand-20261010.css');
  const study=file('study/index.html');
  const home=file('index.html');
- assert.match(svg,/data:image\\/png;base64,/);
- assert.match(brand,/lux-celestial-b-symbol-20261010\\.svg/);
- assert.doesNotMatch(brand,/lux-scholar-crest-20261010\\.svg/);
- assert.match(home,/lux-celestial-b-brand-20261010\\.css/);
- assert.match(study,/lux-celestial-b-brand-20261010\\.css/);
- assert.doesNotMatch(home,/study-navigation-v2-20261010/);
+ assert.ok(svg.includes('data:image/png;base64,'));
+ assert.ok(brand.includes('lux-celestial-b-symbol-20261010.svg'));
+ assert.ok(!brand.includes('lux-scholar-crest-20261010.svg'));
+ assert.ok(home.includes('lux-celestial-b-brand-20261010.css'));
+ assert.ok(study.includes('lux-celestial-b-brand-20261010.css'));
+ assert.ok(!home.includes('study-navigation-v2-20261010'));
 });
