@@ -64,6 +64,7 @@ function repaint(){
  card.innerHTML=
  '<div class="lux-path-intro"><div><p class="lux-path-eyebrow">THE SCHOLAR’S GARDEN</p><h2>Choose your path</h2><p>One place for daily learning, extra revision and school tests.</p></div></div>'+
  '<div class="lux-path-hero" aria-label="Your scholar and companion together">'+
+ '<div class="lux-path-hero-stage">'+
  '<img class="lux-path-hero-scene" src="/art/stages/dusk.jpg" alt="" loading="eager">'+
  '<div class="lux-path-hero-overlay" aria-hidden="true"></div>'+
  '<div class="lux-path-hero-copy"><p class="lux-path-hero-kicker">LUX ET LABOR · THE SCHOLAR’S GARDEN</p>'+
@@ -74,6 +75,7 @@ function repaint(){
  '<div class="lux-path-hero-links"><a href="/scholar/">Wardrobe ↗</a><a href="/pet/">Companion ↗</a></div></div>'+
  '<img class="lux-path-hero-pet" src="'+y(d.appearance.pet)+'" alt="'+y(d.appearance.petName)+', companion level '+d.appearance.level+'" loading="eager">'+
  '<img class="lux-path-hero-scholar" src="'+y(d.appearance.scholar)+'" alt="Scholar wearing '+y(d.appearance.outfit)+'" loading="eager">'+
+ '</div>'+
  '<nav class="lux-path-portals" aria-label="Quest destinations">'+
  '<a class="lux-path-portal" href="'+y(d.href)+'"><span class="lux-portal-glyph">✦</span><span><small>01 · YOUR ADVENTURE</small><strong>Daily Quest</strong><em>'+d.done+' / '+d.total+' stars lit</em></span></a>'+
  '<a class="lux-path-portal" href="#lux-study-subjects-v2"><span class="lux-portal-glyph">✧</span><span><small>02 · EXPLORE THE ARCHIVES</small><strong>Scholar’s Atlas</strong><em>Year 8 & Year 9 topics</em></span></a>'+
