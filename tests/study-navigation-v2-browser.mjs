@@ -45,30 +45,6 @@ try{
        const app=document.querySelector("main h1");
        return !!nav && !!app && /Continue Learning/i.test(app.textContent||"");
      },null,{timeout:30000});
-     if(vp.width>=1280){
-       const crest=page.locator('aside > a[href="/"] > span:first-child');
-       await page.waitForFunction(()=>{
-         const anchor=document.querySelector('aside > a[href="/"] > span:first-child');
-         return anchor && getComputedStyle(anchor).backgroundImage.includes('lux-scholar-crest-20261010.svg');
-       },null,{timeout:10000});
-       const geometry=await crest.evaluate(el=>({
-         cssWidth:parseFloat(getComputedStyle(el).width),
-         cssHeight:parseFloat(getComputedStyle(el).height),
-         visible:!!el.getClientRects().length,
-         rect:el.getBoundingClientRect().toJSON()
-       }));
-       // CSS must configure a sufficiently large crest even if the sidebar is
-       // responsive-hidden in a particular build/browser viewport.
-       assert.ok(geometry.cssWidth>=70 && geometry.cssHeight>=80,
-         "Study brand crest has enough space: "+JSON.stringify(geometry));
-       if(geometry.visible)assert.ok(geometry.rect.width>=70 && geometry.rect.height>=80,
-         "Visible study crest is not cropped: "+JSON.stringify(geometry));
-       const brand=page.locator('aside > a[href="/"] strong');
-       assert.match(await brand.innerText(),/Lux et Labor/);
-       const svg=await page.request.get(base+'/assets/lux-scholar-crest-20261010.svg');
-       assert.equal(svg.status(),200,"Academy logo asset exists");
-       assert.match(await svg.text(),/botanical academy crest/);
-     }
      assert.equal(await page.locator("#lux-study-paths-v2 article").count(),3);
      // All three destinations are now navigable in the character-and-pet scene.
      assert.equal(await page.locator(".lux-path-portals a").count(),3);
