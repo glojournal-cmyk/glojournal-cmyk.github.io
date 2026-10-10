@@ -25,6 +25,7 @@ const server=createServer((req,res)=>{
 });
 await new Promise(r=>server.listen(0,"127.0.0.1",r));
 const base="http://127.0.0.1:"+server.address().port;
+fs.mkdirSync("test-results",{recursive:true});
 const failures=[],reports=[];
 try{
  for(const [name,launcher] of [["chromium",chromium],["webkit",webkit]]){
