@@ -6,7 +6,9 @@
   var QUARANTINE = "lux-scholar-garden-v1-unreadable";
   var AUTO = "lux-progress-auto-v1";
   var BACKUPS = [AUTO, AUTO + "-previous", "lux-daily-manual-backup-v1"];
-  var DUPLICATES = [AUTO + "-previous", QUARANTINE, "lux-assessment-v1-recovery", "lux-day-log-v1", "lux-memory-stars-result-v1", "lux-memory-stars-pending-v1", "lux-pet-pending-celebration"];
+  // Discard temporary effects only when quota is genuinely exceeded. Never erase
+  // a recovery copy, assessment history or daily log just by opening the app.
+  var DUPLICATES = ["lux-memory-stars-result-v1", "lux-memory-stars-pending-v1", "lux-pet-pending-celebration"];
   function quota(error) {
     return !!error && (error.name === "QuotaExceededError" || error.code === 22 || /quota/i.test(String(error.message || "")));
   }
@@ -67,17 +69,14 @@
       try { return native(key, value); }
       catch (error) {
         if (!quota(error)) throw error;
-        if (storage !== localStorage) return;
+        if (storage !== localStorage) throw error;
         dropDuplicates(key);
         try { return native(key, value); }
         catch (again) {
           if (!quota(again)) throw again;
-          if (key !== AUTO) {
-            try { localStorage.removeItem(AUTO); } catch (e) {}
-            try { return native(key, value); } catch (e2) {}
-          }
-          var reduced = smallerGarden(String(value));
-          if (!reduced) return;
+          // Never delete the last automatic recovery copy merely to fit an unrelated write.
+          var reduced = key === KEY ? smallerGarden(String(value)) : null;
+          if (!reduced) throw error;
           try { return native(key, reduced); }
           catch (e3) {
             if (!quota(e3)) throw e3;
@@ -86,6 +85,7 @@
             try { return native(key, reduced); }
             catch (e5) {
               if (previous != null) { try { native(key, previous); } catch (e6) {} }
+              throw e5;
             }
           }
         }
@@ -101,10 +101,9 @@
     if (proto && proto.setItem && !proto.setItem.__luxGuard) {
       var protoNative = proto.setItem;
       var wrapped = function (key, value) {
-        try { return protoNative.call(this, key, value); }
-        catch (error) {
-          if (!quota(error)) throw error;
-        }
+        // Quota failures must surface to callers; silently swallowing them
+        // makes today's progress look saved even when nothing was written.
+        return protoNative.call(this, key, value);
       };
       wrapped.__luxGuard = true;
       proto.setItem = wrapped;
@@ -134,7 +133,7 @@
     }
   }
   var current = parse(read(KEY));
-  if (current && typeof current === "object" && usable(current.state)) dropDuplicates(KEY);
+  // A healthy save is not a reason to erase previous automatic backups.
   var root = typeof window === "undefined" ? globalThis : window;
   root.luxReleaseStorage = function () {
     dropDuplicates(KEY);
