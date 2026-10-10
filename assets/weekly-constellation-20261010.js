@@ -6,7 +6,7 @@ const KEY="lux-weekly-constellation-v1";
 const DAYS=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const COLLECTION_KEY="lux-weekly-lantern-collection-v1";
 const SEEN_KEY="lux-weekly-lantern-seen-v1";
-function earnedWeeks(){try{const value=JSON.parse(localStorage.getItem(COLLECTION_KEY)||"[]");return Array.isArray(value)?value.filter(x=>/^\\d{4}-\\d{2}-\\d{2}$/.test(x)):[]}catch{return []}}
+function earnedWeeks(){try{const value=JSON.parse(localStorage.getItem(COLLECTION_KEY)||"[]");return Array.isArray(value)?value.filter(x=>/^\d{4}-\d{2}-\d{2}$/.test(x)):[]}catch{return []}}
 function award(monday){const set=new Set(earnedWeeks());set.add(monday);try{localStorage.setItem(COLLECTION_KEY,JSON.stringify([...set].sort()))}catch{}return set.size}
 
 const make=(tag,cls,txt)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n};
