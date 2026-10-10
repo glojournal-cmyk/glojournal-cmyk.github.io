@@ -99,9 +99,25 @@
       .map(chemCanon).filter(w=>w&&!CHEM_STOP.has(w));
   }
 
+  // Ignore a term explicitly denied by the student; do not match across clauses.
+  function chemistryNegatesTerm(text,term){
+    const needles=chemTokens(term);
+    const negatives=new Set(['not','never','no','without','cannot','cant','isnt','wasnt','doesnt','dont','arent']);
+    if(!needles.length||needles.some(w=>negatives.has(w)))return false;
+    for(const clause of String(text||'').split(/[.!?;\n]/)){
+      const hay=chemTokens(clause);
+      for(let i=0;i<hay.length;i++){
+        if(hay[i]!==needles[0])continue;
+        if(needles.every(n=>hay.slice(i).some(h=>h===n))&&hay.slice(Math.max(0,i-2),i).some(w=>negatives.has(w)))return true;
+      }
+    }
+    return false;
+  }
+
   function chemistryIdeaMatch(text,term){
     const hay=chemTokens(text),needles=chemTokens(term);
     if(!needles.length)return false;
+    if(chemistryNegatesTerm(text,term))return false;
     return needles.every(n=>hay.includes(n)||hay.some(h=>{
       if(n.length<4||h.length<4)return false;
       return h.startsWith(n)||n.startsWith(h);
@@ -115,6 +131,9 @@
   function chemistryFallback(q,value,base){
     const response=String(value||'').trim();
     if(!response)return base;
+    // An explicit blanket denial of an answer cannot score by keyword matching.
+    if(/^(?:not|never|false|incorrect)\b\s*[:\-]?/i.test(response))
+      return {credit:0,status:'Incorrect',matched:0,total:q.answer?.points?.length||q.answer?.required?.length||1,pointResults:(q.answer?.points||[]).map(()=>false)};
     const mode=q.answer?.mode;
 
     if(mode==='choice')return base;
@@ -123,7 +142,7 @@
       const points=q.answer?.points||[];
       const current=Array.isArray(base?.pointResults)?base.pointResults:Array(points.length).fill(false);
       const pointResults=points.map((point,i)=>{
-        if(current[i])return true;
+        if(current[i]&&!(point.alternatives||[]).some(term=>chemistryNegatesTerm(response,term)))return true;
         if((point.rejectPatterns||[]).some(pattern=>new RegExp(pattern,'i').test(response)))return false;
         return (point.alternatives||[]).some(term=>chemistryIdeaMatch(response,term))||
           (point.patterns||[]).some(pattern=>new RegExp(pattern,'i').test(response));
