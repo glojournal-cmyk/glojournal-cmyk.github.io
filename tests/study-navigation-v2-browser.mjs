@@ -31,7 +31,7 @@ try{
  for(const [name,launcher] of [["chromium",chromium],["webkit",webkit]]){
   const browser=await launcher.launch({headless:true});
   try{
-   for(const vp of [{width:1280,height:800},{width:834,height:1112}]){
+   for(const vp of [{width:1560,height:920},{width:1280,height:800},{width:834,height:1112},{width:390,height:844}]){
     const context=await browser.newContext({viewport:vp,locale:"en-GB",
      timezoneId:"Europe/London",hasTouch:vp.width===834});
     const page=await context.newPage();
@@ -52,6 +52,34 @@ try{
      assert.ok((await page.locator(".lux-path-portal").first().innerText()).includes("Daily Quest"));
      assert.ok((await page.locator(".lux-path-portal").nth(1).innerText()).includes("Scholar"));
      assert.ok((await page.locator(".lux-path-portal").nth(2).innerText()).includes("Trial Chamber"));
+
+     // Geometry QA: the footer portals must never cover the current quest or figures.
+     const layout=await page.evaluate(()=>{
+       const box=sel=>document.querySelector(sel)?.getBoundingClientRect()?.toJSON();
+       return {hero:box(".lux-path-hero"),stage:box(".lux-path-hero-stage"),
+         quest:box(".lux-quest-now"),copy:box(".lux-path-hero-copy"),
+         portals:box(".lux-path-portals"),girl:box(".lux-path-hero-scholar"),
+         pet:box(".lux-path-hero-pet"),onePortal:box(".lux-path-portal")};
+     });
+     assert.ok(layout.stage&&layout.quest&&layout.portals&&layout.girl&&layout.pet,
+       "all quest hall landmarks must exist");
+     const fits=(a,b,margin=1)=>a.bottom<=b.top+margin;
+     assert.ok(fits(layout.quest,layout.portals),
+       "Current Quest must be fully visible above portals: "+JSON.stringify(layout));
+     assert.ok(fits(layout.copy,layout.portals),
+       "Quest title and controls must not overlap portals: "+JSON.stringify(layout));
+     assert.ok(fits(layout.girl,layout.portals),
+       "Scholar cannot be cut off by portal footer: "+JSON.stringify(layout));
+     assert.ok(fits(layout.pet,layout.portals),
+       "Pet cannot be cut off by portal footer: "+JSON.stringify(layout));
+     assert.ok(layout.onePortal.bottom<=layout.portals.bottom+1,
+       "Portal links must fit inside their footer");
+     assert.ok(layout.hero.height>=layout.stage.height+layout.portals.height-2,
+       "Hero height allocates space for both scene and portal row");
+     assert.ok(layout.quest.right<=layout.stage.right+2,
+       "Current quest must not be horizontally clipped");
+     if(vp.width>=800)assert.ok(layout.girl.x>layout.quest.right-20,
+       "Desktop girl must not stand in front of Current Quest");
 
      // Both portraits must be visible with real, unbroken existing art.
      await page.waitForFunction(()=>{
