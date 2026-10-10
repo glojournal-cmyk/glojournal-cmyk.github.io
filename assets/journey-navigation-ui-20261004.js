@@ -34,6 +34,7 @@ export function DailyNext({taskId,planDate}){
    }catch{firstTime=false}
    if(!firstTime)return;
    setCelebrating(true);
+   const finishAnimation=window.setTimeout(()=>setCelebrating(false),1600);
    if(store.getState()?.sound===true && typeof window!=='undefined' && window.AudioContext
      && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches){
     try{
@@ -49,6 +50,7 @@ export function DailyNext({taskId,planDate}){
      osc.onended=()=>context.close().catch(()=>{});
     }catch{}
    }
+   return ()=>window.clearTimeout(finishAnimation);
  },[complete,sessionKey,skipAnimation]);
  R.useEffect(()=>{
   if(complete)document.querySelector('[aria-label="Daily task progress"]')?.scrollIntoView({
