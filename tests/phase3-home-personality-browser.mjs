@@ -72,7 +72,13 @@ try{
           tasks:(state.daily||[]).map(t=>[t.id,Number(t.progress)||0,Number(t.target)||0]),
           unlocked:[...(state.unlockedOutfits||[])],equipped:state.equippedOutfit,
           species:pet.species||'',masteryPoints:Number(pet.masteryPoints)||0,
-          care:pet.care||null,petLevels:pet.petLevels||null};
+          care:pet.care?{
+            bond:Number(pet.care.bond)||0,mood:Number(pet.care.mood)||0,
+            energy:Number(pet.care.energy)||0,
+            dailyBond:Number(pet.care.daily?.bondEarned)||0,
+            actionCounts:pet.care.daily?.actionCounts||{},
+            rewardLedger:pet.care.rewardLedger||{}
+          }:null,petLevels:pet.petLevels||null};
       });
       const before=await snapshot();
       const button=page.locator('#lux-home-personality-greet');

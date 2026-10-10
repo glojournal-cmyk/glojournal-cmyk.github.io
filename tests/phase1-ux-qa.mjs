@@ -27,6 +27,6 @@ for(const subject of ['biology','chemistry','english','french','latin','physics'
  assert.match(page,/mission-complete-v2-20261010\.css\?v=20261010-phase1/);
  assert.match(page,/assessment-link\.js\?v=20261010-phase1/);
 }
-assert.match(fs.readFileSync('index.html','utf8'),/home-pet\.js\?v=20261010-phase3-1/);
+assert.match(fs.readFileSync('index.html','utf8'),/home-pet\.js\?v=20261010-phase3-2/);
 assert.match(fs.readFileSync('pet/home-companion-v2.css','utf8'),/prefers-reduced-motion:reduce/);
 console.log('Phase 1 UX QA passed: verified one-shot home reaction, single XP card, original art, goal progress, user motion preference and six Practice routes.');

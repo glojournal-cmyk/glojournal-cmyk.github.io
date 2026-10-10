@@ -22,6 +22,7 @@ assert.match(pet,/renderCompanion\(host\)/,'existing companion art remains');
 assert.match(pet,/showReturnReaction\(host\)/,'existing verified mission feedback remains');
 assert.match(pet,/card\.href = "\/pet\/"/,'pet card still opens Companion Corner');
 assert.match(pet,/audio=new AudioCtor\(\)/);
+assert.match(pet,/getCareSummary\(\{persistRecovery:false\}\)/,'pet greeting does not write Energy recovery timestamp');
 assert.doesNotMatch(pet,/performPetAction\(|awardBond\(|setState\(|awardXP\(/);
 assert.doesNotMatch(fs.readFileSync('index.html','utf8'),/home-journey-v2-20261010\.js/,
  'do not reactivate the rolled-back blank-screen Home V2');

@@ -321,7 +321,11 @@ function playGreetingTone(){
 }
 function playHomeGreeting(host){
   if(location.pathname!=='/'||document.hidden)return;
-  const summary=careSummary(),pet=summary.pet||readPet();
+  // Greeting itself must never advance the pet recovery ledger's timestamp.
+  // Regular Home/Pet rendering keeps the existing automatic Energy recovery.
+  let summary={pet:readPet(),mood:{label:'Content'}};
+  try{summary=getCareSummary({persistRecovery:false})}catch{}
+  const pet=summary.pet||readPet();
   const words=getHomePersonality(pet,summary.mood?.label,homeGreetingCount++);
   let line=host.querySelector('#lux-home-personality-line');
   if(!line)return;
