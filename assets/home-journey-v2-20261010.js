@@ -112,16 +112,17 @@ function build(model){
 }
 function refresh(){
  queued=false;
- const panel=place();
- if(!panel)return;
+ // Keep the original React card available when the optional UI cannot load.
  const journey=globalThis.LuxJourney;
  if(!journey || !globalThis.LuxHomeJourneyV2Logic)return;
+ const panel=place();
+ if(!panel)return;
  let model;
  try{
   model=globalThis.LuxHomeJourneyV2Logic.homeJourney(store.getState(),journey,localStorage);
  }catch(error){
   console.warn("Home Journey summary unavailable",error);
-  return;
+  model={ready:false,total:10,subtitle:"Open Study Library to continue while your journey refreshes."};
  }
  const signature=JSON.stringify(model);
  if(signature===lastSignature && panel===lastHost)return;
