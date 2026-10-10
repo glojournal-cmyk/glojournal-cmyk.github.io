@@ -108,3 +108,19 @@ test('Chemistry rubric accepts declared NOT science, not bare answer denial',()=
   assert.equal(marks(q('chem-aqa-20260930-001'),'not strict mass order').matched,1);
   assert.equal(marks(q('chem-aqa-20260930-009'),'not an element').matched,1);
 });
+
+test('full Chemistry model responses earn all marks even after punctuation changes',()=>{
+ const q={id:'chem-canonical-multipoint',format:'mark_points',answer:{
+  markPoints:['new evidence is found','scientists revise their model'],
+  modelAnswer:'New evidence is found; scientists revise their model.',
+  totalMarks:2,requireFullMarks:true
+ }};
+ for(const response of ['New evidence is found; scientists revise their model.',
+   '  NEW EVIDENCE IS FOUND, SCIENTISTS REVISE THEIR MODEL. ']){
+  const grade=practice(q,response,'chemistry');
+  assert.equal(grade.ok,true,response);
+  assert.equal(grade.score,2,response);
+ }
+ assert.equal(practice(q,'new evidence is found','chemistry').ok,false);
+ assert.equal(practice(q,'NOT '+q.answer.modelAnswer,'chemistry').ok,false);
+});

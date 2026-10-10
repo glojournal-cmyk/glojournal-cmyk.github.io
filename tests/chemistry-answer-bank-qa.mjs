@@ -65,6 +65,14 @@ for(const c of negatives){
  const q=assessment.questions.find(x=>x.id===c.id),grade=ctx.mark(q,c.value);
  if(grade.matched!==c.expected)failures.push({type:"negative-semantic-regression",...c,grade});
 }
+// Full model responses with altered punctuation and spacing are still full-credit.
+const probe={id:'chem-check-model',format:'mark_points',answer:{
+ markPoints:['scientists use evidence','the model changes'],modelAnswer:'Scientists use evidence; the model changes.',totalMarks:2,requireFullMarks:true
+}};
+const full=B(probe,' SCIENTISTS USE EVIDENCE, THE MODEL CHANGES. ','chemistry',{});
+if(!full.ok||full.score!==2)failures.push({type:'canonical-punctuation-rejected',grade:full});
+const denial=B(probe,'NOT scientists use evidence; the model changes.','chemistry',{});
+if(denial.ok)failures.push({type:'canonical-negation-accepted',grade:denial});
 summary.formats=formats;summary.failures=failures.length;
 fs.mkdirSync("test-results",{recursive:true});
 fs.writeFileSync("test-results/chemistry-answer-bank-qa.json",JSON.stringify({summary,failures},null,2));
