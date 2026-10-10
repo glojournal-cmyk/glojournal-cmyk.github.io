@@ -66,5 +66,13 @@ state.daily=[{id:'study-session',title:'Daily study total',href:'/study/latin/pr
 const foundation='/study/latin/practise?daily=1&locked=1&year=8&topic=la-y8-stage-1-vocabulary&mode=standard';
 result=J.completion(state,foundation);assert.equal(result?.done,true,'Unquoted daily=1 must match the legacy task');assert.equal(result.next.id,'french-vocab');
 assert.equal(J.completion(state,state.daily[0].href)?.done,true,'Quoted links match too');
-c.location.href='https://glojournal-cmyk.github.io'+foundation;panel=c.DailyNext({});assert.match(text(panel),/Counted towards today/);assert.match(text(panel),/Next task/);
+c.location.href='https://glojournal-cmyk.github.io'+foundation;
+panel=c.DailyNext({});
+assert.equal(panel.props['data-mission-save-status'],'unverified','legacy daily credit cannot be asserted from unsaved UI state');
+assert.match(text(panel),/Save not verified/);
+write('lux-scholar-garden-v1',{state});
+panel=c.DailyNext({});
+assert.equal(panel.props['data-mission-save-status'],'verified','legacy quoted/unquoted daily credit verified after save');
+assert.match(text(panel),/Saved and counted towards today/);
+assert.match(text(panel),/Next mission/);
 console.log('Legacy daily completion QA passed: quoted and plain query values display completion and the next unfinished task.');
