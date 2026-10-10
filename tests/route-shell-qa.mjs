@@ -21,7 +21,7 @@ for(const file of html){
   const src=fs.readFileSync(file,"utf8");
   const standalone=standaloneShells.has(rel);
   if(!standalone&&!src.includes(mainModule))failures.push({type:"missing-main-module",file:rel});
-  const mainRefs=[...src.matchAll(/\/assets\/index-BLVOhKhN\.js(?:\?v=([^"'<> ]+))?/g)].map(m=>({ref:m[0],version:m[1]||null}));
+  const mainRefs=[...src.matchAll(/\/assets\/index-BLVOhKhN\.js(?:\?v=([^&"'<> ]+))?/g)].map(m=>({ref:m[0],version:m[1]||null}));
   if(!standalone&&mainRefs.some(x=>!x.version))failures.push({type:"unversioned-main-module",file:rel,refs:mainRefs.map(x=>x.ref)});
   const refs=[...src.matchAll(/(?:src|href)=["'](\/[^"'?#]+)(?:[?#][^"']*)?["']/g)].map(m=>m[1])
     .filter(ref=>ref.startsWith("/assets/")||ref.startsWith("/__grok/")||ref==="/app.css"||ref==="/favicon.svg");
