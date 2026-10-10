@@ -46,3 +46,19 @@ test('disabled on homepage and app-not-ready state',()=>{
  vm.runInContext(source,context,{timeout:2000});
  assert.deepEqual(calls,[],'Home untouched');
 });
+
+test('both original characters share Study hero, chosen outfit and upgraded pet are read-only',()=>{
+ const js=file('assets/study-navigation-v2-20261010.js');
+ const css=file('assets/study-navigation-v2-20261010.css');
+ assert.match(js,/lux-path-hero-scholar/);
+ assert.match(js,/lux-path-hero-pet/);
+ assert.match(js,/art\/stages\/dusk\.jpg/);
+ assert.match(js,/equippedOutfit/);
+ assert.match(js,/petLevels/);
+ assert.match(js,/pet\/art-hd-20261009\/level-/);
+ assert.match(js,/outfitCatalog=mod\.A/);
+ assert.match(css,/\.lux-path-hero-pet/);
+ assert.match(css,/\.lux-path-hero-scholar/);
+ assert.match(css,/@media\(max-width:600px\)/);
+ assert.doesNotMatch(js,/localStorage\.setItem\s*\(/);
+});
