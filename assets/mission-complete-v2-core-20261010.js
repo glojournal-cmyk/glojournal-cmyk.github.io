@@ -39,7 +39,7 @@ function rewardLabel(points){
 function isValidNext(data,journey){
  if(!data?.next?.href)return false;
  return !!journey?.safeHref?.(data.next.href) &&
-   data.next.id!==data.task?.id && !data.next?.done;
+   data.next.id!==data.task?.id && Number(data.next.progress)<Number(data.next.target);
 }
 root.LuxMissionCompleteV2={readSaved,verify,rewardLabel,isValidNext};
 })(globalThis);
