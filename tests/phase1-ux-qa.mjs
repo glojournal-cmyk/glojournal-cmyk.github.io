@@ -18,6 +18,8 @@ assert.match(pet,/readyHomeReaction\(cue,readApp\(\)\)/);
 assert.match(pet,/sessionStorage\.removeItem\('lux-phase1-home-reaction-v1'\)/);
 assert.match(companion,/panel\.querySelector\('\.cx-reward-totals'\)\?\.remove\(\)/);
 assert.match(companion,/YOUR NEXT UNLOCK/);
+assert.match(companion,/__luxPhase1LastAnswer=\{at:Date.now\(\),path:location.pathname\}/);
+assert.match(ui,/recent\?\.path===location.pathname/,'reloading a completed quest cannot create a new home victory');
 assert.match(companion,/open\.href=v\.href/);
 assert.match(companion,/data-skip/);
 for(const subject of ['biology','chemistry','english','french','latin','physics']){

@@ -34,9 +34,14 @@ export function DailyNext({taskId,planDate}){
    }catch{firstTime=false}
    if(!firstTime)return;
    // Presentation-only cue: only the verified persisted completion can set it.
-   try{sessionStorage.setItem('lux-phase1-home-reaction-v1',JSON.stringify({
-     at:Date.now(),day:live.today,taskId:data.task.id
-   }))}catch{}
+   // Reopening an old completed practice must not create a new victory:
+   // only a freshly graded answer from this same Practice route can prompt Home.
+   const recent=window.__luxPhase1LastAnswer;
+   if(recent?.path===location.pathname && Date.now()-Number(recent.at)<180000){
+     try{sessionStorage.setItem('lux-phase1-home-reaction-v1',JSON.stringify({
+       at:Date.now(),day:live.today,taskId:data.task.id
+     }))}catch{}
+   }
    setCelebrating(true);
    const finishAnimation=window.setTimeout(()=>setCelebrating(false),1600);
    if(store.getState()?.sound===true && typeof window!=='undefined' && window.AudioContext
