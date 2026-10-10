@@ -45,6 +45,32 @@ try{
        const app=document.querySelector("main h1");
        return !!nav && !!app && /Continue Learning/i.test(app.textContent||"");
      },null,{timeout:30000});
+     // Approved B celestial academy symbol must be visible and decodable.
+     const brand=await page.evaluate(()=>{
+       const select=window.innerWidth>=1280
+         ? 'aside.fixed > a[href="/"] > span:first-child'
+         : 'header a[href="/"]';
+       const el=document.querySelector(select);
+       if(!el)return null;
+       const style=window.innerWidth>=1280?getComputedStyle(el):getComputedStyle(el,'::before');
+       return {background:style.backgroundImage,width:parseFloat(style.width),
+         height:parseFloat(style.height)};
+     });
+     assert.ok(brand,"branded header exists");
+     assert.match(brand.background,/lux-celestial-b-symbol-20261010\\.svg/,
+       "approved B emblem is displayed");
+     if(vp.width>=1280)assert.ok(brand.width>=130 && brand.height>=125,
+       "desktop B logo is not cramped");
+     const logoResponse=await page.request.get(base+"/assets/lux-celestial-b-symbol-20261010.svg");
+     assert.equal(logoResponse.status(),200,"approved B logo file exists");
+     assert.match(await logoResponse.text(),/data:image\\/png;base64,/);
+     const imageLoads=await page.evaluate(()=>new Promise(resolve=>{
+       const img=new Image();
+       img.onload=()=>resolve(img.naturalWidth>=190&&img.naturalHeight>=180);
+       img.onerror=()=>resolve(false);
+       img.src="/assets/lux-celestial-b-symbol-20261010.svg";
+     }));
+     assert.equal(imageLoads,true,"B logo image pixels load in this browser");
      assert.equal(await page.locator("#lux-study-paths-v2 article").count(),3);
      // All three destinations are now navigable in the character-and-pet scene.
      assert.equal(await page.locator(".lux-path-portals a").count(),3);
