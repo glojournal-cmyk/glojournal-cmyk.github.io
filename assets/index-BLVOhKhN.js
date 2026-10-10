@@ -1277,7 +1277,8 @@ function buildAdaptiveDaily(state) {
   let studyEvidence = 0;
   for (const topicId of studyTopicIds) studyEvidence += topicAttemptsToday(state, topicId);
   const studyProgress = Math.min(10, Math.max(0, Number(state.questionsToday) || 0, studyEvidence, existingPlan?.planDate === state.today ? Number(existingPlan.progress) || 0 : 0));
-  const oldFocusProgress = previous.get("adaptive-focus")?.progress || 0;
+  const oldFocus = previous.get("adaptive-focus");
+  const oldFocusProgress = oldFocus?.planDate === state.today ? Number(oldFocus.progress) || 0 : 0;
   const focusEvidence = focusAttemptsToday(state, focus);
   const focusProgress = Math.min(4, Math.max(focusEvidence, oldFocusProgress));
   const plannedYear8Review = year8ReviewPlan(state);
@@ -1370,8 +1371,8 @@ function buildAdaptiveDaily(state) {
     { id: "year8-long-review", title: `Year 8 ${year8Review.label} practice + mastery · ${year8Review.topicLabel || "Year 8 topic"}`, detail: "10 foundational practice questions, then a 15-question mastery review.", href: `${(year8Review.ready ? year8Review.href.replace(/mode=standard/, "mode=year8long") : year8Review.href.replace(/mode=year8long/, "mode=standard")).replace(/([?&])task=[^&]+/, "$1task=year8-long-review")}${year8Review.href.includes("task=") ? "" : "&task=year8-long-review"}`, target: 25, progress: year8ReviewProgress, xp: 20, planDate: state.today, reviewYear: 8, reviewSubject: year8Review.subject, reviewTopic: year8Review.topicId || null, reviewStartAttempts },
     y8PractiseTask,
     y8MasteryTask,
-    { ...garden, progress: Math.min(garden.target || 1, Math.max(garden.progress || 0, gardenDoneToday ? 1 : 0)) },
-    { ...game, progress: Math.min(game.target || 1, Math.max(game.progress || 0, gameDoneToday ? 1 : 0)) },
+    { ...garden, planDate: state.today, progress: Math.min(garden.target || 1, Math.max(garden.planDate === state.today ? Number(garden.progress) || 0 : 0, gardenDoneToday ? 1 : 0)) },
+    { ...game, planDate: state.today, progress: Math.min(game.target || 1, Math.max(game.planDate === state.today ? Number(game.progress) || 0 : 0, gameDoneToday ? 1 : 0)) },
   ];
 }
 
