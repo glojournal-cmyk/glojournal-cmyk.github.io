@@ -29,6 +29,25 @@ function rewardSummary(results){
  let panel=results.querySelector('.cx-session-rewards');if(!panel){panel=document.createElement('section');panel.className='cx-session-rewards';panel.setAttribute('aria-label','Rewards this session');results.querySelector('h1')?.after(panel)}
  const sig=JSON.stringify([xp,added,v,store.getState().sound]);if(panel.dataset.signature===sig)return;panel.dataset.signature=sig;
  panel.innerHTML=`<p class="cx-kicker">THIS SET’S REWARDS</p><div class="cx-reward-totals"><div><strong>${xp===undefined?'Recorded':`+${esc(xp)}`}</strong><span>Scholar XP</span></div><div><strong>+${added}</strong><span>Memory ${added===1?'star':'stars'}</span></div></div>${v?`<div class="cx-session-goal">${art(v)}<div><strong>${esc(v.name)}</strong><p>${esc(v.detail)}</p>${v.rows.map(r=>`<progress value="${r.current}" max="${Math.max(1,r.target)}" aria-label="${esc(r.label)}"></progress>`).join('')}</div></div>`:'<button data-choose>Choose your reward goal</button>'}<div class="cx-actions"><button data-skip>Skip animation</button><button data-motion aria-pressed="${!!read(KEY).quiet}">${read(KEY).quiet?'Animations off':'Reduce animations'}</button><button data-sound aria-pressed="${!!store.getState().sound}">${store.getState().sound?'Sound on':'Sound off'}</button></div>`;
+ // XP and the first-pass score already appear in SessionResult above.
+ // Keep this panel for the chosen reward; do not display duplicate or fake +0 rewards.
+ panel.querySelector('.cx-reward-totals')?.remove();
+ const kicker=panel.querySelector('.cx-kicker');if(kicker)kicker.textContent='YOUR NEXT UNLOCK';
+ if(v){
+   const goal=panel.querySelector('.cx-session-goal');
+   if(goal&&!goal.querySelector('.cx-goal-open')){
+     goal.querySelectorAll('progress').forEach((bar,i)=>{
+       const row=v.rows?.[i];if(!row)return;
+       const label=document.createElement('small');
+       label.className='cx-reward-goal-count';
+       label.textContent=row.label+' · '+Math.min(row.current,row.target)+' / '+row.target;
+       bar.before(label);
+     });
+     const open=document.createElement('a');open.className='cx-goal-open';
+     open.href=v.href;open.textContent='View chosen reward →';
+     goal.querySelector('div')?.appendChild(open);
+   }
+ }
  panel.querySelector('[data-skip]').onclick=skipAnimation;wireMotion(panel);panel.querySelector('[data-choose]')?.addEventListener('click',picker);panel.querySelector('[data-sound]').onclick=()=>store.getState().setSound?.(!store.getState().sound);
 }
 
@@ -44,4 +63,4 @@ let queued=false;function schedule(){if(queued)return;queued=true;queueMicrotask
 function reactToAnswer(e){if(!document.getElementById('study-companion'))return;answers++;reaction=e.detail?.correct?'success':'thinking';if(e.detail?.correct){let flash=document.querySelector('.cx-answer-flash');if(!flash){flash=document.createElement('div');flash.className='cx-answer-flash';flash.setAttribute('role','status');document.body.append(flash)}flash.classList.remove('cx-skipped');flash.innerHTML='<span aria-hidden="true">✦</span><strong>Correct!</strong><button>Skip animation</button>';flash.dataset.reaction='success';flash.querySelector('button').onclick=skipAnimation;setTimeout(()=>flash.remove(),850)}const b=document.getElementById('study-companion');b.dataset.reaction=reaction;const text=b.querySelector('[data-companion-copy]');text.textContent=e.detail?.correct?'That was a good step. Keep going.':'Take your time. Let’s work through the explanation.';clearTimeout(reactTimer);reactTimer=setTimeout(()=>{reaction='ready';b.dataset.reaction='ready';text.textContent=answers>=12?'A little pause is welcome when you need it.':'I’m here for the next question.'},2200)}
 window.addEventListener('scholar:question-answered',reactToAnswer);
 store.subscribe(schedule);window.addEventListener('storage',schedule);window.addEventListener('scholar:pet-changed',schedule);window.addEventListener('pageshow',schedule);window.addEventListener('popstate',schedule);
-new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true});const css=document.createElement('link');css.rel='stylesheet';css.href='/assets/companion-experience-20261004.css?v=7';document.head.append(css);schedule();
+new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true});const css=document.createElement('link');css.rel='stylesheet';css.href='/assets/companion-experience-20261004.css?v=20261010-phase1';document.head.append(css);schedule();

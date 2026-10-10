@@ -1,5 +1,6 @@
 import {spriteStyle} from '/pet/pet-art-hd-20261009.js';
 import { getCareSummary } from "/pet/pet-care-state.js?v=20261003-care1";
+import {readyHomeReaction} from '/pet/quest-home-reaction-20261010.js';
 
 // The progression guard imports the React app bundle. Loading it on the
 // standalone Pet page makes React replace that page with an empty root.
@@ -11,7 +12,7 @@ const APP_KEY = "lux-scholar-garden-v1";
 const PET_KEY = "lux-pet-companion-v1";
 const CELEBRATE_KEY = "lux-pet-pending-celebration";
 const HOME_CSS_ID = "lux-home-companion-v2";
-const HOME_CSS_HREF = "/pet/home-companion-v2.css?v=20261009-pet-hd1";
+const HOME_CSS_HREF = "/pet/home-companion-v2.css?v=20261010-phase1";
 
 const pets = {
   "moss-hornling": "Moss Hornling",
@@ -273,6 +274,24 @@ function renderCompanion(host) {
   consumeCelebration();
 }
 
+function showReturnReaction(host){
+  let cue;
+  try{
+    const raw=sessionStorage.getItem('lux-phase1-home-reaction-v1');
+    if(!raw)return;
+    cue=JSON.parse(raw);
+    sessionStorage.removeItem('lux-phase1-home-reaction-v1');
+  }catch{return}
+  const star=readyHomeReaction(cue,readApp());
+  if(!star)return;
+  const note=document.createElement('p');
+  note.className='lux-home-quest-return';note.setAttribute('role','status');
+  note.textContent='✦ '+star.text;host.appendChild(note);
+  const quiet=document.documentElement.classList.contains('cx-quiet')||
+    window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+  if(!quiet)host.classList.add('lux-home-quest-cheer');
+  setTimeout(()=>{host.classList.remove('lux-home-quest-cheer');note.remove()},1900);
+}
 function render() {
   enhanceShell();
   enhanceHomeCards();
@@ -288,6 +307,7 @@ function render() {
   const host = findHero();
   if (!host) return;
   renderCompanion(host);
+  showReturnReaction(host);
 }
 
 let queued = false;

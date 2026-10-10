@@ -33,6 +33,10 @@ export function DailyNext({taskId,planDate}){
     else sessionStorage.setItem(sessionKey,'1');
    }catch{firstTime=false}
    if(!firstTime)return;
+   // Presentation-only cue: only the verified persisted completion can set it.
+   try{sessionStorage.setItem('lux-phase1-home-reaction-v1',JSON.stringify({
+     at:Date.now(),day:live.today,taskId:data.task.id
+   }))}catch{}
    setCelebrating(true);
    const finishAnimation=window.setTimeout(()=>setCelebrating(false),1600);
    if(store.getState()?.sound===true && typeof window!=='undefined' && window.AudioContext

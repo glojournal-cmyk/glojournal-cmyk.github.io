@@ -11,6 +11,13 @@ on:
       - 'assets/index-BLVOhKhN*.js'
       - 'study/*/practise/index.html'
       - 'tests/mission-complete-v2*'
+      - 'tests/phase1-ux-qa.mjs'
+      - 'pet/home-pet.js'
+      - 'pet/home-companion-v2.css'
+      - 'pet/quest-home-reaction-20261010.js'
+      - 'assets/companion-experience-20261004.js'
+      - 'assets/companion-experience-20261004.css'
+      - 'assessment-link.js'
       - '.github/workflows/mission-complete-v2-qa.yml'
   push:
     branches: [main]
@@ -20,6 +27,13 @@ on:
       - 'assets/session-reflection-20261004.js'
       - 'study/*/practise/index.html'
       - 'tests/mission-complete-v2*'
+      - 'tests/phase1-ux-qa.mjs'
+      - 'pet/home-pet.js'
+      - 'pet/home-companion-v2.css'
+      - 'pet/quest-home-reaction-20261010.js'
+      - 'assets/companion-experience-20261004.js'
+      - 'assets/companion-experience-20261004.css'
+      - 'assessment-link.js'
       - '.github/workflows/mission-complete-v2-qa.yml'
 permissions:
   contents: read
@@ -38,8 +52,13 @@ jobs:
           node --check assets/mission-complete-v2-core-20261010.js
           node --check assets/quiz-session-y8fix-20260920.js
           node --check assets/quiz-session-rWAnuDVj.js
+          node --check pet/home-pet.js
+          node --check pet/quest-home-reaction-20261010.js
+          node --check assets/companion-experience-20261004.js
       - name: Verify persisted credit, XP and links
-        run: node --test tests/mission-complete-v2.cjs
+        run: |
+          node --test tests/mission-complete-v2.cjs
+          node tests/phase1-ux-qa.mjs
   browser:
     runs-on: ubuntu-latest
     timeout-minutes: 18

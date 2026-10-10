@@ -479,3 +479,16 @@
     transition: none !important;
   }
 }
+
+/* Phase 1: subtle home quest return using the original Scholar and pet art. */
+.lux-home-quest-return{position:absolute;z-index:40;right:12px;top:12px;max-width:75%;
+ padding:9px 13px;margin:0;border:1px solid #d6bf83;border-radius:13px;
+ background:rgba(255,251,241,.95);color:#1d424e;font-size:12px;font-weight:700;
+ box-shadow:0 6px 16px #17324d2b;pointer-events:none;animation:lux-home-quest-enter .45s ease-out}
+.lux-home-quest-cheer .lux-scholar-character{animation:lux-home-scholar-glow 1.25s ease-out}
+.lux-home-quest-cheer #mastery-pet-home .mph-art{animation:lux-home-pet-hop 1.2s ease-out}
+@keyframes lux-home-quest-enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes lux-home-scholar-glow{0%,100%{filter:brightness(1)}42%{filter:brightness(1.12) drop-shadow(0 0 9px #e6ce92b5)}}
+@keyframes lux-home-pet-hop{0%,100%{transform:scaleX(-1) scale(var(--pet-size))}45%{transform:scaleX(-1) scale(var(--pet-size)) translateY(-12px)}}
+@media(prefers-reduced-motion:reduce){.lux-home-quest-return,.lux-home-quest-cheer .lux-scholar-character,.lux-home-quest-cheer #mastery-pet-home .mph-art{animation:none!important}}
+.cx-quiet .lux-home-quest-return,.cx-quiet .lux-home-quest-cheer .lux-scholar-character,.cx-quiet .lux-home-quest-cheer #mastery-pet-home .mph-art{animation:none!important}

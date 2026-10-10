@@ -1,0 +1,30 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {readyHomeReaction} from '../pet/quest-home-reaction-20261010.js';
+const now=Date.parse('2026-10-10T15:00:00Z');
+const state={today:'2026-10-10',xp:100,daily:[{id:'chem',target:10,progress:10},{id:'latin',target:10,progress:2}]};
+const token={at:now-1000,day:state.today,taskId:'chem'};
+assert.equal(readyHomeReaction(token,state,now)?.text,'1 / 2 daily stars saved');
+assert.equal(readyHomeReaction(token,{...state,daily:[{...state.daily[0],progress:9}]},now),null);
+assert.equal(readyHomeReaction({...token,day:'2026-10-09'},state,now),null);
+assert.equal(readyHomeReaction({...token,at:now-610000},state,now),null);
+assert.equal(readyHomeReaction({...token,taskId:'unknown'},state,now),null);
+assert.equal(state.xp,100);
+const ui=fs.readFileSync('assets/journey-navigation-ui-20261004.js','utf8');
+const pet=fs.readFileSync('pet/home-pet.js','utf8');
+const companion=fs.readFileSync('assets/companion-experience-20261004.js','utf8');
+assert.ok(ui.indexOf('if(!firstTime)return;')<ui.indexOf("sessionStorage.setItem('lux-phase1-home-reaction-v1'"));
+assert.match(pet,/readyHomeReaction\(cue,readApp\(\)\)/);
+assert.match(pet,/sessionStorage\.removeItem\('lux-phase1-home-reaction-v1'\)/);
+assert.match(companion,/panel\.querySelector\('\.cx-reward-totals'\)\?\.remove\(\)/);
+assert.match(companion,/YOUR NEXT UNLOCK/);
+assert.match(companion,/open\.href=v\.href/);
+assert.match(companion,/data-skip/);
+for(const subject of ['biology','chemistry','english','french','latin','physics']){
+ const page=fs.readFileSync('study/'+subject+'/practise/index.html','utf8');
+ assert.match(page,/mission-complete-v2-20261010\.css\?v=20261010-phase1/);
+ assert.match(page,/assessment-link\.js\?v=20261010-phase1/);
+}
+assert.match(fs.readFileSync('index.html','utf8'),/home-pet\.js\?v=20261010-phase1/);
+assert.match(fs.readFileSync('pet/home-companion-v2.css','utf8'),/prefers-reduced-motion:reduce/);
+console.log('Phase 1 UX QA passed: verified one-shot home reaction, single XP card, original art, goal progress, user motion preference and six Practice routes.');
