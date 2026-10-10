@@ -1,0 +1,30 @@
+name: Home Journey V2 UX QA
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'assets/home-journey-v2-*.js'
+      - 'assets/home-journey-v2-*.css'
+      - 'assets/journey-navigation-20261004.js'
+      - 'tests/home-journey-v2.cjs'
+      - '.github/workflows/home-journey-v2-qa.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'assets/home-journey-v2-*.js'
+      - 'assets/home-journey-v2-*.css'
+      - 'assets/journey-navigation-20261004.js'
+      - 'tests/home-journey-v2.cjs'
+      - '.github/workflows/home-journey-v2-qa.yml'
+permissions:
+  contents: read
+jobs:
+  home-journey:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Syntax check display module
+        run: node --check assets/home-journey-v2-20261010.js
+      - name: Run homepage journey regression tests
+        run: node --test tests/home-journey-v2.cjs
