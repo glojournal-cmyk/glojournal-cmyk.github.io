@@ -1,0 +1,30 @@
+name: Chemistry marking regression
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assessment/app-v2.js'
+      - 'assessment/marking-hotfix-v3.js'
+      - 'assessment/chemistry-school-1.json'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'tests/chemistry-marking-regression.cjs'
+      - '.github/workflows/chemistry-marking-regression.yml'
+  pull_request:
+    paths:
+      - 'assessment/app-v2.js'
+      - 'assessment/marking-hotfix-v3.js'
+      - 'assessment/chemistry-school-1.json'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'tests/chemistry-marking-regression.cjs'
+      - '.github/workflows/chemistry-marking-regression.yml'
+permissions:
+  contents: read
+jobs:
+  chemistry-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Chemistry assessment and practice grading tests
+        run: node --test tests/chemistry-marking-regression.cjs
