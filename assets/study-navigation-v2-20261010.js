@@ -83,7 +83,7 @@ function repaint(){
  '<div class="lux-path-sigils" aria-label="'+d.done+' of '+d.total+' daily stars complete">'+
  Array.from({length:10},(_,i)=>'<span class="'+(i<d.done?'lit':i===d.done?'next':'')+'" aria-hidden="true">'+(i<d.done?'✦':'✧')+'</span>').join('')+
  '</div><p>Same ten learning tasks, now part of one unfolding journey.</p></div>'+
- '<div class="lux-path-grid">'+
+ '<details class="lux-path-expand"><summary>✧ Quest details · Year 8 / Year 9 study options</summary><div class="lux-path-grid">'+
  '<article class="lux-path-card lux-path-daily"><span class="lux-path-symbol" aria-hidden="true">✦</span><p class="lux-path-eyebrow">01 · YOUR ROUTINE</p><h3>Daily Quest</h3><p>Keep your adventure going. Every completed task lights a star.</p>'+
  '<div class="lux-path-progress" role="progressbar" aria-label="Daily tasks completed" aria-valuemin="0" aria-valuemax="'+d.total+'" aria-valuenow="'+d.done+'"><span style="width:'+Math.min(100,d.done/d.total*100)+'%"></span></div>'+
  '<p class="lux-path-status">'+(d.valid?d.done+' / '+d.total+' tasks counted today':'Your daily tasks are on Home')+'</p>'+
@@ -92,7 +92,7 @@ function repaint(){
  '<div class="lux-path-years" role="group" aria-label="Choose year"><button type="button" data-lux-year="8" aria-pressed="'+(d.year===8)+'">Year 8 revision</button><button type="button" data-lux-year="9" aria-pressed="'+(d.year===9)+'">Year 9 topics</button></div>'+
  '<a class="lux-path-textlink" href="#lux-study-subjects-v2">Browse all subjects ↓</a></article>'+
  '<article class="lux-path-card"><span class="lux-path-symbol" aria-hidden="true">✤</span><p class="lux-path-eyebrow">03 · PREPARE</p><h3>Trial Chamber</h3><p>Prepare for school assessments and prove what you have learned.</p>'+
- '<p class="lux-path-note">Separate from your 10 daily tasks.</p><a class="lux-path-textlink" href="/assessment/">Open assessments ↗</a></article></div>';
+ '<p class="lux-path-note">Separate from your 10 daily tasks.</p><a class="lux-path-textlink" href="/assessment/">Open assessments ↗</a></article></div></details>';
  for(const b of card.querySelectorAll("[data-lux-year]"))b.addEventListener("click",()=>{
   if(selectYear(Number(b.dataset.luxYear)))for(const other of card.querySelectorAll("[data-lux-year]"))
    other.setAttribute("aria-pressed",String(other===b));
