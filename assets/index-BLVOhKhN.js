@@ -2297,7 +2297,25 @@ function recordDailyVocabAttempt(subject, questionId, correct) {
     const credited = Object.values(items).filter(Boolean).length;
     perDay[subject] = { items, originalCount, totalNeeded, completed: credited >= totalNeeded, updatedAt: new Date().toISOString() };
     all[recover] = perDay;
-    store.setState({ recoveryVocabByDay: all });
+    if (credited >= totalNeeded && !row.completed) {
+      const log = { ...(state.dailyLog || {}) };
+      const dayLog = log[recover];
+      const tasks = (dayLog?.tasks || []).map(t => t.id === subject + "-vocab"
+        ? { ...t, progress: Number(t.target) || 30, done: true, recovered: true }
+        : t);
+      const completedTasks = tasks.filter(t => t.done || Number(t.progress) >= Number(t.target)).length;
+      if (dayLog) log[recover] = { ...dayLog, tasks, done: completedTasks,
+        complete: tasks.length > 0 && completedTasks === tasks.length };
+      const awarded = { ...(state.recoveryAwarded || {}) };
+      const awardKey = recover + ":" + subject;
+      const grant = !awarded[awardKey];
+      if (grant) awarded[awardKey] = true;
+      store.setState({ recoveryVocabByDay: all, dailyLog: log, recoveryAwarded: awarded });
+      // Award once; never invoke bumpDaily, which would credit today's task.
+      if (grant) originalAward("vocab_review", { amount: 15, detail: "recovery:" + awardKey });
+    } else {
+      store.setState({ recoveryVocabByDay: all });
+    }
     return;
   }
   if (recover) return;
