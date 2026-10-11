@@ -2093,6 +2093,17 @@ function awardMasteryRetention(topicId, subject, title) {
   return reward;
 }
 
+function dailyVocabSubject(subject, meta = {}) {
+  if (meta.dailyVocab === "french" || meta.dailyVocab === "latin") return meta.dailyVocab;
+  if (typeof window === "undefined") return null;
+  const params = new URLSearchParams(window.location.search);
+  const task = params.get("task");
+  // Only recognize the explicitly assigned locked vocab task, not ordinary practice.
+  if (params.get("daily") !== "1" || params.get("locked") !== "1" || params.get("mode") !== "y8vocab") return null;
+  return (task === "french-vocab" && subject === "french") ? "french"
+       : (task === "latin-vocab" && subject === "latin") ? "latin" : null;
+}
+
 function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const before = store.getState();
   const dueBefore = !!before.reviews?.[questionId]?.due && before.reviews[questionId].due <= todayKey();
@@ -2120,10 +2131,16 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     if (typeof window !== "undefined" && new URLSearchParams(window.location.search).get("task") === "mistake-review") {
       store.setState({reviews:correct?retainMistakeReview(store.getState().reviews,questionId,todayKey()):store.getState().reviews,daily:(store.getState().daily||[]).map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
     }
+    const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
+    if (vocabSubject) recordDailyVocabAttempt(vocabSubject, questionId, !!correct);
     normalizeState();
     return result;
   }
-  if (!resolved.topicId) return result;
+  if (!resolved.topicId) {
+    const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
+    if (vocabSubject) recordDailyVocabAttempt(vocabSubject, questionId, !!correct);
+    return result;
+  }
   const current = normalizeTopicStat(before.topicStats?.[resolved.topicId] || {});
   const isRepair = !!meta?.repair;
   const attempted = current.attempted + (isRepair ? 0 : 1);
@@ -2253,9 +2270,8 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   }
 
   const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
-  if (!isRepair && (meta?.dailyVocab === "french" || meta?.dailyVocab === "latin")) {
-    recordDailyVocabAttempt(meta.dailyVocab, questionId, !!correct);
-  }
+  const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
+  if (!isRepair && vocabSubject) recordDailyVocabAttempt(vocabSubject, questionId, !!correct);
 
   normalizeState();
   return result;
