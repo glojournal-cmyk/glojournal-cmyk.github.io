@@ -5,9 +5,9 @@ const dateAt=(d,n)=>new Date(Date.parse(d+"T12:00:00Z")+n*DAY_MS).toISOString().
 function recoveryRows(state){
  const today=todayKey(),out=[];
  for(let back=1;back<=2;back++){
-  const date=dateAt(today,-back),daily=state.dailyLog?.[date]?.tasks||[];
+  const date=dateAt(today,-back);
   for(const subject of ["french","latin"]){
-   const task=daily.find(t=>t.id===subject+"-vocab");
+   const task=globalThis.LuxRecoveryVocabSource?.(state,date,subject)?.task || null;
    if(!task||Number(task.progress)>=Number(task.target)&&!task.recovered)continue;
    const rec=state.recoveryVocabByDay?.[date]?.[subject]||{};
    const base=Math.max(0,Math.min(30,Number(rec.originalCount ?? task.progress)||0));
@@ -27,8 +27,13 @@ function mount(){
  if(!host){host=document.createElement("section");host.id="lux-recovery-quests";card.append(host)}
  const rows=recoveryRows(store.getState());
  const signature=JSON.stringify(rows);if(host.dataset.signature===signature)return;host.dataset.signature=signature;
- host.replaceChildren();if(!rows.length){host.hidden=true;return}host.hidden=false;
+ host.replaceChildren();host.hidden=false;
  const title=document.createElement("h3");title.textContent="Quest Recovery · 48-hour grace";host.append(title);
+ if(!rows.length){
+  const hint=document.createElement("p");
+  hint.textContent="No unfinished French or Latin Vocab found in the last 48-hour recovery window. If yesterday's work was not saved, use the Backup history on this iPad.";
+  host.append(hint);return;
+ }
  for(const row of rows){
   const item=document.createElement("div");item.className="lux-recovery-item";
   const label=document.createElement("strong");label.textContent=(row.subject==="french"?"French":"Latin")+" Vocab · "+row.date;item.append(label);
