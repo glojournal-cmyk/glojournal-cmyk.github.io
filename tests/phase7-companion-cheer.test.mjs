@@ -14,7 +14,7 @@ test('Phase 7 mounts only on the home page and waits for app hydration',()=>{
 test('Phase 7 skips initial state and only celebrates newly completed quests',()=>{
  assert.match(js,/if\(!prior\|\|prior\.day!==now\.day\)\{prior=now;return\}/);
  assert.match(js,/filter\(id=>!prior\.done\.has\(id\)\)/);
- assert.match(js,/if\(gained\.length\)celebrate\(gained\.length\)/);
+ assert.match(js,/if\(gained\.length\)\{celebrate\(gained\.length\)/);
 });
 test('Visual feedback preserves marks, data, artwork and reduced-motion preferences',()=>{
  assert.doesNotMatch(js,/localStorage\.setItem|sessionStorage\.setItem|importProgress|award\(|bumpDaily\(|setState\(/);
