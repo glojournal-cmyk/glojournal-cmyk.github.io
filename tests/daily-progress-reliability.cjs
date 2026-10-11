@@ -37,7 +37,8 @@ function planner(){
  "const todayKey=()=> '2026-10-10',DAILY_SUBJECTS=['latin','french','biology','chemistry','physics'],SUBJECT_LABELS={latin:'Latin'},YEAR8_MASTERY_SUBJECTS=['latin','french'],FRENCH_DAILY_HREF='/study/french/practise';",
  "const curriculumFocusAllowed=()=>true,topicMatchesYear=()=>true,adaptiveFocus=()=>({subject:'latin',topicId:'la-y8-x',reason:'foundation'}),topicTitle=()=>'Basics',errorLabel=()=>'',topicAttemptsToday=()=>0,focusAttemptsToday=()=>0;",
  "const year8ReviewPlan=()=>({subject:'latin',topicId:'la-y8-x',label:'Latin',topicLabel:'Basics',href:'/study/latin/practise?mode=standard',ready:true}),completedYear8ReviewEvidence=()=>null,vocabGateState=()=>({correct:0,progress:0,attempts:0});",
- "const firstUnmastered=()=>({subject:'latin',topicId:'la-y8-x'}),year8AssignedPool=()=>[],year8TopicRank=()=>0,year8AssignedTitle=()=>'Year 8 topic',year8AssignedHref=()=>'/study/latin/practise?mode=standard';",
+ "const mistakeTopicAvailable=()=>true;
+const firstUnmastered=()=>({subject:'latin',topicId:'la-y8-x'}),year8AssignedPool=()=>[],year8TopicRank=()=>0,year8AssignedTitle=()=>'Year 8 topic',year8AssignedHref=()=>'/study/latin/practise?mode=standard';",
  "const assignedCurriculumPick=()=>({subject:'latin',topicId:'la-y8-x',year:8,position:1,total:2,topicLabel:'Basics'}),mistakeReviewTask=()=>({id:'mistake-review',title:'Previous mistakes',target:1,progress:1,href:'/study',planDate:'2026-10-10'}),focusHref=()=>'/study/latin/practise?mode=standard';"
  ].join('\n');
  const ctx=vm.createContext({});
@@ -49,15 +50,19 @@ function navigation(storage){
  vm.runInContext(file('assets/journey-navigation-20261004.js'),ctx,{timeout:4000});
  return ctx.LuxJourney;
 }
-function backupHarness(storage,live){
+function backupHarness(initial,live){
  const source=file('assets/daily-progress-save.js'),i=source.indexOf('const SNAPSHOT_KEY'),j=source.indexOf('store.subscribe(',i);
  const a=source.indexOf('function summary('),b=source.indexOf('function savedCopy(',a);
  assert.ok(i>=0&&j>i&&a>=0&&b>a);
- const statuses=[];
- const ctx=vm.createContext({localStorage:storage,store:{getState:()=>live},clearTimeout:()=>{},
-  document:{getElementById:()=>({set textContent(x){statuses.push(x)}})},Date,JSON});
+ const copies=new Map(Object.entries(initial));const statuses=[];
+ const ctx=vm.createContext({store:{getState:()=>live},clearTimeout:()=>{},
+  readBackup:async key=>copies.get(key)||null,
+  putBackup:async(key,value)=>{copies.set(key,structuredClone(value));return true},
+  migrateOldBackups:async()=>({moved:0,failed:0}),
+  document:{getElementById:()=>({set textContent(x){statuses.push(x)}})},Date,JSON,
+  setTimeout:()=>{},window:{}});
  vm.runInContext(source.slice(i,j)+'\n'+source.slice(a,b)+'\nfunction refreshCopies(){}',ctx,{timeout:4000});
- return {save:()=>ctx.autoSave(),statuses};
+ return {save:()=>ctx.autoSave(),copies,statuses};
 }
 test('all ten daily tasks remain; yesterday game/garden/focus credits reset',()=>{
  const run=planner();
@@ -100,11 +105,13 @@ test('quota failure is observable and last good backups survive',()=>{
  assert.equal(storage.getItem('lux-scholar-garden-v1'),raw);
  assert.ok(storage.getItem('lux-progress-auto-v1'));
 });
-test('corrupt main can recover from backup while original is quarantined',()=>{
- const storage=new StorageMock({'lux-scholar-garden-v1':'{broken','lux-progress-auto-v1':snapshot(state(2))});
+test('corrupt main remains untouched until explicit verified restore',()=>{
+ const original='{broken',automatic=snapshot(state(2));
+ const storage=new StorageMock({'lux-scholar-garden-v1':original,'lux-progress-auto-v1':automatic});
  preflight(storage);
- assert.equal(JSON.parse(storage.getItem('lux-scholar-garden-v1')).state.daily[1].progress,30);
- assert.equal(storage.getItem('lux-scholar-garden-v1-unreadable'),'{broken');
+ assert.equal(storage.getItem('lux-scholar-garden-v1'),original,'startup must not silently overwrite an unreadable original');
+ assert.equal(storage.getItem('lux-progress-auto-v1'),automatic,'usable recovery copy is retained');
+ assert.equal(JSON.parse(automatic).data.includes('lux-scholar-garden'),true);
 });
 test('assessment review completion counts saved reviewCompletedIds after reload',()=>{
  const day=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
@@ -132,39 +139,51 @@ test('Continue skips completed and expired daily drafts',()=>{
  storage.setItem('lux-practice-drafts-v1',JSON.stringify({[key]:{...draft,planDate:YESTERDAY}}));
  assert.equal(J.resumeCandidates(current).length,0);
 });
-test('auto backup deduplicates unchanged progress and keeps stronger same-day state',()=>{
- const storage=new StorageMock(),live={...state(1),exportProgress(){return payload(this)}};
- const h=backupHarness(storage,live);
- h.save();const writes=storage.writes.filter(k=>k==='lux-progress-auto-v1').length;
- h.save();assert.equal(storage.writes.filter(k=>k==='lux-progress-auto-v1').length,writes);
- const prior=storage.getItem('lux-progress-auto-v1');
- live.daily[0].progress=0;h.save();
- assert.equal(storage.getItem('lux-progress-auto-v1'),prior);
+test('auto backup deduplicates unchanged progress and protects stronger same-day state',async()=>{
+ const live={...state(1),exportProgress(){return payload(this)}};
+ const h=backupHarness({},live);
+ await h.save();
+ const first=h.copies.get('lux-progress-auto-v1');
+ assert.equal(first.day,TODAY);
+ await h.save();
+ assert.deepEqual(h.copies.get('lux-progress-auto-v1'),first);
+ live.daily[0].progress=0;
+ await h.save();
+ assert.deepEqual(h.copies.get('lux-progress-auto-v1'),first);
 });
-test('auto backup keeps prior-day restore point when saving new-day work',()=>{
- const storage=new StorageMock({'lux-progress-auto-v1':snapshot(state(2,YESTERDAY))});
+test('auto backup preserves a prior-day restore point in IndexedDB vault',async()=>{
+ const old=JSON.parse(snapshot(state(2,YESTERDAY)));
  const live={...state(1,TODAY),exportProgress(){return payload(this)}};
- const h=backupHarness(storage,live);h.save();
- assert.equal(JSON.parse(storage.getItem('lux-progress-auto-v1')).day,TODAY);
- assert.equal(JSON.parse(storage.getItem('lux-progress-auto-v1-previous')).day,YESTERDAY);
- live.daily[1].progress=30;h.save();
- assert.equal(JSON.parse(storage.getItem('lux-progress-auto-v1-previous')).day,YESTERDAY);
+ const h=backupHarness({'lux-progress-auto-v1':old},live);
+ await h.save();
+ assert.equal(h.copies.get('lux-progress-auto-v1').day,TODAY);
+ assert.deepEqual(h.copies.get('lux-progress-auto-v1-previous'),old);
+ live.daily[1].progress=30;
+ await h.save();
+ assert.deepEqual(h.copies.get('lux-progress-auto-v1-previous'),old);
 });
-test('restore safeguards old progress and refuses to import when safeguard cannot fit',()=>{
- const source=file('assets/daily-progress-save.js'),i=source.indexOf('function restore('),j=source.indexOf('function mount(',i);
- let imported=false,reloaded=false;const live={...state(2),exportProgress(){return payload(this)},importProgress(){imported=true;return {ok:true}}};
- const storage=new StorageMock();
- const ctx=vm.createContext({store:{getState:()=>live},localStorage:storage,
+test('restore requires durable safeguard and verified primary persistence',async()=>{
+ const source=file('assets/daily-progress-save.js'),i=source.indexOf('async function restore('),j=source.indexOf('function mount(',i);
+ assert.ok(i>=0&&j>i);
+ let imported=false,reloaded=false,protectedCopy=null;
+ const live={...state(2),exportProgress(){return payload(this)},
+  importProgress(){imported=true;return {ok:true}}};
+ const disk=new StorageMock();
+ const ctx=vm.createContext({store:{getState:()=>live},localStorage:disk,
+  putBackup:async(k,value)=>{protectedCopy=value},
   BEFORE_RESTORE_KEY:'lux-progress-before-restore-v1',
   summary:x=>({day:x.today,done:x.daily.filter(t=>t.progress>=t.target).length,total:x.daily.length}),
   confirm:()=>true,status:()=>{},location:{reload:()=>{reloaded=true}},Date,JSON});
  vm.runInContext(source.slice(i,j)+'\nthis.restoreTest=restore',ctx,{timeout:4000});
- ctx.restoreTest(payload(state(0)),'Backup');
- assert.equal(imported,true);assert.equal(reloaded,true);
- assert.equal(JSON.parse(storage.getItem('lux-progress-before-restore-v1')).done,2);
- ctx.localStorage=new StorageMock({},1);imported=false;reloaded=false;
- ctx.restoreTest(payload(state(0)),'Backup');
- assert.equal(imported,false);assert.equal(reloaded,false);
+ await ctx.restoreTest(payload(state(0)),'Backup');
+ assert.equal(protectedCopy.done,2);
+ assert.equal(imported,true);
+ assert.equal(reloaded,false,'do not reload without durable primary data');
+ imported=false;reloaded=false;protectedCopy=null;
+ ctx.putBackup=async()=>{throw Error('vault full')};
+ await ctx.restoreTest(payload(state(0)),'Backup');
+ assert.equal(imported,false);
+ assert.equal(reloaded,false);
 });
 
 test('linked progress restore is atomic when one secondary save fails',()=>{
