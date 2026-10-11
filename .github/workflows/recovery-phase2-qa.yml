@@ -1,0 +1,29 @@
+name: Recovery Phase 2 QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - '404.html'
+      - 'assets/progress-preflight-20261007.js'
+      - 'assets/loading-recovery-20261007.js'
+      - 'assets/phase7-voice-cheers-20261011.js'
+      - 'tests/recovery-phase2-qa.mjs'
+      - '.github/workflows/recovery-phase2-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  recovery:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node tests/recovery-phase2-qa.mjs
+      - run: node tests/route-shell-qa.mjs
+      - run: node tests/daily-task-persistence-qa.mjs
+      - run: node tests/backup-schema-qa.mjs
+      - run: node tests/daily-counting-regression-qa.mjs
+      - run: node tests/priority-four-state-qa.mjs
