@@ -19,3 +19,8 @@
 .lux-phase7-growth-copy small{font:12px/1.35 system-ui,sans-serif;color:#63786e}
 .lux-phase7-growth-link{color:#27515b;font:650 12px/1.4 system-ui,sans-serif;text-underline-offset:3px;min-height:34px;display:inline-flex;align-items:center}
 @media(max-width:470px){.lux-phase7-growth{gap:8px;padding:11px}}
+
+.lux-p7-boss{margin:12px 0;padding:13px 17px;border-radius:16px;background:linear-gradient(120deg,#213e50,#36594c);border:1px solid #c6ac70;color:#fff4cc;font:600 18px/1.3 "Cormorant Garamond",Georgia,serif;box-shadow:0 8px 22px #122c3c25;animation:luxP7Victory .8s ease-out both}
+.lux-p7-evolution{position:fixed;z-index:60;top:calc(env(safe-area-inset-top) + 72px);left:50%;transform:translateX(-50%);width:max-content;max-width:90vw;padding:14px 20px;border-radius:999px;background:#f9f4e7;color:#284a51;border:1px solid #c6ac70;box-shadow:0 8px 30px #1c334229;font:650 17px/1.3 "Cormorant Garamond",Georgia,serif;pointer-events:none;animation:luxP7Victory .65s ease-out both}
+@keyframes luxP7Victory{from{opacity:0;translate:0 12px;filter:brightness(1.2)}to{opacity:1;translate:0 0;filter:none}}
+@media(prefers-reduced-motion:reduce){.lux-p7-boss,.lux-p7-evolution{animation:none!important}}
