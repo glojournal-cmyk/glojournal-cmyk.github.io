@@ -2111,7 +2111,8 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const production = isIndependentProduction(resolved);
 
   // Keep core XP/review scheduling, but stop its old streak-only topic mastery from running.
-  const coreMeta = { ...meta, topicId: undefined, excludeGeneralDaily: false };
+  const inRecovery = typeof window !== "undefined" && new URLSearchParams(window.location.search).has("recover");
+  const coreMeta = { ...meta, topicId: undefined, excludeGeneralDaily: inRecovery };
   const result = originalRecordAttempt(questionId, correct, subject, coreMeta);
   const after = store.getState();
   store.setState({formalAttemptLog: globalThis.LuxWeeklyEvidence.append(before.formalAttemptLog, {
