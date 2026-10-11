@@ -39,7 +39,7 @@
    if(!prior||prior.day!==now.day){prior=now;return}
    const gained=[...now.done].filter(id=>!prior.done.has(id));
    prior=now;
-   if(gained.length)celebrate(gained.length);
+   if(gained.length){celebrate(gained.length);root.dispatchEvent(new Event("lux:phase7-mission-complete"));}
  }
  function schedule(){if(!queued){queued=true;queueMicrotask(refresh)}}
  if(location.pathname!=="/")return;
