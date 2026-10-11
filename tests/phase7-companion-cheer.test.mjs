@@ -49,3 +49,15 @@ test('Phase 7B adds companion encouragement only to verified completed missions'
  assert.doesNotMatch(js,/localStorage\.setItem|setState\(|awardXP|importProgress|\.progress\s*=/);
  assert.match(html,/phase7-mission-growth-20261011\.js/);
 });
+
+test('Pet level and weekly boss celebrations are presentation-only and gated by verified evidence',()=>{
+ const source=readFileSync(new URL('../assets/phase7-boss-pet-celebration-20261011.js',import.meta.url),'utf8');
+ const pet=readFileSync(new URL('../pet/index.html',import.meta.url),'utf8');
+ const boss=readFileSync(new URL('../play/weekly-boss/index.html',import.meta.url),'utf8');
+ assert.match(source,/Boss cleared/);
+ assert.match(source,/newest\?\.kind!=="evolution"/);
+ assert.match(source,/after\.mpTransactions\.length<=\(before\.mpTransactions\|\|\[\]\)\.length/);
+ assert.doesNotMatch(source,/setItem\(|setState\(|awardXP|savePet\(/);
+ assert.match(pet,/phase7-boss-pet-celebration-20261011\.js/);
+ assert.match(boss,/phase7-boss-pet-celebration-20261011\.js/);
+});
