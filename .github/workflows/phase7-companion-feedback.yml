@@ -5,6 +5,7 @@ on:
     paths:
       - 'assets/phase7-companion-cheer-20261011.js'
       - 'assets/phase7-voice-cheers-20261011.js'
+      - 'assets/phase7-mission-growth-20261011.js'
       - 'assets/phase7-companion-cheer-20261011.css'
       - 'tests/phase7-companion-cheer.test.mjs'
       - 'index.html'
@@ -22,5 +23,6 @@ jobs:
           node-version: 22
       - run: node --check assets/phase7-companion-cheer-20261011.js
       - run: node --check assets/phase7-voice-cheers-20261011.js
+      - run: node --check assets/phase7-mission-growth-20261011.js
       - run: node --test tests/phase7-companion-cheer.test.mjs
       - run: node tests/route-shell-qa.mjs
