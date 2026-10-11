@@ -69,27 +69,8 @@
   function write(key, value) {
     try { localStorage.setItem(key, value); return localStorage.getItem(key) === value; } catch (e) { return false; }
   }
-  var raw = read(KEY);
-  if (raw != null) {
-    var saved = parse(raw);
-    if (!(saved && typeof saved === "object" && usable(saved.state))) {
-      if (write(QUARANTINE, raw)) {
-        var restored = false;
-        for (var i = 0; i < BACKUPS.length; i++) {
-          var copy = parse(read(BACKUPS[i]));
-          var data = copy && typeof copy.data === "string" ? parse(copy.data) : null;
-          if (!data || !usable(data.state)) continue;
-          var version = typeof data.version === "number" ? data.version : 10;
-          restored = write(KEY, JSON.stringify({ state: data.state, version: version }));
-          if (restored) break;
-        }
-        if (!restored) {
-          try { localStorage.removeItem(KEY); } catch (e) {}
-        }
-      }
-    }
-  }
-  var current = parse(read(KEY));
+  // Never overwrite, trim or delete an unreadable Scholar record on launch.
+  // A separate, user-selected restore workflow can repair a corrupted state.
   // A healthy save is not a reason to erase previous automatic backups.
   var root = typeof window === "undefined" ? globalThis : window;
   // Legacy callers may request this; deliberately never erase backups or reviews.
