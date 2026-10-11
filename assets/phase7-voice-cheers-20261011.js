@@ -4,8 +4,8 @@
 "use strict";
 const KEY="lux-encouragement-voice-v1";
 const lines=["Well done!","Superb!","Great job!","Excellent!"];
-let enabled=true,unlocked=false,spokenAt=0,next=0,queued=false,seen=new WeakSet();
-try{enabled=localStorage.getItem(KEY)!=="off"}catch{}
+let enabled=false,unlocked=false,spokenAt=0,next=0,queued=false,seen=new WeakSet();
+try{enabled=localStorage.getItem(KEY)==="on"}catch{}
 function speak(preview=false){
  if(!enabled||!unlocked||!root.speechSynthesis||typeof root.SpeechSynthesisUtterance!=="function")return false;
  const now=Date.now();
