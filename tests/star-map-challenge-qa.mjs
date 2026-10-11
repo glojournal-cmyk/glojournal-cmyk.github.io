@@ -14,5 +14,11 @@ assert.equal(advanceMap(state,next,5,'anything').ignored,true,'cannot skip gates
 assert.equal(gradeTask(tasks[4],String(tasks[4].numeric)),false,'speed needs unit');assert.equal(gradeTask(tasks[4],`${tasks[4].numeric} m/s`),true);assert.equal(gradeTask(tasks[4],`${tasks[4].numeric} s/m`),false);assert.equal(gradeTask(tasks[4],`${tasks[4].numeric} m/s 99`),false);assert.equal(gradeTask(tasks[7],'-5'),false);assert.equal(gradeTask(tasks[7],'5 units'),true);
 for(const week of ['2026-10-05','2026-10-12','2026-10-19'])for(const task of missionFor(week))assert.equal(gradeTask(task,task.answer??`${task.numeric} ${task.unit}`),true);
 const ui=fs.readFileSync('assets/star-map-challenge-20261004.js','utf8');assert.ok(!/recordAttempt|completeWeeklyBoss|award\(/.test(ui),'theme cannot create formal mastery or replay rewards');assert.match(ui,/store.setState\(\{starMapChallenge/);assert.match(ui,/Skip animations/);assert.match(ui,/actual!==week/);
+assert.match(ui,/THIS WEEK’S RARE FIND/);
+assert.match(ui,/CHALLENGE \$\{progress%2\+1\} OF 2/);
+assert.match(ui,/sm-chapter-celebrations/);
+assert.match(ui,/sm-collector-teaser/);
+assert.match(ui,/missionNames\[stage\]/);
+assert.match(ui,/store\.setState\(\{starMapChallenge/);
 assert.match(fs.readFileSync('assets/index-BLVOhKhN.js','utf8'),/state: store.getState\(\)/,'complete backups include the custom state');
 console.log('Star map QA passed: four gates, eight tasks, units, exact marking, wrong-answer retry, reload, weekly collection deduplication, London rollover/DST and backup inclusion.');
