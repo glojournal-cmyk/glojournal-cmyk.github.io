@@ -7,6 +7,7 @@ const AUTO_KEY = "lux-progress-auto-v1";
 const BEFORE_RESTORE_KEY = "lux-progress-before-restore-v1";
 let autoTimer, lastAutoSignature = "", selectedRestore = null, currentExportShared = false;
 let lastAutoAttemptAt = 0, quotaRetryAfter = 0;
+const previewCache=new Map();
 const MIN_AUTO_INTERVAL_MS = 90000, QUOTA_RETRY_MS = 600000;
 function backupSignature(data) {
  try {
@@ -167,7 +168,7 @@ function previewRestore(data, name, meta = {}) {
   } catch(error) { selectedRestore=null;const box=document.getElementById('daily-restore-preview');if(box)box.hidden=true;status(error.message||'Could not read this backup.','error'); }
 }
 async function exportAutomaticCopy(key,label) {
-  const saved=await readBackup(key);
+  const saved=previewCache.get(key)||await readBackup(key);
   if (!saved?.data || typeof saved.data !== "string") {
     status("No automatic copy is stored on this iPad.", "error");
     return;
@@ -213,6 +214,7 @@ async function refreshCopies(){
  for(const [id,key] of [['daily-before-restore',BEFORE_RESTORE_KEY],['daily-auto-previous',PREVIOUS_KEY],['daily-auto-restore',AUTO_KEY],['daily-auto-export',AUTO_KEY],['daily-auto-previous-export',PREVIOUS_KEY],['daily-restore-button',SNAPSHOT_KEY]]){
    const button=document.getElementById(id);if(!button)continue;
    const saved=await readBackup(key);
+   if(saved)previewCache.set(key,saved);
    button.disabled=!saved?.data;
    const info=document.getElementById(id+"-info");
    if(info)info.textContent=saved?.data?`${new Date(saved.savedAt).toLocaleString("en-GB")} · ${saved.day} · ${saved.done}/${saved.total} tasks`:"No copy saved yet";
@@ -248,8 +250,8 @@ function mount() {
     <div class="daily-save-heading"><strong>Keep your progress</strong><p id="daily-save-status" role="status" aria-live="polite"></p></div>
     <p id="daily-auto-status" role="status" aria-live="polite"></p>
     <div class="daily-save-actions"><button id="daily-save-button" type="button">Save progress & backup</button>
-      <button id="daily-free-backup-space" type="button" hidden>Free backup space after export</button></div>
-    <p class="daily-save-note">If iPad storage is full, this button will still offer an external JSON export. Verify the file in Files before leaving this page.</p>
+</div>
+    <p class="daily-save-note">Directly exports your current progress to Files without first using iPad website storage. Always verify the JSON file in Files.</p>
     <details id="daily-recovery-options"><summary>Backup history & restore</summary>
       <p class="daily-save-note">Preview a copy before restoring. Files kept in Files or iCloud Drive can recover progress after browser data is cleared.</p>
       <div class="daily-backup-copy"><button id="daily-before-restore" type="button">Preview progress before last restore</button><p id="daily-before-restore-info"></p></div>
@@ -268,21 +270,21 @@ function mount() {
     </details>
     <p class="daily-save-note">Progress saves automatically on this device. Save a backup file to keep a separate copy.</p>`;
   card.append(panel);
-  status(savedStatus());
+  status("Tap Save progress & backup to export the current XP and tasks safely.");
   refreshCopies();
   panel.querySelector('#daily-recovery-options').addEventListener('toggle',refreshCopies);
   panel.querySelector('#daily-restore-apply').addEventListener('click',()=>{if(selectedRestore)restore(selectedRestore.data,selectedRestore.name)});
   panel.querySelector('#daily-restore-cancel').addEventListener('click',()=>{selectedRestore=null;panel.querySelector('#daily-restore-preview').hidden=true;status(savedStatus())});
-  try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY)||"null");if(saved)document.getElementById("daily-auto-status").textContent=`Automatically saved ${new Date(saved.savedAt).toLocaleString("en-GB")}`;}catch{}
-  panel.querySelector("#daily-before-restore").addEventListener("click",()=>{try{const saved=JSON.parse(localStorage.getItem(BEFORE_RESTORE_KEY)||"null");if(saved)previewRestore(saved.data,"Progress before last restore",saved);else status("No pre-restore recovery copy yet.");}catch{status("Could not read the recovery copy.","error")}});
-  panel.querySelector("#daily-auto-previous").addEventListener("click",()=>{try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY+"-previous")||"null");if(saved)previewRestore(saved.data,"Previous automatic copy",saved);else status("No previous automatic backup yet.");}catch{status("Could not read the previous backup.","error")}});
-  panel.querySelector("#daily-auto-restore").addEventListener("click",()=>{try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY)||"null");if(saved)previewRestore(saved.data,"Latest automatic copy",saved);else status("No automatic backup yet.");}catch{status("Could not read the automatic backup.","error")}});
+  readBackup(AUTO_KEY).then(saved=>{if(saved){previewCache.set(AUTO_KEY,saved);const el=document.getElementById("daily-auto-status");if(el)el.textContent="Automatically saved "+new Date(saved.savedAt).toLocaleString("en-GB")}}).catch(()=>{});
+  panel.querySelector("#daily-before-restore").addEventListener("click",async()=>{const saved=previewCache.get(BEFORE_RESTORE_KEY)||await readBackup(BEFORE_RESTORE_KEY);if(saved)previewRestore(saved.data,"Progress before last restore",saved);else status("No saved copy available.","error")});
+  panel.querySelector("#daily-auto-previous").addEventListener("click",async()=>{const saved=previewCache.get(PREVIOUS_KEY)||await readBackup(PREVIOUS_KEY);if(saved)previewRestore(saved.data,"Previous automatic copy",saved);else status("No saved copy available.","error")});
+  panel.querySelector("#daily-auto-restore").addEventListener("click",async()=>{const saved=previewCache.get(AUTO_KEY)||await readBackup(AUTO_KEY);if(saved)previewRestore(saved.data,"Latest automatic copy",saved);else status("No saved copy available.","error")});
   panel.querySelector("#daily-auto-export").addEventListener("click",()=>exportAutomaticCopy(AUTO_KEY,"auto-latest"));
-  panel.querySelector("#daily-auto-previous-export").addEventListener("click",()=>exportAutomaticCopy(AUTO_KEY+"-previous","auto-previous"));
+  panel.querySelector("#daily-auto-previous-export").addEventListener("click",()=>exportAutomaticCopy(PREVIOUS_KEY,"auto-previous"));
   panel.querySelector("#daily-save-button").addEventListener("click", save);
-  panel.querySelector("#daily-free-backup-space").addEventListener("click",freeDuplicateBackups);
-  panel.querySelector("#daily-restore-button").addEventListener("click", () => {
-    const saved = savedCopy();
+
+  panel.querySelector("#daily-restore-button").addEventListener("click", async () => {
+    const saved = previewCache.get(SNAPSHOT_KEY)||await readBackup(SNAPSHOT_KEY);
     if (!saved) return status("No saved copy on this iPad.", "error");
     previewRestore(saved.data,"Manual backup",saved);
   });
@@ -302,4 +304,30 @@ new MutationObserver(() => {
 }).observe(document.documentElement, { childList: true, subtree: true });
 mount();
 
-// Start after the store has hydrated; never replace an older recovery copy merely on opening.
+// Archive duplicate snapshots only after IndexedDB commits and a readback
+// proves byte-identical. The main Scholar data is never removed.
+async function reclaimBackupStorage(){
+ try{
+  const result=await migrateOldBackups();
+  await refreshCopies();
+  if(!result.moved)return;
+  const live=store.getState();
+  if(store.persist?.hasHydrated?.()===false)return;
+  try{store.setState({})}catch{}
+  const persisted=JSON.parse(localStorage.getItem("lux-scholar-garden-v1")||"null")?.state;
+  const same=!!persisted&&persisted.xp===live.xp&&persisted.today===live.today&&
+    JSON.stringify((persisted.daily||[]).map(t=>[t.id,t.progress,t.target]))===
+    JSON.stringify((live.daily||[]).map(t=>[t.id,t.progress,t.target]));
+  if(same){
+    quotaRetryAfter=0;
+    status("Saved in iPad storage. Automatic backups protected in the recovery vault.","success");
+  }else{
+    status("Backups safely archived, but live progress is not yet verified. Export your current progress to Files before reloading.","error");
+  }
+ }catch{
+  status("iPad backup vault unavailable. Keep all existing data and export progress to Files.","error");
+ }
+}
+if(store.persist?.hasHydrated?.()===false)store.persist.onFinishHydration(()=>reclaimBackupStorage());
+else reclaimBackupStorage();
+
