@@ -7,6 +7,7 @@ on:
       - 'assets/phase7-voice-cheers-20261011.js'
       - 'assets/phase7-mission-growth-20261011.js'
       - 'assets/phase7-boss-pet-celebration-20261011.js'
+      - 'assets/phase7-pet-personality-20261011.js'
       - 'pet/index.html'
       - 'play/weekly-boss/index.html'
       - 'assets/phase7-companion-cheer-20261011.css'
@@ -28,5 +29,6 @@ jobs:
       - run: node --check assets/phase7-voice-cheers-20261011.js
       - run: node --check assets/phase7-mission-growth-20261011.js
       - run: node --check assets/phase7-boss-pet-celebration-20261011.js
+      - run: node --check assets/phase7-pet-personality-20261011.js
       - run: node --test tests/phase7-companion-cheer.test.mjs
       - run: node tests/route-shell-qa.mjs
