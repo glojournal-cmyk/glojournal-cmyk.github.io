@@ -1,0 +1,23 @@
+name: Weekly Boss Chapter QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/star-map-challenge-20261004.js'
+      - 'assets/star-map-challenge-20261004.css'
+      - 'assets/star-map-state-20261004.js'
+      - 'tests/star-map-challenge-qa.mjs'
+      - '.github/workflows/weekly-boss-chapter-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --check assets/star-map-challenge-20261004.js
+      - run: node tests/star-map-challenge-qa.mjs
