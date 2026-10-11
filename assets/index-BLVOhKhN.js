@@ -2378,7 +2378,7 @@ function findRecoveryVocabSource(state, date, subject) {
   if (!tasks.some(t=>t.id===id) && typeof localStorage !== "undefined") {
     for (const key of ["lux-progress-auto-v1","lux-progress-auto-v1-previous","lux-daily-manual-backup-v1"]) {
       try {
-        const saved=JSON.parse(localStorage.getItem(key)||"null");
+        const saved=JSON.parse(localStorage.getItem(key)||"null")||globalThis.LuxArchivedBackupCache?.[key];
         if (!saved?.data)continue;
         const snapshot=JSON.parse(saved.data)?.state;
         const candidates=[
