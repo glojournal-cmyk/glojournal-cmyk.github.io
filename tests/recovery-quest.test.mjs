@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
 
 const js=readFileSync(new URL("../assets/index-BLVOhKhN.js",import.meta.url),"utf8");
-const start=js.indexOf("function recordDailyVocabAttempt(");
+const start=js.indexOf("function findRecoveryVocabSource(");
 const end=js.indexOf("function patchedRecordSpelling(",start);
 assert.ok(start>=0&&end>start,"Recovery handler must be present in deployed module");
 const factory=new Function("store","todayKey","originalAward","normalizeState","originalBumpDaily",
