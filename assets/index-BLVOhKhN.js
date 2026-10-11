@@ -1227,6 +1227,26 @@ function completedYear8ReviewEvidence(state) {
   };
 }
 
+const mistakeCatalogCache = new Map();
+function mistakeTopicAvailable(subject, topicId, year) {
+  if (!SUBJECTS.includes(subject) || !topicId) return false;
+  const years = Number(year) === 8 ? [8,9] : [9,8];
+  for (const yr of years) {
+    const key = subject + ":" + yr;
+    let enabled = mistakeCatalogCache.get(key);
+    if (!enabled) {
+      try {
+        enabled = new Set((getTopicCatalog(subject, yr) || [])
+          .filter(t => t?.status !== "disabled" && Number(t?.enabled ?? t?.questions ?? 1) > 0)
+          .map(t => t.topicId).filter(Boolean));
+      } catch { enabled = new Set(); }
+      mistakeCatalogCache.set(key, enabled);
+    }
+    if (enabled.has(topicId)) return true;
+  }
+  return false;
+}
+
 function buildAdaptiveDaily(state) {
   function masteryKeyCount(topicId) {
     const day = state.today || todayKey();
@@ -1363,7 +1383,7 @@ function buildAdaptiveDaily(state) {
     Object.values(state.weeklyBoss?.weeks || {}).some((week) => week?.completedAt && localDayFromIso(week.completedAt) === state.today);
 
   return [
-    mistakeReviewTask(state),
+    mistakeReviewTask(state, undefined, mistakeTopicAvailable),
     { id: "study-session", title, detail, href: focusHref(focus, state), target: 10, progress: studyProgress, xp: 10, planDate: state.today, focusSubject: focus.subject, focusTopic: focus.topicId, focusSkill: focus.skillId || null, focusSkillLabel: focus.skillLabel || null, focusReason: focus.reason, focusDueCount: focus.dueCount || 0, focusAccuracy: focus.accuracy, focusErrorType: focus.errorType || null },
     { id: "french-vocab", title: "Year 7–8 French vocab", detail: `Year 7–8 French vocabulary revision · ${frenchVocab.correct}/30 correct. Words and taught phrases only; spelling and meaning. Wrong answers do not count. Due mistakes come first (up to 10 per set), followed by rotating Year 7–8 words.`, href: "/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab", target: 30, progress: frenchVocab.progress, xp: 15, requiredCorrect: 30, attempts: frenchVocab.attempts, correct: frenchVocab.correct, planDate: state.today },
     { id: "latin-vocab", title: "Year 7–8 Latin vocab", detail: `Year 7–8 Latin vocabulary revision · ${latinVocab.correct}/30 correct. Words and taught phrases only; spelling and meaning. Wrong answers do not count. Due mistakes come first (up to 10 per set), followed by rotating Year 7–8 words.`, href: "/study/latin/practise?daily=1&locked=1&year=8&mode=y8vocab&task=latin-vocab", target: 30, progress: latinVocab.progress, xp: 15, requiredCorrect: 30, attempts: latinVocab.attempts, correct: latinVocab.correct, planDate: state.today },
