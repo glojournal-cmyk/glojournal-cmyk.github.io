@@ -1,0 +1,24 @@
+name: Phase 7 companion feedback QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/phase7-companion-cheer-20261011.js'
+      - 'assets/phase7-companion-cheer-20261011.css'
+      - 'tests/phase7-companion-cheer.test.mjs'
+      - 'index.html'
+      - '.github/workflows/phase7-companion-feedback.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --check assets/phase7-companion-cheer-20261011.js
+      - run: node --test tests/phase7-companion-cheer.test.mjs
+      - run: node tests/route-shell-qa.mjs
