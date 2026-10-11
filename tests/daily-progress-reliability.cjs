@@ -37,8 +37,7 @@ function planner(){
  "const todayKey=()=> '2026-10-10',DAILY_SUBJECTS=['latin','french','biology','chemistry','physics'],SUBJECT_LABELS={latin:'Latin'},YEAR8_MASTERY_SUBJECTS=['latin','french'],FRENCH_DAILY_HREF='/study/french/practise';",
  "const curriculumFocusAllowed=()=>true,topicMatchesYear=()=>true,adaptiveFocus=()=>({subject:'latin',topicId:'la-y8-x',reason:'foundation'}),topicTitle=()=>'Basics',errorLabel=()=>'',topicAttemptsToday=()=>0,focusAttemptsToday=()=>0;",
  "const year8ReviewPlan=()=>({subject:'latin',topicId:'la-y8-x',label:'Latin',topicLabel:'Basics',href:'/study/latin/practise?mode=standard',ready:true}),completedYear8ReviewEvidence=()=>null,vocabGateState=()=>({correct:0,progress:0,attempts:0});",
- "const mistakeTopicAvailable=()=>true;
-const firstUnmastered=()=>({subject:'latin',topicId:'la-y8-x'}),year8AssignedPool=()=>[],year8TopicRank=()=>0,year8AssignedTitle=()=>'Year 8 topic',year8AssignedHref=()=>'/study/latin/practise?mode=standard';",
+ "const mistakeTopicAvailable=()=>true,firstUnmastered=()=>({subject:'latin',topicId:'la-y8-x'}),year8AssignedPool=()=>[],year8TopicRank=()=>0,year8AssignedTitle=()=>'Year 8 topic',year8AssignedHref=()=>'/study/latin/practise?mode=standard';",
  "const assignedCurriculumPick=()=>({subject:'latin',topicId:'la-y8-x',year:8,position:1,total:2,topicLabel:'Basics'}),mistakeReviewTask=()=>({id:'mistake-review',title:'Previous mistakes',target:1,progress:1,href:'/study',planDate:'2026-10-10'}),focusHref=()=>'/study/latin/practise?mode=standard';"
  ].join('\n');
  const ctx=vm.createContext({});
@@ -62,7 +61,7 @@ function backupHarness(initial,live){
   document:{getElementById:()=>({set textContent(x){statuses.push(x)}})},Date,JSON,
   setTimeout:()=>{},window:{}});
  vm.runInContext(source.slice(i,j)+'\n'+source.slice(a,b)+'\nfunction refreshCopies(){}',ctx,{timeout:4000});
- return {save:()=>ctx.autoSave(),copies,statuses};
+ return {save:()=>ctx.autoSave(true),copies,statuses};
 }
 test('all ten daily tasks remain; yesterday game/garden/focus credits reset',()=>{
  const run=planner();
