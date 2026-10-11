@@ -2,9 +2,8 @@
    Existing result controls, XP, stars and completion remain authoritative. */
 (function(root){
 "use strict";
-let scheduled=false;
+let attempts=0, timer=null;
 function enhance(){
- scheduled=false;
  if(!root.__luxAppReady)return;
  for(const card of document.querySelectorAll(".lux-mission-v2.is-complete")){
    if(card.querySelector(".lux-phase7-growth"))continue;
@@ -30,11 +29,18 @@ function enhance(){
  }
 }
 function schedule(){
- if(scheduled)return;scheduled=true;
- queueMicrotask(enhance);
+ if(timer!==null)return;
+ timer=root.setTimeout(()=>{timer=null;enhance()},250);
 }
-new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});
-root.addEventListener("lux:app-ready",schedule);
-root.addEventListener("pageshow",schedule);
-schedule();
+function boot(){
+ enhance();
+ if(attempts++>=12)return;
+ if(timer!==null)root.clearTimeout(timer);
+ timer=root.setTimeout(()=>{timer=null;boot()},500);
+}
+root.addEventListener("lux:app-ready",boot);
+root.addEventListener("pageshow",boot);
+root.addEventListener("scholar:session-saved",schedule);
+root.addEventListener("scholar:learning-changed",schedule);
+boot();
 })(globalThis);
