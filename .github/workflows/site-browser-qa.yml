@@ -12,6 +12,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: {node-version: 22}
       - run: node tests/all-feature-qa.mjs
+      - name: Verify production route and runtime imports
+        run: |
+          node tests/route-shell-qa.mjs
+          node tests/overall-app-qa.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with: {name: all-feature-qa, path: test-results}
