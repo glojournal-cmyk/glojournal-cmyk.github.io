@@ -1,4 +1,4 @@
-export { component } from "./routes-BEd1a0JC.core.js?v=20261010-chem-marking1";
+export { component } from "./routes-BEd1a0JC.core.js?v=20261011-storage-qa1";
 import { C as store } from "./index-BLVOhKhN.js?v=20261011-storage-qa1";
 
 function continueHref() {
