@@ -38,3 +38,14 @@ test('Phase 7B voice encouragement is opt-in, throttled, and does not alter mark
  assert.doesNotMatch(voice,/setState\(|importProgress\(|awardXP\(/);
  assert.match(html,/phase7-voice-cheers-20261011\.js/);
 });
+
+test('Phase 7B adds companion encouragement only to verified completed missions',()=>{
+ const js=readFileSync(new URL('../assets/phase7-mission-growth-20261011.js',import.meta.url),'utf8');
+ assert.match(js,/\.lux-mission-v2\.is-complete/);
+ assert.match(js,/is-unverified/);
+ assert.match(js,/lux-phase7-growth/);
+ assert.match(js,/Companion Corner/);
+ assert.match(js,/card\.querySelector\("\.lux-phase7-growth"\)/);
+ assert.doesNotMatch(js,/localStorage\.setItem|setState\(|awardXP|importProgress|\.progress\s*=/);
+ assert.match(html,/phase7-mission-growth-20261011\.js/);
+});
