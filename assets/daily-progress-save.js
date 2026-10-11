@@ -105,17 +105,28 @@ async function save() {
     if (parsed.app !== "lux-scholar-garden" || !Array.isArray(parsed.state?.daily)) throw new Error("The backup could not be checked.");
     const today = summary(parsed.state);
     const saved = { savedAt: new Date().toISOString(), ...today, data };
-    localStorage.setItem(SNAPSHOT_KEY, JSON.stringify(saved));
-    if (savedCopy()?.data !== data) throw new Error("The local backup could not be verified.");
-    status("Saved on this iPad. Choose Save to Files in the share sheet for a separate copy.", "success");
+    // Storage quota can be exhausted by revision history. File export MUST
+    // remain available even when a second localStorage copy cannot be written.
+    let localSaved = false;
+    try {
+      localStorage.setItem(SNAPSHOT_KEY, JSON.stringify(saved));
+      localSaved = savedCopy()?.data === data;
+    } catch (error) {
+      // Keep the existing automatic and manual snapshots untouched.
+      // Continue to the user-initiated external file export below.
+    }
+    status(localSaved
+      ? "Saved on this iPad. Choose Save to Files for a separate copy."
+      : "Device storage is full. Export this progress to Files now; local backup was not updated.", localSaved ? "success" : "warning");
     const filename = `scholar-garden-${today.day || "progress"}-${new Date().toISOString().slice(11, 16).replace(":", "")}.json`;
     const file = new File([data], filename, { type: "application/json" });
     if (navigator.canShare?.({ files: [file] }) && navigator.share) {
       try {
         await navigator.share({ files: [file], title: "Scholar Garden progress backup" });
-        status("Saved on this iPad and shared. Keep the file in Files for recovery.", "success");
+        status("Progress file shared. Verify the JSON file is in Files or iCloud Drive before reloading.", "success");
       } catch (error) {
-        if (error?.name !== "AbortError") status("Saved on this iPad. Share sheet failed; use Export progress in Scholar for a file.", "warning");
+        if (error?.name === "AbortError") status("Share cancelled. Please save a JSON copy to Files before reloading.", "warning");
+        else status("Share failed. Try exporting again; do not clear website data.", "error");
       }
     } else {
       const url = URL.createObjectURL(file);
@@ -123,7 +134,7 @@ async function save() {
       link.href = url; link.download = filename;
       document.body.append(link); link.click(); link.remove();
       setTimeout(() => URL.revokeObjectURL(url), 60000);
-      status("Saved on this device and backup file downloaded. Keep the file in a safe place.", "success");
+      status("Backup file download started. Verify the JSON file in Files before reloading.", "success");
     }
   } catch (error) {
     status(`Save failed: ${error?.message || "Please try again."}`, "error");
@@ -224,6 +235,7 @@ function mount() {
     <div class="daily-save-heading"><strong>Keep your progress</strong><p id="daily-save-status" role="status" aria-live="polite"></p></div>
     <p id="daily-auto-status" role="status" aria-live="polite"></p>
     <div class="daily-save-actions"><button id="daily-save-button" type="button">Save progress & backup</button></div>
+    <p class="daily-save-note">If iPad storage is full, this button will still offer an external JSON export. Verify the file in Files before leaving this page.</p>
     <details id="daily-recovery-options"><summary>Backup history & restore</summary>
       <p class="daily-save-note">Preview a copy before restoring. Files kept in Files or iCloud Drive can recover progress after browser data is cleared.</p>
       <div class="daily-backup-copy"><button id="daily-before-restore" type="button">Preview progress before last restore</button><p id="daily-before-restore-info"></p></div>
