@@ -47,6 +47,8 @@ assert.match(ui,/sm-theme-picker/);
 assert.match(ui,/sm-theme-\$\{selected\}/);
 assert.match(ui,/sm-theme-scene/);
 assert.ok(ui.includes('weekly-scene-${selected}-20261011.svg'));
+assert.ok(ui.includes('weekly-reward-${selected}-20261011.svg'));
+for(const theme of ['physics','french','chemistry','biology']){const badge=fs.readFileSync('assets/weekly-reward-'+theme+'-20261011.svg','utf8');assert.match(badge,/<svg /);assert.match(badge,/viewBox="0 0 200 200"/)}
 for(const theme of ['physics','french','chemistry','biology']){const art=fs.readFileSync('assets/weekly-scene-'+theme+'-20261011.svg','utf8');assert.match(art,/<svg /);assert.match(art,/viewBox=\"0 0 640 400\"/);assert.match(art,/aria-label=/)}
 assert.match(ui,/info\.chapters\.map/);
 for(const t of ['french','chemistry','biology'])assert.match(fs.readFileSync('assets/star-map-challenge-20261004.css','utf8'),new RegExp('sm-theme-'+t+' \\.sm-theme-scene'));
