@@ -8,7 +8,7 @@ const BEFORE_RESTORE_KEY = "lux-progress-before-restore-v1";
 let autoTimer, lastAutoSignature = "", selectedRestore = null, currentExportShared = false;
 let lastAutoAttemptAt = 0, quotaRetryAfter = 0;
 const previewCache=new Map();
-const MIN_AUTO_INTERVAL_MS = 90000, QUOTA_RETRY_MS = 600000;
+const MIN_AUTO_INTERVAL_MS = 15000, QUOTA_RETRY_MS = 600000;
 function backupSignature(data) {
  try {
   const parsed = JSON.parse(data);
@@ -32,10 +32,14 @@ async function autoSave(force=false){
   if(signature===lastAutoSignature)return;
   const previous=await readBackup(AUTO_KEY),today=summary(state);
   if(previous?.data&&backupSignature(previous.data)===signature){lastAutoSignature=signature;return}
-  if(previous?.data&&previous.day===today.day&&Number(previous.done)>today.done){
-   const el=document.getElementById("daily-auto-status");
-   if(el)el.textContent="Saved copy has more completed tasks. Check Backup history before overwriting.";
-   return;
+  if(previous?.data&&previous.day===today.day){
+   let previousState=null;
+   try{previousState=JSON.parse(previous.data)?.state}catch{}
+   if(Number(previous.done)>today.done || Number(previousState?.xp)>Number(parsed.state?.xp)){
+    const el=document.getElementById("daily-auto-status");
+    if(el)el.textContent="A saved copy has more progress. Check Backup history before overwriting it.";
+    return;
+   }
   }
   if(previous?.data&&Number(parsed.state?.xp)===0){
    let before;try{before=JSON.parse(previous.data)?.state}catch{}
