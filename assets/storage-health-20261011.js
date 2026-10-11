@@ -16,9 +16,26 @@
       // Do not offer a normal href: a full document navigation could destroy
       // unsaved in-memory answers. Use the existing in-app Home tab instead.
       const instruction=document.createElement("strong");
-      instruction.textContent="Use the in-app Home tab, then Save progress & backup → Save to Files. Do not reload.";
+      instruction.textContent="Do not reload. ";
       instruction.style.cssText="color:#153951;margin-left:4px";
-      node.append(message,instruction);document.body.append(node);
+      node.append(message,instruction);
+      if(location.pathname==="/"){
+        const exportNow=document.createElement("button");
+        exportNow.type="button";exportNow.textContent="Export current progress";
+        exportNow.style.cssText="color:white;background:#17324d;border:0;border-radius:9px;padding:8px 12px;margin-left:8px;font:600 14px system-ui;cursor:pointer";
+        exportNow.addEventListener("click",()=>{
+          const save=document.getElementById("daily-save-button");
+          if(save){save.click();return}
+          document.getElementById("daily-save-panel")?.scrollIntoView({block:"center"});
+          exportNow.textContent="Scroll down to Keep your progress";
+        });
+        node.append(exportNow);
+      }else{
+        const note=document.createElement("span");
+        note.textContent="Use the in-app Home tab, then Export progress to Files.";
+        node.append(note);
+      }
+      document.body.append(node);
     }
     if(node)node.hidden=!missing;
   }
