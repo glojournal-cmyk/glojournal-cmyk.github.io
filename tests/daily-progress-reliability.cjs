@@ -155,7 +155,7 @@ test('auto backup preserves a prior-day restore point in IndexedDB vault',async(
  const live={...state(1,TODAY),exportProgress(){return payload(this)}};
  const h=backupHarness({'lux-progress-auto-v1':old},live);
  await h.save();
- assert.equal(h.copies.get('lux-progress-auto-v1').day,TODAY);
+ assert.equal(h.copies.get('lux-progress-auto-v1').day,TODAY,'AutoSave statuses: '+JSON.stringify(h.statuses));
  assert.deepEqual(h.copies.get('lux-progress-auto-v1-previous'),old);
  live.daily[1].progress=30;
  await h.save();
