@@ -24,9 +24,10 @@ function decoratePet(){
   let before=null;try{before=JSON.parse(localStorage.getItem("lux-pet-companion-v1")||"null")}catch{}
   // Let the existing authoritative evolution handler finish; only show a visual effect.
   root.setTimeout(()=>{
-   const transaction=document.querySelector("#mp-wallet-history");
-   const recent=transaction?.textContent||"";
-   if(!/evolution|Level [2-5]/i.test(recent))return;
+   let after=null;try{after=JSON.parse(localStorage.getItem("lux-pet-companion-v1")||"null")}catch{}
+   if(!before||!after||!Array.isArray(after.mpTransactions)||after.mpTransactions.length<=(before.mpTransactions||[]).length)return;
+   const newest=after.mpTransactions[after.mpTransactions.length-1];
+   if(newest?.kind!=="evolution"||newest.species!==after.species)return;
    const host=document.querySelector("main");
    if(!host)return;
    const note=document.createElement("div");
