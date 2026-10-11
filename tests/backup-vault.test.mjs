@@ -4,6 +4,7 @@ import {readFileSync} from "node:fs";
 const vaultSource=readFileSync(new URL("../assets/backup-vault-20261011.js",import.meta.url),"utf8")
   .replace(/^export /gm,"");
 function environment({failure=false}={}){
+ const queueMicrotask=fn=>Promise.resolve().then(fn);
  const data=new Map(),storeNames=new Set();
  const db={
   objectStoreNames:{contains:name=>storeNames.has(name)},
