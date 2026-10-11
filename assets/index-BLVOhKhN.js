@@ -1452,6 +1452,28 @@ function sealDailyLog(date, daily, existing) {
   return next;
 }
 
+// Repair historical Vocab omissions only from 30 distinct, correct,
+// dated answers already saved in the dedicated Vocab ledger.
+function verifiedVocabHistory(state, currentLog) {
+  let log=currentLog;
+  const dates=Object.keys(state.dailyVocabByDay||{}).filter(date=>date<state.today).sort().slice(-7);
+  for(const date of dates)for(const subject of ["french","latin"]){
+    const answers=state.dailyVocabByDay?.[date]?.[subject]?.items||{};
+    if(Object.values(answers).filter(Boolean).length<30)continue;
+    const source=findRecoveryVocabSource(state,date,subject);
+    if(!source?.task)continue;
+    const row=log[date]||{date,tasks:source.tasks};
+    const tasks=(row.tasks||[]).map(task=>task.id!==subject+"-vocab"?task:{
+      ...task,progress:Math.max(30,Number(task.progress)||0),target:30,done:true,
+      correctedFromVocabAnswers:true
+    });
+    if(!tasks.some(task=>task.id===subject+"-vocab"))continue;
+    const count=tasks.filter(t=>t.done||Number(t.progress)>=Number(t.target)).length;
+    const updated={...row,tasks,done:count,total:tasks.length,complete:count===tasks.length};
+    if(JSON.stringify(row)!==JSON.stringify(updated))log={...log,[date]:updated};
+  }
+  return log;
+}
 function normalizeState() {
   if (!allowNormalize || normalizing || sealingDay) return;
   const state = store.getState();
@@ -1505,7 +1527,8 @@ function normalizeState() {
   const daily = buildAdaptiveDaily(stateForDaily);
   if (JSON.stringify(daily) !== JSON.stringify(state.daily || [])) patch.daily = daily;
   const currentLog = state.dailyLog && typeof state.dailyLog === "object" ? state.dailyLog : {};
-  const nextLog = writeDailyLog(currentLog, state.today || calendarToday, daily);
+  const correctedLog = verifiedVocabHistory(state,currentLog);
+  const nextLog = writeDailyLog(correctedLog, state.today || calendarToday, daily);
   if (nextLog !== currentLog) patch.dailyLog = nextLog;
 
   if (Object.keys(patch).length) {
