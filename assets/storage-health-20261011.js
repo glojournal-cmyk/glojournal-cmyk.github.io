@@ -13,9 +13,12 @@
       node.style.cssText="position:fixed;bottom:calc(env(safe-area-inset-bottom,0px) + 82px);left:12px;right:12px;max-width:700px;margin:auto;z-index:2147483000;padding:12px 16px;border:2px solid #9b642b;border-radius:14px;background:#fff5df;color:#412914;box-shadow:0 4px 16px #0003;font:600 14px/1.5 system-ui";
       const message=document.createElement("span");
       message.textContent="iPad storage full — answers are in memory but may NOT survive reload. ";
-      const link=document.createElement("a");link.href="/";link.textContent="Go Home and export progress to Files";
-      link.style.cssText="color:#153951;text-decoration:underline;margin-left:4px";
-      node.append(message,link);document.body.append(node);
+      // Do not offer a normal href: a full document navigation could destroy
+      // unsaved in-memory answers. Use the existing in-app Home tab instead.
+      const instruction=document.createElement("strong");
+      instruction.textContent="Use the in-app Home tab, then Save progress & backup → Save to Files. Do not reload.";
+      instruction.style.cssText="color:#153951;margin-left:4px";
+      node.append(message,instruction);document.body.append(node);
     }
     if(node)node.hidden=!missing;
   }
