@@ -13,6 +13,7 @@ const context=vm.createContext({
   originalRecordAttempt(id,correct,subject,meta){state={...state,questionsToday:state.questionsToday+(!meta.repair&&meta.formal!==false&&!meta.excludeGeneralDaily?1:0),reviews:{...state.reviews,[id]:{last:day,due:'2026-10-02'}}};},
   inferAttemptMeta:(_id,subject,meta)=>({...meta,topicId:meta.topicId||topic,subject,topicTitle:'Numbers and age',skills:[]}),
   isIndependentProduction:()=>true,
+  dailyVocabSubject:()=>null,
   normalizeTopicStat:raw=>({attempted:0,correct:0,productionAttempted:0,productionIds:[],errors:{},errorTypes:{},recentOutcomes:[],state:'learning',...raw}),
   topicState:()=> 'learning',diagnoseError:()=>null,
   applyFormalSkillAttempt:s=>s,appendLearningEvents:e=>e,
