@@ -27,3 +27,11 @@ function quotaStorage(initial){const memory={...initial};let fail=true;const sto
 quotaStorage({'lux-progress-auto-v1-previous':'x'.repeat(20)});
 {const reviews={};for(let i=0;i<900;i++)reviews['q'+i]={due:'2026-01-01'};const huge=JSON.stringify({state:{xp:9,today:'2026-10-07',daily:[],reviews},version:10});const memory={'lux-scholar-garden-v1':'{"state":{"xp":1,"today":"2026-10-07"},"version":10}'};const storage={getItem:k=>Object.prototype.hasOwnProperty.call(memory,k)?memory[k]:null,setItem:(k,v)=>{if(v.length>20000){const error=new Error('The quota has been exceeded.');error.name='QuotaExceededError';throw error;}memory[k]=v;},removeItem:k=>{delete memory[k];}};vm.runInNewContext(fs.readFileSync('assets/progress-preflight-20261007.js','utf8'),{localStorage:storage});assert.doesNotThrow(()=>storage.setItem('lux-scholar-garden-v1',huge));const saved=JSON.parse(memory['lux-scholar-garden-v1']);assert.equal(saved.state.xp,9);assert.ok(Object.keys(saved.state.reviews).length<=500,'oversized practice history is trimmed instead of crashing');}
 assert(!/localStorage|removeItem|clearStorage/.test(source),'recovery does not modify saved data');console.log('LOADING_RECOVERY_QA passed: mount, hydration, root replacement, failure recovery, late load, saved data untouched');
+
+const shell=fs.readFileSync('index.html','utf8');
+assert.match(shell,/lux-emergency-boot-guard/,'an inline watchdog must not depend on an external JS download');
+assert.match(shell,/Retry safely/);
+assert.match(shell,/safeRetry/);
+assert.match(shell,/has NOT been cleared/);
+assert.ok(!shell.slice(shell.indexOf('id="lux-emergency-boot-guard"'),shell.indexOf('</script>',shell.indexOf('id="lux-emergency-boot-guard"'))).match(/localStorage\.(?:setItem|removeItem|clear)|indexedDB\.deleteDatabase/),'watchdog must be read-only');
+assert.equal(fs.readFileSync('404.html','utf8'),shell,'fallback should offer the same rescue');
