@@ -118,7 +118,7 @@ window.addEventListener("pageshow",queue);
 window.addEventListener("storage",queue);
 window.addEventListener("scholar:session-saved",queue);
 window.addEventListener("scholar:wardrobe-changed",queue);
-import("/assets/index-BLVOhKhN.js?v=20261010-chem-marking1").then(mod=>{
+import("/assets/index-BLVOhKhN.js?v=20261011-storage-qa1").then(mod=>{
  outfitCatalog=mod.A;
  mod.C?.subscribe?.(queue);
  queue();
