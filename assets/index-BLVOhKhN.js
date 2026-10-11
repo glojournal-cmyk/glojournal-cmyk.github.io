@@ -2133,13 +2133,13 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
       store.setState({reviews:correct?retainMistakeReview(store.getState().reviews,questionId,todayKey()):store.getState().reviews,daily:(store.getState().daily||[]).map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
     }
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-    if (vocabSubject) recordDailyVocabAttempt(vocabSubject, questionId, !!correct);
+    if (vocabSubject && !meta?.repair) recordDailyVocabAttempt(vocabSubject, questionId, !!correct);
     normalizeState();
     return result;
   }
   if (!resolved.topicId) {
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-    if (vocabSubject) recordDailyVocabAttempt(vocabSubject, questionId, !!correct);
+    if (vocabSubject && !meta?.repair) recordDailyVocabAttempt(vocabSubject, questionId, !!correct);
     return result;
   }
   const current = normalizeTopicStat(before.topicStats?.[resolved.topicId] || {});
