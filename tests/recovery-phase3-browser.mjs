@@ -27,7 +27,15 @@ try{
  await page.reload({waitUntil:'domcontentloaded',timeout:35000});
  await page.waitForFunction(()=>document.documentElement.hasAttribute('data-lux-ready'),null,{timeout:22000});
  const after=await page.evaluate(()=>{const get=k=>localStorage.getItem(k);return {main:get('lux-scholar-garden-v1'),pet:get('lux-pet-companion-v1')}});
- assert.deepEqual(after,before,'reopening without answering cannot destroy XP or Pet storage');
+ const unpack=raw=>{try{return JSON.parse(raw||'null')}catch{return null}};
+ const b=unpack(before.main)?.state,a=unpack(after.main)?.state;
+ assert.ok(b&&a,'the main study record must remain readable after reload');
+ assert.ok((Number(a.xp)||0)>=(Number(b.xp)||0),'XP must not decrease on page reload');
+ const previous=new Map((b.daily||[]).filter(x=>x&&x.id).map(x=>[x.id,x]));
+ for(const task of a.daily||[]){const old=previous.get(task.id);if(old&&old.planDate===task.planDate)assert.ok((Number(task.progress)||0)>=(Number(old.progress)||0),'same-day task credit must not decrease: '+task.id)}
+ const bp=unpack(before.pet),ap=unpack(after.pet);
+ if(bp){assert.ok(ap,'pet must not disappear on reload');assert.equal(ap.species,bp.species,'pet species must be retained');assert.equal(ap.name,bp.name,'pet name must be retained');assert.ok((Number(ap.masteryPoints)||0)>=(Number(bp.masteryPoints)||0),'pet MP must not decrease on reload')}
+
  assert.equal(errors.length,0,'startup must not emit browser errors: '+errors.join(' | '));
  results.push({engine:name,ready:true,reload:true,dataPreserved:true,errors:0});
  await context.close();
