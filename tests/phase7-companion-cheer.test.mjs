@@ -23,3 +23,18 @@ test('Visual feedback preserves marks, data, artwork and reduced-motion preferen
  assert.match(css,/@media\(prefers-reduced-motion:reduce\)/);
  assert.match(js,/note\.remove\(\)/);
 });
+
+test('Phase 7B voice encouragement is opt-in, throttled, and does not alter marks',()=>{
+ const voice=readFileSync(new URL('../assets/phase7-voice-cheers-20261011.js',import.meta.url),'utf8');
+ assert.match(voice,/Well done!/);
+ assert.match(voice,/Superb!/);
+ assert.match(voice,/Great job!/);
+ assert.match(voice,/Excellent!/);
+ assert.match(voice,/enabled=false/);
+ assert.match(voice,/12000/);
+ assert.match(voice,/speechSynthesis/);
+ assert.match(voice,/lux:phase7-mission-complete/);
+ assert.match(voice,/aria-pressed/);
+ assert.doesNotMatch(voice,/setState\(|importProgress\(|awardXP\(/);
+ assert.match(html,/phase7-voice-cheers-20261011\.js/);
+});
