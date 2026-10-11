@@ -51,9 +51,14 @@ export async function readBackup(key){
  const local=fromLocal(key);
  let vault=null;
  try{vault=await read(key)}catch{}
- if(!validSnapshot(vault))return local;
- // Keep a newer on-device snapshot, if one exists.
- return local&&Date.parse(local.savedAt||"")>Date.parse(vault.savedAt||"")?local:vault;
+ // Prefer a later copy but NEVER replace a valid one with corrupt data.
+ const result=!validSnapshot(vault)?local:
+   local&&Date.parse(local.savedAt||"")>Date.parse(vault.savedAt||"")?local:vault;
+ if(result&&typeof globalThis!=="undefined"){
+   globalThis.LuxArchivedBackupCache ||= {};
+   globalThis.LuxArchivedBackupCache[key]=result;
+ }
+ return result;
 }
 export async function putBackup(key,saved){
  if(!KEYS.includes(key)||!validSnapshot(saved))throw Error("Invalid backup");
