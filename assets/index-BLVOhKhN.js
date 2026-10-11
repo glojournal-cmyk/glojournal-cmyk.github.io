@@ -1039,7 +1039,14 @@ const DAILY_VOCAB_TARGET = 30;
 function vocabGateState(state, subject) {
   const day = state.today || todayKey();
   const row = state.dailyVocabByDay?.[day]?.[subject] || {};
-  const items = row.items && typeof row.items === "object" ? row.items : {};
+  const items = { ...(row.items && typeof row.items === "object" ? row.items : {}) };
+  // Count actual dated Vocab answers even when an earlier app version missed
+  // the dedicated daily ledger. Never count unrelated practice or repairs.
+  for (const entry of state.formalAttemptLog || []) {
+    if (entry?.day === day && entry?.dailyVocab === subject && entry?.questionId && !entry.repair) {
+      items[String(entry.questionId)] = !!entry.correct || !!items[String(entry.questionId)];
+    }
+  }
   const attempts = Object.keys(items).length;
   const correct = Object.values(items).filter(Boolean).length;
   const passed = correct >= DAILY_VOCAB_TARGET;
@@ -2139,7 +2146,8 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     at: new Date().toISOString(), questionId, correct: !!correct,
     subject: resolved.subject || subject, year: Number(meta.yearOverride || before.year || 9),
     topicId: resolved.topicId || null, topicTitle: resolved.topicTitle || meta.topicTitle || resolved.topicId || "General practice",
-    formal: meta.formal !== false, repair: !!meta.repair
+    formal: meta.formal !== false, repair: !!meta.repair,
+    dailyVocab: dailyVocabSubject(resolved.subject || subject, meta) || null
   }), evidenceStartedAt: before.evidenceStartedAt || new Date().toISOString()});
 
   if (meta?.formal === false) {
