@@ -15,6 +15,7 @@
  timer = setTimeout(function () {
   if (ready || document.documentElement.hasAttribute('data-lux-ready')) return;
   document.documentElement.setAttribute('data-lux-load-error', '');
+  if (document.getElementById('lux-loading-recovery')) return;
   const panel = document.createElement('section');
   panel.id = 'lux-loading-recovery';
   panel.setAttribute('role', 'alert');
