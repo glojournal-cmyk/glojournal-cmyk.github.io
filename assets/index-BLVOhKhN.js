@@ -1238,20 +1238,25 @@ const mistakeCatalogCache = new Map();
 function mistakeTopicAvailable(subject, topicId, year) {
   if (!SUBJECTS.includes(subject) || !topicId) return false;
   const years = Number(year) === 8 ? [8,9] : [9,8];
+  let catalogReady = false;
   for (const yr of years) {
     const key = subject + ":" + yr;
     let enabled = mistakeCatalogCache.get(key);
-    if (!enabled) {
+    // An empty catalogue can mean async topic data is still loading.
+    // Never cache a temporary empty result as a permanent verdict.
+    if (!enabled || !enabled.size) {
       try {
-        enabled = new Set((getTopicCatalog(subject, yr) || [])
+        const catalog=getTopicCatalog(subject, yr) || [];
+        if(catalog.length)catalogReady=true;
+        enabled = new Set(catalog
           .filter(t => t?.status !== "disabled" && Number(t?.enabled ?? t?.questions ?? 1) > 0)
           .map(t => t.topicId).filter(Boolean));
       } catch { enabled = new Set(); }
-      mistakeCatalogCache.set(key, enabled);
-    }
+      if(enabled.size)mistakeCatalogCache.set(key, enabled);
+    } else catalogReady=true;
     if (enabled.has(topicId)) return true;
   }
-  return false;
+  return !catalogReady;
 }
 
 function buildAdaptiveDaily(state) {
