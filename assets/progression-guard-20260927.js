@@ -1,4 +1,4 @@
-import {C as store,st as getTopicCatalog} from './index-BLVOhKhN.js?v=20261011-recovery-qa1';
+import {C as store,st as getTopicCatalog} from './index-BLVOhKhN.js?v=20261011-recovery-qa2';
 import {curriculumFrontier,curriculumHref,progressionSubjects} from './daily-curriculum-20261004.js?v=20261010-chem-marking1';
 function queryValue(params,key){return String(params.get(key)||'').replace(/^["']|["']$/g,'');}
 function learning(){try{return JSON.parse(localStorage.getItem('lux-topic-learning-v1')||'{}')}catch{return {}}}
