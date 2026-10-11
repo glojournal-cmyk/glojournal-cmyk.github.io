@@ -7,17 +7,19 @@ function correctedToday(state,id,day){
  const seen=review.last===day||String(review.lastAt||'').slice(0,10)===day;
  return seen&&review.wrong===false&&(!review.lastWrong||review.lastWrong<day);
 }
-export function mistakeReviewTask(state,assessment=globalThis.LuxPracticeBridge.readAssessment()){
+export function mistakeReviewTask(state,assessment=globalThis.LuxPracticeBridge.readAssessment(),availableTopic=null){
  const day=state.today,old=(state.daily||[]).find(t=>t.id==='mistake-review');
  // Never regenerate a deliberately excused stale question on the same day.
  if(old?.planDate===day&&old.reviewUnavailable===true)return old;
- if(old?.planDate===day&&old.reviewQuestionIds?.length){
+ if(old?.planDate===day&&old.reviewQuestionIds?.length && (old.reviewSource==="assessment" || !availableTopic || old.reviewTopicIds?.some(id=>availableTopic(old.reviewSubject,id,old.reviewYear)))){
   const fromPractice=old.reviewSource==='assessment'?[]:(old.reviewQuestionIds||[]).filter(id=>correctedToday(state,id,day));
   const completed=[...new Set([...(old.reviewCompletedIds||[]),...fromPractice,...(old.reviewSource==="assessment"?Object.keys(assessment.dailyReviewCredits?.[day]||{}).filter(id=>assessment.dailyReviewCredits[day][id]):[])])].filter(id=>old.reviewQuestionIds.includes(id));
   return {...old,reviewCompletedIds:completed,progress:completed.length};
  }
  const assessmentRows=globalThis.LuxPracticeBridge.dueReviews(assessment,day).map(r=>({...r,source:"assessment",date:r.lastWrong,topicId:r.paperId}));
  const rows=Object.entries(state.reviews||{}).filter(([id,r])=>{
+  const year=/-y8-/.test(r.topicId)?8:9;
+  if(availableTopic && !availableTopic(r.subject,r.topicId,year))return false;
   const last=r.lastWrong||r.last||String(r.lastAt||'').slice(0,10);
   return r.topicId&&LABELS[r.subject]&&last&&last<day&&!r.repair&&(!r.reviewedOn||!r.due||r.due<=day||(r.wrong&&r.lastWrong>r.reviewedOn))&&
    (r.wrong===true||(r.mistakeFollowup&&r.due<=day)||(r.wrong===undefined&&Number(r.stage||r.streak)===1&&Number(state.seenTotal?.[id]||0)>Number(state.seenCorrect?.[id]||0)));
