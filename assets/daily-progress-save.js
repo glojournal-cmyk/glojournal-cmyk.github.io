@@ -1,4 +1,5 @@
 import {backupPreview} from "./progress-backup-preview-20261004.js";
+import {readBackup,putBackup,migrateOldBackups,PREVIOUS_KEY,MANUAL_KEY,BEFORE_KEY} from "./backup-vault-20261011.js?v=20261011-vault1";
 import { C as store } from "/assets/index-BLVOhKhN.js?v=20261011-storage-qa1";
 
 const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
@@ -15,66 +16,45 @@ function backupSignature(data) {
   return JSON.stringify(parsed);
  } catch { return String(data || ""); }
 }
-function autoSave(force=false){
+let autoSaveBusy=false;
+async function autoSave(force=false){
  clearTimeout(autoTimer);
  const now=Date.now();
- if(now<quotaRetryAfter)return;
+ if(autoSaveBusy||now<quotaRetryAfter)return;
  if(!force&&now-lastAutoAttemptAt<MIN_AUTO_INTERVAL_MS)return;
- lastAutoAttemptAt=now;
- try {
-  const state = store.getState();
-  const parsed = JSON.parse(state.exportProgress());
-  if(parsed.app !== "lux-scholar-garden" || !Array.isArray(parsed.state?.daily)) throw Error("Invalid progress state");
-  const data = JSON.stringify(parsed), signature = backupSignature(data);
-  if(signature === lastAutoSignature) return;
-  const previousRaw = localStorage.getItem(AUTO_KEY);
-  let previous = null;
-  try { previous = JSON.parse(previousRaw || "null"); } catch {}
-  const today = summary(state);
-  if(previous?.data && backupSignature(previous.data) === signature){
-   lastAutoSignature = signature;
+ lastAutoAttemptAt=now;autoSaveBusy=true;
+ try{
+  await migrateOldBackups();
+  const state=store.getState(),parsed=JSON.parse(state.exportProgress());
+  if(parsed.app!=="lux-scholar-garden"||!Array.isArray(parsed.state?.daily))throw Error("Invalid progress state");
+  const data=JSON.stringify(parsed),signature=backupSignature(data);
+  if(signature===lastAutoSignature)return;
+  const previous=await readBackup(AUTO_KEY),today=summary(state);
+  if(previous?.data&&backupSignature(previous.data)===signature){lastAutoSignature=signature;return}
+  if(previous?.data&&previous.day===today.day&&Number(previous.done)>today.done){
+   const el=document.getElementById("daily-auto-status");
+   if(el)el.textContent="Saved copy has more completed tasks. Check Backup history before overwriting.";
    return;
   }
-  // Never overwrite an evidently better same-day copy after a failed hydration.
-  if(previous?.data && previous.day === today.day && Number(previous.done) > today.done){
-   const el = document.getElementById("daily-auto-status");
-   if(el) el.textContent = "A saved copy has more completed tasks. Check Backup history & restore before replacing it.";
-   return;
+  if(previous?.data&&Number(parsed.state?.xp)===0){
+   let before;try{before=JSON.parse(previous.data)?.state}catch{}
+   if(Number(before?.xp)>0)return;
   }
-  // A fresh empty state is not proof that earlier XP and completed work vanished.
-  if(previous?.data && Number(parsed.state?.xp) === 0){
-   let before;
-   try { before = JSON.parse(previous.data)?.state; } catch {}
-   if(Number(before?.xp) > 0 && (before?.daily || []).some(t => Number(t.progress) >= Number(t.target))){
-    const el = document.getElementById("daily-auto-status");
-    if(el) el.textContent = "Previous progress is protected. Review the automatic backup before saving a new blank record.";
-    return;
-   }
+  if(previous?.data&&previous.day!==today.day){
+   const older=await readBackup(PREVIOUS_KEY);
+   if(!older?.data||String(older.day||"")<String(previous.day||""))await putBackup(PREVIOUS_KEY,previous);
   }
-  // Keep the previous calendar day's recovery copy rather than replacing it
-  // with every keystroke or every 250-ms state update.
-  if(previous?.data && previous.day !== today.day){
-   try {
-    const older = JSON.parse(localStorage.getItem(AUTO_KEY+"-previous") || "null");
-    if(!older?.data || String(older.day || "") < String(previous.day || ""))
-     localStorage.setItem(AUTO_KEY+"-previous",previousRaw);
-   } catch { /* Primary backup remains untouched if quota is tight. */ }
-  }
-  const saved = {savedAt:new Date().toISOString(),...today,data};
-  localStorage.setItem(AUTO_KEY,JSON.stringify(saved));
-  if(JSON.parse(localStorage.getItem(AUTO_KEY) || "null")?.data !== data)
-   throw Error("Save verification failed");
-  lastAutoSignature = signature;
+  const saved={savedAt:new Date().toISOString(),...today,data};
+  await putBackup(AUTO_KEY,saved);
+  lastAutoSignature=signature;
   refreshCopies();
-  const el = document.getElementById("daily-auto-status");
-  if(el) el.textContent = `Saved automatically · ${new Date(saved.savedAt).toLocaleTimeString("en-GB")}`;
+  const el=document.getElementById("daily-auto-status");
+  if(el)el.textContent="Saved automatically in iPad recovery vault · "+new Date(saved.savedAt).toLocaleTimeString("en-GB");
  }catch(error){
-  if(error?.name==="QuotaExceededError" || /quota/i.test(String(error?.message||""))) quotaRetryAfter=Date.now()+QUOTA_RETRY_MS;
-  const el = document.getElementById("daily-auto-status");
-  if(el) el.textContent = quotaRetryAfter>Date.now()
-    ? "iPad storage full · automatic backups paused for 10 minutes. Export progress to Files now."
-    : "Automatic backup failed. Use Save progress & backup to keep a separate file.";
- }
+  if(/quota/i.test(String(error?.name||"")+" "+String(error?.message||"")))quotaRetryAfter=Date.now()+QUOTA_RETRY_MS;
+  const el=document.getElementById("daily-auto-status");
+  if(el)el.textContent="Automatic backup unavailable. Export progress to Files. "+(error?.message||"");
+ }finally{autoSaveBusy=false}
 }
 store.subscribe(()=>{clearTimeout(autoTimer);autoTimer=setTimeout(autoSave,250)});
 window.addEventListener("pagehide",()=>autoSave(true));
@@ -151,51 +131,30 @@ function freeDuplicateBackups() {
   status("Space recovery could not be verified: "+(error?.message||"")+". Keep your external backup.","error");
  }
 }
-async function save() {
-  const button = document.getElementById("daily-save-button");
-  button.disabled = true;
-  try {
-    const data = store.getState().exportProgress();
-    const parsed = JSON.parse(data);
-    if (parsed.app !== "lux-scholar-garden" || !Array.isArray(parsed.state?.daily)) throw new Error("The backup could not be checked.");
-    const today = summary(parsed.state);
-    const saved = { savedAt: new Date().toISOString(), ...today, data };
-    // Storage quota can be exhausted by revision history. File export MUST
-    // remain available even when a second localStorage copy cannot be written.
-    let localSaved = false;
-    try {
-      localStorage.setItem(SNAPSHOT_KEY, JSON.stringify(saved));
-      localSaved = savedCopy()?.data === data;
-    } catch (error) {
-      // Keep the existing automatic and manual snapshots untouched.
-      // Continue to the user-initiated external file export below.
-    }
-    status(localSaved
-      ? "Saved on this iPad. Choose Save to Files for a separate copy."
-      : "Device storage is full. Export this progress to Files now; local backup was not updated.", localSaved ? "success" : "warning");
-    const filename = `scholar-garden-${today.day || "progress"}-${new Date().toISOString().slice(11, 16).replace(":", "")}.json`;
-    const file = new File([data], filename, { type: "application/json" });
-    if (navigator.canShare?.({ files: [file] }) && navigator.share) {
-      try {
-        await navigator.share({ files: [file], title: "Scholar Garden progress backup" });
-        status("Progress file shared. Verify the JSON file is in Files or iCloud Drive before reloading.", "success");
-        showSpaceRepair();
-      } catch (error) {
-        if (error?.name === "AbortError") status("Share cancelled. Please save a JSON copy to Files before reloading.", "warning");
-        else status("Share failed. Try exporting again; do not clear website data.", "error");
-      }
-    } else {
-      const url = URL.createObjectURL(file);
-      const link = document.createElement("a");
-      link.href = url; link.download = filename;
-      document.body.append(link); link.click(); link.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 60000);
-      status("Backup file download started. Verify the JSON file in Files before reloading.", "success");
-      showSpaceRepair();
-    }
-  } catch (error) {
-    status(`Save failed: ${error?.message || "Please try again."}`, "error");
-  } finally { button.disabled = false; }
+async function save(){
+ const button=document.getElementById("daily-save-button");button.disabled=true;
+ try{
+  const data=store.getState().exportProgress(),parsed=JSON.parse(data);
+  if(parsed?.app!=="lux-scholar-garden"||!Array.isArray(parsed.state?.daily))throw Error("Invalid current progress");
+  const today=summary(parsed.state),saved={savedAt:new Date().toISOString(),...today,data};
+  const filename="scholar-garden-"+(today.day||"progress")+"-"+new Date().toISOString().slice(11,16).replace(":","")+".json";
+  const file=new File([data],filename,{type:"application/json"});
+  if(navigator.canShare?.({files:[file]})&&navigator.share){
+    try{
+      // Share while the direct tap's activation is still active.
+      await navigator.share({files:[file],title:"Scholar Garden progress backup"});
+      status("Export initiated. Verify the JSON file is in Files before reloading.","success");
+      putBackup(MANUAL_KEY,saved).then(()=>refreshCopies()).catch(()=>{});
+    }catch(error){status(error?.name==="AbortError"?"Share cancelled. No data was changed.":"Share failed: "+(error?.message||""),"error")}
+  }else{
+    const url=URL.createObjectURL(file),a=document.createElement("a");
+    a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),60000);
+    status("Download initiated. Verify the JSON file in Files before reloading.","success");
+    putBackup(MANUAL_KEY,saved).then(()=>refreshCopies()).catch(()=>{});
+  }
+ }catch(error){status("Export failed: "+(error?.message||"Please retry"),"error")}
+ finally{button.disabled=false}
 }
 function previewRestore(data, name, meta = {}) {
   try {
@@ -208,8 +167,7 @@ function previewRestore(data, name, meta = {}) {
   } catch(error) { selectedRestore=null;const box=document.getElementById('daily-restore-preview');if(box)box.hidden=true;status(error.message||'Could not read this backup.','error'); }
 }
 async function exportAutomaticCopy(key,label) {
-  let saved;
-  try { saved = JSON.parse(localStorage.getItem(key) || "null"); } catch {}
+  const saved=await readBackup(key);
   if (!saved?.data || typeof saved.data !== "string") {
     status("No automatic copy is stored on this iPad.", "error");
     return;
@@ -251,16 +209,16 @@ async function exportAutomaticCopy(key,label) {
     if (button) button.disabled=false;
   }
 }
-function refreshCopies() {
- for(const [id,key] of [['daily-before-restore',BEFORE_RESTORE_KEY],['daily-auto-previous',AUTO_KEY+'-previous'],['daily-auto-restore',AUTO_KEY],['daily-auto-export',AUTO_KEY],['daily-auto-previous-export',AUTO_KEY+'-previous'],['daily-restore-button',SNAPSHOT_KEY]]) {
-  const button=document.getElementById(id);if(!button)continue;
-  let saved;try{saved=JSON.parse(localStorage.getItem(key)||'null')}catch{}
-  button.disabled=!saved?.data;
-  const line=document.getElementById(id+'-info');
-  if(line)line.textContent=saved?.data?`${new Date(saved.savedAt).toLocaleString('en-GB')} · ${saved.day} · ${saved.done}/${saved.total} tasks`:'No copy saved yet';
+async function refreshCopies(){
+ for(const [id,key] of [['daily-before-restore',BEFORE_RESTORE_KEY],['daily-auto-previous',PREVIOUS_KEY],['daily-auto-restore',AUTO_KEY],['daily-auto-export',AUTO_KEY],['daily-auto-previous-export',PREVIOUS_KEY],['daily-restore-button',SNAPSHOT_KEY]]){
+   const button=document.getElementById(id);if(!button)continue;
+   const saved=await readBackup(key);
+   button.disabled=!saved?.data;
+   const info=document.getElementById(id+"-info");
+   if(info)info.textContent=saved?.data?`${new Date(saved.savedAt).toLocaleString("en-GB")} · ${saved.day} · ${saved.done}/${saved.total} tasks`:"No copy saved yet";
  }
 }
-function restore(data, name) {
+async function restore(data, name) {
   const current = summary(store.getState());
   if (!confirm(`Restore ${name}? This replaces current progress on this iPad (${current.done}/${current.total} tasks). Export the current progress first if needed.`)) return;
   // Preserve the current live state before any import (which may update several
@@ -269,9 +227,7 @@ function restore(data, name) {
   try {
     const currentData = store.getState().exportProgress();
     safeguard = {savedAt:new Date().toISOString(),...current,data:currentData};
-    localStorage.setItem(BEFORE_RESTORE_KEY,JSON.stringify(safeguard));
-    if(JSON.parse(localStorage.getItem(BEFORE_RESTORE_KEY) || "null")?.data !== currentData)
-      throw Error("Could not verify recovery copy");
+    await putBackup(BEFORE_RESTORE_KEY,safeguard);
   } catch {
     return status("Restore stopped: could not protect your current progress. Export a backup file first.", "error");
   }
