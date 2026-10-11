@@ -10,3 +10,12 @@
 .lux-voice-cheer-toggle{display:inline-flex;align-items:center;justify-content:center;gap:6px;margin:10px 0;padding:8px 13px;border:1px solid #c6b485;border-radius:999px;background:#fffbef;color:#234955;font:600 12px/1.35 system-ui,sans-serif;cursor:pointer;min-height:38px}
 .lux-voice-cheer-toggle:hover,.lux-voice-cheer-toggle:focus-visible{background:#f3edd9;outline-offset:3px}
 .lux-mission-v2 .lux-voice-cheer-toggle{margin-top:12px}
+
+/* Phase 7B: read-only companion milestone panel. */
+.lux-phase7-growth{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:15px 0 7px;padding:12px 14px;border:1px solid #ded3b4;border-radius:15px;background:linear-gradient(110deg,#fff9e9,#f0f4ec);color:#284d4a}
+.lux-phase7-growth-symbol{font:28px Georgia,serif;color:#bb9954;line-height:1}
+.lux-phase7-growth-copy{display:grid;gap:3px;flex:1 1 170px}
+.lux-phase7-growth-copy strong{font:600 19px/1.15 "Cormorant Garamond",Georgia,serif}
+.lux-phase7-growth-copy small{font:12px/1.35 system-ui,sans-serif;color:#63786e}
+.lux-phase7-growth-link{color:#27515b;font:650 12px/1.4 system-ui,sans-serif;text-underline-offset:3px;min-height:34px;display:inline-flex;align-items:center}
+@media(max-width:470px){.lux-phase7-growth{gap:8px;padding:11px}}
