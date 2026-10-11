@@ -13,7 +13,8 @@ function recoveryRows(state){
    const base=Math.max(0,Math.min(30,Number(rec.originalCount ?? task.progress)||0));
    const target=Number(rec.totalNeeded)||30-base+5;
    const current=Math.max(0,Object.values(rec.items||{}).filter(Boolean).length);
-   out.push({date,subject,base,target,current,done:rec.completed===true||current>=target,
+   const credited=state.dailyLog?.[date]?.tasks?.some(t=>t.id===subject+'-vocab' && (t.done || Number(t.progress)>=Number(t.target)));
+   out.push({date,subject,base,target,current,credited:!!credited,done:rec.completed===true||current>=target,
     url:"/study/"+subject+"/practise?daily=1&locked=1&year=8&mode=y8vocab&task="+subject+"-vocab&recover="+date});
   }
  }
@@ -31,14 +32,14 @@ function mount(){
  const title=document.createElement("h3");title.textContent="Quest Recovery · 48-hour grace";host.append(title);
  if(!rows.length){
   const hint=document.createElement("p");
-  hint.textContent="No unfinished French or Latin Vocab found in the last 48-hour recovery window. If yesterday's work was not saved, use the Backup history on this iPad.";
+  hint.textContent="No unfinished French or Latin Vocab found in the last 48-hour recovery window. A completed Recovery is credited to its original date, not today's Vocab. If an older answer was never saved, check Backup history on this iPad.";
   host.append(hint);return;
  }
  for(const row of rows){
   const item=document.createElement("div");item.className="lux-recovery-item";
   const label=document.createElement("strong");label.textContent=(row.subject==="french"?"French":"Latin")+" Vocab · "+row.date;item.append(label);
-  const count=document.createElement("span");count.textContent=row.done?"Recovered ✓":row.current+" / "+row.target+" recovery answers · original "+row.base+"/30";item.append(count);
-  const action=document.createElement("a");action.href=row.url;action.textContent=row.done?"Recovered ✓":"Complete remaining + 5 →";if(!row.done)item.append(action);host.append(item);
+  const count=document.createElement("span");count.textContent=row.done ? (row.credited ? "Recovered ✓ · credited to " + row.date : "Recovered ✓ · restoring daily record") : row.current + " / " + row.target + " correct recovery answers · previous " + row.base + "/30";item.append(count);
+  const action=document.createElement("a");action.href=row.url;action.textContent=row.done?"Recovered ✓":"Continue recovery →";if(!row.done)item.append(action);host.append(item);
  }
 }
 const style=document.createElement("style");style.textContent=`
