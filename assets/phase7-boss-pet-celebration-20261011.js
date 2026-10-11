@@ -20,7 +20,7 @@ function decoratePet(){
  const action=document.getElementById("confirmEvolutionButton");
  if(!action||action.dataset.luxPhase7Bound)return;
  action.dataset.luxPhase7Bound="true";
- action.addEventListener("click",()=>{
+ action.addEventListener("click",()=>{\n  let before=null;try{before=JSON.parse(localStorage.getItem("lux-pet-companion-v1")||"null")}catch{}
   // Let the existing authoritative evolution handler finish; only show a visual effect.
   root.setTimeout(()=>{
    const transaction=document.querySelector("#mp-wallet-history");
