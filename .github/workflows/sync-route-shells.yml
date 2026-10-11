@@ -1,0 +1,33 @@
+name: Synchronize production route shells
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/sync-route-shells.py'
+      - '.github/workflows/sync-route-shells.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Sync route entry points and 404 shell
+        run: python3 scripts/sync-route-shells.py
+      - name: Validate every route shell before publishing
+        run: node tests/route-shell-qa.mjs
+      - name: Commit synchronized shells
+        run: |
+          if ! git diff --quiet -- '*.html'; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -- '*.html'
+            git commit -m "Sync route shells to current production app version"
+            git push origin HEAD:main
+          fi
