@@ -10,7 +10,7 @@ function recoveryRows(state){
    const task=daily.find(t=>t.id===subject+"-vocab");
    if(!task||Number(task.progress)>=Number(task.target)&&!task.recovered)continue;
    const rec=state.recoveryVocabByDay?.[date]?.[subject]||{};
-   const base=Math.max(0,Math.min(30,Number(task.progress)||0));
+   const base=Math.max(0,Math.min(30,Number(rec.originalCount ?? task.progress)||0));
    const target=Number(rec.totalNeeded)||30-base+5;
    const current=Math.max(0,Object.values(rec.items||{}).filter(Boolean).length);
    out.push({date,subject,base,target,current,done:rec.completed===true||current>=target,
