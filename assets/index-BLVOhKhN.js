@@ -1479,6 +1479,36 @@ function verifiedVocabHistory(state, currentLog) {
   }
   return log;
 }
+// Reconcile completed 48-hour Recovery proofs into the original day's Vocab
+// task. This also repairs older iPad saves where the Recovery ledger persisted
+// but the historical dailyLog update was lost or overwritten.
+function reconcileRecoveredVocabHistory(state, existingLog) {
+  let log = existingLog;
+  const today = todayKey();
+  for (const [date, bySubject] of Object.entries(state.recoveryVocabByDay || {})) {
+    if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(date) || date >= today) continue;
+    for (const subject of ["french", "latin"]) {
+      const proof = bySubject?.[subject];
+      // Do not infer completion from a visited page or number of attempts.
+      if (proof?.completed !== true) continue;
+      const row = log[date] || {};
+      const taskId = subject + "-vocab";
+      const source = findRecoveryVocabSource(state, date, subject);
+      const knownTasks = Array.isArray(row.tasks) && row.tasks.length ? row.tasks : source?.tasks || [];
+      const tasks = knownTasks.length ? knownTasks : [
+        { id: taskId, title: "Year 7–8 " + (subject === "french" ? "French" : "Latin") + " vocab", target: 30, progress: 0 }
+      ];
+      const repaired = tasks.some(t => t.id === taskId)
+        ? tasks.map(t => t.id === taskId ? { ...t, progress: 30, target: 30, done: true, recovered: true } : t)
+        : [...tasks, { id: taskId, title: "Year 7–8 " + (subject === "french" ? "French" : "Latin") + " vocab", target: 30, progress: 30, done: true, recovered: true }];
+      const done = repaired.filter(t => t.done || Number(t.progress) >= Number(t.target)).length;
+      const updated = { ...row, date, tasks: repaired, done, total: repaired.length, complete: done === repaired.length };
+      if (JSON.stringify(row) !== JSON.stringify(updated)) log = { ...log, [date]: updated };
+    }
+  }
+  return log;
+}
+
 function normalizeState() {
   if (!allowNormalize || normalizing || sealingDay) return;
   const state = store.getState();
@@ -1532,7 +1562,7 @@ function normalizeState() {
   const daily = buildAdaptiveDaily(stateForDaily);
   if (JSON.stringify(daily) !== JSON.stringify(state.daily || [])) patch.daily = daily;
   const currentLog = state.dailyLog && typeof state.dailyLog === "object" ? state.dailyLog : {};
-  const correctedLog = verifiedVocabHistory(state,currentLog);
+  const correctedLog = reconcileRecoveredVocabHistory(state, verifiedVocabHistory(state,currentLog));
   const nextLog = writeDailyLog(correctedLog, state.today || calendarToday, daily);
   if (nextLog !== currentLog) patch.dailyLog = nextLog;
 
@@ -2175,7 +2205,9 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     subject: resolved.subject || subject, year: Number(meta.yearOverride || before.year || 9),
     topicId: resolved.topicId || null, topicTitle: resolved.topicTitle || meta.topicTitle || resolved.topicId || "General practice",
     formal: meta.formal !== false, repair: !!meta.repair,
-    dailyVocab: dailyVocabSubject(resolved.subject || subject, meta) || null
+    // Recovery attempts must not satisfy today's Vocab assignment.
+    dailyVocab: inRecovery ? null : (dailyVocabSubject(resolved.subject || subject, meta) || null),
+    recoveryFor: inRecovery ? new URLSearchParams(window.location.search).get("recover") : null
   }), evidenceStartedAt: before.evidenceStartedAt || new Date().toISOString()});
 
   if (meta?.formal === false) {
@@ -2365,8 +2397,9 @@ function findRecoveryVocabSource(state, date, subject) {
   }
   const verifiedCount=Object.values(verified).filter(Boolean).length;
   const task=tasks.find(t=>t.id===id);
-  if (!task && !Object.keys(verified).length) return null;
-  const progress=Math.min(30,Math.max(Number(task?.progress)||0,verifiedCount));
+  const recoveryProof = state.recoveryVocabByDay?.[date]?.[subject];
+  if (!task && !Object.keys(verified).length && !recoveryProof?.completed) return null;
+  const progress = recoveryProof?.completed === true ? 30 : Math.min(30,Math.max(Number(task?.progress)||Number(recoveryProof?.originalCount)||0,verifiedCount));
   return {task:{...task,id,target:30,progress},tasks:tasks.length?tasks:[{id,target:30,progress}]};
 }
 if (typeof window !== "undefined") window.LuxRecoveryVocabSource = findRecoveryVocabSource;
@@ -2382,11 +2415,12 @@ function recordDailyVocabAttempt(subject, questionId, correct) {
     const source=findRecoveryVocabSource(state,recover,subject);
     const previous=source?.task;
     if (elapsed < 1 || elapsed > 2 || !previous || Number(previous.progress) >= Number(previous.target)) return;
-    const originalCount = Math.max(0, Math.min(30, Number(previous.progress) || 0));
-    const totalNeeded = 30 - originalCount + 5;
     const all = { ...(state.recoveryVocabByDay || {}) };
     const perDay = { ...(all[recover] || {}) };
     const row = perDay[subject] || {};
+    // Freeze the previous day's starting credit at the first Recovery answer.
+    const originalCount = Math.max(0, Math.min(30, Number(row.originalCount ?? previous.progress) || 0));
+    const totalNeeded = Math.max(5, Math.min(35, Number(row.totalNeeded) || 30 - originalCount + 5));
     const items = { ...(row.items || {}) };
     items[String(questionId)] = !!correct || !!items[String(questionId)];
     const credited = Object.values(items).filter(Boolean).length;
