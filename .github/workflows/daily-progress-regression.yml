@@ -8,6 +8,8 @@ on:
       - 'assets/study._subject.practise-y8fix-20260920.js'
       - 'assets/progression-guard-20260927.js'
       - 'tests/daily-*.mjs'
+      - 'assets/quest-recovery-20261011.js'
+      - 'assets/backup-vault-20261011.js'
       - '.github/workflows/daily-progress-regression.yml'
   workflow_dispatch:
 jobs:
@@ -30,3 +32,6 @@ jobs:
           node tests/daily-formal-evidence-qa.mjs
           node tests/daily-counting-regression-qa.mjs
           node tests/daily-task-persistence-qa.mjs
+      - name: Test independent recovery and backup integrity
+        run: |
+          node --test tests/recovery-quest.test.mjs tests/backup-export.test.mjs tests/backup-vault.test.mjs tests/storage-quota.test.mjs
