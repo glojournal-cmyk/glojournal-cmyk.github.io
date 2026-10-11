@@ -1486,7 +1486,7 @@ function reconcileRecoveredVocabHistory(state, existingLog) {
   let log = existingLog;
   const today = todayKey();
   for (const [date, bySubject] of Object.entries(state.recoveryVocabByDay || {})) {
-    if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(date) || date >= today) continue;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || date >= today) continue;
     for (const subject of ["french", "latin"]) {
       const proof = bySubject?.[subject];
       // Do not infer completion from a visited page or number of attempts.
