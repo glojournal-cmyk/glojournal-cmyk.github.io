@@ -8,12 +8,12 @@ function recoveryRows(state){
   const date=dateAt(today,-back),daily=state.dailyLog?.[date]?.tasks||[];
   for(const subject of ["french","latin"]){
    const task=daily.find(t=>t.id===subject+"-vocab");
-   if(!task||Number(task.progress)>=Number(task.target))continue;
+   if(!task||Number(task.progress)>=Number(task.target)&&!task.recovered)continue;
    const rec=state.recoveryVocabByDay?.[date]?.[subject]||{};
    const base=Math.max(0,Math.min(30,Number(task.progress)||0));
-   const target=30-base+5;
+   const target=Number(rec.totalNeeded)||30-base+5;
    const current=Math.max(0,Object.values(rec.items||{}).filter(Boolean).length);
-   out.push({date,subject,base,target,current,done:current>=target,
+   out.push({date,subject,base,target,current,done:rec.completed===true||current>=target,
     url:"/study/"+subject+"/practise?daily=1&locked=1&year=8&mode=y8vocab&task="+subject+"-vocab&recover="+date});
   }
  }
@@ -33,7 +33,7 @@ function mount(){
   const item=document.createElement("div");item.className="lux-recovery-item";
   const label=document.createElement("strong");label.textContent=(row.subject==="french"?"French":"Latin")+" Vocab · "+row.date;item.append(label);
   const count=document.createElement("span");count.textContent=row.done?"Recovered ✓":row.current+" / "+row.target+" recovery answers · original "+row.base+"/30";item.append(count);
-  const action=document.createElement("a");action.href=row.url;action.textContent=row.done?"Review recovered quest":"Complete remaining + 5 →";item.append(action);host.append(item);
+  const action=document.createElement("a");action.href=row.url;action.textContent=row.done?"Recovered ✓":"Complete remaining + 5 →";if(!row.done)item.append(action);host.append(item);
  }
 }
 const style=document.createElement("style");style.textContent=`
