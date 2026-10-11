@@ -13,12 +13,38 @@ const next=nextWeek(week);assert.equal(next,'2026-10-05');const newWeek=advanceM
 assert.equal(advanceMap(state,next,5,'anything').ignored,true,'cannot skip gates or double-click past cursor');
 assert.equal(gradeTask(tasks[4],String(tasks[4].numeric)),false,'speed needs unit');assert.equal(gradeTask(tasks[4],`${tasks[4].numeric} m/s`),true);assert.equal(gradeTask(tasks[4],`${tasks[4].numeric} s/m`),false);assert.equal(gradeTask(tasks[4],`${tasks[4].numeric} m/s 99`),false);assert.equal(gradeTask(tasks[7],'-5'),false);assert.equal(gradeTask(tasks[7],'5 units'),true);
 for(const week of ['2026-10-05','2026-10-12','2026-10-19'])for(const task of missionFor(week))assert.equal(gradeTask(task,task.answer??`${task.numeric} ${task.unit}`),true);
+for(const theme of ['french','chemistry','biology']){
+ const bank=missionFor('2026-10-12',theme);
+ assert.equal(bank.length,8,theme+' requires 8 valid questions');
+ assert.deepEqual(bank.map(x=>x.stage),[0,0,1,1,2,2,3,3]);
+ for(const question of bank){assert.ok(question.skill.startsWith(theme+':'));assert.ok(question.options.includes(question.answer));assert.equal(gradeTask(question,question.answer),true)}
+ let run=undefined;
+ for(let index=0;index<8;index++){
+  const result=advanceMap(run,'2026-10-12',index,bank[index].answer,'2026-10-12T10:00:00Z',theme);
+  assert.equal(result.ok,true,theme+' task '+index);
+  assert.equal(result.state.weeks['2026-10-12'].theme,theme);
+  run=result.state;
+ }
+ assert.equal(run.collection['star-map:2026-10-12'].expeditionTheme,theme);
+ assert.equal(Object.keys(run.collection).length,1);
+ const replay=advanceMap(run,'2026-10-12',7,bank[7].answer,undefined,theme);
+ assert.equal(replay.ignored,true);
+ const switched=advanceMap(run,'2026-10-12',7,bank[7].answer,undefined,'physics');
+ assert.equal(switched.ignored,true);
+}
+const locked=advanceMap(undefined,'2026-10-19',0,'wrong',undefined,'french');
+assert.equal(locked.state.weeks['2026-10-19'].theme,'french');
+assert.equal(advanceMap(locked.state,'2026-10-19',0,missionFor('2026-10-19','french')[0].answer,undefined,'biology').state.weeks['2026-10-19'].theme,'french');
+const old={version:1,weeks:{'2026-10-26':{progress:1,attempts:1}},collection:{}};
+assert.equal(advanceMap(old,'2026-10-26',1,missionFor('2026-10-26')[1].answer,undefined,'biology').state.weeks['2026-10-26'].theme,'physics','old player progress remains Physics');
 const ui=fs.readFileSync('assets/star-map-challenge-20261004.js','utf8');assert.ok(!/recordAttempt|completeWeeklyBoss|award\(/.test(ui),'theme cannot create formal mastery or replay rewards');assert.match(ui,/store.setState\(\{starMapChallenge/);assert.match(ui,/Skip animations/);assert.match(ui,/actual!==week/);
 assert.match(ui,/THIS WEEK’S RARE FIND/);
 assert.match(ui,/CHALLENGE \$\{progress%2\+1\} OF 2/);
 assert.match(ui,/sm-chapter-celebrations/);
 assert.match(ui,/sm-collector-teaser/);
 assert.match(ui,/missionNames\[stage\]/);
+assert.match(ui,/sm-theme-picker/);
+assert.match(ui,/Your choice is locked for this week/);
 assert.match(ui,/store\.setState\(\{starMapChallenge/);
 assert.match(fs.readFileSync('assets/index-BLVOhKhN.js','utf8'),/state: store.getState\(\)/,'complete backups include the custom state');
 console.log('Star map QA passed: four gates, eight tasks, units, exact marking, wrong-answer retry, reload, weekly collection deduplication, London rollover/DST and backup inclusion.');
