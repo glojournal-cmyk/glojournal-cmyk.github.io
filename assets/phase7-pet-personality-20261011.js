@@ -34,7 +34,15 @@ function mount(){
  });
  host.append(btn);
 }
-let pending=false;
-new MutationObserver(()=>{if(!pending){pending=true;queueMicrotask(()=>{pending=false;mount()})}}).observe(document.documentElement,{subtree:true,childList:true});
-root.addEventListener("lux:app-ready",mount);root.addEventListener("pageshow",mount);mount();
+// A bounded, event-driven mount prevents endless observer/microtask loops.
+let attempts=0, timer=null;
+function safeMount(){
+ mount();
+ if(document.getElementById("lux-phase7-pet-hello")||attempts++>=12)return;
+ if(timer!==null)root.clearTimeout(timer);
+ timer=root.setTimeout(()=>{timer=null;safeMount()},500);
+}
+root.addEventListener("lux:app-ready",safeMount);
+root.addEventListener("pageshow",safeMount);
+safeMount();
 })(globalThis);
