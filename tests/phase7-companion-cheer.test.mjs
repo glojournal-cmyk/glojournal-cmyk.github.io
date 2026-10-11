@@ -61,3 +61,15 @@ test('Pet level and weekly boss celebrations are presentation-only and gated by 
  assert.match(pet,/phase7-boss-pet-celebration-20261011\.js/);
  assert.match(boss,/phase7-boss-pet-celebration-20261011\.js/);
 });
+
+test('Phase 7D pet personality interaction uses current art and leaves progress untouched',()=>{
+ const js=readFileSync(new URL('../assets/phase7-pet-personality-20261011.js',import.meta.url),'utf8');
+ assert.match(js,/mastery-pet-home/);
+ assert.match(js,/lux-phase7-pet-hello/);
+ assert.match(js,/prefers-reduced-motion: reduce/);
+ assert.match(js,/snow-owl/);
+ assert.match(js,/night-spider/);
+ assert.match(js,/role","status"/);
+ assert.doesNotMatch(js,/localStorage\.setItem|savePet\(|setState\(|awardXP/);
+ assert.match(html,/phase7-pet-personality-20261011\.js/);
+});
