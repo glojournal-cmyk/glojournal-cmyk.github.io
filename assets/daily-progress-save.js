@@ -128,8 +128,22 @@ function freeDuplicateBackups() {
   const mainAfter=localStorage.getItem(mainKey);
   if(mainAfter!==mainBefore || localStorage.getItem(AUTO_KEY)!==latestAuto)
    throw Error("Main progress or automatic backup unexpectedly changed");
-  quotaRetryAfter=0;
-  status("Older duplicate copies cleared. Main Scholar data and latest automatic backup preserved. Keep your file in Files.","success");
+  // Retry saving the live (potentially newer) progress after freeing space.
+  // Never claim success unless the persisted day, XP and daily credits match.
+  const live=store.getState();
+  try { store.setState({}); } catch {}
+  const persisted=JSON.parse(localStorage.getItem(mainKey)||"null")?.state;
+  const compact=tasks=>(Array.isArray(tasks)?tasks:[]).map(t=>[t.id,Number(t.progress)||0,Number(t.target)||0]);
+  const durable=!!persisted && Number(persisted.xp)===Number(live.xp) &&
+    persisted.today===live.today &&
+    JSON.stringify(compact(persisted.daily))===JSON.stringify(compact(live.daily));
+  // Back off the duplicate automatic snapshot while the primary is recovering.
+  lastAutoAttemptAt=Date.now();
+  quotaRetryAfter=Date.now()+QUOTA_RETRY_MS;
+  status(durable
+    ? "Current progress verified in iPad storage. Latest automatic backup preserved. Keep your JSON file in Files."
+    : "Older copies cleared, but CURRENT progress still could not be verified in iPad storage. Keep the JSON file and avoid reloading.",
+    durable?"success":"error");
   const button=document.getElementById("daily-free-backup-space");
   if(button)button.hidden=true;
   currentExportShared=false;
