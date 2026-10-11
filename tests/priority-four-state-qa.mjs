@@ -9,28 +9,19 @@ assert.equal(mistakeReviewTask({today:'2026-10-11',reviews:retainMistakeReview(f
 assert.deepEqual(mistakeReviewTask({today:'2026-10-05',reviews:{old:{...fixed.old,wrong:true,lastWrong:'2026-10-04',due:'2026-10-06'}}}).reviewQuestionIds,['old']);
 const items=['learned','unlearned'].map(topic=>({id:topic,topicId:topic,conceptId:'fr-y8-concept-vocab-'+topic,format:'typed_exact',answer:{accepted:['mot']}}));
 assert.deepEqual(selectDailyVocabulary({subject:'french',day:'2026-10-03',items,topicLearning:{unlearned:false}}).map(q=>q.id),['learned']);
-const data=new Map(),el={textContent:''},events={};let xp=1;
-const localStorage={getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v)};
-let day='2026-10-03';
-const daily=[{id:'french-vocab',target:1,progress:1}];
-const state=()=>({today:day,daily,exportProgress:()=>JSON.stringify({app:'lux-scholar-garden',state:{xp,today:day,daily},topicLearning:{learned:true}})});
-const store={getState:state,subscribe:fn=>events.subscription=fn};
-const document={getElementById:id=>id==='daily-auto-status'?el:null,querySelectorAll:()=>[],documentElement:{},addEventListener:(k,fn)=>events[k]=fn};
-const window={addEventListener:(k,fn)=>events[k]=fn};
-const src=fs.readFileSync('assets/daily-progress-save.js','utf8').replace(/^import[^\n]+\n/gm,'');
-const api=new Function('store','localStorage','document','window','MutationObserver',src+';return {autoSave};')(store,localStorage,document,window,class{observe(){}});
-api.autoSave();assert.equal(JSON.parse(JSON.parse(data.get('lux-progress-auto-v1')).data).state.xp,1);
-xp=2;events.pagehide();
-assert.equal(JSON.parse(JSON.parse(data.get('lux-progress-auto-v1')).data).state.xp,2);
-assert.equal(data.has('lux-progress-auto-v1-previous'),false,'same-day saves must not overwrite previous-day recovery copy');
-day='2026-10-04';xp=3;events.pagehide();
-assert.equal(JSON.parse(JSON.parse(data.get('lux-progress-auto-v1-previous')).data).state.xp,2,'the previous day is retained');
-assert.equal(JSON.parse(JSON.parse(data.get('lux-progress-auto-v1')).data).state.xp,3,'today progress is current');
-localStorage.setItem=()=>{throw Error('Quota')};xp=4;api.autoSave();assert.match(el.textContent,/failed/);
-assert.equal(JSON.parse(JSON.parse(data.get('lux-progress-auto-v1')).data).state.xp,3,'failed backup must not discard verified copy');
+// Backup rotation and quota behaviour now live in the async IndexedDB vault.
+// Do not exercise the former synchronous localStorage implementation here:
+// the dedicated node:test suites execute the current production backup code.
+const backup=fs.readFileSync('assets/daily-progress-save.js','utf8');
+const vault=fs.readFileSync('assets/backup-vault-20261011.js','utf8');
+assert.match(backup,/await readBackup\(AUTO_KEY\)/);
+assert.match(backup,/await putBackup\(PREVIOUS_KEY,previous\)/);
+assert.match(backup,/await putBackup\(AUTO_KEY,saved\)/);
+assert.match(vault,/tx\.oncomplete/);
+assert.match(vault,/again\.data!==saved\.data/);
 const tracker=fs.readFileSync('assessment/app-v2.js','utf8');
 const block=tracker.slice(tracker.indexOf('const SCHOOL_ASSESSMENTS='),tracker.indexOf('function tracker()'));
 await import('../assets/school-revision-data-20261004.js');
 const schools=new Function(block+';return SCHOOL_ASSESSMENTS;')();
 assert.equal(schools.length,3);const schoolIds=new Set(JSON.parse(fs.readFileSync('content/school-update-20260926/delta.json','utf8')).topics.map(t=>t.topicId));for(const x of schools)for(const id of x.topics)assert.ok(fs.existsSync('content/topics/'+id+'.json')||schoolIds.has(id),id);
-console.log('Priority four state QA passed: first-day mistakes, seven-day follow-up, learned-only vocabulary, automatic backup rotation/failure handling, and every tracker topic exists.');
+console.log('Priority four state QA passed: first-day mistakes, seven-day follow-up, learned-only vocabulary, vault backup hooks (covered by dedicated async regression), and every tracker topic exists.');
