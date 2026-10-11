@@ -1,0 +1,50 @@
+name: Progress and 48-hour recovery safety
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/index-BLVOhKhN.js'
+      - 'assets/index-BLVOhKhN.core.js'
+      - 'assets/daily-progress-save.js'
+      - 'assets/backup-vault-20261011.js'
+      - 'assets/quest-recovery-20261011.js'
+      - 'assets/storage-health-20261011.js'
+      - 'tests/backup-export.test.mjs'
+      - 'tests/backup-vault.test.mjs'
+      - 'tests/storage-quota.test.mjs'
+      - 'tests/recovery-quest.test.mjs'
+      - '.github/workflows/progress-recovery-safety.yml'
+  pull_request:
+    paths:
+      - 'assets/index-BLVOhKhN.js'
+      - 'assets/index-BLVOhKhN.core.js'
+      - 'assets/daily-progress-save.js'
+      - 'assets/backup-vault-20261011.js'
+      - 'assets/quest-recovery-20261011.js'
+      - 'assets/storage-health-20261011.js'
+      - 'tests/backup-export.test.mjs'
+      - 'tests/backup-vault.test.mjs'
+      - 'tests/storage-quota.test.mjs'
+      - 'tests/recovery-quest.test.mjs'
+      - '.github/workflows/progress-recovery-safety.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  recovery-safety:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate production recovery and backup scripts
+        run: |
+          node --check assets/quest-recovery-20261011.js
+          node --check assets/backup-vault-20261011.js
+          node --check assets/daily-progress-save.js
+          node --check assets/storage-health-20261011.js
+      - name: Verify recovery rules and storage quota safety
+        run: |
+          node --test tests/recovery-quest.test.mjs tests/storage-quota.test.mjs tests/backup-export.test.mjs tests/backup-vault.test.mjs
