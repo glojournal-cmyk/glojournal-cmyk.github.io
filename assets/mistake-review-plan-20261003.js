@@ -9,6 +9,8 @@ function correctedToday(state,id,day){
 }
 export function mistakeReviewTask(state,assessment=globalThis.LuxPracticeBridge.readAssessment()){
  const day=state.today,old=(state.daily||[]).find(t=>t.id==='mistake-review');
+ // Never regenerate a deliberately excused stale question on the same day.
+ if(old?.planDate===day&&old.reviewUnavailable===true)return old;
  if(old?.planDate===day&&old.reviewQuestionIds?.length){
   const fromPractice=old.reviewSource==='assessment'?[]:(old.reviewQuestionIds||[]).filter(id=>correctedToday(state,id,day));
   const completed=[...new Set([...(old.reviewCompletedIds||[]),...fromPractice,...(old.reviewSource==="assessment"?Object.keys(assessment.dailyReviewCredits?.[day]||{}).filter(id=>assessment.dailyReviewCredits[day][id]):[])])].filter(id=>old.reviewQuestionIds.includes(id));
