@@ -56,7 +56,7 @@ function backupHarness(initial,live){
  const copies=new Map(Object.entries(initial));const statuses=[];
  const ctx=vm.createContext({store:{getState:()=>live},clearTimeout:()=>{},
   readBackup:async key=>copies.get(key)||null,
-  putBackup:async(key,value)=>{copies.set(key,structuredClone(value));return true},
+  putBackup:async(key,value)=>{copies.set(key,JSON.parse(JSON.stringify(value)));return true},
   migrateOldBackups:async()=>({moved:0,failed:0}),
   document:{getElementById:()=>({set textContent(x){statuses.push(x)}})},Date,JSON,
   setTimeout:()=>{},window:{}});
