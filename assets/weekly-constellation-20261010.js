@@ -47,7 +47,12 @@ function record(state,J,at=Date.now()){
   for(const key of Object.keys(data))if(!/^\d{4}-\d{2}-\d{2}$/.test(key)||key<min||key>day)delete data[key];
   try{localStorage.setItem(KEY,JSON.stringify(data))}catch{}
  }
- return {day,monday,rows:Array.from({length:7},(_,i)=>({day:dayAt(monday,i),done:Math.max(0,Math.min(10,Number(data[dayAt(monday,i)])||0))}))};
+ return {day,monday,rows:Array.from({length:7},(_,i)=>{
+  const date=dayAt(monday,i);
+  const recovered=(state.recoveryVocabByDay?.[date]?.french?.completed === true) ||
+    (state.recoveryVocabByDay?.[date]?.latin?.completed === true);
+  return {day:date,recovered,done:Math.max(recovered?1:0,Math.max(0,Math.min(10,Number(data[date])||0)))};
+ })};
 }
 root.LuxWeeklyConstellation={weekStart,record};
 if(typeof document==="undefined"||location.pathname!=="/")return;
@@ -104,8 +109,8 @@ function paint(){
  data.rows.forEach((r,i)=>{
   const today=r.day===data.day,past=r.day<data.day;
   const tile=make("div","weekly-star"+(r.done>0?" lit":"")+(today?" today":""));
-  tile.setAttribute("aria-label",DAYS[i]+": "+(r.done?r.done+" of 10 daily quests completed":past?"no completion recorded":today?"no completed quests yet":"upcoming"));
-  tile.append(make("span","symbol",r.done?"✦":"✧"),make("strong",null,DAYS[i]),make("small",null,r.done?r.done+"/10":past?"—":today?"0/10":"·"));
+  tile.setAttribute("aria-label",DAYS[i]+(r.recovered?" · recovered quest":"")+": "+(r.done?r.done+" of 10 daily quests completed":past?"no completion recorded":today?"no completed quests yet":"upcoming"));
+  tile.append(make("span","symbol",r.done?"✦":"✧"),make("strong",null,DAYS[i]),make("small",null,r.recovered?"↺ Recovery":r.done?r.done+"/10":past?"—":today?"0/10":"·"));
   grid.append(tile);
  });
  panel.append(grid);
