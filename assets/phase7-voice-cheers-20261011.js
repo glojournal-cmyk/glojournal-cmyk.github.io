@@ -20,9 +20,11 @@ function speak(preview=false){
  try{root.speechSynthesis.cancel();root.speechSynthesis.speak(voice);return true}catch{return false}
 }
 function apply(button){
- button.textContent=enabled?"🔊 Voice cheers: On":"🔇 Voice cheers: Off";
- button.setAttribute("aria-pressed",enabled?"true":"false");
- button.title="Toggle spoken encouragement. Tap once to preview.";
+ const label=enabled?"🔊 Voice cheers: On":"🔇 Voice cheers: Off";
+ if(button.textContent!==label)button.textContent=label;
+ const pressed=enabled?"true":"false";
+ if(button.getAttribute("aria-pressed")!==pressed)button.setAttribute("aria-pressed",pressed);
+ if(button.title!=="Toggle spoken encouragement. Tap once to preview.")button.title="Toggle spoken encouragement. Tap once to preview.";
 }
 function mount(){
  if(!document.body)return;
