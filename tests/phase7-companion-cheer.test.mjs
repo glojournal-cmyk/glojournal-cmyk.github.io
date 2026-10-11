@@ -36,7 +36,8 @@ test('Phase 7B voice encouragement is opt-in, throttled, and does not alter mark
  assert.match(voice,/lux:phase7-mission-complete/);
  assert.match(voice,/aria-pressed/);
  assert.doesNotMatch(voice,/setState\(|importProgress\(|awardXP\(/);
- assert.match(html,/phase7-voice-cheers-20261011\.js/);
+ assert.match(voice,/if\(button\.textContent!==label\)button\.textContent=label/);
+ assert.doesNotMatch(html,/<script[^>]+src="\/assets\/phase7-voice-cheers-20261011\.js/,'voice remains paused while recovering iPad start');
 });
 
 test('Phase 7B adds companion encouragement only to verified completed missions',()=>{
