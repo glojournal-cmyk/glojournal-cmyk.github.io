@@ -5,6 +5,8 @@ const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
 const AUTO_KEY = "lux-progress-auto-v1";
 const BEFORE_RESTORE_KEY = "lux-progress-before-restore-v1";
 let autoTimer, lastAutoSignature = "", selectedRestore = null, currentExportShared = false;
+let lastAutoAttemptAt = 0, quotaRetryAfter = 0;
+const MIN_AUTO_INTERVAL_MS = 90000, QUOTA_RETRY_MS = 600000;
 function backupSignature(data) {
  try {
   const parsed = JSON.parse(data);
@@ -13,8 +15,12 @@ function backupSignature(data) {
   return JSON.stringify(parsed);
  } catch { return String(data || ""); }
 }
-function autoSave(){
+function autoSave(force=false){
  clearTimeout(autoTimer);
+ const now=Date.now();
+ if(now<quotaRetryAfter)return;
+ if(!force&&now-lastAutoAttemptAt<MIN_AUTO_INTERVAL_MS)return;
+ lastAutoAttemptAt=now;
  try {
   const state = store.getState();
   const parsed = JSON.parse(state.exportProgress());
@@ -63,16 +69,19 @@ function autoSave(){
   const el = document.getElementById("daily-auto-status");
   if(el) el.textContent = `Saved automatically · ${new Date(saved.savedAt).toLocaleTimeString("en-GB")}`;
  }catch(error){
+  if(error?.name==="QuotaExceededError" || /quota/i.test(String(error?.message||""))) quotaRetryAfter=Date.now()+QUOTA_RETRY_MS;
   const el = document.getElementById("daily-auto-status");
-  if(el) el.textContent = "Automatic backup failed. Use Save progress & backup to keep a separate file.";
+  if(el) el.textContent = quotaRetryAfter>Date.now()
+    ? "iPad storage full · automatic backups paused for 10 minutes. Export progress to Files now."
+    : "Automatic backup failed. Use Save progress & backup to keep a separate file.";
  }
 }
 store.subscribe(()=>{clearTimeout(autoTimer);autoTimer=setTimeout(autoSave,250)});
-window.addEventListener("pagehide",autoSave);
-document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")autoSave()});
-window.addEventListener("scholar:learning-changed",autoSave);
-window.addEventListener("scholar:pet-changed",autoSave);
-window.addEventListener("scholar:mp-changed",autoSave);
+window.addEventListener("pagehide",()=>autoSave(true));
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")autoSave(true)});
+window.addEventListener("scholar:learning-changed",()=>autoSave());
+window.addEventListener("scholar:pet-changed",()=>autoSave());
+window.addEventListener("scholar:mp-changed",()=>autoSave());
 const PANEL_ID = "daily-save-panel";
 
 function summary(state) {
@@ -102,23 +111,30 @@ function showSpaceRepair() {
   if(button)button.hidden=false;
 }
 function freeDuplicateBackups() {
- if(!currentExportShared)return status("Export your CURRENT progress to Files first.","error");
- if(!confirm("Have you checked the current Scholar Garden JSON file in Files or iCloud Drive? This removes duplicate local backup copies (NOT your current Scholar progress) to make space. The external file is required for safe recovery."))return;
- const xp=Number(store.getState()?.xp)||0;
- // Preserve the actual Scholar game state, pet state, and all learning records.
- // Only remove redundant snapshots after a user-initiated external export.
- const keys=[AUTO_KEY+"-previous",SNAPSHOT_KEY,AUTO_KEY];
- try{
-  keys.forEach(key=>localStorage.removeItem(key));
-  store.setState({});
-  const saved=JSON.parse(localStorage.getItem("lux-scholar-garden-v1")||"null");
-  if(Number(saved?.state?.xp)!==xp)throw Error("Main Scholar progress verification failed");
-  status("Current Scholar progress is saved locally again. Keep the JSON file in Files as an independent backup.","success");
+ if(!currentExportShared)return status("Export the current progress to Files first.","error");
+ if(!confirm("Have you verified that your CURRENT progress JSON exists in Files/iCloud Drive? Only older redundant backup copies will be deleted. The latest automatic backup and Scholar game data will stay."))return;
+ const mainKey="lux-scholar-garden-v1";
+ const mainBefore=localStorage.getItem(mainKey), latestAuto=localStorage.getItem(AUTO_KEY);
+ if(!mainBefore || !latestAuto)return status("Your Scholar progress or latest automatic copy is missing. Nothing was deleted.","error");
+ let before;
+ try {
+  before=JSON.parse(mainBefore);
+  if(typeof before?.state?.xp!=="number")throw Error("Could not verify stored XP");
+ }catch{return status("Main Scholar data cannot be validated. Nothing was deleted.","error")}
+ // Reclaim space from old extra copies, never delete the latest automatic
+ // backup, current game store, pet collection or the external exported file.
+ try {
+  [AUTO_KEY+"-previous",SNAPSHOT_KEY].forEach(key=>localStorage.removeItem(key));
+  const mainAfter=localStorage.getItem(mainKey);
+  if(mainAfter!==mainBefore || localStorage.getItem(AUTO_KEY)!==latestAuto)
+   throw Error("Main progress or automatic backup unexpectedly changed");
+  quotaRetryAfter=0;
+  status("Older duplicate copies cleared. Main Scholar data and latest automatic backup preserved. Keep your file in Files.","success");
   const button=document.getElementById("daily-free-backup-space");
   if(button)button.hidden=true;
   currentExportShared=false;
  }catch(error){
-  status("Still unable to confirm local saving. KEEP your exported JSON file; do not clear website data. "+(error?.message||""),"error");
+  status("Space recovery could not be verified: "+(error?.message||"")+". Keep your external backup.","error");
  }
 }
 async function save() {
