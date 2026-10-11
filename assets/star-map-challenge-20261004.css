@@ -53,3 +53,8 @@
 .sm-challenge .sm-prize{background:linear-gradient(125deg,#fff8e8,#eaf4ec 75%);border-color:#c9b57c}
 .sm-challenge .sm-prize:before{content:"✦ ✧ ✦";display:block;color:#b59a52;letter-spacing:.8em;font-size:24px}
 @media(prefers-reduced-motion:reduce){.sm-theme-scene .sm-map,.sm-prize{animation:none!important;transition:none!important}}
+
+.sm-collector-teaser .sm-reward-preview{height:72px;width:72px;flex:0 0 72px;object-fit:contain;filter:drop-shadow(0 4px 8px #172c4730)}
+.sm-prize .sm-reward-earned{display:block;width:min(220px,65vw);height:auto;object-fit:contain;filter:drop-shadow(0 12px 23px #152a4050);animation:smRewardReveal .9s ease-out both}
+@keyframes smRewardReveal{from{opacity:.25;transform:scale(.82) rotate(-7deg)}to{opacity:1;transform:scale(1) rotate(0deg)}}
+@media(prefers-reduced-motion:reduce){.sm-prize .sm-reward-earned{animation:none!important}}
