@@ -2,7 +2,7 @@ import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,
 import "./journey-navigation-20261004.js?v=20261010-chem-marking1";
 import "./weekly-evidence-20261004.js";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261010-chem-marking1";
-import("/pet/pet-care-global.js?v=20261011-recovery-qa1").catch(()=>{});
+import("/pet/pet-care-global.js?v=20261011-recovery-qa2").catch(()=>{});
 export * from "./index-BLVOhKhN.core.js?v=20261010-mission-v2";
 import {
   C as store,
