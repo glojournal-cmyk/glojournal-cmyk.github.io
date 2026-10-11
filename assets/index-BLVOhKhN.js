@@ -2282,7 +2282,7 @@ function recordDailyVocabAttempt(subject, questionId, correct) {
   const state = store.getState();
   // Recovery answers belong to the missed date, never to today's Vocab task.
   const recover = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("recover") : null;
-  if (recover && /^\\d{4}-\\d{2}-\\d{2}$/.test(recover)) {
+  if (recover && /^\d{4}-\d{2}-\d{2}$/.test(recover)) {
     const now = todayKey();
     const elapsed = Math.round((Date.parse(now + "T12:00:00Z") - Date.parse(recover + "T12:00:00Z")) / 86400000);
     const previous = state.dailyLog?.[recover]?.tasks?.find(t => t.id === subject + "-vocab");
