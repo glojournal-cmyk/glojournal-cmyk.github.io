@@ -234,8 +234,14 @@ async function restore(data, name) {
     return status("Restore stopped: could not protect your current progress. Export a backup file first.", "error");
   }
   const result = store.getState().importProgress(data);
-  if (!result?.ok) return status((result?.error || "Restore failed.") + " Your earlier copy remains available under Backup history.", "error");
-  status("Backup restored. Reloading to show the updated tasks.", "success");
+  if (!result?.ok) return status((result?.error || "Restore failed.") + " The original backup remains available.", "error");
+  const importedState=store.getState();
+  let durable=null;try{durable=JSON.parse(localStorage.getItem("lux-scholar-garden-v1")||"null")?.state}catch{}
+  const compact=tasks=>(tasks||[]).map(t=>[t.id,Number(t.progress)||0,Number(t.target)||0]);
+  const saved=durable&&durable.xp===importedState.xp&&durable.today===importedState.today&&
+    JSON.stringify(compact(durable.daily))===JSON.stringify(compact(importedState.daily));
+  if(!saved)return status("Restored in memory but iPad storage is still full. DO NOT reload; export current progress to Files first.","error");
+  status("Restored progress verified in iPad storage. Reloading.","success");
   location.reload();
 }
 function mount() {
@@ -310,7 +316,7 @@ async function reclaimBackupStorage(){
  try{
   const result=await migrateOldBackups();
   await refreshCopies();
-  if(!result.moved)return;
+  if(!result.moved&&!Object.keys(globalThis.LuxArchivedBackupCache||{}).length)return;
   const live=store.getState();
   if(store.persist?.hasHydrated?.()===false)return;
   try{store.setState({})}catch{}
