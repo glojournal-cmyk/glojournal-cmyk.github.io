@@ -42,3 +42,14 @@
 .sm-theme-biology .sm-theme-scene .sm-map{filter:hue-rotate(70deg) drop-shadow(0 9px 16px #122d3455)}
 @media(max-width:640px){.sm-theme-scene{min-height:205px;padding:17px 12px}.sm-theme-scene .sm-map{max-height:176px}}
 @media(prefers-reduced-motion:reduce){.sm-theme-scene *{animation:none!important}}
+
+/* Phase 8D: subject-specific illustrated vector scenes and collectible reveal. */
+.sm-theme-scene .sm-theme-illustration{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.88}
+.sm-theme-scene:before{z-index:1;opacity:.14}
+.sm-theme-scene .sm-map{max-height:205px;max-width:320px;opacity:.94;filter:drop-shadow(0 6px 14px #0008);background:#152c42b8;border:1px solid #c8b27a88;border-radius:16px;padding:10px}
+.sm-theme-scene-caption{background:#122943b8;border-radius:99px;width:max-content;margin:auto!important;padding:3px 12px;max-width:90%}
+.sm-theme-scene-sigil{background:#182e43b8;border:1px solid #ddc79380;border-radius:50%;height:46px;width:46px;display:grid;place-items:center}
+.sm-prize .sm-badge{max-width:180px;filter:drop-shadow(0 6px 12px #22364844)}
+.sm-challenge .sm-prize{background:linear-gradient(125deg,#fff8e8,#eaf4ec 75%);border-color:#c9b57c}
+.sm-challenge .sm-prize:before{content:"✦ ✧ ✦";display:block;color:#b59a52;letter-spacing:.8em;font-size:24px}
+@media(prefers-reduced-motion:reduce){.sm-theme-scene .sm-map,.sm-prize{animation:none!important;transition:none!important}}
