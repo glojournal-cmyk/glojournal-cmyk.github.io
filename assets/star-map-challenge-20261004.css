@@ -58,3 +58,12 @@
 .sm-prize .sm-reward-earned{display:block;width:min(220px,65vw);height:auto;object-fit:contain;filter:drop-shadow(0 12px 23px #152a4050);animation:smRewardReveal .9s ease-out both}
 @keyframes smRewardReveal{from{opacity:.25;transform:scale(.82) rotate(-7deg)}to{opacity:1;transform:scale(1) rotate(0deg)}}
 @media(prefers-reduced-motion:reduce){.sm-prize .sm-reward-earned{animation:none!important}}
+
+/* Phase 8E: one chapter reveal every two challenges; no extra reward credit. */
+.sm-chapter-reveal{margin:22px 0;padding:28px 24px;text-align:center;border-radius:24px;border:1px solid #c4a671;background:radial-gradient(circle at 50% 0,#fff0c9,#fffaf0 65%,#e9f1e8);box-shadow:0 10px 25px #233f4820}
+.sm-chapter-reveal>span{font:48px Georgia,serif;color:#b39a53;display:block;margin-bottom:6px}
+.sm-chapter-reveal h2{font:600 clamp(25px,3vw,36px)/1.15 "Cormorant Garamond",Georgia,serif;color:#244b50;margin:6px 0 12px}
+.sm-chapter-reveal p{font-size:14px;color:#49685d;margin:10px 0}
+.sm-chapter-reveal button{margin-top:14px;background:#224b50;color:#fffbef;border-color:#224b50;font-weight:700}
+.sm-chapter-reveal button:hover{background:#346c66;color:white}
+@media(prefers-reduced-motion:reduce){.sm-chapter-reveal *{animation:none!important;transition:none!important}}
