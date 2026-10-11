@@ -65,3 +65,11 @@ test("Cleanup never falsely claims current progress was saved if storage still f
  assert.equal(JSON.parse(db["lux-scholar-garden-v1"]).state.xp,2748);
  assert.match(status,/could not be verified/i);
 });
+
+test("Error boundary never deletes backup storage or forces reload on quota",()=>{
+ const start=core.indexOf("function Pc({error:e})"),end=core.indexOf("function Fc(",start);
+ assert.ok(start>0&&end>start);
+ const boundary=core.slice(start,end);
+ assert.doesNotMatch(boundary,/luxReleaseStorage|location\\.reload\\(|lux_quota_reload/);
+ assert.match(boundary,/Do not clear data or reinstall/);
+});
