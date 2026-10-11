@@ -21,8 +21,8 @@ function correctedToday(state,id,day){
 export function mistakeReviewTask(state,assessment=globalThis.LuxPracticeBridge.readAssessment(),availableTopic=null){
  const day=state.today,old=(state.daily||[]).find(t=>t.id==='mistake-review');
  const excluded=new Set(state.reviewUnavailableByDay?.[day]||[]);
- // Never regenerate a deliberately excused stale question on the same day.
- if(old?.planDate===day&&old.reviewUnavailable===true)return old;
+ // Re-check other subjects even if an earlier stale question was excused.
+ // An unavailable French question must not conceal a valid Latin/Chemistry review.
  if(old?.planDate===day&&old.reviewQuestionIds?.length && old.reviewQuestionIds.every(id=>!excluded.has(id)) &&
   (old.reviewSource==="assessment" || !availableTopic || old.reviewTopicIds?.some(id=>availableTopic(old.reviewSubject,id,old.reviewYear)))){
   const fromPractice=old.reviewSource==='assessment'?[]:(old.reviewQuestionIds||[]).filter(id=>correctedToday(state,id,day));
