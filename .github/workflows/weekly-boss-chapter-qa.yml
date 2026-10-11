@@ -9,6 +9,7 @@ on:
       - 'assets/weekly-boss-themes-20261011.js'
       - 'tests/star-map-challenge-qa.mjs'
       - 'tests/weekly-boss-player-journey.mjs'
+      - 'tests/weekly-boss-browser-journey.mjs'
       - '.github/workflows/weekly-boss-chapter-qa.yml'
   workflow_dispatch:
 permissions:
@@ -25,3 +26,13 @@ jobs:
       - run: node --check assets/weekly-boss-themes-20261011.js
       - run: node tests/star-map-challenge-qa.mjs
       - run: node tests/weekly-boss-player-journey.mjs
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/weekly-boss-browser-journey.mjs
