@@ -58,6 +58,7 @@ function backupHarness(initial,live){
   readBackup:async key=>copies.get(key)||null,
   putBackup:async(key,value)=>{copies.set(key,JSON.parse(JSON.stringify(value)));return true},
   migrateOldBackups:async()=>({moved:0,failed:0}),
+  PREVIOUS_KEY:'lux-progress-auto-v1-previous',
   document:{getElementById:()=>({set textContent(x){statuses.push(x)}})},Date,JSON,
   setTimeout:()=>{},window:{}});
  vm.runInContext(source.slice(i,j)+'\n'+source.slice(a,b)+'\nfunction refreshCopies(){}',ctx,{timeout:4000});
