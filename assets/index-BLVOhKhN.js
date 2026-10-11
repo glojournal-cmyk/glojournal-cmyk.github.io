@@ -2396,7 +2396,7 @@ function recordDailyVocabAttempt(subject, questionId, correct) {
         ? { ...t, progress: Number(t.target) || 30, done: true, recovered: true }
         : t);
       const completedTasks = tasks.filter(t => t.done || Number(t.progress) >= Number(t.target)).length;
-      log[recover] = { ...dayLog, tasks, done: completedTasks,
+      log[recover] = { ...dayLog, tasks, done: completedTasks, total: tasks.length,
         complete: tasks.length > 0 && completedTasks === tasks.length };
       const awarded = { ...(state.recoveryAwarded || {}) };
       const awardKey = recover + ":" + subject;
