@@ -2306,6 +2306,40 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   return result;
 }
 
+// Find a prior daily Vocab assignment without depending only on dailyLog.
+// On an iPad that ran out of storage, an older automatic backup may still
+// contain the previous day's actual task list.
+function findRecoveryVocabSource(state, date, subject) {
+  if (!["french", "latin"].includes(subject) || !/^\d{4}-\d{2}-\d{2}$/.test(date || "")) return null;
+  const id = subject + "-vocab";
+  const readTasks = rows => Array.isArray(rows) ? rows : [];
+  let tasks = readTasks(state.dailyLog?.[date]?.tasks);
+  if (!tasks.some(t=>t.id===id) && state.today===date) tasks=readTasks(state.daily);
+  if (!tasks.some(t=>t.id===id) && typeof localStorage !== "undefined") {
+    for (const key of ["lux-progress-auto-v1","lux-progress-auto-v1-previous","lux-daily-manual-backup-v1"]) {
+      try {
+        const saved=JSON.parse(localStorage.getItem(key)||"null");
+        if (!saved?.data)continue;
+        const snapshot=JSON.parse(saved.data)?.state;
+        const found=snapshot?.dailyLog?.[date]?.tasks ||
+          (snapshot?.today===date?snapshot.daily:[]);
+        if (readTasks(found).some(t=>t.id===id)) {tasks=found;break;}
+      } catch {}
+    }
+  }
+  const verified = {...(state.dailyVocabByDay?.[date]?.[subject]?.items||{})};
+  for (const entry of state.formalAttemptLog||[]) {
+    if (entry?.day===date && entry?.dailyVocab===subject && entry.questionId && !entry.repair)
+      verified[entry.questionId]=!!entry.correct||!!verified[entry.questionId];
+  }
+  const verifiedCount=Object.values(verified).filter(Boolean).length;
+  const task=tasks.find(t=>t.id===id);
+  if (!task && !Object.keys(verified).length) return null;
+  const progress=Math.min(30,Math.max(Number(task?.progress)||0,verifiedCount));
+  return {task:{...task,id,target:30,progress},tasks:tasks.length?tasks:[{id,target:30,progress}]};
+}
+if (typeof window !== "undefined") window.LuxRecoveryVocabSource = findRecoveryVocabSource;
+
 function recordDailyVocabAttempt(subject, questionId, correct) {
   if (!["french", "latin"].includes(subject) || !questionId) return;
   const state = store.getState();
@@ -2314,7 +2348,8 @@ function recordDailyVocabAttempt(subject, questionId, correct) {
   if (recover && /^\d{4}-\d{2}-\d{2}$/.test(recover)) {
     const now = todayKey();
     const elapsed = Math.round((Date.parse(now + "T12:00:00Z") - Date.parse(recover + "T12:00:00Z")) / 86400000);
-    const previous = state.dailyLog?.[recover]?.tasks?.find(t => t.id === subject + "-vocab");
+    const source=findRecoveryVocabSource(state,recover,subject);
+    const previous=source?.task;
     if (elapsed < 1 || elapsed > 2 || !previous || Number(previous.progress) >= Number(previous.target)) return;
     const originalCount = Math.max(0, Math.min(30, Number(previous.progress) || 0));
     const totalNeeded = 30 - originalCount + 5;
@@ -2328,12 +2363,12 @@ function recordDailyVocabAttempt(subject, questionId, correct) {
     all[recover] = perDay;
     if (credited >= totalNeeded && !row.completed) {
       const log = { ...(state.dailyLog || {}) };
-      const dayLog = log[recover];
+      const dayLog = log[recover] || {date:recover,tasks:source.tasks};
       const tasks = (dayLog?.tasks || []).map(t => t.id === subject + "-vocab"
         ? { ...t, progress: Number(t.target) || 30, done: true, recovered: true }
         : t);
       const completedTasks = tasks.filter(t => t.done || Number(t.progress) >= Number(t.target)).length;
-      if (dayLog) log[recover] = { ...dayLog, tasks, done: completedTasks,
+      log[recover] = { ...dayLog, tasks, done: completedTasks,
         complete: tasks.length > 0 && completedTasks === tasks.length };
       const awarded = { ...(state.recoveryAwarded || {}) };
       const awardKey = recover + ":" + subject;
