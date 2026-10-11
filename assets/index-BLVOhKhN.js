@@ -3,7 +3,7 @@ import "./journey-navigation-20261004.js?v=20261011-storage-qa1";
 import "./weekly-evidence-20261004.js";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1";
 import("/pet/pet-care-global.js?v=20261011-storage-qa1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261011-storage-qa1";
+export * from "./index-BLVOhKhN.core.js?v=20261011-vault2";
 import {
   C as store,
   Z as scholarLevelProgress,
@@ -17,7 +17,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261011-storage-qa1";
+} from "./index-BLVOhKhN.core.js?v=20261011-vault2";
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
@@ -3372,7 +3372,7 @@ function mountDailyRecordButton() {
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261010-chem-marking1").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261011-vault2").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){
