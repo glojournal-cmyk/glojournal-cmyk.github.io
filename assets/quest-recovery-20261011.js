@@ -8,8 +8,9 @@ function recoveryRows(state){
   const date=dateAt(today,-back);
   for(const subject of ["french","latin"]){
    const task=globalThis.LuxRecoveryVocabSource?.(state,date,subject)?.task || null;
-   if(!task||Number(task.progress)>=Number(task.target)&&!task.recovered)continue;
+   if(!task)continue;
    const rec=state.recoveryVocabByDay?.[date]?.[subject]||{};
+   if(Number(task.progress)>=Number(task.target)&&!rec.completed&&!task.recovered)continue;
    const base=Math.max(0,Math.min(30,Number(rec.originalCount ?? task.progress)||0));
    const target=Number(rec.totalNeeded)||30-base+5;
    const current=Math.max(0,Object.values(rec.items||{}).filter(Boolean).length);
@@ -20,12 +21,39 @@ function recoveryRows(state){
  }
  return out;
 }
+function reconcileCompletedRecoveries(){
+ // A completed recovery can survive in its proof ledger even if the
+ // corresponding historical dailyLog write was lost under iPad quota.
+ const state=store.getState(),today=todayKey();
+ const log={...(state.dailyLog||{})};
+ let changed=false;
+ for(let back=1;back<=2;back++){
+  const date=dateAt(today,-back);
+  for(const subject of ["french","latin"]){
+   const proof=state.recoveryVocabByDay?.[date]?.[subject];
+   if(proof?.completed!==true)continue;
+   const id=subject+"-vocab";
+   const source=globalThis.LuxRecoveryVocabSource?.(state,date,subject);
+   const existing=log[date];
+   const tasks=Array.isArray(existing?.tasks)&&existing.tasks.length
+    ? existing.tasks : (source?.tasks||[]);
+   if(!tasks.some(task=>task.id===id))continue;
+   if(tasks.some(task=>task.id===id&&(task.done||Number(task.progress)>=Number(task.target))))continue;
+   const repaired=tasks.map(task=>task.id===id?{...task,progress:Number(task.target)||30,done:true,recovered:true}:task);
+   const done=repaired.filter(task=>task.done||Number(task.target)>0&&Number(task.progress)>=Number(task.target)).length;
+   log[date]={...(existing||{}),date,tasks:repaired,done,total:repaired.length,complete:done===repaired.length};
+   changed=true;
+  }
+ }
+ if(changed)store.setState({dailyLog:log});
+}
 function mount(){
  if(location.pathname!=="/")return;
  const card=[...document.querySelectorAll("main h2")].find(n=>n.textContent.trim()==="Raise her today")?.parentElement?.parentElement?.parentElement;
  if(!card)return;
  let host=document.getElementById("lux-recovery-quests");
  if(!host){host=document.createElement("section");host.id="lux-recovery-quests";card.append(host)}
+ reconcileCompletedRecoveries();
  const rows=recoveryRows(store.getState());
  const signature=JSON.stringify(rows);if(host.dataset.signature===signature)return;host.dataset.signature=signature;
  host.replaceChildren();host.hidden=false;
