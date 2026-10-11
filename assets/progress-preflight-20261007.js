@@ -62,53 +62,10 @@
     var next = JSON.stringify(saved);
     return next.length < value.length ? next : null;
   }
-  function guard(storage) {
-    if (!storage || typeof storage.setItem !== "function") return null;
-    var native = storage.setItem.bind(storage);
-    storage.setItem = function (key, value) {
-      try { return native(key, value); }
-      catch (error) {
-        if (!quota(error)) throw error;
-        if (storage !== localStorage) throw error;
-        dropDuplicates(key);
-        try { return native(key, value); }
-        catch (again) {
-          if (!quota(again)) throw again;
-          // Never delete the last automatic recovery copy merely to fit an unrelated write.
-          var reduced = key === KEY ? smallerGarden(String(value)) : null;
-          if (!reduced) throw error;
-          try { return native(key, reduced); }
-          catch (e3) {
-            if (!quota(e3)) throw e3;
-            var previous = read(key);
-            try { localStorage.removeItem(key); } catch (e4) {}
-            try { return native(key, reduced); }
-            catch (e5) {
-              if (previous != null) { try { native(key, previous); } catch (e6) {} }
-              throw e5;
-            }
-          }
-        }
-      }
-    };
-    return native;
-  }
-  var nativeSet = guard(localStorage);
-  if (typeof sessionStorage !== "undefined") guard(sessionStorage);
-  try {
-    var root = typeof window === "undefined" ? globalThis : window;
-    var proto = root.Storage && root.Storage.prototype;
-    if (proto && proto.setItem && !proto.setItem.__luxGuard) {
-      var protoNative = proto.setItem;
-      var wrapped = function (key, value) {
-        // Quota failures must surface to callers; silently swallowing them
-        // makes today's progress look saved even when nothing was written.
-        return protoNative.call(this, key, value);
-      };
-      wrapped.__luxGuard = true;
-      proto.setItem = wrapped;
-    }
-  } catch (e) {}
+  // Do not truncate or rewrite student records on quota failures.
+  // The verified IndexedDB vault frees duplicate snapshots after startup.
+  function guard(storage){return storage?.setItem?.bind(storage)||null}
+  var nativeSet=guard(localStorage);
   function write(key, value) {
     try { localStorage.setItem(key, value); return localStorage.getItem(key) === value; } catch (e) { return false; }
   }
@@ -135,13 +92,6 @@
   var current = parse(read(KEY));
   // A healthy save is not a reason to erase previous automatic backups.
   var root = typeof window === "undefined" ? globalThis : window;
-  root.luxReleaseStorage = function () {
-    dropDuplicates(KEY);
-    try { localStorage.removeItem(AUTO); } catch (e) {}
-    var existing = read(KEY);
-    var reduced = existing && smallerGarden(existing);
-    if (reduced && nativeSet) {
-      try { nativeSet(KEY, reduced); } catch (e) {}
-    }
-  };
+  // Legacy callers may request this; deliberately never erase backups or reviews.
+  root.luxReleaseStorage=function(){return false};
 })();
