@@ -27,3 +27,18 @@
 .sm-theme-picker button:disabled{opacity:.75;cursor:default}.sm-theme-picker button.is-selected:disabled{opacity:1}
 .sm-theme-note{font-size:12px;color:#63746e;margin:6px 0 12px}
 @media(max-width:720px){.sm-theme-picker{grid-template-columns:repeat(2,minmax(0,1fr))}.sm-theme-picker button{min-height:100px;padding:12px}}
+
+/* Phase 8C — four distinct storybook worlds, using existing vector map. */
+.sm-theme-scene{position:relative;overflow:hidden;border-radius:20px;min-height:245px;display:grid;place-items:center;padding:22px 18px;background:radial-gradient(circle at 48% 37%,#6d86a4 0%,#253e58 56%,#18283e 100%);border:1px solid #b8a477;isolation:isolate}
+.sm-theme-scene:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:radial-gradient(#fbeac0 1px,transparent 1px);background-size:23px 27px}
+.sm-theme-scene .sm-map{position:relative;z-index:1;max-height:215px;max-width:350px;filter:drop-shadow(0 8px 18px #0b172a55)}
+.sm-theme-scene-sigil{position:absolute;z-index:2;right:15px;top:12px;color:#fff0b9;font:33px Georgia,serif;line-height:1}
+.sm-theme-scene-caption{position:absolute;bottom:10px;left:0;right:0;text-align:center;color:#faf2df!important;font:650 11px/1.4 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin:0!important;z-index:2}
+.sm-theme-french .sm-theme-scene{background:radial-gradient(ellipse at 40% 35%,#936982,#402e58 64%,#242240)}
+.sm-theme-french .sm-theme-scene .sm-map{filter:sepia(.18) hue-rotate(24deg) drop-shadow(0 9px 16px #1d113b55)}
+.sm-theme-chemistry .sm-theme-scene{background:radial-gradient(ellipse at 40% 35%,#748b65,#355745 60%,#182c35)}
+.sm-theme-chemistry .sm-theme-scene .sm-map{filter:sepia(.22) hue-rotate(48deg) drop-shadow(0 9px 16px #132d2455)}
+.sm-theme-biology .sm-theme-scene{background:radial-gradient(ellipse at 40% 35%,#648b94,#265463 64%,#18343e)}
+.sm-theme-biology .sm-theme-scene .sm-map{filter:hue-rotate(70deg) drop-shadow(0 9px 16px #122d3455)}
+@media(max-width:640px){.sm-theme-scene{min-height:205px;padding:17px 12px}.sm-theme-scene .sm-map{max-height:176px}}
+@media(prefers-reduced-motion:reduce){.sm-theme-scene *{animation:none!important}}
