@@ -40,8 +40,16 @@ try{
    await page.waitForSelector('.sm-theme-picker button',{timeout:30000});
    assert.ok((await page.locator('.sm-challenge').getAttribute('class')).includes('sm-theme-french'));
    assert.equal(await page.locator('.sm-theme-picker button:disabled').count(),4);
+   // Finish the second French challenge to unlock the Chapter Cleared screen.
+   await page.locator('.sm-options button').first().click();
+   await page.waitForSelector('.sm-chapter-reveal',{timeout:8000});
+   assert.ok((await page.locator('.sm-chapter-reveal').innerText()).includes('Chapter 1 cleared'));
+   assert.equal(await page.locator('.sm-task').count(),0,'the next question must wait behind Continue');
+   await page.getByRole('button',{name:/Continue to Chapter 2/}).click();
+   await page.waitForSelector('.sm-task',{timeout:8000});
+   assert.equal(await page.locator('.sm-chapter-reveal').count(),0);
    assert.equal(errors.length,0,name+': '+errors.join(' | '));
-   results.push({engine:name,themeButtons:4,artwork:true,themeLockedAfterAnswer:true,reload:true});
+   results.push({engine:name,themeButtons:4,artwork:true,themeLockedAfterAnswer:true,reload:true,chapterReveal:true,continueChapter:true});
    await context.close();
   }finally{await browser.close()}
  }
