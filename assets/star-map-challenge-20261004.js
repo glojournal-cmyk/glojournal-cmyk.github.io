@@ -1,7 +1,7 @@
 import {THEMES,themeFor} from './weekly-boss-themes-20261011.js';
 import {i as interop,n as factory} from './jsx-runtime-Cltr0gcK.js';
-import {C as store,d as successSound} from './index-BLVOhKhN.js?v=20261010-chem-marking1';
-import {weekOf,missionFor,advanceMap,completedStages,nextWeek,nodes} from './star-map-state-20261004.js?v=20261010-chem-marking1';
+import {C as store,d as successSound} from './index-BLVOhKhN.js?v=20261011-vault2';
+import {weekOf,missionFor,advanceMap,completedStages,nextWeek,nodes} from './star-map-state-20261004.js?v=20261011-8b2';
 const R=interop(factory()),h=R.createElement;
 const titles=['Light the lanterns','Decode the signal','Awaken the telescope','Reveal the constellation'];
 const discoveries=['The first lantern is lit','The hidden signal is back','The telescope is awake','The constellation is yours'];
