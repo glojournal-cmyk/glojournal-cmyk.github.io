@@ -4,7 +4,7 @@ import { C as store } from "/assets/index-BLVOhKhN.js?v=20261011-vocab-review2";
 const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
 const AUTO_KEY = "lux-progress-auto-v1";
 const BEFORE_RESTORE_KEY = "lux-progress-before-restore-v1";
-let autoTimer, lastAutoSignature = "", selectedRestore = null;
+let autoTimer, lastAutoSignature = "", selectedRestore = null, currentExportShared = false;
 function backupSignature(data) {
  try {
   const parsed = JSON.parse(data);
@@ -96,6 +96,31 @@ function savedStatus() {
   const time = new Date(saved.savedAt).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" });
   return `Last saved ${time} · ${saved.done}/${saved.total} tasks (${saved.day})${saved.day === current.day && saved.done > current.done ? " · Saved copy has more completed tasks" : ""}.`;
 }
+function showSpaceRepair() {
+  currentExportShared=true;
+  const button=document.getElementById("daily-free-backup-space");
+  if(button)button.hidden=false;
+}
+function freeDuplicateBackups() {
+ if(!currentExportShared)return status("Export your CURRENT progress to Files first.","error");
+ if(!confirm("Have you checked the current Scholar Garden JSON file in Files or iCloud Drive? This removes duplicate local backup copies (NOT your current Scholar progress) to make space. The external file is required for safe recovery."))return;
+ const xp=Number(store.getState()?.xp)||0;
+ // Preserve the actual Scholar game state, pet state, and all learning records.
+ // Only remove redundant snapshots after a user-initiated external export.
+ const keys=[AUTO_KEY+"-previous",SNAPSHOT_KEY,AUTO_KEY];
+ try{
+  keys.forEach(key=>localStorage.removeItem(key));
+  store.setState({});
+  const saved=JSON.parse(localStorage.getItem("lux-scholar-garden-v1")||"null");
+  if(Number(saved?.state?.xp)!==xp)throw Error("Main Scholar progress verification failed");
+  status("Current Scholar progress is saved locally again. Keep the JSON file in Files as an independent backup.","success");
+  const button=document.getElementById("daily-free-backup-space");
+  if(button)button.hidden=true;
+  currentExportShared=false;
+ }catch(error){
+  status("Still unable to confirm local saving. KEEP your exported JSON file; do not clear website data. "+(error?.message||""),"error");
+ }
+}
 async function save() {
   const button = document.getElementById("daily-save-button");
   button.disabled = true;
@@ -124,6 +149,7 @@ async function save() {
       try {
         await navigator.share({ files: [file], title: "Scholar Garden progress backup" });
         status("Progress file shared. Verify the JSON file is in Files or iCloud Drive before reloading.", "success");
+        showSpaceRepair();
       } catch (error) {
         if (error?.name === "AbortError") status("Share cancelled. Please save a JSON copy to Files before reloading.", "warning");
         else status("Share failed. Try exporting again; do not clear website data.", "error");
@@ -135,6 +161,7 @@ async function save() {
       document.body.append(link); link.click(); link.remove();
       setTimeout(() => URL.revokeObjectURL(url), 60000);
       status("Backup file download started. Verify the JSON file in Files before reloading.", "success");
+      showSpaceRepair();
     }
   } catch (error) {
     status(`Save failed: ${error?.message || "Please try again."}`, "error");
@@ -234,7 +261,8 @@ function mount() {
   panel.innerHTML = `
     <div class="daily-save-heading"><strong>Keep your progress</strong><p id="daily-save-status" role="status" aria-live="polite"></p></div>
     <p id="daily-auto-status" role="status" aria-live="polite"></p>
-    <div class="daily-save-actions"><button id="daily-save-button" type="button">Save progress & backup</button></div>
+    <div class="daily-save-actions"><button id="daily-save-button" type="button">Save progress & backup</button>
+      <button id="daily-free-backup-space" type="button" hidden>Free backup space after export</button></div>
     <p class="daily-save-note">If iPad storage is full, this button will still offer an external JSON export. Verify the file in Files before leaving this page.</p>
     <details id="daily-recovery-options"><summary>Backup history & restore</summary>
       <p class="daily-save-note">Preview a copy before restoring. Files kept in Files or iCloud Drive can recover progress after browser data is cleared.</p>
@@ -266,6 +294,7 @@ function mount() {
   panel.querySelector("#daily-auto-export").addEventListener("click",()=>exportAutomaticCopy(AUTO_KEY,"auto-latest"));
   panel.querySelector("#daily-auto-previous-export").addEventListener("click",()=>exportAutomaticCopy(AUTO_KEY+"-previous","auto-previous"));
   panel.querySelector("#daily-save-button").addEventListener("click", save);
+  panel.querySelector("#daily-free-backup-space").addEventListener("click",freeDuplicateBackups);
   panel.querySelector("#daily-restore-button").addEventListener("click", () => {
     const saved = savedCopy();
     if (!saved) return status("No saved copy on this iPad.", "error");
