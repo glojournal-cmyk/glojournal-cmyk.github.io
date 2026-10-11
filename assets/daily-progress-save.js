@@ -139,8 +139,52 @@ function previewRestore(data, name, meta = {}) {
     status('Preview ready. Check the date and progress before restoring.');
   } catch(error) { selectedRestore=null;const box=document.getElementById('daily-restore-preview');if(box)box.hidden=true;status(error.message||'Could not read this backup.','error'); }
 }
+async function exportAutomaticCopy(key,label) {
+  let saved;
+  try { saved = JSON.parse(localStorage.getItem(key) || "null"); } catch {}
+  if (!saved?.data || typeof saved.data !== "string") {
+    status("No automatic copy is stored on this iPad.", "error");
+    return;
+  }
+  let parsed;
+  try {
+    parsed = JSON.parse(saved.data);
+    if (parsed?.app !== "lux-scholar-garden" || !Array.isArray(parsed?.state?.daily))
+      throw new Error("Invalid backup data");
+  } catch {
+    status("The automatic copy could not be validated. Nothing was changed.", "error");
+    return;
+  }
+  // Export the saved snapshot exactly. Never replace the live state or overwrite the snapshot.
+  const stamp = String(saved.savedAt || new Date().toISOString()).slice(0,10);
+  const filename = "scholar-garden-" + label + "-" + (saved.day || stamp) + ".json";
+  const file = new File([saved.data],filename,{type:"application/json"});
+  const button=document.getElementById(key===AUTO_KEY?"daily-auto-export":"daily-auto-previous-export");
+  if (button) button.disabled=true;
+  try {
+    if (navigator.canShare?.({files:[file]}) && navigator.share) {
+      try {
+        await navigator.share({files:[file],title:"Scholar Garden "+label+" backup"});
+        status("Automatic copy shared. Check that you saved the JSON file in Files or iCloud Drive.","success");
+      } catch(error) {
+        if(error?.name==="AbortError") status("Share cancelled. The automatic copy is still saved on this iPad.");
+        else throw error;
+      }
+    } else {
+      const url=URL.createObjectURL(file);
+      const link=document.createElement("a");
+      link.href=url;link.download=filename;document.body.append(link);link.click();link.remove();
+      setTimeout(()=>URL.revokeObjectURL(url),60000);
+      status("Backup downloaded. Check the Files app before clearing any website data.","success");
+    }
+  } catch {
+    status("Could not export the automatic backup. The original local copy remains untouched.","error");
+  } finally {
+    if (button) button.disabled=false;
+  }
+}
 function refreshCopies() {
- for(const [id,key] of [['daily-before-restore',BEFORE_RESTORE_KEY],['daily-auto-previous',AUTO_KEY+'-previous'],['daily-auto-restore',AUTO_KEY],['daily-restore-button',SNAPSHOT_KEY]]) {
+ for(const [id,key] of [['daily-before-restore',BEFORE_RESTORE_KEY],['daily-auto-previous',AUTO_KEY+'-previous'],['daily-auto-restore',AUTO_KEY],['daily-auto-export',AUTO_KEY],['daily-auto-previous-export',AUTO_KEY+'-previous'],['daily-restore-button',SNAPSHOT_KEY]]) {
   const button=document.getElementById(id);if(!button)continue;
   let saved;try{saved=JSON.parse(localStorage.getItem(key)||'null')}catch{}
   button.disabled=!saved?.data;
@@ -185,6 +229,8 @@ function mount() {
       <div class="daily-backup-copy"><button id="daily-before-restore" type="button">Preview progress before last restore</button><p id="daily-before-restore-info"></p></div>
       <div class="daily-backup-copy"><button id="daily-auto-previous" type="button">Preview previous automatic copy</button><p id="daily-auto-previous-info"></p></div>
       <div class="daily-backup-copy"><button id="daily-auto-restore" type="button">Preview latest automatic copy</button><p id="daily-auto-restore-info"></p></div>
+      <div class="daily-backup-copy"><button id="daily-auto-export" type="button">Export latest automatic copy to Files</button><p id="daily-auto-export-info"></p></div>
+      <div class="daily-backup-copy"><button id="daily-auto-previous-export" type="button">Export previous automatic copy to Files</button><p id="daily-auto-previous-export-info"></p></div>
       <div class="daily-backup-copy"><button id="daily-restore-button" type="button">Preview manual backup</button><p id="daily-restore-button-info"></p></div>
       <label class="daily-file-button" for="daily-backup-file">Preview backup from Files</label>
       <input id="daily-backup-file" type="file" accept="application/json,.json" hidden>
@@ -205,6 +251,8 @@ function mount() {
   panel.querySelector("#daily-before-restore").addEventListener("click",()=>{try{const saved=JSON.parse(localStorage.getItem(BEFORE_RESTORE_KEY)||"null");if(saved)previewRestore(saved.data,"Progress before last restore",saved);else status("No pre-restore recovery copy yet.");}catch{status("Could not read the recovery copy.","error")}});
   panel.querySelector("#daily-auto-previous").addEventListener("click",()=>{try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY+"-previous")||"null");if(saved)previewRestore(saved.data,"Previous automatic copy",saved);else status("No previous automatic backup yet.");}catch{status("Could not read the previous backup.","error")}});
   panel.querySelector("#daily-auto-restore").addEventListener("click",()=>{try{const saved=JSON.parse(localStorage.getItem(AUTO_KEY)||"null");if(saved)previewRestore(saved.data,"Latest automatic copy",saved);else status("No automatic backup yet.");}catch{status("Could not read the automatic backup.","error")}});
+  panel.querySelector("#daily-auto-export").addEventListener("click",()=>exportAutomaticCopy(AUTO_KEY,"auto-latest"));
+  panel.querySelector("#daily-auto-previous-export").addEventListener("click",()=>exportAutomaticCopy(AUTO_KEY+"-previous","auto-previous"));
   panel.querySelector("#daily-save-button").addEventListener("click", save);
   panel.querySelector("#daily-restore-button").addEventListener("click", () => {
     const saved = savedCopy();
