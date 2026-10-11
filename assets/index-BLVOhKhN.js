@@ -2349,9 +2349,12 @@ function findRecoveryVocabSource(state, date, subject) {
         const saved=JSON.parse(localStorage.getItem(key)||"null");
         if (!saved?.data)continue;
         const snapshot=JSON.parse(saved.data)?.state;
-        const found=snapshot?.dailyLog?.[date]?.tasks ||
-          (snapshot?.today===date?snapshot.daily:[]);
-        if (readTasks(found).some(t=>t.id===id)) {tasks=found;break;}
+        const candidates=[
+          snapshot?.dailyLog?.[date]?.tasks,
+          snapshot?.today===date?snapshot.daily:[]
+        ];
+        const found=candidates.find(rows=>readTasks(rows).some(t=>t.id===id));
+        if (found) {tasks=found;break;}
       } catch {}
     }
   }
