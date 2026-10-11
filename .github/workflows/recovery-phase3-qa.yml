@@ -1,0 +1,26 @@
+name: Recovery Phase 3 Stability QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - '404.html'
+      - 'assets/progress-preflight-20261007.js'
+      - 'assets/phase7-voice-cheers-20261011.js'
+      - 'tests/recovery-phase3-browser.mjs'
+      - '.github/workflows/recovery-phase3-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser-stability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/recovery-phase3-browser.mjs
