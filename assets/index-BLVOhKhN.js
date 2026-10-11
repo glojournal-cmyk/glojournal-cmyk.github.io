@@ -2280,6 +2280,28 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
 function recordDailyVocabAttempt(subject, questionId, correct) {
   if (!["french", "latin"].includes(subject) || !questionId) return;
   const state = store.getState();
+  // Recovery answers belong to the missed date, never to today's Vocab task.
+  const recover = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("recover") : null;
+  if (recover && /^\\d{4}-\\d{2}-\\d{2}$/.test(recover)) {
+    const now = todayKey();
+    const elapsed = Math.round((Date.parse(now + "T12:00:00Z") - Date.parse(recover + "T12:00:00Z")) / 86400000);
+    const previous = state.dailyLog?.[recover]?.tasks?.find(t => t.id === subject + "-vocab");
+    if (elapsed < 1 || elapsed > 2 || !previous || Number(previous.progress) >= Number(previous.target)) return;
+    const originalCount = Math.max(0, Math.min(30, Number(previous.progress) || 0));
+    const totalNeeded = 30 - originalCount + 5;
+    const all = { ...(state.recoveryVocabByDay || {}) };
+    const perDay = { ...(all[recover] || {}) };
+    const row = perDay[subject] || {};
+    const items = { ...(row.items || {}) };
+    items[String(questionId)] = !!correct || !!items[String(questionId)];
+    const credited = Object.values(items).filter(Boolean).length;
+    perDay[subject] = { items, originalCount, totalNeeded, completed: credited >= totalNeeded, updatedAt: new Date().toISOString() };
+    all[recover] = perDay;
+    store.setState({ recoveryVocabByDay: all });
+    return;
+  }
+  if (recover) return;
+
   const day = todayKey();
   const all = { ...(state.dailyVocabByDay || {}) };
   const dayRow = { ...(all[day] || {}) };
