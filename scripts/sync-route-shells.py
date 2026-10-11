@@ -30,3 +30,18 @@ if not_found.read_text(encoding="utf-8") != home:
     not_found.write_text(home, encoding="utf-8")
     updated.append("404.html")
 print(f"Synchronized {len(updated)} route shells to main module {version}: {', '.join(updated)}")
+
+# Align wrapper imports without altering module filenames or application data.
+import_re = re.compile(r'(from["\\x27]\\./index-BLVOhKhN\\.js)\\?v=[^"\\x27]+')
+for file in sorted((root / "assets").glob("*.js")):
+    if file.name in {"index-BLVOhKhN.js", "index-BLVOhKhN.core.js"}:
+        continue
+    current = file.read_text(encoding="utf-8")
+    new = import_re.sub(lambda m: f"{m.group(1)}?v={version}", current)
+    if file.name in {"play.index-sR2wZ5CM.js", "play._game-BbpxhxeZ.js"}:
+        new = re.sub(r'pe-circuit-v3-20260920\\.js\\?v=[^"\\x27]+',
+                     f'pe-circuit-v3-20260920.js?v={version}', new)
+    if new != current:
+        file.write_text(new, encoding="utf-8")
+        updated.append(file.relative_to(root).as_posix())
+print(f"Aligned JS imports: {len([p for p in updated if p.startswith('assets/')])}")
