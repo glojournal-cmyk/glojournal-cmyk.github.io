@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import {missionFor,advanceMap,completedStages,nextWeek} from '../assets/star-map-state-20261004.js';
 const themes=['physics','french','chemistry','biology'],week='2026-10-12';
 const report=[];
+const correct=task=>task.answer??`${task.numeric} ${task.unit}`;
 for(const theme of themes){
  const tasks=missionFor(week,theme);
  let save=null;
@@ -13,7 +14,7 @@ for(const theme of themes){
  assert.equal(wrong.state.weeks[week].theme,theme);
  save=JSON.parse(JSON.stringify(wrong.state));
  // App reload: stored state is hydrated; starting theme cannot change.
- let selected=advanceMap(save,week,0,tasks[0].answer,undefined,'biology');
+ let selected=advanceMap(save,week,0,correct(tasks[0]),undefined,'biology');
  assert.equal(selected.state.weeks[week].theme,theme);
  assert.equal(selected.ok,true);save=JSON.parse(JSON.stringify(selected.state));
  for(let index=1;index<8;index++){
@@ -21,7 +22,7 @@ for(const theme of themes){
    const bad=advanceMap(save,week,index,'definitely wrong',undefined,theme);
    assert.equal(bad.state.weeks[week].progress,index);
    assert.equal(Object.keys(bad.state.collection).length,0);
-   const good=advanceMap(save,week,index,tasks[index].answer,undefined,theme);
+   const good=advanceMap(save,week,index,correct(tasks[index]),undefined,theme);
    assert.equal(good.state.weeks[week].progress,index+1);
    assert.equal(completedStages(index+1),Math.floor((index+1)/2));
    assert.equal(Object.keys(good.state.collection).length,index===7?1:0);
@@ -30,11 +31,11 @@ for(const theme of themes){
  const reward=save.collection['star-map:'+week];
  assert.ok(reward);
  assert.equal(reward.expeditionTheme,theme);
- const replay=advanceMap(save,week,7,tasks[7].answer,undefined,theme);
+ const replay=advanceMap(save,week,7,correct(tasks[7]),undefined,theme);
  assert.equal(replay.ignored,true);
  assert.equal(Object.keys(replay.state.collection).length,1);
  // New week creates new progress and preserves the old trophy.
- const newer=nextWeek(week),fresh=advanceMap(save,newer,0,missionFor(newer,'french')[0].answer,undefined,'french');
+ const newer=nextWeek(week),fresh=advanceMap(save,newer,0,correct(missionFor(newer,'french')[0]),undefined,'french');
  assert.equal(fresh.state.weeks[week].progress,8);
  assert.equal(fresh.state.weeks[newer].progress,1);
  assert.equal(Object.keys(fresh.state.collection).length,1);
