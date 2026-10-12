@@ -33,6 +33,7 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
  for(const [theme,label] of Object.entries(labels)){
  await page.evaluate(async()=>{const {C:store}=await import('/assets/index-BLVOhKhN.js?v=20261011-vault2');store.setState({starMapChallenge:null})});
  await page.getByRole('button',{name:new RegExp(label)}).click();const tasks=missionFor(week,theme,2);
+ if(theme==='french'){await page.getByRole('textbox',{name:'Your answer'}).fill('Saturday');await page.waitForLoadState('networkidle');await page.reload({waitUntil:'networkidle'});await page.waitForSelector('.sm-task');assert.ok((await page.locator('.sm-challenge').getAttribute('class')).includes('sm-theme-french'));assert.equal(await page.getByRole('textbox',{name:'Your answer'}).inputValue(),'Saturday');}
  const xpBefore=await page.evaluate(async()=>{const {C:store}=await import('/assets/index-BLVOhKhN.js?v=20261011-vault2');return store.getState().xp});
  for(let i=0;i<8;i++){
  const q=tasks[i];await page.waitForSelector('.sm-task');
