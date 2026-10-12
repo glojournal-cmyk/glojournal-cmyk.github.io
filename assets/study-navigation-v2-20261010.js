@@ -32,9 +32,10 @@ function snapshot(){
  const done=daily.filter(t=>Number(t.target)>0&&Number(t.progress)>=Number(t.target)).length;
  let resume=[];
  try{resume=J?.resumeCandidates(saved)||[]}catch{}
- const paused=resume.find(x=>x.daily&&x.planDate===saved.today)||resume.find(x=>!x.daily)||null;
  const fallback=daily.find(t=>Number(t.progress)<Number(t.target)&&J?.safeHref(t.href));
  const complete=valid&&done===10;
+ const paused=(valid?resume.find(x=>x.daily&&x.planDate===saved.today):null)||
+   (!fallback&&!complete?resume.find(x=>!x.daily):null)||null;
  const href=paused&&J?.safeHref(paused.href)?paused.href:complete?"/garden":J?.navigationHref(fallback?.href)||"#lux-study-subjects-v2";
  return {total:10,done,valid,complete,year:Number(saved.year)===8?8:9,
   href:href,paused:!!paused,appearance:appearance(saved)};
