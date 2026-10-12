@@ -1,0 +1,32 @@
+name: Phase 5 iPad display QA
+on:
+  pull_request:
+    paths: ['assets/phase5-*', 'assets/ipad-experience-20261004.js', 'assets/scholar-iJ2ilQWG.js', 'tests/phase5-*', '.github/workflows/phase5-ipad-quality.yml']
+  push:
+    branches: [main]
+    paths: ['assets/phase5-*', 'assets/ipad-experience-20261004.js', 'assets/scholar-iJ2ilQWG.js', 'tests/phase5-*', '.github/workflows/phase5-ipad-quality.yml']
+permissions:
+  contents: read
+jobs:
+  logic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: node --check assets/ipad-experience-20261004.js
+      - run: node --check assets/scholar-iJ2ilQWG.js
+      - run: node tests/companion-wardrobe-qa.mjs
+      - run: node tests/phase3-home-personality-qa.mjs
+      - run: node tests/route-shell-qa.mjs
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/phase5-ipad-browser.mjs
+      - run: node tests/mission-complete-v2-browser.mjs

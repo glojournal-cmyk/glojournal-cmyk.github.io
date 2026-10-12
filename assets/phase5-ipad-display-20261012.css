@@ -1,0 +1,25 @@
+/* Preserve artwork and layout; improve touch, focus and background animation cost. */
+.lux-keyboard-open nav.fixed.inset-x-3.bottom-3,
+.lux-keyboard-open nav.lux-companion-bottom-nav,
+.lux-keyboard-open .lux-companion-bottom-nav{display:none!important}
+@media(pointer:coarse){
+ main button,main [role="button"],main summary,
+ .pet-app button,.pet-choice,.pet-confirm button{min-height:44px;min-width:44px}
+ main button,.pet-app button,.pet-choice{touch-action:manipulation}
+}
+.lux-page-paused .lux-scholar-pet-scene *,
+.lux-page-paused .pet-avatar *,
+.lux-page-paused .pet-avatar,
+.lux-page-paused .pet-aura,
+.lux-page-paused .sm-challenge *,
+.lux-scene-offscreen .lux-scholar-character,
+.lux-scene-offscreen .mph-art,
+.lux-scene-offscreen .mph-glow{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){
+ .pet-avatar,.pet-avatar *,.pet-aura,.pet-sprite,
+ .dress-pop,.scholar-idle,.sm-challenge *,
+ .cx-answer-flash,.cx-answer-flash::before{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+/* Keep the full character visible and let the browser resample the existing HD art. */
+.scholar-idle,.pet-sprite,.mph-art,.cx-pet-art{image-rendering:auto}
+main button:focus-visible,main summary:focus-visible,.pet-choice:focus-visible{outline:3px solid #b79a58;outline-offset:3px}
