@@ -29,6 +29,7 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
  const page=await browser.newPage({viewport:{width:834,height:1112}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(base+'/');await page.waitForFunction(()=>window.__luxAppReady===true);
  const panel=page.locator('#lux-daily-save-panel');
  // Locate the actual backup control's outer details rather than assuming an id.
+ await page.waitForSelector('#daily-save-button',{state:'attached'});
  const details=page.locator('details').filter({has:page.locator('#daily-save-button')});assert.equal(await details.count(),1);assert.equal(await details.getAttribute('open'),null);
  await details.locator('summary').first().click();assert.equal(await page.locator('#daily-save-button').isVisible(),true);await details.locator('summary').first().click();assert.equal(await page.locator('#daily-save-button').isVisible(),false);
  const dates=await page.evaluate(async()=>{const {C:store,Ut:day}=await import('/assets/index-BLVOhKhN.js?v=20261011-vault2');const today=day(),date=n=>new Date(Date.parse(today+'T12:00:00Z')-n*86400000).toISOString().slice(0,10),a=date(1),b=date(2);const logs={...store.getState().dailyLog};for(const d of [a,b])logs[d]={date:d,tasks:[{id:'french-vocab',target:30,progress:20},{id:'latin-vocab',target:30,progress:30}]};store.setState({dailyLog:logs,recoveryVocabByDay:{},recoveryAwarded:{}});return [a,b]});
