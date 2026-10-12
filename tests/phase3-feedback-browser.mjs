@@ -33,7 +33,7 @@ try{for(const launcher of [chromium,webkit]){
  for(const route of ['/','/study/latin/practise/','/study/chemistry/practise/']){
  await page.goto(base+route);await page.waitForFunction(()=>window.__luxAppReady===true);await page.waitForSelector('#lux-voice-cheer-toggle');
  const toggle=page.locator('#lux-voice-cheer-toggle');assert.equal(await toggle.count(),1);assert.ok((await toggle.boundingBox()).height>=44);
- const snapshot=()=>page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}').state||{};return JSON.stringify({xp:s.xp,daily:s.daily,outfits:s.unlockedOutfits,pet:localStorage.getItem('lux-pet-companion-v1')})});
+ const snapshot=()=>page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}').state||{};return JSON.stringify({xp:s.xp,daily:s.daily,outfits:s.unlockedOutfits,pet:JSON.parse(localStorage.getItem('lux-pet-companion-v1')||'{}')},(key,value)=>key==='lastEnergyUpdateAt'?undefined:value)});
  await page.waitForTimeout(800);const before=await snapshot();
  if(await toggle.getAttribute('aria-pressed')==='true')await toggle.click();
  await toggle.click();assert.equal(await toggle.getAttribute('aria-pressed'),'true');assert.ok(await page.evaluate(()=>__spoken.length>0));
