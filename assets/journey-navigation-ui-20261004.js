@@ -6,7 +6,17 @@ import {C as store} from './index-BLVOhKhN.js?v=20261011-vault2';
 const R=interop(factory()),h=R.createElement,J=globalThis.LuxJourney;
 const linkStyle={display:'inline-flex',alignItems:'center',minHeight:44,padding:'10px 18px',marginTop:12,borderRadius:24,background:'#173e50',color:'#fffdf6',textDecoration:'none'};
 function useJourney(){const daily=store(s=>s.daily),today=store(s=>s.today),[revision,setRevision]=R.useState(0);R.useEffect(()=>{const update=()=>setRevision(n=>n+1);window.addEventListener('storage',update);window.addEventListener('scholar:session-saved',update);return()=>{window.removeEventListener('storage',update);window.removeEventListener('scholar:session-saved',update)}},[]);return {daily,today,revision}}
-export function ResumeStudy(){const state=useJourney(),resume=J.resumeCandidates(state)[0],next=state.today===J.day()?(state.daily||[]).find(t=>t.progress<t.target&&J.safeHref(t.href)):null;return h('div',{'aria-label':'Continue saved study'},h('p',{className:'text-xs font-semibold tracking-[0.18em] text-navy uppercase'},resume?'Continue saved study':'Continue today’s journey'),h('p',{className:'mt-1 font-display text-2xl font-semibold'},resume?.title||next?.title||'Choose your next practice'),h('p',{className:'mt-1 text-sm text-muted'},resume?`Question ${resume.index+1} / ${resume.total} · your answers and place are saved.`:next?`${next.progress} / ${next.target} · next unfinished daily task.`:'No unfinished practice is saved on this device.'),h('a',{href:resume?.href||J.navigationHref(next?.href)||'/study/',style:linkStyle},resume?'Resume saved practice':next?'Start next task':'Browse subjects'))}
+// All Continue buttons prefer the current day's unfinished work to unrelated older drafts.
+function chooseDailyContinue(){
+ const live=J.withReviewCredits(store.getState());
+ const valid=live?.today===J.day()&&Array.isArray(live.daily)&&live.daily.length===10;
+ const next=valid?live.daily.find(t=>Number(t.progress)<Number(t.target)&&J.safeHref(t.href)):null;
+ const drafts=J.resumeCandidates(live);
+ const daily=valid?drafts.find(d=>d.daily&&d.planDate===live.today):null;
+ const free=!next&&!valid?drafts.find(d=>!d.daily):null;
+ return {resume:daily||free||null,next};
+}
+export function ResumeStudy(){const state=useJourney(),{resume,next}=chooseDailyContinue();return h('div',{'aria-label':'Continue saved study'},h('p',{className:'text-xs font-semibold tracking-[0.18em] text-navy uppercase'},resume?'Continue saved study':'Continue today’s journey'),h('p',{className:'mt-1 font-display text-2xl font-semibold'},resume?.title||next?.title||'Choose your next practice'),h('p',{className:'mt-1 text-sm text-muted'},resume?`Question ${resume.index+1} / ${resume.total} · your answers and place are saved.`:next?`${next.progress} / ${next.target} · next unfinished daily task.`:'No unfinished practice is saved on this device.'),h('a',{href:resume?.href||J.navigationHref(next?.href)||'/study/',style:linkStyle},resume?'Resume saved practice':next?'Start next task':'Browse subjects'))}
 export function DailyNext({taskId,planDate}){
  const state=useJourney();
  const [skipAnimation,setSkipAnimation]=R.useState(false);
@@ -117,7 +127,7 @@ export function DailyNext({taskId,planDate}){
  );
 }
 
-export function ResumeAction(){const state=useJourney(),resume=J.resumeCandidates(state)[0],next=state.today===J.day()?(state.daily||[]).find(t=>t.progress<t.target&&J.safeHref(t.href)):null;return h('a',{href:resume?.href||J.navigationHref(next?.href)||'/study/','aria-label':resume?`Continue ${resume.title} · Question ${resume.index+1} / ${resume.total}`:next?`Start next task · ${next.title}`:'Browse subjects',className:'flex min-h-[5.5rem] flex-col items-center justify-center gap-1 rounded-2xl bg-navy px-2 py-3 text-card',style:{textAlign:'center'}},h('span',{className:'font-display text-lg leading-none'},resume?'Continue':next?'Next task':'Practise'),h('span',{className:'text-sm'},resume?.title||next?.title||'Browse subjects'),resume&&h('span',{className:'text-sm'},`Question ${resume.index+1} / ${resume.total}`))}
+export function ResumeAction(){const state=useJourney(),{resume,next}=chooseDailyContinue();return h('a',{href:resume?.href||J.navigationHref(next?.href)||'/study/','aria-label':resume?`Continue ${resume.title} · Question ${resume.index+1} / ${resume.total}`:next?`Start next task · ${next.title}`:'Browse subjects',className:'flex min-h-[5.5rem] flex-col items-center justify-center gap-1 rounded-2xl bg-navy px-2 py-3 text-card',style:{textAlign:'center'}},h('span',{className:'font-display text-lg leading-none'},resume?'Continue':next?'Next task':'Practise'),h('span',{className:'text-sm'},resume?.title||next?.title||'Browse subjects'),resume&&h('span',{className:'text-sm'},`Question ${resume.index+1} / ${resume.total}`))}
 
 export function DailyTaskRow({task,daily}) {
  const info=dailyTaskGuidance(task,daily),done=info.remaining===0;
