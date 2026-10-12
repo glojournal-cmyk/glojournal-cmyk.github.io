@@ -10,11 +10,11 @@ for(const name of ['phase7-companion-cheer-20261011.js','phase7-voice-cheers-202
  const active=new RegExp('<script[^>]+src="[^"]*'+name.replaceAll('.','\\.')+'[^>]*><\\/script>');
  assert.doesNotMatch(home,active,'optional observer must remain disabled until verified: '+name);
 }
-assert.match(home,/<script[^>]+src="\/assets\/phase7-pet-personality-20261011\.js\?v=20261011-p4-safe1"/);
+assert.doesNotMatch(home,/<script[^>]+src="\/assets\/phase7-pet-personality-20261011\.js/);
 const pet=fs.readFileSync('assets/phase7-pet-personality-20261011.js','utf8');
 assert.doesNotMatch(pet,/MutationObserver|queueMicrotask/,'Pet hello must use bounded event-driven mounting');
 assert.match(pet,/attempts\+\+>=12/);
-assert.match(home,/<script[^>]+src="\/assets\/phase7-mission-growth-20261011\.js\?v=20261011-p4-ribbon-safe1"/);
+assert.doesNotMatch(home,/<script[^>]+src="\/assets\/phase7-mission-growth-20261011\.js/);
 const ribbon=fs.readFileSync('assets/phase7-mission-growth-20261011.js','utf8');
 assert.doesNotMatch(ribbon,/MutationObserver|queueMicrotask/,'Mission ribbon must avoid observer loops');
 assert.match(ribbon,/attempts\+\+>=12/);
