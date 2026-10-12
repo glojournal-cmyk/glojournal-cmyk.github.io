@@ -40,7 +40,8 @@
     let candidates=[];
     try { candidates=journey.resumeCandidates(state,now) || []; } catch {}
     // A paused current-day daily question outranks an unrelated older practice draft.
-    const resume = candidates.find(item => item.daily && item.planDate === calendar) || candidates[0] || null;
+    const resume = candidates.find(item => item.daily && item.planDate === calendar) ||
+      (!remaining ? candidates.find(item => !item.daily) : null) || null;
     const resumeLink = resume && validHref(journey,resume.href);
     const resumeTask = resume?.dailyTaskId && rows.find(row => row.id === resume.dailyTaskId);
     let next;
