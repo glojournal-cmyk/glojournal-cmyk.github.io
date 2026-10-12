@@ -29,3 +29,4 @@ jobs:
       - run: npm install --no-save playwright
       - run: npx playwright install --with-deps chromium webkit
       - run: node tests/phase5-ipad-browser.mjs
+      - run: node tests/mission-complete-v2-browser.mjs
