@@ -9,8 +9,7 @@ function choose(state,J,now=Date.now()){
  if(!J||state?.today!==J.day(now)||!Array.isArray(state.daily)||state.daily.length!==10)return library;
  let drafts=[];
  try{drafts=J.resumeCandidates(state,now)||[];}catch{}
- const pick=drafts.find(d=>d.daily&&d.planDate===state.today&&href(J,d.href))||
-            drafts.find(d=>!d.daily&&href(J,d.href));
+ const pick=drafts.find(d=>d.daily&&d.planDate===state.today&&href(J,d.href));
  if(pick){
   const link=href(J,pick.href),total=Math.max(1,Number(pick.total)||1);
   const question=Math.max(1,Math.min(total,(Number(pick.index)||0)+1));
@@ -32,6 +31,14 @@ function choose(state,J,now=Date.now()){
   return {kind:"complete",title:"All 10 daily tasks complete",
    detail:"Your progress is counted for today.",href:"/garden",practiceHref:"/study/",
    button:"Visit the garden →"};
+ // A saved free practice is a fallback, never a reason to skip today's mission.
+ const optional=drafts.find(d=>!d.daily&&href(J,d.href));
+ if(optional){const link=href(J,optional.href),total=Math.max(1,Number(optional.total)||1),question=Math.max(1,Math.min(total,(Number(optional.index)||0)+1));
+  return {kind:"resume",title:String(optional.title||"Saved practice"),
+   detail:"Question "+question+" of "+total+" · saved on this device",href:link,
+   practiceHref:/^\/study\/[^/]+\/practise(?:\/|\?|$)/.test(link)?link:"/study/",
+   button:"Resume question "+question+" →"};
+ }
  return library;
 }
 root.LuxHomeContinue={choose};
