@@ -52,6 +52,9 @@ export function DailyNext({taskId,planDate}){
        at:Date.now(),day:live.today,taskId:data.task.id
      }))}catch{}
    }
+   if(recent?.path===location.pathname && Date.now()-Number(recent.at)<180000){
+     window.dispatchEvent(new CustomEvent("lux:phase7-mission-complete",{detail:{verified:true,taskId:data.task.id}}));
+   }
    setCelebrating(true);
    const finishAnimation=window.setTimeout(()=>setCelebrating(false),1600);
    if(store.getState()?.sound===true && typeof window!=='undefined' && window.AudioContext

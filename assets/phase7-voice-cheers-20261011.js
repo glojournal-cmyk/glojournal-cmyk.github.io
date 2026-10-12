@@ -1,58 +1,74 @@
-/* Phase 7B: friendly spoken encouragement. Requires a real user interaction to unlock audio.
-   Does not alter marks, XP, progress or any learning state. */
+/* Event-driven spoken encouragement. Only the voice preference is persisted. */
 (function(root){
 "use strict";
-const KEY="lux-encouragement-voice-v1";
-const lines=["Well done!","Superb!","Great job!","Excellent!"];
-let enabled=false,unlocked=false,spokenAt=0,next=0,queued=false,seen=new WeakSet();
+if(root.__luxVoiceCheers)return;
+root.__luxVoiceCheers=true;
+const KEY="lux-encouragement-voice-v1",lines=["Well done!","Superb!","Great job!","Excellent!"];
+let enabled=false,unlocked=false,spokenAt=-Infinity,next=0,streak=0,timer=null,attempts=0,lastPath=location.pathname;
 try{enabled=localStorage.getItem(KEY)==="on"}catch{}
+function available(){return !!root.speechSynthesis&&typeof root.SpeechSynthesisUtterance==="function"}
 function speak(preview=false){
- if(!enabled||!unlocked||!root.speechSynthesis||typeof root.SpeechSynthesisUtterance!=="function")return false;
+ if(!enabled||!unlocked||!available()||document.hidden)return false;
  const now=Date.now();
- if(!preview&&now-spokenAt<12000)return false;
- if(document.hidden&&!preview)return false;
- spokenAt=now;
- const voice=new root.SpeechSynthesisUtterance(lines[next++%lines.length]);
+ if(!preview&&(now-spokenAt<12000||root.speechSynthesis.speaking))return false;
+ const voice=new root.SpeechSynthesisUtterance(lines[next%lines.length]);
  voice.lang="en-GB";voice.pitch=1.18;voice.rate=.94;voice.volume=.72;
  const english=(root.speechSynthesis.getVoices?.()||[]).filter(v=>/^en(-|_)/i.test(v.lang));
- voice.voice=english.find(v=>/^en-GB/i.test(v.lang)&&/female|serena|kate|samantha|susan|martha|moira/i.test(v.name))
-   ||english.find(v=>/^en-GB/i.test(v.lang))||english[0]||null;
- try{root.speechSynthesis.cancel();root.speechSynthesis.speak(voice);return true}catch{return false}
+ voice.voice=english.find(v=>/^en-GB/i.test(v.lang)&&/female|serena|kate|samantha|susan|martha|moira/i.test(v.name))||english.find(v=>/^en-GB/i.test(v.lang))||english[0]||null;
+ try{if(preview)root.speechSynthesis.cancel();root.speechSynthesis.speak(voice);spokenAt=now;next++;return true}catch{return false}
 }
 function apply(button){
- const label=enabled?"🔊 Voice cheers: On":"🔇 Voice cheers: Off";
+ const label=available()?(enabled?"🔊 Voice cheers: On":"🔇 Voice cheers: Off"):"Voice cheers unavailable";
  if(button.textContent!==label)button.textContent=label;
+ button.disabled=!available();
  const pressed=enabled?"true":"false";
  if(button.getAttribute("aria-pressed")!==pressed)button.setAttribute("aria-pressed",pressed);
- if(button.title!=="Toggle spoken encouragement. Tap once to preview.")button.title="Toggle spoken encouragement. Tap once to preview.";
+ button.title="Optional spoken encouragement. Turn on to hear a preview.";
 }
 function mount(){
- if(!document.body)return;
- const home=location.pathname==="/";
- const mission=document.querySelector(".lux-mission-v2");
- if(!home&&!mission)return;
- const host=home?(document.querySelector("#lux-home-journey-v2")||document.querySelector("main")):mission;
+ if(lastPath!==location.pathname){streak=0;lastPath=location.pathname}
+ if(!root.__luxAppReady||!document.body)return;
+ const learning=/^\/study\/[^/]+\/(practise|play)/.test(location.pathname)||location.pathname.startsWith('/session/');
+ const home=/^\/$/.test(location.pathname);
+ const old=document.getElementById("lux-voice-cheer-toggle");
+ if(!home&&!learning){old?.remove();return}
+ const host=home?document.querySelector("main"):document.getElementById('study-companion')||document.querySelector('main');
  if(!host)return;
- let button=document.getElementById("lux-voice-cheer-toggle");
+ let button=old;
  if(!button){
-   button=document.createElement("button");button.id="lux-voice-cheer-toggle";button.type="button";button.className="lux-voice-cheer-toggle";
-   button.addEventListener("click",()=>{
-     unlocked=true;enabled=!enabled;
-     try{localStorage.setItem(KEY,enabled?"on":"off")}catch{}
-     apply(button);if(enabled)speak(true);else root.speechSynthesis?.cancel?.();
-   });
-   host.append(button);
+  button=document.createElement("button");button.id="lux-voice-cheer-toggle";button.type="button";button.className="lux-voice-cheer-toggle";
+  button.style.cssText="min-height:44px;padding:10px 14px;margin:12px 0;border:1px solid #c6b485;border-radius:24px;background:#fffbef;color:#234955;font:600 13px system-ui";
+  button.addEventListener("click",()=>{unlocked=true;enabled=!enabled;try{localStorage.setItem(KEY,enabled?"on":"off")}catch{}apply(button);if(enabled)speak(true);else root.speechSynthesis?.cancel?.()});
+  host.append(button);
  }
  apply(button);
- for(const node of document.querySelectorAll(".lux-mission-v2.is-celebrating")){
-   if(seen.has(node))continue;
-   seen.add(node);speak();
- }
 }
-function schedule(){if(queued)return;queued=true;queueMicrotask(()=>{queued=false;mount()})}
-root.addEventListener("lux:phase7-mission-complete",()=>speak());
-root.addEventListener("pageshow",schedule);
-document.addEventListener("click",e=>{if(e.isTrusted)unlocked=true},{capture:true});
-new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});
-schedule();
+// Bounded retries handle hydration; no DOM observer or perpetual timer.
+function boot(){
+ mount();
+ if(document.getElementById('lux-voice-cheer-toggle')||attempts++>=12)return;
+ if(timer!==null)root.clearTimeout(timer);
+ timer=root.setTimeout(()=>{timer=null;boot()},500);
+}
+root.addEventListener('lux:app-ready',boot);
+root.addEventListener('pageshow',boot);
+root.addEventListener('popstate',mount);
+root.addEventListener('scholar:session-saved',mount);
+root.addEventListener('scholar:question-answered',e=>{
+ mount();
+ if(e.detail?.correct!==true){streak=0;return}
+ streak++;
+ if(streak%3===0)speak();
+});
+root.addEventListener('lux:phase7-mission-complete',e=>{if(e.detail?.verified===true)speak()});
+document.addEventListener('click',e=>{
+ if(e.isTrusted)unlocked=true;
+ if(e.target?.closest?.('a[href]')){
+  // Internal React navigation may replace main without a full page load.
+  root.setTimeout(()=>{attempts=0;boot()},250);
+ }
+},{capture:true});
+document.addEventListener('keydown',e=>{if(e.isTrusted)unlocked=true},{capture:true});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)root.speechSynthesis?.cancel?.()});
+boot();
 })(globalThis);

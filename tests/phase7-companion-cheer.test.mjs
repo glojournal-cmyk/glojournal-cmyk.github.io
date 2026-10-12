@@ -35,9 +35,12 @@ test('Phase 7B voice encouragement is opt-in, throttled, and does not alter mark
  assert.match(voice,/speechSynthesis/);
  assert.match(voice,/lux:phase7-mission-complete/);
  assert.match(voice,/aria-pressed/);
+ assert.match(readFileSync(new URL('../assessment-link.js',import.meta.url),'utf8'),/phase7-voice-cheers-20261011\.js\?v=20261012-phase3/);
+ assert.doesNotMatch(voice,/MutationObserver|setInterval/);
  assert.doesNotMatch(voice,/setState\(|importProgress\(|awardXP\(/);
  assert.match(voice,/if\(button\.textContent!==label\)button\.textContent=label/);
- assert.doesNotMatch(html,/<script[^>]+src="\/assets\/phase7-voice-cheers-20261011\.js/,'voice remains paused while recovering iPad start');
+ assert.doesNotMatch(html,/<script[^>]+src="\/assets\/phase7-voice-cheers-20261011\.js/,'legacy direct script stays disabled; voice loads through shared navigation'
+);
 });
 
 test('Phase 7B adds companion encouragement only to verified completed missions',()=>{
@@ -48,7 +51,7 @@ test('Phase 7B adds companion encouragement only to verified completed missions'
  assert.match(js,/Companion Corner/);
  assert.match(js,/card\.querySelector\("\.lux-phase7-growth"\)/);
  assert.doesNotMatch(js,/localStorage\.setItem|setState\(|awardXP|importProgress|\.progress\s*=/);
- assert.match(html,/phase7-mission-growth-20261011\.js/);
+ assert.doesNotMatch(html,/<script[^>]+src="\/assets\/phase7-mission-growth-20261011\.js/,'extra mission ribbon remains paused; existing Mission Complete owns rewards');
 });
 
 test('Pet level and weekly boss celebrations are presentation-only and gated by verified evidence',()=>{
@@ -72,5 +75,5 @@ test('Phase 7D pet personality interaction uses current art and leaves progress 
  assert.match(js,/night-spider/);
  assert.match(js,/role","status"/);
  assert.doesNotMatch(js,/localStorage\.setItem|savePet\(|setState\(|awardXP/);
- assert.match(html,/phase7-pet-personality-20261011\.js/);
+ assert.doesNotMatch(html,/<script[^>]+src="\/assets\/phase7-pet-personality-20261011\.js/,'existing home personality owns greeting');
 });
