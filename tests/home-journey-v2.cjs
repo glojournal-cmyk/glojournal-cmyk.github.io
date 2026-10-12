@@ -8,7 +8,9 @@ const file=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8');
 const DAY='2026-10-10';
 function model(){
  const storage={data:{},getItem(k){return this.data[k]??null}};
- const context=vm.createContext({URL,URLSearchParams,Date,Intl,localStorage:storage});
+ const fixed=new Date('2026-10-10T12:00:00Z');
+ class FixedDate extends Date { constructor(...args){super(...(args.length?args:[fixed]))} static now(){return fixed.getTime()} }
+ const context=vm.createContext({URL,URLSearchParams,Date:FixedDate,Intl,localStorage:storage});
  vm.runInContext(file('assets/journey-navigation-20261004.js'),context,{timeout:5000});
  vm.runInContext(file('assets/home-journey-v2-logic-20261010.js'),context,{timeout:5000});
  const J=context.LuxJourney,logic=context.LuxHomeJourneyV2Logic;
