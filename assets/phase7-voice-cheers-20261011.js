@@ -4,7 +4,7 @@
 if(root.__luxVoiceCheers)return;
 root.__luxVoiceCheers=true;
 const KEY="lux-encouragement-voice-v1",lines=["Well done!","Superb!","Great job!","Excellent!"];
-let enabled=false,unlocked=false,spokenAt=-Infinity,next=0,streak=0,timer=null,attempts=0;
+let enabled=false,unlocked=false,spokenAt=-Infinity,next=0,streak=0,timer=null,attempts=0,lastPath=location.pathname;
 try{enabled=localStorage.getItem(KEY)==="on"}catch{}
 function available(){return !!root.speechSynthesis&&typeof root.SpeechSynthesisUtterance==="function"}
 function speak(preview=false){
@@ -26,6 +26,7 @@ function apply(button){
  button.title="Optional spoken encouragement. Turn on to hear a preview.";
 }
 function mount(){
+ if(lastPath!==location.pathname){streak=0;lastPath=location.pathname}
  if(!root.__luxAppReady||!document.body)return;
  const learning=/^\/study\/[^/]+\/(practise|play)/.test(location.pathname)||location.pathname.startsWith('/session/');
  const home=/^\/$/.test(location.pathname);
@@ -60,7 +61,13 @@ root.addEventListener('scholar:question-answered',e=>{
  if(streak%3===0)speak();
 });
 root.addEventListener('lux:phase7-mission-complete',e=>{if(e.detail?.verified===true)speak()});
-document.addEventListener('click',e=>{if(e.isTrusted)unlocked=true},{capture:true});
+document.addEventListener('click',e=>{
+ if(e.isTrusted)unlocked=true;
+ if(e.target?.closest?.('a[href]')){
+  // Internal React navigation may replace main without a full page load.
+  root.setTimeout(()=>{attempts=0;boot()},250);
+ }
+},{capture:true});
 document.addEventListener('keydown',e=>{if(e.isTrusted)unlocked=true},{capture:true});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)root.speechSynthesis?.cancel?.()});
 boot();
