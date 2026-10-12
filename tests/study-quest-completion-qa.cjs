@@ -36,6 +36,6 @@ test('six-task legacy and yesterday snapshots cannot display fake ten-star compl
 });
 test('Study scene stays compact and without pet',()=>{
  assert.doesNotMatch(source,/lux-path-hero-pet/);
- assert.match(source,/d\.complete\?"All ten stars lit"/);
- assert.match(fs.readFileSync('study/index.html','utf8'),/study-navigation-v2-20261010\.js\?v=20261010-quest-complete1/);
+ assert.match(source,/School Assessments/);
+ assert.match(fs.readFileSync('study/index.html','utf8'),/study-navigation-v2-20261010\.js\?v=20261012-study-ux2b/);
 });
