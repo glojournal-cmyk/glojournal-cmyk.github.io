@@ -29,10 +29,15 @@ test('completed plan opens garden, practice shortcut remains study',()=>{
  const m=choose({today:DAY,daily:rows.map(t=>({...t,progress:10}))},J);
  assert.equal(m.kind,'complete');assert.equal(m.href,'/garden');assert.equal(m.practiceHref,'/study/');
 });
-test('assessment draft resumes without converting Practise to test shortcut',()=>{
+test('unrelated assessment draft never overrides the next unfinished daily task',()=>{
  const draft={daily:false,href:'/assessment/?paper=french',title:'French test',index:2,total:10};
  const m=choose({today:DAY,daily:rows},{...J,resumeCandidates:()=>[draft]});
- assert.equal(m.kind,'resume');assert.equal(m.practiceHref,'/study/');
+ assert.equal(m.kind,'task');assert.match(m.href,/biology\/practise/);
+});
+test('completed daily plan has priority over an unrelated saved practice',()=>{
+ const draft={daily:false,href:'/assessment/?paper=french',title:'French test',index:2,total:10};
+ const m=choose({today:DAY,daily:rows.map(t=>({...t,progress:t.target}))},{...J,resumeCandidates:()=>[draft]});
+ assert.equal(m.kind,'complete');assert.equal(m.href,'/garden');
 });
 test('navigation patch cannot award XP or store progress',()=>{
  const html=fs.readFileSync('index.html','utf8');
