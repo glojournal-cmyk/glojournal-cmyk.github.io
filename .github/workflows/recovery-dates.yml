@@ -1,0 +1,29 @@
+name: Recovery dates and compact backup QA
+on:
+  pull_request:
+    paths: ['assets/quest-recovery-20261011.js', 'assets/recovery-*20261012.js', 'assets/daily-progress-save.js', 'assets/quiz-session-*', 'assets/study._subject.practise-*', 'tests/recovery-dates*', '.github/workflows/recovery-dates.yml']
+  push:
+    branches: [main]
+    paths: ['assets/quest-recovery-20261011.js', 'assets/recovery-*20261012.js', 'assets/daily-progress-save.js', 'assets/quiz-session-*', 'assets/study._subject.practise-*', 'tests/recovery-dates*', '.github/workflows/recovery-dates.yml']
+permissions:
+  contents: read
+jobs:
+  logic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: node --test tests/recovery-dates.test.mjs tests/recovery-quest.test.mjs
+      - run: node tests/phase1-redo-20261012.mjs
+      - run: node tests/route-shell-qa.mjs
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/recovery-dates-browser.mjs

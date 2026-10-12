@@ -54,25 +54,36 @@ function mount(){
  let host=document.getElementById("lux-recovery-quests");
  if(!host){host=document.createElement("section");host.id="lux-recovery-quests";card.append(host)}
  reconcileCompletedRecoveries();
- const rows=recoveryRows(store.getState());
- const signature=JSON.stringify(rows);if(host.dataset.signature===signature)return;host.dataset.signature=signature;
+ const rows=recoveryRows(store.getState()),today=todayKey();
+ const dates=[dateAt(today,-1),dateAt(today,-2)];
+ const signature=JSON.stringify([dates,rows]);if(host.dataset.signature===signature)return;host.dataset.signature=signature;
+ const previous=host.querySelector('select')?.value;
  host.replaceChildren();host.hidden=false;
- const title=document.createElement("h3");title.textContent="Quest Recovery · 48-hour grace";host.append(title);
- if(!rows.length){
-  const hint=document.createElement("p");
-  hint.textContent="No unfinished French or Latin Vocab found in the last 48-hour recovery window. A completed Recovery is credited to its original date, not today's Vocab. If an older answer was never saved, check Backup history on this iPad.";
-  host.append(hint);return;
+ const title=document.createElement('h3');title.textContent='Quest Recovery · choose a date';host.append(title);
+ const label=document.createElement('label');label.textContent='Missed date ';label.htmlFor='lux-recovery-date';
+ const select=document.createElement('select');select.id='lux-recovery-date';
+ for(const date of dates){const option=document.createElement('option');option.value=date;option.textContent=date;select.append(option)}
+ if(dates.includes(previous))select.value=previous;
+ label.append(select);host.append(label);
+ const list=document.createElement('div');host.append(list);
+ function showDate(){
+  list.replaceChildren();const date=select.value,selected=rows.filter(row=>row.date===date);
+  const hint=document.createElement('p');hint.textContent='French / Latin Vocab recovery is credited to this date. You can switch dates at any time.';list.append(hint);
+  if(!selected.length){const note=document.createElement('p');note.textContent='No unfinished Vocab record is available for '+date+'. Other daily tasks are outside Vocab Recovery.';list.append(note)}
+  for(const row of selected){
+   const item=document.createElement('div');item.className='lux-recovery-item';
+   const name=document.createElement('strong');name.textContent=(row.subject==='french'?'French':'Latin')+' Vocab · '+row.date;item.append(name);
+   const count=document.createElement('span');count.textContent=row.done?(row.credited?'Recovered ✓ · credited to '+row.date:'Recovered ✓ · restoring daily record'):row.current+' / '+row.target+' correct recovery answers';item.append(count);
+   if(!row.done){const a=document.createElement('a');a.href=row.url;a.textContent='Continue recovery →';item.append(a)}list.append(item);
+  }
  }
- for(const row of rows){
-  const item=document.createElement("div");item.className="lux-recovery-item";
-  const label=document.createElement("strong");label.textContent=(row.subject==="french"?"French":"Latin")+" Vocab · "+row.date;item.append(label);
-  const count=document.createElement("span");count.textContent=row.done ? (row.credited ? "Recovered ✓ · credited to " + row.date : "Recovered ✓ · restoring daily record") : row.current + " / " + row.target + " correct recovery answers · previous " + row.base + "/30";item.append(count);
-  const action=document.createElement("a");action.href=row.url;action.textContent=row.done?"Recovered ✓":"Continue recovery →";if(!row.done)item.append(action);host.append(item);
- }
+ select.addEventListener('change',showDate);showDate();
+
 }
 const style=document.createElement("style");style.textContent=`
 #lux-recovery-quests{margin:14px 0;padding:15px;border:1px solid #d4c7ac;border-radius:16px;background:#fffaf0;color:#193449}
 #lux-recovery-quests[hidden]{display:none}
+#lux-recovery-date{min-height:44px;padding:8px;border:1px solid #c6b485;border-radius:10px;background:white}
 #lux-recovery-quests h3{font-family:Georgia,serif;font-size:1.35rem;margin:0 0 9px}
 #lux-recovery-quests .lux-recovery-item{display:flex;flex-wrap:wrap;align-items:center;gap:9px;padding:10px 0;border-top:1px solid #e9dfce}
 #lux-recovery-quests .lux-recovery-item span{color:#586777;flex:1 1 180px}
