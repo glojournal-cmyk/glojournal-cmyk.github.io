@@ -1,0 +1,29 @@
+name: Phase 3 feedback QA
+on:
+  pull_request:
+    paths: ['assets/phase7-voice-cheers-20261011.js', 'assets/companion-experience-20261004.js', 'assets/journey-navigation-ui-20261004.js', 'assessment-link.js', 'tests/phase3-feedback*', '.github/workflows/phase3-feedback.yml']
+  push:
+    branches: [main]
+    paths: ['assets/phase7-voice-cheers-20261011.js', 'assets/companion-experience-20261004.js', 'assets/journey-navigation-ui-20261004.js', 'assessment-link.js', 'tests/phase3-feedback*', '.github/workflows/phase3-feedback.yml']
+permissions:
+  contents: read
+jobs:
+  logic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: node --test tests/phase3-feedback.test.mjs tests/mission-complete-v2.cjs
+      - run: node tests/phase1-ux-qa.mjs
+      - run: node tests/route-shell-qa.mjs
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/phase3-feedback-browser.mjs
