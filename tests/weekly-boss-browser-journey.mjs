@@ -32,8 +32,8 @@ try{
    }
    await page.getByRole('button',{name:/Moonlit Masquerade/}).click();
    // First answer locks the selection, and a reload restores it.
-   const answer=await page.locator('.sm-options button').first().textContent();
-   await page.locator('.sm-options button').first().click();
+   await page.getByRole('textbox',{name:'Your answer'}).fill('Saturday');
+   await page.getByRole('button',{name:'Restore this fragment'}).click();
    await page.waitForTimeout(300);
    assert.ok((await page.locator('.sm-theme-picker button:disabled').count())===4);
    await page.reload({waitUntil:'domcontentloaded'});
@@ -41,7 +41,7 @@ try{
    assert.ok((await page.locator('.sm-challenge').getAttribute('class')).includes('sm-theme-french'));
    assert.equal(await page.locator('.sm-theme-picker button:disabled').count(),4);
    // Finish the second French challenge to unlock the Chapter Cleared screen.
-   await page.locator('.sm-options button').first().click();
+   await page.getByRole('button',{name:'The garden',exact:true}).click();
    await page.waitForSelector('.sm-chapter-reveal',{timeout:8000});
    assert.ok((await page.locator('.sm-chapter-reveal').innerText()).includes('Chapter 1 cleared'));
    assert.equal(await page.locator('.sm-task').count(),0,'the next question must wait behind Continue');

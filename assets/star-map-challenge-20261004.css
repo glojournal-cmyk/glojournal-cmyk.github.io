@@ -67,3 +67,5 @@
 .sm-chapter-reveal button{margin-top:14px;background:#224b50;color:#fffbef;border-color:#224b50;font-weight:700}
 .sm-chapter-reveal button:hover{background:#346c66;color:white}
 @media(prefers-reduced-motion:reduce){.sm-chapter-reveal *{animation:none!important;transition:none!important}}
+
+.sm-field-notes{margin:18px 0;padding:12px 16px;border:1px solid #d8c9a7;border-radius:16px;background:#fff8e8}.sm-field-notes summary{cursor:pointer;min-height:44px;align-content:center;font-weight:600}.sm-field-notes li{margin:8px 0}.sm-tokens,.sm-puzzle-actions{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}.sm-puzzle>p{padding:12px;border-radius:12px;background:#edf2e8;line-height:1.6;min-height:44px}.sm-puzzle-actions button:last-child{background:#19364b;color:#fffdf7}.sm-challenge input:focus-visible{outline:3px solid #b79a58;outline-offset:3px}

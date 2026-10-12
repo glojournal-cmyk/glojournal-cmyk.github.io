@@ -1,5 +1,7 @@
 name: Weekly Boss Chapter QA
 on:
+  pull_request:
+    paths: ['assets/star-map-*', 'assets/weekly-adventure-*', 'tests/weekly-adventure*', 'tests/weekly-boss-browser-journey.mjs', '.github/workflows/weekly-boss-chapter-qa.yml']
   push:
     branches: [main]
     paths:
@@ -7,6 +9,9 @@ on:
       - 'assets/star-map-challenge-20261004.css'
       - 'assets/star-map-state-20261004.js'
       - 'assets/weekly-boss-themes-20261011.js'
+      - 'assets/weekly-adventure-20261012.js'
+      - 'tests/weekly-adventure.test.mjs'
+      - 'tests/weekly-adventure-browser.mjs'
       - 'tests/star-map-challenge-qa.mjs'
       - 'tests/weekly-boss-player-journey.mjs'
       - 'tests/weekly-boss-browser-journey.mjs'
@@ -26,6 +31,7 @@ jobs:
       - run: node --check assets/weekly-boss-themes-20261011.js
       - run: node tests/star-map-challenge-qa.mjs
       - run: node tests/weekly-boss-player-journey.mjs
+      - run: node --test tests/weekly-adventure.test.mjs
   browser:
     runs-on: ubuntu-latest
     steps:
@@ -36,3 +42,4 @@ jobs:
       - run: npm install --no-save playwright
       - run: npx playwright install --with-deps chromium webkit
       - run: node tests/weekly-boss-browser-journey.mjs
+      - run: node tests/weekly-adventure-browser.mjs
