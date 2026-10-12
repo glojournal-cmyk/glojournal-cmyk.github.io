@@ -20,7 +20,7 @@ test('no new reward, task, progress, persistence or pet mutations',()=>{
   /\.removeItem\s*\(/,/\bdelete\s+saved\b/,/\bstate\.daily\.push\s*\(/])
   assert.doesNotMatch(js,exp);
  assert.match(js,/window\.__luxAppReady/,'wait for hydration before touching DOM');
- assert.match(js,/header\.before\(card\)/,'quest scene is first');
+ assert.match(js,/header\.after\(card\)/,'quest scene is first');
  assert.match(js,/parent\.dataset\.luxQuestReady/,'quest-only styling begins after render');
  assert.match(js,/luxQuestLegacyShortcut/,'duplicate shortcuts marked for collapse');
 });
@@ -31,7 +31,7 @@ test('Study V2 preserves six existing subject cards and real native year selecto
  assert.match(shell,/<option value="9"/);
  assert.match(shell,/<option value="8"/);
  const js=file('assets/study-navigation-v2-20261010.js');
- for(const text of ['Daily Quest','Scholar’s Atlas','Trial Chamber','Year 8 revision','Year 9 topics'])
+ for(const text of ['Daily Revision','School Assessments','Year 8 · Revision','Year 9 · Current topics'])
   assert.ok(js.includes(text),text);
  assert.match(js,/\/assessment\//);
 });
@@ -49,21 +49,10 @@ test('disabled on homepage and app-not-ready state',()=>{
  assert.deepEqual(calls,[],'Home untouched');
 });
 
-test('Study displays the equipped Scholar only, with a compact scene',()=>{
+test('Study uses compact navigation without character or pet artwork',()=>{
  const js=file('assets/study-navigation-v2-20261010.js');
- const css=file('assets/study-navigation-v2-20261010.css');
- const home=file('index.html');
- assert.ok(js.includes('lux-path-hero-scholar'));
- assert.ok(js.includes('/art/stages/dusk.jpg'));
- assert.ok(js.includes('saved.equippedOutfit'));
- assert.ok(js.includes('outfitCatalog=mod.A'));
- for(const petText of ['lux-path-hero-pet','petLevels','Companion ↗','scholar:pet-changed'])
-  assert.ok(!js.includes(petText),'Study must not render '+petText);
- assert.ok(css.includes('height:370px!important;min-height:370px!important;max-height:370px!important'));
- assert.ok(css.includes('height:445px!important;min-height:445px!important;max-height:445px!important'));
- assert.ok(home.includes('lux-celestial-b-brand-20261010.css'));
- assert.ok(!home.includes('study-navigation-v2-20261010'));
- assert.ok(!js.includes('localStorage.setItem('));
+ assert.doesNotMatch(js,/lux-path-hero|outfitCatalog|<img/);
+ assert.match(js,/lux-study-shortcuts/);
 });
 
 test('approved B celestial branding is shared safely between Home and Study',()=>{
@@ -86,7 +75,7 @@ test('legacy subjects directory no longer blocks the first screen',()=>{
  assert.match(script,/getElementById\('subject-directory-entry'\)\?\.remove\(\)/);
  assert.match(home,/assessment-link\.js\?v=20261010-phase1/);
  assert.match(study,/assessment-link\.js\?v=20261010-phase1/);
- assert.match(study,/study-navigation-v2-20261010\.js\?v=20261010-quest-complete1/);
+ assert.match(study,/study-navigation-v2-20261010\.js\?v=20261012-study-ux2b/);
  const css=file('assets/study-navigation-v2-20261010.css');
  assert.match(css,/data-lux-quest-ready/);
  assert.match(css,/data-lux-quest-legacy-shortcut/);
@@ -105,7 +94,5 @@ test('legacy task decorator leaves Study portal star icons circular and alone',(
  assert.equal(classify(quest),false,'portal is not a task row');
  assert.equal(classify(daily),true,'real tasks still receive icons');
  assert.match(source,/querySelectorAll\('#lux-study-paths-v2 \.lux-ico'\)/);
- assert.match(css,/\.lux-study-paths \.lux-path-portal\{\s*display:grid!important/);
- assert.match(css,/\.lux-study-paths \.lux-path-portal > \.lux-ico\{display:none!important/);
- assert.match(file('study/index.html'),/study-navigation-v2-20261010\.css\?v=20261010-portal-glyph1/);
+ assert.match(file('study/index.html'),/study-navigation-v2-20261010\.css\?v=20261012-study-ux2b/);
 });
