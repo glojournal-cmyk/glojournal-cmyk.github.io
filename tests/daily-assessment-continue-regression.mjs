@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const src=readFileSync('assessment/app-v2.js','utf8');
+const start=src.indexOf('function startDailyAssessmentReview()');
+const end=src.indexOf('// Open the requested paper after deferred',start);
+assert.ok(start>=0&&end>start,'daily assessment resume entry exists');
+const body=src.slice(start,end);
+assert.match(body,/existing\.index>=existing\.questions\.length/,'finished attempt should allow revisit');
+assert.match(body,/firstRemaining=existing\.assignedIds\.findIndex\(reviewId=>!credits\[reviewId\]\)/,'resume next uncredited item');
+assert.match(body,/if\(!credits\[reviewId\]\)\{delete existing\.checked\[j\];delete existing\.answers\[j\]\}/,'unlock only unsecured answers');
+assert.match(body,/existing\.index=firstRemaining/,'point to the first unsecured question');
+assert.doesNotMatch(body,/localStorage\.removeItem|localStorage\.clear|delete state\.dailyReviewCredits/,'do not reset evidence');
+const assign=ids=>({assignedIds:ids,questions:ids.map(id=>({_assessmentReviewId:id})),index:ids.length,answers:Object.fromEntries(ids.map((v,i)=>[i,'answer'])),checked:Object.fromEntries(ids.map((v,i)=>[i,true]))});
+function resume(d,credits){if(d.index>=d.questions.length){const first=d.assignedIds.findIndex(id=>!credits[id]);if(first>=0){for(let i=0;i<d.questions.length;i++){const id=d.questions[i]?._assessmentReviewId||d.assignedIds[i];if(!credits[id]){delete d.checked[i];delete d.answers[i]}}d.index=first}}return d}
+const ids=Array.from({length:10},(_,i)=>'french-assessment-'+i),credits={[ids[0]]:true};
+const resumed=resume(assign(ids),credits);
+assert.equal(resumed.index,1);
+assert.equal(resumed.answers[0],'answer','previously credited response preserved');
+assert.equal(resumed.checked[0],true);
+assert.equal(Object.keys(resumed.answers).length,1,'incorrect responses available to retry');
+const complete=resume(assign(ids),Object.fromEntries(ids.map(id=>[id,true])));
+assert.equal(complete.index,10,'all credited daily tasks remain complete');
+console.log('DAILY_ASSESSMENT_CONTINUE_QA passed: partial 1/10 retries 9; full 10/10 remains complete');
