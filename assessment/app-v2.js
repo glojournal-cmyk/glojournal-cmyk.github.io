@@ -582,6 +582,21 @@ function startDailyAssessmentReview(){
  state.followups||={};const id='daily:'+today;
  const existing=state.followups[id];
  if(!existing||JSON.stringify(existing.assignedIds)!==JSON.stringify(task.reviewQuestionIds))state.followups[id]={questions,index:0,answers:{},checked:{},paper:task.title,daily:true,planDate:today,assignedIds:[...task.reviewQuestionIds]};
+ else if(existing.index>=existing.questions.length){
+  // Returning after an attempted review must reopen the remaining corrections,
+  // never leave an unfinished daily task on its final summary.
+  const credits=state.dailyReviewCredits?.[today]||{};
+  const firstRemaining=existing.assignedIds.findIndex(reviewId=>!credits[reviewId]);
+  if(firstRemaining>=0){
+   // Keep the already secured marks and original assignment, but allow a fresh answer
+   // on unanswered/incorrect questions. No credit is manufactured by revisiting.
+   for(let j=0;j<existing.questions.length;j++){
+    const reviewId=existing.questions[j]?._assessmentReviewId||existing.assignedIds[j];
+    if(!credits[reviewId]){delete existing.checked[j];delete existing.answers[j]}
+   }
+   existing.index=firstRemaining;
+  }
+ }
  save();drawFollowup(id);
 }
 
