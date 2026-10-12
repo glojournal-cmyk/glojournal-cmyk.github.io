@@ -14,7 +14,7 @@ test('ten authentic stars with partial credit and real next link',()=>{
  assert.match(m.rows[3].href,/biology\/practise/);
 });
 test('saved question resume highlights its existing task',()=>{
- const m=select({today:day,daily:rows},{...J,resumeCandidates:()=>[{daily:true,dailyTaskId:'t7',planDate:day}]});
+ const m=select({today:day,daily:rows},{...J,resumeCandidates:()=>[{daily:true,dailyTaskId:'t7',planDate:day,href:'/study/latin/practise?daily=1&task=t7'}]});
  assert.equal(m.focus,'t7');assert.equal(m.rows[7].done,false);
 });
 test('stale or six-task plan cannot create false stars',()=>{
