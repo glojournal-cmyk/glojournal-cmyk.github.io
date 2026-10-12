@@ -1,0 +1,22 @@
+name: Daily Assessment Recovery QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assessment/app-v2.js'
+      - 'tests/daily-assessment-continue-regression.mjs'
+      - '.github/workflows/daily-assessment-recovery.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/daily-assessment-continue-regression.mjs
+      - run: node tests/daily-task-persistence-qa.mjs
+      - run: node tests/daily-counting-regression-qa.mjs
