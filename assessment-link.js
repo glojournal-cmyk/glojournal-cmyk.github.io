@@ -1,8 +1,8 @@
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/phase7-voice-cheers-20261011.js?v=20261012-phase3').catch(()=>{});
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/star-map-gallery-20261004.js?v=20261010-chem-marking1').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/memory-stars-20261004.js?v=20261010-chem-marking1').catch(console.error);
-if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/daily-task-presentation-20261004.js?v=20261008-close2').catch(console.error);
-if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/companion-experience-20261004.js?v=20261010-phase1').catch(console.error);
+if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/daily-task-presentation-20261004.js?v=20261012-level10').catch(console.error);
+if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/companion-experience-20261004.js?v=20261012-level10').catch(console.error);
 import('/assets/ipad-experience-20261004.js?v=20261008-accent1').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/school-revision-home-20261004.js?v=20261010-chem-marking1').catch(error=>console.error('School revision panel could not load',error));
 (() => {

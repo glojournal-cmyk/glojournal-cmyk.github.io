@@ -11,9 +11,9 @@ const PET_SPECIES=new Set(["moss-hornling","antler-bean","inkling","pebble-wisp"
 function companion(){
  let saved={};try{saved=JSON.parse(localStorage.getItem(PET_KEY)||"{}")||{}}catch{}
  const species=PET_SPECIES.has(saved.species)?saved.species:"moss-hornling";
- const level=Math.max(1,Math.min(5,Math.floor(Number(saved.petLevels?.[species]||saved.highestStage)||1)));
+ const level=Math.max(1,Math.min(10,Math.floor(Number(saved.petLevels?.[species]||saved.highestStage)||1)));
  const title=saved.name&&String(saved.name).trim()?String(saved.name).trim().slice(0,28):species.replace(/-/g," ").replace(/\b\w/g,c=>c.toUpperCase());
- return {species,level,title,url:"/pet/art-hd-20261009/level-"+level+"/"+species+".webp?v=20261009-hd1"};
+ return {species,level,title,url:level>5?"/pet/art-level10-20261012/level-"+level+"/"+species+".webp?v=20261012-evolution1":"/pet/art-hd-20261009/level-"+level+"/"+species+".webp?v=20261009-hd1"};
 }
 
 function playChime(){

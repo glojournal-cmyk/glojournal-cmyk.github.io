@@ -1,3 +1,4 @@
+import {clampPetLevel} from './pet-evolution-config-20261012.js';
 import {
   PET_ACTIONS,
   DAILY_BOND_CAP,
@@ -17,7 +18,7 @@ function displayName(pet) {
 
 function stageSnapshot(pet) {
   const levels = pet?.petLevels && typeof pet.petLevels === "object" ? pet.petLevels : {};
-  return Object.fromEntries(Object.entries(levels).map(([id, level]) => [id, Math.max(1, Math.min(5, Number(level) || 1))]));
+  return Object.fromEntries(Object.entries(levels).map(([id, level]) => [id, clampPetLevel(level)]));
 }
 
 function syncEvolutionReward(pet) {

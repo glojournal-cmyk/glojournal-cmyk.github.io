@@ -1,4 +1,5 @@
-import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js';
+import {MAX_PET_LEVEL, EVOLUTION_COSTS, STAGE_NAMES, clampPetLevel, ADVANCED_FORMS} from './pet-evolution-config-20261012.js';
+import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261012-level10';
 const APP_KEY = "lux-scholar-garden-v1";
 const PET_KEY = "lux-pet-companion-v1";
 
@@ -31,14 +32,20 @@ const character = {
   "night-spider": {nature:"Patient, daring and brilliantly resourceful",habit:"Weaves the lessons you remembered into silver threads.",forms:["Velvet spiderling","Night runner","Obsidian hunter","Web guardian","Nocturne sovereign"]}
 };
 
-const stageNames = ["Foundling","Curious Companion","Scholar Familiar","Garden Familiar","Mastery Companion"];
-const evolutionCosts = [50,90,140,200];
+for (const [id, identity] of Object.entries(character)) identity.forms.push(...ADVANCED_FORMS[id]);
+const stageNames = STAGE_NAMES;
+const evolutionCosts = EVOLUTION_COSTS;
 const stageCopy = [
   "A small companion has joined the Scholar’s Garden.",
   "Curiosity is beginning to show in every little habit.",
   "Your companion now carries the marks of serious study.",
   "The garden and your learning have started to grow together.",
-  "A prestige companion shaped by sustained mastery."
+  "A prestige companion shaped by sustained mastery.",
+  "A new chapter of growth, earned one lesson at a time.",
+  "A radiant guardian of your growing knowledge.",
+  "A celestial familiar with a shape all its own.",
+  "A mythic companion shaped by patient, lasting study.",
+  "Your companion’s final evolution celebrates a long journey together."
 ];
 
 const subjectMeta = {
@@ -81,8 +88,8 @@ function readPet(){
     const chosen=pets.find(p=>p.id===parsed?.species);
     const species=chosen&&(!chosen.secret||parsed?.unlockedSecrets?.[chosen.id])?chosen.id:"moss-hornling";
     const petLevels=parsed?.petLevels&&typeof parsed.petLevels==="object"?{...parsed.petLevels}:{};
-    if(!petLevels[species]&&Number(parsed?.highestStage)>1) petLevels[species]=Math.max(1,Math.min(5,Number(parsed.highestStage)));
-    for(const p of pets) petLevels[p.id]=Math.max(1,Math.min(5,Number(petLevels[p.id])||1));
+    if(!petLevels[species]&&Number(parsed?.highestStage)>1) petLevels[species]=clampPetLevel(parsed.highestStage);
+    for(const p of pets) petLevels[p.id]=clampPetLevel(petLevels[p.id]);
     return {
       ...parsed,
       species,
@@ -136,9 +143,9 @@ function syncHiddenUnlocks(pet,state){
   localStorage.setItem(PET_KEY,JSON.stringify(next));
   return next;
 }
-function petLevel(pet,species=pet.species){return Math.max(1,Math.min(5,Number(pet.petLevels?.[species])||1))}
-function evolutionCost(stage){return stage>=5?0:evolutionCosts[stage-1]}
-function stageProgress(points,stage){return stage>=5?100:Math.max(0,Math.min(100,Math.round((points/evolutionCost(stage))*100)))}
+function petLevel(pet,species=pet.species){return clampPetLevel(pet.petLevels?.[species])}
+function evolutionCost(stage){return stage>=MAX_PET_LEVEL?0:evolutionCosts[stage-1]}
+function stageProgress(points,stage){return stage>=MAX_PET_LEVEL?100:Math.max(0,Math.min(100,Math.round((points/evolutionCost(stage))*100)))}
 function dueMasteryCount(state){
   const today=todayKey();
   let count=0;
@@ -242,15 +249,15 @@ function render(){
   document.getElementById("retentionCount").textContent=passes;
   document.getElementById("glowStatus").textContent=glowLabel(state);
   document.getElementById("growthBar").style.width=`${progress}%`;
-  document.getElementById("growthPct").textContent=stage>=5?"Prestige":`${progress}%`;
-  document.getElementById("nextText").textContent=stage>=5
-    ?"Prestige form reached. New MP stays in your shared wallet."
+  document.getElementById("growthPct").textContent=stage>=MAX_PET_LEVEL?"Level 10":`${progress}%`;
+  document.getElementById("nextText").textContent=stage>=MAX_PET_LEVEL
+    ?"Level 10 reached. New MP stays in your shared wallet."
     :`${Math.max(0,cost-balance)} MP more needed for Level ${stage+1}.`;
   const evolveButton=document.getElementById("evolvePet");
-  evolveButton.hidden=stage>=5;
-  evolveButton.disabled=stage>=5||balance<cost;
-  evolveButton.textContent=stage>=5?"Prestige reached":`Evolve ${petDisplayName(pet)} — ${cost} MP`;
-  document.getElementById("evolveBalance").textContent=stage>=5
+  evolveButton.hidden=stage>=MAX_PET_LEVEL;
+  evolveButton.disabled=stage>=MAX_PET_LEVEL||balance<cost;
+  evolveButton.textContent=stage>=MAX_PET_LEVEL?"Level 10 reached":`Evolve ${petDisplayName(pet)} — ${cost} MP`;
+  document.getElementById("evolveBalance").textContent=stage>=MAX_PET_LEVEL
     ?`${balance} MP available for another companion.`
     :`Balance after evolution: ${Math.max(0,balance-cost)} MP`;
   document.getElementById("messageTitle").textContent=msg.title;
@@ -287,7 +294,7 @@ function renderChooser(pet,state){
     return `<button class="pet-choice ${p.secret?"pet-choice-secret":""} ${pet.species===p.id?"selected":""} ${locked?"is-locked":""}" type="button" data-pet="${p.id}" aria-label="${locked?`Secret companion locked: ${requirement}`:`Choose ${p.name}`}" ${locked?"disabled":""}>
       ${locked?'<span class="pet-secret-silhouette" aria-hidden="true">✦</span>':`<span class="pet-choice-art pet-sprite" style="${spriteStyle(p.id,petLevel(pet,p.id))}" aria-hidden="true"></span>`}
       <b>${locked?"Secret companion":p.name}</b><small>${locked?requirement:p.tag}</small>
-      <span class="pet-choice-level">${locked?"Undiscovered":`Level ${petLevel(pet,p.id)}`}</span>${!locked&&petLevel(pet,p.id)<5?`<small>Next level: ${evolutionCost(petLevel(pet,p.id))} MP · ${Math.max(0,evolutionCost(petLevel(pet,p.id))-pet.masteryPoints)} MP more needed</small>`:""}
+      <span class="pet-choice-level">${locked?"Undiscovered":`Level ${petLevel(pet,p.id)}`}</span>${!locked&&petLevel(pet,p.id)<MAX_PET_LEVEL?`<small>Next level: ${evolutionCost(petLevel(pet,p.id))} MP · ${Math.max(0,evolutionCost(petLevel(pet,p.id))-pet.masteryPoints)} MP more needed</small>`:""}
       <span class="selected-mark">Current companion</span>
     </button>`;
   }).join("");
@@ -325,7 +332,7 @@ document.getElementById("evolvePet").addEventListener("click",()=>{
   const pet=readPet();
   const stage=petLevel(pet);
   const cost=evolutionCost(stage);
-  if(stage>=5||pet.masteryPoints<cost) return;
+  if(stage>=MAX_PET_LEVEL||pet.masteryPoints<cost) return;
   document.getElementById("confirmTitle").textContent=`Evolve ${petDisplayName(pet)}?`;
   document.getElementById("confirmCopy").textContent=`Level ${stage} → Level ${stage+1} costs ${cost} MP. Your balance will be ${pet.masteryPoints-cost} MP.`;
   document.getElementById("confirmEvolution").showModal();
@@ -335,7 +342,7 @@ document.getElementById("confirmEvolutionButton").addEventListener("click",()=>{
   const pet=readPet();
   const stage=petLevel(pet);
   const cost=evolutionCost(stage);
-  if(stage>=5||pet.masteryPoints<cost){document.getElementById("confirmEvolution").close();render();return}
+  if(stage>=MAX_PET_LEVEL||pet.masteryPoints<cost){document.getElementById("confirmEvolution").close();render();return}
   savePet({...pet,masteryPoints:pet.masteryPoints-cost,petLevels:{...pet.petLevels,[pet.species]:stage+1},mpTransactions:[...(pet.mpTransactions||[]),{id:crypto.randomUUID(),kind:'evolution',species:pet.species,from:stage,to:stage+1,amount:-cost,balance:pet.masteryPoints-cost,at:new Date().toISOString()}]});
   document.getElementById("confirmEvolution").close();
   render();

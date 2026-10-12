@@ -1,0 +1,30 @@
+name: Pet Level 10 QA
+on:
+  pull_request:
+    paths: ['pet/**', 'assets/companion-*', 'assets/daily-task-presentation-*', 'assets/weekly-constellation-*', 'tests/pet-*', 'tests/companion-goals-*', '.github/workflows/pet-level10-quality.yml']
+  push:
+    branches: [main]
+    paths: ['pet/**', 'assets/companion-*', 'tests/pet-*', '.github/workflows/pet-level10-quality.yml']
+permissions:
+  contents: read
+jobs:
+  progression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: node tests/companion-goals-qa.mjs
+      - run: node tests/pet-mp-qa.mjs
+      - run: node --test tests/pet-care-state.test.mjs
+      - run: node tests/phase3-home-personality-qa.mjs
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/pet-level10-browser.mjs

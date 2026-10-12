@@ -1,0 +1,32 @@
+import {createServer} from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {chromium,webkit} from 'playwright';
+import {MAX_PET_LEVEL,EVOLUTION_COSTS,clampPetLevel} from '../pet/pet-evolution-config-20261012.js';
+import {evolutionGoal,firstGoal} from '../assets/companion-goals-state-20261004.js';
+assert.equal(MAX_PET_LEVEL,10);
+assert.deepEqual(EVOLUTION_COSTS.slice(0,4),[50,90,140,200]);
+assert.equal(clampPetLevel(9.9),9);
+assert.equal(clampPetLevel(99),10);
+assert.equal(evolutionGoal({petLevels:{inkling:5},masteryPoints:279},'inkling',6).ready,false);
+assert.equal(evolutionGoal({petLevels:{inkling:5}},'inkling',10).cost,2660);
+assert.equal(firstGoal({species:'inkling',petLevels:{inkling:10}}),null);
+const root=process.cwd(),mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp'};
+const server=createServer((req,res)=>{try{let name=new URL(req.url,'http://localhost').pathname;if(name.endsWith('/'))name+='index.html';let file=path.resolve(root,'.'+name);if(!file.startsWith(root+path.sep))throw Error();if(fs.statSync(file).isDirectory())file=path.join(file,'index.html');res.writeHead(200,{'Content-Type':mime[path.extname(file)]||'application/octet-stream'});res.end(fs.readFileSync(file))}catch{res.writeHead(404);res.end()}});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));
+const base='http://127.0.0.1:'+server.address().port;
+try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch();try{
+ const page=await browser.newPage({viewport:{width:834,height:1112},hasTouch:true}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(base+'/pet/');
+ const seed=async(level,mp)=>{await page.evaluate(({level,mp})=>{localStorage.setItem('lux-pet-companion-v1',JSON.stringify({species:'moss-hornling',masteryPoints:mp,petLevels:{'moss-hornling':level,inkling:4}}))},{level,mp});await page.reload();await page.waitForSelector('#stageLabel')};
+ await seed(5,279);assert.equal(await page.locator('#evolvePet').isDisabled(),true);assert.match(await page.locator('#stageLabel').textContent(),/Stage 5/);
+ await seed(5,280);await page.goto(base+'/');await page.locator('#chosen-reward-goal [data-choose]').click();assert.equal(await page.locator('.cx-goal-option').count(),5);await page.locator('.cx-goal-option').last().click();assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('lux-companion-experience-v1')).goal.level),10);assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('lux-pet-companion-v1')).masteryPoints),280);await page.goto(base+'/pet/');await page.locator('#evolvePet').click();assert.match(await page.locator('#confirmCopy').textContent(),/Level 5 → Level 6 costs 280 MP/);await page.locator('#cancelEvolution').click();assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('lux-pet-companion-v1')).petLevels['moss-hornling']),5);
+ await page.locator('#evolvePet').click();await page.locator('#confirmEvolutionButton').click();
+ let pet=await page.evaluate(()=>JSON.parse(localStorage.getItem('lux-pet-companion-v1')));assert.equal(pet.petLevels['moss-hornling'],6);assert.equal(pet.petLevels.inkling,4);assert.equal(pet.masteryPoints,0);assert.equal(pet.mpTransactions.length,1);assert.equal(pet.mpTransactions[0].amount,-280);
+ await page.reload();assert.match(await page.locator('#stageLabel').textContent(),/Stage 6/);assert.match(await page.locator('#petImage').evaluate(e=>e.style.backgroundImage),/level-6/);assert.equal(await page.locator('.pet-form').count(),10);
+ await seed(9,850);await page.locator('#evolvePet').click();await page.locator('#confirmEvolutionButton').click();assert.match(await page.locator('#stageLabel').textContent(),/Stage 10/);assert.equal(await page.locator('#evolvePet').isVisible(),false);
+ await page.getByRole('button',{name:/Pat/}).first().click();assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('lux-pet-companion-v1')).petLevels['moss-hornling']),10);
+ await page.goto(base+'/');await page.waitForSelector('#mastery-pet-home[data-stage="10"]');assert.match(await page.locator('#mastery-pet-home').textContent(),/Eternal Guardian/);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+ const count=await page.evaluate(async()=>{const {petArtUrl}=await import('/pet/pet-art-hd-20261009.js');const ids=['moss-hornling','antler-bean','inkling','pebble-wisp','moon-puff','mothling','bloom-snail','velvet-batling','sprig-dragon','star-toadlet','snow-owl','night-spider'];for(const id of ids){if(!petArtUrl(id,5).includes('/art-hd-20261009/level-5/'))throw Error('Existing art changed');for(let level=6;level<=10;level++){const im=new Image();im.src=petArtUrl(id,level);await im.decode();if(im.naturalWidth<1024||im.naturalWidth!==im.naturalHeight)throw Error(id+' invalid art')}}return ids.length*5});assert.equal(count,60);assert.deepEqual(errors,[]);console.log(launcher.name()+': evolution 5→6 and 9→10, spending, cancel, care, reload, Home and all 60 new forms passed');
+ }finally{await browser.close()}}}finally{server.close()}

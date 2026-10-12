@@ -1,3 +1,4 @@
+import {clampPetLevel} from './pet-evolution-config-20261012.js';
 /* Phase 3 — original pet artwork, personality-only dialogue.
    No persistent changes, rewards, bond or energy writes. */
 const personalities=Object.freeze({
@@ -17,7 +18,7 @@ const personalities=Object.freeze({
 export function getHomePersonality(pet={},mood="",visit=0){
  const id=Object.hasOwn(personalities,String(pet.species))?String(pet.species):"moss-hornling";
  const lines=personalities[id];
- const stage=Math.max(1,Math.min(5,Math.trunc(Number(pet.petLevels?.[id])||Number(pet.highestStage)||1)));
+ const stage=clampPetLevel(Number(pet.petLevels?.[id])||Number(pet.highestStage));
  const label=String(mood||"").toLowerCase();
  const n=Number.isFinite(visit)?Math.max(0,Math.floor(visit)):0;
  const sleepy=/sleepy|quiet/.test(label);
