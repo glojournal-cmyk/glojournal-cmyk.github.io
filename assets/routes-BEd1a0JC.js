@@ -2,9 +2,13 @@ export { component } from "./routes-BEd1a0JC.core.js?v=20261011-vault2";
 import { C as store } from "./index-BLVOhKhN.js?v=20261011-vault2";
 
 function continueHref() {
-  const J=globalThis.LuxJourney,state=store.getState(),resume=J?.resumeCandidates(state)[0];
-  const next=state.today===J?.day()&&(state.daily||[]).find(t=>t.progress<t.target&&J.safeHref(t.href));
-  return resume?.href||J?.navigationHref(next?.href)||"/study/";
+  const J=globalThis.LuxJourney,state=J?.withReviewCredits?.(store.getState())||store.getState();
+  const active=state.today===J?.day()&&Array.isArray(state.daily)&&state.daily.length===10;
+  const next=active&&state.daily.find(t=>Number(t.progress)<Number(t.target)&&J.safeHref(t.href));
+  const drafts=J?.resumeCandidates(state)||[];
+  const daily=active&&drafts.find(d=>d.daily&&d.planDate===state.today);
+  const free=!active&&drafts.find(d=>!d.daily);
+  return daily?.href||J?.navigationHref(next?.href)||free?.href||"/study/";
 }
 
 function patchHome() {
