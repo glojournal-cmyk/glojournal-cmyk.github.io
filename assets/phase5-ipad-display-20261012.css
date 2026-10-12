@@ -4,7 +4,7 @@
 .lux-keyboard-open .lux-companion-bottom-nav{display:none!important}
 @media(pointer:coarse){
  main button,main [role="button"],main summary,
- .pet-app button,.pet-choice,.pet-confirm button{min-height:44px}
+ .pet-app button,.pet-choice,.pet-confirm button{min-height:44px;min-width:44px}
  main button,.pet-app button,.pet-choice{touch-action:manipulation}
 }
 .lux-page-paused .lux-scholar-pet-scene *,
