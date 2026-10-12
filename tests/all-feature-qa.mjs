@@ -7,6 +7,7 @@ commands.push("node tests/topic-directory-qa.mjs","node tests/year7-vocabulary-c
 commands.push("node tests/school-revision-plan-qa.mjs");
 commands.push("node tests/weekly-ipad-qa.mjs");
 commands.push("node tests/practice-bridge-qa.mjs","node tests/journey-navigation-qa.mjs");
+commands.push("node tests/phase1-redo-20261012.mjs");
 const failures=[];
 for(const command of commands){const [cmd,...args]=command.split(" ");const r=spawnSync(cmd,args,{encoding:"utf8",env:{...process.env,STRICT:"1"}});console.log(r.stdout);console.error(r.stderr);if(r.status!==0)failures.push({command,status:r.status});}
 console.log("ALL_FEATURE_AUDIT "+JSON.stringify({checks:commands.length,failures}));process.exit(failures.length?1:0);
