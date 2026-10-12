@@ -34,5 +34,12 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
  const dates=await page.evaluate(async()=>{const {C:store,Ut:day}=await import('/assets/index-BLVOhKhN.js?v=20261011-vault2');const today=day(),date=n=>new Date(Date.parse(today+'T12:00:00Z')-n*86400000).toISOString().slice(0,10),a=date(1),b=date(2);const logs={...store.getState().dailyLog};for(const d of [a,b])logs[d]={date:d,tasks:[{id:'french-vocab',target:30,progress:20},{id:'latin-vocab',target:30,progress:30}]};store.setState({dailyLog:logs,recoveryVocabByDay:{},recoveryAwarded:{}});return [a,b]});
  await page.waitForSelector('#lux-recovery-date');for(const date of dates){await page.locator('#lux-recovery-date').selectOption(date);const link=page.locator('#lux-recovery-quests a');assert.equal(await link.count(),1);assert.ok((await link.getAttribute('href')).includes('recover='+date));}
  const link=await page.locator('#lux-recovery-quests a').getAttribute('href');await page.goto(base+link);await page.waitForFunction(()=>window.__luxAppReady===true);await page.waitForFunction(()=>document.querySelector('main')?.textContent.includes('Recovery ·'));
+ // Exercise production credit recording for both original dates, then return Home.
+ for(const date of dates){
+  await page.goto(base+'/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab&recover='+date);await page.waitForFunction(()=>window.__luxAppReady===true);
+  const result=await page.evaluate(async date=>{const {C:store}=await import('/assets/index-BLVOhKhN.js?v=20261011-vault2');const before=store.getState().daily.map(t=>[t.id,t.progress]);for(let i=0;i<15;i++)store.getState().recordDailyVocabAttempt('french','recovery-qa-'+i,true);const state=store.getState();return {done:state.dailyLog[date].tasks.find(t=>t.id==='french-vocab').done,before,after:state.daily.map(t=>[t.id,t.progress])}},date);
+  assert.equal(result.done,true);assert.deepEqual(result.after,result.before,'recovery never credits today');
+ }
+ await page.goto(base+'/');await page.waitForSelector('#lux-recovery-date');for(const date of dates){await page.locator('#lux-recovery-date').selectOption(date);assert.ok((await page.locator('#lux-recovery-quests').innerText()).includes('Recovered ✓ · credited to '+date));}
  assert.deepEqual(errors,[]);console.log(launcher.name(),'collapsed backup and two recovery dates passed');await page.close();
  }finally{await browser.close()}}}finally{server.close()}

@@ -19,9 +19,10 @@ function fixture({today="2026-10-11",recover="2026-10-10",days={"2026-10-10":{fr
  let xp=0,bump=0;
  const store={getState:()=>state,setState:changes=>Object.assign(state,changes)};
  const search=recover===null?"?daily=1&locked=1&mode=y8vocab&task=french-vocab":"?recover="+recover;
- const fn=factory(store,()=>state.today,(_,o)=>{xp+=o.amount||0},()=>{},()=>{bump++},{location:{search}},URLSearchParams);
+ const env={location:{search}};
+ const fn=factory(store,()=>state.today,(_,o)=>{xp+=o.amount||0},()=>{},()=>{bump++},env,URLSearchParams);
  return {state,answer:(subject,id,correct=true)=>fn(subject,id,correct),
-  xp:()=>xp,bumped:()=>bump};
+  xp:()=>xp,bumped:()=>bump,selectRecovery:date=>env.location.search="?recover="+date};
 }
 
 test("20 of 30 requires 15 distinct correct answers",()=>{
@@ -73,4 +74,14 @@ test("ordinary daily Vocab remains on today's ledger",()=>{
  const f=fixture({recover:null});f.answer("french","daily1");
  assert.equal(f.state.dailyVocabByDay["2026-10-11"].french.items.daily1,true);
  assert.equal(f.state.daily[0].progress,3);
+});
+
+test("10 Oct and 11 Oct French recovery credit independently without blocking each other",()=>{
+ const f=fixture({today:"2026-10-12",recover:"2026-10-11",days:{"2026-10-10":{french:29},"2026-10-11":{french:29}}});
+ for(let i=0;i<6;i++)f.answer("french","same"+i);
+ assert.equal(f.state.dailyLog["2026-10-11"].tasks[0].done,true);
+ assert.equal(f.state.dailyLog["2026-10-10"].tasks[0].done,false);
+ f.selectRecovery("2026-10-10");for(let i=0;i<6;i++)f.answer("french","same"+i);
+ assert.equal(f.state.dailyLog["2026-10-10"].tasks[0].done,true);assert.equal(f.xp(),30);assert.equal(f.state.daily[0].progress,3);
+ f.selectRecovery("2026-10-11");f.answer("french","extra");assert.equal(f.xp(),30);
 });
