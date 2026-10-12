@@ -253,10 +253,11 @@ function mount() {
   const heading = [...document.querySelectorAll("h2")].find(el => el.textContent.trim() === "Raise her today");
   const card = heading?.parentElement?.parentElement?.parentElement;
   if (!card) return;
-  const panel = document.createElement("section");
+  const panel = document.createElement("details");
   panel.id = PANEL_ID;
   panel.setAttribute("aria-label", "Save daily progress");
   panel.innerHTML = `
+    <summary style="cursor:pointer;min-height:44px;padding:10px 0;font-weight:600">Progress & backup</summary>
     <div class="daily-save-heading"><strong>Keep your progress</strong><p id="daily-save-status" role="status" aria-live="polite"></p></div>
     <p id="daily-auto-status" role="status" aria-live="polite"></p>
     <div class="daily-save-actions"><button id="daily-save-button" type="button">Save progress & backup</button>

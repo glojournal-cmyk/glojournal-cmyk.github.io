@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {recoveryTask,legacyRecoveryMatches,recoveryReplay} from '../assets/recovery-session-20261012.js';
+test('10 Oct, 11 Oct and today use independent drafts',()=>{const keys=['?recover=2026-10-10','?recover=2026-10-11',''].map(s=>recoveryTask('french-vocab',s));assert.equal(new Set(keys).size,3)});
+test('legacy draft may only resume its exact recovery date',()=>{const saved={href:'/study/french/practise?recover=2026-10-10'};assert.equal(legacyRecoveryMatches(saved,'?recover=2026-10-10'),true);assert.equal(legacyRecoveryMatches(saved,'?recover=2026-10-11'),false);assert.equal(legacyRecoveryMatches(saved,''),false)});
+test('another recovery set keeps date and assignment',()=>{const u=new URL(recoveryReplay('/study/french/practise?daily=1&locked=1&mode=y8vocab&task=french-vocab&recover=2026-10-11',123),'https://local.invalid');assert.equal(u.searchParams.get('recover'),'2026-10-11');assert.equal(u.searchParams.get('daily'),'1');assert.equal(u.searchParams.get('redo'),'123')});
