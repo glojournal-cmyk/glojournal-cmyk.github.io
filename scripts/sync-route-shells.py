@@ -7,7 +7,7 @@ root = Path(__file__).resolve().parents[1]
 # Keep the full module graph on one release marker. This changes URLs only;
 # asset paths, the central store and browser progress keys remain the same.
 from urllib.parse import parse_qsl, urlencode
-UX_RELEASE = "20261013-player-ux2"
+UX_RELEASE = "20261013-player-ux3"
 store_match = re.search(r'/assets/index-BLVOhKhN\.js\?v=([^&"<> ]+)', (root / 'index.html').read_text(encoding='utf-8'))
 if not store_match:
     raise SystemExit('Root store URL is missing')
