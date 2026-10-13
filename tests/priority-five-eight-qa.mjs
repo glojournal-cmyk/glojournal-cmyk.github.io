@@ -1,3 +1,4 @@
+import {MAX_PET_LEVEL} from '../pet/pet-evolution-config-20261012.js';
 import "../assets/practice-evidence-bridge-20261004.js";
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -34,7 +35,7 @@ const pet=fs.readFileSync('pet/pet.js','utf8');
 const start=pet.indexOf('document.getElementById("confirmEvolutionButton").addEventListener("click",()=>{');
 const callback=pet.slice(start,pet.indexOf('\n});',start)+4).replace(/^.*?\(\"click\",\(\)=>\{/,'').replace(/\n\}\);$/,'');
 let current={species:'moss-hornling',masteryPoints:50,petLevels:{'moss-hornling':1},mpLedger:{earned:{kind:'mastery',amount:10,earnedAt:'2026-10-01T12:00:00Z'}}};
-const evolve=new Function('readPet','petLevel','evolutionCost','savePet','document','render','crypto',callback)(()=>current,p=>p.petLevels[p.species],stage=>[50,90,140,200][stage-1],p=>current=p,{getElementById:()=>({close(){}})},()=>{}, {randomUUID:()=> 'spend-one'});
+const evolve=new Function('readPet','petLevel','evolutionCost','savePet','document','render','crypto','MAX_PET_LEVEL',callback)(()=>current,p=>p.petLevels[p.species],stage=>[50,90,140,200][stage-1],p=>current=p,{getElementById:()=>({close(){}})},()=>{}, {randomUUID:()=> 'spend-one'},MAX_PET_LEVEL);
 assert.equal(current.masteryPoints,0);assert.equal(current.petLevels['moss-hornling'],2);assert.equal(current.mpTransactions[0].amount,-50);
 const rows=new Function(pet.slice(pet.indexOf('function walletRows('),pet.indexOf('function safeWalletText('))+';return walletRows;')()(current);
 assert.equal(rows.length,2);assert.ok(rows.some(r=>r.amount===10));assert.ok(rows.some(r=>r.amount===-50));
