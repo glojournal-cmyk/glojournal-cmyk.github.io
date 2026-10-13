@@ -3003,7 +3003,8 @@ function mountDailyRecord() {
     const days = [];
     for (let i = 29; i >= 0; i -= 1) days.push(shiftDay(today, -i));
     if (!selected || !days.includes(selected)) selected = today;
-    const log = { ...(state.dailyLog || {}) };
+    // Read completed Recovery proof even if an older dailyLog snapshot remains.
+    const log = { ...reconcileRecoveredVocabHistory(state, state.dailyLog || {}) };
     const live = compactDailyTasks(state.daily);
     if (live.length) {
       const done = live.filter((task) => task.done).length;
@@ -3011,7 +3012,7 @@ function mountDailyRecord() {
     }
     const key = `${selected}|${days.map((day) => {
       const row = log[day];
-      return row ? `${day}:${row.done}/${row.total}:${row.tasks.map((task) => task.progress).join(".")}` : `${day}:x`;
+      return row ? `${day}:${row.done}/${row.total}:${row.tasks.map((task) => `${task.progress}:${!!task.done}:${!!task.recovered}`).join(".")}` : `${day}:x`;
     }).join(",")}`;
     if (key === lastKey) return;
     lastKey = key;
@@ -3120,7 +3121,7 @@ function mountDailyRecord() {
               const line = document.createElement("p");
               line.className = done ? "is-done" : "is-missed";
               const count = task.target === 1 ? (done ? "Done" : "Not done") : `${task.progress}/${task.target}`;
-              line.textContent = `${done ? "Done" : "Not done"} · ${task.title} · ${count}`;
+              line.textContent = `${done ? (task.recovered ? "Recovered" : "Done") : "Not done"} · ${task.title} · ${count}`;
               detail.append(line);
             }
           };
