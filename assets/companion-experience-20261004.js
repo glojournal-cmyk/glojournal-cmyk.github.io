@@ -1,7 +1,7 @@
-import {MAX_PET_LEVEL} from '../pet/pet-evolution-config-20261012.js?ux=20261013-player-ux2';
-import {C as store,A as outfits,B as scenes,J as requirements,Y as stats} from './index-BLVOhKhN.js?v=20261011-vault2&ux=20261013-player-ux2';
-import {petNames,petLevel,firstGoal,goalView,celebrationToken} from './companion-goals-state-20261004.js?v=20261012-level10&ux=20261013-player-ux2';
-import {spriteStyle} from './companion-art-20261004.js?v=20261012-level10&ux=20261013-player-ux2';
+import {MAX_PET_LEVEL} from '../pet/pet-evolution-config-20261012.js?ux=20261013-player-ux3';
+import {C as store,A as outfits,B as scenes,J as requirements,Y as stats} from './index-BLVOhKhN.js?v=20261011-vault2&ux=20261013-player-ux3';
+import {petNames,petLevel,firstGoal,goalView,celebrationToken} from './companion-goals-state-20261004.js?v=20261012-level10&ux=20261013-player-ux3';
+import {spriteStyle} from './companion-art-20261004.js?v=20261012-level10&ux=20261013-player-ux3';
 const KEY='lux-companion-experience-v1',PET='lux-pet-companion-v1',catalog={outfits,scenes,requirements,stats};
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function read(key){try{return JSON.parse(localStorage.getItem(key)||'{}')||{}}catch{return {}}}
@@ -64,4 +64,4 @@ let queued=false;function schedule(){if(queued)return;queued=true;queueMicrotask
 function reactToAnswer(e){if(!document.getElementById('study-companion'))return;window.__luxPhase1LastAnswer={at:Date.now(),path:location.pathname};answers++;correctStreak=e.detail?.correct?correctStreak+1:0;reaction=e.detail?.correct?'success':'thinking';if(e.detail?.correct){let flash=document.querySelector('.cx-answer-flash');if(!flash){flash=document.createElement('div');flash.className='cx-answer-flash';flash.setAttribute('role','status');document.body.append(flash)}flash.classList.remove('cx-skipped');flash.innerHTML='<span aria-hidden="true">✦</span><strong>Correct!</strong><button>Skip animation</button>';flash.dataset.reaction='success';flash.querySelector('button').onclick=skipAnimation;setTimeout(()=>flash.remove(),850)}const b=document.getElementById('study-companion');b.dataset.reaction=reaction;const text=b.querySelector('[data-companion-copy]');text.textContent=e.detail?.correct?(correctStreak>=3?correctStreak+' in a row! Your companion is cheering you on.':'That was a good step. Keep going.'):'Take your time. Let’s work through the explanation.';clearTimeout(reactTimer);reactTimer=setTimeout(()=>{reaction='ready';b.dataset.reaction='ready';text.textContent=answers>=12?'A little pause is welcome when you need it.':'I’m here for the next question.'},2200)}
 window.addEventListener('scholar:question-answered',reactToAnswer);
 store.subscribe(schedule);window.addEventListener('storage',schedule);window.addEventListener('scholar:pet-changed',schedule);window.addEventListener('pageshow',schedule);window.addEventListener('popstate',schedule);
-new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true});const css=document.createElement('link');css.rel='stylesheet';css.href='/assets/companion-experience-20261004.css?v=20261010-phase1&ux=20261013-player-ux2';document.head.append(css);schedule();
+new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true});const css=document.createElement('link');css.rel='stylesheet';css.href='/assets/companion-experience-20261004.css?v=20261010-phase1&ux=20261013-player-ux3';document.head.append(css);schedule();

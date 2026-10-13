@@ -1,5 +1,5 @@
-import {C as store} from './index-BLVOhKhN.js?v=20261011-vault2&ux=20261013-player-ux2';
-import {recordRecoveries,weekOf} from './memory-stars-state-20261004.js?ux=20261013-player-ux2';
+import {C as store} from './index-BLVOhKhN.js?v=20261011-vault2&ux=20261013-player-ux3';
+import {recordRecoveries,weekOf} from './memory-stars-state-20261004.js?ux=20261013-player-ux3';
 const KEY='lux-memory-stars-v1',PENDING='lux-memory-stars-pending-v1',RECEIPT='lux-memory-stars-result-v1';
 function read(key){if(key===KEY&&store.getState().memoryStars)return store.getState().memoryStars;try{return JSON.parse(localStorage.getItem(key)||'{}')||{}}catch{return {}}}
 function write(key,value){try{localStorage.setItem(key,JSON.stringify(value));if(key===KEY)store.setState({memoryStars:value});return true}catch{return false}}

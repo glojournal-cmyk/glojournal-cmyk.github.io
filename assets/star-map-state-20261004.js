@@ -1,6 +1,6 @@
-import {adventureTasks,normalAnswer} from './weekly-adventure-20261012.js?ux=20261013-player-ux2';
-import {THEMES,themedTasks,themeFor} from './weekly-boss-themes-20261011.js?ux=20261013-player-ux2';
-import {weekOf} from './memory-stars-state-20261004.js?ux=20261013-player-ux2';
+import {adventureTasks,normalAnswer} from './weekly-adventure-20261012.js?ux=20261013-player-ux3';
+import {THEMES,themedTasks,themeFor} from './weekly-boss-themes-20261011.js?ux=20261013-player-ux3';
+import {weekOf} from './memory-stars-state-20261004.js?ux=20261013-player-ux3';
 export {weekOf};
 export const nodes=[[20,72],[38,35],[62,52],[79,22]];
 export function missionFor(week,theme='physics',adventureVersion=1){if(adventureVersion===2)return adventureTasks(week,theme);if(theme!=='physics'&&THEMES[theme])return themedTasks(theme);const seed=[...week].reduce((n,c)=>n+c.charCodeAt(0),0),time=3+seed%3,speed=2+seed%3,distance=time*speed;

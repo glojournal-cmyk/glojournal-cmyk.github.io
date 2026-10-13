@@ -1,4 +1,4 @@
-import "./practice-evidence-bridge-20261004.js?v=20261010-chem-marking1&ux=20261013-player-ux2";
+import "./practice-evidence-bridge-20261004.js?v=20261010-chem-marking1&ux=20261013-player-ux3";
 const LABELS={french:'French',latin:'Latin',biology:'Biology',chemistry:'Chemistry',physics:'Physics',english:'English'};
 function reviewSubject(id,review) {
  if(LABELS[review?.subject])return review.subject;
