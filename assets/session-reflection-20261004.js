@@ -1,4 +1,4 @@
-import {i as interop,n as factory} from './jsx-runtime-Cltr0gcK.js?ux=20261013-corrections1';
+import {i as interop,n as factory} from './jsx-runtime-Cltr0gcK.js?ux=20261013-corrections2';
 const R=interop(factory()),h=R.createElement;
 const errorLabels={ending:'Ending or agreement',spelling:'Spelling',partial:'Missing mark points',blank:'Incomplete answer',wrong:'Meaning or concept',case:'Case choice',tense:'Tense choice',vocabulary:'Vocabulary recall','verb-ending':'Verb ending','person-number':'Person or number',translation:'Translation','grammar/concept':'Grammar or concept',incomplete:'Incomplete answer'};
 export function captureReviewHistory(items,state,saved){if(saved)return saved;const ids=new Set(items.map(q=>q.id));return Object.fromEntries(Object.entries({...state.reviews,...state.spellingDue}).filter(([id])=>ids.has(id)).map(([id,row])=>[id,{...row}]));}

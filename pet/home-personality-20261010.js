@@ -1,4 +1,4 @@
-import {clampPetLevel} from './pet-evolution-config-20261012.js?ux=20261013-corrections1';
+import {clampPetLevel} from './pet-evolution-config-20261012.js?ux=20261013-corrections2';
 /* Phase 3 — original pet artwork, personality-only dialogue.
    No persistent changes, rewards, bond or energy writes. */
 const personalities=Object.freeze({

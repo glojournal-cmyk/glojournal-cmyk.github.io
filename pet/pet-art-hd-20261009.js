@@ -1,4 +1,4 @@
-import {clampPetLevel} from './pet-evolution-config-20261012.js?ux=20261013-corrections1';
+import {clampPetLevel} from './pet-evolution-config-20261012.js?ux=20261013-corrections2';
 // Each evolution stage uses a complete transparent sprite, never an enlarged sheet cell.
 const species = new Set(['antler-bean','moss-hornling','inkling','pebble-wisp','moon-puff','mothling','bloom-snail','velvet-batling','sprig-dragon','star-toadlet','snow-owl','night-spider']);
 export function petArtUrl(id, level = 1) {

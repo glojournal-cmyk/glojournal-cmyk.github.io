@@ -1,10 +1,10 @@
-import "./player-ux-20261013.js?ux=20261013-corrections1";
-import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections1";
-import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections1";
-import "./weekly-evidence-20261004.js?ux=20261013-corrections1";
-import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections1";
-import("/pet/pet-care-global.js?v=20261011-storage-qa1&ux=20261013-corrections1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261011-vault2&ux=20261013-corrections1";
+import "./player-ux-20261013.js?ux=20261013-corrections2";
+import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
+import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
+import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
+import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
+import("/pet/pet-care-global.js?v=20261011-storage-qa1&ux=20261013-corrections2").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261011-vault2&ux=20261013-corrections2";
 import {
   C as store,
   Z as scholarLevelProgress,
@@ -18,7 +18,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261011-vault2&ux=20261013-corrections1";
+} from "./index-BLVOhKhN.core.js?v=20261011-vault2&ux=20261013-corrections2";
 
 if(typeof window!=="undefined"){
  window.__luxStore=store;
@@ -3380,7 +3380,7 @@ function mountDailyRecordButton() {
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261011-vault2&ux=20261013-corrections1").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261011-vault2&ux=20261013-corrections2").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){

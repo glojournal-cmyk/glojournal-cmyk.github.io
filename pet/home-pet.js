@@ -1,20 +1,20 @@
-import {STAGE_NAMES, clampPetLevel} from './pet-evolution-config-20261012.js?ux=20261013-corrections1';
-import {spriteStyle} from '/pet/pet-art-hd-20261009.js?v=20261012-level10&ux=20261013-corrections1';
-import { getCareSummary } from "/pet/pet-care-state.js?v=20261003-care1&ux=20261013-corrections1";
-import {readyHomeReaction} from '/pet/quest-home-reaction-20261010.js?ux=20261013-corrections1';
-import {getHomePersonality} from '/pet/home-personality-20261010.js?v=20261012-level10&ux=20261013-corrections1';
+import {STAGE_NAMES, clampPetLevel} from './pet-evolution-config-20261012.js?ux=20261013-corrections2';
+import {spriteStyle} from '/pet/pet-art-hd-20261009.js?v=20261012-level10&ux=20261013-corrections2';
+import { getCareSummary } from "/pet/pet-care-state.js?v=20261003-care1&ux=20261013-corrections2";
+import {readyHomeReaction} from '/pet/quest-home-reaction-20261010.js?ux=20261013-corrections2';
+import {getHomePersonality} from '/pet/home-personality-20261010.js?v=20261012-level10&ux=20261013-corrections2';
 
 // The progression guard imports the React app bundle. Loading it on the
 // standalone Pet page makes React replace that page with an empty root.
 if (!location.pathname.startsWith("/pet")) {
-  import("/assets/progression-guard-20260927.js?v=20261010-chem-marking1&ux=20261013-corrections1").catch(() => {});
+  import("/assets/progression-guard-20260927.js?v=20261010-chem-marking1&ux=20261013-corrections2").catch(() => {});
 }
 
 const APP_KEY = "lux-scholar-garden-v1";
 const PET_KEY = "lux-pet-companion-v1";
 const CELEBRATE_KEY = "lux-pet-pending-celebration";
 const HOME_CSS_ID = "lux-home-companion-v2";
-const HOME_CSS_HREF = "/pet/home-companion-v2.css?v=20261012-level10&ux=20261013-corrections1";
+const HOME_CSS_HREF = "/pet/home-companion-v2.css?v=20261012-level10&ux=20261013-corrections2";
 
 const pets = {
   "moss-hornling": "Moss Hornling",
