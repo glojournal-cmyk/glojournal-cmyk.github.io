@@ -12,8 +12,12 @@ function recoveryPracticeSize(subject,params,state){
  if(!date)return 30;
  const drafts=globalThis.LuxPracticeDrafts;
  const id=params.get('task')||subject+'-vocab';
- const key=drafts?.key(subject,8,30,undefined,id+':recover:'+date,'y8vocab');
- if(key&&drafts.read(key))return 30;
+ let resume=null;
+ if(drafts)for(let size=35;size>=1;size--){
+  const saved=drafts.read(drafts.key(subject,8,size,undefined,id+':recover:'+date,'y8vocab'));
+  if(saved&&(!resume||Number(saved.savedAt)>Number(resume.savedAt)))resume={size,savedAt:saved.savedAt};
+ }
+ if(resume)return resume.size;
  const proof=state.recoveryVocabByDay?.[date]?.[subject];
  const progress=globalThis.LuxRecoveryVocabSource?.(state,date,subject)?.task?.progress||0;
  const base=Math.max(0,Math.min(30,Number(proof?.originalCount??progress)||0));
