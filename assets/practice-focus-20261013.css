@@ -1,0 +1,7 @@
+/* Keep the first screen for the current question on tablet and desktop. */
+.lux-focused-practice main aside,.lux-focused-practice main header:has(aside){display:none!important}
+.lux-focused-practice #study-companion{height:64px;min-height:64px;box-sizing:border-box;overflow:hidden;padding:8px 14px!important}
+.lux-focused-practice #study-companion .cx-pet-art{min-width:0;min-height:0;max-height:40px;max-width:34px}
+.lux-focused-practice .lux-practice-view>details{padding:8px 12px!important}
+.lux-focused-practice [data-question-id]>[role="status"]{padding:10px 14px!important}
+.lux-focused-practice [data-question-id]>[role="status"] button{min-height:44px;margin-right:12px;padding:6px 10px}
