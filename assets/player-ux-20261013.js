@@ -39,12 +39,13 @@ if(typeof document!=='undefined'){
   const data=next();if(!data||data.kind==='library')return;
   let panel=document.getElementById('ux-study-continue');
   if(!panel){panel=document.createElement('section');panel.id='ux-study-continue';panel.className='ux-continue-panel';panel.setAttribute('aria-label','Continue today’s task');
-   const title=main.querySelector('h1');(title?.parentElement||main).insertAdjacentElement('afterend',panel);
+   const title=main.querySelector('h1');(title?.closest('header')||title?.parentElement||main).insertAdjacentElement('afterend',panel);
    const kicker=document.createElement('p'),heading=document.createElement('h2'),copy=document.createElement('p'),a=document.createElement('a');
    kicker.className='kicker';kicker.textContent='TODAY’S TASK';panel.append(kicker,heading,copy,a);
   }
   setText(panel.querySelector('h2'),data.title);setText(panel.querySelector('p:not(.kicker)'),data.detail);
   setText(panel.querySelector('a'),data.button);setAttr(panel.querySelector('a'),'href',data.href);
+  const prior=[...main.querySelectorAll('p')].find(p=>p.textContent.trim()==='Continue your last topic');if(prior)prior.parentElement.hidden=data.kind!=='complete';
  }
  function play(main){
   for(const a of main.querySelectorAll('a[href]')){
