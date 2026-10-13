@@ -1,4 +1,4 @@
-import {MAX_PET_LEVEL, EVOLUTION_COSTS, clampPetLevel} from '../pet/pet-evolution-config-20261012.js?ux=20261013-player-ux3';
+import {MAX_PET_LEVEL, EVOLUTION_COSTS, clampPetLevel} from '../pet/pet-evolution-config-20261012.js?ux=20261013-corrections1';
 export const petNames={'moss-hornling':'Moss Hornling','antler-bean':'Antler Bean',inkling:'Inkling','pebble-wisp':'Pebble Wisp','moon-puff':'Moon Puff',mothling:'Mothling','bloom-snail':'Bloom Snail','velvet-batling':'Velvet Batling','sprig-dragon':'Sprig Dragon','star-toadlet':'Star Toadlet','snow-owl':'Moonveil Owl','night-spider':'Nocturne Spider'};
 export function petLevel(pet,species){return clampPetLevel(Number(pet.petLevels?.[species])||(pet.species===species?Number(pet.highestStage):0));}
 export function evolutionGoal(pet,species,target){const level=petLevel(pet,species),to=Math.max(2,Math.min(MAX_PET_LEVEL,Math.floor(Number(target)||level+1))),cost=EVOLUTION_COSTS.slice(level-1,to-1).reduce((a,b)=>a+b,0),balance=Math.max(0,Number(pet.masteryPoints)||0);return{level,target:to,cost,balance,remaining:Math.max(0,cost-balance),unlocked:level>=to,ready:level>=to||balance>=cost};}

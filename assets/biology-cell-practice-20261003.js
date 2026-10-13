@@ -1,9 +1,9 @@
-import {SessionResult,ReviewProgress,sessionGains} from "./session-reflection-20261004.js?v=20261010-chem-marking1&ux=20261013-player-ux3";
-import "./practice-evidence-bridge-20261004.js?v=20261010-chem-marking1&ux=20261013-player-ux3";
-import "./learning-feedback-20261003.js?v=20261010-chem-marking1&ux=20261013-player-ux3";
+import {SessionResult,ReviewProgress,sessionGains} from "./session-reflection-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections1";
+import "./practice-evidence-bridge-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections1";
+import "./learning-feedback-20261003.js?v=20261010-chem-marking1&ux=20261013-corrections1";
 const {buildCorrection,selectTransferQuestion}=globalThis.LuxLearningFeedback;
-import {i as interop,n as reactFactory} from './jsx-runtime-Cltr0gcK.js?ux=20261013-player-ux3';
-import {gradeBiologyAnswer} from './biology-cell-rubric-20261003.js?ux=20261013-player-ux3';
+import {i as interop,n as reactFactory} from './jsx-runtime-Cltr0gcK.js?ux=20261013-corrections1';
+import {gradeBiologyAnswer} from './biology-cell-rubric-20261003.js?ux=20261013-corrections1';
 const R=interop(reactFactory()),h=R.createElement,KEY='scholar-biology-cell-practice-v1';
 function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch{return {}}}
 export function pickPracticeQuestions(bank,topic,size,previous=[],weak=[]){

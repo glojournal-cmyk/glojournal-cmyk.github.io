@@ -1,5 +1,5 @@
-import { i as interop, n as reactNs, t as jsxNs } from "./jsx-runtime-Cltr0gcK.js?ux=20261013-player-ux3";
-import { C as useStore, Qt as toast, d as chime, g as miss, u as finishSound } from "./index-BLVOhKhN.js?v=20261011-vault2&ux=20261013-player-ux3";
+import { i as interop, n as reactNs, t as jsxNs } from "./jsx-runtime-Cltr0gcK.js?ux=20261013-corrections1";
+import { C as useStore, Qt as toast, d as chime, g as miss, u as finishSound } from "./index-BLVOhKhN.js?v=20261011-vault2&ux=20261013-corrections1";
 
 const React = interop(reactNs(), 1);
 const jsx = jsxNs();

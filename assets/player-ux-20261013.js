@@ -12,8 +12,8 @@ export function lastGameVisit(value){
  return value&&Object.hasOwn(GAME_TIME,value.id)&&Number.isFinite(Number(value.at))?{id:value.id,at:Number(value.at)}:null;
 }
 if(typeof document!=='undefined'){
- if(!globalThis.LuxHomeContinue)import('./home-continue-20261010.js?v=20261010-resume1&ux=20261013-player-ux3').then(schedule).catch(()=>{});
- const link=document.createElement('link');link.rel='stylesheet';link.href='/assets/player-ux-20261013.css?ux=20261013-player-ux3';document.head.append(link);
+ if(!globalThis.LuxHomeContinue)import('./home-continue-20261010.js?v=20261010-resume1&ux=20261013-corrections1').then(schedule).catch(()=>{});
+ const link=document.createElement('link');link.rel='stylesheet';link.href='/assets/player-ux-20261013.css?ux=20261013-corrections1';document.head.append(link);
  const setText=(node,value)=>{if(node&&node.textContent!==value)node.textContent=value};
  const setAttr=(node,name,value)=>{if(node&&node.getAttribute(name)!==value)node.setAttribute(name,value)};
  let recordedPath='',frame=0;
