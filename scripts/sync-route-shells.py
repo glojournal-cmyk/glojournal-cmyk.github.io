@@ -20,6 +20,8 @@ for file in dict.fromkeys(production_files):
     if any(part in {".git", "node_modules", "tests"} for part in file.parts) or "__grok/install" in file.as_posix():
         continue
     current = file.read_text(encoding="utf-8")
+    if file.suffix == '.html' and 'index-BLVOhKhN.js' in current and 'practice-focus-20261013.css' not in current:
+        current = current.replace('</head>', '<link rel="stylesheet" href="/assets/practice-focus-20261013.css"></head>', 1)
     def version_asset(match):
         quote, path, query = match.groups()
         disk = root / path.lstrip("/") if path.startswith("/") else file.parent / path
@@ -33,7 +35,7 @@ for file in dict.fromkeys(production_files):
         params.append(("ux", UX_RELEASE))
         return quote + path + "?" + urlencode(params) + quote
     new = asset_ref.sub(version_asset, current)
-    if new != current:
+    if new != file.read_text(encoding="utf-8"):
         file.write_text(new, encoding="utf-8")
 
 home = (root / "index.html").read_text(encoding="utf-8")
