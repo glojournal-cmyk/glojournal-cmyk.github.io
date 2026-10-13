@@ -3,7 +3,7 @@
 // in the existing store and practice drafts are flushed on pagehide.
 if(typeof document!=="undefined"){
  const release=new URL(import.meta.url).searchParams.get("ux");
- const boot=[...document.scripts].find(script=>(script.getAttribute("src")||"").includes("/assets/index-BLVOhKhN.js?v=20261011-vault2&ux=20261013-player-ux3"));
+ const boot=[...document.scripts].find(script=>(script.getAttribute("src")||"").includes("index-BLVOhKhN"));
  if(release&&boot&&new URL(boot.src,location.href).searchParams.get("ux")!==release){
   const target=new URL(location.href);target.searchParams.set("uiRelease",release);
   location.replace(target.href);
