@@ -52,13 +52,15 @@ function mount(){
  const card=[...document.querySelectorAll("main h2")].find(n=>n.textContent.trim()==="Raise her today")?.parentElement?.parentElement?.parentElement;
  if(!card)return;
  let host=document.getElementById("lux-recovery-quests");
- if(!host){host=document.createElement("section");host.id="lux-recovery-quests";card.append(host)}
+ if(!host){host=document.createElement("details");host.id="lux-recovery-quests";card.append(host)}
  reconcileCompletedRecoveries();
  const rows=recoveryRows(store.getState()),today=todayKey();
  const dates=[dateAt(today,-1),dateAt(today,-2)];
  const signature=JSON.stringify([dates,rows]);if(host.dataset.signature===signature)return;host.dataset.signature=signature;
  const previous=host.querySelector('select')?.value;
- host.replaceChildren();host.hidden=false;
+ host.replaceChildren();host.hidden=rows.length===0;
+ const unfinished=rows.filter(row=>!row.done).length;host.open=unfinished>0;
+ const summary=document.createElement("summary");summary.textContent=unfinished?"Recovery · "+unfinished+" unfinished Vocab "+(unfinished===1?"task":"tasks"):"Recovery · all caught up";host.append(summary);
  const title=document.createElement('h3');title.textContent='Quest Recovery · choose a date';host.append(title);
  const label=document.createElement('label');label.textContent='Missed date ';label.htmlFor='lux-recovery-date';
  const select=document.createElement('select');select.id='lux-recovery-date';
@@ -84,6 +86,7 @@ const style=document.createElement("style");style.textContent=`
 #lux-recovery-quests{margin:14px 0;padding:15px;border:1px solid #d4c7ac;border-radius:16px;background:#fffaf0;color:#193449}
 #lux-recovery-quests[hidden]{display:none}
 #lux-recovery-date{min-height:44px;padding:8px;border:1px solid #c6b485;border-radius:10px;background:white}
+#lux-recovery-quests summary{cursor:pointer;min-height:44px;padding:10px 0;font-weight:600}
 #lux-recovery-quests h3{font-family:Georgia,serif;font-size:1.35rem;margin:0 0 9px}
 #lux-recovery-quests .lux-recovery-item{display:flex;flex-wrap:wrap;align-items:center;gap:9px;padding:10px 0;border-top:1px solid #e9dfce}
 #lux-recovery-quests .lux-recovery-item span{color:#586777;flex:1 1 180px}
