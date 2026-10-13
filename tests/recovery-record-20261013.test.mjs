@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
-const practice=read('assets/study._subject.practise-D_PWgUd7.js');
+const practice=read('assets/study._subject.practise-y8fix-20260920.js');
 const runtime=read('assets/index-BLVOhKhN.js');
 const params=new URLSearchParams('recover=2026-10-12&task=french-vocab');
 const size=new Function('globalThis',practice.slice(practice.indexOf('function recoveryPracticeSize('),practice.indexOf('function qp('))+';return recoveryPracticeSize')({LuxRecoveryVocabSource:(s,d,subject)=>({task:{progress:s.dailyLog?.[d]?.tasks.find(t=>t.id===subject+'-vocab')?.progress||0}})});
@@ -17,7 +17,7 @@ test('new recovery sets only ask for the remaining correct answers',()=>{
 });
 test('ordinary daily vocabulary still has 30 questions',()=>assert.equal(size('french',new URLSearchParams(),fixture()),30));
 test('existing 30-question recovery draft remains resumable',()=>{
- const fn=new Function('globalThis',practice.slice(practice.indexOf('function recoveryPracticeSize('),practice.indexOf('function qp('))+';return recoveryPracticeSize')({LuxPracticeDrafts:{key:()=> 'saved-key',read:()=>({j:12,base:Array(30)})}});
+ const fn=new Function('globalThis',practice.slice(practice.indexOf('function recoveryPracticeSize('),practice.indexOf('function qp('))+';return recoveryPracticeSize')({LuxPracticeDrafts:{key:(_s,_y,size)=>size,read:key=>key===30?({j:12,base:Array(30)}):null}});
  assert.equal(fn('french',params,fixture()),30);
  assert.match(practice,/E===`y8vocab`\?recoverySize:/);
 });
@@ -68,4 +68,16 @@ test('completing French does not falsely finish unfinished Latin',()=>{
 });
 test('an incomplete set has a direct date-preserving recovery continuation',()=>{
  const src=read('assets/recovery-progress-20261012.js');assert.match(src,/href=recoveryReplay\(location.href\)/);assert.match(src,/Continue recovery · /);assert.match(src,/more needed to credit/);
+});
+
+test('old 35-question and new smaller recovery drafts keep their saved size',()=>{
+ const helper=practice.slice(practice.indexOf('function recoveryPracticeSize('),practice.indexOf('function qp('));
+ for(const savedSize of [35,15,5]){
+  const fn=new Function('globalThis',helper+';return recoveryPracticeSize')({LuxPracticeDrafts:{key:(_s,_y,size)=>size,read:key=>key===savedSize?({savedAt:100,j:1}):null}});
+  assert.equal(fn('french',params,fixture()),savedSize);
+ }
+});
+test('both practice entry files use the same recovery sizing',()=>{
+ const base=read('assets/study._subject.practise-D_PWgUd7.js');
+ assert.equal(base.slice(base.indexOf('function recoveryPracticeSize('),base.indexOf('function qp(')),practice.slice(practice.indexOf('function recoveryPracticeSize('),practice.indexOf('function qp(')));
 });
