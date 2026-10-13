@@ -76,6 +76,8 @@ test('a full ten-question session survives parent/store rerenders and finishes 1
   else{const input=flatten(tree).find(n=>n?.type==='Input');input.props.onChange({target:{value:current.answer.accepted[0]}});tree=hr.render(()=>qc.H(qp));flatten(tree).find(n=>n?.type==='form').props.onSubmit({preventDefault:empty});}
   parent=pr.render(()=>pc.E());const nextProps=props(parent);assert.equal(nextProps.items.length,10,'parent may re-rank but keeps a complete candidate session');qp=nextProps;
   tree=hr.render(()=>qc.H(qp));assert.equal(questionBody(tree),expectedBody(current),'Active Quiz keeps the submitted question body after parent/store rerender');assert.equal(attemptedIds.at(-1),current.id,'Mark the original question ID');assert.ok(textOf(tree).includes(`Question ${i+1} / 10`));
+  const detail=flatten(tree).find(n=>n?.type==='details'&&textOf(n).includes('Answer & explanation'));
+  assert.ok(detail,'Correct answers keep full explanation available');assert.notEqual(detail.props.open,true,'Full explanation starts collapsed');
   button(tree,i===9?'Finish':'Next question').props.onClick();tree=hr.render(()=>qc.H(qp));
   if(i<9)assert.equal(questionBody(tree),expectedBody(frozenItems[i+1]),'Active Quiz keeps the original session order');
  }
@@ -94,4 +96,14 @@ test('French dictation handles accents and does not reshuffle after scheduling a
   flatten(tree).find(n=>n?.type==='Input').props.onChange({target:{value:answer}});tree=runner.render(()=>ctx.O(props));flatten(tree).find(n=>n?.type==='form').props.onSubmit({preventDefault:empty});tree=runner.render(()=>ctx.O(props));assert.ok(textOf(tree).includes('Well done!'));assert.ok(textOf(tree).includes(`${i+1} / 2`));button(tree,i===1?'Finish':'Next word').props.onClick();tree=runner.render(()=>ctx.O(props));
  }
  assert.ok(textOf(tree).includes('2 / 2 spelled independently.'));
+});
+
+test('incorrect answer keeps its model and reasoning expanded',()=>{
+ const state=newState(),runner=hooks(),ctx=vm.createContext({...context,...env(state,runner)});
+ vm.runInContext(quiz.slice(quiz.indexOf('function re('),quiz.indexOf('function ie(')),ctx);
+ const q={id:'wrong-feedback',format:'typed_exact',formal:true,prompt:'Translate trois.',task:{label:'Translate'},stimulus:{},answer:{accepted:['three']},feedback:{short:'Trois means three.',steps:['Match the number to its English meaning.'],remember:'Trois = three.'}};
+ const props={title:'French',subject:'french',items:[q],size:1,backHref:'/study/french',resumeMode:'standard'};
+ let tree=runner.render(()=>ctx.H(props));flatten(tree).find(n=>n?.type==='Input').props.onChange({target:{value:'four'}});tree=runner.render(()=>ctx.H(props));flatten(tree).find(n=>n?.type==='form').props.onSubmit({preventDefault:empty});tree=runner.render(()=>ctx.H(props));
+ assert.ok(textOf(tree).includes('Not quite.'));assert.ok(textOf(tree).includes('Correct answer'));assert.ok(textOf(tree).includes('Trois means three.'));
+ assert.equal(flatten(tree).some(n=>n?.type==='details'&&textOf(n).includes('Answer & explanation')),false,'Errors show the model and reasoning immediately');
 });
