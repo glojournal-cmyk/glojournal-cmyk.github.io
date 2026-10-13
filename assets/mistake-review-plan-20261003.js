@@ -23,11 +23,24 @@ export function mistakeReviewTask(state,assessment=globalThis.LuxPracticeBridge.
  const excluded=new Set(state.reviewUnavailableByDay?.[day]||[]);
  // Re-check other subjects even if an earlier stale question was excused.
  // An unavailable French question must not conceal a valid Latin/Chemistry review.
- if(old?.planDate===day&&old.reviewQuestionIds?.length && old.reviewQuestionIds.every(id=>!excluded.has(id)) &&
-  (old.reviewSource==="assessment" || !availableTopic || old.reviewTopicIds?.some(id=>availableTopic(old.reviewSubject,id,old.reviewYear)))){
+ if(old?.planDate===day&&old.reviewQuestionIds?.length){
   const fromPractice=old.reviewSource==='assessment'?[]:(old.reviewQuestionIds||[]).filter(id=>correctedToday(state,id,day));
-  const completed=[...new Set([...(old.reviewCompletedIds||[]),...fromPractice,...(old.reviewSource==="assessment"?Object.keys(assessment.dailyReviewCredits?.[day]||{}).filter(id=>assessment.dailyReviewCredits[day][id]):[])])].filter(id=>old.reviewQuestionIds.includes(id));
-  return {...old,reviewCompletedIds:completed,progress:completed.length};
+  // The dated answer ledger survives a lost task update or a replaced review row.
+  // Match assigned IDs only; visiting/finishing a set and guided repairs are not proof.
+  const fromEvidence=old.reviewSource==='assessment'?[]:(state.formalAttemptLog||[])
+   .filter(row=>row.day===day&&row.correct===true&&!row.repair&&!row.recoveryFor&&
+    (row.formal!==false||row.dailyTaskId==='mistake-review'||row.dailyVocab||state.reviews?.[row.questionId]?.mistakeOnly)&&
+    (!old.reviewSubject||row.subject===old.reviewSubject)&&old.reviewQuestionIds.includes(row.questionId))
+   .map(row=>row.questionId);
+  const completed=[...new Set([...(old.reviewCompletedIds||[]),...(old.completedQuestionIds||[]),...fromPractice,...fromEvidence,...(old.reviewSource==="assessment"?Object.keys(assessment.dailyReviewCredits?.[day]||{}).filter(id=>assessment.dailyReviewCredits[day][id]):[])])].filter(id=>old.reviewQuestionIds.includes(id));
+  const pending=old.reviewQuestionIds.filter(id=>!completed.includes(id));
+  // Older saved plans can lack reviewTopicIds. Infer them without replacing the
+  // assignment while a correct answer is being recorded. Exact bank matching at
+  // the practice entry still excuses genuinely unavailable questions.
+  const topics=[...new Set([...(old.reviewTopicIds||[]),...old.reviewQuestionIds.map(id=>state.reviews?.[id]?.topicId).filter(Boolean)])];
+  const keep=!pending.length||(pending.every(id=>!excluded.has(id))&&
+   (old.reviewSource==='assessment'||!availableTopic||!topics.length||topics.some(id=>availableTopic(old.reviewSubject,id,old.reviewYear))));
+  if(keep)return {...old,reviewTopicIds:topics,reviewCompletedIds:completed,progress:Math.min(old.target,completed.length)};
  }
  const assessmentRows=globalThis.LuxPracticeBridge.dueReviews(assessment,day).map(r=>({...r,source:"assessment",date:r.lastWrong,topicId:r.paperId}));
  const rows=Object.entries(state.reviews||{}).filter(([id,r])=>{

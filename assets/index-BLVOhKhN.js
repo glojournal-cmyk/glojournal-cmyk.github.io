@@ -2211,6 +2211,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     subject: resolved.subject || subject, year: Number(meta.yearOverride || before.year || 9),
     topicId: resolved.topicId || null, topicTitle: resolved.topicTitle || meta.topicTitle || resolved.topicId || "General practice",
     formal: meta.formal !== false, repair: !!meta.repair,
+    dailyTaskId: meta.progressionTask || null,
     // Recovery attempts must not satisfy today's Vocab assignment.
     dailyVocab: inRecovery ? null : (dailyVocabSubject(resolved.subject || subject, meta) || null),
     recoveryFor: inRecovery ? new URLSearchParams(window.location.search).get("recover") : null
