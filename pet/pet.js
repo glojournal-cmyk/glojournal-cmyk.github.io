@@ -1,3 +1,4 @@
+import '../assets/player-ux-20261013.js';
 import {MAX_PET_LEVEL, EVOLUTION_COSTS, STAGE_NAMES, clampPetLevel, ADVANCED_FORMS} from './pet-evolution-config-20261012.js';
 import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261012-level10';
 const APP_KEY = "lux-scholar-garden-v1";
@@ -237,6 +238,15 @@ function render(){
   const identity=character[pet.species];
   document.getElementById("petPersonality").innerHTML=`<strong>${identity.nature}</strong><span>${identity.habit}</span>`;
   document.getElementById("petFormGrid").innerHTML=identity.forms.map((form,i)=>`<div class="pet-form ${stage===i+1?"is-current":""}"><span class="pet-form-art pet-sprite" style="${spriteStyle(pet.species,i+1)}" role="img" aria-label="${species.name}, level ${i+1}: ${form}"></span><span class="pet-form-level">Level ${i+1}${stage===i+1?" · Current":""}</span><strong>${form}</strong><small>${i+1<=stage?"Unlocked":`${evolutionCosts.slice(stage-1,i).reduce((a,b)=>a+b,0)} MP from your current level · ${Math.max(0,evolutionCosts.slice(stage-1,i).reduce((a,b)=>a+b,0)-balance)} MP more needed`}</small></div>`).join("");
+  document.getElementById("evolutionTitle").textContent=`${MAX_PET_LEVEL} evolution forms`;
+  let nextPreview=document.getElementById("pet-next-preview");
+  if(!nextPreview){nextPreview=document.createElement("section");nextPreview.id="pet-next-preview";nextPreview.setAttribute("aria-label","Next evolution preview");document.querySelector(".pet-progress-wrap").before(nextPreview)}
+  nextPreview.replaceChildren();
+  if(stage<MAX_PET_LEVEL){
+   const art=document.createElement("span");art.className="pet-sprite";art.setAttribute("role","img");art.setAttribute("aria-label",`${species.name} · Level ${stage+1}`);art.setAttribute("style",spriteStyle(pet.species,stage+1));
+   const copy=document.createElement("div"),label=document.createElement("strong"),name=document.createElement("p"),earn=document.createElement("p");
+   label.textContent=`Next · Level ${stage+1}`;name.textContent=identity.forms[stage];earn.textContent="Earn MP by mastering a new topic (+10) or passing a due review (+2).";copy.append(label,name,earn);nextPreview.append(art,copy);
+  }else{const p=document.createElement("p");p.textContent="All 10 forms unlocked. You can grow another companion with your shared MP.";nextPreview.append(p)}
   const petImage=document.getElementById("petImage");
   applyPetSprite(petImage,pet.species,stage);
   petImage.setAttribute("aria-label",`${petDisplayName(pet)} · ${stageNames[stage-1]}`);
@@ -359,9 +369,9 @@ function walletRows(pet){
 function safeWalletText(value){return String(value||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 let walletCatalog;
 function renderWallet(pet){
- let panel=document.getElementById('mp-wallet-history');if(!panel){panel=document.createElement('section');panel.id='mp-wallet-history';panel.className='pet-card';document.querySelector('main').append(panel)}
+ let panel=document.getElementById('mp-wallet-history');if(!panel){panel=document.createElement('details');panel.id='mp-wallet-history';panel.className='pet-card';document.querySelector('main').append(panel)}
  const rows=walletRows(pet),names=walletCatalog||{};
- panel.innerHTML=`<h2>Mastery Points · wallet history</h2><p>Available: <b>${pet.masteryPoints} MP</b>. First mastery: +10 MP; a qualifying retention pass: +2 MP. Each evolution spends MP on the selected companion only.</p><p>Earlier spending before this update was not recorded. Your saved balance is preserved.</p>${rows.length?`<table><thead><tr><th>Date</th><th>Reason</th><th>MP</th></tr></thead><tbody>${rows.slice(0,100).map(row=>`<tr><td>${safeWalletText(row.at?new Date(row.at).toLocaleString('en-GB'):'Earlier record')}</td><td>${safeWalletText(row.kind==='evolution'?`${pets.find(p=>p.id===row.species)?.name||'Companion'} · Level ${row.from} → ${row.to}`:`${row.kind==='mastery'?'First mastery':'Retention pass'} · ${names[row.topicId]||'Topic mastery'}`)}</td><td>${Number(row.amount)>0?'+':''}${Number(row.amount)||0}</td></tr>`).join('')}</tbody></table>`:'<p>No recorded transactions yet. Earn MP through formal mastery and retention.</p>'}`;
+ panel.innerHTML=`<summary>Mastery Points · wallet history</summary><p>Available: <b>${pet.masteryPoints} MP</b>. First mastery: +10 MP; a qualifying retention pass: +2 MP. Each evolution spends MP on the selected companion only.</p><p>Earlier spending before this update was not recorded. Your saved balance is preserved.</p>${rows.length?`<table><thead><tr><th>Date</th><th>Reason</th><th>MP</th></tr></thead><tbody>${rows.slice(0,100).map(row=>`<tr><td>${safeWalletText(row.at?new Date(row.at).toLocaleString('en-GB'):'Earlier record')}</td><td>${safeWalletText(row.kind==='evolution'?`${pets.find(p=>p.id===row.species)?.name||'Companion'} · Level ${row.from} → ${row.to}`:`${row.kind==='mastery'?'First mastery':'Retention pass'} · ${names[row.topicId]||'Topic mastery'}`)}</td><td>${Number(row.amount)>0?'+':''}${Number(row.amount)||0}</td></tr>`).join('')}</tbody></table>`:'<p>No recorded transactions yet. Earn MP through formal mastery and retention.</p>'}`;
  if(!walletCatalog){walletCatalog={};fetch('/content/catalog.json').then(r=>r.json()).then(d=>{walletCatalog=Object.fromEntries((d.topics||[]).map(t=>[t.topicId,t.title]));renderWallet(readPet())}).catch(()=>{})}
 }
 
