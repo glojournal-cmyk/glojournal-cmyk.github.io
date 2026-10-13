@@ -1,0 +1,50 @@
+name: Publish Moon Puff transparent evolution artwork
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-moon-puff-art-20261013.yml'
+permissions:
+  contents: write
+jobs:
+  install-moon-puff-art:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download six approved transparent PNG character cutouts
+        shell: bash
+        env:
+          SRC5: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:8cf70571-5432-4e16-8a5c-bd9b5e271aef"
+          SRC6: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:c8d92da7-e2e7-49d4-a8b1-c00eb13151f5"
+          SRC7: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:1a3140cb-38f3-41fa-a550-4091f035acef"
+          SRC8: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:bb8ff190-632b-4093-b36a-0505c0a6a211"
+          SRC9: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:d7123207-0734-4c4f-9a82-88bad496a610"
+          SRC10: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:a25782ba-ac84-436b-8001-04a76a5b350b"
+        run: |
+          set -euo pipefail
+          mkdir -p pet/art-moon-puff-20261013
+          for level in 5 6 7 8 9 10; do
+            varname="SRC${level}"
+            output="pet/art-moon-puff-20261013/level-${level}.png"
+            curl --fail --location --silent --show-error --retry 3 --retry-delay 4 --max-time 180 "${!varname}" --output "${output}"
+            test "$(file --brief --mime-type "${output}")" = "image/png"
+            test "$(wc -c < "${output}")" -gt 20000
+            echo "Downloaded Moon Puff LV${level}: $(wc -c < "${output}") bytes"
+          done
+      - name: Publish art to GitHub Pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/art-moon-puff-20261013/level-{5,6,7,8,9,10}.png
+          if git diff --cached --quiet; then
+            echo "No artwork changes."
+            exit 0
+          fi
+          git commit -m "Install transparent full-body Moon Puff evolution art LV5-LV10"
+          git pull --rebase origin main
+          git push origin HEAD:main
