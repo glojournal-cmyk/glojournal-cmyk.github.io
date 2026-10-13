@@ -26,10 +26,10 @@ jobs:
           node tests/overall-app-qa.mjs
       - name: Commit synchronized shells
         run: |
-          if ! git diff --quiet -- '*.html' 'assets/*.js'; then
+          if ! git diff --quiet -- '*.html' '*.js' '*.css'; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add -- '*.html' 'assets/*.js'
+            git add -- '*.html' '*.js' '*.css'
             git commit -m "Sync route shells to current production app version"
             git push origin HEAD:main
           fi
