@@ -53,3 +53,29 @@ test('restored credit survives JSON save and updates the real ten-task daily rec
 });
 import {readFileSync} from 'node:fs';
 function awaitSource(){return readFileSync(new URL('../assets/index-BLVOhKhN.js',import.meta.url),'utf8');}
+for(const filename of ['study._subject.practise-y8fix-20260920.js']){
+ const code=readFileSync(new URL('../assets/'+filename,import.meta.url),'utf8');
+ const signature=new Function(code.slice(code.indexOf('function mistakeBankSignature('),code.indexOf('function resolveDailyAssignment('))+';return mistakeBankSignature;')();
+ const start=code.indexOf('(0,w.useEffect)(()=>{\n if(E!==`mistakes`');
+ const end=code.indexOf('},[E,dailyLocked,canonicalTask',start);
+ const effect=new Function('env','with(env){'+code.slice(start+'(0,w.useEffect)(()=>{'.length,end)+'}');
+ const render=(loadedReview,z)=>{
+  let current=state(),writes=[];
+  effect({E:'mistakes',dailyLocked:true,canonicalTask:'mistake-review',V:false,loadedReview,I:[{topicId:topic}],assignment:planned,A:current.reviews,R:day,e:'french',N:8,z,
+   mistakeBankSignature:signature,s:{getState:()=>current,setState:patch=>{writes.push(patch);current={...current,...patch}}}});
+  return writes;
+ };
+ test(filename+': catalogue becoming ready cannot excuse questions before their bank loads',()=>{
+  assert.deepEqual(render(signature('french',8,'mistakes',[]),[]),[]);
+ });
+ test(filename+': a previous subject/mode bank cannot reassign current Corrections',()=>{
+  assert.deepEqual(render(signature('french',8,'standard',[{topicId:topic}]),[]),[]);
+ });
+ test(filename+': successfully loaded matching bank preserves every assigned question',()=>{
+  assert.deepEqual(render(signature('french',8,'mistakes',[{topicId:topic}]),planned.reviewQuestionIds.map(id=>({id,topicId:topic}))),[]);
+ });
+ test(filename+': genuinely missing questions are still excluded after the exact bank has loaded',()=>{
+  const writes=render(signature('french',8,'mistakes',[{topicId:topic}]),[]);
+  assert.deepEqual(writes[0].reviewUnavailableByDay[day],['q1','q2']);
+ });
+}
