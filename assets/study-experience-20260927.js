@@ -112,14 +112,14 @@ function patchStudyLanding() {
       const h2=card.querySelector("h2");
       const desc=[...card.querySelectorAll("p")].find(p=>p!==upper && !p.classList.contains("kicker"));
       const link=card.querySelector("a[href]");
-      if (upper && upper.textContent!=="RECOMMENDED NEXT · FOUNDATION FIRST") upper.textContent="RECOMMENDED NEXT · FOUNDATION FIRST";
+      if (upper && upper.textContent!=="OPTIONAL FOUNDATION REVIEW") upper.textContent="OPTIONAL FOUNDATION REVIEW";
       if (h2 && h2.textContent!==`${LABELS[rec.subject]} · ${rec.topic.title || rec.topic.topicId}`) h2.textContent=`${LABELS[rec.subject]} · ${rec.topic.title || rec.topic.topicId}`;
       if (desc && desc.textContent!==evidenceCopy(state,rec.subject,rec.topic.topicId)) desc.textContent=evidenceCopy(state,rec.subject,rec.topic.topicId);
       if (link) {
         const safeHref=`/study/${rec.subject}/practise?daily=1&locked=1&year=8&mode=standard&task=study-recommended&topic=${encodeURIComponent(rec.topic.topicId)}`;
         link.setAttribute("href",safeHref);
         link.dataset.foundationHref=safeHref;
-        if(link.textContent!=="Practise next →")link.textContent="Practise next →";
+        if(link.textContent!=="Review this foundation →")link.textContent="Review this foundation →";
         if (!link.dataset.foundationClick) {
           link.dataset.foundationClick="1";
           link.addEventListener("click",event=>{
