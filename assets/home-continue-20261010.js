@@ -2,6 +2,7 @@
    Never edit task credit, XP, outfits or Home layout. */
 (function(root){
 "use strict";
+if(root.LuxHomeContinue)return;
 function href(J,s){try{return J?.navigationHref(s)||null;}catch{return null;}}
 function choose(state,J,now=Date.now()){
  const library={kind:"library",title:"Choose your next subject",detail:"Open the Study library to carry on.",
