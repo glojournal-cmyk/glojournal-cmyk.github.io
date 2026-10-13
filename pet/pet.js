@@ -33,7 +33,11 @@ const character = {
   "night-spider": {nature:"Patient, daring and brilliantly resourceful",habit:"Weaves the lessons you remembered into silver threads.",forms:["Velvet spiderling","Night runner","Obsidian hunter","Web guardian","Nocturne sovereign"]}
 };
 
-for (const [id, identity] of Object.entries(character)) identity.forms.push(...ADVANCED_FORMS[id]);
+// A companion has at most 10 forms. Moon Puff already specifies custom LV6–10,
+// so appending another 5 advanced forms would create duplicate LV11–15 cards.
+for (const [id, identity] of Object.entries(character)) {
+  identity.forms = [...identity.forms, ...(ADVANCED_FORMS[id] || [])].slice(0, MAX_PET_LEVEL);
+}
 const stageNames = STAGE_NAMES;
 const evolutionCosts = EVOLUTION_COSTS;
 const stageCopy = [
@@ -237,7 +241,7 @@ function render(){
   document.getElementById("petSubtitle").textContent=species.tag;
   const identity=character[pet.species];
   document.getElementById("petPersonality").innerHTML=`<strong>${identity.nature}</strong><span>${identity.habit}</span>`;
-  document.getElementById("petFormGrid").innerHTML=identity.forms.map((form,i)=>`<div class="pet-form ${stage===i+1?"is-current":""}"><span class="pet-form-art pet-sprite" style="${spriteStyle(pet.species,i+1)}" role="img" aria-label="${species.name}, level ${i+1}: ${form}"></span><span class="pet-form-level">Level ${i+1}${stage===i+1?" · Current":""}</span><strong>${form}</strong><small>${i+1<=stage?"Unlocked":`${evolutionCosts.slice(stage-1,i).reduce((a,b)=>a+b,0)} MP from your current level · ${Math.max(0,evolutionCosts.slice(stage-1,i).reduce((a,b)=>a+b,0)-balance)} MP more needed`}</small></div>`).join("");
+  document.getElementById("petFormGrid").innerHTML=identity.forms.slice(0,MAX_PET_LEVEL).map((form,i)=>`<div class="pet-form ${stage===i+1?"is-current":""}"><span class="pet-form-art pet-sprite" style="${spriteStyle(pet.species,i+1)}" role="img" aria-label="${species.name}, level ${i+1}: ${form}"></span><span class="pet-form-level">Level ${i+1}${stage===i+1?" · Current":""}</span><strong>${form}</strong><small>${i+1<=stage?"Unlocked":`${evolutionCosts.slice(stage-1,i).reduce((a,b)=>a+b,0)} MP from your current level · ${Math.max(0,evolutionCosts.slice(stage-1,i).reduce((a,b)=>a+b,0)-balance)} MP more needed`}</small></div>`).join("");
   document.getElementById("evolutionTitle").textContent=`${MAX_PET_LEVEL} evolution forms`;
   let nextPreview=document.getElementById("pet-next-preview");
   if(!nextPreview){nextPreview=document.createElement("section");nextPreview.id="pet-next-preview";nextPreview.setAttribute("aria-label","Next evolution preview");document.querySelector(".pet-progress-wrap").before(nextPreview)}

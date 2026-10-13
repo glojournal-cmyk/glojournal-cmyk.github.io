@@ -25,6 +25,17 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
  await page.locator('#evolvePet').click();await page.locator('#confirmEvolutionButton').click();
  let pet=await page.evaluate(()=>JSON.parse(localStorage.getItem('lux-pet-companion-v1')));assert.equal(pet.petLevels['moss-hornling'],6);assert.equal(pet.petLevels.inkling,4);assert.equal(pet.masteryPoints,0);assert.equal(pet.mpTransactions.length,1);assert.equal(pet.mpTransactions[0].amount,-280);
  await page.reload();assert.match(await page.locator('#stageLabel').textContent(),/Stage 6/);assert.match(await page.locator('#petImage').evaluate(e=>e.style.backgroundImage),/level-6/);assert.equal(await page.locator('.pet-form').count(),10);
+ // Regression: the full Moon Puff line stops at 10; LV11–15 must not appear.
+ await page.evaluate(()=>{const key='lux-pet-companion-v1';const data=JSON.parse(localStorage.getItem(key));data.species='moon-puff';data.petLevels['moon-puff']=5;localStorage.setItem(key,JSON.stringify(data))});
+ await page.reload();await page.locator('.pet-form').first().waitFor();
+ assert.equal(await page.locator('.pet-form').count(),10,'Moon Puff must have exactly 10 forms');
+ const labels=await page.locator('.pet-form-level').allTextContents();
+ assert.deepEqual(labels,Array.from({length:10},(_,i)=>'Level '+(i+1)+(i===4?' · Current':'')));
+ assert.equal(await page.locator('.pet-form').filter({hasText:'Level 11'}).count(),0);
+ const moonArt=await page.locator('.pet-form-art').evaluateAll(nodes=>nodes.slice(4).map(el=>el.style.backgroundImage));
+ assert.equal(moonArt.length,6);assert.equal(new Set(moonArt).size,6);
+ for(let level=5;level<=10;level++)assert.ok(moonArt[level-5].includes('/art-moon-puff-20261013/level-'+level+'.png'),'Missing Moon Puff art '+level);
+ await seed(6,0);
  await seed(9,850);await page.locator('#evolvePet').click();await page.locator('#confirmEvolutionButton').click();assert.match(await page.locator('#stageLabel').textContent(),/Stage 10/);assert.equal(await page.locator('#evolvePet').isVisible(),false);
  await page.getByRole('button',{name:/Pat/}).first().click();assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('lux-pet-companion-v1')).petLevels['moss-hornling']),10);
  await page.goto(base+'/');await page.waitForSelector('#mastery-pet-home[data-stage="10"]');assert.match(await page.locator('#mastery-pet-home').textContent(),/Eternal Guardian/);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
