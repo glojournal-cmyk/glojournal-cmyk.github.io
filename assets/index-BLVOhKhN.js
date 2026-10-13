@@ -1,3 +1,4 @@
+import "./player-ux-20261013.js";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1";
 import "./weekly-evidence-20261004.js";
@@ -18,6 +19,11 @@ import {
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
 } from "./index-BLVOhKhN.core.js?v=20261011-vault2";
+
+if(typeof window!=="undefined"){
+ window.__luxStore=store;
+ store.subscribe(()=>window.dispatchEvent(new Event("lux:ux-state")));
+}
 
 const SUBJECTS = ["latin", "french", "biology", "chemistry", "physics", "english"];
 const DAILY_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
