@@ -1,4 +1,4 @@
-import {clampPetLevel} from './pet-evolution-config-20261012.js';
+import {clampPetLevel} from './pet-evolution-config-20261012.js?ux=20261013-player-ux2';
 import {
   PET_ACTIONS,
   DAILY_BOND_CAP,
@@ -6,7 +6,7 @@ import {
   getActionEffectiveness,
   getCareSummary,
   performPetAction,
-} from "/pet/pet-care-state.js?v=20261003-care1";
+} from "/pet/pet-care-state.js?v=20261003-care1&ux=20261013-player-ux2";
 
 const ACTION_ORDER = ["pat", "treat", "play", "gardenWalk", "trickTraining"];
 let statusTimer = 0;
