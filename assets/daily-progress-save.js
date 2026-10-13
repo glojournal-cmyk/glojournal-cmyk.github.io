@@ -1,6 +1,6 @@
-import {backupPreview} from "./progress-backup-preview-20261004.js";
-import {readBackup,putBackup,migrateOldBackups,PREVIOUS_KEY,MANUAL_KEY,BEFORE_KEY} from "./backup-vault-20261011.js?v=20261011-vault2";
-import { C as store } from "/assets/index-BLVOhKhN.js?v=20261011-vault2";
+import {backupPreview} from "./progress-backup-preview-20261004.js?ux=20261013-player-ux1";
+import {readBackup,putBackup,migrateOldBackups,PREVIOUS_KEY,MANUAL_KEY,BEFORE_KEY} from "./backup-vault-20261011.js?v=20261011-vault2&ux=20261013-player-ux1";
+import { C as store } from "/assets/index-BLVOhKhN.js?v=20261011-vault2&ux=20261013-player-ux1";
 
 const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
 const AUTO_KEY = "lux-progress-auto-v1";

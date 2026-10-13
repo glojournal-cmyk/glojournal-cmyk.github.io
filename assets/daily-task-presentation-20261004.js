@@ -1,5 +1,5 @@
-import {petArtUrl} from '../pet/pet-art-hd-20261009.js?v=20261012-level10';
-import {clampPetLevel} from '../pet/pet-evolution-config-20261012.js';
+import {petArtUrl} from '../pet/pet-art-hd-20261009.js?v=20261012-level10&ux=20261013-player-ux1';
+import {clampPetLevel} from '../pet/pet-evolution-config-20261012.js?ux=20261013-player-ux1';
 // Keep daily rows compact and explicit; counting rules remain unchanged.
 const glyphs={book:'M4 4h6a3 3 0 0 1 3 3v14a4 4 0 0 0-4-2H4z M20 4h-4a3 3 0 0 0-3 3v14a4 4 0 0 1 4-2h3z',water:'M12 3S5 11 5 15a7 7 0 0 0 14 0c0-4-7-12-7-12z',play:'M8 5l11 7-11 7z',trophy:'M8 3h8v6a4 4 0 0 1-8 0z M8 5H4v3a4 4 0 0 0 4 4 M16 5h4v3a4 4 0 0 1-4 4 M12 13v7 M8 21h8',review:'M4 11a8 8 0 1 1 2 7 M4 4v7h7',exercise:'M3 8v8 M6 6v12 M18 6v12 M21 8v8 M6 12h12'};
 function kindFor(a){const text=(a.textContent+' '+a.getAttribute('href')).toLowerCase();if(/water|plants|tend-garden/.test(text))return['water','water'];if(/play|quick game/.test(text))return['play','play'];if(/exercise|pe-circuit/.test(text))return['play','exercise'];if(/mistake|due review/.test(text))return['mastery','review'];if(/mastery/.test(text))return['mastery','trophy'];const subject=['french','latin','biology','chemistry','english','physics'].find(x=>text.includes(x));return[subject||'latin','book'];}
