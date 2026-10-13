@@ -11,7 +11,9 @@ assert.equal(evolutionGoal({...p,petLevels:{'moss-hornling':2}},p.species,3).cos
 assert.equal(p.masteryPoints,100);
 assert.equal(petLevel({species:'inkling',highestStage:4},'inkling'),4);
 assert.equal(petLevel({species:'inkling',highestStage:4},'moss-hornling'),1);
-assert.equal(firstGoal({...p,petLevels:{'moss-hornling':5}}),null);
+assert.deepEqual(firstGoal({...p,petLevels:{'moss-hornling':5}}),{kind:'pet',id:'moss-hornling',level:6});
+assert.equal(firstGoal({...p,petLevels:{'moss-hornling':10}}),null);
+assert.equal(evolutionGoal({...p,petLevels:{'moss-hornling':5}},p.species,10).cost,2660);
 const state={unlockedOutfits:[],unlockedScenes:[],xp:600,studyDays:3};
 const cat={outfits:[{id:'cardigan',name:'Cardigan',needIf:{xp:600,studyDays:3}}],scenes:[{id:'courtyard',name:'Courtyard',needIf:{xp:700}}],stats:x=>x,requirements:(rule,s)=>Object.entries(rule||{}).map(([key,target])=>({key,label:key,current:s[key]||0,target,met:(s[key]||0)>=target}))};
 const before=JSON.stringify(state);

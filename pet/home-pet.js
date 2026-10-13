@@ -1,7 +1,8 @@
-import {spriteStyle} from '/pet/pet-art-hd-20261009.js';
+import {STAGE_NAMES, clampPetLevel} from './pet-evolution-config-20261012.js';
+import {spriteStyle} from '/pet/pet-art-hd-20261009.js?v=20261012-level10';
 import { getCareSummary } from "/pet/pet-care-state.js?v=20261003-care1";
 import {readyHomeReaction} from '/pet/quest-home-reaction-20261010.js';
-import {getHomePersonality} from '/pet/home-personality-20261010.js';
+import {getHomePersonality} from '/pet/home-personality-20261010.js?v=20261012-level10';
 
 // The progression guard imports the React app bundle. Loading it on the
 // standalone Pet page makes React replace that page with an empty root.
@@ -13,7 +14,7 @@ const APP_KEY = "lux-scholar-garden-v1";
 const PET_KEY = "lux-pet-companion-v1";
 const CELEBRATE_KEY = "lux-pet-pending-celebration";
 const HOME_CSS_ID = "lux-home-companion-v2";
-const HOME_CSS_HREF = "/pet/home-companion-v2.css?v=20261010-phase3-1";
+const HOME_CSS_HREF = "/pet/home-companion-v2.css?v=20261012-level10";
 
 const pets = {
   "moss-hornling": "Moss Hornling",
@@ -30,7 +31,7 @@ const pets = {
   "night-spider": "Nocturne Spider",
 };
 
-const stageNames = ["Foundling", "Curious Companion", "Scholar Familiar", "Garden Familiar", "Mastery Companion"];
+const stageNames = STAGE_NAMES;
 
 function ensureCss() {
   if (document.getElementById(HOME_CSS_ID)) return;
@@ -56,7 +57,7 @@ function readPet() {
     const species = pets[parsed?.species] ? parsed.species : "moss-hornling";
     const levels = parsed?.petLevels && typeof parsed.petLevels === "object" ? { ...parsed.petLevels } : {};
     if (!levels[species] && Number(parsed?.highestStage) > 1) {
-      levels[species] = Math.max(1, Math.min(5, Number(parsed.highestStage)));
+      levels[species] = clampPetLevel(parsed.highestStage);
     }
     return {
       ...parsed,
@@ -214,7 +215,7 @@ function renderCompanion(host) {
   const care = summary.care || { bond: 0, mood: 65, energy: 100 };
   const leaves = masteryCount(state);
   const due = dueMastery(state);
-  const stage = Math.max(1, Math.min(5, Number(pet.petLevels?.[pet.species]) || 1));
+  const stage = clampPetLevel(pet.petLevels?.[pet.species]);
   const name = displayName(pet);
 
   let card = document.getElementById("mastery-pet-home");
