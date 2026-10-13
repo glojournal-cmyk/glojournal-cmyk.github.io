@@ -7,7 +7,11 @@ root = Path(__file__).resolve().parents[1]
 # Keep the full module graph on one release marker. This changes URLs only;
 # asset paths, the central store and browser progress keys remain the same.
 from urllib.parse import parse_qsl, urlencode
-UX_RELEASE = "20261013-player-ux1"
+UX_RELEASE = "20261013-player-ux2"
+store_match = re.search(r'/assets/index-BLVOhKhN\.js\?v=([^&"<> ]+)', (root / 'index.html').read_text(encoding='utf-8'))
+if not store_match:
+    raise SystemExit('Root store URL is missing')
+STORE_CACHE_VERSION = store_match.group(1)
 asset_ref = re.compile(r"([\"'`])([A-Za-z0-9_./-]+\.(?:js|css))(\?[^\"'`<>\s]*)?\1")
 production_files = list(root.glob("*.js")) + list(root.rglob("*.html"))
 for folder in ("assets", "pet", "assessment", "progress"):
@@ -24,6 +28,8 @@ for file in dict.fromkeys(production_files):
         if not disk.is_file():
             return match.group(0)
         params = [(key, value) for key, value in parse_qsl((query or "")[1:]) if key != "ux"]
+        if path.rsplit('/', 1)[-1] in {'index-BLVOhKhN.js', 'index-BLVOhKhN.core.js'}:
+            params = [('v', STORE_CACHE_VERSION)]
         params.append(("ux", UX_RELEASE))
         return quote + path + "?" + urlencode(params) + quote
     new = asset_ref.sub(version_asset, current)
