@@ -2,7 +2,7 @@
 const CATEGORIES={
  latin:[['vocabulary','Vocabulary & dictionary entries',/vocab|dictionary|miscellaneous words|stage \d+$/i],['verbs','Verbs & tenses',/verb|tense|perfect|imperfect|present|conjugat|finite|person and number/i],['cases','Nouns, cases & prepositions',/noun|case|declension|accusative|genitive|dative|ablative|nominative|preposition/i],['agreement','Adjectives & pronouns',/adjective|pronoun|agreement|ille/i],['reading','Translation & comprehension',/translat|comprehension|set.text|creusa|reading|map locations/i]],
  french:[['verbs','Verbs & tenses',/tense|passé|participle|irregular verb|future|imperfect|conditional|conjugat|verb forms/i],['grammar','Sentence grammar & accuracy',/grammar|negative|reflexive|accuracy|quick rules|pronoun|agreement|compar|high.scoring|structures|question forms/i],['writing','Translation & writing',/writing|translat|sentence build|model answer/i],['school','School life & routines',/school|subjects|routine|unit 3 overview/i],['vocabulary','Vocabulary & everyday topics',/vocab|weather|activit|opinion|family|home|food|restaurant|town|time|number|age|paris|travel|france/i]],
- biology:[['cells','Cells & microscopy',/cell|microscop|magnification|bacteria|aseptic|organelle|microorganism/i],['inheritance','Genetics, reproduction & variation',/dna|gene|chromosom|inherit|fertilis|variation|reproduc|allele|karyogram/i],['nutrition','Nutrition, digestion & health',/diet|nutri|digest|absorp|enzyme|gut|energy balance|deficiency|bmi|basal|fat|drug|caffeine|alcohol|food test/i],['plants','Plants & photosynthesis',/plant|leaf|photosynth|colour of light/i],['ecology','Ecology & classification',/ecosystem|ecolog|habitat|population|communit|competition|food chain|food web|trophic|classification|identification key/i],['skills','Practical skills & data',/practical|graph|calculat|unit convers|correlation|safety/i]],
+ biology:[['cells','Cells & microscopy',/cell|microscop|magnification|bacteria|aseptic|organelle|microorganism|size and scale/i],['inheritance','Genetics, reproduction & variation',/dna|gene|chromosom|inherit|fertilis|variation|reproduc|allele|karyogram/i],['nutrition','Nutrition, digestion & health',/diet|nutri|digest|absorp|enzyme|gut|energy balance|deficiency|bmi|basal|fat|drug|caffeine|alcohol|food test/i],['plants','Plants & photosynthesis',/plant|leaf|photosynth|colour of light/i],['ecology','Ecology & classification',/ecosystem|ecolog|habitat|population|communit|competition|food chain|food web|trophic|classification|identification key/i],['skills','Practical skills & data',/practical|graph|calculat|unit convers|correlation|safety/i]],
  chemistry:[['separation','Separation & chromatography',/separat|chromatogra|filtrat|distillat|\brf\b|chemical analysis/i],['periodic','Elements & the Periodic Table',/periodic|element|compound|mixture|symbol|formula|valency|newlands|mendeleev|atomic/i],['acids','Acids, alkalis & salts',/acid|alkali|indicator|\bph\b|neutralis|salt|carbonate/i],['organic','Organic chemistry & polymers',/cracking|alkene|alkane|polymer|hydrocarbon|hydrogenation|hydration|halogenation/i],['reactions','Reactions, rates & reactivity',/reaction|reactivity|displacement|rust|conservation|equation|collision|metal/i],['earth','Atmosphere, Earth & resources',/atmosphere|earth|rock|resource|greenhouse|climate|carbon dioxide/i],['skills','Practical skills & calculations',/scientif|safety|evidence|calculat|practical|graph/i]],
  physics:[['electricity','Electricity & magnetism',/circuit|current|potential difference|resistance|magnet|domain/i],['energy','Energy & power',/energy|power|efficiency|dissipation|transfer/i],['forces','Forces & motion',/force|newton|motion|moment|lever|equilibrium|speed|spring|hooke/i],['particles','Particles, pressure & fluids',/particle|kinetic theory|gas|boyle|pressure|density|fluid|evaporation|temperature/i],['waves','Light, sound & waves',/light|colour|vision|eye|reflect|refract|sound|wave/i],['space','Space & the Universe',/universe|gravity|eclipse|stellar|space/i],['skills','Practical skills & data',/practical|scientif|calculat|graph|safety/i]],
  english:[['dystopia','Dystopian literature',/dystopi/i],['shakespeare','Shakespeare · Othello',/othello|shakespeare|teal|analytical writing/i],['northanger','Northanger Abbey',/northanger/i],['poetry','Poetry',/poetry|poem|ww1/i],['journalism','Journalism & viewpoints',/journalis|rhetoric|opinion writing/i],['writing','Writing & language',/writing|language|grammar|vocab/i]]
@@ -51,4 +51,25 @@ export function directoryGroups(topics,{query='',kind='all',availability='all',p
   return sa&&sb?Number(sa[1])-Number(sb[1]):0;
  });
  return [...groups.values()];
+}
+
+// Show related school packs under their main topic while keeping every original
+// route, learned setting and mastery record available.
+const RELATED_SCHOOL_TOPICS = Object.freeze({
+ 'bio-y9-school-20260927-01':'bio-y9-b1',
+ 'bio-y9-school-20260927-02':'bio-y9-b3',
+ 'bio-y9-school-20260927-03':'bio-y9-b3',
+ 'bio-y9-school-20260927-04':'bio-y9-b2',
+ 'bio-y9-school-20260927-05':'bio-y9-b4',
+ 'bio-y9-school-20260927-06':'bio-y9-b4'
+});
+export function relatedTopicRows(topics=[]){
+ const ids=new Set(topics.map(t=>t.topicId));
+ return topics.filter(t=>!ids.has(RELATED_SCHOOL_TOPICS[t.topicId])).map(topic=>({
+  topic,related:topics.filter(t=>RELATED_SCHOOL_TOPICS[t.topicId]===topic.topicId)
+ }));
+}
+export function topicDisplayTitle(topic){
+ return ({'bio-y9-b1':'Cell structure','bio-y9-b2':'Cell specialisation & differentiation',
+ 'bio-y9-b3':'Microscopy & Required Practical 1','bio-y9-b4':'Culturing microorganisms & Required Practical 2'})[topic.topicId]||topic.title;
 }
