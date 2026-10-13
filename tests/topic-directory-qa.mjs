@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
-import {directoryGroups,topicCategory,topicKinds} from '../assets/topic-directory-data-20261003.js';
+import {directoryGroups,topicCategory,topicKinds,relatedTopicRows,topicDisplayTitle} from '../assets/topic-directory-data-20261003.js';
 const catalog=JSON.parse(fs.readFileSync('content/catalog.json')).topics;
 for(const subject of ['latin','french','biology','chemistry','physics','english'])for(const year of [8,9]){
  const topics=catalog.filter(t=>t.subject===subject&&t.year===year&&t.status!=='disabled');
@@ -27,7 +27,7 @@ const flatten=(node,out=[])=>{if(node==null)return out;if(Array.isArray(node)){n
 let state=[],cursor=0;
 const React={useState(initial){const i=cursor++;if(!(i in state))state[i]=typeof initial==='function'?initial():initial;return[state[i],value=>{state[i]=value}];}};
 const source=fs.readFileSync('assets/topic-browser-20261003.js','utf8');
-const ctx=vm.createContext({React,J:{jsx,jsxs:jsx},directoryGroups,topicKinds});
+const ctx=vm.createContext({React,J:{jsx,jsxs:jsx},directoryGroups,topicKinds,relatedTopicRows,topicDisplayTitle});
 vm.runInContext(source.slice(source.indexOf('const h=' )).replace('export function TopicBrowser','function TopicBrowser'),ctx);
 const topics=catalog.filter(t=>t.subject==='chemistry'&&t.year===9);
 function render(props){cursor=0;return flatten(ctx.TopicBrowser({topics,subject:'chemistry',year:9,mode:'directory',...props}));}
