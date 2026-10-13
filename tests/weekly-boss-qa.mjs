@@ -2,7 +2,8 @@ import fs from "node:fs";
 
 const core=fs.readFileSync("assets/index-BLVOhKhN.core.js","utf8");
 const boss=fs.readFileSync("assets/weekly-boss-20260919.js","utf8");
-const route=fs.readFileSync("assets/play._game-BbpxhxeZ.js","utf8");
+// The release cache marker does not change the imported game module.
+const route=fs.readFileSync("assets/play._game-BbpxhxeZ.js","utf8").replace(/&ux=[a-z0-9-]+/g,"");
 const hub=fs.readFileSync("assets/play.index-sR2wZ5CM.js","utf8");
 const shell=fs.readFileSync("play/weekly-boss/index.html","utf8");
 const failures=[];
