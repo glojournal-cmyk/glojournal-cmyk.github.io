@@ -13,6 +13,8 @@ on:
       - 'tests/backup-vault.test.mjs'
       - 'tests/storage-quota.test.mjs'
       - 'tests/recovery-quest.test.mjs'
+      - 'tests/recovery-all-tasks-ledger.test.mjs'
+      - 'assets/recovery-task-ledger-20261017.js'
       - '.github/workflows/progress-recovery-safety.yml'
   pull_request:
     paths:
@@ -26,6 +28,8 @@ on:
       - 'tests/backup-vault.test.mjs'
       - 'tests/storage-quota.test.mjs'
       - 'tests/recovery-quest.test.mjs'
+      - 'tests/recovery-all-tasks-ledger.test.mjs'
+      - 'assets/recovery-task-ledger-20261017.js'
       - '.github/workflows/progress-recovery-safety.yml'
   workflow_dispatch:
 permissions:
@@ -42,9 +46,11 @@ jobs:
       - name: Validate production recovery and backup scripts
         run: |
           node --check assets/quest-recovery-20261011.js
+          node --check assets/recovery-task-ledger-20261017.js
+          node --check assets/index-BLVOhKhN.js
           node --check assets/backup-vault-20261011.js
           node --check assets/daily-progress-save.js
           node --check assets/storage-health-20261011.js
       - name: Verify recovery rules and storage quota safety
         run: |
-          node --test tests/recovery-quest.test.mjs tests/storage-quota.test.mjs tests/backup-export.test.mjs tests/backup-vault.test.mjs
+          node --test tests/recovery-all-tasks-ledger.test.mjs tests/recovery-quest.test.mjs tests/storage-quota.test.mjs tests/backup-export.test.mjs tests/backup-vault.test.mjs

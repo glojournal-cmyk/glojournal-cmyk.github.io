@@ -42,6 +42,25 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
  await page.waitForSelector('#lux-recovery-date');await page.locator('#lux-recovery-date').selectOption(unopened);
  assert.equal(await page.locator('#lux-recovery-quests a').count(),2);
  assert.match(await page.locator('#lux-recovery-quests').innerText(),/0 \/ 35/);
+ // An unopened date exposes an opt-in ten-task plan. Do not change today.
+ const dailyBefore=await page.evaluate(async()=>{
+   const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
+   return JSON.stringify(store.getState().daily);
+ });
+ await page.getByRole('button',{name:'Prepare ten recovery tasks'}).click();
+ await page.waitForFunction(date=>{
+   const raw=localStorage.getItem('lux-scholar-garden-v1');
+   return raw && JSON.parse(raw)?.state?.dailyLog?.[date]?.total===10;
+ },unopened,{timeout:15000});
+ const created=await page.evaluate(async date=>{
+   const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
+   return {record:store.getState().dailyLog[date],today:JSON.stringify(store.getState().daily)};
+ },unopened);
+ assert.equal(created.record.tasks.length,10);
+ assert.equal(created.record.done,0);
+ assert.equal(created.record.recoveryFallback,true);
+ assert.equal(created.today,dailyBefore);
+
  await page.evaluate(()=>window.__luxOpenDailyRecord());
  await page.locator('.lux-record-dot').nth(28).click();
  assert.equal(await page.locator('.lux-record-detail a.lux-record-recovery').count(),2);
