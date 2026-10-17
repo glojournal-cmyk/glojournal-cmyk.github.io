@@ -41,6 +41,7 @@ function c(){
       (0,s.jsxs)("label",{className:"study-directory-year",children:[(0,s.jsx)("span",{children:"Study year"}),(0,s.jsxs)("select",{value:year,onChange:e=>setYear(Number(e.target.value)),children:[(0,s.jsx)("option",{value:9,children:"Year 9"}),(0,s.jsx)("option",{value:8,children:"Year 8 · Previous year revision"})]})]})
     ]}),
     (0,s.jsx)("section",{className:"rounded-3xl border border-line bg-card p-5 sm:p-6",children:(0,s.jsx)(TopicBrowser,{topics:catalog,subject,year,stats:topicStats,mode:"directory"},`${subject}:${year}`)}),
+    subject==="latin"&&year===9?(0,s.jsx)(Card,{href:"/assessment/latin-oct17/practice/",title:"October Latin · New question bank",detail:"Six lesson topics + core vocabulary · 182 main questions, 92 optional vocabulary questions · answers and marking schemes.",tone:"sage"}):null,
     (0,s.jsx)("section",{className:"grid gap-3 sm:grid-cols-2 lg:grid-cols-4",children:[
       {title:"Learn",detail:"Review the notes before formal practice.",href:`/study/${subject}/learn`,tone:"ivory"},
       {title:"Practise",detail:"Formal questions that build mastery evidence.",href:`/study/${subject}/practise`,tone:"sage"},
