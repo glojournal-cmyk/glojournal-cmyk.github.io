@@ -1571,11 +1571,44 @@ function normalizeState() {
   }
   if (skillsChanged) patch.skillStats = normalizedSkills;
 
-  const stateForDaily = { ...state, ...(patch.topicStats ? { topicStats: patch.topicStats } : {}) };
+  // Upgrade existing verified answer ledgers without resetting any progress.
+  // The old +5 surcharge left completed 30-answer sessions uncredited.
+  const recoveryVocab = { ...(state.recoveryVocabByDay || {}) };
+  const retroAwards = [];
+  let recoveredChanged = false;
+  const awardedRecoveries = { ...(state.recoveryAwarded || {}) };
+  for (const [date, subjects] of Object.entries(recoveryVocab)) {
+    if (!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(date)) continue;
+    let updated = subjects;
+    for (const subject of ["french", "latin"]) {
+      const proof = subjects?.[subject];
+      if (!proof || typeof proof !== "object") continue;
+      const originalCount = Math.max(0, Math.min(30, Number(proof.originalCount) || 0));
+      const needed = Math.max(1, 30 - originalCount);
+      const count = Object.values(proof.items || {}).filter(value => value === true).length;
+      const completed = proof.completed === true || count >= needed;
+      if (Number(proof.totalNeeded) === needed && proof.completed === completed) continue;
+      if (updated === subjects) updated = { ...subjects };
+      updated[subject] = { ...proof, totalNeeded: needed, completed };
+      recoveredChanged = true;
+      const awardKey = date + ":" + subject;
+      if (completed && proof.completed !== true && !awardedRecoveries[awardKey]) {
+        awardedRecoveries[awardKey] = true;
+        retroAwards.push(awardKey);
+      }
+    }
+    if (updated !== subjects) recoveryVocab[date] = updated;
+  }
+  if (recoveredChanged) patch.recoveryVocabByDay = recoveryVocab;
+  if (retroAwards.length) patch.recoveryAwarded = awardedRecoveries;
+
+  const stateForDaily = { ...state, ...(patch.topicStats ? { topicStats: patch.topicStats } : {}),
+    ...(patch.recoveryVocabByDay ? { recoveryVocabByDay: patch.recoveryVocabByDay } : {}) };
   const daily = buildAdaptiveDaily(stateForDaily);
   if (JSON.stringify(daily) !== JSON.stringify(state.daily || [])) patch.daily = daily;
   const currentLog = state.dailyLog && typeof state.dailyLog === "object" ? state.dailyLog : {};
-  const correctedLog = reconcileRecoveredVocabHistory(state, verifiedVocabHistory(state,currentLog));
+  const correctedLog = reconcileRecoveredTaskHistory(stateForDaily,
+    reconcileRecoveredVocabHistory(stateForDaily, verifiedVocabHistory(stateForDaily,currentLog)));
   const nextLog = writeDailyLog(correctedLog, state.today || calendarToday, daily);
   if (nextLog !== currentLog) patch.dailyLog = nextLog;
 
@@ -1583,6 +1616,10 @@ function normalizeState() {
     normalizing = true;
     store.setState(patch);
     normalizing = false;
+  }
+  // Idempotent retroactive XP: persist the award key before granting it.
+  for (const awardKey of retroAwards) {
+    originalAward("vocab_review", { amount: 15, detail: "recovery:" + awardKey });
   }
   // Evidence-driven tasks can become complete without a bumpDaily call.
   // Reconcile the completion award after the canonical daily list is stored.
@@ -2245,10 +2282,13 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     // route, but preserve strict assignment matching for saved daily plans.
     const evidenceTask = taskId==="mistake-review"
       ? (before.reviews?.[questionId] ? "mistake-review" : null)
-      : (!meta?.repair ? (actual?.recoveryFallback && meta?.formal!==false
-          ? taskId : meta?.progressionTask || null) : null);
-    const subjectMatches = !actual?.focusSubject || actual.focusSubject === (resolved.subject || subject);
-    const topicMatches = !actual?.focusTopic || actual.focusTopic === resolved.topicId;
+      // A real, marked formal answer on the explicitly dated recovery route
+      // counts even when its question bank omits progressionTask metadata.
+      : (!meta?.repair && meta?.formal!==false ? taskId : null);
+    const assignedSubject = actual?.focusSubject || actual?.assignedSubject || actual?.reviewSubject;
+    const assignedTopic = actual?.focusTopic || actual?.assignedTopic || actual?.reviewTopic;
+    const subjectMatches = !assignedSubject || assignedSubject === (resolved.subject || subject);
+    const topicMatches = !assignedTopic || assignedTopic === resolved.topicId;
     if (actual && supported.includes(taskId) && taskId===evidenceTask && subjectMatches && topicMatches && canRecover(todayKey(),date)) {
       const outcome=recordRecoveryAnswer(store.getState(),{
         today:todayKey(),date,taskId,questionId,correct:!!correct
@@ -2502,7 +2542,9 @@ function recordDailyVocabAttempt(subject, questionId, correct) {
     const row = perDay[subject] || {};
     // Freeze the previous day's starting credit at the first Recovery answer.
     const originalCount = Math.max(0, Math.min(30, Number(row.originalCount ?? previous.progress) || 0));
-    const totalNeeded = Math.max(5, Math.min(35, Number(row.totalNeeded) || 30 - originalCount + 5));
+    // A recovered Vocab task fills the original 30-correct target; no +5 fee.
+    // Old persisted 35-answer thresholds are upgraded by normalizeState.
+    const totalNeeded = Math.max(1, 30 - originalCount);
     const items = { ...(row.items || {}) };
     items[String(questionId)] = !!correct || !!items[String(questionId)];
     const credited = Object.values(items).filter(Boolean).length;
