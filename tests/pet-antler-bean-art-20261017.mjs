@@ -23,4 +23,10 @@ assert.match(petArtUrl('moss-hornling',10),/art-moss-hornling-20261017/);
 assert.match(petArtUrl('moon-puff',10),/art-moon-puff-20261013/);
 const gallery=fs.readFileSync('pet/pet.js','utf8');
 assert.match(gallery,/identity\.forms\.slice\(0,MAX_PET_LEVEL\)/);
+const formData=fs.readFileSync('pet/pet-evolution-config-20261012.js','utf8');
+for(const label of ['Ancient amber stag','Little autumn faun','Golden antler knight','Autumn spirit maiden','Eternal antler sovereign']){
+  assert.ok(formData.includes(label),'Missing new Antler Bean evolution stage name: '+label);
+}
+const pageLoader=fs.readFileSync('assessment-link.js','utf8');
+assert.ok(pageLoader.startsWith('if(!/^\\/(pet|assessment)(\\/|$)/.test(location.pathname))'),'Pet standalone guard lost');
 console.log('Antler Bean alpha image and gallery compatibility QA passed');
