@@ -1,0 +1,56 @@
+name: Install Moss Hornling evolution art
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-moss-hornling-art-20261017.yml'
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fetch approved full-body transparent PNG artwork
+        shell: bash
+        env:
+          SRC5: "https://at.adobe.com/abSWJL8PJQc5a2a4"
+          SRC6: "https://at.adobe.com/QsjXSkFgopaw9Hmw"
+          SRC7: "https://at.adobe.com/oVON04ujfll0o3Xx"
+          SRC8: "https://at.adobe.com/aKxyQJ3IM4EVoExf"
+          SRC9: "https://at.adobe.com/40jB9ohOsT3pQFUU"
+          SRC10: "https://at.adobe.com/e8rwXZfPejVrWYlh"
+        run: |
+          set -euo pipefail
+          mkdir -p pet/art-moss-hornling-20261017
+          for level in 5 6 7 8 9 10; do
+            src="SRC${level}"
+            target="pet/art-moss-hornling-20261017/level-${level}.png"
+            curl --location --fail --show-error --silent --retry 3 --retry-delay 3 --max-time 120 "${!src}" -o "${target}"
+            file "${target}"
+            test "$(file --brief --mime-type "${target}")" = "image/png"
+            test "$(wc -c < "${target}")" -gt 50000
+            LV="${level}" FILE="${target}" node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const bytes=fs.readFileSync(process.env.FILE);
+          const expected=Buffer.from('89504e470d0a1a0a','hex');
+          if(!bytes.subarray(0,8).equals(expected)) throw Error('Invalid PNG Level '+process.env.LV);
+          const w=bytes.readUInt32BE(16),h=bytes.readUInt32BE(20),colorType=bytes[25];
+          if(w<1000||h<1000||(colorType!==6&&colorType!==4)) throw Error('No high resolution transparent RGBA Level '+process.env.LV);
+          console.log('Validated '+process.env.FILE+': '+w+'x'+h+', alpha type '+colorType);
+          NODE
+          done
+      - name: Commit original character PNGs without touching progress data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/art-moss-hornling-20261017/level-{5,6,7,8,9,10}.png
+          if git diff --cached --quiet; then echo "No new images"; exit 0; fi
+          git commit -m "Add six full-body Moss Hornling evolution sprites [skip actions]"
+          git pull --rebase origin main
+          git push origin HEAD:main
