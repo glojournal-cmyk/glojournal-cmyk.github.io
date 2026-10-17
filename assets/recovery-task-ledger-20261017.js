@@ -77,3 +77,31 @@ export function reconcileRecoveredTaskHistory(state, existingLog) {
   }
   return log;
 }
+
+export const UNOPENED_FALLBACK_TASKS = Object.freeze([
+  ['mistake-review','Previous mistakes',1],
+  ['study-session','Focused study',10],
+  ['french-vocab','Year 7–8 French vocab',30],
+  ['latin-vocab','Year 7–8 Latin vocab',30],
+  ['adaptive-focus','Subject focus',4],
+  ['year8-long-review','Year 8 practice + mastery',25],
+  ['y8-practise','Foundation practice',10],
+  ['y8-mastery','Mastery review',25],
+  ['tend-garden','Water your plants',1],
+  ['play-game','Play a quick game',1]
+]);
+// A fallback is a new recoverable plan, not a claim that this was assigned
+// on the unopened day. Do not overwrite a partial or complete historical log.
+export function prepareUnopenedRecovery(state,date,today) {
+  if(!canRecover(today,date)) return {state,created:false,reason:'outside-window'};
+  if(Object.prototype.hasOwnProperty.call(state?.dailyLog||{},date))
+    return {state,created:false,reason:'existing-history'};
+  const tasks=UNOPENED_FALLBACK_TASKS.map(([id,title,target])=>({
+    id,title,target,progress:0,done:false,recoveryFallback:true
+  }));
+  const log={date,tasks,done:0,total:tasks.length,complete:false,recoveryFallback:true};
+  return {
+    state:{...state,dailyLog:{...(state.dailyLog||{}),[date]:log}},
+    created:true,reason:'unopened-fallback'
+  };
+}
