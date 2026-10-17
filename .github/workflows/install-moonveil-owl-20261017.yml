@@ -1,0 +1,60 @@
+name: Install six approved Moonveil Owl character sprites
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/install-moonveil-owl-20261017.yml'
+permissions:
+  contents: write
+jobs:
+  install-art:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download transparent full-body Moonveil Owl LV5–10
+        shell: bash
+        env:
+          LV5: "https://at.adobe.com/pJffrfSxPXeywVSL"
+          LV6: "https://at.adobe.com/oIFznT2r2wT4GsVO"
+          LV7: "https://at.adobe.com/2RHHTigBTfReEctU"
+          LV8: "https://at.adobe.com/Q7GzhpCSEqTv70oT"
+          LV9: "https://at.adobe.com/S6Hbs2fIifmixMLh"
+          LV10: "https://at.adobe.com/aVy0j4v1ZQE7Kz27"
+        run: |
+          set -euo pipefail
+          mkdir -p pet/art-moonveil-owl-20261017
+          for lv in 5 6 7 8 9 10; do
+            key="LV${lv}"
+            dest="pet/art-moonveil-owl-20261017/level-${lv}.png"
+            curl --location --fail --show-error --silent --retry 3 --retry-delay 4 --max-time 160 "${!key}" --output "${dest}"
+            LV="${lv}" FILE="${dest}" node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const b=fs.readFileSync(process.env.FILE), lv=process.env.LV;
+          if(b.subarray(0,8).toString('hex')!=='89504e470d0a1a0a') throw Error('Not PNG: '+lv);
+          const w=b.readUInt32BE(16),h=b.readUInt32BE(20),type=b[25];
+          if(w<1000||h<1400||![4,6].includes(type)||b.length<100000) throw Error('Bad size, alpha or content at LV'+lv);
+          console.log('Moonveil Owl LV'+lv+': '+w+'x'+h+' alpha='+type+' bytes='+b.length);
+          NODE
+          done
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import crypto from 'node:crypto';
+          const dir='pet/art-moonveil-owl-20261017';
+          const sha=Array.from({length:6},(_,i)=>crypto.createHash('sha256').update(fs.readFileSync(`${dir}/level-${i+5}.png`)).digest('hex'));
+          if(new Set(sha).size!==6)throw Error('Duplicate owl artwork stages!');
+          console.log('Six distinct PNG assets validated');
+          NODE
+      - name: Commit images without touching progress
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/art-moonveil-owl-20261017/level-{5,6,7,8,9,10}.png
+          if git diff --cached --quiet; then echo "Art already committed"; exit 0; fi
+          git commit -m "Install full-body Moonveil Owl evolution sprites LV5-10"
+          git pull --rebase origin main
+          git push origin HEAD:main
