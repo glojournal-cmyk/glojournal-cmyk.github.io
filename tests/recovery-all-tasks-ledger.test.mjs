@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {canRecover,eligibleRecoveryTasks,recordRecoveryAnswer,validDay} from '../assets/recovery-task-ledger-20261017.js';
+import {canRecover,eligibleRecoveryTasks,recordRecoveryAnswer,validDay,reconcileRecoveredTaskHistory} from '../assets/recovery-task-ledger-20261017.js';
 function fixture(){
  const tasks=[{id:'y8-practise',progress:8,target:10,done:false},{id:'latin-vocab',progress:30,target:30,done:true},{id:'play-game',progress:0,target:1,done:false}];
  return {today:'2026-10-17',xp:135,pet:{name:'Moonveil'},daily:[{id:'y8-practise',progress:3}],dailyLog:{'2026-10-16':{date:'2026-10-16',tasks,done:1,total:3,complete:false}}};
@@ -45,4 +45,29 @@ test('runtime wires matching practice answers into recovery and leaves XP untouc
  assert.match(source,/canRecover\(todayKey\(\),date\)/);
  assert.match(source,/subjectMatches && topicMatches/);
  assert.match(source,/if\(outcome.accepted\)store.setState/);
+});
+
+test('proof repairs the 30-day view without modifying persisted original',()=>{
+ const s=fixture();
+ s.recoveryTaskByDay={'2026-10-16':{'y8-practise':{completed:true}}};
+ const snapshot=JSON.stringify(s.dailyLog);
+ const log=reconcileRecoveredTaskHistory(s,s.dailyLog);
+ assert.equal(log['2026-10-16'].done,2);
+ assert.equal(log['2026-10-16'].total,3);
+ assert.equal(log['2026-10-16'].complete,false);
+ assert.equal(JSON.stringify(s.dailyLog),snapshot);
+});
+test('incomplete proof and absent historical row cannot be marked done',()=>{
+ const s=fixture();
+ s.recoveryTaskByDay={'2026-10-16':{'y8-practise':{completed:false}},'2026-10-15':{'y8-practise':{completed:true}}};
+ const log=reconcileRecoveredTaskHistory(s,s.dailyLog);
+ assert.equal(log['2026-10-16'].done,1);
+ assert.equal(log['2026-10-15'],undefined);
+});
+test('date-scoped correction route does not credit current-day corrections',()=>{
+ const source=fs.readFileSync(new URL('../assets/index-BLVOhKhN.js',import.meta.url),'utf8');
+ assert.match(source,/!inRecovery && typeof window[^\n]+get\("task"\) === "mistake-review"/);
+ assert.match(source,/dailyCurriculumEvidenceByDay=inRecovery \?/);
+ assert.match(source,/!isRepair && !inRecovery/);
+ assert.match(source,/reconcileRecoveredTaskHistory\(state, reconcileRecoveredVocabHistory/);
 });
