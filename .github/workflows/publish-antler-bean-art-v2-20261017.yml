@@ -1,0 +1,52 @@
+name: Publish Antler Bean watercolor evolution sprites V2
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-antler-bean-art-v2-20261017.yml'
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download cutout full-body sprite PNGs
+        shell: bash
+        env:
+          SRC5: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:a24b3aed-9442-4668-9e55-4212b05b351b"
+          SRC6: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:e37eb7e2-2b91-48c0-ac46-bb71f5233585"
+          SRC7: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:0feef619-8381-48c7-a859-9df435bbfc9c"
+          SRC8: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:6f44863f-70f4-4387-81d9-44ca7063c0e8"
+          SRC9: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:e7bd597d-e652-49fb-b353-9cc81aa39bc3"
+          SRC10: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:198af477-50d8-42cd-9478-ea406d481181"
+        run: |
+          set -euo pipefail
+          mkdir -p pet/art-antler-bean-v2-20261017
+          for level in 5 6 7 8 9 10; do
+            src="SRC${level}"
+            target="pet/art-antler-bean-v2-20261017/level-${level}.png"
+            curl --location --fail --show-error --silent --retry 3 --retry-delay 3 --max-time 120 "${!src}" --output "${target}"
+            test "$(file --brief --mime-type "${target}")" = "image/png"
+            LV="${level}" FILE="${target}" node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const f=fs.readFileSync(process.env.FILE);
+          const w=f.readUInt32BE(16),h=f.readUInt32BE(20),color=f[25];
+          if(f.subarray(0,8).toString('hex')!=='89504e470d0a1a0a'||w<600||h<1000||![4,6].includes(color)||f.length<50000)throw Error('Invalid transparent image level '+process.env.LV+' '+w+'x'+h);
+          console.log('Verified stage '+process.env.LV+' '+w+'x'+h+' '+f.length+' bytes alpha '+color);
+          NODE
+          done
+      - name: Commit artwork without touching saved progress
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/art-antler-bean-v2-20261017/level-{5,6,7,8,9,10}.png
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Install distinct watercolor antler-bean LV5-10 sprites"
+          git pull --rebase origin main
+          git push origin HEAD:main
