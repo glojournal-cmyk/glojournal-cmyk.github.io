@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import {canRecover,eligibleRecoveryTasks,recordRecoveryAnswer,validDay} from '../assets/recovery-task-ledger-20261017.js';
 function fixture(){
  const tasks=[{id:'y8-practise',progress:8,target:10,done:false},{id:'latin-vocab',progress:30,target:30,done:true},{id:'play-game',progress:0,target:1,done:false}];
@@ -36,4 +37,12 @@ test('expired date, unknown assignment or wrong task never changes record',()=>{
   const r=recordRecoveryAnswer(s,{today:'2026-10-17',questionId:'x',correct:true,...input});
   assert.equal(r.accepted,false);assert.equal(r.state,s);
  }
+});
+
+test('runtime wires matching practice answers into recovery and leaves XP untouched',()=>{
+ const source=fs.readFileSync(new URL('../assets/index-BLVOhKhN.js',import.meta.url),'utf8');
+ assert.match(source,/taskId===evidenceTask/);
+ assert.match(source,/canRecover\(todayKey\(\),date\)/);
+ assert.match(source,/subjectMatches && topicMatches/);
+ assert.match(source,/if\(outcome.accepted\)store.setState/);
 });
