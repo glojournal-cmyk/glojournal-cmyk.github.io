@@ -57,3 +57,23 @@ export function recordRecoveryAnswer(state,{today,date,taskId,questionId,correct
   // idempotent recoveryAwarded key has been persisted with proof.
   return {state:patch,accepted:true,completed,newlyCompleted:completed};
 }
+
+export function reconcileRecoveredTaskHistory(state, existingLog) {
+  let log=existingLog||{};
+  for(const [date,proofs] of Object.entries(state?.recoveryTaskByDay||{})){
+    if(!validDay(date))continue;
+    const row=log[date];
+    if(!row||!Array.isArray(row.tasks)||!row.tasks.length)continue;
+    let changed=false;
+    const tasks=row.tasks.map(task=>{
+      if(proofs?.[task.id]?.completed!==true||!RECOVERY_IDS.has(task.id)||
+         task.done||Number(task.progress)>=Number(task.target))return task;
+      changed=true;
+      return {...task,progress:Number(task.target),done:true,recovered:true};
+    });
+    if(!changed)continue;
+    const done=tasks.filter(t=>t.done||Number(t.progress)>=Number(t.target)).length;
+    log={...log,[date]:{...row,tasks,done,total:tasks.length,complete:done===tasks.length}};
+  }
+  return log;
+}
