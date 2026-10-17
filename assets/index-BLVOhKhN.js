@@ -1432,6 +1432,12 @@ function compactDailyTasks(daily) {
       progress,
       target,
       done: progress >= target,
+      // Keep minimal original assignment identity for accurate recovery.
+      // The old compact log discarded the assigned subject and topic.
+      ...(typeof task.href==="string" && task.href.startsWith("/") ? {href:task.href.slice(0,280)} : {}),
+      ...Object.fromEntries(["focusSubject","focusTopic","assignedSubject","assignedTopic","reviewSubject","reviewTopic"]
+        .filter(key=>typeof task[key]==="string" && task[key].length<=120)
+        .map(key=>[key,task[key]])),
     };
   });
 }
