@@ -80,7 +80,15 @@ function mount(){
  function taskLink(task,date){
    // Only link answer-based tasks whose practice route can carry the
    // original task ID and recovery date. No fake credit for garden/game.
-   const query=new URLSearchParams({daily:'1',locked:'1',year:'8',task:task.id,recover:date});
+   const topic=task.focusTopic||task.assignedTopic||task.reviewTopic;
+   // Do not downgrade a saved Year 9 focus to Year 8. Its question bank
+   // would then omit the assigned topic and none of its answers could count.
+   const savedHref=typeof task.href==='string'?task.href:'';
+   const savedYear=(()=>{
+     try{return new URL(savedHref,location.origin).searchParams.get('year')}catch{return null}
+   })();
+   const year=Number(task.assignedYear||String(topic||'').match(/-y(\d+)-/)?.[1]||savedYear)||8;
+   const query=new URLSearchParams({daily:'1',locked:'1',year:String(year),task:task.id,recover:date});
    const stages=['y8-mastery','year8-long-review'];
    const proof=state.recoveryTaskByDay?.[date]?.[task.id];
    const evidence=Object.keys(proof?.items||{}).length;
@@ -106,7 +114,6 @@ function mount(){
      const inferred=allowed.find(subject=>String(task.title||'').toLowerCase().includes(subject))||'french';
      const subject=allowed.find(key=>key===task.focusSubject||key===task.assignedSubject||key===task.reviewSubject)||inferred;
      query.set('mode',nextMode);
-     const topic=task.focusTopic||task.assignedTopic||task.reviewTopic;
      if(topic)query.set('topic',topic);
      return '/study/'+subject+'/practise?'+query;
    }
