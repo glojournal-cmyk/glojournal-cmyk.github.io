@@ -2235,8 +2235,8 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     // route, but preserve strict assignment matching for saved daily plans.
     const evidenceTask = taskId==="mistake-review"
       ? (before.reviews?.[questionId] ? "mistake-review" : null)
-      : (!meta?.repair ? (meta?.progressionTask ||
-          (actual?.recoveryFallback && meta?.formal!==false ? taskId : null)) : null);
+      : (!meta?.repair ? (actual?.recoveryFallback && meta?.formal!==false
+          ? taskId : meta?.progressionTask || null) : null);
     const subjectMatches = !actual?.focusSubject || actual.focusSubject === (resolved.subject || subject);
     const topicMatches = !actual?.focusTopic || actual.focusTopic === resolved.topicId;
     if (actual && supported.includes(taskId) && taskId===evidenceTask && subjectMatches && topicMatches && canRecover(todayKey(),date)) {
