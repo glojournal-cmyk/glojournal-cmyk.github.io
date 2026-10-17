@@ -2309,7 +2309,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const nextState = topicState(attempted, correctCount, productionCorrect);
   const recentOutcomes = isRepair
     ? [...(current.recentOutcomes || [])]
-    : [...(current.recentOutcomes || []), { date: todayKey(), correct: !!correct, recoveryFor: recoverDate || null }].slice(-20);
+    : [...(current.recentOutcomes || []), { date: todayKey(), correct: !!correct, recoveryFor: (typeof recoverDate!=='undefined' ? recoverDate : null) }].slice(-20);
   const nextTopic = {
     ...current,
     attempted,
@@ -2331,7 +2331,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     lastAttempt: todayKey(),
   };
   const reviews = { ...(after.reviews || {}) };
-  if (review) reviews[questionId] = { ...review, wrong: !correct, lastWrong: !correct ? todayKey() : before.reviews?.[questionId]?.lastWrong, lastAt: new Date().toISOString(), subject: resolved.subject, topicId: resolved.topicId, skills: resolved.skills || [], production: !!production, repair: isRepair, recoveryFor: recoverDate || null, errorType: errorType || review.errorType || null, lastErrorKind: !correct && !isRepair ? errorKind || "wrong" : before.reviews?.[questionId]?.lastErrorKind };
+  if (review) reviews[questionId] = { ...review, wrong: !correct, lastWrong: !correct ? todayKey() : before.reviews?.[questionId]?.lastWrong, lastAt: new Date().toISOString(), subject: resolved.subject, topicId: resolved.topicId, skills: resolved.skills || [], production: !!production, repair: isRepair, recoveryFor: (typeof recoverDate!=='undefined' ? recoverDate : null), errorType: errorType || review.errorType || null, lastErrorKind: !correct && !isRepair ? errorKind || "wrong" : before.reviews?.[questionId]?.lastErrorKind };
   // A wrong formal answer must never become due again on the same day.
   // Treat the first miss as stage 1: retry after 2 days; a later success then moves to 7 days.
   if (!correct && !isRepair && reviews[questionId]) {
