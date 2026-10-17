@@ -185,7 +185,7 @@ function mount(){
    ...dates,...Object.keys(state.recoveryVocabByDay||{}),
    ...Object.keys(state.recoveryTaskByDay||{}),
    ...(state.formalAttemptLog||[]).map(a=>a?.recoveryFor).filter(Boolean)
- ])].filter(x=>/^\\d{4}-\\d{2}-\\d{2}$/.test(x)).sort().reverse().slice(0,14);
+ ])].filter(x=>/^\d{4}-\d{2}-\d{2}$/.test(x)).sort().reverse().slice(0,14);
  const report=auditDates.map(date=>{
    const row=state.dailyLog?.[date];
    const log=row?.tasks?.length?row.done+'/'+row.total:'not saved';
@@ -194,13 +194,13 @@ function mount(){
      const proof=state.recoveryVocabByDay?.[date]?.[subject];
      const task=row?.tasks?.find(t=>t.id===subject+'-vocab');
      const amount=Object.values(proof?.items||{}).filter(Boolean).length;
-     return subject+': '+amount+' marked / '+(Math.max(1,30-Number(proof?.originalCount??task?.progress??0)))+' needed'+(task?.done||proof?.completed?' ✓':'');
+     return subject+': '+amount+' correct / '+(Math.max(1,30-Number(proof?.originalCount??task?.progress??0)))+' needed'+(task?.done||proof?.completed?' ✓':'');
    }).join(' | ');
    const tasks=Object.entries(state.recoveryTaskByDay?.[date]||{})
      .map(([id,p])=>id+' '+Object.keys(p?.items||{}).length+'/'+(p?.totalNeeded||'?')+(p?.completed?' ✓':'')).join(', ');
-   return date+' · day '+log+' · answer events '+saved+'\\n  '+vocab+(tasks?'\\n  '+tasks:'');
+   return date+' · day '+log+' · answer events '+saved+'\n  '+vocab+(tasks?'\n  '+tasks:'');
  });
- results.textContent=report.join('\\n')||'No Recovery answer record was saved.';
+ results.textContent=report.join('\n')||'No Recovery answer record was saved.';
  audit.append(auditTitle,note,results);
  host.append(audit);
 }
