@@ -200,16 +200,40 @@ function mount(){
  const report=auditDates.map(date=>{
    const row=state.dailyLog?.[date];
    const log=row?.tasks?.length?row.done+'/'+row.total:'not saved';
-   const saved=(state.formalAttemptLog||[]).filter(a=>a?.recoveryFor===date).length;
+   const dated=(state.formalAttemptLog||[]).filter(a=>a?.recoveryFor===date);
+   const formal=dated.filter(a=>a?.questionId&&typeof a.correct==='boolean'&&a.formal!==false&&!a.repair);
+   const excludedVocab=a=>['french-vocab','latin-vocab'].includes(a.dailyTaskId)||
+     ['french','latin'].includes(a.dailyVocab);
+   const general=formal.filter(a=>!excludedVocab(a));
+   const studyTask=row?.tasks?.find(t=>t.id==='study-session');
+   const focusTask=row?.tasks?.find(t=>t.id==='adaptive-focus');
+   const focusSubject=focusTask?.focusSubject||focusTask?.assignedSubject||focusTask?.reviewSubject;
+   const focusTopic=focusTask?.focusTopic||focusTask?.assignedTopic||focusTask?.reviewTopic;
+   const focusAnswers=general.filter(a=>(!focusSubject||a.subject===focusSubject)&&
+     (!focusTopic||a.topicId===focusTopic));
+   const tags={};
+   for(const entry of dated){const id=entry.dailyTaskId||'no task ID';tags[id]=(tags[id]||0)+1;}
    const vocab=['french','latin'].map(subject=>{
      const proof=state.recoveryVocabByDay?.[date]?.[subject];
      const task=row?.tasks?.find(t=>t.id===subject+'-vocab');
      const amount=Object.values(proof?.items||{}).filter(Boolean).length;
-     return subject+': '+amount+' correct / '+(Math.max(1,30-Number(proof?.originalCount??task?.progress??0)))+' needed'+(task?.done||proof?.completed?' ✓':'');
+     const complete=!!(task?.done||proof?.completed);
+     const needed=Math.max(1,30-Number(proof?.originalCount??task?.progress??0));
+     return subject+': '+(complete?'complete ✓':amount+'/'+needed+' correct');
    }).join(' | ');
    const tasks=Object.entries(state.recoveryTaskByDay?.[date]||{})
      .map(([id,p])=>id+' '+Object.keys(p?.items||{}).length+'/'+(p?.totalNeeded||'?')+(p?.completed?' ✓':'')).join(', ');
-   return date+' · day '+log+' · answer events '+saved+'\n  '+vocab+(tasks?'\n  '+tasks:'');
+   const focusStatus=studyTask||focusTask
+     ? '\n  Focused study: '+(studyTask?.progress??'-')+'/'+(studyTask?.target??10)+
+       ' · '+new Set(general.map(a=>a.questionId)).size+' saved eligible distinct questions'+
+       '\n  Subject focus: '+(focusTask?.progress??'-')+'/'+(focusTask?.target??4)+
+       ' · '+new Set(focusAnswers.map(a=>a.questionId)).size+' matching distinct questions'+
+       (focusSubject?' · subject '+focusSubject:'')+
+       (focusTopic?' · topic '+focusTopic:'')
+     : '';
+   const tagStatus=dated.length?'\n  Route tags: '+Object.entries(tags).map(([id,n])=>id+' '+n).join(', '):'';
+   return date+' · day '+log+' · saved Recovery answer events '+dated.length+
+     '\n  '+vocab+focusStatus+tagStatus+(tasks?'\n  '+tasks:'');
  });
  results.textContent=report.join('\n')||'No Recovery answer record was saved.';
  audit.append(auditTitle,note,results);
