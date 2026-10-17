@@ -1,5 +1,5 @@
 import "./player-ux-20261013.js?ux=20261013-corrections2";
-import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js?v=20261017-recovery-completion3";
+import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS} from "./recovery-task-ledger-20261017.js?v=20261017-recovery-completion3";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
@@ -1635,7 +1635,7 @@ function normalizeState() {
       if (!proof || typeof proof !== "object") continue;
       const originalCount = Math.max(0, Math.min(30, Number(proof.originalCount) || 0));
       const needed = Math.max(1, 30 - originalCount);
-      const count = Object.keys(proof.items || {}).length;
+      const count = Object.values(proof.items || {}).filter(Boolean).length;
       const completed = proof.completed === true || count >= needed;
       if (Number(proof.totalNeeded) === needed && proof.completed === completed) continue;
       if (updated === subjects) updated = { ...subjects };
@@ -2327,7 +2327,10 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     const params = new URLSearchParams(window.location.search);
     const date = params.get("recover"), taskId = params.get("task");
     const supported = ["mistake-review","y8-practise","y8-mastery","year8-long-review","adaptive-focus","study-session"];
-    const actual = before.dailyLog?.[date]?.tasks?.find(t=>t.id===taskId);
+    const savedDay = before.dailyLog?.[date];
+    const preparedDay = !savedDay ? prepareUnopenedRecovery(before,date,todayKey()).state : before;
+    if(preparedDay!==before) store.setState({dailyLog:preparedDay.dailyLog});
+    const actual = preparedDay.dailyLog?.[date]?.tasks?.find(t=>t.id===taskId);
     // An unopened day never had a personalised curriculum assignment.
     // Accept real, formally marked answers from the replacement practice
     // route, but preserve strict assignment matching for saved daily plans.
@@ -2355,7 +2358,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     subject: resolved.subject || subject, year: Number(meta.yearOverride || before.year || 9),
     topicId: resolved.topicId || null, topicTitle: resolved.topicTitle || meta.topicTitle || resolved.topicId || "General practice",
     formal: meta.formal !== false, repair: !!meta.repair,
-    dailyTaskId: meta.progressionTask || null,
+    dailyTaskId: inRecovery ? new URLSearchParams(window.location.search).get("task") : (meta.progressionTask || null),
     // Recovery attempts must not satisfy today's Vocab assignment.
     dailyVocab: inRecovery ? null : (dailyVocabSubject(resolved.subject || subject, meta) || null),
     recoveryFor: inRecovery ? new URLSearchParams(window.location.search).get("recover") : null
@@ -2598,7 +2601,7 @@ function recordDailyVocabAttempt(subject, questionId, correct) {
     const totalNeeded = Math.max(1, 30 - originalCount);
     const items = { ...(row.items || {}) };
     items[String(questionId)] = !!correct || !!items[String(questionId)];
-    const credited = Object.keys(items).length;
+    const credited = Object.values(items).filter(Boolean).length;
     perDay[subject] = { items, originalCount, totalNeeded, completed: credited >= totalNeeded, updatedAt: new Date().toISOString() };
     all[recover] = perDay;
     if (credited >= totalNeeded && !row.completed) {
@@ -3282,7 +3285,7 @@ function mountDailyRecord() {
         detail.className = "lux-record-detail";
         if (!row) {
           const empty = document.createElement("p");
-          empty.textContent = "No saved daily record. Within 48-hour Recovery, you can still recover French and Latin Vocab below. Each needs 30 correct answers + 5 extra. Other daily tasks remain unfinished.";
+          empty.textContent = "No saved record for this date. Within 48-hour Recovery you can start a clearly labelled replacement plan for missed daily tasks. Only real completed activities will count.";
           detail.append(empty);
         } else {
           const missed = row.tasks.filter((task) => !task.done);
@@ -3311,14 +3314,49 @@ function mountDailyRecord() {
         }
         const recoveryAge = Math.round((Date.parse(today+"T12:00:00Z")-Date.parse(day+"T12:00:00Z"))/86400000);
         if (recoveryAge >= 1 && recoveryAge <= 2) {
-          for (const subject of ["french", "latin"]) {
-            const source = findRecoveryVocabSource(state, day, subject);
-            if (!source?.task || source.task.progress >= source.task.target) continue;
-            const link = document.createElement("a");
-            link.className = "lux-record-recovery";
-            link.href = "/study/"+subject+"/practise?daily=1&locked=1&year=8&mode=y8vocab&task="+subject+"-vocab&recover="+day;
-            link.textContent = "Recover "+(subject === "french" ? "French" : "Latin")+" Vocab →";
-            link.style.cssText = "display:inline-block;margin:8px 12px 8px 0;padding:12px;border-radius:10px;background:#23495b;color:white";
+          const fallback = !row?.tasks?.length;
+          const recoveryTasks = fallback
+            ? UNOPENED_FALLBACK_TASKS.map(([id,title,target])=>({id,title,target,progress:0,done:false,recoveryFallback:true}))
+            : row.tasks;
+          if (fallback) {
+            const hint=document.createElement("p");
+            hint.textContent="Recovery replacement plan · 10 tasks. This does not claim you opened the app that day.";
+            detail.append(hint);
+          }
+          for (const task of recoveryTasks) {
+            if (!RECOVERY_IDS.has(task.id) || task.done || Number(task.progress)>=Number(task.target)) continue;
+            const vocabSubject=task.id==="french-vocab"?"french":task.id==="latin-vocab"?"latin":null;
+            if (vocabSubject && !fallback) {
+              const source=findRecoveryVocabSource(state,day,vocabSubject);
+              if (source?.task && source.task.progress>=source.task.target) continue;
+            }
+            let href;
+            if (vocabSubject) {
+              href="/study/"+vocabSubject+"/practise?daily=1&locked=1&year=8&mode=y8vocab&task="+task.id+"&recover="+day;
+            } else if (task.id==="tend-garden" || task.id==="play-game") {
+              href=(task.id==="tend-garden"?"/garden":"/play")+"?recover="+day+"&task="+task.id;
+            } else {
+              const subject=task.focusSubject||task.assignedSubject||task.reviewSubject||"latin";
+              const safeSubject=DAILY_SUBJECTS.includes(subject)?subject:"latin";
+              const original=task.href?.startsWith("/study/") && task.href.includes("/practise")
+                ? task.href : "/study/"+safeSubject+"/practise?daily=1&year=8";
+              const url=new URL(original,window.location.origin);
+              url.searchParams.set("daily","1");
+              url.searchParams.set("recover",day);
+              url.searchParams.set("task",task.id);
+              href=url.pathname+url.search;
+            }
+            const link=document.createElement("a");
+            link.className="lux-record-recovery";
+            link.href=href;
+            link.textContent="Recover "+task.title+" →";
+            link.style.cssText="display:inline-block;margin:6px 8px 6px 0;padding:10px 12px;border-radius:10px;background:#23495b;color:white;font-size:13px";
+            link.addEventListener("click",()=>{
+              const current=store.getState();
+              const prepared=prepareUnopenedRecovery(current,day,todayKey());
+              if(prepared.created)store.setState({dailyLog:prepared.state.dailyLog});
+              if(task.id==="play-game")store.setState({recoveryPendingGame:{date:day,taskId:"play-game",startedAt:Date.now()}});
+            });
             detail.append(link);
           }
         }
@@ -3556,6 +3594,20 @@ function mountDailyRecordButton() {
   place();
   new MutationObserver(schedule).observe(document.documentElement, { childList: true, subtree: true });
   window.addEventListener("popstate", () => setTimeout(place, 80));
+}
+
+// Credit Recovery gardening only after the actual watering state changes.
+if(typeof window!=="undefined"){
+  let lastWatered=store.getState().wateredOn;
+  store.subscribe(()=>{
+    const state=store.getState(),before=lastWatered;
+    lastWatered=state.wateredOn;
+    const params=new URLSearchParams(window.location.search),date=params.get("recover");
+    if(params.get("task")!=="tend-garden" || !canRecover(todayKey(),date) ||
+       state.wateredOn!==todayKey() || before===todayKey())return;
+    const outcome=recordRecoveryAnswer(state,{today:todayKey(),date,taskId:"tend-garden",questionId:"garden-water:"+todayKey(),correct:true});
+    if(outcome.accepted)store.setState({recoveryTaskByDay:outcome.state.recoveryTaskByDay,dailyLog:outcome.state.dailyLog});
+  });
 }
 
 mountDailyRecord();
