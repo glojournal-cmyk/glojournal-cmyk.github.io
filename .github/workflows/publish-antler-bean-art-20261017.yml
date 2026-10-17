@@ -1,0 +1,54 @@
+name: Install Antler Bean LV5-10 transparent sprites
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-antler-bean-art-20261017.yml'
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fetch verified full-body Antler Bean sprites
+        shell: bash
+        env:
+          SRC5: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:fcdd974e-2728-4113-b7ad-c9f83b3b5c02"
+          SRC6: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:f21c0c92-b645-4152-a07c-7c075b66aec2"
+          SRC7: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:5a1f89d5-2598-4caf-b740-4ea2fbb74ffd"
+          SRC8: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:7bb6cc1f-5071-474d-94d2-af4e86f1071d"
+          SRC9: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:d0c0a093-6474-47e0-aa66-82f3cd1d9a9a"
+          SRC10: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:dfa23a13-6e77-4307-a075-86690760b9b9"
+        run: |
+          set -euo pipefail
+          mkdir -p pet/art-antler-bean-20261017
+          for level in 5 6 7 8 9 10; do
+            name="SRC${level}"
+            file="pet/art-antler-bean-20261017/level-${level}.png"
+            curl --location --fail --show-error --silent --retry 3 --retry-delay 4 --max-time 120 "${!name}" --output "${file}"
+            test "$(file --brief --mime-type "${file}")" = "image/png"
+            LV="${level}" FILE="${file}" node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const file=process.env.FILE,lv=process.env.LV;
+          const buf=fs.readFileSync(file);
+          if(buf.subarray(0,8).toString('hex')!=='89504e470d0a1a0a')throw Error('Invalid PNG '+lv);
+          const width=buf.readUInt32BE(16),height=buf.readUInt32BE(20),type=buf[25];
+          if(buf.length<50000||width<950||height<950||![4,6].includes(type))throw Error('Insufficient full-resolution alpha sprite at level '+lv);
+          console.log('Antler Bean LV'+lv+': '+width+'x'+height+' alpha PNG; '+buf.length+' bytes');
+          NODE
+          done
+      - name: Write original images to repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/art-antler-bean-20261017/level-{5,6,7,8,9,10}.png
+          if git diff --cached --quiet; then echo "Already installed"; exit 0; fi
+          git commit -m "Install Antler Bean transparent full-body evolution sprites"
+          git pull --rebase origin main
+          git push origin HEAD:main
