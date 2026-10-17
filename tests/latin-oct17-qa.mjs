@@ -12,5 +12,8 @@ const q=b.questions.find(q=>q.modelAnswer==='Romani vias aedificare poterant.');
 const grammar=b.questions.find(q=>q.modelAnswer==='laeta'&&q.prompt.includes('feminine ablative singular'));assert(modelMatch(grammar,'laetā'));assert(!modelMatch(grammar,'laetae'));
 for(const text of ['Neuter plural nominative or accusative.','Neuter singular dative or ablative.','Masculine nominative plural or masculine genitive singular.'])assert(b.questions.some(q=>q.modelAnswer===text));
 assert.equal(b.questions.filter(q=>q.topicId==='vocabulary'&&q.type==='vocabulary').length,24);assert.equal(b.questions.filter(q=>q.topicId==='support').length,92);
+const journeyQuestion=b.questions.find(q=>q.answer.allowLatinWordOrder&&q.modelAnswer.startsWith('potestisne'));assert(modelMatch(journeyQuestion,'currere in agros cum Troianis potestisne'));assert(!modelMatch(journeyQuestion,'potestisne cum agros in Troianis currere'));
+const contrast=b.questions.find(q=>q.modelAnswer==='amici eratis sed nunc semper pugnatis.');assert(modelMatch(contrast,'eratis amici sed semper nunc pugnatis'));assert(!modelMatch(contrast,'amici pugnatis sed nunc semper eratis'));
+const money=b.questions.find(q=>q.modelAnswer==='cum multa pecunia');assert(modelMatch(money,'multa cum pecunia'));assert(!modelMatch(money,'multa pecunia cum'));
 const sailor=b.questions.find(q=>q.prompt==='Give one English meaning of nauta.');assert(modelMatch(sailor,'a sailor'));assert(!modelMatch(sailor,'not a sailor'));
 console.log('LATIN_OCT17_QA: 274 complete questions; 500 balanced non-repeating selections; all models, normalization, Latin word order, ambiguity and negative cases passed.');

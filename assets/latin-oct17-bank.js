@@ -4,7 +4,12 @@ export function modelMatch(q,value){
  const a=canon(value);if(!a)return false;
  return q.answer.accepted.some(v=>{
   const b=canon(v);if(a===b)return true;
-  return q.answer.allowLatinWordOrder&&a.split(' ').sort().join(' ')===b.split(' ').sort().join(' ');
+  if(!q.answer.allowLatinWordOrder)return false;
+  // Preserve preposition phrases and clause membership before allowing free word order.
+  for(const phrase of ['cum troianis','in agros'])if(b.includes(phrase)&&!a.includes(phrase))return false;
+  if(b==='cum multa pecunia'&&a.split(' ').indexOf('cum')>a.split(' ').indexOf('pecunia'))return false;
+  const clauses=s=>s.split(/\b(sed|et)\b/).map(part=>part.trim().split(' ').sort().join(' ')).join('|');
+  return clauses(a)===clauses(b);
  });
 }
 export function selectQuestions(bank,topic,size,previous=[],random=Math.random){
