@@ -1,6 +1,6 @@
 /* Recovery Quest UI: read-only display; the app records eligible answers separately. */
 import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261017-unopened-recovery1&ux=20261013-corrections2";
-import {eligibleRecoveryTasks,prepareUnopenedRecovery,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js";
+import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer} from "./recovery-task-ledger-20261017.js";
 const DAY_MS=86400000;
 const dateAt=(d,n)=>new Date(Date.parse(d+"T12:00:00Z")+n*DAY_MS).toISOString().slice(0,10);
 function recoveryRows(state){
@@ -118,7 +118,21 @@ function mount(){
        if(!task.done){
          const url=taskLink(task,date);
          if(url){const a=document.createElement('a');a.href=url;a.textContent='Practise recovery →';item.append(a)}
-         else{const unavailable=document.createElement('small');unavailable.textContent='Recovery verification for this activity is not yet connected';item.append(unavailable)}
+         else if(task.id==='tend-garden'){
+           const water=document.createElement('button');water.type='button';water.textContent='Water recovery seedling 🌱';
+           water.addEventListener('click',()=>{
+             const current=store.getState();
+             const outcome=recordRecoveryAnswer(current,{today:todayKey(),date,taskId:'tend-garden',questionId:'water:'+date,correct:true});
+             if(outcome.accepted)store.setState({recoveryTaskByDay:outcome.state.recoveryTaskByDay,...(outcome.completed?{dailyLog:outcome.state.dailyLog}:{})});
+           });item.append(water);
+         }else if(task.id==='play-game'){
+           const game=document.createElement('button');game.type='button';game.textContent='Play a game to recover →';
+           game.addEventListener('click',()=>{
+             const current=store.getState();
+             store.setState({recoveryPendingGame:{date,taskId:'play-game',startedAt:Date.now()}});
+             location.href='/play';
+           });item.append(game);
+         }else{const unavailable=document.createElement('small');unavailable.textContent='Choose a question-based task to continue recovery';item.append(unavailable)}
        }
        list.append(item);
      }
