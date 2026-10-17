@@ -13,7 +13,7 @@ function recoveryRows(state){
    const rec=state.recoveryVocabByDay?.[date]?.[subject]||{};
    if(Number(task.progress)>=Number(task.target)&&!rec.completed&&!task.recovered)continue;
    const base=Math.max(0,Math.min(30,Number(rec.originalCount ?? task.progress)||0));
-   const target=Number(rec.totalNeeded)||30-base+5;
+   const target=Math.max(1,30-base);
    const current=Math.max(0,Object.values(rec.items||{}).filter(Boolean).length);
    const credited=state.dailyLog?.[date]?.tasks?.some(t=>t.id===subject+'-vocab' && (t.done || Number(t.progress)>=Number(t.target)));
    out.push({date,subject,base,target,current,credited:!!credited,done:rec.completed===true||current>=target,
@@ -116,7 +116,9 @@ function mount(){
        const proof=state.recoveryTaskByDay?.[date]?.[task.id];
        const current=Object.values(proof?.items||{}).filter(Boolean).length;
        const status=document.createElement('span');
-       status.textContent=task.done?'Completed ✓ · credited to '+date:current+' correct recovery answers · '+task.remaining+' original answers remaining';
+       const needed=Math.max(1,Number(task.target)-Number(proof?.originalCount??task.progress));
+       const remaining=Math.max(0,needed-current);
+       status.textContent=task.done?'Completed ✓ · credited to '+date:current+' correct recovery answers · '+remaining+' still needed';
        item.append(status);
        if(!task.done){
          const url=taskLink(task,date);
