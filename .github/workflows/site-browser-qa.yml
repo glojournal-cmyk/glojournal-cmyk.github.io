@@ -31,8 +31,10 @@ jobs:
       - run: npx playwright install --with-deps chromium webkit
       - name: Verify October Latin questions and marking in Chromium and iPad WebKit
         run: node tests/latin-oct17-browser.mjs
-      - name: Check every published feature entry in Chromium and iPad WebKit
-        run: node tests/site-browser-qa.mjs
+      - name: Check this checkout in Chromium and iPad WebKit
+        run: |
+          python3 -m http.server 8777 --bind 127.0.0.1 >/tmp/whole-site-qa-http.log 2>&1 &
+          QA_BASE_URL=http://127.0.0.1:8777 node tests/site-browser-qa.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
