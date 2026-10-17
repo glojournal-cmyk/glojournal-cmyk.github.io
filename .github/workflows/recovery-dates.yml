@@ -1,10 +1,10 @@
 name: Recovery dates and compact backup QA
 on:
   pull_request:
-    paths: ['assets/quest-recovery-20261011.js', 'assets/recovery-*20261012.js', 'assets/daily-progress-save.js', 'assets/quiz-session-*', 'assets/study._subject.practise-*', 'tests/recovery-dates*', '.github/workflows/recovery-dates.yml']
+    paths: ['assets/quest-recovery-20261011.js', 'assets/recovery-*20261012.js', 'assets/daily-progress-save.js', 'assets/quiz-session-*', 'assets/study._subject.practise-*', 'tests/recovery-dates*', 'tests/recovery-all-tasks-browser.mjs', '.github/workflows/recovery-dates.yml']
   push:
     branches: [main]
-    paths: ['assets/quest-recovery-20261011.js', 'assets/recovery-*20261012.js', 'assets/daily-progress-save.js', 'assets/quiz-session-*', 'assets/study._subject.practise-*', 'tests/recovery-dates*', '.github/workflows/recovery-dates.yml']
+    paths: ['assets/quest-recovery-20261011.js', 'assets/recovery-*20261012.js', 'assets/daily-progress-save.js', 'assets/quiz-session-*', 'assets/study._subject.practise-*', 'tests/recovery-dates*', 'tests/recovery-all-tasks-browser.mjs', '.github/workflows/recovery-dates.yml']
 permissions:
   contents: read
 jobs:
@@ -27,3 +27,4 @@ jobs:
       - run: npm install --no-save playwright
       - run: npx playwright install --with-deps chromium webkit
       - run: node tests/recovery-dates-browser.mjs
+      - run: node tests/recovery-all-tasks-browser.mjs
