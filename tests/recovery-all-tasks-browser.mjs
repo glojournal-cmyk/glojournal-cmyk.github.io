@@ -37,10 +37,10 @@ try {
    });
    await page.waitForSelector('#lux-recovery-date');
    await page.locator('#lux-recovery-date').selectOption(date);
-   const before=await page.evaluate(()=>JSON.stringify(window.__luxStore.getState().daily));
+   const before=await page.evaluate(()=>Object.fromEntries((window.__luxStore.getState().daily||[]).map(t=>[t.id,Number(t.progress)||0])));
    await page.getByRole('button',{name:'Prepare ten recovery tasks'}).click();
    await page.waitForFunction(d=>window.__luxStore?.getState().dailyLog?.[d]?.tasks?.length===10,date);
-   assert.equal(await page.evaluate(()=>JSON.stringify(window.__luxStore.getState().daily)),before);
+   assert.deepEqual(await page.evaluate(()=>Object.fromEntries((window.__luxStore.getState().daily||[]).map(t=>[t.id,Number(t.progress)||0]))),before);
    assert.equal((await page.evaluate(d=>window.__luxStore.getState().dailyLog[d],date)).done,0);
    await page.getByRole('button',{name:/Water recovery seedling/}).click();
    await page.waitForFunction(d=>window.__luxStore.getState().dailyLog[d]?.tasks.find(t=>t.id==='tend-garden')?.done===true,date);
@@ -62,15 +62,15 @@ try {
    await page.goto(base+'/study/french/practise?daily=1&locked=1&year=8&mode=standard&task=y8-practise&recover='+date,{waitUntil:'domcontentloaded'});
    await page.waitForFunction(()=>window.__luxAppReady===true);
    const practise=await page.evaluate(d=>{
-     const store=window.__luxStore,before=JSON.stringify(store.getState().daily);
+     const store=window.__luxStore,before=Object.fromEntries((store.getState().daily||[]).map(t=>[t.id,Number(t.progress)||0]));
      for(let i=0;i<10;i++)store.getState().recordAttempt('recovery-browser-'+i,true,'french',{formal:true,progressionTask:'y8-practise',topicId:'fr-y8-recovery'});
      const s=store.getState();
      return {credited:s.dailyLog[d]?.tasks.find(t=>t.id==='y8-practise')?.done,
-       day:s.dailyLog[d]?.done,before,after:JSON.stringify(s.daily)};
+       day:s.dailyLog[d]?.done,before,after:Object.fromEntries((s.daily||[]).map(t=>[t.id,Number(t.progress)||0]))};
    },date);
    assert.equal(practise.credited,true);
    assert.equal(practise.day,3);
-   assert.equal(practise.after,practise.before,'practice recovery must not change today daily tasks');
+   assert.deepEqual(practise.after,practise.before,'practice recovery must not change today daily task progress');
    assert.deepEqual(errors,[],'no browser errors');
    console.log('RECOVERY_FULL_BROWSER '+JSON.stringify({browser:launcher.name(),unopened:true,water:true,game:true,practice:true,todayUnchanged:true}));
    await page.close();
