@@ -3389,6 +3389,11 @@ function mountDailyRecord() {
               url.searchParams.set("daily","1");
               url.searchParams.set("recover",day);
               url.searchParams.set("task",task.id);
+              const assignedTopic=task.focusTopic||task.assignedTopic||task.reviewTopic;
+              if(assignedTopic)url.searchParams.set("topic",assignedTopic);
+              const assignedYear=Number(String(assignedTopic||"").match(/-y(\d+)-/)?.[1]);
+              if(assignedYear)url.searchParams.set("year",String(assignedYear));
+              if(task.id==="study-session"||task.id==="adaptive-focus")url.searchParams.set("mode","standard");
               href=url.pathname+url.search;
             }
             const link=document.createElement("a");
