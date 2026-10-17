@@ -1138,10 +1138,10 @@ function topicAttemptsToday(state, topicId) {
   if (!topicId) return 0;
   const day = state.today || todayKey();
   const stat = state.topicStats?.[topicId] || {};
-  const recent = (stat.recentOutcomes || []).filter((row) => row?.date === day).length;
+  const recent = (stat.recentOutcomes || []).filter((row) => row?.date === day && !row?.recoveryFor).length;
   // Recover formal work saved before the shared-store fix from each question's review date.
   const legacyReviews = Object.entries(state.reviews || {}).filter(([id, review]) =>
-    review?.last === day && !review?.repair && !review?.mistakeOnly &&
+    review?.last === day && !review?.repair && !review?.mistakeOnly && !review?.recoveryFor &&
     (review.topicId === topicId || id.startsWith(topicId + "-") || id.startsWith(topicId + ":"))).length;
   return Math.max(recent, legacyReviews, Number(state.dailyTopicAttemptsByDay?.[day]?.[topicId]) || 0);
 }
@@ -2226,8 +2226,12 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
 
   // Keep core XP/review scheduling, but stop its old streak-only topic mastery from running.
   const inRecovery = typeof window !== "undefined" && new URLSearchParams(window.location.search).has("recover");
+  const recoverDate = inRecovery ? new URLSearchParams(window.location.search).get("recover") : null;
   const coreMeta = { ...meta, topicId: undefined, excludeGeneralDaily: inRecovery };
   const result = originalRecordAttempt(questionId, correct, subject, coreMeta);
+  // Core question learning may still earn ordinary XP, but dated catch-up
+  // answers must not increase today's Study or Subject Focus task credit.
+  if(inRecovery)store.setState({questionsToday:before.questionsToday,daily:before.daily});
   const after = store.getState();
   // Recover only an explicitly assigned, dated practice task with a verified
   // answer event. Never infer a recovered task from a generic page visit.
@@ -2305,7 +2309,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const nextState = topicState(attempted, correctCount, productionCorrect);
   const recentOutcomes = isRepair
     ? [...(current.recentOutcomes || [])]
-    : [...(current.recentOutcomes || []), { date: todayKey(), correct: !!correct }].slice(-20);
+    : [...(current.recentOutcomes || []), { date: todayKey(), correct: !!correct, recoveryFor: recoverDate || null }].slice(-20);
   const nextTopic = {
     ...current,
     attempted,
@@ -2327,7 +2331,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     lastAttempt: todayKey(),
   };
   const reviews = { ...(after.reviews || {}) };
-  if (review) reviews[questionId] = { ...review, wrong: !correct, lastWrong: !correct ? todayKey() : before.reviews?.[questionId]?.lastWrong, lastAt: new Date().toISOString(), subject: resolved.subject, topicId: resolved.topicId, skills: resolved.skills || [], production: !!production, repair: isRepair, errorType: errorType || review.errorType || null, lastErrorKind: !correct && !isRepair ? errorKind || "wrong" : before.reviews?.[questionId]?.lastErrorKind };
+  if (review) reviews[questionId] = { ...review, wrong: !correct, lastWrong: !correct ? todayKey() : before.reviews?.[questionId]?.lastWrong, lastAt: new Date().toISOString(), subject: resolved.subject, topicId: resolved.topicId, skills: resolved.skills || [], production: !!production, repair: isRepair, recoveryFor: recoverDate || null, errorType: errorType || review.errorType || null, lastErrorKind: !correct && !isRepair ? errorKind || "wrong" : before.reviews?.[questionId]?.lastErrorKind };
   // A wrong formal answer must never become due again on the same day.
   // Treat the first miss as stage 1: retry after 2 days; a later success then moves to 7 days.
   if (!correct && !isRepair && reviews[questionId]) {
