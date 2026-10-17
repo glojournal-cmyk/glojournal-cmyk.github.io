@@ -1,5 +1,5 @@
 import "./player-ux-20261013.js?ux=20261013-corrections2";
-import {recordRecoveryAnswer,canRecover} from "./recovery-task-ledger-20261017.js";
+import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
@@ -2212,12 +2212,12 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   if (inRecovery && !meta?.repair) {
     const params = new URLSearchParams(window.location.search);
     const date = params.get("recover"), taskId = params.get("task");
-    const supported = ["y8-practise","y8-mastery","year8-long-review","adaptive-focus","study-session"];
-    const evidenceTask = meta?.progressionTask || null;
+    const supported = ["mistake-review","y8-practise","y8-mastery","year8-long-review","adaptive-focus","study-session"];
+    const evidenceTask = taskId==="mistake-review" ? (meta?.repair ? null : "mistake-review") : (meta?.progressionTask || null);
     const actual = before.dailyLog?.[date]?.tasks?.find(t=>t.id===taskId);
     const subjectMatches = !actual?.focusSubject || actual.focusSubject === (resolved.subject || subject);
     const topicMatches = !actual?.focusTopic || actual.focusTopic === resolved.topicId;
-    if (supported.includes(taskId) && taskId===evidenceTask && subjectMatches && topicMatches && canRecover(todayKey(),date)) {
+    if (actual && supported.includes(taskId) && taskId===evidenceTask && subjectMatches && topicMatches && canRecover(todayKey(),date)) {
       const outcome=recordRecoveryAnswer(store.getState(),{
         today:todayKey(),date,taskId,questionId,correct:!!correct
       });
@@ -2245,7 +2245,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     if (resolved.topicId && (meta.dailyVocab || meta.format === "dictation")) reviews[questionId] = {wrong: !correct, last: todayKey(), lastWrong: !correct ? todayKey() : before.reviews?.[questionId]?.lastWrong, subject: resolved.subject || subject, topicId: resolved.topicId, due: null, mistakeOnly: true, repair: false, lastErrorKind: !correct ? meta.errorKind || "wrong" : before.reviews?.[questionId]?.lastErrorKind};
     const recentQuestionIds = [...(before.recentQuestionIds || []).filter((id) => id !== questionId), questionId].slice(-60);
     store.setState({ reviews, recentQuestionIds, lastSubject: resolved.subject || subject });
-    if (typeof window !== "undefined" && new URLSearchParams(window.location.search).get("task") === "mistake-review") {
+    if (!inRecovery && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("task") === "mistake-review") {
       store.setState({reviews:correct?retainMistakeReview(store.getState().reviews,questionId,todayKey()):store.getState().reviews,daily:(store.getState().daily||[]).map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
     }
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
@@ -2349,7 +2349,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   );
   const attemptDay = todayKey();
   const dailyTopicAttemptsByDay = { ...(after.dailyTopicAttemptsByDay || {}) };
-  if (!isRepair) {
+  if (!isRepair && !inRecovery) {
     const dayCounts = { ...(dailyTopicAttemptsByDay[attemptDay] || {}) };
     dayCounts[resolved.topicId] = Math.max(
       Number(dayCounts[resolved.topicId]) || 0,
@@ -2358,7 +2358,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     dailyTopicAttemptsByDay[attemptDay] = dayCounts;
     for (const oldDay of Object.keys(dailyTopicAttemptsByDay).sort().slice(0, -45)) delete dailyTopicAttemptsByDay[oldDay];
   }
-  const dailyCurriculumEvidenceByDay=creditCurriculumAttempt(after.dailyCurriculumEvidenceByDay,{
+  const dailyCurriculumEvidenceByDay=inRecovery ? (after.dailyCurriculumEvidenceByDay||{}) : creditCurriculumAttempt(after.dailyCurriculumEvidenceByDay,{
     day:attemptDay,task:meta.progressionTask,mode:meta.progressionMode,topicId:resolved.topicId,questionId,
     formal:meta.formal,repair:isRepair,
   });
@@ -2381,7 +2381,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     awardMasteryRetention(resolved.topicId, resolved.subject || subject, masteryTitle);
   }
 
-  if (!isRepair && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("task") === "mistake-review") {
+  if (!isRepair && !inRecovery && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("task") === "mistake-review") {
     const currentDaily=store.getState().daily||[];
     store.setState({reviews:correct?retainMistakeReview(store.getState().reviews,questionId,todayKey()):store.getState().reviews,daily:currentDaily.map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
   }
@@ -3054,7 +3054,7 @@ function mountDailyRecord() {
     for (let i = 29; i >= 0; i -= 1) days.push(shiftDay(today, -i));
     if (!selected || !days.includes(selected)) selected = today;
     // Read completed Recovery proof even if an older dailyLog snapshot remains.
-    const log = { ...reconcileRecoveredVocabHistory(state, state.dailyLog || {}) };
+    const log = { ...reconcileRecoveredTaskHistory(state, reconcileRecoveredVocabHistory(state, state.dailyLog || {})) };
     const live = compactDailyTasks(state.daily);
     if (live.length) {
       const done = live.filter((task) => task.done).length;
