@@ -81,12 +81,31 @@ function mount(){
    // Only link answer-based tasks whose practice route can carry the
    // original task ID and recovery date. No fake credit for garden/game.
    const query=new URLSearchParams({daily:'1',locked:'1',year:'8',task:task.id,recover:date});
-   if(task.id==='mistake-review')return '/study/french/practise?'+query;
+   const stages=['y8-mastery','year8-long-review'];
+   const proof=state.recoveryTaskByDay?.[date]?.[task.id];
+   const evidence=Object.keys(proof?.items||{}).length;
+   const baseline=Math.max(0,Number(proof?.originalCount??task.progress)||0);
+   const nextMode=stages.includes(task.id)
+     ? (baseline+evidence>=10?'year8long':'standard') : 'standard';
+   // Use the missed day's SAVED assignment, not today's re-assigned subject.
+   // Inferring from its title routed Science and Latin answers into French.
+   if(typeof task.href==='string'&&task.href.startsWith('/study/')){
+     const url=new URL(task.href,location.origin);
+     if(/^\/study\/(french|latin|biology|chemistry|physics)\/practise\/?$/.test(url.pathname)){
+       for(const [key,value] of query)url.searchParams.set(key,value);
+       if(stages.includes(task.id))url.searchParams.set('mode',nextMode);
+       return url.pathname+'?'+url.searchParams.toString();
+     }
+   }
+   const allowed=['french','latin','biology','chemistry','physics'];
+   if(task.id==='mistake-review'){
+     const error=Object.values(state.reviews||{}).find(r=>r?.wrong===true&&allowed.includes(r.subject));
+     return '/study/'+(error?.subject||'french')+'/practise?'+query;
+   }
    if(['y8-practise','y8-mastery','year8-long-review','adaptive-focus','study-session'].includes(task.id)){
-     const allowed=['french','latin','biology','chemistry','physics'];
      const inferred=allowed.find(subject=>String(task.title||'').toLowerCase().includes(subject))||'french';
      const subject=allowed.find(key=>key===task.focusSubject||key===task.assignedSubject||key===task.reviewSubject)||inferred;
-     query.set('mode',task.id==='y8-mastery'||task.id==='year8-long-review'?'year8long':'standard');
+     query.set('mode',nextMode);
      const topic=task.focusTopic||task.assignedTopic||task.reviewTopic;
      if(topic)query.set('topic',topic);
      return '/study/'+subject+'/practise?'+query;
