@@ -1,0 +1,51 @@
+name: Install Antler Bean LV5-10 v2 character art
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/install-antler-bean-v2-20261017.yml']
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Download new standalone full-body character sprites
+        shell: bash
+        env:
+          SRC5: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:27faaee5-79df-495f-acb1-d8547540d049"
+          SRC6: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:19cd8c10-2df7-479e-b814-9d747842497b"
+          SRC7: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:65ccdd41-c499-4657-8804-a25de22eb9c8"
+          SRC8: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:bb8f508c-facf-46c4-8fb6-7ef5ebf1f039"
+          SRC9: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:1c7efe70-b732-4f2f-bd7b-c4df385c5782"
+          SRC10: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:4ceee525-f069-480b-b698-0e98c2cfee81"
+        run: |
+          set -euo pipefail
+          mkdir -p pet/art-antler-bean-v2-20261017
+          for level in 5 6 7 8 9 10; do
+            source="SRC${level}"
+            target="pet/art-antler-bean-v2-20261017/level-${level}.png"
+            curl --fail --location --silent --show-error --retry 3 --max-time 140 "${!source}" -o "${target}"
+            test "$(file --brief --mime-type "${target}")" = "image/png"
+            FILE="${target}" LV="${level}" node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const b=fs.readFileSync(process.env.FILE), lv=process.env.LV;
+          if(b.subarray(0,8).toString('hex')!=='89504e470d0a1a0a')throw Error('Invalid PNG '+lv);
+          const w=b.readUInt32BE(16),h=b.readUInt32BE(20),type=b[25];
+          if(b.length<60000||w<900||h<900||![4,6].includes(type))throw Error('Unacceptable transparent sprite '+lv);
+          console.log('Ready level '+lv+' '+w+'x'+h+' '+b.length+' bytes');
+          NODE
+          done
+      - name: Store verified sprites
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/art-antler-bean-v2-20261017/level-{5,6,7,8,9,10}.png
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Install refined Antler Bean full-body v2 art"
+          git pull --rebase origin main
+          git push origin HEAD:main
