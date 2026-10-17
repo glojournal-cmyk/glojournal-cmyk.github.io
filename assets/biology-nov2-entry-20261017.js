@@ -2,7 +2,7 @@
   if(!/^\/study\/biology(?:\/|$)/.test(location.pathname)||location.pathname.startsWith('/study/biology/nov2'))return;
   const params=new URLSearchParams(location.search);
   if(params.has('daily')||params.has('dailyId')||params.has('task')||params.has('recover'))return;
-  if(!document.querySelector('link[data-bio-nov2-style]')){const css=document.createElement('link');css.rel='stylesheet';css.href='/assets/biology-nov2-20261017.css?v=1';css.dataset.bioNov2Style='';document.head.append(css);}
+  if(!document.querySelector('link[data-bio-nov2-style]')){const css=document.createElement('link');css.rel='stylesheet';css.href='/assets/biology-nov2-20261017.css?v=1&ux=20261013-corrections2';css.dataset.bioNov2Style='';document.head.append(css);}
   function add(){
     const main=document.querySelector('main');if(!main)return;
     let entry=document.getElementById('biology-nov2-entry');
