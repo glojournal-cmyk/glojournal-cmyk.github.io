@@ -1592,12 +1592,27 @@ function normalizeState() {
       }
     }
     const id = entry.dailyTaskId;
-    if (recoveredIds.has(id)) {
-      const existing = recoveredPractice[date] || {}, old = existing[id] || {};
+    const creditedIds = recoveredIds.has(id) ? [id] : [];
+    // Focused study (10) and Subject focus (4) overlap: a marked formal
+    // answer can satisfy BOTH if it matches each historical assignment.
+    // Also replay saved Recovery evidence from before this fix without
+    // asking a learner to redo answers already recorded on the iPad.
+    if (id === "study-session" || id === "adaptive-focus") {
+      const other = id === "study-session" ? "adaptive-focus" : "study-session";
+      creditedIds.push(other);
+    }
+    for (const creditId of creditedIds) {
+      const task = state.dailyLog?.[date]?.tasks?.find(t => t.id === creditId);
+      if (!task || Number(task.target) <= 0 || (creditId === "mistake-review" && !entry.correct)) continue;
+      const requiredSubject = task.focusSubject || task.assignedSubject || task.reviewSubject;
+      const requiredTopic = task.focusTopic || task.assignedTopic || task.reviewTopic;
+      if (requiredSubject && requiredSubject !== entry.subject) continue;
+      if (requiredTopic && requiredTopic !== entry.topicId) continue;
+      const existing = recoveredPractice[date] || {}, old = existing[creditId] || {};
       const items = { ...(old.items || {}) };
       if (!(entry.questionId in items) || (entry.correct && !items[entry.questionId])) {
         items[entry.questionId] = !!entry.correct;
-        recoveredPractice[date] = { ...existing,[id]:{...old,items} };
+        recoveredPractice[date] = { ...existing,[creditId]:{...old,items} };
         replayChanged = true;
       }
     }
@@ -2360,12 +2375,26 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     const subjectMatches = !assignedSubject || assignedSubject === (resolved.subject || subject);
     const topicMatches = !assignedTopic || assignedTopic === resolved.topicId;
     if (actual && supported.includes(taskId) && taskId===evidenceTask && subjectMatches && topicMatches && canRecover(todayKey(),date)) {
-      const outcome=recordRecoveryAnswer(store.getState(),{
-        today:todayKey(),date,taskId,questionId,correct:!!correct
-      });
-      if(outcome.accepted)store.setState({
-        recoveryTaskByDay:outcome.state.recoveryTaskByDay,
-        ...(outcome.completed?{dailyLog:outcome.state.dailyLog}:{})
+      // Study and Subject focus must both count the SAME genuine, matching
+      // answers. Do not force another 4 questions on top of 10 completed.
+      const creditIds = (taskId==="study-session" || taskId==="adaptive-focus")
+        ? ["study-session","adaptive-focus"] : [taskId];
+      let nextState=store.getState(),accepted=false;
+      for(const id of creditIds){
+        const candidate=nextState.dailyLog?.[date]?.tasks?.find(t=>t.id===id);
+        if(!candidate)continue;
+        const candidateSubject=candidate.focusSubject||candidate.assignedSubject||candidate.reviewSubject;
+        const candidateTopic=candidate.focusTopic||candidate.assignedTopic||candidate.reviewTopic;
+        if(candidateSubject && candidateSubject!==(resolved.subject||subject))continue;
+        if(candidateTopic && candidateTopic!==resolved.topicId)continue;
+        const outcome=recordRecoveryAnswer(nextState,{
+          today:todayKey(),date,taskId:id,questionId,correct:!!correct
+        });
+        if(outcome.accepted){nextState=outcome.state;accepted=true;}
+      }
+      if(accepted)store.setState({
+        recoveryTaskByDay:nextState.recoveryTaskByDay,
+        dailyLog:nextState.dailyLog
       });
     }
   }
