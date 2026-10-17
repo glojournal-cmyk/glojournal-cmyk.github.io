@@ -1,0 +1,51 @@
+name: Install Antler Bean V3 full-body sprites
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/install-antler-bean-v3-20261017.yml'
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Download six individually approved transparent sprites
+        shell: bash
+        env:
+          LV5: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:ca4f993f-b9ee-4448-ada2-16315b558880"
+          LV6: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:a40b836e-e36a-4405-81b1-c769d14734e3"
+          LV7: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:76a22738-8d8e-4802-948d-06b33a706e98"
+          LV8: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:3461dd7e-7ca6-4b6a-b390-0478308e177e"
+          LV9: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:4c0e371e-7dd0-4280-be73-95d0481b0451"
+          LV10: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:89770cdd-fea1-422c-b86d-602206914bb7"
+        run: |
+          set -euo pipefail
+          mkdir -p pet/art-antler-bean-v3-20261017
+          for lv in 5 6 7 8 9 10; do
+            key="LV${lv}"
+            target="pet/art-antler-bean-v3-20261017/level-${lv}.png"
+            curl --fail --location --silent --show-error --retry 3 --retry-delay 4 --max-time 120 "${!key}" -o "${target}"
+            LV="${lv}" FILE="${target}" node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const bytes=fs.readFileSync(process.env.FILE), lv=process.env.LV;
+          if(bytes.subarray(0,8).toString('hex')!=='89504e470d0a1a0a') throw Error('LV'+lv+' invalid PNG');
+          const width=bytes.readUInt32BE(16), height=bytes.readUInt32BE(20), colorType=bytes[25];
+          if(bytes.length<80000||width<1250||height<1500||![4,6].includes(colorType)) throw Error('LV'+lv+' image resolution/alpha invalid');
+          console.log('LV'+lv, width+'x'+height, bytes.length+' bytes','alpha:',colorType);
+          NODE
+          done
+      - name: Commit sprites to main after validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/art-antler-bean-v3-20261017/level-{5,6,7,8,9,10}.png
+          if git diff --cached --quiet; then echo "Already installed"; exit 0; fi
+          git commit -m "Add V3 Antler Bean shape-changing LV5-10 art"
+          git pull --rebase origin main
+          git push origin HEAD:main
