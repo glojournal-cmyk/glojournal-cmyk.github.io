@@ -14,6 +14,6 @@ export const ADVANCED_FORMS = Object.freeze({
  'velvet-batling':['Moon-crowned sentinel','Radiant dusk guardian','Celestial night keeper','Mythic crescent sovereign','Eternal twilight guardian'],
  'sprig-dragon':['Crown-horn dragon','Radiant vine guardian','Celestial canopy dragon','Mythic forest dragon','Eternal verdant sovereign'],
  'star-toadlet':['Starlit marsh keeper','Radiant star guardian','Celestial toad sovereign','Mythic constellation keeper','Eternal star sovereign'],
- 'snow-owl':['Moon-crowned owl','Radiant feather guardian','Celestial moonveil keeper','Mythic white-wing sovereign','Eternal moonveil guardian'],
+ 'snow-owl':['Starlit guardian beast','Lunar scholarling','Moonwing knight','Nocturne spirit maiden','Eternal nocturne queen'],
  'night-spider':['Jewel-crowned weaver','Radiant web guardian','Celestial silver weaver','Mythic nocturne keeper','Eternal web sovereign']
 });
