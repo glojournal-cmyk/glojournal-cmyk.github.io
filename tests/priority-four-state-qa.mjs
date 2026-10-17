@@ -23,5 +23,15 @@ const tracker=fs.readFileSync('assessment/app-v2.js','utf8');
 const block=tracker.slice(tracker.indexOf('const SCHOOL_ASSESSMENTS='),tracker.indexOf('function tracker()'));
 await import('../assets/school-revision-data-20261004.js');
 const schools=new Function(block+';return SCHOOL_ASSESSMENTS;')();
-assert.equal(schools.length,3);const schoolIds=new Set(JSON.parse(fs.readFileSync('content/school-update-20260926/delta.json','utf8')).topics.map(t=>t.topicId));for(const x of schools)for(const id of x.topics)assert.ok(fs.existsSync('content/topics/'+id+'.json')||schoolIds.has(id),id);
+assert.equal(schools.length,4);
+assert.equal(schools.find(x=>x.paperId==='biology-nov2').date,'2026-11-02');
+assert.equal(schools.find(x=>x.paperId==='biology-cell-structure').date,'2026-11-16');
+const schoolIds=new Set(JSON.parse(fs.readFileSync('content/school-update-20260926/delta.json','utf8')).topics.map(t=>t.topicId));
+for(const x of schools)for(const id of x.topics){
+  if(x.paperId==='biology-nov2'){
+    const group=x.revisionTopics.find(t=>t.id===id);
+    const bank=JSON.parse(fs.readFileSync('assessment/biology-nov2-20261017.json'));
+    assert(bank.questions.some(q=>group.groups.includes(q.topic)),id);
+  }else assert.ok(fs.existsSync('content/topics/'+id+'.json')||schoolIds.has(id),id);
+}
 console.log('Priority four state QA passed: first-day mistakes, seven-day follow-up, learned-only vocabulary, vault backup hooks (covered by dedicated async regression), and every tracker topic exists.');
