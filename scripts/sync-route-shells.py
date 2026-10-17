@@ -48,6 +48,7 @@ standalone = {
     "progress/weekly/index.html", "pet/index.html", "assessment/index.html",
     "preview/index.html", "study/biology/school-notes/index.html",
     "assessment/biology-cell-structure/index.html",
+    "assessment/biology-nov2/practice/index.html",
 }
 updated = []
 for file in sorted(root.rglob("index.html")):

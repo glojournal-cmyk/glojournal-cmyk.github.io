@@ -8,11 +8,18 @@ assert.deepEqual(chemistry.topics,['chem-y9-c5','chem-y9-c3','chem-y9-c1','chem-
 assert.equal(JSON.parse(fs.readFileSync('content/topics/'+chemistry.topics[0]+'.json')).title,'Atomic structure, isotopes and electron arrangement');
 const delta=JSON.parse(fs.readFileSync('content/school-update-20260926/delta.json'));
 for(const exam of schoolAssessments)for(const topic of exam.revisionTopics){
+  if(exam.paperId==='biology-nov2'){
+    assert.ok(topic.id.startsWith('bio-nov2-'));
+    const bank=JSON.parse(fs.readFileSync('assessment/biology-nov2-20261017.json'));
+    assert.ok(bank.questions.some(q=>topic.groups.includes(q.topic)),topic.id);
+    assert.match(globalThis.LuxSchoolRevision.topicHref(exam.subject,topic.id),/^\/assessment\/biology-nov2\/practice\//);
+    continue;
+  }
   const pack=fs.existsSync('content/topics/'+topic.id+'.json')?JSON.parse(fs.readFileSync('content/topics/'+topic.id+'.json')):delta.topics.find(t=>t.topicId===topic.id);
   assert.ok(pack,topic.id);assert.equal(pack.subject,exam.subject.toLowerCase());assert.equal(pack.year,9);
 }
 const empty=buildRevisionPlan({}, {}, '2026-10-04');
-assert.deepEqual(empty.active.map(x=>x.subject),['Chemistry','French','Biology']);
+assert.deepEqual(empty.active.map(x=>x.subject),['Chemistry','French','Biology','Biology']);
 assert.equal(empty.suggestion.assessment.subject,'Chemistry');
 assert.equal(empty.suggestion.topic.state,'unchecked');
 assert.match(empty.suggestion.reason,/No topic practice/);
@@ -46,7 +53,7 @@ assert.equal(buildRevisionPlan({}, {hiddenSchoolAssessments:[chemistry.id]}, '20
 const custom={id:'custom',subject:'Maths',date:'2026-10-04',title:'Algebra',status:'Upcoming'};
 assert.equal(buildRevisionPlan({}, {tracker:[custom]}, '2026-10-04').active[0].title,'Algebra');
 assert.equal(buildRevisionPlan({}, {tracker:[{...custom,status:'Completed'}]}, '2026-10-04').past[0].phase,'completed');
-assert.equal(buildRevisionPlan({}, {tracker:[{...custom,date:'2026-02-31'},{...custom,subject:'<img>'}]}, '2026-10-04').active.length,3);
+assert.equal(buildRevisionPlan({}, {tracker:[{...custom,date:'2026-02-31'},{...custom,subject:'<img>'}]}, '2026-10-04').active.length,4);
 const app=fs.readFileSync('assessment/app-v2.js','utf8');
 assert.match(app,/revisionEvidence:d.questions.map/);
 assert.match(app,/get\('paper'\)/);

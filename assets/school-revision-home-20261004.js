@@ -1,4 +1,4 @@
-import './school-revision-data-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2';
+import './school-revision-data-20261004.js?v=20261017-bio-nov2&ux=20261013-corrections2';
 import {C as store} from './index-BLVOhKhN.js?v=20261011-vault2&ux=20261013-corrections2';
 const {buildRevisionPlan,londonDay}=globalThis.LuxSchoolRevision;
 const ID='school-revision-home';

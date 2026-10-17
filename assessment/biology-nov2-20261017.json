@@ -1,0 +1,4021 @@
+{
+  "id": "biology-nov2",
+  "subject": "biology",
+  "title": "2 November assessment · Specialised cells and RP1",
+  "assessmentDate": "2026-11-02",
+  "version": "20261017-1",
+  "sourceNote": "Original GCSE AQA-style questions based on the specialised-cell posters, Required Practical 1 student slides and WTO reviewing RP1 slides supplied 17 October 2026. School drawing criteria retained. Not the teacher’s actual test or official AQA questions. Roadmap-only topics, culturing microorganisms and detailed differentiation are excluded.",
+  "sources": [
+    "Adaptations of Specialised Cells Information Posters.pdf",
+    "required practical 1 - student(1).pptx",
+    "WTO reviewing RP1.pptx",
+    "Bio Teaching Materials 17OCT.docx"
+  ],
+  "corrections": [
+    "Smooth muscle acts in organ walls; skeletal muscle moves bones.",
+    "Cilia move mucus; goblet cells mainly secrete it.",
+    "19.5 mm / 1500 = 0.013 mm = 13 µm.",
+    "Resolution limits detail; magnification alone cannot resolve ribosomes."
+  ],
+  "questions": [
+    {
+      "id": "bio-nov2-20261017-001",
+      "conceptId": "bio-nov2-20261017-001",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Cell structures in context",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "An onion epidermal cell has a nucleus. State two functions of the nucleus.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The nucleus contains genetic material / DNA. It controls cell activities."
+        ],
+        "points": [
+          {
+            "label": "The nucleus contains genetic material / DNA.",
+            "allOf": [
+              "(genetic|dna|chromosom)"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "It controls cell activities.",
+            "allOf": [
+              "control|regulat",
+              "activit|function|process"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "The nucleus contains genetic material / DNA. It controls cell activities.",
+      "markKeywords": [
+        "The nucleus contains genetic material / DNA.",
+        "It controls cell activities."
+      ],
+      "hint": "Name a function, rather than just saying it is important.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Name a function, rather than just saying it is important."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-002",
+      "conceptId": "bio-nov2-20261017-002",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Cell structures in context",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain why cells that need a lot of energy often contain many mitochondria.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Mitochondria are the site of aerobic respiration. Respiration releases energy for cell processes."
+        ],
+        "points": [
+          {
+            "label": "Mitochondria are the site of aerobic respiration.",
+            "allOf": [
+              "mitochondri|they",
+              "aerobic respir"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Respiration releases energy for cell processes.",
+            "allOf": [
+              "releas",
+              "energy"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Mitochondria are the site of aerobic respiration. Respiration releases energy for cell processes.",
+      "markKeywords": [
+        "Mitochondria are the site of aerobic respiration.",
+        "Respiration releases energy for cell processes."
+      ],
+      "hint": "Write releases energy, rather than creates energy.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Write releases energy, rather than creates energy."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-003",
+      "conceptId": "bio-nov2-20261017-003",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Cell structures in context",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 1,
+      "prompt": "State the function of the cell membrane.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It controls movement of substances into and out of the cell."
+        ],
+        "points": [
+          {
+            "label": "It controls movement of substances into and out of the cell.",
+            "allOf": [
+              "control|regulat|selectiv",
+              "(enter|leav|movement|pass|in and out|into|out of)"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "It controls movement of substances into and out of the cell.",
+      "markKeywords": [
+        "It controls movement of substances into and out of the cell."
+      ],
+      "hint": "Do not confuse a cell membrane with a cellulose cell wall.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Do not confuse a cell membrane with a cellulose cell wall."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-004",
+      "conceptId": "bio-nov2-20261017-004",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Cell structures in context",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 1,
+      "prompt": "State the function of the cellulose cell wall in an onion cell.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It supports and strengthens the cell."
+        ],
+        "points": [
+          {
+            "label": "It supports and strengthens the cell.",
+            "allOf": [
+              "support|strength|rigid"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "It supports and strengthens the cell.",
+      "markKeywords": [
+        "It supports and strengthens the cell."
+      ],
+      "hint": "The wall supports the cell; the membrane controls movement.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "The wall supports the cell; the membrane controls movement."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-005",
+      "conceptId": "bio-nov2-20261017-005",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Cell structures in context",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 1,
+      "prompt": "Name the cell structure where proteins are synthesised.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Ribosomes."
+        ],
+        "points": [
+          {
+            "label": "Ribosomes.",
+            "allOf": [
+              "\\bribosomes?\\b"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Ribosomes.",
+      "markKeywords": [
+        "Ribosomes."
+      ],
+      "hint": "Use the organelle name.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Use the organelle name."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-006",
+      "conceptId": "bio-nov2-20261017-006",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Cell structures in context",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "An onion bulb cell has no chloroplasts. Explain why.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The bulb grows underground and receives little or no light. The cell does not carry out photosynthesis."
+        ],
+        "points": [
+          {
+            "label": "The bulb grows underground and receives little or no light.",
+            "allOf": [
+              "underground|below ground|little light|no light|dark"
+            ],
+            "allowNegative": true
+          },
+          {
+            "label": "The cell does not carry out photosynthesis.",
+            "allOf": [
+              "(not|no|cannot|doesn.t|can.t|lack).{0,35}photosynth|photosynth.{0,20}(not|no|unnecessary)"
+            ],
+            "allowNegative": true
+          }
+        ]
+      },
+      "modelAnswer": "The bulb grows underground and receives little or no light. The cell does not carry out photosynthesis.",
+      "markKeywords": [
+        "The bulb grows underground and receives little or no light.",
+        "The cell does not carry out photosynthesis."
+      ],
+      "hint": "The question refers to the bulb, not a green onion leaf.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "The question refers to the bulb, not a green onion leaf."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-007",
+      "conceptId": "bio-nov2-20261017-007",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Cell structures in context",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Name two structures present in a typical plant cell but absent from a typical animal cell.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Cellulose cell wall and chloroplasts."
+        ],
+        "points": [
+          {
+            "label": "One valid structure: cellulose cell wall, chloroplast or permanent vacuole.",
+            "distinctPool": "plant"
+          },
+          {
+            "label": "A second different structure from the same list.",
+            "distinctPool": "plant"
+          }
+        ]
+      },
+      "modelAnswer": "Cellulose cell wall and chloroplasts.",
+      "markKeywords": [
+        "One valid structure: cellulose cell wall, chloroplast or permanent vacuole.",
+        "A second different structure from the same list."
+      ],
+      "hint": "Choose two different structures: cellulose wall, chloroplasts or a large permanent vacuole.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Choose two different structures: cellulose wall, chloroplasts or a large permanent vacuole."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-008",
+      "conceptId": "bio-nov2-20261017-008",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Cell structures in context",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain why a mature mammalian red blood cell is different from a typical animal cell.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It has no nucleus. This leaves more space for haemoglobin."
+        ],
+        "points": [
+          {
+            "label": "It has no nucleus.",
+            "allOf": [
+              "(no|without|lack|absen).{0,25}nucle|nucle.{0,20}(absen|lost)"
+            ],
+            "allowNegative": true
+          },
+          {
+            "label": "This leaves more space for haemoglobin.",
+            "allOf": [
+              "(more|extra|greater).{0,25}(space|room)|space.{0,20}(more|extra)",
+              "ha?emoglobin"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "It has no nucleus. This leaves more space for haemoglobin.",
+      "markKeywords": [
+        "It has no nucleus.",
+        "This leaves more space for haemoglobin."
+      ],
+      "hint": "Specify haemoglobin rather than just saying more room for oxygen.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Specify haemoglobin rather than just saying more room for oxygen."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-009",
+      "conceptId": "bio-nov2-20261017-009",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 1,
+      "prompt": "State the function of a sperm cell.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It fertilises an egg by carrying male genetic material to it."
+        ],
+        "points": [
+          {
+            "label": "It fertilises an egg by carrying male genetic material to it.",
+            "allOf": [
+              "fertilis|fertiliz|male.{0,20}(genetic|dna).{0,30}egg"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "It fertilises an egg by carrying male genetic material to it.",
+      "markKeywords": [
+        "It fertilises an egg by carrying male genetic material to it."
+      ],
+      "hint": "Describe its biological job.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Describe its biological job."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-010",
+      "conceptId": "bio-nov2-20261017-010",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain two adaptations that help a sperm cell swim towards an egg.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "A flagellum / tail propels the sperm. Many mitochondria release energy by respiration for movement."
+        ],
+        "points": [
+          {
+            "label": "A flagellum / tail propels the sperm.",
+            "allOf": [
+              "flagell|tail",
+              "propel|swim|mov"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Many mitochondria release energy by respiration for movement.",
+            "allOf": [
+              "mitochondri",
+              "energy|respir",
+              "mov|swim|tail|flagell"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "A flagellum / tail propels the sperm. Many mitochondria release energy by respiration for movement.",
+      "markKeywords": [
+        "A flagellum / tail propels the sperm.",
+        "Many mitochondria release energy by respiration for movement."
+      ],
+      "hint": "Link each named structure to swimming; acrosome enzymes help entry into the egg.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Link each named structure to swimming; acrosome enzymes help entry into the egg."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-011",
+      "conceptId": "bio-nov2-20261017-011",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain how the acrosome helps a sperm cell fertilise an egg.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The acrosome contains enzymes. The enzymes digest the outer layers surrounding the egg."
+        ],
+        "points": [
+          {
+            "label": "The acrosome contains enzymes.",
+            "allOf": [
+              "enzym"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "The enzymes digest the outer layers surrounding the egg.",
+            "allOf": [
+              "digest|break down|penetrat",
+              "egg|outer|layer|coat"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "The acrosome contains enzymes. The enzymes digest the outer layers surrounding the egg.",
+      "markKeywords": [
+        "The acrosome contains enzymes.",
+        "The enzymes digest the outer layers surrounding the egg."
+      ],
+      "hint": "Do not say the acrosome provides the energy for swimming.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Do not say the acrosome provides the energy for swimming."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-012",
+      "conceptId": "bio-nov2-20261017-012",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "How many chromosomes are in a normal human sperm nucleus, and why is this useful at fertilisation?",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It has 23 chromosomes / one haploid set. Combining with the egg restores the normal chromosome number."
+        ],
+        "points": [
+          {
+            "label": "It has 23 chromosomes / one haploid set.",
+            "allOf": [
+              "\\b23\\b|haploid|one set|single set"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Combining with the egg restores the normal chromosome number.",
+            "allOf": [
+              "restor|46|diploid|two sets|normal number"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "It has 23 chromosomes / one haploid set. Combining with the egg restores the normal chromosome number.",
+      "markKeywords": [
+        "It has 23 chromosomes / one haploid set.",
+        "Combining with the egg restores the normal chromosome number."
+      ],
+      "hint": "Do not give the 46 chromosomes of a typical body cell.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Do not give the 46 chromosomes of a typical body cell."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-013",
+      "conceptId": "bio-nov2-20261017-013",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain how the long axon of a neurone helps its function.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It carries electrical impulses. The axon allows transmission over long distances."
+        ],
+        "points": [
+          {
+            "label": "It carries electrical impulses.",
+            "allOf": [
+              "electrical|nerve",
+              "impuls|signal"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "The axon allows transmission over long distances.",
+            "allOf": [
+              "long|distant",
+              "distanc|body|arm|leg"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "It carries electrical impulses. The axon allows transmission over long distances.",
+      "markKeywords": [
+        "It carries electrical impulses.",
+        "The axon allows transmission over long distances."
+      ],
+      "hint": "Call the signal an electrical impulse, not a flow of blood.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Call the signal an electrical impulse, not a flow of blood."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-014",
+      "conceptId": "bio-nov2-20261017-014",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain the benefit of the myelin sheath around an axon.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It electrically insulates the axon. It increases the speed of impulse transmission."
+        ],
+        "points": [
+          {
+            "label": "It electrically insulates the axon.",
+            "allOf": [
+              "insulat"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "It increases the speed of impulse transmission.",
+            "allOf": [
+              "fast|speed|quick",
+              "impuls|signal|transmi"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "It electrically insulates the axon. It increases the speed of impulse transmission.",
+      "markKeywords": [
+        "It electrically insulates the axon.",
+        "It increases the speed of impulse transmission."
+      ],
+      "hint": "Insulation and faster transmission are two distinct points.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Insulation and faster transmission are two distinct points."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-015",
+      "conceptId": "bio-nov2-20261017-015",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain why neurones have branched connections.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Branches connect to other cells / neurones. This allows communication with several other cells."
+        ],
+        "points": [
+          {
+            "label": "Branches connect to other cells / neurones.",
+            "allOf": [
+              "connect|link",
+              "cell|neuron|neuron"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "This allows communication with several other cells.",
+            "allOf": [
+              "many|several|multiple|network",
+              "cell|neuron|communicat|connect"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Branches connect to other cells / neurones. This allows communication with several other cells.",
+      "markKeywords": [
+        "Branches connect to other cells / neurones.",
+        "This allows communication with several other cells."
+      ],
+      "hint": "Make the link between branching and a network of connections.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Make the link between branching and a network of connections."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-016",
+      "conceptId": "bio-nov2-20261017-016",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Describe how a muscle cell contracts.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It contains contractile protein filaments. The filaments slide past each other, shortening the cell."
+        ],
+        "points": [
+          {
+            "label": "It contains contractile protein filaments.",
+            "allOf": [
+              "protein|filament|actin|myosin"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "The filaments slide past each other, shortening the cell.",
+            "allOf": [
+              "slid",
+              "short|contract"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "It contains contractile protein filaments. The filaments slide past each other, shortening the cell.",
+      "markKeywords": [
+        "It contains contractile protein filaments.",
+        "The filaments slide past each other, shortening the cell."
+      ],
+      "hint": "The filaments slide; do not say the proteins themselves shrink.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "The filaments slide; do not say the proteins themselves shrink."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-017",
+      "conceptId": "bio-nov2-20261017-017",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain why muscle cells have many mitochondria.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Mitochondria release energy by respiration. The energy is needed for muscle contraction."
+        ],
+        "points": [
+          {
+            "label": "Mitochondria release energy by respiration.",
+            "allOf": [
+              "mitochondri",
+              "respir|energy"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "The energy is needed for muscle contraction.",
+            "allOf": [
+              "energy",
+              "contract|shorten"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Mitochondria release energy by respiration. The energy is needed for muscle contraction.",
+      "markKeywords": [
+        "Mitochondria release energy by respiration.",
+        "The energy is needed for muscle contraction."
+      ],
+      "hint": "Name contraction, rather than saying the muscle needs power.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Name contraction, rather than saying the muscle needs power."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-018",
+      "conceptId": "bio-nov2-20261017-018",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Distinguish the functions of skeletal muscle and smooth muscle.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Skeletal muscle contracts to move bones. Smooth muscle contracts in walls of organs such as the gut."
+        ],
+        "points": [
+          {
+            "label": "Skeletal muscle contracts to move bones.",
+            "allOf": [
+              "skeletal",
+              "bone|skeleton"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Smooth muscle contracts in walls of organs such as the gut.",
+            "allOf": [
+              "smooth",
+              "organ|gut|intestin|vessel|stomach"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Skeletal muscle contracts to move bones. Smooth muscle contracts in walls of organs such as the gut.",
+      "markKeywords": [
+        "Skeletal muscle contracts to move bones.",
+        "Smooth muscle contracts in walls of organs such as the gut."
+      ],
+      "hint": "Smooth muscle does not attach directly to bones.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Smooth muscle does not attach directly to bones."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-019",
+      "conceptId": "bio-nov2-20261017-019",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 1,
+      "prompt": "State what haemoglobin does in a red blood cell.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Haemoglobin binds oxygen for transport."
+        ],
+        "points": [
+          {
+            "label": "Haemoglobin binds oxygen for transport.",
+            "allOf": [
+              "oxygen",
+              "bind|carr|transport"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Haemoglobin binds oxygen for transport.",
+      "markKeywords": [
+        "Haemoglobin binds oxygen for transport."
+      ],
+      "hint": "Oxygen is transported bound to haemoglobin.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Oxygen is transported bound to haemoglobin."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-020",
+      "conceptId": "bio-nov2-20261017-020",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain how the biconcave shape of a red blood cell helps oxygen exchange.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It gives a large surface area relative to volume. It provides a short diffusion distance / rapid diffusion of oxygen."
+        ],
+        "points": [
+          {
+            "label": "It gives a large surface area relative to volume.",
+            "allOf": [
+              "large|increas|greater",
+              "surface area"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "It provides a short diffusion distance / rapid diffusion of oxygen.",
+            "allOf": [
+              "short.{0,20}(distanc|path)|fast.{0,20}diffus|rapid.{0,20}diffus|quicker.{0,20}diffus"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "It gives a large surface area relative to volume. It provides a short diffusion distance / rapid diffusion of oxygen.",
+      "markKeywords": [
+        "It gives a large surface area relative to volume.",
+        "It provides a short diffusion distance / rapid diffusion of oxygen."
+      ],
+      "hint": "Link shape to surface area or diffusion, not just to fitting in blood.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Link shape to surface area or diffusion, not just to fitting in blood."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-021",
+      "conceptId": "bio-nov2-20261017-021",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain why a red blood cell is flexible.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It can change shape / deform. This lets it pass through narrow capillaries."
+        ],
+        "points": [
+          {
+            "label": "It can change shape / deform.",
+            "allOf": [
+              "chang.{0,10}shape|deform|bend|flex"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "This lets it pass through narrow capillaries.",
+            "allOf": [
+              "narrow|small|tiny",
+              "capillar|vessel"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "It can change shape / deform. This lets it pass through narrow capillaries.",
+      "markKeywords": [
+        "It can change shape / deform.",
+        "This lets it pass through narrow capillaries."
+      ],
+      "hint": "Name the narrow blood vessels: capillaries.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Name the narrow blood vessels: capillaries."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-022",
+      "conceptId": "bio-nov2-20261017-022",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain how ciliated epithelial cells help protect the airways.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Cilia beat to move mucus towards the throat. The mucus carries trapped particles or pathogens away from the lungs."
+        ],
+        "points": [
+          {
+            "label": "Cilia beat to move mucus towards the throat.",
+            "allOf": [
+              "cilia",
+              "beat|waft|mov",
+              "mucus"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "The mucus carries trapped particles or pathogens away from the lungs.",
+            "allOf": [
+              "trap|remov|carr",
+              "particl|pathogen|bacter|dust|microb"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Cilia beat to move mucus towards the throat. The mucus carries trapped particles or pathogens away from the lungs.",
+      "markKeywords": [
+        "Cilia beat to move mucus towards the throat.",
+        "The mucus carries trapped particles or pathogens away from the lungs."
+      ],
+      "hint": "Cilia move mucus; goblet cells mainly secrete it.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Cilia move mucus; goblet cells mainly secrete it."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-023",
+      "conceptId": "bio-nov2-20261017-023",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Distinguish the roles of goblet cells and ciliated cells in the airways.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Goblet cells secrete mucus. Ciliated cells beat their cilia to move mucus."
+        ],
+        "points": [
+          {
+            "label": "Goblet cells secrete mucus.",
+            "allOf": [
+              "goblet",
+              "secret|produc|make",
+              "mucus"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Ciliated cells beat their cilia to move mucus.",
+            "allOf": [
+              "ciliat|cilia",
+              "mov|beat|waft",
+              "mucus"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Goblet cells secrete mucus. Ciliated cells beat their cilia to move mucus.",
+      "markKeywords": [
+        "Goblet cells secrete mucus.",
+        "Ciliated cells beat their cilia to move mucus."
+      ],
+      "hint": "Do not say cilia produce the mucus.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Do not say cilia produce the mucus."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-024",
+      "conceptId": "bio-nov2-20261017-024",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised animal cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "A cell has a long myelinated axon and branched endings. Identify the cell and explain its function.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It is a neurone / nerve cell. It carries electrical impulses over long distances."
+        ],
+        "points": [
+          {
+            "label": "It is a neurone / nerve cell.",
+            "allOf": [
+              "neuron|neurone|nerve cell"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "It carries electrical impulses over long distances.",
+            "allOf": [
+              "electrical|nerve",
+              "impuls|signal",
+              "long|distanc"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "It is a neurone / nerve cell. It carries electrical impulses over long distances.",
+      "markKeywords": [
+        "It is a neurone / nerve cell.",
+        "It carries electrical impulses over long distances."
+      ],
+      "hint": "Use evidence from its structure to identify it.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Use evidence from its structure to identify it."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-025",
+      "conceptId": "bio-nov2-20261017-025",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised plant cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain how the shape of a root hair cell helps absorption.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The long hair-like projection increases surface area. A larger surface area allows greater absorption of water and mineral ions."
+        ],
+        "points": [
+          {
+            "label": "The long hair-like projection increases surface area.",
+            "allOf": [
+              "hair|project|extension",
+              "surface area"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "A larger surface area allows greater absorption of water and mineral ions.",
+            "allOf": [
+              "water",
+              "mineral|ion",
+              "absorb|absorp|uptake"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "The long hair-like projection increases surface area. A larger surface area allows greater absorption of water and mineral ions.",
+      "markKeywords": [
+        "The long hair-like projection increases surface area.",
+        "A larger surface area allows greater absorption of water and mineral ions."
+      ],
+      "hint": "Name the long projection and the substances absorbed.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Name the long projection and the substances absorbed."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-026",
+      "conceptId": "bio-nov2-20261017-026",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised plant cells",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 1,
+      "prompt": "State how water enters a root hair cell.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "By osmosis."
+        ],
+        "points": [
+          {
+            "label": "By osmosis.",
+            "allOf": [
+              "\\bosmosis\\b"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "By osmosis.",
+      "markKeywords": [
+        "By osmosis."
+      ],
+      "hint": "Osmosis describes water movement, not mineral-ion uptake.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Osmosis describes water movement, not mineral-ion uptake."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-027",
+      "conceptId": "bio-nov2-20261017-027",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised plant cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Mineral ions move into a root hair cell against their concentration gradient. Name the process and explain the need for mitochondria.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The process is active transport. Mitochondria release energy by respiration for active transport."
+        ],
+        "points": [
+          {
+            "label": "The process is active transport.",
+            "allOf": [
+              "active transport"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Mitochondria release energy by respiration for active transport.",
+            "allOf": [
+              "mitochondri",
+              "energy|respir"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "The process is active transport. Mitochondria release energy by respiration for active transport.",
+      "markKeywords": [
+        "The process is active transport.",
+        "Mitochondria release energy by respiration for active transport."
+      ],
+      "hint": "Do not describe mineral-ion uptake as osmosis.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Do not describe mineral-ion uptake as osmosis."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-028",
+      "conceptId": "bio-nov2-20261017-028",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised plant cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain why root hair cells usually do not have chloroplasts.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "They are underground and receive little or no light. They do not photosynthesise."
+        ],
+        "points": [
+          {
+            "label": "They are underground and receive little or no light.",
+            "allOf": [
+              "underground|below ground|little light|no light"
+            ],
+            "allowNegative": true
+          },
+          {
+            "label": "They do not photosynthesise.",
+            "allOf": [
+              "(not|cannot|no|doesn.t|can.t).{0,20}photosynth"
+            ],
+            "allowNegative": true
+          }
+        ]
+      },
+      "modelAnswer": "They are underground and receive little or no light. They do not photosynthesise.",
+      "markKeywords": [
+        "They are underground and receive little or no light.",
+        "They do not photosynthesise."
+      ],
+      "hint": "They absorb materials; they do not photosynthesise underground.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "They absorb materials; they do not photosynthesise underground."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-029",
+      "conceptId": "bio-nov2-20261017-029",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised plant cells",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "State two functions of xylem tissue.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It transports water and mineral ions. It supports the plant."
+        ],
+        "points": [
+          {
+            "label": "It transports water and mineral ions.",
+            "allOf": [
+              "water",
+              "mineral|ion"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "It supports the plant.",
+            "allOf": [
+              "support|strength"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "It transports water and mineral ions. It supports the plant.",
+      "markKeywords": [
+        "It transports water and mineral ions.",
+        "It supports the plant."
+      ],
+      "hint": "Xylem does not transport dissolved sugars.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Xylem does not transport dissolved sugars."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-030",
+      "conceptId": "bio-nov2-20261017-030",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised plant cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain why mature xylem vessels are hollow and have no end walls.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "There is no cytoplasm to obstruct water flow. Absent end walls form a continuous tube for water flow."
+        ],
+        "points": [
+          {
+            "label": "There is no cytoplasm to obstruct water flow.",
+            "allOf": [
+              "no|without|lack|absen",
+              "cytoplasm|obstruct"
+            ],
+            "allowNegative": true
+          },
+          {
+            "label": "Absent end walls form a continuous tube for water flow.",
+            "allOf": [
+              "end wall|continuous tube",
+              "flow|water|continu"
+            ],
+            "allowNegative": true
+          }
+        ]
+      },
+      "modelAnswer": "There is no cytoplasm to obstruct water flow. Absent end walls form a continuous tube for water flow.",
+      "markKeywords": [
+        "There is no cytoplasm to obstruct water flow.",
+        "Absent end walls form a continuous tube for water flow."
+      ],
+      "hint": "Explain the benefit to flow rather than listing dead cells.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Explain the benefit to flow rather than listing dead cells."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-031",
+      "conceptId": "bio-nov2-20261017-031",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised plant cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain the role of lignin in xylem vessels.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Lignin strengthens the vessel walls. The strengthened walls help prevent collapse."
+        ],
+        "points": [
+          {
+            "label": "Lignin strengthens the vessel walls.",
+            "allOf": [
+              "lignin|it",
+              "strength|reinforc"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "The strengthened walls help prevent collapse.",
+            "allOf": [
+              "prevent|resist|stop",
+              "collaps"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Lignin strengthens the vessel walls. The strengthened walls help prevent collapse.",
+      "markKeywords": [
+        "Lignin strengthens the vessel walls.",
+        "The strengthened walls help prevent collapse."
+      ],
+      "hint": "Waterproofing is also useful, but this question asks how lignin supports a vessel.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Waterproofing is also useful, but this question asks how lignin supports a vessel."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-032",
+      "conceptId": "bio-nov2-20261017-032",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised plant cells",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "State the main substances transported by phloem and name the transport process.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Dissolved sugars / sucrose. Translocation."
+        ],
+        "points": [
+          {
+            "label": "Dissolved sugars / sucrose.",
+            "allOf": [
+              "sugar|sucrose"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Translocation.",
+            "allOf": [
+              "translocation"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Dissolved sugars / sucrose. Translocation.",
+      "markKeywords": [
+        "Dissolved sugars / sucrose.",
+        "Translocation."
+      ],
+      "hint": "Use dissolved sugars rather than the vague word food.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Use dissolved sugars rather than the vague word food."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-033",
+      "conceptId": "bio-nov2-20261017-033",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised plant cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Describe the direction of transport in xylem and phloem.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Xylem carries water upwards from the roots. Phloem transports sugars from source to sink, upwards or downwards in different tubes."
+        ],
+        "points": [
+          {
+            "label": "Xylem carries water upwards from the roots.",
+            "allOf": [
+              "xylem",
+              "up|root.{0,15}lea"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Phloem transports sugars from source to sink, upwards or downwards in different tubes.",
+            "allOf": [
+              "phloem",
+              "source.{0,15}sink|up.{0,20}down|both direction"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Xylem carries water upwards from the roots. Phloem transports sugars from source to sink, upwards or downwards in different tubes.",
+      "markKeywords": [
+        "Xylem carries water upwards from the roots.",
+        "Phloem transports sugars from source to sink, upwards or downwards in different tubes."
+      ],
+      "hint": "Phloem does not carry sugars simultaneously in opposite directions in the same tube.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Phloem does not carry sugars simultaneously in opposite directions in the same tube."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-034",
+      "conceptId": "bio-nov2-20261017-034",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised plant cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain how sieve plates help phloem function.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The plates contain pores / holes. The pores allow sugar solution to flow between sieve tube elements."
+        ],
+        "points": [
+          {
+            "label": "The plates contain pores / holes.",
+            "allOf": [
+              "pore|hole|perforat"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "The pores allow sugar solution to flow between sieve tube elements.",
+            "allOf": [
+              "sugar|sucrose|solution",
+              "flow|pass|mov"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "The plates contain pores / holes. The pores allow sugar solution to flow between sieve tube elements.",
+      "markKeywords": [
+        "The plates contain pores / holes.",
+        "The pores allow sugar solution to flow between sieve tube elements."
+      ],
+      "hint": "Name what moves through the pores.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Name what moves through the pores."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-035",
+      "conceptId": "bio-nov2-20261017-035",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised plant cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain why phloem companion cells have many mitochondria.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Mitochondria release energy by respiration. Energy is used for active loading / transport of sugars."
+        ],
+        "points": [
+          {
+            "label": "Mitochondria release energy by respiration.",
+            "allOf": [
+              "mitochondri",
+              "energy|respir"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Energy is used for active loading / transport of sugars.",
+            "allOf": [
+              "active|loading",
+              "sugar|sucrose|transport"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Mitochondria release energy by respiration. Energy is used for active loading / transport of sugars.",
+      "markKeywords": [
+        "Mitochondria release energy by respiration.",
+        "Energy is used for active loading / transport of sugars."
+      ],
+      "hint": "Link energy to sugar loading, not to photosynthesis.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Link energy to sugar loading, not to photosynthesis."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-036",
+      "conceptId": "bio-nov2-20261017-036",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Specialised plant cells",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Compare the conducting cells in mature xylem and phloem.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Mature xylem vessel elements are dead. Phloem sieve tube elements are living."
+        ],
+        "points": [
+          {
+            "label": "Mature xylem vessel elements are dead.",
+            "allOf": [
+              "xylem",
+              "dead|not living"
+            ],
+            "allowNegative": true
+          },
+          {
+            "label": "Phloem sieve tube elements are living.",
+            "allOf": [
+              "phloem|sieve",
+              "living|alive"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Mature xylem vessel elements are dead. Phloem sieve tube elements are living.",
+      "markKeywords": [
+        "Mature xylem vessel elements are dead.",
+        "Phloem sieve tube elements are living."
+      ],
+      "hint": "A comparison must refer to both tissues.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "A comparison must refer to both tissues."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-037",
+      "conceptId": "bio-nov2-20261017-037",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy practical",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain why onion epidermis should be peeled as a thin single layer.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "A thin layer allows light to pass through. A single layer reduces overlapping cells."
+        ],
+        "points": [
+          {
+            "label": "A thin layer allows light to pass through.",
+            "allOf": [
+              "light",
+              "pass|transmi|through"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "A single layer reduces overlapping cells.",
+            "allOf": [
+              "overlap",
+              "reduc|avoid|prevent|less|no|not"
+            ],
+            "allowNegative": true
+          }
+        ]
+      },
+      "modelAnswer": "A thin layer allows light to pass through. A single layer reduces overlapping cells.",
+      "markKeywords": [
+        "A thin layer allows light to pass through.",
+        "A single layer reduces overlapping cells."
+      ],
+      "hint": "Connect the thin specimen to visibility.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Connect the thin specimen to visibility."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-038",
+      "conceptId": "bio-nov2-20261017-038",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy practical",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Name the stain used for an onion epidermis slide and explain why it is used.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Iodine solution. Staining improves contrast so cell structures are easier to see."
+        ],
+        "points": [
+          {
+            "label": "Iodine solution.",
+            "allOf": [
+              "iodine"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Staining improves contrast so cell structures are easier to see.",
+            "allOf": [
+              "contrast|easier.{0,15}(see|distinguish)|clearer|visible"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Iodine solution. Staining improves contrast so cell structures are easier to see.",
+      "markKeywords": [
+        "Iodine solution.",
+        "Staining improves contrast so cell structures are easier to see."
+      ],
+      "hint": "The purpose is improved contrast, not magnifying the cells.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "The purpose is improved contrast, not magnifying the cells."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-039",
+      "conceptId": "bio-nov2-20261017-039",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy practical",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Name a stain commonly used for cheek cells and state its purpose.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Methylene blue. It increases contrast so cell structures can be distinguished."
+        ],
+        "points": [
+          {
+            "label": "Methylene blue.",
+            "allOf": [
+              "methylene blue"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "It increases contrast so cell structures can be distinguished.",
+            "allOf": [
+              "contrast|easier.{0,15}(see|distinguish)|clearer|visible"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Methylene blue. It increases contrast so cell structures can be distinguished.",
+      "markKeywords": [
+        "Methylene blue.",
+        "It increases contrast so cell structures can be distinguished."
+      ],
+      "hint": "Iodine is the stain used in the onion method.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Iodine is the stain used in the onion method."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-040",
+      "conceptId": "bio-nov2-20261017-040",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy practical",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain how to lower a coverslip and why this is important.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Lower it gently at an angle using a mounted needle. This reduces trapped air bubbles."
+        ],
+        "points": [
+          {
+            "label": "Lower it gently at an angle using a mounted needle.",
+            "allOf": [
+              "angle|slant",
+              "lower|gentl|needle"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "This reduces trapped air bubbles.",
+            "allOf": [
+              "air|bubble",
+              "reduc|avoid|prevent|less|stop"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Lower it gently at an angle using a mounted needle. This reduces trapped air bubbles.",
+      "markKeywords": [
+        "Lower it gently at an angle using a mounted needle.",
+        "This reduces trapped air bubbles."
+      ],
+      "hint": "Air bubbles may look like dark rings and obscure cells.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Air bubbles may look like dark rings and obscure cells."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-041",
+      "conceptId": "bio-nov2-20261017-041",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy practical",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Why should you start viewing a slide with the lowest-power objective?",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It gives a larger field of view. This makes the specimen easier to locate."
+        ],
+        "points": [
+          {
+            "label": "It gives a larger field of view.",
+            "allOf": [
+              "large|wide",
+              "field of view"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "This makes the specimen easier to locate.",
+            "allOf": [
+              "easier|easy|locat|find",
+              "specimen|cell|sample"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "It gives a larger field of view. This makes the specimen easier to locate.",
+      "markKeywords": [
+        "It gives a larger field of view.",
+        "This makes the specimen easier to locate."
+      ],
+      "hint": "The image is smaller but the visible area is larger.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "The image is smaller but the visible area is larger."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-042",
+      "conceptId": "bio-nov2-20261017-042",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy practical",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain why the specimen should be centred before changing to a higher-power objective.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Higher power gives a smaller field of view. Centring helps keep the specimen visible."
+        ],
+        "points": [
+          {
+            "label": "Higher power gives a smaller field of view.",
+            "allOf": [
+              "small|narrow|reduc",
+              "field of view"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Centring helps keep the specimen visible.",
+            "allOf": [
+              "centre|center|keep|remain",
+              "visible|view|sight"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Higher power gives a smaller field of view. Centring helps keep the specimen visible.",
+      "markKeywords": [
+        "Higher power gives a smaller field of view.",
+        "Centring helps keep the specimen visible."
+      ],
+      "hint": "Otherwise the cell may move outside the visible area.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Otherwise the cell may move outside the visible area."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-043",
+      "conceptId": "bio-nov2-20261017-043",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy practical",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Which focusing control should be used for small adjustments at high power? Explain one benefit.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Use the fine-focus control. Small adjustments help avoid driving the objective into the slide."
+        ],
+        "points": [
+          {
+            "label": "Use the fine-focus control.",
+            "allOf": [
+              "fine.{0,12}(focus|adjust)"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Small adjustments help avoid driving the objective into the slide.",
+            "allOf": [
+              "small|gentle|avoid|prevent",
+              "adjust|collis|break|crash|slide|damage"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Use the fine-focus control. Small adjustments help avoid driving the objective into the slide.",
+      "markKeywords": [
+        "Use the fine-focus control.",
+        "Small adjustments help avoid driving the objective into the slide."
+      ],
+      "hint": "Do not use large coarse-focus movements at high power.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Do not use large coarse-focus movements at high power."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-044",
+      "conceptId": "bio-nov2-20261017-044",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy practical",
+      "difficulty": 3,
+      "format": "typed_rubric",
+      "marks": 4,
+      "prompt": "Describe four steps in preparing an onion epidermis slide.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Peel a thin layer of epidermis with forceps. Place it flat on a clean slide in a drop of water. Add iodine solution. Lower a coverslip gently at an angle."
+        ],
+        "points": [
+          {
+            "label": "Peel a thin layer of epidermis with forceps.",
+            "allOf": [
+              "peel|remov",
+              "thin|single|epiderm"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Place it flat on a clean slide in a drop of water.",
+            "allOf": [
+              "slide",
+              "water"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Add iodine solution.",
+            "allOf": [
+              "iodine"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Lower a coverslip gently at an angle.",
+            "allOf": [
+              "coverslip|cover slip",
+              "angle|slant"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Peel a thin layer of epidermis with forceps. Place it flat on a clean slide in a drop of water. Add iodine solution. Lower a coverslip gently at an angle.",
+      "markKeywords": [
+        "Peel a thin layer of epidermis with forceps.",
+        "Place it flat on a clean slide in a drop of water.",
+        "Add iodine solution.",
+        "Lower a coverslip gently at an angle."
+      ],
+      "hint": "Give the method in a logical order; include the stain and coverslip.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Give the method in a logical order; include the stain and coverslip."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-045",
+      "conceptId": "bio-nov2-20261017-045",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy practical",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "A slide has many dark circular rings. Suggest what they are and how to reduce them when preparing another slide.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The rings may be trapped air bubbles. Lower the coverslip at an angle."
+        ],
+        "points": [
+          {
+            "label": "The rings may be trapped air bubbles.",
+            "allOf": [
+              "air bubble|bubbles"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Lower the coverslip at an angle.",
+            "allOf": [
+              "coverslip|cover slip",
+              "angle|slant"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "The rings may be trapped air bubbles. Lower the coverslip at an angle.",
+      "markKeywords": [
+        "The rings may be trapped air bubbles.",
+        "Lower the coverslip at an angle."
+      ],
+      "hint": "Do not automatically label a dark ring as a nucleus.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Do not automatically label a dark ring as a nucleus."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-046",
+      "conceptId": "bio-nov2-20261017-046",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy practical",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "State one risk when using glass slides and one suitable precaution.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Broken glass can cut skin. Handle slides carefully and report breakages / dispose of broken glass safely."
+        ],
+        "points": [
+          {
+            "label": "Broken glass can cut skin.",
+            "allOf": [
+              "glass",
+              "cut|sharp|break|broken"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Handle slides carefully and report breakages / dispose of broken glass safely.",
+            "allOf": [
+              "careful|report|safe|dispos",
+              "slide|glass|break"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Broken glass can cut skin. Handle slides carefully and report breakages / dispose of broken glass safely.",
+      "markKeywords": [
+        "Broken glass can cut skin.",
+        "Handle slides carefully and report breakages / dispose of broken glass safely."
+      ],
+      "hint": "Pair the precaution with the stated hazard.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Pair the precaution with the stated hazard."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-047",
+      "conceptId": "bio-nov2-20261017-047",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy practical",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "State the roles of the stage and the objective lens.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The stage supports the slide. The objective lens magnifies the specimen."
+        ],
+        "points": [
+          {
+            "label": "The stage supports the slide.",
+            "allOf": [
+              "stage",
+              "support|hold"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "The objective lens magnifies the specimen.",
+            "allOf": [
+              "objective",
+              "magnif|enlarg"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "The stage supports the slide. The objective lens magnifies the specimen.",
+      "markKeywords": [
+        "The stage supports the slide.",
+        "The objective lens magnifies the specimen."
+      ],
+      "hint": "The eyepiece is another lens, not the stage.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "The eyepiece is another lens, not the stage."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-048",
+      "conceptId": "bio-nov2-20261017-048",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy practical",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "A microscope image is dark. Suggest two checks before preparing a new slide.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Check or adjust the light / illumination. Check that the specimen is positioned over the light opening."
+        ],
+        "points": [
+          {
+            "label": "Check or adjust the light / illumination.",
+            "allOf": [
+              "light|illuminat|lamp|mirror"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Check that the specimen is positioned over the light opening.",
+            "allOf": [
+              "position|centre|center|over",
+              "specimen|slide|light|opening"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Check or adjust the light / illumination. Check that the specimen is positioned over the light opening.",
+      "markKeywords": [
+        "Check or adjust the light / illumination.",
+        "Check that the specimen is positioned over the light opening."
+      ],
+      "hint": "A visibility problem does not always mean the specimen is damaged.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "A visibility problem does not always mean the specimen is damaged."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-049",
+      "conceptId": "bio-nov2-20261017-049",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy practical",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain why you should not draw chloroplasts in a biological drawing of onion bulb epidermis.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Onion bulb epidermal cells usually have no chloroplasts. A biological drawing should show only structures actually observed."
+        ],
+        "points": [
+          {
+            "label": "Onion bulb epidermal cells usually have no chloroplasts.",
+            "allOf": [
+              "(no|lack|without|not|absen).{0,30}chloroplast"
+            ],
+            "allowNegative": true
+          },
+          {
+            "label": "A biological drawing should show only structures actually observed.",
+            "allOf": [
+              "observ|seen|visible",
+              "only|actual|draw"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Onion bulb epidermal cells usually have no chloroplasts. A biological drawing should show only structures actually observed.",
+      "markKeywords": [
+        "Onion bulb epidermal cells usually have no chloroplasts.",
+        "A biological drawing should show only structures actually observed."
+      ],
+      "hint": "Draw the observation rather than a memorised typical plant cell.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Draw the observation rather than a memorised typical plant cell."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-050",
+      "conceptId": "bio-nov2-20261017-050",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy practical",
+      "difficulty": 3,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "A routine classroom light-microscope preparation does not show ribosomes. Explain why.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Ribosomes are extremely small / below the microscope resolution limit. Magnifying the image further cannot reveal details that were not resolved."
+        ],
+        "points": [
+          {
+            "label": "Ribosomes are extremely small / below the microscope resolution limit.",
+            "allOf": [
+              "small|resolution|resolv"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Magnifying the image further cannot reveal details that were not resolved.",
+            "allOf": [
+              "magnif|enlarg",
+              "not|cannot|can.t|doesn.t",
+              "detail|resolv|clear"
+            ],
+            "allowNegative": true
+          }
+        ]
+      },
+      "modelAnswer": "Ribosomes are extremely small / below the microscope resolution limit. Magnifying the image further cannot reveal details that were not resolved.",
+      "markKeywords": [
+        "Ribosomes are extremely small / below the microscope resolution limit.",
+        "Magnifying the image further cannot reveal details that were not resolved."
+      ],
+      "hint": "Resolution determines detail; magnification alone makes the image larger.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Resolution determines detail; magnification alone makes the image larger."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-051",
+      "conceptId": "bio-nov2-20261017-051",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Biological drawing",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "State two rules for the outlines in a biological drawing.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Use clear single lines. Do not shade the drawing."
+        ],
+        "points": [
+          {
+            "label": "Use clear single lines.",
+            "allOf": [
+              "single|clear|clean",
+              "line"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Do not shade the drawing.",
+            "allOf": [
+              "(no|not|avoid|without).{0,15}shad|unshaded"
+            ],
+            "allowNegative": true
+          }
+        ]
+      },
+      "modelAnswer": "Use clear single lines. Do not shade the drawing.",
+      "markKeywords": [
+        "Use clear single lines.",
+        "Do not shade the drawing."
+      ],
+      "hint": "Avoid repeated sketch lines and artistic shading.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Avoid repeated sketch lines and artistic shading."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-052",
+      "conceptId": "bio-nov2-20261017-052",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Biological drawing",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "State two rules for label lines in a biological drawing.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Draw straight label lines in pencil. Label lines must not cross."
+        ],
+        "points": [
+          {
+            "label": "Draw straight label lines in pencil.",
+            "allOf": [
+              "straight",
+              "line"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Label lines must not cross.",
+            "allOf": [
+              "(not|no|avoid|without).{0,15}(cross|overlap)|uncross"
+            ],
+            "allowNegative": true
+          }
+        ]
+      },
+      "modelAnswer": "Draw straight label lines in pencil. Label lines must not cross.",
+      "markKeywords": [
+        "Draw straight label lines in pencil.",
+        "Label lines must not cross."
+      ],
+      "hint": "Keep labels readable and point precisely to the structure.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Keep labels readable and point precisely to the structure."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-053",
+      "conceptId": "bio-nov2-20261017-053",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Biological drawing",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "According to your school checklist, state three presentation requirements for a biological drawing apart from labels.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "A clear underlined title. The magnification. The drawing occupies at least half the page."
+        ],
+        "points": [
+          {
+            "label": "A clear underlined title.",
+            "allOf": [
+              "title",
+              "underlin"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "The magnification.",
+            "allOf": [
+              "magnification|magnif"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "The drawing occupies at least half the page.",
+            "allOf": [
+              "half",
+              "page"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "A clear underlined title. The magnification. The drawing occupies at least half the page.",
+      "markKeywords": [
+        "A clear underlined title.",
+        "The magnification.",
+        "The drawing occupies at least half the page."
+      ],
+      "hint": "This question follows your school practical rubric.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "This question follows your school practical rubric."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-054",
+      "conceptId": "bio-nov2-20261017-054",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Biological drawing",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "A student copies a textbook plant cell and adds chloroplasts that were not seen. Explain why this is poor biological drawing.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The drawing must represent what was actually observed. Structures not observed should not be added."
+        ],
+        "points": [
+          {
+            "label": "The drawing must represent what was actually observed.",
+            "allOf": [
+              "observ|seen|visible",
+              "actual|draw|only"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Structures not observed should not be added.",
+            "allOf": [
+              "(not|no|avoid).{0,45}(add|draw)|invent|made.up"
+            ],
+            "allowNegative": true
+          }
+        ]
+      },
+      "modelAnswer": "The drawing must represent what was actually observed. Structures not observed should not be added.",
+      "markKeywords": [
+        "The drawing must represent what was actually observed.",
+        "Structures not observed should not be added."
+      ],
+      "hint": "A biological drawing records evidence, not an idealised cell.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "A biological drawing records evidence, not an idealised cell."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-055",
+      "conceptId": "bio-nov2-20261017-055",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Biological drawing",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Compare magnification and resolution.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Magnification is how many times larger an image is than the actual object. Resolution is the ability to distinguish close points as separate."
+        ],
+        "points": [
+          {
+            "label": "Magnification is how many times larger an image is than the actual object.",
+            "allOf": [
+              "magnif",
+              "larg|enlarg|size"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Resolution is the ability to distinguish close points as separate.",
+            "allOf": [
+              "resolution|resolv",
+              "separat|distinguish",
+              "point|structure|object"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Magnification is how many times larger an image is than the actual object. Resolution is the ability to distinguish close points as separate.",
+      "markKeywords": [
+        "Magnification is how many times larger an image is than the actual object.",
+        "Resolution is the ability to distinguish close points as separate."
+      ],
+      "hint": "Bigger does not automatically mean more detail.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Bigger does not automatically mean more detail."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-056",
+      "conceptId": "bio-nov2-20261017-056",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Biological drawing",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain why a scale bar is useful when a cell image is resized.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The scale bar resizes with the image. It still allows actual sizes to be calculated correctly."
+        ],
+        "points": [
+          {
+            "label": "The scale bar resizes with the image.",
+            "allOf": [
+              "scale bar",
+              "resiz|enlarg|reduc|chang"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "It still allows actual sizes to be calculated correctly.",
+            "allOf": [
+              "actual|real",
+              "size|length",
+              "calculat|correct|measur"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "The scale bar resizes with the image. It still allows actual sizes to be calculated correctly.",
+      "markKeywords": [
+        "The scale bar resizes with the image.",
+        "It still allows actual sizes to be calculated correctly."
+      ],
+      "hint": "A printed magnification number may become wrong after resizing.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "A printed magnification number may become wrong after resizing."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-057",
+      "conceptId": "bio-nov2-20261017-057",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Biological drawing",
+      "difficulty": 3,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "A student doubles the printed width of a micrograph labelled x200 but keeps the label x200. State the new magnification and explain the problem.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The new magnification is x400. The original magnification label is no longer valid after enlargement."
+        ],
+        "points": [
+          {
+            "label": "The new magnification is x400.",
+            "allOf": [
+              "400\\b"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "The original magnification label is no longer valid after enlargement.",
+            "allOf": [
+              "label|200|original",
+              "wrong|incorrect|invalid|not|chang|no longer valid"
+            ],
+            "allowNegative": true
+          }
+        ]
+      },
+      "modelAnswer": "The new magnification is x400. The original magnification label is no longer valid after enlargement.",
+      "markKeywords": [
+        "The new magnification is x400.",
+        "The original magnification label is no longer valid after enlargement."
+      ],
+      "hint": "Image size changed, so the magnification changed.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Image size changed, so the magnification changed."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-058",
+      "conceptId": "bio-nov2-20261017-058",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Biological drawing",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Explain why an electron microscope can reveal finer cell detail than a light microscope.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "It has greater resolving power / resolution. It can distinguish smaller structures / closer points as separate."
+        ],
+        "points": [
+          {
+            "label": "It has greater resolving power / resolution.",
+            "allOf": [
+              "greater|higher|better",
+              "resolv|resolution"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "It can distinguish smaller structures / closer points as separate.",
+            "allOf": [
+              "small|close|fine",
+              "structur|point|detail",
+              "separat|distinguish|see|reveal"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "It has greater resolving power / resolution. It can distinguish smaller structures / closer points as separate.",
+      "markKeywords": [
+        "It has greater resolving power / resolution.",
+        "It can distinguish smaller structures / closer points as separate."
+      ],
+      "hint": "Higher magnification alone is not a full explanation.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Higher magnification alone is not a full explanation."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-059",
+      "conceptId": "bio-nov2-20261017-059",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Biological drawing",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "Drawing A has single outlines and straight uncrossed labels. Drawing B has sketchy shaded outlines and crossing labels. Identify the better drawing and give two reasons.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Drawing A is better. It uses clear single outlines without shading. Its label lines do not cross."
+        ],
+        "points": [
+          {
+            "label": "Drawing A is better.",
+            "allOf": [
+              "drawing a|\\ba\\b"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "It uses clear single outlines without shading.",
+            "allOf": [
+              "single|clear|unshaded",
+              "outline|line"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Its label lines do not cross.",
+            "allOf": [
+              "label",
+              "not.{0,10}cross|uncross|no.{0,10}cross"
+            ],
+            "allowNegative": true
+          }
+        ]
+      },
+      "modelAnswer": "Drawing A is better. It uses clear single outlines without shading. Its label lines do not cross.",
+      "markKeywords": [
+        "Drawing A is better.",
+        "It uses clear single outlines without shading.",
+        "Its label lines do not cross."
+      ],
+      "hint": "Name the drawing, then refer to two visible drawing conventions.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Name the drawing, then refer to two visible drawing conventions."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "diagram": "biology-nov2-drawing.svg",
+      "diagramAlt": "Drawing A uses single outlines and straight label lines; drawing B uses sketchy shaded lines and crossing label lines."
+    },
+    {
+      "id": "bio-nov2-20261017-060",
+      "conceptId": "bio-nov2-20261017-060",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Biological drawing",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "Your school drawing rubric includes two calculations. Name them.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Width / diameter of the field of view. Length / size of one cell."
+        ],
+        "points": [
+          {
+            "label": "Width / diameter of the field of view.",
+            "allOf": [
+              "field of view",
+              "width|diameter"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Length / size of one cell.",
+            "allOf": [
+              "cell",
+              "length|size"
+            ],
+            "allowNegative": false
+          }
+        ]
+      },
+      "modelAnswer": "Width / diameter of the field of view. Length / size of one cell.",
+      "markKeywords": [
+        "Width / diameter of the field of view.",
+        "Length / size of one cell."
+      ],
+      "hint": "A magnification label alone does not supply these calculations.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "A magnification label alone does not supply these calculations."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+    },
+    {
+      "id": "bio-nov2-20261017-061",
+      "conceptId": "bio-nov2-20261017-061",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "A microscope has an eyepiece magnification of x10 and an objective magnification of x4. Calculate the total magnification.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Total magnification = 10 x 4 = x40."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "10\\s*[x×*]\\s*4|4\\s*[x×*]\\s*10|eyepiece.{0,20}objective"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 40 (magnification, no unit).",
+            "numericResult": true
+          }
+        ],
+        "numeric": {
+          "value": 40,
+          "unit": "",
+          "tolerance": 0.0004
+        }
+      },
+      "modelAnswer": "Total magnification = 10 x 4 = x40.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 40 (magnification, no unit)."
+      ],
+      "hint": "Multiply the two lens magnifications. Magnification has no unit.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Multiply the two lens magnifications. Magnification has no unit."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Total magnification = 10 x 4 = x40."
+    },
+    {
+      "id": "bio-nov2-20261017-062",
+      "conceptId": "bio-nov2-20261017-062",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "A microscope has an eyepiece magnification of x10 and an objective magnification of x40. Calculate the total magnification.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Total magnification = 10 x 40 = x400."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "10\\s*[x×*]\\s*40|40\\s*[x×*]\\s*10|eyepiece.{0,20}objective"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 400 (magnification, no unit).",
+            "numericResult": true
+          }
+        ],
+        "numeric": {
+          "value": 400,
+          "unit": "",
+          "tolerance": 0.004
+        }
+      },
+      "modelAnswer": "Total magnification = 10 x 40 = x400.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 400 (magnification, no unit)."
+      ],
+      "hint": "Multiply the two lens magnifications. Magnification has no unit.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Multiply the two lens magnifications. Magnification has no unit."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Total magnification = 10 x 40 = x400."
+    },
+    {
+      "id": "bio-nov2-20261017-063",
+      "conceptId": "bio-nov2-20261017-063",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "A microscope has an eyepiece magnification of x15 and an objective magnification of x20. Calculate the total magnification.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Total magnification = 15 x 20 = x300."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "15\\s*[x×*]\\s*20|20\\s*[x×*]\\s*15|eyepiece.{0,20}objective"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 300 (magnification, no unit).",
+            "numericResult": true
+          }
+        ],
+        "numeric": {
+          "value": 300,
+          "unit": "",
+          "tolerance": 0.003
+        }
+      },
+      "modelAnswer": "Total magnification = 15 x 20 = x300.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 300 (magnification, no unit)."
+      ],
+      "hint": "Multiply the two lens magnifications. Magnification has no unit.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Multiply the two lens magnifications. Magnification has no unit."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Total magnification = 15 x 20 = x300."
+    },
+    {
+      "id": "bio-nov2-20261017-064",
+      "conceptId": "bio-nov2-20261017-064",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 1,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "A microscope has an eyepiece magnification of x10 and an objective magnification of x50. Calculate the total magnification.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Total magnification = 10 x 50 = x500."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "10\\s*[x×*]\\s*50|50\\s*[x×*]\\s*10|eyepiece.{0,20}objective"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 500 (magnification, no unit).",
+            "numericResult": true
+          }
+        ],
+        "numeric": {
+          "value": 500,
+          "unit": "",
+          "tolerance": 0.005
+        }
+      },
+      "modelAnswer": "Total magnification = 10 x 50 = x500.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 500 (magnification, no unit)."
+      ],
+      "hint": "Multiply the two lens magnifications. Magnification has no unit.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Multiply the two lens magnifications. Magnification has no unit."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Total magnification = 10 x 50 = x500."
+    },
+    {
+      "id": "bio-nov2-20261017-065",
+      "conceptId": "bio-nov2-20261017-065",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "A cell image is 8 mm long. Its actual length is 20 µm. Calculate magnification. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "8 mm = 8000 µm. M = 8000 / 20 = x400."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "8000|image.{0,15}(actual|real)|8\\s*/\\s*0\\.0"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 400 (magnification, no unit).",
+            "numericResult": true
+          }
+        ],
+        "numeric": {
+          "value": 400.0,
+          "unit": "",
+          "tolerance": 0.004
+        }
+      },
+      "modelAnswer": "8 mm = 8000 µm. M = 8000 / 20 = x400.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 400 (magnification, no unit)."
+      ],
+      "hint": "Convert image and actual size to the same unit before dividing.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Convert image and actual size to the same unit before dividing."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "8 mm = 8000 µm. M = 8000 / 20 = x400."
+    },
+    {
+      "id": "bio-nov2-20261017-066",
+      "conceptId": "bio-nov2-20261017-066",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "A cell image is 18 mm long. Its actual length is 45 µm. Calculate magnification. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "18 mm = 18000 µm. M = 18000 / 45 = x400."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "18000|image.{0,15}(actual|real)|18\\s*/\\s*0\\.0"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 400 (magnification, no unit).",
+            "numericResult": true
+          }
+        ],
+        "numeric": {
+          "value": 400.0,
+          "unit": "",
+          "tolerance": 0.004
+        }
+      },
+      "modelAnswer": "18 mm = 18000 µm. M = 18000 / 45 = x400.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 400 (magnification, no unit)."
+      ],
+      "hint": "Convert image and actual size to the same unit before dividing.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Convert image and actual size to the same unit before dividing."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "18 mm = 18000 µm. M = 18000 / 45 = x400."
+    },
+    {
+      "id": "bio-nov2-20261017-067",
+      "conceptId": "bio-nov2-20261017-067",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "A cell image is 12 mm long. Its actual length is 30 µm. Calculate magnification. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "12 mm = 12000 µm. M = 12000 / 30 = x400."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "12000|image.{0,15}(actual|real)|12\\s*/\\s*0\\.0"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 400 (magnification, no unit).",
+            "numericResult": true
+          }
+        ],
+        "numeric": {
+          "value": 400.0,
+          "unit": "",
+          "tolerance": 0.004
+        }
+      },
+      "modelAnswer": "12 mm = 12000 µm. M = 12000 / 30 = x400.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 400 (magnification, no unit)."
+      ],
+      "hint": "Convert image and actual size to the same unit before dividing.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Convert image and actual size to the same unit before dividing."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "12 mm = 12000 µm. M = 12000 / 30 = x400."
+    },
+    {
+      "id": "bio-nov2-20261017-068",
+      "conceptId": "bio-nov2-20261017-068",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 2,
+      "prompt": "A cell image is 6 mm long. Its actual length is 15 µm. Calculate magnification. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "6 mm = 6000 µm. M = 6000 / 15 = x400."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "6000|image.{0,15}(actual|real)|6\\s*/\\s*0\\.0"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 400 (magnification, no unit).",
+            "numericResult": true
+          }
+        ],
+        "numeric": {
+          "value": 400.0,
+          "unit": "",
+          "tolerance": 0.004
+        }
+      },
+      "modelAnswer": "6 mm = 6000 µm. M = 6000 / 15 = x400.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 400 (magnification, no unit)."
+      ],
+      "hint": "Convert image and actual size to the same unit before dividing.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Convert image and actual size to the same unit before dividing."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "6 mm = 6000 µm. M = 6000 / 15 = x400."
+    },
+    {
+      "id": "bio-nov2-20261017-069",
+      "conceptId": "bio-nov2-20261017-069",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "A cell image measures 5 mm at x1000. Calculate its actual length in µm. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Actual length = 5 / 1000 = 0.005 mm. Multiply by 1000: 5 µm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "5\\s*[/÷]\\s*1000|image.{0,20}magnif"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 5 µm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in µm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 5.0,
+          "unit": "µm",
+          "tolerance": 5e-05
+        }
+      },
+      "modelAnswer": "Actual length = 5 / 1000 = 0.005 mm. Multiply by 1000: 5 µm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 5 µm.",
+        "Give the final size in µm."
+      ],
+      "hint": "Actual size = image size / magnification. Convert mm to µm by multiplying by 1000.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Actual size = image size / magnification. Convert mm to µm by multiplying by 1000."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Actual length = 5 / 1000 = 0.005 mm. Multiply by 1000: 5 µm."
+    },
+    {
+      "id": "bio-nov2-20261017-070",
+      "conceptId": "bio-nov2-20261017-070",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "A cell image measures 19.5 mm at x1500. Calculate its actual length in µm. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Actual length = 19.5 / 1500 = 0.013 mm. Multiply by 1000: 13 µm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "19.5\\s*[/÷]\\s*1500|image.{0,20}magnif"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 13 µm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in µm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 13.0,
+          "unit": "µm",
+          "tolerance": 0.00013000000000000002
+        }
+      },
+      "modelAnswer": "Actual length = 19.5 / 1500 = 0.013 mm. Multiply by 1000: 13 µm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 13 µm.",
+        "Give the final size in µm."
+      ],
+      "hint": "Actual size = image size / magnification. Convert mm to µm by multiplying by 1000.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Actual size = image size / magnification. Convert mm to µm by multiplying by 1000."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Actual length = 19.5 / 1500 = 0.013 mm. Multiply by 1000: 13 µm."
+    },
+    {
+      "id": "bio-nov2-20261017-071",
+      "conceptId": "bio-nov2-20261017-071",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "A cell image measures 24 mm at x600. Calculate its actual length in µm. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Actual length = 24 / 600 = 0.04 mm. Multiply by 1000: 40 µm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "24\\s*[/÷]\\s*600|image.{0,20}magnif"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 40 µm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in µm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 40.0,
+          "unit": "µm",
+          "tolerance": 0.0004
+        }
+      },
+      "modelAnswer": "Actual length = 24 / 600 = 0.04 mm. Multiply by 1000: 40 µm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 40 µm.",
+        "Give the final size in µm."
+      ],
+      "hint": "Actual size = image size / magnification. Convert mm to µm by multiplying by 1000.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Actual size = image size / magnification. Convert mm to µm by multiplying by 1000."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Actual length = 24 / 600 = 0.04 mm. Multiply by 1000: 40 µm."
+    },
+    {
+      "id": "bio-nov2-20261017-072",
+      "conceptId": "bio-nov2-20261017-072",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "A cell image measures 9 mm at x300. Calculate its actual length in µm. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Actual length = 9 / 300 = 0.03 mm. Multiply by 1000: 30 µm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "9\\s*[/÷]\\s*300|image.{0,20}magnif"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 30 µm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in µm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 30.0,
+          "unit": "µm",
+          "tolerance": 0.00030000000000000003
+        }
+      },
+      "modelAnswer": "Actual length = 9 / 300 = 0.03 mm. Multiply by 1000: 30 µm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 30 µm.",
+        "Give the final size in µm."
+      ],
+      "hint": "Actual size = image size / magnification. Convert mm to µm by multiplying by 1000.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Actual size = image size / magnification. Convert mm to µm by multiplying by 1000."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Actual length = 9 / 300 = 0.03 mm. Multiply by 1000: 30 µm."
+    },
+    {
+      "id": "bio-nov2-20261017-073",
+      "conceptId": "bio-nov2-20261017-073",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "A real cell is 0.01 mm long. Calculate the drawing length in mm at x2500. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Image length = actual length x magnification = 0.01 x 2500 = 25 mm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "0.01\\s*[x×*]\\s*2500|2500\\s*[x×*]\\s*0.01|actual.{0,20}magnif"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 25 mm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in mm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 25.0,
+          "unit": "mm",
+          "tolerance": 0.00025
+        }
+      },
+      "modelAnswer": "Image length = actual length x magnification = 0.01 x 2500 = 25 mm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 25 mm.",
+        "Give the final size in mm."
+      ],
+      "hint": "Image size = magnification x actual size. Both lengths here use mm.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Image size = magnification x actual size. Both lengths here use mm."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Image length = actual length x magnification = 0.01 x 2500 = 25 mm."
+    },
+    {
+      "id": "bio-nov2-20261017-074",
+      "conceptId": "bio-nov2-20261017-074",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "A real cell is 0.08 mm long. Calculate the drawing length in mm at x400. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Image length = actual length x magnification = 0.08 x 400 = 32 mm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "0.08\\s*[x×*]\\s*400|400\\s*[x×*]\\s*0.08|actual.{0,20}magnif"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 32 mm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in mm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 32.0,
+          "unit": "mm",
+          "tolerance": 0.00032
+        }
+      },
+      "modelAnswer": "Image length = actual length x magnification = 0.08 x 400 = 32 mm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 32 mm.",
+        "Give the final size in mm."
+      ],
+      "hint": "Image size = magnification x actual size. Both lengths here use mm.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Image size = magnification x actual size. Both lengths here use mm."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Image length = actual length x magnification = 0.08 x 400 = 32 mm."
+    },
+    {
+      "id": "bio-nov2-20261017-075",
+      "conceptId": "bio-nov2-20261017-075",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "A real cell is 0.02 mm long. Calculate the drawing length in mm at x1500. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Image length = actual length x magnification = 0.02 x 1500 = 30 mm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "0.02\\s*[x×*]\\s*1500|1500\\s*[x×*]\\s*0.02|actual.{0,20}magnif"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 30 mm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in mm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 30.0,
+          "unit": "mm",
+          "tolerance": 0.00030000000000000003
+        }
+      },
+      "modelAnswer": "Image length = actual length x magnification = 0.02 x 1500 = 30 mm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 30 mm.",
+        "Give the final size in mm."
+      ],
+      "hint": "Image size = magnification x actual size. Both lengths here use mm.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Image size = magnification x actual size. Both lengths here use mm."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Image length = actual length x magnification = 0.02 x 1500 = 30 mm."
+    },
+    {
+      "id": "bio-nov2-20261017-076",
+      "conceptId": "bio-nov2-20261017-076",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "A real cell is 0.005 mm long. Calculate the drawing length in mm at x2000. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Image length = actual length x magnification = 0.005 x 2000 = 10 mm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "0.005\\s*[x×*]\\s*2000|2000\\s*[x×*]\\s*0.005|actual.{0,20}magnif"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 10 mm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in mm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 10.0,
+          "unit": "mm",
+          "tolerance": 0.0001
+        }
+      },
+      "modelAnswer": "Image length = actual length x magnification = 0.005 x 2000 = 10 mm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 10 mm.",
+        "Give the final size in mm."
+      ],
+      "hint": "Image size = magnification x actual size. Both lengths here use mm.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Image size = magnification x actual size. Both lengths here use mm."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Image length = actual length x magnification = 0.005 x 2000 = 10 mm."
+    },
+    {
+      "id": "bio-nov2-20261017-077",
+      "conceptId": "bio-nov2-20261017-077",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 3,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "The field-of-view diameter is 1.6 mm at x100. At x400, 10 cell lengths span the diameter. Estimate one cell length in µm. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "New field of view = 1.6 x 100 / 400 = 0.4 mm. Cell length = 0.4 / 10 = 0.04 mm = 40 µm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "0.4\\s*(mm|[/÷])|1.6\\s*[x×*]\\s*100"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 40 µm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in µm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 40.0,
+          "unit": "µm",
+          "tolerance": 0.0004
+        }
+      },
+      "modelAnswer": "New field of view = 1.6 x 100 / 400 = 0.4 mm. Cell length = 0.4 / 10 = 0.04 mm = 40 µm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 40 µm.",
+        "Give the final size in µm."
+      ],
+      "hint": "First adjust the field of view for the new magnification, then divide by the cell count.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "First adjust the field of view for the new magnification, then divide by the cell count."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "New field of view = 1.6 x 100 / 400 = 0.4 mm. Cell length = 0.4 / 10 = 0.04 mm = 40 µm."
+    },
+    {
+      "id": "bio-nov2-20261017-078",
+      "conceptId": "bio-nov2-20261017-078",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 3,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "The field-of-view diameter is 1.8 mm at x100. At x300, 6 cell lengths span the diameter. Estimate one cell length in µm. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "New field of view = 1.8 x 100 / 300 = 0.6 mm. Cell length = 0.6 / 6 = 0.1 mm = 100 µm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "0.6\\s*(mm|[/÷])|1.8\\s*[x×*]\\s*100"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 100 µm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in µm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 99.99999999999999,
+          "unit": "µm",
+          "tolerance": 0.001
+        }
+      },
+      "modelAnswer": "New field of view = 1.8 x 100 / 300 = 0.6 mm. Cell length = 0.6 / 6 = 0.1 mm = 100 µm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 100 µm.",
+        "Give the final size in µm."
+      ],
+      "hint": "First adjust the field of view for the new magnification, then divide by the cell count.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "First adjust the field of view for the new magnification, then divide by the cell count."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "New field of view = 1.8 x 100 / 300 = 0.6 mm. Cell length = 0.6 / 6 = 0.1 mm = 100 µm."
+    },
+    {
+      "id": "bio-nov2-20261017-079",
+      "conceptId": "bio-nov2-20261017-079",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 3,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "The field-of-view diameter is 2 mm at x100. At x500, 8 cell lengths span the diameter. Estimate one cell length in µm. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "New field of view = 2 x 100 / 500 = 0.4 mm. Cell length = 0.4 / 8 = 0.05 mm = 50 µm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "0.4\\s*(mm|[/÷])|2\\s*[x×*]\\s*100"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 50 µm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in µm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 50.0,
+          "unit": "µm",
+          "tolerance": 0.0005
+        }
+      },
+      "modelAnswer": "New field of view = 2 x 100 / 500 = 0.4 mm. Cell length = 0.4 / 8 = 0.05 mm = 50 µm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 50 µm.",
+        "Give the final size in µm."
+      ],
+      "hint": "First adjust the field of view for the new magnification, then divide by the cell count.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "First adjust the field of view for the new magnification, then divide by the cell count."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "New field of view = 2 x 100 / 500 = 0.4 mm. Cell length = 0.4 / 8 = 0.05 mm = 50 µm."
+    },
+    {
+      "id": "bio-nov2-20261017-080",
+      "conceptId": "bio-nov2-20261017-080",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 3,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "The field-of-view diameter is 2.4 mm at x100. At x400, 12 cell lengths span the diameter. Estimate one cell length in µm. Show working.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "New field of view = 2.4 x 100 / 400 = 0.6 mm. Cell length = 0.6 / 12 = 0.05 mm = 50 µm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "0.6\\s*(mm|[/÷])|2.4\\s*[x×*]\\s*100"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 50 µm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in µm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 49.99999999999999,
+          "unit": "µm",
+          "tolerance": 0.0005
+        }
+      },
+      "modelAnswer": "New field of view = 2.4 x 100 / 400 = 0.6 mm. Cell length = 0.6 / 12 = 0.05 mm = 50 µm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 50 µm.",
+        "Give the final size in µm."
+      ],
+      "hint": "First adjust the field of view for the new magnification, then divide by the cell count.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "First adjust the field of view for the new magnification, then divide by the cell count."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "New field of view = 2.4 x 100 / 400 = 0.6 mm. Cell length = 0.6 / 12 = 0.05 mm = 50 µm."
+    },
+    {
+      "id": "bio-nov2-20261017-081",
+      "conceptId": "bio-nov2-20261017-081",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "A calibrated micrometer division represents 0.01 mm. A cell spans 5 divisions. Calculate its length in µm.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Length = 5 x 0.01 = 0.05 mm = 50 µm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "5\\s*[x×*]\\s*0.01|0.01\\s*[x×*]\\s*5"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 50 µm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in µm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 50.0,
+          "unit": "µm",
+          "tolerance": 0.0005
+        }
+      },
+      "modelAnswer": "Length = 5 x 0.01 = 0.05 mm = 50 µm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 50 µm.",
+        "Give the final size in µm."
+      ],
+      "hint": "Multiply the number of divisions by the calibrated size of one division.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Multiply the number of divisions by the calibrated size of one division."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Length = 5 x 0.01 = 0.05 mm = 50 µm."
+    },
+    {
+      "id": "bio-nov2-20261017-082",
+      "conceptId": "bio-nov2-20261017-082",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 2,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "A calibrated micrometer division represents 0.005 mm. A cell spans 8 divisions. Calculate its length in µm.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Length = 8 x 0.005 = 0.04 mm = 40 µm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "8\\s*[x×*]\\s*0.005|0.005\\s*[x×*]\\s*8"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 40 µm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in µm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 40.0,
+          "unit": "µm",
+          "tolerance": 0.0004
+        }
+      },
+      "modelAnswer": "Length = 8 x 0.005 = 0.04 mm = 40 µm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 40 µm.",
+        "Give the final size in µm."
+      ],
+      "hint": "Multiply the number of divisions by the calibrated size of one division.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Multiply the number of divisions by the calibrated size of one division."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Length = 8 x 0.005 = 0.04 mm = 40 µm."
+    },
+    {
+      "id": "bio-nov2-20261017-083",
+      "conceptId": "bio-nov2-20261017-083",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 3,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "On the same printed image, a cell measures 12 mm and a scale bar measures 20 mm. The bar represents 50 µm. Calculate the actual cell length in µm.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Actual cell length = 12 / 20 x 50 = 30 µm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "12\\s*[/÷]\\s*20|0.6"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 30 µm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in µm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 30.0,
+          "unit": "µm",
+          "tolerance": 0.00030000000000000003
+        }
+      },
+      "modelAnswer": "Actual cell length = 12 / 20 x 50 = 30 µm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 30 µm.",
+        "Give the final size in µm."
+      ],
+      "hint": "Compare the cell and scale bar using the same printed measurement unit.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Compare the cell and scale bar using the same printed measurement unit."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Actual cell length = 12 / 20 x 50 = 30 µm."
+    },
+    {
+      "id": "bio-nov2-20261017-084",
+      "conceptId": "bio-nov2-20261017-084",
+      "assessmentId": "biology-nov2",
+      "subject": "biology",
+      "year": 9,
+      "topic": "Microscopy calculations",
+      "difficulty": 3,
+      "format": "typed_rubric",
+      "marks": 3,
+      "prompt": "On the same printed image, a cell measures 18 mm and a scale bar measures 30 mm. The bar represents 100 µm. Calculate the actual cell length in µm.",
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Actual cell length = 18 / 30 x 100 = 60 µm."
+        ],
+        "points": [
+          {
+            "label": "Use the correct relationship and substitute compatible units.",
+            "allOf": [
+              "18\\s*[/÷]\\s*30|0.6"
+            ],
+            "allowNegative": false
+          },
+          {
+            "label": "Correct final answer: 60 µm.",
+            "numericResult": true
+          },
+          {
+            "label": "Give the final size in µm.",
+            "numericUnit": true
+          }
+        ],
+        "numeric": {
+          "value": 60.0,
+          "unit": "µm",
+          "tolerance": 0.0006000000000000001
+        }
+      },
+      "modelAnswer": "Actual cell length = 18 / 30 x 100 = 60 µm.",
+      "markKeywords": [
+        "Use the correct relationship and substitute compatible units.",
+        "Correct final answer: 60 µm.",
+        "Give the final size in µm."
+      ],
+      "hint": "Compare the cell and scale bar using the same printed measurement unit.",
+      "examGuidance": {
+        "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
+        "commonError": "Compare the cell and scale bar using the same printed measurement unit."
+      },
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "workedSolution": "Actual cell length = 18 / 30 x 100 = 60 µm."
+    }
+  ]
+}

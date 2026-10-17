@@ -31,6 +31,8 @@ jobs:
         run: node --test tests/french-practice-regression.mjs
       - name: Audit production route shells
         run: node tests/route-shell-qa.mjs
+      - name: Check 2 November Biology question bank and marking
+        run: node tests/biology-nov2-qa.mjs
       - name: Audit whole app integration
         run: node tests/overall-app-qa.mjs
       - name: Audit pet mastery and evolution

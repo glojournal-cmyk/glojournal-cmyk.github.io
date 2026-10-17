@@ -2,6 +2,11 @@
 (() => {
   const topic = (id, label, groups) => ({id, label, groups});
   const schoolAssessments = [
+    {id:'school-biology-20261102', subject:'Biology', date:'2026-11-02', dateKind:'day', dateLabel:'2 November 2026',
+      title:'Specialised cells and Required Practical 1', paperId:'biology-nov2',
+      scope:'Specialised animal and plant cells · onion-cell microscopy · biological drawing · magnification, field of view and cell-size calculations',
+      notes:'Based on school materials supplied 17 October. 84-question practice bank; 45-minute paper with 20 short questions, marked together on submission. Pass 85%.',
+      revisionTopics:[topic('bio-nov2-structures','Cell structures in context',['Cell structures in context']),topic('bio-nov2-animal','Specialised animal cells',['Specialised animal cells']),topic('bio-nov2-plant','Specialised plant cells',['Specialised plant cells']),topic('bio-nov2-practical','Microscopy practical',['Microscopy practical']),topic('bio-nov2-drawing','Biological drawing',['Biological drawing']),topic('bio-nov2-calculations','Microscopy calculations',['Microscopy calculations'])]},
     {id:'school-chemistry-20261005', subject:'Chemistry', date:'2026-10-05', dateKind:'week',
       dateLabel:'Week beginning 5 October 2026 · exact lesson date to be confirmed',
       title:'Atoms, separating mixtures and chromatography', paperId:'chemistry',
@@ -31,6 +36,10 @@
   function shiftDay(day,n) { const date=new Date(day+'T12:00:00Z');date.setUTCDate(date.getUTCDate()+n);return date.toISOString().slice(0,10); }
   function daysBetween(today,date) { return Math.round((Date.parse(date+'T12:00:00Z')-Date.parse(today+'T12:00:00Z'))/86400000); }
   function topicHref(subject,topic,action='practise') {
+    if(subject==='Biology'&&typeof topic==='string'&&topic.startsWith('bio-nov2-')){
+      const groups={'bio-nov2-structures':'Cell structures in context','bio-nov2-animal':'Specialised animal cells','bio-nov2-plant':'Specialised plant cells','bio-nov2-practical':'Microscopy practical','bio-nov2-drawing':'Biological drawing','bio-nov2-calculations':'Microscopy calculations'};
+      return action==='learn'?'/assessment/biology-nov2/notes.pdf':'/assessment/biology-nov2/practice/?topic='+encodeURIComponent(groups[topic]||'all');
+    }
     if(!subjects.has(subject)||!topic)return '/assessment/?tab=tracker';
     return '/study/'+subject.toLowerCase()+'/'+action+'?year=9&topic='+encodeURIComponent(topic)+(action==='practise'?'&mode=standard':'');
   }
@@ -47,7 +56,15 @@
       const latest=results.at(-1);
       const evidence=Array.isArray(latest?.revisionEvidence)?latest.revisionEvidence:[];
       const revisionTopics=x.revisionTopics.map(t=>{
-        const stat=garden.topicStats?.[t.id]||{},attempted=Math.max(0,Number(stat.attempted)||0),correct=Math.max(0,Math.min(attempted,Number(stat.correct)||0));
+        let stat=garden.topicStats?.[t.id]||{};
+        if(x.paperId==='biology-nov2'){
+          try{
+            const saved=JSON.parse(globalThis.localStorage?.getItem('scholar-biology-nov2-practice-v1')||'{}');
+            const rows=Object.values(saved.history||{}).filter(row=>t.groups.includes(row.topic));
+            if(rows.length)stat={attempted:rows.length,correct:rows.filter(row=>row.credit===1).length};
+          }catch{}
+        }
+        const attempted=Math.max(0,Number(stat.attempted)||0),correct=Math.max(0,Math.min(attempted,Number(stat.correct)||0));
         const mistakes=Object.values(garden.reviews||{}).filter(r=>r?.topicId===t.id&&!r.repair&&r.wrong===true).length;
         const lost=evidence.filter(e=>t.groups.includes(e.topic)&&Number.isFinite(e.credit)&&e.credit<1).reduce((sum,e)=>sum+(1-e.credit)*(Number(e.marks)||1),0);
         const state=topicLearning[t.id]===false?'not-taught':lost>0||mistakes>0||(attempted>=2&&correct/attempted<0.85)?'needs-review':attempted===0?'unchecked':stat.state==='mastered'?'mastered':'practising';
