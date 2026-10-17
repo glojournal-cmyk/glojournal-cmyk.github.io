@@ -18,6 +18,11 @@ for(let level=1;level<=10;level++){
   console.log('Antler Bean Level '+level+': '+w+'x'+h+', '+img.length+' bytes');
 }
 assert.equal(digests.size,6,'Antler Bean LV5–10 must be six distinct sprites');
+// Verify the published v2 paths are independent of the rejected first artwork batch.
+for(let level=5;level<=10;level++){
+ assert.match(petArtUrl('antler-bean',level),/art-antler-bean-v2-20261017/);
+ assert.doesNotMatch(petArtUrl('antler-bean',level),/art-antler-bean-20261017\/level/);
+}
 assert.equal(petArtUrl('antler-bean',11),petArtUrl('antler-bean',10));
 assert.match(petArtUrl('moss-hornling',10),/art-moss-hornling-20261017/);
 assert.match(petArtUrl('moon-puff',10),/art-moon-puff-20261013/);
