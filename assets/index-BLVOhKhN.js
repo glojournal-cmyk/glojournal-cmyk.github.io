@@ -1,4 +1,5 @@
 import "./player-ux-20261013.js?ux=20261013-corrections2";
+import {recordRecoveryAnswer,canRecover} from "./recovery-task-ledger-20261017.js";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
@@ -2206,6 +2207,26 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const coreMeta = { ...meta, topicId: undefined, excludeGeneralDaily: inRecovery };
   const result = originalRecordAttempt(questionId, correct, subject, coreMeta);
   const after = store.getState();
+  // Recover only an explicitly assigned, dated practice task with a verified
+  // answer event. Never infer a recovered task from a generic page visit.
+  if (inRecovery && !meta?.repair) {
+    const params = new URLSearchParams(window.location.search);
+    const date = params.get("recover"), taskId = params.get("task");
+    const supported = ["y8-practise","y8-mastery","year8-long-review","adaptive-focus","study-session"];
+    const evidenceTask = meta?.progressionTask || null;
+    const actual = before.dailyLog?.[date]?.tasks?.find(t=>t.id===taskId);
+    const subjectMatches = !actual?.focusSubject || actual.focusSubject === (resolved.subject || subject);
+    const topicMatches = !actual?.focusTopic || actual.focusTopic === resolved.topicId;
+    if (supported.includes(taskId) && taskId===evidenceTask && subjectMatches && topicMatches && canRecover(todayKey(),date)) {
+      const outcome=recordRecoveryAnswer(store.getState(),{
+        today:todayKey(),date,taskId,questionId,correct:!!correct
+      });
+      if(outcome.accepted)store.setState({
+        recoveryTaskByDay:outcome.state.recoveryTaskByDay,
+        ...(outcome.completed?{dailyLog:outcome.state.dailyLog}:{})
+      });
+    }
+  }
   store.setState({formalAttemptLog: globalThis.LuxWeeklyEvidence.append(before.formalAttemptLog, {
     at: new Date().toISOString(), questionId, correct: !!correct,
     subject: resolved.subject || subject, year: Number(meta.yearOverride || before.year || 9),
