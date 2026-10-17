@@ -17,6 +17,7 @@ jobs:
       - run: node tests/companion-goals-qa.mjs
       - run: node tests/pet-mp-qa.mjs
       - run: node tests/pet-moon-puff-art-20261013.mjs
+      - run: node tests/pet-moss-hornling-art-20261017.mjs
       - run: node --test tests/pet-care-state.test.mjs
       - run: node tests/phase3-home-personality-qa.mjs
   browser:
