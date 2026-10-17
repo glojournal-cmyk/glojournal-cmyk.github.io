@@ -1,0 +1,57 @@
+name: Install individually illustrated Antler Bean artwork
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/install-antler-bean-individual-20261017.yml']
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Fetch six individually illustrated transparent PNG sprites
+        shell: bash
+        env:
+          LV5: "https://at.adobe.com/l6T5VHN58lJZRmO2"
+          LV6: "https://at.adobe.com/WBmQyaPrqfVpLMeA"
+          LV7: "https://at.adobe.com/ywq2bDGjwcNfsokw"
+          LV8: "https://at.adobe.com/zUveeTzaXM3y3rKf"
+          LV9: "https://at.adobe.com/RFU06Oola8mIdJVa"
+          LV10: "https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:b079af58-2164-4a34-a0f7-f4ccf9b14d1a"
+        run: |
+          set -euo pipefail
+          mkdir -p pet/art-antler-bean-individual-20261017
+          for level in 5 6 7 8 9 10; do
+            name="LV${level}"
+            file="pet/art-antler-bean-individual-20261017/level-${level}.png"
+            curl -fLSs --retry 3 --retry-delay 4 --max-time 180 "${!name}" --output "${file}"
+            FILE="${file}" LEVEL="${level}" node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const b=fs.readFileSync(process.env.FILE), level=process.env.LEVEL;
+          if(b.subarray(0,8).toString('hex')!=='89504e470d0a1a0a') throw Error('Invalid PNG at '+level);
+          const w=b.readUInt32BE(16),h=b.readUInt32BE(20),alpha=b[25];
+          if(w<1000||h<1300||![4,6].includes(alpha)||b.length<90000) throw Error('Invalid size or alpha at LV'+level);
+          console.log('LV'+level, 'PNG '+w+'x'+h, b.length+' bytes, color-type '+alpha);
+          NODE
+          done
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';import crypto from 'node:crypto';
+          const dir='pet/art-antler-bean-individual-20261017';
+          const hashes=Array.from({length:6},(_,i)=>crypto.createHash('sha256').update(fs.readFileSync(`${dir}/level-${i+5}.png`)).digest('hex'));
+          if(new Set(hashes).size!==6)throw Error('Duplicate Antler Bean sprite files');
+          console.log('All six individual character images are distinct');
+          NODE
+      - name: Commit sprites to repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/art-antler-bean-individual-20261017/level-{5,6,7,8,9,10}.png
+          if git diff --cached --quiet; then echo "Already uploaded"; exit 0; fi
+          git commit -m "Install individually illustrated full-body Antler Bean LV5–10 sprites"
+          git pull --rebase origin main
+          git push origin HEAD:main
