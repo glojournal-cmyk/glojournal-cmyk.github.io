@@ -2209,11 +2209,11 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const after = store.getState();
   // Recover only an explicitly assigned, dated practice task with a verified
   // answer event. Never infer a recovered task from a generic page visit.
-  if (inRecovery && !meta?.repair) {
+  if (inRecovery) {
     const params = new URLSearchParams(window.location.search);
     const date = params.get("recover"), taskId = params.get("task");
     const supported = ["mistake-review","y8-practise","y8-mastery","year8-long-review","adaptive-focus","study-session"];
-    const evidenceTask = taskId==="mistake-review" ? (meta?.repair ? null : "mistake-review") : (meta?.progressionTask || null);
+    const evidenceTask = taskId==="mistake-review" ? (before.reviews?.[questionId] ? "mistake-review" : null) : (!meta?.repair ? meta?.progressionTask || null : null);
     const actual = before.dailyLog?.[date]?.tasks?.find(t=>t.id===taskId);
     const subjectMatches = !actual?.focusSubject || actual.focusSubject === (resolved.subject || subject);
     const topicMatches = !actual?.focusTopic || actual.focusTopic === resolved.topicId;
