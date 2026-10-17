@@ -60,6 +60,7 @@ try {
    assert.equal(game.done,true);
    assert.equal(game.pending,null);
    assert.equal(game.credited,2);
+   await page.waitForLoadState('networkidle');
    await page.goto(base+'/study/french/practise?daily=1&locked=1&year=8&mode=standard&task=y8-practise&recover='+date,{waitUntil:'domcontentloaded'});
    await page.waitForFunction(()=>typeof window.__luxStore?.getState()?.recordAttempt==='function');
    const practise=await page.evaluate(d=>{
