@@ -98,11 +98,17 @@ function backfillDatedFocusEvidence(){
  }
 }
 function mount(){
- if(location.pathname!=="/")return;
+ // The router can return Home without loading a fresh HTML document.
+ // The recovery module now loads on practice and game entry routes as well.
+ if(location.pathname!=="/"&&location.pathname!=="/index.html")return;
  const card=[...document.querySelectorAll("main h2")].find(n=>n.textContent.trim()==="Raise her today")?.parentElement?.parentElement?.parentElement;
- if(!card)return;
+ if(!card)return; // Home is still hydrating; mutation observer retries.
  let host=document.getElementById("lux-recovery-quests");
- if(!host){host=document.createElement("details");host.id="lux-recovery-quests";card.append(host)}
+ if(!host){host=document.createElement("details");host.id="lux-recovery-quests";}
+ // Client-side navigation and React rerenders can detach the old card.
+ // Reattach the SAME recovery panel, rather than waiting for an app restart.
+ if(host.parentElement!==card)card.append(host);
+ host.hidden=false;
  reconcileCompletedRecoveries();
  backfillDatedFocusEvidence();
 
@@ -111,12 +117,16 @@ function mount(){
  const byDate=Object.fromEntries(dates.map(date=>[date,eligibleRecoveryTasks(state,date,today)]));
  const signature=JSON.stringify([dates,rows,byDate]);
  if(host.dataset.signature===signature)return;
- host.dataset.signature=signature;
+ const hadRendered=host.dataset.recoveryRendered==="1";
+ const keptOpen=host.open;
  const previous=host.querySelector('select')?.value;
+ host.dataset.signature=signature;
  host.replaceChildren();
- host.hidden=false;
  const unfinished=dates.reduce((sum,date)=>sum+(byDate[date].filter(t=>!t.done).length||rows.filter(r=>r.date===date&&!r.done).length),0);
- host.open=unfinished>0;
+ // A completed answer must NOT collapse or hide Recovery on return Home.
+ // Respect a user's deliberate open/closed choice across rerenders.
+ host.open=hadRendered?keptOpen:unfinished>0;
+ host.dataset.recoveryRendered="1";
  const summary=document.createElement('summary');
  summary.textContent=unfinished?'Recovery · '+unfinished+' tasks available':'Recovery · choose a date';
  host.append(summary);
@@ -301,4 +311,8 @@ const style=document.createElement("style");style.textContent=`
 `;document.head.append(style);
 let queued=false;function schedule(){if(!queued){queued=true;queueMicrotask(()=>{queued=false;mount()})}}
 store.subscribe(schedule);new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true});
-window.addEventListener("pageshow",schedule);window.addEventListener("lux:app-ready",schedule);schedule();
+window.addEventListener("pageshow",schedule);
+window.addEventListener("popstate",schedule);
+window.addEventListener("lux:app-ready",schedule);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)schedule()});
+schedule();
