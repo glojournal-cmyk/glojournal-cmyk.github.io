@@ -73,10 +73,14 @@ export function reconcileRecoveredTaskHistory(state, existingLog) {
   for(const [date,proofs] of Object.entries(state?.recoveryTaskByDay||{})){
     if(!validDay(date))continue;
     let row=log[date];
+    const countProof=(id,proof)=>id==='mistake-review'
+      ?Object.values(proof?.items||{}).filter(Boolean).length
+      :Object.keys(proof?.items||{}).length;
     if(!row||!Array.isArray(row.tasks)||!row.tasks.length){
-      // The ledger can survive an iPad storage failure when dailyLog did not.
-      // Restore a FULL fallback day, not a fake one-task "All done" record.
-      if(!Object.values(proofs||{}).some(p=>p?.completed===true))continue;
+      // Reconstruct a full, plainly labelled fallback only from real dated
+      // answer evidence, including partially finished Recovery sessions.
+      if(!Object.entries(proofs||{}).some(([id,p])=>
+          RECOVERY_IDS.has(id)&&(p?.completed===true||countProof(id,p)>0)))continue;
       const tasks=UNOPENED_FALLBACK_TASKS.map(([id,title,target])=>({
         id,title,target,progress:0,done:false,recoveryFallback:true
       }));
@@ -85,10 +89,18 @@ export function reconcileRecoveredTaskHistory(state, existingLog) {
     }
     let changed=false;
     const tasks=row.tasks.map(task=>{
-      if(proofs?.[task.id]?.completed!==true||!RECOVERY_IDS.has(task.id)||
-         task.done||Number(task.progress)>=Number(task.target))return task;
+      const proof=proofs?.[task.id];
+      if(!proof||!RECOVERY_IDS.has(task.id)||task.done||
+          Number(task.progress)>=Number(task.target))return task;
+      const target=Math.max(1,Number(task.target)||1);
+      const initial=Math.max(0,Number(proof.originalCount??task.progress)||0);
+      const attempts=countProof(task.id,proof);
+      const progress=proof.completed===true?target:
+        Math.min(target,Math.max(Number(task.progress)||0,initial+attempts));
+      if(progress<=Number(task.progress||0))return task;
       changed=true;
-      return {...task,progress:Number(task.target),done:true,recovered:true};
+      const done=proof.completed===true||progress>=target;
+      return {...task,progress,done,...(done?{recovered:true}:{})};
     });
     if(!changed)continue;
     const done=tasks.filter(t=>t.done||Number(t.progress)>=Number(t.target)).length;
