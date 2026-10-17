@@ -1,4 +1,4 @@
-import('/assets/biology-nov2-entry-20261017.js?v=1&ux=20261013-corrections2').catch(console.error);
+if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/biology-nov2-entry-20261017.js?v=1&ux=20261013-corrections2').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/phase7-voice-cheers-20261011.js?v=20261012-phase3&ux=20261013-corrections2').catch(()=>{});
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/star-map-gallery-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/memory-stars-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2').catch(console.error);
