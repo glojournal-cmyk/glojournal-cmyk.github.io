@@ -52,11 +52,17 @@ export function recordRecoveryAnswer(state,{today,date,taskId,questionId,correct
   const completed=count>=required;
   const proof={...old,items,originalCount:baseline,totalNeeded:required,completed};
   const patch={...state,recoveryTaskByDay:{...all,[date]:{...forDay,[taskId]:proof}}};
-  if(completed) {
-    const tasks=day.tasks.map(t=>t.id===taskId?{...t,progress:Number(t.target),done:true,recovered:true}:t);
-    const done=tasks.filter(t=>t.done||Number(t.progress)>=Number(t.target)).length;
-    patch.dailyLog={...(state.dailyLog||{}),[date]:{...day,tasks,done,total:tasks.length,complete:done===tasks.length}};
-  }
+  // Persist partial, genuinely marked activity progress on the ORIGINAL date,
+  // rather than displaying 0 until the entire 4/10-question target is reached.
+  const progress=Math.min(Number(task.target),baseline+count);
+  const tasks=day.tasks.map(t=>t.id===taskId
+    ? {...t,progress:Math.max(Number(t.progress)||0,progress),done:completed,
+       ...(completed?{recovered:true}:{})}
+    :t);
+  const done=tasks.filter(t=>t.done||Number(t.progress)>=Number(t.target)).length;
+  patch.dailyLog={...(state.dailyLog||{}),[date]:{
+    ...day,tasks,done,total:tasks.length,complete:done===tasks.length
+  }};
   // XP deliberately omitted. Reward dispatcher may award only after an
   // idempotent recoveryAwarded key has been persisted with proof.
   return {state:patch,accepted:true,completed,newlyCompleted:completed};
