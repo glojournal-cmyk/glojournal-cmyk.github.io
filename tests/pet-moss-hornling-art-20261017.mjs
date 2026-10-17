@@ -25,7 +25,7 @@ for(let level=1;level<=10;level++){
 assert.equal(digests.size,6,'LV5–10 should use six distinct images');
 assert.equal(petArtUrl('moss-hornling',11),petArtUrl('moss-hornling',10),'Keep max level capped at 10');
 assert.match(petArtUrl('moon-puff',10),/art-moon-puff-20261013/,'Keep Moon Puff intact');
-assert.match(petArtUrl('antler-bean',10),/art-antler-bean-v2-20261017/,'Antler Bean has own updated art');
+assert.match(petArtUrl('antler-bean',10),/art-antler-bean-v3-20261017/,'Antler Bean has own updated art');
 const petJS=fs.readFileSync('pet/pet.js','utf8');
 assert.match(petJS,/identity\.forms\.slice\(0,MAX_PET_LEVEL\)/,'No duplicate LV11–15 cards');
 console.log('Moss Hornling LV5–10 sprite QA passed');
