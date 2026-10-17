@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {reconcileRecoveredTaskHistory} from '../assets/recovery-task-ledger-20261017.js';
 const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const practice=read('assets/study._subject.practise-y8fix-20260920.js');
 const runtime=read('assets/index-BLVOhKhN.js');
@@ -36,8 +37,8 @@ function calendar(state){
  const store={getState:()=>state,subscribe:fn=>listeners.push(fn)};
  const from=runtime.indexOf('function reconcileRecoveredVocabHistory('),to=runtime.indexOf('function normalizeState(',from);
  const recordFrom=runtime.indexOf('function recordDayStatus('),recordTo=runtime.indexOf('function luxGlanceShortLabel(',recordFrom);
- const fn=new Function('store','document','window','history','todayKey','shiftDay','formatRecordDate','compactDailyTasks','findRecoveryVocabSource',runtime.slice(from,to)+runtime.slice(recordFrom,recordTo)+';mountDailyRecord();');
- fn(store,document,window,{state:{},pushState(){},back(){}},()=>state.today,(d,n)=>new Date(Date.parse(d+'T12:00:00Z')+n*86400000).toISOString().slice(0,10),d=>({weekday:'Day',label:d}),x=>x,()=>null);
+ const fn=new Function('store','document','window','history','todayKey','shiftDay','formatRecordDate','compactDailyTasks','findRecoveryVocabSource','reconcileRecoveredTaskHistory',runtime.slice(from,to)+runtime.slice(recordFrom,recordTo)+';mountDailyRecord();');
+ fn(store,document,window,{state:{},pushState(){},back(){}},()=>state.today,(d,n)=>new Date(Date.parse(d+'T12:00:00Z')+n*86400000).toISOString().slice(0,10),d=>({weekday:'Day',label:d}),x=>x,()=>null,reconcileRecoveredTaskHistory);
  window.__luxOpenDailyRecord();
  const text=node=>[node.textContent,...node.children.map(text)].join('\n');
  return {text:()=>text(root),update:()=>listeners.forEach(f=>f())};
