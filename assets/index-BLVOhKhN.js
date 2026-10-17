@@ -1592,22 +1592,30 @@ function normalizeState() {
       }
     }
     const id = entry.dailyTaskId;
-    const creditedIds = recoveredIds.has(id) ? [id] : [];
-    // Focused study (10) and Subject focus (4) overlap: a marked formal
-    // answer can satisfy BOTH if it matches each historical assignment.
-    // Also replay saved Recovery evidence from before this fix without
-    // asking a learner to redo answers already recorded on the iPad.
-    if (id === "study-session" || id === "adaptive-focus") {
-      const other = id === "study-session" ? "adaptive-focus" : "study-session";
-      creditedIds.push(other);
+    const isDailyVocab = id === "french-vocab" || id === "latin-vocab" ||
+      entry.dailyVocab === "french" || entry.dailyVocab === "latin";
+    const creditedIds = new Set(recoveredIds.has(id) ? [id] : []);
+    // The normal daily "Focused study" requirement counts any real formal
+    // practice outside the dedicated vocab exercise. Earlier Recovery builds
+    // lost task=... on navigation despite saving recoveryFor on each answer.
+    // Reconstruct from saved dated, non-repair formal answers, NOT page visits.
+    // Keep vocabulary separate; it has its own 30-correct target.
+    if (!isDailyVocab) {
+      creditedIds.add("study-session");
+      creditedIds.add("adaptive-focus");
     }
     for (const creditId of creditedIds) {
       const task = state.dailyLog?.[date]?.tasks?.find(t => t.id === creditId);
       if (!task || Number(task.target) <= 0 || (creditId === "mistake-review" && !entry.correct)) continue;
-      const requiredSubject = task.focusSubject || task.assignedSubject || task.reviewSubject;
-      const requiredTopic = task.focusTopic || task.assignedTopic || task.reviewTopic;
-      if (requiredSubject && requiredSubject !== entry.subject) continue;
-      if (requiredTopic && requiredTopic !== entry.topicId) continue;
+      // Subject focus ALWAYS requires the original assigned subject/topic.
+      // General Focused Study is ten formal practice answers from any topic,
+      // matching the app's everyday questionsToday-based rule.
+      if (creditId !== "study-session") {
+        const requiredSubject = task.focusSubject || task.assignedSubject || task.reviewSubject;
+        const requiredTopic = task.focusTopic || task.assignedTopic || task.reviewTopic;
+        if (requiredSubject && requiredSubject !== entry.subject) continue;
+        if (requiredTopic && requiredTopic !== entry.topicId) continue;
+      }
       const existing = recoveredPractice[date] || {}, old = existing[creditId] || {};
       const items = { ...(old.items || {}) };
       if (!(entry.questionId in items) || (entry.correct && !items[entry.questionId])) {
