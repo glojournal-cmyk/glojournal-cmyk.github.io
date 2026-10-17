@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import {petArtUrl} from '../pet/pet-art-hd-20261009.js';
-const folder='pet/art-antler-bean-20261017';
+const folder='pet/art-antler-bean-v2-20261017';
 const digests=new Set();
 for(let level=1;level<=10;level++){
   const art=petArtUrl('antler-bean',level);
@@ -12,7 +12,7 @@ for(let level=1;level<=10;level++){
   assert.ok(img.length>50000,'Antler Bean LV'+level+' missing or undersized');
   assert.equal(img.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
   const w=img.readUInt32BE(16),h=img.readUInt32BE(20),type=img[25];
-  assert.ok(w>=950&&h>=950,'Insufficient image resolution '+level);
+  assert.ok(w>=600&&h>=1000,'Insufficient image resolution '+level);
   assert.ok(type===6||type===4,'Transparent alpha channel missing '+level);
   digests.add(crypto.createHash('sha256').update(img).digest('hex'));
   console.log('Antler Bean Level '+level+': '+w+'x'+h+', '+img.length+' bytes');

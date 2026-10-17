@@ -1,6 +1,6 @@
 import '../assets/player-ux-20261013.js?ux=20261013-corrections2';
 import {MAX_PET_LEVEL, EVOLUTION_COSTS, STAGE_NAMES, clampPetLevel, ADVANCED_FORMS} from './pet-evolution-config-20261012.js?ux=20261013-corrections2';
-import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261017-antler-fullbody1&ux=20261013-corrections2';
+import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261017-antler-watercolor-v2&ux=20261013-corrections2';
 const APP_KEY = "lux-scholar-garden-v1";
 const PET_KEY = "lux-pet-companion-v1";
 
@@ -20,7 +20,7 @@ const pets = [
 ];
 const character = {
   "moss-hornling": {nature:"Gentle, stubborn and quietly brave",habit:"Plants a seed wherever it finds a difficult question.",forms:["Tiny forest scout","Leaf-horn forager","Mossland runner","Canopy guardian","Ancient grove keeper"]},
-  "antler-bean": {nature:"Curious, clumsy and loyal",habit:"Collects curious facts and remembers who taught them.",forms:["Little woodland bean","Branching wanderer","Young forest explorer","Great antler guardian","Celestial elk"]},
+  "antler-bean": {nature:"Curious, clumsy and loyal",habit:"Collects curious facts and remembers who taught them.",forms:["Little woodland bean","Branching wanderer","Young forest explorer","Great antler guardian","Mapleleaf guardian"]},
   "inkling": {nature:"Inventive, quick and a little dramatic",habit:"Draws ideas in the air with its ink-feather tail.",forms:["First spark of ink","Curl-tailed sketcher","Quill-wing scholar","Ink phoenix","Midnight master phoenix"]},
   "pebble-wisp": {nature:"Patient, observant and surprisingly funny",habit:"Rearranges its stones whenever a puzzle clicks.",forms:["Little floating pebble","Orbiting stones","Rune cluster","Stone sentinel","Crystal constellation"]},
   "moon-puff": {nature:"Dreamy, kind and fiercely attentive",habit:"Keeps a tiny light on for lessons worth revisiting.",forms:["Sleepy moon cloud","Crescent-eared puff","Moon hare","Lunar runner","Cloud-tail guardian","Starlight Cloud Walker","Standing Moon Sprite","Moon-Hare Hybrid","Lunar Maiden","Celestial Moon Guardian"]},
