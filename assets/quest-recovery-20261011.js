@@ -309,7 +309,11 @@ const style=document.createElement("style");style.textContent=`
 #lux-recovery-quests .lux-recovery-item span{color:#586777;flex:1 1 180px}
 #lux-recovery-quests .lux-recovery-item a{display:inline-block;padding:9px 12px;border-radius:10px;background:#23495b;color:white;min-height:44px;text-decoration:none}
 `;document.head.append(style);
-let queued=false;function schedule(){if(!queued){queued=true;queueMicrotask(()=>{queued=false;mount()})}}
+let queued=false;function schedule(){
+ // Practice/Play can be busy; only schedule a Home panel render on Home.
+ if(location.pathname!=="/"&&location.pathname!=="/index.html")return;
+ if(!queued){queued=true;queueMicrotask(()=>{queued=false;mount()})}
+}
 store.subscribe(schedule);new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true});
 window.addEventListener("pageshow",schedule);
 window.addEventListener("popstate",schedule);
