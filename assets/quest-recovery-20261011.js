@@ -1,5 +1,5 @@
 /* Recovery Quest UI: read-only display; the app records eligible answers separately. */
-import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261011-vault2&ux=20261013-corrections2";
+import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261017-unopened-recovery1&ux=20261013-corrections2";
 const DAY_MS=86400000;
 const dateAt=(d,n)=>new Date(Date.parse(d+"T12:00:00Z")+n*DAY_MS).toISOString().slice(0,10);
 function recoveryRows(state){
@@ -70,7 +70,7 @@ function mount(){
  const list=document.createElement('div');host.append(list);
  function showDate(){
   list.replaceChildren();const date=select.value,selected=rows.filter(row=>row.date===date);
-  const hint=document.createElement('p');hint.textContent='French / Latin Vocab recovery is credited to this date. You can switch dates at any time.';list.append(hint);
+  const hint=document.createElement('p');hint.textContent='Even if you did not open the app, French / Latin Vocab can be recovered for this date. Finish the missing correct answers + 5 extra; credit goes to this date. Other daily tasks remain unfinished.';list.append(hint);
   if(!selected.length){const note=document.createElement('p');note.textContent='No unfinished Vocab record is available for '+date+'. Other daily tasks are outside Vocab Recovery.';list.append(note)}
   for(const row of selected){
    const item=document.createElement('div');item.className='lux-recovery-item';

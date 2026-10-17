@@ -48,11 +48,10 @@ test("end of second recovery day remains eligible",()=>{
  for(let i=0;i<8;i++)f.answer("latin","q"+i);
  assert.equal(f.xp(),15);
 });
-test("third day, future date and missing original record cannot be recovered",()=>{
+test("third day and future date cannot be recovered",()=>{
  for(const [recover,days] of [
   ["2026-10-08",{"2026-10-08":{french:20}}],
-  ["2026-10-12",{"2026-10-12":{french:20}}],
-  ["2026-10-09",{}]]){
+  ["2026-10-12",{"2026-10-12":{french:20}}]]){
   const f=fixture({recover,days});for(let i=0;i<35;i++)f.answer("french","q"+i);
   assert.equal(f.xp(),0);
  }
@@ -84,4 +83,28 @@ test("10 Oct and 11 Oct French recovery credit independently without blocking ea
  f.selectRecovery("2026-10-10");for(let i=0;i<6;i++)f.answer("french","same"+i);
  assert.equal(f.state.dailyLog["2026-10-10"].tasks[0].done,true);assert.equal(f.xp(),30);assert.equal(f.state.daily[0].progress,3);
  f.selectRecovery("2026-10-11");f.answer("french","extra");assert.equal(f.xp(),30);
+});
+
+
+test("unopened days offer French and Latin, require 35 each and retain ten-task history",()=>{
+ const f=fixture({days:{}}),today=JSON.stringify(f.state.daily);
+ for(let i=0;i<34;i++)f.answer('french','f'+i);
+ assert.equal(f.xp(),0);assert.equal(f.state.dailyLog['2026-10-10'],undefined);
+ f.answer('french','f34');
+ let row=f.state.dailyLog['2026-10-10'];
+ assert.equal(row.total,10);assert.equal(row.done,1);assert.equal(row.complete,false);
+ for(let i=0;i<35;i++)f.answer('latin','l'+i);
+ row=f.state.dailyLog['2026-10-10'];
+ assert.equal(row.done,2);assert.equal(row.total,10);assert.equal(row.complete,false);
+ assert.equal(f.xp(),30);assert.equal(JSON.stringify(f.state.daily),today);
+ f.answer('french','extra');assert.equal(f.xp(),30);
+});
+test("unopened second day is recoverable but expired and malformed dates are rejected",()=>{
+ const f=fixture({recover:'2026-10-09',days:{}});
+ for(let i=0;i<35;i++)f.answer('latin','q'+i);
+ assert.equal(f.xp(),15);assert.equal(f.state.dailyLog['2026-10-09'].done,1);
+ for(const date of ['2026-10-08','2026-10-12','2026-02-30','2026-10-11']) {
+  const g=fixture({recover:date,days:{}});for(let i=0;i<35;i++)g.answer('french','q'+i);
+  assert.equal(g.xp(),0);assert.deepEqual(g.state.dailyLog,{});
+ }
 });
