@@ -1,6 +1,8 @@
 name: Whole site QA
 on:
   workflow_dispatch:
+  pull_request:
+    paths: ['tests/**', 'assets/**', 'content/**', 'assessment/**', 'pet/**', '**/*.html', '*.js', '*.css', '.github/workflows/site-browser-qa.yml']
   push:
     branches: [main]
     paths: ['tests/**', 'assets/**', 'content/**', 'assessment/**', 'pet/**', '**/*.html', '*.js', '*.css', '.github/workflows/site-browser-qa.yml']
