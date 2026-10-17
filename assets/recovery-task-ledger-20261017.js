@@ -66,8 +66,17 @@ export function reconcileRecoveredTaskHistory(state, existingLog) {
   let log=existingLog||{};
   for(const [date,proofs] of Object.entries(state?.recoveryTaskByDay||{})){
     if(!validDay(date))continue;
-    const row=log[date];
-    if(!row||!Array.isArray(row.tasks)||!row.tasks.length)continue;
+    let row=log[date];
+    if(!row||!Array.isArray(row.tasks)||!row.tasks.length){
+      // The ledger can survive an iPad storage failure when dailyLog did not.
+      // Restore a FULL fallback day, not a fake one-task "All done" record.
+      if(!Object.values(proofs||{}).some(p=>p?.completed===true))continue;
+      const tasks=UNOPENED_FALLBACK_TASKS.map(([id,title,target])=>({
+        id,title,target,progress:0,done:false,recoveryFallback:true
+      }));
+      row={date,tasks,done:0,total:tasks.length,complete:false,recoveryFallback:true};
+      log={...log,[date]:row};
+    }
     let changed=false;
     const tasks=row.tasks.map(task=>{
       if(proofs?.[task.id]?.completed!==true||!RECOVERY_IDS.has(task.id)||
