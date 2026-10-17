@@ -175,6 +175,38 @@ function mount(){
  }
  select.addEventListener('change',showDate);showDate();
 
+ // Read-only Recovery audit. Shows safe counts, never student answers,
+ // never overwrites progress, and can be screenshotted if the iPad misses credit.
+ const audit=document.createElement('details');
+ audit.className='lux-recovery-audit';
+ const auditTitle=document.createElement('summary');
+ auditTitle.textContent='Recovery check · saved answer counts';
+ const note=document.createElement('p');
+ note.textContent='These counts are from this device. Reopening the app can help confirm whether they were saved. No answers or names are shown.';
+ const results=document.createElement('pre');
+ results.style.cssText='white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.65 ui-monospace,monospace;padding:12px;border-radius:10px;background:#f4efe3';
+ const auditDates=[...new Set([
+   ...dates,...Object.keys(state.recoveryVocabByDay||{}),
+   ...Object.keys(state.recoveryTaskByDay||{}),
+   ...(state.formalAttemptLog||[]).map(a=>a?.recoveryFor).filter(Boolean)
+ ])].filter(x=>/^\\d{4}-\\d{2}-\\d{2}$/.test(x)).sort().reverse().slice(0,14);
+ const report=auditDates.map(date=>{
+   const row=state.dailyLog?.[date];
+   const log=row?.tasks?.length?row.done+'/'+row.total:'not saved';
+   const saved=(state.formalAttemptLog||[]).filter(a=>a?.recoveryFor===date).length;
+   const vocab=['french','latin'].map(subject=>{
+     const proof=state.recoveryVocabByDay?.[date]?.[subject];
+     const task=row?.tasks?.find(t=>t.id===subject+'-vocab');
+     const amount=Object.keys(proof?.items||{}).length;
+     return subject+': '+amount+' marked / '+(Math.max(1,30-Number(proof?.originalCount??task?.progress??0)))+' needed'+(task?.done||proof?.completed?' ✓':'');
+   }).join(' | ');
+   const tasks=Object.entries(state.recoveryTaskByDay?.[date]||{})
+     .map(([id,p])=>id+' '+Object.keys(p?.items||{}).length+'/'+(p?.totalNeeded||'?')+(p?.completed?' ✓':'')).join(', ');
+   return date+' · day '+log+' · answer events '+saved+'\\n  '+vocab+(tasks?'\\n  '+tasks:'');
+ });
+ results.textContent=report.join('\\n')||'No Recovery answer record was saved.';
+ audit.append(auditTitle,note,results);
+ host.append(audit);
 }
 const style=document.createElement("style");style.textContent=`
 #lux-recovery-quests{margin:14px 0;padding:15px;border:1px solid #d4c7ac;border-radius:16px;background:#fffaf0;color:#193449}
