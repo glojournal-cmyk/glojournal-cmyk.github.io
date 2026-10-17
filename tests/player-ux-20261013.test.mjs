@@ -48,8 +48,8 @@ test('all ten pet levels keep available original HD artwork',()=>{
  assert.match(read('pet/pet.js'),/Next evolution preview/);
  assert.match(read('pet/pet.js'),/panel=document.createElement\('details'\);panel.id='mp-wallet-history'/);
 });
-test('Recovery hides empty dates and expands eligible unfinished work',()=>{
- const src=read('assets/quest-recovery-20261011.js');assert.match(src,/host.hidden=rows.length===0/);assert.match(src,/host.open=unfinished>0/);assert.match(src,/Recovery · all caught up/);
+test('Recovery remains accessible for unopened dates and expands unfinished work',()=>{
+ const src=read('assets/quest-recovery-20261011.js');assert.match(src,/host.hidden=false/);assert.match(src,/host.open=unfinished>0/);assert.match(src,/Prepare ten recovery tasks/);
 });
 test('foundation review is distinguished from the daily Continue task',()=>{
  const src=read('assets/study-experience-20260927.js');assert.match(src,/OPTIONAL FOUNDATION REVIEW/);assert.match(src,/Review this foundation →/);
