@@ -4,7 +4,7 @@ import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corr
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import("/pet/pet-care-global.js?v=20261011-storage-qa1&ux=20261013-corrections2").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261011-vault2&ux=20261013-corrections2";
+export * from "./index-BLVOhKhN.core.js?v=20261017-unopened-recovery1&ux=20261013-corrections2";
 import {
   C as store,
   Z as scholarLevelProgress,
@@ -18,7 +18,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261011-vault2&ux=20261013-corrections2";
+} from "./index-BLVOhKhN.core.js?v=20261017-unopened-recovery1&ux=20261013-corrections2";
 
 if(typeof window!=="undefined"){
  window.__luxStore=store;
@@ -2405,7 +2405,29 @@ function findRecoveryVocabSource(state, date, subject) {
   const verifiedCount=Object.values(verified).filter(Boolean).length;
   const task=tasks.find(t=>t.id===id);
   const recoveryProof = state.recoveryVocabByDay?.[date]?.[subject];
-  if (!task && !Object.keys(verified).length && !recoveryProof?.completed) return null;
+  // An unopened day has no saved assignment. Offer the fixed Year 7–8
+  // Vocab tasks during the two-day window without borrowing today's progress.
+  const elapsed = Math.round((Date.parse(todayKey()+"T12:00:00Z")-Date.parse(date+"T12:00:00Z"))/86400000);
+  const validDate = Number.isFinite(elapsed) && new Date(Date.parse(date+"T12:00:00Z")).toISOString().slice(0,10) === date;
+  const unopened = !tasks.length && validDate && (elapsed >= 1 && elapsed <= 2 || elapsed >= 1 && recoveryProof);
+  if (unopened) {
+    // Keep the full ten-task denominator. Recovering two Vocab tasks must
+    // never turn an otherwise missed day into “All done”. These generic
+    // labels do not claim a historical adaptive topic was assigned.
+    tasks = [
+      ["mistake-review","Previous mistakes",1],
+      ["study-session","Focused study",10],
+      ["french-vocab","Year 7–8 French vocab",30],
+      ["latin-vocab","Year 7–8 Latin vocab",30],
+      ["adaptive-focus","Subject focus",4],
+      ["year8-long-review","Year 8 practice + mastery",25],
+      ["y8-practise","Foundation practice",10],
+      ["y8-mastery","Mastery review",25],
+      ["tend-garden","Water your plants",1],
+      ["play-game","Play a quick game",1]
+    ].map(([id,title,target])=>({id,title,target,progress:0,done:false}));
+  }
+  if (!task && !Object.keys(verified).length && !recoveryProof?.completed && !unopened) return null;
   const progress = recoveryProof?.completed === true ? 30 : Math.min(30,Math.max(Number(task?.progress)||Number(recoveryProof?.originalCount)||0,verifiedCount));
   return {task:{...task,id,target:30,progress},tasks:tasks.length?tasks:[{id,target:30,progress}]};
 }
@@ -3114,7 +3136,7 @@ function mountDailyRecord() {
         detail.className = "lux-record-detail";
         if (!row) {
           const empty = document.createElement("p");
-          empty.textContent = "No record. The app was not opened, so the tasks for this day were not saved.";
+          empty.textContent = "No saved daily record. Within 48-hour Recovery, you can still recover French and Latin Vocab below. Each needs 30 correct answers + 5 extra. Other daily tasks remain unfinished.";
           detail.append(empty);
         } else {
           const missed = row.tasks.filter((task) => !task.done);
@@ -3140,6 +3162,19 @@ function mountDailyRecord() {
           }
           addGroup("Not finished", missed, false);
           addGroup("Finished", finished, true);
+        }
+        const recoveryAge = Math.round((Date.parse(today+"T12:00:00Z")-Date.parse(day+"T12:00:00Z"))/86400000);
+        if (recoveryAge >= 1 && recoveryAge <= 2) {
+          for (const subject of ["french", "latin"]) {
+            const source = findRecoveryVocabSource(state, day, subject);
+            if (!source?.task || source.task.progress >= source.task.target) continue;
+            const link = document.createElement("a");
+            link.className = "lux-record-recovery";
+            link.href = "/study/"+subject+"/practise?daily=1&locked=1&year=8&mode=y8vocab&task="+subject+"-vocab&recover="+day;
+            link.textContent = "Recover "+(subject === "french" ? "French" : "Latin")+" Vocab →";
+            link.style.cssText = "display:inline-block;margin:8px 12px 8px 0;padding:12px;border-radius:10px;background:#23495b;color:white";
+            detail.append(link);
+          }
         }
         item.append(detail);
       }

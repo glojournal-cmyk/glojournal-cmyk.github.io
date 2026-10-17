@@ -89,10 +89,11 @@ test('reward readout uses XP already earned and does not write any new XP',()=>{
  assert.match(result,/data-session-xp/);
 });
 test('all six school subject practice routes include mission styling and updated app',()=>{
+ const storeUrl=source('index.html').match(/\/assets\/index-BLVOhKhN\.js\?[^"<>]+/)[0];
  for(const subject of ['latin','french','biology','chemistry','physics','english']){
   const html=source('study/'+subject+'/practise/index.html');
   assert.match(html,/mission-complete-v2-20261010\.css/);
-  assert.match(html,/index-BLVOhKhN\.js\?v=20261011-vault2/);
+  assert.ok(html.includes(storeUrl), 'Practice and Home must load the same store release');
  }
  const home=source('index.html');
  assert.doesNotMatch(home,/mission-complete-v2-20261010\.css/,'Home unaffected');
