@@ -1819,6 +1819,22 @@ function patchedRecordPe(points, stars, level) {
     peSessions: peDays.length,
     peRewardByDay: rewards,
   });
+  // A completed PE circuit can fulfil a previously selected Recovery game.
+  // Opening the page (or a zero-star result) does not count.
+  const pending=store.getState().recoveryPendingGame;
+  if(pending?.taskId==="play-game" && Number(stars)>=1 &&
+     canRecover(todayKey(),pending.date) &&
+     Date.now()-Number(pending.startedAt)<86400000){
+    const outcome=recordRecoveryAnswer(store.getState(),{
+      today:todayKey(),date:pending.date,taskId:"play-game",
+      questionId:"pe-circuit:"+level,correct:true
+    });
+    if(outcome.accepted)store.setState({
+      recoveryTaskByDay:outcome.state.recoveryTaskByDay,
+      dailyLog:outcome.state.dailyLog,
+      recoveryPendingGame:null
+    });
+  }
   return result;
 }
 
