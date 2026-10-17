@@ -1,5 +1,5 @@
 export { component } from "./routes-BEd1a0JC.core.js?v=20261011-vault2&ux=20261013-corrections2";
-import { C as store } from "./index-BLVOhKhN.js?v=20261017-unopened-recovery1&ux=20261013-corrections2";
+import { C as store } from "./index-BLVOhKhN.js?v=20261017-recovery-completion3&ux=20261013-corrections2";
 
 function continueHref() {
   const J=globalThis.LuxJourney,state=J?.withReviewCredits?.(store.getState())||store.getState();
