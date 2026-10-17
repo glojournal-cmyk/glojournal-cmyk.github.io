@@ -102,6 +102,10 @@ function mount(){
      if(/^\/study\/(french|latin|biology|chemistry|physics)\/practise\/?$/.test(url.pathname)){
        for(const [key,value] of query)url.searchParams.set(key,value);
        if(stages.includes(task.id))url.searchParams.set('mode',nextMode);
+       // A missed "due" or "weak" assignment may no longer be due today;
+       // use a regular question set from the SAME saved topic instead.
+       if(['study-session','adaptive-focus'].includes(task.id))url.searchParams.set('mode','standard');
+       if(topic)url.searchParams.set('topic',topic);
        return url.pathname+'?'+url.searchParams.toString();
      }
    }
