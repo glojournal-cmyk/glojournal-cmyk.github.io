@@ -2229,8 +2229,14 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     const params = new URLSearchParams(window.location.search);
     const date = params.get("recover"), taskId = params.get("task");
     const supported = ["mistake-review","y8-practise","y8-mastery","year8-long-review","adaptive-focus","study-session"];
-    const evidenceTask = taskId==="mistake-review" ? (before.reviews?.[questionId] ? "mistake-review" : null) : (!meta?.repair ? meta?.progressionTask || null : null);
     const actual = before.dailyLog?.[date]?.tasks?.find(t=>t.id===taskId);
+    // An unopened day never had a personalised curriculum assignment.
+    // Accept real, formally marked answers from the replacement practice
+    // route, but preserve strict assignment matching for saved daily plans.
+    const evidenceTask = taskId==="mistake-review"
+      ? (before.reviews?.[questionId] ? "mistake-review" : null)
+      : (!meta?.repair ? (meta?.progressionTask ||
+          (actual?.recoveryFallback && meta?.formal!==false ? taskId : null)) : null);
     const subjectMatches = !actual?.focusSubject || actual.focusSubject === (resolved.subject || subject);
     const topicMatches = !actual?.focusTopic || actual.focusTopic === resolved.topicId;
     if (actual && supported.includes(taskId) && taskId===evidenceTask && subjectMatches && topicMatches && canRecover(todayKey(),date)) {
