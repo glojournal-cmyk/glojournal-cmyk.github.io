@@ -4,7 +4,7 @@ const species = new Set(['antler-bean','moss-hornling','inkling','pebble-wisp','
 export function petArtUrl(id, level = 1) {
   const safe = species.has(id) ? id : 'moss-hornling';
   const stage = clampPetLevel(level);
-  if(safe==='antler-bean' && stage>=5) return `/pet/art-antler-bean-v3-20261017/level-${stage}.png?v=20261017-antler-shape-v3a`;
+  if(safe==='antler-bean' && stage>=5) return `/pet/art-antler-bean-individual-20261017/level-${stage}.png?v=20261017-antler-individual4`;
   if(safe==='moss-hornling' && stage>=5) return `/pet/art-moss-hornling-20261017/level-${stage}.png?v=20261017-moss-fullbody1`;
   if(safe==='moon-puff' && stage>=5) return `/pet/art-moon-puff-20261013/level-${stage}.png?v=20261013-moon-fullbody1`;
   if(stage>5) return `/pet/art-level10-20261012/level-${stage}/${safe}.webp?v=${safe==='pebble-wisp'?'20261013-pebble-humanoid1':'20261013-spider-safe1'}`;

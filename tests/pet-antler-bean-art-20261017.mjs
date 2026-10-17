@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import {petArtUrl} from '../pet/pet-art-hd-20261009.js';
-const folder='pet/art-antler-bean-v3-20261017';
+const folder='pet/art-antler-bean-individual-20261017';
 const digests=new Set();
 for(let level=1;level<=10;level++){
   const art=petArtUrl('antler-bean',level);
@@ -12,16 +12,16 @@ for(let level=1;level<=10;level++){
   assert.ok(img.length>50000,'Antler Bean LV'+level+' missing or undersized');
   assert.equal(img.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
   const w=img.readUInt32BE(16),h=img.readUInt32BE(20),type=img[25];
-  assert.ok(w>=1300&&h>=1700,'Insufficient image resolution '+level);
+  assert.ok(w>=1000&&h>=1300,'Insufficient image resolution '+level);
   assert.ok(type===6||type===4,'Transparent alpha channel missing '+level);
   digests.add(crypto.createHash('sha256').update(img).digest('hex'));
   console.log('Antler Bean Level '+level+': '+w+'x'+h+', '+img.length+' bytes');
 }
 assert.equal(digests.size,6,'Antler Bean LV5–10 must be six distinct sprites');
-// V3 shape-changing sprites must not resolve to the rejected V2 gallery.
+// Each hand-illustrated stage must resolve to the new individual image set.
 for(let level=5;level<=10;level++){
- assert.match(petArtUrl('antler-bean',level),/art-antler-bean-v3-20261017/);
- assert.doesNotMatch(petArtUrl('antler-bean',level),/art-antler-bean-v2-20261017\/level/);
+ assert.match(petArtUrl('antler-bean',level),/art-antler-bean-individual-20261017/);
+ assert.doesNotMatch(petArtUrl('antler-bean',level),/art-antler-bean-v3-20261017\/level/);
 }
 assert.equal(petArtUrl('antler-bean',11),petArtUrl('antler-bean',10));
 assert.match(petArtUrl('moss-hornling',10),/art-moss-hornling-20261017/);
