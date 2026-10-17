@@ -44,7 +44,11 @@ export function recordRecoveryAnswer(state,{today,date,taskId,questionId,correct
   const required=Math.max(1,Number(old.totalNeeded)||Number(minimumCorrect)||Number(task.target)-baseline);
   const items={...(old.items||{})};
   items[String(questionId)]=correct||items[String(questionId)]===true;
-  const count=Object.values(items).filter(Boolean).length;
+  // Daily Recovery credits a completed, marked study activity.
+  // Correctness is still retained for feedback and correction review.
+  const count=taskId==='mistake-review'
+    ? Object.values(items).filter(Boolean).length
+    : Object.keys(items).length;
   const completed=count>=required;
   const proof={...old,items,originalCount:baseline,totalNeeded:required,completed};
   const patch={...state,recoveryTaskByDay:{...all,[date]:{...forDay,[taskId]:proof}}};
