@@ -1,5 +1,5 @@
 import "./player-ux-20261013.js?ux=20261013-corrections2";
-import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js";
+import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js?v=20261017-recovery-completion3";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
