@@ -95,3 +95,21 @@ test('correction recovery requires an existing mistake rather than any correct a
  const source=fs.readFileSync(new URL('../assets/index-BLVOhKhN.js',import.meta.url),'utf8');
  assert.match(source,/before\.reviews\?\.\[questionId\] \? "mistake-review" : null/);
 });
+
+test('watering the recovery seedling credits only its dated task',()=>{
+ const original=fixture();
+ const r=recordRecoveryAnswer(original,{today:'2026-10-17',date:'2026-10-16',taskId:'tend-garden',questionId:'water:2026-10-16',correct:true});
+ assert.equal(r.accepted,false,'no invented garden task in history');
+ const prepared=prepareUnopenedRecovery(original,'2026-10-15','2026-10-17').state;
+ const result=recordRecoveryAnswer(prepared,{today:'2026-10-17',date:'2026-10-15',taskId:'tend-garden',questionId:'water:2026-10-15',correct:true});
+ assert.equal(result.completed,true);
+ assert.equal(result.state.dailyLog['2026-10-15'].done,1);
+ assert.equal(result.state.dailyLog['2026-10-15'].complete,false);
+ assert.equal(JSON.stringify(result.state.daily),JSON.stringify(original.daily));
+});
+test('game completion requires real qualifying stars, not an opening of /play',()=>{
+ const source=fs.readFileSync(new URL('../assets/index-BLVOhKhN.js',import.meta.url),'utf8');
+ assert.match(source,/pending\?\.taskId==="play-game" && Number\(stars\)>=1/);
+ assert.match(source,/canRecover\(todayKey\(\),pending.date\)/);
+ assert.match(source,/recoveryPendingGame:null/);
+});
