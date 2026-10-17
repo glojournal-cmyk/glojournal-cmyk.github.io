@@ -11,7 +11,7 @@ assert.equal(homePage, fallbackPage, "Home and recovery page must have identical
 assert.match(moduleText, /safe==='moon-puff' && stage>=5/);
 assert.match(moduleText, /art-moon-puff-20261013/);
 assert.match(petText, /Celestial Moon Guardian/);
-assert.match(homeText, /20261017-moss-fullbody1/); // Latest Home cache version; Moon Puff sprite route is verified separately.
+assert.match(homeText, /20261017-antler-fullbody1/); // Latest Home cache version; Moon Puff sprite route verified separately.
 
 for (let level = 5; level <= 10; level++) {
   const file = `${artRoot}/level-${level}.png`;
