@@ -1816,6 +1816,22 @@ function patchedRecordGame(gameId, points, stars, level) {
   }
 
   if (Object.keys(patch).length) store.setState(patch);
+  const pending=store.getState().recoveryPendingGame;
+  // A real game result is required: opening /play or repeating a failed
+  // attempt cannot award historic credit. No second recovery XP is granted.
+  if (pending?.taskId==="play-game" && Number(stars)>=1 &&
+      canRecover(todayKey(),pending.date) &&
+      Date.now()-Number(pending.startedAt)<86400000) {
+    const response=recordRecoveryAnswer(store.getState(),{
+      today:todayKey(),date:pending.date,taskId:"play-game",
+      questionId:"game:"+gameId+":"+level,correct:true
+    });
+    store.setState({
+      recoveryPendingGame:null,
+      ...(response.accepted?{recoveryTaskByDay:response.state.recoveryTaskByDay}:{}),
+      ...(response.completed?{dailyLog:response.state.dailyLog}:{})
+    });
+  }
   return result;
 }
 
