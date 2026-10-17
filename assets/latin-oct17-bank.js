@@ -1,8 +1,9 @@
 export function normal(value){return String(value??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[’‘]/g,"'").replace(/[^a-z0-9' -]/g,' ').replace(/\s+/g,' ').trim()}
 export function modelMatch(q,value){
- const a=normal(value);if(!a)return false;
+ const canon=v=>{const n=normal(v);return q.type==='vocabulary'?n.replace(/^(?:a|an|the|to) /,''):n};
+ const a=canon(value);if(!a)return false;
  return q.answer.accepted.some(v=>{
-  const b=normal(v);if(a===b)return true;
+  const b=canon(v);if(a===b)return true;
   return q.answer.allowLatinWordOrder&&a.split(' ').sort().join(' ')===b.split(' ').sort().join(' ');
  });
 }
