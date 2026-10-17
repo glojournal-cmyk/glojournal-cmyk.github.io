@@ -48,6 +48,55 @@ function reconcileCompletedRecoveries(){
  }
  if(changed)store.setState({dailyLog:log});
 }
+// Repair dated formal practice on the home page too. This module is
+// independently cache-busted so older iPads running a cached core still
+// recover genuine saved answers without clearing Safari data or replaying
+// the full session.
+function backfillDatedFocusEvidence(){
+ const original=store.getState(),today=todayKey();
+ let next=original;
+ for(let back=1;back<=2;back++){
+   const date=dateAt(today,-back);
+   const day=next.dailyLog?.[date];
+   if(!Array.isArray(day?.tasks)||!day.tasks.length)continue;
+   const entries=(original.formalAttemptLog||[]).filter(a=>
+     a?.recoveryFor===date && a.questionId &&
+     typeof a.correct==='boolean' && a.formal!==false && !a.repair &&
+     !['french-vocab','latin-vocab'].includes(a.dailyTaskId) &&
+     !['french','latin'].includes(a.dailyVocab));
+   if(!entries.length)continue;
+   for(const taskId of ['study-session','adaptive-focus']){
+     const task=next.dailyLog?.[date]?.tasks?.find(t=>t.id===taskId);
+     if(!task||task.done||Number(task.progress)>=Number(task.target))continue;
+     const subject=task.focusSubject||task.assignedSubject||task.reviewSubject;
+     const topic=task.focusTopic||task.assignedTopic||task.reviewTopic;
+     const matched=taskId==='study-session' ? entries : entries.filter(a=>
+       (!subject||a.subject===subject)&&(!topic||a.topicId===topic));
+     if(!matched.length)continue;
+     // If the historical row already shows partial progress but no proof
+     // survives, don't add those old marks a second time as a baseline.
+     if(!next.recoveryTaskByDay?.[date]?.[taskId]&&Number(task.progress)>0){
+       const all=next.recoveryTaskByDay||{},forDay=all[date]||{};
+       next={...next,recoveryTaskByDay:{...all,[date]:{
+         ...forDay,[taskId]:{items:{},originalCount:0,totalNeeded:Number(task.target),completed:false}
+       }}};
+     }
+     for(const entry of matched){
+       const outcome=recordRecoveryAnswer(next,{
+         today,date,taskId,questionId:entry.questionId,correct:entry.correct
+       });
+       if(outcome.accepted)next=outcome.state;
+     }
+   }
+ }
+ if(JSON.stringify(next.recoveryTaskByDay||{})!==JSON.stringify(original.recoveryTaskByDay||{})||
+    JSON.stringify(next.dailyLog||{})!==JSON.stringify(original.dailyLog||{})){
+   store.setState({
+     recoveryTaskByDay:next.recoveryTaskByDay,
+     dailyLog:next.dailyLog
+   });
+ }
+}
 function mount(){
  if(location.pathname!=="/")return;
  const card=[...document.querySelectorAll("main h2")].find(n=>n.textContent.trim()==="Raise her today")?.parentElement?.parentElement?.parentElement;
@@ -55,6 +104,7 @@ function mount(){
  let host=document.getElementById("lux-recovery-quests");
  if(!host){host=document.createElement("details");host.id="lux-recovery-quests";card.append(host)}
  reconcileCompletedRecoveries();
+ backfillDatedFocusEvidence();
 
  const state=store.getState(),today=todayKey(),rows=recoveryRows(state);
  const dates=[dateAt(today,-1),dateAt(today,-2)];
