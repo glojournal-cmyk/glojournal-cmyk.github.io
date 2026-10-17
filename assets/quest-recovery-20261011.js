@@ -1,5 +1,6 @@
 /* Recovery Quest UI: read-only display; the app records eligible answers separately. */
 import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261017-unopened-recovery1&ux=20261013-corrections2";
+import {eligibleRecoveryTasks,prepareUnopenedRecovery,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js";
 const DAY_MS=86400000;
 const dateAt=(d,n)=>new Date(Date.parse(d+"T12:00:00Z")+n*DAY_MS).toISOString().slice(0,10);
 function recoveryRows(state){
@@ -54,13 +55,21 @@ function mount(){
  let host=document.getElementById("lux-recovery-quests");
  if(!host){host=document.createElement("details");host.id="lux-recovery-quests";card.append(host)}
  reconcileCompletedRecoveries();
- const rows=recoveryRows(store.getState()),today=todayKey();
+
+ const state=store.getState(),today=todayKey(),rows=recoveryRows(state);
  const dates=[dateAt(today,-1),dateAt(today,-2)];
- const signature=JSON.stringify([dates,rows]);if(host.dataset.signature===signature)return;host.dataset.signature=signature;
+ const byDate=Object.fromEntries(dates.map(date=>[date,eligibleRecoveryTasks(state,date,today)]));
+ const signature=JSON.stringify([dates,rows,byDate]);
+ if(host.dataset.signature===signature)return;
+ host.dataset.signature=signature;
  const previous=host.querySelector('select')?.value;
- host.replaceChildren();host.hidden=rows.length===0;
- const unfinished=rows.filter(row=>!row.done).length;host.open=unfinished>0;
- const summary=document.createElement("summary");summary.textContent=unfinished?"Recovery · "+unfinished+" unfinished Vocab "+(unfinished===1?"task":"tasks"):"Recovery · all caught up";host.append(summary);
+ host.replaceChildren();
+ host.hidden=false;
+ const unfinished=dates.reduce((sum,date)=>sum+(byDate[date].filter(t=>!t.done).length||rows.filter(r=>r.date===date&&!r.done).length),0);
+ host.open=unfinished>0;
+ const summary=document.createElement('summary');
+ summary.textContent=unfinished?'Recovery · '+unfinished+' tasks available':'Recovery · choose a date';
+ host.append(summary);
  const title=document.createElement('h3');title.textContent='Quest Recovery · choose a date';host.append(title);
  const label=document.createElement('label');label.textContent='Missed date ';label.htmlFor='lux-recovery-date';
  const select=document.createElement('select');select.id='lux-recovery-date';
@@ -68,16 +77,61 @@ function mount(){
  if(dates.includes(previous))select.value=previous;
  label.append(select);host.append(label);
  const list=document.createElement('div');host.append(list);
+ function taskLink(task,date){
+   // Only link answer-based tasks whose practice route can carry the
+   // original task ID and recovery date. No fake credit for garden/game.
+   const query=new URLSearchParams({daily:'1',locked:'1',year:'8',task:task.id,recover:date});
+   if(task.id==='mistake-review')return '/study/french/practise?'+query;
+   if(['y8-practise','y8-mastery','year8-long-review','adaptive-focus','study-session'].includes(task.id)){
+     const subject=['french','latin','biology','chemistry','physics'].includes(task.focusSubject)?task.focusSubject:'french';
+     query.set('mode',task.id==='y8-mastery'||task.id==='year8-long-review'?'year8long':'standard');
+     if(task.focusTopic)query.set('topic',task.focusTopic);
+     return '/study/'+subject+'/practise?'+query;
+   }
+   return null;
+ }
  function showDate(){
-  list.replaceChildren();const date=select.value,selected=rows.filter(row=>row.date===date);
-  const hint=document.createElement('p');hint.textContent='Even if you did not open the app, French / Latin Vocab can be recovered for this date. Finish the missing correct answers + 5 extra; credit goes to this date. Other daily tasks remain unfinished.';list.append(hint);
-  if(!selected.length){const note=document.createElement('p');note.textContent='No unfinished Vocab record is available for '+date+'. Other daily tasks are outside Vocab Recovery.';list.append(note)}
-  for(const row of selected){
-   const item=document.createElement('div');item.className='lux-recovery-item';
-   const name=document.createElement('strong');name.textContent=(row.subject==='french'?'French':'Latin')+' Vocab · '+row.date;item.append(name);
-   const count=document.createElement('span');count.textContent=row.done?(row.credited?'Recovered ✓ · credited to '+row.date:'Recovered ✓ · restoring daily record'):row.current+' / '+row.target+' correct recovery answers';item.append(count);
-   if(!row.done){const a=document.createElement('a');a.href=row.url;a.textContent='Continue recovery →';item.append(a)}list.append(item);
-  }
+   list.replaceChildren();const date=select.value;
+   const existing=state.dailyLog?.[date];
+   if(!existing){
+     const note=document.createElement('p');note.textContent='No saved daily assignment for this date. Create an alternative ten-task recovery plan; original personalised topics cannot be reconstructed.';
+     list.append(note);
+     const create=document.createElement('button');create.type='button';
+     create.textContent='Prepare ten recovery tasks';
+     create.addEventListener('click',()=>{
+       const current=store.getState(),result=prepareUnopenedRecovery(current,date,todayKey());
+       if(result.created)store.setState({dailyLog:result.state.dailyLog});
+     });list.append(create);
+   }else{
+     if(existing.recoveryFallback){
+       const note=document.createElement('p');note.textContent='Replacement plan · not the original personalised assignment. Only verified work receives recovery credit.';list.append(note);
+     }
+     for(const task of byDate[date]){
+       if(task.id==='french-vocab'||task.id==='latin-vocab')continue;
+       const item=document.createElement('div');item.className='lux-recovery-item';
+       const name=document.createElement('strong');name.textContent=task.title;item.append(name);
+       const proof=state.recoveryTaskByDay?.[date]?.[task.id];
+       const current=Object.values(proof?.items||{}).filter(Boolean).length;
+       const status=document.createElement('span');
+       status.textContent=task.done?'Completed ✓ · credited to '+date:current+' correct recovery answers · '+task.remaining+' original answers remaining';
+       item.append(status);
+       if(!task.done){
+         const url=taskLink(task,date);
+         if(url){const a=document.createElement('a');a.href=url;a.textContent='Practise recovery →';item.append(a)}
+         else{const unavailable=document.createElement('small');unavailable.textContent='Recovery verification for this activity is not yet connected';item.append(unavailable)}
+       }
+       list.append(item);
+     }
+   }
+   const selected=rows.filter(r=>r.date===date);
+   for(const row of selected){
+     const item=document.createElement('div');item.className='lux-recovery-item';
+     const name=document.createElement('strong');name.textContent=(row.subject==='french'?'French':'Latin')+' Vocab';item.append(name);
+     const status=document.createElement('span');
+     status.textContent=row.done?'Recovered ✓ · credited to '+date:row.current+' / '+row.target+' correct recovery answers';item.append(status);
+     if(!row.done){const a=document.createElement('a');a.href=row.url;a.textContent='Continue recovery →';item.append(a)}
+     list.append(item);
+   }
  }
  select.addEventListener('change',showDate);showDate();
 
@@ -86,7 +140,7 @@ const style=document.createElement("style");style.textContent=`
 #lux-recovery-quests{margin:14px 0;padding:15px;border:1px solid #d4c7ac;border-radius:16px;background:#fffaf0;color:#193449}
 #lux-recovery-quests[hidden]{display:none}
 #lux-recovery-date{min-height:44px;padding:8px;border:1px solid #c6b485;border-radius:10px;background:white}
-#lux-recovery-quests summary{cursor:pointer;min-height:44px;padding:10px 0;font-weight:600}
+#lux-recovery-quests button{padding:9px 12px;border:1px solid #c6b485;border-radius:10px;background:#23495b;color:white;cursor:pointer;min-height:44px}\n#lux-recovery-quests summary{cursor:pointer;min-height:44px;padding:10px 0;font-weight:600}
 #lux-recovery-quests h3{font-family:Georgia,serif;font-size:1.35rem;margin:0 0 9px}
 #lux-recovery-quests .lux-recovery-item{display:flex;flex-wrap:wrap;align-items:center;gap:9px;padding:10px 0;border-top:1px solid #e9dfce}
 #lux-recovery-quests .lux-recovery-item span{color:#586777;flex:1 1 180px}
