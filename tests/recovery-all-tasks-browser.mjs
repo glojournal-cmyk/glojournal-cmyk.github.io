@@ -47,7 +47,7 @@ try {
    assert.equal((await page.evaluate(d=>window.__luxStore.getState().dailyLog[d],date)).done,1);
    await page.getByRole('button',{name:'Play a game to recover →'}).click();
    await page.waitForURL(/\/play/,{timeout:30000});
-   await page.waitForFunction(()=>window.__luxAppReady===true);
+   await page.waitForFunction(()=>typeof window.__luxStore?.getState()?.recordGame==='function');
    const game=await page.evaluate(d=>{
      const store=window.__luxStore, games=store.getState().games||{};
      const gameId=Object.keys(games).find(x=>x!=='pe-circuit')||'verbum-match';
@@ -60,7 +60,7 @@ try {
    assert.equal(game.pending,null);
    assert.equal(game.credited,2);
    await page.goto(base+'/study/french/practise?daily=1&locked=1&year=8&mode=standard&task=y8-practise&recover='+date,{waitUntil:'domcontentloaded'});
-   await page.waitForFunction(()=>window.__luxAppReady===true);
+   await page.waitForFunction(()=>typeof window.__luxStore?.getState()?.recordAttempt==='function');
    const practise=await page.evaluate(d=>{
      const store=window.__luxStore,before=Object.fromEntries((store.getState().daily||[]).map(t=>[t.id,Number(t.progress)||0]));
      for(let i=0;i<10;i++)store.getState().recordAttempt('recovery-browser-'+i,true,'french',{formal:true,progressionTask:'y8-practise',topicId:'fr-y8-recovery'});
