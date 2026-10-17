@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {canRecover,eligibleRecoveryTasks,recordRecoveryAnswer,validDay,reconcileRecoveredTaskHistory} from '../assets/recovery-task-ledger-20261017.js';
+import {canRecover,eligibleRecoveryTasks,recordRecoveryAnswer,validDay,reconcileRecoveredTaskHistory,prepareUnopenedRecovery} from '../assets/recovery-task-ledger-20261017.js';
 function fixture(){
  const tasks=[{id:'y8-practise',progress:8,target:10,done:false},{id:'latin-vocab',progress:30,target:30,done:true},{id:'play-game',progress:0,target:1,done:false}];
  return {today:'2026-10-17',xp:135,pet:{name:'Moonveil'},daily:[{id:'y8-practise',progress:3}],dailyLog:{'2026-10-16':{date:'2026-10-16',tasks,done:1,total:3,complete:false}}};
@@ -70,4 +70,23 @@ test('date-scoped correction route does not credit current-day corrections',()=>
  assert.match(source,/dailyCurriculumEvidenceByDay=inRecovery \?/);
  assert.match(source,/!isRepair && !inRecovery/);
  assert.match(source,/reconcileRecoveredTaskHistory\(state, reconcileRecoveredVocabHistory/);
+});
+
+test('unopened date creates ten isolated, unfinished fallback tasks',()=>{
+ const original=fixture(),today=JSON.stringify(original.daily);
+ const result=prepareUnopenedRecovery(original,'2026-10-15','2026-10-17');
+ assert.equal(result.created,true);
+ const row=result.state.dailyLog['2026-10-15'];
+ assert.equal(row.total,10);assert.equal(row.done,0);
+ assert.equal(row.complete,false);assert.equal(row.recoveryFallback,true);
+ assert.ok(row.tasks.every(t=>t.recoveryFallback && !t.done));
+ assert.equal(JSON.stringify(result.state.daily),today);
+ assert.equal(original.dailyLog['2026-10-15'],undefined);
+});
+test('fallback never overwrites existing history or expired days',()=>{
+ const initial=fixture();
+ const existing=prepareUnopenedRecovery(initial,'2026-10-16','2026-10-17');
+ assert.equal(existing.created,false);assert.equal(existing.state,initial);
+ const expired=prepareUnopenedRecovery(initial,'2026-10-14','2026-10-17');
+ assert.equal(expired.created,false);assert.equal(expired.state,initial);
 });
