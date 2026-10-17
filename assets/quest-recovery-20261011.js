@@ -14,7 +14,7 @@ function recoveryRows(state){
    if(Number(task.progress)>=Number(task.target)&&!rec.completed&&!task.recovered)continue;
    const base=Math.max(0,Math.min(30,Number(rec.originalCount ?? task.progress)||0));
    const target=Math.max(1,30-base);
-   const current=Math.max(0,Object.keys(rec.items||{}).length);
+   const current=Math.max(0,Object.values(rec.items||{}).filter(Boolean).length);
    const credited=state.dailyLog?.[date]?.tasks?.some(t=>t.id===subject+'-vocab' && (t.done || Number(t.progress)>=Number(t.target)));
    out.push({date,subject,base,target,current,credited:!!credited,done:rec.completed===true||current>=target,
     url:"/study/"+subject+"/practise?daily=1&locked=1&year=8&mode=y8vocab&task="+subject+"-vocab&recover="+date});
@@ -145,12 +145,8 @@ function mount(){
          const url=taskLink(task,date);
          if(url){const a=document.createElement('a');a.href=url;a.textContent='Practise recovery →';item.append(a)}
          else if(task.id==='tend-garden'){
-           const water=document.createElement('button');water.type='button';water.textContent='Water recovery seedling 🌱';
-           water.addEventListener('click',()=>{
-             const current=store.getState();
-             const outcome=recordRecoveryAnswer(current,{today:todayKey(),date,taskId:'tend-garden',questionId:'water:'+date,correct:true});
-             if(outcome.accepted)store.setState({recoveryTaskByDay:outcome.state.recoveryTaskByDay,...(outcome.completed?{dailyLog:outcome.state.dailyLog}:{})});
-           });item.append(water);
+           const water=document.createElement('a');water.href='/garden?recover='+date+'&task=tend-garden';
+           water.textContent='Go to garden and water 🌱';item.append(water);
          }else if(task.id==='play-game'){
            const game=document.createElement('button');game.type='button';game.textContent='Play a game to recover →';
            game.addEventListener('click',()=>{
@@ -168,7 +164,7 @@ function mount(){
      const item=document.createElement('div');item.className='lux-recovery-item';
      const name=document.createElement('strong');name.textContent=(row.subject==='french'?'French':'Latin')+' Vocab';item.append(name);
      const status=document.createElement('span');
-     status.textContent=row.done?'Recovered ✓ · credited to '+date:row.current+' / '+row.target+' marked recovery answers';item.append(status);
+     status.textContent=row.done?'Recovered ✓ · credited to '+date:row.current+' / '+row.target+' correct recovery answers';item.append(status);
      if(!row.done){const a=document.createElement('a');a.href=row.url;a.textContent='Continue recovery →';item.append(a)}
      list.append(item);
    }
@@ -197,7 +193,7 @@ function mount(){
    const vocab=['french','latin'].map(subject=>{
      const proof=state.recoveryVocabByDay?.[date]?.[subject];
      const task=row?.tasks?.find(t=>t.id===subject+'-vocab');
-     const amount=Object.keys(proof?.items||{}).length;
+     const amount=Object.values(proof?.items||{}).filter(Boolean).length;
      return subject+': '+amount+' marked / '+(Math.max(1,30-Number(proof?.originalCount??task?.progress??0)))+' needed'+(task?.done||proof?.completed?' ✓':'');
    }).join(' | ');
    const tasks=Object.entries(state.recoveryTaskByDay?.[date]||{})
