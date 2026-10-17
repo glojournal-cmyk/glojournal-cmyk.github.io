@@ -1,0 +1,32 @@
+name: Capture Moonveil Owl Evolution App Screenshots
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/moonveil-owl-screenshots.yml'
+permissions:
+  contents: write
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium
+      - name: Capture the real app gallery using a temporary unlocked test profile
+        run: node tests/moonveil-owl-screenshots.mjs
+      - name: Publish screenshot evidence to the website
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/previews/moonveil-owl-20261017/
+          git diff --cached --quiet && exit 0
+          git commit -m "Publish real App screenshots for Moonveil Owl stages 5-10"
+          git pull --rebase origin main
+          git push origin HEAD:main
