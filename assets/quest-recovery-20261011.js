@@ -1,6 +1,6 @@
 /* Recovery Quest UI: read-only display; the app records eligible answers separately. */
-import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261017-unopened-recovery1&ux=20261013-corrections2";
-import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer} from "./recovery-task-ledger-20261017.js";
+import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261017-recovery-completion3&ux=20261013-corrections2";
+import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer} from "./recovery-task-ledger-20261017.js?v=20261017-recovery-completion3";
 const DAY_MS=86400000;
 const dateAt=(d,n)=>new Date(Date.parse(d+"T12:00:00Z")+n*DAY_MS).toISOString().slice(0,10);
 function recoveryRows(state){
