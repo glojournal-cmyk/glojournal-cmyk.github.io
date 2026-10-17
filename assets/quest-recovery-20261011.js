@@ -83,9 +83,12 @@ function mount(){
    const query=new URLSearchParams({daily:'1',locked:'1',year:'8',task:task.id,recover:date});
    if(task.id==='mistake-review')return '/study/french/practise?'+query;
    if(['y8-practise','y8-mastery','year8-long-review','adaptive-focus','study-session'].includes(task.id)){
-     const subject=['french','latin','biology','chemistry','physics'].includes(task.focusSubject)?task.focusSubject:'french';
+     const allowed=['french','latin','biology','chemistry','physics'];
+     const inferred=allowed.find(subject=>String(task.title||'').toLowerCase().includes(subject))||'french';
+     const subject=allowed.find(key=>key===task.focusSubject||key===task.assignedSubject||key===task.reviewSubject)||inferred;
      query.set('mode',task.id==='y8-mastery'||task.id==='year8-long-review'?'year8long':'standard');
-     if(task.focusTopic)query.set('topic',task.focusTopic);
+     const topic=task.focusTopic||task.assignedTopic||task.reviewTopic;
+     if(topic)query.set('topic',topic);
      return '/study/'+subject+'/practise?'+query;
    }
    return null;
