@@ -90,3 +90,8 @@ test('fallback never overwrites existing history or expired days',()=>{
  const expired=prepareUnopenedRecovery(initial,'2026-10-14','2026-10-17');
  assert.equal(expired.created,false);assert.equal(expired.state,initial);
 });
+
+test('correction recovery requires an existing mistake rather than any correct answer',()=>{
+ const source=fs.readFileSync(new URL('../assets/index-BLVOhKhN.js',import.meta.url),'utf8');
+ assert.match(source,/before\.reviews\?\.\[questionId\] \? "mistake-review" : null/);
+});
