@@ -1571,9 +1571,59 @@ function normalizeState() {
   }
   if (skillsChanged) patch.skillStats = normalizedSkills;
 
-  // Upgrade existing verified answer ledgers without resetting any progress.
-  // The old +5 surcharge left completed 30-answer sessions uncredited.
+  // Replay actual saved dated answer evidence if an iPad failed to save the
+  // separate Recovery task ledger. Never infer credit from merely visiting.
   const recoveryVocab = { ...(state.recoveryVocabByDay || {}) };
+  const recoveredPractice = { ...(state.recoveryTaskByDay || {}) };
+  let replayChanged = false;
+  const recoveredIds = new Set(["study-session","adaptive-focus","year8-long-review","y8-practise","y8-mastery","mistake-review"]);
+  for (const entry of state.formalAttemptLog || []) {
+    const date = entry?.recoveryFor;
+    if (!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(date || "") || !entry.questionId ||
+      typeof entry.correct !== "boolean" || entry.repair === true || entry.formal === false) continue;
+    if (["french","latin"].includes(entry.subject) &&
+        (entry.dailyTaskId === entry.subject+"-vocab" || !entry.dailyTaskId)) {
+      const existing = recoveryVocab[date] || {}, old = existing[entry.subject] || {};
+      const items = { ...(old.items || {}) };
+      if (!(entry.questionId in items) || (entry.correct && !items[entry.questionId])) {
+        items[entry.questionId] = !!entry.correct;
+        recoveryVocab[date] = { ...existing,[entry.subject]:{...old,items} };
+        replayChanged = true;
+      }
+    }
+    const id = entry.dailyTaskId;
+    if (recoveredIds.has(id)) {
+      const existing = recoveredPractice[date] || {}, old = existing[id] || {};
+      const items = { ...(old.items || {}) };
+      if (!(entry.questionId in items) || (entry.correct && !items[entry.questionId])) {
+        items[entry.questionId] = !!entry.correct;
+        recoveredPractice[date] = { ...existing,[id]:{...old,items} };
+        replayChanged = true;
+      }
+    }
+  }
+  let practiceChanged = replayChanged;
+  for (const [date,tasks] of Object.entries(recoveredPractice)) {
+    let next = tasks;
+    for (const [id,proof] of Object.entries(tasks||{})) {
+      if (!proof || !recoveredIds.has(id)) continue;
+      const assigned=state.dailyLog?.[date]?.tasks?.find(t=>t.id===id);
+      const defaultTarget={"study-session":10,"adaptive-focus":4,"year8-long-review":25,
+        "y8-practise":10,"y8-mastery":25,"mistake-review":1}[id];
+      const originalCount=Math.max(0,Number(proof.originalCount??assigned?.progress)||0);
+      const needed=Math.max(1,Number(proof.totalNeeded)||((Number(assigned?.target)||defaultTarget)-originalCount));
+      const attempts=id==="mistake-review"?
+        Object.values(proof.items||{}).filter(Boolean).length:Object.keys(proof.items||{}).length;
+      const completed=proof.completed===true||attempts>=needed;
+      if (completed!==proof.completed) {
+        if (next===tasks) next={...tasks};
+        next[id]={...proof,completed,totalNeeded:needed,originalCount};
+        practiceChanged=true;
+      }
+    }
+    if(next!==tasks)recoveredPractice[date]=next;
+  }
+  if(practiceChanged)patch.recoveryTaskByDay=recoveredPractice;
   const retroAwards = [];
   let recoveredChanged = false;
   const awardedRecoveries = { ...(state.recoveryAwarded || {}) };
@@ -1585,7 +1635,7 @@ function normalizeState() {
       if (!proof || typeof proof !== "object") continue;
       const originalCount = Math.max(0, Math.min(30, Number(proof.originalCount) || 0));
       const needed = Math.max(1, 30 - originalCount);
-      const count = Object.values(proof.items || {}).filter(value => value === true).length;
+      const count = Object.keys(proof.items || {}).length;
       const completed = proof.completed === true || count >= needed;
       if (Number(proof.totalNeeded) === needed && proof.completed === completed) continue;
       if (updated === subjects) updated = { ...subjects };
@@ -1599,11 +1649,12 @@ function normalizeState() {
     }
     if (updated !== subjects) recoveryVocab[date] = updated;
   }
-  if (recoveredChanged) patch.recoveryVocabByDay = recoveryVocab;
+  if (recoveredChanged || replayChanged) patch.recoveryVocabByDay = recoveryVocab;
   if (retroAwards.length) patch.recoveryAwarded = awardedRecoveries;
 
   const stateForDaily = { ...state, ...(patch.topicStats ? { topicStats: patch.topicStats } : {}),
-    ...(patch.recoveryVocabByDay ? { recoveryVocabByDay: patch.recoveryVocabByDay } : {}) };
+    ...(patch.recoveryVocabByDay ? { recoveryVocabByDay: patch.recoveryVocabByDay } : {}),
+    ...(patch.recoveryTaskByDay ? { recoveryTaskByDay: patch.recoveryTaskByDay } : {}) };
   const daily = buildAdaptiveDaily(stateForDaily);
   if (JSON.stringify(daily) !== JSON.stringify(state.daily || [])) patch.daily = daily;
   const currentLog = state.dailyLog && typeof state.dailyLog === "object" ? state.dailyLog : {};
@@ -2547,7 +2598,7 @@ function recordDailyVocabAttempt(subject, questionId, correct) {
     const totalNeeded = Math.max(1, 30 - originalCount);
     const items = { ...(row.items || {}) };
     items[String(questionId)] = !!correct || !!items[String(questionId)];
-    const credited = Object.values(items).filter(Boolean).length;
+    const credited = Object.keys(items).length;
     perDay[subject] = { items, originalCount, totalNeeded, completed: credited >= totalNeeded, updatedAt: new Date().toISOString() };
     all[recover] = perDay;
     if (credited >= totalNeeded && !row.completed) {
