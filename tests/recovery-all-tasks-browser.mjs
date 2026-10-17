@@ -12,8 +12,9 @@ const server=createServer((req,res)=>{
     let name=decodeURIComponent(url.pathname);if(name.endsWith('/'))name+='index.html';
     const file=path.resolve(root,'.'+name);
     if(!file.startsWith(root+path.sep))throw Error('outside');
-    const buf=fs.readFileSync(file);
-    res.writeHead(200,{'content-type':mime[path.extname(file)]||'application/octet-stream','cache-control':'no-store'});
+    const served=fs.statSync(file).isDirectory()?path.join(file,'index.html'):file;
+    const buf=fs.readFileSync(served);
+    res.writeHead(200,{'content-type':mime[path.extname(served)]||'application/octet-stream','cache-control':'no-store'});
     res.end(buf);
   }catch{res.writeHead(404);res.end('Not Found')}
 });
