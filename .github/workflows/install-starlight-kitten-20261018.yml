@@ -1,0 +1,43 @@
+name: Install approved Starlight Kitten sprites
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'starlight-kitten-app-upload.zip'
+permissions:
+  contents: write
+  pages: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Validate and install ten approved pet sprites
+        run: node scripts/install-starlight-kitten-20261018.mjs
+      - name: Validate routes, old pet invariants, and syntax
+        run: |
+          node --check pet/pet.js
+          node --check pet/home-pet.js
+          node --check pet/pet-art-hd-20261009.js
+          node tests/pet-inkling-all10-art-20261018.mjs
+          node tests/pet-nocturne-spider-art-20261018.mjs
+          node --input-type=module -e "import {petArtUrl} from './pet/pet-art-hd-20261009.js'; for(let i=1;i<=10;i++) if(!petArtUrl('bloom-snail',i).includes('/pet/art-starlight-kitten-20261018/level-'+i+'.png')) throw Error('Wrong Starlight level '+i); console.log('All 10 Starlight pet routes verified');"
+      - name: Commit artwork and cleanup upload package
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/art-starlight-kitten-20261018 pet/pet-art-hd-20261009.js pet/pet.js pet/home-pet.js pet/pet-evolution-config-20261012.js pet/index.html assets/companion-art-20261004.js index.html 404.html tests/pet-inkling-all10-art-20261018.mjs
+          git rm -f starlight-kitten-app-upload.zip
+          git diff --cached --check
+          git commit -m "Replace Bloom Snail art with approved Starlight Kitten LV1-LV10 and preserve progression"
+          git push
+      - name: Request Pages refresh
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
