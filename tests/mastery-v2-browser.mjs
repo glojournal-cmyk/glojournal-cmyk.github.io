@@ -32,6 +32,7 @@ for(const engine of [chromium,webkit]){
   },null,{timeout:30000});
   const after=await page.evaluate(()=>window.__luxStore.getState().daily.map(t=>[t.id,t.assignedTopic,t.progress]));
   assert.deepEqual(after,before.tasks.map(t=>[t.id,t.topic,t.progress]));
+  await page.waitForLoadState('networkidle',{timeout:20000});
   // WebKit may reject a pending fetch when the preceding document is closed.
   // Check errors from the destination route independently of that navigation.
   errors.length=0;failedRequests.length=0;
