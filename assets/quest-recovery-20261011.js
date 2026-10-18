@@ -74,13 +74,21 @@ function backfillDatedFocusEvidence(){
      const subject=task.assignedSubject||task.reviewSubject;
      const topic=task.assignedTopic||task.reviewTopic;
      const matching=entries.filter(entry=>{
-       const year=Number(entry.year||String(entry.topicId||'').match(/-y(\\d+)-/)?.[1]);
+       const year=Number(entry.year||String(entry.topicId||'').match(/-y(\d+)-/)?.[1]);
        if(year!==8)return false;
        if(subject&&entry.subject!==subject)return false;
        if(topic&&entry.topicId!==topic)return false;
        if(!subject&&!topic&&entry.dailyTaskId!==taskId)return false;
        return true;
      });
+     // Do not add old partial progress twice when it is already represented
+     // by these saved historical answers.
+     if(matching.length&&!next.recoveryTaskByDay?.[date]?.[taskId]&&Number(task.progress)>0){
+       const all=next.recoveryTaskByDay||{},perDay=all[date]||{};
+       next={...next,recoveryTaskByDay:{...all,[date]:{
+         ...perDay,[taskId]:{items:{},originalCount:0,totalNeeded:Number(task.target),completed:false}
+       }}};
+     }
      for(const entry of matching){
        const proof=next.recoveryTaskByDay?.[date]?.[taskId];
        const rawId=String(entry.questionId);
