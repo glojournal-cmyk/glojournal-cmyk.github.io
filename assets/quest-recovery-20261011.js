@@ -163,7 +163,7 @@ async function restoreArchivedDailyRecord(){
        candidates=mergeDailyHistory(candidates,old.dailyLog||{});
        // The newest day in an old snapshot can still live in state.daily,
        // before it was sealed into dailyLog at midnight.
-       if(/^\\d{4}-\\d{2}-\\d{2}$/.test(old.today||"")&&
+       if(/^\d{4}-\d{2}-\d{2}$/.test(old.today||"")&&
            Array.isArray(old.daily)&&old.daily.length&&old.today<=todayKey()){
          const recovered={date:old.today,tasks:old.daily.map(t=>({
            ...t,done:t?.done===true||Number(t?.progress)>=Number(t?.target)
