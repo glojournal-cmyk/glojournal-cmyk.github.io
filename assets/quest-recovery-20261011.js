@@ -1,6 +1,6 @@
 /* Recovery Quest UI: read-only display; the app records eligible answers separately. */
 import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261017-recovery-completion3&ux=20261013-corrections2";
-import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261018-foundation-audit4";
+import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js?v=20261018-daily-record-proof6";
 import {mergeDailyHistory,mergeDailyRecordRow,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-original-foundation5";
 import {readAllBackups} from "./backup-vault-20261011.js?v=20261011-vault2&ux=20261013-corrections2";
 const DAY_MS=86400000;
@@ -135,7 +135,11 @@ let archiveCheckPromise=null;
 let archiveRecoveredDays=0;
 function protectDailyRecord(){
  const state=store.getState(),live=state.dailyLog||{};
- const repaired=reconcileOriginalCurriculumHistory(state,live);
+ // The Recovery ledger is authoritative for the six historical items shown
+ // in the 18 October iPad screenshot, even if the saved daily row was
+ // replaced by a single completed French vocabulary placeholder.
+ const recovered=reconcileRecoveredTaskHistory(state,live);
+ const repaired=reconcileOriginalCurriculumHistory(state,recovered);
  bestDailyHistory=mergeDailyHistory(bestDailyHistory,repaired);
  const saved=mergeDailyHistory(live,bestDailyHistory);
  if(JSON.stringify(saved)!==JSON.stringify(live))store.setState({dailyLog:saved});
