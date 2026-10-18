@@ -1,5 +1,5 @@
 /* Recovery Quest UI: read-only display; the app records eligible answers separately. */
-import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261018-vocab6&ux=20261013-corrections2";
+import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261018-vocab7&ux=20261013-corrections2";
 import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js?v=20261018-receipt2";
 import {mergeDailyHistory,mergeDailyRecordRow,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-original-foundation5";
 import {readMarkedAnswers} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
