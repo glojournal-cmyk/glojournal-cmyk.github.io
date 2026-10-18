@@ -118,6 +118,27 @@ export function reconcileRecoveredTaskHistory(state, existingLog) {
       row={date,tasks,done:0,total:tasks.length,complete:false,recoveryFallback:true};
       log={...log,[date]:row};
     }
+    // Earlier recovery builds synthesized a ONE-task row for completed
+    // French vocabulary. Once that placeholder existed, the remaining five
+    // genuine recovery proofs were ignored, and Daily Record showed 1/1
+    // instead of the saved six completions out of ten.
+    // Only expand an unmistakably synthetic vocab-only historical row when
+    // independent dated recovery proofs exist for other task categories.
+    const rowTasks=Array.isArray(row.tasks)?row.tasks:[];
+    const hasOtherProof=Object.entries(proofs||{}).some(([id,proof])=>
+      RECOVERY_IDS.has(id) && id!=="french-vocab" && id!=="latin-vocab" &&
+      (proof?.completed===true||countProof(id,proof)>0));
+    const syntheticVocabOnly=rowTasks.length>0 && rowTasks.length<=2 &&
+      rowTasks.every(t=>t.id==="french-vocab"||t.id==="latin-vocab");
+    if(syntheticVocabOnly&&hasOtherProof){
+      const originals=new Map(rowTasks.map(t=>[t.id,t]));
+      const rebuilt=UNOPENED_FALLBACK_TASKS.map(([id,title,target])=>
+        originals.get(id)||{id,title,target,progress:0,done:false,
+          recoveryFallback:true});
+      row={...row,tasks:rebuilt,done:0,total:rebuilt.length,complete:false,
+        recoveryFallback:true,recoveryRebuiltFromProof:true};
+      log={...log,[date]:row};
+    }
     let changed=false;
     const tasks=row.tasks.map(task=>{
       const proof=proofs?.[task.id];
