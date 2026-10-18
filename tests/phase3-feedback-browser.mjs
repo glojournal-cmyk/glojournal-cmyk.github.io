@@ -32,15 +32,15 @@ try{for(const launcher of [chromium,webkit]){
  await page.addInitScript(()=>{window.__spoken=[];Object.defineProperty(window,'speechSynthesis',{value:{getVoices:()=>[],cancel:()=>{},speak:u=>window.__spoken.push(u.text),speaking:false}});window.SpeechSynthesisUtterance=class{constructor(text){this.text=text}};});
  for(const route of ['/','/study/latin/practise/','/study/chemistry/practise/']){
  await page.goto(base+route);await page.waitForFunction(()=>window.__luxAppReady===true);await page.waitForSelector('#lux-voice-cheer-toggle');
-  // Voice can mount before the visual companion; verify both are actually ready.
-  if(route!=='/')await page.waitForSelector('#study-companion [data-companion-copy]',{state:'visible',timeout:20000});
+  // Voice can mount before the companion. The compact Study layout intentionally hides the copy,\n  // so verify its streak state in textContent and check the visible answer animation.
+  if(route!=='/')await page.waitForSelector('#study-companion [data-companion-copy]',{state:'attached',timeout:20000});
  const toggle=page.locator('#lux-voice-cheer-toggle');assert.equal(await toggle.count(),1);assert.ok((await toggle.boundingBox()).height>=44);
  const snapshot=()=>page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}').state||{};return JSON.stringify({xp:s.xp,daily:s.daily,outfits:s.unlockedOutfits,pet:JSON.parse(localStorage.getItem('lux-pet-companion-v1')||'{}')},(key,value)=>key==='lastEnergyUpdateAt'?undefined:value)});
  await page.waitForTimeout(800);const before=await snapshot();
  if(await toggle.getAttribute('aria-pressed')==='true')await toggle.click();
  await toggle.click();assert.equal(await toggle.getAttribute('aria-pressed'),'true');assert.ok(await page.evaluate(()=>__spoken.length>0));
  await page.evaluate(()=>{for(let i=0;i<3;i++)window.dispatchEvent(new CustomEvent('scholar:question-answered',{detail:{correct:true}}))});
- if(route!=='/')assert.match(await page.locator('#study-companion [data-companion-copy]').innerText(),/\b[3-9]\d* in a row/);
+ if(route!==''){assert.match(await page.locator('#study-companion [data-companion-copy]').textContent(),/\b[3-9]\d* in a row/);assert.equal(await page.locator('.cx-answer-flash').isVisible(),true,'correct answer animation must be visible even when compact companion copy is hidden');}
  await toggle.click();assert.equal(await toggle.getAttribute('aria-pressed'),'false');assert.equal(await snapshot(),before,'feedback does not award or credit anything');
  await page.waitForTimeout(1500);assert.equal(await page.locator('#lux-voice-cheer-toggle').count(),1);assert.equal(await page.locator('#lux-loading-recovery').count(),0);
  }
