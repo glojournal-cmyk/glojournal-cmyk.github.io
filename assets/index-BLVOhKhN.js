@@ -1,5 +1,6 @@
 import "./player-ux-20261013.js?ux=20261013-corrections2";
 import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
+import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
 import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261017-recovery-completion3";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
@@ -2383,8 +2384,13 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const production = isIndependentProduction(resolved);
 
   // Keep core XP/review scheduling, but stop its old streak-only topic mastery from running.
-  const inRecovery = typeof window !== "undefined" && new URLSearchParams(window.location.search).has("recover");
-  const recoverDate = inRecovery ? new URLSearchParams(window.location.search).get("recover") : null;
+  // Capture immutable task identity from the question session. The router
+  // can mutate/remove the query during an in-progress quiz; that must never
+  // erase the answer's original day or assigned Recovery task.
+  const route = typeof window!=="undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams();
+  const recoverDate = meta.recoveryFor || route.get("recover") || null;
+  const recoveryTaskId = meta.recoveryTaskId || route.get("task") || null;
+  const inRecovery = typeof recoverDate==="string" && /^\\d{4}-\\d{2}-\\d{2}$/.test(recoverDate);
   const markedAt=new Date().toISOString();
   const attemptId=markedAt+":"+(++recoveryAttemptSequence);
   const coreMeta = { ...meta, topicId: undefined, excludeGeneralDaily: inRecovery };
@@ -2396,8 +2402,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   // Recover only an explicitly assigned, dated practice task with a verified
   // answer event. Never infer a recovered task from a generic page visit.
   if (inRecovery) {
-    const params = new URLSearchParams(window.location.search);
-    const date = params.get("recover"), taskId = params.get("task");
+    const date = recoverDate, taskId = recoveryTaskId;
     const supported = ["mistake-review","y8-practise","y8-mastery","year8-long-review","adaptive-focus","study-session"];
     const savedDay = before.dailyLog?.[date];
     const preparedDay = !savedDay ? prepareUnopenedRecovery(before,date,todayKey()).state : before;
@@ -2454,16 +2459,25 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
       });
     }
   }
-  store.setState({formalAttemptLog: globalThis.LuxWeeklyEvidence.append(before.formalAttemptLog, {
+  const evidenceEntry={
     at: markedAt, attemptId, questionId, correct: !!correct,
     subject: resolved.subject || subject, year: Number(meta.yearOverride || before.year || 9),
     topicId: resolved.topicId || null, topicTitle: resolved.topicTitle || meta.topicTitle || resolved.topicId || "General practice",
     formal: meta.formal !== false, repair: !!meta.repair,
-    dailyTaskId: inRecovery ? new URLSearchParams(window.location.search).get("task") : (meta.progressionTask || null),
+    dailyTaskId: inRecovery ? recoveryTaskId : (meta.progressionTask || null),
     // Recovery attempts must not satisfy today's Vocab assignment.
     dailyVocab: inRecovery ? null : (dailyVocabSubject(resolved.subject || subject, meta) || null),
-    recoveryFor: inRecovery ? new URLSearchParams(window.location.search).get("recover") : null
-  }), evidenceStartedAt: before.evidenceStartedAt || new Date().toISOString()});
+    recoveryFor: inRecovery ? recoverDate : null
+  };
+  // Persist a small, verified answer event independently in IndexedDB.
+  // If localStorage rejects the large Scholar store, the marked evidence
+  // still survives reload and can rebuild the correct original-date task.
+  if(evidenceEntry.formal!==false&&!evidenceEntry.repair)void saveMarkedAnswer({
+    ...evidenceEntry,day:todayKey()
+  });
+  store.setState({formalAttemptLog:globalThis.LuxWeeklyEvidence.append(
+    before.formalAttemptLog,evidenceEntry),evidenceStartedAt:
+    before.evidenceStartedAt || markedAt});
 
   if (meta?.formal === false) {
     const reviews = { ...(after.reviews || {}) };
