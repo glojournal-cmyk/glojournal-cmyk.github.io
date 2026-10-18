@@ -52,7 +52,7 @@ export function TopicBrowser({topics=[],selected='',onSelect,subject,year,stats=
    ]}),
    filtersOpen||query?h('button',{type:'button',onClick:()=>{setQuery('');setKind('all');setAvailability('all');setProgress('all');setTaughtFilter('all')},className:buttonClass,children:'Clear'}):null
   ]})]}),
-  allowAll&&!query&&kind==='all'?h('button',{type:'button',onClick:()=>onSelect?.('all'),'aria-pressed':selected==='all',className:'topic-mix','children':'All topics'}),
+  allowAll&&!query&&kind==='all'?h('button',{type:'button',onClick:()=>onSelect&&onSelect('all'),'aria-pressed':selected==='all',className:'topic-mix',children:'All topics'}):null,
   found===0?h('p',{className:'rounded-xl bg-sage/40 p-4 text-sm',role:'status',children:topics.length?'No topics match.':'Choose another year.'}):null,
   h('div',{className:'space-y-2',style:compact?{maxHeight:'60vh',overflowY:'auto',paddingRight:'4px'}:undefined,children:groups.map((group,index)=>hs('details',{className:'topic-group',open:!!query||group.topics.some(t=>t.topicId===selected)||(!selected&&index===0),children:[
    hs('summary',{children:[group.name,h('span',{children:`${group.topics.length}`})]}),
