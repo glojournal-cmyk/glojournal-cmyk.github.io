@@ -1,0 +1,34 @@
+name: Capture Nocturne Spider real App preview cards
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/nocturne-spider-screenshots.yml'
+permissions:
+  contents: write
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium
+      - name: Capture authentic Nocturne Spider evolution cards with isolated temporary test unlock
+        run: node tests/nocturne-spider-screenshots.mjs
+      - name: Publish screenshots
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/previews/nocturne-spider-20261018/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add Nocturne Spider preview screenshot gallery"
+          git pull --rebase origin main
+          git push origin HEAD:main
