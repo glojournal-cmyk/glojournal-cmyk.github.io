@@ -4,6 +4,8 @@ import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-
 import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261018-receipt2";
 import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261018-receipt2";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
+import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js";
+import {buildYear8DailyV2} from "./year8-daily-v2-20261018.js";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
@@ -894,8 +896,8 @@ function normalizeTopicStat(stat = {}) {
     productionAttempted: Math.max(0, Number(stat.productionAttempted) || 0),
     productionCorrect,
     productionIds,
-    state: topicState(attempted, correct, productionCorrect),
-    masteryRule: 1,
+    state: masteryStage(stat) === "mastered" ? "mastered" : stat.masteryV2 ? (attempted >= SECURE_MIN_ATTEMPTS && accuracy >= SECURE_ACCURACY ? "secure" : "practising") : stat.state === "mastered" ? "mastered" : topicState(attempted, correct, productionCorrect),
+    masteryRule: stat.masteryV2 ? 2 : 1,
     correctDays: [...new Set([...(Array.isArray(stat.correctDays) ? stat.correctDays : []), ...(stat.recentOutcomes || []).filter(row => row?.correct === true).map(row => row.date || row.day)])].filter(day => /^\d{4}-\d{2}-\d{2}$/.test(day)).sort().slice(-60),
   };
 }
@@ -1270,6 +1272,7 @@ function mistakeTopicAvailable(subject, topicId, year) {
 }
 
 function buildAdaptiveDaily(state) {
+  if (state.today >= "2026-10-19") return buildYear8DailyV2(state,getTopicCatalog,readCurriculumLearning());
   function masteryKeyCount(topicId) {
     const day = state.today || todayKey();
     const bucket = state.dailyCurriculumEvidenceByDay?.[day] || {};
@@ -1418,11 +1421,16 @@ function buildAdaptiveDaily(state) {
   ];
 }
 
+function unopenedPlan(state,date){
+  return date >= "2026-10-19" ? buildYear8DailyV2({...state,today:date,daily:[]},getTopicCatalog,readCurriculumLearning()) : null;
+}
+
 // One marked Year 8 question is an event, not a one-time vocabulary word.
  // Sessions may repeat question IDs; track each genuine marked event so the
  // 10 + 15 foundation/mastery target remains achievable with smaller banks.
 let recoveryAttemptSequence=0;
-const YEAR8_RECOVERY_TASKS=["y8-practise","y8-mastery","year8-long-review"];
+const YEAR8_RECOVERY_TASKS=["y8-practise","y8-mastery","year8-long-review","latin-standard",
+  "y8-standard-a","y8-standard-b","y8-mastery-a","y8-mastery-b","weakness-review","due-review","year9-light"];
 function recoveryAnswerEventKey(entry,proof){
  const id=String(entry.questionId||"");
  const exact=entry.attemptId||entry.eventId;
@@ -1577,7 +1585,7 @@ function normalizeState() {
   for (const [topicId, raw] of Object.entries(state.topicStats || {})) {
     const next = normalizeTopicStat(raw);
     normalizedTopics[topicId] = next;
-    if (raw.masteryRule !== 1 || raw.state !== next.state || raw.accuracy !== next.accuracy || !Array.isArray(raw.productionIds) || JSON.stringify(raw.correctDays) !== JSON.stringify(next.correctDays)) topicsChanged = true;
+    if (raw.masteryRule !== next.masteryRule || raw.state !== next.state || raw.accuracy !== next.accuracy || !Array.isArray(raw.productionIds) || JSON.stringify(raw.correctDays) !== JSON.stringify(next.correctDays)) topicsChanged = true;
   }
   if (topicsChanged) patch.topicStats = normalizedTopics;
 
@@ -1600,7 +1608,7 @@ function normalizeState() {
   const recoveryVocab = { ...(state.recoveryVocabByDay || {}) };
   const recoveredPractice = { ...(state.recoveryTaskByDay || {}) };
   let replayChanged = false;
-  const recoveredIds = new Set(["study-session","adaptive-focus","year8-long-review","y8-practise","y8-mastery","mistake-review"]);
+  const recoveredIds = new Set(["study-session","adaptive-focus","year8-long-review","y8-practise","y8-mastery","mistake-review",...YEAR8_RECOVERY_TASKS]);
   for (const entry of state.formalAttemptLog || []) {
     const date = entry?.recoveryFor;
     if (!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(date || "") || !entry.questionId ||
@@ -1664,7 +1672,10 @@ function normalizeState() {
       if (!proof || !recoveredIds.has(id)) continue;
       const assigned=state.dailyLog?.[date]?.tasks?.find(t=>t.id===id);
       const defaultTarget={"study-session":10,"adaptive-focus":4,"year8-long-review":25,
-        "y8-practise":10,"y8-mastery":25,"mistake-review":1}[id];
+        "y8-practise":10,"y8-mastery":25,"mistake-review":1,
+        "latin-standard":10,"y8-standard-a":10,"y8-standard-b":10,
+        "y8-mastery-a":15,"y8-mastery-b":15,"weakness-review":10,
+        "due-review":10,"year9-light":15}[id];
       const originalCount=Math.max(0,Number(proof.originalCount??assigned?.progress)||0);
       const needed=Math.max(1,Number(proof.totalNeeded)||((Number(assigned?.target)||defaultTarget)-originalCount));
       const attempts=id==="mistake-review"?
@@ -2411,7 +2422,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     const date = recoverDate, taskId = recoveryTaskId;
     const supported = ["mistake-review","y8-practise","y8-mastery","year8-long-review","adaptive-focus","study-session"];
     const savedDay = before.dailyLog?.[date];
-    const preparedDay = !savedDay ? prepareUnopenedRecovery(before,date,todayKey()).state : before;
+    const preparedDay = !savedDay ? prepareUnopenedRecovery(before,date,todayKey(),unopenedPlan(before,date)).state : before;
     if(preparedDay!==before) store.setState({dailyLog:preparedDay.dailyLog});
     const actual = preparedDay.dailyLog?.[date]?.tasks?.find(t=>t.id===taskId);
     // An unopened day never had a personalised curriculum assignment.
@@ -2468,10 +2479,11 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     }
   }
   const evidenceEntry={
-    at: markedAt, attemptId, questionId, correct: !!correct,
+    at: markedAt, day: todayKey(), attemptId, questionId, correct: !!correct,
     subject: resolved.subject || subject, year: Number(meta.yearOverride || before.year || 9),
     topicId: resolved.topicId || null, topicTitle: resolved.topicTitle || meta.topicTitle || resolved.topicId || "General practice",
     formal: meta.formal !== false, repair: !!meta.repair,
+    format: meta.format || null, mode: meta.progressionMode || null,
     dailyTaskId: inRecovery ? recoveryTaskId : (meta.progressionTask || null),
     // Recovery attempts must not satisfy today's Vocab assignment.
     dailyVocab: inRecovery ? null : (dailyVocabSubject(resolved.subject || subject, meta) || null),
@@ -2523,7 +2535,10 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const review = after.reviews?.[questionId];
   const accuracy = attempted ? correctCount / attempted : 0;
   const repairs = { attempted: (current.repairs?.attempted || 0) + (isRepair ? 1 : 0), correct: (current.repairs?.correct || 0) + (isRepair && correct ? 1 : 0) };
-  const nextState = topicState(attempted, correctCount, productionCorrect);
+  const useMasteryV2 = todayKey() >= "2026-10-19" && Number(evidenceEntry.year) === 8 && current.state !== "mastered";
+  const nextMastery = useMasteryV2 ? addMasteryEvidence(current, evidenceEntry) : current.masteryV2 || {};
+  const nextState = current.state === "mastered" || nextMastery.stage === "mastered" ? "mastered" :
+    useMasteryV2 || nextMastery.stage ? (attempted >= SECURE_MIN_ATTEMPTS && accuracy >= SECURE_ACCURACY ? "secure" : "practising") : topicState(attempted, correctCount, productionCorrect);
   const recentOutcomes = isRepair
     ? [...(current.recentOutcomes || [])]
     : [...(current.recentOutcomes || []), { date: todayKey(), correct: !!correct, recoveryFor: (typeof recoverDate!=='undefined' ? recoverDate : null) }].slice(-20);
@@ -2535,6 +2550,8 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     productionAttempted: current.productionAttempted + (!isRepair && production ? 1 : 0),
     productionCorrect,
     productionIds: productionIds.slice(-20),
+    masteryV2: useMasteryV2 ? (Object.keys(nextMastery).length ? nextMastery : {stage:"learning",attempts:[]}) : current.masteryV2,
+    coveredAt: current.coveredAt || (attempted >= 10 ? todayKey() : null),
     state: nextState,
     due: review?.due || current.due,
     errors,
@@ -2544,7 +2561,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     recentOutcomes,
     correctDays: [...new Set([...(current.correctDays || []), ...(!isRepair && correct ? [todayKey()] : [])])].sort().slice(-60),
     masteredAt: nextState === "mastered" ? (current.state === "mastered" && current.masteredAt ? current.masteredAt : todayKey()) : current.masteredAt || null,
-    masteryRule: 1,
+    masteryRule: useMasteryV2 ? 2 : current.masteryRule || 1,
     lastAttempt: todayKey(),
   };
   const reviews = { ...(after.reviews || {}) };
@@ -3493,7 +3510,7 @@ function mountDailyRecord() {
         if (recoveryAge >= 1 && recoveryAge <= 2) {
           const fallback = !row?.tasks?.length;
           const recoveryTasks = fallback
-            ? UNOPENED_FALLBACK_TASKS.map(([id,title,target])=>({id,title,target,progress:0,done:false,recoveryFallback:true}))
+            ? (unopenedPlan(state,day)||UNOPENED_FALLBACK_TASKS.map(([id,title,target])=>({id,title,target,progress:0,done:false,recoveryFallback:true})))
             : row.tasks;
           if (fallback) {
             const hint=document.createElement("p");
@@ -3535,7 +3552,7 @@ function mountDailyRecord() {
             link.style.cssText="display:inline-block;margin:6px 8px 6px 0;padding:10px 12px;border-radius:10px;background:#23495b;color:white;font-size:13px";
             link.addEventListener("click",()=>{
               const current=store.getState();
-              const prepared=prepareUnopenedRecovery(current,day,todayKey());
+              const prepared=prepareUnopenedRecovery(current,day,todayKey(),unopenedPlan(current,day));
               if(prepared.created)store.setState({dailyLog:prepared.state.dailyLog});
               if(task.id==="play-game")store.setState({recoveryPendingGame:{date:day,taskId:"play-game",startedAt:Date.now()}});
             });

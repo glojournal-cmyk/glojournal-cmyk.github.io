@@ -5,6 +5,8 @@ const PROGRESS_KEY = "lux-scholar-garden-v1";
 const CACHE_KEYS = ["lux-practice-drafts-v1", "lux-game-visit-v1"];
 const TASKS = new Set([
   "y8-practise", "y8-mastery", "year8-long-review",
+  "latin-standard", "y8-standard-a", "y8-standard-b", "y8-mastery-a", "y8-mastery-b",
+  "weakness-review", "due-review", "year9-light",
   "study-session", "adaptive-focus", "mistake-review",
   "french-vocab", "latin-vocab", "tend-garden", "play-game"
 ]);

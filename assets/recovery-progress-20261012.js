@@ -4,6 +4,9 @@ import {C as store} from './index-BLVOhKhN.js?v=20261018-vocab7&ux=20261013-corr
 const R=interop(factory()),h=R.createElement;
 const labels={'study-session':'Focused study','adaptive-focus':'Subject focus',
  'y8-practise':'Foundation practice','y8-mastery':'Mastery review',
+ 'latin-standard':'Latin Standard','y8-standard-a':'Year 8 Standard 1','y8-standard-b':'Year 8 Standard 2',
+ 'y8-mastery-a':'Year 8 Mastery 1','y8-mastery-b':'Year 8 Mastery 2',
+ 'weakness-review':'Weakness review','due-review':'Due review','year9-light':'Year 9 study',
  'year8-long-review':'Year 8 practice + mastery','mistake-review':'Previous mistakes'};
 export function RecoveryProgress({subject,date}){
  const taskId=new URLSearchParams(location.search).get('task')||subject+'-vocab';

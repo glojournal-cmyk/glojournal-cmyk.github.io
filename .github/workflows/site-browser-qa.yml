@@ -35,6 +35,8 @@ jobs:
         run: |
           python3 -m http.server 8777 --bind 127.0.0.1 >/tmp/whole-site-qa-http.log 2>&1 &
           QA_BASE_URL=http://127.0.0.1:8777 node tests/site-browser-qa.mjs
+      - name: Check Mastery 2.0 assignment and reload on iPad viewport
+        run: QA_BASE_URL=http://127.0.0.1:8777 node tests/mastery-v2-browser.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

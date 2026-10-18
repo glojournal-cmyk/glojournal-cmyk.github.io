@@ -80,10 +80,12 @@ export function selectDailyVocabulary({subject, items = [], day, ledger = {}, re
   for (const [concept, variants] of words) {
     if (credited.has(concept)) continue;
     const last = latest.get(concept), wrong = last?.correct === false;
-    const dueDate = wrong ? last.due : dueDates.get(concept);
+    const dueDate = last?.due || dueDates.get(concept);
     const due = !!dueDate && dueDate <= day;
     // A mistake waits for its spaced-review date instead of immediately repeating.
     if (wrong && !due) continue;
+    // Once correctly recalled, this word returns only at its scheduled review.
+    if (day >= '2026-10-19' && last?.correct && !due) continue;
     const typed = variants.filter(q => q.format !== 'mc_single');
     const choices = [...(typed.length ? typed : variants)].sort((a,b) => a.id.localeCompare(b.id));
     const question = choices[hash(`${day}:${subject}:${concept}:direction`) % choices.length];
