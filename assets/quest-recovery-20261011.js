@@ -385,8 +385,18 @@ function mount(){
        matchesAssignedPracticeEvidence(a,task,id));
      const label={'y8-practise':'Foundation practice','y8-mastery':'Mastery review',
        'year8-long-review':'Y8 practice + mastery'}[id];
+     const proof=state.dailyCurriculumEvidenceByDay?.[date]?.[id]||{};
+     const routeTopic=(()=>{try{return new URL(task.href||'',location.origin).searchParams.get('topic')}catch{return null}})();
+     const bucket=proof[topic||routeTopic]||{};
+     const baseCount=Object.values(bucket.foundation||{}).filter(Boolean).length;
+     const masteryCount=Object.values(bucket.mastery||{}).filter(Boolean).length;
+     const originalCount=id==='y8-practise'?baseCount:Math.min(10,baseCount)+masteryCount;
+     const originalFormal=(state.formalAttemptLog||[]).filter(a=>a?.day===date&&
+       !a.recoveryFor&&a.dailyTaskId===id&&matchesAssignedPracticeEvidence(a,task,id)).length;
      return '\n  '+label+': '+(task.progress||0)+'/'+task.target+
-       ' · '+matched.length+' eligible saved marked events'+
+       ' · Recovery answers '+matched.length+
+       ' · Original-day evidence '+originalCount+
+       ' · Original-day formal '+originalFormal+
        (subject?' · '+subject:'')+(topic?' · '+topic:'');
    }).filter(Boolean).join('');
    const tagStatus=dated.length?'\n  Route tags: '+Object.entries(tags).map(([id,n])=>id+' '+n).join(', '):'';
