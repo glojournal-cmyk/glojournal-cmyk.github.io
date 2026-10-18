@@ -42,7 +42,7 @@ try {
  assert.ok(title.includes('Inkling'),'Selected wrong companion: '+title);
  const stages=await page.locator('#petFormGrid .pet-form-art').evaluateAll(nodes=>nodes.map(x=>getComputedStyle(x).backgroundImage));
  assert.equal(stages.length,10);
- for(let level=1;level<=10;level++assert.ok(stages[level-1].includes('/art-inkling-all10-20261018/level-'+level+'.png'),'Missing deployed Owl image '+level);
+ for(let level=1;level<=10;level++)assert.ok(stages[level-1].includes('/art-inkling-all10-20261018/level-'+level+'.png'),'Missing deployed Owl image '+level);
  await page.evaluate(async()=>{
   const nodes=[...document.querySelectorAll('#petFormGrid .pet-form-art')];
   await Promise.all(nodes.map(async el=>{
@@ -55,7 +55,7 @@ try {
   }));
  });
  await page.locator('#petFormGrid').screenshot({path:path.join(out,'full-gallery-lv1-10.png'),animations:'disabled'});
- for(let level=1;level<=10;level++{
+ for(let level=1;level<=10;level++){
   await page.locator('#petFormGrid .pet-form').nth(level-1).screenshot({
     path:path.join(out,'level-'+level+'-app-card.png'), animations:'disabled'
   });
