@@ -1,0 +1,9 @@
+@media (min-width:1024px){
+  .study-notes-directory{grid-template-columns:minmax(0,1fr) 360px !important;align-items:start}
+  .study-notes-directory>aside{order:2}
+  .study-notes-directory.notes-hidden{grid-template-columns:auto minmax(300px,440px) !important;justify-content:end}
+}
+.lux-notes-bar{display:flex;justify-content:flex-end;margin-bottom:8px}
+.lux-notes-toggle{border:1px solid #d5dcd4;background:#fffefa;color:#173447;border-radius:999px;min-height:36px;padding:0 14px;font-size:13px;font-weight:650;cursor:pointer}
+.lux-notes-toggle:hover{background:#edf2e8}
+.lux-notes-pane.is-hidden>:not(.lux-notes-bar){display:none}
