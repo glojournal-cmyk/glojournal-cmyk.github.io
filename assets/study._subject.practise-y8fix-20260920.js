@@ -29,7 +29,7 @@ function recoveryPracticeSize(subject,params,state){
 function qp(v){if(typeof v!=`string`||v.length<2||v[0]!==`"`||v.at(-1)!==`"`)return v;try{let n=JSON.parse(v);return typeof n==`string`||typeof n==`number`?String(n):v}catch{return v.slice(1,-1)}}function readParams(){let p=typeof window===`undefined`?new URLSearchParams():new URLSearchParams(window.location.search),g=p.get.bind(p);return p.get=k=>{let v=g(k);return v==null?v:qp(v)},p}function mistakeBankSignature(subject,year,mode,topics){return JSON.stringify([subject,year,mode,topics.map(t=>t.topicId)])}
 function resolveDailyAssignment(subject,params,daily=[],history={}){
  const recover=params.get('recover');
- if(recover&&/^\\d{4}-\\d{2}-\\d{2}$/.test(recover)){
+ if(recover&&/^\d{4}-\d{2}-\d{2}$/.test(recover)){
    // A Recovery practice must use the MISSED day's saved assignment.
    // Today's adaptive Year 9/Year 8 focus often targets a different topic.
    daily=Array.isArray(history?.[recover]?.tasks)?history[recover].tasks:[];
