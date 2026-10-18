@@ -8,3 +8,13 @@
 #lux-study-subjects-v2{scroll-margin-top:90px}
 #lux-study-subjects-v2 img{height:88px;object-fit:cover}
 @media(max-width:600px){.lux-study-shortcuts{gap:8px}.lux-study-shortcuts a{flex-basis:140px;padding:10px 12px}}
+
+.lux-subject-card{cursor:pointer}
+.lux-subject-status{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13px;color:#173447}
+.lux-subject-status b{font-weight:700}
+.lux-dot{width:9px;height:9px;border-radius:99px;display:inline-block}
+.lux-dot.secure{background:#2f7d4a}
+.lux-dot.due{background:#d4652f;margin-left:8px}
+#lux-study-subjects-v2 .lux-subject-card a[href*="/learn"],
+#lux-study-subjects-v2 .lux-subject-card a[href*="/practise"],
+#lux-study-subjects-v2 .lux-subject-card a[href*="/progress"]{display:inline-flex;align-items:center;min-height:44px;padding:0 2px}

@@ -32,6 +32,37 @@ function snapshot(){
  return {total:10,done,valid,complete,year:Number(saved.year)===8?8:9,
   href:href,paused:!!paused};
 }
+
+ function compactSubjectCards(){
+  const root=document.getElementById("lux-study-subjects-v2");
+  if(!root)return;
+  for(const heading of root.querySelectorAll("h3")){
+   let node=heading, host=null;
+   for(let i=0;i<6&&node;i++){
+    const links=node.querySelectorAll?node.querySelectorAll("a"):[];
+    if([...links].some(a=>{try{return /\/learn\/?$/.test(new URL(a.href,location.origin).pathname)}catch{return false}})){host=node;break}
+    node=node.parentElement;
+   }
+   if(!host||host.dataset.luxCard==="1")continue;
+   const learn=[...host.querySelectorAll("a")].find(a=>{try{return /\/learn\/?$/.test(new URL(a.href,location.origin).pathname)}catch{return false}});
+   const progress=[...host.querySelectorAll("p")].find(p=>/topics secure/.test(p.textContent||""));
+   if(progress){
+    const m=(progress.textContent||"").match(/(\d+)\s*\/\s*(\d+)[\s\S]*?(\d+)/);
+    if(m){
+     progress.classList.add("lux-subject-status");
+     progress.title=m[3]+" questions due for review";
+     progress.innerHTML='<span class="lux-dot secure"></span><b>'+m[1]+'</b>/'+m[2]+' secure<span class="lux-dot due"></span><b>'+m[3]+'</b> due';
+    }
+   }
+   if(!learn)continue;
+   host.dataset.luxCard="1";
+   host.classList.add("lux-subject-card");
+   const imgLink=[...host.querySelectorAll("a")].find(a=>a.querySelector("img"));
+   if(imgLink)imgLink.href=learn.href;
+   host.addEventListener("click",ev=>{if(ev.target.closest("a,button"))return;location.assign(learn.href)});
+  }
+ }
+
 function repaint(){
  queued=false;
  if(!window.__luxAppReady)return;
@@ -45,6 +76,7 @@ function repaint(){
 
  const subjects=[...parent.querySelectorAll("section")].find(x=>x.querySelector("h2")?.textContent?.trim()==="Subjects");
  if(subjects)subjects.id="lux-study-subjects-v2";
+ compactSubjectCards();
  const d=snapshot();
  const old=parent.querySelector(":scope > #"+id);
  const key=JSON.stringify(d);
