@@ -28,7 +28,7 @@
       "difficulty": 1,
       "format": "typed_rubric",
       "marks": 2,
-      "prompt": "An onion epidermal cell has a nucleus. State two functions of the nucleus.",
+      "prompt": "Study the onion epidermis diagram. State two functions of the nucleus.",
       "answer": {
         "mode": "biology_rubric",
         "accepted": [
@@ -62,7 +62,9 @@
         "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
         "commonError": "Name a function, rather than just saying it is important."
       },
-      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "diagram": "bio-nov2-onion-epidermis.svg",
+      "diagramAlt": "Light-microscope-style drawing of onion bulb epidermis with rectangular cell boundaries and visible nuclei, no chloroplasts."
     },
     {
       "id": "bio-nov2-20261017-002",
@@ -400,7 +402,7 @@
       "difficulty": 2,
       "format": "typed_rubric",
       "marks": 2,
-      "prompt": "Explain two adaptations that help a sperm cell swim towards an egg.",
+      "prompt": "Use the sperm-cell diagram to explain two adaptations that help a sperm cell swim towards an egg.",
       "answer": {
         "mode": "biology_rubric",
         "accepted": [
@@ -436,7 +438,9 @@
         "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
         "commonError": "Link each named structure to swimming; acrosome enzymes help entry into the egg."
       },
-      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "diagram": "bio-nov2-sperm.svg",
+      "diagramAlt": "Outline of a human sperm cell with a capped head, short midpiece, and long moving tail."
     },
     {
       "id": "bio-nov2-20261017-011",
@@ -586,7 +590,7 @@
       "difficulty": 2,
       "format": "typed_rubric",
       "marks": 2,
-      "prompt": "Explain the benefit of the myelin sheath around an axon.",
+      "prompt": "Study the neurone diagram. Explain the benefit of the myelin sheath around its axon.",
       "answer": {
         "mode": "biology_rubric",
         "accepted": [
@@ -620,7 +624,9 @@
         "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
         "commonError": "Insulation and faster transmission are two distinct points."
       },
-      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "diagram": "bio-nov2-neurone.svg",
+      "diagramAlt": "Neurone with branches, cell body, long myelinated axon, and terminal endings."
     },
     {
       "id": "bio-nov2-20261017-015",
@@ -857,7 +863,7 @@
       "difficulty": 2,
       "format": "typed_rubric",
       "marks": 2,
-      "prompt": "Explain how the biconcave shape of a red blood cell helps oxygen exchange.",
+      "prompt": "Using the red blood cell diagram, explain how its biconcave shape helps oxygen exchange.",
       "answer": {
         "mode": "biology_rubric",
         "accepted": [
@@ -891,7 +897,9 @@
         "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
         "commonError": "Link shape to surface area or diffusion, not just to fitting in blood."
       },
-      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "diagram": "bio-nov2-red-cell.svg",
+      "diagramAlt": "Red blood cell viewed from above and in side section showing a central indentation."
     },
     {
       "id": "bio-nov2-20261017-021",
@@ -997,7 +1005,7 @@
       "difficulty": 2,
       "format": "typed_rubric",
       "marks": 2,
-      "prompt": "Distinguish the roles of goblet cells and ciliated cells in the airways.",
+      "prompt": "Use the airway lining diagram to distinguish the roles of goblet cells and ciliated cells.",
       "answer": {
         "mode": "biology_rubric",
         "accepted": [
@@ -1034,7 +1042,9 @@
         "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
         "commonError": "Do not say cilia produce the mucus."
       },
-      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "diagram": "bio-nov2-ciliated-airway.svg",
+      "diagramAlt": "Ciliated epithelial cells beside a mucus-producing goblet cell along the airway lining."
     },
     {
       "id": "bio-nov2-20261017-024",
@@ -1093,7 +1103,7 @@
       "difficulty": 2,
       "format": "typed_rubric",
       "marks": 2,
-      "prompt": "Explain how the shape of a root hair cell helps absorption.",
+      "prompt": "Use the root hair cell diagram to explain how its shape helps absorption.",
       "answer": {
         "mode": "biology_rubric",
         "accepted": [
@@ -1129,7 +1139,9 @@
         "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
         "commonError": "Name the long projection and the substances absorbed."
       },
-      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "diagram": "bio-nov2-root-hair.svg",
+      "diagramAlt": "Root hair cell extending among soil particles with inward arrows indicating water uptake."
     },
     {
       "id": "bio-nov2-20261017-026",
@@ -1315,7 +1327,7 @@
       "difficulty": 2,
       "format": "typed_rubric",
       "marks": 2,
-      "prompt": "Explain why mature xylem vessels are hollow and have no end walls.",
+      "prompt": "Study the xylem vessel diagram. Explain why mature xylem vessels are hollow and have no end walls.",
       "answer": {
         "mode": "biology_rubric",
         "accepted": [
@@ -1350,7 +1362,9 @@
         "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
         "commonError": "Explain the benefit to flow rather than listing dead cells."
       },
-      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "diagram": "bio-nov2-xylem.svg",
+      "diagramAlt": "Long vertical xylem vessels with thickened walls, empty internal channels, and upward water arrows."
     },
     {
       "id": "bio-nov2-20261017-031",
@@ -1778,7 +1792,7 @@
       "difficulty": 2,
       "format": "typed_rubric",
       "marks": 2,
-      "prompt": "Explain how to lower a coverslip and why this is important.",
+      "prompt": "Use the coverslip diagram to explain how to lower the coverslip onto a slide and why this matters.",
       "answer": {
         "mode": "biology_rubric",
         "accepted": [
@@ -1813,7 +1827,9 @@
         "strategy": "Answer the command word. Give distinct scientific points and link each adaptation to its benefit. For calculations, show working and units.",
         "commonError": "Air bubbles may look like dark rings and obscure cells."
       },
-      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question."
+      "source": "School materials supplied 17 October 2026; original GCSE AQA-style question, not an official AQA question.",
+      "diagram": "bio-nov2-coverslip.svg",
+      "diagramAlt": "Two stages of placing a coverslip on a microscope slide, showing angled lowering and an air bubble."
     },
     {
       "id": "bio-nov2-20261017-041",
@@ -3007,7 +3023,7 @@
           }
         ],
         "numeric": {
-          "value": 400.0,
+          "value": 400,
           "unit": "",
           "tolerance": 0.004
         }
@@ -3055,7 +3071,7 @@
           }
         ],
         "numeric": {
-          "value": 400.0,
+          "value": 400,
           "unit": "",
           "tolerance": 0.004
         }
@@ -3103,7 +3119,7 @@
           }
         ],
         "numeric": {
-          "value": 400.0,
+          "value": 400,
           "unit": "",
           "tolerance": 0.004
         }
@@ -3151,7 +3167,7 @@
           }
         ],
         "numeric": {
-          "value": 400.0,
+          "value": 400,
           "unit": "",
           "tolerance": 0.004
         }
@@ -3203,9 +3219,9 @@
           }
         ],
         "numeric": {
-          "value": 5.0,
+          "value": 5,
           "unit": "µm",
-          "tolerance": 5e-05
+          "tolerance": 0.00005
         }
       },
       "modelAnswer": "Actual length = 5 / 1000 = 0.005 mm. Multiply by 1000: 5 µm.",
@@ -3256,7 +3272,7 @@
           }
         ],
         "numeric": {
-          "value": 13.0,
+          "value": 13,
           "unit": "µm",
           "tolerance": 0.00013000000000000002
         }
@@ -3309,7 +3325,7 @@
           }
         ],
         "numeric": {
-          "value": 40.0,
+          "value": 40,
           "unit": "µm",
           "tolerance": 0.0004
         }
@@ -3362,7 +3378,7 @@
           }
         ],
         "numeric": {
-          "value": 30.0,
+          "value": 30,
           "unit": "µm",
           "tolerance": 0.00030000000000000003
         }
@@ -3415,7 +3431,7 @@
           }
         ],
         "numeric": {
-          "value": 25.0,
+          "value": 25,
           "unit": "mm",
           "tolerance": 0.00025
         }
@@ -3468,7 +3484,7 @@
           }
         ],
         "numeric": {
-          "value": 32.0,
+          "value": 32,
           "unit": "mm",
           "tolerance": 0.00032
         }
@@ -3521,7 +3537,7 @@
           }
         ],
         "numeric": {
-          "value": 30.0,
+          "value": 30,
           "unit": "mm",
           "tolerance": 0.00030000000000000003
         }
@@ -3574,7 +3590,7 @@
           }
         ],
         "numeric": {
-          "value": 10.0,
+          "value": 10,
           "unit": "mm",
           "tolerance": 0.0001
         }
@@ -3627,7 +3643,7 @@
           }
         ],
         "numeric": {
-          "value": 40.0,
+          "value": 40,
           "unit": "µm",
           "tolerance": 0.0004
         }
@@ -3733,7 +3749,7 @@
           }
         ],
         "numeric": {
-          "value": 50.0,
+          "value": 50,
           "unit": "µm",
           "tolerance": 0.0005
         }
@@ -3839,7 +3855,7 @@
           }
         ],
         "numeric": {
-          "value": 50.0,
+          "value": 50,
           "unit": "µm",
           "tolerance": 0.0005
         }
@@ -3892,7 +3908,7 @@
           }
         ],
         "numeric": {
-          "value": 40.0,
+          "value": 40,
           "unit": "µm",
           "tolerance": 0.0004
         }
@@ -3945,7 +3961,7 @@
           }
         ],
         "numeric": {
-          "value": 30.0,
+          "value": 30,
           "unit": "µm",
           "tolerance": 0.00030000000000000003
         }
@@ -3998,7 +4014,7 @@
           }
         ],
         "numeric": {
-          "value": 60.0,
+          "value": 60,
           "unit": "µm",
           "tolerance": 0.0006000000000000001
         }

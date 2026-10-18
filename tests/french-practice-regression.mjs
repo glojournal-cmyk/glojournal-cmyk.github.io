@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import {recoveryDate,recoveryTask,legacyRecoveryMatches,recoveryReplay} from '../assets/recovery-session-20261012.js';
 import {groupStudyTopics} from '../assets/study-content-20260930.js';
+import {uniqueFrenchQuestions} from '../assets/french-unique-questions-20261018.js';
 import { execFileSync } from 'node:child_process';
 const root=new URL('../',import.meta.url);
 const read=p=>process.env.REGRESSION_BASELINE==='1' ? execFileSync('git',['show',`4ed009ddfd3d5b65479d298912a5f332be5cfb19:${p}`],{cwd:root,encoding:'utf8'}) : fs.readFileSync(new URL(p,root),'utf8');
@@ -61,7 +62,7 @@ test('a full ten-question session survives parent/store rerenders and finishes 1
  const state=newState(),attemptedIds=[];state.recordAttempt=(id)=>{attemptedIds.push(id);state.seenTotal={...state.seenTotal,[id]:1};state.reviews={...state.reviews,[id]:{due:'2026-09-20'}};state.topicStats={...state.topicStats,x:{attempted:1}};};
  const hr=hooks(),pr=hooks();const questions=numbers.filter(q=>q.answer.accepted?.length).slice(0,12).map((q,i)=>({...q,_adaptiveRank:i}));
  const catalog=()=>[{topicId:state.lastTopic,title:'Numbers and age'}];
- const pc=vm.createContext({TopicBrowser:"TopicBrowser",groupStudyTopics,...env(state,pr),g:{useParams:()=>({subject:'french'})},C:()=>({name:'French'}),S:()=>false,s:Object.assign(sel=>sel(state),{getState:()=>state}),p:()=>true,v:()=>false,y:catalog,d:()=>0,l:()=> '2026-09-18',u:async()=>({questions}),h:topic=>topic.questions,RQ:(qs,subject,size)=>[...qs].sort((a,b)=>(state.seenTotal[a.id]||0)-(state.seenTotal[b.id]||0)).slice(0,size),x:'Card',YS:'YearSelect',f:[],c:[],m:[],FY9:[],i:'Dictation',o:'Quiz'});
+ const pc=vm.createContext({uniqueFrenchQuestions,TopicBrowser:"TopicBrowser",groupStudyTopics,...env(state,pr),g:{useParams:()=>({subject:'french'})},C:()=>({name:'French'}),S:()=>false,s:Object.assign(sel=>sel(state),{getState:()=>state}),p:()=>true,v:()=>false,y:catalog,d:()=>0,l:()=> '2026-09-18',u:async()=>({questions}),h:topic=>topic.questions,RQ:(qs,subject,size)=>[...qs].sort((a,b)=>(state.seenTotal[a.id]||0)-(state.seenTotal[b.id]||0)).slice(0,size),x:'Card',YS:'YearSelect',f:[],c:[],m:[],FY9:[],i:'Dictation',o:'Quiz'});
  pc.location.search='?topic='+state.lastTopic;pc.window.location.search=pc.location.search;
  vm.runInContext(practice.slice(practice.indexOf('function FK('),practice.indexOf('export{')),pc);
  let parent=pr.render(()=>pc.E());await new Promise(resolve=>setImmediate(resolve));parent=pr.render(()=>pc.E());

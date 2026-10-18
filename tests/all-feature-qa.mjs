@@ -10,6 +10,7 @@ commands.push("node tests/practice-bridge-qa.mjs","node tests/journey-navigation
 commands.push("node tests/phase1-redo-20261012.mjs");
 commands.push("node --test tests/player-ux-20261013.test.mjs tests/runtime-release-20261013.test.mjs");
 commands.push("node --test tests/corrections-credit-20261013.test.mjs tests/previous-mistakes-cross-subject.test.mjs tests/recovery-record-20261013.test.mjs");
+commands.push("node tests/french-unique-questions-qa.mjs","node tests/biology-nov2-qa.mjs","node tests/biology-nov2-diagrams-qa.mjs","node --test tests/mastery-v2-qa.mjs");
 const failures=[];
 for(const command of commands){const [cmd,...args]=command.split(" ");const r=spawnSync(cmd,args,{encoding:"utf8",env:{...process.env,STRICT:"1"}});console.log(r.stdout);console.error(r.stderr);if(r.status!==0)failures.push({command,status:r.status});}
 console.log("ALL_FEATURE_AUDIT "+JSON.stringify({checks:commands.length,failures}));process.exit(failures.length?1:0);
