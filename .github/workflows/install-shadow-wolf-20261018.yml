@@ -1,0 +1,58 @@
+name: Install approved Shadow Wolf sprites
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'shadow-wolf-download-request.json'
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify source hashes and install ten approved sprites
+        run: node scripts/install-shadow-wolf-20261018.mjs
+      - name: Check JavaScript, image routing, original saved IDs and regressions
+        run: |
+          node --check pet/pet.js
+          node --check pet/home-pet.js
+          node --check pet/pet-art-hd-20261009.js
+          node --check pet/home-personality-20261010.js
+          node --check pet/pet-evolution-config-20261012.js
+          node tests/pet-moon-puff-art-20261013.mjs
+          node tests/pet-moonveil-owl-art-20261017.mjs
+          node tests/pet-nocturne-spider-art-20261018.mjs
+          node tests/pet-inkling-all10-art-20261018.mjs
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          import {petArtUrl} from './pet/pet-art-hd-20261009.js';
+          for(let level=1;level<=10;level++){
+            const p='pet/art-shadow-wolf-20261018/level-'+level+'.png';
+            const im=fs.readFileSync(p);
+            assert.equal(im.readUInt32BE(16),1254);
+            assert.equal(im.readUInt32BE(20),1254);
+            assert.equal(im[25],6);
+            assert.ok(petArtUrl('velvet-batling',level).includes('/art-shadow-wolf-20261018/level-'+level+'.png'));
+          }
+          const pet=fs.readFileSync('pet/pet.js','utf8');
+          assert.match(pet,/id:"velvet-batling",name:"Shadow Wolf"/);
+          assert.match(pet,/PET_KEY = "lux-pet-companion-v1"/);
+          assert.equal(fs.readFileSync('index.html','utf8'),fs.readFileSync('404.html','utf8'));
+          console.log('Shadow Wolf 10-stage artwork and progress-safe mapping validated');
+          NODE
+      - name: Commit updated sprites and site atomically
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/art-shadow-wolf-20261018 pet/pet-art-hd-20261009.js pet/pet.js pet/home-pet.js pet/home-personality-20261010.js pet/pet-evolution-config-20261012.js assets/companion-art-20261004.js pet/index.html index.html 404.html tests/pet-level10-browser.mjs tests/pet-moon-puff-art-20261013.mjs tests/pet-moonveil-owl-art-20261017.mjs tests/pet-inkling-all10-art-20261018.mjs
+          git rm -f shadow-wolf-download-request.json
+          git diff --cached --check
+          git commit -m "Replace Velvet Batling with Shadow Wolf archer LV1-LV10, preserve pet progress"
+          git push
