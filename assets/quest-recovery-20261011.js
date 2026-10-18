@@ -1,6 +1,6 @@
 /* Recovery Quest UI: read-only display; the app records eligible answers separately. */
 import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261017-recovery-completion3&ux=20261013-corrections2";
-import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer} from "./recovery-task-ledger-20261017.js?v=20261017-recovery-completion3";
+import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261017-recovery-completion3";
 import {mergeDailyHistory,mergeDailyRecordRow} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
 import {readAllBackups} from "./backup-vault-20261011.js?v=20261011-vault2&ux=20261013-corrections2";
 const DAY_MS=86400000;
@@ -73,16 +73,8 @@ function backfillDatedFocusEvidence(){
    for(const taskId of ['y8-practise','y8-mastery','year8-long-review']){
      const task=next.dailyLog?.[date]?.tasks?.find(t=>t.id===taskId);
      if(!task||task.done||Number(task.progress)>=Number(task.target))continue;
-     const subject=task.assignedSubject||task.reviewSubject;
-     const topic=task.assignedTopic||task.reviewTopic;
-     const matching=entries.filter(entry=>{
-       const year=Number(entry.year||String(entry.topicId||'').match(/-y(\d+)-/)?.[1]);
-       if(year!==8)return false;
-       if(subject&&entry.subject!==subject)return false;
-       if(topic&&entry.topicId!==topic)return false;
-       if(!subject&&!topic&&entry.dailyTaskId!==taskId)return false;
-       return true;
-     });
+     const matching=entries.filter(entry=>
+       matchesAssignedPracticeEvidence(entry,task,taskId));
      // Do not add old partial progress twice when it is already represented
      // by these saved historical answers.
      if(matching.length&&!next.recoveryTaskByDay?.[date]?.[taskId]&&Number(task.progress)>0){
@@ -386,14 +378,8 @@ function mount(){
      if(!task)return null;
      const subject=task.assignedSubject||task.reviewSubject;
      const topic=task.assignedTopic||task.reviewTopic;
-     const matched=formal.filter(a=>{
-       if(['french-vocab','latin-vocab'].includes(a.dailyTaskId))return false;
-       if(['french','latin'].includes(a.dailyVocab))return false;
-       if(Number(a.year)!==8)return false;
-       if(subject&&subject!==a.subject)return false;
-       if(topic&&topic!==a.topicId)return false;
-       return subject||topic?a.questionId:a.dailyTaskId===id;
-     });
+     const matched=formal.filter(a=>
+       matchesAssignedPracticeEvidence(a,task,id));
      const label={'y8-practise':'Foundation practice','y8-mastery':'Mastery review',
        'year8-long-review':'Y8 practice + mastery'}[id];
      return '\n  '+label+': '+(task.progress||0)+'/'+task.target+
