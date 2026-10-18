@@ -31,6 +31,8 @@ jobs:
       - run: npx playwright install --with-deps chromium webkit
       - name: Verify October Latin questions and marking in Chromium and iPad WebKit
         run: node tests/latin-oct17-browser.mjs
+      - name: Verify Latin topics inside native Study and Practise
+        run: node tests/latin-october-study-browser.mjs
       - name: Check this checkout in Chromium and iPad WebKit
         run: |
           python3 -m http.server 8777 --bind 127.0.0.1 >/tmp/whole-site-qa-http.log 2>&1 &
@@ -42,3 +44,4 @@ jobs:
           path: |
             test-results/site-browser-qa.json
             test-results/latin-oct17/
+            test-results/latin-study/

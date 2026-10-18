@@ -21,9 +21,9 @@ function recoveryPracticeSize(subject,params,state){
  const proof=state.recoveryVocabByDay?.[date]?.[subject];
  const progress=globalThis.LuxRecoveryVocabSource?.(state,date,subject)?.task?.progress||0;
  const base=Math.max(0,Math.min(30,Number(proof?.originalCount??progress)||0));
- const target=Number(proof?.totalNeeded)||30-base+5;
- const correct=Object.values(proof?.items||{}).filter(Boolean).length;
- return Math.max(1,Math.min(35,target-correct));
+ const target=Math.max(1,30-base);
+ const answered=Object.values(proof?.items||{}).filter(Boolean).length;
+ return Math.max(1,Math.min(30,target-answered));
 }
 function qp(v){if(typeof v!=`string`||v.length<2||v[0]!==`"`||v.at(-1)!==`"`)return v;try{let n=JSON.parse(v);return typeof n==`string`||typeof n==`number`?String(n):v}catch{return v.slice(1,-1)}}function readParams(){let p=typeof window===`undefined`?new URLSearchParams():new URLSearchParams(window.location.search),g=p.get.bind(p);return p.get=k=>{let v=g(k);return v==null?v:qp(v)},p}function resolveDailyAssignment(subject,params,daily=[],history={}){
  const recover=params.get('recover');

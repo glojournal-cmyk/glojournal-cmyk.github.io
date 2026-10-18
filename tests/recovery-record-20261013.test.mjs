@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {mergeDailyHistory,mergeDailyRecordRow,reconcileOriginalCurriculumHistory} from '../assets/daily-record-integrity-20261018.js';
 import {reconcileRecoveredTaskHistory} from '../assets/recovery-task-ledger-20261017.js';
 const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const practice=read('assets/study._subject.practise-y8fix-20260920.js');
@@ -8,10 +9,10 @@ const runtime=read('assets/index-BLVOhKhN.js');
 const params=new URLSearchParams('recover=2026-10-12&task=french-vocab');
 const size=new Function('globalThis',practice.slice(practice.indexOf('function recoveryPracticeSize('),practice.indexOf('function qp('))+';return recoveryPracticeSize')({LuxRecoveryVocabSource:(s,d,subject)=>({task:{progress:s.dailyLog?.[d]?.tasks.find(t=>t.id===subject+'-vocab')?.progress||0}})});
 function fixture(progress=0){return {today:'2026-10-13',daily:[],dailyLog:{'2026-10-12':{date:'2026-10-12',done:9,total:10,complete:false,tasks:[{id:'french-vocab',title:'French vocab',target:30,progress,done:false},...Array.from({length:9},(_,i)=>({id:'other-'+i,title:'Other task '+i,target:1,progress:1,done:true}))]}},recoveryVocabByDay:{}}}
-test('a completely missed Vocab session supplies all 35 recovery questions',()=>assert.equal(size('french',params,fixture()),35));
+test('a completely missed Vocab session supplies the 30 missed recovery questions',()=>assert.equal(size('french',params,fixture()),30));
 test('new recovery sets only ask for the remaining correct answers',()=>{
- assert.equal(size('french',params,fixture(20)),15);
- const s=fixture();s.recoveryVocabByDay['2026-10-12']={french:{originalCount:0,totalNeeded:35,items:Object.fromEntries(Array.from({length:30},(_,i)=>['q'+i,true]))}};
+ assert.equal(size('french',params,fixture(20)),10);
+ const s=fixture();s.recoveryVocabByDay['2026-10-12']={french:{originalCount:0,totalNeeded:30,items:Object.fromEntries(Array.from({length:25},(_,i)=>['q'+i,true]))}};
  assert.equal(size('french',params,s),5);
  s.recoveryVocabByDay['2026-10-12'].french.items.wrong=false;
  assert.equal(size('french',params,s),5);
@@ -37,8 +38,8 @@ function calendar(state){
  const store={getState:()=>state,subscribe:fn=>listeners.push(fn)};
  const from=runtime.indexOf('function reconcileRecoveredVocabHistory('),to=runtime.indexOf('function normalizeState(',from);
  const recordFrom=runtime.indexOf('function recordDayStatus('),recordTo=runtime.indexOf('function luxGlanceShortLabel(',recordFrom);
- const fn=new Function('store','document','window','history','todayKey','shiftDay','formatRecordDate','compactDailyTasks','findRecoveryVocabSource','reconcileRecoveredTaskHistory',runtime.slice(from,to)+runtime.slice(recordFrom,recordTo)+';mountDailyRecord();');
- fn(store,document,window,{state:{},pushState(){},back(){}},()=>state.today,(d,n)=>new Date(Date.parse(d+'T12:00:00Z')+n*86400000).toISOString().slice(0,10),d=>({weekday:'Day',label:d}),x=>x,()=>null,reconcileRecoveredTaskHistory);
+ const fn=new Function('store','document','window','history','todayKey','shiftDay','formatRecordDate','compactDailyTasks','findRecoveryVocabSource','reconcileRecoveredTaskHistory','reconcileOriginalCurriculumHistory','mergeDailyHistory','mergeDailyRecordRow',runtime.slice(from,to)+runtime.slice(recordFrom,recordTo)+';mountDailyRecord();');
+ fn(store,document,window,{state:{},pushState(){},back(){}},()=>state.today,(d,n)=>new Date(Date.parse(d+'T12:00:00Z')+n*86400000).toISOString().slice(0,10),d=>({weekday:'Day',label:d}),x=>x,()=>null,reconcileRecoveredTaskHistory,reconcileOriginalCurriculumHistory,mergeDailyHistory,mergeDailyRecordRow);
  window.__luxOpenDailyRecord();
  const text=node=>[node.textContent,...node.children.map(text)].join('\n');
  return {text:()=>text(root),update:()=>listeners.forEach(f=>f())};
@@ -68,7 +69,7 @@ test('completing French does not falsely finish unfinished Latin',()=>{
  assert.match(calendar(s).text(),/1 still to do · 9\/10/);
 });
 test('an incomplete set has a direct date-preserving recovery continuation',()=>{
- const src=read('assets/recovery-progress-20261012.js');assert.match(src,/href=recoveryReplay\(location.href\)/);assert.match(src,/Continue recovery · /);assert.match(src,/more needed to credit/);
+ const src=read('assets/recovery-progress-20261012.js');assert.match(src,/recoveryReplay\(location.href/);assert.match(src,/Continue recovery · /);assert.match(src,/more needed for/);
 });
 
 test('old 35-question and new smaller recovery drafts keep their saved size',()=>{

@@ -37,8 +37,12 @@ try{for(const launcher of [chromium,webkit]){
  await page.waitForTimeout(800);const before=await snapshot();
  if(await toggle.getAttribute('aria-pressed')==='true')await toggle.click();
  await toggle.click();assert.equal(await toggle.getAttribute('aria-pressed'),'true');assert.ok(await page.evaluate(()=>__spoken.length>0));
- await page.evaluate(()=>{for(let i=0;i<3;i++)window.dispatchEvent(new CustomEvent('scholar:question-answered',{detail:{correct:true}}))});
- if(route!=='/')assert.ok((await page.locator('#study-companion').innerText()).includes('3 in a row'));
+ if(route!=='/')await page.waitForSelector('#study-companion [data-companion-copy]');
+ for(let i=0;i<3;i++){
+  await page.evaluate(i=>window.dispatchEvent(new CustomEvent('scholar:question-answered',{detail:{correct:true,questionId:'feedback-smoke-'+i}})),i);
+  await page.waitForTimeout(50);
+ }
+ if(route!=='/')await page.waitForFunction(()=>document.querySelector('#study-companion [data-companion-copy]')?.textContent.includes('3 in a row'),{},{timeout:2500});
  await toggle.click();assert.equal(await toggle.getAttribute('aria-pressed'),'false');assert.equal(await snapshot(),before,'feedback does not award or credit anything');
  await page.waitForTimeout(1500);assert.equal(await page.locator('#lux-voice-cheer-toggle').count(),1);assert.equal(await page.locator('#lux-loading-recovery').count(),0);
  }

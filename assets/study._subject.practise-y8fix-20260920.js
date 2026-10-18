@@ -23,7 +23,7 @@ function recoveryPracticeSize(subject,params,state){
  const progress=globalThis.LuxRecoveryVocabSource?.(state,date,subject)?.task?.progress||0;
  const base=Math.max(0,Math.min(30,Number(proof?.originalCount??progress)||0));
  const target=Math.max(1,30-base);
- const answered=Object.keys(proof?.items||{}).length;
+ const answered=Object.values(proof?.items||{}).filter(Boolean).length;
  return Math.max(1,Math.min(30,target-answered));
 }
 function qp(v){if(typeof v!=`string`||v.length<2||v[0]!==`"`||v.at(-1)!==`"`)return v;try{let n=JSON.parse(v);return typeof n==`string`||typeof n==`number`?String(n):v}catch{return v.slice(1,-1)}}function readParams(){let p=typeof window===`undefined`?new URLSearchParams():new URLSearchParams(window.location.search),g=p.get.bind(p);return p.get=k=>{let v=g(k);return v==null?v:qp(v)},p}function mistakeBankSignature(subject,year,mode,topics){return JSON.stringify([subject,year,mode,topics.map(t=>t.topicId)])}

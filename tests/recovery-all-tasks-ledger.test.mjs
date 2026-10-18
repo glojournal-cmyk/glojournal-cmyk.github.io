@@ -57,19 +57,22 @@ test('proof repairs the 30-day view without modifying persisted original',()=>{
  assert.equal(log['2026-10-16'].complete,false);
  assert.equal(JSON.stringify(s.dailyLog),snapshot);
 });
-test('incomplete proof and absent historical row cannot be marked done',()=>{
+test('incomplete proof stays unfinished while completed proof reconstructs only its documented task',()=>{
  const s=fixture();
  s.recoveryTaskByDay={'2026-10-16':{'y8-practise':{completed:false}},'2026-10-15':{'y8-practise':{completed:true}}};
  const log=reconcileRecoveredTaskHistory(s,s.dailyLog);
  assert.equal(log['2026-10-16'].done,1);
- assert.equal(log['2026-10-15'],undefined);
+ assert.equal(log['2026-10-15'].done,1);
+ assert.equal(log['2026-10-15'].total,10);
+ assert.equal(log['2026-10-15'].tasks.find(t=>t.id==='y8-practise').done,true);
+ assert.equal(log['2026-10-15'].complete,false);
 });
 test('date-scoped correction route does not credit current-day corrections',()=>{
  const source=fs.readFileSync(new URL('../assets/index-BLVOhKhN.js',import.meta.url),'utf8');
  assert.match(source,/!inRecovery && typeof window[^\n]+get\("task"\) === "mistake-review"/);
  assert.match(source,/dailyCurriculumEvidenceByDay=inRecovery \?/);
  assert.match(source,/!isRepair && !inRecovery/);
- assert.match(source,/reconcileRecoveredTaskHistory\(state, reconcileRecoveredVocabHistory/);
+ assert.match(source,/reconcileRecoveredTaskHistory\(state(?:ForDaily)?,\s*/);
 });
 
 test('unopened date creates ten isolated, unfinished fallback tasks',()=>{
