@@ -1,6 +1,6 @@
 /* Recovery Quest UI: read-only display; the app records eligible answers separately. */
 import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261017-recovery-completion3&ux=20261013-corrections2";
-import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261017-recovery-completion3";
+import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261018-foundation-audit4";
 import {mergeDailyHistory,mergeDailyRecordRow} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
 import {readAllBackups} from "./backup-vault-20261011.js?v=20261011-vault2&ux=20261013-corrections2";
 const DAY_MS=86400000;
