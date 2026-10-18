@@ -2,6 +2,7 @@
 import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261017-recovery-completion3&ux=20261013-corrections2";
 import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js?v=20261018-daily-record-proof6";
 import {mergeDailyHistory,mergeDailyRecordRow,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-original-foundation5";
+import {readMarkedAnswers} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
 import {readAllBackups} from "./backup-vault-20261011.js?v=20261011-vault2&ux=20261013-corrections2";
 const DAY_MS=86400000;
 const dateAt=(d,n)=>new Date(Date.parse(d+"T12:00:00Z")+n*DAY_MS).toISOString().slice(0,10);
@@ -473,8 +474,20 @@ function mount(){
      '\n  '+vocab+focusStatus+year8Status+tagStatus+(tasks?'\n  '+tasks:'');
  });
  results.textContent=report.join('\n')||'No Recovery answer record was saved.';
- audit.append(auditTitle,note,results);
+ const journalStatus=document.createElement('p');
+ journalStatus.style.cssText='font-size:12px;overflow-wrap:anywhere;margin-top:8px';
+ journalStatus.textContent='Independent marked-answer evidence: checking device storage…';
+ audit.append(auditTitle,note,results,journalStatus);
  host.append(audit);
+ void readMarkedAnswers().then(events=>{
+   if(!journalStatus.isConnected)return;
+   const counts=Object.fromEntries(auditDates.map(date=>[date,
+     events.filter(e=>e.recoveryFor===date&&e.formal!==false&&!e.repair).length]));
+   journalStatus.textContent='Independent answer journal (new recordings only): '+
+     Object.entries(counts).map(([date,n])=>date+' · '+n+' marked').join(' | ')+
+     (window.__luxStoreQuotaFailed?' · Main progress storage may be full':'');
+ }).catch(()=>{if(journalStatus.isConnected)
+   journalStatus.textContent='Independent answer journal could not be read.';});
 }
 const style=document.createElement("style");style.textContent=`
 #lux-recovery-quests{margin:14px 0;padding:15px;border:1px solid #d4c7ac;border-radius:16px;background:#fffaf0;color:#193449}
