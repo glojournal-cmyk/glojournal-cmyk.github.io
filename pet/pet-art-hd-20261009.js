@@ -4,6 +4,8 @@ const species = new Set(['antler-bean','moss-hornling','inkling','pebble-wisp','
 export function petArtUrl(id, level = 1) {
   const safe = species.has(id) ? id : 'moss-hornling';
   const stage = clampPetLevel(level);
+  // Inkling: all ten stages are individually approved full-body transparent sprites.
+  if(safe==='inkling') return `/pet/art-inkling-all10-20261018/level-${stage}.png?v=20261018-inkling-all10a`;
   // Nocturne Spider LV1–4 remain on their original artwork.
   if(safe==='night-spider' && stage>=5) return `/pet/art-nocturne-spider-20261018/level-${stage}.png?v=20261018-nocturne-spider1`;
   // Moonveil Owl: the original LV1–LV4 sprites remain untouched.
