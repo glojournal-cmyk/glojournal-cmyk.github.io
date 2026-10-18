@@ -44,6 +44,13 @@ function snapshot(){
     node=node.parentElement;
    }
    if(!host||host.dataset.luxCard==="1")continue;
+   while(host.parentElement&&host.parentElement.querySelectorAll("h3").length===1){
+    const parentLinks=[...host.parentElement.querySelectorAll("a")];
+    const parentHasLearn=parentLinks.some(a=>{try{return /\/learn\/?$/.test(new URL(a.href,location.origin).pathname)}catch{return false}});
+    if(!parentHasLearn)break;
+    host=host.parentElement;
+   }
+   if(host.dataset.luxCard==="1")continue;
    const learn=[...host.querySelectorAll("a")].find(a=>{try{return /\/learn\/?$/.test(new URL(a.href,location.origin).pathname)}catch{return false}});
    const progress=[...host.querySelectorAll("p")].find(p=>/topics secure/.test(p.textContent||""));
    if(progress){
