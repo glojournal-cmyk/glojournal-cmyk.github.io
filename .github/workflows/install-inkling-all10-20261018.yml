@@ -1,0 +1,68 @@
+name: Install approved Inkling full-body LV1–10 sprite set
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/install-inkling-all10-20261018.yml'
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Fetch ten approved alpha sprites and verify original hashes
+        shell: bash
+        env:
+          SRC1: "https://at.adobe.com/QEEyuMDYK15pJgcK"
+          SRC2: "https://at.adobe.com/DKdqjX3mZaUFXVNR"
+          SRC3: "https://at.adobe.com/57mY0SEXXypo6ye6"
+          SRC4: "https://at.adobe.com/a5oPyU53P7q7mAlX"
+          SRC5: "https://at.adobe.com/aQednFeUJeKsNNWQ"
+          SRC6: "https://at.adobe.com/56UZfcQPzmaAkywR"
+          SRC7: "https://at.adobe.com/iolcS6N380jUaRSe"
+          SRC8: "https://at.adobe.com/ErYbf2sOrej8yf8a"
+          SRC9: "https://at.adobe.com/RhVnaG1hWuLXvICi"
+          SRC10: "https://at.adobe.com/PhOR4s8fWua8QzD2"
+        run: |
+          set -euo pipefail
+          mkdir -p pet/art-inkling-all10-20261018
+          for level in 1 2 3 4 5 6 7 8 9 10; do
+            srcname="SRC${level}"
+            file="pet/art-inkling-all10-20261018/level-${level}.png"
+            curl -fL --silent --show-error --retry 3 --retry-delay 5 --max-time 180 "${!srcname}" -o "${file}"
+            FILE="${file}" LV="${level}" node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const b=fs.readFileSync(process.env.FILE);
+          if(b.subarray(0,8).toString('hex')!=='89504e470d0a1a0a')throw Error('Not PNG at '+process.env.LV);
+          if(b.readUInt32BE(16)!==1086||b.readUInt32BE(20)!==1448||b[25]!==6||b.length<200000)
+            throw Error('Wrong resolution or alpha at level '+process.env.LV);
+          console.log('Inkling stage '+process.env.LV+': verified 1086x1448 RGBA, '+b.length+' bytes');
+          NODE
+          done
+          {
+          echo "180cbc35bc241ba967f438dfe0376bb54c6b803958bc2183684353bd2db4b543  pet/art-inkling-all10-20261018/level-1.png"
+          echo "4ea3cb399fdafe6852e2281ed86ad7d453908ac8d1980f787007eeedf58b948c  pet/art-inkling-all10-20261018/level-2.png"
+          echo "480f3b42a70d10ebd2e773c96598e8fa4dc669e95a5c30d460b58314b5201dff  pet/art-inkling-all10-20261018/level-3.png"
+          echo "db006f98c6d80d0fb88a56c8b8fc03909368d118c152ee86b4f84f7604b98e14  pet/art-inkling-all10-20261018/level-4.png"
+          echo "e091edd504df8e159a6b47f1bd83dd3c620430f0a05eb9e07896079a3b29fd77  pet/art-inkling-all10-20261018/level-5.png"
+          echo "538083bad551095410fbf640e2bbf2b9dad595164bc1f76a2f0dbd3eed21d04b  pet/art-inkling-all10-20261018/level-6.png"
+          echo "2a36ddd186f410579410f97cde63748768e24bab0cdb10413fd93fb3d7cc3e35  pet/art-inkling-all10-20261018/level-7.png"
+          echo "06779ea77b161fcc2722d54fe49feb12de7e6773dc1a2433e592809680688cf4  pet/art-inkling-all10-20261018/level-8.png"
+          echo "ef3cafe3a0937ae944e342f7629bf90bb342f90033d7c5f725f51d385de4f21c  pet/art-inkling-all10-20261018/level-9.png"
+          echo "9978ac842a6743f1a6b8342477ced31a638fdfaa9498dc9759502c3b245e5cf3  pet/art-inkling-all10-20261018/level-10.png"
+          } | sha256sum --check --status
+          echo 'All ten exact approved images verified'
+      - name: Commit approved art only; no progress data touched
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/art-inkling-all10-20261018/level-{1,2,3,4,5,6,7,8,9,10}.png
+          if git diff --cached --quiet; then echo "Assets already present"; exit 0; fi
+          git commit -m "Install ten approved Inkling full-body transparent artworks"
+          git pull --rebase origin main
+          git push origin HEAD:main
