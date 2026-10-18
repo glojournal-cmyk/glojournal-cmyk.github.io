@@ -1,7 +1,7 @@
 /* Recovery Quest UI: read-only display; the app records eligible answers separately. */
 import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261017-recovery-completion3&ux=20261013-corrections2";
 import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261018-foundation-audit4";
-import {mergeDailyHistory,mergeDailyRecordRow} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
+import {mergeDailyHistory,mergeDailyRecordRow,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-original-foundation5";
 import {readAllBackups} from "./backup-vault-20261011.js?v=20261011-vault2&ux=20261013-corrections2";
 const DAY_MS=86400000;
 const dateAt=(d,n)=>new Date(Date.parse(d+"T12:00:00Z")+n*DAY_MS).toISOString().slice(0,10);
@@ -135,7 +135,8 @@ let archiveCheckPromise=null;
 let archiveRecoveredDays=0;
 function protectDailyRecord(){
  const state=store.getState(),live=state.dailyLog||{};
- bestDailyHistory=mergeDailyHistory(bestDailyHistory,live);
+ const repaired=reconcileOriginalCurriculumHistory(state,live);
+ bestDailyHistory=mergeDailyHistory(bestDailyHistory,repaired);
  const saved=mergeDailyHistory(live,bestDailyHistory);
  if(JSON.stringify(saved)!==JSON.stringify(live))store.setState({dailyLog:saved});
 }
@@ -152,7 +153,8 @@ async function restoreArchivedDailyRecord(){
        try{parsed=JSON.parse(snapshot.data)}catch{continue}
        if(parsed?.app!=="lux-scholar-garden"||!parsed.state)continue;
        const old=parsed.state;
-       candidates=mergeDailyHistory(candidates,old.dailyLog||{});
+       candidates=mergeDailyHistory(candidates,
+         reconcileOriginalCurriculumHistory(old,old.dailyLog||{}));
        // The newest day in an old snapshot can still live in state.daily,
        // before it was sealed into dailyLog at midnight.
        if(/^\d{4}-\d{2}-\d{2}$/.test(old.today||"")&&
@@ -162,6 +164,7 @@ async function restoreArchivedDailyRecord(){
          }))};
          candidates=mergeDailyHistory(candidates,{[old.today]:recovered});
        }
+       candidates=reconcileOriginalCurriculumHistory(old,candidates);
      }
      const before=store.getState(),current=before.dailyLog||{};
      const repaired=mergeDailyHistory(current,candidates);
