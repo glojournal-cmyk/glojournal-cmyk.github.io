@@ -7,7 +7,7 @@ const personalities=Object.freeze({
  "inkling":["A swirl of ink draws a tiny constellation.","A mischievous ink flourish appears.","The next story is already taking shape."],
  "pebble-wisp":["A soft glow warms the little pebble.","The wisp sends a glimmer your way.","A small light follows the Scholar."],
  "moon-puff":["A moonlit shimmer dances softly.","Your companion gives a sleepy little glow.","A silvery spark drifts across the garden."],
- "mothling":["Delicate wings flutter in greeting.","The mothling circles a golden star.","A quiet flutter says hello."],
+ "mothling":["A crimson tail catches a glimmer of starlight.","Starling Fox twitches its pointed ears.","A golden arrow of light twinkles near your companion."],
  "bloom-snail":["A tiny star glimmers above soft kitten ears.","Starlight Kitten curls its enchanted tail.","Your companion catches a whisper of moonlight."],
  "velvet-batling":["Velvet wings make a graceful little bow.","A playful dusk-dance begins.","The batling watches over the next quest."],
  "sprig-dragon":["A proud little dragon stretches its wings.","A tiny golden sparkle escapes its nose.","The Scholar has an eager guardian today."],

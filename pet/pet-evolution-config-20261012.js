@@ -9,7 +9,7 @@ export const ADVANCED_FORMS = Object.freeze({
  inkling:['Royal quill phoenix','Radiant ink guardian','Celestial ink phoenix','Mythic quill sovereign','Eternal midnight phoenix'],
  'pebble-wisp':['Opal orbit keeper','Radiant stone guardian','Celestial rune spirit','Mythic crystal keeper','Eternal constellation spirit'],
  'moon-puff':['Moonlit cloud keeper','Radiant lunar guardian','Celestial moon hare','Mythic cloud sovereign','Eternal moon guardian'],
- mothling:['Moon-silk keeper','Radiant wing guardian','Celestial silk monarch','Mythic lunar moth','Eternal lantern sovereign'],
+ mothling:['Guardian Form','Spirit Walker','Half-Human Form','Celestial Archer','Starfall Archer'],
  'bloom-snail':['Celestial Lynx','Star Guardian','Spirit Walker','Moonborne Guardian','Astral Sovereign'],
  'velvet-batling':['Moon-crowned sentinel','Radiant dusk guardian','Celestial night keeper','Mythic crescent sovereign','Eternal twilight guardian'],
  'sprig-dragon':['Crown-horn dragon','Radiant vine guardian','Celestial canopy dragon','Mythic forest dragon','Eternal verdant sovereign'],

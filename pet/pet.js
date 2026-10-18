@@ -1,6 +1,6 @@
 import '../assets/player-ux-20261013.js?ux=20261013-corrections2';
 import {MAX_PET_LEVEL, EVOLUTION_COSTS, STAGE_NAMES, clampPetLevel, ADVANCED_FORMS} from './pet-evolution-config-20261012.js?ux=20261013-corrections2';
-import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261018-starlight1&ux=20261013-corrections2';
+import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261018-starling1&ux=20261013-corrections2';
 const APP_KEY = "lux-scholar-garden-v1";
 const PET_KEY = "lux-pet-companion-v1";
 
@@ -10,7 +10,7 @@ const pets = [
   {id:"inkling",name:"Inkling",tag:"Ideas take many forms."},
   {id:"pebble-wisp",name:"Pebble Wisp",tag:"Quiet things hold great wonder."},
   {id:"moon-puff",name:"Moon Puff",tag:"A dreamer by nature."},
-  {id:"mothling",name:"Mothling",tag:"Gentle wings for curious places."},
+  {id:"mothling",name:"Starling Fox",tag:"A little star grows into a fearless celestial archer."},
   {id:"bloom-snail",name:"Starlight Kitten",tag:"Little wonders grow into starlight."},
   {id:"velvet-batling",name:"Velvet Batling",tag:"Dark corners, warmer company."},
   {id:"sprig-dragon",name:"Sprig Dragon",tag:"A kinder magic for everyday wonders."},
@@ -24,7 +24,7 @@ const character = {
   "inkling": {nature:"Inventive, quick and a little dramatic",habit:"Draws ideas in the air with its ink-feather tail.",forms:["First spark of ink","Curl-tailed sketcher","Quill-wing scholar","Ink phoenix","Midnight master phoenix"]},
   "pebble-wisp": {nature:"Patient, observant and surprisingly funny",habit:"Rearranges its stones whenever a puzzle clicks.",forms:["Little floating pebble","Orbiting stones","Rune cluster","Stone sentinel","Crystal constellation"]},
   "moon-puff": {nature:"Dreamy, kind and fiercely attentive",habit:"Keeps a tiny light on for lessons worth revisiting.",forms:["Sleepy moon cloud","Crescent-eared puff","Moon hare","Lunar runner","Cloud-tail guardian","Starlight Cloud Walker","Standing Moon Sprite","Moon-Hare Hybrid","Lunar Maiden","Celestial Moon Guardian"]},
-  "mothling": {nature:"Soft-spoken, fearless around new ideas",habit:"Follows questions like lanterns through the dark.",forms:["Little lantern moth","Unfolding wings","Four-wing explorer","Silk-wing guardian","Lunar emperor moth"]},
+  "mothling": {nature:"Curious, spirited, observant and courageously playful",habit:"Follows each bright idea like a trail of stars.",forms:["Curious Pup","Brighter Steps","Growing Radiance","Starlit Companion","Celestial Guardian"]},
   "bloom-snail": {nature:"Curious, loyal and quietly courageous",habit:"Gathers starlight through learning, growing into a celestial guardian.",forms:["Starlight Kitten","Leaf Kitten","Blossom Kitten","Moonlit Cat","Garden Sentinel"]},
   "velvet-batling": {nature:"Witty, alert and fond of mysteries",habit:"Listens for the answer everyone else missed.",forms:["Little velvet bat","Scallop-wing glider","Echo explorer","Night-wing guardian","Crescent sentinel"]},
   "sprig-dragon": {nature:"Bold, protective and endlessly curious",habit:"Guards new knowledge until it takes root.",forms:["Tiny sprig dragon","Branch-horn hatchling","Vine-tail flier","Verdant dragon","Ancient canopy dragon"]},
@@ -68,7 +68,7 @@ const petVoices = {
   "inkling":{close:"Inkling has an idea",due:"Inkling marks a page to revisit",steady:"Inkling records your progress",waiting:"Inkling opens a fresh page"},
   "pebble-wisp":{close:"Pebble Wisp feels the answer near",due:"Pebble Wisp leaves a gentle reminder",steady:"Pebble Wisp notices every small step",waiting:"Pebble Wisp waits beside the first step"},
   "moon-puff":{close:"Moon Puff sees mastery on the horizon",due:"Moon Puff lights the way back",steady:"Moon Puff glows with steady progress",waiting:"Moon Puff is watching for the first spark"},
-  "mothling":{close:"Mothling follows a bright idea",due:"Mothling circles back to an old lesson",steady:"Mothling keeps the learning light",waiting:"Mothling waits for the first glow"},
+  "mothling":{close:"Starling Fox senses a new discovery",due:"Starling Fox brings back an important review",steady:"Starling Fox celebrates your growing skills",waiting:"Starling Fox is ready for its first adventure"},
   "bloom-snail":{close:"Starlight Kitten senses a new skill awakening",due:"Starlight Kitten has a review to share",steady:"Starlight Kitten celebrates your steady progress",waiting:"Starlight Kitten is waiting for the first spark"},
   "velvet-batling":{close:"Velvet Batling hears mastery approaching",due:"Velvet Batling echoes a reminder",steady:"Velvet Batling approves from the shadows",waiting:"Velvet Batling is listening for the first answer"},
   "sprig-dragon":{close:"Sprig Dragon guards a nearly-mastered skill",due:"Sprig Dragon protects an important review",steady:"Sprig Dragon sees your knowledge growing",waiting:"Sprig Dragon is ready for the first quest"},
