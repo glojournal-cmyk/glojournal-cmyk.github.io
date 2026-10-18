@@ -1,4 +1,5 @@
 import "./player-ux-20261013.js?ux=20261013-corrections2";
+import {mergeDailyRecordRow,mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
 import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS} from "./recovery-task-ledger-20261017.js?v=20261017-recovery-completion3";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
@@ -1477,11 +1478,12 @@ function writeDailyLog(existing, date, daily) {
   const tasks = compactDailyTasks(daily);
   if (!tasks.length) return base;
   const done = tasks.filter((task) => task.done).length;
-  const row = { date, done, total: tasks.length, complete: done === tasks.length, tasks };
+  const incoming = { date, done, total: tasks.length, complete: done === tasks.length, tasks };
   const prev = base[date];
-  if (prev && prev.done === row.done && prev.total === row.total && prev.complete === row.complete && JSON.stringify(prev.tasks) === JSON.stringify(row.tasks)) {
-    return base;
-  }
+  // Never replace a saved 10/10 or partial Recovery with a temporarily
+  // recalculated 0/10 on hydration, date rollover or router transition.
+  const row=mergeDailyRecordRow(prev,incoming,date);
+  if (prev && JSON.stringify(prev) === JSON.stringify(row)) return base;
   const log = { ...base, [date]: row };
   const keys = Object.keys(log).sort();
   while (keys.length > 45) delete log[keys.shift()];
@@ -1718,8 +1720,10 @@ function normalizeState() {
   const currentLog = state.dailyLog && typeof state.dailyLog === "object" ? state.dailyLog : {};
   const correctedLog = reconcileRecoveredTaskHistory(stateForDaily,
     reconcileRecoveredVocabHistory(stateForDaily, verifiedVocabHistory(stateForDaily,currentLog)));
-  const nextLog = writeDailyLog(correctedLog, state.today || calendarToday, daily);
-  if (nextLog !== currentLog) patch.dailyLog = nextLog;
+  // Recovery proofs may be saved separately from the daily ledger.
+  // The merge is monotonic: never lose a previously verified task completion.
+  const nextLog = writeDailyLog(mergeDailyHistory(currentLog,correctedLog), state.today || calendarToday, daily);
+  if (JSON.stringify(nextLog)!==JSON.stringify(currentLog)) patch.dailyLog = nextLog;
 
   if (Object.keys(patch).length) {
     normalizing = true;
@@ -3291,7 +3295,8 @@ function mountDailyRecord() {
     const live = compactDailyTasks(state.daily);
     if (live.length) {
       const done = live.filter((task) => task.done).length;
-      log[today] = { date: today, done, total: live.length, complete: done === live.length, tasks: live };
+      log[today] = mergeDailyRecordRow(log[today],
+        { date: today, done, total: live.length, complete: done === live.length, tasks: live },today);
     }
     const key = `${selected}|${days.map((day) => {
       const row = log[day];
