@@ -36,39 +36,36 @@ function snapshot(){
  function compactSubjectCards(){
   const root=document.getElementById("lux-study-subjects-v2");
   if(!root)return;
+  const pathOf=a=>{try{return new URL(a.href,location.origin).pathname}catch{return ""}};
   for(const heading of root.querySelectorAll("h3")){
-   let node=heading, host=null;
-   for(let i=0;i<6&&node;i++){
-    const links=node.querySelectorAll?node.querySelectorAll("a"):[];
-    if([...links].some(a=>{try{return /\/learn\/?$/.test(new URL(a.href,location.origin).pathname)}catch{return false}})){host=node;break}
-    node=node.parentElement;
-   }
-   if(!host||host.dataset.luxCard==="1")continue;
-   while(host.parentElement&&host.parentElement.querySelectorAll("h3").length===1){
-    const parentLinks=[...host.parentElement.querySelectorAll("a")];
-    const parentHasLearn=parentLinks.some(a=>{try{return /\/learn\/?$/.test(new URL(a.href,location.origin).pathname)}catch{return false}});
-    if(!parentHasLearn)break;
+   let host=heading;
+   for(let i=0;i<6&&host.parentElement;i++){
+    if(host.parentElement.querySelectorAll("h3").length!==1)break;
     host=host.parentElement;
    }
-   if(host.dataset.luxCard==="1")continue;
-   const learn=[...host.querySelectorAll("a")].find(a=>{try{return /\/learn\/?$/.test(new URL(a.href,location.origin).pathname)}catch{return false}});
+   const learn=[...host.querySelectorAll("a")].find(a=>/\/learn\/?$/.test(pathOf(a)));
+   const practise=[...host.querySelectorAll("a")].find(a=>/\/practise\/?$/.test(pathOf(a)));
+   const progressLink=[...host.querySelectorAll("a")].find(a=>/\/progress\/?$/.test(pathOf(a)));
+   if(!learn||!practise||!progressLink)continue;
+   host.classList.add("lux-subject-card");
    const progress=[...host.querySelectorAll("p")].find(p=>/topics secure/.test(p.textContent||""));
    if(progress){
-    const m=(progress.textContent||"").match(/(\d+)\s*\/\s*(\d+)[\s\S]*?(\d+)/);
+    const m=(progress.textContent||"").match(/(\d+)\s*\/\s*(\d+)\s*topics secure\D+(\d+)/);
     if(m){
-     progress.classList.add("lux-subject-status");
-     progress.title=m[3]+" questions due for review";
-     progress.innerHTML='<span class="lux-dot secure"></span><b>'+m[1]+'</b>/'+m[2]+' secure<span class="lux-dot due"></span><b>'+m[3]+'</b> due';
+     progress.className="lux-subject-status";
+     progress.innerHTML='<span><i class="lux-dot secure"></i>'+m[1]+'/'+m[2]+' secure</span><span><i class="lux-dot due"></i>'+m[3]+' due</span>';
     }
    }
-   if(!learn)continue;
-   host.dataset.luxCard="1";
-   host.classList.add("lux-subject-card");
+   const row=learn.parentElement;
+   if(row)row.classList.add("lux-acts");
+   learn.classList.add("lux-act","lux-act-primary");
+   practise.classList.add("lux-act");
+   progressLink.classList.add("lux-act");
    const imgLink=[...host.querySelectorAll("a")].find(a=>a.querySelector("img"));
-   if(imgLink)imgLink.href=learn.href;
-   host.addEventListener("click",ev=>{if(ev.target.closest("a,button"))return;location.assign(learn.href)});
+   if(imgLink)imgLink.classList.add("lux-card-art");
   }
  }
+
 
 function repaint(){
  queued=false;
