@@ -30,6 +30,37 @@ export function eligibleRecoveryTasks(state,date,today) {
     .map(t=>({...t,remaining:Math.max(0,Number(t.target)-Number(t.progress||0)),
       done:!!t.done||Number(t.progress||0)>=Number(t.target)}));
 }
+// Despite their labels, progression tasks can assign taught Year 9 topics.
+// Use the missed day's persisted subject/topic, not a forced "Year 8" test.
+export function matchesAssignedPracticeEvidence(entry,task,taskId){
+ if(!task||!["y8-practise","y8-mastery","year8-long-review"].includes(taskId)||
+   !entry?.questionId||typeof entry.correct!=="boolean"||
+   entry.formal===false||entry.repair===true||
+   ["french-vocab","latin-vocab"].includes(entry.dailyTaskId)||
+   ["french","latin"].includes(entry.dailyVocab))return false;
+ const href=String(task.href||"");
+ const route=href.match(/^\/study\/(french|latin|biology|chemistry|physics)\/practise(?:\?|\/|$)/);
+ let hrefSubject=route?.[1]||null,hrefTopic=null,hrefYear=null;
+ if(route)for(const item of (href.split("?")[1]||"").split("&")){
+   const [key,value]=item.split("=");
+   try{
+     if(key==="topic")hrefTopic=decodeURIComponent(value||"");
+     if(key==="year")hrefYear=Number(value);
+   }catch{}
+ }
+ const subject=task.assignedSubject||task.reviewSubject||hrefSubject;
+ const topic=task.assignedTopic||task.reviewTopic||hrefTopic;
+ if(subject&&entry.subject!==subject)return false;
+ if(topic&&entry.topicId!==topic)return false;
+ // A pinned topic is conclusive even if the old attempt metadata assigned
+ // its year incorrectly during a Year 8-to-Year 9 progression.
+ if(topic)return true;
+ const expectedYear=Number(task.assignedYear||task.reviewYear||hrefYear)||null;
+ if(expectedYear&&Number(entry.year)!==expectedYear)return false;
+ // Without a specific original topic, only answers explicitly linked to
+ // this task are safe to credit. Never guess from a generic quiz.
+ return entry.dailyTaskId===taskId;
+}
 export function recordRecoveryAnswer(state,{today,date,taskId,questionId,correct,minimumCorrect}) {
   if(!canRecover(today,date)||!RECOVERY_IDS.has(taskId)||
      !questionId||typeof correct!=='boolean') return {state,accepted:false,completed:false};
