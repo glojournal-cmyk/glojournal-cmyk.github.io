@@ -1,7 +1,10 @@
 // Append-only, monotonic completion reconciliation for dated Daily Records.
 // Do not infer answers or XP: this only preserves already SAVED dated credit.
-const validDate=d=>/^\d{4}-\d{2}-\d{2}$/.test(d||"") &&
-  new Date(Date.parse(d+"T12:00:00Z")).toISOString().slice(0,10)===d;
+const validDate=d=>{
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(d||""))return false;
+  const ms=Date.parse(d+"T12:00:00Z");
+  return Number.isFinite(ms)&&new Date(ms).toISOString().slice(0,10)===d;
+};
 const nonneg=v=>Math.max(0,Number(v)||0);
 const tasksOf=row=>Array.isArray(row?.tasks)?row.tasks.filter(t=>t&&typeof t.id==="string"&&t.id):[];
 const isDone=t=>t?.done===true||(Number(t?.target)>0&&nonneg(t?.progress)>=Number(t.target));
