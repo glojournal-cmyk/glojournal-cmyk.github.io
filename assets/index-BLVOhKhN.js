@@ -3286,13 +3286,15 @@ function mountDailyRecord() {
     if (!open) return;
     ensure();
     const state = store.getState();
-    const today = state.today || todayKey();
+    // Calendar days must not be anchored to a stale persisted "today" from
+    // before the latest iPad resume or midnight rollover.
+    const today = todayKey();
     const days = [];
     for (let i = 29; i >= 0; i -= 1) days.push(shiftDay(today, -i));
     if (!selected || !days.includes(selected)) selected = today;
     // Read completed Recovery proof even if an older dailyLog snapshot remains.
     const log = { ...reconcileRecoveredTaskHistory(state, reconcileRecoveredVocabHistory(state, state.dailyLog || {})) };
-    const live = compactDailyTasks(state.daily);
+    const live = state.today===today?compactDailyTasks(state.daily):[];
     if (live.length) {
       const done = live.filter((task) => task.done).length;
       log[today] = mergeDailyRecordRow(log[today],
