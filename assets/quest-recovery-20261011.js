@@ -65,6 +65,33 @@ function backfillDatedFocusEvidence(){
      !['french-vocab','latin-vocab'].includes(a.dailyTaskId) &&
      !['french','latin'].includes(a.dailyVocab));
    if(!entries.length)continue;
+   // Repair all three Year 8 tasks using genuinely marked Recovery answers.
+   // Saved work can have a missing task ID from the older practice router;
+   // match the ORIGINAL Year 8 subject/topic instead of today's assignment.
+   for(const taskId of ['y8-practise','y8-mastery','year8-long-review']){
+     const task=next.dailyLog?.[date]?.tasks?.find(t=>t.id===taskId);
+     if(!task||task.done||Number(task.progress)>=Number(task.target))continue;
+     const subject=task.assignedSubject||task.reviewSubject;
+     const topic=task.assignedTopic||task.reviewTopic;
+     const matching=entries.filter(entry=>{
+       const year=Number(entry.year||String(entry.topicId||'').match(/-y(\\d+)-/)?.[1]);
+       if(year!==8)return false;
+       if(subject&&entry.subject!==subject)return false;
+       if(topic&&entry.topicId!==topic)return false;
+       if(!subject&&!topic&&entry.dailyTaskId!==taskId)return false;
+       return true;
+     });
+     for(const entry of matching){
+       const proof=next.recoveryTaskByDay?.[date]?.[taskId];
+       const rawId=String(entry.questionId);
+       const eventKey=proof?.items&&Object.prototype.hasOwnProperty.call(proof.items,rawId)
+         ?rawId:(rawId+'@'+(entry.attemptId||entry.at||'historical'));
+       const outcome=recordRecoveryAnswer(next,{
+         today,date,taskId,questionId:eventKey,correct:entry.correct
+       });
+       if(outcome.accepted)next=outcome.state;
+     }
+   }
    for(const taskId of ['study-session','adaptive-focus']){
      const task=next.dailyLog?.[date]?.tasks?.find(t=>t.id===taskId);
      if(!task||task.done||Number(task.progress)>=Number(task.target))continue;
