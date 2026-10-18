@@ -17,14 +17,16 @@ function mergeTask(previous,incoming){
  const done=isDone(left)||isDone(right)||progress>=target;
  // Preserve the ORIGINAL assigned topic/subject. Replacing it with today's
  // rotating assignment caused eligible Recovery work to look unfinished.
- const original=!isFallback(left)||isFallback(right)?left:right;
+ const hasOld=!!previous?.id,hasNew=!!incoming?.id;
+ const original=hasOld&&!isFallback(left)?left:
+   hasNew&&!isFallback(right)?right:hasOld?left:right;
  const other=original===left?right:left;
  const merged={...other,...original,target,progress,done};
  if(left.recovered===true||right.recovered===true)merged.recovered=true;
  if(left.correctedFromVocabAnswers===true||right.correctedFromVocabAnswers===true)
    merged.correctedFromVocabAnswers=true;
  // A genuine dated assignment replaces generic "Not opened" placeholders.
- if(!isFallback(left)||!isFallback(right))delete merged.recoveryFallback;
+ if(hasOld&&hasNew&&(!isFallback(left)||!isFallback(right)))delete merged.recoveryFallback;
  return merged;
 }
 export function mergeDailyRecordRow(previous,incoming,date){
@@ -49,7 +51,7 @@ export function mergeDailyRecordRow(previous,incoming,date){
  const row={...(preferOriginal?incoming:previous),...(preferOriginal?previous:incoming),
    date:date||previous?.date||incoming?.date,tasks:merged,done,total,
    complete:total>0&&done===total};
- if(!(originalFallback&&newFallback) && (!originalFallback||!newFallback))delete row.recoveryFallback;
+ if(previous&&incoming&&(!originalFallback||!newFallback))delete row.recoveryFallback;
  return row;
 }
 export function mergeDailyHistory(existing,incoming){
