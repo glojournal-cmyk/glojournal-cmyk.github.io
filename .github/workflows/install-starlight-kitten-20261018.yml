@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'starlight-kitten-app-upload.zip'
+      - 'starlight-kitten-download-request.txt'
 permissions:
   contents: write
   pages: write
@@ -17,6 +18,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+      - name: Download approved images with SHA-256 integrity validation
+        if: hashFiles('starlight-kitten-download-request.txt') != ''
+        run: |
+          url="$(cat starlight-kitten-download-request.txt)"
+          case "$url" in
+            https://at.adobe.com/*) ;;
+            *) echo "Unexpected upload URL"; exit 1 ;;
+          esac
+          curl --fail --location --retry 3 --silent --show-error --max-time 240 "$url" --output starlight-kitten-app-upload.zip
+          echo "7148a94ed89bb9861522b1c7f6586d36f7622c19ceafecd4272ee2aa4be60fde  starlight-kitten-app-upload.zip" | sha256sum --check
       - name: Validate and install ten approved pet sprites
         run: node scripts/install-starlight-kitten-20261018.mjs
       - name: Validate routes, old pet invariants, and syntax
@@ -32,7 +43,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add pet/art-starlight-kitten-20261018 pet/pet-art-hd-20261009.js pet/pet.js pet/home-pet.js pet/pet-evolution-config-20261012.js pet/index.html assets/companion-art-20261004.js index.html 404.html tests/pet-inkling-all10-art-20261018.mjs
-          git rm -f starlight-kitten-app-upload.zip
+          git rm -f starlight-kitten-download-request.txt || true
+          git rm -f starlight-kitten-app-upload.zip || rm -f starlight-kitten-app-upload.zip
           git diff --cached --check
           git commit -m "Replace Bloom Snail art with approved Starlight Kitten LV1-LV10 and preserve progression"
           git push

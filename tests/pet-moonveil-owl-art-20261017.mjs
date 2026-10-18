@@ -37,5 +37,5 @@ assert.match(pet,/Moonlit companion/);
 const home=fs.readFileSync('index.html','utf8');
 const recovery=fs.readFileSync('404.html','utf8');
 assert.equal(home,recovery);
-assert.match(home,/home-pet\.js\?v=20261018-keep-recover1-inkling10a/);
+assert.match(home,/home-pet\.js\?v=20261018-keep-recover1-starling1/);
 console.log('Moonveil Owl six individual sprites and original levels verified');

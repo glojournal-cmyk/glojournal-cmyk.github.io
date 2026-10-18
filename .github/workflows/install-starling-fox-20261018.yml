@@ -1,0 +1,60 @@
+name: Install approved Starling Fox sprites
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'starling-fox-download-request.json'
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out site and previous progress-safe code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install approved image decoder
+        run: npm install --no-save sharp@0.33.5
+      - name: Download and validate all ten sprites, install only if complete
+        run: node scripts/install-starling-fox-20261018.mjs
+      - name: Check JavaScript and image progression invariants
+        run: |
+          node --check pet/pet.js
+          node --check pet/home-pet.js
+          node --check pet/pet-art-hd-20261009.js
+          node --check pet/pet-evolution-config-20261012.js
+          node --check pet/home-personality-20261010.js
+          node tests/pet-moon-puff-art-20261013.mjs
+          node tests/pet-moonveil-owl-art-20261017.mjs
+          node tests/pet-nocturne-spider-art-20261018.mjs
+          node tests/pet-inkling-all10-art-20261018.mjs
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          import {petArtUrl} from './pet/pet-art-hd-20261009.js';
+          for(let level=1;level<=10;level++){
+            const p='pet/art-starling-fox-20261018/level-'+level+'.png';
+            const img=fs.readFileSync(p);
+            assert.equal(img.readUInt32BE(16),1024);
+            assert.equal(img.readUInt32BE(20),1024);
+            assert.equal(img[25],6);
+            assert.ok(petArtUrl('mothling',level).includes('/art-starling-fox-20261018/level-'+level+'.png'));
+          }
+          assert.equal(fs.readFileSync('index.html','utf8'),fs.readFileSync('404.html','utf8'));
+          assert.match(fs.readFileSync('pet/pet.js','utf8'),/id:"mothling",name:"Starling Fox"/);
+          console.log('Starling Fox 10-stage image and progression QA passed');
+          NODE
+      - name: Commit images, site wiring and preserve all saved-progress keys
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/art-starling-fox-20261018 pet/pet-art-hd-20261009.js pet/pet.js pet/home-pet.js pet/home-personality-20261010.js pet/pet-evolution-config-20261012.js assets/companion-art-20261004.js pet/index.html index.html 404.html tests/pet-level10-browser.mjs tests/pet-moon-puff-art-20261013.mjs tests/pet-moonveil-owl-art-20261017.mjs tests/pet-inkling-all10-art-20261018.mjs
+          git rm -f starling-fox-download-request.json
+          git diff --cached --check
+          git commit -m "Replace Mothling with Starling Fox LV1-LV10, keep player XP and pet progress"
+          git push

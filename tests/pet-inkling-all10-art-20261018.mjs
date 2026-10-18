@@ -25,5 +25,5 @@ assert.match(petArtUrl('moss-hornling',10),/art-moss-hornling-20261017/);
 assert.match(petArtUrl('antler-bean',10),/art-antler-bean-individual-20261017/);
 assert.match(petArtUrl('moon-puff',10),/art-moon-puff-20261013/);
 assert.equal(fs.readFileSync('index.html','utf8'),fs.readFileSync('404.html','utf8'));
-assert.match(fs.readFileSync('index.html','utf8'),/home-pet\.js\?v=20261018-keep-recover1-inkling10a/);
+assert.match(fs.readFileSync('index.html','utf8'),/home-pet\.js\?v=20261018-keep-recover1-starling1/);
 console.log('Inkling LV1-10 art regression QA passed');
