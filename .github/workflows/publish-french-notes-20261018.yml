@@ -1,0 +1,46 @@
+name: Publish French illustrated lesson PDF
+on:
+  push:
+    branches: [content/french-notes-20261018]
+    paths: ['.github/workflows/publish-french-notes-20261018.yml']
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: transfer
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: site
+      - name: Restore and verify the original uploaded PDF
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import base64,hashlib
+          parts=sorted(Path('transfer/content-transfer/french-future-notes').glob('*.b64'))
+          assert len(parts)==45
+          data=base64.b64decode(''.join(p.read_text().strip() for p in parts),validate=True)
+          assert len(data)==33207787
+          assert data.startswith(b'%PDF-')
+          assert hashlib.sha256(data).hexdigest()=='118099878c4c9d900b96a17de2d4258ad270f51d6f01c9c78d7005060b3be475'
+          dest=Path('site/content/notes/french/French_Future_Tense_Image_Notes.pdf')
+          dest.parent.mkdir(parents=True,exist_ok=True)
+          dest.write_bytes(data)
+          print('Verified original PDF:',len(data),'bytes')
+          PY
+      - name: Publish only the lesson PDF
+        working-directory: site
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- content/notes/french/French_Future_Tense_Image_Notes.pdf
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add original 15-page French illustrated lesson PDF"
+          git pull --rebase origin main
+          git push origin HEAD:main
