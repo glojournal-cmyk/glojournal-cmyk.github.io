@@ -63,7 +63,7 @@ function commitCompletedRecoverySession(input){
   const date=params.get("recover"),taskId=params.get("task");
   if(!date||date!==input?.date||taskId!==input?.taskId)return false;
   if(!["y8-practise","y8-mastery","year8-long-review"].includes(taskId))return false;
-  if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(date)||!["french","latin","biology","chemistry","physics"].includes(input.subject))return false;
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!["french","latin","biology","chemistry","physics"].includes(input.subject))return false;
   const current=store.getState(),row=current.dailyLog?.[date];
   const target=row?.tasks?.find(task=>task.id===taskId);
   if(!target||Number(target.target)<=0)return false;
