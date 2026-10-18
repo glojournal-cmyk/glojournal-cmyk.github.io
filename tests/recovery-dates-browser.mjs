@@ -41,7 +41,7 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
  });
  await page.waitForSelector('#lux-recovery-date');await page.locator('#lux-recovery-date').selectOption(unopened);
  assert.equal(await page.locator('#lux-recovery-quests a').count(),2);
- assert.match(await page.locator('#lux-recovery-quests').innerText(),/0 \/ 35/);
+ assert.match(await page.locator('#lux-recovery-quests').innerText(),/0 \/ 30/);
  // An unopened date exposes an opt-in ten-task plan. Do not change today.
  const dailyBefore=await page.evaluate(async()=>{
    const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
@@ -70,7 +70,7 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
  const restored=await page.evaluate(async date=>{
   const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
   const today=JSON.stringify(store.getState().daily);
-  for(let i=0;i<35;i++)store.getState().recordDailyVocabAttempt('french','unopened-'+i,true);
+  for(let i=0;i<30;i++)store.getState().recordDailyVocabAttempt('french','unopened-'+i,true);
   return {row:store.getState().dailyLog[date],unchanged:today===JSON.stringify(store.getState().daily)};
  },unopened);
  assert.equal(restored.row.done,1);assert.equal(restored.row.total,10);assert.equal(restored.row.complete,false);assert.equal(restored.unchanged,true);
@@ -83,7 +83,7 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
  // Exercise production credit recording for both original dates, then return Home.
  for(const date of dates){
   await visit(base+'/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab&recover='+date);await page.waitForFunction(()=>window.__luxAppReady===true);
-  const result=await page.evaluate(async date=>{const {C:store}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);const before=store.getState().daily.map(t=>[t.id,t.progress]);for(let i=0;i<15;i++)store.getState().recordDailyVocabAttempt('french','recovery-qa-'+i,true);const state=store.getState();return {done:state.dailyLog[date].tasks.find(t=>t.id==='french-vocab').done,before,after:state.daily.map(t=>[t.id,t.progress])}},date);
+  const result=await page.evaluate(async date=>{const {C:store}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);const before=store.getState().daily.map(t=>[t.id,t.progress]);for(let i=0;i<10;i++)store.getState().recordDailyVocabAttempt('french','recovery-qa-'+i,true);const state=store.getState();return {done:state.dailyLog[date].tasks.find(t=>t.id==='french-vocab').done,before,after:state.daily.map(t=>[t.id,t.progress])}},date);
   assert.equal(result.done,true);assert.deepEqual(result.after,result.before,'recovery never credits today');
  }
  await visit(base+'/');await page.waitForSelector('#lux-recovery-quests');assert.equal(await page.locator('#lux-recovery-quests').getAttribute('open'),null);await page.locator('#lux-recovery-quests > summary').click();await page.waitForSelector('#lux-recovery-date');for(const date of dates){await page.locator('#lux-recovery-date').selectOption(date);assert.ok((await page.locator('#lux-recovery-quests').innerText()).includes('Recovered ✓ · credited to '+date));}

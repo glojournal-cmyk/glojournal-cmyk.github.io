@@ -3,6 +3,7 @@ import {test} from 'node:test';
 import {addMasteryEvidence,coveredTopic,eligibleFreshQuestions,masteryStage} from '../assets/mastery-v2-20261018.js';
 import {buildYear8DailyV2} from '../assets/year8-daily-v2-20261018.js';
 import {prepareUnopenedRecovery,recordRecoveryAnswer} from '../assets/recovery-task-ledger-20261017.js';
+import {selectDailyVocabulary} from '../assets/daily-vocab-20261003.js';
 
 const subjects=['latin','french','biology','chemistry','physics'];
 const catalog=subjects.flatMap(subject=>Array.from({length:4},(_,i)=>({
@@ -32,6 +33,16 @@ test('a repeated correct question does not reappear in Standard or Mastery',()=>
   assert.deepEqual(eligibleFreshQuestions(questions,state,'standard').map(q=>q.id),['wrong','new']);
   assert.deepEqual(eligibleFreshQuestions(questions,state,'mastery').map(q=>q.id),['wrong','new']);
   assert.equal(eligibleFreshQuestions(questions,state,'due').length,4);
+});
+
+test('a previously correct vocabulary concept waits for its due date',()=>{
+  const items=Array.from({length:40},(_,i)=>({id:'fr-word-'+i,conceptId:'fr-y8-concept-vocab-'+i,
+    topicId:'fr-y8-vocab',format:'typed_exact',status:'enabled',answer:{accepted:['word '+i]}}));
+  const rows=selectDailyVocabulary({subject:'french',items,day:'2026-10-19',seenCorrect:{'fr-word-0':1}});
+  assert.equal(rows.length,30);assert.ok(!rows.some(q=>q.id==='fr-word-0'));
+  const due=selectDailyVocabulary({subject:'french',items,day:'2026-10-21',seenCorrect:{'fr-word-0':1},
+    reviews:{'fr-word-0':{due:'2026-10-21',last:'2026-10-19',wrong:false}}});
+  assert.ok(due.some(q=>q.id==='fr-word-0'));
 });
 
 test('future plan has two different same-subject Standard topics and retains assigned topic on reload',()=>{
