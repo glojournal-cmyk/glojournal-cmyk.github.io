@@ -10,7 +10,7 @@ export const ADVANCED_FORMS = Object.freeze({
  'pebble-wisp':['Opal orbit keeper','Radiant stone guardian','Celestial rune spirit','Mythic crystal keeper','Eternal constellation spirit'],
  'moon-puff':['Moonlit cloud keeper','Radiant lunar guardian','Celestial moon hare','Mythic cloud sovereign','Eternal moon guardian'],
  mothling:['Moon-silk keeper','Radiant wing guardian','Celestial silk monarch','Mythic lunar moth','Eternal lantern sovereign'],
- 'bloom-snail':['Blossom palace keeper','Radiant garden guardian','Celestial greenhouse keeper','Mythic bloom sovereign','Eternal garden keeper'],
+ 'bloom-snail':['Celestial Lynx','Star Guardian','Spirit Walker','Moonborne Guardian','Astral Sovereign'],
  'velvet-batling':['Moon-crowned sentinel','Radiant dusk guardian','Celestial night keeper','Mythic crescent sovereign','Eternal twilight guardian'],
  'sprig-dragon':['Crown-horn dragon','Radiant vine guardian','Celestial canopy dragon','Mythic forest dragon','Eternal verdant sovereign'],
  'star-toadlet':['Starlit marsh keeper','Radiant star guardian','Celestial toad sovereign','Mythic constellation keeper','Eternal star sovereign'],

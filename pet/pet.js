@@ -1,6 +1,6 @@
 import '../assets/player-ux-20261013.js?ux=20261013-corrections2';
 import {MAX_PET_LEVEL, EVOLUTION_COSTS, STAGE_NAMES, clampPetLevel, ADVANCED_FORMS} from './pet-evolution-config-20261012.js?ux=20261013-corrections2';
-import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261018-inkling-all10a&ux=20261013-corrections2';
+import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261018-starlight1&ux=20261013-corrections2';
 const APP_KEY = "lux-scholar-garden-v1";
 const PET_KEY = "lux-pet-companion-v1";
 
@@ -11,7 +11,7 @@ const pets = [
   {id:"pebble-wisp",name:"Pebble Wisp",tag:"Quiet things hold great wonder."},
   {id:"moon-puff",name:"Moon Puff",tag:"A dreamer by nature."},
   {id:"mothling",name:"Mothling",tag:"Gentle wings for curious places."},
-  {id:"bloom-snail",name:"Bloom Snail",tag:"Carry beauty wherever you go."},
+  {id:"bloom-snail",name:"Starlight Kitten",tag:"Little wonders grow into starlight."},
   {id:"velvet-batling",name:"Velvet Batling",tag:"Dark corners, warmer company."},
   {id:"sprig-dragon",name:"Sprig Dragon",tag:"A kinder magic for everyday wonders."},
   {id:"star-toadlet",name:"Star Toadlet",tag:"Odd, earnest, and full of light."},
