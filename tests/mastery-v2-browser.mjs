@@ -24,7 +24,11 @@ for(const engine of [chromium,webkit]){
   assert.equal(standards.length,2);assert.equal(standards[0].subject,standards[1].subject);
   assert.notEqual(standards[0].topic,standards[1].topic);
   await page.reload({waitUntil:'domcontentloaded'});
-  await page.waitForFunction(()=>window.__luxStore?.getState()?.daily?.find(t=>t.id==='y8-standard-a')?.assignedTopic);
+  await page.waitForFunction(()=>{
+    const tasks=window.__luxStore?.getState()?.daily||[];
+    return tasks.length===10 && tasks.find(t=>t.id==='y8-standard-a')?.assignedTopic &&
+      !tasks.some(t=>['study-session','year8-long-review','tend-garden'].includes(t.id));
+  },null,{timeout:30000});
   const after=await page.evaluate(()=>window.__luxStore.getState().daily.map(t=>[t.id,t.assignedTopic,t.progress]));
   assert.deepEqual(after,before.tasks.map(t=>[t.id,t.topic,t.progress]));
   await page.goto(base+standards[0].href,{waitUntil:'domcontentloaded'});
