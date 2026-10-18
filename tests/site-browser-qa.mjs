@@ -23,6 +23,9 @@ for(const [engine,launcher] of [["chromium",chromium],["webkit",webkit]]){
       const src=[...document.scripts].map(s=>s.src).find(s=>s.includes("/assets/index-BLVOhKhN.js"));
       const mod=await import(src);mod.C.getState().setYear(year);
      },item.year);
+     // Let the first document finish its assessment fetches before
+     // navigating; WebKit reports aborted old-document fetches as page errors.
+     await page.waitForLoadState('networkidle',{timeout:20000});
      row.errors=[];row.badResponses=[];
     }
     const response=await page.goto(base+item.route,{waitUntil:"domcontentloaded",timeout:45000});row.status=response?.status();

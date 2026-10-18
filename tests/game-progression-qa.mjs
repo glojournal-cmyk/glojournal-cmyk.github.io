@@ -9,7 +9,7 @@ const failures=[];
 const need=(src,name,token)=>{if(!src.includes(token))failures.push({type:"missing-token",name,token});};
 
 for(const id of ["verbum-match","mot-match","element-match","force-match","word-match","organelle-match"]) need(core,"core",`"${id}":10`);
-need(core,"core",'"pe-circuit":8');
+need(core,"core",'"pe-circuit":16');
 need(core,"core",'rating:180,missions:0,bossClears:0,perfectClears:0');
 need(core,"core",'bestStreak:0');
 need(core,"core",'endless=a>cap');
@@ -31,9 +31,9 @@ need(pe,"pe","Early tap = retry");
 need(pe,"pe",'onPointerDown:down');
 need(pe,"pe",'touchAction:"none"');
 need(pe,"pe","no instant game-over.");
-need(games,"games",`pe-circuit-v3-20260920.js?v=20261018-receipt2
+need(games,"games","pe-circuit-v3-20260920.js?v=20261018-receipt2");
 need(wrapper,"pe unlock","every 2★+ clear of the currently unlocked circuit opens the next one");
-need(wrapper,"pe unlock","unlocked: Math.min(8, level + 1)");
+need(wrapper,"pe unlock","unlocked: Math.min(16, level + 1)");
 need(wrapper,"pe unlock","lastUnlock: `circuit-${level}`");
 
 need(games,"games",'const endlessRanks=[{name:\`Bronze\`,min:100},{name:\`Silver\`,min:250},{name:\`Gold\`,min:400},{name:\`Scholar\`,min:550},{name:\`Master\`,min:700},{name:\`Grandmaster\`,min:850}]');
@@ -80,7 +80,7 @@ if(updateRating(990,3,true)!==1000)failures.push({type:"rating-ceiling"});
 
 const summary={
  failures:failures.length,
- peCircuits:8,
+ peCircuits:16,
  peEngine:"Scholar Sprint 3.0",
  peMechanics:6,
  trainingLevels:{match:10,latinDeep:12},

@@ -43,9 +43,14 @@ try {
    await page.waitForFunction(d=>window.__luxStore?.getState().dailyLog?.[d]?.tasks?.length===10,date);
    assert.deepEqual(await page.evaluate(()=>Object.fromEntries((window.__luxStore.getState().daily||[]).map(t=>[t.id,Number(t.progress)||0]))),before);
    assert.equal((await page.evaluate(d=>window.__luxStore.getState().dailyLog[d],date)).done,0);
-   await page.getByRole('button',{name:/Water recovery seedling/}).click();
+   await page.getByRole('link',{name:/Go to garden and water/}).click();
+   await page.waitForURL(/\/garden/,{timeout:30000});
+   await page.getByRole('button',{name:'Water the garden'}).click();
    await page.waitForFunction(d=>window.__luxStore.getState().dailyLog[d]?.tasks.find(t=>t.id==='tend-garden')?.done===true,date);
    assert.equal((await page.evaluate(d=>window.__luxStore.getState().dailyLog[d],date)).done,1);
+   await page.goto(base+'/',{waitUntil:'domcontentloaded'});
+   await page.waitForSelector('#lux-recovery-date');
+   await page.locator('#lux-recovery-date').selectOption(date);
    await page.getByRole('button',{name:'Play a game to recover →'}).click();
    await page.waitForURL(/\/play/,{timeout:30000});
    await page.waitForFunction(()=>typeof window.__luxStore?.getState()?.recordGame==='function');

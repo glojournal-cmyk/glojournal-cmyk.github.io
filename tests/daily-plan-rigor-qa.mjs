@@ -26,12 +26,13 @@ for(const token of [
   'longFormats=new Set([`extended_response`,`mark_points`,`controlled_translation`,`practical_design`,`sequence`,`unordered_set`])',
   '_dailyYear8:!0',
   '!dailyLocked&&I.length',
-  'dailyId:dailyLocked&&[`y8-practise`,`y8-mastery`,`year8-long-review`].includes(canonicalTask)?canonicalTask:E===`year8long`?`year8-long-review`:void 0'
+  'dailyTaskId:dailyLocked?canonicalTask:void 0',
+  '`y8-standard-a`,`y8-standard-b`,`y8-mastery-a`,`y8-mastery-b`'
 ]) requireToken(practice,"practice",token);
 
 for(const token of [
   'excludeGeneralDaily:!!Y._dailyYear8',
-  'yearOverride:Y._dailyYear8||Y._dailyVocab?8:sessionYear',
+  'yearOverride:sessionYear',
   'c&&!Y._repair&&c!==`study-session`&&![`y8-practise`,`y8-mastery`].includes(c)&&E(c,1)'
 ]) requireToken(quiz,"quiz",token);
 

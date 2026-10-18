@@ -33,12 +33,15 @@ const topics=catalog.filter(t=>t.subject==='chemistry'&&t.year===9);
 function render(props){cursor=0;return flatten(ctx.TopicBrowser({topics,subject:'chemistry',year:9,mode:'directory',...props}));}
 let nodes=render({});
 assert.ok(nodes.some(n=>n?.props?.['aria-label']==='Search topics'));
-const details=nodes.filter(n=>n?.type==='details');assert.ok(details.length>1);assert.equal(details[0].props.open,true);assert.ok(details.slice(1).every(n=>n.props.open===false));
+const details=nodes.filter(n=>n?.type==='details');assert.ok(details.length>1);
+assert.equal(details.find(n=>n.props.className==='topic-filters')?.props.open,false);
+const groups=details.filter(n=>n.props.className==='topic-group');
+assert.equal(groups[0].props.open,true);assert.ok(groups.slice(1).every(n=>n.props.open===false));
 const search=nodes.find(n=>n?.props?.['aria-label']==='Search topics');search.props.onChange({target:{value:'Rf'}});
 nodes=render({});assert.ok(nodes.filter(n=>n?.type==='details').every(n=>n.props.open===true));
 for(const link of nodes.filter(n=>n?.type==='a')){const url=new URL(link.props.href,'https://example.test');assert.equal(url.searchParams.get('year'),'9');assert.ok(url.searchParams.get('topic'));}
 state=[];nodes=render({topics:[{subject:'chemistry',year:9,topicId:'pending',title:'New lesson',enabled:0,status:'preview'}]});
-assert.ok(nodes.some(n=>n==='Preview only · Building confidence'));assert.ok(!nodes.some(n=>n?.type==='a'&&n.props.children==='Practise'));
+assert.ok(nodes.some(n=>n?.props?.children==='Not ready'));assert.ok(!nodes.some(n=>n?.type==='a'&&n.props.children==='Practise'));
 state=[];nodes=render({mode:'select',selected:topics[0].topicId,onSelect:id=>{ctx.selected=id}});
 const chosen=nodes.find(n=>n?.props?.['aria-pressed']===true);assert.ok(chosen);chosen.props.onClick();assert.equal(ctx.selected,topics[0].topicId);
 for(const file of ['assets/study._subject.index-safe-20260920.js','assets/study._subject.learn-BvTzW3pu.js','assets/study._subject.practise-y8fix-20260920.js'])assert.ok(fs.readFileSync(file,'utf8').includes('TopicBrowser'),file);
