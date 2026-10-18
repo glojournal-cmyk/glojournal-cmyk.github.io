@@ -1,6 +1,6 @@
 import '../assets/player-ux-20261013.js?ux=20261013-corrections2';
 import {MAX_PET_LEVEL, EVOLUTION_COSTS, STAGE_NAMES, clampPetLevel, ADVANCED_FORMS} from './pet-evolution-config-20261012.js?ux=20261013-corrections2';
-import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261017-moonveil-owl1&ux=20261013-corrections2';
+import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261018-nocturne-spider1&ux=20261013-corrections2';
 const APP_KEY = "lux-scholar-garden-v1";
 const PET_KEY = "lux-pet-companion-v1";
 
@@ -30,7 +30,7 @@ const character = {
   "sprig-dragon": {nature:"Bold, protective and endlessly curious",habit:"Guards new knowledge until it takes root.",forms:["Tiny sprig dragon","Branch-horn hatchling","Vine-tail flier","Verdant dragon","Ancient canopy dragon"]},
   "star-toadlet": {nature:"Odd, earnest and unexpectedly wise",habit:"Counts small victories as if they were stars.",forms:["Little star toad","Glowing jumper","Star-finned explorer","Cosmic marsh guardian","Constellation sovereign"]},
   "snow-owl": {nature:"Watchful, wise and quietly brave",habit:"Keeps a moonlit watch over every lesson mastered.",forms:["Snowy owlet","White-wing scout","Moon-wing scholar","Lunar guardian","Moonlit companion"]},
-  "night-spider": {nature:"Patient, daring and brilliantly resourceful",habit:"Weaves the lessons you remembered into silver threads.",forms:["Velvet spiderling","Night runner","Obsidian hunter","Web guardian","Nocturne sovereign"]}
+  "night-spider": {nature:"Patient, daring and brilliantly resourceful",habit:"Weaves the lessons you remembered into silver threads.",forms:["Velvet spiderling","Night runner","Obsidian hunter","Web guardian","Umbral bloom"]}
 };
 
 // A companion has at most 10 forms. Moon Puff already specifies custom LV6–10,
