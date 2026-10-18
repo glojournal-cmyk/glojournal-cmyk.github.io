@@ -1,6 +1,6 @@
 import "./player-ux-20261013.js?ux=20261013-corrections2";
 import {mergeDailyRecordRow,mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
-import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS} from "./recovery-task-ledger-20261017.js?v=20261017-recovery-completion3";
+import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261017-recovery-completion3";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
@@ -1429,22 +1429,9 @@ function recoveryAnswerEventKey(entry,proof){
  return entry.at ? id+"@"+entry.at : id;
 }
 function eligibleYear8Evidence(entry,task,id){
- if(!task||Number(task.target)<=0)return false;
- if(!entry?.questionId||entry.formal===false||entry.repair===true||
-    entry.dailyVocab==="french"||entry.dailyVocab==="latin"||
-    entry.dailyTaskId==="french-vocab"||entry.dailyTaskId==="latin-vocab")return false;
- const year=Number(entry.year);
- if(year!==8&&Number(task.assignedYear||task.reviewYear)!==8)return false;
- const subject=task.assignedSubject||task.reviewSubject;
- const topic=task.assignedTopic||task.reviewTopic;
- // Never replace the originally assigned Topic with today's adaptive pick.
- if(subject&&subject!==entry.subject)return false;
- if(topic&&topic!==entry.topicId)return false;
- // A fallback plan has no original topic; only explicit dated task
- // routes justify crediting such entries, rather than arbitrary practice.
- if(!topic&&!subject&&!YEAR8_RECOVERY_TASKS.includes(entry.dailyTaskId))return false;
- return true;
+ return matchesAssignedPracticeEvidence(entry,task,id);
 }
+
 let normalizing = false;
 let allowNormalize = false;
 let sealingDay = false;
@@ -1468,6 +1455,10 @@ function compactDailyTasks(daily) {
       ...Object.fromEntries(["focusSubject","focusTopic","assignedSubject","assignedTopic","reviewSubject","reviewTopic"]
         .filter(key=>typeof task[key]==="string" && task[key].length<=120)
         .map(key=>[key,task[key]])),
+      // An assigned Year 9 foundation frontier must not be turned into Year 8
+      // on the next day's historical Recovery route.
+      ...(Number(task.assignedYear)>0?{assignedYear:Number(task.assignedYear)}:{}),
+      ...(Number(task.reviewYear)>0?{reviewYear:Number(task.reviewYear)}:{}),
     };
   });
 }
