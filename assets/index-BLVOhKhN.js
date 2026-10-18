@@ -2390,7 +2390,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const route = typeof window!=="undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams();
   const recoverDate = meta.recoveryFor || route.get("recover") || null;
   const recoveryTaskId = meta.recoveryTaskId || route.get("task") || null;
-  const inRecovery = typeof recoverDate==="string" && /^\\d{4}-\\d{2}-\\d{2}$/.test(recoverDate);
+  const inRecovery = typeof recoverDate==="string" && /^\d{4}-\d{2}-\d{2}$/.test(recoverDate);
   const markedAt=new Date().toISOString();
   const attemptId=markedAt+":"+(++recoveryAttemptSequence);
   const coreMeta = { ...meta, topicId: undefined, excludeGeneralDaily: inRecovery };
