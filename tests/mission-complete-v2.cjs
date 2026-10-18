@@ -98,7 +98,7 @@ test('all six school subject practice routes include mission styling and updated
  const home=source('index.html');
  assert.doesNotMatch(home,/mission-complete-v2-20261010\.css/,'Home unaffected');
  const bundle=source('assets/index-BLVOhKhN.core.js');
- assert.match(bundle,/study\._subject\.practise-D_PWgUd7\.js\?v=20261010-mission-v2/);
+ assert.match(bundle,/study\._subject\.practise-D_PWgUd7\.js\?v=20261018-[^`"&]+/);
  assert.match(source('assets/quiz-session-y8fix-20260920.js'),
    /session-reflection-20261004\.js\?v=20261010-mission-v2/);
  assert.match(source('assets/quiz-session-rWAnuDVj.js'),

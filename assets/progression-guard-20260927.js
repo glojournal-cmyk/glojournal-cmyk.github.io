@@ -1,4 +1,4 @@
-import {C as store,st as getTopicCatalog} from './index-BLVOhKhN.js?v=20261017-unopened-recovery1&ux=20261013-corrections2';
+import {C as store,st as getTopicCatalog} from './index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2';
 import {curriculumFrontier,curriculumHref,progressionSubjects} from './daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2';
 function queryValue(params,key){return String(params.get(key)||'').replace(/^["']|["']$/g,'');}
 function learning(){try{return JSON.parse(localStorage.getItem('lux-topic-learning-v1')||'{}')}catch{return {}}}

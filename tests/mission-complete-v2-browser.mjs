@@ -48,6 +48,8 @@ try{
        const sessions=await page.request.get(base+'/assets/session-reflection-20261004.js');
        assert.equal(sessions.status(),200);
        assert.match(await sessions.text(),/lux-session-rewards-v2/);
+        // Wait for pending topic-bank fetches before switching WebKit documents.
+        await page.waitForLoadState('networkidle',{timeout:20000});
       }
       const asset=await page.request.get(base+'/assets/journey-navigation-ui-20261004.js');
       assert.match(await asset.text(),/data-mission-save-status/);
@@ -106,7 +108,8 @@ try{
       assert.ok(geom&&cta&&cta.width>200&&cta.height>=44);
       assert.ok(cta.y+cta.height<=geom.y+geom.height+1,'Next mission not clipped');
       await page.screenshot({path:'test-results/mission-v2-'+engine+'-'+vp.width+'.png',fullPage:false});
-      const homeRes=await page.goto(base+'/',{waitUntil:'domcontentloaded',timeout:30000});
+      await page.waitForLoadState('networkidle',{timeout:20000});
+       const homeRes=await page.goto(base+'/',{waitUntil:'domcontentloaded',timeout:30000});
       assert.equal(homeRes.status(),200);
       await page.waitForFunction(()=>window.__luxAppReady===true&&
          document.querySelector('main')?.textContent?.length>100,

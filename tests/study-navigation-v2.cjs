@@ -73,9 +73,9 @@ test('legacy subjects directory no longer blocks the first screen',()=>{
  const study=file('study/index.html'),home=file('index.html');
  assert.doesNotMatch(script,/textContent='Browse subjects'/);
  assert.match(script,/getElementById\('subject-directory-entry'\)\?\.remove\(\)/);
- assert.match(home,/assessment-link\.js\?v=20261012-level10/);
- assert.match(study,/assessment-link\.js\?v=20261012-level10/);
- assert.match(study,/study-navigation-v2-20261010\.js\?v=20261012-study-ux2b/);
+ assert.match(home,/assessment-link\.js\?v=20261017-bio-nov2/);
+ assert.match(study,/assessment-link\.js\?v=20261017-bio-nov2/);
+ assert.match(study,/study-navigation-v2-20261010\.js\?v=20261018-cards2/);
  const css=file('assets/study-navigation-v2-20261010.css');
  assert.match(css,/data-lux-quest-ready/);
  assert.match(css,/data-lux-quest-legacy-shortcut/);
@@ -94,5 +94,5 @@ test('legacy task decorator leaves Study portal star icons circular and alone',(
  assert.equal(classify(quest),false,'portal is not a task row');
  assert.equal(classify(daily),true,'real tasks still receive icons');
  assert.match(source,/querySelectorAll\('#lux-study-paths-v2 \.lux-ico'\)/);
- assert.match(file('study/index.html'),/study-navigation-v2-20261010\.css\?v=20261012-study-ux2b/);
+ assert.match(file('study/index.html'),/study-navigation-v2-20261010\.css\?v=20261018-cards2/);
 });

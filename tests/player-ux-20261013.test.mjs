@@ -36,7 +36,7 @@ test('UX layer writes only game navigation memory, not learning or rewards',()=>
 });
 test('practice controls collapse and correct answers retain expandable detail',()=>{
  for(const file of ['assets/study._subject.practise-D_PWgUd7.js','assets/study._subject.practise-y8fix-20260920.js']){
-  const src=read(file);assert.match(src,/lux-practice-view/);assert.match(src,/study-topic-picker[^]*?open:false/);
+  const src=read(file);assert.match(src,/lux-practice-view/);assert.match(src,/study-topic-picker[^]*?open:!O&&!dailyLocked|study-topic-picker[^]*?open:false/);
  }
  for(const file of ['assets/quiz-session-rWAnuDVj.js','assets/quiz-session-y8fix-20260920.js']){
   const src=read(file);assert.match(src,/Answer & explanation/);assert.match(src,/compactCorrectFeedback/);
@@ -49,7 +49,7 @@ test('all ten pet levels keep available original HD artwork',()=>{
  assert.match(read('pet/pet.js'),/panel=document.createElement\('details'\);panel.id='mp-wallet-history'/);
 });
 test('Recovery remains accessible for unopened dates and expands unfinished work',()=>{
- const src=read('assets/quest-recovery-20261011.js');assert.match(src,/host.hidden=false/);assert.match(src,/host.open=unfinished>0/);assert.match(src,/Prepare ten recovery tasks/);
+ const src=read('assets/quest-recovery-20261011.js');assert.match(src,/host.hidden=false/);assert.match(src,/host.open=hadRendered\?keptOpen:unfinished>0/);assert.match(src,/Prepare ten recovery tasks/);
 });
 test('foundation review is distinguished from the daily Continue task',()=>{
  const src=read('assets/study-experience-20260927.js');assert.match(src,/OPTIONAL FOUNDATION REVIEW/);assert.match(src,/Review this foundation →/);

@@ -20,7 +20,7 @@ function dayDistance(today, before) {
 const wordKey = text => String(text || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
   .replace(/[’‘]/g,"'").toLowerCase().replace(/\([^)]*\)/g,'').replace(/[^a-z0-9' ]/g,'').replace(/\s+/g,' ').trim();
 
-export function selectDailyVocabulary({subject, items = [], day, ledger = {}, reviews = {}, spellingDue = {}, legacyVocabulary = [], size = 30, topicLearning = {}}) {
+export function selectDailyVocabulary({subject, items = [], day, ledger = {}, reviews = {}, spellingDue = {}, seenCorrect = {}, legacyVocabulary = [], size = 30, topicLearning = {}}) {
   const words = new Map(), byId = new Map();
   for (const q of items) {
     if (!vocabularyQuestion(q, subject) || topicLearning[q.topicId] === false) continue;
@@ -80,10 +80,13 @@ export function selectDailyVocabulary({subject, items = [], day, ledger = {}, re
   for (const [concept, variants] of words) {
     if (credited.has(concept)) continue;
     const last = latest.get(concept), wrong = last?.correct === false;
-    const dueDate = wrong ? last.due : dueDates.get(concept);
+    const dueDate = last?.due || dueDates.get(concept);
     const due = !!dueDate && dueDate <= day;
     // A mistake waits for its spaced-review date instead of immediately repeating.
     if (wrong && !due) continue;
+    // Once correctly recalled, this word returns only at its scheduled review.
+    if (day >= '2026-10-19' && last?.correct && !due) continue;
+    if (day >= '2026-10-19' && !wrong && !due && variants.some(q=>Number(seenCorrect[q.id])>0)) continue;
     const typed = variants.filter(q => q.format !== 'mc_single');
     const choices = [...(typed.length ? typed : variants)].sort((a,b) => a.id.localeCompare(b.id));
     const question = choices[hash(`${day}:${subject}:${concept}:direction`) % choices.length];

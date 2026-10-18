@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import {buildAdaptiveRuntime} from "./adaptive-runtime-test-utils.mjs";
+import {masteryStage} from "../assets/mastery-v2-20261018.js";
 function extract(src,name) {
  const start=src.indexOf("function "+name+"("),end=src.indexOf("\n}",start);
  assert.ok(start>=0&&end>start,name);return src.slice(start,end+2);
@@ -8,7 +9,7 @@ function extract(src,name) {
 const wrapper=fs.readFileSync("assets/index-BLVOhKhN.js","utf8");
 const guard=fs.readFileSync("assets/progression-guard-20260927.js","utf8");
 const experience=fs.readFileSync("assets/study-experience-20260927.js","utf8");
-const normalize=new Function("topicState",extract(wrapper,"normalizeTopicStat")+";return normalizeTopicStat;")(()=> "mastered");
+const normalize=new Function("topicState","masteryStage",extract(wrapper,"normalizeTopicStat")+";return normalizeTopicStat;")(()=> "mastered",masteryStage);
 const topic="la-y8-stage-1-vocabulary";
 let day="2026-10-02";
 const writerStart=wrapper.indexOf("  const current = normalizeTopicStat(before.topicStats?.[resolved.topicId]");

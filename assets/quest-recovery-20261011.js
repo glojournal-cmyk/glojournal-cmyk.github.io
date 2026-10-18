@@ -1,11 +1,13 @@
 /* Recovery Quest UI: read-only display; the app records eligible answers separately. */
-import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261018-vocab7&ux=20261013-corrections2";
+import { C as store, Ut as todayKey, st as getTopicCatalog } from "/assets/index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2";
+import {buildYear8DailyV2} from './year8-daily-v2-20261018.js';
 import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js?v=20261018-receipt2";
 import {mergeDailyHistory,mergeDailyRecordRow,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-original-foundation5";
 import {readMarkedAnswers} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
 import {applyRecoveryReceipts} from "./recovery-receipt-20261018.js?v=20261018-receipt2";
 import {readAllBackups} from "./backup-vault-20261011.js?v=20261011-vault2&ux=20261013-corrections2";
 const DAY_MS=86400000;
+const fallbackFor=(state,date)=>date>='2026-10-19'?buildYear8DailyV2({...state,today:date,daily:[]},getTopicCatalog,{}):null;
 const dateAt=(d,n)=>new Date(Date.parse(d+"T12:00:00Z")+n*DAY_MS).toISOString().slice(0,10);
 function recoveryRows(state){
  const today=todayKey(),out=[];
@@ -20,7 +22,7 @@ function recoveryRows(state){
    const target=Math.max(1,30-base);
    const current=Math.max(0,Object.values(rec.items||{}).filter(Boolean).length);
    const credited=state.dailyLog?.[date]?.tasks?.some(t=>t.id===subject+'-vocab' && (t.done || Number(t.progress)>=Number(t.target)));
-   out.push({date,subject,base,target,current,credited:!!credited,done:rec.completed===true||current>=target,
+   out.push({date,subject,base,target,current,credited:!!credited,done:!!credited||rec.completed===true||current>=target,
     url:"/study/"+subject+"/practise?daily=1&locked=1&year=8&mode=y8vocab&task="+subject+"-vocab&recover="+date});
   }
  }
@@ -64,7 +66,7 @@ function commitCompletedRecoverySession(input){
   const params=new URLSearchParams(location.search);
   const date=params.get("recover")||input?.date,taskId=params.get("task")||input?.taskId;
   if(!date||date!==input?.date||taskId!==input?.taskId)return false;
-  if(!["y8-practise","y8-mastery","year8-long-review"].includes(taskId))return false;
+  if(!["y8-practise","y8-mastery","year8-long-review","latin-standard","y8-standard-a","y8-standard-b","y8-mastery-a","y8-mastery-b","weakness-review","due-review","year9-light"].includes(taskId))return false;
   if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!["french","latin","biology","chemistry","physics"].includes(input.subject))return false;
   const current=store.getState(),row=current.dailyLog?.[date];
   const target=row?.tasks?.find(task=>task.id===taskId);
@@ -393,7 +395,7 @@ function mount(){
      const error=Object.values(state.reviews||{}).find(r=>r?.wrong===true&&allowed.includes(r.subject));
      return '/study/'+(error?.subject||'french')+'/practise?'+query;
    }
-   if(['y8-practise','y8-mastery','year8-long-review','adaptive-focus','study-session'].includes(task.id)){
+   if(['y8-practise','y8-mastery','year8-long-review','latin-standard','y8-standard-a','y8-standard-b','y8-mastery-a','y8-mastery-b','weakness-review','due-review','year9-light','adaptive-focus','study-session'].includes(task.id)){
      const inferred=allowed.find(subject=>String(task.title||'').toLowerCase().includes(subject))||'french';
      const subject=allowed.find(key=>key===task.focusSubject||key===task.assignedSubject||key===task.reviewSubject)||inferred;
      query.set('mode',nextMode);
@@ -411,7 +413,7 @@ function mount(){
      const create=document.createElement('button');create.type='button';
      create.textContent='Prepare ten recovery tasks';
      create.addEventListener('click',()=>{
-       const current=store.getState(),result=prepareUnopenedRecovery(current,date,todayKey());
+       const current=store.getState(),result=prepareUnopenedRecovery(current,date,todayKey(),fallbackFor(current,date));
        if(result.created)store.setState({dailyLog:result.state.dailyLog});
      });list.append(create);
    }else{

@@ -62,10 +62,11 @@ test('a full ten-question session survives parent/store rerenders and finishes 1
  const hr=hooks(),pr=hooks();const questions=numbers.filter(q=>q.answer.accepted?.length).slice(0,12).map((q,i)=>({...q,_adaptiveRank:i}));
  const catalog=()=>[{topicId:state.lastTopic,title:'Numbers and age'}];
  const pc=vm.createContext({TopicBrowser:"TopicBrowser",groupStudyTopics,...env(state,pr),g:{useParams:()=>({subject:'french'})},C:()=>({name:'French'}),S:()=>false,s:Object.assign(sel=>sel(state),{getState:()=>state}),p:()=>true,v:()=>false,y:catalog,d:()=>0,l:()=> '2026-09-18',u:async()=>({questions}),h:topic=>topic.questions,RQ:(qs,subject,size)=>[...qs].sort((a,b)=>(state.seenTotal[a.id]||0)-(state.seenTotal[b.id]||0)).slice(0,size),x:'Card',YS:'YearSelect',f:[],c:[],m:[],FY9:[],i:'Dictation',o:'Quiz'});
+ pc.location.search='?topic='+state.lastTopic;pc.window.location.search=pc.location.search;
  vm.runInContext(practice.slice(practice.indexOf('function FK('),practice.indexOf('export{')),pc);
  let parent=pr.render(()=>pc.E());await new Promise(resolve=>setImmediate(resolve));parent=pr.render(()=>pc.E());
  const props=tree=>flatten(tree).find(n=>n?.type==='Quiz')?.props;
- let qp=props(parent);assert.equal(qp.items.length,10);const frozenItems=[...qp.items];
+ let qp=props(parent);assert.ok(qp,'Practice tree: '+textOf(parent).slice(0,600));assert.equal(qp.items.length,10);const frozenItems=[...qp.items];
  const qc=vm.createContext({...context,...env(state,hr)});vm.runInContext(quiz.slice(quiz.indexOf('function re('),quiz.indexOf('function ie(')),qc);
  let tree=hr.render(()=>qc.H(qp));
  for(let i=0;i<10;i++){

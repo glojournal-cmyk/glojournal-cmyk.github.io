@@ -5,6 +5,8 @@ const DAY_MS = 86400000;
 export const RECOVERY_IDS = new Set([
   'mistake-review','study-session','french-vocab','latin-vocab',
   'adaptive-focus','year8-long-review','y8-practise','y8-mastery',
+  'latin-standard','y8-standard-a','y8-standard-b','y8-mastery-a','y8-mastery-b',
+  'weakness-review','due-review','year9-light',
   'tend-garden','play-game'
 ]);
 export function validDay(day) {
@@ -33,7 +35,9 @@ export function eligibleRecoveryTasks(state,date,today) {
 // Despite their labels, progression tasks can assign taught Year 9 topics.
 // Use the missed day's persisted subject/topic, not a forced "Year 8" test.
 export function matchesAssignedPracticeEvidence(entry,task,taskId){
- if(!task||!["y8-practise","y8-mastery","year8-long-review"].includes(taskId)||
+ if(!task||!["y8-practise","y8-mastery","year8-long-review","latin-standard",
+   "y8-standard-a","y8-standard-b","y8-mastery-a","y8-mastery-b",
+   "weakness-review","due-review","year9-light"].includes(taskId)||
    !entry?.questionId||typeof entry.correct!=="boolean"||
    entry.formal===false||entry.repair===true||
    ["french-vocab","latin-vocab"].includes(entry.dailyTaskId)||
@@ -182,13 +186,15 @@ export const UNOPENED_FALLBACK_TASKS = Object.freeze([
 ]);
 // A fallback is a new recoverable plan, not a claim that this was assigned
 // on the unopened day. Do not overwrite a partial or complete historical log.
-export function prepareUnopenedRecovery(state,date,today) {
+export function prepareUnopenedRecovery(state,date,today,assignedFallback=null) {
   if(!canRecover(today,date)) return {state,created:false,reason:'outside-window'};
   if(Object.prototype.hasOwnProperty.call(state?.dailyLog||{},date))
     return {state,created:false,reason:'existing-history'};
-  const tasks=UNOPENED_FALLBACK_TASKS.map(([id,title,target])=>({
-    id,title,target,progress:0,done:false,recoveryFallback:true
-  }));
+  const tasks=date>='2026-10-19'&&Array.isArray(assignedFallback)&&assignedFallback.length===10
+    ?assignedFallback.map(t=>({...t,planDate:date,progress:0,done:false,recoveryFallback:true}))
+    :UNOPENED_FALLBACK_TASKS.map(([id,title,target])=>({
+      id,title,target,progress:0,done:false,recoveryFallback:true
+    }));
   const log={date,tasks,done:0,total:tasks.length,complete:false,recoveryFallback:true};
   return {
     state:{...state,dailyLog:{...(state.dailyLog||{}),[date]:log}},

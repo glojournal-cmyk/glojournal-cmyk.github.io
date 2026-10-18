@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {mistakeReviewTask} from '../assets/mistake-review-plan-20261003.js';
+import {mergeDailyRecordRow} from '../assets/daily-record-integrity-20261018.js';
 const day='2026-10-13',topic='fr-y8-s01-basics';
 const planned={id:'mistake-review',planDate:day,reviewSubject:'french',reviewYear:8,
  reviewQuestionIds:['q1','q2'],reviewTopicIds:[topic],reviewCompletedIds:[],target:2,progress:0,xp:15};
@@ -42,7 +43,7 @@ test('non-formal games cannot credit Corrections, but dedicated vocabulary corre
 test('restored credit survives JSON save and updates the real ten-task daily record',()=>{
  const source=awaitSource();
  const begin=source.indexOf('function compactDailyTasks('),end=source.indexOf('function sealDailyLog(',begin);
- const {writeDailyLog}=new Function(source.slice(begin,end)+';return {writeDailyLog};')();
+ const {writeDailyLog}=new Function('mergeDailyRecordRow',source.slice(begin,end)+';return {writeDailyLog};')(mergeDailyRecordRow);
  const saved=JSON.parse(JSON.stringify(state({reviews:{},formalAttemptLog:[evidence('q1'),evidence('q2')]})));
  const result=mistakeReviewTask(saved,{},available);
  const daily=[result,...Array.from({length:9},(_,i)=>({id:'other-'+i,target:1,progress:0}))];

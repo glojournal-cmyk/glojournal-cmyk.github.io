@@ -1,4 +1,5 @@
 // One curriculum policy for the daily planner and route guard. No reward writes.
+import {coveredTopic,masteryStage} from './mastery-v2-20261018.js';
 export const progressionSubjects=['latin','french','biology','chemistry','physics'];
 const orders={
  latin:['stage-1-vocabulary','stage-2-vocabulary','stage-3-vocabulary','core-verbs','nouns-and-dictionary-entries','present-person-and-number','prepositions','stage-4-vocabulary','stage-5-vocabulary','stage-6-vocabulary','stage-7-vocabulary','stage-8-vocabulary','stage-9-vocabulary','stage-10-vocabulary','stage-11-vocabulary','stage-12-vocabulary','adjective-agreement','personal-pronouns','ille-singular','ille-plural','nouns-with-genitives','set-text-translation','perfect-cues'],
@@ -18,6 +19,8 @@ export function curriculumRank(topic){
  const slug=id.replace(/^[^-]+-y8-/,''),rank=orders[topic.subject]?.indexOf(slug);return rank>=0?rank:1000;
 }
 export function isCurriculumMastered(raw={}){
+ if(raw.masteryV2)return masteryStage(raw)==='mastered';
+ if(raw.state==='mastered')return true; // Preserve historical Mastered status.
  const n=Math.max(0,Number(raw.attempted)||0),correct=Math.max(0,Math.min(n,Number(raw.correct)||0));
  return n>=15&&correct/n>=.85&&Math.max(Number(raw.productionCorrect)||0,new Set(raw.productionIds||[]).size)>0;
 }
@@ -27,14 +30,14 @@ export function curriculumTopics(subject,year,getCatalog,learning={}){
 }
 export function curriculumFrontier(state,subject,getCatalog,learning={}){
  const foundations=curriculumTopics(subject,8,getCatalog,learning),mastered=t=>isCurriculumMastered(state.topicStats?.[t.topicId]);
- const foundation=foundations.find(t=>!mastered(t));
+ const foundation=foundations.find(t=>state.today>='2026-10-19'?!coveredTopic(state,t.topicId):!mastered(t));
  // Do not advance while the foundation catalog is still loading.
  if(!foundations.length)return null;
  const taught=Number(state.year)>=9?curriculumTopics(subject,9,getCatalog,learning):[];
  const next=foundation||taught.find(t=>!mastered(t));
  const pool=foundation?foundations:taught.length?taught:foundations;
  const pick=next||[...pool].sort((a,b)=>String(state.topicStats?.[a.topicId]?.last||'').localeCompare(String(state.topicStats?.[b.topicId]?.last||''))||curriculumRank(a)-curriculumRank(b))[0];
- return {...pick,phase:foundation?'foundation':next?'year9':'retention',position:pool.findIndex(t=>t.topicId===pick.topicId)+1,total:pool.length,foundationMastered:foundations.filter(mastered).length,foundationTotal:foundations.length,waitingForTaught:!foundation&&!taught.length};
+ return {...pick,phase:foundation?'foundation':next?'year9':'retention',position:pool.findIndex(t=>t.topicId===pick.topicId)+1,total:pool.length,foundationCovered:foundations.filter(t=>coveredTopic(state,t.topicId)).length,foundationMastered:foundations.filter(mastered).length,foundationTotal:foundations.length,waitingForTaught:!foundation&&!taught.length};
 }
 export function curriculumAssignment(state,seed,old,getCatalog,learning={}){
  const subject=old?.planDate===state.today&&Number(old.progress)>0?old.assignedSubject:progressionSubjects[Math.abs(Number(seed)||0)%progressionSubjects.length];
