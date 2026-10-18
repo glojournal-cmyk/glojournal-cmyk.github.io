@@ -326,9 +326,28 @@ function mount(){
        (focusSubject?' · subject '+focusSubject:'')+
        (focusTopic?' · topic '+focusTopic:'')
      : '';
+   const year8Status=['y8-practise','y8-mastery','year8-long-review'].map(id=>{
+     const task=row?.tasks?.find(t=>t.id===id);
+     if(!task)return null;
+     const subject=task.assignedSubject||task.reviewSubject;
+     const topic=task.assignedTopic||task.reviewTopic;
+     const matched=formal.filter(a=>{
+       if(['french-vocab','latin-vocab'].includes(a.dailyTaskId))return false;
+       if(['french','latin'].includes(a.dailyVocab))return false;
+       if(Number(a.year)!==8)return false;
+       if(subject&&subject!==a.subject)return false;
+       if(topic&&topic!==a.topicId)return false;
+       return subject||topic?a.questionId:a.dailyTaskId===id;
+     });
+     const label={'y8-practise':'Foundation practice','y8-mastery':'Mastery review',
+       'year8-long-review':'Y8 practice + mastery'}[id];
+     return '\n  '+label+': '+(task.progress||0)+'/'+task.target+
+       ' · '+matched.length+' eligible saved marked events'+
+       (subject?' · '+subject:'')+(topic?' · '+topic:'');
+   }).filter(Boolean).join('');
    const tagStatus=dated.length?'\n  Route tags: '+Object.entries(tags).map(([id,n])=>id+' '+n).join(', '):'';
    return date+' · day '+log+' · saved Recovery answer events '+dated.length+
-     '\n  '+vocab+focusStatus+tagStatus+(tasks?'\n  '+tasks:'');
+     '\n  '+vocab+focusStatus+year8Status+tagStatus+(tasks?'\n  '+tasks:'');
  });
  results.textContent=report.join('\n')||'No Recovery answer record was saved.';
  audit.append(auditTitle,note,results);
