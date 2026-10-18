@@ -21,7 +21,7 @@ try{for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
  for(let i=0;i<5;i++){await page.locator('.feedback').waitFor();await page.locator('#next').click()}
  assert.match(await page.locator('#latin-bank-app').innerText(),/SET COMPLETE/);
  await page.setViewportSize({width:390,height:844});await page.reload();await page.locator('#settings').waitFor();assert(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth));await page.screenshot({path:`test-results/latin-oct17/${name}-mobile.png`,fullPage:true});
- await page.goto(base+'/study/latin/');await page.locator('a[href="/assessment/latin-oct17/practice/"]').first().waitFor({timeout:40000});
+ await page.goto(base+'/study/latin/');await page.locator('a[href="/study/latin/?q=October"]').first().waitFor({timeout:40000});
  assert.deepEqual(errors,[]);console.log('LATIN_OCT17_BROWSER_PASS '+name+' · reload, marking, self-review, hidden test answers, completion, mobile and Latin entry');await ctx.close();
  }finally{await browser.close()}
 }}finally{server?.kill()}

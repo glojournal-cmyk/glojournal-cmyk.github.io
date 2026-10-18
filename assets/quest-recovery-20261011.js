@@ -1,7 +1,7 @@
 /* Recovery Quest UI: read-only display; the app records eligible answers separately. */
 import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261017-recovery-completion3&ux=20261013-corrections2";
-import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js?v=20261018-daily-record-proof6";
-import {mergeDailyHistory,mergeDailyRecordRow,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-original-foundation5";
+import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js?v=20261018-daily-record-proof6&ux=20261013-corrections2";
+import {mergeDailyHistory,mergeDailyRecordRow,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-original-foundation5&ux=20261013-corrections2";
 import {readAllBackups} from "./backup-vault-20261011.js?v=20261011-vault2&ux=20261013-corrections2";
 const DAY_MS=86400000;
 const dateAt=(d,n)=>new Date(Date.parse(d+"T12:00:00Z")+n*DAY_MS).toISOString().slice(0,10);

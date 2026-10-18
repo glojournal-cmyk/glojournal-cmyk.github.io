@@ -1,5 +1,5 @@
 import {TopicBrowser} from "./topic-browser-20261003.js?v=20261010-chem-marking1&ux=20261013-corrections2";
-import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js?ux=20261013-corrections2";import{C as r,st as i,Ut as a,dt as loadCatalog}from"./index-BLVOhKhN.js?v=20261017-unopened-recovery1&ux=20261013-corrections2";var o=e(t(),1),s=n();
+import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js?ux=20261013-corrections2";import{C as r,st as i,Ut as a,dt as loadCatalog}from"./index-BLVOhKhN.js?v=20261017-recovery-completion3&ux=20261013-corrections2";var o=e(t(),1),s=n();
 
 const META={
   latin:{name:"Latin",quote:"Lingua Latina in aeternum.",art:"/art/subjects/latin.jpg"},
@@ -37,11 +37,11 @@ function c(){
   const focus=catalog.find(x=>topicStats?.[x.topicId]?.state!=="mastered")||catalog[0]||null;
   return (0,s.jsxs)("div",{className:"space-y-6",children:[
     (0,s.jsxs)("header",{className:"study-directory-heading",children:[
-      (0,s.jsxs)("div",{children:[(0,s.jsx)("p",{className:"text-xs text-muted",children:"Study · Notes and question bank"}),(0,s.jsx)("h1",{className:"font-display text-4xl text-navy",children:meta.name}),subject==="latin"&&year===9?(0,s.jsx)("a",{href:"/assessment/latin-oct17/practice/",className:"inline-block mt-2 text-sm font-semibold",style:{color:"#176b6c"},children:"New · October question bank →"}):null]}),
+      (0,s.jsxs)("div",{children:[(0,s.jsx)("p",{className:"text-xs text-muted",children:"Study · Notes and question bank"}),(0,s.jsx)("h1",{className:"font-display text-4xl text-navy",children:meta.name}),subject==="latin"&&year===9?(0,s.jsx)("a",{href:"/study/latin/?q=October",className:"inline-block mt-2 text-sm font-semibold",style:{color:"#176b6c"},children:"October topics in Study →"}):null]}),
       (0,s.jsxs)("label",{className:"study-directory-year",children:[(0,s.jsx)("span",{children:"Study year"}),(0,s.jsxs)("select",{value:year,onChange:e=>setYear(Number(e.target.value)),children:[(0,s.jsx)("option",{value:9,children:"Year 9"}),(0,s.jsx)("option",{value:8,children:"Year 8 · Previous year revision"})]})]})
     ]}),
     (0,s.jsx)("section",{className:"rounded-3xl border border-line bg-card p-5 sm:p-6",children:(0,s.jsx)(TopicBrowser,{topics:catalog,subject,year,stats:topicStats,mode:"directory"},`${subject}:${year}`)}),
-    subject==="latin"&&year===9?(0,s.jsx)(Card,{href:"/assessment/latin-oct17/practice/",title:"October Latin · New question bank",detail:"Six lesson topics + core vocabulary · 182 main questions, 92 optional vocabulary questions · answers and marking schemes.",tone:"sage"}):null,
+    subject==="latin"&&year===9?(0,s.jsx)(Card,{href:"/study/latin/?q=October",title:"October Latin · Topic library",detail:"Six lesson topics + core vocabulary · 182 main questions, 92 optional vocabulary questions · answers and marking schemes.",tone:"sage"}):null,
     (0,s.jsx)("section",{className:"grid gap-3 sm:grid-cols-2 lg:grid-cols-4",children:[
       {title:"Learn",detail:"Review the notes before formal practice.",href:`/study/${subject}/learn`,tone:"ivory"},
       {title:"Practise",detail:"Formal questions that build mastery evidence.",href:`/study/${subject}/practise`,tone:"sage"},

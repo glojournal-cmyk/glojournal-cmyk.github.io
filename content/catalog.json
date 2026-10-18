@@ -1,10 +1,10 @@
 {
-  "version": "2.4.1+biology-school-20260927-chem-aqa-20260930-fullmarks2-y7-vocab-complete+fr-future-oct17",
+  "version": "2.4.1+biology-school-20260927-chem-aqa-20260930-fullmarks2-y7-vocab-complete+fr-future-oct17-latin-oct17-study",
   "buildDate": "2026-10-18",
   "totals": {
-    "topics": 282,
-    "questions": 16405,
-    "enabled": 15276,
+    "topics": 290,
+    "questions": 16679,
+    "enabled": 15550,
     "preview": 266,
     "disabled": 863
   },
@@ -21,11 +21,11 @@
     {
       "subject": "latin",
       "year": 9,
-      "topics": 20,
-      "enabled": 1779,
+      "topics": 28,
+      "enabled": 2053,
       "preview": 0,
       "disabled": 0,
-      "questions": 1779
+      "questions": 2053
     },
     {
       "subject": "french",
@@ -5952,6 +5952,170 @@
       "questions": 28,
       "diagramQuestions": 0,
       "sourceId": "teacher-future-tense-20261017"
+    },
+    {
+      "subject": "latin",
+      "year": 9,
+      "topicId": "la-y9-oct17-sum-possum",
+      "title": "sum and possum",
+      "status": "enabled",
+      "questions": 33,
+      "enabled": 33,
+      "preview": 0,
+      "disabled": 0,
+      "formats": {
+        "typed_exact": 24,
+        "mark_points": 9
+      },
+      "gated": false,
+      "unitId": "latin-y9-oct17-lessons",
+      "unitName": "October lessons · Six topics",
+      "sourceId": "latin-oct17-teaching-pack",
+      "contentTier": "school_confirmed_current",
+      "optional": false
+    },
+    {
+      "subject": "latin",
+      "year": 9,
+      "topicId": "la-y9-oct17-verbs",
+      "title": "Verbs and translation",
+      "status": "enabled",
+      "questions": 34,
+      "enabled": 34,
+      "preview": 0,
+      "disabled": 0,
+      "formats": {
+        "mark_points": 20,
+        "typed_exact": 14
+      },
+      "gated": false,
+      "unitId": "latin-y9-oct17-lessons",
+      "unitName": "October lessons · Six topics",
+      "sourceId": "latin-oct17-teaching-pack",
+      "contentTier": "school_confirmed_current",
+      "optional": false
+    },
+    {
+      "subject": "latin",
+      "year": 9,
+      "topicId": "la-y9-oct17-adjectives",
+      "title": "2–1–2 adjectives",
+      "status": "enabled",
+      "questions": 43,
+      "enabled": 43,
+      "preview": 0,
+      "disabled": 0,
+      "formats": {
+        "typed_exact": 30,
+        "mark_points": 13
+      },
+      "gated": false,
+      "unitId": "latin-y9-oct17-lessons",
+      "unitName": "October lessons · Six topics",
+      "sourceId": "latin-oct17-teaching-pack",
+      "contentTier": "school_confirmed_current",
+      "optional": false
+    },
+    {
+      "subject": "latin",
+      "year": 9,
+      "topicId": "la-y9-oct17-horse",
+      "title": "The Trojan Horse",
+      "status": "enabled",
+      "questions": 14,
+      "enabled": 14,
+      "preview": 0,
+      "disabled": 0,
+      "formats": {
+        "mark_points": 14
+      },
+      "gated": false,
+      "unitId": "latin-y9-oct17-lessons",
+      "unitName": "October lessons · Six topics",
+      "sourceId": "latin-oct17-teaching-pack",
+      "contentTier": "school_confirmed_current",
+      "optional": false
+    },
+    {
+      "subject": "latin",
+      "year": 9,
+      "topicId": "la-y9-oct17-creusa",
+      "title": "Aeneas and Creusa",
+      "status": "enabled",
+      "questions": 18,
+      "enabled": 18,
+      "preview": 0,
+      "disabled": 0,
+      "formats": {
+        "mark_points": 18
+      },
+      "gated": false,
+      "unitId": "latin-y9-oct17-lessons",
+      "unitName": "October lessons · Six topics",
+      "sourceId": "latin-oct17-teaching-pack",
+      "contentTier": "school_confirmed_current",
+      "optional": false
+    },
+    {
+      "subject": "latin",
+      "year": 9,
+      "topicId": "la-y9-oct17-journey",
+      "title": "The Journey Begins",
+      "status": "enabled",
+      "questions": 14,
+      "enabled": 14,
+      "preview": 0,
+      "disabled": 0,
+      "formats": {
+        "mark_points": 14
+      },
+      "gated": false,
+      "unitId": "latin-y9-oct17-lessons",
+      "unitName": "October lessons · Six topics",
+      "sourceId": "latin-oct17-teaching-pack",
+      "contentTier": "school_confirmed_current",
+      "optional": false
+    },
+    {
+      "subject": "latin",
+      "year": 9,
+      "topicId": "la-y9-oct17-vocabulary",
+      "title": "Chapter 3.II · Core vocabulary",
+      "status": "enabled",
+      "questions": 26,
+      "enabled": 26,
+      "preview": 0,
+      "disabled": 0,
+      "formats": {
+        "typed_equivalent": 24,
+        "mark_points": 2
+      },
+      "gated": false,
+      "unitId": "latin-y9-oct17-core",
+      "unitName": "October · Core vocabulary",
+      "sourceId": "latin-oct17-teaching-pack",
+      "contentTier": "school_confirmed_current",
+      "optional": false
+    },
+    {
+      "subject": "latin",
+      "year": 9,
+      "topicId": "la-y9-oct17-support",
+      "title": "Related Year 9 vocabulary · Optional",
+      "status": "enabled",
+      "questions": 92,
+      "enabled": 92,
+      "preview": 0,
+      "disabled": 0,
+      "formats": {
+        "typed_equivalent": 92
+      },
+      "gated": false,
+      "unitId": "latin-y9-oct17-optional",
+      "unitName": "October · Optional vocabulary",
+      "sourceId": "latin-oct17-teaching-pack",
+      "contentTier": "optional_related_revision",
+      "optional": true
     }
   ],
   "units": {
@@ -6254,6 +6418,20 @@
       "phys-y9-p16",
       "phys-y9-p17",
       "phys-y9-p18"
+    ],
+    "latin-y9-oct17-lessons": [
+      "la-y9-oct17-sum-possum",
+      "la-y9-oct17-verbs",
+      "la-y9-oct17-adjectives",
+      "la-y9-oct17-horse",
+      "la-y9-oct17-creusa",
+      "la-y9-oct17-journey"
+    ],
+    "latin-y9-oct17-core": [
+      "la-y9-oct17-vocabulary"
+    ],
+    "latin-y9-oct17-optional": [
+      "la-y9-oct17-support"
     ]
   }
 }

@@ -154,7 +154,7 @@ function school20260926Counts(items){let enabled=items.filter(q=>q.status==="ena
 function school20260926Meta(t){let c=school20260926Counts(t.questions),[unitId,unitName]=t.subject==="chemistry"?["chemistry-y9-u02","Unit 2 · Separating mixtures & RP6"]:schoolY9Unit_20260919(t);return{subject:t.subject,year:t.year,topicId:t.topicId,title:t.title,status:"enabled",...c,gated:false,unitId,unitName,sourceId:"school-update-20260926",contentTier:"school_confirmed_current"}}
 async function CC(){
  if(bC)return bC;
- let e=await fetch("/content/catalog.json");if(!e.ok)throw Error("Catalog missing");bC=await e.json();
+ let e=await fetch("/content/catalog.json",{cache:"no-cache"});if(!e.ok)throw Error("Catalog missing");bC=await e.json();
  try{
   let u=await loadSchoolY9Bundle_20260919(),ids=new Set((bC.topics||[]).map(e=>e.topicId)),add=[...u.values()].filter(e=>!ids.has(e.topicId)).map(schoolY9Meta_20260919);
   if(add.length){

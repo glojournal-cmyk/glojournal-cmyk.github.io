@@ -1,4 +1,4 @@
-import {modelMatch,selectQuestions} from './latin-oct17-bank.js?v=1';
+import {modelMatch,selectQuestions} from './latin-oct17-bank.js?v=1&ux=20261013-corrections2';
 const app=document.querySelector('#latin-bank-app'),notice=document.querySelector('#save-status'),KEY='lux-latin-oct17-bank-v1';
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let bank,state={ids:[],answers:{},index:0,history:{},mode:'practice'};

@@ -1,4 +1,4 @@
-import {C as store} from './index-BLVOhKhN.js?v=20261017-unopened-recovery1&ux=20261013-corrections2';
+import {C as store} from './index-BLVOhKhN.js?v=20261017-recovery-completion3&ux=20261013-corrections2';
 import {weekOf,completedStages} from './star-map-state-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2';
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function refresh(){const main=document.querySelector('main');if(!main)return;const state=store.getState().starMapChallenge||{},week=weekOf(Date.now()),progress=state.weeks?.[week]?.progress||0;

@@ -7,6 +7,7 @@ const src=fs.readFileSync('assets/index-BLVOhKhN.js','utf8');
 const day='2026-09-30',topic='fr-y8-s24-numbers-and-age';
 let state={today:day,year:8,topicStats:{},reviews:{},daily:[],questionsToday:0};
 const context=vm.createContext({
+  recoveryAttemptSequence:0,
   creditCurriculumAttempt,
   todayKey:()=>day,inferSubjectFromTopic:()=> 'french',
   store:{getState:()=>state,setState:patch=>{state={...state,...patch};}},

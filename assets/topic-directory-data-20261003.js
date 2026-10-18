@@ -8,6 +8,7 @@ const CATEGORIES={
  english:[['dystopia','Dystopian literature',/dystopi/i],['shakespeare','Shakespeare · Othello',/othello|shakespeare|teal|analytical writing/i],['northanger','Northanger Abbey',/northanger/i],['poetry','Poetry',/poetry|poem|ww1/i],['journalism','Journalism & viewpoints',/journalis|rhetoric|opinion writing/i],['writing','Writing & language',/writing|language|grammar|vocab/i]]
 };
 export function topicCategory(topic){
+ if(topic.sourceId==='latin-oct17-teaching-pack')return{id:topic.unitId,name:topic.unitName};
  const text=`${topic.title||''} ${topic.topicId||''}`;
  for(const [id,name,rule] of CATEGORIES[topic.subject]||[])if(rule.test(text))return{id,name};
  // Preserve meaningful curriculum units when no category rule matches.
@@ -16,6 +17,8 @@ export function topicCategory(topic){
 }
 export function topicKinds(topic){
  const title=String(topic.title||'');const formats=topic.formats||{};const out=['all'];
+ if(/^la-y9-oct17-(sum-possum|verbs|adjectives)$/.test(topic.topicId))out.push('grammar');
+ if(/^la-y9-oct17-(horse|creusa|journey)$/.test(topic.topicId))out.push('reading');
  if(/vocab|dictionary|stage \d+.*vocab/i.test(title))out.push('vocabulary');
  if(/verb|tense|case|grammar|noun|adjectiv|pronoun|agreement|conjugat|negative|reflexive/i.test(title))out.push('grammar');
  if(formats.diagram_label>0||Number(topic.diagramQuestions)>0)out.push('diagrams');
