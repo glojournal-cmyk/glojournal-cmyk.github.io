@@ -11,7 +11,14 @@ export function frenchQuestionFingerprint(q) {
   return normalise(q?.prompt) + '||' + normalise(answer);
 }
 
+const stableSelectionByBank = new WeakMap();
+
 export function uniqueFrenchQuestions(items = [], state = {}, mode = 'standard') {
+  // React rerenders after every marked answer. Freeze the candidate pool while
+  // its loaded bank array is unchanged so question 4/10 never disappears.
+  const key = mode+'|'+String(state.today||'');
+  const cached = stableSelectionByBank.get(items)?.get(key);
+  if (cached) return cached;
   const groups = new Map();
   for (const q of items) {
     if (!q?.id) continue;
@@ -45,5 +52,9 @@ export function uniqueFrenchQuestions(items = [], state = {}, mode = 'standard')
   // Keep the bank's ordering to avoid changing the existing adaptive ranking
   // or the question count for tasks that already have sufficient fresh work.
   const keep = new Set(selected.map(q => q.id));
-  return items.filter(q => keep.has(q.id));
+  const selectedRows = items.filter(q => keep.has(q.id));
+  let entries = stableSelectionByBank.get(items);
+  if (!entries) {entries=new Map(); stableSelectionByBank.set(items,entries);}
+  entries.set(key,selectedRows);
+  return selectedRows;
 }
