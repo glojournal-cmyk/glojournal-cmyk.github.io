@@ -73,10 +73,12 @@ try {
      for(let i=0;i<10;i++)store.getState().recordAttempt('recovery-browser-'+i,true,'french',{formal:true,progressionTask:'y8-practise',topicId:'fr-y8-recovery'});
      const s=store.getState();
      return {credited:s.dailyLog[d]?.tasks.find(t=>t.id==='y8-practise')?.done,
+       shared:['study-session','adaptive-focus'].map(id=>s.dailyLog[d]?.tasks.find(t=>t.id===id)?.done),
        day:s.dailyLog[d]?.done,before,after:Object.fromEntries((s.daily||[]).map(t=>[t.id,Number(t.progress)||0]))};
    },date);
    assert.equal(practise.credited,true);
-   assert.equal(practise.day,3);
+   assert.deepEqual(practise.shared,[true,true]);
+   assert.equal(practise.day,5);
    assert.deepEqual(practise.after,practise.before,'practice recovery must not change today daily task progress');
    assert.deepEqual(errors,[],'no browser errors');
    console.log('RECOVERY_FULL_BROWSER '+JSON.stringify({browser:launcher.name(),unopened:true,water:true,game:true,practice:true,todayUnchanged:true}));

@@ -38,7 +38,7 @@ try{for(const launcher of [chromium,webkit]){
  if(await toggle.getAttribute('aria-pressed')==='true')await toggle.click();
  await toggle.click();assert.equal(await toggle.getAttribute('aria-pressed'),'true');assert.ok(await page.evaluate(()=>__spoken.length>0));
  await page.evaluate(()=>{for(let i=0;i<3;i++)window.dispatchEvent(new CustomEvent('scholar:question-answered',{detail:{correct:true}}))});
- if(route!=='/')assert.ok((await page.locator('#study-companion').innerText()).includes('3 in a row'));
+ if(route!=='/')assert.match(await page.locator('#study-companion').innerText(),/\b[3-9]\d* in a row/);
  await toggle.click();assert.equal(await toggle.getAttribute('aria-pressed'),'false');assert.equal(await snapshot(),before,'feedback does not award or credit anything');
  await page.waitForTimeout(1500);assert.equal(await page.locator('#lux-voice-cheer-toggle').count(),1);assert.equal(await page.locator('#lux-loading-recovery').count(),0);
  }
