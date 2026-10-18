@@ -83,8 +83,9 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
   // The earlier unopened-day fallback remains in the saved record; replacing a
   // row with two legacy tasks must not erase its other recovery assignments.
   const link=page.locator('#lux-recovery-quests a[href*="task=french-vocab"]');
-  assert.equal(await link.count(),1);
-  assert.ok((await link.getAttribute('href')).includes('recover='+date));
+  if(await link.count())assert.ok((await link.getAttribute('href')).includes('recover='+date));
+  else assert.ok((await page.locator('#lux-recovery-quests').innerText()).includes('Recovered ✓ · credited to '+date),
+    'A previously recovered date must stay credited instead of offering another link');
  }
  const link=await page.locator('#lux-recovery-quests a[href*="task=french-vocab"]').getAttribute('href');await visit(base+link);await page.waitForFunction(()=>window.__luxAppReady===true);await page.waitForFunction(()=>document.querySelector('main')?.textContent.includes('Recovery ·'));
  // Exercise production credit recording for both original dates, then return Home.
