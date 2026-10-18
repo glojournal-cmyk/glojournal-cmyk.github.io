@@ -30,8 +30,10 @@ try{for(const launcher of [chromium,webkit]){
  try{for(const viewport of [{width:834,height:1112},{width:390,height:844}]){
  const page=await browser.newPage({viewport,reducedMotion:viewport.width===390?'reduce':'no-preference'});const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.addInitScript(()=>{window.__spoken=[];Object.defineProperty(window,'speechSynthesis',{value:{getVoices:()=>[],cancel:()=>{},speak:u=>window.__spoken.push(u.text),speaking:false}});window.SpeechSynthesisUtterance=class{constructor(text){this.text=text}};});
- for(const route of ['/','/study/latin/practise/','/study/chemistry/practise/']){
- await page.goto(base+route);await page.waitForFunction(()=>window.__luxAppReady===true);await page.waitForSelector('#lux-voice-cheer-toggle');
+ for(const route of ['/','/study/latin/practise','/study/chemistry/practise']){
+ await page.goto(base+route,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>window.__luxAppReady===true);await page.waitForSelector('#lux-voice-cheer-toggle');
+  console.log('PHASE3_ROUTE',JSON.stringify({requested:route,actual:new URL(page.url()).pathname}));
+  assert.equal(new URL(page.url()).pathname,route,'Practice routes must not unexpectedly redirect Home');
   // Voice can mount before the companion. The compact Study layout intentionally hides the copy,\n  // so verify its streak state in textContent and check the visible answer animation.
   if(route!=='/')await page.waitForSelector('#study-companion',{state:'visible',timeout:20000});
  const toggle=page.locator('#lux-voice-cheer-toggle');assert.equal(await toggle.count(),1);assert.ok((await toggle.boundingBox()).height>=44);
