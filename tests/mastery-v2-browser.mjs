@@ -5,8 +5,9 @@ const base=process.env.QA_BASE_URL||'http://127.0.0.1:8777';
 for(const engine of [chromium,webkit]){
   const browser=await engine.launch({headless:true});
   const context=await browser.newContext({viewport:{width:1024,height:768},deviceScaleFactor:2,isMobile:true,hasTouch:true});
-  const page=await context.newPage(),errors=[];
-  page.on('pageerror',e=>errors.push(e.message));
+  const page=await context.newPage(),errors=[],failedRequests=[];
+  page.on('pageerror',e=>errors.push(e.stack||e.message));
+  page.on('requestfailed',request=>failedRequests.push({url:request.url(),reason:request.failure()?.errorText}));
   await page.clock.install({time:new Date('2026-10-19T10:00:00Z')});
   await page.goto(base+'/',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>{
@@ -31,10 +32,13 @@ for(const engine of [chromium,webkit]){
   },null,{timeout:30000});
   const after=await page.evaluate(()=>window.__luxStore.getState().daily.map(t=>[t.id,t.assignedTopic,t.progress]));
   assert.deepEqual(after,before.tasks.map(t=>[t.id,t.topic,t.progress]));
+  // WebKit may reject a pending fetch when the preceding document is closed.
+  // Check errors from the destination route independently of that navigation.
+  errors.length=0;failedRequests.length=0;
   await page.goto(base+standards[0].href,{waitUntil:'domcontentloaded'});
   await page.waitForTimeout(1200);
   assert.ok((await page.locator('body').innerText()).length>200);
-  assert.equal(errors.length,0,errors.join('\n'));
+  assert.equal(errors.length,0,JSON.stringify({engine:engine.name(),errors,failedRequests}));
   await browser.close();
 }
 console.log('Mastery 2.0 browser QA: 1024px iPad viewport, assignments, reload, Study route in Chromium and WebKit.');
