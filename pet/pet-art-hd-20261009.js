@@ -6,6 +6,8 @@ export function petArtUrl(id, level = 1) {
   const stage = clampPetLevel(level);
   // Preserve the mothling storage ID while replacing only its visual and public-facing identity.
   if(safe==='mothling') return '/pet/art-starling-fox-20261018/level-'+stage+'.png?v=20261018-starling1';
+  // The velvet-batling species ID remains unchanged for saved MP, unlocks and selection.
+  if(safe==='velvet-batling') return '/pet/art-shadow-wolf-20261018/level-'+stage+'.png?v=20261018-shadow-wolf1';
   // Keep bloom-snail as the persistent storage identity to preserve player XP, levels, and history.
   if(safe==='bloom-snail') return '/pet/art-starlight-kitten-20261018/level-'+stage+'.png?v=20261018-starlight-kitten1';
   // Inkling: all ten stages are individually approved full-body transparent sprites.

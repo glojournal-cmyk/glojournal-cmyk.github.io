@@ -9,7 +9,7 @@ const personalities=Object.freeze({
  "moon-puff":["A moonlit shimmer dances softly.","Your companion gives a sleepy little glow.","A silvery spark drifts across the garden."],
  "mothling":["A crimson tail catches a glimmer of starlight.","Starling Fox twitches its pointed ears.","A golden arrow of light twinkles near your companion."],
  "bloom-snail":["A tiny star glimmers above soft kitten ears.","Starlight Kitten curls its enchanted tail.","Your companion catches a whisper of moonlight."],
- "velvet-batling":["Velvet wings make a graceful little bow.","A playful dusk-dance begins.","The batling watches over the next quest."],
+ "velvet-batling":["Shadow Wolf watches over the scholar’s garden.","A crescent of gold shines in soft fur.","Your moonlit companion wags its starry tail."],
  "sprig-dragon":["A proud little dragon stretches its wings.","A tiny golden sparkle escapes its nose.","The Scholar has an eager guardian today."],
  "star-toadlet":["A constellation sparkles on the pond.","One brave hop towards the next quest.","The little stargazer is listening."],
  "snow-owl":["The Moonveil Owl offers a solemn bow.","Silver feathers catch a distant starlight.","A watchful gaze guards the garden's secrets."],
