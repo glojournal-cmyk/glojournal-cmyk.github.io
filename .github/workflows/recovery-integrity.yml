@@ -1,0 +1,31 @@
+name: Recovery and Daily Record regression checks
+on:
+  push:
+    paths:
+      - "assets/index-BLVOhKhN.js"
+      - "assets/recovery-task-ledger-20261017.js"
+      - "assets/daily-record-integrity-20261018.js"
+      - "assets/durable-study-evidence-20261018.js"
+      - "assets/quest-recovery-20261011.js"
+      - "qa/recovery-consistency.test.mjs"
+      - ".github/workflows/recovery-integrity.yml"
+  pull_request:
+    paths:
+      - "assets/index-BLVOhKhN.js"
+      - "assets/recovery-task-ledger-20261017.js"
+      - "assets/daily-record-integrity-20261018.js"
+      - "assets/durable-study-evidence-20261018.js"
+      - "qa/recovery-consistency.test.mjs"
+jobs:
+  recovery-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check dated Recovery and historical Daily Records
+        run: node qa/recovery-consistency.test.mjs
