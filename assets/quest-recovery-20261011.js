@@ -54,6 +54,53 @@ function reconcileCompletedRecoveries(){
 // independently cache-busted so older iPads running a cached core still
 // recover genuine saved answers without clearing Safari data or replaying
 // the full session.
+// A quiz can reach Session Complete while its per-question Recovery route
+// ledger was never committed. Accept a finished, marked QUESTION SESSION as
+// independent evidence, not a page visit or a click on a navigation link.
+function commitCompletedRecoverySession(input){
+ try{
+  const params=new URLSearchParams(location.search);
+  const date=params.get("recover"),taskId=params.get("task");
+  if(!date||date!==input?.date||taskId!==input?.taskId)return false;
+  if(!["y8-practise","y8-mastery","year8-long-review"].includes(taskId))return false;
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!["french","latin","biology","chemistry","physics"].includes(input.subject))return false;
+  const current=store.getState(),row=current.dailyLog?.[date];
+  const target=row?.tasks?.find(task=>task.id===taskId);
+  if(!target||Number(target.target)<=0)return false;
+  const checked=Array.isArray(input.answers)?input.answers.filter(a=>
+    a&&a.questionId&&a.formal!==false&&!a.repair&&typeof a.correct==="boolean"&&
+    matchesAssignedPracticeEvidence({
+      ...a,subject:input.subject,year:Number(input.year)||8,
+      dailyTaskId:taskId,formal:true,repair:false
+    },target,taskId)):[];
+  // Completion credit is based on the actual marked base questions in this
+  // session, not the number of times its result screen has been opened.
+  const unique=new Set(checked.map(a=>String(a.questionId)));
+  if(unique.size<Number(target.target)||target.done)return false;
+  const dayKey=date+":"+taskId;
+  const proof={taskId,day:date,subject:input.subject,
+    topicId:target.assignedTopic||target.reviewTopic||null,
+    questionIds:[...unique].slice(0,Number(target.target)),
+    firstPassCorrect:checked.filter(a=>a.correct).length,
+    source:"verified-session-completion",at:new Date().toISOString()};
+  const tasks=row.tasks.map(t=>t.id===taskId?{
+    ...t,progress:Number(t.target),done:true,recovered:true,
+    recoveredFromSession:true
+  }:t);
+  const done=tasks.filter(t=>t.done||Number(t.progress)>=Number(t.target)).length;
+  const proofs={...(current.recoverySessionProofByDay||{})};
+  proofs[dayKey]=proof;
+  store.setState({
+    recoverySessionProofByDay:proofs,
+    dailyLog:{...(current.dailyLog||{}),[date]:{
+      ...row,tasks,done,total:tasks.length,complete:done===tasks.length
+    }}
+  });
+  return true;
+ }catch(error){console.warn("Recovery session completion could not be recorded",error);return false}
+}
+if(typeof globalThis!=="undefined")globalThis.LuxRecoveryCommitCompletedSession=commitCompletedRecoverySession;
+
 function backfillDatedFocusEvidence(){
  const original=store.getState(),today=todayKey();
  let next=original;
