@@ -157,8 +157,26 @@ async function restoreArchivedDailyRecord(){
        try{parsed=JSON.parse(snapshot.data)}catch{continue}
        if(parsed?.app!=="lux-scholar-garden"||!parsed.state)continue;
        const old=parsed.state;
-       candidates=mergeDailyHistory(candidates,
-         reconcileOriginalCurriculumHistory(old,old.dailyLog||{}));
+       // Also reconstruct dates whose original dailyLog was accidentally
+       // replaced, but whose marked recovery proof survives in an older backup.
+       // All credit is derived from already SAVED answers, not this UI action.
+       const oldHistory=reconcileOriginalCurriculumHistory(old,
+         reconcileRecoveredTaskHistory(old,old.dailyLog||{}));
+       candidates=mergeDailyHistory(candidates,oldHistory);
+       for(const [proofDate,bySubject] of Object.entries(old.recoveryVocabByDay||{})){
+         const historical=candidates[proofDate];
+         if(!historical?.tasks?.length)continue;
+         const repaired=historical.tasks.map(task=>{
+           const lang=task.id==="french-vocab"?"french":
+             task.id==="latin-vocab"?"latin":null;
+           return lang&&bySubject?.[lang]?.completed===true
+             ?{...task,progress:Math.max(Number(task.progress)||0,Number(task.target)||30),
+               done:true,recovered:true}:task;
+         });
+         candidates=mergeDailyHistory(candidates,{[proofDate]:{
+           ...historical,tasks:repaired
+         }});
+       }
        // The newest day in an old snapshot can still live in state.daily,
        // before it was sealed into dailyLog at midnight.
        if(/^\d{4}-\d{2}-\d{2}$/.test(old.today||"")&&
