@@ -69,3 +69,63 @@ export function mergeDailyHistory(existing,incoming){
  }
  return output;
 }
+
+// Original-day Foundation records use dailyCurriculumEvidenceByDay rather than
+// Recovery's recoveryFor marker. Rebuild only from saved, task-scoped answers.
+export function reconcileOriginalCurriculumHistory(state,history){
+ const existing=history&&typeof history==="object"?history:{};
+ let out=existing;
+ const ledger=state?.dailyCurriculumEvidenceByDay||{};
+ const attemptLog=Array.isArray(state?.formalAttemptLog)?state.formalAttemptLog:[];
+ const ids=new Set(["y8-practise","y8-mastery","year8-long-review"]);
+ for(const [date,row] of Object.entries(existing)){
+   if(!validDate(date)||!tasksOf(row).length)continue;
+   let changed=false;
+   const tasks=row.tasks.map(task=>{
+     if(!ids.has(task.id)||isDone(task))return task;
+     let topic=task.assignedTopic||task.reviewTopic||null;
+     let subject=task.assignedSubject||task.reviewSubject||null;
+     const href=String(task.href||"");
+     const route=href.match(/^\/study\/(french|latin|biology|chemistry|physics)\/practise(?:\?|\/|$)/);
+     if(!subject)subject=route?.[1]||null;
+     if(!topic){
+       const query=href.split("?")[1]||"";
+       const param=query.split("&").find(x=>x.startsWith("topic="));
+       if(param){try{topic=decodeURIComponent(param.slice(6))}catch{}}
+     }
+     const byTopic=ledger?.[date]?.[task.id]||{};
+     if(!topic){
+       // No original assignment? Use only a single explicitly tagged
+       // curriculum topic from the saved day's own task evidence.
+       const keys=Object.keys(byTopic);
+       if(keys.length===1)topic=keys[0];
+     }
+     let count=0;
+     if(topic){
+       const bucket=byTopic[topic]||{};
+       const foundation=Object.entries(bucket.foundation||{}).filter(([,v])=>v===true).length;
+       const mastery=Object.entries(bucket.mastery||{}).filter(([,v])=>v===true).length;
+       count=task.id==="y8-practise"?foundation:Math.min(10,foundation)+mastery;
+     }
+     // A separate original-day formal attempt history also proves genuine
+     // work, including on devices that failed to retain the phase ledger.
+     const attempts=attemptLog.filter(a=>a?.day===date&&!a.recoveryFor&&
+       a.dailyTaskId===task.id&&a.formal!==false&&!a.repair&&a.questionId&&
+       (!subject||a.subject===subject)&&(!topic||a.topicId===topic));
+     const distinct=new Set(attempts.map(a=>a.attemptId||(
+       a.at?String(a.questionId)+"@"+String(a.at):String(a.questionId)))).size;
+     count=Math.max(count,distinct);
+     const target=Math.max(1,nonneg(task.target));
+     const progress=Math.min(target,Math.max(nonneg(task.progress),count));
+     if(progress<=nonneg(task.progress))return task;
+     changed=true;
+     return {...task,progress,done:progress>=target,
+       correctedFromCurriculumEvidence:true};
+   });
+   if(!changed)continue;
+   const repaired=mergeDailyRecordRow(row,{date,tasks},date);
+   if(out===existing)out={...existing};
+   out[date]=repaired;
+ }
+ return out;
+}
