@@ -103,9 +103,49 @@ function commitCompletedRecoverySession(input){
 }
 if(typeof globalThis!=="undefined")globalThis.LuxRecoveryCommitCompletedSession=commitCompletedRecoverySession;
 
+// The route guard used to replace a Recovery link with today's frontier and
+// drop ?recover=. Those finished answers are still in the formal log, dated
+// today, with no recoveryFor. Give them back to the missed day only when the
+// subject AND topic are that day's own assignment. Never guess a subject.
+function reclaimRedirectedRecovery(state){
+ const today=todayKey();
+ const entries=(state?.formalAttemptLog||[]).filter(a=>
+   a&&a.questionId&&typeof a.correct==='boolean'&&a.formal!==false&&!a.repair&&
+   !a.recoveryFor&&(a.day===today||String(a.at||'').slice(0,10)===today)&&
+   !['french-vocab','latin-vocab'].includes(a.dailyTaskId)&&
+   !['french','latin'].includes(a.dailyVocab));
+ if(!entries.length)return state;
+ let next=state;
+ const used=new Set();
+ for(const back of [2,1]){
+   const date=dateAt(today,-back);
+   for(const taskId of ['y8-practise','y8-mastery','year8-long-review']){
+     const task=next.dailyLog?.[date]?.tasks?.find(t=>t.id===taskId);
+     if(!task||task.done||Number(task.progress)>=Number(task.target))continue;
+     const subject=task.assignedSubject||task.reviewSubject||task.focusSubject;
+     const topic=task.assignedTopic||task.reviewTopic||task.focusTopic;
+     if(!subject||!topic)continue;
+     const matched=entries.filter(a=>!used.has(a.attemptId||a.at||a.questionId)&&
+       a.subject===subject&&a.topicId===topic);
+     const keys=matched.map(a=>a.attemptId||a.at||a.questionId);
+     if(new Set(keys).size<Number(task.target))continue;
+     let accepted=false;
+     for(const entry of matched){
+       const outcome=recordRecoveryAnswer(next,{
+         today,date,taskId,
+         questionId:String(entry.questionId)+'@'+(entry.attemptId||entry.at||'reclaimed'),
+         correct:!!entry.correct
+       });
+       if(outcome.accepted){next=outcome.state;accepted=true;}
+     }
+     if(accepted)for(const key of keys)used.add(key);
+   }
+ }
+ return next;
+}
 function backfillDatedFocusEvidence(){
  const original=store.getState(),today=todayKey();
- let next=original;
+ let next=reclaimRedirectedRecovery(original);
  for(let back=1;back<=2;back++){
    const date=dateAt(today,-back);
    const day=next.dailyLog?.[date];

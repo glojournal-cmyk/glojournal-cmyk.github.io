@@ -2,8 +2,16 @@ import {C as store,st as getTopicCatalog} from './index-BLVOhKhN.js?v=20261017-u
 import {curriculumFrontier,curriculumHref,progressionSubjects} from './daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2';
 function queryValue(params,key){return String(params.get(key)||'').replace(/^["']|["']$/g,'');}
 function learning(){try{return JSON.parse(localStorage.getItem('lux-topic-learning-v1')||'{}')}catch{return {}}}
+function recoveryRouteShouldStay(params){
+ // A 48-hour Recovery link carries the MISSED day's date. Rewriting it to
+ // today's frontier deleted that date, so a finished 10/10 never reached
+ // the original Foundation task.
+ const date=queryValue(params,'recover');
+ return /^\d{4}-\d{2}-\d{2}$/.test(date);
+}
 function safeDailyHref(url){
  if(url.origin!==location.origin||queryValue(url.searchParams,'daily')!=='1')return null;
+ if(recoveryRouteShouldStay(url.searchParams))return null;
  const subject=progressionSubjects.find(s=>url.pathname.includes(`/study/${s}/practise`));if(!subject)return null;
  const taskId=queryValue(url.searchParams,'task'),mode=queryValue(url.searchParams,'mode');
  if(['french-vocab','latin-vocab','mistake-review'].includes(taskId)||['y8vocab','mistakes'].includes(mode))return null;
