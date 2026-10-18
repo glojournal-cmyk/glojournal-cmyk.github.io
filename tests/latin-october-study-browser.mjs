@@ -16,7 +16,7 @@ try{for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
  for(const t of topics){const link=page.locator(`a[href*="/study/latin/practise?topic=${t.topicId}"]`);assert.equal(await link.count(),1)}
  await page.screenshot({path:`test-results/latin-study/${name}-topic-library.png`,fullPage:true});
  for(const t of topics){
-  await page.goto(`${base}/study/latin/learn?year=9&topic=${t.topicId}`);await page.getByText(t.title,{exact:true}).first().waitFor({timeout:45000});
+  await page.goto(`${base}/study/latin/learn?year=9&topic=${t.topicId}`);await page.getByRole('heading',{name:t.title,exact:true}).waitFor({timeout:45000});
   await page.goto(`${base}/study/latin/practise?year=9&topic=${t.topicId}&mode=quick`);const question=page.locator('[data-question-id]').first();await question.waitFor({timeout:45000});
   const id=await question.getAttribute('data-question-id');const source=bank.questions.find(q=>q.id===id);assert(source);assert.equal('la-y9-oct17-'+source.topicId,t.topicId);
   const answer=question.locator('input:not([type=checkbox]),textarea').first();await answer.fill(source.modelAnswer);await question.getByRole('button',{name:'Submit',exact:true}).click();await question.getByText('Well done!',{exact:true}).waitFor();await question.getByText('Marking scheme',{exact:false}).first().waitFor();
