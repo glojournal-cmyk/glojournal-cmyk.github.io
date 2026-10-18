@@ -2389,6 +2389,8 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   // Keep core XP/review scheduling, but stop its old streak-only topic mastery from running.
   const inRecovery = typeof window !== "undefined" && new URLSearchParams(window.location.search).has("recover");
   const recoverDate = inRecovery ? new URLSearchParams(window.location.search).get("recover") : null;
+  const markedAt=new Date().toISOString();
+  const attemptId=markedAt+":"+(++recoveryAttemptSequence);
   const coreMeta = { ...meta, topicId: undefined, excludeGeneralDaily: inRecovery };
   const result = originalRecordAttempt(questionId, correct, subject, coreMeta);
   // Core question learning may still earn ordinary XP, but dated catch-up
@@ -2418,20 +2420,35 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     const subjectMatches = !assignedSubject || assignedSubject === (resolved.subject || subject);
     const topicMatches = !assignedTopic || assignedTopic === resolved.topicId;
     if (actual && supported.includes(taskId) && taskId===evidenceTask && subjectMatches && topicMatches && canRecover(todayKey(),date)) {
-      // Study and Subject focus must both count the SAME genuine, matching
-      // answers. Do not force another 4 questions on top of 10 completed.
-      const creditIds = (taskId==="study-session" || taskId==="adaptive-focus")
-        ? ["study-session","adaptive-focus"] : [taskId];
+      // All three Year 8 tasks can share REAL formal marked evidence only
+      // when its subject/topic matches EACH historical assignment.
+      // Different topics are never awarded each other's questions.
+      const event={questionId,correct:!!correct,formal:meta.formal!==false,
+        repair:!!meta.repair,subject:resolved.subject||subject,
+        topicId:resolved.topicId,year:Number(meta.yearOverride||before.year||9),
+        dailyTaskId:taskId};
+      const creditIds=new Set([taskId]);
+      if(!meta.repair&&meta.formal!==false){
+        creditIds.add("study-session");
+        creditIds.add("adaptive-focus");
+        for(const id of YEAR8_RECOVERY_TASKS){
+          const target=preparedDay.dailyLog?.[date]?.tasks?.find(t=>t.id===id);
+          if(eligibleYear8Evidence(event,target,id))creditIds.add(id);
+        }
+      }
       let nextState=store.getState(),accepted=false;
       for(const id of creditIds){
         const candidate=nextState.dailyLog?.[date]?.tasks?.find(t=>t.id===id);
         if(!candidate)continue;
         const candidateSubject=candidate.focusSubject||candidate.assignedSubject||candidate.reviewSubject;
         const candidateTopic=candidate.focusTopic||candidate.assignedTopic||candidate.reviewTopic;
-        if(candidateSubject && candidateSubject!==(resolved.subject||subject))continue;
-        if(candidateTopic && candidateTopic!==resolved.topicId)continue;
+        if(id!=="study-session"&&candidateSubject&&candidateSubject!==(resolved.subject||subject))continue;
+        if(id!=="study-session"&&candidateTopic&&candidateTopic!==resolved.topicId)continue;
+        if(YEAR8_RECOVERY_TASKS.includes(id)&&!eligibleYear8Evidence(event,candidate,id))continue;
+        const savedKey=YEAR8_RECOVERY_TASKS.includes(id)
+          ?String(questionId)+"@"+attemptId : questionId;
         const outcome=recordRecoveryAnswer(nextState,{
-          today:todayKey(),date,taskId:id,questionId,correct:!!correct
+          today:todayKey(),date,taskId:id,questionId:savedKey,correct:!!correct
         });
         if(outcome.accepted){nextState=outcome.state;accepted=true;}
       }
@@ -2442,7 +2459,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     }
   }
   store.setState({formalAttemptLog: globalThis.LuxWeeklyEvidence.append(before.formalAttemptLog, {
-    at: new Date().toISOString(), questionId, correct: !!correct,
+    at: markedAt, attemptId, questionId, correct: !!correct,
     subject: resolved.subject || subject, year: Number(meta.yearOverride || before.year || 9),
     topicId: resolved.topicId || null, topicTitle: resolved.topicTitle || meta.topicTitle || resolved.topicId || "General practice",
     formal: meta.formal !== false, repair: !!meta.repair,
