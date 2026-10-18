@@ -1,10 +1,10 @@
 {
-  "version": "2.4.1+biology-school-20260927-chem-aqa-20260930-fullmarks2-y7-vocab-complete",
-  "buildDate": "2026-10-03",
+  "version": "2.4.1+biology-school-20260927-chem-aqa-20260930-fullmarks2-y7-vocab-complete+fr-future-oct17",
+  "buildDate": "2026-10-18",
   "totals": {
-    "topics": 279,
-    "questions": 16004,
-    "enabled": 14875,
+    "topics": 282,
+    "questions": 16405,
+    "enabled": 15276,
     "preview": 266,
     "disabled": 863
   },
@@ -39,11 +39,11 @@
     {
       "subject": "french",
       "year": 9,
-      "topics": 36,
-      "enabled": 1152,
+      "topics": 39,
+      "enabled": 1553,
       "preview": 0,
       "disabled": 0,
-      "questions": 1152
+      "questions": 1553
     },
     {
       "subject": "english",
@@ -5892,6 +5892,66 @@
       "unitId": "biology-y8-review",
       "unitName": "Mixed Year 8 review",
       "diagramQuestions": 0
+    },
+    {
+      "subject": "french",
+      "year": 9,
+      "topicId": "fr-y9-oct17-future-tense-holidays",
+      "title": "Future Tense & Holidays — grammar",
+      "status": "enabled",
+      "enabled": 98,
+      "preview": 0,
+      "disabled": 0,
+      "formats": {
+        "typed_equivalent": 90,
+        "mc_single": 8
+      },
+      "gated": false,
+      "unitId": "fr-y9-school-oct17",
+      "unitName": "School lesson · Future plans & holidays",
+      "questions": 98,
+      "diagramQuestions": 0,
+      "sourceId": "teacher-future-tense-20261017"
+    },
+    {
+      "subject": "french",
+      "year": 9,
+      "topicId": "fr-y9-oct17-future-tense-holidays-vocabulary",
+      "title": "Holiday vocabulary — places, transport, activities & opinions",
+      "status": "enabled",
+      "enabled": 275,
+      "preview": 0,
+      "disabled": 0,
+      "formats": {
+        "typed_equivalent": 138,
+        "controlled_translation": 137
+      },
+      "gated": false,
+      "unitId": "fr-y9-school-oct17",
+      "unitName": "School lesson · Future plans & holidays",
+      "questions": 275,
+      "diagramQuestions": 0,
+      "sourceId": "teacher-future-tense-20261017"
+    },
+    {
+      "subject": "french",
+      "year": 9,
+      "topicId": "fr-y9-oct17-future-tense-holidays-reading-translation",
+      "title": "Future holiday plans — translation & reading",
+      "status": "enabled",
+      "enabled": 28,
+      "preview": 0,
+      "disabled": 0,
+      "formats": {
+        "controlled_translation": 16,
+        "typed_equivalent": 12
+      },
+      "gated": false,
+      "unitId": "fr-y9-school-oct17",
+      "unitName": "School lesson · Future plans & holidays",
+      "questions": 28,
+      "diagramQuestions": 0,
+      "sourceId": "teacher-future-tense-20261017"
     }
   ],
   "units": {
