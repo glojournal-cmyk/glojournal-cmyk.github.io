@@ -22,7 +22,7 @@ function recoveryRows(state){
    const target=Math.max(1,30-base);
    const current=Math.max(0,Object.values(rec.items||{}).filter(Boolean).length);
    const credited=state.dailyLog?.[date]?.tasks?.some(t=>t.id===subject+'-vocab' && (t.done || Number(t.progress)>=Number(t.target)));
-   out.push({date,subject,base,target,current,credited:!!credited,done:rec.completed===true||current>=target,
+   out.push({date,subject,base,target,current,credited:!!credited,done:!!credited||rec.completed===true||current>=target,
     url:"/study/"+subject+"/practise?daily=1&locked=1&year=8&mode=y8vocab&task="+subject+"-vocab&recover="+date});
   }
  }

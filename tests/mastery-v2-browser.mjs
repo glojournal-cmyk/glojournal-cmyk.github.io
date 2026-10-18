@@ -38,7 +38,12 @@ for(const engine of [chromium,webkit]){
   await page.goto(base+standards[0].href,{waitUntil:'domcontentloaded'});
   await page.waitForTimeout(1200);
   assert.ok((await page.locator('body').innerText()).length>200);
-  assert.equal(errors.length,0,JSON.stringify({engine:engine.name(),errors,failedRequests}));
+  // Safari/WebKit reports aborted old-document fetches as access-control
+  // pageerrors during a full navigation. The route sweep separately checks
+  // every page for HTTP failures; keep all other errors fatal here.
+  const routeErrors=errors.filter(message=>!(engine===webkit && failedRequests.length===0 &&
+    /Fetch API cannot load .* due to access control checks/.test(message)));
+  assert.equal(routeErrors.length,0,JSON.stringify({engine:engine.name(),errors:routeErrors,failedRequests}));
   await browser.close();
 }
 console.log('Mastery 2.0 browser QA: 1024px iPad viewport, assignments, reload, Study route in Chromium and WebKit.');
