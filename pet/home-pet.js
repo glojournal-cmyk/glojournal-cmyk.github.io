@@ -1,8 +1,8 @@
 import {STAGE_NAMES, clampPetLevel} from './pet-evolution-config-20261012.js?ux=20261013-corrections2';
-import {spriteStyle} from '/pet/pet-art-hd-20261009.js?v=20261018-starlight1&ux=20261013-corrections2';
+import {spriteStyle} from '/pet/pet-art-hd-20261009.js?v=20261018-starlight2&ux=20261013-corrections2';
 import { getCareSummary } from "/pet/pet-care-state.js?v=20261003-care1&ux=20261013-corrections2";
 import {readyHomeReaction} from '/pet/quest-home-reaction-20261010.js?ux=20261013-corrections2';
-import {getHomePersonality} from '/pet/home-personality-20261010.js?v=20261012-level10&ux=20261013-corrections2';
+import {getHomePersonality} from '/pet/home-personality-20261010.js?v=20261018-starlight2&ux=20261013-corrections2';
 
 // The progression guard imports the React app bundle. Loading it on the
 // standalone Pet page makes React replace that page with an empty root.
