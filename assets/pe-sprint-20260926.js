@@ -9,8 +9,8 @@ const meta = {
   id: "pe-circuit",
   name: "Scholar Sprint",
   kicker: "PE · House Games",
-  blurb: "Eight circuits on the school track. Earn two stars to open the next one.",
-  levels: 8,
+  blurb: "House circuits 1–8, then Focus 9–16. Two stars open the next one.",
+  levels: 16,
 };
 
 const CIRCUITS = [
@@ -22,6 +22,14 @@ const CIRCUITS = [
   ["Full Circuit", "Keep the rhythm.", ["dodge", "target", "feet", "memory"]],
   ["Elite", "Speed and precision.", ["reaction", "feet", "target", "hold"]],
   ["House Final", "Fast, precise, fair.", ["feet", "reaction", "memory", "dodge"]],
+  ["Switch Warm-up", "Two rules. Notice when they flip.", ["switch", "reaction", "switch"]],
+  ["Dual Attention", "Switch, then a chain, then the mark.", ["switch", "memory", "target"]],
+  ["Pressure Switch", "Rules turn faster. Then dodge, then hold.", ["switch", "dodge", "hold"]],
+  ["Focus Final", "After a switch, the first miss counts.", ["switch", "target", "reaction"]],
+  ["Rapid Switch", "Two switch blocks. Do not keep the old rule.", ["switch", "switch", "dodge"]],
+  ["Detail Under Load", "A tight goal, then rules that keep moving.", ["target", "memory", "switch"]],
+  ["Sustained Focus", "Hold the time, then stay with the rule.", ["hold", "switch", "reaction"]],
+  ["Focus Master", "The full set. Watch the rule, not the habit.", ["switch", "memory", "target", "dodge"]],
 ];
 
 const NAME = {
@@ -31,6 +39,7 @@ const NAME = {
   memory: "Footwork",
   hold: "Balance",
   dodge: "Dodge Lane",
+  switch: "Rule Switch",
 };
 const HINT = {
   feet: "Step on the lit marker.",
@@ -39,6 +48,7 @@ const HINT = {
   memory: "Copy the cones.",
   hold: "Hold, then release on the gold mark.",
   dodge: "Take the open lane.",
+  switch: "Read the rule, then tap the side it names.",
 };
 
 const DISPLAY = '"Cormorant Garamond", Palatino, Georgia, serif';
@@ -289,36 +299,51 @@ function drawFx(ctx, sim, dt) {
 }
 
 function makeSim(mode, level) {
+  const house = Math.min(level, 8);
   const sim = { mode, level, fx: [], pops: [], shake: 0, reported: false, born: performance.now() };
-  if (mode === "feet") {
-    sim.goal = 14 + level * 2;
+  if (mode === "switch") {
+    sim.total = level >= 16 ? 18 : level >= 13 ? 16 : level >= 11 ? 14 : 12;
+    sim.scores = [];
+    sim.rules = level >= 14 ? ["red", "circle", "opposite", "skip"] : level >= 10 ? ["red", "circle", "opposite"] : ["red", "circle"];
+    sim.every = level >= 15 ? 4 : level >= 11 ? 5 : 6;
+    sim.limit = level >= 16 ? 1200 : level >= 13 ? 1350 : level >= 11 ? 1500 : 1800;
+    sim.buffer = level < 12;
+    sim.rule = sim.rules[0];
+    sim.since = 0;
+    sim.phase = "live";
+    sim.practice = false;
+    sim.banner = "";
+    sim.deadline = 0;
+    dealSwitch(sim, false);
+  } else if (mode === "feet") {
+    sim.goal = 14 + house * 2;
     sim.count = 0;
     sim.side = "left";
     sim.err = 0;
     sim.start = 0;
     sim.stepUntil = 0;
   } else if (mode === "reaction") {
-    sim.total = 4 + Math.ceil(level / 2);
+    sim.total = 4 + Math.ceil(house / 2);
     sim.phase = "ready";
     sim.scores = [];
     sim.goAt = 0;
     sim.deadline = 0;
     sim.retryAt = 0;
     sim.text = "SET";
-    sim.window = Math.max(900, 1500 - level * 60);
+    sim.window = Math.max(900, 1500 - house * 60);
   } else if (mode === "target") {
-    sim.total = 4 + (level >= 6 ? 1 : 0);
-    sim.width = Math.max(14, 34 - level * 2.5);
+    sim.total = 4 + (house >= 6 ? 1 : 0);
+    sim.width = Math.max(14, 34 - house * 2.5);
     sim.round = 0;
     sim.scores = [];
     sim.locked = false;
     sim.ball = null;
     sim.start = performance.now();
   } else if (mode === "memory") {
-    sim.total = 3 + (level >= 6 ? 1 : 0);
+    sim.total = 3 + (house >= 6 ? 1 : 0);
     sim.round = 0;
     sim.scores = [];
-    sim.len = Math.min(6, 2 + Math.ceil(level / 2));
+    sim.len = Math.min(6, 2 + Math.ceil(house / 2));
     sim.input = [];
     sim.flash = null;
     beginMemory(sim);
@@ -326,13 +351,13 @@ function makeSim(mode, level) {
     sim.total = 4;
     sim.round = 0;
     sim.scores = [];
-    sim.target = 900 + level * 90;
+    sim.target = 900 + house * 90;
     sim.holding = false;
     sim.elapsed = 0;
     sim.start = 0;
     sim.lock = false;
   } else {
-    sim.total = 6 + level;
+    sim.total = 6 + house;
     sim.round = 0;
     sim.scores = [];
     sim.started = false;
@@ -342,13 +367,111 @@ function makeSim(mode, level) {
   return sim;
 }
 
+
+const RULE_WORD = { red: "RED", circle: "CIRCLE", opposite: "OPPOSITE", skip: "NOT RED" };
+const RULE_LINE = {
+  red: "Tap the red mark.",
+  circle: "Tap the circle.",
+  opposite: "Tap the other side.",
+  skip: "Tap the mark that is not red. If both are red, wait.",
+};
+
+function dealSwitch(sim, keepRule) {
+  if (!keepRule) {
+    sim.since += 1;
+    if (sim.since > 1 && (sim.since - 1) % sim.every === 0) {
+      const at = sim.rules.indexOf(sim.rule);
+      sim.rule = sim.rules[(at + 1) % sim.rules.length];
+      sim.practice = sim.buffer;
+      sim.banner = "Rule changed";
+    } else {
+      sim.practice = false;
+      sim.banner = "";
+    }
+  } else {
+    sim.practice = false;
+    sim.banner = "";
+  }
+  const shapes = ["square", "circle"];
+  const colors = ["red", "gold"];
+  const rule = sim.rule;
+  if (rule === "opposite") {
+    sim.kind = "opposite";
+    sim.point = Math.random() > 0.5 ? "left" : "right";
+    sim.answer = sim.point === "left" ? "right" : "left";
+    sim.left = null;
+    sim.right = null;
+  } else if (rule === "skip" && Math.random() < 0.34) {
+    sim.kind = "marks";
+    sim.left = { shape: shapes[Math.floor(Math.random() * 2)], color: "red" };
+    sim.right = { shape: shapes[Math.floor(Math.random() * 2)], color: "red" };
+    sim.answer = "wait";
+  } else if (rule === "skip") {
+    sim.kind = "marks";
+    const side = Math.random() > 0.5 ? "left" : "right";
+    sim.left = { shape: shapes[Math.floor(Math.random() * 2)], color: side === "left" ? "gold" : "red" };
+    sim.right = { shape: shapes[Math.floor(Math.random() * 2)], color: side === "right" ? "gold" : "red" };
+    sim.answer = side;
+  } else {
+    sim.kind = "marks";
+    const side = Math.random() > 0.5 ? "left" : "right";
+    const mark = (match) =>
+      rule === "red"
+        ? { shape: shapes[Math.floor(Math.random() * 2)], color: match ? "red" : "gold" }
+        : { shape: match ? "circle" : "square", color: colors[Math.floor(Math.random() * 2)] };
+    sim.left = mark(side === "left");
+    sim.right = mark(side === "right");
+    sim.answer = side;
+  }
+  sim.phase = "live";
+  sim.deadline = performance.now() + sim.limit;
+}
+
+function paintMark(ctx, x, y, mark) {
+  const color = mark.color === "red" ? "#c4553d" : "#d4a44e";
+  ctx.fillStyle = color;
+  if (mark.shape === "circle") {
+    ctx.beginPath();
+    ctx.arc(x, y, 28, 0, Math.PI * 2);
+    ctx.fill();
+  } else {
+    rr(ctx, x - 26, y - 26, 52, 52, 8);
+    ctx.fill();
+  }
+}
+
+function switchPads(ctx, hits, L, sim) {
+  const gap = 14;
+  const w = (L.w - 36 - gap) / 2;
+  const y = L.padTop;
+  [["left", 18], ["right", 18 + w + gap]].forEach(([id, x]) => {
+    stone(ctx, x, y, w, L.padH, false, 0.4);
+    hits.push({ id, x, y, w, h: L.padH });
+    const cx = x + w / 2;
+    const cy = y + L.padH / 2;
+    if (sim.kind === "opposite") chevron(ctx, cx, cy, sim.point, "#16324a");
+    else paintMark(ctx, cx, cy, id === "left" ? sim.left : sim.right);
+  });
+}
+
+function scoreSwitch(sim, sc, now, sound, onDone) {
+  if (sim.phase !== "live") return;
+  sound && (sc >= 60 ? chime() : miss());
+  if (!sc) sim.shake = 8;
+  sim.scores.push(sc);
+  sim.phase = "gap";
+  sim.retryAt = now + 280;
+  sim.pops.push({ text: sc ? String(sc) : "Miss", x: 0, y: 0, t: now, life: 600, color: "#fff4d2" });
+  if (sim.scores.length >= sim.total) finish(sim, avg(sim.scores), onDone);
+}
+
 function beginMemory(sim) {
   const dirs = ["up", "right", "down", "left"];
   sim.seq = Array.from({ length: sim.len }, () => dirs[Math.floor(Math.random() * 4)]);
   sim.input = [];
   sim.showing = true;
   sim.flash = null;
-  const flash = Math.max(270, 620 - sim.level * 38);
+  const flash = Math.max(270, 620 - Math.min(sim.level, 8) * 38);
   let t = 360;
   sim.timeline = [];
   for (const id of sim.seq) {
@@ -362,7 +485,7 @@ function beginMemory(sim) {
 }
 
 function targetPos(sim, now) {
-  const speed = Math.max(1050, 2100 - sim.level * 110);
+  const speed = Math.max(1050, 2100 - Math.min(sim.level, 8) * 110);
   const q = ((now - sim.start) % speed) / speed;
   return q < 0.5 ? q * 200 : (1 - q) * 200;
 }
@@ -493,6 +616,22 @@ function pressSim(sim, id, kind, now, sound, onDone) {
         sim.startedAt = now;
       }
     }
+  } else if (sim.mode === "switch" && sim.phase === "live" && kind === "down" && (id === "left" || id === "right")) {
+    if (sim.practice) {
+      const ok = id === sim.answer;
+      sound && (ok ? chime() : miss());
+      if (!ok) sim.shake = 6;
+      sim.banner = ok ? "New rule" : "Read the rule";
+      dealSwitch(sim, true);
+      return;
+    }
+    if (sim.answer === "wait") {
+      scoreSwitch(sim, 0, now, sound, onDone);
+      return;
+    }
+    const ms = Math.max(0, sim.limit - (sim.deadline - now));
+    const sc = id === sim.answer ? (ms <= 500 ? 100 : ms <= 800 ? 86 : ms <= 1200 ? 72 : 58) : 0;
+    scoreSwitch(sim, sc, now, sound, onDone);
   }
 }
 
@@ -548,6 +687,17 @@ function tickSim(sim, now) {
       sim.lock = false;
       sim.elapsed = 0;
       sim.retryAt = 0;
+    }
+  } else if (sim.mode === "switch") {
+    if (sim.phase === "live" && sim.deadline && now >= sim.deadline) {
+      if (sim.practice) {
+        sim.banner = "Go";
+        dealSwitch(sim, true);
+        return;
+      }
+      scoreSwitch(sim, sim.answer === "wait" ? 100 : 0, now, false, sim.onDone);
+    } else if (sim.phase === "gap" && sim.retryAt && now >= sim.retryAt && sim.scores.length < sim.total && !sim.reported) {
+      dealSwitch(sim, false);
     }
   }
 }
@@ -767,6 +917,18 @@ function drawPlay(ctx, L, sim, now, hits, stationAt, stations, runScore) {
       if (lane === "left") sx = L.w * 0.28;
       if (lane === "right") sx = L.w * 0.72;
     }
+  } else if (sim.mode === "switch") {
+    pose = "blocks";
+    frame = 1;
+    sx = L.w * 0.5;
+    label(ctx, sim.banner || RULE_WORD[sim.rule], L.w / 2, L.hud + 28, `600 ${L.land ? 42 : 34}px ${DISPLAY}`, "#16324a", "center");
+    label(ctx, RULE_LINE[sim.rule], L.w / 2, L.hud + 58, `500 15px ${SANS}`, "#6d7874", "center");
+    switchPads(ctx, hits, L, sim);
+    const anchor = sim.pops[sim.pops.length - 1];
+    if (anchor && anchor.x === 0) {
+      anchor.x = L.w * 0.5;
+      anchor.y = L.hud + 8;
+    }
   }
 
   drawScholar(ctx, pose, frame, sx, sy, L.scholarH, flip);
@@ -778,9 +940,11 @@ function drawPlay(ctx, L, sim, now, hits, stationAt, stations, runScore) {
   pops(ctx, sim.pops, now);
 }
 
-function MapScreen({ onPick, unlocked = 1, stars = [], points = 0, streak = 0, count = 8 }) {
-  const n = Math.max(1, Math.min(8, count || 8));
-  const openLevel = Math.max(1, Math.min(n, unlocked));
+function MapScreen({ onPick, unlocked = 1, stars = [], points = 0, streak = 0 }) {
+  const n = CIRCUITS.length;
+  const houseClear = (stars[7] || 0) >= 2;
+  let openLevel = Math.max(1, Math.min(n, unlocked));
+  if (houseClear) openLevel = Math.max(openLevel, 9);
   const current = CIRCUITS[openLevel - 1];
   return jsx.jsxs("div", {
     className: "mx-auto max-w-3xl space-y-6",
@@ -798,7 +962,7 @@ function MapScreen({ onPick, unlocked = 1, stars = [], points = 0, streak = 0, c
             children: [
               jsx.jsx("p", { className: "text-xs font-semibold tracking-[0.22em] text-navy uppercase", children: "PE · House Games" }),
               jsx.jsx("h1", { className: "mt-2 font-display text-4xl font-semibold text-ink", children: "Scholar Sprint" }),
-              jsx.jsx("p", { className: "mt-2 text-muted", children: "Eight circuits on the house track. Two stars open the next one." }),
+              jsx.jsx("p", { className: "mt-2 text-muted", children: "House 1–8, then Focus 9–16 on this page. Two stars open the next one." }),
             ],
           }),
           jsx.jsxs("div", {
@@ -830,7 +994,7 @@ function MapScreen({ onPick, unlocked = 1, stars = [], points = 0, streak = 0, c
         className: "grid gap-3 sm:grid-cols-2",
         children: Array.from({ length: n }, (_, i) => {
           const level = i + 1;
-          const open = level <= unlocked;
+          const open = level <= unlocked || (level === 9 && houseClear);
           const earned = stars[i] || 0;
           const hot = level === openLevel;
           const [title, focus] = CIRCUITS[i];
@@ -903,7 +1067,7 @@ function Arena({ level, onExit }) {
   const chrome = useChromeBox();
   const record = useStore((s) => s.recordPe);
   const sound = useStore((s) => s.sound);
-  const cfg = CIRCUITS[Math.min(8, Math.max(1, level)) - 1];
+  const cfg = CIRCUITS[Math.min(CIRCUITS.length, Math.max(1, level)) - 1];
   const [phase, setPhase] = useState("intro");
   const [at, setAt] = useState(0);
   const [scores, setScores] = useState([]);
