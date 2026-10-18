@@ -54,6 +54,79 @@ function reconcileCompletedRecoveries(){
 // independently cache-busted so older iPads running a cached core still
 // recover genuine saved answers without clearing Safari data or replaying
 // the full session.
+// A quiz can reach Session Complete while its per-question Recovery route
+// ledger was never committed. Accept a finished, marked QUESTION SESSION as
+// independent evidence, not a page visit or a click on a navigation link.
+function commitCompletedRecoverySession(input){
+ try{
+  const params=new URLSearchParams(location.search);
+  const date=params.get("recover"),taskId=params.get("task");
+  if(!date||date!==input?.date||taskId!==input?.taskId)return false;
+  if(!["y8-practise","y8-mastery","year8-long-review"].includes(taskId))return false;
+  if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(date)||!["french","latin","biology","chemistry","physics"].includes(input.subject))return false;
+  const current=store.getState(),row=current.dailyLog?.[date];
+  const target=row?.tasks?.find(task=>task.id===taskId);
+  if(!target||Number(target.target)<=0)return false;
+  const checked=Array.isArray(input.answers)?input.answers.filter(a=>
+    a&&a.questionId&&a.formal!==false&&!a.repair&&typeof a.correct==="boolean"&&
+    matchesAssignedPracticeEvidence({
+      ...a,subject:input.subject,year:Number(input.year)||8,
+      dailyTaskId:taskId,formal:true,repair:false
+    },target,taskId)):[];
+  // Completion credit is based on the actual marked base questions in this
+  // session, not the number of times its result screen has been opened.
+  const unique=new Set(checked.map(a=>String(a.questionId)));
+  if(unique.size<Number(target.target)||target.done)return false;
+  const dayKey=date+":"+taskId;
+  const proof={taskId,day:date,subject:input.subject,
+    topicId:target.assignedTopic||target.reviewTopic||null,
+    questionIds:[...unique].slice(0,Number(target.target)),
+    firstPassCorrect:checked.filter(a=>a.correct).length,
+    source:"verified-session-completion",at:new Date().toISOString()};
+  const tasks=row.tasks.map(t=>t.id===taskId?{
+    ...t,progress:Number(t.target),done:true,recovered:true,
+    recoveredFromSession:true
+  }:t);
+  const done=tasks.filter(t=>t.done||Number(t.progress)>=Number(t.target)).length;
+  const proofs={...(current.recoverySessionProofByDay||{})};
+  proofs[dayKey]=proof;
+  store.setState({
+    recoverySessionProofByDay:proofs,
+    dailyLog:{...(current.dailyLog||{}),[date]:{
+      ...row,tasks,done,total:tasks.length,complete:done===tasks.length
+    }}
+  });
+  return true;
+ }catch(error){console.warn("Recovery session completion could not be recorded",error);return false}
+}
+if(typeof globalThis!=="undefined")globalThis.LuxRecoveryCommitCompletedSession=commitCompletedRecoverySession;
+
+// This is NOT an invented answer log. A parent explicitly witnessed all ten
+// correct answers for Foundation Practice on 16 October 2026 and confirmed it
+// in their Studia support conversation. A manual attestation must remain
+// clearly distinguishable from automatically saved question evidence.
+function confirmParentWitnessedFoundation16(){
+ const date="2026-10-16",taskId="y8-practise";
+ const state=store.getState(),row=state.dailyLog?.[date];
+ const task=row?.tasks?.find(t=>t.id===taskId);
+ if(!task||task.done||Number(task.target)!==10)return false;
+ const tasks=row.tasks.map(t=>t.id===taskId?{
+   ...t,progress:10,done:true,recovered:true,
+   parentVerified:true,parentVerifiedOn:todayKey(),
+   completionSource:"parent-witnessed-10-correct"
+ }:t);
+ const count=tasks.filter(t=>t.done||Number(t.progress)>=Number(t.target)).length;
+ const ledger={...(state.parentVerifiedDailyTasks||{}),[date+":"+taskId]:{
+   target:10,correct:10,confirmedOn:todayKey(),source:"parent-witnessed", 
+   note:"Parent witnessed all 10 correct; the original quiz did not post completion"
+ }};
+ store.setState({parentVerifiedDailyTasks:ledger,
+   dailyLog:{...(state.dailyLog||{}),[date]:{
+     ...row,tasks,done:count,total:tasks.length,complete:count===tasks.length
+   }}
+ });
+ return true;
+}
 function backfillDatedFocusEvidence(){
  const original=store.getState(),today=todayKey();
  let next=original;
@@ -427,6 +500,23 @@ function mount(){
  });
  results.textContent=report.join('\n')||'No Recovery answer record was saved.';
  audit.append(auditTitle,note,results);
+ const parentDay=state.dailyLog?.["2026-10-16"];
+ const parentTask=parentDay?.tasks?.find(t=>t.id==="y8-practise");
+ if(parentTask&&!parentTask.done&&Number(parentTask.target)===10){
+   const repair=document.createElement("div");
+   repair.style.cssText="padding:12px 0;border-top:1px solid #ded5c1";
+   const label=document.createElement("p");
+   label.textContent="16 Oct · Foundation Practice: parent witnessed 10/10 correct, but the quiz failed to save completion. This is a labelled parent confirmation, not fabricated question results. It does not award XP.";
+   const btn=document.createElement("button");btn.type="button";
+   btn.textContent="I confirm · restore 16 Oct Foundation 10/10";
+   btn.addEventListener("click",()=>{
+     if(!window.confirm("Confirm you witnessed all 10 Foundation Practice answers correct for 16 October? This will credit the original date only, without extra XP."))return;
+     const ok=confirmParentWitnessedFoundation16();
+     btn.textContent=ok?"16 Oct Foundation credited · check Daily Record":"Unable to restore · check saved progress";
+     if(ok)btn.disabled=true;
+   });
+   repair.append(label,btn);audit.append(repair);
+ }
  host.append(audit);
 }
 const style=document.createElement("style");style.textContent=`
