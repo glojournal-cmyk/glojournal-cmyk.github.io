@@ -1,0 +1,59 @@
+name: Install Nocturne Spider approved evolution sprites
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/install-nocturne-spider-20261018.yml']
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Download the six approved full-body transparent PNG sprites
+        shell: bash
+        env:
+          SRC5: "https://at.adobe.com/FjH1rmbW84lpHb6T"
+          SRC6: "https://at.adobe.com/GZ9vMwONRADbPkLc"
+          SRC7: "https://at.adobe.com/wUq65yUEu1fpOElx"
+          SRC8: "https://at.adobe.com/VZCOYx28B9LKs22y"
+          SRC9: "https://at.adobe.com/3zaxCEFXMWwm0MGt"
+          SRC10: "https://at.adobe.com/UGoiDDD4zpF3EtEp"
+        run: |
+          set -euo pipefail
+          mkdir -p pet/art-nocturne-spider-20261018
+          for lv in 5 6 7 8 9 10; do
+            key="SRC${lv}"
+            target="pet/art-nocturne-spider-20261018/level-${lv}.png"
+            curl --fail --location --silent --show-error --retry 3 --retry-delay 4 --max-time 150 "${!key}" --output "${target}"
+            FILE="${target}" LV="${lv}" node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const b=fs.readFileSync(process.env.FILE);
+          if(b.subarray(0,8).toString('hex')!=='89504e470d0a1a0a') throw Error('Not PNG '+process.env.LV);
+          const w=b.readUInt32BE(16),h=b.readUInt32BE(20),c=b[25];
+          if(w!==1122||h!==1402||c!==6||b.length<1000000)throw Error('Wrong sprite size/alpha LV'+process.env.LV);
+          console.log('Nocturne Spider LV'+process.env.LV,w+'x'+h,b.length+' bytes');
+          NODE
+          done
+          {
+            echo "2f2975642a570ca0667c47f4781a11093e6d7ae7da139885903ba562413749d5  pet/art-nocturne-spider-20261018/level-5.png"
+            echo "423871f2c2f8ea923f8379f5f88996fb809d0ec737291630f9e8bf76e9e2c8c5  pet/art-nocturne-spider-20261018/level-6.png"
+            echo "7c894c8157a3f853168dff184230ee6a98d3a5b5bee957f1eb816b13457db751  pet/art-nocturne-spider-20261018/level-7.png"
+            echo "b5c31661781f732f107fa47a7f0abc495bb3e6340206d2412a88e9dfabe16e78  pet/art-nocturne-spider-20261018/level-8.png"
+            echo "fe2fc4caa3ae3c812d31a9c9d98f7d8cdf4d94cc6a4c9eba61914894b2758129  pet/art-nocturne-spider-20261018/level-9.png"
+            echo "99ffbeb4ce1737779d1046d9668bb680a61ad4a7d1a130217eee8791c7d1b45d  pet/art-nocturne-spider-20261018/level-10.png"
+          } | sha256sum --check --status
+          echo 'All 6 selected stages validated byte-for-byte'
+      - name: Publish sprites to GitHub Pages repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pet/art-nocturne-spider-20261018/level-{5,6,7,8,9,10}.png
+          if git diff --cached --quiet; then echo "Already present"; exit 0; fi
+          git commit -m "Install six approved Nocturne Spider LV5-LV10 transparent sprites"
+          git pull --rebase origin main
+          git push origin HEAD:main
