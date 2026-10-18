@@ -1,6 +1,8 @@
 /* Recovery Quest UI: read-only display; the app records eligible answers separately. */
 import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261017-recovery-completion3&ux=20261013-corrections2";
 import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer} from "./recovery-task-ledger-20261017.js?v=20261017-recovery-completion3";
+import {mergeDailyHistory,mergeDailyRecordRow} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
+import {readAllBackups} from "./backup-vault-20261011.js?v=20261011-vault2&ux=20261013-corrections2";
 const DAY_MS=86400000;
 const dateAt=(d,n)=>new Date(Date.parse(d+"T12:00:00Z")+n*DAY_MS).toISOString().slice(0,10);
 function recoveryRows(state){
@@ -132,6 +134,56 @@ function backfillDatedFocusEvidence(){
    });
  }
 }
+// A previous bad recompute may already have replaced the visible row.
+ // Keep the best *already saved* version in memory while navigating, and
+ // attempt non-destructive restoration from the existing iPad backup vault.
+let bestDailyHistory={};
+let archiveChecked=false;
+let archiveCheckPromise=null;
+let archiveRecoveredDays=0;
+function protectDailyRecord(){
+ const state=store.getState(),live=state.dailyLog||{};
+ bestDailyHistory=mergeDailyHistory(bestDailyHistory,live);
+ const saved=mergeDailyHistory(live,bestDailyHistory);
+ if(JSON.stringify(saved)!==JSON.stringify(live))store.setState({dailyLog:saved});
+}
+async function restoreArchivedDailyRecord(){
+ if(archiveChecked)return;
+ if(archiveCheckPromise)return archiveCheckPromise;
+ archiveCheckPromise=(async()=>{
+   try {
+     const snapshots=await readAllBackups();
+     let candidates={};
+     for(const snapshot of Object.values(snapshots||{})){
+       if(!snapshot?.data)continue;
+       let parsed=null;
+       try{parsed=JSON.parse(snapshot.data)}catch{continue}
+       if(parsed?.app!=="lux-scholar-garden"||!parsed.state)continue;
+       const old=parsed.state;
+       candidates=mergeDailyHistory(candidates,old.dailyLog||{});
+       // The newest day in an old snapshot can still live in state.daily,
+       // before it was sealed into dailyLog at midnight.
+       if(/^\\d{4}-\\d{2}-\\d{2}$/.test(old.today||"")&&
+           Array.isArray(old.daily)&&old.daily.length&&old.today<=todayKey()){
+         const recovered={date:old.today,tasks:old.daily.map(t=>({
+           ...t,done:t?.done===true||Number(t?.progress)>=Number(t?.target)
+         }))};
+         candidates=mergeDailyHistory(candidates,{[old.today]:recovered});
+       }
+     }
+     const before=store.getState(),current=before.dailyLog||{};
+     const repaired=mergeDailyHistory(current,candidates);
+     const changed=Object.entries(repaired).filter(([date,row])=>
+       JSON.stringify(current[date])!==JSON.stringify(row)).length;
+     bestDailyHistory=mergeDailyHistory(bestDailyHistory,repaired);
+     if(changed){archiveRecoveredDays+=changed;store.setState({dailyLog:repaired})}
+   }catch(error){
+     // A blocked/offline iPad vault is not a reason to clear existing data.
+     console.warn("Daily Record archived restore unavailable",error);
+   }finally{archiveChecked=true}
+ })().finally(()=>{archiveCheckPromise=null});
+ return archiveCheckPromise;
+}
 function mount(){
  // The router can return Home without loading a fresh HTML document.
  // The recovery module now loads on practice and game entry routes as well.
@@ -144,8 +196,11 @@ function mount(){
  // Reattach the SAME recovery panel, rather than waiting for an app restart.
  if(host.parentElement!==card)card.append(host);
  host.hidden=false;
+ protectDailyRecord();
+ if(!archiveChecked)void restoreArchivedDailyRecord();
  reconcileCompletedRecoveries();
  backfillDatedFocusEvidence();
+ protectDailyRecord();
 
  const state=store.getState(),today=todayKey(),rows=recoveryRows(state);
  const dates=[dateAt(today,-1),dateAt(today,-2)];
