@@ -40,7 +40,7 @@ try{for(const launcher of [chromium,webkit]){
  if(await toggle.getAttribute('aria-pressed')==='true')await toggle.click();
  await toggle.click();assert.equal(await toggle.getAttribute('aria-pressed'),'true');assert.ok(await page.evaluate(()=>__spoken.length>0));
  await page.evaluate(()=>{for(let i=0;i<3;i++)window.dispatchEvent(new CustomEvent('scholar:question-answered',{detail:{correct:true}}))});
- if(route!==''){await page.waitForSelector('.cx-answer-flash',{state:'visible',timeout:3000});assert.equal(await page.evaluate(()=>window.__luxPhase1LastAnswer?.path===location.pathname),true,'correct-answer event should reach the Study companion');}
+ if(route!==''){console.log('PHASE3_DIAG',JSON.stringify(await page.evaluate(()=>({path:location.pathname,buddy:document.getElementById('study-companion')?.outerHTML.slice(0,850),receipts:window.__luxPhase1LastAnswer||null,flash:document.querySelector('.cx-answer-flash')?.outerHTML||null,resources:performance.getEntriesByType('resource').map(x=>x.name).filter(x=>/companion-experience|phase7-voice|phase3/i.test(x))}))));await page.waitForSelector('.cx-answer-flash',{state:'visible',timeout:3000});assert.equal(await page.evaluate(()=>window.__luxPhase1LastAnswer?.path===location.pathname),true,'correct-answer event should reach the Study companion');}
  await toggle.click();assert.equal(await toggle.getAttribute('aria-pressed'),'false');assert.equal(await snapshot(),before,'feedback does not award or credit anything');
  await page.waitForTimeout(1500);assert.equal(await page.locator('#lux-voice-cheer-toggle').count(),1);assert.equal(await page.locator('#lux-loading-recovery').count(),0);
  }
