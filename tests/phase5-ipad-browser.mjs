@@ -37,8 +37,10 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
  const preview=page.locator('main img[src^="/art/doll/"]').first();await preview.evaluate(img=>img.decode());assert.equal(await preview.evaluate(img=>getComputedStyle(img).objectFit),'contain');assert.equal(await preview.getAttribute('decoding'),'async');
  const undersized=await page.evaluate(()=>[...document.querySelectorAll('main button')].filter(b=>b.getBoundingClientRect().width>0&&b.getBoundingClientRect().height>0&&(b.getBoundingClientRect().height<43.5||b.getBoundingClientRect().width<43.5)).map(b=>b.textContent));assert.deepEqual(undersized,[],'iPad main controls must be tappable');
  await page.goto(base+'/play/weekly-boss/',{waitUntil:'networkidle'});await page.waitForSelector('.sm-theme-picker');await page.getByRole('button',{name:/Moonlit Masquerade/}).click();const field=page.getByRole('textbox',{name:'Your answer'});await field.focus();await page.evaluate(()=>__keyboardHeight(450));await page.waitForFunction(()=>document.body.classList.contains('lux-keyboard-open'));
+ await page.locator('nav.fixed.inset-x-3.bottom-3, nav.lux-companion-bottom-nav').first().waitFor({state:'hidden',timeout:8000});
  assert.equal(await page.locator('nav.fixed.inset-x-3.bottom-3, nav.lux-companion-bottom-nav').first().isVisible(),false,'bottom nav cannot cover answer field');
  await page.evaluate(()=>{document.activeElement.blur();__keyboardHeight(innerHeight)});await page.waitForFunction(()=>!document.body.classList.contains('lux-keyboard-open'));
+ await page.locator('nav.fixed.inset-x-3.bottom-3, nav.lux-companion-bottom-nav').first().waitFor({state:'visible',timeout:8000});
  assert.equal(await page.locator('nav.fixed.inset-x-3.bottom-3, nav.lux-companion-bottom-nav').first().isVisible(),true);
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.deepEqual(errors,[]);console.log(launcher.name(),viewport.width,'HD preview, touch targets, reduced motion and keyboard passed');await context.close();
  }
