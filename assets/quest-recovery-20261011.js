@@ -122,11 +122,19 @@ function reclaimRedirectedRecovery(state){
    for(const taskId of ['y8-practise','y8-mastery','year8-long-review']){
      const task=next.dailyLog?.[date]?.tasks?.find(t=>t.id===taskId);
      if(!task||task.done||Number(task.progress)>=Number(task.target))continue;
-     const subject=task.assignedSubject||task.reviewSubject||task.focusSubject;
-     const topic=task.assignedTopic||task.reviewTopic||task.focusTopic;
-     if(!subject||!topic)continue;
-     const matched=entries.filter(a=>!used.has(a.attemptId||a.at||a.questionId)&&
-       a.subject===subject&&a.topicId===topic);
+     const subject=task.assignedSubject||task.reviewSubject||task.focusSubject||null;
+     const topic=task.assignedTopic||task.reviewTopic||task.focusTopic||null;
+     // A named assignment only accepts that subject and topic.
+     // "Foundation practice" with no saved topic is the generic recovery row:
+     // the button itself opened the set, so a finished run tagged y8-practise
+     // belongs to this day even though the old guard deleted ?recover=.
+     const matched=entries.filter(a=>{
+       const key=a.attemptId||a.at||a.questionId;
+       if(used.has(key))return false;
+       if(subject&&topic)return a.subject===subject&&a.topicId===topic;
+       if(topic||subject)return false;
+       return a.dailyTaskId===taskId;
+     });
      const keys=matched.map(a=>a.attemptId||a.at||a.questionId);
      if(new Set(keys).size<Number(task.target))continue;
      let accepted=false;
