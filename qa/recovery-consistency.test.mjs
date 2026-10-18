@@ -73,4 +73,41 @@ const applied=receipts.applyRecoveryReceipts({
 assert.equal(applied[date].tasks[0].done,true);
 assert.equal(applied[date].tasks[0].progress,10);
 assert.deepEqual(applied[next],finished,"a receipt cannot alter the next day");
-console.log("Recovery QA passed: 16th credited, 17th preserved, explicit task tag survives topic mismatch, receipt replays, no wrong topic, replay idempotent, orphan repaired.");
+const words=Array.from({length:20},(_,i)=>"fr-word-"+i);
+assert.equal(receipts.saveRecoveryReceipt({date,taskId:"french-vocab",subject:"french",questionIds:words,baseline:10}),true);
+const vocab=receipts.applyRecoveryReceipts({
+ [date]:{date,done:0,total:2,complete:false,tasks:[
+  original,{id:"french-vocab",target:30,progress:10,done:false}]},
+ [next]:finished});
+assert.equal(vocab[date].tasks.find(t=>t.id==="french-vocab").progress,30);
+assert.equal(vocab[date].tasks.find(t=>t.id==="french-vocab").done,true);
+assert.equal(vocab[date].tasks[0].done,true,"practice credit stays");
+assert.deepEqual(vocab[next],finished);
+const partial=receipts.applyRecoveryReceipts({
+ [date]:{date,done:0,total:1,complete:false,tasks:[{id:"latin-vocab",target:30,progress:5,done:false}]}});
+assert.equal(receipts.saveRecoveryReceipt({date,taskId:"latin-vocab",questionIds:Array.from({length:10},(_,i)=>"la"+i),baseline:5}),true);
+const latin=receipts.applyRecoveryReceipts({
+ [date]:{date,done:0,total:1,complete:false,tasks:[{id:"latin-vocab",target:30,progress:5,done:false}]}});
+assert.equal(latin[date].tasks[0].progress,15);
+assert.equal(latin[date].tasks[0].done,false,"ten new correct words do not finish a thirty-word task");
+assert.equal(partial[date].tasks[0].progress,5,"a vocab receipt is not applied before it exists");
+assert.equal(receipts.saveRecoveryReceipt({date,taskId:"tend-garden",questionIds:["watered"]}),true);
+assert.equal(receipts.saveRecoveryReceipt({date,taskId:"play-game",questionIds:["played"]}),true);
+const acts=receipts.applyRecoveryReceipts({
+ [date]:{date,done:0,total:2,complete:false,tasks:[
+  {id:"tend-garden",target:1,progress:0,done:false},
+  {id:"play-game",target:1,progress:0,done:false}]},
+ [next]:finished});
+assert.equal(acts[date].tasks.every(t=>t.done),true);
+assert.deepEqual(acts[next],finished);
+let quota=true;
+globalThis.localStorage={
+ _m:new Map([["lux-practice-drafts-v1","draft"]]),
+ getItem(k){return this._m.has(k)?this._m.get(k):null},
+ setItem(k,v){if(quota&&k==="lux-recovery-receipts-v1"){const e=Error("quota");e.name="QuotaExceededError";throw e}this._m.set(k,String(v))},
+ removeItem(k){if(k==="lux-practice-drafts-v1")quota=false;this._m.delete(k)}
+};
+const squeezed=await load("recovery-receipt-20261018.js");
+assert.equal(squeezed.saveRecoveryReceipt({date:"2026-10-15",taskId:"tend-garden",questionIds:["watered"]}),true);
+assert.equal(quota,false,"a full iPad drops practice drafts, not the learning record, so the receipt can land");
+console.log("Recovery QA passed: 16th credited, 17th preserved, explicit task tag survives topic mismatch, receipt replays, vocab water and game survive a full iPad, no wrong topic, replay idempotent, orphan repaired.");

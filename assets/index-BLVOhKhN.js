@@ -1,8 +1,8 @@
 import "./player-ux-20261013.js?ux=20261013-corrections2";
 import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
 import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
-import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261018-receipt1";
-import {applyRecoveryReceipts} from "./recovery-receipt-20261018.js?v=20261018-receipt1";
+import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261018-receipt2";
+import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261018-receipt2";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
@@ -1881,11 +1881,13 @@ function patchedRecordPe(points, stars, level) {
   // A completed PE circuit can fulfil a previously selected Recovery game.
   // Opening the page (or a zero-star result) does not count.
   const pending=store.getState().recoveryPendingGame;
-  if(pending?.taskId==="play-game" && Number(stars)>=1 &&
-     canRecover(todayKey(),pending.date) &&
-     Date.now()-Number(pending.startedAt)<86400000){
+  const urlGame=(()=>{try{const p=new URLSearchParams(location.search);return p.get("task")==="play-game"?p.get("recover"):null}catch{return null}})();
+  const gameDate=pending?.taskId==="play-game" && canRecover(todayKey(),pending.date) && Date.now()-Number(pending.startedAt)<86400000
+    ? pending.date : (canRecover(todayKey(),urlGame) ? urlGame : null);
+  if(gameDate && Number(stars)>=1){
+    saveRecoveryReceipt({date:gameDate,taskId:"play-game",questionIds:["played"]});
     const outcome=recordRecoveryAnswer(store.getState(),{
-      today:todayKey(),date:pending.date,taskId:"play-game",
+      today:todayKey(),date:gameDate,taskId:"play-game",
       questionId:"pe-circuit:"+level,correct:true
     });
     if(outcome.accepted)store.setState({
@@ -1986,13 +1988,13 @@ function patchedRecordGame(gameId, points, stars, level) {
 
   if (Object.keys(patch).length) store.setState(patch);
   const pending=store.getState().recoveryPendingGame;
-  // A real game result is required: opening /play or repeating a failed
-  // attempt cannot award historic credit. No second recovery XP is granted.
-  if (pending?.taskId==="play-game" && Number(stars)>=1 &&
-      canRecover(todayKey(),pending.date) &&
-      Date.now()-Number(pending.startedAt)<86400000) {
+  const urlGame=(()=>{try{const p=new URLSearchParams(location.search);return p.get("task")==="play-game"?p.get("recover"):null}catch{return null}})();
+  const gameDate=pending?.taskId==="play-game" && canRecover(todayKey(),pending.date) && Date.now()-Number(pending.startedAt)<86400000
+    ? pending.date : (canRecover(todayKey(),urlGame) ? urlGame : null);
+  if (gameDate && Number(stars)>=1) {
+    saveRecoveryReceipt({date:gameDate,taskId:"play-game",questionIds:["played"]});
     const response=recordRecoveryAnswer(store.getState(),{
-      today:todayKey(),date:pending.date,taskId:"play-game",
+      today:todayKey(),date:gameDate,taskId:"play-game",
       questionId:"game:"+gameId+":"+level,correct:true
     });
     store.setState({
@@ -2725,6 +2727,10 @@ function recordDailyVocabAttempt(subject, questionId, correct) {
     const credited = Object.values(items).filter(Boolean).length;
     perDay[subject] = { items, originalCount, totalNeeded, completed: credited >= totalNeeded, updatedAt: new Date().toISOString() };
     all[recover] = perDay;
+    const correctIds = Object.keys(items).filter((id) => items[id]);
+    if (correctIds.length) saveRecoveryReceipt({
+      date: recover, taskId: subject + "-vocab", subject, questionIds: correctIds, baseline: originalCount
+    });
     if (credited >= totalNeeded && !row.completed) {
       const log = { ...(state.dailyLog || {}) };
       const dayLog = log[recover] || {date:recover,tasks:source.tasks};
@@ -3781,6 +3787,7 @@ if(typeof window!=="undefined"){
     const params=new URLSearchParams(window.location.search),date=params.get("recover");
     if(params.get("task")!=="tend-garden" || !canRecover(todayKey(),date) ||
        state.wateredOn!==todayKey() || before===todayKey())return;
+    saveRecoveryReceipt({date,taskId:"tend-garden",questionIds:["watered"]});
     const outcome=recordRecoveryAnswer(state,{today:todayKey(),date,taskId:"tend-garden",questionId:"garden-water:"+todayKey(),correct:true});
     if(outcome.accepted)store.setState({recoveryTaskByDay:outcome.state.recoveryTaskByDay,dailyLog:outcome.state.dailyLog});
   });
@@ -3789,7 +3796,7 @@ if(typeof window!=="undefined"){
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261018-receipt1&ux=20261013-corrections2").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261018-receipt2&ux=20261013-corrections2").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){
