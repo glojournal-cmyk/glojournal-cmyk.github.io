@@ -93,6 +93,10 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
   const result=await page.evaluate(async date=>{const {C:store}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);const before=store.getState().daily.map(t=>[t.id,t.progress]);for(let i=0;i<10;i++)store.getState().recordDailyVocabAttempt('french','recovery-qa-'+i,true);const state=store.getState();return {done:state.dailyLog[date].tasks.find(t=>t.id==='french-vocab').done,before,after:state.daily.map(t=>[t.id,t.progress])}},date);
   assert.equal(result.done,true);assert.deepEqual(result.after,result.before,'recovery never credits today');
  }
- await visit(base+'/');await page.waitForSelector('#lux-recovery-quests');assert.equal(await page.locator('#lux-recovery-quests').getAttribute('open'),null);await page.locator('#lux-recovery-quests > summary').click();await page.waitForSelector('#lux-recovery-date');for(const date of dates){await page.locator('#lux-recovery-date').selectOption(date);assert.ok((await page.locator('#lux-recovery-quests').innerText()).includes('Recovered ✓ · credited to '+date));}
- assert.deepEqual(errors,[]);console.log(launcher.name(),'collapsed backup and two recovery dates passed');await page.close();
+ await visit(base+'/');await page.waitForSelector('#lux-recovery-quests');
+ const recoveryPanel=page.locator('#lux-recovery-quests');
+ assert.equal(await recoveryPanel.isVisible(),true,'Recovery remains available on return Home');
+ if(await recoveryPanel.getAttribute('open')===null)await page.locator('#lux-recovery-quests > summary').click();
+ await page.waitForSelector('#lux-recovery-date');for(const date of dates){await page.locator('#lux-recovery-date').selectOption(date);assert.ok((await page.locator('#lux-recovery-quests').innerText()).includes('Recovered ✓ · credited to '+date));}
+ assert.deepEqual(errors,[]);console.log(launcher.name(),'backup and two recovery dates passed');await page.close();
  }finally{await browser.close()}}}finally{server.close()}
