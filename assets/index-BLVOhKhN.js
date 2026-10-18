@@ -1415,6 +1415,35 @@ function buildAdaptiveDaily(state) {
   ];
 }
 
+// One marked Year 8 question is an event, not a one-time vocabulary word.
+ // Sessions may repeat question IDs; track each genuine marked event so the
+ // 10 + 15 foundation/mastery target remains achievable with smaller banks.
+let recoveryAttemptSequence=0;
+const YEAR8_RECOVERY_TASKS=["y8-practise","y8-mastery","year8-long-review"];
+function recoveryAnswerEventKey(entry,proof){
+ const id=String(entry.questionId||"");
+ const exact=entry.attemptId||entry.eventId;
+ if(exact)return id+"@"+exact;
+ if(proof?.items && Object.prototype.hasOwnProperty.call(proof.items,id))return id;
+ return entry.at ? id+"@"+entry.at : id;
+}
+function eligibleYear8Evidence(entry,task,id){
+ if(!task||Number(task.target)<=0)return false;
+ if(!entry?.questionId||entry.formal===false||entry.repair===true||
+    entry.dailyVocab==="french"||entry.dailyVocab==="latin"||
+    entry.dailyTaskId==="french-vocab"||entry.dailyTaskId==="latin-vocab")return false;
+ const year=Number(entry.year);
+ if(year!==8&&Number(task.assignedYear||task.reviewYear)!==8)return false;
+ const subject=task.assignedSubject||task.reviewSubject;
+ const topic=task.assignedTopic||task.reviewTopic;
+ // Never replace the originally assigned Topic with today's adaptive pick.
+ if(subject&&subject!==entry.subject)return false;
+ if(topic&&topic!==entry.topicId)return false;
+ // A fallback plan has no original topic; only explicit dated task
+ // routes justify crediting such entries, rather than arbitrary practice.
+ if(!topic&&!subject&&!YEAR8_RECOVERY_TASKS.includes(entry.dailyTaskId))return false;
+ return true;
+}
 let normalizing = false;
 let allowNormalize = false;
 let sealingDay = false;
@@ -1595,6 +1624,10 @@ function normalizeState() {
     const isDailyVocab = id === "french-vocab" || id === "latin-vocab" ||
       entry.dailyVocab === "french" || entry.dailyVocab === "latin";
     const creditedIds = new Set(recoveredIds.has(id) ? [id] : []);
+    if (!isDailyVocab) for (const year8Id of YEAR8_RECOVERY_TASKS) {
+      if(eligibleYear8Evidence(entry,state.dailyLog?.[date]?.tasks?.find(t=>t.id===year8Id),year8Id))
+        creditedIds.add(year8Id);
+    }
     // The normal daily "Focused study" requirement counts any real formal
     // practice outside the dedicated vocab exercise. Earlier Recovery builds
     // lost task=... on navigation despite saving recoveryFor on each answer.
@@ -1618,8 +1651,10 @@ function normalizeState() {
       }
       const existing = recoveredPractice[date] || {}, old = existing[creditId] || {};
       const items = { ...(old.items || {}) };
-      if (!(entry.questionId in items) || (entry.correct && !items[entry.questionId])) {
-        items[entry.questionId] = !!entry.correct;
+      const evidenceKey=YEAR8_RECOVERY_TASKS.includes(creditId)
+        ? recoveryAnswerEventKey(entry,old) : entry.questionId;
+      if (!(evidenceKey in items) || (entry.correct && !items[evidenceKey])) {
+        items[evidenceKey] = !!entry.correct;
         recoveredPractice[date] = { ...existing,[creditId]:{...old,items} };
         replayChanged = true;
       }
