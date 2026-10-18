@@ -423,7 +423,12 @@ let queued=false;function schedule(){
  if(location.pathname!=="/"&&location.pathname!=="/index.html")return;
  if(!queued){queued=true;queueMicrotask(()=>{queued=false;mount()})}
 }
-store.subscribe(schedule);new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true});
+// Protect dated history across ALL router pages, not only Home.
+ // A stale hydration write on Practice must not erase yesterday's 10/10.
+store.subscribe(()=>{protectDailyRecord();schedule()});
+store.persist?.onFinishHydration?.(()=>{protectDailyRecord();void restoreArchivedDailyRecord();});
+window.addEventListener("lux:app-ready",()=>{protectDailyRecord();void restoreArchivedDailyRecord();});
+new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true});
 window.addEventListener("pageshow",schedule);
 window.addEventListener("popstate",schedule);
 window.addEventListener("lux:app-ready",schedule);
