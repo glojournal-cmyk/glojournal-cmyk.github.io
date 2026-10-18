@@ -491,9 +491,30 @@ let queued=false;function schedule(){
  if(location.pathname!=="/"&&location.pathname!=="/index.html")return;
  if(!queued){queued=true;queueMicrotask(()=>{queued=false;mount()})}
 }
-// Protect dated history across ALL router pages, not only Home.
- // A stale hydration write on Practice must not erase yesterday's 10/10.
-store.subscribe(()=>{protectDailyRecord();schedule()});
+// Protect history across router pages, but don't re-scan every historical
+// answer after unrelated XP, sound, pet animation or input-state changes.
+// Coalesce real learning-ledger updates into one immutable reconciliation.
+let lastRecordInputs={
+ dailyLog:store.getState().dailyLog,
+ formalAttemptLog:store.getState().formalAttemptLog,
+ recoveryTaskByDay:store.getState().recoveryTaskByDay,
+ recoveryVocabByDay:store.getState().recoveryVocabByDay,
+ dailyCurriculumEvidenceByDay:store.getState().dailyCurriculumEvidenceByDay
+};
+let recordQueued=false;
+function scheduleRecordProtection(){
+ if(recordQueued)return;
+ recordQueued=true;
+ queueMicrotask(()=>{recordQueued=false;protectDailyRecord()});
+}
+store.subscribe(()=>{
+ const state=store.getState();
+ const relevant=Object.keys(lastRecordInputs).some(key=>
+   state[key]!==lastRecordInputs[key]);
+ for(const key of Object.keys(lastRecordInputs))lastRecordInputs[key]=state[key];
+ if(relevant)scheduleRecordProtection();
+ schedule();
+});
 store.persist?.onFinishHydration?.(()=>{protectDailyRecord();void restoreArchivedDailyRecord();});
 window.addEventListener("lux:app-ready",()=>{protectDailyRecord();void restoreArchivedDailyRecord();});
 new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true});
