@@ -2906,9 +2906,12 @@ async function restoreDurableMarkedAnswers(){
      dailyLog[date]={date,tasks,done:0,total:tasks.length,
        complete:false,recoveryFallback:true,recoveredFromAnswerJournal:true};
    }
-   if(merged!==state.formalAttemptLog||reconstructed)
-     store.setState({...merged!==state.formalAttemptLog?{formalAttemptLog:merged}:{},
-       ...reconstructed?{dailyLog}:{}});
+   if(merged!==state.formalAttemptLog||reconstructed){
+     const patch={};
+     if(merged!==state.formalAttemptLog)patch.formalAttemptLog=merged;
+     if(reconstructed)patch.dailyLog=dailyLog;
+     store.setState(patch);
+   }
  }catch(error){console.warn("Evidence journal replay unavailable",error)}
  finally{evidenceReadBusy=false}
 }
