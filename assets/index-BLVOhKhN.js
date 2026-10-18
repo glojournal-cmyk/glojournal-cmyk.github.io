@@ -2876,8 +2876,50 @@ function applyPracticeModeFromUrl() {
 }
 applyPracticeModeFromUrl.lastKey = "";
 
+// Rehydrate immutable, marked answers from IndexedDB BEFORE relying on
+// transient Daily Record values. This survives localStorage quota failures
+// and lets the same real answers restore their original task after a restart.
+let evidenceReadBusy=false;
+async function restoreDurableMarkedAnswers(){
+ if(evidenceReadBusy||store.persist?.hasHydrated?.()===false)return;
+ evidenceReadBusy=true;
+ try{
+   const archived=await readMarkedAnswers();
+   if(!archived.length)return;
+   const state=store.getState();
+   const merged=mergeMarkedEvidence(state.formalAttemptLog,archived);
+   let dailyLog=state.dailyLog||{},reconstructed=false;
+   // If a failed write lost the day's plan entirely, reconstruct an explicitly
+   // labelled fallback only from formally marked dated answers; never from
+   // opening a page, clicking a button, or a successful XP animation.
+   for(const answer of archived){
+     const date=answer.recoveryFor;
+     if(!date||answer.formal===false||answer.repair||
+       dailyLog?.[date]?.tasks?.length)continue;
+     const tasks=UNOPENED_FALLBACK_TASKS.map(([id,title,target])=>({
+       id,title,target,progress:0,done:false,recoveryFallback:true,
+       ...(id===answer.dailyTaskId&&YEAR8_RECOVERY_TASKS.includes(id)?{
+         assignedSubject:answer.subject,assignedTopic:answer.topicId
+       }:{})
+     }));
+     if(!reconstructed){dailyLog={...dailyLog};reconstructed=true;}
+     dailyLog[date]={date,tasks,done:0,total:tasks.length,
+       complete:false,recoveryFallback:true,recoveredFromAnswerJournal:true};
+   }
+   if(merged!==state.formalAttemptLog||reconstructed)
+     store.setState({...merged!==state.formalAttemptLog?{formalAttemptLog:merged}:{},
+       ...reconstructed?{dailyLog}:{}});
+ }catch(error){console.warn("Evidence journal replay unavailable",error)}
+ finally{evidenceReadBusy=false}
+}
 store.subscribe(() => normalizeState());
-store.persist?.onFinishHydration?.(() => normalizeState());
+store.persist?.onFinishHydration?.(() => {
+ normalizeState();void restoreDurableMarkedAnswers();
+});
+if(store.persist?.hasHydrated?.())void restoreDurableMarkedAnswers();
+if(typeof window!=="undefined")window.addEventListener("pageshow",()=>{
+ void restoreDurableMarkedAnswers();
+});
 setTimeout(() => { allowNormalize = true; normalizeState(); }, 0);
 setTimeout(() => {
   let tries = 0;
