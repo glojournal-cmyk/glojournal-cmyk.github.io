@@ -14,7 +14,10 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   const subject=active[Math.abs(dayNumber(today))%active.length]||rotation[Math.abs(dayNumber(today))%rotation.length];
   const assigned=new Set();
   const entries=(state.formalAttemptLog||[]).filter(e=>e.day===today&&!e.repair&&e.formal!==false&&!e.recoveryFor&&!e.dailyVocab);
-  const tally=(topicId,modes=null)=>new Set(entries.filter(e=>e.topicId===topicId&&(!modes||modes.includes(e.mode))).map(e=>e.questionId)).size;
+  // One marked answer belongs to its opened assignment. Two tasks may visit
+  // the same topic, but cannot both claim that answer toward the 155 total.
+  const tally=(topicId,taskId,modes=null)=>new Set(entries.filter(e=>e.topicId===topicId&&e.dailyTaskId===taskId&&
+    (!modes||modes.includes(e.mode))).map(e=>e.attemptId||e.questionId)).size;
   const pick=(id,pool,condition)=>{
     const old=previous.get(id);
     const frozen=old?.assignedTopic&&(pool.find(t=>t.topicId===old.assignedTopic)||
@@ -28,7 +31,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     const same=old?.assignedTopic===topic?.topicId;
     const modes=mode==='mastery'?['mastery','year8long']:mode==='retention'?['retention','due']:
       mode==='due'?['due','retention']:mode==='weak'?['weak']:null;
-    const progress=topic?Math.min(target,Math.max(same?Number(old.progress)||0:0,tally(topic.topicId,modes))):0;
+    const progress=topic?Math.min(target,Math.max(same?Number(old.progress)||0:0,tally(topic.topicId,id,modes))):0;
     return {id,title:`${label[topic?.subject]||'Year 8'} · ${topic?.topicLabel||description}`,
       detail:description,href:topic?curriculumHref(topic,mode,id):'/study',target,progress,xp:mode==='mastery'?20:15,
       planDate:today,assignedSubject:topic?.subject||null,assignedTopic:topic?.topicId||null,
@@ -36,17 +39,18 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   };
   const latin=pick('latin-standard',pools.latin,t=>!coveredTopic(state,t.topicId));
   const standards=['y8-standard-a','y8-standard-b'].map(id=>pick(id,pools[subject],t=>!coveredTopic(state,t.topicId)));
-  const covered=['latin',...rotation].flatMap(s=>pools[s].filter(t=>coveredTopic(state,t.topicId)&&masteryStage(state.topicStats?.[t.topicId])!=='mastered'))
-    .sort((a,b)=>(Number(state.topicStats?.[a.topicId]?.attempted)||0)-(Number(state.topicStats?.[b.topicId]?.attempted)||0));
-  const mastery=['y8-mastery-a','y8-mastery-b'].map(id=>pick(id,covered,t=>!assigned.has(t.topicId)));
-  const weak=pick('weakness-review',covered,t=>Number(state.topicStats?.[t.topicId]?.accuracy||0)<.85);
   const allTopics=['latin',...rotation].flatMap(s=>pools[s]);
+  const covered=allTopics.filter(t=>coveredTopic(state,t.topicId)&&masteryStage(state.topicStats?.[t.topicId])!=='mastered')
+    .sort((a,b)=>(Number(state.topicStats?.[a.topicId]?.attempted)||0)-(Number(state.topicStats?.[b.topicId]?.attempted)||0));
+  const masteryPool=covered.length?covered:allTopics;
+  const mastery=['y8-mastery-a','y8-mastery-b'].map(id=>pick(id,masteryPool,t=>!assigned.has(t.topicId)));
+  const weak=pick('weakness-review',masteryPool,t=>Number(state.topicStats?.[t.topicId]?.accuracy||0)<.85);
   const dueTopic=allTopics.find(t=>
     state.topicStats?.[t.topicId]?.masteryV2?.due<=today &&
     ['check2','check7'].includes(state.topicStats[t.topicId].masteryV2.stage));
   const dueCandidates=dueTopic?[dueTopic]:allTopics.filter(t=>Object.values(state.reviews||{}).some(r=>
     r?.topicId===t.topicId&&r?.due&&r.due<=today));
-  const due=pick('due-review',dueCandidates.length?dueCandidates:covered,t=>true);
+  const due=pick('due-review',dueCandidates.length?dueCandidates:masteryPool,t=>true);
   const dueMode=dueTopic?'retention':dueCandidates.length?'due':'weak';
   const taught=['latin','french','chemistry','biology','physics'].flatMap(s=>(getCatalog(s,9)||[])
     .filter(t=>t?.status==='enabled'&&Number(t.enabled??t.questions??0)>=15)

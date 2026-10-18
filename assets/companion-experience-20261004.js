@@ -1,5 +1,5 @@
 import {MAX_PET_LEVEL} from '../pet/pet-evolution-config-20261012.js?ux=20261013-corrections2';
-import {C as store,A as outfits,B as scenes,J as requirements,Y as stats} from './index-BLVOhKhN.js?v=20261017-unopened-recovery1&ux=20261013-corrections2';
+import {C as store,A as outfits,B as scenes,J as requirements,Y as stats} from './index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2';
 import {petNames,petLevel,firstGoal,goalView,celebrationToken} from './companion-goals-state-20261004.js?v=20261012-level10&ux=20261013-corrections2';
 import {spriteStyle} from './companion-art-20261004.js?v=20261012-level10&ux=20261013-corrections2';
 const KEY='lux-companion-experience-v1',PET='lux-pet-companion-v1',catalog={outfits,scenes,requirements,stats};

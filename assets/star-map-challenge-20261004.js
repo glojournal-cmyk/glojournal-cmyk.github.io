@@ -1,7 +1,7 @@
 import {STORIES,collectedClues,puzzleOrder} from './weekly-adventure-20261012.js?ux=20261013-corrections2';
 import {THEMES,themeFor} from './weekly-boss-themes-20261011.js?ux=20261013-corrections2';
 import {i as interop,n as factory} from './jsx-runtime-Cltr0gcK.js?ux=20261013-corrections2';
-import {C as store,d as successSound} from './index-BLVOhKhN.js?v=20261017-unopened-recovery1&ux=20261013-corrections2';
+import {C as store,d as successSound} from './index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2';
 import {weekOf,missionFor,advanceMap,completedStages,nextWeek,nodes} from './star-map-state-20261004.js?v=20261011-8b2&ux=20261013-corrections2';
 const R=interop(factory()),h=R.createElement;
 const titles=['Light the lanterns','Decode the signal','Awaken the telescope','Reveal the constellation'];

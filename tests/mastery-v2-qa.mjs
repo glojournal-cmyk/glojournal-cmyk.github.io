@@ -57,6 +57,20 @@ test('future plan has two different same-subject Standard topics and retains ass
   assert.equal(frozen.find(t=>t.id==='y8-standard-b').assignedTopic,b.assignedTopic);
 });
 
+test('a new learner has ten reachable tasks and one answer credits only its assigned task',()=>{
+  const base={today:'2026-10-19',daily:[],topicStats:{},formalAttemptLog:[],dailyVocabByDay:{}};
+  const plan=buildYear8DailyV2(base,get);
+  assert.ok(plan.every(t=>t.href&&t.target>0));
+  const mastery=plan.find(t=>t.id==='y8-mastery-a');
+  assert.ok(mastery.assignedTopic&&mastery.href.includes('/practise'));
+  const standard=plan.find(t=>t.id==='y8-standard-a');
+  const answer={day:base.today,topicId:standard.assignedTopic,questionId:'q1',attemptId:'attempt1',
+    dailyTaskId:standard.id,mode:'standard',formal:true};
+  const updated=buildYear8DailyV2({...base,daily:plan,formalAttemptLog:[answer]},get);
+  assert.equal(updated.find(t=>t.id===standard.id).progress,1);
+  assert.equal(updated.filter(t=>t.progress>0).length,1);
+});
+
 test('an unopened future day creates ten dated assignments and recovery credits only that day',()=>{
   const state={today:'2026-10-21',daily:[],dailyLog:{'2026-10-17':{date:'2026-10-17',done:10,total:10,tasks:[]}},
     topicStats:{},formalAttemptLog:[],dailyVocabByDay:{}};

@@ -63,7 +63,7 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
 
  await page.evaluate(()=>window.__luxOpenDailyRecord());
  await page.locator('.lux-record-dot').nth(28).click();
- assert.equal(await page.locator('.lux-record-detail a.lux-record-recovery').count(),2);
+ assert.equal(await page.locator('.lux-record-detail a.lux-record-recovery').count(),10);
  await page.locator('.lux-record-close').click();
  await visit(base+'/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab&recover='+unopened);
  await page.waitForFunction(()=>window.__luxAppReady===true);
