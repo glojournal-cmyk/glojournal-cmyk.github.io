@@ -1,5 +1,5 @@
 import "./player-ux-20261013.js?ux=20261013-corrections2";
-import {mergeDailyRecordRow,mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
+import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
 import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261017-recovery-completion3";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
@@ -1713,7 +1713,8 @@ function normalizeState() {
     reconcileRecoveredVocabHistory(stateForDaily, verifiedVocabHistory(stateForDaily,currentLog)));
   // Recovery proofs may be saved separately from the daily ledger.
   // The merge is monotonic: never lose a previously verified task completion.
-  const nextLog = writeDailyLog(mergeDailyHistory(currentLog,correctedLog), state.today || calendarToday, daily);
+  const nextLog = writeDailyLog(reconcileOriginalCurriculumHistory(
+    stateForDaily,mergeDailyHistory(currentLog,correctedLog)), state.today || calendarToday, daily);
   if (JSON.stringify(nextLog)!==JSON.stringify(currentLog)) patch.dailyLog = nextLog;
 
   if (Object.keys(patch).length) {
@@ -3284,7 +3285,9 @@ function mountDailyRecord() {
     for (let i = 29; i >= 0; i -= 1) days.push(shiftDay(today, -i));
     if (!selected || !days.includes(selected)) selected = today;
     // Read completed Recovery proof even if an older dailyLog snapshot remains.
-    const log = { ...reconcileRecoveredTaskHistory(state, reconcileRecoveredVocabHistory(state, state.dailyLog || {})) };
+    const log = { ...reconcileOriginalCurriculumHistory(state,
+      reconcileRecoveredTaskHistory(state,
+        reconcileRecoveredVocabHistory(state,state.dailyLog||{}))) };
     const live = state.today===today?compactDailyTasks(state.daily):[];
     if (live.length) {
       const done = live.filter((task) => task.done).length;
