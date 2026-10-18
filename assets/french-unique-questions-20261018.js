@@ -1,3 +1,4 @@
+import {frenchAliasGroups} from './french-duplicate-aliases-20261018.js';
 // Runtime-only deduplication. Do not delete historical question IDs: older
 // saved wrong-answer and review evidence still refers to those IDs.
 const normalise = value => String(value ?? '').normalize('NFKD')
@@ -12,6 +13,7 @@ export function frenchQuestionFingerprint(q) {
 }
 
 const stableSelectionByBank = new WeakMap();
+const aliasById = new Map(frenchAliasGroups.flatMap(group => group.map(id => [id,group])));
 
 export function uniqueFrenchQuestions(items = [], state = {}, mode = 'standard') {
   // React rerenders after every marked answer. Freeze the candidate pool while
@@ -32,7 +34,7 @@ export function uniqueFrenchQuestions(items = [], state = {}, mode = 'standard')
   for (const variants of groups.values()) {
     // One previously correct alias means the identical prompt/answer has already
     // been practised, even if a second copy has a different question ID.
-    if (!reviewMode && variants.some(q => Number(state.seenCorrect?.[q.id] || 0) > 0)) continue;
+    if (!reviewMode && variants.some(q => (aliasById.get(q.id) || [q.id]).some(id => Number(state.seenCorrect?.[id] || 0) > 0))) continue;
     const due = q => {
       const r = state.reviews?.[q.id];
       return !!r?.due && r.due <= now;
