@@ -50,6 +50,13 @@ export function matchesAssignedPracticeEvidence(entry,task,taskId){
  }
  const subject=task.assignedSubject||task.reviewSubject||hrefSubject;
  const topic=task.assignedTopic||task.reviewTopic||hrefTopic;
+ if(entry.dailyTaskId===taskId){
+  // This session was opened for this exact task. Credit it even when the
+  // question topic string does not match the saved assignment: that mismatch
+  // was dropping finished 10/10 Recovery sessions.
+  if(subject&&entry.subject&&entry.subject!==subject)return false;
+  return true;
+ }
  if(subject&&entry.subject!==subject)return false;
  if(topic&&entry.topicId!==topic)return false;
  // A pinned topic is conclusive even if the old attempt metadata assigned

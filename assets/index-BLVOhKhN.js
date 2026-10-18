@@ -1,13 +1,14 @@
 import "./player-ux-20261013.js?ux=20261013-corrections2";
 import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
 import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
-import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261017-recovery-completion3";
+import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261018-receipt1";
+import {applyRecoveryReceipts} from "./recovery-receipt-20261018.js?v=20261018-receipt1";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import("/pet/pet-care-global.js?v=20261011-storage-qa1&ux=20261013-corrections2").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261017-recovery-completion3&ux=20261013-corrections2";
+export * from "./index-BLVOhKhN.core.js?v=20261018-receipt1&ux=20261013-corrections2";
 import {
   C as store,
   Z as scholarLevelProgress,
@@ -21,7 +22,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261017-recovery-completion3&ux=20261013-corrections2";
+} from "./index-BLVOhKhN.core.js?v=20261018-receipt1&ux=20261013-corrections2";
 
 if(typeof window!=="undefined"){
  window.__luxStore=store;
@@ -1640,8 +1641,10 @@ function normalizeState() {
       if (creditId !== "study-session") {
         const requiredSubject = task.focusSubject || task.assignedSubject || task.reviewSubject;
         const requiredTopic = task.focusTopic || task.assignedTopic || task.reviewTopic;
-        if (requiredSubject && requiredSubject !== entry.subject) continue;
-        if (requiredTopic && requiredTopic !== entry.topicId) continue;
+        const explicit = entry.dailyTaskId === creditId;
+        if (explicit && requiredSubject && entry.subject && requiredSubject !== entry.subject) continue;
+        if (!explicit && requiredSubject && requiredSubject !== entry.subject) continue;
+        if (!explicit && requiredTopic && requiredTopic !== entry.topicId) continue;
       }
       const existing = recoveredPractice[date] || {}, old = existing[creditId] || {};
       const items = { ...(old.items || {}) };
@@ -1716,7 +1719,8 @@ function normalizeState() {
   // The merge is monotonic: never lose a previously verified task completion.
   const nextLog = writeDailyLog(reconcileOriginalCurriculumHistory(
     stateForDaily,mergeDailyHistory(currentLog,correctedLog)), state.today || calendarToday, daily);
-  if (JSON.stringify(nextLog)!==JSON.stringify(currentLog)) patch.dailyLog = nextLog;
+  const receiptLog = applyRecoveryReceipts(nextLog);
+  if (JSON.stringify(receiptLog)!==JSON.stringify(currentLog)) patch.dailyLog = receiptLog;
 
   if (Object.keys(patch).length) {
     normalizing = true;
@@ -2420,7 +2424,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     const assignedTopic = actual?.focusTopic || actual?.assignedTopic || actual?.reviewTopic;
     const subjectMatches = !assignedSubject || assignedSubject === (resolved.subject || subject);
     const topicMatches = !assignedTopic || assignedTopic === resolved.topicId;
-    if (actual && supported.includes(taskId) && taskId===evidenceTask && subjectMatches && topicMatches && canRecover(todayKey(),date)) {
+    if (actual && supported.includes(taskId) && taskId===evidenceTask && subjectMatches && canRecover(todayKey(),date)) {
       // All three Year 8 tasks can share REAL formal marked evidence only
       // when its subject/topic matches EACH historical assignment.
       // Different topics are never awarded each other's questions.
@@ -2443,8 +2447,10 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
         if(!candidate)continue;
         const candidateSubject=candidate.focusSubject||candidate.assignedSubject||candidate.reviewSubject;
         const candidateTopic=candidate.focusTopic||candidate.assignedTopic||candidate.reviewTopic;
-        if(id!=="study-session"&&candidateSubject&&candidateSubject!==(resolved.subject||subject))continue;
-        if(id!=="study-session"&&candidateTopic&&candidateTopic!==resolved.topicId)continue;
+        const explicit=id===taskId;
+        if(!explicit&&id!=="study-session"&&candidateSubject&&candidateSubject!==(resolved.subject||subject))continue;
+        if(!explicit&&id!=="study-session"&&candidateTopic&&candidateTopic!==resolved.topicId)continue;
+        if(explicit&&candidateSubject&&(resolved.subject||subject)&&candidateSubject!==(resolved.subject||subject))continue;
         if(YEAR8_RECOVERY_TASKS.includes(id)&&!eligibleYear8Evidence(event,candidate,id))continue;
         const savedKey=YEAR8_RECOVERY_TASKS.includes(id)
           ?String(questionId)+"@"+attemptId : questionId;
@@ -3783,7 +3789,7 @@ if(typeof window!=="undefined"){
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261011-vault2&ux=20261013-corrections2").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261018-receipt1&ux=20261013-corrections2").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){

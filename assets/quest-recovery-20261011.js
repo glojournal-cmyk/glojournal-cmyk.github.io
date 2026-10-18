@@ -1,8 +1,9 @@
 /* Recovery Quest UI: read-only display; the app records eligible answers separately. */
-import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261017-recovery-completion3&ux=20261013-corrections2";
-import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js?v=20261018-daily-record-proof6";
+import { C as store, Ut as todayKey } from "/assets/index-BLVOhKhN.js?v=20261018-receipt1&ux=20261013-corrections2";
+import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js?v=20261018-receipt1";
 import {mergeDailyHistory,mergeDailyRecordRow,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-original-foundation5";
 import {readMarkedAnswers} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
+import {applyRecoveryReceipts} from "./recovery-receipt-20261018.js?v=20261018-receipt1";
 import {readAllBackups} from "./backup-vault-20261011.js?v=20261011-vault2&ux=20261013-corrections2";
 const DAY_MS=86400000;
 const dateAt=(d,n)=>new Date(Date.parse(d+"T12:00:00Z")+n*DAY_MS).toISOString().slice(0,10);
@@ -61,7 +62,7 @@ function reconcileCompletedRecoveries(){
 function commitCompletedRecoverySession(input){
  try{
   const params=new URLSearchParams(location.search);
-  const date=params.get("recover"),taskId=params.get("task");
+  const date=params.get("recover")||input?.date,taskId=params.get("task")||input?.taskId;
   if(!date||date!==input?.date||taskId!==input?.taskId)return false;
   if(!["y8-practise","y8-mastery","year8-long-review"].includes(taskId))return false;
   if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!["french","latin","biology","chemistry","physics"].includes(input.subject))return false;
@@ -189,7 +190,7 @@ function protectDailyRecord(){
  const recovered=reconcileRecoveredTaskHistory(state,live);
  const repaired=reconcileOriginalCurriculumHistory(state,recovered);
  bestDailyHistory=mergeDailyHistory(bestDailyHistory,repaired);
- const saved=mergeDailyHistory(live,bestDailyHistory);
+ const saved=applyRecoveryReceipts(mergeDailyHistory(live,bestDailyHistory));
  if(JSON.stringify(saved)!==JSON.stringify(live))store.setState({dailyLog:saved});
 }
 async function restoreArchivedDailyRecord(){
@@ -254,7 +255,22 @@ function mount(){
  // The recovery module now loads on practice and game entry routes as well.
  if(location.pathname!=="/"&&location.pathname!=="/index.html")return;
  const card=[...document.querySelectorAll("main h2")].find(n=>n.textContent.trim()==="Raise her today")?.parentElement?.parentElement?.parentElement;
- if(!card)return; // Home is still hydrating; mutation observer retries.
+ if(!card){
+  if(!mount.waiting){
+   mount.waiting=true;
+   let tries=0;
+   const timer=setInterval(()=>{
+    tries+=1;
+    const ready=location.pathname==="/"||location.pathname==="/index.html"
+     ?[...document.querySelectorAll("main h2")].some(n=>n.textContent.trim()==="Raise her today")
+     :false;
+    if(ready||tries>40||(location.pathname!=="/"&&location.pathname!=="/index.html")){
+     clearInterval(timer);mount.waiting=false;if(ready)mount();
+    }
+   },100);
+  }
+  return;
+ }
  let host=document.getElementById("lux-recovery-quests");
  if(!host){host=document.createElement("details");host.id="lux-recovery-quests";}
  // Client-side navigation and React rerenders can detach the old card.

@@ -41,7 +41,12 @@ assert.equal(row[date].tasks[0].done,true);
 assert.deepEqual(row[next],finished,"next day's finished record is untouched");
 const wrong=replay({...state,recoveryTaskByDay:{},formalAttemptLog:
  events.map(e=>({...e,topicId:"wrong-topic"}))});
-assert.equal(wrong[date]?.["y8-practise"],undefined);
+assert.equal(Object.keys(wrong[date]["y8-practise"].items).length,10,
+ "a finished session tagged for this task still counts when the topic string differs");
+const untagged=replay({...state,recoveryTaskByDay:{},formalAttemptLog:
+ events.map(e=>({...e,topicId:"wrong-topic",dailyTaskId:null}))});
+assert.equal(untagged[date]?.["y8-practise"],undefined,
+ "untagged wrong-topic answers still do not invent Foundation credit");
 const merged=journal.mergeMarkedEvidence([],events);
 assert.equal(merged.length,10);
 assert.equal(journal.mergeMarkedEvidence(merged,events),merged,
@@ -59,4 +64,13 @@ const six=ledger.reconcileRecoveredTaskHistory(orphan,orphan.dailyLog)[date];
 assert.equal(six.done,6);assert.equal(six.total,10);
 assert.equal(six.tasks.find(t=>t.id==="y8-practise").progress,0,
  "never invent Foundation answers");
-console.log("Recovery QA passed: 16th credited, 17th preserved, no wrong topic, replay idempotent, orphan repaired.");
+globalThis.localStorage={_m:new Map(),getItem(k){return this._m.has(k)?this._m.get(k):null},setItem(k,v){this._m.set(k,String(v))},removeItem(k){this._m.delete(k)}};
+const receipts=await load("recovery-receipt-20261018.js");
+assert.equal(receipts.saveRecoveryReceipt({date,taskId:"y8-practise",questionIds:events.map(e=>e.questionId)}),true);
+const applied=receipts.applyRecoveryReceipts({
+ [date]:{date,done:0,total:1,complete:false,tasks:[original]},
+ [next]:finished});
+assert.equal(applied[date].tasks[0].done,true);
+assert.equal(applied[date].tasks[0].progress,10);
+assert.deepEqual(applied[next],finished,"a receipt cannot alter the next day");
+console.log("Recovery QA passed: 16th credited, 17th preserved, explicit task tag survives topic mismatch, receipt replays, no wrong topic, replay idempotent, orphan repaired.");
