@@ -426,3 +426,8 @@ window.addEventListener('lux:reward-goal-rendered',()=>{
     el.style.cssText=spriteStyle(el.dataset.species,Number(el.dataset.stage));
   });
 });
+
+// Home-only optional RPG Garden preview. It never changes Study or Recovery records.
+if (location.pathname === '/' || location.pathname === '/index.html') {
+  import('/assets/home-rpg-live-20261019.js?v=20261019-preview2').catch(error => console.warn('RPG Home preview unavailable', error));
+}

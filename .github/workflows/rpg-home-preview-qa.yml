@@ -2,7 +2,7 @@ name: RPG Home Preview QA
 on:
   pull_request:
     paths:
-      - 'index.html'
+      - 'pet/home-pet.js'
       - 'assets/home-rpg-live-20261019.*'
       - 'art/home-rpg/**'
       - 'tests/rpg-home-*.mjs'

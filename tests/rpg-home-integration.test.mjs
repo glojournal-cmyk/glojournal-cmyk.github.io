@@ -42,10 +42,17 @@ test('uses original uploaded artwork and responsive layout',()=>{
   assert.match(css,/@media\(max-width:700px\)/);
   assert.match(css,/rpg-home-live/);
   assert.match(js,/state\.equippedOutfit/);
+  assert.match(js,/lux-rpg-live-css/);
 });
 
 test('official Biology date corrected from the old prototype',()=>{
   assert.match(js,/Biology · cell structure test/);
   assert.match(js,/progress:'2 Nov'/);
   assert.doesNotMatch(js,/16 Nov/);
+});
+
+test('does not replace shared route-shell HTML',()=>{
+  // Preview is enabled via pet/home-pet.js only on the home route.
+  assert.match(js,/window\.__luxRpgLiveHome/);
+  assert.doesNotMatch(js,/document\.write/);
 });

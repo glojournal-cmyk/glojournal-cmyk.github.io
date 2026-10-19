@@ -8,6 +8,13 @@ import { C as store } from './index-BLVOhKhN.js?v=20261018-mastery2';
 
 if (!window.__luxRpgLiveHome) {
   window.__luxRpgLiveHome = true;
+  if (!document.getElementById('lux-rpg-live-css')) {
+    const css = document.createElement('link');
+    css.id = 'lux-rpg-live-css';
+    css.rel = 'stylesheet';
+    css.href = '/assets/home-rpg-live-20261019.css?v=20261019-preview2';
+    document.head.append(css);
+  }
   const root = document.createElement('div');
   root.id = 'lux-rpg-live-home';
   root.className = 'rpg-home-live';

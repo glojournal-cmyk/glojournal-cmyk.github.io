@@ -6,12 +6,15 @@ This patch integrates the uploaded Grok Garden artwork into the existing **glojo
 
 Copy the `assets/` files into the repository `assets/` directory and the four `art/home-rpg/` image files into the matching directory.
 
-In `index.html`, add the following tags, directly before `</body>`:
+In `pet/home-pet.js`, append this guarded dynamic import (Home only):
 
-```html
-<link rel="stylesheet" href="/assets/home-rpg-live-20261019.css?v=1">
-<script type="module" src="/assets/home-rpg-live-20261019.js?v=1"></script>
+```js
+if (location.pathname === '/' || location.pathname === '/index.html') {
+  import('/assets/home-rpg-live-20261019.js?v=20261019-preview2').catch(error => console.warn('RPG Home preview unavailable', error));
+}
 ```
+
+The preview script injects its own stylesheet. Do **not** edit `index.html`: shared route shells must remain byte-for-byte aligned.
 
 **Preview/QA only.** Do not deploy to the live site before checking Chromium, iPad WebKit, navigation, Recovery, task totals, persistence, and rollback. An integration PR must include the required binary artwork and the new CSS/JS together. Existing legacy `home-rpg-shell-20261019.js` remains disabled.
 
@@ -28,7 +31,7 @@ In `index.html`, add the following tags, directly before `</body>`:
 
 ### Rollback
 
-Remove the two `index.html` tags. No learning records or LocalStorage schema are edited by this UI. Leaving the `/art/home-rpg/` files is harmless.
+Remove the guarded dynamic import in `pet/home-pet.js`. No learning records or LocalStorage schema are edited by this UI. Leaving the `/art/home-rpg/` files is harmless.
 
 ## Art reuse / new blobs
 
