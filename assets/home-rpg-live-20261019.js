@@ -137,6 +137,11 @@ if (!window.__luxRpgLiveHome) {
     root.style.backgroundImage = 'url("' + scene.art + '")';
     root.style.backgroundPosition = scene.focus;
     root.dataset.equippedScene = scene.id;
+    // Coordinate colour temperature with the actual reward art. No user settings
+    // or owned backgrounds are changed; this affects sprite presentation only.
+    const nightScenes = new Set(['chem-lab','sports-hall','boss-moon-garden']);
+    const coldScenes = new Set(['bio-lab']);
+    root.dataset.sceneMood = coldScenes.has(scene.id) ? 'cool' : nightScenes.has(scene.id) ? 'night' : 'warm';
     root.replaceChildren();
     const darken = make('div','rpg-shade-live');
     const world = make('section','rpg-world-live');
@@ -175,6 +180,9 @@ if (!window.__luxRpgLiveHome) {
     cast.style.setProperty('--rpg-pet-x', petX + '%');
     cast.style.setProperty('--rpg-ground', floor + '%');
     cast.dataset.sceneGround = scene.id;
+    // Only the transparent Moss sprite has padding below the feet; use a
+    // tiny optical adjustment without moving its actual floor anchor.
+    cast.dataset.petSprite = safeImage(petState().species || 'moss-hornling','moss-hornling');
     const scholar = document.createElement('img');
     scholar.className='rpg-scholar-live';scholar.alt='Scholar';
     const outfit = safeImage(state.equippedOutfit || 'day','day');
