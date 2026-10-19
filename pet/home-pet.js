@@ -82,7 +82,8 @@ function dueMastery(state) {
 }
 
 function displayName(pet) {
-  return pet.name || pets[pet.species] || "Companion";
+  const legacyDefault = pet.species === "sprig-dragon" && pet.name === "Sprig Dragon";
+  return (legacyDefault ? "" : pet.name) || pets[pet.species] || "Companion";
 }
 
 function escapeHtml(value) {
