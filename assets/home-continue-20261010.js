@@ -83,7 +83,7 @@ schedule();
   const isHome = () => location.pathname === '/' || location.pathname === '/index.html';
   function loadForHome() {
     if (!isHome() || loading) return;
-    loading = import('/assets/home-rpg-live-20261019.js?v=20261019-star-nav4').catch(error => {
+    loading = import('/assets/home-rpg-live-20261019.js?v=20261019-ipad-fixed5').catch(error => {
       loading = null; // A failed module load must be retryable after coming back.
       console.warn('RPG Home unavailable', error);
     });
