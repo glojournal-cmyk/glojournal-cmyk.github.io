@@ -92,10 +92,13 @@ if (!window.__luxRpgLiveHome) {
     modalChrome('Recovery');
     gardenModal = 'recovery';
     document.documentElement.classList.add('lux-rpg-recovery-open');
+    const hint = make('p','rpg-modal-note-live','Checking your saved Recovery tasks…');
+    root.append(hint);
     const ensurePanel = attempts => {
       if (gardenModal !== 'recovery' || !onHome()) return;
       const panel = document.getElementById('lux-recovery-quests');
       if (panel) {
+        hint.remove();
         panel.hidden = false;
         panel.open = true;
         panel.setAttribute('aria-label','Quest Recovery · choose a date');
@@ -103,8 +106,7 @@ if (!window.__luxRpgLiveHome) {
       }
       if (attempts < 120) requestAnimationFrame(() => ensurePanel(attempts + 1));
       else {
-        const msg = make('p','rpg-modal-note-live','Recovery is not available yet. Please try again once your saved progress has loaded.');
-        root.append(msg);
+        hint.textContent = 'No Recovery tasks are currently available. Your original study records have not changed.';
       }
     };
     ensurePanel(0);
