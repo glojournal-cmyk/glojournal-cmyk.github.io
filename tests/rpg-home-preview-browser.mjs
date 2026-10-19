@@ -199,7 +199,7 @@ for (const run of runs) {
       // navigation, not just a synthetic popstate event.
       await page.locator('#lux-rpg-live-home .rpg-nav-live a[href="/pet/"]').click();
       await page.waitForURL(/\/pet\/?$/,{timeout:15000});
-      await page.locator('a.pet-back[href="/"]').click();
+      await page.locator('a.pet-brand[href="/"]').click();
       await page.waitForURL(url => url.pathname === '/',{timeout:15000});
       await page.locator('#lux-rpg-live-home .rpg-quests-live h1').waitFor({timeout:25000});
       await page.waitForFunction(() => {
