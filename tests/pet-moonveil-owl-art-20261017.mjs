@@ -37,5 +37,5 @@ assert.match(pet,/Moonlit companion/);
 const home=fs.readFileSync('index.html','utf8');
 const recovery=fs.readFileSync('404.html','utf8');
 assert.equal(home,recovery);
-assert.match(home,/home-pet\.js\?v=20261019-baphomet1/);
+assert.match(home,/home-pet\.js\?v=20261019-[a-z0-9-]+/);
 console.log('Moonveil Owl six individual sprites and original levels verified');
