@@ -7,6 +7,7 @@ import './journey-navigation-20261004.js';
 import { C as store, B as rewardScenes } from './index-BLVOhKhN.js?v=20261018-mastery2';
 import { selectedRewardScene } from './rpg-scene-selection-20261019.js?v=20261019-selected-scene1';
 import { petArtUrl } from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
+import { getHomePersonality } from '/pet/home-personality-20261010.js?v=20261019-rpg-greeting1';
 
 if (!window.__luxRpgLiveHome) {
   window.__luxRpgLiveHome = true;
@@ -22,6 +23,7 @@ if (!window.__luxRpgLiveHome) {
   root.className = 'rpg-home-live';
   let originalVisible = false;
   let gardenModal = null;
+  let greetingCount = 0;
   let scheduled = false;
   let ready = !!window.__luxAppReady;
 
@@ -298,6 +300,20 @@ if (!window.__luxRpgLiveHome) {
       else goalControl.textContent='Reward goal loading…';
     });
     world.append(goalControl);
+    // Rehome the original no-credit Pet personality greeting into the visible
+    // RPG world. The old React Home greeting remains mounted but is hidden.
+    const greet = make('button','rpg-greet-control-live','✧ Say hello');
+    greet.type = 'button';
+    greet.setAttribute('aria-label','Greet your Scholar and companion');
+    const greeting = make('p','rpg-greeting-line-live');
+    greeting.setAttribute('role','status');
+    greeting.setAttribute('aria-live','polite');
+    greet.addEventListener('click', () => {
+      if (!onHome() || document.hidden) return;
+      greeting.textContent = getHomePersonality(petState(),'',greetingCount++).message;
+      greeting.classList.add('is-visible');
+    });
+    world.append(greet,greeting);
     const cast = make('div','rpg-cast-live');
     // Transparent sprites need floor anchors, not flex alignment.
     // Offsets are presentation-only and keyed to the player's equipped reward.
@@ -384,7 +400,7 @@ if (!window.__luxRpgLiveHome) {
     rail.append(panel,timeline,orbs);
 
     const nav=make('div','rpg-nav-live');nav.setAttribute('role','navigation');nav.setAttribute('aria-label','Home navigation');
-    for(const [label,href] of [['Home','/'],['Study','/study'],['Play','/play'],['Garden','/garden'],['Pet','/pet/'],['Assessment','/assessment/'],['Recovery',null],['Settings',null],['Scholar','/scholar']]) {
+    for(const [label,href] of [['Home','/'],['Study','/study'],['Play','/play'],['Garden','/garden'],['Pet','/pet/'],['Assessment','/assessment/'],['Recovery',null],['Settings','/scholar/?open=settings'],['Scholar','/scholar']]) {
       const item = href ? make('a',label==='Home'?'on':'',label) : make('button',null,label);
       if (href) item.href = href;
       else {item.type='button';item.addEventListener('click',()=>nativePanel(label === 'Settings' ? 'settings' : 'recovery'));}
