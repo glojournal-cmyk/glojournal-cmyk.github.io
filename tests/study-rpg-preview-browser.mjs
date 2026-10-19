@@ -22,15 +22,21 @@ try{
       for(const viewport of [{width:1024,height:768},{width:834,height:1112},{width:390,height:844}]){
         const context=await browser.newContext({viewport});
         const page=await context.newPage();
+        fs.mkdirSync('test-results',{recursive:true});
         const errors=[];
         page.on('pageerror',e=>errors.push(e.message));
         await page.goto(origin+'/study/?studyRpgPreview=1');
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
+        // The visual stylesheet is attached dynamically; do not inspect visibility
+        // before it loads, otherwise the original hoisted nav can still flash.
+        await page.waitForFunction(() => Boolean(document.getElementById('lux-study-rpg-style')?.sheet));
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').count(),6);
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-pet').count(),1);
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-scholar').count(),1);
         assert.equal(await page.locator('html.lux-study-rpg-active').count(),1);
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-nav a').count(),7);
+        await page.waitForTimeout(150);
+        await page.screenshot({path:`test-results/study-rpg-${engine.name()}-${viewport.width}-precheck.png`,fullPage:false});
         assert.equal(await page.locator('body > nav:visible').count(),0,'Legacy floating navigation must not overlap Study');
         await page.locator('.lux-study-rpg-year select').selectOption('8');
         await page.waitForFunction(()=>document.querySelector('main:not(#lux-study-rpg-integrated) select:has(option[value="8"])')?.value==='8');
