@@ -24,6 +24,7 @@ if (!window.__luxRpgLiveHome) {
   let originalVisible = false;
   let gardenModal = null;
   let greetingCount = 0;
+  let greetingMessage = '';
   let scheduled = false;
   let ready = !!window.__luxAppReady;
 
@@ -308,9 +309,11 @@ if (!window.__luxRpgLiveHome) {
     const greeting = make('p','rpg-greeting-line-live');
     greeting.setAttribute('role','status');
     greeting.setAttribute('aria-live','polite');
+    if (greetingMessage) { greeting.textContent = greetingMessage; greeting.classList.add('is-visible'); }
     greet.addEventListener('click', () => {
       if (!onHome() || document.hidden) return;
-      greeting.textContent = getHomePersonality(petState(),'',greetingCount++).message;
+      greetingMessage = getHomePersonality(petState(),'',greetingCount++).message;
+      greeting.textContent = greetingMessage;
       greeting.classList.add('is-visible');
     });
     world.append(greet,greeting);
@@ -413,7 +416,7 @@ if (!window.__luxRpgLiveHome) {
     // Pages restored from iPad WebKit back-forward cache may miss the ready event.
     ready = ready || !!window.__luxAppReady;
     if (!onHome() || !ready) {
-      if (!onHome()) { originalVisible = false; closeGardenModal(); }
+      if (!onHome()) { originalVisible = false; greetingMessage = ''; closeGardenModal(); }
       root.remove();document.documentElement.classList.remove('lux-rpg-live-active');return;
     }
     if (!root.isConnected) document.body.append(root);
