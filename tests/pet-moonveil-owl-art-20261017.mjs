@@ -29,7 +29,7 @@ for(let lv=1;lv<=10;lv++){
 assert.equal(petArtUrl('snow-owl',11),petArtUrl('snow-owl',10));
 assert.match(petArtUrl('moon-puff',10),/art-moon-puff-20261013/);
 assert.match(petArtUrl('moss-hornling',10),/art-moss-hornling-20261017/);
-assert.match(petArtUrl('antler-bean',10),/art-antler-bean-individual-20261017/);
+assert.match(petArtUrl('antler-bean',10),/art-baphomet-assassin-20261019/);
 const pet=fs.readFileSync('pet/pet.js','utf8');
 assert.match(pet,/name:"Moonveil Owl"/);
 assert.match(pet,/identity\.forms\.slice\(0,MAX_PET_LEVEL\)/);
@@ -37,5 +37,5 @@ assert.match(pet,/Moonlit companion/);
 const home=fs.readFileSync('index.html','utf8');
 const recovery=fs.readFileSync('404.html','utf8');
 assert.equal(home,recovery);
-assert.match(home,/home-pet\.js\?v=20261019-duck-healer1/);
+assert.match(home,/home-pet\.js\?v=20261019-baphomet1/);
 console.log('Moonveil Owl six individual sprites and original levels verified');
