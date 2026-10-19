@@ -159,7 +159,7 @@ if (!window.__luxStudyRpgIntegrated) {
       body.append(actions);card.append(body);cards.append(card);
     }
     scroll.append(cards);board.append(scroll);root.append(board);
-    const navbar = el('nav','lux-study-rpg-nav');navbar.setAttribute('aria-label','Primary');
+    const navbar = el('div','lux-study-rpg-nav');navbar.setAttribute('aria-label','Primary');
     for (const [glyph,label,url] of nav) {
       const a = el('a', label==='Study'?'active':''); a.href=url;
       a.append(el('span','lux-study-rpg-navicon',glyph),el('span',null,label));
