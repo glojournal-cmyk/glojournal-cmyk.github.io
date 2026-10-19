@@ -1,0 +1,32 @@
+name: Physics Practice keyword marking QA
+on:
+  push:
+    paths:
+      - "assets/physics-keyword-marking-20261019.js"
+      - "assets/quiz-session-*.js"
+      - "tests/physics-keyword-marking-20261019.mjs"
+      - "content/topics/phys-*.json"
+      - ".github/workflows/physics-keyword-marking-qa.yml"
+  pull_request:
+    paths:
+      - "assets/physics-keyword-marking-20261019.js"
+      - "assets/quiz-session-*.js"
+      - "tests/physics-keyword-marking-20261019.mjs"
+      - "content/topics/phys-*.json"
+      - ".github/workflows/physics-keyword-marking-qa.yml"
+  workflow_dispatch:
+jobs:
+  physics-marking-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check quiz module syntax
+        run: |
+          node --check assets/quiz-session-y8fix-20260920.js
+          node --check assets/quiz-session-rWAnuDVj.js
+          node --check assets/physics-keyword-marking-20261019.js
+      - name: Run all Physics question bank and marking regression checks
+        run: node tests/physics-keyword-marking-20261019.mjs
