@@ -1,6 +1,7 @@
 name: RPG Home Preview QA
 on:
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
     paths:
       - 'assets/home-continue-20261010.js'
       - 'assets/home-rpg-live-20261019.*'
