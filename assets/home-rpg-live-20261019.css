@@ -242,3 +242,34 @@ html.lux-rpg-recovery-open #lux-recovery-quests a{
 @media(max-width:700px){
  .rpg-home-live .rpg-goal-control-live{position:absolute;top:5.55rem;right:0;margin:0;font-size:.67rem}
 }
+
+/* iPad Safari PWA: pin Home navigation to the visual viewport, not the
+ * scrollable RPG grid. Avoid the floating bar seen after page restoration. */
+.rpg-home-live .rpg-nav-live {
+  position:fixed!important;
+  bottom:calc(.65rem + env(safe-area-inset-bottom))!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  max-width:calc(100vw - 1.25rem)!important;
+  z-index:20!important;
+}
+.rpg-home-live .rpg-greet-control-live {
+  border:1px solid rgba(244,239,228,.55);
+  border-radius:99px;padding:.4rem .75rem;margin:.3rem 0 0 .2rem;
+  background:rgba(18,32,40,.77);color:#f4efe4;
+  font:600 .75rem/1.2 'Source Sans 3',sans-serif;
+  cursor:pointer;pointer-events:auto!important;z-index:3;min-height:2.75rem;
+}
+.rpg-home-live .rpg-world-live .rpg-greet-control-live {pointer-events:auto!important}
+.rpg-home-live .rpg-greeting-line-live {
+  padding:.35rem .7rem;border-radius:.7rem;margin:.25rem 0 0;
+  max-width:min(29rem,90vw);background:rgba(244,239,228,.91);
+  color:#1c3a4a;line-height:1.4;font-size:.8rem;
+  display:none;z-index:4;pointer-events:none;
+}
+.rpg-home-live .rpg-greeting-line-live.is-visible{display:block}
+@media(max-width:700px){
+  .rpg-home-live .rpg-nav-live{bottom:calc(.4rem + env(safe-area-inset-bottom))!important}
+  .rpg-home-live .rpg-greet-control-live{position:absolute;top:8.3rem;right:0;margin:0;font-size:.68rem}
+  .rpg-home-live .rpg-greeting-line-live{position:absolute;top:11.3rem;right:0;max-width:85vw}
+}
