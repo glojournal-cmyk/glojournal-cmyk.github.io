@@ -185,6 +185,20 @@ for (const run of runs) {
     assert.equal(historyAfter,original,'opening 30-day record must not alter saved study data');
     await page.locator('#lux-rpg-modal-close').click();
     await page.locator('#lux-rpg-live-home .rpg-quests-live h1').waitFor();
+
+    // Star Map must stay inside the RPG scene and reflect real Weekly Boss
+    // progress. Its read-only modal cannot award new XP or write weeklyBoss.
+    const weekBefore=await page.evaluate(()=>JSON.stringify(window.__luxStore.getState().weeklyBoss));
+    await page.locator('#lux-rpg-live-home .rpg-orb-live').first().click();
+    await page.locator('#lux-rpg-live-home .rpg-star-modal-live').waitFor();
+    assert.ok(await page.locator('#lux-rpg-live-home .rpg-quests-live h1').isVisible(),
+      'Star Map must not expose the old native homepage');
+    assert.match(await page.locator('.rpg-star-modal-live').innerText(),/Star Map/);
+    const weekAfter=await page.evaluate(()=>JSON.stringify(window.__luxStore.getState().weeklyBoss));
+    assert.equal(weekAfter,weekBefore,'viewing Star Map must not alter weekly results');
+    await page.locator('#lux-rpg-modal-close').click();
+    assert.ok(await page.locator('#lux-rpg-live-home .rpg-quests-live h1').isVisible());
+
     if (run.label === 'ipad-webkit') {
       // Missing outfit image must never leave an invisible main character.
       await page.locator('#lux-rpg-live-home .rpg-scholar-live').evaluate(img => {
