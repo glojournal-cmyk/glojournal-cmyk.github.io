@@ -311,7 +311,10 @@ if (!window.__luxRpgLiveHome) {
     greeting.setAttribute('aria-live','polite');
     if (greetingMessage) { greeting.textContent = greetingMessage; greeting.classList.add('is-visible'); }
     greet.addEventListener('click', () => {
-      if (!onHome() || document.hidden) return;
+      // This is an explicit button/keyboard gesture, never autoplay.
+      // iPad WebKit can transiently report document.hidden during PWA
+      // restoration even while a user is interacting with the Home.
+      if (!onHome()) return;
       greetingMessage = getHomePersonality(petState(),'',greetingCount++).message;
       greeting.textContent = greetingMessage;
       greeting.classList.add('is-visible');
