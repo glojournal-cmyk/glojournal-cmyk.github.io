@@ -1,3 +1,4 @@
+import '/assets/rpg-route-bridge-20261019.js?v=20261019-ipad-safe2';
 import {STAGE_NAMES, clampPetLevel} from './pet-evolution-config-20261012.js?ux=20261013-corrections2';
 import {spriteStyle} from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
 import { getCareSummary } from "/pet/pet-care-state.js?v=20261003-care1&ux=20261013-corrections2";
