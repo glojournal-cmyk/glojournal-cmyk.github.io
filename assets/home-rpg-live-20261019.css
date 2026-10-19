@@ -169,3 +169,40 @@ html.lux-rpg-recovery-open #lux-recovery-quests a{
     height:min(19dvh,10rem); max-width:24vw;
   }
 }
+
+/* 30-day interaction: single dedicated button, never the injected native button. */
+.rpg-home-live .rpg-hud-live{width:max-content;max-width:min(22.5rem,95vw);flex-wrap:nowrap;flex-shrink:0;min-height:4.1rem;align-self:flex-start}
+.rpg-home-live .rpg-days-live{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ position:relative!important;inset:auto!important;transform:none!important;
+ height:2.65rem!important;min-height:2.65rem!important;width:auto!important;min-width:5.9rem!important;
+ max-width:none!important;flex:0 0 auto!important;overflow:visible!important;
+ padding:.22rem .55rem!important;gap:.34rem!important;white-space:nowrap!important;
+ border:1px solid rgba(244,239,228,.35)!important;border-radius:999px!important;
+ background:#21485a!important;color:#fff7e9!important;z-index:12!important;
+ font:600 .78rem 'Source Sans 3',sans-serif!important;cursor:pointer!important;
+ pointer-events:auto!important;box-shadow:0 3px 9px rgba(0,0,0,.2)!important;
+}
+.rpg-home-live .rpg-days-live span{display:inline-block!important;white-space:nowrap!important;flex:0 0 auto!important}
+.rpg-home-live .rpg-days-icon-live{font-size:.92rem}
+.rpg-home-live .rpg-world-live{z-index:1!important;pointer-events:none}
+.rpg-home-live .rpg-world-live .rpg-hud-live,.rpg-home-live .rpg-world-live .rpg-hud-live button,
+.rpg-home-live .rpg-world-live .rpg-scene-picker-live{pointer-events:auto!important}
+.rpg-home-live .rpg-rail-live{z-index:4!important}
+.rpg-home-live .rpg-quests-live{flex:1 1 auto;min-height:0}
+.rpg-home-live .rpg-days-timeline-live{display:flex;flex:0 0 auto;align-items:center;justify-content:space-between;gap:.55rem;
+ padding:.48rem .7rem;min-height:2.1rem;border-radius:999px;
+ background:rgba(244,239,228,.79);color:#203e4d;pointer-events:none}
+.rpg-home-live .rpg-timeline-label-live{white-space:nowrap;font:600 .73rem 'Source Sans 3',sans-serif}
+.rpg-home-live .rpg-days-timeline-live .rpg-dots-live{max-width:72%;width:auto;flex:1 1 auto}
+@media(max-width:1100px){
+ .rpg-home-live .rpg-hud-live{max-width:min(20rem,95vw)}
+ .rpg-home-live .rpg-days-live{min-width:5.1rem!important;padding:.2rem .38rem!important;font-size:.7rem!important}
+}
+@media(max-width:700px){
+ .rpg-home-live .rpg-hud-live{max-width:calc(100vw - 1.5rem)}
+ .rpg-home-live .rpg-days-live{min-width:5.7rem!important}
+ .rpg-home-live .rpg-rail-live{max-height:none}
+ .rpg-home-live .rpg-quests-live{flex:0 0 auto;max-height:48vh}
+ .rpg-home-live .rpg-days-timeline-live{min-height:2.3rem}
+}
