@@ -13,7 +13,8 @@ if (!window.__luxStudyRpgIntegrated) {
     sheet.href = '/assets/study-rpg-integrated-20261019.css?v=20261019-a';
     document.head.append(sheet);
   }
-  const root = document.createElement('main');
+  // Use a div with role=main: the old Pet enhancer decorates images inside <main>.
+  const root = document.createElement('div');
   root.id = 'lux-study-rpg-integrated';
   root.className = 'lux-study-rpg';
   root.setAttribute('aria-label', 'Study library');
