@@ -1,6 +1,6 @@
 import '../assets/player-ux-20261013.js?ux=20261013-corrections2';
 import {MAX_PET_LEVEL, EVOLUTION_COSTS, STAGE_NAMES, clampPetLevel, ADVANCED_FORMS} from './pet-evolution-config-20261012.js?v=20261019-unicorn2&ux=20261013-corrections2';
-import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261019-unicorn2&ux=20261013-corrections2';
+import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261019-full-edges1&ux=20261013-corrections2';
 const APP_KEY = "lux-scholar-garden-v1";
 const PET_KEY = "lux-pet-companion-v1";
 
