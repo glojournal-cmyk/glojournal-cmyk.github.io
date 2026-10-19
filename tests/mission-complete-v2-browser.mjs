@@ -112,7 +112,8 @@ try{
        const homeRes=await page.goto(base+'/',{waitUntil:'domcontentloaded',timeout:30000});
       assert.equal(homeRes.status(),200);
       await page.waitForFunction(()=>window.__luxAppReady===true&&
-         document.querySelector('main')?.textContent?.length>100,
+         (document.querySelector('#lux-rpg-live-home')?.innerText?.length>100 ||
+          document.querySelector('main')?.textContent?.length>100),
          null,{timeout:30000});
       assert.equal(await page.locator('link[href*="mission-complete-v2-20261010.css"]').count(),0,
        'Home does not get new result-only stylesheet');
