@@ -170,7 +170,7 @@ if (!window.__luxRpgLiveHome) {
     orb(orbs,'/art/home-rpg/shield-recovery.png','Recovery',recoveryCount(state) ? 'Open' : 'Check',()=>nativePanel('recovery'));
     rail.append(panel,orbs);
 
-    const nav=make('nav','rpg-nav-live');nav.setAttribute('aria-label','Home navigation');
+    const nav=make('div','rpg-nav-live');nav.setAttribute('role','navigation');nav.setAttribute('aria-label','Home navigation');
     for(const [label,href] of [['Home','/'],['Study','/study'],['Play','/play'],['Garden','/garden'],['Pet','/pet/'],['Assessment','/assessment/'],['Recovery',null],['Settings',null],['Scholar','/scholar']]) {
       const item = href ? make('a',label==='Home'?'on':'',label) : make('button',null,label);
       if (href) item.href = href;

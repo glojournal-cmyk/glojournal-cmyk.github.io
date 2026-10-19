@@ -6,7 +6,7 @@ This patch integrates the uploaded Grok Garden artwork into the existing **glojo
 
 Copy the `assets/` files into the repository `assets/` directory and the four `art/home-rpg/` image files into the matching directory.
 
-In `pet/home-pet.js`, append this guarded dynamic import (Home only):
+In `assets/home-continue-20261010.js`, append this guarded dynamic import (Home only):
 
 ```js
 if (location.pathname === '/' || location.pathname === '/index.html') {
@@ -31,7 +31,7 @@ The preview script injects its own stylesheet. Do **not** edit `index.html`: sha
 
 ### Rollback
 
-Remove the guarded dynamic import in `pet/home-pet.js`. No learning records or LocalStorage schema are edited by this UI. Leaving the `/art/home-rpg/` files is harmless.
+Remove the guarded dynamic import in `assets/home-continue-20261010.js`. No learning records or LocalStorage schema are edited by this UI. Leaving the `/art/home-rpg/` files is harmless.
 
 ## Art reuse / new blobs
 
