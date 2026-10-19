@@ -3,7 +3,7 @@ import {clampPetLevel} from './pet-evolution-config-20261012.js?ux=20261013-corr
    No persistent changes, rewards, bond or energy writes. */
 const personalities=Object.freeze({
  "moss-hornling":["A patient little nod. The garden is waking up.","Your companion settles beside the Scholar.","A quiet rustle of leaves: ready for another chapter."],
- "antler-bean":["Tiny antlers catch the afternoon light.","Your companion stands proudly at attention.","A curious glance at the next adventure."],
+ "antler-bean":["Baphomet hides a playful grin behind her crimson wings.","A little shadow dance celebrates your latest breakthrough.","Her twin daggers shimmer as another mystery is solved."],
  "inkling":["A swirl of ink draws a tiny constellation.","A mischievous ink flourish appears.","The next story is already taking shape."],
  "pebble-wisp":["A soft glow warms the little pebble.","The wisp sends a glimmer your way.","A small light follows the Scholar."],
  "moon-puff":["A moonlit shimmer dances softly.","Your companion gives a sleepy little glow.","A silvery spark drifts across the garden."],
