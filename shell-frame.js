@@ -1,3 +1,4 @@
+import('/assets/rpg-route-bridge-20261019.js?v=20261019-ipad-safe2').catch(()=>{});
 (() => {
   const path = location.pathname;
   if (!path.startsWith("/pet") && !path.startsWith("/assessment")) return;
