@@ -24,6 +24,7 @@ jobs:
           node --check assets/home-rpg-live-20261019.js
           node --test tests/rpg-home-integration.test.mjs
           node --test tests/home-journey-v2.cjs
+          node --test tests/rpg-home-record-recovery.test.mjs
       - name: Install browser testing dependencies
         run: |
           npm install --no-save playwright

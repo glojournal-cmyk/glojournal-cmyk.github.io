@@ -38,6 +38,10 @@
 /* Never let a long subject name widen a narrow phone viewport. */
 @media(max-width:700px){.rpg-home-live{grid-template-columns:minmax(0,1fr)}.rpg-rail-live,.rpg-quests-live{min-width:0;max-width:100%}.rpg-task-live{overflow:hidden}}
 
+.rpg-home-live .rpg-continue-live{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:.55rem;width:100%;min-height:2.2rem;margin:.38rem 0;padding:.4rem .65rem;border:1px solid rgba(28,58,74,.25);border-radius:99px;background:#234d58;color:#fff8e9;text-align:left;cursor:pointer}
+.rpg-home-live .rpg-continue-live strong{font-size:.76rem;white-space:nowrap}
+.rpg-home-live .rpg-continue-live span{font-size:.72rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right;opacity:.88}
+@media(max-width:700px){.rpg-home-live .rpg-continue-live{grid-template-columns:1fr;gap:.08rem}.rpg-home-live .rpg-continue-live span{text-align:left}}
 /* QA: prevent the underlying React Home from scrolling behind the garden scene. */
 html.lux-rpg-live-active,html.lux-rpg-live-active body {height:100dvh; overflow:hidden !important}
 .rpg-home-live{z-index:2147483000}

@@ -102,11 +102,21 @@ if (!window.__luxRpgLiveHome) {
     track.append(fill); line.append(track, make('strong','rpg-stat-value',value)); parent.append(line);
   }
   function task(parent, row, icon) {
-    // Prevent legacy scripts from decorating study anchors and expanding rows.
-    const a = row.href ? make('button','rpg-task-live') : make('div','rpg-task-live rpg-task-unavailable');
-    if (row.href) { a.type = 'button'; a.addEventListener('click', () => location.assign(row.href)); }
+    // Isolate quest labels from native Home link/button decorators.
+    const a = make('div',row.href ? 'rpg-task-live' : 'rpg-task-live rpg-task-unavailable');
+    if (row.href) {
+      a.setAttribute('role','link');
+      a.tabIndex = 0;
+      a.addEventListener('click', () => location.assign(row.href));
+      a.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();location.assign(row.href);
+        }
+      });
+    }
     if (row.done) a.classList.add('complete');
     const label = row.target === '' ? String(row.progress) : `${row.progress}/${row.target}`;
+    a.setAttribute('aria-label',row.title+' · '+label);
     a.append(make('span','rpg-task-icon',row.done ? '✓' : icon),make('strong',null,row.title),make('em',null,label));
     parent.append(a);
   }
@@ -158,6 +168,19 @@ if (!window.__luxRpgLiveHome) {
       panel.append(make('p','rpg-loading-live',"Waiting for today's official ten-task plan…"));
       const link = make('a','rpg-open-study-live','Open Study →');link.href='/study';panel.append(link);
     }
+    if (progress.ready && progress.next?.href) {
+      const next = progress.next;
+      const action = make('button','rpg-continue-live');
+      action.type = 'button';
+      action.setAttribute('aria-label',next.title+' · '+next.subtitle);
+      action.append(
+        make('strong',null,next.kind === 'resume' ? 'Resume saved question →' :
+          next.kind === 'complete' ? 'Visit garden →' : 'Continue next task →'),
+        make('span',null,next.subtitle)
+      );
+      action.addEventListener('click',() => location.assign(next.href));
+      panel.append(action);
+    }
     const days = make('button','rpg-days-live');days.type='button';days.setAttribute('aria-label','Open original 30-day record');
     days.append(make('span',null,'30 days'));
     const dots=make('span','rpg-dots-live');
@@ -168,7 +191,8 @@ if (!window.__luxRpgLiveHome) {
     const starLabel='View'; // Native Star Map owns the current weekly progress.
     orb(orbs,'/art/home-rpg/shield-starmap.png','Star map',starLabel,()=>nativePanel('star'));
     orb(orbs,'/art/home-rpg/shield-cardigan.png','Cardigan','Next',()=>location.assign('/scholar'));
-    orb(orbs,'/art/home-rpg/shield-recovery.png','Recovery',recoveryCount(state) ? 'Open' : 'Check',()=>nativePanel('recovery'));
+    // The native engine alone decides eligibility, including never-opened days.
+    orb(orbs,'/art/home-rpg/shield-recovery.png','Recovery','Review',()=>nativePanel('recovery'));
     rail.append(panel,orbs);
 
     const nav=make('div','rpg-nav-live');nav.setAttribute('role','navigation');nav.setAttribute('aria-label','Home navigation');
