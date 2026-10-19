@@ -10,7 +10,7 @@ const STOP = new Set([
   "through","per","each","one","around","or","therefore","state","claim"
 ]);
 const ALIAS = {
-  poles:"pole",charges:"charge",particles:"particle",forces:"force",fields:"field",
+  pascals:"pascal",newtons:"newton",joules:"joule",watts:"watt",poles:"pole",charges:"charge",particles:"particle",forces:"force",fields:"field",
   lines:"line",rays:"ray",stores:"store",transfers:"transfer",angles:"angle",
   magnets:"magnet",materials:"material",positions:"position",directions:"direction",
   systems:"system",currents:"current",volts:"volt",amperes:"ampere",amps:"ampere",
@@ -94,11 +94,16 @@ function phraseHit(point,response) {
 function shortHit(answer,response) {
   const accepted=[...(answer.accepted||[]),answer.modelAnswer].filter(x=>typeof x==="string"&&x.trim());
   return accepted.some(expected => {
-    let input=String(response);
+    // Original answer must always pass, including full name plus symbol (volts (V)).
+    if(presentation(expected)===presentation(response))return true;
+    let input=String(response),template=expected;
     const symbols={A:"amperes",V:"volts",N:"newtons",Pa:"pascals",W:"watts",J:"joules"};
-    for(const [symbol,word] of Object.entries(symbols))if(expected.includes("("+symbol+")"))input=input.replace(new RegExp("\\b"+symbol+"\\b","g"),word);
-    if(presentation(expected)===presentation(input))return true;
-    const choices=expected.match(/^any\s+(two|three|four|five|six)\s+of\s+(.+?)\.?$/i);
+    for(const [symbol,word] of Object.entries(symbols))if(expected.includes("("+symbol+")")){
+      input=input.replace(new RegExp("\\b"+symbol+"\\b","g"),word);
+      template=template.replace("("+symbol+")","");
+    }
+    if(presentation(template)===presentation(input))return true;
+    const choices=template.match(/^any\s+(two|three|four|five|six)\s+of\s+(.+?)\.?$/i);
     if(choices){
       const need={two:2,three:3,four:4,five:5,six:6}[choices[1].toLowerCase()];
       const options=choices[2].replace(/\s+and\s+/gi,",").split(",").map(x=>x.trim()).filter(Boolean);
@@ -106,8 +111,8 @@ function shortHit(answer,response) {
       if(actual.some(w=>!allowed.has(w)))return false;
       return options.filter(option=>words(option).every(w=>actual.includes(w))).length>=need;
     }
-    if(expected.includes(";"))return expected.split(";").every(part=>phraseHit(part,input));
-    return phraseHit(expected,input);
+    if(template.includes(";"))return template.split(";").every(part=>phraseHit(part,input));
+    return phraseHit(template,input);
   });
 }
 
