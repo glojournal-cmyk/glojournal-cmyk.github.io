@@ -33,6 +33,8 @@ assert.equal(mark("store-list-typed","kinetic, thermal, chemical, unicorn"),fals
 assert.equal(mark("pressure-equation-typed","pressure = force / area"),true);
 assert.equal(mark("pressure-equation-typed","pressure = area / force"),false);
 assert.equal(mark("current-typed","Current rate flow electric charge measured A"),true);
+assert.equal(mark("potential-difference-typed","Energy transferred per unit charge, measured in volts (V)."),true);
+assert.equal(mark("potential-difference-typed","Energy transferred per unit charge measured in V"),true);
 assert.equal(mark("law-reflection-typed","angle incidence = angle reflection"),true);
 assert.equal(mark("pressure-equation-typed","pressure equals force divided by area"),true);
 assert.equal(mark("pressure-equation-typed","pressure equals area divided by force"),false);
