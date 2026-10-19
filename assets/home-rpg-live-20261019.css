@@ -74,3 +74,28 @@ html.lux-rpg-live-active,html.lux-rpg-live-active body {height:100dvh; overflow:
 }
 .rpg-home-live .rpg-scene-picker-live:focus-visible{outline:2px solid #f4efe4;outline-offset:3px}
 @media(max-width:700px){.rpg-home-live .rpg-scene-picker-live{position:absolute;top:3rem;right:0;margin:0;font-size:.66rem;max-width:48%}}
+
+/* Sprite/background integration: scene rewards remain their original artwork.
+ * Contact lighting follows the artwork's ambient colour temperature.
+ */
+.rpg-home-live[data-scene-mood="warm"] .rpg-scholar-live{
+  filter:sepia(.12) saturate(.91) brightness(.97) drop-shadow(0 5px 6px rgba(65,44,22,.23))
+}
+.rpg-home-live[data-scene-mood="warm"] .rpg-pet-live img{
+  filter:sepia(.10) saturate(.94) brightness(.98) drop-shadow(0 4px 5px rgba(65,44,22,.23))
+}
+.rpg-home-live[data-scene-mood="night"] .rpg-scholar-live{
+  filter:sepia(.08) saturate(.82) brightness(.85) drop-shadow(0 5px 7px rgba(10,16,31,.4))
+}
+.rpg-home-live[data-scene-mood="night"] .rpg-pet-live img{
+  filter:sepia(.07) saturate(.87) brightness(.88) drop-shadow(0 3px 6px rgba(10,16,31,.4))
+}
+.rpg-home-live[data-scene-mood="cool"] .rpg-scholar-live,
+.rpg-home-live[data-scene-mood="cool"] .rpg-pet-live img{
+  filter:saturate(.85) brightness(.93) drop-shadow(0 5px 7px rgba(19,28,47,.3))
+}
+.rpg-cast-live[data-pet-sprite="moss-hornling"] .rpg-pet-live img{translate:0 3px}
+/* Respect smaller displays without putting the scholar over the task rail. */
+@media (min-width:701px) and (max-width:1100px) {
+  .rpg-home-live .rpg-cast-live{--rpg-scholar-x:38% !important;--rpg-pet-x:56% !important}
+}
