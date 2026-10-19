@@ -220,7 +220,7 @@ if (!window.__luxRpgLiveHome) {
     root.replaceChildren();
     const darken = make('div','rpg-shade-live');
     const world = make('section','rpg-world-live');
-    const hud = make('header','rpg-hud-live');
+    const hud = make('div','rpg-hud-live'); // Not a native header: avoid lux-theme's automatic toolbar injection.
     const face = document.createElement('img'); face.alt=''; face.src='/art/scholar-avatar.jpg';
     const stats = make('div','rpg-hud-stats');
     const xp = number(state.xp);
@@ -232,7 +232,15 @@ if (!window.__luxRpgLiveHome) {
     stat(stats,'MIND',mastery,topics ? mastery/topics : 0,'Mastered topics / topics with saved statistics');
     stat(stats,'BODY',body,Math.min(body/10,1),'Recorded PE sessions (bar caps at 10)');
     stat(stats,'SPARK',xp,(xp % 1000)/1000,'Scholar XP · progress bar is illustrative only');
-    hud.append(face,stats);world.append(hud);
+    hud.append(face,stats);
+    // Keep exactly one functional 30-day button in the stable Scholar HUD.
+    const days = make('button','rpg-days-live');
+    days.type = 'button';
+    days.setAttribute('aria-label','Open your past 30-day study record');
+    days.append(make('span','rpg-days-icon-live','▣'),make('span',null,'30 days'));
+    days.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();openThirtyDayRecord();});
+    hud.append(days);
+    world.append(hud);
     const sceneLink = make('a','rpg-scene-picker-live','Scene: ' + scene.name + ' · Change');
     sceneLink.href = '/scholar';
     sceneLink.setAttribute('aria-label', 'Change your equipped background reward in Scholar');
@@ -307,11 +315,12 @@ if (!window.__luxRpgLiveHome) {
       action.addEventListener('click',() => location.assign(next.href));
       panel.append(action);
     }
-    const days = make('button','rpg-days-live');days.type='button';days.setAttribute('aria-label','Open your past 30-day study record');
-    days.append(make('span',null,'30 days'));
+    // Read-only progress dots live outside the scrollable quest list, fixed to the rail.
+    const timeline=make('div','rpg-days-timeline-live');
+    timeline.append(make('span','rpg-timeline-label-live','Last 30 days'));
     const dots=make('span','rpg-dots-live');
     for(let age=29;age>=0;age--){const dot=make('i',todayStatus(state,dayBefore(age)));dot.title=dayBefore(age);dots.append(dot);}
-    days.append(dots);days.addEventListener('click',()=>nativePanel('record'));panel.append(days);
+    timeline.append(dots);
     const orbs=make('div','rpg-orbs-live');
     // Avoid displaying an invented 0/4 or borrowing an old week's score.
     const starLabel='View'; // Native Star Map owns the current weekly progress.
@@ -319,7 +328,7 @@ if (!window.__luxRpgLiveHome) {
     orb(orbs,'/art/home-rpg/shield-cardigan.png','Cardigan','Next',()=>location.assign('/scholar'));
     // The native engine alone decides eligibility, including never-opened days.
     orb(orbs,'/art/home-rpg/shield-recovery.png','Recovery','Review',()=>nativePanel('recovery'));
-    rail.append(panel,orbs);
+    rail.append(panel,timeline,orbs);
 
     const nav=make('div','rpg-nav-live');nav.setAttribute('role','navigation');nav.setAttribute('aria-label','Home navigation');
     for(const [label,href] of [['Home','/'],['Study','/study'],['Play','/play'],['Garden','/garden'],['Pet','/pet/'],['Assessment','/assessment/'],['Recovery',null],['Settings',null],['Scholar','/scholar']]) {
