@@ -57,7 +57,7 @@ if (!window.__luxRpgShell) {
     scholar.alt = "";
     const pet = document.createElement("img");
     pet.className = "pet";
-    pet.src = petSrc();
+    pet.src = "/art/rpg/moss.png";
     pet.alt = "Pet";
     pet.tabIndex = 0;
     pet.addEventListener("click", () => { location.href = "/pet/"; });
