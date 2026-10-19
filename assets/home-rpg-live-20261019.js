@@ -286,6 +286,18 @@ if (!window.__luxRpgLiveHome) {
     sceneLink.href = '/scholar';
     sceneLink.setAttribute('aria-label', 'Change your equipped background reward in Scholar');
     world.append(sceneLink);
+    // The original Companion reward picker belongs to the existing app.
+    // Open that picker directly from the RPG Home, without sending the player
+    // to the hidden legacy Home or duplicating reward goal save logic.
+    const goalControl=make('button','rpg-goal-control-live','Reward goal');
+    goalControl.type='button';
+    goalControl.setAttribute('aria-label','Choose or change your companion reward goal');
+    goalControl.addEventListener('click',()=>{
+      const nativeChoose=document.querySelector('#chosen-reward-goal [data-choose]');
+      if(nativeChoose) nativeChoose.click();
+      else goalControl.textContent='Reward goal loading…';
+    });
+    world.append(goalControl);
     const cast = make('div','rpg-cast-live');
     // Transparent sprites need floor anchors, not flex alignment.
     // Offsets are presentation-only and keyed to the player's equipped reward.
