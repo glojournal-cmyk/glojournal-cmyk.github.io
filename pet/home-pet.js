@@ -25,7 +25,7 @@ const pets = {
   "mothling": "Starling Fox",
   "bloom-snail": "Starlight Kitten",
   "velvet-batling": "Shadow Wolf",
-  "sprig-dragon": "Sprig Dragon",
+  "sprig-dragon": "Celestial Unicorn",
   "star-toadlet": "Star Toadlet",
   "snow-owl": "Moonveil Owl",
   "night-spider": "Nocturne Spider",
