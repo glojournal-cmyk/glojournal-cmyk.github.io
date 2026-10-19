@@ -372,8 +372,23 @@ function ensureHomePersonality(host){
   }
   host.classList.toggle('lux-home-personality-idle',!motionReduced());
 }
+let launchedScholarSettings = false;
+function launchNativeScholarSettings() {
+  // The RPG Home Settings shortcut must open the real Scholar Settings
+  // tab instead of revealing the retired Home. No saved data is changed.
+  if (launchedScholarSettings ||
+      !/^\/scholar\/?$/.test(location.pathname) ||
+      new URLSearchParams(location.search).get('open') !== 'settings' ||
+      !window.__luxAppReady) return;
+  const settings = [...document.querySelectorAll('main button')]
+    .find(el => el.textContent.trim() === 'Settings');
+  if (!settings) return;
+  launchedScholarSettings = true;
+  settings.click();
+}
 function render() {
   enhanceShell();
+  launchNativeScholarSettings();
   enhanceHomeCards();
 
   const existing = document.getElementById("mastery-pet-home");
@@ -403,6 +418,7 @@ function schedule() {
 
 new MutationObserver(schedule).observe(document.documentElement, { childList: true, subtree: true });
 window.addEventListener("popstate", schedule);
+window.addEventListener("lux:app-ready", schedule);
 window.addEventListener("storage", schedule);
 window.addEventListener("focus", schedule);
 window.addEventListener("scholar:pet-changed", schedule);
