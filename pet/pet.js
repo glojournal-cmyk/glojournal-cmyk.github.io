@@ -1,6 +1,6 @@
 import '../assets/player-ux-20261013.js?ux=20261013-corrections2';
-import {MAX_PET_LEVEL, EVOLUTION_COSTS, STAGE_NAMES, clampPetLevel, ADVANCED_FORMS} from './pet-evolution-config-20261012.js?v=20261019-unicorn2&ux=20261013-corrections2';
-import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261019-full-edges1&ux=20261013-corrections2';
+import {MAX_PET_LEVEL, EVOLUTION_COSTS, STAGE_NAMES, clampPetLevel, ADVANCED_FORMS} from './pet-evolution-config-20261012.js?v=20261019-duck-healer1&ux=20261013-corrections2';
+import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261019-duck-healer1&ux=20261013-corrections2';
 const APP_KEY = "lux-scholar-garden-v1";
 const PET_KEY = "lux-pet-companion-v1";
 
@@ -14,7 +14,7 @@ const pets = [
   {id:"bloom-snail",name:"Starlight Kitten",tag:"Little wonders grow into starlight."},
   {id:"velvet-batling",name:"Shadow Wolf",tag:"From a little moonlit wolf to a fearless night archer."},
   {id:"sprig-dragon",name:"Celestial Unicorn",tag:"From little unicorn to celestial shield guardian."},
-  {id:"star-toadlet",name:"Star Toadlet",tag:"Odd, earnest, and full of light."},
+  {id:"star-toadlet",name:"Bookish Duck Healer",tag:"From a little scholar duckling to a celestial healer."},
   {id:"snow-owl",name:"Moonveil Owl",tag:"A white guardian of hard-won knowledge.",secret:true},
   {id:"night-spider",name:"Nocturne Spider",tag:"A velvet weaver of patient discoveries.",secret:true}
 ];
@@ -28,7 +28,7 @@ const character = {
   "bloom-snail": {nature:"Curious, loyal and quietly courageous",habit:"Gathers starlight through learning, growing into a celestial guardian.",forms:["Starlight Kitten","Leaf Kitten","Blossom Kitten","Moonlit Cat","Garden Sentinel"]},
   "velvet-batling": {nature:"Brave, loyal and quietly determined",habit:"Studies by moonlight and follows each new discovery.",forms:["Moonlit Pup","Growing Guardian","Star-touched Wolf","Night Sentinel","Lunar Guardian"]},
   "sprig-dragon": {nature:"Bold, protective and endlessly curious",habit:"Guards new knowledge until it takes root.",forms:["Starflower Foal","Blooming Unicorn","Celestial Steed","Winged Guardian","Celestial Alicorn"]},
-  "star-toadlet": {nature:"Odd, earnest and unexpectedly wise",habit:"Counts small victories as if they were stars.",forms:["Little star toad","Glowing jumper","Star-finned explorer","Cosmic marsh guardian","Constellation sovereign"]},
+  "star-toadlet": {nature:"Curious, gentle and always ready to help",habit:"Learns healing magic one book and one kind deed at a time.",forms:["Little Healer","Curious Apprentice","Potion Helper","Winged Junior Healer","Duckling Adept"]},
   "snow-owl": {nature:"Watchful, wise and quietly brave",habit:"Keeps a moonlit watch over every lesson mastered.",forms:["Snowy owlet","White-wing scout","Moon-wing scholar","Lunar guardian","Moonlit companion"]},
   "night-spider": {nature:"Patient, daring and brilliantly resourceful",habit:"Weaves the lessons you remembered into silver threads.",forms:["Velvet spiderling","Night runner","Obsidian hunter","Web guardian","Umbral bloom"]}
 };
@@ -72,7 +72,7 @@ const petVoices = {
   "bloom-snail":{close:"Starlight Kitten senses a new skill awakening",due:"Starlight Kitten has a review to share",steady:"Starlight Kitten celebrates your steady progress",waiting:"Starlight Kitten is waiting for the first spark"},
   "velvet-batling":{close:"Shadow Wolf senses mastery approaching",due:"Shadow Wolf brings a moonlit reminder",steady:"Shadow Wolf celebrates steady progress",waiting:"Shadow Wolf is ready for the first quest"},
   "sprig-dragon":{close:"Celestial Unicorn guards a nearly-mastered skill",due:"Celestial Unicorn protects an important review",steady:"Celestial Unicorn sees your knowledge growing",waiting:"Celestial Unicorn is ready for the first quest"},
-  "star-toadlet":{close:"Star Toadlet predicts a breakthrough",due:"Star Toadlet has not forgotten",steady:"Star Toadlet counts every bright step",waiting:"Star Toadlet waits for the first star"},
+  "star-toadlet":{close:"Bookish Duck Healer sees a breakthrough",due:"Bookish Duck Healer has a gentle review reminder",steady:"Bookish Duck Healer celebrates your progress",waiting:"Bookish Duck Healer opens the first healing book"},
   "snow-owl":{close:"Moonveil Owl sees a breakthrough",due:"Moonveil Owl remembers the path",steady:"Moonveil Owl watches your progress",waiting:"Moonveil Owl waits for a new discovery"},
   "night-spider":{close:"Nocturne Spider senses a breakthrough",due:"Nocturne Spider leaves a silver thread",steady:"Nocturne Spider sees your steady work",waiting:"Nocturne Spider waits in the quiet"}
 };
@@ -219,7 +219,7 @@ function glowLabel(state){
   return "Resting";
 }
 function petDisplayName(pet){
-  const legacyDefault = pet.species === "sprig-dragon" && pet.name === "Sprig Dragon";
+  const legacyDefault = (pet.species === "sprig-dragon" && pet.name === "Sprig Dragon") || (pet.species === "star-toadlet" && pet.name === "Star Toadlet");
   return (legacyDefault ? "" : pet.name) || pets.find(p=>p.id===pet.species)?.name || "Companion";
 }
 function petById(id){return pets.find(p=>p.id===id)||pets[0]}
@@ -277,7 +277,7 @@ function render(){
     :`Balance after evolution: ${Math.max(0,balance-cost)} MP`;
   document.getElementById("messageTitle").textContent=msg.title;
   document.getElementById("messageBody").textContent=msg.body;
-  document.getElementById("petNameInput").value=(pet.species==="sprig-dragon"&&pet.name==="Sprig Dragon")?"":(pet.name||"");
+  document.getElementById("petNameInput").value=((pet.species==="sprig-dragon"&&pet.name==="Sprig Dragon")||(pet.species==="star-toadlet"&&pet.name==="Star Toadlet"))?"":(pet.name||"");
 
   const steps=document.getElementById("stageSteps");
   steps.innerHTML=stageNames.map((name,i)=>{
