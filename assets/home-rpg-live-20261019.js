@@ -13,7 +13,7 @@ if (!window.__luxRpgLiveHome) {
     const css = document.createElement('link');
     css.id = 'lux-rpg-live-css';
     css.rel = 'stylesheet';
-    css.href = '/assets/home-rpg-live-20261019.css?v=20261019-selected-scene1';
+    css.href = '/assets/home-rpg-live-20261019.css?v=20261019-ground-anchor1';
     document.head.append(css);
   }
   const root = document.createElement('div');
@@ -158,6 +158,23 @@ if (!window.__luxRpgLiveHome) {
     sceneLink.setAttribute('aria-label', 'Change your equipped background reward in Scholar');
     world.append(sceneLink);
     const cast = make('div','rpg-cast-live');
+    // Transparent sprites need floor anchors, not flex alignment.
+    // Offsets are presentation-only and keyed to the player's equipped reward.
+    const floorPresets = {
+      dusk:[49,65,8.5],classroom:[48,64,8],courtyard:[49,65,8],
+      garden:[49,65,8],'library-hall':[50,66,8.5],
+      'dusk-court':[49,65,8],'form-room':[50,66,8],
+      conservatory:[49,65,8.5],fountain:[49,65,8],
+      'chem-lab':[50,66,8],'bio-lab':[50,66,8],
+      'phys-lab':[50,66,8],'sports-hall':[50,66,8],
+      'herb-walk':[49,65,8],'boss-moon-garden':[49,65,8],
+      'boss-grand-library':[50,66,8.5],'boss-observatory':[50,66,8]
+    };
+    const [scholarX, petX, floor] = floorPresets[scene.id] || floorPresets.dusk;
+    cast.style.setProperty('--rpg-scholar-x', scholarX + '%');
+    cast.style.setProperty('--rpg-pet-x', petX + '%');
+    cast.style.setProperty('--rpg-ground', floor + '%');
+    cast.dataset.sceneGround = scene.id;
     const scholar = document.createElement('img');
     scholar.className='rpg-scholar-live';scholar.alt='Scholar';
     const outfit = safeImage(state.equippedOutfit || 'day','day');
