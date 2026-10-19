@@ -12,7 +12,7 @@ export const ADVANCED_FORMS = Object.freeze({
  mothling:['Guardian Form','Spirit Walker','Half-Human Form','Celestial Archer','Starfall Archer'],
  'bloom-snail':['Celestial Lynx','Star Guardian','Spirit Walker','Moonborne Guardian','Astral Sovereign'],
  'velvet-batling':['Moonlight Sentinel','Celestial Wolf','Wolf Spirit Archer','Lunar Huntress','Moonshadow Archer'],
- 'sprig-dragon':['Crown-horn dragon','Radiant vine guardian','Celestial canopy dragon','Mythic forest dragon','Eternal verdant sovereign'],
+ 'sprig-dragon':['Unicorn Maiden','Starlight Princess','Starshield Knight','Celestial Crusader','Eternal Shield Sovereign'],
  'star-toadlet':['Starlit marsh keeper','Radiant star guardian','Celestial toad sovereign','Mythic constellation keeper','Eternal star sovereign'],
  'snow-owl':['Starlit guardian beast','Lunar scholarling','Moonwing knight','Nocturne spirit maiden','Eternal nocturne queen'],
  'night-spider':['Violet sentinel','Archive seeker','Lore weaver','Nocturne maiden','Eternal nocturne']
