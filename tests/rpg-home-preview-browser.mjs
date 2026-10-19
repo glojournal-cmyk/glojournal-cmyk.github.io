@@ -60,6 +60,23 @@ for (const run of runs) {
       'missing or hidden quest titles: '+JSON.stringify(rows));
     assert.match(await page.locator('#lux-rpg-live-home .rpg-continue-live').innerText(),/Resume saved question/);
     await page.screenshot({path:`test-results/rpg-home/${run.label}-ten-quests.png`,fullPage:true});
+    // Both characters must stand on the same visible ground plane rather than
+    // floating beside reward-scene furniture (tested on desktop, iPad, phone).
+    const footing=await page.evaluate(()=>{
+      const cast=document.querySelector('#lux-rpg-live-home .rpg-cast-live');
+      const a=document.querySelector('#lux-rpg-live-home .rpg-scholar-live').getBoundingClientRect();
+      const b=document.querySelector('#lux-rpg-live-home .rpg-pet-live img').getBoundingClientRect();
+      return {scholarBottom:a.bottom,petBottom:b.bottom,scholarX:a.left+a.width/2,
+        petX:b.left+b.width/2,ground:cast.dataset.sceneGround,
+        shadow:getComputedStyle(cast,'::before').content,viewport:innerWidth};
+    });
+    assert.ok(Math.abs(footing.scholarBottom-footing.petBottom)<3,'character and pet have separate but aligned ground anchors');
+    assert.notEqual(footing.shadow,'none','character should have a contact shadow');
+    assert.ok(footing.scholarX<footing.petX,'pet belongs beside scholar, not on top of her feet');
+    if(run.label==='desktop-chromium'){
+      assert.ok(footing.scholarX>footing.viewport*.39&&footing.scholarX<footing.viewport*.58,
+        'Scholar should occupy a clear center-left floor location');
+    }
     const rowSizes=await page.locator('#lux-rpg-live-home .rpg-quests-live .rpg-task-live').evaluateAll(rows=>rows.map(row=>Math.round(row.getBoundingClientRect().height)));
     assert.ok(rowSizes.every(size=>size<=42),'quest rows must stay compact: '+rowSizes.join(','));
     await page.screenshot({path:`test-results/rpg-home/${run.label}.png`,fullPage:true});
