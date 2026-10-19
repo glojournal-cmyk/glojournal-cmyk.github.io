@@ -36,3 +36,12 @@ Remove the guarded dynamic import in `assets/home-continue-20261010.js`. No lear
 ## Art reuse / new blobs
 
 These three exact uploaded image blobs already exist in `main`: `/art/garden-wide.jpg`, `/art/scholar-avatar.jpg`, `/art/rpg/moss.png`. Add the *four* new files: `scholar-clean.png`, `shield-cardigan.png`, `shield-recovery.png`, and `shield-starmap.png` under `/art/home-rpg/`.
+
+## 19 October follow-up QA (preview only)
+
+- Aligned 404.html to the verified index.html route shell. Whole-site QA succeeded for that isolated fix.
+- Continue now validates saved drafts against an unfinished, matching current-day task; the new garden Resume control uses the authoritative Home Journey selector.
+- Quest rows use isolated keyboard-accessible elements to avoid legacy site decorators replacing task labels. Browser QA now checks actual titles and a ten-task fixture, not just element counts.
+- Native Recovery stays authoritative. Added anonymised historical assertions based on the previous backup (16 Oct 7/10, 17 Oct 10/10, 18 Oct 9/10); also run the original Recovery task-ledger, date and history regression tests.
+- Browser QA must verify opening Recovery does not change XP, tasks or dailyLog. Actual iPad backup restore still requires device-level verification.
+- Do not merge PR #30 or publish to production before the current commit's entire CI is green and the user approves screenshot previews.
