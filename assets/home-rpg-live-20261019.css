@@ -229,3 +229,16 @@ html.lux-rpg-recovery-open #lux-recovery-quests a{
 .rpg-home-live .rpg-star-empty-live{padding:1rem .65rem;line-height:1.5;font-size:.84rem}
 .rpg-home-live .rpg-star-list-live .rpg-record-row-live{flex-wrap:wrap}
 .rpg-home-live .rpg-star-reward-live{width:100%;font-size:.7rem;color:#355e52}
+
+/* Keep the original reward goal picker available from the new Garden Home. */
+.rpg-home-live .rpg-goal-control-live{
+ display:inline-flex;align-self:flex-start;margin:.35rem 0 0 .2rem;
+ padding:.34rem .75rem;border-radius:99px;border:1px solid rgba(244,239,228,.55);
+ background:rgba(18,32,40,.77);color:#f4efe4;
+ font:600 .75rem/1.2 'Source Sans 3','Segoe UI',sans-serif;
+ cursor:pointer;z-index:3;pointer-events:auto!important
+}
+.rpg-home-live .rpg-world-live .rpg-goal-control-live{pointer-events:auto!important}
+@media(max-width:700px){
+ .rpg-home-live .rpg-goal-control-live{position:absolute;top:5.55rem;right:0;margin:0;font-size:.67rem}
+}
