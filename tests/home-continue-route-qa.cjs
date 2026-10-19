@@ -16,9 +16,23 @@ test('unfinished Biology task, never default to Latin',()=>{
  assert.equal(m.kind,'task');assert.match(m.href,/biology\/practise/);
 });
 test('saved Biology question 2 of 10 resumes precisely',()=>{
- const draft={daily:true,planDate:DAY,href:'/study/biology/practise?daily=1&task=t1',title:'Biology Cell structure',index:1,total:10};
+ const draft={daily:true,dailyTaskId:'t1',planDate:DAY,href:'/study/biology/practise?daily=1&task=t1',title:'Biology Cell structure',index:1,total:10};
  const m=choose({today:DAY,daily:rows},{...J,resumeCandidates:()=>[draft]});
  assert.equal(m.kind,'resume');assert.match(m.detail,/Question 2 of 10/);
+});
+test('an unmatched saved draft cannot hijack Continue',()=>{
+ const invalid={daily:true,dailyTaskId:'missing',planDate:DAY,
+   href:'/study/latin/practise?daily=1&task=missing',index:3,total:10};
+ const selected=choose({today:DAY,daily:rows},{...J,resumeCandidates:()=>[invalid]});
+ assert.equal(selected.kind,'task');
+ assert.match(selected.href,/biology\/practise/);
+});
+test('a completed saved draft never overrides unfinished tasks',()=>{
+ const done={daily:true,dailyTaskId:'t0',planDate:DAY,
+   href:'/study/latin/practise?daily=1&task=t0',index:5,total:10};
+ const selected=choose({today:DAY,daily:rows},{...J,resumeCandidates:()=>[done]});
+ assert.equal(selected.kind,'task');
+ assert.match(selected.href,/biology\/practise/);
 });
 test('stale six-task SSR, yesterday and corrupt links are not trusted',()=>{
  assert.equal(choose({today:DAY,daily:rows.slice(0,6)},J).href,'/study/');

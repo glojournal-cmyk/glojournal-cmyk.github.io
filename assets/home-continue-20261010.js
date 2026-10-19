@@ -10,7 +10,8 @@ function choose(state,J,now=Date.now()){
  if(!J||state?.today!==J.day(now)||!Array.isArray(state.daily)||state.daily.length!==10)return library;
  let drafts=[];
  try{drafts=J.resumeCandidates(state,now)||[];}catch{}
- const pick=drafts.find(d=>d.daily&&d.planDate===state.today&&href(J,d.href));
+ const pick=drafts.find(d=>d.daily&&d.planDate===state.today&&href(J,d.href)&&
+  state.daily.some(t=>t.id===d.dailyTaskId&&Number(t.target)>0&&Number(t.progress)<Number(t.target)&&href(J,t.href)));
  if(pick){
   const link=href(J,pick.href),total=Math.max(1,Number(pick.total)||1);
   const question=Math.max(1,Math.min(total,(Number(pick.index)||0)+1));
@@ -72,3 +73,8 @@ for(const event of ["lux:app-ready","pageshow","storage","scholar:session-saved"
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)schedule();});
 schedule();
 })(globalThis);
+
+// Optional Home-only RPG Garden preview; display-only, no credit or XP writes.
+if (typeof location !== 'undefined' && (location.pathname === '/' || location.pathname === '/index.html')) {
+  import('/assets/home-rpg-live-20261019.js?v=20261019-ground-anchor1').catch(error => console.warn('RPG Home preview unavailable', error));
+}
