@@ -1,7 +1,11 @@
+html.rpg-on body > :not(.rpg-home) {
+  display: none !important;
+}
+
 .rpg-home {
   position: fixed;
   inset: 0;
-  z-index: 80;
+  z-index: 1000;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(15rem, 18.5rem);
   gap: 1.25rem;
