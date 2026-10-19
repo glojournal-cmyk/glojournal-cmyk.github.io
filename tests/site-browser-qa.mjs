@@ -32,7 +32,7 @@ for(const [engine,launcher] of [["chromium",chromium],["webkit",webkit]]){
     await page.waitForTimeout(4500);
     const snap=await page.evaluate(()=>({
       title:document.title,headings:[...document.querySelectorAll("h1,h2,h3")].filter(e=>e.getBoundingClientRect().height).map(e=>e.textContent),
-      text:(document.querySelector("main")||document.body).innerText,controls:document.querySelectorAll("button,input,textarea,select").length,
+      text:((location.pathname==="/" && document.documentElement.classList.contains("lux-rpg-live-active") ? document.querySelector("#lux-rpg-live-home") : null) || document.querySelector("main") || document.body).innerText,controls:document.querySelectorAll("button,input,textarea,select").length,
       question:document.querySelector("[data-question-id]")?.dataset.questionId,
       links:[...document.querySelectorAll("a[href]")].map(a=>({href:a.getAttribute("href"),text:a.innerText.trim()})).filter(a=>a.href.startsWith("/")),
       brokenImages:[...document.images].filter(i=>i.complete&&i.naturalWidth===0&&i.getBoundingClientRect().height).map(i=>i.getAttribute("src"))
