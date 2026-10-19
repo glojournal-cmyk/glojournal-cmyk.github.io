@@ -74,7 +74,33 @@ document.addEventListener("visibilitychange",()=>{if(!document.hidden)schedule()
 schedule();
 })(globalThis);
 
-// Optional Home-only RPG Garden preview; display-only, no credit or XP writes.
-if (typeof location !== 'undefined' && (location.pathname === '/' || location.pathname === '/index.html')) {
-  import('/assets/home-rpg-live-20261019.js?v=20261019-ground-anchor1').catch(error => console.warn('RPG Home preview unavailable', error));
-}
+// RPG Garden is a visual-only Home layer; install it when SPA navigation
+// returns to Home as well as on a fresh iPad/Safari PWA page load.
+// It never changes task credit, outfits, XP, or any saved study records.
+(function installRpgHomeRouteLoader() {
+  if (typeof document === 'undefined') return;
+  let loading = null;
+  const isHome = () => location.pathname === '/' || location.pathname === '/index.html';
+  function loadForHome() {
+    if (!isHome() || loading) return;
+    loading = import('/assets/home-rpg-live-20261019.js?v=20261019-star-nav4').catch(error => {
+      loading = null; // A failed module load must be retryable after coming back.
+      console.warn('RPG Home unavailable', error);
+    });
+  }
+  for (const key of ['pushState', 'replaceState']) {
+    const previous = history[key];
+    history[key] = function () {
+      const result = previous.apply(this, arguments);
+      queueMicrotask(loadForHome);
+      return result;
+    };
+  }
+  for (const event of ['popstate', 'pageshow', 'lux:app-ready']) {
+    window.addEventListener(event, loadForHome);
+  }
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) loadForHome();
+  });
+  loadForHome();
+})();

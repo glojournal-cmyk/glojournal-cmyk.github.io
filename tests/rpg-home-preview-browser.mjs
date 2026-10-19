@@ -137,17 +137,98 @@ for (const run of runs) {
       return s?JSON.stringify({xp:s.xp,daily:s.daily,dailyLog:s.dailyLog,recoveryTaskByDay:s.recoveryTaskByDay}):null;
     });
     await page.locator('#lux-rpg-live-home .rpg-orb-live').last().click();
-    await page.locator('#lux-rpg-live-home .rpg-return').waitFor();
-    assert.equal(await page.locator('main').count(),1,'original Home must remain accessible');
-    assert.equal(await page.locator('#lux-recovery-quests').count(),1,'native Recovery panel must exist');
-    assert.ok(await page.locator('#lux-recovery-quests').isVisible(),'native Recovery panel must become visible');
+    await page.locator('#lux-rpg-modal-close').waitFor();
+    await page.locator('#lux-recovery-quests').waitFor({timeout:12000});
+    assert.equal(await page.locator('#lux-recovery-quests').count(),1,'native Recovery panel must still exist');
+    assert.ok(await page.locator('#lux-recovery-quests').isVisible(),'native Recovery panel must open in the RPG garden');
+    assert.ok(await page.locator('#lux-rpg-live-home .rpg-quests-live h1').isVisible(),'RPG must stay mounted, not show old Home');
+    assert.ok(await page.evaluate(()=>document.documentElement.classList.contains('lux-rpg-recovery-open')));
+    const nativeDetails=await page.locator('#lux-recovery-quests').evaluate(el=>({open:el.open,position:getComputedStyle(el).position,z:getComputedStyle(el).zIndex}));
+    assert.equal(nativeDetails.open,true);
+    assert.equal(nativeDetails.position,'fixed');
+    assert.ok(Number(nativeDetails.z)>2147483000,'native panel must display above RPG canvas');
     const after=await page.evaluate(()=>{
       const s=window.__luxStore?.getState?.();
       return s?JSON.stringify({xp:s.xp,daily:s.daily,dailyLog:s.dailyLog,recoveryTaskByDay:s.recoveryTaskByDay}):null;
     });
     assert.equal(after,original,'opening Recovery must not mutate existing records');
-    await page.locator('#lux-rpg-live-home .rpg-return').click();
+    await page.locator('#lux-rpg-modal-close').click();
+    assert.equal(await page.locator('#lux-rpg-modal-close').count(),0);
+    // Regression for legacy lux-theme.js injecting a second, inert 30-day
+    // control into the RPG HUD, and mobile rail overlapping the real control.
+    const daysLayout=await page.evaluate(()=>{
+      const root=document.querySelector('#lux-rpg-live-home');
+      const button=root.querySelector('button.rpg-days-live');
+      const r=button.getBoundingClientRect();
+      const hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
+      const timeline=root.querySelector('.rpg-days-timeline-live');
+      return {hudTag:root.querySelector('.rpg-hud-live')?.tagName,
+        duplicates:root.querySelectorAll('[data-lux-tool="days"]').length,
+        count:root.querySelectorAll('button.rpg-days-live').length,
+        hit:button.contains(hit),timelineInRail:timeline?.parentElement?.classList.contains('rpg-rail-live'),
+        timelineInQuest:!!timeline?.closest('.rpg-quests-live'),
+        location:[r.left,r.top,r.width,r.height]};
+    });
+    assert.equal(daysLayout.hudTag,'DIV','global header decorators must not alter RPG HUD');
+    assert.equal(daysLayout.duplicates,0,'duplicate native 30-day toolbar button detected');
+    assert.equal(daysLayout.count,1,'30 days must have only one working button');
+    assert.ok(daysLayout.hit,'30-day control is obstructed by another layer: '+JSON.stringify(daysLayout));
+    assert.ok(daysLayout.timelineInRail && !daysLayout.timelineInQuest,'timeline must not scroll with quests');
+    await page.locator('#lux-rpg-live-home .rpg-days-live').click();
+    await page.locator('#lux-rpg-live-home .rpg-record-modal-live').waitFor();
+    assert.match(await page.locator('.rpg-record-modal-live').innerText(),/Your past 30 days/);
+    assert.equal(await page.locator('.rpg-record-row-live').count(),30);
+    const historyAfter=await page.evaluate(()=>{
+      const s=window.__luxStore?.getState?.();
+      return s?JSON.stringify({xp:s.xp,daily:s.daily,dailyLog:s.dailyLog,recoveryTaskByDay:s.recoveryTaskByDay}):null;
+    });
+    assert.equal(historyAfter,original,'opening 30-day record must not alter saved study data');
+    await page.locator('#lux-rpg-modal-close').click();
     await page.locator('#lux-rpg-live-home .rpg-quests-live h1').waitFor();
+
+    // Star Map must stay inside the RPG scene and reflect real Weekly Boss
+    // progress. Its read-only modal cannot award new XP or write weeklyBoss.
+    const weekBefore=await page.evaluate(()=>JSON.stringify(window.__luxStore.getState().weeklyBoss));
+    await page.locator('#lux-rpg-live-home .rpg-orb-live').first().click();
+    await page.locator('#lux-rpg-live-home .rpg-star-modal-live').waitFor();
+    assert.ok(await page.locator('#lux-rpg-live-home .rpg-quests-live h1').isVisible(),
+      'Star Map must not expose the old native homepage');
+    assert.match(await page.locator('.rpg-star-modal-live').innerText(),/Star Map/);
+    const weekAfter=await page.evaluate(()=>JSON.stringify(window.__luxStore.getState().weeklyBoss));
+    assert.equal(weekAfter,weekBefore,'viewing Star Map must not alter weekly results');
+    await page.locator('#lux-rpg-modal-close').click();
+    assert.ok(await page.locator('#lux-rpg-live-home .rpg-quests-live h1').isVisible());
+
+    if (run.label === 'ipad-webkit') {
+      // Missing outfit image must never leave an invisible main character.
+      await page.locator('#lux-rpg-live-home .rpg-scholar-live').evaluate(img => {
+        img.src = '/art/doll/qa-intentionally-missing-outfit.png';
+      });
+      await page.waitForFunction(() => {
+        const img = document.querySelector('#lux-rpg-live-home .rpg-scholar-live');
+        return img?.dataset.fallbackArt === 'true' && img.complete && img.naturalWidth > 0;
+      }, {timeout:12000});
+
+      // Reproduce iPad's Pet -> Home path with real links and a full PWA-like
+      // navigation, not just a synthetic popstate event.
+      await page.locator('#lux-rpg-live-home .rpg-nav-live a[href="/pet/"]').click();
+      await page.waitForURL(/\/pet\/?$/,{timeout:15000});
+      await page.locator('a.pet-brand[href="/"]').click();
+      await page.waitForURL(url => url.pathname === '/',{timeout:15000});
+      await page.locator('#lux-rpg-live-home .rpg-quests-live h1').waitFor({timeout:25000});
+      await page.waitForFunction(() => {
+        const app = document.querySelector('#lux-rpg-live-home');
+        const img = app?.querySelector('.rpg-scholar-live');
+        const rail = app?.querySelector('.rpg-rail-live');
+        if (!img || !rail || !img.complete || img.naturalWidth <= 0) return false;
+        const s = img.getBoundingClientRect(), r = rail.getBoundingClientRect();
+        return s.width > 45 && s.height > 100 && s.left < r.left &&
+          getComputedStyle(app).visibility !== 'hidden' &&
+          document.documentElement.classList.contains('lux-rpg-live-active');
+      }, {timeout:25000});
+      assert.equal(await page.locator('#lux-rpg-live-home').count(),1,'Pet return must show exactly one RPG home, not the old Home');
+      await page.screenshot({path:'test-results/rpg-home/ipad-pet-return-scholar.png',fullPage:true});
+    }
     await context.close();
     process.stdout.write(`PASS ${run.label}\n`);
   } finally {await browser.close();}

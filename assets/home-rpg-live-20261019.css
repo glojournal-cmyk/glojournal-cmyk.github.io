@@ -99,3 +99,146 @@ html.lux-rpg-live-active,html.lux-rpg-live-active body {height:100dvh; overflow:
 @media (min-width:701px) and (max-width:1100px) {
   .rpg-home-live .rpg-cast-live{--rpg-scholar-x:38% !important;--rpg-pet-x:56% !important}
 }
+
+/* Native React content remains mounted for state and click handlers, while the
+ * RPG shell stays visually behind the accessible native Recovery dialog. */
+html.lux-rpg-live-active body > .paper-wash{visibility:hidden!important}
+html.lux-rpg-live-active #lux-rpg-live-home{visibility:visible!important}
+html.lux-rpg-recovery-open #lux-recovery-quests{
+  position:fixed!important;top:7vh!important;left:50%!important;
+  width:min(40rem,calc(100vw - 2rem))!important;max-width:40rem!important;
+  max-height:79dvh!important;margin:0!important;padding:1.3rem!important;
+  overflow:auto!important;overscroll-behavior:contain!important;
+  transform:translateX(-50%)!important;z-index:2147483500!important;
+  visibility:visible!important;opacity:1!important;
+  background:#f8f4e9!important;color:#1c3040!important;
+  border:1px solid rgba(25,53,72,.27)!important;border-radius:1.1rem!important;
+  box-shadow:0 18px 60px rgba(9,22,29,.45)!important;
+}
+html.lux-rpg-recovery-open #lux-recovery-quests button,
+html.lux-rpg-recovery-open #lux-recovery-quests select,
+html.lux-rpg-recovery-open #lux-recovery-quests a{
+  pointer-events:auto!important;cursor:pointer;
+}
+.rpg-home-live .rpg-modal-dimmer-live{position:fixed;inset:0;z-index:30;background:rgba(10,25,31,.63);backdrop-filter:blur(2px);pointer-events:auto}
+.rpg-modal-close-live{
+  position:fixed!important;top:calc(7vh + .3rem);right:max(1rem,calc(50vw - 20rem));
+  z-index:2147483600!important;display:inline-flex;align-items:center;justify-content:center;
+  min-height:2.35rem;padding:.4rem .8rem;border:0;border-radius:999px;
+  background:#1e4656;color:#fff8e8;font:600 .79rem 'Source Sans 3',sans-serif;
+  box-shadow:0 3px 12px rgba(12,28,35,.3);cursor:pointer;pointer-events:auto;
+}
+.rpg-record-modal-live{
+  position:fixed;z-index:40;top:7vh;left:50%;transform:translateX(-50%);
+  width:min(38rem,calc(100vw - 2rem));max-height:79dvh;
+  overflow:auto;padding:1.4rem 1.25rem;border-radius:1.1rem;
+  background:#f8f4e9;color:#203441;box-shadow:0 18px 60px rgba(9,22,29,.45);
+  border:1px solid rgba(25,53,72,.25);pointer-events:auto;
+}
+.rpg-record-modal-live h2{font:700 1.5rem Georgia,serif;margin:0 0 .3rem}
+.rpg-record-subtitle-live{font-size:.8rem;color:#51666c;margin:.15rem 0 1rem}
+.rpg-record-list-live{display:grid;gap:.3rem}
+.rpg-record-row-live{display:flex;justify-content:space-between;align-items:center;gap:.7rem;padding:.58rem .65rem;border-radius:.65rem;background:#ebe5d7;font-size:.8rem}
+.rpg-record-row-live strong{font-variant-numeric:tabular-nums}
+.rpg-record-row-live span{text-align:right}
+.rpg-record-row-live.done{background:#d8e5d8}
+.rpg-record-row-live.partial{background:#f3e7bf}
+.rpg-home-live .rpg-modal-note-live{position:fixed;top:30vh;left:50%;transform:translateX(-50%);max-width:30rem;padding:1.3rem;border-radius:.7rem;background:#f8f4e9;color:#203441;z-index:45;pointer-events:none}
+.rpg-home-live .rpg-days-live{position:relative;z-index:2;flex-shrink:0;pointer-events:auto;min-height:2.25rem;min-width:0}
+.rpg-home-live .rpg-days-live span:first-child{white-space:nowrap;flex:none}
+.rpg-home-live .rpg-dots-live{flex:1 1 auto;min-width:0}
+.rpg-home-live .rpg-pet-live img{transform:scaleX(-1);transform-origin:center bottom}
+@media(max-width:700px){
+  html.lux-rpg-recovery-open #lux-recovery-quests,.rpg-record-modal-live{top:7dvh!important;max-height:78dvh!important;padding:1rem!important}
+  .rpg-modal-close-live{top:auto;right:1rem;bottom:calc(.7rem + env(safe-area-inset-bottom));min-height:2.7rem;font-size:.85rem}
+}
+
+/* iPad portrait / compact landscape: keep both sprites inside the world
+ * column instead of letting the native task rail paint over the Scholar. */
+@media (min-width:701px) and (max-width:1100px) {
+  .rpg-home-live .rpg-world-live { min-width:0; }
+  .rpg-home-live .rpg-cast-live {
+    position:absolute; inset:0; width:100%; height:calc(100dvh - 1.5rem);
+    --rpg-scholar-x:50% !important; --rpg-pet-x:82% !important;
+    --rpg-ground:10% !important;
+  }
+  .rpg-home-live .rpg-scholar-live {
+    height:min(66dvh,36rem); max-width:61%; visibility:visible;
+  }
+  .rpg-home-live .rpg-pet-live img {
+    height:min(19dvh,10rem); max-width:24vw;
+  }
+}
+
+/* 30-day interaction: single dedicated button, never the injected native button. */
+.rpg-home-live .rpg-hud-live{width:max-content;max-width:min(22.5rem,95vw);flex-wrap:nowrap;flex-shrink:0;min-height:4.1rem;align-self:flex-start}
+.rpg-home-live .rpg-days-live{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ position:relative!important;inset:auto!important;transform:none!important;
+ height:2.65rem!important;min-height:2.65rem!important;width:auto!important;min-width:5.9rem!important;
+ max-width:none!important;flex:0 0 auto!important;overflow:visible!important;
+ padding:.22rem .55rem!important;gap:.34rem!important;white-space:nowrap!important;
+ border:1px solid rgba(244,239,228,.35)!important;border-radius:999px!important;
+ background:#21485a!important;color:#fff7e9!important;z-index:12!important;
+ font:600 .78rem 'Source Sans 3',sans-serif!important;cursor:pointer!important;
+ pointer-events:auto!important;box-shadow:0 3px 9px rgba(0,0,0,.2)!important;
+}
+.rpg-home-live .rpg-days-live span{display:inline-block!important;white-space:nowrap!important;flex:0 0 auto!important}
+.rpg-home-live .rpg-days-icon-live{font-size:.92rem}
+.rpg-home-live .rpg-world-live{z-index:1!important;pointer-events:none}
+.rpg-home-live .rpg-world-live .rpg-hud-live,.rpg-home-live .rpg-world-live .rpg-hud-live button,
+.rpg-home-live .rpg-world-live .rpg-scene-picker-live{pointer-events:auto!important}
+.rpg-home-live .rpg-rail-live{z-index:4!important}
+.rpg-home-live .rpg-quests-live{flex:1 1 auto;min-height:0}
+.rpg-home-live .rpg-days-timeline-live{display:flex;flex:0 0 auto;align-items:center;justify-content:space-between;gap:.55rem;
+ padding:.48rem .7rem;min-height:2.1rem;border-radius:999px;
+ background:rgba(244,239,228,.79);color:#203e4d;pointer-events:none}
+.rpg-home-live .rpg-timeline-label-live{white-space:nowrap;font:600 .73rem 'Source Sans 3',sans-serif}
+.rpg-home-live .rpg-days-timeline-live .rpg-dots-live{max-width:72%;width:auto;flex:1 1 auto}
+@media(max-width:1100px){
+ .rpg-home-live .rpg-hud-live{max-width:min(20rem,95vw)}
+ .rpg-home-live .rpg-days-live{min-width:5.1rem!important;padding:.2rem .38rem!important;font-size:.7rem!important}
+}
+@media(max-width:700px){
+ .rpg-home-live .rpg-hud-live{max-width:calc(100vw - 1.5rem)}
+ .rpg-home-live .rpg-days-live{min-width:5.7rem!important}
+ .rpg-home-live .rpg-rail-live{max-height:none}
+ .rpg-home-live .rpg-quests-live{flex:0 0 auto;max-height:48vh}
+ .rpg-home-live .rpg-days-timeline-live{min-height:2.3rem}
+}
+
+/* On phones the grid's lower world row overlaps the mission panel.
+ * Keep the real 30-day control in a fixed, visible header above the quest rail. */
+@media(max-width:700px){
+  .rpg-home-live{padding-top:5.55rem!important}
+  .rpg-home-live .rpg-world-live{z-index:8!important;pointer-events:none!important}
+  .rpg-home-live .rpg-hud-live{
+    position:fixed!important;top:calc(.65rem + env(safe-area-inset-top))!important;
+    left:.7rem!important;z-index:12!important;margin:0!important;
+    width:max-content!important;max-width:calc(100vw - 1.4rem)!important;
+    pointer-events:auto!important
+  }
+  .rpg-home-live .rpg-days-live{pointer-events:auto!important}
+}
+
+/* Star Map uses real saved Weekly Boss records (read only). */
+.rpg-home-live .rpg-star-modal-live{display:flex;flex-direction:column;gap:.45rem}
+.rpg-home-live .rpg-star-list-live{min-height:0;overflow-y:auto}
+.rpg-home-live .rpg-star-week-live{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.rpg-home-live .rpg-star-week-live small{font-size:.7rem;color:#58646b}
+.rpg-home-live .rpg-star-empty-live{padding:1rem .65rem;line-height:1.5;font-size:.84rem}
+.rpg-home-live .rpg-star-list-live .rpg-record-row-live{flex-wrap:wrap}
+.rpg-home-live .rpg-star-reward-live{width:100%;font-size:.7rem;color:#355e52}
+
+/* Keep the original reward goal picker available from the new Garden Home. */
+.rpg-home-live .rpg-goal-control-live{
+ display:inline-flex;align-self:flex-start;margin:.35rem 0 0 .2rem;
+ padding:.34rem .75rem;border-radius:99px;border:1px solid rgba(244,239,228,.55);
+ background:rgba(18,32,40,.77);color:#f4efe4;
+ font:600 .75rem/1.2 'Source Sans 3','Segoe UI',sans-serif;
+ cursor:pointer;z-index:3;pointer-events:auto!important
+}
+.rpg-home-live .rpg-world-live .rpg-goal-control-live{pointer-events:auto!important}
+@media(max-width:700px){
+ .rpg-home-live .rpg-goal-control-live{position:absolute;top:5.55rem;right:0;margin:0;font-size:.67rem}
+}

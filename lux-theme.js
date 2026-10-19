@@ -184,7 +184,10 @@
     s.setProperty('background', '#fffaf3', 'important');
   }
   function ensureHeaderTools() {
-    const header = document.querySelector('header.sticky, header.lux-companion-header, .lux-shell-header');
+    // Never decorate RPG interface with the legacy, non-working 30 days control.
+    // Only the original React page header receives these native tools.
+    const header = [...document.querySelectorAll('header.sticky, header.lux-companion-header, .lux-shell-header')]
+      .find(node => !node.closest('#lux-rpg-live-home'));
     if (!header || header.querySelector('[data-lux-tool="days"]')) return;
     if (/30 days/i.test(header.textContent || '')) return;
     const days = document.createElement('button');

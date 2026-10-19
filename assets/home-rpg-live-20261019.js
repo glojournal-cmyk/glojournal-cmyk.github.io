@@ -14,13 +14,14 @@ if (!window.__luxRpgLiveHome) {
     const css = document.createElement('link');
     css.id = 'lux-rpg-live-css';
     css.rel = 'stylesheet';
-    css.href = '/assets/home-rpg-live-20261019.css?v=20261019-ground-anchor1';
+    css.href = '/assets/home-rpg-live-20261019.css?v=20261019-star-nav4';
     document.head.append(css);
   }
   const root = document.createElement('div');
   root.id = 'lux-rpg-live-home';
   root.className = 'rpg-home-live';
   let originalVisible = false;
+  let gardenModal = null;
   let scheduled = false;
   let ready = !!window.__luxAppReady;
 
@@ -64,7 +65,121 @@ if (!window.__luxRpgLiveHome) {
     const dates = [dayBefore(1), dayBefore(2)];
     return dates.filter(date => state.dailyLog?.[date]?.tasks?.some(t => !t.done && number(t.progress) < number(t.target))).length;
   };
+
+  // Keep React's REAL Recovery controls mounted in its own React tree.
+  // CSS displays that existing panel above the RPG scene without reparenting
+  // React nodes, replacing answers or touching the learner's saved record.
+  function closeGardenModal() {
+    gardenModal = null;
+    document.documentElement.classList.remove('lux-rpg-recovery-open','lux-rpg-record-open');
+    root.querySelectorAll('.rpg-modal-dimmer-live,.rpg-record-modal-live,.rpg-modal-note-live').forEach(node => node.remove());
+    document.getElementById('lux-rpg-modal-close')?.remove();
+    schedule();
+  }
+  function modalChrome(label) {
+    closeGardenModal();
+    const shade = make('div','rpg-modal-dimmer-live');
+    shade.addEventListener('click',closeGardenModal);
+    root.append(shade);
+    const back = make('button','rpg-modal-close-live','×  Back to garden');
+    back.id = 'lux-rpg-modal-close';
+    back.type = 'button';
+    back.setAttribute('aria-label','Close ' + label + ' and return to RPG home');
+    back.addEventListener('click',closeGardenModal);
+    document.body.append(back);
+  }
+  function openNativeRecovery() {
+    modalChrome('Recovery');
+    gardenModal = 'recovery';
+    document.documentElement.classList.add('lux-rpg-recovery-open');
+    const hint = make('p','rpg-modal-note-live','Checking your saved Recovery tasks…');
+    root.append(hint);
+    const ensurePanel = attempts => {
+      if (gardenModal !== 'recovery' || !onHome()) return;
+      const panel = document.getElementById('lux-recovery-quests');
+      if (panel) {
+        hint.remove();
+        panel.hidden = false;
+        panel.open = true;
+        panel.setAttribute('aria-label','Quest Recovery · choose a date');
+        return;
+      }
+      if (attempts < 120) requestAnimationFrame(() => ensurePanel(attempts + 1));
+      else {
+        hint.textContent = 'No Recovery tasks are currently available. Your original study records have not changed.';
+      }
+    };
+    ensurePanel(0);
+  }
+  function openThirtyDayRecord() {
+    modalChrome('30-day record');
+    gardenModal = 'record';
+    document.documentElement.classList.add('lux-rpg-record-open');
+    const record = make('section','rpg-record-modal-live');
+    record.setAttribute('role','dialog');
+    record.setAttribute('aria-modal','true');
+    record.setAttribute('aria-label','Your past 30 days');
+    record.append(make('h2',null,'Your past 30 days'));
+    record.append(make('p','rpg-record-subtitle-live','Saved study records · read only'));
+    const state = store.getState?.() || {};
+    const list = make('div','rpg-record-list-live');
+    for (let age=0;age<30;age++) {
+      const date=dayBefore(age), entry=state.dailyLog?.[date], status=todayStatus(state,date);
+      const row=make('div','rpg-record-row-live ' + (status || 'unopened'));
+      row.append(make('strong',null,date));
+      const total=number(entry?.total);
+      const done=number(entry?.done);
+      const label=status==='done'?'Completed':status==='partial'?'Partly completed':'Not opened';
+      row.append(make('span',null,label + (total>0?' · ' + done + '/' + total:'')));
+      list.append(row);
+    }
+    record.append(list);
+    root.append(record);
+  }
+  // Read-only Star Map of recorded Weekly Boss results. Never fabricate a
+  // week's stars or grant an award; the game's weeklyBoss engine stays authoritative.
+  function openStarMap() {
+    modalChrome('Star Map');
+    gardenModal = 'star';
+    const modal = make('section','rpg-record-modal-live rpg-star-modal-live');
+    modal.setAttribute('role','dialog');
+    modal.setAttribute('aria-modal','true');
+    modal.setAttribute('aria-label','Star Map · Weekly Boss progress');
+    modal.append(make('h2',null,'Star Map'));
+    modal.append(make('p','rpg-record-subtitle-live','Weekly Boss · your actual saved results'));
+    const record = store.getState?.().weeklyBoss || {};
+    const weeks = record.weeks && typeof record.weeks === 'object' ? record.weeks : {};
+    const items = Object.entries(weeks)
+      .filter(([week,result])=>week && result && typeof result==='object')
+      .sort(([a],[b])=>String(b).localeCompare(String(a),undefined,{numeric:true}));
+    const list = make('div','rpg-record-list-live rpg-star-list-live');
+    if (!items.length) {
+      list.append(make('p','rpg-star-empty-live',
+        'No Weekly Boss results saved yet. Complete weekly challenges in Play to earn your stars.'));
+    }
+    for (const [week,result] of items.slice(0,20)) {
+      const row = make('div','rpg-record-row-live ' + (result.passed ? 'done' : 'partial'));
+      const descriptor = make('div','rpg-star-week-live');
+      descriptor.append(make('strong',null,'Week ' + String(week)));
+      const detail = [result.subject, result.missionId].filter(Boolean).map(String)[0];
+      if (detail) descriptor.append(make('small',null,detail.slice(0,80)));
+      const score = Number.isFinite(Number(result.bestScore)) && Number(result.attempts)>0
+        ? ' · Best ' + Math.min(100,Math.max(0,Number(result.bestScore))) + '%' : '';
+      const status = result.passed ? '★ Completed' : 'In progress';
+      const outcome = make('span',null,status+score);
+      row.append(descriptor,outcome);
+      if (result.reward?.name) {
+        row.append(make('small','rpg-star-reward-live','Reward: '+String(result.reward.name).slice(0,80)));
+      }
+      list.append(row);
+    }
+    modal.append(list);
+    root.append(modal);
+  }
   function nativePanel(kind) {
+    if (kind === 'recovery') { openNativeRecovery(); return; }
+    if (kind === 'record') { openThirtyDayRecord(); return; }
+    if (kind === 'star') { openStarMap(); return; }
     // Show the real, existing React Home rather than imitating answer-credit UI.
     originalVisible = true;
     root.classList.add('show-native');
@@ -146,7 +261,7 @@ if (!window.__luxRpgLiveHome) {
     root.replaceChildren();
     const darken = make('div','rpg-shade-live');
     const world = make('section','rpg-world-live');
-    const hud = make('header','rpg-hud-live');
+    const hud = make('div','rpg-hud-live'); // Not a native header: avoid lux-theme's automatic toolbar injection.
     const face = document.createElement('img'); face.alt=''; face.src='/art/scholar-avatar.jpg';
     const stats = make('div','rpg-hud-stats');
     const xp = number(state.xp);
@@ -158,11 +273,31 @@ if (!window.__luxRpgLiveHome) {
     stat(stats,'MIND',mastery,topics ? mastery/topics : 0,'Mastered topics / topics with saved statistics');
     stat(stats,'BODY',body,Math.min(body/10,1),'Recorded PE sessions (bar caps at 10)');
     stat(stats,'SPARK',xp,(xp % 1000)/1000,'Scholar XP · progress bar is illustrative only');
-    hud.append(face,stats);world.append(hud);
+    hud.append(face,stats);
+    // Keep exactly one functional 30-day button in the stable Scholar HUD.
+    const days = make('button','rpg-days-live');
+    days.type = 'button';
+    days.setAttribute('aria-label','Open your past 30-day study record');
+    days.append(make('span','rpg-days-icon-live','▣'),make('span',null,'30 days'));
+    days.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();openThirtyDayRecord();});
+    hud.append(days);
+    world.append(hud);
     const sceneLink = make('a','rpg-scene-picker-live','Scene: ' + scene.name + ' · Change');
     sceneLink.href = '/scholar';
     sceneLink.setAttribute('aria-label', 'Change your equipped background reward in Scholar');
     world.append(sceneLink);
+    // The original Companion reward picker belongs to the existing app.
+    // Open that picker directly from the RPG Home, without sending the player
+    // to the hidden legacy Home or duplicating reward goal save logic.
+    const goalControl=make('button','rpg-goal-control-live','Reward goal');
+    goalControl.type='button';
+    goalControl.setAttribute('aria-label','Choose or change your companion reward goal');
+    goalControl.addEventListener('click',()=>{
+      const nativeChoose=document.querySelector('#chosen-reward-goal [data-choose]');
+      if(nativeChoose) nativeChoose.click();
+      else goalControl.textContent='Reward goal loading…';
+    });
+    world.append(goalControl);
     const cast = make('div','rpg-cast-live');
     // Transparent sprites need floor anchors, not flex alignment.
     // Offsets are presentation-only and keyed to the player's equipped reward.
@@ -187,7 +322,18 @@ if (!window.__luxRpgLiveHome) {
     const scholar = document.createElement('img');
     scholar.className='rpg-scholar-live';scholar.alt='Scholar';
     const outfit = safeImage(state.equippedOutfit || 'day','day');
-    scholar.src = outfit === 'day' ? '/art/home-rpg/scholar-clean.png' : `/art/doll/${outfit}.png`;
+    // If an old equipped outfit has no live sprite (or iPad kept a stale
+    // image response), recover to the approved Scholar artwork, never hide her.
+    const defaultScholarArt = '/art/home-rpg/scholar-clean.png?v=20261019-ipad-return1';
+    scholar.alt = 'Scholar character';
+    scholar.loading = 'eager';
+    scholar.decoding = 'sync';
+    scholar.addEventListener('error', () => {
+      if (scholar.dataset.fallbackArt) return;
+      scholar.dataset.fallbackArt = 'true';
+      scholar.src = defaultScholarArt;
+    });
+    scholar.src = outfit === 'day' ? defaultScholarArt : `/art/doll/${outfit}.png`;
     const pet = petState();
     const species = safeImage(pet.species || 'moss-hornling','moss-hornling');
     const petLink = make('a','rpg-pet-live');petLink.href='/pet/'; petLink.setAttribute('aria-label','Open companion');
@@ -222,11 +368,12 @@ if (!window.__luxRpgLiveHome) {
       action.addEventListener('click',() => location.assign(next.href));
       panel.append(action);
     }
-    const days = make('button','rpg-days-live');days.type='button';days.setAttribute('aria-label','Open original 30-day record');
-    days.append(make('span',null,'30 days'));
+    // Read-only progress dots live outside the scrollable quest list, fixed to the rail.
+    const timeline=make('div','rpg-days-timeline-live');
+    timeline.append(make('span','rpg-timeline-label-live','Last 30 days'));
     const dots=make('span','rpg-dots-live');
     for(let age=29;age>=0;age--){const dot=make('i',todayStatus(state,dayBefore(age)));dot.title=dayBefore(age);dots.append(dot);}
-    days.append(dots);days.addEventListener('click',()=>nativePanel('record'));panel.append(days);
+    timeline.append(dots);
     const orbs=make('div','rpg-orbs-live');
     // Avoid displaying an invented 0/4 or borrowing an old week's score.
     const starLabel='View'; // Native Star Map owns the current weekly progress.
@@ -234,7 +381,7 @@ if (!window.__luxRpgLiveHome) {
     orb(orbs,'/art/home-rpg/shield-cardigan.png','Cardigan','Next',()=>location.assign('/scholar'));
     // The native engine alone decides eligibility, including never-opened days.
     orb(orbs,'/art/home-rpg/shield-recovery.png','Recovery','Review',()=>nativePanel('recovery'));
-    rail.append(panel,orbs);
+    rail.append(panel,timeline,orbs);
 
     const nav=make('div','rpg-nav-live');nav.setAttribute('role','navigation');nav.setAttribute('aria-label','Home navigation');
     for(const [label,href] of [['Home','/'],['Study','/study'],['Play','/play'],['Garden','/garden'],['Pet','/pet/'],['Assessment','/assessment/'],['Recovery',null],['Settings',null],['Scholar','/scholar']]) {
@@ -247,11 +394,14 @@ if (!window.__luxRpgLiveHome) {
   }
   function repaint(){
     scheduled = false;
+    // Pages restored from iPad WebKit back-forward cache may miss the ready event.
+    ready = ready || !!window.__luxAppReady;
     if (!onHome() || !ready) {
-      if (!onHome()) originalVisible = false;
+      if (!onHome()) { originalVisible = false; closeGardenModal(); }
       root.remove();document.documentElement.classList.remove('lux-rpg-live-active');return;
     }
     if (!root.isConnected) document.body.append(root);
+    if (gardenModal) return; // Never destroy an open native Recovery dialogue.
     if (originalVisible) return;
     document.documentElement.classList.add('lux-rpg-live-active');
     root.classList.remove('show-native');
@@ -262,7 +412,10 @@ if (!window.__luxRpgLiveHome) {
     const previous=history[key];
     history[key]=function(){const val=previous.apply(this,arguments);schedule();return val;};
   }
-  window.addEventListener('popstate',()=>{originalVisible=false;schedule();});
+  window.addEventListener('popstate',()=>{originalVisible=false;closeGardenModal();schedule();});
+  window.addEventListener('keydown',event=>{
+    if (event.key==='Escape' && gardenModal) { event.preventDefault();closeGardenModal(); }
+  });
   window.addEventListener('lux:app-ready',()=>{ready=true;schedule();});
   window.addEventListener('pageshow',schedule);
   window.addEventListener('storage',schedule);
