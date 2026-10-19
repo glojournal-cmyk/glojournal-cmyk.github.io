@@ -166,14 +166,14 @@ if (!window.__luxRpgLiveHome) {
     // Transparent sprites need floor anchors, not flex alignment.
     // Offsets are presentation-only and keyed to the player's equipped reward.
     const floorPresets = {
-      dusk:[49,65,8.5],classroom:[48,64,8],courtyard:[49,65,8],
-      garden:[49,65,8],'library-hall':[50,66,8.5],
-      'dusk-court':[49,65,8],'form-room':[50,66,8],
-      conservatory:[49,65,8.5],fountain:[49,65,8],
-      'chem-lab':[50,66,8],'bio-lab':[50,66,8],
-      'phys-lab':[50,66,8],'sports-hall':[50,66,8],
-      'herb-walk':[49,65,8],'boss-moon-garden':[49,65,8],
-      'boss-grand-library':[50,66,8.5],'boss-observatory':[50,66,8]
+      dusk:[49,63,8.5],classroom:[49,62,8],courtyard:[49,63,8],
+      garden:[49,63,8],'library-hall':[49,63,9],
+      'dusk-court':[49,63,8],'form-room':[49,63,8],
+      conservatory:[49,63,8.5],fountain:[49,63,8],
+      'chem-lab':[49,63,8],'bio-lab':[49,63,8],
+      'phys-lab':[50,63,8],'sports-hall':[50,63,8],
+      'herb-walk':[49,63,8],'boss-moon-garden':[49,63,8],
+      'boss-grand-library':[50,63,8.5],'boss-observatory':[50,63,8]
     };
     const [scholarX, petX, floor] = floorPresets[scene.id] || floorPresets.dusk;
     cast.style.setProperty('--rpg-scholar-x', scholarX + '%');
