@@ -165,6 +165,36 @@ for (const run of runs) {
     assert.equal(historyAfter,original,'opening 30-day record must not alter saved study data');
     await page.locator('#lux-rpg-modal-close').click();
     await page.locator('#lux-rpg-live-home .rpg-quests-live h1').waitFor();
+    if (run.label === 'ipad-webkit') {
+      // Missing outfit image must never leave an invisible main character.
+      await page.locator('#lux-rpg-live-home .rpg-scholar-live').evaluate(img => {
+        img.src = '/art/doll/qa-intentionally-missing-outfit.png';
+      });
+      await page.waitForFunction(() => {
+        const img = document.querySelector('#lux-rpg-live-home .rpg-scholar-live');
+        return img?.dataset.fallbackArt === 'true' && img.complete && img.naturalWidth > 0;
+      }, {timeout:12000});
+
+      // Reproduce iPad's Pet -> Home path with real links and a full PWA-like
+      // navigation, not just a synthetic popstate event.
+      await page.locator('#lux-rpg-live-home .rpg-nav-live a[href="/pet/"]').click();
+      await page.waitForURL(/\/pet\/?$/,{timeout:15000});
+      await page.locator('a.pet-back[href="/"]').click();
+      await page.waitForURL(url => url.pathname === '/',{timeout:15000});
+      await page.locator('#lux-rpg-live-home .rpg-quests-live h1').waitFor({timeout:25000});
+      await page.waitForFunction(() => {
+        const app = document.querySelector('#lux-rpg-live-home');
+        const img = app?.querySelector('.rpg-scholar-live');
+        const rail = app?.querySelector('.rpg-rail-live');
+        if (!img || !rail || !img.complete || img.naturalWidth <= 0) return false;
+        const s = img.getBoundingClientRect(), r = rail.getBoundingClientRect();
+        return s.width > 45 && s.height > 100 && s.left < r.left &&
+          getComputedStyle(app).visibility !== 'hidden' &&
+          document.documentElement.classList.contains('lux-rpg-live-active');
+      }, {timeout:25000});
+      assert.equal(await page.locator('#lux-rpg-live-home').count(),1,'Pet return must show exactly one RPG home, not the old Home');
+      await page.screenshot({path:'test-results/rpg-home/ipad-pet-return-scholar.png',fullPage:true});
+    }
     await context.close();
     process.stdout.write(`PASS ${run.label}\n`);
   } finally {await browser.close();}
