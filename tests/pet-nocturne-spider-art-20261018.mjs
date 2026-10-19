@@ -23,7 +23,7 @@ assert.equal(petArtUrl('night-spider',11),petArtUrl('night-spider',10));
 assert.match(petArtUrl('snow-owl',10),/art-moonveil-owl-20261017/);
 assert.match(petArtUrl('moon-puff',10),/art-moon-puff-20261013/);
 assert.match(petArtUrl('moss-hornling',10),/art-moss-hornling-20261017/);
-assert.match(petArtUrl('antler-bean',10),/art-antler-bean-individual-20261017/);
+assert.match(petArtUrl('antler-bean',10),/art-baphomet-assassin-20261019/);
 const app=fs.readFileSync('pet/pet.js','utf8');
 assert.match(app,/forms:\["Velvet spiderling","Night runner","Obsidian hunter","Web guardian","Umbral bloom"\]/);
 assert.match(app,/identity\.forms\.slice\(0,MAX_PET_LEVEL\)/);
