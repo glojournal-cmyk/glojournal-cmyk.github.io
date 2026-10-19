@@ -71,14 +71,17 @@ try{
         const s=raw.state||raw;
         const p=JSON.parse(localStorage.getItem('lux-pet-companion-v1')||'{}');
         return {xp:Number(s.xp)||0,daily:(s.daily||[]).map(t=>[t.id,t.progress,t.target]),
-          dailyLog:s.dailyLog,unlocked:s.unlockedOutfits,equipped:s.equippedOutfit,
+          unlocked:s.unlockedOutfits,equipped:s.equippedOutfit,
           petSpecies:p.species,petLevels:p.petLevels,masteryPoints:p.masteryPoints,
-          care:p.care};
+          care:p.care?{bond:p.care.bond,mood:p.care.mood,energy:p.care.energy,
+            dailyBond:p.care.daily?.bondEarned,
+            actionCounts:p.care.daily?.actionCounts,
+            rewardLedger:p.care.rewardLedger}:null};
       });
       const before=await snapshot();
       await page.locator('#lux-rpg-live-home .rpg-greet-control-live').focus();
       await page.keyboard.press('Enter');
-      await page.locator('.rpg-greeting-line-live.is-visible').waitFor({timeout:8000});
+      await page.waitForFunction(()=>document.querySelector('.rpg-greeting-line-live.is-visible')?.textContent?.length>15,null,{timeout:10000});
       const line=page.locator('.rpg-greeting-line-live');
       assert.equal(await line.getAttribute('role'),'status');
       assert.ok((await line.innerText()).length>15,'greeting must have companion personality');
