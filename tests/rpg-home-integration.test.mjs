@@ -44,6 +44,7 @@ test('uses original uploaded artwork and responsive layout',()=>{
   assert.match(js,/state\.equippedOutfit/);
   assert.match(js,/lux-rpg-live-css/);
   assert.match(js,/make\('div','rpg-nav-live'\)/); // Avoid Pet auto-inserting a duplicate nav item
+  assert.match(js,/make\('button','rpg-task-live'\)/); // Avoid legacy link decorators
 });
 
 test('official Biology date corrected from the old prototype',()=>{

@@ -102,8 +102,9 @@ if (!window.__luxRpgLiveHome) {
     track.append(fill); line.append(track, make('strong','rpg-stat-value',value)); parent.append(line);
   }
   function task(parent, row, icon) {
-    const a = row.href ? make('a','rpg-task-live') : make('div','rpg-task-live rpg-task-unavailable');
-    if (row.href) a.href = row.href;
+    // Prevent legacy scripts from decorating study anchors and expanding rows.
+    const a = row.href ? make('button','rpg-task-live') : make('div','rpg-task-live rpg-task-unavailable');
+    if (row.href) { a.type = 'button'; a.addEventListener('click', () => location.assign(row.href)); }
     if (row.done) a.classList.add('complete');
     const label = row.target === '' ? String(row.progress) : `${row.progress}/${row.target}`;
     a.append(make('span','rpg-task-icon',row.done ? '✓' : icon),make('strong',null,row.title),make('em',null,label));

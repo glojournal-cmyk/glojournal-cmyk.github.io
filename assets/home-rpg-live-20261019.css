@@ -37,3 +37,22 @@
 @media(prefers-reduced-motion:reduce){.rpg-home-live *{scroll-behavior:auto!important;transition:none!important}}
 /* Never let a long subject name widen a narrow phone viewport. */
 @media(max-width:700px){.rpg-home-live{grid-template-columns:minmax(0,1fr)}.rpg-rail-live,.rpg-quests-live{min-width:0;max-width:100%}.rpg-task-live{overflow:hidden}}
+
+/* QA: prevent the underlying React Home from scrolling behind the garden scene. */
+html.lux-rpg-live-active,html.lux-rpg-live-active body {height:100dvh; overflow:hidden !important}
+.rpg-home-live{z-index:2147483000}
+/* Native Home scripts decorate Study anchors; isolated task buttons keep all ten rows compact. */
+.rpg-home-live .rpg-quests-live .rpg-task-live {
+ display:flex !important; flex-direction:row !important; align-items:center !important;
+ justify-content:flex-start !important; gap:.42rem !important;
+ width:100% !important; max-width:100% !important; min-height:1.78rem !important;
+ height:1.85rem !important; max-height:2.05rem !important; overflow:hidden !important;
+ margin:0 0 .22rem !important; padding:.12rem .5rem !important;
+ border:0 !important; border-radius:999px !important;
+ color:var(--rpg-ink) !important; background:rgba(255,255,255,.35) !important;
+ font:500 .79rem/1.2 'Source Sans 3','Segoe UI',sans-serif !important;
+ text-align:left !important; white-space:nowrap !important;
+}
+.rpg-home-live .rpg-quests-live .rpg-task-live>strong {flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rpg-home-live .rpg-quests-live .rpg-task-live>em {flex:none;margin-left:auto}
+.rpg-home-live .rpg-quests-live .rpg-task-live.complete{opacity:.68}

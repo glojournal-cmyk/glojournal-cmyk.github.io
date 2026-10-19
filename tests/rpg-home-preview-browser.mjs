@@ -24,6 +24,8 @@ for (const run of runs) {
     const liveTasks=await page.locator('#lux-rpg-live-home .rpg-quests-live .rpg-task-live').count();
     const waiting=await page.locator('#lux-rpg-live-home .rpg-loading-live').count();
     assert.ok(liveTasks===12 || waiting===1,'official 10 tasks or honest waiting state, no fake counts');
+    const rowSizes=await page.locator('#lux-rpg-live-home .rpg-quests-live .rpg-task-live').evaluateAll(rows=>rows.map(row=>Math.round(row.getBoundingClientRect().height)));
+    assert.ok(rowSizes.every(size=>size<=42),'quest rows must stay compact: '+rowSizes.join(','));
     await page.screenshot({path:`test-results/rpg-home/${run.label}.png`,fullPage:true});
     await page.locator('#lux-rpg-live-home .rpg-orb-live').last().click();
     await page.locator('#lux-rpg-live-home .rpg-return').waitFor();
