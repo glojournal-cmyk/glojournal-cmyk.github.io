@@ -22,10 +22,11 @@ if (!window.__luxRpgShell) {
   window.addEventListener("lux:app-ready", sync);
   store.subscribe?.(sync);
   store.persist?.onFinishHydration?.(sync);
-  sync();
 
   function sync() {
-    if (location.pathname !== "/") {
+    const home = location.pathname === "/";
+    document.documentElement.classList.toggle("rpg-on", home);
+    if (!home) {
       root.remove();
       return;
     }
@@ -40,7 +41,9 @@ if (!window.__luxRpgShell) {
     const missed = missedDays(studied);
     root.innerHTML = "";
     root.className = "rpg-home";
-    root.style.backgroundImage = "url(/art/garden-wide.jpg)";
+    const scene = sceneOf(state);
+    root.style.backgroundImage = `url(${scene.art})`;
+    root.style.backgroundPosition = scene.focus;
     const shade = el("div", "rpg-shade");
     const world = el("div", "rpg-world");
     const hud = el("div", "rpg-hud");
@@ -53,7 +56,7 @@ if (!window.__luxRpgShell) {
     const cast = el("div", "rpg-cast");
     const scholar = document.createElement("img");
     scholar.className = "scholar";
-    scholar.src = "/art/doll/day.png";
+    scholar.src = `/art/doll/${state.equippedOutfit || "day"}.png`;
     scholar.alt = "";
     const pet = document.createElement("img");
     pet.className = "pet";
@@ -267,6 +270,28 @@ if (!window.__luxRpgShell) {
     return Math.max(0, Number(state.xp) || 0);
   }
 
+  const SCENES = {
+    dusk: ["/art/stages/dusk.jpg", "50% 68%"],
+    classroom: ["/art/stages/classroom.jpg", "50% 46%"],
+    courtyard: ["/art/stages/courtyard.jpg", "50% 62%"],
+    garden: ["/art/stages/garden.jpg", "50% 55%"],
+    "library-hall": ["/art/scenes/scene-01.jpg", "50% 55%"],
+    "dusk-court": ["/art/scenes/scene-02.jpg", "50% 60%"],
+    "form-room": ["/art/scenes/scene-03.jpg", "50% 48%"],
+    conservatory: ["/art/scenes/scene-04.jpg", "50% 50%"],
+    fountain: ["/art/scenes/scene-05.jpg", "50% 58%"],
+    "chem-lab": ["/art/scenes/scene-06.jpg", "50% 50%"],
+    "bio-lab": ["/art/scenes/scene-07.jpg", "50% 50%"],
+    "phys-lab": ["/art/scenes/scene-08.jpg", "50% 50%"],
+    "sports-hall": ["/art/scenes/scene-09.jpg", "50% 55%"],
+    "herb-walk": ["/art/scenes/scene-10.jpg", "50% 58%"],
+  };
+
+  function sceneOf(state) {
+    const picked = SCENES[state.equippedScene] || SCENES.dusk;
+    return { art: picked[0], focus: picked[1] };
+  }
+
   function petSrc() {
     try {
       const pet = JSON.parse(localStorage.getItem("lux-pet-companion-v1") || "{}");
@@ -286,10 +311,13 @@ if (!window.__luxRpgShell) {
     const link = document.createElement("a");
     link.className = "rpg-task";
     link.href = href;
+    link.style.cssText = "display:flex;align-items:center;gap:0.45rem;width:100%;min-height:1.7rem;margin:0 0 0.2rem;padding:0.12rem 0.45rem;white-space:nowrap;overflow:hidden;text-decoration:none;color:inherit;";
     const name = document.createElement("strong");
     name.textContent = title;
+    name.style.cssText = "flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:0.78rem;font-weight:600;";
     const em = document.createElement("em");
     em.textContent = meta;
+    em.style.cssText = "flex:0 0 auto;font-style:normal;font-size:0.72rem;";
     link.append(name, em);
     return link;
   }
@@ -310,4 +338,6 @@ if (!window.__luxRpgShell) {
     if (text != null) node.textContent = text;
     return node;
   }
+
+  sync();
 }
