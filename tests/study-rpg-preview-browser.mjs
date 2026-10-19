@@ -58,6 +58,8 @@ try{
         assert.ok(await page.locator('.lux-study-rpg-pet').evaluate(img => img.complete && img.naturalWidth>0),'Selected pet image must be rendered');
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-nav a').count(),7,'Nav must remain intact after outfit/pet changes');
         assert.equal(await page.locator('body > nav:visible').count(),0,'Legacy native nav must stay hidden after state changes');
+        assert.equal(await page.locator('.lux-study-rpg-scholar.lux-scholar-character').count(),0,'Legacy Pet enhancer must not rewrite the Study character');
+        assert.equal(await page.locator('#lux-study-rpg-integrated.lux-scholar-pet-scene').count(),0,'Do not turn Study into the legacy Pet stage');
         assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
         fs.mkdirSync('test-results',{recursive:true});
         await page.screenshot({path:`test-results/study-rpg-${engine.name()}-${viewport.width}.png`,fullPage:false});
