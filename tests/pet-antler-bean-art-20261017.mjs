@@ -32,7 +32,7 @@ const home=fs.readFileSync('pet/home-pet.js','utf8');
 assert.match(home,/"antler-bean": "Baphomet"/);
 const shell=fs.readFileSync('index.html','utf8'),fallback=fs.readFileSync('404.html','utf8');
 assert.equal(shell,fallback,'Home and recovery shells must match');
-assert.match(shell,/home-pet\\.js\\?v=20261019-[a-z0-9-]+/);
+assert.match(shell,/home-pet\.js\?v=20261019-[a-z0-9-]+/);
 assert.match(fs.readFileSync('pet/index.html','utf8'),/pet\.js\?v=20261019-baphomet1/);
 assert.ok(fs.readFileSync('assessment-link.js','utf8').startsWith('if(!/^\\/(pet|assessment)(\\/|$)/.test(location.pathname)'));
 console.log('PASS: Baphomet female assassin LV1–10 exact approved RGBA sprites, labels and legacy save ID');

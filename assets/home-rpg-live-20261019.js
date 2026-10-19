@@ -7,6 +7,7 @@ import './journey-navigation-20261004.js';
 import { C as store, B as rewardScenes } from './index-BLVOhKhN.js?v=20261018-mastery2';
 import { selectedRewardScene } from './rpg-scene-selection-20261019.js?v=20261019-selected-scene1';
 import { petArtUrl } from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
+import { getHomePersonality } from '/pet/home-personality-20261010.js?v=20261019-rpg-greeting1';
 
 if (!window.__luxRpgLiveHome) {
   window.__luxRpgLiveHome = true;
@@ -14,7 +15,7 @@ if (!window.__luxRpgLiveHome) {
     const css = document.createElement('link');
     css.id = 'lux-rpg-live-css';
     css.rel = 'stylesheet';
-    css.href = '/assets/home-rpg-live-20261019.css?v=20261019-star-nav4';
+    css.href = '/assets/home-rpg-live-20261019.css?v=20261019-ipad-fixed5';
     document.head.append(css);
   }
   const root = document.createElement('div');
@@ -22,6 +23,8 @@ if (!window.__luxRpgLiveHome) {
   root.className = 'rpg-home-live';
   let originalVisible = false;
   let gardenModal = null;
+  let greetingCount = 0;
+  let greetingMessage = '';
   let scheduled = false;
   let ready = !!window.__luxAppReady;
 
@@ -298,6 +301,25 @@ if (!window.__luxRpgLiveHome) {
       else goalControl.textContent='Reward goal loading…';
     });
     world.append(goalControl);
+    // Rehome the original no-credit Pet personality greeting into the visible
+    // RPG world. The old React Home greeting remains mounted but is hidden.
+    const greet = make('button','rpg-greet-control-live','✧ Say hello');
+    greet.type = 'button';
+    greet.setAttribute('aria-label','Greet your Scholar and companion');
+    const greeting = make('p','rpg-greeting-line-live');
+    greeting.setAttribute('role','status');
+    greeting.setAttribute('aria-live','polite');
+    if (greetingMessage) { greeting.textContent = greetingMessage; greeting.classList.add('is-visible'); }
+    greet.addEventListener('click', () => {
+      // This is an explicit button/keyboard gesture, never autoplay.
+      // iPad WebKit can transiently report document.hidden during PWA
+      // restoration even while a user is interacting with the Home.
+      if (!onHome()) return;
+      greetingMessage = getHomePersonality(petState(),'',greetingCount++).message;
+      greeting.textContent = greetingMessage;
+      greeting.classList.add('is-visible');
+    });
+    world.append(greet,greeting);
     const cast = make('div','rpg-cast-live');
     // Transparent sprites need floor anchors, not flex alignment.
     // Offsets are presentation-only and keyed to the player's equipped reward.
@@ -384,7 +406,7 @@ if (!window.__luxRpgLiveHome) {
     rail.append(panel,timeline,orbs);
 
     const nav=make('div','rpg-nav-live');nav.setAttribute('role','navigation');nav.setAttribute('aria-label','Home navigation');
-    for(const [label,href] of [['Home','/'],['Study','/study'],['Play','/play'],['Garden','/garden'],['Pet','/pet/'],['Assessment','/assessment/'],['Recovery',null],['Settings',null],['Scholar','/scholar']]) {
+    for(const [label,href] of [['Home','/'],['Study','/study'],['Play','/play'],['Garden','/garden'],['Pet','/pet/'],['Assessment','/assessment/'],['Recovery',null],['Settings','/scholar/?open=settings'],['Scholar','/scholar']]) {
       const item = href ? make('a',label==='Home'?'on':'',label) : make('button',null,label);
       if (href) item.href = href;
       else {item.type='button';item.addEventListener('click',()=>nativePanel(label === 'Settings' ? 'settings' : 'recovery'));}
@@ -397,7 +419,7 @@ if (!window.__luxRpgLiveHome) {
     // Pages restored from iPad WebKit back-forward cache may miss the ready event.
     ready = ready || !!window.__luxAppReady;
     if (!onHome() || !ready) {
-      if (!onHome()) { originalVisible = false; closeGardenModal(); }
+      if (!onHome()) { originalVisible = false; greetingMessage = ''; closeGardenModal(); }
       root.remove();document.documentElement.classList.remove('lux-rpg-live-active');return;
     }
     if (!root.isConnected) document.body.append(root);

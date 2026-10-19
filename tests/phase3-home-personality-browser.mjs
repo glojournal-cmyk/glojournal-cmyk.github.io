@@ -37,74 +37,68 @@ try{
     try{
       const response=await page.goto(base+'/',{waitUntil:'domcontentloaded',timeout:35000});
       assert.equal(response.status(),200);
+      // Approved RPG Home now owns the visible Scholar/Pet scene. The
+      // original greeting and pet card remain mounted but intentionally hidden.
       await page.waitForFunction(()=>{
-       const control=document.getElementById('lux-home-personality-greet');
-       const pet=document.querySelector('#mastery-pet-home .mph-art');
-       const scholar=document.querySelector('main img.scholar-idle');
-       return !!window.__luxAppReady&&!!control&&!!pet&&!!scholar&&scholar.complete&&scholar.naturalWidth>0;
-      },null,{timeout:30000});
+        const root=document.querySelector('#lux-rpg-live-home');
+        const scholar=root?.querySelector('.rpg-scholar-live');
+        const pet=root?.querySelector('.rpg-pet-live img');
+        return !!window.__luxAppReady && !!root?.querySelector('.rpg-greet-control-live') &&
+          scholar?.complete && scholar.naturalWidth>0 && pet?.complete && pet.naturalWidth>0;
+      },null,{timeout:40000});
       const ui=await page.evaluate(()=>{
-       const ctl=document.getElementById('lux-home-personality-greet');
-       const card=document.getElementById('mastery-pet-home');
-       const box=ctl.getBoundingClientRect();
-       return {width:box.width,height:box.height,petLink:card.getAttribute('href'),
-        originalHero:document.querySelector('main img.scholar-idle')?.getAttribute('src'),
-        sprite:card.querySelector('.mph-art')?.getAttribute('style'),
-        buttonCount:document.querySelectorAll('#lux-home-personality-greet').length,
-        wasDark:!!document.documentElement.classList.contains('cx-quiet')};
+        const root=document.querySelector('#lux-rpg-live-home');
+        const ctl=root.querySelector('.rpg-greet-control-live');
+        const box=ctl.getBoundingClientRect();
+        const nav=root.querySelector('.rpg-nav-live');
+        return {width:box.width,height:box.height,
+          originalHero:root.querySelector('.rpg-scholar-live')?.getAttribute('src'),
+          petImage:root.querySelector('.rpg-pet-live img')?.getAttribute('src'),
+          petLink:root.querySelector('.rpg-pet-live')?.getAttribute('href'),
+          navPosition:getComputedStyle(nav).position,
+          greetCount:root.querySelectorAll('.rpg-greet-control-live').length};
       });
-      assert.ok(ui.width>=44&&ui.height>=44,'iPad greeting control must be tappable');
-      assert.equal(ui.petLink,'/pet/','original pet navigation intact');
-      assert.equal(ui.buttonCount,1,'one greeting control after rerenders');
-      assert.match(ui.originalHero,/\/art\/doll\/.+\.png/);
-      assert.match(ui.sprite,/sprite|background|url/i,'original pet art remains');
+      assert.ok(ui.width>=44&&ui.height>=44,'iPad RPG greeting must be tappable');
+      assert.equal(ui.greetCount,1,'exactly one RPG greeting control');
+      assert.equal(ui.petLink,'/pet/','Pet navigation remains functional');
+      assert.equal(ui.navPosition,'fixed','PWA bottom navigation must be viewport-fixed');
       await page.waitForFunction(()=>{
         try{return JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}')?.state?.daily?.length===10}
         catch{return false}
       },null,{timeout:15000});
-      // Normal app hydration writes the initial ten-task plan after first paint.
-      // Snapshot authoritative reward/task fields only when hydration has settled.
       const snapshot=()=>page.evaluate(()=>{
-        const saved=JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}');
-        const state=saved.state||saved;
-        const pet=JSON.parse(localStorage.getItem('lux-pet-companion-v1')||'{}');
-        return {xp:Number(state.xp)||0,
-          tasks:(state.daily||[]).map(t=>[t.id,Number(t.progress)||0,Number(t.target)||0]),
-          unlocked:[...(state.unlockedOutfits||[])],equipped:state.equippedOutfit,
-          species:pet.species||'',masteryPoints:Number(pet.masteryPoints)||0,
-          care:pet.care?{
-            bond:Number(pet.care.bond)||0,mood:Number(pet.care.mood)||0,
-            energy:Number(pet.care.energy)||0,
-            dailyBond:Number(pet.care.daily?.bondEarned)||0,
-            actionCounts:pet.care.daily?.actionCounts||{},
-            rewardLedger:pet.care.rewardLedger||{}
-          }:null,petLevels:pet.petLevels||null};
+        const raw=JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}');
+        const s=raw.state||raw;
+        const p=JSON.parse(localStorage.getItem('lux-pet-companion-v1')||'{}');
+        return {xp:Number(s.xp)||0,daily:(s.daily||[]).map(t=>[t.id,t.progress,t.target]),
+          unlocked:s.unlockedOutfits,equipped:s.equippedOutfit,
+          petSpecies:p.species,petLevels:p.petLevels,masteryPoints:p.masteryPoints,
+          care:p.care?{bond:p.care.bond,mood:p.care.mood,energy:p.care.energy,
+            dailyBond:p.care.daily?.bondEarned,
+            actionCounts:p.care.daily?.actionCounts,
+            rewardLedger:p.care.rewardLedger}:null};
       });
       const before=await snapshot();
-      const button=page.locator('#lux-home-personality-greet');
-      await button.focus();
+      await page.locator('#lux-rpg-live-home .rpg-greet-control-live').focus();
       await page.keyboard.press('Enter');
-      await page.waitForFunction(()=>!!document.querySelector('#lux-home-personality-line.is-visible')?.textContent);
-      const greeting=await page.locator('#lux-home-personality-line').innerText();
-      assert.ok(greeting.length>15,'companion has a personality response');
-      assert.equal(await page.locator('#lux-home-personality-line').getAttribute('role'),'status');
-      assert.equal(new URL(page.url()).pathname,'/','greeting never navigates away');
-      const after=await snapshot();
-      assert.deepEqual(after,before,'greeting cannot award XP, credit, outfits, pet Bond or Energy');
-      const animation=await page.evaluate(()=>({
-        art:document.getElementById('mastery-pet-home')?.querySelector('.mph-art')?.getAttribute('style'),
-        hero:document.querySelector('main img.scholar-idle')?.getAttribute('src'),
-        playing:document.querySelector('.lux-scholar-pet-scene')?.classList.contains('lux-home-personality-playing')
-      }));
-      assert.equal(animation.art,ui.sprite,'pet appearance remains unchanged');
-      assert.equal(animation.hero,ui.originalHero,'scholar appearance remains unchanged');
-      if(vp.width===390)assert.equal(animation.playing,false,'reduced motion disables movement');
-      else assert.equal(animation.playing,true,'manual greeting gives subtle reaction');
-      assert.equal(await page.locator('#mastery-pet-home').count(),1);
-      await page.screenshot({path:'test-results/phase3-home-'+engine+'-'+vp.width+'.png',fullPage:false});
+      await page.waitForFunction(()=>document.querySelector('.rpg-greeting-line-live.is-visible')?.textContent?.length>15,null,{timeout:10000});
+      const line=page.locator('.rpg-greeting-line-live');
+      assert.equal(await line.getAttribute('role'),'status');
+      assert.ok((await line.innerText()).length>15,'greeting must have companion personality');
+      assert.equal(new URL(page.url()).pathname,'/');
+      assert.deepEqual(await snapshot(),before,'RPG greeting must not change saved learner/pet records');
+      assert.equal(await page.locator('.rpg-scholar-live').getAttribute('src'),ui.originalHero);
+      assert.equal(await page.locator('.rpg-pet-live img').getAttribute('src'),ui.petImage);
+      await page.screenshot({path:'test-results/phase3-home-'+engine+'-'+vp.width+'.png'});
+      // Settings shortcut must not reveal the retired native Home. It opens
+      // the actual Scholar Settings tab where Sound and Music are configured.
+      await page.locator('#lux-rpg-live-home .rpg-nav-live a[href="/scholar/?open=settings"]').click();
+      await page.waitForURL(url=>url.pathname==='/scholar/'&&url.searchParams.get('open')==='settings',{timeout:20000});
+      await page.getByText('Chimes for answers, dress-up, watering and PE.').waitFor({timeout:20000});
+      assert.deepEqual(await snapshot(),before,'opening Settings must not edit progress');
       if(errors.length)throw new Error('JavaScript errors: '+errors.slice(0,3).join('; '));
-      reports.push({engine,viewport:vp.width,greet:true,keyboard:true,noSaveChanges:true,
-        reducedMotion:vp.width===390});
+      reports.push({engine,viewport:vp.width,rpgGreeting:true,keyboard:true,
+        settingsNative:true,viewportFixedNav:true,noSaveChanges:true});
     }catch(e){
       failures.push({engine,viewport:vp.width,message:e.message,errors:errors.slice(0,3)});
       await page.screenshot({path:'test-results/phase3-home-FAILED-'+engine+'-'+vp.width+'.png'}).catch(()=>{});
