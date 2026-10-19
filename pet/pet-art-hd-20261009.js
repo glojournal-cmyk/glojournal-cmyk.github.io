@@ -5,7 +5,7 @@ export function petArtUrl(id, level = 1) {
   const safe = species.has(id) ? id : 'moss-hornling';
   const stage = clampPetLevel(level);
   // Sprig Dragon's persistent species ID is retained to preserve MP and level records.
-  if(safe==='sprig-dragon') return `/pet/art-unicorn-crusader-approved-20261018/level-${stage}.png?v=20261019-unicorn2`;
+  if(safe==='sprig-dragon') return `/pet/art-unicorn-crusader-approved-20261018/level-${stage}.png?v=20261019-full-edges1`;
   // Preserve the mothling storage ID while replacing only its visual and public-facing identity.
   if(safe==='mothling') return '/pet/art-starling-fox-20261018/level-'+stage+'.png?v=20261018-starling1';
   // The velvet-batling species ID remains unchanged for saved MP, unlocks and selection.
