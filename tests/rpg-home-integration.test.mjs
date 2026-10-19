@@ -49,6 +49,13 @@ test('uses original uploaded artwork and responsive layout',()=>{
   assert.match(js,/next\.href/);
 });
 
+test('RPG Home uses the authoritative evolving pet sprites, not retired thumbnails',()=>{
+  assert.match(js,/import \\{ petArtUrl \\} from '\/pet\/pet-art-hd-20261009\\.js/);
+  assert.match(js,/pet\\.petLevels\\?\\.\\[species\\]/);
+  assert.match(js,/creature\\.src = petArtUrl\\(species, stage\\)/);
+  assert.doesNotMatch(js,/companion-\\$\\{species\\}\\.webp/);
+});
+
 test('official Biology date corrected from the old prototype',()=>{
   assert.match(js,/Biology · cell structure test/);
   assert.match(js,/progress:'2 Nov'/);
