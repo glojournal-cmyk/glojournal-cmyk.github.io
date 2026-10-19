@@ -242,3 +242,53 @@ html.lux-rpg-recovery-open #lux-recovery-quests a{
 @media(max-width:700px){
  .rpg-home-live .rpg-goal-control-live{position:absolute;top:5.55rem;right:0;margin:0;font-size:.67rem}
 }
+
+/* iPad PWA hotfix: 30-day touch target is a root-level control, never inside
+   the React/native shell or an overflowing quest panel. */
+#lux-rpg-live-home > .rpg-days-live {
+  position:fixed!important;inset:auto!important;
+  top:calc(.95rem + env(safe-area-inset-top))!important;
+  left:min(17.8rem,calc(100vw - 7.8rem))!important;
+  z-index:2147481000!important;transform:none!important;
+  pointer-events:auto!important;touch-action:manipulation!important;
+  min-height:3.15rem!important;min-width:6.6rem!important;
+  padding:.55rem .85rem!important;
+  background:#254f60!important;color:#fff9e8!important;
+  box-shadow:0 8px 18px rgba(0,0,0,.28)!important;
+}
+#lux-rpg-live-home > .rpg-days-live:focus-visible {
+  outline:3px solid #fff5dc;outline-offset:3px;
+}
+#lux-rpg-live-home .rpg-nav-live {
+  position:fixed!important;inset:auto!important;
+  bottom:calc(.85rem + env(safe-area-inset-bottom))!important;
+  left:50%!important;right:auto!important;
+  transform:translateX(-50%) translateZ(0)!important;
+  z-index:110!important;width:max-content!important;
+  max-width:calc(100vw - 1.5rem)!important;
+  flex-shrink:0!important;
+  -webkit-transform:translateX(-50%) translateZ(0)!important;
+}
+#lux-rpg-live-home .rpg-nav-live a,
+#lux-rpg-live-home .rpg-nav-live button {
+  touch-action:manipulation;min-height:2.8rem;
+}
+#lux-rpg-live-home .rpg-settings-modal-live {
+  z-index:50;display:flex;flex-direction:column;gap:.65rem;
+}
+#lux-rpg-live-home .rpg-settings-toggles-live{display:grid;gap:.5rem}
+#lux-rpg-live-home .rpg-settings-option-live,
+#lux-rpg-live-home .rpg-settings-backup-live {
+  min-height:2.85rem;padding:.65rem 1rem;text-align:left;
+  border:1px solid #b8c7bd;border-radius:.7rem;color:#213d4c;
+  background:#fffdf7;cursor:pointer;pointer-events:auto;
+}
+#lux-rpg-live-home .rpg-settings-option-live[aria-pressed=true]{background:#dce9df}
+@media(max-width:700px){
+  #lux-rpg-live-home > .rpg-days-live {
+    top:calc(.8rem + env(safe-area-inset-top))!important;
+    left:auto!important;right:.8rem!important;
+    min-width:6.3rem!important;
+  }
+  #lux-rpg-live-home .rpg-hud-live{max-width:calc(100vw - 8.8rem)!important}
+}
