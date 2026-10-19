@@ -11,7 +11,7 @@ const personalities=Object.freeze({
  "bloom-snail":["A tiny star glimmers above soft kitten ears.","Starlight Kitten curls its enchanted tail.","Your companion catches a whisper of moonlight."],
  "velvet-batling":["Shadow Wolf watches over the scholar’s garden.","A crescent of gold shines in soft fur.","Your moonlit companion wags its starry tail."],
  "sprig-dragon":["A proud little dragon stretches its wings.","A tiny golden sparkle escapes its nose.","The Scholar has an eager guardian today."],
- "star-toadlet":["A constellation sparkles on the pond.","One brave hop towards the next quest.","The little stargazer is listening."],
+ "star-toadlet":["A tiny healer opens her favourite spellbook.","Golden feathers catch the morning starlight.","A gentle blue healing glow follows your progress."],
  "snow-owl":["The Moonveil Owl offers a solemn bow.","Silver feathers catch a distant starlight.","A watchful gaze guards the garden's secrets."],
  "night-spider":["The Nocturne Spider weaves a tiny silver star.","An elegant thread shimmers in greeting.","A velvet bow from the keeper of the stars."]
 });
