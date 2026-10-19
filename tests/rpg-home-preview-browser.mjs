@@ -158,7 +158,7 @@ for (const run of runs) {
     // control into the RPG HUD, and mobile rail overlapping the real control.
     const daysLayout=await page.evaluate(()=>{
       const root=document.querySelector('#lux-rpg-live-home');
-      const button=root.querySelector('button.rpg-days-live');
+      const button=root.querySelector(':scope > button.rpg-days-live');
       const r=button.getBoundingClientRect();
       const hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
       const timeline=root.querySelector('.rpg-days-timeline-live');
