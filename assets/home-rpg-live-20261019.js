@@ -136,9 +136,50 @@ if (!window.__luxRpgLiveHome) {
     record.append(list);
     root.append(record);
   }
+  // Read-only Star Map of recorded Weekly Boss results. Never fabricate a
+  // week's stars or grant an award; the game's weeklyBoss engine stays authoritative.
+  function openStarMap() {
+    modalChrome('Star Map');
+    gardenModal = 'star';
+    const modal = make('section','rpg-record-modal-live rpg-star-modal-live');
+    modal.setAttribute('role','dialog');
+    modal.setAttribute('aria-modal','true');
+    modal.setAttribute('aria-label','Star Map · Weekly Boss progress');
+    modal.append(make('h2',null,'Star Map'));
+    modal.append(make('p','rpg-record-subtitle-live','Weekly Boss · your actual saved results'));
+    const record = store.getState?.().weeklyBoss || {};
+    const weeks = record.weeks && typeof record.weeks === 'object' ? record.weeks : {};
+    const items = Object.entries(weeks)
+      .filter(([week,result])=>week && result && typeof result==='object')
+      .sort(([a],[b])=>String(b).localeCompare(String(a),undefined,{numeric:true}));
+    const list = make('div','rpg-record-list-live rpg-star-list-live');
+    if (!items.length) {
+      list.append(make('p','rpg-star-empty-live',
+        'No Weekly Boss results saved yet. Complete weekly challenges in Play to earn your stars.'));
+    }
+    for (const [week,result] of items.slice(0,20)) {
+      const row = make('div','rpg-record-row-live ' + (result.passed ? 'done' : 'partial'));
+      const descriptor = make('div','rpg-star-week-live');
+      descriptor.append(make('strong',null,'Week ' + String(week)));
+      const detail = [result.subject, result.missionId].filter(Boolean).map(String)[0];
+      if (detail) descriptor.append(make('small',null,detail.slice(0,80)));
+      const score = Number.isFinite(Number(result.bestScore)) && Number(result.attempts)>0
+        ? ' · Best ' + Math.min(100,Math.max(0,Number(result.bestScore))) + '%' : '';
+      const status = result.passed ? '★ Completed' : 'In progress';
+      const outcome = make('span',null,status+score);
+      row.append(descriptor,outcome);
+      if (result.reward?.name) {
+        row.append(make('small','rpg-star-reward-live','Reward: '+String(result.reward.name).slice(0,80)));
+      }
+      list.append(row);
+    }
+    modal.append(list);
+    root.append(modal);
+  }
   function nativePanel(kind) {
     if (kind === 'recovery') { openNativeRecovery(); return; }
     if (kind === 'record') { openThirtyDayRecord(); return; }
+    if (kind === 'star') { openStarMap(); return; }
     // Show the real, existing React Home rather than imitating answer-credit UI.
     originalVisible = true;
     root.classList.add('show-native');
