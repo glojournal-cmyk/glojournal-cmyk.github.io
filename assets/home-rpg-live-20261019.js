@@ -21,6 +21,7 @@ if (!window.__luxRpgLiveHome) {
   root.id = 'lux-rpg-live-home';
   root.className = 'rpg-home-live';
   let originalVisible = false;
+  let gardenModal = null;
   let scheduled = false;
   let ready = !!window.__luxAppReady;
 
@@ -64,7 +65,78 @@ if (!window.__luxRpgLiveHome) {
     const dates = [dayBefore(1), dayBefore(2)];
     return dates.filter(date => state.dailyLog?.[date]?.tasks?.some(t => !t.done && number(t.progress) < number(t.target))).length;
   };
+
+  // Keep React's REAL Recovery controls mounted in its own React tree.
+  // CSS displays that existing panel above the RPG scene without reparenting
+  // React nodes, replacing answers or touching the learner's saved record.
+  function closeGardenModal() {
+    gardenModal = null;
+    document.documentElement.classList.remove('lux-rpg-recovery-open','lux-rpg-record-open');
+    root.querySelectorAll('.rpg-modal-dimmer-live,.rpg-record-modal-live,.rpg-modal-note-live').forEach(node => node.remove());
+    document.getElementById('lux-rpg-modal-close')?.remove();
+    schedule();
+  }
+  function modalChrome(label) {
+    closeGardenModal();
+    const shade = make('div','rpg-modal-dimmer-live');
+    shade.addEventListener('click',closeGardenModal);
+    root.append(shade);
+    const back = make('button','rpg-modal-close-live','×  Back to garden');
+    back.id = 'lux-rpg-modal-close';
+    back.type = 'button';
+    back.setAttribute('aria-label','Close ' + label + ' and return to RPG home');
+    back.addEventListener('click',closeGardenModal);
+    document.body.append(back);
+  }
+  function openNativeRecovery() {
+    modalChrome('Recovery');
+    gardenModal = 'recovery';
+    document.documentElement.classList.add('lux-rpg-recovery-open');
+    const ensurePanel = attempts => {
+      if (gardenModal !== 'recovery' || !onHome()) return;
+      const panel = document.getElementById('lux-recovery-quests');
+      if (panel) {
+        panel.hidden = false;
+        panel.open = true;
+        panel.setAttribute('aria-label','Quest Recovery · choose a date');
+        return;
+      }
+      if (attempts < 120) requestAnimationFrame(() => ensurePanel(attempts + 1));
+      else {
+        const msg = make('p','rpg-modal-note-live','Recovery is not available yet. Please try again once your saved progress has loaded.');
+        root.append(msg);
+      }
+    };
+    ensurePanel(0);
+  }
+  function openThirtyDayRecord() {
+    modalChrome('30-day record');
+    gardenModal = 'record';
+    document.documentElement.classList.add('lux-rpg-record-open');
+    const record = make('section','rpg-record-modal-live');
+    record.setAttribute('role','dialog');
+    record.setAttribute('aria-modal','true');
+    record.setAttribute('aria-label','Your past 30 days');
+    record.append(make('h2',null,'Your past 30 days'));
+    record.append(make('p','rpg-record-subtitle-live','Saved study records · read only'));
+    const state = store.getState?.() || {};
+    const list = make('div','rpg-record-list-live');
+    for (let age=0;age<30;age++) {
+      const date=dayBefore(age), entry=state.dailyLog?.[date], status=todayStatus(state,date);
+      const row=make('div','rpg-record-row-live ' + (status || 'unopened'));
+      row.append(make('strong',null,date));
+      const total=number(entry?.total);
+      const done=number(entry?.done);
+      const label=status==='done'?'Completed':status==='partial'?'Partly completed':'Not opened';
+      row.append(make('span',null,label + (total>0?' · ' + done + '/' + total:''));
+      list.append(row);
+    }
+    record.append(list);
+    root.append(record);
+  }
   function nativePanel(kind) {
+    if (kind === 'recovery') { openNativeRecovery(); return; }
+    if (kind === 'record') { openThirtyDayRecord(); return; }
     // Show the real, existing React Home rather than imitating answer-credit UI.
     originalVisible = true;
     root.classList.add('show-native');
@@ -222,7 +294,7 @@ if (!window.__luxRpgLiveHome) {
       action.addEventListener('click',() => location.assign(next.href));
       panel.append(action);
     }
-    const days = make('button','rpg-days-live');days.type='button';days.setAttribute('aria-label','Open original 30-day record');
+    const days = make('button','rpg-days-live');days.type='button';days.setAttribute('aria-label','Open your past 30-day study record');
     days.append(make('span',null,'30 days'));
     const dots=make('span','rpg-dots-live');
     for(let age=29;age>=0;age--){const dot=make('i',todayStatus(state,dayBefore(age)));dot.title=dayBefore(age);dots.append(dot);}
@@ -248,10 +320,11 @@ if (!window.__luxRpgLiveHome) {
   function repaint(){
     scheduled = false;
     if (!onHome() || !ready) {
-      if (!onHome()) originalVisible = false;
+      if (!onHome()) { originalVisible = false; closeGardenModal(); }
       root.remove();document.documentElement.classList.remove('lux-rpg-live-active');return;
     }
     if (!root.isConnected) document.body.append(root);
+    if (gardenModal) return; // Never destroy an open native Recovery dialogue.
     if (originalVisible) return;
     document.documentElement.classList.add('lux-rpg-live-active');
     root.classList.remove('show-native');
@@ -262,7 +335,10 @@ if (!window.__luxRpgLiveHome) {
     const previous=history[key];
     history[key]=function(){const val=previous.apply(this,arguments);schedule();return val;};
   }
-  window.addEventListener('popstate',()=>{originalVisible=false;schedule();});
+  window.addEventListener('popstate',()=>{originalVisible=false;closeGardenModal();schedule();});
+  window.addEventListener('keydown',event=>{
+    if (event.key==='Escape' && gardenModal) { event.preventDefault();closeGardenModal(); }
+  });
   window.addEventListener('lux:app-ready',()=>{ready=true;schedule();});
   window.addEventListener('pageshow',schedule);
   window.addEventListener('storage',schedule);
