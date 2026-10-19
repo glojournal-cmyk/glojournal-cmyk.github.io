@@ -118,3 +118,11 @@ document.addEventListener("visibilitychange",()=>{if(document.visibilityState===
 new MutationObserver(queue).observe(document.documentElement,{childList:true,subtree:true});
 queue();
 })();
+
+// Integration preview is opt-in until iPad WebKit QA and saved-record QA pass.
+// The existing Study React engine and its persistence remain authoritative.
+if (/^\/study\/?$/.test(location.pathname) &&
+    new URLSearchParams(location.search).get('studyRpgPreview') === '1') {
+  import('/assets/study-rpg-integrated-20261019.js?v=20261019-preview1')
+    .catch(error => console.warn('Study RPG preview unavailable; existing Study remains active', error));
+}
