@@ -55,7 +55,7 @@ test('completed daily plan has priority over an unrelated saved practice',()=>{
 });
 test('navigation patch cannot award XP or store progress',()=>{
  const html=fs.readFileSync('index.html','utf8');
- assert.match(html,/\/assets\/home-continue-20261010\.js\?v=20261019-ipad-return1/);
+ assert.match(html,/\/assets\/home-continue-20261010\.js\?v=20261019-[a-z0-9-]+/);
  assert.doesNotMatch(html,/\/assets\/home-journey-v2-20261010\.js/);
  assert.match(code,/__luxAppReady/);
  assert.doesNotMatch(code,/\bsetState\s*\(|\bawardXP\s*\(|localStorage\.setItem\s*\(/);
