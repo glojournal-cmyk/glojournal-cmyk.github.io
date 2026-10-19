@@ -5,7 +5,7 @@ export const STAGE_NAMES = Object.freeze(["Foundling","Curious Companion","Schol
 export function clampPetLevel(value){return Math.max(1,Math.min(MAX_PET_LEVEL,Math.floor(Number(value)||1)));}
 export const ADVANCED_FORMS = Object.freeze({
  'moss-hornling':['Bloom-crowned keeper','Canopy spirit','Sunlit grove guardian','Mythic forest keeper','Eternal grove sovereign'],
- 'antler-bean':['Ancient amber stag','Little autumn faun','Golden antler knight','Autumn spirit maiden','Eternal antler sovereign'],
+ 'antler-bean':['Crimson Cutthroat','Silent Fang','Nightshade Assassin','Eclipse Huntress','Baphomet Assassin Queen'],
  inkling:['Royal quill phoenix','Radiant ink guardian','Celestial ink phoenix','Mythic quill sovereign','Eternal midnight phoenix'],
  'pebble-wisp':['Opal orbit keeper','Radiant stone guardian','Celestial rune spirit','Mythic crystal keeper','Eternal constellation spirit'],
  'moon-puff':['Moonlit cloud keeper','Radiant lunar guardian','Celestial moon hare','Mythic cloud sovereign','Eternal moon guardian'],

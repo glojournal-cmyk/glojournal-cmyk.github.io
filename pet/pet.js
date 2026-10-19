@@ -1,12 +1,12 @@
 import '../assets/player-ux-20261013.js?ux=20261013-corrections2';
-import {MAX_PET_LEVEL, EVOLUTION_COSTS, STAGE_NAMES, clampPetLevel, ADVANCED_FORMS} from './pet-evolution-config-20261012.js?v=20261019-duck-healer1&ux=20261013-corrections2';
-import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261019-duck-healer1&ux=20261013-corrections2';
+import {MAX_PET_LEVEL, EVOLUTION_COSTS, STAGE_NAMES, clampPetLevel, ADVANCED_FORMS} from './pet-evolution-config-20261012.js?v=20261019-baphomet1&ux=20261013-corrections2';
+import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
 const APP_KEY = "lux-scholar-garden-v1";
 const PET_KEY = "lux-pet-companion-v1";
 
 const pets = [
   {id:"moss-hornling",name:"Moss Hornling",tag:"A little forest heart, always finding light."},
-  {id:"antler-bean",name:"Antler Bean",tag:"Strange seeds grow into wonderful company."},
+  {id:"antler-bean",name:"Baphomet",tag:"A wicked little imp grows into a formidable shadow assassin."},
   {id:"inkling",name:"Inkling",tag:"Ideas take many forms."},
   {id:"pebble-wisp",name:"Pebble Wisp",tag:"Quiet things hold great wonder."},
   {id:"moon-puff",name:"Moon Puff",tag:"A dreamer by nature."},
@@ -20,7 +20,7 @@ const pets = [
 ];
 const character = {
   "moss-hornling": {nature:"Gentle, stubborn and quietly brave",habit:"Plants a seed wherever it finds a difficult question.",forms:["Tiny forest scout","Leaf-horn forager","Mossland runner","Canopy guardian","Ancient grove keeper"]},
-  "antler-bean": {nature:"Curious, clumsy and loyal",habit:"Collects curious facts and remembers who taught them.",forms:["Little woodland bean","Branching wanderer","Young forest explorer","Great antler guardian","Mapleleaf guardian"]},
+  "antler-bean": {nature:"Mischievous, sharp-eyed and daring",habit:"Turns every clever discovery into a new shadow skill.",forms:["Imp Kidling","Wicked Scout","Night Prowler","Horned Stalker","Shadow Initiate"]},
   "inkling": {nature:"Inventive, quick and a little dramatic",habit:"Draws ideas in the air with its ink-feather tail.",forms:["First spark of ink","Curl-tailed sketcher","Quill-wing scholar","Ink phoenix","Midnight master phoenix"]},
   "pebble-wisp": {nature:"Patient, observant and surprisingly funny",habit:"Rearranges its stones whenever a puzzle clicks.",forms:["Little floating pebble","Orbiting stones","Rune cluster","Stone sentinel","Crystal constellation"]},
   "moon-puff": {nature:"Dreamy, kind and fiercely attentive",habit:"Keeps a tiny light on for lessons worth revisiting.",forms:["Sleepy moon cloud","Crescent-eared puff","Moon hare","Lunar runner","Cloud-tail guardian","Starlight Cloud Walker","Standing Moon Sprite","Moon-Hare Hybrid","Lunar Maiden","Celestial Moon Guardian"]},
@@ -64,7 +64,7 @@ const subjectMeta = {
 
 const petVoices = {
   "moss-hornling":{close:"Moss Hornling senses new growth",due:"Moss Hornling rustles a reminder",steady:"Moss Hornling sees steady roots",waiting:"Moss Hornling is ready to grow"},
-  "antler-bean":{close:"Antler Bean spots a breakthrough",due:"Antler Bean remembers something",steady:"Antler Bean is quietly impressed",waiting:"Antler Bean has found a study nook"},
+  "antler-bean":{close:"Baphomet senses a breakthrough",due:"Baphomet has a shadowy reminder",steady:"Baphomet notices every smart move",waiting:"Baphomet is ready for her first mission"},
   "inkling":{close:"Inkling has an idea",due:"Inkling marks a page to revisit",steady:"Inkling records your progress",waiting:"Inkling opens a fresh page"},
   "pebble-wisp":{close:"Pebble Wisp feels the answer near",due:"Pebble Wisp leaves a gentle reminder",steady:"Pebble Wisp notices every small step",waiting:"Pebble Wisp waits beside the first step"},
   "moon-puff":{close:"Moon Puff sees mastery on the horizon",due:"Moon Puff lights the way back",steady:"Moon Puff glows with steady progress",waiting:"Moon Puff is watching for the first spark"},
@@ -219,7 +219,7 @@ function glowLabel(state){
   return "Resting";
 }
 function petDisplayName(pet){
-  const legacyDefault = (pet.species === "sprig-dragon" && pet.name === "Sprig Dragon") || (pet.species === "star-toadlet" && pet.name === "Star Toadlet");
+  const legacyDefault = (pet.species === "sprig-dragon" && pet.name === "Sprig Dragon") || (pet.species === "star-toadlet" && pet.name === "Star Toadlet") || (pet.species === "antler-bean" && pet.name === "Antler Bean");
   return (legacyDefault ? "" : pet.name) || pets.find(p=>p.id===pet.species)?.name || "Companion";
 }
 function petById(id){return pets.find(p=>p.id===id)||pets[0]}
@@ -277,7 +277,7 @@ function render(){
     :`Balance after evolution: ${Math.max(0,balance-cost)} MP`;
   document.getElementById("messageTitle").textContent=msg.title;
   document.getElementById("messageBody").textContent=msg.body;
-  document.getElementById("petNameInput").value=((pet.species==="sprig-dragon"&&pet.name==="Sprig Dragon")||(pet.species==="star-toadlet"&&pet.name==="Star Toadlet"))?"":(pet.name||"");
+  document.getElementById("petNameInput").value=((pet.species==="sprig-dragon"&&pet.name==="Sprig Dragon")||(pet.species==="star-toadlet"&&pet.name==="Star Toadlet")||(pet.species==="antler-bean"&&pet.name==="Antler Bean"))?"":(pet.name||"");
 
   const steps=document.getElementById("stageSteps");
   steps.innerHTML=stageNames.map((name,i)=>{

@@ -20,7 +20,8 @@ export function petArtUrl(id, level = 1) {
   if(safe==='night-spider' && stage>=5) return `/pet/art-nocturne-spider-20261018/level-${stage}.png?v=20261018-nocturne-spider1`;
   // Moonveil Owl: the original LV1–LV4 sprites remain untouched.
   if(safe==='snow-owl' && stage>=5) return `/pet/art-moonveil-owl-20261017/level-${stage}.png?v=20261017-moonveil-owl1`;
-  if(safe==='antler-bean' && stage>=5) return `/pet/art-antler-bean-individual-20261017/level-${stage}.png?v=20261017-antler-individual4`;
+  // Preserve antler-bean storage identity, but replace EVERY level with approved Baphomet art.
+  if(safe==='antler-bean') return `/pet/art-baphomet-assassin-20261019/level-${stage}.png?v=20261019-baphomet1`;
   if(safe==='moss-hornling' && stage>=5) return `/pet/art-moss-hornling-20261017/level-${stage}.png?v=20261017-moss-fullbody1`;
   if(safe==='moon-puff' && stage>=5) return `/pet/art-moon-puff-20261013/level-${stage}.png?v=20261013-moon-fullbody1`;
   if(stage>5) return `/pet/art-level10-20261012/level-${stage}/${safe}.webp?v=${safe==='pebble-wisp'?'20261013-pebble-humanoid1':'20261013-spider-safe1'}`;
