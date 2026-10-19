@@ -4,5 +4,7 @@
       "maxDuration": 30
     }
   },
-  "ignoreCommand": "exit 1"
+  "ignoreCommand": "exit 1",
+  "outputDirectory": ".",
+  "buildCommand": "echo 'RPG preview static files are in the repo root'"
 }
