@@ -206,3 +206,17 @@ html.lux-rpg-recovery-open #lux-recovery-quests a{
  .rpg-home-live .rpg-quests-live{flex:0 0 auto;max-height:48vh}
  .rpg-home-live .rpg-days-timeline-live{min-height:2.3rem}
 }
+
+/* On phones the grid's lower world row overlaps the mission panel.
+ * Keep the real 30-day control in a fixed, visible header above the quest rail. */
+@media(max-width:700px){
+  .rpg-home-live{padding-top:5.55rem!important}
+  .rpg-home-live .rpg-world-live{z-index:8!important;pointer-events:none!important}
+  .rpg-home-live .rpg-hud-live{
+    position:fixed!important;top:calc(.65rem + env(safe-area-inset-top))!important;
+    left:.7rem!important;z-index:12!important;margin:0!important;
+    width:max-content!important;max-width:calc(100vw - 1.4rem)!important;
+    pointer-events:auto!important
+  }
+  .rpg-home-live .rpg-days-live{pointer-events:auto!important}
+}
