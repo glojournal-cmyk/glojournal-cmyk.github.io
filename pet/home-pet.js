@@ -124,7 +124,7 @@ function ensureNavigation() {
 function enhanceShell() {
   ensureCss();
   ensureNavigation();
-  document.querySelector("header")?.classList.add("lux-companion-header");
+  [...document.querySelectorAll("header")].find(node => !node.closest("#lux-rpg-live-home"))?.classList.add("lux-companion-header");
   document.querySelector("main")?.classList.add("lux-main-with-companion-nav");
 }
 
