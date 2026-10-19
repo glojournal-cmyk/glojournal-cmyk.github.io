@@ -20,7 +20,6 @@ if (!window.__luxRpgLiveHome) {
   const root = document.createElement('div');
   root.id = 'lux-rpg-live-home';
   root.className = 'rpg-home-live';
-  let originalVisible = false;
   let savedScholar = null;
   let savedCast = null;
   let gardenModal = null;
@@ -234,40 +233,6 @@ if (!window.__luxRpgLiveHome) {
     gardenModal = 'unavailable';
     root.append(make('p','rpg-modal-note-live','This panel is not available in the RPG Home yet.'));
     return;
-    // Deprecated old-home fallback (unreachable):
-    // Show the real, existing React Home rather than imitating answer-credit UI.
-    originalVisible = true;
-    root.classList.add('show-native');
-    document.documentElement.classList.remove('lux-rpg-live-active');
-    root.replaceChildren();
-    const back = make('button', 'rpg-return', '← Back to garden home');
-    back.type = 'button';
-    back.addEventListener('click', () => { originalVisible = false; repaint(); });
-    root.append(back);
-    queueMicrotask(() => {
-      if (kind === 'recovery') {
-        const panel = document.getElementById('lux-recovery-quests');
-        if (panel) { panel.hidden = false; panel.open = true; panel.scrollIntoView({block:'center',behavior:'smooth'}); }
-        else {
-          back.insertAdjacentElement('afterend', make('p','rpg-native-hint','Recovery is still loading. Use the Recovery section on the original Home.'));
-        }
-      } else if (kind === 'record') {
-        if (typeof window.__luxOpenDailyRecord === 'function') {
-          window.__luxOpenDailyRecord();
-          return;
-        }
-        const candidates = [...document.querySelectorAll('main button,main a')];
-        const record = candidates.find(e => /30.day|daily.record|past.30|calendar/i.test(e.textContent.trim() + ' ' + (e.getAttribute('aria-label') || '')));
-        if (record) record.click();
-        else back.insertAdjacentElement('afterend',make('p','rpg-native-hint','Open your original 30-day record below. Historical records have not been changed.'));
-      } else if (kind === 'settings') {
-        const settings = [...document.querySelectorAll('main button,header button,aside button,nav button')].find(e => /^settings$/i.test((e.textContent || '').trim()) || /^settings$/i.test(e.getAttribute('aria-label') || ''));
-        if (settings) settings.click();
-        else back.insertAdjacentElement('afterend',make('p','rpg-native-hint','Use the settings controls on the original home page.'));
-      } else if (kind === 'star') {
-        back.insertAdjacentElement('afterend',make('p','rpg-native-hint','Use the original weekly Star Map on this page, if available. Its saved progress is not recreated by this design.'));
-      }
-    });
   }
   function stat(parent, label, value, fraction, tip) {
     const line = make('div','rpg-stat'); line.title = tip;
@@ -464,13 +429,12 @@ if (!window.__luxRpgLiveHome) {
     // Pages restored from iPad WebKit back-forward cache may miss the ready event.
     ready = ready || !!window.__luxAppReady;
     if (!onHome() || !ready) {
-      if (!onHome()) { originalVisible = false; closeGardenModal(); }
+      if (!onHome()) closeGardenModal();
       root.remove();document.documentElement.classList.remove('lux-rpg-live-active');return;
     }
     if (!root.isConnected) document.body.append(root);
     // Always re-enable the RPG shell after WebKit page-cache restoration.
     if (gardenModal) return; // Never destroy an open native Recovery dialogue.
-    if (originalVisible) return;
     document.documentElement.classList.add('lux-rpg-live-active');
     root.classList.remove('show-native');
     render(store.getState?.() || {});
@@ -480,7 +444,7 @@ if (!window.__luxRpgLiveHome) {
     const previous=history[key];
     history[key]=function(){const val=previous.apply(this,arguments);schedule();return val;};
   }
-  window.addEventListener('popstate',()=>{originalVisible=false;closeGardenModal();schedule();});
+  window.addEventListener('popstate',()=>{closeGardenModal();schedule();});
   window.addEventListener('keydown',event=>{
     if (event.key==='Escape' && gardenModal) { event.preventDefault();closeGardenModal(); }
   });
