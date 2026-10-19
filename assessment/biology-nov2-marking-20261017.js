@@ -22,7 +22,17 @@
         const matches=text=>(p.allOf||[]).length>0&&p.allOf.every(pattern=>test(pattern,text));
         if(!matches(response)||(p.rejectPatterns||[]).some(pattern=>test(pattern,response)))return false;
         const matching=clauses.filter(matches);
-        const positive=text=>p.allowNegative||!test("\\b(not|never|cannot|can't|doesn't|don't|isn't|aren't)\\b",text.replace(/\bnot just\b/g,''));
+        // Scope negation to each required idea. A later "do not shade" must
+        // not cancel an earlier "clear single lines" when punctuation is omitted.
+        const positive=text=>p.allowNegative||(p.allOf||[]).every(pattern=>{
+          const re=new RegExp(pattern,'gi');
+          for(const match of text.matchAll(re)){
+            const prefix=text.slice(0,match.index).replace(/\bnot just\b/gi,'');
+            const local=prefix.split(/[.;\n]|\b(?:but|however|whereas|this|therefore|so)\b/i).at(-1);
+            if(!/\b(?:no|not|never|cannot|can't|doesn't|don't|isn't|aren't)\b(?:\W+\w+){0,6}\W*$/i.test(local))return true;
+          }
+          return false;
+        });
         return matching.length?matching.some(positive):positive(response);
       });
       const plantPatterns=['cellulose|cell wall','chloroplast','(permanent|large|central).{0,20}vacuole|vacuole'];
