@@ -72,6 +72,17 @@ test('resume the saved current-day question, not just open the subject homepage'
  assert.match(res.next.href,/biology\/practise/);
  assert.match(res.next.href,/task=adaptive-focus/);
 });
+test('ignore a same-day draft that does not match an assigned unfinished task',()=>{
+ const {build,tasks,J}=model();
+ const bogus={daily:true,planDate:DAY,dailyTaskId:'not-in-plan',
+   href:'/study/latin/practise?daily=1&task=not-in-plan',index:4,total:10};
+ const old=J.resumeCandidates;J.resumeCandidates=()=>[bogus];
+ try{
+   const res=build({today:DAY,daily:tasks});
+   assert.equal(res.next.kind,'task');
+   assert.match(res.next.href,/task=mistake-review/);
+ }finally{J.resumeCandidates=old}
+});
 test('ignore completed or expired daily drafts',()=>{
  const {storage,build,tasks}=model();
  const key=JSON.stringify(['biology',8,10,'','adaptive-focus','standard','adaptive-focus','',DAY]);

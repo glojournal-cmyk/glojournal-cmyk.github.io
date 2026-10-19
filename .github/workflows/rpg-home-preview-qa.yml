@@ -25,6 +25,10 @@ jobs:
           node --test tests/rpg-home-integration.test.mjs
           node --test tests/home-journey-v2.cjs
           node --test tests/rpg-home-record-recovery.test.mjs
+          node --test tests/home-continue-route-qa.cjs
+          node --test tests/recovery-all-tasks-ledger.test.mjs
+          node --test tests/recovery-dates.test.mjs
+          node --test tests/recovery-record-20261013.test.mjs
       - name: Install browser testing dependencies
         run: |
           npm install --no-save playwright
