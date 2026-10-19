@@ -137,16 +137,33 @@ for (const run of runs) {
       return s?JSON.stringify({xp:s.xp,daily:s.daily,dailyLog:s.dailyLog,recoveryTaskByDay:s.recoveryTaskByDay}):null;
     });
     await page.locator('#lux-rpg-live-home .rpg-orb-live').last().click();
-    await page.locator('#lux-rpg-live-home .rpg-return').waitFor();
-    assert.equal(await page.locator('main').count(),1,'original Home must remain accessible');
-    assert.equal(await page.locator('#lux-recovery-quests').count(),1,'native Recovery panel must exist');
-    assert.ok(await page.locator('#lux-recovery-quests').isVisible(),'native Recovery panel must become visible');
+    await page.locator('#lux-rpg-modal-close').waitFor();
+    await page.locator('#lux-recovery-quests').waitFor({timeout:12000});
+    assert.equal(await page.locator('#lux-recovery-quests').count(),1,'native Recovery panel must still exist');
+    assert.ok(await page.locator('#lux-recovery-quests').isVisible(),'native Recovery panel must open in the RPG garden');
+    assert.ok(await page.locator('#lux-rpg-live-home .rpg-quests-live h1').isVisible(),'RPG must stay mounted, not show old Home');
+    assert.ok(await page.evaluate(()=>document.documentElement.classList.contains('lux-rpg-recovery-open')));
+    const nativeDetails=await page.locator('#lux-recovery-quests').evaluate(el=>({open:el.open,position:getComputedStyle(el).position,z:getComputedStyle(el).zIndex}));
+    assert.equal(nativeDetails.open,true);
+    assert.equal(nativeDetails.position,'fixed');
+    assert.ok(Number(nativeDetails.z)>2147483000,'native panel must display above RPG canvas');
     const after=await page.evaluate(()=>{
       const s=window.__luxStore?.getState?.();
       return s?JSON.stringify({xp:s.xp,daily:s.daily,dailyLog:s.dailyLog,recoveryTaskByDay:s.recoveryTaskByDay}):null;
     });
     assert.equal(after,original,'opening Recovery must not mutate existing records');
-    await page.locator('#lux-rpg-live-home .rpg-return').click();
+    await page.locator('#lux-rpg-modal-close').click();
+    assert.equal(await page.locator('#lux-rpg-modal-close').count(),0);
+    await page.locator('#lux-rpg-live-home .rpg-days-live').click();
+    await page.locator('#lux-rpg-live-home .rpg-record-modal-live').waitFor();
+    assert.match(await page.locator('.rpg-record-modal-live').innerText(),/Your past 30 days/);
+    assert.equal(await page.locator('.rpg-record-row-live').count(),30);
+    const historyAfter=await page.evaluate(()=>{
+      const s=window.__luxStore?.getState?.();
+      return s?JSON.stringify({xp:s.xp,daily:s.daily,dailyLog:s.dailyLog,recoveryTaskByDay:s.recoveryTaskByDay}):null;
+    });
+    assert.equal(historyAfter,original,'opening 30-day record must not alter saved study data');
+    await page.locator('#lux-rpg-modal-close').click();
     await page.locator('#lux-rpg-live-home .rpg-quests-live h1').waitFor();
     await context.close();
     process.stdout.write(`PASS ${run.label}\n`);
