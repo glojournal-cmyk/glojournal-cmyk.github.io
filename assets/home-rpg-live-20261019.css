@@ -220,3 +220,12 @@ html.lux-rpg-recovery-open #lux-recovery-quests a{
   }
   .rpg-home-live .rpg-days-live{pointer-events:auto!important}
 }
+
+/* Star Map uses real saved Weekly Boss records (read only). */
+.rpg-home-live .rpg-star-modal-live{display:flex;flex-direction:column;gap:.45rem}
+.rpg-home-live .rpg-star-list-live{min-height:0;overflow-y:auto}
+.rpg-home-live .rpg-star-week-live{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.rpg-home-live .rpg-star-week-live small{font-size:.7rem;color:#58646b}
+.rpg-home-live .rpg-star-empty-live{padding:1rem .65rem;line-height:1.5;font-size:.84rem}
+.rpg-home-live .rpg-star-list-live .rpg-record-row-live{flex-wrap:wrap}
+.rpg-home-live .rpg-star-reward-live{width:100%;font-size:.7rem;color:#355e52}
