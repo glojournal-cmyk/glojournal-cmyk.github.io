@@ -219,7 +219,8 @@ function glowLabel(state){
   return "Resting";
 }
 function petDisplayName(pet){
-  return pet.name || pets.find(p=>p.id===pet.species)?.name || "Companion";
+  const legacyDefault = pet.species === "sprig-dragon" && pet.name === "Sprig Dragon";
+  return (legacyDefault ? "" : pet.name) || pets.find(p=>p.id===pet.species)?.name || "Companion";
 }
 function petById(id){return pets.find(p=>p.id===id)||pets[0]}
 function render(){
@@ -276,7 +277,7 @@ function render(){
     :`Balance after evolution: ${Math.max(0,balance-cost)} MP`;
   document.getElementById("messageTitle").textContent=msg.title;
   document.getElementById("messageBody").textContent=msg.body;
-  document.getElementById("petNameInput").value=pet.name||"";
+  document.getElementById("petNameInput").value=(pet.species==="sprig-dragon"&&pet.name==="Sprig Dragon")?"":(pet.name||"");
 
   const steps=document.getElementById("stageSteps");
   steps.innerHTML=stageNames.map((name,i)=>{
