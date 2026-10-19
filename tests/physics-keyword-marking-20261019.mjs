@@ -32,6 +32,12 @@ assert.equal(mark("store-list-typed","kinetic, thermal, chemical, nuclear"),true
 assert.equal(mark("store-list-typed","kinetic, thermal, chemical, unicorn"),false);
 assert.equal(mark("pressure-equation-typed","pressure = force / area"),true);
 assert.equal(mark("pressure-equation-typed","pressure = area / force"),false);
+assert.equal(mark("current-typed","Current rate flow electric charge measured A"),true);
+assert.equal(mark("law-reflection-typed","angle incidence = angle reflection"),true);
+assert.equal(mark("pressure-equation-typed","pressure equals force divided by area"),true);
+assert.equal(mark("pressure-equation-typed","pressure equals area divided by force"),false);
+assert.equal(mark("magnetic-materials-typed","iron,nickel,cobalt"),true);
+assert.equal(mark("magnetic-materials-typed","iron nikcel cobalt"),false);
 const short=question("current-apply");
 const exact=short.answer.markPoints.join("; ");
 assert.equal(gradePhysicsAnswer(short,exact,exact)?.ok,true);
