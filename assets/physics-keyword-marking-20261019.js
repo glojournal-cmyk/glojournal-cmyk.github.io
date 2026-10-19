@@ -22,7 +22,7 @@ const ALIAS = {
   experiences:"experience",produces:"produce",becomes:"become",measured:"measure",
   measures:"measure",electrically:"electrical",mechanically:"mechanical",
   slower:"slow",faster:"fast",stronger:"strong",weaker:"weak",breaks:"break",
-  wrong:"incorrect",false:"incorrect"
+  wrong:"incorrect",false:"incorrect",equals:"equal"
 };
 const CONTRAST = [
   ["increase","decrease"],["repel","attract"],["north","south"],["like","unlike"],
@@ -34,7 +34,7 @@ const CONTRAST = [
 function words(value) {
   const text = String(value ?? "").normalize("NFKC").toLowerCase()
     .replace(/[’‘]/g,"'").replace(/(\w)'s\b/g,"$1")
-    .replace(/\bcan't\b|\bcannot\b|\bdoesn't\b|\bdon't\b/g,"not");
+    .replace(/\bcan't\b|\bcannot\b|\bdoesn't\b|\bdon't\b/g,"not").replace(/=/g," equals ");
   return (text.match(/[a-z]+|\d+(?:\.\d+)?/g)||[])
     .map(w => ALIAS[w]||w).filter(w => !STOP.has(w));
 }
@@ -63,7 +63,7 @@ function phraseHit(point,response) {
     if(presentation(expectedText)===presentation(clause))return true;
     // Mathematical relationships cannot be discarded as mere punctuation.
     if(/[=<>/×÷]/.test(expectedText)) {
-      const norm=s=>presentation(s).replace(/\s*([=<>/×÷])\s*/g,"$1");
+      const norm=s=>presentation(s).replace(/\b(?:is equal to|equals?)\b/g,"=").replace(/\b(?:divided by|per)\b/g,"/").replace(/\s*([=<>/×÷])\s*/g,"$1");
       return norm(expectedText)===norm(clause);
     }
     const expected=words(expectedText),actual=words(clause);
@@ -94,17 +94,20 @@ function phraseHit(point,response) {
 function shortHit(answer,response) {
   const accepted=[...(answer.accepted||[]),answer.modelAnswer].filter(x=>typeof x==="string"&&x.trim());
   return accepted.some(expected => {
-    if(presentation(expected)===presentation(response))return true;
+    let input=String(response);
+    const symbols={A:"amperes",V:"volts",N:"newtons",Pa:"pascals",W:"watts",J:"joules"};
+    for(const [symbol,word] of Object.entries(symbols))if(expected.includes("("+symbol+")"))input=input.replace(new RegExp("\\b"+symbol+"\\b","g"),word);
+    if(presentation(expected)===presentation(input))return true;
     const choices=expected.match(/^any\s+(two|three|four|five|six)\s+of\s+(.+?)\.?$/i);
     if(choices){
       const need={two:2,three:3,four:4,five:5,six:6}[choices[1].toLowerCase()];
       const options=choices[2].replace(/\s+and\s+/gi,",").split(",").map(x=>x.trim()).filter(Boolean);
-      const actual=words(response),allowed=new Set(options.flatMap(words).concat(["energy","store"]));
+      const actual=words(input),allowed=new Set(options.flatMap(words).concat(["energy","store"]));
       if(actual.some(w=>!allowed.has(w)))return false;
       return options.filter(option=>words(option).every(w=>actual.includes(w))).length>=need;
     }
-    if(expected.includes(";"))return expected.split(";").every(part=>phraseHit(part,response));
-    return phraseHit(expected,response);
+    if(expected.includes(";"))return expected.split(";").every(part=>phraseHit(part,input));
+    return phraseHit(expected,input);
   });
 }
 
