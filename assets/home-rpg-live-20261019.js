@@ -14,7 +14,7 @@ if (!window.__luxRpgLiveHome) {
     const css = document.createElement('link');
     css.id = 'lux-rpg-live-css';
     css.rel = 'stylesheet';
-    css.href = '/assets/home-rpg-live-20261019.css?v=20261019-ipad-return1';
+    css.href = '/assets/home-rpg-live-20261019.css?v=20261019-days-fixed2';
     document.head.append(css);
   }
   const root = document.createElement('div');
