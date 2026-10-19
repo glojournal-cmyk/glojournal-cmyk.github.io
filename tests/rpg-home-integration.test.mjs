@@ -62,7 +62,11 @@ test('background is selected from owned rewards, not static garden-wide art',()=
   assert.match(js,/root\.dataset\.equippedScene/);
   assert.match(js,/rpg-scene-picker-live/);
   assert.doesNotMatch(css,/background:#1c3a4a url\('\/art\/garden-wide\.jpg'\)/);
-  assert.match(css,/margin-left:clamp\(6rem,22vw,25rem\)/);
+  assert.match(css,/rpg-cast-live::before/);
+  assert.match(css,/rpg-pet-live::before/);
+  assert.match(js,/cast\.dataset\.sceneGround = scene\.id/);
+  assert.match(js,/floorPresets\[scene\.id\]/);
+  assert.doesNotMatch(css,/margin-left:clamp\(6rem,22vw,25rem\)/);
 });
 test('does not replace shared route-shell HTML',()=>{
   // Preview is enabled via pet/home-pet.js only on the home route.
