@@ -14,7 +14,7 @@ if (!window.__luxRpgLiveHome) {
     const css = document.createElement('link');
     css.id = 'lux-rpg-live-css';
     css.rel = 'stylesheet';
-    css.href = '/assets/home-rpg-live-20261019.css?v=20261019-recovery-modal1';
+    css.href = '/assets/home-rpg-live-20261019.css?v=20261019-ipad-return1';
     document.head.append(css);
   }
   const root = document.createElement('div');
@@ -261,7 +261,18 @@ if (!window.__luxRpgLiveHome) {
     const scholar = document.createElement('img');
     scholar.className='rpg-scholar-live';scholar.alt='Scholar';
     const outfit = safeImage(state.equippedOutfit || 'day','day');
-    scholar.src = outfit === 'day' ? '/art/home-rpg/scholar-clean.png' : `/art/doll/${outfit}.png`;
+    // If an old equipped outfit has no live sprite (or iPad kept a stale
+    // image response), recover to the approved Scholar artwork, never hide her.
+    const defaultScholarArt = '/art/home-rpg/scholar-clean.png?v=20261019-ipad-return1';
+    scholar.alt = 'Scholar character';
+    scholar.loading = 'eager';
+    scholar.decoding = 'sync';
+    scholar.addEventListener('error', () => {
+      if (scholar.dataset.fallbackArt) return;
+      scholar.dataset.fallbackArt = 'true';
+      scholar.src = defaultScholarArt;
+    });
+    scholar.src = outfit === 'day' ? defaultScholarArt : `/art/doll/${outfit}.png`;
     const pet = petState();
     const species = safeImage(pet.species || 'moss-hornling','moss-hornling');
     const petLink = make('a','rpg-pet-live');petLink.href='/pet/'; petLink.setAttribute('aria-label','Open companion');
@@ -321,6 +332,8 @@ if (!window.__luxRpgLiveHome) {
   }
   function repaint(){
     scheduled = false;
+    // Pages restored from iPad WebKit back-forward cache may miss the ready event.
+    ready = ready || !!window.__luxAppReady;
     if (!onHome() || !ready) {
       if (!onHome()) { originalVisible = false; closeGardenModal(); }
       root.remove();document.documentElement.classList.remove('lux-rpg-live-active');return;
