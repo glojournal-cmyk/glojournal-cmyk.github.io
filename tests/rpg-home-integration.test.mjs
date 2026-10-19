@@ -106,3 +106,10 @@ test('the 30-day action is singular, anchored in the stable HUD, not in quests',
   assert.doesNotMatch(js,/panel\.append\(days\)/);
   assert.match(css,/\.rpg-home-live \.rpg-rail-live\{z-index:4!important\}/);
 });
+
+test('iPad nav is viewport-fixed and Settings opens native Scholar settings',()=>{
+ assert.match(css,/\.rpg-home-live \.rpg-nav-live \{\s*position:fixed!important/);
+ assert.match(js,/\['Settings','\/scholar\/\?open=settings'\]/);
+ assert.match(js,/getHomePersonality\(petState\(\),'',greetingCount\+\+\)/);
+ assert.match(js,/greeting\.setAttribute\('role','status'\)/);
+});
