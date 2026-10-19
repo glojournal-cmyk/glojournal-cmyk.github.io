@@ -154,6 +154,26 @@ for (const run of runs) {
     assert.equal(after,original,'opening Recovery must not mutate existing records');
     await page.locator('#lux-rpg-modal-close').click();
     assert.equal(await page.locator('#lux-rpg-modal-close').count(),0);
+    // Regression for legacy lux-theme.js injecting a second, inert 30-day
+    // control into the RPG HUD, and mobile rail overlapping the real control.
+    const daysLayout=await page.evaluate(()=>{
+      const root=document.querySelector('#lux-rpg-live-home');
+      const button=root.querySelector('button.rpg-days-live');
+      const r=button.getBoundingClientRect();
+      const hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
+      const timeline=root.querySelector('.rpg-days-timeline-live');
+      return {hudTag:root.querySelector('.rpg-hud-live')?.tagName,
+        duplicates:root.querySelectorAll('[data-lux-tool="days"]').length,
+        count:root.querySelectorAll('button.rpg-days-live').length,
+        hit:button.contains(hit),timelineInRail:timeline?.parentElement?.classList.contains('rpg-rail-live'),
+        timelineInQuest:!!timeline?.closest('.rpg-quests-live'),
+        location:[r.left,r.top,r.width,r.height]};
+    });
+    assert.equal(daysLayout.hudTag,'DIV','global header decorators must not alter RPG HUD');
+    assert.equal(daysLayout.duplicates,0,'duplicate native 30-day toolbar button detected');
+    assert.equal(daysLayout.count,1,'30 days must have only one working button');
+    assert.ok(daysLayout.hit,'30-day control is obstructed by another layer: '+JSON.stringify(daysLayout));
+    assert.ok(daysLayout.timelineInRail && !daysLayout.timelineInQuest,'timeline must not scroll with quests');
     await page.locator('#lux-rpg-live-home .rpg-days-live').click();
     await page.locator('#lux-rpg-live-home .rpg-record-modal-live').waitFor();
     assert.match(await page.locator('.rpg-record-modal-live').innerText(),/Your past 30 days/);
