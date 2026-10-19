@@ -100,9 +100,18 @@ test('30 day button opens a read-only in-scene history, and pet faces inward',()
 
 test('the 30-day action is singular, anchored in the stable HUD, not in quests',()=>{
   assert.match(js,/make\('div','rpg-hud-live'\)/);
-  assert.match(js,/hud\.append\(days\)/);
+  assert.match(js,/root\.append\(darken,world,cast,rail,nav,days\)/);
   assert.match(js,/rail\.append\(panel,timeline,orbs\)/);
   assert.match(js,/make\('div','rpg-days-timeline-live'\)/);
   assert.doesNotMatch(js,/panel\.append\(days\)/);
   assert.match(css,/\.rpg-home-live \.rpg-rail-live\{z-index:4!important\}/);
+});
+
+test('iPad PWA retains visible scholar with broken outfit fallback and a fixed nav',()=>{
+ assert.match(js,/validOutfits=new Set/);
+ assert.match(js,/savedScholar \|\| document\.createElement/);
+ assert.match(js,/fallbacks=\[/);
+ assert.match(js,/function openGardenSettings/);
+ assert.match(css,/#lux-rpg-live-home > \.rpg-days-live/);
+ assert.match(css,/#lux-rpg-live-home \.rpg-nav-live/);
 });
