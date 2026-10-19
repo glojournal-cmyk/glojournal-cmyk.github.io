@@ -1,8 +1,8 @@
 import {STAGE_NAMES, clampPetLevel} from './pet-evolution-config-20261012.js?ux=20261013-corrections2';
-import {spriteStyle} from '/pet/pet-art-hd-20261009.js?v=20261019-duck-healer1&ux=20261013-corrections2';
+import {spriteStyle} from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
 import { getCareSummary } from "/pet/pet-care-state.js?v=20261003-care1&ux=20261013-corrections2";
 import {readyHomeReaction} from '/pet/quest-home-reaction-20261010.js?ux=20261013-corrections2';
-import {getHomePersonality} from '/pet/home-personality-20261010.js?v=20261019-duck-healer1&ux=20261013-corrections2';
+import {getHomePersonality} from '/pet/home-personality-20261010.js?v=20261019-baphomet1&ux=20261013-corrections2';
 
 // The progression guard imports the React app bundle. Loading it on the
 // standalone Pet page makes React replace that page with an empty root.
@@ -18,7 +18,7 @@ const HOME_CSS_HREF = "/pet/home-companion-v2.css?v=20261012-level10&ux=20261013
 
 const pets = {
   "moss-hornling": "Moss Hornling",
-  "antler-bean": "Antler Bean",
+  "antler-bean": "Baphomet",
   "inkling": "Inkling",
   "pebble-wisp": "Pebble Wisp",
   "moon-puff": "Moon Puff",
@@ -82,7 +82,7 @@ function dueMastery(state) {
 }
 
 function displayName(pet) {
-  const legacyDefault = (pet.species === "sprig-dragon" && pet.name === "Sprig Dragon") || (pet.species === "star-toadlet" && pet.name === "Star Toadlet");
+  const legacyDefault = (pet.species === "sprig-dragon" && pet.name === "Sprig Dragon") || (pet.species === "star-toadlet" && pet.name === "Star Toadlet") || (pet.species === "antler-bean" && pet.name === "Antler Bean");
   return (legacyDefault ? "" : pet.name) || pets[pet.species] || "Companion";
 }
 
