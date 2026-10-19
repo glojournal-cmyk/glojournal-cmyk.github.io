@@ -116,7 +116,7 @@ if (!window.__luxStudyRpgIntegrated) {
     const cast = el('div', 'lux-study-rpg-cast');
     cast.append(image(scholarSrc, '/art/home-rpg/scholar-clean.png', 'lux-study-rpg-scholar', 'Your Scholar'));
     const petLink = el('a', 'lux-study-rpg-pet-link');
-    petLink.href = '/pet/'; petLink.setAttribute('aria-label', 'Open your equipped pet');
+    petLink.href = '/pet/'; petLink.dataset.petForm = stage < 5 ? 'small' : 'evolved'; petLink.setAttribute('aria-label', 'Open your equipped pet');
     petLink.append(image(petSrc, '/art/rpg/moss.png', 'lux-study-rpg-pet', 'Your equipped pet'));
     cast.append(petLink); root.append(cast);
 
