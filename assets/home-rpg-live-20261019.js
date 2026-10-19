@@ -21,6 +21,8 @@ if (!window.__luxRpgLiveHome) {
   root.id = 'lux-rpg-live-home';
   root.className = 'rpg-home-live';
   let originalVisible = false;
+  let savedScholar = null;
+  let savedCast = null;
   let gardenModal = null;
   let scheduled = false;
   let ready = !!window.__luxAppReady;
@@ -176,10 +178,63 @@ if (!window.__luxRpgLiveHome) {
     modal.append(list);
     root.append(modal);
   }
+
+  function openGardenSettings() {
+    modalChrome('Settings');
+    gardenModal='settings';
+    const dialog=make('section','rpg-record-modal-live rpg-settings-modal-live');
+    dialog.setAttribute('role','dialog');
+    dialog.setAttribute('aria-modal','true');
+    dialog.setAttribute('aria-label','Scholar Settings');
+    dialog.append(make('h2',null,'Settings'));
+    dialog.append(make('p','rpg-record-subtitle-live','Your existing Scholar preferences · saved automatically'));
+    const toggles=make('div','rpg-settings-toggles-live');
+    const options=[
+      ['Sound effects','sound','setSound'],
+      ['Background music','music','setMusic'],
+      ['Notifications','notifications','setNotifications']
+    ];
+    for (const [title,key,setter] of options){
+      const button=make('button','rpg-settings-option-live');
+      button.type='button';
+      const update=()=>{
+        const active=!!store.getState?.()[key];
+        button.textContent=title + ' · ' + (active?'On':'Off');
+        button.setAttribute('aria-pressed',String(active));
+      };
+      button.addEventListener('click',()=>{
+        const current=store.getState?.() || {};
+        if(typeof current[setter]==='function')current[setter](!current[key]);
+        update();
+      });
+      update();toggles.append(button);
+    }
+    dialog.append(toggles);
+    const backup=make('button','rpg-settings-backup-live','Save progress & backup');
+    backup.type='button';
+    backup.addEventListener('click',()=>{
+      const data=store.getState?.().exportProgress?.();
+      if(typeof data!=='string'||!data.length)return;
+      const url=URL.createObjectURL(new Blob([data],{type:'application/json'}));
+      const a=make('a');a.href=url;a.download='lux-progress-'+dayBefore(0)+'.json';
+      document.body.append(a);a.click();a.remove();
+      setTimeout(()=>URL.revokeObjectURL(url),1200);
+    });
+    dialog.append(backup);
+    root.append(dialog);
+  }
   function nativePanel(kind) {
     if (kind === 'recovery') { openNativeRecovery(); return; }
     if (kind === 'record') { openThirtyDayRecord(); return; }
     if (kind === 'star') { openStarMap(); return; }
+    // The RPG Home must never drop through to the old React Home.
+    // Unsupported native-only controls show an honest in-scene message.
+    if (kind === 'settings') { openGardenSettings(); return; }
+    modalChrome(kind || 'Unknown');
+    gardenModal = 'unavailable';
+    root.append(make('p','rpg-modal-note-live','This panel is not available in the RPG Home yet.'));
+    return;
+    // Deprecated old-home fallback (unreachable):
     // Show the real, existing React Home rather than imitating answer-credit UI.
     originalVisible = true;
     root.classList.add('show-native');
@@ -258,7 +313,11 @@ if (!window.__luxRpgLiveHome) {
     const nightScenes = new Set(['chem-lab','sports-hall','boss-moon-garden']);
     const coldScenes = new Set(['bio-lab']);
     root.dataset.sceneMood = coldScenes.has(scene.id) ? 'cool' : nightScenes.has(scene.id) ? 'night' : 'warm';
-    root.replaceChildren();
+    // Keep successful image elements mounted across frequent store updates.
+    // Rebuilding the <img> on every update cancels decoding on iPad WebKit.
+    for(const child of [...root.children]){
+      if(child !== savedCast)child.remove();
+    }
     const darken = make('div','rpg-shade-live');
     const world = make('section','rpg-world-live');
     const hud = make('div','rpg-hud-live'); // Not a native header: avoid lux-theme's automatic toolbar injection.
@@ -280,7 +339,7 @@ if (!window.__luxRpgLiveHome) {
     days.setAttribute('aria-label','Open your past 30-day study record');
     days.append(make('span','rpg-days-icon-live','▣'),make('span',null,'30 days'));
     days.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();openThirtyDayRecord();});
-    hud.append(days);
+    // Button is a top-level overlay, above both RPG world and the quest rail.
     world.append(hud);
     const sceneLink = make('a','rpg-scene-picker-live','Scene: ' + scene.name + ' · Change');
     sceneLink.href = '/scholar';
@@ -298,7 +357,8 @@ if (!window.__luxRpgLiveHome) {
       else goalControl.textContent='Reward goal loading…';
     });
     world.append(goalControl);
-    const cast = make('div','rpg-cast-live');
+    const cast = savedCast || make('div','rpg-cast-live');
+    savedCast = cast;
     // Transparent sprites need floor anchors, not flex alignment.
     // Offsets are presentation-only and keyed to the player's equipped reward.
     const floorPresets = {
@@ -319,28 +379,35 @@ if (!window.__luxRpgLiveHome) {
     // Only the transparent Moss sprite has padding below the feet; use a
     // tiny optical adjustment without moving its actual floor anchor.
     cast.dataset.petSprite = safeImage(petState().species || 'moss-hornling','moss-hornling');
-    const scholar = document.createElement('img');
-    scholar.className='rpg-scholar-live';scholar.alt='Scholar';
-    const outfit = safeImage(state.equippedOutfit || 'day','day');
-    // If an old equipped outfit has no live sprite (or iPad kept a stale
-    // image response), recover to the approved Scholar artwork, never hide her.
-    const defaultScholarArt = '/art/home-rpg/scholar-clean.png?v=20261019-ipad-return1';
-    scholar.alt = 'Scholar character';
-    scholar.loading = 'eager';
-    scholar.decoding = 'sync';
-    scholar.addEventListener('error', () => {
-      if (scholar.dataset.fallbackArt) return;
-      scholar.dataset.fallbackArt = 'true';
-      scholar.src = defaultScholarArt;
-    });
-    scholar.src = outfit === 'day' ? defaultScholarArt : `/art/doll/${outfit}.png`;
+    const scholar = savedScholar || document.createElement('img');
+    savedScholar = scholar;
+    scholar.className='rpg-scholar-live';
+    scholar.alt='Scholar character';
+    scholar.loading='eager';
+    scholar.decoding='async';
+    const validOutfits=new Set(['day','base','beret','blazer','breton','cafe','cardigan','cloak','denim','head','hoodie','knit','latin','laurel','mac','pe','pinafore','rugby','stola','summer','track','tricolore','winter']);
+    const outfit=String(state.equippedOutfit || 'day');
+    const sprite=validOutfits.has(outfit)?'/art/doll/'+outfit+'.png':'/art/doll/day.png';
+    const fallbacks=['/art/home-rpg/scholar-clean.png?v=20261019-ipad-safe2','/art/doll/day.png?v=20261019-ipad-safe2'];
+    scholar.onerror=()=>{
+      const index=Number(scholar.dataset.fallbackIndex || '-1')+1;
+      scholar.dataset.fallbackIndex=String(index);
+      if(index<fallbacks.length)scholar.src=fallbacks[index];
+    };
+    if(scholar.dataset.outfitSource!==sprite){
+      scholar.dataset.outfitSource=sprite;
+      scholar.dataset.fallbackIndex='-1';
+      scholar.src=sprite;
+    }
     const pet = petState();
     const species = safeImage(pet.species || 'moss-hornling','moss-hornling');
     const petLink = make('a','rpg-pet-live');petLink.href='/pet/'; petLink.setAttribute('aria-label','Open companion');
     const creature = document.createElement('img');creature.alt='Companion';
     const stage = Number(pet.petLevels?.[species] || pet.highestStage) || 1;
     creature.src = petArtUrl(species, stage);
-    petLink.append(creature);cast.append(scholar,petLink);world.append(cast);
+    petLink.append(creature);
+    // Reuse the image node, but update the companion and its link safely.
+    cast.replaceChildren(scholar,petLink);world.append(cast);
 
     const rail = make('aside','rpg-rail-live');
     const panel = make('section','rpg-quests-live'); panel.setAttribute('aria-label',"Today's quests");
@@ -390,7 +457,7 @@ if (!window.__luxRpgLiveHome) {
       else {item.type='button';item.addEventListener('click',()=>nativePanel(label === 'Settings' ? 'settings' : 'recovery'));}
       nav.append(item);
     }
-    root.append(darken,world,rail,nav);
+    root.append(darken,world,cast,rail,nav,days);
   }
   function repaint(){
     scheduled = false;
@@ -401,6 +468,7 @@ if (!window.__luxRpgLiveHome) {
       root.remove();document.documentElement.classList.remove('lux-rpg-live-active');return;
     }
     if (!root.isConnected) document.body.append(root);
+    // Always re-enable the RPG shell after WebKit page-cache restoration.
     if (gardenModal) return; // Never destroy an open native Recovery dialogue.
     if (originalVisible) return;
     document.documentElement.classList.add('lux-rpg-live-active');
