@@ -4,5 +4,7 @@
       "maxDuration": 30
     }
   },
-  "ignoreCommand": "bash ignore-build-step.sh"
+  "ignoreCommand": "exit 1",
+  "outputDirectory": ".",
+  "buildCommand": "echo 'RPG grounded scene preview'"
 }
