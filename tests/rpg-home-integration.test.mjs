@@ -80,3 +80,20 @@ test('does not replace shared route-shell HTML',()=>{
   assert.match(js,/window\.__luxRpgLiveHome/);
   assert.doesNotMatch(js,/document\.write/);
 });
+
+test('RPG Recovery retains the native React engine inside the garden scene',()=>{
+  assert.match(js,/function openNativeRecovery\(/);
+  assert.match(js,/const panel = document\.getElementById\('lux-recovery-quests'\)/);
+  assert.match(js,/panel\.open = true/);
+  assert.match(css,/html\.lux-rpg-recovery-open #lux-recovery-quests/);
+  assert.match(css,/visibility:visible!important/);
+  assert.match(js,/gardenModal = 'recovery'/);
+  assert.doesNotMatch(js,/\bstore\.setState\s*\(/);
+});
+test('30 day button opens a read-only in-scene history, and pet faces inward',()=>{
+  assert.match(js,/function openThirtyDayRecord\(/);
+  assert.match(js,/state\.dailyLog\?\.\[date\]/);
+  assert.match(js,/rpg-record-modal-live/);
+  assert.match(css,/\.rpg-home-live \.rpg-pet-live img\{transform:scaleX\(-1\)/);
+  assert.match(css,/\.rpg-home-live \.rpg-days-live\{position:relative/);
+});
