@@ -60,11 +60,12 @@ if (!window.__luxRpgShell) {
     scholar.alt = "";
     const pet = document.createElement("img");
     pet.className = "pet";
-    pet.src = "/art/rpg/moss.png";
+    pet.src = "/art/rpg/moss.png?v=creature";
     pet.alt = "Pet";
     pet.tabIndex = 0;
     pet.addEventListener("click", () => { location.href = "/pet/"; });
     cast.append(scholar, pet);
+    document.querySelectorAll('img[src*="companion-"]').forEach((img) => img.remove());
     world.append(hud, cast);
 
     const rail = el("div", "rpg-rail");
@@ -290,16 +291,6 @@ if (!window.__luxRpgShell) {
   function sceneOf(state) {
     const picked = SCENES[state.equippedScene] || SCENES.dusk;
     return { art: picked[0], focus: picked[1] };
-  }
-
-  function petSrc() {
-    try {
-      const pet = JSON.parse(localStorage.getItem("lux-pet-companion-v1") || "{}");
-      const species = String(pet.species || "moss-hornling");
-      return `/art/doll/companion-${species}.webp`;
-    } catch {
-      return "/art/doll/companion-moss-hornling.webp";
-    }
   }
 
   function labelDate(iso) {
