@@ -27,6 +27,57 @@ for (const run of runs) {
     await page.waitForFunction(()=>document.querySelector('#lux-rpg-live-home')?.dataset.equippedScene==='dusk');
     assert.match(await page.locator('#lux-rpg-live-home').evaluate(el=>getComputedStyle(el).backgroundImage),/art\/stages\/dusk\.jpg/);
 
+    // A player can select any OWNED reward. Verify grounding for the full catalogue
+    // on desktop and representatives on iPad / phone, using test-only progress.
+    const ownedBefore=await page.evaluate(()=>({
+      selected:window.__luxStore.getState().equippedScene,
+      owned:[...(window.__luxStore.getState().unlockedScenes||[])]
+    }));
+    const sceneCatalog=['dusk','classroom','courtyard','garden','library-hall',
+      'dusk-court','form-room','conservatory','fountain','chem-lab','bio-lab',
+      'phys-lab','sports-hall','herb-walk','boss-moon-garden',
+      'boss-grand-library','boss-observatory'];
+    const sampled = run.label==='desktop-chromium'
+      ? sceneCatalog : ['dusk','classroom','garden','fountain','bio-lab'];
+    await page.evaluate(ids=>{
+      const state=window.__luxStore.getState();
+      window.__luxStore.setState({unlockedScenes:[...new Set([...(state.unlockedScenes||[]),...ids])]});
+    },sceneCatalog);
+    for (const sceneId of sampled) {
+      await page.evaluate(id=>window.__luxStore.getState().equipScene(id),sceneId);
+      await page.waitForFunction(id=>
+        document.querySelector('#lux-rpg-live-home')?.dataset.equippedScene===id &&
+        document.querySelector('#lux-rpg-live-home .rpg-cast-live')?.dataset.sceneGround===id,
+        sceneId,{timeout:10000});
+      const frame=await page.evaluate(()=>{
+        const root=document.querySelector('#lux-rpg-live-home');
+        const cast=root.querySelector('.rpg-cast-live');
+        const a=root.querySelector('.rpg-scholar-live').getBoundingClientRect();
+        const b=root.querySelector('.rpg-pet-live img').getBoundingClientRect();
+        const rail=root.querySelector('.rpg-rail-live').getBoundingClientRect();
+        return {s:a.bottom,p:b.bottom,scholarX:a.x+a.width/2,petX:b.x+b.width/2,
+          petRight:b.right,railLeft:rail.left,bg:getComputedStyle(root).backgroundImage,
+          mood:root.dataset.sceneMood,
+          contact:getComputedStyle(cast,'::before').content};
+      });
+      assert.ok(Math.abs(frame.s-frame.p)<4,'feet disconnected in '+sceneId);
+      assert.ok(frame.scholarX<frame.petX,'pet in front of Scholar in '+sceneId);
+      assert.ok(frame.contact!=='none' && frame.mood,'missing grounding in '+sceneId);
+      assert.ok(frame.bg.includes('/art/'),'missing equipped art in '+sceneId);
+      if(run.label==='desktop-chromium'){
+        assert.ok(frame.petRight<frame.railLeft+3,'Pet overlaps quests in '+sceneId);
+        if(['dusk','classroom','garden','fountain','bio-lab'].includes(sceneId))
+          await page.screenshot({path:`test-results/rpg-home/scene-${sceneId}-desktop.png`});
+      }
+    }
+    await page.evaluate(previous=>{
+      const store=window.__luxStore;
+      store.setState({unlockedScenes:previous.owned});
+      store.getState().equipScene(previous.selected||'dusk');
+    },ownedBefore);
+    await page.waitForFunction(id=>document.querySelector('#lux-rpg-live-home')?.dataset.equippedScene===id,
+      ownedBefore.selected||'dusk',{timeout:10000});
+
     assert.equal(await page.locator('#lux-rpg-live-home').count(),1,'only one new home layer');
     assert.equal(await page.locator('#lux-rpg-live-home .rpg-orb-live').count(),3);
     assert.equal(await page.locator('#lux-rpg-live-home .rpg-nav-live a, #lux-rpg-live-home .rpg-nav-live button').count(),9);
