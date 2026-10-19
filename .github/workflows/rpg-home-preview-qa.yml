@@ -1,0 +1,39 @@
+name: RPG Home Preview QA
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'assets/home-rpg-live-20261019.*'
+      - 'art/home-rpg/**'
+      - 'tests/rpg-home-*.mjs'
+      - '.github/workflows/rpg-home-preview-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  homepage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Static safety and syntax checks
+        run: |
+          node --check assets/home-rpg-live-20261019.js
+          node --test tests/rpg-home-integration.test.mjs
+          node --test tests/home-journey-v2.cjs
+      - name: Install browser testing dependencies
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium webkit
+      - name: Test real site in Chromium and iPad WebKit
+        run: |
+          python3 -m http.server 8777 --bind 127.0.0.1 >/tmp/rpg-home-qa-http.log 2>&1 &
+          QA_BASE_URL=http://127.0.0.1:8777 node tests/rpg-home-preview-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rpg-home-preview-screenshots
+          path: test-results/rpg-home
