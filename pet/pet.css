@@ -115,3 +115,16 @@ linear-gradient(180deg,rgba(223,230,209,.34),transparent 48%);pointer-events:non
 #mp-wallet-history h2{margin-top:0}#mp-wallet-history p{font-size:14px;line-height:1.65;color:var(--pet-muted)}
 #mp-wallet-history table{width:100%;border-collapse:collapse;text-align:left;font-size:13px;min-width:440px}#mp-wallet-history th,#mp-wallet-history td{padding:12px 10px;border-bottom:1px solid var(--pet-line)}#mp-wallet-history td:last-child{font-weight:700;white-space:nowrap;text-align:right}
 .pet-form small{display:block;padding:6px 10px;font-size:11px;line-height:1.4;color:var(--pet-muted)}
+
+/* iPad shell styles may hide Pet's native header entirely.
+ * Keep its real Return to Scholar link visible and tappable.
+ * Avoid modifying saved Pet/Scholar progress or React routing. */
+body.lux-shell-on main.pet-shell > header.pet-topbar{
+  display:flex!important;visibility:visible!important;align-items:center;
+  justify-content:space-between;gap:1rem;flex-wrap:wrap
+}
+body.lux-shell-on main.pet-shell > header.pet-topbar .pet-back{
+  position:relative;display:inline-flex;align-items:center;
+  visibility:visible!important;pointer-events:auto;min-height:2.6rem;
+  z-index:6;white-space:nowrap
+}
