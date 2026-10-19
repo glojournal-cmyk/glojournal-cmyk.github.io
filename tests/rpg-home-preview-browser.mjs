@@ -206,7 +206,7 @@ for (const run of runs) {
       });
       await page.waitForFunction(() => {
         const img = document.querySelector('#lux-rpg-live-home .rpg-scholar-live');
-        return img?.dataset.fallbackArt === 'true' && img.complete && img.naturalWidth > 0;
+        return img?.dataset.fallbackIndex !== '-1' && img.complete && img.naturalWidth > 0;
       }, {timeout:12000});
 
       // Reproduce iPad's Pet -> Home path with real links and a full PWA-like
