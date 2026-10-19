@@ -14,7 +14,7 @@ if (!window.__luxRpgLiveHome) {
     const css = document.createElement('link');
     css.id = 'lux-rpg-live-css';
     css.rel = 'stylesheet';
-    css.href = '/assets/home-rpg-live-20261019.css?v=20261019-star-nav4';
+    css.href = '/assets/home-rpg-live-20261019.css?v=20261019-ipad-safe2';
     document.head.append(css);
   }
   const root = document.createElement('div');
@@ -486,6 +486,7 @@ if (!window.__luxRpgLiveHome) {
   });
   window.addEventListener('lux:app-ready',()=>{ready=true;schedule();});
   window.addEventListener('pageshow',schedule);
+  window.addEventListener('lux:rpg-return-home',schedule);
   window.addEventListener('storage',schedule);
   window.addEventListener('scholar:pet-changed',schedule);
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')schedule();});
