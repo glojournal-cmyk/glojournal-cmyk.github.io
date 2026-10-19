@@ -76,5 +76,5 @@ schedule();
 
 // Optional Home-only RPG Garden preview; display-only, no credit or XP writes.
 if (typeof location !== 'undefined' && (location.pathname === '/' || location.pathname === '/index.html')) {
-  import('/assets/home-rpg-live-20261019.js?v=20261019-ground-anchor1').catch(error => console.warn('RPG Home preview unavailable', error));
+  import('/assets/home-rpg-live-20261019.js?v=20261019-recovery-modal1').catch(error => console.warn('RPG Home preview unavailable', error));
 }
