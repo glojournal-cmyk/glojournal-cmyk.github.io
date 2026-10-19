@@ -30,6 +30,8 @@ try{
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-pet').count(),1);
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-scholar').count(),1);
         assert.equal(await page.locator('html.lux-study-rpg-active').count(),1);
+        assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-nav a').count(),7);
+        assert.equal(await page.locator('body > nav:visible').count(),0,'Legacy floating navigation must not overlap Study');
         await page.locator('.lux-study-rpg-year select').selectOption('8');
         await page.waitForFunction(()=>document.querySelector('main:not(#lux-study-rpg-integrated) select:has(option[value="8"])')?.value==='8');
         assert.equal(await page.locator('.lux-study-rpg-year select').inputValue(),'8');
@@ -52,6 +54,10 @@ try{
           return x.petArtUrl('moss-hornling',2);
         });
         assert.equal(await page.locator('.lux-study-rpg-pet').getAttribute('src'),petExpected);
+        assert.ok(await page.locator('.lux-study-rpg-scholar').evaluate(img => img.complete && img.naturalWidth>0 && img.getBoundingClientRect().height > 200),'Equipped outfit image must be rendered');
+        assert.ok(await page.locator('.lux-study-rpg-pet').evaluate(img => img.complete && img.naturalWidth>0),'Selected pet image must be rendered');
+        assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-nav a').count(),7,'Nav must remain intact after outfit/pet changes');
+        assert.equal(await page.locator('body > nav:visible').count(),0,'Legacy native nav must stay hidden after state changes');
         assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
         fs.mkdirSync('test-results',{recursive:true});
         await page.screenshot({path:`test-results/study-rpg-${engine.name()}-${viewport.width}.png`,fullPage:false});
