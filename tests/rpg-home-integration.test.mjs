@@ -55,6 +55,15 @@ test('official Biology date corrected from the old prototype',()=>{
   assert.doesNotMatch(js,/16 Nov/);
 });
 
+test('background is selected from owned rewards, not static garden-wide art',()=>{
+  assert.match(js,/B as rewardScenes/);
+  assert.match(js,/selectedRewardScene\(state, rewardScenes\)/);
+  assert.match(js,/root\.style\.backgroundImage/);
+  assert.match(js,/root\.dataset\.equippedScene/);
+  assert.match(js,/rpg-scene-picker-live/);
+  assert.doesNotMatch(css,/background:#1c3a4a url\('\/art\/garden-wide\.jpg'\)/);
+  assert.match(css,/margin-left:clamp\(6rem,22vw,25rem\)/);
+});
 test('does not replace shared route-shell HTML',()=>{
   // Preview is enabled via pet/home-pet.js only on the home route.
   assert.match(js,/window\.__luxRpgLiveHome/);

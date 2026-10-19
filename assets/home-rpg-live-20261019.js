@@ -4,7 +4,8 @@
  */
 import './home-journey-v2-logic-20261010.js?v=20261010-home-v2';
 import './journey-navigation-20261004.js';
-import { C as store } from './index-BLVOhKhN.js?v=20261018-mastery2';
+import { C as store, B as rewardScenes } from './index-BLVOhKhN.js?v=20261018-mastery2';
+import { selectedRewardScene } from './rpg-scene-selection-20261019.js?v=20261019-selected-scene1';
 
 if (!window.__luxRpgLiveHome) {
   window.__luxRpgLiveHome = true;
@@ -12,7 +13,7 @@ if (!window.__luxRpgLiveHome) {
     const css = document.createElement('link');
     css.id = 'lux-rpg-live-css';
     css.rel = 'stylesheet';
-    css.href = '/assets/home-rpg-live-20261019.css?v=20261019-preview2';
+    css.href = '/assets/home-rpg-live-20261019.css?v=20261019-selected-scene1';
     document.head.append(css);
   }
   const root = document.createElement('div');
@@ -131,6 +132,11 @@ if (!window.__luxRpgLiveHome) {
   }
   function render(state) {
     const progress = modelFor(state);
+    const scene = selectedRewardScene(state, rewardScenes);
+    // Use the same equipped reward as Scholar and Garden, never a hardcoded scene.
+    root.style.backgroundImage = 'url("' + scene.art + '")';
+    root.style.backgroundPosition = scene.focus;
+    root.dataset.equippedScene = scene.id;
     root.replaceChildren();
     const darken = make('div','rpg-shade-live');
     const world = make('section','rpg-world-live');
@@ -147,6 +153,10 @@ if (!window.__luxRpgLiveHome) {
     stat(stats,'BODY',body,Math.min(body/10,1),'Recorded PE sessions (bar caps at 10)');
     stat(stats,'SPARK',xp,(xp % 1000)/1000,'Scholar XP · progress bar is illustrative only');
     hud.append(face,stats);world.append(hud);
+    const sceneLink = make('a','rpg-scene-picker-live','Scene: ' + scene.name + ' · Change');
+    sceneLink.href = '/scholar';
+    sceneLink.setAttribute('aria-label', 'Change your equipped background reward in Scholar');
+    world.append(sceneLink);
     const cast = make('div','rpg-cast-live');
     const scholar = document.createElement('img');
     scholar.className='rpg-scholar-live';scholar.alt='Scholar';

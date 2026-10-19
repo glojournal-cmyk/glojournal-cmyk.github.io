@@ -16,6 +16,17 @@ for (const run of runs) {
     const page=await context.newPage();
     await page.goto(base, {waitUntil:'domcontentloaded',timeout:60000});
     await page.locator('#lux-rpg-live-home .rpg-quests-live h1').waitFor({timeout:45000});
+    // Equip a real, built-in starter scene through the existing player store.
+    await page.waitForFunction(()=>typeof window.__luxStore?.getState?.().equipScene==='function');
+    const sceneBefore=await page.evaluate(()=>window.__luxStore.getState().equippedScene);
+    await page.evaluate(()=>window.__luxStore.getState().equipScene('classroom'));
+    await page.waitForFunction(()=>document.querySelector('#lux-rpg-live-home')?.dataset.equippedScene==='classroom');
+    assert.match(await page.locator('#lux-rpg-live-home').evaluate(el=>getComputedStyle(el).backgroundImage),/art\/stages\/classroom\.jpg/);
+    assert.match(await page.locator('#lux-rpg-live-home .rpg-scene-picker-live').innerText(),/Classroom/);
+    await page.evaluate(()=>window.__luxStore.getState().equipScene('dusk'));
+    await page.waitForFunction(()=>document.querySelector('#lux-rpg-live-home')?.dataset.equippedScene==='dusk');
+    assert.match(await page.locator('#lux-rpg-live-home').evaluate(el=>getComputedStyle(el).backgroundImage),/art\/stages\/dusk\.jpg/);
+
     assert.equal(await page.locator('#lux-rpg-live-home').count(),1,'only one new home layer');
     assert.equal(await page.locator('#lux-rpg-live-home .rpg-orb-live').count(),3);
     assert.equal(await page.locator('#lux-rpg-live-home .rpg-nav-live a, #lux-rpg-live-home .rpg-nav-live button').count(),9);

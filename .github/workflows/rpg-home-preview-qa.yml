@@ -4,6 +4,8 @@ on:
     paths:
       - 'assets/home-continue-20261010.js'
       - 'assets/home-rpg-live-20261019.*'
+      - 'assets/rpg-scene-selection-20261019.js'
+      - 'tests/rpg-scene-selection.test.mjs'
       - 'art/home-rpg/**'
       - 'tests/rpg-home-*.mjs'
       - '.github/workflows/rpg-home-preview-qa.yml'
@@ -22,6 +24,8 @@ jobs:
       - name: Static safety and syntax checks
         run: |
           node --check assets/home-rpg-live-20261019.js
+          node --check assets/rpg-scene-selection-20261019.js
+          node --test tests/rpg-scene-selection.test.mjs
           node --test tests/rpg-home-integration.test.mjs
           node --test tests/home-journey-v2.cjs
           node --test tests/rpg-home-record-recovery.test.mjs

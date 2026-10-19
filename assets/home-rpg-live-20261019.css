@@ -1,5 +1,5 @@
 /* Isolated visual layer. All learning data belongs to the existing App. */
-.rpg-home-live {--rpg-ink:#1a2428;--rpg-navy:#1c3a4a;--rpg-cream:#f4efe4;--rpg-hud:rgba(18,32,40,.8);position:fixed;inset:0;z-index:1000;display:grid;grid-template-columns:minmax(0,1fr) minmax(19rem,21.75rem);gap:1.5rem;padding:1.25rem 1.25rem calc(6rem + env(safe-area-inset-bottom));box-sizing:border-box;overflow:hidden;color:var(--rpg-ink);font-family:'Source Sans 3','Segoe UI',sans-serif;background:#1c3a4a url('/art/garden-wide.jpg') center / cover no-repeat}
+.rpg-home-live {--rpg-ink:#1a2428;--rpg-navy:#1c3a4a;--rpg-cream:#f4efe4;--rpg-hud:rgba(18,32,40,.8);position:fixed;inset:0;z-index:1000;display:grid;grid-template-columns:minmax(0,1fr) minmax(19rem,21.75rem);gap:1.5rem;padding:1.25rem 1.25rem calc(6rem + env(safe-area-inset-bottom));box-sizing:border-box;overflow:hidden;color:var(--rpg-ink);font-family:'Source Sans 3','Segoe UI',sans-serif;background:#1c3a4a center / cover no-repeat}
 .rpg-home-live *, .rpg-home-live *::before,.rpg-home-live *::after{box-sizing:border-box}
 .rpg-home-live .rpg-shade-live{pointer-events:none;position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,32,40,.12),transparent 20%,transparent 75%,rgba(18,32,40,.17))}
 .rpg-world-live,.rpg-rail-live{position:relative;z-index:1;min-height:0}
@@ -10,7 +10,7 @@
 .rpg-level{font-family:Georgia,serif;font-size:1rem;font-weight:700;line-height:1.15}
 .rpg-stat{display:grid;grid-template-columns:2.7rem 3.15rem 2rem;gap:.35rem;align-items:center;font-size:.69rem;line-height:1.2}
 .rpg-stat-label{font-weight:600}.rpg-stat-track{display:block;height:.4rem;border-radius:10px;background:rgba(244,239,228,.25);overflow:hidden}.rpg-stat-fill{display:block;height:100%;background:#719579}.rpg-stat-value{text-align:right;font-variant-numeric:tabular-nums}
-.rpg-cast-live{display:flex;align-items:flex-end;margin-top:auto;max-width:100%;min-height:0}
+.rpg-cast-live{display:flex;align-items:flex-end;margin-top:auto;margin-left:clamp(6rem,22vw,25rem);max-width:calc(100% - clamp(6rem,22vw,25rem));min-height:0}
 .rpg-scholar-live{display:block;height:min(73vh,39rem);max-width:60vw;width:auto;object-fit:contain;object-position:bottom;filter:drop-shadow(0 14px 13px rgba(18,32,40,.22));pointer-events:none}
 .rpg-pet-live{display:block;position:relative;margin:0 0 .8rem -1rem;flex:0 0 auto;outline-offset:5px}
 .rpg-pet-live img{display:block;width:auto;height:min(28vh,13rem);max-width:22vw;object-fit:contain;filter:drop-shadow(0 10px 9px rgba(18,32,40,.2))}
@@ -32,8 +32,8 @@
 .rpg-nav-live .on{background:#f4efe4;color:#1c3a4a}
 .rpg-home-live a:focus-visible,.rpg-home-live button:focus-visible{outline:2px solid #fbecb8;outline-offset:3px}
 .rpg-home-live.show-native{pointer-events:none;background:none!important;z-index:2000;display:block;padding:0;overflow:visible}.rpg-home-live.show-native .rpg-return{pointer-events:auto;position:fixed;right:1.5rem;bottom:1.2rem;z-index:2001;border:0;border-radius:99px;background:#18394a;color:#fff;padding:.7rem 1.1rem;box-shadow:0 6px 20px rgba(0,0,0,.2);cursor:pointer}.rpg-home-live.show-native .rpg-native-hint{pointer-events:none;position:fixed;bottom:4.5rem;right:1.3rem;max-width:20rem;border-radius:1rem;background:#f4efe4;color:#1c3a4a;padding:.6rem .85rem;font-size:.75rem}
-@media(max-width:1100px){.rpg-home-live{grid-template-columns:minmax(0,1fr) minmax(18rem,21rem);gap:.6rem}.rpg-scholar-live{height:min(69vh,36rem)}.rpg-pet-live img{height:min(23vh,12rem)}}
-@media(max-width:700px){.rpg-home-live{grid-template-columns:1fr;grid-template-rows:auto auto;overflow:auto;gap:.6rem;align-content:start;padding:.8rem .8rem calc(5.1rem + env(safe-area-inset-bottom))}.rpg-world-live{grid-row:2;min-height:20rem}.rpg-hud-live{position:absolute;top:0;left:0;z-index:1}.rpg-cast-live{padding-top:4rem}.rpg-scholar-live{height:17rem;max-width:65vw}.rpg-pet-live img{height:9rem;max-width:30vw}.rpg-rail-live{grid-row:1;max-height:none}.rpg-quests-live{max-height:48vh}.rpg-orbs-live{justify-content:center;min-height:5.3rem;gap:.15rem}.rpg-orb-face{width:3.7rem;height:4.1rem}.rpg-nav-live{width:calc(100% - 1rem);justify-content:flex-start;bottom:calc(.4rem + env(safe-area-inset-bottom))}.rpg-dots-live{width:11rem}.rpg-dots-live i{width:.44rem;height:.44rem}}
+@media(max-width:1100px){.rpg-home-live{grid-template-columns:minmax(0,1fr) minmax(18rem,21rem);gap:.6rem}.rpg-cast-live{margin-left:clamp(1rem,9vw,8rem);max-width:calc(100% - clamp(1rem,9vw,8rem))}.rpg-scholar-live{height:min(69vh,36rem)}.rpg-pet-live img{height:min(23vh,12rem)}}
+@media(max-width:700px){.rpg-home-live{grid-template-columns:1fr;grid-template-rows:auto auto;overflow:auto;gap:.6rem;align-content:start;padding:.8rem .8rem calc(5.1rem + env(safe-area-inset-bottom))}.rpg-world-live{grid-row:2;min-height:20rem}.rpg-hud-live{position:absolute;top:0;left:0;z-index:1}.rpg-cast-live{padding-top:4rem;margin-left:0;max-width:100%;width:100%;justify-content:center}.rpg-scholar-live{height:17rem;max-width:65vw}.rpg-pet-live img{height:9rem;max-width:30vw}.rpg-rail-live{grid-row:1;max-height:none}.rpg-quests-live{max-height:48vh}.rpg-orbs-live{justify-content:center;min-height:5.3rem;gap:.15rem}.rpg-orb-face{width:3.7rem;height:4.1rem}.rpg-nav-live{width:calc(100% - 1rem);justify-content:flex-start;bottom:calc(.4rem + env(safe-area-inset-bottom))}.rpg-dots-live{width:11rem}.rpg-dots-live i{width:.44rem;height:.44rem}}
 @media(prefers-reduced-motion:reduce){.rpg-home-live *{scroll-behavior:auto!important;transition:none!important}}
 /* Never let a long subject name widen a narrow phone viewport. */
 @media(max-width:700px){.rpg-home-live{grid-template-columns:minmax(0,1fr)}.rpg-rail-live,.rpg-quests-live{min-width:0;max-width:100%}.rpg-task-live{overflow:hidden}}
@@ -60,3 +60,14 @@ html.lux-rpg-live-active,html.lux-rpg-live-active body {height:100dvh; overflow:
 .rpg-home-live .rpg-quests-live .rpg-task-live>strong {flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .rpg-home-live .rpg-quests-live .rpg-task-live>em {flex:none;margin-left:auto}
 .rpg-home-live .rpg-quests-live .rpg-task-live.complete{opacity:.68}
+
+/* Native reward scene selector lives in Scholar; this link never equips a scene. */
+.rpg-home-live .rpg-scene-picker-live{
+  display:inline-flex;align-self:flex-start;z-index:2;margin:.45rem 0 0 .2rem;
+  max-width:min(27rem,90%);padding:.34rem .7rem;border-radius:999px;
+  background:rgba(18,32,40,.77);color:#f4efe4;text-decoration:none;
+  font:600 .76rem/1.2 'Source Sans 3','Segoe UI',sans-serif;
+  box-shadow:0 4px 10px rgba(0,0,0,.14)
+}
+.rpg-home-live .rpg-scene-picker-live:focus-visible{outline:2px solid #f4efe4;outline-offset:3px}
+@media(max-width:700px){.rpg-home-live .rpg-scene-picker-live{position:absolute;top:3rem;right:0;margin:0;font-size:.66rem;max-width:48%}}
