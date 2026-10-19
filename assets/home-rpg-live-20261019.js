@@ -80,6 +80,10 @@ if (!window.__luxRpgLiveHome) {
           back.insertAdjacentElement('afterend', make('p','rpg-native-hint','Recovery is still loading. Use the Recovery section on the original Home.'));
         }
       } else if (kind === 'record') {
+        if (typeof window.__luxOpenDailyRecord === 'function') {
+          window.__luxOpenDailyRecord();
+          return;
+        }
         const candidates = [...document.querySelectorAll('main button,main a')];
         const record = candidates.find(e => /30.day|daily.record|past.30|calendar/i.test(e.textContent.trim() + ' ' + (e.getAttribute('aria-label') || '')));
         if (record) record.click();

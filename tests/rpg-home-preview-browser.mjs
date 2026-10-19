@@ -52,9 +52,21 @@ for (const run of runs) {
     const rowSizes=await page.locator('#lux-rpg-live-home .rpg-quests-live .rpg-task-live').evaluateAll(rows=>rows.map(row=>Math.round(row.getBoundingClientRect().height)));
     assert.ok(rowSizes.every(size=>size<=42),'quest rows must stay compact: '+rowSizes.join(','));
     await page.screenshot({path:`test-results/rpg-home/${run.label}.png`,fullPage:true});
+    // Recovery control must open the original recovery engine without awarding credit.
+    const original=await page.evaluate(()=>{
+      const s=window.__luxStore?.getState?.();
+      return s?JSON.stringify({xp:s.xp,daily:s.daily,dailyLog:s.dailyLog,recoveryTaskByDay:s.recoveryTaskByDay}):null;
+    });
     await page.locator('#lux-rpg-live-home .rpg-orb-live').last().click();
     await page.locator('#lux-rpg-live-home .rpg-return').waitFor();
     assert.equal(await page.locator('main').count(),1,'original Home must remain accessible');
+    assert.equal(await page.locator('#lux-recovery-quests').count(),1,'native Recovery panel must exist');
+    assert.ok(await page.locator('#lux-recovery-quests').isVisible(),'native Recovery panel must become visible');
+    const after=await page.evaluate(()=>{
+      const s=window.__luxStore?.getState?.();
+      return s?JSON.stringify({xp:s.xp,daily:s.daily,dailyLog:s.dailyLog,recoveryTaskByDay:s.recoveryTaskByDay}):null;
+    });
+    assert.equal(after,original,'opening Recovery must not mutate existing records');
     await page.locator('#lux-rpg-live-home .rpg-return').click();
     await page.locator('#lux-rpg-live-home .rpg-quests-live h1').waitFor();
     await context.close();
