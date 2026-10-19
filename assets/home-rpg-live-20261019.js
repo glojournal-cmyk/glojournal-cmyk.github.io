@@ -128,7 +128,7 @@ if (!window.__luxRpgLiveHome) {
       const total=number(entry?.total);
       const done=number(entry?.done);
       const label=status==='done'?'Completed':status==='partial'?'Partly completed':'Not opened';
-      row.append(make('span',null,label + (total>0?' · ' + done + '/' + total:''));
+      row.append(make('span',null,label + (total>0?' · ' + done + '/' + total:'')));
       list.append(row);
     }
     record.append(list);
