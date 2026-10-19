@@ -22,6 +22,7 @@ jobs:
       - run: node tests/pet-moonveil-owl-art-20261017.mjs
       - run: node tests/pet-nocturne-spider-art-20261018.mjs
       - run: node tests/pet-inkling-all10-art-20261018.mjs
+      - run: node tests/pet-bookish-duck-healer-slot-20261019.mjs
       - run: node --test tests/pet-care-state.test.mjs
       - run: node tests/phase3-home-personality-qa.mjs
   browser:

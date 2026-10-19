@@ -9,7 +9,7 @@ const need=(source,label,token)=>{if(!source.includes(token))failures.push(`${la
 
 for(const token of ["FIRST_MASTERY_MP = 10","RETENTION_MASTERY_MP = 2","mastery:${topicId}","retention:${topicId}:${todayKey()}","scholar:mp-changed"]) need(reward,"reward",token);
 for(const token of ["const evolutionCosts = EVOLUTION_COSTS","masteryPoints:pet.masteryPoints-cost","[pet.species]:stage+1","petLevels","showModal()"] ) need(pet,"pet",token);
-for(const token of ["Moss Hornling senses new growth","Moon Puff sees mastery on the horizon","Star Toadlet predicts a breakthrough","growthMessage(state,pet.species)"]) need(pet,"pet voice",token);
+for(const token of ["Moss Hornling senses new growth","Moon Puff sees mastery on the horizon","Bookish Duck Healer sees a breakthrough","growthMessage(state,pet.species)"]) need(pet,"pet voice",token);
 for(const token of ["mpCount","evolvePet","confirmEvolution","XP, Mastery Points and Mastery Leaves are separate"] ) need(html,"html",token);
 need(home,"home name","const name = displayName(pet);");
 need(home,"home","pet.petLevels?.[pet.species]");
