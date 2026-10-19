@@ -50,10 +50,10 @@ test('uses original uploaded artwork and responsive layout',()=>{
 });
 
 test('RPG Home uses the authoritative evolving pet sprites, not retired thumbnails',()=>{
-  assert.match(js,/import \\{ petArtUrl \\} from '\/pet\/pet-art-hd-20261009\\.js/);
-  assert.match(js,/pet\\.petLevels\\?\\.\\[species\\]/);
-  assert.match(js,/creature\\.src = petArtUrl\\(species, stage\\)/);
-  assert.doesNotMatch(js,/companion-\\$\\{species\\}\\.webp/);
+  assert.ok(js.includes("import { petArtUrl } from '/pet/pet-art-hd-20261009.js"));
+  assert.ok(js.includes('pet.petLevels?.[species]'));
+  assert.ok(js.includes('creature.src = petArtUrl(species, stage)'));
+  assert.ok(!js.includes('companion-${species}.webp'));
 });
 
 test('official Biology date corrected from the old prototype',()=>{
