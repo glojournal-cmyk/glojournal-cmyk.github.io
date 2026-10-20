@@ -46,11 +46,26 @@ html.lux-play-hall-active body>.paper-wash,html.lux-play-hall-active body>nav,ht
 @media (max-width:1100px){.lux-play-hall-brand{left:1rem}.lux-play-hall-compass{width:2.35rem;height:2.35rem;font-size:2.6rem}.lux-play-hall-brand strong{font-size:1.8rem}.lux-play-hall-brand small{font-size:.58rem}.lux-play-hall-scholar{left:2%;max-width:25vw;height:70vh}.lux-play-hall-board{left:28%;right:1.5%;gap:.53rem}.lux-play-hall-grid{gap:.53rem}.lux-play-hall-card-main{padding:.58rem .65rem .15rem}.lux-play-hall-card-title{font-size:1.23rem}.lux-play-hall-card-description{font-size:.69rem;line-height:1.22}.lux-play-hall-pills{gap:.14rem}.lux-play-hall-game-chip{font-size:.60rem;min-height:1.35rem;padding:.1rem .4rem}.lux-play-hall-card-footer{min-height:1.95rem;margin:0 .3rem .33rem;font-size:.68rem}.lux-play-hall-card-footer>span+span{padding-left:.3rem}.lux-play-hall-hud{top:6rem;font-size:.69rem}}
 @media (max-width:700px){.lux-play-hall{overflow-y:auto;overflow-x:hidden}.lux-play-hall-brand{top:.6rem}.lux-play-hall-scholar{height:29vh;max-width:44vw;left:.5rem;top:5.5rem;bottom:auto}.lux-play-hall-hud{top:4.9rem;left:52%;white-space:nowrap}.lux-play-hall-board{position:relative;top:auto;left:auto;right:auto;bottom:auto;margin:34vh .65rem 5.1rem;grid-template-rows:auto auto;gap:.6rem}.lux-play-hall-grid{grid-template-columns:1fr;grid-template-rows:none;gap:.58rem}.lux-play-hall-card{min-height:12.5rem}.lux-play-hall-card-main{padding:.8rem}.lux-play-hall-card-title{font-size:1.55rem}.lux-play-hall-card-description{font-size:.87rem}.lux-play-hall-game-chip{font-size:.75rem}.lux-play-hall-card-footer{font-size:.82rem}.lux-play-hall-all-games{min-height:3.8rem}.lux-play-hall-nav{position:fixed;bottom:calc(.25rem + env(safe-area-inset-bottom));width:calc(100% - .35rem);justify-content:flex-start;gap:.05rem;min-height:3.4rem}.lux-play-hall-nav-link{min-width:3.25rem;font-size:.56rem}.lux-play-hall-nav-link .lux-play-icon{width:1rem;height:1rem}.lux-play-hall-total{font-size:.77rem}.lux-play-hall-dialog-grid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.lux-play-hall *{scroll-behavior:auto!important;transition:none!important}}
-/* iPad visual sign-off: keep the Home's real standing sprite at the same
- * commanding full-body scale as the approved design (no invented seated art). */
+/* Oct 20 visual sign-off: reduce the standing Home Scholar by about 24%.
+ * Preserve the exact equipped sprite / fallback image and its proportions. */
 @media (min-width:701px){
- .lux-play-hall-scholar{height:min(91vh,53rem);max-width:34vw;left:clamp(-.75rem,.45vw,.4rem);bottom:calc(7.6% + env(safe-area-inset-bottom))}
+ .lux-play-hall-scholar{height:min(69vh,39rem);max-width:26vw;left:clamp(.35rem,1.15vw,1rem);bottom:calc(8% + env(safe-area-inset-bottom))}
 }
 @media (min-width:701px) and (max-width:1100px){
- .lux-play-hall-scholar{height:88vh;max-width:34vw;left:0}
+ .lux-play-hall-scholar{height:67vh;max-width:27vw;left:.55rem}
+}
+/* Each card now displays 6/4/4/3 real game links. Compact wrapping keeps
+ * every button visible without changing the 2x2 iPad landscape layout. */
+.lux-play-hall-pills{gap:.26rem .34rem;padding:.3rem 0 .3rem;align-content:end}
+.lux-play-hall-game-chip{min-height:1.48rem;padding:.13rem .48rem;font-size:clamp(.6rem,.85vw,.75rem);line-height:1.1}
+@media (min-width:701px) and (max-width:1100px){
+ .lux-play-hall-pills{gap:.18rem .22rem}
+ .lux-play-hall-game-chip{min-height:1.38rem;padding:.1rem .36rem;font-size:.61rem}
+}
+@media (min-width:701px) and (max-height:710px){
+ .lux-play-hall-card-title{font-size:clamp(.96rem,1.6vw,1.4rem)}
+ .lux-play-hall-card-subject{margin-bottom:.18rem}
+ .lux-play-hall-card-description{font-size:.72rem;line-height:1.18}
+ .lux-play-hall-pills{gap:.15rem .22rem;padding:.15rem 0}
+ .lux-play-hall-game-chip{min-height:1.3rem;padding:.08rem .35rem;font-size:.61rem}
 }
