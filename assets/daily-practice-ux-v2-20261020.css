@@ -16,27 +16,27 @@ html.lux-daily-ux-ready .lux-practice-view [data-question-id] {
   width:100%; max-width:none; display:flex; flex-direction:column; gap:10px;
   margin:0; padding:0;
 }
-html.lux-daily-ux-ready .lux-practice-view [data-question-id] > div:first-of-type {
+html.lux-daily-ux-ready .lux-practice-view [data-lux-question-intro] {
   max-width:100%; padding:0 min(25vw,250px) 0 0; margin:0;
 }
-html.lux-daily-ux-ready [data-question-id] > div:first-of-type > p:first-child {
+html.lux-daily-ux-ready [data-lux-question-intro] > p:first-child {
   font-size:11px!important;letter-spacing:.16em;line-height:1.25;color:#926f37;
 }
-html.lux-daily-ux-ready [data-question-id] > div:first-of-type h1 {
+html.lux-daily-ux-ready [data-lux-question-intro] h1 {
   font-family:"Cormorant Garamond",Georgia,serif!important;
   font-size:clamp(28px,3.3vw,39px)!important;line-height:1.04!important;
   font-weight:700!important; letter-spacing:-.025em; color:#152f43;
   margin:3px 0!important;
 }
-html.lux-daily-ux-ready [data-question-id] > div:first-of-type p {
+html.lux-daily-ux-ready [data-lux-question-intro] p {
   margin-top:3px!important; line-height:1.35; font-size:13px;
 }
-html.lux-daily-ux-ready [data-question-id] > div:first-of-type p.rounded-lg {
+html.lux-daily-ux-ready [data-lux-question-intro] p.rounded-lg {
   padding:5px 10px!important; background:#e8ede3!important;
   display:inline-block; width:auto; max-width:100%; font-size:12px!important;
 }
-html.lux-daily-ux-ready [data-question-id] > div:first-of-type [role="progressbar"],
-html.lux-daily-ux-ready [data-question-id] > div:first-of-type .relative.h-1\.5 {
+html.lux-daily-ux-ready [data-lux-question-intro] [role="progressbar"],
+html.lux-daily-ux-ready [data-lux-question-intro] .relative.h-1\.5 {
   margin-top:9px!important;height:8px!important;border-radius:999px;
 }
 html.lux-daily-ux-ready [data-question-id] > :is(article,section,div):has(> [class*="p-5"]) {min-width:0;}
@@ -113,7 +113,7 @@ html.lux-daily-ux-ready [data-lux-question-card] :focus-visible {outline:3px sol
 html.lux-daily-ux-ready #study-companion {
   position:absolute!important; right:clamp(14px,3vw,38px);top:12px;
   margin:0!important; padding:5px 8px!important;
-  width:auto!important;max-width:min(250px,27vw);height:49px!important;min-height:0!important;
+  width:auto!important;max-width:min(195px,22vw);height:49px!important;min-height:0!important;
   border-radius:15px!important;gap:5px!important;z-index:5;box-shadow:none!important;
   overflow:hidden!important;
 }
@@ -122,7 +122,7 @@ html.lux-daily-ux-ready #study-companion .cx-pet-art {
 }
 html.lux-daily-ux-ready #study-companion p,
 html.lux-daily-ux-ready #study-companion [data-motion] {display:none!important;}
-html.lux-daily-ux-ready #study-companion strong {font-size:12px;line-height:1.15;}
+html.lux-daily-ux-ready #study-companion strong {position:absolute;overflow:hidden;width:1px;height:1px;clip-path:inset(50%);white-space:nowrap;}
 html.lux-daily-ux-ready #lux-voice-cheer-toggle {
   padding:6px 9px!important;min-height:38px!important;margin:0!important;font-size:11px!important;
 }
@@ -148,7 +148,7 @@ html.lux-daily-ux-ready nav.lux-companion-bottom-nav {display:none!important;}
 html.lux-daily-typing .lux-daily-study-nav,html.lux-keyboard-open .lux-daily-study-nav{display:none;}
 @media(max-width:720px){
  html.lux-daily-ux-ready #study-companion {position:relative!important;right:auto;top:auto;margin:0 0 8px auto!important;max-width:100%;}
- html.lux-daily-ux-ready [data-question-id] > div:first-of-type{padding-right:0;}
+ html.lux-daily-ux-ready [data-lux-question-intro]{padding-right:0;}
  html.lux-daily-ux-ready [data-lux-mc-options]{grid-template-columns:1fr!important;}
  html.lux-daily-ux-ready [data-lux-prompt]{font-size:clamp(27px,6vw,36px)!important;}
  html.lux-daily-ux-ready .paper-wash>main{padding-bottom:calc(79px + env(safe-area-inset-bottom))!important;}
