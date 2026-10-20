@@ -1,0 +1,32 @@
+name: Physics Year 9 GCSE expansion QA
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "content/topics/phys-y9-p*.json"
+      - "content/catalog.json"
+      - "tests/physics-gcse-oct20-qa.mjs"
+      - ".github/workflows/physics-gcse-oct20-qa.yml"
+  push:
+    branches: [main]
+    paths:
+      - "content/topics/phys-y9-p*.json"
+      - "content/catalog.json"
+      - "tests/physics-gcse-oct20-qa.mjs"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  content-and-progress-safety:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Seven topic expansion and saved progress ID safety
+        run: node tests/physics-gcse-oct20-qa.mjs
+      - name: Existing Physics content schema audit
+        run: node tests/physics-content-quality-audit.mjs
+      - name: Existing Physics calculation marking QA
+        run: node tests/physics-calculation-marking-qa.mjs
