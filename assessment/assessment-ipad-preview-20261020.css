@@ -756,3 +756,16 @@ body.lux-shell-on.assessment-rpg-scene #tracker-list article.assessment-tracker-
 body.lux-shell-on.assessment-rpg-scene #tracker-list article.assessment-tracker-entry:hover{
  box-shadow:inset 4px 0 0 var(--tracker-edge),0 3px 12px #111a2438;
 }
+
+/* Stronger than legacy #tracker.panel .entry background, verified in browser.
+   The full-width outer article is the coloured surface for the subject. */
+body.lux-shell-on.assessment-rpg-scene #tracker.panel #tracker-list article.entry.assessment-tracker-entry{
+ background-color:var(--tracker-tint)!important;
+ background-image:none!important;
+ border-color:var(--tracker-edge)!important;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker.panel #tracker-list article.entry.assessment-tracker-entry .assessment-tracker-expanded{
+ background-color:var(--tracker-expanded)!important;
+ background-image:none!important;
+ border-top-color:var(--tracker-edge)!important;
+}
