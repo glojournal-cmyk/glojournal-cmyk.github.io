@@ -9,7 +9,7 @@ test('identical source of truth to Home for equipped outfit and active Pet',()=>
  assert.match(js,/localStorage\.getItem\('lux-pet-companion-v1'\)/);
  assert.match(js,/petArtUrl\(petId, stage\)/);
  assert.match(js,/petState\.petLevels\?\.\[petId\]/);
- assert.match(js,/art\/doll\/\$\{outfit\}\.png/);
+ assert.match(js,/wardrobeOutfits\.find\(item => item\.id === outfit\)\?\.art/);
 });
 test('real same-site native learning routes and status without fake totals',()=>{
  for(const s of ['latin','french','biology','chemistry','physics','english']) assert.ok(js.includes(`'${s}'`));
