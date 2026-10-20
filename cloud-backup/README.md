@@ -1,97 +1,96 @@
-# Gloria encrypted automatic cloud and email backup — staging
+# Gloria private encrypted cloud backup and automatic Gmail copy
 
-**Status: implementation only, NOT DEPLOYED, NOT CONNECTED TO THE STUDENT'S iPad.**
+STATUS: staging branch only. NOT DEPLOYED. NO EMAIL SENT OR IPAD PAIRED.
 
-The static GitHub Pages application remains unchanged. The separate Cloudflare
-Worker receives AES-256-GCM ciphertext, stores immutable versions in private R2,
-and checks for new data daily at 20:10 UTC. If a new cloud copy is available it
-uses Resend to send the **encrypted JSON attachment** to
-glo.journal@gmail.com. Cron uses UTC, not London local time.
+This approach requires **no purchased domain** and **no Resend account**.
+The family already has Gmail. To receive automatic backup emails, the owner
+must create a small Google Apps Script in their OWN Google account.
+Encrypted cloud copies remain stored in private Cloudflare R2. The iPad
+encrypts BEFORE uploading; neither Cloudflare nor Gmail has the decryption key.
 
-## Security and prerequisite setup
+## Account prerequisites (owner must complete, no secrets in GitHub/ChatGPT)
 
-- Owner needs a Cloudflare account and private R2 bucket named
-  gloria-private-encrypted-backups.
-- Owner needs a Resend account and a verified sender domain. Gmail is the
-  recipient, NOT the verified sending domain. Mail API credentials must never
-  be embedded in the public site.
-- Set Cloudflare Worker secrets BACKUP_TOKEN_SHA256 (64-character hexadecimal
-  SHA-256 of a privately generated 32-byte URL-safe upload token),
-  RESEND_API_KEY and RESEND_FROM (verified sender address).
-- BACKUP_TO is configured as glo.journal@gmail.com in wrangler.jsonc.
-- Owner must generate the token on their OWN computer, save the actual token
-  privately, then enter it in the iPad pairing UI. Do not paste it in ChatGPT.
-- iPad generates an AES-256 recovery key and stores a non-extractable CryptoKey
-  locally in IndexedDB. **Copy recovery key off iPad BEFORE trusting backup**.
-  The Worker/email provider does not know the key and cannot recover a lost key.
-- Keep R2 bucket PRIVATE: no public R2 URLs, public domain, or bucket listing.
-- Cloud Saved can display only AFTER a server-verified encrypted backup.
-  An email provider 'accepted' response is not proof of inbox delivery.
+1. [Cloudflare signup](https://dash.cloudflare.com/sign-up) (free Workers plan).
+   A Worker receives a free account-specific workers.dev subdomain, so
+   purchasing a website domain is NOT required.
+2. Cloudflare Dashboard -> Storage & databases -> R2 -> Overview -> activate R2.
+   **R2 requires subscription/billing activation even when usage remains in
+   the free tier.** Review the checkout and billing conditions; do not
+   authorize unexpected fees. Create the PRIVATE Standard-class bucket
+   gloria-private-encrypted-backups. Do not make it public.
+3. Use the existing Google account associated with glo.journal@gmail.com.
+   Visit https://script.google.com/ and create a standalone Apps Script
+   project named Gloria Encrypted Backup Mailer. Copy
+   cloud-backup/google-apps-script.gs into its editor.
+4. In Apps Script Project Settings -> Script Properties, add
+   GLORIA_BACKUP_HMAC_SECRET = a random high-entropy **shared secret** created
+   on your own device. Never paste this secret into ChatGPT, GitHub or website.
+   The same secret must also be configured as a Cloudflare Worker secret
+   GOOGLE_APPS_SCRIPT_HMAC_SECRET (through the owner's dashboard/terminal).
+5. Apps Script -> Deploy -> New deployment -> Web app.
+   Execute as: Me. Who has access: Anyone (required for server-to-server
+   Cloudflare Worker POST calls). Approve Google's requested send-only email
+   permissions. This *does expose an endpoint to the internet*, but the
+   HMAC-SHA256 secret plus a 5-minute timestamp validity window is mandatory
+   before it can send a fixed-recipient encrypted attachment.
+   Make sure the account receiving Gmail is yours.
+6. Copy the Apps Script Web app URL ending in /exec into Cloudflare Worker
+   secret GOOGLE_APPS_SCRIPT_URL, not into the public GitHub source.
+7. Create a separate 32-byte random URL-safe device bearer token on your own
+   device; put only its SHA256 *hex digest* into Cloudflare Worker secret
+   BACKUP_TOKEN_SHA256, and enter the original private token using Gloria's
+   parent setup screen. Keep it private.
+8. Deploy the Worker from cloud-backup/wrangler.jsonc using Wrangler in
+   the Cloudflare account that owns the R2 bucket (or equivalent dashboard
+   deployment). The worker MUST be deployed behind HTTPS.
+9. In Gloria Home -> Keep your progress -> Cloud backup, pair using the Worker
+   HTTPS URL and bearer token. A 256-bit AES recovery key is generated.
+   **Copy recovery key OFF this iPad** before enabling backup. Losing both
+   the iPad and recovery key means cloud/email attachments cannot be read.
+10. Complete the staging safety checklist: encrypted upload acknowledgment,
+    Gmail with matching encrypted JSON attachment, backup decrypts with the
+    recovery key on a second device, all XP/Daily/Mastery/Recovery/Pet data
+    looks intact. Confirm this before approving production rollout.
 
-## Deploy setup (not yet executed)
+## How it behaves
 
-1. Open Cloudflare account with permission to deploy Workers and R2.
-2. Create a bucket named gloria-private-encrypted-backups using Wrangler or
-   the Cloudflare Dashboard.
-3. Use Wrangler with cloud-backup/wrangler.jsonc to deploy the Worker.
-4. Privately generate a high-entropy bearer token (32 random bytes,
-   base64url encoded), compute its SHA-256 hexadecimal digest, and set
-   BACKUP_TOKEN_SHA256 to that digest as a Worker secret.
-5. Configure RESEND_API_KEY and RESEND_FROM through Cloudflare Worker
-   secrets; verify the sender domain with Resend first.
-6. Enter the exact Worker HTTPS URL and raw bearer token using the iPad
-   setup flow. Copy the recovery key to a separate safe place.
-7. Test upload, encrypted email attachment and decrypt/restore preview
-   **before** enabling automatic upload for the learner.
+- GitHub Pages stays on the current domain; Vercel is not used.
+- Automatic uploads occur while the learner uses Gloria and has network
+  access; a fully closed/offline iPad PWA cannot upload in the background.
+- Encrypted backup includes the primary Scholar Garden progress export, plus
+  readable Practice drafts and the currently focused unfinished text when
+  accessible. A previous local save failure cannot be reconstructed.
+- Cloud copy only counts as saved after verified R2 write plus checksum ACK.
+- Cloudflare daily cron (20:10 UTC) sends the **latest encrypted backup**
+  to the Gmail Apps Script. No plaintext question data is transmitted
+  to or from the email sender. Gmail attaches the encrypted JSON to
+  glo.journal@gmail.com. A send API success is not guarantee of inbox receipt.
+- Cloudflare Worker/Gmail bridge authentication uses HMAC-SHA256 over
+  timestamp, SHA of ciphertext and exact base64 attachment.
+  The Gmail bridge accepts timestamps within 5 minutes and sends to a
+  FIXED account only. Script Properties tracks the last emailed digest
+  and Worker R2 tracks the last acknowledged digest.
+- If sending fails the R2 copy is retained and retried at the next scheduled
+  run. There is a small risk of duplicate emails after an ambiguous timeout;
+  the dedupe digest makes such events manageable.
+- Automatic recovery never overwrites iPad local progress.
+- No retention delete job is enabled; encrypted R2 backups accumulate until
+  the owner approves a tested retention policy.
+- The existing localStorage warning is NOT solved by cloud code alone.
+  Use a separate emergency export before any reload if warning still appears.
 
-Never commit passwords, tokens, API keys, recovery keys, student answers or
-backup JSON. Do not share them in this chat.
+## Testing
 
-## What's included
+Run tests without live Google/Cloudflare credentials:
 
-- The existing in-app exportProgress method captures primary study progress,
-  XP, daily tasks, reviews, Mastery, Recovery, Pet/outfit data.
-- The client ALSO tries to include readable Practice drafts stored separately
-  in the lux-practice-drafts-v1 localStorage entry.
-- The currently focused answer field can be captured as an ungraded emergency
-  note. A previously failed local draft write cannot be recreated.
-- AES-GCM encryption happens BEFORE upload. Server stores only ciphertext.
-- Stored R2 objects are immutable and never overwritten/deleted by this code.
-- Existing iPad records are untouched. This system does not auto-restore or
-  auto-replace older records over a newer device.
-- A daily scheduled task attempts to email the most recently uploaded
-  encrypted copy, with a provider idempotency key to reduce duplicates.
-  A failed email keeps the cloud copy and is retried on the next run.
+    node --test tests/gloria-cloud-email-backup.test.mjs
+    node --test tests/gloria-google-apps-script.test.mjs
+    node tests/gloria-cloud-ipad-browser.mjs
 
-## Recovery
+The iPad browser fixture needs Playwright Chromium and WebKit.
 
-Authenticated GET /v1/backups lists stored encrypted objects. Authenticated
-GET /v1/download?key=<exact-object-key> retrieves one encrypted envelope.
-Use decryptBackup(envelope, recoveryKey) to produce a non-mutating preview.
-Inspect XP, Daily, Mastery, Pet, Recovery and assessment data against the
-current device BEFORE a future approved manual restore. No automatic restore
-endpoint exists in this staging implementation.
-
-## Retention and cost
-
-No deletions have been implemented. Backup storage will accumulate until an
-audited lifecycle policy is configured with the owner's approval. Planned
-retention is 30 daily and 12 weekly snapshots, preserving at least one oldest
-known-good copy before pruning. Email quota and R2 cost depend on account plan.
-Large encrypted attachments may be subject to the email service limits.
-
-## Important limitation
-
-GitHub Pages cannot execute code while the PWA is fully closed/asleep/offline.
-Automatic uploads occur while Gloria runs and has connectivity. Daily email
-can send only the latest VERIFIED cloud backup. Do not interpret an email from
-yesterday as proof today's answers are saved. Current iPad storage failure is
-an independent bug; adding cloud backup does not repair the failure.
-
-## QA
-
-Run: node --test tests/gloria-cloud-email-backup.test.mjs
-
-No production deploy until Cloudflare and mail accounts are securely connected,
-a sample backup decrypts on a second device, and the owner sees a real email
-containing an encrypted attachment in their inbox.
+Known constraints: Cloudflare account+R2 subscription setup requires the
+owner's action; a Google account authorization prompt must be handled only
+by the owner. No tool in this chat has access to Cloudflare account admin
+actions or can approve a Google Apps Script OAuth request on your behalf.
+Pricing and account eligibility must be checked by the owner before billing.
