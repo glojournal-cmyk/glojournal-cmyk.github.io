@@ -170,6 +170,8 @@ async function checkRealPractice(browser,engine){
   });
   console.log('DAILY_REAL_CHROME_DIAGNOSTIC '+JSON.stringify({engine,chromeDetails}));
   assert.ok(chromeDetails.header?.display==='none','approved design has no top bar');
+  assert.ok(chromeDetails.companion?.display!=='none' && chromeDetails.companion?.width>=100,'equipped pet / voice strip must be visible');
+  assert.ok(chromeDetails.sprite?.width>=28 && chromeDetails.sprite?.height>=30,'equipped pet artwork must be on-screen');
   assert.ok(before.id,'real French question must load');
   assert.equal(before.navCount,7,'live question needs Study navigation');
   assert.ok(before.promptSize>=27,'real question should be large and bold');
