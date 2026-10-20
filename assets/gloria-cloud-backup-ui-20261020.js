@@ -130,7 +130,7 @@ function bootstrap(){
  // The Home backup panel mounts lazily during SPA navigation.
  const observer=new MutationObserver(mount);
  observer.observe(document.body,{childList:true,subtree:true});
- setTimeout(()=>observer.disconnect(),120000);
+ // Retain lightweight DOM observer: Home backup panel may mount after hours of practice.
  void readConfig().then(c=>{if(c?.enabled)beginSync()}).catch(()=>{});
  document.addEventListener("lux:app-ready",()=>{
    void readConfig().then(c=>{if(c?.enabled)beginSync()}).catch(()=>{});
