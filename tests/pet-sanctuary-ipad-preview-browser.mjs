@@ -53,9 +53,10 @@ try{
       const bg=getComputedStyle(document.body).backgroundImage;
       const style=[...document.styleSheets].some(s=>s.href?.includes('pet-sanctuary-ipad-preview-20261020.css'));
       const art=getComputedStyle(document.querySelector('#petImage')).backgroundImage;
-      return {pet:box('.pet-stage-card'),care:box('#petCarePanel'),growth:box('#petGrowth'),nav:box('.lux-shell-nav'),stage:box('#petAvatar'),bg,style,art,scrollWidth:document.documentElement.scrollWidth};
+      return {pet:box('.pet-stage-card'),care:box('#petCarePanel'),growth:box('#petGrowth'),nav:box('.lux-shell-nav'),stage:box('#petAvatar'),bg,style,art,topbar:getComputedStyle(document.querySelector('.pet-topbar')).display,classes:document.body.className,scrollWidth:document.documentElement.scrollWidth};
     });
     assert.ok(sizes.style,'Pet sanctuary stylesheet loaded');
+    assert.equal(sizes.topbar,'none','Old duplicate Pet topbar must be hidden in preview');
     assert.ok(sizes.bg.includes('magic-floor.jpg'),'Same academy botanical scene as other new pages');
     assert.ok(sizes.art.includes('url('),'Real species/level artwork loaded');
     assert.ok(sizes.pet.width>=viewport.width*.4||viewport.width<700,'Large focal stage in landscape');
@@ -65,6 +66,7 @@ try{
       assert.ok(sizes.growth.left>sizes.pet.right-4,'Growth panel stays in right column');
       await page.screenshot({path:'test-results/pet-sanctuary-'+engine.name()+'-1024-home.png'});
       console.log(engine.name()+' 1024 layout '+JSON.stringify(sizes));
+      assert.ok(sizes.nav.left>50 && sizes.nav.right<viewport.width-50,'Approved seven-tab nav is actually centred, not cut off');
       assert.ok(sizes.pet.bottom<sizes.nav.top+5,'Full pet card fits above approved bottom nav');
     }
     if(viewport.width===834)await page.screenshot({path:'test-results/pet-sanctuary-'+engine.name()+'-834-portrait.png'});
