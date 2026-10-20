@@ -1,0 +1,37 @@
+name: Play Hall Preview QA
+on:
+  pull_request:
+    paths:
+      - 'assets/play-hall-preview-20261020.*'
+      - 'play/index.html'
+      - 'tests/play-hall-*'
+      - '.github/workflows/play-hall-preview-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  play-code:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --check assets/play-hall-preview-20261020.js
+      - run: node --test tests/play-hall-integration.test.cjs
+  play-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/play-hall-preview-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: play-hall-ipad-preview-screenshots
+          path: test-results/play-hall-*.png

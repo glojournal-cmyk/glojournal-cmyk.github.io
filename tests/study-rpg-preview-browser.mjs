@@ -147,14 +147,35 @@ try{
         // SPA links can update the URL before React commits the destination.
         // Find and activate the real destination nav in one animation frame:
         // WebKit can replace that node between a separate wait and click.
-        await page.waitForFunction(() => {
-          const links=[...document.querySelectorAll('a[href="/study"],a[href="/study/"]')];
-          const link=links.find(a=>!a.closest('#lux-study-rpg-integrated') &&
-            a.getClientRects().length>0 && getComputedStyle(a).visibility!=='hidden');
-          if(!link)return false;
-          link.click();
-          return true;
-        },null,{timeout:20000});
+        if (target.name === 'Play') {
+          // Play is now a full-screen hall: use its visible navigation,
+          // not the old React nav hidden behind that hall.
+          await page.locator('#lux-play-hall-preview .lux-play-hall-nav a[href="/study/"]').click();
+        } else {
+          // Wait for the shared route bridge before triggering a real tap.
+          // Evaluating link.click() inside waitForFunction can fire against an
+          // early DOM node before Safari has installed the route handlers.
+          // Assessment is a standalone HTML screen with native Study links
+          // and does not mount the React route bridge used by Home/Garden/Pet.
+          if(target.name!=='Assessment')await page.waitForFunction(
+            () => window.__luxStudyRpgBootInstalled === true,
+            null,{timeout:20000}
+          );
+          // Home mounts both the original React nav and the RPG nav.
+          // Only the RPG nav is frontmost/tappable; a generic :visible match
+          // can select an underlying original link behind the new Home.
+          const studyNav=target.name==='Home'
+            ? page.locator('html.lux-rpg-live-active #lux-rpg-live-home .rpg-nav-live a[href="/study"]')
+            : page.locator('a[href="/study"]:visible, a[href="/study/"]:visible');
+          // On first Home paint the RPG nav exists but is hidden until the
+          // approved scene takes over. Do not click its invisible placeholder.
+          await studyNav.last().waitFor({state:'visible',timeout:30000});
+          // Home's floating rail animates continuously; Playwright's
+          // default "stable box" check can stall despite a visible, tappable
+          // link. Keep the :visible requirement, but don't require a motionless
+          // rectangle before dispatching the real pointer event.
+          await studyNav.last().click({force:true,timeout:20000});
+        }
         await page.waitForURL(u=>/^\/study\/?$/.test(u.pathname),{waitUntil:'domcontentloaded',timeout:20000});
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
         await page.waitForFunction(()=>document.documentElement.classList.contains('lux-study-rpg-active'));
