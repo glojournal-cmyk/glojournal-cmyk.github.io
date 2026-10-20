@@ -26,7 +26,21 @@ const server=createServer((req,res)=>{
 await new Promise(r=>server.listen(0,"127.0.0.1",r));
 const base="http://127.0.0.1:"+server.address().port;
 try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch({headless:true});try{
- const page=await browser.newPage({viewport:{width:834,height:1112}}),errors=[];page.on('pageerror',e=>errors.push(e.message));async function visit(url){await page.waitForLoadState('networkidle');await page.goto(url,{waitUntil:'networkidle'});}await visit(base+'/');await page.waitForFunction(()=>window.__luxAppReady===true);
+ const page=await browser.newPage({viewport:{width:834,height:1112}}),errors=[];page.on('pageerror',e=>errors.push(e.message));async function visit(url){
+  await page.waitForLoadState('networkidle');
+  await page.goto(url,{waitUntil:'networkidle'});
+  // The current Garden Home intentionally overlays (and hides) the original
+  // React Home. This suite validates the original durable Backup/Recovery
+  // engine, while dedicated RPG tests validate the visible Garden entry.
+  if(new URL(url).pathname==='/'){
+    await page.waitForFunction(()=>window.__luxAppReady===true);
+    await page.addStyleTag({content:`
+      .rpg-home-live{display:none!important}
+      html.lux-rpg-live-active body > .paper-wash{visibility:visible!important}
+      html.lux-rpg-live-active,html.lux-rpg-live-active body{height:auto!important;overflow:auto!important}
+    `});
+  }
+}await visit(base+'/');await page.waitForFunction(()=>window.__luxAppReady===true);
  const panel=page.locator('#lux-daily-save-panel');
  // Locate the actual backup control's outer details rather than assuming an id.
  await page.waitForSelector('#daily-save-button',{state:'attached'});
