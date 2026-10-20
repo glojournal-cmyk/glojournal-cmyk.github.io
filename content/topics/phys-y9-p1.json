@@ -3018,22 +3018,32 @@
         "mode": "mark_points",
         "markPoints": [
           "Solid particles continue vibrating around fixed positions.",
-          "Cooling decreases their average kinetic energy and vibration amplitude; it does not normally make them motionless."
+          "Cooling reduces average particle kinetic energy and vibration amplitude without making particles motionless"
         ],
         "totalMarks": 2,
-        "modelAnswer": "Solid particles continue vibrating around fixed positions. Cooling decreases their average kinetic energy and vibration amplitude; it does not normally make them motionless."
+        "modelAnswer": "Solid particles continue vibrating around fixed positions.. Cooling reduces average particle kinetic energy and vibration amplitude without making particles motionless",
+        "markPointAlternatives": [
+          [
+            "solid particles vibrate",
+            "vibrate around fixed positions"
+          ],
+          [
+            "cooling lowers vibration",
+            "particles vibrate less"
+          ]
+        ]
       },
       "stimulus": {
         "marks": 2
       },
       "feedback": {
-        "short": "Solid particles continue vibrating around fixed positions. Cooling decreases their average kinetic energy and vibration amplitude; it does not normally make them motionless.",
+        "short": "Solid particles continue vibrating around fixed positions.. Cooling reduces average particle kinetic energy and vibration amplitude without making particles motionless",
         "steps": [
           "Solid particles continue vibrating around fixed positions.",
-          "Cooling decreases their average kinetic energy and vibration amplitude; it does not normally make them motionless."
+          "Cooling reduces average particle kinetic energy and vibration amplitude without making particles motionless"
         ],
         "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
-        "remember": "Solid particles continue vibrating around fixed positions.; Cooling decreases their average kinetic energy and vibration amplitude; it does not normally make them motionless."
+        "remember": "Solid particles continue vibrating around fixed positions.; Cooling reduces average particle kinetic energy and vibration amplitude without making particles motionless"
       },
       "task": {
         "label": "EXPLAIN",
