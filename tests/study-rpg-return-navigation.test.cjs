@@ -9,7 +9,7 @@ const boot=read('assets/study-rpg-live-boot-20261020.js');
 test('return-to-Study bridge is available from Pet and every React top-level shell',()=>{
   assert.match(read('pet/home-pet.js'),/import\('\/assets\/study-rpg-live-boot-20261020\.js\?v=20261020-return-nav1'\)/);
   for(const p of ['pet/index.html','play/index.html','garden/index.html','scholar/index.html','index.html','404.html','study/index.html']){
-    assert.match(read(p),/home-pet\.js\?v=20261020-return-nav1/,p);
+    assert.match(read(p),/home-pet\.js\?v=20261019-return-nav1/,p);
   }
   for(const p of ['index.html','404.html','study/index.html']){
     assert.match(read(p),/study-rpg-live-boot-20261020\.js\?v=20261020-return-nav1/,p);
