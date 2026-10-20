@@ -143,7 +143,10 @@ function assemble(){
   });
   const decoration=create('button',null,'DECORATIONS  ›');
   decoration.type='button';decoration.addEventListener('click',()=>openPanel('Garden Decorations','decor'));
-  actions.append(log,water,decoration);world.append(actions);root.append(world);
+  // The approved art has a single Basil progress panel in the centre: place
+  // the real native-backed water control inside it, never across the fountain.
+  basil.append(water);
+  actions.append(log,decoration);world.append(actions);root.append(world);
   const nav=create('div','lux-garden-nav');nav.setAttribute('role','navigation');nav.setAttribute('aria-label','Main navigation');
   for(const [glyph,label,url]of navs){
     const a=create('a',label==='Garden'?'active':'');a.href=url;
