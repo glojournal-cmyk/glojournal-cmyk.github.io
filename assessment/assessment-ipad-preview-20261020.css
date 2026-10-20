@@ -701,3 +701,58 @@ body.lux-shell-on.assessment-rpg-scene #tracker-list .tracker-col.tracker-subjec
   font-size:.7rem;min-height:26px;padding:4px 8px;
  }
 }
+
+/* Tracker v7: colour the COMPLETE assessment row, not just the Subject label.
+   Restrained pastel panels keep the Study/Play navy & parchment aesthetic. */
+body.lux-shell-on.assessment-rpg-scene #tracker-list article.assessment-tracker-entry{
+ --tracker-tint:#f1f0e9;
+ --tracker-edge:#b8c1b6;
+ --tracker-expanded:#fbfaf4;
+ background-color:var(--tracker-tint);
+ background-image:none;
+ border-color:var(--tracker-edge);
+ box-shadow:inset 4px 0 0 var(--tracker-edge),0 2px 8px #111a2428;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list article.tracker-row-biology{
+ --tracker-tint:#e0efe7;--tracker-edge:#84b8a0;--tracker-expanded:#f3faf5;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list article.tracker-row-french{
+ --tracker-tint:#f9e7ed;--tracker-edge:#d8a4b6;--tracker-expanded:#fff5f8;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list article.tracker-row-chemistry{
+ --tracker-tint:#eee7f8;--tracker-edge:#b9a2d4;--tracker-expanded:#faf6ff;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list article.tracker-row-latin{
+ --tracker-tint:#ebf1df;--tracker-edge:#afc391;--tracker-expanded:#f7faef;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list article.tracker-row-physics{
+ --tracker-tint:#e5eef9;--tracker-edge:#9ebcdf;--tracker-expanded:#f5f9ff;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list article.tracker-row-english{
+ --tracker-tint:#faecde;--tracker-edge:#d8b48c;--tracker-expanded:#fff8f1;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list article.tracker-row-maths{
+ --tracker-tint:#f8f0d9;--tracker-edge:#d9c28a;--tracker-expanded:#fffbf0;
+}
+/* No second little coloured pill: the ENTIRE box communicates the subject. */
+body.lux-shell-on.assessment-rpg-scene #tracker-list .tracker-col.tracker-subject,
+body.lux-shell-on.assessment-rpg-scene #tracker-list .tracker-col[class*="tracker-subject-"]{
+ background:transparent;
+ border:0;
+ border-radius:0;
+ padding:0;
+ min-height:0;
+ color:#244553;
+ justify-content:flex-start;
+ font-size:.81rem;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list article.assessment-tracker-entry .assessment-tracker-item>summary{
+ background:transparent;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list article.assessment-tracker-entry .assessment-tracker-expanded{
+ background:var(--tracker-expanded);
+ border-top-color:var(--tracker-edge);
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list article.assessment-tracker-entry:hover{
+ box-shadow:inset 4px 0 0 var(--tracker-edge),0 3px 12px #111a2438;
+}
