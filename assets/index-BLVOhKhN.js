@@ -3829,3 +3829,8 @@ if(typeof document!=='undefined') {
 }
 
 if(typeof window!=="undefined"&&window.addEventListener){window.addEventListener("scholar:learning-changed",normalizeState);window.addEventListener("storage",e=>{if(e.key==="lux-topic-learning-v1")normalizeState()});}
+
+/* Opt-in parent cloud backup. Import alone performs NO upload without secure pairing. */
+if(typeof window!=="undefined"&&typeof document!=="undefined"){
+ import("/assets/gloria-cloud-backup-ui-20261020.js?v=cloud-daily-safe1").catch(()=>{});
+}
