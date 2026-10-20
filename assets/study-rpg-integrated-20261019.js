@@ -1,7 +1,7 @@
 /* Study RPG: presentation only. Keep all real learning/marking/save logic in
  * the existing Lux et Labor app. The Home outfit and Pet share their sources.
  */
-import { C as store } from './index-BLVOhKhN.js?v=20261018-mastery2';
+import { A as wardrobeOutfits, C as store } from './index-BLVOhKhN.js?v=20261018-mastery2';
 import { petArtUrl } from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
 
 if (!window.__luxStudyRpgIntegrated) {
@@ -104,7 +104,7 @@ if (!window.__luxStudyRpgIntegrated) {
     catch { petSrc = '/art/rpg/moss.png'; }
     if (typeof petSrc !== 'string' || !petSrc.startsWith('/')) petSrc = '/art/rpg/moss.png';
     const outfit = safeSlug(state.equippedOutfit || 'day', 'day');
-    const scholarSrc = outfit === 'day' ? '/art/home-rpg/scholar-clean.png' : `/art/doll/${outfit}.png`;
+    const scholarSrc = wardrobeOutfits.find(item => item.id === outfit)?.art || '/art/home-rpg/scholar-clean.png';
 
     root.replaceChildren();
     root.append(el('div', 'lux-study-rpg-shade'));
