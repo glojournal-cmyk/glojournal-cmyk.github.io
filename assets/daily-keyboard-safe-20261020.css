@@ -1,0 +1,117 @@
+/* Daily Practice editor mode: iPad landscape software keyboard must never
+ * make the current question, answer field, or Submit inaccessible.
+ * All overrides are visual; no state or mark-rule changes. */
+html.lux-practice-keyboard-open {
+  scroll-padding-top: 10px;
+  scroll-padding-bottom: 14px;
+}
+html.lux-practice-keyboard-open body,
+html.lux-practice-keyboard-open body.lux-desk {
+  overflow-x: hidden!important;
+  overflow-y: auto!important;
+  height: auto!important;
+  position: static!important;
+}
+html.lux-practice-keyboard-open .paper-wash {
+  min-height: 0!important;
+  height: auto!important;
+  overflow: visible!important;
+}
+html.lux-practice-keyboard-open .paper-wash > main,
+html.lux-practice-keyboard-open body.lux-desk main {
+  height:auto!important;
+  min-height:0!important;
+  overflow:visible!important;
+  padding-top:6px!important;
+  padding-bottom:calc(20px + env(safe-area-inset-bottom))!important;
+}
+html.lux-practice-keyboard-open body.lux-desk main>div>div.space-y-5>.space-y-4,
+html.lux-practice-keyboard-open body.lux-desk main>div>div.space-y-5>.space-y-4>:first-child,
+html.lux-practice-keyboard-open .lux-practice-view {
+  max-height:none!important;
+  min-height:0!important;
+  height:auto!important;
+  overflow:visible!important;
+}
+html.lux-practice-keyboard-open .paper-wash>header,
+html.lux-practice-keyboard-open .paper-wash>aside,
+html.lux-practice-keyboard-open .lux-practice-view>header,
+html.lux-practice-keyboard-open .lux-practice-view>details,
+html.lux-practice-keyboard-open #study-companion,
+html.lux-practice-keyboard-open #lux-daily-equipped-pet,
+html.lux-practice-keyboard-open #lux-daily-clear-tiles,
+html.lux-practice-keyboard-open nav.fixed,
+html.lux-practice-keyboard-open .lux-daily-study-nav {
+  display:none!important;
+}
+html.lux-practice-keyboard-open .lux-practice-view [data-question-id] {
+  display:flex!important;
+  flex-direction:column!important;
+  gap:6px!important;
+  margin-top:0!important;
+}
+html.lux-practice-keyboard-open .lux-practice-view [data-lux-question-intro],
+html.lux-practice-keyboard-open .lux-practice-view [data-question-id] > div:first-child:has(> h1.font-display.text-3xl),
+html.lux-practice-keyboard-open .lux-practice-view [data-lux-daily-lock] {
+  display:none!important;
+}
+html.lux-practice-keyboard-open .lux-practice-view [data-lux-question-card],
+html.lux-practice-keyboard-open .lux-practice-view [data-question-id] .rounded-xl.bg-card.p-5 {
+  min-height:0!important;
+  height:auto!important;
+  padding:12px 16px!important;
+  margin:0!important;
+  border-radius:16px!important;
+}
+html.lux-practice-keyboard-open .lux-practice-view [data-question-id] > :has(> [data-lux-question-card]) {
+  min-height:0!important;
+  padding:0!important;
+}
+html.lux-practice-keyboard-open .lux-practice-view [data-lux-prompt],
+html.lux-practice-keyboard-open .lux-practice-view [data-question-id] p.font-display.text-2xl {
+  font-size:clamp(22px,2.7vw,30px)!important;
+  font-weight:700!important;
+  line-height:1.18!important;
+  margin:2px 0 8px!important;
+}
+html.lux-practice-keyboard-open .lux-practice-view [data-question-id] [class*="bg-sage"] {
+  margin:4px 0!important;
+  padding:7px 12px!important;
+  line-height:1.35!important;
+}
+html.lux-practice-keyboard-open .lux-practice-view [data-question-id] form {
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:8px!important;
+  margin-top:8px!important;
+}
+html.lux-practice-keyboard-open .lux-practice-view [data-question-id] input,
+html.lux-practice-keyboard-open .lux-practice-view [data-question-id] textarea {
+  font-size:18px!important;
+  min-height:46px!important;
+  flex:1 1 280px!important;
+  max-width:100%!important;
+  scroll-margin-top:12px!important;
+  scroll-margin-bottom:12px!important;
+}
+html.lux-practice-keyboard-open .lux-practice-view [data-question-id] textarea {
+  height:auto!important;
+  min-height:72px!important;
+  max-height:calc(var(--lux-practice-visible-height,500px) * .24)!important;
+  overflow-y:auto!important;
+}
+html.lux-practice-keyboard-open .lux-practice-view [data-question-id] button[type="submit"] {
+  min-height:46px!important;
+  min-width:120px!important;
+  margin:0!important;
+}
+@media (orientation:landscape) and (min-width:720px) {
+  html.lux-practice-keyboard-open .lux-practice-view [data-question-id] form {
+    flex-wrap:nowrap!important;
+  }
+  html.lux-practice-keyboard-open .lux-practice-view [data-question-id] form input {
+    flex:1 1 auto!important;
+    min-width:0!important;
+  }
+}
