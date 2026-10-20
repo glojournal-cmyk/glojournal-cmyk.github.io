@@ -1,0 +1,35 @@
+name: Daily Practice iPad keyboard visibility
+on:
+  pull_request:
+    paths:
+      - "assets/daily-keyboard-safe-20261020.js"
+      - "assets/daily-keyboard-safe-20261020.css"
+      - "assets/index-BLVOhKhN.js"
+      - "assets/ipad-experience-20261004.js"
+      - "tests/daily-keyboard-ipad-20261020.mjs"
+      - ".github/workflows/daily-keyboard-ipad-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  keyboard-visibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --check assets/daily-keyboard-safe-20261020.js
+      - run: node --check assets/ipad-experience-20261004.js
+      - run: node --check assets/index-BLVOhKhN.js
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Simulate iPad landscape software keyboard and check prompt plus Submit
+        run: node tests/daily-keyboard-ipad-20261020.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ipad-daily-keyboard-qa
+          path: test-results/daily-keyboard-ipad/*.png
+          if-no-files-found: ignore
