@@ -8,6 +8,15 @@
   window.__luxStudyRpgBootInstalled = true;
   let loading = false;
   function showStudy() {
+    // The native SPA links to /study (the layout route), but the complete
+    // Study Library is /study/ (index child route). Canonicalize with a real
+    // navigation to preserve hydration and the complete native year selector.
+    if (location.pathname === '/study') {
+      const url = new URL(location.href);
+      url.pathname = '/study/';
+      location.replace(url.pathname + url.search + url.hash);
+      return;
+    }
     if (!/^\/study\/?$/.test(location.pathname)) return;
     if (new URLSearchParams(location.search).get('studyRpgPreview') === '0') return;
     if (loading || window.__luxStudyRpgIntegrated) return;
