@@ -78,7 +78,19 @@ for(const browserType of [chromium,webkit]){
    assert.equal((await page.locator('#tracker-list').innerText()).includes('16 Nov'),false,'Superseded Biology school date is absent');
    const trackerRow=trackerItems.first();
    assert.equal(await trackerRow.getAttribute('open'),null,'Tracker details must be closed by default');
-   assert.equal(await trackerRow.locator('summary .assessment-tracker-heading > span').count(),1,'Each row has one brief date/status line');
+   assert.equal(await page.locator('#tracker-list .assessment-tracker-head span').count(),5,'Table has clear aligned column headers');
+   for(const cls of ['tracker-subject','tracker-title','tracker-date','tracker-status']){
+     assert.equal(await trackerRow.locator('summary .'+cls).count(),1,'Tracker keeps separate aligned '+cls+' field');
+   }
+   if(viewport.width===1024){
+     const head=await page.locator('#tracker-list .assessment-tracker-head span').evaluateAll(nodes=>nodes.map(el=>el.getBoundingClientRect().x));
+     // The actual direct summary is nested in <details>. Match every rendered row to the headings.
+     const positions=await trackerItems.evaluateAll(items=>items.map(item=>
+       [...item.querySelector('summary').children].map(el=>el.getBoundingClientRect().x)));
+     for(const pos of positions)for(let i=0;i<5;i++){
+       assert.ok(Math.abs(pos[i]-head[i])<6,'iPad grid cell '+i+' aligns to column header');
+     }
+   }
    const trackerRows=await trackerItems.evaluateAll(elements=>elements.map(el=>el.getBoundingClientRect().height));
    assert.ok(trackerRows.every(h=>h<=73),'Each collapsed tracker assessment uses at most two lines');
    assert.equal(await page.locator('#tracker-list [data-tracker-paper]:visible').count(),0,
