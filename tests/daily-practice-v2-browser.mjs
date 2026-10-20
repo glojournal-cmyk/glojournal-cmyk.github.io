@@ -41,7 +41,7 @@ function fixture(kind){
     'quinze'.split('').map(letter=>'<button type="button" onclick="window.tapCount++">'+letter+'</button>').join('')+
     '</div><button type="button" onclick="window.tapCount++">Submit</button></div>':
     '<form class="mt-5 flex gap-2"><input placeholder="Type the answer" aria-label="Your answer"><button type="submit">Submit</button></form>';
-  return '<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1">'+
+  return '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'+
     '<link rel="stylesheet" href="/app.css"><link rel="stylesheet" href="/assets/styles-CEE1o_78.css">'+
     '<link rel="stylesheet" href="/assets/daily-practice-ux-v2-20261020.css">'+
     '<script>window.tapCount=0;</script><script defer src="/assets/daily-practice-layout-20261020.js"></script></head>'+
