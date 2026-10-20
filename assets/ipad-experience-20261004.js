@@ -25,7 +25,7 @@
  function landscapePad(){return window.innerHeight<=1100&&window.innerWidth>window.innerHeight&&(navigator.maxTouchPoints>0||matchMedia('(pointer: coarse)').matches)}
  function questionOpen(){if(document.querySelector("[aria-label='Session result']"))return false;const node=document.querySelector('p.tabular-nums');return !!(node&&/Question\s+\d+\s+\//.test(node.textContent||''))}
  function fitViewport(){const v=window.visualViewport;document.documentElement.style.setProperty('--lux-vvh',Math.max(240,(v?.height||window.innerHeight)-12)+'px')}
- function parkDesk(){if(!document.body.classList.contains('lux-desk'))return; if(document.activeElement?.matches?.('.lux-practice-view [data-question-id] input, .lux-practice-view [data-question-id] textarea'))return;const y=window.visualViewport?.offsetTop||0;if(Math.abs(window.scrollY-y)>1)window.scrollTo(0,y)}
+ function parkDesk(){if(!document.body.classList.contains('lux-desk'))return;const y=window.visualViewport?.offsetTop||0;if(Math.abs(window.scrollY-y)>1)window.scrollTo(0,y)}
  function syncDesk(){const on=landscapePad()&&questionOpen();document.body.classList.toggle('lux-desk',on);document.querySelectorAll('header.sticky,nav.fixed').forEach(el=>{if(on)el.style.setProperty('display','none','important');else el.style.removeProperty('display')});if(!on)return;fitViewport();parkDesk();const field=document.querySelector('textarea, input[type="text"]');if(field&&document.activeElement===field)grow(field)}
  let deskQueued=false;function scheduleDesk(){if(deskQueued)return;deskQueued=true;requestAnimationFrame(()=>{deskQueued=false;syncDesk()})}
  new MutationObserver(scheduleDesk).observe(document.documentElement,{childList:true,subtree:true,characterData:true});
