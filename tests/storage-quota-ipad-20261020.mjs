@@ -50,19 +50,17 @@ try{
      if(blocked)Object.defineProperty(window,"indexedDB",{value:{open(){throw Error("Vault unavailable")}}});
     },{persistCode,blocked});
     await page.addScriptTag({url:url+"/assets/storage-health-20261011.js"});
+    // The parent explicitly requested NO visual warning, even on quota failure.
+    // Retry must continue silently; never erase existing data or misreport success.
     if(blocked){
-     await page.waitForFunction(()=>document.getElementById("lux-storage-retry")?.disabled===false);
-     assert.equal(await page.locator("#lux-storage-warning").isVisible(),true);
-     await page.getByRole("button",{name:"Retry saving"}).click();
-     await page.waitForFunction(()=>!document.getElementById("lux-storage-retry").disabled);
+     await page.waitForTimeout(500);
+     assert.equal(await page.locator("#lux-storage-warning").count(),0,"no obstructive fixed warning");
      assert.equal(await page.evaluate(()=>window.__luxStoreQuotaFailed),true);
      assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem("lux-scholar-garden-v1")).state.xp),2748);
      assert.ok(await page.evaluate(()=>localStorage.getItem("lux-progress-auto-v1")));
-     assert.ok(!(await page.locator("#lux-storage-warning").innerText()).includes("iPad storage full"));
-     const box=await page.locator("#lux-storage-warning").boundingBox();
-     assert.ok(box.x>=0&&box.x+box.width<=width);
     }else{
-     await page.waitForFunction(()=>window.__luxStoreQuotaFailed===false&&document.getElementById("lux-storage-warning")?.hidden,{},{timeout:20000});
+     await page.waitForFunction(()=>window.__luxStoreQuotaFailed===false,null,{timeout:20000});
+     assert.equal(await page.locator("#lux-storage-warning").count(),0);
      assert.equal(await page.evaluate(()=>localStorage.getItem("lux-progress-auto-v1")),null);
      await page.reload();
      assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem("lux-scholar-garden-v1")).state.xp),2862);
