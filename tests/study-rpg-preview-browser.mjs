@@ -143,7 +143,7 @@ try{
         await page.goto(origin+'/study/');
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-nav a[href="'+target.href+'"]').click();
-        await page.waitForURL(u=>u.pathname.replace(/\/$/,'')===target.path.replace(/\/$/,''),{timeout:20000});
+        await page.waitForURL(u=>u.pathname.replace(/\/$/,'')===target.path.replace(/\/$/,''),{waitUntil:'domcontentloaded',timeout:20000});
         // SPA links can update the URL before React commits the destination.
         // Find and activate the real destination nav in one animation frame:
         // WebKit can replace that node between a separate wait and click.
@@ -161,7 +161,7 @@ try{
             return true;
           },null,{timeout:20000});
         }
-        await page.waitForURL(u=>/^\/study\/?$/.test(u.pathname),{timeout:20000});
+        await page.waitForURL(u=>/^\/study\/?$/.test(u.pathname),{waitUntil:'domcontentloaded',timeout:20000});
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
         await page.waitForFunction(()=>document.documentElement.classList.contains('lux-study-rpg-active'));
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').count(),6,
