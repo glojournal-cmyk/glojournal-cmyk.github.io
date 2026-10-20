@@ -192,6 +192,7 @@
       document.querySelector('.lux-practice-view [data-question-id]');
     const active = Boolean(q);
     root.classList.toggle('lux-daily-ux-ready',active);
+    root.classList.toggle('lux-daily-task-active',active && new URLSearchParams(location.search).get('daily')==='1');
     if (!active) {
       nav?.remove();
       fallbackPet?.remove();
