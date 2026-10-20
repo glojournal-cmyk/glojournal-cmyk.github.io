@@ -1,0 +1,30 @@
+name: Scholar Wardrobe iPad Preview QA
+on:
+  pull_request:
+    paths:
+      - 'scholar/index.html'
+      - 'scholar/scholar-wardrobe-preview-20261020.css'
+      - 'scholar/scholar-wardrobe-preview-20261020.js'
+      - 'tests/scholar-wardrobe-ipad-preview-browser.mjs'
+      - '.github/workflows/scholar-wardrobe-ipad-preview-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scholar-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --check scholar/scholar-wardrobe-preview-20261020.js && node --check tests/scholar-wardrobe-ipad-preview-browser.mjs
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/scholar-wardrobe-ipad-preview-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scholar-wardrobe-ipad-preview-screenshots
+          path: test-results/scholar-*.png
