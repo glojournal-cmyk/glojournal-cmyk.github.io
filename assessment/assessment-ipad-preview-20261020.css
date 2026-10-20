@@ -16,7 +16,7 @@ body.lux-shell-on .tabs button.selected{background:var(--ass-navy);border-color:
 body.lux-shell-on .panel{border:1px solid #e1e4d9;border-radius:20px;background:rgba(255,254,250,.97);box-shadow:0 8px 28px #17304a10;padding:clamp(16px,2vw,26px)}
 body.lux-shell-on #papers.panel h2{font-size:clamp(1.7rem,2.2vw,2.15rem)}
 body.lux-shell-on #papers.panel>p.muted{font-size:.94rem;line-height:1.42;margin:4px 0 12px}
-body.lux-shell-on #papers.panel>p.feedback{display:none} /* October Latin remains accessible via the paper list */
+body.lux-shell-on #papers.panel>p.feedback{display:block;max-width:unset;margin:8px 0 12px;padding:9px 13px;border-radius:10px;border-left:3px solid #b39860;font-size:.83rem;line-height:1.4;background:#f7f4ea}
 body.lux-shell-on #subject-bar.subject-bar{position:static!important;display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:transparent!important;padding:2px 0 11px;margin:0;border-bottom:1px solid #e1e7db}
 body.lux-shell-on #subject-bar.subject-bar button{font-weight:700;font-size:.87rem;background:#f8f9f4;border:1px solid #d8dfd4;border-radius:99px;padding:8px 17px;min-height:43px}
 body.lux-shell-on #subject-bar.subject-bar button.on{background:var(--ass-navy);border-color:var(--ass-navy);color:#fffaf3}
