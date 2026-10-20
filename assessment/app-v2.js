@@ -295,7 +295,9 @@ function acceptedForMarking(e){
  };
  const adjectivePair=/^(?:petit|petite|petits|petites|grand|grande|grands|grandes|small|large|big|bon|bonne|bons|bonnes|mauvais|mauvaise|mauvaises|good|bad|jeune|vieux|vieille|new|old|short|tall|long|little)$/i;
  for(const full of originals){
-  if(/[;]/.test(full)||/\beither\b/i.test(full))continue;
+  // A division sign is not a choice of two answers in science calculations.
+  if(/^(?:phys|chem|bio|math)-/i.test(String(e.id??""))&&/(?:\b(?:total|useful|input|output|distance|time|speed|mass|volume|density|power|efficiency)\b|\d|%|=)/i.test(full))continue;
+  if(/[;]/.test(full)||/\beither\b/i.test(full)||(/,/.test(full)&&/\s+or\s+/i.test(full)))continue;
   // Compact separators apply only to language/vocabulary bank keys, not m/s,
   // speed/time, formulae, ratios or science units.
   const text=/^(?:fr|la|eng)-/i.test(String(e.id??""))?
