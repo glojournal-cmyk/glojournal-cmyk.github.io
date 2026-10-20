@@ -63,8 +63,9 @@ try{
     if(viewport.width===1024){
       assert.ok(Math.abs(sizes.pet.top-sizes.care.top)<85,'Care and pet stage aligned as a two-column layout');
       assert.ok(sizes.growth.left>sizes.pet.right-4,'Growth panel stays in right column');
-      assert.ok(sizes.pet.bottom<sizes.nav.top+5,'Full pet card fits above approved bottom nav');
       await page.screenshot({path:'test-results/pet-sanctuary-'+engine.name()+'-1024-home.png'});
+      console.log(engine.name()+' 1024 layout '+JSON.stringify(sizes));
+      assert.ok(sizes.pet.bottom<sizes.nav.top+5,'Full pet card fits above approved bottom nav');
     }
     if(viewport.width===834)await page.screenshot({path:'test-results/pet-sanctuary-'+engine.name()+'-834-portrait.png'});
     if(viewport.width===390)await page.screenshot({path:'test-results/pet-sanctuary-'+engine.name()+'-390-mobile.png'});
