@@ -9,10 +9,16 @@
     ['♧','Garden','/garden/'],['♧','Pet','/pet/'],
     ['▤','Assessment','/assessment/'],['✎','Scholar','/scholar/']
   ];
-  const active=()=>/^\/scholar\/?$/.test(location.pathname)&&
+  const isScholar=()=>/^\/scholar\/?$/.test(location.pathname);
+  const active=()=>isScholar()&&
     new URLSearchParams(location.search).get('scholarRpgPreview')!=='0';
   let nav;
   function render(){
+    // A React SPA link can keep the previous page's document and stale route
+    // styling. Enter Scholar through its complete HTML document instead.
+    if(isScholar()&&!document.querySelector('link[href*="scholar-rpg-ipad-20261020.css"]')){
+      location.replace('/scholar/'+location.search+location.hash);return;
+    }
     if(!active()){
       document.documentElement.classList.remove('lux-scholar-rpg','lux-scholar-wardrobe');
       nav?.remove();return;
@@ -61,6 +67,18 @@
     const previous=history[method];
     history[method]=function(...args){const result=previous.apply(this,args);queue();return result;};
   }
+  document.addEventListener('click',event=>{
+    if(event.defaultPrevented||event.button!==0||event.ctrlKey||
+       event.metaKey||event.altKey||event.shiftKey)return;
+    const a=event.target?.closest?.('a[href]');
+    if(!a||a.target==='_blank'||a.hasAttribute('download'))return;
+    let target;
+    try{target=new URL(a.href,location.href);}catch{return;}
+    if(target.origin!==location.origin||!/^\\/scholar\\/?$/.test(target.pathname))return;
+    if(isScholar())return;
+    event.preventDefault();event.stopImmediatePropagation();
+    location.assign('/scholar/'+target.search+target.hash);
+  },true);
   document.addEventListener('DOMContentLoaded',queue,{once:true});
   queue();
 }());
