@@ -46,8 +46,8 @@ function fakeBucket(){
 async function fixture(){
  const store=fakeBucket();
  const env={BACKUPS:store,BACKUP_TOKEN_SHA256:await digest(TOKEN),
-   RESEND_API_KEY:"fake-for-tests-only",RESEND_FROM:"Gloria Backup <backups@example.org>",
-   BACKUP_TO:"glo.journal@gmail.com"};
+   GOOGLE_APPS_SCRIPT_URL:"https://script.google.com/macros/s/AKfycbxTestOnly12345/exec",
+   GOOGLE_APPS_SCRIPT_HMAC_SECRET:"test-only-long-random-looking-key-material-please-replace"};
  const raw=crypto.getRandomValues(new Uint8Array(32));
  const key=await crypto.subtle.importKey("raw",raw,{name:"AES-GCM"},false,["encrypt"]);
  const recovery=Buffer.from(raw).toString("base64url");
@@ -122,37 +122,51 @@ test("cloud commit verifies ciphertext and never returns saved on corrupt or fai
  assert.equal(dl.status,200);
  assert.deepEqual(await decryptBackup(await dl.json(),f.recovery),f.payload);
 });
-test("email delivers latest encrypted attachment once per accepted digest, never cleartext",async()=>{
- const f=await fixture();
- assert.equal((await send(f)).status,201);
+test("Gmail Apps Script receives HMAC-authenticated encrypted attachment and deduplicates",async()=>{
+ const f=await fixture();assert.equal((await send(f)).status,201);
  const posts=[];
  const sender=async(url,options)=>{
-   posts.push({url,headers:options.headers,body:JSON.parse(options.body)});
-   return new Response(JSON.stringify({id:"email-test-"+posts.length}),{status:200});
+   assert.equal(url,f.env.GOOGLE_APPS_SCRIPT_URL);
+   const body=JSON.parse(options.body);
+   const base=String(body.ts)+"\n"+body.digest+"\n"+body.attachment;
+   const key=await crypto.subtle.importKey("raw",
+     encoder.encode(f.env.GOOGLE_APPS_SCRIPT_HMAC_SECRET),
+     {name:"HMAC",hash:"SHA-256"},false,["verify"]);
+   assert.equal(await crypto.subtle.verify("HMAC",key,
+     Buffer.from(body.signature,"hex"),encoder.encode(base)),true);
+   posts.push(body);
+   return new Response(JSON.stringify({ok:true,digest:body.digest}),{status:200});
  };
  const first=await sendDailyEmail(f.env,sender);
- assert.equal(first.sent,true);
- assert.equal(posts.length,1);
- assert.equal(posts[0].body.to[0],"glo.journal@gmail.com");
- assert.match(posts[0].headers["idempotency-key"],/^gloria-[0-9a-f]{64}$/);
- const content=JSON.parse(Buffer.from(posts[0].body.attachments[0].content,"base64").toString("utf8"));
+ assert.equal(first.sent,true);assert.equal(posts.length,1);
+ const content=JSON.parse(Buffer.from(posts[0].attachment,"base64").toString("utf8"));
  assert.deepEqual(content,f.envelope);
- assert.ok(!JSON.stringify(posts[0].body).includes("bonjour"));
- const second=await sendDailyEmail(f.env,sender);
- assert.equal(second.sent,false);
- assert.equal(posts.length,1);
+ assert.ok(!JSON.stringify(posts[0]).includes("bonjour"));
+ const next=await sendDailyEmail(f.env,sender);
+ assert.equal(next.sent,false);assert.equal(posts.length,1);
  const v2=await encryptBackup({...f.payload,main:{...f.payload.main,state:{...f.payload.main.state,xp:2900}}},f.key,f.keyId);
  assert.equal((await send(f,v2)).status,201);
  assert.equal((await sendDailyEmail(f.env,sender)).sent,true);
  assert.equal(posts.length,2);
 });
-test("failed email never discards the encrypted cloud backup or records false success",async()=>{
+test("Gmail bridge failures retain encrypted R2 copy and never mark delivery success",async()=>{
  const f=await fixture();await send(f);
- let called=0;
- await assert.rejects(()=>sendDailyEmail(f.env,async()=>{called++;return new Response("failed",{status:503})}),/HTTP 503/);
- assert.equal(called,1);
+ let calls=0;
+ await assert.rejects(()=>sendDailyEmail(f.env,async()=>{
+   calls++;return new Response("failed",{status:503});
+ }),/HTTP 503/);
+ assert.equal(calls,1);
  assert.equal(await f.store.get("meta/last-emailed.json"),null);
  assert.ok((await f.store.list({prefix:"backups/"})).objects.length);
+ await assert.rejects(()=>sendDailyEmail(f.env,async()=>new Response(JSON.stringify({
+    ok:false,error:"unauthorized"}),{status:200})),/did not acknowledge/);
+ assert.equal(await f.store.get("meta/last-emailed.json"),null);
+});
+test("missing Gmail bridge configuration fails closed",async()=>{
+ const f=await fixture();await send(f);
+ delete f.env.GOOGLE_APPS_SCRIPT_HMAC_SECRET;
+ assert.equal((await sendDailyEmail(f.env)).sent,false);
+ assert.equal(await f.store.get("meta/last-emailed.json"),null);
 });
 test("cloud startup with missing backend configuration cannot leak the plaintext state",async()=>{
  const f=await fixture();f.env.BACKUPS=null;
