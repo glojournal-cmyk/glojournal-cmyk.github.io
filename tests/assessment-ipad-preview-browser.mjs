@@ -73,7 +73,27 @@ for(const browserType of [chromium,webkit]){
    await page.locator('#tracker-list .entry').first().waitFor();
    assert.ok(await page.locator('#tracker-list .entry').count()>0,'School Tracker must show school assessment entries');
    assert.ok(await page.locator('#track-form').count()===1,'Tracker add/result form remains');
+   const trackerItems=page.locator('#tracker-list .assessment-tracker-item');
+   assert.ok(await trackerItems.count()>=3,'Known school assessments preserved');
+   const trackerRow=trackerItems.first();
+   assert.equal(await trackerRow.getAttribute('open'),null,'Tracker details must be closed by default');
+   assert.equal(await trackerRow.locator('> summary .assessment-tracker-heading > span').count(),1,'Each row has one brief date/status line');
+   const trackerRows=await trackerItems.evaluateAll(elements=>elements.map(el=>el.getBoundingClientRect().height));
+   assert.ok(trackerRows.every(h=>h<=73),'Each collapsed tracker assessment uses at most two lines');
+   assert.equal(await page.locator('#tracker-list [data-tracker-paper]:visible').count(),0,
+     'Paper links and notes must not clutter the collapsed list');
    if(viewport.width===1024)await page.screenshot({path:'test-results/assessment-'+browserType.name()+'-1024-tracker.png'});
+   await trackerRow.locator('summary').first().click();
+   assert.equal(await trackerRow.getAttribute('open'),'','Details opens on tap');
+   assert.ok(await trackerRow.locator('[data-tracker-paper]').isVisible(),'Existing practice paper action is preserved');
+   const resource=trackerRow.locator('.assessment-tracker-resources');
+   if(await resource.count()){
+     await resource.locator('summary').click();
+     assert.ok(await resource.locator('a:visible').count()>0,'Existing Notes and Practice links can still be reached');
+   }
+   if(viewport.width===1024)await page.screenshot({path:'test-results/assessment-'+browserType.name()+'-1024-tracker-details.png'});
+   await trackerRow.locator('summary').first().click();
+   assert.equal(await trackerRow.getAttribute('open'),null,'Details collapses again');
    await page.locator('.tabs button[data-tab="papers"]').click();
    await page.locator('#paper-list [data-paper="biology-nov2"]').click();
    await page.locator('#exam .question').waitFor({timeout:30000});
