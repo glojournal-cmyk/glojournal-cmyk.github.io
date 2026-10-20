@@ -63,7 +63,7 @@ async function checkFixture(browser,engine,kind,viewport){
     if(new URL(route.request().url()).searchParams.has('fixture'))return route.fulfill({status:200,contentType:'text/html',body:fixture(kind)});
     return route.continue();
   });
-  await page.goto(base+'/study/french/practise/?fixture='+kind,{waitUntil:'load'});
+  await page.goto(base+'/study/french/practise/?daily=1&fixture='+kind,{waitUntil:'load'});
   await page.waitForFunction(()=>document.documentElement.classList.contains('lux-daily-ux-ready'),null,{timeout:12000});
   await page.waitForSelector('[data-lux-question-card]');
   const details=await page.evaluate(()=>{
@@ -91,6 +91,8 @@ async function checkFixture(browser,engine,kind,viewport){
     };
   });
   assert.equal(details.headerHidden,true,'top bar should be hidden');
+  assert.equal(await page.evaluate(()=>document.documentElement.classList.contains('lux-daily-task-active')),true,'assigned Daily label must activate');
+  assert.equal(await page.locator('[data-lux-question-intro] > p:first-child').evaluate(el=>getComputedStyle(el,'::before').content),'"DAILY PRACTICE"','approved label is displayed');
   assert.deepEqual(details.navLabels,['⌂Home','▣Study','◇Play','♧Garden','♧Pet','▤Assessment','✎Scholar']);
   assert.match(details.navCurrent,/Study/);
   assert.ok(Number(details.promptWeight)>=700,'prompt must be bold');
