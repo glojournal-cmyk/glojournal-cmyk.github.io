@@ -355,6 +355,7 @@ if (!window.__luxRpgLiveHome) {
     scholar.decoding = 'sync';
     if (!scholar.dataset.errorHandlerInstalled) {
       scholar.dataset.errorHandlerInstalled = '1';
+      scholar.addEventListener('load', () => { scholar.style.visibility = 'visible'; });
       scholar.addEventListener('error', () => {
         if (scholar.dataset.fallbackArt) return;
         scholar.dataset.fallbackArt = 'true';
@@ -365,7 +366,9 @@ if (!window.__luxRpgLiveHome) {
     if (scholar.getAttribute('data-outfit-source') !== desiredScholarArt) {
       delete scholar.dataset.fallbackArt;
       scholar.dataset.outfitSource = desiredScholarArt;
+      scholar.style.visibility = 'hidden';
       scholar.src = desiredScholarArt;
+      if (scholar.complete && scholar.naturalWidth > 0) scholar.style.visibility = 'visible';
     }
     const pet = petState();
     const species = safeImage(pet.species || 'moss-hornling','moss-hornling');
