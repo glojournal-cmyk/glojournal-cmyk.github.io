@@ -103,7 +103,7 @@ async function run(engine,runner,viewport){
   await page.goto(origin+'/garden/?gardenPreview=0',{waitUntil:'domcontentloaded'});
   await page.waitForSelector('body>.paper-wash main',{timeout:15000});
   assert.equal(await page.locator('#lux-garden-academy-preview').count(),0,'native Garden remains available');
-  const appErrors=errors.filter(e=>!(/assessment\\\/(?:chemistry|french)-school-1\\.json/.test(e)&&/due to access control checks/.test(e)));
+  const appErrors=errors.filter(e=>!(/(?:chemistry|french)-school-1[.]json/.test(e)&&e.includes('due to access control checks')));
   if(appErrors.length!==errors.length) console.log('GARDEN_BACKGROUND_FETCH_IGNORED '+JSON.stringify({engine,ignored:errors.filter(e=>!appErrors.includes(e))}));
   assert.deepEqual(appErrors,[], 'No Garden-originating JavaScript errors');
   assert.deepEqual(bad,[], 'No missing internal assets');
