@@ -169,8 +169,9 @@ try{
           // Home mounts both the original React nav and the RPG nav.
           // Only the RPG nav is frontmost/tappable; a generic :visible match
           // can select an underlying original link behind the new Home.
-          const studyNav=target.name==='Home'
-            ? page.locator('html.lux-rpg-live-active #lux-rpg-live-home .rpg-nav-live a[href="/study"]')
+          const homeLive=target.name==='Home' && await page.locator('html.lux-rpg-live-active #lux-rpg-live-home .rpg-nav-live a[href="/study"]:visible').count()>0;
+          const studyNav=homeLive
+            ? page.locator('html.lux-rpg-live-active #lux-rpg-live-home .rpg-nav-live a[href="/study"]:visible')
             : page.locator('a[href="/study"]:visible, a[href="/study/"]:visible');
           // On first Home paint the RPG nav exists but is hidden until the
           // approved scene takes over. Do not click its invisible placeholder.
