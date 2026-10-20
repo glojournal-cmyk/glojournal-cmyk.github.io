@@ -35,7 +35,7 @@ for(const browserType of [chromium,webkit]){
    assert.ok(await page.locator('#subject-bar button[data-subject="Biology"].on').count()===1,'Upcoming Biology is the new default only for fresh sessions');
    await page.locator('#paper-list [data-paper="biology-nov2"]').waitFor();
    await page.locator('.assessment-rpg-scene-brand').waitFor();
-   assert.equal(await page.locator('.assessment-rpg-cast img').count(),1,'Show the outfit-synced standing Scholar in the scene');
+   assert.equal(await page.locator('.assessment-rpg-cast').count(),0,'Assessment pages must not create a Scholar avatar');
    assert.equal(await page.locator('.lux-shell-nav a').count(),7,'Keep shared bottom nav');
    const rows=page.locator('#paper-list .assessment-paper-row');
    assert.equal(await rows.count(),4,'Biology retains all four real existing assessment papers');
@@ -46,6 +46,13 @@ for(const browserType of [chromium,webkit]){
      assert.ok(Math.abs(bounds[j].w-bounds[0].w)<2,'All assessment rows are the same full width');
    }
    assert.ok(bounds.every(b=>b.scroll<=b.w+3),'No horizontal overflow of title, metadata or buttons');
+   assert.ok(bounds.every(b=>b.h<=82),'Keep each assessment row to two lines');
+   const rowInfo=await rows.evaluateAll(list=>list.map(el=>{
+     const info=el.querySelector('.assessment-paper-info');
+     const visible=[...info.children].filter(x=>getComputedStyle(x).display!=='none');
+     return {visible:visible.length,heading:!!info.querySelector('h3'),meta:!!info.querySelector('p')};
+   }));
+   assert.ok(rowInfo.every(r=>r.visible===2&&r.heading&&r.meta),'Only title and brief metadata must be displayed per paper');
    if(viewport.width===1024){
      const navTop=await page.locator('.lux-shell-nav').evaluate(el=>el.getBoundingClientRect().top);
      const last= bounds[bounds.length-1];
@@ -62,6 +69,12 @@ for(const browserType of [chromium,webkit]){
    assert.equal(await page.locator('#paper-list .assessment-paper-row').count(),4,'Every Biology assessment remains a compact single row');
    assert.ok(!(await page.locator('#paper-list').innerText()).includes('16 November'),'Outdated 16 November school date should not appear');
    if(viewport.width===1024)await page.screenshot({path:'test-results/assessment-'+browserType.name()+'-1024-home.png'});
+   await page.locator('.tabs button[data-tab="tracker"]').click();
+   await page.locator('#tracker-list .entry').first().waitFor();
+   assert.ok(await page.locator('#tracker-list .entry').count()>0,'School Tracker must show school assessment entries');
+   assert.ok(await page.locator('#track-form').count()===1,'Tracker add/result form remains');
+   if(viewport.width===1024)await page.screenshot({path:'test-results/assessment-'+browserType.name()+'-1024-tracker.png'});
+   await page.locator('.tabs button[data-tab="papers"]').click();
    await page.locator('#paper-list [data-paper="biology-nov2"]').click();
    await page.locator('#exam .question').waitFor({timeout:30000});
    assert.equal(await page.locator('.assessment-rpg-cast').isVisible(),false,'Hide the standing avatar while answering a timed paper');
@@ -88,6 +101,34 @@ for(const browserType of [chromium,webkit]){
    await page.locator('#exam .question').waitFor({timeout:30000});
    const retained=await page.evaluate(()=>JSON.parse(localStorage.getItem('lux-assessment-v1')||'{}')?.drafts?.['biology-nov2']?.answers?.[0]);
    assert.equal(retained,saved,'Resume must preserve typed/MC answers');
+   await page.locator('#exam #exit').click();
+   // Populate Results only inside this disposable Playwright browser context.
+   // This is fictional demonstration data; never modify any user's records.
+   await page.evaluate(() => {
+     const key='lux-assessment-v1';
+     const state=JSON.parse(localStorage.getItem(key)||'{}');
+     state.results=[
+       ...(state.results||[]),
+       {date:'15/10/2026',paper:'Biology · Cell structure (sample)',paperId:'qa-sample-biology',
+        correct:18,marks:18,total:20,score:90,questions:[],answers:{}},
+       {date:'12/10/2026',paper:'Latin · Verbs (sample)',paperId:'qa-sample-latin',
+        correct:14,marks:14,total:20,score:70,questions:[],answers:{}}
+     ];
+     localStorage.setItem(key,JSON.stringify(state));
+   });
+   await page.reload({waitUntil:'domcontentloaded'});
+   await page.locator('.tabs button[data-tab="history"]').click();
+   await page.locator('#history-list .entry').first().waitFor();
+   assert.equal(await page.locator('#history-list .entry').count(),2,'Preview Results demonstrates two test records');
+   const hint=await page.evaluate(()=>{
+     const p=document.createElement('p');
+     p.className='assessment-qa-demo';
+     p.textContent='QA PREVIEW · SAMPLE RESULTS ONLY — NOT REAL LEARNER DATA';
+     document.querySelector('#history h2').after(p);
+     return p.textContent;
+   });
+   assert.ok(hint.includes('SAMPLE RESULTS'));
+   if(viewport.width===1024)await page.screenshot({path:'test-results/assessment-'+browserType.name()+'-1024-results.png'});
    assert.deepEqual(errors,[],'No uncaught JavaScript errors');
    report.push({engine:browserType.name(),width:viewport.width,subjects:groups.length,questionType:choiceCount?'multiple-choice':'written',saved:true});
    await context.close();
