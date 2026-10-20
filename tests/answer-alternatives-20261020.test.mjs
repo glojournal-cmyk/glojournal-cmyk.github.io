@@ -54,7 +54,7 @@ for(const file of fs.readdirSync("content/topics").filter(f=>f.endsWith(".json")
   if(result.length>new Set(accepted).size)counts.expandedQuestions++;
   else if(["typed_equivalent","typed_short","typed_exact","controlled_translation"].includes(question.format)){
    counts.unresolvedQuestions++;
-   if(flagged.length<80)flagged.push({file,id:question.id,format:question.format,accepted:accepted.slice(0,2),prompt:String(question.prompt).slice(0,80)});
+   if(flagged.length<160)flagged.push({file,id:question.id,format:question.format,accepted:accepted.slice(0,2),prompt:String(question.prompt).slice(0,80)});
   }
  }
 }
@@ -69,4 +69,5 @@ for(const file of fs.readdirSync("assessment").filter(f=>f.endsWith(".json"))) {
 fs.mkdirSync("test-results",{recursive:true});
 fs.writeFileSync("test-results/answer-alternatives-audit-20261020.json",JSON.stringify({counts,formats,flagged},null,2));
 console.log("ANSWER_ALTERNATIVES_AUDIT "+JSON.stringify({counts,formats,sample:flagged.slice(0,10)}));
+console.log("ANSWER_ALTERNATIVES_FLAGS "+JSON.stringify(flagged));
 console.log("PASS "+cases.length+" regression cases across Daily/Practice/Assessment candidate lists");
