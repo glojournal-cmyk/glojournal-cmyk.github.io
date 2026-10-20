@@ -3829,3 +3829,8 @@ if(typeof document!=='undefined') {
 }
 
 if(typeof window!=="undefined"&&window.addEventListener){window.addEventListener("scholar:learning-changed",normalizeState);window.addEventListener("storage",e=>{if(e.key==="lux-topic-learning-v1")normalizeState()});}
+
+/* iPad Daily Practice keyboard visibility (UI-only module). */
+if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+  import('/assets/daily-keyboard-safe-20261020.js?v=1').catch(() => {});
+}
