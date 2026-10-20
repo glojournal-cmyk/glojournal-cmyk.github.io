@@ -181,15 +181,21 @@ try{
           // link. Keep the :visible requirement, but don't require a motionless
           // rectangle before dispatching the real pointer event.
           if (target.name === 'Home') {
-            // The legacy Home rail may be visibly rendered beneath the active
-            // RPG scene. Trigger the canonical top-level Study navigation
-            // through the document's shared route bridge, not a force-click
-            // on an occluded link (which bypasses normal hit testing).
-            await page.evaluate(() => {
-              const live=document.querySelector('#lux-rpg-live-home .rpg-nav-live a[href="/study"]');
-              const fallback=[...document.querySelectorAll('a[href="/study"],a[href="/study/"]')].find(a=>a.getBoundingClientRect().width>0);
-              (live||fallback)?.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,button:0}));
+            // Exercise a real pointer tap on the frontmost visible navigation
+            // rather than force-clicking a possibly occluded React link.
+            const coordinates=await page.evaluate(() => {
+              const anchors=[...document.querySelectorAll('a[href="/study"],a[href="/study/"]')];
+              for(const a of anchors.reverse()){
+                const r=a.getBoundingClientRect();
+                if(r.width<4||r.height<4)continue;
+                const x=r.left+r.width/2,y=r.top+r.height/2;
+                const top=document.elementFromPoint(x,y);
+                if(top && (a===top||a.contains(top)))return {x,y};
+              }
+              return null;
             });
+            assert.ok(coordinates,'Home Study link must be frontmost and tappable');
+            await page.mouse.click(coordinates.x,coordinates.y);
           } else {
             await studyNav.last().click({force:true,timeout:20000});
           }
