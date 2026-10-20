@@ -2,11 +2,14 @@ name: Daily Vocab iPad landscape QA
 on:
   pull_request:
     paths:
+      - "index.html"
       - "assets/index-BLVOhKhN.js"
+      - "assets/year8-daily-v2-20261018.js"
       - "assets/daily-vocab-total-20261020.js"
       - "assets/quiz-session-y8fix-20260920.js"
       - "assets/session-reflection-20261004.js"
       - "tests/daily-vocab-ipad-20261020.mjs"
+      - "tests/daily-vocab-total-20261020.test.mjs"
       - ".github/workflows/daily-vocab-ipad-20261020.yml"
   workflow_dispatch:
 permissions:
@@ -22,11 +25,15 @@ jobs:
           node-version: "22"
       - run: npm install --no-save playwright
       - run: npx playwright install --with-deps chromium webkit
+      - name: Regress 13/30 iPad French historical answer evidence
+        run: node --test tests/daily-vocab-total-20261020.test.mjs
       - name: Test 28 plus two answers through home and Practice on iPad
         run: node tests/daily-vocab-ipad-20261020.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: daily-vocab-ipad-landscape
-          path: test-results/daily-vocab-ipad-*.png
+          path: |
+            test-results/daily-vocab-ipad-*.png
+            test-results/daily-vocab-home-repaired-*.png
           if-no-files-found: ignore
