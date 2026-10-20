@@ -1908,16 +1908,759 @@
       },
       "preview": true,
       "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-001",
+      "conceptId": "phys-y9-p5-gcse-oct20-001-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "A Leslie cube contains hot water. Its sides are matt black, dull white and shiny silver. Predict which emits most infrared and explain why. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Matt black should give the strongest infrared reading.",
+          "Matt black surfaces are good emitters of infrared.",
+          "The faces must be compared at approximately the same temperature."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Matt black should give the strongest infrared reading. Matt black surfaces are good emitters of infrared. The faces must be compared at approximately the same temperature."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "The faces must be compared at approximately the same temperature.",
+        "steps": [
+          "Matt black should give the strongest infrared reading.",
+          "Matt black surfaces are good emitters of infrared.",
+          "The faces must be compared at approximately the same temperature."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Matt black should give the strongest infrared reading.; Matt black surfaces are good emitters of infrared.; The faces must be compared at approximately the same temperature."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-002",
+      "conceptId": "phys-y9-p5-gcse-oct20-002-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "Design a fair test using a Leslie cube and infrared detector to investigate surface finish. (5 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Fill the cube with hot water to heat all faces.",
+          "Place the detector the same distance from each face.",
+          "Keep the detector angle or orientation consistent.",
+          "Measure radiation from each different surface.",
+          "Record or repeat readings and compare under similar temperature conditions."
+        ],
+        "totalMarks": 5,
+        "modelAnswer": "Fill the cube with hot water to heat all faces. Place the detector the same distance from each face. Keep the detector angle or orientation consistent. Measure radiation from each different surface. Record or repeat readings and compare under similar temperature conditions."
+      },
+      "stimulus": {
+        "marks": 5
+      },
+      "feedback": {
+        "short": "Record or repeat readings and compare under similar temperature conditions.",
+        "steps": [
+          "Fill the cube with hot water to heat all faces.",
+          "Place the detector the same distance from each face.",
+          "Keep the detector angle or orientation consistent.",
+          "Measure radiation from each different surface.",
+          "Record or repeat readings and compare under similar temperature conditions."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Fill the cube with hot water to heat all faces.; Place the detector the same distance from each face.; Keep the detector angle or orientation consistent.; Measure radiation from each different surface.; Record or repeat readings and compare under similar temperature conditions."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-003",
+      "conceptId": "phys-y9-p5-gcse-oct20-003-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "Explain why it is important to hold an infrared detector at the same distance from each Leslie-cube face. (2 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Infrared intensity received by the detector varies with distance.",
+          "Using the same distance makes surface finish the only intended variable."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Infrared intensity received by the detector varies with distance. Using the same distance makes surface finish the only intended variable."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Using the same distance makes surface finish the only intended variable.",
+        "steps": [
+          "Infrared intensity received by the detector varies with distance.",
+          "Using the same distance makes surface finish the only intended variable."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Infrared intensity received by the detector varies with distance.; Using the same distance makes surface finish the only intended variable."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-004",
+      "conceptId": "phys-y9-p5-gcse-oct20-004-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "Two identical containers are black and shiny silver. Explain which is likely to cool faster by infrared emission in the same surroundings. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "The matt black container is the better infrared emitter.",
+          "It can radiate energy away faster at the same temperature.",
+          "The shiny silver surface emits infrared at a lower rate."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "The matt black container is the better infrared emitter. It can radiate energy away faster at the same temperature. The shiny silver surface emits infrared at a lower rate."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "The shiny silver surface emits infrared at a lower rate.",
+        "steps": [
+          "The matt black container is the better infrared emitter.",
+          "It can radiate energy away faster at the same temperature.",
+          "The shiny silver surface emits infrared at a lower rate."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "The matt black container is the better infrared emitter.; It can radiate energy away faster at the same temperature.; The shiny silver surface emits infrared at a lower rate."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-005",
+      "conceptId": "phys-y9-p5-gcse-oct20-005-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "A polished foil sheet is placed behind a radiator. Explain how it can help heat the room. (2 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "The shiny sheet reflects infrared radiation.",
+          "It directs more radiation back into the room rather than towards the wall."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The shiny sheet reflects infrared radiation. It directs more radiation back into the room rather than towards the wall."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "It directs more radiation back into the room rather than towards the wall.",
+        "steps": [
+          "The shiny sheet reflects infrared radiation.",
+          "It directs more radiation back into the room rather than towards the wall."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "The shiny sheet reflects infrared radiation.; It directs more radiation back into the room rather than towards the wall."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-006",
+      "conceptId": "phys-y9-p5-gcse-oct20-006-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "A student says that only hot objects emit infrared radiation. Explain why this is wrong. (2 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "All objects above absolute zero emit thermal radiation.",
+          "Hotter objects generally emit infrared or thermal radiation at a higher rate."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "All objects above absolute zero emit thermal radiation. Hotter objects generally emit infrared or thermal radiation at a higher rate."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Hotter objects generally emit infrared or thermal radiation at a higher rate.",
+        "steps": [
+          "All objects above absolute zero emit thermal radiation.",
+          "Hotter objects generally emit infrared or thermal radiation at a higher rate."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "All objects above absolute zero emit thermal radiation.; Hotter objects generally emit infrared or thermal radiation at a higher rate."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-007",
+      "conceptId": "phys-y9-p5-gcse-oct20-007-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "Explain how thermal energy from the Sun reaches Earth through nearly empty space. (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Radiation is carried by electromagnetic waves.",
+          "Electromagnetic radiation can travel through a vacuum without particles."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Radiation is carried by electromagnetic waves. Electromagnetic radiation can travel through a vacuum without particles."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Electromagnetic radiation can travel through a vacuum without particles.",
+        "steps": [
+          "Radiation is carried by electromagnetic waves.",
+          "Electromagnetic radiation can travel through a vacuum without particles."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Radiation is carried by electromagnetic waves.; Electromagnetic radiation can travel through a vacuum without particles."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-008",
+      "conceptId": "phys-y9-p5-gcse-oct20-008-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "Explain why a shiny emergency blanket can reduce heat loss by radiation. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "The shiny surface has low emissivity.",
+          "It reflects thermal radiation back towards the person.",
+          "It reduces net energy transfer by infrared radiation."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "The shiny surface has low emissivity. It reflects thermal radiation back towards the person. It reduces net energy transfer by infrared radiation."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "It reduces net energy transfer by infrared radiation.",
+        "steps": [
+          "The shiny surface has low emissivity.",
+          "It reflects thermal radiation back towards the person.",
+          "It reduces net energy transfer by infrared radiation."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "The shiny surface has low emissivity.; It reflects thermal radiation back towards the person.; It reduces net energy transfer by infrared radiation."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-009",
+      "conceptId": "phys-y9-p5-gcse-oct20-009-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "An infrared camera shows different apparent temperatures on painted and polished surfaces. Give one reason the readings may be misleading and one remedy. (2 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Surface emissivity differs, so apparent temperatures may not equal actual temperatures.",
+          "Calibrate for emissivity or use comparable surface finishes when measuring temperature."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Surface emissivity differs, so apparent temperatures may not equal actual temperatures. Calibrate for emissivity or use comparable surface finishes when measuring temperature."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Calibrate for emissivity or use comparable surface finishes when measuring temperature.",
+        "steps": [
+          "Surface emissivity differs, so apparent temperatures may not equal actual temperatures.",
+          "Calibrate for emissivity or use comparable surface finishes when measuring temperature."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Surface emissivity differs, so apparent temperatures may not equal actual temperatures.; Calibrate for emissivity or use comparable surface finishes when measuring temperature."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-010",
+      "conceptId": "phys-y9-p5-gcse-oct20-010-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "A Leslie-cube experiment produces higher infrared readings after the water is heated more. Explain the relationship. (2 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Higher temperature causes surfaces to emit thermal radiation at a greater rate.",
+          "Detector readings generally increase if distance and surface finish remain constant."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Higher temperature causes surfaces to emit thermal radiation at a greater rate. Detector readings generally increase if distance and surface finish remain constant."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Detector readings generally increase if distance and surface finish remain constant.",
+        "steps": [
+          "Higher temperature causes surfaces to emit thermal radiation at a greater rate.",
+          "Detector readings generally increase if distance and surface finish remain constant."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Higher temperature causes surfaces to emit thermal radiation at a greater rate.; Detector readings generally increase if distance and surface finish remain constant."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-011",
+      "conceptId": "phys-y9-p5-gcse-oct20-011-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "A student compares black paint and silver foil, but the detector is nearer the black surface. Explain the flaw. (2 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Detector distance was not controlled.",
+          "The different readings cannot be assigned only to surface finish."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Detector distance was not controlled. The different readings cannot be assigned only to surface finish."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The different readings cannot be assigned only to surface finish.",
+        "steps": [
+          "Detector distance was not controlled.",
+          "The different readings cannot be assigned only to surface finish."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Detector distance was not controlled.; The different readings cannot be assigned only to surface finish."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-012",
+      "conceptId": "phys-y9-p5-gcse-oct20-012-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "Compare an object's ability to absorb and reflect infrared radiation when its surface is matt black versus shiny silver. (4 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Matt black is a good infrared absorber.",
+          "Matt black is a poor infrared reflector.",
+          "Shiny silver is a poorer infrared absorber.",
+          "Shiny silver is a better infrared reflector."
+        ],
+        "totalMarks": 4,
+        "modelAnswer": "Matt black is a good infrared absorber. Matt black is a poor infrared reflector. Shiny silver is a poorer infrared absorber. Shiny silver is a better infrared reflector."
+      },
+      "stimulus": {
+        "marks": 4
+      },
+      "feedback": {
+        "short": "Shiny silver is a better infrared reflector.",
+        "steps": [
+          "Matt black is a good infrared absorber.",
+          "Matt black is a poor infrared reflector.",
+          "Shiny silver is a poorer infrared absorber.",
+          "Shiny silver is a better infrared reflector."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Matt black is a good infrared absorber.; Matt black is a poor infrared reflector.; Shiny silver is a poorer infrared absorber.; Shiny silver is a better infrared reflector."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-013",
+      "conceptId": "phys-y9-p5-gcse-oct20-013-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "Explain how an object can both absorb and emit infrared radiation at the same time. (3 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "It receives infrared radiation from its surroundings.",
+          "It emits its own infrared radiation.",
+          "Its net energy change depends on the rates absorbed and emitted."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "It receives infrared radiation from its surroundings. It emits its own infrared radiation. Its net energy change depends on the rates absorbed and emitted."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Its net energy change depends on the rates absorbed and emitted.",
+        "steps": [
+          "It receives infrared radiation from its surroundings.",
+          "It emits its own infrared radiation.",
+          "Its net energy change depends on the rates absorbed and emitted."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "It receives infrared radiation from its surroundings.; It emits its own infrared radiation.; Its net energy change depends on the rates absorbed and emitted."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-014",
+      "conceptId": "phys-y9-p5-gcse-oct20-014-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "Explain why a black solar-water-heating panel can absorb more energy by radiation than a shiny panel under the same sunlight. (2 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Dark matt surfaces absorb incident radiation well.",
+          "Shiny surfaces reflect a larger fraction of incident radiation away."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Dark matt surfaces absorb incident radiation well. Shiny surfaces reflect a larger fraction of incident radiation away."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Shiny surfaces reflect a larger fraction of incident radiation away.",
+        "steps": [
+          "Dark matt surfaces absorb incident radiation well.",
+          "Shiny surfaces reflect a larger fraction of incident radiation away."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Dark matt surfaces absorb incident radiation well.; Shiny surfaces reflect a larger fraction of incident radiation away."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-015",
+      "conceptId": "phys-y9-p5-gcse-oct20-015-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "Suggest three control variables when comparing infrared emission from two painted metal plates. (3 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Use the same plate material and area.",
+          "Ensure the plates have the same temperature.",
+          "Keep detector distance and angle the same."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Use the same plate material and area. Ensure the plates have the same temperature. Keep detector distance and angle the same."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Keep detector distance and angle the same.",
+        "steps": [
+          "Use the same plate material and area.",
+          "Ensure the plates have the same temperature.",
+          "Keep detector distance and angle the same."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Use the same plate material and area.; Ensure the plates have the same temperature.; Keep detector distance and angle the same."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-016",
+      "conceptId": "phys-y9-p5-gcse-oct20-016-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "Explain why radiation from a heater can warm a person without first heating every air particle in between. (2 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Infrared travels as electromagnetic radiation.",
+          "It can transfer energy directly to the person's body when absorbed."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Infrared travels as electromagnetic radiation. It can transfer energy directly to the person's body when absorbed."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "It can transfer energy directly to the person's body when absorbed.",
+        "steps": [
+          "Infrared travels as electromagnetic radiation.",
+          "It can transfer energy directly to the person's body when absorbed."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Infrared travels as electromagnetic radiation.; It can transfer energy directly to the person's body when absorbed."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-017",
+      "conceptId": "phys-y9-p5-gcse-oct20-017-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "A black and white surface give detector readings of 84 units and 55 units at equal temperature. State the conclusion and one limitation. (2 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Under the conditions tested, the black surface produced the higher detector reading.",
+          "The result does not quantify absolute energy emitted unless the detector is calibrated."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Under the conditions tested, the black surface produced the higher detector reading. The result does not quantify absolute energy emitted unless the detector is calibrated."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The result does not quantify absolute energy emitted unless the detector is calibrated.",
+        "steps": [
+          "Under the conditions tested, the black surface produced the higher detector reading.",
+          "The result does not quantify absolute energy emitted unless the detector is calibrated."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Under the conditions tested, the black surface produced the higher detector reading.; The result does not quantify absolute energy emitted unless the detector is calibrated."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-018",
+      "conceptId": "phys-y9-p5-gcse-oct20-018-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mc_single",
+      "prompt": "Which pair correctly describes a highly polished silver surface?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "Good infrared reflector and poor infrared emitter.",
+        "Poor reflector and good infrared emitter.",
+        "Good emitter and good absorber.",
+        "Infrared cannot interact with silver."
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "Good infrared reflector and poor infrared emitter."
+        ]
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "Correct answer: Good infrared reflector and poor infrared emitter.",
+        "steps": [
+          "Correct answer: Good infrared reflector and poor infrared emitter."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Correct answer: Good infrared reflector and poor infrared emitter."
+      },
+      "task": {
+        "label": "CHOOSE",
+        "instruction": "Choose the one best answer."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p5-gcse-oct20-019",
+      "conceptId": "phys-y9-p5-gcse-oct20-019-concept",
+      "topicId": "phys-y9-p5",
+      "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
+      "format": "mark_points",
+      "prompt": "Explain why an object normally cools faster by radiation when its temperature is much higher than the surroundings. (2 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "The object emits infrared energy at a greater rate at higher temperatures.",
+          "It loses more energy than it absorbs from the cooler surroundings."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The object emits infrared energy at a greater rate at higher temperatures. It loses more energy than it absorbs from the cooler surroundings."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "It loses more energy than it absorbs from the cooler surroundings.",
+        "steps": [
+          "The object emits infrared energy at a greater rate at higher temperatures.",
+          "It loses more energy than it absorbs from the cooler surroundings."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "The object emits infrared energy at a greater rate at higher temperatures.; It loses more energy than it absorbs from the cooler surroundings."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
     }
   ],
-  "enabled": 46,
+  "enabled": 65,
   "preview": 0,
   "disabled": 0,
   "formats": {
-    "mc_single": 16,
+    "mc_single": 17,
     "typed_exact": 7,
     "spelling_restore": 8,
-    "mark_points": 10,
+    "mark_points": 28,
     "typed_short": 1,
     "matching": 2,
     "sorting": 1,
@@ -1995,7 +2738,8 @@
       "All objects emit and absorb infrared radiation. The hotter an object is, the greater the rate at which it emits infrared radiation.",
       "Surface finish affects infrared behaviour. Dark, matt surfaces are generally good absorbers and good emitters; light, shiny surfaces are generally poor absorbers and emitters and are good reflectors of infrared.",
       "A Leslie cube demonstrates that different surface finishes at the same temperature emit infrared at different rates. The comparison must be made with surfaces at the same temperature and with the detector held at a consistent distance and orientation.",
-      "Infrared radiation is an electromagnetic wave, so it can transfer energy through a vacuum. This distinguishes radiation from conduction and convection, which require matter."
+      "Infrared radiation is an electromagnetic wave, so it can transfer energy through a vacuum. This distinguishes radiation from conduction and convection, which require matter.",
+      "When comparing Leslie-cube faces, maintain the same detector distance and orientation so the surface finish, not the measurement geometry, explains the difference. An infrared detector is sensitive to surface emissivity."
     ],
     "examTips": [
       "For Leslie-cube questions, mention same temperature, same distance and the effect of surface finish on emission.",
