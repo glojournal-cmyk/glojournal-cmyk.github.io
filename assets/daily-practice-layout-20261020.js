@@ -61,10 +61,10 @@
         .find(el => !el.querySelector("[data-question-id]") && /^This daily task is locked to /.test((el.textContent || "").trim()));
       if (lockCandidate) lockCandidate.setAttribute("data-lux-daily-lock","");
       const lockText = (lockCandidate?.textContent || "").trim();
-      const match = lockText.match(/^This daily task is locked to (.+?)\\. Finish/i);
+      const match = lockText.match(/^This daily task is locked to (.+?)\. Finish/i);
       const topicSummary = document.querySelector(".lux-practice-view .study-topic-picker summary")?.textContent?.trim() || "";
       const topic = match?.[1] || (topicSummary.startsWith("Topic: ") ? topicSummary.slice(7).trim() : "");
-      const subject = (location.pathname.match(/^\\/study\\/([^/]+)/)?.[1] || "").replace(/^./, c=>c.toUpperCase());
+      const subject = (location.pathname.match(/^\/study\/([^/]+)/)?.[1] || "").replace(/^./, c=>c.toUpperCase());
       if (heading && topic && topic !== "All topics") {
         const desired = subject + " · " + topic;
         if (heading.getAttribute("data-lux-display-title") !== desired) {
@@ -74,7 +74,7 @@
       } else if (heading?.hasAttribute("data-lux-display-title")) {
         heading.removeAttribute("data-lux-display-title");
       }
-      const count = (intro.textContent || "").match(/Question\\s+(\\d+)\\s*\\/\\s*(\\d+)/i);
+      const count = (intro.textContent || "").match(/Question\s+(\d+)\s*\/\s*(\d+)/i);
       const countText = count ? count[1] + " / " + count[2] : "";
       if (intro.dataset.luxProgressCount !== countText) intro.dataset.luxProgressCount = countText;
       const review = intro.nextElementSibling;
