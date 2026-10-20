@@ -99,7 +99,7 @@ async function checkFixture(browser,engine,kind,viewport){
   assert.ok(details.pet.width>=38 && details.pet.width<=210,'pet artwork must be visible but compact');
   assert.ok(details.decorativeBackground.includes('daily-practice-botanical-frame'),'decorative frame must be present');
   if(kind==='tiles'){
-    assert.match(details.tileInk,/rgb\\(255, 249, 238\\)/,'letter tile needs light readable text');
+    assert.equal(details.tileInk,'rgb(255, 249, 238)','letter tile needs light readable text');
     assert.ok(details.submitButton?.width>=160,'tile answer action needs prominent button');
     assert.ok(details.submitButton.y<=details.tileButton.y+20,'answer button must line up with tiles');
   }
