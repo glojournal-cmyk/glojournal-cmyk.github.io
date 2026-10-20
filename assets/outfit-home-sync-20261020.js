@@ -12,8 +12,7 @@ import { A as outfits, C as store } from './index-BLVOhKhN.js?v=20261018-mastery
     const look = outfits.find(o => o.id === id) || outfits.find(o => o.id === 'day');
     if (!look?.art) return;
     const hero = [...main.querySelectorAll('img')].find(img =>
-      img.classList.contains('scholar-idle') &&
-      (img.getAttribute('src') || '').includes('/art/doll/'));
+      img.classList.contains('scholar-idle'));
     if (!hero) return;
     const current = new URL(hero.getAttribute('src') || '', location.href).href;
     const desired = new URL(look.art, location.href).href;
