@@ -23,7 +23,7 @@ const context=vm.createContext({
   shiftDay:()=> '2026-10-02',awardFirstTopicMastery(){throw Error('Unexpected mastery');},awardMasteryRetention(){throw Error('Unexpected retention award');},
 });
 vm.runInContext(fs.readFileSync('assets/weekly-evidence-20261004.js','utf8'),context);
-for(const [start,end] of [['function focusAttemptsToday(','const DAILY_VOCAB_TARGET'],['function topicAttemptsToday(','function year8ReviewPlan('],['function patchedRecordAttempt(','function recordDailyVocabAttempt(']]){
+for(const [start,end] of [['function focusAttemptsToday(','function vocabGateState('],['function topicAttemptsToday(','function year8ReviewPlan('],['function patchedRecordAttempt(','function recordDailyVocabAttempt(']]){
   const from=src.indexOf(start),to=src.indexOf(end,from);assert.ok(from>=0&&to>from);vm.runInContext(src.slice(from,to),context);
 }
 const focus={subject:'french',topicId:topic};
