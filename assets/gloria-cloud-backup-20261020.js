@@ -51,10 +51,18 @@ async function readConfig(){return withStore("readonly",obj=>obj.get(SLOT))}
 async function storeConfig(config){return withStore("readwrite",obj=>obj.put(config,SLOT))}
 export async function encryptBackup(payload,key,keyId){
  const iv=crypto.getRandomValues(new Uint8Array(12));
- const clear=enc.encode(JSON.stringify(payload));
+ let clear=enc.encode(JSON.stringify(payload)),compression="none";
+ // Compress repetitive practice history BEFORE encryption to reduce quota/network use.
+ if(typeof CompressionStream==="function"){
+  try{
+   const stream=new Blob([clear]).stream().pipeThrough(new CompressionStream("gzip"));
+   const gz=new Uint8Array(await new Response(stream).arrayBuffer());
+   if(gz.length<clear.length){clear=gz;compression="gzip"}
+  }catch{} // In older browsers retain valid, uncompressed AES-GCM.
+ }
  const sealed=new Uint8Array(await crypto.subtle.encrypt({name:"AES-GCM",iv},key,clear));
  const ciphertext=b64url(sealed);
- return {format:"gloria-encrypted-v1",version:1,keyId,
+ return {format:"gloria-encrypted-v1",version:1,keyId,compression,
    savedAt:new Date().toISOString(),iv:b64url(iv),ciphertext,
    contentSha256:await digest(enc.encode(ciphertext))};
 }
@@ -65,7 +73,12 @@ export async function decryptBackup(envelope,recoveryKey){
  const keyId=(await digest(secret)).slice(0,16);
  if(keyId!==envelope.keyId)throw Error("This recovery key does not match the backup");
  const key=await crypto.subtle.importKey("raw",secret,{name:"AES-GCM"},false,["decrypt"]);
- const plain=await crypto.subtle.decrypt({name:"AES-GCM",iv:unb64(envelope.iv)},key,unb64(envelope.ciphertext));
+ let plain=new Uint8Array(await crypto.subtle.decrypt({name:"AES-GCM",iv:unb64(envelope.iv)},key,unb64(envelope.ciphertext)));
+ if(envelope.compression==="gzip"){
+  if(typeof DecompressionStream!=="function")throw Error("Gzip recovery is unsupported on this device");
+  const stream=new Blob([plain]).stream().pipeThrough(new DecompressionStream("gzip"));
+  plain=new Uint8Array(await new Response(stream).arrayBuffer());
+ }else if(envelope.compression&&envelope.compression!=="none")throw Error("Unknown backup compression");
  const payload=JSON.parse(dec.decode(plain));
  if(payload?.app!=="gloria-cloud-snapshot"||payload?.main?.app!=="lux-scholar-garden"||
     !Array.isArray(payload.main?.state?.daily))throw Error("Invalid decrypted Scholar Garden data");
