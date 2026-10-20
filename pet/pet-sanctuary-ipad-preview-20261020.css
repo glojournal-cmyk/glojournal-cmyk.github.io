@@ -1,0 +1,585 @@
+/* Lux et Labor — Pet Companion Sanctuary iPad preview
+   Presentation layer only: preserves every existing Pet, Level 1–10 sprite,
+   MP wallet, bond/care activities, storage key, dialog, and evolution logic.
+   Activated by ?petPreview=1; existing production Pet remains unchanged. */
+body.lux-shell-on.pet-sanctuary-preview{
+ --sanctuary-ink:#162f40;--sanctuary-navy:#1a3342;
+ --sanctuary-gold:#e4c38c;--sanctuary-cream:#fcf4e5;
+ color:#fdf6e8;
+ background:
+ linear-gradient(90deg,rgba(19,34,39,.41),rgba(20,40,45,.48) 55%,rgba(12,28,38,.69)),
+ url('/art/study-rpg/magic-floor.jpg') center bottom/cover fixed no-repeat !important;
+}
+body.pet-sanctuary-preview .pet-shell{
+ width:calc(100% - 36px);max-width:1440px;
+ margin:0 auto;padding:clamp(15px,2.1vh,23px) 0 112px;
+}
+body.pet-sanctuary-preview .pet-page-intro{margin:0 0 12px;position:relative}
+body.pet-sanctuary-preview .pet-page-intro .pet-kicker{
+ font:600 .71rem/1.1 'Source Sans 3',sans-serif;
+ letter-spacing:.19em;color:#e9cc91;margin:0 0 3px;
+}
+body.pet-sanctuary-preview .pet-page-intro h2{
+ font:700 clamp(1.75rem,2.9vw,2.5rem)/1 'Cormorant Garamond',Georgia,serif;
+ color:#fff3d9;text-shadow:0 3px 10px #172a3e8f;margin:0;
+}
+body.pet-sanctuary-preview .pet-hero{
+ display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+ gap:clamp(11px,1.5vw,18px);align-items:start;
+}
+/* Character stage — current species and actual equipped Level graphic. */
+body.pet-sanctuary-preview .pet-stage-card{
+ position:relative;isolation:isolate;display:flex;flex-direction:column;overflow:hidden;
+ min-height:535px;height:clamp(530px,70vh,610px);
+ padding:clamp(11px,1.6vw,20px);
+ background:radial-gradient(ellipse at 51% 36%,#fffae8 3%,#eaf1e4 48%,#d6e1d4 100%);
+ border:2px solid #edce92;border-radius:20px;
+ outline:1px solid #795934;box-shadow:0 0 0 3px #c59b57ad,0 16px 30px #0d1c2b87;
+}
+body.pet-sanctuary-preview .pet-stage-card::before{
+ content:'';inset:50px 8% 79px;position:absolute;
+ background:radial-gradient(ellipse at center,#fffdf196,transparent 70%);
+ border:1px solid #8ba89c50;border-radius:48% 48% 35% 35%;pointer-events:none;z-index:0;
+}
+body.pet-sanctuary-preview .pet-stage-card::after{
+ content:'';inset:7px;position:absolute;border:1px solid #a9a17d75;
+ border-radius:14px;pointer-events:none;
+}
+body.pet-sanctuary-preview .pet-stage-toolbar{position:relative;z-index:3;gap:10px}
+body.pet-sanctuary-preview .pet-current-badge{
+ border:1px solid #b8aa83;border-radius:30px;
+ background:#f4ead3da;color:#3c5c59;padding:6px 12px;
+ font-size:.69rem;letter-spacing:.05em;
+}
+body.pet-sanctuary-preview .pet-choose-button{
+ min-height:38px;padding:7px 13px;border:1px solid #d5b477;
+ border-radius:30px;font-size:.78rem;letter-spacing:0;text-transform:none;
+ background:#1b3849;color:#fff3d8;box-shadow:0 2px 7px #132a394e;
+}
+body.pet-sanctuary-preview .pet-choose-button::before{content:'◈';font-size:1.1rem;margin-right:6px;color:#e6ce96}
+body.pet-sanctuary-preview .pet-display{
+ flex:1;min-height:0;padding:0;display:grid;place-items:center;overflow:visible;
+}
+body.pet-sanctuary-preview .pet-aura{
+ width:min(78%,375px);height:min(78%,375px);
+ background:radial-gradient(circle,#f8e2a486,rgba(218,230,197,.21) 58%,transparent 78%);
+}
+body.pet-sanctuary-preview .pet-avatar{
+ width:min(370px,83%);aspect-ratio:1;
+ filter:drop-shadow(0 12px 11px #193c4957);
+}
+body.pet-sanctuary-preview .pet-avatar.stage-1{transform:scale(1)}
+body.pet-sanctuary-preview .pet-avatar.stage-2{transform:scale(1.02)}
+body.pet-sanctuary-preview .pet-avatar.stage-3{transform:scale(1.04)}
+body.pet-sanctuary-preview .pet-avatar.stage-4{transform:scale(1.06)}
+body.pet-sanctuary-preview .pet-avatar:is(.stage-5,.stage-6,.stage-7,.stage-8,.stage-9,.stage-10){transform:scale(1.08)}
+body.pet-sanctuary-preview .pet-stage-footer{
+ position:relative;z-index:2;display:block;flex:none;
+ padding:12px 15px;border:1px solid #d6b274;border-radius:12px;
+ background:#193849f4;color:#fff5e3;box-shadow:0 3px 12px #1c374357;
+}
+body.pet-sanctuary-preview .pet-title{
+ font:700 clamp(1.6rem,2.5vw,2.13rem)/1.02 'Cormorant Garamond',Georgia,serif;
+ margin:0 0 3px;color:#fff5e3;
+}
+body.pet-sanctuary-preview .pet-stage-label{
+ font:700 .73rem/1.25 'Source Sans 3',sans-serif;
+ color:#f2d295;letter-spacing:.09em;margin-top:2px;
+}
+body.pet-sanctuary-preview .pet-subtitle{font-size:.79rem;color:#dce6dc;margin:0;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.pet-sanctuary-preview #stageNote{display:none}
+/* Sidebar — use both real Care and Growth panels; avoid a fake overlay. */
+body.pet-sanctuary-preview .pet-side{display:flex;flex-direction:column;gap:10px;min-width:0}
+body.pet-sanctuary-preview .pet-side-nav{
+ display:flex;align-items:center;min-height:39px;gap:8px;border:0;
+}
+body.pet-sanctuary-preview .pet-side-nav a,
+body.pet-sanctuary-preview .pet-side-nav button{
+ display:inline-flex;align-items:center;justify-content:center;
+ min-height:35px;padding:6px 16px;border:1px solid #ddc18a9a;
+ border-radius:24px;background:#193646ed;color:#fff0d6;
+ font:700 .77rem/1 'Source Sans 3',sans-serif;letter-spacing:0;text-transform:none;text-decoration:none;
+}
+body.pet-sanctuary-preview .pet-side-nav a:first-child{border-color:#ffdfab;background:#faf0da;color:#1b3748}
+body.pet-sanctuary-preview .pet-side-nav :is(a,button):hover{background:#385763;color:#fff}
+body.pet-sanctuary-preview .pet-side-nav :is(a,button):focus-visible{outline:3px solid #ffd993;outline-offset:3px}
+body.pet-sanctuary-preview .pet-panel{
+ background:#fff8eafa;border:1.5px solid #e2c289;color:var(--sanctuary-ink);
+ border-radius:15px;box-shadow:0 0 0 2px #84663d65,0 7px 20px #13283b58;
+}
+body.pet-sanctuary-preview .pet-panel h2{
+ font:700 clamp(1.25rem,1.9vw,1.58rem)/1.04 'Cormorant Garamond',Georgia,serif;
+ color:#1b3b4e;margin:0;
+}
+body.pet-sanctuary-preview .pet-side .pet-kicker{display:none}
+body.pet-sanctuary-preview .pet-care-panel{padding:12px 15px 11px}
+body.pet-sanctuary-preview .pet-care-head{align-items:center;gap:9px}
+body.pet-sanctuary-preview .pet-care-badges{display:flex;gap:5px}
+body.pet-sanctuary-preview .pet-care-tier{display:none}
+body.pet-sanctuary-preview .pet-care-mood{min-width:0;gap:6px;padding:4px 8px;border-radius:12px}
+body.pet-sanctuary-preview .pet-care-mood-icon{height:23px;width:23px;font-size:.94rem}
+body.pet-sanctuary-preview .pet-care-mood small{font-size:.58rem}
+body.pet-sanctuary-preview .pet-care-mood strong{font-size:1rem}
+body.pet-sanctuary-preview .pet-care-meters{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:11px;
+}
+body.pet-sanctuary-preview .pet-care-meter{
+ min-width:0;padding:7px 9px;border:1px solid #e8dbc0;border-radius:9px;
+ background:#f5eee0;
+}
+body.pet-sanctuary-preview .pet-care-meter-head{font-size:.72rem;gap:4px;flex-wrap:wrap}
+body.pet-sanctuary-preview .pet-care-track{height:7px;margin-top:5px}
+body.pet-sanctuary-preview .pet-care-actions{
+ grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:10px;
+}
+body.pet-sanctuary-preview .pet-care-action{
+ padding:6px 8px;min-height:54px;border:1px solid #2a4b59;border-radius:10px;
+ background:#1c3a4b;color:#fff2da;gap:4px;
+}
+body.pet-sanctuary-preview .pet-care-action strong{font-size:.77rem}
+body.pet-sanctuary-preview .pet-care-action small{
+ font-size:.58rem;color:#e4dbca;line-height:1.12;white-space:normal;
+}
+body.pet-sanctuary-preview .pet-care-action:disabled{background:#e9e8dd;color:#68766d}
+body.pet-sanctuary-preview .pet-care-action:disabled small{color:#738077}
+body.pet-sanctuary-preview .pet-care-help{margin-top:7px;font-size:.68rem}
+body.pet-sanctuary-preview .pet-care-status{font-size:.71rem;min-height:0;margin:4px 0 0}
+body.pet-sanctuary-preview .pet-more-actions summary{font-size:.72rem;padding:4px 1px}
+body.pet-sanctuary-preview .pet-growth-panel{padding:12px 15px 14px}
+body.pet-sanctuary-preview .pet-stat-row{
+ grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:9px;
+}
+body.pet-sanctuary-preview .pet-stat{
+ padding:5px 4px;border:1px solid #e2d5b6;border-radius:10px;background:#f4eddf;
+}
+body.pet-sanctuary-preview .pet-stat-mp{background:#f2e4c3}
+body.pet-sanctuary-preview .pet-stat b{font-size:1.22rem}
+body.pet-sanctuary-preview .pet-stat span{font-size:.58rem;letter-spacing:0}
+body.pet-sanctuary-preview #pet-next-preview{
+ display:flex;gap:9px;align-items:center;margin:7px 0 0;padding:5px 9px;
+ border:1px solid #e5d7bd;border-radius:10px;background:#f8f1e3;min-height:44px;
+}
+body.pet-sanctuary-preview #pet-next-preview .pet-sprite{
+ display:block;flex:none;width:40px;height:40px;background-size:contain;
+}
+body.pet-sanctuary-preview #pet-next-preview>div{min-width:0}
+body.pet-sanctuary-preview #pet-next-preview strong{font-size:.7rem;color:#9c783f}
+body.pet-sanctuary-preview #pet-next-preview p{margin:0;font-size:.72rem;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.pet-sanctuary-preview #pet-next-preview p:last-child{display:none}
+body.pet-sanctuary-preview .pet-progress-wrap{margin-top:8px}
+body.pet-sanctuary-preview .pet-progress-head{font-size:.73rem}
+body.pet-sanctuary-preview .pet-progress{height:7px;margin-top:5px}
+body.pet-sanctuary-preview .pet-evolve-box{gap:8px;margin-top:9px}
+body.pet-sanctuary-preview .pet-evolve-box .pet-evolve{
+ min-height:40px;padding:8px 11px;border-radius:9px;font-size:.76rem;flex:1;
+}
+body.pet-sanctuary-preview .pet-evolve-box>span{
+ text-align:right;max-width:36%;font-size:.68rem;line-height:1.2;
+}
+body.pet-sanctuary-preview #stageSteps{display:none} /* 10 illustrated forms shown below instead */
+body.pet-sanctuary-preview .pet-extras{
+ grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:19px;
+}
+body.pet-sanctuary-preview .pet-extras .pet-panel{padding:15px;min-width:0}
+body.pet-sanctuary-preview .pet-extras .pet-kicker{font-size:.68rem;color:#94713d}
+body.pet-sanctuary-preview .pet-extras .pet-rule{font-size:.75rem}
+body.pet-sanctuary-preview .pet-extras .pet-message{margin-top:10px}
+body.pet-sanctuary-preview .pet-evolution-gallery{margin-top:24px}
+body.pet-sanctuary-preview .pet-evolution-gallery .pet-chooser-head h2{
+ color:#ffeed3;font-size:2rem;
+}
+body.pet-sanctuary-preview .pet-evolution-gallery .pet-chooser-head>p{color:#e1decf}
+body.pet-sanctuary-preview .pet-form-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+body.pet-sanctuary-preview .pet-form{
+ border:1px solid #d5b879;border-radius:12px;padding:9px;background:#fcf3df;
+}
+body.pet-sanctuary-preview .pet-form.is-current{border:2px solid #f1d292;box-shadow:0 0 0 3px #e9c58465}
+body.pet-sanctuary-preview .pet-form strong{font-size:1.11rem}
+body.pet-sanctuary-preview .pet-form small{font-size:.65rem;line-height:1.25;color:#655d51}
+body.pet-sanctuary-preview .pet-footer-note{font-size:.72rem;color:#e4e7df}
+body.pet-sanctuary-preview .lux-shell-header{display:none}
+body.pet-sanctuary-preview .lux-shell-nav{
+ position:fixed;z-index:100;left:50%;right:auto;transform:translateX(-50%);
+ width:min(84vw,1080px);max-width:calc(100vw - 18px);
+ bottom:calc(8px + env(safe-area-inset-bottom));
+ border:1px solid #e6c68b7d;border-radius:999px;background:#1c3541f2;
+ padding:5px 9px;box-shadow:0 8px 22px #0a1d2a70;
+}
+body.pet-sanctuary-preview .lux-shell-nav a{
+ order:15;min-height:48px;color:#fff5de;font-size:.71rem;border-radius:50px;
+}
+body.pet-sanctuary-preview .lux-shell-nav a[href="/"]{order:1}
+body.pet-sanctuary-preview .lux-shell-nav a[href="/study/"]{order:2}
+body.pet-sanctuary-preview .lux-shell-nav a[href="/play"]{order:3}
+body.pet-sanctuary-preview .lux-shell-nav a[href="/garden"]{order:4}
+body.pet-sanctuary-preview .lux-shell-nav a[href="/pet/"]{order:5}
+body.pet-sanctuary-preview .lux-shell-nav a[href="/assessment"]{order:6}
+body.pet-sanctuary-preview .lux-shell-nav a[href="/scholar"]{order:7}
+body.pet-sanctuary-preview .lux-shell-nav a[aria-current="page"]{
+ background:#faf1dd;color:#173947;
+}
+body.pet-sanctuary-preview .lux-shell-nav a svg{width:17px;height:17px}
+/* Real iPad landscape: the Care, growth and entire animal should lead the page. */
+@media(min-width:900px) and (orientation:landscape){
+ body.pet-sanctuary-preview .pet-stage-card{
+  min-height:0;height:clamp(490px,73vh,560px);
+ }
+ body.pet-sanctuary-preview .pet-avatar{width:min(330px,85%)}
+ body.pet-sanctuary-preview .pet-side{gap:8px}
+ body.pet-sanctuary-preview .pet-care-panel{padding:10px 13px 9px}
+ body.pet-sanctuary-preview .pet-growth-panel{padding:10px 13px}
+}
+@media(max-width:900px) and (orientation:portrait){
+ body.pet-sanctuary-preview .pet-shell{width:calc(100% - 28px);padding-top:17px}
+ body.pet-sanctuary-preview .pet-hero{grid-template-columns:1fr}
+ body.pet-sanctuary-preview .pet-stage-card{min-height:0;height:535px}
+ body.pet-sanctuary-preview .pet-avatar{width:min(350px,78%)}
+ body.pet-sanctuary-preview .pet-side{display:grid;grid-template-columns:1fr;gap:12px}
+ body.pet-sanctuary-preview .pet-side-nav{justify-content:center}
+ body.pet-sanctuary-preview .pet-extras{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.pet-sanctuary-preview .pet-form-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:700px){
+ body.pet-sanctuary-preview .pet-shell{width:calc(100% - 20px);padding-top:12px}
+ body.pet-sanctuary-preview .pet-page-intro h2{font-size:1.8rem}
+ body.pet-sanctuary-preview .pet-hero{grid-template-columns:1fr;gap:12px}
+ body.pet-sanctuary-preview .pet-stage-card{min-height:0;height:445px;padding:10px}
+ body.pet-sanctuary-preview .pet-avatar{width:min(320px,75%)}
+ body.pet-sanctuary-preview .pet-stage-footer{padding:10px}
+ body.pet-sanctuary-preview .pet-stage-note{display:none}
+ body.pet-sanctuary-preview .pet-side{display:flex;gap:10px}
+ body.pet-sanctuary-preview .pet-care-actions{grid-template-columns:repeat(3,minmax(0,1fr))}
+ body.pet-sanctuary-preview .pet-care-badges{display:none}
+ body.pet-sanctuary-preview .pet-extras{grid-template-columns:1fr}
+ body.pet-sanctuary-preview .pet-form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.pet-sanctuary-preview .lux-shell-nav{
+  width:calc(100% - 14px);border-radius:16px;padding:4px 2px
+ }
+ body.pet-sanctuary-preview .lux-shell-nav a{font-size:.55rem}
+ body.pet-sanctuary-preview .lux-shell-nav a svg{width:15px;height:15px}
+}
+@media(prefers-reduced-motion:reduce){
+ body.pet-sanctuary-preview .pet-sparkles i{animation:none}
+}
+
+/* Suppress the retired Pet header — the approved study/play nav is enough.
+   Without this, iPad content is pushed beneath the fixed bottom navigation. */
+body.pet-sanctuary-preview .pet-topbar,
+body.pet-sanctuary-preview .lux-shell-header{
+ display:none!important;
+}
+/* The shared legacy shell uses a high-specificity left:12px; explicitly
+   re-center the modern seven-link navbar rather than shifting it off-screen. */
+body.lux-shell-on.pet-sanctuary-preview .lux-shell-nav{
+ left:50%!important;right:auto!important;
+ transform:translateX(-50%)!important;
+}
+
+/* === Pet Sanctuary revision B — evolution-first, single screen (iPad) ===
+   No top report/header, no duplicate navigation.
+   Show real current art, the next form, MP earning rules, Evolve, all 10 levels. */
+body.lux-shell-on.pet-sanctuary-preview .pet-topbar,
+body.lux-shell-on.pet-sanctuary-preview .lux-shell-header,
+body.lux-shell-on.pet-sanctuary-preview .pet-page-intro{
+ display:none!important;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-shell{
+ padding-top:clamp(12px,2.3vh,19px)!important;
+ padding-bottom:calc(92px + env(safe-area-inset-bottom));
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-hero{
+ grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);
+ gap:clamp(12px,1.55vw,19px);
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-side{
+ display:flex;flex-direction:column;gap:11px;min-width:0;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-side-nav{display:none!important}
+body.lux-shell-on.pet-sanctuary-preview #petGrowth{order:1}
+body.lux-shell-on.pet-sanctuary-preview #petCarePanel{order:2}
+body.lux-shell-on.pet-sanctuary-preview .pet-stage-card{
+ height:clamp(545px,83vh,645px);min-height:0;
+ background:
+ radial-gradient(ellipse at 49% 38%,#f6f1db 0%,#e3e9d8 48%,#c4d4c5 78%,#9bad9d 100%);
+ border-color:#e9ca8f;
+ border-radius:17px;
+ box-shadow:0 0 0 2px #bc965eb3,0 10px 28px #101d2799;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-stage-card::before{
+ inset:65px 7% 90px;border-radius:45% 45% 27% 27%;
+ border-color:#819b8170;
+ background:radial-gradient(ellipse,#fffbed85,transparent 72%);
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-avatar{width:min(405px,94%)}
+body.lux-shell-on.pet-sanctuary-preview .pet-stage-footer{
+ background:#173748f2;border:1px solid #edcb8d;border-radius:9px;
+ padding:12px 15px;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-title{font-size:clamp(1.65rem,2.7vw,2.1rem)}
+body.lux-shell-on.pet-sanctuary-preview .pet-subtitle{font-size:.82rem}
+body.lux-shell-on.pet-sanctuary-preview #petGrowth.pet-panel{
+ background:linear-gradient(140deg,#1a3645f5,#1b3344f8);
+ color:#fff4df;border:2px solid #ddbc81;outline:1px solid #73542e;
+ box-shadow:0 0 0 2px #bd9559b0,0 8px 20px #0a172481;
+}
+body.lux-shell-on.pet-sanctuary-preview #petGrowth h2{
+ color:#fff0d4;display:flex;align-items:baseline;justify-content:space-between;
+ gap:9px;font-size:clamp(1.45rem,2.05vw,1.8rem);
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-evolution-mini-title{
+ font:600 .66rem/1 'Source Sans 3',sans-serif;color:#dfc28c;white-space:nowrap;
+ letter-spacing:.04em;
+}
+body.lux-shell-on.pet-sanctuary-preview #petGrowth .pet-stat-row{margin-top:9px}
+body.lux-shell-on.pet-sanctuary-preview #petGrowth .pet-stat{
+ background:#f5ecd7;border-color:#edcf91;color:#1d3c4b;
+}
+body.lux-shell-on.pet-sanctuary-preview #petGrowth .pet-stat-mp{
+ background:#f5dc9a;border-color:#ffe9b0;
+}
+body.lux-shell-on.pet-sanctuary-preview #petGrowth .pet-stat span{
+ color:#656452;
+}
+body.lux-shell-on.pet-sanctuary-preview #pet-next-preview{
+ min-height:110px;margin:10px 0 0;padding:8px 12px;
+ background:linear-gradient(100deg,#e9e6d2f4,#f7f1defa);border-color:#edd19a;
+ border-radius:12px;
+}
+body.lux-shell-on.pet-sanctuary-preview #pet-next-preview .pet-sprite{
+ width:98px;height:98px;flex:none;background-size:contain;
+ filter:drop-shadow(0 3px 5px #213c3d52);
+}
+body.lux-shell-on.pet-sanctuary-preview #pet-next-preview strong{
+ color:#866733;font-size:.72rem;
+}
+body.lux-shell-on.pet-sanctuary-preview #pet-next-preview p{
+ font:700 clamp(1.1rem,1.55vw,1.28rem)/1.12 'Cormorant Garamond',Georgia,serif;
+ color:#213b4a;margin:4px 0 0;white-space:normal;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-progress-head{
+ color:#fff0d5;font-size:.76rem;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-progress-head>span{color:#f2cb89;font-weight:700}
+body.lux-shell-on.pet-sanctuary-preview .pet-progress{
+ background:#68737a66;border:1px solid #cfbb8a75;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-progress>i{
+ background:linear-gradient(90deg,#8ebc97,#e7c67d);
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-evolve-box{
+ margin:10px 0 0;flex-direction:column;align-items:stretch;
+ gap:5px;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-evolve-box #evolvePet{
+ width:100%;min-height:40px;border-radius:9px;
+ font-size:.87rem;background:#efd29a;color:#193c4c;
+ border:1px solid #fff0cf;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-evolve-box #evolvePet:disabled{
+ background:#d5c8b2;color:#435563;opacity:.85;cursor:not-allowed;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-evolve-box>span{
+ max-width:none;font-size:.69rem;white-space:nowrap;text-align:center;color:#f0ddbd;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-evolve-guide{
+ margin-top:11px;
+ padding:9px 10px;
+ border:1px solid #d2b9817d;border-radius:10px;
+ background:#0e29375e;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-evolve-guide-title{
+ margin:0 0 7px;font:700 .78rem/1 'Source Sans 3',sans-serif;color:#f4d49b;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-evolve-guide-grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-evolve-guide-grid>span{
+ min-width:0;display:flex;flex-direction:column;gap:2px;
+ padding:6px 7px;background:#f6eddc;border-radius:7px;color:#254252;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-evolve-guide-grid b{
+ font:800 .82rem/1.15 'Source Sans 3',sans-serif;color:#204e50;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-evolve-guide-grid small{
+ font:.65rem/1.19 'Source Sans 3',sans-serif;color:#53625e;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-evo-track-head{
+ display:flex;justify-content:space-between;align-items:center;
+ margin:10px 0 2px;
+ font-size:.75rem;font-weight:700;color:#f1dcad;
+}
+body.lux-shell-on.pet-sanctuary-preview .pet-evo-track-head span{
+ font-size:.65rem;color:#c6d1cb;font-weight:600;
+}
+body.lux-shell-on.pet-sanctuary-preview #stageSteps{
+ display:grid!important;
+ grid-template-columns:repeat(10,minmax(0,1fr));
+ gap:4px;margin-top:6px;
+}
+body.lux-shell-on.pet-sanctuary-preview #stageSteps .pet-step{
+ padding:8px 0 6px;border-radius:7px;font-size:0;
+ min-height:27px;line-height:1;overflow:hidden;
+ background:#e2ded025;color:#bfc5ba;border:1px solid #dfc99340;
+}
+body.lux-shell-on.pet-sanctuary-preview #stageSteps .pet-step b{
+ font-size:.76rem;color:#e5e6d8;
+}
+body.lux-shell-on.pet-sanctuary-preview #stageSteps .pet-step.done{
+ background:#5685698a;border-color:#b0dbaf;
+}
+body.lux-shell-on.pet-sanctuary-preview #stageSteps .pet-step.current{
+ background:#f4d89c;border-color:#fff0cb;box-shadow:0 0 0 1px #f8deb2;
+}
+body.lux-shell-on.pet-sanctuary-preview #stageSteps .pet-step.current b{color:#263c4b}
+body.lux-shell-on.pet-sanctuary-preview #stageSteps .pet-step::before,
+body.lux-shell-on.pet-sanctuary-preview #stageSteps .pet-step::after,
+body.lux-shell-on.pet-sanctuary-preview #stageSteps .pet-step small{display:none!important}
+/* Care is the compact secondary action area, not a competing dashboard. */
+body.lux-shell-on.pet-sanctuary-preview #petCarePanel{
+ background:#f9f2e4;border:1px solid #e1c88e;padding:10px 13px;
+ color:#1e3b4b;
+}
+body.lux-shell-on.pet-sanctuary-preview #petCarePanel h2{font-size:1.32rem}
+body.lux-shell-on.pet-sanctuary-preview #petCarePanel .pet-care-meters{margin-top:8px}
+body.lux-shell-on.pet-sanctuary-preview #petCarePanel .pet-care-meter{
+ padding:5px 8px;
+}
+body.lux-shell-on.pet-sanctuary-preview #petCarePanel .pet-care-actions{
+ margin-top:8px;
+}
+body.lux-shell-on.pet-sanctuary-preview #petCarePanel .pet-care-action{
+ min-height:43px;padding:4px 7px;
+}
+body.lux-shell-on.pet-sanctuary-preview #petCarePanel .pet-care-action strong{font-size:.75rem}
+body.lux-shell-on.pet-sanctuary-preview #petCarePanel .pet-care-action small{font-size:.57rem}
+body.lux-shell-on.pet-sanctuary-preview #petCarePanel .pet-care-help{margin-top:4px}
+body.lux-shell-on.pet-sanctuary-preview #petCarePanel .pet-care-status{margin:2px 0 0}
+/* Force the correct seven-item floating nav position in landscape and mobile. */
+body.lux-shell-on.pet-sanctuary-preview nav.lux-shell-nav{
+ position:fixed!important;
+ left:0!important;right:0!important;
+ transform:none!important;
+ margin-inline:auto!important;
+ width:min(84vw,1080px)!important;
+ bottom:calc(8px + env(safe-area-inset-bottom))!important;
+ z-index:100!important;
+ display:grid!important;
+ grid-template-columns:repeat(7,minmax(0,1fr));
+}
+@media(min-width:900px) and (orientation:landscape){
+ body.lux-shell-on.pet-sanctuary-preview .pet-stage-card{
+  height:clamp(540px,83vh,640px);min-height:0;
+ }
+ body.lux-shell-on.pet-sanctuary-preview .pet-hero{gap:14px}
+ body.lux-shell-on.pet-sanctuary-preview .pet-growth-panel{padding:10px 13px}
+ body.lux-shell-on.pet-sanctuary-preview #pet-next-preview{
+  min-height:83px;padding:5px 8px;
+ }
+ body.lux-shell-on.pet-sanctuary-preview #pet-next-preview .pet-sprite{
+  width:78px;height:78px;
+ }
+ body.lux-shell-on.pet-sanctuary-preview .pet-evolve-guide{margin-top:7px;padding:6px 8px}
+ body.lux-shell-on.pet-sanctuary-preview .pet-evolve-guide-grid>span{padding:4px 6px}
+ body.lux-shell-on.pet-sanctuary-preview .pet-evo-track-head{margin-top:6px}
+ body.lux-shell-on.pet-sanctuary-preview #petCarePanel .pet-care-badges{display:none}
+}
+@media(max-width:899px){
+ body.lux-shell-on.pet-sanctuary-preview .pet-hero{grid-template-columns:1fr;gap:12px}
+ body.lux-shell-on.pet-sanctuary-preview .pet-stage-card{height:485px;min-height:0}
+ body.lux-shell-on.pet-sanctuary-preview .pet-side{gap:12px}
+ body.lux-shell-on.pet-sanctuary-preview #petGrowth{order:1}
+ body.lux-shell-on.pet-sanctuary-preview #petCarePanel{order:2}
+ body.lux-shell-on.pet-sanctuary-preview nav.lux-shell-nav{width:calc(100% - 14px)!important}
+}
+@media(max-width:650px){
+ body.lux-shell-on.pet-sanctuary-preview .pet-stage-card{height:420px}
+ body.lux-shell-on.pet-sanctuary-preview .pet-avatar{width:min(300px,80%)}
+ body.lux-shell-on.pet-sanctuary-preview .pet-evolve-guide-grid>span{padding:6px}
+ body.lux-shell-on.pet-sanctuary-preview .pet-evolve-guide-grid small{font-size:.6rem}
+ body.lux-shell-on.pet-sanctuary-preview #stageSteps{gap:2px}
+ body.lux-shell-on.pet-sanctuary-preview #stageSteps .pet-step b{font-size:.7rem}
+}
+
+/* Final readability pass from actual 1024x768 Safari screenshot. */
+body.lux-shell-on.pet-sanctuary-preview #petGrowth .pet-progress-head,
+body.lux-shell-on.pet-sanctuary-preview #petGrowth .pet-progress-head strong,
+body.lux-shell-on.pet-sanctuary-preview #petGrowth .pet-evo-track-head,
+body.lux-shell-on.pet-sanctuary-preview #petGrowth .pet-evo-track-head strong{
+ color:#fff0d3!important;
+ text-shadow:none!important;
+}
+body.lux-shell-on.pet-sanctuary-preview nav.lux-shell-nav{
+ background:#1a3340f6!important;
+ border:1px solid #eccf967d!important;
+ border-radius:999px!important;
+ box-shadow:0 8px 24px #0b1e2b9c!important;
+}
+body.lux-shell-on.pet-sanctuary-preview nav.lux-shell-nav a{
+ color:#f7ecd8!important;
+}
+body.lux-shell-on.pet-sanctuary-preview nav.lux-shell-nav a[aria-current="page"]{
+ background:#faf0dc!important;color:#1a3b4b!important;
+}
+body.lux-shell-on.pet-sanctuary-preview #petCarePanel{
+ padding-bottom:7px;
+}
+body.lux-shell-on.pet-sanctuary-preview #petCarePanel .pet-care-actions{margin-top:5px}
+body.lux-shell-on.pet-sanctuary-preview #petCarePanel .pet-care-action{min-height:40px}
+@media(max-width:650px){
+ body.lux-shell-on.pet-sanctuary-preview nav.lux-shell-nav{border-radius:16px!important}
+}
+
+/* Isolated approved-style Pet footer. This replaces the legacy nav *class*
+   only in opt-in preview while retaining exactly the same real link elements. */
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar{
+ position:fixed!important;inset:auto auto calc(8px + env(safe-area-inset-bottom)) 50%!important;
+ transform:translateX(-50%)!important;
+ display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr));
+ align-items:center;
+ width:min(84vw,1080px)!important;max-width:calc(100vw - 16px);
+ margin:0!important;padding:5px 9px!important;
+ z-index:120!important;
+ border:1px solid #edcf977a!important;border-radius:999px!important;
+ background:#1a3340f6!important;background-image:none!important;
+ box-shadow:0 7px 22px #0e203094!important;box-sizing:border-box;
+ font-family:'Source Sans 3',sans-serif;
+}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a{
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ min-width:0;min-height:47px;gap:2px;padding:5px 4px;
+ color:#fff2dc;text-decoration:none;font-size:.69rem;font-weight:700;
+ line-height:1.12;border:0;border-radius:999px;white-space:nowrap;
+}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a svg{
+ display:block;width:17px;height:17px;stroke:currentColor;
+}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[aria-current="page"]{
+ background:#fbf0da!important;color:#1b3b4b!important;
+}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[href="/"]{order:1}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[href="/study/"]{order:2}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[href="/play"]{order:3}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[href="/garden"]{order:4}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[href="/pet/"]{order:5}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[href="/assessment"]{order:6}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[href="/scholar"]{order:7}
+@media(max-width:700px){
+ body.pet-sanctuary-preview nav.pet-preview-bottom-bar{
+  width:calc(100% - 14px)!important;padding:4px 2px!important;border-radius:15px!important;
+ }
+ body.pet-sanctuary-preview nav.pet-preview-bottom-bar a{
+  padding:3px 1px;min-height:45px;font-size:.56rem;
+ }
+ body.pet-sanctuary-preview nav.pet-preview-bottom-bar a svg{width:15px;height:15px}
+}
+
+/* WebKit may inherit the older pet-stat text fill despite an updated color.
+   Set both actual glyph fill and foreground on the Evolution requirement. */
+body.pet-sanctuary-preview #petGrowth #nextText,
+body.pet-sanctuary-preview #petGrowth .pet-progress-head strong{
+ -webkit-text-fill-color:#fff0d3!important;
+ color:#fff0d3!important;
+}
+body.pet-sanctuary-preview #petGrowth .pet-evo-track-head strong{
+ -webkit-text-fill-color:#fff0d3!important;color:#fff0d3!important;
+}
