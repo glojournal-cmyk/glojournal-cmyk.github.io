@@ -152,14 +152,15 @@ try{
           // not the old React nav hidden behind that hall.
           await page.locator('#lux-play-hall-preview .lux-play-hall-nav a[href="/study/"]').click();
         } else {
-          await page.waitForFunction(() => {
-            const links=[...document.querySelectorAll('a[href="/study"],a[href="/study/"]')];
-            const link=links.find(a=>!a.closest('#lux-study-rpg-integrated') &&
-              a.getClientRects().length>0 && getComputedStyle(a).visibility!=='hidden');
-            if(!link)return false;
-            link.click();
-            return true;
-          },null,{timeout:20000});
+          // Wait for the shared route bridge before triggering a real tap.
+          // Evaluating link.click() inside waitForFunction can fire against an
+          // early DOM node before Safari has installed the route handlers.
+          await page.waitForFunction(
+            () => window.__luxStudyRpgBootInstalled === true,
+            null,{timeout:20000}
+          );
+          const studyNav=page.locator('a[href="/study"]:visible, a[href="/study/"]:visible');
+          await studyNav.last().click({timeout:20000});
         }
         await page.waitForURL(u=>/^\/study\/?$/.test(u.pathname),{waitUntil:'domcontentloaded',timeout:20000});
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
