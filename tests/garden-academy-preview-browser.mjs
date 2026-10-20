@@ -37,6 +37,24 @@ async function run(engine,runner,viewport){
   await page.locator('#lux-garden-academy-preview .lux-garden-item').first().waitFor({timeout:30000});
   await page.waitForFunction(()=>document.querySelector('.lux-garden-map-preview')&&
     getComputedStyle(document.querySelector('.lux-garden-map-preview')).position==='fixed');
+  await page.waitForFunction(()=>{
+    const frame=document.getElementById('lux-garden-academy-preview');
+    if(!frame)return false;
+    return [...document.querySelectorAll('nav,[role="navigation"]')]
+      .filter(n=>!frame.contains(n))
+      .every(n=>getComputedStyle(n).display==='none'||n.getBoundingClientRect().height===0);
+  },null,{timeout:12000}).catch(async error=>{
+    const info=await page.evaluate(()=>({
+      htmlClass:document.documentElement.className,
+      elements:[...document.querySelectorAll('nav,[role="navigation"]')].map(n=>({
+        name:n.className||n.tagName,display:getComputedStyle(n).display,
+        inline:n.getAttribute('style'),height:n.getBoundingClientRect().height,
+        insideGarden:!!document.getElementById('lux-garden-academy-preview')?.contains(n)
+      }))
+    }));
+    console.log('GARDEN_NATIVE_NAV_DEBUG '+JSON.stringify({engine,viewport,info}));
+    throw error;
+  });
   const snap=await page.evaluate(()=>{
     const rect=el=>{if(!el)return null;const b=el.getBoundingClientRect();
       return{x:b.x,y:b.y,width:b.width,height:b.height,right:b.right,bottom:b.bottom};};
