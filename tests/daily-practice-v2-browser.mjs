@@ -148,6 +148,26 @@ async function checkRealPractice(browser,engine){
       navBottom:nav?.getBoundingClientRect().bottom,
       screenHeight:innerHeight,scrollWidth:document.documentElement.scrollWidth};
   });
+  const chromeDetails = await page.evaluate(() => {
+    const header=document.querySelector('.paper-wash>header');
+    const companion=document.querySelector('#study-companion');
+    const sprite=companion?.querySelector('.cx-pet-art');
+    const fallback=document.querySelector('#lux-daily-equipped-pet img');
+    const voice=document.querySelector('#lux-voice-cheer-toggle');
+    const rect=el => {
+      if(!el)return null;
+      const b=el.getBoundingClientRect(),s=getComputedStyle(el);
+      return {x:b.x,y:b.y,width:b.width,height:b.height,display:s.display,
+        visibility:s.visibility,opacity:s.opacity,backgroundImage:s.backgroundImage,
+        backgroundPosition:s.backgroundPosition,position:s.position};
+    };
+    return {header:rect(header),companion:rect(companion),sprite:rect(sprite),
+      fallback:rect(fallback),fallbackComplete:fallback?.complete,
+      fallbackNaturalWidth:fallback?.naturalWidth,voice:rect(voice),
+      bodyText:document.body.innerText.slice(0,250)};
+  });
+  console.log('DAILY_REAL_CHROME_DIAGNOSTIC '+JSON.stringify({engine,chromeDetails}));
+  assert.ok(chromeDetails.header?.display==='none','approved design has no top bar');
   assert.ok(before.id,'real French question must load');
   assert.equal(before.navCount,7,'live question needs Study navigation');
   assert.ok(before.promptSize>=27,'real question should be large and bold');
