@@ -1,3 +1,4 @@
+import {dailyVocabTotal} from "./daily-vocab-total-20261020.js";
 import "./player-ux-20261013.js?ux=20261013-corrections2";
 import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
 import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
@@ -1046,24 +1047,8 @@ function focusAttemptsToday(state, focus) {
   return total;
 }
 
-const DAILY_VOCAB_TARGET = 30;
-
 function vocabGateState(state, subject) {
-  const day = state.today || todayKey();
-  const row = state.dailyVocabByDay?.[day]?.[subject] || {};
-  const items = { ...(row.items && typeof row.items === "object" ? row.items : {}) };
-  // Count actual dated Vocab answers even when an earlier app version missed
-  // the dedicated daily ledger. Never count unrelated practice or repairs.
-  for (const entry of state.formalAttemptLog || []) {
-    if (entry?.day === day && entry?.dailyVocab === subject && entry?.questionId && !entry.repair) {
-      items[String(entry.questionId)] = !!entry.correct || !!items[String(entry.questionId)];
-    }
-  }
-  const attempts = Object.keys(items).length;
-  const correct = Object.values(items).filter(Boolean).length;
-  const passed = correct >= DAILY_VOCAB_TARGET;
-  const progress = Math.min(DAILY_VOCAB_TARGET, correct);
-  return { attempts, correct, passed, progress };
+  return dailyVocabTotal(state, subject, state.today || todayKey());
 }
 
 const YEAR8_ASSIGNED_SUBJECTS = ["latin", "french", "biology", "chemistry", "physics"];
