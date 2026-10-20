@@ -113,7 +113,7 @@ export async function pairCloudBackup({endpoint,token}){
  const secret=crypto.getRandomValues(new Uint8Array(32));
  const key=await crypto.subtle.importKey("raw",secret,{name:"AES-GCM"},false,["encrypt"]);
  const keyId=(await digest(secret)).slice(0,16);
- await storeConfig({endpoint:origin,token,keyId,key});
+ await storeConfig({endpoint:origin,token,keyId,key,enabled:false});
  return {recoveryKey:b64url(secret),keyId};
 }
 export async function importRecoveryKey({endpoint,token,recoveryKey}){
@@ -123,12 +123,24 @@ export async function importRecoveryKey({endpoint,token,recoveryKey}){
  await remoteRequest({endpoint:origin,token},"/v1/status");
  const key=await crypto.subtle.importKey("raw",secret,{name:"AES-GCM"},false,["encrypt"]);
  const keyId=(await digest(secret)).slice(0,16);
- await storeConfig({endpoint:origin,token,keyId,key});
+ await storeConfig({endpoint:origin,token,keyId,key,enabled:false});
  return {keyId};
+}
+export async function enableAutoBackup(){
+ const config=await readConfig();
+ if(!config?.key||!config?.endpoint||!config?.token)
+   throw Error("Complete owner pairing and save your recovery key first");
+ await storeConfig({...config,enabled:true});
+ return {enabled:true,keyId:config.keyId};
+}
+export async function disableAutoBackup(){
+ const config=await readConfig();
+ if(config)await storeConfig({...config,enabled:false});
+ return {enabled:false};
 }
 export async function uploadBackup(store,options={}){
  const config=await readConfig();
- if(!config?.endpoint||!config?.token||!config?.key)return {saved:false,reason:"not-paired"};
+ if(!config?.endpoint||!config?.token||!config?.key||config.enabled!==true)return {saved:false,reason:"not-enabled"};
  const payload=captureLiveProgress(store,options.localStorage,options.document);
  const envelope=await encryptBackup(payload,config.key,config.keyId);
  const r=await remoteRequest(config,"/v1/backups",{
