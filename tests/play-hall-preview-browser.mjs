@@ -11,7 +11,7 @@ try{
   try{
    for(const viewport of [{width:1024,height:768},{width:834,height:1112},{width:390,height:844}]){
     const context=await browser.newContext({viewport,serviceWorkers:'block'});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
-    await page.goto(origin+'/play/?playHallPreview=1',{waitUntil:'domcontentloaded'});
+    await page.goto(origin+'/play/',{waitUntil:'domcontentloaded'});
     await page.locator('#lux-play-hall-preview .lux-play-hall-card').first().waitFor({timeout:30000});
     await page.waitForFunction(()=>!!document.querySelector('#lux-play-hall-preview-style')?.sheet,{timeout:20000});
     assert.equal(await page.locator('.lux-play-hall-card').count(),4);
@@ -48,5 +48,33 @@ try{
    }
   }finally{await browser.close();}
  }
- const b=await chromium.launch({headless:true});try{const page=await b.newPage();await page.goto(origin+'/play/');await page.waitForTimeout(1500);assert.equal(await page.locator('#lux-play-hall-preview').count(),0,'Normal Play must remain unchanged until approved');await page.close();}finally{await b.close();}
+ // The approved design is now the default. Confirm returning to the
+ // complete Hall from Home, Study, and one original game on both engines.
+ for(const engine of [chromium,webkit]){
+  const browser=await engine.launch({headless:true});
+  try{
+   const page=await browser.newPage({viewport:{width:1024,height:768}});
+   await page.goto(origin+'/');
+   await page.locator('#lux-rpg-live-home a[href="/play"]').first().click();
+   await page.locator('#lux-play-hall-preview .lux-play-hall-card').first().waitFor({timeout:30000});
+   assert.equal(new URL(page.url()).pathname,'/play/','Home -> Play should land on the real Hall');
+   await page.goto(origin+'/study/');
+   await page.locator('#lux-study-rpg-integrated .lux-study-rpg-nav a[href="/play"]').click();
+   await page.locator('#lux-play-hall-preview .lux-play-hall-card').first().waitFor({timeout:30000});
+   assert.equal(new URL(page.url()).pathname,'/play/','Study -> Play should land on Hall');
+   await page.goto(origin+'/play/verbum-match/');
+   await page.locator('a[href="/play"]:visible').first().click();
+   await page.locator('#lux-play-hall-preview .lux-play-hall-card').first().waitFor({timeout:30000});
+   assert.equal(new URL(page.url()).pathname,'/play/','Original game -> Play should land on Hall');
+   await page.close();
+  }finally{await browser.close();}
+ }
+ const b=await chromium.launch({headless:true});
+ try{
+   const page=await b.newPage();
+   await page.goto(origin+'/play/?playHallPreview=0');
+   await page.waitForTimeout(1500);
+   assert.equal(await page.locator('#lux-play-hall-preview').count(),0,'Legacy Play fallback must remain available');
+   await page.close();
+ }finally{await b.close();}
 }finally{srv.close();}
