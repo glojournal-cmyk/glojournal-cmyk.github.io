@@ -155,7 +155,7 @@ export default {
       if(request.method==="GET"&&url.pathname==="/v1/backups"){
         const list=await env.BACKUPS.list({prefix:"backups/",limit:1000});
         return reply({items:list.objects.map(o=>({
-          id:o.key.split("-").at(-1).replace(/\.json$/,""),
+          id:(o.key.match(/([a-f0-9-]{36})\.json$/)||[])[1]||"",
           key:o.key,uploadedAt:o.uploaded,bytes:o.size
         })),truncated:list.truncated},200,origin);
       }
