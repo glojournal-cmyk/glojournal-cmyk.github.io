@@ -60,7 +60,18 @@ async function run(engine,runner,viewport){
   assert.ok(snap.scrollWidth<=viewport.width+1,'no horizontal overflow');
   assert.ok(snap.world.width>viewport.width*.9,'garden must be the primary scene');
   assert.ok(snap.water.bottom<=snap.nav.y-5,'Water button must be above the bottom rail');
-  assert.ok(snap.basil.bottom<snap.water.y-3,'Basil planter and Water button must not overlap');
+  assert.ok(snap.water.y>=snap.basil.y-1&&snap.water.bottom<=snap.basil.bottom+1,
+    'The Water button must sit inside the Basil panel');
+  const art=await page.evaluate(async()=>{
+    const ui=document.querySelector('.lux-garden-map-preview'),css=getComputedStyle(ui);
+    const image=new Image();image.src='/assets/garden-academy-approved-20261020.jpg';
+    await image.decode();
+    return{background:css.backgroundImage,loaded:image.naturalWidth>=1400,actualWidth:image.naturalWidth,actualHeight:image.naturalHeight,
+      titleOpacity:getComputedStyle(document.querySelector('.lux-garden-title')).opacity};
+  });
+  assert.ok(art.loaded,'approved illustration must load at full resolution');
+  assert.ok(art.background.includes('garden-academy-approved-20261020.jpg'),'do not show old placeholder background');
+  assert.equal(art.titleOpacity,'0','do not duplicate the title baked into approved artwork');
   assert.ok(await page.locator('.lux-garden-item').count()===4);
   const stageValue=await page.evaluate(async()=>{
     const mod=await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2');
