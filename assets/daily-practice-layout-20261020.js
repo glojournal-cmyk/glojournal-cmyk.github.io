@@ -29,7 +29,10 @@
     if (nav?.isConnected) return;
     nav = document.getElementById('lux-daily-study-nav');
     if (nav) return;
-    nav = document.createElement('nav');
+    // Match Study's div-based pill: legacy nav enhancers target <nav> and
+    // otherwise add a duplicate Assessment item to this exact seven-link bar.
+    nav = document.createElement('div');
+    nav.setAttribute('role','navigation');
     nav.id = 'lux-daily-study-nav';
     nav.className = 'lux-daily-study-nav';
     nav.setAttribute('aria-label', 'Study main navigation');
