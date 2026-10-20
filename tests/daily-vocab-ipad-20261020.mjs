@@ -11,8 +11,9 @@ const server=createServer((req,res)=>{
   if(pathname.endsWith("/"))pathname+="index.html";
   const file=path.resolve(root,"."+pathname);
   if(!file.startsWith(root+path.sep))throw Error("path outside root");
-  const data=fs.readFileSync(file);
-  res.writeHead(200,{"content-type":mime[path.extname(file)]||"application/octet-stream","cache-control":"no-store"});res.end(data);
+  const resolved=fs.statSync(file).isDirectory()?path.join(file,"index.html"):file;
+  const data=fs.readFileSync(resolved);
+  res.writeHead(200,{"content-type":mime[path.extname(resolved)]||"application/octet-stream","cache-control":"no-store"});res.end(data);
  }catch{res.writeHead(404);res.end("not found");}
 });
 await new Promise(resolve=>server.listen(0,"127.0.0.1",resolve));
