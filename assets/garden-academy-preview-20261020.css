@@ -251,3 +251,11 @@ html.lux-garden-map-active body > :not(#lux-garden-academy-preview){
   overflow:visible!important;
  }
 }
+
+/* The original app mounts its responsive nav in an independent portal.
+   visibility:hidden on the React root isn't enough because that portal
+   explicitly sets visibility:visible; hide the legacy navigation directly. */
+html.lux-garden-map-active body nav,
+html.lux-garden-map-active .lux-companion-bottom-nav{
+  display:none!important;visibility:hidden!important;pointer-events:none!important;
+}
