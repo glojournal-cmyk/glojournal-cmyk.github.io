@@ -86,7 +86,26 @@ function groupBlurb(group,today){
 }
 function paperCard(p){
   const prize=PRIZES[p.id];
-  return `<article class="card"><span class="tag">Year 9 · ${p.bank.includes('/banks/')?'Mixed assessment':'School topic'}</span><span class="tag">${p.minutes} min · ${p.count} questions · pass 85%</span><h3>${esc(p.name.replace(/^[^·]+·\s*/,''))}</h3><p>${esc(p.subtitle)}</p>${p.id==='biology-nov2'?'<p><a href="/assessment/biology-nov2/practice/">84-question topic practice →</a> · <a href="/assessment/biology-nov2/notes.pdf">Illustrated notes →</a></p>':''}${p.id==='biology-cell-structure'?'<p><a href="/assessment/biology-cell-structure/">Revision guide and 72-question bank →</a></p>':''}${prize?`<p class="muted">Pass once to unlock ${esc(prize.name)} in the wardrobe.</p>`:''}<button class="primary" data-paper="${p.id}">${state.drafts[p.id]?.version===2?'Continue test':'Start new paper'}</button>${p.id==='chemistry'&&state.drafts[p.id]?.version===2?` <button data-reset-paper="chemistry">Discard draft and start a fresh paper</button>`:''}</article>`
+  const hasDraft=state.drafts[p.id]?.version===2;
+  const paperType=p.bank.includes('/banks/')?'Mixed paper':'School paper';
+  const extra=p.id==='biology-nov2'?'<a href="/assessment/biology-nov2/practice/">Topic practice</a> · <a href="/assessment/biology-nov2/notes.pdf">Illustrated notes</a>':
+    p.id==='biology-cell-structure'?'<a href="/assessment/biology-cell-structure/">Revision guide & bank</a>':'';
+  return `<article class="card assessment-paper-row" data-paper-row="${esc(p.id)}">
+    <div class="assessment-paper-info">
+      <span class="tag">${esc(paperType)} · Year 9</span>
+      <h3>${esc(p.name.replace(/^[^·]+·\s*/,''))}</h3>
+      <p title="${esc(p.subtitle)}">${esc(p.subtitle)}</p>
+      ${extra?`<span class="assessment-paper-links">${extra}</span>`:''}
+    </div>
+    <div class="assessment-paper-stats" aria-label="${p.minutes} minutes, ${p.count} questions, 85 percent pass mark">
+      <span>${p.minutes} min</span><span>${p.count} questions</span><span class="assessment-pass">Pass 85%</span>
+      ${prize?`<span class="assessment-prize" title="Pass to unlock ${esc(prize.name)}">${esc(prize.name)} reward</span>`:''}
+    </div>
+    <div class="assessment-paper-buttons">
+      <button class="primary" data-paper="${esc(p.id)}">${hasDraft?'Continue':'Start'} <span aria-hidden="true">›</span></button>
+      ${p.id==='chemistry'&&hasDraft?'<button class="assessment-reset" data-reset-paper="chemistry" aria-label="Discard Chemistry draft">Reset</button>':''}
+    </div>
+  </article>`;
 }
 function cards(){
   if(!document.getElementById('exam-group-style')){const s=document.createElement('style');s.id='exam-group-style';s.textContent='.subject-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:2px 0 14px;position:sticky;top:8px;z-index:4;background:#f6f1e6;padding:8px 0}.subject-bar button{border-radius:999px;padding:8px 14px;background:#fffaf3;border:1px solid rgba(196,164,106,.75);color:#1A3148}.subject-bar button.on{background:#1A3148;color:#f7f1e6;border-color:#1A3148}.subject-bar .add-assess{margin-left:auto}.subject-list{display:flex;flex-direction:column;gap:12px}.subject-block{padding-top:0;border-top:0}.subject-block h2{font-size:32px}.subject-block .when{margin:6px 0 0;color:#62717a;max-width:42rem}.subject-block .cards{margin-top:12px}.subject-block .card p{min-height:0}';document.head.appendChild(s)}
