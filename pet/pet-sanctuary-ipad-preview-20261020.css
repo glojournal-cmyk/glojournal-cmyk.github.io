@@ -2,13 +2,13 @@
    Presentation layer only: preserves every existing Pet, Level 1–10 sprite,
    MP wallet, bond/care activities, storage key, dialog, and evolution logic.
    Activated by ?petPreview=1; existing production Pet remains unchanged. */
-body.pet-sanctuary-preview{
+body.lux-shell-on.pet-sanctuary-preview{
  --sanctuary-ink:#162f40;--sanctuary-navy:#1a3342;
  --sanctuary-gold:#e4c38c;--sanctuary-cream:#fcf4e5;
  color:#fdf6e8;
  background:
  linear-gradient(90deg,rgba(19,34,39,.41),rgba(20,40,45,.48) 55%,rgba(12,28,38,.69)),
- url('/art/study-rpg/magic-floor.jpg') center bottom/cover fixed no-repeat;
+ url('/art/study-rpg/magic-floor.jpg') center bottom/cover fixed no-repeat !important;
 }
 body.pet-sanctuary-preview .pet-shell{
  width:calc(100% - 36px);max-width:1440px;
