@@ -435,3 +435,53 @@ html.lux-daily-ux-ready [data-lux-tiles] > div:nth-child(2) button:disabled{
    min-height:clamp(300px,43dvh,385px)!important;
  }
 }
+
+/* Approved screenshot: real 'Check Answer' CTA and functional Reset affordance. */
+html.lux-daily-ux-ready [data-lux-tiles] > button:last-child{
+  font-size:0!important;
+}
+html.lux-daily-ux-ready [data-lux-tiles] > button:last-child::before{
+  content:"Check Answer";
+  font:700 17px/1.2 Georgia,serif;
+  vertical-align:middle;
+}
+html.lux-daily-ux-ready [data-lux-tiles] > button:last-child::after{
+  content:" →";
+  font:700 21px/1.2 Georgia,serif;
+  vertical-align:middle;
+}
+html.lux-daily-ux-ready #lux-daily-clear-tiles{
+  position:fixed;z-index:2147480999;min-height:40px;
+  padding:7px 16px;border-radius:999px;
+  border:1px solid #bfa372;background:#fcf6e9;color:#1d394b;
+  font:600 14px/1.2 system-ui,sans-serif;
+  box-shadow:0 2px 5px #87745012;cursor:pointer;
+  touch-action:manipulation;
+}
+html.lux-daily-ux-ready #lux-daily-clear-tiles:disabled{opacity:.35;pointer-events:none;}
+html.lux-daily-ux-ready #lux-daily-clear-tiles:focus-visible{
+  outline:3px solid #9c854a;outline-offset:3px;
+}
+/* Fallback visual only, used if the original companion panel has not mounted. */
+html.lux-daily-ux-ready #lux-daily-equipped-pet{
+  position:fixed;top:12px;right:clamp(139px,16vw,204px);
+  width:55px;height:64px;z-index:2147480995;
+  pointer-events:none;display:flex;justify-content:center;align-items:center;
+}
+html.lux-daily-ux-ready #lux-daily-equipped-pet img{
+  display:block;width:100%;height:100%;object-fit:contain;
+}
+html.lux-daily-ux-ready main > #lux-voice-cheer-toggle{
+  position:absolute!important;right:14px;top:18px;z-index:25;
+}
+html.lux-daily-ux-ready #study-companion > #lux-voice-cheer-toggle{
+  position:static!important;
+}
+@media(max-width:720px){
+ html.lux-daily-ux-ready #lux-daily-equipped-pet{
+   position:absolute;top:6px;right:130px;width:41px;height:47px;
+ }
+ html.lux-daily-ux-ready [data-lux-tiles] > button:last-child::before{
+   font-size:16px;
+ }
+}
