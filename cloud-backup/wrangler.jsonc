@@ -1,0 +1,10 @@
+{
+  "name": "gloria-private-cloud-backups",
+  "main": "./worker.mjs",
+  "compatibility_date": "2026-10-20",
+  "workers_dev": true,
+  "r2_buckets": [{"binding":"BACKUPS","bucket_name":"gloria-private-encrypted-backups"}],
+  "triggers": {"crons":["10 20 * * *"]},
+  "vars": {"BACKUP_TO":"glo.journal@gmail.com"},
+  "observability": {"enabled":false}
+}
