@@ -25,6 +25,11 @@ const nativeItem=(label)=>[...document.querySelectorAll('body>.paper-wash button
   .find(b=>!!b.querySelector('img[alt="'+label.replaceAll('"','')+'"]'));
 let root,style,modal,waiting=false,lastKey='',cleanupFocus=null;
 const suppressedNavs=new Map();
+const watchedNativeNavs=new Set();
+const nativeNavAttrWatcher=new MutationObserver(()=>{
+  if(root?.isConnected&&enabled())suppressOldNavigation();
+});
+
 function suppressOldNavigation(){
   // Legacy navigation is generated in a separate portal and occasionally
   // receives a high-specificity inline visibility/display override.
@@ -40,11 +45,21 @@ function suppressOldNavigation(){
         visibilityPriority:n.style.getPropertyPriority('visibility')
       });
     }
-    n.style.setProperty('display','none','important');
-    n.style.setProperty('visibility','hidden','important');
+    if(!watchedNativeNavs.has(n)){
+      watchedNativeNavs.add(n);
+      nativeNavAttrWatcher.observe(n,{attributes:true,attributeFilter:['class','style']});
+    }
+    if(n.style.getPropertyValue('display')!=='none'||
+      n.style.getPropertyPriority('display')!=='important')
+      n.style.setProperty('display','none','important');
+    if(n.style.getPropertyValue('visibility')!=='hidden'||
+      n.style.getPropertyPriority('visibility')!=='important')
+      n.style.setProperty('visibility','hidden','important');
   }
 }
 function restoreOldNavigation(){
+  nativeNavAttrWatcher.disconnect();
+  watchedNativeNavs.clear();
   for(const [n,saved] of suppressedNavs){
     for(const [prop,value,priority] of [
       ['display',saved.display,saved.displayPriority],
@@ -244,7 +259,12 @@ function render(){
   }
 }
 function schedule(){if(waiting)return;waiting=true;requestAnimationFrame(render)}
-const obs=new MutationObserver(schedule);
+const obs=new MutationObserver(()=>{
+  // Synchronous mutation callback prevents an iPad WebKit paint showing a
+  // newly mounted legacy navigation before the next animation frame.
+  if(root?.isConnected&&enabled())suppressOldNavigation();
+  schedule();
+});
 obs.observe(document.documentElement,{childList:true,subtree:true});
 window.addEventListener('popstate',schedule);
 window.addEventListener('pageshow',schedule);
