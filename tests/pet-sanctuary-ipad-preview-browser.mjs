@@ -44,6 +44,9 @@ try{
     assert.ok(await page.locator('#petEnergyValue').count()===1,'Keep energy');
     assert.equal(await page.locator('.pet-preview-bottom-bar a').count(),7,'Keep approved seven-link global navigation');
     assert.equal(await page.locator('.pet-preview-bottom-bar a[href="/pet/"][aria-current="page"]').count(),1,'Pet nav must be active');
+    assert.deepEqual(await page.locator('.pet-preview-bottom-bar a').allTextContents(),
+      ['Home','Study','Play','Garden','Pet','Assessment','Scholar'],
+      'Keep the exact Study/Play bottom navigation order and singular tab names');
     assert.equal(await page.locator('#stageSteps .pet-step').count(),10,'Show all ten evolution steps on the same Pet screen');
     assert.ok(await page.locator('#pet-next-preview').count()===1,'Show real next evolution artwork inside main panel');
     assert.ok(await page.locator('.pet-evolve-guide-grid>span').count()===3,'Explain both ways to earn MP and the Evolve action on the same page');
@@ -73,6 +76,8 @@ try{
     assert.ok(visibleColours.need==='rgb(255, 240, 211)' || visibleColours.needFill==='rgb(255, 240, 211)',
       'MP requirement glyph fill is visibly light on navy Evolution panel');
     assert.equal(visibleColours.nav,'rgba(26, 51, 64, 0.965)','Bottom nav matches Study/Play dark navy');
+    const inactiveNavColour=await page.locator('.pet-preview-bottom-bar a[href="/study/"]').evaluate(el=>getComputedStyle(el).color);
+    assert.equal(inactiveNavColour,'rgb(255, 244, 222)','Inactive bottom tabs must be readable on dark navy');
     assert.ok(sizes.art.includes('url('),'Real species/level artwork loaded');
     assert.ok(sizes.pet.width>=viewport.width*.4||viewport.width<700,'Large focal stage in landscape');
     assert.ok(sizes.scrollWidth<=viewport.width+4,'No horizontal overflow on iPad/mobile');
