@@ -36,7 +36,10 @@ try {
      store.setState({dailyLog:log,recoveryTaskByDay:{},recoveryVocabByDay:{}});
      return yesterday;
    });
-   await page.waitForSelector('#lux-recovery-date');
+   // The new RPG Home keeps the native recovery engine behind its visible Recovery modal.
+   // Use the actual navigation control rather than clicking a hidden legacy panel.
+   await page.locator('.rpg-nav-live').getByRole('button',{name:'Recovery'}).click();
+   await page.waitForSelector('#lux-recovery-date',{state:'visible'});
    await page.locator('#lux-recovery-date').selectOption(date);
    const before=await page.evaluate(()=>Object.fromEntries((window.__luxStore.getState().daily||[]).map(t=>[t.id,Number(t.progress)||0])));
    await page.getByRole('button',{name:'Prepare ten recovery tasks'}).click();
@@ -49,7 +52,10 @@ try {
    await page.waitForFunction(d=>window.__luxStore.getState().dailyLog[d]?.tasks.find(t=>t.id==='tend-garden')?.done===true,date);
    assert.equal((await page.evaluate(d=>window.__luxStore.getState().dailyLog[d],date)).done,1);
    await page.goto(base+'/',{waitUntil:'domcontentloaded'});
-   await page.waitForSelector('#lux-recovery-date');
+   // The new RPG Home keeps the native recovery engine behind its visible Recovery modal.
+   // Use the actual navigation control rather than clicking a hidden legacy panel.
+   await page.locator('.rpg-nav-live').getByRole('button',{name:'Recovery'}).click();
+   await page.waitForSelector('#lux-recovery-date',{state:'visible'});
    await page.locator('#lux-recovery-date').selectOption(date);
    await page.getByRole('button',{name:'Play a game to recover →'}).click();
    await page.waitForURL(/\/play/,{timeout:30000});
