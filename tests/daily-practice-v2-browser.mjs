@@ -99,7 +99,13 @@ async function checkFixture(browser,engine,kind,viewport){
   assert.ok(details.promptSize>=27,'question must be large');
   assert.ok(details.scrollWidth<=viewport.width+1,'no horizontal overflow');
   assert.ok(details.pet.width>=38 && details.pet.width<=210,'pet artwork must be visible but compact');
-  assert.ok(details.decorativeBackground.includes('daily-practice-botanical-frame'),'decorative frame must be present');
+  assert.ok(details.decorativeBackground.includes('daily-practice-academy-frame'),'decorative frame must be present');
+  const bgResponse=await page.request.get(base+'/assets/daily-practice-academy-frame-20261020.svg');
+  assert.equal(bgResponse.status(),200,'academy background asset must load');
+  const bgSource=await bgResponse.text();
+  assert.ok(bgSource.includes('data:image/jpeg;base64,'),'approved columns/books source must be embedded, not external');
+  assert.ok(bgSource.includes('<mask id="leftmask"'),'architectural background should fade into the parchment center');
+
   if(kind==='tiles'){
     assert.equal(details.tileInk,'rgb(255, 249, 238)','letter tile needs light readable text');
     assert.ok(details.submitButton?.width>=160,'tile answer action needs prominent button');
