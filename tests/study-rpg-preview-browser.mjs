@@ -73,14 +73,18 @@ try{
           return x.petArtUrl('moss-hornling',2);
         });
         assert.equal(await page.locator('.lux-study-rpg-pet').getAttribute('src'),petExpected);
-        const petVisualScale = await page.locator('.lux-study-rpg-pet').evaluate(img => {
-          const matrix = getComputedStyle(img).transform;
-          const match = matrix.match(/matrix\(([^,]+)/);
-          return match ? Number(match[1]) : 0;
-        });
-        const expectedScale = viewport.width > 700 ? 3.05 : 1.35;
-        assert.ok(Math.abs(petVisualScale-expectedScale)<0.05,
-          'Small selected Pet must use enlarged size at '+viewport.width+'px');
+        const petPixels = await page.locator('.lux-study-rpg-pet').evaluate(img => ({
+          transform:getComputedStyle(img).transform,
+          width:img.getBoundingClientRect().width,
+          height:img.getBoundingClientRect().height,
+          quality:getComputedStyle(img).imageRendering,
+          loaded:img.complete && img.naturalWidth > 0
+        }));
+        assert.equal(petPixels.transform, 'none','Pet must not be scaled from a tiny rasterized image');
+        assert.ok(petPixels.loaded,'Full-resolution Pet sprite must load');
+        assert.ok(petPixels.width >= (viewport.width>700 ? 165 : 125),
+          'Pet should be sized natively, not scaled by CSS at '+viewport.width+'px');
+        assert.equal(petPixels.quality,'auto','Pet should use native image sampling');
         assert.ok(await page.locator('.lux-study-rpg-scholar').evaluate(img => img.complete && img.naturalWidth>0 && img.getBoundingClientRect().height > 200),'Equipped outfit image must be rendered');
         assert.ok(await page.locator('.lux-study-rpg-pet').evaluate(img => img.complete && img.naturalWidth>0),'Selected pet image must be rendered');
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-nav a').count(),7,'Nav must remain intact after outfit/pet changes');
