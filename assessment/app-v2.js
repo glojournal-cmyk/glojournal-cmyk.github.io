@@ -277,6 +277,33 @@ function normal(x,rule={}){
   if(rule.ignoreFrenchDiacriticsForScore)s=s.normalize('NFD').replace(/[\u0300-\u036f]/g,'');
   return rule.ignorePunctuationForScore?s.replace(/[^a-z0-9]/g,''):s;
 }
+function acceptedForMarking(e){
+ const values=[...(e.answer.accepted??[])];if(e.answer.modelAnswer)values.push(e.answer.modelAnswer);
+ const originals=values.filter(value=>typeof value==="string"&&value.trim());
+ if(!["typed_equivalent","typed_exact","typed_short","controlled_translation"].includes(e.format)||e.answer.requiredGroups?.length||e.answer.markPoints?.length)return originals;
+ const instruction=String(e.prompt??"")+" "+String(e.task?.label??"");
+ if(/\b(?:list|give|name|write|provide)\s+(?:all|both|two|three|\d+)\b|\b(?:all of the following|both meanings|two separate meanings)\b/i.test(instruction))return originals;
+ const options=new Set(originals);
+ for(const full of originals){
+  if(!/\s+\/\s+|\s+or\s+/i.test(full)||/\beither\b/i.test(full))continue;
+  const parts=full.split(/\s+\/\s+|\s+or\s+/i).map(s=>s.trim()).filter(Boolean);
+  if(parts.length<2||parts.length>8)continue;
+  const tokens=parts.map(s=>s.split(/\s+/).filter(Boolean));
+  const standalone=tokens.every(s=>s.length===1)||parts.every((s,index)=>tokens[index].length>=2&&/^[A-ZÀ-ÖØ-Þ]/.test(s));
+  if(standalone){for(const part of parts)options.add(part);continue}
+  const first=tokens[0];
+  if(first.length<2)continue;
+  options.add(parts[0]);
+  for(let k=1;k<tokens.length;k++){
+   const part=tokens[k],prefixSize=first.length-part.length;
+   // Only restore a shared prefix when unambiguous: this must not accept
+   // bare grammatical fragments or invent "dans grand appartement".
+   if(prefixSize<1||(part.length>1&&prefixSize<2))continue;
+   options.add([...first.slice(0,prefixSize),...part].join(" "));
+  }
+ }
+ return [...options];
+}
 function textWords(x){
   return String(x||'').toLowerCase().replace(/[’‘]/g,"'").normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9' ]/g,' ').split(/\s+/).filter(Boolean);
 }
@@ -375,7 +402,7 @@ function mark(q,value){
     return {credit,status:credit>=0.999?'Correct':credit>0?'Partly correct':'Incorrect',matched,total:groups.length||1};
   }
 
-  const exact=(q.answer?.accepted||[]).some(a=>normal(a,rule)===normal(value,rule));
+  const exact=acceptedForMarking(q).some(a=>normal(a,rule)===normal(value,rule));
   const ok=exact||(flexible&&equivalentCreusa(q,value));
   return {credit:ok?1:0,status:ok?'Correct':'Incorrect',matched:ok?1:0,total:1};
 }
