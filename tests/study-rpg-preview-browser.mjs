@@ -75,7 +75,7 @@ try{
         assert.equal(await page.locator('.lux-study-rpg-pet').getAttribute('src'),petExpected);
         const petVisualScale = await page.locator('.lux-study-rpg-pet').evaluate(img => {
           const matrix = getComputedStyle(img).transform;
-          const match = matrix.match(/matrix\\(([^,]+)/);
+          const match = matrix.match(/matrix\(([^,]+)/);
           return match ? Number(match[1]) : 0;
         });
         const expectedScale = viewport.width > 700 ? 3.05 : 1.35;
