@@ -8,6 +8,8 @@ const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=u
 const server=createServer((req,res)=>{try{
   const url=new URL(req.url,'http://localhost'),decoded=decodeURIComponent(url.pathname);
   let relative=decoded.endsWith('/')?decoded+'index.html':decoded;
+  // Match GitHub Pages' canonical-directory handling when a nav links /play, /garden, etc.
+  if (/^\/(?:study|pet|play|garden|scholar|assessment)$/.test(decoded)) relative=decoded+'/index.html';
   const file=path.resolve(baseDir,'.'+relative);
   if (!file.startsWith(baseDir+path.sep)) throw new Error('Outside web root');
   const buf=fs.readFileSync(file);
@@ -123,4 +125,50 @@ try{
     assert.equal(await page.locator('#lux-study-rpg-integrated').count(),0,'Legacy fallback must bypass new overlay');
     await page.close();
   }finally{await fallbackBrowser.close();}
+
+  // Regression: a fresh Study classroom must return after visiting every
+  // principal page, not the retired Study JSX. Exercise iPad WebKit and Chromium.
+  for (const engine of [chromium, webkit]) {
+    const browser=await engine.launch({headless:true});
+    try {
+      const page=await browser.newPage({viewport:{width:1024,height:768}});
+      for (const target of [
+        {name:'Pet',href:'/pet/',path:'/pet/'},
+        {name:'Play',href:'/play',path:'/play'},
+        {name:'Garden',href:'/garden',path:'/garden'},
+        {name:'Scholar',href:'/scholar',path:'/scholar'},
+        {name:'Assessment',href:'/assessment/',path:'/assessment/'},
+        {name:'Home',href:'/',path:'/'}
+      ]) {
+        await page.goto(origin+'/study/');
+        await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
+        await page.locator('#lux-study-rpg-integrated .lux-study-rpg-nav a[href="'+target.href+'"]').click();
+        await page.waitForURL(u=>u.pathname.replace(/\/$/,'')===target.path.replace(/\/$/,''),{timeout:20000});
+        // Tap the destination's real Study navigation, not a stale Study overlay.
+        await page.locator('a[href="/study"],a[href="/study/"]').evaluateAll(anchors=>{
+          const link=anchors.find(a=>!a.closest('#lux-study-rpg-integrated')&&a.getClientRects().length>0)
+              || anchors.find(a=>!a.closest('#lux-study-rpg-integrated'));
+          if(!link)throw Error('Study link missing on destination page');
+          link.click();
+        });
+        await page.waitForURL(u=>/^\/study\/?$/.test(u.pathname),{timeout:20000});
+        await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
+        await page.waitForFunction(()=>document.documentElement.classList.contains('lux-study-rpg-active'));
+        assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').count(),6,
+          'Study → '+target.name+' → Study should show six RPG subject cards');
+        assert.equal(await studyNavigationIsFrontmost(page),true,
+          'Study rail should be on top after returning from '+target.name);
+        if(target.name==='Pet'){
+          await page.goBack();
+          await page.waitForURL(u=>/^\/pet\/?$/.test(u.pathname));
+          await page.goForward();
+          await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
+          assert.equal(await page.locator('html.lux-study-rpg-active').count(),1,
+            'iPad back/forward must retain the integrated Study');
+        }
+        console.log(engine.name(),target.name,'→ Study return passed');
+      }
+      await page.close();
+    } finally { await browser.close(); }
+  }
 }finally{server.close();}
