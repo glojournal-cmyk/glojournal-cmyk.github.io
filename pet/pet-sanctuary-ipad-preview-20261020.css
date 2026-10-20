@@ -261,3 +261,16 @@ body.pet-sanctuary-preview .lux-shell-nav a svg{width:17px;height:17px}
 @media(prefers-reduced-motion:reduce){
  body.pet-sanctuary-preview .pet-sparkles i{animation:none}
 }
+
+/* Suppress the retired Pet header — the approved study/play nav is enough.
+   Without this, iPad content is pushed beneath the fixed bottom navigation. */
+body.pet-sanctuary-preview .pet-topbar,
+body.pet-sanctuary-preview .lux-shell-header{
+ display:none!important;
+}
+/* The shared legacy shell uses a high-specificity left:12px; explicitly
+   re-center the modern seven-link navbar rather than shifting it off-screen. */
+body.lux-shell-on.pet-sanctuary-preview .lux-shell-nav{
+ left:50%!important;right:auto!important;
+ transform:translateX(-50%)!important;
+}
