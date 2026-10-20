@@ -52,10 +52,19 @@
     document.body.append(nav);
   }
   let fallbackPet, petResolver, clearControl;
+  let watchedBuddy;
+  const companionStyleWatcher=new MutationObserver(schedule);
+  function watchCompanion(buddy){
+    if(watchedBuddy===buddy)return;
+    companionStyleWatcher.disconnect();
+    watchedBuddy=buddy;
+    if(buddy)companionStyleWatcher.observe(buddy,{attributes:true,attributeFilter:['style','class']});
+  }
   // The legacy Study layout sometimes sets the mounted companion itself to
   // display:none. Keep the real equipped sprite and Voice button visible here.
   // Restore its prior inline display on leaving a question; no saved pet data changes.
   function restoreCompanion(){
+    watchCompanion(null);
     const buddy=document.querySelector('[data-lux-daily-shown-companion]');
     if(!buddy)return;
     const former=buddy.dataset.luxDailyFormerDisplay||'';
@@ -68,6 +77,7 @@
   }
   function showCompanion(){
     const buddy=document.getElementById('study-companion');
+    watchCompanion(buddy);
     if(!buddy) return;
     if(getComputedStyle(buddy).display==='none'){
       if(!buddy.hasAttribute('data-lux-daily-shown-companion')){
