@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="/pet/pet-care.css?v=20260927-care2&ux=20261013-corrections2">
   <link rel="stylesheet" href="/shell-frame.css?v=20260930-bar1&ux=20261013-corrections2">
   <link rel="stylesheet" href="/pet/pet-game-layout.css?v=20261012-level10&ux=20261013-corrections2">
-  <script>if(new URLSearchParams(location.search).get("petPreview")==="1"){document.addEventListener("DOMContentLoaded",()=>document.body.classList.add("pet-sanctuary-preview"),{once:true})}</script>
+  <script>if(new URLSearchParams(location.search).get("petPreview")==="1"){document.addEventListener("DOMContentLoaded",()=>{document.body.classList.add("pet-sanctuary-preview");document.querySelector(".pet-topbar")?.remove();document.querySelector(".pet-page-intro")?.remove()},{once:true})}</script>
   <script src="/shell-frame.js?v=20261020-return-nav1&ux=20261013-corrections2" defer></script>
 <script type="module" src="/pet/home-pet.js?v=20261019-return-nav1&ux=20261013-corrections2"></script><link rel="stylesheet" href="/lux-theme.css?v=20260930-face12&ux=20261013-corrections2">  <link rel="stylesheet" href="/pet/pet-sanctuary-ipad-preview-20261020.css?v=20261020-v3">
 </head>
