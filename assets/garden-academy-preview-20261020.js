@@ -144,7 +144,7 @@ function assemble(){
   const decoration=create('button',null,'DECORATIONS  ›');
   decoration.type='button';decoration.addEventListener('click',()=>openPanel('Garden Decorations','decor'));
   actions.append(log,water,decoration);world.append(actions);root.append(world);
-  const nav=create('nav','lux-garden-nav');nav.setAttribute('aria-label','Main navigation');
+  const nav=create('div','lux-garden-nav');nav.setAttribute('role','navigation');nav.setAttribute('aria-label','Main navigation');
   for(const [glyph,label,url]of navs){
     const a=create('a',label==='Garden'?'active':'');a.href=url;
     a.append(create('span',null,glyph),create('span',null,label));
