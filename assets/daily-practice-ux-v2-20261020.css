@@ -533,3 +533,64 @@ html.lux-daily-ux-ready [data-lux-daily-lock] {
    font-size:12px!important;
    line-height:1.4!important;
 }
+
+
+/* iPad text-entry mode: pure CSS, with no scripted scroll or viewport loop.
+   Only applied while a live Practice answer field has focus. Restore the
+   approved full-height card, pet and Study navigation when typing ends. */
+@supports selector(html:has(.lux-practice-view input:focus)) {
+ @media (orientation: landscape) and (min-width:721px) {
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) body,
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) body.lux-desk {
+    overflow-x:hidden!important;overflow-y:auto!important;height:auto!important;
+  }
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) .paper-wash,
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) .paper-wash>main {
+    height:auto!important;min-height:0!important;overflow:visible!important;
+  }
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) .paper-wash>main {
+    padding:6px clamp(10px,2vw,28px) calc(14px + env(safe-area-inset-bottom))!important;
+  }
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) .lux-practice-view,
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) body.lux-desk main>div>div.space-y-5>.space-y-4,
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) body.lux-desk main>div>div.space-y-5>.space-y-4>:first-child {
+    height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important;
+  }
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) .lux-practice-view [data-question-id] {
+    gap:6px!important;margin-top:0!important;
+  }
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) [data-lux-question-intro],
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) [data-lux-daily-lock],
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) #study-companion,
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) #lux-daily-equipped-pet,
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) .lux-daily-study-nav {
+    display:none!important;
+  }
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) [data-lux-question-card] {
+    min-height:0!important;height:auto!important;padding:12px 17px!important;
+    border-radius:15px!important;
+  }
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) [data-lux-prompt] {
+    font-size:clamp(23px,2.5vw,29px)!important;line-height:1.18!important;
+    margin:1px 0 7px!important;
+  }
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) [data-lux-question-card] [class*="bg-sage"] {
+    padding:7px 10px!important;margin:5px 0!important;line-height:1.3!important;
+  }
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) [data-lux-question-card] form {
+    margin-top:9px!important;display:flex!important;flex-wrap:nowrap!important;
+    align-items:center!important;gap:10px!important;
+  }
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) [data-lux-question-card] form :is(input,textarea) {
+    flex:1 1 auto!important;min-width:0!important;min-height:48px!important;
+    font-size:18px!important;
+  }
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) [data-lux-question-card] textarea {
+    min-height:72px!important;max-height:108px!important;overflow-y:auto!important;
+  }
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within, textarea:focus)) [data-lux-question-card] form button[type="submit"] {
+    min-width:124px!important;min-height:48px!important;margin:0!important;
+    padding:9px 16px!important;flex:0 0 auto!important;
+  }
+ }
+}

@@ -1,0 +1,30 @@
+name: iPad CSS-only Daily answer position QA
+on:
+  pull_request:
+    paths:
+      - "assets/daily-practice-ux-v2-20261020.css"
+      - "assets/ipad-experience-20261004.js"
+      - "tests/ipad-css-keyboard-20261020.mjs"
+      - ".github/workflows/ipad-css-keyboard-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  no-jitter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: "22"}
+      - run: node --check assets/ipad-experience-20261004.js
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Verify prompt, editor and Submit with repeated keyboard resizing
+        run: node tests/ipad-css-keyboard-20261020.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ipad-css-keyboard-focus-screens
+          path: test-results/ipad-css-keyboard-20261020/*.png
+          if-no-files-found: ignore
