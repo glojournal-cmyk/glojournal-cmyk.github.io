@@ -133,7 +133,8 @@ const SCHOOL_ASSESSMENTS=globalThis.LuxSchoolRevision.schoolAssessments;
 function tracker(){
   // Show only confirmed school-test dates. The older AQA paper remains under Long tests.
   const school=SCHOOL_ASSESSMENTS.filter(x=>x.id!=='school-biology-20261116' && !(state.hiddenSchoolAssessments||[]).includes(x.id));
-  const entries=[...school,...state.tracker].sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+  // Sort newest first; undated manually recorded assessments go below dated entries.
+  const entries=[...school,...state.tracker].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
   const today=examToday();
   const titles={chemistry:'Atoms & chromatography',french:'Unit 1 vocabulary','biology-nov2':'Specialised cells & RP1'};
   const heading='<div class="assessment-tracker-head" aria-hidden="true"><span>Subject</span><span>Assessment</span><span>Date</span><span>Status</span><span></span></div>';
@@ -160,7 +161,7 @@ function tracker(){
     return `<article class="entry assessment-tracker-entry">
       <details class="assessment-tracker-item">
         <summary aria-label="${esc(`${x.subject}, ${x.title}, ${date}, ${status}. Show details`)}">
-          <span class="tracker-col tracker-subject">${esc(x.subject)}</span>
+          <span class="tracker-col tracker-subject tracker-subject-${esc(String(x.subject||"Other").toLowerCase().replace(/[^a-z0-9-]/g,"-"))}">${esc(x.subject)}</span>
           <strong class="tracker-col tracker-title" title="${esc(x.title)}">${esc(shortTitle)}</strong>
           <time class="tracker-col tracker-date" datetime="${esc(x.date||'')}">${esc(date)}</time>
           <span class="tracker-col tracker-status">${esc(status)}</span>
