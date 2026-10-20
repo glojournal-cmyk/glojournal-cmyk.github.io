@@ -572,3 +572,14 @@ body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[href="/scholar"]{order:7
  }
  body.pet-sanctuary-preview nav.pet-preview-bottom-bar a svg{width:15px;height:15px}
 }
+
+/* WebKit may inherit the older pet-stat text fill despite an updated color.
+   Set both actual glyph fill and foreground on the Evolution requirement. */
+body.pet-sanctuary-preview #petGrowth #nextText,
+body.pet-sanctuary-preview #petGrowth .pet-progress-head strong{
+ -webkit-text-fill-color:#fff0d3!important;
+ color:#fff0d3!important;
+}
+body.pet-sanctuary-preview #petGrowth .pet-evo-track-head strong{
+ -webkit-text-fill-color:#fff0d3!important;color:#fff0d3!important;
+}
