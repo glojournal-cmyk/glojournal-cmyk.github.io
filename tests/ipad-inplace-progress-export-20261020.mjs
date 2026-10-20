@@ -17,8 +17,8 @@ const server=createServer((req,res)=>{
  const pathname=new URL(req.url,'http://localhost').pathname;
  if(pathname==='/study/french/practise/'){res.writeHead(200,{'content-type':'text/html'});res.end(doc);return;}
  try{const f=path.resolve(root,'.'+pathname);if(!f.startsWith(root+path.sep))throw Error('unsafe');
-  res.writeHead(200,{'content-type':'text/javascript'});res.end(fs.readFileSync(f));
- }catch{res.writeHead(404);res.end('Not Found');}
+  const contents=fs.readFileSync(f);res.writeHead(200,{'content-type':'text/javascript'});res.end(contents);
+ }catch{if(res.headersSent)res.end();else{res.writeHead(404);res.end('Not Found');}}
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const url='http://127.0.0.1:'+server.address().port+'/study/french/practise/';
