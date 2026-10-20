@@ -73,8 +73,9 @@ export function migrateOldBackups(){
  archiving=(async()=>{
   let moved=0,failed=0;
   for(const key of KEYS){
-   const local=fromLocal(key);
-   if(!local)continue;
+   const original=localStorage.getItem(key);
+   let local;try{local=JSON.parse(original||"null")}catch{continue}
+   if(!validSnapshot(local))continue;
    try{
     const saved=await read(key);
     const keep=validSnapshot(saved)&&Date.parse(saved.savedAt||"")>Date.parse(local.savedAt||"")?saved:local;
@@ -82,7 +83,7 @@ export function migrateOldBackups(){
     // Verify first, then remove ONLY the duplicate backup key. Never remove
     // lux-scholar-garden-v1 or personal gameplay records.
     if((await read(key))?.data===keep.data&&
-       localStorage.getItem(key)===JSON.stringify(local)){
+       localStorage.getItem(key)===original){
       localStorage.removeItem(key);moved++;
     }
    }catch{failed++}
@@ -95,4 +96,22 @@ export async function readAllBackups(){
  const output={};
  for(const key of KEYS)output[key]=await readBackup(key);
  return output;
+}
+
+/* Retry the live primary save after moving verified duplicate snapshots.
+   Never restore an older snapshot over the live answer state. */
+let recovering=null;
+export function recoverProgressStorage(store){
+ if(recovering)return recovering;
+ recovering=(async()=>{
+  await migrateOldBackups();
+  if(!store?.getState||!store?.setState||store.persist?.hasHydrated?.()===false)return false;
+  const options=store.persist?.getOptions?.();
+  if(!options||options.name!=="lux-scholar-garden-v1")return false;
+  store.setState({});
+  const state=options.partialize({...store.getState()});
+  const expected=JSON.stringify({state,version:options.version});
+  return localStorage.getItem(options.name)===expected;
+ })().catch(()=>false).finally(()=>{recovering=null});
+ return recovering;
 }
