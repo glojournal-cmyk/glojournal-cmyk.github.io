@@ -45,6 +45,19 @@
     event.stopImmediatePropagation();
     location.assign('/study/' + url.search + url.hash);
   }, true);
+  // Home's live RPG rail can replace its link between pointerup and click.
+  // Resolve the real pointer release on that rail before React rerenders.
+  document.addEventListener('pointerup', event => {
+    if (event.button !== 0 || !/^\/$/.test(location.pathname)) return;
+    const anchor=event.target?.closest?.('#lux-rpg-live-home .rpg-nav-live a[href]');
+    if (!anchor || anchor.target === '_blank' || anchor.hasAttribute('download')) return;
+    let url;
+    try { url=new URL(anchor.href,location.href); } catch { return; }
+    if (url.origin !== location.origin || !/^\/study\/?$/.test(url.pathname)) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    location.assign('/study/' + url.search + url.hash);
+  }, true);
   window.addEventListener('popstate', showStudy);
   window.addEventListener('pageshow', showStudy);
   window.addEventListener('lux:app-ready', showStudy);
