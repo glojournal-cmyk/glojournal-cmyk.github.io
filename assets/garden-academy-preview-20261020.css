@@ -57,7 +57,7 @@ html.lux-garden-map-active body>.lux-companion-bottom-nav{visibility:hidden!impo
 .lux-garden-item .lux-item-arrow{margin-left:auto;font:700 1.45rem Georgia,serif;color:#a48245}
 .lux-garden-item[data-locked=true] img{filter:grayscale(.85);opacity:.75}
 .lux-garden-item:focus-visible,.lux-garden-map-preview button:focus-visible,.lux-garden-map-preview a:focus-visible{outline:3px solid #fff2a6;outline-offset:3px}
-.lux-basil-box{position:absolute;z-index:6;left:50%;bottom:5%;transform:translateX(-50%);
+.lux-basil-box{position:absolute;z-index:6;left:50%;bottom:21%;transform:translateX(-50%);
  display:flex;flex-direction:column;align-items:center;width:min(28vw,260px);min-width:185px;
  color:#243f2c}
 .lux-basil-box img{display:block;object-fit:cover;object-position:center;
@@ -66,7 +66,7 @@ html.lux-garden-map-active body>.lux-companion-bottom-nav{visibility:hidden!impo
 .lux-basil-box strong{margin-top:.18rem;font:700 1.22rem Georgia,serif;background:#f9eccc;
  border:1px solid #a98752;border-radius:8px;padding:.18rem .9rem}
 .lux-basil-box span{font-size:.8rem;background:#fff8e9e8;border-radius:99px;padding:.12rem .55rem;margin-top:.2rem}
-.lux-garden-actions{position:absolute;z-index:7;bottom:12%;left:3%;right:3%;display:flex;align-items:center;justify-content:space-between;gap:1rem;pointer-events:none}
+.lux-garden-actions{position:absolute;z-index:7;bottom:3%;left:3%;right:3%;display:flex;align-items:center;justify-content:space-between;gap:1rem;pointer-events:none}
 .lux-garden-actions button{pointer-events:auto;border:2px solid #b48c50;border-radius:999px;min-height:48px;
  padding:.54rem 1.15rem;background:#fffbef;color:#213747;font:700 clamp(.78rem,1vw,.96rem) Georgia,serif;
  box-shadow:0 4px 10px #2e332d30;cursor:pointer}
@@ -103,12 +103,12 @@ html.lux-garden-map-active body>.lux-companion-bottom-nav{visibility:hidden!impo
  .lux-garden-item{width:32%;min-height:58px;padding:.3rem;gap:.3rem}
  .lux-garden-item img{width:36px;height:36px}
  .lux-garden-item small{display:none}.lux-garden-item strong{font-size:.75rem}
- .lux-garden-fountain{width:22vw}.lux-basil-box{bottom:4%}
+ .lux-garden-fountain{width:22vw}.lux-basil-box{bottom:21%}
  .lux-garden-nav{width:calc(100vw - 12px)}
 }
 @media(max-height:680px) and (min-width:700px){.lux-garden-title{top:5px}
  .lux-garden-stage{top:5px}.lux-garden-world{top:77px;bottom:69px}
- .lux-basil-box img{width:72px}.lux-garden-actions{bottom:5%}
+ .lux-basil-box img{width:72px}.lux-garden-actions{bottom:2%}
  .lux-garden-item{min-height:48px}.lux-garden-item img{width:34px;height:34px}
  .lux-garden-nav{bottom:5px}.lux-garden-nav a{min-height:43px}
 }
