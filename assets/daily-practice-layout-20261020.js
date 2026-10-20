@@ -2,6 +2,8 @@
  * mastery, recovery, XP, pet selection or localStorage writes. */
 (function () {
   'use strict';
+  // Node-based QA imports the app bundle without any browser globals.
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
   if (window.__luxDailyPracticeUxV2) return;
   window.__luxDailyPracticeUxV2 = true;
   const pathIsPractice = () => /^\/study\/[^/]+\/practise\/?$/.test(location.pathname);
