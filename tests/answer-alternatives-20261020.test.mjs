@@ -12,6 +12,7 @@ const block=between(quiz,"function A(e){","function V(e){");
 const L= new Function("a","d","x",block+";return {I,B};")(MS,AS,JS);
 const LL=new Function("a","d","x",between(legacy,"function A(e){","function V(e){")+";return {I,B};")(MS,AS,JS);
 const A=new Function(between(src("assessment/app-v2.js"),"function acceptedForMarking(e){","function textWords(x){")+";return acceptedForMarking;")();
+const assessmentGrade=new Function("normal","acceptedForMarking",between(src("assessment/app-v2.js"),"function mark(q,value){","function correct(q,value){")+";return mark;")((s,rule)=>String(s??"").trim().toLowerCase().replace(/[’‘]/g,"'").replace(/\s+/g," ").replace(/[.!?]+$/g,""),A);
 const q=(format,answer,prompt="Translate ONE meaning.")=>({id:"test-equivalent",format,prompt,answer:{accepted:[answer]}});
 const cases=[
  ["slash single words",q("typed_equivalent","happy / glad"),"glad","english",true],
@@ -41,6 +42,9 @@ for(const [name,question,answer,subject,expected] of cases) {
   const result=grader.B(question,answer,subject,{});
   assert.equal(result.ok,expected,name+" in "+where+": "+JSON.stringify(result));
  }
+ const examQuestion={...question,answer:{...question.answer,mode:"exact_or_equivalent"}};
+ const assessmentScore=assessmentGrade(examQuestion,answer);
+ assert.equal(assessmentScore.credit>0,expected,name+" in actual Assessment mark()");
  const actual=A(question);
  if(name==="reject abbreviated unit as alternative")assert.deepEqual(actual,["m/s"]);
  if(name==="reject informal pronoun fragment")assert.deepEqual(actual,["he/she/it had gone"]);
@@ -79,6 +83,17 @@ for(const file of fs.readdirSync("assessment").filter(f=>f.endsWith(".json"))) {
   if(accepted.length&&!A(question).some(v=>accepted.every(c=>c!==v)))flagged.push({file,id:question.id,issue:"Assessment explicit slash alternatives not expanded"});
  }
 }
+// All active Physics division formulae must stay whole, not become synonyms.
+for(const file of fs.readdirSync("content/topics").filter(f=>f.startsWith("phys-")&&f.endsWith(".json"))){
+ const doc=JSON.parse(src(path.join("content/topics",file)));
+ for(const question of doc.questions||[]) {
+  if(question.status!=="enabled"||!["typed_short","typed_exact","typed_equivalent"].includes(question.format))continue;
+  const all=(question.answer?.accepted||[]).filter(a=>typeof a==="string");
+  if(!all.some(a=>/\s+\/\s+/.test(a)))continue;
+  assert.deepEqual(L.I(question),[...new Set([...all,question.answer.modelAnswer].filter(Boolean))],"Physics slash division must not be split: "+question.id);
+ }
+}
+
 fs.mkdirSync("test-results",{recursive:true});
 fs.writeFileSync("test-results/answer-alternatives-audit-20261020.json",JSON.stringify({counts,formats,flagged},null,2));
 console.log("ANSWER_ALTERNATIVES_AUDIT "+JSON.stringify({counts,formats,sample:flagged.slice(0,10)}));
