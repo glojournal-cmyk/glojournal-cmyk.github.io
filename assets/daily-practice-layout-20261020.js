@@ -52,6 +52,30 @@
     document.body.append(nav);
   }
   let fallbackPet, petResolver, clearControl;
+  // The legacy Study layout sometimes sets the mounted companion itself to
+  // display:none. Keep the real equipped sprite and Voice button visible here.
+  // Restore its prior inline display on leaving a question; no saved pet data changes.
+  function restoreCompanion(){
+    const buddy=document.querySelector('[data-lux-daily-shown-companion]');
+    if(!buddy)return;
+    const former=buddy.dataset.luxDailyFormerDisplay||'';
+    const priority=buddy.dataset.luxDailyFormerPriority||'';
+    if(former)buddy.style.setProperty('display',former,priority);
+    else buddy.style.removeProperty('display');
+    delete buddy.dataset.luxDailyFormerDisplay;
+    delete buddy.dataset.luxDailyFormerPriority;
+    buddy.removeAttribute('data-lux-daily-shown-companion');
+  }
+  function showCompanion(){
+    const buddy=document.getElementById('study-companion');
+    if(!buddy) return;
+    if(getComputedStyle(buddy).display==='none' && !buddy.hasAttribute('data-lux-daily-shown-companion')){
+      buddy.dataset.luxDailyFormerDisplay=buddy.style.getPropertyValue('display');
+      buddy.dataset.luxDailyFormerPriority=buddy.style.getPropertyPriority('display');
+      buddy.setAttribute('data-lux-daily-shown-companion','');
+      buddy.style.setProperty('display','flex','important');
+    }
+  }
   function updateFallbackPet(){
     if (document.getElementById('study-companion')) {
       fallbackPet?.remove();
@@ -194,6 +218,7 @@
     root.classList.toggle('lux-daily-ux-ready',active);
     root.classList.toggle('lux-daily-task-active',active && new URLSearchParams(location.search).get('daily')==='1');
     if (!active) {
+      restoreCompanion();
       nav?.remove();
       fallbackPet?.remove();
       clearControl?.remove();
@@ -203,6 +228,7 @@
     installSheet();
     decorateQuestion(q);
     buildNav();
+    showCompanion();
     updateFallbackPet();
     updateClear(q);
   }
