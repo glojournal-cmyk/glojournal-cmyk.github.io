@@ -74,7 +74,7 @@
     if(!a||a.target==='_blank'||a.hasAttribute('download'))return;
     let target;
     try{target=new URL(a.href,location.href);}catch{return;}
-    if(target.origin!==location.origin||!/^\\/scholar\\/?$/.test(target.pathname))return;
+    if(target.origin!==location.origin||(target.pathname!=='/scholar'&&target.pathname!=='/scholar/'))return;
     if(isScholar())return;
     event.preventDefault();event.stopImmediatePropagation();
     location.assign('/scholar/'+target.search+target.hash);
