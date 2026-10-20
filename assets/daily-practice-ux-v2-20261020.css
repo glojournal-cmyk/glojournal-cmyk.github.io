@@ -382,3 +382,56 @@ html.lux-daily-ux-ready .lux-daily-study-nav a{
  html.lux-daily-ux-ready [data-lux-tiles] > button:last-child{grid-column:1!important;grid-row:auto!important;}
  html.lux-daily-ux-ready #study-companion{position:relative!important;inset:auto!important;margin-left:auto!important;}
 }
+
+/* iPad one-screen review: no extra native page padding or hidden scrolling. */
+html.lux-daily-ux-ready .paper-wash{
+  padding-bottom:0!important;
+  min-height:100dvh!important;
+}
+html.lux-daily-ux-ready .paper-wash > main{
+  min-height:0!important;
+}
+html.lux-daily-ux-ready [data-lux-question-intro]{
+  min-height:131px!important;
+  padding-bottom:30px!important;
+}
+html.lux-daily-ux-ready [data-lux-question-intro] > p.rounded-lg{
+  display:none!important;
+}
+html.lux-daily-ux-ready [data-lux-question-intro] [role="progressbar"],
+html.lux-daily-ux-ready [data-lux-question-intro] .relative.h-1\.5{
+  display:none!important;
+}
+html.lux-daily-ux-ready [data-lux-question-intro]::before{
+  content:"";display:block;position:absolute;
+  height:10px;left:0;right:65px;bottom:10px;
+  border-radius:999px;
+  background:linear-gradient(to right,#bf9650 0 var(--lux-daily-fill,7%),#e6dfd1 var(--lux-daily-fill,7%) 100%);
+}
+html.lux-daily-ux-ready [data-lux-question-intro]::after{
+  position:absolute;right:0;bottom:3px;
+  transform:none;margin:0;
+}
+html.lux-daily-ux-ready [data-lux-question-card]{
+  min-height:clamp(316px,44dvh,470px)!important;
+}
+html.lux-daily-ux-ready [data-question-format="mc_single"] [data-lux-question-card]{
+  min-height:clamp(316px,44dvh,470px)!important;
+}
+html.lux-daily-ux-ready [data-lux-question-card] > [data-lux-tiles]{
+  width:100%;
+}
+html.lux-daily-ux-ready [data-lux-tiles] > div:nth-child(2) button:disabled{
+  opacity:.4;
+}
+@media(max-height:780px) and (min-width:721px){
+ html.lux-daily-ux-ready [data-lux-question-intro]{
+   min-height:118px!important;
+   padding-bottom:24px!important;
+ }
+ html.lux-daily-ux-ready [data-lux-question-intro]::before{bottom:4px;}
+ html.lux-daily-ux-ready [data-lux-question-intro]::after{bottom:-1px;}
+ html.lux-daily-ux-ready [data-lux-question-card]{
+   min-height:clamp(300px,43dvh,385px)!important;
+ }
+}
