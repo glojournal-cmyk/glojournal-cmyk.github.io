@@ -1,5 +1,5 @@
 /* Lux et Labor Play Hall — read-only RPG presentation.
- * Preview-only: never changes scores, XP, quest or unlocking state.
+ * Production presentation: never changes scores, XP, quest or unlocking state.
  * All 17 native /play/:game routes remain the only game implementations.
  */
 import {C as store} from './index-BLVOhKhN.js?v=20261018-mastery2';
@@ -34,13 +34,13 @@ const NAV = [
  ['home','Home','/'],['book','Study','/study/'],['game','Play','/play/'],
  ['sprout','Garden','/garden'],['paw','Pet','/pet/'],['scroll','Assessment','/assessment/'],['scholar','Scholar','/scholar']
 ];
-// Standalone route, loaded only when ?playHallPreview=1 is selected.
+// Standalone Play route by default; ?playHallPreview=0 opens unchanged native Play.
 if (!window.__luxPlayHallPreviewMounted && /^\/play\/?$/.test(location.pathname) &&
-    new URLSearchParams(location.search).get(PREVIEW_PARAM)==='1') {
+    new URLSearchParams(location.search).get(PREVIEW_PARAM)!=='0') {
   window.__luxPlayHallPreviewMounted=true;
   const css=document.createElement('link');
   css.rel='stylesheet';css.id='lux-play-hall-preview-style';
-  css.href='/assets/play-hall-preview-20261020.css?v=20261020-a';document.head.append(css);
+  css.href='/assets/play-hall-preview-20261020.css?v=20261020-live1';document.head.append(css);
   const root=document.createElement('div');root.id='lux-play-hall-preview';root.className='lux-play-hall';
   root.setAttribute('aria-label','The Enchanted Game Hall');
   let currentGroup=null,modalOpen=false,previousFocus=null,lastSignature=null,scheduled=false;
@@ -69,7 +69,7 @@ if (!window.__luxPlayHallPreviewMounted && /^\/play\/?$/.test(location.pathname)
     const v=Number(state?.games?.[id]?.points);
     return Number.isFinite(v)&&v>0?v:0;
   };
-  const navCard=(id,name)=>{const a=make('a','lux-play-hall-nav-link'+(id==='game'?' active':''));a.href=id==='game'?'/play/?playHallPreview=1':NAV.find(x=>x[0]===id)?.[2]||'/';a.append(glyph(id),make('span',null,name));if(id==='game')a.setAttribute('aria-current','page');return a;};
+  const navCard=(id,name)=>{const a=make('a','lux-play-hall-nav-link'+(id==='game'?' active':''));a.href=id==='game'?'/play/':NAV.find(x=>x[0]===id)?.[2]||'/';a.append(glyph(id),make('span',null,name));if(id==='game')a.setAttribute('aria-current','page');return a;};
   const action=(id,name)=>{const a=make('a','lux-play-hall-game-chip',name);a.href=`/play/${id}`;a.setAttribute('aria-label',`Play ${name}`);return a;};
   const openModal=id=>{currentGroup=id;modalOpen=true;previousFocus=document.activeElement;render(true);const btn=root.querySelector('.lux-play-hall-dialog-close');btn?.focus();};
   const closeModal=()=>{currentGroup=null;modalOpen=false;render(true);(previousFocus?.isConnected?previousFocus:root.querySelector('.lux-play-hall-all-games'))?.focus();};
@@ -90,7 +90,7 @@ if (!window.__luxPlayHallPreviewMounted && /^\/play\/?$/.test(location.pathname)
   };
   function render(force=false){
     scheduled=false;
-    if(!/^\/play\/?$/.test(location.pathname) || new URLSearchParams(location.search).get(PREVIEW_PARAM)!=='1'){
+    if(!/^\/play\/?$/.test(location.pathname) || new URLSearchParams(location.search).get(PREVIEW_PARAM)==='0'){
       root.remove();document.documentElement.classList.remove('lux-play-hall-active');return;
     }
     if(!window.__luxAppReady || !document.querySelector('main'))return;
