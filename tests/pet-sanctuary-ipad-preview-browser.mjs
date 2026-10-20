@@ -66,10 +66,12 @@ try{
     assert.ok(sizes.bg.includes('magic-floor.jpg'),'Same academy botanical scene as other new pages');
     const visibleColours=await page.evaluate(()=>({
       need:getComputedStyle(document.querySelector('#nextText')).color,
+      needFill:getComputedStyle(document.querySelector('#nextText')).webkitTextFillColor,
       nav:getComputedStyle(document.querySelector('.pet-preview-bottom-bar')).backgroundColor,
       petLink:getComputedStyle(document.querySelector('.pet-preview-bottom-bar a[href="/pet/"]')).color
     }));
-    assert.equal(visibleColours.need,'rgb(255, 240, 211)','MP required text is readable on dark Evolution Path panel');
+    assert.ok(visibleColours.need==='rgb(255, 240, 211)' || visibleColours.needFill==='rgb(255, 240, 211)',
+      'MP requirement glyph fill is visibly light on navy Evolution panel');
     assert.equal(visibleColours.nav,'rgba(26, 51, 64, 0.965)','Bottom nav matches Study/Play dark navy');
     assert.ok(sizes.art.includes('url('),'Real species/level artwork loaded');
     assert.ok(sizes.pet.width>=viewport.width*.4||viewport.width<700,'Large focal stage in landscape');
@@ -77,7 +79,7 @@ try{
     if(viewport.width===1024){
       assert.ok(Math.abs(sizes.pet.top-sizes.growth.top)<25,'Evolution Path and current pet stage start together');
       assert.ok(sizes.growth.left>sizes.pet.right-4,'Growth panel stays in right column');
-      assert.ok(sizes.care.top>sizes.growth.top,'Secondary Care follows Evolution Path');
+      assert.ok(sizes.care.top>sizes.growth.bottom-4,'Evolution Path must be fully above Care in Safari and Chromium');
       await page.screenshot({path:'test-results/pet-sanctuary-'+engine.name()+'-1024-home.png'});
       console.log(engine.name()+' 1024 layout '+JSON.stringify(sizes));
       assert.ok(sizes.nav.left>50 && sizes.nav.right<viewport.width-50,'Approved seven-tab nav is actually centred, not cut off');
