@@ -24,7 +24,7 @@
     document.body.append(nav);
   }
   function sync(){
-    document.body.classList.add('scholar-wardrobe-preview');
+    if(!document.body.classList.contains('scholar-wardrobe-preview'))document.body.classList.add('scholar-wardrobe-preview');
     const wrap=document.querySelector('main > div');
     if(!wrap)return;
     if(!wrap.classList.contains('scholar-wardrobe-root'))wrap.classList.add('scholar-wardrobe-root');
@@ -61,10 +61,18 @@
   }
   function boot(){
     sync();
-    // React can re-render on outfit, background or tab selection. Only add
-    // visual classes; do not intercept or replace React's own click listeners.
-    const main=document.querySelector('main');
-    if(main)new MutationObserver(queue).observe(main,{childList:true,subtree:true});
+    // TanStack/React can hydrate or replace the main DOM *after* deferred
+    // scripts. Observe its stable document root so classes/nav are restored
+    // without interrupting real React outfit/background click handlers.
+    const observer=new MutationObserver(queue);
+    observer.observe(document.documentElement,{
+      childList:true,subtree:true,attributes:true,attributeFilter:['class']
+    });
+    window.addEventListener('pageshow',queue);
+    // Follow hydration even in browsers where it batches work outside a
+    // mutation boundary after DOMContentLoaded.
+    setTimeout(queue,450);
+    setTimeout(queue,1450);
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});
   else boot();
