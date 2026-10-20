@@ -636,7 +636,7 @@ html.lux-daily-ux-ready [data-lux-daily-lock] {
 @supports selector(html:has(.lux-practice-view input:focus)) {
  @media (orientation:landscape) and (min-width:721px) and (max-height:550px) {
   html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(form:focus-within,textarea:focus)) [data-lux-question-card] {
-    min-height:0!important;
+    min-height:280px!important;
     padding:9px 17px!important;
     gap:5px!important;
   }
