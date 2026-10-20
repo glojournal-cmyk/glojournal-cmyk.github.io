@@ -39,7 +39,8 @@ if (!window.__luxStudyRpgIntegrated) {
   };
   const safeSlug = (s, fallback) => /^[a-z\d-]+$/i.test(String(s || '')) ? String(s) : fallback;
   const nativeSelect = () => document.querySelector('main:not(#lux-study-rpg-integrated) select:has(option[value="8"])');
-  const studyRoute = () => /^\/study\/?$/.test(location.pathname);
+  const studyRoute = () => /^\/study\/?$/.test(location.pathname) &&
+    new URLSearchParams(location.search).get('studyRpgPreview') !== '0';
   const valuesFrom = (card) => {
     const text = card?.querySelector('.lux-subject-status')?.textContent ||
       [...(card?.querySelectorAll('p') || [])].map(n => n.textContent || '').join(' ');
