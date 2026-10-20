@@ -26,7 +26,9 @@ import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js?ux=20261013-correctio
  };
  const adjectivePair=/^(?:petit|petite|petits|petites|grand|grande|grands|grandes|small|large|big|bon|bonne|bons|bonnes|mauvais|mauvaise|mauvaises|good|bad|jeune|vieux|vieille|new|old|short|tall|long|little)$/i;
  for(const full of originals){
-  if(/[;]/.test(full)||/\beither\b/i.test(full))continue;
+  // A division sign is not a choice of two answers in science calculations.
+  if(/^(?:phys|chem|bio|math)-/i.test(String(e.id??""))&&/(?:\b(?:total|useful|input|output|distance|time|speed|mass|volume|density|power|efficiency)\b|\d|%|=)/i.test(full))continue;
+  if(/[;]/.test(full)||/\beither\b/i.test(full)||(/,/.test(full)&&/\s+or\s+/i.test(full)))continue;
   // Compact separators apply only to language/vocabulary bank keys, not m/s,
   // speed/time, formulae, ratios or science units.
   const text=/^(?:fr|la|eng)-/i.test(String(e.id??""))?
@@ -64,7 +66,7 @@ import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js?ux=20261013-correctio
   }
  }
  return [...options];
-}function L(e){const model=e.answer.modelAnswer||e.answer.accepted?.[0];if(model){if(/\s+\/\s+|\s+or\s+/i.test(model)){const samples=I(e).filter(v=>v!==model&&!/\s+\/\s+|\s+or\s+/i.test(v));if(samples.length)return samples[0]}return model}if(e.answer.requiredGroups?.length)return e.answer.requiredGroups.map(e=>e.alternatives[0]).filter(Boolean).join(` `);if(e.answer.markPoints?.length)return e.answer.markPoints.join(`; `);if(typeof e.answer.value==`number`){let t=e.answer.units?.[0]??``;return`${e.answer.value}${t?` ${t}`:``}`}if(e.answer.labelMap)return Object.entries(e.answer.labelMap).map(([anchor,label])=>`${anchor.toUpperCase()}: ${label}`).join(`; `);return e.answer.pairs?.length?e.answer.pairs.map(e=>`${e.left} → ${e.right}`).join(`; `):e.feedback.short||``}function R(points,response,alternatives){
+}function L(e){const model=e.answer.modelAnswer||e.answer.accepted?.[0];if(model){if(/\/|\s+or\s+/i.test(model)){const samples=I(e).filter(v=>v!==model&&!/\s+\/\s+|\s+or\s+/i.test(v));if(samples.length)return samples[0]}return model}if(e.answer.requiredGroups?.length)return e.answer.requiredGroups.map(e=>e.alternatives[0]).filter(Boolean).join(` `);if(e.answer.markPoints?.length)return e.answer.markPoints.join(`; `);if(typeof e.answer.value==`number`){let t=e.answer.units?.[0]??``;return`${e.answer.value}${t?` ${t}`:``}`}if(e.answer.labelMap)return Object.entries(e.answer.labelMap).map(([anchor,label])=>`${anchor.toUpperCase()}: ${label}`).join(`; `);return e.answer.pairs?.length?e.answer.pairs.map(e=>`${e.left} → ${e.right}`).join(`; `):e.feedback.short||``}function R(points,response,alternatives){
  let clauses=String(response||``).split(/[.;\n]|\bbut\b/i).map(d).filter(Boolean),count=0;
  for(let i=0;i<points.length;i++){
   let variants=[points[i],...(alternatives?.[i]||[])];
