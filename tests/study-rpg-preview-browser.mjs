@@ -165,8 +165,11 @@ try{
           // Only the RPG nav is frontmost/tappable; a generic :visible match
           // can select an underlying original link behind the new Home.
           const studyNav=target.name==='Home'
-            ? page.locator('#lux-rpg-live-home .rpg-nav-live a[href="/study"]')
+            ? page.locator('html.lux-rpg-live-active #lux-rpg-live-home .rpg-nav-live a[href="/study"]')
             : page.locator('a[href="/study"]:visible, a[href="/study/"]:visible');
+          // On first Home paint the RPG nav exists but is hidden until the
+          // approved scene takes over. Do not click its invisible placeholder.
+          await studyNav.last().waitFor({state:'visible',timeout:30000});
           // Home's floating rail animates continuously; Playwright's
           // default "stable box" check can stall despite a visible, tappable
           // link. Keep the :visible requirement, but don't require a motionless
