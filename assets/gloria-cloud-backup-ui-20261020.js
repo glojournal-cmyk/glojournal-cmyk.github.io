@@ -67,7 +67,7 @@ function attach(panel){
  const migrate=element("details");migrate.append(element("summary",{},"Already have a recovery key? Re-pair this device"));
  const oldRecovery=element("input",{type:"password",placeholder:"Paste saved recovery key",autocomplete:"off",style:"width:100%;font-size:16px;padding:10px;margin-top:9px"});
  migrate.append(oldRecovery);
- const rePair=element("button",{type:"button",style:"margin:8px 0;padding:10px"},"Restore private encryption key");
+ const rePair=element("button",{type:"button",style:"margin:8px 0;padding:10px"},"Restore recovery key and enable backups");
  migrate.append(rePair);setup.append(migrate);
  root.append(setup);
  const controls=element("div",{style:"display:flex;flex-wrap:wrap;gap:8px;margin:12px 0"});
@@ -101,8 +101,9 @@ function attach(panel){
   try{
    await importRecoveryKey({endpoint:endpoint.value.trim(),token:token.value.trim(),recoveryKey:oldRecovery.value.trim()});
    token.value="";oldRecovery.value="";
-   status("Recovery key imported. Use the parent confirmation after checking secure key storage.");
-   // Explicit enable only from a separate parent click.
+   await enableAutoBackup();
+   beginSync();
+   status("Recovery key restored. Encrypted cloud upload is now enabled.");
   }catch(e){status("Restore key failed: "+errorMessage(e))}
  });
  backup.addEventListener("click",async()=>{
