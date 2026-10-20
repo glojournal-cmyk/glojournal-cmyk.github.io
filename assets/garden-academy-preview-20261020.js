@@ -60,6 +60,20 @@ function openPanel(title,kind){
       if(Number.isFinite(Number(entry.xp))){const t=create('strong',null,'+'+Number(entry.xp)+' XP');r.append(t)}
       body.append(r);
     }
+  }else if(kind==='item'){
+    const item=collectibles.find(i=>i.name===title);
+    const state=stateNow(),owned=Array.isArray(state.collectibles)?state.collectibles:[];
+    if(item){
+      const art=create('img');art.src=item.art;art.alt='';
+      art.style.cssText='display:block;width:min(180px,45vw);height:140px;object-fit:contain;margin:0 auto 12px';
+      body.append(art);
+      const isOwned=owned.includes(item.id);
+      const note=isOwned?'Unlocked — this garden piece belongs to you.':
+        safeText(needProgress(item.needIf,requirementsContext(state))||item.need||'Keep studying to unlock this piece.');
+      body.append(create('p',null,note));
+      const msg=create('small',null,isOwned?'Unlocked':'Study progress will update this automatically.');
+      body.append(msg);
+    }else body.append(create('p',null,'Keep learning to unlock garden decorations.'));
   }else{
     const inventory=create('div','lux-garden-decor-grid');
     const state=stateNow(),unlocked=Array.isArray(state.collectibles)?state.collectibles:[];
@@ -90,14 +104,10 @@ function openPanel(title,kind){
   });close.focus();
 }
 function callNative(label){
-  const b=nativeItem(label);
-  if(b){b.click();return}
-  const item=collectibles.find(o=>o.name===label);
-  const s=stateNow(),unlocked=Array.isArray(s.collectibles)?s.collectibles:[];
-  if(!item)return;
-  const progress=unlocked.includes(item.id)?'Already unlocked':
-    needProgress(item.needIf,requirementsContext(s))||item.need||'Keep learning';
-  openPanel(label,'decor');
+  // The native decoration detail modal is intentionally behind the active
+  // full-screen Garden preview. Show the same live unlock condition in the
+  // accessible preview dialog instead of opening an invisible native dialog.
+  openPanel(label,'item');
 }
 function assemble(){
   root=create('section','lux-garden-map-preview');
