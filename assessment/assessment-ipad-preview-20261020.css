@@ -112,3 +112,214 @@ body.lux-shell-on .lux-shell-nav a[href="/scholar"]{order:7}
  body.lux-shell-on .subject-block .cards{margin-top:9px!important}
  body.lux-shell-on #assessment-filters.assessment-filters{margin:9px 0}
 }
+
+/* ===== Oct 20 revision B — same academy scene, navy and gold as Study/Play. ===== */
+body.lux-shell-on.assessment-rpg-scene{
+ --ass-navy:#19313e;--ass-sage:#a9bba4;--ass-gold:#edcc88;--ass-ink:#1c394a;
+ min-height:100dvh;
+ background:linear-gradient(90deg,rgba(21,36,36,.08),rgba(15,30,39,.30) 53%,rgba(10,23,35,.48)),
+ url('/art/study-rpg/magic-floor.jpg') center bottom/cover fixed no-repeat;
+ color:#f7f0df;
+}
+.assessment-rpg-scene-brand{
+ position:fixed;top:calc(18px + env(safe-area-inset-top));left:clamp(14px,2vw,31px);z-index:6;
+ display:flex;align-items:flex-start;gap:10px;color:#fff1cf;text-decoration:none;
+ text-shadow:0 2px 8px #1a2a2d92;max-width:26%;
+}
+.assessment-rpg-spark{font:2.5rem/1 Georgia,serif;color:#f3d495;flex:none}
+.assessment-rpg-scene-brand strong{display:block;font:700 clamp(1.65rem,3vw,2.35rem)/1 'Cormorant Garamond',Georgia,serif;white-space:nowrap}
+.assessment-rpg-scene-brand small{display:block;font:600 clamp(.54rem,.9vw,.72rem)/1.4 Georgia,serif;letter-spacing:.15em}
+.assessment-rpg-cast{
+ position:fixed;left:0;bottom:calc(7.8rem + env(safe-area-inset-bottom));
+ width:clamp(220px,24vw,330px);height:min(63vh,37rem);z-index:1;
+ display:grid;align-items:end;justify-items:center;pointer-events:none;
+}
+.assessment-rpg-scholar{display:block;width:auto;max-width:100%;height:100%;object-fit:contain;object-position:bottom;filter:drop-shadow(0 8px 9px #172b3449)}
+body.lux-shell-on.assessment-rpg-scene main{
+ position:relative;z-index:2;margin:0 1.6% 0 clamp(235px,26%,355px);
+ width:auto;max-width:none;
+ padding:clamp(20px,3vh,30px) 0 115px;
+}
+body.lux-shell-on.assessment-rpg-scene .intro{padding:0 0 9px}
+body.lux-shell-on.assessment-rpg-scene .intro h1{
+ font:700 clamp(2rem,3.1vw,2.9rem)/1 'Cormorant Garamond',Georgia,serif;color:#fff4d7;
+ text-shadow:0 2px 7px #1628329c;letter-spacing:.01em;
+}
+body.lux-shell-on.assessment-rpg-scene .intro .eyebrow{color:#eacc89;font-size:.7rem;margin:0 0 5px}
+body.lux-shell-on.assessment-rpg-scene .tabs{padding-bottom:9px;gap:9px}
+body.lux-shell-on.assessment-rpg-scene .tabs button{
+ background:#18303fcc;color:#f8ecda;border:1px solid #d7b7798a;
+ border-radius:99px;min-height:40px;font-size:.86rem;padding:8px 18px;
+}
+body.lux-shell-on.assessment-rpg-scene .tabs button.selected{
+ background:#f3e9d0;border-color:#fff2d8;color:#1a384b;box-shadow:0 3px 9px #081b2a3d;
+}
+body.lux-shell-on.assessment-rpg-scene .panel{
+ padding:clamp(13px,1.8vw,22px);
+ background:linear-gradient(125deg,#183444eb,#1b3546ed 60%,#162c39f5);
+ color:#fff6df;border:2px solid #e6c88f;outline:1px solid #785c39;
+ border-radius:17px;box-shadow:0 0 0 3px #b2884b8a,0 12px 27px #0b17275c;
+}
+body.lux-shell-on.assessment-rpg-scene #papers.panel>h2,
+body.lux-shell-on.assessment-rpg-scene #papers.panel>p.muted{display:none}
+body.lux-shell-on.assessment-rpg-scene #papers.panel>p.feedback{display:none}
+body.lux-shell-on.assessment-rpg-scene #papers.panel:has(#subject-bar [data-subject="Latin"].on)>p.feedback{
+ display:block;background:#f3e7c9;color:#29445a;border-left-color:#dcb777;
+ font-size:.79rem;padding:8px 12px;margin:3px 0 9px;
+}
+body.lux-shell-on.assessment-rpg-scene #subject-bar.subject-bar{
+ background:transparent!important;position:static!important;border-bottom:1px solid #dfc18b4d;
+ gap:6px;margin:0;padding:1px 0 9px;
+}
+body.lux-shell-on.assessment-rpg-scene #subject-bar.subject-bar button{
+ background:#244353;color:#f6ebd4;border-color:#c2a8717a;min-height:36px;
+ border-radius:99px;padding:6px 13px;font-size:clamp(.74rem,.95vw,.88rem);
+}
+body.lux-shell-on.assessment-rpg-scene #subject-bar.subject-bar button.on{
+ color:#173749;border-color:#f9edcc;background:#f5e8c8;
+}
+body.lux-shell-on.assessment-rpg-scene #subject-bar.subject-bar .add-assess{
+ margin-left:auto;color:#f6e6c6;border-color:#d6bd7f;
+}
+body.lux-shell-on.assessment-rpg-scene #assessment-filters.assessment-filters{
+ grid-template-columns:minmax(0,1fr) minmax(130px,.38fr);gap:9px;margin:9px 0 10px;
+}
+body.lux-shell-on.assessment-rpg-scene #assessment-filters label{
+ color:#ead5a5;font-size:.72rem;gap:4px
+}
+body.lux-shell-on.assessment-rpg-scene #assessment-filters input,
+body.lux-shell-on.assessment-rpg-scene #assessment-filters select{
+ min-height:39px;background:#fbf4e4;border:1px solid #e2cc9d;border-radius:10px;
+ padding:7px 10px;font-size:.82rem;color:#234257;
+}
+body.lux-shell-on.assessment-rpg-scene .subject-block>h2{
+ font:700 clamp(1.4rem,2vw,1.8rem)/1.1 'Cormorant Garamond',Georgia,serif;
+ color:#ffe6ac;margin:0;
+}
+body.lux-shell-on.assessment-rpg-scene .subject-block>.muted{font-size:.77rem;color:#d8e3df;margin:2px 0}
+body.lux-shell-on.assessment-rpg-scene .subject-block>.muted a{color:#f6d69d}
+body.lux-shell-on.assessment-rpg-scene .subject-block>.when{
+ max-width:none!important;background:#f0e3c818;color:#e7e4d5;border:1px solid #e3c08249;
+ border-left:3px solid #e3be75;margin:6px 0!important;padding:7px 11px;
+ font-size:.76rem;line-height:1.3;
+}
+/* Each paper is ONE horizontally stacked line, not a 2-column grid of cards. */
+body.lux-shell-on.assessment-rpg-scene .subject-block .cards{
+ display:flex!important;flex-direction:column;gap:8px;margin-top:8px!important;
+}
+body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-row{
+ display:grid!important;grid-template-columns:minmax(0,1fr) minmax(90px,115px) minmax(94px,112px);
+ align-items:center;column-gap:13px;row-gap:0;min-height:76px;
+ width:100%;max-width:100%;overflow:hidden;
+ margin:0;padding:9px 12px 9px 15px;
+ background:linear-gradient(95deg,#fff6ddf7,#f7edd6f2);
+ border:1.5px solid #f3d69e;outline:1px solid #6e593a;
+ border-radius:12px;box-shadow:0 2px 9px #0d213556;
+ color:#203949;
+}
+body.lux-shell-on.assessment-rpg-scene .assessment-paper-info{min-width:0;display:flex;flex-direction:column;gap:1px}
+body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-info .tag{
+ font-size:.63rem;letter-spacing:.12em;margin:0;color:#92743d;
+}
+body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-info h3{
+ margin:1px 0;font:700 clamp(1.1rem,1.7vw,1.38rem)/1.13 'Cormorant Garamond',Georgia,serif;
+ color:#1b3b4d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-info p{
+ margin:0;min-height:0;max-width:100%;font-size:.72rem;line-height:1.2;
+ color:#617075;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+body.lux-shell-on.assessment-rpg-scene .assessment-paper-links{
+ font-size:.71rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+body.lux-shell-on.assessment-rpg-scene .assessment-paper-links a{font-size:inherit;color:#275c62}
+body.lux-shell-on.assessment-rpg-scene .assessment-paper-stats{
+ min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:2px;
+ color:#34536a;font-size:.77rem;line-height:1.15;white-space:nowrap;
+}
+body.lux-shell-on.assessment-rpg-scene .assessment-paper-stats .assessment-pass{
+ font-weight:800;color:#647a53;
+}
+body.lux-shell-on.assessment-rpg-scene .assessment-paper-stats .assessment-prize{
+ display:none;
+}
+body.lux-shell-on.assessment-rpg-scene .assessment-paper-buttons{
+ display:flex;align-items:stretch;gap:4px;min-width:0;
+}
+body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-buttons button.primary{
+ display:flex;justify-content:center;align-items:center;gap:7px;flex:1;margin:0;
+ min-width:0;min-height:42px;padding:7px 9px;
+ background:#213f50;color:#fff6dc;border:1px solid #2d5768;border-radius:99px;
+ font-size:.83rem;white-space:nowrap;
+}
+body.lux-shell-on.assessment-rpg-scene .assessment-paper-buttons .assessment-reset{
+ min-height:40px;padding:5px;color:#623b34;border:1px solid #ad8671;font-size:.65rem;
+}
+body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-buttons button.primary:hover{
+ background:#355f6e;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker.panel,
+body.lux-shell-on.assessment-rpg-scene #history.panel{
+ background:#1c3547ec;color:#fff6e1;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker.panel .entry,
+body.lux-shell-on.assessment-rpg-scene #history.panel .entry{
+ background:#fff6e6;color:#1e3b4c;
+}
+/* Exams stay distraction-free: no huge character, parchment writing surface. */
+body.lux-shell-on.assessment-rpg-scene:has(#exam:not(.hidden)) .assessment-rpg-scene-brand,
+body.lux-shell-on.assessment-rpg-scene:has(#exam:not(.hidden)) .assessment-rpg-cast{display:none}
+body.lux-shell-on.assessment-rpg-scene:has(#exam:not(.hidden)) main{
+ width:auto;max-width:1140px;margin:0 auto;padding:13px 16px 110px;
+}
+body.lux-shell-on.assessment-rpg-scene #exam.panel{
+ color:#233d4c;background:#fff9e9f8;border:2px solid #d8bd82;outline:1px solid #6e523b;
+ box-shadow:0 0 0 3px #b48c4d8c,0 8px 28px #1524346e;
+}
+body.lux-shell-on.assessment-rpg-scene #exam #clock{
+ background:#1d3b4b;color:#fff0c9;border-color:#c4a369;
+}
+body.lux-shell-on.assessment-rpg-scene #exam .question{color:#18394a}
+body.lux-shell-on.assessment-rpg-scene #exam .choice{border-color:#d9c59f;background:#fffcf5}
+body.lux-shell-on.assessment-rpg-scene #exam .choice.chosen{background:#e7efdd;border-color:#567961}
+body.lux-shell-on.assessment-rpg-scene #exam textarea.answer{background:#fffefa;border-color:#c4aa79}
+body.lux-shell-on.assessment-rpg-scene .lux-shell-nav{
+ border:1px solid #e0bf7c74;background:#172d38f5;box-shadow:0 6px 20px #0e19255c;
+}
+body.lux-shell-on.assessment-rpg-scene .lux-shell-nav a[aria-current="page"]{
+ background:#faefdc;color:#19394b;
+}
+@media(min-width:900px) and (orientation:landscape){
+ body.lux-shell-on.assessment-rpg-scene main{padding-top:20px}
+ body.lux-shell-on.assessment-rpg-scene .intro>p:not(.eyebrow){display:none}
+ body.lux-shell-on.assessment-rpg-scene #papers.panel{padding:12px 14px 17px}
+ body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-row{min-height:75px}
+}
+@media(max-width:900px){
+ .assessment-rpg-scene-brand{max-width:36%;top:8px}
+ .assessment-rpg-cast{width:31vw;height:36vh;bottom:auto;top:8vh;opacity:.8}
+ body.lux-shell-on.assessment-rpg-scene main{
+  margin:0 12px;width:auto;padding:clamp(155px,30vh,290px) 0 115px;
+ }
+ body.lux-shell-on.assessment-rpg-scene .intro{padding:0 0 7px}
+ body.lux-shell-on.assessment-rpg-scene #assessment-filters.assessment-filters{grid-template-columns:minmax(0,1fr) minmax(135px,.45fr)}
+ body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-row{grid-template-columns:minmax(0,1fr) 90px 100px;gap:8px}
+}
+@media(max-width:620px){
+ .assessment-rpg-scene-brand{max-width:100%;left:12px}
+ .assessment-rpg-cast{top:68px;left:0;width:40vw;height:26vh}
+ body.lux-shell-on.assessment-rpg-scene main{padding-top:clamp(215px,30vh,260px);margin:0 9px}
+ body.lux-shell-on.assessment-rpg-scene #subject-bar.subject-bar button{padding:6px 9px;font-size:.7rem}
+ body.lux-shell-on.assessment-rpg-scene #assessment-filters.assessment-filters{grid-template-columns:1fr}
+ body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-row{
+  grid-template-columns:minmax(0,1fr) minmax(76px,94px);grid-template-areas:"info button" "stats button";
+  row-gap:4px;min-height:89px;padding:9px;
+ }
+ body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-info{grid-area:info}
+ body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-stats{
+  grid-area:stats;flex-direction:row;flex-wrap:wrap;gap:3px 8px;font-size:.68rem;
+ }
+ body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-buttons{grid-area:button}
+ body.lux-shell-on.assessment-rpg-scene .assessment-paper-info h3{font-size:1.09rem}
+ body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-info p{display:none}
+}
