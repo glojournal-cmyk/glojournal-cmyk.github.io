@@ -14,8 +14,12 @@
   ];
   function createNav(){
     if(document.querySelector('.scholar-preview-bottom-nav'))return;
-    const nav=document.createElement('nav');
+    // Use a standalone navigation surface. The older app rewrites <nav>
+    // nodes and injects legacy tabs; this avoids duplicate tabs without
+    // changing any of the seven actual destination links.
+    const nav=document.createElement('div');
     nav.className='scholar-preview-bottom-nav';
+    nav.setAttribute('role','navigation');
     nav.setAttribute('aria-label','Main navigation');
     nav.innerHTML=categories.map(([href,label,svg])=>
        '<a href="'+href+'"'+(href==='/scholar'?' aria-current="page"':'')+'>'+
