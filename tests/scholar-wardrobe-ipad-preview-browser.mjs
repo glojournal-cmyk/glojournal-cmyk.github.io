@@ -29,6 +29,8 @@ for(const engine of [chromium,webkit]){
    const page=await context.newPage();
    const errors=[];
    page.on('pageerror',e=>errors.push(String(e.message)));
+   const failed=[];
+   page.on('response',res=>{if(res.status()>=400 && res.url().includes('/scholar/'))failed.push(res.status()+' '+res.url());});
    await page.goto(base+'/scholar/?scholarPreview=1',{waitUntil:'domcontentloaded'});
    await page.waitForTimeout(1500);
    console.log('SCHOLAR_DEBUG '+engine.name()+' '+viewport.width+' '+JSON.stringify(await page.evaluate(()=>{
@@ -42,9 +44,12 @@ for(const engine of [chromium,webkit]){
        tabStyle:document.querySelector('.scholar-wardrobe-tabs')?getComputedStyle(document.querySelector('.scholar-wardrobe-tabs')).visibility:null,
        pane:!!pane,portrait:!!document.querySelector('img[alt^="Scholar in "]'),
        rootVisibility:root?getComputedStyle(root).visibility:null,
+       loadedScripts:[...document.scripts].filter(x=>x.src.includes('scholar-wardrobe')).map(x=>x.src),
+       pathname:location.pathname,search:location.search,
        excerpt:(document.querySelector('main')?.innerText||'').slice(0,270)};
    })));
    if(viewport.width===1024)await page.screenshot({path:'test-results/scholar-'+engine.name()+'-1024-debug.png',animations:'disabled'});
+   console.log('SCHOLAR_DIAGNOSTICS '+JSON.stringify({errors,failed}));
    await page.locator('body.scholar-wardrobe-preview').waitFor({timeout:25000});
    await page.locator('.scholar-preview-bottom-nav a').first().waitFor({timeout:25000});
    await page.locator('.scholar-wardrobe-tabs button').first().waitFor({timeout:25000});
