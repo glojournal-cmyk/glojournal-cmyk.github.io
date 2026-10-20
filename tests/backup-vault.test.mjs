@@ -103,3 +103,12 @@ test("Failed migration and write preserve existing saves and return failure",asy
  assert.equal(localStorage.getItem(vault.AUTO_KEY),raw);
  assert.equal(localStorage.getItem("lux-scholar-garden-v1"),"original");
 });
+
+test("An already durable primary cannot clear a failure from another store",async()=>{
+ const {vault,localStorage}=environment(),key="lux-scholar-garden-v1",live={xp:2862,daily:[]};
+ localStorage.setItem(key,JSON.stringify({state:live,version:10}));
+ let writes=0;
+ const store={getState:()=>live,setState:()=>{writes++},persist:{getOptions:()=>({name:key,version:10,partialize:x=>x})}};
+ assert.equal(await vault.recoverProgressStorage(store),false);
+ assert.equal(writes,0);
+});
