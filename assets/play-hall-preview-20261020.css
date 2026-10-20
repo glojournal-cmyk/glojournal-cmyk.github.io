@@ -1,6 +1,6 @@
 /* Lux et Labor / The Enchanted Game Hall — approved standing Scholar, NO PET.
    This CSS is scoped to ?playHallPreview=1. Native Play, routes and records stay intact. */
-.lux-play-hall {--hall-navy:#152a3a;--hall-gold:#e6bf78;--hall-cream:#f9eed4;--hall-ink:#182f3d;position:fixed;inset:0;z-index:2147482100;overflow:hidden;box-sizing:border-box;color:#fcf4e4;font-family:'Source Sans 3','Segoe UI',sans-serif;background:#bda77c url('/art/study-rpg/magic-floor.jpg') center bottom/cover no-repeat}
+.lux-play-hall {--hall-navy:#152a3a;--hall-gold:#e6bf78;--hall-cream:#f9eed4;--hall-ink:#182f3d;position:fixed;inset:0;z-index:2147482100;overflow:hidden;box-sizing:border-box;color:#fcf4e4;font-family:'Source Sans 3','Segoe UI',sans-serif;background:#bda77c url('/art/play-hall/approved-hall-atmosphere.jpg') center bottom/cover no-repeat}
 .lux-play-hall *,.lux-play-hall *::before,.lux-play-hall *::after{box-sizing:border-box}
 .lux-play-hall-shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(20,35,45,.17),rgba(20,35,45,.09) 28%,rgba(7,22,38,.22) 100%),linear-gradient(0deg,rgba(12,28,36,.22),transparent 27%,rgba(8,22,34,.13))}
 .lux-play-hall-brand{position:absolute;top:calc(1.15rem + env(safe-area-inset-top));left:1.8rem;z-index:3;display:flex;align-items:flex-start;gap:.75rem;text-shadow:0 2px 7px rgba(16,23,34,.55)}
