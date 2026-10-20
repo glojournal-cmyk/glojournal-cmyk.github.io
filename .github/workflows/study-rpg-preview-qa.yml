@@ -3,6 +3,17 @@ on:
   pull_request:
     paths:
       - 'assets/study-rpg-integrated-20261019.*'
+      - 'assets/study-rpg-live-boot-20261020.js'
+      - 'pet/home-pet.js'
+      - 'shell-frame.js'
+      - 'pet/index.html'
+      - 'play/index.html'
+      - 'garden/index.html'
+      - 'scholar/index.html'
+      - 'assessment/index.html'
+      - 'study/index.html'
+      - 'index.html'
+      - '404.html'
       - 'assets/study-navigation-v2-20261010.js'
       - 'art/study-rpg/**'
       - 'tests/study-rpg-*'
@@ -18,8 +29,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node --check assets/study-rpg-integrated-20261019.js
-      - run: node --test tests/study-rpg-integration.test.cjs
+      - run: node --check assets/study-rpg-integrated-20261019.js && node --check assets/study-rpg-live-boot-20261020.js && node --check pet/home-pet.js && node --check shell-frame.js
+      - run: node --test tests/study-rpg-integration.test.cjs tests/study-rpg-return-navigation.test.cjs
   study-browser:
     runs-on: ubuntu-latest
     timeout-minutes: 25
