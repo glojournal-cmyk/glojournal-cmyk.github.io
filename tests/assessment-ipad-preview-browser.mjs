@@ -79,16 +79,27 @@ for(const browserType of [chromium,webkit]){
    const orderedDates=await trackerItems.locator('summary time[datetime]').evaluateAll(nodes=>nodes.map(x=>x.dateTime));
    assert.deepEqual(orderedDates,['2026-11-02','2026-10-08','2026-10-05'],
      'Tracker school tests must display most recent date first');
-   const subjects=await trackerItems.locator('summary .tracker-subject').evaluateAll(nodes=>nodes.map(x=>({
-     subject:x.textContent.trim(),background:getComputedStyle(x).backgroundColor,
-     padding:parseFloat(getComputedStyle(x).paddingLeft),border:getComputedStyle(x).borderStyle
-   })));
+   const subjects=await trackerItems.evaluateAll(items=>items.map(item=>{
+     const row=item.closest('article.assessment-tracker-entry');
+     const subject=item.querySelector('.tracker-subject');
+     return {
+       subject:subject.textContent.trim(),
+       fullRowColour:getComputedStyle(row).backgroundColor,
+       subjectBg:getComputedStyle(subject).backgroundColor,
+       rowBorder:getComputedStyle(row).borderColor,
+       rowWidth:row.getBoundingClientRect().width,
+       subjectWidth:subject.getBoundingClientRect().width
+     };
+   }));
    assert.deepEqual(subjects.map(x=>x.subject),['Biology','French','Chemistry'],
-     'Column labels must match descending order');
-   assert.equal(new Set(subjects.map(x=>x.background)).size,3,
-     'Biology, French and Chemistry should have distinct subject box colours');
-   assert.ok(subjects.every(x=>x.padding>=4&&x.border!=='none'),
-     'Subject is visibly boxed rather than plain coloured text');
+     'Subject labels must match newest-first assessment order');
+   assert.deepEqual(subjects.map(x=>x.fullRowColour),[
+     'rgb(224, 239, 231)','rgb(249, 231, 237)','rgb(238, 231, 248)'
+   ],'Whole Biology/French/Chemistry tracker rows must use distinct soft green/pink/lavender backgrounds');
+   assert.ok(subjects.every(x=>x.rowWidth>500 && x.subjectWidth<160),
+     'Pastel must cover the wide whole row rather than just a subject pill');
+   assert.equal(new Set(subjects.map(x=>x.rowBorder)).size,3,
+     'Each entire row must also have a distinct matching border');
    const trackerRow=trackerItems.first();
    assert.equal(await trackerRow.getAttribute('open'),null,'Tracker details must be closed by default');
    assert.equal(await page.locator('#tracker-list .assessment-tracker-head span').count(),5,'Table has clear aligned column headers');
