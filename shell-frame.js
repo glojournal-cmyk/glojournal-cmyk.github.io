@@ -10,7 +10,7 @@
     Garden: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21V10"/><path d="M12 10C8 9 6.2 6.2 6 3c3.6.4 6 2.4 6.8 6.2"/><path d="M12 12.5c3.2-.4 5.8-2.8 6.6-6.5-3.4 0-6 2-6.6 5.5"/></svg>',
     Scholar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c.8-3.6 3.4-5.4 7-5.4s6.2 1.8 7 5.4"/></svg>',
   };
-  const items = [["/", "Home"],["/study", "Study"],["/assessment", "Assessments"],["/play", "Play"],["/pet/", "Pets"],["/garden", "Garden"],["/scholar", "Scholar"]];
+  const items = [["/", "Home"],["/study/", "Study"],["/assessment", "Assessments"],["/play", "Play"],["/pet/", "Pets"],["/garden", "Garden"],["/scholar", "Scholar"]];
   function xpOf() {
     try {
       const raw = JSON.parse(localStorage.getItem("lux-scholar-garden-v1") || "{}");
