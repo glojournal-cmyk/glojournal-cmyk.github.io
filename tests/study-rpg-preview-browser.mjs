@@ -73,6 +73,14 @@ try{
           return x.petArtUrl('moss-hornling',2);
         });
         assert.equal(await page.locator('.lux-study-rpg-pet').getAttribute('src'),petExpected);
+        const petVisualScale = await page.locator('.lux-study-rpg-pet').evaluate(img => {
+          const matrix = getComputedStyle(img).transform;
+          const match = matrix.match(/matrix\\(([^,]+)/);
+          return match ? Number(match[1]) : 0;
+        });
+        const expectedScale = viewport.width > 700 ? 3.05 : 1.35;
+        assert.ok(Math.abs(petVisualScale-expectedScale)<0.05,
+          'Small selected Pet must use enlarged size at '+viewport.width+'px');
         assert.ok(await page.locator('.lux-study-rpg-scholar').evaluate(img => img.complete && img.naturalWidth>0 && img.getBoundingClientRect().height > 200),'Equipped outfit image must be rendered');
         assert.ok(await page.locator('.lux-study-rpg-pet').evaluate(img => img.complete && img.naturalWidth>0),'Selected pet image must be rendered');
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-nav a').count(),7,'Nav must remain intact after outfit/pet changes');
