@@ -105,6 +105,8 @@ async function remoteRequest(config,path,init={}){
  return r;
 }
 export async function pairCloudBackup({endpoint,token}){
+ const existing=await readConfig();
+ if(existing?.keyId)throw Error("This device is already paired. Use the existing recovery key path; never overwrite an old encryption key silently.");
  const origin=verifyEndpoint(endpoint);
  if(!/^[A-Za-z0-9_-]{40,100}$/.test(token||""))throw Error("Pairing token has an invalid format");
  const check=await remoteRequest({endpoint:origin,token},"/v1/status");
