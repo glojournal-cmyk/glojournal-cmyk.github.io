@@ -20,8 +20,27 @@ test('uses the same Home outfit state and actual earned points, never demo XP/re
 test('Play has no displayed pet and does not mutate any player or game record',()=>{
  assert.doesNotMatch(src,/petArtUrl|lux-pet-companion-v1|pet-level|lux-play-hall-pet|readPet\(/);
  for(const exp of [/store\.setState\s*\(/,/localStorage\.setItem\s*\(/,/localStorage\.removeItem\s*\(/,/\.award\(/]) assert.doesNotMatch(src,exp);
- assert.match(src,/\?playHallPreview=1|PREVIEW_PARAM/);
- assert.match(html,/play-hall-preview-20261020\.js/);
+ assert.match(src,/PREVIEW_PARAM/);
+ assert.match(html,/play-hall-live-boot-20261020\.js/);
  assert.match(css,/\.lux-play-hall-card/);
  assert.match(css,/env\(safe-area-inset-bottom\)/);
+});
+test('Approved Play Hall is the live default in native and SPA routes; old Play remains reversible',()=>{
+ const boot=fs.readFileSync(path.join(root,'assets/play-hall-live-boot-20261020.js'),'utf8');
+ const shared=fs.readFileSync(path.join(root,'assessment-link.js'),'utf8');
+ const home=fs.readFileSync(path.join(root,'index.html'),'utf8');
+ const fallback=fs.readFileSync(path.join(root,'404.html'),'utf8');
+ const study=fs.readFileSync(path.join(root,'study/index.html'),'utf8');
+ assert.match(src,/get\(PREVIEW_PARAM\)!=='0'/);
+ assert.match(src,/get\(PREVIEW_PARAM\)==='0'/);
+ for(const html of [home,fallback,study])assert.match(html,/play-hall-live-boot-20261020\.js/);
+ assert.equal(home,fallback,'GitHub Pages SPA 404 shell must mirror main home shell');
+ assert.match(shared,/play-hall-live-boot-20261020\.js/);
+ assert.match(boot,/playHallPreview.*'0'/);
+ assert.match(boot,/stopImmediatePropagation/);
+ assert.match(boot,/location\.assign\('\/play\/'/);
+ for(const code of [boot,src]) {
+  assert.doesNotMatch(code,/localStorage\.setItem\s*\(/);
+  assert.doesNotMatch(code,/store\.setState\s*\(/);
+ }
 });
