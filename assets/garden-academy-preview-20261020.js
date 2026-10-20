@@ -162,6 +162,8 @@ function render(){
     document.documentElement.classList.remove('lux-garden-map-active');
     return;
   }
+  // Do not proxy any native action until the actual React app has hydrated.
+  if(!window.__luxAppReady)return;
   const native=document.querySelector('body>.paper-wash main');
   if(!native||!document.querySelector('body>.paper-wash button'))return;
   if(!root?.isConnected){parts=assemble();}
