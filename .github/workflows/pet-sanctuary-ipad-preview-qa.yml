@@ -1,0 +1,29 @@
+name: Pet Sanctuary iPad Preview QA
+on:
+  pull_request:
+    paths:
+      - 'pet/index.html'
+      - 'pet/pet-sanctuary-ipad-preview-20261020.css'
+      - 'tests/pet-sanctuary-ipad-preview-browser.mjs'
+      - '.github/workflows/pet-sanctuary-ipad-preview-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --check tests/pet-sanctuary-ipad-preview-browser.mjs
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/pet-sanctuary-ipad-preview-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pet-sanctuary-ipad-preview-screenshots
+          path: test-results/pet-sanctuary-*.png
