@@ -55,7 +55,7 @@ encrypts BEFORE uploading; neither Cloudflare nor Gmail has the decryption key.
 ## How it behaves
 
 - GitHub Pages stays on the current domain; Vercel is not used.
-- Automatic uploads occur while the learner uses Gloria and has network
+- Automatic uploads occur at most once per UK calendar day while the learner uses Gloria and has network
   access; a fully closed/offline iPad PWA cannot upload in the background.
 - Encrypted backup includes the primary Scholar Garden progress export, plus
   readable Practice drafts and the currently focused unfinished text when
