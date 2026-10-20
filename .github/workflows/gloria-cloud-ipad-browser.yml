@@ -1,0 +1,21 @@
+name: Gloria encrypted cloud iPad browser QA
+on:
+  pull_request:
+    paths:
+      - 'assets/gloria-cloud-backup-20261020.js'
+      - 'assets/gloria-cloud-backup-ui-20261020.js'
+      - 'tests/gloria-cloud-ipad-browser.mjs'
+      - '.github/workflows/gloria-cloud-ipad-browser.yml'
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  ipad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps webkit chromium
+      - run: node tests/gloria-cloud-ipad-browser.mjs
