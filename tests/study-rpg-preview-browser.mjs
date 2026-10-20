@@ -183,6 +183,11 @@ try{
           if (target.name === 'Home') {
             // Exercise a real pointer tap on the frontmost visible navigation
             // rather than force-clicking a possibly occluded React link.
+            await page.waitForFunction(() => {
+              const live=document.querySelector('html.lux-rpg-live-active #lux-rpg-live-home .rpg-nav-live a[href="/study"]');
+              return Boolean(live && live.getBoundingClientRect().width > 0);
+            },null,{timeout:15000}).catch(()=>{});
+            await page.locator('a[href="/study"]:visible').last().scrollIntoViewIfNeeded().catch(()=>{});
             const coordinates=await page.evaluate(() => {
               const anchors=[...document.querySelectorAll('a[href="/study"],a[href="/study/"]')];
               for(const a of anchors.reverse()){
