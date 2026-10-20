@@ -21,3 +21,4 @@ jobs:
       - run: npx --yes wrangler@4 deploy --dry-run --config cloud-backup/wrangler.jsonc
       - run: node --check assets/gloria-cloud-backup-20261020.js
       - run: node --test tests/gloria-cloud-email-backup.test.mjs
+      - run: node --test tests/gloria-google-apps-script.test.mjs
