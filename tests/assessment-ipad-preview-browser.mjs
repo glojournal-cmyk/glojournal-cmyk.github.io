@@ -46,6 +46,11 @@ for(const browserType of [chromium,webkit]){
      assert.ok(Math.abs(bounds[j].w-bounds[0].w)<2,'All assessment rows are the same full width');
    }
    assert.ok(bounds.every(b=>b.scroll<=b.w+3),'No horizontal overflow of title, metadata or buttons');
+   if(viewport.width===1024){
+     const navTop=await page.locator('.lux-shell-nav').evaluate(el=>el.getBoundingClientRect().top);
+     const last= bounds[bounds.length-1];
+     assert.ok(last.y+last.h < navTop-6, 'All four Biology papers must fit above the bottom iPad navigation');
+   }
    const groups=await page.locator('#subject-bar button[data-subject]').allTextContents();
    assert.deepEqual(groups,['Latin','Chemistry','English','French','Biology','Physics'],'Keep all six assessment subjects');
    const isApplied=await page.evaluate(()=>[...document.styleSheets].some(s=>s.href?.includes('assessment-ipad-preview-20261020.css')));
