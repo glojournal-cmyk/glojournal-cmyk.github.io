@@ -15,8 +15,9 @@ const server=createServer((req,res)=>{
     if(relative.endsWith('/'))relative+='index.html';
     const target=path.resolve(root,'.'+relative);
     if(!target.startsWith(root+path.sep)){res.writeHead(403);res.end();return;}
-    const data=fs.readFileSync(target);
-    res.writeHead(200,{'content-type':mime[path.extname(target)]||'application/octet-stream','cache-control':'no-store'});
+    const file=fs.statSync(target).isDirectory()?path.join(target,'index.html'):target;
+    const data=fs.readFileSync(file);
+    res.writeHead(200,{'content-type':mime[path.extname(file)]||'application/octet-stream','cache-control':'no-store'});
     res.end(data);
   }catch{res.writeHead(404);res.end('Not Found');}
 });
