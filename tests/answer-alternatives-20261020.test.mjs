@@ -29,7 +29,7 @@ const cases=[
  ["two full prepositional phrases",q("controlled_translation","à la mer / au bord de la mer"),"au bord de la mer","french",true],
  ["shared adjective and noun",q("controlled_translation","dans un petit / grand appartement"),"dans un grand appartement","french",true],
  ["shared English adjective and noun",q("controlled_translation","in a small / large flat"),"in a small flat","english",true],
- ["science divided formula preserved",q("typed_short","total distance / total time"),"total distance","physics",false],
+ ["science divided formula preserved",{...q("typed_short","total distance / total time"),id:"phys-y8-ratio-test"},"total distance","physics",false],
  ["compact vocab synonym", {...q("typed_equivalent","happy/glad"),id:"fr-y8-test"},"glad","english",true],
  ["reject typo",q("typed_equivalent","happy / glad"),"gladd","english",false],
  ["reject abbreviated unit as alternative",q("typed_equivalent","m/s"),"m","physics",false],
