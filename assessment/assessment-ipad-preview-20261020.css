@@ -769,3 +769,21 @@ body.lux-shell-on.assessment-rpg-scene #tracker.panel #tracker-list article.entr
  background-image:none!important;
  border-top-color:var(--tracker-edge)!important;
 }
+
+/* A fixed border-box summary avoids legacy content-box min-height + padding
+   inflating every single-line table row beyond the compact 73px budget. */
+body.lux-shell-on.assessment-rpg-scene #tracker.panel #tracker-list article.entry.assessment-tracker-entry > details.assessment-tracker-item > summary{
+ box-sizing:border-box;
+ height:64px;min-height:0;
+ padding:7px 14px;
+}
+@media(max-width:899px){
+ body.lux-shell-on.assessment-rpg-scene #tracker.panel #tracker-list article.entry.assessment-tracker-entry > details.assessment-tracker-item > summary{
+  height:64px;min-height:0;padding:7px 10px;
+ }
+}
+@media(max-width:620px){
+ body.lux-shell-on.assessment-rpg-scene #tracker.panel #tracker-list article.entry.assessment-tracker-entry > details.assessment-tracker-item > summary{
+  height:90px;min-height:0;padding:8px 11px;
+ }
+}
