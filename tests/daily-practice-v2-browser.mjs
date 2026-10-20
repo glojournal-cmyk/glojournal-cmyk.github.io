@@ -1,0 +1,129 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import {createServer} from 'node:http';
+import {chromium, webkit} from 'playwright';
+
+const root=process.cwd(), out='test-results/daily-practice-v2';
+fs.mkdirSync(out,{recursive:true});
+const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8',
+  '.css':'text/css; charset=utf-8','.png':'image/png','.svg':'image/svg+xml',
+  '.jpg':'image/jpeg','.json':'application/json'};
+const server=createServer((req,res)=>{
+  try{
+    let relative=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
+    if(relative.endsWith('/'))relative+='index.html';
+    const target=path.resolve(root,'.'+relative);
+    if(!target.startsWith(root+path.sep)){res.writeHead(403);res.end();return;}
+    const data=fs.readFileSync(target);
+    res.writeHead(200,{'content-type':mime[path.extname(target)]||'application/octet-stream','cache-control':'no-store'});
+    res.end(data);
+  }catch{res.writeHead(404);res.end('Not Found');}
+});
+await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+const base='http://127.0.0.1:'+server.address().port;
+const report=[];
+function fixture(kind){
+  const long=kind==='long-mc';
+  const choices=long?[
+    'The cell membrane regulates movement of substances into and out of the cell and also distinguishes its interior from its surroundings.',
+    'The ribosome is responsible for synthesising proteins and works in both prokaryotic and eukaryotic organisms.',
+    'The nucleus contains chromosomes and controls the activity of cells, including the expression of many genes.',
+    'The mitochondrion carries out aerobic respiration to supply energy for cell processes.'
+  ]:['Ribosome','Nucleus','Cell membrane','Mitochondrion'];
+  const answers=kind.endsWith('mc')?
+    '<div class="mt-5 grid gap-2">'+choices.map((s,i)=>
+      '<button type="button" onclick="window.tapCount++" class="min-h-12 rounded-lg border px-4 py-3 text-left text-sm">'+
+      String.fromCharCode(65+i)+'. '+s+'</button>').join('')+'</div>':
+    kind==='tiles'?
+    '<div class="mt-5 space-y-3"><div class="flex min-h-12 flex-wrap gap-2 rounded-lg bg-sage/50 p-3">Tap tiles to build the answer</div><div class="flex flex-wrap gap-2">'+
+    'quinze'.split('').map(letter=>'<button type="button" onclick="window.tapCount++">'+letter+'</button>').join('')+
+    '</div><button type="button" onclick="window.tapCount++">Submit</button></div>':
+    '<form class="mt-5 flex gap-2"><input placeholder="Type the answer" aria-label="Your answer"><button type="submit">Submit</button></form>';
+  return '<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1">'+
+    '<link rel="stylesheet" href="/app.css"><link rel="stylesheet" href="/assets/styles-CEE1o_78.css">'+
+    '<link rel="stylesheet" href="/assets/daily-practice-ux-v2-20261020.css">'+
+    '<script>window.tapCount=0;</script><script defer src="/assets/daily-practice-layout-20261020.js"></script></head>'+
+    '<body><div class="paper-wash"><header style="height:58px">Legacy top bar</header><aside style="height:400px">Sidebar</aside>'+
+    '<main><section id="study-companion" class="cx-study-buddy"><span class="cx-pet-art"></span><strong>Antler Bean is beside you</strong></section>'+
+    '<div class="lux-practice-view"><header><h1>French · Practise</h1></header>'+
+    '<div data-question-id="fixture-'+kind+'" data-question-format="'+(kind.endsWith('mc')?'mc_single':kind==='tiles'?'word_tiles':'typed')+'" class="space-y-4">'+
+    '<div><p class="text-xs font-semibold">DAILY PRACTICE</p><h1 class="font-display text-3xl font-semibold">French · Numbers and age</h1>'+
+    '<p>Question 1 / 15</p><p class="rounded-lg bg-sage">Recall · Step 2</p></div>'+
+    '<div class="rounded-xl bg-card p-5 sm:p-6"><div><p>BUILD THE ANSWER</p>'+
+    '<p class="mt-1 font-display text-2xl font-semibold leading-snug">How do you write 15 in French?</p>'+answers+'</div></div>'+
+    '</div></div></main><nav class="fixed inset-x-3 bottom-3" style="height:45px">Old nav</nav></div></body></html>';
+}
+async function checkFixture(browser,engine,kind,viewport){
+  const context=await browser.newContext({viewport,hasTouch:true,deviceScaleFactor:2});
+  const page=await context.newPage(),errors=[];
+  page.on('pageerror',e=>errors.push(e.message));
+  await page.route('**/study/french/practise/**',route=>{
+    if(new URL(route.request().url()).searchParams.has('fixture'))return route.fulfill({status:200,contentType:'text/html',body:fixture(kind)});
+    return route.continue();
+  });
+  await page.goto(base+'/study/french/practise/?fixture='+kind,{waitUntil:'load'});
+  await page.waitForFunction(()=>document.documentElement.classList.contains('lux-daily-ux-ready'),null,{timeout:12000});
+  await page.waitForSelector('[data-lux-question-card]');
+  const details=await page.evaluate(()=>{
+    const card=document.querySelector('[data-lux-question-card]');
+    const prompt=document.querySelector('[data-lux-prompt]');
+    const nav=document.querySelector('#lux-daily-study-nav');
+    const opts=document.querySelector('[data-lux-mc-options]');
+    const input=document.querySelector('[data-lux-question-card] input');
+    const elbox=e=>{if(!e)return null;const b=e.getBoundingClientRect();return {x:b.x,y:b.y,right:b.right,bottom:b.bottom,width:b.width,height:b.height};};
+    return {
+      width:innerWidth,height:innerHeight,scrollWidth:document.documentElement.scrollWidth,
+      headerHidden:getComputedStyle(document.querySelector('.paper-wash>header')).display==='none',
+      navLabels:[...nav.querySelectorAll('a')].map(a=>a.textContent),
+      navCurrent:nav.querySelector('[aria-current="page"]')?.textContent,
+      promptWeight:getComputedStyle(prompt).fontWeight,promptSize:parseFloat(getComputedStyle(prompt).fontSize),
+      card:elbox(card),prompt:elbox(prompt),nav:elbox(nav),
+      optsColumns:opts?getComputedStyle(opts).gridTemplateColumns.split(' ').length:0,
+      options:opts?[...opts.children].map(elbox):[],
+      input:elbox(input),pet:elbox(document.querySelector('#study-companion'))
+    };
+  });
+  assert.equal(details.headerHidden,true,'top bar should be hidden');
+  assert.deepEqual(details.navLabels,['⌂Home','▣Study','◇Play','♧Garden','♧Pet','▤Assessment','✎Scholar']);
+  assert.match(details.navCurrent,/Study/);
+  assert.ok(Number(details.promptWeight)>=700,'prompt must be bold');
+  assert.ok(details.promptSize>=27,'question must be large');
+  assert.ok(details.scrollWidth<=viewport.width+1,'no horizontal overflow');
+  assert.ok(details.pet.width<=210,'pet strip must remain compact');
+  if(kind.endsWith('mc')){
+    assert.equal(details.optsColumns,kind==='long-mc'?1:2,'MC columns should follow answer length');
+    await page.locator('[data-lux-mc-options] button').first().click();
+    assert.equal(await page.evaluate(()=>window.tapCount),1,'native MC click event preserved');
+  }
+  if(kind==='typed'){
+    await page.locator('[data-lux-question-card] input').fill('quinze');
+    assert.equal(await page.locator('[data-lux-question-card] input').inputValue(),'quinze');
+    assert.equal(await page.locator('#lux-daily-study-nav').isVisible(),false,'nav must hide on focus');
+    await page.locator('[data-lux-question-card] input').blur();
+    await page.waitForFunction(()=>!document.documentElement.classList.contains('lux-daily-typing'));
+    assert.equal(await page.locator('#lux-daily-study-nav').isVisible(),true,'nav restored after typing');
+  }
+  if(kind==='tiles'){
+    await page.locator('[data-question-format="word_tiles"] .mt-5.space-y-3 > div:nth-child(2) button').first().click();
+    assert.equal(await page.evaluate(()=>window.tapCount),1,'tile click event preserved');
+  }
+  assert.deepEqual(errors,[],'fixture must not raise JS errors');
+  await page.screenshot({path:path.join(out,engine+'-'+kind+'-'+viewport.width+'x'+viewport.height+'.png'),fullPage:true});
+  report.push({engine,kind,viewport,details,errors,ok:true});
+  await context.close();
+}
+try{
+  for(const [engine,launcher] of [['chromium',chromium],['webkit',webkit]]){
+    const browser=await launcher.launch({headless:true});
+    try{
+      for(const size of [{width:1024,height:768},{width:1366,height:1024}]){
+        for(const kind of ['mc','long-mc','typed','tiles']) await checkFixture(browser,engine,kind,size);
+      }
+    }finally{await browser.close();}
+  }
+}finally{
+  server.close();
+  fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(report,null,2));
+}
+console.log('DAILY_PRACTICE_V2_QA '+JSON.stringify({scenarios:report.length,engines:['chromium','webkit'],viewports:['1024x768','1366x1024'],formats:['MC','long-MC','typed','tiles']}));
