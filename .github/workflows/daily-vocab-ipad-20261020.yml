@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: npm ci
+      - run: npm install --no-save playwright
       - run: npx playwright install --with-deps chromium webkit
       - name: Test 28 plus two answers through home and Practice on iPad
         run: node tests/daily-vocab-ipad-20261020.mjs
