@@ -11,7 +11,7 @@ function reply(data,status=200,origin=""){
     headers["access-control-allow-origin"]=ALLOWED_ORIGIN;
     headers["access-control-allow-headers"]="authorization, content-type";
     headers["access-control-allow-methods"]="GET, POST, OPTIONS";
-    headers.vary="Origin";
+    Object.assign(headers,{vary:"Origin"});
   }
   return new Response(JSON.stringify(data),{status,headers});
 }
