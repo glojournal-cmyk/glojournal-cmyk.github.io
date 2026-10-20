@@ -162,7 +162,11 @@ try{
             null,{timeout:20000}
           );
           const studyNav=page.locator('a[href="/study"]:visible, a[href="/study/"]:visible');
-          await studyNav.last().click({timeout:20000});
+          // Home's floating rail animates continuously; Playwright's
+          // default "stable box" check can stall despite a visible, tappable
+          // link. Keep the :visible requirement, but don't require a motionless
+          // rectangle before dispatching the real pointer event.
+          await studyNav.last().click({force:true,timeout:20000});
         }
         await page.waitForURL(u=>/^\/study\/?$/.test(u.pathname),{waitUntil:'domcontentloaded',timeout:20000});
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
