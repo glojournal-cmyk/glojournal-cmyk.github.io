@@ -49,7 +49,7 @@ for(const [name,question,answer,subject,expected] of cases) {
 }
 const formats={};
 const flagged=[];
-const counts={topics:0,questions:0,spacedSlashQuestions:0,expandedQuestions:0,unresolvedQuestions:0};
+const counts={topics:0,questions:0,spacedSlashQuestions:0,enabledSlashQuestions:0,disabledSlashQuestions:0,expandedQuestions:0,alreadyAcceptedAlternatives:0,unresolvedQuestions:0};
 for(const file of fs.readdirSync("content/topics").filter(f=>f.endsWith(".json"))) {
  const doc=JSON.parse(src(path.join("content/topics",file)));
  counts.topics++;
@@ -58,12 +58,16 @@ for(const file of fs.readdirSync("content/topics").filter(f=>f.endsWith(".json")
   const accepted=[...(question.answer?.accepted||[]),question.answer?.modelAnswer||""].filter(v=>typeof v==="string");
   if(!accepted.some(v=>/\s+\/\s+/.test(v)))continue;
   counts.spacedSlashQuestions++;
+  if(question.status!=="enabled"){counts.disabledSlashQuestions++;continue}
+  counts.enabledSlashQuestions++;
   formats[question.format]=(formats[question.format]||0)+1;
   const result=L.I(question);
+  const hasIndependentAccepted=(question.answer?.accepted||[]).filter(a=>typeof a==="string"&&!/\s+\/\s+|\s+or\s+/i.test(a)).length>=2;
   if(result.length>new Set(accepted).size)counts.expandedQuestions++;
+  else if(hasIndependentAccepted)counts.alreadyAcceptedAlternatives++;
   else if(["typed_equivalent","typed_short","typed_exact","controlled_translation"].includes(question.format)){
    counts.unresolvedQuestions++;
-   if(flagged.length<160)flagged.push({file,id:question.id,format:question.format,accepted:accepted.slice(0,2),prompt:String(question.prompt).slice(0,80)});
+   if(flagged.length<160)flagged.push({file,id:question.id,format:question.format,mode:question.answer?.mode,status:question.status,accepted:accepted.slice(0,2),prompt:String(question.prompt).slice(0,80)});
   }
  }
 }
