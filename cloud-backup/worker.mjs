@@ -77,9 +77,27 @@ async function upload(request,env,origin){
   if(!prior||record.uploadedAt>=prior.uploadedAt)await env.BACKUPS.put("meta/latest.json",JSON.stringify(record));
   return reply({saved:true,id,digest,uploadedAt:timestamp},201,origin);
 }
+function toBase64(bytes){
+  let binary="";
+  for(let i=0;i<bytes.length;i+=8192)binary+=String.fromCharCode(...bytes.subarray(i,i+8192));
+  return btoa(binary);
+}
+async function signGmailBridge(secret,ts,digest,attachment){
+  const key=await crypto.subtle.importKey("raw",encoder.encode(secret),
+    {name:"HMAC",hash:"SHA-256"},false,["sign"]);
+  const payload=String(ts)+"\n"+digest+"\n"+attachment;
+  const sig=await crypto.subtle.sign("HMAC",key,encoder.encode(payload));
+  return [...new Uint8Array(sig)].map(n=>n.toString(16).padStart(2,"0")).join("");
+}
 async function sendDailyEmail(env,sendFetch=fetch){
-  if(!env.BACKUPS||!env.RESEND_API_KEY||!env.RESEND_FROM||!env.BACKUP_TO)
-    return {sent:false,reason:"email not configured"};
+  if(!env.BACKUPS||!env.GOOGLE_APPS_SCRIPT_URL||
+     !env.GOOGLE_APPS_SCRIPT_HMAC_SECRET)return {sent:false,reason:"gmail not configured"};
+  const sendUrl=new URL(env.GOOGLE_APPS_SCRIPT_URL);
+  if(sendUrl.protocol!=="https:"||sendUrl.hostname!=="script.google.com"||
+      !/^\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(sendUrl.pathname)||
+      sendUrl.search||sendUrl.hash)throw Error("Configured Gmail bridge URL is invalid");
+  if(env.GOOGLE_APPS_SCRIPT_HMAC_SECRET.length<40)
+    throw Error("Gmail bridge secret is too short");
   const latestSaved=await latest(env);
   if(!latestSaved?.key)return {sent:false,reason:"no uploaded backup"};
   const lastObject=await env.BACKUPS.get("meta/last-emailed.json");
@@ -87,46 +105,26 @@ async function sendDailyEmail(env,sendFetch=fetch){
   if(old?.digest===latestSaved.digest)return {sent:false,reason:"already emailed"};
   const file=await env.BACKUPS.get(latestSaved.key);
   if(!file)return {sent:false,reason:"backup missing"};
-  const content=await file.text();
-  const envelope=JSON.parse(content);
-  if(!validEnvelope(envelope))throw Error("Email blocked: encrypted backup corrupted");
+  const content=await file.text(),envelope=JSON.parse(content);
+  if(!validEnvelope(envelope))throw Error("Gmail blocked: encrypted backup corrupted");
   const digest=await sha(encoder.encode(envelope.ciphertext));
   if(!sameHex(digest,latestSaved.digest)||file.size!==encoder.encode(content).length)
-    throw Error("Email blocked: backup digest verification failed");
-  // The attachment is encrypted on the iPad. Neither Worker nor email can read it.
-  const raw=encoder.encode(content);
-  let b64="";
-  for(let i=0;i<raw.length;i+=8192)b64+=String.fromCharCode(...raw.subarray(i,i+8192));
-  b64=btoa(b64);
-  const localDate=new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/London",day:"2-digit",month:"2-digit",year:"numeric"}).format(new Date(latestSaved.uploadedAt));
-  const subject="Gloria encrypted study backup - "+localDate+" - "+latestSaved.digest.slice(0,12);
-  const message={
-    from:env.RESEND_FROM,
-    to:[env.BACKUP_TO],
-    subject,
-    text:"Attached is an encrypted Gloria learning backup from "+localDate+". Store the recovery key separately. Cloud backup checksum: "+latestSaved.digest+". This email is a backup, not a delivery guarantee.",
-    attachments:[{filename:"gloria-encrypted-"+latestSaved.id+".json",content:b64,content_type:"application/json"}]
-  };
-  const send=await sendFetch("https://api.resend.com/emails",{
-    method:"POST",
-    headers:{
-      "authorization":"Bearer "+env.RESEND_API_KEY,
-      "content-type":"application/json",
-      "idempotency-key":"gloria-"+latestSaved.digest
-    },
-    body:JSON.stringify(message)
+    throw Error("Gmail blocked: backup digest verification failed");
+  const attachment=toBase64(encoder.encode(content));
+  const ts=Date.now();
+  const signature=await signGmailBridge(env.GOOGLE_APPS_SCRIPT_HMAC_SECRET,ts,digest,attachment);
+  const result=await sendFetch(sendUrl.href,{
+    method:"POST",headers:{"content-type":"text/plain; charset=utf-8"},
+    body:JSON.stringify({ts,digest,attachment,signature}),redirect:"follow"
   });
-  if(!send.ok){
-    // Retry on next schedule; do not flag as sent or delete cloud backup.
-    throw Error("Email provider rejected send: HTTP "+send.status);
-  }
-  const receipt=await send.json();
-  if(!receipt?.id)throw Error("Email provider did not return a message id");
+  if(!result.ok)throw Error("Gmail bridge rejected request: HTTP "+result.status);
+  let receipt=null;try{receipt=await result.json()}catch{throw Error("Gmail bridge returned no valid receipt")}
+  if(receipt?.ok!==true||receipt.digest!==digest)
+    throw Error("Gmail bridge did not acknowledge the identical encrypted copy");
   await env.BACKUPS.put("meta/last-emailed.json",JSON.stringify({
-    digest:latestSaved.digest,key:latestSaved.key,providerMessageId:receipt.id,
-    acceptedAt:new Date().toISOString()
+    digest,key:latestSaved.key,acceptedAt:new Date().toISOString(),sender:"gmail-apps-script"
   }));
-  return {sent:true,providerMessageId:receipt.id,digest:latestSaved.digest};
+  return {sent:true,digest,duplicate:!!receipt.duplicate};
 }
 export {upload,latest,authorized,sendDailyEmail,validEnvelope};
 export default {
