@@ -272,3 +272,27 @@ body.scholar-wardrobe-preview .lux-shell-nav{
 body.scholar-wardrobe-preview .scholar-preview-bottom-nav{
  display:grid!important;
 }
+
+/* Real React hydration adds lux-companion-header on the SSR header. */
+body.scholar-wardrobe-preview .paper-wash > header.lux-companion-header,
+body.scholar-wardrobe-preview .paper-wash > nav.lux-companion-bottom-nav,
+body.scholar-wardrobe-preview header.lux-companion-header,
+body.scholar-wardrobe-preview nav.lux-companion-bottom-nav{
+ display:none!important;visibility:hidden!important;
+}
+body.scholar-wardrobe-preview .scholar-wardrobe-stage
+  >div:nth-child(4)>div:has(img[alt^="Scholar in "]){
+ width:100%!important;max-width:100%!important;min-width:0!important;
+}
+body.scholar-wardrobe-preview .scholar-wardrobe-stage img.scholar-idle{
+ width:min(340px,92%)!important;
+ height:100%!important;
+ max-width:94%!important;
+ object-fit:contain!important;
+ object-position:center bottom!important;
+}
+/* On the dress-up stage, garden life embellishments are unrelated overlays:
+   retain the actual Scholar portrait and its original dress-up behavior. */
+body.scholar-wardrobe-preview .scholar-wardrobe-stage>div:nth-child(4)>:not(:has(img[alt^="Scholar in "])){
+ display:none!important;
+}
