@@ -1,0 +1,39 @@
+name: Study RPG Integration Preview QA
+on:
+  pull_request:
+    paths:
+      - 'assets/study-rpg-integrated-20261019.*'
+      - 'assets/study-navigation-v2-20261010.js'
+      - 'art/study-rpg/**'
+      - 'tests/study-rpg-*'
+      - '.github/workflows/study-rpg-preview-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  study-code:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --check assets/study-rpg-integrated-20261019.js
+      - run: node --test tests/study-rpg-integration.test.cjs
+  study-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Compare real app DOM, year selection, outfit and pet in Chromium and iPad WebKit
+        run: node tests/study-rpg-preview-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: study-rpg-preview-screenshots
+          path: test-results/study-rpg-*.png

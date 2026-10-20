@@ -118,3 +118,6 @@ document.addEventListener("visibilitychange",()=>{if(document.visibilityState===
 new MutationObserver(queue).observe(document.documentElement,{childList:true,subtree:true});
 queue();
 })();
+
+// Study RPG production loader is shared between Home and Study route shells.
+// The existing native Study UI remains mounted beneath the optional scene.
