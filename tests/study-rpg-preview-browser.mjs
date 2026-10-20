@@ -144,6 +144,11 @@ try{
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-nav a[href="'+target.href+'"]').click();
         await page.waitForURL(u=>u.pathname.replace(/\/$/,'')===target.path.replace(/\/$/,''),{timeout:20000});
+        // SPA links can update the URL a frame before React commits the next page.
+        // Wait for the *destination* Study link, not just for the URL change.
+        await page.waitForFunction(() => [...document.querySelectorAll('a[href="/study"],a[href="/study/"]')]
+          .some(a=>!a.closest('#lux-study-rpg-integrated')&&a.getClientRects().length>0),
+          null,{timeout:15000});
         // Tap the destination's real Study navigation, not a stale Study overlay.
         await page.locator('a[href="/study"],a[href="/study/"]').evaluateAll(anchors=>{
           const link=anchors.find(a=>!a.closest('#lux-study-rpg-integrated')&&a.getClientRects().length>0)
