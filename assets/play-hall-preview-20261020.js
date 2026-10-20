@@ -2,7 +2,7 @@
  * Production presentation: never changes scores, XP, quest or unlocking state.
  * All 17 native /play/:game routes remain the only game implementations.
  */
-import {C as store} from './index-BLVOhKhN.js?v=20261018-mastery2';
+import {A as wardrobeOutfits, C as store} from './index-BLVOhKhN.js?v=20261018-mastery2';
 
 const PREVIEW_PARAM = 'playHallPreview';
 const GAME_LIST = Object.freeze([
@@ -103,7 +103,7 @@ if (!window.__luxPlayHallPreviewMounted && /^\/play\/?$/.test(location.pathname)
     root.append(make('div','lux-play-hall-shade'));
     const banner=make('div','lux-play-hall-brand');banner.append(make('span','lux-play-hall-compass','✧'));
     const brandText=make('div');brandText.append(make('strong',null,'Lux et Labor'),make('span',null,'PLAY'),make('small',null,'THE ENCHANTED GAME HALL'));banner.append(brandText);root.append(banner);
-    const girl=make('img','lux-play-hall-scholar');girl.alt='Your equipped Scholar, standing';girl.decoding='async';girl.src=outfit==='day'?'/art/home-rpg/scholar-clean.png':`/art/doll/${outfit}.png`;
+    const girl=make('img','lux-play-hall-scholar');girl.alt='Your equipped Scholar, standing';girl.decoding='async';girl.src=wardrobeOutfits.find(item=>item.id===outfit)?.art||'/art/home-rpg/scholar-clean.png';
     girl.onerror=()=>{if(!girl.dataset.fallback){girl.dataset.fallback='1';girl.src='/art/home-rpg/scholar-clean.png';}};
     root.append(girl);
     const summary=make('div','lux-play-hall-hud');summary.append(make('strong',null,`Lv ${Math.max(1,Number(state.scholarLevel||state.level)||1)}`),make('span',null,`★ ${Math.max(0,Number(state.xp)||0)} XP`));root.append(summary);
