@@ -60,6 +60,7 @@ try{
       const art=getComputedStyle(document.querySelector('#petImage')).backgroundImage;
       return {pet:box('.pet-stage-card'),care:box('#petCarePanel'),growth:box('#petGrowth'),nav:box('.lux-shell-nav'),stage:box('#petAvatar'),bg,style,art,topbar:getComputedStyle(document.querySelector('.pet-topbar')).display,classes:document.body.className,scrollWidth:document.documentElement.scrollWidth};
     });
+    console.log(engine.name()+' viewport '+viewport.width+' preview layout '+JSON.stringify(sizes));
     assert.ok(sizes.style,'Pet sanctuary stylesheet loaded');
     assert.equal(sizes.topbar,'none','Old duplicate Pet topbar must be hidden in preview');
     assert.ok(sizes.bg.includes('magic-floor.jpg'),'Same academy botanical scene as other new pages');
