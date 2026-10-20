@@ -1,6 +1,6 @@
 const PAPERS=[
   {id:'biology-nov2',name:'Biology · 2 November · Specialised cells & RP1',subtitle:'2 November 2026 · 84-question bank · specialised cells, microscopy, drawing and calculations',bank:'/assessment/biology-nov2-20261017.json',count:20,minutes:45,groups:{'Cell structures in context':2,'Specialised animal cells':4,'Specialised plant cells':3,'Microscopy practical':4,'Biological drawing':3,'Microscopy calculations':4}},
-  {id:'biology-cell-structure',name:'Biology · AQA 4.1.1 Cell structure',subtitle:'First GCSE Biology assessment · week beginning 16 November 2026 · all six sections · 60 marks',bank:'/assessment/biology-cell-structure-20261003.json',count:24,minutes:45,groups:{'Eukaryotes and prokaryotes':4,'Animal and plant cells':4,'Cell specialisation':4,'Cell differentiation':4,'Microscopy':4,'Culturing microorganisms':4}},
+  {id:'biology-cell-structure',name:'Biology · AQA 4.1.1 Cell structure',subtitle:'AQA 4.1.1 revision bank · cell structure, microscopy and practical methods · 60 marks',bank:'/assessment/biology-cell-structure-20261003.json',count:24,minutes:45,groups:{'Eukaryotes and prokaryotes':4,'Animal and plant cells':4,'Cell specialisation':4,'Cell differentiation':4,'Microscopy':4,'Culturing microorganisms':4}},
   {id:'french',name:'French · Unit 1 vocabulary',subtitle:'Une visite en France · school test 8 Oct',bank:'/assessment/french-school-1.json',count:25,minutes:25,groups:{'Core phrases':4,'Intensifiers':3,'Descriptive adjectives':5,'Positive adjectives':5,'Pronouns':5,'Transport':3}},
   {id:'chemistry',name:'Chemistry · school test and RP6',subtitle:'Periodic Table, separation and chromatography',bank:'/assessment/chemistry-school-1.json',count:30,minutes:45,groups:{'Periodic table':4,'Separation':4,'RP6 method':4,'RP6 errors':2,'Chromatogram':4,'Rf':9,'Solvents':1,'RP6':2}},
   {id:'latin-verbs',name:'Latin · Regular verbs',subtitle:'Tomorrow’s table · Latin → English · porto, moneo, traho, audio · present, imperfect and perfect only',bank:'/assessment/latin-verbs-1.json',count:24,minutes:25,groups:{'Present':8,'Imperfect':8,'Perfect':8}},
@@ -72,7 +72,7 @@ const EXAM_GROUPS=[
   {subject:'Chemistry',exam:'2026-10-05',ids:['chemistry']},
   {subject:'English',exam:'2026-09-30',ids:['english']},
   {subject:'French',exam:'2026-10-08',ids:['french']},
-  {subject:'Biology',exam:'',examWeek:'2026-11-16',ids:['biology-nov2','biology-cell-structure','biology-school','biology']},
+  {subject:'Biology',exam:'',examWeek:'2026-11-02',ids:['biology-nov2','biology-cell-structure','biology-school','biology']},
   {subject:'Physics',exam:'',ids:['physics']}
 ];
 function groupBlurb(group,today){
@@ -80,13 +80,22 @@ function groupBlurb(group,today){
   if(group.subject==='Latin')return today>group.exam?`Exam ${when} has passed. Regular verbs and The Loss of Creusa are now in Practise.`:`Exam ${when}. Start with Regular verbs: porto, moneo, traho and audio, Latin into English, present, imperfect and perfect. Those questions, and The Loss of Creusa, join Practise the next day.`;
   if(group.subject==='Chemistry')return 'Assessment in the week beginning 5 October 2026; exact lesson date awaits confirmation. Revise atoms, separating mixtures, history of the periodic table and RP6 chromatography.';
   if(group.subject==='English')return `Exam ${when}. These Year 9 questions are already in Practise.`;
-  if(group.subject==='Biology')return '2 November: specialised cells and Required Practical 1, based on the materials supplied 17 October. The separate 16 November assessment remains listed below with its own wider range.';
+  if(group.subject==='Biology')return 'School assessment on 2 November: specialised cells and Required Practical 1. More AQA 4.1.1 revision papers are also available; no later school-test date is confirmed.';
   if(group.exam)return today>group.exam?`Exam ${when} has passed. These questions are now in Practise.`:`Exam ${when}. These questions join Practise the next day.`;
   return 'Mixed questions from the Year 9 bank. Already in Practise.';
 }
 function paperCard(p){
-  const prize=PRIZES[p.id];
-  return `<article class="card"><span class="tag">Year 9 · ${p.bank.includes('/banks/')?'Mixed assessment':'School topic'}</span><span class="tag">${p.minutes} min · ${p.count} questions · pass 85%</span><h3>${esc(p.name.replace(/^[^·]+·\s*/,''))}</h3><p>${esc(p.subtitle)}</p>${p.id==='biology-nov2'?'<p><a href="/assessment/biology-nov2/practice/">84-question topic practice →</a> · <a href="/assessment/biology-nov2/notes.pdf">Illustrated notes →</a></p>':''}${p.id==='biology-cell-structure'?'<p><a href="/assessment/biology-cell-structure/">Revision guide and 72-question bank →</a></p>':''}${prize?`<p class="muted">Pass once to unlock ${esc(prize.name)} in the wardrobe.</p>`:''}<button class="primary" data-paper="${p.id}">${state.drafts[p.id]?.version===2?'Continue test':'Start new paper'}</button>${p.id==='chemistry'&&state.drafts[p.id]?.version===2?` <button data-reset-paper="chemistry">Discard draft and start a fresh paper</button>`:''}</article>`
+ const hasDraft=state.drafts[p.id]?.version===2;
+ return `<article class="card assessment-paper-row" data-paper-row="${esc(p.id)}">
+   <div class="assessment-paper-info">
+     <h3>${esc(p.name.replace(/^[^·]+·\s*/,''))}</h3>
+     <p>${p.minutes} min · ${p.count} questions · Pass 85%</p>
+   </div>
+   <div class="assessment-paper-buttons">
+     <button class="primary" data-paper="${esc(p.id)}">${hasDraft?'Continue':'Start'} <span aria-hidden="true">›</span></button>
+     ${p.id==='chemistry'&&hasDraft?'<button class="assessment-reset" data-reset-paper="chemistry" aria-label="Discard Chemistry draft">Reset</button>':''}
+   </div>
+ </article>`;
 }
 function cards(){
   if(!document.getElementById('exam-group-style')){const s=document.createElement('style');s.id='exam-group-style';s.textContent='.subject-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:2px 0 14px;position:sticky;top:8px;z-index:4;background:#f6f1e6;padding:8px 0}.subject-bar button{border-radius:999px;padding:8px 14px;background:#fffaf3;border:1px solid rgba(196,164,106,.75);color:#1A3148}.subject-bar button.on{background:#1A3148;color:#f7f1e6;border-color:#1A3148}.subject-bar .add-assess{margin-left:auto}.subject-list{display:flex;flex-direction:column;gap:12px}.subject-block{padding-top:0;border-top:0}.subject-block h2{font-size:32px}.subject-block .when{margin:6px 0 0;color:#62717a;max-width:42rem}.subject-block .cards{margin-top:12px}.subject-block .card p{min-height:0}';document.head.appendChild(s)}
@@ -97,12 +106,12 @@ function cards(){
     $('#paper-list').before(filters);
     filters.addEventListener('input',cards);filters.addEventListener('change',cards);
   }
-  const group=EXAM_GROUPS.find(g=>g.subject===sessionStorage.getItem('lux-assess-subject'))||EXAM_GROUPS[0];
+  const group=EXAM_GROUPS.find(g=>g.subject===sessionStorage.getItem('lux-assess-subject'))||EXAM_GROUPS.find(g=>g.subject==='Biology')||EXAM_GROUPS[0];
   $('#subject-bar').innerHTML=EXAM_GROUPS.map(g=>`<button type="button" data-subject="${esc(g.subject)}" class="${g.subject===group.subject?'on':''}">${esc(g.subject)}</button>`).join('')+'<button type="button" class="add-assess" data-add-assess>Add assessment</button>';
   const allPapers=group.ids.map(id=>PAPERS.find(p=>p.id===id)).filter(Boolean),query=$('#assessment-search').value.trim().toLowerCase(),kind=$('#assessment-kind').value;
   const papers=allPapers.filter(p=>(kind==='all'||(p.bank.includes('/banks/')?'mixed':'school')===kind)&&(!query||`${p.name} ${p.subtitle} ${Object.keys(p.groups||{}).join(' ')}`.toLowerCase().includes(query)));
   const root=$('#paper-list');root.className='subject-list';const today=examToday();
-  root.innerHTML=`<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="muted">Year 9 · ${papers.length} of ${allPapers.length} papers · <a href="/study/${group.subject.toLowerCase()}/">Browse notes and topic practice →</a></p><p class="when">${esc(groupBlurb(group,today))}</p><div class="cards">${papers.length?papers.map(paperCard).join(''):'<p class="muted" role="status">No matching papers. Try another keyword or paper type.</p>'}</div></section>`;
+  root.innerHTML=`<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="muted">Year 9 · ${papers.length} of ${allPapers.length} papers · <a href="/study/${group.subject.toLowerCase()}/">Browse notes and topic practice →</a></p><p class="when">${esc(groupBlurb(group,today))}</p><div class="cards">${papers.length?papers.map(paperCard).join(''):'<p class="muted" role="status">No matching papers. Try another keyword or paper type.</p>'}</div>${group.subject==='Biology'?'<details class="assessment-resources"><summary>Revision resources</summary><div><a href="/assessment/biology-nov2/practice/">2 November topic practice</a><a href="/assessment/biology-nov2/notes.pdf">Illustrated revision notes</a><a href="/assessment/biology-cell-structure/">Cell structure revision guide &amp; bank</a></div></details>':''}</section>`;
 }
 cards();
 $('#paper-list').addEventListener('click',e=>{
@@ -122,19 +131,53 @@ $('#track-form').addEventListener('submit',e=>{
 });
 const SCHOOL_ASSESSMENTS=globalThis.LuxSchoolRevision.schoolAssessments;
 function tracker(){
-  const school=SCHOOL_ASSESSMENTS.filter(x=>!(state.hiddenSchoolAssessments||[]).includes(x.id));
-  const entries=[...school,...state.tracker].sort((a,b)=>(a.date||'').localeCompare(b.date||''));
-  $('#tracker-list').innerHTML=entries.length?entries.map(x=>{
+  // Show only confirmed school-test dates. The older AQA paper remains under Long tests.
+  const school=SCHOOL_ASSESSMENTS.filter(x=>x.id!=='school-biology-20261116' && !(state.hiddenSchoolAssessments||[]).includes(x.id));
+  // Sort newest first; undated manually recorded assessments go below dated entries.
+  const entries=[...school,...state.tracker].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  const today=examToday();
+  const titles={chemistry:'Atoms & chromatography',french:'Unit 1 vocabulary','biology-nov2':'Specialised cells & RP1'};
+  const heading='<div class="assessment-tracker-head" aria-hidden="true"><span>Subject</span><span>Assessment</span><span>Date</span><span>Status</span><span></span></div>';
+  $('#tracker-list').innerHTML=entries.length?heading+entries.map(x=>{
     const isSchool=school.some(s=>s.id===x.id);
     const results=isSchool?state.results.filter(r=>r.paperId===x.paperId):[];
     const latest=results[results.length-1];
-    const phase=globalThis.LuxSchoolRevision.buildRevisionPlan({},state).active.find(a=>a.id===x.id)?.phase;
-    const trackerStatus=x.status||(phase==='current'?(x.dateKind==='week'?'Assessment week':'Today'):phase==='upcoming'?'Upcoming':'School result not recorded');
-    const topicLinks=x.paperId==='biology-nov2'?'<p><a href="/assessment/biology-nov2/practice/">Practise the 2 November topics</a> · <a href="/assessment/biology-nov2/notes.pdf">Illustrated revision notes</a></p>':(x.topics||[]).map(topic=>`<p><a href="/study/${x.subject.toLowerCase()}/learn?year=9&topic=${encodeURIComponent(topic)}">Notes · ${esc(({'chem-y9-c5':'Atoms','chem-y9-c1':'History of the periodic table','chem-y9-c3':'Separating mixtures','chem-y9-c4':'Chromatography','fr-y9-20260919-unit-1-holidays-and-opinions':'Holidays and opinions','fr-y9-u1-paris-travel':'Travel and transport','bio-y9-b1':'Cell structure','bio-y9-b2':'Specialised cells','bio-y9-b3':'Microscopy','bio-y9-b4':'Culturing microorganisms'})[topic]||x.title)}</a> · <a href="/study/${x.subject.toLowerCase()}/practise?year=9&mode=standard&topic=${encodeURIComponent(topic)}">Practise this topic</a></p>`).join('');
-    const links=isSchool?`${topicLinks}<p>${x.subject==='Biology'&&x.paperId!=='biology-nov2'?' · <a href="/assessment/biology-cell-structure/">Cell structure revision guide</a>':''}</p><button class="primary" data-tracker-paper="${esc(x.paperId)}">${state.drafts[x.paperId]?.version===2?'Continue practice paper':'Start practice paper'}</button>`:'';
-    return `<article class="entry"><div><span class="tag">${esc(x.subject)} · ${esc(x.dateLabel||x.date)} · ${esc(trackerStatus)}</span><h3>${esc(x.title)}</h3>${x.score?`<p><b>School result:</b> ${esc(x.score)}</p>`:''}${x.notes?`<p>${esc(x.notes)}</p>`:''}${latest?`<p><b>Latest app practice:</b> ${esc(latest.score)}% · ${esc(latest.date)}</p>`:''}${links}</div><button data-delete="${esc(x.id)}">${isSchool?'Hide':'Delete'}</button></article>`;
+    const parts=String(x.date||'').split('-').map(Number);
+    const shortDate=parts.length===3&&parts.every(Number.isFinite)?
+      new Date(parts[0],parts[1]-1,parts[2]).toLocaleDateString('en-GB',{day:'numeric',month:'short'}):x.dateLabel||x.date||'Date TBC';
+    const date=x.dateKind==='week'?`w/c ${shortDate}`:shortDate;
+    const status=x.score?x.score:x.status||(x.date&&x.date>=today?'Upcoming':'Not recorded');
+    const shortTitle=isSchool?(titles[x.paperId]||x.title):x.title;
+    const topicLinks=x.paperId==='biology-nov2'?
+      '<a href="/assessment/biology-nov2/practice/">2 November topic practice</a><a href="/assessment/biology-nov2/notes.pdf">Illustrated revision notes</a>':
+      (x.topics||[]).map(topic=>{
+        const friendly=({'chem-y9-c5':'Atoms','chem-y9-c1':'History of periodic table','chem-y9-c3':'Separating mixtures','chem-y9-c4':'Chromatography','fr-y9-20260919-unit-1-holidays-and-opinions':'Holidays and opinions','fr-y9-u1-paris-travel':'Travel and transport','bio-y9-b1':'Cell structure','bio-y9-b2':'Specialised cells','bio-y9-b3':'Microscopy','bio-y9-b4':'Culturing microorganisms'})[topic]||x.title;
+        const base=`/study/${x.subject.toLowerCase()}/`;
+        return `<div class="assessment-tracker-resource-row"><span>${esc(friendly)}</span><a href="${base}learn?year=9&topic=${encodeURIComponent(topic)}">Notes</a><a href="${base}practise?year=9&mode=standard&topic=${encodeURIComponent(topic)}">Practice</a></div>`;
+      }).join('');
+    const hasGuide=x.subject==='Biology'&&x.paperId!=='biology-nov2';
+    const resources=topicLinks||hasGuide?`<details class="assessment-tracker-resources"><summary>Notes &amp; topic practice</summary><div class="assessment-tracker-resource-list">${topicLinks}${hasGuide?'<a href="/assessment/biology-cell-structure/">Cell structure revision guide</a>':''}</div></details>`:'';
+    const paperButton=isSchool&&x.paperId?`<button class="primary" data-tracker-paper="${esc(x.paperId)}">${state.drafts[x.paperId]?.version===2?'Continue practice paper':'Start practice paper'}</button>`:'';
+    return `<article class="entry assessment-tracker-entry tracker-row-${esc(String(x.subject||"Other").toLowerCase().replace(/[^a-z0-9-]/g,"-"))}">
+      <details class="assessment-tracker-item">
+        <summary aria-label="${esc(`${x.subject}, ${x.title}, ${date}, ${status}. Show details`)}">
+          <span class="tracker-col tracker-subject tracker-subject-${esc(String(x.subject||"Other").toLowerCase().replace(/[^a-z0-9-]/g,"-"))}">${esc(x.subject)}</span>
+          <strong class="tracker-col tracker-title" title="${esc(x.title)}">${esc(shortTitle)}</strong>
+          <time class="tracker-col tracker-date" datetime="${esc(x.date||'')}">${esc(date)}</time>
+          <span class="tracker-col tracker-status">${esc(status)}</span>
+          <span class="assessment-tracker-details-label">Details <span aria-hidden="true">⌄</span></span>
+        </summary>
+        <div class="assessment-tracker-expanded">
+          <h3>${esc(x.title)}</h3>
+          ${x.dateKind==='week'?`<p>${esc(x.dateLabel||'School date awaits confirmation')}</p>`:''}
+          ${x.notes?`<p>${esc(x.notes)}</p>`:''}
+          ${latest?`<p>Latest app practice: <b>${esc(latest.score)}%</b> · ${esc(latest.date)}</p>`:''}
+          ${resources}
+          <div class="assessment-tracker-actions">${paperButton}<button data-delete="${esc(x.id)}">${isSchool?'Hide assessment':'Delete assessment'}</button></div>
+        </div>
+      </details>
+    </article>`;
   }).join(''):'<p class="muted">No school assessments recorded yet. Add one below.</p>';
-  $('#tracker-list').insertAdjacentHTML('beforeend','<p class="muted">Other future school assessments: dates and ranges await teacher confirmation. Practice results are separate from school grades.</p>');
 }
 $('#tracker-list').addEventListener('click',e=>{
   const paper=e.target.closest('[data-tracker-paper]');
