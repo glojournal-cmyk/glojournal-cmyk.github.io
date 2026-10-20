@@ -1,6 +1,6 @@
 const PAPERS=[
   {id:'biology-nov2',name:'Biology · 2 November · Specialised cells & RP1',subtitle:'2 November 2026 · 84-question bank · specialised cells, microscopy, drawing and calculations',bank:'/assessment/biology-nov2-20261017.json',count:20,minutes:45,groups:{'Cell structures in context':2,'Specialised animal cells':4,'Specialised plant cells':3,'Microscopy practical':4,'Biological drawing':3,'Microscopy calculations':4}},
-  {id:'biology-cell-structure',name:'Biology · AQA 4.1.1 Cell structure',subtitle:'First GCSE Biology assessment · week beginning 16 November 2026 · all six sections · 60 marks',bank:'/assessment/biology-cell-structure-20261003.json',count:24,minutes:45,groups:{'Eukaryotes and prokaryotes':4,'Animal and plant cells':4,'Cell specialisation':4,'Cell differentiation':4,'Microscopy':4,'Culturing microorganisms':4}},
+  {id:'biology-cell-structure',name:'Biology · AQA 4.1.1 Cell structure',subtitle:'AQA 4.1.1 revision bank · cell structure, microscopy and practical methods · 60 marks',bank:'/assessment/biology-cell-structure-20261003.json',count:24,minutes:45,groups:{'Eukaryotes and prokaryotes':4,'Animal and plant cells':4,'Cell specialisation':4,'Cell differentiation':4,'Microscopy':4,'Culturing microorganisms':4}},
   {id:'french',name:'French · Unit 1 vocabulary',subtitle:'Une visite en France · school test 8 Oct',bank:'/assessment/french-school-1.json',count:25,minutes:25,groups:{'Core phrases':4,'Intensifiers':3,'Descriptive adjectives':5,'Positive adjectives':5,'Pronouns':5,'Transport':3}},
   {id:'chemistry',name:'Chemistry · school test and RP6',subtitle:'Periodic Table, separation and chromatography',bank:'/assessment/chemistry-school-1.json',count:30,minutes:45,groups:{'Periodic table':4,'Separation':4,'RP6 method':4,'RP6 errors':2,'Chromatogram':4,'Rf':9,'Solvents':1,'RP6':2}},
   {id:'latin-verbs',name:'Latin · Regular verbs',subtitle:'Tomorrow’s table · Latin → English · porto, moneo, traho, audio · present, imperfect and perfect only',bank:'/assessment/latin-verbs-1.json',count:24,minutes:25,groups:{'Present':8,'Imperfect':8,'Perfect':8}},
@@ -72,7 +72,7 @@ const EXAM_GROUPS=[
   {subject:'Chemistry',exam:'2026-10-05',ids:['chemistry']},
   {subject:'English',exam:'2026-09-30',ids:['english']},
   {subject:'French',exam:'2026-10-08',ids:['french']},
-  {subject:'Biology',exam:'',examWeek:'2026-11-16',ids:['biology-nov2','biology-cell-structure','biology-school','biology']},
+  {subject:'Biology',exam:'',examWeek:'2026-11-02',ids:['biology-nov2','biology-cell-structure','biology-school','biology']},
   {subject:'Physics',exam:'',ids:['physics']}
 ];
 function groupBlurb(group,today){
@@ -80,7 +80,7 @@ function groupBlurb(group,today){
   if(group.subject==='Latin')return today>group.exam?`Exam ${when} has passed. Regular verbs and The Loss of Creusa are now in Practise.`:`Exam ${when}. Start with Regular verbs: porto, moneo, traho and audio, Latin into English, present, imperfect and perfect. Those questions, and The Loss of Creusa, join Practise the next day.`;
   if(group.subject==='Chemistry')return 'Assessment in the week beginning 5 October 2026; exact lesson date awaits confirmation. Revise atoms, separating mixtures, history of the periodic table and RP6 chromatography.';
   if(group.subject==='English')return `Exam ${when}. These Year 9 questions are already in Practise.`;
-  if(group.subject==='Biology')return '2 November: specialised cells and Required Practical 1, based on the materials supplied 17 October. The separate 16 November assessment remains listed below with its own wider range.';
+  if(group.subject==='Biology')return 'School assessment on 2 November: specialised cells and Required Practical 1. More AQA 4.1.1 revision papers are also available; no later school-test date is confirmed.';
   if(group.exam)return today>group.exam?`Exam ${when} has passed. These questions are now in Practise.`:`Exam ${when}. These questions join Practise the next day.`;
   return 'Mixed questions from the Year 9 bank. Already in Practise.';
 }
@@ -97,7 +97,7 @@ function cards(){
     $('#paper-list').before(filters);
     filters.addEventListener('input',cards);filters.addEventListener('change',cards);
   }
-  const group=EXAM_GROUPS.find(g=>g.subject===sessionStorage.getItem('lux-assess-subject'))||EXAM_GROUPS[0];
+  const group=EXAM_GROUPS.find(g=>g.subject===sessionStorage.getItem('lux-assess-subject'))||EXAM_GROUPS.find(g=>g.subject==='Biology')||EXAM_GROUPS[0];
   $('#subject-bar').innerHTML=EXAM_GROUPS.map(g=>`<button type="button" data-subject="${esc(g.subject)}" class="${g.subject===group.subject?'on':''}">${esc(g.subject)}</button>`).join('')+'<button type="button" class="add-assess" data-add-assess>Add assessment</button>';
   const allPapers=group.ids.map(id=>PAPERS.find(p=>p.id===id)).filter(Boolean),query=$('#assessment-search').value.trim().toLowerCase(),kind=$('#assessment-kind').value;
   const papers=allPapers.filter(p=>(kind==='all'||(p.bank.includes('/banks/')?'mixed':'school')===kind)&&(!query||`${p.name} ${p.subtitle} ${Object.keys(p.groups||{}).join(' ')}`.toLowerCase().includes(query)));
