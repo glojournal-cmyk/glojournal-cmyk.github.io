@@ -234,3 +234,20 @@ html.lux-garden-map-active body>.lux-companion-bottom-nav{visibility:hidden!impo
   gap:1px!important}
  .lux-garden-nav a>span:first-child{font-size:clamp(15px,1.7vw,25px)!important}
 }
+
+/* Hide ALL legacy roots and portal rails while the approved interactive Garden
+   is active; native handlers/state still run behind the scene. This prevents
+   the second floating navigation and old cards appearing under the preview. */
+html.lux-garden-map-active body > :not(#lux-garden-academy-preview){
+ visibility:hidden!important;pointer-events:none!important
+}
+@media(min-width:700px) and (orientation:landscape){
+ .lux-garden-stage{
+  left:58.05%!important;right:4.0%!important;
+  width:37.95%!important;
+ }
+ .lux-garden-stage > strong{
+  font-size:clamp(19px,2vw,29px)!important;
+  overflow:visible!important;
+ }
+}
