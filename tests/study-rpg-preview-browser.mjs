@@ -79,6 +79,7 @@ try{
           const x=await import('/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2');
           return x.petArtUrl('moss-hornling',2);
         });
+        await page.waitForFunction(expected => document.querySelector('.lux-study-rpg-pet')?.getAttribute('src') === expected, petExpected, {timeout:10000});
         assert.equal(await page.locator('.lux-study-rpg-pet').getAttribute('src'),petExpected);
         const petPixels = await page.locator('.lux-study-rpg-pet').evaluate(img => ({
           transform:getComputedStyle(img).transform,
