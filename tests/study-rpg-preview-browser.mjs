@@ -70,7 +70,11 @@ try{
           localStorage.setItem('lux-pet-companion-v1',JSON.stringify({species:'moss-hornling',petLevels:{'moss-hornling':2}}));
           dispatchEvent(new Event('scholar:pet-changed'));
         });
-        await page.waitForFunction(()=>document.querySelector('.lux-study-rpg-scholar')?.getAttribute('src')?.includes('/art/doll/cardigan.png'));
+        await page.waitForFunction(async()=>{
+          const {A: outfits}=await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2');
+          const expected=outfits.find(o=>o.id==='cardigan')?.art;
+          return Boolean(expected && document.querySelector('.lux-study-rpg-scholar')?.getAttribute('src')===expected);
+        });
         const petExpected=await page.evaluate(async()=>{
           const x=await import('/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2');
           return x.petArtUrl('moss-hornling',2);
