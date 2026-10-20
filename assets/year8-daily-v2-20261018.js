@@ -1,5 +1,6 @@
 import {curriculumTopics,curriculumHref} from './daily-curriculum-20261004.js';
 import {coveredTopic,masteryStage} from './mastery-v2-20261018.js';
+import {dailyVocabTotal} from './daily-vocab-total-20261020.js';
 
 const rotation = ['physics','chemistry','biology','french'];
 const label = {latin:'Latin',french:'French',biology:'Biology',chemistry:'Chemistry',physics:'Physics'};
@@ -58,11 +59,13 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   const year9=pick('year9-light',taught,t=>!coveredTopic(state,t.topicId));
   const vocab=s=>{
     const old=previous.get(s+'-vocab')||state.daily?.find(t=>t.id===s+'-vocab');
-    const proof=state.dailyVocabByDay?.[today]?.[s]?.items||{};
-    const correct=Object.values(proof).filter(Boolean).length;
+    // The 2026-10-19 home task used to read ONLY the new ledger, so an
+    // older iPad session's valid formal journal was ignored (e.g. 13/30).
+    const total=dailyVocabTotal(state,s,today);
+    const correct=total.correct;
     return {...old,id:s+'-vocab',title:`Year 7–8 ${label[s]} vocab`,detail:'30 correct words; due mistakes then new words.',
       href:`/study/${s}/practise?daily=1&locked=1&year=8&mode=y8vocab&task=${s}-vocab`,
-      target:30,progress:Math.min(30,Math.max(correct,old?.planDate===today?Number(old.progress)||0:0)),
+      target:30,progress:total.progress,
       xp:15,requiredCorrect:30,planDate:today};
   };
   return [vocab('latin'),vocab('french'),task('latin-standard',latin,'standard',10,'Daily Latin Standard 10'),

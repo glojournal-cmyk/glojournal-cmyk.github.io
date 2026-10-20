@@ -10,13 +10,27 @@ export function dailyVocabTotal(state = {}, subject, day) {
   // Merge dated formal answers into the day-specific ledger. This also
   // restores genuine answers saved before the dedicated vocabulary ledger.
   for (const answer of state.formalAttemptLog || []) {
-    if (answer?.day !== date || answer?.dailyVocab !== subject ||
-        !answer?.questionId || answer?.repair) continue;
+    // Older saved quizzes recorded the task ID but not dailyVocab.
+    const assigned = answer?.dailyVocab === subject ||
+      (answer?.dailyTaskId === subject + "-vocab" && answer?.subject === subject);
+    if (answer?.day !== date || !assigned || !answer?.questionId ||
+        answer?.repair || answer?.recoveryFor || answer?.formal === false) continue;
     const id = String(answer.questionId);
     items[id] = !!items[id] || !!answer.correct;
   }
-  const attempts = Object.keys(items).length;
-  const correct = Object.values(items).filter(Boolean).length;
+  // Do not erase a correct count the iPad has ALREADY saved in today's
+  // original Daily Task or dated Daily Record. These are lower bounds only,
+  // never guesses based on visits, XP, unrelated topics, or another date.
+  const taskId = subject + "-vocab";
+  const earlier = [
+    ...(state.today === date ? (state.daily || []).filter(t =>
+      t?.id === taskId && t.planDate === date) : []),
+    ...((state.dailyLog?.[date]?.tasks || []).filter(t => t?.id === taskId))
+  ];
+  const savedCorrect = Math.min(DAILY_VOCAB_TARGET, earlier.reduce((max, t) =>
+    Math.max(max, Math.max(0, Number(t.progress) || 0)), 0));
+  const attempts = Math.max(Object.keys(items).length, savedCorrect);
+  const correct = Math.max(Object.values(items).filter(Boolean).length, savedCorrect);
   return {
     subject, attempts, correct, target: DAILY_VOCAB_TARGET,
     passed: correct >= DAILY_VOCAB_TARGET,

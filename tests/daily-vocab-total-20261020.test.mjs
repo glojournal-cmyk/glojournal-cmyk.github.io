@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {dailyVocabTotal} from "../assets/daily-vocab-total-20261020.js";
+import {buildYear8DailyV2} from "../assets/year8-daily-v2-20261018.js";
 
 const day = "2026-10-20";
 const words = (count, start = 1) => Object.fromEntries(
@@ -50,4 +51,51 @@ test("an answer journal can restore daily credit lost from the dedicated ledger"
   ]};
   assert.equal(dailyVocabTotal(x, "french", day).correct, 2);
   assert.equal(dailyVocabTotal(x, "french", day).attempts, 2);
+});
+
+test("real iPad regression: 13 saved ledger items but 30 marked answers must show 30", () => {
+  const items = Object.fromEntries(Array.from({length: 13}, (_,i)=>["fr-"+i,true]));
+  const formalAttemptLog = Array.from({length: 30}, (_,i)=>({
+    day, subject:"french", dailyVocab: i < 28 ? "french" : null,
+    dailyTaskId:"french-vocab", questionId:"fr-"+i, correct:true, formal:true
+  }));
+  const x={today:day,dailyVocabByDay:{[day]:{french:{items}}},formalAttemptLog,
+    daily:[{id:"french-vocab",planDate:day,target:30,progress:13}]};
+  assert.equal(dailyVocabTotal(x,"french",day).progress,30);
+  assert.equal(dailyVocabTotal(x,"latin",day).progress,0);
+});
+
+test("old same-day Daily Record credits survive missing vocabulary ledger", () => {
+  const x={today:day,dailyVocabByDay:{[day]:{french:{items:{"fr-1":true}}}},
+    dailyLog:{[day]:{tasks:[{id:"french-vocab",target:30,progress:30}]}},
+    daily:[{id:"french-vocab",planDate:day,target:30,progress:13}]};
+  assert.equal(dailyVocabTotal(x,"french",day).progress,30);
+  assert.equal(dailyVocabTotal({...x,today:"2026-10-21"},"french","2026-10-21").progress,0);
+});
+
+test("do not accept unassigned subject, wrong date, repair, informal or Recovery", () => {
+  const x={today:day,formalAttemptLog:[
+    {day,subject:"physics",dailyTaskId:"french-vocab",questionId:"a",correct:true},
+    {day,subject:"french",dailyTaskId:"french-vocab",questionId:"b",correct:true,repair:true},
+    {day,subject:"french",dailyTaskId:"french-vocab",questionId:"c",correct:true,formal:false},
+    {day,subject:"french",dailyTaskId:"french-vocab",questionId:"d",correct:true,recoveryFor:"2026-10-19"},
+    {day:"2026-10-19",subject:"french",dailyTaskId:"french-vocab",questionId:"e",correct:true},
+    {day,subject:"french",dailyTaskId:"french-vocab",questionId:"real",correct:true}
+  ]};
+  assert.equal(dailyVocabTotal(x,"french",day).progress,1);
+});
+
+test("actual Year 8 Home builder displays 30 when ledger shows 13", () => {
+  const items = Object.fromEntries(Array.from({length:13},(_,i)=>["fr-"+i,true]));
+  const x={today:day,topicStats:{},reviews:{},
+    dailyVocabByDay:{[day]:{french:{items}}},
+    daily:[{id:"french-vocab",planDate:day,target:30,progress:13}],
+    formalAttemptLog:Array.from({length:30},(_,i)=>({
+      day,subject:"french",dailyTaskId:"french-vocab",questionId:"fr-"+i,
+      correct:true,formal:true
+    }))};
+  const actualHomeTasks=buildYear8DailyV2(x,()=>[],{});
+  const french=actualHomeTasks.find(t=>t.id==="french-vocab");
+  assert.equal(french.progress,30);
+  assert.equal(french.target,30);
 });
