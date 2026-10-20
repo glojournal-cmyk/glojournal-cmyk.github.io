@@ -1,0 +1,125 @@
+/* The Scholar's Garden — iPad-first map preview. Presentation only.
+ * Scoped to ?gardenPreview=1; native React owns XP, watering, unlocks and saved state. */
+.lux-garden-map-preview{--ivory:#fffaf0;--ink:#1d3243;--gold:#bd9655;--sage:#6c9364;
+  position:fixed;inset:0;z-index:2147482090;overflow:hidden;box-sizing:border-box;
+  color:var(--ink);font-family:'Source Sans 3',system-ui,sans-serif;
+  background:#f7f1e3;isolation:isolate}
+.lux-garden-map-preview *,.lux-garden-map-preview *::before,.lux-garden-map-preview *::after{box-sizing:border-box}
+html.lux-garden-map-active,html.lux-garden-map-active body{height:100dvh;overflow:hidden!important}
+html.lux-garden-map-active body>.paper-wash,
+html.lux-garden-map-active body>.lux-companion-bottom-nav{visibility:hidden!important;pointer-events:none!important}
+.lux-garden-backdrop{position:absolute;inset:0;background:#ecd9ad;
+ background-image:linear-gradient(180deg,#faf2df 0%,#f7e9c9 18%,#f3e5c38f 31%,#e7cf9d1c 100%),
+ radial-gradient(circle at 45% 40%,#f7e7bc55,#38552a20 80%);
+}
+.lux-garden-map-preview::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;border:16px solid #f5eedb87}
+.lux-garden-title{position:absolute;z-index:5;top:clamp(.75rem,2.1vh,1.35rem);left:clamp(.7rem,2.3vw,2.2rem);
+ display:flex;align-items:center;gap:.75rem;padding:.6rem 1.15rem;border:2px solid #bb9353;
+ background:#fffaedee;border-radius:1rem;box-shadow:0 7px 17px #4c382220}
+.lux-garden-title-icon{font-size:2rem;color:#a17831}
+.lux-garden-title strong{display:block;font:700 clamp(1.5rem,2.75vw,2.75rem)/1.02 'Cormorant Garamond',Georgia,serif;color:#132d3e}
+.lux-garden-title small{font:500 clamp(.62rem,1vw,.96rem)/1.1 Georgia,serif;color:#574f3e;letter-spacing:.04em}
+.lux-garden-stage{position:absolute;z-index:6;right:clamp(.7rem,2.3vw,2.2rem);top:clamp(.75rem,2.1vh,1.35rem);
+ border:2px solid var(--gold);border-radius:.9rem;background:#fff9edee;display:grid;
+ grid-template-columns:auto minmax(95px,190px);align-items:center;gap:.25rem .8rem;
+ padding:.6rem 1rem;color:#1e3646;min-width:min(335px,41vw)}
+.lux-garden-stage span{font:700 .84rem/1.2 Georgia,serif;letter-spacing:.05em}
+.lux-garden-stage strong{font:700 1.27rem/1.1 Georgia,serif}
+.lux-garden-stage .lux-stage-progress{height:.56rem;border-radius:999px;background:#d6cabb;overflow:hidden}
+.lux-stage-progress>span{display:block;height:100%;background:#719f73}
+.lux-garden-stage em{font-style:normal;font-size:.75rem;grid-column:1/-1;color:#625e55}
+.lux-garden-world{position:absolute;inset:clamp(100px,17.5vh,165px) clamp(8px,1.45vw,24px) clamp(83px,11.4vh,130px);
+ border:3px solid #c79f5f;border-radius:1.5rem;overflow:hidden;
+ background:#9fb48d url('/art/stages/garden.jpg') center/cover no-repeat;
+ box-shadow:0 11px 30px #152c3c29}
+.lux-garden-world::before{content:"";position:absolute;inset:0;pointer-events:none;
+ background:radial-gradient(ellipse at 50% 50%,#e6e6c11a 0%,#e6dfaf24 35%,#2c502b27 100%);
+}
+.lux-garden-world::after{content:"";position:absolute;pointer-events:none;inset:7px;
+ border:1px solid #fff8e2b5;border-radius:1rem}
+.lux-garden-arch{position:absolute;top:-3%;left:50%;transform:translateX(-50%);width:27%;height:33%;
+ border:clamp(7px,1vw,16px) solid #eee0bd;border-bottom:0;border-radius:50% 50% 0 0;
+ box-shadow:inset 0 0 0 3px #b6925c,0 0 0 2px #af945d;opacity:.88;pointer-events:none}
+.lux-garden-fountain{position:absolute;z-index:1;left:50%;top:39%;transform:translate(-50%,-50%);
+ width:clamp(130px,22vw,320px);height:38%;background:url('/art/items/fountain.jpg') center/contain no-repeat;
+ border-radius:50%;mix-blend-mode:normal;filter:drop-shadow(0 9px 10px #173d3954);pointer-events:none}
+.lux-garden-world-controls{position:absolute;inset:0;z-index:4}
+.lux-garden-item{position:absolute;width:min(28%,315px);min-height:66px;display:flex;gap:.65rem;
+ align-items:center;padding:.48rem .7rem;border:2px solid #b88a43;background:#fff9edee;color:#162f40;
+ border-radius:13px;box-shadow:0 3px 10px #3c38232e;cursor:pointer;text-align:left}
+.lux-garden-item[data-item=bench]{left:3%;top:30%}
+.lux-garden-item[data-item=roses]{right:3%;top:30%}
+.lux-garden-item[data-item=lantern]{left:3%;bottom:22%}
+.lux-garden-item[data-item=bookshelf]{right:3%;bottom:22%}
+.lux-garden-item img{width:48px;height:48px;border-radius:8px;object-fit:cover;flex:none;border:1px solid #e2d5bb}
+.lux-garden-item strong{display:block;font:700 clamp(.82rem,1.35vw,1.2rem)/1.06 Georgia,serif}
+.lux-garden-item small{display:block;margin-top:.32rem;font:.72rem/1.18 'Source Sans 3',sans-serif;color:#706252}
+.lux-garden-item .lux-item-arrow{margin-left:auto;font:700 1.45rem Georgia,serif;color:#a48245}
+.lux-garden-item[data-locked=true] img{filter:grayscale(.85);opacity:.75}
+.lux-garden-item:focus-visible,.lux-garden-map-preview button:focus-visible,.lux-garden-map-preview a:focus-visible{outline:3px solid #fff2a6;outline-offset:3px}
+.lux-basil-box{position:absolute;z-index:6;left:50%;bottom:5%;transform:translateX(-50%);
+ display:flex;flex-direction:column;align-items:center;width:min(28vw,260px);min-width:185px;
+ color:#243f2c}
+.lux-basil-box img{display:block;object-fit:cover;object-position:center;
+ width:clamp(95px,10vw,150px);aspect-ratio:1;border:3px solid #c7a568;border-radius:1rem;
+ box-shadow:0 4px 15px #312a2360}
+.lux-basil-box strong{margin-top:.18rem;font:700 1.22rem Georgia,serif;background:#f9eccc;
+ border:1px solid #a98752;border-radius:8px;padding:.18rem .9rem}
+.lux-basil-box span{font-size:.8rem;background:#fff8e9e8;border-radius:99px;padding:.12rem .55rem;margin-top:.2rem}
+.lux-garden-actions{position:absolute;z-index:7;bottom:12%;left:3%;right:3%;display:flex;align-items:center;justify-content:space-between;gap:1rem;pointer-events:none}
+.lux-garden-actions button{pointer-events:auto;border:2px solid #b48c50;border-radius:999px;min-height:48px;
+ padding:.54rem 1.15rem;background:#fffbef;color:#213747;font:700 clamp(.78rem,1vw,.96rem) Georgia,serif;
+ box-shadow:0 4px 10px #2e332d30;cursor:pointer}
+.lux-garden-actions button.lux-water{color:#fff5e2;background:#173546;border-color:#dfbc76}
+.lux-garden-actions button:disabled{opacity:.69;cursor:default}
+.lux-garden-nav{position:absolute;z-index:8;bottom:calc(.7rem + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
+ width:min(850px,87%);padding:4px;display:flex;align-items:center;gap:3px;justify-content:space-around;
+ border:2px solid #bd985d;background:#172f3b;color:#fff5e3;border-radius:999px;
+ box-shadow:0 9px 18px #15283a65}
+.lux-garden-nav a{color:inherit;text-decoration:none;display:flex;min-width:0;flex:1 0 0;
+ flex-direction:column;align-items:center;justify-content:center;gap:.1rem;padding:6px 3px;
+ border-radius:999px;font:500 clamp(.63rem,.9vw,.84rem)/1.1 'Source Sans 3',sans-serif;min-height:50px}
+.lux-garden-nav a.active{background:#f7eee0;color:#1b3948}
+.lux-garden-nav a>span:first-child{font-size:1.2rem;line-height:1.05}
+.lux-garden-modal{position:fixed;z-index:20;inset:0;background:#0f2435b9;
+ display:grid;place-items:center;padding:20px;overflow:auto}
+.lux-garden-modal-panel{width:min(720px,96vw);max-height:82dvh;display:flex;flex-direction:column;
+ background:#fff9ee;border:3px solid #b58d4e;border-radius:1.15rem;box-shadow:0 15px 40px #0005;color:#203748}
+.lux-garden-modal-head{display:flex;align-items:center;justify-content:space-between;
+ padding:.8rem 1rem;border-bottom:1px solid #d6b88a}
+.lux-garden-modal-head h2{margin:0;font:700 1.8rem Georgia,serif}
+.lux-garden-modal-head button{border:1px solid #bea170;border-radius:99px;background:#fffdfa;
+ width:40px;height:40px;cursor:pointer;font-size:1.25rem}
+.lux-garden-modal-content{overflow-y:auto;padding:1rem}
+.lux-garden-decor-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem}
+.lux-garden-decor{border:1px solid #d1bb99;background:#f5ebd8;border-radius:12px;padding:.7rem;text-align:center}
+.lux-garden-decor img{display:block;width:95px;height:95px;max-width:100%;object-fit:cover;margin:auto;border-radius:10px}
+.lux-garden-decor strong,.lux-garden-decor small{display:block;margin:.4rem 0}
+.lux-garden-log-item{padding:.7rem;border-bottom:1px solid #ddcdb5}
+.lux-garden-log-item strong{float:right;color:#5d7839}
+@media(max-width:800px){.lux-garden-world{top:110px;bottom:90px}
+ .lux-garden-title{padding:.3rem .65rem}.lux-garden-title strong{font-size:1.35rem}
+ .lux-garden-title-icon{display:none}.lux-garden-stage{min-width:175px;grid-template-columns:auto 100px;padding:.45rem}
+ .lux-garden-item{width:32%;min-height:58px;padding:.3rem;gap:.3rem}
+ .lux-garden-item img{width:36px;height:36px}
+ .lux-garden-item small{display:none}.lux-garden-item strong{font-size:.75rem}
+ .lux-garden-fountain{width:22vw}.lux-basil-box{bottom:4%}
+ .lux-garden-nav{width:calc(100vw - 12px)}
+}
+@media(max-height:680px) and (min-width:700px){.lux-garden-title{top:5px}
+ .lux-garden-stage{top:5px}.lux-garden-world{top:77px;bottom:69px}
+ .lux-basil-box img{width:72px}.lux-garden-actions{bottom:5%}
+ .lux-garden-item{min-height:48px}.lux-garden-item img{width:34px;height:34px}
+ .lux-garden-nav{bottom:5px}.lux-garden-nav a{min-height:43px}
+}
+@media(max-width:550px){.lux-garden-map-preview{overflow-y:auto}
+ .lux-garden-title{position:relative;top:6px;left:6px;width:calc(100% - 12px)}
+ .lux-garden-stage{position:relative;top:10px;right:auto;margin:0 6px;width:calc(100% - 12px)}
+ .lux-garden-world{position:relative;inset:auto;margin:15px 6px 88px;width:calc(100% - 12px);height:690px}
+ .lux-garden-item{width:44%}.lux-garden-item strong{font-size:.73rem}
+ .lux-garden-fountain{width:40vw}.lux-garden-actions{bottom:5%}
+ .lux-garden-nav{position:fixed;overflow-x:auto;width:calc(100% - 8px)}
+ .lux-garden-nav a{min-width:54px;font-size:.62rem}
+ .lux-garden-decor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){.lux-garden-map-preview *{animation:none!important;transition:none!important}}
