@@ -2226,28 +2226,26 @@
           "record an initial water volume",
           "fully submerge the stone and record final volume or displaced water",
           "calculate stone volume as final minus initial volume",
-          "calculate density as mass divided by volume",
-          "avoid parallax and repeat where possible"
+          "calculate density as mass divided by volume"
         ],
-        "totalMarks": 6,
-        "modelAnswer": "measure mass using a balance record an initial water volume fully submerge the stone and record final volume or displaced water calculate stone volume as final minus initial volume calculate density as mass divided by volume avoid parallax and repeat where possible"
+        "totalMarks": 5,
+        "modelAnswer": "measure mass using a balance. record an initial water volume. fully submerge the stone and record final volume or displaced water. calculate stone volume as final minus initial volume. calculate density as mass divided by volume. Check for parallax and repeat where possible."
       },
       "stimulus": {
-        "marks": 6
+        "marks": 5
       },
       "feedback": {
         "short": "measure mass using a balance record an initial water volume fully submerge the stone and record final volume or displaced water calculate stone volume as final minus initial volume calculate density as mass divided by volume avoid parallax and repeat where possible",
         "steps": [
-          "measure mass using a balance record an initial water volume fully submerge the stone and record final volume or displaced water calculate stone volume as final minus initial volume calculate density as mass divided by volume avoid parallax and repeat where possible",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: measure mass using a balance record an initial water volume fully submerge the stone and record final volume or displaced water calculate stone volume as final minus initial volume calculate density as mass divided by volume avoid parallax and repeat where possible"
+          "Five credit points: measure mass with balance; measure initial water volume; fully submerge stone and read final volume; subtract readings; divide mass by displaced volume.",
+          "Extension (not an extra mark): avoid parallax and repeat measurements."
         ],
         "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
         "remember": "measure mass using a balance record an initial water volume fully submerge the stone and record final volume or displaced water calculate stone volume as final minus initial volume calculate density as mass divided by volume avoid parallax and repeat where possible"
       },
       "task": {
         "label": "DESIGN",
-        "instruction": "Give variables, method, controls, quality steps and analysis where relevant.. Self-check against the approved mark points; this open response does not affect formal Mastery."
+        "instruction": "Describe a five-step method, including mass, displacement volume and the density calculation. Self-check; this does not affect formal Mastery."
       },
       "preview": true,
       "ordinary": true,
@@ -2352,19 +2350,772 @@
       },
       "preview": true,
       "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-001",
+      "conceptId": "phys-y9-p2-gcse-oct20-001-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "calculation",
+      "prompt": "An alloy sample has a mass of 156 g and volume of 20 cm³. Calculate its density. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 7.8,
+        "units": [
+          "g/cm³",
+          "g/cm3",
+          "g cm−3"
+        ],
+        "working": "ρ = m/V; 156 ÷ 20 = 7.8; Answer 7.8 g/cm³",
+        "tolerance": 0,
+        "modelAnswer": "7.8 g/cm³"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Answer 7.8 g/cm³",
+        "steps": [
+          "ρ = m/V",
+          "156 ÷ 20 = 7.8",
+          "Answer 7.8 g/cm³"
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "ρ = m/V; 156 ÷ 20 = 7.8; Answer 7.8 g/cm³"
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show the equation, substitution and unit."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-002",
+      "conceptId": "phys-y9-p2-gcse-oct20-002-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "calculation",
+      "prompt": "A mineral has mass 0.600 kg and volume 0.00024 m³. Calculate its density in SI units. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 2500,
+        "units": [
+          "kg/m³",
+          "kg/m3",
+          "kg m−3"
+        ],
+        "working": "ρ = m/V; 0.600 ÷ 0.00024 = 2500; Answer 2500 kg/m³",
+        "tolerance": 0,
+        "modelAnswer": "2500 kg/m³"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Answer 2500 kg/m³",
+        "steps": [
+          "ρ = m/V",
+          "0.600 ÷ 0.00024 = 2500",
+          "Answer 2500 kg/m³"
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "ρ = m/V; 0.600 ÷ 0.00024 = 2500; Answer 2500 kg/m³"
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show the equation, substitution and unit."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-003",
+      "conceptId": "phys-y9-p2-gcse-oct20-003-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "calculation",
+      "prompt": "An irregular stone has mass 63 g. Water rises from 50 cm³ to 74 cm³ when it is submerged. Calculate the stone's density. (4 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 2.625,
+        "units": [
+          "g/cm³",
+          "g/cm3",
+          "g cm−3"
+        ],
+        "working": "Displaced volume = 74 − 50 = 24 cm³; ρ = m/V; 63 ÷ 24 = 2.625; Answer 2.625 g/cm³",
+        "tolerance": 0,
+        "modelAnswer": "2.625 g/cm³"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Answer 2.625 g/cm³",
+        "steps": [
+          "Displaced volume = 74 − 50 = 24 cm³",
+          "ρ = m/V",
+          "63 ÷ 24 = 2.625",
+          "Answer 2.625 g/cm³"
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Displaced volume = 74 − 50 = 24 cm³; ρ = m/V; 63 ÷ 24 = 2.625; Answer 2.625 g/cm³"
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show the equation, substitution and unit."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-004",
+      "conceptId": "phys-y9-p2-gcse-oct20-004-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "calculation",
+      "prompt": "A bottle contains 250 cm³ of oil. The oil's density is 0.80 g/cm³. Calculate its mass. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 200,
+        "units": [
+          "g"
+        ],
+        "working": "m = ρV; 0.80 × 250 = 200; Answer 200 g",
+        "tolerance": 0,
+        "modelAnswer": "200 g"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Answer 200 g",
+        "steps": [
+          "m = ρV",
+          "0.80 × 250 = 200",
+          "Answer 200 g"
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "m = ρV; 0.80 × 250 = 200; Answer 200 g"
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show the equation, substitution and unit."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-005",
+      "conceptId": "phys-y9-p2-gcse-oct20-005-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "calculation",
+      "prompt": "A metal piece has mass 81 g and density 2.7 g/cm³. Calculate its volume. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 30,
+        "units": [
+          "cm³",
+          "cm3"
+        ],
+        "working": "V = m/ρ; 81 ÷ 2.7 = 30; Answer 30 cm³",
+        "tolerance": 0,
+        "modelAnswer": "30 cm³"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Answer 30 cm³",
+        "steps": [
+          "V = m/ρ",
+          "81 ÷ 2.7 = 30",
+          "Answer 30 cm³"
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "V = m/ρ; 81 ÷ 2.7 = 30; Answer 30 cm³"
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show the equation, substitution and unit."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-006",
+      "conceptId": "phys-y9-p2-gcse-oct20-006-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "calculation",
+      "prompt": "Convert a density of 1.5 g/cm³ into kg/m³. (2 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 1500,
+        "units": [
+          "kg/m³",
+          "kg/m3",
+          "kg m−3"
+        ],
+        "working": "1 g/cm³ = 1000 kg/m³; 1.5 × 1000 = 1500 kg/m³",
+        "tolerance": 0,
+        "modelAnswer": "1500 kg/m³"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "1.5 × 1000 = 1500 kg/m³",
+        "steps": [
+          "1 g/cm³ = 1000 kg/m³",
+          "1.5 × 1000 = 1500 kg/m³"
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "1 g/cm³ = 1000 kg/m³; 1.5 × 1000 = 1500 kg/m³"
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show the equation, substitution and unit."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-007",
+      "conceptId": "phys-y9-p2-gcse-oct20-007-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "calculation",
+      "prompt": "A rectangular block is 5 cm long, 3 cm wide and 2 cm high. Its mass is 240 g. Calculate its density. (4 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 8,
+        "units": [
+          "g/cm³",
+          "g/cm3",
+          "g cm−3"
+        ],
+        "working": "Volume = 5 × 3 × 2 = 30 cm³; ρ = m/V; 240 ÷ 30 = 8; Answer 8 g/cm³",
+        "tolerance": 0,
+        "modelAnswer": "8 g/cm³"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Answer 8 g/cm³",
+        "steps": [
+          "Volume = 5 × 3 × 2 = 30 cm³",
+          "ρ = m/V",
+          "240 ÷ 30 = 8",
+          "Answer 8 g/cm³"
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Volume = 5 × 3 × 2 = 30 cm³; ρ = m/V; 240 ÷ 30 = 8; Answer 8 g/cm³"
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show the equation, substitution and unit."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-008",
+      "conceptId": "phys-y9-p2-gcse-oct20-008-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "calculation",
+      "prompt": "A measuring cylinder has mass 85 g empty and 325 g with 300 cm³ of liquid. Calculate the liquid's density. (4 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 0.8,
+        "units": [
+          "g/cm³",
+          "g/cm3",
+          "g cm−3"
+        ],
+        "working": "Liquid mass = 325 − 85 = 240 g; ρ = m/V; 240 ÷ 300 = 0.80; Answer 0.80 g/cm³",
+        "tolerance": 0,
+        "modelAnswer": "0.8 g/cm³"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Answer 0.80 g/cm³",
+        "steps": [
+          "Liquid mass = 325 − 85 = 240 g",
+          "ρ = m/V",
+          "240 ÷ 300 = 0.80",
+          "Answer 0.80 g/cm³"
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Liquid mass = 325 − 85 = 240 g; ρ = m/V; 240 ÷ 300 = 0.80; Answer 0.80 g/cm³"
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show the equation, substitution and unit."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-009",
+      "conceptId": "phys-y9-p2-gcse-oct20-009-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "A digital balance reads 0.04 g when empty. Describe how to avoid this zero error before measuring a sample and why it matters. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Check the empty balance reading before use.",
+          "Tare or zero the balance, or subtract the zero offset.",
+          "Otherwise all measured masses are systematically too high."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Check the empty balance reading before use. Tare or zero the balance, or subtract the zero offset. Otherwise all measured masses are systematically too high."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Check the empty balance reading before use. Tare or zero the balance, or subtract the zero offset. Otherwise all measured masses are systematically too high.",
+        "steps": [
+          "Check the empty balance reading before use.",
+          "Tare or zero the balance, or subtract the zero offset.",
+          "Otherwise all measured masses are systematically too high."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Check the empty balance reading before use.; Tare or zero the balance, or subtract the zero offset.; Otherwise all measured masses are systematically too high."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-010",
+      "conceptId": "phys-y9-p2-gcse-oct20-010-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "A pupil measures the diameter of a metal sphere with a ruler and obtains different answers each time. Suggest three improvements. (3 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Use vernier calipers or a micrometer for greater resolution.",
+          "Check the measuring instrument for zero error.",
+          "Repeat at different orientations and calculate a mean."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Use vernier calipers or a micrometer for greater resolution. Check the measuring instrument for zero error. Repeat at different orientations and calculate a mean."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Use vernier calipers or a micrometer for greater resolution. Check the measuring instrument for zero error. Repeat at different orientations and calculate a mean.",
+        "steps": [
+          "Use vernier calipers or a micrometer for greater resolution.",
+          "Check the measuring instrument for zero error.",
+          "Repeat at different orientations and calculate a mean."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Use vernier calipers or a micrometer for greater resolution.; Check the measuring instrument for zero error.; Repeat at different orientations and calculate a mean."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-011",
+      "conceptId": "phys-y9-p2-gcse-oct20-011-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "A student uses a measuring cylinder to find the volume of an irregular pebble. Give four steps that make the method valid. (4 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Record the initial water volume at eye level.",
+          "Fully submerge the pebble without splashing.",
+          "Record the final water volume at eye level.",
+          "Subtract initial volume from final volume."
+        ],
+        "totalMarks": 4,
+        "modelAnswer": "Record the initial water volume at eye level. Fully submerge the pebble without splashing. Record the final water volume at eye level. Subtract initial volume from final volume."
+      },
+      "stimulus": {
+        "marks": 4
+      },
+      "feedback": {
+        "short": "Record the initial water volume at eye level. Fully submerge the pebble without splashing. Record the final water volume at eye level. Subtract initial volume from final volume.",
+        "steps": [
+          "Record the initial water volume at eye level.",
+          "Fully submerge the pebble without splashing.",
+          "Record the final water volume at eye level.",
+          "Subtract initial volume from final volume."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Record the initial water volume at eye level.; Fully submerge the pebble without splashing.; Record the final water volume at eye level.; Subtract initial volume from final volume."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-012",
+      "conceptId": "phys-y9-p2-gcse-oct20-012-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "State two reasons why a very large, porous rock may not give a reliable water-displacement density measurement. (2 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "The rock may not fit completely inside the measuring cylinder or overflow vessel.",
+          "Water can soak into pores, so the measured displacement may not represent the dry external volume."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The rock may not fit completely inside the measuring cylinder or overflow vessel. Water can soak into pores, so the measured displacement may not represent the dry external volume."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The rock may not fit completely inside the measuring cylinder or overflow vessel. Water can soak into pores, so the measured displacement may not represent the dry external volume.",
+        "steps": [
+          "The rock may not fit completely inside the measuring cylinder or overflow vessel.",
+          "Water can soak into pores, so the measured displacement may not represent the dry external volume."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "The rock may not fit completely inside the measuring cylinder or overflow vessel.; Water can soak into pores, so the measured displacement may not represent the dry external volume."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-013",
+      "conceptId": "phys-y9-p2-gcse-oct20-013-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "Two blocks have the same volume, but one has a greater mass. Explain their relative densities. (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Density is mass divided by volume.",
+          "The heavier block has the higher density because their volumes are the same."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Density is mass divided by volume. The heavier block has the higher density because their volumes are the same."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Density is mass divided by volume. The heavier block has the higher density because their volumes are the same.",
+        "steps": [
+          "Density is mass divided by volume.",
+          "The heavier block has the higher density because their volumes are the same."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Density is mass divided by volume.; The heavier block has the higher density because their volumes are the same."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-014",
+      "conceptId": "phys-y9-p2-gcse-oct20-014-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "A student's calculated density differs substantially from the accepted value. Give three possible experimental reasons. (3 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "A mass reading was affected by an uncorrected zero or taring error.",
+          "The liquid level was read at the wrong angle or meniscus.",
+          "Air bubbles or incomplete submersion distorted the displacement volume."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "A mass reading was affected by an uncorrected zero or taring error. The liquid level was read at the wrong angle or meniscus. Air bubbles or incomplete submersion distorted the displacement volume."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "A mass reading was affected by an uncorrected zero or taring error. The liquid level was read at the wrong angle or meniscus. Air bubbles or incomplete submersion distorted the displacement volume.",
+        "steps": [
+          "A mass reading was affected by an uncorrected zero or taring error.",
+          "The liquid level was read at the wrong angle or meniscus.",
+          "Air bubbles or incomplete submersion distorted the displacement volume."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "A mass reading was affected by an uncorrected zero or taring error.; The liquid level was read at the wrong angle or meniscus.; Air bubbles or incomplete submersion distorted the displacement volume."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-015",
+      "conceptId": "phys-y9-p2-gcse-oct20-015-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "Explain why using grams for mass and cubic metres for volume while reporting g/cm³ gives an incorrect density. (2 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "The formula requires units consistent with the required density unit.",
+          "Convert the volume to cm³, or mass to kg if reporting kg/m³, before calculating."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The formula requires units consistent with the required density unit. Convert the volume to cm³, or mass to kg if reporting kg/m³, before calculating."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The formula requires units consistent with the required density unit. Convert the volume to cm³, or mass to kg if reporting kg/m³, before calculating.",
+        "steps": [
+          "The formula requires units consistent with the required density unit.",
+          "Convert the volume to cm³, or mass to kg if reporting kg/m³, before calculating."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "The formula requires units consistent with the required density unit.; Convert the volume to cm³, or mass to kg if reporting kg/m³, before calculating."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-016",
+      "conceptId": "phys-y9-p2-gcse-oct20-016-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "A cube has side length 2.0 cm and mass 48 g. A second identical cube is made from the same material. Explain what happens to the density if both cubes are combined. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "The combined mass doubles.",
+          "The combined volume also doubles.",
+          "Mass divided by volume is unchanged, so density is the same."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "The combined mass doubles. The combined volume also doubles. Mass divided by volume is unchanged, so density is the same."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "The combined mass doubles. The combined volume also doubles. Mass divided by volume is unchanged, so density is the same.",
+        "steps": [
+          "The combined mass doubles.",
+          "The combined volume also doubles.",
+          "Mass divided by volume is unchanged, so density is the same."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "The combined mass doubles.; The combined volume also doubles.; Mass divided by volume is unchanged, so density is the same."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-017",
+      "conceptId": "phys-y9-p2-gcse-oct20-017-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mc_single",
+      "prompt": "The displaced water volume for a stone is measured as 19 cm³. Which pair of measuring-cylinder readings could give this result?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "Initial 31 cm³, final 50 cm³",
+        "Initial 31 cm³, final 48 cm³",
+        "Initial 50 cm³, final 31 cm³",
+        "Initial 19 cm³, final 19 cm³"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "Initial 31 cm³, final 50 cm³"
+        ]
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "Initial 31 cm³, final 50 cm³",
+        "steps": [
+          "Correct answer: Initial 31 cm³, final 50 cm³"
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Initial 31 cm³, final 50 cm³"
+      },
+      "task": {
+        "label": "CHOOSE",
+        "instruction": "Choose one best answer."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-018",
+      "conceptId": "phys-y9-p2-gcse-oct20-018-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mc_single",
+      "prompt": "Why is a measuring cylinder preferable to a beaker for reading water-displacement volume?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "It has a narrower, calibrated scale giving better volume resolution.",
+        "It makes the stone less dense.",
+        "It changes the mass of the water.",
+        "It prevents all experimental error."
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "It has a narrower, calibrated scale giving better volume resolution."
+        ]
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "It has a narrower, calibrated scale giving better volume resolution.",
+        "steps": [
+          "Correct answer: It has a narrower, calibrated scale giving better volume resolution."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "It has a narrower, calibrated scale giving better volume resolution."
+      },
+      "task": {
+        "label": "CHOOSE",
+        "instruction": "Choose one best answer."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-gcse-oct20-019",
+      "conceptId": "phys-y9-p2-gcse-oct20-019-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "A student pours a liquid into a balance pan without a container. Describe a safe, reliable alternative method for measuring liquid mass. (3 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Use a suitable container on the balance.",
+          "Measure the mass of the empty container or tare it.",
+          "Add the liquid and use the difference or tared reading as liquid mass."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Use a suitable container on the balance. Measure the mass of the empty container or tare it. Add the liquid and use the difference or tared reading as liquid mass."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Use a suitable container on the balance. Measure the mass of the empty container or tare it. Add the liquid and use the difference or tared reading as liquid mass.",
+        "steps": [
+          "Use a suitable container on the balance.",
+          "Measure the mass of the empty container or tare it.",
+          "Add the liquid and use the difference or tared reading as liquid mass."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Use a suitable container on the balance.; Measure the mass of the empty container or tare it.; Add the liquid and use the difference or tared reading as liquid mass."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
     }
   ],
-  "enabled": 57,
+  "enabled": 76,
   "preview": 0,
   "disabled": 0,
   "formats": {
-    "mc_single": 20,
+    "mc_single": 22,
     "typed_exact": 6,
     "spelling_restore": 10,
-    "mark_points": 11,
+    "mark_points": 20,
     "typed_short": 4,
     "matching": 2,
-    "calculation": 2,
+    "calculation": 10,
     "practical_design": 1,
     "diagram_label": 1
   },
@@ -2391,7 +3142,9 @@
       "density → mass contained in a given volume; density equation → density equals mass divided by volume; SI density unit → kilograms per cubic metre; laboratory density unit → grams per cubic centimetre when mass and volume are measured consistently",
       "regular-solid volume → volume calculated from measured dimensions; irregular-solid volume → volume found from the water displaced by the object; liquid mass → filled-container mass minus empty-container mass; meniscus reading → reading the liquid level at eye level at the correct part of the curve",
       "density = 540 g ÷ 200 cm³ = 2.7 g/cm³",
-      "density = 1.2 kg ÷ 0.0005 m³ = 2400 kg/m³"
+      "density = 1.2 kg ÷ 0.0005 m³ = 2400 kg/m³",
+      "zero error → an instrument shows a non-zero reading when the true value is zero; tare, recalibrate or correct the reading",
+      "density conversion → 1 g/cm³ = 1000 kg/m³"
     ],
     "mustMemoriseVocabulary": [
       "density",
@@ -2405,7 +3158,11 @@
       "g cm−3",
       "regular-solid volume",
       "irregular-solid volume",
-      "liquid mass"
+      "liquid mass",
+      "zero error",
+      "tare",
+      "systematic error",
+      "1 g/cm³ = 1000 kg/m³"
     ],
     "workedExamples": [
       {
@@ -2445,7 +3202,8 @@
       "Density describes how much mass is contained in a given volume. Use ρ = m/V. Typical units are kg/m³ or g/cm³, and the units used for mass and volume must be compatible.",
       "For a regular solid, measure its mass with a balance and calculate volume from measured dimensions. For an irregular solid, determine volume by water displacement, then divide the mass by the displaced volume.",
       "For a liquid, measure the mass of an empty container and then the container plus liquid; subtract to obtain the liquid mass. Measure the liquid volume with appropriate volumetric apparatus before calculating density.",
-      "Good practical technique includes zeroing equipment, reading scales at eye level, repeating measurements where useful, choosing apparatus with suitable resolution, and avoiding trapped air when using displacement."
+      "Good practical technique includes zeroing equipment, reading scales at eye level, repeating measurements where useful, choosing apparatus with suitable resolution, and avoiding trapped air when using displacement.",
+      "Check zero on the balance and measuring instruments before taking readings. A persistent zero offset introduces systematic error. Use a suitable, calibrated measuring cylinder and read the meniscus at eye level."
     ],
     "examTips": [
       "Always write the density equation first, then substitution, answer and unit.",
