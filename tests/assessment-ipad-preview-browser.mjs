@@ -76,6 +76,19 @@ for(const browserType of [chromium,webkit]){
    const trackerItems=page.locator('#tracker-list .assessment-tracker-item');
    assert.equal(await trackerItems.count(),3,'School Tracker lists only three confirmed school dates; obsolete 16 Nov Biology is excluded');
    assert.equal((await page.locator('#tracker-list').innerText()).includes('16 Nov'),false,'Superseded Biology school date is absent');
+   const orderedDates=await trackerItems.locator('summary time[datetime]').evaluateAll(nodes=>nodes.map(x=>x.dateTime));
+   assert.deepEqual(orderedDates,['2026-11-02','2026-10-08','2026-10-05'],
+     'Tracker school tests must display most recent date first');
+   const subjects=await trackerItems.locator('summary .tracker-subject').evaluateAll(nodes=>nodes.map(x=>({
+     subject:x.textContent.trim(),background:getComputedStyle(x).backgroundColor,
+     padding:parseFloat(getComputedStyle(x).paddingLeft),border:getComputedStyle(x).borderStyle
+   })));
+   assert.deepEqual(subjects.map(x=>x.subject),['Biology','French','Chemistry'],
+     'Column labels must match descending order');
+   assert.equal(new Set(subjects.map(x=>x.background)).size,3,
+     'Biology, French and Chemistry should have distinct subject box colours');
+   assert.ok(subjects.every(x=>x.padding>=4&&x.border!=='none'),
+     'Subject is visibly boxed rather than plain coloured text');
    const trackerRow=trackerItems.first();
    assert.equal(await trackerRow.getAttribute('open'),null,'Tracker details must be closed by default');
    assert.equal(await page.locator('#tracker-list .assessment-tracker-head span').count(),5,'Table has clear aligned column headers');
