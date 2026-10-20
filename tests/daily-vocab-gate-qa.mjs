@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import {dailyVocabTotal,DAILY_VOCAB_TARGET} from "../assets/daily-vocab-total-20261020.js";
 
 const core=fs.readFileSync("assets/index-BLVOhKhN.core.js","utf8");
 const wrapper=fs.readFileSync("assets/index-BLVOhKhN.js","utf8");
@@ -14,8 +15,7 @@ for(const token of [
 
 for(const token of [
   "function vocabGateState(state, subject)",
-  "const passed = correct >= DAILY_VOCAB_TARGET;",
-  "const progress = Math.min(DAILY_VOCAB_TARGET, correct);",
+  "return dailyVocabTotal(state, subject, state.today || todayKey());",
   "function recordDailyVocabAttempt(subject, questionId, correct)",
   'items[String(questionId)] = !!correct || !!items[String(questionId)];',
   'id: "french-vocab", title: "Year 7–8 French vocab"',
@@ -55,6 +55,9 @@ items=apply(items,"w29",true);
 g=gate(items);
 if(!g.passed||g.correct!==30||g.progress!==30) failures.push({type:"thirty-correct-should-pass",g});
 
+const evidence={today:"2026-10-20",dailyVocabByDay:{"2026-10-20":{french:{items:{...items}}}}};
+const shared=dailyVocabTotal(evidence,"french","2026-10-20");
+if(shared.correct!==30||shared.passed!==true||shared.target!==DAILY_VOCAB_TARGET)failures.push({type:"shared-daily-vocab-total-mismatch",shared});
 const before=gate(items);
 items=apply(items,"w29",true);
 const after=gate(items);

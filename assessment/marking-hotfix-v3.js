@@ -217,7 +217,7 @@
       };
     }
 
-    const exact=(q.answer?.accepted||[]).some(a=>normal(a,rule)===normal(value,rule));
+    const exact=acceptedForMarking(q).some(a=>normal(a,rule)===normal(value,rule));
     const ok=exact||equivalentCreusa(q,value);
     return {credit:ok?1:0,status:ok?'Correct':'Incorrect',matched:ok?1:0,total:1};
   };
