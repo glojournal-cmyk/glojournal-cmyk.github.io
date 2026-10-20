@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import worker,{sendDailyEmail} from "../cloud-backup/worker.mjs";
-import {encryptBackup,decryptBackup,captureLiveProgress} from "../assets/gloria-cloud-backup-20261020.js";
+import {encryptBackup,decryptBackup,captureLiveProgress,londonBackupDay,shouldUploadDailyBackup} from "../assets/gloria-cloud-backup-20261020.js";
 
 const encoder=new TextEncoder();
 function hex(bytes){return [...new Uint8Array(bytes)].map(x=>x.toString(16).padStart(2,"0")).join("")}
@@ -173,4 +173,18 @@ test("cloud startup with missing backend configuration cannot leak the plaintext
  const result=await send(f);
  assert.equal(result.status,503);
  assert.equal((await result.json()).saved,undefined);
+});
+
+test("daily automatic upload respects UK midnight, GMT/BST, and a verified remote backup",()=>{
+ assert.equal(londonBackupDay("2026-10-20T23:30:00Z"),"2026-10-21");
+ assert.equal(londonBackupDay("2026-12-20T23:30:00Z"),"2026-12-20");
+ const today=new Date("2026-10-20T18:30:00Z");
+ assert.equal(shouldUploadDailyBackup({uploadedAt:"2026-10-20T07:00:00Z"},today),false,
+   "never upload the second automatic backup of the same day");
+ assert.equal(shouldUploadDailyBackup({uploadedAt:"2026-10-19T21:00:00Z"},today),true,
+   "a new UK day should allow another snapshot");
+ assert.equal(shouldUploadDailyBackup({uploadedAt:"2026-10-20T23:30:00Z"},new Date("2026-10-21T07:00:00Z")),false,
+   "UK calendar day must account for the BST transition");
+ assert.equal(shouldUploadDailyBackup(null,today),true,"first cloud backup is required");
+ assert.equal(shouldUploadDailyBackup({uploadedAt:"not-a-date"},today),true,"invalid server timestamp must not be trusted");
 });
