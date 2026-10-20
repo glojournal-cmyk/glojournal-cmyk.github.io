@@ -161,7 +161,12 @@ try{
             () => window.__luxStudyRpgBootInstalled === true,
             null,{timeout:20000}
           );
-          const studyNav=page.locator('a[href="/study"]:visible, a[href="/study/"]:visible');
+          // Home mounts both the original React nav and the RPG nav.
+          // Only the RPG nav is frontmost/tappable; a generic :visible match
+          // can select an underlying original link behind the new Home.
+          const studyNav=target.name==='Home'
+            ? page.locator('#lux-rpg-live-home .rpg-nav-live a[href="/study"]')
+            : page.locator('a[href="/study"]:visible, a[href="/study/"]:visible');
           // Home's floating rail animates continuously; Playwright's
           // default "stable box" check can stall despite a visible, tappable
           // link. Keep the :visible requirement, but don't require a motionless
