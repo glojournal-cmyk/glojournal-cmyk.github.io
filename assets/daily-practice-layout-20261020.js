@@ -48,6 +48,8 @@
   }
   function decorateQuestion(q) {
     // React owns questions and event handlers; this changes attributes only.
+    const intro = q.querySelector("h1.font-display.text-3xl")?.parentElement;
+    if (intro && !intro.hasAttribute("data-lux-question-intro")) intro.setAttribute("data-lux-question-intro","");
     const prompt = q.querySelector('p.font-display.text-2xl');
     if (prompt && !prompt.hasAttribute('data-lux-prompt')) {
       prompt.setAttribute('data-lux-prompt','');
