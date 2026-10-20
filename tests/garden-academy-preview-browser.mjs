@@ -50,9 +50,13 @@ async function run(engine,runner,viewport){
       stage:frame.querySelector('.lux-garden-stage strong')?.textContent,
       basilText:basil.textContent,waterLabel:water.textContent,disabled:water.disabled,
       scrollWidth:document.documentElement.scrollWidth,frameVisible:getComputedStyle(frame).visibility,
+      visibleExtraNavigation:[...document.querySelectorAll('nav,[role="navigation"]')].filter(n=>
+        !frame.contains(n)&&getComputedStyle(n).visibility!=='hidden'&&
+        n.getBoundingClientRect().height>35).map(n=>n.className||n.id||n.tagName),
       pageWidth:innerWidth,pageHeight:innerHeight,nativeWater:!![...document.querySelectorAll('body>.paper-wash button')].find(b=>/Water the garden|Watered today/.test(b.textContent))};
   });
   assert.equal(snap.navLabels.length,7,'Garden navigation must retain seven items');
+  assert.deepEqual(snap.visibleExtraNavigation,[],'Legacy Garden navigation must not show underneath the approved Study rail');
   assert.match(snap.selected,/Garden/);
   assert.match(snap.stage,/Stage [1-4]/,'rendered stage comes from real app');
   assert.match(snap.basilText,/growth: \d \/ 7 steps/,'Basil comes from existing seven-step record');
