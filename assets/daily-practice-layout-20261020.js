@@ -55,6 +55,33 @@
     // React owns questions and event handlers; this changes attributes only.
     const intro = q.querySelector("h1.font-display.text-3xl")?.parentElement;
     if (intro && !intro.hasAttribute("data-lux-question-intro")) intro.setAttribute("data-lux-question-intro","");
+    if (intro) {
+      const heading = intro.querySelector("h1");
+      const lockCandidate = [...document.querySelectorAll(".lux-practice-view > div, .lux-practice-view > section")]
+        .find(el => !el.querySelector("[data-question-id]") && /^This daily task is locked to /.test((el.textContent || "").trim()));
+      if (lockCandidate) lockCandidate.setAttribute("data-lux-daily-lock","");
+      const lockText = (lockCandidate?.textContent || "").trim();
+      const match = lockText.match(/^This daily task is locked to (.+?)\\. Finish/i);
+      const topicSummary = document.querySelector(".lux-practice-view .study-topic-picker summary")?.textContent?.trim() || "";
+      const topic = match?.[1] || (topicSummary.startsWith("Topic: ") ? topicSummary.slice(7).trim() : "");
+      const subject = (location.pathname.match(/^\\/study\\/([^/]+)/)?.[1] || "").replace(/^./, c=>c.toUpperCase());
+      if (heading && topic && topic !== "All topics") {
+        const desired = subject + " · " + topic;
+        if (heading.getAttribute("data-lux-display-title") !== desired) {
+          heading.setAttribute("data-lux-display-title",desired);
+          heading.setAttribute("aria-label",desired);
+        }
+      } else if (heading?.hasAttribute("data-lux-display-title")) {
+        heading.removeAttribute("data-lux-display-title");
+      }
+      const count = (intro.textContent || "").match(/Question\\s+(\\d+)\\s*\\/\\s*(\\d+)/i);
+      const countText = count ? count[1] + " / " + count[2] : "";
+      if (intro.dataset.luxProgressCount !== countText) intro.dataset.luxProgressCount = countText;
+      const review = intro.nextElementSibling;
+      if (review && !review.querySelector("p.font-display.text-2xl") && !review.querySelector("[data-lux-question-card]")) {
+        review.setAttribute("data-lux-review-progress","");
+      }
+    }
     const prompt = q.querySelector('p.font-display.text-2xl');
     if (prompt && !prompt.hasAttribute('data-lux-prompt')) {
       prompt.setAttribute('data-lux-prompt','');
@@ -63,6 +90,10 @@
     if (card && !card.hasAttribute('data-lux-question-card')) {
       card.setAttribute('data-lux-question-card','');
     }
+    const tileWorkspace = q.dataset.questionFormat === 'word_tiles'
+      ? q.querySelector('[data-lux-question-card] .mt-5.space-y-3')
+      : null;
+    if (tileWorkspace) tileWorkspace.setAttribute('data-lux-tiles','');
     const options = q.querySelector('div.mt-5.grid.gap-2');
     if (options && options.parentElement === card) {
       if (!options.hasAttribute('data-lux-mc-options')) options.setAttribute('data-lux-mc-options','');
