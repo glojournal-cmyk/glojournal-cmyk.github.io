@@ -178,32 +178,59 @@ export async function downloadEncryptedBackup(key){
  const r=await remoteRequest(config,"/v1/download?key="+encodeURIComponent(key));
  return r.json();
 }
-export function startAutoCloudBackup(store,{onStatus=()=>{},debounceMs=15000,minIntervalMs=120000}={}){
- let timer=null,busy=false,last=0,again=false,stopped=false;
+// Stable London calendar day across GMT/BST. The cloud timestamp is the
+// evidence: never treat an iPad-only cache as proof of a cloud backup.
+export function londonBackupDay(date=new Date()){
+ const parts=new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/London",
+   year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date(date));
+ const part=n=>parts.find(p=>p.type===n)?.value||"";
+ return part("year")+"-"+part("month")+"-"+part("day");
+}
+export function shouldUploadDailyBackup(latest,now=new Date()){
+ if(!latest?.uploadedAt)return true;
+ const timestamp=new Date(latest.uploadedAt);
+ if(Number.isNaN(timestamp.valueOf()))return true;
+ return londonBackupDay(timestamp)<londonBackupDay(now);
+}
+// One automatic encrypted upload per *UK calendar day*, as long as the PWA
+// actually runs and stays online. The parent can request an extra manual backup
+// after late-day changes. No R2 files are ever deleted by the automatic client.
+export function startAutoCloudBackup(store,{onStatus=()=>{},debounceMs=15000,minIntervalMs=300000}={}){
+ let timer=null,busy=false,stopped=false,lastAttempt=0,lastConfirmedDay="";
+ function schedule(){
+  if(stopped||lastConfirmedDay===londonBackupDay())return;
+  if(timer)clearTimeout(timer);
+  timer=setTimeout(()=>{timer=null;void upload()},Math.max(debounceMs,minIntervalMs-(Date.now()-lastAttempt)));
+ }
  async function upload(){
-  if(stopped)return;
-  if(busy){again=true;return}
-  if(Date.now()-last<minIntervalMs){schedule();return}
-  busy=true;
+  if(stopped||busy||lastConfirmedDay===londonBackupDay())return;
+  if(Date.now()-lastAttempt<minIntervalMs){schedule();return}
+  busy=true;lastAttempt=Date.now();
   try{
+   const remote=await getCloudStatus();
+   if(!remote.paired){onStatus({saved:false,reason:"not-paired"});return}
+   if(!shouldUploadDailyBackup(remote.latest)){
+     lastConfirmedDay=londonBackupDay();
+     onStatus({saved:true,alreadyBackedUp:true,uploadedAt:remote.latest.uploadedAt});
+     return;
+   }
    const result=await uploadBackup(store);
-   if(result.saved)last=Date.now();
+   if(result.saved){lastConfirmedDay=londonBackupDay(result.uploadedAt)}
    onStatus(result);
   }catch{onStatus({saved:false,reason:"upload-failed"});}
-  finally{busy=false;if(again){again=false;schedule()}}
- }
- function schedule(){
-  if(stopped)return;
-  if(timer)clearTimeout(timer);
-  timer=setTimeout(()=>{timer=null;void upload()},Math.max(debounceMs,minIntervalMs-(Date.now()-last)));
+  finally{busy=false}
  }
  const off=store.subscribe(schedule);
  const names=["scholar:question-answered","scholar:learning-changed","scholar:pet-changed"];
  for(const name of names)globalThis.addEventListener?.(name,schedule);
- schedule(); // Initial snapshot after the owner pairs this device.
+ const onVisible=()=>{if(!globalThis.document?.hidden)schedule()};
+ globalThis.document?.addEventListener?.("visibilitychange",onVisible);
+ const dailyWatch=setInterval(schedule,30*60*1000); // Only while PWA is open.
+ schedule();
  return ()=>{
-  stopped=true;if(timer)clearTimeout(timer);
+  stopped=true;if(timer)clearTimeout(timer);clearInterval(dailyWatch);
   off?.();for(const name of names)globalThis.removeEventListener?.(name,schedule);
+  globalThis.document?.removeEventListener?.("visibilitychange",onVisible);
  };
 }
 export {readConfig};
