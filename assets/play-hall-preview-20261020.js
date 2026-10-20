@@ -40,7 +40,7 @@ if (!window.__luxPlayHallPreviewMounted && /^\/play\/?$/.test(location.pathname)
   window.__luxPlayHallPreviewMounted=true;
   const css=document.createElement('link');
   css.rel='stylesheet';css.id='lux-play-hall-preview-style';
-  css.href='/assets/play-hall-preview-20261020.css?v=20261020-live1';document.head.append(css);
+  css.href='/assets/play-hall-preview-20261020.css?v=20261020-full-list2';document.head.append(css);
   const root=document.createElement('div');root.id='lux-play-hall-preview';root.className='lux-play-hall';
   root.setAttribute('aria-label','The Enchanted Game Hall');
   let currentGroup=null,modalOpen=false,previousFocus=null,lastSignature=null,scheduled=false;
@@ -116,7 +116,11 @@ if (!window.__luxPlayHallPreviewMounted && /^\/play\/?$/.test(location.pathname)
       const title=make('div','lux-play-hall-card-title');title.append(glyph(cat.icon),make('div',null,cat.title));body.append(title);
       body.append(make('p','lux-play-hall-card-subject',cat.subject));
       body.append(make('p','lux-play-hall-card-description',cat.desc));
-      const chips=make('div','lux-play-hall-pills');games.slice(0,3).forEach(([id,name])=>chips.append(action(id,name)));body.append(chips);card.append(body);
+      const chips=make('div','lux-play-hall-pills');
+      // Show every real game as a tappable chip, not only the first three.
+      // The same GAME_LIST supplies the category total and All Games dialog.
+      games.forEach(([id,name])=>chips.append(action(id,name)));
+      body.append(chips);card.append(body);
       const foot=make('div','lux-play-hall-card-footer');foot.append(make('span',null,`${games.length} Games`));
       const total=games.reduce((n,x)=>n+gamePoints(state,x[0]),0);
       foot.append(make('span',null,`${total.toLocaleString('en-GB')} earned pts`));

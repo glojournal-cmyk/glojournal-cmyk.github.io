@@ -18,12 +18,33 @@ try{
     assert.equal(await page.locator('.lux-play-hall-nav-link').count(),7);
     assert.equal(await page.locator('.lux-play-hall-scholar').count(),1);
     assert.equal(await page.locator('#lux-play-hall-preview img').count(),1,'Only approved standing Scholar, no Pet');
-    assert.equal(await page.locator('.lux-play-hall-pills a').count(),12);
+    // Every real game must have a working, visible chip inside its own hall.
+    const cards=page.locator('#lux-play-hall-preview .lux-play-hall-card');
+    const counts=[6,4,4,3];
+    for(let i=0;i<counts.length;i++){
+      const card=cards.nth(i);
+      assert.equal(await card.locator('.lux-play-hall-pills a').count(),counts[i],
+        'All games must be directly selectable in hall '+i);
+      const clipped=await card.evaluate(el=>{
+        const content=el.querySelector('.lux-play-hall-pills').getBoundingClientRect();
+        const footer=el.querySelector('.lux-play-hall-card-footer').getBoundingClientRect();
+        return content.bottom>footer.top+2;
+      });
+      assert.equal(clipped,false,'Game buttons must fit above the card footer');
+    }
+    const chips=page.locator('.lux-play-hall-pills a');
+    assert.equal(await chips.count(),17,'All 17 existing games must be shown as direct buttons');
+    const chipIds=await chips.evaluateAll(nodes=>nodes.map(a=>new URL(a.href).pathname.split('/').pop()));
+    assert.deepEqual([...chipIds].sort(),[...ids].sort(),'All visible game buttons must point to real native routes');
     await page.waitForFunction(()=>{const img=document.querySelector('.lux-play-hall-scholar');return img?.complete&&img.naturalWidth>0;});
     // Visual signoff also captures the true default standing Home outfit.
     if(viewport.width===1024) await page.screenshot({path:`test-results/play-hall-${engine.name()}-1024-default.png`,fullPage:false});
     const heroSize=await page.locator('.lux-play-hall-scholar').evaluate(img=>({width:img.getBoundingClientRect().width,height:img.getBoundingClientRect().height}));
-    if(viewport.width===1024)assert.ok(heroSize.height>=450,'Full-body student must not appear tiny next to four halls');
+    if(viewport.width===1024){
+      assert.ok(heroSize.height>=390,'The standing Scholar must remain full-body and readable');
+      assert.ok(heroSize.height<=viewport.height*.73,
+        'The standing Scholar must be at least 20 percent smaller than previous oversized version');
+    }
     // Outfit switch is performed through the original store; Play preview never writes.
     await page.evaluate(async()=>{const store=(await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2')).C;store.setState({equippedOutfit:'cardigan'});});
     await page.waitForFunction(()=>document.querySelector('.lux-play-hall-scholar')?.src.endsWith('/art/doll/cardigan.png'));
