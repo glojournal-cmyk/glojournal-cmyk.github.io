@@ -96,4 +96,16 @@ for(const [n,id] of [[2,"phys-y9-p2-app-irregular-method"],[4,"phys-y9-p4-app-in
  assert.equal(q.stimulus.marks,5);
  corrected++;
 }
+for(let n=1;n<=18;n++){
+ const topic=read(n);
+ for(const q of topic.questions){
+  const marks=q.answer?.totalMarks??q.stimulus?.marks??1;
+  assert.ok(marks<=5,`Year 9 Physics P${n}: over-five-mark question ${q.id}`);
+ }
+}
+for(const [n,id] of [[6,"phys-y9-p6-app-shc-practical"],[11,"phys-y9-p11-app-boyle-controls"],[16,"phys-y9-p16-app-spring-practical"],[18,"phys-y9-p18-app-efficiency-boss"]]){
+ const q=read(n).questions.find(x=>x.id===id);
+ assert.equal(q.answer.totalMarks,5,`${id} remains over five marks`);
+ assert.equal(q.answer.markPoints.length,5);
+}
 console.log("PHYSICS_GCSE_OCT20_QA",JSON.stringify({topics:targets.length,baseline:358,added,total:questions,calculations:calcs,multipleChoice:mc,shortPracticalCorrections:corrected,legacyIdsPreserved:true,failures:0}));
