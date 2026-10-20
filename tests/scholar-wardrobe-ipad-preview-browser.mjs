@@ -45,6 +45,12 @@ for(const engine of [chromium,webkit]){
        pane:!!pane,portrait:!!document.querySelector('img[alt^="Scholar in "]'),
        rootVisibility:root?getComputedStyle(root).visibility:null,
        loadedScripts:[...document.scripts].filter(x=>x.src.includes('scholar-wardrobe')).map(x=>x.src),
+       navs:[...document.querySelectorAll('nav')].map(n=>({class:n.className,role:n.getAttribute('role'),count:n.querySelectorAll('a').length,
+         links:[...n.querySelectorAll('a')].map(a=>({name:a.textContent.trim().slice(0,24),href:a.getAttribute('href')}))})).slice(-8),
+       headers:[...document.querySelectorAll('header')].map(h=>({class:h.className,parent:h.parentElement?.className,text:h.textContent.trim().slice(0,100)})).slice(0,8),
+       stageChildren:[...document.querySelector('.scholar-wardrobe-stage')?.children||[]].map(el=>({
+         tag:el.tagName,class:String(el.className).slice(0,160),text:el.textContent?.slice(0,85)})),
+       avatar: (()=>{let img=document.querySelector('img[alt^="Scholar in "]');if(!img)return null;const rr=img.getBoundingClientRect();return {src:img.getAttribute('src'),naturalWidth:img.naturalWidth,naturalHeight:img.naturalHeight,renderWidth:rr.width,renderHeight:rr.height,parent:img.parentElement?.className}})(),
        pathname:location.pathname,search:location.search,
        excerpt:(document.querySelector('main')?.innerText||'').slice(0,270)};
    })));
