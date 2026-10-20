@@ -2685,34 +2685,35 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "measure original spring length",
-          "add known loads or forces in steps",
-          "measure stretched length from a fixed point",
-          "calculate extension as stretched minus original length",
-          "wait for oscillations to stop and read at eye level",
-          "repeat or unload to check behaviour",
-          "plot force against extension",
-          "use safe loads and identify where the graph stops being linear"
+          "measure the original spring length",
+          "add known forces in steps, avoiding excessive loads",
+          "measure the stretched length each time after oscillations stop",
+          "calculate extension as stretched length minus original length",
+          "plot force against extension and identify where the linear relationship ends"
         ],
-        "totalMarks": 8,
-        "modelAnswer": "measure original spring length add known loads or forces in steps measure stretched length from a fixed point calculate extension as stretched minus original length wait for oscillations to stop and read at eye level repeat or unload to check behaviour plot force against extension use safe loads and identify where the graph stops being linear"
+        "totalMarks": 5,
+        "modelAnswer": "measure the original spring length. add known forces in steps, avoiding excessive loads. measure the stretched length each time after oscillations stop. calculate extension as stretched length minus original length. plot force against extension and identify where the linear relationship ends. Read the ruler at eye level and repeat measurements to reduce random error."
       },
       "stimulus": {
-        "marks": 8
+        "marks": 5
       },
       "feedback": {
-        "short": "measure original spring length add known loads or forces in steps measure stretched length from a fixed point calculate extension as stretched minus original length wait for oscillations to stop and read at eye level repeat or unload to check behaviour plot force against extension use safe loads and identify where the graph stops being linear",
+        "short": "measure the original spring length; add known forces in steps, avoiding excessive loads; measure the stretched length each time after oscillations stop; calculate extension as stretched length minus original length; plot force against extension and identify where the linear relationship ends",
         "steps": [
-          "measure original spring length add known loads or forces in steps measure stretched length from a fixed point calculate extension as stretched minus original length wait for oscillations to stop and read at eye level repeat or unload to check behaviour plot force against extension use safe loads and identify where the graph stops being linear",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: measure original spring length add known loads or forces in steps measure stretched length from a fixed point calculate extension as stretched minus original length wait for oscillations to stop and read at eye level repeat or unload to check behaviour plot force against extension use safe loads and identify where the graph stops being linear"
+          "Award one mark for each of these five distinct points:",
+          "measure the original spring length",
+          "add known forces in steps, avoiding excessive loads",
+          "measure the stretched length each time after oscillations stop",
+          "calculate extension as stretched length minus original length",
+          "plot force against extension and identify where the linear relationship ends",
+          "Read the ruler at eye level and repeat measurements to reduce random error."
         ],
         "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
         "remember": "measure original spring length add known loads or forces in steps measure stretched length from a fixed point calculate extension as stretched minus original length wait for oscillations to stop and read at eye level repeat or unload to check behaviour plot force against extension use safe loads and identify where the graph stops being linear"
       },
       "task": {
         "label": "DESIGN",
-        "instruction": "Give variables, method, controls, quality steps and analysis where relevant.. Self-check against the approved mark points; this open response does not affect formal Mastery."
+        "instruction": "Answer all five scoring points; additional evaluation is useful but does not increase the five-mark maximum."
       },
       "preview": true,
       "ordinary": true,

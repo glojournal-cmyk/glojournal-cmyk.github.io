@@ -2058,32 +2058,34 @@
         "mode": "mark_points",
         "markPoints": [
           "total input energy is conserved",
-          "only part of the input is transferred usefully",
-          "some energy is dissipated to thermal stores of the surroundings",
-          "lubrication can reduce friction and unwanted heating",
-          "thermal insulation can reduce unwanted heating or cooling",
-          "a design change can reduce a named resistive loss",
-          "each suggested improvement is linked to a smaller unwanted transfer"
+          "some input energy is transferred usefully and some is dissipated to surroundings",
+          "friction can dissipate energy as heating",
+          "lubrication reduces frictional energy losses",
+          "suitable insulation reduces unwanted thermal transfers and can improve efficiency"
         ],
-        "totalMarks": 7,
-        "modelAnswer": "total input energy is conserved only part of the input is transferred usefully some energy is dissipated to thermal stores of the surroundings lubrication can reduce friction and unwanted heating thermal insulation can reduce unwanted heating or cooling a design change can reduce a named resistive loss each suggested improvement is linked to a smaller unwanted transfer"
+        "totalMarks": 5,
+        "modelAnswer": "total input energy is conserved. some input energy is transferred usefully and some is dissipated to surroundings. friction can dissipate energy as heating. lubrication reduces frictional energy losses. suitable insulation reduces unwanted thermal transfers and can improve efficiency. For full credit, evaluate when each improvement is appropriate to the specific device, not merely name it."
       },
       "stimulus": {
-        "marks": 7
+        "marks": 5
       },
       "feedback": {
-        "short": "total input energy is conserved only part of the input is transferred usefully some energy is dissipated to thermal stores of the surroundings lubrication can reduce friction and unwanted heating thermal insulation can reduce unwanted heating or cooling a design change can reduce a named resistive loss each suggested improvement is linked to a smaller unwanted transfer",
+        "short": "total input energy is conserved; some input energy is transferred usefully and some is dissipated to surroundings; friction can dissipate energy as heating; lubrication reduces frictional energy losses; suitable insulation reduces unwanted thermal transfers and can improve efficiency",
         "steps": [
-          "total input energy is conserved only part of the input is transferred usefully some energy is dissipated to thermal stores of the surroundings lubrication can reduce friction and unwanted heating thermal insulation can reduce unwanted heating or cooling a design change can reduce a named resistive loss each suggested improvement is linked to a smaller unwanted transfer",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: total input energy is conserved only part of the input is transferred usefully some energy is dissipated to thermal stores of the surroundings lubrication can reduce friction and unwanted heating thermal insulation can reduce unwanted heating or cooling a design change can reduce a named resistive loss each suggested improvement is linked to a smaller unwanted transfer"
+          "Award one mark for each of these five distinct points:",
+          "total input energy is conserved",
+          "some input energy is transferred usefully and some is dissipated to surroundings",
+          "friction can dissipate energy as heating",
+          "lubrication reduces frictional energy losses",
+          "suitable insulation reduces unwanted thermal transfers and can improve efficiency",
+          "For full credit, evaluate when each improvement is appropriate to the specific device, not merely name it."
         ],
         "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
         "remember": "total input energy is conserved only part of the input is transferred usefully some energy is dissipated to thermal stores of the surroundings lubrication can reduce friction and unwanted heating thermal insulation can reduce unwanted heating or cooling a design change can reduce a named resistive loss each suggested improvement is linked to a smaller unwanted transfer"
       },
       "task": {
         "label": "BOSS ANSWER",
-        "instruction": "Build a linked answer, then self-check against the mark-point rubric.. Self-check against the approved mark points; this open response does not affect formal Mastery."
+        "instruction": "Answer all five scoring points; additional evaluation is useful but does not increase the five-mark maximum."
       },
       "preview": true,
       "ordinary": true,
