@@ -29,6 +29,13 @@
   }
   function sync(){
     if(!document.body.classList.contains('scholar-wardrobe-preview'))document.body.classList.add('scholar-wardrobe-preview');
+    // Legacy app injects an extra 70px header and bottom tabs during React
+    // hydration. Hide rather than remove nodes to preserve its own state.
+    document.querySelectorAll('.paper-wash>header,.paper-wash>nav,.lux-shell-header,.lux-shell-nav').forEach(el=>{
+      if(el.dataset.scholarChromeHidden==='1')return;
+      el.dataset.scholarChromeHidden='1';
+      el.style.setProperty('display','none','important');
+    });
     const wrap=document.querySelector('main > div');
     if(!wrap)return;
     if(!wrap.classList.contains('scholar-wardrobe-root'))wrap.classList.add('scholar-wardrobe-root');
