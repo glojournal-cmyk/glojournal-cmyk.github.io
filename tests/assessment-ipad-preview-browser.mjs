@@ -96,8 +96,8 @@ for(const browserType of [chromium,webkit]){
    assert.deepEqual(subjects.map(x=>x.fullRowColour),[
      'rgb(224, 239, 231)','rgb(249, 231, 237)','rgb(238, 231, 248)'
    ],'Whole Biology/French/Chemistry tracker rows must use distinct soft green/pink/lavender backgrounds');
-   assert.ok(subjects.every(x=>x.rowWidth>500 && x.subjectWidth<160),
-     'Pastel must cover the wide whole row rather than just a subject pill');
+   assert.ok(subjects.every(x=>x.rowWidth>viewport.width*.75 && x.subjectWidth<x.rowWidth*.33),
+     'Pastel must cover the full row at iPad and mobile widths, not just a subject pill');
    assert.equal(new Set(subjects.map(x=>x.rowBorder)).size,3,
      'Each entire row must also have a distinct matching border');
    const trackerRow=trackerItems.first();
