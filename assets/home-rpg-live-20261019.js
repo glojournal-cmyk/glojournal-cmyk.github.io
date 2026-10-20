@@ -261,6 +261,9 @@ if (!window.__luxRpgLiveHome) {
     const nightScenes = new Set(['chem-lab','sports-hall','boss-moon-garden']);
     const coldScenes = new Set(['bio-lab']);
     root.dataset.sceneMood = coldScenes.has(scene.id) ? 'cool' : nightScenes.has(scene.id) ? 'night' : 'warm';
+    // Reuse already-decoded character sprites across store updates to prevent iPad flicker.
+    const previousScholar = root.querySelector('img.rpg-scholar-live');
+    const previousPet = root.querySelector('a.rpg-pet-live img');
     root.replaceChildren();
     const darken = make('div','rpg-shade-live');
     const world = make('section','rpg-world-live');
@@ -341,7 +344,7 @@ if (!window.__luxRpgLiveHome) {
     // Only the transparent Moss sprite has padding below the feet; use a
     // tiny optical adjustment without moving its actual floor anchor.
     cast.dataset.petSprite = safeImage(petState().species || 'moss-hornling','moss-hornling');
-    const scholar = document.createElement('img');
+    const scholar = previousScholar || document.createElement('img');
     scholar.className='rpg-scholar-live';scholar.alt='Scholar';
     const outfit = safeImage(state.equippedOutfit || 'day','day');
     // If an old equipped outfit has no live sprite (or iPad kept a stale
@@ -350,18 +353,27 @@ if (!window.__luxRpgLiveHome) {
     scholar.alt = 'Scholar character';
     scholar.loading = 'eager';
     scholar.decoding = 'sync';
-    scholar.addEventListener('error', () => {
-      if (scholar.dataset.fallbackArt) return;
-      scholar.dataset.fallbackArt = 'true';
-      scholar.src = defaultScholarArt;
-    });
-    scholar.src = outfit === 'day' ? defaultScholarArt : (wardrobeOutfits.find(item => item.id === outfit)?.art || defaultScholarArt);
+    if (!scholar.dataset.errorHandlerInstalled) {
+      scholar.dataset.errorHandlerInstalled = '1';
+      scholar.addEventListener('error', () => {
+        if (scholar.dataset.fallbackArt) return;
+        scholar.dataset.fallbackArt = 'true';
+        if (scholar.getAttribute('src') !== defaultScholarArt) scholar.src = defaultScholarArt;
+      });
+    }
+    const desiredScholarArt = outfit === 'day' ? defaultScholarArt : (wardrobeOutfits.find(item => item.id === outfit)?.art || defaultScholarArt);
+    if (scholar.getAttribute('data-outfit-source') !== desiredScholarArt) {
+      delete scholar.dataset.fallbackArt;
+      scholar.dataset.outfitSource = desiredScholarArt;
+      scholar.src = desiredScholarArt;
+    }
     const pet = petState();
     const species = safeImage(pet.species || 'moss-hornling','moss-hornling');
     const petLink = make('a','rpg-pet-live');petLink.href='/pet/'; petLink.setAttribute('aria-label','Open companion');
-    const creature = document.createElement('img');creature.alt='Companion';
+    const creature = previousPet || document.createElement('img');creature.alt='Companion';
     const stage = Number(pet.petLevels?.[species] || pet.highestStage) || 1;
-    creature.src = petArtUrl(species, stage);
+    const desiredPetArt = petArtUrl(species, stage);
+    if (creature.getAttribute('src') !== desiredPetArt) creature.src = desiredPetArt;
     petLink.append(creature);cast.append(scholar,petLink);world.append(cast);
 
     const rail = make('aside','rpg-rail-live');
