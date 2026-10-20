@@ -1,3 +1,13 @@
+// Approved Play Game Hall: shared read-only navigation bridge across Home,
+ // Study, game routes and other app sections. Does not alter saved progress.
+(() => {
+  if (typeof window === 'undefined' || window.__luxPlayHallBootRequested) return;
+  window.__luxPlayHallBootRequested = true;
+  const boot = document.createElement('script');
+  boot.src = '/assets/play-hall-live-boot-20261020.js?v=20261020-live1';
+  boot.defer = true;
+  (document.head || document.documentElement).append(boot);
+})();
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/biology-nov2-entry-20261017.js?v=1&ux=20261013-corrections2').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/phase7-voice-cheers-20261011.js?v=20261012-phase3&ux=20261013-corrections2').catch(()=>{});
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/star-map-gallery-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2').catch(console.error);
