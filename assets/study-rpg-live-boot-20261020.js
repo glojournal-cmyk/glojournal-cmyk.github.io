@@ -12,7 +12,7 @@
     if (!/^\/study\/?$/.test(location.pathname)) return;
     if (loading || window.__luxStudyRpgIntegrated) return;
     loading = true;
-    import('/assets/study-rpg-integrated-20261019.js?v=20261020-study-live1')
+    import('/assets/study-rpg-integrated-20261019.js?v=20261020-outfit-sync2')
       .catch(error => {
         loading = false;
         console.warn('Study classroom unavailable; native Study remains usable', error);
