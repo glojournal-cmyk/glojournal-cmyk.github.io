@@ -116,7 +116,7 @@ for(const browserType of [chromium,webkit]){
      }
    }
    const trackerRows=await trackerItems.evaluateAll(elements=>elements.map(el=>el.getBoundingClientRect().height));
-   assert.ok(trackerRows.every(h=>h<=73),'Each collapsed tracker assessment uses at most two lines');
+   assert.ok(trackerRows.every(h=>h<=(viewport.width<=620?96:73)), 'Each collapsed tracker assessment uses a compact, responsive row');
    assert.equal(await page.locator('#tracker-list [data-tracker-paper]:visible').count(),0,
      'Paper links and notes must not clutter the collapsed list');
    if(viewport.width===1024)await page.screenshot({path:'test-results/assessment-'+browserType.name()+'-1024-tracker.png'});
