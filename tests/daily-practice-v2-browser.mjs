@@ -113,6 +113,63 @@ async function checkFixture(browser,engine,kind,viewport){
   report.push({engine,kind,viewport,details,errors,ok:true});
   await context.close();
 }
+async function checkRealPractice(browser,engine){
+  const context=await browser.newContext({viewport:{width:1024,height:768},deviceScaleFactor:2,hasTouch:true,timezoneId:'Europe/London'});
+  const page=await context.newPage(),errors=[];
+  page.on('pageerror',error=>errors.push(error.message));
+  const url=base+'/study/french/practise/?year=8&mode=quick&topic=fr-y8-s01-quick-rules';
+  await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
+  await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:30000});
+  await page.waitForFunction(()=>document.documentElement.classList.contains('lux-daily-ux-ready'),null,{timeout:10000});
+  const before=await page.evaluate(()=>{
+    const q=document.querySelector('[data-question-id]');
+    const nav=document.querySelector('#lux-daily-study-nav');
+    const p=q?.querySelector('[data-lux-prompt]');
+    return {id:q?.dataset.questionId,format:q?.dataset.questionFormat,
+      navCount:nav?.children.length,
+      promptSize:p?parseFloat(getComputedStyle(p).fontSize):0,
+      navBottom:nav?.getBoundingClientRect().bottom,
+      screenHeight:innerHeight,scrollWidth:document.documentElement.scrollWidth};
+  });
+  assert.ok(before.id,'real French question must load');
+  assert.equal(before.navCount,7,'live question needs Study navigation');
+  assert.ok(before.promptSize>=27,'real question should be large and bold');
+  assert.ok(before.scrollWidth<=1025,'no sideways scroll in live question');
+  await page.screenshot({path:path.join(out,engine+'-real-french-before.png'),fullPage:true});
+  const q=page.locator('[data-question-id]');
+  if(before.format==='mc_single'){
+    const options=q.locator('[data-lux-mc-options] > button');
+    assert.ok(await options.count()>=2,'real MC choices available');
+    await options.first().click();
+  } else if(before.format==='word_tiles'){
+    const tile=q.locator('.mt-5.space-y-3 > div:nth-child(2) button').first();
+    await tile.click();
+    await q.getByRole('button',{name:'Submit'}).click();
+  } else {
+    const field=q.locator('input,textarea').first();
+    await field.fill('sample test answer');
+    assert.equal(await page.locator('#lux-daily-study-nav').isVisible(),false);
+    await q.getByRole('button',{name:'Submit'}).click();
+  }
+  await page.waitForTimeout(700);
+  const marked=await page.evaluate(()=>{
+    const q=document.querySelector('[data-question-id]');
+    return {id:q?.dataset.questionId,
+      text:q?.innerText.slice(-1700),
+      feedback:!!q?.querySelector('.bg-blush,.bg-sage,button:disabled')};
+  });
+  assert.ok(marked.id,'answering must not remove the quiz');
+  assert.ok(marked.text.length>40,'feedback and live question must remain readable');
+  await page.screenshot({path:path.join(out,engine+'-real-french-after.png'),fullPage:true});
+  await page.reload({waitUntil:'domcontentloaded'});
+  await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:30000});
+  assert.equal(await page.locator('#lux-daily-study-nav a').count(),7,'reload must restore Study nav');
+  await page.goto(url+'&dailyUxPreview=0',{waitUntil:'domcontentloaded'});
+  await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:30000});
+  assert.equal(await page.evaluate(()=>document.documentElement.classList.contains('lux-daily-ux-ready')),false,'rollback query disables layout');
+  report.push({engine,kind:'real-french',before,marked,errors,ok:true});
+  await context.close();
+}
 try{
   for(const [engine,launcher] of [['chromium',chromium],['webkit',webkit]]){
     const browser=await launcher.launch({headless:true});
@@ -120,6 +177,7 @@ try{
       for(const size of [{width:1024,height:768},{width:1366,height:1024}]){
         for(const kind of ['mc','long-mc','typed','tiles']) await checkFixture(browser,engine,kind,size);
       }
+      await checkRealPractice(browser,engine);
     }finally{await browser.close();}
   }
 }finally{
