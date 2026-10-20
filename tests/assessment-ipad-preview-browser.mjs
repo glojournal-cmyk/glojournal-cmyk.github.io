@@ -74,7 +74,8 @@ for(const browserType of [chromium,webkit]){
    assert.ok(await page.locator('#tracker-list .entry').count()>0,'School Tracker must show school assessment entries');
    assert.ok(await page.locator('#track-form').count()===1,'Tracker add/result form remains');
    const trackerItems=page.locator('#tracker-list .assessment-tracker-item');
-   assert.ok(await trackerItems.count()>=3,'Known school assessments preserved');
+   assert.equal(await trackerItems.count(),3,'School Tracker lists only three confirmed school dates; obsolete 16 Nov Biology is excluded');
+   assert.equal((await page.locator('#tracker-list').innerText()).includes('16 Nov'),false,'Superseded Biology school date is absent');
    const trackerRow=trackerItems.first();
    assert.equal(await trackerRow.getAttribute('open'),null,'Tracker details must be closed by default');
    assert.equal(await trackerRow.locator('summary .assessment-tracker-heading > span').count(),1,'Each row has one brief date/status line');
