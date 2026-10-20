@@ -42,8 +42,8 @@ try{
     assert.ok(await page.locator('#petBondValue').count()===1,'Keep bond');
     assert.ok(await page.locator('#petMoodValue').count()===1,'Keep mood');
     assert.ok(await page.locator('#petEnergyValue').count()===1,'Keep energy');
-    assert.equal(await page.locator('.lux-shell-nav a').count(),7,'Keep approved seven-link global navigation');
-    assert.equal(await page.locator('.lux-shell-nav a[href="/pet/"][aria-current="page"]').count(),1,'Pet nav must be active');
+    assert.equal(await page.locator('.pet-preview-bottom-bar a').count(),7,'Keep approved seven-link global navigation');
+    assert.equal(await page.locator('.pet-preview-bottom-bar a[href="/pet/"][aria-current="page"]').count(),1,'Pet nav must be active');
     assert.equal(await page.locator('#stageSteps .pet-step').count(),10,'Show all ten evolution steps on the same Pet screen');
     assert.ok(await page.locator('#pet-next-preview').count()===1,'Show real next evolution artwork inside main panel');
     assert.ok(await page.locator('.pet-evolve-guide-grid>span').count()===3,'Explain both ways to earn MP and the Evolve action on the same page');
@@ -58,7 +58,7 @@ try{
       const bg=getComputedStyle(document.body).backgroundImage;
       const style=[...document.styleSheets].some(s=>s.href?.includes('pet-sanctuary-ipad-preview-20261020.css'));
       const art=getComputedStyle(document.querySelector('#petImage')).backgroundImage;
-      return {pet:box('.pet-stage-card'),care:box('#petCarePanel'),growth:box('#petGrowth'),nav:box('.lux-shell-nav'),stage:box('#petAvatar'),bg,style,art,topbar:document.querySelector('.pet-topbar') ? getComputedStyle(document.querySelector('.pet-topbar')).display : 'none',classes:document.body.className,scrollWidth:document.documentElement.scrollWidth};
+      return {pet:box('.pet-stage-card'),care:box('#petCarePanel'),growth:box('#petGrowth'),nav:box('.pet-preview-bottom-bar'),stage:box('#petAvatar'),bg,style,art,topbar:document.querySelector('.pet-topbar') ? getComputedStyle(document.querySelector('.pet-topbar')).display : 'none',classes:document.body.className,scrollWidth:document.documentElement.scrollWidth};
     });
     console.log(engine.name()+' viewport '+viewport.width+' preview layout '+JSON.stringify(sizes));
     assert.ok(sizes.style,'Pet sanctuary stylesheet loaded');
@@ -66,8 +66,8 @@ try{
     assert.ok(sizes.bg.includes('magic-floor.jpg'),'Same academy botanical scene as other new pages');
     const visibleColours=await page.evaluate(()=>({
       need:getComputedStyle(document.querySelector('#nextText')).color,
-      nav:getComputedStyle(document.querySelector('.lux-shell-nav')).backgroundColor,
-      petLink:getComputedStyle(document.querySelector('.lux-shell-nav a[href="/pet/"]')).color
+      nav:getComputedStyle(document.querySelector('.pet-preview-bottom-bar')).backgroundColor,
+      petLink:getComputedStyle(document.querySelector('.pet-preview-bottom-bar a[href="/pet/"]')).color
     }));
     assert.equal(visibleColours.need,'rgb(255, 240, 211)','MP required text is readable on dark Evolution Path panel');
     assert.equal(visibleColours.nav,'rgba(26, 51, 64, 0.965)','Bottom nav matches Study/Play dark navy');
