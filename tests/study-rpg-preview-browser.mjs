@@ -180,7 +180,19 @@ try{
           // default "stable box" check can stall despite a visible, tappable
           // link. Keep the :visible requirement, but don't require a motionless
           // rectangle before dispatching the real pointer event.
-          await studyNav.last().click({force:true,timeout:20000});
+          if (target.name === 'Home') {
+            // The legacy Home rail may be visibly rendered beneath the active
+            // RPG scene. Trigger the canonical top-level Study navigation
+            // through the document's shared route bridge, not a force-click
+            // on an occluded link (which bypasses normal hit testing).
+            await page.evaluate(() => {
+              const live=document.querySelector('#lux-rpg-live-home .rpg-nav-live a[href="/study"]');
+              const fallback=[...document.querySelectorAll('a[href="/study"],a[href="/study/"]')].find(a=>a.getBoundingClientRect().width>0);
+              (live||fallback)?.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,button:0}));
+            });
+          } else {
+            await studyNav.last().click({force:true,timeout:20000});
+          }
         }
         await page.waitForURL(u=>/^\/study\/?$/.test(u.pathname),{waitUntil:'domcontentloaded',timeout:20000});
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
