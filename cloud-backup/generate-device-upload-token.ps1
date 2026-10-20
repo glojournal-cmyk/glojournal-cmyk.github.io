@@ -1,25 +1,12 @@
 # Gloria backup: generate a private, high-entropy device token and public SHA256
 # digest for Cloudflare. Secret never prints or leaves the owner's Windows PC.
 # Windows PowerShell 5.1+ uses per-user DPAPI to protect the saved secret.
-param([switch]$CopyToken)
 $ErrorActionPreference = "Stop"
 $folder = Join-Path $env:APPDATA "GloriaBackup"
 $vault = Join-Path $folder "upload-token.dpapi"
-if ($CopyToken) {
-    if (-not (Test-Path $vault)) { throw "No Gloria device token saved on this Windows account." }
-    $secure = (Get-Content -Raw -Path $vault).Trim() | ConvertTo-SecureString
-    $ptr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure)
-    try {
-        Set-Clipboard -Value ([Runtime.InteropServices.Marshal]::PtrToStringBSTR($ptr))
-    } finally {
-        [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ptr)
-    }
-    Write-Host "PRIVATE device token copied. Paste only into Gloria's private pairing screen."
-    exit
-}
 if (Test-Path $vault) {
     Write-Host "Gloria device token already exists. NOT regenerated, so current access stays valid."
-    Write-Host "To retrieve it, run this script with -CopyToken."
+    Write-Host "To retrieve later, use the separate private-token retrieval procedure."
     exit
 }
 New-Item -ItemType Directory -Path $folder -Force | Out-Null
