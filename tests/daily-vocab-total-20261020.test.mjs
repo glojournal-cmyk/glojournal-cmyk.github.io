@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {dailyVocabTotal} from "../assets/daily-vocab-total-20261020.js";
+import {buildYear8DailyV2} from "../assets/year8-daily-v2-20261018.js";
 
 const day = "2026-10-20";
 const words = (count, start = 1) => Object.fromEntries(
@@ -82,4 +83,19 @@ test("do not accept unassigned subject, wrong date, repair, informal or Recovery
     {day,subject:"french",dailyTaskId:"french-vocab",questionId:"real",correct:true}
   ]};
   assert.equal(dailyVocabTotal(x,"french",day).progress,1);
+});
+
+test("actual Year 8 Home builder displays 30 when ledger shows 13", () => {
+  const items = Object.fromEntries(Array.from({length:13},(_,i)=>["fr-"+i,true]));
+  const x={today:day,topicStats:{},reviews:{},
+    dailyVocabByDay:{[day]:{french:{items}}},
+    daily:[{id:"french-vocab",planDate:day,target:30,progress:13}],
+    formalAttemptLog:Array.from({length:30},(_,i)=>({
+      day,subject:"french",dailyTaskId:"french-vocab",questionId:"fr-"+i,
+      correct:true,formal:true
+    }))};
+  const actualHomeTasks=buildYear8DailyV2(x,()=>[],{});
+  const french=actualHomeTasks.find(t=>t.id==="french-vocab");
+  assert.equal(french.progress,30);
+  assert.equal(french.target,30);
 });
