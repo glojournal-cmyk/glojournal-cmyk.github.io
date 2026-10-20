@@ -138,12 +138,42 @@ function tracker(){
     const results=isSchool?state.results.filter(r=>r.paperId===x.paperId):[];
     const latest=results[results.length-1];
     const phase=globalThis.LuxSchoolRevision.buildRevisionPlan({},state).active.find(a=>a.id===x.id)?.phase;
-    const trackerStatus=x.status||(phase==='current'?(x.dateKind==='week'?'Assessment week':'Today'):phase==='upcoming'?'Upcoming':'School result not recorded');
-    const topicLinks=x.paperId==='biology-nov2'?'<p><a href="/assessment/biology-nov2/practice/">Practise the 2 November topics</a> · <a href="/assessment/biology-nov2/notes.pdf">Illustrated revision notes</a></p>':(x.topics||[]).map(topic=>`<p><a href="/study/${x.subject.toLowerCase()}/learn?year=9&topic=${encodeURIComponent(topic)}">Notes · ${esc(({'chem-y9-c5':'Atoms','chem-y9-c1':'History of the periodic table','chem-y9-c3':'Separating mixtures','chem-y9-c4':'Chromatography','fr-y9-20260919-unit-1-holidays-and-opinions':'Holidays and opinions','fr-y9-u1-paris-travel':'Travel and transport','bio-y9-b1':'Cell structure','bio-y9-b2':'Specialised cells','bio-y9-b3':'Microscopy','bio-y9-b4':'Culturing microorganisms'})[topic]||x.title)}</a> · <a href="/study/${x.subject.toLowerCase()}/practise?year=9&mode=standard&topic=${encodeURIComponent(topic)}">Practise this topic</a></p>`).join('');
-    const links=isSchool?`${topicLinks}<p>${x.subject==='Biology'&&x.paperId!=='biology-nov2'?' · <a href="/assessment/biology-cell-structure/">Cell structure revision guide</a>':''}</p><button class="primary" data-tracker-paper="${esc(x.paperId)}">${state.drafts[x.paperId]?.version===2?'Continue practice paper':'Start practice paper'}</button>`:'';
-    return `<article class="entry"><div><span class="tag">${esc(x.subject)} · ${esc(x.dateLabel||x.date)} · ${esc(trackerStatus)}</span><h3>${esc(x.title)}</h3>${x.score?`<p><b>School result:</b> ${esc(x.score)}</p>`:''}${x.notes?`<p>${esc(x.notes)}</p>`:''}${latest?`<p><b>Latest app practice:</b> ${esc(latest.score)}% · ${esc(latest.date)}</p>`:''}${links}</div><button data-delete="${esc(x.id)}">${isSchool?'Hide':'Delete'}</button></article>`;
+    const schoolStatus=x.status||(phase==='current'?(x.dateKind==='week'?'Assessment week':'Today'):phase==='upcoming'?'Upcoming':'School result not recorded');
+    const succinctStatus=x.score?`School result ${x.score}`:schoolStatus==='School result not recorded'?'Not recorded':schoolStatus;
+    const dateParts=String(x.date||'').split('-').map(Number);
+    const readableDate=dateParts.length===3&&dateParts.every(Number.isFinite)
+      ?new Date(dateParts[0],dateParts[1]-1,dateParts[2]).toLocaleDateString('en-GB',{day:'numeric',month:'short'})
+      :x.dateLabel||x.date||'Date TBC';
+    const date=x.dateKind==='week'?`Week of ${readableDate}`:readableDate;
+    const topicLinks=x.paperId==='biology-nov2'?
+      '<a href="/assessment/biology-nov2/practice/">2 November topic practice</a><a href="/assessment/biology-nov2/notes.pdf">Illustrated revision notes</a>':
+      (x.topics||[]).map(topic=>{
+        const friendly=({'chem-y9-c5':'Atoms','chem-y9-c1':'History of periodic table','chem-y9-c3':'Separating mixtures','chem-y9-c4':'Chromatography','fr-y9-20260919-unit-1-holidays-and-opinions':'Holidays and opinions','fr-y9-u1-paris-travel':'Travel and transport','bio-y9-b1':'Cell structure','bio-y9-b2':'Specialised cells','bio-y9-b3':'Microscopy','bio-y9-b4':'Culturing microorganisms'})[topic]||x.title;
+        const base=`/study/${x.subject.toLowerCase()}/`;
+        return `<div class="assessment-tracker-resource-row"><span>${esc(friendly)}</span><a href="${base}learn?year=9&topic=${encodeURIComponent(topic)}">Notes</a><a href="${base}practise?year=9&mode=standard&topic=${encodeURIComponent(topic)}">Practice</a></div>`;
+      }).join('');
+    const hasCellGuide=x.subject==='Biology'&&x.paperId!=='biology-nov2';
+    const haveResources=!!topicLinks||hasCellGuide;
+    const resources=haveResources?`<details class="assessment-tracker-resources"><summary>Notes &amp; topic practice</summary><div class="assessment-tracker-resource-list">${topicLinks}${hasCellGuide?'<a href="/assessment/biology-cell-structure/">Cell structure revision guide</a>':''}</div></details>`:'';
+    const paperButton=isSchool&&x.paperId?`<button class="primary" data-tracker-paper="${esc(x.paperId)}">${state.drafts[x.paperId]?.version===2?'Continue practice paper':'Start practice paper'}</button>`:'';
+    return `<article class="entry assessment-tracker-entry">
+      <details class="assessment-tracker-item">
+        <summary>
+          <span class="assessment-tracker-heading">
+            <strong>${esc(x.title)}</strong>
+            <span>${esc(x.subject)} · ${esc(date)} · ${esc(succinctStatus)}</span>
+          </span>
+          <span class="assessment-tracker-details-label">Details <span aria-hidden="true">⌄</span></span>
+        </summary>
+        <div class="assessment-tracker-expanded">
+          ${x.notes?`<p>${esc(x.notes)}</p>`:''}
+          ${latest?`<p>Latest app practice: <b>${esc(latest.score)}%</b> · ${esc(latest.date)}</p>`:''}
+          ${resources}
+          <div class="assessment-tracker-actions">${paperButton}<button data-delete="${esc(x.id)}">${isSchool?'Hide assessment':'Delete assessment'}</button></div>
+        </div>
+      </details>
+    </article>`;
   }).join(''):'<p class="muted">No school assessments recorded yet. Add one below.</p>';
-  $('#tracker-list').insertAdjacentHTML('beforeend','<p class="muted">Other future school assessments: dates and ranges await teacher confirmation. Practice results are separate from school grades.</p>');
 }
 $('#tracker-list').addEventListener('click',e=>{
   const paper=e.target.closest('[data-tracker-paper]');
