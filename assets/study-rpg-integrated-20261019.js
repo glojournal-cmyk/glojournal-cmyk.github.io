@@ -10,7 +10,7 @@ if (!window.__luxStudyRpgIntegrated) {
     const sheet = document.createElement('link');
     sheet.id = 'lux-study-rpg-style';
     sheet.rel = 'stylesheet';
-    sheet.href = '/assets/study-rpg-integrated-20261019.css?v=20261020-pet-larger1';
+    sheet.href = '/assets/study-rpg-integrated-20261019.css?v=20261020-pet-native-hires1';
     document.head.append(sheet);
   }
   // Use a div with role=main: the old Pet enhancer decorates images inside <main>.
