@@ -104,8 +104,9 @@ try{
    assert.equal(state.correct,13,"Do not falsify or overwrite the dedicated answer ledger");
    assert.equal(state.task?.progress,30,"After iPad app reload, Home must still show 30/30");
    const homeText=await page.locator("body").innerText();
-   assert.match(homeText,/Year 7.8 French vocab[\\s\\S]*?30\\/30/,
+   assert.match(homeText,/Year 7.8 French vocab[\s\S]*?30\/30/,
      "Rendered iPad Home must display French 30/30, not only store state");
+   fs.mkdirSync("test-results",{recursive:true});
    await page.screenshot({path:"test-results/daily-vocab-home-repaired-"+engine.name()+".png",fullPage:false});
    assert.deepEqual(errors,[],"Unexpected browser exceptions");
    fs.mkdirSync("test-results",{recursive:true});
