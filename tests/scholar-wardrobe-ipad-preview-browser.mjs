@@ -30,6 +30,21 @@ for(const engine of [chromium,webkit]){
    const errors=[];
    page.on('pageerror',e=>errors.push(String(e.message)));
    await page.goto(base+'/scholar/?scholarPreview=1',{waitUntil:'domcontentloaded'});
+   await page.waitForTimeout(1500);
+   console.log('SCHOLAR_DEBUG '+engine.name()+' '+viewport.width+' '+JSON.stringify(await page.evaluate(()=>{
+     const wrap=document.querySelector('main>div');
+     const children=[...(wrap?.children||[])].slice(0,9).map(el=>({tag:el.tagName,class:String(el.className).slice(0,100),text:(el.textContent||'').slice(0,120),buttons:el.querySelectorAll('button').length}));
+     const pane=document.querySelector('.scholar-active-content');
+     const root=document.querySelector('.paper-wash');
+     return {url:location.href,ready:document.readyState,main:!!document.querySelector('main'),wrap:!!wrap,body:document.body.className,
+       children,nav:document.querySelectorAll('.scholar-preview-bottom-nav a').length,
+       tabs:document.querySelectorAll('.scholar-wardrobe-tabs button').length,
+       tabStyle:document.querySelector('.scholar-wardrobe-tabs')?getComputedStyle(document.querySelector('.scholar-wardrobe-tabs')).visibility:null,
+       pane:!!pane,portrait:!!document.querySelector('img[alt^="Scholar in "]'),
+       rootVisibility:root?getComputedStyle(root).visibility:null,
+       excerpt:(document.querySelector('main')?.innerText||'').slice(0,270)};
+   })));
+   if(viewport.width===1024)await page.screenshot({path:'test-results/scholar-'+engine.name()+'-1024-debug.png',animations:'disabled'});
    await page.locator('body.scholar-wardrobe-preview').waitFor({timeout:25000});
    await page.locator('.scholar-preview-bottom-nav a').first().waitFor({timeout:25000});
    await page.locator('.scholar-wardrobe-tabs button').first().waitFor({timeout:25000});
