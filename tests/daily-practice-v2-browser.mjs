@@ -46,11 +46,12 @@ function fixture(kind){
     '<link rel="stylesheet" href="/assets/daily-practice-ux-v2-20261020.css">'+
     '<script>window.tapCount=0;</script><script defer src="/assets/daily-practice-layout-20261020.js"></script></head>'+
     '<body><div class="paper-wash"><header style="height:58px">Legacy top bar</header><aside style="height:400px">Sidebar</aside>'+
-    '<main><section id="study-companion" class="cx-study-buddy"><span class="cx-pet-art"></span><strong>Antler Bean is beside you</strong></section>'+
+    '<main><section id="study-companion" class="cx-study-buddy"><span class="cx-pet-art" aria-label="Antler Bean" style="display:block;background-image:url(\'/pet/art-hd-20261009/level-1/antler-bean.webp\');background-size:contain;background-position:center;background-repeat:no-repeat"></span><strong>Antler Bean is beside you</strong><button type="button" id="lux-voice-cheer-toggle" onclick="window.tapCount++">🔊 Voice On</button></section>'+
     '<div class="lux-practice-view"><header><h1>French · Practise</h1></header>'+
     '<div data-question-id="fixture-'+kind+'" data-question-format="'+(kind.endsWith('mc')?'mc_single':kind==='tiles'?'word_tiles':'typed')+'" class="space-y-4">'+
     '<div><p class="text-xs font-semibold">DAILY PRACTICE</p><h1 class="font-display text-3xl font-semibold">French · Numbers and age</h1>'+
-    '<p>Question 1 / 15</p><p class="rounded-lg bg-sage">Recall · Step 2</p></div>'+
+    '<p>Question 1 / 15 · Recall · Step 2</p><p class="rounded-lg bg-sage">Recall · Step 2</p></div>'+
+    '<div data-lux-daily-lock>This daily task is locked to Numbers and age. Finish the assigned set before choosing free practice.</div>'+
     '<div class="rounded-xl bg-card p-5 sm:p-6"><div><p>BUILD THE ANSWER</p>'+
     '<p class="mt-1 font-display text-2xl font-semibold leading-snug">How do you write 15 in French?</p>'+answers+'</div></div>'+
     '</div></div></main><nav class="fixed inset-x-3 bottom-3" style="height:45px">Old nav</nav></div></body></html>';
@@ -83,6 +84,8 @@ async function checkFixture(browser,engine,kind,viewport){
       optsColumns:opts?getComputedStyle(opts).gridTemplateColumns.split(' ').length:0,
       options:opts?[...opts.children].map(elbox):[],
       input:elbox(input),pet:elbox(document.querySelector('#study-companion')),
+      voice:elbox(document.querySelector('#lux-voice-cheer-toggle')),
+      lock:elbox(document.querySelector('[data-lux-daily-lock]')),
       decorativeBackground:getComputedStyle(document.querySelector('.paper-wash')).backgroundImage,
       tileButton:elbox(document.querySelector('[data-lux-tiles] > div:nth-child(2) button')),
       tileInk:(()=>{const btn=document.querySelector('[data-lux-tiles] > div:nth-child(2) button');return btn?getComputedStyle(btn).color:null})(),
@@ -99,6 +102,10 @@ async function checkFixture(browser,engine,kind,viewport){
   assert.ok(details.promptSize>=27,'question must be large');
   assert.ok(details.scrollWidth<=viewport.width+1,'no horizontal overflow');
   assert.ok(details.pet.width>=38 && details.pet.width<=210,'pet artwork must be visible but compact');
+  assert.ok(details.voice?.width>=55,'approved preview must include Voice cheers control');
+  assert.ok(details.lock?.height>=20,'approved daily lock must be readable');
+  if(['mc','tiles','typed'].includes(kind)) assert.ok(details.card.bottom<details.nav.y-8,
+    'question and answer card should stay above the Study bar in one iPad screen');
   assert.ok(details.decorativeBackground.includes('daily-practice-academy-frame'),'decorative frame must be present');
   const bgResponse=await page.request.get(base+'/assets/daily-practice-academy-frame-20261020.svg');
   assert.equal(bgResponse.status(),200,'academy background asset must load');
