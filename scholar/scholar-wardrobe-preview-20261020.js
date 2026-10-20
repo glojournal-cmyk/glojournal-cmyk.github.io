@@ -28,6 +28,7 @@
     const wrap=document.querySelector('main > div');
     if(!wrap)return;
     if(!wrap.classList.contains('scholar-wardrobe-root'))wrap.classList.add('scholar-wardrobe-root');
+    createNav();
     const header=wrap.querySelector(':scope > header')||wrap.querySelector('header');
     if(header&&!header.classList.contains('scholar-wardrobe-intro'))header.classList.add('scholar-wardrobe-intro');
     // React's tab bar is the sibling directly following the live Scholar heading.
@@ -39,16 +40,19 @@
     const pane=tabs?.nextElementSibling;
     if(pane){
       if(!pane.classList.contains('scholar-active-content'))pane.classList.add('scholar-active-content');
-      const stage=pane.querySelector('img[alt^="Scholar in "]')?.closest('.relative.aspect-\\[4\\/5\\]');
-      // Class-match fallback accepts React's minified Tailwind render variations.
-      const current=stage||[...pane.querySelectorAll('div')].find(el=>
-        el.className?.includes?.('aspect-[4/5]')&&el.querySelector('img[alt^="Scholar in "]'));
+      // Find the *existing* portrait stage without using CSS escaping of
+      // Tailwind's bracketed aspect-ratio class (which differs in WebKit).
+      const portrait=pane.querySelector('img[alt^="Scholar in "]');
+      let current=portrait?.parentElement;
+      while(current&&current!==pane&&!current.classList?.contains('aspect-[4/5]')){
+        current=current.parentElement;
+      }
+      if(current===pane)current=null;
       if(current&&!current.classList.contains('scholar-wardrobe-stage'))current.classList.add('scholar-wardrobe-stage');
       const right=current?.nextElementSibling;
       if(right&&!right.classList.contains('scholar-wardrobe-closet'))right.classList.add('scholar-wardrobe-closet');
       if(current&&right&&!pane.classList.contains('scholar-wardrobe-split'))pane.classList.add('scholar-wardrobe-split');
     }
-    createNav();
   }
   let busy=false;
   function queue(){
