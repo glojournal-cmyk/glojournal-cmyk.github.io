@@ -165,3 +165,220 @@ html.lux-daily-typing .lux-daily-study-nav,html.lux-keyboard-open .lux-daily-stu
 @media(prefers-reduced-motion:reduce){
  .lux-daily-study-nav *{transition:none!important;animation:none!important;}
 }
+
+/* SIGNED-OFF REFERENCE: warm botanical library, compact 1-screen study interface.
+   Keep the previously requested 'no top bar'; use the supplied image for the
+   main question/answer hierarchy, not as a flattened picture of controls. */
+html.lux-daily-ux-ready body,
+html.lux-daily-ux-ready .paper-wash{
+  background-color:#faf6ed!important;
+}
+html.lux-daily-ux-ready .paper-wash{
+  background-image:url('/assets/daily-practice-botanical-frame-20261020.svg'),
+    radial-gradient(ellipse at 50% 34%,#fffaf2 12%,#f2ebdd 100%)!important;
+  background-size:100% 100%,cover!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+  min-height:100dvh!important;
+}
+html.lux-daily-ux-ready .paper-wash > main{
+  max-width:1330px!important;
+  width:calc(100% - clamp(50px,7vw,118px))!important;
+  margin-inline:auto!important;
+  padding:clamp(12px,1.5vh,20px) clamp(6px,1.7vw,24px) calc(79px + env(safe-area-inset-bottom))!important;
+  min-height:calc(100dvh - 15px);
+}
+html.lux-daily-ux-ready .lux-practice-view{
+  margin:0!important;padding:0!important;
+}
+html.lux-daily-ux-ready [data-lux-question-intro]{
+  position:relative!important;
+  padding-right:min(31vw,285px)!important;
+  min-height:122px;
+}
+html.lux-daily-ux-ready [data-lux-question-intro] > p:first-child{
+  color:#a27d3b!important;font-family:system-ui,sans-serif;
+  font-size:11px!important;letter-spacing:.2em;font-weight:750!important;
+}
+html.lux-daily-ux-ready [data-lux-question-intro] h1{
+  margin:3px 0 1px!important;
+  font-size:clamp(29px,3.15vw,43px)!important;
+  font-weight:700!important;line-height:1.08!important;
+  color:#172d44!important;
+}
+html.lux-daily-ux-ready [data-lux-question-intro] h1[data-lux-display-title]{
+  font-size:0!important;
+}
+html.lux-daily-ux-ready [data-lux-question-intro] h1[data-lux-display-title]::after{
+  content:attr(data-lux-display-title);
+  display:block;font-size:clamp(29px,3.15vw,43px)!important;
+  line-height:1.08;font-weight:700;
+}
+html.lux-daily-ux-ready [data-lux-question-intro] > p{
+  color:#73685f!important;font-size:13px!important;line-height:1.3!important;
+}
+html.lux-daily-ux-ready [data-lux-question-intro] > p.rounded-lg{
+  border:0!important;background:transparent!important;
+  padding:0!important;margin:1px 0 0!important;display:block!important;
+  color:#887b69!important;font-size:11px!important;
+}
+html.lux-daily-ux-ready [data-lux-question-intro] [role="progressbar"],
+html.lux-daily-ux-ready [data-lux-question-intro] .relative.h-1\.5 {
+  position:relative;width:100%!important;max-width:none!important;
+  min-height:9px!important;height:9px!important;margin:13px 0 0!important;
+  border-radius:999px!important;background:#e7dfd0!important;
+  overflow:hidden!important;
+}
+html.lux-daily-ux-ready [data-lux-question-intro] [role="progressbar"]>div,
+html.lux-daily-ux-ready [data-lux-question-intro] .relative.h-1\.5>div{
+  background:#be9651!important;border-radius:999px!important;
+}
+html.lux-daily-ux-ready [data-lux-question-intro]::after{
+  content:attr(data-lux-progress-count);
+  position:absolute;right:0;bottom:-1px;color:#273d4a;
+  font:600 12px/1.4 Georgia,serif;white-space:nowrap;
+}
+html.lux-daily-ux-ready [data-lux-question-intro]::after{
+  right:0;bottom:-1px;transform:translateX(100%);margin-left:8px;
+}
+html.lux-daily-ux-ready [data-lux-question-intro]{padding-right:0!important;margin-right:0!important;}
+html.lux-daily-ux-ready [data-lux-question-intro] h1,
+html.lux-daily-ux-ready [data-lux-question-intro] > p:not(:last-child){max-width:calc(100% - min(29vw,290px));}
+html.lux-daily-ux-ready [data-lux-review-progress]{
+  display:none!important;
+}
+/* The parent's locked-topic explanation belongs as one discreet full-width line. */
+html.lux-daily-ux-ready [data-lux-daily-lock]{
+  margin:5px 0 10px!important;padding:6px 13px!important;
+  background:#f5ead8!important;color:#7a6249!important;
+  border-radius:12px!important;border:none!important;
+  font:500 12px/1.4 system-ui,sans-serif!important;
+  box-shadow:none!important;max-width:none!important;
+}
+/* Remove the existing outer React card skin so there is precisely one panel. */
+html.lux-daily-ux-ready [data-question-id] > :has(> [data-lux-question-card]){
+  margin:0!important;padding:0!important;border:0!important;box-shadow:none!important;
+  background:transparent!important;outline:none!important;
+}
+html.lux-daily-ux-ready [data-lux-question-card]{
+  background:#fffdf8ed!important;
+  border:1.5px solid #cba45d!important;
+  box-shadow:0 9px 24px #947b4b12!important;
+  border-radius:27px!important;
+  padding:clamp(18px,2.6vw,36px)!important;
+}
+html.lux-daily-ux-ready [data-lux-prompt]{
+  font-size:clamp(30px,3.5vw,47px)!important;
+  line-height:1.12!important;margin:4px 0 8px!important;
+  color:#152c44!important;
+}
+html.lux-daily-ux-ready [data-lux-question-card] > p:first-child{
+  font:750 11px/1.45 system-ui,sans-serif!important;
+  letter-spacing:.18em!important;color:#b08845!important;
+}
+html.lux-daily-ux-ready [data-lux-question-card] [class*="bg-sage"]{
+  background:#f1f1eb!important;color:#273e4b!important;
+  padding:11px 15px!important;border-radius:14px!important;
+}
+html.lux-daily-ux-ready [data-lux-question-card] form{
+  align-items:center!important; margin-top:17px!important;
+}
+html.lux-daily-ux-ready [data-lux-question-card] form input,
+html.lux-daily-ux-ready [data-lux-question-card] textarea,
+html.lux-daily-ux-ready [data-lux-tiles] > div:first-child{
+  background:#f2f2eb!important;border:1px solid #e2dece!important;
+  border-radius:17px!important;min-height:58px!important;
+  color:#18354c!important;
+}
+html.lux-daily-ux-ready [data-lux-question-card] input::placeholder,
+html.lux-daily-ux-ready [data-lux-question-card] textarea::placeholder{color:#7a8590!important;}
+html.lux-daily-ux-ready [data-lux-tiles]{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(170px,245px)!important;
+  grid-template-rows:auto auto!important;
+  gap:16px 10px!important;
+  margin-top:18px!important;
+}
+html.lux-daily-ux-ready [data-lux-tiles] > div:first-child{
+  grid-column:1 / -1;grid-row:1;
+  display:flex;align-items:center;min-width:0;
+  padding:13px 17px!important;font-size:17px!important;
+}
+html.lux-daily-ux-ready [data-lux-tiles] > div:first-child button{
+  margin:3px!important;
+  color:#19364b!important;background:#fffdfa!important;
+}
+html.lux-daily-ux-ready [data-lux-tiles] > div:nth-child(2){
+  grid-column:1;grid-row:2;display:flex;align-items:center;
+  flex-wrap:wrap;gap:9px!important;min-width:0;
+}
+html.lux-daily-ux-ready [data-question-format="word_tiles"] [data-lux-tiles] > div:nth-child(2) button{
+  min-width:57px!important;min-height:58px!important;
+  background:#1e394f!important;color:#fff9ee!important;
+  font-size:24px!important;font-weight:750!important;
+  border:1px solid #40546a!important;border-radius:14px!important;
+  box-shadow:0 3px 5px #1b2e3717!important;
+}
+html.lux-daily-ux-ready [data-lux-tiles] > button:last-child{
+  grid-column:2;grid-row:2;justify-self:stretch;align-self:end;
+  min-height:57px!important;padding:13px 18px!important;
+  background:#1c354a!important;color:#fff9ef!important;
+  border:2px solid #b89252!important;border-radius:999px!important;
+  font:700 18px/1.25 Georgia,serif!important;
+}
+html.lux-daily-ux-ready [data-lux-tiles] > button:last-child::after{content:" →";font-size:22px;}
+html.lux-daily-ux-ready [data-lux-question-card] form button[type="submit"]{
+  min-height:54px!important;min-width:170px!important;
+  padding:12px 22px!important;color:#fffaf0!important;
+  background:#1c354a!important;border:2px solid #b89252!important;
+  border-radius:999px!important;font:700 18px/1.25 Georgia,serif!important;
+}
+html.lux-daily-ux-ready #study-companion{
+  width:170px!important;max-width:170px!important;
+  right:clamp(14px,2vw,30px)!important;top:17px!important;
+  height:54px!important;min-height:54px!important;
+  padding:0!important;display:flex!important;align-items:center!important;
+  background:transparent!important;border:none!important;box-shadow:none!important;
+  overflow:visible!important;gap:5px!important;
+}
+html.lux-daily-ux-ready #study-companion .cx-pet-art{
+  width:46px!important;height:54px!important;min-width:46px!important;
+  min-height:54px!important;flex:0 0 46px!important;
+  background-repeat:no-repeat;opacity:1!important;
+}
+html.lux-daily-ux-ready #study-companion > div,
+html.lux-daily-ux-ready #study-companion > strong{display:none!important;}
+html.lux-daily-ux-ready #lux-voice-cheer-toggle{
+  display:inline-flex!important;min-width:90px!important;
+  padding:7px 10px!important;min-height:40px!important;
+  background:#fffaf0!important;border:1px solid #dbc8a4!important;
+  border-radius:999px!important;color:#19374c!important;
+  font:600 11px/1.3 system-ui,sans-serif!important;
+}
+html.lux-daily-ux-ready .lux-daily-study-nav{
+  bottom:calc(8px + env(safe-area-inset-bottom))!important;
+  padding:4px 5px!important;border:1px solid #baa16f!important;
+  background:rgba(25,39,43,.94)!important;
+  box-shadow:0 6px 14px #24343d1e!important;
+}
+html.lux-daily-ux-ready .lux-daily-study-nav a{
+  min-width:73px;min-height:48px;
+}
+@media(max-height:780px) and (min-width:721px){
+ html.lux-daily-ux-ready [data-lux-question-intro]{min-height:113px;}
+ html.lux-daily-ux-ready .lux-practice-view [data-question-id]{gap:7px!important;}
+ html.lux-daily-ux-ready [data-lux-question-card]{padding:19px 26px!important;}
+ html.lux-daily-ux-ready [data-lux-tiles]{gap:10px!important;margin-top:12px!important;}
+ html.lux-daily-ux-ready [data-lux-tiles] > div:first-child{min-height:53px!important;}
+ html.lux-daily-ux-ready [data-lux-question-card] [class*="bg-sage"]{padding:9px 13px!important;}
+}
+@media(max-width:720px){
+ html.lux-daily-ux-ready .paper-wash > main{width:calc(100% - 14px)!important;padding:12px 10px 78px!important;}
+ html.lux-daily-ux-ready [data-lux-question-intro] h1,
+ html.lux-daily-ux-ready [data-lux-question-intro] > p{max-width:100%!important;}
+ html.lux-daily-ux-ready [data-lux-tiles]{grid-template-columns:1fr!important;grid-template-rows:auto auto auto!important;}
+ html.lux-daily-ux-ready [data-lux-tiles] > div:first-child,
+ html.lux-daily-ux-ready [data-lux-tiles] > div:nth-child(2),
+ html.lux-daily-ux-ready [data-lux-tiles] > button:last-child{grid-column:1!important;grid-row:auto!important;}
+ html.lux-daily-ux-ready #study-companion{position:relative!important;inset:auto!important;margin-left:auto!important;}
+}
