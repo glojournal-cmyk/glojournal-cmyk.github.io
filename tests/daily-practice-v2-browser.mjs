@@ -150,6 +150,10 @@ async function checkRealPractice(browser,engine){
       navBottom:nav?.getBoundingClientRect().bottom,
       screenHeight:innerHeight,scrollWidth:document.documentElement.scrollWidth};
   });
+  await page.waitForFunction(()=>{
+    const pet=document.getElementById('study-companion');
+    return pet && getComputedStyle(pet).display!=='none' && pet.getBoundingClientRect().width>=100;
+  },null,{timeout:12000});
   const chromeDetails = await page.evaluate(() => {
     const header=document.querySelector('.paper-wash>header');
     const companion=document.querySelector('#study-companion');
