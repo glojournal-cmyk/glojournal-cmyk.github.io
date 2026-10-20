@@ -594,3 +594,13 @@ body.lux-shell-on.assessment-rpg-scene .assessment-tracker-resource-row>a{
  body.lux-shell-on.assessment-rpg-scene .assessment-tracker-details-label{min-width:77px;font-size:.7rem;padding:7px 8px}
  body.lux-shell-on.assessment-rpg-scene .assessment-tracker-expanded{padding:10px}
 }
+
+/* Override the legacy #tracker details rule, which otherwise gives each
+   collapsed entry an extra beige box and 12px top margin. */
+body.lux-shell-on.assessment-rpg-scene #tracker #tracker-list details.assessment-tracker-item{
+ margin:0;padding:0;background:transparent;border:0;border-radius:0;color:#213f50;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker #tracker-list details.assessment-tracker-resources{
+ margin:7px 0;padding:0;background:#fffaf0;border:1px solid #dfd4b9;
+ border-radius:10px;color:#334e5a;
+}
