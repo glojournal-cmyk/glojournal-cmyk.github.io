@@ -284,20 +284,50 @@ function acceptedForMarking(e){
  const instruction=String(e.prompt??"")+" "+String(e.task?.label??"");
  if(/\b(?:list|give|name|write|provide)\s+(?:all|both|two|three|\d+)\b|\b(?:all of the following|both meanings|two separate meanings)\b/i.test(instruction))return originals;
  const options=new Set(originals);
+ const group=word=>{
+  const w=String(word).toLowerCase().replace(/['’].*$/,"");
+  if(/^(?:he|she|it|they|i|you|we|il|elle|ils|elles|je|j|tu|nous|vous|on)$/.test(w))return "pronoun";
+  if(/^(?:mon|ma|mes|ton|ta|tes|son|sa|ses|my|your|his|her|our|their)$/.test(w))return "possessive";
+  if(/^(?:le|la|les|un|une|des|du|de|the|a|an)$/.test(w))return "article";
+  if(/^(?:in|on|at|to|from|by|with|of|for|dans|sur|en|à|au|aux|chez|par|pour)$/.test(w))return "preposition";
+  if(/^(?:trop|très|tres|very|too)$/.test(w))return "adverb";
+  return "";
+ };
+ const adjectivePair=/^(?:petit|petite|petits|petites|grand|grande|grands|grandes|small|large|big|bon|bonne|bons|bonnes|mauvais|mauvaise|mauvaises|good|bad|jeune|vieux|vieille|new|old|short|tall|long|little)$/i;
  for(const full of originals){
-  if(!/\s+\/\s+|\s+or\s+/i.test(full)||/\beither\b/i.test(full))continue;
-  const parts=full.split(/\s+\/\s+|\s+or\s+/i).map(s=>s.trim()).filter(Boolean);
+  if(/[;]/.test(full)||/\beither\b/i.test(full))continue;
+  // Compact separators apply only to language/vocabulary bank keys, not m/s,
+  // speed/time, formulae, ratios or science units.
+  const text=/^(?:fr|la|eng)-/i.test(String(e.id??""))?
+   full.replace(/([a-zÀ-ÿ]{3,})\/([a-zÀ-ÿ]{3,})/gi,"$1 / $2"):full;
+  if(!/\s+\/\s+|\s+or\s+/i.test(text))continue;
+  const parts=text.split(/\s+\/\s+|\s+or\s+/i).map(s=>s.trim()).filter(Boolean);
   if(parts.length<2||parts.length>8)continue;
   const tokens=parts.map(s=>s.split(/\s+/).filter(Boolean));
-  const standalone=tokens.every(s=>s.length===1)||parts.every((s,index)=>tokens[index].length>=2&&/^[A-ZÀ-ÖØ-Þ]/.test(s));
+  if(tokens.every(t=>t.length===1)){for(const part of parts)options.add(part);continue}
+  const first=tokens[0],last=tokens.at(-1);
+  const standalone=tokens.every((t,i)=>t.length>=2&&(
+   /^[A-ZÀ-ÖØ-Þ]/.test(parts[i])&&/^[A-ZÀ-ÖØ-Þ]/.test(parts[0])||
+   (group(t[0])&&group(t[0])===group(first[0]))||
+   t[0].toLowerCase()===first[0].toLowerCase()));
   if(standalone){for(const part of parts)options.add(part);continue}
-  const first=tokens[0];
+  // "he / she gets up", "le / la prof", "in / to the": shared suffix.
+  if(last.length>=2&&first.length===1&&group(first[0])&&tokens.every(t=>group(t[0])===group(first[0]))){
+   const suffix=last.slice(1);for(const t of tokens)options.add([...t.slice(0,1),...suffix].join(" "));continue;
+  }
+  // A single adjective slot and a shared noun: "dans un petit / grand appartement".
+  if(parts.length===2&&first.length>=3&&last.length>=2&&adjectivePair.test(first.at(-1))&&adjectivePair.test(last[0])){
+   const before=first.slice(0,-1),after=last.slice(1);
+   options.add([...first,...after].join(" "));
+   options.add([...before,...last].join(" "));
+   continue;
+  }
   if(first.length<2)continue;
-  options.add(parts[0]);
+  // "Je joue au badminton / au basket": common subject/verb.
+  // Do not accept bare fragments or invent incomplete translations.
+  if(first.length>=2)options.add(parts[0]);
   for(let k=1;k<tokens.length;k++){
    const part=tokens[k],prefixSize=first.length-part.length;
-   // Only restore a shared prefix when unambiguous: this must not accept
-   // bare grammatical fragments or invent "dans grand appartement".
    if(prefixSize<1||(part.length>1&&prefixSize<2))continue;
    options.add([...first.slice(0,prefixSize),...part].join(" "));
   }
