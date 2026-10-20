@@ -1,3 +1,8 @@
+// Route-only Study bridge, shared across Pet and every React shell that can
+// navigate back to Study. A failed optional import must never block Pet.
+import('/assets/study-rpg-live-boot-20261020.js?v=20261020-return-nav1')
+  .catch(error => console.warn('Study route bridge unavailable', error));
+
 import {STAGE_NAMES, clampPetLevel} from './pet-evolution-config-20261012.js?ux=20261013-corrections2';
 import {spriteStyle} from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
 import { getCareSummary } from "/pet/pet-care-state.js?v=20261003-care1&ux=20261013-corrections2";

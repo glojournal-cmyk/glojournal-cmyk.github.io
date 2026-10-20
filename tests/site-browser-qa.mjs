@@ -16,19 +16,19 @@ for(const [engine,launcher] of [["chromium",chromium],["webkit",webkit]]){
    page.on("pageerror",e=>row.errors.push(e.stack||e.message));
    page.on("response",r=>{if(r.status()>=400&&r.url().startsWith(base))row.badResponses.push({status:r.status(),url:r.url().slice(base.length)});});
    try{
+    // Load the target document first. Setting Year 8 on a separate Home
+   // document then navigating away aborts pending Home fetches in WebKit.
+   // Those old-document errors were incorrectly attributed to this route.
+   // Switching the actual target page also exercises the real year selector
+   // and keeps genuine errors, HTTP failures and broken assets observable.
+    const response=await page.goto(base+item.route,{waitUntil:"domcontentloaded",timeout:45000});row.status=response?.status();
     if(item.year){
-     await page.goto(base+"/",{waitUntil:"domcontentloaded"});
-     await page.waitForTimeout(1800);
      await page.evaluate(async year=>{
       const src=[...document.scripts].map(s=>s.src).find(s=>s.includes("/assets/index-BLVOhKhN.js"));
+      if(!src) throw new Error("Study route does not load the expected app bundle");
       const mod=await import(src);mod.C.getState().setYear(year);
      },item.year);
-     // Let the first document finish its assessment fetches before
-     // navigating; WebKit reports aborted old-document fetches as page errors.
-     await page.waitForLoadState('networkidle',{timeout:20000});
-     row.errors=[];row.badResponses=[];
     }
-    const response=await page.goto(base+item.route,{waitUntil:"domcontentloaded",timeout:45000});row.status=response?.status();
     await page.waitForTimeout(4500);
     const snap=await page.evaluate(()=>({
       title:document.title,headings:[...document.querySelectorAll("h1,h2,h3")].filter(e=>e.getBoundingClientRect().height).map(e=>e.textContent),

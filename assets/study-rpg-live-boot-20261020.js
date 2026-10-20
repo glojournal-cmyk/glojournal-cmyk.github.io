@@ -1,6 +1,6 @@
 /* Study RPG production route bridge. No learning state or persistence writes.
- * Standalone module loads only on the Study directory, including client-side
- * navigation from the RPG Home; ?studyRpgPreview=0 is a safe legacy fallback.
+ * Installed on all App entry pages, so Pet/Play/Garden/Scholar returns to Study
+ * always restore the integrated classroom. ?studyRpgPreview=0 is a native fallback.
  */
 (function () {
   'use strict';
@@ -36,8 +36,11 @@
     if (!anchor || anchor.target === '_blank' || anchor.hasAttribute('download')) return;
     let url;
     try { url = new URL(anchor.href, location.href); } catch { return; }
-    if (url.origin !== location.origin || url.pathname !== '/study') return;
+    if (url.origin !== location.origin || !/^\/study\/?$/.test(url.pathname)) return;
     if (new URLSearchParams(url.search).get('studyRpgPreview') === '0') return;
+    // Enter the complete Study document, not a React layout-only SPA route.
+    // Already on Study? Keep its local year selector and avoid a self reload.
+    if (/^\/study\/?$/.test(location.pathname)) return;
     event.preventDefault();
     event.stopImmediatePropagation();
     location.assign('/study/' + url.search + url.hash);

@@ -66,6 +66,18 @@ try{
         try{return JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}')?.state?.daily?.length===10}
         catch{return false}
       },null,{timeout:15000});
+      // Pet care initializes independently after the Home becomes visible.
+      // Wait for its initial default record before taking a baseline: a
+      // concurrent first-load normalization is not caused by Say hello.
+      // We still compare all persisted values immediately after greeting
+      // and Settings, so actual unintended writes remain a failure.
+      await page.waitForFunction(()=>{
+        try {
+          const p=JSON.parse(localStorage.getItem('lux-pet-companion-v1')||'{}');
+          return typeof p.species==='string' && !!p.care &&
+            Number.isFinite(p.care.energy) && !!p.care.daily;
+        } catch { return false; }
+      },null,{timeout:15000});
       const snapshot=()=>page.evaluate(()=>{
         const raw=JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}');
         const s=raw.state||raw;
