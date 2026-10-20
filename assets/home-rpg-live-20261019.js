@@ -27,6 +27,8 @@ if (!window.__luxRpgLiveHome) {
   let greetingMessage = '';
   let scheduled = false;
   let ready = !!window.__luxAppReady;
+  let lastRenderSignature = '';
+  let pendingPaint = 0;
 
   const make = (tag, cls, value) => {
     const node = document.createElement(tag);
@@ -437,14 +439,35 @@ if (!window.__luxRpgLiveHome) {
       if (!onHome()) { originalVisible = false; greetingMessage = ''; closeGardenModal(); }
       root.remove();document.documentElement.classList.remove('lux-rpg-live-active');return;
     }
-    if (!root.isConnected) document.body.append(root);
+    // Wait for saved wardrobe state before showing the Home character.
+    if (store.persist?.hasHydrated && !store.persist.hasHydrated()) return;
     if (gardenModal) return; // Never destroy an open native Recovery dialogue.
     if (originalVisible) return;
+    const state = store.getState?.() || {};
+    const pet = petState();
+    const signature = JSON.stringify({
+      outfit: state.equippedOutfit, scene: state.equippedScene,
+      xp: state.xp, level: state.level, scholarLevel: state.scholarLevel,
+      mind: state.latinXp, body: state.bodyXp,
+      topicStats: state.topicStats, today: state.today, daily: state.daily,
+      dailyLog: state.dailyLog, formalAttemptLog: state.formalAttemptLog,
+      recovery: state.recoveryHistory, petSpecies: pet.species,
+      petLevels: pet.petLevels, petStage: pet.highestStage,
+      greetingMessage, greetingCount
+    });
+    if (root.isConnected && signature === lastRenderSignature) return;
+    render(state);
+    lastRenderSignature = signature;
+    if (!root.isConnected) document.body.append(root);
     document.documentElement.classList.add('lux-rpg-live-active');
     root.classList.remove('show-native');
-    render(store.getState?.() || {});
   }
-  function schedule(){if(!scheduled){scheduled=true;queueMicrotask(repaint);}}
+  function schedule(){
+    if (scheduled) return;
+    scheduled = true;
+    // Coalesce hydration and bursty startup changes into one animation frame.
+    pendingPaint = requestAnimationFrame(repaint);
+  }
   for(const key of ['pushState','replaceState']) {
     const previous=history[key];
     history[key]=function(){const val=previous.apply(this,arguments);schedule();return val;};
@@ -459,6 +482,6 @@ if (!window.__luxRpgLiveHome) {
   window.addEventListener('scholar:pet-changed',schedule);
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')schedule();});
   store.subscribe?.(schedule);
-  store.persist?.onFinishHydration?.(schedule);
+  store.persist?.onFinishHydration?.(() => { lastRenderSignature = ''; schedule(); });
   schedule();
 }
