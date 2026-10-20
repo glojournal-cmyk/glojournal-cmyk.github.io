@@ -162,7 +162,21 @@ async function checkRealPractice(browser,engine){
   assert.ok(marked.text.length>40,'feedback and live question must remain readable');
   await page.screenshot({path:path.join(out,engine+'-real-french-after.png'),fullPage:true});
   await page.reload({waitUntil:'domcontentloaded'});
-  await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:30000});
+  await page.waitForTimeout(6000);
+  const restoreDiagnostic=await page.evaluate(()=>({
+    location:location.href,ready:window.__luxAppReady,
+    title:document.title,
+    body:document.body.innerText.slice(0,1800),
+    questionCount:document.querySelectorAll('[data-question-id]').length,
+    active:document.documentElement.classList.contains('lux-daily-ux-ready'),
+    main:document.querySelector('main')?.innerText.slice(0,1800),
+    year:window.__luxStore?.getState?.().year,
+    storageKeys:Object.keys(localStorage).filter(k=>/draft|progress|lux/.test(k)).slice(0,25),
+    errors:document.querySelector('#lux-loading-recovery')?.innerText
+  }));
+  console.log('DAILY_REAL_RESUME_DIAGNOSTIC '+JSON.stringify({engine,restoreDiagnostic,errors}));
+  await page.screenshot({path:path.join(out,engine+'-real-french-reload.png'),fullPage:true});
+  await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:16000});
   assert.equal(await page.locator('#lux-daily-study-nav a').count(),7,'reload must restore Study nav');
   await page.goto(url+'&dailyUxPreview=0',{waitUntil:'domcontentloaded'});
   await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:30000});
