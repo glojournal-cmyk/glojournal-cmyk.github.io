@@ -8,17 +8,8 @@
   window.__luxStudyRpgBootInstalled = true;
   let loading = false;
   function showStudy() {
-    // The native SPA links to /study (the layout route), but the complete
-    // Study Library is /study/ (index child route). Canonicalize with a real
-    // navigation to preserve hydration and the complete native year selector.
-    if (location.pathname === '/study') {
-      const url = new URL(location.href);
-      url.pathname = '/study/';
-      location.replace(url.pathname + url.search + url.hash);
-      return;
-    }
-    if (!/^\/study\/?$/.test(location.pathname)) return;
     if (new URLSearchParams(location.search).get('studyRpgPreview') === '0') return;
+    if (!/^\/study\/?$/.test(location.pathname)) return;
     if (loading || window.__luxStudyRpgIntegrated) return;
     loading = true;
     import('/assets/study-rpg-integrated-20261019.js?v=20261020-study-live1')
@@ -35,6 +26,22 @@
       return value;
     };
   }
+  // Native Home links point to /study (layout only). Follow the complete
+  // /study/ document instead of the SPA's layout route, avoiding navigation
+  // loops and loading exactly the same screen verified by iPad WebKit.
+  document.addEventListener('click', event => {
+    if (event.defaultPrevented || event.button !== 0 ||
+        event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
+    const anchor = event.target?.closest?.('a[href]');
+    if (!anchor || anchor.target === '_blank' || anchor.hasAttribute('download')) return;
+    let url;
+    try { url = new URL(anchor.href, location.href); } catch { return; }
+    if (url.origin !== location.origin || url.pathname !== '/study') return;
+    if (new URLSearchParams(url.search).get('studyRpgPreview') === '0') return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    location.assign('/study/' + url.search + url.hash);
+  }, true);
   window.addEventListener('popstate', showStudy);
   window.addEventListener('pageshow', showStudy);
   window.addEventListener('lux:app-ready', showStudy);
