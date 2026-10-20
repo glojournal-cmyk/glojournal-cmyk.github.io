@@ -38,7 +38,7 @@ try{
         fs.mkdirSync('test-results',{recursive:true});
         const errors=[];
         page.on('pageerror',e=>errors.push(e.message));
-        await page.goto(origin+'/study/?studyRpgPreview=1');
+        await page.goto(origin+'/study/');
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
         // The visual stylesheet is attached dynamically; do not inspect visibility
         // before it loads, otherwise the original hoisted nav can still flash.
@@ -47,6 +47,7 @@ try{
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-pet').count(),1);
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-scholar').count(),1);
         assert.equal(await page.locator('html.lux-study-rpg-active').count(),1);
+        assert.equal(await page.evaluate(()=>!!window.__luxStudyRpgBootInstalled),true,'Production route bridge is installed');
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-nav a').count(),7);
         await page.waitForTimeout(150);
         await page.screenshot({path:`test-results/study-rpg-${engine.name()}-${viewport.width}-precheck.png`,fullPage:false});
@@ -100,4 +101,26 @@ try{
       }
     }finally{await browser.close();}
   }
+  // New Study scene must also load after an actual Home-to-Study tap.
+  for(const engine of [chromium,webkit]){
+    const browser=await engine.launch({headless:true});
+    try{
+      const page=await browser.newPage({viewport:{width:1024,height:768}});
+      await page.goto(origin+'/');
+      await page.locator('a[href="/study"]').first().click();
+      await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
+      assert.equal(new URL(page.url()).pathname.replace(/\\/$/,''),'/study');
+      assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').count(),6,'Home→Study navigation loads production scene');
+      await page.close();
+    }finally{await browser.close();}
+  }
+  // Emergency fallback retains real native Study if a layout issue is reported.
+  const fallbackBrowser=await chromium.launch({headless:true});
+  try{
+    const page=await fallbackBrowser.newPage();
+    await page.goto(origin+'/study/?studyRpgPreview=0');
+    await page.locator('main select:has(option[value="8"])').waitFor({timeout:25000});
+    assert.equal(await page.locator('#lux-study-rpg-integrated').count(),0,'Legacy fallback must bypass new overlay');
+    await page.close();
+  }finally{await fallbackBrowser.close();}
 }finally{server.close();}
