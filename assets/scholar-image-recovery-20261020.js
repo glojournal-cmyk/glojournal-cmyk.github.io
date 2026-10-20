@@ -1,6 +1,7 @@
 /* Scholar image resilience. Display-only: never write progress or outfit state. */
 (() => {
-  if (!location.pathname.startsWith('/scholar')) return;
+  if (window.__scholarImageResilienceInstalled) return;
+  window.__scholarImageResilienceInstalled = true;
   const observed = new WeakSet();
   const observe = (img) => {
     if (observed.has(img)) return;
@@ -41,6 +42,7 @@
     slot.appendChild(note);
   }
   function scan(root = document) {
+    if (!location.pathname.startsWith('/scholar')) return;
     if (root instanceof HTMLImageElement) observe(root);
     root.querySelectorAll?.('img').forEach(observe);
   }
