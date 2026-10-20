@@ -4,7 +4,7 @@
  */
 import './home-journey-v2-logic-20261010.js?v=20261010-home-v2';
 import './journey-navigation-20261004.js';
-import { C as store, B as rewardScenes } from './index-BLVOhKhN.js?v=20261018-mastery2';
+import { A as wardrobeOutfits, C as store, B as rewardScenes } from './index-BLVOhKhN.js?v=20261018-mastery2';
 import { selectedRewardScene } from './rpg-scene-selection-20261019.js?v=20261019-selected-scene1';
 import { petArtUrl } from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
 import { getHomePersonality } from '/pet/home-personality-20261010.js?v=20261019-rpg-greeting1';
@@ -355,7 +355,7 @@ if (!window.__luxRpgLiveHome) {
       scholar.dataset.fallbackArt = 'true';
       scholar.src = defaultScholarArt;
     });
-    scholar.src = outfit === 'day' ? defaultScholarArt : `/art/doll/${outfit}.png`;
+    scholar.src = outfit === 'day' ? defaultScholarArt : (wardrobeOutfits.find(item => item.id === outfit)?.art || defaultScholarArt);
     const pet = petState();
     const species = safeImage(pet.species || 'moss-hornling','moss-hornling');
     const petLink = make('a','rpg-pet-live');petLink.href='/pet/'; petLink.setAttribute('aria-label','Open companion');
