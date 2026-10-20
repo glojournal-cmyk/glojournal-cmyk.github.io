@@ -64,6 +64,13 @@ try{
     assert.ok(sizes.style,'Pet sanctuary stylesheet loaded');
     assert.equal(sizes.topbar,'none','Old duplicate Pet topbar must be hidden in preview');
     assert.ok(sizes.bg.includes('magic-floor.jpg'),'Same academy botanical scene as other new pages');
+    const visibleColours=await page.evaluate(()=>({
+      need:getComputedStyle(document.querySelector('#nextText')).color,
+      nav:getComputedStyle(document.querySelector('.lux-shell-nav')).backgroundColor,
+      petLink:getComputedStyle(document.querySelector('.lux-shell-nav a[href="/pet/"]')).color
+    }));
+    assert.equal(visibleColours.need,'rgb(255, 240, 211)','MP required text is readable on dark Evolution Path panel');
+    assert.equal(visibleColours.nav,'rgba(26, 51, 64, 0.965)','Bottom nav matches Study/Play dark navy');
     assert.ok(sizes.art.includes('url('),'Real species/level artwork loaded');
     assert.ok(sizes.pet.width>=viewport.width*.4||viewport.width<700,'Large focal stage in landscape');
     assert.ok(sizes.scrollWidth<=viewport.width+4,'No horizontal overflow on iPad/mobile');
