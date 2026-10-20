@@ -27,25 +27,25 @@
     document.body.classList.add('scholar-wardrobe-preview');
     const wrap=document.querySelector('main > div');
     if(!wrap)return;
-    wrap.classList.add('scholar-wardrobe-root');
+    if(!wrap.classList.contains('scholar-wardrobe-root'))wrap.classList.add('scholar-wardrobe-root');
     const kids=[...wrap.children];
     const header=kids.find(el=>el.tagName==='HEADER');
-    if(header)header.classList.add('scholar-wardrobe-intro');
+    if(header&&!header.classList.contains('scholar-wardrobe-intro'))header.classList.add('scholar-wardrobe-intro');
     const tabs=kids.find(el=>el.tagName==='DIV'&&['Wardrobe','Collection','Achievements','Settings'].every(name=>(el.innerText||'').includes(name))&&(el.querySelectorAll('button').length===4));
-    if(tabs)tabs.classList.add('scholar-wardrobe-tabs');
+    if(tabs&&!tabs.classList.contains('scholar-wardrobe-tabs'))tabs.classList.add('scholar-wardrobe-tabs');
     // React replaces the active tab pane. Reclassify its *current* actual DOM
     // instead of copying the portrait, wardrobe buttons or save state.
     const pane=kids.find(el=>el!==tabs&&el!==header&&el.tagName==='DIV');
     if(pane){
-      pane.classList.add('scholar-active-content');
+      if(!pane.classList.contains('scholar-active-content'))pane.classList.add('scholar-active-content');
       const stage=pane.querySelector('img[alt^="Scholar in "]')?.closest('.relative.aspect-\\[4\\/5\\]');
       // Class-match fallback accepts React's minified Tailwind render variations.
       const current=stage||[...pane.querySelectorAll('div')].find(el=>
         el.className?.includes?.('aspect-[4/5]')&&el.querySelector('img[alt^="Scholar in "]'));
-      if(current)current.classList.add('scholar-wardrobe-stage');
+      if(current&&!current.classList.contains('scholar-wardrobe-stage'))current.classList.add('scholar-wardrobe-stage');
       const right=current?.nextElementSibling;
-      if(right)right.classList.add('scholar-wardrobe-closet');
-      if(current&&right)pane.classList.add('scholar-wardrobe-split');
+      if(right&&!right.classList.contains('scholar-wardrobe-closet'))right.classList.add('scholar-wardrobe-closet');
+      if(current&&right&&!pane.classList.contains('scholar-wardrobe-split'))pane.classList.add('scholar-wardrobe-split');
     }
     createNav();
   }
