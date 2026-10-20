@@ -5,7 +5,7 @@
   const observe = (img) => {
     if (observed.has(img)) return;
     observed.add(img);
-    img.addEventListener('error', () => {
+    const recover = () => {
       if (!img.dataset.scholarRetried) {
         img.dataset.scholarRetried = '1';
         const original = img.getAttribute('src') || '';
@@ -16,7 +16,9 @@
         return;
       }
       showFallback(img);
-    });
+    };
+    img.addEventListener('error', recover);
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) recover();
   };
   function showFallback(img) {
     if (img.dataset.scholarFallback) return;
