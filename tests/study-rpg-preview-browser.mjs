@@ -147,14 +147,20 @@ try{
         // SPA links can update the URL before React commits the destination.
         // Find and activate the real destination nav in one animation frame:
         // WebKit can replace that node between a separate wait and click.
-        await page.waitForFunction(() => {
-          const links=[...document.querySelectorAll('a[href="/study"],a[href="/study/"]')];
-          const link=links.find(a=>!a.closest('#lux-study-rpg-integrated') &&
-            a.getClientRects().length>0 && getComputedStyle(a).visibility!=='hidden');
-          if(!link)return false;
-          link.click();
-          return true;
-        },null,{timeout:20000});
+        if (target.name === 'Play') {
+          // Play is now a full-screen hall: use its visible navigation,
+          // not the old React nav hidden behind that hall.
+          await page.locator('#lux-play-hall-preview .lux-play-hall-nav a[href="/study/"]').click();
+        } else {
+          await page.waitForFunction(() => {
+            const links=[...document.querySelectorAll('a[href="/study"],a[href="/study/"]')];
+            const link=links.find(a=>!a.closest('#lux-study-rpg-integrated') &&
+              a.getClientRects().length>0 && getComputedStyle(a).visibility!=='hidden');
+            if(!link)return false;
+            link.click();
+            return true;
+          },null,{timeout:20000});
+        }
         await page.waitForURL(u=>/^\/study\/?$/.test(u.pathname),{timeout:20000});
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
         await page.waitForFunction(()=>document.documentElement.classList.contains('lux-study-rpg-active'));
