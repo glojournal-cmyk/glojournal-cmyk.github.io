@@ -177,7 +177,7 @@ function render(){
   const unlocked=Array.isArray(state.collectibles)?state.collectibles:[];
   const key=JSON.stringify([exp,st.stage,st.left,st.upcoming?.min,growthStep,watered,unlocked]);
   if(key===lastKey)return;lastKey=key;
-  parts.stage.querySelector('strong').textContent='Stage '+st.stage+' · '+safeText(st.current?.name);
+  parts.stage.querySelector('strong').textContent='Stage '+st.stage;
   const min=Number(st.current?.min)||0;
   const max=Number(st.upcoming?.min)||Math.max(exp,1);
   const pct=st.upcoming?Math.max(0,Math.min(100,100*(exp-min)/Math.max(1,max-min))):100;
@@ -185,7 +185,7 @@ function render(){
   parts.stage.querySelector('.lux-stage-xp').textContent=st.upcoming?
     exp.toLocaleString()+' / '+max.toLocaleString()+' XP':exp.toLocaleString()+' XP';
   parts.stage.querySelector('em').textContent=st.upcoming?
-    st.left.toLocaleString()+' XP to '+st.upcoming.name:'All Garden stages unlocked';
+    safeText(st.current?.name)+' · '+st.left.toLocaleString()+' XP to '+st.upcoming.name:'All Garden stages unlocked';
   parts.basil.querySelector('span').textContent='Basil growth: '+growthStep+' / 7 steps';
   parts.water.textContent=watered?'✓  WATERED TODAY':'♧  WATER THE GARDEN';
   parts.water.disabled=watered||!nativeWater();
