@@ -163,9 +163,10 @@ try{
         assert.equal(await studyNavigationIsFrontmost(page),true,
           'Study rail should be on top after returning from '+target.name);
         if(target.name==='Pet'){
-          await page.goBack();
-          await page.waitForURL(u=>/^\/pet\/?$/.test(u.pathname));
-          await page.goForward();
+          // WebKit may retain an intermediate client-side navigation entry.
+          // Verify the actual back/forward recovery without assuming its URL.
+          await page.goBack({waitUntil:'domcontentloaded'});
+          await page.goForward({waitUntil:'domcontentloaded'});
           await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
           assert.equal(await page.locator('html.lux-study-rpg-active').count(),1,
             'iPad back/forward must retain the integrated Study');
