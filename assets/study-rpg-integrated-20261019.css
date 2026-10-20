@@ -55,3 +55,35 @@ html.lux-study-rpg-active,html.lux-study-rpg-active body{height:100dvh;overflow:
  .lux-study-rpg-pet-link[data-pet-form="small"] .lux-study-rpg-pet{transform:scale(1.35)}
  .lux-study-rpg-pet-link[data-pet-form="evolved"] .lux-study-rpg-pet{transform:scale(1.15)}
 }
+
+/* STUDY_PET_NATIVE_RES_20261020: retain approved Pet sprite and stage, but render directly at its
+ * display size. Avoid scale() after WebKit has rasterized a tiny layout image. */
+.lux-study-rpg-pet-link{
+  width:clamp(11rem,22vw,14rem);
+  height:clamp(12rem,30vh,14.5rem);
+  max-width:none;
+  left:72%;
+  bottom:0;
+}
+.lux-study-rpg-pet{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:none;
+  object-fit:contain;
+  object-position:center bottom;
+  image-rendering:auto;
+  transform:none !important;
+}
+.lux-study-rpg-pet-link[data-pet-form="evolved"]{
+  width:clamp(11rem,21vw,14rem);
+  height:clamp(15rem,38vh,20rem);
+}
+@media (min-width:701px) and (max-width:1100px){
+  .lux-study-rpg-pet-link{left:72%;width:clamp(11rem,23vw,14rem);height:clamp(12rem,30vh,14.5rem);max-width:none}
+  .lux-study-rpg-pet-link[data-pet-form="evolved"]{width:clamp(11rem,22vw,14rem);height:clamp(15rem,38vh,20rem)}
+}
+@media (max-width:700px){
+  .lux-study-rpg-pet-link{left:61%;width:clamp(8.5rem,36vw,10rem);height:clamp(9rem,24vh,11rem);max-width:none}
+  .lux-study-rpg-pet-link[data-pet-form="evolved"]{width:clamp(8.5rem,36vw,10rem);height:clamp(12rem,31vh,15rem)}
+}
