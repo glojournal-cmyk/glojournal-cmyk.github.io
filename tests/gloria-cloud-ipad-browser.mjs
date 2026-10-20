@@ -62,6 +62,18 @@ try{
     assert.ok(recovery.length>=43,"owner must be shown recoverable AES key");
     assert.equal(uploads.length,0,"do not send anything until recovery key saved");
     await page.getByRole("button",{name:/I safely stored recovery key/}).click();
+    // On the real iPad localStorage writes have been failing with quota errors.
+    // The cloud upload path MUST use live store memory + IndexedDB key and work
+    // without attempting any localStorage write.
+    await page.evaluate(()=>{
+      const original=Storage.prototype.setItem;
+      window.__quotaWriteAttempts=0;
+      Storage.prototype.setItem=function(){
+        window.__quotaWriteAttempts++;
+        throw new DOMException("Storage quota exceeded","QuotaExceededError");
+      };
+      window.__restoreStorage=()=>{Storage.prototype.setItem=original};
+    });
     await page.getByRole("button",{name:"Back up now"}).click();
     await page.getByText("Cloud saved and verified",{exact:false}).waitFor();
     assert.equal(uploads.length,1,"manual backup should send exactly one encrypted copy");
@@ -75,6 +87,8 @@ try{
     assert.equal(restore.main.state.xp,2748);
     assert.equal(restore.drafts.draft.N,"older French");
     assert.equal(await page.locator("#answer").inputValue(),"Je voudrais un verre deau");
+    assert.equal(await page.evaluate(()=>window.__quotaWriteAttempts),0,"cloud backup makes no localStorage writes");
+    await page.evaluate(()=>window.__restoreStorage());
     await page.reload();
     await page.getByText("Cloud enabled. Latest:",{exact:false}).waitFor();
     assert.equal(await page.evaluate(async()=>{
