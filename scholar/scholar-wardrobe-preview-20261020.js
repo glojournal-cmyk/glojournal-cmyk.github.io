@@ -28,14 +28,15 @@
     const wrap=document.querySelector('main > div');
     if(!wrap)return;
     if(!wrap.classList.contains('scholar-wardrobe-root'))wrap.classList.add('scholar-wardrobe-root');
-    const kids=[...wrap.children];
-    const header=kids.find(el=>el.tagName==='HEADER');
+    const header=wrap.querySelector(':scope > header')||wrap.querySelector('header');
     if(header&&!header.classList.contains('scholar-wardrobe-intro'))header.classList.add('scholar-wardrobe-intro');
-    const tabs=kids.find(el=>el.tagName==='DIV'&&['Wardrobe','Collection','Achievements','Settings'].every(name=>(el.innerText||'').includes(name))&&(el.querySelectorAll('button').length===4));
-    if(tabs&&!tabs.classList.contains('scholar-wardrobe-tabs'))tabs.classList.add('scholar-wardrobe-tabs');
-    // React replaces the active tab pane. Reclassify its *current* actual DOM
-    // instead of copying the portrait, wardrobe buttons or save state.
-    const pane=kids.find(el=>el!==tabs&&el!==header&&el.tagName==='DIV');
+    // React's tab bar is the sibling directly following the live Scholar heading.
+    // Match its actual button labels, not browser-dependent innerText.
+    const tabs=header?.nextElementSibling;
+    if(tabs&&tabs.querySelectorAll('button').length===4&&!tabs.classList.contains('scholar-wardrobe-tabs'))
+      tabs.classList.add('scholar-wardrobe-tabs');
+    // React swaps the active pane when Wardrobe/Collection/etc changes.
+    const pane=tabs?.nextElementSibling;
     if(pane){
       if(!pane.classList.contains('scholar-active-content'))pane.classList.add('scholar-active-content');
       const stage=pane.querySelector('img[alt^="Scholar in "]')?.closest('.relative.aspect-\\[4\\/5\\]');
