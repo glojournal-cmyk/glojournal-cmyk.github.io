@@ -9,6 +9,14 @@ test('17 existing game routes are preserved and have real native pages',()=>{
  assert.equal(lines.length,17);assert.equal(new Set(lines.map(m=>m[1])).size,17);
  const totals=Object.fromEntries(['language','science','puzzle','challenge'].map(k=>[k,lines.filter(x=>x[2]===k).length]));assert.deepEqual(totals,{language:6,science:4,puzzle:4,challenge:3});
 });
+test('Every category shows all existing game chips rather than truncated preview entries',()=>{
+ assert.match(src,/games\.forEach\(\(\[id,name\]\)=>chips\.append\(action\(id,name\)\)\)/);
+ assert.doesNotMatch(src,/games\.slice\(0,3\)/);
+ assert.match(css,/height:min\(69vh,39rem\)/);
+ assert.match(css,/height:67vh/);
+ assert.match(html,/play-hall-live-boot-20261020\.js\?v=20261020-full-list2/);
+});
+
 test('uses the same Home outfit state and actual earned points, never demo XP/rewards',()=>{
  assert.match(src,/state\.equippedOutfit\s*\|\|\s*'day'/);
  assert.match(src,/art\/home-rpg\/scholar-clean\.png/);
