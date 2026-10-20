@@ -155,7 +155,9 @@ try{
           // Wait for the shared route bridge before triggering a real tap.
           // Evaluating link.click() inside waitForFunction can fire against an
           // early DOM node before Safari has installed the route handlers.
-          await page.waitForFunction(
+          // Assessment is a standalone HTML screen with native Study links
+          // and does not mount the React route bridge used by Home/Garden/Pet.
+          if(target.name!=='Assessment')await page.waitForFunction(
             () => window.__luxStudyRpgBootInstalled === true,
             null,{timeout:20000}
           );
