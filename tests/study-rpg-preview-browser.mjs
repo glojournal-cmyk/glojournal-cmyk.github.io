@@ -109,7 +109,7 @@ try{
       await page.goto(origin+'/');
       await page.locator('a[href="/study"]').first().click();
       await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
-      assert.equal(new URL(page.url()).pathname.replace(/\\/$/,''),'/study');
+      assert.equal(new URL(page.url()).pathname.replace(/\/$/,''),'/study');
       assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').count(),6,'Home→Study navigation loads production scene');
       await page.close();
     }finally{await browser.close();}
