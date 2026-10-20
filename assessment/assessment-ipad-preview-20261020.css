@@ -88,3 +88,27 @@ body.lux-shell-on #exam .feedback{margin:10px 0}
  body.lux-shell-on #exam .choice{min-height:49px;padding:8px 14px}
  body.lux-shell-on #exam textarea.answer{min-height:95px}
 }
+
+/* Align the seven destinations with the approved Study/Play navigation order.
+   Presentation-only: preserve each original shell route and click handler. */
+body.lux-shell-on .lux-shell-nav a[href="/"]{order:1}
+body.lux-shell-on .lux-shell-nav a[href="/study/"]{order:2}
+body.lux-shell-on .lux-shell-nav a[href="/play"]{order:3}
+body.lux-shell-on .lux-shell-nav a[href="/garden"]{order:4}
+body.lux-shell-on .lux-shell-nav a[href="/pet/"]{order:5}
+body.lux-shell-on .lux-shell-nav a[href="/assessment"]{order:6}
+body.lux-shell-on .lux-shell-nav a[href="/scholar"]{order:7}
+@media (min-width:900px) and (orientation:landscape){
+ /* School assessments is already the page heading. A second Timed practice
+    heading and paragraph prevent the first real paper from fitting on iPad. */
+ body.lux-shell-on .intro>p:not(.eyebrow){display:none}
+ body.lux-shell-on #papers.panel>h2,
+ body.lux-shell-on #papers.panel>p.muted{display:none}
+ /* Do not remove the supplementary Latin link; surface it on Latin tab,
+    keeping Biology's imminent paper at the top on first visit. */
+ body.lux-shell-on #papers.panel>p.feedback{display:none}
+ body.lux-shell-on #papers.panel:has(#subject-bar [data-subject="Latin"].on)>p.feedback{display:block}
+ body.lux-shell-on #papers.panel{padding-top:14px}
+ body.lux-shell-on .subject-block .cards{margin-top:9px!important}
+ body.lux-shell-on #assessment-filters.assessment-filters{margin:9px 0}
+}
