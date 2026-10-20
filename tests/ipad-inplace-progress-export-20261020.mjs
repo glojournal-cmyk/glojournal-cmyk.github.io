@@ -41,7 +41,7 @@ try {
       Storage.prototype.setItem=function(){window.__unsafeWrites++;throw Error('QuotaExceededError')};
       window.__restoreSetItem=()=>{Storage.prototype.setItem=priorSet};
     },json);
-    await page.addScriptTag({url:url+'/assets/storage-health-20261011.js'});
+    await page.addScriptTag({url:new URL('/assets/storage-health-20261011.js',url).href});
     await page.locator('#lux-storage-export').waitFor({state:'visible'});
     assert.match(await page.locator('#lux-storage-warning').innerText(),/could not be saved on this iPad/i);
     assert.match(await page.locator('#lux-storage-warning').innerText(),/Unsubmitted typed answers may not be included/);
