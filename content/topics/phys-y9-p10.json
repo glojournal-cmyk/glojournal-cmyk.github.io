@@ -1847,18 +1847,777 @@
       },
       "preview": true,
       "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-001",
+      "conceptId": "phys-y9-p10-gcse-oct20-001-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "Explain why evaporation can cool the liquid left behind. (4 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Surface particles have a range of kinetic energies.",
+          "Higher-energy particles are more likely to escape.",
+          "The escaping particles carry energy away.",
+          "Average kinetic energy and temperature of the remaining liquid decrease unless energy is replaced."
+        ],
+        "totalMarks": 4,
+        "modelAnswer": "Surface particles have a range of kinetic energies. Higher-energy particles are more likely to escape. The escaping particles carry energy away. Average kinetic energy and temperature of the remaining liquid decrease unless energy is replaced."
+      },
+      "stimulus": {
+        "marks": 4
+      },
+      "feedback": {
+        "short": "Average kinetic energy and temperature of the remaining liquid decrease unless energy is replaced.",
+        "steps": [
+          "Surface particles have a range of kinetic energies.",
+          "Higher-energy particles are more likely to escape.",
+          "The escaping particles carry energy away.",
+          "Average kinetic energy and temperature of the remaining liquid decrease unless energy is replaced."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Surface particles have a range of kinetic energies.; Higher-energy particles are more likely to escape.; The escaping particles carry energy away.; Average kinetic energy and temperature of the remaining liquid decrease unless energy is replaced."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-002",
+      "conceptId": "phys-y9-p10-gcse-oct20-002-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "Why does a puddle usually dry faster on a warm day than a cold day? (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Higher temperature gives particles more average kinetic energy.",
+          "More surface particles have enough energy to escape per unit time."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Higher temperature gives particles more average kinetic energy. More surface particles have enough energy to escape per unit time."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "More surface particles have enough energy to escape per unit time.",
+        "steps": [
+          "Higher temperature gives particles more average kinetic energy.",
+          "More surface particles have enough energy to escape per unit time."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Higher temperature gives particles more average kinetic energy.; More surface particles have enough energy to escape per unit time."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-003",
+      "conceptId": "phys-y9-p10-gcse-oct20-003-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "Explain why spreading water thinly across a tray increases evaporation rate. (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "A larger surface area is exposed to air.",
+          "More surface particles can escape per unit time."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "A larger surface area is exposed to air. More surface particles can escape per unit time."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "More surface particles can escape per unit time.",
+        "steps": [
+          "A larger surface area is exposed to air.",
+          "More surface particles can escape per unit time."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "A larger surface area is exposed to air.; More surface particles can escape per unit time."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-004",
+      "conceptId": "phys-y9-p10-gcse-oct20-004-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "Explain why laundry dries more quickly in a breeze. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Water evaporates into the air close to the fabric.",
+          "Moving air removes water vapour from near the wet surface.",
+          "The air next to the fabric stays less humid, allowing faster net evaporation."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Water evaporates into the air close to the fabric. Moving air removes water vapour from near the wet surface. The air next to the fabric stays less humid, allowing faster net evaporation."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "The air next to the fabric stays less humid, allowing faster net evaporation.",
+        "steps": [
+          "Water evaporates into the air close to the fabric.",
+          "Moving air removes water vapour from near the wet surface.",
+          "The air next to the fabric stays less humid, allowing faster net evaporation."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Water evaporates into the air close to the fabric.; Moving air removes water vapour from near the wet surface.; The air next to the fabric stays less humid, allowing faster net evaporation."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-005",
+      "conceptId": "phys-y9-p10-gcse-oct20-005-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "Why does water evaporate more slowly on a humid day? (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Humid air already contains a high concentration of water vapour.",
+          "The concentration difference from the wet surface to the air is smaller.",
+          "There is less net movement of water molecules away from the surface."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Humid air already contains a high concentration of water vapour. The concentration difference from the wet surface to the air is smaller. There is less net movement of water molecules away from the surface."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "There is less net movement of water molecules away from the surface.",
+        "steps": [
+          "Humid air already contains a high concentration of water vapour.",
+          "The concentration difference from the wet surface to the air is smaller.",
+          "There is less net movement of water molecules away from the surface."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Humid air already contains a high concentration of water vapour.; The concentration difference from the wet surface to the air is smaller.; There is less net movement of water molecules away from the surface."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-006",
+      "conceptId": "phys-y9-p10-gcse-oct20-006-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "Compare boiling and evaporation for a cup of water at 35 °C. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Evaporation can take place at the surface at 35 °C.",
+          "Boiling does not normally take place throughout the water at 35 °C under standard pressure.",
+          "Boiling occurs when the liquid reaches its boiling point at the given pressure."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Evaporation can take place at the surface at 35 °C. Boiling does not normally take place throughout the water at 35 °C under standard pressure. Boiling occurs when the liquid reaches its boiling point at the given pressure."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Boiling occurs when the liquid reaches its boiling point at the given pressure.",
+        "steps": [
+          "Evaporation can take place at the surface at 35 °C.",
+          "Boiling does not normally take place throughout the water at 35 °C under standard pressure.",
+          "Boiling occurs when the liquid reaches its boiling point at the given pressure."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Evaporation can take place at the surface at 35 °C.; Boiling does not normally take place throughout the water at 35 °C under standard pressure.; Boiling occurs when the liquid reaches its boiling point at the given pressure."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-007",
+      "conceptId": "phys-y9-p10-gcse-oct20-007-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "Describe a fair investigation of how surface area affects the evaporation of water. (5 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Use identical initial masses or volumes of water.",
+          "Place water in containers exposing different measured surface areas.",
+          "Keep temperature, airflow and humidity as similar as possible.",
+          "Measure mass lost after the same time interval.",
+          "Repeat the trials and compare mean mass-loss rates."
+        ],
+        "totalMarks": 5,
+        "modelAnswer": "Use identical initial masses or volumes of water. Place water in containers exposing different measured surface areas. Keep temperature, airflow and humidity as similar as possible. Measure mass lost after the same time interval. Repeat the trials and compare mean mass-loss rates."
+      },
+      "stimulus": {
+        "marks": 5
+      },
+      "feedback": {
+        "short": "Repeat the trials and compare mean mass-loss rates.",
+        "steps": [
+          "Use identical initial masses or volumes of water.",
+          "Place water in containers exposing different measured surface areas.",
+          "Keep temperature, airflow and humidity as similar as possible.",
+          "Measure mass lost after the same time interval.",
+          "Repeat the trials and compare mean mass-loss rates."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Use identical initial masses or volumes of water.; Place water in containers exposing different measured surface areas.; Keep temperature, airflow and humidity as similar as possible.; Measure mass lost after the same time interval.; Repeat the trials and compare mean mass-loss rates."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-008",
+      "conceptId": "phys-y9-p10-gcse-oct20-008-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "A student tests evaporation rates in two dishes but leaves one next to a heater. Explain why this is unfair. (2 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Temperature differs between the dishes.",
+          "Any difference in evaporation could be caused by heating rather than the intended independent variable."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Temperature differs between the dishes. Any difference in evaporation could be caused by heating rather than the intended independent variable."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Any difference in evaporation could be caused by heating rather than the intended independent variable.",
+        "steps": [
+          "Temperature differs between the dishes.",
+          "Any difference in evaporation could be caused by heating rather than the intended independent variable."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Temperature differs between the dishes.; Any difference in evaporation could be caused by heating rather than the intended independent variable."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-009",
+      "conceptId": "phys-y9-p10-gcse-oct20-009-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "Explain why a wet cloth can make skin feel cooler. (3 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Water evaporates from the cloth or skin.",
+          "Escaping water molecules carry energy away.",
+          "Energy transferred from skin helps replace that energy, lowering skin temperature."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Water evaporates from the cloth or skin. Escaping water molecules carry energy away. Energy transferred from skin helps replace that energy, lowering skin temperature."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Energy transferred from skin helps replace that energy, lowering skin temperature.",
+        "steps": [
+          "Water evaporates from the cloth or skin.",
+          "Escaping water molecules carry energy away.",
+          "Energy transferred from skin helps replace that energy, lowering skin temperature."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Water evaporates from the cloth or skin.; Escaping water molecules carry energy away.; Energy transferred from skin helps replace that energy, lowering skin temperature."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-010",
+      "conceptId": "phys-y9-p10-gcse-oct20-010-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "Two equal volumes of water are left in a closed container and an open dish. Explain why the open dish may lose more mass. (3 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Water evaporates from both surfaces.",
+          "The open dish allows vapour to escape to the surroundings.",
+          "Vapour accumulates in the closed container, increasing condensation and reducing net loss."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Water evaporates from both surfaces. The open dish allows vapour to escape to the surroundings. Vapour accumulates in the closed container, increasing condensation and reducing net loss."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Vapour accumulates in the closed container, increasing condensation and reducing net loss.",
+        "steps": [
+          "Water evaporates from both surfaces.",
+          "The open dish allows vapour to escape to the surroundings.",
+          "Vapour accumulates in the closed container, increasing condensation and reducing net loss."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Water evaporates from both surfaces.; The open dish allows vapour to escape to the surroundings.; Vapour accumulates in the closed container, increasing condensation and reducing net loss."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-011",
+      "conceptId": "phys-y9-p10-gcse-oct20-011-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "Suggest how to measure the rate of evaporation by mass loss. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Record the initial mass of the container and water.",
+          "Measure the mass again after a known time.",
+          "Divide the mass of water lost by the elapsed time."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Record the initial mass of the container and water. Measure the mass again after a known time. Divide the mass of water lost by the elapsed time."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Divide the mass of water lost by the elapsed time.",
+        "steps": [
+          "Record the initial mass of the container and water.",
+          "Measure the mass again after a known time.",
+          "Divide the mass of water lost by the elapsed time."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Record the initial mass of the container and water.; Measure the mass again after a known time.; Divide the mass of water lost by the elapsed time."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-012",
+      "conceptId": "phys-y9-p10-gcse-oct20-012-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "calculation",
+      "prompt": "A shallow dish loses 18 g of water over 3 hours. Calculate its mean rate of evaporation in g per hour. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 6,
+        "units": [
+          "g/h"
+        ],
+        "working": "Rate = mass lost ÷ time; 18 ÷ 3 = 6; Answer 6 g/h",
+        "tolerance": 0,
+        "modelAnswer": "6 g/h"
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Answer 6 g/h",
+        "steps": [
+          "Rate = mass lost ÷ time",
+          "18 ÷ 3 = 6",
+          "Answer 6 g/h"
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Rate = mass lost ÷ time; 18 ÷ 3 = 6; Answer 6 g/h"
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show the method and give the correct unit."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-013",
+      "conceptId": "phys-y9-p10-gcse-oct20-013-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "calculation",
+      "prompt": "A dish and its water have mass 152 g at the start and 140 g after 4 hours. Calculate the mean mass-loss rate. (4 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 3,
+        "units": [
+          "g/h"
+        ],
+        "working": "Mass lost = 152 − 140 = 12 g; Rate = loss ÷ time; 12 ÷ 4 = 3; Answer 3 g/h",
+        "tolerance": 0,
+        "modelAnswer": "3 g/h"
+      },
+      "stimulus": {
+        "marks": 4
+      },
+      "feedback": {
+        "short": "Answer 3 g/h",
+        "steps": [
+          "Mass lost = 152 − 140 = 12 g",
+          "Rate = loss ÷ time",
+          "12 ÷ 4 = 3",
+          "Answer 3 g/h"
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Mass lost = 152 − 140 = 12 g; Rate = loss ÷ time; 12 ÷ 4 = 3; Answer 3 g/h"
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show the method and give the correct unit."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-014",
+      "conceptId": "phys-y9-p10-gcse-oct20-014-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "A sealed bottle of water is left for a week. Explain why evaporation does not necessarily cause a continuous loss of liquid water. (3 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Some water evaporates into the space above the liquid.",
+          "Some vapour condenses back into liquid.",
+          "Eventually evaporation and condensation rates can balance in a closed system."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Some water evaporates into the space above the liquid. Some vapour condenses back into liquid. Eventually evaporation and condensation rates can balance in a closed system."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Eventually evaporation and condensation rates can balance in a closed system.",
+        "steps": [
+          "Some water evaporates into the space above the liquid.",
+          "Some vapour condenses back into liquid.",
+          "Eventually evaporation and condensation rates can balance in a closed system."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Some water evaporates into the space above the liquid.; Some vapour condenses back into liquid.; Eventually evaporation and condensation rates can balance in a closed system."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-015",
+      "conceptId": "phys-y9-p10-gcse-oct20-015-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "A student says that particles all have exactly the same energy at room temperature. Explain how evaporation shows otherwise. (2 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Liquid particles have a range of kinetic energies.",
+          "Some surface particles have enough energy to escape even below boiling point."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Liquid particles have a range of kinetic energies. Some surface particles have enough energy to escape even below boiling point."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Some surface particles have enough energy to escape even below boiling point.",
+        "steps": [
+          "Liquid particles have a range of kinetic energies.",
+          "Some surface particles have enough energy to escape even below boiling point."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Liquid particles have a range of kinetic energies.; Some surface particles have enough energy to escape even below boiling point."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-016",
+      "conceptId": "phys-y9-p10-gcse-oct20-016-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "Give two variables, besides temperature, that affect evaporation rate and describe the direction of each effect. (4 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Increasing surface area provides more exposed particles.",
+          "This usually increases evaporation rate.",
+          "Increasing air movement removes humid air near the surface.",
+          "This also usually increases evaporation rate."
+        ],
+        "totalMarks": 4,
+        "modelAnswer": "Increasing surface area provides more exposed particles. This usually increases evaporation rate. Increasing air movement removes humid air near the surface. This also usually increases evaporation rate."
+      },
+      "stimulus": {
+        "marks": 4
+      },
+      "feedback": {
+        "short": "This also usually increases evaporation rate.",
+        "steps": [
+          "Increasing surface area provides more exposed particles.",
+          "This usually increases evaporation rate.",
+          "Increasing air movement removes humid air near the surface.",
+          "This also usually increases evaporation rate."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Increasing surface area provides more exposed particles.; This usually increases evaporation rate.; Increasing air movement removes humid air near the surface.; This also usually increases evaporation rate."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-017",
+      "conceptId": "phys-y9-p10-gcse-oct20-017-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "Why might a bottle of alcohol feel cold to the touch after a little liquid spills on your hand? (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Alcohol evaporates from the skin.",
+          "The fastest escaping particles carry energy away.",
+          "Thermal energy transfers from the skin to the liquid, cooling the skin."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Alcohol evaporates from the skin. The fastest escaping particles carry energy away. Thermal energy transfers from the skin to the liquid, cooling the skin."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Thermal energy transfers from the skin to the liquid, cooling the skin.",
+        "steps": [
+          "Alcohol evaporates from the skin.",
+          "The fastest escaping particles carry energy away.",
+          "Thermal energy transfers from the skin to the liquid, cooling the skin."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Alcohol evaporates from the skin.; The fastest escaping particles carry energy away.; Thermal energy transfers from the skin to the liquid, cooling the skin."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-018",
+      "conceptId": "phys-y9-p10-gcse-oct20-018-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mark_points",
+      "prompt": "Explain why it is important to keep the initial liquid volume the same when comparing different evaporation conditions. (2 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Different starting amounts could change depth or exposed surface and measured mass losses.",
+          "Using the same volume makes the comparison of the intended variable more valid."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Different starting amounts could change depth or exposed surface and measured mass losses. Using the same volume makes the comparison of the intended variable more valid."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Using the same volume makes the comparison of the intended variable more valid.",
+        "steps": [
+          "Different starting amounts could change depth or exposed surface and measured mass losses.",
+          "Using the same volume makes the comparison of the intended variable more valid."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Different starting amounts could change depth or exposed surface and measured mass losses.; Using the same volume makes the comparison of the intended variable more valid."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p10-gcse-oct20-019",
+      "conceptId": "phys-y9-p10-gcse-oct20-019-concept",
+      "topicId": "phys-y9-p10",
+      "topic": "Evaporation",
+      "format": "mc_single",
+      "prompt": "Which change will usually decrease the rate of water evaporation?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "Increasing the humidity of surrounding air.",
+        "Increasing exposed surface area.",
+        "Increasing the airflow above the surface.",
+        "Increasing the water temperature."
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "Increasing the humidity of surrounding air."
+        ]
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "Correct answer: Increasing the humidity of surrounding air.",
+        "steps": [
+          "Correct answer: Increasing the humidity of surrounding air."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Correct answer: Increasing the humidity of surrounding air."
+      },
+      "task": {
+        "label": "CHOOSE",
+        "instruction": "Choose the one best answer."
+      },
+      "preview": true,
+      "ordinary": true
     }
   ],
-  "enabled": 45,
+  "enabled": 64,
   "preview": 0,
   "disabled": 0,
   "formats": {
-    "mc_single": 16,
+    "mc_single": 17,
     "typed_exact": 4,
     "spelling_restore": 8,
-    "mark_points": 11,
+    "mark_points": 27,
     "typed_short": 4,
-    "matching": 2
+    "matching": 2,
+    "calculation": 2
   },
   "gated": false,
   "note": {
@@ -1930,7 +2689,8 @@
       "Evaporation is the escape of higher-energy particles from the surface of a liquid. It can occur at temperatures below the boiling point and does not require bubbles to form throughout the liquid.",
       "When the fastest particles escape, the average kinetic energy of the particles left behind decreases. The liquid therefore cools unless energy is supplied from the surroundings.",
       "Evaporation is faster when more particles have enough energy to escape or when escaped vapour is removed from above the surface. Higher temperature, larger surface area and greater airflow generally increase the rate.",
-      "Evaporation and boiling are different processes: evaporation occurs only at the surface and over a range of temperatures, whereas boiling occurs throughout a liquid at its boiling point for a given pressure."
+      "Evaporation and boiling are different processes: evaporation occurs only at the surface and over a range of temperatures, whereas boiling occurs throughout a liquid at its boiling point for a given pressure.",
+      "Evaporation happens when higher-energy surface particles escape the liquid. It can cool the remaining liquid; warmer conditions, larger exposed surface and moving dry air generally speed evaporation, whereas higher humidity slows net evaporation."
     ],
     "examTips": [
       "For cooling explanations, use the sequence: highest-energy particles escape → average kinetic energy falls → temperature falls.",
