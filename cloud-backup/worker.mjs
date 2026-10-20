@@ -35,6 +35,7 @@ async function authorized(request,env){
 }
 function validEnvelope(p){
   if(!p||p.format!=="gloria-encrypted-v1"||p.version!==1||
+     !["gzip","none",undefined].includes(p.compression)||
      typeof p.iv!=="string"||!/^[A-Za-z0-9_-]{16}$/.test(p.iv)||
      typeof p.ciphertext!=="string"||p.ciphertext.length<24||
      !/^[A-Za-z0-9_-]+$/.test(p.ciphertext)||
