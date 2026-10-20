@@ -2803,16 +2803,413 @@
       },
       "preview": true,
       "ordinary": true
+    },
+    {
+      "id": "phys-y9-p1-gcse-oct20-001",
+      "conceptId": "phys-y9-p1-gcse-oct20-001-concept",
+      "topicId": "phys-y9-p1",
+      "topic": "Kinetic theory and the particle model — solids, liquids and gases",
+      "format": "mark_points",
+      "prompt": "A student sees tiny smoke particles moving in a random, jerky way under a microscope. Explain what causes this Brownian motion. (4 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Smoke particles are large enough to be observed.",
+          "Invisible air molecules move randomly.",
+          "Air molecules collide with smoke particles.",
+          "Unequal collisions from different directions change the smoke particles' motion."
+        ],
+        "totalMarks": 4,
+        "modelAnswer": "Smoke particles are large enough to be observed. Invisible air molecules move randomly. Air molecules collide with smoke particles. Unequal collisions from different directions change the smoke particles' motion."
+      },
+      "stimulus": {
+        "marks": 4
+      },
+      "feedback": {
+        "short": "Smoke particles are large enough to be observed. Invisible air molecules move randomly. Air molecules collide with smoke particles. Unequal collisions from different directions change the smoke particles' motion.",
+        "steps": [
+          "Smoke particles are large enough to be observed.",
+          "Invisible air molecules move randomly.",
+          "Air molecules collide with smoke particles.",
+          "Unequal collisions from different directions change the smoke particles' motion."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Smoke particles are large enough to be observed.; Invisible air molecules move randomly.; Air molecules collide with smoke particles.; Unequal collisions from different directions change the smoke particles' motion."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p1-gcse-oct20-002",
+      "conceptId": "phys-y9-p1-gcse-oct20-002-concept",
+      "topicId": "phys-y9-p1",
+      "topic": "Kinetic theory and the particle model — solids, liquids and gases",
+      "format": "mark_points",
+      "prompt": "A drop of perfume is released at one end of a still classroom. Explain why pupils elsewhere can smell it without a fan. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Perfume evaporates into the air.",
+          "Gas particles move randomly in all directions.",
+          "Diffusion gives a net spread from higher to lower concentration."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Perfume evaporates into the air. Gas particles move randomly in all directions. Diffusion gives a net spread from higher to lower concentration."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Perfume evaporates into the air. Gas particles move randomly in all directions. Diffusion gives a net spread from higher to lower concentration.",
+        "steps": [
+          "Perfume evaporates into the air.",
+          "Gas particles move randomly in all directions.",
+          "Diffusion gives a net spread from higher to lower concentration."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Perfume evaporates into the air.; Gas particles move randomly in all directions.; Diffusion gives a net spread from higher to lower concentration."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p1-gcse-oct20-003",
+      "conceptId": "phys-y9-p1-gcse-oct20-003-concept",
+      "topicId": "phys-y9-p1",
+      "topic": "Kinetic theory and the particle model — solids, liquids and gases",
+      "format": "mark_points",
+      "prompt": "Two otherwise identical sealed jars contain a gas at different temperatures. Explain which jar has faster-moving particles. (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "The warmer jar has particles with greater average kinetic energy.",
+          "Its gas particles have a higher average speed."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The warmer jar has particles with greater average kinetic energy. Its gas particles have a higher average speed."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The warmer jar has particles with greater average kinetic energy. Its gas particles have a higher average speed.",
+        "steps": [
+          "The warmer jar has particles with greater average kinetic energy.",
+          "Its gas particles have a higher average speed."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "The warmer jar has particles with greater average kinetic energy.; Its gas particles have a higher average speed."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p1-gcse-oct20-004",
+      "conceptId": "phys-y9-p1-gcse-oct20-004-concept",
+      "topicId": "phys-y9-p1",
+      "topic": "Kinetic theory and the particle model — solids, liquids and gases",
+      "format": "mark_points",
+      "prompt": "A syringe containing air is sealed at its tip. The plunger can be pushed inward, but a water-filled syringe hardly compresses. Explain the difference. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Air particles have large spaces between them.",
+          "Compression reduces those spaces rather than compressing individual particles.",
+          "Liquid particles are already close together, leaving little empty space."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Air particles have large spaces between them. Compression reduces those spaces rather than compressing individual particles. Liquid particles are already close together, leaving little empty space."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Air particles have large spaces between them. Compression reduces those spaces rather than compressing individual particles. Liquid particles are already close together, leaving little empty space.",
+        "steps": [
+          "Air particles have large spaces between them.",
+          "Compression reduces those spaces rather than compressing individual particles.",
+          "Liquid particles are already close together, leaving little empty space."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Air particles have large spaces between them.; Compression reduces those spaces rather than compressing individual particles.; Liquid particles are already close together, leaving little empty space."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p1-gcse-oct20-005",
+      "conceptId": "phys-y9-p1-gcse-oct20-005-concept",
+      "topicId": "phys-y9-p1",
+      "topic": "Kinetic theory and the particle model — solids, liquids and gases",
+      "format": "mark_points",
+      "prompt": "A balloon expands when warmed. Use the particle model to suggest why, assuming the surrounding pressure stays constant. (3 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Gas particles gain average kinetic energy.",
+          "They move faster and collide with the balloon wall more often or harder.",
+          "The flexible wall moves outward until internal and external pressures balance."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Gas particles gain average kinetic energy. They move faster and collide with the balloon wall more often or harder. The flexible wall moves outward until internal and external pressures balance."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Gas particles gain average kinetic energy. They move faster and collide with the balloon wall more often or harder. The flexible wall moves outward until internal and external pressures balance.",
+        "steps": [
+          "Gas particles gain average kinetic energy.",
+          "They move faster and collide with the balloon wall more often or harder.",
+          "The flexible wall moves outward until internal and external pressures balance."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Gas particles gain average kinetic energy.; They move faster and collide with the balloon wall more often or harder.; The flexible wall moves outward until internal and external pressures balance."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p1-gcse-oct20-006",
+      "conceptId": "phys-y9-p1-gcse-oct20-006-concept",
+      "topicId": "phys-y9-p1",
+      "topic": "Kinetic theory and the particle model — solids, liquids and gases",
+      "format": "mark_points",
+      "prompt": "Explain why particles in a solid do not simply stop moving when the solid is placed in a freezer. (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Solid particles continue vibrating around fixed positions.",
+          "Cooling decreases their average kinetic energy and vibration amplitude; it does not normally make them motionless."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Solid particles continue vibrating around fixed positions. Cooling decreases their average kinetic energy and vibration amplitude; it does not normally make them motionless."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Solid particles continue vibrating around fixed positions. Cooling decreases their average kinetic energy and vibration amplitude; it does not normally make them motionless.",
+        "steps": [
+          "Solid particles continue vibrating around fixed positions.",
+          "Cooling decreases their average kinetic energy and vibration amplitude; it does not normally make them motionless."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Solid particles continue vibrating around fixed positions.; Cooling decreases their average kinetic energy and vibration amplitude; it does not normally make them motionless."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p1-gcse-oct20-007",
+      "conceptId": "phys-y9-p1-gcse-oct20-007-concept",
+      "topicId": "phys-y9-p1",
+      "topic": "Kinetic theory and the particle model — solids, liquids and gases",
+      "format": "mark_points",
+      "prompt": "Compare particle arrangement and movement in a solid and a liquid. (4 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Solid particles are close together in a regular arrangement.",
+          "Solid particles vibrate about fixed positions.",
+          "Liquid particles are close together but irregularly arranged.",
+          "Liquid particles can move past one another."
+        ],
+        "totalMarks": 4,
+        "modelAnswer": "Solid particles are close together in a regular arrangement. Solid particles vibrate about fixed positions. Liquid particles are close together but irregularly arranged. Liquid particles can move past one another."
+      },
+      "stimulus": {
+        "marks": 4
+      },
+      "feedback": {
+        "short": "Solid particles are close together in a regular arrangement. Solid particles vibrate about fixed positions. Liquid particles are close together but irregularly arranged. Liquid particles can move past one another.",
+        "steps": [
+          "Solid particles are close together in a regular arrangement.",
+          "Solid particles vibrate about fixed positions.",
+          "Liquid particles are close together but irregularly arranged.",
+          "Liquid particles can move past one another."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Solid particles are close together in a regular arrangement.; Solid particles vibrate about fixed positions.; Liquid particles are close together but irregularly arranged.; Liquid particles can move past one another."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p1-gcse-oct20-008",
+      "conceptId": "phys-y9-p1-gcse-oct20-008-concept",
+      "topicId": "phys-y9-p1",
+      "topic": "Kinetic theory and the particle model — solids, liquids and gases",
+      "format": "mark_points",
+      "prompt": "Why does a particle diagram showing large spaces between the particles in a liquid give an inaccurate model? (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Liquid particles are close together with little empty space.",
+          "Large gaps are characteristic of a gas, not a liquid."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Liquid particles are close together with little empty space. Large gaps are characteristic of a gas, not a liquid."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Liquid particles are close together with little empty space. Large gaps are characteristic of a gas, not a liquid.",
+        "steps": [
+          "Liquid particles are close together with little empty space.",
+          "Large gaps are characteristic of a gas, not a liquid."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Liquid particles are close together with little empty space.; Large gaps are characteristic of a gas, not a liquid."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p1-gcse-oct20-009",
+      "conceptId": "phys-y9-p1-gcse-oct20-009-concept",
+      "topicId": "phys-y9-p1",
+      "topic": "Kinetic theory and the particle model — solids, liquids and gases",
+      "format": "mark_points",
+      "prompt": "Explain how heating a gas can make diffusion occur more quickly. (3 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Heating increases gas particles' average kinetic energy.",
+          "Particles move faster and spread in random directions.",
+          "Mixing through diffusion occurs more rapidly."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Heating increases gas particles' average kinetic energy. Particles move faster and spread in random directions. Mixing through diffusion occurs more rapidly."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Heating increases gas particles' average kinetic energy. Particles move faster and spread in random directions. Mixing through diffusion occurs more rapidly.",
+        "steps": [
+          "Heating increases gas particles' average kinetic energy.",
+          "Particles move faster and spread in random directions.",
+          "Mixing through diffusion occurs more rapidly."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "Heating increases gas particles' average kinetic energy.; Particles move faster and spread in random directions.; Mixing through diffusion occurs more rapidly."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Award one mark for each distinct correct point; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p1-gcse-oct20-010",
+      "conceptId": "phys-y9-p1-gcse-oct20-010-concept",
+      "topicId": "phys-y9-p1",
+      "topic": "Kinetic theory and the particle model — solids, liquids and gases",
+      "format": "mc_single",
+      "prompt": "Which observation is the best direct evidence of Brownian motion?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "A smoke particle changes direction erratically under a microscope.",
+        "Sugar dissolves in hot water.",
+        "Ice melts in a beaker.",
+        "The volume of a liquid stays constant."
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "A smoke particle changes direction erratically under a microscope."
+        ]
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "A smoke particle changes direction erratically under a microscope.",
+        "steps": [
+          "Correct answer: A smoke particle changes direction erratically under a microscope."
+        ],
+        "commonError": "Use precise scientific terminology, explain cause and effect, and include units where required.",
+        "remember": "A smoke particle changes direction erratically under a microscope."
+      },
+      "task": {
+        "label": "CHOOSE",
+        "instruction": "Choose one best answer."
+      },
+      "preview": true,
+      "ordinary": true
     }
   ],
-  "enabled": 67,
+  "enabled": 77,
   "preview": 0,
   "disabled": 0,
   "formats": {
-    "mc_single": 24,
+    "mc_single": 25,
     "typed_exact": 2,
     "spelling_restore": 12,
-    "mark_points": 14,
+    "mark_points": 23,
     "typed_short": 10,
     "matching": 3,
     "sorting": 1,
@@ -2841,7 +3238,9 @@
       "temperature and particles → temperature relating to the average kinetic energy of particles",
       "heating particle effect → particles usually moving faster when temperature rises",
       "particle model → a model representing matter as particles that are always moving; solid arrangement → particles close together in a regular arrangement; solid motion → particles vibrating around fixed positions; solid properties → fixed shape and volume and difficult compression",
-      "liquid arrangement → particles close together but irregularly arranged; liquid motion → particles moving past one another; liquid properties → fixed volume but the shape of the container; gas arrangement → particles far apart with mostly empty space between them"
+      "liquid arrangement → particles close together but irregularly arranged; liquid motion → particles moving past one another; liquid properties → fixed volume but the shape of the container; gas arrangement → particles far apart with mostly empty space between them",
+      "Brownian motion → observable smoke particles move irregularly because invisible air molecules collide with them at random",
+      "diffusion → a net spread of particles from higher to lower concentration caused by random particle motion"
     ],
     "mustMemoriseVocabulary": [
       "particle model",
@@ -2854,7 +3253,10 @@
       "particles moving rapidly in random directions",
       "no fixed shape or volume and easy compression",
       "temperature and particles",
-      "particles usually moving faster when temperature rises"
+      "particles usually moving faster when temperature rises",
+      "Brownian motion",
+      "diffusion",
+      "concentration gradient"
     ],
     "workedExamples": [
       {
@@ -2894,7 +3296,8 @@
       "Matter can be modelled as particles in constant motion. In a solid the particles are closely packed in a fixed arrangement and vibrate about fixed positions; in a liquid they remain close together but can move past one another; in a gas they are much farther apart and move rapidly in random directions.",
       "The macroscopic properties of each state follow from the particle model. Solids keep a fixed shape and volume, liquids keep a fixed volume but take the shape of their container, and gases have neither a fixed shape nor a fixed volume and are easily compressed.",
       "Heating increases the energy of particles. Where no change of state is occurring, a rise in temperature corresponds to an increase in the average kinetic energy of the particles. During a change of state, energy changes the internal energy and arrangement rather than raising temperature.",
-      "Particle diagrams must show spacing and arrangement accurately. Do not draw particles themselves becoming larger when a substance expands; the separation between particles changes."
+      "Particle diagrams must show spacing and arrangement accurately. Do not draw particles themselves becoming larger when a substance expands; the separation between particles changes.",
+      "Brownian motion demonstrates random collisions of air molecules with visible smoke particles. Diffusion occurs because gas particles move randomly, causing a net spread from a region of high concentration to low concentration."
     ],
     "examTips": [
       "For explain questions, link particle arrangement/motion to the observed property using a clear because statement.",
