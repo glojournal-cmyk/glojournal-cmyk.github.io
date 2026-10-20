@@ -102,6 +102,10 @@ async function checkFixture(browser,engine,kind,viewport){
     assert.equal(details.tileInk,'rgb(255, 249, 238)','letter tile needs light readable text');
     assert.ok(details.submitButton?.width>=160,'tile answer action needs prominent button');
     assert.ok(details.submitButton.y<=details.tileButton.y+20,'answer button must line up with tiles');
+    const cta=page.locator('[data-lux-tiles] > button:last-child');
+    assert.equal(await cta.getAttribute('aria-label'),'Check Answer','tile submit has the approved accessible CTA name');
+    assert.equal(await cta.evaluate(el=>getComputedStyle(el,'::before').content),'"Check Answer"');
+    assert.equal(await page.locator('#lux-daily-clear-tiles').count(),1,'real Clear control must be present');
   }
   if(kind.endsWith('mc')){
     assert.equal(details.optsColumns,kind==='long-mc'?1:2,'MC columns should follow answer length');
@@ -133,6 +137,7 @@ async function checkRealPractice(browser,engine){
   await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
   await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:30000});
   await page.waitForFunction(()=>document.documentElement.classList.contains('lux-daily-ux-ready'),null,{timeout:10000});
+  await page.waitForFunction(()=>!!document.querySelector('#study-companion') || !!document.querySelector('#lux-daily-equipped-pet img[src]'),null,{timeout:10000});
   const before=await page.evaluate(()=>{
     const q=document.querySelector('[data-question-id]');
     const nav=document.querySelector('#lux-daily-study-nav');
