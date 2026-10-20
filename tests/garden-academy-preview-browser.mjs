@@ -83,6 +83,11 @@ async function run(engine,runner,viewport){
   });
   assert.ok(snap.stage.startsWith('Stage '+stageValue.stage),'Stage based on saved Scholar XP');
   await page.screenshot({path:path.join(out,engine+'-'+viewport.width+'x'+viewport.height+'-initial.png')});
+  await page.locator('.lux-garden-item[data-item="bench"]').click();
+  const detail=page.getByRole('dialog',{name:'Wooden Bench'});
+  await detail.waitFor({timeout:8000});
+  assert.ok((await detail.innerText()).length>25,'Garden objects must show their live unlock requirements');
+  await page.getByRole('button',{name:'Close Wooden Bench'}).click();
   await page.getByRole('button',{name:/DECORATIONS/}).click();
   await page.getByRole('dialog',{name:'Garden Decorations'}).waitFor();
   assert.ok(await page.locator('.lux-garden-decor').count()>=4,'real collectible list exists');
