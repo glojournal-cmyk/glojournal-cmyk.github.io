@@ -77,7 +77,7 @@ for(const browserType of [chromium,webkit]){
    assert.ok(await trackerItems.count()>=3,'Known school assessments preserved');
    const trackerRow=trackerItems.first();
    assert.equal(await trackerRow.getAttribute('open'),null,'Tracker details must be closed by default');
-   assert.equal(await trackerRow.locator('> summary .assessment-tracker-heading > span').count(),1,'Each row has one brief date/status line');
+   assert.equal(await trackerRow.locator('summary .assessment-tracker-heading > span').count(),1,'Each row has one brief date/status line');
    const trackerRows=await trackerItems.evaluateAll(elements=>elements.map(el=>el.getBoundingClientRect().height));
    assert.ok(trackerRows.every(h=>h<=73),'Each collapsed tracker assessment uses at most two lines');
    assert.equal(await page.locator('#tracker-list [data-tracker-paper]:visible').count(),0,
