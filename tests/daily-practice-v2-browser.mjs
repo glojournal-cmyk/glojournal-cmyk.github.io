@@ -82,7 +82,12 @@ async function checkFixture(browser,engine,kind,viewport){
       card:elbox(card),prompt:elbox(prompt),nav:elbox(nav),
       optsColumns:opts?getComputedStyle(opts).gridTemplateColumns.split(' ').length:0,
       options:opts?[...opts.children].map(elbox):[],
-      input:elbox(input),pet:elbox(document.querySelector('#study-companion'))
+      input:elbox(input),pet:elbox(document.querySelector('#study-companion')),
+      decorativeBackground:getComputedStyle(document.querySelector('.paper-wash')).backgroundImage,
+      tileButton:elbox(document.querySelector('[data-lux-tiles] > div:nth-child(2) button')),
+      tileInk:(()=>{const btn=document.querySelector('[data-lux-tiles] > div:nth-child(2) button');return btn?getComputedStyle(btn).color:null})(),
+      submitButton:(()=>{const btn=document.querySelector('[data-lux-tiles] > button:last-child');return btn?{...elbox(btn),background:getComputedStyle(btn).backgroundColor,color:getComputedStyle(btn).color}:null})(),
+      outerCard:(()=>{const p=card?.parentElement;return p?{padding:getComputedStyle(p).padding,border:getComputedStyle(p).borderWidth}:null})()
     };
   });
   assert.equal(details.headerHidden,true,'top bar should be hidden');
@@ -91,7 +96,13 @@ async function checkFixture(browser,engine,kind,viewport){
   assert.ok(Number(details.promptWeight)>=700,'prompt must be bold');
   assert.ok(details.promptSize>=27,'question must be large');
   assert.ok(details.scrollWidth<=viewport.width+1,'no horizontal overflow');
-  assert.ok(details.pet.width<=210,'pet strip must remain compact');
+  assert.ok(details.pet.width>=38 && details.pet.width<=210,'pet artwork must be visible but compact');
+  assert.ok(details.decorativeBackground.includes('daily-practice-botanical-frame'),'decorative frame must be present');
+  if(kind==='tiles'){
+    assert.match(details.tileInk,/rgb\\(255, 249, 238\\)/,'letter tile needs light readable text');
+    assert.ok(details.submitButton?.width>=160,'tile answer action needs prominent button');
+    assert.ok(details.submitButton.y<=details.tileButton.y+20,'answer button must line up with tiles');
+  }
   if(kind.endsWith('mc')){
     assert.equal(details.optsColumns,kind==='long-mc'?1:2,'MC columns should follow answer length');
     await page.locator('[data-lux-mc-options] button').first().click();
