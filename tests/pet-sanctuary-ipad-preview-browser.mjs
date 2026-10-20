@@ -30,7 +30,7 @@ try{
     const page=await context.newPage();
     const errors=[];
     page.on('pageerror',error=>errors.push(error.message));
-    await page.goto(url+'/pet/?petPreview=1',{waitUntil:'domcontentloaded'});
+    await page.goto(url+'/pet/',{waitUntil:'domcontentloaded'});
     await page.locator('body.pet-sanctuary-preview').waitFor({timeout:15000});
     await page.locator('#petCareActions [data-pet-action]').first().waitFor({timeout:30000});
     await page.locator('#petFormGrid .pet-form').first().waitFor();
@@ -44,6 +44,7 @@ try{
     assert.ok(await page.locator('#petEnergyValue').count()===1,'Keep energy');
     assert.equal(await page.locator('.pet-preview-bottom-bar a').count(),7,'Keep approved seven-link global navigation');
     assert.equal(await page.locator('.pet-preview-bottom-bar a[href="/pet/"][aria-current="page"]').count(),1,'Pet nav must be active');
+    assert.equal(await page.locator('.pet-preview-bottom-bar a').count(),7,'Approved Pet is now the default destination');
     assert.deepEqual(await page.locator('.pet-preview-bottom-bar a').allTextContents(),
       ['Home','Study','Play','Garden','Pet','Assessment','Scholar'],
       'Keep the exact Study/Play bottom navigation order and singular tab names');
@@ -119,7 +120,7 @@ try{
    const ctx=await browser.newContext({viewport:{width:1024,height:768},serviceWorkers:'block'});
    const legacy=await ctx.newPage();
    await legacy.goto(url+'/pet/?petPreview=0',{waitUntil:'domcontentloaded'});
-   assert.equal(await legacy.locator('body.pet-sanctuary-preview').count(),0,'Original Pet page is unaffected without opt-in preview');
+   assert.equal(await legacy.locator('body.pet-sanctuary-preview').count(),0,'Original Pet page is available only with explicit legacy opt-out');
    await ctx.close();
   }finally{await browser.close()}
  }
