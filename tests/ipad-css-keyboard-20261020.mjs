@@ -93,7 +93,7 @@ try{
     await page.getByRole('button',{name:'Submit'}).click();
     assert.equal(await page.evaluate(()=>window.submitted),1,'original submit callback preserved');
     await page.screenshot({path:path.join(dir,engine+'-'+width+'x'+height+'.png')});
-    await field.blur();
+    await page.evaluate(()=>document.activeElement?.blur());
     await page.setViewportSize({width,height});
     const after=await get();
     assert.notEqual(after.intro,'none','standard layout must return on blur');
