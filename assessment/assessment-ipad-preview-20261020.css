@@ -665,3 +665,39 @@ body.lux-shell-on.assessment-rpg-scene #tracker-list .assessment-tracker-expande
  body.lux-shell-on.assessment-rpg-scene #tracker-list .tracker-status{grid-area:meta;font-size:.69rem;justify-self:end}
  body.lux-shell-on.assessment-rpg-scene #tracker-list .assessment-tracker-details-label{grid-area:details}
 }
+
+/* Tracker v6: softly coloured *subject labels only*, not whole row. */
+body.lux-shell-on.assessment-rpg-scene #tracker-list .tracker-col.tracker-subject{
+ display:inline-flex;align-items:center;justify-content:center;
+ justify-self:start;width:auto;max-width:100%;
+ min-height:29px;padding:5px 9px;border-radius:7px;
+ background:#e6e9e7;color:#354c57;border:1px solid #a9bdc0;
+ font-weight:800;font-size:.77rem;line-height:1.1;
+ overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list .tracker-subject-biology{
+ background:#dcece5;color:#235c4e;border-color:#9abfad;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list .tracker-subject-chemistry{
+ background:#ebe3f2;color:#5b4279;border-color:#c6b1d6;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list .tracker-subject-french{
+ background:#f6e0e7;color:#87495b;border-color:#d6a9b7;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list .tracker-subject-latin{
+ background:#e7efda;color:#50663d;border-color:#b7cb9d;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list .tracker-subject-physics{
+ background:#e0eaf4;color:#375b7a;border-color:#aec5dd;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list .tracker-subject-english{
+ background:#f4e9d6;color:#795d39;border-color:#d9c29a;
+}
+body.lux-shell-on.assessment-rpg-scene #tracker-list .tracker-subject-maths{
+ background:#f6edd0;color:#745b25;border-color:#d7c68c;
+}
+@media(max-width:620px){
+ body.lux-shell-on.assessment-rpg-scene #tracker-list .tracker-col.tracker-subject{
+  font-size:.7rem;min-height:26px;padding:4px 8px;
+ }
+}
