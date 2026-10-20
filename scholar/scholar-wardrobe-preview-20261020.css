@@ -176,7 +176,7 @@ body.scholar-wardrobe-preview .scholar-active-content button:focus-visible{
  outline:3px solid #cf9d45;outline-offset:2px;
 }
 /* Keep the original routes, change only chrome and art direction. */
-body.scholar-wardrobe-preview nav.scholar-preview-bottom-nav{
+body.scholar-wardrobe-preview .scholar-preview-bottom-nav{
  position:fixed;z-index:150;left:50%;bottom:calc(8px + env(safe-area-inset-bottom));
  transform:translateX(-50%);
  display:grid;grid-template-columns:repeat(7,minmax(0,1fr));
@@ -186,19 +186,19 @@ body.scholar-wardrobe-preview nav.scholar-preview-bottom-nav{
  box-shadow:0 8px 23px #0b1f2fa3;
  font-family:'Source Sans 3',sans-serif;
 }
-body.scholar-wardrobe-preview nav.scholar-preview-bottom-nav a{
+body.scholar-wardrobe-preview .scholar-preview-bottom-nav a{
  display:flex;flex-direction:column;align-items:center;justify-content:center;
  min-width:0;min-height:48px;gap:3px;padding:5px 3px;
  text-decoration:none;font-size:.7rem;font-weight:750;
  color:#f9f1e0;border-radius:999px;
 }
-body.scholar-wardrobe-preview nav.scholar-preview-bottom-nav a svg{
+body.scholar-wardrobe-preview .scholar-preview-bottom-nav a svg{
  width:17px;height:17px;stroke:currentColor;
 }
-body.scholar-wardrobe-preview nav.scholar-preview-bottom-nav a[aria-current="page"]{
+body.scholar-wardrobe-preview .scholar-preview-bottom-nav a[aria-current="page"]{
  color:#173c4c;background:#faf0dc;
 }
-body.scholar-wardrobe-preview nav.scholar-preview-bottom-nav a:focus-visible{
+body.scholar-wardrobe-preview .scholar-preview-bottom-nav a:focus-visible{
  outline:3px solid #f8da9d;outline-offset:2px;
 }
 @media(min-width:900px) and (orientation:landscape){
@@ -223,7 +223,7 @@ body.scholar-wardrobe-preview nav.scholar-preview-bottom-nav a:focus-visible{
  body.scholar-wardrobe-preview .scholar-wardrobe-tabs button{
   min-height:38px!important;padding:7px 13px!important;
  }
- body.scholar-wardrobe-preview nav.scholar-preview-bottom-nav{
+ body.scholar-wardrobe-preview .scholar-preview-bottom-nav{
   width:calc(100% - 14px);border-radius:20px;
  }
 }
@@ -243,13 +243,13 @@ body.scholar-wardrobe-preview nav.scholar-preview-bottom-nav a:focus-visible{
  body.scholar-wardrobe-preview .scholar-wardrobe-closet>div.mt-4.grid{
   grid-template-columns:repeat(2,minmax(0,1fr))!important;
  }
- body.scholar-wardrobe-preview nav.scholar-preview-bottom-nav{
+ body.scholar-wardrobe-preview .scholar-preview-bottom-nav{
   border-radius:16px;padding:4px 2px;
  }
- body.scholar-wardrobe-preview nav.scholar-preview-bottom-nav a{
+ body.scholar-wardrobe-preview .scholar-preview-bottom-nav a{
   font-size:.55rem;min-height:44px;
  }
- body.scholar-wardrobe-preview nav.scholar-preview-bottom-nav a svg{
+ body.scholar-wardrobe-preview .scholar-preview-bottom-nav a svg{
   width:15px;height:15px;
  }
 }
@@ -258,4 +258,17 @@ body.scholar-wardrobe-preview nav.scholar-preview-bottom-nav a:focus-visible{
  body.scholar-wardrobe-preview .scholar-idle{
   animation:none!important;
  }
+}
+/* The original server shell and a second legacy nav can reappear after
+   hydration. The new seven-link role=navigation surface is not a <nav>,
+   so hide only redundant old nav/head chrome. */
+body.scholar-wardrobe-preview > header,
+body.scholar-wardrobe-preview .lux-shell-header,
+body.scholar-wardrobe-preview .paper-wash nav,
+body.scholar-wardrobe-preview > nav,
+body.scholar-wardrobe-preview .lux-shell-nav{
+ display:none!important;
+}
+body.scholar-wardrobe-preview .scholar-preview-bottom-nav{
+ display:grid!important;
 }
