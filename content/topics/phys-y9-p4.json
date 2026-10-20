@@ -2211,33 +2211,29 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "change insulation material only",
-          "use the same container and exposed area",
-          "use equal water mass or volume",
-          "use the same starting temperature",
-          "keep insulation thickness equal",
-          "measure temperature after equal times or calculate cooling rate",
-          "repeat and calculate means"
+          "change the insulation material only",
+          "use the same container with the same exposed surface area",
+          "use equal water mass and the same starting temperature",
+          "keep insulation thickness equal and measure temperature after the same time",
+          "repeat trials and compare mean temperature falls"
         ],
-        "totalMarks": 7,
-        "modelAnswer": "change insulation material only use the same container and exposed area use equal water mass or volume use the same starting temperature keep insulation thickness equal measure temperature after equal times or calculate cooling rate repeat and calculate means"
+        "totalMarks": 5,
+        "modelAnswer": "change the insulation material only. use the same container with the same exposed surface area. use equal water mass and the same starting temperature. keep insulation thickness equal and measure temperature after the same time. repeat trials and compare mean temperature falls"
       },
       "stimulus": {
-        "marks": 7
+        "marks": 5
       },
       "feedback": {
         "short": "change insulation material only use the same container and exposed area use equal water mass or volume use the same starting temperature keep insulation thickness equal measure temperature after equal times or calculate cooling rate repeat and calculate means",
         "steps": [
-          "change insulation material only use the same container and exposed area use equal water mass or volume use the same starting temperature keep insulation thickness equal measure temperature after equal times or calculate cooling rate repeat and calculate means",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: change insulation material only use the same container and exposed area use equal water mass or volume use the same starting temperature keep insulation thickness equal measure temperature after equal times or calculate cooling rate repeat and calculate means"
+          "Five marking points: one changed variable, equal containers, equal water and initial temperature, equal thickness and time, repeated measurements/means."
         ],
         "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
         "remember": "change insulation material only use the same container and exposed area use equal water mass or volume use the same starting temperature keep insulation thickness equal measure temperature after equal times or calculate cooling rate repeat and calculate means"
       },
       "task": {
         "label": "DESIGN",
-        "instruction": "Give variables, method, controls, quality steps and analysis where relevant.. Self-check against the approved mark points; this open response does not affect formal Mastery."
+        "instruction": "Describe a fair five-mark comparison, including variables, temperature measurements and repeats. Self-check; this does not affect formal Mastery."
       },
       "preview": true,
       "ordinary": true,
@@ -2304,20 +2300,664 @@
       },
       "preview": true,
       "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-001",
+      "conceptId": "phys-y9-p4-gcse-oct20-001-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "Explain how a convection current forms in air above a radiator. (4 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Air near the radiator gains energy and warms.",
+          "Warm air expands and becomes less dense.",
+          "Warm air rises while cooler, denser air sinks to replace it.",
+          "The repeated circulation transfers thermal energy by convection."
+        ],
+        "totalMarks": 4,
+        "modelAnswer": "Air near the radiator gains energy and warms. Warm air expands and becomes less dense. Warm air rises while cooler, denser air sinks to replace it. The repeated circulation transfers thermal energy by convection."
+      },
+      "stimulus": {
+        "marks": 4
+      },
+      "feedback": {
+        "short": "The repeated circulation transfers thermal energy by convection.",
+        "steps": [
+          "Air near the radiator gains energy and warms.",
+          "Warm air expands and becomes less dense.",
+          "Warm air rises while cooler, denser air sinks to replace it.",
+          "The repeated circulation transfers thermal energy by convection."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Air near the radiator gains energy and warms.; Warm air expands and becomes less dense.; Warm air rises while cooler, denser air sinks to replace it.; The repeated circulation transfers thermal energy by convection."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-002",
+      "conceptId": "phys-y9-p4-gcse-oct20-002-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "Explain why conduction, not convection, is the main energy-transfer mechanism through a metal spoon. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Particles of the solid vibrate but cannot flow from place to place.",
+          "Vibrations transfer energy between neighbouring particles.",
+          "Delocalised electrons in the metal also transfer energy rapidly."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Particles of the solid vibrate but cannot flow from place to place. Vibrations transfer energy between neighbouring particles. Delocalised electrons in the metal also transfer energy rapidly."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Delocalised electrons in the metal also transfer energy rapidly.",
+        "steps": [
+          "Particles of the solid vibrate but cannot flow from place to place.",
+          "Vibrations transfer energy between neighbouring particles.",
+          "Delocalised electrons in the metal also transfer energy rapidly."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Particles of the solid vibrate but cannot flow from place to place.; Vibrations transfer energy between neighbouring particles.; Delocalised electrons in the metal also transfer energy rapidly."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-003",
+      "conceptId": "phys-y9-p4-gcse-oct20-003-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "A student insulates beakers with wool, foil and bubble wrap. State the independent, dependent and two control variables. (4 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Independent variable: insulation material.",
+          "Dependent variable: temperature fall over the same time.",
+          "Control the water volume or mass.",
+          "Control the starting water temperature and use identical containers."
+        ],
+        "totalMarks": 4,
+        "modelAnswer": "Independent variable: insulation material. Dependent variable: temperature fall over the same time. Control the water volume or mass. Control the starting water temperature and use identical containers."
+      },
+      "stimulus": {
+        "marks": 4
+      },
+      "feedback": {
+        "short": "Control the starting water temperature and use identical containers.",
+        "steps": [
+          "Independent variable: insulation material.",
+          "Dependent variable: temperature fall over the same time.",
+          "Control the water volume or mass.",
+          "Control the starting water temperature and use identical containers."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Independent variable: insulation material.; Dependent variable: temperature fall over the same time.; Control the water volume or mass.; Control the starting water temperature and use identical containers."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-004",
+      "conceptId": "phys-y9-p4-gcse-oct20-004-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "Describe five steps in an investigation to test whether thicker insulation slows the cooling of hot water. (5 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Use identical containers with the same volume of water.",
+          "Use the same initial water temperature.",
+          "Change insulation thickness only, using the same material.",
+          "Measure temperature fall over the same time interval.",
+          "Repeat each thickness and calculate a mean."
+        ],
+        "totalMarks": 5,
+        "modelAnswer": "Use identical containers with the same volume of water. Use the same initial water temperature. Change insulation thickness only, using the same material. Measure temperature fall over the same time interval. Repeat each thickness and calculate a mean."
+      },
+      "stimulus": {
+        "marks": 5
+      },
+      "feedback": {
+        "short": "Repeat each thickness and calculate a mean.",
+        "steps": [
+          "Use identical containers with the same volume of water.",
+          "Use the same initial water temperature.",
+          "Change insulation thickness only, using the same material.",
+          "Measure temperature fall over the same time interval.",
+          "Repeat each thickness and calculate a mean."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Use identical containers with the same volume of water.; Use the same initial water temperature.; Change insulation thickness only, using the same material.; Measure temperature fall over the same time interval.; Repeat each thickness and calculate a mean."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-005",
+      "conceptId": "phys-y9-p4-gcse-oct20-005-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "Explain why trapped air in wool makes the material a good thermal insulator. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Air has low thermal conductivity.",
+          "Fibres trap air into small pockets.",
+          "The air cannot circulate freely, reducing convection."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Air has low thermal conductivity. Fibres trap air into small pockets. The air cannot circulate freely, reducing convection."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "The air cannot circulate freely, reducing convection.",
+        "steps": [
+          "Air has low thermal conductivity.",
+          "Fibres trap air into small pockets.",
+          "The air cannot circulate freely, reducing convection."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Air has low thermal conductivity.; Fibres trap air into small pockets.; The air cannot circulate freely, reducing convection."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-006",
+      "conceptId": "phys-y9-p4-gcse-oct20-006-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "Two cups cool by 18 °C and 11 °C in ten minutes. Explain which insulation performs better and why. (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "The cup cooling by 11 °C has better insulation.",
+          "It has a smaller temperature fall over the same duration, so energy is transferred away more slowly."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The cup cooling by 11 °C has better insulation. It has a smaller temperature fall over the same duration, so energy is transferred away more slowly."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "It has a smaller temperature fall over the same duration, so energy is transferred away more slowly.",
+        "steps": [
+          "The cup cooling by 11 °C has better insulation.",
+          "It has a smaller temperature fall over the same duration, so energy is transferred away more slowly."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "The cup cooling by 11 °C has better insulation.; It has a smaller temperature fall over the same duration, so energy is transferred away more slowly."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-007",
+      "conceptId": "phys-y9-p4-gcse-oct20-007-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "Explain why placing a lid on a cup can improve a thermal-insulation investigation. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "The lid reduces warm air escaping from the top.",
+          "It reduces energy transfer by convection and evaporation.",
+          "Use the same lid arrangement for each trial to keep the comparison fair."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "The lid reduces warm air escaping from the top. It reduces energy transfer by convection and evaporation. Use the same lid arrangement for each trial to keep the comparison fair."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Use the same lid arrangement for each trial to keep the comparison fair.",
+        "steps": [
+          "The lid reduces warm air escaping from the top.",
+          "It reduces energy transfer by convection and evaporation.",
+          "Use the same lid arrangement for each trial to keep the comparison fair."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "The lid reduces warm air escaping from the top.; It reduces energy transfer by convection and evaporation.; Use the same lid arrangement for each trial to keep the comparison fair."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-008",
+      "conceptId": "phys-y9-p4-gcse-oct20-008-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "A pupil changes both the cup material and the insulation thickness. Explain the problem with this method. (2 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Two independent variables change at once.",
+          "Any difference in cooling cannot be attributed confidently to either factor."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Two independent variables change at once. Any difference in cooling cannot be attributed confidently to either factor."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Any difference in cooling cannot be attributed confidently to either factor.",
+        "steps": [
+          "Two independent variables change at once.",
+          "Any difference in cooling cannot be attributed confidently to either factor."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Two independent variables change at once.; Any difference in cooling cannot be attributed confidently to either factor."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-009",
+      "conceptId": "phys-y9-p4-gcse-oct20-009-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "Compare how thermal energy moves through a copper rod and through water heated from below. (4 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Copper transfers energy by conduction.",
+          "Delocalised electrons and particle vibrations transfer energy in the metal.",
+          "Water heated from below can circulate by convection.",
+          "Warmer, less-dense water rises as cooler water sinks."
+        ],
+        "totalMarks": 4,
+        "modelAnswer": "Copper transfers energy by conduction. Delocalised electrons and particle vibrations transfer energy in the metal. Water heated from below can circulate by convection. Warmer, less-dense water rises as cooler water sinks."
+      },
+      "stimulus": {
+        "marks": 4
+      },
+      "feedback": {
+        "short": "Warmer, less-dense water rises as cooler water sinks.",
+        "steps": [
+          "Copper transfers energy by conduction.",
+          "Delocalised electrons and particle vibrations transfer energy in the metal.",
+          "Water heated from below can circulate by convection.",
+          "Warmer, less-dense water rises as cooler water sinks."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Copper transfers energy by conduction.; Delocalised electrons and particle vibrations transfer energy in the metal.; Water heated from below can circulate by convection.; Warmer, less-dense water rises as cooler water sinks."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-010",
+      "conceptId": "phys-y9-p4-gcse-oct20-010-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "A thermal-insulation result from one trial is very different from all repeats. Describe how to deal with it. (3 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Check for a measurement or procedural mistake.",
+          "Repeat the suspect trial.",
+          "Calculate a representative mean using justified, consistent treatment of anomalies."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Check for a measurement or procedural mistake. Repeat the suspect trial. Calculate a representative mean using justified, consistent treatment of anomalies."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Calculate a representative mean using justified, consistent treatment of anomalies.",
+        "steps": [
+          "Check for a measurement or procedural mistake.",
+          "Repeat the suspect trial.",
+          "Calculate a representative mean using justified, consistent treatment of anomalies."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Check for a measurement or procedural mistake.; Repeat the suspect trial.; Calculate a representative mean using justified, consistent treatment of anomalies."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-011",
+      "conceptId": "phys-y9-p4-gcse-oct20-011-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "Explain why vacuum insulation prevents conduction and convection across the evacuated gap. (3 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "The gap contains very few particles.",
+          "Conduction needs particles or a material to transfer energy.",
+          "Convection needs a moving fluid, which is absent in the vacuum."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "The gap contains very few particles. Conduction needs particles or a material to transfer energy. Convection needs a moving fluid, which is absent in the vacuum."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Convection needs a moving fluid, which is absent in the vacuum.",
+        "steps": [
+          "The gap contains very few particles.",
+          "Conduction needs particles or a material to transfer energy.",
+          "Convection needs a moving fluid, which is absent in the vacuum."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "The gap contains very few particles.; Conduction needs particles or a material to transfer energy.; Convection needs a moving fluid, which is absent in the vacuum."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-012",
+      "conceptId": "phys-y9-p4-gcse-oct20-012-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "An insulation experiment is carried out in a draught. Explain why results may change. (2 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Moving air increases convection from the container surface.",
+          "A stronger or varying air current changes the rate of cooling."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Moving air increases convection from the container surface. A stronger or varying air current changes the rate of cooling."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "A stronger or varying air current changes the rate of cooling.",
+        "steps": [
+          "Moving air increases convection from the container surface.",
+          "A stronger or varying air current changes the rate of cooling."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Moving air increases convection from the container surface.; A stronger or varying air current changes the rate of cooling."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-013",
+      "conceptId": "phys-y9-p4-gcse-oct20-013-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "calculation",
+      "prompt": "A beaker of hot water cools from 74 °C to 62 °C in 6 minutes. Calculate its mean cooling rate in °C per minute. (3 marks)",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 2,
+        "units": [
+          "°C/min"
+        ],
+        "working": "Temperature fall = 74 − 62 = 12 °C; Rate = 12 ÷ 6; Mean cooling rate = 2 °C/min",
+        "tolerance": 0,
+        "modelAnswer": "2 °C/min"
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Mean cooling rate = 2 °C/min",
+        "steps": [
+          "Temperature fall = 74 − 62 = 12 °C",
+          "Rate = 12 ÷ 6",
+          "Mean cooling rate = 2 °C/min"
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Temperature fall = 74 − 62 = 12 °C; Rate = 12 ÷ 6; Mean cooling rate = 2 °C/min"
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show the method and give the correct unit."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-014",
+      "conceptId": "phys-y9-p4-gcse-oct20-014-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "calculation",
+      "prompt": "Cup A cools by 24 °C in 12 minutes. Calculate its average temperature fall per minute. (3 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 2,
+        "units": [
+          "°C/min"
+        ],
+        "working": "Rate = temperature drop ÷ time; 24 ÷ 12 = 2; Answer 2 °C/min",
+        "tolerance": 0,
+        "modelAnswer": "2 °C/min"
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Answer 2 °C/min",
+        "steps": [
+          "Rate = temperature drop ÷ time",
+          "24 ÷ 12 = 2",
+          "Answer 2 °C/min"
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Rate = temperature drop ÷ time; 24 ÷ 12 = 2; Answer 2 °C/min"
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show the method and give the correct unit."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-015",
+      "conceptId": "phys-y9-p4-gcse-oct20-015-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mc_single",
+      "prompt": "Which change makes a fair test of insulation materials?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "Keep thickness, cup, water volume and starting temperature the same.",
+        "Use a different cup shape for each material.",
+        "Use twice as much water with the second material.",
+        "Run one cup next to an open window and another in a cupboard."
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "Keep thickness, cup, water volume and starting temperature the same."
+        ]
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "Correct answer: Keep thickness, cup, water volume and starting temperature the same.",
+        "steps": [
+          "Correct answer: Keep thickness, cup, water volume and starting temperature the same."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Correct answer: Keep thickness, cup, water volume and starting temperature the same."
+      },
+      "task": {
+        "label": "CHOOSE",
+        "instruction": "Choose the one best answer."
+      },
+      "preview": true,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-gcse-oct20-016",
+      "conceptId": "phys-y9-p4-gcse-oct20-016-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "A shiny outer layer is added to a thermal flask. Explain its role, and state a second way a flask limits heat loss. (3 marks)",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Shiny surfaces are poor emitters or good reflectors of infrared radiation.",
+          "The shiny layer reduces net thermal radiation transfer.",
+          "An evacuated gap reduces conduction and convection."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Shiny surfaces are poor emitters or good reflectors of infrared radiation. The shiny layer reduces net thermal radiation transfer. An evacuated gap reduces conduction and convection."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "An evacuated gap reduces conduction and convection.",
+        "steps": [
+          "Shiny surfaces are poor emitters or good reflectors of infrared radiation.",
+          "The shiny layer reduces net thermal radiation transfer.",
+          "An evacuated gap reduces conduction and convection."
+        ],
+        "commonError": "Explain the underlying physical mechanism and control the important variables.",
+        "remember": "Shiny surfaces are poor emitters or good reflectors of infrared radiation.; The shiny layer reduces net thermal radiation transfer.; An evacuated gap reduces conduction and convection."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Write one distinct scientific point for each mark; scientifically equivalent wording is acceptable."
+      },
+      "preview": true,
+      "ordinary": true
     }
   ],
-  "enabled": 56,
+  "enabled": 72,
   "preview": 0,
   "disabled": 0,
   "formats": {
-    "mc_single": 20,
+    "mc_single": 21,
     "typed_exact": 7,
     "spelling_restore": 10,
-    "mark_points": 12,
+    "mark_points": 25,
     "typed_short": 3,
     "matching": 2,
     "practical_design": 1,
-    "diagram_label": 1
+    "diagram_label": 1,
+    "calculation": 2
   },
   "gated": false,
   "note": {
@@ -2342,7 +2982,9 @@
       "thermal conduction → energy transfer through a material from hotter regions to cooler regions; solid-lattice conduction → more energetic particle vibrations transferring energy to neighbouring particles; metal free electrons → mobile electrons transferring thermal energy rapidly through a metal; thermal conductor → a material allowing energy to transfer through it rapidly by heating",
       "thermal insulator → a material reducing the rate of energy transfer by heating; trapped-air insulation → poorly conducting gas unable to circulate freely, reducing energy transfer; insulation independent variable → the insulation material or thickness deliberately changed; insulation dependent variable → temperature fall over a fixed time or cooling rate",
       "particles transfer energy through increased vibrations metals also contain free electrons free electrons move through the structure and transfer energy rapidly",
-      "gases are poor conductors the air is trapped so it cannot circulate freely the rate of energy transfer is reduced"
+      "gases are poor conductors the air is trapped so it cannot circulate freely the rate of energy transfer is reduced",
+      "convection → heating causes fluid expansion and lower density so warm fluid rises while cooler fluid sinks, creating circulation",
+      "vacuum → prevents conduction and convection across an evacuated space"
     ],
     "mustMemoriseVocabulary": [
       "thermal conduction",
@@ -2353,7 +2995,11 @@
       "trapped-air insulation",
       "temperature fall over a fixed time or cooling rate",
       "insulation controls",
-      "insulation repeat"
+      "insulation repeat",
+      "convection",
+      "convection current",
+      "density difference",
+      "vacuum insulation"
     ],
     "workedExamples": [
       {
@@ -2393,7 +3039,8 @@
       "Thermal conduction transfers energy through a material from hotter regions to colder regions. In solids, vibrating particles transfer energy to neighbours; in metals, delocalised electrons also transfer energy rapidly, making metals good conductors.",
       "Thermal insulators reduce the rate of energy transfer. Materials containing trapped air can be effective because air is a poor conductor when convection is prevented.",
       "In an insulation investigation, change one factor such as insulating material or thickness, keep other variables controlled, measure temperature at regular intervals and compare the temperature decrease or cooling rate.",
-      "A valid comparison needs the same starting temperature, similar container geometry, equal volumes or masses of water, identical timing and a fair method of placing the insulation. Repeats and means improve reliability."
+      "A valid comparison needs the same starting temperature, similar container geometry, equal volumes or masses of water, identical timing and a fair method of placing the insulation. Repeats and means improve reliability.",
+      "Convection is energy transfer by bulk movement of a liquid or gas, not by material flow through a solid. In a fluid heated from below, warmer less-dense regions rise while cooler denser regions sink. Compare this with conduction by particle vibrations and free electrons through a metal."
     ],
     "examTips": [
       "Evaluation answers should name a limitation, explain its effect on the result, and give a specific improvement.",
