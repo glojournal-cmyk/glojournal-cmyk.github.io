@@ -18,6 +18,12 @@
       showFallback(img);
     };
     img.addEventListener('error', recover);
+    img.addEventListener('load', () => {
+      img.style.visibility = '';
+      img.dataset.scholarRetried = '';
+      img.dataset.scholarFallback = '';
+      img.parentElement?.querySelector('[data-scholar-image-fallback]')?.remove();
+    });
     if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) recover();
   };
   function showFallback(img) {
