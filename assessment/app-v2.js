@@ -131,7 +131,9 @@ $('#track-form').addEventListener('submit',e=>{
 });
 const SCHOOL_ASSESSMENTS=globalThis.LuxSchoolRevision.schoolAssessments;
 function tracker(){
-  const school=SCHOOL_ASSESSMENTS.filter(x=>!(state.hiddenSchoolAssessments||[]).includes(x.id));
+  // The teacher confirmed 2 November. Keep the older 16 November AQA paper
+  // available under Long tests, but do not present it as a confirmed school date.
+  const school=SCHOOL_ASSESSMENTS.filter(x=>x.id!=='school-biology-20261116' && !(state.hiddenSchoolAssessments||[]).includes(x.id));
   const entries=[...school,...state.tracker].sort((a,b)=>(a.date||'').localeCompare(b.date||''));
   $('#tracker-list').innerHTML=entries.length?entries.map(x=>{
     const isSchool=school.some(s=>s.id===x.id);
