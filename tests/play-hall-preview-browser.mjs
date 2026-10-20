@@ -20,6 +20,10 @@ try{
     assert.equal(await page.locator('#lux-play-hall-preview img').count(),1,'Only approved standing Scholar, no Pet');
     assert.equal(await page.locator('.lux-play-hall-pills a').count(),12);
     await page.waitForFunction(()=>{const img=document.querySelector('.lux-play-hall-scholar');return img?.complete&&img.naturalWidth>0;});
+    // Visual signoff also captures the true default standing Home outfit.
+    if(viewport.width===1024) await page.screenshot({path:`test-results/play-hall-${engine.name()}-1024-default.png`,fullPage:false});
+    const heroSize=await page.locator('.lux-play-hall-scholar').evaluate(img=>({width:img.getBoundingClientRect().width,height:img.getBoundingClientRect().height}));
+    if(viewport.width===1024)assert.ok(heroSize.height>=450,'Full-body student must not appear tiny next to four halls');
     // Outfit switch is performed through the original store; Play preview never writes.
     await page.evaluate(async()=>{const store=(await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2')).C;store.setState({equippedOutfit:'cardigan'});});
     await page.waitForFunction(()=>document.querySelector('.lux-play-hall-scholar')?.src.endsWith('/art/doll/cardigan.png'));
