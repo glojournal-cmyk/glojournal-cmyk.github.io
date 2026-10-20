@@ -1,0 +1,22 @@
+name: Gloria encrypted cloud email backup QA
+on:
+  pull_request:
+    paths:
+      - "cloud-backup/**"
+      - "assets/gloria-cloud-backup-20261020.js"
+      - "tests/gloria-cloud-email-backup.test.mjs"
+      - ".github/workflows/gloria-cloud-backup-qa.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  encrypted-backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: node --check cloud-backup/worker.mjs
+      - run: node --check assets/gloria-cloud-backup-20261020.js
+      - run: node --test tests/gloria-cloud-email-backup.test.mjs
