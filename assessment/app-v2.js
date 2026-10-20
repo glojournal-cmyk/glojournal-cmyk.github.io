@@ -85,27 +85,17 @@ function groupBlurb(group,today){
   return 'Mixed questions from the Year 9 bank. Already in Practise.';
 }
 function paperCard(p){
-  const prize=PRIZES[p.id];
-  const hasDraft=state.drafts[p.id]?.version===2;
-  const paperType=p.bank.includes('/banks/')?'Mixed paper':'School paper';
-  const extra=p.id==='biology-nov2'?'<a href="/assessment/biology-nov2/practice/">Topic practice</a> · <a href="/assessment/biology-nov2/notes.pdf">Illustrated notes</a>':
-    p.id==='biology-cell-structure'?'<a href="/assessment/biology-cell-structure/">Revision guide & bank</a>':'';
-  return `<article class="card assessment-paper-row" data-paper-row="${esc(p.id)}">
-    <div class="assessment-paper-info">
-      <span class="tag">${esc(paperType)} · Year 9</span>
-      <h3>${esc(p.name.replace(/^[^·]+·\s*/,''))}</h3>
-      <p title="${esc(p.subtitle)}">${esc(p.subtitle)}</p>
-      ${extra?`<span class="assessment-paper-links">${extra}</span>`:''}
-    </div>
-    <div class="assessment-paper-stats" aria-label="${p.minutes} minutes, ${p.count} questions, 85 percent pass mark">
-      <span>${p.minutes} min</span><span>${p.count} questions</span><span class="assessment-pass">Pass 85%</span>
-      ${prize?`<span class="assessment-prize" title="Pass to unlock ${esc(prize.name)}">${esc(prize.name)} reward</span>`:''}
-    </div>
-    <div class="assessment-paper-buttons">
-      <button class="primary" data-paper="${esc(p.id)}">${hasDraft?'Continue':'Start'} <span aria-hidden="true">›</span></button>
-      ${p.id==='chemistry'&&hasDraft?'<button class="assessment-reset" data-reset-paper="chemistry" aria-label="Discard Chemistry draft">Reset</button>':''}
-    </div>
-  </article>`;
+ const hasDraft=state.drafts[p.id]?.version===2;
+ return `<article class="card assessment-paper-row" data-paper-row="${esc(p.id)}">
+   <div class="assessment-paper-info">
+     <h3>${esc(p.name.replace(/^[^·]+·\s*/,''))}</h3>
+     <p>${p.minutes} min · ${p.count} questions · Pass 85%</p>
+   </div>
+   <div class="assessment-paper-buttons">
+     <button class="primary" data-paper="${esc(p.id)}">${hasDraft?'Continue':'Start'} <span aria-hidden="true">›</span></button>
+     ${p.id==='chemistry'&&hasDraft?'<button class="assessment-reset" data-reset-paper="chemistry" aria-label="Discard Chemistry draft">Reset</button>':''}
+   </div>
+ </article>`;
 }
 function cards(){
   if(!document.getElementById('exam-group-style')){const s=document.createElement('style');s.id='exam-group-style';s.textContent='.subject-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:2px 0 14px;position:sticky;top:8px;z-index:4;background:#f6f1e6;padding:8px 0}.subject-bar button{border-radius:999px;padding:8px 14px;background:#fffaf3;border:1px solid rgba(196,164,106,.75);color:#1A3148}.subject-bar button.on{background:#1A3148;color:#f7f1e6;border-color:#1A3148}.subject-bar .add-assess{margin-left:auto}.subject-list{display:flex;flex-direction:column;gap:12px}.subject-block{padding-top:0;border-top:0}.subject-block h2{font-size:32px}.subject-block .when{margin:6px 0 0;color:#62717a;max-width:42rem}.subject-block .cards{margin-top:12px}.subject-block .card p{min-height:0}';document.head.appendChild(s)}
@@ -121,7 +111,7 @@ function cards(){
   const allPapers=group.ids.map(id=>PAPERS.find(p=>p.id===id)).filter(Boolean),query=$('#assessment-search').value.trim().toLowerCase(),kind=$('#assessment-kind').value;
   const papers=allPapers.filter(p=>(kind==='all'||(p.bank.includes('/banks/')?'mixed':'school')===kind)&&(!query||`${p.name} ${p.subtitle} ${Object.keys(p.groups||{}).join(' ')}`.toLowerCase().includes(query)));
   const root=$('#paper-list');root.className='subject-list';const today=examToday();
-  root.innerHTML=`<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="muted">Year 9 · ${papers.length} of ${allPapers.length} papers · <a href="/study/${group.subject.toLowerCase()}/">Browse notes and topic practice →</a></p><p class="when">${esc(groupBlurb(group,today))}</p><div class="cards">${papers.length?papers.map(paperCard).join(''):'<p class="muted" role="status">No matching papers. Try another keyword or paper type.</p>'}</div></section>`;
+  root.innerHTML=`<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="muted">Year 9 · ${papers.length} of ${allPapers.length} papers · <a href="/study/${group.subject.toLowerCase()}/">Browse notes and topic practice →</a></p><p class="when">${esc(groupBlurb(group,today))}</p><div class="cards">${papers.length?papers.map(paperCard).join(''):'<p class="muted" role="status">No matching papers. Try another keyword or paper type.</p>'}</div>${group.subject==='Biology'?'<details class="assessment-resources"><summary>Revision resources</summary><div><a href="/assessment/biology-nov2/practice/">2 November topic practice</a><a href="/assessment/biology-nov2/notes.pdf">Illustrated revision notes</a><a href="/assessment/biology-cell-structure/">Cell structure revision guide &amp; bank</a></div></details>':''}</section>`;
 }
 cards();
 $('#paper-list').addEventListener('click',e=>{
