@@ -58,7 +58,7 @@ try{
       const bg=getComputedStyle(document.body).backgroundImage;
       const style=[...document.styleSheets].some(s=>s.href?.includes('pet-sanctuary-ipad-preview-20261020.css'));
       const art=getComputedStyle(document.querySelector('#petImage')).backgroundImage;
-      return {pet:box('.pet-stage-card'),care:box('#petCarePanel'),growth:box('#petGrowth'),nav:box('.lux-shell-nav'),stage:box('#petAvatar'),bg,style,art,topbar:getComputedStyle(document.querySelector('.pet-topbar')).display,classes:document.body.className,scrollWidth:document.documentElement.scrollWidth};
+      return {pet:box('.pet-stage-card'),care:box('#petCarePanel'),growth:box('#petGrowth'),nav:box('.lux-shell-nav'),stage:box('#petAvatar'),bg,style,art,topbar:document.querySelector('.pet-topbar') ? getComputedStyle(document.querySelector('.pet-topbar')).display : 'none',classes:document.body.className,scrollWidth:document.documentElement.scrollWidth};
     });
     console.log(engine.name()+' viewport '+viewport.width+' preview layout '+JSON.stringify(sizes));
     assert.ok(sizes.style,'Pet sanctuary stylesheet loaded');
