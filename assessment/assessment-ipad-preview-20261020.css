@@ -323,3 +323,16 @@ body.lux-shell-on.assessment-rpg-scene .lux-shell-nav a[aria-current="page"]{
  body.lux-shell-on.assessment-rpg-scene .assessment-paper-info h3{font-size:1.09rem}
  body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-info p{display:none}
 }
+
+/* Compact landscape directory: the exact test date is shown in each paper row.
+   Remove the duplicated topic explanation to keep all four Biology rows above
+   the bottom nav on a 1024 × 768 iPad. */
+@media(min-width:900px) and (orientation:landscape){
+ body.lux-shell-on.assessment-rpg-scene .subject-block>.when{display:none}
+ body.lux-shell-on.assessment-rpg-scene #papers.panel{padding-top:11px;padding-bottom:12px}
+ body.lux-shell-on.assessment-rpg-scene .subject-block .cards{gap:6px;margin-top:6px!important}
+ body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-row{
+   min-height:70px;padding-top:7px;padding-bottom:7px;
+ }
+ body.lux-shell-on.assessment-rpg-scene .subject-block>.muted{margin:1px 0}
+}
