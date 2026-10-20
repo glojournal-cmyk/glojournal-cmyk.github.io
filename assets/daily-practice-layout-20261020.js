@@ -69,10 +69,14 @@
   function showCompanion(){
     const buddy=document.getElementById('study-companion');
     if(!buddy) return;
-    if(getComputedStyle(buddy).display==='none' && !buddy.hasAttribute('data-lux-daily-shown-companion')){
-      buddy.dataset.luxDailyFormerDisplay=buddy.style.getPropertyValue('display');
-      buddy.dataset.luxDailyFormerPriority=buddy.style.getPropertyPriority('display');
-      buddy.setAttribute('data-lux-daily-shown-companion','');
+    if(getComputedStyle(buddy).display==='none'){
+      if(!buddy.hasAttribute('data-lux-daily-shown-companion')){
+        buddy.dataset.luxDailyFormerDisplay=buddy.style.getPropertyValue('display');
+        buddy.dataset.luxDailyFormerPriority=buddy.style.getPropertyPriority('display');
+        buddy.setAttribute('data-lux-daily-shown-companion','');
+      }
+      // Safari may receive a later display:none from legacy code after first mount.
+      // Reapply only while this exact Daily question remains active.
       buddy.style.setProperty('display','flex','important');
     }
   }
