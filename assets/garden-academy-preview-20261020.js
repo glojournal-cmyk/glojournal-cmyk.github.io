@@ -24,6 +24,39 @@ const nativeWater=()=>[...document.querySelectorAll('body>.paper-wash button')]
 const nativeItem=(label)=>[...document.querySelectorAll('body>.paper-wash button')]
   .find(b=>!!b.querySelector('img[alt="'+label.replaceAll('"','')+'"]'));
 let root,style,modal,waiting=false,lastKey='',cleanupFocus=null;
+const suppressedNavs=new Map();
+function suppressOldNavigation(){
+  // Legacy navigation is generated in a separate portal and occasionally
+  // receives a high-specificity inline visibility/display override.
+  // Temporarily suppress each native rail, and restore its original inline
+  // styles immediately when the preview closes.
+  for(const n of document.querySelectorAll('nav,[role="navigation"]')){
+    if(root?.contains(n))continue;
+    if(!suppressedNavs.has(n)){
+      suppressedNavs.set(n,{
+        display:n.style.getPropertyValue('display'),
+        displayPriority:n.style.getPropertyPriority('display'),
+        visibility:n.style.getPropertyValue('visibility'),
+        visibilityPriority:n.style.getPropertyPriority('visibility')
+      });
+    }
+    n.style.setProperty('display','none','important');
+    n.style.setProperty('visibility','hidden','important');
+  }
+}
+function restoreOldNavigation(){
+  for(const [n,saved] of suppressedNavs){
+    for(const [prop,value,priority] of [
+      ['display',saved.display,saved.displayPriority],
+      ['visibility',saved.visibility,saved.visibilityPriority]
+    ]){
+      if(value)n.style.setProperty(prop,value,priority);
+      else n.style.removeProperty(prop);
+    }
+  }
+  suppressedNavs.clear();
+}
+
 function stateNow(){try{return store.getState()||{}}catch{return{}}}
 function growth(){
   try{const x=JSON.parse(localStorage.getItem('lux-garden-life-v1')||'null');
@@ -171,6 +204,7 @@ let parts;
 function render(){
   waiting=false;
   if(!enabled()){
+    restoreOldNavigation();
     root?.remove();root=null;parts=null;modal=null;lastKey='';
     document.documentElement.classList.remove('lux-garden-map-active');
     return;
@@ -181,6 +215,7 @@ function render(){
   if(!native||!document.querySelector('body>.paper-wash button'))return;
   if(!root?.isConnected){parts=assemble();}
   document.documentElement.classList.add('lux-garden-map-active');
+  suppressOldNavigation();
   const state=stateNow();const exp=Number(state.xp)||0;
   const st=gardenStage(exp),growthStep=growth();
   const watered=/Watered today/.test(nativeWater()?.textContent||'');
