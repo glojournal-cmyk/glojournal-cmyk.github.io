@@ -506,3 +506,30 @@ html.lux-daily-ux-ready .paper-wash > header,
 html.lux-daily-ux-ready .paper-wash > main > header:has(.lucide-search) {
   display:none!important;
 }
+
+/* Signed-off iPad layout: the answer panel should visually occupy the centre,
+   without pushing its controls underneath Study's floating seven-tab bar. */
+@media (min-width:721px) and (min-height:741px) {
+ html.lux-daily-ux-ready [data-question-format="word_tiles"] [data-lux-question-card],
+ html.lux-daily-ux-ready [data-question-format="mc_single"] [data-lux-question-card],
+ html.lux-daily-ux-ready [data-question-format="typed_exact"] [data-lux-question-card] {
+   min-height:clamp(420px,55dvh,570px)!important;
+ }
+}
+@media (min-width:721px) and (max-height:780px) {
+ html.lux-daily-ux-ready [data-question-format="word_tiles"] [data-lux-question-card],
+ html.lux-daily-ux-ready [data-question-format="mc_single"] [data-lux-question-card] {
+   min-height:clamp(390px,54dvh,425px)!important;
+ }
+}
+/* The lock is a short informational row, never a side panel. */
+html.lux-daily-ux-ready [data-lux-daily-lock] {
+   display:block!important;
+   padding:6px 12px!important;
+   background:#f4eadb!important;
+   color:#736247!important;
+   border:0!important;
+   border-radius:10px!important;
+   font-size:12px!important;
+   line-height:1.4!important;
+}
