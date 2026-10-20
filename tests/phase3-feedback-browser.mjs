@@ -31,7 +31,15 @@ try{for(const launcher of [chromium,webkit]){
  const page=await browser.newPage({viewport,reducedMotion:viewport.width===390?'reduce':'no-preference'});const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.addInitScript(()=>{window.__spoken=[];Object.defineProperty(window,'speechSynthesis',{value:{getVoices:()=>[],cancel:()=>{},speak:u=>window.__spoken.push(u.text),speaking:false}});window.SpeechSynthesisUtterance=class{constructor(text){this.text=text}};});
  for(const route of ['/','/study/latin/practise','/study/chemistry/practise']){
- await page.goto(base+route,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>window.__luxAppReady===true);await page.waitForSelector('#lux-voice-cheer-toggle');
+ await page.goto(base+route,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>window.__luxAppReady===true);
+ if(route==='/'){
+   // Home's approved RPG layer intentionally covers its legacy voice toggle.
+   // Confirm that the actual visible greeting exists; the voice toggle
+   // below is still exercised on both native Study practice routes.
+   await page.waitForSelector('#lux-rpg-live-home .rpg-greet-control-live',{state:'visible'});
+   continue;
+ }
+ await page.waitForSelector('#lux-voice-cheer-toggle');
   console.log('PHASE3_ROUTE',JSON.stringify({requested:route,actual:new URL(page.url()).pathname}));
   assert.equal(new URL(page.url()).pathname,route,'Practice routes must not unexpectedly redirect Home');
   // Wait for Study companion only on practice routes; Home has no answer flash.
