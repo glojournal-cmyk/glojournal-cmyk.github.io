@@ -70,11 +70,16 @@ try{
           localStorage.setItem('lux-pet-companion-v1',JSON.stringify({species:'moss-hornling',petLevels:{'moss-hornling':2}}));
           dispatchEvent(new Event('scholar:pet-changed'));
         });
-        await page.waitForFunction(()=>document.querySelector('.lux-study-rpg-scholar')?.getAttribute('src')?.includes('/art/doll/cardigan.png'));
+        await page.waitForFunction(async()=>{
+          const {A: outfits}=await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2');
+          const expected=outfits.find(o=>o.id==='cardigan')?.art;
+          return Boolean(expected && document.querySelector('.lux-study-rpg-scholar')?.getAttribute('src')===expected);
+        });
         const petExpected=await page.evaluate(async()=>{
           const x=await import('/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2');
           return x.petArtUrl('moss-hornling',2);
         });
+        await page.waitForFunction(expected => document.querySelector('.lux-study-rpg-pet')?.getAttribute('src') === expected, petExpected, {timeout:10000});
         assert.equal(await page.locator('.lux-study-rpg-pet').getAttribute('src'),petExpected);
         const petPixels = await page.locator('.lux-study-rpg-pet').evaluate(img => ({
           transform:getComputedStyle(img).transform,
@@ -164,8 +169,9 @@ try{
           // Home mounts both the original React nav and the RPG nav.
           // Only the RPG nav is frontmost/tappable; a generic :visible match
           // can select an underlying original link behind the new Home.
-          const studyNav=target.name==='Home'
-            ? page.locator('html.lux-rpg-live-active #lux-rpg-live-home .rpg-nav-live a[href="/study"]')
+          const homeLive=target.name==='Home' && await page.locator('html.lux-rpg-live-active #lux-rpg-live-home .rpg-nav-live a[href="/study"]:visible').count()>0;
+          const studyNav=homeLive
+            ? page.locator('html.lux-rpg-live-active #lux-rpg-live-home .rpg-nav-live a[href="/study"]:visible')
             : page.locator('a[href="/study"]:visible, a[href="/study/"]:visible');
           // On first Home paint the RPG nav exists but is hidden until the
           // approved scene takes over. Do not click its invisible placeholder.
@@ -174,7 +180,25 @@ try{
           // default "stable box" check can stall despite a visible, tappable
           // link. Keep the :visible requirement, but don't require a motionless
           // rectangle before dispatching the real pointer event.
-          await studyNav.last().click({force:true,timeout:20000});
+          if (target.name === 'Home') {
+            // Exercise a real pointer tap on the frontmost visible navigation
+            // rather than force-clicking a possibly occluded React link.
+            const coordinates=await page.evaluate(() => {
+              const anchors=[...document.querySelectorAll('a[href="/study"],a[href="/study/"]')];
+              for(const a of anchors.reverse()){
+                const r=a.getBoundingClientRect();
+                if(r.width<4||r.height<4)continue;
+                const x=r.left+r.width/2,y=r.top+r.height/2;
+                const top=document.elementFromPoint(x,y);
+                if(top && (a===top||a.contains(top)))return {x,y};
+              }
+              return null;
+            });
+            assert.ok(coordinates,'Home Study link must be frontmost and tappable');
+            await page.mouse.click(coordinates.x,coordinates.y);
+          } else {
+            await studyNav.last().click({force:true,timeout:20000});
+          }
         }
         await page.waitForURL(u=>/^\/study\/?$/.test(u.pathname),{waitUntil:'domcontentloaded',timeout:20000});
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
