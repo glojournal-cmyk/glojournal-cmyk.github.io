@@ -77,6 +77,13 @@
       const count = (intro.textContent || "").match(/Question\s+(\d+)\s*\/\s*(\d+)/i);
       const countText = count ? count[1] + " / " + count[2] : "";
       if (intro.dataset.luxProgressCount !== countText) intro.dataset.luxProgressCount = countText;
+      if (count) {
+        const complete = Number(count[1]), total = Math.max(1,Number(count[2]));
+        const percent = Math.max(0,Math.min(100,100*complete/total)) + "%";
+        if (intro.style.getPropertyValue("--lux-daily-fill") !== percent) {
+          intro.style.setProperty("--lux-daily-fill",percent);
+        }
+      }
       const review = intro.nextElementSibling;
       if (review && !review.querySelector("p.font-display.text-2xl") && !review.querySelector("[data-lux-question-card]")) {
         review.setAttribute("data-lux-review-progress","");
