@@ -485,3 +485,24 @@ html.lux-daily-ux-ready #study-companion > #lux-voice-cheer-toggle{
    font-size:16px;
  }
 }
+
+/* Approved screenshot wording. Only assigned daily sessions change the kicker;
+   free Practice preserves its original Easy → Hard / Mastery description. */
+html.lux-daily-ux-ready.lux-daily-task-active [data-lux-question-intro] > p:first-child {
+  font-size:0!important;
+  line-height:1.4!important;
+  white-space:nowrap;
+}
+html.lux-daily-ux-ready.lux-daily-task-active [data-lux-question-intro] > p:first-child::before {
+  content:"DAILY PRACTICE";
+  display:inline;
+  color:#a27d3b!important;
+  font:750 11px/1.4 system-ui,sans-serif!important;
+  letter-spacing:.2em!important;
+}
+/* Keep the agreed top-bar deletion independent of the surrounding page skin. */
+html.lux-daily-ux-ready body > .paper-wash > header,
+html.lux-daily-ux-ready .paper-wash > header,
+html.lux-daily-ux-ready .paper-wash > main > header:has(.lucide-search) {
+  display:none!important;
+}
