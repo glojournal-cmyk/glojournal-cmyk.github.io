@@ -528,3 +528,47 @@ body.lux-shell-on.pet-sanctuary-preview #petCarePanel .pet-care-action{min-heigh
 @media(max-width:650px){
  body.lux-shell-on.pet-sanctuary-preview nav.lux-shell-nav{border-radius:16px!important}
 }
+
+/* Isolated approved-style Pet footer. This replaces the legacy nav *class*
+   only in opt-in preview while retaining exactly the same real link elements. */
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar{
+ position:fixed!important;inset:auto auto calc(8px + env(safe-area-inset-bottom)) 50%!important;
+ transform:translateX(-50%)!important;
+ display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr));
+ align-items:center;
+ width:min(84vw,1080px)!important;max-width:calc(100vw - 16px);
+ margin:0!important;padding:5px 9px!important;
+ z-index:120!important;
+ border:1px solid #edcf977a!important;border-radius:999px!important;
+ background:#1a3340f6!important;background-image:none!important;
+ box-shadow:0 7px 22px #0e203094!important;box-sizing:border-box;
+ font-family:'Source Sans 3',sans-serif;
+}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a{
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ min-width:0;min-height:47px;gap:2px;padding:5px 4px;
+ color:#fff2dc;text-decoration:none;font-size:.69rem;font-weight:700;
+ line-height:1.12;border:0;border-radius:999px;white-space:nowrap;
+}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a svg{
+ display:block;width:17px;height:17px;stroke:currentColor;
+}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[aria-current="page"]{
+ background:#fbf0da!important;color:#1b3b4b!important;
+}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[href="/"]{order:1}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[href="/study/"]{order:2}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[href="/play"]{order:3}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[href="/garden"]{order:4}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[href="/pet/"]{order:5}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[href="/assessment"]{order:6}
+body.pet-sanctuary-preview nav.pet-preview-bottom-bar a[href="/scholar"]{order:7}
+@media(max-width:700px){
+ body.pet-sanctuary-preview nav.pet-preview-bottom-bar{
+  width:calc(100% - 14px)!important;padding:4px 2px!important;border-radius:15px!important;
+ }
+ body.pet-sanctuary-preview nav.pet-preview-bottom-bar a{
+  padding:3px 1px;min-height:45px;font-size:.56rem;
+ }
+ body.pet-sanctuary-preview nav.pet-preview-bottom-bar a svg{width:15px;height:15px}
+}
