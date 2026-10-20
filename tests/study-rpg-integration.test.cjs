@@ -31,3 +31,17 @@ test('iPad layout with safe-area and no blank background if ZIP assets not deplo
  assert.match(css,/\/art\/stages\/classroom\.jpg/);
  assert.match(css,/body>\.paper-wash\{visibility:hidden/);
 });
+
+test('production route bridge loads real Study without preview query and has safe legacy fallback',()=>{
+ const boot=fs.readFileSync(path.join(__dirname,'../assets/study-rpg-live-boot-20261020.js'),'utf8');
+ const home=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+ const study=fs.readFileSync(path.join(__dirname,'../study/index.html'),'utf8');
+ const native=fs.readFileSync(path.join(__dirname,'../assets/study-navigation-v2-20261010.js'),'utf8');
+ for(const shell of [home,study]) assert.match(shell,/study-rpg-live-boot-20261020\.js/);
+ assert.match(boot,/studyRpgPreview/);
+ assert.match(boot,/=== '0'/,'safe native Study fallback');
+ assert.match(boot,/pushState/);
+ assert.match(boot,/study-rpg-integrated-20261019\.js/);
+ assert.doesNotMatch(native,/studyRpgPreview.*=== '1'/);
+ for(const file of [boot,native]) assert.doesNotMatch(file,/localStorage\.setItem\s*\(/);
+});
