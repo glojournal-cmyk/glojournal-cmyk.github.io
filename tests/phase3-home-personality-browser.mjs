@@ -91,8 +91,10 @@ try{
             rewardLedger:p.care.rewardLedger}:null};
       });
       const before=await snapshot();
-      await page.locator('#lux-rpg-live-home .rpg-greet-control-live').focus();
-      await page.keyboard.press('Enter');
+      // One locator action focuses and presses the *current* button.
+      // A scheduled Home rerender between separate focus/keyboard calls can
+      // replace the button and leave Enter on a detached element.
+      await page.locator('#lux-rpg-live-home .rpg-greet-control-live').press('Enter');
       await page.waitForFunction(()=>document.querySelector('.rpg-greeting-line-live.is-visible')?.textContent?.length>15,null,{timeout:10000});
       const line=page.locator('.rpg-greeting-line-live');
       assert.equal(await line.getAttribute('role'),'status');
