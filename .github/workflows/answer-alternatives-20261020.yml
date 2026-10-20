@@ -1,0 +1,37 @@
+name: Answer alternatives and all-subject marking audit
+on:
+  pull_request:
+    paths:
+      - "assets/quiz-session-y8fix-20260920.js"
+      - "assets/quiz-session-rWAnuDVj.js"
+      - "assessment/app-v2.js"
+      - "assessment/marking-hotfix-v3.js"
+      - "tests/answer-alternatives-20261020.test.mjs"
+      - "content/topics/**"
+      - "assessment/**"
+      - ".github/workflows/answer-alternatives-20261020.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-alternative-answers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check alternative answers and scan all subject topic banks
+        run: node tests/answer-alternatives-20261020.test.mjs
+      - name: Existing Latin/French marking interaction regression
+        run: node tests/marking-interaction-qa.mjs
+      - name: Upload full audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: answer-alternatives-audit
+          path: test-results/answer-alternatives-audit-20261020.json
+          if-no-files-found: ignore
