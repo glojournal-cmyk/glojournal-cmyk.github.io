@@ -1,0 +1,30 @@
+name: Assessment iPad Preview QA
+on:
+  pull_request:
+    paths:
+      - 'assessment/index.html'
+      - 'assessment/app-v2.js'
+      - 'assessment/assessment-ipad-preview-20261020.css'
+      - 'tests/assessment-ipad-preview-browser.mjs'
+      - '.github/workflows/assessment-ipad-preview-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  assessment-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --check assessment/app-v2.js && node --check tests/assessment-ipad-preview-browser.mjs
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/assessment-ipad-preview-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: assessment-ipad-preview-screenshots
+          path: test-results/assessment-*.png
