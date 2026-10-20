@@ -111,7 +111,7 @@ export function recoverProgressStorage(store){
   // If the primary already matches, this warning may concern a separate store.
   // Do not clear a different save failure by rewriting an unchanged primary.
   const before=JSON.stringify({state:options.partialize({...store.getState()}),version:options.version});
-  if(localStorage.getItem(options.name)===before)return false;
+  if(localStorage.getItem(options.name)===before)return globalThis.__luxStoreQuotaFailed===false;
   store.setState({});
   const state=options.partialize({...store.getState()});
   const expected=JSON.stringify({state,version:options.version});

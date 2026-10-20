@@ -112,3 +112,12 @@ test("An already durable primary cannot clear a failure from another store",asyn
  assert.equal(await vault.recoverProgressStorage(store),false);
  assert.equal(writes,0);
 });
+
+test("Concurrent verified primary save is not turned back into a failure",async()=>{
+ const {vault,localStorage,globalThis}=environment(),key="lux-scholar-garden-v1",live={xp:2862,daily:[]};
+ localStorage.setItem(key,JSON.stringify({state:live,version:10}));
+ globalThis.__luxStoreQuotaFailed=false;
+ const store={getState:()=>live,setState:()=>{throw Error("No redundant write expected")},
+  persist:{getOptions:()=>({name:key,version:10,partialize:x=>x})}};
+ assert.equal(await vault.recoverProgressStorage(store),true);
+});
