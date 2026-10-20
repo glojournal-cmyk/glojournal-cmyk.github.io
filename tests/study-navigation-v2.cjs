@@ -73,8 +73,8 @@ test('legacy subjects directory no longer blocks the first screen',()=>{
  const study=file('study/index.html'),home=file('index.html');
  assert.doesNotMatch(script,/textContent='Browse subjects'/);
  assert.match(script,/getElementById\('subject-directory-entry'\)\?\.remove\(\)/);
- assert.match(home,/assessment-link\.js\?v=20261017-bio-nov2/);
- assert.match(study,/assessment-link\.js\?v=20261017-bio-nov2/);
+ assert.match(home,/assessment-link\.js\?v=20261020-play-hall-live1/);
+ assert.match(study,/assessment-link\.js\?v=20261020-play-hall-live1/);
  assert.match(study,/study-navigation-v2-20261010\.js\?v=20261018-cards2/);
  const css=file('assets/study-navigation-v2-20261010.css');
  assert.match(css,/data-lux-quest-ready/);
