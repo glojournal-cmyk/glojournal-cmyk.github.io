@@ -62,95 +62,95 @@ html.lux-scholar-rpg .paper-wash>main>div>div.flex.flex-wrap.gap-2 button:first-
 html.lux-scholar-rpg .paper-wash>main>div>div.flex.flex-wrap.gap-2 button.bg-navy{
   background:#faf0db;color:#213b49;border-color:#f7dba4;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid{
   grid-column:1/-1;grid-row:2;min-height:0;max-height:100%;
   display:grid!important;grid-template-columns:minmax(0,.43fr) minmax(0,.57fr)!important;
   gap:clamp(11px,1.5vw,19px)!important;align-items:stretch!important;
   overflow:hidden;
 }
 /* Existing selected stage and equipped full-body sprite are reused, never replaced. */
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:first-child{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:first-child{
   position:relative;min-height:0!important;height:100%;width:100%;
   aspect-ratio:auto!important;
   border:2px solid #ecd09a;border-radius:21px;
   box-shadow:0 0 0 2px #8c6a448f,0 17px 31px #0b1e2ab5;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:first-child>img{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:first-child>img{
   object-position:center 64%!important;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:first-child>div:nth-of-type(2){
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:first-child>div:nth-of-type(2){
   top:12px!important;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:first-child>div:nth-of-type(2) button{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:first-child>div:nth-of-type(2) button{
   min-height:32px;padding:5px 13px!important;border:1px solid #e3ca95;
   background:#19394cd9;color:#fff2d6;font-weight:700;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:first-child .scholar-idle{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:first-child .scholar-idle{
   max-height:100%;max-width:96%;object-fit:contain;
   filter:drop-shadow(0 7px 10px #0b19224c);
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:first-child>div:last-child{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:first-child>div:last-child{
   padding:35px 15px 12px!important;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:first-child>div:last-child p:first-child{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:first-child>div:last-child p:first-child{
   font-size:.67rem;letter-spacing:.16em;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:first-child>div:last-child p:nth-child(2){
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:first-child>div:last-child p:nth-child(2){
   font:700 clamp(1.45rem,2.4vw,2rem)/1.02 'Cormorant Garamond',Georgia,serif;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:first-child>div:last-child p:last-child{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:first-child>div:last-child p:last-child{
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   font-size:.78rem;
 }
 /* The original working wardrobe remains mounted; only its gallery scrolls. */
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2){
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2){
   min-height:0;height:100%;max-height:100%;overflow:hidden;
   background:#fff7e9!important;color:#1b3546;
   border:2px solid #e7c88f;border-radius:19px;
   padding:clamp(11px,1.5vw,20px)!important;
   box-shadow:0 0 0 2px #70553677,0 14px 30px #10222e79;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2)>div:first-child h2{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2)>div:first-child h2{
   color:#213c4b;font-size:clamp(1.35rem,2vw,1.9rem);line-height:1.1;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2)>div:first-child p{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2)>div:first-child p{
   color:#ae813c;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2)>p{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2)>p{
   margin-top:5px;font-size:.76rem;line-height:1.25;color:#69746f;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2)>div.flex.flex-wrap{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2)>div.flex.flex-wrap{
   flex:0 0 auto;margin-top:7px!important;gap:5px;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2)>div.flex.flex-wrap button{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2)>div.flex.flex-wrap button{
   min-height:30px;padding:4px 12px;border:1px solid #d6c3a0;
   font-size:.76rem;font-weight:700;border-radius:999px;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid{
   flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;
   -webkit-overflow-scrolling:touch;
   grid-template-columns:repeat(3,minmax(0,1fr))!important;
   align-content:start;gap:9px;margin-top:10px;padding:3px 3px 11px;
   scrollbar-color:#b6a080 #f7ead3;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid>button{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid>button{
   min-width:0;min-height:0;overflow:hidden;
   border-radius:12px;box-shadow:0 3px 8px #1c334021;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid>button>span:first-child{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid>button>span:first-child{
   display:flex;justify-content:center;align-items:flex-end;
   height:119px;overflow:hidden;background:#eee2cd;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid>button>span:first-child img{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid>button>span:first-child img{
   height:115px!important;max-width:100%;object-fit:contain!important;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid>button>span:last-child{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid>button>span:last-child{
   padding:7px 9px!important;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid>button>span:last-child>span:first-child{
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid>button>span:last-child>span:first-child{
   font-size:.85rem;font-weight:700;line-height:1.2;
 }
-html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid>button>span:last-child>span:not(:first-child){
+html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid>button>span:last-child>span:not(:first-child){
   display:block;line-height:1.3;font-size:.66rem;margin-top:3px;
 }
 html.lux-scholar-rpg .paper-wash>main button:focus-visible,
@@ -198,17 +198,17 @@ html.lux-scholar-rpg .lux-companion-bottom-nav{
   html.lux-scholar-rpg .paper-wash>main>div>div.flex.flex-wrap.gap-2{
     width:100%;justify-content:flex-start;
   }
-  html.lux-scholar-rpg .paper-wash>main>div>div.grid{
+  html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid{
     display:flex!important;flex-direction:column;
     max-height:none;overflow:visible;
   }
-  html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:first-child{
+  html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:first-child{
     height:clamp(390px,63vh,600px);flex:none;
   }
-  html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2){
+  html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2){
     height:auto;max-height:none;overflow:visible;
   }
-  html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid{
+  html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid{
     max-height:none;overflow:visible;grid-template-columns:repeat(2,minmax(0,1fr))!important;
   }
   html.lux-scholar-rpg #lux-scholar-nav{
@@ -217,13 +217,50 @@ html.lux-scholar-rpg .lux-companion-bottom-nav{
   html.lux-scholar-rpg #lux-scholar-nav a{min-width:65px;font-size:.65rem}
 }
 @media(min-width:701px) and (max-width:1000px) and (orientation:landscape){
-  html.lux-scholar-rpg .paper-wash>main>div>div.grid{
+  html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid{
     grid-template-columns:minmax(0,.42fr) minmax(0,.58fr)!important;
   }
-  html.lux-scholar-rpg .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid{
+  html.lux-scholar-rpg.lux-scholar-wardrobe .paper-wash>main>div>div.grid>div:nth-child(2)>div.grid{
     grid-template-columns:repeat(2,minmax(0,1fr))!important;
   }
 }
 @media(prefers-reduced-motion:reduce){
   html.lux-scholar-rpg *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+}
+
+/* Collection, Achievements, Settings: use native panels and scroll safely.
+   Do not apply wardrobe's stage/closet grid rules in these tabs. */
+html.lux-scholar-rpg:not(.lux-scholar-wardrobe) .paper-wash>main{
+  height:100dvh;overflow-y:auto;overflow-x:hidden;
+}
+html.lux-scholar-rpg:not(.lux-scholar-wardrobe) .paper-wash>main>div{
+  display:flex!important;flex-direction:column;gap:12px!important;
+  height:auto;min-height:100%;padding-bottom:7px;
+}
+html.lux-scholar-rpg:not(.lux-scholar-wardrobe) .paper-wash>main>div>header{
+  order:0;align-self:stretch;
+}
+html.lux-scholar-rpg:not(.lux-scholar-wardrobe) .paper-wash>main>div>div.flex.flex-wrap.gap-2{
+  order:1;justify-content:flex-start;min-height:42px;
+}
+html.lux-scholar-rpg:not(.lux-scholar-wardrobe) .paper-wash>main>div>div:not(.flex.flex-wrap.gap-2){
+  order:2;flex:none;min-height:0;max-height:none;overflow:visible;
+  background:#fff7e9!important;color:#1b3546;border:1.5px solid #e7c88f;
+  border-radius:17px;padding:14px!important;
+  box-shadow:0 9px 22px #0b1d2a69;
+}
+html.lux-scholar-rpg:not(.lux-scholar-wardrobe) .paper-wash>main>div>div.grid{
+  display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:12px!important;align-items:start!important;
+}
+html.lux-scholar-rpg:not(.lux-scholar-wardrobe) .paper-wash>main>div>div.grid.gap-3:not(.sm\\:grid-cols-3){
+  grid-template-columns:1fr!important;
+}
+@media(max-width:700px),(orientation:portrait){
+  html.lux-scholar-rpg:not(.lux-scholar-wardrobe) .paper-wash>main{
+    height:auto;max-height:none;overflow:visible;
+  }
+  html.lux-scholar-rpg:not(.lux-scholar-wardrobe) .paper-wash>main>div>div.grid{
+    grid-template-columns:1fr!important;
+  }
 }
