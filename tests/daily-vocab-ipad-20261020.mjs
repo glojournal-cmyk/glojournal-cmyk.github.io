@@ -71,6 +71,42 @@ try{
    state=await readCount(page);
    assert.equal(state.correct,30,"Home return must not replace cumulative count by session score");
    assert.equal(state.task?.progress,30,"Home must show completed Daily Vocab after Practice");
+   // The user's real iPad showed French 13/30 even though 30 marked answers
+   // were retained. Recreate THAT old persisted shape, not just 30 calls to
+   // recordDailyVocabAttempt (the earlier test missed this path).
+   await page.evaluate(async()=>{
+    const {C:store}=await import("/assets/index-BLVOhKhN.js");
+    const old=store.getState(),day=old.today;
+    const items=Object.fromEntries(Array.from({length:13},(_,i)=>["fr-old-"+i,true]));
+    const formalAttemptLog=Array.from({length:30},(_,i)=>({
+      at:new Date().toISOString(),day,subject:"french",dailyTaskId:"french-vocab",
+      dailyVocab:i<28?"french":null,questionId:"fr-old-"+i,
+      correct:true,repair:false,formal:true
+    }));
+    const currentTasks=(old.daily||[]).map(t=>t.id==="french-vocab"?{...t,progress:13}:t);
+    const previousLog=old.dailyLog?.[day]||{};
+    const logTasks=(previousLog.tasks||currentTasks).map(t=>
+      t.id==="french-vocab"?{...t,progress:13,done:false}:t);
+    store.setState({
+      dailyVocabByDay:{...old.dailyVocabByDay,[day]:{
+        ...(old.dailyVocabByDay?.[day]||{}),french:{items}}},
+      formalAttemptLog,daily:currentTasks,
+      dailyLog:{...old.dailyLog,[day]:{...previousLog,date:day,tasks:logTasks}}
+    });
+   });
+   state=await readCount(page);
+   assert.equal(state.correct,13,"Fixture must reproduce the old 13-item ledger");
+   assert.equal(state.task?.progress,30,
+     "Actual Home builder must reconcile 30 marked answers and not show 13");
+   await page.reload({waitUntil:"networkidle"});
+   await page.waitForFunction(()=>window.__luxAppReady===true);
+   state=await readCount(page);
+   assert.equal(state.correct,13,"Do not falsify or overwrite the dedicated answer ledger");
+   assert.equal(state.task?.progress,30,"After iPad app reload, Home must still show 30/30");
+   const homeText=await page.locator("body").innerText();
+   assert.match(homeText,/Year 7.8 French vocab[\\s\\S]*?30\\/30/,
+     "Rendered iPad Home must display French 30/30, not only store state");
+   await page.screenshot({path:"test-results/daily-vocab-home-repaired-"+engine.name()+".png",fullPage:false});
    assert.deepEqual(errors,[],"Unexpected browser exceptions");
    fs.mkdirSync("test-results",{recursive:true});
    await page.screenshot({path:"test-results/daily-vocab-ipad-"+engine.name()+".png",fullPage:false});
