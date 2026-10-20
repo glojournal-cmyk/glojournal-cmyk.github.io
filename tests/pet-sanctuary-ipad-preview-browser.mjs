@@ -44,6 +44,11 @@ try{
     assert.ok(await page.locator('#petEnergyValue').count()===1,'Keep energy');
     assert.equal(await page.locator('.lux-shell-nav a').count(),7,'Keep approved seven-link global navigation');
     assert.equal(await page.locator('.lux-shell-nav a[href="/pet/"][aria-current="page"]').count(),1,'Pet nav must be active');
+    assert.equal(await page.locator('#stageSteps .pet-step').count(),10,'Show all ten evolution steps on the same Pet screen');
+    assert.ok(await page.locator('#pet-next-preview').count()===1,'Show real next evolution artwork inside main panel');
+    assert.ok(await page.locator('.pet-evolve-guide-grid>span').count()===3,'Explain both ways to earn MP and the Evolve action on the same page');
+    assert.ok(await page.locator('#petGrowth #evolvePet').count()===1,'Original functional Evolve button stays with the explanation');
+    assert.equal(await page.locator('.pet-page-intro').isVisible(),false,'Remove redundant top report heading');
 
     const sizes=await page.evaluate(()=>{
       const box=selector=>{
@@ -62,12 +67,18 @@ try{
     assert.ok(sizes.pet.width>=viewport.width*.4||viewport.width<700,'Large focal stage in landscape');
     assert.ok(sizes.scrollWidth<=viewport.width+4,'No horizontal overflow on iPad/mobile');
     if(viewport.width===1024){
-      assert.ok(Math.abs(sizes.pet.top-sizes.care.top)<85,'Care and pet stage aligned as a two-column layout');
+      assert.ok(Math.abs(sizes.pet.top-sizes.growth.top)<25,'Evolution Path and current pet stage start together');
       assert.ok(sizes.growth.left>sizes.pet.right-4,'Growth panel stays in right column');
+      assert.ok(sizes.care.top>sizes.growth.top,'Secondary Care follows Evolution Path');
       await page.screenshot({path:'test-results/pet-sanctuary-'+engine.name()+'-1024-home.png'});
       console.log(engine.name()+' 1024 layout '+JSON.stringify(sizes));
       assert.ok(sizes.nav.left>50 && sizes.nav.right<viewport.width-50,'Approved seven-tab nav is actually centred, not cut off');
+      assert.ok(Math.abs((sizes.nav.left+sizes.nav.right)/2-viewport.width/2)<4,'Seven-tab nav centred exactly on viewport');
       assert.ok(sizes.pet.bottom<sizes.nav.top+5,'Full pet card fits above approved bottom nav');
+      const evolutionEnd=await page.locator('#stageSteps').evaluate(el=>el.getBoundingClientRect().bottom);
+      const evolveButtonEnd=await page.locator('#evolvePet').evaluate(el=>el.getBoundingClientRect().bottom);
+      assert.ok(evolutionEnd<sizes.nav.top-3,'All ten evolution Levels visible above bottom nav');
+      assert.ok(evolveButtonEnd<sizes.nav.top-30,'Evolve action visible above bottom nav');
     }
     if(viewport.width===834)await page.screenshot({path:'test-results/pet-sanctuary-'+engine.name()+'-834-portrait.png'});
     if(viewport.width===390)await page.screenshot({path:'test-results/pet-sanctuary-'+engine.name()+'-390-mobile.png'});
