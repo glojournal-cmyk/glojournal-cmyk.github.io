@@ -56,11 +56,17 @@ for(const [engine,launcher] of [["chromium",chromium],["webkit",webkit]]){
           sceneVisible:stage?getComputedStyle(stage.querySelector("img")).display!=="none":false,
           newRail:document.querySelectorAll(".lux-scholar-play-nav a").length,
           oldHeaderHidden:!!document.querySelector(".paper-wash>header.sticky")&&getComputedStyle(document.querySelector(".paper-wash>header.sticky")).display==="none",
+          noGardenOverlay:!document.querySelector(".lux-scholar-stage .lux-life-strip, .lux-scholar-stage .lux-hero-wash"),
+          noOldWeeklyCard:[...document.querySelectorAll('a[href="/progress/weekly/"]:not(.lux-scholar-weekly-link)')].every(a=>a.getBoundingClientRect().height===0),
           columns:cards?getComputedStyle(cards).gridTemplateColumns.split(" ").filter(Boolean).length:0
         };
       });
-      if(!visual.stage||!visual.closet||!visual.cards||!visual.sceneVisible||visual.newRail!==7||!visual.oldHeaderHidden||visual.columns!==(1024<=1050?2:3))
+      if(!visual.stage||!visual.closet||!visual.cards||!visual.sceneVisible||visual.newRail!==7||!visual.oldHeaderHidden||!visual.noGardenOverlay||!visual.noOldWeeklyCard||visual.columns!==(1024<=1050?2:3))
         problem(row,"scholar-visual-regression",visual);
+      for(const [tab,selector] of [["Collection",".lux-scholar-collection .lux-scholar-collectible"],["Achievements",".lux-scholar-achievements .lux-scholar-medal"],["Settings",".lux-scholar-settings .lux-scholar-weekly-link"]]){
+        await page.getByRole("button",{name:tab,exact:true}).click();
+        if(await page.locator(selector).count()===0)problem(row,"scholar-tab-layout-missing",{tab,selector});
+      }
     }
     if(snap.text.trim().length<35)problem(row,"empty-page",snap.text);
     if(/^\/study\/?$/.test(item.route) && snap.studyCards!==6)problem(row,"missing-study-cards",{actual:snap.studyCards,expected:6});
