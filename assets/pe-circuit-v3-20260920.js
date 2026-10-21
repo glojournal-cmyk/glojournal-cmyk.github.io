@@ -1,5 +1,5 @@
 import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js?ux=20261013-corrections2";
-import{C as s,Qt as u,d as ok,g as bad,u as finishSound}from"./index-BLVOhKhN.js?v=20261021-daily-credit1&ux=20261013-corrections2";
+import{C as s,Qt as u,d as ok,g as bad,u as finishSound}from"./index-BLVOhKhN.js?v=20261021-medical-careers1&ux=20261013-corrections2";
 import{t as Button}from"./button-CgT0JZ5s.js?v=20261018-receipt2&ux=20261013-corrections2";
 import{t as Card}from"./card-t5JqoXqT.js?v=20261018-receipt2&ux=20261013-corrections2";
 var R=e(t(),1),J=n();
