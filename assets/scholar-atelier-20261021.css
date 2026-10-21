@@ -1,0 +1,116 @@
+/* Scholar Atelier · distinct studio treatment over original stateful React components.
+   Presentation only: outfit/pet/XP/unlocks/background logic remains untouched. */
+@supports selector(body:has(nav a[aria-current="page"])) {
+body:has(nav a[href="/scholar"][aria-current="page"]) {
+ --atelier-navy:#172c40;--atelier-gold:#c8a779;--atelier-mist:#e9e3d5;
+ background:linear-gradient(130deg,#f6f2e9 0%,#e9e8e1 100%);
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main {
+ max-width:1600px!important; padding:12px clamp(16px,2.5vw,42px) 105px!important;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 {
+ display:flex;flex-direction:column;gap:12px;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > header {
+ display:flex;align-items:center;gap:18px;min-height:58px;
+ padding:7px 18px!important; margin:0!important;
+ background:var(--atelier-navy)!important; color:#faf4e7!important;
+ border:1px solid #d0b182;border-radius:15px!important;
+ box-shadow:0 7px 24px #132a3920;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > header p:first-child{
+ color:#d2b58a!important;font-size:11px;letter-spacing:.24em;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > header h1 {
+ font-size:clamp(24px,2.1vw,33px)!important;color:#fff!important;line-height:1;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > header p:last-child{display:none!important;}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.flex.flex-wrap.gap-2 {
+ margin:0!important;gap:8px;padding:1px 0 4px;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.flex.flex-wrap.gap-2 > button {
+ border:1px solid #d1bd9d!important;padding:8px 18px!important;
+ border-radius:11px!important;min-height:40px!important;box-shadow:none!important;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid {
+ display:grid!important;grid-template-columns:minmax(0,1.06fr) minmax(0,1fr)!important;
+ gap:20px!important;align-items:start!important;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:first-child{
+ height:min(72vh,730px)!important;min-height:480px!important;max-height:none!important;
+ aspect-ratio:auto!important;border-radius:22px!important;
+ outline:7px solid var(--atelier-navy);
+ outline-offset:-7px;box-shadow:0 18px 34px #101f3240!important;
+ position:sticky!important;top:12px!important;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:first-child::after{
+ content:"ACADEMY ATELIER";position:absolute;right:15px;top:17px;z-index:3;
+ color:#fff8ec;letter-spacing:.22em;font-size:10px;font-weight:700;
+ text-shadow:0 2px 9px #132a3c;
+ pointer-events:none;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:first-child > img:first-child{
+ filter:saturate(.65) brightness(.79);transform:scale(1.03);
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main .dress-pop{
+ filter:drop-shadow(0 8px 15px #03172270);
+ max-height:88%!important;max-width:90%!important;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:first-child > div:last-child {
+ background:linear-gradient(to top,#152a3ff5,#1c374bb8 60%,transparent)!important;
+ padding:35px 26px 18px!important;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:first-child > div:last-child p:nth-child(2) {
+ font-size:clamp(27px,2.7vw,42px)!important;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:nth-child(2){
+ max-height:min(73vh,760px)!important;min-height:480px;
+ overflow-y:auto!important;overscroll-behavior:contain;
+ background:#fdfaf3!important;
+ border:1px solid #c5b08d!important;border-radius:20px!important;
+ padding:22px!important;box-shadow:0 13px 30px #27394720!important;
+ scrollbar-width:thin;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:nth-child(2) > div.mt-4.grid {
+ grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ gap:10px!important;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:nth-child(2) > div.mt-4.grid > button {
+ border-radius:12px!important;border:1px solid #d6c6aa;
+ background:#f1ebde!important;overflow:hidden;
+ transition:background-color .15s,border-color .15s;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:nth-child(2) > div.mt-4.grid > button:hover {
+ background:#e6dbc6!important;border-color:#aa8c5c;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:nth-child(2) > div.mt-4.grid img {
+ height:136px!important;max-width:100%;object-fit:contain;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:nth-child(2) > div.mt-4.grid button span.text-sm {
+ font-size:12px!important;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main button:focus-visible{
+ outline:3px solid #a7844b!important;outline-offset:2px;
+}
+@media(max-width:900px){
+ body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid{
+  grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important;gap:13px!important;
+ }
+ body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:nth-child(2){padding:13px!important;}
+ body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:nth-child(2) > div.mt-4.grid{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ }
+}
+@media(max-width:650px){
+ body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid{
+  grid-template-columns:1fr!important;
+ }
+ body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:first-child{
+  position:relative!important;height:56vh!important;min-height:360px!important;
+ }
+ body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:nth-child(2){max-height:none!important;min-height:0;}
+}
+@media(prefers-reduced-motion:reduce){
+ body:has(nav a[href="/scholar"][aria-current="page"]) .dress-pop{animation:none!important;transition:none!important;}
+}
+}
