@@ -76,6 +76,12 @@
     buddy.removeAttribute('data-lux-daily-shown-companion');
   }
   function showCompanion(){
+    // Don't fight the compact keyboard layout by reapplying inline
+    // display:flex!important after CSS has hidden the companion.
+    if (root.classList.contains('lux-daily-compact')) {
+      restoreCompanion();
+      return;
+    }
     const buddy=document.getElementById('study-companion');
     watchCompanion(buddy);
     if(!buddy) return;
@@ -268,6 +274,7 @@
       // until leaving this practice session, otherwise heading/card/companion
       // expand then contract on nearly every Submit / Next question.
       root.classList.add('lux-daily-typing','lux-daily-compact');
+      restoreCompanion();
     }
   });
   document.addEventListener('focusout', () => {
