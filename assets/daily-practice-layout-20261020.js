@@ -307,6 +307,19 @@
       if (!isEditor(document.activeElement)) root.classList.remove('lux-daily-typing');
     });
   });
+  // Safari/React can replace the html class during hydration without
+  // changing a child node. A childList-only observer notices too late: a
+  // single old-layout frame is painted before our requestAnimationFrame.
+  // Restore just the Practice skin in a mutation microtask, before paint.
+  // This never touches progress, answers, results or localStorage.
+  const shellClassGuard = new MutationObserver(() => {
+    if (pathIsPractice() && !disabled() && !showingResult &&
+        document.querySelector('.lux-practice-view') &&
+        !root.classList.contains('lux-daily-ux-ready')) {
+      root.classList.add('lux-daily-ux-ready');
+    }
+  });
+  shellClassGuard.observe(root,{attributes:true,attributeFilter:['class']});
   const observer = new MutationObserver(schedule);
   observer.observe(document.documentElement, {childList:true,subtree:true});
   window.addEventListener('popstate',schedule);
