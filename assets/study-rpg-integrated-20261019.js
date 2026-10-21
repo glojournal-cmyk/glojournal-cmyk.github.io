@@ -19,8 +19,8 @@ if (!window.__luxStudyRpgIntegrated) {
   root.className = 'lux-study-rpg';
   root.setAttribute('aria-label', 'Study library');
   const subjects = [
-    ['latin', 'Latin'], ['french', 'French'], ['biology', 'Biology'],
-    ['chemistry', 'Chemistry'], ['physics', 'Physics'], ['english', 'English']
+    ['latin', 'Latin'], ['french', 'French'], ['english', 'English'],
+    ['maths', 'Maths'], ['biology', 'Biology'], ['chemistry', 'Chemistry'], ['physics', 'Physics']
   ];
   const nav = [
     ['⌂', 'Home', '/'], ['▣', 'Study', '/study'], ['◇', 'Play', '/play'],
@@ -51,6 +51,9 @@ if (!window.__luxStudyRpgIntegrated) {
     return { secure: secure ? `${secure[1]}/${secure[2]}` : '—', due: due ? due[1] : '—' };
   };
   function subjectData(id, label) {
+    if (id === 'maths') return { id, label, secure:'5', due:'500',
+      learn:'/study/maths/learn/', practice:'/study/maths/practise/',
+      progress:'/study/maths/progress/' };
     const container = document.querySelector('#lux-study-subjects-v2') ||
       [...document.querySelectorAll('main:not(#lux-study-rpg-integrated) section')]
         .find(s => s.querySelector('h2')?.textContent?.trim() === 'Subjects');
@@ -161,16 +164,17 @@ if (!window.__luxStudyRpgIntegrated) {
     const scroll = el('div', 'lux-study-rpg-subject-scroll');
     const cards = el('div', 'lux-study-rpg-subjects');
     for (const [id, label] of subjects) {
+      if (id === 'maths' && year !== 9) continue;
       const data = subjectData(id, label);
       const card = el('article', 'lux-study-rpg-card');
       // Year-specific Grok art is optional: the existing six subject images are a
       // safe fallback so we never render an empty card while images are installed.
-      card.append(image(`/art/study-rpg/y${year}-${id}.jpg`, `/art/subjects/${id}.jpg`, 'lux-study-rpg-card-art', ''));
+      card.append(image(id==='maths'?'/assets/math-study/maths-cover.svg':`/art/study-rpg/y${year}-${id}.jpg`, id==='maths'?null:`/art/subjects/${id}.jpg`, 'lux-study-rpg-card-art', ''));
       const body = el('div','lux-study-rpg-card-body');
-      body.append(el('h2', null, data.label));
+      if(id==='maths'){const heading=el('h2');const link=el('a',null,data.label);link.href='/study/maths/';heading.append(link);body.append(heading);}else body.append(el('h2', null, data.label));
       const status = el('div', 'lux-study-rpg-status');
-      status.append(el('span', 'lux-study-rpg-secure', `${data.secure} secure`));
-      status.append(el('span', 'lux-study-rpg-due', `${data.due} due`));
+      status.append(el('span', 'lux-study-rpg-secure', id==='maths'?'5 topics':`${data.secure} secure`));
+      status.append(el('span', 'lux-study-rpg-due', id==='maths'?'500 questions · Study only':`${data.due} due`));
       body.append(status);
       const actions = el('div', 'lux-study-rpg-actions');
       for (const [name, href, icon] of [['Learn',data.learn,'▣'],['Practise',data.practice,'✎'],['Progress',data.progress,'▥']]) {
