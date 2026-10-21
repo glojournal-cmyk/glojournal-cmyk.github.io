@@ -33,7 +33,7 @@ async function run(engine,runner,viewport){
  page.on('pageerror',e=>errors.push(e.message));
  page.on('response',r=>{if(r.url().startsWith(origin)&&r.status()>=400)bad.push([r.status(),r.url()]);});
  try{
-  await page.goto(origin+'/garden/?gardenPreview=1',{waitUntil:'domcontentloaded',timeout:45000});
+  await page.goto(origin+'/garden/',{waitUntil:'domcontentloaded',timeout:45000});
   await page.locator('#lux-garden-academy-preview .lux-garden-item').first().waitFor({timeout:30000});
   await page.waitForFunction(()=>document.querySelector('.lux-garden-map-preview')&&
     getComputedStyle(document.querySelector('.lux-garden-map-preview')).position==='fixed');
@@ -65,6 +65,9 @@ async function run(engine,runner,viewport){
     const url=new URL('/assets/index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2',location);
     return {navLabels:labels,selected:nav.querySelector('[aria-current="page"]')?.textContent,
       nav:rect(nav),water:rect(water),basil:rect(basil),world:rect(frame.querySelector('.lux-garden-world')),
+      log:rect(frame.querySelector('.lux-garden-actions button:first-child')),
+      decorations:rect(frame.querySelector('.lux-garden-actions button:last-child')),
+      stagePanel:rect(frame.querySelector('.lux-garden-stage')),
       stage:frame.querySelector('.lux-garden-stage strong')?.textContent,
       basilText:basil.textContent,waterLabel:water.textContent,disabled:water.disabled,
       scrollWidth:document.documentElement.scrollWidth,frameVisible:getComputedStyle(frame).visibility,
@@ -89,6 +92,14 @@ async function run(engine,runner,viewport){
   assert.ok(snap.scrollWidth<=viewport.width+1,'no horizontal overflow');
   assert.ok(snap.world.width>viewport.width*.9,'garden must be the primary scene');
   assert.ok(snap.water.bottom<=snap.nav.y-5,'Water button must be above the bottom rail');
+  // With the approved illustration, both lower action buttons must fully
+  // cover their painted counterparts, without duplicating their lower rings.
+  assert.ok(snap.log.y>=viewport.height*.78&&snap.decorations.y>=viewport.height*.78,
+    'Garden Log and Decorations should align with the approved image');
+  assert.ok(snap.log.bottom<=snap.nav.y+1&&snap.decorations.bottom<=snap.nav.y+1,
+    'Lower controls must not overlap the main bottom navigation');
+  assert.ok(snap.stagePanel.bottom>=viewport.height*.155,
+    'Stage panel must mask the built-in decorative panel frame');
   assert.ok(snap.water.y>=snap.basil.y-1&&snap.water.bottom<=snap.basil.bottom+1,
     'The Water button must sit inside the Basil panel');
   const art=await page.evaluate(async()=>{
@@ -148,6 +159,10 @@ async function run(engine,runner,viewport){
   await page.goto(origin+'/garden/?gardenPreview=0',{waitUntil:'domcontentloaded'});
   await page.waitForSelector('body>.paper-wash main',{timeout:15000});
   assert.equal(await page.locator('#lux-garden-academy-preview').count(),0,'native Garden remains available');
+  await page.goto(origin+'/garden/?gardenPreview=1',{waitUntil:'domcontentloaded'});
+  await page.locator('#lux-garden-academy-preview .lux-garden-nav a').first().waitFor({timeout:25000});
+  assert.equal(await page.locator('#lux-garden-academy-preview .lux-garden-nav a').count(),7,
+    'explicit preview flag must keep the Academy scene available');
   // On the local, cross-origin WebKit fixture, unrelated Study/Assessment
   // preload JSON fetches occasionally raise access-control exceptions.
   // Only exclude these documented background paths: Garden's own failures
