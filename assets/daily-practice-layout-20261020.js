@@ -17,6 +17,13 @@
   let sheet;
   let nav;
   const root = document.documentElement;
+  // Daily assignments have a known practice route before the first question.
+  // Activate the same shell before React hydration, so an iPad does not first
+  // paint the legacy page and then switch backgrounds after the first frame.
+  if (pathIsPractice() && !disabled() &&
+      new URLSearchParams(location.search).get('daily') === '1') {
+    root.classList.add('lux-daily-ux-ready','lux-daily-task-active');
+  }
   function installSheet() {
     if (sheet || document.getElementById('lux-daily-practice-ux-v2-style')) return;
     sheet = document.createElement('link');
@@ -76,6 +83,12 @@
     buddy.removeAttribute('data-lux-daily-shown-companion');
   }
   function showCompanion(){
+    // Don't fight the compact keyboard layout by reapplying inline
+    // display:flex!important after CSS has hidden the companion.
+    if (root.classList.contains('lux-daily-compact')) {
+      restoreCompanion();
+      return;
+    }
     const buddy=document.getElementById('study-companion');
     watchCompanion(buddy);
     if(!buddy) return;
@@ -224,27 +237,17 @@
       if (q.dataset.luxMcLong !== String(long)) q.dataset.luxMcLong = String(long);
     }
   }
-  // Keep the CSS shell and bottom rail mounted through a short React question
-  // handoff. Without this, a temporary empty question tree toggles the entire
-  // page back to the legacy layout for one frame (visible as iPad flashing).
-  let questionGapUntil = 0, questionGapTimer = 0;
+  // A quiz question can disappear while React swaps answer feedback, loads the
+  // next assigned task, or resumes a draft. Keep the same page shell mounted
+  // for the ENTIRE session; a time-limited 1.2s grace caused Safari flashes.
+  // Only a route change, explicit preview rollback or real result ends it.
   function refresh() {
     scheduled = false;
     const enabled = pathIsPractice() && !disabled();
     const q = enabled && document.querySelector('.lux-practice-view [data-question-id]');
     const resultScreen = !!document.querySelector('.lux-practice-view [aria-label="Session result"]');
-    if (q) questionGapUntil = Date.now() + 1200;
-    if (!q && enabled && !resultScreen &&
-        root.classList.contains('lux-daily-ux-ready') && Date.now() < questionGapUntil) {
-      if (!questionGapTimer) questionGapTimer = setTimeout(() => {
-        questionGapTimer = 0;
-        schedule();
-      }, Math.max(16, questionGapUntil - Date.now()));
-      return;
-    }
-    if (questionGapTimer) { clearTimeout(questionGapTimer); questionGapTimer = 0; }
-    if (!q) questionGapUntil = 0;
-    const active = Boolean(q);
+    const active = enabled && !resultScreen &&
+      (Boolean(q) || root.classList.contains('lux-daily-ux-ready'));
     root.classList.toggle('lux-daily-ux-ready',active);
     root.classList.toggle('lux-daily-task-active',active && new URLSearchParams(location.search).get('daily')==='1');
     if (!active) {
@@ -252,12 +255,15 @@
       nav?.remove();
       fallbackPet?.remove();
       clearControl?.remove();
-      root.classList.remove('lux-daily-typing');
+      root.classList.remove('lux-daily-typing','lux-daily-compact');
       return;
     }
     installSheet();
-    decorateQuestion(q);
     buildNav();
+    // Do not remove/recreate the Study rail or change the page theme when
+    // the question tree is briefly empty. React still owns the question DOM.
+    if (!q) return;
+    decorateQuestion(q);
     showCompanion();
     updateFallbackPet();
     updateClear(q);
@@ -270,7 +276,13 @@
   }
   // Hide the floating nav while typing; form events continue to belong to React.
   document.addEventListener('focusin', e => {
-    if (isEditor(e.target)) root.classList.add('lux-daily-typing');
+    if (pathIsPractice() && !disabled() && isEditor(e.target)) {
+      // The keyboard may close between questions. Keep the ANSWER CARD compact
+      // until leaving this practice session, otherwise heading/card/companion
+      // expand then contract on nearly every Submit / Next question.
+      root.classList.add('lux-daily-typing','lux-daily-compact');
+      restoreCompanion();
+    }
   });
   document.addEventListener('focusout', () => {
     requestAnimationFrame(() => {

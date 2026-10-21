@@ -1,5 +1,5 @@
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js";
-import "./player-ux-20261013.js?ux=20261021-daily-no-flash1";
+import "./player-ux-20261013.js?ux=20261021-flash-root2";
 import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
 import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
 import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261018-receipt2";

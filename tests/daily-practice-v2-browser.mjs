@@ -44,7 +44,7 @@ function fixture(kind){
   return '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'+
     '<link rel="stylesheet" href="/app.css"><link rel="stylesheet" href="/assets/styles-CEE1o_78.css">'+
     '<link rel="stylesheet" href="/assets/daily-practice-ux-v2-20261020.css">'+
-    '<script>window.tapCount=0;</script><script defer src="/assets/daily-practice-layout-20261020.js"></script></head>'+
+    '<script>window.tapCount=0;</script><script defer src="/assets/daily-practice-layout-20261020.js"></script><script defer src="/lux-theme.js"></script></head>'+
     '<body><div class="paper-wash"><header style="height:58px">Legacy top bar</header><aside style="height:400px">Sidebar</aside>'+
     '<main><section id="study-companion" class="cx-study-buddy"><span class="cx-pet-art" aria-label="Antler Bean" style="display:block;background-image:url(\'/pet/art-hd-20261009/level-1/antler-bean.webp\');background-size:contain;background-position:center;background-repeat:no-repeat"></span><strong>Antler Bean is beside you</strong><button type="button" id="lux-voice-cheer-toggle" onclick="window.tapCount++">🔊 Voice On</button></section>'+
     '<div class="lux-practice-view"><header><h1>French · Practise</h1></header>'+
@@ -111,6 +111,26 @@ async function checkFixture(browser,engine,kind,viewport){
   assert.equal(handoff.stable,true,'transient React question handoff must not flash the whole page or remount nav');
   assert.equal(handoff.restored,true,'question view styling must remain active after handoff');
   assert.equal(handoff.links,7,'handoff must preserve all seven navigation destinations');
+  // The previous 1.2 second timeout restored the LEGACY shell between slower
+  // WebKit question loads. Exercise a gap beyond that threshold.
+  if (kind==='mc' && viewport.width===1024) {
+    const slowHandoff=await page.evaluate(async()=>{
+      const q=document.querySelector('.lux-practice-view [data-question-id]');
+      const parent=q.parentNode,nav=document.getElementById('lux-daily-study-nav');
+      q.remove();
+      await new Promise(resolve=>setTimeout(resolve,1750));
+      const stable=document.documentElement.classList.contains('lux-daily-ux-ready')
+        && nav?.isConnected && nav===document.getElementById('lux-daily-study-nav');
+      parent.append(q);
+      await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+      return {stable,restored:document.documentElement.classList.contains('lux-daily-ux-ready')};
+    });
+    assert.equal(slowHandoff.stable,true,'quiz shell and nav must survive multi-second question handoff');
+    assert.equal(slowHandoff.restored,true,'quiz styling must survive slower iPad question loading');
+    assert.equal(await page.locator('[data-lux-tool="days"]').count(),0,
+      'legacy global theme must not inject home toolbar into a live quiz');
+  }
+
   assert.equal(details.headerHidden,true,'top bar should be hidden');
   assert.equal(await page.evaluate(()=>document.documentElement.classList.contains('lux-daily-task-active')),true,'assigned Daily label must activate');
   assert.equal(await page.locator('[data-lux-question-intro] > p:first-child').evaluate(el=>getComputedStyle(el,'::before').content),'"DAILY PRACTICE"','approved label is displayed');
@@ -149,9 +169,22 @@ async function checkFixture(browser,engine,kind,viewport){
     await page.locator('[data-lux-question-card] input').fill('quinze');
     assert.equal(await page.locator('[data-lux-question-card] input').inputValue(),'quinze');
     assert.equal(await page.locator('#lux-daily-study-nav').isVisible(),false,'nav must hide on focus');
+    const compact=await page.evaluate(()=>({
+      intro:getComputedStyle(document.querySelector('[data-lux-question-intro]')).display,
+      height:document.querySelector('[data-lux-question-card]').getBoundingClientRect().height
+    }));
     await page.locator('[data-lux-question-card] input').blur();
     await page.waitForFunction(()=>!document.documentElement.classList.contains('lux-daily-typing'));
     assert.equal(await page.locator('#lux-daily-study-nav').isVisible(),true,'nav restored after typing');
+    const afterBlur=await page.evaluate(()=>({
+      compact:document.documentElement.classList.contains('lux-daily-compact'),
+      intro:getComputedStyle(document.querySelector('[data-lux-question-intro]')).display,
+      height:document.querySelector('[data-lux-question-card]').getBoundingClientRect().height
+    }));
+    assert.equal(afterBlur.compact,true,'iPad practice card must stay compact between editor focus changes');
+    assert.equal(afterBlur.intro,compact.intro,'question heading must not flash back on blur');
+    assert.ok(Math.abs(afterBlur.height-compact.height)<=3,
+      'blur must not resize the entire question stage: '+JSON.stringify({compact,afterBlur}));
   }
   if(kind==='tiles'){
     await page.locator('[data-question-format="word_tiles"] .mt-5.space-y-3 > div:nth-child(2) button').first().click();
@@ -237,6 +270,36 @@ async function checkRealPractice(browser,engine){
   assert.ok(marked.id,'answering must not remove the quiz');
   assert.ok(marked.text.length>40,'feedback and live question must remain readable');
   await page.screenshot({path:path.join(out,engine+'-real-french-after.png'),fullPage:true});
+  // A real Next click (not just a mock DOM removal) must preserve the shell
+  // while the React quiz switches its question ID and redraws feedback.
+  const stableNav=await page.evaluate(()=>{
+    window.__luxObservedShellLoss=0;
+    const nav=document.getElementById('lux-daily-study-nav');
+    new MutationObserver(()=>{
+      if (!document.documentElement.classList.contains('lux-daily-ux-ready'))
+        window.__luxObservedShellLoss++;
+    }).observe(document.documentElement,{attributes:true,attributeFilter:['class']});
+    return nav?.id||'';
+  });
+  assert.equal(stableNav,'lux-daily-study-nav');
+  const next=page.getByRole('button',{name:'Next question'});
+  assert.equal(await next.count(),1,'real answered quiz must provide Next question');
+  await next.click();
+  await page.waitForFunction(id=>{const nextId=document.querySelector('[data-question-id]')?.dataset.questionId;return !!nextId && nextId!==id},marked.id,{timeout:15000});
+  await page.waitForTimeout(800);
+  const nextState=await page.evaluate(()=>({
+    id:document.querySelector('[data-question-id]')?.dataset.questionId,
+    ready:document.documentElement.classList.contains('lux-daily-ux-ready'),
+    nav:document.querySelectorAll('#lux-daily-study-nav a').length,
+    missingShellFrames:window.__luxObservedShellLoss,
+    hiddenHeader:getComputedStyle(document.querySelector('.paper-wash>header')).display==='none'
+  }));
+  assert.ok(nextState.id && nextState.id!==marked.id,'next real question should advance');
+  assert.equal(nextState.ready,true,'real question switch must retain practice shell');
+  assert.equal(nextState.nav,7,'seven-link rail must persist after answering');
+  assert.equal(nextState.hiddenHeader,true,'legacy header must remain hidden');
+  assert.equal(nextState.missingShellFrames,0,'the quiz shell must never drop during Next');
+  await page.screenshot({path:path.join(out,engine+'-real-french-next.png'),fullPage:true});
   await page.reload({waitUntil:'domcontentloaded'});
   await page.waitForTimeout(6000);
   const restoreDiagnostic=await page.evaluate(()=>({

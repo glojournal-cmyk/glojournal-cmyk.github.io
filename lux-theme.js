@@ -238,6 +238,10 @@
   }
   function paint() {
     try {
+      // The React-owned quiz swaps answer/feedback nodes frequently. Never
+      // inject icons, toolbar buttons or inline nav layout into a live quiz:
+      // legacy theme decorations can be remounted each answer on iPad Safari.
+      if (/^\/study\/[^/]+\/practise\/?$/.test(location.pathname)) return;
       ensureIconLayout();
       showSearch();
       swapNavIcons(document);
