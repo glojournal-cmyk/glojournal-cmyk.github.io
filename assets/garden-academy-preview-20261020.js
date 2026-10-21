@@ -3,6 +3,7 @@
  * Never writes localStorage, never awards XP directly, never changes the
  * once-a-day watering rule, unlock conditions or equipped Home outfit/Pet.
  */
+import {gardenSceneForDate} from './garden-weekly-rotation-20261021.js';
 import { C as store, Q as gardenStage, U as collectibles, X as stages,
          G as needProgress, Y as requirementsContext } from
   '/assets/index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2';
@@ -164,6 +165,8 @@ function assemble(){
   // space. The outer main remains viewport sized and owns full-screen dialogs.
   const scene=create('div','lux-garden-scene');
   scene.setAttribute('aria-label','Illustrated garden courtyard');
+  // Weekly theme is selected without touching learner data.
+  scene.dataset.weeklyGardenTheme=gardenSceneForDate().id;
   root.append(scene);
   scene.append(create('div','lux-garden-backdrop'));
   const title=create('header','lux-garden-title');
@@ -234,6 +237,12 @@ function render(){
   const native=document.querySelector('body>.paper-wash main');
   if(!native||!document.querySelector('body>.paper-wash button'))return;
   if(!root?.isConnected){parts=assemble();}
+  const currentTheme=gardenSceneForDate();
+  const scene=root.querySelector('.lux-garden-scene');
+  if(scene?.dataset.weeklyGardenTheme!==currentTheme.id){
+    scene.dataset.weeklyGardenTheme=currentTheme.id;
+    lastKey='';
+  }
   document.documentElement.classList.add('lux-garden-map-active');
   suppressOldNavigation();
   const state=stateNow();const exp=Number(state.xp)||0;
