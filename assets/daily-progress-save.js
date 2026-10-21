@@ -65,6 +65,7 @@ store.subscribe(()=>{clearTimeout(autoTimer);autoTimer=setTimeout(autoSave,250)}
 window.addEventListener("pagehide",()=>autoSave(true));
 document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")autoSave(true)});
 window.addEventListener("scholar:learning-changed",()=>autoSave());
+window.addEventListener("scholar:maths-progress-changed",()=>autoSave());
 window.addEventListener("scholar:pet-changed",()=>autoSave());
 window.addEventListener("scholar:mp-changed",()=>autoSave());
 const PANEL_ID = "daily-save-panel";
