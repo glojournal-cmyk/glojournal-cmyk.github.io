@@ -158,7 +158,7 @@ function callNative(label){
   openPanel(label,'item');
 }
 function assemble(){
-  root=create('section','lux-garden-map-preview');
+  root=create('main','lux-garden-map-preview');
   root.id='lux-garden-academy-preview';root.setAttribute('aria-label',"The Scholar's Garden preview");
   root.append(create('div','lux-garden-backdrop'));
   const title=create('header','lux-garden-title');
