@@ -1,4 +1,5 @@
 import {uniqueFrenchQuestions} from "./french-unique-questions-20261018.js";
+import {fillDailyLockedQuestions} from './daily-locked-question-fallback-20261021.js';
 import {selectProgressionQuestions} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {eligibleFreshQuestions} from "./mastery-v2-20261018.js";
 import {BiologyCellPractice} from "./biology-cell-practice-20261003.js?v=20261010-chem-marking1&ux=20261013-corrections2";
@@ -42,13 +43,7 @@ function E(){const [bioActive,setBioActive]=(0,w.useState)(false);let dailyParam
 // has previously mastered every "fresh" question. Replay available verified
 // questions as revision; mark/save remains entirely owned by QuizSession.
 // Never change the matching assigned topic, year or vocabulary flow.
-safeU=(()=>{
- if(!dailyLocked||E===`y8vocab`||U.length>=W)return U;
- const known=new Set(U.map(q=>q.id));
- const candidates=z.filter(q=>q&&q.id&&q.formal!==false&&!q._repair&&q.status!==`preview`&&(!pinnedTopic||q.topicId===pinnedTopic)&&!known.has(q.id));
- const review=selectProgressionQuestions(RQ(candidates,e,W),E,W).filter(q=>!known.has(q.id));
- return [...U,...review].slice(0,W);
-})(),
+safeU=fillDailyLockedQuestions(U,z,{locked:dailyLocked,mode:E,size:W,topicId:pinnedTopic,subject:e},RQ,selectProgressionQuestions),
 sessionSnapshot=(0,w.useRef)(null),
 sessionKey=[e,N,E,O,dailyParams.get(`task`)||``,dailyParams.get(`recover`)||``].join(`:`),
 intendedMode=dailyParams.get(`mode`);
