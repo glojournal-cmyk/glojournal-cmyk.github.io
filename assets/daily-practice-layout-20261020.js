@@ -29,7 +29,7 @@
   function installSheet() {
     // Match the stylesheet used by the static Practice routes. Earlier Home
     // -> Daily SPA sessions imported ?v=preview1 from Safari's old cache.
-    const href = '/assets/daily-practice-ux-v2-20261020.css?v=20261021-ipad-shell-lock3';
+    const href = '/assets/daily-practice-ux-v2-20261020.css?v=20261021-progress-loop4';
     sheet = sheet?.isConnected ? sheet : document.getElementById('lux-daily-practice-ux-v2-style');
     if (sheet) {
       if (!sheet.getAttribute('href')?.endsWith('20261021-ipad-shell-lock3')) {
@@ -307,6 +307,19 @@
       if (!isEditor(document.activeElement)) root.classList.remove('lux-daily-typing');
     });
   });
+  // Safari/React can replace the html class during hydration without
+  // changing a child node. A childList-only observer notices too late: a
+  // single old-layout frame is painted before our requestAnimationFrame.
+  // Restore just the Practice skin in a mutation microtask, before paint.
+  // This never touches progress, answers, results or localStorage.
+  const shellClassGuard = new MutationObserver(() => {
+    if (pathIsPractice() && !disabled() && !showingResult &&
+        document.querySelector('.lux-practice-view') &&
+        !root.classList.contains('lux-daily-ux-ready')) {
+      root.classList.add('lux-daily-ux-ready');
+    }
+  });
+  shellClassGuard.observe(root,{attributes:true,attributeFilter:['class']});
   const observer = new MutationObserver(schedule);
   observer.observe(document.documentElement, {childList:true,subtree:true});
   window.addEventListener('popstate',schedule);

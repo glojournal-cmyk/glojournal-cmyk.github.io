@@ -1,3 +1,10 @@
+/* Safari occasionally drops data-lux-ready during a React Practice root swap.
+ * The mounted Practice view is already visible; never briefly cover it with
+ * the full-page "Loading your saved progress" skeleton on answer transitions.
+ * On a truly not-yet-mounted page, the normal loading protection still runs. */
+html:has(.lux-practice-view) .paper-wash {visibility:visible!important}
+html:has(.lux-practice-view) body::before {content:none!important;display:none!important}
+
 /* Daily Practice v2 – display only. Scoped to a live question and never modifies answers or save state.
  * Apply identical selectors to raw React question markup BEFORE a MutationObserver
  * can decorate it. Otherwise slow iPad Safari displays the old layout for a frame

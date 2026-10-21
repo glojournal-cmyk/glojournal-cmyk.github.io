@@ -4,7 +4,7 @@ commands.push("node tests/mistake-review-task-qa.mjs","node tests/daily-repeat-r
 commands.push("node tests/priority-four-state-qa.mjs","node tests/priority-five-eight-qa.mjs");
 commands.push("node tests/learning-feedback-qa.mjs","node tests/priority-content-integrity-qa.mjs");
 commands.push("node tests/topic-directory-qa.mjs","node tests/year7-vocabulary-completeness-qa.mjs","node tests/biology-cell-practice-qa.mjs","node tests/biology-cell-structure-qa.cjs");
-commands.push("node tests/school-revision-plan-qa.mjs");
+commands.push("node tests/school-revision-plan-qa.mjs","node tests/daily-locked-empty-20261021.mjs");
 commands.push("node tests/weekly-ipad-qa.mjs");
 commands.push("node tests/practice-bridge-qa.mjs","node tests/journey-navigation-qa.mjs");
 commands.push("node tests/phase1-redo-20261012.mjs");

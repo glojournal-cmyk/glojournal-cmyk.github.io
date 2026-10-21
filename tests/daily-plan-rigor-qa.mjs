@@ -21,7 +21,7 @@ for(const token of [
 
 for(const token of [
   'dailyLocked=dailyParams.get(`daily`)===`1`&&dailyParams.get(`locked`)===`1`',
-  'dailyLocked&&pinnedTopic?I.filter(e=>e.topicId===pinnedTopic)',
+  'dailyLocked&&pinnedTopic?(I.some(t=>t.topicId===pinnedTopic)?I.filter(e=>e.topicId===pinnedTopic):[{topicId:pinnedTopic}])',
   'E===`year8long`',
   'longFormats=new Set([`extended_response`,`mark_points`,`controlled_translation`,`practical_design`,`sequence`,`unordered_set`])',
   '_dailyYear8:!0',
