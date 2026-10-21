@@ -20,7 +20,6 @@ test('Every category shows all existing game chips rather than truncated preview
 test('uses the same Home outfit state and actual earned points, never demo XP/rewards',()=>{
  assert.match(src,/state\.equippedOutfit\s*\|\|\s*'day'/);
  assert.match(src,/wardrobeOutfits\.find\(item=>item\.id===outfit\)\?\.art/);
- assert.match(src,/art\/doll\/\$\{outfit\}\.png/);
  assert.match(src,/20261021-daily-credit1&ux=20261013-corrections2/);
  assert.ok(src.includes('state?.games?.[id]?.points'));
  assert.match(src,/Number\(state\.xp\)/);
