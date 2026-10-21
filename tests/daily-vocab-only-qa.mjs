@@ -22,7 +22,10 @@ for (const subject of ['french','latin']) {
   assert.ok(sameDay.every(q=>!first.some(old=>old.conceptId===q.conceptId)), 'Both directions share one daily word');
   const due=selectDailyVocabulary({...args,day:'2026-10-05',ledger:{'2026-10-03':{[subject]:{items:credited}}},
     reviews:Object.fromEntries(first.map(q=>[q.id,{due:'2026-10-05'}]))});
-  assert.equal(due.filter(q=>q._dailyBucket==='vocabulary-spaced-due').length,10);
+  // Correct words cannot be pulled back early by the old spaced-review date.
+  assert.equal(due.filter(q=>q._dailyBucket==='vocabulary-spaced-due').length,0);
+  assert.ok(due.every(q=>!first.some(old=>old.conceptId===q.conceptId)),
+    'Scheduled review does not repeat correct words before untouched words are seen');
   const collisionA=selectDailyVocabulary({...args,day:'2026-10-12'}).map(q=>q.conceptId);
   const collisionB=selectDailyVocabulary({...args,day:'2026-10-21'}).map(q=>q.conceptId);
   assert.notDeepEqual(collisionA,collisionB,'Dates with the same digit sum rotate differently');
