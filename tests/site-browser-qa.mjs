@@ -45,6 +45,21 @@ for(const [engine,launcher] of [["chromium",chromium],["webkit",webkit]]){
       brokenImages:[...document.images].filter(i=>i.complete&&i.naturalWidth===0&&i.getBoundingClientRect().height).map(i=>i.getAttribute("src"))
     }));
     Object.assign(row,{title:snap.title,headings:snap.headings,controls:snap.controls,question:snap.question,links:snap.links,excerpt:snap.text.slice(0,700)});
+    if(item.route==="/scholar"){
+      const visual=await page.evaluate(()=>{
+        const stage=document.querySelector(".lux-scholar-stage");
+        const closet=document.querySelector(".lux-scholar-closet");
+        const cards=document.querySelector(".lux-scholar-looks");
+        return {
+          stage:!!stage,closet:!!closet,cards:!!cards,
+          backdrop:stage?getComputedStyle(stage).backgroundColor:"",
+          imageHidden:stage?getComputedStyle(stage.querySelector("img")).display==="none":false,
+          columns:cards?getComputedStyle(cards).gridTemplateColumns.split(" ").filter(Boolean).length:0
+        };
+      });
+      if(!visual.stage||!visual.closet||!visual.cards||!visual.imageHidden||visual.columns!==3)
+        problem(row,"scholar-visual-regression",visual);
+    }
     if(snap.text.trim().length<35)problem(row,"empty-page",snap.text);
     if(/^\/study\/?$/.test(item.route) && snap.studyCards!==6)problem(row,"missing-study-cards",{actual:snap.studyCards,expected:6});
     if(/^\/play\/?$/.test(item.route) && snap.playCards!==4)problem(row,"missing-play-halls",{actual:snap.playCards,expected:4});
