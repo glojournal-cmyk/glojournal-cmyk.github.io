@@ -136,7 +136,10 @@ for(const [engine,launcher] of [["chromium",chromium],["webkit",webkit]]){
       }
     }
     if(snap.text.trim().length<35)problem(row,"empty-page",snap.text);
-    if(/^\/study\/?$/.test(item.route) && snap.studyCards!==6)problem(row,"missing-study-cards",{actual:snap.studyCards,expected:6});
+    // Year 9 has seven subjects after Maths; Year 8 keeps the original six.
+    const expectedStudyCards=(item.year||9)===9?7:6;
+    if(/^\/study\/?$/.test(item.route) && snap.studyCards!==expectedStudyCards)
+      problem(row,"missing-study-cards",{actual:snap.studyCards,expected:expectedStudyCards});
     if(/^\/play\/?$/.test(item.route) && snap.playCards!==4)problem(row,"missing-play-halls",{actual:snap.playCards,expected:4});
     if(/^\/garden\/?$/.test(item.route) && snap.gardenObjects!==4)problem(row,"missing-interactive-garden",{actual:snap.gardenObjects,expected:4});
     if(/Something went wrong|Cannot read properties|Page not found|This page could not be found/i.test(snap.text))problem(row,"error-page",snap.text.slice(0,500));
