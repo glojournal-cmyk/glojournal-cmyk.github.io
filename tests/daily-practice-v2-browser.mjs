@@ -24,7 +24,7 @@ const server=createServer((req,res)=>{
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const report=[];
-const RELEASE='20261021-ipad-shell-lock3';
+const RELEASE='20261021-progress-loop4';
 for (const subject of ['french','latin','biology','chemistry','physics','english']) {
   const html=fs.readFileSync('study/'+subject+'/practise/index.html','utf8');
   assert.ok(html.includes('daily-practice-layout-20261020.js?v='+RELEASE),
@@ -139,7 +139,7 @@ async function checkFixture(browser,engine,kind,viewport){
   assert.deepEqual(undecorated.plainReact,undecorated.decorated,
     'iPad must render the same v2 card/heading/answers before React decoration: '+JSON.stringify(undecorated));
   const styleVersion=await page.evaluate(()=>document.getElementById('lux-daily-practice-ux-v2-style')?.getAttribute('href'));
-  assert.ok(styleVersion?.endsWith('20261021-ipad-shell-lock3'),
+  assert.ok(styleVersion?.endsWith('20261021-progress-loop4'),
     'Home SPA stylesheet must not load the stale Safari preview1 cached version');
 
   // Simulate React briefly removing a question while replacing answer/feedback.
