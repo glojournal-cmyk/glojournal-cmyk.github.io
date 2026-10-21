@@ -28,3 +28,16 @@ body .lux-scholar-collectible:has(img.grayscale){background:#e8e5df!important}
 body .lux-scholar-collectible:has(img.grayscale) img{filter:grayscale(.85)!important;opacity:.65}
 @media(max-width:980px){body .lux-scholar-collection{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media(max-width:600px){body .lux-scholar-collection{grid-template-columns:1fr!important}}
+
+/* Consistent Scholar Settings and Achievements design, same visual system as Collection */
+body .lux-scholar-achievements{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important;align-items:stretch;max-width:1320px;width:100%;margin-inline:auto}
+body .lux-scholar-medal{background:#f8f0e2!important;color:#233b4c!important;border:1px solid #c8ac80!important;border-radius:16px!important;box-shadow:0 9px 22px #050e1836!important;padding:20px!important;min-height:145px}
+body .lux-scholar-medal p:first-child{font-size:17px!important;font-weight:700!important;color:#1b3448!important}
+body .lux-scholar-medal p.text-muted{color:#637384!important;line-height:1.5}
+body .lux-scholar-settings{background:#f8f0e2!important;color:#233b4c!important;border:1px solid #c8ac80!important;border-radius:16px!important;box-shadow:0 9px 22px #050e1836!important;padding:clamp(18px,2.6vw,30px)!important;max-width:1150px;width:100%;margin-inline:auto}
+body .lux-scholar-settings h3{color:#1b3448!important;font-size:clamp(22px,2vw,29px)!important}
+body .lux-scholar-settings p.text-muted,body .lux-scholar-settings span.text-muted{color:#637384!important}
+body .lux-scholar-settings>div{padding-bottom:17px;border-bottom:1px solid #d8c5a6}
+body .lux-scholar-settings>div:last-child{border-bottom:0;padding-bottom:0}
+body .lux-scholar-settings button{min-height:44px!important;border-radius:10px}
+@media(max-width:740px){body .lux-scholar-achievements{grid-template-columns:1fr!important}}
