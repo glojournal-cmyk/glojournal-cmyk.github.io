@@ -74,6 +74,13 @@ try{
         });
         await page.evaluate(async()=>{
           const store=(await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2')).C;
+          if(store.persist?.hasHydrated && !store.persist.hasHydrated()){
+            await new Promise((resolve,reject)=>{
+              const timeout=setTimeout(()=>reject(Error('Study persistence hydration timed out')),12000);
+              const unsub=store.persist.onFinishHydration?.(()=>{clearTimeout(timeout);unsub?.();resolve()});
+              if(store.persist.hasHydrated()){clearTimeout(timeout);unsub?.();resolve()}
+            });
+          }
           store.setState({equippedOutfit:'cardigan'});
           localStorage.setItem('lux-pet-companion-v1',JSON.stringify({species:'moss-hornling',petLevels:{'moss-hornling':2}}));
           dispatchEvent(new Event('scholar:pet-changed'));
