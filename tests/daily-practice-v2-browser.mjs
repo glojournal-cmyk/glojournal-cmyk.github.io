@@ -482,6 +482,10 @@ try{
   for(const [engine,launcher] of [['chromium',chromium],['webkit',webkit]]){
     const browser=await launcher.launch({headless:true});
     try{
+      if(process.env.LUX_BIOLOGY_ONLY==='1'){
+        await checkExhaustedBiologyDaily(browser,engine);
+        continue;
+      }
       for(const size of [{width:1024,height:768},{width:1366,height:1024}]){
         for(const kind of ['mc','long-mc','typed','tiles']) await checkFixture(browser,engine,kind,size);
       }
