@@ -88,6 +88,37 @@ for(const [engine,launcher] of [["chromium",chromium],["webkit",webkit]]){
       for(const [tab,selector] of [["Collection",".lux-scholar-collection .lux-scholar-collectible"],["Achievements",".lux-scholar-achievements .lux-scholar-medal"],["Settings",".lux-scholar-settings .lux-scholar-weekly-link"]]){
         await page.getByRole("button",{name:tab,exact:true}).click();
         if(await page.locator(selector).count()===0)problem(row,"scholar-tab-layout-missing",{tab,selector});
+        const tabLayout=await page.evaluate((currentTab)=>{
+          const tabButtons=[...document.querySelectorAll(".lux-scholar-rebuilt > div.flex.flex-wrap.gap-2 > button")];
+          const active=tabButtons.filter(b=>b.getAttribute("aria-pressed")==="true");
+          const activeStyle=active[0]&&getComputedStyle(active[0]);
+          const collection=document.querySelector(".lux-scholar-collection");
+          const achievements=document.querySelector(".lux-scholar-achievements");
+          const container=collection||achievements;
+          const cards=[...container?.children||[]].slice(0,12);
+          const bounds=cards.map(c=>c.getBoundingClientRect());
+          const overlaps=bounds.some((a,i)=>bounds.slice(i+1).some(b=>
+            Math.min(a.right,b.right)-Math.max(a.left,b.left)>6 &&
+            Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>6));
+          return {pressed:active.map(b=>b.textContent.trim()),
+            wardrobePressed:tabButtons.find(b=>b.textContent.trim()==="Wardrobe")?.getAttribute("aria-pressed"),
+            activeBg:activeStyle?.backgroundColor,
+            cards:bounds.length,
+            maxCardHeight:Math.max(0,...bounds.map(b=>b.height)),
+            minCardHeight:Math.min(Infinity,...bounds.map(b=>b.height)),
+            overlaps,
+            gridRows:container&&getComputedStyle(container).gridAutoRows,
+            gridContentAlign:container&&getComputedStyle(container).alignContent};
+        },tab);
+        if(tabLayout.pressed.length!==1||tabLayout.pressed[0]!==tab||
+           tabLayout.wardrobePressed!=="false"||
+           tabLayout.activeBg!=="rgb(184, 152, 104)")
+          problem(row,"scholar-tab-selected-state",{tab,...tabLayout});
+        if(tab!=="Settings"&&(tabLayout.cards<1||tabLayout.overlaps||
+            tabLayout.maxCardHeight>275||tabLayout.minCardHeight<70||
+            tabLayout.gridContentAlign!=="start"))
+          problem(row,"scholar-cards-stretched-or-overlapping",{tab,...tabLayout});
+
         const frame=await page.evaluate(()=>{
           const portrait=document.querySelector(".lux-scholar-profile-stage");
           const picture=document.querySelector(".lux-scholar-profile-hero");
