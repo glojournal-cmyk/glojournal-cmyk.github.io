@@ -53,11 +53,13 @@ for(const [engine,launcher] of [["chromium",chromium],["webkit",webkit]]){
         return {
           stage:!!stage,closet:!!closet,cards:!!cards,
           backdrop:stage?getComputedStyle(stage).backgroundColor:"",
-          imageHidden:stage?getComputedStyle(stage.querySelector("img")).display==="none":false,
+          sceneVisible:stage?getComputedStyle(stage.querySelector("img")).display!=="none":false,
+          newRail:document.querySelectorAll(".lux-scholar-play-nav a").length,
+          oldHeaderHidden:!!document.querySelector(".paper-wash>header.sticky")&&getComputedStyle(document.querySelector(".paper-wash>header.sticky")).display==="none",
           columns:cards?getComputedStyle(cards).gridTemplateColumns.split(" ").filter(Boolean).length:0
         };
       });
-      if(!visual.stage||!visual.closet||!visual.cards||!visual.imageHidden||visual.columns!==(1024<=1050?2:3))
+      if(!visual.stage||!visual.closet||!visual.cards||!visual.sceneVisible||visual.newRail!==7||!visual.oldHeaderHidden||visual.columns!==(1024<=1050?2:3))
         problem(row,"scholar-visual-regression",visual);
     }
     if(snap.text.trim().length<35)problem(row,"empty-page",snap.text);
