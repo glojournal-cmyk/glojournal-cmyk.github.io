@@ -477,7 +477,7 @@ async function checkExhaustedBiologyDaily(browser,engine){
     // headers on unrelated Chemistry/French prefetches. Keep these visible,
     // but never mistake them for Biology task/runtime failures on same-origin
     // production GitHub Pages. All other JS exceptions are still fatal.
-    const fixtureCors=/^\/127\.0\.0\.1:\d+\/(?:content\/topics\/chem-y9-c(?:1|3)\.json|assessment\/french-school-1\.json) due to access control checks\.$/;
+    const fixtureCors=/^\/127\.0\.0\.1:\d+\/(?:content\/topics\/chem-y9-c(?:1|3)\.json|assessment\/french-school-1\.json|content\/topics\/fr-y9-u1-paris-travel\.json) due to access control checks\.$/;
     const unrelated=errors.filter(e=>fixtureCors.test(e));
     const runtimeErrors=errors.filter(e=>!fixtureCors.test(e));
     if(unrelated.length)console.log('DAILY_BIOLOGY_LOCALHOST_CORS '+JSON.stringify({engine,unrelated}));
