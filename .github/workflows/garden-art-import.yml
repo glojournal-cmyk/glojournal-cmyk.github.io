@@ -1,0 +1,52 @@
+name: Import approved seasonal Garden images
+on:
+  push:
+    branches: [feature/garden-weekly-season-20261021]
+    paths: ['.github/workflows/garden-art-import.yml']
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/garden-weekly-season-20261021
+          persist-credentials: true
+      - name: Download the four exact user-approved images
+        env:
+          GARDEN_CLASSIC: https://at.adobe.com/t85p4ExPdNt2dN4Q
+          GARDEN_BLOSSOM: https://at.adobe.com/mIDdWyWsTnajVLPL
+          GARDEN_AUTUMN: https://at.adobe.com/MbpTzd1j6OAqxubc
+          GARDEN_TWILIGHT: https://at.adobe.com/9VCrw7EsGSvyqgf6
+        run: |
+          set -euo pipefail
+          mkdir -p assets/garden-weekly
+          for name in classic blossom autumn twilight; do
+            key="GARDEN_${name^^}"
+            url="${!key}"
+            echo "Fetching approved ${name} art"
+            curl -fLsS --retry 3 --connect-timeout 20 --max-time 120 --header 'Accept: image/png' "$url" -o "assets/garden-weekly/$name.png"
+            file "assets/garden-weekly/$name.png"
+          done
+      - name: Optimize and verify true 4:3 images
+        run: |
+          python3 -m pip -q install pillow
+          python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          for n in ['classic','blossom','autumn','twilight']:
+              p=Path('assets/garden-weekly')/(n+'.png')
+              with Image.open(p) as im:
+                  print(n,im.size,im.format)
+                  assert im.size == (1448,1086), f'Unexpected source image for {n}'
+                  im.convert('RGB').save(p.with_suffix('.webp'),'WEBP',quality=86,method=6)
+              p.unlink()
+          PY
+      - name: Commit imported artwork on preview branch only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/garden-weekly/*.webp
+          git commit -m "Import four approved Garden seasonal backgrounds" || exit 0
+          git push origin HEAD:feature/garden-weekly-season-20261021
