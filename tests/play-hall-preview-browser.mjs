@@ -46,10 +46,11 @@ try{
         'The standing Scholar must be at least 20 percent smaller than previous oversized version');
     }
     // Outfit switch is performed through the original store; Play preview never writes.
-    await page.evaluate(async()=>{const store=(await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2')).C;store.setState({equippedOutfit:'cardigan'});});
-    await page.waitForFunction(()=>document.querySelector('.lux-play-hall-scholar')?.src.endsWith('/art/doll/cardigan.png'));
-    assert.equal(await page.locator('.lux-play-hall-scholar').getAttribute('src'),'/art/doll/cardigan.png');
-    const before=await page.evaluate(async()=>{const m=await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2');return JSON.stringify({xp:m.C.getState().xp,games:m.C.getState().games});});
+    await page.evaluate(async()=>{const store=(await import('/assets/index-BLVOhKhN.js?v=20261021-daily-credit1&ux=20261013-corrections2')).C;store.setState({equippedOutfit:'cardigan'});});
+    const outfitArt=await page.evaluate(async()=>{const m=await import('/assets/index-BLVOhKhN.js?v=20261021-daily-credit1&ux=20261013-corrections2');return m.A.find(item=>item.id==='cardigan')?.art||'/art/home-rpg/scholar-clean.png';});
+    await page.waitForFunction(expected=>document.querySelector('.lux-play-hall-scholar')?.getAttribute('src')===expected,outfitArt);
+    assert.equal(await page.locator('.lux-play-hall-scholar').getAttribute('src'),outfitArt);
+    const before=await page.evaluate(async()=>{const m=await import('/assets/index-BLVOhKhN.js?v=20261021-daily-credit1&ux=20261013-corrections2');return JSON.stringify({xp:m.C.getState().xp,games:m.C.getState().games});});
     await page.locator('.lux-play-hall-all-games').click();
     const dialog=page.getByRole('dialog',{name:'All games'});await dialog.waitFor();
     assert.equal(await dialog.locator('a[href^="/play/"]').count(),17);
@@ -59,7 +60,7 @@ try{
     await page.locator('button[aria-label="Browse Science Laboratory games"]').click();
     assert.equal(await page.getByRole('dialog',{name:'Science Laboratory'}).locator('a[href^="/play/"]').count(),4);
     await page.getByRole('button',{name:'Close games list'}).click();
-    const after=await page.evaluate(async()=>{const m=await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2');return JSON.stringify({xp:m.C.getState().xp,games:m.C.getState().games});});
+    const after=await page.evaluate(async()=>{const m=await import('/assets/index-BLVOhKhN.js?v=20261021-daily-credit1&ux=20261013-corrections2');return JSON.stringify({xp:m.C.getState().xp,games:m.C.getState().games});});
     assert.equal(after,before,'Browsing cannot overwrite XP or original game history');
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'Avoid iPad horizontal overflow');
     await page.screenshot({path:`test-results/play-hall-${engine.name()}-${viewport.width}.png`,fullPage:false});
