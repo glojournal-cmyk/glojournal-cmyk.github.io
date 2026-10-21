@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {reconcileDailySession} from '../assets/daily-session-credit-20261021.js';
 
 const day='2026-10-21', topic='la-y8-prepositions', taskId='latin-standard';
@@ -71,4 +72,15 @@ test('Formal wrong answers still count as attempted, not rewarded correctness',(
 test('A session with no marked answers cannot generate completion',()=>{
  const result=reconcileDailySession(fixture(),receipt({answers:[]}));
  assert.equal(result.changed,false);
+});
+
+test('iPad loads cache-busted quiz, Daily route, wrapper and core (not stale JavaScript)',()=>{
+ const file=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
+ const release='20261021-daily-credit1';
+ assert.ok(file('assets/index-BLVOhKhN.js').includes('index-BLVOhKhN.core.js?v='+release));
+ assert.ok(file('assets/index-BLVOhKhN.core.js').includes('study._subject.practise-y8fix-20260920.js?v='+release));
+ for(const module of ['assets/study._subject.practise-y8fix-20260920.js','assets/study._subject.practise-D_PWgUd7.js'])
+   assert.ok(file(module).includes('quiz-session-y8fix-20260920.js?v='+release),module);
+ for(const route of ['index.html',...['latin','french','biology','chemistry','physics','english'].map(s=>'study/'+s+'/practise/index.html')])
+   assert.ok(file(route).includes('index-BLVOhKhN.js?v='+release),route);
 });
