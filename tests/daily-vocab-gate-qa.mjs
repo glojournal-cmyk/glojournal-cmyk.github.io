@@ -18,8 +18,8 @@ for(const token of [
   "return dailyVocabTotal(state, subject, state.today || todayKey());",
   "function recordDailyVocabAttempt(subject, questionId, correct)",
   'items[String(questionId)] = !!correct || !!items[String(questionId)];',
-  'id: "french-vocab", title: "Year 7–8 French vocab"',
-  'id: "latin-vocab", title: "Year 7–8 Latin vocab"'
+  'id: "french-vocab", title: "French Vocab"',
+  'id: "latin-vocab", title: "Latin Vocab"'
 ]) if(!wrapper.includes(token)) failures.push({type:"missing-runtime-vocab-gate",token});
 
 for(const token of [
