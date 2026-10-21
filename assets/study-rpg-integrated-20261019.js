@@ -188,7 +188,8 @@ if (!window.__luxStudyRpgIntegrated) {
     const navbar = el('div','lux-study-rpg-nav');navbar.setAttribute('aria-label','Primary');
     for (const [glyph,label,url] of nav) {
       const a = el('a', label==='Study'?'active':''); a.href=url;
-      a.append(el('span','lux-study-rpg-navicon',glyph),el('span',null,label));
+      const navImg=el('img','lux-study-rpg-navicon');navImg.src='/assets/math-study/nav/'+label.toLowerCase()+'.svg';navImg.alt='';navImg.width=24;navImg.height=24;
+      a.append(navImg,el('span',null,label));
       if (label==='Study') a.setAttribute('aria-current','page');
       navbar.append(a);
     }
