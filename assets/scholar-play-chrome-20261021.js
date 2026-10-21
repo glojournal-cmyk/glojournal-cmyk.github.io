@@ -26,6 +26,9 @@
   if(document.getElementById('lux-scholar-rail-essential-css'))return;
   const style=document.createElement('style');style.id='lux-scholar-rail-essential-css';
   style.textContent='.lux-scholar-play-nav{position:fixed!important;left:50%!important;bottom:calc(10px + env(safe-area-inset-bottom))!important;transform:translateX(-50%)!important;z-index:2147482000!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:clamp(4px,.9vw,12px)!important;width:min(86%,1008px)!important;max-width:calc(100% - 8px)!important;min-height:59px!important;padding:3px 6px!important;border-radius:999px!important;background:#172d38ec!important;box-shadow:0 5px 20px #0c1d2d55!important;overflow-x:auto!important}.lux-scholar-play-nav>a[data-lux-scholar-nav]{display:flex!important;flex:1 0 0!important;min-width:56px!important;max-width:136px!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:1px!important;min-height:53px!important;position:relative!important;border-radius:99px!important;text-decoration:none!important;color:#f5eedf!important;font:500 clamp(11px,1vw,14px)/1.15 sans-serif!important}.lux-scholar-play-nav>a[aria-current=page]{background:#faf4e9!important;color:#193646!important}.lux-scholar-play-nav a svg{display:block;width:20px;height:20px}@media(max-width:740px){.lux-scholar-play-nav{width:calc(100% - 16px)!important;justify-content:flex-start!important}.lux-scholar-play-nav>a[data-lux-scholar-nav]{min-width:56px!important}}';
+  // Stable CSS rule, not a MutationObserver feedback loop. The main app may
+  // append companion links to every primary nav; keep only our seven visible.
+  style.textContent += '.lux-scholar-play-nav>a:not([data-lux-scholar-nav="1"]){display:none!important}html.lux-scholar-rail-active nav.fixed.inset-x-3.bottom-3{display:none!important}html.lux-scholar-rail-active .paper-wash>header.sticky{display:none!important}html.lux-scholar-rail-active .paper-wash>aside{display:none!important}html.lux-scholar-rail-active .paper-wash{padding-left:0!important}';
   document.head.append(style);
  }
  function mount(){
@@ -43,11 +46,8 @@
   }
   document.body.append(nav);
  }
- function keepPlayRailExact(){
-  const nav=document.querySelector('.lux-scholar-play-nav');
-  if(!nav)return;
-  for(const added of nav.querySelectorAll('a:not([data-lux-scholar-nav="1"])'))added.remove();
- }
+ // Never mutate a third-party-added link: another observer might reinsert it,
+ // causing a delete/recreate loop and visibly flashing the navigation rail.
  function tidyWeekly(){
   if(!/^\/scholar\/?$/.test(location.pathname))return;
   for(const a of document.querySelectorAll('a[href="/progress/weekly/"]:not(.lux-scholar-weekly-link)')){
@@ -66,13 +66,14 @@
   }
  }
  function sync(){
-  if(!/^\/scholar\/?$/.test(location.pathname)){
+  const active=/^\/scholar\/?$/.test(location.pathname);
+  document.documentElement.classList.toggle('lux-scholar-rail-active',active);
+  if(!active){
     document.querySelector('.lux-scholar-play-nav')?.remove();
     return;
   }
   ensureStyles();
   mount();
-  keepPlayRailExact();
   tidyWeekly();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',sync,{once:true});else sync();
@@ -82,6 +83,6 @@
  for(const key of ['pushState','replaceState']){
    const original=history[key];history[key]=function(...args){const value=original.apply(this,args);sync();return value;};
  }
- const observer=new MutationObserver(()=>{if(/^\/scholar\/?$/.test(location.pathname)){keepPlayRailExact();tidyWeekly();}});
+ const observer=new MutationObserver(()=>{if(/^\/scholar\/?$/.test(location.pathname))tidyWeekly();});
  observer.observe(document.body,{childList:true,subtree:true});
 })();
