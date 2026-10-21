@@ -393,6 +393,10 @@ async function checkAssignedStandard(browser,engine) {
     await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
     await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:35000});
     await page.waitForFunction(()=>!!document.querySelector('.lux-practice-view [data-lux-question-card]'),null,{timeout:10000});
+    // A server-rendered question is not proof React has hydrated its controlled
+    // answer field. Wait for the same ready signals used by the live-quiz QA.
+    await page.waitForFunction(()=>window.__luxAppReady===true && document.documentElement.classList.contains('lux-daily-ux-ready'),null,{timeout:20000});
+    await page.waitForTimeout(400);
     const before=await page.evaluate(()=>{
       window.__luxOldShellFrames=0;
       const observed=document.documentElement;
