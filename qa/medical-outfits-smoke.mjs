@@ -9,6 +9,8 @@ async function run(kind,browserType,masteries){
   const ctx=await browser.newContext({viewport:{width:1180,height:820},deviceScaleFactor:2,hasTouch:true});
   if(masteries!==0){
     await ctx.addInitScript((m)=>{
+      if(localStorage.getItem('medical-qa-seeded')==='yes')return;
+      localStorage.setItem('medical-qa-seeded','yes');
       const topicStats=Object.fromEntries(Array.from({length:m},(_,i)=>['medical-qa-topic-'+(i+1),{state:'mastered'}]));
       const data={state:{version:10,topicStats,unlockedOutfits:['day'],equippedOutfit:'day'},version:10};
       localStorage.setItem('lux-scholar-garden-v1',JSON.stringify(data));
