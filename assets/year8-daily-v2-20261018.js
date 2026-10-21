@@ -120,7 +120,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     // older iPad session's valid formal journal was ignored (e.g. 13/30).
     const total=dailyVocabTotal(state,s,today);
     const correct=total.correct;
-    return {...old,id:s+'-vocab',title:`Year 7–8 ${label[s]} vocab`,detail:'30 correct words; due mistakes then new words.',
+    return {...old,id:s+'-vocab',title:`Year 7–8 ${label[s]} vocab + 3 Year 9`,detail:'30 vocabulary words: 27 Year 7–8 (including review) + 3 Year 9; no sentences.',
       href:`/study/${s}/practise?daily=1&locked=1&year=8&mode=y8vocab&task=${s}-vocab`,
       target:30,progress:total.progress,
       xp:15,requiredCorrect:30,planDate:today};
