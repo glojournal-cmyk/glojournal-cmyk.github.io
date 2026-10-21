@@ -210,7 +210,18 @@ if (!window.__luxStudyRpgIntegrated) {
         const d = subjectData(id,name);return [d.secure,d.due,d.learn,d.practice,d.progress];
       })
     });
-    if (root.isConnected && key === lastKey) return;
+    // Some legacy outfit enhancers can replace the displayed sprite without
+    // changing the authoritative wardrobe state. Reconcile the visible src
+    // even if the rest of Study has not changed; never write saved progress.
+    const outfit = safeSlug(state.equippedOutfit || 'day', 'day');
+    const expectedScholar = outfit === 'day' ? '/art/home-rpg/scholar-clean.png' : `/art/doll/${outfit}.png`;
+    if (root.isConnected && key === lastKey) {
+      if (scholarImage.getAttribute('src') !== expectedScholar) {
+        renderedOutfitSrc = expectedScholar;
+        scholarImage.src = expectedScholar;
+      }
+      return;
+    }
     // Rebuild the scene only when *real* app data changes. No saved state is written.
     lastKey=key;
     build();
