@@ -3,10 +3,10 @@
  * scholar state, watering eligibility, XP, Basil or collectibles.
  */
 export const GARDEN_WEEKLY_SCENES = Object.freeze([
- {id:'classic',name:'Classic Garden',url:'/assets/garden-weekly/classic.webp'},
- {id:'blossom',name:'Cherry Blossom Garden',url:'/assets/garden-weekly/blossom.webp'},
- {id:'autumn',name:'Autumn Garden',url:'/assets/garden-weekly/autumn.webp'},
- {id:'twilight',name:'Twilight Garden',url:'/assets/garden-weekly/twilight.webp'}
+ {id:'classic',name:'Classic Garden',url:'/assets/garden-weekly/classic.jpg'},
+ {id:'blossom',name:'Cherry Blossom Garden',url:'/assets/garden-weekly/blossom.jpg'},
+ {id:'autumn',name:'Autumn Garden',url:'/assets/garden-weekly/autumn.jpg'},
+ {id:'twilight',name:'Twilight Garden',url:'/assets/garden-weekly/twilight.jpg'}
 ]);
 const WEEK_MS=7*24*60*60*1000;
 const ANCHOR_MONDAY=Date.UTC(2026,9,19);
