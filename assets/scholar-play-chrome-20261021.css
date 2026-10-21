@@ -61,3 +61,62 @@ body:has(.lux-scholar-rebuilt) .lux-scholar-closet button.bg-navy{color:#fff7e8!
 body:has(.lux-scholar-rebuilt) .lux-scholar-weekly-link{display:flex;align-items:center;min-height:54px;padding:13px 18px;border:1px solid #c8ac80;border-radius:13px;background:#e8ddc9;color:#17344a!important;font-weight:700;text-decoration:none}
 body:has(.lux-scholar-rebuilt) .lux-scholar-weekly-link:hover{background:#dbcaa9}
 body:has(.lux-scholar-rebuilt) a[href="/progress/weekly/"]:not(.lux-scholar-weekly-link){display:none!important}
+
+/* Approved Play Hall language: midnight-blue panels, warm ivory, bright gold piping. */
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal{
+ background:linear-gradient(125deg,#203f50ee,#122d3dee)!important;
+ color:#fff3d9!important;border:2px solid #ddb875!important;
+ border-radius:17px!important;box-shadow:0 10px 0 #081f2c65,0 16px 32px #07142168!important;
+ min-height:174px!important;padding:22px 24px!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal p:first-child{
+ color:#fff1d2!important;font:700 clamp(20px,1.8vw,26px)/1.15 'Cormorant Garamond',Georgia,serif!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal p.text-muted,
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal p.text-navy,
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal span:not([data-state]){
+ color:#dfd6bf!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal [role="progressbar"]{background:#c3b49475!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings{
+ background:linear-gradient(125deg,#244657f4,#152f40f5)!important;
+ color:#faf2dd!important;border:2px solid #ddb875!important;
+ box-shadow:0 10px 0 #081f2c65,0 16px 32px #07142168!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings h3{
+ color:#fff0d0!important;font-size:clamp(24px,2.5vw,32px)!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings label,
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings span,
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings strong{color:#fff4df!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings p,
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings p.text-muted,
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings span.text-muted,
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings small{color:#e1d7c3!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings>div{border-bottom-color:#b79d745c!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings input{color:#193546!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings .lux-scholar-weekly-link{
+ background:#faf0d9!important;border:2px solid #e7c17a!important;color:#173344!important
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible{
+ background:linear-gradient(135deg,#26495b,#132d3b)!important;
+ border:2px solid #ddb875!important;
+ border-radius:17px!important;color:#fff3da!important;
+ box-shadow:0 10px 0 #081f2c65,0 16px 32px #07142168!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible img{
+ height:175px!important;object-fit:cover!important;padding:0!important;
+ background:#203d4c!important;border-radius:14px 14px 0 0!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible>div{
+ background:#f6ead1!important;padding:15px 18px 18px!important;
+ color:#203747!important;border-top:2px solid #ddb875!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible>div p:first-child{
+ color:#1b3546!important;font:700 22px/1.1 'Cormorant Garamond',Georgia,serif!important
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible>div p:not(:first-child){color:#506574!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible:has(img.grayscale){
+ background:linear-gradient(135deg,#2e4752,#233543)!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible:has(img.grayscale) img{opacity:.7!important}
