@@ -2,3 +2,8 @@
 /* Seven real SVG navigation icons in original app's teal rail. */
 .maths-nav a img{display:block;width:23px;height:23px;object-fit:contain}
 @media(max-width:600px){.maths-nav a img{width:19px;height:19px}}
+
+/* Do not flash the default Scholar/Moss while the actual equipped sprites load. */
+.maths-sprites img[hidden],.maths-cast-status[hidden]{display:none!important}
+.maths-cast-status{position:absolute;left:5%;right:5%;bottom:24%;z-index:1;max-width:90%;padding:12px;border-radius:13px;background:rgba(245,235,214,.91);border:1px solid #c3a77b;color:#435b62;font-size:13px;line-height:1.5;text-align:center}
+.maths-sync-waiting .maths-cast-status{background:#fbede5;color:#79442d}
