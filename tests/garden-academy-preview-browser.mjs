@@ -120,6 +120,7 @@ async function run(engine,runner,viewport){
     const seasonal=await page.evaluate(async theme=>{
       const scene=document.querySelector('.lux-garden-scene');
       scene.dataset.weeklyGardenTheme=theme;
+      scene.style.setProperty('background-image',`url('/assets/garden-weekly/${theme}.webp')`,'important');
       const url=getComputedStyle(scene).backgroundImage;
       const image=new Image();image.src='/assets/garden-weekly/'+theme+'.webp';
       await image.decode();
@@ -130,7 +131,11 @@ async function run(engine,runner,viewport){
     if(engine==='webkit'&&viewport.width===1366)
       await page.screenshot({path:path.join(out,'season-'+theme+'-webkit-1366x1024.png')});
   }
-  await page.evaluate(()=>document.querySelector('.lux-garden-scene').dataset.weeklyGardenTheme='classic');
+  await page.evaluate(()=>{
+    const scene=document.querySelector('.lux-garden-scene');
+    scene.dataset.weeklyGardenTheme='classic';
+    scene.style.setProperty('background-image',"url('/assets/garden-weekly/classic.webp')",'important');
+  });
   assert.ok(await page.locator('.lux-garden-item').count()===4);
   const stageValue=await page.evaluate(async()=>{
     const mod=await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2');
