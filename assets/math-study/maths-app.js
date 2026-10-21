@@ -15,7 +15,11 @@ const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&
 const list=await fetch(ROOT+'topics.json').then(r=>{if(!r.ok)throw Error('Topic list could not load');return r.json()});
 const selected=list.find(x=>x.id===topicId)||list[0];
 let bank=null,charts=null;
-let answers=read(SKEY,{version:1,records:{}}),drafts=read(DKEY,{});
+const savedReviews=read(SKEY,null),savedDrafts=read(DKEY,null);
+let answers=savedReviews&&typeof savedReviews==='object'&&!Array.isArray(savedReviews)&&
+  savedReviews.records&&typeof savedReviews.records==='object'&&!Array.isArray(savedReviews.records)
+  ?savedReviews:{version:1,records:{}};
+let drafts=savedDrafts&&typeof savedDrafts==='object'&&!Array.isArray(savedDrafts)?savedDrafts:{};
 let session=null,index=0;
 const chapterLink=(sub,id=selected.id,extra='')=>`${BASE}${sub?sub+'/':''}?topic=${encodeURIComponent(id)}${extra}`;
 const header=()=>`<header class="maths-top"><a class="maths-back" href="${page==='topics'?'/study/':chapterLink('')}" aria-label="Back">←</a><div><p class="maths-eyebrow">THE SCHOLAR'S GARDEN · YEAR 9</p><h1>Maths <span>✦</span> ${page==='topics'?'Topic Library':page==='learn'?'Learn':page==='practise'?'Practise':'Progress'}</h1></div><span class="maths-year">Year 9</span></header>`;
