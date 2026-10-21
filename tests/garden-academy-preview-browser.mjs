@@ -128,8 +128,14 @@ async function run(engine,runner,viewport){
     },theme);
     assert.ok(seasonal.url.includes('/'+theme+'.webp'),'background must change for '+theme);
     assert.equal(seasonal.w/seasonal.h,4/3,'image source ratio must be 4:3');
-    if(engine==='webkit'&&viewport.width===1366)
-      await page.screenshot({path:path.join(out,'season-'+theme+'-webkit-1366x1024.png')});
+    if(engine==='webkit'&&viewport.width===1366){
+      // Await an actual browser paint, not just CSSOM recomputation.
+      await page.waitForTimeout(350);
+      const shot=await page.screenshot({path:path.join(out,'season-'+theme+'-webkit-1366x1024.png')});
+      if(theme==='classic')globalThis.__gardenClassicShot=shot;
+      else assert.ok(!shot.equals(globalThis.__gardenClassicShot),
+        'Season '+theme+' must visibly differ from classic in WebKit screenshot');
+    }
   }
   await page.evaluate(()=>{
     const scene=document.querySelector('.lux-garden-scene');
