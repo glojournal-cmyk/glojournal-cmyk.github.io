@@ -10,7 +10,7 @@ assert.ok(!entry.includes("import('/assets/daily-keyboard-safe-20261020.js"),
 assert.ok(css.includes('html.lux-daily-typing .lux-daily-study-nav') &&
   css.includes('html.lux-daily-ux-ready [data-lux-question-card]'),
   'Daily Practice must compact its layout and hide nav while typing with CSS, not a stale magic comment');
-assert.ok(!/scroll-behavior:\\s*smooth/.test(css),
+assert.ok(!/scroll-behavior:\s*smooth/.test(css),
   'The Daily Practice stylesheet must not force smooth scrolling against the keyboard');
 assert.ok(ipad.includes("document.activeElement?.matches?.('.lux-practice-view [data-question-id] input"),
   'The iPad legacy page parking must yield to a focused quiz input');
