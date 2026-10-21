@@ -376,12 +376,17 @@ async function checkRealPractice(browser,engine){
 async function checkAssignedStandard(browser,engine) {
   // Vocab uses an independent path. Test the real non-vocab Standard quiz.
   const context=await browser.newContext({viewport:{width:1024,height:768},hasTouch:true,deviceScaleFactor:2});
-  const page=await context.newPage();
+  const page=await context.newPage(),navigation=[],pageErrors=[];
+  page.on('framenavigated',frame=>{if(frame===page.mainFrame())navigation.push(frame.url())});
+  page.on('pageerror',error=>pageErrors.push(error.message));
   const url=base+'/study/french/practise?daily=1&locked=1&year=8&mode=standard&task=y8-standard-a&topic=fr-y8-s01-quick-rules';
   try {
     await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
     await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:35000});
     await page.waitForFunction(()=>!!document.querySelector('.lux-practice-view [data-lux-question-card]'),null,{timeout:10000});
+    // Do not confuse SPA hydration redirects with an evidence-triggered reload.
+    await page.waitForTimeout(1800);
+    console.log('DAILY_STANDARD_BEFORE '+JSON.stringify({engine,url:page.url(),navigation,pageErrors}));
     const evidence=await page.evaluate(async()=>{
       const original=document.querySelector('.lux-practice-view [data-question-id]');
       const id=original?.getAttribute('data-question-id');
@@ -417,7 +422,10 @@ async function checkAssignedStandard(browser,engine) {
     assert.equal(evidence.navCount,7,'Study navigation persists on Standard');
     assert.equal(evidence.active,true,'new Daily shell stays active');
     report.push({engine,kind:'real-assigned-standard-evidence',evidence,ok:true});
-    console.log('DAILY_STANDARD_IPAD_STABILITY '+JSON.stringify({engine,evidence}));
+    console.log('DAILY_STANDARD_IPAD_STABILITY '+JSON.stringify({engine,evidence,navigation,pageErrors}));
+  } catch(error) {
+    console.error('DAILY_STANDARD_DIAGNOSTIC '+JSON.stringify({engine,url:page.url(),navigation,pageErrors,reason:String(error)}));
+    throw error;
   } finally {await context.close();}
 }
 
