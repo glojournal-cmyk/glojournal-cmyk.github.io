@@ -124,3 +124,6 @@ html.lux-study-rpg-active,html.lux-study-rpg-active body{height:100dvh;overflow:
   .lux-study-rpg-navicon{width:1.1rem;height:1.1rem}
   .lux-study-rpg-pet-link{left:69%;bottom:2.2rem;width:min(33vw,8.5rem);height:min(22vh,11rem);max-width:none}
 }
+
+/* Do not briefly reveal an old Pet stage while the selected evolution loads. */
+.lux-study-rpg-pet[hidden]{display:none!important}
