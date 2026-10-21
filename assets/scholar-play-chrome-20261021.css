@@ -16,3 +16,15 @@ body nav.fixed.inset-x-3.bottom-3{display:none!important}
 .lux-scholar-play-nav a:hover:not([aria-current=page]){background:#ffffff27}
 .lux-scholar-play-nav a:focus-visible{outline:3px solid #eac384;outline-offset:2px}
 @media(max-width:740px){.lux-scholar-play-nav{width:calc(100% - 1rem);justify-content:flex-start}.lux-scholar-play-nav a{min-width:3.5rem;font-size:.67rem}}
+
+/* Collection aligns with Achievements and Settings: comfortable cream framed cards. */
+body .lux-scholar-collection{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important;max-width:1320px;margin-inline:auto;width:100%}
+body .lux-scholar-collectible{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid #c8ac80!important;border-radius:16px!important;background:#f8f0e2!important;color:#24384a!important;box-shadow:0 9px 22px #050e1836;transition:transform .15s}
+body .lux-scholar-collectible img{width:100%!important;height:176px!important;object-fit:contain!important;background:linear-gradient(145deg,#e0e4dc,#f3eddf)!important;padding:12px}
+body .lux-scholar-collectible>div{padding:15px 17px 18px!important;border-top:1px solid #d5c3a5}
+body .lux-scholar-collectible>div>p:first-child{font-size:17px!important;line-height:1.3;font-weight:700!important;color:#1b3448!important}
+body .lux-scholar-collectible>div>p:not(:first-child){font-size:13px!important;line-height:1.45;color:#647181!important;margin-top:6px}
+body .lux-scholar-collectible:has(img.grayscale){background:#e8e5df!important}
+body .lux-scholar-collectible:has(img.grayscale) img{filter:grayscale(.85)!important;opacity:.65}
+@media(max-width:980px){body .lux-scholar-collection{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){body .lux-scholar-collection{grid-template-columns:1fr!important}}
