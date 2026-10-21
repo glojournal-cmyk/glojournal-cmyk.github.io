@@ -33,3 +33,6 @@ body.lux-scholar-atelier button:focus-visible{outline:3px solid #e0b376!importan
 @media(max-width:1050px){body.lux-scholar-atelier .lux-scholar-workspace{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important}body.lux-scholar-atelier .lux-scholar-closet{padding:12px!important}body.lux-scholar-atelier .lux-scholar-looks{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media(max-width:650px){body.lux-scholar-atelier .lux-scholar-workspace{grid-template-columns:1fr!important}body.lux-scholar-atelier .lux-scholar-stage{height:60vh!important;min-height:360px!important}body.lux-scholar-atelier .lux-scholar-closet{max-height:none!important;min-height:0}}
 @media(prefers-reduced-motion:reduce){body.lux-scholar-atelier .dress-pop{animation:none!important;transition:none!important}}
+
+/* iPad touch targets, including icon-only settings controls. */
+body.lux-scholar-atelier main button{min-width:44px!important;min-height:44px!important;touch-action:manipulation}
