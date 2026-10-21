@@ -45,7 +45,7 @@ try{
         // The visual stylesheet is attached dynamically; do not inspect visibility
         // before it loads, otherwise the original hoisted nav can still flash.
         await page.waitForFunction(() => Boolean(document.getElementById('lux-study-rpg-style')?.sheet));
-        assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').count(),6);
+        assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').count(),Number(await page.locator('.lux-study-rpg-year select').inputValue())===9?7:6);
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-pet').count(),1);
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-scholar').count(),1);
         assert.equal(await page.locator('html.lux-study-rpg-active').count(),1);
@@ -57,6 +57,7 @@ try{
         await page.locator('.lux-study-rpg-year select').selectOption('8');
         await page.waitForFunction(()=>document.querySelector('main:not(#lux-study-rpg-integrated) select:has(option[value="8"])')?.value==='8');
         assert.equal(await page.locator('.lux-study-rpg-year select').inputValue(),'8');
+        await page.waitForFunction(()=>document.querySelectorAll('#lux-study-rpg-integrated .lux-study-rpg-card').length===6);
         const urls=await page.locator('.lux-study-rpg-actions a').evaluateAll(nodes=>nodes.map(n=>new URL(n.href).origin+new URL(n.href).pathname));
         assert.equal(urls.length,18);
         assert.ok(urls.every(url=>url.startsWith(origin+'/study/')));
@@ -64,6 +65,7 @@ try{
         assert.ok(checks.every(c=>c.ready),'Subject artwork should load at both years');
         await page.locator('.lux-study-rpg-year select').selectOption('9');
         await page.waitForFunction(()=>document.querySelector('main:not(#lux-study-rpg-integrated) select:has(option[value="9"])')?.value==='9');
+        await page.waitForFunction(()=>document.querySelectorAll('#lux-study-rpg-integrated .lux-study-rpg-card').length===7);
         await page.evaluate(async()=>{
           const store=(await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2')).C;
           store.setState({equippedOutfit:'cardigan'});
@@ -117,7 +119,7 @@ try{
       await page.locator('a[href="/study"]').first().click();
       await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
       assert.equal(new URL(page.url()).pathname.replace(/\/$/,''),'/study');
-      assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').count(),6,'Home→Study navigation loads production scene');
+      assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').count(),Number(await page.locator('.lux-study-rpg-year select').inputValue())===9?7:6,'Home→Study navigation loads production scene');
       await page.close();
     }finally{await browser.close();}
   }
@@ -230,8 +232,8 @@ try{
         await page.waitForURL(u=>/^\/study\/?$/.test(u.pathname),{waitUntil:'domcontentloaded',timeout:20000});
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
         await page.waitForFunction(()=>document.documentElement.classList.contains('lux-study-rpg-active'));
-        assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').count(),6,
-          'Study → '+target.name+' → Study should show six RPG subject cards');
+        assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').count(),Number(await page.locator('.lux-study-rpg-year select').inputValue())===9?7:6,
+          'Study → '+target.name+' → Study should show the correct Year 8/9 subject cards');
         assert.equal(await studyNavigationIsFrontmost(page),true,
           'Study rail should be on top after returning from '+target.name);
         if(target.name==='Pet'){
