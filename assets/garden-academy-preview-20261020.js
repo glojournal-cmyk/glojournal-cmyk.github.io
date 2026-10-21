@@ -282,6 +282,8 @@ const obs=new MutationObserver(()=>{
 obs.observe(document.documentElement,{childList:true,subtree:true});
 window.addEventListener('popstate',schedule);
 window.addEventListener('pageshow',schedule);
+// A long-open iPad tab also switches to the new scene after Monday midnight.
+setInterval(()=>{if(enabled()&&root?.isConnected)schedule()},60*1000);
 window.addEventListener('lux:app-ready',schedule);
 window.addEventListener('storage',schedule);
 store.subscribe?.(schedule);
