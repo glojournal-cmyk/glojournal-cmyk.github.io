@@ -374,59 +374,62 @@ async function checkRealPractice(browser,engine){
 }
 
 async function checkAssignedStandard(browser,engine) {
-  // Vocab uses an independent path. Test the real non-vocab Standard quiz.
+  // Real assigned Standard task, not a synthetic store write. Vocab is untouched.
   const context=await browser.newContext({viewport:{width:1024,height:768},hasTouch:true,deviceScaleFactor:2});
-  const page=await context.newPage(),navigation=[],pageErrors=[];
-  page.on('framenavigated',frame=>{if(frame===page.mainFrame())navigation.push(frame.url())});
-  page.on('pageerror',error=>pageErrors.push(error.message));
+  const page=await context.newPage(),navigations=[],errors=[];
+  page.on('framenavigated',frame=>{if(frame===page.mainFrame())navigations.push(frame.url())});
+  page.on('pageerror',error=>errors.push(error.message));
   const url=base+'/study/french/practise?daily=1&locked=1&year=8&mode=standard&task=y8-standard-a&topic=fr-y8-s01-quick-rules';
   try {
     await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
     await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:35000});
     await page.waitForFunction(()=>!!document.querySelector('.lux-practice-view [data-lux-question-card]'),null,{timeout:10000});
-    // Do not confuse SPA hydration redirects with an evidence-triggered reload.
-    await page.waitForTimeout(1800);
-    console.log('DAILY_STANDARD_BEFORE '+JSON.stringify({engine,url:page.url(),navigation,pageErrors}));
-    const evidence=await page.evaluate(async()=>{
-      const original=document.querySelector('.lux-practice-view [data-question-id]');
-      const id=original?.getAttribute('data-question-id');
-      const store=window.__luxStore;
-      if (!store || typeof store.setState!=='function') return {error:'store not available',id};
-      const initial=store.getState(),topic='fr-y8-s01-quick-rules';
-      let switchedToLegacy=0;
-      const check=()=>{
-        const card=document.querySelector('.lux-practice-view [data-lux-question-card]');
-        const oldHeader=document.querySelector('.paper-wash > header');
-        if(!document.documentElement.classList.contains('lux-daily-ux-ready')||
-          (oldHeader&&getComputedStyle(oldHeader).display!=='none')||
-          (card&&parseFloat(getComputedStyle(card).borderWidth)<1))switchedToLegacy++;
-      };
-      const watcher=new MutationObserver(check);
-      watcher.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','data-question-id']});
-      store.setState({
-        seenCorrect:{...(initial.seenCorrect||{}),[id]:1},
-        topicStats:{...(initial.topicStats||{}),[topic]:{...(initial.topicStats?.[topic]||{}),attempted:25,correct:25,accuracy:1}}
-      });
-      await new Promise(r=>setTimeout(r,900));
-      watcher.disconnect();check();
-      const current=document.querySelector('.lux-practice-view [data-question-id]');
-      return {id,afterId:current?.getAttribute('data-question-id'),
-        switchedToLegacy,active:document.documentElement.classList.contains('lux-daily-ux-ready'),
-        questionCount:document.querySelectorAll('.lux-practice-view [data-question-id]').length,
-        navCount:document.querySelectorAll('#lux-daily-study-nav a').length};
+    const before=await page.evaluate(()=>{
+      window.__luxOldShellFrames=0;
+      const observed=document.documentElement;
+      new MutationObserver(()=>{
+        if(!observed.classList.contains('lux-daily-ux-ready'))window.__luxOldShellFrames++;
+      }).observe(observed,{attributes:true,attributeFilter:['class']});
+      return {id:document.querySelector('[data-question-id]')?.dataset.questionId,
+        format:document.querySelector('[data-question-id]')?.dataset.questionFormat,
+        nav:document.querySelectorAll('#lux-daily-study-nav a').length};
     });
-    assert.ok(evidence.id,'Standard task must have a real question');
-    assert.equal(evidence.afterId,evidence.id,'Standard evidence update must not rebuild a live question: '+JSON.stringify(evidence));
-    assert.equal(evidence.questionCount,1,'exactly one React question after update');
-    assert.equal(evidence.switchedToLegacy,0,'no legacy frame while Standard evidence re-ranks');
-    assert.equal(evidence.navCount,7,'Study navigation persists on Standard');
-    assert.equal(evidence.active,true,'new Daily shell stays active');
-    report.push({engine,kind:'real-assigned-standard-evidence',evidence,ok:true});
-    console.log('DAILY_STANDARD_IPAD_STABILITY '+JSON.stringify({engine,evidence,navigation,pageErrors}));
-  } catch(error) {
-    console.error('DAILY_STANDARD_DIAGNOSTIC '+JSON.stringify({engine,url:page.url(),navigation,pageErrors,reason:String(error)}));
+    assert.ok(before.id,'real non-vocab Standard question must exist');
+    assert.equal(before.nav,7,'Standard task needs seven Study nav buttons');
+    const q=page.locator('.lux-practice-view [data-question-id]');
+    if(before.format==='mc_single'){
+      await q.locator('[data-lux-mc-options] > button').first().click();
+    } else if(before.format==='word_tiles'){
+      await q.locator('.mt-5.space-y-3 > div:nth-child(2) button').first().click();
+      await q.getByRole('button',{name:'Submit'}).click();
+    } else {
+      const editor=q.locator('input,textarea').first();
+      await editor.fill('sample practice answer');
+      await q.getByRole('button',{name:'Submit'}).click();
+    }
+    const next=page.getByRole('button',{name:'Next question'});
+    await next.waitFor({state:'visible',timeout:15000});
+    await next.click();
+    await page.waitForFunction(id=>document.querySelector('[data-question-id]')?.dataset.questionId!==id,before.id,{timeout:15000});
+    const after=await page.evaluate(()=>({
+      id:document.querySelector('[data-question-id]')?.dataset.questionId,
+      ready:document.documentElement.classList.contains('lux-daily-ux-ready'),
+      oldShellFrames:window.__luxOldShellFrames,
+      nav:document.querySelectorAll('#lux-daily-study-nav a').length,
+      oldHeader:getComputedStyle(document.querySelector('.paper-wash > header')).display
+    }));
+    assert.ok(after.id&&after.id!==before.id,'Standard task must advance to a different question');
+    assert.equal(after.ready,true,'new shell stays active during actual Standard answers');
+    assert.equal(after.oldShellFrames,0,'no old Daily shell frames on Standard Submit -> Next');
+    assert.equal(after.nav,7,'new Study nav persists');
+    assert.equal(after.oldHeader,'none','legacy header stays hidden');
+    assert.equal(errors.length,0,'no browser JS errors');
+    console.log('DAILY_STANDARD_IPAD_STABILITY '+JSON.stringify({engine,before,after,navigations,errors}));
+    report.push({engine,kind:'real-assigned-standard-submit-next',before,after,ok:true});
+  }catch(error){
+    console.error('DAILY_STANDARD_DIAGNOSTIC '+JSON.stringify({engine,url:page.url(),navigations,errors,reason:String(error)}));
     throw error;
-  } finally {await context.close();}
+  }finally{await context.close();}
 }
 
 try{
