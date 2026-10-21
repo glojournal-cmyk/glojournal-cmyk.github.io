@@ -36,3 +36,6 @@ html[data-scholar-atelier] button:focus-visible{outline:3px solid #e0b376!import
 
 /* iPad touch targets, including icon-only settings controls. */
 html[data-scholar-atelier] main button{min-width:44px!important;min-height:44px!important;touch-action:manipulation}
+
+/* Route-scoped by linked stylesheet: extend tap area for original Settings switches even if React remounts document classes. */
+main button[role="switch"]{min-height:44px!important;min-width:44px!important}
