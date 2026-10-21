@@ -153,7 +153,7 @@ async function run(engine,runner,viewport){
   // Only exclude these documented background paths: Garden's own failures
   // and all other JavaScript errors remain release-blocking.
   const backgroundFetch=e=>engine==='webkit' &&
-    /\/(?:assessment\/|content\/topics\/)[^\\s]*\\.json due to access control checks\\./.test(e);
+    /\/(?:assessment\/|content\/topics\/)\S*\.json due to access control checks\./.test(e);
   const appErrors=errors.filter(e=>!backgroundFetch(e));
   if(appErrors.length!==errors.length) console.log('GARDEN_BACKGROUND_FETCH_IGNORED '+JSON.stringify({engine,ignored:errors.filter(e=>!appErrors.includes(e))}));
   assert.deepEqual(appErrors,[], 'No Garden-originating JavaScript errors');
