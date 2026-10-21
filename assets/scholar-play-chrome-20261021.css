@@ -299,3 +299,56 @@ body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-collectible >
 body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-achievements .mt-3{
  margin-top:12px!important;
 }
+
+/* Tab selection is stateful: remove inherited colour transitions and make the
+   pressed button the only gold control (including the first Wardrobe button). */
+html body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > div.flex.flex-wrap.gap-2 > button[aria-pressed]{
+ transition:none!important;animation:none!important;
+}
+html body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > div.flex.flex-wrap.gap-2 > button[aria-pressed="true"]{
+ background-color:#b89868!important;background-image:none!important;
+ color:#142738!important;border-color:#edc58d!important;
+}
+html body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > div.flex.flex-wrap.gap-2 > button[aria-pressed="false"]{
+ background-color:#233f50!important;background-image:none!important;
+ color:#fff2dc!important;border-color:#a98856!important;
+}
+html body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > div.flex.flex-wrap.gap-2 > button:first-child[aria-pressed="false"]{
+ background-color:#233f50!important;color:#fff2dc!important;
+}
+/* Fixed-height illustrated covers + capped description prevents a 450px
+   milestone string from turning a card into a full-height blank panel. */
+html body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-collection{
+ align-content:start!important;align-items:start!important;
+ grid-auto-rows:max-content!important;
+}
+html body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-collection > .lux-scholar-collectible{
+ display:flex!important;flex-direction:column!important;
+ height:258px!important;min-height:258px!important;max-height:258px!important;
+ overflow:hidden!important;align-self:start!important;
+}
+html body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-collection > .lux-scholar-collectible > img{
+ display:block!important;height:128px!important;min-height:128px!important;
+ max-height:128px!important;width:100%!important;
+ object-fit:cover!important;flex:0 0 128px!important;
+}
+html body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-collection > .lux-scholar-collectible > div{
+ flex:1 1 auto!important;min-height:0!important;overflow:hidden!important;
+ padding:12px 13px 14px!important;
+}
+html body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-collection > .lux-scholar-collectible > div p:first-child{
+ font-size:19px!important;line-height:1.15!important;
+ display:-webkit-box!important;-webkit-box-orient:vertical!important;
+ -webkit-line-clamp:2!important;overflow:hidden!important;
+}
+html body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-collection > .lux-scholar-collectible > div p:not(:first-child){
+ font-size:12px!important;line-height:1.35!important;
+ display:-webkit-box!important;-webkit-box-orient:vertical!important;
+ -webkit-line-clamp:3!important;overflow:hidden!important;
+}
+html body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-achievements{
+ align-content:start!important;align-items:start!important;grid-auto-rows:max-content!important;
+}
+html body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-achievements > .lux-scholar-medal{
+ min-height:0!important;max-height:none!important;height:auto!important;align-self:start!important;
+}
