@@ -31,7 +31,7 @@ for (const subject of ['french','latin','biology','chemistry','physics','english
     subject+' Practice must use the new Safari-cached runtime');
   assert.ok(html.includes('daily-practice-ux-v2-20261020.css?v='+RELEASE),
     subject+' Practice must use the new Safari-cached stylesheet');
-  assert.ok(html.includes('index-BLVOhKhN.js?v=20261018-mastery2'),
+  assert.ok(html.includes('index-BLVOhKhN.js?v=20261021-daily-credit1'),
     subject+' Practice must keep the globally synchronized app entrypoint');
 }
 
