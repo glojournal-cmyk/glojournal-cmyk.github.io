@@ -64,6 +64,14 @@ try{
         assert.ok(checks.every(c=>c.ready),'Subject artwork should load at both years');
         await page.locator('.lux-study-rpg-year select').selectOption('9');
         await page.waitForFunction(()=>document.querySelector('main:not(#lux-study-rpg-integrated) select:has(option[value="9"])')?.value==='9');
+        // Decode the actual wardrobe asset before changing selected outfit.
+        // This catches broken assets explicitly and prevents WebKit from
+        // mistaking a still-pending sprite for a missing one on rapid redraw.
+        await page.evaluate(async()=>{
+          const art=new Image();art.src='/art/doll/cardigan.png';
+          await art.decode();
+          if(!art.naturalWidth)throw Error('Cardigan asset failed to decode');
+        });
         await page.evaluate(async()=>{
           const store=(await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2')).C;
           store.setState({equippedOutfit:'cardigan'});
