@@ -1,0 +1,98 @@
+name: Install Medical Career Collection
+on:
+  push:
+    paths:
+      - scripts/install_medical_outfits_20261021.py
+      - .github/workflows/install-medical-outfits-20261021.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copy original high-resolution transparent assets to real production repo
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p art/doll/medical
+          curl --fail --location --silent --show-error --retry 4 --retry-delay 2 'https://raw.githubusercontent.com/glojournal-cmyk/Scholar-game/main/art/doll/medical/01-forensic-pathologist.png' --output 'art/doll/medical/01-forensic-pathologist.png'
+          curl --fail --location --silent --show-error --retry 4 --retry-delay 2 'https://raw.githubusercontent.com/glojournal-cmyk/Scholar-game/main/art/doll/medical/02-surgeon.png' --output 'art/doll/medical/02-surgeon.png'
+          curl --fail --location --silent --show-error --retry 4 --retry-delay 2 'https://raw.githubusercontent.com/glojournal-cmyk/Scholar-game/main/art/doll/medical/03-doctor.png' --output 'art/doll/medical/03-doctor.png'
+          curl --fail --location --silent --show-error --retry 4 --retry-delay 2 'https://raw.githubusercontent.com/glojournal-cmyk/Scholar-game/main/art/doll/medical/04-radiologist.png' --output 'art/doll/medical/04-radiologist.png'
+          curl --fail --location --silent --show-error --retry 4 --retry-delay 2 'https://raw.githubusercontent.com/glojournal-cmyk/Scholar-game/main/art/doll/medical/05-biomedical-scientist.png' --output 'art/doll/medical/05-biomedical-scientist.png'
+          curl --fail --location --silent --show-error --retry 4 --retry-delay 2 'https://raw.githubusercontent.com/glojournal-cmyk/Scholar-game/main/art/doll/medical/06-pharmacist.png' --output 'art/doll/medical/06-pharmacist.png'
+          curl --fail --location --silent --show-error --retry 4 --retry-delay 2 'https://raw.githubusercontent.com/glojournal-cmyk/Scholar-game/main/art/doll/medical/07-paramedic.png' --output 'art/doll/medical/07-paramedic.png'
+          curl --fail --location --silent --show-error --retry 4 --retry-delay 2 'https://raw.githubusercontent.com/glojournal-cmyk/Scholar-game/main/art/doll/medical/08-veterinarian.png' --output 'art/doll/medical/08-veterinarian.png'
+          curl --fail --location --silent --show-error --retry 4 --retry-delay 2 'https://raw.githubusercontent.com/glojournal-cmyk/Scholar-game/main/art/doll/medical/09-paediatrician.png' --output 'art/doll/medical/09-paediatrician.png'
+          curl --fail --location --silent --show-error --retry 4 --retry-delay 2 'https://raw.githubusercontent.com/glojournal-cmyk/Scholar-game/main/art/doll/medical/10-medical-student.png' --output 'art/doll/medical/10-medical-student.png'
+      - name: Verify image dimensions, alpha and filenames
+        run: |
+          python3 - <<'PY'
+          import json,struct,pathlib
+          root=pathlib.Path('.')
+          items=json.loads((root/'art/doll/medical/manifest.json').read_text())['items']
+          assert len(items)==10
+          for i,item in enumerate(items,1):
+              path=root/item['image'].lstrip('/')
+              raw=path.read_bytes()
+              assert raw[:8]==b'\x89PNG\r\n\x1a\n',f'Invalid PNG: {path}'
+              w,h,depth,color=struct.unpack('>IIBB',raw[16:26])
+              assert (w,h,depth,color)==(941,1672,8,6),(path,w,h,depth,color)
+              assert len(raw)>800000,(path,len(raw))
+              assert item['requiredMastery']==10*i
+              print(f'{path}: {w}x{h}, RGBA, {len(raw)} bytes')
+          PY
+      - name: Integrate into existing Wardrobe without rewriting study records
+        run: python3 scripts/install_medical_outfits_20261021.py
+      - name: JS syntax and genuine-mastery unlock regression tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check assets/index-BLVOhKhN.core.js
+          node --check assets/index-BLVOhKhN.js
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import vm from 'node:vm';
+          const core=fs.readFileSync('assets/index-BLVOhKhN.core.js','utf8');
+          const entry=fs.readFileSync('assets/index-BLVOhKhN.js','utf8');
+          const catalog=JSON.parse(fs.readFileSync('art/doll/medical/manifest.json','utf8')).items;
+          if(catalog.length!==10)throw Error('Missing Medical outfits');
+          if(!core.includes('eT.push(`Medical`)'))throw Error('Medical tab missing');
+          if(!entry.includes('medical-career-unlock-sync-v1'))throw Error('Instant unlock missing');
+          if(!entry.includes('onFinishHydration'))throw Error('Existing save restore not handled');
+          const start=core.indexOf('function MwM(e)');
+          const end=core.indexOf('function Nw(e)',start);
+          if(start<0||end<0)throw Error('Real mastery counter not found');
+          const count=vm.runInNewContext(core.slice(start,end)+';MwM');
+          const states={};
+          for(let total=0;total<=100;total++){
+            if(total)states['topic-'+total]={state:'mastered'};
+            states['unmastered']={state:'secure'};
+            const mastered=count(states);
+            if(mastered!==total)throw Error('Mastered topic count '+total+' incorrectly gives '+mastered);
+            const unlocked=catalog.filter(o=>mastered>=o.requiredMastery).length;
+            const expected=Math.min(10,Math.floor(total/10));
+            if(unlocked!==expected)throw Error('Mastery unlock regression at '+total);
+          }
+          if(count({'a':{state:'secure'},'b':{state:'practising'}})!==0)throw Error('Correct attempts counted as Mastery');
+          if(!core.includes('masteredTopics:MwM(n)'))throw Error('Not using academic mastery');
+          if(!core.includes('lux-scholar-garden-v1'))throw Error('Save-store key modified');
+          const stale=/index-BLVOhKhN\.core\.js\?v=20261021-daily-credit1/.test(entry);
+          if(stale)throw Error('Old core module cached');
+          console.log('PASS: 10 outfits, 10-100 unique mastered topics, save key preserved');
+          JS
+      - name: Commit only validated production assets and UI changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add art/doll/medical/*.png assets/ .
+          if ! git diff --cached --quiet; then
+            git commit -m 'Activate ten Medical outfits on production Wardrobe at genuine mastery 10–100'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
