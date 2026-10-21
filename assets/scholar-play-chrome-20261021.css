@@ -56,3 +56,8 @@ body .lux-scholar-collectible,body .lux-scholar-collectible span,body .lux-schol
 body .lux-scholar-closet,body .lux-scholar-closet h2,body .lux-scholar-closet p{color:#1c3448!important}
 body .lux-scholar-closet button:not(.bg-navy){color:#1c3448!important}
 body .lux-scholar-closet button.bg-navy{color:#fff7e8!important}
+
+/* Weekly parent report belongs in Settings, not as a floating page footer. */
+body .lux-scholar-weekly-link{display:flex;align-items:center;min-height:54px;padding:13px 18px;border:1px solid #c8ac80;border-radius:13px;background:#e8ddc9;color:#17344a!important;font-weight:700;text-decoration:none}
+body .lux-scholar-weekly-link:hover{background:#dbcaa9}
+body a[href="/progress/weekly/"]:not(.lux-scholar-weekly-link){display:none!important}
