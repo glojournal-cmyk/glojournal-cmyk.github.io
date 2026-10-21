@@ -256,7 +256,7 @@ async function checkRealPractice(browser,engine){
   const before=await page.evaluate(()=>{
     const q=document.querySelector('[data-question-id]');
     const nav=document.querySelector('#lux-daily-study-nav');
-    const p=q?.querySelector('[data-lux-prompt]');
+    const p=q?.querySelector('[data-lux-prompt], p.font-display.text-2xl');
     return {id:q?.dataset.questionId,format:q?.dataset.questionFormat,
       navCount:nav?.children.length,
       promptSize:p?parseFloat(getComputedStyle(p).fontSize):0,
