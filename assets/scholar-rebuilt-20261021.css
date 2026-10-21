@@ -1,41 +1,41 @@
 /* Scholar Atelier rebuilt, October 2026. Route-specific, state-preserving. */
-body {background:#172739!important;color:#f2e9da!important}
-body .paper-wash{background:#172739!important}
-body main{max-width:1560px!important;padding:8px clamp(14px,2vw,32px) 100px!important}
-body .lux-scholar-rebuilt{display:flex;flex-direction:column;gap:12px}
-body .lux-scholar-rebuilt>header{padding:9px 18px!important;margin:0!important;background:#192c40!important;border-left:4px solid #ceaf7d;border-radius:0!important;box-shadow:none!important}
-body .lux-scholar-rebuilt>header p:first-child{font-size:10px;color:#d6b882!important;letter-spacing:.3em}
-body .lux-scholar-rebuilt>header h1{font-size:28px!important;line-height:1.1;color:#f7eee0!important}
-body .lux-scholar-rebuilt>header p:last-child{display:none!important}
-body .lux-scholar-rebuilt>div.flex.flex-wrap.gap-2{margin:0!important;gap:9px;align-items:center}
-body .lux-scholar-rebuilt>div.flex.flex-wrap.gap-2 button{border:1px solid #a78a61!important;color:#ede2cf;min-height:40px;background:#263e52!important;border-radius:9px!important;box-shadow:none!important;padding:8px 16px!important}
-body .lux-scholar-rebuilt>div.flex.flex-wrap.gap-2 button:first-child{background:#ad8b5e!important;color:#142738!important}
-body .lux-scholar-workspace{display:grid!important;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)!important;gap:18px!important;align-items:start!important}
-body .lux-scholar-stage{height:calc(100dvh - 220px)!important;min-height:470px!important;max-height:780px!important;aspect-ratio:auto!important;background:radial-gradient(ellipse at 50% 50%,#466477 0%,#243c50 55%,#0e2031 100%)!important;border:1px solid #d1ab6c!important;border-radius:14px!important;overflow:hidden;position:relative;box-shadow:0 16px 36px #050e1980!important}
-body .lux-scholar-stage:before{content:"ATELIER  /  CHARACTER STUDIO";position:absolute;z-index:4;right:20px;top:18px;font-weight:700;letter-spacing:.17em;color:#f0d6ac;font-size:11px;pointer-events:none}
-body .lux-scholar-stage>img:first-child{display:none!important}
-body .lux-scholar-stage>div:nth-child(2){background:radial-gradient(circle at 50% 50%,#aac1c018,transparent 66%)!important}
-body .lux-scholar-stage .dress-pop{filter:drop-shadow(0 18px 18px #070d169c);height:94%!important;max-height:94%!important}
-body .lux-scholar-stage>div:last-child{background:linear-gradient(to top,#101e30fa,#172c3ad0,transparent)!important;padding:50px 24px 20px!important}
-body .lux-scholar-stage>div:last-child p{color:#f3e6cf!important}
-body .lux-scholar-stage>div:last-child p:nth-child(2){font-size:30px!important}
-body .lux-scholar-stage button{background:#f4ead9d9!important;color:#172b40!important;border:1px solid #ba986c!important}
-body .lux-scholar-closet{background:#f6f0e4!important;color:#162e44!important;border:1px solid #c6a474!important;border-radius:14px!important;box-shadow:0 14px 26px #070f1960!important;padding:20px!important;max-height:calc(100dvh - 220px)!important;min-height:470px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
-body .lux-scholar-closet>div:first-child p{color:#8e6639!important}
-body .lux-scholar-closet h2{color:#152a3c!important;font-size:26px!important}
-body .lux-scholar-looks{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px!important}
-body .lux-scholar-looks>button{border-radius:10px!important;background:#ebe0ce!important;border:1px solid #d7c2a2!important}
-body .lux-scholar-looks>button>span:first-child{background:#e2d6c4!important}
-body .lux-scholar-looks img{height:148px!important;max-width:100%;object-fit:contain!important}
-body .lux-scholar-looks button span.text-sm{font-size:12px!important}
-body .lux-scholar-looks button span.text-\[11px\]{font-size:10px!important}
-body button:focus-visible{outline:3px solid #e0b376!important;outline-offset:2px!important}
-@media(max-width:1050px){body .lux-scholar-workspace{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important}body .lux-scholar-closet{padding:12px!important}body .lux-scholar-looks{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
-@media(max-width:650px){body .lux-scholar-workspace{grid-template-columns:1fr!important}body .lux-scholar-stage{height:60vh!important;min-height:360px!important}body .lux-scholar-closet{max-height:none!important;min-height:0}}
-@media(prefers-reduced-motion:reduce){body .dress-pop{animation:none!important;transition:none!important}}
+body:has(.lux-scholar-rebuilt) {background:#172739!important;color:#f2e9da!important}
+body:has(.lux-scholar-rebuilt) .paper-wash{background:#172739!important}
+body:has(.lux-scholar-rebuilt) main{max-width:1560px!important;padding:8px clamp(14px,2vw,32px) 100px!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt{display:flex;flex-direction:column;gap:12px}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt>header{padding:9px 18px!important;margin:0!important;background:#192c40!important;border-left:4px solid #ceaf7d;border-radius:0!important;box-shadow:none!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt>header p:first-child{font-size:10px;color:#d6b882!important;letter-spacing:.3em}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt>header h1{font-size:28px!important;line-height:1.1;color:#f7eee0!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt>header p:last-child{display:none!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt>div.flex.flex-wrap.gap-2{margin:0!important;gap:9px;align-items:center}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt>div.flex.flex-wrap.gap-2 button{border:1px solid #a78a61!important;color:#ede2cf;min-height:40px;background:#263e52!important;border-radius:9px!important;box-shadow:none!important;padding:8px 16px!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt>div.flex.flex-wrap.gap-2 button:first-child{background:#ad8b5e!important;color:#142738!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-workspace{display:grid!important;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)!important;gap:18px!important;align-items:start!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-stage{height:calc(100dvh - 220px)!important;min-height:470px!important;max-height:780px!important;aspect-ratio:auto!important;background:radial-gradient(ellipse at 50% 50%,#466477 0%,#243c50 55%,#0e2031 100%)!important;border:1px solid #d1ab6c!important;border-radius:14px!important;overflow:hidden;position:relative;box-shadow:0 16px 36px #050e1980!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-stage:before{content:"ATELIER  /  CHARACTER STUDIO";position:absolute;z-index:4;right:20px;top:18px;font-weight:700;letter-spacing:.17em;color:#f0d6ac;font-size:11px;pointer-events:none}
+body:has(.lux-scholar-rebuilt) .lux-scholar-stage>img:first-child{display:none!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-stage>div:nth-child(2){background:radial-gradient(circle at 50% 50%,#aac1c018,transparent 66%)!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-stage .dress-pop{filter:drop-shadow(0 18px 18px #070d169c);height:94%!important;max-height:94%!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-stage>div:last-child{background:linear-gradient(to top,#101e30fa,#172c3ad0,transparent)!important;padding:50px 24px 20px!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-stage>div:last-child p{color:#f3e6cf!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-stage>div:last-child p:nth-child(2){font-size:30px!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-stage button{background:#f4ead9d9!important;color:#172b40!important;border:1px solid #ba986c!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-closet{background:#f6f0e4!important;color:#162e44!important;border:1px solid #c6a474!important;border-radius:14px!important;box-shadow:0 14px 26px #070f1960!important;padding:20px!important;max-height:calc(100dvh - 220px)!important;min-height:470px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+body:has(.lux-scholar-rebuilt) .lux-scholar-closet>div:first-child p{color:#8e6639!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-closet h2{color:#152a3c!important;font-size:26px!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-looks{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-looks>button{border-radius:10px!important;background:#ebe0ce!important;border:1px solid #d7c2a2!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-looks>button>span:first-child{background:#e2d6c4!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-looks img{height:148px!important;max-width:100%;object-fit:contain!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-looks button span.text-sm{font-size:12px!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-looks button span.text-\[11px\]{font-size:10px!important}
+body:has(.lux-scholar-rebuilt) button:focus-visible{outline:3px solid #e0b376!important;outline-offset:2px!important}
+@media(max-width:1050px){body:has(.lux-scholar-rebuilt) .lux-scholar-workspace{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important}body:has(.lux-scholar-rebuilt) .lux-scholar-closet{padding:12px!important}body:has(.lux-scholar-rebuilt) .lux-scholar-looks{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:650px){body:has(.lux-scholar-rebuilt) .lux-scholar-workspace{grid-template-columns:1fr!important}body:has(.lux-scholar-rebuilt) .lux-scholar-stage{height:60vh!important;min-height:360px!important}body:has(.lux-scholar-rebuilt) .lux-scholar-closet{max-height:none!important;min-height:0}}
+@media(prefers-reduced-motion:reduce){body:has(.lux-scholar-rebuilt) .dress-pop{animation:none!important;transition:none!important}}
 
 /* iPad touch targets, including icon-only settings controls. */
-body main button{min-width:44px!important;min-height:44px!important;touch-action:manipulation}
+body:has(.lux-scholar-rebuilt) main button{min-width:44px!important;min-height:44px!important;touch-action:manipulation}
 
 /* Route-scoped by linked stylesheet: extend tap area for original Settings switches even if React remounts document classes. */
 main button[role="switch"]{min-height:44px!important;min-width:44px!important}
