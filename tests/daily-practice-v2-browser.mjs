@@ -471,6 +471,7 @@ async function checkExhaustedBiologyDaily(browser,engine){
     assert.equal(result.error,false,'no exhausted-question blocker on saved Biology task');
     assert.equal(result.mask,'none','no saved-progress mask over mounted Biology practice');
     assert.equal(result.ready,true,'final Practice shell stays ready');
+    if(errors.length)console.error('DAILY_BIOLOGY_ERROR_DETAILS '+JSON.stringify({engine,result,errors}));
     assert.equal(errors.length,0,'no JS errors in Biology depleted-bank recovery');
     console.log('DAILY_BIOLOGY_EXHAUSTED_IPAD '+JSON.stringify({engine,result,errors}));
     report.push({engine,kind:'biology-all-previously-correct',ok:true,result});
