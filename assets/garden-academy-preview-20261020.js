@@ -3,6 +3,7 @@
  * Never writes localStorage, never awards XP directly, never changes the
  * once-a-day watering rule, unlock conditions or equipped Home outfit/Pet.
  */
+import {gardenSceneForDate} from './garden-weekly-rotation-20261021.js';
 import { C as store, Q as gardenStage, U as collectibles, X as stages,
          G as needProgress, Y as requirementsContext } from
   '/assets/index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2';
@@ -14,6 +15,13 @@ const navs=[['⌂','Home','/'],['▣','Study','/study/'],
   ['◇','Play','/play/'],['❧','Garden','/garden/'],
   ['♧','Pet','/pet/'],['▥','Assessment','/assessment/'],
   ['✎','Scholar','/scholar/']];
+// The selected scene is set as an explicit live CSS property rather than
+// relying on browser-specific selector/transition invalidation (iPad WebKit).
+const setSceneArtwork=(scene,theme)=>{
+  scene.dataset.weeklyGardenTheme=theme.id;
+  scene.style.setProperty('background-image',`url("${theme.url}")`,'important');
+  scene.style.setProperty('background-size','cover','important');
+};
 const decorList=[['bench','Wooden Bench'],['roses','White Roses'],
   ['lantern','Garden Lantern'],['bookshelf','Bookshelf']];
 const create=(tag,cls,text)=>{const node=document.createElement(tag);
@@ -164,6 +172,8 @@ function assemble(){
   // space. The outer main remains viewport sized and owns full-screen dialogs.
   const scene=create('div','lux-garden-scene');
   scene.setAttribute('aria-label','Illustrated garden courtyard');
+  // Weekly theme is selected without touching learner data.
+  setSceneArtwork(scene,gardenSceneForDate());
   root.append(scene);
   scene.append(create('div','lux-garden-backdrop'));
   const title=create('header','lux-garden-title');
@@ -234,6 +244,12 @@ function render(){
   const native=document.querySelector('body>.paper-wash main');
   if(!native||!document.querySelector('body>.paper-wash button'))return;
   if(!root?.isConnected){parts=assemble();}
+  const currentTheme=gardenSceneForDate();
+  const scene=root.querySelector('.lux-garden-scene');
+  if(scene?.dataset.weeklyGardenTheme!==currentTheme.id){
+    setSceneArtwork(scene,currentTheme);
+    lastKey='';
+  }
   document.documentElement.classList.add('lux-garden-map-active');
   suppressOldNavigation();
   const state=stateNow();const exp=Number(state.xp)||0;
@@ -273,6 +289,8 @@ const obs=new MutationObserver(()=>{
 obs.observe(document.documentElement,{childList:true,subtree:true});
 window.addEventListener('popstate',schedule);
 window.addEventListener('pageshow',schedule);
+// A long-open iPad tab also switches to the new scene after Monday midnight.
+setInterval(()=>{if(enabled()&&root?.isConnected)schedule()},60*1000);
 window.addEventListener('lux:app-ready',schedule);
 window.addEventListener('storage',schedule);
 store.subscribe?.(schedule);

@@ -1,0 +1,125 @@
+/* Lux Garden — seasonal scene + Study/Play-compatible navigation.
+ * Actual images are scenery ONLY. HTML widgets are always real controls.
+ * background-size: cover preserves each artwork's 4:3 intrinsic ratio and
+ * fills wide viewports by cropping, NEVER stretching/squashing the painting.
+ */
+@media (min-width:700px) and (orientation:landscape){
+ .lux-garden-map-preview{display:block!important;background:#edf1e6!important}
+ .lux-garden-scene{
+  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  aspect-ratio:auto!important;max-width:none!important;max-height:none!important;margin:0!important;
+  background-color:#dbe9d8!important;background-position:center center!important;
+  background-size:cover!important;background-repeat:no-repeat!important;
+  transition:none!important;
+ }
+ .lux-garden-scene[data-weekly-garden-theme=classic]{background-image:url('/assets/garden-weekly/classic.jpg')!important}
+ .lux-garden-scene[data-weekly-garden-theme=blossom]{background-image:url('/assets/garden-weekly/blossom.jpg')!important}
+ .lux-garden-scene[data-weekly-garden-theme=autumn]{background-image:url('/assets/garden-weekly/autumn.jpg')!important}
+ .lux-garden-scene[data-weekly-garden-theme=twilight]{background-image:url('/assets/garden-weekly/twilight.jpg')!important}
+ .lux-garden-title{
+  display:flex!important;opacity:1!important;pointer-events:none!important;
+  position:absolute!important;z-index:8;left:2.2%!important;top:1.9%!important;
+  width:min(52%,690px)!important;height:clamp(56px,8.5vh,90px)!important;max-height:none!important;
+  padding:clamp(6px,.9vh,12px) clamp(10px,1.3vw,22px)!important;
+  border:1.5px solid #d8b470!important;border-radius:18px!important;background:#fff9edfa!important;
+  overflow:hidden!important;box-shadow:0 4px 13px #102b2c29!important;align-items:center!important;
+ }
+ .lux-garden-title-icon{display:block!important;font-size:clamp(20px,2.2vw,34px)!important}
+ .lux-garden-title strong{font-size:clamp(18px,2.2vw,35px)!important;white-space:nowrap!important}
+ .lux-garden-title small{font-size:clamp(9px,.95vw,15px)!important}
+ .lux-garden-stage{
+  top:1.9%!important;left:auto!important;right:2.2%!important;
+  width:35.8%!important;height:clamp(56px,8.5vh,90px)!important;min-width:0!important;
+  border:1.5px solid #d8b470!important;border-radius:18px!important;background:#fff9edfa!important;
+  padding:clamp(4px,.8vw,12px) clamp(8px,1.3vw,18px)!important;
+  display:grid!important;align-content:center!important;
+  grid-template-columns:1fr 1fr!important;gap:1px 8px!important;
+ }
+ .lux-garden-stage>span:first-child{font-size:clamp(10px,1.02vw,14px)!important}
+ .lux-garden-stage>strong{font-size:clamp(16px,1.7vw,26px)!important}
+ .lux-garden-stage .lux-stage-xp{top:5px!important;right:10px!important;font-size:clamp(10px,.78vw,12px)!important}
+ .lux-garden-stage em{font-size:clamp(8px,.78vw,11px)!important}
+ .lux-garden-world{
+  position:absolute!important;z-index:4;left:1.8%!important;right:1.8%!important;
+  top:12.4%!important;bottom:10.8%!important;width:auto!important;height:auto!important;
+  overflow:visible!important;border:0!important;background:none!important;
+ }
+ .lux-garden-item{
+  position:absolute!important;width:26.7%!important;height:clamp(58px,8.6vh,88px)!important;
+  min-height:0!important;padding:clamp(5px,.7vw,10px) clamp(8px,1vw,14px)!important;
+  display:flex!important;gap:clamp(5px,.65vw,9px)!important;align-items:center!important;
+  background:#fffbf5f5!important;border:1.5px solid #bc9154!important;border-radius:13px!important;
+  box-shadow:0 2px 8px #172f392a!important;
+ }
+ .lux-garden-item[data-item=bench]{left:2.1%!important;top:31%!important}
+ .lux-garden-item[data-item=roses]{right:2.1%!important;top:31%!important}
+ .lux-garden-item[data-item=lantern]{left:2.1%!important;top:50.5%!important;bottom:auto!important}
+ .lux-garden-item[data-item=bookshelf]{right:2.1%!important;top:50.5%!important;bottom:auto!important}
+ .lux-garden-item img{display:block!important;width:clamp(32px,4.2vw,58px)!important;height:clamp(32px,4.2vw,58px)!important;border:0!important;object-fit:contain!important}
+ .lux-garden-item strong{font:700 clamp(12px,1.15vw,18px)/1.1 Georgia,serif!important}
+ .lux-garden-item small{font:500 clamp(9px,.76vw,12px)/1.13 'Source Sans 3',sans-serif!important;
+  white-space:normal!important;display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ .lux-garden-item .lux-item-arrow{font-size:clamp(14px,1.35vw,19px)!important}
+ .lux-basil-box{
+  position:absolute!important;left:50%!important;bottom:3.0%!important;transform:translateX(-50%)!important;
+  width:min(31%,355px)!important;min-width:225px!important;height:clamp(77px,12.4vh,125px)!important;
+  background:#fff9edfa!important;border:1.5px solid #bc965d!important;border-radius:14px!important;
+  padding:clamp(5px,.7vw,11px)!important;display:flex!important;flex-direction:column!important;
+  justify-content:center!important;align-items:stretch!important;gap:clamp(2px,.4vh,6px)!important;
+  box-shadow:0 2px 8px #172f392a!important
+ }
+ .lux-basil-box img{display:none!important}
+ .lux-basil-box strong{display:block!important;border:0!important;background:none!important;margin:0!important;
+  font:700 clamp(12px,1.15vw,19px)/1.1 Georgia,serif!important;text-align:center!important;padding:0!important}
+ .lux-basil-box span{background:none!important;white-space:normal!important;margin:0!important;
+  font:600 clamp(10px,1.05vw,14px)/1.1 Georgia,serif!important;text-align:center!important;padding:0!important}
+ .lux-basil-box .lux-water{
+  width:100%!important;height:clamp(30px,4.5vh,43px)!important;min-height:0!important;margin:0!important;
+  background:#14374a!important;color:white!important;font:700 clamp(10px,.95vw,13px)/1 Georgia,serif!important
+ }
+ .lux-garden-actions{
+  position:absolute!important;left:1.8%!important;right:1.8%!important;
+  bottom:5.5%!important;height:clamp(47px,8vh,67px)!important;padding:0!important;
+  display:block!important;z-index:7!important;pointer-events:none!important
+ }
+ .lux-garden-actions button{
+  position:absolute!important;bottom:0!important;height:100%!important;min-height:0!important;
+  width:min(24%,255px)!important;border:1.5px solid #bc9154!important;
+  background:#fffbf5f7!important;border-radius:999px!important;
+  font:700 clamp(11px,.99vw,15px)/1.1 Georgia,serif!important;white-space:nowrap!important
+ }
+ .lux-garden-actions button:first-child{left:0!important;width:min(24%,255px)!important}
+ .lux-garden-actions button:last-child{right:0!important;width:min(24%,255px)!important}
+ /* Shared Play proportions: a small floating 7-tab bar, not a huge
+    art-sized bottom pill. Responsive width is based on viewport, not JPEG. */
+ .lux-garden-nav{
+  position:absolute!important;z-index:10!important;left:50%!important;
+  bottom:calc(.65rem + env(safe-area-inset-bottom))!important;
+  transform:translateX(-50%)!important;
+  width:min(86%,63rem)!important;max-width:calc(100% - .8rem)!important;
+  height:auto!important;min-height:3.7rem!important;
+  display:flex!important;align-items:center!important;justify-content:space-around!important;
+  gap:clamp(.2rem,.9vw,.8rem)!important;padding:.18rem .35rem!important;
+  overflow:hidden!important;border:0!important;border-radius:999px!important;
+  background:#172d38f4!important;box-shadow:0 5px 20px #0c1d2d55!important;
+ }
+ .lux-garden-nav a{height:auto!important;min-height:3.3rem!important;min-width:0!important;max-width:8.5rem!important;
+  display:flex!important;flex:1 0 0!important;gap:.05rem!important;padding:3px!important;
+  font:500 clamp(.65rem,1vw,.86rem)/1.15 'Source Sans 3',sans-serif!important;
+  border-radius:99px!important;white-space:nowrap!important}
+ .lux-garden-nav a.active{background:#faf4e9!important;color:#193646!important}
+ .lux-garden-nav a>span:first-child{font-size:clamp(14px,1.25vw,20px)!important}
+}
+@media (min-width:700px) and (orientation:landscape) and (max-height:760px){
+ .lux-garden-stage,.lux-garden-title{height:clamp(55px,9.5vh,73px)!important}
+ .lux-garden-world{top:12.7%!important;bottom:11.6%!important}
+ .lux-garden-item{height:clamp(49px,9vh,65px)!important}
+ .lux-garden-item img{width:clamp(29px,3.3vw,43px)!important;height:clamp(29px,3.3vw,43px)!important}
+ .lux-basil-box{height:clamp(68px,13vh,93px)!important}
+ .lux-garden-actions{bottom:5%!important;height:clamp(43px,7.5vh,55px)!important}
+ .lux-garden-nav{min-height:3.3rem!important;bottom:5px!important}
+ .lux-garden-nav a{min-height:2.95rem!important}
+}
+@media (prefers-reduced-motion:reduce){
+ .lux-garden-scene{transition:none!important}
+}

@@ -8,7 +8,7 @@ const root=process.cwd(),out='test-results/garden-academy-preview';
 fs.mkdirSync(out,{recursive:true});
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8',
  '.css':'text/css; charset=utf-8','.jpg':'image/jpeg','.jpeg':'image/jpeg',
- '.png':'image/png','.webp':'image/webp','.json':'application/json',
+ '.png':'image/png','.jpg':'image/webp','.json':'application/json',
  '.svg':'image/svg+xml','.woff2':'font/woff2'};
 const server=createServer((req,res)=>{
  try{
@@ -79,23 +79,14 @@ async function run(engine,runner,viewport){
   });
   assert.equal(snap.navLabels.length,7,'Garden navigation must retain seven items');
   assert.deepEqual(snap.visibleExtraNavigation,[],'Legacy Garden navigation must not show underneath the approved Study rail');
-  // The approved JPEG contains a decorative, non-interactive navigation rail.
-  // The real rail must cover its complete vertical and horizontal extent,
-  // otherwise a second row of baked-in labels appears below the buttons.
-  // Native 1448×1086 illustration is 4:3. Never warp it to the browser ratio.
-  assert.ok(Math.abs(snap.scene.width/snap.scene.height-4/3)<0.003,
-    'Garden artwork must never be stretched or compressed');
-  assert.ok(snap.scene.width<=viewport.width+1&&snap.scene.height<=viewport.height+1,
-    'Garden scene must fit the available viewport');
-  assert.ok(Math.abs(snap.scene.x-(viewport.width-snap.scene.width)/2)<2,
-    'Garden scene must stay horizontally centered');
-  assert.ok(Math.abs(snap.scene.y-(viewport.height-snap.scene.height)/2)<2,
-    'Garden scene must stay vertically centered');
-  const sc=snap.scene;
-  assert.ok(snap.nav.y<=sc.y+sc.height*.859,'interactive rail must cover baked navigation top');
-  assert.ok(snap.nav.bottom>=sc.y+sc.height*.968,'interactive rail must cover baked navigation bottom');
-  assert.ok(snap.nav.x<=sc.x+sc.width*.159,'interactive rail must cover baked navigation left');
-  assert.ok(snap.nav.right>=sc.x+sc.width*.841,'interactive rail must cover baked navigation right');
+  // Seasonal paintings fill the viewport without distortion (CSS cover),
+  // while interactive controls float in a completely separate DOM layer.
+  assert.ok(Math.abs(snap.scene.width-viewport.width)<2,'scene must fill screen width');
+  assert.ok(Math.abs(snap.scene.height-viewport.height)<2,'scene must fill screen height');
+  assert.ok(snap.nav.width<=Math.min(viewport.width*.86,1008)+4,
+    'Garden nav must be Play-sized, never a huge painted navigation bar');
+  assert.ok(snap.nav.height<=75,'Garden bottom rail must stay slim');
+  assert.ok(snap.nav.y>=viewport.height*.85,'Garden bottom rail should remain at screen bottom');
   assert.match(snap.selected,/Garden/);
   assert.match(snap.stage,/Stage [1-4]/,'rendered stage comes from real app');
   assert.match(snap.basilText,/growth: \d \/ 7 steps/,'Basil comes from existing seven-step record');
@@ -103,26 +94,61 @@ async function run(engine,runner,viewport){
   assert.ok(snap.scrollWidth<=viewport.width+1,'no horizontal overflow');
   assert.ok(snap.world.width>snap.scene.width*.9,'garden must occupy its illustration');
   assert.ok(snap.water.bottom<=snap.nav.y-5,'Water button must be above the bottom rail');
-  // With the approved illustration, both lower action buttons must fully
-  // cover their painted counterparts, without duplicating their lower rings.
-  assert.ok(snap.log.y>=sc.y+sc.height*.78&&snap.decorations.y>=sc.y+sc.height*.78,
-    'Garden Log and Decorations should align with the approved image');
-  assert.ok(snap.log.bottom<=snap.nav.y+1&&snap.decorations.bottom<=snap.nav.y+1,
-    'Lower controls must not overlap the main bottom navigation');
-  assert.ok(snap.stagePanel.bottom>=sc.y+sc.height*.155,
-    'Stage panel must mask the built-in decorative panel frame');
+  assert.ok(snap.log.right<snap.basil.x-5,'Garden Log must not overlap Basil');
+  assert.ok(snap.decorations.x>snap.basil.right+5,'Decorations must not overlap Basil');
+  assert.ok(snap.log.bottom<snap.nav.y-1&&snap.decorations.bottom<snap.nav.y-1,
+    'Garden action buttons must not overlap the Play-sized bottom navigation');
   assert.ok(snap.water.y>=snap.basil.y-1&&snap.water.bottom<=snap.basil.bottom+1,
-    'The Water button must sit inside the Basil panel');
+    'Water button must fit within Basil panel');
+  assert.ok(snap.stagePanel.bottom<viewport.height*.14,
+    'Stage panel must stay inside the short top bar, clear of item buttons');
   const art=await page.evaluate(async()=>{
     const ui=document.querySelector('.lux-garden-scene'),css=getComputedStyle(ui);
-    const image=new Image();image.src='/assets/garden-academy-approved-20261020.jpg';
+    const theme=ui.dataset.weeklyGardenTheme;
+    const image=new Image();image.src='/assets/garden-weekly/'+theme+'.jpg';
     await image.decode();
-    return{background:css.backgroundImage,loaded:image.naturalWidth>=1400,actualWidth:image.naturalWidth,actualHeight:image.naturalHeight,
-      titleOpacity:getComputedStyle(document.querySelector('.lux-garden-title')).opacity};
+    return{background:css.backgroundImage,theme,loaded:image.naturalWidth>=1000,
+      actualWidth:image.naturalWidth,actualHeight:image.naturalHeight,
+      backgroundSize:css.backgroundSize,titleOpacity:getComputedStyle(document.querySelector('.lux-garden-title')).opacity};
   });
-  assert.ok(art.loaded,'approved illustration must load at full resolution');
-  assert.ok(art.background.includes('garden-academy-approved-20261020.jpg'),'do not show old placeholder background');
-  assert.equal(art.titleOpacity,'0','do not duplicate the title baked into approved artwork');
+  assert.ok(art.loaded,'the selected seasonal image must load at full resolution');
+  assert.ok(art.background.includes('garden-weekly/'+art.theme+'.jpg'),'active background must match weekly theme');
+  assert.equal(art.backgroundSize,'cover','background must preserve proportions with CSS cover');
+  assert.equal(art.titleOpacity,'1','title must be a real overlay above clean artwork');
+  // Simulate each REAL British Monday using the browser's Date clock.
+  // The live Garden app must choose the wallpaper; do not manually alter
+  // DOM/theme CSS and accidentally mistake CSSOM changes for painted pixels.
+  const sampleWeeks=[
+    ['classic','2026-10-21T12:00:00Z'],
+    ['blossom','2026-10-26T12:00:00Z'],
+    ['autumn','2026-11-02T12:00:00Z'],
+    ['twilight','2026-11-09T12:00:00Z']
+  ];
+  let classicPixels=null;
+  for(const [theme,iso] of sampleWeeks){
+    await page.clock.setFixedTime(new Date(iso));
+    await page.evaluate(()=>window.dispatchEvent(new Event('pageshow')));
+    await page.waitForFunction(theme=>{
+      const scene=document.querySelector('.lux-garden-scene');
+      return scene?.dataset.weeklyGardenTheme===theme &&
+       getComputedStyle(scene).backgroundImage.includes('/'+theme+'.jpg');
+    },theme,{timeout:12000});
+    const dimensions=await page.evaluate(async theme=>{
+      const image=new Image();image.src='/assets/garden-weekly/'+theme+'.jpg';
+      await image.decode();return [image.naturalWidth,image.naturalHeight];
+    },theme);
+    assert.ok(Math.abs(dimensions[0]/dimensions[1]-4/3)<0.015,'season artwork must remain near-native 4:3; CSS cover must preserve its actual ratio');
+    if(engine==='webkit'&&viewport.width===1366){
+      await page.waitForTimeout(350);
+      const shot=await page.screenshot({path:path.join(out,'season-'+theme+'-webkit-1366x1024.png')});
+      if(theme==='classic')classicPixels=shot;
+      else assert.ok(!shot.equals(classicPixels),
+        'Real Safari wallpaper pixels did not update to '+theme+' when the week changed');
+    }
+  }
+  await page.clock.setFixedTime(new Date('2026-10-21T12:00:00Z'));
+  await page.evaluate(()=>window.dispatchEvent(new Event('pageshow')));
+  await page.waitForFunction(()=>document.querySelector('.lux-garden-scene')?.dataset.weeklyGardenTheme==='classic');
   assert.ok(await page.locator('.lux-garden-item').count()===4);
   const stageValue=await page.evaluate(async()=>{
     const mod=await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2');
