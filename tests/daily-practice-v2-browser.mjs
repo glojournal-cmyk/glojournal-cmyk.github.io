@@ -93,6 +93,24 @@ async function checkFixture(browser,engine,kind,viewport){
       outerCard:(()=>{const p=card?.parentElement;return p?{padding:getComputedStyle(p).padding,border:getComputedStyle(p).borderWidth}:null})()
     };
   });
+  // Simulate React briefly removing a question while replacing answer/feedback.
+  // During this handoff neither the page theme nor the same seven-link rail may blink.
+  const handoff=await page.evaluate(async()=>{
+    const root=document.documentElement;
+    const oldNav=document.querySelector('#lux-daily-study-nav');
+    const q=document.querySelector('.lux-practice-view [data-question-id]');
+    const parent=q.parentNode,next=q.nextSibling;
+    q.remove();
+    await new Promise(resolve=>setTimeout(resolve,210));
+    const stable=root.classList.contains('lux-daily-ux-ready') && oldNav.isConnected &&
+      oldNav===document.querySelector('#lux-daily-study-nav');
+    parent.insertBefore(q,next);
+    await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+    return {stable,restored:root.classList.contains('lux-daily-ux-ready'),links:oldNav.querySelectorAll('a').length};
+  });
+  assert.equal(handoff.stable,true,'transient React question handoff must not flash the whole page or remount nav');
+  assert.equal(handoff.restored,true,'question view styling must remain active after handoff');
+  assert.equal(handoff.links,7,'handoff must preserve all seven navigation destinations');
   assert.equal(details.headerHidden,true,'top bar should be hidden');
   assert.equal(await page.evaluate(()=>document.documentElement.classList.contains('lux-daily-task-active')),true,'assigned Daily label must activate');
   assert.equal(await page.locator('[data-lux-question-intro] > p:first-child').evaluate(el=>getComputedStyle(el,'::before').content),'"DAILY PRACTICE"','approved label is displayed');
