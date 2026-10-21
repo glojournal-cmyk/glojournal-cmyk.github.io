@@ -206,7 +206,38 @@ try{
           // default "stable box" check can stall despite a visible, tappable
           // link. Keep the :visible requirement, but don't require a motionless
           // rectangle before dispatching the real pointer event.
-          await studyNav.last().click({force:true,timeout:20000});
+          // Scholar can expose a stale off-viewport link while its real
+          // responsive rail hydrates. Exercise a genuinely frontmost,
+          // on-screen link with a pointer, never an invisible DOM shortcut.
+          if(target.name==='Scholar'){
+            await page.screenshot({path:`test-results/study-rpg-${engine.name()}-scholar-nav.png`});
+            let clicked=false;
+            for(let attempt=0;attempt<6&&!clicked;attempt++){
+              const candidates=await page.evaluate(()=>{
+                for(const a of document.querySelectorAll('[data-study-qa-pointer]'))a.removeAttribute('data-study-qa-pointer');
+                let count=0;
+                for(const a of document.querySelectorAll('a[href="/study"],a[href="/study/"]')){
+                  const r=a.getBoundingClientRect();
+                  const x=r.left+r.width/2,y=r.top+r.height/2;
+                  if(r.width<5||r.height<5||x<1||y<1||x>=innerWidth-1||y>=innerHeight-1)continue;
+                  const hit=document.elementFromPoint(x,y);
+                  if(hit&&(hit===a||a.contains(hit))){a.setAttribute('data-study-qa-pointer','1');count++}
+                }
+                return count;
+              });
+              if(candidates){
+                try{await page.locator('a[data-study-qa-pointer="1"]').last().click({force:true,timeout:3000});clicked=true;}
+                catch{await page.waitForTimeout(250)}
+              }else await page.waitForTimeout(250);
+            }
+            if(!clicked){
+              const positions=await page.locator('a[href="/study"],a[href="/study/"]').evaluateAll(nodes=>nodes.map(a=>({
+                href:a.href,rect:a.getBoundingClientRect().toJSON(),display:getComputedStyle(a).display,
+                visibility:getComputedStyle(a).visibility
+              })));
+              throw Error('No pointer-tappable Scholar Study navigation: '+JSON.stringify(positions));
+            }
+          }else await studyNav.last().click({force:true,timeout:20000});
         }
         await page.waitForURL(u=>/^\/study\/?$/.test(u.pathname),{waitUntil:'domcontentloaded',timeout:20000});
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
