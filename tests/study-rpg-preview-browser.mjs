@@ -88,7 +88,19 @@ try{
         assert.ok(petPixels.width >= (viewport.width>700 ? 165 : 125),
           'Pet should be sized natively, not scaled by CSS at '+viewport.width+'px');
         assert.equal(petPixels.quality,'auto','Pet should use native image sampling');
-        assert.ok(await page.locator('.lux-study-rpg-scholar').evaluate(img => img.complete && img.naturalWidth>0 && img.getBoundingClientRect().height > 200),'Equipped outfit image must be rendered');
+        // The outfit src changes synchronously, but WebKit image decode is asynchronous.
+        // Wait for the actual rendered pixels, not merely the expected src string.
+        await page.waitForFunction(() => {
+          const img=document.querySelector('.lux-study-rpg-scholar');
+          return img?.getAttribute('src')?.includes('/art/doll/cardigan.png') &&
+            img.complete && img.naturalWidth>0 && img.getBoundingClientRect().height>200;
+        },null,{timeout:12000}).catch(async error=>{
+          const details=await page.locator('.lux-study-rpg-scholar').evaluate(img=>({
+            src:img.currentSrc,complete:img.complete,naturalWidth:img.naturalWidth,
+            height:img.getBoundingClientRect().height,display:getComputedStyle(img).display
+          }));
+          throw new Error('Equipped outfit image not rendered: '+JSON.stringify(details),{cause:error});
+        });
         assert.ok(await page.locator('.lux-study-rpg-pet').evaluate(img => img.complete && img.naturalWidth>0),'Selected pet image must be rendered');
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-nav a').count(),7,'Nav must remain intact after outfit/pet changes');
         assert.equal(await studyNavigationIsFrontmost(page),true,'Study navigation must remain frontmost after outfit/pet updates');
