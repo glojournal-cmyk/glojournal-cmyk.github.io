@@ -270,6 +270,36 @@ async function checkRealPractice(browser,engine){
   assert.ok(marked.id,'answering must not remove the quiz');
   assert.ok(marked.text.length>40,'feedback and live question must remain readable');
   await page.screenshot({path:path.join(out,engine+'-real-french-after.png'),fullPage:true});
+  // A real Next click (not just a mock DOM removal) must preserve the shell
+  // while the React quiz switches its question ID and redraws feedback.
+  const stableNav=await page.evaluate(()=>{
+    window.__luxObservedShellLoss=0;
+    const nav=document.getElementById('lux-daily-study-nav');
+    new MutationObserver(()=>{
+      if (!document.documentElement.classList.contains('lux-daily-ux-ready'))
+        window.__luxObservedShellLoss++;
+    }).observe(document.documentElement,{attributes:true,attributeFilter:['class']});
+    return nav?.id||'';
+  });
+  assert.equal(stableNav,'lux-daily-study-nav');
+  const next=page.getByRole('button',{name:'Next question'});
+  assert.equal(await next.count(),1,'real answered quiz must provide Next question');
+  await next.click();
+  await page.waitForFunction(id=>document.querySelector('[data-question-id]')?.dataset.questionId!==id,marked.id,{timeout:15000});
+  await page.waitForTimeout(800);
+  const nextState=await page.evaluate(()=>({
+    id:document.querySelector('[data-question-id]')?.dataset.questionId,
+    ready:document.documentElement.classList.contains('lux-daily-ux-ready'),
+    nav:document.querySelectorAll('#lux-daily-study-nav a').length,
+    missingShellFrames:window.__luxObservedShellLoss,
+    hiddenHeader:getComputedStyle(document.querySelector('.paper-wash>header')).display==='none'
+  }));
+  assert.ok(nextState.id && nextState.id!==marked.id,'next real question should advance');
+  assert.equal(nextState.ready,true,'real question switch must retain practice shell');
+  assert.equal(nextState.nav,7,'seven-link rail must persist after answering');
+  assert.equal(nextState.hiddenHeader,true,'legacy header must remain hidden');
+  assert.equal(nextState.missingShellFrames,0,'the quiz shell must never drop during Next');
+  await page.screenshot({path:path.join(out,engine+'-real-french-next.png'),fullPage:true});
   await page.reload({waitUntil:'domcontentloaded'});
   await page.waitForTimeout(6000);
   const restoreDiagnostic=await page.evaluate(()=>({
