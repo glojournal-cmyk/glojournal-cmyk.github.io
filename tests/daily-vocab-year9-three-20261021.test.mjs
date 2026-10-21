@@ -71,6 +71,35 @@ for(const subject of ['latin','french']){
     assert.equal(second.length,30);
     assert.ok(second.every(q=>!first.some(prev=>prev.conceptId===q.conceptId)));
   });
+  test(`${subject}: successful words wait for every other Year 7–8 word, even after the due date`,()=>{
+    const items=year8(subject);
+    const marked=Object.fromEntries(items.filter(q=>q.id.endsWith('-l2e')).slice(0,35).map(q=>[q.id,1]));
+    const firstCorrect=items.find(q=>q.id.endsWith('-l2e'));
+    const res=run(subject,{seenCorrect:marked,
+      reviews:{[firstCorrect.id]:{wrong:false,last:'2026-10-18',due:day}}});
+    assert.equal(res.filter(q=>!q._dailyYear9).length,27);
+    assert.ok(res.filter(q=>!q._dailyYear9).every(q=>
+      !items.slice(0,70).some(old=>old.conceptId===q.conceptId)),
+      'Previously correct word cannot return in the opposite translation direction');
+  });
+  test(`${subject}: last unseen words lead, then cycle 2 starts within the 30-word set`,()=>{
+    const items=year8(subject);
+    const completed=Object.fromEntries(items.filter(q=>q.id.endsWith('-l2e')).slice(0,75).map(q=>[q.id,1]));
+    const res=run(subject,{seenCorrect:completed}).filter(q=>!q._dailyYear9);
+    assert.equal(res.length,27);
+    assert.ok(res.slice(0,5).every(q=>!Object.keys(completed).some(id=>
+      items.find(i=>i.id===id).conceptId===q.conceptId)));
+    assert.ok(res.slice(5).every(q=>items.some(i=>completed[i.id]&&i.conceptId===q.conceptId)));
+  });
+  test(`${subject}: Year 9 cycles independently from Year 7–8`,()=>{
+    const bank=year9DailyVocabulary(subject,frenchTaught);
+    const concepts=[...new Set(bank.map(q=>q.conceptId))];
+    const marked=Object.fromEntries(bank.filter(q=>concepts.slice(0,4).includes(q.conceptId)&&
+      q.id.endsWith('-to-english')).map(q=>[q.id,1]));
+    const res=run(subject,{seenCorrect:marked}).filter(q=>q._dailyYear9);
+    assert.equal(res.length,3);
+    assert.ok(res.every(q=>!concepts.slice(0,4).includes(q.conceptId)));
+  });
   test(`${subject}: exhausted history still offers 30 distinct words with 3 Y9`,()=>{
     const all=[...year8(subject),...year9DailyVocabulary(subject,frenchTaught)];
     const credited=Object.fromEntries(all.map(q=>[q.id,true]));
