@@ -1,0 +1,53 @@
+name: Prepare four clean Garden backgrounds
+on:
+  push:
+    branches: [feature/garden-weekly-season-20261021]
+    paths: ['.github/workflows/garden-clean-art-import.yml']
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/garden-weekly-season-20261021
+          persist-credentials: true
+      - name: Fetch approved season-specific clean garden scenes
+        env:
+          GARDEN_CLASSIC: https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:2a1373c6-7f6c-4808-9ce8-33f4141a1d19
+          GARDEN_BLOSSOM: https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:ee10313f-0f5e-491a-9166-7406b9fe9f57
+          GARDEN_AUTUMN: https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:e2f644d1-31c1-4062-a82c-888bbb265648
+          GARDEN_TWILIGHT: https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:21b97635-5383-449b-b2cd-f3153ae718b2
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/garden-clean
+          for name in classic blossom autumn twilight; do
+            key="GARDEN_${name^^}"
+            curl -fLsS --retry 3 --max-time 120 "${!key}" -o "/tmp/garden-clean/$name.png"
+            file "/tmp/garden-clean/$name.png"
+          done
+      - name: Preserve aspect ratio and optimize background images
+        run: |
+          python3 -m pip -q install pillow
+          python3 - <<'PY'
+          from PIL import Image,ImageOps
+          from pathlib import Path
+          out=Path('assets/garden-weekly')
+          out.mkdir(parents=True,exist_ok=True)
+          for n in ['classic','blossom','autumn','twilight']:
+              with Image.open('/tmp/garden-clean/'+n+'.png') as im:
+                  im.load()
+                  assert im.width>=1000 and im.height>=700, f'Unexpected {n} size {im.size}'
+                  print('garden',n,'original',im.size,'format',im.format)
+                  fitted=ImageOps.fit(im.convert('RGB'),(1448,1086),method=Image.Resampling.LANCZOS,centering=(.5,.5))
+                  fitted.save(out/(n+'.webp'),'WEBP',quality=86,method=6)
+          PY
+      - name: Commit only exact artwork assets to preview branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/garden-weekly/*.webp
+          git diff --cached --quiet && exit 0
+          git commit -m "Replace four seasonal Garden mockups with image-only watercolor scenes"
+          git push origin HEAD:feature/garden-weekly-season-20261021
