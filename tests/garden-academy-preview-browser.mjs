@@ -75,6 +75,13 @@ async function run(engine,runner,viewport){
   });
   assert.equal(snap.navLabels.length,7,'Garden navigation must retain seven items');
   assert.deepEqual(snap.visibleExtraNavigation,[],'Legacy Garden navigation must not show underneath the approved Study rail');
+  // The approved JPEG contains a decorative, non-interactive navigation rail.
+  // The real rail must cover its complete vertical and horizontal extent,
+  // otherwise a second row of baked-in labels appears below the buttons.
+  assert.ok(snap.nav.y<=viewport.height*.859,'interactive rail must cover baked navigation top');
+  assert.ok(snap.nav.bottom>=viewport.height*.968,'interactive rail must cover baked navigation bottom');
+  assert.ok(snap.nav.x<=viewport.width*.159,'interactive rail must cover baked navigation left');
+  assert.ok(snap.nav.x+snap.nav.width>=viewport.width*.841,'interactive rail must cover baked navigation right');
   assert.match(snap.selected,/Garden/);
   assert.match(snap.stage,/Stage [1-4]/,'rendered stage comes from real app');
   assert.match(snap.basilText,/growth: \d \/ 7 steps/,'Basil comes from existing seven-step record');
