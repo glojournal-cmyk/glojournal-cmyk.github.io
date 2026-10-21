@@ -224,10 +224,26 @@
       if (q.dataset.luxMcLong !== String(long)) q.dataset.luxMcLong = String(long);
     }
   }
+  // Keep the CSS shell and bottom rail mounted through a short React question
+  // handoff. Without this, a temporary empty question tree toggles the entire
+  // page back to the legacy layout for one frame (visible as iPad flashing).
+  let questionGapUntil = 0, questionGapTimer = 0;
   function refresh() {
     scheduled = false;
-    const q = pathIsPractice() && !disabled() &&
-      document.querySelector('.lux-practice-view [data-question-id]');
+    const enabled = pathIsPractice() && !disabled();
+    const q = enabled && document.querySelector('.lux-practice-view [data-question-id]');
+    const resultScreen = !!document.querySelector('.lux-practice-view [aria-label="Session result"]');
+    if (q) questionGapUntil = Date.now() + 1200;
+    if (!q && enabled && !resultScreen &&
+        root.classList.contains('lux-daily-ux-ready') && Date.now() < questionGapUntil) {
+      if (!questionGapTimer) questionGapTimer = setTimeout(() => {
+        questionGapTimer = 0;
+        schedule();
+      }, Math.max(16, questionGapUntil - Date.now()));
+      return;
+    }
+    if (questionGapTimer) { clearTimeout(questionGapTimer); questionGapTimer = 0; }
+    if (!q) questionGapUntil = 0;
     const active = Boolean(q);
     root.classList.toggle('lux-daily-ux-ready',active);
     root.classList.toggle('lux-daily-task-active',active && new URLSearchParams(location.search).get('daily')==='1');
