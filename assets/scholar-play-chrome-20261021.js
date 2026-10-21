@@ -14,7 +14,7 @@
   ['Scholar','/scholar','<circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 3-8 8-8s8 3 8 8"/>']
  ];
  function mount(){
-  if(!/^\\/scholar\\/?$/.test(location.pathname))return;
+  if(!/^\/scholar\/?$/.test(location.pathname))return;
   if(document.querySelector('.lux-scholar-play-nav'))return;
   const nav=document.createElement('nav');
   nav.className='lux-scholar-play-nav';
