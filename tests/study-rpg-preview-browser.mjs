@@ -229,7 +229,8 @@ try{
             await studyNav.last().click({force:true,timeout:20000});
           }
         }
-        await page.waitForURL(u=>/^\/study\/?$/.test(u.pathname),{waitUntil:'domcontentloaded',timeout:20000});
+        // Wait for the SPA Study route and the mounted classroom, not a brittle document lifecycle.
+        await page.waitForFunction(() => /^\/study\/?$/.test(location.pathname), null, {timeout:20000});
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
         await page.waitForFunction(()=>document.documentElement.classList.contains('lux-study-rpg-active'));
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').count(),Number(await page.locator('.lux-study-rpg-year select').inputValue())===9?7:6,
