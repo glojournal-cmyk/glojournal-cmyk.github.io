@@ -30,6 +30,13 @@ for(const [engine,launcher] of [["chromium",chromium],["webkit",webkit]]){
      },item.year);
     }
     await page.waitForTimeout(4500);
+    // Safari/WebKit can complete DOMContentLoaded before a lazy game route
+    // hydrates. Wait for meaningful visible content, but still fail if it
+    // remains empty rather than masking a genuinely broken page.
+    await page.waitForFunction(() => {
+      const root=document.querySelector("main") || document.body;
+      return (root?.innerText || "").trim().length >= 35;
+    }, null, {timeout:12000}).catch(()=>{});
     const snap=await page.evaluate(()=>({
       title:document.title,headings:[...document.querySelectorAll("h1,h2,h3")].filter(e=>e.getBoundingClientRect().height).map(e=>e.textContent),
       text:((location.pathname==="/" && document.documentElement.classList.contains("lux-rpg-live-active") ? document.querySelector("#lux-rpg-live-home") : null) || ((/^\/study\/?$/.test(location.pathname) && document.documentElement.classList.contains("lux-study-rpg-active")) ? document.querySelector("#lux-study-rpg-integrated") : null) || ((/^\/play\/?$/.test(location.pathname) && document.documentElement.classList.contains("lux-play-hall-active")) ? document.querySelector("#lux-play-hall-preview") : null) || document.querySelector("main") || document.body).innerText,playCards:document.querySelectorAll("#lux-play-hall-preview .lux-play-hall-card").length,studyCards:document.querySelectorAll("#lux-study-rpg-integrated .lux-study-rpg-card").length,controls:document.querySelectorAll("button,input,textarea,select").length,

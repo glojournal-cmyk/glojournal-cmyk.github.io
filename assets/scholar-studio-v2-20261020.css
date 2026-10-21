@@ -1,0 +1,60 @@
+/* Scholar Studio v2 · presentation-only iPad landscape refresh */
+@supports selector(body:has(nav a[aria-current="page"])) {
+body:has(nav a[href="/scholar"][aria-current="page"]) {
+  --scholar-ink:#213a4b; --scholar-paper:#f6f1e8; --scholar-border:#d9d7ce;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main {
+  max-width: 1380px; padding-top: 18px;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 {
+  display:flex; flex-direction:column; gap:14px;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > header {
+  padding:16px 22px; border-radius:20px; background:linear-gradient(110deg,#1b384a,#315b63);
+  color:#fff; box-shadow:0 9px 24px #1b384a1a;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > header p {color:#f2f1e7}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > header h1 {font-size:clamp(28px,3vw,40px);line-height:1.12}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > header p:last-child {
+  margin-top:5px;font-size:13px;max-width:900px;opacity:.87
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid {
+  gap:16px;align-items:start;
+}
+body:has(nav a[href="/scholar"][aria-current="page"]) main .dress-pop {filter:drop-shadow(0 8px 16px #091d2930)}
+body:has(nav a[href="/scholar"][aria-current="page"]) main .dress-pop,
+body:has(nav a[href="/scholar"][aria-current="page"]) main button { -webkit-tap-highlight-color:transparent; }
+body:has(nav a[href="/scholar"][aria-current="page"]) main button {touch-action:manipulation;min-height:36px}
+body:has(nav a[href="/scholar"][aria-current="page"]) main button:focus-visible {outline:3px solid #bd9661;outline-offset:2px}
+body:has(nav a[href="/scholar"][aria-current="page"]) main .ring-line {border-color:var(--scholar-border)}
+@media (min-width:720px) and (max-width:1199px) and (orientation:landscape) {
+ body:has(nav a[href="/scholar"][aria-current="page"]) main {padding:12px 20px 86px}
+ body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid {
+   display:grid;grid-template-columns:minmax(0,0.9fr) minmax(350px,1.1fr);align-items:start
+ }
+ body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:first-child {
+   min-height:0; height:min(66vh,560px);aspect-ratio:auto;position:sticky;top:10px
+ }
+ body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:nth-child(2) {
+   max-height:min(68vh,590px);overflow-y:auto;overscroll-behavior:contain;
+   scrollbar-width:thin;border:1px solid var(--scholar-border)
+ }
+ body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > header {padding:12px 18px}
+ body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > header p:last-child {display:none}
+}
+@media (min-width:1200px) {
+ body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid {
+   grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr)
+ }
+ body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:first-child {
+   aspect-ratio: 5 / 4; min-height:460px;max-height:730px
+ }
+}
+@media (max-width:719px) {
+ body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > header {padding:14px 16px}
+ body:has(nav a[href="/scholar"][aria-current="page"]) main > div.space-y-6 > div.grid > div:first-child {min-height:360px;max-height:580px}
+}
+@media (prefers-reduced-motion:reduce) {
+ body:has(nav a[href="/scholar"][aria-current="page"]) main .dress-pop {animation:none;transition:none}
+}
+}
