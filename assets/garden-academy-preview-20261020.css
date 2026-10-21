@@ -221,9 +221,11 @@ html.lux-garden-map-active body>.lux-companion-bottom-nav{visibility:hidden!impo
  .lux-garden-actions button:last-child{right:0!important;width:23.5%!important}
  .lux-garden-nav{
   position:absolute!important;z-index:10;left:50%!important;right:auto!important;
-  transform:translateX(-50%)!important;bottom:5.55%!important;
-  width:67%!important;max-width:none!important;
-  height:8.9%!important;min-height:0!important;
+  transform:translateX(-50%)!important;bottom:3.05%!important;
+  /* Opaque, full-bleed rail covers the non-interactive navigation baked into
+     the approved JPG (around x=15.7..84.3%, y=85.5..96.9%). */
+  width:68.9%!important;max-width:none!important;
+  height:11.5%!important;min-height:0!important;
   padding:3px!important;overflow:visible!important;
   background:#142e3d!important;border:2px solid #c29857!important;
   box-shadow:0 3px 10px #26302426!important;border-radius:999px!important
