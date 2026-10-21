@@ -471,8 +471,16 @@ async function checkExhaustedBiologyDaily(browser,engine){
     assert.equal(result.error,false,'no exhausted-question blocker on saved Biology task');
     assert.equal(result.mask,'none','no saved-progress mask over mounted Biology practice');
     assert.equal(result.ready,true,'final Practice shell stays ready');
-    if(errors.length)console.error('DAILY_BIOLOGY_ERROR_DETAILS '+JSON.stringify({engine,result,errors}));
-    assert.equal(errors.length,0,'no JS errors in Biology depleted-bank recovery');
+    // The local Playwright HTTP fixture intentionally has no WebKit CORS
+    // headers on unrelated Chemistry/French prefetches. Keep these visible,
+    // but never mistake them for Biology task/runtime failures on same-origin
+    // production GitHub Pages. All other JS exceptions are still fatal.
+    const fixtureCors=/^\\/127\\.0\\.0\\.1:\\d+\\/(?:content\\/topics\\/chem-y9-c(?:1|3)\\.json|assessment\\/french-school-1\\.json) due to access control checks\\.$/;
+    const unrelated=errors.filter(e=>fixtureCors.test(e));
+    const runtimeErrors=errors.filter(e=>!fixtureCors.test(e));
+    if(unrelated.length)console.log('DAILY_BIOLOGY_LOCALHOST_CORS '+JSON.stringify({engine,unrelated}));
+    if(runtimeErrors.length)console.error('DAILY_BIOLOGY_ERROR_DETAILS '+JSON.stringify({engine,result,runtimeErrors}));
+    assert.equal(runtimeErrors.length,0,'no actual Biology JS errors during depleted-bank recovery');
     console.log('DAILY_BIOLOGY_EXHAUSTED_IPAD '+JSON.stringify({engine,result,errors}));
     report.push({engine,kind:'biology-all-previously-correct',ok:true,result});
   }finally{await context.close()}
