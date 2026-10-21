@@ -24,7 +24,7 @@ function forbid(source,label,token){if(source.includes(token)) failures.push({ty
 const rootSource=fs.readFileSync("index.html","utf8");
 const runtimeVersion=rootSource.match(/\/assets\/index-BLVOhKhN\.js\?v=([^"'<> ]+)/)?.[1];
 if(!runtimeVersion)failures.push({type:"root-runtime-unversioned"});
-const standaloneShells=new Set(["assessment/latin-oct17/practice/index.html","progress/weekly/index.html","pet/index.html","assessment/index.html","assessment/biology-cell-structure/index.html","assessment/biology-nov2/practice/index.html","preview/index.html","study/biology/school-notes/index.html","content/practice-guides/french-future-tense.html"]);
+const standaloneShells=new Set(["study/maths/index.html","study/maths/learn/index.html","study/maths/practise/index.html","study/maths/progress/index.html","assessment/latin-oct17/practice/index.html","progress/weekly/index.html","pet/index.html","assessment/index.html","assessment/biology-cell-structure/index.html","assessment/biology-nov2/practice/index.html","preview/index.html","study/biology/school-notes/index.html","content/practice-guides/french-future-tense.html"]);
 const files=walk(root);
 const fileSet=new Set(files.map(rel));
 const html=files.filter(p=>p.endsWith(".html"));
