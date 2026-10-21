@@ -17,7 +17,7 @@
   // SPA arrivals from Study may reuse a shell without Scholar's stylesheet links.
   for(const [file,href] of [
     ['scholar-rebuilt-20261021.css','/assets/scholar-rebuilt-20261021.css?v=2'],
-    ['scholar-play-chrome-20261021.css','/assets/scholar-play-chrome-20261021.css?v=2']
+    ['scholar-play-chrome-20261021.css','/assets/scholar-play-chrome-20261021.css?v=3']
   ]){
     if(!document.querySelector('link[href*="'+file+'"]')){
       const link=document.createElement('link');link.rel='stylesheet';link.href=href;document.head.append(link);
