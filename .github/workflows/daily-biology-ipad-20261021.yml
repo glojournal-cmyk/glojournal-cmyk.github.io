@@ -1,0 +1,29 @@
+name: Biology Daily depleted-bank iPad smoke
+on:
+  pull_request:
+    paths:
+      - 'assets/study._subject.practise-*.js'
+      - 'assets/daily-locked-question-fallback-20261021.js'
+      - 'assets/daily-practice-ux-v2-20261020.css'
+      - 'tests/daily-practice-v2-browser.mjs'
+      - '.github/workflows/daily-biology-ipad-20261021.yml'
+  workflow_dispatch:
+jobs:
+  biology-ipad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Verify already-answered Biology Daily reopens in both browsers
+        run: LUX_BIOLOGY_ONLY=1 node tests/daily-practice-v2-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: biology-daily-ipad
+          path: test-results/daily-practice-v2/
+          if-no-files-found: ignore
