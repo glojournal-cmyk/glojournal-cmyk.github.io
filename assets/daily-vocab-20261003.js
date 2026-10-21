@@ -109,53 +109,55 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
     }
     for(const concept of successful)encounters.set(concept,(encounters.get(concept)||0)+1);
   }
-  const rows=[],backup=[];
+  // A completed *word*, not a direction-specific question, moves to the next
+  // pass. Keep Year 7–8 and Year 9 as independent word-pool cycles.
+  // seenCorrect is the existing persistent per-question correct count, so a
+  // refreshed device retains the cycle; historical dated ledgers are a fallback.
+  const rows=[];
   for(const [concept,variants] of words){
-    const last=latest.get(concept),wrong=last?.correct===false,dueDate=last?.due||dueDates.get(concept);
-    const due=!!dueDate&&dueDate<=day;
-    const defer=credited.has(concept) || (wrong&&!due) ||
-      (day>='2026-10-19'&&last?.correct&&!due) ||
-      (day>='2026-10-19'&&!wrong&&!due&&variants.some(q=>Number(seenCorrect[q.id])>0));
-    const row={concept,variants,due,wrong,recent:recent.has(concept),
-      encounters:encounters.get(concept)||0,year9:concept.includes('-y9-concept-vocab-'),
-      order:hash(`${seed}:${subject}:${concept}:rotation`)};
-    (defer?backup:rows).push(row);
+    const last=latest.get(concept);
+    const correctInQuestions=variants.reduce((sum,q)=>sum+Math.max(0,Number(seenCorrect[q.id])||0),0);
+    const correctInDaily=encounters.get(concept)||0;
+    const correctTimes=Math.max(correctInQuestions,correctInDaily,last?.correct?1:0);
+    const dueDate=last?.due||dueDates.get(concept);
+    rows.push({concept,variants,correctTimes,due:!!dueDate&&dueDate<=day,
+      wrong:last?.correct===false,recent:recent.has(concept),
+      year9:concept.includes('-y9-concept-vocab-'),
+      order:hash(`${seed}:${subject}:${concept}:rotation`)});
   }
-  const rank=(a,b)=>Number(a.recent)-Number(b.recent)||a.encounters-b.encounters||
-    a.order-b.order||a.concept.localeCompare(b.concept);
-  const y9=rows.filter(r=>r.year9), y8=rows.filter(r=>!r.year9);
-  const y9Backup=backup.filter(r=>r.year9),y8Backup=backup.filter(r=>!r.year9);
-  const selected=[],used=new Set();
-  const take=(pool,count,bucket)=>{
-    let added=0;
-    for(const row of [...pool].sort(rank)){
-      if(added>=count||selected.length>=size)break;
+  const year9Target=Math.min(3,size),selected=[],used=new Set();
+  // Only repeat a successfully recalled word when the remaining pool in that
+  // year is insufficient to fill the quota. Unanswered and wrong words lead.
+  const rank=(a,b)=>a.correctTimes-b.correctTimes ||
+    Number(!(a.wrong&&a.due))-Number(!(b.wrong&&b.due)) ||
+    Number(a.recent)-Number(b.recent) || a.order-b.order ||
+    a.concept.localeCompare(b.concept);
+  function choose(pool,quota,prefix){
+    const ordered=[...pool].sort(rank),result=[];
+    for(const row of ordered){
+      if(result.length>=quota || selected.length+result.length>=size)break;
       if(used.has(row.concept))continue;
-      used.add(row.concept);selected.push({...row,bucket});added++;
+      used.add(row.concept);
+      const groupCycle=Math.min(...pool.map(x=>x.correctTimes));
+      const bucket=row.wrong&&row.due?'vocabulary-error-review':
+        row.correctTimes>groupCycle?'vocabulary-next-cycle':
+        row.correctTimes===0?'vocabulary-first-cycle':'vocabulary-cycle-review';
+      result.push({...row,bucket:prefix+bucket});
     }
-  };
-  const year9Target=Math.min(3,size);
-  take(y9.filter(r=>r.due&&r.wrong),year9Target,'year9-error-review');
-  take(y9.filter(r=>r.due&&!r.wrong),year9Target-selected.length,'year9-spaced-due');
-  take(y9.filter(r=>!r.recent),year9Target-selected.length,'year9-vocabulary');
-  take(y9,year9Target-selected.length,'year9-vocabulary-refill');
-  // Prefer scheduled spacing; only reuse earlier learned Year 9 words if the three-word pool is exhausted.
-  take(y9Backup.filter(r=>!r.wrong),year9Target-selected.length,'year9-exhaustion-refill');
-  take(y9Backup,year9Target-selected.length,'year9-exhaustion-last-resort');
-
-  // Ten review places, then 17 randomized Y7–8 words (or refill when fewer are due).
-  const year8Target=size-selected.length,year8Start=selected.length,reviewCount=Math.min(10,year8Target);
-  take(y8.filter(r=>r.due&&r.wrong),reviewCount,'vocabulary-error-review');
-  take(y8.filter(r=>r.due&&!r.wrong),reviewCount-(selected.length-year8Start),'vocabulary-spaced-due');
-  take(y8.filter(r=>!r.due&&!r.recent),size-selected.length,'vocabulary-random');
-  take(y8.filter(r=>!r.wrong&&!r.recent),size-selected.length,'vocabulary-refill');
-  take(y8.filter(r=>!r.wrong),size-selected.length,'vocabulary-small-bank-refill');
-  take(y8Backup.filter(r=>!r.wrong),size-selected.length,'vocabulary-exhaustion-refill');
-  take(y8Backup,size-selected.length,'vocabulary-exhaustion-last-resort');
-
-  // Shuffle every NEW session. A saved QuizSession draft owns the sequence on resume.
-  selected.sort((a,b)=>hash(`${seed}:position:${a.concept}`)-
-    hash(`${seed}:position:${b.concept}`)||a.concept.localeCompare(b.concept));
+    return result;
+  }
+  const y9=rows.filter(r=>r.year9),y8=rows.filter(r=>!r.year9);
+  const selectedY9=choose(y9,year9Target,'year9-');
+  // Ensure a 30-word session can still fill both quotas if the eligible bank is
+  // small: return only real, distinct words, never fabricated questions.
+  selected.push(...selectedY9);
+  const selectedY8=choose(y8,size-selected.length,'');
+  selected.push(...selectedY8);
+  // Keep the order of cycle tiers (all still-unanswered words before old
+  // successes); the hash makes each tier and each fresh session random.
+  selected.sort((a,b)=>a.correctTimes-b.correctTimes ||
+    hash(`${seed}:position:${a.concept}`)-hash(`${seed}:position:${b.concept}`) ||
+    a.concept.localeCompare(b.concept));
   const directionCounts={toEnglish:0,toForeign:0};
   return selected.map((row,i)=>{
     const choices=row.variants.filter(q=>q.format!=='mc_single');
