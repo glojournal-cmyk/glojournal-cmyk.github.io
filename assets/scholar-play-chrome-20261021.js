@@ -20,13 +20,18 @@
   nav.className='lux-scholar-play-nav';
   nav.setAttribute('aria-label','Primary');
   for(const [name,href,path] of items){
-    const a=document.createElement('a');a.href=href;
+    const a=document.createElement('a');a.href=href;a.dataset.luxScholarNav='1';
     if(name==='Scholar')a.setAttribute('aria-current','page');
     const icon=document.createElement('span');icon.setAttribute('aria-hidden','true');
     icon.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+path+'</svg>';
     a.append(icon,document.createTextNode(name));nav.append(a);
   }
   document.body.append(nav);
+ }
+ function keepPlayRailExact(){
+  const nav=document.querySelector('.lux-scholar-play-nav');
+  if(!nav)return;
+  for(const added of nav.querySelectorAll('a:not([data-lux-scholar-nav="1"])'))added.remove();
  }
  function tidyWeekly(){
   if(!/^\/scholar\/?$/.test(location.pathname))return;
@@ -51,6 +56,7 @@
     return;
   }
   mount();
+  keepPlayRailExact();
   tidyWeekly();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',sync,{once:true});else sync();
@@ -60,6 +66,6 @@
  for(const key of ['pushState','replaceState']){
    const original=history[key];history[key]=function(...args){const value=original.apply(this,args);sync();return value;};
  }
- const observer=new MutationObserver(()=>{if(/^\/scholar\/?$/.test(location.pathname))tidyWeekly();});
+ const observer=new MutationObserver(()=>{if(/^\/scholar\/?$/.test(location.pathname)){keepPlayRailExact();tidyWeekly();}});
  observer.observe(document.body,{childList:true,subtree:true});
 })();
