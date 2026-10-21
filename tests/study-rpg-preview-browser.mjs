@@ -114,7 +114,12 @@ try{
             src:img.currentSrc,complete:img.complete,naturalWidth:img.naturalWidth,
             height:img.getBoundingClientRect().height,display:getComputedStyle(img).display
           }));
-          throw new Error('Equipped outfit image not rendered: '+JSON.stringify(details),{cause:error});
+          const state=await page.evaluate(async()=>{
+            const store=(await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2')).C;
+            return {outfit:store.getState().equippedOutfit,hydrated:store.persist?.hasHydrated?.(),
+              mode:document.documentElement.className};
+          });
+          throw new Error('Equipped outfit image not rendered: '+JSON.stringify({details,state}),{cause:error});
         });
         assert.ok(await page.locator('.lux-study-rpg-pet').evaluate(img => img.complete && img.naturalWidth>0),'Selected pet image must be rendered');
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-nav a').count(),7,'Nav must remain intact after outfit/pet changes');
