@@ -260,6 +260,9 @@ async function checkRealPractice(browser,engine){
     return {id:q?.dataset.questionId,format:q?.dataset.questionFormat,
       navCount:nav?.children.length,
       promptSize:p?parseFloat(getComputedStyle(p).fontSize):0,
+      promptWeight:p?Number(getComputedStyle(p).fontWeight):0,
+      typing:!!document.querySelector('.lux-practice-view [data-question-id] :is(input,textarea,select,button[type="submit"]):focus'),
+      compact:document.documentElement.classList.contains('lux-daily-compact'),
       navBottom:nav?.getBoundingClientRect().bottom,
       screenHeight:innerHeight,scrollWidth:document.documentElement.scrollWidth};
   });
@@ -291,7 +294,11 @@ async function checkRealPractice(browser,engine){
   assert.ok(chromeDetails.sprite?.width>=28 && chromeDetails.sprite?.height>=30,'equipped pet artwork must be on-screen');
   assert.ok(before.id,'real French question must load');
   assert.equal(before.navCount,7,'live question needs Study navigation');
-  assert.ok(before.promptSize>=27,'real question should be large and bold');
+  // Safari activates compact keyboard typography when a typed answer gets
+  // focus. Require full 27px in reading mode and 22px in keyboard mode.
+  assert.ok(before.promptSize>=(before.typing||before.compact?22:27),
+    'real prompt must be legible at reading or active-keyboard size: '+JSON.stringify(before));
+  assert.ok(before.promptWeight>=600,'real question prompt must remain bold');
   assert.ok(before.scrollWidth<=1025,'no sideways scroll in live question');
   await page.screenshot({path:path.join(out,engine+'-real-french-before.png'),fullPage:true});
   const q=page.locator('[data-question-id]');
