@@ -285,7 +285,7 @@ async function checkRealPractice(browser,engine){
   const next=page.getByRole('button',{name:'Next question'});
   assert.equal(await next.count(),1,'real answered quiz must provide Next question');
   await next.click();
-  await page.waitForFunction(id=>document.querySelector('[data-question-id]')?.dataset.questionId!==id,marked.id,{timeout:15000});
+  await page.waitForFunction(id=>{const nextId=document.querySelector('[data-question-id]')?.dataset.questionId;return !!nextId && nextId!==id},marked.id,{timeout:15000});
   await page.waitForTimeout(800);
   const nextState=await page.evaluate(()=>({
     id:document.querySelector('[data-question-id]')?.dataset.questionId,
