@@ -120,3 +120,13 @@ body:has(.lux-scholar-rebuilt) .lux-scholar-collectible:has(img.grayscale){
  background:linear-gradient(135deg,#2e4752,#233543)!important;
 }
 body:has(.lux-scholar-rebuilt) .lux-scholar-collectible:has(img.grayscale) img{opacity:.7!important}
+
+/* Flicker guard: maintain one permanent Play-style rail on Scholar.
+   Never remove injected companion links from DOM: hide them without observer writes. */
+.lux-scholar-play-nav>a:not([data-lux-scholar-nav="1"]){display:none!important}
+html.lux-scholar-rail-active nav.fixed.inset-x-3.bottom-3{display:none!important}
+html.lux-scholar-rail-active .paper-wash>header.sticky,
+html.lux-scholar-rail-active .paper-wash>aside{display:none!important}
+html.lux-scholar-rail-active .paper-wash{padding-left:0!important}
+.lux-scholar-play-nav{animation:none!important;transition:none!important;will-change:auto!important}
+.lux-scholar-play-nav>a[data-lux-scholar-nav]{animation:none!important;transition:background-color .15s ease!important}

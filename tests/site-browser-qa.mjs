@@ -54,15 +54,34 @@ for(const [engine,launcher] of [["chromium",chromium],["webkit",webkit]]){
           stage:!!stage,closet:!!closet,cards:!!cards,
           backdrop:stage?getComputedStyle(stage).backgroundColor:"",
           sceneVisible:stage?getComputedStyle(stage.querySelector("img")).display!=="none":false,
-          newRail:document.querySelectorAll(".lux-scholar-play-nav a").length,
+          newRail:document.querySelectorAll(".lux-scholar-play-nav>a[data-lux-scholar-nav]").length,
+          extraRailLinksHidden:[...document.querySelectorAll(".lux-scholar-play-nav>a:not([data-lux-scholar-nav])")].every(a=>getComputedStyle(a).display==="none"),
           oldHeaderHidden:!!document.querySelector(".paper-wash>header.sticky")&&getComputedStyle(document.querySelector(".paper-wash>header.sticky")).display==="none",
           noGardenOverlay:!document.querySelector(".lux-scholar-stage .lux-life-strip, .lux-scholar-stage .lux-hero-wash"),
           noOldWeeklyCard:[...document.querySelectorAll('a[href="/progress/weekly/"]:not(.lux-scholar-weekly-link)')].every(a=>a.getBoundingClientRect().height===0),
           columns:cards?getComputedStyle(cards).gridTemplateColumns.split(" ").filter(Boolean).length:0
         };
       });
-      if(!visual.stage||!visual.closet||!visual.cards||!visual.sceneVisible||visual.newRail!==7||!visual.oldHeaderHidden||!visual.noGardenOverlay||!visual.noOldWeeklyCard||visual.columns!==(1024<=1050?2:3))
+      if(!visual.stage||!visual.closet||!visual.cards||!visual.sceneVisible||visual.newRail!==7||!visual.extraRailLinksHidden||!visual.oldHeaderHidden||!visual.noGardenOverlay||!visual.noOldWeeklyCard||visual.columns!==(1024<=1050?2:3))
         problem(row,"scholar-visual-regression",visual);
+      const railStability=await page.evaluate(async()=>{
+        const original=document.querySelector(".lux-scholar-play-nav");
+        const owned=[...original?.querySelectorAll("a[data-lux-scholar-nav]")||[]];
+        let disappearing=0,replaced=0,hiddenExtra=0;
+        const check=()=>{
+          const nav=document.querySelector(".lux-scholar-play-nav");
+          if(nav!==original||!nav?.isConnected){replaced++;return;}
+          const rect=nav.getBoundingClientRect(),style=getComputedStyle(nav);
+          if(style.display==="none"||style.visibility==="hidden"||Number(style.opacity)<0.8||
+             rect.width<200||rect.height<35||rect.bottom>innerHeight+2||rect.top<0)disappearing++;
+          if(owned.some(a=>!a.isConnected||!nav.contains(a)))replaced++;
+          if([...nav.querySelectorAll("a:not([data-lux-scholar-nav])")].some(a=>getComputedStyle(a).display!=="none"))hiddenExtra++;
+        };
+        for(let i=0;i<35;i++){check();await new Promise(resolve=>setTimeout(resolve,55));}
+        return {replaced,disappearing,hiddenExtra,owned:owned.length};
+      });
+      if(railStability.replaced||railStability.disappearing||railStability.hiddenExtra||railStability.owned!==7)
+        problem(row,"scholar-bottom-nav-flashing",railStability);
       for(const [tab,selector] of [["Collection",".lux-scholar-collection .lux-scholar-collectible"],["Achievements",".lux-scholar-achievements .lux-scholar-medal"],["Settings",".lux-scholar-settings .lux-scholar-weekly-link"]]){
         await page.getByRole("button",{name:tab,exact:true}).click();
         if(await page.locator(selector).count()===0)problem(row,"scholar-tab-layout-missing",{tab,selector});
