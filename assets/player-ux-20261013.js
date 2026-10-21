@@ -1,5 +1,5 @@
 // Presentation and navigation only. This module never changes learning credit.
-import "./daily-practice-layout-20261020.js?v=preview1";
+import "./daily-practice-layout-20261020.js?v=20261021-daily-no-flash1";
 export const GAME_TIME = Object.freeze({
  'weekly-boss':'5–8 min per section · estimate','error-hunter':'5–8 min · estimate',
  'forma-forge':'3–5 min · estimate','sentence-mosaic':'3–5 min · estimate',
