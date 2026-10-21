@@ -1,7 +1,7 @@
 /* Study RPG: presentation only. Keep all real learning/marking/save logic in
  * the existing Lux et Labor app. The Home outfit and Pet share their sources.
  */
-import { A as wardrobeOutfits, C as store } from './index-BLVOhKhN.js?v=20261018-mastery2';
+import { A as wardrobeOutfits, C as store } from './index-BLVOhKhN.js?v=20261021-medical-careers1';
 import { petArtUrl } from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
 
 if (!window.__luxStudyRpgIntegrated) {
@@ -10,7 +10,7 @@ if (!window.__luxStudyRpgIntegrated) {
     const sheet = document.createElement('link');
     sheet.id = 'lux-study-rpg-style';
     sheet.rel = 'stylesheet';
-    sheet.href = '/assets/study-rpg-integrated-20261019.css?v=20261020-pet-native-hires1';
+    sheet.href = '/assets/study-rpg-integrated-20261019.css?v=20261020-maths7-layout1';
     document.head.append(sheet);
   }
   // Use a div with role=main: the old Pet enhancer decorates images inside <main>.
@@ -19,8 +19,8 @@ if (!window.__luxStudyRpgIntegrated) {
   root.className = 'lux-study-rpg';
   root.setAttribute('aria-label', 'Study library');
   const subjects = [
-    ['latin', 'Latin'], ['french', 'French'], ['biology', 'Biology'],
-    ['chemistry', 'Chemistry'], ['physics', 'Physics'], ['english', 'English']
+    ['latin', 'Latin'], ['french', 'French'], ['english', 'English'],
+    ['maths', 'Maths'], ['biology', 'Biology'], ['chemistry', 'Chemistry'], ['physics', 'Physics']
   ];
   const nav = [
     ['⌂', 'Home', '/'], ['▣', 'Study', '/study'], ['◇', 'Play', '/play'],
@@ -51,6 +51,9 @@ if (!window.__luxStudyRpgIntegrated) {
     return { secure: secure ? `${secure[1]}/${secure[2]}` : '—', due: due ? due[1] : '—' };
   };
   function subjectData(id, label) {
+    if (id === 'maths') return { id, label, secure:'5', due:'500',
+      learn:'/study/maths/learn/', practice:'/study/maths/practise/',
+      progress:'/study/maths/progress/' };
     const container = document.querySelector('#lux-study-subjects-v2') ||
       [...document.querySelectorAll('main:not(#lux-study-rpg-integrated) section')]
         .find(s => s.querySelector('h2')?.textContent?.trim() === 'Subjects');
@@ -105,6 +108,16 @@ if (!window.__luxStudyRpgIntegrated) {
   // request can otherwise trigger the generic default outfit fallback.
   const scholarImage = image('/art/home-rpg/scholar-clean.png', null, 'lux-study-rpg-scholar', 'Your Scholar');
   let renderedOutfitSrc = '/art/home-rpg/scholar-clean.png';
+  // Keep the same Pet image mounted, too. XP and Study status updates must
+  // not reload a selected evolution sprite on iPad WebKit.
+  const petSprite=el('img','lux-study-rpg-pet');
+  petSprite.alt='Your equipped pet';petSprite.loading='eager';petSprite.decoding='async';petSprite.hidden=true;
+  petSprite.addEventListener('load',()=>{petSprite.hidden=false;});
+  petSprite.addEventListener('error',()=>{petSprite.hidden=true;});
+  const petLink=el('a','lux-study-rpg-pet-link');
+  petLink.href='/pet/';petLink.setAttribute('aria-label','Open your equipped pet');
+  petLink.append(petSprite);
+  let renderedPetSrc=null;
   function build() {
     const state = store.getState?.() || {};
     const select = nativeSelect();
@@ -126,6 +139,9 @@ if (!window.__luxStudyRpgIntegrated) {
       scholarImage.dataset.fallbackUsed = '';
       scholarImage.src = scholarSrc;
     }
+    if (renderedPetSrc !== petSrc) {
+      renderedPetSrc=petSrc;petSprite.hidden=true;petSprite.src=petSrc;
+    }
     root.replaceChildren();
     root.append(el('div', 'lux-study-rpg-shade'));
     const hud = el('div', 'lux-study-rpg-hud');
@@ -137,9 +153,7 @@ if (!window.__luxStudyRpgIntegrated) {
 
     const cast = el('div', 'lux-study-rpg-cast');
     cast.append(scholarImage);
-    const petLink = el('a', 'lux-study-rpg-pet-link');
-    petLink.href = '/pet/'; petLink.dataset.petForm = stage < 5 ? 'small' : 'evolved'; petLink.setAttribute('aria-label', 'Open your equipped pet');
-    petLink.append(image(petSrc, '/art/rpg/moss.png', 'lux-study-rpg-pet', 'Your equipped pet'));
+    petLink.dataset.petForm = stage < 5 ? 'small' : 'evolved';
     cast.append(petLink); root.append(cast);
 
     const board = el('section', 'lux-study-rpg-board');
@@ -161,16 +175,17 @@ if (!window.__luxStudyRpgIntegrated) {
     const scroll = el('div', 'lux-study-rpg-subject-scroll');
     const cards = el('div', 'lux-study-rpg-subjects');
     for (const [id, label] of subjects) {
+      if (id === 'maths' && year !== 9) continue;
       const data = subjectData(id, label);
       const card = el('article', 'lux-study-rpg-card');
       // Year-specific Grok art is optional: the existing six subject images are a
       // safe fallback so we never render an empty card while images are installed.
-      card.append(image(`/art/study-rpg/y${year}-${id}.jpg`, `/art/subjects/${id}.jpg`, 'lux-study-rpg-card-art', ''));
+      card.append(image(id==='maths'?'/assets/math-study/maths-cover.svg':`/art/study-rpg/y${year}-${id}.jpg`, id==='maths'?null:`/art/subjects/${id}.jpg`, 'lux-study-rpg-card-art', ''));
       const body = el('div','lux-study-rpg-card-body');
-      body.append(el('h2', null, data.label));
+      if(id==='maths'){const heading=el('h2');const link=el('a',null,data.label);link.href='/study/maths/';heading.append(link);body.append(heading);}else body.append(el('h2', null, data.label));
       const status = el('div', 'lux-study-rpg-status');
-      status.append(el('span', 'lux-study-rpg-secure', `${data.secure} secure`));
-      status.append(el('span', 'lux-study-rpg-due', `${data.due} due`));
+      status.append(el('span', 'lux-study-rpg-secure', id==='maths'?'5 topics':`${data.secure} secure`));
+      status.append(el('span', 'lux-study-rpg-due', id==='maths'?'500 questions · Study only':`${data.due} due`));
       body.append(status);
       const actions = el('div', 'lux-study-rpg-actions');
       for (const [name, href, icon] of [['Learn',data.learn,'▣'],['Practise',data.practice,'✎'],['Progress',data.progress,'▥']]) {
@@ -184,7 +199,8 @@ if (!window.__luxStudyRpgIntegrated) {
     const navbar = el('div','lux-study-rpg-nav');navbar.setAttribute('aria-label','Primary');
     for (const [glyph,label,url] of nav) {
       const a = el('a', label==='Study'?'active':''); a.href=url;
-      a.append(el('span','lux-study-rpg-navicon',glyph),el('span',null,label));
+      const navImg=el('img','lux-study-rpg-navicon');navImg.src='/assets/math-study/nav/'+label.toLowerCase()+'.svg';navImg.alt='';navImg.width=24;navImg.height=24;
+      a.append(navImg,el('span',null,label));
       if (label==='Study') a.setAttribute('aria-current','page');
       navbar.append(a);
     }

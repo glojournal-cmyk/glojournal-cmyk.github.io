@@ -2232,6 +2232,9 @@ function patchedExportProgress() {
       practiceDrafts: JSON.parse(localStorage.getItem("lux-practice-drafts-v1") || "{}"),
       biologyPractice: JSON.parse(localStorage.getItem("scholar-biology-cell-practice-v1") || "{}"),
       topicLearning: JSON.parse(localStorage.getItem("lux-topic-learning-v1") || "{}"),
+      mathsBackupVersion: 1,
+      mathsStudy: JSON.parse(localStorage.getItem("lux-maths-study-v1") || "{}"),
+      mathsDrafts: JSON.parse(localStorage.getItem("lux-maths-draft-v1") || "{}"),
       assessmentBackupVersion: 1,
       assessmentProgress: readAssessmentBackupState(),
       petBackupVersion: 1,
@@ -2251,7 +2254,7 @@ function patchedImportProgress(text) {
   if (parsed?.topicLearning != null &&
       (typeof parsed.topicLearning !== "object" || Array.isArray(parsed.topicLearning)))
     return { ok: false, error: "Invalid learned-topic settings." };
-  for (const key of ["practiceDrafts", "biologyPractice"]) {
+  for (const key of ["practiceDrafts", "biologyPractice", "mathsStudy", "mathsDrafts"]) {
     if (parsed?.[key] != null && (typeof parsed[key] !== "object" || Array.isArray(parsed[key])))
       return { ok: false, error: "Invalid practice draft data." };
   }
@@ -2267,6 +2270,8 @@ function patchedImportProgress(text) {
     ["lux-practice-drafts-v1", parsed?.practiceDrafts],
     ["scholar-biology-cell-practice-v1", parsed?.biologyPractice],
     ["lux-topic-learning-v1", parsed?.topicLearning],
+    ["lux-maths-study-v1", parsed?.mathsStudy],
+    ["lux-maths-draft-v1", parsed?.mathsDrafts],
     ["lux-assessment-v1", parsed?.assessmentProgress],
     [PET_REWARD_KEY, parsed?.petCompanion],
   ].filter(([, value]) => value != null);

@@ -36,8 +36,12 @@ test('a repeated correct question does not reappear in Standard or Mastery',()=>
 });
 
 test('a previously correct vocabulary concept waits for its due date',()=>{
+  // Match the current word-only Daily Vocab schema: a single French headword
+  // with an English meaning, not a sentence or grammar transformation.
   const items=Array.from({length:40},(_,i)=>({id:'fr-word-'+i,conceptId:'fr-y8-concept-vocab-'+i,
-    topicId:'fr-y8-vocab',format:'typed_exact',status:'enabled',answer:{accepted:['word '+i]}}));
+    topicId:'fr-y8-vocab',format:'typed_exact',status:'enabled',
+    prompt:'Translate into English: mot'+i,stimulus:{text:'mot'+i},
+    answer:{accepted:['word '+i]}}));
   const rows=selectDailyVocabulary({subject:'french',items,day:'2026-10-19',seenCorrect:{'fr-word-0':1}});
   assert.equal(rows.length,30);assert.ok(!rows.some(q=>q.id==='fr-word-0'));
   const due=selectDailyVocabulary({subject:'french',items,day:'2026-10-21',seenCorrect:{'fr-word-0':1},

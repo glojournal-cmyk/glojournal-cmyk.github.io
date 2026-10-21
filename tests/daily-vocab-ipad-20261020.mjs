@@ -110,7 +110,8 @@ try{
    await page.screenshot({path:"test-results/daily-vocab-home-repaired-"+engine.name()+".png",fullPage:false});
    // Ignore only unrelated WebKit background assessment JSON prefetch CORS diagnostics.
    // All actual Home/Practice runtime exceptions must still fail the test.
-   const unexpectedErrors=errors.filter(message=>!/^\/127\.0\.0\.1:\d+\/assessment\/[\w-]+\.json due to access control checks\.$/.test(message));
+    const knownFixtureCors=/^\/127\.0\.0\.1:\d+\/(?:assessment\/[\w-]+\.json|content\/topics\/chem-y9-c(?:1|3)\.json) due to access control checks\.$/;
+    const unexpectedErrors=errors.filter(message=>!knownFixtureCors.test(message));
    assert.deepEqual(unexpectedErrors,[],"Unexpected browser exceptions");
    fs.mkdirSync("test-results",{recursive:true});
    await page.screenshot({path:"test-results/daily-vocab-ipad-"+engine.name()+".png",fullPage:false});

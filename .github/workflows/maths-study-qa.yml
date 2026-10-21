@@ -1,0 +1,38 @@
+name: Year 9 Maths Study QA
+on:
+  pull_request:
+    paths:
+      - 'assets/math-study/**'
+      - 'study/maths/**'
+      - 'assets/study-rpg-integrated-20261019.*'
+      - 'tests/math-study-qa.mjs'
+      - 'tests/math-study-browser.mjs'
+      - '.github/workflows/maths-study-qa.yml'
+  workflow_dispatch:
+jobs:
+  maths-static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: JavaScript syntax
+        run: node --check assets/math-study/maths-app.js && node --check assets/study-rpg-integrated-20261019.js
+      - name: Validate question banks, graph references, Maths-only Study and 7 nav
+        run: node tests/math-study-qa.mjs
+
+  maths-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Exercise Maths four pages in iPad WebKit and Chromium
+        run: node tests/math-study-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: maths-study-browser-screenshots, path: test-results/maths-study}

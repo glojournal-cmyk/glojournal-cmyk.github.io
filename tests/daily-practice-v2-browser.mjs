@@ -393,6 +393,10 @@ async function checkAssignedStandard(browser,engine) {
     await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
     await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:35000});
     await page.waitForFunction(()=>!!document.querySelector('.lux-practice-view [data-lux-question-card]'),null,{timeout:10000});
+    // A server-rendered question is not proof React has hydrated its controlled
+    // answer field. Wait for the same ready signals used by the live-quiz QA.
+    await page.waitForFunction(()=>window.__luxAppReady===true && document.documentElement.classList.contains('lux-daily-ux-ready'),null,{timeout:20000});
+    await page.waitForTimeout(400);
     const before=await page.evaluate(()=>{
       window.__luxOldShellFrames=0;
       const observed=document.documentElement;
@@ -406,14 +410,24 @@ async function checkAssignedStandard(browser,engine) {
     assert.ok(before.id,'real non-vocab Standard question must exist');
     assert.equal(before.nav,7,'Standard task needs seven Study nav buttons');
     const q=page.locator('.lux-practice-view [data-question-id]');
+    const afterInteraction=async()=>page.evaluate(()=>({
+      id:document.querySelector('.lux-practice-view [data-question-id]')?.dataset.questionId,
+      format:document.querySelector('.lux-practice-view [data-question-id]')?.dataset.questionFormat,
+      input:document.querySelector('.lux-practice-view [data-question-id] input, .lux-practice-view [data-question-id] textarea')?.value,
+      buttons:[...document.querySelectorAll('.lux-practice-view [data-question-id] button')].filter(x=>/Submit/i.test(x.textContent)).map(x=>({text:x.textContent,disabled:x.disabled})),
+      preview:document.querySelector('.lux-practice-view [data-question-id]')?.innerText?.slice(0,600)
+    }));
+    console.log('DAILY_STANDARD_BEFORE '+JSON.stringify({engine,before,diagnostic:await afterInteraction()}));
     if(before.format==='mc_single'){
       await q.locator('[data-lux-mc-options] > button').first().click();
     } else if(before.format==='word_tiles'){
       await q.locator('.mt-5.space-y-3 > div:nth-child(2) button').first().click();
+      console.log('DAILY_STANDARD_AFTER_TILE '+JSON.stringify({engine,diagnostic:await afterInteraction()}));
       await q.getByRole('button',{name:'Submit'}).click();
     } else {
       const editor=q.locator('input,textarea').first();
       await editor.fill('sample practice answer');
+      console.log('DAILY_STANDARD_AFTER_FILL '+JSON.stringify({engine,diagnostic:await afterInteraction()}));
       await q.getByRole('button',{name:'Submit'}).click();
     }
     const next=page.getByRole('button',{name:'Next question'});
