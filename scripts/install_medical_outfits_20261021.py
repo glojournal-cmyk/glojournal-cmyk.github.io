@@ -58,9 +58,8 @@ if(typeof window!=="undefined"){
 old="20261021-daily-credit1"
 new="20261021-medical-careers1"
 files=[ENTRY]
-for root in [ROOT,ROOT/"assets",ROOT/"study",ROOT/"scholar",ROOT/"garden",ROOT/"play",ROOT/"session"]:
-    if root.is_dir():files += list(root.glob("*.html"))
-files += list((ROOT/"assets").glob("*.js"))
+files += list(ROOT.rglob("*.html"))
+files += list((ROOT/"assets").rglob("*.js"))
 files=list(dict.fromkeys(files))
 changes=[]
 for path in files:
