@@ -5,7 +5,9 @@ for (const subject of ['french','latin']) {
   const prefix=subject==='french'?'fr':'la';
   const items=Array.from({length:100},(_,i)=>[0,1].map(direction=>({id:`${prefix}-${i}-${direction}`,
     conceptId:`${prefix}-y8-concept-vocab-${i}`,topicId:`${prefix}-y8-topic-${i%3}`,format:'typed_exact',
-    status:'enabled',prompt:'Retrieve the taught word',answer:{accepted:[`word ${i}`]}}))).flat();
+    status:'enabled',prompt:direction===0?'Write the best English meaning of this Latin/French word.':'Write the Latin/French word for this English meaning.',
+    stimulus:{text:direction===0?`headword${i}`:`meaning${i}`,direction:direction===0?`${subject} → English`:`English → ${subject}`},
+    answer:{accepted:[direction===0?`meaning${i}`:`headword${i}`]}}))).flat();
   items.push({...items[0],id:'grammar',conceptId:`${prefix}-y8-concept-grammar`,prompt:'Explain a grammar rule'});
   const args={subject,items,day:'2026-10-03'};
   const first=selectDailyVocabulary(args);
@@ -20,7 +22,7 @@ for (const subject of ['french','latin']) {
   assert.ok(sameDay.every(q=>!first.some(old=>old.conceptId===q.conceptId)), 'Both directions share one daily word');
   const due=selectDailyVocabulary({...args,day:'2026-10-05',ledger:{'2026-10-03':{[subject]:{items:credited}}},
     reviews:Object.fromEntries(first.map(q=>[q.id,{due:'2026-10-05'}]))});
-  assert.equal(due.filter(q=>q._dailyBucket==='vocabulary-spaced-due').length,6);
+  assert.equal(due.filter(q=>q._dailyBucket==='vocabulary-spaced-due').length,10);
   const collisionA=selectDailyVocabulary({...args,day:'2026-10-12'}).map(q=>q.conceptId);
   const collisionB=selectDailyVocabulary({...args,day:'2026-10-21'}).map(q=>q.conceptId);
   assert.notDeepEqual(collisionA,collisionB,'Dates with the same digit sum rotate differently');
