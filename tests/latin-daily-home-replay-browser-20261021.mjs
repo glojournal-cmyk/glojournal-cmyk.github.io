@@ -69,6 +69,11 @@ try {
    }));
    assert.equal(after.progress,10,'Reloaded front page must retain Latin 10/10');
    assert.equal(after.xp,before.xp,'Reconciliation cannot award extra XP');
+   // WebKit can hydrate the saved Zustand store before the first visible Home paint.
+   // Do not judge an empty/loading shell as the final rendered Home card.
+   await page.waitForFunction(()=>window.__luxAppReady===true,null,{timeout:30000});
+   const expectedTitle=await page.evaluate(()=>window.__luxStore.getState().daily.find(t=>t.id==='latin-standard').title);
+   await page.waitForFunction(title=>document.body.innerText.includes(title),expectedTitle,{timeout:20000}).catch(()=>{});
    // Assert the learner-visible Home card too, not only its Zustand state.
    const visibleAfterReload=await page.evaluate(()=>{
      const title=window.__luxStore.getState().daily.find(t=>t.id==='latin-standard').title;
