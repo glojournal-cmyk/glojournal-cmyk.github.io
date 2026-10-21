@@ -100,6 +100,11 @@ if (!window.__luxStudyRpgIntegrated) {
     select.dispatchEvent(new Event('change', { bubbles: true }));
     queue();
   }
+  // Keep the wardrobe sprite mounted between Study rebuilds. WebKit may
+  // cancel image requests when the whole scene is recreated; the cancelled
+  // request can otherwise trigger the generic default outfit fallback.
+  const scholarImage = image('/art/home-rpg/scholar-clean.png', null, 'lux-study-rpg-scholar', 'Your Scholar');
+  let renderedOutfitSrc = '/art/home-rpg/scholar-clean.png';
   function build() {
     const state = store.getState?.() || {};
     const select = nativeSelect();
@@ -115,6 +120,12 @@ if (!window.__luxStudyRpgIntegrated) {
     const outfit = safeSlug(state.equippedOutfit || 'day', 'day');
     const scholarSrc = outfit === 'day' ? '/art/home-rpg/scholar-clean.png' : `/art/doll/${outfit}.png`;
 
+    if (renderedOutfitSrc !== scholarSrc) {
+      renderedOutfitSrc = scholarSrc;
+      scholarImage.dataset.sourceRetried = '';
+      scholarImage.dataset.fallbackUsed = '';
+      scholarImage.src = scholarSrc;
+    }
     root.replaceChildren();
     root.append(el('div', 'lux-study-rpg-shade'));
     const hud = el('div', 'lux-study-rpg-hud');
@@ -125,7 +136,7 @@ if (!window.__luxStudyRpgIntegrated) {
     root.append(hud);
 
     const cast = el('div', 'lux-study-rpg-cast');
-    cast.append(image(scholarSrc, '/art/home-rpg/scholar-clean.png', 'lux-study-rpg-scholar', 'Your Scholar'));
+    cast.append(scholarImage);
     const petLink = el('a', 'lux-study-rpg-pet-link');
     petLink.href = '/pet/'; petLink.dataset.petForm = stage < 5 ? 'small' : 'evolved'; petLink.setAttribute('aria-label', 'Open your equipped pet');
     petLink.append(image(petSrc, '/art/rpg/moss.png', 'lux-study-rpg-pet', 'Your equipped pet'));
