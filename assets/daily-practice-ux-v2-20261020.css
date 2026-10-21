@@ -642,3 +642,7 @@ html.lux-daily-ux-ready.lux-daily-compact [data-lux-question-card] textarea {
   min-height:52px!important;
   max-height:30dvh!important;
 }
+
+/* While input is active and after it blurs, prevent the old pet image from
+   returning in the middle of the next quiz question. */
+html.lux-daily-ux-ready.lux-daily-compact #lux-daily-equipped-pet {display:none!important;}
