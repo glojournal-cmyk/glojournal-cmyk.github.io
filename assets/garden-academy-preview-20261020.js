@@ -15,6 +15,13 @@ const navs=[['⌂','Home','/'],['▣','Study','/study/'],
   ['◇','Play','/play/'],['❧','Garden','/garden/'],
   ['♧','Pet','/pet/'],['▥','Assessment','/assessment/'],
   ['✎','Scholar','/scholar/']];
+// The selected scene is set as an explicit live CSS property rather than
+// relying on browser-specific selector/transition invalidation (iPad WebKit).
+const setSceneArtwork=(scene,theme)=>{
+  scene.dataset.weeklyGardenTheme=theme.id;
+  scene.style.setProperty('background-image',`url("${theme.url}")`,'important');
+  scene.style.setProperty('background-size','cover','important');
+};
 const decorList=[['bench','Wooden Bench'],['roses','White Roses'],
   ['lantern','Garden Lantern'],['bookshelf','Bookshelf']];
 const create=(tag,cls,text)=>{const node=document.createElement(tag);
@@ -166,7 +173,7 @@ function assemble(){
   const scene=create('div','lux-garden-scene');
   scene.setAttribute('aria-label','Illustrated garden courtyard');
   // Weekly theme is selected without touching learner data.
-  scene.dataset.weeklyGardenTheme=gardenSceneForDate().id;
+  setSceneArtwork(scene,gardenSceneForDate());
   root.append(scene);
   scene.append(create('div','lux-garden-backdrop'));
   const title=create('header','lux-garden-title');
@@ -240,7 +247,7 @@ function render(){
   const currentTheme=gardenSceneForDate();
   const scene=root.querySelector('.lux-garden-scene');
   if(scene?.dataset.weeklyGardenTheme!==currentTheme.id){
-    scene.dataset.weeklyGardenTheme=currentTheme.id;
+    setSceneArtwork(scene,currentTheme);
     lastKey='';
   }
   document.documentElement.classList.add('lux-garden-map-active');
