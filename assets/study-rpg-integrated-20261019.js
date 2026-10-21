@@ -73,6 +73,15 @@ if (!window.__luxStudyRpgIntegrated) {
     img.loading = 'eager';
     if (fallback && fallback !== source) {
       img.addEventListener('error', () => {
+        // Safari can abort an image request during React hydration or an
+        // overlapping wardrobe redraw. Retry the selected outfit once before
+        // showing the generic learner, never silently change saved selection.
+        if (!img.isConnected) return;
+        if (!img.dataset.sourceRetried) {
+          img.dataset.sourceRetried = 'true';
+          img.src = source + (source.includes('?') ? '&' : '?') + 'imageRetry=1';
+          return;
+        }
         if (img.dataset.fallbackUsed) return;
         img.dataset.fallbackUsed = 'true';
         img.src = fallback;
