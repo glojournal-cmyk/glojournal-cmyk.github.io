@@ -8,7 +8,7 @@ const css=fs.readFileSync('assets/daily-practice-ux-v2-20261020.css','utf8');
 const ipad=fs.readFileSync('assets/ipad-experience-20261004.js','utf8');
 const entry=fs.readFileSync('assets/index-BLVOhKhN.js','utf8');
 assert.ok(css.includes('html.lux-daily-typing .lux-daily-study-nav') &&
- css.includes('html.lux-daily-ux-ready [data-lux-question-card]'),
+ css.includes('html.lux-daily-ux-ready :is([data-lux-question-card], :where([data-question-id] .rounded-xl.bg-card.p-5 > div))'),
  'CSS-only typing layout and nav concealment are missing');
 assert.ok(ipad.includes("document.activeElement?.matches?.('.lux-practice-view [data-question-id] input"),
  'legacy iPad scroll parking must not compete with text input');
