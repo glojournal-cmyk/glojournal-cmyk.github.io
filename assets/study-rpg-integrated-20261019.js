@@ -73,6 +73,15 @@ if (!window.__luxStudyRpgIntegrated) {
     img.loading = 'eager';
     if (fallback && fallback !== source) {
       img.addEventListener('error', () => {
+        // Safari can abort an image request during React hydration or an
+        // overlapping wardrobe redraw. Retry the selected outfit once before
+        // showing the generic learner, never silently change saved selection.
+        if (!img.isConnected) return;
+        if (!img.dataset.sourceRetried) {
+          img.dataset.sourceRetried = 'true';
+          img.src = source + (source.includes('?') ? '&' : '?') + 'imageRetry=1';
+          return;
+        }
         if (img.dataset.fallbackUsed) return;
         img.dataset.fallbackUsed = 'true';
         img.src = fallback;
@@ -91,6 +100,11 @@ if (!window.__luxStudyRpgIntegrated) {
     select.dispatchEvent(new Event('change', { bubbles: true }));
     queue();
   }
+  // Keep the wardrobe sprite mounted between Study rebuilds. WebKit may
+  // cancel image requests when the whole scene is recreated; the cancelled
+  // request can otherwise trigger the generic default outfit fallback.
+  const scholarImage = image('/art/home-rpg/scholar-clean.png', null, 'lux-study-rpg-scholar', 'Your Scholar');
+  let renderedOutfitSrc = '/art/home-rpg/scholar-clean.png';
   function build() {
     const state = store.getState?.() || {};
     const select = nativeSelect();
@@ -106,6 +120,12 @@ if (!window.__luxStudyRpgIntegrated) {
     const outfit = safeSlug(state.equippedOutfit || 'day', 'day');
     const scholarSrc = wardrobeOutfits.find(item => item.id === outfit)?.art || '/art/home-rpg/scholar-clean.png';
 
+    if (renderedOutfitSrc !== scholarSrc) {
+      renderedOutfitSrc = scholarSrc;
+      scholarImage.dataset.sourceRetried = '';
+      scholarImage.dataset.fallbackUsed = '';
+      scholarImage.src = scholarSrc;
+    }
     root.replaceChildren();
     root.append(el('div', 'lux-study-rpg-shade'));
     const hud = el('div', 'lux-study-rpg-hud');
@@ -116,7 +136,7 @@ if (!window.__luxStudyRpgIntegrated) {
     root.append(hud);
 
     const cast = el('div', 'lux-study-rpg-cast');
-    cast.append(image(scholarSrc, '/art/home-rpg/scholar-clean.png', 'lux-study-rpg-scholar', 'Your Scholar'));
+    cast.append(scholarImage);
     const petLink = el('a', 'lux-study-rpg-pet-link');
     petLink.href = '/pet/'; petLink.dataset.petForm = stage < 5 ? 'small' : 'evolved'; petLink.setAttribute('aria-label', 'Open your equipped pet');
     petLink.append(image(petSrc, '/art/rpg/moss.png', 'lux-study-rpg-pet', 'Your equipped pet'));
@@ -190,7 +210,18 @@ if (!window.__luxStudyRpgIntegrated) {
         const d = subjectData(id,name);return [d.secure,d.due,d.learn,d.practice,d.progress];
       })
     });
-    if (root.isConnected && key === lastKey) return;
+    // Some legacy outfit enhancers can replace the displayed sprite without
+    // changing the authoritative wardrobe state. Reconcile the visible src
+    // even if the rest of Study has not changed; never write saved progress.
+    const outfit = safeSlug(state.equippedOutfit || 'day', 'day');
+    const expectedScholar = wardrobeOutfits.find(item => item.id === outfit)?.art || '/art/home-rpg/scholar-clean.png';
+    if (root.isConnected && key === lastKey) {
+      if (scholarImage.getAttribute('src') !== expectedScholar) {
+        renderedOutfitSrc = expectedScholar;
+        scholarImage.src = expectedScholar;
+      }
+      return;
+    }
     // Rebuild the scene only when *real* app data changes. No saved state is written.
     lastKey=key;
     build();

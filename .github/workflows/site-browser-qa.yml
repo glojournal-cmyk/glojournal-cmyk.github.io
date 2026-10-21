@@ -29,6 +29,15 @@ jobs:
         with: {node-version: 22}
       - run: npm install --no-save playwright
       - run: npx playwright install --with-deps chromium webkit
+      - name: Check Garden Academy iPad map and original watering flow
+        run: node tests/garden-academy-preview-browser.mjs
+      - name: Save Garden iPad approval screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: garden-academy-ipad-preview
+          path: test-results/garden-academy-preview/
+          if-no-files-found: warn
       - name: Check Daily Practice v2 iPad layouts in Chromium and WebKit
         run: node tests/daily-practice-v2-browser.mjs
       - name: Verify October Latin questions and marking in Chromium and iPad WebKit
@@ -47,3 +56,4 @@ jobs:
             test-results/site-browser-qa.json
             test-results/latin-oct17/
             test-results/daily-practice-v2/
+            test-results/garden-academy-preview/

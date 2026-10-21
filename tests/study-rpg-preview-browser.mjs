@@ -201,6 +201,28 @@ try{
             });
             assert.ok(coordinates,'Home Study link must be frontmost and tappable');
             await page.mouse.click(coordinates.x,coordinates.y);
+          } else if (target.name === 'Scholar') {
+            // Check the real on-screen, frontmost Study link. A stale
+            // WebKit navigation node can be visible but outside the viewport.
+            await page.screenshot({path:`test-results/study-rpg-${engine.name()}-scholar-nav.png`});
+            let clicked=false;
+            for(let attempt=0;attempt<6&&!clicked;attempt++){
+              const n=await page.evaluate(()=>{
+                for(const a of document.querySelectorAll('[data-study-qa-pointer]'))a.removeAttribute('data-study-qa-pointer');
+                let count=0;
+                for(const a of document.querySelectorAll('a[href="/study"],a[href="/study/"]')){
+                  const r=a.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;
+                  if(r.width<5||r.height<5||x<1||y<1||x>=innerWidth-1||y>=innerHeight-1)continue;
+                  const hit=document.elementFromPoint(x,y);
+                  if(hit&&(hit===a||a.contains(hit))){a.setAttribute('data-study-qa-pointer','1');count++}
+                }
+                return count;
+              });
+              if(n)try{await page.locator('a[data-study-qa-pointer="1"]').last().click({force:true,timeout:3000});clicked=true}
+              catch{await page.waitForTimeout(250)}
+              else await page.waitForTimeout(250);
+            }
+            assert.ok(clicked,'Scholar must expose a pointer-tappable Study navigation link');
           } else {
             await studyNav.last().click({force:true,timeout:20000});
           }
