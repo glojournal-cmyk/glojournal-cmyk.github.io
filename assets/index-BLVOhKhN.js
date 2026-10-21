@@ -11,9 +11,10 @@ import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corr
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import("/pet/pet-care-global.js?v=20261011-storage-qa1&ux=20261013-corrections2").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261021-daily-credit1&ux=20261013-corrections2";
+export * from "./index-BLVOhKhN.core.js?v=20261021-medical-careers1&ux=20261013-corrections2";
 import {
   C as store,
+  A as medicalOutfitCatalog,
   Z as scholarLevelProgress,
   J as rewardRequirements,
   U as collectibles,
@@ -25,8 +26,21 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261021-daily-credit1&ux=20261013-corrections2";
+} from "./index-BLVOhKhN.core.js?v=20261021-medical-careers1&ux=20261013-corrections2";
 
+// medical-career-unlock-sync-v1: only unlock earned looks; never edits academic evidence.
+function syncEarnedMedicalOutfits(){
+ const state=store.getState();
+ const count=Object.values(state.topicStats||{}).filter(t=>t?.state==="mastered").length;
+ const unlocked=state.unlockedOutfits||[];
+ const earned=medicalOutfitCatalog.filter(o=>o.category==="Medical" && (o.needIf?.masteredTopics||Infinity)<=count && !unlocked.includes(o.id));
+ if(earned.length)store.setState({unlockedOutfits:[...new Set([...unlocked,...earned.map(o=>o.id)])]});
+}
+if(typeof window!=="undefined"){
+ store.subscribe((next,prior)=>{if(next.topicStats!==prior?.topicStats || next.unlockedOutfits!==prior?.unlockedOutfits)syncEarnedMedicalOutfits()});
+ store.persist?.onFinishHydration?.(syncEarnedMedicalOutfits);
+ queueMicrotask(syncEarnedMedicalOutfits);
+}
 if(typeof window!=="undefined"){
  window.__luxStore=store;
  store.subscribe(()=>window.dispatchEvent(new Event("lux:ux-state")));
