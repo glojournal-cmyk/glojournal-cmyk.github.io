@@ -340,6 +340,8 @@
   }
 
   function paintHome(pic) {
+    // Garden life is intentionally anchored to Home; Scholar has its own full-body portrait.
+    if (!/^\/(?:index\.html)?$/.test(location.pathname)) return;
     var hero = document.querySelector("img.scholar-idle");
     var frame = hero && hero.closest("div.relative");
     if (!frame || !frame.parentElement) return;
@@ -615,11 +617,11 @@
     latestPic = pic;
     writeLife(life);
     if (typeof document === "undefined") return { life: life, pic: pic };
-    paintHome(pic);
+    if (/^\/(?:index\.html)?$/.test(location.pathname)) paintHome(pic);
     if (/\/garden(?:\/index\.html)?\/?$/.test(location.pathname)) paintGarden(pic);
     else {
       /* home hero wash, only when the scholar portrait is on the page */
-      var hero = document.querySelector("img.scholar-idle");
+      var hero = /^\/(?:index\.html)?$/.test(location.pathname) ? document.querySelector("img.scholar-idle") : null;
       var frame = hero && hero.parentElement && hero.parentElement.parentElement;
       if (frame) {
         var wash = frame.querySelector("[data-lux-life='hero']");

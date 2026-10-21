@@ -4,7 +4,7 @@
  */
 import './home-journey-v2-logic-20261010.js?v=20261010-home-v2';
 import './journey-navigation-20261004.js';
-import { C as store, B as rewardScenes } from './index-BLVOhKhN.js?v=20261018-mastery2';
+import { A as wardrobeOutfits, C as store, B as rewardScenes } from './index-BLVOhKhN.js?v=20261018-mastery2';
 import { selectedRewardScene } from './rpg-scene-selection-20261019.js?v=20261019-selected-scene1';
 import { petArtUrl } from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
 import { getHomePersonality } from '/pet/home-personality-20261010.js?v=20261019-rpg-greeting1';
@@ -27,6 +27,8 @@ if (!window.__luxRpgLiveHome) {
   let greetingMessage = '';
   let scheduled = false;
   let ready = !!window.__luxAppReady;
+  let lastRenderSignature = '';
+  let pendingPaint = 0;
 
   const make = (tag, cls, value) => {
     const node = document.createElement(tag);
@@ -261,6 +263,9 @@ if (!window.__luxRpgLiveHome) {
     const nightScenes = new Set(['chem-lab','sports-hall','boss-moon-garden']);
     const coldScenes = new Set(['bio-lab']);
     root.dataset.sceneMood = coldScenes.has(scene.id) ? 'cool' : nightScenes.has(scene.id) ? 'night' : 'warm';
+    // Reuse already-decoded character sprites across store updates to prevent iPad flicker.
+    const previousScholar = root.querySelector('img.rpg-scholar-live');
+    const previousPet = root.querySelector('a.rpg-pet-live img');
     root.replaceChildren();
     const darken = make('div','rpg-shade-live');
     const world = make('section','rpg-world-live');
@@ -341,7 +346,7 @@ if (!window.__luxRpgLiveHome) {
     // Only the transparent Moss sprite has padding below the feet; use a
     // tiny optical adjustment without moving its actual floor anchor.
     cast.dataset.petSprite = safeImage(petState().species || 'moss-hornling','moss-hornling');
-    const scholar = document.createElement('img');
+    const scholar = previousScholar || document.createElement('img');
     scholar.className='rpg-scholar-live';scholar.alt='Scholar';
     const outfit = safeImage(state.equippedOutfit || 'day','day');
     // If an old equipped outfit has no live sprite (or iPad kept a stale
@@ -350,18 +355,30 @@ if (!window.__luxRpgLiveHome) {
     scholar.alt = 'Scholar character';
     scholar.loading = 'eager';
     scholar.decoding = 'sync';
-    scholar.addEventListener('error', () => {
-      if (scholar.dataset.fallbackArt) return;
-      scholar.dataset.fallbackArt = 'true';
-      scholar.src = defaultScholarArt;
-    });
-    scholar.src = outfit === 'day' ? defaultScholarArt : `/art/doll/${outfit}.png`;
+    if (!scholar.dataset.errorHandlerInstalled) {
+      scholar.dataset.errorHandlerInstalled = '1';
+      scholar.addEventListener('load', () => { scholar.style.visibility = 'visible'; });
+      scholar.addEventListener('error', () => {
+        if (scholar.dataset.fallbackArt) return;
+        scholar.dataset.fallbackArt = 'true';
+        if (scholar.getAttribute('src') !== defaultScholarArt) scholar.src = defaultScholarArt;
+      });
+    }
+    const desiredScholarArt = outfit === 'day' ? defaultScholarArt : (wardrobeOutfits.find(item => item.id === outfit)?.art || defaultScholarArt);
+    if (scholar.getAttribute('data-outfit-source') !== desiredScholarArt) {
+      delete scholar.dataset.fallbackArt;
+      scholar.dataset.outfitSource = desiredScholarArt;
+      scholar.style.visibility = 'hidden';
+      scholar.src = desiredScholarArt;
+      if (scholar.complete && scholar.naturalWidth > 0) scholar.style.visibility = 'visible';
+    }
     const pet = petState();
     const species = safeImage(pet.species || 'moss-hornling','moss-hornling');
     const petLink = make('a','rpg-pet-live');petLink.href='/pet/'; petLink.setAttribute('aria-label','Open companion');
-    const creature = document.createElement('img');creature.alt='Companion';
+    const creature = previousPet || document.createElement('img');creature.alt='Companion';
     const stage = Number(pet.petLevels?.[species] || pet.highestStage) || 1;
-    creature.src = petArtUrl(species, stage);
+    const desiredPetArt = petArtUrl(species, stage);
+    if (creature.getAttribute('src') !== desiredPetArt) creature.src = desiredPetArt;
     petLink.append(creature);cast.append(scholar,petLink);world.append(cast);
 
     const rail = make('aside','rpg-rail-live');
@@ -422,14 +439,35 @@ if (!window.__luxRpgLiveHome) {
       if (!onHome()) { originalVisible = false; greetingMessage = ''; closeGardenModal(); }
       root.remove();document.documentElement.classList.remove('lux-rpg-live-active');return;
     }
-    if (!root.isConnected) document.body.append(root);
+    // Wait for saved wardrobe state before showing the Home character.
+    if (store.persist?.hasHydrated && !store.persist.hasHydrated()) return;
     if (gardenModal) return; // Never destroy an open native Recovery dialogue.
     if (originalVisible) return;
+    const state = store.getState?.() || {};
+    const pet = petState();
+    const signature = JSON.stringify({
+      outfit: state.equippedOutfit, scene: state.equippedScene,
+      xp: state.xp, level: state.level, scholarLevel: state.scholarLevel,
+      mind: state.latinXp, body: state.bodyXp,
+      topicStats: state.topicStats, today: state.today, daily: state.daily,
+      dailyLog: state.dailyLog, formalAttemptLog: state.formalAttemptLog,
+      recovery: state.recoveryHistory, petSpecies: pet.species,
+      petLevels: pet.petLevels, petStage: pet.highestStage,
+      greetingMessage, greetingCount
+    });
+    if (root.isConnected && signature === lastRenderSignature) return;
+    render(state);
+    lastRenderSignature = signature;
+    if (!root.isConnected) document.body.append(root);
     document.documentElement.classList.add('lux-rpg-live-active');
     root.classList.remove('show-native');
-    render(store.getState?.() || {});
   }
-  function schedule(){if(!scheduled){scheduled=true;queueMicrotask(repaint);}}
+  function schedule(){
+    if (scheduled) return;
+    scheduled = true;
+    // Coalesce hydration and bursty startup changes into one animation frame.
+    pendingPaint = requestAnimationFrame(repaint);
+  }
   for(const key of ['pushState','replaceState']) {
     const previous=history[key];
     history[key]=function(){const val=previous.apply(this,arguments);schedule();return val;};
@@ -444,6 +482,6 @@ if (!window.__luxRpgLiveHome) {
   window.addEventListener('scholar:pet-changed',schedule);
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')schedule();});
   store.subscribe?.(schedule);
-  store.persist?.onFinishHydration?.(schedule);
+  store.persist?.onFinishHydration?.(() => { lastRenderSignature = ''; schedule(); });
   schedule();
 }

@@ -12,7 +12,7 @@
     if (!/^\/study\/?$/.test(location.pathname)) return;
     if (loading || window.__luxStudyRpgIntegrated) return;
     loading = true;
-    import('/assets/study-rpg-integrated-20261019.js?v=20261020-study-live1')
+    import('/assets/study-rpg-integrated-20261019.js?v=20261020-outfit-sync2')
       .catch(error => {
         loading = false;
         console.warn('Study classroom unavailable; native Study remains usable', error);
@@ -41,6 +41,19 @@
     // Enter the complete Study document, not a React layout-only SPA route.
     // Already on Study? Keep its local year selector and avoid a self reload.
     if (/^\/study\/?$/.test(location.pathname)) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    location.assign('/study/' + url.search + url.hash);
+  }, true);
+  // Home's live RPG rail can replace its link between pointerup and click.
+  // Resolve the real pointer release on that rail before React rerenders.
+  document.addEventListener('pointerup', event => {
+    if (event.button !== 0 || !/^\/$/.test(location.pathname)) return;
+    const anchor=event.target?.closest?.('#lux-rpg-live-home .rpg-nav-live a[href]');
+    if (!anchor || anchor.target === '_blank' || anchor.hasAttribute('download')) return;
+    let url;
+    try { url=new URL(anchor.href,location.href); } catch { return; }
+    if (url.origin !== location.origin || !/^\/study\/?$/.test(url.pathname)) return;
     event.preventDefault();
     event.stopImmediatePropagation();
     location.assign('/study/' + url.search + url.hash);

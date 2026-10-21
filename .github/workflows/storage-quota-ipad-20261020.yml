@@ -1,0 +1,26 @@
+name: iPad storage quota recovery
+on:
+  pull_request:
+    paths:
+      - "assets/backup-vault-20261011.js"
+      - "assets/storage-health-20261011.js"
+      - "assets/daily-progress-save.js"
+      - "tests/storage-quota-ipad-20261020.mjs"
+      - ".github/workflows/storage-quota-ipad-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ipad-storage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --check assets/backup-vault-20261011.js && node --check assets/storage-health-20261011.js && node --check assets/daily-progress-save.js
+      - run: node --test tests/storage-quota.test.mjs tests/backup-vault.test.mjs tests/backup-export.test.mjs
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps webkit
+      - run: node tests/storage-quota-ipad-20261020.mjs

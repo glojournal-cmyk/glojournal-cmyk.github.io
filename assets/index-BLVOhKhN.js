@@ -6,7 +6,7 @@ import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUno
 import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261018-receipt2";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js";
-import {buildYear8DailyV2} from "./year8-daily-v2-20261018.js";
+import {buildYear8DailyV2} from "./year8-daily-v2-20261018.js?v=20261020-daily-vocab-fix2";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
@@ -3829,8 +3829,3 @@ if(typeof document!=='undefined') {
 }
 
 if(typeof window!=="undefined"&&window.addEventListener){window.addEventListener("scholar:learning-changed",normalizeState);window.addEventListener("storage",e=>{if(e.key==="lux-topic-learning-v1")normalizeState()});}
-
-/* iPad Daily Practice keyboard visibility (UI-only module). */
-if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-  import('/assets/daily-keyboard-safe-20261020.js?v=1').catch(() => {});
-}

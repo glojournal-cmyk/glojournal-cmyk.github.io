@@ -64,32 +64,22 @@ try{
         assert.ok(checks.every(c=>c.ready),'Subject artwork should load at both years');
         await page.locator('.lux-study-rpg-year select').selectOption('9');
         await page.waitForFunction(()=>document.querySelector('main:not(#lux-study-rpg-integrated) select:has(option[value="9"])')?.value==='9');
-        // Decode the actual wardrobe asset before changing selected outfit.
-        // This catches broken assets explicitly and prevents WebKit from
-        // mistaking a still-pending sprite for a missing one on rapid redraw.
-        await page.evaluate(async()=>{
-          const art=new Image();art.src='/art/doll/cardigan.png';
-          await art.decode();
-          if(!art.naturalWidth)throw Error('Cardigan asset failed to decode');
-        });
         await page.evaluate(async()=>{
           const store=(await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2')).C;
-          if(store.persist?.hasHydrated && !store.persist.hasHydrated()){
-            await new Promise((resolve,reject)=>{
-              const timeout=setTimeout(()=>reject(Error('Study persistence hydration timed out')),12000);
-              const unsub=store.persist.onFinishHydration?.(()=>{clearTimeout(timeout);unsub?.();resolve()});
-              if(store.persist.hasHydrated()){clearTimeout(timeout);unsub?.();resolve()}
-            });
-          }
           store.setState({equippedOutfit:'cardigan'});
           localStorage.setItem('lux-pet-companion-v1',JSON.stringify({species:'moss-hornling',petLevels:{'moss-hornling':2}}));
           dispatchEvent(new Event('scholar:pet-changed'));
         });
-        await page.waitForFunction(()=>document.querySelector('.lux-study-rpg-scholar')?.getAttribute('src')?.includes('/art/doll/cardigan.png'));
+        await page.waitForFunction(async()=>{
+          const {A: outfits}=await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2');
+          const expected=outfits.find(o=>o.id==='cardigan')?.art;
+          return Boolean(expected && document.querySelector('.lux-study-rpg-scholar')?.getAttribute('src')===expected);
+        });
         const petExpected=await page.evaluate(async()=>{
           const x=await import('/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2');
           return x.petArtUrl('moss-hornling',2);
         });
+        await page.waitForFunction(expected => document.querySelector('.lux-study-rpg-pet')?.getAttribute('src') === expected, petExpected, {timeout:10000});
         assert.equal(await page.locator('.lux-study-rpg-pet').getAttribute('src'),petExpected);
         const petPixels = await page.locator('.lux-study-rpg-pet').evaluate(img => ({
           transform:getComputedStyle(img).transform,
@@ -103,24 +93,7 @@ try{
         assert.ok(petPixels.width >= (viewport.width>700 ? 165 : 125),
           'Pet should be sized natively, not scaled by CSS at '+viewport.width+'px');
         assert.equal(petPixels.quality,'auto','Pet should use native image sampling');
-        // The outfit src changes synchronously, but WebKit image decode is asynchronous.
-        // Wait for the actual rendered pixels, not merely the expected src string.
-        await page.waitForFunction(() => {
-          const img=document.querySelector('.lux-study-rpg-scholar');
-          return img?.getAttribute('src')?.includes('/art/doll/cardigan.png') &&
-            img.complete && img.naturalWidth>0 && img.getBoundingClientRect().height>200;
-        },null,{timeout:12000}).catch(async error=>{
-          const details=await page.locator('.lux-study-rpg-scholar').evaluate(img=>({
-            src:img.currentSrc,complete:img.complete,naturalWidth:img.naturalWidth,
-            height:img.getBoundingClientRect().height,display:getComputedStyle(img).display
-          }));
-          const state=await page.evaluate(async()=>{
-            const store=(await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2')).C;
-            return {outfit:store.getState().equippedOutfit,hydrated:store.persist?.hasHydrated?.(),
-              mode:document.documentElement.className};
-          });
-          throw new Error('Equipped outfit image not rendered: '+JSON.stringify({details,state}),{cause:error});
-        });
+        assert.ok(await page.locator('.lux-study-rpg-scholar').evaluate(img => img.complete && img.naturalWidth>0 && img.getBoundingClientRect().height > 200),'Equipped outfit image must be rendered');
         assert.ok(await page.locator('.lux-study-rpg-pet').evaluate(img => img.complete && img.naturalWidth>0),'Selected pet image must be rendered');
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-nav a').count(),7,'Nav must remain intact after outfit/pet changes');
         assert.equal(await studyNavigationIsFrontmost(page),true,'Study navigation must remain frontmost after outfit/pet updates');
@@ -196,8 +169,9 @@ try{
           // Home mounts both the original React nav and the RPG nav.
           // Only the RPG nav is frontmost/tappable; a generic :visible match
           // can select an underlying original link behind the new Home.
-          const studyNav=target.name==='Home'
-            ? page.locator('html.lux-rpg-live-active #lux-rpg-live-home .rpg-nav-live a[href="/study"]')
+          const homeLive=target.name==='Home' && await page.locator('html.lux-rpg-live-active #lux-rpg-live-home .rpg-nav-live a[href="/study"]:visible').count()>0;
+          const studyNav=homeLive
+            ? page.locator('html.lux-rpg-live-active #lux-rpg-live-home .rpg-nav-live a[href="/study"]:visible')
             : page.locator('a[href="/study"]:visible, a[href="/study/"]:visible');
           // On first Home paint the RPG nav exists but is hidden until the
           // approved scene takes over. Do not click its invisible placeholder.
@@ -206,38 +180,52 @@ try{
           // default "stable box" check can stall despite a visible, tappable
           // link. Keep the :visible requirement, but don't require a motionless
           // rectangle before dispatching the real pointer event.
-          // Scholar can expose a stale off-viewport link while its real
-          // responsive rail hydrates. Exercise a genuinely frontmost,
-          // on-screen link with a pointer, never an invisible DOM shortcut.
-          if(target.name==='Scholar'){
+          if (target.name === 'Home') {
+            // Exercise a real pointer tap on the frontmost visible navigation
+            // rather than force-clicking a possibly occluded React link.
+            await page.waitForFunction(() => {
+              const live=document.querySelector('html.lux-rpg-live-active #lux-rpg-live-home .rpg-nav-live a[href="/study"]');
+              return Boolean(live && live.getBoundingClientRect().width > 0);
+            },null,{timeout:15000}).catch(()=>{});
+            await page.locator('a[href="/study"]:visible').last().scrollIntoViewIfNeeded().catch(()=>{});
+            const coordinates=await page.evaluate(() => {
+              const anchors=[...document.querySelectorAll('a[href="/study"],a[href="/study/"]')];
+              for(const a of anchors.reverse()){
+                const r=a.getBoundingClientRect();
+                if(r.width<4||r.height<4)continue;
+                const x=r.left+r.width/2,y=r.top+r.height/2;
+                const top=document.elementFromPoint(x,y);
+                if(top && (a===top||a.contains(top)))return {x,y};
+              }
+              return null;
+            });
+            assert.ok(coordinates,'Home Study link must be frontmost and tappable');
+            await page.mouse.click(coordinates.x,coordinates.y);
+          } else if (target.name === 'Scholar') {
+            // Check the real on-screen, frontmost Study link. A stale
+            // WebKit navigation node can be visible but outside the viewport.
             await page.screenshot({path:`test-results/study-rpg-${engine.name()}-scholar-nav.png`});
             let clicked=false;
             for(let attempt=0;attempt<6&&!clicked;attempt++){
-              const candidates=await page.evaluate(()=>{
+              const n=await page.evaluate(()=>{
                 for(const a of document.querySelectorAll('[data-study-qa-pointer]'))a.removeAttribute('data-study-qa-pointer');
                 let count=0;
                 for(const a of document.querySelectorAll('a[href="/study"],a[href="/study/"]')){
-                  const r=a.getBoundingClientRect();
-                  const x=r.left+r.width/2,y=r.top+r.height/2;
+                  const r=a.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;
                   if(r.width<5||r.height<5||x<1||y<1||x>=innerWidth-1||y>=innerHeight-1)continue;
                   const hit=document.elementFromPoint(x,y);
                   if(hit&&(hit===a||a.contains(hit))){a.setAttribute('data-study-qa-pointer','1');count++}
                 }
                 return count;
               });
-              if(candidates){
-                try{await page.locator('a[data-study-qa-pointer="1"]').last().click({force:true,timeout:3000});clicked=true;}
-                catch{await page.waitForTimeout(250)}
-              }else await page.waitForTimeout(250);
+              if(n)try{await page.locator('a[data-study-qa-pointer="1"]').last().click({force:true,timeout:3000});clicked=true}
+              catch{await page.waitForTimeout(250)}
+              else await page.waitForTimeout(250);
             }
-            if(!clicked){
-              const positions=await page.locator('a[href="/study"],a[href="/study/"]').evaluateAll(nodes=>nodes.map(a=>({
-                href:a.href,rect:a.getBoundingClientRect().toJSON(),display:getComputedStyle(a).display,
-                visibility:getComputedStyle(a).visibility
-              })));
-              throw Error('No pointer-tappable Scholar Study navigation: '+JSON.stringify(positions));
-            }
-          }else await studyNav.last().click({force:true,timeout:20000});
+            assert.ok(clicked,'Scholar must expose a pointer-tappable Study navigation link');
+          } else {
+            await studyNav.last().click({force:true,timeout:20000});
+          }
         }
         await page.waitForURL(u=>/^\/study\/?$/.test(u.pathname),{waitUntil:'domcontentloaded',timeout:20000});
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});

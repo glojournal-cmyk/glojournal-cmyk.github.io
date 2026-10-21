@@ -1,0 +1,132 @@
+/* Scholar page-specific scene restoration & Play-matched chrome */
+body:has(.lux-scholar-rebuilt) .lux-scholar-stage>img:first-child{display:block!important;opacity:1!important;filter:saturate(.85) brightness(.88)!important;transform:none!important;object-fit:cover!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-stage>div:nth-child(2){background:linear-gradient(0deg,rgba(10,26,41,.25),transparent 50%,rgba(9,25,40,.15))!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-stage .dress-pop{position:relative;z-index:2}
+body:has(.lux-scholar-rebuilt) .paper-wash>header.sticky{display:none!important}
+body:has(.lux-scholar-rebuilt) .paper-wash>aside{display:none!important}
+body:has(.lux-scholar-rebuilt) .paper-wash{padding-left:0!important}
+body:has(.lux-scholar-rebuilt) main{max-width:1560px!important;margin:auto!important;padding-top:18px!important;padding-bottom:105px!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt>header{display:none!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt>div.flex.flex-wrap.gap-2{padding:4px 0 8px}
+body:has(.lux-scholar-rebuilt) nav.fixed.inset-x-3.bottom-3{display:none!important}
+.lux-scholar-play-nav{position:fixed;left:50%;bottom:calc(.65rem + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:2147482000;display:flex;align-items:center;justify-content:center;gap:clamp(.2rem,.9vw,.8rem);width:min(86%,63rem);max-width:calc(100% - .8rem);min-height:3.7rem;padding:.18rem .35rem;border-radius:999px;background:#172d38ec;box-shadow:0 5px 20px #0c1d2d55;overflow-x:auto;scrollbar-width:none}
+.lux-scholar-play-nav a{display:flex;flex:1 0 0;min-width:4.25rem;max-width:8.5rem;flex-direction:column;align-items:center;justify-content:center;gap:.05rem;min-height:3.3rem;border-radius:99px;text-decoration:none;color:#f5eedf;font:500 clamp(.65rem,1vw,.86rem)/1.15 'Source Sans 3',sans-serif}
+.lux-scholar-play-nav a svg{width:1.25rem;height:1.25rem;display:block}
+.lux-scholar-play-nav a[aria-current=page]{background:#faf4e9;color:#193646}
+.lux-scholar-play-nav a:hover:not([aria-current=page]){background:#ffffff27}
+.lux-scholar-play-nav a:focus-visible{outline:3px solid #eac384;outline-offset:2px}
+@media(max-width:740px){.lux-scholar-play-nav{width:calc(100% - 1rem);justify-content:flex-start}.lux-scholar-play-nav a{min-width:3.5rem;font-size:.67rem}}
+
+/* Collection aligns with Achievements and Settings: comfortable cream framed cards. */
+body:has(.lux-scholar-rebuilt) .lux-scholar-collection{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important;max-width:1320px;margin-inline:auto;width:100%}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid #c8ac80!important;border-radius:16px!important;background:#f8f0e2!important;color:#24384a!important;box-shadow:0 9px 22px #050e1836;transition:transform .15s}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible img{width:100%!important;height:176px!important;object-fit:contain!important;background:linear-gradient(145deg,#e0e4dc,#f3eddf)!important;padding:12px}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible>div{padding:15px 17px 18px!important;border-top:1px solid #d5c3a5}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible>div>p:first-child{font-size:17px!important;line-height:1.3;font-weight:700!important;color:#1b3448!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible>div>p:not(:first-child){font-size:13px!important;line-height:1.45;color:#647181!important;margin-top:6px}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible:has(img.grayscale){background:#e8e5df!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible:has(img.grayscale) img{filter:grayscale(.85)!important;opacity:.65}
+@media(max-width:980px){body:has(.lux-scholar-rebuilt) .lux-scholar-collection{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){body:has(.lux-scholar-rebuilt) .lux-scholar-collection{grid-template-columns:1fr!important}}
+
+/* Consistent Scholar Settings and Achievements design, same visual system as Collection */
+body:has(.lux-scholar-rebuilt) .lux-scholar-achievements{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important;align-items:stretch;max-width:1320px;width:100%;margin-inline:auto}
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal{background:#f8f0e2!important;color:#233b4c!important;border:1px solid #c8ac80!important;border-radius:16px!important;box-shadow:0 9px 22px #050e1836!important;padding:20px!important;min-height:145px}
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal p:first-child{font-size:17px!important;font-weight:700!important;color:#1b3448!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal p.text-muted{color:#637384!important;line-height:1.5}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings{background:#f8f0e2!important;color:#233b4c!important;border:1px solid #c8ac80!important;border-radius:16px!important;box-shadow:0 9px 22px #050e1836!important;padding:clamp(18px,2.6vw,30px)!important;max-width:1150px;width:100%;margin-inline:auto}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings h3{color:#1b3448!important;font-size:clamp(22px,2vw,29px)!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings p.text-muted,body:has(.lux-scholar-rebuilt) .lux-scholar-settings span.text-muted{color:#637384!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings>div{padding-bottom:17px;border-bottom:1px solid #d8c5a6}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings>div:last-child{border-bottom:0;padding-bottom:0}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings button{min-height:44px!important;border-radius:10px}
+@media(max-width:740px){body:has(.lux-scholar-rebuilt) .lux-scholar-achievements{grid-template-columns:1fr!important}}
+
+/* Readable foreground contrast across Scholar's dark stage and cream cards. */
+body:has(.lux-scholar-rebuilt) .lux-scholar-stage,body:has(.lux-scholar-rebuilt) .lux-scholar-stage p,body:has(.lux-scholar-rebuilt) .lux-scholar-stage span:not(button span){color:#fff4df!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-stage>div:last-child p,body:has(.lux-scholar-rebuilt) .lux-scholar-stage>div:last-child span{color:#fff4df!important;text-shadow:0 1px 4px #0b192b}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt>div.flex.flex-wrap.gap-2 button{color:#fff6e6!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt>div.flex.flex-wrap.gap-2 button:first-child{color:#142738!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings,body:has(.lux-scholar-rebuilt) .lux-scholar-settings label,body:has(.lux-scholar-rebuilt) .lux-scholar-settings strong,body:has(.lux-scholar-rebuilt) .lux-scholar-settings span{color:#1b3448!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings p,body:has(.lux-scholar-rebuilt) .lux-scholar-settings small{color:#586878!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings input,body:has(.lux-scholar-rebuilt) .lux-scholar-settings textarea{background:#fffaf1!important;color:#1b3448!important;border:1px solid #bba884!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings input::placeholder{color:#6a7580!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal,body:has(.lux-scholar-rebuilt) .lux-scholar-medal span,body:has(.lux-scholar-rebuilt) .lux-scholar-medal p{color:#1b3448!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible,body:has(.lux-scholar-rebuilt) .lux-scholar-collectible span,body:has(.lux-scholar-rebuilt) .lux-scholar-collectible p{color:#1b3448!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-closet,body:has(.lux-scholar-rebuilt) .lux-scholar-closet h2,body:has(.lux-scholar-rebuilt) .lux-scholar-closet p{color:#1c3448!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-closet button:not(.bg-navy){color:#1c3448!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-closet button.bg-navy{color:#fff7e8!important}
+
+/* Weekly parent report belongs in Settings, not as a floating page footer. */
+body:has(.lux-scholar-rebuilt) .lux-scholar-weekly-link{display:flex;align-items:center;min-height:54px;padding:13px 18px;border:1px solid #c8ac80;border-radius:13px;background:#e8ddc9;color:#17344a!important;font-weight:700;text-decoration:none}
+body:has(.lux-scholar-rebuilt) .lux-scholar-weekly-link:hover{background:#dbcaa9}
+body:has(.lux-scholar-rebuilt) a[href="/progress/weekly/"]:not(.lux-scholar-weekly-link){display:none!important}
+
+/* Approved Play Hall language: midnight-blue panels, warm ivory, bright gold piping. */
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal{
+ background:linear-gradient(125deg,#203f50ee,#122d3dee)!important;
+ color:#fff3d9!important;border:2px solid #ddb875!important;
+ border-radius:17px!important;box-shadow:0 10px 0 #081f2c65,0 16px 32px #07142168!important;
+ min-height:174px!important;padding:22px 24px!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal p:first-child{
+ color:#fff1d2!important;font:700 clamp(20px,1.8vw,26px)/1.15 'Cormorant Garamond',Georgia,serif!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal p.text-muted,
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal p.text-navy,
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal span:not([data-state]){
+ color:#dfd6bf!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-medal [role="progressbar"]{background:#c3b49475!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings{
+ background:linear-gradient(125deg,#244657f4,#152f40f5)!important;
+ color:#faf2dd!important;border:2px solid #ddb875!important;
+ box-shadow:0 10px 0 #081f2c65,0 16px 32px #07142168!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings h3{
+ color:#fff0d0!important;font-size:clamp(24px,2.5vw,32px)!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings label,
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings span,
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings strong{color:#fff4df!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings p,
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings p.text-muted,
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings span.text-muted,
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings small{color:#e1d7c3!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings>div{border-bottom-color:#b79d745c!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings input{color:#193546!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-settings .lux-scholar-weekly-link{
+ background:#faf0d9!important;border:2px solid #e7c17a!important;color:#173344!important
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible{
+ background:linear-gradient(135deg,#26495b,#132d3b)!important;
+ border:2px solid #ddb875!important;
+ border-radius:17px!important;color:#fff3da!important;
+ box-shadow:0 10px 0 #081f2c65,0 16px 32px #07142168!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible img{
+ height:175px!important;object-fit:cover!important;padding:0!important;
+ background:#203d4c!important;border-radius:14px 14px 0 0!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible>div{
+ background:#f6ead1!important;padding:15px 18px 18px!important;
+ color:#203747!important;border-top:2px solid #ddb875!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible>div p:first-child{
+ color:#1b3546!important;font:700 22px/1.1 'Cormorant Garamond',Georgia,serif!important
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible>div p:not(:first-child){color:#506574!important}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible:has(img.grayscale){
+ background:linear-gradient(135deg,#2e4752,#233543)!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-collectible:has(img.grayscale) img{opacity:.7!important}
+
+/* Flicker guard: maintain one permanent Play-style rail on Scholar.
+   Never remove injected companion links from DOM: hide them without observer writes. */
+.lux-scholar-play-nav>a:not([data-lux-scholar-nav="1"]){display:none!important}
+html.lux-scholar-rail-active nav.fixed.inset-x-3.bottom-3{display:none!important}
+html.lux-scholar-rail-active .paper-wash>header.sticky,
+html.lux-scholar-rail-active .paper-wash>aside{display:none!important}
+html.lux-scholar-rail-active .paper-wash{padding-left:0!important}
+.lux-scholar-play-nav{animation:none!important;transition:none!important;will-change:auto!important}
+.lux-scholar-play-nav>a[data-lux-scholar-nav]{animation:none!important;transition:background-color .15s ease!important}
