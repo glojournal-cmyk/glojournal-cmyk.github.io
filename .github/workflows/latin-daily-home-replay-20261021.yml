@@ -1,0 +1,48 @@
+name: Latin Daily Home answer replay QA
+on:
+  pull_request:
+    paths:
+      - 'assets/daily-answer-replay-20261021.js'
+      - 'assets/daily-answer-replay-boot-20261021.js'
+      - 'tests/daily-answer-replay-20261021.test.mjs'
+      - 'tests/latin-daily-home-replay-browser-20261021.mjs'
+      - '**/index.html'
+      - 'index.html'
+      - '404.html'
+      - '.github/workflows/latin-daily-home-replay-20261021.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'assets/daily-answer-replay-20261021.js'
+      - 'assets/daily-answer-replay-boot-20261021.js'
+      - 'tests/daily-answer-replay-20261021.test.mjs'
+      - 'tests/latin-daily-home-replay-browser-20261021.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify replay JavaScript syntax
+        run: |
+          node --check assets/daily-answer-replay-20261021.js
+          node --check assets/daily-answer-replay-boot-20261021.js
+          node --check tests/latin-daily-home-replay-browser-20261021.mjs
+      - name: Check no duplicate, borrowed or unmarked Latin credit
+        run: node --test tests/daily-answer-replay-20261021.test.mjs
+  webkit-home:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Check real front page and reload in Chromium and iPad WebKit
+        run: node tests/latin-daily-home-replay-browser-20261021.mjs
