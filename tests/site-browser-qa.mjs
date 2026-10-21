@@ -64,27 +64,44 @@ for(const [engine,launcher] of [["chromium",chromium],["webkit",webkit]]){
       });
       if(!visual.stage||!visual.closet||!visual.cards||!visual.sceneVisible||visual.newRail!==7||!visual.extraRailLinksHidden||!visual.oldHeaderHidden||!visual.noGardenOverlay||!visual.noOldWeeklyCard||visual.columns!==(1024<=1050?2:3))
         problem(row,"scholar-visual-regression",visual);
+      await page.setViewportSize({width:1024,height:768});
       const railStability=await page.evaluate(async()=>{
         const original=document.querySelector(".lux-scholar-play-nav");
         const owned=[...original?.querySelectorAll("a[data-lux-scholar-nav]")||[]];
-        let disappearing=0,replaced=0,hiddenExtra=0;
+        let disappearing=0,replaced=0,hiddenExtra=0,offCenter=0,clipped=0;
         const check=()=>{
           const nav=document.querySelector(".lux-scholar-play-nav");
           if(nav!==original||!nav?.isConnected){replaced++;return;}
           const rect=nav.getBoundingClientRect(),style=getComputedStyle(nav);
           if(style.display==="none"||style.visibility==="hidden"||Number(style.opacity)<0.8||
              rect.width<200||rect.height<35||rect.bottom>innerHeight+2||rect.top<0)disappearing++;
+          if(Math.abs((rect.left+rect.width/2)-innerWidth/2)>4)offCenter++;
+          if(rect.left<0||rect.right>innerWidth)clipped++;
           if(owned.some(a=>!a.isConnected||!nav.contains(a)))replaced++;
           if([...nav.querySelectorAll("a:not([data-lux-scholar-nav])")].some(a=>getComputedStyle(a).display!=="none"))hiddenExtra++;
         };
         for(let i=0;i<35;i++){check();await new Promise(resolve=>setTimeout(resolve,55));}
-        return {replaced,disappearing,hiddenExtra,owned:owned.length};
+        return {replaced,disappearing,hiddenExtra,offCenter,clipped,owned:owned.length};
       });
-      if(railStability.replaced||railStability.disappearing||railStability.hiddenExtra||railStability.owned!==7)
+      if(railStability.replaced||railStability.disappearing||railStability.hiddenExtra||railStability.offCenter||railStability.clipped||railStability.owned!==7)
         problem(row,"scholar-bottom-nav-flashing",railStability);
       for(const [tab,selector] of [["Collection",".lux-scholar-collection .lux-scholar-collectible"],["Achievements",".lux-scholar-achievements .lux-scholar-medal"],["Settings",".lux-scholar-settings .lux-scholar-weekly-link"]]){
         await page.getByRole("button",{name:tab,exact:true}).click();
         if(await page.locator(selector).count()===0)problem(row,"scholar-tab-layout-missing",{tab,selector});
+        const frame=await page.evaluate(()=>{
+          const portrait=document.querySelector(".lux-scholar-profile-stage");
+          const picture=document.querySelector(".lux-scholar-profile-hero");
+          const content=document.querySelector(".lux-scholar-rebuilt > .lux-scholar-collection, .lux-scholar-rebuilt > .lux-scholar-achievements, .lux-scholar-rebuilt > .lux-scholar-settings");
+          if(!portrait||!picture||!content)return null;
+          const a=portrait.getBoundingClientRect(),b=content.getBoundingClientRect(),c=picture.getBoundingClientRect();
+          return {portraitLeft:a.left,portraitRight:a.right,contentLeft:b.left,contentTop:b.top,portraitTop:a.top,pictureWidth:c.width,frameWidth:a.width,pictureSrc:picture.getAttribute("src"),portraitBackdrop:getComputedStyle(document.querySelector(".lux-scholar-profile-frame")).backgroundImage};
+        });
+        if(!frame||frame.contentLeft<frame.portraitRight-3||
+           Math.abs(frame.contentTop-frame.portraitTop)>18||
+           frame.pictureWidth>frame.frameWidth*.70||
+           !frame.portraitBackdrop.includes("/art/"))
+          problem(row,"scholar-profile-frame-layout",{tab,frame});
+
       }
     }
     if(snap.text.trim().length<35)problem(row,"empty-page",snap.text);
