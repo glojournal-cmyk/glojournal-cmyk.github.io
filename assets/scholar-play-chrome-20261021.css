@@ -1,0 +1,18 @@
+/* Scholar page-specific scene restoration & Play-matched chrome */
+body .lux-scholar-stage>img:first-child{display:block!important;opacity:1!important;filter:saturate(.85) brightness(.88)!important;transform:none!important;object-fit:cover!important}
+body .lux-scholar-stage>div:nth-child(2){background:linear-gradient(0deg,rgba(10,26,41,.25),transparent 50%,rgba(9,25,40,.15))!important}
+body .lux-scholar-stage .dress-pop{position:relative;z-index:2}
+body .paper-wash>header.sticky{display:none!important}
+body .paper-wash>aside{display:none!important}
+body .paper-wash{padding-left:0!important}
+body main{max-width:1560px!important;margin:auto!important;padding-top:18px!important;padding-bottom:105px!important}
+body .lux-scholar-rebuilt>header{display:none!important}
+body .lux-scholar-rebuilt>div.flex.flex-wrap.gap-2{padding:4px 0 8px}
+body nav.fixed.inset-x-3.bottom-3{display:none!important}
+.lux-scholar-play-nav{position:fixed;left:50%;bottom:calc(.65rem + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:2147482000;display:flex;align-items:center;justify-content:center;gap:clamp(.2rem,.9vw,.8rem);width:min(86%,63rem);max-width:calc(100% - .8rem);min-height:3.7rem;padding:.18rem .35rem;border-radius:999px;background:#172d38ec;box-shadow:0 5px 20px #0c1d2d55;overflow-x:auto;scrollbar-width:none}
+.lux-scholar-play-nav a{display:flex;flex:1 0 0;min-width:4.25rem;max-width:8.5rem;flex-direction:column;align-items:center;justify-content:center;gap:.05rem;min-height:3.3rem;border-radius:99px;text-decoration:none;color:#f5eedf;font:500 clamp(.65rem,1vw,.86rem)/1.15 'Source Sans 3',sans-serif}
+.lux-scholar-play-nav a svg{width:1.25rem;height:1.25rem;display:block}
+.lux-scholar-play-nav a[aria-current=page]{background:#faf4e9;color:#193646}
+.lux-scholar-play-nav a:hover:not([aria-current=page]){background:#ffffff27}
+.lux-scholar-play-nav a:focus-visible{outline:3px solid #eac384;outline-offset:2px}
+@media(max-width:740px){.lux-scholar-play-nav{width:calc(100% - 1rem);justify-content:flex-start}.lux-scholar-play-nav a{min-width:3.5rem;font-size:.67rem}}
