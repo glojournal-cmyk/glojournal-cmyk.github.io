@@ -23,7 +23,7 @@ const bottom=()=>`<nav class="maths-nav" aria-label="Primary navigation">${NAV.m
 const shell=(body,title=selected.title)=>{document.title=`Maths · ${title} · Scholar's Garden`;content.innerHTML=`<div class="maths-background"></div><div class="maths-frame">${header()}<div class="maths-layout">${body}</div></div>${bottom()}<p id="maths-save-warning" class="maths-save-warning" hidden role="alert">Could not save Maths progress on this device. Storage may be full or restricted.</p>`;};
 function score(id){let r=answers.records[id];return r&&r.reviewed?{attempts:r.attempts||0,correct:!!r.correct}:null}
 function topicStats(id){const rows=(bank?.topicId===id?bank.questions:[]).map(q=>answers.records[q.id]).filter(x=>x?.reviewed);return{attempts:rows.length,correct:rows.filter(x=>x.correct).length};}
-function summaryCard(){return `<aside class="maths-summary"><div class="maths-stamp">✦ EQUIPPED SCHOLAR ✦</div><div class="maths-sprites"><img class="maths-scholar" alt="Your equipped Scholar" src="/art/home-rpg/scholar-clean.png"><img class="maths-pet" alt="Your selected pet" src="/art/rpg/moss.png"></div><p class="maths-caption">Outfit and Pet follow your existing Wardrobe and Pet selections.</p><p class="maths-subtle">Study only · never added to Daily Tasks</p></aside>`}
+function summaryCard(){return `<aside class="maths-summary"><div class="maths-stamp">✦ EQUIPPED SCHOLAR ✦</div><div class="maths-sprites"><img class="maths-scholar" alt="Your currently equipped Scholar" hidden><img class="maths-pet" alt="Your currently selected Pet and evolution" hidden><p class="maths-cast-status" role="status">Loading your selected outfit and Pet…</p></div><p class="maths-caption">Your current Wardrobe outfit and Pet · live sync</p><p class="maths-subtle">Study only · never added to Daily Tasks</p></aside>`}
 function sideMenu(active=page){return `<aside class="maths-side"><h2>${esc(selected.title)}</h2><p>100 questions · Full worked marking scheme</p><a class="${active==='topics'?'is-on':''}" href="${chapterLink('')}">▤ Topic Selection</a><a class="${active==='learn'?'is-on':''}" href="${chapterLink('learn')}">▣ Learn</a><a class="${active==='practise'?'is-on':''}" href="${chapterLink('practise')}">✎ Practise</a><a class="${active==='progress'?'is-on':''}" href="${chapterLink('progress')}">▥ Progress</a></aside>`}
 function topicCards(){let cards=list.map((t,i)=>`<a class="maths-topic-card" href="${chapterLink('',t.id)}"><b class="maths-topic-num">${i+1}</b><span class="maths-topic-label"><strong>${esc(t.title)}</strong><small>${t.questions} practice & GCSE-style questions</small></span><span class="maths-topic-glyph">${['xⁿ','×10ⁿ','ƒx','{x,y}','↗'][i]}</span><span aria-hidden="true">›</span></a>`).join('');return `<main class="maths-paper maths-topics-paper"><div class="maths-paper-title">Choose a Maths Topic <small>Year 9 · Topics 1–5</small></div>${cards}</main>`;}
 function drawTopics(){let topicChosen=query.has('topic');if(!topicChosen){shell(`${summaryCard()}${topicCards()}`,'Topic Selection');return}shell(`${sideMenu('topics')}<main class="maths-paper"><div class="maths-paper-title">${esc(selected.title)}<small>Topic ${list.indexOf(selected)+1} · Year 9</small></div><p class="maths-lead">Choose how you want to study this topic.</p><div class="maths-option-grid"><a href="${chapterLink('learn')}"><span>▣</span><strong>Learn</strong><small>Source-based explanations and worked examples</small></a><a href="${chapterLink('practise')}"><span>✎</span><strong>Practise</strong><small>Quick, topic, exam-style and mixed sessions</small></a><a href="${chapterLink('progress')}"><span>▥</span><strong>Progress</strong><small>Your real reviewed practice record</small></a></div><a class="maths-link" href="${chapterLink('').split('?')[0]}">← View all five topics</a></main>`);}
@@ -74,5 +74,44 @@ async function drawPractise(){await getBank();if(!query.has('start')){
 function saveDraft(id,text){drafts[id]=text;save(DKEY,drafts)}
 async function redrawQuestion(){document.getElementById('maths-active-question').innerHTML=currentCard();await mountCharts();}
 async function drawProgress(){await getBank();let total=bank.questions.length;let attempts=bank.questions.map(q=>score(q.id)).filter(Boolean);let good=attempts.filter(r=>r.correct).length;let groups=[...byStrand()].map(([name,qs])=>({name,n:qs.map(q=>score(q.id)).filter(Boolean).length,correct:qs.filter(q=>score(q.id)?.correct).length,count:qs.length}));let row=groups.map(g=>{let pct=g.n?Math.round(g.correct/g.n*100):0;return `<div class="maths-progress-row"><span>${esc(g.name)} <small>${g.n} reviewed / ${g.count}</small></span><div class="maths-bar"><i style="width:${g.n?pct:0}%"></i></div><b>${g.n?pct+'%':'—'}</b></div>`}).join('');let overall=attempts.length?Math.round(good/attempts.length*100):0;let wrong=bank.questions.filter(q=>score(q.id)&&!score(q.id).correct);shell(`${sideMenu('progress')}<main class="maths-paper"><div class="maths-paper-title">Your Progress <small>${esc(selected.title)}</small></div><div class="maths-progress-summary"><div><span>Questions reviewed</span><strong>${attempts.length} / ${total}</strong></div><div><span>Self-reported correct</span><strong>${good} / ${attempts.length}</strong></div><div><span>Review accuracy</span><strong>${attempts.length?overall+'%':'Not yet assessed'}</strong></div></div><div class="maths-progress-rows">${row}</div><h2>Review your difficult questions</h2>${wrong.length?`<div class="maths-incorrect">${wrong.slice(0,12).map(q=>`<a href="${chapterLink('practise',selected.id,'&mode=review&start=1&question='+encodeURIComponent(q.id))}">↻ ${esc(q.id)} — ${esc(q.strand)}</a>`).join('')}</div>`:'<p class="maths-help">No questions marked for revision yet.</p>'}<p class="maths-note">Progress is based on answers you have reviewed against the source marking scheme, not a fabricated grade or automatic examiner score. Records are kept separately from Daily Tasks.</p></main>`);}
-async function syncCast(){const target=document.querySelector('.maths-sprites');if(!target)return;try{const {A:wardrobeOutfits,C:store}=await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2');const {petArtUrl}=await import('/pet/pet-art-hd-20261009.js?v=20261019-baphomet1');const render=()=>{let st=store.getState?.()||{};let outfit=wardrobeOutfits.find(x=>x.id===st.equippedOutfit);let scholar=target.querySelector('.maths-scholar');if(outfit?.art&&scholar?.getAttribute('src')!==outfit.art)scholar.src=outfit.art;let pet={};try{pet=JSON.parse(localStorage.getItem('lux-pet-companion-v1')||'{}')}catch{}let species=pet.species||'moss-hornling';let stage=Math.min(10,Math.max(1,Number(pet.petLevels?.[species]||pet.highestStage)||1));const petImg=target.querySelector('.maths-pet');let image=petArtUrl(species,stage);if(image&&petImg?.getAttribute('src')!==image)petImg.src=image;};render();store.subscribe?.(render);store.persist?.onFinishHydration?.(render);window.addEventListener('scholar:wardrobe-changed',render);window.addEventListener('scholar:pet-changed',render);window.addEventListener('pageshow',render);}catch{target.closest('.maths-summary')?.classList.add('maths-sync-waiting');}}
+async function syncCast(){
+  const target=document.querySelector('.maths-sprites');if(!target)return;
+  const message=target.querySelector('.maths-cast-status');
+  const scholar=target.querySelector('.maths-scholar'),petImg=target.querySelector('.maths-pet');
+  const setSprite=(img,source)=>{
+    if(!img||!source)return;
+    if(img.getAttribute('src')===source){
+      if(img.complete&&img.naturalWidth>0)img.hidden=false;
+      return;
+    }
+    img.hidden=true;
+    img.onload=()=>{img.hidden=false;if(!scholar.hidden&&!petImg.hidden)message.hidden=true;};
+    img.onerror=()=>{img.hidden=true;message.textContent='Selected character or Pet art is unavailable. Your outfit and Pet selections have not been changed.';message.hidden=false;};
+    img.src=source;
+  };
+  try{
+    const {A:wardrobeOutfits,C:store}=await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2');
+    const {petArtUrl}=await import('/pet/pet-art-hd-20261009.js?v=20261019-baphomet1');
+    const render=()=>{
+      if(!target.isConnected)return;
+      const st=store.getState?.()||{},outfitId=st.equippedOutfit||'day';
+      const outfit=wardrobeOutfits.find(x=>x.id===outfitId);
+      if(outfit?.art)setSprite(scholar,outfit.art);
+      else{scholar.hidden=true;message.hidden=false;message.textContent='Equipped outfit art could not be located.';}
+      let pet={};try{pet=JSON.parse(localStorage.getItem('lux-pet-companion-v1')||'{}')||{};}catch{}
+      const species=/^[a-z\d-]+$/i.test(String(pet.species||''))?pet.species:'moss-hornling';
+      const stage=Math.min(10,Math.max(1,Number(pet.petLevels?.[species]||pet.highestStage)||1));
+      try{const source=petArtUrl(species,stage);if(source)setSprite(petImg,source);}catch{
+        petImg.hidden=true;message.hidden=false;message.textContent='Your chosen Pet image is currently unavailable.';
+      }
+    };
+    render();
+    store.subscribe?.(render);store.persist?.onFinishHydration?.(render);
+    for(const name of ['scholar:wardrobe-changed','scholar:pet-changed','storage','pageshow'])window.addEventListener(name,render);
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden)render();});
+  }catch{
+    target.closest('.maths-summary')?.classList.add('maths-sync-waiting');
+    message.hidden=false;message.textContent='Could not read your selected outfit and Pet on this page. Your selections are unchanged.';
+  }
+}
 try{if(page==='topics')drawTopics();else if(page==='learn')await drawLearn();else if(page==='practise')await drawPractise();else await drawProgress();syncCast();}catch(e){console.error('Maths Study:',e);shell(`<main class="maths-paper"><h2>Unable to load Maths</h2><p>${esc(e.message||e)}</p><a href="/study/">Return to Study</a></main>`,'Loading problem');}
