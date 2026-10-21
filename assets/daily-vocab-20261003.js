@@ -20,6 +20,7 @@ function isHeadword(q,subject) {
   // French determiner + noun and Latin dictionary forms are vocabulary,
   // but subject/verb clauses are not.
   if(/^(?:je|j'|tu|il|elle|nous|vous|ils|elles)\b/i.test(foreign) && pieces.length>1)return false;
+  if(subject==='french' && pieces.length>1 && !/^(?:(?:un|une|le|la|les|l['’]|des|du|de|mon|ma|mes|son|sa|ses)\s*)?[a-zàâäçéèêëîïôöùûüÿœæ'’-]+$/i.test(foreign))return false;
   if(/^(?:ego|tu|ille|illa|nos|vos)\b/i.test(foreign) && pieces.length>1)return false;
   const english=String(dir==='toForeign'?stim:terms[0]).trim();
   if(!english || /[!?;\n]/.test(english) || english.split(/\s+/).length>6)return false;
@@ -30,7 +31,7 @@ export function vocabularyQuestion(q, subject) {
   const prefix=subject==='french'?'fr':subject==='latin'?'la':'';
   return !!prefix && q?.status!=='disabled' && q?.formal!==false &&
     String(q?.conceptId||'').startsWith(`${prefix}-y8-concept-vocab-`) &&
-    ['typed_exact','typed_equivalent','controlled_translation','spelling_restore','mc_single'].includes(q.format) &&
+    ['typed_exact','typed_equivalent','controlled_translation'].includes(q.format) &&
     Array.isArray(q.answer?.accepted) && q.answer.accepted.length>0 && isHeadword(q,subject);
 }
 
@@ -108,21 +109,22 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
     }
     for(const concept of successful)encounters.set(concept,(encounters.get(concept)||0)+1);
   }
-  const rows=[];
+  const rows=[],backup=[];
   for(const [concept,variants] of words){
-    if(credited.has(concept))continue;
     const last=latest.get(concept),wrong=last?.correct===false,dueDate=last?.due||dueDates.get(concept);
     const due=!!dueDate&&dueDate<=day;
-    if(wrong&&!due)continue; // Observe the scheduled spaced-repetition interval.
-    if(day>='2026-10-19'&&last?.correct&&!due)continue;
-    if(day>='2026-10-19'&&!wrong&&!due&&variants.some(q=>Number(seenCorrect[q.id])>0))continue;
-    rows.push({concept,variants,due,wrong,recent:recent.has(concept),
+    const defer=credited.has(concept) || (wrong&&!due) ||
+      (day>='2026-10-19'&&last?.correct&&!due) ||
+      (day>='2026-10-19'&&!wrong&&!due&&variants.some(q=>Number(seenCorrect[q.id])>0));
+    const row={concept,variants,due,wrong,recent:recent.has(concept),
       encounters:encounters.get(concept)||0,year9:concept.includes('-y9-concept-vocab-'),
-      order:hash(`${seed}:${subject}:${concept}:rotation`)});
+      order:hash(`${seed}:${subject}:${concept}:rotation`)};
+    (defer?backup:rows).push(row);
   }
   const rank=(a,b)=>Number(a.recent)-Number(b.recent)||a.encounters-b.encounters||
     a.order-b.order||a.concept.localeCompare(b.concept);
   const y9=rows.filter(r=>r.year9), y8=rows.filter(r=>!r.year9);
+  const y9Backup=backup.filter(r=>r.year9),y8Backup=backup.filter(r=>!r.year9);
   const selected=[],used=new Set();
   const take=(pool,count,bucket)=>{
     let added=0;
@@ -137,6 +139,9 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
   take(y9.filter(r=>r.due&&!r.wrong),year9Target-selected.length,'year9-spaced-due');
   take(y9.filter(r=>!r.recent),year9Target-selected.length,'year9-vocabulary');
   take(y9,year9Target-selected.length,'year9-vocabulary-refill');
+  // Prefer scheduled spacing; only reuse earlier learned Year 9 words if the three-word pool is exhausted.
+  take(y9Backup.filter(r=>!r.wrong),year9Target-selected.length,'year9-exhaustion-refill');
+  take(y9Backup,year9Target-selected.length,'year9-exhaustion-last-resort');
 
   // Ten review places, then 17 randomized Y7–8 words (or refill when fewer are due).
   const year8Target=size-selected.length,year8Start=selected.length,reviewCount=Math.min(10,year8Target);
@@ -145,6 +150,8 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
   take(y8.filter(r=>!r.due&&!r.recent),size-selected.length,'vocabulary-random');
   take(y8.filter(r=>!r.wrong&&!r.recent),size-selected.length,'vocabulary-refill');
   take(y8.filter(r=>!r.wrong),size-selected.length,'vocabulary-small-bank-refill');
+  take(y8Backup.filter(r=>!r.wrong),size-selected.length,'vocabulary-exhaustion-refill');
+  take(y8Backup,size-selected.length,'vocabulary-exhaustion-last-resort');
 
   // Shuffle every NEW session. A saved QuizSession draft owns the sequence on resume.
   selected.sort((a,b)=>hash(`${seed}:position:${a.concept}`)-
