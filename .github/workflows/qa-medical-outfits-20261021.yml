@@ -1,0 +1,33 @@
+name: Medical Outfits iPad Visual QA
+on:
+  push:
+    paths:
+      - qa/medical-outfits-smoke.mjs
+      - .github/workflows/qa-medical-outfits-20261021.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  cross-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Playwright
+        run: npm install --no-save --ignore-scripts playwright@1.56.1
+      - name: Install Chromium and WebKit for iPad checks
+        run: npx playwright install --with-deps chromium webkit
+      - name: Serve unmodified production static site
+        run: |
+          python3 -m http.server 8787 --bind 127.0.0.1 > /tmp/scholar-medical-http.log 2>&1 &
+          for i in $(seq 1 40); do curl -fsS http://127.0.0.1:8787/ >/dev/null && break; sleep 1; done
+          curl -fIsS http://127.0.0.1:8787/scholar/ | head -n 5
+      - name: Run Medical Career Mastery and visual scenarios
+        run: node qa/medical-outfits-smoke.mjs
+      - name: Attach QA screenshots and report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: medical-outfits-ipad-qa
+          path: qa-artifacts/
+          if-no-files-found: ignore
