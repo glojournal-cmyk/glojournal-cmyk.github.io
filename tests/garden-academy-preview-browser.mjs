@@ -115,33 +115,40 @@ async function run(engine,runner,viewport){
   assert.ok(art.background.includes('garden-weekly/'+art.theme+'.webp'),'active background must match weekly theme');
   assert.equal(art.backgroundSize,'cover','background must preserve proportions with CSS cover');
   assert.equal(art.titleOpacity,'1','title must be a real overlay above clean artwork');
-  // Verify all four themed assets actually exist and render independently.
-  for(const theme of ['classic','blossom','autumn','twilight']){
-    const seasonal=await page.evaluate(async theme=>{
+  // Simulate each REAL British Monday using the browser's Date clock.
+  // The live Garden app must choose the wallpaper; do not manually alter
+  // DOM/theme CSS and accidentally mistake CSSOM changes for painted pixels.
+  const sampleWeeks=[
+    ['classic','2026-10-21T12:00:00Z'],
+    ['blossom','2026-10-26T12:00:00Z'],
+    ['autumn','2026-11-02T12:00:00Z'],
+    ['twilight','2026-11-09T12:00:00Z']
+  ];
+  let classicPixels=null;
+  for(const [theme,iso] of sampleWeeks){
+    await page.clock.setFixedTime(new Date(iso));
+    await page.evaluate(()=>window.dispatchEvent(new Event('pageshow')));
+    await page.waitForFunction(theme=>{
       const scene=document.querySelector('.lux-garden-scene');
-      scene.dataset.weeklyGardenTheme=theme;
-      scene.style.setProperty('background-image',`url('/assets/garden-weekly/${theme}.webp')`,'important');
-      const url=getComputedStyle(scene).backgroundImage;
+      return scene?.dataset.weeklyGardenTheme===theme &&
+       getComputedStyle(scene).backgroundImage.includes('/'+theme+'.webp');
+    },theme,{timeout:12000});
+    const dimensions=await page.evaluate(async theme=>{
       const image=new Image();image.src='/assets/garden-weekly/'+theme+'.webp';
-      await image.decode();
-      return{url,w:image.naturalWidth,h:image.naturalHeight};
+      await image.decode();return [image.naturalWidth,image.naturalHeight];
     },theme);
-    assert.ok(seasonal.url.includes('/'+theme+'.webp'),'background must change for '+theme);
-    assert.equal(seasonal.w/seasonal.h,4/3,'image source ratio must be 4:3');
+    assert.equal(dimensions[0]/dimensions[1],4/3,'season artwork source must remain exactly 4:3');
     if(engine==='webkit'&&viewport.width===1366){
-      // Await an actual browser paint, not just CSSOM recomputation.
       await page.waitForTimeout(350);
       const shot=await page.screenshot({path:path.join(out,'season-'+theme+'-webkit-1366x1024.png')});
-      if(theme==='classic')globalThis.__gardenClassicShot=shot;
-      else assert.ok(!shot.equals(globalThis.__gardenClassicShot),
-        'Season '+theme+' must visibly differ from classic in WebKit screenshot');
+      if(theme==='classic')classicPixels=shot;
+      else assert.ok(!shot.equals(classicPixels),
+        'Real Safari wallpaper pixels did not update to '+theme+' when the week changed');
     }
   }
-  await page.evaluate(()=>{
-    const scene=document.querySelector('.lux-garden-scene');
-    scene.dataset.weeklyGardenTheme='classic';
-    scene.style.setProperty('background-image',"url('/assets/garden-weekly/classic.webp')",'important');
-  });
+  await page.clock.setFixedTime(new Date('2026-10-21T12:00:00Z'));
+  await page.evaluate(()=>window.dispatchEvent(new Event('pageshow')));
+  await page.waitForFunction(()=>document.querySelector('.lux-garden-scene')?.dataset.weeklyGardenTheme==='classic');
   assert.ok(await page.locator('.lux-garden-item').count()===4);
   const stageValue=await page.evaluate(async()=>{
     const mod=await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2');
