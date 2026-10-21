@@ -257,3 +257,45 @@ body:has(.lux-scholar-rebuilt) .lux-scholar-profile-stage img{max-width:64%!impo
   grid-area:3 / 1 / 4 / 2!important;max-height:none!important;min-height:0!important;
  }
 }
+
+/* Scholar tabs: React aria-pressed is source of truth, never hard-code Wardrobe. */
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > div.flex.flex-wrap.gap-2 > button[aria-pressed="true"]{
+ background:#b89868!important;color:#12283a!important;
+ border:1px solid #edc58d!important;box-shadow:0 0 0 1px #c7a47833!important;
+ font-weight:700!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > div.flex.flex-wrap.gap-2 > button[aria-pressed="false"]{
+ background:#233f50!important;color:#fff2dc!important;
+ border:1px solid #a98856!important;box-shadow:none!important;
+ font-weight:500!important;
+}
+/* An explicit content-sized grid prevents the 490px-tall panel from
+   distributing its excess height among collectible / medal rows. */
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-collection,
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-achievements{
+ display:grid!important;align-content:start!important;align-items:start!important;
+ grid-auto-rows:max-content!important;grid-auto-flow:row!important;
+ gap:12px!important;overflow-x:hidden!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-collection > .lux-scholar-collectible,
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-achievements > .lux-scholar-medal{
+ align-self:start!important;height:auto!important;min-width:0!important;
+ width:100%!important;max-width:100%!important;min-height:0!important;
+ box-sizing:border-box!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-achievements > .lux-scholar-medal{
+ padding:17px 19px!important;overflow:hidden!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-collectible img{
+ display:block!important;height:133px!important;max-height:133px!important;
+ width:100%!important;object-fit:cover!important;flex-shrink:0!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-collectible > div{
+ flex:0 0 auto!important;padding:12px 14px 14px!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-collectible > div p{
+ overflow-wrap:anywhere!important;
+}
+body:has(.lux-scholar-rebuilt) .lux-scholar-rebuilt > .lux-scholar-achievements .mt-3{
+ margin-top:12px!important;
+}
