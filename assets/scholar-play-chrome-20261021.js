@@ -28,6 +28,38 @@
   }
   document.body.append(nav);
  }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
- window.addEventListener('pageshow',mount);
+ function tidyWeekly(){
+  if(!/^\/scholar\/?$/.test(location.pathname))return;
+  for(const a of document.querySelectorAll('a[href="/progress/weekly/"]:not(.lux-scholar-weekly-link)')){
+    const targetText=(a.textContent||'').replace(/\s+/g,' ').trim();
+    let shell=a;
+    for(let depth=0;depth<5;depth++){
+      const parent=shell.parentElement;
+      if(!parent||parent===document.body||parent.tagName==='MAIN'||parent.tagName==='NAV')break;
+      const allLinks=parent.querySelectorAll('a');
+      if(allLinks.length!==1||allLinks[0]!==a)break;
+      const copy=(parent.textContent||'').replace(/\s+/g,' ').trim();
+      if(copy!==targetText)break;
+      shell=parent;
+    }
+    if(!shell.hidden){shell.hidden=true;shell.style.setProperty('display','none','important');}
+  }
+ }
+ function sync(){
+  if(!/^\/scholar\/?$/.test(location.pathname)){
+    document.querySelector('.lux-scholar-play-nav')?.remove();
+    return;
+  }
+  mount();
+  tidyWeekly();
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',sync,{once:true});else sync();
+ window.addEventListener('pageshow',sync);
+ window.addEventListener('popstate',sync);
+ window.addEventListener('lux:app-ready',sync);
+ for(const key of ['pushState','replaceState']){
+   const original=history[key];history[key]=function(...args){const value=original.apply(this,args);sync();return value;};
+ }
+ const observer=new MutationObserver(()=>{if(/^\/scholar\/?$/.test(location.pathname))tidyWeekly();});
+ observer.observe(document.body,{childList:true,subtree:true});
 })();
