@@ -10,7 +10,7 @@
   aspect-ratio:auto!important;max-width:none!important;max-height:none!important;margin:0!important;
   background-color:#dbe9d8!important;background-position:center center!important;
   background-size:cover!important;background-repeat:no-repeat!important;
-  transition:background-image .25s ease;
+  transition:none!important;
  }
  .lux-garden-scene[data-weekly-garden-theme=classic]{background-image:url('/assets/garden-weekly/classic.webp')!important}
  .lux-garden-scene[data-weekly-garden-theme=blossom]{background-image:url('/assets/garden-weekly/blossom.webp')!important}
