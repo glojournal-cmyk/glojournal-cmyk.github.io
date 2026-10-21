@@ -1,4 +1,4 @@
-/* The Scholar's Garden interactive map PREVIEW.
+/* The Scholar's Garden interactive map: live Garden presentation.
  * All learning state belongs to the existing Zustand/React Garden.
  * Never writes localStorage, never awards XP directly, never changes the
  * once-a-day watering rule, unlock conditions or equipped Home outfit/Pet.
@@ -9,9 +9,9 @@ import { C as store, Q as gardenStage, U as collectibles, X as stages,
 if (typeof document !== 'undefined' && !window.__luxGardenAcademyPreviewInstalled) {
 window.__luxGardenAcademyPreviewInstalled = true;
 const enabled=()=>/^\/garden\/?$/.test(location.pathname)&&
-  new URLSearchParams(location.search).get('gardenPreview')==='1';
+  new URLSearchParams(location.search).get('gardenPreview')!=='0';
 const navs=[['⌂','Home','/'],['▣','Study','/study/'],
-  ['◇','Play','/play/'],['❧','Garden','/garden/?gardenPreview=1'],
+  ['◇','Play','/play/'],['❧','Garden','/garden/'],
   ['♧','Pet','/pet/'],['▥','Assessment','/assessment/'],
   ['✎','Scholar','/scholar/']];
 const decorList=[['bench','Wooden Bench'],['roses','White Roses'],
