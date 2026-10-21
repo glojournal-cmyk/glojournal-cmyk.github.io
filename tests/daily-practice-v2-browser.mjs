@@ -372,6 +372,55 @@ async function checkRealPractice(browser,engine){
   report.push({engine,kind:'real-french',before,marked,errors,ok:true});
   await context.close();
 }
+
+async function checkAssignedStandard(browser,engine) {
+  // Vocab uses an independent path. Test the real non-vocab Standard quiz.
+  const context=await browser.newContext({viewport:{width:1024,height:768},hasTouch:true,deviceScaleFactor:2});
+  const page=await context.newPage();
+  const url=base+'/study/french/practise?daily=1&locked=1&year=8&mode=standard&task=y8-standard-a&topic=fr-y8-s01-quick-rules';
+  try {
+    await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
+    await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:35000});
+    await page.waitForFunction(()=>!!document.querySelector('.lux-practice-view [data-lux-question-card]'),null,{timeout:10000});
+    const evidence=await page.evaluate(async()=>{
+      const original=document.querySelector('.lux-practice-view [data-question-id]');
+      const id=original?.getAttribute('data-question-id');
+      const store=window.__luxStore;
+      if (!store || typeof store.setState!=='function') return {error:'store not available',id};
+      const initial=store.getState(),topic='fr-y8-s01-quick-rules';
+      let switchedToLegacy=0;
+      const check=()=>{
+        const card=document.querySelector('.lux-practice-view [data-lux-question-card]');
+        const oldHeader=document.querySelector('.paper-wash > header');
+        if(!document.documentElement.classList.contains('lux-daily-ux-ready')||
+          (oldHeader&&getComputedStyle(oldHeader).display!=='none')||
+          (card&&parseFloat(getComputedStyle(card).borderWidth)<1))switchedToLegacy++;
+      };
+      const watcher=new MutationObserver(check);
+      watcher.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','data-question-id']});
+      store.setState({
+        seenCorrect:{...(initial.seenCorrect||{}),[id]:1},
+        topicStats:{...(initial.topicStats||{}),[topic]:{...(initial.topicStats?.[topic]||{}),attempted:25,correct:25,accuracy:1}}
+      });
+      await new Promise(r=>setTimeout(r,900));
+      watcher.disconnect();check();
+      const current=document.querySelector('.lux-practice-view [data-question-id]');
+      return {id,afterId:current?.getAttribute('data-question-id'),
+        switchedToLegacy,active:document.documentElement.classList.contains('lux-daily-ux-ready'),
+        questionCount:document.querySelectorAll('.lux-practice-view [data-question-id]').length,
+        navCount:document.querySelectorAll('#lux-daily-study-nav a').length};
+    });
+    assert.ok(evidence.id,'Standard task must have a real question');
+    assert.equal(evidence.afterId,evidence.id,'Standard evidence update must not rebuild a live question: '+JSON.stringify(evidence));
+    assert.equal(evidence.questionCount,1,'exactly one React question after update');
+    assert.equal(evidence.switchedToLegacy,0,'no legacy frame while Standard evidence re-ranks');
+    assert.equal(evidence.navCount,7,'Study navigation persists on Standard');
+    assert.equal(evidence.active,true,'new Daily shell stays active');
+    report.push({engine,kind:'real-assigned-standard-evidence',evidence,ok:true});
+    console.log('DAILY_STANDARD_IPAD_STABILITY '+JSON.stringify({engine,evidence}));
+  } finally {await context.close();}
+}
+
 try{
   for(const [engine,launcher] of [['chromium',chromium],['webkit',webkit]]){
     const browser=await launcher.launch({headless:true});
@@ -380,6 +429,7 @@ try{
         for(const kind of ['mc','long-mc','typed','tiles']) await checkFixture(browser,engine,kind,size);
       }
       await checkRealPractice(browser,engine);
+      await checkAssignedStandard(browser,engine);
     }finally{await browser.close();}
   }
 }finally{
