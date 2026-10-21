@@ -439,6 +439,44 @@ async function checkAssignedStandard(browser,engine) {
   }finally{await context.close();}
 }
 
+
+async function checkExhaustedBiologyDaily(browser,engine){
+  const context=await browser.newContext({viewport:{width:1024,height:768},hasTouch:true,deviceScaleFactor:2});
+  const page=await context.newPage(),errors=[];
+  page.on('pageerror',e=>errors.push(e.message));
+  const ids=JSON.parse(fs.readFileSync('content/topics/bio-y9-b1.json','utf8')).questions.map(q=>q.id);
+  const url=base+'/study/biology/practise?daily=1&locked=1&year=9&mode=standard&task=year9-light&topic=bio-y9-b1';
+  try{
+    await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
+    await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:35000});
+    await page.evaluate(ids=>{
+      const key='lux-scholar-garden-v1',raw=localStorage.getItem(key);
+      const persisted=raw?JSON.parse(raw):{state:{},version:0};
+      persisted.state.seenCorrect={...(persisted.state.seenCorrect||{}),
+        ...Object.fromEntries(ids.map(id=>[id,1]))};
+      localStorage.setItem(key,JSON.stringify(persisted));
+      // This is the TEST browser only; never remove learner device records.
+      localStorage.removeItem('lux-practice-drafts-v1');
+    },ids);
+    await page.reload({waitUntil:'domcontentloaded'});
+    await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:35000});
+    const result=await page.evaluate(()=>({
+      question:document.querySelector('[data-question-id]')?.dataset.questionId,
+      locked:document.querySelector('.lux-practice-view')?.innerText?.includes('This daily task is locked'),
+      error:document.body.innerText.includes('This topic needs more unused questions'),
+      mask:getComputedStyle(document.body,'::before').display,
+      ready:document.documentElement.classList.contains('lux-daily-ux-ready')
+    }));
+    assert.ok(result.question,'Biology Year 9 should not become empty after all 77 answers were correct: '+JSON.stringify(result));
+    assert.equal(result.error,false,'no exhausted-question blocker on saved Biology task');
+    assert.equal(result.mask,'none','no saved-progress mask over mounted Biology practice');
+    assert.equal(result.ready,true,'final Practice shell stays ready');
+    assert.equal(errors.length,0,'no JS errors in Biology depleted-bank recovery');
+    console.log('DAILY_BIOLOGY_EXHAUSTED_IPAD '+JSON.stringify({engine,result,errors}));
+    report.push({engine,kind:'biology-all-previously-correct',ok:true,result});
+  }finally{await context.close()}
+}
+
 try{
   for(const [engine,launcher] of [['chromium',chromium],['webkit',webkit]]){
     const browser=await launcher.launch({headless:true});
@@ -448,6 +486,7 @@ try{
       }
       await checkRealPractice(browser,engine);
       await checkAssignedStandard(browser,engine);
+      await checkExhaustedBiologyDaily(browser,engine);
     }finally{await browser.close();}
   }
 }finally{
