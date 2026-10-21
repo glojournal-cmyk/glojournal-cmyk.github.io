@@ -8,7 +8,7 @@ const root=process.cwd(),out='test-results/garden-academy-preview';
 fs.mkdirSync(out,{recursive:true});
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8',
  '.css':'text/css; charset=utf-8','.jpg':'image/jpeg','.jpeg':'image/jpeg',
- '.png':'image/png','.webp':'image/webp','.json':'application/json',
+ '.png':'image/png','.jpg':'image/webp','.json':'application/json',
  '.svg':'image/svg+xml','.woff2':'font/woff2'};
 const server=createServer((req,res)=>{
  try{
@@ -105,14 +105,14 @@ async function run(engine,runner,viewport){
   const art=await page.evaluate(async()=>{
     const ui=document.querySelector('.lux-garden-scene'),css=getComputedStyle(ui);
     const theme=ui.dataset.weeklyGardenTheme;
-    const image=new Image();image.src='/assets/garden-weekly/'+theme+'.webp';
+    const image=new Image();image.src='/assets/garden-weekly/'+theme+'.jpg';
     await image.decode();
     return{background:css.backgroundImage,theme,loaded:image.naturalWidth>=1000,
       actualWidth:image.naturalWidth,actualHeight:image.naturalHeight,
       backgroundSize:css.backgroundSize,titleOpacity:getComputedStyle(document.querySelector('.lux-garden-title')).opacity};
   });
   assert.ok(art.loaded,'the selected seasonal image must load at full resolution');
-  assert.ok(art.background.includes('garden-weekly/'+art.theme+'.webp'),'active background must match weekly theme');
+  assert.ok(art.background.includes('garden-weekly/'+art.theme+'.jpg'),'active background must match weekly theme');
   assert.equal(art.backgroundSize,'cover','background must preserve proportions with CSS cover');
   assert.equal(art.titleOpacity,'1','title must be a real overlay above clean artwork');
   // Simulate each REAL British Monday using the browser's Date clock.
@@ -131,10 +131,10 @@ async function run(engine,runner,viewport){
     await page.waitForFunction(theme=>{
       const scene=document.querySelector('.lux-garden-scene');
       return scene?.dataset.weeklyGardenTheme===theme &&
-       getComputedStyle(scene).backgroundImage.includes('/'+theme+'.webp');
+       getComputedStyle(scene).backgroundImage.includes('/'+theme+'.jpg');
     },theme,{timeout:12000});
     const dimensions=await page.evaluate(async theme=>{
-      const image=new Image();image.src='/assets/garden-weekly/'+theme+'.webp';
+      const image=new Image();image.src='/assets/garden-weekly/'+theme+'.jpg';
       await image.decode();return [image.naturalWidth,image.naturalHeight];
     },theme);
     assert.equal(dimensions[0]/dimensions[1],4/3,'season artwork source must remain exactly 4:3');
