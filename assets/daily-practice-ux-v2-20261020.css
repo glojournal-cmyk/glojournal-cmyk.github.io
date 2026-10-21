@@ -593,3 +593,52 @@ html.lux-daily-ux-ready body .paper-wash > header.lux-companion-header {
   display:none!important;
   visibility:hidden!important;
 }
+
+/* iPad answer stability: retain compact card dimensions after a field blurs.
+   Keyboard/focus may move between React questions; don't resize the entire
+   question stage each time. The bottom rail is still governed by actual focus
+   (.lux-daily-typing) so navigation returns when the keyboard closes. */
+html.lux-daily-ux-ready.lux-daily-compact body,
+html.lux-daily-ux-ready.lux-daily-compact body.lux-desk {
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  height:auto!important;
+  position:static!important;
+}
+html.lux-daily-ux-ready.lux-daily-compact .paper-wash > main {
+  padding-top:5px!important;
+  padding-bottom:10px!important;
+  min-height:0!important;
+}
+html.lux-daily-ux-ready.lux-daily-compact [data-lux-question-intro],
+html.lux-daily-ux-ready.lux-daily-compact [data-lux-daily-lock] {
+  display:none!important;
+}
+html.lux-daily-ux-ready.lux-daily-compact #study-companion {
+  display:none!important;
+}
+html.lux-daily-ux-ready.lux-daily-compact .lux-practice-view [data-question-id] {
+  min-height:0!important;
+  gap:3px!important;
+}
+html.lux-daily-ux-ready.lux-daily-compact [data-lux-question-card] {
+  min-height:0!important;
+  height:auto!important;
+  max-height:none!important;
+  padding:10px 16px!important;
+  margin:0!important;
+}
+html.lux-daily-ux-ready.lux-daily-compact [data-lux-prompt] {
+  font-size:clamp(22px,2.5vw,31px)!important;
+  line-height:1.13!important;
+  margin:2px 0 5px!important;
+}
+html.lux-daily-ux-ready.lux-daily-compact [data-lux-question-card] form {
+  margin-top:6px!important;
+  margin-bottom:0!important;
+  gap:8px!important;
+}
+html.lux-daily-ux-ready.lux-daily-compact [data-lux-question-card] textarea {
+  min-height:52px!important;
+  max-height:30dvh!important;
+}
