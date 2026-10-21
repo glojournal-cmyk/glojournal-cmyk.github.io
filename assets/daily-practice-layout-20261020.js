@@ -17,6 +17,13 @@
   let sheet;
   let nav;
   const root = document.documentElement;
+  // Daily assignments have a known practice route before the first question.
+  // Activate the same shell before React hydration, so an iPad does not first
+  // paint the legacy page and then switch backgrounds after the first frame.
+  if (pathIsPractice() && !disabled() &&
+      new URLSearchParams(location.search).get('daily') === '1') {
+    root.classList.add('lux-daily-ux-ready','lux-daily-task-active');
+  }
   function installSheet() {
     if (sheet || document.getElementById('lux-daily-practice-ux-v2-style')) return;
     sheet = document.createElement('link');
