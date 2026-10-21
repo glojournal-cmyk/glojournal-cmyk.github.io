@@ -584,3 +584,12 @@ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(input,text
   min-height:52px!important;
   max-height:30dvh!important;
 }
+
+/* React hydration can leave the legacy sticky header with late important
+   styles. The one-screen Daily Practice layout has its own question header. */
+html.lux-daily-ux-ready body .paper-wash > header,
+html.lux-daily-ux-ready body .paper-wash > header.sticky,
+html.lux-daily-ux-ready body .paper-wash > header.lux-companion-header {
+  display:none!important;
+  visibility:hidden!important;
+}
