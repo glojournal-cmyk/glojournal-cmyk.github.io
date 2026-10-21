@@ -25,13 +25,15 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const report=[];
 const RELEASE='20261021-progress-loop4';
+const entrypoint = fs.readFileSync('index.html','utf8').match(/\/assets\/index-BLVOhKhN\.js\?v=[^"']+/)?.[0];
+assert.ok(entrypoint, 'Home must expose the globally synchronized app entrypoint');
 for (const subject of ['french','latin','biology','chemistry','physics','english']) {
   const html=fs.readFileSync('study/'+subject+'/practise/index.html','utf8');
   assert.ok(html.includes('daily-practice-layout-20261020.js?v='+RELEASE),
     subject+' Practice must use the new Safari-cached runtime');
   assert.ok(html.includes('daily-practice-ux-v2-20261020.css?v='+RELEASE),
     subject+' Practice must use the new Safari-cached stylesheet');
-  assert.ok(html.includes('index-BLVOhKhN.js?v=20261021-daily-credit1'),
+  assert.ok(html.includes(entrypoint),
     subject+' Practice must keep the globally synchronized app entrypoint');
 }
 
