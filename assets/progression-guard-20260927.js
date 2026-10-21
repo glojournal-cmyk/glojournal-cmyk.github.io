@@ -16,10 +16,15 @@ function safeDailyHref(url){
  const taskId=queryValue(url.searchParams,'task'),mode=queryValue(url.searchParams,'mode');
  if(['french-vocab','latin-vocab','mistake-review'].includes(taskId)||['y8vocab','mistakes'].includes(mode))return null;
  const state=store.getState(),task=state.daily?.find(t=>t.id===taskId);
- const taskTopic=task?.assignedTopic||task?.reviewTopic||task?.focusTopic;
- if(task&&taskTopic){
-  const taskSubject=task.assignedSubject||task.reviewSubject||task.focusSubject;
-  if(taskSubject===subject)return task.href;
+ // An explicit Daily assignment is authoritative. On a slower iPad the
+ // persisted plan may not have hydrated when the route guard first runs.
+ // Falling back to a moving curriculum frontier rewrites the URL, reboots
+ // the app, and shows "Loading your saved progress" on every repeat.
+ if(taskId && taskId!=='foundation-first'){
+  if(!task)return null;
+  const assignedSubject=task.assignedSubject||task.reviewSubject||task.focusSubject;
+  if(assignedSubject!==subject)return null;
+  return task.href||null;
  }
  const pick=curriculumFrontier(state,subject,getTopicCatalog,learning());
  return pick?curriculumHref(pick,(state.topicStats?.[pick.topicId]?.attempted||0)>=10&&mode==='mastery'?'mastery':'standard',taskId||'foundation-first'):null;
@@ -28,8 +33,12 @@ function guardDailyClick(e){const a=e.target?.closest?.('a[href]');if(!a)return;
 function guardCurrentDailyRoute(){
  const url=new URL(location.href),safe=safeDailyHref(url);if(!safe)return;
  const canonical=new URL(safe,location.origin);
- // The phase changes after the tenth answer. Never interrupt a live set for a mode change.
- if(queryValue(url.searchParams,'topic')===canonical.searchParams.get('topic')&&queryValue(url.searchParams,'year')===canonical.searchParams.get('year'))return;
+ // A saved, already-open Daily quiz must never be restarted when the
+ // planner changes topic/subject asynchronously while marked answers save.
+ // Keep the legacy Year 8->9 correction for a genuinely stale year link.
+ const year=queryValue(url.searchParams,'year'),assignedYear=canonical.searchParams.get('year');
+ if(queryValue(url.searchParams,'task') && year===assignedYear)return;
+ if(queryValue(url.searchParams,'topic')===canonical.searchParams.get('topic')&&year===assignedYear)return;
  location.replace(safe);
 }
 const SUBJECT_LABELS={latin:"Latin",french:"French",biology:"Biology",chemistry:"Chemistry",physics:"Physics",english:"English"};
