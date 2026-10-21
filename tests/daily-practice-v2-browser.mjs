@@ -372,6 +372,66 @@ async function checkRealPractice(browser,engine){
   report.push({engine,kind:'real-french',before,marked,errors,ok:true});
   await context.close();
 }
+
+async function checkAssignedStandard(browser,engine) {
+  // Real assigned Standard task, not a synthetic store write. Vocab is untouched.
+  const context=await browser.newContext({viewport:{width:1024,height:768},hasTouch:true,deviceScaleFactor:2});
+  const page=await context.newPage(),navigations=[],errors=[];
+  page.on('framenavigated',frame=>{if(frame===page.mainFrame())navigations.push(frame.url())});
+  page.on('pageerror',error=>errors.push(error.message));
+  const url=base+'/study/french/practise?daily=1&locked=1&year=8&mode=standard&task=y8-standard-a&topic=fr-y8-s01-quick-rules';
+  try {
+    await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
+    await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:35000});
+    await page.waitForFunction(()=>!!document.querySelector('.lux-practice-view [data-lux-question-card]'),null,{timeout:10000});
+    const before=await page.evaluate(()=>{
+      window.__luxOldShellFrames=0;
+      const observed=document.documentElement;
+      new MutationObserver(()=>{
+        if(!observed.classList.contains('lux-daily-ux-ready'))window.__luxOldShellFrames++;
+      }).observe(observed,{attributes:true,attributeFilter:['class']});
+      return {id:document.querySelector('[data-question-id]')?.dataset.questionId,
+        format:document.querySelector('[data-question-id]')?.dataset.questionFormat,
+        nav:document.querySelectorAll('#lux-daily-study-nav a').length};
+    });
+    assert.ok(before.id,'real non-vocab Standard question must exist');
+    assert.equal(before.nav,7,'Standard task needs seven Study nav buttons');
+    const q=page.locator('.lux-practice-view [data-question-id]');
+    if(before.format==='mc_single'){
+      await q.locator('[data-lux-mc-options] > button').first().click();
+    } else if(before.format==='word_tiles'){
+      await q.locator('.mt-5.space-y-3 > div:nth-child(2) button').first().click();
+      await q.getByRole('button',{name:'Submit'}).click();
+    } else {
+      const editor=q.locator('input,textarea').first();
+      await editor.fill('sample practice answer');
+      await q.getByRole('button',{name:'Submit'}).click();
+    }
+    const next=page.getByRole('button',{name:'Next question'});
+    await next.waitFor({state:'visible',timeout:15000});
+    await next.click();
+    await page.waitForFunction(id=>document.querySelector('[data-question-id]')?.dataset.questionId!==id,before.id,{timeout:15000});
+    const after=await page.evaluate(()=>({
+      id:document.querySelector('[data-question-id]')?.dataset.questionId,
+      ready:document.documentElement.classList.contains('lux-daily-ux-ready'),
+      oldShellFrames:window.__luxOldShellFrames,
+      nav:document.querySelectorAll('#lux-daily-study-nav a').length,
+      oldHeader:getComputedStyle(document.querySelector('.paper-wash > header')).display
+    }));
+    assert.ok(after.id&&after.id!==before.id,'Standard task must advance to a different question');
+    assert.equal(after.ready,true,'new shell stays active during actual Standard answers');
+    assert.equal(after.oldShellFrames,0,'no old Daily shell frames on Standard Submit -> Next');
+    assert.equal(after.nav,7,'new Study nav persists');
+    assert.equal(after.oldHeader,'none','legacy header stays hidden');
+    assert.equal(errors.length,0,'no browser JS errors');
+    console.log('DAILY_STANDARD_IPAD_STABILITY '+JSON.stringify({engine,before,after,navigations,errors}));
+    report.push({engine,kind:'real-assigned-standard-submit-next',before,after,ok:true});
+  }catch(error){
+    console.error('DAILY_STANDARD_DIAGNOSTIC '+JSON.stringify({engine,url:page.url(),navigations,errors,reason:String(error)}));
+    throw error;
+  }finally{await context.close();}
+}
+
 try{
   for(const [engine,launcher] of [['chromium',chromium],['webkit',webkit]]){
     const browser=await launcher.launch({headless:true});
@@ -380,6 +440,7 @@ try{
         for(const kind of ['mc','long-mc','typed','tiles']) await checkFixture(browser,engine,kind,size);
       }
       await checkRealPractice(browser,engine);
+      await checkAssignedStandard(browser,engine);
     }finally{await browser.close();}
   }
 }finally{
