@@ -17,19 +17,30 @@
   let sheet;
   let nav;
   const root = document.documentElement;
-  // Daily assignments have a known practice route before the first question.
-  // Activate the same shell before React hydration, so an iPad does not first
-  // paint the legacy page and then switch backgrounds after the first frame.
-  if (pathIsPractice() && !disabled() &&
-      new URLSearchParams(location.search).get('daily') === '1') {
-    root.classList.add('lux-daily-ux-ready','lux-daily-task-active');
+  // Any Practice route needs its final shell before React paints the question.
+  // On iPad a route or quiz re-mount may take several frames; waiting for
+  // [data-question-id] shows the old Daily screen between new question frames.
+  if (pathIsPractice() && !disabled()) {
+    root.classList.add('lux-daily-ux-ready');
+    if (new URLSearchParams(location.search).get('daily') === '1') {
+      root.classList.add('lux-daily-task-active');
+    }
   }
   function installSheet() {
-    if (sheet || document.getElementById('lux-daily-practice-ux-v2-style')) return;
+    // Match the stylesheet used by the static Practice routes. Earlier Home
+    // -> Daily SPA sessions imported ?v=preview1 from Safari's old cache.
+    const href = '/assets/daily-practice-ux-v2-20261020.css?v=20261021-ipad-shell-lock3';
+    sheet = sheet?.isConnected ? sheet : document.getElementById('lux-daily-practice-ux-v2-style');
+    if (sheet) {
+      if (!sheet.getAttribute('href')?.endsWith('20261021-ipad-shell-lock3')) {
+        sheet.href = href;
+      }
+      return;
+    }
     sheet = document.createElement('link');
     sheet.rel = 'stylesheet';
     sheet.id = 'lux-daily-practice-ux-v2-style';
-    sheet.href = '/assets/daily-practice-ux-v2-20261020.css?v=preview1';
+    sheet.href = href;
     document.head.append(sheet);
   }
   function buildNav() {
@@ -241,13 +252,20 @@
   // next assigned task, or resumes a draft. Keep the same page shell mounted
   // for the ENTIRE session; a time-limited 1.2s grace caused Safari flashes.
   // Only a route change, explicit preview rollback or real result ends it.
+  // Latch a real result until a new question starts. A temporary React gap
+  // or a Safari history/viewport event must never resurrect the legacy skin.
+  let showingResult = false;
   function refresh() {
     scheduled = false;
     const enabled = pathIsPractice() && !disabled();
     const q = enabled && document.querySelector('.lux-practice-view [data-question-id]');
-    const resultScreen = !!document.querySelector('.lux-practice-view [aria-label="Session result"]');
-    const active = enabled && !resultScreen &&
-      (Boolean(q) || root.classList.contains('lux-daily-ux-ready'));
+    const resultScreen = enabled && !!document.querySelector('.lux-practice-view [aria-label="Session result"]');
+    if (!enabled || q) showingResult = false;
+    else if (resultScreen) showingResult = true;
+    // A URL change to Practice already selects the v2 shell, even while
+    // hydration has no question. Only an actual result / leaving the route
+    // switches off the shell.
+    const active = enabled && !showingResult;
     root.classList.toggle('lux-daily-ux-ready',active);
     root.classList.toggle('lux-daily-task-active',active && new URLSearchParams(location.search).get('daily')==='1');
     if (!active) {
