@@ -86,32 +86,42 @@ async function syncCast(){
     }
     img.hidden=true;
     img.onload=()=>{img.hidden=false;if(!scholar.hidden&&!petImg.hidden)message.hidden=true;};
-    img.onerror=()=>{img.hidden=true;message.textContent='Selected character or Pet art is unavailable. Your outfit and Pet selections have not been changed.';message.hidden=false;};
+    img.onerror=()=>{img.hidden=true;message.textContent='The selected character or Pet image is unavailable. Your choices have not changed.';message.hidden=false;};
     img.src=source;
   };
   try{
-    const {A:wardrobeOutfits,C:store}=await import('/assets/index-BLVOhKhN.js?v=20261021-medical-careers1');
-    const {petArtUrl}=await import('/pet/pet-art-hd-20261009.js?v=20261019-baphomet1');
+    // Do NOT import the main React runtime into a standalone Maths page. It
+    // hydrates its own router and can hijack navigation on narrow iPad screens.
+    const [response,petModule]=await Promise.all([
+      fetch(ROOT+'outfits.json'),
+      import('/pet/pet-art-hd-20261009.js?v=20261019-baphomet1')
+    ]);
+    if(!response.ok)throw Error('Wardrobe artwork index unavailable');
+    const wardrobe=(await response.json()).outfits||{},petArtUrl=petModule.petArtUrl;
     const render=()=>{
       if(!target.isConnected)return;
-      const st=store.getState?.()||{},outfitId=st.equippedOutfit||'day';
-      const outfit=wardrobeOutfits.find(x=>x.id===outfitId);
-      if(outfit?.art)setSprite(scholar,outfit.art);
-      else{scholar.hidden=true;message.hidden=false;message.textContent='Equipped outfit art could not be located.';}
-      let pet={};try{pet=JSON.parse(localStorage.getItem('lux-pet-companion-v1')||'{}')||{};}catch{}
+      let persisted={},pet={};
+      try{persisted=JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}')||{};}catch{}
+      try{pet=JSON.parse(localStorage.getItem('lux-pet-companion-v1')||'{}')||{};}catch{}
+      const outfitId=persisted.state?.equippedOutfit||persisted.equippedOutfit||'day';
+      const art=Object.hasOwn(wardrobe,outfitId)?wardrobe[outfitId]:null;
+      if(art)setSprite(scholar,art);else{
+        scholar.hidden=true;message.hidden=false;
+        message.textContent='Selected outfit image not found; your saved outfit has not been changed.';
+      }
       const species=/^[a-z\d-]+$/i.test(String(pet.species||''))?pet.species:'moss-hornling';
       const stage=Math.min(10,Math.max(1,Number(pet.petLevels?.[species]||pet.highestStage)||1));
-      try{const source=petArtUrl(species,stage);if(source)setSprite(petImg,source);}catch{
-        petImg.hidden=true;message.hidden=false;message.textContent='Your chosen Pet image is currently unavailable.';
+      try{const sprite=petArtUrl(species,stage);if(sprite)setSprite(petImg,sprite);}catch{
+        petImg.hidden=true;message.hidden=false;message.textContent='Selected Pet image unavailable.';
       }
     };
     render();
-    store.subscribe?.(render);store.persist?.onFinishHydration?.(render);
-    for(const name of ['scholar:wardrobe-changed','scholar:pet-changed','storage','pageshow'])window.addEventListener(name,render);
+    for(const name of ['storage','scholar:wardrobe-changed','scholar:pet-changed','pageshow'])window.addEventListener(name,render);
     document.addEventListener('visibilitychange',()=>{if(!document.hidden)render();});
   }catch{
     target.closest('.maths-summary')?.classList.add('maths-sync-waiting');
-    message.hidden=false;message.textContent='Could not read your selected outfit and Pet on this page. Your selections are unchanged.';
+    message.hidden=false;
+    message.textContent='Unable to read your selected outfit and Pet. Your saved choices remain unchanged.';
   }
 }
 try{if(page==='topics')drawTopics();else if(page==='learn')await drawLearn();else if(page==='practise')await drawPractise();else await drawProgress();syncCast();}catch(e){console.error('Maths Study:',e);shell(`<main class="maths-paper"><h2>Unable to load Maths</h2><p>${esc(e.message||e)}</p><a href="/study/">Return to Study</a></main>`,'Loading problem');}
