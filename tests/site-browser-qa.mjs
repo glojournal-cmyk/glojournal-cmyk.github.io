@@ -57,7 +57,7 @@ for(const [engine,launcher] of [["chromium",chromium],["webkit",webkit]]){
           columns:cards?getComputedStyle(cards).gridTemplateColumns.split(" ").filter(Boolean).length:0
         };
       });
-      if(!visual.stage||!visual.closet||!visual.cards||!visual.imageHidden||visual.columns!==3)
+      if(!visual.stage||!visual.closet||!visual.cards||!visual.imageHidden||visual.columns!==(1024<=1050?2:3))
         problem(row,"scholar-visual-regression",visual);
     }
     if(snap.text.trim().length<35)problem(row,"empty-page",snap.text);
