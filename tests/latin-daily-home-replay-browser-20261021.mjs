@@ -69,6 +69,16 @@ try {
    }));
    assert.equal(after.progress,10,'Reloaded front page must retain Latin 10/10');
    assert.equal(after.xp,before.xp,'Reconciliation cannot award extra XP');
+   // Assert the learner-visible Home card too, not only its Zustand state.
+   const visibleBeforeReload=await page.evaluate(()=>{
+     const title=window.__luxStore.getState().daily.find(t=>t.id==='latin-standard').title;
+     const text=document.body.innerText;
+     return {title,card:text.slice(text.indexOf(title),text.indexOf(title)+900)};
+   });
+   assert.ok(visibleBeforeReload.card.startsWith(visibleBeforeReload.title),
+      'Actual Home task title must be visible to the learner');
+   assert.match(visibleBeforeReload.card,/10\\s*\\/\\s*10|Completed|Complete/,
+      'Actual Home task card must show completed Latin credit');
    console.log('LATIN_DAILY_HOME_REPLAY_PASS',engine.name(),after.progress);
    await context.close();
   } finally {await browser.close()}
