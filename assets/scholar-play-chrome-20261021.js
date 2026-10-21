@@ -13,6 +13,21 @@
   ['Assessment','/assessment/','<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>'],
   ['Scholar','/scholar','<circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 3-8 8-8s8 3 8 8"/>']
  ];
+ function ensureStyles(){
+  // SPA arrivals from Study may reuse a shell without Scholar's stylesheet links.
+  for(const [file,href] of [
+    ['scholar-rebuilt-20261021.css','/assets/scholar-rebuilt-20261021.css?v=2'],
+    ['scholar-play-chrome-20261021.css','/assets/scholar-play-chrome-20261021.css?v=2']
+  ]){
+    if(!document.querySelector('link[href*="'+file+'"]')){
+      const link=document.createElement('link');link.rel='stylesheet';link.href=href;document.head.append(link);
+    }
+  }
+  if(document.getElementById('lux-scholar-rail-essential-css'))return;
+  const style=document.createElement('style');style.id='lux-scholar-rail-essential-css';
+  style.textContent='.lux-scholar-play-nav{position:fixed!important;left:50%!important;bottom:calc(10px + env(safe-area-inset-bottom))!important;transform:translateX(-50%)!important;z-index:2147482000!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:clamp(4px,.9vw,12px)!important;width:min(86%,1008px)!important;max-width:calc(100% - 8px)!important;min-height:59px!important;padding:3px 6px!important;border-radius:999px!important;background:#172d38ec!important;box-shadow:0 5px 20px #0c1d2d55!important;overflow-x:auto!important}.lux-scholar-play-nav>a[data-lux-scholar-nav]{display:flex!important;flex:1 0 0!important;min-width:56px!important;max-width:136px!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:1px!important;min-height:53px!important;position:relative!important;border-radius:99px!important;text-decoration:none!important;color:#f5eedf!important;font:500 clamp(11px,1vw,14px)/1.15 sans-serif!important}.lux-scholar-play-nav>a[aria-current=page]{background:#faf4e9!important;color:#193646!important}.lux-scholar-play-nav a svg{display:block;width:20px;height:20px}@media(max-width:740px){.lux-scholar-play-nav{width:calc(100% - 16px)!important;justify-content:flex-start!important}.lux-scholar-play-nav>a[data-lux-scholar-nav]{min-width:56px!important}}';
+  document.head.append(style);
+ }
  function mount(){
   if(!/^\/scholar\/?$/.test(location.pathname))return;
   if(document.querySelector('.lux-scholar-play-nav'))return;
@@ -55,6 +70,7 @@
     document.querySelector('.lux-scholar-play-nav')?.remove();
     return;
   }
+  ensureStyles();
   mount();
   keepPlayRailExact();
   tidyWeekly();
