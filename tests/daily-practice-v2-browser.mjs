@@ -24,6 +24,17 @@ const server=createServer((req,res)=>{
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const report=[];
+const RELEASE='20261021-ipad-shell-lock3';
+for (const subject of ['french','latin','biology','chemistry','physics','english']) {
+  const html=fs.readFileSync('study/'+subject+'/practise/index.html','utf8');
+  assert.ok(html.includes('daily-practice-layout-20261020.js?v='+RELEASE),
+    subject+' Practice must use the new Safari-cached runtime');
+  assert.ok(html.includes('daily-practice-ux-v2-20261020.css?v='+RELEASE),
+    subject+' Practice must use the new Safari-cached stylesheet');
+  assert.ok(html.includes('index-BLVOhKhN.js?v='+RELEASE),
+    subject+' Practice must load the refreshed application entrypoint');
+}
+
 function fixture(kind){
   const long=kind==='long-mc';
   const choices=long?[
@@ -93,6 +104,44 @@ async function checkFixture(browser,engine,kind,viewport){
       outerCard:(()=>{const p=card?.parentElement;return p?{padding:getComputedStyle(p).padding,border:getComputedStyle(p).borderWidth}:null})()
     };
   });
+  // Safari can paint a newly mounted React question before our rAF decorator
+  // installs data-lux-* markers. Its appearance must ALREADY equal the final
+  // v2 design, or the learner sees old/new/old layout on every Next.
+  const undecorated=await page.evaluate(()=>{
+    const q=document.querySelector('.lux-practice-view [data-question-id]');
+    const intro=q.querySelector('[data-lux-question-intro]');
+    const card=q.querySelector('[data-lux-question-card]');
+    const prompt=q.querySelector('[data-lux-prompt]');
+    const choices=q.querySelector('[data-lux-mc-options]');
+    const tiles=q.querySelector('[data-lux-tiles]');
+    const capture=()=>({
+      introMinHeight:getComputedStyle(intro).minHeight,
+      headingSize:getComputedStyle(intro.querySelector('h1')).fontSize,
+      cardMinHeight:getComputedStyle(card).minHeight,
+      cardPadding:getComputedStyle(card).padding,
+      cardBorder:getComputedStyle(card).borderColor,
+      promptFont:getComputedStyle(prompt).fontSize,
+      promptColour:getComputedStyle(prompt).color,
+      optionsDisplay:choices?getComputedStyle(choices).display:null,
+      optionsColumns:choices?getComputedStyle(choices).gridTemplateColumns:null,
+      tileDisplay:tiles?getComputedStyle(tiles).display:null
+    });
+    const decorated=capture();
+    intro.removeAttribute('data-lux-question-intro');
+    card.removeAttribute('data-lux-question-card');
+    prompt.removeAttribute('data-lux-prompt');
+    choices?.removeAttribute('data-lux-mc-options');
+    tiles?.removeAttribute('data-lux-tiles');
+    // Synchronous style read BEFORE a MutationObserver + animation frame.
+    const plainReact=capture();
+    return {decorated,plainReact};
+  });
+  assert.deepEqual(undecorated.plainReact,undecorated.decorated,
+    'iPad must render the same v2 card/heading/answers before React decoration: '+JSON.stringify(undecorated));
+  const styleVersion=await page.evaluate(()=>document.getElementById('lux-daily-practice-ux-v2-style')?.getAttribute('href'));
+  assert.ok(styleVersion?.endsWith('20261021-ipad-shell-lock3'),
+    'Home SPA stylesheet must not load the stale Safari preview1 cached version');
+
   // Simulate React briefly removing a question while replacing answer/feedback.
   // During this handoff neither the page theme nor the same seven-link rail may blink.
   const handoff=await page.evaluate(async()=>{
