@@ -227,7 +227,10 @@ try{
             await studyNav.last().click({force:true,timeout:20000});
           }
         }
-        await page.waitForURL(u=>/^\/study\/?$/.test(u.pathname),{waitUntil:'domcontentloaded',timeout:20000});
+        // SPA Study can restore via a second client-side navigation; wait for the
+        // destination URL and then the actual classroom below, not a specific
+        // document lifecycle that WebKit/Chromium may abort during the handoff.
+        await page.waitForFunction(() => /^\/study\/?$/.test(location.pathname), null, {timeout:20000});
         await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
         await page.waitForFunction(()=>document.documentElement.classList.contains('lux-study-rpg-active'));
         assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').count(),6,
