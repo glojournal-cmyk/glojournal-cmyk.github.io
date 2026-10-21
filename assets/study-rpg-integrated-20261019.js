@@ -108,6 +108,16 @@ if (!window.__luxStudyRpgIntegrated) {
   // request can otherwise trigger the generic default outfit fallback.
   const scholarImage = image('/art/home-rpg/scholar-clean.png', null, 'lux-study-rpg-scholar', 'Your Scholar');
   let renderedOutfitSrc = '/art/home-rpg/scholar-clean.png';
+  // Keep the same Pet image mounted, too. XP and Study status updates must
+  // not reload a selected evolution sprite on iPad WebKit.
+  const petSprite=el('img','lux-study-rpg-pet');
+  petSprite.alt='Your equipped pet';petSprite.loading='eager';petSprite.decoding='async';petSprite.hidden=true;
+  petSprite.addEventListener('load',()=>{petSprite.hidden=false;});
+  petSprite.addEventListener('error',()=>{petSprite.hidden=true;});
+  const petLink=el('a','lux-study-rpg-pet-link');
+  petLink.href='/pet/';petLink.setAttribute('aria-label','Open your equipped pet');
+  petLink.append(petSprite);
+  let renderedPetSrc=null;
   function build() {
     const state = store.getState?.() || {};
     const select = nativeSelect();
@@ -129,6 +139,9 @@ if (!window.__luxStudyRpgIntegrated) {
       scholarImage.dataset.fallbackUsed = '';
       scholarImage.src = scholarSrc;
     }
+    if (renderedPetSrc !== petSrc) {
+      renderedPetSrc=petSrc;petSprite.hidden=true;petSprite.src=petSrc;
+    }
     root.replaceChildren();
     root.append(el('div', 'lux-study-rpg-shade'));
     const hud = el('div', 'lux-study-rpg-hud');
@@ -140,9 +153,7 @@ if (!window.__luxStudyRpgIntegrated) {
 
     const cast = el('div', 'lux-study-rpg-cast');
     cast.append(scholarImage);
-    const petLink = el('a', 'lux-study-rpg-pet-link');
-    petLink.href = '/pet/'; petLink.dataset.petForm = stage < 5 ? 'small' : 'evolved'; petLink.setAttribute('aria-label', 'Open your equipped pet');
-    petLink.append(image(petSrc, '/art/rpg/moss.png', 'lux-study-rpg-pet', 'Your equipped pet'));
+    petLink.dataset.petForm = stage < 5 ? 'small' : 'evolved';
     cast.append(petLink); root.append(cast);
 
     const board = el('section', 'lux-study-rpg-board');
