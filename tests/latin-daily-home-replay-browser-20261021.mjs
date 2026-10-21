@@ -75,6 +75,7 @@ try {
      const text=document.body.innerText;
      return {title,card:text.slice(text.indexOf(title),text.indexOf(title)+900)};
    });
+   if(!visibleAfterReload.card.startsWith(visibleAfterReload.title))console.log('LATIN_VISIBLE_DIAGNOSTIC',engine.name(),JSON.stringify({title:visibleAfterReload.title,card:visibleAfterReload.card,body:(await page.locator('body').innerText()).slice(0,2800),url:page.url()}));
    assert.ok(visibleAfterReload.card.startsWith(visibleAfterReload.title),
       'Actual Home task title must be visible to the learner');
    assert.match(visibleAfterReload.card,/10\s*\/\s*10|Completed|Complete/,
