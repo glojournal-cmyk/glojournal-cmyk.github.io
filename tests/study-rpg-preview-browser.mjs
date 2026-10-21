@@ -67,13 +67,13 @@ try{
         await page.waitForFunction(()=>document.querySelector('main:not(#lux-study-rpg-integrated) select:has(option[value="9"])')?.value==='9');
         await page.waitForFunction(()=>document.querySelectorAll('#lux-study-rpg-integrated .lux-study-rpg-card').length===7);
         await page.evaluate(async()=>{
-          const store=(await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2')).C;
+          const store=(await import('/assets/index-BLVOhKhN.js?v=20261021-medical-careers1')).C;
           store.setState({equippedOutfit:'cardigan'});
           localStorage.setItem('lux-pet-companion-v1',JSON.stringify({species:'moss-hornling',petLevels:{'moss-hornling':2}}));
           dispatchEvent(new Event('scholar:pet-changed'));
         });
         await page.waitForFunction(async()=>{
-          const {A: outfits}=await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2');
+          const {A: outfits}=await import('/assets/index-BLVOhKhN.js?v=20261021-medical-careers1');
           const expected=outfits.find(o=>o.id==='cardigan')?.art;
           return Boolean(expected && document.querySelector('.lux-study-rpg-scholar')?.getAttribute('src')===expected);
         });

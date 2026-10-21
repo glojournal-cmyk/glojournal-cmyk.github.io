@@ -90,7 +90,7 @@ async function syncCast(){
     img.src=source;
   };
   try{
-    const {A:wardrobeOutfits,C:store}=await import('/assets/index-BLVOhKhN.js?v=20261018-mastery2');
+    const {A:wardrobeOutfits,C:store}=await import('/assets/index-BLVOhKhN.js?v=20261021-medical-careers1');
     const {petArtUrl}=await import('/pet/pet-art-hd-20261009.js?v=20261019-baphomet1');
     const render=()=>{
       if(!target.isConnected)return;
