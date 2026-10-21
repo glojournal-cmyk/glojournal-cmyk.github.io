@@ -17,7 +17,7 @@
   // SPA arrivals from Study may reuse a shell without Scholar's stylesheet links.
   for(const [file,href] of [
     ['scholar-rebuilt-20261021.css','/assets/scholar-rebuilt-20261021.css?v=2'],
-    ['scholar-play-chrome-20261021.css','/assets/scholar-play-chrome-20261021.css?v=3']
+    ['scholar-play-chrome-20261021.css','/assets/scholar-play-chrome-20261021.css?v=4']
   ]){
     if(!document.querySelector('link[href*="'+file+'"]')){
       const link=document.createElement('link');link.rel='stylesheet';link.href=href;document.head.append(link);
@@ -29,6 +29,9 @@
   // Stable CSS rule, not a MutationObserver feedback loop. The main app may
   // append companion links to every primary nav; keep only our seven visible.
   style.textContent += '.lux-scholar-play-nav>a:not([data-lux-scholar-nav="1"]){display:none!important}html.lux-scholar-rail-active nav.fixed.inset-x-3.bottom-3{display:none!important}html.lux-scholar-rail-active .paper-wash>header.sticky{display:none!important}html.lux-scholar-rail-active .paper-wash>aside{display:none!important}html.lux-scholar-rail-active .paper-wash{padding-left:0!important}';
+  // Anchor to viewport edges rather than centering with a transform: mobile
+  // Safari can compose that transform with a scrolling ancestor and shift it.
+  style.textContent += '.lux-scholar-play-nav{position:fixed!important;left:0!important;right:0!important;bottom:calc(10px + env(safe-area-inset-bottom))!important;margin-inline:auto!important;transform:none!important;translate:none!important;width:min(calc(100vw - 24px),1008px)!important;max-width:calc(100vw - 24px)!important;box-sizing:border-box!important;overflow:hidden!important;justify-content:space-evenly!important}.lux-scholar-play-nav>a[data-lux-scholar-nav]{flex:1 1 0!important;min-width:0!important;white-space:nowrap!important}html.lux-scholar-rail-active nav[class*="bottom-"]:not(.lux-scholar-play-nav){display:none!important}@media(max-width:520px){.lux-scholar-play-nav{width:calc(100vw - 12px)!important;max-width:calc(100vw - 12px)!important}.lux-scholar-play-nav>a[data-lux-scholar-nav]{font-size:10px!important}}';
   document.head.append(style);
  }
  function mount(){
