@@ -7,7 +7,9 @@ import {chromium,webkit} from 'playwright';
 const css=fs.readFileSync('assets/daily-practice-ux-v2-20261020.css','utf8');
 const ipad=fs.readFileSync('assets/ipad-experience-20261004.js','utf8');
 const entry=fs.readFileSync('assets/index-BLVOhKhN.js','utf8');
-assert.ok(css.includes('iPad text-entry mode: pure CSS'),'CSS-only typing layout missing');
+assert.ok(css.includes('html.lux-daily-typing .lux-daily-study-nav') &&
+ css.includes('html.lux-daily-ux-ready [data-lux-question-card]'),
+ 'CSS-only typing layout and nav concealment are missing');
 assert.ok(ipad.includes("document.activeElement?.matches?.('.lux-practice-view [data-question-id] input"),
  'legacy iPad scroll parking must not compete with text input');
 assert.ok(!entry.includes("import('/assets/daily-keyboard-safe-20261020.js"),'oscillating helper is still loaded');

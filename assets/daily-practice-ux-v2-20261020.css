@@ -533,3 +533,63 @@ html.lux-daily-ux-ready [data-lux-daily-lock] {
    font-size:12px!important;
    line-height:1.4!important;
 }
+
+/* iPad text-entry mode: pure CSS.
+   Safari owns scroll/focus; do not toggle DOM or scroll on visualViewport resize.
+   Keep the submit button inside the compact-focus state until pointerup; otherwise\n   input blur expands the heading on mousedown and steals the button click. */
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(input,textarea,select,button[type="submit"]):focus) body,
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(input,textarea,select,button[type="submit"]):focus) body.lux-desk {
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  height:auto!important;
+  position:static!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(input,textarea,select,button[type="submit"]):focus) .lux-daily-study-nav {
+  display:none!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(input,textarea,select,button[type="submit"]):focus) .paper-wash > main {
+  padding-top:5px!important;
+  padding-bottom:10px!important;
+  min-height:0!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(input,textarea,select,button[type="submit"]):focus) [data-lux-question-intro],
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(input,textarea,select,button[type="submit"]):focus) [data-lux-daily-lock] {
+  display:none!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(input,textarea,select,button[type="submit"]):focus) #study-companion {
+  display:none!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(input,textarea,select,button[type="submit"]):focus) .lux-practice-view [data-question-id] {
+  min-height:0!important;
+  gap:3px!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(input,textarea,select,button[type="submit"]):focus) [data-lux-question-card] {
+  min-height:0!important;
+  height:auto!important;
+  max-height:none!important;
+  padding:10px 16px!important;
+  margin:0!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(input,textarea,select,button[type="submit"]):focus) [data-lux-prompt] {
+  font-size:clamp(22px,2.5vw,31px)!important;
+  line-height:1.13!important;
+  margin:2px 0 5px!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(input,textarea,select,button[type="submit"]):focus) [data-lux-question-card] form {
+  margin-top:6px!important;
+  margin-bottom:0!important;
+  gap:8px!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id] :is(input,textarea,select,button[type="submit"]):focus) [data-lux-question-card] textarea {
+  min-height:52px!important;
+  max-height:30dvh!important;
+}
+
+/* React hydration can leave the legacy sticky header with late important
+   styles. The one-screen Daily Practice layout has its own question header. */
+html.lux-daily-ux-ready body .paper-wash > header,
+html.lux-daily-ux-ready body .paper-wash > header.sticky,
+html.lux-daily-ux-ready body .paper-wash > header.lux-companion-header {
+  display:none!important;
+  visibility:hidden!important;
+}

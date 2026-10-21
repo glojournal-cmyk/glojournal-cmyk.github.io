@@ -170,7 +170,10 @@
       nav.style.setProperty('display', 'none', 'important');
       return;
     }
-    if (nav.parentElement !== document.body) document.body.appendChild(nav);
+    // On live Practice routes this nav belongs to React. Reparenting it during
+    // answer updates fights hydration and can make the full iPad page blink.
+    if (!/^\/study\/[^/]+\/practise\/?$/.test(location.pathname) && nav.parentElement !== document.body)
+      document.body.appendChild(nav);
     const s = nav.style;
     s.setProperty('display', 'grid', 'important');
     s.setProperty('grid-template-columns', 'repeat(7, minmax(0, 1fr))', 'important');
@@ -244,7 +247,9 @@
       ensureHeaderTools();
       pinBar();
       lockFrontDoor();
-      writeTodayLog();
+      // Decorative home-day log must not rewrite localStorage on every
+      // answer/key update while a learner is in a live question.
+      if (location.pathname === '/' || location.pathname === '/index.html') writeTodayLog();
     } catch (err) {
       console.warn('lux-theme', err);
     }
