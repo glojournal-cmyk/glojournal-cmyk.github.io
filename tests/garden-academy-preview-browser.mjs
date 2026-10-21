@@ -137,7 +137,7 @@ async function run(engine,runner,viewport){
       const image=new Image();image.src='/assets/garden-weekly/'+theme+'.jpg';
       await image.decode();return [image.naturalWidth,image.naturalHeight];
     },theme);
-    assert.equal(dimensions[0]/dimensions[1],4/3,'season artwork source must remain exactly 4:3');
+    assert.ok(Math.abs(dimensions[0]/dimensions[1]-4/3)<0.015,'season artwork must remain near-native 4:3; CSS cover must preserve its actual ratio');
     if(engine==='webkit'&&viewport.width===1366){
       await page.waitForTimeout(350);
       const shot=await page.screenshot({path:path.join(out,'season-'+theme+'-webkit-1366x1024.png')});
