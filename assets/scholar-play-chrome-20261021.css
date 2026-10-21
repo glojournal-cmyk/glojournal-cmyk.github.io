@@ -130,3 +130,34 @@ html.lux-scholar-rail-active .paper-wash>aside{display:none!important}
 html.lux-scholar-rail-active .paper-wash{padding-left:0!important}
 .lux-scholar-play-nav{animation:none!important;transition:none!important;will-change:auto!important}
 .lux-scholar-play-nav>a[data-lux-scholar-nav]{animation:none!important;transition:background-color .15s ease!important}
+
+/* Stable viewport-anchored positioning. Unlike translateX(-50%), auto margins
+   remain centered when a parent or another nav stylesheet creates a transform. */
+.lux-scholar-play-nav{
+ position:fixed!important;
+ inset:auto 0 calc(10px + env(safe-area-inset-bottom)) 0!important;
+ left:0!important;right:0!important;
+ margin-inline:auto!important;
+ transform:none!important;translate:none!important;
+ width:min(calc(100vw - 24px),1008px)!important;
+ max-width:calc(100vw - 24px)!important;
+ box-sizing:border-box!important;
+ padding:3px 8px!important;
+ z-index:2147482000!important;
+ justify-content:space-evenly!important;
+ overflow:hidden!important;
+ animation:none!important;
+}
+.lux-scholar-play-nav>a[data-lux-scholar-nav]{
+ flex:1 1 0!important;min-width:0!important;
+ text-align:center!important;white-space:nowrap!important;
+ display:flex!important;min-height:53px!important;
+}
+html.lux-scholar-rail-active nav.fixed:not(.lux-scholar-play-nav),
+html.lux-scholar-rail-active nav[class*="bottom-"]:not(.lux-scholar-play-nav){
+ display:none!important;
+}
+@media(max-width:520px){
+ .lux-scholar-play-nav{width:calc(100vw - 12px)!important;max-width:calc(100vw - 12px)!important;padding:3px 3px!important}
+ .lux-scholar-play-nav>a[data-lux-scholar-nav]{font-size:10px!important;letter-spacing:-.025em!important}
+}
