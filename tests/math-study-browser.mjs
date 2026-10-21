@@ -22,6 +22,12 @@ try{
     try{
       for(const viewport of [{width:1024,height:768},{width:390,height:844}]){
         const context=await browser.newContext({viewport});
+        // Verify the page reads actual persisted selections, not painted-in
+        // placeholder art or a second hydrated Scholar application.
+        await context.addInitScript(()=>{
+          localStorage.setItem('lux-scholar-garden-v1',JSON.stringify({state:{equippedOutfit:'medical-01-forensic-pathologist'}}));
+          localStorage.setItem('lux-pet-companion-v1',JSON.stringify({species:'moss-hornling',petLevels:{'moss-hornling':2}}));
+        });
         const page=await context.newPage();
         const errors=[];
         page.on('pageerror',e=>errors.push(e.message));
@@ -29,6 +35,13 @@ try{
         await page.locator('.maths-topic-card').first().waitFor({timeout:15000});
         assert.equal(await page.locator('.maths-topic-card').count(),5);
         assert.equal(await page.locator('.maths-nav a').count(),7);
+        await page.waitForFunction(()=>{
+          const outfit=document.querySelector('.maths-scholar'),pet=document.querySelector('.maths-pet');
+          return outfit?.complete&&outfit.naturalWidth>0&&!outfit.hidden&&
+            pet?.complete&&pet.naturalWidth>0&&!pet.hidden;
+        },null,{timeout:15000});
+        assert.match(await page.locator('.maths-scholar').getAttribute('src'),/medical\/01-forensic-pathologist\.png/);
+        assert.match(await page.locator('.maths-pet').getAttribute('src'),/level-2/);
         checks+=2;
         await page.screenshot({path:'test-results/maths-study/'+engine.name()+'-'+viewport.width+'-topics.png'});
         await page.locator('.maths-topic-card').first().click();
