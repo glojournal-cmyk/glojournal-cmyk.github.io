@@ -64,6 +64,7 @@ async function run(engine,runner,viewport){
     const water=frame.querySelector('.lux-water'),basil=frame.querySelector('.lux-basil-box');
     const url=new URL('/assets/index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2',location);
     return {navLabels:labels,selected:nav.querySelector('[aria-current="page"]')?.textContent,
+      scene:rect(frame.querySelector('.lux-garden-scene')),
       nav:rect(nav),water:rect(water),basil:rect(basil),world:rect(frame.querySelector('.lux-garden-world')),
       log:rect(frame.querySelector('.lux-garden-actions button:first-child')),
       decorations:rect(frame.querySelector('.lux-garden-actions button:last-child')),
@@ -81,29 +82,39 @@ async function run(engine,runner,viewport){
   // The approved JPEG contains a decorative, non-interactive navigation rail.
   // The real rail must cover its complete vertical and horizontal extent,
   // otherwise a second row of baked-in labels appears below the buttons.
-  assert.ok(snap.nav.y<=viewport.height*.859,'interactive rail must cover baked navigation top');
-  assert.ok(snap.nav.bottom>=viewport.height*.968,'interactive rail must cover baked navigation bottom');
-  assert.ok(snap.nav.x<=viewport.width*.159,'interactive rail must cover baked navigation left');
-  assert.ok(snap.nav.x+snap.nav.width>=viewport.width*.841,'interactive rail must cover baked navigation right');
+  // Native 1448×1086 illustration is 4:3. Never warp it to the browser ratio.
+  assert.ok(Math.abs(snap.scene.width/snap.scene.height-4/3)<0.003,
+    'Garden artwork must never be stretched or compressed');
+  assert.ok(snap.scene.width<=viewport.width+1&&snap.scene.height<=viewport.height+1,
+    'Garden scene must fit the available viewport');
+  assert.ok(Math.abs(snap.scene.x-(viewport.width-snap.scene.width)/2)<2,
+    'Garden scene must stay horizontally centered');
+  assert.ok(Math.abs(snap.scene.y-(viewport.height-snap.scene.height)/2)<2,
+    'Garden scene must stay vertically centered');
+  const sc=snap.scene;
+  assert.ok(snap.nav.y<=sc.y+sc.height*.859,'interactive rail must cover baked navigation top');
+  assert.ok(snap.nav.bottom>=sc.y+sc.height*.968,'interactive rail must cover baked navigation bottom');
+  assert.ok(snap.nav.x<=sc.x+sc.width*.159,'interactive rail must cover baked navigation left');
+  assert.ok(snap.nav.right>=sc.x+sc.width*.841,'interactive rail must cover baked navigation right');
   assert.match(snap.selected,/Garden/);
   assert.match(snap.stage,/Stage [1-4]/,'rendered stage comes from real app');
   assert.match(snap.basilText,/growth: \d \/ 7 steps/,'Basil comes from existing seven-step record');
   assert.equal(snap.nativeWater,true,'native water action must exist');
   assert.ok(snap.scrollWidth<=viewport.width+1,'no horizontal overflow');
-  assert.ok(snap.world.width>viewport.width*.9,'garden must be the primary scene');
+  assert.ok(snap.world.width>snap.scene.width*.9,'garden must occupy its illustration');
   assert.ok(snap.water.bottom<=snap.nav.y-5,'Water button must be above the bottom rail');
   // With the approved illustration, both lower action buttons must fully
   // cover their painted counterparts, without duplicating their lower rings.
-  assert.ok(snap.log.y>=viewport.height*.78&&snap.decorations.y>=viewport.height*.78,
+  assert.ok(snap.log.y>=sc.y+sc.height*.78&&snap.decorations.y>=sc.y+sc.height*.78,
     'Garden Log and Decorations should align with the approved image');
   assert.ok(snap.log.bottom<=snap.nav.y+1&&snap.decorations.bottom<=snap.nav.y+1,
     'Lower controls must not overlap the main bottom navigation');
-  assert.ok(snap.stagePanel.bottom>=viewport.height*.155,
+  assert.ok(snap.stagePanel.bottom>=sc.y+sc.height*.155,
     'Stage panel must mask the built-in decorative panel frame');
   assert.ok(snap.water.y>=snap.basil.y-1&&snap.water.bottom<=snap.basil.bottom+1,
     'The Water button must sit inside the Basil panel');
   const art=await page.evaluate(async()=>{
-    const ui=document.querySelector('.lux-garden-map-preview'),css=getComputedStyle(ui);
+    const ui=document.querySelector('.lux-garden-scene'),css=getComputedStyle(ui);
     const image=new Image();image.src='/assets/garden-academy-approved-20261020.jpg';
     await image.decode();
     return{background:css.backgroundImage,loaded:image.naturalWidth>=1400,actualWidth:image.naturalWidth,actualHeight:image.naturalHeight,
@@ -179,7 +190,7 @@ async function run(engine,runner,viewport){
 }
 try{
  for(const [name,engine]of [['chromium',chromium],['webkit',webkit]])
-  for(const vp of [{width:1024,height:768},{width:1366,height:1024}])
+  for(const vp of [{width:1024,height:768},{width:1366,height:1024},{width:1790,height:860}])
    await run(name,engine,vp);
 }finally{server.close();fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(results,null,2))}
 console.log('GARDEN_ACADEMY_QA_SUMMARY '+JSON.stringify({cases:results.length,pass:results.every(x=>x.ok)}));

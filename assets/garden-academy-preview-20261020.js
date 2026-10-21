@@ -159,19 +159,24 @@ function callNative(label){
 }
 function assemble(){
   root=create('main','lux-garden-map-preview');
-  root.id='lux-garden-academy-preview';root.setAttribute('aria-label',"The Scholar's Garden preview");
-  root.append(create('div','lux-garden-backdrop'));
+  root.id='lux-garden-academy-preview';root.setAttribute('aria-label',"The Scholar's Garden");
+  // All artwork-aligned controls live in a single native-ratio coordinate
+  // space. The outer main remains viewport sized and owns full-screen dialogs.
+  const scene=create('div','lux-garden-scene');
+  scene.setAttribute('aria-label','Illustrated garden courtyard');
+  root.append(scene);
+  scene.append(create('div','lux-garden-backdrop'));
   const title=create('header','lux-garden-title');
   title.append(create('span','lux-garden-title-icon','❧'));
   const txt=create('div');txt.append(create('strong',null,"THE SCHOLAR’S GARDEN"));
-  txt.append(create('small',null,'A garden that grows with learning'));title.append(txt);root.append(title);
+  txt.append(create('small',null,'A garden that grows with learning'));title.append(txt);scene.append(title);
   const stage=create('section','lux-garden-stage');
   stage.setAttribute('aria-label','Garden Stage');
   stage.append(create('span',null,'GARDEN STAGE'));
   stage.append(create('strong',null,''));
   const meter=create('div','lux-stage-progress');const fill=create('span');
   meter.append(fill);stage.append(meter);stage.append(create('span','lux-stage-xp',''));
-  stage.append(create('em',null,''));root.append(stage);
+  stage.append(create('em',null,''));scene.append(stage);
   const world=create('div','lux-garden-world');
   world.setAttribute('aria-label','Interactive garden map');
   world.append(create('div','lux-garden-arch'),create('div','lux-garden-fountain'));
@@ -204,14 +209,14 @@ function assemble(){
   // The approved art has a single Basil progress panel in the centre: place
   // the real native-backed water control inside it, never across the fountain.
   basil.append(water);
-  actions.append(log,decoration);world.append(actions);root.append(world);
+  actions.append(log,decoration);world.append(actions);scene.append(world);
   const nav=create('div','lux-garden-nav');nav.setAttribute('role','navigation');nav.setAttribute('aria-label','Main navigation');
   for(const [glyph,label,url]of navs){
     const a=create('a',label==='Garden'?'active':'');a.href=url;
     a.append(create('span',null,glyph),create('span',null,label));
     if(label==='Garden')a.setAttribute('aria-current','page');nav.append(a);
   }
-  root.append(nav);
+  scene.append(nav);
   document.body.append(root);
   return {stage,meter,fill,basil,water,items,world};
 }
