@@ -1,3 +1,4 @@
+import {reconcileDailySession} from "./daily-session-credit-20261021.js?v=20261021-daily-credit1";
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js";
 import {RecoveryProgress} from './recovery-progress-20261012.js?ux=20261013-corrections2';
 import {recoveryDate,recoveryTask,legacyRecoveryMatches,recoveryReplay} from './recovery-session-20261012.js?ux=20261013-corrections2';
@@ -222,7 +223,24 @@ function H({title:e,kicker:t,items:n,repairItems:repairBank=[],subject:a,dailyId
       });
     }catch(err){console.warn("Recovery completion reconciliation skipped",err)}
   }
-  le(!0);let score=calculateSessionScore(sessionLog,formalCount),t=score.percentage;t>=80&&D(`quiz_complete_80`,{subject:a,detail:e}),t>=90&&D(`quiz_bonus_90`,{subject:a,detail:e}),_&&te(),u(t>=80?`Session complete`:`Session saved`,{description:`${score.firstPassCorrect} / ${formalCount} first-pass · ${score.repairedCorrect?`+ ${score.repairPoints.toFixed(1)} repair credit · `:``}${t}% · Scholar XP updated.`});return}M(e=>e+1),P(``),I({}),z(null),U([]),W([]),K(null)}if(!Y)return(0,T.jsxs)(C,{className:`p-6`,children:[(0,T.jsx)(`p`,{children:[`due`,`retention`].includes(resumeMode)?`Nothing is due right now.`:`This topic needs more unused questions before this set can be completed. Your progress is saved.`}),(0,T.jsx)(S,{asChild:!0,className:`mt-4`,children:(0,T.jsx)(r,{...m(f),children:`Back`})})]});if(ce){let score=calculateSessionScore(sessionLog,formalCount),coach=buildSessionCoach(sessionLog,o.getState?.().skillStats||{}),daily=globalThis.LuxJourney.completion(o.getState(),location.href,journeyTaskId||c);
+  // Quiz XP and a 100% toast are NOT proof the assigned Home task was counted.
+  // Reconcile only the exact same-day, locked assignment from marked answers.
+  let dailyReceiptNote="";
+  if(!recoverOnFinish && taskOnFinish && sessionPlanDay===dayKey()){
+    const receipt=reconcileDailySession(o.getState(),{
+      day:sessionPlanDay,taskId:taskOnFinish,subject:a,year:sessionYear,
+      mode:resumeMode,questions:A,answers:sessionLog
+    });
+    if(receipt.changed)o.setState({daily:receipt.daily,
+      ...(receipt.dailyLog?{dailyLog:receipt.dailyLog}:{})});
+    if(receipt.target){
+      const current=o.getState().daily?.find(t=>t.id===taskOnFinish);
+      const counted=Math.min(Number(current?.target)||receipt.target,Number(current?.progress)||0);
+      dailyReceiptNote=counted>=receipt.target?` · Daily task ${receipt.target}/${receipt.target} counted`:
+        ` · Daily task ${counted}/${receipt.target}; please check Home`;
+    }
+  }
+  le(!0);let score=calculateSessionScore(sessionLog,formalCount),t=score.percentage;t>=80&&D(`quiz_complete_80`,{subject:a,detail:e}),t>=90&&D(`quiz_bonus_90`,{subject:a,detail:e}),_&&te(),u(t>=80?`Session complete`:`Session saved`,{description:`${score.firstPassCorrect} / ${formalCount} first-pass · ${score.repairedCorrect?`+ ${score.repairPoints.toFixed(1)} repair credit · `:``}${t}% · Scholar XP updated.${dailyReceiptNote}`});return}M(e=>e+1),P(``),I({}),z(null),U([]),W([]),K(null)}if(!Y)return(0,T.jsxs)(C,{className:`p-6`,children:[(0,T.jsx)(`p`,{children:[`due`,`retention`].includes(resumeMode)?`Nothing is due right now.`:`This topic needs more unused questions before this set can be completed. Your progress is saved.`}),(0,T.jsx)(S,{asChild:!0,className:`mt-4`,children:(0,T.jsx)(r,{...m(f),children:`Back`})})]});if(ce){let score=calculateSessionScore(sessionLog,formalCount),coach=buildSessionCoach(sessionLog,o.getState?.().skillStats||{}),daily=globalThis.LuxJourney.completion(o.getState(),location.href,journeyTaskId||c);
   const vocabTaskId=journeyTaskId||c;
   const vocabProgress=!recoveryDate(location.search)&&sessionPlanDay===dayKey()&&
     (a==="french"||a==="latin")&&vocabTaskId===a+"-vocab"

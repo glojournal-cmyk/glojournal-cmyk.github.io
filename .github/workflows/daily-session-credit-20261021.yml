@@ -1,0 +1,40 @@
+name: Daily quiz-to-Home receipt regression
+on:
+  pull_request:
+    paths:
+      - 'assets/daily-session-credit-20261021.js'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'assets/study._subject.practise-y8fix-20260920.js'
+      - 'assets/study._subject.practise-D_PWgUd7.js'
+      - 'tests/daily-session-credit-20261021.test.mjs'
+      - '.github/workflows/daily-session-credit-20261021.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'assets/daily-session-credit-20261021.js'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'tests/daily-session-credit-20261021.test.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  receipt-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check production JavaScript syntax
+        run: |
+          node --check assets/daily-session-credit-20261021.js
+          node --check assets/quiz-session-y8fix-20260920.js
+          node --check assets/quiz-session-rWAnuDVj.js
+          node --check assets/study._subject.practise-y8fix-20260920.js
+          node --check assets/study._subject.practise-D_PWgUd7.js
+      - name: Test daily session credit receipts
+        run: node --test tests/daily-session-credit-20261021.test.mjs
+      - name: Check legacy daily counting still works
+        run: node tests/daily-counting-regression-qa.mjs
