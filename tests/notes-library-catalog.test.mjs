@@ -36,7 +36,7 @@ test('single ZIP archive maps exactly 25 all-image PDFs without unrelated conten
  assert.equal(archive.archiveBytes,172856064);
  let lastEnd=0;
  for(const entry of archive.entries){
-  assert.match(entry.key,/^summer\\/(french|latin|biology)\\/[A-Za-z0-9_(). -]+\\.pdf$/);
+  assert.match(entry.key,/^summer\/(french|latin|biology)\/[A-Za-z0-9_(). -]+\.pdf$/);
   assert.ok(entry.start >= lastEnd+30+entry.key.length);
   assert.ok(entry.start+entry.size <= archive.archiveBytes);
   assert.ok(catalog.notes.some(x=>x.key===entry.key&&x.sizeBytes===entry.size));
