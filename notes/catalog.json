@@ -2,7 +2,7 @@
   "schema": 2,
   "updated": "2026-10-22",
   "source": "ChatGPT Library, image-based PDFs only",
-  "selectionPolicy": "Keep page-image illustrated revision PDFs made from generated note images. Exclude text-layout study books, raw vocabulary lists and original school materials. First-page image checks are preliminary; raw source PDFs still require verification before upload. Six additional image-page PDF candidates discovered through full-library audit on 2026-10-22; raw-byte export currently restricted.",
+  "selectionPolicy": "Keep page-image illustrated revision PDFs made from generated note images. Exclude text-layout study books, raw vocabulary lists and original school materials. First-page image checks are preliminary; raw source PDFs still require verification before upload. Six additional image-page PDF candidates discovered through full-library audit on 2026-10-22; raw-byte export currently restricted. 25 all-image-page PDFs from Zip1.zip were byte-checked (6 newly indexed). The R2 archive must be uploaded before they become readable.",
   "notes": [
     {
       "id": "summer-biology-12_aug_biology_complete_notes",
@@ -74,7 +74,31 @@
       "dateAdded": "2026-08-13",
       "sizeBytes": 17314725,
       "key": "summer/biology/19_Aug_Biology_6_Page_Complete_Notes_Illustrated.pdf",
-      "status": "pending"
+      "status": "pending",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
+    },
+    {
+      "id": "summer-biology-21_aug_biology_6_page_complete_notes",
+      "category": "summer/biology",
+      "subject": "biology",
+      "period": "summer",
+      "title": "21 Aug Biology 6 Page Complete Notes",
+      "dateAdded": "2026-10-22",
+      "status": "pending",
+      "filename": "21_Aug_Biology_6_Page_Complete_Notes.pdf",
+      "key": "summer/biology/21_Aug_Biology_6_Page_Complete_Notes.pdf",
+      "sizeBytes": 2005961,
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-biology-23_aug_biology_6_page_complete_notes",
@@ -86,7 +110,13 @@
       "dateAdded": "2026-08-13",
       "sizeBytes": 1825026,
       "key": "summer/biology/23_Aug_Biology_6_Page_Complete_Notes.pdf",
-      "status": "pending"
+      "status": "pending",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-biology-24_aug_biology_6_page_complete_notes",
@@ -98,7 +128,13 @@
       "dateAdded": "2026-08-13",
       "sizeBytes": 1971905,
       "key": "summer/biology/24_Aug_Biology_6_Page_Complete_Notes.pdf",
-      "status": "pending"
+      "status": "pending",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-biology-biology_1_august_post_travel_retrieval_review_notes_merged",
@@ -146,24 +182,38 @@
       "category": "summer/biology",
       "subject": "biology",
       "period": "summer",
-      "filename": "Biology_25_26_July_ImageGenerated_Notes_Merged(5).pdf",
+      "filename": "Biology_25_26_July_ImageGenerated_Notes_Merged.pdf",
       "title": "Biology 25 26 July ImageGenerated Notes Merged",
       "dateAdded": "2026-07-23",
       "sizeBytes": 13078644,
-      "key": "summer/biology/Biology_25_26_July_ImageGenerated_Notes_Merged(5).pdf",
-      "status": "pending"
+      "key": "summer/biology/Biology_25_26_July_ImageGenerated_Notes_Merged.pdf",
+      "status": "pending",
+      "originalLibraryFilename": "Biology_25_26_July_ImageGenerated_Notes_Merged(5).pdf",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-biology-biology_28_july_supplement31_1_notes_merged-1",
       "category": "summer/biology",
       "subject": "biology",
       "period": "summer",
-      "filename": "Biology_28_July_Supplement31_1_Notes_Merged(1).pdf",
+      "filename": "Biology_28_July_Supplement31_1_Notes_Merged.pdf",
       "title": "Biology 28 July Supplement31 1 Notes Merged",
       "dateAdded": "2026-07-25",
       "sizeBytes": 7057201,
-      "key": "summer/biology/Biology_28_July_Supplement31_1_Notes_Merged(1).pdf",
-      "status": "pending"
+      "key": "summer/biology/Biology_28_July_Supplement31_1_Notes_Merged.pdf",
+      "status": "pending",
+      "originalLibraryFilename": "Biology_28_July_Supplement31_1_Notes_Merged(1).pdf",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-biology-biology_29_july_notes_merged",
@@ -175,7 +225,13 @@
       "dateAdded": "2026-07-25",
       "sizeBytes": 7031714,
       "key": "summer/biology/Biology_29_July_Notes_Merged.pdf",
-      "status": "pending"
+      "status": "pending",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-biology-biology_31_july_nutrition_digestion_consolidation_notes",
@@ -187,7 +243,13 @@
       "dateAdded": "2026-07-25",
       "sizeBytes": 11640449,
       "key": "summer/biology/Biology_31_July_Nutrition_Digestion_Consolidation_Notes.pdf",
-      "status": "pending"
+      "status": "pending",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-french-11_aug_french_complete_notes_corrected-1",
@@ -307,7 +369,13 @@
       "dateAdded": "2026-09-02",
       "sizeBytes": 1887209,
       "key": "summer/french/21_Aug_French_6_Page_Complete_Notes.pdf",
-      "status": "pending"
+      "status": "pending",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-french-22_aug_french_6_page_complete_notes",
@@ -319,7 +387,13 @@
       "dateAdded": "2026-09-05",
       "sizeBytes": 1928882,
       "key": "summer/french/22_Aug_French_6_Page_Complete_Notes.pdf",
-      "status": "pending"
+      "status": "pending",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-french-23_aug_french_6_page_complete_notes",
@@ -331,7 +405,13 @@
       "dateAdded": "2026-08-13",
       "sizeBytes": 1692186,
       "key": "summer/french/23_Aug_French_6_Page_Complete_Notes.pdf",
-      "status": "pending"
+      "status": "pending",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-french-day1_french_booster_notes_4pages-1",
@@ -379,48 +459,76 @@
       "category": "summer/french",
       "subject": "french",
       "period": "summer",
-      "filename": "French_25_26_July_ImageGenerated_Notes_Merged(1).pdf",
+      "filename": "French_25_26_July_ImageGenerated_Notes_Merged.pdf",
       "title": "French 25 26 July ImageGenerated Notes Merged",
       "dateAdded": "2026-07-27",
       "sizeBytes": 13262501,
-      "key": "summer/french/French_25_26_July_ImageGenerated_Notes_Merged(1).pdf",
-      "status": "pending"
+      "key": "summer/french/French_25_26_July_ImageGenerated_Notes_Merged.pdf",
+      "status": "pending",
+      "originalLibraryFilename": "French_25_26_July_ImageGenerated_Notes_Merged(1).pdf",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-french-french_27_july_sections5_6_notes_merged-1",
       "category": "summer/french",
       "subject": "french",
       "period": "summer",
-      "filename": "French_27_July_Sections5_6_Notes_Merged(1).pdf",
+      "filename": "French_27_July_Sections5_6_Notes_Merged.pdf",
       "title": "French 27 July Sections5 6 Notes Merged",
       "dateAdded": "2026-07-23",
       "sizeBytes": 6282053,
-      "key": "summer/french/French_27_July_Sections5_6_Notes_Merged(1).pdf",
-      "status": "pending"
+      "key": "summer/french/French_27_July_Sections5_6_Notes_Merged.pdf",
+      "status": "pending",
+      "originalLibraryFilename": "French_27_July_Sections5_6_Notes_Merged(1).pdf",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-french-french_28_july_sections7_10_notes_merged-4",
       "category": "summer/french",
       "subject": "french",
       "period": "summer",
-      "filename": "French_28_July_Sections7_10_Notes_Merged(4).pdf",
+      "filename": "French_28_July_Sections7_10_Notes_Merged.pdf",
       "title": "French 28 July Sections7 10 Notes Merged",
       "dateAdded": "2026-08-12",
       "sizeBytes": 13840242,
-      "key": "summer/french/French_28_July_Sections7_10_Notes_Merged(4).pdf",
-      "status": "pending"
+      "key": "summer/french/French_28_July_Sections7_10_Notes_Merged.pdf",
+      "status": "pending",
+      "originalLibraryFilename": "French_28_July_Sections7_10_Notes_Merged(4).pdf",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-french-french_31_july_sections11_12_30_31_notes_merged-3",
       "category": "summer/french",
       "subject": "french",
       "period": "summer",
-      "filename": "French_31_July_Sections11_12_30_31_Notes_Merged(3).pdf",
+      "filename": "French_31_July_Sections11_12_30_31_Notes_Merged.pdf",
       "title": "French 31 July Sections11 12 30 31 Notes Merged",
       "dateAdded": "2026-08-16",
       "sizeBytes": 12593065,
-      "key": "summer/french/French_31_July_Sections11_12_30_31_Notes_Merged(3).pdf",
-      "status": "pending"
+      "key": "summer/french/French_31_July_Sections11_12_30_31_Notes_Merged.pdf",
+      "status": "pending",
+      "originalLibraryFilename": "French_31_July_Sections11_12_30_31_Notes_Merged(3).pdf",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-french-french_31july_complete_explanation_notes",
@@ -577,6 +685,96 @@
       "status": "pending"
     },
     {
+      "id": "summer-latin-19_aug_latin_5_page_complete_notes",
+      "category": "summer/latin",
+      "subject": "latin",
+      "period": "summer",
+      "title": "19 Aug Latin 5 Page Complete Notes",
+      "dateAdded": "2026-10-22",
+      "status": "pending",
+      "filename": "19_Aug_Latin_5_Page_Complete_Notes.pdf",
+      "key": "summer/latin/19_Aug_Latin_5_Page_Complete_Notes.pdf",
+      "sizeBytes": 1489632,
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
+    },
+    {
+      "id": "summer-latin-22_aug_latin_6_page_complete_notes",
+      "category": "summer/latin",
+      "subject": "latin",
+      "period": "summer",
+      "title": "22 Aug Latin 6 Page Complete Notes",
+      "dateAdded": "2026-10-22",
+      "status": "pending",
+      "filename": "22_Aug_Latin_6_Page_Complete_Notes.pdf",
+      "key": "summer/latin/22_Aug_Latin_6_Page_Complete_Notes.pdf",
+      "sizeBytes": 1885042,
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
+    },
+    {
+      "id": "summer-latin-23_aug_latin_6_page_complete_notes",
+      "category": "summer/latin",
+      "subject": "latin",
+      "period": "summer",
+      "title": "23 Aug Latin 6 Page Complete Notes",
+      "dateAdded": "2026-10-22",
+      "status": "pending",
+      "filename": "23_Aug_Latin_6_Page_Complete_Notes.pdf",
+      "key": "summer/latin/23_Aug_Latin_6_Page_Complete_Notes.pdf",
+      "sizeBytes": 1742183,
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
+    },
+    {
+      "id": "summer-latin-24_aug_latin_6_page_complete_notes",
+      "category": "summer/latin",
+      "subject": "latin",
+      "period": "summer",
+      "title": "24 Aug Latin 6 Page Complete Notes",
+      "dateAdded": "2026-10-22",
+      "status": "pending",
+      "filename": "24_Aug_Latin_6_Page_Complete_Notes.pdf",
+      "key": "summer/latin/24_Aug_Latin_6_Page_Complete_Notes.pdf",
+      "sizeBytes": 2087506,
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
+    },
+    {
+      "id": "summer-latin-25_aug_latin_6_page_complete_notes_imagegenerated",
+      "category": "summer/latin",
+      "subject": "latin",
+      "period": "summer",
+      "title": "25 Aug Latin 6 Page Complete Notes ImageGenerated",
+      "dateAdded": "2026-10-22",
+      "status": "pending",
+      "filename": "25_Aug_Latin_6_Page_Complete_Notes_ImageGenerated.pdf",
+      "key": "summer/latin/25_Aug_Latin_6_Page_Complete_Notes_ImageGenerated.pdf",
+      "sizeBytes": 2034213,
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
+    },
+    {
       "id": "summer-latin-28_aug_latin_complete_notes_4pages",
       "category": "summer/latin",
       "subject": "latin",
@@ -610,36 +808,57 @@
       "category": "summer/latin",
       "subject": "latin",
       "period": "summer",
-      "filename": "Latin_25_26_July_ImageGenerated_Notes_CORRECTED(6).pdf",
+      "filename": "Latin_25_26_July_ImageGenerated_Notes_CORRECTED.pdf",
       "title": "Latin 25 26 July ImageGenerated Notes CORRECTED",
       "dateAdded": "2026-08-11",
       "sizeBytes": 13819707,
-      "key": "summer/latin/Latin_25_26_July_ImageGenerated_Notes_CORRECTED(6).pdf",
-      "status": "pending"
+      "key": "summer/latin/Latin_25_26_July_ImageGenerated_Notes_CORRECTED.pdf",
+      "status": "pending",
+      "originalLibraryFilename": "Latin_25_26_July_ImageGenerated_Notes_CORRECTED(6).pdf",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-latin-latin_27_july_stage10_imagegenerated_notes-3",
       "category": "summer/latin",
       "subject": "latin",
       "period": "summer",
-      "filename": "Latin_27_July_Stage10_ImageGenerated_Notes(3).pdf",
+      "filename": "Latin_27_July_Stage10_ImageGenerated_Notes.pdf",
       "title": "Latin 27 July Stage10 ImageGenerated Notes",
       "dateAdded": "2026-08-11",
       "sizeBytes": 7176194,
-      "key": "summer/latin/Latin_27_July_Stage10_ImageGenerated_Notes(3).pdf",
-      "status": "pending"
+      "key": "summer/latin/Latin_27_July_Stage10_ImageGenerated_Notes.pdf",
+      "status": "pending",
+      "originalLibraryFilename": "Latin_27_July_Stage10_ImageGenerated_Notes(3).pdf",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-latin-latin_28_july_stage11_notes_merged-1",
       "category": "summer/latin",
       "subject": "latin",
       "period": "summer",
-      "filename": "Latin_28_July_Stage11_Notes_Merged(1).pdf",
+      "filename": "Latin_28_July_Stage11_Notes_Merged.pdf",
       "title": "Latin 28 July Stage11 Notes Merged",
       "dateAdded": "2026-08-11",
       "sizeBytes": 8007528,
-      "key": "summer/latin/Latin_28_July_Stage11_Notes_Merged(1).pdf",
-      "status": "pending"
+      "key": "summer/latin/Latin_28_July_Stage11_Notes_Merged.pdf",
+      "status": "pending",
+      "originalLibraryFilename": "Latin_28_July_Stage11_Notes_Merged(1).pdf",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-latin-latin_29_july_stage12_notes_merged",
@@ -651,7 +870,13 @@
       "dateAdded": "2026-07-25",
       "sizeBytes": 7749238,
       "key": "summer/latin/Latin_29_July_Stage12_Notes_Merged.pdf",
-      "status": "pending"
+      "status": "pending",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-latin-latin_31_july_chapters1_2_notes_merged",
@@ -747,12 +972,19 @@
       "category": "summer/latin",
       "subject": "latin",
       "period": "summer",
-      "filename": "Latin_Revision_Notes_31_July_Chapters_1_2(2).pdf",
+      "filename": "Latin_Revision_Notes_31_July_Chapters_1_2.pdf",
       "title": "Latin Revision Notes 31 July Chapters 1 2",
       "dateAdded": "2026-08-11",
       "sizeBytes": 13448266,
-      "key": "summer/latin/Latin_Revision_Notes_31_July_Chapters_1_2(2).pdf",
-      "status": "pending"
+      "key": "summer/latin/Latin_Revision_Notes_31_July_Chapters_1_2.pdf",
+      "status": "pending",
+      "originalLibraryFilename": "Latin_Revision_Notes_31_July_Chapters_1_2(2).pdf",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Zip1.zip",
+        "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
+      }
     },
     {
       "id": "summer-latin-latin_stages_8_to_11_revision_notes_merged",
