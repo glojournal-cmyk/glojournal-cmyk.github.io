@@ -1,0 +1,17 @@
+{
+  "name": "cool-hill-a2a3gloria-private-cloud-backups",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-20",
+  "workers_dev": true,
+  "triggers": {
+    "crons": [
+      "10 20 * * *"
+    ]
+  },
+  "r2_buckets": [
+    {
+      "binding": "BACKUPS",
+      "bucket_name": "gloria-private-encrypted-backups"
+    }
+  ]
+}
