@@ -1,0 +1,21 @@
+name: Gloria Notes Live Read-only Probe
+on:
+  pull_request:
+    paths:
+      - .github/workflows/notes-library-live-probe.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Check Notes Worker and public catalog
+        shell: bash
+        run: |
+          set -euo pipefail
+          api="https://gloria-notes-public.glo-journal.workers.dev"
+          curl --retry 2 --max-time 20 -fsS "$api/health" | python3 -c 'import sys,json; assert json.load(sys.stdin)["ok"] is True'
+          curl --retry 2 --max-time 20 -fsS "$api/catalog" | python3 -c 'import sys,json; d=json.load(sys.stdin); assert isinstance(d["files"],list); print("Published PDF objects:",len(d["files"]))'
+          echo "Cloudflare R2 reader is responding. No Cloudflare writes performed."
