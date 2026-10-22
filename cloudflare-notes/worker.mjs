@@ -61,7 +61,7 @@ export default {
   if(request.method==='OPTIONS')return new Response(null,{status:204,headers:headers()});
   if(!['GET','HEAD'].includes(request.method))return json({error:'read-only'},405);
   const url=new URL(request.url);
-  if(url.pathname==='/health')return json({ok:true,service:'gloria-notes-readonly'});
+  if(url.pathname==='/health')return json({ok:true,service:'gloria-notes-readonly',archiveReaders:archives.length,archiveNames:archives.map(x=>x.archiveKey)});
   if(url.pathname==='/catalog'){
    let cursor;const list=new Map();
    do{
