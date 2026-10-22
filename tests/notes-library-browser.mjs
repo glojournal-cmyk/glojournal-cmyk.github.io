@@ -27,12 +27,24 @@ for(const [name,engine,viewport] of [
  const pre=await page.evaluate(()=>({
    overflow:document.documentElement.scrollWidth-window.innerWidth,
    navHeight:document.querySelector('nav.nav')?.getBoundingClientRect().height,
+   navTop:document.querySelector('nav.nav')?.getBoundingClientRect().top,
+   navBottom:document.querySelector('nav.nav')?.getBoundingClientRect().bottom,
+   innerHeight:window.innerHeight,
+   viewport:window.visualViewport?{
+     height:window.visualViewport.height,offsetTop:window.visualViewport.offsetTop,
+     pageTop:window.visualViewport.pageTop
+   }:null,
+   docHeight:document.documentElement.clientHeight,
    visible:document.querySelector('nav.nav')?.getBoundingClientRect().bottom <= window.innerHeight+3
  }));
+ console.log('NOTES_VIEWPORT_METRICS '+name+' '+JSON.stringify(pre));
+ await page.screenshot({path:'test-results/notes-library-'+name+'.png',fullPage:false});
  assert.ok(pre.overflow<=3, name+' page horizontal overflow '+pre.overflow);
  assert.ok(pre.navHeight<=78, name+' oversized nav '+pre.navHeight);
- assert.ok(pre.visible,name+' navigation shifted outside viewport');
- await page.screenshot({path:'test-results/notes-library-'+name+'.png',fullPage:false});
+ // Visual viewport is authoritative for mobile WebKit, not window.innerHeight.
+ const visualBottom=pre.viewport ? pre.viewport.offsetTop+pre.viewport.height : pre.innerHeight;
+ assert.ok(pre.navBottom<=Math.max(visualBottom,pre.docHeight)+3,
+   name+' navigation shifted outside viewport '+JSON.stringify(pre));
  await page.locator('[data-period="year9"]').click();
  assert.equal(await page.locator('.note').count(),20);
  await page.locator('#subject').selectOption('french');
