@@ -4,10 +4,10 @@ import { readFileSync } from 'node:fs';
 const root = new URL('../',import.meta.url);
 const read = p => readFileSync(new URL(p,root),'utf8');
 const catalog=JSON.parse(read('notes/catalog.json'));
-test('86 unique, dated, expected PDF references',()=>{
- assert.equal(catalog.notes.length,86);
- assert.equal(new Set(catalog.notes.map(n=>n.key)).size,86);
- assert.equal(catalog.notes.reduce((sum,n)=>sum+n.sizeBytes,0),680936710);
+test('88 unique, dated, expected PDF references',()=>{
+ assert.equal(catalog.notes.length,88);
+ assert.equal(new Set(catalog.notes.map(n=>n.key)).size,88);
+ assert.equal(catalog.notes.reduce((sum,n)=>sum+n.sizeBytes,0),691005358);
  for(const n of catalog.notes){
   assert.match(n.filename,/\.pdf$/i);
   assert.match(n.key,/^(summer|year9)\/(latin|french|biology|chemistry|english|mixed)\//);
@@ -45,4 +45,22 @@ test('single ZIP archive maps exactly 25 all-image PDFs without unrelated conten
  assert.equal(archive.format,'zip-store');
  assert.match(read('cloudflare-notes/worker.mjs'),/archivedPDF/);
  assert.match(read('cloudflare-notes/worker.mjs'),/availableArchive/);
+});
+
+test('second ZIP holds exactly 25 separately indexed page-image PDFs',()=>{
+ const zip1=JSON.parse(read('cloudflare-notes/archives/gloria-zip1.json'));
+ const zip2=JSON.parse(read('cloudflare-notes/archives/gloria-zip2.json'));
+ assert.equal(zip2.entries.length,25);
+ assert.equal(zip2.archiveBytes,233067053);
+ assert.equal(zip2.archiveSha256,'17ce551d7d9606d0dd000f1d5b755d6ddc1607b82aa59fac6f6cc37cefc60415');
+ const k1=new Set(zip1.entries.map(e=>e.key));
+ assert.equal(new Set(zip2.entries.map(e=>e.key)).size,25);
+ for(const e of zip2.entries){
+   assert.ok(!k1.has(e.key), 'No Zip1 overlapping key: '+e.key);
+   const n=catalog.notes.find(n=>n.key===e.key);
+   assert.ok(n,'Missing note in catalogue: '+e.key);
+   assert.equal(n.sizeBytes,e.size);
+   assert.ok(e.start>=30);
+   assert.ok(e.start+e.size<=zip2.archiveBytes);
+ }
 });
