@@ -6,7 +6,6 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: cloudflare-backup
     defaults:
       run:
         working-directory: cloudflare-backup
@@ -24,7 +23,7 @@ jobs:
         run: |
           test -n "$CF_API_TOKEN" || { echo "CLOUDFLARE_API_TOKEN is missing"; exit 1; }
           test -n "$CF_ACCOUNT_ID" || { echo "CLOUDFLARE_ACCOUNT_ID is missing"; exit 1; }
-      - name: Deploy existing Worker (manual approval)
+      - name: Deploy existing Worker (manually dispatched workflow)
         run: npx --yes wrangler@4 deploy --config wrangler.jsonc
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
