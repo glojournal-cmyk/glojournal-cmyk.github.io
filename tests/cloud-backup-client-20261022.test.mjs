@@ -32,3 +32,12 @@ test('cloud readback refuses incomplete listings and malformed keys',async()=>{
  await assert.rejects(()=>readBackEncrypted('a'.repeat(40),async()=>({ok:true,json:async()=>({items:[],truncated:false})})),/No cloud backup/);
  await assert.rejects(()=>readBackEncrypted('a'.repeat(40),async()=>({ok:true,json:async()=>({items:[{key:'bad/path',uploadedAt:'2026-10-22'}]})})),/Unexpected backup key/);
 });
+
+test('large compressible progress stays lossless and fits the new Worker limit',async()=>{
+ const big=JSON.stringify({state:{xp:199,daily:[],formalAttemptLog:Array.from({length:7000},(_,i)=>({questionId:'q'+i,subject:'maths',notes:'A'.repeat(120)}))},version:1});
+ const progress=readCurrentProgress({getItem:()=>big});
+ const envelope=await encryptProgress(progress,'my long secret backup passphrase');
+ if(typeof CompressionStream==='function')assert.equal(envelope.compression,'gzip');
+ assert.ok(JSON.stringify(envelope).length<16*1024*1024);
+ assert.deepEqual(await decryptProgress(envelope,'my long secret backup passphrase'),progress);
+});
