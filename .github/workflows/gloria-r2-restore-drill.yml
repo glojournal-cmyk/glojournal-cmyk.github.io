@@ -1,0 +1,44 @@
+name: Gloria R2 recovery drill
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/gloria-r2-restore-drill.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Read back immutable R2 archive and checksums
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          ARCHIVE_SHA: b58d34e0d137c9d75798ac366f6af643658296a5
+          SOURCE_SHA: b58d34e0d137c9d75798ac366f6af643658296a5
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_API_TOKEN" && test -n "$CLOUDFLARE_ACCOUNT_ID"
+          # First successful archive was created at the b58d34e commit.
+          # It was committed at HEAD when the workflow ran: verify its exact key,
+          # never guess a different R2 object or overwrite any files.
+          mkdir -p /tmp/gloria-r2-drill
+          cd /tmp/gloria-r2-drill
+          base="gloria-private-encrypted-backups/static-site/$SOURCE_SHA"
+          for idx in 000 001 002; do
+            name="gloria-site-$SOURCE_SHA.tar.gz.part-$idx"
+            npx --yes wrangler@4 r2 object get "$base/$name" --file "$name" --remote
+          done
+          npx --yes wrangler@4 r2 object get "$base/gloria-site-$SOURCE_SHA.parts.sha256" --file "parts.sha256" --remote
+          npx --yes wrangler@4 r2 object get "$base/gloria-site-$SOURCE_SHA.tar.gz.sha256" --file "archive.sha256" --remote
+          sha256sum --check parts.sha256
+          cat "gloria-site-$SOURCE_SHA.tar.gz.part-"* > "gloria-site-$SOURCE_SHA.tar.gz"
+          sha256sum --check archive.sha256
+          tar -tzf "gloria-site-$SOURCE_SHA.tar.gz" | grep -q 'index.html'
+          echo 'RECOVERY_DRILL_OK: all R2 chunk digests, combined archive digest and site archive validated'
