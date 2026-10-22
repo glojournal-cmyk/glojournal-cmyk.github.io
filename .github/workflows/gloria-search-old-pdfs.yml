@@ -1,0 +1,48 @@
+name: Search Git History for Missing Notes PDFs
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/gloria-search-old-pdfs.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  history:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Compare historical PDF paths against the pending Notes catalogue
+        shell: bash
+        run: |
+          set -euo pipefail
+          git log --all --name-only --pretty=format: -- '*.pdf' | sort -u > /tmp/gloria-pdf-paths
+          python3 - <<'PY'
+          import json,os,pathlib,re
+          docs=json.load(open('notes/catalog.json'))['notes']
+          pending=[x for x in docs if x['filename']!='French_Future_Tense_Image_Notes(1).pdf']
+          files=[x.strip() for x in open('/tmp/gloria-pdf-paths') if x.strip()]
+          existing={p.name for p in pathlib.Path('.').rglob('*.pdf') if '.git' not in p.parts}
+          historical=[x for x in files if pathlib.PurePosixPath(x).name not in existing]
+          matches=[]
+          for note in pending:
+            name=note['filename']
+            stem=re.sub(r'\(\d+\)(?=\.pdf$)','',name,flags=re.I).lower()
+            candidates=[p for p in files if pathlib.PurePosixPath(p).name.lower()==name.lower() or
+              re.sub(r'\(\d+\)(?=\.pdf$)','',pathlib.PurePosixPath(p).name,flags=re.I).lower()==stem]
+            if candidates: matches.append({'filename':name,'paths':candidates})
+          pathlib.Path('test-results').mkdir(exist_ok=True)
+          json.dump({'history_files':len(files),'pending_files':len(pending),'matched':matches},open('test-results/gloria-historical-pdf-matches.json','w'),indent=2)
+          print('PENDING_PDFS:',len(pending))
+          print('HISTORICAL_PDF_PATHS:',len(files))
+          print('MATCH_COUNT:',len(matches))
+          for m in matches: print('MATCH:',m['filename'],'<-',','.join(m['paths']))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gloria-historical-pdf-matches
+          path: test-results/gloria-historical-pdf-matches.json
+          if-no-files-found: warn
