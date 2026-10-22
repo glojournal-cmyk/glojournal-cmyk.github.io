@@ -1,8 +1,6 @@
 name: Gloria full repository R2 snapshot
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '30 19 * * *' # UTC; cadence controlled by the eligibility job
 permissions:
   contents: read
 concurrency:
