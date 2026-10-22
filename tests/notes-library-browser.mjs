@@ -24,14 +24,26 @@ for(const [name,engine,viewport] of [
  await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('1 PDF'));
  assert.equal(await page.locator('.note').count(),87);
  assert.equal(await page.locator('.note .open:enabled').count(),1);
- const pre=await page.evaluate(()=>({
-   overflow:document.documentElement.scrollWidth-window.innerWidth,
-   navHeight:document.querySelector('nav.nav')?.getBoundingClientRect().height,
-   visible:document.querySelector('nav.nav')?.getBoundingClientRect().bottom <= window.innerHeight+3
- }));
+ const pre=await page.evaluate(async()=>{
+   // Mobile WebKit may not commit fixed-position layout until the next paint.
+   await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+   const r=document.querySelector('nav.nav').getBoundingClientRect();
+   return {
+     overflow:document.documentElement.scrollWidth-window.innerWidth,
+     navHeight:r.height,
+     navBottom:r.bottom,
+     navLeft:r.left,
+     navRight:r.right,
+     innerHeight:window.innerHeight,
+     innerWidth:window.innerWidth,
+     visualViewportHeight:window.visualViewport?.height ?? null,
+     visible:r.bottom <= window.innerHeight+3 && r.top >= -3 &&
+       r.left >= -3 && r.right <= window.innerWidth+3
+   };
+ });
  assert.ok(pre.overflow<=3, name+' page horizontal overflow '+pre.overflow);
  assert.ok(pre.navHeight<=78, name+' oversized nav '+pre.navHeight);
- assert.ok(pre.visible,name+' navigation shifted outside viewport');
+ assert.ok(pre.visible,name+' navigation shifted outside viewport: '+JSON.stringify(pre));
  await page.screenshot({path:'test-results/notes-library-'+name+'.png',fullPage:false});
  await page.locator('[data-period="year9"]').click();
  assert.equal(await page.locator('.note').count(),20);
