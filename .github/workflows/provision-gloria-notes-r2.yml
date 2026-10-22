@@ -1,0 +1,43 @@
+name: Provision Gloria Notes R2 Bucket
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/provision-gloria-notes-r2.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: provision-gloria-notes-r2
+  cancel-in-progress: false
+jobs:
+  provision:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Create separate Notes bucket only if absent
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ -n "${CF_API_TOKEN:-}" && -n "${CF_ACCOUNT_ID:-}" ]] || { echo "::error::Cloudflare credentials missing"; exit 1; }
+          endpoint="https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/r2/buckets"
+          tmp=$(mktemp)
+          trap 'rm -f "$tmp"' EXIT
+          status=$(curl --fail-with-body -sS -o "$tmp" -w '%{http_code}' --max-time 25 -H "Authorization: Bearer $CF_API_TOKEN" "$endpoint") || { echo "::error::R2 list failed (HTTP $status)"; exit 1; }
+          [[ "$status" = 200 ]] || { echo "::error::Unexpected list HTTP $status"; exit 1; }
+          if jq -e '.result.buckets[]? | select(.name == "gloria-notes-library")' "$tmp" >/dev/null; then
+            echo "SUCCESS: gloria-notes-library already exists; no changes made."
+            exit 0
+          fi
+          echo "Bucket absent. Attempting to create one Standard-class R2 bucket, without public access or uploads."
+          status=$(curl -sS -o "$tmp" -w '%{http_code}' --max-time 25 -X POST \
+            -H "Authorization: Bearer $CF_API_TOKEN" -H "Content-Type: application/json" \
+            --data '{"name":"gloria-notes-library","locationHint":"weur","storageClass":"Standard"}' "$endpoint")
+          if [[ "$status" != 200 ]]; then
+            echo "::error::Bucket creation not permitted or failed (HTTP $status). No existing bucket changed."
+            exit 1
+          fi
+          jq -e '.success == true and .result.name == "gloria-notes-library"' "$tmp" >/dev/null || { echo "::error::Unexpected Cloudflare result"; exit 1; }
+          echo "SUCCESS: gloria-notes-library created as separate bucket. Existing backups untouched."
