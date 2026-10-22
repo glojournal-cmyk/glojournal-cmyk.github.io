@@ -41,7 +41,7 @@ for(const [name,engine,viewport] of [
  assert.equal(await page.locator('.note').count(),1);
  await page.locator('.note .open').click();
  assert.equal(await page.locator('#viewer').isVisible(),true);
- assert.ok((await page.locator('#openTab').getAttribute('href')).includes(encodeURIComponent(key)));
+ assert.equal(new URL(await page.locator('#openTab').getAttribute('href')).searchParams.get('key'),key);
  await page.locator('#closeReader').click();
  assert.equal(await page.locator('#viewer').isVisible(),false);
  await page.locator('.note .fav').click();
