@@ -1,0 +1,21 @@
+name: Gloria Notes Worker Compile QA
+on:
+  pull_request:
+    paths:
+      - .github/workflows/notes-worker-compile-qa.yml
+      - cloudflare-notes/**
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  wrangler-compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Compile Cloudflare Notes ZIP stream Worker without deploying
+        working-directory: cloudflare-notes
+        run: npx --yes wrangler@4.78.0 deploy --dry-run --config wrangler.jsonc
