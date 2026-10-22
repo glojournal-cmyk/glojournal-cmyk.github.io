@@ -22,7 +22,7 @@ for(const [name,engine,viewport] of [
    headers:{'Access-Control-Allow-Origin':'*'}}));
  await page.goto(BASE+'/notes/',{waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('1 PDF'));
- assert.equal(await page.locator('.note').count(),74);
+ assert.equal(await page.locator('.note').count(),80);
  assert.equal(await page.locator('.note .open:enabled').count(),1);
  const pre=await page.evaluate(async()=>{
    // Mobile WebKit may not commit fixed-position layout until the next paint.
@@ -63,6 +63,6 @@ for(const [name,engine,viewport] of [
  await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('1 PDF'));
  await page.locator('[data-period="favourites"]').click();
  assert.equal(await page.locator('.note').count(),1);
- console.log('NOTES_BROWSER_OK '+name+' 74 catalogued, 1 available, 12 Year9, 3 French, search/reader/favourites and nav checked');
+ console.log('NOTES_BROWSER_OK '+name+' 80 catalogued, 1 available, 12 Year9, 3 French, search/reader/favourites and nav checked');
  await browser.close();
 }
