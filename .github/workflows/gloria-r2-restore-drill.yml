@@ -39,7 +39,7 @@ jobs:
           npx --yes wrangler@4 r2 object get "$base/gloria-site-$SOURCE_SHA.tar.gz.sha256" --file "archive.sha256" --remote
           sha256sum --check parts.sha256
           cat "gloria-site-$SOURCE_SHA.tar.gz.part-"* > "gloria-site-$SOURCE_SHA.tar.gz"
-          sha256sum --check archive.sha256
+          sed 's#  output/#  #' archive.sha256 | sha256sum --check
           tar -tzf "gloria-site-$SOURCE_SHA.tar.gz" > archive-contents.txt
           grep -qx 'index.html' archive-contents.txt
           echo 'RECOVERY_DRILL_OK: all R2 chunk digests, combined archive digest and site archive validated'
