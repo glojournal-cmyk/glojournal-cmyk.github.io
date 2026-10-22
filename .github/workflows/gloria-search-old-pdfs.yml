@@ -1,5 +1,7 @@
 name: Search Git History for Missing Notes PDFs
 on:
+  pull_request:
+    paths: [.github/workflows/gloria-search-old-pdfs.yml]
   push:
     branches: [main]
     paths: [.github/workflows/gloria-search-old-pdfs.yml]
