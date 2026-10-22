@@ -4,10 +4,10 @@ import { readFileSync } from 'node:fs';
 const root = new URL('../',import.meta.url);
 const read = p => readFileSync(new URL(p,root),'utf8');
 const catalog=JSON.parse(read('notes/catalog.json'));
-test('87 unique, dated, expected PDF references',()=>{
- assert.equal(catalog.notes.length,87);
- assert.equal(new Set(catalog.notes.map(n=>n.key)).size,87);
- assert.equal(catalog.notes.reduce((sum,n)=>sum+n.sizeBytes,0),680597222);
+test('74 unique, dated, expected PDF references',()=>{
+ assert.equal(catalog.notes.length,74);
+ assert.equal(new Set(catalog.notes.map(n=>n.key)).size,74);
+ assert.equal(catalog.notes.reduce((sum,n)=>sum+n.sizeBytes,0),606264265);
  for(const n of catalog.notes){
   assert.match(n.filename,/\.pdf$/i);
   assert.match(n.key,/^(summer|year9)\/(latin|french|biology|chemistry|english|mixed)\//);
