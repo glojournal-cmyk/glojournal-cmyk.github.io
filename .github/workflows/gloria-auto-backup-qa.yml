@@ -1,0 +1,28 @@
+name: Gloria automatic progress backup QA
+on:
+  pull_request:
+    paths:
+      - 'assets/gloria-auto-backup-20261022.js'
+      - 'cloud-backup.html'
+      - 'index.html'
+      - 'tests/gloria-auto-backup-20261022.test.mjs'
+      - '.github/workflows/gloria-auto-backup-qa.yml'
+  push:
+    paths:
+      - 'assets/gloria-auto-backup-20261022.js'
+      - 'cloud-backup.html'
+      - 'index.html'
+      - 'tests/gloria-auto-backup-20261022.test.mjs'
+      - '.github/workflows/gloria-auto-backup-qa.yml'
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/gloria-auto-backup-20261022.js
+      - run: node --test tests/gloria-auto-backup-20261022.test.mjs tests/cloud-backup-client-20261022.test.mjs
