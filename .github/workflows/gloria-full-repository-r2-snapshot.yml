@@ -1,0 +1,53 @@
+name: Gloria full repository R2 snapshot
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: gloria-repository-r2-snapshot
+  cancel-in-progress: false
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify Cloudflare credentials exist
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          test -n "$CF_TOKEN" && test -n "$CF_ACCOUNT"
+      - name: Build immutable archive and SHA-256 receipt
+        id: snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output
+          git archive --format=tar HEAD | gzip -9 > output/gloria-site-${GITHUB_SHA}.tar.gz
+          sha256sum output/gloria-site-${GITHUB_SHA}.tar.gz > output/gloria-site-${GITHUB_SHA}.tar.gz.sha256
+          test -s output/gloria-site-${GITHUB_SHA}.tar.gz
+          echo "sha=$GITHUB_SHA" >> "$GITHUB_OUTPUT"
+          du -h output/gloria-site-${GITHUB_SHA}.tar.gz
+      - name: Keep a recoverable GitHub Actions artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gloria-site-snapshot-${{ steps.snapshot.outputs.sha }}
+          path: |
+            output/*.tar.gz
+            output/*.sha256
+          retention-days: 30
+          if-no-files-found: error
+      - name: Copy archive into PRIVATE R2 bucket (immutable commit key)
+        working-directory: output
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          npx --yes wrangler@4 r2 object put "gloria-private-encrypted-backups/static-site/$GITHUB_SHA.tar.gz" --file "gloria-site-$GITHUB_SHA.tar.gz" --remote
+          npx --yes wrangler@4 r2 object put "gloria-private-encrypted-backups/static-site/$GITHUB_SHA.tar.gz.sha256" --file "gloria-site-$GITHUB_SHA.tar.gz.sha256" --remote
