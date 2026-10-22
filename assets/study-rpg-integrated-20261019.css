@@ -127,3 +127,9 @@ html.lux-study-rpg-active,html.lux-study-rpg-active body{height:100dvh;overflow:
 
 /* Do not briefly reveal an old Pet stage while the selected evolution loads. */
 .lux-study-rpg-pet[hidden]{display:none!important}
+
+/* Notes link sits alongside the year selector; keeps original bottom nav untouched. */
+.lux-study-rpg-board-header{display:flex;align-items:center;justify-content:center;gap:.75rem;min-width:0}
+.lux-study-rpg-notes-library-link{display:inline-flex;align-items:center;justify-content:center;min-height:2.75rem;padding:.45rem 1rem;border:2px solid #244653;border-radius:999px;color:#153d49;background:#f5edda;font:700 .93rem/1.2 'Source Sans 3',sans-serif;text-decoration:none;white-space:nowrap;box-shadow:0 3px 10px #102a2a20}
+.lux-study-rpg-notes-library-link:hover,.lux-study-rpg-notes-library-link:focus-visible{background:#fff6de}
+@media(max-width:700px){.lux-study-rpg-board-header{gap:.45rem}.lux-study-rpg-notes-library-link{padding:.35rem .65rem;font-size:.79rem;min-height:2.65rem}.lux-study-rpg-year select{min-height:2.65rem;font-size:1rem;padding-left:1rem;padding-right:1.7rem}}
