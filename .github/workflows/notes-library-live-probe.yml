@@ -19,3 +19,16 @@ jobs:
           curl --retry 2 --max-time 20 -fsS "$api/health" | python3 -c 'import sys,json; assert json.load(sys.stdin)["ok"] is True'
           curl --retry 2 --max-time 20 -fsS "$api/catalog" | python3 -c 'import sys,json; d=json.load(sys.stdin); assert isinstance(d["files"],list); print("Published PDF objects:",len(d["files"]))'
           echo "Cloudflare R2 reader is responding. No Cloudflare writes performed."
+          pdf="$api/pdf?key=year9%2Ffrench%2FFrench_Future_Tense_Image_Notes%281%29.pdf"
+          for attempt in 1 2 3 4 5 6; do
+            size=$(curl -sS -I --max-time 20 "$pdf" | tr -d '\r' | awk 'tolower($1)=="content-length:" {print $2}' | tail -1)
+            if [[ "$size" = "33207787" ]]; then
+              echo "PDF HEAD verified: 33,207,787 bytes"
+              break
+            fi
+            if [[ "$attempt" = 6 ]]; then echo "::error::First PDF missing or incomplete (got $size bytes)"; exit 1; fi
+            sleep 5
+          done
+          got=$(curl -sS --max-time 20 -H 'Range: bytes=0-3' "$pdf")
+          [[ "$got" = '%PDF' ]] || { echo "::error::Range response did not contain PDF header";exit 1; }
+          echo "First PDF verified end-to-end, including a four-byte range request."
