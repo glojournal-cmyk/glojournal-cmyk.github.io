@@ -20,9 +20,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          # Anchor: 2026-10-22 UTC. GitHub cron cannot represent continuous 3-day intervals across months.
+          # Anchor: 2026-10-25 UTC. GitHub cron cannot represent continuous 3-day intervals across months.
           today=$(( $(date -u +%s) / 86400 ))
-          anchor=$(( $(date -u -d '2026-10-22' +%s) / 86400 ))
+          anchor=$(( $(date -u -d '2026-10-25' +%s) / 86400 ))
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]] || (( (today - anchor) % 3 == 0 )); then
             echo 'run=true' >> "$GITHUB_OUTPUT"
           else
