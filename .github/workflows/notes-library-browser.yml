@@ -1,0 +1,33 @@
+name: Gloria Notes Browser QA
+on:
+  pull_request:
+    paths:
+      - tests/notes-library-browser.mjs
+      - .github/workflows/notes-library-browser.yml
+      - notes/**
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Check Notes page in desktop Chromium and iPad WebKit
+        shell: bash
+        run: |
+          python3 -m http.server 8777 --bind 127.0.0.1 >/tmp/gloria-notes-http.log 2>&1 &
+          QA_BASE_URL=http://127.0.0.1:8777 node tests/notes-library-browser.mjs
+      - name: Upload iPad and desktop QA images
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gloria-notes-browser-preview
+          path: test-results/notes-library-*.png
+          if-no-files-found: warn
