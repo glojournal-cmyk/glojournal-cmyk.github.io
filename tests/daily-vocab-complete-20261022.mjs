@@ -26,11 +26,16 @@ const frStart=practiceFrFile.indexOf('=[')+1,frEnd=practiceFrFile.lastIndexOf(']
 const frenchYear9=JSON.parse(practiceFrFile.slice(frStart,frEnd));
 const normalize=v=>String(v??'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[’‘]/g,"'").toLowerCase()
   .replace(/\\([^)]*\\)/g,'').replace(/[^a-z0-9' ]/g,'').replace(/\\s+/g,' ').trim();
-function word(q,subject){
-  return normalize(q._vocabTerm||(
-    /english\\s*(?:→|to)\\s*(?:french|latin)/i.test(q.stimulus?.direction||'')
-      ?q.answer.accepted[0]:(q.stimulus?.text||q.answer.accepted[0])));
+function foreign(q,subject){
+  if(q._vocabTerm)return String(q._vocabTerm);
+  const dir=String(q.stimulus?.direction||'').toLowerCase();
+  const prompt=String(q.prompt||'').toLowerCase();
+  const writing=/english\\s*(?:→|->|to)\\s*(?:latin|french)|english clue\\s*→\\s*latin form/.test(dir)||
+    /translate into (?:latin|french)|write the (?:latin|french) (?:word|entry)|write the (?:exact )?latin form/.test(prompt);
+  return String(writing?q.answer.accepted[0]:q.stimulus?.text||q.answer.accepted[0]);
 }
+function word(q,subject){return normalize(foreign(q,subject));}
+
 for(const subject of ['latin','french']){
   const prefix=subject==='latin'?'la':'fr';
   const items=catalog.topics.filter(t=>t.subject===subject&&t.year===8)
@@ -50,7 +55,7 @@ for(const subject of ['latin','french']){
     assert.equal(qs.filter(q=>!q._dailyYear9).length,27,subject+' exactly 27 Year 7–8 words');
     const keys=qs.map(q=>word(q,subject));
     assert.equal(new Set(keys).size,30,subject+' no duplicated lexical items in one session');
-    assert.ok(qs.every(q=>!/[!?;:\\n]|[.]$/.test(q._vocabTerm||q.stimulus?.text||'')),
+    assert.ok(qs.every(q=>!/[!?;\\n]|[.]$/.test(foreign(q,subject))),
       subject+' sentences accidentally selected');
     state.ledger[day]={[subject]:{items:Object.fromEntries(qs.map(q=>[q.id,true]))}};
     for(const q of qs){
