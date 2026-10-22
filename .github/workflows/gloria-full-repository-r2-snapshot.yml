@@ -1,9 +1,6 @@
 name: Gloria full repository R2 snapshot
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/gloria-full-repository-r2-snapshot.yml'
 permissions:
   contents: read
 concurrency:
