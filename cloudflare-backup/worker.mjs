@@ -6,7 +6,7 @@
 
 const ALLOWED_ORIGIN = "https://glojournal-cmyk.github.io";
 
-const MAX_BODY_BYTES = 4 * 1024 * 1024; // encrypted envelope, not raw JSON*
+const MAX_BODY_BYTES = 16 * 1024 * 1024; // encrypted envelope, not raw JSON*
 
 const CACHE_HEADERS = {"cache-control":"no-store","x-content-type-options":"nosniff","referrer-policy":"no-referrer"};
 

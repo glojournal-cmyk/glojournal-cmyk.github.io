@@ -30,10 +30,17 @@ export async function encryptProgress(progress,passphrase){
   const iterations=310000;
   const material=await crypto.subtle.importKey('raw',enc.encode(passphrase),'PBKDF2',false,['deriveKey']);
   const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['encrypt']);
-  const ciphertext=new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM',iv},key,enc.encode(JSON.stringify(progress))));
+  const plain=enc.encode(JSON.stringify(progress));
+  let payload=plain,compression='none';
+  if(typeof CompressionStream==='function'){
+    const stream=new Blob([plain]).stream().pipeThrough(new CompressionStream('gzip'));
+    const compressed=new Uint8Array(await new Response(stream).arrayBuffer());
+    if(compressed.length<plain.length){payload=compressed;compression='gzip';}
+  }
+  const ciphertext=new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM',iv},key,payload));
   const encoded=b64url(ciphertext);
   const digest=hex(await hash(enc.encode(encoded)));
-  return {format:'gloria-encrypted-v1',version:1,compression:'none',algorithm:'AES-256-GCM',kdf:'PBKDF2-SHA256',iterations,salt:b64url(salt),iv:b64url(iv),keyId:hex((await hash(salt)).slice(0,8)),ciphertext:encoded,contentSha256:digest,savedAt:new Date().toISOString()};
+  return {format:'gloria-encrypted-v1',version:1,compression,algorithm:'AES-256-GCM',kdf:'PBKDF2-SHA256',iterations,salt:b64url(salt),iv:b64url(iv),keyId:hex((await hash(salt)).slice(0,8)),ciphertext:encoded,contentSha256:digest,savedAt:new Date().toISOString()};
 }
 export async function decryptProgress(envelope,passphrase){
   if(envelope?.format!=='gloria-encrypted-v1'||envelope?.version!==1||envelope.kdf!=='PBKDF2-SHA256'||envelope.iterations!==310000)throw Error('Unsupported encrypted backup');
@@ -42,7 +49,12 @@ export async function decryptProgress(envelope,passphrase){
   if(hex(await hash(enc.encode(envelope.ciphertext)))!==envelope.contentSha256)throw Error('Encrypted backup checksum mismatch');
   const material=await crypto.subtle.importKey('raw',enc.encode(passphrase),'PBKDF2',false,['deriveKey']);
   const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:310000,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['decrypt']);
-  const result=JSON.parse(dec.decode(await crypto.subtle.decrypt({name:'AES-GCM',iv},key,from64url(envelope.ciphertext))));
+  let payload=new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv},key,from64url(envelope.ciphertext)));
+  if(envelope.compression==='gzip'){
+    if(typeof DecompressionStream!=='function')throw Error('This browser cannot unpack gzip backup');
+    payload=new Uint8Array(await new Response(new Blob([payload]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer());
+  }else if(envelope.compression!=='none')throw Error('Unsupported backup compression');
+  const result=JSON.parse(dec.decode(payload));
   if(!validateProgress(result))throw Error('Decrypted backup invalid');
   return result;
 }
