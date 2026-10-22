@@ -55,8 +55,9 @@ for(const subject of ['latin','french']){
     assert.equal(qs.filter(q=>!q._dailyYear9).length,27,subject+' exactly 27 Year 7–8 words');
     const keys=qs.map(q=>word(q,subject));
     assert.equal(new Set(keys).size,30,subject+' no duplicated lexical items in one session');
-    assert.ok(qs.every(q=>!/[!?;\\n]|[.]$/.test(foreign(q,subject))),
-      subject+' sentences accidentally selected');
+    assert.ok(qs.every(q=>q._dailyYear9||q.topicId==='daily-'+subject+'-legacy'||
+      vocabularyQuestion(q,subject)),subject+' Daily source must be verified vocabulary');
+
     state.ledger[day]={[subject]:{items:Object.fromEntries(qs.map(q=>[q.id,true]))}};
     for(const q of qs){
       (q._dailyYear9?visitedYear9:visitedYear8).add(word(q,subject));
