@@ -1,9 +1,11 @@
 import archiveIndex from './archives/gloria-zip1.json' with {type:'json'};
+import secondArchive from './archives/gloria-zip2.json' with {type:'json'};
 // Public read-only PDF delivery for Notes bucket only. Never bind private backups.
 // In addition to individual R2 PDFs, a single ZIP_STORED archive can serve 25 page-image PDFs
 // via independent byte-range requests. Importer has NO write methods or secrets.
 const SITE='https://glojournal-cmyk.github.io';
-const archived=new Map(archiveIndex.entries.map(e=>[e.key,e]));
+const archives=[archiveIndex,secondArchive];
+const archived=new Map(archives.flatMap(a=>a.entries.map(e=>[e.key,{...e,archive:a}])));
 const safeKey=key=>typeof key==='string' &&
  /^(summer|year9)\/(french|latin|biology|chemistry|english|physics|maths|mixed)\/[a-zA-Z0-9_(). -]+\.pdf$/i.test(key) &&
  key.length<300&&!key.includes('..');
@@ -18,10 +20,10 @@ function json(value,status=200){return new Response(JSON.stringify(value),{statu
 const pdfHeaders=extra=>headers({'Content-Type':'application/pdf',
  'Content-Disposition':'inline','Accept-Ranges':'bytes',
  'Cache-Control':'public,max-age=3600',...extra});
-async function availableArchive(env){
- const obj=await env.NOTES.head(archiveIndex.archiveKey);
- // No PDF is shown as available unless exactly the expected single ZIP object is present.
- return obj && obj.size===archiveIndex.archiveBytes?obj:null;
+async function availableArchive(env,index){
+ const obj=await env.NOTES.head(index.archiveKey);
+ // Each PDF becomes available only after its owning verified ZIP object exists.
+ return obj && obj.size===index.archiveBytes?obj:null;
 }
 function subRange(header,size){
  if(!header)return {offset:0,length:size,partial:false};
@@ -40,14 +42,14 @@ function subRange(header,size){
 async function archivedPDF(request,env,key){
  const entry=archived.get(key);
  if(!entry)return json({error:'not-found'},404);
- const meta=await availableArchive(env);
+ const meta=await availableArchive(env,entry.archive);
  if(!meta)return json({error:'not-found'},404);
  if(request.method==='HEAD')return new Response(null,{status:200,
   headers:pdfHeaders({'Content-Length':String(entry.size)})});
  const range=subRange(request.headers.get('Range'),entry.size);
  if(!range)return new Response(null,{status:416,
   headers:headers({'Content-Range':'bytes */'+entry.size,'Accept-Ranges':'bytes'})});
- const part=await env.NOTES.get(archiveIndex.archiveKey,{range:{
+ const part=await env.NOTES.get(entry.archive.archiveKey,{range:{
   offset:entry.start+range.offset,length:range.length}});
  if(!part||!part.body)return json({error:'archive-unavailable'},503);
  const h=pdfHeaders({'Content-Length':String(range.length)});
@@ -68,10 +70,12 @@ export default {
       list.set(o.key,{key:o.key,size:o.size,uploaded:o.uploaded?.toISOString?.()||null});
     cursor=page.truncated?page.cursor:undefined;
    }while(cursor&&list.size<5000);
-   const archive=await availableArchive(env);
-   if(archive)for(const e of archived.values()){
-    if(!list.has(e.key))list.set(e.key,{key:e.key,size:e.size,
-      uploaded:archive.uploaded?.toISOString?.()||null,source:'verified-zip-store'});
+   for(const index of archives){
+    const archive=await availableArchive(env,index);
+    if(archive)for(const e of index.entries){
+      if(!list.has(e.key))list.set(e.key,{key:e.key,size:e.size,
+        uploaded:archive.uploaded?.toISOString?.()||null,source:'verified-zip-store'});
+    }
    }
    return json({files:[...list.values()],readOnly:true});
   }
