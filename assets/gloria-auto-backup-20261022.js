@@ -2,7 +2,7 @@
 // Browser-stored credentials are readable to scripts on this origin: protect the origin.
 import {readCurrentProgress,encryptProgress,uploadEncrypted} from './cloud-backup-client-20261022.js';
 const DB='gloria-cloud-backup-device-v1', STORE='settings';
-const INTERVAL=12*60*60*1000, RETRY=30*60*1000;
+const INTERVAL=3*24*60*60*1000, RETRY=30*60*1000;
 function openDb(){
  return new Promise((resolve,reject)=>{
   const req=indexedDB.open(DB,1);
