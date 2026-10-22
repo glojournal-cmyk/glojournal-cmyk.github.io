@@ -6,7 +6,7 @@ const read = p => readFileSync(new URL(p,root),'utf8');
 const catalog=JSON.parse(read('notes/catalog.json'));
 test('86 unique, dated, expected PDF references',()=>{
  assert.equal(catalog.notes.length,86);
- assert.equal(new Set(catalog.notes.map(n=>n.key)).size,80);
+ assert.equal(new Set(catalog.notes.map(n=>n.key)).size,86);
  assert.equal(catalog.notes.reduce((sum,n)=>sum+n.sizeBytes,0),680936710);
  for(const n of catalog.notes){
   assert.match(n.filename,/\.pdf$/i);
