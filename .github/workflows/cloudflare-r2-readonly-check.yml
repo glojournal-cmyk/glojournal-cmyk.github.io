@@ -1,6 +1,10 @@
 name: Cloudflare R2 Read-only Access Check
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/cloudflare-r2-readonly-check.yml
 permissions:
   contents: read
 jobs:
@@ -8,32 +12,39 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Verify existing Cloudflare token and R2 list permission
+      - name: Verify Cloudflare credentials and read-only R2 access
+        shell: bash
         env:
           CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        shell: bash
         run: |
           set -euo pipefail
           if [[ -z "${CF_API_TOKEN:-}" || -z "${CF_ACCOUNT_ID:-}" ]]; then
-            echo "::error::Missing CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID GitHub secret."
+            echo "::error::Missing Cloudflare repository secret(s)."
             exit 1
           fi
-          echo "Both Cloudflare secret values are present (values not printed)."
-          auth_code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 \
-            -H "Authorization: Bearer $CF_API_TOKEN" \
-            'https://api.cloudflare.com/client/v4/user/tokens/verify')
-          if [[ "$auth_code" != "200" ]]; then
-            echo "::error::Cloudflare token verification HTTP $auth_code."
-            exit 1
+          echo "Both Cloudflare secrets provided (secret values never displayed)."
+          # Account-owned tokens must be verified via the account endpoint.
+          # User-owned tokens use the user endpoint.
+          if [[ "$CF_API_TOKEN" == cfat_* ]]; then
+            verify_url="https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/tokens/verify"
+            echo "Account-owned API token detected."
+          else
+            verify_url="https://api.cloudflare.com/client/v4/user/tokens/verify"
+            echo "User-owned API token format detected."
           fi
-          echo "Cloudflare token verification endpoint returned HTTP 200."
+          verify_code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 \
+            -H "Authorization: Bearer $CF_API_TOKEN" "$verify_url")
+          echo "Token verify HTTP $verify_code"
+          # Even if verify endpoints return 401 due to account-token ambiguity,
+          # check R2 list permissions directly before concluding the token is invalid.
           bucket_code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 \
             -H "Authorization: Bearer $CF_API_TOKEN" \
             "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/r2/buckets")
           case "$bucket_code" in
-            200) echo "R2 bucket LIST permission: confirmed (HTTP 200)." ;;
-            401|403) echo "::error::R2 bucket LIST denied (HTTP $bucket_code). Token may need R2 read/list permissions."; exit 1 ;;
-            *) echo "::error::R2 bucket LIST returned HTTP $bucket_code; inspect permissions/account settings."; exit 1 ;;
+            200) echo "SUCCESS: R2 bucket list permission confirmed (HTTP 200)." ;;
+            401) echo "::error::R2 bucket list HTTP 401. GitHub token may be invalid, wrong type or account mismatch."; exit 1 ;;
+            403) echo "::error::R2 bucket list HTTP 403. Token likely lacks R2 read access."; exit 1 ;;
+            *) echo "::error::R2 bucket list returned HTTP $bucket_code."; exit 1 ;;
           esac
-          echo "Read-only check finished. No buckets were created, changed, or deleted."
+          echo "No bucket write operations, deployments or uploads were performed."
