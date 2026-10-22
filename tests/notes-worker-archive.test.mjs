@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import worker from '../cloudflare-notes/worker.mjs';
 import archive from '../cloudflare-notes/archives/gloria-zip1.json' with {type:'json'};
+import secondArchive from '../cloudflare-notes/archives/gloria-zip2.json' with {type:'json'};
 const origin='https://gloria-notes-public.glo-journal.workers.dev';
 const entry=archive.entries[0];
 function fakeEnv(archiveExists=true){
@@ -59,4 +60,37 @@ test('no write operations or path traversal permitted',async()=>{
  assert.equal(attack.status,400);
  const invalid=await worker.fetch(new Request(origin+'/pdf?key='+encodeURIComponent(entry.key),{headers:{Range:'bytes=999999999-'}}),env);
  assert.equal(invalid.status,416);
+});
+test('Zip2 appears on catalog independently of Zip1; streaming selects right ZIP',async()=>{
+ const chosen=secondArchive.entries[0],calls=[];
+ const env={NOTES:{
+  list:async()=>({objects:[],truncated:false}),
+  head:async key=>key===secondArchive.archiveKey?
+   {size:secondArchive.archiveBytes,uploaded:new Date('2026-10-22T16:00:00Z')}:null,
+  get:async (key,opts)=>{calls.push({key,range:opts?.range});
+   if(key===secondArchive.archiveKey)return {body:new TextEncoder().encode('%PDF')};
+   return null;}
+ }};
+ const catalog=await worker.fetch(new Request(origin+'/catalog'),env);
+ assert.equal(catalog.status,200);
+ const result=await catalog.json();
+ assert.equal(result.files.length,25);
+ assert.deepEqual(new Set(result.files.map(f=>f.key)),new Set(secondArchive.entries.map(e=>e.key)));
+ const old=await worker.fetch(new Request(origin+'/pdf?key='+encodeURIComponent(entry.key),{method:'HEAD'}),env);
+ assert.equal(old.status,404);
+ const response=await worker.fetch(new Request(origin+'/pdf?key='+encodeURIComponent(chosen.key),{
+   headers:{Range:'bytes=0-3'}}),env);
+ assert.equal(response.status,206);
+ assert.equal(await response.text(),'%PDF');
+ assert.deepEqual(calls.at(-1),{key:secondArchive.archiveKey,range:{offset:chosen.start,length:4}});
+});
+test('both archives together expose all 50 distinct PDFs',async()=>{
+ const env={NOTES:{
+  list:async()=>({objects:[],truncated:false}),
+  head:async key=> key===archive.archiveKey?{size:archive.archiveBytes}: key===secondArchive.archiveKey?{size:secondArchive.archiveBytes}:null
+ }};
+ const res=await worker.fetch(new Request(origin+'/catalog'),env);
+ const j=await res.json();
+ assert.equal(j.files.length,50);
+ assert.equal(new Set(j.files.map(e=>e.key)).size,50);
 });
