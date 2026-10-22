@@ -1,6 +1,8 @@
 name: Gloria full repository R2 snapshot
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '30 19 * * *' # UTC; cadence controlled by the eligibility job
 permissions:
   contents: read
 concurrency:
@@ -10,19 +12,48 @@ jobs:
   snapshot:
     runs-on: ubuntu-latest
     steps:
+      - name: Run scheduled full snapshot every third UTC day
+        id: cadence
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Anchor: 2026-10-22 UTC. GitHub cron cannot represent continuous 3-day intervals across months.
+          today=$(( $(date -u +%s) / 86400 ))
+          anchor=$(( $(date -u -d '2026-10-22' +%s) / 86400 ))
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]] || (( (today - anchor) % 3 == 0 )); then
+            echo 'run=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'run=false' >> "$GITHUB_OUTPUT"
+            echo 'Not a three-day snapshot date.'
+          fi
+      - name: Check whether tracked content changed in the last three days
+        id: changed
+        if: steps.cadence.outputs.run == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]] || [[ $(git rev-list --count --since='3 days ago' HEAD) -gt 0 ]]; then
+            echo 'run=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'run=false' >> "$GITHUB_OUTPUT"
+            echo 'No recent commits; skip redundant large upload.'
+          fi
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
       - uses: actions/setup-node@v4
+        if: steps.changed.outputs.run == 'true'
         with:
           node-version: '22'
       - name: Verify Cloudflare credentials exist
+        if: steps.changed.outputs.run == 'true'
         env:
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           test -n "$CF_TOKEN" && test -n "$CF_ACCOUNT"
       - name: Build immutable archive and SHA-256 receipt
+        if: steps.changed.outputs.run == 'true'
         id: snapshot
         shell: bash
         run: |
@@ -34,6 +65,7 @@ jobs:
           echo "sha=$GITHUB_SHA" >> "$GITHUB_OUTPUT"
           du -h output/gloria-site-${GITHUB_SHA}.tar.gz
       - name: Keep a recoverable GitHub Actions artifact
+        if: steps.changed.outputs.run == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: gloria-site-snapshot-${{ steps.snapshot.outputs.sha }}
@@ -43,6 +75,7 @@ jobs:
           retention-days: 30
           if-no-files-found: error
       - name: Copy archive into PRIVATE R2 bucket (immutable commit key)
+        if: steps.changed.outputs.run == 'true'
         working-directory: output
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
