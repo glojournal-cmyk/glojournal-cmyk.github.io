@@ -358,7 +358,16 @@ export default {
 
   async scheduled(event,env,ctx){
 
-    ctx.waitUntil(sendDailyEmail(env));
+    ctx.waitUntil((async()=>{
+      try {
+        const result=await sendDailyEmail(env);
+        // Only outcome metadata; never log tokens, encrypted payload or personal records.
+        console.log(JSON.stringify({event:"gloria-backup-mail",sent:result.sent,reason:result.reason||null}));
+      } catch(error) {
+        console.error(JSON.stringify({event:"gloria-backup-mail",sent:false,reason:"bridge-or-storage-failure"}));
+        throw error;
+      }
+    })());
 
   }
 
