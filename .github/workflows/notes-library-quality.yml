@@ -1,0 +1,33 @@
+name: Gloria Notes Library QA
+on:
+  pull_request:
+    paths:
+      - notes/**
+      - cloudflare-notes/**
+      - assets/study-rpg-integrated-20261019.js
+      - assets/study-rpg-integrated-20261019.css
+      - tests/notes-library-catalog.test.mjs
+      - .github/workflows/notes-library-quality.yml
+  push:
+    branches: [main]
+    paths:
+      - notes/**
+      - cloudflare-notes/**
+      - assets/study-rpg-integrated-20261019.js
+      - tests/notes-library-catalog.test.mjs
+permissions:
+  contents: read
+jobs:
+  notes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JS syntax and inventory checks
+        run: |
+          node --check notes/library.js
+          node --check cloudflare-notes/worker.mjs
+          node --test tests/notes-library-catalog.test.mjs

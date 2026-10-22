@@ -170,7 +170,14 @@ if (!window.__luxStudyRpgIntegrated) {
     }
     yearSelect.value = String(year);
     yearSelect.addEventListener('change', () => updateYear(Number(yearSelect.value)));
-    yearBox.append(yearSelect);board.append(yearBox);
+    yearBox.append(yearSelect);
+    const studyHeader=el('div','lux-study-rpg-board-header');
+    studyHeader.append(yearBox);
+    const notesLink=el('a','lux-study-rpg-notes-library-link','📖 Notes Library');
+    notesLink.href='/notes/';
+    notesLink.setAttribute('aria-label','Open Summer and Year 9 PDF Notes Library');
+    studyHeader.append(notesLink);
+    board.append(studyHeader);
 
     const scroll = el('div', 'lux-study-rpg-subject-scroll');
     const cards = el('div', 'lux-study-rpg-subjects');
