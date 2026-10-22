@@ -1,0 +1,30 @@
+name: Cloudflare Backup Worker Source QA
+on:
+  pull_request:
+    paths:
+      - 'cloudflare-backup/**'
+      - '.github/workflows/deploy-cloudflare-backup.yml'
+      - '.github/workflows/cloudflare-backup-source-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check cloudflare-backup/worker.mjs
+      - run: node --test cloudflare-backup/tests/*.test.mjs
+      - name: Validate Wrangler config and exact target
+        run: |
+          node --input-type=module -e "
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const c=JSON.parse(fs.readFileSync('cloudflare-backup/wrangler.jsonc','utf8'));
+          assert.equal(c.name,'cool-hill-a2a3gloria-private-cloud-backups');
+          assert.deepEqual(c.triggers.crons,['10 20 * * *']);
+          assert.deepEqual(c.r2_buckets,[{binding:'BACKUPS',bucket_name:'gloria-private-encrypted-backups'}]);
+          "
