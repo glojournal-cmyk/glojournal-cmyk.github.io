@@ -1,7 +1,8 @@
 {
-  "schema": 1,
+  "schema": 2,
   "updated": "2026-10-22",
-  "source": "ChatGPT Library",
+  "source": "ChatGPT Library, image-based PDFs only",
+  "selectionPolicy": "Keep page-image illustrated revision PDFs made from generated note images. Exclude text-layout study books, raw vocabulary lists and original school materials. First-page image checks are preliminary; raw source PDFs still require verification before upload.",
   "notes": [
     {
       "id": "summer-french-22_aug_french_6_page_complete_notes",
@@ -268,18 +269,6 @@
       "status": "pending"
     },
     {
-      "id": "summer-french-french_self_learning_notes_complete_july_2026_corrected_v2",
-      "category": "summer/french",
-      "subject": "french",
-      "period": "summer",
-      "filename": "French_Self_Learning_Notes_COMPLETE_July_2026_Corrected_v2.pdf",
-      "title": "French Self Learning Notes COMPLETE July 2026 Corrected v2",
-      "dateAdded": "2026-07-22",
-      "sizeBytes": 1302758,
-      "key": "summer/french/French_Self_Learning_Notes_COMPLETE_July_2026_Corrected_v2.pdf",
-      "status": "pending"
-    },
-    {
       "id": "summer-french-day1_french_booster_notes_4pages-1",
       "category": "summer/french",
       "subject": "french",
@@ -304,18 +293,6 @@
       "status": "pending"
     },
     {
-      "id": "year9-french-french_vocab_year-9-1",
-      "category": "year9/french",
-      "subject": "french",
-      "period": "year9",
-      "filename": "French_Vocab_Year 9(1).pdf",
-      "title": "French Vocab Year 9",
-      "dateAdded": "2026-10-21",
-      "sizeBytes": 12617823,
-      "key": "year9/french/French_Vocab_Year 9(1).pdf",
-      "status": "pending"
-    },
-    {
       "id": "year9-french-french_future_tense_image_notes-1",
       "category": "year9/french",
       "subject": "french",
@@ -337,18 +314,6 @@
       "dateAdded": "2026-09-26",
       "sizeBytes": 2640832,
       "key": "year9/french/French_Revision_Pack_Image_Version.pdf",
-      "status": "pending"
-    },
-    {
-      "id": "year9-french-french_unit1_une_visite_en_france_revision_pack",
-      "category": "year9/french",
-      "subject": "french",
-      "period": "year9",
-      "filename": "French_Unit1_Une_visite_en_France_Revision_Pack.pdf",
-      "title": "French Unit1 Une visite en France Revision Pack",
-      "dateAdded": "2026-09-26",
-      "sizeBytes": 62458,
-      "key": "year9/french/French_Unit1_Une_visite_en_France_Revision_Pack.pdf",
       "status": "pending"
     },
     {
@@ -580,30 +545,6 @@
       "status": "pending"
     },
     {
-      "id": "summer-latin-latin_self_help_booklet_complete_with_v4_supplement",
-      "category": "summer/latin",
-      "subject": "latin",
-      "period": "summer",
-      "filename": "Latin_Self_Help_Booklet_COMPLETE_with_v4_Supplement.pdf",
-      "title": "Latin Self Help Booklet COMPLETE with v4 Supplement",
-      "dateAdded": "2026-07-22",
-      "sizeBytes": 718292,
-      "key": "summer/latin/Latin_Self_Help_Booklet_COMPLETE_with_v4_Supplement.pdf",
-      "status": "pending"
-    },
-    {
-      "id": "summer-latin-latin_self-help_booklet_updated_july_2026-1",
-      "category": "summer/latin",
-      "subject": "latin",
-      "period": "summer",
-      "filename": "Latin_Self-Help_Booklet_Updated_July_2026(1).pdf",
-      "title": "Latin Self Help Booklet Updated July 2026",
-      "dateAdded": "2026-07-22",
-      "sizeBytes": 654390,
-      "key": "summer/latin/Latin_Self-Help_Booklet_Updated_July_2026(1).pdf",
-      "status": "pending"
-    },
-    {
       "id": "year9-latin-latin_topic_6_the_journey_begins_image_generated_10_pages",
       "category": "year9/latin",
       "subject": "latin",
@@ -661,30 +602,6 @@
       "dateAdded": "2026-10-17",
       "sizeBytes": 18299012,
       "key": "year9/latin/Latin_Topic_1_Sum_and_Possum_Illustrated_Notes.pdf",
-      "status": "pending"
-    },
-    {
-      "id": "year9-latin-latin_complete_notes_clear_type_vocab_checked-2",
-      "category": "year9/latin",
-      "subject": "latin",
-      "period": "year9",
-      "filename": "Latin_Complete_Notes_Clear_Type_Vocab_Checked(2).pdf",
-      "title": "Latin Complete Notes Clear Type Vocab Checked",
-      "dateAdded": "2026-10-17",
-      "sizeBytes": 30258063,
-      "key": "year9/latin/Latin_Complete_Notes_Clear_Type_Vocab_Checked(2).pdf",
-      "status": "pending"
-    },
-    {
-      "id": "year9-latin-latin_vocab-year-9",
-      "category": "year9/latin",
-      "subject": "latin",
-      "period": "year9",
-      "filename": "Latin_vocab year 9.pdf",
-      "title": "Latin vocab year 9",
-      "dateAdded": "2026-09-19",
-      "sizeBytes": 8694258,
-      "key": "year9/latin/Latin_vocab year 9.pdf",
       "status": "pending"
     },
     {
@@ -868,30 +785,6 @@
       "status": "pending"
     },
     {
-      "id": "summer-biology-year8_biology_complete_revision_booklet_updated_v4",
-      "category": "summer/biology",
-      "subject": "biology",
-      "period": "summer",
-      "filename": "Year8_Biology_Complete_Revision_Booklet_UPDATED_v4.pdf",
-      "title": "Year8 Biology Complete Revision Booklet UPDATED v4",
-      "dateAdded": "2026-07-22",
-      "sizeBytes": 1254976,
-      "key": "summer/biology/Year8_Biology_Complete_Revision_Booklet_UPDATED_v4.pdf",
-      "status": "pending"
-    },
-    {
-      "id": "summer-biology-year8_biology_complete_teacher_coverage_final_imagegenerated_diagrams-5",
-      "category": "summer/biology",
-      "subject": "biology",
-      "period": "summer",
-      "filename": "Year8_Biology_COMPLETE_Teacher_Coverage_Final_ImageGenerated_Diagrams(5).pdf",
-      "title": "Year8 Biology COMPLETE Teacher Coverage Final ImageGenerated Diagrams",
-      "dateAdded": "2026-09-06",
-      "sizeBytes": 1957456,
-      "key": "summer/biology/Year8_Biology_COMPLETE_Teacher_Coverage_Final_ImageGenerated_Diagrams(5).pdf",
-      "status": "pending"
-    },
-    {
       "id": "year9-biology-biology_2nov_revision_notes",
       "category": "year9/biology",
       "subject": "biology",
@@ -904,42 +797,6 @@
       "status": "pending"
     },
     {
-      "id": "year9-biology-biology_cell_structure_revision_guide",
-      "category": "year9/biology",
-      "subject": "biology",
-      "period": "year9",
-      "filename": "Biology_Cell_Structure_Revision_Guide.pdf",
-      "title": "Biology Cell Structure Revision Guide",
-      "dateAdded": "2026-10-03",
-      "sizeBytes": 5992903,
-      "key": "year9/biology/Biology_Cell_Structure_Revision_Guide.pdf",
-      "status": "pending"
-    },
-    {
-      "id": "year9-biology-1-1-cell-structure-notes",
-      "category": "year9/biology",
-      "subject": "biology",
-      "period": "year9",
-      "filename": "1.1 cell structure notes.pdf",
-      "title": "1.1 cell structure notes",
-      "dateAdded": "2026-10-03",
-      "sizeBytes": 7149996,
-      "key": "year9/biology/1.1 cell structure notes.pdf",
-      "status": "pending"
-    },
-    {
-      "id": "year9-biology-adaptations-of-specialised-cells-information-posters",
-      "category": "year9/biology",
-      "subject": "biology",
-      "period": "year9",
-      "filename": "Adaptations of Specialised Cells Information Posters.pdf",
-      "title": "Adaptations of Specialised Cells Information Posters",
-      "dateAdded": "2026-10-17",
-      "sizeBytes": 2497110,
-      "key": "year9/biology/Adaptations of Specialised Cells Information Posters.pdf",
-      "status": "pending"
-    },
-    {
       "id": "year9-chemistry-chemistry_revision_notes_this_weeks_test_6_pages-2",
       "category": "year9/chemistry",
       "subject": "chemistry",
@@ -949,18 +806,6 @@
       "dateAdded": "2026-09-26",
       "sizeBytes": 13916731,
       "key": "year9/chemistry/Chemistry_Revision_Notes_This_Weeks_Test_6_Pages(2).pdf",
-      "status": "pending"
-    },
-    {
-      "id": "year9-chemistry-c1-4-fractional-distillation-and-chromatography",
-      "category": "year9/chemistry",
-      "subject": "chemistry",
-      "period": "year9",
-      "filename": "C1.4 Fractional distillation and chromatography.pdf",
-      "title": "C1.4 Fractional distillation and chromatography",
-      "dateAdded": "2026-10-21",
-      "sizeBytes": 1172474,
-      "key": "year9/chemistry/C1.4 Fractional distillation and chromatography.pdf",
       "status": "pending"
     },
     {
@@ -1004,12 +849,19 @@
       "category": "summer/mixed",
       "subject": "mixed",
       "period": "summer",
-      "filename": "Year8_24_July_Complete_Notes_8pp_A4_Printable(1).pdf",
+      "filename": "Year8_24_July_Complete_Notes_8pp_A4_Printable(2).pdf",
       "title": "Year8 24 July Complete Notes 8pp A4 Printable",
       "dateAdded": "2026-07-23",
       "sizeBytes": 15155116,
-      "key": "summer/mixed/Year8_24_July_Complete_Notes_8pp_A4_Printable(1).pdf",
-      "status": "pending"
+      "key": "summer/mixed/Year8_24_July_Complete_Notes_8pp_A4_Printable(2).pdf",
+      "status": "pending",
+      "validation": {
+        "kind": "full-page-image",
+        "pages": 8,
+        "allPagesChecked": true,
+        "uploadedSourceSha256": "3d3cf91a28588a4d802aa735916b3c5f242a0df2c9b87d352365e0ba40c59840",
+        "source": "conversation-upload-2026-10-22"
+      }
     },
     {
       "id": "summer-mixed-28_july_2026_notes_merged",

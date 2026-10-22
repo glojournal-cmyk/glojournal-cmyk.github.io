@@ -1,7 +1,12 @@
 name: Gloria Notes Public Site Check
 on:
-  pull_request:
-    paths: [.github/workflows/notes-site-live-qa.yml]
+  push:
+    branches: [main]
+    paths:
+      - notes/catalog.json
+      - notes/index.html
+      - notes/library.js
+      - .github/workflows/notes-site-live-qa.yml
   workflow_dispatch:
 permissions:
   contents: read
@@ -23,6 +28,6 @@ jobs:
             if [[ "$i" = 5 ]];then echo "::error::Notes Library page is not public yet";exit 1;fi
             sleep 5
           done
-          curl -fsSL --max-time 20 "$base/notes/catalog.json" | python3 -c 'import json,sys; x=json.load(sys.stdin); assert len(x["notes"])==87;print("Published Notes catalog has",len(x["notes"]),"entries")'
+          curl -fsSL --max-time 20 "$base/notes/catalog.json" | python3 -c 'import json,sys; x=json.load(sys.stdin); assert len(x["notes"])==74;print("Published Notes catalog has",len(x["notes"]),"entries")'
           curl -fsSL --max-time 20 "$base/notes/library.js" | grep -q 'gloria-notes-public.glo-journal.workers.dev'
           echo "Public page, catalog and reader JavaScript verified."
