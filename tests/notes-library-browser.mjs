@@ -5,8 +5,8 @@ const BASE=process.env.QA_BASE_URL||'http://127.0.0.1:8777';
 const key='year9/french/French_Future_Tense_Image_Notes(1).pdf';
 await mkdir('test-results',{recursive:true});
 for(const [name,engine,viewport] of [
- ['chromium',chromium,{width:1286,height:860}],
- ['ipad-webkit',webkit,{width:820,height:1186}]
+ ['chromium',chromium,{width:1280,height:800}],
+ ['ipad-webkit',webkit,{width:820,height:1180}]
 ]){
  const browser=await engine.launch({headless:true});
  const context=await browser.newContext({viewport,deviceScaleFactor:1,
