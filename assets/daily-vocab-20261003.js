@@ -4,7 +4,7 @@ function directionOf(q) {
   const d=String(q?.stimulus?.direction||'').toLowerCase(),p=String(q?.prompt||'').toLowerCase();
   if(d.includes('english') && /english\s*(?:→|->|to)\s*(?:french|latin)/.test(d))return 'toForeign';
   if(/(?:french|latin)\s*(?:→|->|to)\s*english/.test(d))return 'toEnglish';
-  if(/translate into (?:french|latin)|write the (?:french|latin) entry|write the (?:french|latin) word/.test(p) ||
+  if(/translate into (?:french|latin)|write the (?:french|latin) entry|write the (?:french|latin) word|write the (?:exact )?latin form|write the (?:exact )?french form/.test(p) ||
      /-e2l$|-e2f$|-from-english$/.test(q.id||''))return 'toForeign';
   if(/translate into english|english meaning|best english meaning/.test(p) ||
      /-l2e$|-f2e$|-to-english$/.test(q.id||''))return 'toEnglish';
@@ -19,7 +19,7 @@ function isHeadword(q,subject) {
   const foreign=String(dir==='toForeign'?terms[0]:stim).trim();
   if(!foreign||/[!?;:\n]|[.]$/.test(foreign)||foreign.split(/\s+/).length>6)return false;
   if(subject==='french' &&
-    /^(?:je|j['’]|tu|elle|nous|vous|ils|elles)\s/i.test(foreign))return false;
+    /^(?:je\b|j['’]|tu\b|elle\b|nous\b|vous\b|ils\b|elles\b)/i.test(foreign))return false;
   if(subject==='french' && /^il\s/i.test(foreign) &&
     !/^il\s+(?:fait|y\s+a|pleut|neige|gèle)\b/i.test(foreign))return false;
   if(subject==='latin' && /^(?:ego|tu|nos|vos)\s/i.test(foreign))return false;
@@ -74,7 +74,7 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
   // Keep historic question IDs and their saved learning records untouched.
   for(const row of legacyVocabulary){
     if(Number(row.year??8)>8)continue;
-    const foreign=String(subject==='french'?row.french:row.latin||'').trim();
+    const foreign=String((subject==='french'?row.french:row.latin)||'').trim();
     if(!foreign||year8Terms.has(wordKey(foreign)))continue;
     const meaning=String(row.english||'').trim();
     if(!meaning)continue;
@@ -158,7 +158,7 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
     const dueDate=last?.due||dueDates.get(concept);
     rows.push({concept,variants,correctTimes,due:!!dueDate&&dueDate<=day,
       wrong:last?.correct===false,recent:recent.has(concept),
-      year9:concept.includes('-y9-concept-vocab-'),
+      year9:concept.includes('-y9-vocab-'),
       order:hash(`${seed}:${subject}:${concept}:rotation`)});
   }
   const year9Target=Math.min(3,size),selected=[],used=new Set();
