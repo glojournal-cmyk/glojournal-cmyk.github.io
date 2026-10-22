@@ -1,0 +1,21 @@
+name: Cloud Backup Client QA
+on:
+  push:
+    paths:
+      - 'cloud-backup.html'
+      - 'assets/cloud-backup-client-20261022.js'
+      - 'tests/cloud-backup-client-20261022.test.mjs'
+      - '.github/workflows/cloud-backup-client-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/cloud-backup-client-20261022.js
+      - run: node --test tests/cloud-backup-client-20261022.test.mjs
