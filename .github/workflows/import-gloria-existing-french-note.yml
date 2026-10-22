@@ -1,0 +1,59 @@
+name: Import Existing French Note into Gloria R2
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/import-gloria-existing-french-note.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify source PDF matches catalogue entry
+        shell: bash
+        run: |
+          set -euo pipefail
+          source="content/notes/french/French_Future_Tense_Image_Notes.pdf"
+          test -f "$source"
+          test "$(stat -c '%s' "$source")" -eq 33207787
+          test "$(head -c 4 "$source")" = "%PDF"
+          node -e 'let d=require("./notes/catalog.json").notes.find(x=>x.filename==="French_Future_Tense_Image_Notes(1).pdf");if(!d||d.sizeBytes!==33207787||d.key!=="year9/french/French_Future_Tense_Image_Notes(1).pdf")process.exit(1)'
+          echo "Source PDF and catalogue file size verified."
+      - name: Upload one known public study PDF to R2
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          test -n "${CLOUDFLARE_API_TOKEN:-}"
+          test -n "${CLOUDFLARE_ACCOUNT_ID:-}"
+          endpoint="https://gloria-notes-public.glo-journal.workers.dev/pdf?key=year9%2Ffrench%2FFrench_Future_Tense_Image_Notes%281%29.pdf"
+          code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 15 -I "$endpoint")
+          if [[ "$code" = "200" ]]; then
+            echo "PDF already publicly available; will not overwrite."
+            exit 0
+          fi
+          if [[ "$code" != "404" ]]; then
+            echo "::error::Unexpected preflight HTTP $code";exit 1
+          fi
+          npx --yes wrangler@4.78.0 r2 object put 'gloria-notes-library/year9/french/French_Future_Tense_Image_Notes(1).pdf' \
+            --file='content/notes/french/French_Future_Tense_Image_Notes.pdf' \
+            --remote --content-type=application/pdf --content-disposition=inline
+          echo "PDF upload submitted; checking read-only access."
+          for try in 1 2 3 4 5; do
+            size=$(curl -sS -I --max-time 15 "$endpoint" | tr -d '\r' | awk 'tolower($1)=="content-length:" {print $2}' | tail -1)
+            if [[ "$size" = "33207787" ]];then
+              echo "SUCCESS: R2 PDF HEAD confirms 33,207,787 bytes."
+              exit 0
+            fi
+            sleep 3
+          done
+          echo "::error::R2 upload not yet visible through public Worker";exit 1
