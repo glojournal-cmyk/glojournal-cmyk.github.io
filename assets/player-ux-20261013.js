@@ -1,5 +1,5 @@
 // Presentation and navigation only. This module never changes learning credit.
-import "./daily-practice-layout-20261020.js?v=20261021-ipad-shell-lock3";
+import "./daily-practice-layout-20261020.js?v=20261021-ipad-shell-lock3&uxfix=20261022-priority-ux1";
 export const GAME_TIME = Object.freeze({
  'weekly-boss':'5–8 min per section · estimate','error-hunter':'5–8 min · estimate',
  'forma-forge':'3–5 min · estimate','sentence-mosaic':'3–5 min · estimate',
@@ -13,7 +13,7 @@ export function lastGameVisit(value){
  return value&&Object.hasOwn(GAME_TIME,value.id)&&Number.isFinite(Number(value.at))?{id:value.id,at:Number(value.at)}:null;
 }
 if(typeof document!=='undefined'){
- if(!globalThis.LuxHomeContinue)import('./home-continue-20261010.js?v=20261010-resume1&ux=20261013-corrections2').then(schedule).catch(()=>{});
+ if(!globalThis.LuxHomeContinue)import('./home-continue-20261010.js?v=20261010-resume1&ux=20261013-corrections2&uxfix=20261022-priority-ux1').then(schedule).catch(()=>{});
  const link=document.createElement('link');link.rel='stylesheet';link.href='/assets/player-ux-20261013.css?ux=20261013-corrections2';document.head.append(link);
  const setText=(node,value)=>{if(node&&node.textContent!==value)node.textContent=value};
  const setAttr=(node,name,value)=>{if(node&&node.getAttribute(name)!==value)node.setAttribute(name,value)};

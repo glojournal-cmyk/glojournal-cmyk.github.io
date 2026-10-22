@@ -1,7 +1,7 @@
 import{t as jx}from"./jsx-runtime-Cltr0gcK.js?ux=20261013-corrections2";
-import{C as useStore,t as router,rt as unavailable,dt as useCatalog,buildProgressDashboard as buildDashboard}from"./index-BLVOhKhN.js?v=20261021-medical-careers1&ux=20261013-corrections2";
-import{t as Card}from"./card-t5JqoXqT.js?v=20261018-receipt2&ux=20261013-corrections2";
-import{t as YearSelect}from"./study-year-select-Dx5P4Ogw.js?v=20261018-receipt2&ux=20261013-corrections2";
+import{C as useStore,t as router,rt as unavailable,dt as useCatalog,buildProgressDashboard as buildDashboard}from"./index-BLVOhKhN.js?v=20261021-medical-careers1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+import{t as Card}from"./card-t5JqoXqT.js?v=20261018-receipt2&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+import{t as YearSelect}from"./study-year-select-Dx5P4Ogw.js?v=20261018-receipt2&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 import{n as getSubject}from"./subjects-B4IlB2zW.js?ux=20261013-corrections2";
 
 var J=jx();

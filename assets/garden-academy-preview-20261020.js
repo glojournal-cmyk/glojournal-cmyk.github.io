@@ -6,7 +6,7 @@
 import {gardenSceneForDate} from './garden-weekly-rotation-20261021.js';
 import { C as store, Q as gardenStage, U as collectibles, X as stages,
          G as needProgress, Y as requirementsContext } from
-  '/assets/index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2';
+  '/assets/index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
 if (typeof document !== 'undefined' && !window.__luxGardenAcademyPreviewInstalled) {
 window.__luxGardenAcademyPreviewInstalled = true;
 const enabled=()=>/^\/garden\/?$/.test(location.pathname)&&

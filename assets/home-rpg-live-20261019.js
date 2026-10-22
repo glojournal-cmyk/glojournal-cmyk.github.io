@@ -1,10 +1,11 @@
+import { scholarMetrics } from './scholar-metrics-20261022.js';
 /* Lux et Labor RPG Home — presentation layer only.
  * Integrates the original App state, never awards credit or edits a daily record.
  * The native Recovery module remains authoritative for dated recovery.
  */
 import './home-journey-v2-logic-20261010.js?v=20261010-home-v2';
 import './journey-navigation-20261004.js';
-import { A as wardrobeOutfits, C as store, B as rewardScenes } from './index-BLVOhKhN.js?v=20261018-mastery2';
+import { A as wardrobeOutfits, C as store, Z as scholarLevelProgress, B as rewardScenes } from './index-BLVOhKhN.js?v=20261018-mastery2&uxfix=20261022-priority-ux1';
 import { selectedRewardScene } from './rpg-scene-selection-20261019.js?v=20261019-selected-scene1';
 import { petArtUrl } from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
 import { getHomePersonality } from '/pet/home-personality-20261010.js?v=20261019-rpg-greeting1';
@@ -219,13 +220,11 @@ if (!window.__luxRpgLiveHome) {
       }
     });
   }
-  function stat(parent, label, value, fraction, tip) {
+  function stat(parent, label, value, unit, tip) {
     const line = make('div','rpg-stat'); line.title = tip;
-    line.append(make('span','rpg-stat-label',label));
-    const track = make('i','rpg-stat-track');
-    const fill = make('span','rpg-stat-fill');
-    fill.style.width = Math.max(0, Math.min(100, fraction * 100)) + '%';
-    track.append(fill); line.append(track, make('strong','rpg-stat-value',value)); parent.append(line);
+    line.setAttribute('aria-label', `${label}: ${value} ${unit}. ${tip}`);
+    line.append(make('span','rpg-stat-label',label),make('span','rpg-stat-unit',unit),make('strong','rpg-stat-value',value));
+    parent.append(line);
   }
   function task(parent, row, icon) {
     // Isolate quest labels from native Home link/button decorators.
@@ -273,14 +272,12 @@ if (!window.__luxRpgLiveHome) {
     const face = document.createElement('img'); face.alt=''; face.src='/art/scholar-avatar.jpg';
     const stats = make('div','rpg-hud-stats');
     const xp = number(state.xp);
-    const mastery = Object.values(state.topicStats || {}).filter(v => v?.state === 'mastered').length;
-    const topics = Object.values(state.topicStats || {}).length;
-    const body = number(state.peSessions);
-    const level = Number(state.scholarLevel || state.level);
-    stats.append(make('div','rpg-level',Number.isInteger(level) && level > 0 ? `Lv ${level}` : 'SCHOLAR'));
-    stat(stats,'MIND',mastery,topics ? mastery/topics : 0,'Mastered topics / topics with saved statistics');
-    stat(stats,'BODY',body,Math.min(body/10,1),'Recorded PE sessions (bar caps at 10)');
-    stat(stats,'SPARK',xp,(xp % 1000)/1000,'Scholar XP · progress bar is illustrative only');
+    const metrics = scholarMetrics(state);
+    const {level} = scholarLevelProgress(xp);
+    stats.append(make('div','rpg-level',`Lv ${level}`));
+    stat(stats,'MIND',metrics.mind,'XP','Study XP across all subjects');
+    stat(stats,'BODY',metrics.body,'XP','Exercise XP');
+    stat(stats,'SPARK',metrics.spark,'pts','Points earned in learning games');
     hud.append(face,stats);
     // Keep exactly one functional 30-day button in the stable Scholar HUD.
     const days = make('button','rpg-days-live');
@@ -448,7 +445,7 @@ if (!window.__luxRpgLiveHome) {
     const signature = JSON.stringify({
       outfit: state.equippedOutfit, scene: state.equippedScene,
       xp: state.xp, level: state.level, scholarLevel: state.scholarLevel,
-      mind: state.latinXp, body: state.bodyXp,
+      metrics: scholarMetrics(state),
       topicStats: state.topicStats, today: state.today, daily: state.daily,
       dailyLog: state.dailyLog, formalAttemptLog: state.formalAttemptLog,
       recovery: state.recoveryHistory, petSpecies: pet.species,

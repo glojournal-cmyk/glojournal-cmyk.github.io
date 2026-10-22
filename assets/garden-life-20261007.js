@@ -464,52 +464,21 @@
     var change = changeOf(life, today, grewNow);
     var score = scoreLine(result.textContent);
     life.arrival = { day: today, score: score, change: change };
-    var cardStage = change === "second" ? pic.second : pic.stage;
-    var cardWhich = change === "second" ? "second" : "basil";
-    var overlay = document.createElement("div");
-    overlay.className = "lux-return";
-    overlay.setAttribute("data-lux-life", "return");
-    overlay.setAttribute("role", "dialog");
-    overlay.setAttribute("aria-modal", "true");
-    overlay.setAttribute("aria-label", "Back in the garden");
-    overlay.innerHTML =
-      '<div class="lux-return-card">' +
-      '<p class="text-xs font-semibold tracking-[0.18em] text-navy uppercase">Back in the garden</p>' +
-      '<div class="lux-pot-return">' + potButton(cardStage, pic.wet, "lux-pot-return", cardWhich) + "</div>" +
-      '<p class="lux-life-line font-display text-2xl font-semibold leading-snug">' + esc(pic.line) + "</p>" +
-      '<p class="mt-2 text-sm text-muted">' + esc(arrivalSentence(life.arrival)) + "</p>" +
-      '<p class="mt-1 text-sm text-muted">' + esc(pic.weatherLine) + "</p>" +
-      '<button type="button" class="lux-return-go">Back to the garden</button>' +
-      "</div>";
-    document.body.appendChild(overlay);
-    var left = false;
-    var leave = function () {
-      if (left) return;
-      left = true;
-      if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-      goGarden();
-    };
-    overlay.querySelector(".lux-return-go").addEventListener("click", leave);
-    overlay.addEventListener("click", function (e) { if (e.target === overlay) leave(); });
-    root.setTimeout(leave, 4000);
+    // Leave the saved results and next-mission actions in control of the learner.
+    // Growth is still recorded, but visiting the garden is an explicit choice.
+    var note = document.createElement("section");
+    note.setAttribute("data-lux-life", "return");
+    note.setAttribute("aria-label", "Garden update");
+    note.className = "rounded-xl bg-sage p-4";
+    note.innerHTML = '<p class="font-semibold">Your garden grew with your study</p>' +
+      '<p class="mt-2 text-sm">' + esc(arrivalSentence(life.arrival)) + '</p>' +
+      '<a class="mt-3 inline-block rounded-full bg-navy px-4 py-2 text-card" href="/garden/">Visit the garden</a>';
+    result.appendChild(note);
     life.returnShown = key;
     if (grewNow) life.announcedGrowthFor = today;
     if (pic.bookmark && !life.bookmarkAnnounced) life.bookmarkAnnounced = true;
     writeLife(life);
     return life;
-  }
-
-  function goGarden() {
-    if (typeof location === "undefined") return;
-    if (/\/garden(?:\/index\.html)?\/?$/.test(location.pathname)) return;
-    var hop = document.createElement("a");
-    hop.href = "/garden";
-    hop.setAttribute("data-lux-life", "hop");
-    document.body.appendChild(hop);
-    hop.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: root }));
-    root.setTimeout(function () {
-      if (!/\/garden(?:\/index\.html)?\/?$/.test(location.pathname)) location.assign("/garden");
-    }, 400);
   }
 
   function isPracticePath(path) {
