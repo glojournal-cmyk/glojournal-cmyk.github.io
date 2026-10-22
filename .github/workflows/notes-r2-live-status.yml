@@ -16,7 +16,7 @@ jobs:
           set -euo pipefail
           api="https://gloria-notes-public.glo-journal.workers.dev"
           echo "== Notes Worker health =="
-          curl -fsS --max-time 25 "$api/health" | python3 -c 'import json,sys; d=json.load(sys.stdin); print("WORKER_OK:",d.get("ok"),"SERVICE:",d.get("service"))'
+          curl -fsS --max-time 25 "$api/health" | python3 -c 'import json,sys; d=json.load(sys.stdin); print("WORKER_OK:",d.get("ok"),"SERVICE:",d.get("service"),"ZIP_READERS:",d.get("archiveReaders"),"ARCHIVE_NAMES:",d.get("archiveNames")); assert d.get("archiveReaders")==2,"Worker has not deployed its Zip1+Zip2 reader yet"'
           echo "== Cloudflare R2 public catalog =="
           curl -fsS --max-time 40 "$api/catalog" > /tmp/notes-catalog.json
           python3 - <<'PY'
