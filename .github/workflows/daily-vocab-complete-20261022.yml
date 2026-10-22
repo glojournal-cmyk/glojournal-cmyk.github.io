@@ -1,0 +1,32 @@
+name: Daily vocabulary complete-bank QA
+on:
+  pull_request:
+    paths:
+      - "assets/daily-vocab-20261003.js"
+      - "assets/daily-vocab-y9-20261021.js"
+      - "assets/study._subject.practise-D_PWgUd7.js"
+      - "assets/study._subject.practise-y8fix-20260920.js"
+      - "tests/daily-vocab-complete-20261022.mjs"
+      - ".github/workflows/daily-vocab-complete-20261022.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  vocabulary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/daily-vocab-20261003.js
+          node --check assets/daily-vocab-y9-20261021.js
+          node --check assets/study._subject.practise-D_PWgUd7.js
+          node --check assets/study._subject.practise-y8fix-20260920.js
+      - name: Test full 27 + 3 vocabulary rotation and scoring identities
+        run: node tests/daily-vocab-complete-20261022.mjs
+      - name: Test daily task counts
+        run: node --test tests/daily-vocab-total-20261020.test.mjs
