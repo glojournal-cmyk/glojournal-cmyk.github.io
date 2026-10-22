@@ -1,6 +1,9 @@
 name: Deploy Gloria Cloudflare Backup Worker
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/deploy-cloudflare-backup.yml'
 permissions:
   contents: read
 jobs:
@@ -16,6 +19,8 @@ jobs:
           node-version: '22'
       - name: Validate Worker JavaScript
         run: node --check worker.mjs
+      - name: Check backup Worker tests
+        run: node --test tests/*.test.mjs
       - name: Check mandatory Cloudflare credentials
         env:
           CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
