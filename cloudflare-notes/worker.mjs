@@ -1,4 +1,4 @@
-import archiveIndex from './archives/gloria-zip1.json';
+import archiveIndex from './archives/gloria-zip1.json' with {type:'json'};
 // Public read-only PDF delivery for Notes bucket only. Never bind private backups.
 // In addition to individual R2 PDFs, a single ZIP_STORED archive can serve 25 page-image PDFs
 // via independent byte-range requests. Importer has NO write methods or secrets.
