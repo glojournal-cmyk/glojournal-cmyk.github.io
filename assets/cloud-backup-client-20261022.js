@@ -54,3 +54,23 @@ export async function uploadEncrypted(envelope,token,send=fetch){
   if(receipt.saved!==true||receipt.digest!==envelope.contentSha256)throw Error('Unverified backup receipt');
   return receipt;
 }
+
+function authHeader(token){
+ if(!/^[A-Za-z0-9_-]{40,100}$/.test(token))throw Error('Invalid private backup token');
+ return {'authorization':'Bearer '+token};
+}
+export async function readBackEncrypted(token,send=fetch){
+ const options={headers:authHeader(token),cache:'no-store'};
+ const listResponse=await send(ENDPOINT+'/v1/backups',options);
+ if(!listResponse.ok)throw Error('Cloud backup list HTTP '+listResponse.status);
+ const listing=await listResponse.json();
+ if(!Array.isArray(listing.items)||!listing.items.length)throw Error('No cloud backup available to verify');
+ if(listing.truncated)throw Error('Too many backups to safely identify latest; verification unavailable');
+ const latest=[...listing.items].sort((a,b)=>String(b.uploadedAt).localeCompare(String(a.uploadedAt)))[0];
+ if(!/^backups\/\d{4}-\d{2}-\d{2}\/[A-Za-z0-9:._-]+\.json$/.test(latest?.key||''))throw Error('Unexpected backup key');
+ const fileResponse=await send(ENDPOINT+'/v1/download?key='+encodeURIComponent(latest.key),options);
+ if(!fileResponse.ok)throw Error('Cloud download HTTP '+fileResponse.status);
+ const envelope=await fileResponse.json();
+ if(envelope?.format!=='gloria-encrypted-v1')throw Error('Cloud backup not encrypted');
+ return {envelope,uploadedAt:latest.uploadedAt};
+}
