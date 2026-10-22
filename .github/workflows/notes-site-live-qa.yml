@@ -28,6 +28,6 @@ jobs:
             if [[ "$i" = 5 ]];then echo "::error::Notes Library page is not public yet";exit 1;fi
             sleep 5
           done
-          curl -fsSL --max-time 20 "$base/notes/catalog.json" | python3 -c 'import json,sys; x=json.load(sys.stdin); assert len(x["notes"])==74;print("Published Notes catalog has",len(x["notes"]),"entries")'
+          curl -fsSL --max-time 20 "$base/notes/catalog.json" | python3 -c 'import json,sys; x=json.load(sys.stdin); assert len(x["notes"])==80;print("Published Notes catalog has",len(x["notes"]),"entries")'
           curl -fsSL --max-time 20 "$base/notes/library.js" | grep -q 'gloria-notes-public.glo-journal.workers.dev'
           echo "Public page, catalog and reader JavaScript verified."
