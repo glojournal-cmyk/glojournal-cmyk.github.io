@@ -1,0 +1,54 @@
+name: Gloria Notes R2 Live Status
+on:
+  pull_request:
+    paths: [.github/workflows/notes-r2-live-status.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Probe public read-only Notes service and verify actual available PDFs
+        shell: bash
+        run: |
+          set -euo pipefail
+          api="https://gloria-notes-public.glo-journal.workers.dev"
+          echo "== Notes Worker health =="
+          curl -fsS --max-time 25 "$api/health" | python3 -c 'import json,sys; d=json.load(sys.stdin); print("WORKER_OK:",d.get("ok"),"SERVICE:",d.get("service"))'
+          echo "== Cloudflare R2 public catalog =="
+          curl -fsS --max-time 40 "$api/catalog" > /tmp/notes-catalog.json
+          python3 - <<'PY'
+          import json
+          docs=json.load(open('/tmp/notes-catalog.json'))['files']
+          print("ACTUAL_AVAILABLE_PDF_COUNT:",len(docs))
+          for key in [
+             'year9/french/French_Future_Tense_Image_Notes(1).pdf',
+             'summer/biology/19_Aug_Biology_6_Page_Complete_Notes_Illustrated.pdf',
+             'summer/biology/15_Aug_Biology_Complete_Notes.pdf'
+          ]:
+            found=next((x for x in docs if x.get('key')==key),None)
+            print("CATALOG_KEY:",key,"PRESENT" if found else "MISSING",
+              "BYTES:"+str(found.get('size')) if found else "")
+          print("SOURCE_COUNTS:",{s:sum(x.get('source')==s for x in docs) for s in ['verified-zip-store']})
+          PY
+          echo "== Independent read-only HEAD tests =="
+          probe(){
+            label="$1"; key="$2"; expected="$3"
+            headers=$(mktemp)
+            status=$(curl -sS -G --head --max-time 30 --output /dev/null --dump-header "$headers" -w '%{http_code}' --data-urlencode "key=$key" "$api/pdf")
+            bytes=$(tr -d '\r' < "$headers" | awk 'tolower($1)=="content-length:"{print $2}' | tail -n 1)
+            if [[ "$status" = "200" && "$bytes" = "$expected" ]]; then
+              echo "$label: PDF_READY (HTTP 200, $bytes bytes)"
+            elif [[ "$status" = "404" ]]; then
+              echo "$label: NOT_UPLOADED_OR_NOT_PUBLISHED (HTTP 404)"
+            else
+              echo "$label: NEEDS_ATTENTION (HTTP $status, content-length $bytes)"
+            fi
+            rm -f "$headers"
+          }
+          probe "EXISTING_FRENCH" "year9/french/French_Future_Tense_Image_Notes(1).pdf" 33207787
+          probe "ZIP1_FIRST_PDF" "summer/biology/19_Aug_Biology_6_Page_Complete_Notes_Illustrated.pdf" 17314725
+          probe "ZIP2_NEW_BIOLOGY" "summer/biology/15_Aug_Biology_Complete_Notes.pdf" 8585191
+          echo "No writes, no credentials, no bucket mutations performed."
