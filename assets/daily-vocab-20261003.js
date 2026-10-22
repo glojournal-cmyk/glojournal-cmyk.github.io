@@ -12,19 +12,17 @@ function directionOf(q) {
 }
 function isHeadword(q,subject) {
   const dir=directionOf(q),terms=q?.answer?.accepted||[],stim=String(q?.stimulus?.text||'').trim();
-  if(!stim||!terms.length)return false;
+  if(!terms.length||!stim)return false;
+  // A taught word or compact dictionary/idiomatic chunk is vocabulary.
+  // Do not silently remove useful multiword lexical items such as "près de"
+  // or "faire du vélo"; still exclude full-sentence translation exercises.
   const foreign=String(dir==='toForeign'?terms[0]:stim).trim();
-  if(!foreign || /[.!?;:\n]/.test(foreign))return false;
-  const pieces=foreign.split(/\s+/);
-  if(pieces.length>(subject==='french'?3:3))return false;
-  // French determiner + noun and Latin dictionary forms are vocabulary,
-  // but subject/verb clauses are not.
-  if(/^(?:je|j'|tu|il|elle|nous|vous|ils|elles)\b/i.test(foreign) && pieces.length>1)return false;
-  if(subject==='french' && pieces.length>1 && !/^(?:(?:un|une|le|la|les|l['’]|des|du|de|mon|ma|mes|son|sa|ses)\s*)?[a-zàâäçéèêëîïôöùûüÿœæ'’-]+$/i.test(foreign))return false;
-  if(/^(?:ego|tu|ille|illa|nos|vos)\b/i.test(foreign) && pieces.length>1)return false;
-  const english=String(dir==='toForeign'?stim:terms[0]).trim();
-  if(!english || /[!?;\n]/.test(english) || english.split(/\s+/).length>6)return false;
-  if(/^(?:i|we|you|he|she|they)\s+(?:am|is|are|was|were|have|has|had|will|would|can|could|do|does|did|went|want|like|love)\b/i.test(english))return false;
+  if(!foreign||/[!?;:\n]|[.]$/.test(foreign)||foreign.split(/\s+/).length>6)return false;
+  if(subject==='french' &&
+    /^(?:je|j['’]|tu|elle|nous|vous|ils|elles)\s/i.test(foreign))return false;
+  if(subject==='french' && /^il\s/i.test(foreign) &&
+    !/^il\s+(?:fait|y\s+a|pleut|neige|gèle)\b/i.test(foreign))return false;
+  if(subject==='latin' && /^(?:ego|tu|nos|vos)\s/i.test(foreign))return false;
   return true;
 }
 export function vocabularyQuestion(q, subject) {
@@ -51,14 +49,52 @@ const wordKey = text => String(text || '').normalize('NFD').replace(/[\u0300-\u0
 export function selectDailyVocabulary({subject, items = [], year9Items = [], day, seed = day,
   ledger = {}, reviews = {}, spellingDue = {}, seenCorrect = {}, legacyVocabulary = [], size = 30,
   topicLearning = {}}) {
-  const words = new Map(), byId = new Map();
-  for (const q of [...items,...year9Items]) {
-    const year9 = Number(q.year)===9 && String(q.conceptId||'').startsWith(
+  const words=new Map(),byId=new Map(),year8Terms=new Set();
+  const add=(q,year9=false)=>{
+    if(!q?.id||!Array.isArray(q.answer?.accepted)||!q.answer.accepted.length)return;
+    const dir=directionOf(q);
+    const term=String(q._vocabTerm||((dir==='toForeign')?q.answer.accepted[0]:q.stimulus?.text)||'').trim();
+    const key=wordKey(term);
+    if(!key)return;
+    // A lexical item counts once, even if another Year 8 topic tests it
+    // under a different conceptId or in the opposite translation direction.
+    if(year9&&year8Terms.has(key))return;
+    const concept=`${subject}-${year9?'y9':'y8'}-vocab-${key}`;
+    if(!words.has(concept))words.set(concept,[]);
+    if(!words.get(concept).some(x=>x.id===q.id))words.get(concept).push(q);
+    byId.set(q.id,concept);
+    if(!year9)year8Terms.add(key);
+  };
+  for(const q of items){
+    if(!vocabularyQuestion(q,subject)||topicLearning[q.topicId]===false)continue;
+    add(q,false);
+  }
+  // Include the entire existing Year 7–8 learner word bank, not just words
+  // which already happen to have a matching enabled curriculum question.
+  // Keep historic question IDs and their saved learning records untouched.
+  for(const row of legacyVocabulary){
+    if(Number(row.year??8)>8)continue;
+    const foreign=String(subject==='french'?row.french:row.latin||'').trim();
+    if(!foreign||year8Terms.has(wordKey(foreign)))continue;
+    const meaning=String(row.english||'').trim();
+    if(!meaning)continue;
+    const id='daily-'+subject+'-legacy-'+String(row.id);
+    const q={
+      id,conceptId:(subject==='french'?'fr':'la')+'-y8-concept-vocab-legacy-'+String(row.id),
+      topicId:'daily-'+subject+'-legacy',topic:'Year 7–8 vocabulary',year:8,
+      status:'enabled',formal:true,format:'typed_exact',
+      prompt:'VOCAB — Give the English meaning of this '+(subject==='french'?'French':'Latin')+' word.',
+      stimulus:{text:foreign,direction:(subject==='french'?'French':'Latin')+' → English'},
+      answer:{mode:'exact_or_equivalent',accepted:[meaning,...(row.extra||[])].filter(Boolean)},
+      feedback:{short:foreign+' means '+meaning+'.',steps:[foreign+' → '+meaning+'.'],remember:foreign+' ↔ '+meaning},
+      task:{label:'VOCAB',instruction:'Translate the learned word or short phrase.'}
+    };
+    if(isHeadword(q,subject))add(q,false);
+  }
+  for(const q of year9Items){
+    const year9=Number(q.year)===9&&String(q.conceptId||'').startsWith(
       (subject==='french'?'fr':'la')+'-y9-concept-vocab-');
-    if (!(year9 || vocabularyQuestion(q,subject)) || (!year9 && topicLearning[q.topicId]===false))continue;
-    byId.set(q.id,q.conceptId);
-    if (!words.has(q.conceptId))words.set(q.conceptId,[]);
-    words.get(q.conceptId).push(q);
+    if(year9&&q.status!=='disabled'&&q.formal!==false&&isHeadword(q,subject))add(q,true);
   }
   // Keep legacy word-to-question history, including results saved on older iPads.
   const wordConcepts = new Map(), aliases = new Map();
@@ -168,6 +204,6 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
     const q=alternatives[hash(`${seed}:${row.concept}:direction`)%alternatives.length];
     const actual=directionOf(q);if(actual)directionCounts[actual]++;
     return {...q,_dailyBucket:row.bucket,_previousSeen:row.encounters,_dailyVocab:subject,
-      _dailyYear8:true,_dailyYear9:row.year9,_adaptiveRank:i,_adaptiveBucket:row.bucket};
+      _dailyYear8:!row.year9,_dailyYear9:row.year9,_adaptiveRank:i,_adaptiveBucket:row.bucket};
   });
 }
