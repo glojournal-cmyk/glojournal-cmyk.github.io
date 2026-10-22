@@ -1,0 +1,12 @@
+{
+  "name": "gloria-notes-public",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-22",
+  "workers_dev": true,
+  "r2_buckets": [
+    {
+      "binding": "NOTES",
+      "bucket_name": "gloria-notes-library"
+    }
+  ]
+}
