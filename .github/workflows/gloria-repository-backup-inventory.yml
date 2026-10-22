@@ -1,0 +1,27 @@
+name: Gloria repository backup inventory
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '25 19 * * *'
+  push:
+    paths:
+      - 'tools/gloria-backup-inventory.mjs'
+      - '.github/workflows/gloria-repository-backup-inventory.yml'
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Hash all committed files and catalogue learning materials
+        run: node tools/gloria-backup-inventory.mjs output/gloria-repository-inventory.json
+      - name: Preserve inventory for recovery auditing
+        uses: actions/upload-artifact@v4
+        with:
+          name: gloria-repository-inventory
+          path: output/gloria-repository-inventory.json
+          retention-days: 30
