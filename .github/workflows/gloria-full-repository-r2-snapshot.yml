@@ -52,5 +52,12 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -euo pipefail
-          npx --yes wrangler@4 r2 object put "gloria-private-encrypted-backups/static-site/$GITHUB_SHA.tar.gz" --file "gloria-site-$GITHUB_SHA.tar.gz" --remote
-          npx --yes wrangler@4 r2 object put "gloria-private-encrypted-backups/static-site/$GITHUB_SHA.tar.gz.sha256" --file "gloria-site-$GITHUB_SHA.tar.gz.sha256" --remote
+          # Wrangler's R2 object put limit is 300 MiB. Each independently
+          # hashed chunk is 190 MiB; upload manifest LAST, after all parts.
+          split -b 190m -d -a 3 "gloria-site-$GITHUB_SHA.tar.gz" "gloria-site-$GITHUB_SHA.tar.gz.part-"
+          sha256sum gloria-site-"$GITHUB_SHA".tar.gz.part-* > "gloria-site-$GITHUB_SHA.parts.sha256"
+          for piece in gloria-site-"$GITHUB_SHA".tar.gz.part-*; do
+            npx --yes wrangler@4 r2 object put "gloria-private-encrypted-backups/static-site/$GITHUB_SHA/$piece" --file "$piece" --remote
+          done
+          npx --yes wrangler@4 r2 object put "gloria-private-encrypted-backups/static-site/$GITHUB_SHA/gloria-site-$GITHUB_SHA.parts.sha256" --file "gloria-site-$GITHUB_SHA.parts.sha256" --remote
+          npx --yes wrangler@4 r2 object put "gloria-private-encrypted-backups/static-site/$GITHUB_SHA/gloria-site-$GITHUB_SHA.tar.gz.sha256" --file "gloria-site-$GITHUB_SHA.tar.gz.sha256" --remote
