@@ -2,7 +2,7 @@ import './mission-complete-v2-core-20261010.js?v=20261010-mission-v2&ux=20261013
 import {dailyTaskGuidance} from "./daily-task-guidance-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import './journey-navigation-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2';
 import {i as interop,n as factory} from './jsx-runtime-Cltr0gcK.js?ux=20261013-corrections2';
-import {C as store} from './index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
+import {C as store} from './index-BLVOhKhN.js?v=20261023-share-permission1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
 const R=interop(factory()),h=R.createElement,J=globalThis.LuxJourney;
 const linkStyle={display:'inline-flex',alignItems:'center',minHeight:44,padding:'10px 18px',marginTop:12,borderRadius:24,background:'#173e50',color:'#fffdf6',textDecoration:'none'};
 function useJourney(){const daily=store(s=>s.daily),today=store(s=>s.today),[revision,setRevision]=R.useState(0);R.useEffect(()=>{const update=()=>setRevision(n=>n+1);window.addEventListener('storage',update);window.addEventListener('scholar:session-saved',update);return()=>{window.removeEventListener('storage',update);window.removeEventListener('scholar:session-saved',update)}},[]);return {daily,today,revision}}
