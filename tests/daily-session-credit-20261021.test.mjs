@@ -83,5 +83,5 @@ test('iPad loads cache-busted quiz, Daily route, wrapper and core (not stale Jav
  for(const module of ['assets/study._subject.practise-y8fix-20260920.js','assets/study._subject.practise-D_PWgUd7.js'])
    assert.ok(file(module).includes('quiz-session-y8fix-20260920.js?v='+release),module);
  for(const route of ['index.html',...['latin','french','biology','chemistry','physics','english'].map(s=>'study/'+s+'/practise/index.html')])
-   assert.ok(/index-BLVOhKhN\\.js\\?v=20261023-mastered20-(?:v1|backup1)/.test(file(route)),route);
+   assert.ok(/index-BLVOhKhN\.js\?v=20261023-mastered20-(?:v1|backup1)/.test(file(route)),route);
 });
