@@ -664,3 +664,12 @@ html.lux-daily-ux-ready [data-lux-tile-actions]{
   grid-column:1 / -1!important;grid-row:3!important;
   display:flex;align-items:center;min-height:44px;margin:0!important;
 }
+
+/* Free Practice: never conceal the React-rendered activity/topic selectors. */
+html:not(.lux-daily-task-active) .lux-practice-view:not(:has([data-question-id])) > details {
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  height:auto!important;
+  max-height:none!important;
+}
