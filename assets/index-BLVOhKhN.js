@@ -1,4 +1,5 @@
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js";
+import {datedDailyStatus,hasDailyCompletionReceipt} from "./daily-record-completion-20261023.js";
 import "./player-ux-20261013.js?ux=20261021-ipad-shell-lock3&uxfix=20261022-priority-ux1";
 import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
 import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
@@ -3334,9 +3335,10 @@ function formatRecordDate(iso) {
   return { weekday, label: `${d.getDate()} ${months[d.getMonth()]}` };
 }
 
-function recordDayStatus(row) {
+function recordDayStatus(row, state, date) {
+  if (datedDailyStatus(state,date)==="done")
+    return { kind: "done", label: "All done" };
   if (!row) return { kind: "closed", label: "Not opened" };
-  if (row.complete) return { kind: "done", label: "All done" };
   const left = Math.max(0, row.total - row.done);
   if (row.done === 0) return { kind: "missed", label: "Nothing finished" };
   return { kind: "missed", label: left === 1 ? "1 still to do" : `${left} still to do` };
@@ -3393,13 +3395,13 @@ function mountDailyRecord() {
     }
     const key = `${selected}|${days.map((day) => {
       const row = log[day];
-      return row ? `${day}:${row.done}/${row.total}:${row.tasks.map((task) => `${task.progress}:${!!task.done}:${!!task.recovered}`).join(".")}` : `${day}:x`;
+      return row ? `${day}:${row.done}/${row.total}:${row.tasks.map((task) => `${task.progress}:${!!task.done}:${!!task.recovered}`).join(".")}:${hasDailyCompletionReceipt(state,day)}` : `${day}:x:${hasDailyCompletionReceipt(state,day)}`;
     }).join(",")}`;
     if (key === lastKey) return;
     lastKey = key;
 
     const counts = days.reduce((sum, day) => {
-      const kind = recordDayStatus(log[day]).kind;
+      const kind = recordDayStatus(log[day],state,day).kind;
       sum[kind] += 1;
       return sum;
     }, { done: 0, missed: 0, closed: 0 });
@@ -3438,7 +3440,7 @@ function mountDailyRecord() {
     dots.className = "lux-record-dots";
     for (const day of days) {
       const row = log[day];
-      const status = recordDayStatus(row);
+      const status = recordDayStatus(row,state,day);
       const dot = document.createElement("button");
       dot.type = "button";
       dot.className = `lux-record-dot is-${status.kind}${day === selected ? " is-selected" : ""}${day === today ? " is-today" : ""}`;
@@ -3462,7 +3464,7 @@ function mountDailyRecord() {
     list.className = "lux-record-list";
     for (const day of [...days].reverse()) {
       const row = log[day];
-      const status = recordDayStatus(row);
+      const status = recordDayStatus(row,state,day);
       const when = formatRecordDate(day);
       const item = document.createElement("article");
       item.className = `lux-record-day is-${status.kind}${day === selected ? " is-open" : ""}`;
@@ -3474,7 +3476,9 @@ function mountDailyRecord() {
       dateEl.innerHTML = `<b>${when.weekday}</b> ${when.label}${day === today ? `<em>Today</em>` : ""}`;
       const score = document.createElement("span");
       score.className = "lux-record-score";
-      score.textContent = row ? `${status.label} · ${row.done}/${row.total}` : status.label;
+      score.textContent = status.kind==="done" && !(row && (row.complete || (row.total>0 && row.done>=row.total)))
+        ? "All done · saved completion receipt"
+        : row ? `${status.label} · ${row.done}/${row.total}` : status.label;
       summary.append(dateEl, score);
       summary.addEventListener("click", () => {
         if (selected === day) return;
@@ -3488,10 +3492,12 @@ function mountDailyRecord() {
         detail.className = "lux-record-detail";
         if (!row) {
           const empty = document.createElement("p");
-          empty.textContent = "No saved record for this date. Within 48-hour Recovery you can start a clearly labelled replacement plan for missed daily tasks. Only real completed activities will count.";
+          empty.textContent = status.kind==="done"
+            ? "All ten tasks were completed according to the saved daily-complete receipt. The individual task snapshot is unavailable; no repeat work is required."
+            : "No saved record for this date. Within 48-hour Recovery you can start a clearly labelled replacement plan for missed daily tasks. Only real completed activities will count.";
           detail.append(empty);
         } else {
-          const missed = row.tasks.filter((task) => !task.done);
+          const missed = status.kind==="done" ? [] : row.tasks.filter((task) => !task.done);
           const finished = row.tasks.filter((task) => task.done);
           const addGroup = (heading, tasks, done) => {
             if (!tasks.length) return;
@@ -3509,14 +3515,16 @@ function mountDailyRecord() {
           if (!missed.length) {
             const all = document.createElement("p");
             all.className = "is-done";
-            all.textContent = "Every daily task was finished.";
+            all.textContent = status.kind==="done" && !row.complete
+              ? "All daily tasks confirmed by the saved completion receipt; individual task details may be incomplete."
+              : "Every daily task was finished.";
             detail.append(all);
           }
           addGroup("Not finished", missed, false);
           addGroup("Finished", finished, true);
         }
         const recoveryAge = Math.round((Date.parse(today+"T12:00:00Z")-Date.parse(day+"T12:00:00Z"))/86400000);
-        if (recoveryAge >= 1 && recoveryAge <= 2) {
+        if (recoveryAge >= 1 && recoveryAge <= 2 && status.kind!=="done") {
           const fallback = !row?.tasks?.length;
           const recoveryTasks = fallback
             ? (unopenedPlan(state,day)||UNOPENED_FALLBACK_TASKS.map(([id,title,target])=>({id,title,target,progress:0,done:false,recoveryFallback:true})))
