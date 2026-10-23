@@ -29,13 +29,30 @@ jobs:
             sleep 5
           done
           for i in {1..18}; do
-            if curl -fsSL --max-time 20 "$base/notes/catalog.json?revision=$GITHUB_SHA" | python3 -c 'import json,sys; x=json.load(sys.stdin); assert len(x["notes"])==94; assert len([n for n in x["notes"] if n.get("delivery")=="site" and n.get("subject")=="latin" and n.get("period")=="year9"])==6' >/dev/null 2>&1; then
-              echo "Live Notes catalog has 94 entries including six Year 9 Latin vocabulary chapters."
+            if curl -fsSL --max-time 20 "$base/notes/catalog.json?revision=$GITHUB_SHA" | python3 -c 'import json,sys; x=json.load(sys.stdin); assert len(x["notes"])==95; assert len([n for n in x["notes"] if n.get("delivery")=="site" and n.get("subject")=="latin" and n.get("period")=="year9"])==6' >/dev/null 2>&1; then
+              echo "Live Notes catalog has 95 entries including six Year 9 Latin vocabulary chapters."
               break
             fi
             if [[ "$i" = 18 ]]; then echo "::error::Latest Notes catalog not deployed"; exit 1; fi
             sleep 10
           done
+          curl -fsSL --max-time 20 "$base/notes/catalog.json?revision=$GITHUB_SHA" -o /tmp/notes-live-manifest.json
+          python3 - <<'PY'
+          import json
+          notes=json.load(open('/tmp/notes-live-manifest.json'))['notes']
+          expected=[
+            'Latin_Topic_1_Sum_and_Possum_Illustrated_Notes.pdf',
+            'Latin_Topic_2_Verbs_One_Image_Per_Page.pdf',
+            'Latin_Topic_3_Adjectives_One_Image_Per_Page.pdf',
+            'Latin_Topic_4_Trojan_Horse_One_Page_Per_Image.pdf',
+            'Topic5_9pages_easy_download.pdf',
+            'Latin_Topic_6_The_Journey_Begins_Image_Generated_10_Pages.pdf'
+          ]
+          for name in expected:
+            matches=[n for n in notes if n['key']=='year9/latin/'+name]
+            assert len(matches)==1, 'Missing or duplicated upload '+name
+          print('LATIN_TOPIC_1_TO_6_CATALOGUED')
+          PY
           for ch in {1..6}; do
             url="$base/notes/pdf/year9/latin/Year9_Latin_Vocabulary_Chapter_${ch}.pdf"
             curl -fIsSL --retry 3 --max-time 25 "$url" >/dev/null
