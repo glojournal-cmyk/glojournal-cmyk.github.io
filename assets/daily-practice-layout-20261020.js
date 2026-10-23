@@ -20,7 +20,7 @@
   // Any Practice route needs its final shell before React paints the question.
   // On iPad a route or quiz re-mount may take several frames; waiting for
   // [data-question-id] shows the old Daily screen between new question frames.
-  if (pathIsPractice() && !disabled()) {
+  if (pathIsPractice() && !disabled() && new URLSearchParams(location.search).get('daily') === '1') {
     root.classList.add('lux-daily-ux-ready');
     if (new URLSearchParams(location.search).get('daily') === '1') {
       root.classList.add('lux-daily-task-active');
@@ -267,7 +267,7 @@
     // A URL change to Practice already selects the v2 shell, even while
     // hydration has no question. Only an actual result / leaving the route
     // switches off the shell.
-    const active = enabled && !showingResult;
+    const active = enabled && !showingResult && (!!q || new URLSearchParams(location.search).get('daily') === '1');
     root.classList.toggle('lux-daily-ux-ready',active);
     root.classList.toggle('lux-daily-task-active',active && new URLSearchParams(location.search).get('daily')==='1');
     if (!active) {
