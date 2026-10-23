@@ -36,20 +36,59 @@ test('original ten assignments remain with 165 items when no delayed checks are 
   }
 });
 
-test('three overdue checks are automatically assigned, each for five questions',()=>{
+test('three overdue checks do not replace the two 20-question Daily Mastery slots',()=>{
   const input=state();
   for(const [topic,stage] of [['latin-y8-t0','check7'],['french-y8-t0','check2'],['biology-y8-t0','check2']])
     input.topicStats[topic]={masteryV2:{stage,due:day}};
   const plan=buildYear8DailyV2(input,get);
   const checks=plan.filter(t=>t.masteryCheck===true);
-  assert.equal(checks.length,3);
-  assert.deepEqual(new Set(checks.map(t=>t.assignedTopic)),
-    new Set(['latin-y8-t0','french-y8-t0','biology-y8-t0']));
-  assert.ok(checks.every(t=>t.target===5&&urlMode(t)==='due'));
-  assert.equal(lookup(plan,'due-review').masteryCheck,true);
+  assert.equal(checks.length,1,'Day 2/7 recall belongs to independent Due Review');
+  assert.equal(checks[0].id,'due-review');
+  assert.equal(checks[0].target,5);
+  assert.equal(urlMode(checks[0]),'due');
+  for(const id of ['y8-mastery-a','y8-mastery-b']){
+    const mastery=lookup(plan,id);
+    assert.equal(mastery.target,20, id+' remains a full 20-question daily set');
+    assert.equal(urlMode(mastery),'mastery');
+    assert.equal(mastery.masteryCheck,false);
+    assert.ok(!['latin-y8-t0','french-y8-t0','biology-y8-t0'].includes(mastery.assignedTopic));
+  }
+  assert.equal(plan.reduce((n,t)=>n+t.target,0),160,
+    'Only the separate Due Review shrinks from ten to five questions');
   for(const id of ['latin-standard','y8-standard-a','y8-standard-b'])
     assert.ok(!checks.some(c=>c.assignedTopic===lookup(plan,id).assignedTopic),
       'Do not consume a pending recall topic for Standard');
+});
+
+test('unopened legacy five-question Mastery check upgrades to the real 20-question Mastery',()=>{
+  const input=state();
+  input.topicStats['latin-y8-t0']={masteryV2:{stage:'check2',due:day}};
+  input.daily=[{id:'y8-mastery-a',planDate:day,assignedSubject:'latin',
+    assignedTopic:'latin-y8-t0',assignedLabel:'Topic 0',masteryCheck:true,
+    href:'/study/latin/practise?daily=1&mode=due&task=y8-mastery-a',
+    progress:0,target:5}];
+  const updated=buildYear8DailyV2(input,get);
+  const mastery=lookup(updated,'y8-mastery-a');
+  assert.equal(mastery.target,20);
+  assert.equal(urlMode(mastery),'mastery');
+  assert.equal(mastery.masteryCheck,false);
+  assert.notEqual(mastery.assignedTopic,'latin-y8-t0');
+});
+
+test('started legacy five-question check keeps its credited work without affecting the other Mastery',()=>{
+  const input=state();
+  input.topicStats['latin-y8-t0']={masteryV2:{stage:'check2',due:day}};
+  input.daily=[{id:'y8-mastery-a',planDate:day,assignedSubject:'latin',
+    assignedTopic:'latin-y8-t0',assignedLabel:'Topic 0',masteryCheck:true,
+    href:'/study/latin/practise?daily=1&mode=due&task=y8-mastery-a',
+    progress:2,target:5}];
+  const updated=buildYear8DailyV2(input,get);
+  assert.equal(lookup(updated,'y8-mastery-a').target,5);
+  assert.equal(lookup(updated,'y8-mastery-a').progress,2);
+  assert.equal(urlMode(lookup(updated,'y8-mastery-a')),'due');
+  assert.equal(lookup(updated,'y8-mastery-b').target,20);
+  assert.equal(urlMode(lookup(updated,'y8-mastery-b')),'mastery');
+  assert.ok(updated.every(t=>t.progress<=t.target));
 });
 
 test('a pending check does not appear early or get mistaken for a new Mastery',()=>{
