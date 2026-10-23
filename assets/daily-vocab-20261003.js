@@ -197,7 +197,11 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
       year9:concept.includes('-y9-vocab-'),
       order:hash(`${seed}:${subject}:${concept}:rotation`)});
   }
-  const year9Target=Math.min(size<=3?0:3,size),selected=[],used=new Set();
+  // After the initial 30-word set, the remaining-credit session need not
+  // repeat three Year 9 questions already answered on this date. Use the
+  // number of fresh Year 9 concepts still available, then fill from Year 7–8.
+  const year9Target=Math.min(size,3,rows.filter(r=>r.year9&&!credited.has(r.concept)).length);
+  const selected=[],used=new Set();
   // Only repeat a successfully recalled word when the remaining pool in that
   // year is insufficient to fill the quota. Unanswered and wrong words lead.
   // Remaining-credit mode MUST prefer a never-credited word over one that
