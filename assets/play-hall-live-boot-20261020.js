@@ -18,7 +18,7 @@
     }
     if(loading||window.__luxPlayHallPreviewMounted)return;
     loading=true;
-    import('/assets/play-hall-preview-20261020.js?v=20261021-medical-store2&uxfix=20261022-priority-ux1')
+    import('/assets/play-hall-preview-20261020.js?v=20261023-decor-singleton1&uxfix=20261022-priority-ux1')
       .catch(error=>{loading=false;console.warn('Play Hall unavailable; native Play remains accessible',error);});
   }
   // Capture native and React-router anchor navigation from Home, Study,
