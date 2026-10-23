@@ -15,7 +15,9 @@
    return el;
  };
  const mb=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB';
- const isAvailable=n=>workerReady&&available.has(n.key);
+ const isSiteNote=n=>n.delivery==='site'&&typeof n.url==='string'&&
+   /^\/notes\/pdf\/year9\/latin\/Year9_Latin_Vocabulary_Chapter_[1-6]\.pdf$/.test(n.url);
+ const isAvailable=n=>isSiteNote(n)||(workerReady&&available.has(n.key));
  function subjectName(slug){return SUBJECTS.find(x=>x[0]===slug)?.[1]||slug;}
  function imageFor(y,s){
    // One fixed set of seven user-selected Option E banners for both years.
@@ -35,10 +37,13 @@
  }
  function status(){
    const n=notes.filter(isAvailable).length;
+   const siteCount=notes.filter(isSiteNote).length;
    $('status').textContent=workerReady
-     ? n+' / '+notes.length+' Notes available in Cloudflare · Open one PDF at a time'
-     : 'Notes catalog loaded · Checking Cloudflare availability';
-   $('status').classList.toggle('offline',!workerReady);
+     ? n+' / '+notes.length+' Notes available · Cloudflare + site PDFs'
+     : siteCount
+       ? siteCount+' chapter PDFs available · Checking other cloud notes'
+       : 'Notes catalog loaded · Checking Cloudflare availability';
+   $('status').classList.toggle('offline',!workerReady&&!siteCount);
  }
  function subjectCard(slug,title,yearNotes){
    const entries=yearNotes.filter(n=>n.subject===slug);
@@ -59,7 +64,7 @@
    body.append(node('h2',null,title));
    const stats=node('div','subject-stats');
    stats.append(node('span','stat-line',entries.length+' '+(entries.length===1?'Note':'Notes')));
-   stats.append(node('span','stat-line ready-line',workerReady?ready+' available':'Checking cloud…'));
+   stats.append(node('span','stat-line ready-line',workerReady||entries.some(isSiteNote)?ready+' available':'Checking cloud…'));
    body.append(stats);
    body.append(node('span','card-arrow','›'));
    card.setAttribute('aria-label',YEAR_NAMES[year]+' '+title+': '+entries.length+' notes'+(entries.length?' — open subject':' — no notes yet'));
@@ -101,7 +106,7 @@
    shown.sort((a,b)=>Number(isAvailable(b))-Number(isAvailable(a))||
      a.title.localeCompare(b.title,undefined,{numeric:true}));
    const ready=all.filter(isAvailable).length;
-   $('detailCount').textContent=workerReady?ready+' available / '+all.length+' Notes':all.length+' Notes';
+   $('detailCount').textContent=workerReady||all.some(isSiteNote)?ready+' available / '+all.length+' Notes':all.length+' Notes';
    const fragment=document.createDocumentFragment();
    for(const note of shown)fragment.append(noteRow(note));
    $('noteList').replaceChildren(fragment);
@@ -115,7 +120,7 @@
  }
  function openDoc(note){
    if(!isAvailable(note))return;
-   const url=API+'/pdf?'+new URLSearchParams({key:note.key});
+   const url=isSiteNote(note)?note.url:API+'/pdf?'+new URLSearchParams({key:note.key});
    try {
      const recent=JSON.parse(localStorage.getItem(READER_RECENT_KEY)||'[]');
      const ids=[note.id,...(Array.isArray(recent)?recent:[]).filter(v=>v!==note.id)].slice(0,12);
@@ -150,7 +155,7 @@
  cleanRoute();
  (async()=>{
    try{
-     const response=await fetch('/notes/catalog.json?v=20261023-designc-e1',{cache:'no-cache'});
+     const response=await fetch('/notes/catalog.json?v=20261023-latinvocab1',{cache:'no-cache'});
      if(!response.ok)throw Error('Notes index HTTP '+response.status);
      const manifest=await response.json();
      notes=Array.isArray(manifest.notes)?manifest.notes.filter(n=>n&&n.id&&n.key&&n.title&&n.subject&&n.period):[];
