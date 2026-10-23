@@ -51,7 +51,8 @@ for (const restored of [state,JSON.parse(JSON.stringify(state))]) {
 }
 const start=practice.indexOf("function buildDaily30("),end=practice.indexOf("function qp(",start);
 assert.ok(start>=0&&end>start);
-const mixMocks={selectDailyVocabulary,c:[],f:[],
+const mixMocks={selectDailyVocabulary,c:[],f:[],FY9:[],
+  year9DailyVocabulary:()=>[],s:{getState:()=>({})},
   daily30Topics:(_subject,topics)=>topics,daily30Mature:()=>false,l:()=>day,
   daily30Confirm:()=>({}),GQS:()=>[],daily30Shuffle:rows=>rows,FD:rows=>rows,
 };
@@ -60,7 +61,10 @@ const buildMix=new Function(...Object.keys(mixMocks),
 for(const subject of ["latin","french"]) {
   const tid=subject==="latin"?topic:"fr-y8-s01-basics";
   const items=Array.from({length:45},(_,i)=>({
-    id:subject+"-"+i,topicId:tid,conceptId:(subject==="latin"?"la":"fr")+"-y8-concept-vocab-"+i,format:"typed_exact",prompt:"Translate a word",formal:true,answer:{accepted:["word "+i]},
+    id:subject+"-"+i,topicId:tid,conceptId:(subject==="latin"?"la":"fr")+"-y8-concept-vocab-"+i,
+    format:"typed_exact",status:"enabled",prompt:"Translate into English",formal:true,
+    stimulus:{text:"headword"+i,direction:(subject==="latin"?"Latin":"French")+" → English"},
+    answer:{accepted:["word "+i]},
   }));
   const credited=Object.fromEntries(items.slice(0,10).map(q=>[q.id,true]));
   credited[items[10].id]=false;
