@@ -74,6 +74,6 @@ for(const subject of ['latin','french']){
 }
 for(const [label,source] of [['current',practice],['iPad fallback',practiceFallback]]){
   for(const phrase of ['year9Items:year9DailyVocabulary(subject,FY9)','seenCorrect:s.getState()?.seenCorrect',
-    '20261022-complete-vocab1'])assert.ok(source.includes(phrase),label+' missing '+phrase);
+    '20261023-latinbooklet277-v1'])assert.ok(source.includes(phrase),label+' missing '+phrase);
 }
 console.log('DAILY_VOCAB_COMPLETE passed: both routes, 27+3 rotation, scoring identities, no duplicate words');
