@@ -20,11 +20,22 @@ export const LATIN_BOOKLET_RECORDS = Object.freeze(SOURCE.trim().split('\n').map
 }));
 export const latinBookletKey = s=>String(s||'').normalize('NFD')
   .replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
-export const latinBookletMeanings = English => {
- const text=String(English||'');
- const cleaned=text.replace(/\([^)]*\)/g,'').replace(/\bpl\s+/g,'');
- return [...new Set([text,cleaned,...cleaned.split(/[;,]/).map(s=>s.trim())]
-   .map(s=>s.trim()).filter(s=>s.length>0))];
+export const latinBookletMeanings = english => {
+  const text=String(english||'').trim();
+  const bracketOnly=text.match(/^\(([^()]*)\)$/)?.[1]||'';
+  const cleaned=text.replace(/\([^)]*\)/g,'').replace(/\bpl\s+/g,'')
+    .replace(/\.{2,}/g,'').replace(/[!?]/g,'').replace(/\s+/g,' ').trim();
+  const parts=cleaned.split(/[;,]/).map(x=>x.trim()).filter(Boolean);
+  const synonyms=parts.flatMap(p=>{
+    if(!p.includes('/'))return [p];
+    // Textbook compounds such as "he/she says" or "beg/ask for".
+    const chunks=p.split('/').map(x=>x.trim()).filter(Boolean);
+    if(chunks.length!==2)return [p];
+    const tail=chunks[1].includes(' ')?chunks[1].slice(chunks[1].indexOf(' ')):'';
+    return [p,chunks[0]+tail,chunks[1]];
+  });
+  return [...new Set([text,cleaned,bracketOnly,...parts,...synonyms]
+    .map(v=>v.trim()).filter(Boolean))];
 };
 export const LATIN_BOOKLET_GROUPS = Object.freeze([...LATIN_BOOKLET_RECORDS.reduce((map,row)=>{
   const key=latinBookletKey(row.headword);
