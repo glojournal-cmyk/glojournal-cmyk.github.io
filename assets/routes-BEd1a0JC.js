@@ -42,13 +42,16 @@ function patchHome() {
   }
 }
 
+// HOME-RETURN STABILITY: a busy React route can generate dozens of DOM
+// mutations per frame. Never queue a full Home scan for every microtask.
 let queued = false;
 function schedulePatch() {
+  if (typeof window === "undefined" || window.location.pathname !== "/") return;
   if (queued) return;
   queued = true;
-  queueMicrotask(() => {
+  requestAnimationFrame(() => {
     queued = false;
-    patchHome();
+    if (window.location.pathname === "/") patchHome();
   });
 }
 
