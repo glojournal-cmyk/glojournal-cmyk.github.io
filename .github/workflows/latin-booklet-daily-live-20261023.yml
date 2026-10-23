@@ -25,11 +25,15 @@ jobs:
           for attempt in {1..22}; do
             curl --retry 1 -fsSL --max-time 20 "$base/study/latin/practise/?v=$GITHUB_SHA" -o /tmp/latin-page
             curl --retry 1 -fsSL --max-time 20 "$base/assets/study._subject.practise-y8fix-20260920.js?v=$GITHUB_SHA" -o /tmp/latin-practice
+            curl --retry 1 -fsSL --max-time 20 "$base/assets/study._subject.practise-D_PWgUd7.js?v=$GITHUB_SHA" -o /tmp/latin-practice-modern
+            curl --retry 1 -fsSL --max-time 20 "$base/assets/index-BLVOhKhN.core.js?v=$GITHUB_SHA" -o /tmp/latin-core
             curl --retry 1 -fsSL --max-time 20 "$base/assets/daily-vocab-20261003.js?v=$GITHUB_SHA" -o /tmp/latin-selector
             curl --retry 1 -fsSL --max-time 20 "$base/assets/daily-vocab-y9-20261021.js?v=$GITHUB_SHA" -o /tmp/latin-y9
             curl --retry 1 -fsSL --max-time 20 "$base/assets/latin-vocabulary-booklet-20261023.js?v=$GITHUB_SHA" -o /tmp/latin-book
-            if grep -q '20261023-latinbooklet277-v1' /tmp/latin-page &&
+            if grep -q 'study._subject.practise-y8fix-20260920.js' /tmp/latin-page &&
+               grep -q 'study._subject.practise-D_PWgUd7.js?v=20261023-study-catalog-fix2' /tmp/latin-core &&
                grep -q '20261023-latinbooklet277-v1' /tmp/latin-practice &&
+               grep -q '20261023-latinbooklet277-v1' /tmp/latin-practice-modern &&
                grep -q 'LATIN_BOOKLET_GROUPS' /tmp/latin-selector &&
                grep -q 'canonicalKeys' /tmp/latin-y9 &&
                grep -q 'LATIN_BOOKLET_RECORDS' /tmp/latin-book; then

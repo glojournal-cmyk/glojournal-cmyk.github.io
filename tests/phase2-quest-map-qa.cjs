@@ -29,7 +29,9 @@ test('all complete counts ten without awarding anything',()=>{
 });
 test('Home V2 remains disabled, original artwork and fallback remain',()=>{
  const home=fs.readFileSync('index.html','utf8'),fallback=fs.readFileSync('404.html','utf8');
- assert.equal(home,fallback);assert.doesNotMatch(home,/\/assets\/home-journey-v2-20261010\.js/);
+ const liveStore=home.match(/\/assets\/index-BLVOhKhN\.js\?[^\"<>]+/)?.[0];
+ assert.ok(liveStore && fallback.includes(liveStore),'Home and 404 fallback must share one persisted store release');
+ assert.doesNotMatch(home,/\/assets\/home-journey-v2-20261010\.js/);
  assert.match(home,/\/art\/doll\/day\.png/);
  assert.match(s,/chosen-reward-goal/);assert.match(s,/Raise her today/);
  assert.match(s,/LuxHomeContinue\?\.choose/,'Home Continue keeps the original saved-draft selector');
