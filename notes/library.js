@@ -18,6 +18,10 @@
  const isSiteNote=n=>n.delivery==='site'&&typeof n.url==='string'&&
    /^\/notes\/pdf\/year9\/latin\/Year9_Latin_Vocabulary_Chapter_[1-6]\.pdf$/.test(n.url);
  const isAvailable=n=>isSiteNote(n)||(workerReady&&available.has(n.key));
+ // Confirmed uploaded by the parent's R2 screenshot, but the reader has not
+ // confirmed the PDF response. Keep these accessible without labelling them ready.
+ const isUploadedNote=n=>n.validation?.r2ScreenshotVisible===true;
+ const isOpenable=n=>isAvailable(n)||isUploadedNote(n);
  function subjectName(slug){return SUBJECTS.find(x=>x[0]===slug)?.[1]||slug;}
  function imageFor(y,s){
    // One fixed set of seven user-selected Option E banners for both years.
@@ -84,15 +88,17 @@
  }
  function noteRow(note){
    const ready=isAvailable(note);
-   const btn=node('button','note-row'+(ready?' ready':' unavailable'));
-   btn.type='button';btn.disabled=!ready;
-   btn.setAttribute('aria-label',note.title+' — '+(ready?'Read PDF':'Awaiting upload'));
+   const uploaded=isUploadedNote(note);
+   const btn=node('button','note-row'+(ready?' ready':uploaded?' uploaded':' unavailable'));
+   btn.type='button';btn.disabled=!isOpenable(note);
+   btn.setAttribute('aria-label',note.title+' — '+(ready?'Read PDF':uploaded?'Open uploaded PDF; reader not yet verified':'Awaiting upload'));
    btn.append(node('span','row-icon','▤'));
    const main=node('span','row-main');
    main.append(node('span','row-name',note.title));
-   main.append(node('span','row-meta','PDF · '+mb(note.sizeBytes)));
-   btn.append(main,node('span','row-action',ready?'Read PDF →':workerReady?'Awaiting upload':'Unavailable'));
-   if(ready)btn.addEventListener('click',()=>openDoc(note));
+   const sizeLabel=(note.approximateSize?'about ':'')+mb(note.sizeBytes);
+   main.append(node('span','row-meta','PDF · '+sizeLabel+(uploaded&&!ready?' · R2 upload shown, reader not verified':'')));
+   btn.append(main,node('span','row-action',ready?'Read PDF →':uploaded?'Open PDF →':workerReady?'Awaiting upload':'Unavailable'));
+   if(isOpenable(note))btn.addEventListener('click',()=>openDoc(note));
    return btn;
  }
  function renderDetail(){
@@ -119,14 +125,14 @@
    status();
  }
  function openDoc(note){
-   if(!isAvailable(note))return;
+   if(!isOpenable(note))return;
    const url=isSiteNote(note)?note.url:API+'/pdf?'+new URLSearchParams({key:note.key});
    try {
      const recent=JSON.parse(localStorage.getItem(READER_RECENT_KEY)||'[]');
      const ids=[note.id,...(Array.isArray(recent)?recent:[]).filter(v=>v!==note.id)].slice(0,12);
      localStorage.setItem(READER_RECENT_KEY,JSON.stringify(ids));
    }catch{}
-   $('viewerTitle').textContent=note.title;
+   $('viewerTitle').textContent=note.title+(isAvailable(note)?'':' · R2 reader unverified');
    $('openTab').href=url;
    $('pdfFrame').src=url;
    $('viewer').hidden=false;
