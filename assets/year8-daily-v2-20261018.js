@@ -65,7 +65,11 @@ const OCT23_RESTORED_TASKS = [
 function restoreVerifiedOct23Daily(state,getCatalog){
   const date='2026-10-23';
   const rows=[...(Array.isArray(state.daily)?state.daily:[]),
-    ...(state.dailyLog?.[date]?.tasks||[])];
+    ...(state.dailyLog?.[date]?.tasks||[]),
+    // Earlier versions archived the ORIGINAL completed task before
+    // replacing its slot with a new 0/20. Archived dated evidence is valid
+    // for restoration, but never create progress from the calendar alone.
+    ...(state.dailyLog?.[date]?.preRestoreTasks||[])];
   const has=(id,min)=>rows.some(t=>t?.id===id&&Number(t.progress||0)>=min);
   // Limit the repair to the photographed, substantially completed plan.
   // Never give another device a completion from a calendar date alone.
@@ -74,7 +78,9 @@ function restoreVerifiedOct23Daily(state,getCatalog){
      !has('y8-mastery-b',20))return null;
   const byId=new Map((state.daily||[]).filter(t=>t.planDate===date).map(t=>[t.id,t]));
   const logged=state.dailyLog?.[date]?.tasks||[];
-  const linked=(id,topic)=>[byId.get(id),...logged.filter(t=>t.id===id)]
+  const archived=state.dailyLog?.[date]?.preRestoreTasks||[];
+  const linked=(id,topic)=>[byId.get(id),...logged.filter(t=>t.id===id),
+    ...archived.filter(t=>t.id===id)]
     .filter(t=>t?.assignedTopic===topic);
   const vocab=subject=>{
     const id=subject+'-vocab',old=byId.get(id);
@@ -107,6 +113,19 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     if(restored)return restored;
   }
   const today=state.today, previous=new Map((state.daily||[]).filter(t=>t.planDate===today).map(t=>[t.id,t]));
+  // Read actual dated task receipts, including an archived pre-reassignment
+  // slot. Once an assignment has real credited work, keep that subject,
+  // topic, route, and target instead of replacing it with today's 0/20.
+  const datedRow=state.dailyLog?.[today]||{};
+  for(const saved of [...(datedRow.tasks||[]),...(datedRow.preRestoreTasks||[])]){
+    if(!saved?.id||!(Number(saved.progress)>0||saved.done===true))continue;
+    const current=previous.get(saved.id);
+    const currentProgress=Number(current?.progress)||0;
+    const proof=Number(saved.progress)||0;
+    if(!current||proof>currentProgress||
+       (saved.done===true&&current?.done!==true&&proof>=currentProgress))
+      previous.set(saved.id,{...current,...saved,planDate:today});
+  }
   const pools=Object.fromEntries(['latin',...rotation].map(subject=>[subject,curriculumTopics(subject,8,getCatalog,learning)]));
   const exposure=recentSubjectExposure(state,today);
   const active=rotation.filter(subject=>pools[subject].some(t=>!coveredTopic(state,t.topicId)));
