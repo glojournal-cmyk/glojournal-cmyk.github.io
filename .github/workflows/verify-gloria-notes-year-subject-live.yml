@@ -1,0 +1,49 @@
+name: Verify Gloria Notes Year-Subject Layout Live
+on:
+  pull_request:
+    paths:
+      - .github/workflows/verify-gloria-notes-year-subject-live.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify public Notes pages and Cloudflare availability
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://glojournal-cmyk.github.io/notes"
+          curl --retry 3 --retry-delay 3 -fsSL --max-time 25 "$base/" > /tmp/gloria-notes.html
+          curl --retry 3 --retry-delay 3 -fsSL --max-time 25 "$base/library.js?v=20261023-02" > /tmp/gloria-notes.js
+          curl --retry 3 --retry-delay 3 -fsSL --max-time 25 "$base/library.css?v=20261023-02" > /tmp/gloria-notes.css
+          python3 - <<'PY'
+          from pathlib import Path
+          html=Path('/tmp/gloria-notes.html').read_text()
+          js=Path('/tmp/gloria-notes.js').read_text()
+          css=Path('/tmp/gloria-notes.css').read_text()
+          assert 'id="noteGroups"' in html, 'Old HTML still displayed'
+          assert 'library.css?v=20261023-02' in html, 'Old CSS cache-version still displayed'
+          assert 'library.js?v=20261023-02' in html, 'Old JS cache-version still displayed'
+          assert 'function yearSection(' in js, 'Year grouping not live'
+          assert 'function subjectSection(' in js, 'Subject grouping not live'
+          assert 'function noteRow(' in js, 'Single-button note rows not live'
+          assert '.note-row{width:100%' in css, 'Horizontal full-width rows not live'
+          print('NEW_YEAR_SUBJECT_ONE_BUTTON_NOTES_LAYOUT_IS_LIVE')
+          PY
+          curl --retry 2 -fsSL --max-time 25 "$base/catalog.json" > /tmp/gloria-manifest.json
+          python3 - <<'PY'
+          import json
+          m=json.load(open('/tmp/gloria-manifest.json'))
+          print('CATALOGUED_PDFS',len(m['notes']))
+          assert len(m['notes'])==88
+          PY
+          curl --retry 2 -fsSL --max-time 25 'https://gloria-notes-public.glo-journal.workers.dev/catalog' >/tmp/gloria-cloud.json
+          python3 - <<'PY'
+          import json
+          files=json.load(open('/tmp/gloria-cloud.json'))['files']
+          print('CLOUDFLARE_R2_READABLE_PDFS',len(files))
+          assert len(files)>=30,'Fewer than 30 previously recovered Cloudflare Notes'
+          PY
