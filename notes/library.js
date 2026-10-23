@@ -73,7 +73,7 @@
     const title=node('div','subject-heading');
     title.append(node('h4',null,SUBJECT_LABELS[kind]||kind));
     const published=entries.filter(n=>available.has(n.key)).length;
-    title.append(node('span','subject-count',published+' ready / '+entries.length));
+    title.append(node('span','subject-count',workerReady ? published+' ready / '+entries.length : entries.length+' notes'));
     const list=node('div','note-list');
     entries.sort((a,b)=>Number(available.has(b.key))-Number(available.has(a.key)) ||
       a.title.localeCompare(b.title,undefined,{numeric:true}));
@@ -110,7 +110,7 @@
     }
     $('noteGroups').replaceChildren(fragment);
     $('empty').hidden=filtered.length!==0;
-    for(const button of document.querySelectorAll('[data-period]')){
+    for(const button of document.querySelectorAll('.segments button[data-period]')){
       button.classList.toggle('active',button.dataset.period===period);
       button.setAttribute('aria-pressed',String(button.dataset.period===period));
     }
@@ -120,7 +120,7 @@
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('viewer').hidden)closeDoc()});
   $('search').addEventListener('input',e=>{query=e.target.value;render()});
   $('subject').addEventListener('change',e=>{subject=e.target.value;render()});
-  for(const button of document.querySelectorAll('[data-period]'))
+  for(const button of document.querySelectorAll('.segments button[data-period]'))
     button.addEventListener('click',()=>{period=button.dataset.period;render()});
   (async()=>{
     try {
