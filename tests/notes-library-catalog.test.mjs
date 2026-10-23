@@ -4,14 +4,14 @@ import { readFileSync } from 'node:fs';
 const root = new URL('../',import.meta.url);
 const read = p => readFileSync(new URL(p,root),'utf8');
 const catalog=JSON.parse(read('notes/catalog.json'));
-test('88 unique, dated, expected PDF references',()=>{
- assert.equal(catalog.notes.length,88);
- assert.equal(new Set(catalog.notes.map(n=>n.key)).size,88);
- assert.equal(catalog.notes.reduce((sum,n)=>sum+n.sizeBytes,0),691005358);
+test('94 unique, dated, expected PDF references',()=>{
+ assert.equal(catalog.notes.length,94);
+ assert.equal(new Set(catalog.notes.map(n=>n.key)).size,94);
+ assert.equal(catalog.notes.reduce((sum,n)=>sum+n.sizeBytes,0),708920205);
  for(const n of catalog.notes){
   assert.match(n.filename,/\.pdf$/i);
   assert.match(n.key,/^(summer|year9)\/(latin|french|biology|chemistry|english|mixed)\//);
-  assert.equal(n.status,'pending');
+  assert.equal(n.status,n.delivery==='site'?'ready':'pending');
   assert.ok(n.dateAdded>='2026-07-01');
  }
 });
@@ -88,4 +88,23 @@ test('User-selected E series illustrates original Design C horizontal rectangula
  assert.match(html,/id="detailScreen"/);
  assert.match(html,/20261023-designc-e1/);
  assert.doesNotMatch(html,/id="noteGroups"/);
+});
+
+test('six Year 9 Latin vocabulary image PDFs have dedicated chapter buttons and same-site reader paths',()=>{
+ const latin=catalog.notes.filter(n=>n.period==='year9'&&n.subject==='latin'&&n.delivery==='site');
+ assert.equal(latin.length,6);
+ for(let i=1;i<=6;i++){
+  const note=latin.find(n=>n.title==='Latin Vocabulary — Chapter '+i);
+  assert.ok(note,'Missing chapter '+i);
+  assert.equal(note.key,'year9/latin/Year9_Latin_Vocabulary_Chapter_'+i+'.pdf');
+  assert.equal(note.url,'/notes/pdf/'+note.key);
+  assert.equal(note.status,'ready');
+  assert.equal(note.validation.sourcePage,i);
+  assert.equal(note.validation.fullPageImageCoverage,true);
+ }
+ const reader=read('notes/library.js');
+ assert.match(reader,/isSiteNote/);
+ assert.match(reader,/isSiteNote\(note\)\?note\.url/);
+ assert.match(reader,/workerReady&&available\.has\(n\.key\)/);
+ assert.match(read('notes/index.html'),/20261023-latinvocab1/);
 });
