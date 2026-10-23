@@ -148,6 +148,15 @@ test('Continue skips completed and expired daily drafts',()=>{
  storage.setItem('lux-practice-drafts-v1',JSON.stringify({[key]:{...draft,planDate:YESTERDAY}}));
  assert.equal(J.resumeCandidates(current).length,0);
 });
+test('partial legacy Daily snapshot cannot replace a full automatic recovery copy',async()=>{
+ const complete=JSON.parse(snapshot(fullState(2,YESTERDAY)));
+ const partial={...state(1,TODAY),exportProgress(){return payload(this)}};
+ const h=backupHarness({'lux-progress-auto-v1':complete},partial);
+ await h.save();
+ assert.deepEqual(h.copies.get('lux-progress-auto-v1'),complete);
+ assert.ok(h.statuses.some(message=>/Incomplete export/.test(message)),
+   'the operator must see that an incomplete snapshot was refused');
+});
 test('auto backup deduplicates unchanged progress and protects stronger same-day state',async()=>{
  const live={...fullState(1),exportProgress(){return payload(this)}};
  const h=backupHarness({},live);
