@@ -234,7 +234,9 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
   selected.push(...selectedY8);
   // Keep the order of cycle tiers (all still-unanswered words before old
   // successes); the hash makes each tier and each fresh session random.
-  selected.sort((a,b)=>a.correctTimes-b.correctTimes ||
+  selected.sort((a,b)=>
+    Number(!(a.wrong&&a.due))-Number(!(b.wrong&&b.due)) ||
+    a.correctTimes-b.correctTimes ||
     hash(`${seed}:position:${a.concept}`)-hash(`${seed}:position:${b.concept}`) ||
     a.concept.localeCompare(b.concept));
   const directionCounts={toEnglish:0,toForeign:0};
