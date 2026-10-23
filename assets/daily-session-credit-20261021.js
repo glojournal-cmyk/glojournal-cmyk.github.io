@@ -36,15 +36,19 @@ export function reconcileDailySession(state,receipt={}) {
     verified.add(String(answer.questionId));
   }
   const target=Math.max(1,Number(task.target)||1),old=progressOf(task);
-  const progress=Math.min(target,Math.max(old,verified.size));
-  if(progress<=old)return {...unchanged('already-counted'),progress:old,target};
+  let progress=Math.min(target,Math.max(old,verified.size));
+  // Year 8 Mastery completion requires the real 13/15 plus independent pass.
+  if(taskId.startsWith('y8-mastery-')&&mode==='mastery'&&
+     state.topicStats?.[task.assignedTopic]?.masteryV2?.passedMasteryAt!==day)
+    progress=Math.min(progress,target-1);
+  if(progress===old)return {...unchanged('already-counted'),progress:old,target};
   const daily=state.daily.map(t=>t===task?{...t,progress}:t);
   // Keep the dated Home/Recovery summary aligned without touching any other day.
   let dailyLog=state.dailyLog;
   const row=dailyLog?.[day];
   if(Array.isArray(row?.tasks)){
     const tasks=row.tasks.map(t=>t.id===taskId?{
-      ...t,progress:Math.max(progress,progressOf(t)),done:progress>=target
+      ...t,progress,done:progress>=target
     }:t);
     const done=tasks.filter(t=>t.done||Number(t.progress)>=Number(t.target)).length;
     dailyLog={...dailyLog,[day]:{...row,tasks,done,total:tasks.length,
