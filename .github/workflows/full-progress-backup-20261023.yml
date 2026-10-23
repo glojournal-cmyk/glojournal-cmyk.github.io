@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - 'assets/full-progress-backup-guard-20261023.js'
+      - 'assets/export-linked-storage-20261023.js'
       - 'assets/daily-progress-save.js'
       - 'assets/index-BLVOhKhN.js'
       - 'tests/full-progress-backup-guard-20261023.test.mjs'
@@ -17,6 +18,7 @@ jobs:
         with:
           node-version: '22'
       - run: node --check assets/full-progress-backup-guard-20261023.js
+      - run: node --check assets/export-linked-storage-20261023.js
       - run: node --check assets/daily-progress-save.js
       - run: node --check assets/index-BLVOhKhN.js
       - run: node --test tests/full-progress-backup-guard-20261023.test.mjs
