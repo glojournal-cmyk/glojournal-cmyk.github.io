@@ -2551,13 +2551,13 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
       store.setState({reviews:correct?retainMistakeReview(store.getState().reviews,questionId,todayKey()):store.getState().reviews,daily:(store.getState().daily||[]).map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
     }
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-    if (vocabSubject && !meta?.repair) recordDailyVocabAttempt(vocabSubject, questionId, !!correct);
+    if (vocabSubject && !meta?.repair) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before);
     scheduleNormalizeState();
     return result;
   }
   if (!resolved.topicId) {
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-    if (vocabSubject && !meta?.repair) recordDailyVocabAttempt(vocabSubject, questionId, !!correct);
+    if (vocabSubject && !meta?.repair) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before);
     return result;
   }
   const current = normalizeTopicStat(before.topicStats?.[resolved.topicId] || {});
@@ -2695,7 +2695,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
 
   const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
   const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-  if (!isRepair && vocabSubject) recordDailyVocabAttempt(vocabSubject, questionId, !!correct);
+  if (!isRepair && vocabSubject) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before);
 
   scheduleNormalizeState();
   return result;
@@ -2761,7 +2761,7 @@ function findRecoveryVocabSource(state, date, subject) {
 }
 if (typeof window !== "undefined") window.LuxRecoveryVocabSource = findRecoveryVocabSource;
 
-function recordDailyVocabAttempt(subject, questionId, correct) {
+function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState) {
   if (!["french", "latin"].includes(subject) || !questionId) return;
   const state = store.getState();
   // Recovery answers belong to the missed date, never to today's Vocab task.
@@ -2817,8 +2817,28 @@ function recordDailyVocabAttempt(subject, questionId, correct) {
   const dayRow = { ...(all[day] || {}) };
   const current = dayRow[subject] || {};
   const items = { ...(current.items || {}) };
+  // Read the state BEFORE this question was marked: prevents the just-saved
+  // formal answer from being accidentally included in the 29/30 baseline.
+  const prior=preAnswerState&&typeof preAnswerState==="object"?preAnswerState:state;
+  const priorLedger=prior.dailyVocabByDay?.[day]?.[subject]||{};
+  const knownIds=new Set(Object.keys(priorLedger.items||{}).filter(id=>priorLedger.items[id]));
+  for(const entry of prior.formalAttemptLog||[]){
+    if(entry?.day===day&&entry.correct===true&&entry.formal!==false&&!entry.repair&&!entry.recoveryFor&&
+      (entry.dailyVocab===subject || (entry.dailyTaskId===subject+"-vocab"&&entry.subject===subject))&&entry.questionId)
+      knownIds.add(String(entry.questionId));
+  }
+  const originalBaseline=Math.max(0,Math.min(30,
+    Number(current.baselineProgress)||dailyVocabTotal(prior,subject,day).progress));
+  const frozenKnown=Array.isArray(current.baselineKnownIds)?
+    current.baselineKnownIds:[...knownIds];
+  const extras={...(current.additionalCorrectIds||{})};
+  // Only a genuinely marked correct answer not part of the saved baseline
+  // may advance 29->30. Wrong/repeated IDs cannot generate phantom credit.
+  if(correct&&!frozenKnown.includes(String(questionId)))extras[String(questionId)]=true;
   items[String(questionId)] = !!correct || !!items[String(questionId)];
-  dayRow[subject] = { items, updatedAt: new Date().toISOString() };
+  dayRow[subject] = { ...current,items,baselineProgress:originalBaseline,
+    baselineKnownIds:frozenKnown,additionalCorrectIds:extras,
+    updatedAt: new Date().toISOString() };
   all[day] = dayRow;
   const days = Object.keys(all).sort();
   while (days.length > 30) delete all[days.shift()];
