@@ -72,7 +72,8 @@ for(const subject of ["latin","french"]) {
   const mixed=buildMix(subject,items,[{topicId:tid}],{},{},{},day,"",ledger);
   assert.equal(mixed.length,30,subject+" still receives a full refill");
   assert.ok(mixed.every(q=>!credited[q.id]),"Credited answers must not be asked again");
-  assert.equal(buildMix(subject,[items[10]],[{topicId:tid}],{},{},{},day,"",ledger).length,0,"A missed answer waits for its spaced-review date");
+  const notDue=buildMix(subject,[items[10]],[{topicId:tid}],{},{},{},day,"",ledger);
+  assert.ok(!notDue.some(q=>q.id===items[10].id),"A missed answer waits for its spaced-review date even if booklet vocabulary fills remaining questions");
   const retryDay=new Date(Date.parse(day+"T12:00:00Z")+2*86400000).toISOString().slice(0,10);
   assert.ok(buildMix(subject,[items[10]],[{topicId:tid}],{},{},{},retryDay,"",ledger).some(q=>q.id===items[10].id),"The mistake becomes eligible after two days");
   assert.equal(new Set(mixed.map(q=>q.id)).size,30);
