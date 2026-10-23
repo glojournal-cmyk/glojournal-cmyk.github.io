@@ -47,7 +47,7 @@ export function replayDailyAnswerCredit(state){
     if(task.id.startsWith('y8-mastery-')&&
        new URL(task.href,'https://app.invalid').searchParams.get('mode')==='mastery'&&
        state.topicStats?.[task.assignedTopic]?.masteryV2?.passedMasteryAt!==day)
-      progress=Math.min(progress,target-1);
+      progress=Math.max(Math.min(target,old),Math.min(progress,target-1));
     if(progress===old)return task;
     changed=true;
     return {...task,progress};
@@ -63,7 +63,8 @@ export function replayDailyAnswerCredit(state){
       const repaired=current.get(t.id);
       if(!repaired)return t;
       const target=Math.max(1,Number(t.target)||Number(repaired.target)||1);
-      const progress=Math.min(target,Number(repaired.progress)||0);
+      // Merge monotonically: a repair must never erase previously saved credit.
+      const progress=Math.min(target,Math.max(0,Number(t.progress)||0,Number(repaired.progress)||0));
       return progress!==Number(t.progress||0)?
         {...t,progress,done:progress>=target}:t;
     });
