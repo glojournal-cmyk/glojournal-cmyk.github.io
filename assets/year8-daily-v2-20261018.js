@@ -56,10 +56,12 @@ const OCT23_RESTORED_TASKS = [
   ['latin-standard','latin',8,'la-y8-stage-1-vocabulary','standard',10,10,false],
   ['y8-standard-a','biology',8,'bio-y8-food-tests','standard',10,10,false],
   ['y8-standard-b','biology',8,'bio-y8-digestion-absorption','standard',10,10,false],
-  ['y8-mastery-a','latin',8,'la-y8-miscellaneous-words','due',5,5,true],
+  // The student's 23 October 17:55 JSON contains both original
+  // Mastery tasks completed 20/20, not a five-answer recall. Preserve it.
+  ['y8-mastery-a','latin',8,'la-y8-miscellaneous-words','mastery',20,20,false],
   ['y8-mastery-b','french',8,'fr-y8-s12-ks3-extension-irregular-verbs','mastery',20,20,false],
   ['weakness-review','latin',8,'la-y8-core-verbs','weak',10,10,false],
-  ['due-review','latin',8,'la-y8-preposition-dictionary-entries','due',5,5,true],
+  ['due-review','latin',8,'la-y8-preposition-dictionary-entries','weak',10,10,false],
   ['year9-light','french',9,'fr-y9-u1-paris-travel','standard',15,15,false]
 ];
 function restoreVerifiedOct23Daily(state,getCatalog){
@@ -73,9 +75,12 @@ function restoreVerifiedOct23Daily(state,getCatalog){
   const has=(id,min)=>rows.some(t=>t?.id===id&&Number(t.progress||0)>=min);
   // Limit the repair to the photographed, substantially completed plan.
   // Never give another device a completion from a calendar date alone.
+  // Only this exact dated in-flight plan is eligible. The earlier
+  // exported JSON verifies the two Mastery 20/20 receipts independently of
+  // the later iPad screen that erroneously replaced them with 0/20.
   if(!has('french-vocab',29)||!has('latin-standard',10)||
      !has('y8-standard-a',10)||!has('y8-standard-b',10)||
-     !has('y8-mastery-b',20))return null;
+     !has('weakness-review',10)||!has('due-review',5))return null;
   const byId=new Map((state.daily||[]).filter(t=>t.planDate===date).map(t=>[t.id,t]));
   const logged=state.dailyLog?.[date]?.tasks||[];
   const archived=state.dailyLog?.[date]?.preRestoreTasks||[];
