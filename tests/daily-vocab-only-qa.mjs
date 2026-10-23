@@ -30,7 +30,11 @@ for (const subject of ['french','latin']) {
   const collisionB=selectDailyVocabulary({...args,day:'2026-10-21'}).map(q=>q.conceptId);
   assert.notDeepEqual(collisionA,collisionB,'Dates with the same digit sum rotate differently');
   const tiny=selectDailyVocabulary({...args,items:items.slice(0,20)});
-  assert.equal(tiny.length,10);assert.equal(new Set(tiny.map(q=>q.conceptId)).size,10);
+  // Latin always has its authentic Chapter 1–2 + Numbers booklet words as
+  // well as the supplied test bank; French has only these ten fixture words.
+  const expected=subject==='latin'?30:10;
+  assert.equal(tiny.length,expected);
+  assert.equal(new Set(tiny.map(q=>q.conceptId)).size,expected);
 }
 // Audit the actual banks when running in the repository/CI.
 if (fs.existsSync('content/topics')) {
