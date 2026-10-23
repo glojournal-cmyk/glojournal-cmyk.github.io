@@ -21,13 +21,13 @@ for(const [name,engine,viewport] of [
    status:200,contentType:'application/pdf',body:'%PDF-1.4\n%%EOF\n',
    headers:{'Access-Control-Allow-Origin':'*'}}));
  await page.goto(BASE+'/notes/',{waitUntil:'domcontentloaded'});
- await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('7 / 95 Notes available'));
+ await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('7 / 96 Notes available'));
  assert.equal(await page.locator('#yearSelect').inputValue(),'year9');
  assert.equal(await page.locator('#subjectScreen').isVisible(),true);
  assert.equal(await page.locator('#detailScreen').isVisible(),false);
  assert.equal(await page.locator('.subject-card').count(),7,'Year 9 has 7 Study-style cards');
  assert.equal(await page.locator('.subject-card[data-subject="latin"]').count(),1);
- assert.equal(await page.locator('.subject-card[data-subject="maths"]:disabled').count(),1,'No fabricated Maths Notes');
+ assert.equal(await page.locator('.subject-card[data-subject="maths"]:enabled').count(),1,'Maths Topic 5 Notes available');
  assert.equal(await page.locator('.subject-card[data-subject="physics"]:disabled').count(),1);
  assert.equal(await page.locator('.subject-card[data-subject="french"]:enabled').count(),1);
  assert.equal(await page.locator('.bottom-nav a').count(),7);
@@ -95,8 +95,14 @@ for(const [name,engine,viewport] of [
  await page.waitForURL(/#year9\/latin/);
  await page.locator('#detailScreen').waitFor({state:'visible'});
  assert.equal(await page.locator('.note-row').count(),13,'seven topical Latin notes plus six vocabulary chapters');
+ assert.equal(await page.locator('.topic-section[data-group="Topics"] .note-row').count(),6);
+ assert.equal(await page.locator('.topic-section[data-group="Vocabulary Chapters"] .note-row').count(),6);
+ assert.equal(await page.locator('.topic-section[data-group="Named Topics"] .note-row').count(),1);
+ assert.equal(await page.locator('.topic-section[data-group="Topics"] .note-row').first().locator('.row-topic').textContent(),'Topic 1');
+ assert.equal(await page.locator('.topic-section[data-group="Topics"] .note-row').first().locator('.row-name').textContent(),'Sum & Possum');
+ assert.equal(await page.locator('.note-row .row-name').filter({hasText:'ImageGenerated'}).count(),0,'Raw production filenames must be hidden');
  for(const topic of ['Latin Topic 1','Latin Topic 2','Latin Topic 3','Latin Topic 4','Latin Topic 5','Latin Topic 6']){
-   const row=page.locator('.note-row',{hasText:topic});
+   const row=page.locator('.note-row',{hasText:topic.replace('Latin ','')});
    assert.equal(await row.count(),1,'Expected one '+topic+' uploaded entry');
    assert.equal(await row.isEnabled(),true,'R2 screenshot confirmed upload can be opened with unverified reader');
  }
@@ -118,6 +124,15 @@ for(const [name,engine,viewport] of [
  await page.waitForURL(/#year9$/);
  await page.locator('#subjectScreen').waitFor({state:'visible'});
  assert.equal(await page.locator('.subject-card').count(),7);
+
+ await page.locator('.subject-card[data-subject="maths"]').click();
+ await page.waitForURL(/#year9\/maths/);
+ await page.locator('#detailScreen').waitFor({state:'visible'});
+ assert.equal(await page.locator('.topic-section[data-group="Topics"] .note-row').count(),1);
+ assert.equal(await page.locator('.row-topic').first().textContent(),'Topic 5');
+ assert.equal(await page.locator('.row-name').first().textContent(),'Equation of a Straight Line');
+ await page.locator('#backSubjects').click();
+ await page.waitForURL(/#year9$/);
  await page.locator('#yearSelect').selectOption('summer');
  await page.waitForURL(/#summer$/);
  await page.locator('#subjectScreen').waitFor({state:'visible'});
@@ -128,6 +143,7 @@ for(const [name,engine,viewport] of [
  await page.locator('#detailScreen').waitFor({state:'visible'});
  assert.equal(await page.locator('#detailTitle').textContent(),'Biology Notes');
  assert.equal(await page.locator('.note-row').count(),18);
+ assert.ok(await page.locator('.topic-section[data-group="Dated Revision"]').count()>0);
  await page.goto(BASE+'/notes/#year9/french',{waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>document.querySelector('#detailTitle')?.textContent==='French Notes');
  assert.equal(await page.locator('.note-row').count(),3,'deep link to subject works');
