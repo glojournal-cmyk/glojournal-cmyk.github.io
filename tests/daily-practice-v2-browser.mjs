@@ -24,14 +24,14 @@ const server=createServer((req,res)=>{
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const report=[];
-const RELEASE='20261021-progress-loop4';
+const RELEASE='studio-layout1';
 const entrypoint = fs.readFileSync('index.html','utf8').match(/\/assets\/index-BLVOhKhN\.js\?v=[^"']+/)?.[0];
 assert.ok(entrypoint, 'Home must expose the globally synchronized app entrypoint');
 for (const subject of ['french','latin','biology','chemistry','physics','english']) {
   const html=fs.readFileSync('study/'+subject+'/practise/index.html','utf8');
-  assert.ok(html.includes('daily-practice-layout-20261020.js?v='+RELEASE),
+  assert.ok(html.includes('practice-studio-20261023.js?v='+RELEASE),
     subject+' Practice must use the new Safari-cached runtime');
-  assert.ok(html.includes('daily-practice-ux-v2-20261020.css?v='+RELEASE),
+  assert.ok(html.includes('practice-studio-20261023.css?v='+RELEASE),
     subject+' Practice must use the new Safari-cached stylesheet');
   assert.ok(html.includes(entrypoint),
     subject+' Practice must keep the globally synchronized app entrypoint');
@@ -56,8 +56,8 @@ function fixture(kind){
     '<form class="mt-5 flex gap-2"><input placeholder="Type the answer" aria-label="Your answer"><button type="submit">Submit</button></form>';
   return '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'+
     '<link rel="stylesheet" href="/app.css"><link rel="stylesheet" href="/assets/styles-CEE1o_78.css">'+
-    '<link rel="stylesheet" href="/assets/daily-practice-ux-v2-20261020.css">'+
-    '<script>window.tapCount=0;</script><script defer src="/assets/daily-practice-layout-20261020.js"></script><script defer src="/lux-theme.js"></script></head>'+
+    '<link rel="stylesheet" href="/assets/practice-studio-20261023.css">'+
+    '<script>window.tapCount=0;</script><script defer src="/assets/practice-studio-20261023.js"></script><script defer src="/lux-theme.js"></script></head>'+
     '<body><div class="paper-wash"><header style="height:58px">Legacy top bar</header><aside style="height:400px">Sidebar</aside>'+
     '<main><section id="study-companion" class="cx-study-buddy"><span class="cx-pet-art" aria-label="Antler Bean" style="display:block;background-image:url(\'/pet/art-hd-20261009/level-1/antler-bean.webp\');background-size:contain;background-position:center;background-repeat:no-repeat"></span><strong>Antler Bean is beside you</strong><button type="button" id="lux-voice-cheer-toggle" onclick="window.tapCount++">🔊 Voice On</button></section>'+
     '<div class="lux-practice-view"><header><h1>French · Practise</h1></header>'+
@@ -141,7 +141,7 @@ async function checkFixture(browser,engine,kind,viewport){
   assert.deepEqual(undecorated.plainReact,undecorated.decorated,
     'iPad must render the same v2 card/heading/answers before React decoration: '+JSON.stringify(undecorated));
   const styleVersion=await page.evaluate(()=>document.getElementById('lux-daily-practice-ux-v2-style')?.getAttribute('href'));
-  assert.ok(new URL(styleVersion, base).searchParams.get('v') === RELEASE && new URL(styleVersion, base).searchParams.get('uxfix') === '20261022-priority-ux1',
+  assert.ok(new URL(styleVersion, base).searchParams.get('v') === RELEASE,
     'Home SPA stylesheet must not load the stale Safari preview1 cached version');
 
   // Simulate React briefly removing a question while replacing answer/feedback.
