@@ -6,25 +6,24 @@
 <link rel="icon" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="/notes/library.css?v=20261022-01"></head>
+<link rel="stylesheet" href="/notes/library.css?v=20261023-02"></head>
 <body><div class="shade"></div>
 <div class="shell">
 <header class="top">
   <a class="back" href="/study/">← Study</a>
   <span class="eyebrow">LUX ET LABOR · STUDY ARCHIVE</span>
   <h1>Notes Library <span>✦</span></h1>
-  <p>Only illustrated, image-generated revision notes — Summer and Year 9, sorted by subject.</p>
+  <p>Image-made PDF Notes, organised by school year and subject. Open a note without downloading the whole library.</p>
 </header>
 <main>
   <div id="status" class="status" role="status" aria-live="polite">Checking notes…</div>
   <section class="filters" aria-label="Find notes">
     <label class="sr-only" for="search">Search notes and topics</label>
-    <input id="search" type="search" placeholder="⌕ Search a topic, file, or subject…" autocomplete="off">
+    <input id="search" type="search" placeholder="⌕ Search subject, topic or note…" autocomplete="off">
     <div class="segments" role="group" aria-label="Year or collection">
-      <button data-period="all" class="active" aria-pressed="true">All notes</button>
+      <button data-period="all" class="active" aria-pressed="true">All years</button>
       <button data-period="summer" aria-pressed="false">Summer / Year 8</button>
       <button data-period="year9" aria-pressed="false">Year 9</button>
-      <button data-period="favourites" aria-pressed="false">★ Favourites</button>
     </div>
     <label for="subject">Subject</label><select id="subject">
       <option value="all">All subjects</option>
@@ -36,10 +35,10 @@
   </section>
   <section class="content" aria-label="Notes">
     <div class="sectionTitle"><h2 id="heading">Your notes</h2><span id="count"></span></div>
-    <div id="cards" class="cards"></div>
-    <p id="empty" class="empty" hidden>No matching notes. Try another subject or search.</p>
+    <div id="noteGroups" class="note-groups"></div>
+    <p id="empty" class="empty" hidden>No notes in this year / subject. Choose another filter.</p>
   </section>
-  <aside class="help">Notes are loaded one PDF at a time; your Daily Task scores are not affected.</aside>
+  <aside class="help">Cloud PDFs open one at a time. Notes that are not yet uploaded are shown but disabled. Your Daily Tasks and scores are unaffected.</aside>
 </main>
 </div>
 <div id="viewer" class="viewer" hidden role="dialog" aria-modal="true" aria-label="PDF Reader">
@@ -51,5 +50,5 @@
   <a href="/play/">◇<small>Play</small></a><a href="/garden/">♧<small>Garden</small></a>
   <a href="/pet">♧<small>Pet</small></a><a href="/assessment/">▤<small>Assess</small></a><a href="/scholar/">✎<small>Scholar</small></a>
 </nav>
-<script src="/notes/library.js?v=20261022-01" defer></script>
+<script src="/notes/library.js?v=20261023-02" defer></script>
 </body></html>
