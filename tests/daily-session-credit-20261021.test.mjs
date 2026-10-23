@@ -76,8 +76,8 @@ test('A session with no marked answers cannot generate completion',()=>{
 
 test('iPad loads cache-busted quiz, Daily route, wrapper and core (not stale JavaScript)',()=>{
  const file=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
- const release='20261023-mastered-loop1';
- const track='20261023-mastered-track1';
+ const release='20261023-mastered20-v1';
+ const track='20261023-mastered20-v1';
  assert.ok(file('assets/index-BLVOhKhN.js').includes('index-BLVOhKhN.core.js?v='+track));
  assert.ok(file('assets/index-BLVOhKhN.core.js').includes('study._subject.practise-y8fix-20260920.js?v='+release));
  for(const module of ['assets/study._subject.practise-y8fix-20260920.js','assets/study._subject.practise-D_PWgUd7.js'])
