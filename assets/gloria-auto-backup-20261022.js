@@ -3,6 +3,16 @@
 import {readCurrentProgress,encryptProgress,uploadEncrypted} from './cloud-backup-client-20261022.js';
 const DB='gloria-cloud-backup-device-v1', STORE='settings';
 const INTERVAL=3*24*60*60*1000, RETRY=30*60*1000;
+const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+async function readSettledProgress(){
+ // Give the app's debounced state persistence time to finish before capturing a cloud snapshot.
+ await wait(1200);
+ const first=readCurrentProgress();
+ await wait(500);
+ const second=readCurrentProgress();
+ if(first.raw!==second.raw)throw Error('Progress changed while preparing cloud backup; retry later');
+ return second;
+}
 function openDb(){
  return new Promise((resolve,reject)=>{
   const req=indexedDB.open(DB,1);
@@ -21,17 +31,18 @@ async function setting(key,value,write=false){
 export async function enrollAutoBackup(token,passphrase){
  if(!/^[A-Za-z0-9_-]{40,100}$/.test(token))throw Error('Invalid backup token');
  if(typeof passphrase!=='string'||passphrase.length<16)throw Error('Passphrase too short');
- const source=readCurrentProgress();
+ const source=await readSettledProgress();
  // Verify upload before remembering credentials; no silent false success.
  const envelope=await encryptProgress(source,passphrase);
  const receipt=await uploadEncrypted(envelope,token);
  await setting('device',{token,passphrase,lastSuccess:Date.now(),digest:receipt.digest},true);
+ await setting('lastError',null,true);
  return receipt;
 }
 export async function disableAutoBackup(){await setting('device',null,true);return true;}
 export async function backupStatus(){
  const config=await setting('device');
- return {enabled:!!(config?.token&&config?.passphrase),lastSuccess:config?.lastSuccess||null};
+ return {enabled:!!(config?.token&&config?.passphrase),lastSuccess:config?.lastSuccess||null,nextDue:config?.lastSuccess?config.lastSuccess+INTERVAL:null,lastError:(await setting('lastError'))||null};
 }
 let running=null;
 export async function runAutoBackup(now=Date.now()){
@@ -42,16 +53,17 @@ export async function runAutoBackup(now=Date.now()){
   const lastAttempt=Number(await setting('lastAttempt'))||0;
   if(now-lastAttempt<RETRY||now-Number(config.lastSuccess||0)<INTERVAL)return {status:'not-due'};
   await setting('lastAttempt',now,true);
-  const progress=readCurrentProgress();
+  const progress=await readSettledProgress();
   const envelope=await encryptProgress(progress,config.passphrase);
   const receipt=await uploadEncrypted(envelope,config.token);
   // If enrollment disabled during upload, never silently re-enable it.
   const current=await setting('device');
   if(current?.token===config.token&&current?.passphrase===config.passphrase){
    await setting('device',{...current,lastSuccess:Date.now(),digest:receipt.digest},true);
+   await setting('lastError',null,true);
   }
   return {status:'uploaded',uploadedAt:receipt.uploadedAt};
- })().catch(()=>({status:'retry-later'})).finally(()=>{running=null;});
+ })().catch(async error=>{try{await setting('lastError',{at:Date.now(),message:String(error?.message||error).slice(0,240)},true)}catch{}return {status:'retry-later',reason:String(error?.message||error)};}).finally(()=>{running=null;});
  return running;
 }
 export function startAutomaticBackup(){
