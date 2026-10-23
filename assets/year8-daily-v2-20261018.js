@@ -92,12 +92,14 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     const modes=mode==='mastery'?['mastery','year8long']:mode==='retention'?['retention','due']:
       mode==='due'?['due','retention']:mode==='weak'?['weak']:null;
     let progress=topic?Math.min(target,Math.max(same&&!legacyRecall?Number(old.progress)||0:0,tally(topic.topicId,id,modes))):0;
-    // Mastery cannot be completed just by attempting 15 or 20 questions.
-    if(id.startsWith('y8-mastery-')&&mode==='mastery'&&
-       state.topicStats?.[topic?.topicId]?.masteryV2?.passedMasteryAt!==today)
-      progress=Math.min(progress,target-1);
+    // 20 marked answers are 20/20. Keep the independent Mastery pass
+    // decision and Day 2/7 review stage separate from task completion.
+    const passedToday=state.topicStats?.[topic?.topicId]?.masteryV2?.passedMasteryAt===today;
+    const outcome=id.startsWith('y8-mastery-')&&mode==='mastery'&&progress>=target
+      ? (passedToday?' · Mastery pass; Day 2/7 recall next':' · 20 answered; Mastery standard not yet passed')
+      : '';
     return {id,title:`${label[topic?.subject]||'Year 8'} · ${topic?.topicLabel||description}`,
-      detail:description,href:topic?curriculumHref(topic,mode,id):'/study',target,progress,xp:mode==='mastery'?20:15,
+      detail:description+outcome,href:topic?curriculumHref(topic,mode,id):'/study',target,progress,xp:mode==='mastery'?20:15,
       planDate:today,assignedSubject:topic?.subject||null,assignedTopic:topic?.topicId||null,
       assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,masteryCheck,curriculumVersion:4};
   };

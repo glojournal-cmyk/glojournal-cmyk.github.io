@@ -43,11 +43,8 @@ export function replayDailyAnswerCredit(state){
     const seen=new Set(events.filter(e=>evidenceFor(task,e)).map(key));
     const target=Math.max(1,Number(task.target)||1);
     const old=Math.max(0,Number(task.progress)||0);
-    let progress=Math.min(target,Math.max(old,seen.size));
-    if(task.id.startsWith('y8-mastery-')&&
-       new URL(task.href,'https://app.invalid').searchParams.get('mode')==='mastery'&&
-       state.topicStats?.[task.assignedTopic]?.masteryV2?.passedMasteryAt!==day)
-      progress=Math.max(Math.min(target,old),Math.min(progress,target-1));
+    // A verified 20th answer is counted whether or not the Mastery grade passed.
+    const progress=Math.min(target,Math.max(old,seen.size));
     if(progress===old)return task;
     changed=true;
     return {...task,progress};

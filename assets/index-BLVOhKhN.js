@@ -6,8 +6,8 @@ import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-
 import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261018-receipt2";
 import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261018-receipt2";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
-import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastered20-v1";
-import {buildYear8DailyV2} from "./year8-daily-v2-20261018.js?v=20261023-mastered20-v1";
+import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastery-count20-v1";
+import {buildYear8DailyV2} from "./year8-daily-v2-20261018.js?v=20261023-mastery-count20-v1";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";

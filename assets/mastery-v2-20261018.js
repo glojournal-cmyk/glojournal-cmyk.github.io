@@ -35,9 +35,12 @@ export function addMasteryEvidence(stat = {}, entry = {}) {
       ? Number(current.roundTarget)
       : Number(entry.masteryTarget) === 15 ? 15 : 20;
     const requiredCorrect = target === 15 ? 13 : 17; // at least 85%, plus recall
+    // Count distinct marked events even when a quiz presents a question twice.
+    // Never double-count the same persisted event after an iPad reload.
+    const eventId = String(entry.attemptId || (entry.at ? `${id}@${entry.at}` : id));
     const attempts = [...(current.attempts || [])];
-    if (attempts.some(row => row.id === id)) return current;
-    attempts.push({id, correct: !!entry.correct, independent: !!entry.correct && independentRecallFormats.has(entry.format)});
+    if (attempts.some(row => row.id === eventId)) return current;
+    attempts.push({id: eventId, questionId: id, correct: !!entry.correct, independent: !!entry.correct && independentRecallFormats.has(entry.format)});
     const round = attempts.slice(-target);
     if (round.length < target) return {...current, stage: 'learning', roundTarget: target, attempts: round};
     const passed = round.filter(row => row.correct).length >= requiredCorrect &&

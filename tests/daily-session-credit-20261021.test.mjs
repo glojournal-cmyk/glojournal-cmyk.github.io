@@ -86,3 +86,21 @@ test('iPad loads cache-busted quiz, Daily route, wrapper and core (not stale Jav
  for(const route of ['index.html',...['latin','french','biology','chemistry','physics','english'].map(s=>'study/'+s+'/practise/index.html')])
    assert.ok(/index-BLVOhKhN\.js\?v=20261023-[a-z0-9-]+/.test(file(route)),route);
 });
+
+
+test('20 marked Mastery quiz slots count 20/20 including a repeated question ID',()=>{
+ const masteryId='y8-mastery-a';
+ const repeated=[...Array.from({length:19},(_,i)=>({id:'mastery-'+i,topicId:topic,formal:true})),
+   {id:'mastery-0',topicId:topic,formal:true}];
+ const source=fixture({task:{id:masteryId,target:20,progress:0,
+   href:`/study/latin/practise?daily=1&locked=1&year=8&mode=mastery&task=${masteryId}&topic=${topic}`}});
+ const result=reconcileDailySession(source,{day,taskId:masteryId,subject:'latin',year:8,
+   mode:'mastery',questions:repeated,answers:repeated.map(q=>({questionId:q.id,correct:false,formal:true}))});
+ assert.equal(result.progress,20,'even incorrect attempts must be recorded');
+ assert.equal(result.daily[0].progress,20);
+ assert.equal(source.daily[0].progress,0);
+ const duplicate=reconcileDailySession(source,{day,taskId:masteryId,subject:'latin',year:8,
+   mode:'mastery',questions:repeated,answers:[...repeated.map(q=>({questionId:q.id,correct:false,formal:true})),
+     {questionId:'mastery-0',correct:false,formal:true}]});
+ assert.equal(duplicate.progress,20,'a forged extra repeat is not credited');
+});

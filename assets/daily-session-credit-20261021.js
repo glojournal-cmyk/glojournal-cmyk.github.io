@@ -29,18 +29,23 @@ export function reconcileDailySession(state,receipt={}) {
     return unchanged('wrong-route');
   const eligible=new Set(questions.filter(q=>q?.id&&q.formal!==false&&
     q.topicId===task.assignedTopic&&!q._repair).map(q=>String(q.id)));
-  const verified=new Set();
+  // Count a marked answer per visible quiz slot; repeated question IDs can
+  // legitimately occupy separate slots, but duplicate receipts cannot.
+  const remaining=new Map();
+  for(const question of questions){
+    if(eligible.has(String(question?.id)))
+      remaining.set(String(question.id),(remaining.get(String(question.id))||0)+1);
+  }
+  let verified=0;
   for(const answer of answers){
-    if(!answer?.questionId||answer.repair||answer.formal===false||
-       typeof answer.correct!=='boolean'||!eligible.has(String(answer.questionId)))continue;
-    verified.add(String(answer.questionId));
+    const id=String(answer?.questionId||'');
+    if(!id||answer.repair||answer.formal===false||
+       typeof answer.correct!=='boolean'||!eligible.has(id)||!remaining.get(id))continue;
+    remaining.set(id,remaining.get(id)-1);
+    verified++;
   }
   const target=Math.max(1,Number(task.target)||1),old=progressOf(task);
-  let progress=Math.min(target,Math.max(old,verified.size));
-  // Year 8 Mastery completion requires the real 13/15 plus independent pass.
-  if(taskId.startsWith('y8-mastery-')&&mode==='mastery'&&
-     state.topicStats?.[task.assignedTopic]?.masteryV2?.passedMasteryAt!==day)
-    progress=Math.min(progress,target-1);
+  const progress=Math.min(target,Math.max(old,verified));
   if(progress===old)return {...unchanged('already-counted'),progress:old,target};
   const daily=state.daily.map(t=>t===task?{...t,progress}:t);
   // Keep the dated Home/Recovery summary aligned without touching any other day.

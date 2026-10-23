@@ -61,7 +61,7 @@ test('a pending check does not appear early or get mistaken for a new Mastery',(
     .some(t=>t.assignedTopic==='latin-y8-t0'));
 });
 
-test('20 attempted questions with fewer than 17 correct are not a completed daily Mastery',()=>{
+test('20 genuine marked answers count 20/20 even if the Mastery passing score is not met',()=>{
   const initial=state();
   const plan=buildYear8DailyV2(initial,get);
   const mastery=lookup(plan,'y8-mastery-a');
@@ -72,9 +72,9 @@ test('20 attempted questions with fewer than 17 correct are not a completed dail
   }));
   const failed={...initial,daily:plan,formalAttemptLog:events};
   const replan=buildYear8DailyV2(failed,get);
-  assert.equal(lookup(replan,mastery.id).progress,19);
+  assert.equal(lookup(replan,mastery.id).progress,20);
   const replay=replayDailyAnswerCredit(failed);
-  assert.equal(lookup(replay.daily,mastery.id).progress,19);
+  assert.equal(lookup(replay.daily,mastery.id).progress,20);
   const questions=allQ(mastery.assignedTopic,20);
   const receipt=reconcileDailySession(failed,{
     day,taskId:mastery.id,subject:mastery.assignedSubject,year:8,mode:'mastery',
@@ -82,7 +82,7 @@ test('20 attempted questions with fewer than 17 correct are not a completed dail
       questionId:q.id,correct:i<16,formal:true,repair:false
     }))
   });
-  assert.equal(lookup(receipt.daily,mastery.id).progress,19);
+  assert.equal(lookup(receipt.daily,mastery.id).progress,20);
   assert.deepEqual(receipt.dailyLog,{});
 });
 
@@ -142,10 +142,25 @@ test('failed recall is returned to reinforcement, not falsely Mastered',()=>{
 
 test('iPad route and replay boot reference this same version',()=>{
   const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
-  const release='20261023-mastered20-v1';
-  const previous='20261023-mastered-loop1';
+  const release='20261023-mastery-count20-v1';
+  const previous='20261023-mastery-count20-v1';
   assert.ok(read('assets/index-BLVOhKhN.js').includes('year8-daily-v2-20261018.js?v='+release));
   assert.ok(read('assets/quiz-session-y8fix-20260920.js').includes('daily-session-credit-20261021.js?v='+previous));
   assert.ok(read('assets/daily-answer-replay-boot-20261021.js').includes('daily-answer-replay-20261021.js?v='+previous));
   assert.ok(read('assets/study._subject.practise-y8fix-20260920.js').includes('E===\`due\`&&dailyLocked&&assignment?.masteryCheck?5'.replaceAll('\\','')));
+});
+
+
+test('two genuinely marked appearances of one question can complete a 20-event Mastery',()=>{
+  let stat={};
+  for(let i=0;i<20;i++){
+    stat={masteryV2:addMasteryEvidence(stat,{day,year:8,mode:'mastery',
+      questionId:'repeated-'+(i%10),attemptId:'marked-'+i,
+      correct:i<17,format:i<3?'typed_short':'mc_single',formal:true})};
+  }
+  assert.equal(stat.masteryV2.stage,'check2');
+  assert.equal(stat.masteryV2.passedMasteryAt,day);
+  const same=addMasteryEvidence(stat,{day,year:8,mode:'mastery',
+    questionId:'repeated-0',attemptId:'marked-0',correct:true,format:'typed_short'});
+  assert.deepEqual(same,stat.masteryV2,'same marked event may not count twice');
 });
