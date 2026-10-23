@@ -15,7 +15,7 @@ const inDaily=subject=>{
   const p=new URLSearchParams(root.location.search||"");
   return p.get("daily")==="1"&&p.get("locked")==="1"&&
     p.get("mode")==="y8vocab"&&p.get("task")===subject+"-vocab"&&
-    !p.has("recover")&&String(root.location.pathname||"").replace(/\\/+$/,"")==="/study/"+subject+"/practise";
+    !p.has("recover")&&String(root.location.pathname||"").replace(/\/+$/,"")==="/study/"+subject+"/practise";
 };
 function recorded(state,subject,day,id){
   if(state.dailyVocabByDay?.[day]?.[subject]?.items?.[id]===true)return true;
