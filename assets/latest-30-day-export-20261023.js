@@ -38,15 +38,9 @@ function persistedState(storage) {
   return object(saved?.state)&&Array.isArray(saved.state.daily)?saved.state:null;
  }catch{return null}
 }
-const snapshotKey=state=>JSON.stringify({
- today:state.today,xp:state.xp,bodyXp:state.bodyXp,
- daily:state.daily,dailyLog:state.dailyLog,
- dailyCompleteAwarded:state.dailyCompleteAwarded,
- dailyVocabByDay:state.dailyVocabByDay,
- formalAttemptLog:state.formalAttemptLog,
- dailyCurriculumEvidenceByDay:state.dailyCurriculumEvidenceByDay,
- recoveryTaskByDay:state.recoveryTaskByDay,recoveryVocabByDay:state.recoveryVocabByDay
-});
+// This also detects changes to games, rewards, outfits and all other learner
+// fields while export is being prepared. Function values are not serialized.
+const snapshotKey=state=>JSON.stringify(state);
 function mergeSnapshot(live,stored,archived){
  // No merging of current daily plan, XP, awards, mastery or preferences.
  const original=object(stored)?stored:{};
@@ -65,6 +59,17 @@ function mergeSnapshot(live,stored,archived){
  // completion row. The two-date incident replay is itself evidence-gated.
  const restored=rebuildDatedDailyRecords(merged);
  if(restored?.dailyLog)merged={...merged,...restored};
+ // Today's assignment is always the live ten-task plan, never a stale row
+ // left in localStorage by an earlier home version or old export.
+ const active=tasks.map(t=>({...t,done:t.done===true||
+   (Number(t.target)>0&&Number(t.progress)>=Number(t.target))}));
+ if(active.length===10){
+   const previous=merged.dailyLog?.[live.today]||{};
+   const done=countDone(active);
+   merged.dailyLog={...merged.dailyLog,
+     [live.today]:{...previous,date:live.today,tasks:active,
+       done,total:active.length,complete:done===active.length}};
+ }
  return merged;
 }
 function thirtyDayManifest(state,capturedAt){
