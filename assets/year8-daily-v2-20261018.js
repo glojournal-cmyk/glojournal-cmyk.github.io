@@ -292,3 +292,27 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     task('due-review',due,dueMode,dueCheck?5:10,dueCheck?'Year 8 Day 2/7 recall · five questions':dueMode==='weak'?'Consolidation · nothing due today':'Due review',dueCheck),
     task('year9-light',year9,'standard',15,'Year 9 · light daily study')];
 }
+
+/* Restore an older 23 October Daily Record from the user's verified earlier
+   export. Do not change XP, marked answers, Mastered, or another date.
+   Requires the specific dated six-part surviving receipt, not just a date. */
+export function verifiedOct23DatedRow(state,getCatalog){
+ const date='2026-10-23',row=state?.dailyLog?.[date];
+ if(!Array.isArray(row?.tasks)||!row.tasks.length)return null;
+ const historic=restoreVerifiedOct23Daily({...state,today:date,
+   daily:state.today===date?(state.daily||[]):[]},getCatalog);
+ if(!historic||historic.length!==10)return null;
+ const tasks=historic.map(t=>({...t,done:Number(t.progress)>=Number(t.target)}));
+ const done=tasks.filter(t=>t.done).length;
+ if(done!==8)return null;
+ const saved=Array.isArray(row.preRestoreTasks)?row.preRestoreTasks:[];
+ const archive=[...saved];
+ for(const old of row.tasks)if(!tasks.some(t=>t.id===old.id&&
+   t.assignedTopic===old.assignedTopic&&Number(t.target)===Number(old.target))){
+   if(!archive.some(t=>t.id===old.id&&t.assignedTopic===old.assignedTopic))
+     archive.push(old);
+ }
+ return {...row,date,tasks,done,total:10,complete:false,
+   restoredOct23Record:true,restoredFromVerifiedOriginalExport:true,
+   ...(archive.length?{preRestoreTasks:archive.slice(-25)}:{})};
+}
