@@ -1,14 +1,16 @@
 import {backupPreview} from "./progress-backup-preview-20261004.js?ux=20261013-corrections2";
 import {readBackup,putBackup,migrateOldBackups,PREVIOUS_KEY,MANUAL_KEY,BEFORE_KEY} from "./backup-vault-20261011.js?v=20261020-quota-retry1&ux=20261013-corrections2";
-import { C as store } from "/assets/index-BLVOhKhN.js?v=20261023-mastered20-backup1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+import { C as store } from "/assets/index-BLVOhKhN.js?v=20261023-share-permission1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 import { assertFullProgressBackup } from "./full-progress-backup-guard-20261023.js";
 import {assessImport,mergeImportProgress} from "./backup-import-safety-20261023.js";
 import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
+import {requestJsonDownload,nextAutoBackupDelay,verifiedDailyDone} from "./backup-download-reliable-20261023.js";
 
 const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
 const AUTO_KEY = "lux-progress-auto-v1";
 const BEFORE_RESTORE_KEY = "lux-progress-before-restore-v1";
 let autoTimer, lastAutoSignature = "", selectedRestore = null, currentExportShared = false;
+let changedWhileSaving = false;
 let pendingExternalSafety = null, externalSafetyOffered = false;
 let lastAutoAttemptAt = 0, quotaRetryAfter = 0;
 const previewCache=new Map();
@@ -25,8 +27,12 @@ let autoSaveBusy=false;
 async function autoSave(force=false){
  clearTimeout(autoTimer);
  const now=Date.now();
- if(autoSaveBusy||now<quotaRetryAfter)return;
- if(!force&&now-lastAutoAttemptAt<MIN_AUTO_INTERVAL_MS)return;
+ if(now<quotaRetryAfter)return;
+ if(autoSaveBusy){changedWhileSaving=true;return;}
+ if(!force&&now-lastAutoAttemptAt<MIN_AUTO_INTERVAL_MS){
+   queueAutoSave(false);
+   return;
+ }
  lastAutoAttemptAt=now;autoSaveBusy=true;
  try{
   await migrateOldBackups();
@@ -65,9 +71,20 @@ async function autoSave(force=false){
   if(/quota/i.test(String(error?.name||"")+" "+String(error?.message||"")))quotaRetryAfter=Date.now()+QUOTA_RETRY_MS;
   const el=document.getElementById("daily-auto-status");
   if(el)el.textContent="Automatic backup unavailable. Export progress to Files. "+(error?.message||"");
- }finally{autoSaveBusy=false}
+ }finally{
+   autoSaveBusy=false;
+   if(changedWhileSaving){changedWhileSaving=false;queueAutoSave(false);}
+ }
 }
-store.subscribe(()=>{clearTimeout(autoTimer);autoTimer=setTimeout(autoSave,250)});
+function queueAutoSave(completion=false){
+  clearTimeout(autoTimer);
+  autoTimer=setTimeout(()=>autoSave(completion),
+    completion?300:nextAutoBackupDelay(lastAutoAttemptAt,Date.now(),MIN_AUTO_INTERVAL_MS));
+}
+store.subscribe((state,previous)=>{
+  // The last quest completing must not be lost to the 15-second throttle.
+  queueAutoSave(verifiedDailyDone(state) && !verifiedDailyDone(previous));
+});
 window.addEventListener("pagehide",()=>autoSave(true));
 document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")autoSave(true)});
 window.addEventListener("scholar:learning-changed",()=>autoSave());
@@ -143,34 +160,44 @@ function freeDuplicateBackups() {
   status("Space recovery could not be verified: "+(error?.message||"")+". Keep your external backup.","error");
  }
 }
-async function save(){
- const button=document.getElementById("daily-save-button");button.disabled=true;
+async function save(mode="download"){
+ const button=document.getElementById(mode==="share"?"daily-share-button":"daily-save-button");
+ if(button)button.disabled=true;
  try{
   const current=store.getState(),data=current.exportProgress(),parsed=JSON.parse(data);
   assertFullProgressBackup(parsed,current);
   const today=summary(parsed.state),saved={savedAt:new Date().toISOString(),...today,data};
   const filename="scholar-garden-"+(today.day||"progress")+"-"+new Date().toISOString().slice(11,16).replace(":","")+".json";
-  const file=new File([data],filename,{type:"application/json"});
-  if(navigator.canShare?.({files:[file]})&&navigator.share){
+  const warnings=parsed.backupWarnings?.length
+    ? "Some optional storage had warnings; raw source text is included. ":"";
+  if(mode==="share"){
+    let shared=false;
     try{
-      // Share while the direct tap's activation is still active.
+      const file=new File([data],filename,{type:"application/json"});
+      if(!navigator.share||!navigator.canShare?.({files:[file]}))
+        throw new Error("Sharing files is unavailable in this browser");
       await navigator.share({files:[file],title:"Scholar Garden progress backup"});
-      status((parsed.backupWarnings?.length
-        ? "Study record exported with optional-data warnings; original raw text is included. "
-        : "Export initiated. ")+"Verify the JSON file is in Files before reloading.","success");
-      putBackup(MANUAL_KEY,saved).then(()=>refreshCopies()).catch(()=>{});
-    }catch(error){status(error?.name==="AbortError"?"Share cancelled. No data was changed.":"Share failed: "+(error?.message||""),"error")}
+      shared=true;
+      status(warnings+"Share requested. Check that you actually saved the JSON in Files.","success");
+    }catch(error){
+      if(error?.name==="AbortError"){
+        status("Share cancelled. Nothing was changed; use Save progress & backup for a normal JSON download.");
+        return;
+      }
+      // NotAllowedError/permission denied is a browser setting; it does not
+      // make the backup invalid. Offer the normal download path automatically.
+      requestJsonDownload(data,filename);
+      status(warnings+"Device sharing was blocked. Browser JSON download requested instead; check Files or Downloads.","success");
+    }
   }else{
-    const url=URL.createObjectURL(file),a=document.createElement("a");
-    a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();
-    setTimeout(()=>URL.revokeObjectURL(url),60000);
-    status((parsed.backupWarnings?.length
-      ? "Study record exported with optional-data warnings; original raw text is included. "
-      : "Download initiated. ")+"Verify the JSON file in Files before reloading.","success");
-    putBackup(MANUAL_KEY,saved).then(()=>refreshCopies()).catch(()=>{});
+    // Default deliberately never calls navigator.share: desktop Chrome and
+    // many iPad PWA environments deny file sharing even for a user tap.
+    requestJsonDownload(data,filename);
+    status(warnings+"JSON download requested. Check Files or Downloads before leaving the App.","success");
   }
+  putBackup(MANUAL_KEY,saved).then(()=>refreshCopies()).catch(()=>{});
  }catch(error){status("Export failed: "+(error?.message||"Please retry"),"error")}
- finally{button.disabled=false}
+ finally{if(button)button.disabled=false}
 }
 function previewRestore(data, name, meta = {}) {
   try {
@@ -211,29 +238,16 @@ async function exportAutomaticCopy(key,label) {
   // Export the saved snapshot exactly. Never replace the live state or overwrite the snapshot.
   const stamp = String(saved.savedAt || new Date().toISOString()).slice(0,10);
   const filename = "scholar-garden-" + label + "-" + (saved.day || stamp) + ".json";
-  const file = new File([saved.data],filename,{type:"application/json"});
   const button=document.getElementById(key===AUTO_KEY?"daily-auto-export":"daily-auto-previous-export");
-  if (button) button.disabled=true;
-  try {
-    if (navigator.canShare?.({files:[file]}) && navigator.share) {
-      try {
-        await navigator.share({files:[file],title:"Scholar Garden "+label+" backup"});
-        status("Automatic copy shared. Check that you saved the JSON file in Files or iCloud Drive.","success");
-      } catch(error) {
-        if(error?.name==="AbortError") status("Share cancelled. The automatic copy is still saved on this iPad.");
-        else throw error;
-      }
-    } else {
-      const url=URL.createObjectURL(file);
-      const link=document.createElement("a");
-      link.href=url;link.download=filename;document.body.append(link);link.click();link.remove();
-      setTimeout(()=>URL.revokeObjectURL(url),60000);
-      status("Backup downloaded. Check the Files app before clearing any website data.","success");
-    }
-  } catch {
-    status("Could not export the automatic backup. The original local copy remains untouched.","error");
-  } finally {
-    if (button) button.disabled=false;
+  if(button)button.disabled=true;
+  try{
+    requestJsonDownload(saved.data,filename);
+    status("Stored automatic JSON download requested. Verify it is in Files or Downloads. Original local backup is unchanged.","success");
+  }catch(error){
+    status("Could not download the automatic JSON: "+(error?.message||"Browser rejected download")+
+      ". Original local copy remains untouched.","error");
+  }finally{
+    if(button)button.disabled=false;
   }
 }
 async function refreshCopies(){
@@ -330,6 +344,7 @@ function mount() {
     <div class="daily-save-heading"><strong>Keep your progress</strong><p id="daily-save-status" role="status" aria-live="polite"></p></div>
     <p id="daily-auto-status" role="status" aria-live="polite"></p>
     <div class="daily-save-actions"><button id="daily-save-button" type="button">Save progress & backup</button>
+<button id="daily-share-button" type="button">Share backup (optional)</button>
 <button id="daily-import-file-button" type="button">Import JSON from Files</button>
 <input id="daily-backup-file" type="file" accept="application/json,.json" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none" aria-label="Choose Scholar Garden JSON backup">
 </div>
@@ -403,13 +418,7 @@ function mount() {
       'scholar-current-before-import-'+new Date().toISOString().slice(0,10)+'.json',
       {type:'application/json'});
     try{
-      if(navigator.canShare?.({files:[copy]})&&navigator.share){
-        await navigator.share({files:[copy],title:'Save Scholar safety copy to Files'});
-      }else{
-        const url=URL.createObjectURL(copy),a=document.createElement('a');
-        a.href=url;a.download=copy.name;document.body.append(a);a.click();a.remove();
-        setTimeout(()=>URL.revokeObjectURL(url),60000);
-      }
+      requestJsonDownload(pendingExternalSafety.currentData,copy.name);
       externalSafetyOffered=true;
       panel.querySelector('#daily-confirm-safety-file').disabled=false;
       status('Safety JSON export initiated. Check that the file exists in Files/Downloads before continuing.');
@@ -432,7 +441,8 @@ function mount() {
   panel.querySelector("#daily-auto-restore").addEventListener("click",async()=>{const saved=previewCache.get(AUTO_KEY)||await readBackup(AUTO_KEY);if(saved)previewRestore(saved.data,"Latest automatic copy",saved);else status("No saved copy available.","error")});
   panel.querySelector("#daily-auto-export").addEventListener("click",()=>exportAutomaticCopy(AUTO_KEY,"auto-latest"));
   panel.querySelector("#daily-auto-previous-export").addEventListener("click",()=>exportAutomaticCopy(PREVIOUS_KEY,"auto-previous"));
-  panel.querySelector("#daily-save-button").addEventListener("click", save);
+  panel.querySelector("#daily-save-button").addEventListener("click",()=>save("download"));
+  panel.querySelector("#daily-share-button").addEventListener("click",()=>save("share"));
 
   panel.querySelector("#daily-restore-button").addEventListener("click", async () => {
     const saved = previewCache.get(SNAPSHOT_KEY)||await readBackup(SNAPSHOT_KEY);
