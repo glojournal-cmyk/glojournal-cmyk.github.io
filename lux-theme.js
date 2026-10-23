@@ -124,7 +124,14 @@
       const m = t.match(/(\d+)\s*\/\s*(\d+)/);
       return { name: t.replace(/\d+\s*\/\s*\d+.*/, '').trim() || t, done: m && Number(m[1]) >= Number(m[2]) };
     });
-    if (tasks.length) { log[today] = { tasks, all: tasks.every(x => x.done) }; localStorage.setItem('lux-day-log-v1', JSON.stringify(log)); }
+    if (tasks.length) {
+      const next={tasks,all:tasks.every(x=>x.done)};
+      // Re-rendering the Home view must not rewrite storage repeatedly.
+      if(JSON.stringify(log[today])!==JSON.stringify(next)){
+        log[today]=next;
+        try{localStorage.setItem('lux-day-log-v1',JSON.stringify(log))}catch{}
+      }
+    }
   }
   function openDays() {
     writeTodayLog();
