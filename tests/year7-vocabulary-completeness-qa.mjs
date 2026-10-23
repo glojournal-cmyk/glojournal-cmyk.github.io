@@ -51,7 +51,12 @@ for(const q of newQuestions){
   assert.deepEqual(canonical.stimulus,q.stimulus,q.id+' duplicate stimulus differs');
   assert.deepEqual(canonical.answer,q.answer,q.id+' duplicate answer differs');
   assert.equal(vocabularyQuestion(q,'french'),false,q.id+' duplicate still enters daily rotation');
- }else assert.ok(vocabularyQuestion(q,'french'),q.id+' excluded from daily');
+ }else {
+  const frenchEntry=q.id.endsWith('-e2f')?String(q.answer.accepted[0]):String(q.stimulus.text);
+  const sentenceCue=/[?？]|…|^(?:je\b|j['’]|tu\b|vous\b)/i.test(frenchEntry);
+  if(sentenceCue)assert.equal(vocabularyQuestion(q,'french'),false,q.id+' full sentence must stay in Study, not Daily Vocab');
+  else assert.ok(vocabularyQuestion(q,'french'),q.id+' genuine vocabulary excluded from daily');
+ }
  for(const answer of q.answer.accepted){
   assert.equal(context.B(q,answer,'french').ok,true,q.id+': official '+answer);
   if(/[\u0300-\u036f]/.test(String(answer).normalize('NFD')))assert.equal(context.B(q,norm(answer),'french').ok,false,q.id+': accent required '+answer);
