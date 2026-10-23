@@ -1,0 +1,38 @@
+name: Backup Download Permission and Daily Completion QA
+on:
+  pull_request:
+    paths:
+      - 'assets/backup-download-reliable-20261023.js'
+      - 'assets/daily-progress-save.js'
+      - 'assets/index-BLVOhKhN.js'
+      - 'assets/index-BLVOhKhN.core.js'
+      - 'assets/scholar-iJ2ilQWG.js'
+      - 'assets/home-rpg-live-20261019.js'
+      - 'assets/home-continue-20261010.js'
+      - 'index.html'
+      - '404.html'
+      - 'tests/backup-download-permission-20261023.test.mjs'
+      - '.github/workflows/backup-download-permission-20261023.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'assets/backup-download-reliable-20261023.js'
+      - 'assets/daily-progress-save.js'
+      - 'tests/backup-download-permission-20261023.test.mjs'
+  workflow_dispatch:
+jobs:
+  browser-backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/backup-download-reliable-20261023.js
+      - run: node --check assets/daily-progress-save.js
+      - run: node --check assets/scholar-iJ2ilQWG.js
+      - run: node --check assets/home-rpg-live-20261019.js
+      - run: node --check assets/home-continue-20261010.js
+      - run: node --check assets/index-BLVOhKhN.js
+      - run: node --test tests/backup-download-permission-20261023.test.mjs
+      - run: node --test tests/standalone-progress-import-20261023.test.mjs tests/full-progress-backup-guard-20261023.test.mjs tests/backup-import-legacy-ipad-20261023.test.mjs
