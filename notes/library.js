@@ -18,9 +18,9 @@
  const isAvailable=n=>workerReady&&available.has(n.key);
  function subjectName(slug){return SUBJECTS.find(x=>x[0]===slug)?.[1]||slug;}
  function imageFor(y,s){
-   return s==='maths'?'/assets/math-study/maths-cover.svg':
-     s==='mixed'?'/art/study-rpg/y8-english.jpg':
-     '/art/study-rpg/y'+(y==='year9'?'9':'8')+'-'+s+'.jpg';
+   // One fixed set of seven user-selected Option E banners for both years.
+   return s==='mixed'?'/art/study-rpg/y8-english.jpg':
+     '/notes/images/option-e/'+s+'.svg';
  }
  function cleanRoute(){
    const path=decodeURIComponent(location.hash.slice(1)).split('/').filter(Boolean);
@@ -43,31 +43,28 @@
  function subjectCard(slug,title,yearNotes){
    const entries=yearNotes.filter(n=>n.subject===slug);
    const ready=entries.filter(isAvailable).length;
-   const card=node('article','subject-card'+(slug==='maths'?' maths-card':''));
+   const card=node('button','subject-card'+(slug==='maths'?' maths-card':''));
+   card.type='button';
    card.dataset.subject=slug;
+   card.disabled=entries.length===0;
    const art=node('img','subject-art');
    art.src=imageFor(year,slug);art.alt='';
    art.loading='eager';art.decoding='async';
-   if(slug!=='maths' && slug!=='mixed'){
-     art.addEventListener('error',()=>{
-       if(art.dataset.fallback)return;
-       art.dataset.fallback='1';art.src='/art/subjects/'+slug+'.jpg';
-     });
-   }
+   art.addEventListener('error',()=>{
+     // Keep subject card functional if any image asset fails to load.
+     if(art.dataset.fallback)return;
+     art.dataset.fallback='1';art.src=slug==='maths'?'/assets/math-study/maths-cover.svg':'/art/subjects/'+(slug==='mixed'?'english':slug)+'.jpg';
+   });
    const body=node('div','subject-body');
    body.append(node('h2',null,title));
    const stats=node('div','subject-stats');
    stats.append(node('span','stat-line',entries.length+' '+(entries.length===1?'Note':'Notes')));
    stats.append(node('span','stat-line ready-line',workerReady?ready+' available':'Checking cloud…'));
    body.append(stats);
-   const button=node('button','subject-button',entries.length?'▣ View Notes':'No Notes Yet');
-   button.type='button';
-   button.disabled=entries.length===0;
-   if(entries.length){
-     button.setAttribute('aria-label','Open '+YEAR_NAMES[year]+' '+title+' Notes');
-     button.addEventListener('click',()=>goto(year,slug));
-   }
-   body.append(button);card.append(art,body);
+   body.append(node('span','card-arrow','›'));
+   card.setAttribute('aria-label',YEAR_NAMES[year]+' '+title+': '+entries.length+' notes'+(entries.length?' — open subject':' — no notes yet'));
+   if(entries.length)card.addEventListener('click',()=>goto(year,slug));
+   card.append(body,art);
    return card;
  }
  function renderSubjects(){
@@ -153,7 +150,7 @@
  cleanRoute();
  (async()=>{
    try{
-     const response=await fetch('/notes/catalog.json?v=20261023-study-cards1',{cache:'no-cache'});
+     const response=await fetch('/notes/catalog.json?v=20261023-designc-e1',{cache:'no-cache'});
      if(!response.ok)throw Error('Notes index HTTP '+response.status);
      const manifest=await response.json();
      notes=Array.isArray(manifest.notes)?manifest.notes.filter(n=>n&&n.id&&n.key&&n.title&&n.subject&&n.period):[];
