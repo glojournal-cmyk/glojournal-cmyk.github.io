@@ -1,8 +1,8 @@
 {
   "schema": 2,
-  "updated": "2026-10-22",
+  "updated": "2026-10-23",
   "source": "ChatGPT Library, image-based PDFs only",
-  "selectionPolicy": "Keep page-image illustrated revision PDFs made from generated note images. Exclude text-layout study books, raw vocabulary lists and original school materials. First-page image checks are preliminary; raw source PDFs still require verification before upload. Six additional image-page PDF candidates discovered through full-library audit on 2026-10-22; raw-byte export currently restricted. 25 all-image-page PDFs from Zip1.zip were byte-checked (6 newly indexed). The R2 archive must be uploaded before they become readable. Zip2.zip audit selected 25 image-page PDFs, excluded 25 tests/practices and two superseded PDF copies; two newly indexed titles, 23 matched earlier titles. Archive is NOT in R2 unless live object exists.",
+  "selectionPolicy": "Keep page-image illustrated revision PDFs made from generated note images. Exclude text-layout study books, raw vocabulary lists and original school materials. First-page image checks are preliminary; raw source PDFs still require verification before upload. Six additional image-page PDF candidates discovered through full-library audit on 2026-10-22; raw-byte export currently restricted. 25 all-image-page PDFs from Zip1.zip were byte-checked (6 newly indexed). The R2 archive must be uploaded before they become readable. Zip2.zip audit selected 25 image-page PDFs, excluded 25 tests/practices and two superseded PDF copies; two newly indexed titles, 23 matched earlier titles. Archive is NOT in R2 unless live object exists. Six Year 9 Latin illustrated vocabulary chapter image-PDFs were published directly on the official GitHub Pages site (one original image page per file, checked for six pages and available without Cloudflare R2).",
   "notes": [
     {
       "id": "summer-biology-12_aug_biology_complete_notes",
@@ -1400,6 +1400,126 @@
       "sizeBytes": 4412437,
       "key": "year9/latin/Topic_5_Aeneas_Creusa_9_Pages_SMALL.pdf",
       "status": "pending"
+    },
+    {
+      "id": "year9-latin-vocabulary-chapter-1-illustrated-20261023",
+      "category": "year9/latin",
+      "subject": "latin",
+      "period": "year9",
+      "filename": "Year9_Latin_Vocabulary_Chapter_1.pdf",
+      "title": "Latin Vocabulary — Chapter 1",
+      "dateAdded": "2026-10-23",
+      "sizeBytes": 2937835,
+      "key": "year9/latin/Year9_Latin_Vocabulary_Chapter_1.pdf",
+      "url": "/notes/pdf/year9/latin/Year9_Latin_Vocabulary_Chapter_1.pdf",
+      "delivery": "site",
+      "status": "ready",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Year9_Latin_Vocabulary_6_Individual_Image_Pages.pdf",
+        "sourcePage": 1
+      }
+    },
+    {
+      "id": "year9-latin-vocabulary-chapter-2-illustrated-20261023",
+      "category": "year9/latin",
+      "subject": "latin",
+      "period": "year9",
+      "filename": "Year9_Latin_Vocabulary_Chapter_2.pdf",
+      "title": "Latin Vocabulary — Chapter 2",
+      "dateAdded": "2026-10-23",
+      "sizeBytes": 2962701,
+      "key": "year9/latin/Year9_Latin_Vocabulary_Chapter_2.pdf",
+      "url": "/notes/pdf/year9/latin/Year9_Latin_Vocabulary_Chapter_2.pdf",
+      "delivery": "site",
+      "status": "ready",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Year9_Latin_Vocabulary_6_Individual_Image_Pages.pdf",
+        "sourcePage": 2
+      }
+    },
+    {
+      "id": "year9-latin-vocabulary-chapter-3-illustrated-20261023",
+      "category": "year9/latin",
+      "subject": "latin",
+      "period": "year9",
+      "filename": "Year9_Latin_Vocabulary_Chapter_3.pdf",
+      "title": "Latin Vocabulary — Chapter 3",
+      "dateAdded": "2026-10-23",
+      "sizeBytes": 3009659,
+      "key": "year9/latin/Year9_Latin_Vocabulary_Chapter_3.pdf",
+      "url": "/notes/pdf/year9/latin/Year9_Latin_Vocabulary_Chapter_3.pdf",
+      "delivery": "site",
+      "status": "ready",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Year9_Latin_Vocabulary_6_Individual_Image_Pages.pdf",
+        "sourcePage": 3
+      }
+    },
+    {
+      "id": "year9-latin-vocabulary-chapter-4-illustrated-20261023",
+      "category": "year9/latin",
+      "subject": "latin",
+      "period": "year9",
+      "filename": "Year9_Latin_Vocabulary_Chapter_4.pdf",
+      "title": "Latin Vocabulary — Chapter 4",
+      "dateAdded": "2026-10-23",
+      "sizeBytes": 2949657,
+      "key": "year9/latin/Year9_Latin_Vocabulary_Chapter_4.pdf",
+      "url": "/notes/pdf/year9/latin/Year9_Latin_Vocabulary_Chapter_4.pdf",
+      "delivery": "site",
+      "status": "ready",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Year9_Latin_Vocabulary_6_Individual_Image_Pages.pdf",
+        "sourcePage": 4
+      }
+    },
+    {
+      "id": "year9-latin-vocabulary-chapter-5-illustrated-20261023",
+      "category": "year9/latin",
+      "subject": "latin",
+      "period": "year9",
+      "filename": "Year9_Latin_Vocabulary_Chapter_5.pdf",
+      "title": "Latin Vocabulary — Chapter 5",
+      "dateAdded": "2026-10-23",
+      "sizeBytes": 3002271,
+      "key": "year9/latin/Year9_Latin_Vocabulary_Chapter_5.pdf",
+      "url": "/notes/pdf/year9/latin/Year9_Latin_Vocabulary_Chapter_5.pdf",
+      "delivery": "site",
+      "status": "ready",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Year9_Latin_Vocabulary_6_Individual_Image_Pages.pdf",
+        "sourcePage": 5
+      }
+    },
+    {
+      "id": "year9-latin-vocabulary-chapter-6-illustrated-20261023",
+      "category": "year9/latin",
+      "subject": "latin",
+      "period": "year9",
+      "filename": "Year9_Latin_Vocabulary_Chapter_6.pdf",
+      "title": "Latin Vocabulary — Chapter 6",
+      "dateAdded": "2026-10-23",
+      "sizeBytes": 3052724,
+      "key": "year9/latin/Year9_Latin_Vocabulary_Chapter_6.pdf",
+      "url": "/notes/pdf/year9/latin/Year9_Latin_Vocabulary_Chapter_6.pdf",
+      "delivery": "site",
+      "status": "ready",
+      "validation": {
+        "originalBytesVerified": true,
+        "fullPageImageCoverage": true,
+        "source": "Year9_Latin_Vocabulary_6_Individual_Image_Pages.pdf",
+        "sourcePage": 6
+      }
     }
   ]
 }
