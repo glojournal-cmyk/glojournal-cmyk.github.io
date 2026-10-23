@@ -35,6 +35,12 @@ test('all Chapter 3–6 dictionary entries and full English meanings mapped to Y
    assert.ok(debeo.answer.accepted.includes(answer),'debeo accepted synonym '+answer);
  for(const word of ['que','ne','qui','quis','quod','ubi'])
    assert.ok(byTerm.has(word),'Missing special Year 9 headword '+word);
+ for(const [word,synonym] of [
+  ['ne','open question'],['nonne','surely'],['num','surely not'],
+  ['quis','what'],['que','and']]){
+   assert.ok(byTerm.get(word).answer.accepted.includes(synonym),
+     'Natural English answer must count: '+word+' → '+synonym);
+ }
 });
 test('Chapter 1–2 plus Numbers enter Year 7–8; new Year 9 remains exactly three per 30',()=>{
  const sourceGroups=LATIN_BOOKLET_GROUPS.filter(g=>g.chapters.some(c=>c===1||c===2||c==='Numbers'));
@@ -45,7 +51,7 @@ test('Chapter 1–2 plus Numbers enter Year 7–8; new Year 9 remains exactly th
  assert.equal(first.length,30);
  assert.equal(first.filter(x=>x._dailyYear9).length,3);
  assert.equal(first.filter(x=>!x._dailyYear9).length,27);
- assert.equal(first.filter(x=>x._bookletCanonical).length,30);
+ assert.equal(first.filter(x=>!x._dailyYear9&&x._bookletCanonical).length,27);
  for(let i=0;i<110;i++){
   const day=new Date(Date.UTC(2026,9,23+i)).toISOString().slice(0,10);
   const qs=selectDailyVocabulary({subject:'latin',items:[],year9Items:y9,
