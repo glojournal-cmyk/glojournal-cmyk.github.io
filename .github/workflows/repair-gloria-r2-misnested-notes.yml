@@ -1,0 +1,44 @@
+name: Repair Gloria R2 Misnested Image Notes
+on:
+  pull_request:
+    paths:
+      - .github/scripts/repair_gloria_r2_image_note_paths.py
+      - .github/workflows/repair-gloria-r2-misnested-notes.yml
+  push:
+    branches: [main]
+    paths:
+      - .github/scripts/repair_gloria_r2_image_note_paths.py
+      - .github/workflows/repair-gloria-r2-misnested-notes.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: gloria-r2-note-path-repair
+  cancel-in-progress: false
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check existing authorized R2 credentials
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        shell: bash
+        run: |
+          test -n "$CF_API_TOKEN" && test -n "$CF_ACCOUNT_ID" || {
+            echo "::error::Cloudflare secrets missing"; exit 1;
+          }
+      - name: Validate source files and safe repair plan (read-only on PR)
+        if: github.event_name == 'pull_request'
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: python3 .github/scripts/repair_gloria_r2_image_note_paths.py --dry-run
+      - name: Copy verified curated PDFs only (no deletions)
+        if: github.event_name != 'pull_request'
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: python3 .github/scripts/repair_gloria_r2_image_note_paths.py --copy
