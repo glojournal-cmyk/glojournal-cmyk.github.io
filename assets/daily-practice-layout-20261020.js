@@ -312,11 +312,14 @@
   // Safari/React can replace the html class during hydration without
   // changing a child node. A childList-only observer notices too late: a
   // single old-layout frame is painted before our requestAnimationFrame.
-  // Restore just the Practice skin in a mutation microtask, before paint.
+  // Restore the Practice skin only while a live quiz is shown or an assigned Daily task is active.
+  // Free Practice's topic/mode pickers must never be covered by the Daily skin.
   // This never touches progress, answers, results or localStorage.
   const shellClassGuard = new MutationObserver(() => {
     if (pathIsPractice() && !disabled() && !showingResult &&
         document.querySelector('.lux-practice-view') &&
+        (new URLSearchParams(location.search).get('daily') === '1' ||
+         document.querySelector('.lux-practice-view [data-question-id]')) &&
         !root.classList.contains('lux-daily-ux-ready')) {
       root.classList.add('lux-daily-ux-ready');
     }
