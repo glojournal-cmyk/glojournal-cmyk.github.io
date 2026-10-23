@@ -2,6 +2,7 @@ import {backupPreview} from "./progress-backup-preview-20261004.js?ux=20261013-c
 import {readBackup,putBackup,migrateOldBackups,PREVIOUS_KEY,MANUAL_KEY,BEFORE_KEY} from "./backup-vault-20261011.js?v=20261020-quota-retry1&ux=20261013-corrections2";
 import { C as store } from "/assets/index-BLVOhKhN.js?v=20261023-one-store-boot1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 import { assertFullProgressBackup } from "./full-progress-backup-guard-20261023.js";
+import {prepareLatest30DayExport} from "./latest-30-day-export-20261023.js?v=1";
 import {assessImport,mergeImportProgress} from "./backup-import-safety-20261023.js";
 import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
 import {requestJsonDownload,nextAutoBackupDelay,verifiedDailyDone} from "./backup-download-reliable-20261023.js";
@@ -36,7 +37,8 @@ async function autoSave(force=false){
  lastAutoAttemptAt=now;autoSaveBusy=true;
  try{
   await migrateOldBackups();
-  const state=store.getState(),parsed=JSON.parse(state.exportProgress());
+  const dataText=await prepareLatest30DayExport(()=>store.getState(),()=>store.getState().exportProgress(),{isHydrated:()=>store.persist?.hasHydrated?.()!==false});
+  const state=store.getState(),parsed=JSON.parse(dataText);
   assertFullProgressBackup(parsed,state);
   const data=JSON.stringify(parsed),signature=backupSignature(data);
   if(signature===lastAutoSignature)return;
@@ -164,10 +166,11 @@ async function save(mode="download"){
  const button=document.getElementById(mode==="share"?"daily-share-button":"daily-save-button");
  if(button)button.disabled=true;
  try{
-  const current=store.getState(),data=current.exportProgress(),parsed=JSON.parse(data);
+  const data=await prepareLatest30DayExport(()=>store.getState(),()=>store.getState().exportProgress(),{isHydrated:()=>store.persist?.hasHydrated?.()!==false});
+  const current=store.getState(),parsed=JSON.parse(data);
   assertFullProgressBackup(parsed,current);
   const today=summary(parsed.state),saved={savedAt:new Date().toISOString(),...today,data};
-  const filename="scholar-garden-"+(today.day||"progress")+"-"+new Date().toISOString().slice(11,16).replace(":","")+".json";
+  const filename="scholar-garden-"+(today.day||"progress")+"-"+parsed.exportedAt.slice(11,19).replaceAll(":","")+".json";
   const warnings=parsed.backupWarnings?.length
     ? "Some optional storage had warnings; raw source text is included. ":"";
   if(mode==="share"){
