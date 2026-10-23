@@ -2,6 +2,8 @@ import {backupPreview} from "./progress-backup-preview-20261004.js?ux=20261013-c
 import {readBackup,putBackup,migrateOldBackups,PREVIOUS_KEY,MANUAL_KEY,BEFORE_KEY} from "./backup-vault-20261011.js?v=20261020-quota-retry1&ux=20261013-corrections2";
 import { C as store } from "/assets/index-BLVOhKhN.js?v=20261023-mastered20-backup1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 import { assertFullProgressBackup } from "./full-progress-backup-guard-20261023.js";
+import {assessImport,mergeImportProgress} from "./backup-import-safety-20261023.js";
+import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
 
 const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
 const AUTO_KEY = "lux-progress-auto-v1";
@@ -172,11 +174,19 @@ async function save(){
 function previewRestore(data, name, meta = {}) {
   try {
     const info=backupPreview(data,store.getState(),meta);
+    const report=assessImport(JSON.parse(data),store.getState());
     selectedRestore={data,name};
+    const parent=document.getElementById('daily-recovery-options');
+    if(parent)parent.open=true;
     const box=document.getElementById('daily-restore-preview');box.hidden=false;
     const when=info.savedAt&&!Number.isNaN(Date.parse(info.savedAt))?new Date(info.savedAt).toLocaleString('en-GB'):'Date not recorded';
-    document.getElementById('daily-restore-description').textContent=`${name} · ${when}. Backup: ${info.saved.day}, ${info.saved.done}/${info.saved.total} tasks, ${info.saved.xp} XP. Current: ${info.current.day}, ${info.current.done}/${info.current.total} tasks, ${info.current.xp} XP. Restoring replaces the current progress on this device.`;
-    status('Preview ready. Check the date and progress before restoring.');
+    const warning=report.legacy
+      ? 'Legacy partial export: missing recent detailed Daily Records. Its newest saved study evidence is '+(report.savedDay||'unknown')+'. It cannot restore any absent newer dates. '
+      : '';
+    document.getElementById('daily-restore-description').textContent=
+      `${name} · ${when}. Backup: ${info.saved.day}, ${info.saved.done}/${info.saved.total} tasks, ${info.saved.xp} XP. Current: ${info.current.day}, ${info.current.done}/${info.current.total} tasks, ${info.current.xp} XP. `+
+      warning+'Import safely combines existing and backup learning evidence; XP is not added twice. A safety copy is required if this device has progress.';
+    status('Backup opened successfully. Review the missing-history warning, then choose Import & keep existing progress.');
   } catch(error) { selectedRestore=null;const box=document.getElementById('daily-restore-preview');if(box)box.hidden=true;status(error.message||'Could not read this backup.','error'); }
 }
 async function exportAutomaticCopy(key,label) {
@@ -233,27 +243,47 @@ async function refreshCopies(){
  }
 }
 async function restore(data, name) {
-  const current = summary(store.getState());
-  if (!confirm(`Restore ${name}? This replaces current progress on this iPad (${current.done}/${current.total} tasks). Export the current progress first if needed.`)) return;
-  // Preserve the current live state before any import (which may update several
-  // separate storage keys). If a secondary restore fails, this copy remains.
-  let safeguard;
-  try {
-    const currentData = store.getState().exportProgress();
-    safeguard = {savedAt:new Date().toISOString(),...current,data:currentData};
-    await putBackup(BEFORE_RESTORE_KEY,safeguard);
-  } catch {
-    return status("Restore stopped: could not protect your current progress. Export a backup file first.", "error");
+  const live=store.getState();
+  let plan;
+  try {plan=mergeImportProgress(JSON.parse(data),live,mergeDailyHistory);}
+  catch(error) {return status("Import failed: "+(error?.message||"Unreadable JSON"),"error");}
+  const {backup,report}=plan;
+  const text=report.legacy ? " This is a legacy PARTIAL backup: it cannot bring back missing dated study evidence." : "";
+  if(!confirm("Import "+name+" and safely combine learning progress? Existing saved completion dates and higher XP are preserved."+text))return;
+  if(report.currentHasProgress) {
+    // A brand-new device has nothing to safeguard. An existing learner's progress
+    // ALWAYS needs a verifiable external or device-vault safety copy first.
+    try {
+      const currentData=live.exportProgress();
+      const parsed=JSON.parse(currentData);
+      assertFullProgressBackup(parsed,live);
+      await putBackup(BEFORE_RESTORE_KEY,{
+        savedAt:new Date().toISOString(),...summary(live),data:currentData
+      });
+    } catch(error) {
+      return status("Import safely stopped: unable to preserve the CURRENT progress before importing ("+
+        (error?.message||"device storage unavailable")+
+        "). Save your existing learning data to Files and do not clear browser data.","error");
+    }
   }
-  const result = store.getState().importProgress(data);
-  if (!result?.ok) return status((result?.error || "Restore failed.") + " The original backup remains available.", "error");
-  const importedState=store.getState();
+  const result=store.getState().importProgress(JSON.stringify(backup));
+  if(!result?.ok)return status((result?.error||"Import failed")+
+    ". Original and safety backup are unchanged.","error");
+  // Persist and verify only after the hydrate/normalise microtasks settle.
+  await Promise.resolve();await Promise.resolve();
+  const imported=store.getState();
   let durable=null;try{durable=JSON.parse(localStorage.getItem("lux-scholar-garden-v1")||"null")?.state}catch{}
-  const compact=tasks=>(tasks||[]).map(t=>[t.id,Number(t.progress)||0,Number(t.target)||0]);
-  const saved=durable&&durable.xp===importedState.xp&&durable.today===importedState.today&&
-    JSON.stringify(compact(durable.daily))===JSON.stringify(compact(importedState.daily));
-  if(!saved)return status("Restored in memory but iPad storage is still full. DO NOT reload; export current progress to Files first.","error");
-  status("Restored progress verified in iPad storage. Reloading.","success");
+  const hasReceipts=Object.entries(backup.state.dailyCompleteAwarded||{}).every(
+    ([day,earned])=>earned!==true||durable?.dailyCompleteAwarded?.[day]===true);
+  const hasRows=Object.entries(backup.state.dailyLog||{}).every(
+    ([day,row])=>!(row?.tasks?.length)||Array.isArray(durable?.dailyLog?.[day]?.tasks));
+  const correct=durable&&Number(durable.xp)>=Number(backup.state.xp)&&
+    Number(durable.xp)===Number(imported.xp)&&durable.today===imported.today&&
+    hasReceipts&&hasRows;
+  if(!correct)return status("Import reached memory but could not be VERIFIED on this device. "+
+    "Do NOT reload or delete the JSON. Device storage may be full; your safety copy is preserved.","error");
+  status("Import successful: progress verified in device storage, with earlier records preserved.","success");
+  selectedRestore=null;
   location.reload();
 }
 function mount() {
@@ -269,6 +299,8 @@ function mount() {
     <div class="daily-save-heading"><strong>Keep your progress</strong><p id="daily-save-status" role="status" aria-live="polite"></p></div>
     <p id="daily-auto-status" role="status" aria-live="polite"></p>
     <div class="daily-save-actions"><button id="daily-save-button" type="button">Save progress & backup</button>
+<button id="daily-import-file-button" type="button">Import JSON from Files</button>
+<input id="daily-backup-file" type="file" accept="application/json,.json" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none" aria-label="Choose Scholar Garden JSON backup">
 </div>
     <p class="daily-save-note">Directly exports your current progress to Files without first using iPad website storage. Always verify the JSON file in Files.</p>
     <details id="daily-recovery-options"><summary>Backup history & restore</summary>
@@ -279,11 +311,10 @@ function mount() {
       <div class="daily-backup-copy"><button id="daily-auto-export" type="button">Export latest automatic copy to Files</button><p id="daily-auto-export-info"></p></div>
       <div class="daily-backup-copy"><button id="daily-auto-previous-export" type="button">Export previous automatic copy to Files</button><p id="daily-auto-previous-export-info"></p></div>
       <div class="daily-backup-copy"><button id="daily-restore-button" type="button">Preview manual backup</button><p id="daily-restore-button-info"></p></div>
-      <label class="daily-file-button" for="daily-backup-file">Preview backup from Files</label>
-      <input id="daily-backup-file" type="file" accept="application/json,.json" hidden>
+      <p class="daily-save-note">Choose Import JSON from Files above to open an old or new Scholar backup. It will show a preview before changing anything.</p>
       <section id="daily-restore-preview" aria-label="Backup restore preview" hidden>
         <strong>Check this backup</strong><p id="daily-restore-description"></p>
-        <button id="daily-restore-apply" type="button">Restore this copy</button>
+        <button id="daily-restore-apply" type="button">Import & keep existing progress</button>
         <button id="daily-restore-cancel" type="button">Cancel</button>
       </section>
     </details>
@@ -292,6 +323,7 @@ function mount() {
   status("Tap Save progress & backup to export the current XP and tasks safely.");
   refreshCopies();
   panel.querySelector('#daily-recovery-options').addEventListener('toggle',refreshCopies);
+  panel.querySelector('#daily-import-file-button').addEventListener('click',()=>panel.querySelector('#daily-backup-file').click());
   panel.querySelector('#daily-restore-apply').addEventListener('click',()=>{if(selectedRestore)restore(selectedRestore.data,selectedRestore.name)});
   panel.querySelector('#daily-restore-cancel').addEventListener('click',()=>{selectedRestore=null;panel.querySelector('#daily-restore-preview').hidden=true;status(savedStatus())});
   readBackup(AUTO_KEY).then(saved=>{if(saved){previewCache.set(AUTO_KEY,saved);const el=document.getElementById("daily-auto-status");if(el)el.textContent="Automatically saved "+new Date(saved.savedAt).toLocaleString("en-GB")}}).catch(()=>{});
