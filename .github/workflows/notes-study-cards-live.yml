@@ -15,10 +15,13 @@ jobs:
         run: |
           set -euo pipefail
           base="https://glojournal-cmyk.github.io"
-          curl --fail --location --retry 3 --retry-delay 3 --max-time 25 "$base/notes/" > /tmp/index.html
-          curl --fail --location --retry 3 --retry-delay 3 --max-time 25 "$base/notes/library.js?v=20261023-study-cards1" > /tmp/library.js
-          curl --fail --location --retry 3 --retry-delay 3 --max-time 25 "$base/notes/library.css?v=20261023-study-cards1" > /tmp/library.css
-          python3 - <<'PY'
+          # GitHub Pages sometimes serves the previous deployed tree for a short period.
+          live=0
+          for attempt in $(seq 1 24); do
+            curl -fsSL --max-time 20 "$base/notes/" > /tmp/index.html
+            curl -fsSL --max-time 20 "$base/notes/library.js?v=20261023-study-cards1" > /tmp/library.js
+            curl -fsSL --max-time 20 "$base/notes/library.css?v=20261023-study-cards1" > /tmp/library.css
+            if python3 - <<'PY'
           from pathlib import Path
           html=Path('/tmp/index.html').read_text()
           js=Path('/tmp/library.js').read_text()
@@ -29,8 +32,15 @@ jobs:
             assert x in js, 'Missing Notes controller '+x
           assert '.subject-grid{display:grid' in css
           assert '.bottom-nav{position:fixed' in css
-          print('STUDY_STYLE_SUBJECT_CARDS_LIVE')
           PY
+            then
+              echo "STUDY_STYLE_SUBJECT_CARDS_LIVE on attempt $attempt"
+              live=1
+              break
+            fi
+            sleep 6
+          done
+          [[ "$live" = 1 ]] || { echo "::error::Live GitHub Pages still serves old Notes UI"; exit 1; }
           for cover in /art/study-rpg/y9-french.jpg /art/study-rpg/y9-biology.jpg /assets/math-study/maths-cover.svg /assets/math-study/nav/study.svg; do
             status=$(curl -sS -L -o /dev/null -w '%{http_code}' --max-time 20 "$base$cover")
             [[ "$status" = 200 ]] || { echo "::error::Missing Study cover $cover HTTP $status"; exit 1; }
