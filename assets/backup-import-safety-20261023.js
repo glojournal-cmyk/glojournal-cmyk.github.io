@@ -98,6 +98,55 @@ function mergedAnswers(left,right){
  }
  return out;
 }
+// Union existing proof-like ledgers without summing XP or creating new answers.
+// Do not use for question scores or review outcomes, which use separate logic.
+function joinSavedProof(left,right,depth=0){
+  if(left===undefined)return right;
+  if(right===undefined)return left;
+  if(typeof left==="boolean"&&typeof right==="boolean")return left||right;
+  if(typeof left==="number"&&typeof right==="number")
+    return Math.max(left,right);
+  if(Array.isArray(left)&&Array.isArray(right))
+    return unionList(left,right);
+  if(isRecord(left)&&isRecord(right)&&depth<8){
+    const out={...left};
+    for(const [key,value] of Object.entries(right))
+      out[key]=joinSavedProof(out[key],value,depth+1);
+    return out;
+  }
+  // The existing device wins on conflicting opaque data.
+  return left;
+}
+function unionList(left,right){
+  const values=[],seen=new Set();
+  for(const item of [...(Array.isArray(left)?left:[]),
+     ...(Array.isArray(right)?right:[])]){
+    const id=isRecord(item)?String(item.id||item.key||JSON.stringify(item)):JSON.stringify(item);
+    if(seen.has(id))continue;
+    seen.add(id);values.push(item);
+  }
+  return values;
+}
+function mergeGames(left,right) {
+  const result={...(isRecord(left)?left:{})};
+  for(const [id,game] of Object.entries(isRecord(right)?right:{})){
+    const old=result[id];
+    if(!isRecord(game)||!isRecord(old)){
+      if(old===undefined)result[id]=game;
+      continue;
+    }
+    const combined={...game,...old};
+    for(const key of ["unlocked","points","bestStreak","perfectClears","bossClears","missions","rating"])
+      combined[key]=Math.max(Number(old[key])||0,Number(game[key])||0);
+    if(Array.isArray(old.stars)||Array.isArray(game.stars)){
+      const a=old.stars||[],b=game.stars||[];
+      combined.stars=Array.from({length:Math.max(a.length,b.length)},(_,i)=>
+        Math.max(Number(a[i])||0,Number(b[i])||0));
+    }
+    result[id]=combined;
+  }
+  return result;
+}
 export function mergeImportProgress(backup,current,mergeDailyHistory){
  const report=assessImport(backup,current);
  const saved=backup.state;
@@ -126,6 +175,20 @@ export function mergeImportProgress(backup,current,mergeDailyHistory){
    result[field]=mergeByLatest(current[field],saved[field]);
  }
  result.history=mergedAnswers(current.history,saved.history).slice(0,100);
+ // Preserve unlocks, completion proofs, writing, game records and dated
+ // recovery rather than throwing out the non-primary device's entire maps.
+ for(const field of ["collectibles","medals","unlockedOutfits","unlockedScenes",
+                     "passedPapers","lessonsDone","recentQuestionIds"]){
+   result[field]=unionList(current[field],saved[field]);
+ }
+ for(const field of ["dailyCurriculumEvidenceByDay","recoveryTaskByDay",
+                     "recoveryVocabByDay","recoveryAwarded","rewardLedgerByDay",
+                     "gameRewardByDay","peRewardByDay","rewardedWriting",
+                     "aiHelpByDay","aiHelpLedgerByDay","activity","eventCounts",
+                     "subjectQuestions","qualifyingGameByDay","writing"]){
+   result[field]=joinSavedProof(current[field],saved[field])||{};
+ }
+ result.games=mergeGames(current.games,saved.games);
  // A newer current device keeps its current tasks and active streak/awards.
  // The incoming file's older six-task plan is never substituted for today's
  // ten-task progress when the device already has matching ten-task progress.
