@@ -1,14 +1,14 @@
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261023-final-credit1";
 import {readOptionalBackupJson,linkedBackupManifest} from "./export-linked-storage-20261023.js";
 import "./player-ux-20261013.js?ux=20261021-ipad-shell-lock3&uxfix=20261022-priority-ux1";
-import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261023-freeze-assigned-dates1";
+import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261023-freeze-assigned-dates2";
 import "./daily-ledger-vault-20261023.js?v=20261023-history1";
 import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
 import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261023-mastery-topup1";
 import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261018-receipt2";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastery-count20-v1";
-import {buildYear8DailyV2} from "./year8-daily-v2-20261018.js?v=20261023-history-master1";
+import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261023-verified-export1";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
@@ -1751,8 +1751,15 @@ function normalizeState() {
     reconcileRecoveredVocabHistory(stateForDaily, verifiedVocabHistory(stateForDaily,currentLog)));
   // Recovery proofs may be saved separately from the daily ledger.
   // The merge is monotonic: never lose a previously verified task completion.
-  const nextLog = writeDailyLog(reconcileOriginalCurriculumHistory(
+  let nextLog = writeDailyLog(reconcileOriginalCurriculumHistory(
     stateForDaily,mergeDailyHistory(currentLog,correctedLog)), state.today || calendarToday, daily);
+  // The original 23 Oct export proves eight of ten, including TWO
+  // separately completed 20/20 Mastery assignments. A later regenerated
+  // planner must not mark those two as 0/20 in the 30-day record.
+  const verifiedHistoricOct23=verifiedOct23DatedRow(
+    {...stateForDaily,dailyLog:nextLog},getTopicCatalog);
+  if(verifiedHistoricOct23)
+    nextLog={...nextLog,"2026-10-23":verifiedHistoricOct23};
   const receiptLog = applyRecoveryReceipts(nextLog);
   if (JSON.stringify(receiptLog)!==JSON.stringify(currentLog)) patch.dailyLog = receiptLog;
 
