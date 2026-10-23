@@ -161,7 +161,7 @@
  cleanRoute();
  (async()=>{
    try{
-     const response=await fetch('/notes/catalog.json?v=20261023-latinvocab1',{cache:'no-cache'});
+     const response=await fetch('/notes/catalog.json?v=20261023-latin-r2topics1',{cache:'no-cache'});
      if(!response.ok)throw Error('Notes index HTTP '+response.status);
      const manifest=await response.json();
      notes=Array.isArray(manifest.notes)?manifest.notes.filter(n=>n&&n.id&&n.key&&n.title&&n.subject&&n.period):[];
