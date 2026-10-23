@@ -1,40 +1,39 @@
-// Attach once to Gloria's existing Zustand store, after hydration.
-// This updates ONLY dated history in the same browser, never today's tasks.
-import {rebuildDatedDailyRecords} from "./daily-dated-answer-reconcile-20261023.js?v=1";
-let attached=false;
+// Gloria historical Daily reconciliation — one safe pass on settled iPad hydration.
+// Never import the main app again. No XP, Mastery or new answer creation.
+import {rebuildDatedDailyRecords} from "./daily-dated-answer-reconcile-20261023.js?v=20261023-three-day-proof1";
+let attached=false,checked=false,scheduled=false;
 function attach(){
  if(attached)return true;
  const store=globalThis.__luxStore;
- if(!store||typeof store.getState!=="function"||
-    typeof store.setState!=="function")return false;
+ if(!store||typeof store.getState!=="function"||typeof store.setState!=="function")return false;
  attached=true;
- let applying=false;
- const reconcile=()=>{
-  if(applying||store.persist?.hasHydrated?.()===false)return;
-  const patch=rebuildDatedDailyRecords(store.getState());
-  if(!patch)return;
-  applying=true;
-  try{store.setState(patch)}finally{applying=false}
- };
- store.subscribe((next,prior)=>{
-  if(!applying&&(next.formalAttemptLog!==prior?.formalAttemptLog||
-      next.dailyLog!==prior?.dailyLog||next.today!==prior?.today))reconcile();
- });
- store.persist?.onFinishHydration?.(reconcile);
- queueMicrotask(reconcile);
+ function once(){
+  if(checked||scheduled||store.persist?.hasHydrated?.()===false)return;
+  scheduled=true;
+  // Yield to the Home render and avoid the former high-memory subscription loop.
+  const run=()=>{
+   scheduled=false;
+   if(checked||store.persist?.hasHydrated?.()===false)return;
+   checked=true;
+   try {
+    const state=store.getState(),patch=rebuildDatedDailyRecords(state);
+    if(patch?.dailyLog)store.setState(patch);
+   } catch(error){console.warn("Dated Daily receipt check skipped",error)}
+  };
+  setTimeout(()=>{
+   if(typeof requestIdleCallback==="function")requestIdleCallback(run,{timeout:1500});
+   else run();
+  },2500);
+ }
+ store.persist?.onFinishHydration?.(once);
+ once();
  return true;
 }
-// Emergency iPad startup isolation (23 Oct): the historical-only automatic
-// replay can be costly or interact with other store subscriptions on reload.
-// Do not mutate history or delete it. Re-enable after isolated regression QA.
-const ENABLE_DATED_HISTORY_STARTUP_REPAIR=false;
-if(ENABLE_DATED_HISTORY_STARTUP_REPAIR && typeof window!=="undefined"){
- for(const event of ["lux:app-ready","lux:ux-state","DOMContentLoaded"])
+if(typeof window!=="undefined"){
+ for(const event of ["lux:app-ready","DOMContentLoaded"])
   window.addEventListener(event,attach,{once:true});
- window.addEventListener("pageshow",attach);
  if(!attach()){
   let tries=0;
-  const probe=setInterval(()=>{tries++;if(attach()||tries>=100)
-     clearInterval(probe)},100);
+  const timer=setInterval(()=>{tries++;if(attach()||tries>=50)clearInterval(timer)},100);
  }
 }
