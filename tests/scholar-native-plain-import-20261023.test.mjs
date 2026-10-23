@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 const read=path=>readFileSync(path,'utf8');
 test('actual Scholar Settings Import button goes to plain JSON importer',()=>{
  const scholar=read('assets/scholar-iJ2ilQWG.js');
- assert.match(scholar,/onClick:\(\)=>\{window\.location\.href=`\/\?import=1`\},children:`Import progress`/);
+ assert.match(scholar,/onClick:\(\)=>\{window\.location\.href=`\/import-progress\.html`\},children:`Import progress`/);
  assert.doesNotMatch(scholar,/onClick:\(\)=>\{window\.location\.href=`\/encrypted-backup-restore\.html`\},children:`Import progress`/);
 });
 test('Scholar Export and Cloud Backup buttons are unchanged',()=>{
@@ -27,7 +27,7 @@ test('direct fallback route loads same canonical progress state module',()=>{
 });
 test('legacy encrypted-only page provides proper normal JSON route',()=>{
  const html=read('encrypted-backup-restore.html');
- assert.match(html,/href="\/\?import=1"/);
+ assert.match(html,/href="\/import-progress\.html"/);
  assert.match(html,/Import standard Scholar JSON/);
  assert.match(html,/envelope\.app==='lux-scholar-garden'/);
  assert.match(html,/No passphrase is required/);
