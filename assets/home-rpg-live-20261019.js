@@ -1,4 +1,5 @@
 import { scholarMetrics } from './scholar-metrics-20261022.js';
+import { datedDailyStatus, datedDailyLabel } from './daily-record-completion-20261023.js';
 /* Lux et Labor RPG Home — presentation layer only.
  * Integrates the original App state, never awards credit or edits a daily record.
  * The native Recovery module remains authoritative for dated recovery.
@@ -59,11 +60,8 @@ if (!window.__luxRpgLiveHome) {
     catch { return {}; }
   };
   const todayStatus = (state, date) => {
-    const row = state.dailyLog?.[date];
-    if (row?.complete || (row?.total > 0 && row?.done >= row?.total)) return 'done';
-    if (row?.tasks?.some(task => number(task.progress) > 0 || task.done) ||
-        state.formalAttemptLog?.some(a => a.day === date || a.recoveryFor === date)) return 'partial';
-    return '';
+    const status = datedDailyStatus(state, date);
+    return status === 'unopened' ? '' : status;
   };
   const recoveryCount = state => {
     // This is NOT the number of tasks available. Only the native Recovery
@@ -133,10 +131,10 @@ if (!window.__luxRpgLiveHome) {
       const date=dayBefore(age), entry=state.dailyLog?.[date], status=todayStatus(state,date);
       const row=make('div','rpg-record-row-live ' + (status || 'unopened'));
       row.append(make('strong',null,date));
-      const total=number(entry?.total);
-      const done=number(entry?.done);
-      const label=status==='done'?'Completed':status==='partial'?'Partly completed':'Not opened';
-      row.append(make('span',null,label + (total>0?' · ' + done + '/' + total:'')));
+      // Use the same dated completion evidence as the native record. In
+      // particular, never call a saved 10/10 award 'unfinished' only
+      // because iPad's separate dailyLog snapshot is incomplete.
+      row.append(make('span',null,datedDailyLabel(state,date)));
       list.append(row);
     }
     record.append(list);
