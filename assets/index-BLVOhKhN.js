@@ -2488,6 +2488,11 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     topicId: resolved.topicId || null, topicTitle: resolved.topicTitle || meta.topicTitle || resolved.topicId || "General practice",
     formal: meta.formal !== false, repair: !!meta.repair,
     format: meta.format || null, mode: meta.progressionMode || null,
+    // Give the mastery evidence gate the real assigned set size.
+    // Free practice and previously started Daily sets stay on the old 15.
+    masteryTarget: ['mastery','year8long'].includes(meta.progressionMode)
+      ? (Number(before.daily?.find(task=>task.id===meta.progressionTask&&
+          task.planDate===todayKey())?.target)||15) : null,
     dailyTaskId: inRecovery ? recoveryTaskId : (meta.progressionTask || null),
     // Recovery attempts must not satisfy today's Vocab assignment.
     dailyVocab: inRecovery ? null : (dailyVocabSubject(resolved.subject || subject, meta) || null),
