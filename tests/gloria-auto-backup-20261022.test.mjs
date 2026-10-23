@@ -20,3 +20,11 @@ test('server upload token is not embedded in public application sources',()=>{
  assert.doesNotMatch(script,/CLOUDFLARE_API_TOKEN|BACKUP_TOKEN_SHA256/);
  assert.doesNotMatch(page,/CLOUDFLARE_API_TOKEN/);
 });
+
+test('automatic snapshots are spaced by 3 days and tested for local decryptability before upload',()=>{
+ assert.match(script,/INTERVAL=3\*24\*60\*60\*1000/);
+ assert.match(script,/decryptProgress\(envelope,passphrase\)/);
+ assert.match(script,/restored\.raw!==progress\.raw/);
+ assert.match(script,/await encryptVerifiedProgress\(progress,config\.passphrase\)/);
+ assert.match(script,/await encryptVerifiedProgress\(source,passphrase\)/);
+});
