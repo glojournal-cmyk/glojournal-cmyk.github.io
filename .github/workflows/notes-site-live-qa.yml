@@ -13,7 +13,7 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 4
+    timeout-minutes: 7
     steps:
       - name: Verify deployed Notes page and manifest
         shell: bash
@@ -28,6 +28,18 @@ jobs:
             if [[ "$i" = 5 ]];then echo "::error::Notes Library page is not public yet";exit 1;fi
             sleep 5
           done
-          curl -fsSL --max-time 20 "$base/notes/catalog.json" | python3 -c 'import json,sys; x=json.load(sys.stdin); assert len(x["notes"])==88;print("Published Notes catalog has",len(x["notes"]),"entries")'
-          curl -fsSL --max-time 20 "$base/notes/library.js" | grep -q 'gloria-notes-public.glo-journal.workers.dev'
-          echo "Public page, catalog and reader JavaScript verified."
+          for i in {1..18}; do
+            if curl -fsSL --max-time 20 "$base/notes/catalog.json?revision=$GITHUB_SHA" | python3 -c 'import json,sys; x=json.load(sys.stdin); assert len(x["notes"])==94; assert len([n for n in x["notes"] if n.get("delivery")=="site" and n.get("subject")=="latin" and n.get("period")=="year9"])==6' >/dev/null 2>&1; then
+              echo "Live Notes catalog has 94 entries including six Year 9 Latin vocabulary chapters."
+              break
+            fi
+            if [[ "$i" = 18 ]]; then echo "::error::Latest Notes catalog not deployed"; exit 1; fi
+            sleep 10
+          done
+          for ch in {1..6}; do
+            url="$base/notes/pdf/year9/latin/Year9_Latin_Vocabulary_Chapter_${ch}.pdf"
+            curl -fIsSL --retry 3 --max-time 25 "$url" >/dev/null
+            echo "PUBLIC_PDF_OK Chapter $ch"
+          done
+          curl -fsSL --max-time 20 "$base/notes/library.js?revision=$GITHUB_SHA" | grep -q 'isSiteNote'
+          echo "Public Notes page, all chapter PDFs, catalog and reader verified."
