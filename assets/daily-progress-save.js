@@ -55,7 +55,9 @@ async function autoSave(force=false){
   lastAutoSignature=signature;
   refreshCopies();
   const el=document.getElementById("daily-auto-status");
-  if(el)el.textContent="Saved automatically in iPad recovery vault · "+new Date(saved.savedAt).toLocaleTimeString("en-GB");
+  if(el)el.textContent=(parsed.backupWarnings?.length
+    ? "Saved learning progress with "+parsed.backupWarnings.length+" optional-storage warning(s); unparseable source text is kept in the backup · "
+    : "Saved automatically in iPad recovery vault · ")+new Date(saved.savedAt).toLocaleTimeString("en-GB");
  }catch(error){
   if(/quota/i.test(String(error?.name||"")+" "+String(error?.message||"")))quotaRetryAfter=Date.now()+QUOTA_RETRY_MS;
   const el=document.getElementById("daily-auto-status");
@@ -150,14 +152,18 @@ async function save(){
     try{
       // Share while the direct tap's activation is still active.
       await navigator.share({files:[file],title:"Scholar Garden progress backup"});
-      status("Export initiated. Verify the JSON file is in Files before reloading.","success");
+      status((parsed.backupWarnings?.length
+        ? "Study record exported with optional-data warnings; original raw text is included. "
+        : "Export initiated. ")+"Verify the JSON file is in Files before reloading.","success");
       putBackup(MANUAL_KEY,saved).then(()=>refreshCopies()).catch(()=>{});
     }catch(error){status(error?.name==="AbortError"?"Share cancelled. No data was changed.":"Share failed: "+(error?.message||""),"error")}
   }else{
     const url=URL.createObjectURL(file),a=document.createElement("a");
     a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();
     setTimeout(()=>URL.revokeObjectURL(url),60000);
-    status("Download initiated. Verify the JSON file in Files before reloading.","success");
+    status((parsed.backupWarnings?.length
+      ? "Study record exported with optional-data warnings; original raw text is included. "
+      : "Download initiated. ")+"Verify the JSON file in Files before reloading.","success");
     putBackup(MANUAL_KEY,saved).then(()=>refreshCopies()).catch(()=>{});
   }
  }catch(error){status("Export failed: "+(error?.message||"Please retry"),"error")}
