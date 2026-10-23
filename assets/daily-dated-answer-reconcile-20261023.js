@@ -63,9 +63,25 @@ export function rebuildDatedDailyRecords(state){
  for(const day of AFFECTED_DAYS){
   // The active day is managed exclusively by the actual Daily question engine.
   if(day>=state.today)continue;
+  const previous=original[day];
+  // The core grants a date-keyed full-day award only when ALL tasks were
+  // complete. A later planner may have replaced individual assignment IDs,
+  // losing that original 10/10 display. Preserve only the day-level receipt;
+  // do not fabricate question attempts or change a task's progress.
+  const verifiedDay=state.dailyCompleteAwarded?.[day]===true &&
+    Array.isArray(previous?.tasks)&&previous.tasks.length===10 &&
+    previous.tasks.every(t=>t&&typeof t.id==="string"&&Number(t.target)>0);
+  if(verifiedDay){
+    if(previous.done!==10||previous.total!==10||
+       previous.complete!==true||previous.verifiedOriginalCompletionReceipt!==true){
+      if(!updated)updated={...original};
+      updated[day]={...previous,date:day,done:10,total:10,complete:true,
+        verifiedOriginalCompletionReceipt:true};
+    }
+    continue;
+  }
   const answers=state.formalAttemptLog.filter(e=>e?.day===day&&marked(e));
   if(!answers.length)continue;
-  const previous=original[day];
   const existing=Array.isArray(previous?.tasks)?previous.tasks:[];
   // Never invent a ten-task day from an incomplete or unrelated attempt log.
   // For missing rows require task-tagged answers in ALL 10 known slots.
