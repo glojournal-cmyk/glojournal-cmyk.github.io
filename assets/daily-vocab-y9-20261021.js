@@ -1,3 +1,4 @@
+import {LATIN_BOOKLET_GROUPS,latinBookletKey} from './latin-vocabulary-booklet-20261023.js';
 // Complete Year 9 source-backed vocabulary pool for the two Daily Vocab tasks.
 // Sources: school 2026-09-26 Year 9 vocabulary entries, Stage 1 Latin paradigms,
 // and the 2026-10-17 French holiday vocabulary booklet. Existing Year 9 French
@@ -23,40 +24,57 @@ const alternatives=s=>{
   const parts=full.split(/\s+\/\s+/).map(s=>s.trim()).filter(Boolean);
   return [...new Set([full,...(parts.length>=2?parts:[])])].filter(Boolean);
 };
-function question({subject,term,english,topicId,id},toEnglish){
+function question({subject,term,english,topicId,id,booklet},toEnglish){
   const language=subject==='french'?'French':'Latin';
+  const meaning=booklet?booklet.english.join('; '):english;
+  const hint=booklet
+    ? booklet.accepted.find(x=>x.length<50 && !/[;,]/.test(x) && !/[()]/.test(x))||meaning
+    :english;
   return {
     id:`daily-${subject}-y9-${id}-${toEnglish?'to-english':'from-english'}`,
     conceptId:`${subject==='french'?'fr':'la'}-y9-concept-vocab-${id}`,
     topicId,topic:'Year 9 vocabulary',year:9,status:'enabled',
     formal:true,preview:false,ordinary:true,format:'typed_exact',difficulty:2,
     _vocabTerm:term,
+    _bookletCanonical:!!booklet,
+    _bookletEntries:booklet?.entries,
+    _bookletChapters:booklet?.chapters,
     prompt:toEnglish?`VOCAB — Give the English meaning of this ${language} word.`:
       `VOCAB — Write the ${language} word for this English meaning.`,
-    stimulus:{text:toEnglish?term:english,
+    stimulus:{text:toEnglish?term:hint,
       direction:toEnglish?`${language} → English`:`English → ${language}`},
-    answer:{mode:'exact_or_equivalent',accepted:toEnglish?alternatives(english):[term],
+    answer:{mode:'exact_or_equivalent',accepted:toEnglish?
+      (booklet?booklet.accepted:alternatives(english)):[term],
       normalization:subject==='french'?{
         ignoreCase:true,ignoreExtraWhitespace:true,normalizeApostrophes:true,
         ignoreTerminalPunctuation:true,ignoreFrenchDiacriticsForScore:true,
         showAccentFeedback:true}:undefined},
     task:{label:'VOCAB',instruction:'Type the taught word or short vocabulary phrase.'},
-    feedback:{short:`${term} → ${english}.`,steps:[`Learn ${term} = ${english}.`],
-      commonError:'Check the exact spelling and meaning.',remember:`${term} ↔ ${english}`}
+    feedback:{short:`${booklet?.entries.join(' / ')||term} → ${meaning}.`,
+      steps:[`Learn ${booklet?.entries.join(' / ')||term} = ${meaning}.`],
+      commonError:'Check the exact spelling and meaning.',remember:`${term} ↔ ${meaning}`}
   };
 }
 export function year9DailyVocabulary(subject,frenchRows=[]){
   if(subject!=='latin'&&subject!=='french')return [];
-  const source=subject==='latin'?LATIN_YEAR9:[
+  const booklet=LATIN_BOOKLET_GROUPS.filter(g=>g.chapters.some(c=>Number(c)>=3));
+  const canonicalKeys=new Set(booklet.map(g=>latinBookletKey(g.headword)));
+  // Keep pre-existing Year 9 question IDs stable. Booklet entries override glosses
+  // for matching headwords and supply missing enclitics and question forms.
+  const source=subject==='latin'?[
+    ...LATIN_YEAR9.filter(([term])=>!canonicalKeys.has(latinBookletKey(term))),
+    ...booklet.map(g=>[g.headword,g.english.join('; '),
+      'la-y9-booklet-chapter-'+Math.min(...g.chapters.filter(c=>Number(c)>=3)),g])
+  ]:[
     ...FRENCH_YEAR9,
     ...frenchRows.filter(r=>Number(r?.year)===9&&r.spelling!==false&&r.english)
       .map(r=>[r.french,r.english,'fr-y9-20260919-unit-1-holidays-and-opinions'])
   ];
   const unique=new Map();
-  for(const [term,english,topicId] of source){
+  for(const [term,english,topicId,booklet] of source){
     if(!lexicalItem(term,subject)||!String(english||'').trim())continue;
     const key=normal(term);
-    if(!unique.has(key))unique.set(key,{subject,term,english,topicId,id:key
+    if(!unique.has(key))unique.set(key,{subject,term,english,topicId,booklet,id:key
       .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,80)});
   }
   return [...unique.values()].flatMap(row=>[
