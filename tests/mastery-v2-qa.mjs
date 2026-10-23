@@ -35,18 +35,23 @@ test('a repeated correct question does not reappear in Standard or Mastery',()=>
   assert.equal(eligibleFreshQuestions(questions,state,'due').length,4);
 });
 
-test('a previously correct vocabulary concept waits for its due date',()=>{
-  // Match the current word-only Daily Vocab schema: a single French headword
-  // with an English meaning, not a sentence or grammar transformation.
+test('a correct word is withheld until the rest of its vocabulary pool is answered',()=>{
+  // The 21 October rule prioritises full-bank coverage over repeating a
+  // previously correct word, even when a scheduled review becomes due.
+  // Incorrect due mistakes still have their own priority review queue.
   const items=Array.from({length:40},(_,i)=>({id:'fr-word-'+i,conceptId:'fr-y8-concept-vocab-'+i,
     topicId:'fr-y8-vocab',format:'typed_exact',status:'enabled',
     prompt:'Translate into English: mot'+i,stimulus:{text:'mot'+i},
     answer:{accepted:['word '+i]}}));
   const rows=selectDailyVocabulary({subject:'french',items,day:'2026-10-19',seenCorrect:{'fr-word-0':1}});
   assert.equal(rows.length,30);assert.ok(!rows.some(q=>q.id==='fr-word-0'));
-  const due=selectDailyVocabulary({subject:'french',items,day:'2026-10-21',seenCorrect:{'fr-word-0':1},
-    reviews:{'fr-word-0':{due:'2026-10-21',last:'2026-10-19',wrong:false}}});
-  assert.ok(due.some(q=>q.id==='fr-word-0'));
+  const review={ 'fr-word-0':{due:'2026-10-21',last:'2026-10-19',wrong:false} };
+  const waiting=selectDailyVocabulary({subject:'french',items,day:'2026-10-21',seenCorrect:{'fr-word-0':1},reviews:review});
+  assert.equal(waiting.length,30);
+  assert.ok(!waiting.some(q=>q.id==='fr-word-0'), 'one correct word must not displace 39 unseen words');
+  const fullCycle=Object.fromEntries(items.map(q=>[q.id,q.id==='fr-word-0'?1:2]));
+  const dueAfterCycle=selectDailyVocabulary({subject:'french',items,day:'2026-10-21',seenCorrect:fullCycle,reviews:review});
+  assert.ok(dueAfterCycle.some(q=>q.id==='fr-word-0'), 'once the bank cycles, a due word can return');
 });
 
 test('future plan has two different same-subject Standard topics and retains assigned topic on reload',()=>{
