@@ -1,6 +1,7 @@
 import {backupPreview} from "./progress-backup-preview-20261004.js?ux=20261013-corrections2";
 import {readBackup,putBackup,migrateOldBackups,PREVIOUS_KEY,MANUAL_KEY,BEFORE_KEY} from "./backup-vault-20261011.js?v=20261020-quota-retry1&ux=20261013-corrections2";
 import { C as store } from "/assets/index-BLVOhKhN.js?v=20261018-mastery2&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+import { assertFullProgressBackup } from "./full-progress-backup-guard-20261023.js";
 
 const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
 const AUTO_KEY = "lux-progress-auto-v1";
@@ -27,7 +28,7 @@ async function autoSave(force=false){
  try{
   await migrateOldBackups();
   const state=store.getState(),parsed=JSON.parse(state.exportProgress());
-  if(parsed.app!=="lux-scholar-garden"||!Array.isArray(parsed.state?.daily))throw Error("Invalid progress state");
+  assertFullProgressBackup(parsed,state);
   const data=JSON.stringify(parsed),signature=backupSignature(data);
   if(signature===lastAutoSignature)return;
   const previous=await readBackup(AUTO_KEY),today=summary(state);
@@ -140,8 +141,8 @@ function freeDuplicateBackups() {
 async function save(){
  const button=document.getElementById("daily-save-button");button.disabled=true;
  try{
-  const data=store.getState().exportProgress(),parsed=JSON.parse(data);
-  if(parsed?.app!=="lux-scholar-garden"||!Array.isArray(parsed.state?.daily))throw Error("Invalid current progress");
+  const current=store.getState(),data=current.exportProgress(),parsed=JSON.parse(data);
+  assertFullProgressBackup(parsed,current);
   const today=summary(parsed.state),saved={savedAt:new Date().toISOString(),...today,data};
   const filename="scholar-garden-"+(today.day||"progress")+"-"+new Date().toISOString().slice(11,16).replace(":","")+".json";
   const file=new File([data],filename,{type:"application/json"});
