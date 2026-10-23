@@ -26,12 +26,12 @@ const allQ=(topic,n)=>Array.from({length:n},(_,i)=>({
   id:'q'+i,topicId:topic,formal:true,format:'typed_short'
 }));
 
-test('original ten assignments remain with 155 items when no delayed checks are due',()=>{
+test('original ten assignments remain with 165 items when no delayed checks are due',()=>{
   const plan=buildYear8DailyV2(state(),get);
   assert.equal(plan.length,10);
-  assert.equal(plan.reduce((n,t)=>n+t.target,0),155);
+  assert.equal(plan.reduce((n,t)=>n+t.target,0),165);
   for(const id of ['y8-mastery-a','y8-mastery-b']){
-    assert.equal(lookup(plan,id).target,15);
+    assert.equal(lookup(plan,id).target,20);
     assert.equal(urlMode(lookup(plan,id)),'mastery');
   }
 });
@@ -61,39 +61,39 @@ test('a pending check does not appear early or get mistaken for a new Mastery',(
     .some(t=>t.assignedTopic==='latin-y8-t0'));
 });
 
-test('15 attempted wrong answers are not a completed daily Mastery',()=>{
+test('20 attempted questions with fewer than 17 correct are not a completed daily Mastery',()=>{
   const initial=state();
   const plan=buildYear8DailyV2(initial,get);
   const mastery=lookup(plan,'y8-mastery-a');
-  const events=allQ(mastery.assignedTopic,15).map((q,i)=>({
+  const events=allQ(mastery.assignedTopic,20.map((q,i)=>({
     day,questionId:q.id,attemptId:'a'+i,topicId:mastery.assignedTopic,
-    dailyTaskId:mastery.id,mode:'mastery',formal:true,correct:i<12,
+    dailyTaskId:mastery.id,mode:'mastery',formal:true,correct:i<16,
     format:'typed_short',subject:mastery.assignedSubject
   }));
   const failed={...initial,daily:plan,formalAttemptLog:events};
   const replan=buildYear8DailyV2(failed,get);
-  assert.equal(lookup(replan,mastery.id).progress,14);
+  assert.equal(lookup(replan,mastery.id).progress,19);
   const replay=replayDailyAnswerCredit(failed);
-  assert.equal(lookup(replay.daily,mastery.id).progress,14);
-  const questions=allQ(mastery.assignedTopic,15);
+  assert.equal(lookup(replay.daily,mastery.id).progress,19);
+  const questions=allQ(mastery.assignedTopic,20;
   const receipt=reconcileDailySession(failed,{
     day,taskId:mastery.id,subject:mastery.assignedSubject,year:8,mode:'mastery',
     questions,answers:questions.map((q,i)=>({
-      questionId:q.id,correct:i<12,formal:true,repair:false
+      questionId:q.id,correct:i<16,formal:true,repair:false
     }))
   });
-  assert.equal(lookup(receipt.daily,mastery.id).progress,14);
+  assert.equal(lookup(receipt.daily,mastery.id).progress,19);
   assert.deepEqual(receipt.dailyLog,{});
 });
 
-test('13/15 including three independent answers completes daily gate',()=>{
+test('17/20 including three independent answers completes daily gate',()=>{
   const initial=state(),plan=buildYear8DailyV2(initial,get);
   const task=lookup(plan,'y8-mastery-a'),topic=task.assignedTopic;
   let stat={};
   const events=[];
-  for(let i=0;i<15;i++){
+  for(let i=0;i<20;i++){
     const answer={day,year:8,mode:'mastery',questionId:'m'+i,
-      correct:i<13,format:i<3?'typed_short':'mc_single',formal:true};
+      correct:i<17,format:i<3?'typed_short':'mc_single',formal:true};
     stat={masteryV2:addMasteryEvidence(stat,answer)};
     events.push({...answer,topicId:topic,subject:task.assignedSubject,
       dailyTaskId:task.id,attemptId:'m-attempt'+i});
@@ -102,17 +102,17 @@ test('13/15 including three independent answers completes daily gate',()=>{
   assert.equal(stat.masteryV2.passedMasteryAt,day);
   const now={...initial,daily:plan,topicStats:{[topic]:stat},formalAttemptLog:events};
   const replan=buildYear8DailyV2(now,get);
-  assert.equal(lookup(replan,task.id).progress,15);
-  assert.equal(lookup(replan,task.id).target,15);
+  assert.equal(lookup(replan,task.id).progress,20);
+  assert.equal(lookup(replan,task.id).target,20);
   const replay=replayDailyAnswerCredit(now);
-  assert.equal(lookup(replay.daily,task.id).progress,15);
+  assert.equal(lookup(replay.daily,task.id).progress,20);
 });
 
 test('real Day 2 and Day 7 results change the topic to Mastered',()=>{
   let stat={};
-  for(let i=0;i<15;i++){
+  for(let i=0;i<20;i++){
     stat={masteryV2:addMasteryEvidence(stat,{day:'2026-10-19',year:8,
-      mode:'mastery',questionId:'q'+i,correct:i<13,
+      mode:'mastery',questionId:'q'+i,correct:i<17,
       format:i<3?'typed_short':'mc_single'})};
   }
   assert.equal(stat.masteryV2.stage,'check2');
