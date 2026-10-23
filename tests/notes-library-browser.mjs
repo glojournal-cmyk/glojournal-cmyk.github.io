@@ -10,7 +10,7 @@ for(const [name,engine,viewport] of [
 ]){
  const browser=await engine.launch({headless:true});
  const context=await browser.newContext({viewport,deviceScaleFactor:1,
-   ...(name==='ipad-webkit'?{isMobile:true,hasTouch:true}: {})});
+   ...(name==='ipad-webkit'?{isMobile:true,hasTouch:true}:{})});
  const page=await context.newPage();
  await page.route('https://gloria-notes-public.glo-journal.workers.dev/catalog',async route=>{
    await route.fulfill({status:200,contentType:'application/json',
@@ -21,59 +21,66 @@ for(const [name,engine,viewport] of [
    status:200,contentType:'application/pdf',body:'%PDF-1.4\n%%EOF\n',
    headers:{'Access-Control-Allow-Origin':'*'}}));
  await page.goto(BASE+'/notes/',{waitUntil:'domcontentloaded'});
- await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('1 of 88 PDFs ready'));
- assert.equal(await page.locator('.note-row').count(),88,'One horizontal button per note');
- assert.equal(await page.locator('.note-row:enabled').count(),1,'Only uploaded note is clickable');
- assert.equal(await page.locator('.note-row:disabled').count(),87);
- assert.equal(await page.locator('.year-group').count(),2,'Year 9 + Summer groups');
- assert.equal(await page.locator('.year-group[data-period="year9"] .note-row').count(),12);
- assert.equal(await page.locator('.year-group[data-period="summer"] .note-row').count(),76);
- assert.equal(await page.locator('.year-group[data-period="year9"] .subject-group[data-subject="french"] .note-row').count(),3);
- assert.equal(await page.locator('.year-group[data-period="summer"] .subject-group[data-subject="biology"] .note-row').count(),18);
- assert.equal(await page.locator('.note-list .note-row').count(),88);
- const pre=await page.evaluate(async()=>{
-   await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
-   const nav=document.querySelector('nav.nav').getBoundingClientRect();
-   const group=document.querySelector('.note-list').getBoundingClientRect();
-   const button=document.querySelector('.note-row').getBoundingClientRect();
-   const title=document.querySelector('.row-main').getBoundingClientRect();
-   const action=document.querySelector('.row-action').getBoundingClientRect();
+ await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('1 / 88 Notes available'));
+ assert.equal(await page.locator('#yearSelect').inputValue(),'year9');
+ assert.equal(await page.locator('#subjectScreen').isVisible(),true);
+ assert.equal(await page.locator('#detailScreen').isVisible(),false);
+ assert.equal(await page.locator('.subject-card').count(),7,'Year 9 has 7 Study-style cards');
+ assert.equal(await page.locator('.subject-card[data-subject="latin"]').count(),1);
+ assert.equal(await page.locator('.subject-card[data-subject="maths"] .subject-button:disabled').count(),1,'No fabricated Maths Notes');
+ assert.equal(await page.locator('.subject-card[data-subject="physics"] .subject-button:disabled').count(),1);
+ assert.equal(await page.locator('.subject-card[data-subject="french"] .subject-button:enabled').count(),1);
+ assert.equal(await page.locator('.bottom-nav a').count(),7);
+ const geometry=await page.evaluate(async()=>{
+   await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+   const nav=document.querySelector('.bottom-nav').getBoundingClientRect();
+   const cards=[...document.querySelectorAll('.subject-card')].map(e=>e.getBoundingClientRect());
    return {
      overflow:document.documentElement.scrollWidth-window.innerWidth,
-     navHeight:nav.height,
-     visible:nav.bottom <= window.innerHeight+3 && nav.top >= -3 &&
-       nav.left >= -3 && nav.right <= window.innerWidth+3,
-     fullWidthRatio:button.width/group.width,
-     actionRightOfTitle:action.left>title.left,
-     buttonHeight:button.height
+     navHeight:nav.height,navVisible:nav.bottom<=window.innerHeight+3&&nav.top>=-3&&nav.left>=-3&&nav.right<=window.innerWidth+3,
+     artLoaded:[...document.querySelectorAll('.subject-art')].every(i=>i.complete && i.naturalWidth>0),
+     cardsValid:cards.every(c=>c.width>100&&c.height>110)
    };
  });
- assert.ok(pre.overflow<=3,name+' horizontal page overflow '+pre.overflow);
- assert.ok(pre.navHeight<=78,name+' oversized bottom bar '+pre.navHeight);
- assert.ok(pre.visible,name+' nav shifted off viewport '+JSON.stringify(pre));
- assert.ok(pre.fullWidthRatio>.97,name+' notes are not full-width horizontal rows '+JSON.stringify(pre));
- assert.ok(pre.actionRightOfTitle,name+' button label not horizontally laid out');
- assert.ok(pre.buttonHeight>=55,name+' notes row too short for touch');
+ assert.ok(geometry.overflow<=3,name+' horizontal overflow '+JSON.stringify(geometry));
+ assert.ok(geometry.navHeight<=85&&geometry.navVisible,name+' bottom bar geometry '+JSON.stringify(geometry));
+ assert.ok(geometry.artLoaded,name+' some subject image failed to load '+JSON.stringify(geometry));
+ assert.ok(geometry.cardsValid,name+' card size too small '+JSON.stringify(geometry));
  await page.screenshot({path:'test-results/notes-library-'+name+'.png',fullPage:false});
- await page.locator('.segments button[data-period="year9"]').click();
- assert.equal(await page.locator('.year-group').count(),1);
- assert.equal(await page.locator('.note-row').count(),12);
- await page.locator('#subject').selectOption('french');
+ await page.locator('.subject-card[data-subject="french"] .subject-button').click();
+ await page.waitForURL(/#year9\/french/);
+ assert.equal(await page.locator('#subjectScreen').isVisible(),false);
+ assert.equal(await page.locator('#detailScreen').isVisible(),true);
+ assert.equal(await page.locator('#detailTitle').textContent(),'French Notes');
  assert.equal(await page.locator('.note-row').count(),3);
- await page.locator('#search').fill('Future Tense');
+ assert.equal(await page.locator('.note-row:enabled').count(),1);
+ const sizes=await page.evaluate(()=>{
+   const list=document.querySelector('#noteList').getBoundingClientRect();
+   const note=document.querySelector('.note-row').getBoundingClientRect();
+   return {fullWidthRatio:note.width/list.width,h:note.height};
+ });
+ assert.ok(sizes.fullWidthRatio>=.97&&sizes.h>=58,name+' horizontal note button mismatch');
+ await page.locator('#noteSearch').fill('Future Tense');
  assert.equal(await page.locator('.note-row').count(),1);
  await page.locator('.note-row:enabled').click();
  assert.equal(await page.locator('#viewer').isVisible(),true);
  assert.equal(new URL(await page.locator('#openTab').getAttribute('href')).searchParams.get('key'),key);
  await page.locator('#closeReader').click();
  assert.equal(await page.locator('#viewer').isVisible(),false);
- await page.locator('#search').fill('');
- await page.locator('#subject').selectOption('biology');
- assert.equal(await page.locator('.note-row').count(),1,'Year 9 Biology subject filtered');
- await page.locator('.segments button[data-period="summer"]').click();
- assert.equal(await page.locator('.note-row').count(),18,'Summer Biology subject filtered');
- await page.locator('#subject').selectOption('all');
- assert.equal(await page.locator('.note-row').count(),76);
- console.log('NOTES_BROWSER_OK '+name+' 88 rows, 2 year groups, grouped subjects, one button each, PDF reader, filters and fixed nav checked');
+ await page.locator('#backSubjects').click();
+ await page.waitForURL(/#year9$/);
+ assert.equal(await page.locator('.subject-card').count(),7);
+ await page.locator('#yearSelect').selectOption('summer');
+ await page.waitForURL(/#summer$/);
+ assert.equal(await page.locator('#subjectScreen').isVisible(),true);
+ assert.equal(await page.locator('.subject-card').count(),7,'6 curriculum subjects plus mixed summer notes');
+ await page.locator('.subject-card[data-subject="biology"] .subject-button').click();
+ await page.waitForURL(/#summer\/biology$/);
+ assert.equal(await page.locator('#detailTitle').textContent(),'Biology Notes');
+ assert.equal(await page.locator('.note-row').count(),18);
+ await page.goto(BASE+'/notes/#year9/french',{waitUntil:'domcontentloaded'});
+ await page.waitForFunction(()=>document.querySelector('#detailTitle')?.textContent==='French Notes');
+ assert.equal(await page.locator('.note-row').count(),3,'deep link to subject works');
+ console.log('NOTES_STUDY_SUBJECT_PAGES_OK '+name+' 7 visual cards Year9, 7 Summer, drilldown rows, cloud reader, hash route, iPad navigation checked');
  await browser.close();
 }

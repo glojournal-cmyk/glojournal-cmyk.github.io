@@ -1,54 +1,67 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#133748">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#183c48">
 <title>Notes Library · Lux et Labor</title>
 <link rel="icon" href="/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="/notes/library.css?v=20261023-02"></head>
-<body><div class="shade"></div>
-<div class="shell">
-<header class="top">
-  <a class="back" href="/study/">← Study</a>
-  <span class="eyebrow">LUX ET LABOR · STUDY ARCHIVE</span>
-  <h1>Notes Library <span>✦</span></h1>
-  <p>Image-made PDF Notes, organised by school year and subject. Open a note without downloading the whole library.</p>
-</header>
-<main>
-  <div id="status" class="status" role="status" aria-live="polite">Checking notes…</div>
-  <section class="filters" aria-label="Find notes">
-    <label class="sr-only" for="search">Search notes and topics</label>
-    <input id="search" type="search" placeholder="⌕ Search subject, topic or note…" autocomplete="off">
-    <div class="segments" role="group" aria-label="Year or collection">
-      <button data-period="all" class="active" aria-pressed="true">All years</button>
-      <button data-period="summer" aria-pressed="false">Summer / Year 8</button>
-      <button data-period="year9" aria-pressed="false">Year 9</button>
-    </div>
-    <label for="subject">Subject</label><select id="subject">
-      <option value="all">All subjects</option>
-      <option value="french">French</option><option value="latin">Latin</option>
-      <option value="biology">Biology</option><option value="chemistry">Chemistry</option>
-      <option value="english">English</option><option value="maths">Maths</option>
-      <option value="physics">Physics</option><option value="mixed">Mixed</option>
-    </select>
-  </section>
-  <section class="content" aria-label="Notes">
-    <div class="sectionTitle"><h2 id="heading">Your notes</h2><span id="count"></span></div>
-    <div id="noteGroups" class="note-groups"></div>
-    <p id="empty" class="empty" hidden>No notes in this year / subject. Choose another filter.</p>
-  </section>
-  <aside class="help">Cloud PDFs open one at a time. Notes that are not yet uploaded are shown but disabled. Your Daily Tasks and scores are unaffected.</aside>
-</main>
+<link rel="stylesheet" href="/notes/library.css?v=20261023-study-cards1">
+</head>
+<body>
+<div class="scene-tint" aria-hidden="true"></div>
+<div class="notes-app">
+  <header class="toolbar" aria-label="Notes navigation">
+    <a class="study-back" href="/study/" aria-label="Return to Study">← Study</a>
+    <label class="year-picker">
+      <span class="sr-only">Select school year</span>
+      <select id="yearSelect" aria-label="Select school year">
+        <option value="year9">Year 9</option>
+        <option value="summer">Summer / Year 8</option>
+      </select>
+    </label>
+    <span class="notes-pill">📖 Notes Library</span>
+  </header>
+  <div class="cloud-status" id="status" role="status" aria-live="polite">Loading Notes Library…</div>
+  <main>
+    <section id="subjectScreen" class="subject-screen" aria-label="Notes subjects">
+      <h1 class="sr-only">Choose a subject</h1>
+      <div class="subject-grid" id="subjectGrid"></div>
+    </section>
+    <section id="detailScreen" class="detail-screen" aria-label="Subject PDF notes" hidden>
+      <div class="detail-heading">
+        <button id="backSubjects" class="back-subjects" type="button">← Subjects</button>
+        <div class="detail-title-wrap">
+          <span id="detailYear" class="detail-year"></span>
+          <h1 id="detailTitle">Subject notes</h1>
+          <span id="detailCount" class="detail-count"></span>
+        </div>
+      </div>
+      <label class="sr-only" for="noteSearch">Search this subject's notes</label>
+      <input id="noteSearch" type="search" placeholder="Search these notes…" autocomplete="off">
+      <div id="noteList" class="note-list"></div>
+      <p id="empty" class="empty" hidden>No Image PDF notes here yet.</p>
+    </section>
+  </main>
 </div>
 <div id="viewer" class="viewer" hidden role="dialog" aria-modal="true" aria-label="PDF Reader">
-  <div class="viewerBar"><button id="closeReader" type="button" aria-label="Close PDF">← Library</button><strong id="viewerTitle"></strong><a id="openTab" target="_blank" rel="noopener noreferrer">Open full screen ↗</a></div>
+  <div class="viewer-bar">
+    <button id="closeReader" type="button">← Notes</button>
+    <strong id="viewerTitle"></strong>
+    <a id="openTab" target="_blank" rel="noopener noreferrer">Full screen ↗</a>
+  </div>
   <iframe id="pdfFrame" title="PDF notes" loading="lazy"></iframe>
 </div>
-<nav class="nav" aria-label="Main navigation">
-  <a href="/">⌂<small>Home</small></a><a class="selected" href="/study/">▣<small>Study</small></a>
-  <a href="/play/">◇<small>Play</small></a><a href="/garden/">♧<small>Garden</small></a>
-  <a href="/pet">♧<small>Pet</small></a><a href="/assessment/">▤<small>Assess</small></a><a href="/scholar/">✎<small>Scholar</small></a>
+<nav class="bottom-nav" aria-label="Main navigation">
+  <a href="/"><img src="/assets/math-study/nav/home.svg" alt=""><span>Home</span></a>
+  <a class="active" href="/study/"><img src="/assets/math-study/nav/study.svg" alt=""><span>Study</span></a>
+  <a href="/play/"><img src="/assets/math-study/nav/play.svg" alt=""><span>Play</span></a>
+  <a href="/garden/"><img src="/assets/math-study/nav/garden.svg" alt=""><span>Garden</span></a>
+  <a href="/pet/"><img src="/assets/math-study/nav/pet.svg" alt=""><span>Pet</span></a>
+  <a href="/assessment/"><img src="/assets/math-study/nav/assessment.svg" alt=""><span>Assessment</span></a>
+  <a href="/scholar/"><img src="/assets/math-study/nav/scholar.svg" alt=""><span>Scholar</span></a>
 </nav>
-<script src="/notes/library.js?v=20261023-02" defer></script>
-</body></html>
+<script src="/notes/library.js?v=20261023-study-cards1" defer></script>
+</body>
+</html>
