@@ -43,8 +43,10 @@
  function subjectCard(slug,title,yearNotes){
    const entries=yearNotes.filter(n=>n.subject===slug);
    const ready=entries.filter(isAvailable).length;
-   const card=node('article','subject-card'+(slug==='maths'?' maths-card':''));
+   const card=node('button','subject-card'+(slug==='maths'?' maths-card':''));
+   card.type='button';
    card.dataset.subject=slug;
+   card.disabled=entries.length===0;
    const art=node('img','subject-art');
    art.src=imageFor(year,slug);art.alt='';
    art.loading='eager';art.decoding='async';
@@ -59,14 +61,10 @@
    stats.append(node('span','stat-line',entries.length+' '+(entries.length===1?'Note':'Notes')));
    stats.append(node('span','stat-line ready-line',workerReady?ready+' available':'Checking cloud…'));
    body.append(stats);
-   const button=node('button','subject-button',entries.length?'▣ View Notes':'No Notes Yet');
-   button.type='button';
-   button.disabled=entries.length===0;
-   if(entries.length){
-     button.setAttribute('aria-label','Open '+YEAR_NAMES[year]+' '+title+' Notes');
-     button.addEventListener('click',()=>goto(year,slug));
-   }
-   body.append(button);card.append(art,body);
+   body.append(node('span','card-arrow','›'));
+   card.setAttribute('aria-label',YEAR_NAMES[year]+' '+title+': '+entries.length+' notes'+(entries.length?' — open subject':' — no notes yet'));
+   if(entries.length)card.addEventListener('click',()=>goto(year,slug));
+   card.append(body,art);
    return card;
  }
  function renderSubjects(){
