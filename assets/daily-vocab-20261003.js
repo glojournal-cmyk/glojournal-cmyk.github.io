@@ -18,7 +18,7 @@ function isHeadword(q,subject) {
   // Do not silently remove useful multiword lexical items such as "près de"
   // or "faire du vélo"; still exclude full-sentence translation exercises.
   const foreign=String(dir==='toForeign'?terms[0]:stim).trim();
-  const lexical=subject==='latin'?foreign.replace(/!$/,''):foreign;
+  const lexical=subject==='latin'?foreign.replace(/[!?]$/,''):foreign;
   if(!lexical||/[!?;:\n]|[.]$/.test(lexical)||lexical.split(/\s+/).length>6)return false;
   if(subject==='french' &&
     /^(?:je\b|j['’]|tu\b|elle\b|nous\b|vous\b|ils\b|elles\b)/i.test(foreign))return false;
