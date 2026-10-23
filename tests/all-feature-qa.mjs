@@ -15,6 +15,7 @@ commands.push("node --test tests/latest-30-day-export-20261023.test.mjs");
 commands.push("node --test tests/single-app-entrypoint-20261023.test.mjs");
 commands.push("node --test tests/home-return-oom-20261023.test.mjs");
 commands.push("node --test tests/large-history-normalization-oom-20261023.test.mjs");
+commands.push("node --test tests/restore-home-extras-safe-20261023.test.mjs");
 commands.push("node tests/french-unique-questions-qa.mjs","node tests/biology-nov2-qa.mjs","node tests/biology-nov2-diagrams-qa.mjs","node --test tests/mastery-v2-qa.mjs");
 const failures=[];
 for(const command of commands){const [cmd,...args]=command.split(" ");const r=spawnSync(cmd,args,{encoding:"utf8",env:{...process.env,STRICT:"1"}});console.log(r.stdout);console.error(r.stderr);if(r.status!==0)failures.push({command,status:r.status});}
