@@ -1,0 +1,48 @@
+name: Verify Gloria Notes Design C E Art Live
+on:
+  pull_request:
+    paths:
+      - .github/workflows/verify-notes-design-c-e-live.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Verify public Notes E art, Design C CSS and catalog availability
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://glojournal-cmyk.github.io"
+          ready=0
+          for attempt in $(seq 1 20); do
+            curl -fsSL --max-time 25 "$base/notes/" > /tmp/notes-e.html
+            curl -fsSL --max-time 25 "$base/notes/library.js?v=20261023-designc-e1" > /tmp/notes-e.js
+            curl -fsSL --max-time 25 "$base/notes/library.css?v=20261023-designc-e1" > /tmp/notes-e.css
+            if python3 - <<'PY'
+          from pathlib import Path
+          html=Path('/tmp/notes-e.html').read_text()
+          js=Path('/tmp/notes-e.js').read_text()
+          css=Path('/tmp/notes-e.css').read_text()
+          assert '20261023-designc-e1' in html
+          assert '/notes/images/option-e/' in js
+          assert 'grid-template-columns:repeat(2,minmax(0,1fr))' in css
+          assert 'grid-column:2' in css
+          assert 'function noteRow(' in js
+          PY
+            then
+              echo "DESIGN_C_E_LAYOUT_LIVE"
+              ready=1;break
+            fi
+            sleep 6
+          done
+          [[ "$ready" = 1 ]] || { echo "::error::Public site did not publish latest Notes files";exit 1; }
+          for subject in latin french english maths biology chemistry physics; do
+            curl -fsSL --max-time 20 "$base/notes/images/option-e/$subject.svg" > "/tmp/e-$subject.svg"
+            test "$(wc -c < "/tmp/e-$subject.svg")" -gt 2200
+            echo "E_ART_LIVE $subject"
+          done
+          curl -fsSL --max-time 20 "$base/notes/catalog.json" | python3 -c 'import json,sys;d=json.load(sys.stdin); print("INDEXED_NOTES",len(d["notes"]));assert len(d["notes"])==88'
+          curl -fsSL --max-time 25 "https://gloria-notes-public.glo-journal.workers.dev/catalog" | python3 -c 'import json,sys;d=json.load(sys.stdin);print("LIVE_R2_PDFS",len(d["files"]));assert len(d["files"])>=30'
