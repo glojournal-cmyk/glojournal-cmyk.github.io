@@ -5,7 +5,7 @@ import { scholarMetrics } from './scholar-metrics-20261022.js';
  */
 import './home-journey-v2-logic-20261010.js?v=20261010-home-v2';
 import './journey-navigation-20261004.js';
-import { A as wardrobeOutfits, C as store, Z as scholarLevelProgress, B as rewardScenes } from './index-BLVOhKhN.js?v=20261018-mastery2&uxfix=20261022-priority-ux1';
+import { A as wardrobeOutfits, C as store, Z as scholarLevelProgress, B as rewardScenes } from './index-BLVOhKhN.js?v=20261023-mastered20-backup1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
 import { selectedRewardScene } from './rpg-scene-selection-20261019.js?v=20261019-selected-scene1';
 import { petArtUrl } from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
 import { getHomePersonality } from '/pet/home-personality-20261010.js?v=20261019-rpg-greeting1';
