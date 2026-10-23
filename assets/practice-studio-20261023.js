@@ -11,8 +11,10 @@
   window.__luxDailyPracticeUxV2 = true;
   const pathIsPractice = () => /^\/study\/[^/]+\/practise\/?$/.test(location.pathname);
   // New design is the default for both free Practice and assigned Daily tasks.
-  // Keep the proven classic interface available via ?dailyUxPreview=0.
+  // Keep the proven classic interface available only by explicit rollback.
   const disabled = () => new URLSearchParams(location.search).get('dailyUxPreview') === '0';
+  // Older saved Daily links sometimes URL-encode the value as \"1\".
+  const isAssignedDaily = () => /^(1|true)$/.test(String(new URLSearchParams(location.search).get('daily') || '').replace(/^[\"']|[\"']$/g, ''));
   const navSpec = [
     ['⌂','Home','/'], ['▣','Study','/study/'], ['◇','Play','/play/'],
     ['♧','Garden','/garden/'], ['♧','Pet','/pet/'],
@@ -28,7 +30,7 @@
   // [data-question-id] shows the old Daily screen between new question frames.
   if (pathIsPractice() && !disabled()) {
     root.classList.add('lux-daily-ux-ready');
-    if (new URLSearchParams(location.search).get('daily') === '1') root.classList.add('lux-daily-task-active');
+    if (isAssignedDaily()) root.classList.add('lux-daily-task-active');
     else root.classList.add('lux-practice-choosing');
   }
   function installSheet() {
@@ -255,25 +257,18 @@
       if (q.dataset.luxMcLong !== String(long)) q.dataset.luxMcLong = String(long);
     }
   }
-  // A quiz question can disappear while React swaps answer feedback, loads the
-  // next assigned task, or resumes a draft. Keep the same page shell mounted
-  // for the ENTIRE session; a time-limited 1.2s grace caused Safari flashes.
-  // Only a route change, explicit preview rollback or real result ends it.
-  // Latch a real result until a new question starts. A temporary React gap
-  // or a Safari history/viewport event must never resurrect the legacy skin.
-  let showingResult = false;
+  // The new Practice shell persists for the ENTIRE route, including checked
+  // feedback, result screens, next-question gaps and hydration. Previously a
+  // real result explicitly disabled it, showing the classic skin before the
+  // next question re-enabled the modern one. Only route exit or intentional
+  // ?dailyUxPreview=0 rollback may disable the shell.
   function refresh() {
     scheduled = false;
-    const enabled = pathIsPractice() && !disabled();
-    const q = enabled && document.querySelector('.lux-practice-view [data-question-id]');
-    const resultScreen = enabled && !!document.querySelector('.lux-practice-view [aria-label="Session result"]');
-    if (!enabled || q) showingResult = false;
-    else if (resultScreen) showingResult = true;
-    // A URL change to Practice already selects the v2 shell, even while
-    // hydration has no question. Only an actual result / leaving the route
-    // switches off the shell.
-    const active = enabled && !showingResult;
-    const isDailyTask = active && new URLSearchParams(location.search).get('daily') === '1';
+    // Do not derive shell activity from transient React question/result markup.
+    // A marked answer and the next question must never toggle the theme.
+    const active = pathIsPractice() && !disabled();
+    const q = active && document.querySelector('.lux-practice-view [data-question-id]');
+    const isDailyTask = active && isAssignedDaily();
     root.classList.toggle('lux-daily-ux-ready',active);
     root.classList.toggle('lux-daily-task-active',isDailyTask);
     root.classList.toggle('lux-practice-choosing',active && !isDailyTask && !q);
@@ -332,8 +327,7 @@
   // during a live quiz; CSS uses lux-practice-choosing to reveal both pickers.
   // This never touches progress, answers, results or localStorage.
   const shellClassGuard = new MutationObserver(() => {
-    if (pathIsPractice() && !disabled() && !showingResult &&
-        document.querySelector('.lux-practice-view') &&
+    if (pathIsPractice() && !disabled() &&
         !root.classList.contains('lux-daily-ux-ready')) {
       root.classList.add('lux-daily-ux-ready');
     }
