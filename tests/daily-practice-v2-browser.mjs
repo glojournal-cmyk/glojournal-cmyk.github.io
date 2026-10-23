@@ -245,7 +245,7 @@ async function checkFixture(browser,engine,kind,viewport){
   }
   if(kind==='tiles'){
     await page.locator('[data-question-format="word_tiles"] .mt-5.space-y-3 > div:nth-child(2) button').first().click();
-    assert.equal(await page.evaluate(()=>window.tapCount),1,'tile click event preserved');
+    assert.equal(await page.evaluate(()=>window.tapCount),2,'two separate native tile clicks must both be preserved');
   }
   assert.deepEqual(errors,[],'fixture must not raise JS errors');
   await page.screenshot({path:path.join(out,engine+'-'+kind+'-'+viewport.width+'x'+viewport.height+'.png'),fullPage:true});
