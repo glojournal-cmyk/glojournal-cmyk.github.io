@@ -1,0 +1,45 @@
+name: Verify Actual Generated Notes Images Live
+on:
+  pull_request:
+    paths: [.github/workflows/verify-real-notes-images-live.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Verify old Notes SVG replaced by original high-resolution PNGs on live site
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://glojournal-cmyk.github.io"
+          published=0
+          for attempt in $(seq 1 25); do
+            curl -fsSL --max-time 25 "$base/notes/" -o /tmp/gloria-notes-page.html
+            curl -fsSL --max-time 25 "$base/notes/library.js?v=20261023-latinvocab1-generatede2" -o /tmp/gloria-notes.js
+            if grep -q '20261023-latinvocab1-generatede2' /tmp/gloria-notes-page.html &&
+               grep -q '/notes/images/generated-e/' /tmp/gloria-notes.js; then
+               echo "REAL_IMAGEGEN_NOTES_JS_LIVE"
+               published=1
+               break
+            fi
+            sleep 5
+          done
+          [[ "$published" = 1 ]] || { echo "::error::Old Notes JavaScript still deployed"; exit 1; }
+          mkdir -p /tmp/gloria-real-banners
+          for subject in latin french english maths biology chemistry physics; do
+            curl -fsSL --retry 2 --max-time 45 "$base/notes/images/generated-e/$subject.png" -o "/tmp/gloria-real-banners/$subject.png"
+          done
+          python3 - <<'PY'
+          import pathlib,struct
+          files=list(pathlib.Path('/tmp/gloria-real-banners').glob('*.png'))
+          assert len(files)==7,len(files)
+          for file in files:
+            with file.open('rb') as f: head=f.read(33)
+            assert head[:8]==b'\x89PNG\r\n\x1a\n',file
+            assert struct.unpack('>II',head[16:24])==(2172,724),file
+            print("GENERATED_PICTURE_LIVE",file.stem,file.stat().st_size)
+          print("SEVEN_REAL_IMAGES_VERIFIED_ON_GLORIA")
+          PY
