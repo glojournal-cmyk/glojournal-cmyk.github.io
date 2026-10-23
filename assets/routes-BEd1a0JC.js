@@ -1,14 +1,20 @@
 export { component } from "./routes-BEd1a0JC.core.js?v=20261018-receipt2&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 import { C as store } from "./index-BLVOhKhN.js?v=20261023-share-permission1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 
+// Avoid repeatedly parsing the multi-megabyte practice draft and assessment
+// storage on every decorative Home mutation. Invalidate on real store updates.
+let cachedHref=null, cachedHrefAt=0;
 function continueHref() {
+  if(cachedHref&&Date.now()-cachedHrefAt<1200)return cachedHref;
   const J=globalThis.LuxJourney,state=J?.withReviewCredits?.(store.getState())||store.getState();
   const active=state.today===J?.day()&&Array.isArray(state.daily)&&state.daily.length===10;
   const next=active&&state.daily.find(t=>Number(t.progress)<Number(t.target)&&J.safeHref(t.href));
   const drafts=J?.resumeCandidates(state)||[];
   const daily=active&&drafts.find(d=>d.daily&&d.planDate===state.today);
   const free=!active&&drafts.find(d=>!d.daily);
-  return daily?.href||J?.navigationHref(next?.href)||free?.href||"/study/";
+  cachedHref=daily?.href||J?.navigationHref(next?.href)||free?.href||"/study/";
+  cachedHrefAt=Date.now();
+  return cachedHref;
 }
 
 function patchHome() {
@@ -59,7 +65,7 @@ if (typeof document !== "undefined") {
   setTimeout(() => {
     schedulePatch();
     new MutationObserver(schedulePatch).observe(document.documentElement, { childList: true, subtree: true, characterData: true });
-    store.subscribe(schedulePatch);
+    store.subscribe(()=>{cachedHref=null;schedulePatch()});
     window.addEventListener("popstate", schedulePatch);
   }, 0);
 }
