@@ -304,6 +304,9 @@ function mount(){
  // The router can return Home without loading a fresh HTML document.
  // The recovery module now loads on practice and game entry routes as well.
  if(location.pathname!=="/"&&location.pathname!=="/index.html")return;
+ // New RPG Home already has a dedicated Recovery route. Do not mount the
+ // old Recovery panel over its character art or rescan historic answers.
+ if(document.getElementById("lux-rpg-live-home"))return;
  const card=[...document.querySelectorAll("main h2")].find(n=>n.textContent.trim()==="Raise her today")?.parentElement?.parentElement?.parentElement;
  if(!card){
   if(!mount.waiting){
@@ -331,7 +334,6 @@ function mount(){
  if(!archiveChecked)void restoreArchivedDailyRecord();
  reconcileCompletedRecoveries();
  backfillDatedFocusEvidence();
- protectDailyRecord();
 
  const state=store.getState(),today=todayKey(),rows=recoveryRows(state);
  const dates=[dateAt(today,-1),dateAt(today,-2)];
@@ -566,9 +568,11 @@ const style=document.createElement("style");style.textContent=`
 #lux-recovery-quests .lux-recovery-item a{display:inline-block;padding:9px 12px;border-radius:10px;background:#23495b;color:white;min-height:44px;text-decoration:none}
 `;document.head.append(style);
 let queued=false;function schedule(){
- // Practice/Play can be busy; only schedule a Home panel render on Home.
+ // Coalesce Home mutations into one frame, and skip the new RPG Home where
+ // historical Recovery is already linked separately.
  if(location.pathname!=="/"&&location.pathname!=="/index.html")return;
- if(!queued){queued=true;queueMicrotask(()=>{queued=false;mount()})}
+ if(document.getElementById("lux-rpg-live-home"))return;
+ if(!queued){queued=true;requestAnimationFrame(()=>{queued=false;mount()})}
 }
 // Protect history across router pages, but don't re-scan every historical
 // answer after unrelated XP, sound, pet animation or input-state changes.
@@ -596,8 +600,7 @@ store.subscribe(()=>{
  const relevant=Object.keys(lastRecordInputs).some(key=>
    state[key]!==lastRecordInputs[key]);
  for(const key of Object.keys(lastRecordInputs))lastRecordInputs[key]=state[key];
- if(relevant)scheduleRecordProtection();
- schedule();
+ if(relevant){scheduleRecordProtection();schedule();}
 });
 store.persist?.onFinishHydration?.(()=>{
  if(location.pathname==="/"||location.pathname==="/index.html"){
