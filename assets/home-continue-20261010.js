@@ -49,7 +49,7 @@ let queued=false;
 function update(){
  queued=false;
  if(!root.__luxAppReady||!root.LuxJourney)return;
- let data;try{data=choose(root.LuxJourney.garden(),root.LuxJourney);}catch{return;}
+ let data;try{data=choose(root.__luxStore?.getState?.()||root.LuxJourney.garden(),root.LuxJourney);}catch{return;}
  const label=[...document.querySelectorAll("main p")].find(p=>p.textContent.trim()==="Continue studying");
  const card=label?.parentElement,lines=card?.querySelectorAll(":scope > p");
  const link=card?.querySelector(":scope > a[href]");
@@ -66,7 +66,13 @@ function update(){
  if(quick&&quick.getAttribute("href")!==data.practiceHref)
   quick.setAttribute("href",data.practiceHref);
 }
-function schedule(){if(!queued){queued=true;queueMicrotask(update);}}
+function schedule(){
+ if(location.pathname!=="/"||queued)return;
+ queued=true;
+ // At most one Home card calculation per animation frame, never recursively
+ // parse large practice-draft storage on every DOM mutation.
+ requestAnimationFrame(update);
+}
 new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true});
 for(const event of ["lux:app-ready","pageshow","storage","scholar:session-saved","scholar:learning-changed"])
  root.addEventListener(event,schedule);
