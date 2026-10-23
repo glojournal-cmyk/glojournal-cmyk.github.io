@@ -65,29 +65,29 @@ test('second ZIP holds exactly 25 separately indexed page-image PDFs',()=>{
  }
 });
 
-test('User-selected E series illustrates original Design C horizontal rectangular cards',()=>{
+test('original ImageGen photo banners replace vector placeholders in Design C without affecting Latin PDF notes',()=>{
  const js=read('notes/library.js');
  const css=read('notes/library.css');
  const html=read('notes/index.html');
  for(const subject of ['latin','french','english','maths','biology','chemistry','physics']){
-   const art=read('notes/images/option-e/'+subject+'.svg');
-   assert.match(art,/<svg xmlns="http:\/\/www\.w3\.org\/2000\/svg"/);
-   assert.match(art,/viewBox="0 0 720 250"/);
-   assert.ok(art.length>2200,'Missing complete banner for '+subject);
+   const buffer=readFileSync(new URL('notes/images/generated-e/'+subject+'.png',root));
+   assert.ok(buffer.length>1_500_000,'Missing actual generated photo for '+subject);
+   assert.equal(buffer.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
+   assert.equal(buffer.readUInt32BE(16),2172);
+   assert.equal(buffer.readUInt32BE(20),724);
  }
  assert.match(js,/function imageFor\(/);
- assert.match(js,/notes\/images\/option-e/);
+ assert.match(js,/notes\/images\/generated-e/);
+ assert.doesNotMatch(js,/notes\/images\/option-e/);
  assert.match(js,/function subjectCard\(/);
- assert.match(js,/card\.disabled=entries\.length===0/);
  assert.match(js,/function renderDetail\(/);
  assert.match(js,/function noteRow\(/);
  assert.match(css,/grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
  assert.match(css,/\.subject-art\{[\s\S]*?grid-column:2/);
  assert.match(css,/\.note-row\{width:100%/);
+ assert.match(html,/20261023-generatede2/);
  assert.match(html,/id="subjectScreen"/);
  assert.match(html,/id="detailScreen"/);
- assert.match(html,/20261023-designc-e1/);
- assert.doesNotMatch(html,/id="noteGroups"/);
 });
 
 test('six Year 9 Latin vocabulary image PDFs have dedicated chapter buttons and same-site reader paths',()=>{

@@ -33,7 +33,7 @@ for(const [name,engine,viewport] of [
  assert.equal(await page.locator('.bottom-nav a').count(),7);
  for(const slug of ['latin','french','english','maths','biology','chemistry','physics']){
    assert.equal(await page.locator('.subject-card[data-subject="'+slug+'"] img').getAttribute('src'),
-     '/notes/images/option-e/'+slug+'.svg','Option E picture should be reused for '+slug);
+     '/notes/images/generated-e/'+slug+'.png','Option E picture should be reused for '+slug);
  }
  const rowGeometry=await page.evaluate(()=>{
    const cards=[...document.querySelectorAll('.subject-card')].map(e=>e.getBoundingClientRect());
@@ -49,6 +49,8 @@ for(const [name,engine,viewport] of [
  assert.ok(rowGeometry.sameRow&&rowGeometry.secondOnRight&&rowGeometry.thirdOnNextRow&&
    rowGeometry.wide&&rowGeometry.imageOnRight,
    name+' Design C must have two rectangular cards per row, with E picture at right: '+JSON.stringify(rowGeometry));
+ await page.locator('.subject-art').evaluateAll(images=>images.forEach(image=>{image.loading='eager'}));
+ await page.waitForFunction(()=>[...document.querySelectorAll('.subject-art')].every(i=>i.complete&&i.naturalWidth>0),null,{timeout:45000});
  const geometry=await page.evaluate(async()=>{
    await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
    const nav=document.querySelector('.bottom-nav').getBoundingClientRect();
