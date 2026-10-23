@@ -2,7 +2,7 @@
   "schema": 2,
   "updated": "2026-10-23",
   "source": "ChatGPT Library, image-based PDFs only",
-  "selectionPolicy": "Keep page-image illustrated revision PDFs made from generated note images. Exclude text-layout study books, raw vocabulary lists and original school materials. First-page image checks are preliminary; raw source PDFs still require verification before upload. Six additional image-page PDF candidates discovered through full-library audit on 2026-10-22; raw-byte export currently restricted. 25 all-image-page PDFs from Zip1.zip were byte-checked (6 newly indexed). The R2 archive must be uploaded before they become readable. Zip2.zip audit selected 25 image-page PDFs, excluded 25 tests/practices and two superseded PDF copies; two newly indexed titles, 23 matched earlier titles. Archive is NOT in R2 unless live object exists. Six Year 9 Latin illustrated vocabulary chapter image-PDFs were published directly on the official GitHub Pages site (one original image page per file, checked for six pages and available without Cloudflare R2). Seven existing Cloudflare R2 Latin learning PDFs have their storage presence evidenced by a parent-supplied R2 screenshot (2026-10-23); live public-worker retrieval was not verified. Filename-index corrections: Topic 2 and Topic 5; new Topic 3. The 2-page visual design preview is excluded from the chapter notes curriculum.",
+  "selectionPolicy": "Keep page-image illustrated revision PDFs made from generated note images. Exclude text-layout study books, raw vocabulary lists and original school materials. First-page image checks are preliminary; raw source PDFs still require verification before upload. Six additional image-page PDF candidates discovered through full-library audit on 2026-10-22; raw-byte export currently restricted. 25 all-image-page PDFs from Zip1.zip were byte-checked (6 newly indexed). The R2 archive must be uploaded before they become readable. Zip2.zip audit selected 25 image-page PDFs, excluded 25 tests/practices and two superseded PDF copies; two newly indexed titles, 23 matched earlier titles. Archive is NOT in R2 unless live object exists. Six Year 9 Latin illustrated vocabulary chapter image-PDFs were published directly on the official GitHub Pages site (one original image page per file, checked for six pages and available without Cloudflare R2). Seven existing Cloudflare R2 Latin learning PDFs have their storage presence evidenced by a parent-supplied R2 screenshot (2026-10-23); live public-worker retrieval was not verified. Filename-index corrections: Topic 2 and Topic 5; new Topic 3. The 2-page visual design preview is excluded from the chapter notes curriculum. Display-only human topic labels and note titles are separately curated for Year 9 and cautiously derived from existing filename terms for older Summer Notes; where source has only a date, the UI explicitly shows dated revision without inventing a subject topic. Original filename/key/size/status unchanged.",
   "notes": [
     {
       "id": "summer-biology-12_aug_biology_complete_notes",
@@ -20,7 +20,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 12 Aug",
+      "displayTitle": "Revision Notes · 12 Aug",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-biology-12_aug_biology_complete_notes_sections11_12-2",
@@ -38,7 +43,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Sections 11–12",
+      "displayTitle": "Sections 11–12 · 12 Aug",
+      "topicGroup": "Units and Sections",
+      "topicOrder": 11,
+      "topicVerified": true
     },
     {
       "id": "summer-biology-14_aug_biology_complete_notes-1",
@@ -56,7 +66,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 14 Aug",
+      "displayTitle": "Revision Notes · 14 Aug",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-biology-15_aug_biology_complete_notes",
@@ -74,7 +89,12 @@
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
       },
-      "key": "summer/biology/15_Aug_Biology_Complete_Notes.pdf"
+      "key": "summer/biology/15_Aug_Biology_Complete_Notes.pdf",
+      "topicLabel": "Revision · 15 Aug",
+      "displayTitle": "Revision Notes · 15 Aug",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-biology-16_aug_biology_complete_notes_imagegenerated",
@@ -92,7 +112,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 16 Aug",
+      "displayTitle": "Revision Notes · 16 Aug",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-biology-17_aug_biology_complete_notes_corrected_imagegenerated",
@@ -110,7 +135,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 17 Aug",
+      "displayTitle": "Revision Notes · 17 Aug · Corrected edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-biology-18_aug_biology_6_page_complete_notes",
@@ -128,7 +158,12 @@
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
       },
-      "key": "summer/biology/18_Aug_Biology_6_Page_Complete_Notes.pdf"
+      "key": "summer/biology/18_Aug_Biology_6_Page_Complete_Notes.pdf",
+      "topicLabel": "Revision · 18 Aug",
+      "displayTitle": "Revision Notes · 18 Aug · 6-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-biology-19_aug_biology_6_page_complete_notes_illustrated",
@@ -146,7 +181,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 19 Aug",
+      "displayTitle": "Revision Notes · 19 Aug · 6-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-biology-21_aug_biology_6_page_complete_notes",
@@ -164,7 +204,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 21 Aug",
+      "displayTitle": "Revision Notes · 21 Aug · 6-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-biology-23_aug_biology_6_page_complete_notes",
@@ -182,7 +227,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 23 Aug",
+      "displayTitle": "Revision Notes · 23 Aug · 6-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-biology-24_aug_biology_6_page_complete_notes",
@@ -200,7 +250,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 24 Aug",
+      "displayTitle": "Revision Notes · 24 Aug · 6-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-biology-biology_1_august_post_travel_retrieval_review_notes_merged",
@@ -221,7 +276,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Retrieval Practice",
+      "displayTitle": "1 August — Post-Travel Review",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-biology-biology_10_aug_sections7_8_notes_merged",
@@ -239,7 +299,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Sections 7–8",
+      "displayTitle": "Sections 7–8 · 10 Aug",
+      "topicGroup": "Units and Sections",
+      "topicOrder": 7,
+      "topicVerified": true
     },
     {
       "id": "summer-biology-biology_11_august_section9_notes_merged-1",
@@ -257,7 +322,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Section 9",
+      "displayTitle": "Section 9 · 11 Aug",
+      "topicGroup": "Units and Sections",
+      "topicOrder": 9,
+      "topicVerified": true
     },
     {
       "id": "summer-biology-biology_25_26_july_imagegenerated_notes_merged-5",
@@ -276,7 +346,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 25–26 Jul",
+      "displayTitle": "Revision Notes · 25–26 Jul",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-biology-biology_28_july_supplement31_1_notes_merged-1",
@@ -295,7 +370,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 28 Jul",
+      "displayTitle": "Revision Notes · 28 Jul",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-biology-biology_29_july_notes_merged",
@@ -313,7 +393,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 29 Jul",
+      "displayTitle": "Revision Notes · 29 Jul",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-biology-biology_31_july_nutrition_digestion_consolidation_notes",
@@ -331,7 +416,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Nutrition & Digestion",
+      "displayTitle": "Nutrition & Digestion — Consolidation",
+      "topicGroup": "Named Topics",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-french-11_aug_french_complete_notes_corrected-1",
@@ -349,7 +439,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 11 Aug",
+      "displayTitle": "Revision Notes · 11 Aug · Corrected edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-12_aug_french_complete_notes-2",
@@ -367,7 +462,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 12 Aug",
+      "displayTitle": "Revision Notes · 12 Aug",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-14_aug_french_complete_notes_imagegenerated_corrected-3",
@@ -385,7 +485,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 14 Aug",
+      "displayTitle": "Revision Notes · 14 Aug · Corrected edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-15_aug_french_complete_notes",
@@ -397,7 +502,12 @@
       "dateAdded": "2026-08-22",
       "sizeBytes": 9244324,
       "key": "summer/french/15_Aug_French_Complete_Notes.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Revision · 15 Aug",
+      "displayTitle": "Revision Notes · 15 Aug",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-15_aug_french_complete_notes_4pages",
@@ -409,7 +519,12 @@
       "dateAdded": "2026-08-25",
       "sizeBytes": 1588651,
       "key": "summer/french/15_Aug_French_Complete_Notes_4pages.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Revision · 15 Aug",
+      "displayTitle": "Revision Notes · 15 Aug · 4-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-15_aug_french_complete_notes_imagegenerated_4pages",
@@ -427,7 +542,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 15 Aug",
+      "displayTitle": "Revision Notes · 15 Aug · 4-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-16_aug_french_complete_notes_imagegenerated-3",
@@ -445,7 +565,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 16 Aug",
+      "displayTitle": "Revision Notes · 16 Aug",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-17_aug_french_complete_notes_imagegenerated-3",
@@ -463,7 +588,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 17 Aug",
+      "displayTitle": "Revision Notes · 17 Aug",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-18_aug_french_5_page_complete_notes-2",
@@ -481,7 +611,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 18 Aug",
+      "displayTitle": "Revision Notes · 18 Aug",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-21_aug_french_6_page_complete_notes",
@@ -499,7 +634,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 21 Aug",
+      "displayTitle": "Revision Notes · 21 Aug · 6-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-22_aug_french_6_page_complete_notes",
@@ -517,7 +657,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 22 Aug",
+      "displayTitle": "Revision Notes · 22 Aug · 6-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-23_aug_french_6_page_complete_notes",
@@ -535,7 +680,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 23 Aug",
+      "displayTitle": "Revision Notes · 23 Aug · 6-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-day1_french_booster_notes_4pages-1",
@@ -547,7 +697,12 @@
       "dateAdded": "2026-07-18",
       "sizeBytes": 8188513,
       "key": "summer/french/Day1_French_Booster_Notes_4pages(1).pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Day 1 Booster",
+      "displayTitle": "French Booster — Day 1",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-french_1_august_post_travel_retrieval_review_notes_merged-1-",
@@ -568,7 +723,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Retrieval Practice",
+      "displayTitle": "1 August — Post-Travel Review",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-french_10_august_section13_notes_merged-3",
@@ -586,7 +746,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Section 13",
+      "displayTitle": "Section 13 · 10 Aug",
+      "topicGroup": "Units and Sections",
+      "topicOrder": 13,
+      "topicVerified": true
     },
     {
       "id": "summer-french-french_25_26_july_imagegenerated_notes_merged-1",
@@ -605,7 +770,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 25–26 Jul",
+      "displayTitle": "Revision Notes · 25–26 Jul",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-french_27_july_sections5_6_notes_merged-1",
@@ -624,7 +794,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Sections 5–6",
+      "displayTitle": "Sections 5–6 · 27 Jul",
+      "topicGroup": "Units and Sections",
+      "topicOrder": 5,
+      "topicVerified": true
     },
     {
       "id": "summer-french-french_28_july_sections7_10_notes_merged-4",
@@ -643,7 +818,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Sections 7–10",
+      "displayTitle": "Sections 7–10 · 28 Jul",
+      "topicGroup": "Units and Sections",
+      "topicOrder": 7,
+      "topicVerified": true
     },
     {
       "id": "summer-french-french_31_july_sections11_12_30_31_notes_merged-3",
@@ -662,7 +842,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Sections 11–12",
+      "displayTitle": "Sections 11–12 · 31 Jul",
+      "topicGroup": "Units and Sections",
+      "topicOrder": 11,
+      "topicVerified": true
     },
     {
       "id": "summer-french-french_31july_complete_explanation_notes",
@@ -674,7 +859,12 @@
       "dateAdded": "2026-08-17",
       "sizeBytes": 5388364,
       "key": "summer/french/French_31July_Complete_Explanation_Notes.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "General Revision",
+      "displayTitle": "31 July — Explanation Notes",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-french_adverbs_of_frequency_notes_2pages",
@@ -691,7 +881,12 @@
         "pages": 2,
         "fullDocumentTextLayerCheck": "no readable text",
         "rawPdfAvailableForUpload": false
-      }
+      },
+      "topicLabel": "Adverbs of Frequency",
+      "displayTitle": "Adverbs of Frequency — Revision",
+      "topicGroup": "Named Topics",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-french-french_primary_school_imagegenerated_4pages-1-",
@@ -708,7 +903,12 @@
         "pages": 4,
         "fullDocumentTextLayerCheck": "no readable text",
         "rawPdfAvailableForUpload": false
-      }
+      },
+      "topicLabel": "Primary School",
+      "displayTitle": "Primary School — Illustrated Notes",
+      "topicGroup": "Named Topics",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-french-year_8_french_quick_rule_note",
@@ -720,7 +920,12 @@
       "dateAdded": "2026-08-12",
       "sizeBytes": 1883736,
       "key": "summer/french/Year_8_French_Quick_Rule_Note.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "General Revision",
+      "displayTitle": "Year 8 French Quick Rule Note",
+      "topicGroup": "General Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-year8_french_imperfect_tense_complete_notes_4pages",
@@ -732,7 +937,12 @@
       "dateAdded": "2026-08-26",
       "sizeBytes": 987052,
       "key": "summer/french/Year8_French_Imperfect_Tense_Complete_Notes_4pages.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Imperfect Tense",
+      "displayTitle": "Imperfect Tense — Revision",
+      "topicGroup": "Named Topics",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-french-year8_french_must_memorise_note",
@@ -744,7 +954,12 @@
       "dateAdded": "2026-08-14",
       "sizeBytes": 567125,
       "key": "summer/french/Year8_French_Must_Memorise_Note.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Must-Memorise Rules",
+      "displayTitle": "Must-Memorise Rules — Quick Notes",
+      "topicGroup": "General Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-french-year8_french_quick_note_present_vs_imperfect_negatives",
@@ -756,7 +971,12 @@
       "dateAdded": "2026-08-25",
       "sizeBytes": 337337,
       "key": "summer/french/Year8_French_Quick_Note_Present_vs_Imperfect_Negatives.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Present vs Imperfect",
+      "displayTitle": "Present vs Imperfect — Negatives",
+      "topicGroup": "Named Topics",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-latin-11_aug_latin_6_page_imagegenerated_notes-1",
@@ -774,7 +994,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 11 Aug",
+      "displayTitle": "Revision Notes · 11 Aug · 6-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-latin-12_aug_latin_complete_notes-1",
@@ -792,7 +1017,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 12 Aug",
+      "displayTitle": "Revision Notes · 12 Aug",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-latin-15_aug_latin_complete_notes_imagegenerated-4",
@@ -810,7 +1040,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 15 Aug",
+      "displayTitle": "Revision Notes · 15 Aug",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-latin-16_aug_latin_complete_notes_imagegenerated-8",
@@ -828,7 +1063,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 16 Aug",
+      "displayTitle": "Revision Notes · 16 Aug",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-latin-18_aug_latin_5_page_complete_notes",
@@ -846,7 +1086,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 18 Aug",
+      "displayTitle": "Revision Notes · 18 Aug",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-latin-19_aug_latin_5_page_complete_notes",
@@ -864,7 +1109,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 19 Aug",
+      "displayTitle": "Revision Notes · 19 Aug",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-latin-22_aug_latin_6_page_complete_notes",
@@ -882,7 +1132,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 22 Aug",
+      "displayTitle": "Revision Notes · 22 Aug · 6-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-latin-23_aug_latin_6_page_complete_notes",
@@ -900,7 +1155,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 23 Aug",
+      "displayTitle": "Revision Notes · 23 Aug · 6-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-latin-24_aug_latin_6_page_complete_notes",
@@ -918,7 +1178,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 24 Aug",
+      "displayTitle": "Revision Notes · 24 Aug · 6-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-latin-25_aug_latin_6_page_complete_notes_imagegenerated",
@@ -936,7 +1201,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 25 Aug",
+      "displayTitle": "Revision Notes · 25 Aug · 6-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-latin-28_aug_latin_complete_notes_4pages",
@@ -948,7 +1218,12 @@
       "dateAdded": "2026-08-25",
       "sizeBytes": 1390854,
       "key": "summer/latin/28_Aug_Latin_Complete_Notes_4pages.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Revision · 28 Aug",
+      "displayTitle": "Revision Notes · 28 Aug · 4-page edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-latin-latin_1_august_post_travel_retrieval_review_notes_imagegenerated_merged",
@@ -969,7 +1244,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip2.zip",
         "archiveKey": "gloria-summer-notes-zip2-20261022.zip"
-      }
+      },
+      "topicLabel": "Retrieval Practice",
+      "displayTitle": "1 August — Post-Travel Review",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-latin-latin_25_26_july_imagegenerated_notes_corrected-6",
@@ -988,7 +1268,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Revision · 25–26 Jul",
+      "displayTitle": "Revision Notes · 25–26 Jul · Corrected edition",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-latin-latin_27_july_stage10_imagegenerated_notes-3",
@@ -1007,7 +1292,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Stage 10",
+      "displayTitle": "Stage 10 — Illustrated Notes",
+      "topicGroup": "Units and Sections",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-latin-latin_28_july_stage11_notes_merged-1",
@@ -1026,7 +1316,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Stage 11",
+      "displayTitle": "Stage 11 — Revision Notes",
+      "topicGroup": "Units and Sections",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-latin-latin_29_july_stage12_notes_merged",
@@ -1044,7 +1339,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Stage 12",
+      "displayTitle": "Stage 12 — Revision Notes",
+      "topicGroup": "Units and Sections",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-latin-latin_31_july_chapters1_2_notes_merged",
@@ -1056,7 +1356,12 @@
       "dateAdded": "2026-07-23",
       "sizeBytes": 13448296,
       "key": "summer/latin/Latin_31_July_Chapters1_2_Notes_Merged.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Chapters 1–2",
+      "displayTitle": "Chapters 1–2 — Revision",
+      "topicGroup": "Units and Sections",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-latin-latin_4_conjugations_explanation_and_training_8_pages",
@@ -1068,7 +1373,12 @@
       "dateAdded": "2026-08-31",
       "sizeBytes": 2058655,
       "key": "summer/latin/Latin_4_Conjugations_Explanation_and_Training_8_Pages.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Verb Conjugations",
+      "displayTitle": "Four Conjugations — Explanation & Practice",
+      "topicGroup": "Named Topics",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-latin-latin_cases_complete_notes_genitive_dative_ablative",
@@ -1080,7 +1390,12 @@
       "dateAdded": "2026-08-01",
       "sizeBytes": 9429612,
       "key": "summer/latin/Latin_Cases_Complete_Notes_Genitive_Dative_Ablative.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Latin Cases",
+      "displayTitle": "Genitive, Dative & Ablative",
+      "topicGroup": "Named Topics",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-latin-latin_genitive_accusative_memorisation_sheets",
@@ -1092,7 +1407,12 @@
       "dateAdded": "2026-08-09",
       "sizeBytes": 8671334,
       "key": "summer/latin/Latin_Genitive_Accusative_Memorisation_Sheets.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Noun Cases",
+      "displayTitle": "Genitive & Accusative — Memorisation",
+      "topicGroup": "Named Topics",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-latin-latin_past_tenses_easy_notes",
@@ -1104,7 +1424,12 @@
       "dateAdded": "2026-07-30",
       "sizeBytes": 3251700,
       "key": "summer/latin/Latin_Past_Tenses_Easy_Notes.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Past Tenses",
+      "displayTitle": "Latin Past Tenses — Easy Notes",
+      "topicGroup": "Named Topics",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-latin-latin_perfect_imperfect_tense_notes_exercises_8_pages",
@@ -1121,7 +1446,12 @@
         "pages": 8,
         "fullDocumentTextLayerCheck": "no readable text",
         "rawPdfAvailableForUpload": false
-      }
+      },
+      "topicLabel": "Verb Tenses",
+      "displayTitle": "Perfect & Imperfect — Notes and Exercises",
+      "topicGroup": "Named Topics",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-latin-latin_pluperfect_4_page_complete_notes",
@@ -1133,7 +1463,12 @@
       "dateAdded": "2026-09-02",
       "sizeBytes": 1535224,
       "key": "summer/latin/Latin_Pluperfect_4_Page_Complete_Notes.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Pluperfect Tense",
+      "displayTitle": "Pluperfect Tense — Revision",
+      "topicGroup": "Named Topics",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-latin-latin_revision_notes_31_july_chapters_1_2-2",
@@ -1152,7 +1487,12 @@
         "fullPageImageCoverage": true,
         "source": "Zip1.zip",
         "archiveKey": "gloria-summer-notes-zip1-20261022.zip"
-      }
+      },
+      "topicLabel": "Chapters 1–2",
+      "displayTitle": "Chapters 1–2 — Revision",
+      "topicGroup": "Units and Sections",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-latin-latin_stages_8_to_11_revision_notes_merged",
@@ -1164,7 +1504,12 @@
       "dateAdded": "2026-08-11",
       "sizeBytes": 29001545,
       "key": "summer/latin/Latin_Stages_8_to_11_Revision_Notes_Merged.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Stages 8–11",
+      "displayTitle": "Stages 8–11 — Revision",
+      "topicGroup": "Units and Sections",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-latin-year8_latin_perfect_tense_full_memorisation_list",
@@ -1176,7 +1521,12 @@
       "dateAdded": "2026-08-11",
       "sizeBytes": 9530756,
       "key": "summer/latin/Year8_Latin_Perfect_Tense_Full_Memorisation_List.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Perfect Tense",
+      "displayTitle": "Perfect Tense — Memorisation List",
+      "topicGroup": "Named Topics",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "summer-mixed-28_july_2026_notes_merged",
@@ -1188,7 +1538,12 @@
       "dateAdded": "2026-07-22",
       "sizeBytes": 1116586,
       "key": "summer/mixed/28_July_2026_Notes_Merged.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Revision · 28 Jul",
+      "displayTitle": "Revision Notes · 28 Jul",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-mixed-friday_24_july_2026_latin_biology_4page_notes_pretty_v2",
@@ -1200,7 +1555,12 @@
       "dateAdded": "2026-07-18",
       "sizeBytes": 581311,
       "key": "summer/mixed/Friday_24_July_2026_Latin_Biology_4Page_Notes_PRETTY_v2.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Revision · 24 Jul",
+      "displayTitle": "Revision Notes · 24 Jul",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-mixed-tuesday_21_july_2026_french_biology_4page_notes-2",
@@ -1212,7 +1572,12 @@
       "dateAdded": "2026-07-22",
       "sizeBytes": 1096825,
       "key": "summer/mixed/Tuesday_21_July_2026_French_Biology_4Page_Notes(2).pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Revision · 21 Jul",
+      "displayTitle": "Revision Notes · 21 Jul",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-mixed-year8_18_19_july_2026_beautiful_revision_pack_merged-2",
@@ -1224,7 +1589,12 @@
       "dateAdded": "2026-07-21",
       "sizeBytes": 11206235,
       "key": "summer/mixed/Year8_18_19_July_2026_Beautiful_Revision_Pack_Merged(2).pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Revision · 18–19 Jul",
+      "displayTitle": "Revision Notes · 18–19 Jul",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-mixed-year8_24_july_complete_notes_8pp_a4_printable-1",
@@ -1243,7 +1613,12 @@
         "allPagesChecked": true,
         "uploadedSourceSha256": "3d3cf91a28588a4d802aa735916b3c5f242a0df2c9b87d352365e0ba40c59840",
         "source": "conversation-upload-2026-10-22"
-      }
+      },
+      "topicLabel": "Revision · 8–24 Jul",
+      "displayTitle": "Revision Notes · 8–24 Jul",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "summer-mixed-year8_revision_pack_18_19_july_2026_student",
@@ -1255,7 +1630,12 @@
       "dateAdded": "2026-07-18",
       "sizeBytes": 611516,
       "key": "summer/mixed/Year8_Revision_Pack_18_19_July_2026_Student.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Revision · 18–19 Jul",
+      "displayTitle": "Revision Notes · 18–19 Jul",
+      "topicGroup": "Dated Revision",
+      "topicOrder": 0,
+      "topicVerified": false
     },
     {
       "id": "year9-biology-biology_2nov_revision_notes",
@@ -1267,7 +1647,12 @@
       "dateAdded": "2026-10-17",
       "sizeBytes": 25041743,
       "key": "year9/biology/Biology_2Nov_Revision_Notes.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Test Revision",
+      "displayTitle": "2 November Biology Test Revision",
+      "topicGroup": "Test Revision",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "year9-chemistry-chemistry_revision_notes_this_weeks_test_6_pages-2",
@@ -1279,7 +1664,12 @@
       "dateAdded": "2026-09-26",
       "sizeBytes": 13916731,
       "key": "year9/chemistry/Chemistry_Revision_Notes_This_Weeks_Test_6_Pages(2).pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Test Revision",
+      "displayTitle": "Chemistry Weekly Test Revision",
+      "topicGroup": "Test Revision",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "year9-english-dystopian_literature_high_grade_revision_notes_5_pages-1",
@@ -1291,7 +1681,12 @@
       "dateAdded": "2026-09-27",
       "sizeBytes": 14026241,
       "key": "year9/english/Dystopian_Literature_High_Grade_Revision_Notes_5_Pages(1).pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Dystopian Literature",
+      "displayTitle": "High-Grade Revision Notes",
+      "topicGroup": "Named Topics",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "year9-french-french_future_tense_image_notes-1",
@@ -1303,7 +1698,12 @@
       "dateAdded": "2026-10-18",
       "sizeBytes": 33207787,
       "key": "year9/french/French_Future_Tense_Image_Notes(1).pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Future Tense",
+      "displayTitle": "Future Tense — Illustrated Notes",
+      "topicGroup": "Named Topics",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "year9-french-french_revision_pack_image_version",
@@ -1315,7 +1715,12 @@
       "dateAdded": "2026-09-26",
       "sizeBytes": 2640832,
       "key": "year9/french/French_Revision_Pack_Image_Version.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "General Revision",
+      "displayTitle": "French Revision Pack — Illustrated",
+      "topicGroup": "General Revision",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "year9-french-french_year9_unit1_revision_pack",
@@ -1327,7 +1732,12 @@
       "dateAdded": "2026-10-21",
       "sizeBytes": 11420718,
       "key": "year9/french/French_Year9_Unit1_Revision_Pack.pdf",
-      "status": "pending"
+      "status": "pending",
+      "topicLabel": "Unit 1",
+      "displayTitle": "Unit 1 — Revision Pack",
+      "topicGroup": "Units and Sections",
+      "topicOrder": 1,
+      "topicVerified": true
     },
     {
       "id": "year9-latin-latin_topic_1_sum_and_possum_illustrated_notes",
@@ -1344,7 +1754,12 @@
         "r2ScreenshotVisible": true,
         "validatedFrom": "Cloudflare R2 dashboard screenshot, 23 Oct 2026",
         "liveReaderVerified": false
-      }
+      },
+      "topicLabel": "Topic 1",
+      "displayTitle": "Sum & Possum",
+      "topicGroup": "Topics",
+      "topicOrder": 1,
+      "topicVerified": true
     },
     {
       "id": "year9-latin-latin_topic_2_verbs_illustrated_revision_notes",
@@ -1362,7 +1777,12 @@
         "r2ScreenshotVisible": true,
         "validatedFrom": "Cloudflare R2 dashboard screenshot, 23 Oct 2026",
         "liveReaderVerified": false
-      }
+      },
+      "topicLabel": "Topic 2",
+      "displayTitle": "Verbs",
+      "topicGroup": "Topics",
+      "topicOrder": 2,
+      "topicVerified": true
     },
     {
       "id": "year9-latin-topic-3-adjectives-one-image-per-page",
@@ -1380,7 +1800,12 @@
         "r2ScreenshotVisible": true,
         "validatedFrom": "Cloudflare R2 dashboard screenshot, 23 Oct 2026",
         "liveReaderVerified": false
-      }
+      },
+      "topicLabel": "Topic 3",
+      "displayTitle": "Adjectives",
+      "topicGroup": "Topics",
+      "topicOrder": 3,
+      "topicVerified": true
     },
     {
       "id": "year9-latin-latin_topic_4_trojan_horse_one_page_per_image",
@@ -1397,7 +1822,12 @@
         "r2ScreenshotVisible": true,
         "validatedFrom": "Cloudflare R2 dashboard screenshot, 23 Oct 2026",
         "liveReaderVerified": false
-      }
+      },
+      "topicLabel": "Topic 4",
+      "displayTitle": "The Trojan Horse",
+      "topicGroup": "Topics",
+      "topicOrder": 4,
+      "topicVerified": true
     },
     {
       "id": "year9-latin-topic_5_aeneas_creusa_9_pages_small",
@@ -1415,7 +1845,12 @@
         "r2ScreenshotVisible": true,
         "validatedFrom": "Cloudflare R2 dashboard screenshot, 23 Oct 2026",
         "liveReaderVerified": false
-      }
+      },
+      "topicLabel": "Topic 5",
+      "displayTitle": "Aeneas & Creusa",
+      "topicGroup": "Topics",
+      "topicOrder": 5,
+      "topicVerified": true
     },
     {
       "id": "year9-latin-latin_topic_6_the_journey_begins_image_generated_10_pages",
@@ -1432,7 +1867,12 @@
         "r2ScreenshotVisible": true,
         "validatedFrom": "Cloudflare R2 dashboard screenshot, 23 Oct 2026",
         "liveReaderVerified": false
-      }
+      },
+      "topicLabel": "Topic 6",
+      "displayTitle": "The Journey Begins",
+      "topicGroup": "Topics",
+      "topicOrder": 6,
+      "topicVerified": true
     },
     {
       "id": "year9-latin-vocabulary-chapter-1-illustrated-20261023",
@@ -1452,7 +1892,12 @@
         "fullPageImageCoverage": true,
         "source": "Year9_Latin_Vocabulary_6_Individual_Image_Pages.pdf",
         "sourcePage": 1
-      }
+      },
+      "topicLabel": "Chapter 1",
+      "displayTitle": "Latin Vocabulary — Chapter 1",
+      "topicGroup": "Vocabulary Chapters",
+      "topicOrder": 1,
+      "topicVerified": true
     },
     {
       "id": "year9-latin-vocabulary-chapter-2-illustrated-20261023",
@@ -1472,7 +1917,12 @@
         "fullPageImageCoverage": true,
         "source": "Year9_Latin_Vocabulary_6_Individual_Image_Pages.pdf",
         "sourcePage": 2
-      }
+      },
+      "topicLabel": "Chapter 2",
+      "displayTitle": "Latin Vocabulary — Chapter 2",
+      "topicGroup": "Vocabulary Chapters",
+      "topicOrder": 2,
+      "topicVerified": true
     },
     {
       "id": "year9-latin-vocabulary-chapter-3-illustrated-20261023",
@@ -1492,7 +1942,12 @@
         "fullPageImageCoverage": true,
         "source": "Year9_Latin_Vocabulary_6_Individual_Image_Pages.pdf",
         "sourcePage": 3
-      }
+      },
+      "topicLabel": "Chapter 3",
+      "displayTitle": "Latin Vocabulary — Chapter 3",
+      "topicGroup": "Vocabulary Chapters",
+      "topicOrder": 3,
+      "topicVerified": true
     },
     {
       "id": "year9-latin-vocabulary-chapter-4-illustrated-20261023",
@@ -1512,7 +1967,12 @@
         "fullPageImageCoverage": true,
         "source": "Year9_Latin_Vocabulary_6_Individual_Image_Pages.pdf",
         "sourcePage": 4
-      }
+      },
+      "topicLabel": "Chapter 4",
+      "displayTitle": "Latin Vocabulary — Chapter 4",
+      "topicGroup": "Vocabulary Chapters",
+      "topicOrder": 4,
+      "topicVerified": true
     },
     {
       "id": "year9-latin-vocabulary-chapter-5-illustrated-20261023",
@@ -1532,7 +1992,12 @@
         "fullPageImageCoverage": true,
         "source": "Year9_Latin_Vocabulary_6_Individual_Image_Pages.pdf",
         "sourcePage": 5
-      }
+      },
+      "topicLabel": "Chapter 5",
+      "displayTitle": "Latin Vocabulary — Chapter 5",
+      "topicGroup": "Vocabulary Chapters",
+      "topicOrder": 5,
+      "topicVerified": true
     },
     {
       "id": "year9-latin-vocabulary-chapter-6-illustrated-20261023",
@@ -1552,7 +2017,12 @@
         "fullPageImageCoverage": true,
         "source": "Year9_Latin_Vocabulary_6_Individual_Image_Pages.pdf",
         "sourcePage": 6
-      }
+      },
+      "topicLabel": "Chapter 6",
+      "displayTitle": "Latin Vocabulary — Chapter 6",
+      "topicGroup": "Vocabulary Chapters",
+      "topicOrder": 6,
+      "topicVerified": true
     },
     {
       "id": "year9-latin-the_loss_of_creusa_french_notes_style_10_pages",
@@ -1569,7 +2039,12 @@
         "r2ScreenshotVisible": true,
         "validatedFrom": "Cloudflare R2 dashboard screenshot, 23 Oct 2026",
         "liveReaderVerified": false
-      }
+      },
+      "topicLabel": "Story Revision",
+      "displayTitle": "The Loss of Creusa",
+      "topicGroup": "Named Topics",
+      "topicOrder": 0,
+      "topicVerified": true
     },
     {
       "id": "year9-maths-topic5-straight-line-illustrated-20261023",
@@ -1585,7 +2060,12 @@
       "validation": {
         "source": "Year_9_Maths_Topic_5_Notes_10_Pages.pdf",
         "imageNotes": true
-      }
+      },
+      "topicLabel": "Topic 5",
+      "displayTitle": "Equation of a Straight Line",
+      "topicGroup": "Topics",
+      "topicOrder": 5,
+      "topicVerified": true
     }
   ]
 }
