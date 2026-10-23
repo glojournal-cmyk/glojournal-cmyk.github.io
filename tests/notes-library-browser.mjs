@@ -21,7 +21,7 @@ for(const [name,engine,viewport] of [
    status:200,contentType:'application/pdf',body:'%PDF-1.4\n%%EOF\n',
    headers:{'Access-Control-Allow-Origin':'*'}}));
  await page.goto(BASE+'/notes/',{waitUntil:'domcontentloaded'});
- await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('1 / 88 Notes available'));
+ await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('7 / 94 Notes available'));
  assert.equal(await page.locator('#yearSelect').inputValue(),'year9');
  assert.equal(await page.locator('#subjectScreen').isVisible(),true);
  assert.equal(await page.locator('#detailScreen').isVisible(),false);
@@ -87,6 +87,20 @@ for(const [name,engine,viewport] of [
  assert.equal(await page.locator('#viewer').isVisible(),false);
  await page.locator('#backSubjects').click();
  await page.waitForURL(/#year9$/);
+ await page.locator('.subject-card[data-subject="latin"]').click();
+ await page.waitForURL(/#year9\/latin/);
+ assert.equal(await page.locator('.note-row').count(),12,'six original Latin notes plus six vocabulary chapters');
+ for(let chapter=1;chapter<=6;chapter++){
+   const row=page.locator('.note-row',{hasText:'Latin Vocabulary — Chapter '+chapter});
+   assert.equal(await row.count(),1,'Chapter '+chapter+' has exactly one note row');
+   assert.equal(await row.isEnabled(),true,'Chapter '+chapter+' should be directly available');
+ }
+ await page.locator('.note-row',{hasText:'Latin Vocabulary — Chapter 6'}).click();
+ assert.equal(await page.locator('#viewer').isVisible(),true);
+ assert.equal(await page.locator('#openTab').getAttribute('href'),'/notes/pdf/year9/latin/Year9_Latin_Vocabulary_Chapter_6.pdf');
+ await page.locator('#closeReader').click();
+ await page.locator('#backSubjects').click();
+ await page.waitForURL(/#year9$/);
  assert.equal(await page.locator('.subject-card').count(),7);
  await page.locator('#yearSelect').selectOption('summer');
  await page.waitForURL(/#summer$/);
@@ -99,6 +113,6 @@ for(const [name,engine,viewport] of [
  await page.goto(BASE+'/notes/#year9/french',{waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>document.querySelector('#detailTitle')?.textContent==='French Notes');
  assert.equal(await page.locator('.note-row').count(),3,'deep link to subject works');
- console.log('NOTES_DESIGN_C_OPTION_E_OK '+name+' 7 visual cards Year9, 7 Summer, drilldown rows, cloud reader, hash route, iPad navigation checked');
+ console.log('NOTES_DESIGN_C_OPTION_E_AND_LATIN_CHAPTERS_OK '+name+' 7 visual cards Year9, 7 Summer, drilldown rows, cloud reader, hash route, iPad navigation checked');
  await browser.close();
 }
