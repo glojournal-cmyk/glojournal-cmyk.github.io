@@ -92,6 +92,43 @@ test('Oct 23 screenshot restore never grants completion to an unrelated blank ap
   assert.equal(lookup(normal,'y8-mastery-b').target,20);
 });
 
+test('Oct 23 dated Record becomes the original eight completions without losing the erroneous previous snapshot',()=>{
+  const input=state(day);
+  const r=(id,topic,progress,target)=>({id,assignedTopic:topic,progress,target,planDate:day});
+  input.daily=[r('latin-vocab',null,0,30),r('french-vocab',null,29,30),
+    r('latin-standard','la-y8-stage-1-vocabulary',10,10),
+    r('y8-standard-a','bio-y8-food-tests',10,10),
+    r('y8-standard-b','bio-y8-digestion-absorption',10,10),
+    r('y8-mastery-a','fr-y8-s12-ks3-extension-irregular-verbs',0,20),
+    r('y8-mastery-b','fr-y8-s03-daily-routine-toolkit',20,20),
+    r('weakness-review','phys-y8-forces',0,10),
+    r('due-review','la-y8-miscellaneous-words',5,5),
+    r('year9-light','phys-y9-kinetic',15,15)];
+  input.dailyLog[day]={date:day,tasks:input.daily.map(t=>({...t}))};
+  const repaired=buildYear8DailyV2(input,get);
+  assert.equal(repaired.filter(x=>x.restoredOriginalDaily).length,8);
+  const js=readFileSync(new URL('../assets/index-BLVOhKhN.js',import.meta.url),'utf8');
+  const start=js.indexOf('function compactDailyTasks(');
+  const end=js.indexOf('function sealDailyLog(',start);
+  assert.ok(start>0&&end>start);
+  const merge=(left,right)=>right;
+  const write=new Function('mergeDailyRecordRow',js.slice(start,end)+';return writeDailyLog;')(merge);
+  const first=write(input.dailyLog,day,repaired);
+  const row=first[day];
+  assert.equal(row.total,10);
+  assert.equal(row.done,8);
+  assert.equal(row.complete,false);
+  assert.equal(row.restoredOct23Record,true);
+  assert.equal(row.tasks.find(t=>t.id==='y8-mastery-b').progress,20);
+  assert.equal(row.tasks.find(t=>t.id==='y8-mastery-b').assignedTopic,
+    'fr-y8-s12-ks3-extension-irregular-verbs');
+  assert.equal(row.tasks.find(t=>t.id==='weakness-review').assignedTopic,'la-y8-core-verbs');
+  assert.equal(row.tasks.find(t=>t.id==='weakness-review').progress,10);
+  assert.ok(row.preRestoreTasks?.some(t=>
+    t.id==='y8-mastery-a'&&t.assignedTopic==='fr-y8-s12-ks3-extension-irregular-verbs'));
+  assert.deepEqual(write(first,day,repaired),first,'normalization must be idempotent');
+});
+
 test('original ten assignments remain with 165 items when no delayed checks are due',()=>{
   const plan=buildYear8DailyV2(state(),get);
   assert.equal(plan.length,10);
