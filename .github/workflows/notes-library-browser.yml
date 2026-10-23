@@ -5,6 +5,13 @@ on:
       - tests/notes-library-browser.mjs
       - .github/workflows/notes-library-browser.yml
       - notes/**
+  push:
+    branches: [main]
+    paths:
+      - tests/notes-library-browser.mjs
+      - notes/library.js
+      - notes/catalog.json
+      - .github/workflows/notes-library-browser.yml
   workflow_dispatch:
 permissions:
   contents: read
