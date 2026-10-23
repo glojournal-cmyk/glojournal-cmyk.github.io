@@ -179,6 +179,7 @@ test('restore requires durable safeguard and verified primary persistence',async
   importProgress(){imported=true;return {ok:true}}};
  const disk=new StorageMock();
  const ctx=vm.createContext({store:{getState:()=>live},localStorage:disk,
+  document:{getElementById:()=>null},
   putBackup:async(k,value)=>{protectedCopy=value},
   BEFORE_RESTORE_KEY:'lux-progress-before-restore-v1',
   summary:x=>({day:x.today,done:x.daily.filter(t=>t.progress>=t.target).length,total:x.daily.length}),
