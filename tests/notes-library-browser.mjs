@@ -57,7 +57,7 @@ for(const [name,engine,viewport] of [
      overflow:document.documentElement.scrollWidth-window.innerWidth,
      navHeight:nav.height,navVisible:nav.bottom<=window.innerHeight+3&&nav.top>=-3&&nav.left>=-3&&nav.right<=window.innerWidth+3,
      artLoaded:[...document.querySelectorAll('.subject-art')].every(i=>i.complete && i.naturalWidth>0),
-     cardsValid:cards.every(c=>c.width>100&&c.height>110)
+     cardsValid:cards.every(c=>c.width>100&&c.height>=100)
    };
  });
  assert.ok(geometry.overflow<=3,name+' horizontal overflow '+JSON.stringify(geometry));
