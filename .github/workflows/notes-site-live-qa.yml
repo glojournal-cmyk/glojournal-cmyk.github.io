@@ -41,5 +41,6 @@ jobs:
             curl -fIsSL --retry 3 --max-time 25 "$url" >/dev/null
             echo "PUBLIC_PDF_OK Chapter $ch"
           done
-          curl -fsSL --max-time 20 "$base/notes/library.js?revision=$GITHUB_SHA" | grep -q 'isSiteNote'
+          curl -fsSL --max-time 20 "$base/notes/library.js?revision=$GITHUB_SHA" -o /tmp/gloria-live-library.js
+          grep -q 'isSiteNote' /tmp/gloria-live-library.js
           echo "Public Notes page, all chapter PDFs, catalog and reader verified."
