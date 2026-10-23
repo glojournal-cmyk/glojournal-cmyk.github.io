@@ -7,7 +7,7 @@ import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUno
 import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261018-receipt2";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastery-count20-v1";
-import {buildYear8DailyV2} from "./year8-daily-v2-20261018.js?v=20261023-fixed-two20-v1";
+import {buildYear8DailyV2} from "./year8-daily-v2-20261018.js?v=20261023-mastery-topup-v1";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
@@ -1430,7 +1430,7 @@ function unopenedPlan(state,date){
  // 10 + 15 foundation/mastery target remains achievable with smaller banks.
 let recoveryAttemptSequence=0;
 const YEAR8_RECOVERY_TASKS=["y8-practise","y8-mastery","year8-long-review","latin-standard",
-  "y8-standard-a","y8-standard-b","y8-mastery-a","y8-mastery-b","weakness-review","due-review","year9-light"];
+  "y8-standard-a","y8-standard-b","y8-mastery-a","y8-mastery-b","y8-mastery-topup-a","y8-mastery-topup-b","weakness-review","due-review","year9-light"];
 function recoveryAnswerEventKey(entry,proof){
  const id=String(entry.questionId||"");
  const exact=entry.attemptId||entry.eventId;
@@ -1674,7 +1674,7 @@ function normalizeState() {
       const defaultTarget={"study-session":10,"adaptive-focus":4,"year8-long-review":25,
         "y8-practise":10,"y8-mastery":25,"mistake-review":1,
         "latin-standard":10,"y8-standard-a":10,"y8-standard-b":10,
-        "y8-mastery-a":15,"y8-mastery-b":15,"weakness-review":10,
+        "y8-mastery-a":20,"y8-mastery-b":20,"y8-mastery-topup-a":20,"y8-mastery-topup-b":20,"weakness-review":10,
         "due-review":10,"year9-light":15}[id];
       const originalCount=Math.max(0,Number(proof.originalCount??assigned?.progress)||0);
       const needed=Math.max(1,Number(proof.totalNeeded)||((Number(assigned?.target)||defaultTarget)-originalCount));
