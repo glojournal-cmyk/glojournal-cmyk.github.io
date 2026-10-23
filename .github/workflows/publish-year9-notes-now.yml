@@ -1,0 +1,20 @@
+name: Publish Approved Year 9 Image Notes to R2 Now
+on:
+  pull_request:
+    paths: [.github/workflows/publish-year9-notes-now.yml]
+permissions:
+  contents: read
+jobs:
+  publish:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'fix/direct-authorized-year9-r2-upload-20261023'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF checker
+        run: python3 -m pip install --quiet pypdf
+      - name: Upload two exact approved PDFs and verify public reader (no backups, no deletion)
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: python3 .github/scripts/upload_year9_image_notes.py --upload
