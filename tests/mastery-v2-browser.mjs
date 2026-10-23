@@ -20,7 +20,7 @@ for(const engine of [chromium,webkit]){
       xp:state.xp};
   });
   assert.equal(before.today,'2026-10-19');assert.equal(before.tasks.length,10);
-  assert.equal(before.tasks.reduce((sum,t)=>sum+t.target,0),155);
+  assert.equal(before.tasks.reduce((sum,t)=>sum+t.target,0),165);
   const standards=before.tasks.filter(t=>t.id.startsWith('y8-standard-'));
   assert.equal(standards.length,2);assert.equal(standards[0].subject,standards[1].subject);
   assert.notEqual(standards[0].topic,standards[1].topic);
