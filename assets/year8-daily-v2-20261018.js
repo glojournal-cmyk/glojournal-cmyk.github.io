@@ -4,7 +4,7 @@ import {dailyVocabTotal} from './daily-vocab-total-20261020.js';
 
 const rotation = ['physics','chemistry','biology','french'];
 const subjects = ['latin','french','biology','chemistry','physics'];
-const balancedTaskIds = new Set(['y8-standard-a','y8-standard-b','y8-mastery-a','y8-mastery-b','year9-light']);
+const balancedTaskIds = new Set(['y8-standard-a','y8-standard-b','y8-mastery-a','y8-mastery-b','y8-mastery-topup-a','y8-mastery-topup-b','year9-light']);
 const label = {latin:'Latin',french:'French',biology:'Biology',chemistry:'Chemistry',physics:'Physics'};
 const dayNumber = day => Math.floor((Date.parse(day+'T12:00:00Z')-Date.parse('2026-10-19T12:00:00Z'))/86400000);
 
@@ -44,8 +44,9 @@ function balancedCompare(a,b,primary,secondary,order,today){
 // Ten assignments, normally 165 answers: 60 vocab, 10 Latin, 20 Standard,
 // two separate 20-question Mastery sets, 10 weakness, 10 due, 15 Year 9.
 // Day 2/7 retention stays in Due Review; it never replaces daily Mastery A/B.
-// A previously STARTED five-question check is kept only for that in-flight day
-// so that answers already marked on an older iPad cannot be lost.
+// On an existing in-flight date, preserve the originally scored five-question
+// recall as a separate task and ADD a make-up 20-question Mastery assignment.
+// Never turn five marked answers into a fake 20/20, or overwrite their receipt.
 export function buildYear8DailyV2(state,getCatalog,learning={}) {
   const today=state.today, previous=new Map((state.daily||[]).filter(t=>t.planDate===today).map(t=>[t.id,t]));
   const pools=Object.fromEntries(['latin',...rotation].map(subject=>[subject,curriculumTopics(subject,8,getCatalog,learning)]));
@@ -100,7 +101,15 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     const outcome=id.startsWith('y8-mastery-')&&mode==='mastery'&&progress>=target
       ? (passedToday?' · Mastery pass; Day 2/7 recall next':' · 20 answered; Mastery standard not yet passed')
       : '';
-    return {id,title:`${label[topic?.subject]||'Year 8'} · ${topic?.topicLabel||description}`,
+    const fullMastery=id.startsWith('y8-mastery-')&&mode==='mastery';
+    const recallInOldMastery=id.startsWith('y8-mastery-')&&masteryCheck&&mode==='due';
+    const displaySubject=label[topic?.subject]||'Year 8';
+    const displayTopic=topic?.topicLabel||description;
+    const displaySlot=id.endsWith('-b')?'B':'A';
+    const title=fullMastery?`Mastery ${displaySlot} · ${displaySubject} · ${displayTopic}`:
+      recallInOldMastery?`Day 2/7 recall · ${displaySubject} · ${displayTopic}`:
+      `${displaySubject} · ${displayTopic}`;
+    return {id,title,
       detail:description+outcome,href:topic?curriculumHref(topic,mode,id):'/study',target,progress,xp:mode==='mastery'?20:15,
       planDate:today,assignedSubject:topic?.subject||null,assignedTopic:topic?.topicId||null,
       assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,masteryCheck,curriculumVersion:4};
@@ -161,6 +170,18 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     return {topic,mode:recallStarted?'due':retained?.assignedTopic?(savedMode(retained)||'mastery'):'mastery',
       check:!!recallStarted};
   });
+  // An older device may have already completed a five-question check under
+  // y8-mastery-a/b. It MUST still see two real 20-question Mastery sets TODAY.
+  // Do not reuse the saved ID: date-ledger merging would falsely turn 5/5
+  // into 20/20. The compensating slot has its own durable task identity.
+  const makeUpMastery=mastery.flatMap((m,i)=>{
+    if(!m.check)return [];
+    const id='y8-mastery-topup-'+('ab'[i]);
+    const chosen=pick(id,masteryPool,t=>!assigned.has(t.topicId),(a,b)=>
+      balancedCompare(a,b,exposure.flex,exposure.mastery,subjects,today));
+    if(chosen?.subject){exposure.mastery[chosen.subject]++;exposure.flex[chosen.subject]++;}
+    return [task(id,chosen,'mastery',20,'Year 8 Mastery · 20 new questions; previous five-question recall remains recorded')];
+  });
   const weak=pick('weakness-review',learningTopics.length?learningTopics:allTopics,
     t=>Number(state.topicStats?.[t.topicId]?.accuracy||0)<.85);
   const taught=['latin','french','chemistry','biology','physics'].flatMap(s=>(getCatalog(s,9)||[])
@@ -184,6 +205,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   return [vocab('latin'),vocab('french'),task('latin-standard',latin,'standard',10,'Daily Latin Standard 10'),
     ...standards.map((t,i)=>task('y8-standard-'+('ab'[i]),t,'standard',10,'Year 8 Standard 10 · topic '+(i+1)+' of 2')),
     ...mastery.map((m,i)=>task('y8-mastery-'+('ab'[i]),m.topic,m.mode,m.check?5:20,m.check?'Year 8 Day 2/7 recall · five questions':'Year 8 Mastery · 17/20 including three independent answers',m.check)),
+    ...makeUpMastery,
     task('weakness-review',weak,'weak',10,'Repair weak concepts'),
     task('due-review',due,dueMode,dueCheck?5:10,dueCheck?'Year 8 Day 2/7 recall · five questions':dueMode==='weak'?'Consolidation · nothing due today':'Due review',dueCheck),
     task('year9-light',year9,'standard',15,'Year 9 · light daily study')];
