@@ -2828,7 +2828,8 @@ function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState) {
       knownIds.add(String(entry.questionId));
   }
   const originalBaseline=Math.max(0,Math.min(30,
-    Number(current.baselineProgress)||dailyVocabTotal(prior,subject,day).progress));
+    current.baselineProgress!=null?Number(current.baselineProgress):
+      dailyVocabTotal(prior,subject,day).progress));
   const frozenKnown=Array.isArray(current.baselineKnownIds)?
     current.baselineKnownIds:[...knownIds];
   const extras={...(current.additionalCorrectIds||{})};
