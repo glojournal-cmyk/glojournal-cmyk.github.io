@@ -14,17 +14,17 @@ test('Scholar Export and Cloud Backup buttons are unchanged',()=>{
 });
 test('lazy route cache buster agrees for preload and actual Scholar import',()=>{
  const core=read('assets/index-BLVOhKhN.core.js');
- const urls=[...core.matchAll(/scholar-iJ2ilQWG\\.js\\?v=[^\`"'\\s]+/g)].map(m=>m[0]);
+ const urls=[...core.matchAll(/scholar-iJ2ilQWG\.js\?v=[^\`"'\s]+/g)].map(m=>m[0]);
  assert.equal(urls.length,2,'Both preload and dynamic import must have a cache-busted Scholar module');
  assert.equal(new Set(urls).size,1,'The preload and real import must use the SAME version');
  const wrapper=read('assets/index-BLVOhKhN.js');
- const parts=[...wrapper.matchAll(/index-BLVOhKhN\\.core\\.js\\?v=[^\`"'\\s]+/g)].map(m=>m[0]);
+ const parts=[...wrapper.matchAll(/index-BLVOhKhN\.core\.js\?v=[^\`"'\s]+/g)].map(m=>m[0]);
  assert.equal(parts.length,2,'Both wrapper imports must have a cache-busted core');
  assert.equal(new Set(parts).size,1,'Both wrapper imports must use the SAME version');
 });
 test('direct fallback route loads same canonical progress state module',()=>{
  const index=read('index.html'),fallback=read('404.html');
- const pattern=/\\/assets\\/index-BLVOhKhN\\.js\\?v=[^"'<>\\s]+/g;
+ const pattern=/\/assets\/index-BLVOhKhN\.js\?v=[^"'<>\s]+/g;
  const source=[...index.matchAll(pattern)].map(m=>m[0]);
  const recovered=[...fallback.matchAll(pattern)].map(m=>m[0]);
  assert.ok(source.length>=2,'Index must load the versioned app entry');
