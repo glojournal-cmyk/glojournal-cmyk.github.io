@@ -316,6 +316,7 @@ async function restore(data, name, externalSafetyConfirmed=false) {
 function mount() {
   if (document.getElementById(PANEL_ID)) return;
   if(location.pathname !== "/" && location.pathname !== "/index.html") return;
+  const importView = new URLSearchParams(location.search).get("import")==="1";
   const heading = [...document.querySelectorAll("h2")].find(el => el.textContent.trim() === "Raise her today");
   // The heading can change with Home redesigns. Keep Import accessible even
   // when it no longer exists; do not attach to a React-owned node prematurely.
@@ -354,8 +355,40 @@ function mount() {
       </section>
     </details>
     <p class="daily-save-note">Progress saves automatically on this device. Save a backup file to keep a separate copy.</p>`;
-  card.append(panel);
-  status("Tap Save progress & backup to export the current XP and tasks safely.");
+  if(importView){
+    // A dedicated safe-import surface independent of the RPG Home overlay or
+    // whichever React Home card currently exists. Nothing is restored on load.
+    document.body.append(panel);
+    panel.style.cssText=[
+      "position:fixed","z-index:2147483600",
+      "top:max(12px,env(safe-area-inset-top))",
+      "right:max(12px,env(safe-area-inset-right))",
+      "bottom:max(12px,env(safe-area-inset-bottom))",
+      "left:max(12px,env(safe-area-inset-left))",
+      "width:auto","max-width:720px","margin:auto",
+      "overflow:auto","overscroll-behavior:contain",
+      "padding:clamp(16px,3vw,28px)",
+      "background:#fcf9f2","color:#21394b",
+      "border:2px solid #c3aa7c","border-radius:18px",
+      "box-shadow:0 8px 44px #12253b55"
+    ].join(";");
+    const intro=document.createElement("div");
+    intro.innerHTML='<h2 style="margin:0 0 8px;font-size:1.4rem">Import Scholar progress</h2>'+
+      '<p>Choose the normal Scholar Garden JSON saved by Export progress. '+
+      'You can inspect the backup before any data is changed.</p>'+
+      '<p><a href="/" style="font-weight:600">← Close without importing</a> · '+
+      '<a href="/encrypted-backup-restore.html">Use encrypted cloud backup instead</a></p>'+
+      '<p style="font-weight:600;color:#904b2d">If the backup lacks newer completed dates, '+
+      'they cannot be recovered from that file. Existing progress must be safeguarded before import.</p>';
+    panel.prepend(intro);
+    panel.open=true;
+    panel.querySelector('#daily-recovery-options').open=true;
+  }else{
+    card.append(panel);
+  }
+  status(importView
+    ? "Choose Import JSON from Files, review its dates and XP, then confirm only if it is safe."
+    : "Tap Save progress & backup to export the current XP and tasks safely.");
   refreshCopies();
   panel.querySelector('#daily-recovery-options').addEventListener('toggle',refreshCopies);
   panel.querySelector('#daily-import-file-button').addEventListener('click',()=>panel.querySelector('#daily-backup-file').click());

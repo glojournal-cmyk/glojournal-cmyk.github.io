@@ -1,0 +1,23 @@
+name: Scholar Screenshot Import Entry QA
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - '404.html'
+      - 'assets/scholar-plain-import-entry-20261023.js'
+      - 'assets/daily-progress-save.js'
+      - 'tests/scholar-plain-import-entry-20261023.test.mjs'
+      - '.github/workflows/scholar-plain-import-entry-20261023.yml'
+  workflow_dispatch:
+jobs:
+  scholar-import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/scholar-plain-import-entry-20261023.js
+      - run: node --check assets/daily-progress-save.js
+      - run: node --test tests/scholar-plain-import-entry-20261023.test.mjs
+      - run: node --test tests/backup-import-legacy-ipad-20261023.test.mjs tests/full-progress-backup-guard-20261023.test.mjs
