@@ -65,24 +65,27 @@ test('second ZIP holds exactly 25 separately indexed page-image PDFs',()=>{
  }
 });
 
-test('same Study art and navigation assets; illustrated year-subject pages drill into one-button-per-note rows',()=>{
+test('User-selected E series illustrates original Design C horizontal rectangular cards',()=>{
  const js=read('notes/library.js');
  const css=read('notes/library.css');
  const html=read('notes/index.html');
+ for(const subject of ['latin','french','english','maths','biology','chemistry','physics']){
+   const art=read('notes/images/option-e/'+subject+'.svg');
+   assert.match(art,/<svg xmlns="http:\/\/www\.w3\.org\/2000\/svg"/);
+   assert.match(art,/viewBox="0 0 720 250"/);
+   assert.ok(art.length>2200,'Missing complete banner for '+subject);
+ }
+ assert.match(js,/function imageFor\(/);
+ assert.match(js,/notes\/images\/option-e/);
  assert.match(js,/function subjectCard\(/);
- assert.match(js,/function renderSubjects\(/);
+ assert.match(js,/card\.disabled=entries\.length===0/);
  assert.match(js,/function renderDetail\(/);
  assert.match(js,/function noteRow\(/);
- assert.match(js,/btn\.disabled=!ready/);
- assert.match(js,/imageFor\(/);
+ assert.match(css,/grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+ assert.match(css,/\.subject-art\{[\s\S]*?grid-column:2/);
+ assert.match(css,/\.note-row\{width:100%/);
  assert.match(html,/id="subjectScreen"/);
  assert.match(html,/id="detailScreen"/);
- assert.match(html,/id="yearSelect"/);
- assert.match(html,/id="subjectGrid"/);
- assert.match(html,/id="noteList"/);
- assert.match(js,/art\/study-rpg/);
- assert.match(css,/\.note-row\{width:100%/);
- assert.match(css,/\.subject-grid\{display:grid/);
- assert.match(css,/\.bottom-nav\{position:fixed/);
+ assert.match(html,/20261023-designc-e1/);
  assert.doesNotMatch(html,/id="noteGroups"/);
 });
