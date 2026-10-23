@@ -19,6 +19,8 @@ function isHeadword(q,subject) {
   // or "faire du vélo"; still exclude full-sentence translation exercises.
   const foreign=String(dir==='toForeign'?terms[0]:stim).trim();
   const lexical=subject==='latin'?foreign.replace(/[!?]$/,''):foreign;
+  // Sentence templates with an ellipsis are for Study/grammar, not word-only Daily Vocab.
+  if(subject==='french' && /[…]/.test(lexical))return false;
   if(!lexical||/[!?;:\n]|[.]$/.test(lexical)||lexical.split(/\s+/).length>6)return false;
   if(subject==='french' &&
     /^(?:je\b|j['’]|tu\b|elle\b|nous\b|vous\b|ils\b|elles\b)/i.test(foreign))return false;
