@@ -70,7 +70,7 @@ function backupHarness(initial,live){
  // Mirror the real imported production guard, rather than bypassing it.
  vm.runInContext(file('assets/full-progress-backup-guard-20261023.js')
    .replace(/\bexport /g,'')+'\nthis.assertFullProgressBackup=assertFullProgressBackup;',ctx,{timeout:4000});
- vm.runInContext(source.slice(i,j)+'\n'+source.slice(a,b)+'\\nfunction refreshCopies(){}',ctx,{timeout:4000});
+ vm.runInContext(source.slice(i,j)+'\n'+source.slice(a,b)+'\nfunction refreshCopies(){}',ctx,{timeout:4000});
  return {save:()=>ctx.autoSave(true),copies,statuses};
 }
 test('all ten daily tasks remain; yesterday game/garden/focus credits reset',()=>{
@@ -186,7 +186,7 @@ test('restore requires durable safeguard and verified primary persistence',async
  ctx.mergeDailyHistory=(a={},b={})=>({...a,...b});
  vm.runInContext(file('assets/backup-import-safety-20261023.js')
    .replace(/\bexport /g,'')+'\nthis.mergeImportProgress=mergeImportProgress;',ctx,{timeout:4000});
- vm.runInContext(source.slice(i,j)+'\\nthis.restoreTest=restore',ctx,{timeout:4000});
+ vm.runInContext(source.slice(i,j)+'\nthis.restoreTest=restore',ctx,{timeout:4000});
  await ctx.restoreTest(payload(state(0)),'Backup');
  assert.equal(protectedCopy.done,2);
  assert.equal(imported,true);
