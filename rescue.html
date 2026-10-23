@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Gloria — Safe Progress Rescue</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#17334a;background:#f6f2e8}
+*{box-sizing:border-box}body{margin:0;padding:30px 16px}main{max-width:720px;margin:auto;background:#fffdf8;padding:clamp(18px,4vw,34px);border:1px solid #ddcba7;border-radius:18px}
+h1{font-size:1.55rem;margin-top:0}h2{font-size:1.15rem;margin:22px 0 10px}p{line-height:1.55}button{display:block;border:0;border-radius:10px;background:#173d53;color:white;padding:14px 18px;min-height:48px;margin:12px 0;font-size:1rem;cursor:pointer;text-align:left}button:disabled{opacity:.5;cursor:wait}
+button.secondary{background:#e6ebec;color:#183b50}#details{padding:12px;background:#eef2ee;border-radius:8px;overflow-wrap:anywhere;white-space:pre-wrap;font:14px/1.6 ui-monospace,monospace}#status{font-weight:600;white-space:pre-wrap;overflow-wrap:anywhere;min-height:36px}small{color:#576779}
+</style>
+</head>
+<body>
+<main>
+<h1>Gloria — Safe Progress Rescue</h1>
+<p>This page is separate from the Scholar Garden app. It does <strong>not</strong> load React, Daily tasks, images, backups, or app startup code. It will <strong>never delete, import, rewrite or reset</strong> your saved progress.</p>
+<p><strong>Open this page in your original normal Chrome window — NOT Incognito.</strong> Incognito does not share the original learning records.</p>
+<h2>1. Check existing saved progress</h2>
+<button type="button" class="secondary" id="inspect">Check original Chrome storage (read-only)</button>
+<div id="details" role="status">No browser data has been read yet.</div>
+<h2>2. Save your original data to your computer</h2>
+<button type="button" id="primary">Export original Scholar progress (raw JSON)</button>
+<button type="button" id="local">Export other local Scholar records (safety copy)</button>
+<h2>3. Optional independent answer / backup vaults</h2>
+<button type="button" class="secondary" id="answers">Export saved marked answers (IndexedDB)</button>
+<button type="button" class="secondary" id="vault">Export saved backup vault (IndexedDB)</button>
+<p id="status" role="status" aria-live="polite"></p>
+<p><strong>Important:</strong> These are emergency preservation files, not guaranteed standard Scholar Import files. Keep them in Downloads or Files. Do not import anything into Gloria until the original device's data is checked.</p>
+<small>Local-only rescue v1, 23 October 2026. No data is sent to ChatGPT or any server by this page.</small>
+</main>
+<script>
+(function(){
+"use strict";
+const MAIN="lux-scholar-garden-v1";
+const status=document.getElementById("status");
+const details=document.getElementById("details");
+const relevant=k=>/^(lux-|scholar|gloria|daily|pet-|assessment|vocab|topic|progress)/i.test(k);
+const day=()=>new Date().toISOString().slice(0,10);
+function report(msg){status.textContent=msg}
+function save(parts,name,mime){
+ const blob=new Blob(parts,{type:mime||"application/json"});
+ const url=URL.createObjectURL(blob);
+ const anchor=document.createElement("a");
+ anchor.href=url;anchor.download=name;anchor.style.display="none";
+ document.body.appendChild(anchor);anchor.click();anchor.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),30000);
+ report("Download requested: "+name+" ("+(blob.size/1024).toFixed(1)+" KB). Verify the file in Downloads before doing anything else.");
+}
+function primary(){
+ try {
+  const raw=localStorage.getItem(MAIN);
+  if(!raw){report("No primary progress found in THIS browser profile. Do not clear any browser data. Make sure this is the original normal Chrome profile.");return;}
+  save([raw],"gloria-primary-RAW-"+day()+".json");
+ } catch(e){report("Could not read original progress: "+e.name+" — do not clear storage.");}
+}
+function inspect(){
+ try {
+  let keys=[],total=0;
+  for(let i=0;i<localStorage.length;i++){
+   const k=localStorage.key(i);
+   if(!k||!relevant(k))continue;
+   const value=localStorage.getItem(k);
+   const chars=value?value.length:0;
+   keys.push({name:k,characters:chars});
+   total+=chars;
+  }
+  keys.sort((a,b)=>b.characters-a.characters);
+  const found=keys.find(k=>k.name===MAIN);
+  details.textContent="Original progress: "+(found?"PRESENT ("+(found.characters/1024).toFixed(1)+"K characters)":"NOT FOUND")+"\n"+
+    "Related local keys: "+keys.length+"; approx "+(total*2/1048576).toFixed(2)+" MiB UTF-16\n\n"+
+    keys.slice(0,35).map(k=>k.name+": "+(k.characters/1024).toFixed(1)+"K chars").join("\n");
+  report("Read-only check complete. Nothing has been changed.");
+ }catch(e){report("Storage check failed: "+e.name+" — no data changed.");}
+}
+function localSnapshot(){
+ try{
+  const keys=[];
+  for(let i=0;i<localStorage.length;i++){
+   const k=localStorage.key(i);
+   if(k&&relevant(k)&&k!==MAIN)keys.push(k);
+  }
+  const chunks=['{"format":"gloria-local-emergency-2026-10-23","capturedAt":'+JSON.stringify(new Date().toISOString())+',"entries":{'];
+  for(let i=0;i<keys.length;i++){
+   if(i)chunks.push(",");
+   chunks.push(JSON.stringify(keys[i])+":"+JSON.stringify(localStorage.getItem(keys[i])));
+  }
+  chunks.push("}}");
+  save(chunks,"gloria-other-local-records-RAW-"+day()+".json");
+ }catch(e){report("Secondary export error: "+e.name+". Primary progress remains unchanged.");}
+}
+async function exportDb(dbName,table,fileName){
+ const available=typeof indexedDB.databases==="function"?await indexedDB.databases():null;
+ if(available&&!available.some(d=>d.name===dbName)){
+  report("No "+dbName+" vault exists in this Chrome profile. Nothing changed.");return;
+ }
+ const db=await new Promise((resolve,reject)=>{
+  const req=indexedDB.open(dbName);
+  req.onupgradeneeded=()=>{req.transaction.abort();reject(new Error("Vault does not exist"));};
+  req.onerror=()=>reject(req.error||new Error("IndexedDB blocked"));
+  req.onblocked=()=>reject(new Error("Vault is blocked by another tab"));
+  req.onsuccess=()=>resolve(req.result);
+ });
+ try {
+  if(!db.objectStoreNames.contains(table)){report("Vault table not available. No data changed.");return;}
+  const parts=['{"format":"gloria-indexeddb-emergency-2026-10-23","database":'+JSON.stringify(dbName)+',"capturedAt":'+JSON.stringify(new Date().toISOString())+',"records":[' ];
+  let count=0;
+  await new Promise((resolve,reject)=>{
+   const tx=db.transaction(table,"readonly");
+   const request=tx.objectStore(table).openCursor();
+   request.onerror=()=>reject(request.error||new Error("Cursor failed"));
+   tx.onerror=()=>reject(tx.error||new Error("Read failed"));
+   tx.onabort=()=>reject(tx.error||new Error("Read was aborted"));
+   request.onsuccess=()=>{
+    const cur=request.result;
+    if(!cur)return;
+    if(count++)parts.push(",");
+    parts.push('{"key":'+JSON.stringify(cur.key)+',"value":'+JSON.stringify(cur.value)+"}");
+    cur.continue();
+   };
+   tx.oncomplete=resolve;
+  });
+  parts.push("]}");
+  save(parts,fileName+"-"+day()+".json");
+ }finally{db.close();}
+}
+function handle(id,action){
+ const button=document.getElementById(id);
+ button.addEventListener("click",async()=>{
+  button.disabled=true;
+  try{await action()}
+  catch(e){report("Export did not finish: "+(e.message||e.name||String(e))+". No stored progress was changed.");}
+  finally{button.disabled=false;}
+ });
+}
+handle("inspect",inspect);
+handle("primary",primary);
+handle("local",localSnapshot);
+handle("answers",()=>exportDb("lux-scholar-answer-evidence-v1","marked","gloria-marked-answer-evidence"));
+handle("vault",()=>exportDb("lux-scholar-recovery-v1","snapshots","gloria-backup-vault"));
+})();
+</script>
+</body></html>
