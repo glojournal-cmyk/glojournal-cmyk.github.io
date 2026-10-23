@@ -29,7 +29,7 @@
   function installSheet() {
     // Match the stylesheet used by the static Practice routes. Earlier Home
     // -> Daily SPA sessions imported ?v=preview1 from Safari's old cache.
-    const href = '/assets/daily-practice-ux-v2-20261020.css?v=20261023-visible-topics1&uxfix=20261022-priority-ux1';
+    const href = '/assets/daily-practice-ux-v2-20261020.css?v=20261023-free-topics-visible4&uxfix=20261022-priority-ux1';
     sheet = sheet?.isConnected ? sheet : document.getElementById('lux-daily-practice-ux-v2-style');
     if (sheet) {
       if (sheet.getAttribute('href') !== href) {
