@@ -9,6 +9,7 @@ const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
 const AUTO_KEY = "lux-progress-auto-v1";
 const BEFORE_RESTORE_KEY = "lux-progress-before-restore-v1";
 let autoTimer, lastAutoSignature = "", selectedRestore = null, currentExportShared = false;
+let pendingExternalSafety = null, externalSafetyOffered = false;
 let lastAutoAttemptAt = 0, quotaRetryAfter = 0;
 const previewCache=new Map();
 const MIN_AUTO_INTERVAL_MS = 15000, QUOTA_RETRY_MS = 600000;
@@ -176,6 +177,9 @@ function previewRestore(data, name, meta = {}) {
     const info=backupPreview(data,store.getState(),meta);
     const report=assessImport(JSON.parse(data),store.getState());
     selectedRestore={data,name};
+    pendingExternalSafety=null;externalSafetyOffered=false;
+    const pendingBox=document.getElementById('daily-external-safety');
+    if(pendingBox)pendingBox.hidden=true;
     const parent=document.getElementById('daily-recovery-options');
     if(parent)parent.open=true;
     const box=document.getElementById('daily-restore-preview');box.hidden=false;
@@ -242,7 +246,7 @@ async function refreshCopies(){
    if(info)info.textContent=saved?.data?`${new Date(saved.savedAt).toLocaleString("en-GB")} · ${saved.day} · ${saved.done}/${saved.total} tasks`:"No copy saved yet";
  }
 }
-async function restore(data, name) {
+async function restore(data, name, externalSafetyConfirmed=false) {
   const live=store.getState();
   let plan;
   try {plan=mergeImportProgress(JSON.parse(data),live,mergeDailyHistory);}
@@ -250,20 +254,43 @@ async function restore(data, name) {
   const {backup,report}=plan;
   const text=report.legacy ? " This is a legacy PARTIAL backup: it cannot bring back missing dated study evidence." : "";
   if(!confirm("Import "+name+" and safely combine learning progress? Existing saved completion dates and higher XP are preserved."+text))return;
-  if(report.currentHasProgress) {
-    // A brand-new device has nothing to safeguard. An existing learner's progress
-    // ALWAYS needs a verifiable external or device-vault safety copy first.
+  if(report.currentHasProgress && !externalSafetyConfirmed) {
+    // An existing learner's progress ALWAYS needs a verified safety copy.
+    let currentData;
     try {
-      const currentData=live.exportProgress();
+      currentData=live.exportProgress();
       const parsed=JSON.parse(currentData);
-      assertFullProgressBackup(parsed,live);
+      if(parsed?.app!=="lux-scholar-garden" ||
+        !Array.isArray(parsed?.state?.daily))throw Error("Invalid live snapshot");
+      if(parsed.state.daily.length!==10 || !parsed.state.dailyLog) {
+        // Even if full export fails, keep *all* serializable live state in
+        // the safety copy. This must not be used as a regular full backup.
+        currentData=JSON.stringify({
+          app:"lux-scholar-garden",version:10,
+          exportedAt:new Date().toISOString(),state:live,
+          safetyCopyFallback:true
+        });
+      }
+    } catch(error) {
+      try {
+        currentData=JSON.stringify({app:"lux-scholar-garden",version:10,
+          exportedAt:new Date().toISOString(),state:live,safetyCopyFallback:true});
+      } catch {
+        return status("Import blocked: current learning progress could not be copied. Nothing changed.","error");
+      }
+    }
+    try {
       await putBackup(BEFORE_RESTORE_KEY,{
         savedAt:new Date().toISOString(),...summary(live),data:currentData
       });
     } catch(error) {
-      return status("Import safely stopped: unable to preserve the CURRENT progress before importing ("+
-        (error?.message||"device storage unavailable")+
-        "). Save your existing learning data to Files and do not clear browser data.","error");
+      pendingExternalSafety={data,name,currentData};
+      externalSafetyOffered=false;
+      const fallback=document.getElementById('daily-external-safety');
+      if(fallback)fallback.hidden=false;
+      return status("Your browser storage could not safeguard the existing progress ("+
+        (error?.message||"storage quota")+
+        "). Use the button below to save a safety JSON to Files, verify it, then continue the Import. Nothing has been overwritten.","error");
     }
   }
   const result=store.getState().importProgress(JSON.stringify(backup));
@@ -316,6 +343,11 @@ function mount() {
         <strong>Check this backup</strong><p id="daily-restore-description"></p>
         <button id="daily-restore-apply" type="button">Import & keep existing progress</button>
         <button id="daily-restore-cancel" type="button">Cancel</button>
+        <div id="daily-external-safety" hidden>
+          <p class="daily-save-note">Your device could not store its safety copy internally. Export the CURRENT progress before importing. Verify that Files contains the safety JSON; never delete the original progress file.</p>
+          <button id="daily-save-safety-file" type="button">Save current progress safety JSON to Files</button>
+          <button id="daily-confirm-safety-file" type="button" disabled>I've verified the safety file · Continue Import</button>
+        </div>
       </section>
     </details>
     <p class="daily-save-note">Progress saves automatically on this device. Save a backup file to keep a separate copy.</p>`;
@@ -325,7 +357,39 @@ function mount() {
   panel.querySelector('#daily-recovery-options').addEventListener('toggle',refreshCopies);
   panel.querySelector('#daily-import-file-button').addEventListener('click',()=>panel.querySelector('#daily-backup-file').click());
   panel.querySelector('#daily-restore-apply').addEventListener('click',()=>{if(selectedRestore)restore(selectedRestore.data,selectedRestore.name)});
-  panel.querySelector('#daily-restore-cancel').addEventListener('click',()=>{selectedRestore=null;panel.querySelector('#daily-restore-preview').hidden=true;status(savedStatus())});
+  panel.querySelector('#daily-restore-cancel').addEventListener('click',()=>{
+    selectedRestore=null;pendingExternalSafety=null;externalSafetyOffered=false;
+    panel.querySelector('#daily-restore-preview').hidden=true;status(savedStatus())
+  });
+  panel.querySelector('#daily-save-safety-file').addEventListener('click',async()=>{
+    if(!pendingExternalSafety?.currentData)return;
+    const copy=new File([pendingExternalSafety.currentData],
+      'scholar-current-before-import-'+new Date().toISOString().slice(0,10)+'.json',
+      {type:'application/json'});
+    try{
+      if(navigator.canShare?.({files:[copy]})&&navigator.share){
+        await navigator.share({files:[copy],title:'Save Scholar safety copy to Files'});
+      }else{
+        const url=URL.createObjectURL(copy),a=document.createElement('a');
+        a.href=url;a.download=copy.name;document.body.append(a);a.click();a.remove();
+        setTimeout(()=>URL.revokeObjectURL(url),60000);
+      }
+      externalSafetyOffered=true;
+      panel.querySelector('#daily-confirm-safety-file').disabled=false;
+      status('Safety JSON export initiated. Check that the file exists in Files/Downloads before continuing.');
+    }catch(error){
+      externalSafetyOffered=false;
+      status(error?.name==='AbortError'?'Safety file was not saved. Import remains blocked.':
+        'Could not export safety file: '+(error?.message||'unknown error'),'error');
+    }
+  });
+  panel.querySelector('#daily-confirm-safety-file').addEventListener('click',()=>{
+    if(!pendingExternalSafety||!externalSafetyOffered)return;
+    if(!confirm('I have checked that my CURRENT Scholar progress safety JSON exists in Files or Downloads. Continue importing without an internal backup?'))return;
+    const saved=pendingExternalSafety;
+    pendingExternalSafety=null;externalSafetyOffered=false;
+    void restore(saved.data,saved.name,true);
+  });
   readBackup(AUTO_KEY).then(saved=>{if(saved){previewCache.set(AUTO_KEY,saved);const el=document.getElementById("daily-auto-status");if(el)el.textContent="Automatically saved "+new Date(saved.savedAt).toLocaleString("en-GB")}}).catch(()=>{});
   panel.querySelector("#daily-before-restore").addEventListener("click",async()=>{const saved=previewCache.get(BEFORE_RESTORE_KEY)||await readBackup(BEFORE_RESTORE_KEY);if(saved)previewRestore(saved.data,"Progress before last restore",saved);else status("No saved copy available.","error")});
   panel.querySelector("#daily-auto-previous").addEventListener("click",async()=>{const saved=previewCache.get(PREVIOUS_KEY)||await readBackup(PREVIOUS_KEY);if(saved)previewRestore(saved.data,"Previous automatic copy",saved);else status("No saved copy available.","error")});
