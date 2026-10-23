@@ -41,19 +41,28 @@ jobs:
           done
           [[ "$done" = 1 ]] || { echo "::error::Two expected Year 9 PDFs not both published to R2";exit 1; }
           python3 - <<'PY'
-          import urllib.parse,urllib.request
-          api='https://gloria-notes-public.glo-journal.workers.dev'
+          import subprocess
+          from urllib.parse import urlencode
           for key in [
             'year9/maths/Year_9_Maths_Topic_5_Notes_10_Pages.pdf',
-            'year9/biology/Biology_2Nov_Revision_Notes.pdf'
+            'year9/biology/Biology_2Nov_Revision_Notes.pdf',
+            'year9/french/French_Future_Tense_Image_Notes(1).pdf'
           ]:
-            url=api+'/pdf?'+urllib.parse.urlencode({'key':key})
-            req=urllib.request.Request(url,headers={'Range':'bytes=0-4'})
-            with urllib.request.urlopen(req,timeout=45) as response:
-              data=response.read()
-              assert response.status==206,(key,response.status)
-              assert data==b'%PDF-',(key,data[:12])
-              print('PUBLIC_READER_CONFIRMED_PDF',key,response.status)
+            url='https://gloria-notes-public.glo-journal.workers.dev/pdf?'+urlencode({'key':key})
+            cmd=['curl','--max-time','35','-sS','-L','-D','/tmp/year9-headers.txt',
+                 '-o','/tmp/year9-first-bytes.bin','-w','%{http_code}',
+                 '-H','Range: bytes=0-4',
+                 '-H','Origin: https://glojournal-cmyk.github.io',
+                 '-A','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Version/17 Safari/605.1.15',
+                 url]
+            result=subprocess.run(cmd,capture_output=True,text=True,timeout=45)
+            import pathlib
+            data=pathlib.Path('/tmp/year9-first-bytes.bin').read_bytes()
+            print('BROWSER_HEADERS_PDF_PROBE',key,'HTTP',result.stdout,'bytes',data[:24])
+            if result.stdout not in ('200','206') or data[:5]!=b'%PDF-':
+              print('HTTP_HEADERS',pathlib.Path('/tmp/year9-headers.txt').read_text()[:1500])
+              raise SystemExit(1)
+            print('PUBLIC_READER_CONFIRMED_PDF',key,result.stdout)
           PY
           curl -fsSL --retry 3 --max-time 35 "$website/catalog.json" > /tmp/gloria-live-year9-notes.json
           python3 - <<'PY'
