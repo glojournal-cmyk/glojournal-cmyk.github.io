@@ -142,6 +142,7 @@ function reset(){
   $("safety-confirm").disabled=true;
   $("apply-button").disabled=true;
   $("result").textContent="";
+  $("safety-next-step").textContent="";
 }
 function summarizeTasks(state){
   return (Array.isArray(state?.daily)?state.daily:[]).filter(t=>
@@ -217,10 +218,16 @@ async function previewFile(){
       warnings.push("The safety check could not prove that the merge preserves all existing study records. Import is BLOCKED. Keep both copies and obtain a newer full export from the original iPad.");
     if(warnings.length){$("warning").textContent=warnings.join("\n");$("warning").hidden=false}
     if(plan.report.currentHasProgress)$("safety").hidden=false;
-    $("apply-button").disabled=unsafeMerge || !!plan.report.currentHasProgress;
+    // The action must remain tappable so it can explain any outstanding safety
+    // confirmation rather than looking permanently broken on iPad.
+    updateApply();
+    if(plan.report.currentHasProgress)$("safety-next-step").textContent=
+      "STEP 1 OF 3 — Download the current device safety copy, then find it in Files / Downloads. After that, tick the confirmation checkbox below.";
     $("status").textContent=unsafeMerge
        ?"Preview ready — unsafe merge blocked to protect existing records."
-       :"Preview ready. Nothing has been changed.";
+       :plan.report.currentHasProgress
+         ?"Preview ready. Step 1: download and check the current device safety copy."
+         :"Preview ready. Nothing has been changed.";
   }catch(error){
     reset();
     $("status").textContent="Cannot preview: "+(error?.message||String(error))+". No progress changed.";
@@ -233,14 +240,29 @@ function safetyDownload(){
     download(data,"scholar-current-device-safety-"+todayString()+".json");
     safetyAttempted=true;
     $("safety-confirm").disabled=false;
-    $("status").textContent="Safety file download started. Check Files / Downloads BEFORE ticking the confirmation box.";
+    $("safety-next-step").textContent="STEP 2 OF 3 — Open Downloads / Files and verify scholar-current-device-safety-"+todayString()+".json exists. Then TICK the square below. The Import button is clickable; it will not import until you confirm.";
+    $("status").textContent="Safety file download requested (not yet verified). Find it in Downloads, then TICK the checkbox. The Import button can explain the next step.";
+    updateApply();
   }catch(error){
     $("status").textContent="Could not produce safety file: "+(error?.message||error);
   }
 }
+export function importReadiness({pending=false,unsafeMerge=false,needsSafety=false,safetyAttempted=false,confirmed=false}={}){
+  if(!pending)return "Choose and preview a JSON backup first.";
+  if(unsafeMerge)return "This import cannot preserve all existing study records.";
+  if(needsSafety&&!safetyAttempted)return "Download the current device safety copy first.";
+  if(needsSafety&&!confirmed)return "Find the safety JSON in Downloads / Files, then tick the checkbox above.";
+  return "";
+}
 function updateApply(){
-  $("apply-button").disabled=!pending || unsafeMerge ||
-    (!!plan?.report.currentHasProgress && (!safetyAttempted || !$("safety-confirm").checked));
+  // Always allow a click after a safe preview; the handler guides the user
+  // if a required safety step has not been acknowledged.
+  $("apply-button").disabled=!pending || unsafeMerge;
+  if(!pending||unsafeMerge||!plan?.report.currentHasProgress)return;
+  if(safetyAttempted&&$("safety-confirm").checked){
+    $("safety-next-step").textContent="STEP 3 OF 3 — Safety copy confirmed by you. Press Import and verify saved progress.";
+    $("status").textContent="Ready for Import. Your existing dated progress is protected by the verified merge.";
+  }
 }
 export function commitToStorage(payload,existingRaw,storage){
   const native=parseNativeState(existingRaw);
@@ -284,8 +306,17 @@ function performImport(){
   if(unsafeMerge){
     $("status").textContent="Import stopped: merged data did not pass the existing-record protection check.";return;
   }
-  if(plan.report.currentHasProgress && (!safetyAttempted || !$("safety-confirm").checked)){
-    $("status").textContent="Save and verify a safety file before Import.";return;
+  const blockReason=importReadiness({
+    pending:!!pending,unsafeMerge,
+    needsSafety:!!plan.report.currentHasProgress,safetyAttempted,
+    confirmed:$("safety-confirm").checked
+  });
+  if(blockReason){
+    $("status").textContent="Import has NOT started. "+blockReason;
+    $("safety-next-step").textContent=blockReason;
+    if(!safetyAttempted)$("download-safety").focus();
+    else $("safety-confirm").focus();
+    return;
   }
   if(!confirm("Import this Scholar JSON on THIS device? Existing saved dated evidence is protected where available. The backup cannot recreate missing days."))return;
   $("apply-button").disabled=true;
@@ -310,7 +341,13 @@ if(typeof document!=="undefined"){
   $("preview-button").addEventListener("click",previewFile);
   $("backup-file").addEventListener("change",()=>{reset();$("status").textContent="File chosen. Press Preview backup to inspect it.";});
   $("download-safety").addEventListener("click",safetyDownload);
-  $("safety-confirm").addEventListener("change",updateApply);
+  $("safety-confirm").addEventListener("change",()=>{
+    updateApply();
+    if(!$("safety-confirm").checked && safetyAttempted){
+      $("safety-next-step").textContent="STEP 2 OF 3 — Tick the checkbox only after confirming the safety JSON exists in Downloads / Files.";
+      $("status").textContent="The safety copy still needs your confirmation before Import.";
+    }
+  });
   $("apply-button").addEventListener("click",performImport);
   $("status").textContent="Choose your exported Scholar Garden JSON to begin. No data will change during preview.";
 }

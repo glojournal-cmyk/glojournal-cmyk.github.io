@@ -27,7 +27,12 @@
     dl{display:grid;grid-template-columns:minmax(120px,1fr) minmax(110px,2fr);gap:8px 14px;margin:14px 0}
     dt{font-weight:600} dd{margin:0}
     [hidden]{display:none!important}
-    input[type=checkbox]{width:20px;height:20px;vertical-align:middle;margin-right:8px}
+    input[type=checkbox]{width:24px;height:24px;vertical-align:middle;margin-right:12px;accent-color:#193a50}
+    label.safety-check{display:flex;align-items:center;gap:8px;min-height:60px;padding:12px 14px;border:2px solid #ae9063;border-radius:10px;background:#f7f4e9;cursor:pointer}
+    .safety-check span{flex:1}
+    #safety-next-step{font-weight:700;color:#193a50;padding:12px 14px;border-radius:10px;background:#e8efe9}
+    #apply-button:disabled{opacity:.5}
+    #apply-button:not(:disabled){opacity:1}
     .meta{color:#4f6773;font-size:.9rem}
   </style>
 </head>
@@ -42,7 +47,7 @@
   <input id="backup-file" type="file" accept=".json,application/json">
   <button id="preview-button" type="button">Preview backup</button>
   <p id="status" role="status" aria-live="polite"></p>
-  <section id="preview" aria-label="Backup details">
+  <section id="preview" aria-label="Backup details" hidden>
    <h2>Compare before importing</h2>
    <dl id="comparison"></dl>
    <p id="warning" class="warning" hidden></p>
@@ -51,7 +56,8 @@
     <h2>Protect the existing device</h2>
     <p>Before changing any local progress, download a separate safety copy of the progress already stored <strong>on this device</strong>. Check the file exists in Files or Downloads.</p>
     <div class="actions"><button class="secondary" id="download-safety" type="button">Download current device safety copy</button></div>
-    <label><input type="checkbox" id="safety-confirm" disabled> I checked that my safety file exists in Files or Downloads</label>
+    <p id="safety-next-step" role="status" aria-live="polite"></p>
+    <label class="safety-check" for="safety-confirm"><input type="checkbox" id="safety-confirm" disabled><span>I have opened Downloads / Files and verified that my current-device safety JSON exists. Tick this square to confirm.</span></label>
    </section>
    <div class="actions"><button id="apply-button" type="button" disabled>Import and verify saved progress</button>
     <a href="/scholar?open=settings">Cancel without importing</a></div>
@@ -59,6 +65,6 @@
   <p id="result" role="status" aria-live="polite"></p>
   <p class="meta">Do not clear Safari website data, uninstall the iPad app or delete your original JSON. If device storage is full, import will stop without deleting the existing record.</p>
  </main>
- <script type="module" src="/assets/standalone-progress-import-20261023.js?v=20261023-safe-merge2"></script>
+ <script type="module" src="/assets/standalone-progress-import-20261023.js?v=20261023-guided-import3"></script>
 </body>
 </html>
