@@ -23,6 +23,12 @@ const state=(done=0,day=TODAY)=>({today:day,xp:40,daily:[
  {id:'study-session',target:10,progress:done?10:0,href:'/study'},
  {id:'french-vocab',target:30,progress:done>1?30:0,href:'/study/french/practise?daily=1&task=french-vocab'},
  {id:'latin-vocab',target:30,progress:0,href:'/study/latin/practise?daily=1&task=latin-vocab'}]});
+// Real ten-task fixtures for the strict, lossless progress-backup guard.
+const fullState=(done=0,day=TODAY)=>({...state(done,day),
+  daily:[...state(done,day).daily,...Array.from({length:7},(_,i)=>({
+    id:'year8-extra-'+i,target:10,progress:0,href:'/study'}))],
+  dailyLog:{},dailyCompleteAwarded:{},dailyVocabByDay:{},formalAttemptLog:[]
+});
 const payload=s=>JSON.stringify({app:'lux-scholar-garden',version:10,exportedAt:new Date().toISOString(),state:s});
 const snapshot=s=>JSON.stringify({savedAt:'2026-10-09T08:00:00Z',day:s.today,
  done:s.daily.filter(t=>t.progress>=t.target).length,total:s.daily.length,data:payload(s)});
@@ -61,7 +67,10 @@ function backupHarness(initial,live){
   PREVIOUS_KEY:'lux-progress-auto-v1-previous',
   document:{getElementById:()=>({set textContent(x){statuses.push(x)}})},Date,JSON,
   setTimeout:()=>{},window:{}});
- vm.runInContext(source.slice(i,j)+'\n'+source.slice(a,b)+'\nfunction refreshCopies(){}',ctx,{timeout:4000});
+ // Mirror the real imported production guard, rather than bypassing it.
+ vm.runInContext(file('assets/full-progress-backup-guard-20261023.js')
+   .replace(/\bexport /g,'')+'\nthis.assertFullProgressBackup=assertFullProgressBackup;',ctx,{timeout:4000});
+ vm.runInContext(source.slice(i,j)+'\n'+source.slice(a,b)+'\\nfunction refreshCopies(){}',ctx,{timeout:4000});
  return {save:()=>ctx.autoSave(true),copies,statuses};
 }
 test('all ten daily tasks remain; yesterday game/garden/focus credits reset',()=>{
@@ -140,7 +149,7 @@ test('Continue skips completed and expired daily drafts',()=>{
  assert.equal(J.resumeCandidates(current).length,0);
 });
 test('auto backup deduplicates unchanged progress and protects stronger same-day state',async()=>{
- const live={...state(1),exportProgress(){return payload(this)}};
+ const live={...fullState(1),exportProgress(){return payload(this)}};
  const h=backupHarness({},live);
  await h.save();
  const first=h.copies.get('lux-progress-auto-v1');
@@ -152,8 +161,8 @@ test('auto backup deduplicates unchanged progress and protects stronger same-day
  assert.deepEqual(h.copies.get('lux-progress-auto-v1'),first);
 });
 test('auto backup preserves a prior-day restore point in IndexedDB vault',async()=>{
- const old=JSON.parse(snapshot(state(2,YESTERDAY)));
- const live={...state(1,TODAY),exportProgress(){return payload(this)}};
+ const old=JSON.parse(snapshot(fullState(2,YESTERDAY)));
+ const live={...fullState(1,TODAY),exportProgress(){return payload(this)}};
  const h=backupHarness({'lux-progress-auto-v1':old},live);
  await h.save();
  assert.equal(h.copies.get('lux-progress-auto-v1').day,TODAY,'AutoSave statuses: '+JSON.stringify(h.statuses));
@@ -174,7 +183,10 @@ test('restore requires durable safeguard and verified primary persistence',async
   BEFORE_RESTORE_KEY:'lux-progress-before-restore-v1',
   summary:x=>({day:x.today,done:x.daily.filter(t=>t.progress>=t.target).length,total:x.daily.length}),
   confirm:()=>true,status:()=>{},location:{reload:()=>{reloaded=true}},Date,JSON});
- vm.runInContext(source.slice(i,j)+'\nthis.restoreTest=restore',ctx,{timeout:4000});
+ ctx.mergeDailyHistory=(a={},b={})=>({...a,...b});
+ vm.runInContext(file('assets/backup-import-safety-20261023.js')
+   .replace(/\bexport /g,'')+'\nthis.mergeImportProgress=mergeImportProgress;',ctx,{timeout:4000});
+ vm.runInContext(source.slice(i,j)+'\\nthis.restoreTest=restore',ctx,{timeout:4000});
  await ctx.restoreTest(payload(state(0)),'Backup');
  assert.equal(protectedCopy.done,2);
  assert.equal(imported,true);
