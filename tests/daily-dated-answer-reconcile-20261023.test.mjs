@@ -9,7 +9,7 @@ const targets=[30,30,10,10,10,15,15,10,10,15];
 function form(day,task,index,correct=true,extra={}){
  return {at:day+"T10:00:"+String(index%60).padStart(2,"0")+".000Z",
   attemptId:day+":"+task+":"+index,day,questionId:task+"-"+index,
-  dailyTaskId:task,correct,subject:task.includes("french")?"french":"latin",
+  dailyTaskId:task,correct,dailyVocab:task==="latin-vocab"?"latin":task==="french-vocab"?"french":null,subject:task.includes("french")?"french":"latin",
   topicId:"original-"+task,formal:true,repair:false,...extra};
 }
 function evidence(day){
