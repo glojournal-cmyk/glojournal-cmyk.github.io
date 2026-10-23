@@ -44,6 +44,10 @@ body{margin:0;min-height:100dvh;background:#dbc5a0 url('/art/study-rpg/magic-flo
 .row-name{font-size:1rem;font-weight:750;line-height:1.2;overflow-wrap:anywhere}
 .row-meta{font-size:.8rem;color:#707e77}
 .row-action{padding:8px 10px;flex:none;min-width:115px;white-space:nowrap;border-radius:8px;text-align:center;color:#fff;font-weight:800;font-size:.83rem;background:#2a555c}
+.note-row.uploaded{background:#fffdf4;border-color:#d5c09b;cursor:pointer}
+.note-row.uploaded:hover,.note-row.uploaded:focus-visible{background:#fff5db;border-color:#b48a48}
+.note-row.uploaded .row-action{background:#795c33}
+.note-row.uploaded .row-meta{color:#805f3e}
 .note-row.unavailable{background:#f4f1e8;color:#6b736c;cursor:not-allowed}
 .note-row.unavailable .row-action{background:#e5ded1;color:#817969;font-size:.77rem}
 .empty{padding:20px;border-radius:14px;background:#fff8e9;text-align:center;color:#647575}
