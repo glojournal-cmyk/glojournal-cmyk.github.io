@@ -70,6 +70,14 @@ function backupHarness(initial,live){
  // Mirror the real imported production guard, rather than bypassing it.
  vm.runInContext(file('assets/full-progress-backup-guard-20261023.js')
    .replace(/\bexport /g,'')+'\nthis.assertFullProgressBackup=assertFullProgressBackup;',ctx,{timeout:4000});
+ // Inject verified fresh Export in the isolated harness. The real 30-day
+ // journal builder has dedicated tests; this harness verifies quota/backup
+ // scheduling and must not attempt browser IndexedDB inside Node vm.
+ ctx.prepareLatest30DayExport=async(getState,getBase)=>{
+   const parsed=JSON.parse(getBase());
+   ctx.assertFullProgressBackup(parsed,getState());
+   return JSON.stringify({...parsed,exportedAt:new Date().toISOString()});
+ };
  vm.runInContext(source.slice(i,j)+'\n'+source.slice(a,b)+'\nfunction refreshCopies(){}',ctx,{timeout:4000});
  return {save:()=>ctx.autoSave(true),copies,statuses};
 }
