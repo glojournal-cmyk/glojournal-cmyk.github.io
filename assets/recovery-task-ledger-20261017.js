@@ -5,7 +5,7 @@ const DAY_MS = 86400000;
 export const RECOVERY_IDS = new Set([
   'mistake-review','study-session','french-vocab','latin-vocab',
   'adaptive-focus','year8-long-review','y8-practise','y8-mastery',
-  'latin-standard','y8-standard-a','y8-standard-b','y8-mastery-a','y8-mastery-b',
+  'latin-standard','y8-standard-a','y8-standard-b','y8-mastery-a','y8-mastery-b','y8-mastery-topup-a','y8-mastery-topup-b',
   'weakness-review','due-review','year9-light',
   'tend-garden','play-game'
 ]);
@@ -36,7 +36,7 @@ export function eligibleRecoveryTasks(state,date,today) {
 // Use the missed day's persisted subject/topic, not a forced "Year 8" test.
 export function matchesAssignedPracticeEvidence(entry,task,taskId){
  if(!task||!["y8-practise","y8-mastery","year8-long-review","latin-standard",
-   "y8-standard-a","y8-standard-b","y8-mastery-a","y8-mastery-b",
+   "y8-standard-a","y8-standard-b","y8-mastery-a","y8-mastery-b","y8-mastery-topup-a","y8-mastery-topup-b",
    "weakness-review","due-review","year9-light"].includes(taskId)||
    !entry?.questionId||typeof entry.correct!=="boolean"||
    entry.formal===false||entry.repair===true||
