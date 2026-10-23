@@ -96,3 +96,29 @@ test('Daily Vocab route actually asks only outstanding words',()=>{
  assert.match(route,/30-dailyVocabTotal\(s\.getState\(\),e,R\)\.progress/);
  assert.match(route,/dailyVocabTotal\(s\.getState\(\),e,l\(\)\)\.progress/);
 });
+
+test('iPad retained 29/30 task but lost word IDs: exactly one NEW marked correct word completes it',()=>{
+ const core=read('assets/index-BLVOhKhN.js');
+ const block=core.slice(core.indexOf('function recordDailyVocabAttempt('),core.indexOf('function patchedRecordSpelling('));
+ assert.ok(block.includes('function recordDailyVocabAttempt('));
+ const record=new Function('store','todayKey','dailyVocabTotal',
+   'originalBumpDaily','scheduleNormalizeState','findRecoveryVocabSource',
+   'saveRecoveryReceipt','originalAward',block+'\nreturn recordDailyVocabAttempt;');
+ const first={today:day,daily:[{id:'french-vocab',target:30,progress:29,planDate:day}],
+   dailyLog:{[day]:{date:day,tasks:[{id:'french-vocab',target:30,progress:29}]}},
+   dailyVocabByDay:{},formalAttemptLog:[]};
+ const simulate=correct=>{
+   let state={...first,formalAttemptLog:[{questionId:'new-french-word',
+     correct,day,dailyTaskId:'french-vocab',dailyVocab:'french',formal:true}]};
+   const store={getState:()=>state,setState:p=>{state={...state,...p}}};
+   const mark=record(store,()=>day,dailyVocabTotal,()=>{},()=>{},()=>{},()=>{},()=>{});
+   mark('french','new-french-word',correct,first);
+   return {total:dailyVocabTotal(state,'french',day),row:state.dailyVocabByDay[day].french};
+ };
+ const yes=simulate(true),no=simulate(false);
+ assert.equal(yes.total.progress,30);
+ assert.equal(yes.row.baselineProgress,29);
+ assert.equal(yes.row.additionalCorrectIds['new-french-word'],true);
+ assert.equal(no.total.progress,29);
+ assert.equal(no.row.additionalCorrectIds['new-french-word'],undefined);
+});
