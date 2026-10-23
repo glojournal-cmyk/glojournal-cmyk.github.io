@@ -55,7 +55,7 @@ for(const [name,engine,viewport] of [
  assert.ok(pre.actionRightOfTitle,name+' button label not horizontally laid out');
  assert.ok(pre.buttonHeight>=55,name+' notes row too short for touch');
  await page.screenshot({path:'test-results/notes-library-'+name+'.png',fullPage:false});
- await page.locator('[data-period="year9"]').click();
+ await page.locator('.segments button[data-period="year9"]').click();
  assert.equal(await page.locator('.year-group').count(),1);
  assert.equal(await page.locator('.note-row').count(),12);
  await page.locator('#subject').selectOption('french');
@@ -70,7 +70,7 @@ for(const [name,engine,viewport] of [
  await page.locator('#search').fill('');
  await page.locator('#subject').selectOption('biology');
  assert.equal(await page.locator('.note-row').count(),1,'Year 9 Biology subject filtered');
- await page.locator('[data-period="summer"]').click();
+ await page.locator('.segments button[data-period="summer"]').click();
  assert.equal(await page.locator('.note-row').count(),18,'Summer Biology subject filtered');
  await page.locator('#subject').selectOption('all');
  assert.equal(await page.locator('.note-row').count(),76);
