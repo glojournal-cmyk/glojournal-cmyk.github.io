@@ -4,13 +4,13 @@ import { readFileSync } from 'node:fs';
 const root = new URL('../',import.meta.url);
 const read = p => readFileSync(new URL(p,root),'utf8');
 const catalog=JSON.parse(read('notes/catalog.json'));
-test('95 unique, dated, expected PDF references',()=>{
- assert.equal(catalog.notes.length,95);
- assert.equal(new Set(catalog.notes.map(n=>n.key)).size,95);
- assert.equal(catalog.notes.reduce((sum,n)=>sum+n.sizeBytes,0),703833904);
+test('96 unique, dated, expected PDF references',()=>{
+ assert.equal(catalog.notes.length,96);
+ assert.equal(new Set(catalog.notes.map(n=>n.key)).size,96);
+ assert.equal(catalog.notes.reduce((sum,n)=>sum+n.sizeBytes,0),706594613);
  for(const n of catalog.notes){
   assert.match(n.filename,/\.pdf$/i);
-  assert.match(n.key,/^(summer|year9)\/(latin|french|biology|chemistry|english|mixed)\//);
+  assert.match(n.key,/^(summer|year9)\/(latin|french|biology|chemistry|english|maths|mixed)\//);
   assert.equal(n.status,n.delivery==='site'?'ready':'pending');
   assert.ok(n.dateAdded>='2026-07-01');
  }
@@ -134,4 +134,15 @@ test('R2 screenshot confirms Latin Topic 1–6 object names, not necessarily pub
  assert.match(client,/isUploadedNote/);
  assert.match(client,/reader not verified/);
  assert.match(client,/isOpenable\(note\)/);
+});
+
+test('Year 9 Maths Topic 5 and 2 Nov Biology illustrated PDF notes have exact upload keys',()=>{
+ const maths=catalog.notes.filter(n=>n.key==='year9/maths/Year_9_Maths_Topic_5_Notes_10_Pages.pdf');
+ const biology=catalog.notes.filter(n=>n.key==='year9/biology/Biology_2Nov_Revision_Notes.pdf');
+ assert.equal(maths.length,1);
+ assert.equal(biology.length,1);
+ assert.equal(maths[0].sizeBytes,2760709);
+ assert.equal(biology[0].sizeBytes,25041743);
+ assert.equal(maths[0].period,'year9');
+ assert.equal(biology[0].subject,'biology');
 });
