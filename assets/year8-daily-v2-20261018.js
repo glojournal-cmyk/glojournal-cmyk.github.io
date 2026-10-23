@@ -42,8 +42,10 @@ function balancedCompare(a,b,primary,secondary,order,today){
 }
 
 // Ten assignments, normally 165 answers: 60 vocab, 10 Latin, 20 Standard,
-// two 20-question Mastery sets, 10 weakness, 10 due, 15 Year 9.
-// On a due recall day a 5-question check replaces the relevant set.
+// two separate 20-question Mastery sets, 10 weakness, 10 due, 15 Year 9.
+// Day 2/7 retention stays in Due Review; it never replaces daily Mastery A/B.
+// A previously STARTED five-question check is kept only for that in-flight day
+// so that answers already marked on an older iPad cannot be lost.
 export function buildYear8DailyV2(state,getCatalog,learning={}) {
   const today=state.today, previous=new Map((state.daily||[]).filter(t=>t.planDate===today).map(t=>[t.id,t]));
   const pools=Object.fromEntries(['latin',...rotation].map(subject=>[subject,curriculumTopics(subject,8,getCatalog,learning)]));
@@ -140,13 +142,24 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       (Number(state.topicStats?.[b.topicId]?.attempted)||0));
   const masteryPool=covered.length?covered:masteryEligible;
   const mastery=['y8-mastery-a','y8-mastery-b'].map(id=>{
-    const old=previous.get(id),awaiting=dueMastery.filter(t=>!assigned.has(t.topicId));
-    const doCheck=!old?.assignedTopic&&awaiting.length>0;
-    const topic=pick(id,doCheck?awaiting:masteryPool,t=>!assigned.has(t.topicId),(a,b)=>
-      balancedCompare(a,b,exposure.flex,exposure.mastery,subjects,today));
+    const old=previous.get(id);
+    const oldMode=savedMode(old);
+    const oldRecall=!!old?.assignedTopic&&
+      (old.masteryCheck===true||['due','retention'].includes(oldMode));
+    const recallStarted=oldRecall&&(
+      Number(old.progress||0)>0||
+      tally(old.assignedTopic,id,['due','retention'])>0);
+    // Earlier planners spent Mastery slots on five-question recall checks.
+    // Replace an unopened legacy check with a new full Mastery assignment;
+    // keep an already-answered check intact until the next date.
+    if(oldRecall&&!recallStarted)previous.delete(id);
+    const retained=previous.get(id);
+    const topic=pick(id,recallStarted?[...masteryPool,...dueMastery]:masteryPool,
+      t=>!assigned.has(t.topicId),(a,b)=>
+        balancedCompare(a,b,exposure.flex,exposure.mastery,subjects,today));
     if(topic?.subject){exposure.mastery[topic.subject]++;exposure.flex[topic.subject]++;}
-    return {topic,mode:old?.assignedTopic?(savedMode(old)||'mastery'):doCheck?'due':'mastery',
-      check:doCheck||old?.masteryCheck===true};
+    return {topic,mode:recallStarted?'due':retained?.assignedTopic?(savedMode(retained)||'mastery'):'mastery',
+      check:!!recallStarted};
   });
   const weak=pick('weakness-review',learningTopics.length?learningTopics:allTopics,
     t=>Number(state.topicStats?.[t.topicId]?.accuracy||0)<.85);
