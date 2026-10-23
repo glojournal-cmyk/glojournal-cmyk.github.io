@@ -14,6 +14,6 @@
     // the normal plain JSON import screen.
     event.preventDefault();
     event.stopImmediatePropagation();
-    window.location.assign('/?import=1');
+    window.location.assign('/import-progress.html');
   },true);
 })();
