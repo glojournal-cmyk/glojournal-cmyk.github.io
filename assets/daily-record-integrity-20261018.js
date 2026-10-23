@@ -32,6 +32,24 @@ function mergeTask(previous,incoming){
 export function mergeDailyRecordRow(previous,incoming,date){
  const oldTasks=tasksOf(previous),newTasks=tasksOf(incoming);
  if(!oldTasks.length&&!newTasks.length)return previous||incoming||null;
+ // A fully verified, originally TEN-of-TEN day is an immutable historic
+ // assignment. Regenerating the new planner must not append renamed or extra
+ // task IDs and silently downgrade 10/10 into 10/11 or 10/12.
+ // Require all ten actual dated task receipts, not just a summary flag.
+ const fullTen=(row,tasks)=>tasks.length===10&&
+   row?.complete===true&&nonneg(row.done)===10&&
+   nonneg(row.total)===10&&tasks.every(isDone);
+ if(fullTen(previous,oldTasks)){
+   const incomingIds=new Set(newTasks.map(t=>t.id));
+   if(newTasks.some(t=>!oldTasks.some(old=>old.id===t.id))||
+      (newTasks.length>0&&newTasks.length<oldTasks.length))
+     return previous;
+ }
+ // Conversely, a verified newer 10/10 record must not be expanded by older
+ // stale placeholders. Merge matching task progress but keep its original IDs.
+ if(fullTen(incoming,newTasks)&&
+    oldTasks.some(t=>!newTasks.some(next=>next.id===t.id)))
+   return incoming;
  const base=!oldTasks.length?incoming:!newTasks.length?previous:previous;
  const merged=[];
  const used=new Set();
