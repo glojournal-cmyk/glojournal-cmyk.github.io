@@ -1,7 +1,7 @@
 // Repair the visible Daily Task ledger from genuine, dated, saved answer events.
 // No XP, mastery, answers, rewards, or assignment identity is created/changed.
 const VALID_IDS=new Set(['latin-standard','y8-standard-a','y8-standard-b',
-  'y8-mastery-a','y8-mastery-b','weakness-review','due-review','year9-light']);
+  'y8-mastery-a','y8-mastery-b','y8-mastery-topup-a','y8-mastery-topup-b','weakness-review','due-review','year9-light']);
 const validDay=value=>/^\d{4}-\d{2}-\d{2}$/.test(value||'');
 function savedAssignment(task,day){
   if(!task||!VALID_IDS.has(task.id)||task.planDate!==day||
