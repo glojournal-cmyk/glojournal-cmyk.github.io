@@ -34,7 +34,7 @@ for(const row of pack.note.mustMemoriseVocabulary){
  assert.ok(matching.length,'French curriculum question missing '+row.term);
  // The taught note contains both true vocabulary and whole-sentence model expressions.
  // Keep all 75 available in Study while excluding full sentences from Daily Vocab.
- const sentenceCue=/[?？]|…|^(?:je\\b|j['’]|tu\\b|vous\\b)/i.test(row.term);
+ const sentenceCue=/[?？]|…|^(?:je\b|j['’]|tu\b|vous\b)/i.test(row.term);
  if(sentenceCue)assert.ok(!matching.some(q=>vocabularyQuestion(q,'french')),'Full-sentence expression leaked into word-only Daily Vocab '+row.term);
  else assert.ok(matching.some(q=>vocabularyQuestion(q,'french')),'French daily headword missing '+row.term);
 }
