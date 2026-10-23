@@ -4,7 +4,7 @@ import {selectProgressionQuestions} from "./daily-curriculum-20261004.js?v=20261
 import {eligibleFreshQuestions} from "./mastery-v2-20261018.js?v=20261023-mastered20-v1";
 import {BiologyCellPractice} from "./biology-cell-practice-20261003.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {TopicBrowser} from "./topic-browser-20261018b.js?v=20261018-clarity3&ux=20261013-corrections2";
-import {dailyVocabTotal} from './daily-vocab-total-20261020.js';
+import {dailyVocabTotal} from './daily-vocab-total-20261020.js?v=20261023-final-credit1';
 import {selectDailyVocabulary} from "./daily-vocab-20261003.js?v=20261023-vocab-final-slot-fix1";
 import {year9DailyVocabulary} from "./daily-vocab-y9-20261021.js?v=20261023-latinbooklet277-v1";
 import {groupStudyTopics} from "./study-content-20260930.js?v=20261010-chem-marking1&ux=20261013-corrections2";
