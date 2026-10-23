@@ -76,13 +76,16 @@ test('A session with no marked answers cannot generate completion',()=>{
 
 test('iPad loads cache-busted quiz, Daily route, wrapper and core (not stale JavaScript)',()=>{
  const file=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
- const release='20261023-mastered20-v1';
+ const practiceRelease='20261023-study-catalog-fix2';
+ const quizRelease='20261023-mastered20-v1';
+ const creditRelease='20261023-mastery-count20-v1';
  // The core gets a fresh version when a different app feature is repaired.
  // Require a dated cache-buster, not one frozen release name.
  assert.ok(/index-BLVOhKhN\.core\.js\?v=20261023-[a-z0-9-]+/.test(file('assets/index-BLVOhKhN.js')));
- assert.ok(file('assets/index-BLVOhKhN.core.js').includes('study._subject.practise-y8fix-20260920.js?v='+release));
+ assert.ok(file('assets/index-BLVOhKhN.core.js').includes('study._subject.practise-y8fix-20260920.js?v='+practiceRelease));
  for(const module of ['assets/study._subject.practise-y8fix-20260920.js','assets/study._subject.practise-D_PWgUd7.js'])
-   assert.ok(file(module).includes('quiz-session-y8fix-20260920.js?v='+release),module);
+   assert.ok(file(module).includes('quiz-session-y8fix-20260920.js?v='+quizRelease),module);
+ assert.ok(file('assets/quiz-session-y8fix-20260920.js').includes('daily-session-credit-20261021.js?v='+creditRelease));
  for(const route of ['index.html',...['latin','french','biology','chemistry','physics','english'].map(s=>'study/'+s+'/practise/index.html')])
    assert.ok(/index-BLVOhKhN\.js\?v=20261023-[a-z0-9-]+/.test(file(route)),route);
 });
