@@ -67,6 +67,7 @@ for(const [name,engine,viewport] of [
  await page.screenshot({path:'test-results/notes-library-'+name+'.png',fullPage:false});
  await page.locator('.subject-card[data-subject="french"]').click();
  await page.waitForURL(/#year9\/french/);
+ await page.locator('#detailScreen').waitFor({state:'visible'});
  assert.equal(await page.locator('#subjectScreen').isVisible(),false);
  assert.equal(await page.locator('#detailScreen').isVisible(),true);
  assert.equal(await page.locator('#detailTitle').textContent(),'French Notes');
@@ -87,8 +88,10 @@ for(const [name,engine,viewport] of [
  assert.equal(await page.locator('#viewer').isVisible(),false);
  await page.locator('#backSubjects').click();
  await page.waitForURL(/#year9$/);
+ await page.locator('#subjectScreen').waitFor({state:'visible'});
  await page.locator('.subject-card[data-subject="latin"]').click();
  await page.waitForURL(/#year9\/latin/);
+ await page.locator('#detailScreen').waitFor({state:'visible'});
  assert.equal(await page.locator('.note-row').count(),12,'six original Latin notes plus six vocabulary chapters');
  for(let chapter=1;chapter<=6;chapter++){
    const row=page.locator('.note-row',{hasText:'Latin Vocabulary — Chapter '+chapter});
@@ -101,13 +104,16 @@ for(const [name,engine,viewport] of [
  await page.locator('#closeReader').click();
  await page.locator('#backSubjects').click();
  await page.waitForURL(/#year9$/);
+ await page.locator('#subjectScreen').waitFor({state:'visible'});
  assert.equal(await page.locator('.subject-card').count(),7);
  await page.locator('#yearSelect').selectOption('summer');
  await page.waitForURL(/#summer$/);
+ await page.locator('#subjectScreen').waitFor({state:'visible'});
  assert.equal(await page.locator('#subjectScreen').isVisible(),true);
  assert.equal(await page.locator('.subject-card').count(),7,'6 curriculum subjects plus mixed summer notes');
  await page.locator('.subject-card[data-subject="biology"]').click();
  await page.waitForURL(/#summer\/biology$/);
+ await page.locator('#detailScreen').waitFor({state:'visible'});
  assert.equal(await page.locator('#detailTitle').textContent(),'Biology Notes');
  assert.equal(await page.locator('.note-row').count(),18);
  await page.goto(BASE+'/notes/#year9/french',{waitUntil:'domcontentloaded'});
