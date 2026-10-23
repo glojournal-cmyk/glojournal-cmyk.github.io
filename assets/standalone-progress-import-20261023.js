@@ -12,7 +12,7 @@ const PAIRS=[
   ["petCompanion","lux-pet-companion-v1"]
 ];
 const $=id=>document.getElementById(id);
-let pending=null, currentRaw=null, plan=null, currentData=null, safetyAttempted=false, staleOnDevice=false;
+let pending=null, currentRaw=null, plan=null, currentData=null, safetyAttempted=false, unsafeMerge=false;
 
 export function parseNativeState(raw){
   if(raw==null || raw==="")return null;
@@ -41,17 +41,80 @@ export function validatePlainBackup(raw){
 }
 // An older device may have 18 Oct receipts not present in a later 20 Oct
 // backup. Safely MERGE those older records instead of blocking the Import.
-export function wouldOverwriteNewerStudy(backup,current={}){
-  const report=assessImport(backup,current);
-  if(report.currentXp>report.incomingXp)return true;
-  if(report.liveDay && (!report.savedDay || report.liveDay>report.savedDay))
-    return true;
-  // A same-day saved receipt on this device is stronger than the source file
-  // even when the latest study date matches.
-  if(Object.entries(current.dailyCompleteAwarded||{}).some(([day,done])=>
-    done===true && (!report.savedDay || day>=report.savedDay) &&
-    backup.state.dailyCompleteAwarded?.[day]!==true))return true;
-  return false;
+// Verify that a protective merge keeps the device's real evidence.  An older
+// six-task backup must never silently downgrade a newer ten-task device.
+export function preservesExistingStudy(current={},after={}) {
+  const atLeast=(next,old)=>Number(next??0)>=Number(old??0);
+  if(!atLeast(after.xp,current.xp))return false;
+  for(const key of ["latinXp","frenchXp","bioXp","chemXp","physXp","engXp","bodyXp"])
+    if(!atLeast(after[key],current[key]))return false;
+  const oldDay=latestStudyEvidence(current),newDay=latestStudyEvidence(after);
+  if(oldDay && (!newDay||newDay<oldDay))return false;
+  for(const key of ["studyDays","activityDays","loginDays","peDays"])
+    if(Array.isArray(current[key]) &&
+      current[key].some(day=>!Array.isArray(after[key])||!after[key].includes(day)))return false;
+  if(Array.isArray(current.daily) && current.daily.length===10) {
+    if(!Array.isArray(after.daily)||after.daily.length!==10)return false;
+    if(current.today===after.today)for(const task of current.daily) {
+      const found=after.daily.find(t=>t?.id===task?.id);
+      if(!found||!atLeast(found.progress,task.progress)||
+         (task.done===true&&found.done!==true&&!atLeast(found.progress,found.target)))
+        return false;
+    }
+  }
+  for(const [day,flag] of Object.entries(current.dailyCompleteAwarded||{}))
+    if(flag===true&&after.dailyCompleteAwarded?.[day]!==true)return false;
+  for(const [day,row] of Object.entries(current.dailyLog||{})) {
+    const merged=after.dailyLog?.[day];
+    if(!merged)return false;
+    if(row?.complete===true&&merged.complete!==true)return false;
+    for(const task of (Array.isArray(row?.tasks)?row.tasks:[])) {
+      const matched=merged.tasks?.find(t=>t?.id===task?.id);
+      if(!matched||!atLeast(matched.progress,task.progress)||
+         (task.done===true&&matched.done!==true&&!atLeast(matched.progress,matched.target)))
+        return false;
+    }
+  }
+  for(const [day,subjects] of Object.entries(current.dailyVocabByDay||{}))
+    for(const [subject,bucket] of Object.entries(subjects||{}))
+      for(const [id,done] of Object.entries(bucket?.items||{}))
+        if(done===true&&after.dailyVocabByDay?.[day]?.[subject]?.items?.[id]!==true)
+          return false;
+  for(const key of ["formalAttemptLog","history"]) {
+    const original=Array.isArray(current[key])?current[key]:[];
+    const updated=Array.isArray(after[key])?after[key]:[];
+    const evidence=new Set(updated.map(v=>JSON.stringify(v)));
+    if(original.some(v=>!evidence.has(JSON.stringify(v))))return false;
+  }
+  // These ledgers can contain nested true/number proofs, not just dates.
+  const proofSurvives=(before,next,depth=0)=>{
+    if(depth>12)return JSON.stringify(before)===JSON.stringify(next);
+    if(before===true)return next===true;
+    if(typeof before==="number")return atLeast(next,before);
+    if(Array.isArray(before)){
+      const updated=Array.isArray(next)?next:[];
+      const available=new Set(updated.map(v=>JSON.stringify(v)));
+      return before.every(v=>available.has(JSON.stringify(v)));
+    }
+    if(before&&typeof before==="object"){
+      if(!next||typeof next!=="object")return false;
+      return Object.entries(before).every(([key,value])=>
+        proofSurvives(value,next[key],depth+1));
+    }
+    return before===undefined||before===null||next!==undefined;
+  };
+  for(const key of ["dailyCurriculumEvidenceByDay","recoveryTaskByDay",
+                    "recoveryVocabByDay","recoveryAwarded","rewardLedgerByDay",
+                    "gameRewardByDay","peRewardByDay","rewardedWriting",
+                    "aiHelpByDay","aiHelpLedgerByDay"])
+    if(current[key]!==undefined&&!proofSurvives(current[key],after[key]))return false;
+  return true;
+}
+// A more recent date is not in itself unsafe.  The merged result, not the
+// incoming file alone, determines whether existing device records survive.
+export function wouldOverwriteNewerStudy(backup,current={}) {
+  const merged=mergeImportProgress(backup,current,mergeDailyHistory);
+  return !preservesExistingStudy(current,merged.backup.state);
 }
 export function nativeImportSnapshot(payload){
   return JSON.stringify({state:payload.state,version:10});
@@ -70,7 +133,7 @@ function reportLine(dl,label,value){
   dl.append(dt,dd);
 }
 function reset(){
-  pending=null;currentRaw=null;plan=null;currentData=null;safetyAttempted=false;staleOnDevice=false;
+  pending=null;currentRaw=null;plan=null;currentData=null;safetyAttempted=false;unsafeMerge=false;
   $("comparison").replaceChildren();
   $("preview").hidden=true;
   $("safety").hidden=true;
@@ -141,20 +204,22 @@ async function previewFile(){
     currentRaw=existing;
     currentData=native;
     plan=mergeImportProgress(payload,native?.state||{},mergeDailyHistory);
-    staleOnDevice=wouldOverwriteNewerStudy(payload,native?.state||{});
+    unsafeMerge=wouldOverwriteNewerStudy(payload,native?.state||{});
     pending=payload;pendingFileName=file.name;
     previewDetails();
     $("preview").hidden=false;
     const warnings=[];
     if(plan.report.legacy)
       warnings.push("This is a legacy/partial file; it cannot supply dated records that were not exported.");
-    if(staleOnDevice)
-      warnings.push("This device has newer or additional saved study evidence. Import of this older file is BLOCKED here to protect existing progress. You can still inspect the file or import it on a different device that does not already have newer progress.");
+    if(plan.report.newerOnDevice && !unsafeMerge)
+      warnings.push("This device has newer study records. A verified protective MERGE is available: the existing progress and completion evidence are kept, and distinct evidence from this older file can be added. Download and check the device safety copy before continuing. Missing days not in either record cannot be recovered.");
+    if(unsafeMerge)
+      warnings.push("The safety check could not prove that the merge preserves all existing study records. Import is BLOCKED. Keep both copies and obtain a newer full export from the original iPad.");
     if(warnings.length){$("warning").textContent=warnings.join("\n");$("warning").hidden=false}
     if(plan.report.currentHasProgress)$("safety").hidden=false;
-    $("apply-button").disabled=staleOnDevice || !!plan.report.currentHasProgress;
-    $("status").textContent=staleOnDevice
-       ?"Preview ready — import blocked to protect newer device records."
+    $("apply-button").disabled=unsafeMerge || !!plan.report.currentHasProgress;
+    $("status").textContent=unsafeMerge
+       ?"Preview ready — unsafe merge blocked to protect existing records."
        :"Preview ready. Nothing has been changed.";
   }catch(error){
     reset();
@@ -174,14 +239,14 @@ function safetyDownload(){
   }
 }
 function updateApply(){
-  $("apply-button").disabled=!pending || staleOnDevice ||
+  $("apply-button").disabled=!pending || unsafeMerge ||
     (!!plan?.report.currentHasProgress && (!safetyAttempted || !$("safety-confirm").checked));
 }
 export function commitToStorage(payload,existingRaw,storage){
   const native=parseNativeState(existingRaw);
   const merge=mergeImportProgress(payload,native?.state||{},mergeDailyHistory);
   if(wouldOverwriteNewerStudy(payload,native?.state||{}))
-    throw Error("This device has newer progress; no old backup was imported.");
+    throw Error("Safety check failed: this merge would lose existing device records. Nothing was imported.");
   const next=nativeImportSnapshot(merge.backup);
   const additions=linkedAdditions(payload,storage);
   const staged=[];
@@ -216,8 +281,8 @@ export function commitToStorage(payload,existingRaw,storage){
 }
 function performImport(){
   if(!pending||!plan)return;
-  if(staleOnDevice){
-    $("status").textContent="Import stopped: this device has newer progress.";return;
+  if(unsafeMerge){
+    $("status").textContent="Import stopped: merged data did not pass the existing-record protection check.";return;
   }
   if(plan.report.currentHasProgress && (!safetyAttempted || !$("safety-confirm").checked)){
     $("status").textContent="Save and verify a safety file before Import.";return;

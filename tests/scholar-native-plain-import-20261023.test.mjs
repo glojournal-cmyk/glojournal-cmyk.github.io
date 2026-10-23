@@ -12,18 +12,24 @@ test('Scholar Export and Cloud Backup buttons are unchanged',()=>{
  assert.match(scholar,/children:`Export progress`/);
  assert.match(scholar,/window\.location\.href=`\/cloud-backup\.html`/);
 });
-test('lazy route cache buster is present in preload and real import',()=>{
+test('lazy route cache buster agrees for preload and actual Scholar import',()=>{
  const core=read('assets/index-BLVOhKhN.core.js');
- const url='scholar-iJ2ilQWG.js?v=20261023-native-plain-import2';
- assert.equal(core.split(url).length-1,2);
+ const urls=[...core.matchAll(/scholar-iJ2ilQWG\.js\?v=[^\`"'\s]+/g)].map(m=>m[0]);
+ assert.equal(urls.length,2,'Both preload and dynamic import must have a cache-busted Scholar module');
+ assert.equal(new Set(urls).size,1,'The preload and real import must use the SAME version');
  const wrapper=read('assets/index-BLVOhKhN.js');
- assert.equal(wrapper.split('index-BLVOhKhN.core.js?v=20261023-native-plain-import2').length-1,2);
+ const parts=[...wrapper.matchAll(/index-BLVOhKhN\.core\.js\?v=[^\`"'\s]+/g)].map(m=>m[0]);
+ assert.equal(parts.length,2,'Both wrapper imports must have a cache-busted core');
+ assert.equal(new Set(parts).size,1,'Both wrapper imports must use the SAME version');
 });
 test('direct fallback route loads same canonical progress state module',()=>{
  const index=read('index.html'),fallback=read('404.html');
- const url='index-BLVOhKhN.js?v=20261023-mastered20-backup1';
- assert.ok(index.includes(url));
- assert.ok(fallback.includes(url));
+ const pattern=/\/assets\/index-BLVOhKhN\.js\?v=[^"'<>\s]+/g;
+ const source=[...index.matchAll(pattern)].map(m=>m[0]);
+ const recovered=[...fallback.matchAll(pattern)].map(m=>m[0]);
+ assert.ok(source.length>=2,'Index must load the versioned app entry');
+ assert.deepEqual(source,recovered,'The SPA fallback must use precisely the same app entry URLs');
+ assert.equal(new Set(source).size,1,'Do not preload one app version and execute another');
 });
 test('legacy encrypted-only page provides proper normal JSON route',()=>{
  const html=read('encrypted-backup-restore.html');
