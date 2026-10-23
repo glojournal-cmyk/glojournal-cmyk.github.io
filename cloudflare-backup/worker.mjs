@@ -104,6 +104,70 @@ async function latest(env){
 
 }
 
+
+const KEEP_RECENT_PROGRESS_BACKUPS=5;
+// Never delete content outside the Worker-created progress namespace. In particular,
+// static-site/** holds independent site recovery archives; notes are in another R2 bucket.
+const PROGRESS_KEY_RE=/^backups\/\d{4}-\d{2}-\d{2}\/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\.json$/;
+
+async function verifiedStoredProgress(env,key,expectedDigest=null){
+  const stored=await env.BACKUPS.get(key);
+  if(!stored)return false;
+  const body=await stored.text();
+  if(stored.size!==encoder.encode(body).length)return false;
+  let snapshot;try{snapshot=JSON.parse(body)}catch{return false}
+  if(!validEnvelope(snapshot))return false;
+  const digest=await sha(encoder.encode(snapshot.ciphertext));
+  return sameHex(digest,snapshot.contentSha256)&&
+    (!expectedDigest||sameHex(digest,expectedDigest))&&
+    (!stored.customMetadata?.digest||sameHex(digest,stored.customMetadata.digest));
+}
+
+/**
+ * Retain five latest VALID encrypted learning-progress snapshots only.
+ * Fail closed: verify every retained snapshot and current latest pointer before ANY
+ * deletion. Never delete unknown/legacy objects, static-site backups, metadata or PDFs.
+ * Missing R2 permissions, stale listing or a corrupt backup must not trigger deletion.
+ */
+async function pruneOldBackups(env){
+  if(!env.BACKUPS?.list||!env.BACKUPS?.delete)return {status:"unavailable",deleted:0};
+  const pointer=await latest(env);
+  if(!pointer||!PROGRESS_KEY_RE.test(pointer.key||"")||
+     !/^[0-9a-f]{64}$/.test(pointer.digest||""))
+    return {status:"no-verified-pointer",deleted:0};
+  const keys=[];
+  let cursor, pages=0;
+  do{
+    const options={prefix:"backups/",limit:1000};
+    if(cursor)options.cursor=cursor;
+    const page=await env.BACKUPS.list(options);
+    if(!Array.isArray(page?.objects))throw Error("R2 backup listing unavailable");
+    for(const object of page.objects){
+      if(PROGRESS_KEY_RE.test(object?.key||""))keys.push(object.key);
+    }
+    if(!page.truncated)break;
+    if(!page.cursor||page.cursor===cursor||++pages>100)
+      throw Error("R2 backup listing incomplete");
+    cursor=page.cursor;
+  }while(true);
+  // Timestamp is part of the immutable object key and sorts chronologically.
+  keys.sort((a,b)=>b.localeCompare(a));
+  if(keys.length<=KEEP_RECENT_PROGRESS_BACKUPS)
+    return {status:"within-limit",deleted:0,retained:keys.length};
+  if(keys[0]!==pointer.key)return {status:"stale-latest-pointer",deleted:0};
+  for(const key of keys.slice(0,KEEP_RECENT_PROGRESS_BACKUPS)){
+    const ok=await verifiedStoredProgress(env,key,key===pointer.key?pointer.digest:null);
+    if(!ok)return {status:"verification-failed",deleted:0};
+  }
+  let deleted=0;
+  for(const key of keys.slice(KEEP_RECENT_PROGRESS_BACKUPS)){
+    // Every deleted key has the exact encrypted-progress naming convention.
+    await env.BACKUPS.delete(key);
+    deleted++;
+  }
+  return {status:"pruned",deleted,retained:KEEP_RECENT_PROGRESS_BACKUPS};
+}
+
 async function upload(request,env,origin){
 
   if(!env.BACKUPS)return reply({error:"Backup store not configured"},503,origin);
@@ -154,7 +218,13 @@ async function upload(request,env,origin){
 
   if(!prior||record.uploadedAt>=prior.uploadedAt)await env.BACKUPS.put("meta/latest.json",JSON.stringify(record));
 
-  return reply({saved:true,id,digest,uploadedAt:timestamp},201,origin);
+  // Cleanup is best-effort and never turns a verified successful upload into a failure.
+  // Retry safely on the next scheduled check if R2 cleanup fails.
+  let retention={status:"deferred",deleted:0};
+  try{retention=await pruneOldBackups(env)}catch{
+    console.warn(JSON.stringify({event:"gloria-progress-retention",status:"deferred"}));
+  }
+  return reply({saved:true,id,digest,uploadedAt:timestamp,retention},201,origin);
 
 }
 
@@ -256,7 +326,7 @@ async function sendDailyEmail(env,sendFetch=fetch){
 
 }
 
-export {upload,latest,authorized,sendDailyEmail,validEnvelope};
+export {upload,latest,authorized,sendDailyEmail,validEnvelope,pruneOldBackups};
 
 export default {
 
@@ -361,6 +431,14 @@ export default {
     ctx.waitUntil((async()=>{
       try {
         const result=await sendDailyEmail(env);
+        // Daily check retries cleanup only; it does not create a new backup.
+        // Gmail delivery remains deduplicated by digest.
+        try{
+          const retention=await pruneOldBackups(env);
+          if(retention.deleted)console.log(JSON.stringify({event:"gloria-progress-retention",deleted:retention.deleted}));
+        }catch{
+          console.warn(JSON.stringify({event:"gloria-progress-retention",status:"deferred"}));
+        }
         // Only outcome metadata; never log tokens, encrypted payload or personal records.
         console.log(JSON.stringify({event:"gloria-backup-mail",sent:result.sent,reason:result.reason||null}));
       } catch(error) {
