@@ -2552,7 +2552,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     }
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
     if (vocabSubject && !meta?.repair) recordDailyVocabAttempt(vocabSubject, questionId, !!correct);
-    normalizeState();
+    scheduleNormalizeState();
     return result;
   }
   if (!resolved.topicId) {
@@ -2697,7 +2697,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
   if (!isRepair && vocabSubject) recordDailyVocabAttempt(vocabSubject, questionId, !!correct);
 
-  normalizeState();
+  scheduleNormalizeState();
   return result;
 }
 
@@ -2823,7 +2823,7 @@ function recordDailyVocabAttempt(subject, questionId, correct) {
   const days = Object.keys(all).sort();
   while (days.length > 30) delete all[days.shift()];
   store.setState({ dailyVocabByDay: all });
-  normalizeState();
+  scheduleNormalizeState();
   originalBumpDaily(subject === "french" ? "french-vocab" : "latin-vocab", 0);
 }
 
@@ -2868,7 +2868,7 @@ function patchedRecordSpelling(questionId, correct) {
     const masteryTitle = known.topicTitle || topicTitle(store.getState(), known.topicId, known.subject || "french");
     awardFirstTopicMastery(known.topicId, known.subject || "french", masteryTitle, current.state, next.state);
   }
-  normalizeState();
+  scheduleNormalizeState();
   return result;
 }
 
@@ -2997,14 +2997,17 @@ const NORMALIZE_LEARNING_FIELDS = [
  "questionsToday","spellingDue","year","peDays","peSessions"
 ];
 let normalizePendingTimer=null;
-store.subscribe((next,previous) => {
- if (!allowNormalize || normalizing || sealingDay || !previous) return;
- if (!NORMALIZE_LEARNING_FIELDS.some(key => next[key] !== previous[key])) return;
- if (normalizePendingTimer !== null) return;
+function scheduleNormalizeState() {
+ if (!allowNormalize || normalizing || sealingDay || normalizePendingTimer !== null) return;
  normalizePendingTimer=setTimeout(() => {
    normalizePendingTimer=null;
    normalizeState();
  },180);
+}
+store.subscribe((next,previous) => {
+ if (!allowNormalize || normalizing || sealingDay || !previous) return;
+ if (!NORMALIZE_LEARNING_FIELDS.some(key => next[key] !== previous[key])) return;
+ scheduleNormalizeState();
 });
 store.persist?.onFinishHydration?.(() => {
  normalizeState();void restoreDurableMarkedAnswers();
