@@ -31,6 +31,9 @@
   }
 
   function readScholar() {
+    // Prefer the already hydrated shared store, never parse 2MB every repaint.
+    var live = root.__luxStore?.getState?.();
+    if (live && typeof live === "object") return live;
     try {
       var raw = JSON.parse(root.localStorage.getItem(STORE_KEY) || "null");
       var state = raw && raw.state && typeof raw.state === "object" ? raw.state : raw;
@@ -66,7 +69,11 @@
   }
 
   function writeLife(life) {
-    try { root.localStorage.setItem(LIFE_KEY, JSON.stringify(life)); } catch (e) { /* quota: keep this session in memory */ }
+    // Avoid rewriting unchanged small garden metadata after DOM changes.
+    try {
+      var next=JSON.stringify(life);
+      if(root.localStorage.getItem(LIFE_KEY)!==next)root.localStorage.setItem(LIFE_KEY,next);
+    } catch (e) { /* quota: keep this session in memory */ }
   }
 
   function studyDaysOf(state) {
@@ -577,6 +584,9 @@
 
   function paint() {
     if (typeof document !== "undefined") paintLeaves(false);
+    // Question typing stays lightweight. Garden updates on Home, Garden or result.
+    if(isPracticePath(location.pathname) &&
+       !document.querySelector("[aria-label='Session result']"))return;
     var state = readScholar();
     if (!stateReady(state)) return;
     var today = typeof state.today === "string" && state.today ? state.today : localDay();
@@ -725,7 +735,11 @@
         el.click();
       });
       root.addEventListener("storage", schedule);
-      root.setInterval(paint, 2000);
+      // Live DOM and storage events already update the garden when required.
+      root.setInterval(function(){
+        if(/^\/(?:index\.html)?$/.test(location.pathname) ||
+           /^\/garden(?:\/index\.html)?\/?$/.test(location.pathname))paint();
+      },10000);
     }
     if (root.__luxAppReady) start();
     else root.addEventListener("lux:app-ready", start);
