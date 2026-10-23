@@ -2,7 +2,7 @@ import fs from "node:fs";
 const core=fs.readFileSync("assets/index-BLVOhKhN.core.js","utf8");
 const game=fs.readFileSync("assets/error-hunter-20260919.js","utf8");
 // The release cache marker does not change the imported game module.
-const route=fs.readFileSync("assets/play._game-BbpxhxeZ.js","utf8").replace(/&ux=[a-z0-9-]+/g,"");
+const route=fs.readFileSync("assets/play._game-BbpxhxeZ.js","utf8").replace(/&(?:ux|uxfix)=[a-z0-9-]+/g,"");
 const hub=fs.readFileSync("assets/play.index-sR2wZ5CM.js","utf8");
 const subjectPlay=fs.readFileSync("assets/study._subject.play-Bt4Ow-Kd.js","utf8");
 const shell=fs.readFileSync("play/error-hunter/index.html","utf8");
