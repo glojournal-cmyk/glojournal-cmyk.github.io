@@ -1,0 +1,22 @@
+name: iPad Vocab final answer receipt QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/ipad-vocab-final-receipt-20261023.js'
+      - 'tests/ipad-vocab-final-receipt-20261023.test.mjs'
+      - '.github/workflows/ipad-vocab-final-receipt-20261023.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-final-vocab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/ipad-vocab-final-receipt-20261023.js
+      - run: node --test tests/ipad-vocab-final-receipt-20261023.test.mjs
