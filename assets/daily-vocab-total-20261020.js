@@ -29,8 +29,15 @@ export function dailyVocabTotal(state = {}, subject, day) {
   ];
   const savedCorrect = Math.min(DAILY_VOCAB_TARGET, earlier.reduce((max, t) =>
     Math.max(max, Math.max(0, Number(t.progress) || 0)), 0));
-  const attempts = Math.max(Object.keys(items).length, savedCorrect);
-  const correct = Math.max(Object.values(items).filter(Boolean).length, savedCorrect);
+  // Legacy iPad saves sometimes retained 29/30 in Daily/dated tasks, but
+  // discarded most of the question-ID ledger on quota failure. The live
+  // marker records only NEW, actually correct question IDs after a frozen
+  // pre-answer baseline. Repeated IDs can never add a second credit.
+  const baseline=Math.max(0,Math.min(DAILY_VOCAB_TARGET,Number(row.baselineProgress)||0));
+  const verifiedExtras=Object.values(row.additionalCorrectIds||{}).filter(v=>v===true).length;
+  const carried=Math.min(DAILY_VOCAB_TARGET,baseline+verifiedExtras);
+  const attempts = Math.max(Object.keys(items).length, savedCorrect,carried);
+  const correct = Math.max(Object.values(items).filter(Boolean).length, savedCorrect,carried);
   return {
     subject, attempts, correct, target: DAILY_VOCAB_TARGET,
     passed: correct >= DAILY_VOCAB_TARGET,
