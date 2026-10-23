@@ -12,7 +12,7 @@ const PAIRS=[
   ["petCompanion","lux-pet-companion-v1"]
 ];
 const $=id=>document.getElementById(id);
-let pending=null, currentRaw=null, plan=null, currentData=null, safetyAttempted=false;
+let pending=null, currentRaw=null, plan=null, currentData=null, safetyAttempted=false, staleOnDevice=false;
 
 export function parseNativeState(raw){
   if(raw==null || raw==="")return null;
@@ -39,6 +39,20 @@ export function validatePlainBackup(raw){
       throw Error("Invalid "+field+" in backup; import has not started.");
   return payload;
 }
+// An older device may have 18 Oct receipts not present in a later 20 Oct
+// backup. Safely MERGE those older records instead of blocking the Import.
+export function wouldOverwriteNewerStudy(backup,current={}){
+  const report=assessImport(backup,current);
+  if(report.currentXp>report.incomingXp)return true;
+  if(report.liveDay && (!report.savedDay || report.liveDay>report.savedDay))
+    return true;
+  // A same-day saved receipt on this device is stronger than the source file
+  // even when the latest study date matches.
+  if(Object.entries(current.dailyCompleteAwarded||{}).some(([day,done])=>
+    done===true && (!report.savedDay || day>=report.savedDay) &&
+    backup.state.dailyCompleteAwarded?.[day]!==true))return true;
+  return false;
+}
 export function nativeImportSnapshot(payload){
   return JSON.stringify({state:payload.state,version:10});
 }
@@ -56,7 +70,7 @@ function reportLine(dl,label,value){
   dl.append(dt,dd);
 }
 function reset(){
-  pending=null;currentRaw=null;plan=null;currentData=null;safetyAttempted=false;
+  pending=null;currentRaw=null;plan=null;currentData=null;safetyAttempted=false;staleOnDevice=false;
   $("comparison").replaceChildren();
   $("preview").hidden=true;
   $("safety").hidden=true;
@@ -127,18 +141,19 @@ async function previewFile(){
     currentRaw=existing;
     currentData=native;
     plan=mergeImportProgress(payload,native?.state||{},mergeDailyHistory);
+    staleOnDevice=wouldOverwriteNewerStudy(payload,native?.state||{});
     pending=payload;pendingFileName=file.name;
     previewDetails();
     $("preview").hidden=false;
     const warnings=[];
     if(plan.report.legacy)
       warnings.push("This is a legacy/partial file; it cannot supply dated records that were not exported.");
-    if(plan.report.newerOnDevice)
+    if(staleOnDevice)
       warnings.push("This device has newer or additional saved study evidence. Import of this older file is BLOCKED here to protect existing progress. You can still inspect the file or import it on a different device that does not already have newer progress.");
     if(warnings.length){$("warning").textContent=warnings.join("\n");$("warning").hidden=false}
     if(plan.report.currentHasProgress)$("safety").hidden=false;
-    $("apply-button").disabled=!!plan.report.newerOnDevice || !!plan.report.currentHasProgress;
-    $("status").textContent=plan.report.newerOnDevice
+    $("apply-button").disabled=staleOnDevice || !!plan.report.currentHasProgress;
+    $("status").textContent=staleOnDevice
        ?"Preview ready — import blocked to protect newer device records."
        :"Preview ready. Nothing has been changed.";
   }catch(error){
@@ -159,13 +174,13 @@ function safetyDownload(){
   }
 }
 function updateApply(){
-  $("apply-button").disabled=!pending || !!plan?.report.newerOnDevice ||
+  $("apply-button").disabled=!pending || staleOnDevice ||
     (!!plan?.report.currentHasProgress && (!safetyAttempted || !$("safety-confirm").checked));
 }
 export function commitToStorage(payload,existingRaw,storage){
   const native=parseNativeState(existingRaw);
   const merge=mergeImportProgress(payload,native?.state||{},mergeDailyHistory);
-  if(merge.report.newerOnDevice)
+  if(wouldOverwriteNewerStudy(payload,native?.state||{}))
     throw Error("This device has newer progress; no old backup was imported.");
   const next=nativeImportSnapshot(merge.backup);
   const additions=linkedAdditions(payload,storage);
@@ -201,7 +216,7 @@ export function commitToStorage(payload,existingRaw,storage){
 }
 function performImport(){
   if(!pending||!plan)return;
-  if(plan.report.newerOnDevice){
+  if(staleOnDevice){
     $("status").textContent="Import stopped: this device has newer progress.";return;
   }
   if(plan.report.currentHasProgress && (!safetyAttempted || !$("safety-confirm").checked)){
