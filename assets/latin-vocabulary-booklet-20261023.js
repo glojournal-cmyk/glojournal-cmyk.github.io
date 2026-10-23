@@ -24,7 +24,7 @@ export const latinBookletMeanings = english => {
   const text=String(english||'').trim();
   const bracketOnly=text.match(/^\(([^()]*)\)$/)?.[1]||'';
   const cleaned=text.replace(/\([^)]*\)/g,'').replace(/\bpl\s+/g,'')
-    .replace(/\.{2,}/g,'').replace(/[!?]/g,'').replace(/\s+/g,' ').trim();
+    .replace(/\.{2,}/g,'').replace(/[!?]/g,', ').replace(/\s+/g,' ').trim();
   const parts=cleaned.split(/[;,]/).map(x=>x.trim()).filter(Boolean);
   const synonyms=parts.flatMap(p=>{
     if(!p.includes('/'))return [p];
