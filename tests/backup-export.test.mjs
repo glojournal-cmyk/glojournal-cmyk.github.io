@@ -8,7 +8,7 @@ const a=source.indexOf('async function save('),b=source.indexOf('function previe
 assert.ok(a>0&&b>a,"Current manual JSON export and restore-preview implementations must exist");
 const direct=new Function(
   "store","document","navigator","File","status","summary",
-  "putBackup","MANUAL_KEY","refreshCopies","assertFullProgressBackup","requestJsonDownload",
+  "putBackup","MANUAL_KEY","refreshCopies","assertFullProgressBackup","requestJsonDownload","prepareLatest30DayExport",
   source.slice(a,b)+";return save;"
 );
 const state={
@@ -35,7 +35,14 @@ function fixture({onShare=async()=>{},canShare=true,exported=payload}={}){
     "lux-daily-manual-backup-v1",
     ()=>{},
     assertFullProgressBackup,
-    (data,filename)=>{downloaded.push({data,filename});}
+    (data,filename)=>{downloaded.push({data,filename});},
+    async (getState,getBase)=> {
+      // Handler test: exercise real blocking guard. The independently
+      // tested 30-day/journal builder has its own integration regression.
+      const parsed=JSON.parse(getBase());
+      assertFullProgressBackup(parsed,getState());
+      return JSON.stringify({...parsed,exportedAt:new Date().toISOString()});
+    }
   );
   return {save,buttons,downloads:()=>downloaded,shares:()=>shared,backups:()=>saved,
     message:()=>messages.at(-1)?.[0]||""};
@@ -50,7 +57,7 @@ test("Default button downloads a verified full JSON without invoking device shar
   assert.equal(data.state.daily.length,10);
   assert.equal(data.state.daily[0].progress,3);
   assert.deepEqual(data.state.formalAttemptLog,[]);
-  assert.match(f.downloads()[0].filename,/^scholar-garden-2026-10-11-\d{4}\.json$/);
+  assert.match(f.downloads()[0].filename,/^scholar-garden-2026-10-11-\d{6}\.json$/);
   assert.equal(f.backups().length,1,"Only after requesting the file, record manual backup");
   assert.equal(f.buttons["daily-save-button"].disabled,false);
   assert.match(f.message(),/JSON download requested/);
