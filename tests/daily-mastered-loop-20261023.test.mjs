@@ -65,7 +65,7 @@ test('20 attempted questions with fewer than 17 correct are not a completed dail
   const initial=state();
   const plan=buildYear8DailyV2(initial,get);
   const mastery=lookup(plan,'y8-mastery-a');
-  const events=allQ(mastery.assignedTopic,20.map((q,i)=>({
+  const events=allQ(mastery.assignedTopic,20).map((q,i)=>({
     day,questionId:q.id,attemptId:'a'+i,topicId:mastery.assignedTopic,
     dailyTaskId:mastery.id,mode:'mastery',formal:true,correct:i<16,
     format:'typed_short',subject:mastery.assignedSubject
@@ -75,7 +75,7 @@ test('20 attempted questions with fewer than 17 correct are not a completed dail
   assert.equal(lookup(replan,mastery.id).progress,19);
   const replay=replayDailyAnswerCredit(failed);
   assert.equal(lookup(replay.daily,mastery.id).progress,19);
-  const questions=allQ(mastery.assignedTopic,20;
+  const questions=allQ(mastery.assignedTopic,20);
   const receipt=reconcileDailySession(failed,{
     day,taskId:mastery.id,subject:mastery.assignedSubject,year:8,mode:'mastery',
     questions,answers:questions.map((q,i)=>({
