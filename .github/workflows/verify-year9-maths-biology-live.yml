@@ -1,0 +1,67 @@
+name: Verify Year 9 Maths Biology Notes Live
+on:
+  pull_request:
+    paths: [.github/workflows/verify-year9-maths-biology-live.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    steps:
+      - name: Verify published PDF bytes in Cloudflare and final Gloria catalog
+        shell: bash
+        run: |
+          set -euo pipefail
+          api="https://gloria-notes-public.glo-journal.workers.dev"
+          website="https://glojournal-cmyk.github.io/notes"
+          done=0
+          for attempt in $(seq 1 55); do
+            curl -fsSL --max-time 20 "$api/catalog" > /tmp/gloria-cloud-pdfs.json
+            if python3 - <<'PY'
+          import json
+          docs={x['key']:x for x in json.load(open('/tmp/gloria-cloud-pdfs.json'))['files']}
+          expected={
+            'year9/maths/Year_9_Maths_Topic_5_Notes_10_Pages.pdf':2760709,
+            'year9/biology/Biology_2Nov_Revision_Notes.pdf':25041743
+          }
+          for key,size in expected.items():
+            item=docs.get(key)
+            print('YEAR9_PDF',key,'FOUND' if item else 'NOT_YET_LIVE',
+                  item.get('size') if item else '')
+          assert all(k in docs and int(docs[k]['size'])==n for k,n in expected.items())
+          print('TWO_YEAR9_IMAGE_NOTES_R2_LIVE')
+          PY
+            then
+              done=1
+              break
+            fi
+            sleep 10
+          done
+          [[ "$done" = 1 ]] || { echo "::error::Two expected Year 9 PDFs not both published to R2";exit 1; }
+          python3 - <<'PY'
+          import urllib.parse,urllib.request
+          api='https://gloria-notes-public.glo-journal.workers.dev'
+          for key in [
+            'year9/maths/Year_9_Maths_Topic_5_Notes_10_Pages.pdf',
+            'year9/biology/Biology_2Nov_Revision_Notes.pdf'
+          ]:
+            url=api+'/pdf?'+urllib.parse.urlencode({'key':key})
+            req=urllib.request.Request(url,headers={'Range':'bytes=0-4'})
+            with urllib.request.urlopen(req,timeout=45) as response:
+              data=response.read()
+              assert response.status==206,(key,response.status)
+              assert data==b'%PDF-',(key,data[:12])
+              print('PUBLIC_READER_CONFIRMED_PDF',key,response.status)
+          PY
+          curl -fsSL --retry 3 --max-time 35 "$website/catalog.json" > /tmp/gloria-live-year9-notes.json
+          python3 - <<'PY'
+          import json
+          notes=json.load(open('/tmp/gloria-live-year9-notes.json'))['notes']
+          keys={n['key'] for n in notes}
+          print('PUBLISHED_GLORIA_NOTES_CATALOG_COUNT',len(notes))
+          assert 'year9/maths/Year_9_Maths_Topic_5_Notes_10_Pages.pdf' in keys
+          assert 'year9/biology/Biology_2Nov_Revision_Notes.pdf' in keys
+          print('YEAR9_MATHS_AND_BIOLOGY_USER_CAN_OPEN_BOTH_NOTES')
+          PY
