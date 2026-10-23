@@ -1,4 +1,5 @@
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js";
+import {readOptionalBackupJson,linkedBackupManifest} from "./export-linked-storage-20261023.js";
 import "./player-ux-20261013.js?ux=20261021-ipad-shell-lock3&uxfix=20261022-priority-ux1";
 import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
 import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
@@ -2224,24 +2225,33 @@ function readAssessmentBackupState() {
 function patchedExportProgress() {
   try {
     const base = JSON.parse(originalExportProgress());
+    const manifest = linkedBackupManifest();
+    const linked = (key) => readOptionalBackupJson(localStorage,key,{},manifest);
     return JSON.stringify({
       ...base,
-      // The wrapper adds daily evidence and history after the core's default schema.
-      // Export every serializable field so restoring cannot silently drop those ledgers.
+      // A complete snapshot of the actual learner state, not the legacy six-task
+      // store schema. Individual malformed optional JSON keys must never cause
+      // the entire dated learning record to be silently discarded.
       state: store.getState(),
-      practiceDrafts: JSON.parse(localStorage.getItem("lux-practice-drafts-v1") || "{}"),
-      biologyPractice: JSON.parse(localStorage.getItem("scholar-biology-cell-practice-v1") || "{}"),
-      topicLearning: JSON.parse(localStorage.getItem("lux-topic-learning-v1") || "{}"),
+      practiceDrafts: linked("lux-practice-drafts-v1"),
+      biologyPractice: linked("scholar-biology-cell-practice-v1"),
+      topicLearning: linked("lux-topic-learning-v1"),
       mathsBackupVersion: 1,
-      mathsStudy: JSON.parse(localStorage.getItem("lux-maths-study-v1") || "{}"),
-      mathsDrafts: JSON.parse(localStorage.getItem("lux-maths-draft-v1") || "{}"),
+      mathsStudy: linked("lux-maths-study-v1"),
+      mathsDrafts: linked("lux-maths-draft-v1"),
       assessmentBackupVersion: 1,
       assessmentProgress: readAssessmentBackupState(),
       petBackupVersion: 1,
       petCompanion: readPetBackupState(),
+      ...(manifest.warnings.length ? {
+        backupWarnings: manifest.warnings,
+        unparsedLinkedStorage: manifest.unparsed
+      } : {})
     }, null, 2);
-  } catch {
-    return originalExportProgress();
+  } catch (error) {
+    // Never silently fall back to the legacy exporter: it drops dated evidence.
+    throw new Error("Full study backup unavailable; no partial progress file was created. " +
+      (error?.message || "Check the iPad storage and retry."));
   }
 }
 
@@ -3822,7 +3832,7 @@ if(typeof window!=="undefined"){
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261018-receipt2&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261023-fullbackup1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){
