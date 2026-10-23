@@ -30,7 +30,7 @@ function makeHarness(pathname='/scholar'){
 test('Scholar Import progress intercepts its own button before React redirects encrypted-only',()=>{
  const h=makeHarness();
  assert.equal(h.listeners[0].capture,true);
- assert.deepEqual(h.fire(),{url:'/?import=1',prevented:true,stopped:true});
+ assert.deepEqual(h.fire(),{url:'/import-progress.html',prevented:true,stopped:true});
 });
 test('Other Scholar buttons and all buttons on Home are not intercepted',()=>{
  assert.deepEqual(makeHarness().fire('Export progress'),{url:null,prevented:false,stopped:false});
@@ -38,7 +38,7 @@ test('Other Scholar buttons and all buttons on Home are not intercepted',()=>{
 });
 test('Both SPA entry shells install the safe import route fix',()=>{
  for(const file of ['index.html','404.html']){
-  assert.ok(read(file).includes('/assets/scholar-plain-import-entry-20261023.js?v=20261023-plain1'),file);
+  assert.ok(read(file).includes('/assets/scholar-plain-import-entry-20261023.js?v=20261023-standalone2'),file);
  }
 });
 test('Plain JSON Import is user-triggered and appears above the RPG Home on iPad',()=>{
