@@ -4,7 +4,7 @@
 // remains the primary counting source. Never credit free/recovery/vocab practice.
 const supported = new Set([
   'latin-standard','y8-standard-a','y8-standard-b',
-  'y8-mastery-a','y8-mastery-b','weakness-review','due-review','year9-light'
+  'y8-mastery-a','y8-mastery-b','y8-mastery-topup-a','y8-mastery-topup-b','weakness-review','due-review','year9-light'
 ]);
 const progressOf = t => Math.max(0,Math.min(Math.max(1,Number(t?.target)||1),Number(t?.progress)||0));
 export function reconcileDailySession(state,receipt={}) {
