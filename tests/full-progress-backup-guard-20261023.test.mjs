@@ -44,3 +44,23 @@ test('no synthetic data ever added during validation',()=>{
  assert.throws(()=>assertFullProgressBackup(wrap(old),state()));
  assert.equal(JSON.stringify(old),before);
 });
+
+import {readOptionalBackupJson,linkedBackupManifest} from '../assets/export-linked-storage-20261023.js';
+test('malformed optional draft JSON is preserved raw without destroying the learning snapshot',()=>{
+ const broken='{ "unfinished": true,';
+ const store={getItem(key){return key==='lux-practice-drafts-v1'?broken:null}};
+ const manifest=linkedBackupManifest();
+ const fallback=readOptionalBackupJson(store,'lux-practice-drafts-v1',{},manifest);
+ assert.deepEqual(fallback,{});
+ assert.equal(manifest.unparsed['lux-practice-drafts-v1'],broken);
+ assert.equal(manifest.warnings.length,1);
+ const stateSnapshot=state();
+ assert.equal(assertFullProgressBackup(wrap(stateSnapshot),stateSnapshot),true);
+});
+test('valid optional JSON and empty optional data stay readable',()=>{
+ const store={getItem(key){return key==='first'?'{"saved":1}':null}};
+ const manifest=linkedBackupManifest();
+ assert.deepEqual(readOptionalBackupJson(store,'first',{},manifest),{saved:1});
+ assert.deepEqual(readOptionalBackupJson(store,'not-set',{},manifest),{});
+ assert.equal(manifest.warnings.length,0);
+});
