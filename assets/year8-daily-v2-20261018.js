@@ -41,8 +41,9 @@ function balancedCompare(a,b,primary,secondary,order,today){
     cyclicRank(a.subject,order,today)-cyclicRank(b.subject,order,today);
 }
 
-// Ten assignments, 155 answers: 60 vocab, 10 Latin, 20 Standard, 30
-// Mastery, 10 weakness, 10 due, 15 Year 9. A completed assignment is frozen.
+// Ten assignments, normally 165 answers: 60 vocab, 10 Latin, 20 Standard,
+// two 20-question Mastery sets, 10 weakness, 10 due, 15 Year 9.
+// On a due recall day a 5-question check replaces the relevant set.
 export function buildYear8DailyV2(state,getCatalog,learning={}) {
   const today=state.today, previous=new Map((state.daily||[]).filter(t=>t.planDate===today).map(t=>[t.id,t]));
   const pools=Object.fromEntries(['latin',...rotation].map(subject=>[subject,curriculumTopics(subject,8,getCatalog,learning)]));
@@ -79,13 +80,19 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     const legacyRecall=same&&savedMode(old)==='retention';
     if(same&&old?.href){
       mode=legacyRecall?'due':savedMode(old)||mode;
-      target=legacyRecall?5:Number(old.target)||target;
+      // Upgrade an unopened legacy 15-question assignment to 20.
+      // Retain the original 15 for a set with actual marked evidence.
+      const existingAnswers=tally(topic.topicId,id,['mastery','year8long']);
+      const untouchedMastery=id.startsWith('y8-mastery-')&&
+        savedMode(old)==='mastery'&&Number(old.target)===15&&
+        Number(old.progress||0)===0&&existingAnswers===0;
+      target=legacyRecall?5:untouchedMastery?20:Number(old.target)||target;
       masteryCheck=legacyRecall||old.masteryCheck===true;
     }
     const modes=mode==='mastery'?['mastery','year8long']:mode==='retention'?['retention','due']:
       mode==='due'?['due','retention']:mode==='weak'?['weak']:null;
     let progress=topic?Math.min(target,Math.max(same&&!legacyRecall?Number(old.progress)||0:0,tally(topic.topicId,id,modes))):0;
-    // Mastery cannot be completed by fifteen attempted (possibly wrong) answers.
+    // Mastery cannot be completed just by attempting 15 or 20 questions.
     if(id.startsWith('y8-mastery-')&&mode==='mastery'&&
        state.topicStats?.[topic?.topicId]?.masteryV2?.passedMasteryAt!==today)
       progress=Math.min(progress,target-1);
@@ -123,10 +130,13 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   // Never reassign a pending Day 2/7 topic to a new 15-question gate.
   const learningTopics=allTopics.filter(t=>
     ['learning','needs-reinforcement'].includes(masteryStage(state.topicStats?.[t.topicId])));
-  const covered=learningTopics.filter(t=>coveredTopic(state,t.topicId))
+  // A 20-question formal Mastery needs at least 20 enabled questions.
+  // Some shorter Year 8 Biology banks remain available for Standard/review.
+  const masteryEligible=learningTopics.filter(t=>Number(t.enabled??t.questions??0)>=20);
+  const covered=masteryEligible.filter(t=>coveredTopic(state,t.topicId))
     .sort((a,b)=>(Number(state.topicStats?.[a.topicId]?.attempted)||0)-
       (Number(state.topicStats?.[b.topicId]?.attempted)||0));
-  const masteryPool=covered.length?covered:learningTopics.length?learningTopics:allTopics;
+  const masteryPool=covered.length?covered:masteryEligible;
   const mastery=['y8-mastery-a','y8-mastery-b'].map(id=>{
     const old=previous.get(id),awaiting=dueMastery.filter(t=>!assigned.has(t.topicId));
     const doCheck=!old?.assignedTopic&&awaiting.length>0;
@@ -158,7 +168,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   };
   return [vocab('latin'),vocab('french'),task('latin-standard',latin,'standard',10,'Daily Latin Standard 10'),
     ...standards.map((t,i)=>task('y8-standard-'+('ab'[i]),t,'standard',10,'Year 8 Standard 10 · topic '+(i+1)+' of 2')),
-    ...mastery.map((m,i)=>task('y8-mastery-'+('ab'[i]),m.topic,m.mode,m.check?5:15,m.check?'Year 8 Day 2/7 recall · five questions':'Year 8 Mastery · 13/15 including three independent answers',m.check)),
+    ...mastery.map((m,i)=>task('y8-mastery-'+('ab'[i]),m.topic,m.mode,m.check?5:20,m.check?'Year 8 Day 2/7 recall · five questions':'Year 8 Mastery · 17/20 including three independent answers',m.check)),
     task('weakness-review',weak,'weak',10,'Repair weak concepts'),
     task('due-review',due,dueMode,dueCheck?5:10,dueCheck?'Year 8 Day 2/7 recall · five questions':dueMode==='weak'?'Consolidation · nothing due today':'Due review',dueCheck),
     task('year9-light',year9,'standard',15,'Year 9 · light daily study')];
