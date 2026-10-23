@@ -22,7 +22,7 @@
  function imageFor(y,s){
    // One fixed set of seven user-selected Option E banners for both years.
    return s==='mixed'?'/art/study-rpg/y8-english.jpg':
-     '/notes/images/option-e/'+s+'.svg';
+     '/notes/images/generated-e/'+s+'.png';
  }
  function cleanRoute(){
    const path=decodeURIComponent(location.hash.slice(1)).split('/').filter(Boolean);
@@ -54,7 +54,7 @@
    card.disabled=entries.length===0;
    const art=node('img','subject-art');
    art.src=imageFor(year,slug);art.alt='';
-   art.loading='eager';art.decoding='async';
+   art.loading='lazy';art.decoding='async';
    art.addEventListener('error',()=>{
      // Keep subject card functional if any image asset fails to load.
      if(art.dataset.fallback)return;
