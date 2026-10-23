@@ -65,17 +65,24 @@ test('second ZIP holds exactly 25 separately indexed page-image PDFs',()=>{
  }
 });
 
-test('notes are rendered as a single full-width button per PDF grouped by academic year and subject',()=>{
+test('same Study art and navigation assets; illustrated year-subject pages drill into one-button-per-note rows',()=>{
  const js=read('notes/library.js');
  const css=read('notes/library.css');
  const html=read('notes/index.html');
- assert.match(js,/YEAR_ORDER = \['year9','summer'\]/);
- assert.match(js,/function yearSection\(/);
- assert.match(js,/function subjectSection\(/);
- assert.match(js,/button\.disabled=!ready/);
+ assert.match(js,/function subjectCard\(/);
+ assert.match(js,/function renderSubjects\(/);
+ assert.match(js,/function renderDetail\(/);
  assert.match(js,/function noteRow\(/);
+ assert.match(js,/btn\.disabled=!ready/);
+ assert.match(js,/imageFor\(/);
+ assert.match(html,/id="subjectScreen"/);
+ assert.match(html,/id="detailScreen"/);
+ assert.match(html,/id="yearSelect"/);
+ assert.match(html,/id="subjectGrid"/);
+ assert.match(html,/id="noteList"/);
+ assert.match(js,/art\/study-rpg/);
  assert.match(css,/\.note-row\{width:100%/);
- assert.match(css,/\.note-list\{display:flex;flex-direction:column/);
- assert.match(html,/id="noteGroups"/);
- assert.doesNotMatch(html,/id="cards"/);
+ assert.match(css,/\.subject-grid\{display:grid/);
+ assert.match(css,/\.bottom-nav\{position:fixed/);
+ assert.doesNotMatch(html,/id="noteGroups"/);
 });
