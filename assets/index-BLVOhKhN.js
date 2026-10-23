@@ -3832,7 +3832,7 @@ if(typeof window!=="undefined"){
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261023-fullbackup1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261023-share-permission1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){
