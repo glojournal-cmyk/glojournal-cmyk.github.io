@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1a3148">
+  <title>Import progress · Lux et Labor</title>
+  <style>
+    :root{color-scheme:light}
+    *{box-sizing:border-box}
+    body{margin:0;padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(20px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));background:#f7f4ec;color:#1a3148;font:16px/1.5 system-ui,-apple-system,sans-serif}
+    main{max-width:760px;margin:2rem auto;padding:clamp(18px,4vw,36px);background:white;border:1px solid #d9c5a0;border-radius:18px}
+    h1{font:600 clamp(1.8rem,4vw,2.5rem) Georgia,serif;margin:0 0 .5rem}
+    h2{font:600 1.25rem Georgia,serif;margin:1rem 0}
+    p{margin:.65rem 0}
+    a{color:#21536c}
+    .actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:16px 0}
+    button{font:inherit;border:0;background:#193a50;color:white;border-radius:10px;padding:12px 17px;min-height:48px;cursor:pointer}
+    button.secondary{background:#dce5df;color:#193a50}
+    button:disabled{opacity:.48;cursor:not-allowed}
+    input[type=file]{display:block;width:100%;padding:12px 0}
+    label{display:block;font-weight:600}
+    .notice{padding:13px 16px;background:#f7f4e9;border-left:4px solid #ae9063;border-radius:6px}
+    .warning{padding:13px 16px;border-left:4px solid #b45f39;background:#fff3eb;border-radius:6px}
+    #result,#status{white-space:pre-wrap;overflow-wrap:anywhere}
+    #status{font-weight:600}
+    dl{display:grid;grid-template-columns:minmax(120px,1fr) minmax(110px,2fr);gap:8px 14px;margin:14px 0}
+    dt{font-weight:600} dd{margin:0}
+    #preview,[hidden]{display:none!important}
+    input[type=checkbox]{width:20px;height:20px;vertical-align:middle;margin-right:8px}
+    .meta{color:#4f6773;font-size:.9rem}
+  </style>
+</head>
+<body>
+ <main>
+  <p><a href="/scholar?open=settings">← Scholar Settings</a></p>
+  <h1>Import Scholar progress</h1>
+  <p>Use a standard <strong>Scholar Garden JSON</strong> exported from Scholar → Export progress. No password or passphrase is needed.</p>
+  <p class="meta">This is a standalone import page on the same Gloria website. Loading or previewing a file does not change any progress.</p>
+  <p class="notice">Have the JSON in Files or Downloads. For a passphrase-protected Cloud Backup, use the <a href="/encrypted-backup-restore.html">encrypted restore tool</a> instead.</p>
+  <label for="backup-file">Choose Scholar Garden JSON</label>
+  <input id="backup-file" type="file" accept=".json,application/json">
+  <button id="preview-button" type="button">Preview backup</button>
+  <p id="status" role="status" aria-live="polite"></p>
+  <section id="preview" aria-label="Backup details">
+   <h2>Compare before importing</h2>
+   <dl id="comparison"></dl>
+   <p id="warning" class="warning" hidden></p>
+   <p class="notice">This import preserves existing date-stamped completion proof where possible. It cannot recover records absent from the selected JSON.</p>
+   <section id="safety" hidden>
+    <h2>Protect the existing device</h2>
+    <p>Before changing any local progress, download a separate safety copy of the progress already stored <strong>on this device</strong>. Check the file exists in Files or Downloads.</p>
+    <div class="actions"><button class="secondary" id="download-safety" type="button">Download current device safety copy</button></div>
+    <label><input type="checkbox" id="safety-confirm" disabled> I checked that my safety file exists in Files or Downloads</label>
+   </section>
+   <div class="actions"><button id="apply-button" type="button" disabled>Import and verify saved progress</button>
+    <a href="/scholar?open=settings">Cancel without importing</a></div>
+  </section>
+  <p id="result" role="status" aria-live="polite"></p>
+  <p class="meta">Do not clear Safari website data, uninstall the iPad app or delete your original JSON. If device storage is full, import will stop without deleting the existing record.</p>
+ </main>
+ <script type="module" src="/assets/standalone-progress-import-20261023.js?v=20261023-standalone1"></script>
+</body>
+</html>
