@@ -582,6 +582,11 @@ let lastRecordInputs={
 };
 let recordQueued=false;
 function scheduleRecordProtection(){
+ // Historic Recovery reconciliation belongs to Home, not the live quiz.
+ // Re-scanning a large saved answer log on each marked question can freeze
+ // Chrome before the student can navigate back. Normal quiz credit stays
+ // in the core store; Home's mount will reconcile the archived history.
+ if(location.pathname!=="/"&&location.pathname!=="/index.html")return;
  if(recordQueued)return;
  recordQueued=true;
  queueMicrotask(()=>{recordQueued=false;protectDailyRecord()});
@@ -594,8 +599,16 @@ store.subscribe(()=>{
  if(relevant)scheduleRecordProtection();
  schedule();
 });
-store.persist?.onFinishHydration?.(()=>{protectDailyRecord();void restoreArchivedDailyRecord();});
-window.addEventListener("lux:app-ready",()=>{protectDailyRecord();void restoreArchivedDailyRecord();});
+store.persist?.onFinishHydration?.(()=>{
+ if(location.pathname==="/"||location.pathname==="/index.html"){
+  protectDailyRecord();void restoreArchivedDailyRecord();
+ }
+});
+window.addEventListener("lux:app-ready",()=>{
+ if(location.pathname==="/"||location.pathname==="/index.html"){
+  protectDailyRecord();void restoreArchivedDailyRecord();
+ }
+});
 new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true});
 window.addEventListener("pageshow",schedule);
 window.addEventListener("popstate",schedule);
