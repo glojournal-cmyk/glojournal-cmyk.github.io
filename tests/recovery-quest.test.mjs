@@ -2,13 +2,14 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
+import {dailyVocabTotal} from "../assets/daily-vocab-total-20261020.js";
 
 const js=readFileSync(new URL("../assets/index-BLVOhKhN.js",import.meta.url),"utf8");
 const start=js.indexOf("function findRecoveryVocabSource(");
 const end=js.indexOf("function patchedRecordSpelling(",start);
 assert.ok(start>=0&&end>start,"Recovery handler must be present in deployed module");
 const factory=new Function("store","todayKey","originalAward","normalizeState","originalBumpDaily",
- "window","URLSearchParams","saveRecoveryReceipt",js.slice(start,end)+";return recordDailyVocabAttempt");
+ "window","URLSearchParams","saveRecoveryReceipt","dailyVocabTotal","scheduleNormalizeState",js.slice(start,end)+";return recordDailyVocabAttempt");
 
 function fixture({today="2026-10-11",recover="2026-10-10",days={"2026-10-10":{french:20,latin:9}}}={}){
  const state={today,daily:[{id:"french-vocab",target:30,progress:3},{id:"latin-vocab",target:30,progress:4}],
@@ -20,7 +21,7 @@ function fixture({today="2026-10-11",recover="2026-10-10",days={"2026-10-10":{fr
  const store={getState:()=>state,setState:changes=>Object.assign(state,changes)};
  const search=recover===null?"?daily=1&locked=1&mode=y8vocab&task=french-vocab":"?recover="+recover;
  const env={location:{search}};
- const fn=factory(store,()=>state.today,(_,o)=>{xp+=o.amount||0},()=>{},()=>{bump++},env,URLSearchParams,()=>true);
+ const fn=factory(store,()=>state.today,(_,o)=>{xp+=o.amount||0},()=>{},()=>{bump++},env,URLSearchParams,()=>true,dailyVocabTotal,()=>{});
  return {state,answer:(subject,id,correct=true)=>fn(subject,id,correct),
   xp:()=>xp,bumped:()=>bump,selectRecovery:date=>env.location.search="?recover="+date};
 }
