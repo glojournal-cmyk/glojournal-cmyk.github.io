@@ -11,6 +11,22 @@ const isDone=t=>t?.done===true||(Number(t?.target)>0&&nonneg(t?.progress)>=Numbe
 const isFallback=t=>t?.recoveryFallback===true;
 function mergeTask(previous,incoming){
  const left=previous||{},right=incoming||{};
+ // A dated, already-started assignment is immutable. A later planner may
+ // re-use the same task ID for a different topic, 5->20 target or mode.
+ // That is a NEW task, not proof that the pupil lost the original answers.
+ const started=left?.id&&(nonneg(left.progress)>0||isDone(left));
+ const different=right?.id&&(
+   (Number(left.target)>0&&Number(right.target)>0&&Number(left.target)!==Number(right.target))||
+   ['assignedSubject','assignedTopic','assignedYear','reviewTopic','focusTopic'].some(k=>
+     left[k]!=null&&right[k]!=null&&String(left[k])!==String(right[k]))||
+   (String(left.href||'').includes('?')&&String(right.href||'').includes('?')&&
+     (()=>{try{
+       const a=new URL(left.href,'https://scholar.invalid'),b=new URL(right.href,'https://scholar.invalid');
+       return ['mode','topic','task','year'].some(k=>
+         a.searchParams.has(k)&&b.searchParams.has(k)&&a.searchParams.get(k)!==b.searchParams.get(k));
+     }catch{return false}})())
+ );
+ if(started&&different)return {...left,done:isDone(left)};
  const target=Math.max(1,nonneg(left.target),nonneg(right.target));
  const progress=Math.min(target,Math.max(nonneg(left.progress),nonneg(right.progress),
    isDone(left)?nonneg(left.target):0,isDone(right)?nonneg(right.target):0));
@@ -59,6 +75,24 @@ export function mergeDailyRecordRow(previous,incoming,date){
  if(fullTen(incoming,newTasks)&&
     oldTasks.some(t=>!newTasks.some(next=>next.id===t.id)))
    return incoming;
+ // Preserve the ten ORIGINAL task IDs as soon as any work has been
+ // recorded for that day. Regeneration must not add a new task and turn 10/10
+ // into 10/11, or replace an answered 5/5 with an unattempted 0/20.
+ // Actual Recovery answers are merged by matching task ID below.
+ const startedTen=oldTasks.length===10&&oldTasks.some(t=>nonneg(t.progress)>0||isDone(t));
+ const assignmentIdsChanged=newTasks.length>0&&(
+   newTasks.length!==oldTasks.length||
+   newTasks.some(t=>!oldTasks.some(old=>old.id===t.id))
+ );
+ if(startedTen&&assignmentIdsChanged){
+   const tasks=oldTasks.map(old=>{
+     const matching=newTasks.find(t=>t.id===old.id);
+     return matching?mergeTask(old,matching):old;
+   });
+   const done=tasks.filter(isDone).length;
+   return {...previous,date:date||previous?.date,tasks,done,total:tasks.length,
+     complete:done===tasks.length};
+ }
  const base=!oldTasks.length?incoming:!newTasks.length?previous:previous;
  const merged=[];
  const used=new Set();
