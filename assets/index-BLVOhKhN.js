@@ -2240,8 +2240,13 @@ function patchedExportProgress() {
       petBackupVersion: 1,
       petCompanion: readPetBackupState(),
     }, null, 2);
-  } catch {
-    return originalExportProgress();
+  } catch (error) {
+    // The legacy core exporter omits the dated Daily Record and marked-answer
+    // evidence. Returning it silently here created apparently successful but
+    // incomplete backups: a file dated 23 Oct had no 21/22 Oct history.
+    // Fail visibly instead, preserving the existing iPad data for safe retry.
+    throw new Error("Full study backup unavailable; no partial progress file was created. " +
+      (error?.message || "Check the iPad storage and retry."));
   }
 }
 
