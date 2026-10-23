@@ -68,7 +68,16 @@ assert.equal(context.B(masculine,'sucree','french').ok,false,'Wrong gender must 
 const funny=newQuestions.find(q=>q.stimulus.text==='funny');
 for(const word of ['marrant','amusant','rigolo'])assert.equal(context.B(funny,word,'french').ok,true);
 const daily=selectDailyVocabulary({subject:'french',items:pack.questions,day:'2026-10-03'});
-assert.equal(new Set(daily.map(q=>q.conceptId)).size,daily.length);
+// Earlier source questions sometimes share a conceptId across distinct headwords.
+ // Daily rotation uses the normalized foreign headword as its canonical key.
+ const foreignWord=q=>q._vocabTerm||(
+   /english\s*(?:→|->|to)\s*french/i.test(String(q.stimulus?.direction||'')) ||
+   /translate into french|write the french/i.test(String(q.prompt||''))
+   ? q.answer.accepted[0]:q.stimulus?.text);
+ assert.equal(daily.length,30,"Daily must provide 30 lexical headwords from this source bank");
+ assert.equal(new Set(daily.map(q=>q.id)).size,daily.length,"Do not repeat the same question");
+ assert.equal(new Set(daily.map(q=>norm(foreignWord(q)))).size,daily.length,
+   "Do not repeat the same French headword in different translation directions");
 assert.equal(new Set(french.map(v=>v.id)).size,french.length);
 assert.equal(new Set(latin.map(v=>v.id)).size,latin.length);
 const dictationContext=vm.createContext({f:latin,c:french,g:[],FY9:[],GQS:()=>[]});
