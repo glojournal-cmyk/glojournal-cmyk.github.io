@@ -88,7 +88,59 @@ test('started legacy five-question check keeps its credited work without affecti
   assert.equal(urlMode(lookup(updated,'y8-mastery-a')),'due');
   assert.equal(lookup(updated,'y8-mastery-b').target,20);
   assert.equal(urlMode(lookup(updated,'y8-mastery-b')),'mastery');
+  assert.equal(updated.length,11,'an active 5-question legacy check requires an EXTRA 20-question set today');
+  assert.equal(lookup(updated,'y8-mastery-topup-a').target,20);
+  assert.equal(lookup(updated,'y8-mastery-topup-a').progress,0);
+  assert.equal(urlMode(lookup(updated,'y8-mastery-topup-a')),'mastery');
+  assert.notEqual(lookup(updated,'y8-mastery-topup-a').assignedTopic,'latin-y8-t0');
   assert.ok(updated.every(t=>t.progress<=t.target));
+});
+
+test('iPad screenshot: completed 5/5 recall remains, with a new full 20 instead of a fake 20/20',()=>{
+  const input=state();
+  input.topicStats['latin-y8-t0']={masteryV2:{stage:'check7',due:day}};
+  input.daily=[
+    {id:'y8-mastery-a',planDate:day,assignedSubject:'latin',assignedYear:8,
+      assignedTopic:'latin-y8-t0',assignedLabel:'Miscellaneous words',masteryCheck:true,
+      href:'/study/latin/practise?daily=1&locked=1&year=8&mode=due&task=y8-mastery-a&topic=latin-y8-t0',
+      progress:5,target:5},
+    {id:'y8-mastery-b',planDate:day,assignedSubject:'french',assignedYear:8,
+      assignedTopic:'french-y8-t1',assignedLabel:'Irregular verbs',masteryCheck:false,
+      href:'/study/french/practise?daily=1&locked=1&year=8&mode=mastery&task=y8-mastery-b&topic=french-y8-t1',
+      progress:20,target:20}
+  ];
+  const plan=buildYear8DailyV2(input,get);
+  assert.equal(plan.length,11);
+  assert.equal(lookup(plan,'y8-mastery-a').progress,5);
+  assert.equal(lookup(plan,'y8-mastery-a').target,5);
+  assert.match(lookup(plan,'y8-mastery-a').title,/recall/);
+  assert.equal(lookup(plan,'y8-mastery-b').progress,20);
+  assert.equal(lookup(plan,'y8-mastery-b').target,20);
+  assert.match(lookup(plan,'y8-mastery-b').title,/Mastery B/);
+  const extra=lookup(plan,'y8-mastery-topup-a');
+  assert.equal(extra.progress,0,'the five recall answers cannot complete the new set');
+  assert.equal(extra.target,20);
+  assert.match(extra.title,/Mastery A/);
+  const savedAgain=buildYear8DailyV2({...input,daily:plan},get);
+  assert.equal(lookup(savedAgain,extra.id).assignedTopic,extra.assignedTopic,
+    'a reload must not rotate the make-up assignment');
+  const questions=allQ(extra.assignedTopic,20);
+  const verified=reconcileDailySession({...input,daily:plan},{
+    day,taskId:extra.id,subject:extra.assignedSubject,year:8,mode:'mastery',questions,
+    answers:questions.map(q=>({questionId:q.id,correct:true,formal:true}))
+  });
+  assert.equal(verified.changed,true);
+  assert.equal(lookup(verified.daily,extra.id).progress,20);
+  assert.equal(lookup(verified.daily,'y8-mastery-a').progress,5);
+  assert.equal(lookup(verified.daily,'y8-mastery-b').progress,20);
+  const marked=questions.map((q,i)=>({
+    day,questionId:q.id,attemptId:'topup'+i,topicId:extra.assignedTopic,
+    dailyTaskId:extra.id,mode:'mastery',formal:true,correct:i<17,
+    format:'typed_short',subject:extra.assignedSubject
+  }));
+  const replay=replayDailyAnswerCredit({...input,daily:plan,formalAttemptLog:marked});
+  assert.equal(lookup(replay.daily,extra.id).progress,20);
+  assert.equal(lookup(replay.daily,'y8-mastery-a').progress,5);
 });
 
 test('a pending check does not appear early or get mistaken for a new Mastery',()=>{
@@ -181,11 +233,11 @@ test('failed recall is returned to reinforcement, not falsely Mastered',()=>{
 
 test('iPad route and replay boot reference this same version',()=>{
   const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
-  const release='20261023-fixed-two20-v1';
-  const previous='20261023-mastery-count20-v1';
+  const release='20261023-mastery-topup-v1';
+  const previous='20261023-topup-receipt-v1';
   assert.ok(read('assets/index-BLVOhKhN.js').includes('year8-daily-v2-20261018.js?v='+release));
   assert.ok(read('assets/quiz-session-y8fix-20260920.js').includes('daily-session-credit-20261021.js?v='+previous));
-  assert.ok(read('assets/daily-answer-replay-boot-20261021.js').includes('daily-answer-replay-20261021.js?v='+previous));
+  assert.ok(read('assets/daily-answer-replay-boot-20261021.js').includes('daily-answer-replay-20261021.js?v=20261023-topup-replay-v1'));
   assert.ok(read('assets/study._subject.practise-y8fix-20260920.js').includes('E===\`due\`&&dailyLocked&&assignment?.masteryCheck?5'.replaceAll('\\','')));
 });
 
