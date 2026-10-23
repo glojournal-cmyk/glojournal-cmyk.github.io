@@ -1,0 +1,36 @@
+name: Quick Year9 R2 Keys Check
+on:
+  pull_request:
+    paths: [.github/workflows/quick-year9-r2-keys-check.yml]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Check both exact original PDF file keys in Cloudflare bucket
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsS --max-time 25 -G \
+            -H "Authorization: Bearer $CF_API_TOKEN" \
+            --data-urlencode per_page=1000 \
+            "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/r2/buckets/gloria-notes-library/objects" >/tmp/r2-items.json
+          python3 - <<'PY'
+          import json
+          x=json.load(open('/tmp/r2-items.json'))
+          assert x.get('success'),x.get('errors')
+          objs=x['result']
+          if isinstance(objs,dict):objs=objs['objects']
+          d={i['key']:i['size'] for i in objs}
+          for name,size in [
+            ('year9/maths/Year_9_Maths_Topic_5_Notes_10_Pages.pdf',2760709),
+            ('year9/biology/Biology_2Nov_Revision_Notes.pdf',25041743)
+          ]:
+            print('R2_KEY',name,'PRESENT' if name in d else 'MISSING','BYTES',d.get(name))
+          print('TOTAL_R2_OBJECTS',len(d))
+          PY
