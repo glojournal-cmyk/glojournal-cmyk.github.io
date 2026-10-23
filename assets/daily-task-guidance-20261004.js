@@ -15,7 +15,7 @@ export function dailyTaskGuidance(task, daily = []) {
     case 'y8-mastery-a': case 'y8-mastery-b':
       rule = task.masteryCheck
         ? 'Mandatory five-question Year 8 Day 2/7 recall: 4/5 correct needed to advance to Mastered; failed checks schedule reinforcement.'
-        : 'Fifteen Year 8 questions: pass 13/15 including three independent answers. If unsuccessful, retry the set. Day 2 and Day 7 recall are assigned automatically.';
+        : `Year 8 Mastery: complete ${task.target || 20} different questions and pass ${Number(task.target)===15?'13/15':'17/20'} including three independent answers. If unsuccessful, retry. Day 2 and Day 7 recall are assigned automatically.`;
       break;
     case 'weakness-review': case 'due-review':
       rule = task.masteryCheck
