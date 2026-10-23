@@ -83,7 +83,7 @@ test('15 attempted wrong answers are not a completed daily Mastery',()=>{
     }))
   });
   assert.equal(lookup(receipt.daily,mastery.id).progress,14);
-  assert.equal(receipt.dailyLog,undefined);
+  assert.deepEqual(receipt.dailyLog,{});
 });
 
 test('13/15 including three independent answers completes daily gate',()=>{
