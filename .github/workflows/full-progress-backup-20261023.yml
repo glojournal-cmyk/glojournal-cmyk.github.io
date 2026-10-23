@@ -4,9 +4,12 @@ on:
     paths:
       - 'assets/full-progress-backup-guard-20261023.js'
       - 'assets/export-linked-storage-20261023.js'
+      - 'assets/backup-import-safety-20261023.js'
+      - 'assets/home-rpg-live-20261019.js'
       - 'assets/daily-progress-save.js'
       - 'assets/index-BLVOhKhN.js'
       - 'tests/full-progress-backup-guard-20261023.test.mjs'
+      - 'tests/backup-import-legacy-ipad-20261023.test.mjs'
       - '.github/workflows/full-progress-backup-20261023.yml'
   workflow_dispatch:
 jobs:
@@ -19,6 +22,8 @@ jobs:
           node-version: '22'
       - run: node --check assets/full-progress-backup-guard-20261023.js
       - run: node --check assets/export-linked-storage-20261023.js
+      - run: node --check assets/backup-import-safety-20261023.js
+      - run: node --check assets/home-rpg-live-20261019.js
       - run: node --check assets/daily-progress-save.js
       - run: node --check assets/index-BLVOhKhN.js
-      - run: node --test tests/full-progress-backup-guard-20261023.test.mjs
+      - run: node --test tests/full-progress-backup-guard-20261023.test.mjs tests/backup-import-legacy-ipad-20261023.test.mjs
