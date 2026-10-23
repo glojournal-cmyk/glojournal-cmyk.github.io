@@ -15,6 +15,14 @@ test('all 277 source records exactly by booklet chapter',()=>{
    assert.ok(row.index>=1);
  }
 });
+test('numquam and num are distinct original Latin headwords',()=>{
+ const negatives=LATIN_BOOKLET_RECORDS.filter(r=>['num...?','numquam'].includes(r.latin));
+ assert.equal(negatives.length,2);
+ assert.equal(negatives.find(r=>r.latin==='numquam').headword,'numquam');
+ assert.equal(negatives.find(r=>r.latin==='num...?').headword,'num');
+ assert.ok(LATIN_BOOKLET_GROUPS.some(g=>g.headword==='numquam'&&g.accepted.includes('never')));
+ assert.ok(LATIN_BOOKLET_GROUPS.some(g=>g.headword==='num'&&g.accepted.includes('surely not')));
+});
 test('all Chapter 3–6 dictionary entries and full English meanings mapped to Year 9 questions',()=>{
  const questions=year9DailyVocabulary('latin');
  const sourceGroups=LATIN_BOOKLET_GROUPS.filter(g=>g.chapters.some(c=>Number(c)>=3));
