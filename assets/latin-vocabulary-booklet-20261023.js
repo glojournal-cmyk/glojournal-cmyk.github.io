@@ -7,7 +7,7 @@ const headword = entry => {
   if(first==='a/ab'||first==='e/ex')return first;
   if(first.startsWith('-ne'))return '-ne';
   if(first.startsWith('nonne'))return 'nonne';
-  if(first.startsWith('num'))return 'num';
+  if(/^num\.{2,}\?$/.test(first))return 'num';
   if(first.startsWith('quis?'))return 'quis';
   if(first==='tres n tria')return 'tres';
   if(first==='mille pl milia')return 'mille';
