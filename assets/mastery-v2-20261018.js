@@ -28,15 +28,22 @@ export function addMasteryEvidence(stat = {}, entry = {}) {
   const id = String(entry.questionId);
   if (mode === 'mastery' || mode === 'year8long') {
     if (current.stage === 'mastered' || current.stage === 'check2' || current.stage === 'check7') return current;
+    // Two assigned Year 8 Daily Mastery sets now contain 20 distinct answers.
+    // Keep an already-started 15-question set on its original 13/15 rule;
+    // never invalidate genuine work saved on an older iPad.
+    const target = [15, 20].includes(Number(current.roundTarget))
+      ? Number(current.roundTarget)
+      : Number(entry.masteryTarget) === 15 ? 15 : 20;
+    const requiredCorrect = target === 15 ? 13 : 17; // at least 85%, plus recall
     const attempts = [...(current.attempts || [])];
     if (attempts.some(row => row.id === id)) return current;
     attempts.push({id, correct: !!entry.correct, independent: !!entry.correct && independentRecallFormats.has(entry.format)});
-    const round = attempts.slice(-15);
-    if (round.length < 15) return {...current, stage: 'learning', attempts: round};
-    const passed = round.filter(row => row.correct).length >= 13 &&
+    const round = attempts.slice(-target);
+    if (round.length < target) return {...current, stage: 'learning', roundTarget: target, attempts: round};
+    const passed = round.filter(row => row.correct).length >= requiredCorrect &&
       round.filter(row => row.independent).length >= 3;
-    return passed ? {stage: 'check2', attempts: [], passedMasteryAt: day, due: shift(day, 2), checks: []}
-      : {stage: 'learning', attempts: [], lastMasteryAttempt: day};
+    return passed ? {stage: 'check2', attempts: [], passedMasteryAt: day, passedMasteryTarget: target, due: shift(day, 2), checks: []}
+      : {stage: 'learning', attempts: [], roundTarget: target, lastMasteryAttempt: day};
   }
   if (!['retention', 'due'].includes(mode) || !['check2', 'check7'].includes(current.stage) ||
       !current.due || day < current.due) return current;
