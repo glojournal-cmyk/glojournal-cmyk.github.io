@@ -1,0 +1,23 @@
+name: Dated daily completion receipts
+on:
+  pull_request:
+    paths:
+      - 'assets/daily-record-completion-20261023.js'
+      - 'assets/home-rpg-live-20261019.js'
+      - 'assets/index-BLVOhKhN.js'
+      - 'tests/daily-record-completion-20261023.test.mjs'
+      - '.github/workflows/daily-record-completion-20261023.yml'
+  workflow_dispatch:
+
+jobs:
+  dated-completion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/daily-record-completion-20261023.js
+      - run: node --check assets/home-rpg-live-20261019.js
+      - run: node --check assets/index-BLVOhKhN.js
+      - run: node --test tests/daily-record-completion-20261023.test.mjs
