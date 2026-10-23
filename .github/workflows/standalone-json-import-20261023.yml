@@ -1,0 +1,26 @@
+name: Standalone Scholar JSON Import QA
+on:
+  pull_request:
+    paths:
+      - 'import-progress.html'
+      - 'assets/standalone-progress-import-20261023.js'
+      - 'assets/scholar-iJ2ilQWG.js'
+      - 'assets/scholar-plain-import-entry-20261023.js'
+      - 'encrypted-backup-restore.html'
+      - 'index.html'
+      - '404.html'
+      - 'tests/standalone-progress-import-20261023.test.mjs'
+      - '.github/workflows/standalone-json-import-20261023.yml'
+  workflow_dispatch:
+jobs:
+  standalone-import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/standalone-progress-import-20261023.js
+      - run: node --check assets/scholar-plain-import-entry-20261023.js
+      - run: node --test tests/standalone-progress-import-20261023.test.mjs tests/scholar-native-plain-import-20261023.test.mjs tests/scholar-plain-import-entry-20261023.test.mjs
+      - run: node --test tests/backup-import-legacy-ipad-20261023.test.mjs tests/full-progress-backup-guard-20261023.test.mjs
