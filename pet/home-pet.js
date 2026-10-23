@@ -1,6 +1,6 @@
 // Route-only Study bridge, shared across Pet and every React shell that can
 // navigate back to Study. A failed optional import must never block Pet.
-import('/assets/study-rpg-live-boot-20261020.js?v=20261020-return-nav1')
+import('/assets/study-rpg-live-boot-20261020.js?v=20261020-return-nav1&uxfix=20261022-priority-ux1')
   .catch(error => console.warn('Study route bridge unavailable', error));
 
 import {STAGE_NAMES, clampPetLevel} from './pet-evolution-config-20261012.js?ux=20261013-corrections2';
@@ -12,7 +12,7 @@ import {getHomePersonality} from '/pet/home-personality-20261010.js?v=20261019-b
 // The progression guard imports the React app bundle. Loading it on the
 // standalone Pet page makes React replace that page with an empty root.
 if (!location.pathname.startsWith("/pet")) {
-  import("/assets/progression-guard-20260927.js?v=20261018-keep-recover1&ux=20261013-corrections2").catch(() => {});
+  import("/assets/progression-guard-20260927.js?v=20261018-keep-recover1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(() => {});
 }
 
 const APP_KEY = "lux-scholar-garden-v1";

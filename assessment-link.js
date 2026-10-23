@@ -1,11 +1,11 @@
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/biology-nov2-entry-20261017.js?v=1&ux=20261013-corrections2').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/phase7-voice-cheers-20261011.js?v=20261012-phase3&ux=20261013-corrections2').catch(()=>{});
-if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/star-map-gallery-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2').catch(console.error);
-if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/memory-stars-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2').catch(console.error);
+if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/star-map-gallery-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2&uxfix=20261022-priority-ux1').catch(console.error);
+if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/memory-stars-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2&uxfix=20261022-priority-ux1').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/daily-task-presentation-20261004.js?v=20261012-level10&ux=20261013-corrections2').catch(console.error);
-if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/companion-experience-20261004.js?v=20261012-level10&ux=20261013-corrections2').catch(console.error);
+if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/companion-experience-20261004.js?v=20261012-level10&ux=20261013-corrections2&uxfix=20261022-priority-ux1').catch(console.error);
 import('/assets/ipad-experience-20261004.js?v=20261008-accent1&ux=20261013-corrections2').catch(console.error);
-if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/school-revision-home-20261004.js?v=20261017-bio-nov2&ux=20261013-corrections2').catch(error=>console.error('School revision panel could not load',error));
+if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/school-revision-home-20261004.js?v=20261017-bio-nov2&ux=20261013-corrections2&uxfix=20261022-priority-ux1').catch(error=>console.error('School revision panel could not load',error));
 (() => {
   if (!document.querySelector('link[href*="lux-theme.css?ux=20261013-corrections2"]')) {
     const l = document.createElement('link');
@@ -22,7 +22,7 @@ if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/school-
 })();
 (()=>{
   import('/pet/evolution-art-fix.js?v=20260927-evolution3&ux=20261013-corrections2').catch(()=>{});
-  if(!location.pathname.startsWith('/pet')) import('/pet/pet-care-global.js?v=20261010-chem-marking1&ux=20261013-corrections2').catch(()=>{});
+  if(!location.pathname.startsWith('/pet')) import('/pet/pet-care-global.js?v=20261010-chem-marking1&ux=20261013-corrections2&uxfix=20261022-priority-ux1').catch(()=>{});
   const icon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="size-4" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>';
   const assessmentUrl='/assessment/?v=20260926-v3';
   function add(){
@@ -54,7 +54,7 @@ if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/school-
   if (typeof window === 'undefined' || window.__luxPlayHallBootRequested) return;
   window.__luxPlayHallBootRequested = true;
   const boot = document.createElement('script');
-  boot.src = '/assets/play-hall-live-boot-20261020.js?v=20261020-live1';
+  boot.src = '/assets/play-hall-live-boot-20261020.js?v=20261020-live1&uxfix=20261022-priority-ux1';
   boot.defer = true;
   (document.head || document.documentElement).append(boot);
 })();

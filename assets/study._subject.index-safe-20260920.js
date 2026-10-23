@@ -1,5 +1,5 @@
 import {TopicBrowser} from "./topic-browser-20261003.js?v=20261010-chem-marking1&ux=20261013-corrections2";
-import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js?ux=20261013-corrections2";import{C as r,st as i,Ut as a,dt as loadCatalog}from"./index-BLVOhKhN.js?v=20261021-medical-careers1&ux=20261013-corrections2";var o=e(t(),1),s=n();
+import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js?ux=20261013-corrections2";import{C as r,st as i,Ut as a,dt as loadCatalog}from"./index-BLVOhKhN.js?v=20261021-medical-careers1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";var o=e(t(),1),s=n();
 
 const META={
   latin:{name:"Latin",quote:"Lingua Latina in aeternum.",art:"/art/subjects/latin.jpg"},

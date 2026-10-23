@@ -29,10 +29,10 @@
   function installSheet() {
     // Match the stylesheet used by the static Practice routes. Earlier Home
     // -> Daily SPA sessions imported ?v=preview1 from Safari's old cache.
-    const href = '/assets/daily-practice-ux-v2-20261020.css?v=20261021-progress-loop4';
+    const href = '/assets/daily-practice-ux-v2-20261020.css?v=20261021-progress-loop4&uxfix=20261022-priority-ux1';
     sheet = sheet?.isConnected ? sheet : document.getElementById('lux-daily-practice-ux-v2-style');
     if (sheet) {
-      if (!sheet.getAttribute('href')?.endsWith('20261021-ipad-shell-lock3')) {
+      if (sheet.getAttribute('href') !== href) {
         sheet.href = href;
       }
       return;
@@ -163,7 +163,7 @@
       ? q.querySelector('[data-lux-tiles]') : null;
     const tileRow=workspace?.querySelector(':scope > div:nth-child(2)');
     if (!tileRow){
-      clearControl?.remove();
+      clearControl?.parentElement?.matches('[data-lux-tile-actions]') ? clearControl.parentElement.remove() : clearControl?.remove();
       return;
     }
     if(!clearControl?.isConnected){
@@ -173,15 +173,17 @@
       clearControl.textContent='↶ Clear';
       clearControl.setAttribute('aria-label','Clear selected tiles');
       clearControl.addEventListener('click',clearSelectedTiles);
-      document.body.append(clearControl);
+      // An in-flow action row reserves its own space below the letter tiles.
+      // Keep Submit last so React's existing submit styling remains intact.
+      const actions=document.createElement('div');
+      actions.setAttribute('data-lux-tile-actions','');
+      actions.append(clearControl);
+      workspace.insertBefore(actions,workspace.querySelector(':scope > button:last-child'));
+
     }
-    const row=tileRow.getBoundingClientRect(),card=workspace.closest('[data-lux-question-card]')?.getBoundingClientRect();
-    const left=Math.max(12,row.left);
-    const top=Math.min(row.bottom+12,card ? card.bottom-52:row.bottom+12);
-    const coordinates=[Math.round(left)+'px',Math.round(top)+'px'];
-    if(clearControl.style.left!==coordinates[0])clearControl.style.left=coordinates[0];
-    if(clearControl.style.top!==coordinates[1])clearControl.style.top=coordinates[1];
-    const disabled=!!workspace.querySelector(':scope > button:last-child:disabled');
+    const selected=workspace.querySelector(':scope > div:first-child button:not(:disabled)');
+    const checked=!!workspace.querySelector(':scope > button:last-child:disabled');
+    const disabled=!selected || checked;
     if(clearControl.disabled!==disabled)clearControl.disabled=disabled;
   }
   function decorateQuestion(q) {
@@ -272,7 +274,7 @@
       restoreCompanion();
       nav?.remove();
       fallbackPet?.remove();
-      clearControl?.remove();
+      clearControl?.parentElement?.matches('[data-lux-tile-actions]') ? clearControl.parentElement.remove() : clearControl?.remove();
       root.classList.remove('lux-daily-typing','lux-daily-compact');
       return;
     }

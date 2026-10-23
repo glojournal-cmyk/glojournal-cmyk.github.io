@@ -141,7 +141,7 @@ async function checkFixture(browser,engine,kind,viewport){
   assert.deepEqual(undecorated.plainReact,undecorated.decorated,
     'iPad must render the same v2 card/heading/answers before React decoration: '+JSON.stringify(undecorated));
   const styleVersion=await page.evaluate(()=>document.getElementById('lux-daily-practice-ux-v2-style')?.getAttribute('href'));
-  assert.ok(styleVersion?.endsWith('20261021-progress-loop4'),
+  assert.ok(new URL(styleVersion, base).searchParams.get('v') === RELEASE && new URL(styleVersion, base).searchParams.get('uxfix') === '20261022-priority-ux1',
     'Home SPA stylesheet must not load the stale Safari preview1 cached version');
 
   // Simulate React briefly removing a question while replacing answer/feedback.
@@ -210,6 +210,12 @@ async function checkFixture(browser,engine,kind,viewport){
     assert.equal(await cta.getAttribute('aria-label'),'Check Answer','tile submit has the approved accessible CTA name');
     assert.equal(await cta.evaluate(el=>getComputedStyle(el,'::before').content),'"Check Answer"');
     assert.equal(await page.locator('#lux-daily-clear-tiles').count(),1,'real Clear control must be present');
+    const clearBox=await page.locator('#lux-daily-clear-tiles').boundingBox();
+    const tilesBox=await page.locator('[data-lux-tiles] > div:nth-child(2)').boundingBox();
+    assert.ok(clearBox.y >= tilesBox.y+tilesBox.height, 'Clear must be below every letter tile');
+    assert.ok(clearBox.height >= 44, 'Clear keeps a touch-sized target');
+    await page.locator('[data-lux-tiles] > div:nth-child(2) button').first().click();
+    assert.equal(await page.evaluate(()=>window.tapCount),1,'first letter receives the tap');
   }
   if(kind.endsWith('mc')){
     assert.equal(details.optsColumns,kind==='long-mc'?1:2,'MC columns should follow answer length');

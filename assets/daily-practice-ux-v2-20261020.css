@@ -462,7 +462,7 @@ html.lux-daily-ux-ready :is([data-lux-tiles], :where([data-question-format="word
   vertical-align:middle;
 }
 html.lux-daily-ux-ready #lux-daily-clear-tiles{
-  position:fixed;z-index:2147480999;min-height:40px;
+  position:static;min-height:44px;
   padding:7px 16px;border-radius:999px;
   border:1px solid #bfa372;background:#fcf6e9;color:#1d394b;
   font:600 14px/1.2 system-ui,sans-serif;
@@ -657,3 +657,9 @@ html.lux-daily-ux-ready.lux-daily-compact :is([data-lux-question-card], :where([
 /* While input is active and after it blurs, prevent the old pet image from
    returning in the middle of the next quiz question. */
 html.lux-daily-ux-ready.lux-daily-compact #lux-daily-equipped-pet {display:none!important;}
+
+/* Clear belongs to its own flow row: never intercept a letter tile. */
+html.lux-daily-ux-ready [data-lux-tile-actions]{
+  grid-column:1 / -1!important;grid-row:3!important;
+  display:flex;align-items:center;min-height:44px;margin:0!important;
+}
