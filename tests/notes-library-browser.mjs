@@ -111,7 +111,7 @@ for(const [name,engine,viewport] of [
    assert.equal(await row.count(),1,'Chapter '+chapter+' has exactly one note row');
    assert.equal(await row.isEnabled(),true,'Chapter '+chapter+' should be directly available');
  }
- await page.locator('.note-row',{hasText:'Latin Topic 3'}).click();
+ await page.locator('.topic-section[data-group="Topics"] .note-row',{hasText:'Topic 3'}).click();
  assert.equal(await page.locator('#viewer').isVisible(),true);
  assert.equal(new URL(await page.locator('#openTab').getAttribute('href')).searchParams.get('key'),
    'year9/latin/Latin_Topic_3_Adjectives_One_Image_Per_Page.pdf');
