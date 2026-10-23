@@ -4,7 +4,7 @@ import {recoveryDate,recoveryTask,legacyRecoveryMatches,recoveryReplay} from './
 import {SessionResult,ReviewProgress,captureReviewHistory,sessionGains,ProgressSummary} from "./session-reflection-20261004.js?v=20261010-mission-v2&ux=20261013-corrections2";
 import "./recovery-receipt-20261018.js?v=20261018-receipt2";
 import "./practice-drafts-20261004.js?v=20261018-receipt2";
-import {DailyNext} from "./journey-navigation-ui-20261004.js?v=20261010-mission-v2&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+import {DailyNext} from "./journey-navigation-ui-20261004.js?v=20261023-home-return-stable1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 import "./learning-feedback-20261003.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 const {buildCorrection,selectTransferQuestion}=globalThis.LuxLearningFeedback;
 import {questionReason} from "./question-reason-20261003.js?ux=20261013-corrections2";
