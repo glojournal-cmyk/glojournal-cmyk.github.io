@@ -70,43 +70,71 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     if(choice)assigned.add(choice.topicId);
     return choice;
   };
-  const task=(id,topic,mode,target,description)=>{
+  const savedMode=t=>{try{return new URL(t?.href,'https://scholar.invalid').searchParams.get('mode')}catch{return null}};
+  const task=(id,topic,mode,target,description,masteryCheck=false)=>{
     const old=previous.get(id);
-    const same=old?.assignedTopic===topic?.topicId;
+    const same=!!topic&&old?.assignedTopic===topic.topicId;
+    if(same&&old?.href){
+      mode=savedMode(old)||mode;
+      target=Number(old.target)||target;
+      masteryCheck=old.masteryCheck===true;
+    }
     const modes=mode==='mastery'?['mastery','year8long']:mode==='retention'?['retention','due']:
       mode==='due'?['due','retention']:mode==='weak'?['weak']:null;
-    const progress=topic?Math.min(target,Math.max(same?Number(old.progress)||0:0,tally(topic.topicId,id,modes))):0;
+    let progress=topic?Math.min(target,Math.max(same?Number(old.progress)||0:0,tally(topic.topicId,id,modes))):0;
+    // Mastery cannot be completed by fifteen attempted (possibly wrong) answers.
+    if(id.startsWith('y8-mastery-')&&mode==='mastery'&&
+       state.topicStats?.[topic?.topicId]?.masteryV2?.passedMasteryAt!==today)
+      progress=Math.min(progress,target-1);
     return {id,title:`${label[topic?.subject]||'Year 8'} · ${topic?.topicLabel||description}`,
       detail:description,href:topic?curriculumHref(topic,mode,id):'/study',target,progress,xp:mode==='mastery'?20:15,
       planDate:today,assignedSubject:topic?.subject||null,assignedTopic:topic?.topicId||null,
-      assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,curriculumVersion:3};
+      assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,masteryCheck,curriculumVersion:4};
   };
-  const latin=pick('latin-standard',pools.latin,t=>!coveredTopic(state,t.topicId));
-  const standardPool=pools[subject]||[];
+  const pendingRecall=t=>['check2','check7'].includes(
+    state.topicStats?.[t.topicId]?.masteryV2?.stage);
+  // Reserve every in-progress recall topic for its five-question due date.
+  const latin=pick('latin-standard',pools.latin.filter(t=>!pendingRecall(t)),
+    t=>!coveredTopic(state,t.topicId));
+  const standardPool=(pools[subject]||[]).filter(t=>!pendingRecall(t));
   const standards=['y8-standard-a','y8-standard-b'].map(id=>{
     const topic=pick(id,standardPool,t=>!coveredTopic(state,t.topicId));
     if(topic?.subject){exposure.standard[topic.subject]++;exposure.flex[topic.subject]++;}
     return topic;
   });
   const allTopics=['latin',...rotation].flatMap(s=>pools[s]);
-  const covered=allTopics.filter(t=>coveredTopic(state,t.topicId)&&masteryStage(state.topicStats?.[t.topicId])!=='mastered')
-    .sort((a,b)=>(Number(state.topicStats?.[a.topicId]?.attempted)||0)-(Number(state.topicStats?.[b.topicId]?.attempted)||0));
-  const unmasteredY8=allTopics.filter(t=>masteryStage(state.topicStats?.[t.topicId])!=='mastered');
-  const masteryPool=covered.length?covered:unmasteredY8.length?unmasteredY8:allTopics;
+  const dueMastery=allTopics.filter(t=>{
+    const m=state.topicStats?.[t.topicId]?.masteryV2;
+    return ['check2','check7'].includes(m?.stage)&&m.due&&m.due<=today;
+  }).sort((a,b)=>String(state.topicStats[a.topicId].masteryV2.due)
+    .localeCompare(String(state.topicStats[b.topicId].masteryV2.due))||
+    (state.topicStats[a.topicId].masteryV2.stage==='check7'?-1:1));
+  const generalDue=allTopics.filter(t=>Object.values(state.reviews||{}).some(r=>
+    r?.topicId===t.topicId&&r?.due&&r.due<=today));
+  const due=pick('due-review',dueMastery.length?dueMastery:generalDue.length?generalDue:allTopics,()=>true);
+  const oldDue=previous.get('due-review');
+  const dueCheck=oldDue?.assignedTopic?oldDue.masteryCheck===true:
+    dueMastery.some(t=>t.topicId===due?.topicId);
+  const dueMode=(oldDue?.assignedTopic?savedMode(oldDue):null)||
+    (dueCheck?'due':generalDue.length?'due':'weak');
+  // Never reassign a pending Day 2/7 topic to a new 15-question gate.
+  const learningTopics=allTopics.filter(t=>
+    ['learning','needs-reinforcement'].includes(masteryStage(state.topicStats?.[t.topicId])));
+  const covered=learningTopics.filter(t=>coveredTopic(state,t.topicId))
+    .sort((a,b)=>(Number(state.topicStats?.[a.topicId]?.attempted)||0)-
+      (Number(state.topicStats?.[b.topicId]?.attempted)||0));
+  const masteryPool=covered.length?covered:learningTopics.length?learningTopics:allTopics;
   const mastery=['y8-mastery-a','y8-mastery-b'].map(id=>{
-    const topic=pick(id,masteryPool,t=>!assigned.has(t.topicId),(a,b)=>
+    const old=previous.get(id),awaiting=dueMastery.filter(t=>!assigned.has(t.topicId));
+    const doCheck=!old?.assignedTopic&&awaiting.length>0;
+    const topic=pick(id,doCheck?awaiting:masteryPool,t=>!assigned.has(t.topicId),(a,b)=>
       balancedCompare(a,b,exposure.flex,exposure.mastery,subjects,today));
     if(topic?.subject){exposure.mastery[topic.subject]++;exposure.flex[topic.subject]++;}
-    return topic;
+    return {topic,mode:old?.assignedTopic?(savedMode(old)||'mastery'):doCheck?'due':'mastery',
+      check:doCheck||old?.masteryCheck===true};
   });
-  const weak=pick('weakness-review',masteryPool,t=>Number(state.topicStats?.[t.topicId]?.accuracy||0)<.85);
-  const dueTopic=allTopics.find(t=>
-    state.topicStats?.[t.topicId]?.masteryV2?.due<=today &&
-    ['check2','check7'].includes(state.topicStats[t.topicId].masteryV2.stage));
-  const dueCandidates=dueTopic?[dueTopic]:allTopics.filter(t=>Object.values(state.reviews||{}).some(r=>
-    r?.topicId===t.topicId&&r?.due&&r.due<=today));
-  const due=pick('due-review',dueCandidates.length?dueCandidates:masteryPool,t=>true);
-  const dueMode=dueTopic?'retention':dueCandidates.length?'due':'weak';
+  const weak=pick('weakness-review',learningTopics.length?learningTopics:allTopics,
+    t=>Number(state.topicStats?.[t.topicId]?.accuracy||0)<.85);
   const taught=['latin','french','chemistry','biology','physics'].flatMap(s=>(getCatalog(s,9)||[])
     .filter(t=>t?.status==='enabled'&&Number(t.enabled??t.questions??0)>=15)
     .map(t=>({...t,subject:s,year:9,topicLabel:t.title||t.topicId})));
@@ -127,8 +155,8 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   };
   return [vocab('latin'),vocab('french'),task('latin-standard',latin,'standard',10,'Daily Latin Standard 10'),
     ...standards.map((t,i)=>task('y8-standard-'+('ab'[i]),t,'standard',10,'Year 8 Standard 10 · topic '+(i+1)+' of 2')),
-    ...mastery.map((t,i)=>task('y8-mastery-'+('ab'[i]),t,'mastery',15,'Year 8 Mastery 15 · topic '+(i+1)+' of 2')),
+    ...mastery.map((m,i)=>task('y8-mastery-'+('ab'[i]),m.topic,m.mode,m.check?5:15,m.check?'Year 8 Day 2/7 recall · five questions':'Year 8 Mastery · 13/15 including three independent answers',m.check)),
     task('weakness-review',weak,'weak',10,'Repair weak concepts'),
-    task('due-review',due,dueMode,10,dueMode==='weak'?'Consolidation · nothing due today':'Due review and 2/7-day retention'),
+    task('due-review',due,dueMode,dueCheck?5:10,dueCheck?'Year 8 Day 2/7 recall · five questions':dueMode==='weak'?'Consolidation · nothing due today':'Due review',dueCheck),
     task('year9-light',year9,'standard',15,'Year 9 · light daily study')];
 }
