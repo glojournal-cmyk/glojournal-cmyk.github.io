@@ -1,5 +1,7 @@
 name: Commit User-Selected Generated Notes Pictures
 on:
+  pull_request:
+    paths: [.github/workflows/commit-generated-notes-pictures.yml]
   push:
     branches: [feat/notes-generated-photo-banners-20261023]
     paths: [.github/workflows/commit-generated-notes-pictures.yml]
@@ -7,6 +9,7 @@ permissions:
   contents: write
 jobs:
   commit-generated-png:
+    if: github.event_name != 'pull_request' || (github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'feat/notes-generated-photo-banners-20261023')
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
