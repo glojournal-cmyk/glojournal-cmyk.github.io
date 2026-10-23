@@ -22,7 +22,8 @@ html.lux-daily-ux-ready .paper-wash > main {
 html.lux-daily-ux-ready .lux-practice-view { max-width:none; margin:0; }
 html.lux-daily-ux-ready .lux-practice-view > p:first-child,
 html.lux-daily-ux-ready .lux-practice-view:has([data-question-id]) > header,
-html.lux-daily-ux-ready .lux-practice-view > details { display:none!important; }
+html.lux-daily-ux-ready .lux-practice-view:has([data-question-id]) > details,
+html.lux-daily-task-active .lux-practice-view > details { display:none!important; }
 html.lux-daily-ux-ready .lux-practice-view [data-question-id] {
   width:100%; max-width:none; display:flex; flex-direction:column; gap:10px;
   margin:0; padding:0;
