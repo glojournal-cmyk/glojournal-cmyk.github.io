@@ -1,0 +1,31 @@
+name: Latin Vocabulary Booklet 277 QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - assets/latin-vocabulary-booklet-20261023.js
+      - assets/daily-vocab-y9-20261021.js
+      - assets/daily-vocab-20261003.js
+      - tests/latin-booklet-daily-coverage-20261023.test.mjs
+      - .github/workflows/latin-booklet-daily-20261023.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check module syntax
+        run: |
+          node --check assets/latin-vocabulary-booklet-20261023.js
+          node --check assets/daily-vocab-y9-20261021.js
+          node --check assets/daily-vocab-20261003.js
+      - name: Check full booklet, coverage, rotations, old credit IDs
+        run: |
+          node --test tests/latin-booklet-daily-coverage-20261023.test.mjs tests/daily-vocab-year9-three-20261021.test.mjs
+          node tests/daily-vocab-complete-20261022.mjs
