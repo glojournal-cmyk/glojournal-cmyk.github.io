@@ -1,0 +1,22 @@
+name: Complete Scholar Progress Backup QA
+on:
+  pull_request:
+    paths:
+      - 'assets/full-progress-backup-guard-20261023.js'
+      - 'assets/daily-progress-save.js'
+      - 'assets/index-BLVOhKhN.js'
+      - 'tests/full-progress-backup-guard-20261023.test.mjs'
+      - '.github/workflows/full-progress-backup-20261023.yml'
+  workflow_dispatch:
+jobs:
+  complete-export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/full-progress-backup-guard-20261023.js
+      - run: node --check assets/daily-progress-save.js
+      - run: node --check assets/index-BLVOhKhN.js
+      - run: node --test tests/full-progress-backup-guard-20261023.test.mjs
