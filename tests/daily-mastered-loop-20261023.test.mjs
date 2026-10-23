@@ -26,6 +26,72 @@ const allQ=(topic,n)=>Array.from({length:n},(_,i)=>({
   id:'q'+i,topicId:topic,formal:true,format:'typed_short'
 }));
 
+test('Oct 23 iPad regression: original eight completed tasks restored, only vocab unfinished',()=>{
+  // This reproduces the later screenshot: an already-completed French 20/20
+  // was given a new topic, Mastery A became 0/20, and Latin weak 10/10 and
+  // the Year 9 French 15/15 were switched to unrelated physics 0/10, 15/15.
+  const input=state('2026-10-23');
+  const task=(id,subject,topic,target,progress,mode='standard')=>({
+    id,planDate:input.today,assignedSubject:subject,assignedTopic:topic,
+    assignedYear:id==='year9-light'?9:8,assignedLabel:topic,
+    href:`/study/${subject}/practise?daily=1&locked=1&year=8&mode=${mode}&task=${id}&topic=${topic}`,
+    target,progress
+  });
+  input.daily=[
+    {id:'latin-vocab',target:30,progress:0,planDate:day},
+    {id:'french-vocab',target:30,progress:29,planDate:day},
+    task('latin-standard','latin','la-y8-stage-1-vocabulary',10,10),
+    task('y8-standard-a','biology','bio-y8-food-tests',10,10),
+    task('y8-standard-b','biology','bio-y8-digestion-absorption',10,10),
+    task('y8-mastery-a','french','fr-y8-s12-ks3-extension-irregular-verbs',20,0,'mastery'),
+    task('y8-mastery-b','french','fr-y8-s03-daily-routine-toolkit',20,20,'mastery'),
+    task('weakness-review','physics','phys-y8-forces',10,0,'weak'),
+    task('due-review','latin','la-y8-miscellaneous-words',5,5,'due'),
+    task('year9-light','physics','phys-y9-kinetic',15,15)
+  ];
+  // Earlier saved records, where present, are never thrown away.
+  input.dailyLog[day]={date:day,tasks:input.daily.map(t=>({...t}))};
+  const restored=buildYear8DailyV2(input,get);
+  assert.equal(restored.length,10,'restore the original ten daily tasks, not an eleventh make-up set');
+  const expected=[
+    ['latin-vocab',null,0,30],['french-vocab',null,29,30],
+    ['latin-standard','la-y8-stage-1-vocabulary',10,10],
+    ['y8-standard-a','bio-y8-food-tests',10,10],
+    ['y8-standard-b','bio-y8-digestion-absorption',10,10],
+    ['y8-mastery-a','la-y8-miscellaneous-words',5,5],
+    ['y8-mastery-b','fr-y8-s12-ks3-extension-irregular-verbs',20,20],
+    ['weakness-review','la-y8-core-verbs',10,10],
+    ['due-review','la-y8-preposition-dictionary-entries',5,5],
+    ['year9-light','fr-y9-u1-paris-travel',15,15]
+  ];
+  for(const [id,topic,progress,target] of expected){
+    const row=lookup(restored,id);
+    assert.ok(row,id+' must remain present');
+    if(topic)assert.equal(row.assignedTopic,topic,id+' must not rotate to a different topic');
+    assert.equal(row.progress,progress,id+' must show recorded completed answers');
+    assert.equal(row.target,target,id+' must preserve its original question count');
+  }
+  assert.equal(restored.filter(t=>t.progress===t.target).length,8);
+  assert.equal(lookup(restored,'y8-mastery-topup-a'),undefined);
+  assert.equal(lookup(restored,'y8-mastery-topup-b'),undefined);
+  assert.ok(restored.every(t=>t.planDate===day));
+  assert.equal(lookup(restored,'french-vocab').progress,29,'do not mark French vocab 30/30');
+  assert.equal(lookup(restored,'latin-vocab').progress,0,'do not mark Latin vocab 30/30');
+  assert.ok(!input.formalAttemptLog.length,'repair must not fabricate attempts');
+  const next=buildYear8DailyV2({...input,daily:restored,today:'2026-10-24'},get);
+  assert.equal(lookup(next,'y8-mastery-a').target,20,'new schedule starts tomorrow');
+  assert.equal(lookup(next,'y8-mastery-b').target,20);
+  assert.equal(next.length,10);
+});
+
+test('Oct 23 screenshot restore never grants completion to an unrelated blank app',()=>{
+  const empty=state();
+  const normal=buildYear8DailyV2(empty,get);
+  assert.equal(normal.filter(t=>t.progress>=t.target).length,0);
+  assert.equal(normal.length,10);
+  assert.equal(lookup(normal,'y8-mastery-b').target,20);
+});
+
 test('original ten assignments remain with 165 items when no delayed checks are due',()=>{
   const plan=buildYear8DailyV2(state(),get);
   assert.equal(plan.length,10);
@@ -233,7 +299,7 @@ test('failed recall is returned to reinforcement, not falsely Mastered',()=>{
 
 test('iPad route and replay boot reference this same version',()=>{
   const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
-  const release='20261023-mastery-topup-v1';
+  const release='20261023-original-record-restored1';
   const previous='20261023-topup-receipt-v1';
   assert.ok(read('assets/index-BLVOhKhN.js').includes('year8-daily-v2-20261018.js?v='+release));
   assert.ok(read('assets/quiz-session-y8fix-20260920.js').includes('daily-session-credit-20261021.js?v='+previous));
