@@ -47,7 +47,65 @@ function balancedCompare(a,b,primary,secondary,order,today){
 // On an existing in-flight date, preserve the originally scored five-question
 // recall as a separate task and ADD a make-up 20-question Mastery assignment.
 // Never turn five marked answers into a fake 20/20, or overwrite their receipt.
+// October 23 was an IN-PROGRESS Daily day when its assignments were
+// unintentionally regenerated. The student's before/after iPad screenshots
+// independently establish these exact same-day task receipts. Restore only
+// this one proven record, NOT historical question attempts or Mastered status.
+// All new plans, beginning October 24, continue with two full Mastery 20 sets.
+const OCT23_RESTORED_TASKS = [
+  ['latin-standard','latin',8,'la-y8-stage-1-vocabulary','standard',10,10,false],
+  ['y8-standard-a','biology',8,'bio-y8-food-tests','standard',10,10,false],
+  ['y8-standard-b','biology',8,'bio-y8-digestion-absorption','standard',10,10,false],
+  ['y8-mastery-a','latin',8,'la-y8-miscellaneous-words','due',5,5,true],
+  ['y8-mastery-b','french',8,'fr-y8-s12-ks3-extension-irregular-verbs','mastery',20,20,false],
+  ['weakness-review','latin',8,'la-y8-core-verbs','weak',10,10,false],
+  ['due-review','latin',8,'la-y8-preposition-dictionary-entries','due',5,5,true],
+  ['year9-light','french',9,'fr-y9-u1-paris-travel','standard',15,15,false]
+];
+function restoreVerifiedOct23Daily(state,getCatalog){
+  const date='2026-10-23';
+  const rows=[...(Array.isArray(state.daily)?state.daily:[]),
+    ...(state.dailyLog?.[date]?.tasks||[])];
+  const has=(id,min)=>rows.some(t=>t?.id===id&&Number(t.progress||0)>=min);
+  // Limit the repair to the photographed, substantially completed plan.
+  // Never give another device a completion from a calendar date alone.
+  if(!has('french-vocab',29)||!has('latin-standard',10)||
+     !has('y8-standard-a',10)||!has('y8-standard-b',10)||
+     !has('y8-mastery-b',20))return null;
+  const byId=new Map((state.daily||[]).filter(t=>t.planDate===date).map(t=>[t.id,t]));
+  const logged=state.dailyLog?.[date]?.tasks||[];
+  const linked=(id,topic)=>[byId.get(id),...logged.filter(t=>t.id===id)]
+    .filter(t=>t?.assignedTopic===topic);
+  const vocab=subject=>{
+    const id=subject+'-vocab',old=byId.get(id);
+    const proven=subject==='french'?29:0;
+    const count=Math.min(30,Math.max(proven,Number(dailyVocabTotal(state,subject,date).progress)||0,
+      ...[old,...logged.filter(t=>t.id===id)].map(t=>Number(t?.progress)||0)));
+    return {...old,id,title:label[subject]+' Vocab',
+      detail:'30 vocabulary words: 27 Year 7–8 + 3 Year 9; no sentences.',
+      href:`/study/${subject}/practise?daily=1&locked=1&year=8&mode=y8vocab&task=${id}`,
+      target:30,progress:count,xp:15,requiredCorrect:30,planDate:date};
+  };
+  const restored=OCT23_RESTORED_TASKS.map(([id,subject,year,topicId,mode,target,receipt,masteryCheck])=>{
+    const row=(getCatalog(subject,year)||[]).find(t=>t.topicId===topicId);
+    const title=label[subject]+' · '+(row?.title||topicId);
+    const matches=linked(id,topicId);
+    const progress=Math.min(target,Math.max(receipt,...matches.map(t=>Number(t.progress)||0)));
+    return {id,title,detail:'23 October · original completed Daily assignment',
+      href:curriculumHref({subject,year,topicId},mode,id),target,progress,
+      xp:mode==='mastery'?20:15,planDate:date,assignedSubject:subject,
+      assignedTopic:topicId,assignedYear:year,assignedLabel:row?.title||topicId,
+      masteryCheck,curriculumVersion:4,restoredOriginalDaily:true};
+  });
+  return [vocab('latin'),vocab('french'),...restored];
+}
 export function buildYear8DailyV2(state,getCatalog,learning={}) {
+  // Only Oct 23's already-proven receipts are frozen. Future dates always
+  // follow the normal 20+20 Mastery policy, with retention kept separately.
+  if(state.today==='2026-10-23'){
+    const restored=restoreVerifiedOct23Daily(state,getCatalog);
+    if(restored)return restored;
+  }
   const today=state.today, previous=new Map((state.daily||[]).filter(t=>t.planDate===today).map(t=>[t.id,t]));
   const pools=Object.fromEntries(['latin',...rotation].map(subject=>[subject,curriculumTopics(subject,8,getCatalog,learning)]));
   const exposure=recentSubjectExposure(state,today);
