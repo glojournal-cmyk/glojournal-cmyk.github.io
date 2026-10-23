@@ -66,8 +66,9 @@ test("ignore Recovery work, nonformal answers, and taskless answers",()=>{
  input.formalAttemptLog.push(...Array.from({length:30},(_,i)=>
   form("2026-10-22","latin-standard",i,true,{recoveryFor:"2026-10-21"})));
  const patch=rebuildDatedDailyRecords(input);
- assert.equal(patch.dailyLog["2026-10-22"].tasks.find(t=>t.id==="latin-standard").progress,0);
- assert.equal(patch.dailyLog["2026-10-22"].done,9);
+ // A missing original day cannot be reconstructed if an entire category
+ // only has Recovery-tagged answers. Never fabricate a completion.
+ assert.equal(patch.dailyLog["2026-10-22"],undefined);
 });
 test("missing dated plan requires evidence from all ten task categories",()=>{
  const input=base();input.formalAttemptLog=input.formalAttemptLog.filter(e=>
