@@ -4,10 +4,10 @@ import { readFileSync } from 'node:fs';
 const root = new URL('../',import.meta.url);
 const read = p => readFileSync(new URL(p,root),'utf8');
 const catalog=JSON.parse(read('notes/catalog.json'));
-test('94 unique, dated, expected PDF references',()=>{
- assert.equal(catalog.notes.length,94);
- assert.equal(new Set(catalog.notes.map(n=>n.key)).size,94);
- assert.equal(catalog.notes.reduce((sum,n)=>sum+n.sizeBytes,0),708920205);
+test('95 unique, dated, expected PDF references',()=>{
+ assert.equal(catalog.notes.length,95);
+ assert.equal(new Set(catalog.notes.map(n=>n.key)).size,95);
+ assert.equal(catalog.notes.reduce((sum,n)=>sum+n.sizeBytes,0),703833904);
  for(const n of catalog.notes){
   assert.match(n.filename,/\.pdf$/i);
   assert.match(n.key,/^(summer|year9)\/(latin|french|biology|chemistry|english|mixed)\//);
@@ -107,4 +107,31 @@ test('six Year 9 Latin vocabulary image PDFs have dedicated chapter buttons and 
  assert.match(reader,/isSiteNote\(note\)\?note\.url/);
  assert.match(reader,/workerReady&&available\.has\(n\.key\)/);
  assert.match(read('notes/index.html'),/20261023-latinvocab1/);
+});
+
+test('R2 screenshot confirms Latin Topic 1–6 object names, not necessarily public reader success',()=>{
+ const expected=[
+  'Latin_Topic_1_Sum_and_Possum_Illustrated_Notes.pdf',
+  'Latin_Topic_2_Verbs_One_Image_Per_Page.pdf',
+  'Latin_Topic_3_Adjectives_One_Image_Per_Page.pdf',
+  'Latin_Topic_4_Trojan_Horse_One_Page_Per_Image.pdf',
+  'Topic5_9pages_easy_download.pdf',
+  'Latin_Topic_6_The_Journey_Begins_Image_Generated_10_Pages.pdf'
+ ];
+ for(const filename of expected){
+  const matches=catalog.notes.filter(n=>n.key==='year9/latin/'+filename);
+  assert.equal(matches.length,1,'Expected exactly one Latin topical note: '+filename);
+  assert.equal(matches[0].validation?.r2ScreenshotVisible,true);
+  assert.equal(matches[0].validation?.liveReaderVerified,false);
+  assert.notEqual(matches[0].delivery,'site');
+ }
+ for(const title of ['Latin Topic 2 — Verbs (One Image Per Page)','Latin Topic 3 — Adjectives (One Image Per Page)','Latin Topic 5 — Aeneas and Creusa (9 Pages)']){
+  const n=catalog.notes.find(n=>n.title===title);
+  assert.ok(n);
+  assert.equal(n.approximateSize,true,'Dashboard rounds displayed sizes to MB');
+ }
+ const client=read('notes/library.js');
+ assert.match(client,/isUploadedNote/);
+ assert.match(client,/reader not verified/);
+ assert.match(client,/isOpenable\(note\)/);
 });
