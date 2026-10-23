@@ -1,3 +1,4 @@
+import {LATIN_BOOKLET_GROUPS} from './latin-vocabulary-booklet-20261023.js';
 // Only independent word meanings, spellings and dictionary entries count as Daily Vocab.
 // Grammar transformations, sentences and comprehension belong to their own subject practice.
 function directionOf(q) {
@@ -90,6 +91,37 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
       task:{label:'VOCAB',instruction:'Translate the learned word or short phrase.'}
     };
     if(isHeadword(q,subject))add(q,false);
+  }
+  // Chapter 1–2 revision + the separate Numbers page belong to the older
+  // pool, never to the daily quota of three new Year 9 words. Booklet variants
+  // join old word concepts so existing iPad successes are NOT reset.
+  if(subject==='latin')for(const book of LATIN_BOOKLET_GROUPS){
+    if(!book.chapters.some(c=>c===1||c===2||c==='Numbers'))continue;
+    const word=book.headword,latin=book.entries.join(' / ');
+    const meanings=book.english.join('; ');
+    const key=wordKey(word);
+    const englishHint=book.accepted.find(x=>x.length<50&&!/[;,()]/.test(x))||meanings;
+    for(const toEnglish of [true,false]){
+      const id='daily-latin-booklet-y8-'+key+'-'+(toEnglish?'to-english':'from-english');
+      const acceptedLatin=word==='a/ab'?['a','ab','a/ab']:
+        word==='e/ex'?['e','ex','e/ex']:[word];
+      const q={
+        id,conceptId:'la-y8-concept-vocab-booklet-'+key,
+        topicId:'daily-latin-booklet-chapter-1-2-numbers',topic:'Year 7–8 Latin vocabulary',
+        year:8,status:'enabled',formal:true,format:'typed_exact',
+        _vocabTerm:word,_bookletCanonical:true,_bookletChapters:book.chapters,
+        _bookletEntries:book.entries,
+        prompt:toEnglish?'VOCAB — Give the English meaning of this Latin word.':
+          'VOCAB — Write the Latin word for this English meaning.',
+        stimulus:{text:toEnglish?word:englishHint,
+          direction:toEnglish?'Latin → English':'English → Latin'},
+        answer:{mode:'exact_or_equivalent',accepted:toEnglish?book.accepted:acceptedLatin},
+        feedback:{short:latin+' → '+meanings+'.',
+          steps:[latin+' = '+meanings+'.'],remember:latin+' ↔ '+meanings},
+        task:{label:'VOCAB',instruction:'Translate the learned Latin word.'}
+      };
+      if(isHeadword(q,'latin'))add(q,false);
+    }
   }
   for(const q of year9Items){
     const year9=Number(q.year)===9&&String(q.conceptId||'').startsWith(
@@ -196,8 +228,12 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
     a.concept.localeCompare(b.concept));
   const directionCounts={toEnglish:0,toForeign:0};
   return selected.map((row,i)=>{
-    const choices=row.variants.filter(q=>q.format!=='mc_single');
-    const variants=choices.length?choices:row.variants;
+    // The textbook's complete gloss takes precedence over old abbreviated
+    // meanings, while the earlier question IDs remain in history/rotation.
+    const sourceVariants=row.variants.some(q=>q._bookletCanonical)
+      ? row.variants.filter(q=>q._bookletCanonical):row.variants;
+    const choices=sourceVariants.filter(q=>q.format!=='mc_single');
+    const variants=choices.length?choices:sourceVariants;
     const preferred=directionCounts.toEnglish<=directionCounts.toForeign?'toEnglish':'toForeign';
     const oriented=variants.filter(q=>directionOf(q)===preferred);
     const alternatives=oriented.length?oriented:variants;
