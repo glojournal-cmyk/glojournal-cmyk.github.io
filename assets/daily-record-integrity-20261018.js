@@ -39,6 +39,15 @@ export function mergeDailyRecordRow(previous,incoming,date){
  const fullTen=(row,tasks)=>tasks.length===10&&
    row?.complete===true&&nonneg(row.done)===10&&
    nonneg(row.total)===10&&tasks.every(isDone);
+ // A date-keyed original core Daily completion award proves all 10 original
+ // slots finished, even when a later planner has replaced task details.
+ const fullReceipt=(row,tasks)=>tasks.length===10&&
+   row?.verifiedOriginalCompletionReceipt===true&&
+   row?.complete===true&&nonneg(row.done)===10&&nonneg(row.total)===10;
+ if(fullReceipt(previous,oldTasks)&&
+    newTasks.some(t=>!oldTasks.some(old=>old.id===t.id)))return previous;
+ if(fullReceipt(incoming,newTasks)&&
+    oldTasks.some(t=>!newTasks.some(old=>old.id===t.id)))return incoming;
  if(fullTen(previous,oldTasks)){
    const incomingIds=new Set(newTasks.map(t=>t.id));
    if(newTasks.some(t=>!oldTasks.some(old=>old.id===t.id))||
@@ -62,13 +71,16 @@ export function mergeDailyRecordRow(previous,incoming,date){
    // Only add genuinely new IDs; never throw away a completed old item.
    merged.push(mergeTask({},next));used.add(next.id);
  }
- const total=merged.length,done=merged.filter(isDone).length;
+ const total=merged.length,verifiedReceipt=total===10&&
+   (fullReceipt(previous,oldTasks)||fullReceipt(incoming,newTasks));
+ const done=verifiedReceipt?10:merged.filter(isDone).length;
  const originalFallback=previous?.recoveryFallback===true;
  const newFallback=incoming?.recoveryFallback===true;
  const preferOriginal=previous&&(!originalFallback||newFallback);
  const row={...(preferOriginal?incoming:previous),...(preferOriginal?previous:incoming),
    date:date||previous?.date||incoming?.date,tasks:merged,done,total,
-   complete:total>0&&done===total};
+   complete:total>0&&done===total,
+   ...(verifiedReceipt?{verifiedOriginalCompletionReceipt:true}:{})};
  if(previous&&incoming&&(!originalFallback||!newFallback))delete row.recoveryFallback;
  return row;
 }
