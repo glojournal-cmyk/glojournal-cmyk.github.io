@@ -25,7 +25,7 @@ test('public R2 reader never references backups or exposes writing operations',(
 });
 test('library renders only object-verified PDF links',()=>{
  const js=read('notes/library.js');
- assert.match(js,/available\.has\(note\.key\)/);
+ assert.match(js,/workerReady&&available\.has\(n\.key\)/);
  assert.match(js,/fetch\(API\+'\/catalog'/);
  assert.match(read('notes/index.html'),/library\.js/);
  assert.match(read('assets/study-rpg-integrated-20261019.js'),/\/notes\//);
