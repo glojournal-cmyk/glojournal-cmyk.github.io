@@ -1,0 +1,25 @@
+name: Audit Cloudflare Latin Notes Keys
+on:
+  push:
+    paths:
+      - .github/workflows/audit-r2-latin-20261023.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Compare actual public Latin R2 objects
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import urllib.request,json
+          url='https://gloria-notes-public.glo-journal.workers.dev/catalog'
+          with urllib.request.urlopen(url,timeout=25) as f: data=json.load(f)
+          print('TOTAL_R2_PDF_OBJECTS',len(data.get('files',[])))
+          for o in sorted(data.get('files',[]),key=lambda x:x['key'].lower()):
+              if '/latin/' in o['key'].lower() or 'latin_' in o['key'].lower():
+                  print('R2_LATIN_JSON '+json.dumps(o,ensure_ascii=False,sort_keys=True))
+          PY
