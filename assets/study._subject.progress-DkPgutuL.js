@@ -1,7 +1,7 @@
 import{t as jx}from"./jsx-runtime-Cltr0gcK.js?ux=20261013-corrections2";
-import{C as useStore,t as router,rt as unavailable,dt as useCatalog,buildProgressDashboard as buildDashboard}from"./index-BLVOhKhN.js?v=20261021-medical-careers1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+import{C as useStore,t as router,rt as unavailable,dt as useCatalog,buildProgressDashboard as buildDashboard,m as getTopicCatalog}from"./index-BLVOhKhN.js?v=20261021-medical-careers1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 import{t as Card}from"./card-t5JqoXqT.js?v=20261018-receipt2&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
-import{t as YearSelect}from"./study-year-select-Dx5P4Ogw.js?v=20261018-receipt2&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+import {curriculumTopics} from './daily-curriculum-20261004.js'; import{t as YearSelect}from"./study-year-select-Dx5P4Ogw.js?v=20261018-receipt2&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 import{n as getSubject}from"./subjects-B4IlB2zW.js?ux=20261013-corrections2";
 
 var J=jx();
@@ -168,7 +168,22 @@ function Progress(){
     J.jsx("p",{className:"mt-2 text-muted",children:"There is no verified Year 9 French question bank yet. Switch to Previous year revision to see Year 8 French progress."})
   ]});
 
-  const masteryProgress=data.totalTopics?Math.round(data.masteredCount/data.totalTopics*100):0;
+  // The 65 Year 8 Latin catalogue topics include micro/support topics
+   // without enough independent formal questions to earn 15-question Mastery.
+   // Display the reachable Daily Mastery track, without deleting or hiding
+   // historical Mastered records in the complete curriculum summary.
+   const eligibleMastery=year===8?curriculumTopics(subject,8,getTopicCatalog,{}):null;
+   const masteryTotal=eligibleMastery?eligibleMastery.length:data.totalTopics;
+   const masteryCount=eligibleMastery?eligibleMastery.filter(t=>
+     state.topicStats?.[t.topicId]?.state==='mastered'||
+     state.topicStats?.[t.topicId]?.masteryV2?.stage==='mastered').length:data.masteredCount;
+   const outsideTrack=eligibleMastery?Math.max(0,data.totalTopics-masteryTotal):0;
+   const masteryDetail=eligibleMastery?
+     'Daily Mastery track. '+data.masteredCount+'/'+data.totalTopics+
+     ' Mastered across the full curriculum; '+outsideTrack+
+     ' smaller/support topics are outside the 15-question track.':
+     data.secureCount+' more Secure.';
+   const masteryProgress=masteryTotal?Math.round(masteryCount/masteryTotal*100):0;
   const productionProgress=data.exploredTopics?Math.round(data.productionTopics/data.exploredTopics*100):0;
   const maxActivity=Math.max(1,...data.activity7.map(x=>x.value));
   const assessment=data.assessmentPractice;
@@ -187,7 +202,7 @@ function Progress(){
       J.jsx(Metric,{label:"Study days this week",value:data.weekStudyDays,detail:"Genuine study days only."}),
       J.jsx(Metric,{label:"Subject accuracy",value:data.attempted?pct(data.accuracy)+"%":"—",detail:data.attempted?data.correct+" / "+data.attempted+" correct":"No attempts yet.",progress:data.attempted?pct(data.accuracy):0}),
       J.jsx(Metric,{label:"Due reviews",value:data.dueReviews+data.skillRetentionDue,detail:(data.dueReviews||data.skillRetentionDue)?data.dueReviews+" question review"+(data.dueReviews===1?"":"s")+" · "+data.skillRetentionDue+" skill retention check"+(data.skillRetentionDue===1?"":"s"):"Nothing overdue."}),
-      J.jsx(Metric,{label:"Mastered",value:data.masteredCount+"/"+data.totalTopics,detail:data.secureCount+" more Secure.",progress:masteryProgress})
+      J.jsx(Metric,{label:"Mastered",value:masteryCount+"/"+masteryTotal,detail:masteryDetail,progress:masteryProgress})
     ]}),
 
     J.jsxs("div",{className:"grid gap-3 sm:grid-cols-3",children:[
