@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {
   validatePlainBackup,parseNativeState,nativeImportSnapshot,
-  linkedAdditions,commitToStorage,wouldOverwriteNewerStudy,preservesExistingStudy
+  linkedAdditions,commitToStorage,importReadiness,wouldOverwriteNewerStudy,preservesExistingStudy
 } from '../assets/standalone-progress-import-20261023.js';
 class Storage {
  constructor(entries={}){this.items=new Map(Object.entries(entries));this.failFor=null}
@@ -128,4 +128,25 @@ test('Scholar direct button and fallback encryption page both open standalone im
  assert.match(readFileSync('assets/scholar-iJ2ilQWG.js','utf8'),/window\.location\.href=`\/import-progress\.html`/);
  assert.match(readFileSync('assets/scholar-plain-import-entry-20261023.js','utf8'),/location\.assign\('\/import-progress\.html'\)/);
  assert.match(readFileSync('encrypted-backup-restore.html','utf8'),/id="plain-import-link" href="\/import-progress\.html"/);
+});
+
+test('Import button explains safety prerequisites without bypassing verification',()=>{
+  assert.equal(importReadiness({pending:false}),"Choose and preview a JSON backup first.");
+  assert.match(importReadiness({pending:true,unsafeMerge:true}),/cannot preserve/);
+  assert.match(importReadiness({pending:true,needsSafety:true,safetyAttempted:false}),/Download/);
+  assert.match(importReadiness({pending:true,needsSafety:true,safetyAttempted:true,confirmed:false}),/tick the checkbox/);
+  assert.equal(importReadiness({pending:true,needsSafety:true,safetyAttempted:true,confirmed:true}),"");
+  assert.equal(importReadiness({pending:true,needsSafety:false}),"");
+});
+test('Safety confirmation is explicit, accessible and not a permanently disabled Import control',()=>{
+  const html=readFileSync('import-progress.html','utf8');
+  const js=readFileSync('assets/standalone-progress-import-20261023.js','utf8');
+  assert.match(html,/id="safety-next-step" role="status"/);
+  assert.match(html,/class="safety-check"/);
+  assert.match(html,/20261023-guided-import3/);
+  assert.match(js,/\$\("apply-button"\)\.disabled=!pending \|\| unsafeMerge/);
+  assert.match(js,/const blockReason=importReadiness/);
+  assert.match(js,/if\(!safetyAttempted\)\$\("download-safety"\)\.focus\(\)/);
+  assert.match(js,/else \$\("safety-confirm"\)\.focus\(\)/);
+  assert.match(js,/\$\("safety-confirm"\)\.disabled=false/);
 });
