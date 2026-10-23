@@ -91,15 +91,25 @@
    const uploaded=isUploadedNote(note);
    const btn=node('button','note-row'+(ready?' ready':uploaded?' uploaded':' unavailable'));
    btn.type='button';btn.disabled=!isOpenable(note);
-   btn.setAttribute('aria-label',note.title+' — '+(ready?'Read PDF':uploaded?'Open uploaded PDF; reader not yet verified':'Awaiting upload'));
+   const label=(note.topicLabel?note.topicLabel+' — ':'')+(note.displayTitle||note.title);
+   btn.setAttribute('aria-label',label+' — '+(ready?'Read PDF':uploaded?'Open uploaded PDF; reader not yet verified':'Awaiting upload'));
    btn.append(node('span','row-icon','▤'));
    const main=node('span','row-main');
-   main.append(node('span','row-name',note.title));
+   if(note.topicLabel)main.append(node('span','row-topic',note.topicLabel));
+   main.append(node('span','row-name',note.displayTitle||note.title));
    const sizeLabel=(note.approximateSize?'about ':'')+mb(note.sizeBytes);
    main.append(node('span','row-meta','PDF · '+sizeLabel+(uploaded&&!ready?' · R2 upload shown, reader not verified':'')));
    btn.append(main,node('span','row-action',ready?'Read PDF →':uploaded?'Open PDF →':workerReady?'Awaiting upload':'Unavailable'));
    if(isOpenable(note))btn.addEventListener('click',()=>openDoc(note));
    return btn;
+ }
+ const GROUP_PRIORITY=[
+   'Topics','Vocabulary Chapters','Units and Sections','Named Topics',
+   'Test Revision','General Revision','Dated Revision'
+ ];
+ function groupRank(label){
+   const index=GROUP_PRIORITY.indexOf(label);
+   return index<0?GROUP_PRIORITY.length:index;
  }
  function renderDetail(){
    $('subjectScreen').hidden=true;
@@ -108,16 +118,38 @@
    $('detailTitle').textContent=subjectName(subject)+' Notes';
    const all=notes.filter(n=>n.period===year&&n.subject===subject);
    const search=$('noteSearch').value.trim().toLowerCase();
-   const shown=all.filter(n=>!search||[n.title,n.filename].some(v=>v.toLowerCase().includes(search)));
-   shown.sort((a,b)=>Number(isAvailable(b))-Number(isAvailable(a))||
-     a.title.localeCompare(b.title,undefined,{numeric:true}));
+   const shown=all.filter(n=>!search||[
+     n.displayTitle,n.topicLabel,n.topicGroup,n.title,n.filename
+   ].some(v=>typeof v==='string'&&v.toLowerCase().includes(search)));
    const ready=all.filter(isAvailable).length;
    $('detailCount').textContent=workerReady||all.some(isSiteNote)?ready+' available / '+all.length+' Notes':all.length+' Notes';
+   const groups=new Map();
+   for(const note of shown){
+     const group=note.topicGroup||(note.period==='summer'?'Dated Revision':'General Revision');
+     if(!groups.has(group))groups.set(group,[]);
+     groups.get(group).push(note);
+   }
    const fragment=document.createDocumentFragment();
-   for(const note of shown)fragment.append(noteRow(note));
+   for(const [group,entries] of [...groups.entries()].sort((a,b)=>groupRank(a[0])-groupRank(b[0]))){
+     entries.sort((a,b)=>
+       (a.topicOrder||0)-(b.topicOrder||0) ||
+       (a.displayTitle||a.title).localeCompare(b.displayTitle||b.title,undefined,{numeric:true})
+     );
+     const section=node('section','topic-section');
+     section.dataset.group=group;
+     section.setAttribute('aria-label',group);
+     const header=node('div','topic-section-heading');
+     header.append(node('h2',null,group));
+     header.append(node('span','topic-section-count',entries.length+' '+(entries.length===1?'note':'notes')));
+     section.append(header);
+     const rows=node('div','topic-rows');
+     for(const note of entries)rows.append(noteRow(note));
+     section.append(rows);
+     fragment.append(section);
+   }
    $('noteList').replaceChildren(fragment);
    $('empty').hidden=shown.length!==0;
-   $('empty').textContent=search?'No matching Notes. Try a different search.':'No Image Notes for this subject yet.';
+   $('empty').textContent=search?'No matching Notes. Try a different topic or chapter.':'No Image Notes for this subject yet.';
  }
  function render(){
    $('yearSelect').value=year;
@@ -132,7 +164,7 @@
      const ids=[note.id,...(Array.isArray(recent)?recent:[]).filter(v=>v!==note.id)].slice(0,12);
      localStorage.setItem(READER_RECENT_KEY,JSON.stringify(ids));
    }catch{}
-   $('viewerTitle').textContent=note.title+(isAvailable(note)?'':' · R2 reader unverified');
+   $('viewerTitle').textContent=(note.topicLabel?note.topicLabel+' — ':'')+(note.displayTitle||note.title)+(isAvailable(note)?'':' · R2 reader unverified');
    $('openTab').href=url;
    $('pdfFrame').src=url;
    $('viewer').hidden=false;
@@ -161,7 +193,7 @@
  cleanRoute();
  (async()=>{
    try{
-     const response=await fetch('/notes/catalog.json?v=20261023-latin-r2topics1',{cache:'no-cache'});
+     const response=await fetch('/notes/catalog.json?v=20261023-topicnames1',{cache:'no-cache'});
      if(!response.ok)throw Error('Notes index HTTP '+response.status);
      const manifest=await response.json();
      notes=Array.isArray(manifest.notes)?manifest.notes.filter(n=>n&&n.id&&n.key&&n.title&&n.subject&&n.period):[];
