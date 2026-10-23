@@ -43,8 +43,12 @@ export function replayDailyAnswerCredit(state){
     const seen=new Set(events.filter(e=>evidenceFor(task,e)).map(key));
     const target=Math.max(1,Number(task.target)||1);
     const old=Math.max(0,Number(task.progress)||0);
-    const progress=Math.min(target,Math.max(old,seen.size));
-    if(progress<=old)return task;
+    let progress=Math.min(target,Math.max(old,seen.size));
+    if(task.id.startsWith('y8-mastery-')&&
+       new URL(task.href,'https://app.invalid').searchParams.get('mode')==='mastery'&&
+       state.topicStats?.[task.assignedTopic]?.masteryV2?.passedMasteryAt!==day)
+      progress=Math.min(progress,target-1);
+    if(progress===old)return task;
     changed=true;
     return {...task,progress};
   });
@@ -59,8 +63,8 @@ export function replayDailyAnswerCredit(state){
       const repaired=current.get(t.id);
       if(!repaired)return t;
       const target=Math.max(1,Number(t.target)||Number(repaired.target)||1);
-      const progress=Math.min(target,Math.max(Number(t.progress)||0,Number(repaired.progress)||0));
-      return progress>Number(t.progress||0)?
+      const progress=Math.min(target,Number(repaired.progress)||0);
+      return progress!==Number(t.progress||0)?
         {...t,progress,done:progress>=target}:t;
     });
     const done=tasks.filter(t=>t.done===true||Number(t.progress)>=Number(t.target)).length;
