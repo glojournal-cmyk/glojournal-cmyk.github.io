@@ -5,13 +5,13 @@ import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-
 import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261018-receipt2";
 import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261018-receipt2";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
-import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js";
-import {buildYear8DailyV2} from "./year8-daily-v2-20261018.js?v=20261023-mastered-loop1";
+import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastered20-v1";
+import {buildYear8DailyV2} from "./year8-daily-v2-20261018.js?v=20261023-mastered20-v1";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import("/pet/pet-care-global.js?v=20261011-storage-qa1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261023-mastered-track1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+export * from "./index-BLVOhKhN.core.js?v=20261023-mastered20-v1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 import {
   C as store,
   A as medicalOutfitCatalog,
@@ -26,7 +26,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261021-medical-careers1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+} from "./index-BLVOhKhN.core.js?v=20261023-mastered20-v1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 
 // medical-career-unlock-sync-v1: only unlock earned looks; never edits academic evidence.
 function syncEarnedMedicalOutfits(){
