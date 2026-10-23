@@ -48,6 +48,10 @@ function ensureCss() {
 }
 
 function readApp() {
+  // Reuse the hydrated app state: JSON.parse of a multi-megabyte saved
+  // progress on each companion/nav redraw previously stressed Chrome.
+  const live=globalThis.__luxStore?.getState?.();
+  if(live&&typeof live==="object")return live;
   try {
     const parsed = JSON.parse(localStorage.getItem(APP_KEY) || "{}");
     return parsed && parsed.state ? parsed.state : parsed || {};
