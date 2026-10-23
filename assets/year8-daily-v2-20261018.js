@@ -111,7 +111,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     (state.topicStats[a.topicId].masteryV2.stage==='check7'?-1:1));
   const generalDue=allTopics.filter(t=>Object.values(state.reviews||{}).some(r=>
     r?.topicId===t.topicId&&r?.due&&r.due<=today));
-  const due=pick('due-review',dueMastery.length?dueMastery:generalDue.length?generalDue:allTopics,()=>true);
+  const due=pick('due-review',dueMastery.length?dueMastery:generalDue.length?generalDue:allTopics.filter(t=>!pendingRecall(t)),()=>true);
   const oldDue=previous.get('due-review');
   const dueCheck=oldDue?.assignedTopic?oldDue.masteryCheck===true:
     dueMastery.some(t=>t.topicId===due?.topicId);
