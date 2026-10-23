@@ -24,7 +24,7 @@ const server=createServer((req,res)=>{
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const report=[];
-const RELEASE='studio-shell-stable2';
+const RELEASE='studio-shell-stable3';
 const entrypoint = fs.readFileSync('index.html','utf8').match(/\/assets\/index-BLVOhKhN\.js\?v=[^"']+/)?.[0];
 assert.ok(entrypoint, 'Home must expose the globally synchronized app entrypoint');
 for (const subject of ['french','latin','biology','chemistry','physics','english']) {
