@@ -146,3 +146,30 @@ test('Year 9 Maths Topic 5 and 2 Nov Biology illustrated PDF notes have exact up
  assert.equal(maths[0].period,'year9');
  assert.equal(biology[0].subject,'biology');
 });
+
+
+test('all 96 PDF Notes have meaningful topic labels while preserving original R2 object keys',()=>{
+ assert.equal(catalog.notes.length,96);
+ for(const n of catalog.notes){
+  assert.equal(typeof n.topicLabel,'string');
+  assert.equal(typeof n.displayTitle,'string');
+  assert.equal(typeof n.topicGroup,'string');
+  assert.ok(n.topicLabel.length>2, 'Missing topic label for '+n.filename);
+  assert.ok(n.displayTitle.length>3, 'Missing title for '+n.filename);
+  assert.doesNotMatch(n.displayTitle,/[_]|ImageGenerated|One.Page.Per.Image|\.pdf$/i);
+  if(n.period==='summer'&&n.topicGroup==='Dated Revision'&&n.topicLabel.startsWith('Revision')){
+   assert.match(n.displayTitle,/\d{1,2}\s*(?:Jul|Aug)/,'No invented summer subject topic when only date is known');
+  }
+ }
+ const year9=catalog.notes.filter(n=>n.period==='year9');
+ assert.equal(year9.find(n=>n.subject==='maths').displayTitle,'Equation of a Straight Line');
+ assert.equal(year9.find(n=>n.subject==='biology').displayTitle,'2 November Biology Test Revision');
+ const latin=year9.filter(n=>n.subject==='latin'&&n.topicGroup==='Topics');
+ assert.deepEqual(latin.map(n=>n.topicLabel).sort(),['Topic 1','Topic 2','Topic 3','Topic 4','Topic 5','Topic 6']);
+ const js=read('notes/library.js');
+ assert.match(js,/row-topic/);
+ assert.match(js,/note\.displayTitle\|\|note\.title/);
+ assert.match(js,/topic-section/);
+ assert.match(js,/topicGroup/);
+ assert.match(read('notes/index.html'),/20261023-latinvocab1-generatede2-r2topics1-topicnames1/);
+});
