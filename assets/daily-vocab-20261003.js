@@ -216,10 +216,21 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
   }
   const y9=rows.filter(r=>r.year9),y8=rows.filter(r=>!r.year9);
   const selectedY9=choose(y9,year9Target,'year9-');
-  // Ensure a 30-word session can still fill both quotas if the eligible bank is
-  // small: return only real, distinct words, never fabricated questions.
   selected.push(...selectedY9);
-  const selectedY8=choose(y8,size-selected.length,'');
+  // Repair no more than ten DUE mistakes in each 30-word session. Remaining
+  // due mistakes stay eligible for a later session; a not-yet-due mistake must
+  // never be silently pulled forward as normal vocabulary.
+  const year8Quota=size-selected.length;
+  const dueMistakes=y8.filter(r=>r.wrong&&r.due).sort(rank);
+  const selectedRepairs=dueMistakes.slice(0,Math.min(10,year8Quota)).map(row=>{
+    used.add(row.concept);
+    return {...row,bucket:'vocabulary-error-review'};
+  });
+  selected.push(...selectedRepairs);
+  // A learner still receives fresh words after the ten repairs. The remaining
+  // overdue errors are excluded from this one set, not treated as fresh words.
+  const freshPool=y8.filter(r=>!r.wrong);
+  const selectedY8=choose(freshPool,size-selected.length,'');
   selected.push(...selectedY8);
   // Keep the order of cycle tiers (all still-unanswered words before old
   // successes); the hash makes each tier and each fresh session random.
