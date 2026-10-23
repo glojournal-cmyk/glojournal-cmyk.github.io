@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {
   validatePlainBackup,parseNativeState,nativeImportSnapshot,
-  linkedAdditions,commitToStorage
+  linkedAdditions,commitToStorage,wouldOverwriteNewerStudy,preservesExistingStudy
 } from '../assets/standalone-progress-import-20261023.js';
 class Storage {
  constructor(entries={}){this.items=new Map(Object.entries(entries));this.failFor=null}
@@ -61,11 +61,41 @@ test('import to computer retains dated evidence on computer and imported file',(
  assert.equal(outcome.saved.dailyCompleteAwarded['2026-10-19'],true);
  assert.equal(outcome.saved.dailyLog['2026-10-18'].complete,true);
 });
-test('stale 20 Oct export is blocked from replacing original iPad 22 Oct 10/10',()=>{
- const stored=JSON.stringify({state:current22(),version:10});
- const storage=new Storage({'lux-scholar-garden-v1':stored});
- assert.throws(()=>commitToStorage(sample(),stored,storage),/newer progress/);
- assert.equal(storage.getItem('lux-scholar-garden-v1'),stored);
+test('older 6-task JSON safely merges into device with 22 Oct proof',()=>{
+  const existing=current22();
+  const raw=JSON.stringify({state:existing,version:10});
+  const storage=new Storage({'lux-scholar-garden-v1':raw});
+  assert.equal(wouldOverwriteNewerStudy(sample(),existing),false);
+  const result=commitToStorage(sample(),raw,storage);
+  assert.equal(result.saved.xp,8000);
+  assert.equal(result.saved.daily.length,10);
+  assert.equal(result.saved.dailyCompleteAwarded['2026-10-22'],true);
+  assert.equal(result.saved.dailyLog['2026-10-22'].complete,true);
+  assert.ok(result.saved.studyDays.includes('2026-10-20'));
+  assert.ok(result.saved.unlockedOutfits.includes('pathologist'));
+  assert.ok(result.saved.unlockedOutfits.includes('doctor'));
+  assert.equal(preservesExistingStudy(existing,result.saved),true);
+});
+test('an old incomplete JSON does not fabricate missing 22 Oct completion',()=>{
+  const current={...current22(),dailyLog:{},dailyCompleteAwarded:{},studyDays:['2026-10-23']};
+  const raw=JSON.stringify({state:current,version:10});
+  const storage=new Storage({'lux-scholar-garden-v1':raw});
+  const merged=commitToStorage(sample(),raw,storage);
+  assert.equal(merged.saved.dailyCompleteAwarded['2026-10-22'],undefined);
+});
+test('unsafe merge is still blocked if newer 6-task snapshot loses current 10-task plan',()=>{
+  const oldDevice={xp:20,today:'2026-10-19',studyDays:['2026-10-19'],
+    daily:Array.from({length:10},(_,i)=>task('ten-'+i,10,0))};
+  const raw=JSON.stringify({state:oldDevice,version:10});
+  const storage=new Storage({'lux-scholar-garden-v1':raw});
+  assert.equal(wouldOverwriteNewerStudy(sample(),oldDevice),true);
+  assert.throws(()=>commitToStorage(sample(),raw,storage),/Safety check failed/);
+  assert.equal(storage.getItem('lux-scholar-garden-v1'),raw);
+});
+test('safety checks refuse a merge that drops recorded answer history',()=>{
+  const saved={...current22(),history:[{id:'only-on-device',day:'2026-10-22'}]};
+  const altered={...saved,history:[]};
+  assert.equal(preservesExistingStudy(saved,altered),false);
 });
 test('storage quota error does not overwrite original or leave newly staged linked data',()=>{
  const backup={...sample(),mathsDrafts:{topic5:{answers:5}}};
