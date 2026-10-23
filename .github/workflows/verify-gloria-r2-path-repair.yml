@@ -1,0 +1,60 @@
+name: Verify Recovered Gloria R2 Image Notes Live
+on:
+  pull_request:
+    paths:
+      - .github/workflows/verify-gloria-r2-path-repair.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Wait for automatic path-repair then verify Notes reader
+        shell: bash
+        run: |
+          set -euo pipefail
+          api="https://gloria-notes-public.glo-journal.workers.dev"
+          ready=0
+          for attempt in $(seq 1 45); do
+            curl -fsS --retry 2 --max-time 20 "$api/catalog" > /tmp/gloria-live-catalog.json
+            if python3 - <<'PY'
+          import json
+          f=json.load(open('/tmp/gloria-live-catalog.json'))['files']
+          keys={x['key'] for x in f}
+          expected=[
+            'year9/french/French_Future_Tense_Image_Notes(1).pdf',
+            'summer/biology/19_Aug_Biology_6_Page_Complete_Notes_Illustrated.pdf',
+            'summer/french/French_25_26_July_ImageGenerated_Notes_Merged.pdf',
+            'summer/latin/19_Aug_Latin_5_Page_Complete_Notes.pdf',
+            'year9/chemistry/Chemistry_Revision_Notes_This_Weeks_Test_6_Pages(2).pdf',
+            'year9/english/Dystopian_Literature_High_Grade_Revision_Notes_5_Pages(1).pdf',
+            'year9/latin/The_Loss_of_Creusa_French_Notes_Style_10_Pages.pdf'
+          ]
+          missing=[k for k in expected if k not in keys]
+          print('PUBLISHED_R2_NOTE_COUNT',len(keys),'MISSING_SAMPLE_COUNT',len(missing))
+          if len(keys)<30 or missing:
+            raise SystemExit(1)
+          PY
+            then
+              echo "ALL_RECOVERED_NOTES_READY after attempt $attempt"
+              ready=1
+              break
+            fi
+            sleep 10
+          done
+          [[ "$ready" = 1 ]] || { echo "::error::29 recovered PDF copies not fully published";exit 1; }
+          python3 - <<'PY'
+          import json
+          f=json.load(open('/tmp/gloria-live-catalog.json'))['files']
+          print('LIVE_PDF_COUNT',len(f))
+          print('SUMMER_COUNT',sum(x['key'].startswith('summer/') for x in f))
+          print('YEAR9_COUNT',sum(x['key'].startswith('year9/') for x in f))
+          PY
+          pdf="$api/pdf?key=summer%2Flatin%2F19_Aug_Latin_5_Page_Complete_Notes.pdf"
+          code=$(curl -sS -o /dev/null -w '%{http_code}' -I --max-time 25 "$pdf")
+          [[ "$code" = 200 ]] || { echo "::error::Recovered PDF not readable: HTTP $code";exit 1; }
+          head=$(curl -fsS -H 'Range: bytes=0-3' --max-time 25 "$pdf")
+          [[ "$head" = '%PDF' ]] || { echo "::error::Recovered note PDF header invalid";exit 1; }
+          echo "VERIFIED_RECOVERED_PDF_READ_SUCCESS"
