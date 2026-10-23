@@ -1,0 +1,40 @@
+name: Verify Gloria Notes Study Cards Live
+on:
+  pull_request:
+    paths: [.github/workflows/notes-study-cards-live.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Confirm public Study-style Notes pages, covers and Cloudflare links
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://glojournal-cmyk.github.io"
+          curl --fail --location --retry 3 --retry-delay 3 --max-time 25 "$base/notes/" > /tmp/index.html
+          curl --fail --location --retry 3 --retry-delay 3 --max-time 25 "$base/notes/library.js?v=20261023-study-cards1" > /tmp/library.js
+          curl --fail --location --retry 3 --retry-delay 3 --max-time 25 "$base/notes/library.css?v=20261023-study-cards1" > /tmp/library.css
+          python3 - <<'PY'
+          from pathlib import Path
+          html=Path('/tmp/index.html').read_text()
+          js=Path('/tmp/library.js').read_text()
+          css=Path('/tmp/library.css').read_text()
+          for x in ['id="subjectScreen"','id="detailScreen"','id="yearSelect"','id="subjectGrid"','id="noteList"','study-cards1']:
+            assert x in html, 'Missing production Notes layout marker '+x
+          for x in ['function subjectCard(', 'function renderSubjects(', 'function renderDetail(', 'function noteRow(','/art/study-rpg/']:
+            assert x in js, 'Missing Notes controller '+x
+          assert '.subject-grid{display:grid' in css
+          assert '.bottom-nav{position:fixed' in css
+          print('STUDY_STYLE_SUBJECT_CARDS_LIVE')
+          PY
+          for cover in /art/study-rpg/y9-french.jpg /art/study-rpg/y9-biology.jpg /assets/math-study/maths-cover.svg /assets/math-study/nav/study.svg; do
+            status=$(curl -sS -L -o /dev/null -w '%{http_code}' --max-time 20 "$base$cover")
+            [[ "$status" = 200 ]] || { echo "::error::Missing Study cover $cover HTTP $status"; exit 1; }
+          done
+          echo "STUDY_COVERS_ACCESSIBLE"
+          curl -fsSL --max-time 20 "$base/notes/catalog.json" | python3 -c 'import sys,json;d=json.load(sys.stdin);print("INDEXED_NOTES",len(d["notes"]));assert len(d["notes"])==88'
+          curl -fsSL --max-time 25 "https://gloria-notes-public.glo-journal.workers.dev/catalog" | python3 -c 'import sys,json;d=json.load(sys.stdin); print("CLOUD_READABLE_NOTES",len(d["files"])); assert len(d["files"])>=30'
