@@ -25,7 +25,7 @@ test("Unexpected persistence exceptions remain visible",()=>{
 });
 
 const saveCode=readFileSync(new URL("../assets/daily-progress-save.js",import.meta.url),"utf8");
-const a=saveCode.indexOf("function freeDuplicateBackups()"),b=saveCode.indexOf("\nasync function save()",a);
+const a=saveCode.indexOf("function freeDuplicateBackups()"),b=saveCode.indexOf("\nasync function save(",a);
 assert.ok(a>0&&b>a,"Safe storage cleanup must exist");
 const cleanCode=saveCode.slice(a,b);
 function cleanupFixture({exported=true,approve=true,saveWorks=true}={}){

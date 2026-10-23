@@ -9,6 +9,8 @@ on:
       - 'assets/progression-guard-20260927.js'
       - 'tests/daily-*.mjs'
       - 'tests/mastery-v2-qa.mjs'
+      - 'tests/backup-export.test.mjs'
+      - 'tests/storage-quota.test.mjs'
       - 'assets/quest-recovery-20261011.js'
       - 'assets/backup-vault-20261011.js'
       - '.github/workflows/daily-progress-regression.yml'

@@ -30,7 +30,13 @@ assert.equal(pack.note.mustMemoriseVocabulary.length,75);
 for(const row of pack.note.mustMemoriseVocabulary){
  assert.ok(!row.term.includes(' / '),'Combined French alternatives in notes: '+row.term);
  assert.ok(french.some(v=>norm(v.french)===norm(row.term)),'French vocabulary bank '+row.term);
- assert.ok(pack.questions.some(q=>vocabularyQuestion(q,'french')&&[q.stimulus?.text,...q.answer.accepted].some(v=>norm(v)===norm(row.term))),'French daily bank '+row.term);
+ const matching=pack.questions.filter(q=>[q.stimulus?.text,...q.answer.accepted].some(v=>norm(v)===norm(row.term)));
+ assert.ok(matching.length,'French curriculum question missing '+row.term);
+ // The taught note contains both true vocabulary and whole-sentence model expressions.
+ // Keep all 75 available in Study while excluding full sentences from Daily Vocab.
+ const sentenceCue=/[?？]|…|^(?:je\\b|j['’]|tu\\b|vous\\b)/i.test(row.term);
+ if(sentenceCue)assert.ok(!matching.some(q=>vocabularyQuestion(q,'french')),'Full-sentence expression leaked into word-only Daily Vocab '+row.term);
+ else assert.ok(matching.some(q=>vocabularyQuestion(q,'french')),'French daily headword missing '+row.term);
 }
 const quiz=fs.readFileSync('assets/quiz-session-rWAnuDVj.js','utf8');
 const context=vm.createContext({d:norm,a:norm,x:s=>s.normalize('NFC').trim().replace(/\s+/g,' ')});
@@ -65,4 +71,4 @@ vm.runInContext(quiz.slice(quiz.indexOf('function D('),quiz.indexOf('function O(
 const dictation=dictationContext.D('french',8,'all');
 assert.ok(dictation.find(v=>v.answer==='marrant').extra.includes('rigolo'),'Dictation loses synonym alternatives');
 assert.ok(fs.readFileSync('assets/session._kind-WQJEPsST.js','utf8').includes('[x.french,...x.extra??[]]'),'Legacy daily synonym marking missing');
-console.log('YEAR7_VOCABULARY_COMPLETENESS passed: 135 Latin entries, 75 French entries, enabled daily coverage, 50 new questions, accents, gender and synonym marking.');
+console.log('YEAR7_VOCABULARY_COMPLETENESS passed: 135 Latin entries, 75 French entries, sentence-free daily vocabulary and 75 complete Study note entries, 50 new questions, accents, gender and synonym marking.');
