@@ -71,6 +71,11 @@ export function SessionResult({score,formalCount,coach,errors,daily,backHref,nex
     ' repaired · +'+score.repairPoints+' session points'):null,
  h(ProgressSummary,{gains}),
  points.length?h('div',{className:'mt-4'},h('h2',{className:'font-display text-xl font-semibold'},'Focus on next'),h('ul',{className:'mt-2 space-y-2'},...points.map((p,i)=>h('li',{key:i,className:'rounded-xl bg-sage/50 p-3'},h('p',{className:'font-medium'},p.title),h('p',{className:'mt-1 text-sm text-muted'},p.detail))))):h('p',{className:'mt-4 rounded-xl bg-sage/50 p-3 text-sm'},'No missed answers in this set. A later review will check what you still remember.'),
+ // Always offer a clear direct Home route after a completed quiz.
+ // Browser-level navigation avoids reusing a stale, memory-heavy SPA root.
+ h('a',{href:'/',className:'mt-4 mr-3 inline-flex min-h-11 items-center rounded-full border border-line bg-card px-5 text-navy',
+   onClick:event=>{if(typeof window==='undefined')return;event.preventDefault();window.location.assign('/');}},
+   'Return to Home'),
  marks&&onAgain?h('button',{type:'button',onClick:onAgain,className:'mt-4 min-h-11 rounded-full bg-navy px-5 text-card'},'Choose the next practice set'):null,
  !daily&&nextHref?h('a',{href:nextHref,className:'mt-4 inline-flex min-h-11 items-center rounded-full bg-navy px-5 text-card'},marks?'Start another set':'Continue practice'):null,
  h('details',{className:'mt-5 border-t border-line pt-3'},h('summary',{className:'min-h-11 cursor-pointer py-2 font-medium'},'Detailed results & skill analysis'),
