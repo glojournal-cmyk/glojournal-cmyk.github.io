@@ -2985,7 +2985,27 @@ async function restoreDurableMarkedAnswers(){
  }catch(error){console.warn("Evidence journal replay unavailable",error)}
  finally{evidenceReadBusy=false}
 }
-store.subscribe(() => normalizeState());
+// OOM safety: the full 30-day reconciliation scans every formal attempt and
+// serializes historical Daily rows. NEVER run it on unrelated state changes
+// (XP animation, wardrobe, sound, draft UI or route navigation). On large
+// original Chrome profiles that caused serial full-store writes and tab OOM.
+// Task/answer changes still trigger reconciliation, coalesced into one pass.
+const NORMALIZE_LEARNING_FIELDS = [
+ "today","daily","dailyLog","topicStats","skillStats","reviews","formalAttemptLog",
+ "dailyCurriculumEvidenceByDay","dailyTopicAttemptsByDay","dailyVocabByDay",
+ "recoveryVocabByDay","recoveryTaskByDay","recoveryAwarded","dailyCompleteAwarded",
+ "questionsToday","spellingDue","year","peDays","peSessions"
+];
+let normalizePendingTimer=null;
+store.subscribe((next,previous) => {
+ if (!allowNormalize || normalizing || sealingDay || !previous) return;
+ if (!NORMALIZE_LEARNING_FIELDS.some(key => next[key] !== previous[key])) return;
+ if (normalizePendingTimer !== null) return;
+ normalizePendingTimer=setTimeout(() => {
+   normalizePendingTimer=null;
+   normalizeState();
+ },180);
+});
 store.persist?.onFinishHydration?.(() => {
  normalizeState();void restoreDurableMarkedAnswers();
 });
