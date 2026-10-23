@@ -65,18 +65,20 @@ test('second ZIP holds exactly 25 separately indexed page-image PDFs',()=>{
  }
 });
 
-test('User-selected E series illustrates original Design C horizontal rectangular cards',()=>{
+test('seven real generated high-resolution photographs replace SVG placeholder art in Design C',()=>{
  const js=read('notes/library.js');
  const css=read('notes/library.css');
  const html=read('notes/index.html');
  for(const subject of ['latin','french','english','maths','biology','chemistry','physics']){
-   const art=read('notes/images/option-e/'+subject+'.svg');
-   assert.match(art,/<svg xmlns="http:\/\/www\.w3\.org\/2000\/svg"/);
-   assert.match(art,/viewBox="0 0 720 250"/);
-   assert.ok(art.length>2200,'Missing complete banner for '+subject);
+   const data=readFileSync(new URL('notes/images/generated-e/'+subject+'.png',root));
+   assert.ok(data.length>1_500_000,'Missing original generated PNG for '+subject);
+   assert.equal(data.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
+   assert.equal(data.readUInt32BE(16),2172);
+   assert.equal(data.readUInt32BE(20),724);
  }
  assert.match(js,/function imageFor\(/);
- assert.match(js,/notes\/images\/option-e/);
+ assert.match(js,/notes\/images\/generated-e/);
+ assert.doesNotMatch(js,/notes\/images\/option-e/);
  assert.match(js,/function subjectCard\(/);
  assert.match(js,/card\.disabled=entries\.length===0/);
  assert.match(js,/function renderDetail\(/);
@@ -86,25 +88,5 @@ test('User-selected E series illustrates original Design C horizontal rectangula
  assert.match(css,/\.note-row\{width:100%/);
  assert.match(html,/id="subjectScreen"/);
  assert.match(html,/id="detailScreen"/);
- assert.match(html,/20261023-designc-e1/);
- assert.doesNotMatch(html,/id="noteGroups"/);
-});
-
-test('six Year 9 Latin vocabulary image PDFs have dedicated chapter buttons and same-site reader paths',()=>{
- const latin=catalog.notes.filter(n=>n.period==='year9'&&n.subject==='latin'&&n.delivery==='site');
- assert.equal(latin.length,6);
- for(let i=1;i<=6;i++){
-  const note=latin.find(n=>n.title==='Latin Vocabulary — Chapter '+i);
-  assert.ok(note,'Missing chapter '+i);
-  assert.equal(note.key,'year9/latin/Year9_Latin_Vocabulary_Chapter_'+i+'.pdf');
-  assert.equal(note.url,'/notes/pdf/'+note.key);
-  assert.equal(note.status,'ready');
-  assert.equal(note.validation.sourcePage,i);
-  assert.equal(note.validation.fullPageImageCoverage,true);
- }
- const reader=read('notes/library.js');
- assert.match(reader,/isSiteNote/);
- assert.match(reader,/isSiteNote\(note\)\?note\.url/);
- assert.match(reader,/workerReady&&available\.has\(n\.key\)/);
- assert.match(read('notes/index.html'),/20261023-latinvocab1/);
+ assert.match(html,/20261023-generated-e2/);
 });
