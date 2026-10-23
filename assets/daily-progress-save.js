@@ -4,7 +4,7 @@ import { C as store } from "/assets/index-BLVOhKhN.js?v=20261023-share-permissio
 import { assertFullProgressBackup } from "./full-progress-backup-guard-20261023.js";
 import {prepareLatest30DayExport} from "./latest-30-day-export-20261023.js?v=1";
 import {assessImport,mergeImportProgress} from "./backup-import-safety-20261023.js";
-import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
+import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261023-preserve-ten1";
 import {requestJsonDownload,nextAutoBackupDelay,verifiedDailyDone} from "./backup-download-reliable-20261023.js";
 
 const SNAPSHOT_KEY = "lux-daily-manual-backup-v1";
