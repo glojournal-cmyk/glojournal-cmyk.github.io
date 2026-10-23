@@ -24,7 +24,11 @@ function attach(){
  queueMicrotask(reconcile);
  return true;
 }
-if(typeof window!=="undefined"){
+// Emergency iPad startup isolation (23 Oct): the historical-only automatic
+// replay can be costly or interact with other store subscriptions on reload.
+// Do not mutate history or delete it. Re-enable after isolated regression QA.
+const ENABLE_DATED_HISTORY_STARTUP_REPAIR=false;
+if(ENABLE_DATED_HISTORY_STARTUP_REPAIR && typeof window!=="undefined"){
  for(const event of ["lux:app-ready","lux:ux-state","DOMContentLoaded"])
   window.addEventListener(event,attach,{once:true});
  window.addEventListener("pageshow",attach);
