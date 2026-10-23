@@ -76,9 +76,9 @@ test('A session with no marked answers cannot generate completion',()=>{
 
 test('iPad loads cache-busted quiz, Daily route, wrapper and core (not stale JavaScript)',()=>{
  const file=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
- const practiceRelease='20261023-study-catalog-fix2';
- const quizRelease='20261023-mastered20-v1';
- const creditRelease='20261023-mastery-count20-v1';
+ const practiceRelease='20261023-mastery-topup1';
+ const quizRelease='20261023-topup-quiz-v1';
+ const creditRelease='20261023-topup-receipt-v1';
  // The core gets a fresh version when a different app feature is repaired.
  // Require a dated cache-buster, not one frozen release name.
  assert.ok(/index-BLVOhKhN\.core\.js\?v=20261023-[a-z0-9-]+/.test(file('assets/index-BLVOhKhN.js')));
