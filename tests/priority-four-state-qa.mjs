@@ -7,7 +7,8 @@ assert.equal(mistakeReviewTask({today:'2026-10-04',reviews:fixed}).reviewQuestio
 assert.deepEqual(mistakeReviewTask({today:'2026-10-10',reviews:fixed}).reviewQuestionIds,['old']);
 assert.equal(mistakeReviewTask({today:'2026-10-11',reviews:retainMistakeReview(fixed,'old','2026-10-10')}).reviewQuestionIds.length,0);
 assert.deepEqual(mistakeReviewTask({today:'2026-10-05',reviews:{old:{...fixed.old,wrong:true,lastWrong:'2026-10-04',due:'2026-10-06'}}}).reviewQuestionIds,['old']);
-const items=['learned','unlearned'].map(topic=>({id:topic,topicId:topic,conceptId:'fr-y8-concept-vocab-'+topic,format:'typed_exact',answer:{accepted:['mot']}}));
+const items=['learned','unlearned'].map(topic=>({id:topic,topicId:topic,conceptId:'fr-y8-concept-vocab-'+topic,format:'typed_exact',status:'enabled',prompt:'Translate into English: '+topic,
+  stimulus:{text:topic,direction:'French → English'},answer:{accepted:['mot']}}));
 assert.deepEqual(selectDailyVocabulary({subject:'french',day:'2026-10-03',items,topicLearning:{unlearned:false}}).map(q=>q.id),['learned']);
 // Backup rotation and quota behaviour now live in the async IndexedDB vault.
 // Do not exercise the former synchronous localStorage implementation here:

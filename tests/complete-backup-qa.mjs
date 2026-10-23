@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import {linkedBackupManifest,readOptionalBackupJson} from "../assets/export-linked-storage-20261023.js";
 const source=fs.readFileSync("assets/index-BLVOhKhN.js","utf8");
 const block=source.slice(source.indexOf("function readPetBackupState("),source.indexOf("function patchedResetAll("));
 const data=new Map();
@@ -8,8 +9,8 @@ let state={xp:50,today:"2026-10-03",daily:[],dailyTopicAttemptsByDay:{"2026-10-0
 const store={getState:()=>state};
 const originalExportProgress=()=>JSON.stringify({app:"lux-scholar-garden",version:10,state:{xp:state.xp,daily:[]}});
 const originalImportProgress=text=>{const p=JSON.parse(text);state=p.state;return {ok:true};};
-const build=new Function("store","originalExportProgress","originalImportProgress","localStorage","window","PET_REWARD_KEY","CustomEvent",block+";return {exporter:patchedExportProgress,importer:patchedImportProgress};");
-const api=build(store,originalExportProgress,originalImportProgress,localStorage,{dispatchEvent(){}}, "lux-pet-companion-v1",class{});
+const build=new Function("store","originalExportProgress","originalImportProgress","localStorage","window","PET_REWARD_KEY","CustomEvent","linkedBackupManifest","readOptionalBackupJson",block+";return {exporter:patchedExportProgress,importer:patchedImportProgress};");
+const api=build(store,originalExportProgress,originalImportProgress,localStorage,{dispatchEvent(){}}, "lux-pet-companion-v1",class{},linkedBackupManifest,readOptionalBackupJson);
 localStorage.setItem("lux-assessment-v1",JSON.stringify({drafts:{latin:{answers:{0:"porto"}}},results:[{score:90}],tracker:[{subject:"French"}]}));
 localStorage.setItem("lux-pet-companion-v1",JSON.stringify({species:"moss-hornling",masteryPoints:30}));
 const mathsSample={version:1,records:{"math-y9-indices-001":{attempts:2,reviewed:true,correct:false}}};
