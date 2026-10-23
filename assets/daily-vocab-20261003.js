@@ -165,6 +165,7 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
       (review.lastAt?'T'+review.lastAt:''),false,review.due);
   }
   const credited=new Set(),recent=new Set(),encounters=new Map();
+  const creditedQuestionIds=new Set();
   for(const [date,subjects] of Object.entries(ledger).sort(([a],[b])=>a.localeCompare(b))){
     if(date>day)continue;
     const successful=new Set();
@@ -174,7 +175,7 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
         if(!latest.has(concept)||date>latest.get(concept).date)remember(concept,date,!!correct,due);
         if(!correct)continue;
         successful.add(concept);
-        if(date===day)credited.add(concept);
+        if(date===day){credited.add(concept);creditedQuestionIds.add(id);}
         else if(dayDistance(day,date)<=2)recent.add(concept);
       }
     }
@@ -196,10 +197,13 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
       year9:concept.includes('-y9-vocab-'),
       order:hash(`${seed}:${subject}:${concept}:rotation`)});
   }
-  const year9Target=Math.min(3,size),selected=[],used=new Set();
+  const year9Target=Math.min(size<=3?0:3,size),selected=[],used=new Set();
   // Only repeat a successfully recalled word when the remaining pool in that
   // year is insufficient to fill the quota. Unanswered and wrong words lead.
-  const rank=(a,b)=>a.correctTimes-b.correctTimes ||
+  // Remaining-credit mode MUST prefer a never-credited word over one that
+  // was already answered correctly today, even if it has more historic passes.
+  const rank=(a,b)=>Number(credited.has(a.concept))-Number(credited.has(b.concept)) ||
+    a.correctTimes-b.correctTimes ||
     Number(!(a.wrong&&a.due))-Number(!(b.wrong&&b.due)) ||
     Number(a.recent)-Number(b.recent) || a.order-b.order ||
     a.concept.localeCompare(b.concept);
@@ -224,7 +228,7 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
   // due mistakes stay eligible for a later session; a not-yet-due mistake must
   // never be silently pulled forward as normal vocabulary.
   const year8Quota=size-selected.length;
-  const dueMistakes=y8.filter(r=>r.wrong&&r.due).sort(rank);
+  const dueMistakes=y8.filter(r=>r.wrong&&r.due&&!credited.has(r.concept)).sort(rank);
   const selectedRepairs=dueMistakes.slice(0,Math.min(10,year8Quota)).map(row=>{
     used.add(row.concept);
     return {...row,bucket:'vocabulary-error-review'};
@@ -253,7 +257,13 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
     const preferred=directionCounts.toEnglish<=directionCounts.toForeign?'toEnglish':'toForeign';
     const oriented=variants.filter(q=>directionOf(q)===preferred);
     const alternatives=oriented.length?oriented:variants;
-    const q=alternatives[hash(`${seed}:${row.concept}:direction`)%alternatives.length];
+    // The *question ID* is the daily-credit key. Prefer a new direction/ID
+    // before repeating any question already credited today.
+    const uncreditedVariants=alternatives.filter(q=>!creditedQuestionIds.has(q.id));
+    const eligible=uncreditedVariants.length?uncreditedVariants:
+      variants.filter(q=>!creditedQuestionIds.has(q.id));
+    const pickFrom=eligible.length?eligible:alternatives;
+    const q=pickFrom[hash(`${seed}:${row.concept}:direction`)%pickFrom.length];
     const actual=directionOf(q);if(actual)directionCounts[actual]++;
     return {...q,_dailyBucket:row.bucket,_previousSeen:row.encounters,_dailyVocab:subject,
       _dailyYear8:!row.year9,_dailyYear9:row.year9,_adaptiveRank:i,_adaptiveBucket:row.bucket};
