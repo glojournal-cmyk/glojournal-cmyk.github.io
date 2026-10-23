@@ -7,7 +7,7 @@ import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUno
 import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261018-receipt2";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastery-count20-v1";
-import {buildYear8DailyV2} from "./year8-daily-v2-20261018.js?v=20261023-mastery-topup-v1";
+import {buildYear8DailyV2} from "./year8-daily-v2-20261018.js?v=20261023-original-record-restored1";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
@@ -1481,9 +1481,31 @@ function writeDailyLog(existing, date, daily) {
   const done = tasks.filter((task) => task.done).length;
   const incoming = { date, done, total: tasks.length, complete: done === tasks.length, tasks };
   const prev = base[date];
-  // Never replace a saved 10/10 or partial Recovery with a temporarily
-  // recalculated 0/10 on hydration, date rollover or router transition.
-  const row=mergeDailyRecordRow(prev,incoming,date);
+  // 23 Oct was incorrectly reassigned while the student had already completed
+  // eight of ten tasks. The original task IDs survived, but some assigned
+  // topics were silently replaced. Preserve the full pre-repair row as audit
+  // data, restore the screenshot-proven assignments, and do not mistake the
+  // replacement's 0/20 for an unanswered original Mastery 20/20.
+  // This affects ONLY the specifically verified October 23 daily plan.
+  const oct23Repair=date==='2026-10-23'&&
+    Array.isArray(daily)&&daily.length===10&&
+    daily.some(t=>t.restoredOriginalDaily===true);
+  let row;
+  if(oct23Repair){
+    const priorTasks=Array.isArray(prev?.tasks)?prev.tasks:[];
+    const archived=[...(Array.isArray(prev?.preRestoreTasks)?prev.preRestoreTasks:[])];
+    for(const item of priorTasks){
+      if(tasks.some(t=>t.id===item.id&&
+          t.assignedTopic===item.assignedTopic&&t.target===item.target))continue;
+      if(!archived.some(t=>t.id===item.id&&t.assignedTopic===item.assignedTopic))
+        archived.push(item);
+    }
+    row={...(prev||{}),...incoming,restoredOct23Record:true,
+      ...(archived.length?{preRestoreTasks:archived.slice(-25)}:{})};
+  }else{
+    // Do not replace genuinely saved task completion with 0/10 on hydration.
+    row=mergeDailyRecordRow(prev,incoming,date);
+  }
   if (prev && JSON.stringify(prev) === JSON.stringify(row)) return base;
   const log = { ...base, [date]: row };
   const keys = Object.keys(log).sort();
