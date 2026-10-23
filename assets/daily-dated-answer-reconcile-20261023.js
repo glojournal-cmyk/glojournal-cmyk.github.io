@@ -18,8 +18,10 @@ const number=v=>Math.max(0,Number(v)||0);
 const isDay=v=>/^\d{4}-\d{2}-\d{2}$/.test(String(v||""));
 const marked=e=>e && isDay(e.day) && typeof e.questionId==="string" &&
  e.questionId.length>0 && typeof e.correct==="boolean" && e.formal!==false &&
- e.repair!==true && !e.recoveryFor && !e.dailyVocab &&
- typeof e.dailyTaskId==="string";
+ e.repair!==true && !e.recoveryFor && typeof e.dailyTaskId==="string" &&
+ (!e.dailyVocab ||
+   (e.dailyTaskId==="latin-vocab"&&e.dailyVocab==="latin") ||
+   (e.dailyTaskId==="french-vocab"&&e.dailyVocab==="french"));
 // Answers may repeat the same question in vocab; credit distinct correctly
 // answered question IDs only (not total clicks). Other daily assignments count
 // distinct formal answer attempts, including genuine retries.
