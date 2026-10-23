@@ -1,5 +1,12 @@
 name: Standalone Scholar JSON Import QA
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'import-progress.html'
+      - 'assets/standalone-progress-import-20261023.js'
+      - 'tests/standalone-progress-import-20261023.test.mjs'
+      - '.github/workflows/standalone-json-import-20261023.yml'
   pull_request:
     paths:
       - 'import-progress.html'
