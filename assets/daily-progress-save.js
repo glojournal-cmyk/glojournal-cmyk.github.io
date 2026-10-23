@@ -315,9 +315,12 @@ async function restore(data, name, externalSafetyConfirmed=false) {
 }
 function mount() {
   if (document.getElementById(PANEL_ID)) return;
+  if(location.pathname !== "/" && location.pathname !== "/index.html") return;
   const heading = [...document.querySelectorAll("h2")].find(el => el.textContent.trim() === "Raise her today");
-  const card = heading?.parentElement?.parentElement?.parentElement;
-  if (!card) return;
+  // The heading can change with Home redesigns. Keep Import accessible even
+  // when it no longer exists; do not attach to a React-owned node prematurely.
+  const card = heading?.parentElement?.parentElement?.parentElement ||
+    document.querySelector("main") || document.body;
   const panel = document.createElement("details");
   panel.id = PANEL_ID;
   panel.setAttribute("aria-label", "Save daily progress");
