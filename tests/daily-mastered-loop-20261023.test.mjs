@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {buildYear8DailyV2} from '../assets/year8-daily-v2-20261018.js';
 import {addMasteryEvidence,masteryStage} from '../assets/mastery-v2-20261018.js';
 import {reconcileDailySession} from '../assets/daily-session-credit-20261021.js';
@@ -140,7 +141,6 @@ test('failed recall is returned to reinforcement, not falsely Mastered',()=>{
 });
 
 test('iPad route and replay boot reference this same version',()=>{
-  const {readFileSync}=await import('node:fs');
   const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
   const release='20261023-mastered-loop1';
   assert.ok(read('assets/index-BLVOhKhN.js').includes('year8-daily-v2-20261018.js?v='+release));
