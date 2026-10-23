@@ -1,6 +1,6 @@
 import {backupPreview} from "./progress-backup-preview-20261004.js?ux=20261013-corrections2";
 import {readBackup,putBackup,migrateOldBackups,PREVIOUS_KEY,MANUAL_KEY,BEFORE_KEY} from "./backup-vault-20261011.js?v=20261020-quota-retry1&ux=20261013-corrections2";
-import { C as store } from "/assets/index-BLVOhKhN.js?v=20261023-share-permission1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+import { C as store } from "/assets/index-BLVOhKhN.js?v=20261023-one-store-boot1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 import { assertFullProgressBackup } from "./full-progress-backup-guard-20261023.js";
 import {assessImport,mergeImportProgress} from "./backup-import-safety-20261023.js";
 import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
