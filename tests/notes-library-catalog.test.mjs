@@ -64,3 +64,18 @@ test('second ZIP holds exactly 25 separately indexed page-image PDFs',()=>{
    assert.ok(e.start+e.size<=zip2.archiveBytes);
  }
 });
+
+test('notes are rendered as a single full-width button per PDF grouped by academic year and subject',()=>{
+ const js=read('notes/library.js');
+ const css=read('notes/library.css');
+ const html=read('notes/index.html');
+ assert.match(js,/YEAR_ORDER = \['year9','summer'\]/);
+ assert.match(js,/function yearSection\(/);
+ assert.match(js,/function subjectSection\(/);
+ assert.match(js,/button\.disabled=!ready/);
+ assert.match(js,/function noteRow\(/);
+ assert.match(css,/\.note-row\{width:100%/);
+ assert.match(css,/\.note-list\{display:flex;flex-direction:column/);
+ assert.match(html,/id="noteGroups"/);
+ assert.doesNotMatch(html,/id="cards"/);
+});
