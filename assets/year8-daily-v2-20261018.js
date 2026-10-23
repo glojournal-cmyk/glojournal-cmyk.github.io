@@ -1,6 +1,6 @@
 import {curriculumTopics,curriculumHref} from './daily-curriculum-20261004.js';
 import {coveredTopic,masteryStage} from './mastery-v2-20261018.js';
-import {dailyVocabTotal} from './daily-vocab-total-20261020.js';
+import {dailyVocabTotal} from './daily-vocab-total-20261020.js?v=20261023-final-credit1';
 
 const rotation = ['physics','chemistry','biology','french'];
 const subjects = ['latin','french','biology','chemistry','physics'];
