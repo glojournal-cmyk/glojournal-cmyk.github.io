@@ -32,6 +32,11 @@ jobs:
           node tests/daily-formal-evidence-qa.mjs
           node tests/daily-counting-regression-qa.mjs
           node tests/daily-task-persistence-qa.mjs
+      - name: Test Year 8 daily Mastery to Mastered progression
+        run: |
+          node --test tests/daily-mastered-loop-20261023.test.mjs
+          node --test tests/daily-session-credit-20261021.test.mjs
+          node --test tests/mastery-v2-qa.mjs
       - name: Test independent recovery and backup integrity
         run: |
           node --test tests/recovery-quest.test.mjs tests/backup-export.test.mjs tests/backup-vault.test.mjs tests/storage-quota.test.mjs
