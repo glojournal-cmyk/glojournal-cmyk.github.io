@@ -32,3 +32,14 @@ jobs:
           node --check notes/library.js
           node --check cloudflare-notes/worker.mjs
           node --test tests/notes-library-catalog.test.mjs tests/notes-worker-archive.test.mjs
+          python3 - <<'PY'
+          from pathlib import Path
+          from xml.etree import ElementTree as ET
+          assets=list(Path('notes/images/option-e').glob('*.svg'))
+          assert len(assets)==7, f'Expected seven approved Option E assets, got {len(assets)}'
+          for asset in assets:
+              root=ET.parse(asset).getroot()
+              assert root.tag.endswith('svg')
+              assert root.attrib.get('viewBox')=='0 0 720 250'
+              print('SVG_ART_OK',asset.name)
+          PY
