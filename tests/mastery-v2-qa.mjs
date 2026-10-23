@@ -17,7 +17,7 @@ test('legacy coverage and mastered status survive; a new round advances separate
   assert.equal(coveredTopic({topicStats:{'latin-y8-t1':legacy}},'latin-y8-t1'),true);
   assert.equal(masteryStage(legacy),'mastered');
   let row={};
-  for(let i=0;i<15;i++)row={masteryV2:addMasteryEvidence(row,{day:'2026-10-19',year:8,mode:'mastery',questionId:'q'+i,correct:i<13,format:i<3?'typed_short':'mc_single'})};
+  for(let i=0;i<20;i++)row={masteryV2:addMasteryEvidence(row,{day:'2026-10-19',year:8,mode:'mastery',questionId:'q'+i,correct:i<17,format:i<3?'typed_short':'mc_single'})};
   assert.equal(row.masteryV2.stage,'check2');assert.equal(row.masteryV2.due,'2026-10-21');
   const unchanged=addMasteryEvidence(row,{day:'2026-10-20',year:8,mode:'due',questionId:'early',correct:true});
   assert.deepEqual(unchanged,row.masteryV2);
@@ -52,7 +52,7 @@ test('a previously correct vocabulary concept waits for its due date',()=>{
 test('future plan has two different same-subject Standard topics and retains assigned topic on reload',()=>{
   const state={today:'2026-10-19',daily:[],topicStats:{'latin-y8-t1':{attempted:10,correct:8}},formalAttemptLog:[],dailyVocabByDay:{}};
   const first=buildYear8DailyV2(state,get);
-  assert.equal(first.length,10);assert.equal(first.reduce((sum,t)=>sum+t.target,0),155);
+  assert.equal(first.length,10);assert.equal(first.reduce((sum,t)=>sum+t.target,0),165);
   assert.equal(first.find(t=>t.id==='latin-vocab').target,30);
   const [a,b]=['y8-standard-a','y8-standard-b'].map(id=>first.find(t=>t.id===id));
   assert.equal(a.assignedSubject,b.assignedSubject);assert.notEqual(a.assignedTopic,b.assignedTopic);
