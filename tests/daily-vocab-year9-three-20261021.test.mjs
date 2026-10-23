@@ -89,7 +89,14 @@ for(const subject of ['latin','french']){
     assert.equal(res.length,27);
     assert.ok(res.slice(0,5).every(q=>!Object.keys(completed).some(id=>
       items.find(i=>i.id===id).conceptId===q.conceptId)));
-    assert.ok(res.slice(5).every(q=>items.some(i=>completed[i.id]&&i.conceptId===q.conceptId)));
+    if(subject==='latin'){
+      // The new school booklet extends the pool by ~95 Year 7–8 terms;
+      // unfinished textbook words must win before second-cycle repetitions.
+      assert.ok(res.every(q=>!items.some(i=>completed[i.id]&&i.conceptId===q.conceptId)),
+        'Do not repeat 75 already-correct Latin words while booklet words remain');
+    }else{
+      assert.ok(res.slice(5).every(q=>items.some(i=>completed[i.id]&&i.conceptId===q.conceptId)));
+    }
   });
   test(`${subject}: Year 9 cycles independently from Year 7–8`,()=>{
     const bank=year9DailyVocabulary(subject,frenchTaught);
