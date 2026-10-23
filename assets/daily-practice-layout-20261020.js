@@ -7,7 +7,14 @@
   if (window.__luxDailyPracticeUxV2) return;
   window.__luxDailyPracticeUxV2 = true;
   const pathIsPractice = () => /^\/study\/[^/]+\/practise\/?$/.test(location.pathname);
-  const disabled = () => new URLSearchParams(location.search).get('dailyUxPreview') === '0';
+  // Keep the proven original picker layout for independent Practice by default.
+  // The compact Daily skin is reserved for assigned Daily tasks; a preview opt-in
+  // exists for QA, while dailyUxPreview=0 remains an emergency rollback switch.
+  const disabled = () => {
+    const params = new URLSearchParams(location.search);
+    return params.get('dailyUxPreview') === '0' ||
+      (params.get('daily') !== '1' && params.get('dailyUxPreview') !== '1');
+  };
   const navSpec = [
     ['⌂','Home','/'], ['▣','Study','/study/'], ['◇','Play','/play/'],
     ['♧','Garden','/garden/'], ['♧','Pet','/pet/'],
