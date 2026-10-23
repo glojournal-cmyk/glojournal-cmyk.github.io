@@ -29,12 +29,24 @@
     const ready = !!calendar && state?.today === calendar && tasks.length === 10;
     if (!ready) return { ready:false, count:0, total:10, rows:[], next:null,
       title:"Opening today's journey", subtitle:"Syncing your saved tasks…" };
-    const rows = tasks.map(task => ({
-      id:String(task.id || ""),title:String(task.title || task.id || "Daily task"),
-      target:Math.max(1,Number(task.target)||1),
-      progress:Math.max(0,Math.min(Math.max(1,Number(task.target)||1),Number(task.progress)||0)),
-      done:finished(task),href:validHref(journey,task.href)
-    }));
+    // UI-only: saved dated Daily evidence must outrank a temporary in-memory
+    // zero while an iPad route rehydrates/reconciles. Never borrow a different
+    // day's question or an older version of the assigned topic/target.
+    const dated=Array.isArray(state.dailyLog?.[calendar]?.tasks)?
+      state.dailyLog[calendar].tasks:[];
+    const rows = tasks.map(task => {
+      const target=Math.max(1,Number(task.target)||1);
+      const old=dated.find(t=>t?.id===task.id &&
+        Number(t.target)===target &&
+        (t.assignedTopic||null)===(task.assignedTopic||null) &&
+        (t.assignedSubject||null)===(task.assignedSubject||null));
+      const progress=Math.min(target,Math.max(0,Number(task.progress)||0,
+        Number(old?.progress)||0,old?.done===true?target:0));
+      return {
+        id:String(task.id || ""),title:String(task.title || task.id || "Daily task"),
+        target,progress,done:progress>=target,href:validHref(journey,task.href)
+      };
+    });
     const count = rows.filter(row => row.done).length;
     const remaining = rows.find(row => !row.done && row.href);
     let candidates=[];
