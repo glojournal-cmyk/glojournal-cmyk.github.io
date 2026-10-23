@@ -74,14 +74,17 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   const task=(id,topic,mode,target,description,masteryCheck=false)=>{
     const old=previous.get(id);
     const same=!!topic&&old?.assignedTopic===topic.topicId;
+    // Repair a saved pre-fix route. "retention" was not a recognised
+    // practice mode, so its recorded answers cannot prove the Day 2/7 check.
+    const legacyRecall=same&&savedMode(old)==='retention';
     if(same&&old?.href){
-      mode=savedMode(old)||mode;
-      target=Number(old.target)||target;
-      masteryCheck=old.masteryCheck===true;
+      mode=legacyRecall?'due':savedMode(old)||mode;
+      target=legacyRecall?5:Number(old.target)||target;
+      masteryCheck=legacyRecall||old.masteryCheck===true;
     }
     const modes=mode==='mastery'?['mastery','year8long']:mode==='retention'?['retention','due']:
       mode==='due'?['due','retention']:mode==='weak'?['weak']:null;
-    let progress=topic?Math.min(target,Math.max(same?Number(old.progress)||0:0,tally(topic.topicId,id,modes))):0;
+    let progress=topic?Math.min(target,Math.max(same&&!legacyRecall?Number(old.progress)||0:0,tally(topic.topicId,id,modes))):0;
     // Mastery cannot be completed by fifteen attempted (possibly wrong) answers.
     if(id.startsWith('y8-mastery-')&&mode==='mastery'&&
        state.topicStats?.[topic?.topicId]?.masteryV2?.passedMasteryAt!==today)
