@@ -18,9 +18,9 @@
  const isAvailable=n=>workerReady&&available.has(n.key);
  function subjectName(slug){return SUBJECTS.find(x=>x[0]===slug)?.[1]||slug;}
  function imageFor(y,s){
-   return s==='maths'?'/assets/math-study/maths-cover.svg':
-     s==='mixed'?'/art/study-rpg/y8-english.jpg':
-     '/art/study-rpg/y'+(y==='year9'?'9':'8')+'-'+s+'.jpg';
+   // One fixed set of seven user-selected Option E banners for both years.
+   return s==='mixed'?'/art/study-rpg/y8-english.jpg':
+     '/notes/images/option-e/'+s+'.svg';
  }
  function cleanRoute(){
    const path=decodeURIComponent(location.hash.slice(1)).split('/').filter(Boolean);
@@ -48,12 +48,11 @@
    const art=node('img','subject-art');
    art.src=imageFor(year,slug);art.alt='';
    art.loading='eager';art.decoding='async';
-   if(slug!=='maths' && slug!=='mixed'){
-     art.addEventListener('error',()=>{
-       if(art.dataset.fallback)return;
-       art.dataset.fallback='1';art.src='/art/subjects/'+slug+'.jpg';
-     });
-   }
+   art.addEventListener('error',()=>{
+     // Keep subject card functional if any image asset fails to load.
+     if(art.dataset.fallback)return;
+     art.dataset.fallback='1';art.src=slug==='maths'?'/assets/math-study/maths-cover.svg':'/art/subjects/'+(slug==='mixed'?'english':slug)+'.jpg';
+   });
    const body=node('div','subject-body');
    body.append(node('h2',null,title));
    const stats=node('div','subject-stats');
