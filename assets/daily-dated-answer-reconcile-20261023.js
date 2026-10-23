@@ -1,7 +1,7 @@
 // Restore the 21–22 October incident's dated Daily Record from SAVED answers.
 // Never award XP, Mastery, full-day reward receipts, or generate new answers.
 // Only past dates and exact task-tagged, non-Recovery, marked formal attempts.
-const AFFECTED_DAYS=["2026-10-21","2026-10-22"];
+const AFFECTED_DAYS=["2026-10-20","2026-10-21","2026-10-22"];
 const REQUIRED=[
  ["latin-vocab","Latin Vocab",30,true],
  ["french-vocab","French Vocab",30,true],
