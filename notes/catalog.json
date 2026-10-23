@@ -2,7 +2,7 @@
   "schema": 2,
   "updated": "2026-10-23",
   "source": "ChatGPT Library, image-based PDFs only",
-  "selectionPolicy": "Keep page-image illustrated revision PDFs made from generated note images. Exclude text-layout study books, raw vocabulary lists and original school materials. First-page image checks are preliminary; raw source PDFs still require verification before upload. Six additional image-page PDF candidates discovered through full-library audit on 2026-10-22; raw-byte export currently restricted. 25 all-image-page PDFs from Zip1.zip were byte-checked (6 newly indexed). The R2 archive must be uploaded before they become readable. Zip2.zip audit selected 25 image-page PDFs, excluded 25 tests/practices and two superseded PDF copies; two newly indexed titles, 23 matched earlier titles. Archive is NOT in R2 unless live object exists. Six Year 9 Latin illustrated vocabulary chapter image-PDFs were published directly on the official GitHub Pages site (one original image page per file, checked for six pages and available without Cloudflare R2).",
+  "selectionPolicy": "Keep page-image illustrated revision PDFs made from generated note images. Exclude text-layout study books, raw vocabulary lists and original school materials. First-page image checks are preliminary; raw source PDFs still require verification before upload. Six additional image-page PDF candidates discovered through full-library audit on 2026-10-22; raw-byte export currently restricted. 25 all-image-page PDFs from Zip1.zip were byte-checked (6 newly indexed). The R2 archive must be uploaded before they become readable. Zip2.zip audit selected 25 image-page PDFs, excluded 25 tests/practices and two superseded PDF copies; two newly indexed titles, 23 matched earlier titles. Archive is NOT in R2 unless live object exists. Six Year 9 Latin illustrated vocabulary chapter image-PDFs were published directly on the official GitHub Pages site (one original image page per file, checked for six pages and available without Cloudflare R2). Seven existing Cloudflare R2 Latin learning PDFs have their storage presence evidenced by a parent-supplied R2 screenshot (2026-10-23); live public-worker retrieval was not verified. Filename-index corrections: Topic 2 and Topic 5; new Topic 3. The 2-page visual design preview is excluded from the chapter notes curriculum.",
   "notes": [
     {
       "id": "summer-biology-12_aug_biology_complete_notes",
@@ -1339,19 +1339,30 @@
       "dateAdded": "2026-10-17",
       "sizeBytes": 18299012,
       "key": "year9/latin/Latin_Topic_1_Sum_and_Possum_Illustrated_Notes.pdf",
-      "status": "pending"
+      "status": "pending",
+      "validation": {
+        "r2ScreenshotVisible": true,
+        "validatedFrom": "Cloudflare R2 dashboard screenshot, 23 Oct 2026",
+        "liveReaderVerified": false
+      }
     },
     {
       "id": "year9-latin-latin_topic_2_verbs_illustrated_revision_notes",
       "category": "year9/latin",
       "subject": "latin",
       "period": "year9",
-      "filename": "Latin_Topic_2_Verbs_Illustrated_Revision_Notes.pdf",
-      "title": "Latin Topic 2 Verbs Illustrated Revision Notes",
+      "filename": "Latin_Topic_2_Verbs_One_Image_Per_Page.pdf",
+      "title": "Latin Topic 2 — Verbs (One Image Per Page)",
       "dateAdded": "2026-10-17",
-      "sizeBytes": 6733864,
-      "key": "year9/latin/Latin_Topic_2_Verbs_Illustrated_Revision_Notes.pdf",
-      "status": "pending"
+      "sizeBytes": 1680000,
+      "key": "year9/latin/Latin_Topic_2_Verbs_One_Image_Per_Page.pdf",
+      "status": "pending",
+      "approximateSize": true,
+      "validation": {
+        "r2ScreenshotVisible": true,
+        "validatedFrom": "Cloudflare R2 dashboard screenshot, 23 Oct 2026",
+        "liveReaderVerified": false
+      }
     },
     {
       "id": "year9-latin-latin_topic_4_trojan_horse_one_page_per_image",
@@ -1363,7 +1374,12 @@
       "dateAdded": "2026-10-17",
       "sizeBytes": 3112724,
       "key": "year9/latin/Latin_Topic_4_Trojan_Horse_One_Page_Per_Image.pdf",
-      "status": "pending"
+      "status": "pending",
+      "validation": {
+        "r2ScreenshotVisible": true,
+        "validatedFrom": "Cloudflare R2 dashboard screenshot, 23 Oct 2026",
+        "liveReaderVerified": false
+      }
     },
     {
       "id": "year9-latin-latin_topic_6_the_journey_begins_image_generated_10_pages",
@@ -1375,7 +1391,12 @@
       "dateAdded": "2026-10-17",
       "sizeBytes": 9408630,
       "key": "year9/latin/Latin_Topic_6_The_Journey_Begins_Image_Generated_10_Pages.pdf",
-      "status": "pending"
+      "status": "pending",
+      "validation": {
+        "r2ScreenshotVisible": true,
+        "validatedFrom": "Cloudflare R2 dashboard screenshot, 23 Oct 2026",
+        "liveReaderVerified": false
+      }
     },
     {
       "id": "year9-latin-the_loss_of_creusa_french_notes_style_10_pages",
@@ -1387,19 +1408,30 @@
       "dateAdded": "2026-09-26",
       "sizeBytes": 2041416,
       "key": "year9/latin/The_Loss_of_Creusa_French_Notes_Style_10_Pages.pdf",
-      "status": "pending"
+      "status": "pending",
+      "validation": {
+        "r2ScreenshotVisible": true,
+        "validatedFrom": "Cloudflare R2 dashboard screenshot, 23 Oct 2026",
+        "liveReaderVerified": false
+      }
     },
     {
       "id": "year9-latin-topic_5_aeneas_creusa_9_pages_small",
       "category": "year9/latin",
       "subject": "latin",
       "period": "year9",
-      "filename": "Topic_5_Aeneas_Creusa_9_Pages_SMALL.pdf",
-      "title": "Topic 5 Aeneas Creusa 9 Pages SMALL",
+      "filename": "Topic5_9pages_easy_download.pdf",
+      "title": "Latin Topic 5 — Aeneas and Creusa (9 Pages)",
       "dateAdded": "2026-10-17",
-      "sizeBytes": 4412437,
-      "key": "year9/latin/Topic_5_Aeneas_Creusa_9_Pages_SMALL.pdf",
-      "status": "pending"
+      "sizeBytes": 1520000,
+      "key": "year9/latin/Topic5_9pages_easy_download.pdf",
+      "status": "pending",
+      "approximateSize": true,
+      "validation": {
+        "r2ScreenshotVisible": true,
+        "validatedFrom": "Cloudflare R2 dashboard screenshot, 23 Oct 2026",
+        "liveReaderVerified": false
+      }
     },
     {
       "id": "year9-latin-vocabulary-chapter-1-illustrated-20261023",
@@ -1519,6 +1551,24 @@
         "fullPageImageCoverage": true,
         "source": "Year9_Latin_Vocabulary_6_Individual_Image_Pages.pdf",
         "sourcePage": 6
+      }
+    },
+    {
+      "id": "year9-latin-topic-3-adjectives-one-image-per-page",
+      "category": "year9/latin",
+      "subject": "latin",
+      "period": "year9",
+      "filename": "Latin_Topic_3_Adjectives_One_Image_Per_Page.pdf",
+      "key": "year9/latin/Latin_Topic_3_Adjectives_One_Image_Per_Page.pdf",
+      "title": "Latin Topic 3 — Adjectives (One Image Per Page)",
+      "dateAdded": "2026-10-23",
+      "sizeBytes": 2860000,
+      "approximateSize": true,
+      "status": "pending",
+      "validation": {
+        "r2ScreenshotVisible": true,
+        "validatedFrom": "Cloudflare R2 dashboard screenshot, 23 Oct 2026",
+        "liveReaderVerified": false
       }
     }
   ]
