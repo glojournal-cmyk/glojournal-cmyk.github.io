@@ -1,4 +1,4 @@
-import {dailyVocabTotal} from "./daily-vocab-total-20261020.js";
+import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261023-final-credit1";
 import {readOptionalBackupJson,linkedBackupManifest} from "./export-linked-storage-20261023.js";
 import "./player-ux-20261013.js?ux=20261021-ipad-shell-lock3&uxfix=20261022-priority-ux1";
 import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261023-preserve-ten1";
