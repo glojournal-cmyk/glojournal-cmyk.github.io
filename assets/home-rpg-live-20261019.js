@@ -211,6 +211,18 @@ if (!window.__luxRpgLiveHome) {
         const record = candidates.find(e => /30.day|daily.record|past.30|calendar/i.test(e.textContent.trim() + ' ' + (e.getAttribute('aria-label') || '')));
         if (record) record.click();
         else back.insertAdjacentElement('afterend',make('p','rpg-native-hint','Open your original 30-day record below. Historical records have not been changed.'));
+      } else if (kind === 'backup') {
+        const panel = document.getElementById('daily-save-panel');
+        if(panel){
+          panel.open=true;
+          const section=document.getElementById('daily-recovery-options');
+          if(section)section.open=true;
+          panel.scrollIntoView({block:'center',behavior:'auto'});
+          document.getElementById('daily-import-file-button')?.focus();
+        } else {
+          back.insertAdjacentElement('afterend',
+            make('p','rpg-native-hint','Progress & backup is still loading. Open it from the original Home.'));
+        }
       } else if (kind === 'settings') {
         const settings = [...document.querySelectorAll('main button,header button,aside button,nav button')].find(e => /^settings$/i.test((e.textContent || '').trim()) || /^settings$/i.test(e.getAttribute('aria-label') || ''));
         if (settings) settings.click();
@@ -303,6 +315,11 @@ if (!window.__luxRpgLiveHome) {
       else goalControl.textContent='Reward goal loading…';
     });
     world.append(goalControl);
+    const importControl=make('button','rpg-import-control-live rpg-goal-control-live','Import backup');
+    importControl.type='button';
+    importControl.setAttribute('aria-label','Import saved Scholar Garden progress from Files');
+    importControl.addEventListener('click',()=>nativePanel('backup'));
+    world.append(importControl);
     // Rehome the original no-credit Pet personality greeting into the visible
     // RPG world. The old React Home greeting remains mounted but is hidden.
     const greet = make('button','rpg-greet-control-live','✧ Say hello');
