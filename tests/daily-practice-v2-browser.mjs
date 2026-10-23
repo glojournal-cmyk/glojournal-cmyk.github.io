@@ -24,7 +24,7 @@ const server=createServer((req,res)=>{
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const report=[];
-const RELEASE='studio-layout1';
+const RELEASE='studio-shell-stable2';
 const entrypoint = fs.readFileSync('index.html','utf8').match(/\/assets\/index-BLVOhKhN\.js\?v=[^"']+/)?.[0];
 assert.ok(entrypoint, 'Home must expose the globally synchronized app entrypoint');
 for (const subject of ['french','latin','biology','chemistry','physics','english']) {
@@ -162,6 +162,32 @@ async function checkFixture(browser,engine,kind,viewport){
   assert.equal(handoff.stable,true,'transient React question handoff must not flash the whole page or remount nav');
   assert.equal(handoff.restored,true,'question view styling must remain active after handoff');
   assert.equal(handoff.links,7,'handoff must preserve all seven navigation destinations');
+  // Ensure feedback / results do not remount the classic UI before Next.
+  if (kind==='mc' && viewport.width===1024) {
+    const stable=await page.evaluate(async()=>{
+      const q=document.querySelector('.lux-practice-view [data-question-id]');
+      const nav=document.querySelector('#lux-daily-study-nav');
+      const result=document.createElement('section');
+      result.setAttribute('aria-label','Session result');
+      result.textContent='Session complete. Continue to next task.';
+      q.replaceWith(result);
+      await new Promise(resolve=>setTimeout(resolve,220));
+      const during=document.documentElement.classList.contains('lux-daily-ux-ready') &&
+        document.documentElement.classList.contains('lux-daily-task-active') &&
+        nav?.isConnected && document.querySelector('#lux-daily-study-nav')===nav;
+      result.replaceWith(q);
+      await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+      const after=document.documentElement.classList.contains('lux-daily-ux-ready') &&
+        document.querySelector('#lux-daily-study-nav')===nav;
+      document.documentElement.classList.remove('lux-daily-ux-ready');
+      await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+      const recovered=document.documentElement.classList.contains('lux-daily-ux-ready');
+      return {during,after,recovered};
+    });
+    assert.deepEqual(stable,{during:true,after:true,recovered:true},
+      'iPad Daily Studio must remain modern from result to Next and after html class hydration');
+  }
+
   // The previous 1.2 second timeout restored the LEGACY shell between slower
   // WebKit question loads. Exercise a gap beyond that threshold.
   if (kind==='mc' && viewport.width===1024) {
