@@ -89,7 +89,15 @@ const punctuationCases=[
  [decimal,'0.54',0,'physics'],
  [chemical,'H₂O',1,'chemistry'],
  [chemical,'H2O',1,'chemistry'],
- [chemical,'H2O2',0,'chemistry']
+ [chemical,'H2O2',0,'chemistry'],
+ [decimal,'045',0,'physics'],
+ [{id:'signed-quantity',format:'typed_short',answer:{accepted:['-10 J']}},'10 J',0,'physics'],
+ [{id:'signed-quantity',format:'typed_short',answer:{accepted:['-10 J']}},'-10 J',1,'physics'],
+ [{id:'signed-quantity',format:'typed_short',answer:{accepted:['+10 J']}},'-10 J',0,'physics'],
+ [{id:'direction',format:'typed_short',answer:{accepted:['pH < 7']}},'pH > 7',0,'biology'],
+ [{id:'direction',format:'typed_short',answer:{accepted:['pH < 7']}},'pH < 7',1,'biology'],
+ [{id:'chemical-bond',format:'typed_short',answer:{accepted:['H-O bond']}},'H O bond',0,'chemistry'],
+ [{id:'chemical-bond',format:'typed_short',answer:{accepted:['H-O bond']}},'H–O bond',1,'chemistry']
 ];
 for(const source of sources){
  const grade=fullGrader(source);
