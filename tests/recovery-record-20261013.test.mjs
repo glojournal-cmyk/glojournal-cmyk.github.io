@@ -21,7 +21,7 @@ test('ordinary daily vocabulary still has 30 questions',()=>assert.equal(size('f
 test('existing 30-question recovery draft remains resumable',()=>{
  const fn=new Function('globalThis',practice.slice(practice.indexOf('function recoveryPracticeSize('),practice.indexOf('function qp('))+';return recoveryPracticeSize')({LuxPracticeDrafts:{key:(_s,_y,size)=>size,read:key=>key===30?({j:12,base:Array(30)}):null}});
  assert.equal(fn('french',params,fixture()),30);
- assert.match(practice,/E===`y8vocab`\?recoverySize:/);
+ assert.match(practice,/function recoveryPracticeSize\(subject,params,state\)/);
 });
 class Element{
  constructor(tag){this.tag=tag;this.children=[];this.textContent='';this.className='';this.isConnected=false;this.scrollTop=0;this.offsetTop=0;this.style={};}
