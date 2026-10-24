@@ -40,7 +40,8 @@ export function reconcileDailySession(state,receipt={}) {
   for(const answer of answers){
     const id=String(answer?.questionId||'');
     if(!id||answer.repair||answer.formal===false||
-       typeof answer.correct!=='boolean'||!eligible.has(id)||!remaining.get(id))continue;
+       typeof answer.correct!=='boolean'||(day>='2026-10-24'&&answer.correct!==true)||
+       !eligible.has(id)||!remaining.get(id))continue;
     remaining.set(id,remaining.get(id)-1);
     verified++;
   }
@@ -59,5 +60,5 @@ export function reconcileDailySession(state,receipt={}) {
     dailyLog={...dailyLog,[day]:{...row,tasks,done,total:tasks.length,
       complete:tasks.length>0&&done===tasks.length}};
   }
-  return {changed:true,reason:'marked-answers',daily,dailyLog,progress,target};
+  return {changed:true,reason:day>='2026-10-24'?'correct-answers':'marked-answers',daily,dailyLog,progress,target};
 }
