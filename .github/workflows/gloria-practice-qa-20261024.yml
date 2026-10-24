@@ -5,6 +5,9 @@ on:
     paths:
       - '.github/workflows/gloria-practice-qa-20261024.yml'
   workflow_dispatch:
+concurrency:
+  group: gloria-practice-ipad-qa-20261024
+  cancel-in-progress: true
 permissions:
   contents: write
 jobs:
