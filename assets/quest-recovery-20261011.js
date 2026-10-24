@@ -304,10 +304,12 @@ function mount(){
  // The router can return Home without loading a fresh HTML document.
  // The recovery module now loads on practice and game entry routes as well.
  if(location.pathname!=="/"&&location.pathname!=="/index.html")return;
- // New RPG Home already has a dedicated Recovery route. Do not mount the
- // old Recovery panel over its character art or rescan historic answers.
- if(document.getElementById("lux-rpg-live-home"))return;
- const card=[...document.querySelectorAll("main h2")].find(n=>n.textContent.trim()==="Raise her today")?.parentElement?.parentElement?.parentElement;
+ // On the RPG Home, the Recovery button displays this existing evidence-
+ // based panel as a fixed dialog. Attach it to body (not a React-owned node)
+ // so React updates cannot detach it. Keep it hidden until the dialog opens.
+ const rpgHome=!!document.getElementById("lux-rpg-live-home");
+ const card=rpgHome?document.body:
+   [...document.querySelectorAll("main h2")].find(n=>n.textContent.trim()==="Raise her today")?.parentElement?.parentElement?.parentElement;
  if(!card){
   if(!mount.waiting){
    mount.waiting=true;
@@ -331,7 +333,10 @@ function mount(){
  if(host.parentElement!==card)card.append(host);
  host.hidden=false;
  protectDailyRecord();
- if(!archiveChecked)void restoreArchivedDailyRecord();
+ // Reading every historical IndexedDB snapshot caused avoidable memory use
+ // on iPad. The Recovery dialog reads existing dated records immediately;
+ // archival reconstruction remains available via an explicit button below.
+ if(!archiveChecked&&!rpgHome)void restoreArchivedDailyRecord();
  reconcileCompletedRecoveries();
  backfillDatedFocusEvidence();
 
@@ -547,6 +552,18 @@ function mount(){
  journalStatus.textContent='Independent marked-answer evidence: checking device storage…';
  audit.append(auditTitle,note,results,journalStatus);
  host.append(audit);
+ if(rpgHome&&!archiveChecked){
+   const archiveButton=document.createElement('button');
+   archiveButton.type='button';
+   archiveButton.textContent='Check saved backup for missing dates';
+   archiveButton.addEventListener('click',async()=>{
+     archiveButton.disabled=true;
+     archiveButton.textContent='Checking archived learning records…';
+     await restoreArchivedDailyRecord();
+     mount();
+   },{once:true});
+   host.append(archiveButton);
+ }
  void readMarkedAnswers().then(events=>{
    if(!journalStatus.isConnected)return;
    const counts=Object.fromEntries(auditDates.map(date=>[date,
@@ -571,7 +588,8 @@ let queued=false;function schedule(){
  // Coalesce Home mutations into one frame, and skip the new RPG Home where
  // historical Recovery is already linked separately.
  if(location.pathname!=="/"&&location.pathname!=="/index.html")return;
- if(document.getElementById("lux-rpg-live-home"))return;
+ if(document.getElementById("lux-rpg-live-home") &&
+    !document.documentElement.classList.contains("lux-rpg-recovery-open"))return;
  if(!queued){queued=true;requestAnimationFrame(()=>{queued=false;mount()})}
 }
 // Protect history across router pages, but don't re-scan every historical
@@ -604,15 +622,18 @@ store.subscribe(()=>{
 });
 store.persist?.onFinishHydration?.(()=>{
  if(location.pathname==="/"||location.pathname==="/index.html"){
-  protectDailyRecord();void restoreArchivedDailyRecord();
+  protectDailyRecord();
  }
 });
 window.addEventListener("lux:app-ready",()=>{
  if(location.pathname==="/"||location.pathname==="/index.html"){
-  protectDailyRecord();void restoreArchivedDailyRecord();
+  protectDailyRecord();
  }
 });
-new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true});
+// Do not observe every DOM mutation: the RPG garden animates and React
+// rerenders frequently, producing a feedback loop on memory-constrained iPads.
+// The modal calls this explicit refresh, and ledger changes are subscribed above.
+export function mountRecoveryPanel(){mount();return !!document.getElementById("lux-recovery-quests")}
 window.addEventListener("pageshow",schedule);
 window.addEventListener("popstate",schedule);
 window.addEventListener("lux:app-ready",schedule);
