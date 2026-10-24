@@ -100,22 +100,26 @@ if (!window.__luxRpgLiveHome) {
     document.documentElement.classList.add('lux-rpg-recovery-open');
     const hint = make('p','rpg-modal-note-live','Checking your saved Recovery tasks…');
     root.append(hint);
-    const ensurePanel = attempts => {
-      if (gardenModal !== 'recovery' || !onHome()) return;
-      const panel = document.getElementById('lux-recovery-quests');
-      if (panel) {
+    // Recovery was paused during the iPad memory emergency, so a DOM-only
+    // poll reported "no tasks" even when the feature had never been loaded.
+    // Import on demand: no background Recovery observer on ordinary Home.
+    void import('./quest-recovery-20261011.js?v=20261024-on-demand-rpg1')
+      .then(module => {
+        if (gardenModal !== 'recovery' || !onHome()) return;
+        module.mountRecoveryPanel();
+        const panel = document.getElementById('lux-recovery-quests');
+        if (!panel) throw Error('Recovery panel did not mount');
         hint.remove();
         panel.hidden = false;
         panel.open = true;
         panel.setAttribute('aria-label','Quest Recovery · choose a date');
-        return;
-      }
-      if (attempts < 120) requestAnimationFrame(() => ensurePanel(attempts + 1));
-      else {
-        hint.textContent = 'No Recovery tasks are currently available. Your original study records have not changed.';
-      }
-    };
-    ensurePanel(0);
+      })
+      .catch(error => {
+        console.error('Recovery could not be opened',error);
+        if (gardenModal === 'recovery' && hint.isConnected) {
+          hint.textContent = 'Recovery could not load on this device. Your saved answers have not been cleared. Please try again after reconnecting.';
+        }
+      });
   }
   function openThirtyDayRecord() {
     modalChrome('30-day record');
