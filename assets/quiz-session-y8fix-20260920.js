@@ -67,20 +67,89 @@ import{i as e,n as t,t as n}from"./jsx-runtime-Cltr0gcK.js?ux=20261013-correctio
   }
  }
  return [...options];
-}function L(e){const model=e.answer.modelAnswer||e.answer.accepted?.[0];if(model){if(/\/|\s+or\s+/i.test(model)){const samples=I(e).filter(v=>v!==model&&!/\s+\/\s+|\s+or\s+/i.test(v));if(samples.length)return samples[0]}return model}if(e.answer.requiredGroups?.length)return e.answer.requiredGroups.map(e=>e.alternatives[0]).filter(Boolean).join(` `);if(e.answer.markPoints?.length)return e.answer.markPoints.join(`; `);if(typeof e.answer.value==`number`){let t=e.answer.units?.[0]??``;return`${e.answer.value}${t?` ${t}`:``}`}if(e.answer.labelMap)return Object.entries(e.answer.labelMap).map(([anchor,label])=>`${anchor.toUpperCase()}: ${label}`).join(`; `);return e.answer.pairs?.length?e.answer.pairs.map(e=>`${e.left} → ${e.right}`).join(`; `):e.feedback.short||``}function R(points,response,alternatives){
- let clauses=String(response||``).split(/[.;\n]|\bbut\b/i).map(d).filter(Boolean),count=0;
- for(let i=0;i<points.length;i++){
-  let variants=[points[i],...(alternatives?.[i]||[])];
-  const hit=variants.some(point=>{
-   let target=d(point),tokens=target.split(` `).filter(word=>word.length>3||/^(atp|dna|rna|ion|ions|ph|rf|no|not)$/.test(word)),required=Math.max(1,Math.ceil(tokens.length*.6));
-   if(!tokens.length)return clauses.some(clause=>clause===target);
-   return clauses.some(clause=>{
-    if(/\b(not|never|cannot|cant|doesnt|dont|no|without)\b/.test(clause)&&!/\b(not|never|cannot|cant|doesnt|dont|no|without)\b/.test(target))return false;
-    const words=new Set(clause.split(` `));return tokens.filter(word=>words.has(word)).length>=required;
-   });
-  });if(hit)count++;
+}function L(e){const model=e.answer.modelAnswer||e.answer.accepted?.[0];if(model){if(/\/|\s+or\s+/i.test(model)){const samples=I(e).filter(v=>v!==model&&!/\s+\/\s+|\s+or\s+/i.test(v));if(samples.length)return samples[0]}return model}if(e.answer.requiredGroups?.length)return e.answer.requiredGroups.map(e=>e.alternatives[0]).filter(Boolean).join(` `);if(e.answer.markPoints?.length)return e.answer.markPoints.join(`; `);if(typeof e.answer.value==`number`){let t=e.answer.units?.[0]??``;return`${e.answer.value}${t?` ${t}`:``}`}if(e.answer.labelMap)return Object.entries(e.answer.labelMap).map(([anchor,label])=>`${anchor.toUpperCase()}: ${label}`).join(`; `);return e.answer.pairs?.length?e.answer.pairs.map(e=>`${e.left} → ${e.right}`).join(`; `):e.feedback.short||``}// Indicative, mark-by-mark science grading: credit equivalent ideas, not exact sentences.
+// Structured vocabulary and numerical/formula scoring remain on their existing paths.
+const MARK_SYNONYM_FAMILIES=[
+ ['particle','particles','molecule','molecules'],['epidermis','skin'],['place','put','position','set'],
+ ['layer','piece','sample','specimen'],['coverslip','coverglass'],['slide','microscopeslide'],
+ ['thin','fine-layer'],['coarse','rough-focus'],['focus','focusing','adjustment'],
+ ['objective','lens'],['magnification','power','magnify'],['angle','tilt','tilted','slant','slanted'],
+ ['stain','staining','dye','dyed'],['iodine','iodine-solution'],['bubble','bubbles'],
+ ['decrease','decreases','decreased','decreasing','reduce','reduces','reduced','reducing','lessen','lowered','fall','falls','fell','drop','drops','dropped'],
+ ['prevent','prevents','preventing','avoid','avoids','avoiding','stop','stops'],
+ ['increase','increases','increased','increasing','rise','rises','rising','raise','raises','raised','grow','grows'],
+ ['high','higher','highest','greater','greatest','more','most'],['low','lower','lowest','less','fewer','fewest'],
+ ['escape','escapes','escaping','leave','leaves','leaving','exit','exits','exiting'],
+ ['energy','energetic','energies'],['kinetic','movement','motion'],
+ ['carry','carries','carrying','take','takes','taking','transfer','transfers','transferring','remove','removes','removing'],
+ ['average','mean'],['temperature','temp'],['remain','remaining','rest','leftover'],
+ ['start','begin','begins','beginning','initially','first'],['draw','drawing','sketch','sketching'],
+ ['clear','neat','sharp','distinct'],['unshaded','noshading'],['label','labels','labelled','labeled','labelling','labeling'],
+ ['measure','measures','measured','measuring'],['record','records','recorded','recording','note','noted'],
+ ['repeat','repeated','repeats','repetition'],['accurate','accuracy','precise','precision'],
+ ['volume','capacity'],['calculate','calculates','calculated','compute','workout'],
+ ['fast','faster','fastest','quick','quickly','rapid','rapidly'],['solid','solids'],['liquid','liquids'],['gas','gases'],
+ ['solution','solutions'],['observe','observes','observed','view','views','look','looking']
+];
+const MARK_CANON=new Map(MARK_SYNONYM_FAMILIES.flatMap(family=>family.map(word=>[word,family[0]])));
+const MARK_STOP=new Set('a an the is are was were be been being of to in on at from for with by as and or this that these those they it its their which who what then than when while so can could should would will may might if do does did have has had use using used into onto one each per such e g i we you your'.split(' '));
+function semanticMarkTokens(value){
+ const text=String(value??'').normalize('NFKC').toLowerCase()
+  .replace(/cover[\s-]*slip/g,'coverslip').replace(/microscope[\s-]*slide/g,'microscopeslide')
+  .replace(/\b(?:without|no)\s+shading\b/g,'unshaded')
+  .replace(/\b(?:warmed|warmer|heated|hotter)\b/g,'higher temperature')
+  .replace(/\b(?:cooled|cooler|cooling|colder|cools)\b/g,'lower temperature')
+  .replace(/[’‘]/g,"'").replace(/(\w)-(\w)/g,'$1 $2')
+  .replace(/[^a-z0-9]+/g,' ').trim();
+ return text.split(/\s+/).filter(Boolean).map(word=>{
+  if(MARK_CANON.has(word))return MARK_CANON.get(word);
+  if(word.length>5&&word.endsWith('ies'))word=word.slice(0,-3)+'y';
+  else if(word.length>6&&word.endsWith('ing'))word=word.slice(0,-3);
+  else if(word.length>5&&word.endsWith('ed'))word=word.slice(0,-2);
+  else if(word.length>4&&word.endsWith('es'))word=word.slice(0,-2);
+  else if(word.length>3&&word.endsWith('s')&&!word.endsWith('ss'))word=word.slice(0,-1);
+  return MARK_CANON.get(word)||word;
+ }).filter(w=>!MARK_STOP.has(w));
+}
+function semanticPointMatch(point,response,alternatives=[]){
+ const clauses=String(response??'').split(/\.(?!\d)|[!?;\n]|\bbut\b/i).map(s=>s.trim()).filter(Boolean);
+ if(!clauses.length)return false;
+ for(const variant of [point,...(Array.isArray(alternatives)?alternatives:[])]){
+  // A complete stated rubric point remains creditworthy even in an unpunctuated
+  // paragraph with other points (including a separately negated control).
+  const compact=s=>String(s??'').normalize('NFKC').toLowerCase()
+    .replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();
+  const full=compact(response),needle=compact(variant),offset=full.indexOf(needle);
+  if(needle.length>=10&&offset>=0){
+   const before=full.slice(Math.max(0,offset-36),offset);
+   if(!/\b(?:not|no|never|cannot|without)\b(?:\s+\w+){0,1}\s*$/.test(before))return true;
+  }
+  const target=[...new Set(semanticMarkTokens(variant))];
+  if(!target.length)continue;
+  const required=Math.max(1,Math.ceil(target.length*.55));
+  const negation=/\b(no|not|never|cannot|can't|doesn't|don't|isn't|wasn't|without)\b/i;
+  const targetNegated=negation.test(String(variant));
+  for(const clause of clauses){
+   const seen=new Set(semanticMarkTokens(clause));
+   if(!seen.size)continue;
+   // Preventing bubbles is a valid equivalent of reducing bubbles.
+   if(target.includes('bubble')&&seen.has('prevent'))seen.add('decrease');
+   const studentNegated=negation.test(clause)&&!/\b(?:without|no)\s+shading\b/i.test(clause);
+   if(targetNegated!==studentNegated){
+    if(!(studentNegated&&!targetNegated&&target.includes('prevent')&&/\bwithout\b/i.test(clause)))continue;
+   }
+   const opposites=[['increase','decrease'],['high','low'],['coarse','fine'],['absorb','emit'],['gain','lose']];
+   if(opposites.some(([left,right])=>target.includes(left)&&seen.has(right)&&!seen.has(left)||target.includes(right)&&seen.has(left)&&!seen.has(right)))continue;
+   const numbers=String(variant).match(/\b\d+(?:\.\d+)?\b/g)||[];
+   if(numbers.some(number=>!new RegExp('(?:^|\\D)'+number.replace('.','\\.')+'(?:\\D|$)').test(clause)))continue;
+   const matched=target.filter(word=>seen.has(word)).length;
+   if(matched>=required&&(target.length>2?matched>=2:true))return true;
+  }
  }
- return count;
+ return false;
+}
+function R(points,response,alternatives){
+ return points.reduce((score,point,index)=>score+(semanticPointMatch(point,response,alternatives?.[index]||[])?1:0),0);
 }function z(e,t,n,r=!1){let i=n(t),a=-1;return e.every(e=>{let t=(e.alternatives??[]).map(e=>n(e)).filter(Boolean).map(e=>({value:e,index:i.indexOf(e)})).filter(e=>e.index>=0);if(!t.length)return!1;if(!r)return!0;let o=t.filter(e=>e.index>=a).sort((e,t)=>e.index-t.index)[0];return!!o&&(a=o.index+o.value.length,!0)})}function CX(e){return String(e??``).normalize(`NFKC`).replace(/[₀₁₂₃₄₅₆₇₈₉]/g,e=>({"₀":`0`,"₁":`1`,"₂":`2`,"₃":`3`,"₄":`4`,"₅":`5`,"₆":`6`,"₇":`7`,"₈":`8`,"₉":`9`}[e])).replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺]/g,e=>({"⁰":`0`,"¹":`1`,"²":`2`,"³":`3`,"⁴":`4`,"⁵":`5`,"⁶":`6`,"⁷":`7`,"⁸":`8`,"⁹":`9`,"⁻":`-`,"⁺":`+`}[e])).replace(/−/g,`-`).replace(/→|=/g,`->`).replace(/\s+/g,``).trim()}function CY(e){let t=String(e??``).trim();return!!t&&t.length<=80&&/[A-Z]/.test(t)&&!/[a-z]{3,}/.test(t)&&/^[0-9A-Za-z₀-₉⁰-⁹⁺⁻+\-()=><→⇌.·\s]+$/.test(t)}function NX(e){let t=String(e??``).replace(/,/g,``).replace(/−/g,`-`).replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺]/g,e=>({"⁰":`0`,"¹":`1`,"²":`2`,"³":`3`,"⁴":`4`,"⁵":`5`,"⁶":`6`,"⁷":`7`,"⁸":`8`,"⁹":`9`,"⁻":`-`,"⁺":`+`}[e]));let n=t.match(/[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:\s*(?:[x×*]\s*10\s*\^?\s*[-+]?\d+|[eE]\s*[-+]?\d+))?/);if(!n)return{value:NaN,unit:``};let r=n[0].replace(/\s+/g,``),i;if(/[x×*]10/i.test(r)){let e=r.match(/^([-+]?(?:\d+(?:\.\d*)?|\.\d+))[x×*]10\^?([-+]?\d+)$/i);i=e?Number(e[1])*10**Number(e[2]):NaN}else if(/[eE]/.test(r))i=Number(r.replace(/\s+/g,``));else i=Number(r);let a=t.slice((n.index??0)+n[0].length).trim();return{value:i,unit:a}}function UX(e){return String(e??``).normalize(`NFKC`).replace(/−/g,`-`).replace(/Ω/g,`ohm`).replace(/°\s*C/gi,`degc`).replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺]/g,e=>({"⁰":`0`,"¹":`1`,"²":`2`,"³":`3`,"⁴":`4`,"⁵":`5`,"⁶":`6`,"⁷":`7`,"⁸":`8`,"⁹":`9`,"⁻":`-`,"⁺":`+`}[e])).toLowerCase().replace(/\bper\b/g,`/`).replace(/[.(),]/g,``).replace(/\s+/g,``).trim()}function UM(e,t){if(!t?.length)return!0;let n=UX(e);return!!n&&t.some(e=>UX(e)===n)}function QX(e,t,n){let r=String(t??``).replace(/\band\b/gi,` `).replace(/[;,/|+&]+/g,` `),i=n(r).split(` `).filter(Boolean),a=Array(i.length).fill(!1),o=[];for(let t of e){let e=!1;for(let r of t.alternatives??[]){let o=String(r??``).replace(/\band\b/gi,` `).replace(/[;,/|+&]+/g,` `),s=n(o).split(` `).filter(Boolean);if(!s.length)continue;for(let n=0;n<=i.length-s.length;n++)if(s.every((e,t)=>!a[n+t]&&i[n+t]===e)){for(let e=0;e<s.length;e++)a[n+e]=!0;e=!0;break}if(e)break}e||o.push(t.label||t.alternatives?.[0]||`item`)}let s=i.filter((e,t)=>!a[t]);return{ok:o.length===0&&s.length===0,missing:o,extras:s,matched:e.length-o.length}}// Science prose punctuation separates words; it must not glue "7,neutral" together.
 function scienceProse(value){return String(value??``).normalize(`NFKC`).toLowerCase().replace(/[,;:!?]/g,` `).replace(/\.(?!\d)/g,` `).replace(/\s+/g,` `).trim()}
 function phCategoriesLegacy(value){
