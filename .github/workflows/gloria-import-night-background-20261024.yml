@@ -1,0 +1,33 @@
+name: Install Gloria Night Academy Background
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/gloria-import-night-background-20261024.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  install-night-artwork:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact approved night background
+        run: |
+          mkdir -p assets
+          curl --fail --location --silent --show-error --retry 3 --retry-all-errors --max-time 120 \
+            'https://at.adobe.com/yEwfWulrwiJ1Md7o' \
+            --output assets/gloria-practice-night-academy-20261024.png
+          echo 'a09213c5460d793e378c2d5959b6199e773f0af961026cd6d222bc4e65d9557c  assets/gloria-practice-night-academy-20261024.png' | sha256sum --check -
+          test "$(wc -c < assets/gloria-practice-night-academy-20261024.png)" -eq 2573234
+          file assets/gloria-practice-night-academy-20261024.png | grep -qi 'PNG image'
+      - name: Commit confirmed image asset to GitHub Pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/gloria-practice-night-academy-20261024.png
+          git diff --cached --quiet && exit 0
+          git commit -m "Install user-approved moonlit Gloria academy illustration"
+          git pull --rebase origin main
+          git push origin HEAD:main
