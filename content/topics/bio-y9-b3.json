@@ -2661,22 +2661,280 @@
       },
       "preview": true,
       "ordinary": true
+    },
+    {
+      "id": "bio-y9-b3-aqa-exam-20261024-microscopy-method-6",
+      "conceptId": "bio-y9-b3-aqa-exam-20261024-microscopy-method-6",
+      "topicId": "bio-y9-b3",
+      "topic": "Microscopy and Required Practical 1",
+      "format": "extended_response",
+      "prompt": "GCSE-style practical (6 marks): Explain how a student can prepare an onion epidermis slide, focus a light microscope and make a scientifically useful drawing.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Peel a thin layer of onion epidermis and place it on a clean slide.",
+          "Add an appropriate stain such as iodine solution to improve contrast.",
+          "Lower a coverslip at an angle to reduce air bubbles.",
+          "Start with the lowest-power objective and use coarse focus.",
+          "Use fine focus and increase magnification if needed.",
+          "Produce a clear drawing with single unshaded lines, ruled labels and magnification or scale."
+        ],
+        "markPointAlternatives": [
+          [
+            "Prepare a thin specimen of onion epidermis on a clean slide."
+          ],
+          [
+            "Stain the sample with iodine solution."
+          ],
+          [
+            "Lower the coverslip carefully at an angle."
+          ],
+          [
+            "Begin at low power with coarse focus."
+          ],
+          [
+            "Use fine adjustment for a sharp image."
+          ],
+          [
+            "Draw clear unshaded lines with labels and scale."
+          ]
+        ],
+        "totalMarks": 6,
+        "requireFullMarks": true,
+        "modelAnswer": "Peel a thin layer of onion epidermis and place it on a clean slide. Add an appropriate stain such as iodine solution to improve contrast. Lower a coverslip at an angle to reduce air bubbles. Start with the lowest-power objective and use coarse focus. Use fine focus and increase magnification if needed. Produce a clear drawing with single unshaded lines, ruled labels and magnification or scale."
+      },
+      "stimulus": {
+        "marks": 6
+      },
+      "feedback": {
+        "short": "GCSE-style practice: check 6 distinct indicative marking points; automated feedback is formative, not an official AQA level-of-response judgement.",
+        "steps": [
+          "Peel a thin layer of onion epidermis and place it on a clean slide.",
+          "Add an appropriate stain such as iodine solution to improve contrast.",
+          "Lower a coverslip at an angle to reduce air bubbles.",
+          "Start with the lowest-power objective and use coarse focus.",
+          "Use fine focus and increase magnification if needed.",
+          "Produce a clear drawing with single unshaded lines, ruled labels and magnification or scale."
+        ],
+        "commonError": "A scientifically correct point must address the question; repeated keywords do not earn extra marks.",
+        "remember": "Use complete science reasoning and check all 6 rubric points."
+      },
+      "task": {
+        "label": "AQA GCSE-STYLE · AO2/AO3 · 6 MARKS",
+        "instruction": "Write a complete answer, then compare each indicative point with the model. Automatic marks are formative, not an official GCSE grade."
+      },
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8461",
+        "assessmentObjective": "AO2/AO3",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      }
+    },
+    {
+      "id": "bio-y9-b3-aqa-exam-20261024-microscopy-evaluate-6",
+      "conceptId": "bio-y9-b3-aqa-exam-20261024-microscopy-evaluate-6",
+      "topicId": "bio-y9-b3",
+      "topic": "Microscopy and Required Practical 1",
+      "format": "extended_response",
+      "prompt": "GCSE-style evaluation (6 marks): A pupil draws a cell at high magnification without a scale and concludes that a light microscope can resolve every structure seen using an electron microscope. Evaluate the conclusion and suggest improvements.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Magnification describes how many times larger an image is than the specimen.",
+          "Resolution describes the ability to distinguish two nearby structures separately.",
+          "An electron microscope has greater resolving power than a light microscope.",
+          "A light microscope cannot resolve every subcellular detail visible in an electron microscope.",
+          "The biological drawing should have clear single outlines and no shading.",
+          "Include a scale bar or the magnification so the size can be interpreted."
+        ],
+        "markPointAlternatives": [
+          [
+            "Magnification is how many times bigger an image appears."
+          ],
+          [
+            "Resolution means separating close points as distinct."
+          ],
+          [
+            "Electron microscopy offers higher resolution."
+          ],
+          [
+            "Some subcellular details cannot be seen by light microscopy."
+          ],
+          [
+            "Use clear lines and avoid shading in the drawing."
+          ],
+          [
+            "Include a scale bar or magnification."
+          ]
+        ],
+        "totalMarks": 6,
+        "requireFullMarks": true,
+        "modelAnswer": "Magnification describes how many times larger an image is than the specimen. Resolution describes the ability to distinguish two nearby structures separately. An electron microscope has greater resolving power than a light microscope. A light microscope cannot resolve every subcellular detail visible in an electron microscope. The biological drawing should have clear single outlines and no shading. Include a scale bar or the magnification so the size can be interpreted."
+      },
+      "stimulus": {
+        "marks": 6
+      },
+      "feedback": {
+        "short": "GCSE-style practice: check 6 distinct indicative marking points; automated feedback is formative, not an official AQA level-of-response judgement.",
+        "steps": [
+          "Magnification describes how many times larger an image is than the specimen.",
+          "Resolution describes the ability to distinguish two nearby structures separately.",
+          "An electron microscope has greater resolving power than a light microscope.",
+          "A light microscope cannot resolve every subcellular detail visible in an electron microscope.",
+          "The biological drawing should have clear single outlines and no shading.",
+          "Include a scale bar or the magnification so the size can be interpreted."
+        ],
+        "commonError": "A scientifically correct point must address the question; repeated keywords do not earn extra marks.",
+        "remember": "Use complete science reasoning and check all 6 rubric points."
+      },
+      "task": {
+        "label": "AQA GCSE-STYLE · AO3 · 6 MARKS",
+        "instruction": "Write a complete answer, then compare each indicative point with the model. Automatic marks are formative, not an official GCSE grade."
+      },
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8461",
+        "assessmentObjective": "AO3",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      }
+    },
+    {
+      "id": "bio-y9-b3-aqa-exam-20261024-microscopy-drawing-4",
+      "conceptId": "bio-y9-b3-aqa-exam-20261024-microscopy-drawing-4",
+      "topicId": "bio-y9-b3",
+      "topic": "Microscopy and Required Practical 1",
+      "format": "mark_points",
+      "prompt": "GCSE-style evaluation (4 marks): A student draws a cell using heavy shading and sketchy lines, omits the scale bar and gives no labels. Describe four improvements.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Use single clear continuous outlines instead of sketchy lines.",
+          "Avoid shading in biological drawings.",
+          "Add straight ruled label lines that identify visible structures.",
+          "Include a scale bar or magnification so the size can be interpreted."
+        ],
+        "markPointAlternatives": [
+          [
+            "Draw with clear single lines."
+          ],
+          [
+            "Do not shade the drawing."
+          ],
+          [
+            "Use ruled labels."
+          ],
+          [
+            "Include magnification or scale."
+          ]
+        ],
+        "totalMarks": 4,
+        "requireFullMarks": true,
+        "modelAnswer": "Use single clear continuous outlines instead of sketchy lines. Avoid shading in biological drawings. Add straight ruled label lines that identify visible structures. Include a scale bar or magnification so the size can be interpreted."
+      },
+      "stimulus": {
+        "marks": 4
+      },
+      "feedback": {
+        "short": "GCSE-style practice: check 4 distinct indicative marking points; automated feedback is formative, not an official AQA level-of-response judgement.",
+        "steps": [
+          "Use single clear continuous outlines instead of sketchy lines.",
+          "Avoid shading in biological drawings.",
+          "Add straight ruled label lines that identify visible structures.",
+          "Include a scale bar or magnification so the size can be interpreted."
+        ],
+        "commonError": "A scientifically correct point must address the question; repeated keywords do not earn extra marks.",
+        "remember": "Use complete science reasoning and check all 4 rubric points."
+      },
+      "task": {
+        "label": "AQA GCSE-STYLE · AO2/AO3 · 4 MARKS",
+        "instruction": "Write a complete answer, then compare each indicative point with the model. Automatic marks are formative, not an official GCSE grade."
+      },
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8461",
+        "assessmentObjective": "AO2/AO3",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      }
+    },
+    {
+      "id": "bio-y9-b3-aqa-exam-20261024-microscopy-units-calc",
+      "conceptId": "bio-y9-b3-aqa-exam-20261024-microscopy-units-calc",
+      "topicId": "bio-y9-b3",
+      "topic": "Microscopy and Required Practical 1",
+      "format": "calculation",
+      "prompt": "GCSE-style calculation: A cell has an actual width of 25 µm and is drawn 50 mm wide. Calculate the magnification.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 2000,
+        "units": [
+          "×",
+          "x",
+          "times"
+        ],
+        "working": "50 mm = 50,000 µm; magnification = 50,000 µm ÷ 25 µm = ×2000.",
+        "tolerance": 0,
+        "modelAnswer": "2000 ×"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "50 mm = 50,000 µm; magnification = 50,000 µm ÷ 25 µm = ×2000.",
+        "steps": [
+          "50 mm = 50,000 µm; magnification = 50,000 µm ÷ 25 µm = ×2000."
+        ],
+        "commonError": "Convert every unit before substitution and check the answer.",
+        "remember": "50 mm = 50,000 µm; magnification = 50,000 µm ÷ 25 µm = ×2000."
+      },
+      "task": {
+        "label": "AQA GCSE-STYLE · AO2 · 1 MARK",
+        "instruction": "Enter the final numerical answer with the correct unit where required. The app awards one answer mark; show working on paper."
+      },
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8461",
+        "assessmentObjective": "AO2",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      }
     }
   ],
-  "enabled": 64,
+  "enabled": 68,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 22,
     "typed_exact": 7,
     "spelling_restore": 11,
-    "mark_points": 12,
+    "mark_points": 13,
     "typed_short": 4,
     "matching": 3,
-    "calculation": 2,
+    "calculation": 3,
     "practical_design": 1,
     "diagram_label": 1,
-    "word_tiles": 1
+    "word_tiles": 1,
+    "extended_response": 2
   },
   "gated": false,
   "note": {
@@ -2790,12 +3048,14 @@
       "Use the relationship:",
       "magnification = image size ÷ real size",
       "The units must match before calculating. Important metric relationships include 1 mm = 1000 μm and 1 μm = 1000 nm.",
-      "You must understand light vs electron microscopes, magnification vs resolution, use a light microscope, draw biological specimens and calculate magnification/size."
+      "You must understand light vs electron microscopes, magnification vs resolution, use a light microscope, draw biological specimens and calculate magnification/size.",
+      "New GCSE-style questions are original practice, not an official AQA paper or official AQA level-of-response mark scheme."
     ],
     "examTips": [
       "Use the command word and number of marks to decide how many distinct points are required.",
       "Use precise terminology and link cause to effect rather than listing disconnected facts.",
-      "For calculations, show the relationship, substitution, working and unit."
+      "For calculations, show the relationship, substitution, working and unit.",
+      "AQA-style extended response: use clear causal links, evaluate evidence and self-check each mark point. Automated marking is only formative."
     ],
     "quickCheck": [
       {

@@ -1,10 +1,10 @@
 {
-  "version": "2.4.1+biology-school-20260927-chem-aqa-20260930-fullmarks2-y7-vocab-complete+fr-future-oct17+phys-gcse-20261020",
-  "buildDate": "2026-10-20",
+  "version": "2.4.1+biology-school-20260927-chem-aqa-20260930-fullmarks2-y7-vocab-complete+fr-future-oct17+phys-gcse-20261020+aqa-science-qa-20261024",
+  "buildDate": "2026-10-24",
   "totals": {
     "topics": 282,
-    "questions": 16527,
-    "enabled": 15398,
+    "questions": 16539,
+    "enabled": 15410,
     "preview": 266,
     "disabled": 863
   },
@@ -67,10 +67,10 @@
       "subject": "biology",
       "year": 9,
       "topics": 22,
-      "enabled": 973,
+      "enabled": 977,
       "preview": 15,
       "disabled": 0,
-      "questions": 988
+      "questions": 992
     },
     {
       "subject": "chemistry",
@@ -85,10 +85,10 @@
       "subject": "chemistry",
       "year": 9,
       "topics": 17,
-      "enabled": 1076,
+      "enabled": 1080,
       "preview": 10,
       "disabled": 0,
-      "questions": 1086
+      "questions": 1090
     },
     {
       "subject": "physics",
@@ -103,10 +103,10 @@
       "subject": "physics",
       "year": 9,
       "topics": 18,
-      "enabled": 1040,
+      "enabled": 1044,
       "preview": 0,
       "disabled": 0,
-      "questions": 1040
+      "questions": 1044
     }
   ],
   "topics": [
@@ -3771,21 +3771,22 @@
       "topicId": "bio-y9-b3",
       "title": "Microscopy and Required Practical 1",
       "status": "enabled",
-      "questions": 64,
-      "enabled": 64,
+      "questions": 68,
+      "enabled": 68,
       "preview": 0,
       "disabled": 0,
       "formats": {
         "mc_single": 22,
         "typed_exact": 7,
         "spelling_restore": 11,
-        "mark_points": 12,
+        "mark_points": 13,
         "typed_short": 4,
         "matching": 3,
-        "calculation": 2,
+        "calculation": 3,
         "practical_design": 1,
         "diagram_label": 1,
-        "word_tiles": 1
+        "word_tiles": 1,
+        "extended_response": 2
       },
       "gated": false,
       "unitId": "biology-y9-u02",
@@ -4447,21 +4448,22 @@
       "topicId": "chem-y9-c4",
       "title": "Paper chromatography, Rf and reproducibility — Required Practical 6",
       "status": "enabled",
-      "questions": 113,
-      "enabled": 113,
+      "questions": 117,
+      "enabled": 117,
       "preview": 0,
       "disabled": 0,
       "formats": {
         "typed_exact": 11,
         "spelling_restore": 14,
         "matching": 3,
-        "mark_points": 39,
+        "mark_points": 40,
         "mc_single": 28,
-        "calculation": 12,
+        "calculation": 13,
         "practical_design": 1,
         "typed_short": 3,
         "word_tiles": 1,
-        "diagram_label": 1
+        "diagram_label": 1,
+        "extended_response": 2
       },
       "gated": false,
       "unitId": "chemistry-y9-u02",
@@ -5140,20 +5142,21 @@
       "topicId": "phys-y9-p2",
       "title": "Density and Required Practical 5",
       "status": "enabled",
-      "questions": 76,
-      "enabled": 76,
+      "questions": 80,
+      "enabled": 80,
       "preview": 0,
       "disabled": 0,
       "formats": {
         "mc_single": 22,
         "typed_exact": 6,
         "spelling_restore": 10,
-        "mark_points": 20,
+        "mark_points": 21,
         "typed_short": 4,
         "matching": 2,
-        "calculation": 10,
+        "calculation": 11,
         "practical_design": 1,
-        "diagram_label": 1
+        "diagram_label": 1,
+        "extended_response": 2
       },
       "gated": false,
       "unitId": "physics-y9-u01",
