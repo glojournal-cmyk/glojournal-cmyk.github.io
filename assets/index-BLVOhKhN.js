@@ -2484,7 +2484,10 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   // answer event. Never infer a recovered task from a generic page visit.
   if (inRecovery) {
     const date = recoverDate, taskId = recoveryTaskId;
-    const supported = ["mistake-review","y8-practise","y8-mastery","year8-long-review","adaptive-focus","study-session"];
+    // Include the current ten-task syllabus, not only the retired Year 8
+    // task IDs. The dated routing/evidence checks below still prevent any
+    // cross-day or cross-subject credit.
+    const supported = ["mistake-review","adaptive-focus","study-session",...YEAR8_RECOVERY_TASKS];
     const savedDay = before.dailyLog?.[date];
     const preparedDay = !savedDay ? prepareUnopenedRecovery(before,date,todayKey(),unopenedPlan(before,date)).state : before;
     if(preparedDay!==before) store.setState({dailyLog:preparedDay.dailyLog});
