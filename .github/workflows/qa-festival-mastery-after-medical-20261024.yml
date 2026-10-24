@@ -1,0 +1,36 @@
+name: Festival Mastery Rewards iPad QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - qa/festival-mastery-after-medical-20261024.mjs
+      - .github/workflows/qa-festival-mastery-after-medical-20261024.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Playwright engines
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Run local production site
+        run: |
+          python3 -m http.server 8787 --bind 127.0.0.1 >/tmp/festival-mastery-http.log 2>&1 &
+          for i in $(seq 1 40); do curl -fsS http://127.0.0.1:8787/ >/dev/null && break; sleep 1; done
+          curl -fsSI http://127.0.0.1:8787/art/doll/festival/02-bonfire-same-scholar-v3.png | head -n 4
+      - name: Test precise 100-190 Mastery gates and iPad legacy progress safety
+        run: |
+          node --check qa/festival-mastery-after-medical-20261024.mjs
+          node qa/festival-mastery-after-medical-20261024.mjs
+      - name: Upload screenshots and run results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: festival-mastery-ipad-qa
+          path: qa-artifacts/festival-mastery/
+          if-no-files-found: ignore
