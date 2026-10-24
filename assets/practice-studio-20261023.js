@@ -81,7 +81,7 @@
   // controls; metadata attributes below are used only for CSS styling.
   function installMockupSkin() {
     const id='gloria-practice-final-skin';
-    const href='/assets/gloria-practice-mockup-final-20261024.css?v=20261024-live4';
+    const href='/assets/gloria-practice-mockup-final-20261024.css?v=20261024-live5';
     let link=document.getElementById(id);
     if(!link) {
       link=document.createElement('link');
