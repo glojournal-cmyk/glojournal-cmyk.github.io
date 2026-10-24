@@ -25,7 +25,7 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const report=[];
 const RELEASE='studio-shell-stable3';
-const RUNTIME_RELEASE='glass-nav2';
+const RUNTIME_RELEASE='ipad-fit2';
 const UNIFIED_THEME='gloria-unified-question-theme-20261024.css?v=20261024-progress2';
 const FINAL_THEME='gloria-practice-mockup-final-20261024.css?v=20261024-est-focus12';
 const entrypoint = fs.readFileSync('index.html','utf8').match(/\/assets\/index-BLVOhKhN\.js\?v=[^"']+/)?.[0];
@@ -40,7 +40,7 @@ for (const subject of ['french','latin','biology','chemistry','physics','english
     subject+' Practice must load the unified navy-gold question stylesheet');
   assert.ok(html.includes(FINAL_THEME),
     subject+' Practice must load the approved illustrated question layout');
-  assert.ok(html.includes('gloria-practice-stability-20261024.css?v=glass-nav1'),
+  assert.ok(html.includes('gloria-practice-stability-20261024.css?v=ipad-fit2'),
     subject+' Practice must load final translucent iPad and nav repair');
   assert.ok(html.includes(entrypoint),
     subject+' Practice must keep the globally synchronized app entrypoint');
@@ -69,12 +69,13 @@ function fixture(kind){
     '<link rel="stylesheet" href="/assets/practice-studio-20261023.css">'+
     '<link rel="stylesheet" href="/assets/gloria-unified-question-theme-20261024.css?v=20261024-progress2">'+
     '<link rel="stylesheet" href="/assets/gloria-practice-mockup-final-20261024.css?v=20261024-est-focus12">'+
-    '<link rel="stylesheet" href="/assets/gloria-practice-stability-20261024.css?v=glass-nav1">'+
+    '<link rel="stylesheet" href="/assets/gloria-practice-stability-20261024.css?v=ipad-fit2">'+
     '<script>window.tapCount=0;</script><script defer src="/assets/practice-studio-20261023.js"></script><script defer src="/lux-theme.js"></script></head>'+
     '<body><div class="paper-wash"><header style="height:58px">Legacy top bar</header><aside style="height:400px">Sidebar</aside>'+
     '<main><section id="study-companion" class="cx-study-buddy"><span class="cx-pet-art" aria-label="Antler Bean" style="display:block;background-image:url(\'/pet/art-hd-20261009/level-1/antler-bean.webp\');background-size:contain;background-position:center;background-repeat:no-repeat"></span><strong>Antler Bean is beside you</strong><button type="button" id="lux-voice-cheer-toggle" onclick="window.tapCount++">🔊 Voice On</button></section>'+
     '<div class="lux-practice-view"><header><h1>French · Practise</h1></header>'+
     '<div data-question-id="fixture-'+kind+'" data-question-format="'+(kind.endsWith('mc')?'mc_single':kind==='tiles'?'word_tiles':'typed')+'" class="space-y-4">'+
+    (kind==='typed'?'<div role="status" class="rounded-xl bg-sage p-4"><p>Resumed saved practice · question 3 of 30. Your answer and checked feedback are preserved.</p><button type="button">Continue practice</button><button type="button">Start a fresh set</button></div>':'')+
     '<div><p class="text-xs font-semibold">DAILY PRACTICE</p><h1 class="font-display text-3xl font-semibold">French · Numbers and age</h1>'+
     '<p>Question 1 / 15 · Recall · Step 2</p><p class="rounded-lg bg-sage">Recall · Step 2</p></div>'+
     '<div data-lux-daily-lock>This daily task is locked to Numbers and age. Finish the assigned set before choosing free practice.</div>'+
@@ -284,10 +285,12 @@ async function checkFixture(browser,engine,kind,viewport){
   });
   assert.ok(!stability.art.includes('gloria-approved-mockup-side-art.svg'),
     'tiny 2.5KB side art must never be stretched behind an iPad question');
-  assert.equal(stability.navPosition,'relative',
-    'bottom navigation must be in flow and not cover the answer');
-  if(stability.formBottom!==undefined) assert.ok(stability.navTop>=stability.formBottom,
-    'iPad navigation must follow the active form without overlapping it: '+JSON.stringify(stability));
+  assert.equal(stability.navPosition,'fixed',
+    'bottom rail must be anchored at viewport bottom, not above the question');
+  assert.ok(stability.navTop>=viewport.height-120 && stability.navTop<viewport.height-40,
+    'nav must occupy the bottom 120px of the viewport: '+JSON.stringify(stability));
+  if(stability.formBottom!==undefined && stability.formBottom<=viewport.height) assert.ok(stability.formBottom<=stability.navTop+3,
+    'a visible answer field must not be covered by the bottom nav: '+JSON.stringify(stability));
   assert.ok(stability.navWidth<=viewport.width,
     'bottom navigation must not overflow iPad width');
   console.log('GLORIA_GLASS_NAV_CHECK '+JSON.stringify({engine,kind,viewport,stability}));
