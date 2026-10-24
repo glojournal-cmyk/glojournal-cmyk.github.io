@@ -515,3 +515,43 @@ html.lux-daily-ux-ready .lux-practice-view [data-question-format="word_tiles"]
  html.lux-daily-ux-ready .lux-practice-view [data-question-id]
  [data-lux-mc-options]{grid-template-columns:1fr!important;}
 }
+
+
+/* The seven real nav icons are inline vectors — crisp on retina iPad. */
+html.lux-daily-ux-ready .lux-daily-study-nav .lux-daily-nav-icon {
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ width:29px!important;height:27px!important;min-width:29px!important;
+ color:#e5b76f!important;
+ font-size:0!important;
+}
+html.lux-daily-ux-ready .lux-daily-study-nav .lux-daily-nav-icon svg{
+ display:block!important;width:25px!important;height:25px!important;
+ fill:none;stroke:currentColor;
+}
+html.lux-daily-ux-ready .lux-daily-study-nav .lux-daily-legacy-glyph {
+ font-size:0!important;width:0!important;height:0!important;
+ overflow:hidden!important;position:absolute!important;pointer-events:none!important;
+}
+html.lux-daily-ux-ready .lux-daily-study-nav a[aria-current=page] .lux-daily-nav-icon{
+ color:#1d3044!important;
+}
+html.lux-daily-ux-ready .lux-daily-study-nav a{
+ flex:1 1 0!important;min-width:0!important;
+ gap:2px!important;padding:3px 5px!important;
+ font:600 clamp(10px,1vw,14px)/1.15 "Cormorant Garamond",Georgia,serif!important;
+}
+html.lux-daily-ux-ready .lux-daily-study-nav a>span:last-child{
+ text-align:center!important;white-space:nowrap;
+}
+@media (max-width:680px){
+ html.lux-daily-ux-ready .lux-daily-study-nav {
+  width:calc(100% - 12px)!important;padding:2px 4px!important;
+ }
+ html.lux-daily-ux-ready .lux-daily-study-nav a{font-size:10px!important;min-height:46px!important;}
+ html.lux-daily-ux-ready .lux-daily-study-nav .lux-daily-nav-icon{
+  width:23px!important;height:21px!important;min-width:23px!important;
+ }
+ html.lux-daily-ux-ready .lux-daily-study-nav .lux-daily-nav-icon svg{
+  width:20px!important;height:20px!important;
+ }
+}
