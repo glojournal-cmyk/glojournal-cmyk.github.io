@@ -694,3 +694,17 @@ html.lux-daily-ux-ready .lux-practice-view [data-question-id]
  border-radius:18px!important;
  background:#071b30f8!important;
 }
+
+
+/* QA 2026-10-24: iPad input focus made the prompt gain 7px of margin
+   and answer form gain a 6px top margin. Keep both identical while editing
+   and after keyboard dismissal. No JS state, answer or score changes. */
+html.lux-daily-ux-ready.lux-daily-compact:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id] [data-lux-prompt]{
+  margin:0!important;
+}
+html.lux-daily-ux-ready.lux-daily-compact:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id] [data-lux-question-card] > form{
+  margin:0!important;
+  gap:9px 11px!important;
+}
