@@ -659,3 +659,38 @@ html.lux-daily-ux-ready.lux-daily-ux-ready:has(.lux-practice-view [data-question
  max-height:none!important;
  overflow:visible!important;
 }
+
+
+/* Same MC and word-tile workspace before and after React decoration.
+   Prevents a subtle 12px column shift when the user taps Next. */
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+ .rounded-xl.bg-card.p-5 > div > div.mt-5.grid.gap-2:not([data-lux-mc-options]){
+ order:3;
+ display:grid!important;
+ box-sizing:border-box!important;
+ grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ width:100%!important;
+ gap:9px!important;
+ margin:0!important;
+ padding:clamp(12px,1.2vw,18px)!important;
+ border:1px solid #c39552!important;
+ border-radius:18px!important;
+ background:#071b30f8!important;
+ box-shadow:0 5px 19px #0002!important;
+}
+html.lux-daily-ux-ready [data-question-id][data-lux-mc-long="true"]
+ .rounded-xl.bg-card.p-5 > div > div.mt-5.grid.gap-2:not([data-lux-mc-options]){
+ grid-template-columns:minmax(0,1fr)!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+ .rounded-xl.bg-card.p-5 > div > div.mt-5.space-y-3:not([data-lux-tiles]):not([data-gloria-feedback-stack]){
+ order:3;display:flex!important;flex-direction:column!important;
+ box-sizing:border-box!important;
+ width:100%!important;
+ gap:12px!important;
+ margin:0!important;
+ padding:clamp(12px,1.2vw,18px)!important;
+ border:1px solid #c39552!important;
+ border-radius:18px!important;
+ background:#071b30f8!important;
+}
