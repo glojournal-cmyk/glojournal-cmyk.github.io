@@ -15,7 +15,8 @@ function savedAssignment(task,day){
       url.searchParams.get('topic')===task.assignedTopic;
   }catch{return false}
 }
-const marked=e=>e?.questionId&&typeof e.correct==='boolean'&&e.formal!==false&&
+const marked=e=>e?.questionId&&typeof e.correct==='boolean'&&
+  (e.day<'2026-10-24'||e.correct===true)&&e.formal!==false&&
   e.repair!==true&&!e.recoveryFor&&!e.dailyVocab;
 function evidenceFor(task,event){
   if(!marked(event)||event.subject!==task.assignedSubject)return false;
@@ -43,7 +44,8 @@ export function replayDailyAnswerCredit(state){
     const seen=new Set(events.filter(e=>evidenceFor(task,e)).map(key));
     const target=Math.max(1,Number(task.target)||1);
     const old=Math.max(0,Number(task.progress)||0);
-    // A verified 20th answer is counted whether or not the Mastery grade passed.
+    // From 24 October only verified CORRECT attempts can fill a Daily slot.
+    // Historic pre-change answered-count receipts remain untouched.
     const progress=Math.min(target,Math.max(old,seen.size));
     if(progress===old)return task;
     changed=true;
