@@ -144,8 +144,10 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   const entries=(state.formalAttemptLog||[]).filter(e=>e.day===today&&!e.repair&&e.formal!==false&&!e.recoveryFor&&!e.dailyVocab);
   // One marked answer belongs to its opened assignment. Two tasks may visit
   // the same topic, but cannot both claim that answer toward the 155 total.
-  const tally=(topicId,taskId,modes=null)=>new Set(entries.filter(e=>e.topicId===topicId&&e.dailyTaskId===taskId&&
-    (!modes||modes.includes(e.mode))).map(e=>e.attemptId||e.questionId)).size;
+  const taskEvents=(topicId,taskId,modes=null)=>entries.filter(e=>e.topicId===topicId&&
+    e.dailyTaskId===taskId&&(!modes||modes.includes(e.mode))&&typeof e.correct==='boolean');
+  const tally=(topicId,taskId,modes=null,correctOnly=false)=>new Set(taskEvents(topicId,taskId,modes)
+    .filter(e=>!correctOnly||e.correct===true).map(e=>e.attemptId||e.questionId)).size;
   const pick=(id,pool,condition,compare)=>{
     const old=previous.get(id);
     const frozen=old?.assignedTopic&&(pool.find(t=>t.topicId===old.assignedTopic)||
@@ -176,12 +178,21 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     }
     const modes=mode==='mastery'?['mastery','year8long']:mode==='retention'?['retention','due']:
       mode==='due'?['due','retention']:mode==='weak'?['weak']:null;
-    let progress=topic?Math.min(target,Math.max(same&&!legacyRecall?Number(old.progress)||0:0,tally(topic.topicId,id,modes))):0;
-    // 20 marked answers are 20/20. Keep the independent Mastery pass
-    // decision and Day 2/7 review stage separate from task completion.
+    const prior=same&&!legacyRecall?Number(old.progress)||0:0;
+    const attempted=topic?tally(topic.topicId,id,modes):0;
+    const correct=topic?tally(topic.topicId,id,modes,true):0;
+    // From 24 Oct onward the Home fraction means CORRECT answers, not taps.
+    // Trust the formal journal only when it covers the prior saved count:
+    // an iPad with a partly lost journal must not lose genuine old credit.
+    const correctOnlyEvidence=!!topic&&today>='2026-10-24'&&
+      attempted>0&&attempted>=prior;
+    let progress=topic?Math.min(target,correctOnlyEvidence?correct:
+      Math.max(prior,attempted)):0;
+    // Mastery assessment still separately assesses 85% and recall. A wrong
+    // response remains in attempt history, but cannot fill the Home quota.
     const passedToday=state.topicStats?.[topic?.topicId]?.masteryV2?.passedMasteryAt===today;
     const outcome=id.startsWith('y8-mastery-')&&mode==='mastery'&&progress>=target
-      ? (passedToday?' · Mastery pass; Day 2/7 recall next':' · 20 answered; Mastery standard not yet passed')
+      ? (passedToday?' · Mastery pass; Day 2/7 recall next':' · All correct credits; Mastery standard not yet passed')
       : '';
     const fullMastery=id.startsWith('y8-mastery-')&&mode==='mastery';
     const recallInOldMastery=id.startsWith('y8-mastery-')&&masteryCheck&&mode==='due';
@@ -194,7 +205,8 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     return {id,title,
       detail:description+outcome,href:topic?curriculumHref(topic,mode,id):'/study',target,progress,xp:mode==='mastery'?20:15,
       planDate:today,assignedSubject:topic?.subject||null,assignedTopic:topic?.topicId||null,
-      assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,masteryCheck,curriculumVersion:4};
+      assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,masteryCheck,curriculumVersion:4,
+      ...(correctOnlyEvidence?{correctOnlyEvidence:true}:{})};
   };
   const pendingRecall=t=>['check2','check7'].includes(
     state.topicStats?.[t.topicId]?.masteryV2?.stage);
