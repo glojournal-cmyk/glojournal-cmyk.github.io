@@ -361,7 +361,6 @@ html.lux-daily-ux-ready .lux-practice-view [data-question-id] [data-lux-leaves] 
    No fabricated completion or extra interactive control. */
 html.lux-daily-ux-ready .lux-practice-view [data-question-id]
   :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl)) {
-  display:block!important;
   min-height:0!important;
   max-height:none!important;
   padding:clamp(11px,1.2vw,17px) clamp(15px,1.6vw,23px)!important;
@@ -384,7 +383,12 @@ html.lux-daily-ux-ready .lux-practice-view [data-question-id]
   max-width:100%!important;
 }
 html.lux-daily-ux-ready .lux-practice-view [data-question-id]
-  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl))::before {
+  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl ))::before {
+  content:none!important;
+  display:none!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl))::after {
   content:""!important;
   display:block!important;
   position:relative!important;
@@ -405,11 +409,6 @@ html.lux-daily-ux-ready .lux-practice-view [data-question-id]
   )!important;
   box-shadow:none!important;
 }
-html.lux-daily-ux-ready .lux-practice-view [data-question-id]
-  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl))::after {
-  content:none!important;
-  display:none!important;
-}
 /* On iPad, avoid long headings/ornament taking the answer's viewport space. */
 @media(max-width:929px) {
  html.lux-daily-ux-ready .lux-practice-view [data-question-id]
@@ -423,7 +422,7 @@ html.lux-daily-ux-ready .lux-practice-view [data-question-id]
    font-size:clamp(22px,3.2vw,29px)!important;
  }
  html.lux-daily-ux-ready .lux-practice-view [data-question-id]
-   :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl))::before {
+   :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl))::after {
    height:6px!important;min-height:6px!important;
    margin-top:8px!important;
  }
