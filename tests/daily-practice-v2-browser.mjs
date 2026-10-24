@@ -492,6 +492,27 @@ async function checkRealPractice(browser,engine){
   await page.screenshot({path:path.join(out,engine+'-real-french-reload.png'),fullPage:true});
   await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:16000});
   assert.equal(await page.locator('#lux-daily-study-nav a').count(),7,'reload must restore Study nav');
+  // Regression from actual 24 October user screenshot: on a resumed Latin
+  // vocab test, navigation occupied the TOP and pushed input below viewport.
+  // Exercise the same state here after a real saved French answer is restored.
+  const resumedGeometry=await page.evaluate(()=>{
+    const q=document.querySelector('.lux-practice-view [data-question-id]');
+    const notice=q?.querySelector(':scope > [role="status"]');
+    const form=q?.querySelector('[data-lux-question-card] > form');
+    const nav=document.getElementById('lux-daily-study-nav');
+    const rect=e=>{const b=e?.getBoundingClientRect();return b?{top:b.top,bottom:b.bottom,height:b.height}:null};
+    return {notice:rect(notice),form:rect(form),nav:rect(nav),
+      navPosition:nav?getComputedStyle(nav).position:null,screenHeight:innerHeight};
+  });
+  assert.ok(resumedGeometry.notice,'saved practice must retain visible resume controls');
+  assert.ok(resumedGeometry.notice.height<=125,
+    'resume strip must not become a large card: '+JSON.stringify(resumedGeometry));
+  assert.equal(resumedGeometry.navPosition,'fixed','resume page nav must be fixed at bottom');
+  assert.ok(resumedGeometry.nav.top>=resumedGeometry.screenHeight-120,
+    'resume page nav must not occupy top of screen: '+JSON.stringify(resumedGeometry));
+  if(resumedGeometry.form) assert.ok(resumedGeometry.form.bottom<=resumedGeometry.nav.top+8,
+    'resume page answer / Submit must remain above navigation: '+JSON.stringify(resumedGeometry));
+  console.log('GLORIA_RESUMED_ANSWER_IPAD_GEOMETRY '+JSON.stringify({engine,resumedGeometry}));
   await page.goto(url+'&dailyUxPreview=0',{waitUntil:'domcontentloaded'});
   await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:30000});
   assert.equal(await page.evaluate(()=>document.documentElement.classList.contains('lux-daily-ux-ready')),false,'rollback query disables layout');
