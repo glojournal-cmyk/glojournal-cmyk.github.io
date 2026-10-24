@@ -15,6 +15,17 @@
   const disabled = () => new URLSearchParams(location.search).get('dailyUxPreview') === '0';
   // Older saved Daily links sometimes URL-encode the value as \"1\".
   const isAssignedDaily = () => /^(1|true)$/.test(String(new URLSearchParams(location.search).get('daily') || '').replace(/^[\"']|[\"']$/g, ''));
+  // Hand-drawn gold line icons based on the approved seven-item rail.
+  // Keep text labels and legacy glyph text for accessible names/regression QA.
+  const navDrawings = {
+    Home: '<path d="M3 10.3 12 3l9 7.3V21h-6v-7H9v7H3z"/>',
+    Study: '<path d="M12 6c-2.5-2-6-2.7-9-2v15c3.5-.6 6.3.2 9 2 2.7-1.8 5.5-2.6 9-2V4c-3-.7-6.5 0-9 2z" fill="none"/><path d="M12 6v15"/>',
+    Play: '<rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="15.5" cy="8.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="8.5" cy="15.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.2" fill="currentColor" stroke="none"/>',
+    Garden: '<path d="M12 21V12m0 4c-5 1-9-2-9-8 5-1 9 1 9 8Zm0-4c0-6 4-9 9-8 0 6-4 9-9 8Z" fill="none"/>',
+    Pet: '<ellipse cx="12" cy="16.2" rx="5" ry="3.6"/><ellipse cx="5.5" cy="8" rx="1.55" ry="2.3"/><ellipse cx="10" cy="6" rx="1.5" ry="2.3"/><ellipse cx="15" cy="6" rx="1.5" ry="2.3"/><ellipse cx="19" cy="8" rx="1.55" ry="2.3"/>',
+    Assessment: '<path d="M7 3h10v3H7zm-2 3h14v15H5V6Zm4 5h6m-6 4h6M9 18h4" fill="none"/>',
+    Scholar: '<path d="m2 9 10-5 10 5-10 5-10-5Zm4 3v5c4 4 8 4 12 0v-5M22 9v8" fill="none"/>'
+  };
   const navSpec = [
     ['⌂','Home','/'], ['▣','Study','/study/'], ['◇','Play','/play/'],
     ['♧','Garden','/garden/'], ['♧','Pet','/pet/'],
@@ -70,7 +81,7 @@
   // controls; metadata attributes below are used only for CSS styling.
   function installMockupSkin() {
     const id='gloria-practice-final-skin';
-    const href='/assets/gloria-practice-mockup-final-20261024.css?v=20261024-live1';
+    const href='/assets/gloria-practice-mockup-final-20261024.css?v=20261024-live2';
     let link=document.getElementById(id);
     if(!link) {
       link=document.createElement('link');
@@ -134,7 +145,21 @@
       const icon = document.createElement('span');
       icon.className = 'lux-daily-nav-icon';
       icon.setAttribute('aria-hidden', 'true');
-      icon.textContent = glyph;
+      // Preserve invisible glyph text for accessible name and old saved tests.
+      const legacy=document.createElement('span');
+      legacy.className='lux-daily-legacy-glyph';
+      legacy.textContent=glyph;
+      const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+      svg.setAttribute('viewBox','0 0 24 24');
+      svg.setAttribute('aria-hidden','true');
+      svg.setAttribute('focusable','false');
+      svg.setAttribute('fill','none');
+      svg.setAttribute('stroke','currentColor');
+      svg.setAttribute('stroke-width','1.65');
+      svg.setAttribute('stroke-linecap','round');
+      svg.setAttribute('stroke-linejoin','round');
+      svg.innerHTML=navDrawings[label]||'';
+      icon.append(svg,legacy);
       const caption = document.createElement('span');
       caption.textContent = label;
       a.append(icon,caption);
