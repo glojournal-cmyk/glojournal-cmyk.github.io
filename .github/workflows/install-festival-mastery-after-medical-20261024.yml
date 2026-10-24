@@ -1,0 +1,65 @@
+name: Install Festival Mastery rewards after Medical
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/install_festival_mastery_after_medical_20261024.py
+      - .github/workflows/install-festival-mastery-after-medical-20261024.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Integrate 110–190 unique-Mastery Festival paired rewards
+        run: |
+          python3 scripts/install_festival_mastery_after_medical_20261024.py
+          node --check assets/index-BLVOhKhN.core.js
+          node --check assets/index-BLVOhKhN.js
+          node --check assets/scholar-iJ2ilQWG.js
+          node --check assets/scholar-rebuilt-20261021.js
+          node --check assets/home-rpg-live-20261019.js
+      - name: Validate reward progression and background/outfit pairings
+        run: |
+          python3 - <<'PY'
+          import json,pathlib
+          R=pathlib.Path('.')
+          med=json.loads((R/'art/doll/medical/manifest.json').read_text())['items']
+          outfits=json.loads((R/'art/doll/festival/manifest.json').read_text())['items']
+          scenes=json.loads((R/'art/scenes/festival/manifest.json').read_text())['scenes']
+          assert [x['requiredMastery'] for x in med]==list(range(10,101,10))
+          assert len(outfits)==len(scenes)==10
+          assert outfits[0]['free'] and scenes[0]['free']
+          for n,(o,s) in enumerate(zip(outfits[1:],scenes[1:]),11):
+            assert o['needIf']==s['needIf']=={'masteredTopics':n*10},(o,s)
+            assert not o.get('free') and not s.get('free')
+            assert o['id'].removeprefix('festival-')==s['id'].removeprefix('festival-scene-')
+            assert (R/o['art'].lstrip('/')).exists()
+            assert (R/s['art'].lstrip('/')).exists()
+          core=(R/'assets/index-BLVOhKhN.core.js').read_text()
+          entry=(R/'assets/index-BLVOhKhN.js').read_text()
+          assert 'medical-10-medical-student' in core
+          assert 'festivalMasteryGateV1' in entry
+          assert 'lux-scholar-garden-v1' in core
+          assert 'festival-outfit-availability-v1' not in entry
+          assert '20261024-medical-then-festival-mastery-v1' in (R/'scholar/index.html').read_text()
+          print('PASS: Medical ends at 100; Festival paired rewards 110..190; Halloween free')
+          PY
+      - name: Commit verified changes
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add art/doll/festival/manifest.json art/scenes/festival/manifest.json
+          git add src/lib/content/outfits.ts assets/index-BLVOhKhN.core.js assets/index-BLVOhKhN.js
+          git add -u -- '*.html' 'assets/*.js'
+          if ! git diff --cached --quiet; then
+            git commit -m 'Unlock Festival Outfit and Background pairs at 110-190 Masteries after Medical'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
