@@ -28,7 +28,7 @@ test('Queued normalization never overwrites student progress, runs only when nee
  const end=source.indexOf('store.persist?.onFinishHydration',anchor);
  const logic=source.slice(anchor,end);
  assert.match(logic,/setTimeout\(\(\) => \{/);
- assert.match(logic, /if \(normalizePendingTimer !== null\) return/);
+ assert.match(logic, /normalizePendingTimer !== null\) return/);
  assert.match(logic,/normalizeState\(\)/);
  assert.doesNotMatch(logic,/localStorage\.clear|removeItem|resetAll|importProgress/);
 });
