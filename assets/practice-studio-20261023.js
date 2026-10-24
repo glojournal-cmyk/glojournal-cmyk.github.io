@@ -388,6 +388,20 @@
     // Do not remove/recreate the Study rail or change the page theme when
     // the question tree is briefly empty. React still owns the question DOM.
     if (!q) return;
+    // Vocab/Daily helper prose was previously rendered as a wide white bar
+    // above the quiz. During an active question it obscures the one-screen
+    // interface; the Home daily record remains available and unchanged.
+    const view=document.querySelector('.lux-practice-view');
+    if(view) for(const el of [...view.children]){
+      if(el.contains(q) || el===q)continue;
+      if(el.matches?.('header,details'))continue;
+      const txt=(el.textContent||'').trim();
+      if((/^Today.s vocabulary test\s*·/.test(txt) ||
+          /^This daily task is locked to /.test(txt)) &&
+         !el.hasAttribute('data-gloria-redundant-guidance')){
+        el.setAttribute('data-gloria-redundant-guidance','');
+      }
+    }
     decorateQuestion(q);
     // The approved mockup is a fast, full-width study screen with no avatar.
     // Do not fight CSS by restoring the old companion with inline !important.
