@@ -345,8 +345,8 @@
     // sentence. The TESTED WORD must own the large typographic hierarchy.
     // Only semantic data attributes change; never edit React text/answers.
     const promptText=(prompt?.textContent||'').trim();
-    const subject=(location.pathname.match(/^\\/study\\/(latin|french)\\//)?.[1]||'');
-    const instructionLike=/\\b(which|what|meaning|translate|translation|answer|write|choose|required|vocabulary|vocab|equivalent|definition)\\b/i.test(promptText);
+    const subject=(location.pathname.split('/')[2]||'').toLowerCase();
+    const instructionLike=['which','what','meaning','translate','translation','answer','write','choose','required','vocabulary','vocab','equivalent','definition'].some(t=>promptText.toLowerCase().includes(t));
     const source=[...(card?.children||[])].find(el=>
       el!==prompt && el.matches?.('p') &&
       el.classList.contains('rounded-lg') &&
