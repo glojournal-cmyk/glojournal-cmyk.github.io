@@ -1,0 +1,22 @@
+name: Five-subject GCSE exam practice QA
+on:
+  pull_request:
+    paths: ['content/exam-practice/**', 'assets/gcse-exam-practice-*', 'study/exam-practice/**', 'tests/gcse-exam-*', '.github/workflows/gcse-exam-expansion-qa.yml']
+  push:
+    branches: [main, review/gcse-five-subject-expansion-20261024]
+    paths: ['content/exam-practice/**', 'assets/gcse-exam-practice-*', 'study/exam-practice/**', 'tests/gcse-exam-*']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  content-and-browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/gcse-exam-expansion-20261024.mjs
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/gcse-exam-browser-20261024.mjs

@@ -1,0 +1,1609 @@
+{
+  "version": "20261024.1",
+  "title": "GCSE Exam Practice",
+  "notice": "Original formative practice, not official past-paper questions. Year 9 bridges towards GCSE; the 2029 school exam-board choices and Latin set texts still require confirmation. Marks are reviewed by you or a teacher and are not automatic GCSE grades.",
+  "subjects": {
+    "physics": {
+      "board": "AQA",
+      "specification": "8463",
+      "source": "https://www.aqa.org.uk/subjects/physics/gcse/physics-8463/specification"
+    },
+    "chemistry": {
+      "board": "AQA",
+      "specification": "8462",
+      "source": "https://www.aqa.org.uk/subjects/chemistry/gcse/chemistry-8462/specification"
+    },
+    "biology": {
+      "board": "AQA",
+      "specification": "8461",
+      "source": "https://www.aqa.org.uk/subjects/biology/gcse/biology-8461/specification"
+    },
+    "french": {
+      "board": "AQA",
+      "specification": "8652",
+      "source": "https://www.aqa.org.uk/subjects/french/gcse/french-8652/specification"
+    },
+    "latin": {
+      "board": "OCR",
+      "specification": "J282",
+      "source": "https://www.ocr.org.uk/qualifications/gcse/latin-j282-from-2016/"
+    }
+  },
+  "questions": [
+    {
+      "id": "physics-exam-20261024-01",
+      "subject": "physics",
+      "topic": "Density",
+      "kind": "calculation",
+      "marks": 4,
+      "prompt": "A metal block has mass 216 g and dimensions 2.0 cm × 3.0 cm × 4.0 cm. Calculate its density in kg/m³. Show every conversion.",
+      "markScheme": [
+        "Volume = 2 × 3 × 4 = 24 cm³.",
+        "Density = 216 ÷ 24 = 9.0 g/cm³.",
+        "Correct conversion: 1 g/cm³ = 1000 kg/m³ (or 0.216 kg and 0.000024 m³).",
+        "9000 kg/m³."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2",
+      "specRef": "4.3.1.1",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice.",
+      "check": {
+        "value": 9000,
+        "unit": "kg/m³"
+      }
+    },
+    {
+      "id": "physics-exam-20261024-02",
+      "subject": "physics",
+      "topic": "Specific heat capacity",
+      "kind": "calculation",
+      "marks": 4,
+      "prompt": "A 60 W heater runs for 200 s in a 0.50 kg block. Its temperature rises by 40 °C. Assuming all supplied energy heats the block, calculate its specific heat capacity. Use E = Pt and E = mcΔθ.",
+      "markScheme": [
+        "E = 60 × 200.",
+        "E = 12 000 J.",
+        "c = E/(mΔθ) = 12 000/(0.50 × 40).",
+        "600 J/(kg °C)."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO2",
+      "specRef": "4.1.1.3",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice.",
+      "check": {
+        "value": 600,
+        "unit": "J/(kg °C)"
+      }
+    },
+    {
+      "id": "physics-exam-20261024-03",
+      "subject": "physics",
+      "topic": "Specific latent heat",
+      "kind": "calculation",
+      "marks": 4,
+      "prompt": "A 100 W heater melts 0.030 kg of ice at 0 °C in 120 s. Calculate the apparent specific latent heat using E = Pt and E = mL. Explain why the value may be too high if energy is lost to the surroundings.",
+      "markScheme": [
+        "E = 100 × 120 = 12 000 J.",
+        "L = 12 000/0.030.",
+        "L = 400 000 J/kg.",
+        "Some input energy heats the surroundings, so attributing all input energy to melting overestimates L."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO2",
+      "specRef": "4.3.2.3",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice.",
+      "check": {
+        "value": 400000,
+        "unit": "J/kg"
+      }
+    },
+    {
+      "id": "physics-exam-20261024-04",
+      "subject": "physics",
+      "topic": "Insulation data",
+      "kind": "data",
+      "marks": 4,
+      "prompt": "Identical cups contain 100 g of water at 80 °C. After 10 min: bare cup 48 °C; wool cover 63 °C; foil cover 57 °C. Identify the best insulator in this test, support your answer numerically, and give two reasons why one trial is insufficient for a general conclusion.",
+      "markScheme": [
+        "Wool is best in this test.",
+        "Its temperature drop is 17 °C, smaller than 32 °C (bare) and 23 °C (foil).",
+        "Repeats are needed to assess random variation or anomalous readings.",
+        "Material thickness or another specified uncontrolled condition may differ; equal thickness or controlled conditions are needed."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO3",
+      "specRef": "4.1.2.1",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice."
+    },
+    {
+      "id": "physics-exam-20261024-05",
+      "subject": "physics",
+      "topic": "Density uncertainty",
+      "kind": "data",
+      "marks": 4,
+      "prompt": "A stone has mass 60 g. A measuring cylinder reads 40 cm³ before immersion and 60 cm³ after. A trapped air bubble increases the second reading to 64 cm³ in a repeat. Calculate both densities and explain the direction of the error.",
+      "markScheme": [
+        "Correct displaced volume = 20 cm³.",
+        "Correct density = 60/20 = 3.0 g/cm³.",
+        "With bubble: 60/24 = 2.5 g/cm³.",
+        "Bubble makes volume too large, so calculated density is too small."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO3",
+      "specRef": "4.3.1.1",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice."
+    },
+    {
+      "id": "physics-exam-20261024-06",
+      "subject": "physics",
+      "topic": "Cooling graph",
+      "kind": "graph",
+      "marks": 4,
+      "prompt": "Time / min: 0, 2, 4, 6, 8. Temperature / °C: 80, 66, 57, 51, 47. Draw a temperature–time graph on paper. Calculate the mean cooling rate over the first 2 min and explain why cooling slows in a 20 °C room.",
+      "markScheme": [
+        "Axes labelled time/min and temperature/°C, with sensible linear scales.",
+        "All five points accurately plotted and joined with a suitable smooth cooling curve.",
+        "Initial mean cooling rate = (80 − 66)/2 = 7 °C/min.",
+        "Temperature difference from the surroundings decreases, reducing the rate of energy transfer."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2/AO3",
+      "specRef": "4.1.2.1",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice.",
+      "responseMode": "drawing"
+    },
+    {
+      "id": "physics-exam-20261024-07",
+      "subject": "physics",
+      "topic": "Density practical",
+      "kind": "extended",
+      "marks": 6,
+      "prompt": "Describe how to determine the density of a small irregular, non-porous stone that sinks in water. Include measurements, precautions, calculation and a reliability check.",
+      "markScheme": [
+        "Measure dry mass using a zeroed balance.",
+        "Measure water volume before and after full immersion; subtract to find stone volume.",
+        "Read the bottom of the meniscus at eye level.",
+        "Remove trapped bubbles and avoid splashing or loss of water.",
+        "Calculate density = mass/volume with compatible units.",
+        "Repeat volume measurements and compare results; repeat anomalous readings before deciding whether to exclude them."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1/AO3",
+      "specRef": "4.3.1.1; required practical 5",
+      "minutes": 9.0,
+      "marking": "self_or_teacher",
+      "levels": [
+        {
+          "marks": "0",
+          "descriptor": "No relevant scientific content."
+        },
+        {
+          "marks": "1–2",
+          "descriptor": "Some correct relevant statements, but important parts of the task are missing or disconnected."
+        },
+        {
+          "marks": "3–4",
+          "descriptor": "A mostly correct explanation or workable method; some links to the context are developed, but justification or control of variables is incomplete."
+        },
+        {
+          "marks": "5–6",
+          "descriptor": "A coherent, accurate response that addresses the whole task, links evidence to reasoning, and explains the relevant controls or limitations."
+        }
+      ],
+      "markingNote": "Use best fit across the levels, then choose the mark within the level. Indicative content is not a one-mark-per-keyword checklist. Alternative valid science is creditworthy."
+    },
+    {
+      "id": "physics-exam-20261024-08",
+      "subject": "physics",
+      "topic": "Thermal insulation practical",
+      "kind": "extended",
+      "marks": 6,
+      "prompt": "Plan an investigation of how the thickness of one insulating material affects cooling of hot water. Explain how your design makes a fair comparison and how you would use results.",
+      "markScheme": [
+        "Use identical containers with several measured thicknesses of the same material.",
+        "Keep water mass, initial temperature, lid and exposed area constant.",
+        "Measure temperature at fixed time intervals for the same duration.",
+        "Control room conditions and thermometer position.",
+        "Repeat each thickness and compare mean temperature drops or cooling rates.",
+        "Use a graph to identify the trend; handle hot water safely using a stable surface and suitable protection."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO3",
+      "specRef": "4.1.2.1; required practical 2",
+      "minutes": 9.0,
+      "marking": "self_or_teacher",
+      "levels": [
+        {
+          "marks": "0",
+          "descriptor": "No relevant scientific content."
+        },
+        {
+          "marks": "1–2",
+          "descriptor": "Some correct relevant statements, but important parts of the task are missing or disconnected."
+        },
+        {
+          "marks": "3–4",
+          "descriptor": "A mostly correct explanation or workable method; some links to the context are developed, but justification or control of variables is incomplete."
+        },
+        {
+          "marks": "5–6",
+          "descriptor": "A coherent, accurate response that addresses the whole task, links evidence to reasoning, and explains the relevant controls or limitations."
+        }
+      ],
+      "markingNote": "Use best fit across the levels, then choose the mark within the level. Indicative content is not a one-mark-per-keyword checklist. Alternative valid science is creditworthy."
+    },
+    {
+      "id": "physics-exam-20261024-09",
+      "subject": "physics",
+      "topic": "Heating and changes of state",
+      "kind": "extended",
+      "marks": 6,
+      "prompt": "Pure ice at −10 °C is heated until it becomes water at 20 °C. Explain what happens to temperature, particle motion and internal energy before, during and after melting.",
+      "markScheme": [
+        "Solid warms towards 0 °C; mean particle kinetic energy increases.",
+        "Particles vibrate more vigorously around fixed positions.",
+        "At the melting point, temperature stays constant while both phases are present.",
+        "Energy during melting increases potential energy as the arrangement changes, rather than mean kinetic energy.",
+        "Internal energy increases during the plateau despite constant temperature.",
+        "Once all ice melts, water warms and average kinetic energy increases again."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO1/AO2",
+      "specRef": "4.3.2.1–4.3.2.3",
+      "minutes": 9.0,
+      "marking": "self_or_teacher",
+      "levels": [
+        {
+          "marks": "0",
+          "descriptor": "No relevant scientific content."
+        },
+        {
+          "marks": "1–2",
+          "descriptor": "Some correct relevant statements, but important parts of the task are missing or disconnected."
+        },
+        {
+          "marks": "3–4",
+          "descriptor": "A mostly correct explanation or workable method; some links to the context are developed, but justification or control of variables is incomplete."
+        },
+        {
+          "marks": "5–6",
+          "descriptor": "A coherent, accurate response that addresses the whole task, links evidence to reasoning, and explains the relevant controls or limitations."
+        }
+      ],
+      "markingNote": "Use best fit across the levels, then choose the mark within the level. Indicative content is not a one-mark-per-keyword checklist. Alternative valid science is creditworthy."
+    },
+    {
+      "id": "physics-exam-20261024-10",
+      "subject": "physics",
+      "topic": "Infrared radiation",
+      "kind": "practical",
+      "marks": 4,
+      "prompt": "Two metal cans have identical shape and mass. One is matt black and the other shiny silver. Both start at 70 °C. Explain how to compare their infrared emission fairly and predict the result.",
+      "markScheme": [
+        "Use equal water masses at the same starting temperature.",
+        "Keep surroundings, lids and measurement positions the same.",
+        "Compare cooling over equal times or measure radiation at equal distance; repeat measurements.",
+        "Matt black is the better infrared emitter and is expected to cool faster under these conditions."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1/AO3",
+      "specRef": "4.6.3.1",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice."
+    },
+    {
+      "id": "physics-exam-20261024-11",
+      "subject": "physics",
+      "topic": "Evaporation",
+      "kind": "structured",
+      "marks": 4,
+      "prompt": "A wet cloth cools a bottle in warm moving air. Explain the cooling and why increasing air movement can increase the effect.",
+      "markScheme": [
+        "Some higher-energy water molecules escape from the liquid surface.",
+        "They carry energy away.",
+        "The remaining liquid has lower average kinetic energy; energy is transferred from the bottle to the cloth/water, cooling the bottle.",
+        "Moving air removes humid air near the surface and increases net evaporation."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2",
+      "specRef": "4.3.2.1",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice."
+    },
+    {
+      "id": "physics-exam-20261024-12",
+      "subject": "physics",
+      "topic": "Specific heat capacity evaluation",
+      "kind": "data",
+      "marks": 4,
+      "prompt": "A student calculates c = 950 J/(kg °C) for a metal whose accepted value is 900 J/(kg °C). Their calculation uses the heater’s full energy input. Calculate the percentage difference and explain an error and one improvement.",
+      "markScheme": [
+        "Difference = 50 J/(kg °C).",
+        "Percentage difference = 50/900 × 100 ≈ 5.6%.",
+        "Heat loss reduces measured temperature rise, causing an overestimate of c.",
+        "Insulate the block to reduce heat transfer to the surroundings."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO3",
+      "specRef": "4.1.1.3",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice."
+    },
+    {
+      "id": "chemistry-exam-20261024-01",
+      "subject": "chemistry",
+      "topic": "Chromatography",
+      "kind": "calculation",
+      "marks": 3,
+      "prompt": "A dye travels 36 mm and the solvent front travels 60 mm from the baseline. Calculate Rf and state why it has no unit.",
+      "markScheme": [
+        "Rf = dye distance/solvent-front distance = 36/60.",
+        "Rf = 0.60.",
+        "Both distances have the same unit, so units cancel."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2",
+      "specRef": "4.8.1.3",
+      "minutes": 4.5,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice.",
+      "check": {
+        "value": 0.6,
+        "unit": "none"
+      }
+    },
+    {
+      "id": "chemistry-exam-20261024-02",
+      "subject": "chemistry",
+      "topic": "Isotopes",
+      "kind": "calculation",
+      "marks": 3,
+      "prompt": "An element has 75% atoms with relative isotopic mass 35 and 25% with mass 37. Calculate its relative atomic mass. Explain why the result is not a whole number.",
+      "markScheme": [
+        "Weighted sum: (75 × 35 + 25 × 37)/100.",
+        "Relative atomic mass = 35.5 (no unit).",
+        "It is a weighted mean of the isotope masses."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2",
+      "specRef": "4.1.1.6",
+      "minutes": 4.5,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice.",
+      "check": {
+        "value": 35.5,
+        "unit": "none"
+      }
+    },
+    {
+      "id": "chemistry-exam-20261024-03",
+      "subject": "chemistry",
+      "topic": "Concentration",
+      "kind": "calculation",
+      "marks": 4,
+      "prompt": "A student dissolves 5.0 g of sodium chloride and makes the solution up to 250 cm³. Calculate concentration in g/dm³ and the mass in a well-mixed 50 cm³ sample. Use concentration = mass/volume.",
+      "markScheme": [
+        "250 cm³ = 0.250 dm³.",
+        "Concentration = 5.0/0.250 = 20 g/dm³.",
+        "50 cm³ = 0.050 dm³ and mass = concentration × volume.",
+        "Mass = 20 × 0.050 = 1.0 g."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO2",
+      "specRef": "4.3.2.5",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice."
+    },
+    {
+      "id": "chemistry-exam-20261024-04",
+      "subject": "chemistry",
+      "topic": "Conservation of mass",
+      "kind": "structured",
+      "marks": 4,
+      "prompt": "Magnesium burns in oxygen. (a) Balance Mg + O₂ → MgO. (b) A 2.40 g sample forms 4.00 g oxide. Calculate the oxygen mass gained. (c) Explain why this does not break conservation of mass.",
+      "markScheme": [
+        "2Mg + O₂ → 2MgO.",
+        "Oxygen mass = 4.00 − 2.40 = 1.60 g.",
+        "Oxygen from the air becomes part of the solid.",
+        "Total mass of magnesium plus reacting oxygen equals product mass."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2",
+      "specRef": "4.1.1.1; 4.3.1.1",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice."
+    },
+    {
+      "id": "chemistry-exam-20261024-05",
+      "subject": "chemistry",
+      "topic": "Chromatogram interpretation",
+      "kind": "data",
+      "marks": 4,
+      "prompt": "In one chromatogram, standard A has a spot at 20 mm and standard B at 40 mm. Sample X has spots at 20 mm and 40 mm. The solvent front is 50 mm. What can you infer about X? Give an Rf value for each spot and explain why the identification is not certain.",
+      "markScheme": [
+        "X is a mixture: two spots show at least two components in these conditions.",
+        "Lower spot Rf = 20/50 = 0.40.",
+        "Upper spot Rf = 40/50 = 0.80.",
+        "X is consistent with containing A and B, but other substances can have the same Rf; a second solvent/comparison is needed."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO3",
+      "specRef": "4.8.1.3",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice."
+    },
+    {
+      "id": "chemistry-exam-20261024-06",
+      "subject": "chemistry",
+      "topic": "Rates data",
+      "kind": "graph",
+      "marks": 4,
+      "prompt": "Time / s: 0, 10, 20, 30, 40. Gas volume / cm³: 0, 18, 30, 36, 38. Draw a graph. Calculate the mean rate over the first 20 s and explain why the graph becomes less steep.",
+      "markScheme": [
+        "Label axes with units and choose suitable linear scales.",
+        "Plot all five points accurately and draw a suitable smooth curve.",
+        "Mean rate = 30/20 = 1.5 cm³/s.",
+        "Reactants are used up so there are fewer successful collisions per second."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2/AO3",
+      "specRef": "4.6.1.1–4.6.1.2",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice.",
+      "responseMode": "drawing"
+    },
+    {
+      "id": "chemistry-exam-20261024-07",
+      "subject": "chemistry",
+      "topic": "Atomic-model evidence",
+      "kind": "extended",
+      "marks": 6,
+      "prompt": "In alpha-particle scattering, most particles passed through thin gold foil, some were deflected and a tiny fraction returned backwards. Explain how these observations challenged the plum-pudding model and supported a nuclear model.",
+      "markScheme": [
+        "Most passing through indicates most atomic volume is empty space.",
+        "Deflections indicate a concentrated region that exerts a force.",
+        "Positive alpha particles are repelled by a positive nuclear charge.",
+        "Rare large deflections imply a very small dense nucleus.",
+        "Most mass is concentrated in the nucleus.",
+        "A diffuse positive charge in the plum-pudding model would not account for the rare very large deflections."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO1/AO3",
+      "specRef": "4.1.1.3",
+      "minutes": 9.0,
+      "marking": "self_or_teacher",
+      "levels": [
+        {
+          "marks": "0",
+          "descriptor": "No relevant scientific content."
+        },
+        {
+          "marks": "1–2",
+          "descriptor": "Some correct relevant statements, but important parts of the task are missing or disconnected."
+        },
+        {
+          "marks": "3–4",
+          "descriptor": "A mostly correct explanation or workable method; some links to the context are developed, but justification or control of variables is incomplete."
+        },
+        {
+          "marks": "5–6",
+          "descriptor": "A coherent, accurate response that addresses the whole task, links evidence to reasoning, and explains the relevant controls or limitations."
+        }
+      ],
+      "markingNote": "Use best fit across the levels, then choose the mark within the level. Indicative content is not a one-mark-per-keyword checklist. Alternative valid science is creditworthy."
+    },
+    {
+      "id": "chemistry-exam-20261024-08",
+      "subject": "chemistry",
+      "topic": "Separating mixtures",
+      "kind": "extended",
+      "marks": 6,
+      "prompt": "Describe how to obtain separate samples of dry sand and dry salt from a mixture of sand, salt and water. Explain why each separation works.",
+      "markScheme": [
+        "Stir so soluble salt is dissolved; add a little water if necessary.",
+        "Filter: insoluble sand remains as residue and salt solution passes through.",
+        "Wash the residue with a small amount of water to remove salt solution.",
+        "Dry sand gently.",
+        "Gently evaporate some water from filtrate and allow concentrated solution to cool and crystallise.",
+        "Separate and dry crystals; solubility and particle-size differences allow the separations."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1/AO2",
+      "specRef": "4.1.1.2",
+      "minutes": 9.0,
+      "marking": "self_or_teacher",
+      "levels": [
+        {
+          "marks": "0",
+          "descriptor": "No relevant scientific content."
+        },
+        {
+          "marks": "1–2",
+          "descriptor": "Some correct relevant statements, but important parts of the task are missing or disconnected."
+        },
+        {
+          "marks": "3–4",
+          "descriptor": "A mostly correct explanation or workable method; some links to the context are developed, but justification or control of variables is incomplete."
+        },
+        {
+          "marks": "5–6",
+          "descriptor": "A coherent, accurate response that addresses the whole task, links evidence to reasoning, and explains the relevant controls or limitations."
+        }
+      ],
+      "markingNote": "Use best fit across the levels, then choose the mark within the level. Indicative content is not a one-mark-per-keyword checklist. Alternative valid science is creditworthy."
+    },
+    {
+      "id": "chemistry-exam-20261024-09",
+      "subject": "chemistry",
+      "topic": "Paper chromatography",
+      "kind": "extended",
+      "marks": 6,
+      "prompt": "Plan a paper-chromatography experiment to compare dyes in two inks. Include how to set up the paper, develop it and interpret the result.",
+      "markScheme": [
+        "Draw a pencil baseline and place small separate ink spots on it.",
+        "Keep the solvent level below the baseline.",
+        "Allow solvent to rise without moving the container.",
+        "Remove paper and mark solvent front immediately.",
+        "Measure from baseline to each spot centre and solvent front; calculate Rf.",
+        "Compare spots in the same solvent and conditions; matched Rf is supporting evidence, not unique proof of identity."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO3",
+      "specRef": "4.8.1.3; required practical 6",
+      "minutes": 9.0,
+      "marking": "self_or_teacher",
+      "levels": [
+        {
+          "marks": "0",
+          "descriptor": "No relevant scientific content."
+        },
+        {
+          "marks": "1–2",
+          "descriptor": "Some correct relevant statements, but important parts of the task are missing or disconnected."
+        },
+        {
+          "marks": "3–4",
+          "descriptor": "A mostly correct explanation or workable method; some links to the context are developed, but justification or control of variables is incomplete."
+        },
+        {
+          "marks": "5–6",
+          "descriptor": "A coherent, accurate response that addresses the whole task, links evidence to reasoning, and explains the relevant controls or limitations."
+        }
+      ],
+      "markingNote": "Use best fit across the levels, then choose the mark within the level. Indicative content is not a one-mark-per-keyword checklist. Alternative valid science is creditworthy."
+    },
+    {
+      "id": "chemistry-exam-20261024-10",
+      "subject": "chemistry",
+      "topic": "Distillation",
+      "kind": "practical",
+      "marks": 4,
+      "prompt": "A student heats salt solution to collect pure water. Explain the functions of the flask and condenser, predict what remains in the flask, and give one suitable safety precaution.",
+      "markScheme": [
+        "Heating makes water evaporate/boil from the solution.",
+        "Condenser cools water vapour so it becomes liquid water.",
+        "Non-volatile salt remains in the flask (with any unboiled water).",
+        "Wear eye protection or use a stable clamped apparatus; do not seal the apparatus or boil it dry."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2",
+      "specRef": "4.1.1.2",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice."
+    },
+    {
+      "id": "chemistry-exam-20261024-11",
+      "subject": "chemistry",
+      "topic": "Periodic-table reasoning",
+      "kind": "structured",
+      "marks": 4,
+      "prompt": "Element X has electron arrangement 2,8,1 and Y has 2,8,8,1. Identify their group, explain their similar reactions and predict which reacts faster with water, explaining why.",
+      "markScheme": [
+        "Both are in Group 1.",
+        "Both have one outer-shell electron and tend to lose it.",
+        "Y reacts faster.",
+        "Y’s outer electron is farther from the nucleus and more shielded, so it is lost more easily."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO2",
+      "specRef": "4.1.2.5",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice."
+    },
+    {
+      "id": "chemistry-exam-20261024-12",
+      "subject": "chemistry",
+      "topic": "Practical evaluation",
+      "kind": "data",
+      "marks": 4,
+      "prompt": "Three chromatography trials give Rf = 0.48, 0.50 and 0.78. A photograph shows the solvent front was marked late in trial 3, after solvent had evaporated. Explain how to handle this result and improve the method.",
+      "markScheme": [
+        "Trial 3 is anomalous compared with the other two.",
+        "The recorded front may be too low, making the denominator too small and Rf too high.",
+        "Repeat the trial before excluding it; report the reason if it is excluded.",
+        "Mark the solvent front immediately on removing the paper."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO3",
+      "specRef": "4.8.1.3",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice."
+    },
+    {
+      "id": "biology-exam-20261024-01",
+      "subject": "biology",
+      "topic": "Magnification",
+      "kind": "calculation",
+      "marks": 4,
+      "prompt": "A cell image is 45 mm long. The actual cell is 30 µm long. Calculate magnification, showing unit conversion and explaining why magnification has no unit.",
+      "markScheme": [
+        "45 mm = 45 000 µm.",
+        "Magnification = image size/actual size.",
+        "45 000/30 = ×1500.",
+        "Length units cancel because both lengths are in the same unit."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2",
+      "specRef": "4.1.1.5",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice.",
+      "check": {
+        "value": 1500,
+        "unit": "×"
+      }
+    },
+    {
+      "id": "biology-exam-20261024-02",
+      "subject": "biology",
+      "topic": "Scale bars",
+      "kind": "calculation",
+      "marks": 4,
+      "prompt": "A printed scale bar is 20 mm long and represents 5 µm. A bacterium on the same print is 12 mm long. Calculate its actual length and explain what happens to the calculated length if the whole image is enlarged uniformly.",
+      "markScheme": [
+        "12/20 = 0.60 of the scale-bar length.",
+        "Actual length = 0.60 × 5 = 3 µm.",
+        "Both image lengths increase by the same factor on enlargement.",
+        "The ratio and calculated actual length remain unchanged."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO2",
+      "specRef": "4.1.1.5",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice.",
+      "check": {
+        "value": 3,
+        "unit": "µm"
+      }
+    },
+    {
+      "id": "biology-exam-20261024-03",
+      "subject": "biology",
+      "topic": "Osmosis data",
+      "kind": "calculation",
+      "marks": 4,
+      "prompt": "A potato cylinder has initial mass 2.40 g and final mass 2.76 g after immersion. Calculate the percentage change in mass and explain it using osmosis.",
+      "markScheme": [
+        "Increase = 0.36 g.",
+        "Percentage change = 0.36/2.40 × 100 = 15%.",
+        "Water entered through partially permeable cell membranes.",
+        "Net movement was from the more dilute external solution to the more concentrated cell solution."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2",
+      "specRef": "4.1.3.2",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice.",
+      "check": {
+        "value": 15,
+        "unit": "%"
+      }
+    },
+    {
+      "id": "biology-exam-20261024-04",
+      "subject": "biology",
+      "topic": "Bacterial multiplication",
+      "kind": "calculation",
+      "marks": 4,
+      "prompt": "A culture starts with 200 bacteria. Under ideal conditions its population doubles every 30 min. Predict the population after 2 h, then explain why this model cannot describe unlimited growth.",
+      "markScheme": [
+        "2 h = 120 min, giving 4 doublings.",
+        "Population = 200 × 2⁴.",
+        "3200 bacteria.",
+        "Nutrients/space become limiting or waste builds up, slowing growth."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO2",
+      "specRef": "4.1.1.6",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice.",
+      "check": {
+        "value": 3200,
+        "unit": "bacteria"
+      }
+    },
+    {
+      "id": "biology-exam-20261024-05",
+      "subject": "biology",
+      "topic": "Microscopy evaluation",
+      "kind": "data",
+      "marks": 4,
+      "prompt": "A light microscope can magnify an image more when a stronger eyepiece is fitted, but two nearby structures still appear as one. Explain this result and how an electron microscope differs.",
+      "markScheme": [
+        "Magnification makes the image larger.",
+        "Resolution is the ability to distinguish nearby points as separate.",
+        "Enlarging an unresolved image does not reveal additional detail.",
+        "An electron microscope has greater resolving power, allowing finer cell structures to be distinguished."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2",
+      "specRef": "4.1.1.5",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice."
+    },
+    {
+      "id": "biology-exam-20261024-06",
+      "subject": "biology",
+      "topic": "Osmosis graph",
+      "kind": "graph",
+      "marks": 4,
+      "prompt": "Sucrose concentration / mol dm⁻³: 0.0, 0.2, 0.4, 0.6. Mean mass change / %: +12, +6, 0, −6. Draw a graph, estimate the concentration giving no mass change and explain this point.",
+      "markScheme": [
+        "Correct labelled axes and suitable scales, including negative change.",
+        "Plot all four points and draw an appropriate best-fit line.",
+        "No mass change at approximately 0.4 mol dm⁻³.",
+        "No net movement of water: inward and outward movements balance."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2/AO3",
+      "specRef": "4.1.3.2",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice.",
+      "responseMode": "drawing"
+    },
+    {
+      "id": "biology-exam-20261024-07",
+      "subject": "biology",
+      "topic": "Microscopy method",
+      "kind": "extended",
+      "marks": 6,
+      "prompt": "Describe how to prepare a thin onion epidermis specimen, observe it with a light microscope and produce a scientific drawing with a scale. Include safe and effective focusing.",
+      "markScheme": [
+        "Place a thin epidermal layer in a drop of water on a slide; use a suitable stain following local safety instructions.",
+        "Lower coverslip at an angle to reduce air bubbles.",
+        "Start with low-power objective and secure the slide.",
+        "Use coarse then fine focus at low power; use fine focus for higher power and avoid lens–slide contact.",
+        "Draw clear single outlines in proportion, without shading, with ruled labels of visible structures.",
+        "Include a calibrated scale bar or calculated drawing magnification; objective magnification alone is not drawing magnification."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1/AO3",
+      "specRef": "4.1.1.5; required practical 1",
+      "minutes": 9.0,
+      "marking": "self_or_teacher",
+      "levels": [
+        {
+          "marks": "0",
+          "descriptor": "No relevant scientific content."
+        },
+        {
+          "marks": "1–2",
+          "descriptor": "Some correct relevant statements, but important parts of the task are missing or disconnected."
+        },
+        {
+          "marks": "3–4",
+          "descriptor": "A mostly correct explanation or workable method; some links to the context are developed, but justification or control of variables is incomplete."
+        },
+        {
+          "marks": "5–6",
+          "descriptor": "A coherent, accurate response that addresses the whole task, links evidence to reasoning, and explains the relevant controls or limitations."
+        }
+      ],
+      "markingNote": "Use best fit across the levels, then choose the mark within the level. Indicative content is not a one-mark-per-keyword checklist. Alternative valid science is creditworthy."
+    },
+    {
+      "id": "biology-exam-20261024-08",
+      "subject": "biology",
+      "topic": "Adaptations in context",
+      "kind": "extended",
+      "marks": 6,
+      "prompt": "A cell takes mineral ions from dilute soil water into a more concentrated cell solution. It has a long projection and many mitochondria. Identify the likely cell and explain how these features support its role.",
+      "markScheme": [
+        "Identify a root hair cell.",
+        "Long projection increases surface area in contact with soil water.",
+        "Larger area supports faster absorption of water and mineral ions.",
+        "Ion movement against concentration gradient requires active transport.",
+        "Mitochondria support aerobic respiration, transferring energy for active transport.",
+        "Water can enter by osmosis down its water concentration gradient; do not claim osmosis moves mineral ions."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO1/AO2",
+      "specRef": "4.1.1.3; 4.1.3.2–4.1.3.3",
+      "minutes": 9.0,
+      "marking": "self_or_teacher",
+      "levels": [
+        {
+          "marks": "0",
+          "descriptor": "No relevant scientific content."
+        },
+        {
+          "marks": "1–2",
+          "descriptor": "Some correct relevant statements, but important parts of the task are missing or disconnected."
+        },
+        {
+          "marks": "3–4",
+          "descriptor": "A mostly correct explanation or workable method; some links to the context are developed, but justification or control of variables is incomplete."
+        },
+        {
+          "marks": "5–6",
+          "descriptor": "A coherent, accurate response that addresses the whole task, links evidence to reasoning, and explains the relevant controls or limitations."
+        }
+      ],
+      "markingNote": "Use best fit across the levels, then choose the mark within the level. Indicative content is not a one-mark-per-keyword checklist. Alternative valid science is creditworthy."
+    },
+    {
+      "id": "biology-exam-20261024-09",
+      "subject": "biology",
+      "topic": "Osmosis practical",
+      "kind": "extended",
+      "marks": 6,
+      "prompt": "Plan an investigation of how sucrose concentration affects the mass of potato tissue. Explain controls, measurements, repeats and analysis.",
+      "markScheme": [
+        "Prepare a range of known sucrose concentrations.",
+        "Use equal-size cylinders from comparable potato tissue.",
+        "Measure initial masses and keep solution volume, immersion time and temperature constant.",
+        "Blot gently in a consistent way before taking final masses.",
+        "Repeat each concentration and calculate mean percentage mass change using each cylinder’s initial mass.",
+        "Plot percentage change against concentration and estimate the zero-change concentration."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO3",
+      "specRef": "4.1.3.2; required practical 3",
+      "minutes": 9.0,
+      "marking": "self_or_teacher",
+      "levels": [
+        {
+          "marks": "0",
+          "descriptor": "No relevant scientific content."
+        },
+        {
+          "marks": "1–2",
+          "descriptor": "Some correct relevant statements, but important parts of the task are missing or disconnected."
+        },
+        {
+          "marks": "3–4",
+          "descriptor": "A mostly correct explanation or workable method; some links to the context are developed, but justification or control of variables is incomplete."
+        },
+        {
+          "marks": "5–6",
+          "descriptor": "A coherent, accurate response that addresses the whole task, links evidence to reasoning, and explains the relevant controls or limitations."
+        }
+      ],
+      "markingNote": "Use best fit across the levels, then choose the mark within the level. Indicative content is not a one-mark-per-keyword checklist. Alternative valid science is creditworthy."
+    },
+    {
+      "id": "biology-exam-20261024-10",
+      "subject": "biology",
+      "topic": "Cell evidence",
+      "kind": "structured",
+      "marks": 4,
+      "prompt": "An unknown cell has a cell membrane, cytoplasm, ribosomes and a circular DNA loop, but no nucleus. Identify the cell category and give three pieces of reasoning about its structures.",
+      "markScheme": [
+        "It is prokaryotic, for example a bacterial cell.",
+        "Its genetic material is not enclosed in a nucleus.",
+        "Circular DNA is found in the cytoplasm.",
+        "Ribosomes make proteins; their presence does not imply the cell is eukaryotic."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2",
+      "specRef": "4.1.1.1",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice."
+    },
+    {
+      "id": "biology-exam-20261024-11",
+      "subject": "biology",
+      "topic": "Biological drawing",
+      "kind": "drawing",
+      "marks": 4,
+      "prompt": "Use a prepared onion-cell slide or a clear microscope photograph supplied by your teacher. Draw three adjacent cells and label the visible cell wall, cytoplasm and nucleus where visible. State the reference you used. Do not add structures you cannot see.",
+      "markScheme": [
+        "Clear single outlines, no artistic shading.",
+        "Cells are reasonably proportional to the observed specimen.",
+        "Accurate ruled labels for structures actually visible; do not penalise omission of a genuinely invisible nucleus.",
+        "A valid calibrated scale bar or calculated drawing magnification, based on the reference."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2",
+      "specRef": "4.1.1.5",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice.",
+      "responseMode": "drawing",
+      "resourceNote": "Requires a real microscope view or teacher-supplied micrograph with calibration. The app does not supply this reference."
+    },
+    {
+      "id": "biology-exam-20261024-12",
+      "subject": "biology",
+      "topic": "Antibiotic evidence",
+      "kind": "data",
+      "marks": 4,
+      "prompt": "Two antibiotic discs tested on the same bacterial lawn have inhibition-zone diameters 18 mm and 12 mm. Give a supported conclusion, two limitations and one improvement.",
+      "markScheme": [
+        "Under these conditions the first disc has the larger inhibition zone.",
+        "Different concentrations or diffusion rates may affect zone size.",
+        "A single plate does not establish effectiveness in people or against every bacterium.",
+        "Repeat with controlled disc concentrations and the same strain and incubation conditions."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO3",
+      "specRef": "4.1.1.6",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice."
+    },
+    {
+      "id": "french-exam-20261024-01",
+      "subject": "french",
+      "topic": "School life",
+      "kind": "writing90",
+      "marks": 15,
+      "prompt": "Write approximately 90 words in French. Address all three points:\n• Describe what you like and dislike about your school.\n• Describe what you did at school yesterday.\n• Explain your plans for the next school holiday.",
+      "markScheme": [
+        "Communication (AO2), 0–10: cover the three bullets, convey clear relevant information and develop ideas.",
+        "Language (AO3), 0–5: judge range of vocabulary and structures alongside accuracy of grammar and spelling, using the official grid.",
+        "Review the complete response using the linked AQA writing grids; this is not a point-counting task."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2/AO3",
+      "specRef": "Paper 4, Higher Q2",
+      "minutes": 15,
+      "marking": "self_or_teacher",
+      "markingNote": "Teacher/self review with AQA 8652 grids: AO2 10 + AO3 range/accuracy 5. Approximate word count; judge communication and accuracy. Accents matter here even though daily vocabulary accepts omitted accents.",
+      "targetWords": 90,
+      "bullets": [
+        "Describe what you like and dislike about your school.",
+        "Describe what you did at school yesterday.",
+        "Explain your plans for the next school holiday."
+      ],
+      "planning": [
+        "Plan a clear response to every bullet.",
+        "Develop opinions with reasons and examples.",
+        "Check time expressions, verb endings, adjective agreement and negatives."
+      ]
+    },
+    {
+      "id": "french-exam-20261024-02",
+      "subject": "french",
+      "topic": "Healthy living",
+      "kind": "writing90",
+      "marks": 15,
+      "prompt": "Write approximately 90 words in French. Address all three points:\n• Describe your usual eating habits and give opinions.\n• Describe a sporting activity you did recently.\n• Explain what you will do to be healthier next month.",
+      "markScheme": [
+        "Communication (AO2), 0–10: cover the three bullets, convey clear relevant information and develop ideas.",
+        "Language (AO3), 0–5: judge range of vocabulary and structures alongside accuracy of grammar and spelling, using the official grid.",
+        "Review the complete response using the linked AQA writing grids; this is not a point-counting task."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2/AO3",
+      "specRef": "Paper 4, Higher Q2",
+      "minutes": 15,
+      "marking": "self_or_teacher",
+      "markingNote": "Teacher/self review with AQA 8652 grids: AO2 10 + AO3 range/accuracy 5. Approximate word count; judge communication and accuracy. Accents matter here even though daily vocabulary accepts omitted accents.",
+      "targetWords": 90,
+      "bullets": [
+        "Describe your usual eating habits and give opinions.",
+        "Describe a sporting activity you did recently.",
+        "Explain what you will do to be healthier next month."
+      ],
+      "planning": [
+        "Plan a clear response to every bullet.",
+        "Develop opinions with reasons and examples.",
+        "Check time expressions, verb endings, adjective agreement and negatives."
+      ]
+    },
+    {
+      "id": "french-exam-20261024-03",
+      "subject": "french",
+      "topic": "Travel",
+      "kind": "writing150",
+      "marks": 25,
+      "prompt": "Write approximately 150 words in French. Address both points:\n• Describe and evaluate a holiday you have taken.\n• Explain the advantages and disadvantages of tourism and your future travel plans.",
+      "markScheme": [
+        "Communication (AO2), 0–15: convey substantial relevant information about both bullets and develop ideas clearly.",
+        "Range and use of language (AO3), 0–5: assess successful variety and complexity, including appropriate time frames.",
+        "Accuracy (AO3), 0–5: assess the overall reliability of grammar and spelling; refer to the official grids."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO2/AO3",
+      "specRef": "Paper 4, Higher Q3",
+      "minutes": 25,
+      "marking": "self_or_teacher",
+      "markingNote": "Teacher/self review: AO2 15 + AO3 range 5 + AO3 accuracy 5. No automatic mark from word count, keywords or matching a model.",
+      "targetWords": 150,
+      "bullets": [
+        "Describe and evaluate a holiday you have taken.",
+        "Explain the advantages and disadvantages of tourism and your future travel plans."
+      ],
+      "planning": [
+        "Develop both bullets; equal lengths are unnecessary.",
+        "Use precise reasons and examples.",
+        "Check tenses, agreements and whether complex structures communicate successfully."
+      ]
+    },
+    {
+      "id": "french-exam-20261024-04",
+      "subject": "french",
+      "topic": "Technology",
+      "kind": "writing150",
+      "marks": 25,
+      "prompt": "Write approximately 150 words in French. Address both points:\n• Explain how technology affects your life and relationships.\n• Describe a recent experience with technology and explain how your habits may change.",
+      "markScheme": [
+        "Communication (AO2), 0–15: convey substantial relevant information about both bullets and develop ideas clearly.",
+        "Range and use of language (AO3), 0–5: assess successful variety and complexity, including appropriate time frames.",
+        "Accuracy (AO3), 0–5: assess the overall reliability of grammar and spelling; refer to the official grids."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO2/AO3",
+      "specRef": "Paper 4, Higher Q3",
+      "minutes": 25,
+      "marking": "self_or_teacher",
+      "markingNote": "Teacher/self review: AO2 15 + AO3 range 5 + AO3 accuracy 5. No automatic mark from word count, keywords or matching a model.",
+      "targetWords": 150,
+      "bullets": [
+        "Explain how technology affects your life and relationships.",
+        "Describe a recent experience with technology and explain how your habits may change."
+      ],
+      "planning": [
+        "Develop both bullets; equal lengths are unnecessary.",
+        "Use precise reasons and examples.",
+        "Check tenses, agreements and whether complex structures communicate successfully."
+      ]
+    },
+    {
+      "id": "french-exam-20261024-05",
+      "subject": "french",
+      "topic": "Transport and environment",
+      "kind": "reading",
+      "marks": 4,
+      "prompt": "Read the passage. Answer in English: (a) How has the speaker’s transport changed? (b) Give one disadvantage and two advantages of the current journey.",
+      "markScheme": [
+        "From travelling by car to travelling by bus.",
+        "The journey takes longer.",
+        "The speaker can talk with their sister.",
+        "It is less polluting."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1",
+      "specRef": "Paper 3 reading comprehension",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice.",
+      "stimulus": "Avant, je prenais toujours la voiture pour aller au collège. Depuis septembre, je prends le bus avec ma sœur. Le trajet est plus long, mais nous pouvons discuter et c’est moins polluant. Hier, le bus était en retard, donc nous avons marché. À l’avenir, je voudrais aller à vélo, mais mes parents trouvent la route trop dangereuse."
+    },
+    {
+      "id": "french-exam-20261024-06",
+      "subject": "french",
+      "topic": "Transport and inference",
+      "kind": "reading",
+      "marks": 4,
+      "prompt": "Read the passage. Answer in English: (a) Why did they walk yesterday? (b) How would the speaker prefer to travel in future? (c) Why do the parents object? (d) Is cycling already the usual method? Justify your answer.",
+      "markScheme": [
+        "The bus was late.",
+        "By bicycle.",
+        "They think the road is too dangerous.",
+        "No; “je voudrais” expresses a wish, while the current journey is by bus."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1",
+      "specRef": "Paper 3 reading comprehension",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Credit equivalent correct explanations. Each numbered point earns one mark unless a different allocation is stated. Do not award a contradicted point. For calculations, award valid independent method marks after an arithmetic error; never award the same mark twice.",
+      "stimulus": "Avant, je prenais toujours la voiture pour aller au collège. Depuis septembre, je prends le bus avec ma sœur. Le trajet est plus long, mais nous pouvons discuter et c’est moins polluant. Hier, le bus était en retard, donc nous avons marché. À l’avenir, je voudrais aller à vélo, mais mes parents trouvent la route trop dangereuse."
+    },
+    {
+      "id": "french-exam-20261024-07",
+      "subject": "french",
+      "topic": "School and weekend",
+      "kind": "translation",
+      "marks": 10,
+      "prompt": "Translate into French:\nI live near my school, but I usually take the bus because I am tired in the morning. Yesterday I played tennis with my sister Then we ate at home. Next weekend we are going to visit our grandparents. I would like to travel by train because it is more comfortable.",
+      "markScheme": [
+        "Meaning (AO3), 0–5: assess the 15 meaning units below. Award 1/2/3/4/5 for 1–3/4–6/7–9/10–12/13–15 successfully conveyed units; zero if none.",
+        "Vocabulary and grammar (AO3), 0–5: review the full translation with the official Higher grid. A communicated unit need not be flawless to count for meaning.",
+        "Accept alternative accurate French; do not require the suggested wording."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO3",
+      "specRef": "Paper 4 Higher Q1",
+      "minutes": 12,
+      "marking": "self_or_teacher",
+      "markingNote": "Teacher/self review required. This is an original 50+ word translation practice. Do not require the exact model wording or ignore accents automatically.",
+      "model": "J’habite près de mon collège, mais je prends généralement le bus parce que je suis fatigué(e) le matin.\nHier, j’ai joué au tennis avec ma sœur, puis nous avons mangé à la maison.\nLe week-end prochain, nous allons rendre visite à nos grands-parents.\nJe voudrais voyager en train parce que c’est plus confortable.",
+      "meaningUnits": [
+        "I live",
+        "near my school",
+        "but I usually take the bus",
+        "because I am tired",
+        "in the morning",
+        "Yesterday",
+        "I played tennis",
+        "with my sister",
+        "then we ate at home",
+        "Next weekend",
+        "we are going to visit",
+        "our grandparents",
+        "I would like to travel",
+        "by train",
+        "because it is more comfortable"
+      ]
+    },
+    {
+      "id": "french-exam-20261024-08",
+      "subject": "french",
+      "topic": "Town and holidays",
+      "kind": "translation",
+      "marks": 10,
+      "prompt": "Translate into French:\nMy town is quite small, but there are lots of interesting shops. Last summer we went to France We visited a museum. I did not like the hotel because it was noisy. In the future I would like to stay near the sea with my family and go swimming every day.",
+      "markScheme": [
+        "Meaning (AO3), 0–5: assess the 15 meaning units below. Award 1/2/3/4/5 for 1–3/4–6/7–9/10–12/13–15 successfully conveyed units; zero if none.",
+        "Vocabulary and grammar (AO3), 0–5: review the full translation with the official Higher grid. A communicated unit need not be flawless to count for meaning.",
+        "Accept alternative accurate French; do not require the suggested wording."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO3",
+      "specRef": "Paper 4 Higher Q1",
+      "minutes": 12,
+      "marking": "self_or_teacher",
+      "markingNote": "Teacher/self review required. This is an original 50+ word translation practice. Do not require the exact model wording or ignore accents automatically.",
+      "model": "Ma ville est assez petite, mais il y a beaucoup de magasins intéressants.\nL’été dernier, nous sommes allés en France et nous avons visité un musée.\nJe n’ai pas aimé l’hôtel parce qu’il était bruyant.\nÀ l’avenir, je voudrais séjourner près de la mer avec ma famille et nager tous les jours.",
+      "meaningUnits": [
+        "My town is quite small",
+        "but there are",
+        "lots of interesting shops",
+        "Last summer",
+        "we went to France",
+        "and visited a museum",
+        "I did not like",
+        "the hotel",
+        "because it was noisy",
+        "In the future",
+        "I would like to stay",
+        "near the sea",
+        "with my family",
+        "and go swimming",
+        "every day"
+      ]
+    },
+    {
+      "id": "french-exam-20261024-09",
+      "subject": "french",
+      "topic": "Weekend dictation",
+      "kind": "dictation",
+      "marks": 10,
+      "prompt": "Listen and write the French you hear. Use “Listen” to hear device-generated French speech. A parent can read the script instead. This is dictation-skills practice, not a complete AQA listening-paper simulation.",
+      "markScheme": [
+        "Meaning (AO1), 0–5: judge how much of the full spoken message is conveyed.",
+        "Transcription and grammar (AO3), 0–5: review spelling, verb forms, agreements and accents across the full response.",
+        "Use the AQA Higher dictation grids. Do not award one mark per word."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1/AO3",
+      "specRef": "Paper 1 Section B skill practice",
+      "minutes": 7,
+      "marking": "self_or_teacher",
+      "markingNote": "30+ word original skills drill. The exact AQA vocabulary-list sampling, including two out-of-list words, has not been certified. Device speech is a practice aid, not an official recording.",
+      "audioScript": "Le samedi, je joue au tennis avec mes amis. La semaine dernière, nous avons mangé dans un petit restaurant près du collège. Demain, je vais rester à la maison parce que je dois finir mes devoirs.",
+      "model": "Le samedi, je joue au tennis avec mes amis. La semaine dernière, nous avons mangé dans un petit restaurant près du collège. Demain, je vais rester à la maison parce que je dois finir mes devoirs."
+    },
+    {
+      "id": "french-exam-20261024-10",
+      "subject": "french",
+      "topic": "Holiday dictation",
+      "kind": "dictation",
+      "marks": 10,
+      "prompt": "Listen and write the French you hear. Use “Listen” to hear device-generated French speech. A parent can read the script instead. This is dictation-skills practice, not a complete AQA listening-paper simulation.",
+      "markScheme": [
+        "Meaning (AO1), 0–5: judge how much of the full spoken message is conveyed.",
+        "Transcription and grammar (AO3), 0–5: review spelling, verb forms, agreements and accents across the full response.",
+        "Use the AQA Higher dictation grids. Do not award one mark per word."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1/AO3",
+      "specRef": "Paper 1 Section B skill practice",
+      "minutes": 7,
+      "marking": "self_or_teacher",
+      "markingNote": "30+ word original skills drill. The exact AQA vocabulary-list sampling, including two out-of-list words, has not been certified. Device speech is a practice aid, not an official recording.",
+      "audioScript": "Pendant les vacances, nous allons souvent à la mer. L’année dernière, il faisait très chaud et j’ai nagé tous les jours. Cet été, je voudrais visiter une grande ville avec ma famille et prendre beaucoup de photos.",
+      "model": "Pendant les vacances, nous allons souvent à la mer. L’année dernière, il faisait très chaud et j’ai nagé tous les jours. Cet été, je voudrais visiter une grande ville avec ma famille et prendre beaucoup de photos."
+    },
+    {
+      "id": "french-exam-20261024-11",
+      "subject": "french",
+      "topic": "At a café",
+      "kind": "roleplay",
+      "marks": 10,
+      "prompt": "Speak in French to an adult playing a café assistant. Complete five tasks: 1. Order a drink and a snack. 2. Say where you want to sit. 3. Say what you think of the café and why. 4. Answer the unexpected question when asked. 5. Ask what time the café closes.",
+      "markScheme": [
+        "Task 1: a drink and a snack both communicated clearly (2); partly communicated (1).",
+        "Task 2: a clear seating preference (2); partly clear (1).",
+        "Task 3: opinion and reason (2); partial message (1).",
+        "Task 4: clear relevant response to the adult’s question (2); partial response (1).",
+        "Task 5: a clear question about closing time (2); partial question (1)."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO2",
+      "specRef": "Paper 2 Role-play",
+      "minutes": 2,
+      "marking": "self_or_teacher",
+      "markingNote": "Speak aloud; an adult must hear the response. Typed notes cannot establish speaking ability. Each task receives 0, 1 or 2 marks for communication.",
+      "teacherScript": [
+        "Bonjour. Qu’est-ce que vous voulez ?",
+        "Où voulez-vous vous asseoir ?",
+        "Que pensez-vous de notre café ? Pourquoi ?",
+        "Vous venez souvent ici ?",
+        "Vous avez une question ?"
+      ],
+      "responseMode": "oral"
+    },
+    {
+      "id": "french-exam-20261024-12",
+      "subject": "french",
+      "topic": "Local area",
+      "kind": "readaloud",
+      "marks": 15,
+      "prompt": "Read the text aloud, then answer four questions asked by an adult without preparing the answers. The adult can open the teacher panel after you have read.",
+      "markScheme": [
+        "Pronunciation (AO3), 0–5: the adult listens for comprehensibility and accurate sound–spelling correspondences using the Higher grid.",
+        "Conversation (AO1), 0–10: the adult assesses responses to the four questions using the AQA Higher grid.",
+        "No speaking score can be inferred from a typed transcript."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1/AO3",
+      "specRef": "Paper 2 Reading aloud",
+      "minutes": 4,
+      "marking": "self_or_teacher",
+      "markingNote": "Original 50+ word Higher-style rehearsal. Use the official pronunciation and unprepared-response grids; adult listening is required.",
+      "stimulus": "Dans mon quartier, il y a une bibliothèque et un grand parc. Je vais souvent au parc avec mes amis après les cours. Samedi dernier, nous avons joué au football et nous avons parlé de nos projets. À l’avenir, je voudrais participer à une activité pour protéger les arbres et les animaux de notre ville.",
+      "teacherScript": [
+        "Qu’est-ce que tu aimes dans ton quartier ?",
+        "Qu’est-ce que tu as fait le week-end dernier ?",
+        "Que voudrais-tu changer dans ta ville ?",
+        "Pourquoi est-il important de protéger la nature ?"
+      ],
+      "responseMode": "oral"
+    },
+    {
+      "id": "latin-exam-20261024-01",
+      "subject": "latin",
+      "topic": "A warning at the river",
+      "kind": "translation",
+      "marks": 6,
+      "prompt": "Translate the whole passage into English.",
+      "markScheme": [
+        "Marcus was walking to the river with a friend.",
+        "Suddenly he saw a girl in the water.",
+        "The girl was calling for help.",
+        "Marcus said to his friend: “Run to the house and call father!”",
+        "The friend ran quickly.",
+        "The father came with a long rope and saved the girl."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1",
+      "specRef": "J282/01 language skills",
+      "minutes": 12,
+      "marking": "self_or_teacher",
+      "markingNote": "Original Year 9 bridge passage. Award one mark for each listed meaning-unit/answer in this practice rubric. Accept natural English and alternative word order preserving person, tense and meaning. These short task marks are not the full OCR passage grid.",
+      "stimulus": "Marcus cum amico ad flumen ambulabat. subito puellam in aqua vidit. puella auxilium clamabat. Marcus amico dixit: “curre ad villam et patrem voca!” amicus celeriter cucurrit. pater cum longa fune venit et puellam servavit.",
+      "glossary": {
+        "flumen": "river",
+        "funis, funis": "rope"
+      }
+    },
+    {
+      "id": "latin-exam-20261024-02",
+      "subject": "latin",
+      "topic": "A warning at the river",
+      "kind": "comprehension",
+      "marks": 3,
+      "prompt": "Answer in English: Why did Marcus send his friend away? What did the father bring? What was the outcome?",
+      "markScheme": [
+        "To call/fetch the father for help.",
+        "A long rope.",
+        "The girl was saved."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1",
+      "specRef": "J282/01 language skills",
+      "minutes": 6,
+      "marking": "self_or_teacher",
+      "markingNote": "Original Year 9 bridge passage. Award one mark for each listed meaning-unit/answer in this practice rubric. Accept natural English and alternative word order preserving person, tense and meaning. These short task marks are not the full OCR passage grid.",
+      "stimulus": "Marcus cum amico ad flumen ambulabat. subito puellam in aqua vidit. puella auxilium clamabat. Marcus amico dixit: “curre ad villam et patrem voca!” amicus celeriter cucurrit. pater cum longa fune venit et puellam servavit.",
+      "glossary": {
+        "flumen": "river",
+        "funis, funis": "rope"
+      }
+    },
+    {
+      "id": "latin-exam-20261024-03",
+      "subject": "latin",
+      "topic": "A warning at the river",
+      "kind": "grammar",
+      "marks": 4,
+      "prompt": "Give the case and function of “amico” after “dixit”, and the tense and person/number of “ambulabat”.",
+      "markScheme": [
+        "amico: dative.",
+        "Indirect object/recipient: to his friend.",
+        "ambulabat: imperfect tense.",
+        "Third person singular."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1",
+      "specRef": "J282/01 language skills",
+      "minutes": 8,
+      "marking": "self_or_teacher",
+      "markingNote": "Original Year 9 bridge passage. Award one mark for each listed meaning-unit/answer in this practice rubric. Accept natural English and alternative word order preserving person, tense and meaning. These short task marks are not the full OCR passage grid.",
+      "stimulus": "Marcus cum amico ad flumen ambulabat. subito puellam in aqua vidit. puella auxilium clamabat. Marcus amico dixit: “curre ad villam et patrem voca!” amicus celeriter cucurrit. pater cum longa fune venit et puellam servavit.",
+      "glossary": {
+        "flumen": "river",
+        "funis, funis": "rope"
+      }
+    },
+    {
+      "id": "latin-exam-20261024-04",
+      "subject": "latin",
+      "topic": "A warning at the river",
+      "kind": "grammar",
+      "marks": 3,
+      "prompt": "Identify the two imperatives in Marcus’s speech and explain why the author uses an imperfect for “clamabat”.",
+      "markScheme": [
+        "curre.",
+        "voca.",
+        "The imperfect presents the calling as continuing/background action (she was calling)."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1",
+      "specRef": "J282/01 language skills",
+      "minutes": 6,
+      "marking": "self_or_teacher",
+      "markingNote": "Original Year 9 bridge passage. Award one mark for each listed meaning-unit/answer in this practice rubric. Accept natural English and alternative word order preserving person, tense and meaning. These short task marks are not the full OCR passage grid.",
+      "stimulus": "Marcus cum amico ad flumen ambulabat. subito puellam in aqua vidit. puella auxilium clamabat. Marcus amico dixit: “curre ad villam et patrem voca!” amicus celeriter cucurrit. pater cum longa fune venit et puellam servavit.",
+      "glossary": {
+        "flumen": "river",
+        "funis, funis": "rope"
+      }
+    },
+    {
+      "id": "latin-exam-20261024-05",
+      "subject": "latin",
+      "topic": "A missing gift",
+      "kind": "translation",
+      "marks": 6,
+      "prompt": "Translate the whole passage into English.",
+      "markScheme": [
+        "A slave was carrying a gift to the master.",
+        "Because the master was away, the slave waited in the garden.",
+        "A boy saw the gift and decided to hide it.",
+        "When the master returned, the slave could not find the gift.",
+        "At last the boy told the truth.",
+        "And he gave the gift to the master."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1",
+      "specRef": "J282/01 language skills",
+      "minutes": 12,
+      "marking": "self_or_teacher",
+      "markingNote": "Original Year 9 bridge passage. Award one mark for each listed meaning-unit/answer in this practice rubric. Accept natural English and alternative word order preserving person, tense and meaning. These short task marks are not the full OCR passage grid.",
+      "stimulus": "servus donum ad dominum portabat. quod dominus aberat, servus in horto exspectavit. puer donum conspexit et id celare constituit. ubi dominus revenit, servus donum invenire non poterat. tandem puer verum dixit et donum domino dedit.",
+      "glossary": {
+        "aberat": "was away",
+        "celare": "to hide",
+        "constituit": "decided",
+        "verum": "the truth"
+      }
+    },
+    {
+      "id": "latin-exam-20261024-06",
+      "subject": "latin",
+      "topic": "A missing gift",
+      "kind": "comprehension",
+      "marks": 3,
+      "prompt": "Answer in English: Why did the slave wait? What decision did the boy make? How was the problem resolved?",
+      "markScheme": [
+        "The master was away.",
+        "He decided to hide the gift.",
+        "He told the truth and gave the gift to the master."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1",
+      "specRef": "J282/01 language skills",
+      "minutes": 6,
+      "marking": "self_or_teacher",
+      "markingNote": "Original Year 9 bridge passage. Award one mark for each listed meaning-unit/answer in this practice rubric. Accept natural English and alternative word order preserving person, tense and meaning. These short task marks are not the full OCR passage grid.",
+      "stimulus": "servus donum ad dominum portabat. quod dominus aberat, servus in horto exspectavit. puer donum conspexit et id celare constituit. ubi dominus revenit, servus donum invenire non poterat. tandem puer verum dixit et donum domino dedit.",
+      "glossary": {
+        "aberat": "was away",
+        "celare": "to hide",
+        "constituit": "decided",
+        "verum": "the truth"
+      }
+    },
+    {
+      "id": "latin-exam-20261024-07",
+      "subject": "latin",
+      "topic": "A missing gift",
+      "kind": "grammar",
+      "marks": 4,
+      "prompt": "In “id celare constituit”, what does “id” refer to and what case is it? Identify the form of “celare” and explain why it is used here.",
+      "markScheme": [
+        "The gift (donum).",
+        "Accusative, object of celare.",
+        "Present active infinitive.",
+        "Completes constituit: decided to hide."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1",
+      "specRef": "J282/01 language skills",
+      "minutes": 8,
+      "marking": "self_or_teacher",
+      "markingNote": "Original Year 9 bridge passage. Award one mark for each listed meaning-unit/answer in this practice rubric. Accept natural English and alternative word order preserving person, tense and meaning. These short task marks are not the full OCR passage grid.",
+      "stimulus": "servus donum ad dominum portabat. quod dominus aberat, servus in horto exspectavit. puer donum conspexit et id celare constituit. ubi dominus revenit, servus donum invenire non poterat. tandem puer verum dixit et donum domino dedit.",
+      "glossary": {
+        "aberat": "was away",
+        "celare": "to hide",
+        "constituit": "decided",
+        "verum": "the truth"
+      }
+    },
+    {
+      "id": "latin-exam-20261024-08",
+      "subject": "latin",
+      "topic": "A missing gift",
+      "kind": "grammar",
+      "marks": 3,
+      "prompt": "In “donum domino dedit”, give the case of “domino”, its function, and the tense of “dedit”.",
+      "markScheme": [
+        "Dative singular.",
+        "Indirect object/recipient: to the master.",
+        "Perfect."
+      ],
+      "difficulty": "Standard",
+      "ao": "AO1",
+      "specRef": "J282/01 language skills",
+      "minutes": 6,
+      "marking": "self_or_teacher",
+      "markingNote": "Original Year 9 bridge passage. Award one mark for each listed meaning-unit/answer in this practice rubric. Accept natural English and alternative word order preserving person, tense and meaning. These short task marks are not the full OCR passage grid.",
+      "stimulus": "servus donum ad dominum portabat. quod dominus aberat, servus in horto exspectavit. puer donum conspexit et id celare constituit. ubi dominus revenit, servus donum invenire non poterat. tandem puer verum dixit et donum domino dedit.",
+      "glossary": {
+        "aberat": "was away",
+        "celare": "to hide",
+        "constituit": "decided",
+        "verum": "the truth"
+      }
+    },
+    {
+      "id": "latin-exam-20261024-09",
+      "subject": "latin",
+      "topic": "Verse-analysis bridge: Virgil",
+      "kind": "literature",
+      "marks": 3,
+      "prompt": "Identify three emotions or impulses in the opening line and following “ira super”.",
+      "markScheme": [
+        "Love/desire for the sword or violence (amor ferri).",
+        "Criminal madness of war (scelerata insania belli).",
+        "Anger/rage (ira)."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO2/AO3",
+      "specRef": "J282 literature-analysis skills",
+      "minutes": 4.5,
+      "marking": "self_or_teacher",
+      "markingNote": "Original short skills rubric. Quotations must support an explained effect; paraphrase of the supplied translation alone does not earn analysis credit. This does not replace OCR set-text preparation.",
+      "stimulus": "saevit amor ferri et scelerata insania belli,\nira super: magno veluti cum flamma sonore\nvirgea suggeritur costis undantis aeni\nexsultantque aestu latices, furit intus aquai\nfumidus atque alte spumis exuberat amnis,\nnec iam se capit unda, volat vapor ater ad auras.",
+      "translation": "Desire for the sword and the criminal madness of war rage, and anger above all: just as when a fire of twigs is placed with a great roar beneath the sides of a bubbling bronze vessel, the liquid leaps with heat, and within it a steaming torrent of water rages and overflows high with foam; the water can no longer contain itself, and dark vapour flies into the air.",
+      "textSource": "Virgil, Aeneid 7.461–466. Public-domain Latin, checked against The Latin Library; original support translation. Skills transfer only, not a verified school/2029 set text.",
+      "sourceUrl": "https://www.thelatinlibrary.com/vergil/aen7.shtml"
+    },
+    {
+      "id": "latin-exam-20261024-10",
+      "subject": "latin",
+      "topic": "Verse-analysis bridge: Virgil",
+      "kind": "literature",
+      "marks": 4,
+      "prompt": "Explain the effect of “saevit” and “furit”. Give a precise Latin reference and an effect for each.",
+      "markScheme": [
+        "saevit means rages/is violent.",
+        "It presents desire for violence as uncontrollable or savage.",
+        "furit means rages/is furious.",
+        "It links the boiling liquid to human fury, strengthening the comparison."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO2/AO3",
+      "specRef": "J282 literature-analysis skills",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Original short skills rubric. Quotations must support an explained effect; paraphrase of the supplied translation alone does not earn analysis credit. This does not replace OCR set-text preparation.",
+      "stimulus": "saevit amor ferri et scelerata insania belli,\nira super: magno veluti cum flamma sonore\nvirgea suggeritur costis undantis aeni\nexsultantque aestu latices, furit intus aquai\nfumidus atque alte spumis exuberat amnis,\nnec iam se capit unda, volat vapor ater ad auras.",
+      "translation": "Desire for the sword and the criminal madness of war rage, and anger above all: just as when a fire of twigs is placed with a great roar beneath the sides of a bubbling bronze vessel, the liquid leaps with heat, and within it a steaming torrent of water rages and overflows high with foam; the water can no longer contain itself, and dark vapour flies into the air.",
+      "textSource": "Virgil, Aeneid 7.461–466. Public-domain Latin, checked against The Latin Library; original support translation. Skills transfer only, not a verified school/2029 set text.",
+      "sourceUrl": "https://www.thelatinlibrary.com/vergil/aen7.shtml"
+    },
+    {
+      "id": "latin-exam-20261024-11",
+      "subject": "latin",
+      "topic": "Verse-analysis bridge: Virgil",
+      "kind": "literature",
+      "marks": 4,
+      "prompt": "How do the sound and imagery of “magno ... sonore” and “flamma” intensify the scene? Use Latin evidence.",
+      "markScheme": [
+        "magno ... sonore describes a great/loud noise.",
+        "The sound suggests force, turmoil or danger.",
+        "flamma identifies fire, linked with the boiling vessel in undantis aeni.",
+        "The intense heat makes emotional pressure or violence vivid; accept another justified effect grounded in the words."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO2/AO3",
+      "specRef": "J282 literature-analysis skills",
+      "minutes": 6.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Original short skills rubric. Quotations must support an explained effect; paraphrase of the supplied translation alone does not earn analysis credit. This does not replace OCR set-text preparation.",
+      "stimulus": "saevit amor ferri et scelerata insania belli,\nira super: magno veluti cum flamma sonore\nvirgea suggeritur costis undantis aeni\nexsultantque aestu latices, furit intus aquai\nfumidus atque alte spumis exuberat amnis,\nnec iam se capit unda, volat vapor ater ad auras.",
+      "translation": "Desire for the sword and the criminal madness of war rage, and anger above all: just as when a fire of twigs is placed with a great roar beneath the sides of a bubbling bronze vessel, the liquid leaps with heat, and within it a steaming torrent of water rages and overflows high with foam; the water can no longer contain itself, and dark vapour flies into the air.",
+      "textSource": "Virgil, Aeneid 7.461–466. Public-domain Latin, checked against The Latin Library; original support translation. Skills transfer only, not a verified school/2029 set text.",
+      "sourceUrl": "https://www.thelatinlibrary.com/vergil/aen7.shtml"
+    },
+    {
+      "id": "latin-exam-20261024-12",
+      "subject": "latin",
+      "topic": "Verse-analysis bridge: Virgil",
+      "kind": "literature",
+      "marks": 6,
+      "prompt": "How does the extended comparison make anger seem dangerous? Make three developed points, each with a short Latin quotation or precise reference.",
+      "markScheme": [
+        "Award up to 2 marks for each of three distinct evidence–effect pairs (maximum 6).",
+        "Example pair: amor ferri / insania belli connects violent desire with madness, implying lost control.",
+        "Example pair: flamma / undantis aeni depicts heat and boiling, suggesting building emotional pressure.",
+        "Example pair: furit echoes saevit, linking the physical turmoil within the vessel to furious human emotion.",
+        "Accept other convincing interpretations grounded in the extract; do not reward feature naming without explanation."
+      ],
+      "difficulty": "Challenge",
+      "ao": "AO2/AO3",
+      "specRef": "J282 literature-analysis skills",
+      "minutes": 9.0,
+      "marking": "self_or_teacher",
+      "markingNote": "Original short skills rubric. Quotations must support an explained effect; paraphrase of the supplied translation alone does not earn analysis credit. This does not replace OCR set-text preparation.",
+      "stimulus": "saevit amor ferri et scelerata insania belli,\nira super: magno veluti cum flamma sonore\nvirgea suggeritur costis undantis aeni\nexsultantque aestu latices, furit intus aquai\nfumidus atque alte spumis exuberat amnis,\nnec iam se capit unda, volat vapor ater ad auras.",
+      "translation": "Desire for the sword and the criminal madness of war rage, and anger above all: just as when a fire of twigs is placed with a great roar beneath the sides of a bubbling bronze vessel, the liquid leaps with heat, and within it a steaming torrent of water rages and overflows high with foam; the water can no longer contain itself, and dark vapour flies into the air.",
+      "textSource": "Virgil, Aeneid 7.461–466. Public-domain Latin, checked against The Latin Library; original support translation. Skills transfer only, not a verified school/2029 set text.",
+      "sourceUrl": "https://www.thelatinlibrary.com/vergil/aen7.shtml"
+    }
+  ]
+}

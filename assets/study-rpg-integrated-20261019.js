@@ -177,6 +177,9 @@ if (!window.__luxStudyRpgIntegrated) {
     notesLink.href='/notes/';
     notesLink.setAttribute('aria-label','Open Summer and Year 9 PDF Notes Library');
     studyHeader.append(notesLink);
+    const examLink=el('a','lux-study-rpg-notes-library-link','✎ GCSE Exam Practice');
+    examLink.href='/study/exam-practice/';
+    studyHeader.append(examLink);
     board.append(studyHeader);
 
     const scroll = el('div', 'lux-study-rpg-subject-scroll');
