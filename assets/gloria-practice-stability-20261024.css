@@ -444,3 +444,30 @@ html.lux-daily-ux-ready.lux-daily-typing:has(.lux-practice-view [data-question-i
  #lux-daily-study-nav,
 html.lux-keyboard-open:has(.lux-practice-view [data-question-id])
  #lux-daily-study-nav {display:none!important;}
+
+
+/* GLORIA NIGHT ACADEMY — approved moonlit garden illustration, 24 October.
+   User-selected full-size image, not the low-resolution vector substitute.
+   Only active on Answer/Practice question screens. This does not change
+   navigation, question/answer state, scores, drafts, history or recovery. */
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id]) .paper-wash {
+  background-color:#081a2d!important;
+  background-image:
+    linear-gradient(90deg,rgba(2,13,31,.23),rgba(5,15,34,.10) 45%,rgba(2,12,29,.17)),
+    url('/assets/gloria-practice-night-academy-20261024.png')!important;
+  background-position:center center,center center!important;
+  background-size:cover,cover!important;
+  background-repeat:no-repeat,no-repeat!important;
+  background-attachment:scroll,scroll!important;
+}
+/* Apply background to free-practice picker as well, before the first question
+   mounts, avoiding a temporary solid-blue old/new flicker. */
+html.lux-daily-ux-ready.lux-practice-choosing:has(.lux-practice-view) .paper-wash {
+  background-color:#081a2d!important;
+  background-image:
+    linear-gradient(90deg,rgba(2,13,31,.23),rgba(5,15,34,.10) 45%,rgba(2,12,29,.17)),
+    url('/assets/gloria-practice-night-academy-20261024.png')!important;
+  background-position:center,center!important;
+  background-size:cover,cover!important;
+  background-repeat:no-repeat,no-repeat!important;
+}
