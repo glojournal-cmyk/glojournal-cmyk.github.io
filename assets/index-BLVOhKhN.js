@@ -1,3 +1,4 @@
+import {syncTodayFromDatedRecord} from "./today-record-sync-20261024.js";
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261023-final-credit1";
 import {readOptionalBackupJson,linkedBackupManifest} from "./export-linked-storage-20261023.js";
 import "./player-ux-20261013.js?ux=20261021-ipad-shell-lock3&uxfix=20261022-priority-ux1";
@@ -1816,6 +1817,14 @@ function normalizeState() {
   if(verifiedHistoricOct23)
     nextLog={...nextLog,"2026-10-23":verifiedHistoricOct23};
   const receiptLog = applyRecoveryReceipts(nextLog);
+  // The 30-day record can retain three verified completions while a rebuilt
+  // Home plan temporarily displays zero. Reuse only identical same-day
+  // assignments; never create XP or replace correct-only answer evidence.
+  const syncedDaily = state.today === calendarToday
+    ? syncTodayFromDatedRecord(daily, receiptLog[calendarToday], calendarToday)
+    : daily;
+  if (JSON.stringify(syncedDaily)!==JSON.stringify(state.daily||[])) patch.daily=syncedDaily;
+  else delete patch.daily;
   if (JSON.stringify(receiptLog)!==JSON.stringify(currentLog)) patch.dailyLog = receiptLog;
 
   if (Object.keys(patch).length) {
