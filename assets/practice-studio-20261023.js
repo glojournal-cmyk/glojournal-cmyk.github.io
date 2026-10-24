@@ -66,6 +66,56 @@
       link.href = href;
     }
   }
+  // Final approved illustrated Practice skin. No replacement of React
+  // controls; metadata attributes below are used only for CSS styling.
+  function installMockupSkin() {
+    const id='gloria-practice-final-skin';
+    const href='/assets/gloria-practice-mockup-final-20261024.css?v=20261024-live1';
+    let link=document.getElementById(id);
+    if(!link) {
+      link=document.createElement('link');
+      link.id=id;
+      link.rel='stylesheet';
+      link.href=href;
+      document.head.append(link);
+    } else if(link.getAttribute('href')!==href) {
+      link.href=href;
+    }
+  }
+  function decorateCheckedAnswer(q) {
+    // React owns all text, scoring and buttons. Mark existing checked-answer
+    // sections visually; do not copy model answers into decorative elements.
+    const card=q.querySelector('[data-lux-question-card]');
+    if(!card)return;
+    const stacks=[...card.querySelectorAll(':scope > div.mt-5.space-y-3')];
+    const feedback=stacks.find(el=>!!el.querySelector('p.font-display.text-2xl'));
+    if(!feedback)return;
+    if(!feedback.hasAttribute('data-gloria-feedback-stack')){
+      feedback.setAttribute('data-gloria-feedback-stack','');
+    }
+    const status=feedback.querySelector(':scope > div.rounded-lg.p-4');
+    if(status&&!status.hasAttribute('data-gloria-feedback-status')){
+      status.setAttribute('data-gloria-feedback-status','');
+    }
+    for(const label of card.querySelectorAll('p.text-xs')) {
+      const text=(label.textContent||'').trim().toLowerCase();
+      const parent=label.parentElement;
+      if(!parent)continue;
+      if((text==='correct answer'||text==='suggested answer')&&!parent.hasAttribute('data-gloria-model')){
+        parent.setAttribute('data-gloria-model','');
+      }
+      if((text==='why this works'||text==='correct reasoning')&&!parent.hasAttribute('data-gloria-reason')){
+        parent.setAttribute('data-gloria-reason','');
+      }
+    }
+    const details=feedback.querySelector('details.lux-feedback-detail');
+    // Native <details> is a presentation control. Show the accepted wording
+    // after marking so it is legible, never before an answer is submitted.
+    if(details&&!details.open&& !details.hasAttribute('data-gloria-opened')){
+      details.setAttribute('data-gloria-opened','');
+      details.open=true;
+    }
+  }
   function buildNav() {
     if (nav?.isConnected) return;
     nav = document.getElementById('lux-daily-study-nav');
@@ -272,6 +322,7 @@
       const long = labels.some(s => s.length > 85);
       if (q.dataset.luxMcLong !== String(long)) q.dataset.luxMcLong = String(long);
     }
+    decorateCheckedAnswer(q);
   }
   // The new Practice shell persists for the ENTIRE route, including checked
   // feedback, result screens, next-question gaps and hydration. Previously a
@@ -298,6 +349,7 @@
     }
     installSheet();
     installUnifiedQuestionTheme();
+    installMockupSkin();
     buildNav();
     // Expand the actual React-owned activity picker once on first free Practice
     // mount. Respect the student's manual collapse afterwards.
