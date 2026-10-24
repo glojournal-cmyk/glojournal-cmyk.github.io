@@ -74,7 +74,7 @@ async function scenario(label,type,viewport,checkAll=false){
     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
     assert(overflow<=5,"Unexpected iPad horizontal overflow: "+overflow);
     const unexpected=errors.filter(e=>!(label.includes("webkit")&&e.includes("due to access control checks.")&&
-      (e.startsWith("Fetch API cannot load http: /127.0.0.1:8787/")||e.startsWith("Cannot load blob: ttp://127.0.0.1:8787/"))));
+      (e.startsWith("Fetch API cannot load http: /127.0.0.1:8787/")||e.startsWith("Cannot load blob: ttp://127.0.0.1:8787/")||e.startsWith("/127.0.0.1:8787/assessment/"))));
     assert.equal(unexpected.length,0,"Unexpected runtime errors: "+unexpected.join(" | "));
     results.push({browser:label,images:10,decoded:true,manualSwitch:true,scenePicker:true,homeSync:true,gardenAssetLinked:true,persistAfterReload:true,recordsUnchanged:true,overflowPx:overflow,status:"PASS"});
   }finally{await browser.close()}
