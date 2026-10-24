@@ -122,7 +122,7 @@ function semanticPointMatch(point,response,alternatives=[]){
   const full=compact(response),needle=compact(variant),offset=full.indexOf(needle);
   if(needle.length>=10&&offset>=0){
    const before=full.slice(Math.max(0,offset-36),offset);
-   if(!/\b(?:not|no|never|cannot|without)\b(?:\s+\w+){0,2}\s*$/.test(before))return true;
+   if(!/\b(?:not|no|never|cannot|without)\b(?:\s+\w+){0,1}\s*$/.test(before))return true;
   }
   const target=[...new Set(semanticMarkTokens(variant))];
   if(!target.length)continue;
