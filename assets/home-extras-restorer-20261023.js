@@ -18,7 +18,7 @@
   {id:'home-continue',src:'/assets/home-continue-20261010.js?v=20261023-daily-noflicker1'},
   {id:'pet-companion',src:'/pet/home-pet.js?v=20261023-home-restore-safe1',module:true},
   {id:'living-garden',src:'/assets/garden-life-20261007.js?v=20261023-home-restore-safe1'},
-  {id:'recovery-panel',src:'/assets/quest-recovery-20261011.js?v=20261023-home-restore-safe1',module:true}
+  {id:'recovery-panel',src:'/assets/quest-recovery-20261011.js?v=20261024-on-demand-rpg1',module:true}
  ];
  const scholarFeatures=[
   {id:'scholar-images',src:'/assets/scholar-image-recovery-20261020.js?v=20261023-home-restore-safe1'},
