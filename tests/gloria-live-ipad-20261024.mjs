@@ -10,14 +10,14 @@ async function checkFiles(request){
  for(const route of routes){
   const r=await request.get(base+route,{timeout:45000}),html=await r.text();
   assert.equal(r.status(),200,route+' live HTTP');
-  assert.ok(html.includes('practice-studio-20261023.js?v=ipad-fit2'),route+' latest runtime');
-  assert.ok(html.includes('gloria-practice-stability-20261024.css?v=ipad-fit2'),route+' latest CSS');
+  assert.ok(html.includes('practice-studio-20261023.js?v=night-art1'),route+' latest runtime');
+  assert.ok(html.includes('gloria-practice-stability-20261024.css?v=night-art1'),route+' latest CSS');
   results.push({type:'production-route',route,ok:true});
  }
- const r=await request.get(base+'/assets/gloria-practice-academy-ornaments-20261024.svg');
- assert.equal(r.status(),200,'production vector background HTTP');
- assert.match(await r.text(),/<svg/);
- results.push({type:'production-background',ok:true});
+ const r=await request.get(base+'/assets/gloria-practice-night-academy-20261024.png');
+ assert.equal(r.status(),200,'production moonlit background HTTP');
+ assert.ok((await r.body()).byteLength>2000000,'full-resolution night artwork must load, not a tiny placeholder');
+ results.push({type:'production-night-background',ok:true});
 }
 async function checkPractice(browser,engine,viewport){
  const context=await browser.newContext({viewport,hasTouch:true,deviceScaleFactor:2,timezoneId:'Europe/London'});
@@ -42,7 +42,7 @@ async function checkPractice(browser,engine,viewport){
   assert.ok(info.nav.top>=viewport.height-120,'nav is at bottom, not top');
   if(info.form?.bottom!==undefined && info.form.bottom<=viewport.height) assert.ok(info.form.bottom<=info.nav.top+4,'form must not be underneath bottom nav');
   assert.ok(info.scrollWidth<=info.viewportWidth+2,'iPad no sideways scroll');
-  assert.ok(info.background.includes('gloria-practice-academy-ornaments-20261024.svg'),'vector background applied');
+  assert.ok(info.background.includes('gloria-practice-night-academy-20261024.png'),'approved night artwork applied');
   if(info.input)assert.ok(info.input.width>=130,'typing width usable');
   assert.deepEqual(errors,[],'no live runtime exceptions');
   await page.screenshot({path:path.join(out,engine+'-'+viewport.width+'x'+viewport.height+'.png'),fullPage:true});
