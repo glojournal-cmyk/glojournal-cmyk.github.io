@@ -84,7 +84,7 @@ test("current-day state is never changed by historical recovery",()=>{
 test("historical repair is mounted once without importing a second app",()=>{
  const index=readFileSync("index.html","utf8");
  const boot=readFileSync("assets/daily-dated-answer-reconcile-boot-20261023.js","utf8");
- assert.match(index,/daily-dated-answer-reconcile-boot-20261023\.js\?v=20261023-dated-receipts1/);
+ assert.match(index,/daily-dated-answer-reconcile-boot-20261023\.js\?v=20261023-proof-2022-once1/);
  assert.match(boot,/globalThis\.__luxStore/);
  assert.doesNotMatch(boot,/index-BLVOhKhN\.js/);
 });
