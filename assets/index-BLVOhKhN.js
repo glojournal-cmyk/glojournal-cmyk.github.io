@@ -8,7 +8,7 @@ import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUno
 import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261018-receipt2";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastery-count20-v1";
-import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261023-verified-export1";
+import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261024-correct-credit1";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
@@ -1460,6 +1460,7 @@ function compactDailyTasks(daily) {
       progress,
       target,
       done: progress >= target,
+      ...(task.correctOnlyEvidence===true?{correctOnlyEvidence:true}:{}),
       // Keep minimal original assignment identity for accurate recovery.
       // The old compact log discarded the assigned subject and topic.
       ...(typeof task.href==="string" && task.href.startsWith("/") ? {href:task.href.slice(0,280)} : {}),
@@ -1506,6 +1507,25 @@ function writeDailyLog(existing, date, daily) {
   }else{
     // Do not replace genuinely saved task completion with 0/10 on hydration.
     row=mergeDailyRecordRow(prev,incoming,date);
+  }
+  // For the CURRENT 24-Oct-or-later plan only, a complete marked-answer
+  // journal is stronger than legacy attempted-count snapshots. Ordinary
+  // monotonic history merging would otherwise re-credit wrong answers.
+  // Do not touch previous days or tasks without authoritative proof.
+  if(date>='2026-10-24' && date===todayKey() && Array.isArray(row?.tasks)){
+    const trusted=new Map(tasks.filter(t=>t.correctOnlyEvidence===true).map(t=>[t.id,t]));
+    if(trusted.size){
+      const corrected=row.tasks.map(old=>{
+        const proof=trusted.get(old.id);
+        if(!proof || proof.assignedTopic!==old.assignedTopic ||
+           proof.assignedSubject!==old.assignedSubject)return old;
+        return {...old,progress:proof.progress,done:proof.progress>=proof.target,
+          correctOnlyEvidence:true};
+      });
+      const correctedDone=corrected.filter(t=>t.done===true).length;
+      row={...row,tasks:corrected,done:correctedDone,total:corrected.length,
+        complete:corrected.length>0&&correctedDone===corrected.length};
+    }
   }
   if (prev && JSON.stringify(prev) === JSON.stringify(row)) return base;
   const log = { ...base, [date]: row };
