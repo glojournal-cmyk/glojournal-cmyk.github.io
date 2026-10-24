@@ -249,7 +249,7 @@ async function checkFixture(browser,engine,kind,viewport){
   assert.ok(bgSource.includes('<mask id="lm"'),'ornament background should fade away from readable question area');
 
   if(kind==='tiles'){
-    assert.equal(details.tileInk,'rgb(255, 244, 223)','letter tile needs light readable text');
+    assert.equal(details.tileInk,'rgb(255, 246, 223)','approved ivory letter tiles must remain light and readable');
     assert.ok(details.submitButton?.width>=160,'tile answer action needs prominent button');
     assert.ok(details.submitButton.y>=details.tileButton.y,'tile submission must follow available letter tiles');
     const cta=page.locator('[data-lux-tiles] > button:last-child');
