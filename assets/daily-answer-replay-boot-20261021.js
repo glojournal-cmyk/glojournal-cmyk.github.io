@@ -1,6 +1,6 @@
 // Attach to the existing app store. Do NOT import the main app a second time:
 // it can race the iPad route's initialization and delay other pages.
-import {replayDailyAnswerCredit} from './daily-answer-replay-20261021.js?v=20261023-topup-replay-v1';
+import {replayDailyAnswerCredit} from './daily-answer-replay-20261021.js?v=20261024-correct-credit1';
 let attached=false;
 let reconcile=()=>{};
 function attach(){
