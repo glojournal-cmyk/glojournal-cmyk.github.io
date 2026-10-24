@@ -336,11 +336,11 @@ test('failed recall is returned to reinforcement, not falsely Mastered',()=>{
 
 test('iPad route and replay boot reference this same version',()=>{
   const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
-  const release='20261023-original-record-restored1';
-  const previous='20261023-topup-receipt-v1';
+  const release='20261024-correct-credit1';
+  const previous='20261024-correct-credit1';
   assert.ok(read('assets/index-BLVOhKhN.js').includes('year8-daily-v2-20261018.js?v='+release));
   assert.ok(read('assets/quiz-session-y8fix-20260920.js').includes('daily-session-credit-20261021.js?v='+previous));
-  assert.ok(read('assets/daily-answer-replay-boot-20261021.js').includes('daily-answer-replay-20261021.js?v=20261023-topup-replay-v1'));
+  assert.ok(read('assets/daily-answer-replay-boot-20261021.js').includes('daily-answer-replay-20261021.js?v=20261024-correct-credit1'));
   assert.ok(read('assets/study._subject.practise-y8fix-20260920.js').includes('E===\`due\`&&dailyLocked&&assignment?.masteryCheck?5'.replaceAll('\\','')));
 });
 
