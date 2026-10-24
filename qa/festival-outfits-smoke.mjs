@@ -72,7 +72,7 @@ async function scenario(name,engine,viewport){
     const unexpected=errors.filter(e=>!(name.startsWith("webkit-") &&
       e.includes("due to access control checks.") &&
       (e.startsWith("Fetch API cannot load http: /127.0.0.1:8787/") ||
-       e.startsWith("Cannot load blob: ttp://127.0.0.1:8787/") || e.startsWith("/127.0.0.1:8787/assessment/")))));
+       e.startsWith("Cannot load blob: ttp://127.0.0.1:8787/") || e.startsWith("/127.0.0.1:8787/assessment/"))));
     assert.equal(unexpected.length,0,"Uncaught exceptions: "+unexpected.join(" | "));
     results.push({browser:name,outfits:decoded.length,imagesDecoded:true,allUnlocked:true,homeSync:true,reloadPersists:true,allTenSelectable:name.startsWith("chromium"),recordsUnchanged:true,overflowPx:overflow,status:"PASS"});
   }finally{await browser.close();}
