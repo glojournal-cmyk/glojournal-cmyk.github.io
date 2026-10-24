@@ -617,3 +617,11 @@ html.lux-daily-ux-ready .lux-daily-study-nav a>span:last-child{
  html.lux-daily-ux-ready .lux-practice-view [data-question-id]
  [data-lux-question-card]::after{content:none!important;display:none!important;}
 }
+
+
+/* Redundant Daily/Vocab long-help strip is not needed once the live question
+   begins. This hides presentation only; the daily counters stay in state. */
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ [data-gloria-redundant-guidance] {
+ display:none!important;
+}
