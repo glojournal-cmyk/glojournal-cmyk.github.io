@@ -7,3 +7,113 @@
 .maths-sprites img[hidden],.maths-cast-status[hidden]{display:none!important}
 .maths-cast-status{position:absolute;left:5%;right:5%;bottom:24%;z-index:1;max-width:90%;padding:12px;border-radius:13px;background:rgba(245,235,214,.91);border:1px solid #c3a77b;color:#435b62;font-size:13px;line-height:1.5;text-align:center}
 .maths-sync-waiting .maths-cast-status{background:#fbede5;color:#79442d}
+
+
+/* 2026-10-24 Gloria shared answer-page visual identity.
+   Only the Maths practice question route: no changes to grading, question
+   navigation, drafts, symbol buttons, self-review or saved results. */
+body:has(.maths-practise-paper){
+ --maths-quiz-navy:#071729;
+ --maths-quiz-card:#0e2237;
+ --maths-quiz-gold:#d7af67;
+ --maths-quiz-text:#f4e9d7;
+ background:#061324;color:var(--maths-quiz-text);
+}
+body:has(.maths-practise-paper) .maths-background{
+ background:linear-gradient(100deg,#02101feb,#06172cf2),url('/art/study-rpg/magic-floor.jpg') center/cover no-repeat;
+}
+body:has(.maths-practise-paper) .maths-top,
+body:has(.maths-practise-paper) .maths-side,
+body:has(.maths-practise-paper) .maths-summary{
+ background:#0b2136f2;color:#f7e9cf;border:1px solid #bf9856;
+}
+body:has(.maths-practise-paper) .maths-caption,
+body:has(.maths-practise-paper) .maths-subtle,
+body:has(.maths-practise-paper) .maths-side p{color:#d7c7a7}
+body:has(.maths-practise-paper) .maths-side a{
+ background:#173047;color:#f8e8ce;border:1px solid #b48e534f;
+}
+body:has(.maths-practise-paper) .maths-side a.is-on{background:#ebd4a7;color:#18273a}
+body:has(.maths-practise-paper) .maths-paper.maths-practise-paper{
+ background:#091e33f8;
+ color:#f9eedb;
+ border:1px solid #c49b58;
+ border-radius:20px;
+ box-shadow:0 12px 35px #0006;
+ min-width:0;
+ overflow:visible;
+}
+body:has(.maths-practise-paper) .maths-paper-title{
+ background:#142a40;color:#f4d7a0;
+ border:1px solid #c49b58;
+}
+body:has(.maths-practise-paper) .maths-paper-title small,
+body:has(.maths-practise-paper) .maths-lead,
+body:has(.maths-practise-paper) .maths-help,
+body:has(.maths-practise-paper) .maths-note{color:#cfc2ae}
+body:has(.maths-practise-paper) .maths-question-count button{
+ min-height:44px;min-width:44px;width:auto;
+ border:1px solid #c49b58;color:#f7e5c8;background:#162c41;
+}
+body:has(.maths-practise-paper) .maths-question-count button.chosen{
+ background:#e5bd72;color:#162538;
+}
+body:has(.maths-practise-paper) .maths-prompt{
+ background:#10263d!important;border:1px solid #d2a65e!important;
+ border-radius:17px;color:#f7ead6;padding:clamp(15px,2vw,28px);
+ overflow-wrap:anywhere;white-space:normal;
+}
+body:has(.maths-practise-paper) .maths-prompt>p{
+ font-family:Georgia,serif;
+ color:#ffe0aa;
+ font-size:clamp(23px,2.8vw,39px);
+ line-height:1.38;
+ overflow-wrap:anywhere;
+}
+body:has(.maths-practise-paper) .maths-prompt-top span{
+ background:#23384e;color:#ffe1a3;
+}
+body:has(.maths-practise-paper) .maths-answer-label{color:#f0ca82;font-size:17px}
+body:has(.maths-practise-paper) textarea#math-answer{
+ box-sizing:border-box;
+ min-height:145px;
+ font-size:clamp(17px,1.5vw,21px);
+ background:#081629;color:#fff6e3;
+ border:1px solid #b18b51;border-radius:15px;
+ padding:16px;
+ caret-color:#ffcf79;
+}
+body:has(.maths-practise-paper) textarea#math-answer::placeholder{color:#cfc0ac;opacity:1}
+body:has(.maths-practise-paper) :is(button,a,textarea):focus-visible{outline:3px solid #ffce7f;outline-offset:3px}
+body:has(.maths-practise-paper) .maths-symbols button,
+body:has(.maths-practise-paper) .maths-prev-next button,
+body:has(.maths-practise-paper) .maths-review-buttons button{
+ background:#18344d;border:1px solid #b28c50;color:#fff3db;
+ min-height:46px;
+}
+body:has(.maths-practise-paper) .maths-action,
+body:has(.maths-practise-paper) .maths-review-buttons button:last-child{
+ background:linear-gradient(110deg,#c49a53,#eed19a);color:#182439;
+ border:1px solid #e2ba70;border-radius:99px;min-height:53px;
+}
+body:has(.maths-practise-paper) .maths-reveal{
+ background:#152d43;border:1px solid #a88850;color:#ffefda;
+}
+body:has(.maths-practise-paper) .maths-nav{background:#061627f3;border:1px solid #d5aa62}
+body:has(.maths-practise-paper) .maths-nav a{color:#e8c58e}
+body:has(.maths-practise-paper) .maths-nav a.active{background:#f4e3bf;color:#183044}
+@media(max-width:900px){
+ body:has(.maths-practise-paper) .maths-layout{min-height:0;gap:10px}
+ body:has(.maths-practise-paper) .maths-sprites{min-height:140px}
+ body:has(.maths-practise-paper) .maths-scholar{max-height:35dvh}
+}
+@media(max-width:600px){
+ body:has(.maths-practise-paper) .maths-practise-paper{padding:14px}
+ body:has(.maths-practise-paper) .maths-summary{min-height:0}
+ body:has(.maths-practise-paper) .maths-sprites{max-height:125px;min-height:100px}
+ body:has(.maths-practise-paper) .maths-scholar{max-height:125px}
+}
+@media(max-height:720px) and (min-width:601px){
+ body:has(.maths-practise-paper) .maths-sprites{min-height:130px}
+ body:has(.maths-practise-paper) .maths-scholar{max-height:28dvh}
+}
