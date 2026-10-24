@@ -1,0 +1,346 @@
+/* Gloria unified question theme, 24 Oct 2026.
+   Presentation only. The React/Maths/Assessment engines retain all scoring,
+   recovery, draft storage, XP, submission and navigation behavior.
+   Theme is opt-out for the React quiz via ?dailyUxPreview=0.
+   The original practice studio remains in place underneath as a safe fallback. */
+
+/* Shared illustrated academy palette. Questions sit on their own opaque cards,
+   never over text or interactive portions of the scenic background. */
+html.lux-daily-ux-ready {
+  --gloria-night:#07172a;
+  --gloria-card:#0b2136;
+  --gloria-card2:#11263b;
+  --gloria-gold:#d4ad63;
+  --gloria-gold-light:#f7dba0;
+  --gloria-copy:#f4ead5;
+  --gloria-muted:#c6bfaf;
+}
+html.lux-daily-ux-ready body,
+html.lux-daily-ux-ready .paper-wash {
+  background-color:var(--gloria-night)!important;
+}
+html.lux-daily-ux-ready .paper-wash {
+  background-image:
+    radial-gradient(ellipse at 71% 13%,#17405e55,transparent 52%),
+    linear-gradient(100deg,#020d1bdb 0%,#06172cf5 32%,#06172af7 100%),
+    url('/art/study-rpg/magic-floor.jpg')!important;
+  background-size:cover,cover,cover!important;
+  background-position:center,center,center!important;
+  background-attachment:scroll!important;
+  background-repeat:no-repeat!important;
+}
+/* Give the classroom art its own reserved column. No scene/answer overlap. */
+@media(min-width:930px) {
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id]) .paper-wash > main {
+    max-width:100%!important;
+    width:100%!important;
+    padding:clamp(14px,1.6vw,26px) clamp(16px,2.2vw,36px)
+      calc(110px + env(safe-area-inset-bottom))
+      clamp(185px,19vw,310px)!important;
+    margin:0!important;
+    position:relative;
+  }
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id]) .paper-wash > main::before {
+    content:"";
+    position:fixed;
+    z-index:0;
+    pointer-events:none;
+    left:0;
+    top:0;
+    width:clamp(175px,18vw,294px);
+    height:calc(100dvh - 80px);
+    background:
+      url('/art/home-rpg/scholar-clean.png') center bottom/contain no-repeat,
+      linear-gradient(90deg,#07162925,#07162905);
+    border-right:1px solid #b68b4938;
+  }
+  html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id]) .paper-wash > main > * {
+    position:relative;
+    z-index:1;
+  }
+}
+/* The top legacy avatar snippet is redundant when the character stands left. */
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+  .paper-wash > main > div > aside:first-child {
+  display:none!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] {
+  width:100%;
+  max-width:100%!important;
+  min-width:0;
+  padding:0!important;
+  gap:clamp(10px,1.25vw,16px)!important;
+  color:var(--gloria-copy);
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] > * {
+  min-width:0;
+}
+/* Study bar / real progress and resume controls. */
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl)) {
+  box-sizing:border-box;
+  min-height:0!important;
+  height:auto!important;
+  width:100%;
+  max-width:none!important;
+  padding:clamp(12px,1.35vw,19px)!important;
+  margin:0!important;
+  border:1px solid #b68b49b0!important;
+  border-radius:20px!important;
+  background:#101f32f2!important;
+  box-shadow:0 5px 22px #00000028!important;
+  color:var(--gloria-copy)!important;
+  overflow:visible;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl)) h1,
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl)) h1[data-lux-display-title]::after {
+  color:var(--gloria-gold-light)!important;
+  font-size:clamp(23px,2.7vw,39px)!important;
+  overflow-wrap:anywhere;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl)) > p {
+  color:var(--gloria-muted)!important;
+  max-width:100%!important;
+}
+/* We preserve progress: render a thin subtle rule and visible numerical count. */
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl))::before {
+  position:static!important;
+  display:none!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl))::after {
+  position:static!important;
+  transform:none!important;
+  display:block!important;
+  margin:7px 0 0!important;
+  color:var(--gloria-gold-light)!important;
+  text-align:right;
+  font-size:13px!important;
+  white-space:normal!important;
+}
+/* Actual question stage: solid navy surface, gold framed, no transparency
+   showing through the question or text entry. */
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] [data-lux-question-card],
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] .rounded-xl.bg-card.p-5 > div {
+  box-sizing:border-box;
+  width:100%;
+  min-height:0!important;
+  max-height:none!important;
+  max-width:100%!important;
+  overflow:visible!important;
+  padding:clamp(17px,2.15vw,31px)!important;
+  background:var(--gloria-card)!important;
+  border:1px solid #c39954!important;
+  border-radius:20px!important;
+  color:var(--gloria-copy)!important;
+  box-shadow:inset 0 0 38px #0f38523b,0 10px 30px #00000025!important;
+}
+/* The prompt is visually separated from the scenic artwork. */
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] [data-lux-prompt],
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] p.font-display.text-2xl {
+  font-family:"Cormorant Garamond",Georgia,serif!important;
+  font-weight:700!important;
+  font-size:clamp(31px,3.9vw,57px)!important;
+  line-height:1.18!important;
+  color:#f5d9a0!important;
+  text-wrap:pretty;
+  overflow-wrap:anywhere;
+  margin:8px 0 14px!important;
+}
+/* Preserve scientific diagrams and long-text tasks at natural height. */
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] img {
+  max-width:100%;
+  height:auto;
+  object-fit:contain;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is(form,input,select,textarea) {
+  max-width:100%;
+  min-width:0;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is(input:not([type="checkbox"]):not([type="radio"]),textarea,select) {
+  box-sizing:border-box;
+  min-height:62px!important;
+  font-size:clamp(17px,1.55vw,22px)!important;
+  line-height:1.5!important;
+  padding:13px 17px!important;
+  border:1px solid #977b4a!important;
+  border-radius:15px!important;
+  background:#091729!important;
+  color:#fff7e8!important;
+  caret-color:#f4d18a;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] textarea {
+  min-height:130px!important;
+  resize:vertical;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is(input,textarea)::placeholder {color:#c2baae!important;opacity:1}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] :focus-visible {
+  outline:3px solid #f6c76b!important;
+  outline-offset:3px!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is([data-lux-question-card], .rounded-xl.bg-card.p-5 > div) > p:first-child {
+  color:#e0b66e!important;
+  font-weight:700!important;
+  letter-spacing:.12em!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] .text-muted {
+  color:var(--gloria-muted)!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] .text-navy {
+  color:#f3dcae!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] .text-danger {
+  color:#ffc1b4!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] .text-good {
+  color:#c8efcc!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] [class*="bg-sage"],
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] [class*="bg-sky"] {
+  background:#1a2c41!important;
+  color:#f4eadd!important;
+  border:1px solid #a58a554d;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] [class*="bg-blush"] {
+  background:#4a2730!important;
+  color:#ffe2dc!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  button:not(:disabled) {cursor:pointer}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] button {
+  min-height:48px;
+  touch-action:manipulation;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  button[type="submit"],
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  [data-lux-tiles] > button:last-child {
+  background:linear-gradient(110deg,#c99c49,#e8c279)!important;
+  border:1px solid #e3c385!important;
+  color:#142035!important;
+  min-height:54px!important;
+  border-radius:99px!important;
+  font-size:18px!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  [data-lux-mc-options] > button {
+  background:#142a40!important;
+  border:1px solid #bb9758!important;
+  color:#fff2de!important;
+  min-height:58px!important;
+  border-radius:13px!important;
+  white-space:normal!important;
+  text-align:left;
+  overflow-wrap:anywhere;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  [data-lux-mc-options] > button:hover:not(:disabled),
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  [data-lux-mc-options] > button:focus-visible {
+  background:#244059!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  [data-lux-tiles] > div:first-child {
+  background:#10273d!important;
+  border:1px solid #b78a49!important;
+  color:#f4ead8!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  [data-lux-tiles] > div:nth-child(2) button {
+  background:#19374e!important;
+  color:#fff4df!important;
+  border:1px solid #ae8d51!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is([role="alert"],[role="status"]) {
+  overflow-wrap:anywhere;
+}
+/* The student's checked answer, marking details and actual Next button remain
+   native React components; don't duplicate controls or invent marks. */
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  .lux-feedback-detail {
+  border:1px solid #a88850!important;
+  border-radius:14px;
+  background:#11273b!important;
+  color:#fff3dc!important;
+  padding:12px!important;
+  margin:12px 0!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  .lux-feedback-detail summary {
+  color:#f5d69c!important;
+  min-height:46px;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  .lux-feedback-detail [class*="bg-card"] {
+  background:#1a3147!important;
+  color:#fff4e2!important;
+}
+html.lux-daily-ux-ready .lux-daily-study-nav {
+  background:#061628f4!important;
+  border:1px solid #c59956!important;
+  border-radius:100px!important;
+  box-shadow:0 4px 24px #0008!important;
+}
+html.lux-daily-ux-ready .lux-daily-study-nav a {
+  color:#f3d299!important;
+  border-radius:99px;
+}
+html.lux-daily-ux-ready .lux-daily-study-nav a[aria-current="page"] {
+  background:#f5e6c7!important;
+  color:#1c2a39!important;
+}
+/* Focus/keyboard state: always prioritize the student's actual question
+   and controls, rather than decorative art. Keep native scroll available. */
+@media(max-width:929px) {
+  html.lux-daily-ux-ready .paper-wash > main {
+    max-width:100%!important;
+    width:100%!important;
+    padding:12px 13px calc(96px + env(safe-area-inset-bottom))!important;
+  }
+}
+@media(max-width:720px) {
+  html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+    :is([data-lux-question-card],.rounded-xl.bg-card.p-5 > div) {
+    padding:15px!important;
+  }
+  html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+    [data-lux-prompt],html.lux-daily-ux-ready .lux-practice-view [data-question-id] p.font-display.text-2xl{
+    font-size:clamp(26px,6vw,35px)!important;
+  }
+  html.lux-daily-ux-ready .lux-practice-view [data-question-id] textarea{min-height:112px!important;}
+}
+html.lux-daily-ux-ready.lux-daily-compact .paper-wash > main,
+html.lux-daily-ux-ready.lux-daily-typing .paper-wash > main,
+html.lux-keyboard-open .paper-wash > main {
+  max-width:100%!important;
+  width:100%!important;
+  padding:8px clamp(9px,1.3vw,16px) 18px!important;
+}
+html.lux-daily-ux-ready.lux-daily-compact .paper-wash > main::before,
+html.lux-daily-ux-ready.lux-daily-typing .paper-wash > main::before,
+html.lux-keyboard-open .paper-wash > main::before {display:none!important;}
+html.lux-daily-ux-ready.lux-daily-compact .lux-practice-view [data-question-id]
+  [data-lux-prompt],
+html.lux-daily-ux-ready.lux-daily-typing .lux-practice-view [data-question-id]
+  [data-lux-prompt] {font-size:clamp(23px,3vw,32px)!important;}
+html.lux-daily-ux-ready.lux-daily-compact .lux-practice-view [data-question-id] textarea,
+html.lux-daily-ux-ready.lux-daily-typing .lux-practice-view [data-question-id] textarea {
+  min-height:86px!important;
+  max-height:32dvh!important;
+}
+/* Motion-free and high contrast for accessibility. */
+@media(prefers-reduced-motion:reduce) {
+  html.lux-daily-ux-ready .lux-practice-view [data-question-id] * {
+    animation:none!important;
+    transition:none!important;
+  }
+}
