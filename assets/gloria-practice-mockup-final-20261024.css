@@ -719,3 +719,15 @@ html.lux-daily-ux-ready.lux-daily-compact:has(.lux-practice-view [data-question-
  .lux-practice-view [data-question-id] > div:first-child:has(> h1.font-display.text-3xl){
  display:none!important;
 }
+
+/* 24 Oct iPad WebKit regression: the legacy floating Voice toggle can be
+   re-mounted after Practice activates. The approved question screen has
+   no floating overlay; retain Voice controls on non-Practice pages. */
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ #lux-voice-cheer-toggle,
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ [id="lux-voice-cheer-toggle"] {
+ display:none!important;
+ visibility:hidden!important;
+ pointer-events:none!important;
+}
