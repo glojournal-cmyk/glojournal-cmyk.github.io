@@ -1,3 +1,4 @@
+import {restoreCompletedDailyReceipts} from "./daily-completed-session-receipts-20261024.js";
 import {syncTodayFromDatedRecord} from "./today-record-sync-20261024.js";
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261023-final-credit1";
 import {readOptionalBackupJson,linkedBackupManifest} from "./export-linked-storage-20261023.js";
@@ -3109,6 +3110,15 @@ store.persist?.onFinishHydration?.(() => {
  normalizeState();void restoreDurableMarkedAnswers();
 });
 if(store.persist?.hasHydrated?.())void restoreDurableMarkedAnswers();
+// After Safari reload, recover ONLY signed-off formal quiz answers from the
+// independent small session-receipt vault. This never creates XP or guesses
+// which questions were correct.
+const restoreCompletedSafely=()=>{void restoreCompletedDailyReceipts(store)
+  .catch(e=>console.warn("Daily completion receipt recovery unavailable",e));};
+store.persist?.onFinishHydration?.(restoreCompletedSafely);
+if(store.persist?.hasHydrated?.())restoreCompletedSafely();
+if(typeof window!=="undefined")window.addEventListener("pageshow",restoreCompletedSafely);
+
 if(typeof window!=="undefined")window.addEventListener("pageshow",()=>{
  void restoreDurableMarkedAnswers();
 });
