@@ -787,3 +787,163 @@ body.lux-shell-on.assessment-rpg-scene #tracker.panel #tracker-list article.entr
   height:90px;min-height:0;padding:8px 11px;
  }
 }
+
+
+/* Gloria answer screen 2026-10-24: school assessments use the same visual
+   language as Daily + free Practice. Timers, bank selection, marking, pause and
+   saved answers remain owned by the original assessment scripts. */
+body.lux-shell-on:has(#exam:not(.hidden)) {
+  --ass-navy:#071728;
+  --ass-gold:#d5ac62;
+  --ass-paper:#10263c;
+  --ass-ink:#f6e8cd;
+  background:
+    linear-gradient(110deg,#03101feb,#06162ae9),
+    url('/art/study-rpg/magic-floor.jpg') center/cover no-repeat!important;
+  color:#f7ead6!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) main {
+  max-width:1450px;
+  padding-bottom:calc(115px + env(safe-area-inset-bottom))!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam.panel {
+  background:#0a2036f7!important;
+  color:#f6eada!important;
+  border:1px solid #c29a58!important;
+  box-shadow:0 12px 34px #0005!important;
+  border-radius:22px!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .exam-top {
+  padding:10px 15px;
+  background:#10283f!important;
+  border:1px solid #c49b5b;
+  border-radius:17px;
+  color:#f5e1b8;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .exam-top h2,
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .exam-top .tag {
+  color:#f3d8a1!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam #clock {
+  background:#18374b!important;
+  color:#ffe2a9!important;
+  border:1px solid #c19a5e!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .question {
+  box-sizing:border-box;
+  min-height:0!important;
+  padding:clamp(20px,2.4vw,33px)!important;
+  background:#10273d!important;
+  color:#ffe0a8!important;
+  border:1px solid #c79e59!important;
+  border-radius:18px!important;
+  font-family:'Cormorant Garamond',Georgia,serif!important;
+  font-size:clamp(27px,2.8vw,43px)!important;
+  font-weight:700!important;
+  line-height:1.3!important;
+  white-space:pre-wrap!important;
+  overflow-wrap:anywhere;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .muted,
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .tag {
+  color:#d1c6b5!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .progress {
+  background:#2e3d4c!important;
+  height:9px;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .progress div {
+  background:#d7ab63!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .choice {
+  background:#132b42!important;
+  border:1.5px solid #a9864e!important;
+  border-radius:14px!important;
+  color:#f9efdc!important;
+  min-height:60px!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .choice.chosen {
+  background:#dac088!important;
+  border-color:#fff0ce!important;
+  color:#142a3d!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam label:has(#response) {
+  color:#efd19a!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam textarea.answer,
+body.lux-shell-on:has(#exam:not(.hidden)) #exam :is(input,select) {
+  background:#07192c!important;
+  color:#fff3df!important;
+  border:1px solid #b38e52!important;
+  border-radius:15px!important;
+  font-size:clamp(17px,1.6vw,21px)!important;
+  min-height:58px!important;
+  padding:15px!important;
+  box-sizing:border-box;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam textarea.answer {
+  min-height:155px!important;
+  max-height:none!important;
+  resize:vertical;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam ::placeholder{color:#cec2b1!important;opacity:1}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .exam-actions button {
+  min-height:50px!important;
+  border:1px solid #bf985a!important;
+  border-radius:99px!important;
+  background:#122c43!important;
+  color:#fbe6bd!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .exam-actions button.primary {
+  background:linear-gradient(110deg,#c99d50,#eccb84)!important;
+  color:#18263a!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .feedback {
+  border:1px solid #b58e4d!important;
+  border-left-width:4px!important;
+  background:#1c3143!important;
+  color:#f8ecdc!important;
+  border-radius:15px!important;
+  overflow-wrap:anywhere;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .feedback.right {
+  border-left-color:#9dd19f!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .feedback.wrong {
+  border-left-color:#f7a79e!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .assessment-diagram {
+  border:1px solid #cfaa6b;
+  border-radius:12px;
+  background:white;
+  height:auto;
+  max-width:100%;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) .lux-shell-nav {
+  background:#051728f2!important;
+  border:1px solid #cb9d58!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) .lux-shell-nav a{
+  color:#f5d59d!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) .lux-shell-nav a[aria-current="page"]{
+  color:#1b2c40!important;
+  background:#f6e8c8!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam :is(a,button,textarea,select,input):focus-visible{
+  outline:3px solid #ffd487!important;outline-offset:2px!important;
+}
+@media(max-width:760px){
+ body.lux-shell-on:has(#exam:not(.hidden)) #exam.panel{
+   padding:14px!important;
+ }
+ body.lux-shell-on:has(#exam:not(.hidden)) #exam .question{
+   padding:16px!important;
+   font-size:clamp(24px,6vw,33px)!important;
+ }
+ body.lux-shell-on:has(#exam:not(.hidden)) #exam #choices{
+   grid-template-columns:minmax(0,1fr)!important;
+ }
+}
