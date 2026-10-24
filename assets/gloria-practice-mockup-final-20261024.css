@@ -641,3 +641,21 @@ html.lux-daily-ux-ready .lux-practice-view [data-question-id]
  box-shadow:none!important;
  gap:clamp(7px,.8vh,11px)!important;
 }
+
+
+/* Legacy practice CSS carries extremely specific !important card padding.
+   Keep annotated and raw React card geometry identical to prevent a visible
+   old/new Safari frame on every Next-question handoff. */
+html.lux-daily-ux-ready.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ body .paper-wash .lux-practice-view [data-question-id]
+ [data-lux-question-card][data-lux-question-card]{
+ padding:0!important;
+ margin:0!important;
+ border:0!important;
+ border-color:currentColor!important;
+ background:transparent!important;
+ box-shadow:none!important;
+ min-height:0!important;
+ max-height:none!important;
+ overflow:visible!important;
+}
