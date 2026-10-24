@@ -62,7 +62,10 @@ async function scenario(label,type,viewport,checkAll=false){
     await page.screenshot({path:out+"/"+label+"-home.png",fullPage:true});
 
     await page.goto(BASE+"/garden/",{waitUntil:"domcontentloaded",timeout:40000});
-    await page.locator('img[src*="/art/scenes/festival/halloween.webp"]').first().waitFor({timeout:25000});
+    const gardenArt=page.locator('img[src*="/art/scenes/festival/halloween.webp"]').first();
+    await gardenArt.waitFor({state:"attached",timeout:25000});
+    const gardenDecoded=await gardenArt.evaluate(async el=>{await el.decode().catch(()=>{});return el.naturalWidth>=1400&&el.naturalHeight>=1000});
+    assert(gardenDecoded,"Garden scene image failed to load");
 
     await page.goto(BASE+"/scholar/",{waitUntil:"domcontentloaded",timeout:40000});
     await page.reload({waitUntil:"domcontentloaded"});
@@ -73,7 +76,7 @@ async function scenario(label,type,viewport,checkAll=false){
     const unexpected=errors.filter(e=>!(label.includes("webkit")&&e.includes("due to access control checks.")&&
       (e.startsWith("Fetch API cannot load http: /127.0.0.1:8787/")||e.startsWith("Cannot load blob: ttp://127.0.0.1:8787/"))));
     assert.equal(unexpected.length,0,"Unexpected runtime errors: "+unexpected.join(" | "));
-    results.push({browser:label,images:10,decoded:true,manualSwitch:true,scenePicker:true,homeSync:true,gardenSync:true,persistAfterReload:true,recordsUnchanged:true,overflowPx:overflow,status:"PASS"});
+    results.push({browser:label,images:10,decoded:true,manualSwitch:true,scenePicker:true,homeSync:true,gardenAssetLinked:true,persistAfterReload:true,recordsUnchanged:true,overflowPx:overflow,status:"PASS"});
   }finally{await browser.close()}
 }
 try{
