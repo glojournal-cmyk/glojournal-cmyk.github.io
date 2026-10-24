@@ -2,7 +2,7 @@
  * Production presentation: never changes scores, XP, quest or unlocking state.
  * All 17 native /play/:game routes remain the only game implementations.
  */
-import {A as wardrobeOutfits, C as store} from './index-BLVOhKhN.js?v=20261023-share-permission1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
+import {A as wardrobeOutfits, C as store} from './index-BLVOhKhN.js?v=20261024-correct-credit1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
 
 const PREVIEW_PARAM = 'playHallPreview';
 const GAME_LIST = Object.freeze([
