@@ -708,3 +708,14 @@ html.lux-daily-ux-ready.lux-daily-compact:has(.lux-practice-view [data-question-
   margin:0!important;
   gap:9px 11px!important;
 }
+
+
+/* More important than ornament on iPad: when the keyboard is active, the
+   session heading is already known and may be hidden to expose the answer.
+   Keep hidden after blur until the next question, preventing a jump. */
+html.lux-daily-ux-ready.lux-daily-compact:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id] [data-lux-question-intro],
+html.lux-daily-ux-ready.lux-daily-compact:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id] > div:first-child:has(> h1.font-display.text-3xl){
+ display:none!important;
+}
