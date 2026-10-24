@@ -970,3 +970,42 @@ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
   font-size:clamp(40px,5.4vw,65px)!important;
  }
 }
+
+/* Compact iPad landscape word-tile answering: keep every real control above
+   the fixed Study rail without hiding the prompt or shrinking tap targets. */
+@media (min-width:700px) and (max-width:1100px) and (max-height:820px) {
+ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-format="word_tiles"])
+ .lux-practice-view [data-question-format="word_tiles"] [data-lux-prompt] {
+  min-height:95px!important;
+  font-size:clamp(34px,3.5vw,40px)!important;
+  line-height:1.06!important;
+  padding:10px 16px!important;
+ }
+ html.lux-daily-ux-ready .lux-practice-view [data-question-format="word_tiles"]
+ [data-lux-question-intro] {
+  min-height:0!important;
+  padding:8px 14px!important;
+  margin:0!important;
+ }
+ html.lux-daily-ux-ready .lux-practice-view [data-question-format="word_tiles"]
+ [data-lux-question-card] {
+  gap:6px!important;
+ }
+ html.lux-daily-ux-ready .lux-practice-view [data-question-format="word_tiles"]
+ [data-lux-tiles] {
+  padding:8px 10px!important;
+  gap:7px!important;
+ }
+ html.lux-daily-ux-ready .lux-practice-view [data-question-format="word_tiles"]
+ [data-lux-tiles] > div:nth-child(2) {
+  gap:5px!important;
+ }
+ html.lux-daily-ux-ready .lux-practice-view [data-question-format="word_tiles"]
+ [data-lux-tiles] > div:nth-child(2) button {
+  min-height:44px!important;
+ }
+ html.lux-daily-ux-ready .lux-practice-view [data-question-format="word_tiles"]
+ [data-lux-tiles] > button:last-child {
+  min-height:48px!important;
+ }
+}
