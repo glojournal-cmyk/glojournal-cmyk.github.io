@@ -127,6 +127,22 @@
       details.open=true;
     }
   }
+  // Load the approved post-QA iPad layout repair on both direct and SPA
+  // navigation. It is CSS-only and never mutates question state or scoring.
+  function installStabilitySkin() {
+    const id='gloria-practice-stability';
+    const href='/assets/gloria-practice-stability-20261024.css?v=glass-nav1';
+    let link=document.getElementById(id);
+    if(!link) {
+      link=document.createElement('link');
+      link.id=id;
+      link.rel='stylesheet';
+      link.href=href;
+      document.head.append(link);
+    } else if(link.getAttribute('href')!==href){
+      link.href=href;
+    }
+  }
   function buildNav() {
     if (nav?.isConnected) return;
     nav = document.getElementById('lux-daily-study-nav');
@@ -427,6 +443,7 @@
     installSheet();
     installUnifiedQuestionTheme();
     installMockupSkin();
+    installStabilitySkin();
     buildNav();
     // Expand the actual React-owned activity picker once on first free Practice
     // mount. Respect the student's manual collapse afterwards.
