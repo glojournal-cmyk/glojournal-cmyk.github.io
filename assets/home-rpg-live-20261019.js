@@ -4,7 +4,7 @@ import { scholarMetrics } from './scholar-metrics-20261022.js';
  * The native Recovery module remains authoritative for dated recovery.
  */
 import './home-journey-v2-logic-20261010.js?v=20261023-no-zero-flicker1';
-import './journey-navigation-20261004.js';
+import './journey-navigation-20261004.js?v=20261024-latin-ipad-date2';
 import { A as wardrobeOutfits, C as store, Z as scholarLevelProgress, B as rewardScenes } from './index-BLVOhKhN.js?v=20261024-latin-session-receipt1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
 import { selectedRewardScene } from './rpg-scene-selection-20261019.js?v=20261024-festival-scene-allowlist1';
 import { petArtUrl } from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
