@@ -25,7 +25,7 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const report=[];
 const RELEASE='studio-shell-stable3';
-const RUNTIME_RELEASE='ipad-fit2';
+const RUNTIME_RELEASE='night-art1';
 const UNIFIED_THEME='gloria-unified-question-theme-20261024.css?v=20261024-progress2';
 const FINAL_THEME='gloria-practice-mockup-final-20261024.css?v=20261024-est-focus12';
 const entrypoint = fs.readFileSync('index.html','utf8').match(/\/assets\/index-BLVOhKhN\.js\?v=[^"']+/)?.[0];
@@ -40,7 +40,7 @@ for (const subject of ['french','latin','biology','chemistry','physics','english
     subject+' Practice must load the unified navy-gold question stylesheet');
   assert.ok(html.includes(FINAL_THEME),
     subject+' Practice must load the approved illustrated question layout');
-  assert.ok(html.includes('gloria-practice-stability-20261024.css?v=ipad-fit2'),
+  assert.ok(html.includes('gloria-practice-stability-20261024.css?v=night-art1'),
     subject+' Practice must load final translucent iPad and nav repair');
   assert.ok(html.includes(entrypoint),
     subject+' Practice must keep the globally synchronized app entrypoint');
@@ -69,7 +69,7 @@ function fixture(kind){
     '<link rel="stylesheet" href="/assets/practice-studio-20261023.css">'+
     '<link rel="stylesheet" href="/assets/gloria-unified-question-theme-20261024.css?v=20261024-progress2">'+
     '<link rel="stylesheet" href="/assets/gloria-practice-mockup-final-20261024.css?v=20261024-est-focus12">'+
-    '<link rel="stylesheet" href="/assets/gloria-practice-stability-20261024.css?v=ipad-fit2">'+
+    '<link rel="stylesheet" href="/assets/gloria-practice-stability-20261024.css?v=night-art1">'+
     '<script>window.tapCount=0;</script><script defer src="/assets/practice-studio-20261023.js"></script><script defer src="/lux-theme.js"></script></head>'+
     '<body><div class="paper-wash"><header style="height:58px">Legacy top bar</header><aside style="height:400px">Sidebar</aside>'+
     '<main><section id="study-companion" class="cx-study-buddy"><span class="cx-pet-art" aria-label="Antler Bean" style="display:block;background-image:url(\'/pet/art-hd-20261009/level-1/antler-bean.webp\');background-size:contain;background-position:center;background-repeat:no-repeat"></span><strong>Antler Bean is beside you</strong><button type="button" id="lux-voice-cheer-toggle" onclick="window.tapCount++">🔊 Voice On</button></section>'+
@@ -268,7 +268,7 @@ async function checkFixture(browser,engine,kind,viewport){
   assert.ok(details.lock?.height>=20,'approved daily lock must be readable');
   if(['mc','tiles','typed'].includes(kind)) assert.ok(details.card.bottom<details.nav.y-8,
     'question and answer card should stay above the Study bar in one iPad screen');
-  assert.ok(details.decorativeBackground.includes('gloria-practice-academy-ornaments-20261024.svg'),'real approved academy illustration must load');
+  assert.ok(details.decorativeBackground.includes('gloria-practice-night-academy-20261024.png'),'approved night academy illustration must load');
   const stability=await page.evaluate(()=>{
     const paper=document.querySelector('.paper-wash'),nav=document.getElementById('lux-daily-study-nav');
     const q=document.querySelector('[data-question-id]');
