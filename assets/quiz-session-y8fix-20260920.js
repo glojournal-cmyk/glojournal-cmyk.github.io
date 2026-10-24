@@ -303,13 +303,14 @@ function H({title:e,kicker:t,items:n,repairItems:repairBank=[],subject:a,dailyId
     });
     if(receipt.changed)o.setState({daily:receipt.daily,
       ...(receipt.dailyLog?{dailyLog:receipt.dailyLog}:{})});
+    // Save before relying on the main Daily array: on iPad Safari the live
+    // array can be stale even while its original dated assignment survives.
+    // The receipt verifier refuses free, wrong-topic or unfinished sessions.
+    void saveCompletedDailyReceipt(o.getState(),{
+      day:sessionPlanDay,taskId:taskOnFinish,subject:a,year:sessionYear,
+      mode:resumeMode,questions:A,answers:sessionLog
+    }).catch(err=>console.warn('Completed Daily receipt not saved',err));
     if(receipt.target){
-      // iPad Safari may reject the much larger main Scholar progress write.
-      // Keep a tiny proof of the ACTUALLY marked session independently.
-      void saveCompletedDailyReceipt(o.getState(),{
-        day:sessionPlanDay,taskId:taskOnFinish,subject:a,year:sessionYear,
-        mode:resumeMode,questions:A,answers:sessionLog
-      }).catch(err=>console.warn('Completed Daily receipt not saved',err));
       const current=o.getState().daily?.find(t=>t.id===taskOnFinish);
       const counted=Math.min(Number(current?.target)||receipt.target,Number(current?.progress)||0);
       dailyReceiptNote=counted>=receipt.target?` · Daily task ${receipt.target}/${receipt.target} counted`:
