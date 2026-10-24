@@ -25,8 +25,9 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const report=[];
 const RELEASE='studio-shell-stable3';
-const RUNTIME_RELEASE='gloria-theme-20261024-progress2';
+const RUNTIME_RELEASE='gloria-theme-20261024-live2';
 const UNIFIED_THEME='gloria-unified-question-theme-20261024.css?v=20261024-progress2';
+const FINAL_THEME='gloria-practice-mockup-final-20261024.css?v=20261024-live2';
 const entrypoint = fs.readFileSync('index.html','utf8').match(/\/assets\/index-BLVOhKhN\.js\?v=[^"']+/)?.[0];
 assert.ok(entrypoint, 'Home must expose the globally synchronized app entrypoint');
 for (const subject of ['french','latin','biology','chemistry','physics','english']) {
@@ -37,6 +38,8 @@ for (const subject of ['french','latin','biology','chemistry','physics','english
     subject+' Practice must use the new Safari-cached stylesheet');
   assert.ok(html.includes(UNIFIED_THEME),
     subject+' Practice must load the unified navy-gold question stylesheet');
+  assert.ok(html.includes(FINAL_THEME),
+    subject+' Practice must load the approved illustrated question layout');
   assert.ok(html.includes(entrypoint),
     subject+' Practice must keep the globally synchronized app entrypoint');
 }
@@ -143,7 +146,7 @@ async function checkFixture(browser,engine,kind,viewport){
     return {decorated,plainReact};
   });
   assert.deepEqual(undecorated.plainReact,undecorated.decorated,
-    'iPad must render the same v2 card/heading/answers before React decoration: '+JSON.stringify(undecorated));
+    'iPad must render the same question text before React decoration: '+JSON.stringify(undecorated));
   const styleVersion=await page.evaluate(()=>document.getElementById('lux-daily-practice-ux-v2-style')?.getAttribute('href'));
   assert.ok(new URL(styleVersion, base).searchParams.get('v') === RELEASE,
     'Home SPA stylesheet must not load the stale Safari preview1 cached version');
@@ -226,16 +229,16 @@ async function checkFixture(browser,engine,kind,viewport){
   if(['mc','tiles','typed'].includes(kind)) assert.ok(details.card.bottom<details.nav.y-8,
     'question and answer card should stay above the Study bar in one iPad screen');
   assert.ok(details.decorativeBackground.includes('magic-floor'),'navy-gold classroom artwork must be present');
-  const bgResponse=await page.request.get(base+'/assets/daily-practice-academy-frame-20261020.svg');
+  const bgResponse=await page.request.get(base+'/assets/gloria-practice-academy-ornaments-20261024.svg');
   assert.equal(bgResponse.status(),200,'academy background asset must load');
   const bgSource=await bgResponse.text();
-  assert.ok(bgSource.includes('data:image/jpeg;base64,'),'approved columns/books source must be embedded, not external');
-  assert.ok(bgSource.includes('<mask id="leftmask"'),'architectural background should fade into the parchment center');
+  assert.ok(bgSource.includes('id="arch"'),'new illustrated windows must load from same-origin SVG');
+  assert.ok(bgSource.includes('<mask id="lm"'),'ornament background should fade away from readable question area');
 
   if(kind==='tiles'){
     assert.equal(details.tileInk,'rgb(255, 244, 223)','letter tile needs light readable text');
     assert.ok(details.submitButton?.width>=160,'tile answer action needs prominent button');
-    assert.ok(details.submitButton.y<=details.tileButton.y+20,'answer button must line up with tiles');
+    assert.ok(details.submitButton.y>=details.tileButton.y,'tile submission must follow available letter tiles');
     const cta=page.locator('[data-lux-tiles] > button:last-child');
     assert.equal(await cta.getAttribute('aria-label'),'Check Answer','tile submit has the approved accessible CTA name');
     assert.equal(await cta.evaluate(el=>getComputedStyle(el,'::before').content),'"Check Answer"');
