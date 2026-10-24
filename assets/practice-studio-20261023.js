@@ -54,7 +54,7 @@
   // Only inserts a CSS link. No question, grading, save or draft mutation.
   function installUnifiedQuestionTheme() {
     const id = 'gloria-unified-question-theme';
-    const href = '/assets/gloria-unified-question-theme-20261024.css?v=20261024-theme1';
+    const href = '/assets/gloria-unified-question-theme-20261024.css?v=20261024-progress2';
     let link = document.getElementById(id);
     if (!link) {
       link = document.createElement('link');
