@@ -25,16 +25,16 @@ jobs:
             file "art/doll/festival/$file"
             test "$(stat -c%s "art/doll/festival/$file")" -gt 100000
           done <<'FILES'
-          '01-halloween-transparent.png' 'https://at.adobe.com/GmZfO1KcVqSg6UqS'
-          '02-bonfire-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:4003825f-4f2b-4850-be86-4420692216ec'
-          '03-christmas-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:bf06162a-e155-4a17-9d14-cf5be9d8eab1'
-          '04-new-year-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:c8e5c710-cb66-40cd-9784-bcb1b0775911'
-          '05-lunar-new-year-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:3138bcee-e507-4f44-b1fd-9e991246064b'
-          '06-valentine-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:4d70cbda-8e31-4a88-b515-a807f40ebb30'
-          '07-easter-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:cdf212d7-85f8-4cf9-9271-7c5ca5fb1414'
-          '08-cherry-blossom-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:b2909b5e-76ff-4148-9808-6d9d6b481e76'
-          '09-midsummer-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:afad2999-372b-4bbc-95b4-6fe4b9f30afb'
-          '10-mid-autumn-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:aef849e8-c38d-4f2b-aa6c-d372543b208f'
+          01-halloween-transparent.png https://at.adobe.com/GmZfO1KcVqSg6UqS
+          02-bonfire-transparent.png https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:4003825f-4f2b-4850-be86-4420692216ec
+          03-christmas-transparent.png https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:bf06162a-e155-4a17-9d14-cf5be9d8eab1
+          04-new-year-transparent.png https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:c8e5c710-cb66-40cd-9784-bcb1b0775911
+          05-lunar-new-year-transparent.png https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:3138bcee-e507-4f44-b1fd-9e991246064b
+          06-valentine-transparent.png https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:4d70cbda-8e31-4a88-b515-a807f40ebb30
+          07-easter-transparent.png https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:cdf212d7-85f8-4cf9-9271-7c5ca5fb1414
+          08-cherry-blossom-transparent.png https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:b2909b5e-76ff-4148-9808-6d9d6b481e76
+          09-midsummer-transparent.png https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:afad2999-372b-4bbc-95b4-6fe4b9f30afb
+          10-mid-autumn-transparent.png https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:aef849e8-c38d-4f2b-aa6c-d372543b208f
           FILES
       - name: QA real alpha channel and full-body safe margins
         run: |
