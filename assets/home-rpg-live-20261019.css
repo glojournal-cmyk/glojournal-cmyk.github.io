@@ -273,3 +273,9 @@ html.lux-rpg-recovery-open #lux-recovery-quests a{
   .rpg-home-live .rpg-greet-control-live{position:absolute;top:8.3rem;right:0;margin:0;font-size:.68rem}
   .rpg-home-live .rpg-greeting-line-live{position:absolute;top:11.3rem;right:0;max-width:85vw}
 }
+
+/* On the new RPG Home, the dated Recovery controls live outside React and
+   must never appear above the garden except while its modal is open. */
+html.lux-rpg-live-active:not(.lux-rpg-recovery-open) body > #lux-recovery-quests{
+  display:none!important;
+}
