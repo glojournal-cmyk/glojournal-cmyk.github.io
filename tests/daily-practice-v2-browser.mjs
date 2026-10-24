@@ -25,14 +25,18 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const report=[];
 const RELEASE='studio-shell-stable3';
+const RUNTIME_RELEASE='gloria-theme-20261024';
+const UNIFIED_THEME='gloria-unified-question-theme-20261024.css?v=20261024-theme1';
 const entrypoint = fs.readFileSync('index.html','utf8').match(/\/assets\/index-BLVOhKhN\.js\?v=[^"']+/)?.[0];
 assert.ok(entrypoint, 'Home must expose the globally synchronized app entrypoint');
 for (const subject of ['french','latin','biology','chemistry','physics','english']) {
   const html=fs.readFileSync('study/'+subject+'/practise/index.html','utf8');
-  assert.ok(html.includes('practice-studio-20261023.js?v='+RELEASE),
+  assert.ok(html.includes('practice-studio-20261023.js?v='+RUNTIME_RELEASE),
     subject+' Practice must use the new Safari-cached runtime');
   assert.ok(html.includes('practice-studio-20261023.css?v='+RELEASE),
     subject+' Practice must use the new Safari-cached stylesheet');
+  assert.ok(html.includes(UNIFIED_THEME),
+    subject+' Practice must load the unified navy-gold question stylesheet');
   assert.ok(html.includes(entrypoint),
     subject+' Practice must keep the globally synchronized app entrypoint');
 }
@@ -221,7 +225,7 @@ async function checkFixture(browser,engine,kind,viewport){
   assert.ok(details.lock?.height>=20,'approved daily lock must be readable');
   if(['mc','tiles','typed'].includes(kind)) assert.ok(details.card.bottom<details.nav.y-8,
     'question and answer card should stay above the Study bar in one iPad screen');
-  assert.ok(details.decorativeBackground.includes('daily-practice-academy-frame'),'decorative frame must be present');
+  assert.ok(details.decorativeBackground.includes('magic-floor'),'navy-gold classroom artwork must be present');
   const bgResponse=await page.request.get(base+'/assets/daily-practice-academy-frame-20261020.svg');
   assert.equal(bgResponse.status(),200,'academy background asset must load');
   const bgSource=await bgResponse.text();
@@ -229,7 +233,7 @@ async function checkFixture(browser,engine,kind,viewport){
   assert.ok(bgSource.includes('<mask id="leftmask"'),'architectural background should fade into the parchment center');
 
   if(kind==='tiles'){
-    assert.equal(details.tileInk,'rgb(255, 249, 238)','letter tile needs light readable text');
+    assert.equal(details.tileInk,'rgb(255, 244, 223)','letter tile needs light readable text');
     assert.ok(details.submitButton?.width>=160,'tile answer action needs prominent button');
     assert.ok(details.submitButton.y<=details.tileButton.y+20,'answer button must line up with tiles');
     const cta=page.locator('[data-lux-tiles] > button:last-child');
