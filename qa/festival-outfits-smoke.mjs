@@ -50,10 +50,12 @@ async function scenario(name,engine,viewport){
     await page.waitForFunction(()=>window.__luxStore?.getState?.().equippedOutfit==="festival-halloween",{timeout:20000});
     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
     assert(overflow<=5,name+" horizontal overflow "+overflow);
-    // Ignore only known Safari localhost preload diagnostics from legacy school data.
+    // Browser-only localhost CORS diagnostics from legacy preloads/blobs.
+    // All other JavaScript exceptions remain failures.
     const unexpected=errors.filter(e=>!(name.startsWith("webkit-") &&
-      e.startsWith("Fetch API cannot load http: /127.0.0.1:8787/") &&
-      e.includes("due to access control checks.")));
+      e.includes("due to access control checks.") &&
+      (e.startsWith("Fetch API cannot load http: /127.0.0.1:8787/") ||
+       e.startsWith("Cannot load blob: ttp://127.0.0.1:8787/"))));
     assert.equal(unexpected.length,0,"Uncaught exceptions: "+unexpected.join(" | "));
     results.push({browser:name,outfits:decoded.length,imagesDecoded:true,allUnlocked:true,homeSync:true,reloadPersists:true,overflowPx:overflow,status:"PASS"});
   }finally{await browser.close();}
