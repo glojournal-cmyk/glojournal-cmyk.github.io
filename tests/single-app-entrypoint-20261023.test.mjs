@@ -17,7 +17,7 @@ const PATHS = [
  'assets/study._subject.practise-D_PWgUd7.js',
  'assets/quiz-session-rWAnuDVj.js', 'assets/scholar-iJ2ilQWG.js'
 ];
-const EXPECTED='/assets/index-BLVOhKhN.js?v=20261023-share-permission1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
+const EXPECTED='/assets/index-BLVOhKhN.js?v=20261024-correct-credit1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
 test('HTML and loaded route modules use exactly one app URL, avoiding duplicate hydration of large original Chrome storage', () => {
   const all = new Map();
   for (const path of PATHS) {
