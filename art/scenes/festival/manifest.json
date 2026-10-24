@@ -1,8 +1,8 @@
 {
   "collection": "Festival Backgrounds 2026",
   "count": 10,
-  "access": "always available",
-  "selection": "manual, persists independently of outfit",
+  "access": "halloween-free; other festival scenes require genuine cumulative Mastery after Medical",
+  "selection": "manual and independent of equipped outfit; current equipped legacy scene remains grandfathered",
   "scenes": [
     {
       "id": "festival-scene-halloween",
@@ -12,7 +12,7 @@
       "focus": "50% 54%",
       "category": "Festival",
       "free": true,
-      "need": "Festival Edition · Ready to use",
+      "need": "Halloween Gift · Free for everyone",
       "mood": "night"
     },
     {
@@ -22,9 +22,11 @@
       "art": "/art/scenes/festival/bonfire.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "free": true,
-      "need": "Festival Edition · Ready to use",
-      "mood": "night"
+      "need": "Reach full Mastery in 110 different topics",
+      "mood": "night",
+      "needIf": {
+        "masteredTopics": 110
+      }
     },
     {
       "id": "festival-scene-christmas",
@@ -33,9 +35,11 @@
       "art": "/art/scenes/festival/christmas.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "free": true,
-      "need": "Festival Edition · Ready to use",
-      "mood": "winter"
+      "need": "Reach full Mastery in 120 different topics",
+      "mood": "winter",
+      "needIf": {
+        "masteredTopics": 120
+      }
     },
     {
       "id": "festival-scene-new-year",
@@ -44,9 +48,11 @@
       "art": "/art/scenes/festival/new-year.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "free": true,
-      "need": "Festival Edition · Ready to use",
-      "mood": "night"
+      "need": "Reach full Mastery in 130 different topics",
+      "mood": "night",
+      "needIf": {
+        "masteredTopics": 130
+      }
     },
     {
       "id": "festival-scene-lunar-new-year",
@@ -55,9 +61,11 @@
       "art": "/art/scenes/festival/lunar-new-year.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "free": true,
-      "need": "Festival Edition · Ready to use",
-      "mood": "warm"
+      "need": "Reach full Mastery in 140 different topics",
+      "mood": "warm",
+      "needIf": {
+        "masteredTopics": 140
+      }
     },
     {
       "id": "festival-scene-valentine",
@@ -66,9 +74,11 @@
       "art": "/art/scenes/festival/valentine.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "free": true,
-      "need": "Festival Edition · Ready to use",
-      "mood": "warm"
+      "need": "Reach full Mastery in 150 different topics",
+      "mood": "warm",
+      "needIf": {
+        "masteredTopics": 150
+      }
     },
     {
       "id": "festival-scene-easter",
@@ -77,9 +87,11 @@
       "art": "/art/scenes/festival/easter.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "free": true,
-      "need": "Festival Edition · Ready to use",
-      "mood": "day"
+      "need": "Reach full Mastery in 160 different topics",
+      "mood": "day",
+      "needIf": {
+        "masteredTopics": 160
+      }
     },
     {
       "id": "festival-scene-cherry-blossom",
@@ -88,9 +100,11 @@
       "art": "/art/scenes/festival/cherry-blossom.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "free": true,
-      "need": "Festival Edition · Ready to use",
-      "mood": "day"
+      "need": "Reach full Mastery in 170 different topics",
+      "mood": "day",
+      "needIf": {
+        "masteredTopics": 170
+      }
     },
     {
       "id": "festival-scene-midsummer",
@@ -99,9 +113,11 @@
       "art": "/art/scenes/festival/midsummer.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "free": true,
-      "need": "Festival Edition · Ready to use",
-      "mood": "day"
+      "need": "Reach full Mastery in 180 different topics",
+      "mood": "day",
+      "needIf": {
+        "masteredTopics": 180
+      }
     },
     {
       "id": "festival-scene-mid-autumn",
@@ -110,9 +126,14 @@
       "art": "/art/scenes/festival/mid-autumn.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "free": true,
-      "need": "Festival Edition · Ready to use",
-      "mood": "night"
+      "need": "Reach full Mastery in 190 different topics",
+      "mood": "night",
+      "needIf": {
+        "masteredTopics": 190
+      }
     }
-  ]
+  ],
+  "masteryStart": 110,
+  "masteryStep": 10,
+  "completeAt": 190
 }

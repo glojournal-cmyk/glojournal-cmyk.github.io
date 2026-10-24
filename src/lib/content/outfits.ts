@@ -151,16 +151,16 @@ export const OUTFITS: Outfit[] = [
     category: "French",
   },
 
-  {"id": "festival-halloween", "name": "Halloween Night", "blurb": "Violet-and-black witch cape, gold stars and lace-up boots", "art": "/art/doll/festival/01-halloween-same-scholar-v3.png", "closet": "/art/doll/festival/01-halloween-same-scholar-v3.png", "need": "Festival Edition · Ready to wear", "category": "Festival"},
-  {"id": "festival-bonfire", "name": "Bonfire Night", "blurb": "Midnight coat, amber tartan scarf and lantern", "art": "/art/doll/festival/02-bonfire-same-scholar-v3.png", "closet": "/art/doll/festival/02-bonfire-same-scholar-v3.png", "need": "Festival Edition · Ready to wear", "category": "Festival"},
-  {"id": "festival-christmas", "name": "Christmas Evergreen", "blurb": "Evergreen velvet, holly trim and winter boots", "art": "/art/doll/festival/03-christmas-same-scholar-v3.png", "closet": "/art/doll/festival/03-christmas-same-scholar-v3.png", "need": "Festival Edition · Ready to wear", "category": "Festival"},
-  {"id": "festival-new-year", "name": "New Year Starlight", "blurb": "Navy-and-gold constellation cloak and cream dress", "art": "/art/doll/festival/04-new-year-same-scholar-v3.png", "closet": "/art/doll/festival/04-new-year-same-scholar-v3.png", "need": "Festival Edition · Ready to wear", "category": "Festival"},
-  {"id": "festival-lunar-new-year", "name": "Lunar New Year", "blurb": "Ruby silk-inspired dress with golden floral embroidery", "art": "/art/doll/festival/05-lunar-new-year-same-scholar-v3.png", "closet": "/art/doll/festival/05-lunar-new-year-same-scholar-v3.png", "need": "Festival Edition · Ready to wear", "category": "Festival"},
-  {"id": "festival-valentine", "name": "Valentine Rose", "blurb": "Blush-pink dress, burgundy scarf and heart purse", "art": "/art/doll/festival/06-valentine-same-scholar-v3.png", "closet": "/art/doll/festival/06-valentine-same-scholar-v3.png", "need": "Festival Edition · Ready to wear", "category": "Festival"},
-  {"id": "festival-easter", "name": "Easter Meadow", "blurb": "Ivory and lilac floral dress, straw hat and basket", "art": "/art/doll/festival/07-easter-same-scholar-v3.png", "closet": "/art/doll/festival/07-easter-same-scholar-v3.png", "need": "Festival Edition · Ready to wear", "category": "Festival"},
-  {"id": "festival-cherry-blossom", "name": "Cherry Blossom", "blurb": "Rose-pink blossom layers with sage-green accents", "art": "/art/doll/festival/08-cherry-blossom-same-scholar-v3.png", "closet": "/art/doll/festival/08-cherry-blossom-same-scholar-v3.png", "need": "Festival Edition · Ready to wear", "category": "Festival"},
-  {"id": "festival-midsummer", "name": "Midsummer Garden", "blurb": "Cream-and-sage meadow dress, straw hat and flowers", "art": "/art/doll/festival/09-midsummer-same-scholar-v3.png", "closet": "/art/doll/festival/09-midsummer-same-scholar-v3.png", "need": "Festival Edition · Ready to wear", "category": "Festival"},
-  {"id": "festival-mid-autumn", "name": "Mid-Autumn Moon", "blurb": "Midnight-blue moonlit cape and delicate lantern", "art": "/art/doll/festival/10-mid-autumn-same-scholar-v3.png", "closet": "/art/doll/festival/10-mid-autumn-same-scholar-v3.png", "need": "Festival Edition · Ready to wear", "category": "Festival"},
+  {"id": "festival-halloween", "name": "Halloween Night", "blurb": "Violet-and-black witch cape, gold stars and lace-up boots", "art": "/art/doll/festival/01-halloween-same-scholar-v3.png", "closet": "/art/doll/festival/01-halloween-same-scholar-v3.png", "need": "Halloween Gift · Free for everyone", "category": "Festival"},
+  {"id": "festival-bonfire", "name": "Bonfire Night", "blurb": "Midnight coat, amber tartan scarf and lantern", "art": "/art/doll/festival/02-bonfire-same-scholar-v3.png", "closet": "/art/doll/festival/02-bonfire-same-scholar-v3.png", "need": "Reach full Mastery in 110 different topics", "category": "Festival"},
+  {"id": "festival-christmas", "name": "Christmas Evergreen", "blurb": "Evergreen velvet, holly trim and winter boots", "art": "/art/doll/festival/03-christmas-same-scholar-v3.png", "closet": "/art/doll/festival/03-christmas-same-scholar-v3.png", "need": "Reach full Mastery in 120 different topics", "category": "Festival"},
+  {"id": "festival-new-year", "name": "New Year Starlight", "blurb": "Navy-and-gold constellation cloak and cream dress", "art": "/art/doll/festival/04-new-year-same-scholar-v3.png", "closet": "/art/doll/festival/04-new-year-same-scholar-v3.png", "need": "Reach full Mastery in 130 different topics", "category": "Festival"},
+  {"id": "festival-lunar-new-year", "name": "Lunar New Year", "blurb": "Ruby silk-inspired dress with golden floral embroidery", "art": "/art/doll/festival/05-lunar-new-year-same-scholar-v3.png", "closet": "/art/doll/festival/05-lunar-new-year-same-scholar-v3.png", "need": "Reach full Mastery in 140 different topics", "category": "Festival"},
+  {"id": "festival-valentine", "name": "Valentine Rose", "blurb": "Blush-pink dress, burgundy scarf and heart purse", "art": "/art/doll/festival/06-valentine-same-scholar-v3.png", "closet": "/art/doll/festival/06-valentine-same-scholar-v3.png", "need": "Reach full Mastery in 150 different topics", "category": "Festival"},
+  {"id": "festival-easter", "name": "Easter Meadow", "blurb": "Ivory and lilac floral dress, straw hat and basket", "art": "/art/doll/festival/07-easter-same-scholar-v3.png", "closet": "/art/doll/festival/07-easter-same-scholar-v3.png", "need": "Reach full Mastery in 160 different topics", "category": "Festival"},
+  {"id": "festival-cherry-blossom", "name": "Cherry Blossom", "blurb": "Rose-pink blossom layers with sage-green accents", "art": "/art/doll/festival/08-cherry-blossom-same-scholar-v3.png", "closet": "/art/doll/festival/08-cherry-blossom-same-scholar-v3.png", "need": "Reach full Mastery in 170 different topics", "category": "Festival"},
+  {"id": "festival-midsummer", "name": "Midsummer Garden", "blurb": "Cream-and-sage meadow dress, straw hat and flowers", "art": "/art/doll/festival/09-midsummer-same-scholar-v3.png", "closet": "/art/doll/festival/09-midsummer-same-scholar-v3.png", "need": "Reach full Mastery in 180 different topics", "category": "Festival"},
+  {"id": "festival-mid-autumn", "name": "Mid-Autumn Moon", "blurb": "Midnight-blue moonlit cape and delicate lantern", "art": "/art/doll/festival/10-mid-autumn-same-scholar-v3.png", "closet": "/art/doll/festival/10-mid-autumn-same-scholar-v3.png", "need": "Reach full Mastery in 190 different topics", "category": "Festival"},
 ];
 
 
@@ -198,12 +198,14 @@ export type UnlockContext = {
   gameSessions: number;
   latinTopics?: number;
   writingDone?: number;
+  masteredTopics?: number;
 };
 
 export function isOutfitUnlocked(id: OutfitId, ctx: UnlockContext) {
   const level = levelFromXp(ctx.xp).level;
   const garden = gardenStage(ctx.xp);
-  if (id.startsWith("festival-")) return true;
+  if (id === "festival-halloween") return true;
+  if (id.startsWith("festival-")) return (ctx.masteredTopics ?? 0) >= (110 + 10 * ["bonfire","christmas","new-year","lunar-new-year","valentine","easter","cherry-blossom","midsummer","mid-autumn"].indexOf(id.slice("festival-".length)));
   switch (id) {
     case "day":
       return true;

@@ -13,10 +13,11 @@ import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corr
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import("/pet/pet-care-global.js?v=20261011-storage-qa1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261024-same-scholar-festival-v3&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+export * from "./index-BLVOhKhN.core.js?v=20261024-medical-then-festival-mastery-v1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 import {
   C as store,
   A as medicalOutfitCatalog,
+  B as rewardScenes,
   Z as scholarLevelProgress,
   J as rewardRequirements,
   U as collectibles,
@@ -28,23 +29,54 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261024-same-scholar-festival-v3&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+} from "./index-BLVOhKhN.core.js?v=20261024-medical-then-festival-mastery-v1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 
-// medical-career-unlock-sync-v1: only unlock earned looks; never edits academic evidence.
-function syncEarnedMedicalOutfits(){
+// festival-mastery-after-medical-v1: only genuine cumulative Mastered topics count.
+// An earlier release auto-granted all Festival items. On first load this migration
+// keeps Halloween and already equipped looks/scenes without deleting academic records;
+// other old freebie flags become real 110..190 cumulative Mastery rewards.
+const festivalLooks=medicalOutfitCatalog.filter(o=>o.category==="Festival");
+const festivalScenes=rewardScenes.filter(o=>o.category==="Festival" && o.id.startsWith("festival-scene-"));
+function syncMasteryCollections(){
  const state=store.getState();
  const count=Object.values(state.topicStats||{}).filter(t=>t?.state==="mastered").length;
- const unlocked=state.unlockedOutfits||[];
- // festival-outfit-availability-v1: grant all ten full looks, without changing academic progression.
- const ready=medicalOutfitCatalog.filter(o=>o.category==="Festival" && !unlocked.includes(o.id));
- const earned=medicalOutfitCatalog.filter(o=>o.category==="Medical" && (o.needIf?.masteredTopics||Infinity)<=count && !unlocked.includes(o.id));
-
- if(earned.length||ready.length)store.setState({unlockedOutfits:[...new Set([...unlocked,...earned.map(o=>o.id),...ready.map(o=>o.id)])]});
+ const wasMigrated=state.festivalMasteryGateV1===true;
+ const oldLooks=Array.isArray(state.unlockedOutfits)?state.unlockedOutfits:["day"];
+ const oldScenes=Array.isArray(state.unlockedScenes)?state.unlockedScenes:[];
+ const festivalLookIds=new Set(festivalLooks.map(o=>o.id));
+ const festivalSceneIds=new Set(festivalScenes.map(o=>o.id));
+ // Once migration is recorded, an earned item stays earned even if a
+ // later topic status changes temporarily. This does not award new Mastery.
+ const ownedLooks=oldLooks.filter(id=>wasMigrated || !festivalLookIds.has(id) ||
+    id==="festival-halloween" || id===state.equippedOutfit);
+ const ownedScenes=oldScenes.filter(id=>wasMigrated || !festivalSceneIds.has(id) ||
+    id==="festival-scene-halloween" || id===state.equippedScene);
+ const earnedLooks=medicalOutfitCatalog.filter(o=>
+    (o.category==="Medical" || o.category==="Festival") &&
+    (o.needIf?.masteredTopics??Infinity)<=count).map(o=>o.id);
+ const earnedScenes=festivalScenes.filter(o=>
+    (o.needIf?.masteredTopics??Infinity)<=count).map(o=>o.id);
+ const outfits=[...new Set([...ownedLooks,"festival-halloween",...earnedLooks])];
+ const scenes=[...new Set([...ownedScenes,"festival-scene-halloween",...earnedScenes])];
+ const outfitsChanged=outfits.length!==oldLooks.length || outfits.some((id,i)=>oldLooks[i]!==id);
+ const scenesChanged=scenes.length!==oldScenes.length || scenes.some((id,i)=>oldScenes[i]!==id);
+ if(!wasMigrated || outfitsChanged || scenesChanged){
+    store.setState({unlockedOutfits:outfits,unlockedScenes:scenes,festivalMasteryGateV1:true});
+ }
 }
 if(typeof window!=="undefined"){
- store.subscribe((next,prior)=>{if(next.topicStats!==prior?.topicStats || next.unlockedOutfits!==prior?.unlockedOutfits)syncEarnedMedicalOutfits()});
- store.persist?.onFinishHydration?.(syncEarnedMedicalOutfits);
- queueMicrotask(syncEarnedMedicalOutfits);
+ store.subscribe((next,prior)=>{
+   if(next.topicStats!==prior?.topicStats ||
+      next.unlockedOutfits!==prior?.unlockedOutfits ||
+      next.unlockedScenes!==prior?.unlockedScenes ||
+      next.equippedOutfit!==prior?.equippedOutfit ||
+      next.equippedScene!==prior?.equippedScene) syncMasteryCollections();
+ });
+ store.persist?.onFinishHydration?.(syncMasteryCollections);
+ queueMicrotask(()=>{
+   // Never overwrite older persisted records with a pre-hydration migration.
+   if(store.persist?.hasHydrated?.()!==false)syncMasteryCollections();
+ });
 }
 if(typeof window!=="undefined"){
  window.__luxStore=store;

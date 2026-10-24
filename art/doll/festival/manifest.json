@@ -1,7 +1,7 @@
 {
   "collectionId": "festival-edition-2026",
   "title": "Festival Wardrobe — 10 Looks",
-  "unlockPolicy": "available-to-all-no-date-lock",
+  "unlockPolicy": "mastery-after-medical-100; halloween-free",
   "items": [
     {
       "id": "festival-halloween",
@@ -15,7 +15,7 @@
         "Limited Edition"
       ],
       "free": true,
-      "need": "Festival Edition · Ready to wear"
+      "need": "Halloween Gift · Free for everyone"
     },
     {
       "id": "festival-bonfire",
@@ -28,8 +28,10 @@
         "Autumn",
         "Limited Edition"
       ],
-      "free": true,
-      "need": "Festival Edition · Ready to wear"
+      "need": "Reach full Mastery in 110 different topics",
+      "needIf": {
+        "masteredTopics": 110
+      }
     },
     {
       "id": "festival-christmas",
@@ -42,8 +44,10 @@
         "Winter",
         "Limited Edition"
       ],
-      "free": true,
-      "need": "Festival Edition · Ready to wear"
+      "need": "Reach full Mastery in 120 different topics",
+      "needIf": {
+        "masteredTopics": 120
+      }
     },
     {
       "id": "festival-new-year",
@@ -56,8 +60,10 @@
         "Winter",
         "Limited Edition"
       ],
-      "free": true,
-      "need": "Festival Edition · Ready to wear"
+      "need": "Reach full Mastery in 130 different topics",
+      "needIf": {
+        "masteredTopics": 130
+      }
     },
     {
       "id": "festival-lunar-new-year",
@@ -70,8 +76,10 @@
         "Winter",
         "Limited Edition"
       ],
-      "free": true,
-      "need": "Festival Edition · Ready to wear"
+      "need": "Reach full Mastery in 140 different topics",
+      "needIf": {
+        "masteredTopics": 140
+      }
     },
     {
       "id": "festival-valentine",
@@ -84,8 +92,10 @@
         "Winter",
         "Limited Edition"
       ],
-      "free": true,
-      "need": "Festival Edition · Ready to wear"
+      "need": "Reach full Mastery in 150 different topics",
+      "needIf": {
+        "masteredTopics": 150
+      }
     },
     {
       "id": "festival-easter",
@@ -98,8 +108,10 @@
         "Spring",
         "Limited Edition"
       ],
-      "free": true,
-      "need": "Festival Edition · Ready to wear"
+      "need": "Reach full Mastery in 160 different topics",
+      "needIf": {
+        "masteredTopics": 160
+      }
     },
     {
       "id": "festival-cherry-blossom",
@@ -112,8 +124,10 @@
         "Spring",
         "Limited Edition"
       ],
-      "free": true,
-      "need": "Festival Edition · Ready to wear"
+      "need": "Reach full Mastery in 170 different topics",
+      "needIf": {
+        "masteredTopics": 170
+      }
     },
     {
       "id": "festival-midsummer",
@@ -126,8 +140,10 @@
         "Summer",
         "Limited Edition"
       ],
-      "free": true,
-      "need": "Festival Edition · Ready to wear"
+      "need": "Reach full Mastery in 180 different topics",
+      "needIf": {
+        "masteredTopics": 180
+      }
     },
     {
       "id": "festival-mid-autumn",
@@ -140,11 +156,17 @@
         "Autumn",
         "Limited Edition"
       ],
-      "free": true,
-      "need": "Festival Edition · Ready to wear"
+      "need": "Reach full Mastery in 190 different topics",
+      "needIf": {
+        "masteredTopics": 190
+      }
     }
   ],
   "assetSource": "Ten separate full-body, transparent PNGs generated with a consistent protagonist design; independent festival artwork",
   "assetRevision": "20261024-same-scholar-festival-v3",
-  "safeMargins": true
+  "safeMargins": true,
+  "masteryStart": 110,
+  "masteryStep": 10,
+  "completeAt": 190,
+  "rewardPairing": "each Festival Outfit and its matching Background unlock at the same cumulative unique Mastered Topics count"
 }
