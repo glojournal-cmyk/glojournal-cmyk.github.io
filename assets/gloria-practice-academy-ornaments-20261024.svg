@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <linearGradient id="night" x2="0" y2="1"><stop stop-color="#061426"/><stop offset=".58" stop-color="#07192b"/><stop offset="1" stop-color="#031020"/></linearGradient>
+  <radialGradient id="moon"><stop stop-color="#ffdfa1" stop-opacity=".94"/><stop offset=".36" stop-color="#c9b07a" stop-opacity=".43"/><stop offset="1" stop-color="#be9b63" stop-opacity="0"/></radialGradient>
+  <linearGradient id="gold"><stop stop-color="#71502b"/><stop offset=".45" stop-color="#e4bd7d"/><stop offset="1" stop-color="#8a6436"/></linearGradient>
+  <radialGradient id="window"><stop stop-color="#335784"/><stop offset="1" stop-color="#071626"/></radialGradient>
+  <linearGradient id="fadeLeft"><stop stop-color="white"/><stop offset=".71" stop-color="white" stop-opacity=".8"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient>
+  <linearGradient id="fadeRight"><stop stop-color="white" stop-opacity="0"/><stop offset=".43" stop-color="white" stop-opacity=".7"/><stop offset="1" stop-color="white"/></linearGradient>
+  <mask id="lm"><rect width="240" height="1000" fill="url(#fadeLeft)"/></mask>
+  <mask id="rm"><rect x="1340" width="260" height="1000" fill="url(#fadeRight)"/></mask>
+  <g id="star"><path d="M0 -9Q1 -1 9 0Q1 1 0 9Q-1 1 -9 0Q-1 -1 0 -9Z" fill="#f1cb83"/><circle r="1.6" fill="#fff4cb"/></g>
+  <g id="arch">
+    <path d="M6 400V145Q10 48 109 8Q207 46 212 145V400Z" fill="url(#window)" stroke="url(#gold)" stroke-width="8"/>
+    <path d="M19 397V146Q22 60 109 22Q195 60 199 146V397" fill="none" stroke="#a47b48" stroke-width="3"/>
+    <path d="M109 15V398 M20 161H199 M45 86L174 86 M22 286H199" fill="none" stroke="#92754f" stroke-width="4"/>
+    <path d="M109 19Q50 65 47 158V400 M109 19Q170 67 170 158V400" stroke="#bc9960" stroke-width="2" fill="none" opacity=".9"/>
+    <circle cx="110" cy="155" r="29" fill="none" stroke="#cba768" stroke-width="3"/>
+    <use href="#star" x="110" y="155" transform="translate(110 155) scale(1.2) translate(-110 -155)"/>
+  </g>
+  <g id="books">
+    <rect x="0" y="100" width="46" height="178" rx="4" fill="#172b3e" stroke="#c39c60" stroke-width="3"/>
+    <rect x="8" y="113" width="30" height="3" fill="#c99e58"/><rect x="8" y="250" width="30" height="3" fill="#c99e58"/>
+    <rect x="45" y="80" width="37" height="198" rx="4" fill="#10273a" stroke="#ad8757" stroke-width="3"/>
+    <rect x="54" y="95" width="19" height="4" fill="#cba966"/><rect x="54" y="245" width="19" height="3" fill="#cba966"/>
+    <rect x="78" y="124" width="38" height="154" rx="4" fill="#51412e" stroke="#c9a56b" stroke-width="3"/>
+    <path d="M84 147H110M84 252H110" stroke="#d6b277" stroke-width="3"/>
+    <rect x="-11" y="278" width="152" height="18" rx="4" fill="#423121" stroke="#a77945" stroke-width="2"/>
+    <rect x="11" y="294" width="132" height="17" rx="3" fill="#102536" stroke="#b58c51" stroke-width="2"/>
+  </g>
+  <g id="lantern">
+    <rect x="11" y="36" width="61" height="92" rx="5" fill="#0d2a3d" fill-opacity=".77" stroke="url(#gold)" stroke-width="5"/>
+    <path d="M12 60H73M26 36Q41 10 58 36M42 16V5M27 122L18 132H68L60 122" stroke="#e3bd74" stroke-width="4" fill="none"/>
+    <path d="M40 104Q21 79 40 51Q61 81 40 104Z" fill="#ffd27d"/>
+    <ellipse cx="40" cy="89" rx="23" ry="33" fill="url(#moon)" opacity=".8"/>
+  </g>
+</defs>
+<!-- Transparent centre leaves live question cards untouched -->
+<g mask="url(#lm)" opacity=".85">
+  <path d="M0 0H245V1000H0Z" fill="#051325" opacity=".45"/>
+  <use href="#arch" x="-83" y="-35" width="220" height="440"/>
+  <path d="M0 466Q68 420 173 475" fill="none" stroke="#b28a53" stroke-width="6" opacity=".55"/>
+  <use href="#books" transform="translate(-26 636) scale(1.14)"/>
+  <use href="#lantern" transform="translate(86 672) scale(1.04)"/>
+  <path d="M2 22Q70 47 95 126M0 103Q47 85 90 139M15 310Q65 245 106 290" stroke="#8b8052" stroke-width="2" fill="none"/>
+  <g fill="#405a35" stroke="#8b935c" stroke-width="1">
+  <ellipse cx="54" cy="68" rx="25" ry="9" transform="rotate(42 54 68)"/><ellipse cx="79" cy="117" rx="29" ry="9" transform="rotate(-27 79 117)"/><ellipse cx="50" cy="283" rx="34" ry="10" transform="rotate(-22 50 283)"/>
+  </g>
+</g>
+<g mask="url(#rm)" opacity=".85">
+  <use href="#arch" transform="translate(1478 -34) scale(.72)"/>
+  <use href="#books" transform="translate(1518 670) scale(-1 1)"/>
+  <use href="#lantern" transform="translate(1410 728) scale(.92)"/>
+  <path d="M1590 12Q1510 70 1470 166M1600 160Q1518 128 1481 194M1589 320Q1525 242 1470 292" stroke="#958051" stroke-width="2" fill="none"/>
+  <g fill="#455835" stroke="#7d8c59" stroke-width="1.2">
+    <ellipse cx="1540" cy="72" rx="31" ry="12" transform="rotate(41 1540 72)"/>
+    <ellipse cx="1512" cy="122" rx="28" ry="11" transform="rotate(-40 1512 122)"/>
+    <ellipse cx="1532" cy="258" rx="34" ry="11" transform="rotate(30 1532 258)"/>
+  </g>
+</g>
+<g fill="#ffd58e">
+  <use href="#star" x="280" y="38"/><use href="#star" x="1089" y="33"/>
+  <use href="#star" x="1360" y="69"/><use href="#star" x="1195" y="130"/>
+  <use href="#star" x="349" y="182"/><use href="#star" x="1275" y="305"/>
+  <use href="#star" x="92" y="510"/><use href="#star" x="1540" y="590"/>
+  <use href="#star" x="1490" y="36"/>
+  <circle cx="530" cy="40" r="1.2"/><circle cx="824" cy="61" r="1.3"/><circle cx="1237" cy="80" r="1.4"/><circle cx="374" cy="108" r="1.2"/>
+</g>
+</svg>
