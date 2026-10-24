@@ -88,23 +88,37 @@ function sanitized(source,task){
   return valid(receipt)?receipt:null;
 }
 export async function saveCompletedDailyReceipt(state,source){
-  const task=state?.daily?.find(t=>t.id===source?.taskId&&t.planDate===source.day);
-  if(!task||state.today!==source.day||task.assignedSubject!==source.subject||
-    Number(task.assignedYear)!==Number(source.year))return false;
+  if(!state||!source||state.today!==source.day||!validDay(source.day))return false;
+  const candidate=[...(state.daily||[]),...(state.dailyLog?.[source.day]?.tasks||[])]
+    .find(t=>t?.id===source.taskId&&t.assignedSubject===source.subject&&
+      Number(t.assignedYear)===Number(source.year)&&t.assignedTopic);
+  if(!candidate)return false;
+  const task={...candidate,planDate:source.day};
   const receipt=sanitized(source,task);
   if(!receipt)return false;
-  // The original strict session verifier ensures this is a locked,
-  // task/topic/mode-specific session, not free practice or Recovery.
-  const verified=reconcileDailySession(state,{...receipt,year:receipt.year});
+  // Even if the iPad has lost the live React daily array, a genuine dated
+  // assignment can verify this completed quiz; never replace that assignment
+  // or guess a different topic.
+  const verificationState={...state,daily:[task]};
+  const verified=reconcileDailySession(verificationState,{...receipt,year:receipt.year});
   if(!verified.target)return false;
-  const eligible=new Set(receipt.questions.filter(q=>q.id&&!q._repair&&
-    q.formal&&q.topicId===task.assignedTopic).map(q=>q.id));
-  const marked=receipt.answers.filter(a=>eligible.has(a.questionId)&&
-    a.formal&&!a.repair);
-  if(marked.length < Math.min(receipt.target,eligible.size))return false;
-  // Record the answered test as well as the verified correct subset.
-  // Never turn the wrong subset into Home correct-answer credits.
-  const [persisted,fallback]=await Promise.all([put(receipt),Promise.resolve(writeFallback(receipt))]);
+  // A receipt proves all actual quiz slots were marked, not merely that the
+  // learner clicked Finish or that 10 attempts were made on one question.
+  const eligible=receipt.questions.filter(q=>q.id&&!q._repair&&
+    q.formal&&q.topicId===task.assignedTopic);
+  if(eligible.length<receipt.target)return false;
+  const remaining=new Map();
+  for(const q of eligible)remaining.set(q.id,(remaining.get(q.id)||0)+1);
+  let marked=0;
+  for(const a of receipt.answers){
+    if(!a.formal||a.repair||!remaining.get(a.questionId))continue;
+    remaining.set(a.questionId,remaining.get(a.questionId)-1);
+    marked++;
+  }
+  if(marked<receipt.target)return false;
+  // Save a compact independent proof; wrong answers stay wrong.
+  const fallback=writeFallback(receipt);
+  const persisted=await put(receipt);
   return persisted||fallback;
 }
 export function reconcileCompletedDailyReceipts(state,receipts){
