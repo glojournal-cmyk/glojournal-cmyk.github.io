@@ -45,10 +45,12 @@ test('Oct 23 iPad regression: original eight completed tasks restored, only voca
     task('y8-standard-b','biology','bio-y8-digestion-absorption',10,10),
     task('y8-mastery-a','french','fr-y8-s12-ks3-extension-irregular-verbs',20,0,'mastery'),
     task('y8-mastery-b','french','fr-y8-s03-daily-routine-toolkit',20,20,'mastery'),
-    task('weakness-review','physics','phys-y8-forces',10,0,'weak'),
+    task('weakness-review','physics','phys-y8-forces',10,10,'weak'),
     task('due-review','latin','la-y8-miscellaneous-words',5,5,'due'),
     task('year9-light','physics','phys-y9-kinetic',15,15)
   ];
+  // The photographed, completed Weakness receipt provides the evidence gate;
+  // this test must not grant recovery to a 0/10 unverified Weakness task.
   // Earlier saved records, where present, are never thrown away.
   input.dailyLog[day]={date:day,tasks:input.daily.map(t=>({...t}))};
   const restored=buildYear8DailyV2(input,get);
@@ -58,10 +60,10 @@ test('Oct 23 iPad regression: original eight completed tasks restored, only voca
     ['latin-standard','la-y8-stage-1-vocabulary',10,10],
     ['y8-standard-a','bio-y8-food-tests',10,10],
     ['y8-standard-b','bio-y8-digestion-absorption',10,10],
-    ['y8-mastery-a','la-y8-miscellaneous-words',5,5],
+    ['y8-mastery-a','la-y8-miscellaneous-words',20,20],
     ['y8-mastery-b','fr-y8-s12-ks3-extension-irregular-verbs',20,20],
     ['weakness-review','la-y8-core-verbs',10,10],
-    ['due-review','la-y8-preposition-dictionary-entries',5,5],
+    ['due-review','la-y8-preposition-dictionary-entries',10,10],
     ['year9-light','fr-y9-u1-paris-travel',15,15]
   ];
   for(const [id,topic,progress,target] of expected){
@@ -101,7 +103,7 @@ test('Oct 23 dated Record becomes the original eight completions without losing 
     r('y8-standard-b','bio-y8-digestion-absorption',10,10),
     r('y8-mastery-a','fr-y8-s12-ks3-extension-irregular-verbs',0,20),
     r('y8-mastery-b','fr-y8-s03-daily-routine-toolkit',20,20),
-    r('weakness-review','phys-y8-forces',0,10),
+    r('weakness-review','phys-y8-forces',10,10),
     r('due-review','la-y8-miscellaneous-words',5,5),
     r('year9-light','phys-y9-kinetic',15,15)];
   input.dailyLog[day]={date:day,tasks:input.daily.map(t=>({...t}))};
