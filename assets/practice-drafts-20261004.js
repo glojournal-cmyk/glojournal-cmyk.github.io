@@ -6,7 +6,7 @@
  const SESSION_KEY="lux-practice-draft-tab-v2";
  const DB_NAME="lux-practice-drafts-v2", STORE="drafts";
  const LIFE_MS=7*86400000;
- const cache=new Map(), writes=new Map();
+ const cache=new Map(), writes=new Map(), completedKeys=new Set();
  let dbPromise=null, readyPromise=null, loaded=false;
 
  function oldMap(){
@@ -138,6 +138,9 @@
      daily?new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/London"}).format(new Date()):""]);
  }
  function read(k){
+   // A completed quiz must not become resumable between the UI completion
+   // event and the asynchronous IndexedDB delete transaction.
+   if(completedKeys.has(k))return null;
    const row=cache.get(k),legacy=oldMap()[k],tab=inTab();
    const candidate=newer(newer(row,legacy),tab?.key===k?tab.record:null);
    return valid(candidate)?candidate:null;
@@ -154,6 +157,8 @@
    }catch{}
  }
  async function clear(k){
+   // Mark expired synchronously; preserve all Scholar progress separately.
+   completedKeys.add(k);
    await ready();
    return enqueue(k,async()=>{
      try{
@@ -173,6 +178,7 @@
  }
  function save(k,d){
    if(d.ce){recoveryReceipt(d);return clear(k);}
+   completedKeys.delete(k);
    const snapshot={...d,version:1,savedAt:Date.now()};
    cache.set(k,snapshot);
    tabSave(k,snapshot); // Small same-tab rescue while the IndexedDB transaction is in flight.
