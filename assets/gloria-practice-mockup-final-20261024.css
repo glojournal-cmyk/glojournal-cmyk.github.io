@@ -625,3 +625,19 @@ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
  [data-gloria-redundant-guidance] {
  display:none!important;
 }
+
+
+/* Specificity-safe direct attribute rule for early WebKit/Chromium paints.
+   Matches the fallback card before and after data-lux annotation. */
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+ [data-lux-question-card]{
+ display:flex!important;flex-direction:column!important;
+ min-height:0!important;
+ padding:0!important;
+ margin:0!important;
+ background:transparent!important;
+ border:0!important;
+ border-radius:0!important;
+ box-shadow:none!important;
+ gap:clamp(7px,.8vh,11px)!important;
+}
