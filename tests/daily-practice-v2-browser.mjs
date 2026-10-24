@@ -147,6 +147,17 @@ async function checkFixture(browser,engine,kind,viewport){
     const plainReact=capture();
     return {decorated,plainReact};
   });
+  const cssDiagnostic=await page.evaluate(()=>({
+    finalLinks:[...document.querySelectorAll('link[rel="stylesheet"]')].map(x=>({href:x.getAttribute('href'),loaded:!!x.sheet}))
+      .filter(x=>/practice-studio|gloria-unified|gloria-practice-mockup/.test(x.href||'')),
+    active:document.documentElement.className,
+    matchesQuestion:document.documentElement.matches(':has(.lux-practice-view [data-question-id])'),
+    selectedCard:document.querySelector('.lux-practice-view [data-question-id] .rounded-xl.bg-card.p-5 > div')?.className,
+    finalStylesheetRules:[...document.styleSheets].filter(x=>x.href?.includes('gloria-practice-mockup')).map(x=>{
+      try{return {href:x.href,rules:x.cssRules.length}}catch(e){return {error:String(e)}}
+    })
+  }));
+  console.log('GLORIA_STYLE_LOAD_DIAGNOSTIC '+JSON.stringify({engine,kind,viewport,cssDiagnostic,undecorated}));
   assert.deepEqual(undecorated.plainReact,undecorated.decorated,
     'iPad must render the same question text before React decoration: '+JSON.stringify(undecorated));
   const styleVersion=await page.evaluate(()=>document.getElementById('lux-daily-practice-ux-v2-style')?.getAttribute('href'));
