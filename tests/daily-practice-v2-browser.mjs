@@ -25,8 +25,8 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const report=[];
 const RELEASE='studio-shell-stable3';
-const RUNTIME_RELEASE='gloria-theme-20261024';
-const UNIFIED_THEME='gloria-unified-question-theme-20261024.css?v=20261024-theme1';
+const RUNTIME_RELEASE='gloria-theme-20261024-progress2';
+const UNIFIED_THEME='gloria-unified-question-theme-20261024.css?v=20261024-progress2';
 const entrypoint = fs.readFileSync('index.html','utf8').match(/\/assets\/index-BLVOhKhN\.js\?v=[^"']+/)?.[0];
 assert.ok(entrypoint, 'Home must expose the globally synchronized app entrypoint');
 for (const subject of ['french','latin','biology','chemistry','physics','english']) {
