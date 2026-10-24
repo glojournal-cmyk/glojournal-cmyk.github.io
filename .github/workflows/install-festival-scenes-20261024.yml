@@ -1,0 +1,102 @@
+name: Install ten Festival Backgrounds in Gloria
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/install-festival-scenes-20261024.yml
+      - scripts/install_festival_scenes_20261024.py
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Import ten original user-selected festival backgrounds
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p art/scenes/festival
+          while read -r name url; do
+            echo "Importing festival scene: $name"
+            curl -fLsS --retry 4 --retry-delay 2 --connect-timeout 20 --max-time 120 "$url" -o "art/scenes/festival/$name.png"
+            file "art/scenes/festival/$name.png"
+            test "$(stat -c%s "art/scenes/festival/$name.png")" -gt 1000000
+          done <<'FILES'
+          halloween https://at.adobe.com/2idL8Fn0Yg0zgDja
+          bonfire https://at.adobe.com/wV1cx9ijMEptQI9e
+          christmas https://at.adobe.com/D3z8d0iW7CVXhgnb
+          new-year https://at.adobe.com/Cc370XsofDrYJNVC
+          lunar-new-year https://at.adobe.com/yGyOxJz95D2sj4ld
+          valentine https://at.adobe.com/GpEaEeDBAwoi2i2C
+          easter https://at.adobe.com/a5FPEupb9SdDScB0
+          cherry-blossom https://at.adobe.com/Zojsurlf338Muv87
+          midsummer https://at.adobe.com/OFjJv1TJortg6I3Z
+          mid-autumn https://at.adobe.com/AI7EehVZWphrzN4s
+          FILES
+      - name: Verify distinct full-resolution images and convert for iPad
+        run: |
+          python3 -m pip -q install pillow
+          python3 - <<'PY'
+          import pathlib,hashlib
+          from PIL import Image
+          root=pathlib.Path('art/scenes/festival')
+          files=sorted(root.glob('*.png'))
+          assert len(files)==10,files
+          seen=set()
+          for p in files:
+            with Image.open(p) as im:
+              assert im.format=='PNG',(p,im.format)
+              assert im.width>=1400 and im.height>=1000,(p,im.size)
+              digest=hashlib.sha256(p.read_bytes()).hexdigest()
+              assert digest not in seen,('Duplicate background',p)
+              seen.add(digest)
+              out=p.with_suffix('.webp')
+              im.convert('RGB').save(out,'WEBP',quality=86,method=6)
+              assert out.stat().st_size>60000,(out,out.stat().st_size)
+              print(p.name,im.size,'=>',out.name,out.stat().st_size)
+            p.unlink()
+          PY
+      - name: Activate new backgrounds in existing Wardrobe and shared scene state
+        run: |
+          python3 scripts/install_festival_scenes_20261024.py
+          node --check assets/index-BLVOhKhN.core.js
+          node --check assets/index-BLVOhKhN.js
+          node --check assets/scholar-iJ2ilQWG.js
+          node --check assets/scholar-rebuilt-20261021.js
+          node --check assets/home-rpg-live-20261019.js
+          node --check assets/rpg-scene-selection-20261019.js
+      - name: Validate saved-progress safety and production asset paths
+        run: |
+          python3 - <<'PY'
+          import pathlib,json
+          root=pathlib.Path('.')
+          m=json.loads((root/'art/scenes/festival/manifest.json').read_text())
+          rows=m['scenes']
+          core=(root/'assets/index-BLVOhKhN.core.js').read_text()
+          assert len(rows)==10 and len({x['id'] for x in rows})==10
+          assert all(x['free'] and x['category']=='Festival' for x in rows)
+          assert all((root/x['art'].lstrip('/')).exists() for x in rows)
+          assert all(x['id'] in core for x in rows)
+          assert 'lux-scholar-garden-v1' in core
+          assert 'equippedScene:n||`dusk`' in core
+          assert 'festival-scene-halloween' in (root/'assets/home-rpg-live-20261019.js').read_text()
+          assert 'scenes\\/festival' in (root/'assets/rpg-scene-selection-20261019.js').read_text()
+          print('PASS: ten full images, manual scene selection, persist keys preserved')
+          PY
+      - name: Commit production backgrounds and scene catalog
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add art/scenes/festival/*.webp art/scenes/festival/manifest.json
+          git add -u -- assets '*.html'
+          if ! git diff --cached --quiet; then
+            git commit -m 'Add ten selectable festive backgrounds to Gloria Wardrobe and Home'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
