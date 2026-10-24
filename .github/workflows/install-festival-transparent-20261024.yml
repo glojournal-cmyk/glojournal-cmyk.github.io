@@ -1,0 +1,78 @@
+name: Install real transparent Festival illustrations
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/install-festival-transparent-20261024.yml
+      - scripts/install_festival_transparent_pngs_20261024.py
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch ten independently generated cutouts
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p art/doll/festival
+          while read -r file url; do
+            echo "Downloading transparent PNG: $file"
+            curl -fLsS --retry 4 --retry-delay 2 --connect-timeout 20 --max-time 120 "$url" -o "art/doll/festival/$file"
+            file "art/doll/festival/$file"
+            test "$(stat -c%s "art/doll/festival/$file")" -gt 100000
+          done <<'FILES'
+          '01-halloween-transparent.png' 'https://at.adobe.com/GmZfO1KcVqSg6UqS'
+          '02-bonfire-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:4003825f-4f2b-4850-be86-4420692216ec'
+          '03-christmas-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:bf06162a-e155-4a17-9d14-cf5be9d8eab1'
+          '04-new-year-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:c8e5c710-cb66-40cd-9784-bcb1b0775911'
+          '05-lunar-new-year-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:3138bcee-e507-4f44-b1fd-9e991246064b'
+          '06-valentine-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:4d70cbda-8e31-4a88-b515-a807f40ebb30'
+          '07-easter-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:cdf212d7-85f8-4cf9-9271-7c5ca5fb1414'
+          '08-cherry-blossom-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:b2909b5e-76ff-4148-9808-6d9d6b481e76'
+          '09-midsummer-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:afad2999-372b-4bbc-95b4-6fe4b9f30afb'
+          '10-mid-autumn-transparent.png' 'https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:aef849e8-c38d-4f2b-aa6c-d372543b208f'
+          FILES
+      - name: QA real alpha channel and full-body safe margins
+        run: |
+          python3 -m pip -q install pillow
+          python3 - <<'PY'
+          import pathlib
+          from PIL import Image
+          root=pathlib.Path("art/doll/festival")
+          files=sorted(root.glob("*-transparent.png"))
+          assert len(files)==10,(len(files),files)
+          for p in files:
+            with Image.open(p) as img:
+              assert img.format=="PNG" and img.mode=="RGBA",(p,img.format,img.mode)
+              a=img.getchannel("A")
+              assert a.getextrema()==(0,255),(p,a.getextrema())
+              x0,y0,x1,y1=a.getbbox()
+              assert x0<x1 and y0<y1
+              assert img.getpixel((0,0))[3]==0,(p,"top-left has opaque background")
+              assert img.getpixel((img.width-1,img.height-1))[3]==0,(p,"bottom-right opaque background")
+              print(p.name,img.size,"transparent RGBA; visible subject bbox",a.getbbox())
+          PY
+      - name: Replace old crop URLs in the actual production bundle
+        run: |
+          python3 scripts/install_festival_transparent_pngs_20261024.py
+          node --check assets/index-BLVOhKhN.core.js
+          node --check assets/index-BLVOhKhN.js
+      - name: Commit audited independent transparent assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add art/doll/festival/*.png art/doll/festival/manifest.json
+          git add assets/index-BLVOhKhN.core.js assets/index-BLVOhKhN.js src/lib/content/outfits.ts
+          git add -u -- '*.html'
+          git add assets/math-study/outfits.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Replace Festival sheet-crops with ten independent transparent PNG assets'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
