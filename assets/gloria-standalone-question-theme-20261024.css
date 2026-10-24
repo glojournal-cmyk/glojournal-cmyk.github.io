@@ -1,0 +1,129 @@
+/* Consistent navy-and-gold classroom for standalone Latin October and Biology
+   November practice. Read-only visual rules; existing JS owns answers/marks. */
+body:has(#latin-bank-app),body:has(#nov2-app) {
+  background:radial-gradient(ellipse at 75% 5%,#183952,#061629 70%)!important;
+  color:#f6e8ce!important;
+}
+body:has(#latin-bank-app) > header,body:has(#nov2-app) > header {
+  background:#06182aea!important;
+  color:#f6d69d!important;
+  border-bottom:1px solid #bd9656!important;
+}
+body:has(#latin-bank-app) > header a,body:has(#nov2-app) > header a {
+  color:#f4d195!important;
+}
+body:has(#latin-bank-app) > main,body:has(#nov2-app) > main {
+  box-sizing:border-box;max-width:1280px!important;
+  padding:clamp(16px,2vw,32px) clamp(16px,2.3vw,36px) 110px!important;
+}
+body:has(#latin-bank-app) .intro,body:has(#nov2-app) .intro{
+  box-sizing:border-box;
+  max-width:none!important;
+  border:1px solid #af8b4e;
+  border-radius:20px;
+  background:#10243a;
+  padding:clamp(15px,2vw,28px)!important;
+  margin:5px 0 21px;
+  color:#f4e9d7;
+}
+body:has(#latin-bank-app) .intro h1,body:has(#nov2-app) .intro h1 {
+  color:#f5d9a5!important;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-weight:700;
+  font-size:clamp(30px,3.3vw,49px)!important;
+}
+body:has(#latin-bank-app) .intro p,body:has(#nov2-app) .intro p,
+body:has(#latin-bank-app) .quiet,body:has(#nov2-app) .muted{
+  color:#d7c9b1!important;
+}
+body:has(#latin-bank-app) #latin-bank-app .panel,
+body:has(#nov2-app) #nov2-app .panel {
+  background:#0d2339!important;
+  color:#f7ead5!important;
+  border:1px solid #c59b59!important;
+  border-radius:20px!important;
+  box-shadow:0 12px 28px #0004!important;
+}
+body:has(#latin-bank-app) :is(.question-meta,.bank-stats),
+body:has(#nov2-app) :is(.nov2-progress,.nov2-settings-note){
+  color:#dbcaa9!important;
+}
+body:has(#latin-bank-app) #latin-bank-app :is(h1,h2,h3,legend),
+body:has(#nov2-app) #nov2-app :is(h1,h2,h3) {
+  color:#f3d39b!important;
+}
+body:has(#latin-bank-app) #latin-bank-app .extract,
+body:has(#nov2-app) #nov2-app .nov2-question{
+  display:block;box-sizing:border-box;
+  font-family:Georgia,serif;
+  font-size:clamp(22px,2.8vw,39px)!important;
+  line-height:1.35!important;
+  border:1px solid #be965a;
+  border-radius:17px;
+  background:#11273c!important;
+  color:#ffdfa7!important;
+  padding:clamp(16px,2vw,27px)!important;
+  overflow-wrap:anywhere;
+}
+body:has(#latin-bank-app) #latin-bank-app textarea,
+body:has(#latin-bank-app) #latin-bank-app select,
+body:has(#nov2-app) #nov2-app textarea,
+body:has(#nov2-app) #nov2-app select {
+  background:#091729!important;
+  color:#fff4df!important;
+  border:1px solid #af8e5c!important;
+  border-radius:14px!important;
+  min-height:57px;
+  font-size:clamp(16px,1.5vw,20px)!important;
+  padding:13px 16px!important;
+  box-sizing:border-box;
+  max-width:100%;
+}
+body:has(#latin-bank-app) #latin-bank-app textarea,
+body:has(#nov2-app) #nov2-app textarea {
+  min-height:150px!important;
+}
+body:has(#latin-bank-app) #latin-bank-app :is(.model,.feedback),
+body:has(#nov2-app) #nov2-app :is(.nov2-feedback,.nov2-model) {
+  background:#1c3448!important;
+  color:#fff1db!important;
+  border:1px solid #aa8953!important;
+  border-radius:14px!important;
+  padding:clamp(12px,1.8vw,22px);
+  overflow-wrap:anywhere;
+}
+body:has(#latin-bank-app) #latin-bank-app button,
+body:has(#nov2-app) #nov2-app button {
+  min-height:48px!important;
+  background:#1a3349!important;
+  border:1px solid #af8b51!important;
+  color:#ffe8c0!important;
+  border-radius:12px!important;
+}
+body:has(#latin-bank-app) #latin-bank-app button.primary,
+body:has(#nov2-app) #nov2-app button.primary {
+  background:linear-gradient(110deg,#c5984b,#f0d294)!important;
+  color:#16263a!important;
+  border-radius:99px!important;
+}
+body:has(#latin-bank-app) #latin-bank-app button:focus-visible,
+body:has(#nov2-app) #nov2-app button:focus-visible,
+body:has(#latin-bank-app) #latin-bank-app :is(textarea,select):focus-visible,
+body:has(#nov2-app) #nov2-app :is(textarea,select):focus-visible {
+  outline:3px solid #f8cf83!important;outline-offset:2px;
+}
+body:has(#latin-bank-app) > main > details,
+body:has(#nov2-app) > main > details{
+  color:#e7dac6;
+}
+body:has(#latin-bank-app) a,body:has(#nov2-app) a{color:#edd08d}
+@media(max-width:760px){
+ body:has(#latin-bank-app) #latin-bank-app .panel,
+ body:has(#nov2-app) #nov2-app .panel{padding:14px!important}
+ body:has(#latin-bank-app) #latin-bank-app .extract,
+ body:has(#nov2-app) #nov2-app .nov2-question{font-size:clamp(21px,5vw,30px)!important}
+}
+@media print {
+ body:has(#latin-bank-app),body:has(#nov2-app){background:white!important;color:black!important}
+ body:has(#latin-bank-app) .panel,body:has(#nov2-app) .panel{color:black!important;background:white!important}
+}
