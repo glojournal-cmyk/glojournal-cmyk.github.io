@@ -131,7 +131,7 @@
   // navigation. It is CSS-only and never mutates question state or scoring.
   function installStabilitySkin() {
     const id='gloria-practice-stability';
-    const href='/assets/gloria-practice-stability-20261024.css?v=glass-nav1';
+    const href='/assets/gloria-practice-stability-20261024.css?v=ipad-fit2';
     let link=document.getElementById(id);
     if(!link) {
       link=document.createElement('link');
