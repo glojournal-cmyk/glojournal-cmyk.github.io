@@ -10,8 +10,8 @@ async function checkFiles(request){
  for(const route of routes){
   const r=await request.get(base+route,{timeout:45000}),html=await r.text();
   assert.equal(r.status(),200,route+' live HTTP');
-  assert.ok(html.includes('practice-studio-20261023.js?v=glass-nav2'),route+' latest runtime');
-  assert.ok(html.includes('gloria-practice-stability-20261024.css?v=glass-nav1'),route+' latest CSS');
+  assert.ok(html.includes('practice-studio-20261023.js?v=ipad-fit2'),route+' latest runtime');
+  assert.ok(html.includes('gloria-practice-stability-20261024.css?v=ipad-fit2'),route+' latest CSS');
   results.push({type:'production-route',route,ok:true});
  }
  const r=await request.get(base+'/assets/gloria-practice-academy-ornaments-20261024.svg');
@@ -38,7 +38,9 @@ async function checkPractice(browser,engine,viewport){
   });
   assert.ok(info.questionId,'real French question should render');
   assert.equal(info.navCount,7,'seven navigation links');
-  assert.notEqual(info.navPosition,'fixed','nav cannot overlay answers');
+  assert.equal(info.navPosition,'fixed','nav should be pinned to the bottom and never appear above the question');
+  assert.ok(info.nav.top>=viewport.height-120,'nav is at bottom, not top');
+  if(info.form?.bottom!==undefined && info.form.bottom<=viewport.height) assert.ok(info.form.bottom<=info.nav.top+4,'form must not be underneath bottom nav');
   assert.ok(info.scrollWidth<=info.viewportWidth+2,'iPad no sideways scroll');
   assert.ok(info.background.includes('gloria-practice-academy-ornaments-20261024.svg'),'vector background applied');
   if(info.input)assert.ok(info.input.width>=130,'typing width usable');
