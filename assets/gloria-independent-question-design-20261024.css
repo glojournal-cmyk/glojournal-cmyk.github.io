@@ -1,0 +1,216 @@
+/* Approved Gloria academy practice visual system for the two independent
+   engines: Maths and School Assessments. No event handlers or marking logic.
+   All form inputs, question IDs, save/review data, and navigation remain live. */
+
+/* Maths uses its own working/marking engine. Keep it full width on iPad. */
+body:has(.maths-practise-paper){
+  color:#f7e9d2!important;
+  background-color:#061629!important;
+}
+body:has(.maths-practise-paper) .maths-background{
+  background:
+    url('/assets/gloria-practice-academy-ornaments-20261024.svg') center top/cover no-repeat,
+    radial-gradient(ellipse at 50% 10%,#1d3654,#061629 68%),
+    url('/art/study-rpg/magic-floor.jpg') center/cover no-repeat!important;
+}
+body:has(.maths-practise-paper) .maths-frame{
+  max-width:1390px!important;padding:12px clamp(17px,4vw,54px) 100px!important;
+}
+body:has(.maths-practise-paper) .maths-layout{
+  display:block!important;
+  min-height:0!important;
+  margin-top:10px!important;
+}
+body:has(.maths-practise-paper) .maths-layout > aside{
+  display:none!important;
+}
+body:has(.maths-practise-paper) .maths-top{
+  background:#0c2238f6!important;
+  color:#ffe3ac!important;
+  border:1px solid #d3a467!important;
+  padding:8px 14px!important;
+  border-radius:18px!important;
+  box-shadow:0 8px 22px #0005!important;
+}
+body:has(.maths-practise-paper) .maths-top h1{
+  color:#fce0b0!important;
+  font-family:"Cormorant Garamond",Georgia,serif!important;
+  font-size:clamp(27px,3vw,40px)!important;
+}
+body:has(.maths-practise-paper) .maths-practise-paper{
+  background:#081d32f7!important;
+  border:1px solid #c89b59!important;
+  border-radius:19px!important;
+  color:#f7e8d2!important;
+  padding:clamp(13px,1.8vw,24px)!important;
+  box-shadow:0 12px 34px #0005!important;
+}
+body:has(.maths-practise-paper) .maths-paper-title{
+  background:#102b43!important;
+  color:#ffdc9f!important;
+  border:1px solid #cb9e5c!important;
+  font:700 clamp(21px,2.6vw,35px)/1.1 "Cormorant Garamond",Georgia,serif!important;
+}
+body:has(.maths-practise-paper) :is(.maths-help,.maths-note,.maths-paper-title small){
+  color:#d9c9ae!important;
+}
+body:has(.maths-practise-paper) .maths-question-count button{
+  background:#172f46!important;
+  color:#f7e2b9!important;
+  border:1px solid #c29a5c!important;
+  min-height:42px!important;min-width:42px!important;
+}
+body:has(.maths-practise-paper) .maths-question-count button.chosen{
+  background:#f4dcab!important;color:#14283e!important;
+}
+body:has(.maths-practise-paper) .maths-prompt{
+  background:#0c253cfb!important;
+  border:1px solid #c99d5b!important;
+  border-radius:17px!important;
+  padding:clamp(17px,2.2vw,28px)!important;
+  color:#ffe4ad!important;
+}
+body:has(.maths-practise-paper) .maths-prompt>p{
+  color:#ffe1a9!important;
+  font:600 clamp(22px,2.7vw,39px)/1.35 "Cormorant Garamond",Georgia,serif!important;
+}
+body:has(.maths-practise-paper) .maths-answer-label{
+  display:block!important;
+  box-sizing:border-box!important;
+  background:#132b41!important;
+  color:#f4c987!important;
+  border:1px solid #b99560!important;
+  border-radius:15px 15px 0 0!important;
+  padding:10px 15px!important;
+  margin:11px 0 -2px!important;
+  font:700 12px/1.3 "Source Sans 3",sans-serif!important;
+  letter-spacing:.14em;
+}
+body:has(.maths-practise-paper) textarea#math-answer{
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-height:140px!important;
+  margin:0!important;
+  border:1px solid #c19a5e!important;
+  border-radius:0 0 15px 15px!important;
+  background:#081829!important;
+  color:#fff4df!important;
+  font-size:clamp(17px,1.6vw,22px)!important;
+  padding:16px 18px!important;
+}
+body:has(.maths-practise-paper) .maths-reveal{
+  background:#162e43!important;color:#fff0d8!important;
+  border:1px solid #c49a5a!important;border-radius:16px!important;
+}
+body:has(.maths-practise-paper) .maths-reveal :is(p,li,strong){
+  color:#ffefd9!important;
+}
+body:has(.maths-practise-paper) .maths-action,
+body:has(.maths-practise-paper) .maths-review-buttons button:last-child{
+  background:linear-gradient(110deg,#c69a52,#f2d69f)!important;
+  border:1px solid #e7ba7c!important;
+  border-radius:999px!important;
+  color:#15293f!important;
+  font:700 19px Georgia,serif!important;
+  min-height:51px!important;
+}
+body:has(.maths-practise-paper) .maths-nav{
+  background:#051728f4!important;
+  border:1px solid #d4a566!important;
+  border-radius:100px!important;
+}
+body:has(.maths-practise-paper) .maths-nav a.active{
+  background:#f4ddae!important;color:#1a2e43!important;
+}
+@media(max-width:760px){
+ body:has(.maths-practise-paper) .maths-frame{
+  padding:8px 10px 96px!important;
+ }
+ body:has(.maths-practise-paper) .maths-top{
+  padding:8px 10px!important;
+ }
+ body:has(.maths-practise-paper) .maths-practise-paper{
+  padding:12px!important;
+ }
+ body:has(.maths-practise-paper) .maths-prompt>p{
+  font-size:clamp(22px,5vw,29px)!important;
+ }
+}
+
+/* School assessments: retain accessible timed UI, but use approved art. */
+body.lux-shell-on:has(#exam:not(.hidden)){
+ background:
+   url('/assets/gloria-practice-academy-ornaments-20261024.svg') center top/cover no-repeat,
+   radial-gradient(ellipse at 50% 10%,#1b3653,#061629 72%)!important;
+ color:#f7e8d1!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) > main{
+ max-width:1390px!important;
+ padding:12px clamp(12px,4vw,48px) 105px!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam.panel{
+ background:#081f36fa!important;
+ border:1px solid #cea15f!important;
+ border-radius:19px!important;
+ box-shadow:0 10px 28px #0004!important;
+ color:#f5e8d0!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .exam-top{
+ background:#0d2a43fa!important;
+ color:#ffe5b9!important;
+ border:1px solid #b99150!important;
+ border-radius:16px!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .exam-top h2{
+ font-family:"Cormorant Garamond",Georgia,serif!important;
+ font-size:clamp(27px,3vw,39px)!important;
+ color:#fce0ae!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .question{
+ display:block!important;
+ margin:10px 0 14px!important;
+ min-height:95px!important;
+ border:1px solid #cb9f60!important;
+ border-radius:17px!important;
+ background:#0e263cfa!important;
+ color:#ffe3af!important;
+ font:700 clamp(26px,3.3vw,45px)/1.25 "Cormorant Garamond",Georgia,serif!important;
+ padding:20px!important;
+ overflow-wrap:anywhere;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam :is(.feedback,.choice){
+ border-radius:14px!important;border-color:#c5a066!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .feedback{
+ background:#102a43f8!important;
+ color:#f6e9d3!important;
+ border-left:4px solid #deb37b!important;
+ padding:14px 17px!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .choice{
+ background:#122f48!important;color:#ffefd6!important;
+ min-height:54px!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .choice.chosen{
+ background:#f4ddb0!important;color:#1a2b41!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam textarea.answer{
+ background:#081b30!important;color:#fdf1df!important;
+ border:1px solid #be965e!important;
+ min-height:150px!important;
+ border-radius:14px!important;
+ padding:17px!important;
+ font-size:clamp(17px,1.7vw,22px)!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .exam-actions button.primary{
+ background:linear-gradient(110deg,#c89b53,#f0d296)!important;
+ color:#14293e!important;
+ border:1px solid #ecc486!important;
+ min-height:51px!important;
+ border-radius:999px!important;
+ font:700 19px Georgia,serif!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .assessment-diagram{
+ max-width:100%!important;object-fit:contain;
+ background:#fffdf6!important;border-radius:12px!important;
+}
