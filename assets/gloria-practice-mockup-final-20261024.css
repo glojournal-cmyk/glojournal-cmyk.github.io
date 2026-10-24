@@ -1009,3 +1009,20 @@ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
   min-height:48px!important;
  }
 }
+
+/* The legacy unannotated prompt has an extra :not() specificity. Match that
+   exact semantic node, so Safari paints the same font before/after React's
+   data-lux annotation without a one-frame oversized jump. */
+@media (min-width:700px) and (max-width:1100px) and (max-height:820px) {
+ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-format="word_tiles"])
+ .lux-practice-view [data-question-id][data-question-format="word_tiles"]
+ .rounded-xl.bg-card.p-5 > div > p.font-display.text-2xl:not([data-lux-prompt]),
+ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-format="word_tiles"])
+ .lux-practice-view [data-question-id][data-question-format="word_tiles"]
+ .rounded-xl.bg-card > div > p.font-display.text-2xl:not([data-lux-prompt]) {
+  min-height:95px!important;
+  font-size:clamp(34px,3.5vw,40px)!important;
+  line-height:1.06!important;
+  padding:10px 16px!important;
+ }
+}
