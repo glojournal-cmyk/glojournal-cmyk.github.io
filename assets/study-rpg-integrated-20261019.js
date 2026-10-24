@@ -1,7 +1,7 @@
 /* Study RPG: presentation only. Keep all real learning/marking/save logic in
  * the existing Lux et Labor app. The Home outfit and Pet share their sources.
  */
-import { A as wardrobeOutfits, C as store } from './index-BLVOhKhN.js?v=20261024-correct-credit1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
+import { A as wardrobeOutfits, C as store } from './index-BLVOhKhN.js?v=20261024-festival-scenes1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
 import { petArtUrl } from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
 
 if (!window.__luxStudyRpgIntegrated) {

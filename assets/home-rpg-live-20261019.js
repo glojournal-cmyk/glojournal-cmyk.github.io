@@ -5,8 +5,8 @@ import { scholarMetrics } from './scholar-metrics-20261022.js';
  */
 import './home-journey-v2-logic-20261010.js?v=20261023-no-zero-flicker1';
 import './journey-navigation-20261004.js';
-import { A as wardrobeOutfits, C as store, Z as scholarLevelProgress, B as rewardScenes } from './index-BLVOhKhN.js?v=20261024-correct-credit1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
-import { selectedRewardScene } from './rpg-scene-selection-20261019.js?v=20261019-selected-scene1';
+import { A as wardrobeOutfits, C as store, Z as scholarLevelProgress, B as rewardScenes } from './index-BLVOhKhN.js?v=20261024-festival-scenes1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
+import { selectedRewardScene } from './rpg-scene-selection-20261019.js?v=20261024-festival-scene-allowlist1';
 import { petArtUrl } from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
 import { getHomePersonality } from '/pet/home-personality-20261010.js?v=20261019-rpg-greeting1';
 
@@ -275,7 +275,7 @@ if (!window.__luxRpgLiveHome) {
     root.dataset.equippedScene = scene.id;
     // Coordinate colour temperature with the actual reward art. No user settings
     // or owned backgrounds are changed; this affects sprite presentation only.
-    const nightScenes = new Set(['chem-lab','sports-hall','boss-moon-garden']);
+    const nightScenes = new Set(['chem-lab','sports-hall','boss-moon-garden','festival-scene-halloween','festival-scene-bonfire','festival-scene-new-year','festival-scene-mid-autumn']);
     const coldScenes = new Set(['bio-lab']);
     root.dataset.sceneMood = coldScenes.has(scene.id) ? 'cool' : nightScenes.has(scene.id) ? 'night' : 'warm';
     // Reuse already-decoded character sprites across store updates to prevent iPad flicker.

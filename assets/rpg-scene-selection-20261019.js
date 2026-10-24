@@ -2,7 +2,7 @@
  * This selector cannot award, unlock, equip or change saved progress.
  */
 const DEFAULT_SCENE_ID = 'dusk';
-const SAFE_ART = /^\/art\/(?:stages|scenes)\/[a-z0-9-]+\.jpg$/;
+const SAFE_ART = /^\/art\/(?:stages|scenes)\/[a-z0-9-]+\.jpg$|^\/art\/scenes\/festival\/[a-z0-9-]+\.webp$/;
 const SAFE_FOCUS = /^(?:[0-9]|[1-9][0-9]|100)%(?:\s+)(?:[0-9]|[1-9][0-9]|100)%$/;
 
 export function selectedRewardScene(state, catalogue) {

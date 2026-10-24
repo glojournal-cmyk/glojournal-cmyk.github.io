@@ -1,6 +1,6 @@
 import {recoveryReplay} from './recovery-session-20261012.js?ux=20261013-corrections2';
 import {i as interop,n as factory} from './jsx-runtime-Cltr0gcK.js?ux=20261013-corrections2';
-import {C as store} from './index-BLVOhKhN.js?v=20261024-correct-credit1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
+import {C as store} from './index-BLVOhKhN.js?v=20261024-festival-scenes1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
 const R=interop(factory()),h=R.createElement;
 const labels={'study-session':'Focused study','adaptive-focus':'Subject focus',
  'y8-practise':'Foundation practice','y8-mastery':'Mastery review',
