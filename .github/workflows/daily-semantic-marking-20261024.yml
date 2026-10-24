@@ -1,0 +1,29 @@
+name: Daily long-answer semantic marking
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'tests/daily-semantic-marking-20261024.mjs'
+      - '.github/workflows/daily-semantic-marking-20261024.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'tests/daily-semantic-marking-20261024.mjs'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Equivalent answers and full model regression
+        run: node tests/daily-semantic-marking-20261024.mjs
+      - name: Existing Chemistry grader regression
+        run: node tests/chemistry-marking-regression.cjs
