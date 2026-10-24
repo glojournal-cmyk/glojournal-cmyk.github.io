@@ -487,3 +487,31 @@ html.lux-daily-ux-ready .lux-practice-view [data-question-id]
  background:#071b30f8!important;border:1px solid #c39552!important;
  border-radius:18px!important;padding:clamp(12px,1.2vw,18px)!important;
 }
+
+
+/* Word tiles must stay in reading order: selected row, available tiles,
+   Clear, then Check Answer. Never turn the workspace itself into two columns. */
+html.lux-daily-ux-ready .lux-practice-view [data-question-format="word_tiles"]
+ [data-lux-question-card] > [data-lux-tiles] {
+ display:flex!important;flex-direction:column!important;
+ gap:12px!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-format="word_tiles"]
+ [data-lux-tiles] > :is(div,button){
+ width:100%;max-width:100%;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-format="word_tiles"]
+ [data-lux-tiles] > div:nth-child(2){
+ display:flex!important;flex-wrap:wrap!important;gap:7px!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-format="word_tiles"]
+ [data-lux-tiles] > div:nth-child(2) button{
+ min-width:44px!important;min-height:46px!important;
+ background:#19364f!important;color:#fff6df!important;
+ border:1px solid #ad8753!important;
+}
+/* Keep two-column answers only for genuinely short MC choices. */
+@media(max-width:660px){
+ html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+ [data-lux-mc-options]{grid-template-columns:1fr!important;}
+}
