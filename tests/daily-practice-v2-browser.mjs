@@ -25,9 +25,9 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const report=[];
 const RELEASE='studio-shell-stable3';
-const RUNTIME_RELEASE='gloria-theme-20261024-live5';
+const RUNTIME_RELEASE='gloria-theme-20261024-live6';
 const UNIFIED_THEME='gloria-unified-question-theme-20261024.css?v=20261024-progress2';
-const FINAL_THEME='gloria-practice-mockup-final-20261024.css?v=20261024-live5';
+const FINAL_THEME='gloria-practice-mockup-final-20261024.css?v=20261024-live6';
 const entrypoint = fs.readFileSync('index.html','utf8').match(/\/assets\/index-BLVOhKhN\.js\?v=[^"']+/)?.[0];
 assert.ok(entrypoint, 'Home must expose the globally synchronized app entrypoint');
 for (const subject of ['french','latin','biology','chemistry','physics','english']) {
@@ -65,7 +65,7 @@ function fixture(kind){
     '<link rel="stylesheet" href="/app.css"><link rel="stylesheet" href="/assets/styles-CEE1o_78.css">'+
     '<link rel="stylesheet" href="/assets/practice-studio-20261023.css">'+
     '<link rel="stylesheet" href="/assets/gloria-unified-question-theme-20261024.css?v=20261024-progress2">'+
-    '<link rel="stylesheet" href="/assets/gloria-practice-mockup-final-20261024.css?v=20261024-live5">'+
+    '<link rel="stylesheet" href="/assets/gloria-practice-mockup-final-20261024.css?v=20261024-live6">'+
     '<script>window.tapCount=0;</script><script defer src="/assets/practice-studio-20261023.js"></script><script defer src="/lux-theme.js"></script></head>'+
     '<body><div class="paper-wash"><header style="height:58px">Legacy top bar</header><aside style="height:400px">Sidebar</aside>'+
     '<main><section id="study-companion" class="cx-study-buddy"><span class="cx-pet-art" aria-label="Antler Bean" style="display:block;background-image:url(\'/pet/art-hd-20261009/level-1/antler-bean.webp\');background-size:contain;background-position:center;background-repeat:no-repeat"></span><strong>Antler Bean is beside you</strong><button type="button" id="lux-voice-cheer-toggle" onclick="window.tapCount++">🔊 Voice On</button></section>'+
@@ -299,6 +299,7 @@ async function checkFixture(browser,engine,kind,viewport){
     console.log('GLORIA_BLUR_LAYOUT '+JSON.stringify({engine,viewport,focused:traceFocused,blurred:await styleTrace()}));
     assert.equal(afterBlur.compact,true,'iPad practice card must stay compact between editor focus changes');
     assert.equal(afterBlur.intro,compact.intro,'question heading must not flash back on blur');
+    assert.equal(afterBlur.intro,'none','iPad keyboard compact mode must hide the redundant 100px session heading');
     assert.ok(Math.abs(afterBlur.height-compact.height)<=3,
       'blur must not resize the entire question stage: '+JSON.stringify({compact,afterBlur}));
   }
