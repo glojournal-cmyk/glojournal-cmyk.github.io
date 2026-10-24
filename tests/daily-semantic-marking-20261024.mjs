@@ -49,3 +49,63 @@ console.log('DAILY_SEMANTIC_MARKING_QA',JSON.stringify({
   bundles:implementations.length, paraphraseAndContradictionCases:checks.length,
   modelAnswerChecks:models, pass:true
 }));
+
+// Reuse the production quiz-scoring code, not a copy of its rules.
+// Spacing and typography are never separate science marks.
+function fullGrader(path){
+ const source=read(path);
+ const start=source.indexOf('function A(e){');
+ const end=source.indexOf('function V(e){',start);
+ assert.ok(start>0&&end>start,path+' quiz grading functions present');
+ const normalize=value=>String(value??'').normalize('NFD')
+  .replace(/[\u0300-\u036f]/g,'').toLowerCase()
+  .replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();
+ const keep=value=>String(value??'').normalize('NFC').trim().replace(/\s+/g,' ');
+ return new Function('a','d','x',source.slice(start,end)+';return B;')(normalize,normalize,keep);
+}
+const short={id:'phys-punctuation-qa',format:'typed_short',
+ answer:{accepted:['water vapour condenses on a cold surface']}};
+const decimal={id:'phys-decimal-qa',format:'typed_exact',
+ answer:{accepted:['0.45']}};
+const chemical={id:'chem-symbol-qa',format:'typed_exact',
+ answer:{accepted:['H₂O']}};
+const long={id:'phys-long-punctuation-qa',format:'mark_points',
+ answer:{markPoints:['Higher-energy particles are more likely to escape.',
+   'The escaping particles carry energy away.']}};
+const punctuationCases=[
+ [short,'Water-vapour condenses on a cold surface',1,'physics'],
+ [short,'Water—vapour condenses on a cold surface',1,'physics'],
+ [short,'water vapour:condenses on a cold surface',1,'physics'],
+ [short,'water.vapour condenses on a cold surface',1,'physics'],
+ [short,'water    vapour condenses on a cold surface!',1,'physics'],
+ [short,'water,vapour condenses on a cold surface',1,'physics'],
+ [short,"(Water vapour)\n condenses on a 'cold' surface.",1,'physics'],
+ [short,'water vapour condenses on a hot surface',0,'physics'],
+ [long,'The most energetic! molecules, leave the surface; Molecules leave taking their energy with them.',2,'physics'],
+ [long,'Higher energy. particles are more likely; to escape. The escaping particles; carry energy away.',2,'physics'],
+ [long,'Higher-energy particles are more likely to escape. The escaping particles carry energy away.',2,'physics'],
+ [long,'The particles do not escape and do not carry energy away',0,'physics'],
+ [decimal,'0.45',1,'physics'],
+ [decimal,'0.54',0,'physics'],
+ [chemical,'H₂O',1,'chemistry'],
+ [chemical,'H2O',1,'chemistry'],
+ [chemical,'H2O2',0,'chemistry'],
+ [decimal,'045',0,'physics'],
+ [{id:'signed-quantity',format:'typed_short',answer:{accepted:['-10 J']}},'10 J',0,'physics'],
+ [{id:'signed-quantity',format:'typed_short',answer:{accepted:['-10 J']}},'-10 J',1,'physics'],
+ [{id:'signed-quantity',format:'typed_short',answer:{accepted:['+10 J']}},'-10 J',0,'physics'],
+ [{id:'direction',format:'typed_short',answer:{accepted:['pH < 7']}},'pH > 7',0,'biology'],
+ [{id:'direction',format:'typed_short',answer:{accepted:['pH < 7']}},'pH < 7',1,'biology'],
+ [{id:'chemical-bond',format:'typed_short',answer:{accepted:['H-O bond']}},'H O bond',0,'chemistry'],
+ [{id:'chemical-bond',format:'typed_short',answer:{accepted:['H-O bond']}},'H–O bond',1,'chemistry']
+];
+for(const source of sources){
+ const grade=fullGrader(source);
+ for(const [question,answer,expected,subject] of punctuationCases)
+  assert.equal(grade(question,answer,subject).score,expected,
+    source+' '+question.id+': '+answer);
+}
+console.log('DAILY_SCIENCE_PUNCTUATION_QA',JSON.stringify({
+  bundles:sources.length,cases:punctuationCases.length,
+  verified:punctuationCases.length*sources.length,pass:true
+}));
