@@ -1,0 +1,84 @@
+name: Replace Festival Outfit Artwork V3
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/replace-festival-same-scholar-v3-20261024.yml
+      - scripts/replace_festival_same_scholar_v3_20261024.py
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 23
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Fetch 10 exact approved independent protagonist PNGs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p art/doll/festival/incoming
+          while read -r file sha url; do
+            echo "Obtaining $file"
+            curl -fsSL --retry 4 --retry-delay 2 --connect-timeout 20 --max-time 100 "$url" -o "art/doll/festival/incoming/$file"
+            echo "$sha  art/doll/festival/incoming/$file" | sha256sum -c -
+          done <<'ARTWORK'
+          01-halloween-same-scholar-v3.png 00be2c67413cfcaefeb7bc80d503bdf1b69341d0c046df95fadf678b89684337 https://at.adobe.com/CZhwPbnDi7hkKmWH
+          02-bonfire-same-scholar-v3.png 453798c729fbc60707952cab9af68e4c0412369dff2e373ad9b2ff4fb72483c3 https://at.adobe.com/H9JbzV0FADDv41jm
+          03-christmas-same-scholar-v3.png 6bd00f4970dbd552bc6e649f03e4bed1c37459954dd716fadab7c68ec948acd5 https://at.adobe.com/uMuvF3Hsixengpel
+          04-new-year-same-scholar-v3.png ef377db86e90662037329fb77311ba7eed1ad282aa5817e427b2b266688fb11b https://at.adobe.com/3kLnnsTpZBoD4ap5
+          05-lunar-new-year-same-scholar-v3.png 8ccf0de2b0b5774de1c5569761d0fb85093c35a362a242cd4c5f9369ce3c5805 https://at.adobe.com/iMNnSJwBvJVMYjie
+          06-valentine-same-scholar-v3.png a44d35e87eed915f8cb912429b821b8d831fdc0dc0312c6ffd6a62ce4bb450c3 https://at.adobe.com/htegkA12XxkmikeJ
+          07-easter-same-scholar-v3.png 4930b3a036e367e28117028b0d10ad961c2db05d416bb7ca6968bde92287765e https://at.adobe.com/tvPgYTenKuyxMIX5
+          08-cherry-blossom-same-scholar-v3.png 6fe21afd17ce46a82e1cd3cf1cb60a0c2464ce797e43b24fb9f2b03cd55a8b7a https://at.adobe.com/Jh64nkWeg9YHkmYq
+          09-midsummer-same-scholar-v3.png 1101ecf704cacb10a115752c503b07d0182371a626d9a48f0fb3365c4d040f1d https://at.adobe.com/CU33Dr0NBS9RQJpL
+          10-mid-autumn-same-scholar-v3.png b07dcb5d9aac86f08310c84c06ac21a74c6f268193bd01a38ab083da56b6eadf https://at.adobe.com/qyFjBcqERmiIuTHN
+          ARTWORK
+      - name: Install with transparent-alpha and continuity validation
+        run: |
+          python3 -m pip -q install Pillow
+          python3 scripts/replace_festival_same_scholar_v3_20261024.py
+          node --check assets/index-BLVOhKhN.core.js
+          node --check assets/index-BLVOhKhN.js
+          node --check assets/scholar-iJ2ilQWG.js
+          node --check assets/scholar-rebuilt-20261021.js
+          node --check assets/home-rpg-live-20261019.js
+      - name: Check manifest, all 10 assets and original saved-progress namespace
+        run: |
+          python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          import json
+          root=Path('.')
+          m=json.loads((root/'art/doll/festival/manifest.json').read_text())
+          assert len(m['items'])==10
+          assert len({i['id'] for i in m['items']})==10
+          for o in m['items']:
+            assert o['art']==o['closet'] and 'same-scholar-v3.png' in o['art'],o
+            with Image.open(root/o['art'].lstrip('/')) as im:
+              assert im.mode=='RGBA' and im.size==(1086,1448)
+              assert im.getchannel('A').getextrema()==(0,255)
+              assert all(im.getpixel(pt)[3]==0 for pt in ((0,0),(1085,0),(0,1447),(1085,1447)))
+          core=(root/'assets/index-BLVOhKhN.core.js').read_text()
+          assert 'lux-scholar-garden-v1' in core
+          assert 'medical-10-medical-student' in core
+          assert '20261024-same-scholar-festival-v3' in (root/'index.html').read_text()
+          print('PASS: 10 approved unique original source hashes, RGBA, app refs and save safety')
+          PY
+      - name: Commit validated artwork and production references
+        run: |
+          set -euo pipefail
+          rm -rf art/doll/festival/incoming
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add art/doll/festival/*-same-scholar-v3.png art/doll/festival/manifest.json
+          git add assets/index-BLVOhKhN.core.js assets/index-BLVOhKhN.js src/lib/content/outfits.ts
+          git add -u -- assets '*.html'
+          if ! git diff --cached --quiet; then
+            git commit -m 'Replace ten Festival outfits with coordinated protagonist transparent artwork'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
