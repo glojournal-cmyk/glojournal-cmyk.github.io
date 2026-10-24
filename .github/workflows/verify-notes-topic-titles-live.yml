@@ -1,0 +1,43 @@
+name: Verify Gloria Notes Topic Titles Live
+on:
+  pull_request:
+    paths: [.github/workflows/verify-notes-topic-titles-live.yml]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Confirm published Topic/Chapter grouping and unchanged Notes manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://glojournal-cmyk.github.io/notes"
+          live=0
+          for attempt in $(seq 1 18); do
+            curl -fsSL --max-time 25 "$base/" > /tmp/notes-index.html
+            curl -fsSL --max-time 25 "$base/library.js?v=20261023-latinvocab1-generatede2-r2topics1-topicnames1" > /tmp/notes-script.js
+            curl -fsSL --max-time 25 "$base/catalog.json?v=20261023-topicnames1" > /tmp/notes-catalog.json
+            if python3 - <<'PY'
+          import json
+          from pathlib import Path
+          page=Path('/tmp/notes-index.html').read_text()
+          source=Path('/tmp/notes-script.js').read_text()
+          notes=json.loads(Path('/tmp/notes-catalog.json').read_text())['notes']
+          assert 'r2topics1-topicnames1' in page
+          assert 'row-topic' in source and 'topic-section' in source
+          assert len(notes)==96
+          assert all(x.get('topicLabel') and x.get('displayTitle') and x.get('topicGroup') for x in notes)
+          def find(key):return next(x for x in notes if x['key']==key)
+          assert find('year9/maths/Year_9_Maths_Topic_5_Notes_10_Pages.pdf')['displayTitle']=='Equation of a Straight Line'
+          assert find('year9/latin/Latin_Topic_1_Sum_and_Possum_Illustrated_Notes.pdf')['topicLabel']=='Topic 1'
+          assert all(x['key']==x['category']+'/'+x['filename'] for x in notes if x['period']=='year9' and x['subject']=='maths')
+          print('LIVE_96_CLEAR_NOTES_TOPICS_VERIFIED')
+          PY
+            then
+              live=1;break
+            fi
+            sleep 5
+          done
+          [[ "$live" = 1 ]] || { echo "::error::Live Notes has not yet deployed readable topics";exit 1; }
