@@ -1026,3 +1026,135 @@ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
   padding:10px 16px!important;
  }
 }
+
+
+/* 2026-10-24 · Correct vocabulary visual hierarchy.
+   Short Latin/French target is the large hero; the instruction is supporting
+   prose. CSS pseudo-content repeats React's answer-free tested term ONLY when
+   no separate short stimulus exists, never invents an answer. */
+html.lux-daily-ux-ready .lux-practice-view [data-question-id][data-gloria-question-layout="target"]
+ [data-lux-question-card]{
+ display:flex!important;
+ flex-direction:column!important;
+ align-items:stretch!important;
+ gap:9px!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id][data-gloria-question-layout="target"]
+ [data-gloria-question-label]{
+ order:0!important;
+ margin:0 0 -10px!important;
+ padding:11px 12px 5px!important;
+ color:#f4c97d!important;
+ font-size:clamp(12px,1.15vw,16px)!important;
+ font-weight:750!important;
+ line-height:1.35!important;
+ letter-spacing:.17em!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id][data-gloria-question-layout="target"]
+ [data-gloria-target-word]{
+ order:1!important;
+ display:flex!important;
+ justify-content:center!important;
+ align-items:center!important;
+ box-sizing:border-box!important;
+ width:100%!important;
+ min-height:clamp(136px,20vh,212px)!important;
+ height:auto!important;
+ margin:0!important;
+ padding:clamp(20px,3vh,38px) clamp(18px,3vw,35px)!important;
+ border:1.5px solid #e4b16b!important;
+ border-radius:18px!important;
+ background:radial-gradient(ellipse at 50% 40%,#193b58aa,transparent 73%),#071b30!important;
+ color:#ffebbb!important;
+ font-family:"Cormorant Garamond",Georgia,serif!important;
+ font-size:clamp(53px,6.3vw,99px)!important;
+ font-weight:700!important;
+ line-height:1.08!important;
+ letter-spacing:.015em!important;
+ text-align:center!important;
+ text-shadow:0 2px 4px #06101daa!important;
+ white-space:normal!important;
+ overflow-wrap:anywhere!important;
+ box-shadow:0 9px 26px #0003,inset 0 0 38px #16314b70!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id][data-gloria-question-layout="target"]
+ [data-lux-prompt][data-gloria-instruction]{
+ order:2!important;
+ display:block!important;
+ box-sizing:border-box!important;
+ width:100%!important;
+ min-height:0!important;
+ height:auto!important;
+ margin:0!important;
+ padding:9px 14px 11px!important;
+ border:0!important;
+ border-bottom:1px solid #b28b535e!important;
+ border-radius:5px!important;
+ background:transparent!important;
+ color:#e8dcc5!important;
+ font-family:"Source Sans 3",Georgia,sans-serif!important;
+ font-size:clamp(16px,1.4vw,21px)!important;
+ font-weight:500!important;
+ line-height:1.42!important;
+ letter-spacing:0!important;
+ text-align:center!important;
+ text-shadow:none!important;
+ box-shadow:none!important;
+ white-space:normal!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id][data-gloria-target-source="inline"]
+ [data-lux-prompt][data-gloria-inline-focus]::before{
+ content:attr(data-gloria-inline-focus);
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ box-sizing:border-box!important;
+ width:100%!important;
+ min-height:clamp(140px,19vh,206px)!important;
+ margin:0 0 10px!important;
+ padding:clamp(19px,3vh,35px)!important;
+ border:1.5px solid #dba861!important;
+ border-radius:18px!important;
+ background:radial-gradient(ellipse at center,#143855aa,transparent 75%),#081e33!important;
+ color:#fff0c9!important;
+ font-family:"Cormorant Garamond",Georgia,serif!important;
+ font-size:clamp(53px,6.3vw,99px)!important;
+ font-weight:700!important;
+ line-height:1.09!important;
+ text-align:center!important;
+ letter-spacing:.01em!important;
+ text-shadow:0 2px 3px #030c1a80!important;
+ overflow-wrap:anywhere;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id][data-gloria-question-layout="target"]
+ [data-lux-question-card] > :is(form,[data-lux-mc-options],[data-lux-tiles]){
+ order:3!important;
+ margin-top:6px!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id][data-gloria-question-layout="target"]
+ [data-gloria-feedback-stack]{order:7!important;}
+/* On touch iPad, preserve the primary word rather than shrinking it to 9px.
+   Keep the long instruction compact when the software keyboard appears. */
+@media(max-width:1199px),(max-height:740px){
+ html.lux-daily-ux-ready .lux-practice-view [data-question-id][data-gloria-question-layout="target"]
+  [data-gloria-target-word],
+ html.lux-daily-ux-ready .lux-practice-view [data-question-id][data-gloria-target-source="inline"]
+  [data-lux-prompt][data-gloria-inline-focus]::before{
+  min-height:clamp(112px,15vh,160px)!important;
+  font-size:clamp(45px,6.5vw,75px)!important;
+  padding:13px 19px!important;
+ }
+ html.lux-daily-ux-ready .lux-practice-view [data-question-id][data-gloria-question-layout="target"]
+  [data-lux-prompt][data-gloria-instruction]{
+  font-size:clamp(15px,1.7vw,19px)!important;
+  line-height:1.35!important;
+  padding:8px 10px!important;
+ }
+}
+html.lux-daily-ux-ready.lux-daily-typing .lux-practice-view
+ [data-question-id][data-gloria-question-layout="target"] [data-gloria-target-word],
+html.lux-daily-ux-ready.lux-daily-compact .lux-practice-view
+ [data-question-id][data-gloria-question-layout="target"] [data-gloria-target-word]{
+ min-height:85px!important;
+ font-size:clamp(37px,4.7vw,61px)!important;
+}
