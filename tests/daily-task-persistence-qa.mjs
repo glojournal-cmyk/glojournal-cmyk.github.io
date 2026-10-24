@@ -24,7 +24,7 @@ const requiredWrapper=[
   'const focusProgress = Math.min(4, Math.max(focusEvidence, oldFocusProgress));',
   '{ id: "adaptive-focus"',
   "normalizeState();",
-  "store.subscribe(() => normalizeState());"
+  "store.subscribe((next,previous) => {"
 ];
 for(const token of requiredWrapper) if(!wrapper.includes(token)) failures.push({type:"adaptive-daily-regression",token});
 const coreVersions=[...wrapper.matchAll(/index-BLVOhKhN\.core\.js\?v=([^"]+)/g)].map((match)=>match[1]);
@@ -42,7 +42,7 @@ for(const token of [
 for(const token of [
   "const lockedYear8Plan = oldYear8Review.planDate === state.today",
   "const year8Review = recoveredYear8Review || (lockedYear8Plan",
-  "function recordDailyVocabAttempt(subject, questionId, correct)",
+  "function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState)",
   "function completedYear8ReviewEvidence(state)",
   "const recoveredYear8Review = completedYear8ReviewEvidence(state)",
   "const year8ReviewProgress = recoveredYear8Review ? 25",
