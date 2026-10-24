@@ -8,12 +8,12 @@ import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUno
 import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261018-receipt2";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastery-count20-v1";
-import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261024-correct-credit1";
+import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261024-festival-wardrobe1";
 import "./journey-navigation-20261004.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import("/pet/pet-care-global.js?v=20261011-storage-qa1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261024-correct-credit1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+export * from "./index-BLVOhKhN.core.js?v=20261024-festival-wardrobe1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 import {
   C as store,
   A as medicalOutfitCatalog,
@@ -28,15 +28,18 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261024-correct-credit1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+} from "./index-BLVOhKhN.core.js?v=20261024-festival-wardrobe1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 
 // medical-career-unlock-sync-v1: only unlock earned looks; never edits academic evidence.
 function syncEarnedMedicalOutfits(){
  const state=store.getState();
  const count=Object.values(state.topicStats||{}).filter(t=>t?.state==="mastered").length;
  const unlocked=state.unlockedOutfits||[];
+ // festival-outfit-availability-v1: grant all ten full looks, without changing academic progression.
+ const ready=medicalOutfitCatalog.filter(o=>o.category==="Festival" && !unlocked.includes(o.id));
  const earned=medicalOutfitCatalog.filter(o=>o.category==="Medical" && (o.needIf?.masteredTopics||Infinity)<=count && !unlocked.includes(o.id));
- if(earned.length)store.setState({unlockedOutfits:[...new Set([...unlocked,...earned.map(o=>o.id)])]});
+
+ if(earned.length||ready.length)store.setState({unlockedOutfits:[...new Set([...unlocked,...earned.map(o=>o.id),...ready.map(o=>o.id)])]});
 }
 if(typeof window!=="undefined"){
  store.subscribe((next,prior)=>{if(next.topicStats!==prior?.topicStats || next.unlockedOutfits!==prior?.unlockedOutfits)syncEarnedMedicalOutfits()});

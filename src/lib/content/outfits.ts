@@ -2,7 +2,7 @@ import { gardenStage, levelFromXp } from "@/lib/xp";
 
 export const DEFAULT_SCHOLAR_NAME = "Scholar";
 
-export type OutfitId = "day" | "library" | "winter" | "spring" | "latin" | "rose" | "pe" | "pinafore" | "blazer" | "winter-coat" | "denim" | "track" | "summer" | "hoodie" | "beret";
+export type OutfitId = "day" | "library" | "winter" | "spring" | "latin" | "rose" | "pe" | "pinafore" | "blazer" | "winter-coat" | "denim" | "track" | "summer" | "hoodie" | "beret" | "festival-halloween" | "festival-bonfire" | "festival-christmas" | "festival-new-year" | "festival-lunar-new-year" | "festival-valentine" | "festival-easter" | "festival-cherry-blossom" | "festival-midsummer" | "festival-mid-autumn";
 
 export type Outfit = {
   id: OutfitId;
@@ -11,7 +11,7 @@ export type Outfit = {
   art: string;
   closet: string;
   need: string;
-  category: "Uniform" | "Study" | "Seasonal" | "Latin" | "French" | "Achievement";
+  category: "Uniform" | "Study" | "Seasonal" | "Latin" | "French" | "Achievement" | "Festival";
 };
 
 export const OUTFITS: Outfit[] = [
@@ -151,10 +151,31 @@ export const OUTFITS: Outfit[] = [
     category: "French",
   },
 
+  {"id": "festival-halloween", "name": "Halloween Night", "blurb": "Violet-and-black witch cape, gold stars and lace-up boots", "art": "/art/doll/festival/01-halloween.webp", "closet": "/art/doll/festival/01-halloween.webp", "need": "Festival Edition · Ready to wear", "category": "Festival"},
+  {"id": "festival-bonfire", "name": "Bonfire Night", "blurb": "Midnight coat, amber tartan scarf and lantern", "art": "/art/doll/festival/02-bonfire.webp", "closet": "/art/doll/festival/02-bonfire.webp", "need": "Festival Edition · Ready to wear", "category": "Festival"},
+  {"id": "festival-christmas", "name": "Christmas Evergreen", "blurb": "Evergreen velvet, holly trim and winter boots", "art": "/art/doll/festival/03-christmas.webp", "closet": "/art/doll/festival/03-christmas.webp", "need": "Festival Edition · Ready to wear", "category": "Festival"},
+  {"id": "festival-new-year", "name": "New Year Starlight", "blurb": "Navy-and-gold constellation cloak and cream dress", "art": "/art/doll/festival/04-new-year.webp", "closet": "/art/doll/festival/04-new-year.webp", "need": "Festival Edition · Ready to wear", "category": "Festival"},
+  {"id": "festival-lunar-new-year", "name": "Lunar New Year", "blurb": "Ruby silk-inspired dress with golden floral embroidery", "art": "/art/doll/festival/05-lunar-new-year.webp", "closet": "/art/doll/festival/05-lunar-new-year.webp", "need": "Festival Edition · Ready to wear", "category": "Festival"},
+  {"id": "festival-valentine", "name": "Valentine Rose", "blurb": "Blush-pink dress, burgundy scarf and heart purse", "art": "/art/doll/festival/06-valentine.webp", "closet": "/art/doll/festival/06-valentine.webp", "need": "Festival Edition · Ready to wear", "category": "Festival"},
+  {"id": "festival-easter", "name": "Easter Meadow", "blurb": "Ivory and lilac floral dress, straw hat and basket", "art": "/art/doll/festival/07-easter.webp", "closet": "/art/doll/festival/07-easter.webp", "need": "Festival Edition · Ready to wear", "category": "Festival"},
+  {"id": "festival-cherry-blossom", "name": "Cherry Blossom", "blurb": "Rose-pink blossom layers with sage-green accents", "art": "/art/doll/festival/08-cherry-blossom.webp", "closet": "/art/doll/festival/08-cherry-blossom.webp", "need": "Festival Edition · Ready to wear", "category": "Festival"},
+  {"id": "festival-midsummer", "name": "Midsummer Garden", "blurb": "Cream-and-sage meadow dress, straw hat and flowers", "art": "/art/doll/festival/09-midsummer.webp", "closet": "/art/doll/festival/09-midsummer.webp", "need": "Festival Edition · Ready to wear", "category": "Festival"},
+  {"id": "festival-mid-autumn", "name": "Mid-Autumn Moon", "blurb": "Midnight-blue moonlit cape and delicate lantern", "art": "/art/doll/festival/10-mid-autumn.webp", "closet": "/art/doll/festival/10-mid-autumn.webp", "need": "Festival Edition · Ready to wear", "category": "Festival"},
 ];
 
 
 export const EXTRA_WARDROBE_LOOK_IDS: OutfitId[] = [
+  "festival-halloween",
+  "festival-bonfire",
+  "festival-christmas",
+  "festival-new-year",
+  "festival-lunar-new-year",
+  "festival-valentine",
+  "festival-easter",
+  "festival-cherry-blossom",
+  "festival-midsummer",
+  "festival-mid-autumn",
+
   "pinafore",
   "blazer",
   "winter-coat",
@@ -182,6 +203,7 @@ export type UnlockContext = {
 export function isOutfitUnlocked(id: OutfitId, ctx: UnlockContext) {
   const level = levelFromXp(ctx.xp).level;
   const garden = gardenStage(ctx.xp);
+  if (id.startsWith("festival-")) return true;
   switch (id) {
     case "day":
       return true;
