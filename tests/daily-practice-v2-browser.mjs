@@ -236,7 +236,8 @@ async function checkFixture(browser,engine,kind,viewport){
 
   assert.equal(details.headerHidden,true,'top bar should be hidden');
   assert.equal(await page.evaluate(()=>document.documentElement.classList.contains('lux-daily-task-active')),true,'assigned Daily label must activate');
-  assert.equal(await page.locator('[data-lux-question-intro] > p:first-child').evaluate(el=>getComputedStyle(el,'::before').content),'"DAILY PRACTICE"','approved label is displayed');
+  assert.equal(await page.locator('[data-lux-question-intro] > p:first-child').evaluate(el=>getComputedStyle(el,'::before').content),'none','no duplicate Daily Practice pseudo-caption');
+  assert.ok((await page.locator('[data-lux-question-intro] > p:first-child').innerText()).trim().length>0,'original Daily caption remains visible');
   assert.deepEqual(details.navLabels,['⌂Home','▣Study','◇Play','♧Garden','♧Pet','▤Assessment','✎Scholar']);
   assert.match(details.navCurrent,/Study/);
   if(kind==='vocab-mc'){
