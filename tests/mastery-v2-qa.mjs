@@ -74,7 +74,7 @@ test('a new learner has ten reachable tasks and one answer credits only its assi
   assert.ok(mastery.assignedTopic&&mastery.href.includes('/practise'));
   const standard=plan.find(t=>t.id==='y8-standard-a');
   const answer={day:base.today,topicId:standard.assignedTopic,questionId:'q1',attemptId:'attempt1',
-    dailyTaskId:standard.id,mode:'standard',formal:true};
+    dailyTaskId:standard.id,mode:'standard',formal:true,correct:true};
   const updated=buildYear8DailyV2({...base,daily:plan,formalAttemptLog:[answer]},get);
   assert.equal(updated.find(t=>t.id===standard.id).progress,1);
   assert.equal(updated.filter(t=>t.progress>0).length,1);
