@@ -19,6 +19,12 @@ async function scenario(label,type,viewport,checkAll=false){
     await page.getByRole("button",{name:"Wardrobe",exact:true}).first().click({timeout:25000}).catch(()=>{});
     await page.getByRole("button",{name:"Backgrounds",exact:true}).waitFor({timeout:30000});
     await page.getByRole("button",{name:"Backgrounds",exact:true}).click();
+    // All stage-overlay scene chips were removed; selection remains exclusively in the Backgrounds tab.
+    const intrusive=page.locator('.lux-scholar-stage button');
+    assert.equal(await intrusive.count(),0,"Background controls are obstructing the character stage");
+    const char=page.locator('.lux-scholar-stage img[alt*=" in "]');
+    await char.first().waitFor({state:"visible",timeout:15000});
+    assert((await char.first().boundingBox())?.height>150,"Scholar character must remain visible");
 
     const imgs=page.locator('.lux-scholar-looks img[src*="/art/scenes/festival/"]');
     await page.waitForFunction(()=>document.querySelectorAll('.lux-scholar-looks img[src*="/art/scenes/festival/"]').length===10,null,{timeout:25000});
