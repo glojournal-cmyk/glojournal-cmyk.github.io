@@ -334,10 +334,8 @@ async function checkRealPractice(browser,engine){
       navBottom:nav?.getBoundingClientRect().bottom,
       screenHeight:innerHeight,scrollWidth:document.documentElement.scrollWidth};
   });
-  await page.waitForFunction(()=>{
-    const pet=document.getElementById('study-companion');
-    return pet && getComputedStyle(pet).display!=='none' && pet.getBoundingClientRect().width>=100;
-  },null,{timeout:12000});
+  // The approved design intentionally removes decorative character overlays.
+  // Retain actual answer controls and seven-link navigation.
   const chromeDetails = await page.evaluate(() => {
     const header=document.querySelector('.paper-wash>header');
     const companion=document.querySelector('#study-companion');
@@ -358,8 +356,8 @@ async function checkRealPractice(browser,engine){
   });
   console.log('DAILY_REAL_CHROME_DIAGNOSTIC '+JSON.stringify({engine,chromeDetails}));
   assert.ok(chromeDetails.header?.display==='none','approved design has no top bar');
-  assert.ok(chromeDetails.companion?.display!=='none' && chromeDetails.companion?.width>=100,'equipped pet / voice strip must be visible');
-  assert.ok(chromeDetails.sprite?.width>=28 && chromeDetails.sprite?.height>=30,'equipped pet artwork must be on-screen');
+  assert.ok(!chromeDetails.companion || chromeDetails.companion.display==='none','character overlay must be hidden on the approved question screen');
+  assert.ok(!chromeDetails.voice || chromeDetails.voice.display==='none','voice overlay must not cover the answer field');
   assert.ok(before.id,'real French question must load');
   assert.equal(before.navCount,7,'live question needs Study navigation');
   // Safari activates compact keyboard typography when a typed answer gets
