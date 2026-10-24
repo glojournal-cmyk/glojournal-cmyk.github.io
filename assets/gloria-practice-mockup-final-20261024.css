@@ -133,7 +133,7 @@ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl)) [role="progressbar"],
 html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
  .lux-practice-view [data-question-id]
- :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl)) .relative.h-1\\.5{
+ :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl)) .relative[class*="h-1.5"]{
  display:none!important; /* decorative duplicate, see live CSS value below */
 }
 html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
@@ -458,4 +458,32 @@ html.lux-daily-ux-ready.lux-daily-compact .lux-practice-view [data-question-id]
  html.lux-daily-ux-ready .lux-practice-view [data-question-id] *{
   animation:none!important;transition:none!important;
  }
+}
+
+
+/* Anti-flash fallback: same question surface before React gets its decorator. */
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] .rounded-xl.bg-card.p-5 > div:not([data-lux-question-card]){
+ display:flex!important;flex-direction:column!important;
+ gap:clamp(7px,.8vh,11px)!important;
+ min-height:0!important;padding:0!important;margin:0!important;
+ background:transparent!important;border:0!important;
+ box-shadow:none!important;overflow:visible!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+ .rounded-xl.bg-card.p-5 > div:not([data-lux-question-card]) p.font-display.text-2xl{
+ display:flex!important;justify-content:center;align-items:center;
+ min-height:clamp(98px,15vh,146px)!important;
+ padding:17px 20px!important;margin:0!important;
+ background:#0b2035fa!important;border:1px solid #ca9a55!important;
+ border-radius:17px!important;color:#ffe2b0!important;
+ text-align:center!important;font-family:"Cormorant Garamond",Georgia,serif!important;
+ font-weight:700!important;line-height:1.13!important;
+ font-size:clamp(36px,4.4vw,66px)!important;overflow-wrap:anywhere;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+ .rounded-xl.bg-card.p-5 > div:not([data-lux-question-card]) > form{
+ display:grid!important;grid-template-columns:minmax(0,1fr) auto;
+ align-items:center!important;gap:9px 11px!important;
+ background:#071b30f8!important;border:1px solid #c39552!important;
+ border-radius:18px!important;padding:clamp(12px,1.2vw,18px)!important;
 }
