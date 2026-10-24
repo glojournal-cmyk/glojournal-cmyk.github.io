@@ -32,7 +32,7 @@ async function scenario(name,engine,viewport){
       }
       return values;
     });
-    assert(decoded.every(x=>x.w>=300&&x.h===512),JSON.stringify(decoded));
+    assert(decoded.every(x=>x.w>=1000&&x.h>=1000&&x.src.endsWith('-transparent.png')),JSON.stringify(decoded));
     const expected=catalog.map(x=>x.id);
     await page.waitForFunction(ids => {
       const s=window.__luxStore?.getState?.();
@@ -44,7 +44,7 @@ async function scenario(name,engine,viewport){
     await page.waitForFunction(()=>window.__luxStore?.getState?.().equippedOutfit==="festival-halloween",{timeout:20000});
     await page.goto(ROOT+"/",{waitUntil:"domcontentloaded",timeout:40000});
     await page.waitForFunction(()=>window.__luxStore?.getState?.().equippedOutfit==="festival-halloween",{timeout:20000});
-    await page.locator('img[src*="/art/doll/festival/01-halloween.webp"]').first().waitFor({timeout:20000});
+    await page.locator('img[src*="/art/doll/festival/01-halloween-transparent.png"]').first().waitFor({timeout:20000});
     await page.screenshot({path:DEST+"/"+name+"-home.png",fullPage:true});
     await page.reload({waitUntil:"domcontentloaded"});
     await page.waitForFunction(()=>window.__luxStore?.getState?.().equippedOutfit==="festival-halloween",{timeout:20000});
