@@ -9,7 +9,7 @@ const expected=[
  '/assets/study-rpg-live-boot-20261020.js','/assets/play-hall-live-boot-20261020.js',
  '/assets/scholar-image-recovery-20261020.js','/assets/scholar-play-chrome-20261021.js'
 ];
-const canon='index-BLVOhKhN.js?v=20261023-share-permission1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
+const canon='index-BLVOhKhN.js?v=20261024-correct-credit1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
 test('all nine previously paused features have a staged restoration path',()=>{
  const loaded=[...loader.matchAll(/src:'([^']+)'/g)].map(x=>x[1].split('?')[0]);
  assert.equal(new Set(loaded).size,9);
@@ -45,6 +45,6 @@ test('restored garden and Home pet reuse hydrated store rather than parsing gian
 });
 test('Recovery avoids legacy overlay and extra history reparsing on RPG Home',()=>{
  const recovery=file('assets/quest-recovery-20261011.js');
- assert.match(recovery,/if\(document\.getElementById\("lux-rpg-live-home"\)\)return/);
+ assert.match(recovery,/if\(rpgHome&&!document\.documentElement\.classList\.contains\("lux-rpg-recovery-open"\)\)return/);
  assert.match(recovery,/if\(relevant\)\{scheduleRecordProtection\(\);schedule\(\);\}/);
 });
