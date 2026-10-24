@@ -61,7 +61,10 @@ async function scenario(name,engine,viewport){
     await page.screenshot({path:DEST+"/"+name+"-wardrobe.png",fullPage:true});
     await page.goto(ROOT+"/",{waitUntil:"domcontentloaded",timeout:40000});
     await page.waitForFunction(()=>window.__luxStore?.getState?.().equippedOutfit==="festival-halloween",{timeout:20000});
-    await page.locator('img[src*="/art/doll/festival/01-halloween-same-scholar-v3.png"]').first().waitFor({timeout:20000});
+    const homeAsset=page.locator('img[src*="/art/doll/festival/01-halloween-same-scholar-v3.png"]').first();
+    await homeAsset.waitFor({state:"attached",timeout:20000});
+    const homeDecoded=await homeAsset.evaluate(async img=>{await img.decode().catch(()=>{});return img.naturalWidth===1086&&img.naturalHeight===1448;});
+    assert(homeDecoded,"Home not receiving approved full-resolution Festival image");
     await page.screenshot({path:DEST+"/"+name+"-home.png",fullPage:true});
     await page.reload({waitUntil:"domcontentloaded"});
     await page.waitForFunction(()=>window.__luxStore?.getState?.().equippedOutfit==="festival-halloween",{timeout:20000});
