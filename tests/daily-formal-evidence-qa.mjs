@@ -19,7 +19,7 @@ const context=vm.createContext({
   normalizeTopicStat:raw=>({attempted:0,correct:0,productionAttempted:0,productionIds:[],errors:{},errorTypes:{},recentOutcomes:[],state:'learning',...raw}),
   topicState:()=> 'learning',diagnoseError:()=>null,
   applyFormalSkillAttempt:s=>s,appendLearningEvents:e=>e,
-  topicTitle:()=> 'Numbers and age',normalizeState(){},recordDailyVocabAttempt(){},
+  topicTitle:()=> 'Numbers and age',normalizeState(){},scheduleNormalizeState(){},recordDailyVocabAttempt(){},
   shiftDay:()=> '2026-10-02',awardFirstTopicMastery(){throw Error('Unexpected mastery');},awardMasteryRetention(){throw Error('Unexpected retention award');},
 });
 vm.runInContext(fs.readFileSync('assets/weekly-evidence-20261004.js','utf8'),context);
