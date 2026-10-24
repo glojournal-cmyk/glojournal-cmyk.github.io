@@ -340,6 +340,48 @@
       if(label&&!label.hasAttribute('data-gloria-question-label'))
         label.setAttribute('data-gloria-question-label','');
     }
+    // Vocabulary/translation questions can render the tested word separately
+    // as stimulus.text (e.g. "est"), while the generic instruction is a long
+    // sentence. The TESTED WORD must own the large typographic hierarchy.
+    // Only semantic data attributes change; never edit React text/answers.
+    const promptText=(prompt?.textContent||'').trim();
+    const subject=(location.pathname.match(/^\\/study\\/(latin|french)\\//)?.[1]||'');
+    const instructionLike=/\\b(which|what|meaning|translate|translation|answer|write|choose|required|vocabulary|vocab|equivalent|definition)\\b/i.test(promptText);
+    const source=[...(card?.children||[])].find(el=>
+      el!==prompt && el.matches?.('p') &&
+      el.classList.contains('rounded-lg') &&
+      (el.className.includes('bg-sage')||el.className.includes('bg-sky')) &&
+      (el.textContent||'').trim().length>0 &&
+      (el.textContent||'').trim().length<=45 &&
+      !/[.?!]$/.test((el.textContent||'').trim())
+    );
+    const lexicalContext=!!subject || (card?.querySelector('[data-gloria-question-label]')?.textContent||'').toLowerCase().includes('vocab');
+    if(prompt && card && instructionLike && promptText.length>=28 && lexicalContext){
+      const quote=promptText.match(/[“"‘']([^”"’']{1,32})[”"’']/u);
+      if(source){
+        q.dataset.gloriaQuestionLayout='target';
+        q.dataset.gloriaTargetSource='stimulus';
+        source.setAttribute('data-gloria-target-word','');
+        prompt.setAttribute('data-gloria-instruction','');
+        prompt.removeAttribute('data-gloria-inline-focus');
+      }else if(quote && quote[1] && quote[1].trim()){
+        q.dataset.gloriaQuestionLayout='target';
+        q.dataset.gloriaTargetSource='inline';
+        prompt.setAttribute('data-gloria-inline-focus',quote[1].trim());
+        prompt.setAttribute('data-gloria-instruction','');
+      }else{
+        q.removeAttribute('data-gloria-question-layout');
+        q.removeAttribute('data-gloria-target-source');
+        prompt.removeAttribute('data-gloria-instruction');
+        prompt.removeAttribute('data-gloria-inline-focus');
+      }
+    }else{
+      q.removeAttribute('data-gloria-question-layout');
+      q.removeAttribute('data-gloria-target-source');
+      prompt?.removeAttribute('data-gloria-instruction');
+      prompt?.removeAttribute('data-gloria-inline-focus');
+    }
+    if(q.dataset.gloriaQuestionLayout!=='target')card?.querySelectorAll('[data-gloria-target-word]').forEach(el=>el.removeAttribute('data-gloria-target-word'));
     const tileWorkspace = q.dataset.questionFormat === 'word_tiles'
       ? q.querySelector('[data-lux-question-card] .mt-5.space-y-3')
       : null;
