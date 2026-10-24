@@ -223,12 +223,12 @@ async function checkFixture(browser,engine,kind,viewport){
   assert.ok(Number(details.promptWeight)>=700,'prompt must be bold');
   assert.ok(details.promptSize>=27,'question must be large');
   assert.ok(details.scrollWidth<=viewport.width+1,'no horizontal overflow');
-  assert.ok(details.pet.width>=38 && details.pet.width<=210,'pet artwork must be visible but compact');
-  assert.ok(details.voice?.width>=55,'approved preview must include Voice cheers control');
+  assert.equal(await page.locator('#study-companion').isVisible(),false,'decorative character must not cover questions');
+  assert.equal(await page.locator('#lux-voice-cheer-toggle').isVisible(),false,'no floating voice banner over input');
   assert.ok(details.lock?.height>=20,'approved daily lock must be readable');
   if(['mc','tiles','typed'].includes(kind)) assert.ok(details.card.bottom<details.nav.y-8,
     'question and answer card should stay above the Study bar in one iPad screen');
-  assert.ok(details.decorativeBackground.includes('magic-floor'),'navy-gold classroom artwork must be present');
+  assert.ok(details.decorativeBackground.includes('gloria-practice-academy-ornaments-20261024.svg'),'real approved academy illustration must load');
   const bgResponse=await page.request.get(base+'/assets/gloria-practice-academy-ornaments-20261024.svg');
   assert.equal(bgResponse.status(),200,'academy background asset must load');
   const bgSource=await bgResponse.text();
