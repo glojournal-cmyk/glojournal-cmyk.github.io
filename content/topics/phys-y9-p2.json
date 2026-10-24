@@ -3103,21 +3103,279 @@
       },
       "preview": true,
       "ordinary": true
+    },
+    {
+      "id": "phys-y9-p2-aqa-exam-20261024-density-practical-6",
+      "conceptId": "phys-y9-p2-aqa-exam-20261024-density-practical-6",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "extended_response",
+      "prompt": "GCSE-style evaluation (6 marks): A student measures the density of an irregular metal object by water displacement. Explain a reliable method and how to reduce errors.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Measure the mass of the dry object using a balance.",
+          "Read the initial water volume at eye level.",
+          "Lower the object fully into the water without trapped air bubbles.",
+          "Read the final water volume at eye level.",
+          "Subtract the initial volume from the final volume to find the object's volume.",
+          "Divide mass by volume and use consistent units to calculate density."
+        ],
+        "markPointAlternatives": [
+          [
+            "Measure mass with a balance."
+          ],
+          [
+            "Record starting volume at eye level."
+          ],
+          [
+            "Fully submerge the metal with no air bubbles."
+          ],
+          [
+            "Record the final volume at eye level."
+          ],
+          [
+            "Find volume by subtracting initial from final."
+          ],
+          [
+            "Use density equals mass divided by volume."
+          ]
+        ],
+        "totalMarks": 6,
+        "requireFullMarks": true,
+        "modelAnswer": "Measure the mass of the dry object using a balance. Read the initial water volume at eye level. Lower the object fully into the water without trapped air bubbles. Read the final water volume at eye level. Subtract the initial volume from the final volume to find the object's volume. Divide mass by volume and use consistent units to calculate density."
+      },
+      "stimulus": {
+        "marks": 6
+      },
+      "feedback": {
+        "short": "GCSE-style practice: check 6 distinct indicative marking points; automated feedback is formative, not an official AQA level-of-response judgement.",
+        "steps": [
+          "Measure the mass of the dry object using a balance.",
+          "Read the initial water volume at eye level.",
+          "Lower the object fully into the water without trapped air bubbles.",
+          "Read the final water volume at eye level.",
+          "Subtract the initial volume from the final volume to find the object's volume.",
+          "Divide mass by volume and use consistent units to calculate density."
+        ],
+        "commonError": "A scientifically correct point must address the question; repeated keywords do not earn extra marks.",
+        "remember": "Use complete science reasoning and check all 6 rubric points."
+      },
+      "task": {
+        "label": "AQA GCSE-STYLE · AO2/AO3 · 6 MARKS",
+        "instruction": "Write a complete answer, then compare each indicative point with the model. Automatic marks are formative, not an official GCSE grade."
+      },
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8463",
+        "assessmentObjective": "AO2/AO3",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      }
+    },
+    {
+      "id": "phys-y9-p2-aqa-exam-20261024-density-error-6",
+      "conceptId": "phys-y9-p2-aqa-exam-20261024-density-error-6",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "extended_response",
+      "prompt": "GCSE-style analysis (6 marks): A pupil finds the density of a stone, but air bubbles cling to the stone and the water meniscus is read from above. Explain how these errors affect the result and describe improvements.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Trapped air increases the apparent displaced volume.",
+          "Overestimating volume makes the calculated density too low.",
+          "Viewing the meniscus from above can cause parallax error.",
+          "Read the meniscus at eye level to reduce parallax error.",
+          "Dislodge air bubbles and submerge the object completely.",
+          "Repeat measurements and calculate a mean to improve reliability."
+        ],
+        "markPointAlternatives": [
+          [
+            "Air bubbles increase measured volume."
+          ],
+          [
+            "Higher measured volume gives lower density."
+          ],
+          [
+            "The meniscus reading suffers from parallax error."
+          ],
+          [
+            "Look at the meniscus at eye level."
+          ],
+          [
+            "Remove bubbles and fully submerge the stone."
+          ],
+          [
+            "Repeat trials and average the results."
+          ]
+        ],
+        "totalMarks": 6,
+        "requireFullMarks": true,
+        "modelAnswer": "Trapped air increases the apparent displaced volume. Overestimating volume makes the calculated density too low. Viewing the meniscus from above can cause parallax error. Read the meniscus at eye level to reduce parallax error. Dislodge air bubbles and submerge the object completely. Repeat measurements and calculate a mean to improve reliability."
+      },
+      "stimulus": {
+        "marks": 6
+      },
+      "feedback": {
+        "short": "GCSE-style practice: check 6 distinct indicative marking points; automated feedback is formative, not an official AQA level-of-response judgement.",
+        "steps": [
+          "Trapped air increases the apparent displaced volume.",
+          "Overestimating volume makes the calculated density too low.",
+          "Viewing the meniscus from above can cause parallax error.",
+          "Read the meniscus at eye level to reduce parallax error.",
+          "Dislodge air bubbles and submerge the object completely.",
+          "Repeat measurements and calculate a mean to improve reliability."
+        ],
+        "commonError": "A scientifically correct point must address the question; repeated keywords do not earn extra marks.",
+        "remember": "Use complete science reasoning and check all 6 rubric points."
+      },
+      "task": {
+        "label": "AQA GCSE-STYLE · AO3 · 6 MARKS",
+        "instruction": "Write a complete answer, then compare each indicative point with the model. Automatic marks are formative, not an official GCSE grade."
+      },
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8463",
+        "assessmentObjective": "AO3",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      }
+    },
+    {
+      "id": "phys-y9-p2-aqa-exam-20261024-density-comparison-4",
+      "conceptId": "phys-y9-p2-aqa-exam-20261024-density-comparison-4",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "GCSE-style reasoning (4 marks): Two metal blocks have equal mass but different volumes. Explain how their densities compare and describe how a pupil could check the conclusion.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Density equals mass divided by volume.",
+          "At equal mass the block with the smaller volume has the greater density.",
+          "Measure each block's mass with a balance.",
+          "Determine each block's volume from its dimensions and calculate its density."
+        ],
+        "markPointAlternatives": [
+          [
+            "Use density = mass / volume."
+          ],
+          [
+            "For the same mass a smaller volume means a higher density."
+          ],
+          [
+            "Find mass using a balance."
+          ],
+          [
+            "Measure length width and height and divide mass by volume."
+          ]
+        ],
+        "totalMarks": 4,
+        "requireFullMarks": true,
+        "modelAnswer": "Density equals mass divided by volume. At equal mass the block with the smaller volume has the greater density. Measure each block's mass with a balance. Determine each block's volume from its dimensions and calculate its density."
+      },
+      "stimulus": {
+        "marks": 4
+      },
+      "feedback": {
+        "short": "GCSE-style practice: check 4 distinct indicative marking points; automated feedback is formative, not an official AQA level-of-response judgement.",
+        "steps": [
+          "Density equals mass divided by volume.",
+          "At equal mass the block with the smaller volume has the greater density.",
+          "Measure each block's mass with a balance.",
+          "Determine each block's volume from its dimensions and calculate its density."
+        ],
+        "commonError": "A scientifically correct point must address the question; repeated keywords do not earn extra marks.",
+        "remember": "Use complete science reasoning and check all 4 rubric points."
+      },
+      "task": {
+        "label": "AQA GCSE-STYLE · AO2/AO3 · 4 MARKS",
+        "instruction": "Write a complete answer, then compare each indicative point with the model. Automatic marks are formative, not an official GCSE grade."
+      },
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8463",
+        "assessmentObjective": "AO2/AO3",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      }
+    },
+    {
+      "id": "phys-y9-p2-aqa-exam-20261024-density-conversion-calc",
+      "conceptId": "phys-y9-p2-aqa-exam-20261024-density-conversion-calc",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "calculation",
+      "prompt": "GCSE-style calculation: A metal object has mass 0.270 kg and volume 90 cm³. Give the density in kg/m³.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 3000,
+        "units": [
+          "kg/m³",
+          "kg/m3",
+          "kg m−3"
+        ],
+        "working": "90 cm³ = 0.000090 m³; density = 0.270 kg ÷ 0.000090 m³ = 3000 kg/m³.",
+        "tolerance": 0,
+        "modelAnswer": "3000 kg/m³"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "90 cm³ = 0.000090 m³; density = 0.270 kg ÷ 0.000090 m³ = 3000 kg/m³.",
+        "steps": [
+          "90 cm³ = 0.000090 m³; density = 0.270 kg ÷ 0.000090 m³ = 3000 kg/m³."
+        ],
+        "commonError": "Convert every unit before substitution and check the answer.",
+        "remember": "90 cm³ = 0.000090 m³; density = 0.270 kg ÷ 0.000090 m³ = 3000 kg/m³."
+      },
+      "task": {
+        "label": "AQA GCSE-STYLE · AO2 · 1 MARK",
+        "instruction": "Enter the final numerical answer with the correct unit where required. The app awards one answer mark; show working on paper."
+      },
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8463",
+        "assessmentObjective": "AO2",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      }
     }
   ],
-  "enabled": 76,
+  "enabled": 80,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 22,
     "typed_exact": 6,
     "spelling_restore": 10,
-    "mark_points": 20,
+    "mark_points": 21,
     "typed_short": 4,
     "matching": 2,
-    "calculation": 10,
+    "calculation": 11,
     "practical_design": 1,
-    "diagram_label": 1
+    "diagram_label": 1,
+    "extended_response": 2
   },
   "gated": false,
   "note": {
@@ -3203,13 +3461,15 @@
       "For a regular solid, measure its mass with a balance and calculate volume from measured dimensions. For an irregular solid, determine volume by water displacement, then divide the mass by the displaced volume.",
       "For a liquid, measure the mass of an empty container and then the container plus liquid; subtract to obtain the liquid mass. Measure the liquid volume with appropriate volumetric apparatus before calculating density.",
       "Good practical technique includes zeroing equipment, reading scales at eye level, repeating measurements where useful, choosing apparatus with suitable resolution, and avoiding trapped air when using displacement.",
-      "Check zero on the balance and measuring instruments before taking readings. A persistent zero offset introduces systematic error. Use a suitable, calibrated measuring cylinder and read the meniscus at eye level."
+      "Check zero on the balance and measuring instruments before taking readings. A persistent zero offset introduces systematic error. Use a suitable, calibrated measuring cylinder and read the meniscus at eye level.",
+      "New GCSE-style questions are original practice, not an official AQA paper or official AQA level-of-response mark scheme."
     ],
     "examTips": [
       "Always write the density equation first, then substitution, answer and unit.",
       "Use the command word and number of marks to judge the number of distinct points required.",
       "For calculations: write the equation, substitute with consistent units, show working and give the final unit.",
-      "For practical questions: identify the independent, dependent and control variables and explain how data quality is improved."
+      "For practical questions: identify the independent, dependent and control variables and explain how data quality is improved.",
+      "AQA-style extended response: use clear causal links, evaluate evidence and self-check each mark point. Automated marking is only formative."
     ],
     "quickCheck": [
       {

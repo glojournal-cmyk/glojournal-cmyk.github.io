@@ -4576,7 +4576,7 @@
         "value": 0.5,
         "units": [],
         "working": "Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50.",
-        "tolerance": 1e-05,
+        "tolerance": 0.00001,
         "modelAnswer": "0.5"
       },
       "stimulus": {
@@ -4630,7 +4630,7 @@
         "value": 0.45,
         "units": [],
         "working": "3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45.",
-        "tolerance": 1e-05,
+        "tolerance": 0.00001,
         "modelAnswer": "0.45"
       },
       "stimulus": {
@@ -4686,7 +4686,7 @@
           "mm"
         ],
         "working": "Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm.",
-        "tolerance": 1e-05,
+        "tolerance": 0.00001,
         "modelAnswer": "70 mm"
       },
       "stimulus": {
@@ -4742,7 +4742,7 @@
           "mm"
         ],
         "working": "Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm.",
-        "tolerance": 1e-05,
+        "tolerance": 0.00001,
         "modelAnswer": "41 mm"
       },
       "stimulus": {
@@ -4796,7 +4796,7 @@
         "value": 0.42,
         "units": [],
         "working": "Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42.",
-        "tolerance": 1e-05,
+        "tolerance": 0.00001,
         "modelAnswer": "0.42"
       },
       "stimulus": {
@@ -4850,7 +4850,7 @@
         "value": 0.35,
         "units": [],
         "working": "Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35.",
-        "tolerance": 1e-05,
+        "tolerance": 0.00001,
         "modelAnswer": "0.35"
       },
       "stimulus": {
@@ -4906,7 +4906,7 @@
           "mm"
         ],
         "working": "Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm.",
-        "tolerance": 1e-05,
+        "tolerance": 0.00001,
         "modelAnswer": "36 mm"
       },
       "stimulus": {
@@ -4960,7 +4960,7 @@
         "value": 0.45,
         "units": [],
         "working": "Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45.",
-        "tolerance": 1e-05,
+        "tolerance": 0.00001,
         "modelAnswer": "0.45"
       },
       "stimulus": {
@@ -5016,7 +5016,7 @@
           "mm"
         ],
         "working": "Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm.",
-        "tolerance": 1e-05,
+        "tolerance": 0.00001,
         "modelAnswer": "60 mm"
       },
       "stimulus": {
@@ -5070,7 +5070,7 @@
         "value": 0.45,
         "units": [],
         "working": "Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45.",
-        "tolerance": 1e-05,
+        "tolerance": 0.00001,
         "modelAnswer": "0.45"
       },
       "stimulus": {
@@ -5241,7 +5241,7 @@
         "value": 0.4,
         "units": [],
         "working": "Rf = dye distance / solvent-front distance = 24 / 60 = 0.40. Both distances are measured from the start line in mm; the units cancel.",
-        "tolerance": 1e-05,
+        "tolerance": 0.00001,
         "modelAnswer": "0.4"
       },
       "stimulus": {
@@ -5345,22 +5345,276 @@
         "commonError": "Count separated spots; do not assume one spot always proves purity.",
         "stage": "Application"
       }
+    },
+    {
+      "id": "chem-y9-c4-aqa-exam-20261024-chromatography-method-6",
+      "conceptId": "chem-y9-c4-aqa-exam-20261024-chromatography-method-6",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "extended_response",
+      "prompt": "GCSE-style practical (6 marks): A laboratory needs to compare three food dyes using paper chromatography. Describe a valid method, including how the chromatogram could be used to compare the dyes.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Draw a baseline in pencil near the bottom of the chromatography paper.",
+          "Apply three small dye spots to separate positions on the baseline.",
+          "Choose a suitable solvent and keep the dye spots above the solvent level.",
+          "Allow the solvent to rise through the paper.",
+          "Remove the paper and mark the solvent front immediately.",
+          "Compare the number and positions of spots or calculate Rf values under the same conditions."
+        ],
+        "markPointAlternatives": [
+          [
+            "Draw a pencil baseline."
+          ],
+          [
+            "Place small separate samples on the baseline."
+          ],
+          [
+            "Keep the samples above the level of the solvent."
+          ],
+          [
+            "Let the solvent travel up the paper."
+          ],
+          [
+            "Mark the solvent front as soon as the paper is removed."
+          ],
+          [
+            "Compare spot positions or calculate Rf."
+          ]
+        ],
+        "totalMarks": 6,
+        "requireFullMarks": true,
+        "modelAnswer": "Draw a baseline in pencil near the bottom of the chromatography paper. Apply three small dye spots to separate positions on the baseline. Choose a suitable solvent and keep the dye spots above the solvent level. Allow the solvent to rise through the paper. Remove the paper and mark the solvent front immediately. Compare the number and positions of spots or calculate Rf values under the same conditions."
+      },
+      "stimulus": {
+        "marks": 6
+      },
+      "feedback": {
+        "short": "GCSE-style practice: check 6 distinct indicative marking points; automated feedback is formative, not an official AQA level-of-response judgement.",
+        "steps": [
+          "Draw a baseline in pencil near the bottom of the chromatography paper.",
+          "Apply three small dye spots to separate positions on the baseline.",
+          "Choose a suitable solvent and keep the dye spots above the solvent level.",
+          "Allow the solvent to rise through the paper.",
+          "Remove the paper and mark the solvent front immediately.",
+          "Compare the number and positions of spots or calculate Rf values under the same conditions."
+        ],
+        "commonError": "A scientifically correct point must address the question; repeated keywords do not earn extra marks.",
+        "remember": "Use complete science reasoning and check all 6 rubric points."
+      },
+      "task": {
+        "label": "AQA GCSE-STYLE · AO2/AO3 · 6 MARKS",
+        "instruction": "Write a complete answer, then compare each indicative point with the model. Automatic marks are formative, not an official GCSE grade."
+      },
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "assessmentObjective": "AO2/AO3",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      }
+    },
+    {
+      "id": "chem-y9-c4-aqa-exam-20261024-chromatography-evaluate-6",
+      "conceptId": "chem-y9-c4-aqa-exam-20261024-chromatography-evaluate-6",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "extended_response",
+      "prompt": "GCSE-style evaluation (6 marks): A student uses pen for the baseline, covers the sample spots with solvent and forgets to mark the solvent front. Explain why the result is unreliable and how to correct the method.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Ink from a pen baseline may dissolve in the solvent and interfere with the results.",
+          "Draw the baseline in pencil because graphite does not dissolve in the solvent.",
+          "Sample spots below the solvent may dissolve directly into the solvent reservoir.",
+          "Keep the solvent level below the initial sample spots.",
+          "Without a marked solvent front the distance travelled by the solvent cannot be measured accurately.",
+          "Mark the solvent front immediately so a reliable Rf value can be calculated."
+        ],
+        "markPointAlternatives": [
+          [
+            "A pen baseline may dissolve and contaminate the chromatogram."
+          ],
+          [
+            "Use pencil for the baseline."
+          ],
+          [
+            "Submerged spots dissolve into the solvent."
+          ],
+          [
+            "Place the spots above solvent level."
+          ],
+          [
+            "Missing solvent front prevents reliable Rf calculation."
+          ],
+          [
+            "Mark the solvent front promptly before it evaporates."
+          ]
+        ],
+        "totalMarks": 6,
+        "requireFullMarks": true,
+        "modelAnswer": "Ink from a pen baseline may dissolve in the solvent and interfere with the results. Draw the baseline in pencil because graphite does not dissolve in the solvent. Sample spots below the solvent may dissolve directly into the solvent reservoir. Keep the solvent level below the initial sample spots. Without a marked solvent front the distance travelled by the solvent cannot be measured accurately. Mark the solvent front immediately so a reliable Rf value can be calculated."
+      },
+      "stimulus": {
+        "marks": 6
+      },
+      "feedback": {
+        "short": "GCSE-style practice: check 6 distinct indicative marking points; automated feedback is formative, not an official AQA level-of-response judgement.",
+        "steps": [
+          "Ink from a pen baseline may dissolve in the solvent and interfere with the results.",
+          "Draw the baseline in pencil because graphite does not dissolve in the solvent.",
+          "Sample spots below the solvent may dissolve directly into the solvent reservoir.",
+          "Keep the solvent level below the initial sample spots.",
+          "Without a marked solvent front the distance travelled by the solvent cannot be measured accurately.",
+          "Mark the solvent front immediately so a reliable Rf value can be calculated."
+        ],
+        "commonError": "A scientifically correct point must address the question; repeated keywords do not earn extra marks.",
+        "remember": "Use complete science reasoning and check all 6 rubric points."
+      },
+      "task": {
+        "label": "AQA GCSE-STYLE · AO3 · 6 MARKS",
+        "instruction": "Write a complete answer, then compare each indicative point with the model. Automatic marks are formative, not an official GCSE grade."
+      },
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "assessmentObjective": "AO3",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      }
+    },
+    {
+      "id": "chem-y9-c4-aqa-exam-20261024-chromatography-rf-4",
+      "conceptId": "chem-y9-c4-aqa-exam-20261024-chromatography-rf-4",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "mark_points",
+      "prompt": "GCSE-style interpretation (4 marks): Two samples show spots with identical Rf values. Explain what this suggests and give limitations to making a firm identification.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Rf is the distance moved by the substance divided by the distance moved by the solvent front.",
+          "Matching Rf values under the same conditions support the possibility that the spots contain the same substance.",
+          "Rf values must be compared using the same solvent and stationary phase conditions.",
+          "A matching Rf alone is not conclusive proof of identity because different substances can have similar values."
+        ],
+        "markPointAlternatives": [
+          [
+            "Rf equals distance travelled by spot divided by solvent front distance."
+          ],
+          [
+            "The spots could be the same compound."
+          ],
+          [
+            "Use the same solvent and conditions."
+          ],
+          [
+            "Rf match alone does not prove identity."
+          ]
+        ],
+        "totalMarks": 4,
+        "requireFullMarks": true,
+        "modelAnswer": "Rf is the distance moved by the substance divided by the distance moved by the solvent front. Matching Rf values under the same conditions support the possibility that the spots contain the same substance. Rf values must be compared using the same solvent and stationary phase conditions. A matching Rf alone is not conclusive proof of identity because different substances can have similar values."
+      },
+      "stimulus": {
+        "marks": 4
+      },
+      "feedback": {
+        "short": "GCSE-style practice: check 4 distinct indicative marking points; automated feedback is formative, not an official AQA level-of-response judgement.",
+        "steps": [
+          "Rf is the distance moved by the substance divided by the distance moved by the solvent front.",
+          "Matching Rf values under the same conditions support the possibility that the spots contain the same substance.",
+          "Rf values must be compared using the same solvent and stationary phase conditions.",
+          "A matching Rf alone is not conclusive proof of identity because different substances can have similar values."
+        ],
+        "commonError": "A scientifically correct point must address the question; repeated keywords do not earn extra marks.",
+        "remember": "Use complete science reasoning and check all 4 rubric points."
+      },
+      "task": {
+        "label": "AQA GCSE-STYLE · AO2/AO3 · 4 MARKS",
+        "instruction": "Write a complete answer, then compare each indicative point with the model. Automatic marks are formative, not an official GCSE grade."
+      },
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "assessmentObjective": "AO2/AO3",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      }
+    },
+    {
+      "id": "chem-y9-c4-aqa-exam-20261024-chromatography-rf-calc",
+      "conceptId": "chem-y9-c4-aqa-exam-20261024-chromatography-rf-calc",
+      "topicId": "chem-y9-c4",
+      "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
+      "format": "calculation",
+      "prompt": "GCSE-style calculation: A spot travels 3.6 cm and the solvent front travels 4.5 cm. Calculate Rf.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 0.8,
+        "units": [],
+        "working": "Rf = 3.6 ÷ 4.5 = 0.80 (no unit).",
+        "tolerance": 0,
+        "modelAnswer": "0.8"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Rf = 3.6 ÷ 4.5 = 0.80 (no unit).",
+        "steps": [
+          "Rf = 3.6 ÷ 4.5 = 0.80 (no unit)."
+        ],
+        "commonError": "Convert every unit before substitution and check the answer.",
+        "remember": "Rf = 3.6 ÷ 4.5 = 0.80 (no unit)."
+      },
+      "task": {
+        "label": "AQA GCSE-STYLE · AO2 · 1 MARK",
+        "instruction": "Enter the final numerical answer with the correct unit where required. The app awards one answer mark; show working on paper."
+      },
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "assessmentObjective": "AO2",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      }
     }
   ],
-  "enabled": 113,
+  "enabled": 117,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "typed_exact": 11,
     "spelling_restore": 14,
     "matching": 3,
-    "mark_points": 39,
+    "mark_points": 40,
     "mc_single": 28,
-    "calculation": 12,
+    "calculation": 13,
     "practical_design": 1,
     "typed_short": 3,
     "word_tiles": 1,
-    "diagram_label": 1
+    "diagram_label": 1,
+    "extended_response": 2
   },
   "gated": false,
   "note": {
@@ -5413,12 +5667,14 @@
       "Rf = distance moved by substance ÷ distance moved by solvent front. An Rf value is between 0 and 1. For identification, comparisons should be made using the same solvent and similar experimental conditions.",
       "For reproducibility, repeat the method or compare independent results under the same conditions. Close agreement increases confidence that the result is reproducible.",
       "Chromatography separates components of a mixture because they distribute differently between a stationary phase and a mobile phase. In paper chromatography, the solvent moves up the paper. Components that are more soluble in the mobile phase and less attracted to the stationary phase tend to move further.",
-      "A pure substance produces one spot under a given set of conditions; a mixture may produce more than one."
+      "A pure substance produces one spot under a given set of conditions; a mixture may produce more than one.",
+      "New GCSE-style questions are original practice, not an official AQA paper or official AQA level-of-response mark scheme."
     ],
     "examTips": [
       "Use the command word and number of marks to decide how many distinct points are required.",
       "Use precise terminology and link cause to effect rather than listing disconnected facts.",
-      "For calculations, show the relationship, substitution, working and unit."
+      "For calculations, show the relationship, substitution, working and unit.",
+      "AQA-style extended response: use clear causal links, evaluate evidence and self-check each mark point. Automated marking is only formative."
     ],
     "quickCheck": [
       {

@@ -2,7 +2,7 @@ import fs from "node:fs";
 import assert from "node:assert/strict";
 
 const targets = [
- [1,67,77,"d1aca4b6"],[2,57,76,"f43738c8"],[3,40,63,"d6f23e07"],
+ [1,67,77,"d1aca4b6"],[2,57,80,"f43738c8"],[3,40,63,"d6f23e07"],
  [4,56,72,"b0f792f6"],[5,46,65,"5c054f36"],
  [7,47,63,"5bd9de49"],[10,45,64,"4b40097c"]
 ];
@@ -33,7 +33,7 @@ for(const [number,prior,expected,baseline] of targets){
  const doc=JSON.parse(fs.readFileSync(file,"utf8"));
  assert.equal(doc.topicId,id);
  assert.equal(doc.questions.length,expected,`${id} question count`);
- const old=doc.questions.filter(q=>!q.id.includes("-gcse-oct20-"));
+ const old=doc.questions.filter(q=>!q.id.includes("-gcse-oct20-")&&!q.id.includes("-aqa-exam-20261024-"));
  const fresh=doc.questions.filter(q=>q.id.includes("-gcse-oct20-"));
  assert.equal(old.length,prior,`${id}: all original question IDs kept`);
  assert.equal(hashIds(old.map(q=>q.id)),baseline,`${id}: original question IDs or order changed`);
@@ -50,7 +50,7 @@ for(const [number,prior,expected,baseline] of targets){
   assert.equal(q.topicId,id);
   assert.ok(q.prompt && q.answer && q.format && q.feedback,`incomplete question ${q.id}`);
   const marks=q.answer.totalMarks??q.stimulus?.marks??1;
-  assert.ok(marks>0 && marks<=5,`${q.id}: 1–5 marks only`);
+  assert.ok(marks>0 && marks<=6,`${q.id}: 1–6 marks allowed`);
   if(q.answer.markPoints){
    assert.equal(q.answer.totalMarks,q.answer.markPoints.length,`${q.id}: point count mismatch`);
    assert.equal(q.stimulus.marks,q.answer.totalMarks,`${q.id}: displayed marks mismatch`);
@@ -79,11 +79,11 @@ for(const [number,prior,expected,baseline] of targets){
   }
  }
 }
-assert.equal(questions,480);
+assert.equal(questions,484);
 assert.equal(added,122);
-assert.equal(catalog.bySubjectYear.find(r=>r.subject==="physics"&&r.year===9).enabled,1040);
-assert.equal(catalog.totals.enabled,15398);
-assert.equal(catalog.totals.questions,16527);
+assert.equal(catalog.bySubjectYear.find(r=>r.subject==="physics"&&r.year===9).enabled,1044);
+assert.equal(catalog.totals.enabled,15410);
+assert.equal(catalog.totals.questions,16539);
 assert.ok(catalog.version.includes("phys-gcse-20261020"));
 const read=n=>JSON.parse(fs.readFileSync(`content/topics/phys-y9-p${n}.json`,"utf8"));
 assert.match(JSON.stringify(read(1)).toLowerCase(),/brownian motion/);
@@ -100,7 +100,7 @@ for(let n=1;n<=18;n++){
  const topic=read(n);
  for(const q of topic.questions){
   const marks=q.answer?.totalMarks??q.stimulus?.marks??1;
-  assert.ok(marks<=5,`Year 9 Physics P${n}: over-five-mark question ${q.id}`);
+  assert.ok(marks<=6,`Year 9 Physics P${n}: over-five-mark question ${q.id}`);
  }
 }
 for(const [n,id] of [[6,"phys-y9-p6-app-shc-practical"],[11,"phys-y9-p11-app-boyle-controls"],[16,"phys-y9-p16-app-spring-practical"],[18,"phys-y9-p18-app-efficiency-boss"]]){

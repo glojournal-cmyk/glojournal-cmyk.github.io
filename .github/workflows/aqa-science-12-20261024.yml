@@ -1,0 +1,32 @@
+name: AQA Science 12 question release QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/topics/phys-y9-p2.json"
+      - "content/topics/chem-y9-c4.json"
+      - "content/topics/bio-y9-b3.json"
+      - "content/catalog.json"
+      - "assessment/index.html"
+      - "assessment/aqa-science-practice-20261024.js"
+      - "tests/aqa-science-deploy-20261024.mjs"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify all twelve GCSE Science questions and Assessment entry
+        run: node tests/aqa-science-deploy-20261024.mjs
+      - name: Physics existing GCSE content regression
+        run: node tests/physics-gcse-oct20-qa.mjs
+      - name: Verify science content structure
+        run: |
+          node tests/physics-content-quality-audit.mjs
+          node tests/chemistry-content-quality-audit.mjs
+          node tests/biology-content-quality-audit.mjs

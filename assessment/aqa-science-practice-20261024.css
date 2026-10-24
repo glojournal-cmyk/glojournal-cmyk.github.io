@@ -1,0 +1,21 @@
+/* Original AQA-style science questions: opt-in, independent practice only. */
+.gcse-science-panel{margin:1.2rem 0;padding:1.2rem;border:1px solid rgba(129,155,173,.5);border-radius:18px;background:rgba(12,45,69,.06)}
+.gcse-science-panel>summary{cursor:pointer;font-weight:700;font-size:1.12rem;list-style:revert;padding:.2rem}
+.gcse-science-kicker{font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.72rem;color:#32677e}
+.gcse-science-note{font-size:.92rem;line-height:1.55;opacity:.87}
+.gcse-science-selector{display:flex;gap:.6rem;flex-wrap:wrap;margin:1rem 0}
+.gcse-science-selector button{border-radius:10px;border:1px solid #8baab9;background:rgba(255,255,255,.72);color:#173e58;padding:.65rem 1rem;cursor:pointer;font-weight:600;min-height:43px}
+.gcse-science-selector button[aria-pressed="true"]{background:#143f60;color:#fff}
+.gcse-science-questions{display:grid;gap:1rem}
+.gcse-science-card{background:rgba(255,255,255,.86);border:1px solid rgba(93,131,151,.55);border-radius:14px;padding:1rem;color:#183d55}
+.gcse-science-card h4{font-size:1rem;line-height:1.5;margin:.45rem 0 .8rem;color:#173c53}
+.gcse-science-answer{width:100%;min-height:125px;box-sizing:border-box;border:1px solid #9ab5c4;border-radius:10px;padding:.8rem;font:inherit;background:#fff;color:#15354c;resize:vertical}
+.gcse-science-card details{margin-top:.8rem;border-top:1px solid #c8d9e3;padding-top:.75rem}
+.gcse-science-card details>summary{font-weight:650;cursor:pointer}
+.gcse-science-points{padding-left:1.3rem;line-height:1.6;margin:.7rem 0}
+.gcse-science-points li{margin:.4rem 0}
+.gcse-science-points label{display:flex;align-items:flex-start;gap:.55rem}
+.gcse-science-points input{margin-top:.3rem;accent-color:#376f6c}
+.gcse-science-score{font-weight:700}
+.gcse-science-error{color:#9b3131;font-weight:600}
+@media(max-width:540px){.gcse-science-panel{padding:.85rem}.gcse-science-card{padding:.8rem}.gcse-science-selector button{flex:1}}
