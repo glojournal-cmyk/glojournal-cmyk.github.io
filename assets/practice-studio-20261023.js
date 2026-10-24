@@ -371,7 +371,12 @@
       (el.textContent||'').trim().length<=45 &&
       !/[.?!]$/.test((el.textContent||'').trim())
     );
-    const lexicalContext=!!subject || (card?.querySelector('[data-gloria-question-label]')?.textContent||'').toLowerCase().includes('vocab');
+    // Only language or explicitly labelled vocabulary questions should use the
+    // giant tested-word treatment. Every Study subject has a non-empty path,
+    // so `!!subject` incorrectly made this branch run for Science and Maths.
+    const isLanguageSubject=subject==='latin'||subject==='french';
+    const isVocabLabel=(card?.querySelector('[data-gloria-question-label]')?.textContent||'').toLowerCase().includes('vocab');
+    const lexicalContext=isLanguageSubject||isVocabLabel;
     if(prompt && card && instructionLike && promptText.length>=28 && lexicalContext){
       const quote=promptText.match(/[“"‘']([^”"’']{1,32})[”"’']/u);
       if(source){
