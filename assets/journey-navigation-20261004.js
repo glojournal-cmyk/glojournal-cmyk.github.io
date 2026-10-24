@@ -1,6 +1,17 @@
 (function(root){
  const SUBJECTS=['latin','french','biology','chemistry','physics','english'];
- const day=(at=Date.now())=>new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(at));
+ // iPad Safari does not consistently format en-CA as YYYY-MM-DD. Build
+ // the ISO key from parts so Home matches the official 30-day record.
+ const day=(at=Date.now())=>{
+   const date=new Date(at);
+   const parts=new Intl.DateTimeFormat('en-GB',{
+     timeZone:'Europe/London',year:'numeric',month:'2-digit',day:'2-digit'
+   }).formatToParts(date);
+   const values={};
+   for(const part of parts)if(['year','month','day'].includes(part.type))
+     values[part.type]=part.value;
+   return values.year+'-'+values.month+'-'+values.day;
+ };
  function read(key){try{return JSON.parse(localStorage.getItem(key)||'{}')}catch{return {}}}
  function withReviewCredits(state){const credits=read('lux-assessment-v1').dailyReviewCredits?.[state.today]||{};return {...state,daily:(state.daily||[]).map(t=>t.id==='mistake-review'&&t.reviewSource==='assessment'&&t.planDate===state.today?{...t,progress:Math.min(t.target,new Set([...(t.reviewCompletedIds||[]),...(t.completedQuestionIds||[]),...(t.reviewQuestionIds||[]).filter(id=>credits[id])]).size)}:t)}}
  function garden(){const x=read('lux-scholar-garden-v1');return withReviewCredits(x.state||x)}
