@@ -6,6 +6,8 @@ on:
       - 'assets/index-BLVOhKhN.js'
       - 'assets/daily-vocab-20261003.js'
       - 'assets/daily-completed-session-receipts-20261024.js'
+      - 'assets/journey-navigation-20261004.js'
+      - 'tests/journey-ipad-date-iso-20261024.test.mjs'
       - 'assets/quiz-session-y8fix-20260920.js'
       - 'tests/latin-stage1-ipad-completion-receipt-20261024.test.mjs'
       - 'assets/study._subject.practise-y8fix-20260920.js'
@@ -44,6 +46,7 @@ jobs:
           node --test tests/daily-correct-only-20261024.test.mjs
           node --test tests/daily-session-credit-20261021.test.mjs
           node --test tests/latin-stage1-ipad-completion-receipt-20261024.test.mjs
+          node --test tests/journey-ipad-date-iso-20261024.test.mjs
           node --test tests/today-record-sync-20261024.test.mjs
           node --test tests/mastery-v2-qa.mjs
       - name: Test independent recovery and backup integrity
