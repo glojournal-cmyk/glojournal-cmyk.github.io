@@ -39,4 +39,8 @@ test('no result is credited merely by opening a Recovery modal', () => {
  const ledger=read('assets/recovery-task-ledger-20261017.js');
  assert.match(ledger, /return n===1\|\|n===2/);
  assert.match(ledger, /if\(!task\|\|Number\(task\.target\)<=0/);
+ const engine=read('assets/index-BLVOhKhN.js');
+ assert.match(engine, /const supported = \["mistake-review","adaptive-focus","study-session",\.\.\.YEAR8_RECOVERY_TASKS\]/);
+ assert.match(engine, /const YEAR8_RECOVERY_TASKS=\[/);
+ assert.match(engine, /"latin-standard"/);
 });
