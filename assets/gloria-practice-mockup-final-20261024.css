@@ -1158,3 +1158,72 @@ html.lux-daily-ux-ready.lux-daily-compact .lux-practice-view
  min-height:85px!important;
  font-size:clamp(37px,4.7vw,61px)!important;
 }
+
+
+/* Cropped ACTUAL approved mockup illustration, not a screenshot of fake
+   buttons/questions: two edge-only image panels, with the interactive React
+   question and answer staying separate opaque cards in the centre.
+   The sprite's left/right halves are isolated using background positioning. */
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .paper-wash{
+ position:relative!important;
+ isolation:isolate;
+ overflow-x:clip!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .paper-wash::before,
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .paper-wash::after{
+ content:""!important;
+ position:fixed!important;
+ top:0!important;
+ bottom:0!important;
+ width:clamp(80px,11vw,186px)!important;
+ height:100dvh!important;
+ display:block!important;
+ pointer-events:none!important;
+ background-image:url('/assets/gloria-approved-mockup-side-art.svg')!important;
+ background-size:200% 100%!important;
+ background-repeat:no-repeat!important;
+ opacity:.83!important;
+ z-index:0!important;
+ transform:none!important;
+ border:0!important;
+ box-shadow:none!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .paper-wash::before{
+ left:0!important;right:auto!important;
+ background-position:left center!important;
+ -webkit-mask-image:linear-gradient(90deg,black 0%,black 58%,transparent 100%)!important;
+ mask-image:linear-gradient(90deg,black 0%,black 58%,transparent 100%)!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .paper-wash::after{
+ left:auto!important;right:0!important;
+ background-position:right center!important;
+ -webkit-mask-image:linear-gradient(270deg,black 0%,black 58%,transparent 100%)!important;
+ mask-image:linear-gradient(270deg,black 0%,black 58%,transparent 100%)!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .paper-wash > main{
+ position:relative!important;
+ z-index:1!important;
+}
+@media(max-width:800px){
+ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+  .paper-wash::before,
+ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+  .paper-wash::after{
+   width:clamp(50px,9vw,80px)!important;
+   opacity:.60!important;
+ }
+}
+@media(max-width:520px){
+ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+  .paper-wash::before,
+ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+  .paper-wash::after{
+  display:none!important;
+ }
+}
