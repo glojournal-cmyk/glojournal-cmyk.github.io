@@ -81,7 +81,7 @@
   // controls; metadata attributes below are used only for CSS styling.
   function installMockupSkin() {
     const id='gloria-practice-final-skin';
-    const href='/assets/gloria-practice-mockup-final-20261024.css?v=20261024-voice-safe7';
+    const href='/assets/gloria-practice-mockup-final-20261024.css?v=20261024-gloria-display8';
     let link=document.getElementById(id);
     if(!link) {
       link=document.createElement('link');
@@ -322,13 +322,23 @@
         review.setAttribute("data-lux-review-progress","");
       }
     }
-    const prompt = q.querySelector('p.font-display.text-2xl');
-    if (prompt && !prompt.hasAttribute('data-lux-prompt')) {
-      prompt.setAttribute('data-lux-prompt','');
-    }
-    const card = prompt?.parentElement;
-    if (card && !card.hasAttribute('data-lux-question-card')) {
-      card.setAttribute('data-lux-question-card','');
+    // The newest React quiz can omit the historical text-2xl class.
+    // Annotate its real prompt by semantic position without moving DOM or
+    // touching the React question text, answer or event handlers.
+    const questionBody=q.querySelector('.rounded-xl.bg-card.p-5 > div, .rounded-xl.bg-card > div');
+    const prompt=q.querySelector('[data-lux-prompt], p.font-display.text-2xl')
+      || questionBody?.querySelector(':scope > p:nth-child(2)')
+      || questionBody?.querySelector(':scope > div:nth-child(2)');
+    if(prompt && !prompt.hasAttribute('data-lux-prompt'))prompt.setAttribute('data-lux-prompt','');
+    const card=prompt?.parentElement || questionBody;
+    if(card && !card.hasAttribute('data-lux-question-card'))card.setAttribute('data-lux-question-card','');
+    const promptLen=(prompt?.textContent||'').trim().length;
+    const scale=promptLen>140?'extended':promptLen>65?'long':'short';
+    if(q.dataset.gloriaPromptScale!==scale)q.dataset.gloriaPromptScale=scale;
+    if(card){
+      const label=[...card.children].find(x=>x!==prompt && x.matches?.('p') && (x.textContent||'').trim().length<72);
+      if(label&&!label.hasAttribute('data-gloria-question-label'))
+        label.setAttribute('data-gloria-question-label','');
     }
     const tileWorkspace = q.dataset.questionFormat === 'word_tiles'
       ? q.querySelector('[data-lux-question-card] .mt-5.space-y-3')
