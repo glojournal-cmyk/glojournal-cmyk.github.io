@@ -4,6 +4,10 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/gloria-practice-qa-20261024.yml'
+      - 'assets/gloria-practice-stability-20261024.css'
+      - 'assets/practice-studio-20261023.js'
+      - 'tests/daily-practice-v2-browser.mjs'
+      - 'tests/gloria-live-ipad-20261024.mjs'
   workflow_dispatch:
 concurrency:
   group: gloria-practice-ipad-qa-20261024
@@ -72,3 +76,17 @@ jobs:
           git commit -m "Record actual Gloria iPad Practice QA results" || exit 0
           git pull --rebase origin main
           git push origin HEAD:main
+
+      - name: Enforce truthful outcome
+        if: always()
+        env:
+          STRUCTURAL: ${{ steps.structural.outcome }}
+          PROGRESS: ${{ steps.progress.outcome }}
+          IPAD_BROWSER: ${{ steps.ipad.outcome }}
+          LIVE_PAGES: ${{ steps.live.outcome }}
+        run: |
+          echo "structural=$STRUCTURAL progress=$PROGRESS ipad=$IPAD_BROWSER live=$LIVE_PAGES"
+          if [ "$STRUCTURAL" != success ] || [ "$PROGRESS" != success ] || [ "$IPAD_BROWSER" != success ] || [ "$LIVE_PAGES" != success ]; then
+            echo "::error::Practice QA incomplete or failed. Consult the individual recorded outcomes."
+            exit 1
+          fi
