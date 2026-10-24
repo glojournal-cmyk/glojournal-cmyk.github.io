@@ -555,3 +555,65 @@ html.lux-daily-ux-ready .lux-daily-study-nav a>span:last-child{
   width:20px!important;height:20px!important;
  }
 }
+
+
+/* Mockup's two-panel answering area on landscape iPad/desktop.
+   A CSS-only feedback placeholder disappears once the REAL React marking
+   result arrives. No invented marks, answers, or disabled React buttons. */
+@media(min-width:900px) and (min-height:720px){
+ html.lux-daily-ux-ready:not(.lux-daily-typing):not(.lux-daily-compact)
+ .lux-practice-view [data-question-id] [data-lux-question-card]:has(>form):not(:has(>form textarea)){
+  display:grid!important;
+  grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)!important;
+  grid-template-rows:auto auto auto!important;
+  align-items:stretch!important;
+  gap:9px 11px!important;
+ }
+ html.lux-daily-ux-ready:not(.lux-daily-typing):not(.lux-daily-compact)
+ .lux-practice-view [data-question-id] [data-lux-question-card]:has(>form):not(:has(>form textarea)) > p:first-child,
+ html.lux-daily-ux-ready:not(.lux-daily-typing):not(.lux-daily-compact)
+ .lux-practice-view [data-question-id] [data-lux-question-card]:has(>form):not(:has(>form textarea)) > [data-lux-prompt]{
+  grid-column:1 / -1!important;
+ }
+ html.lux-daily-ux-ready:not(.lux-daily-typing):not(.lux-daily-compact)
+ .lux-practice-view [data-question-id] [data-lux-question-card]:has(>form):not(:has(>form textarea)) > form{
+  grid-column:1!important;
+  align-self:stretch!important;
+  min-height:115px!important;
+ }
+ html.lux-daily-ux-ready:not(.lux-daily-typing):not(.lux-daily-compact)
+ .lux-practice-view [data-question-id] [data-lux-question-card]:has(>form):not(:has(>form textarea))::after{
+  content:"ANSWER FEEDBACK\A\A Submit your answer to see the marking here.";
+  white-space:pre-line!important;
+  grid-column:2!important;
+  display:block!important;
+  box-sizing:border-box!important;
+  order:4!important;
+  background:#0b233af9!important;
+  border:1px solid #b79056!important;
+  border-radius:18px!important;
+  padding:clamp(14px,1.5vw,23px)!important;
+  color:#efe0c5!important;
+  font:500 clamp(14px,1.3vw,18px)/1.48 "Source Sans 3",sans-serif!important;
+ }
+ html.lux-daily-ux-ready:not(.lux-daily-typing):not(.lux-daily-compact)
+ .lux-practice-view [data-question-id] [data-lux-question-card]:has(>form):has([data-gloria-feedback-stack])::after{
+  display:none!important;content:none!important;
+ }
+ html.lux-daily-ux-ready:not(.lux-daily-typing):not(.lux-daily-compact)
+ .lux-practice-view [data-question-id] [data-lux-question-card]:has(>form):not(:has(>form textarea)) > [data-gloria-feedback-stack]{
+  grid-column:1 / -1!important;
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:10px!important;
+ }
+ html.lux-daily-ux-ready:not(.lux-daily-typing):not(.lux-daily-compact)
+ .lux-practice-view [data-question-id] [data-lux-question-card]:has(>form):not(:has(>form textarea)) > [data-gloria-feedback-stack] > button:last-child{
+  grid-column:1 / -1!important;
+ }
+}
+/* Small iPad/keyboard: remove placeholder and never steal response space. */
+@media(max-width:899px),(max-height:719px){
+ html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+ [data-lux-question-card]::after{content:none!important;display:none!important;}
+}
