@@ -1,0 +1,268 @@
+/* Gloria — approved iPad practice repair (2026-10-24).
+ * Last stylesheet in quiz routes. CSS ONLY: no edits to React grading,
+ * daily receipts, local/cloud records, answers, word tiles or XP.
+ * Fixes pixelated 120px mockup edge image, fixed nav overlap, duplicate
+ * Daily caption, oversized solid cards and answer-row proportions. */
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id]){
+  --gs-gold:#d8aa69;
+  --gs-ink:#ffefcf;
+  --gs-glass:rgba(7,25,46,.76);
+  --gs-glass-strong:rgba(7,25,46,.88);
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id]) body{
+  background:#041326!important;
+}
+/* A real resolution-independent SVG was already committed; do NOT stretch
+   the old 2.5KB raster-in-SVG edge crop to 768+ physical pixels. */
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id]) .paper-wash{
+  position:relative!important;
+  background-color:#041427!important;
+  background-image:
+    url('/assets/gloria-practice-academy-ornaments-20261024.svg'),
+    radial-gradient(ellipse at 50% 4%,#173750 0%,#081d34 54%,#041324 100%)!important;
+  background-size:cover,cover!important;
+  background-position:center top,center!important;
+  background-repeat:no-repeat,no-repeat!important;
+  background-attachment:scroll!important;
+  overflow-x:clip!important;
+}
+/* Remove the accidentally-upscaled tiny sprite AND any legacy decoration
+   pseudo-element. The vector academy background remains in the page itself. */
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .paper-wash::before,
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .paper-wash::after{
+  content:none!important;display:none!important;
+  background-image:none!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id]) .paper-wash>main{
+  box-sizing:border-box!important;
+  width:min(1320px,calc(100% - 52px))!important;
+  max-width:1320px!important;
+  margin:0 auto!important;
+  padding:12px 0 16px!important;
+  min-height:0!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id]{
+  box-sizing:border-box!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:clamp(9px,1.25vh,15px)!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-height:0!important;
+  margin:0!important;padding:0!important;
+}
+/* Semi-transparent glass cards: readable even over artwork. */
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id]
+ :is([data-lux-question-intro],div:has(>h1.font-display.text-3xl)),
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id] [data-gloria-target-word],
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id] [data-lux-prompt]:not([data-gloria-instruction]),
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id] [data-lux-question-card]>:is(form,[data-lux-tiles],[data-lux-mc-options]),
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id] [data-gloria-feedback-status],
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id] [data-gloria-reason]{
+  background:var(--gs-glass)!important;
+  border:1px solid rgba(224,178,104,.82)!important;
+  border-radius:18px!important;
+  -webkit-backdrop-filter:blur(6px)!important;
+  backdrop-filter:blur(6px)!important;
+  box-shadow:0 6px 24px rgba(0,0,0,.18)!important;
+}
+/* A separate pale model-answer card stays opaque for strong contrast. */
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] [data-gloria-model]{
+  background:#f9efd9!important;
+  color:#182c3d!important;
+  border:2px solid #d5a965!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+/* Fix "DAILY PRACTICEDAILY VOCABULARY..." — old base CSS inserted
+   another kicker via ::before, then our new font overrides revealed both. */
+html.lux-daily-ux-ready.lux-daily-task-active
+ .lux-practice-view [data-question-id]
+ :is([data-lux-question-intro],div:has(>h1.font-display.text-3xl))>p:first-child::before{
+  content:none!important;display:none!important;
+}
+html.lux-daily-ux-ready
+ .lux-practice-view [data-question-id]
+ :is([data-lux-question-intro],div:has(>h1.font-display.text-3xl))>p:first-child{
+  font:700 clamp(12px,1.15vw,15px)/1.35 "Source Sans 3",sans-serif!important;
+  letter-spacing:.13em!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+  color:#f0c77e!important;
+  margin:0 0 4px!important;
+}
+html.lux-daily-ux-ready
+ .lux-practice-view [data-question-id]
+ :is([data-lux-question-intro],div:has(>h1.font-display.text-3xl)){
+  min-height:0!important;
+  padding:clamp(11px,1.3vw,17px) clamp(13px,1.6vw,21px)!important;
+}
+html.lux-daily-ux-ready
+ .lux-practice-view [data-question-id]
+ :is([data-lux-question-intro],div:has(>h1.font-display.text-3xl)) h1{
+  font-size:clamp(26px,2.8vw,38px)!important;
+  line-height:1.12!important;
+  margin:0 0 3px!important;
+}
+/* Tested word stays the HERO. Secondary English direction stays secondary. */
+html.lux-daily-ux-ready .lux-practice-view
+ [data-question-id][data-gloria-question-layout="target"] [data-gloria-target-word]{
+  order:1!important;
+  min-height:clamp(104px,15vh,155px)!important;
+  padding:12px 22px!important;
+  background:var(--gs-glass)!important;
+  color:#fff0cf!important;
+  font-size:clamp(45px,5.8vw,79px)!important;
+  line-height:1.05!important;
+}
+html.lux-daily-ux-ready .lux-practice-view
+ [data-question-id][data-gloria-target-source="inline"]
+ [data-lux-prompt][data-gloria-inline-focus]::before{
+  min-height:clamp(104px,15vh,155px)!important;
+  font-size:clamp(45px,5.8vw,79px)!important;
+  background:var(--gs-glass)!important;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+}
+html.lux-daily-ux-ready .lux-practice-view
+ [data-question-id][data-gloria-question-layout="target"]
+ [data-lux-prompt][data-gloria-instruction]{
+  padding:5px 12px 9px!important;
+  margin:0!important;
+  min-height:0!important;
+  background:transparent!important;
+  border:0!important;
+  border-bottom:1px solid #b28b535e!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  font:500 clamp(16px,1.4vw,20px)/1.35 "Source Sans 3",sans-serif!important;
+  color:#f1e4ca!important;
+  text-align:center!important;
+}
+/* Keep ordinary questions readable, not a massive multi-line serif block. */
+html.lux-daily-ux-ready .lux-practice-view
+ [data-question-id][data-gloria-prompt-scale="long"] [data-lux-prompt],
+html.lux-daily-ux-ready .lux-practice-view
+ [data-question-id][data-gloria-prompt-scale="extended"] [data-lux-prompt]{
+  font-size:clamp(21px,2.3vw,34px)!important;
+  line-height:1.25!important;
+}
+/* Answer and submit must share the available row, with real flex shrink.
+   Long-answer textarea naturally occupies its own full-width row. */
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+ [data-lux-question-card]>form{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) clamp(150px,18vw,210px)!important;
+  column-gap:14px!important;row-gap:9px!important;
+  align-items:center!important;
+  width:100%!important;
+  min-width:0!important;
+  padding:14px clamp(12px,1.5vw,22px)!important;
+  margin:0!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+ [data-lux-question-card]>form::before{
+  grid-column:1/-1!important;
+  font-size:clamp(12px,1.05vw,15px)!important;
+  margin:0!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+ [data-lux-question-card]>form :is(input:not([type="checkbox"]):not([type="radio"]),textarea){
+  box-sizing:border-box!important;
+  width:100%!important;min-width:0!important;
+  min-height:clamp(60px,8vh,72px)!important;
+  padding:12px 17px!important;
+  font-size:clamp(19px,1.9vw,25px)!important;
+  line-height:1.3!important;
+  color:#fff4dc!important;
+  background:rgba(4,16,30,.88)!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+ [data-lux-question-card]>form button[type="submit"]{
+  box-sizing:border-box!important;
+  width:100%!important;min-width:0!important;
+  min-height:clamp(60px,8vh,72px)!important;
+  padding:9px 15px!important;
+  margin:0!important;
+  font-size:clamp(18px,1.7vw,24px)!important;
+  align-self:center!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+ [data-lux-question-card]>form:has(textarea){
+  display:flex!important;flex-direction:column!important;
+  align-items:stretch!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+ [data-lux-question-card]>form:has(textarea) button[type=submit]{
+  align-self:flex-end!important;width:min(230px,100%)!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+ [data-lux-question-card]>form textarea{min-height:145px!important;}
+/* Critical: a fixed bottom rail covers the answer in 1024x768 screenshots.
+   Navigation now follows the answer in document flow: never over an input.
+   Keep the same seven hrefs/icons. */
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ #lux-daily-study-nav{
+  position:relative!important;
+  left:auto!important;right:auto!important;
+  top:auto!important;bottom:auto!important;
+  transform:none!important;
+  z-index:10!important;
+  box-sizing:border-box!important;
+  width:min(1130px,calc(100% - 38px))!important;
+  max-width:1130px!important;
+  margin:14px auto calc(12px + env(safe-area-inset-bottom))!important;
+  padding:5px 8px!important;
+  border:1px solid #d7a461!important;
+  border-radius:999px!important;
+  background:rgba(5,21,38,.88)!important;
+  -webkit-backdrop-filter:blur(5px)!important;
+  backdrop-filter:blur(5px)!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ #lux-daily-study-nav a{
+  flex:1 1 0!important;
+  min-width:0!important;
+  min-height:55px!important;
+}
+/* As before, keyboard focus hides the navigation entirely so native Safari
+   can bring the editor into view. */
+html.lux-daily-ux-ready.lux-daily-typing:has(.lux-practice-view [data-question-id])
+ #lux-daily-study-nav,
+html.lux-keyboard-open:has(.lux-practice-view [data-question-id])
+ #lux-daily-study-nav{display:none!important;}
+@media(max-width:900px){
+ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+  .paper-wash>main{width:calc(100% - 26px)!important;padding:8px 0 12px!important;}
+ html.lux-daily-ux-ready .lux-practice-view [data-question-id] [data-lux-question-card]>form{
+  grid-template-columns:minmax(0,1fr) 165px!important;
+  padding:12px!important;
+ }
+ html.lux-daily-ux-ready .lux-practice-view
+  [data-question-id][data-gloria-question-layout="target"] [data-gloria-target-word]{
+  min-height:106px!important;font-size:clamp(41px,6vw,64px)!important;
+ }
+}
+@media(max-width:550px){
+ html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  [data-lux-question-card]>form{
+  grid-template-columns:minmax(0,1fr)!important;
+ }
+ html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  [data-lux-question-card]>form button[type=submit]{grid-column:1!important;}
+ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+  #lux-daily-study-nav{width:calc(100% - 12px)!important;overflow-x:auto!important;}
+ html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+  #lux-daily-study-nav a{min-width:52px!important;font-size:10px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+ html.lux-daily-ux-ready .lux-practice-view [data-question-id] *,
+ html.lux-daily-ux-ready #lux-daily-study-nav{transition:none!important;animation:none!important;}
+}
