@@ -1,0 +1,27 @@
+name: Recovery RPG Browser On Demand 20261024
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/quest-recovery-20261011.js'
+      - 'assets/home-rpg-live-20261019.js'
+      - 'assets/home-rpg-live-20261019.css'
+      - 'assets/home-extras-restorer-20261023.js'
+      - 'tests/recovery-all-tasks-browser.mjs'
+      - '.github/workflows/recovery-rpg-browser-on-demand-20261024.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ipad-recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Recovery opens and credits the correct missed day (Chromium and iPad WebKit)
+        run: node tests/recovery-all-tasks-browser.mjs
