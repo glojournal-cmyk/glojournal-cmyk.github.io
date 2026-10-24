@@ -113,6 +113,12 @@ function semanticMarkTokens(value){
 function semanticPointMatch(point,response,alternatives=[]){
  const clauses=String(response??'').split(/\.(?!\d)|[!?;\n]|\bbut\b/i).map(s=>s.trim()).filter(Boolean);
  if(!clauses.length)return false;
+ // A sentence split by accidental stops, semicolons or newlines is still
+ // eligible for the same mark; bridging requires complete concept coverage.
+ const joined=[];
+ for(let i=0;i<clauses.length;i++)
+  for(let width=2;width<=Math.min(4,clauses.length-i);width++)
+   joined.push(clauses.slice(i,i+width).join(' '));
  for(const variant of [point,...(Array.isArray(alternatives)?alternatives:[])]){
   // A complete stated rubric point remains creditworthy even in an unpunctuated
   // paragraph with other points (including a separately negated control).
@@ -144,13 +150,35 @@ function semanticPointMatch(point,response,alternatives=[]){
    const matched=target.filter(word=>seen.has(word)).length;
    if(matched>=required&&(target.length>2?matched>=2:true))return true;
   }
+  // Punctuation may divide a correct explanation in the middle of an idea.
+  // Require ALL normalized idea-words across those adjoining fragments,
+  // while rejecting explicit negation, wrong values and opposite claims.
+  for(const sentence of joined){
+   if(!targetNegated&&negation.test(sentence)&&!/\b(?:without|no)\s+shading\b/i.test(sentence))continue;
+   const seen=new Set(semanticMarkTokens(sentence));
+   if(target.includes('bubble')&&seen.has('prevent'))seen.add('decrease');
+   const opposites=[['increase','decrease'],['high','low'],['coarse','fine'],['absorb','emit'],['gain','lose']];
+   if(opposites.some(([left,right])=>target.includes(left)&&seen.has(right)&&!seen.has(left)||target.includes(right)&&seen.has(left)&&!seen.has(right)))continue;
+   const numbers=String(variant).match(/\b\d+(?:\.\d+)?\b/g)||[];
+   if(numbers.some(number=>!new RegExp('(?:^|\\D)'+number.replace('.','\\.')+'(?:\\D|$)').test(sentence)))continue;
+   if(target.every(word=>seen.has(word)))return true;
+  }
  }
  return false;
 }
 function R(points,response,alternatives){
  return points.reduce((score,point,index)=>score+(semanticPointMatch(point,response,alternatives?.[index]||[])?1:0),0);
 }function z(e,t,n,r=!1){let i=n(t),a=-1;return e.every(e=>{let t=(e.alternatives??[]).map(e=>n(e)).filter(Boolean).map(e=>({value:e,index:i.indexOf(e)})).filter(e=>e.index>=0);if(!t.length)return!1;if(!r)return!0;let o=t.filter(e=>e.index>=a).sort((e,t)=>e.index-t.index)[0];return!!o&&(a=o.index+o.value.length,!0)})}function CX(e){return String(e??``).normalize(`NFKC`).replace(/[₀₁₂₃₄₅₆₇₈₉]/g,e=>({"₀":`0`,"₁":`1`,"₂":`2`,"₃":`3`,"₄":`4`,"₅":`5`,"₆":`6`,"₇":`7`,"₈":`8`,"₉":`9`}[e])).replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺]/g,e=>({"⁰":`0`,"¹":`1`,"²":`2`,"³":`3`,"⁴":`4`,"⁵":`5`,"⁶":`6`,"⁷":`7`,"⁸":`8`,"⁹":`9`,"⁻":`-`,"⁺":`+`}[e])).replace(/−/g,`-`).replace(/→|=/g,`->`).replace(/\s+/g,``).trim()}function CY(e){let t=String(e??``).trim();return!!t&&t.length<=80&&/[A-Z]/.test(t)&&!/[a-z]{3,}/.test(t)&&/^[0-9A-Za-z₀-₉⁰-⁹⁺⁻+\-()=><→⇌.·\s]+$/.test(t)}function NX(e){let t=String(e??``).replace(/,/g,``).replace(/−/g,`-`).replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺]/g,e=>({"⁰":`0`,"¹":`1`,"²":`2`,"³":`3`,"⁴":`4`,"⁵":`5`,"⁶":`6`,"⁷":`7`,"⁸":`8`,"⁹":`9`,"⁻":`-`,"⁺":`+`}[e]));let n=t.match(/[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:\s*(?:[x×*]\s*10\s*\^?\s*[-+]?\d+|[eE]\s*[-+]?\d+))?/);if(!n)return{value:NaN,unit:``};let r=n[0].replace(/\s+/g,``),i;if(/[x×*]10/i.test(r)){let e=r.match(/^([-+]?(?:\d+(?:\.\d*)?|\.\d+))[x×*]10\^?([-+]?\d+)$/i);i=e?Number(e[1])*10**Number(e[2]):NaN}else if(/[eE]/.test(r))i=Number(r.replace(/\s+/g,``));else i=Number(r);let a=t.slice((n.index??0)+n[0].length).trim();return{value:i,unit:a}}function UX(e){return String(e??``).normalize(`NFKC`).replace(/−/g,`-`).replace(/Ω/g,`ohm`).replace(/°\s*C/gi,`degc`).replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺]/g,e=>({"⁰":`0`,"¹":`1`,"²":`2`,"³":`3`,"⁴":`4`,"⁵":`5`,"⁶":`6`,"⁷":`7`,"⁸":`8`,"⁹":`9`,"⁻":`-`,"⁺":`+`}[e])).toLowerCase().replace(/\bper\b/g,`/`).replace(/[.(),]/g,``).replace(/\s+/g,``).trim()}function UM(e,t){if(!t?.length)return!0;let n=UX(e);return!!n&&t.some(e=>UX(e)===n)}function QX(e,t,n){let r=String(t??``).replace(/\band\b/gi,` `).replace(/[;,/|+&]+/g,` `),i=n(r).split(` `).filter(Boolean),a=Array(i.length).fill(!1),o=[];for(let t of e){let e=!1;for(let r of t.alternatives??[]){let o=String(r??``).replace(/\band\b/gi,` `).replace(/[;,/|+&]+/g,` `),s=n(o).split(` `).filter(Boolean);if(!s.length)continue;for(let n=0;n<=i.length-s.length;n++)if(s.every((e,t)=>!a[n+t]&&i[n+t]===e)){for(let e=0;e<s.length;e++)a[n+e]=!0;e=!0;break}if(e)break}e||o.push(t.label||t.alternatives?.[0]||`item`)}let s=i.filter((e,t)=>!a[t]);return{ok:o.length===0&&s.length===0,missing:o,extras:s,matched:e.length-o.length}}// Science prose punctuation separates words; it must not glue "7,neutral" together.
-function scienceProse(value){return String(value??``).normalize(`NFKC`).toLowerCase().replace(/[,;:!?]/g,` `).replace(/\.(?!\d)/g,` `).replace(/\s+/g,` `).trim()}
+function scienceProse(value){
+ // Formatting differences must not change scientific prose marks.
+ // Keep decimal points, minus signs before numbers and chemical/formula paths intact.
+ return String(value??'').normalize('NFKC').toLowerCase()
+  .replace(/([a-z])[-‐‑‒–—](?=[a-z])/g,'$1 ')
+  .replace(/[’‘']/g,'')
+  .replace(/[()[\]{}“”",;:!?]/g,' ')
+  .replace(/\.(?!\d)/g,' ')
+  .replace(/\s+/g,' ').trim();
+}
 function phCategoriesLegacy(value){
  const text=scienceProse(value).replace(/\bp\s*h\b/g,` `).replace(/\bseven\b/g,`7`).replace(/\b(?:and|whereas|while)\b/g,` `).trim();
  const pattern=/\b(acids?|acidic(?: solutions?)?|neutral(?: solutions?)?|alkalis?|alkaline(?: solutions?)?|bases?|basic(?: solutions?)?)\s*(?:(?:are|is|have|has|a|an|of|value|values|at|exactly|equal to|equals)\s+)*(below|less than|lower than|under|above|greater than|higher than|over|[<>=])?\s*(\d+(?:\.\d+)?)\b/g;
