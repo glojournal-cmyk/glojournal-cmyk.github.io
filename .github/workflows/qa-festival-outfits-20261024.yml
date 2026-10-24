@@ -34,25 +34,9 @@ jobs:
           name: festival-wardrobe-ipad-qa
           path: qa-artifacts/festival/
           if-no-files-found: ignore
-      - name: Record QA verdict
+      - name: Keep downloadable QA evidence
         if: always()
-        env:
-          OUTCOME: ${{ steps.festivalqa.outcome }}
-          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          python3 - <<'PY'
-          import os,json,datetime,pathlib
-          p=pathlib.Path('qa-artifacts/festival/result.json')
-          rows=json.loads(p.read_text()) if p.exists() else []
-          data={'outcome':os.environ['OUTCOME'],'url':os.environ['RUN_URL'],'checkedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'scenarios':rows}
-          pathlib.Path('qa/festival-outfits-latest.json').write_text(json.dumps(data,indent=2)+'\n')
-          PY
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add qa/festival-outfits-latest.json
-          git commit -m 'Record Festival Wardrobe iPad QA results' || exit 0
-          git pull --rebase origin main
-          git push origin HEAD:main
+        run: echo 'Screenshots and result.json are attached to this run; avoid concurrent commits to protected production.'
       - name: Enforce QA
         if: always()
         env:
