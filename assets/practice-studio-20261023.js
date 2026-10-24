@@ -364,8 +364,11 @@
     // the question tree is briefly empty. React still owns the question DOM.
     if (!q) return;
     decorateQuestion(q);
-    showCompanion();
-    updateFallbackPet();
+    // The approved mockup is a fast, full-width study screen with no avatar.
+    // Do not fight CSS by restoring the old companion with inline !important.
+    // Equipped pet and voice preferences remain saved and visible elsewhere.
+    restoreCompanion();
+    fallbackPet?.remove();
     updateClear(q);
   }
   function schedule() {
