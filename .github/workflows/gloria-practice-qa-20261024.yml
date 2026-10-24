@@ -1,0 +1,63 @@
+name: Gloria Practice iPad QA (24 October)
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/gloria-practice-qa-20261024.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  practice-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Static and cross-route checks
+        id: structural
+        continue-on-error: true
+        run: |
+          node tests/route-shell-qa.mjs
+          node tests/overall-app-qa.mjs
+      - name: Daily progress and recovery safety
+        id: progress
+        continue-on-error: true
+        run: node --test tests/daily-progress-reliability.cjs tests/recovery-quest.test.mjs tests/storage-quota.test.mjs
+      - name: Install isolated Chromium and WebKit
+        id: browsers
+        continue-on-error: true
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium webkit
+      - name: Run iPad Practice click, layout, submit, next, reload regression
+        id: ipad
+        if: always()
+        continue-on-error: true
+        run: node tests/daily-practice-v2-browser.mjs
+      - name: Upload test screenshots and JSON
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gloria-practice-ipad-qa-20261024
+          path: test-results/daily-practice-v2/
+          if-no-files-found: warn
+      - name: Record the precise QA results for review
+        if: always()
+        env:
+          STRUCTURAL: ${{ steps.structural.outcome }}
+          PROGRESS: ${{ steps.progress.outcome }}
+          BROWSER_INSTALL: ${{ steps.browsers.outcome }}
+          IPAD_BROWSER: ${{ steps.ipad.outcome }}
+          TESTED_SHA: ${{ github.sha }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          mkdir -p qa-reports
+          node -e 'const fs=require("fs");const e=process.env;const d={test:"Gloria Practice iPad QA",date:"2026-10-24",commit:e.TESTED_SHA,run:e.RUN_ID,url:"https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/"+e.RUN_ID,checks:{structural:e.STRUCTURAL,progress:e.PROGRESS,browser_install:e.BROWSER_INSTALL,ipad_browser:e.IPAD_BROWSER},note:"Automated local-checkout tests only, not a physical iPad or proof of GitHub Pages deployment"};fs.writeFileSync("qa-reports/practice-ipad-20261024.json",JSON.stringify(d,null,2)+"\\n");'
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add qa-reports/practice-ipad-20261024.json
+          git commit -m "Record actual Gloria iPad Practice QA results" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
