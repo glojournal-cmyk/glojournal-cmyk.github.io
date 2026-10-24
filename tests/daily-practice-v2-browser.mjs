@@ -46,6 +46,7 @@ for (const subject of ['french','latin','biology','chemistry','physics','english
 
 function fixture(kind){
   const long=kind==='long-mc';
+  const vocab=kind==='vocab-mc';
   const choices=long?[
     'The cell membrane regulates movement of substances into and out of the cell and also distinguishes its interior from its surroundings.',
     'The ribosome is responsible for synthesising proteins and works in both prokaryotic and eukaryotic organisms.',
@@ -74,10 +75,12 @@ function fixture(kind){
     '<div><p class="text-xs font-semibold">DAILY PRACTICE</p><h1 class="font-display text-3xl font-semibold">French · Numbers and age</h1>'+
     '<p>Question 1 / 15 · Recall · Step 2</p><p class="rounded-lg bg-sage">Recall · Step 2</p></div>'+
     '<div data-lux-daily-lock>This daily task is locked to Numbers and age. Finish the assigned set before choosing free practice.</div>'+
-    '<div class="rounded-xl bg-card p-5 sm:p-6"><div><p>BUILD THE ANSWER</p>'+
-    '<p class="mt-1 font-display text-2xl font-semibold leading-snug">How do you write 15 in French?</p>'+answers+'</div></div>'+
+    '<div class="rounded-xl bg-card p-5 sm:p-6"><div><p>'+(vocab?'CHOOSE THE ANSWER':'BUILD THE ANSWER')+'</p>'+
+    '<p class="mt-1 font-display text-2xl font-semibold leading-snug">'+(vocab?'Which English meaning is required for “est” in Stage 1 vocabulary?':'How do you write 15 in French?')+'</p>'+
+    (vocab?'<p class="mt-2 rounded-lg bg-sage/60 px-3 py-2 text-sm">est</p>':'')+answers+'</div></div>'+
     '</div></div></main><nav class="fixed inset-x-3 bottom-3" style="height:45px">Old nav</nav></div></body></html>';
 }
+function vocabVisualCase(kind){return kind==='vocab-mc';}
 async function checkFixture(browser,engine,kind,viewport){
   const context=await browser.newContext({viewport,hasTouch:true,deviceScaleFactor:2});
   const page=await context.newPage(),errors=[];
@@ -158,7 +161,7 @@ async function checkFixture(browser,engine,kind,viewport){
     })
   }));
   console.log('GLORIA_STYLE_LOAD_DIAGNOSTIC '+JSON.stringify({engine,kind,viewport,cssDiagnostic,undecorated}));
-  assert.deepEqual(undecorated.plainReact,undecorated.decorated,
+  if(!vocabVisualCase(kind)) assert.deepEqual(undecorated.plainReact,undecorated.decorated,
     'iPad must render the same question text before React decoration: '+JSON.stringify(undecorated));
   const styleVersion=await page.evaluate(()=>document.getElementById('lux-daily-practice-ux-v2-style')?.getAttribute('href'));
   assert.ok(new URL(styleVersion, base).searchParams.get('v') === RELEASE,
@@ -233,8 +236,27 @@ async function checkFixture(browser,engine,kind,viewport){
   assert.equal(await page.locator('[data-lux-question-intro] > p:first-child').evaluate(el=>getComputedStyle(el,'::before').content),'"DAILY PRACTICE"','approved label is displayed');
   assert.deepEqual(details.navLabels,['⌂Home','▣Study','◇Play','♧Garden','♧Pet','▤Assessment','✎Scholar']);
   assert.match(details.navCurrent,/Study/);
-  assert.ok(Number(details.promptWeight)>=700,'prompt must be bold');
-  assert.ok(details.promptSize>=27,'question must be large');
+  if(kind==='vocab-mc'){
+    await page.waitForFunction(()=>document.querySelector('[data-question-id]')?.dataset.gloriaQuestionLayout==='target');
+    const hierarchy=await page.evaluate(()=>{
+      const w=document.querySelector('[data-gloria-target-word]'),p=document.querySelector('[data-gloria-instruction]');
+      const a=w?.getBoundingClientRect(),b=p?.getBoundingClientRect();
+      return {word:w?.textContent?.trim(),wordPx:parseFloat(getComputedStyle(w).fontSize),
+        instruction:p?.textContent?.trim(),instructionPx:parseFloat(getComputedStyle(p).fontSize),
+        wordTop:a?.top,instructionTop:b?.top,
+        actualArt:[...document.styleSheets].some(x=>x.href?.includes('gloria-practice-mockup'))};
+    });
+    assert.equal(hierarchy.word,'est','actual tested Latin word must be visible');
+    assert.ok(hierarchy.wordPx>=45,'est should be big in iPad landscape: '+JSON.stringify(hierarchy));
+    assert.ok(hierarchy.instructionPx<=22,'question guidance must not dominate test word: '+JSON.stringify(hierarchy));
+    assert.ok(hierarchy.wordPx>=hierarchy.instructionPx*2.3,'tested word must dominate instructional question: '+JSON.stringify(hierarchy));
+    assert.ok(hierarchy.wordTop<hierarchy.instructionTop,'tested term must appear BEFORE question guidance');
+    const art=await page.request.get(base+'/assets/gloria-approved-mockup-side-art.svg');
+    assert.equal(art.status(),200,'original user-approved side illustration must be deployed');
+    console.log('GLORIA_EST_VOCAB_HIERARCHY '+JSON.stringify({engine,viewport,hierarchy}));
+  }
+  if(kind!=='vocab-mc')assert.ok(Number(details.promptWeight)>=700,'prompt must be bold');
+  if(kind!=='vocab-mc')assert.ok(details.promptSize>=27,'question must be large');
   assert.ok(details.scrollWidth<=viewport.width+1,'no horizontal overflow');
   assert.equal(await page.locator('#study-companion').isVisible(),false,'decorative character must not cover questions');
   assert.equal(await page.locator('#lux-voice-cheer-toggle').isVisible(),false,'no floating voice banner over input');
@@ -575,7 +597,7 @@ try{
         continue;
       }
       for(const size of [{width:1024,height:768},{width:1366,height:1024}]){
-        for(const kind of ['mc','long-mc','typed','tiles']) await checkFixture(browser,engine,kind,size);
+        for(const kind of ['mc','long-mc','vocab-mc','typed','tiles']) await checkFixture(browser,engine,kind,size);
       }
       await checkRealPractice(browser,engine);
       await checkAssignedStandard(browser,engine);
