@@ -344,3 +344,87 @@ html.lux-daily-ux-ready.lux-daily-typing .lux-practice-view [data-question-id] t
     transition:none!important;
   }
 }
+
+
+/* 24 Oct 2026 — clean question progress.
+   Garden Life adds brown pots and green leaf outlines on practice routes.
+   They belong in the Garden, not the fast navy/gold iPad question screen.
+   Hide only that cosmetic row; retain actual React question counts, answer
+   events, scores, and the Garden's own growth and history. */
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] .lux-leaves,
+html.lux-daily-ux-ready .lux-practice-view [data-question-id] [data-lux-leaves] {
+  display:none!important;
+}
+/* Compact and aligned with the academy page. The React question counter
+   remains visible; the slim line uses the existing read-only --lux-daily-fill
+   percentage computed from the current Question X / Y (including resumed sets).
+   No fabricated completion or extra interactive control. */
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl)) {
+  display:block!important;
+  min-height:0!important;
+  max-height:none!important;
+  padding:clamp(11px,1.2vw,17px) clamp(15px,1.6vw,23px)!important;
+  margin-bottom:0!important;
+  overflow:visible!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl)) h1,
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl)) h1[data-lux-display-title]::after {
+  font-size:clamp(23px,2.35vw,33px)!important;
+  line-height:1.14!important;
+  margin:2px 0 5px!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl)) > p {
+  font-size:clamp(12px,1.05vw,14px)!important;
+  line-height:1.35!important;
+  margin:2px 0!important;
+  max-width:100%!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl))::before {
+  content:""!important;
+  display:block!important;
+  position:relative!important;
+  inset:auto!important;
+  transform:none!important;
+  width:min(280px,100%)!important;
+  max-width:100%!important;
+  height:7px!important;
+  min-height:7px!important;
+  margin:10px 0 0!important;
+  padding:0!important;
+  border:1px solid #b8935570!important;
+  border-radius:999px!important;
+  background:linear-gradient(
+    to right,
+    #e7bc72 0 var(--lux-daily-fill,0%),
+    #263e54 var(--lux-daily-fill,0%) 100%
+  )!important;
+  box-shadow:none!important;
+}
+html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+  :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl))::after {
+  content:none!important;
+  display:none!important;
+}
+/* On iPad, avoid long headings/ornament taking the answer's viewport space. */
+@media(max-width:929px) {
+ html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+   :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl)) {
+   padding:10px 13px!important;
+ }
+ html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+   :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl)) h1,
+ html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+   :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl)) h1[data-lux-display-title]::after {
+   font-size:clamp(22px,3.2vw,29px)!important;
+ }
+ html.lux-daily-ux-ready .lux-practice-view [data-question-id]
+   :is([data-lux-question-intro],div:has(> h1.font-display.text-3xl))::before {
+   height:6px!important;min-height:6px!important;
+   margin-top:8px!important;
+ }
+}
