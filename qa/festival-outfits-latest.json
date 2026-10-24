@@ -1,7 +1,7 @@
 {
-  "outcome": "failure",
-  "url": "https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/40108249834",
-  "checkedAt": "2026-10-24T15:44:59.966287+00:00",
+  "outcome": "success",
+  "url": "https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/40108437123",
+  "checkedAt": "2026-10-24T15:47:18.456588+00:00",
   "scenarios": [
     {
       "browser": "chromium-ipad-landscape",
@@ -14,8 +14,24 @@
       "status": "PASS"
     },
     {
-      "status": "FAIL",
-      "error": "AssertionError [ERR_ASSERTION]: Uncaught exceptions: Fetch API cannot load http: /127.0.0.1:8787/content/school-update-20260919/runtime-00.txt due to access control checks. | Fetch API cannot load http: /127.0.0.1:8787/content/school-update-20260919/runtime-01.txt due to access control checks. | Fetch API cannot load http: /127.0.0.1:8787/content/school-update-20260919/runtime-02.txt due to access control checks. | Fetch API cannot load http: /127.0.0.1:8787/content/school-update-20260919/runtime-03.txt due to access control checks. | Fetch API cannot load http: /127.0.0.1:8787/content/school-update-20260919/runtime-04.txt due to access control checks. | Fetch API cannot load http: /127.0.0.1:8787/content/school-update-20260919/runtime-05.txt due to access control checks. | Fetch API cannot load http: /127.0.0.1:8787/content/school-update-20260919/runtime-06.txt due to access control checks. | Fetch API cannot load http: /127.0.0.1:8787/content/school-update-20260919/runtime-07.txt due to access control checks. | Fetch API cannot load http: /127.0.0.1:8787/content/school-update-20260919/runtime-08.txt due to access control checks. | Fetch API cannot load http: /127.0.0.1:8787/content/school-update-20260919/runtime-09.txt due to access control checks. | Fetch API cannot load http: /127.0.0.1:8787/content/school-update-20260919/runtime-10.txt due to access control checks. | Fetch API cannot load http: /127.0.0.1:8787/content/school-update-20260919/runtime-11.txt due to access control checks. | Fetch API cannot load http: /127.0.0.1:8787/content/school-update-20260926/delta.json?v=20260926-v23 due to access control checks.\n\n13 !== 0\n"
+      "browser": "webkit-ipad-landscape",
+      "outfits": 10,
+      "imagesDecoded": true,
+      "allUnlocked": true,
+      "homeSync": true,
+      "reloadPersists": true,
+      "overflowPx": 0,
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit-ipad-portrait",
+      "outfits": 10,
+      "imagesDecoded": true,
+      "allUnlocked": true,
+      "homeSync": true,
+      "reloadPersists": true,
+      "overflowPx": 0,
+      "status": "PASS"
     }
   ]
 }
