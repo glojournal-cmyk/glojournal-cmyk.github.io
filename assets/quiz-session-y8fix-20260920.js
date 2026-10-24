@@ -115,6 +115,15 @@ function semanticPointMatch(point,response,alternatives=[]){
  const clauses=String(response??'').split(/[.!?;\n]|\bbut\b/i).map(s=>s.trim()).filter(Boolean);
  if(!clauses.length)return false;
  for(const variant of [point,...(Array.isArray(alternatives)?alternatives:[])]){
+  // A complete stated rubric point remains creditworthy even in an unpunctuated
+  // paragraph with other points (including a separately negated control).
+  const compact=s=>String(s??'').normalize('NFKC').toLowerCase()
+    .replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();
+  const full=compact(response),needle=compact(variant),offset=full.indexOf(needle);
+  if(needle.length>=10&&offset>=0){
+   const before=full.slice(Math.max(0,offset-36),offset);
+   if(!/\b(?:not|no|never|cannot|without)\b(?:\s+\w+){0,3}\s*$/.test(before))return true;
+  }
   const target=[...new Set(semanticMarkTokens(variant))];
   if(!target.length)continue;
   const required=Math.max(1,Math.ceil(target.length*.55));
