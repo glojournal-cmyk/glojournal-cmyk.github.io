@@ -1,0 +1,95 @@
+name: Install ten Festival Wardrobe outfits
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/install-festival-outfits-20261024.yml
+      - scripts/install_festival_outfits_20261024.py
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Download approved ten-look illustration sheet
+        env:
+          FESTIVAL_SHEET_URL: https://at.adobe.com/88CEpfEdG1YgU3cW
+        run: |
+          set -euo pipefail
+          mkdir -p art/doll/festival
+          curl -fLsS --retry 4 --retry-delay 2 --connect-timeout 20 --max-time 120 \
+            --header 'Accept: image/png' "$FESTIVAL_SHEET_URL" \
+            -o art/doll/festival/approved-festival-sheet.png
+          file art/doll/festival/approved-festival-sheet.png
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('art/doll/festival/approved-festival-sheet.png')
+          raw=p.read_bytes()
+          assert raw[:8]==b'\x89PNG\r\n\x1a\n', 'Asset host did not deliver actual PNG'
+          assert len(raw)>400000, 'Festival sheet unexpectedly small'
+          print('Approved artwork downloaded:',len(raw),'bytes')
+          PY
+      - name: Create ten crisp iPad-optimized full-look illustrations
+        run: |
+          python3 -m pip -q install pillow
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          root=Path('art/doll/festival')
+          names=['halloween','bonfire','christmas','new-year','lunar-new-year','valentine','easter','cherry-blossom','midsummer','mid-autumn']
+          with Image.open(root/'approved-festival-sheet.png') as original:
+              im=original.convert('RGB')
+              assert im.size == (1536,1024), ('Unexpected sheet dimensions',im.size)
+              for i,name in enumerate(names):
+                  c=i%5;r=i//5
+                  # Ten dedicated portraits, preserving complete hats, clothing and shoes.
+                  x0=round(c*1536/5);x1=round((c+1)*1536/5)
+                  y0=r*512
+                  portrait=im.crop((x0,y0,x1,y0+512))
+                  out=root/f'{i+1:02d}-{name}.webp'
+                  portrait.save(out,'WEBP',quality=90,method=6)
+                  assert out.stat().st_size>10000
+                  print(name,portrait.size,out.stat().st_size)
+          (root/'approved-festival-sheet.png').unlink()
+          PY
+      - name: Integrate Festival tab and automatic ready-to-wear sync
+        run: python3 scripts/install_festival_outfits_20261024.py
+      - name: Validate JS, outfit links and existing medical collection
+        run: |
+          set -euo pipefail
+          node --check assets/index-BLVOhKhN.core.js
+          node --check assets/index-BLVOhKhN.js
+          python3 - <<'PY'
+          import json,pathlib
+          p=pathlib.Path('art/doll/festival')
+          m=json.loads((p/'manifest.json').read_text())['items']
+          assert len(m)==10 and all(x['category']=='Festival' and x['free'] for x in m)
+          assert len({x['id'] for x in m})==10
+          assert all((pathlib.Path('.')/x['art'].lstrip('/')).exists() for x in m)
+          core=pathlib.Path('assets/index-BLVOhKhN.core.js').read_text()
+          entry=pathlib.Path('assets/index-BLVOhKhN.js').read_text()
+          assert 'eT.push(`Festival`)' in core
+          assert core.count('festival-halloween')==1
+          assert 'medical-10-medical-student' in core
+          assert 'festival-outfit-availability-v1' in entry
+          assert 'lux-scholar-garden-v1' in core
+          assert '20261024-festival-wardrobe1' in pathlib.Path('index.html').read_text()
+          print('PASS: ten artwork files, Festival tab, auto-unlock, save-key unchanged')
+          PY
+      - name: Commit validated art and production changes
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add art/doll/festival/ assets/index-BLVOhKhN.core.js assets/index-BLVOhKhN.js src/lib/content/outfits.ts
+          git add -u -- '*.html'
+          if ! git diff --cached --quiet; then
+            git commit -m 'Add ten ready-to-wear Festival looks to production Wardrobe'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
