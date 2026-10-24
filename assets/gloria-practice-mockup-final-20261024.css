@@ -907,3 +907,29 @@ html.lux-daily-ux-ready.lux-daily-compact .lux-practice-view [data-question-id][
 html.lux-daily-ux-ready.lux-daily-typing .lux-practice-view [data-question-id][data-gloria-prompt-scale=extended] [data-lux-prompt]{
  font-size:clamp(21px,2.5vw,30px)!important;
 }
+
+
+/* First-paint fallback: React may create a prompt before the attribute-only
+   decorator runs. Give the native semantic second paragraph the same type. */
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id]
+ .rounded-xl.bg-card.p-5 > div > p.font-display.text-2xl:not([data-lux-prompt]),
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id]
+ .rounded-xl.bg-card > div > p.font-display.text-2xl:not([data-lux-prompt]){
+ font-family:"Cormorant Garamond",Georgia,serif!important;
+ font-size:clamp(43px,5.1vw,78px)!important;
+ font-weight:700!important;
+ line-height:1.1!important;
+ text-align:center!important;
+ color:#fff0cd!important;
+ display:flex!important;
+ justify-content:center!important;
+ align-items:center!important;
+ border:1.5px solid #e2b268!important;
+ border-radius:18px!important;
+ background:#061b2ffd!important;
+ min-height:135px!important;
+ padding:20px!important;
+ margin:0!important;
+}
