@@ -112,7 +112,7 @@ function semanticMarkTokens(value){
  }).filter(w=>!MARK_STOP.has(w));
 }
 function semanticPointMatch(point,response,alternatives=[]){
- const clauses=String(response??'').split(/[.!?;\n]|\bbut\b/i).map(s=>s.trim()).filter(Boolean);
+ const clauses=String(response??'').split(/\.(?!\d)|[!?;\n]|\bbut\b/i).map(s=>s.trim()).filter(Boolean);
  if(!clauses.length)return false;
  for(const variant of [point,...(Array.isArray(alternatives)?alternatives:[])]){
   // A complete stated rubric point remains creditworthy even in an unpunctuated
@@ -122,7 +122,7 @@ function semanticPointMatch(point,response,alternatives=[]){
   const full=compact(response),needle=compact(variant),offset=full.indexOf(needle);
   if(needle.length>=10&&offset>=0){
    const before=full.slice(Math.max(0,offset-36),offset);
-   if(!/\b(?:not|no|never|cannot|without)\b(?:\s+\w+){0,3}\s*$/.test(before))return true;
+   if(!/\b(?:not|no|never|cannot|without)\b(?:\s+\w+){0,2}\s*$/.test(before))return true;
   }
   const target=[...new Set(semanticMarkTokens(variant))];
   if(!target.length)continue;
