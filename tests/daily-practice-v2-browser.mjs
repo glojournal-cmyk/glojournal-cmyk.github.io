@@ -276,6 +276,18 @@ async function checkFixture(browser,engine,kind,viewport){
       intro:getComputedStyle(document.querySelector('[data-lux-question-intro]')).display,
       height:document.querySelector('[data-lux-question-card]').getBoundingClientRect().height
     }));
+    const styleTrace=()=>page.evaluate(()=>{
+      const q=document.querySelector('[data-question-id]');
+      const names={q,intro:q?.querySelector('[data-lux-question-intro]'),card:q?.querySelector('[data-lux-question-card]'),
+        prompt:q?.querySelector('[data-lux-prompt]'),form:q?.querySelector('form'),input:q?.querySelector('input')};
+      return Object.fromEntries(Object.entries(names).filter(([,e])=>e).map(([k,e])=>{
+        const c=getComputedStyle(e),b=e.getBoundingClientRect();
+        return [k,{h:b.height,display:c.display,padding:c.padding,margin:c.margin,gap:c.gap,
+          font:c.fontSize,lineHeight:c.lineHeight,minHeight:c.minHeight,maxHeight:c.maxHeight,
+          gridRows:c.gridTemplateRows,position:c.position}];
+      }));
+    });
+    const traceFocused=await styleTrace();
     await page.locator('[data-lux-question-card] input').blur();
     await page.waitForFunction(()=>!document.documentElement.classList.contains('lux-daily-typing'));
     assert.equal(await page.locator('#lux-daily-study-nav').isVisible(),true,'nav restored after typing');
@@ -284,6 +296,7 @@ async function checkFixture(browser,engine,kind,viewport){
       intro:getComputedStyle(document.querySelector('[data-lux-question-intro]')).display,
       height:document.querySelector('[data-lux-question-card]').getBoundingClientRect().height
     }));
+    console.log('GLORIA_BLUR_LAYOUT '+JSON.stringify({engine,viewport,focused:traceFocused,blurred:await styleTrace()}));
     assert.equal(afterBlur.compact,true,'iPad practice card must stay compact between editor focus changes');
     assert.equal(afterBlur.intro,compact.intro,'question heading must not flash back on blur');
     assert.ok(Math.abs(afterBlur.height-compact.height)<=3,
