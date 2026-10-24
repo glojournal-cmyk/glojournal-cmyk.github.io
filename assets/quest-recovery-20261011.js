@@ -308,6 +308,7 @@ function mount(){
  // based panel as a fixed dialog. Attach it to body (not a React-owned node)
  // so React updates cannot detach it. Keep it hidden until the dialog opens.
  const rpgHome=!!document.getElementById("lux-rpg-live-home");
+ if(rpgHome&&!document.documentElement.classList.contains("lux-rpg-recovery-open"))return;
  const card=rpgHome?document.body:
    [...document.querySelectorAll("main h2")].find(n=>n.textContent.trim()==="Raise her today")?.parentElement?.parentElement?.parentElement;
  if(!card){
@@ -609,6 +610,8 @@ function scheduleRecordProtection(){
  // Chrome before the student can navigate back. Normal quiz credit stays
  // in the core store; Home's mount will reconcile the archived history.
  if(location.pathname!=="/"&&location.pathname!=="/index.html")return;
+ if(document.getElementById("lux-rpg-live-home")&&
+    !document.documentElement.classList.contains("lux-rpg-recovery-open"))return;
  if(recordQueued)return;
  recordQueued=true;
  queueMicrotask(()=>{recordQueued=false;protectDailyRecord()});
@@ -621,12 +624,16 @@ store.subscribe(()=>{
  if(relevant){scheduleRecordProtection();schedule();}
 });
 store.persist?.onFinishHydration?.(()=>{
- if(location.pathname==="/"||location.pathname==="/index.html"){
+ if((location.pathname==="/"||location.pathname==="/index.html") &&
+    (!document.getElementById("lux-rpg-live-home") ||
+     document.documentElement.classList.contains("lux-rpg-recovery-open"))){
   protectDailyRecord();
  }
 });
 window.addEventListener("lux:app-ready",()=>{
- if(location.pathname==="/"||location.pathname==="/index.html"){
+ if((location.pathname==="/"||location.pathname==="/index.html") &&
+    (!document.getElementById("lux-rpg-live-home") ||
+     document.documentElement.classList.contains("lux-rpg-recovery-open"))){
   protectDailyRecord();
  }
 });
@@ -634,6 +641,15 @@ window.addEventListener("lux:app-ready",()=>{
 // rerenders frequently, producing a feedback loop on memory-constrained iPads.
 // The modal calls this explicit refresh, and ledger changes are subscribed above.
 export function mountRecoveryPanel(){mount();return !!document.getElementById("lux-recovery-quests")}
+// Older iPad home shells still wait for #lux-recovery-quests after opening.
+// A single delegated click handles that shell without any persistent DOM scan.
+document.addEventListener("click",event=>{
+ const button=event.target?.closest?.(".rpg-nav-live button,.rpg-orb-live");
+ if(!button||!/recovery/i.test(button.textContent||""))return;
+ queueMicrotask(()=>{
+   if(document.documentElement.classList.contains("lux-rpg-recovery-open"))mount();
+ });
+});
 window.addEventListener("pageshow",schedule);
 window.addEventListener("popstate",schedule);
 window.addEventListener("lux:app-ready",schedule);
