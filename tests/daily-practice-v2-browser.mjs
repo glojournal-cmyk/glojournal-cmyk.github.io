@@ -40,6 +40,8 @@ for (const subject of ['french','latin','biology','chemistry','physics','english
     subject+' Practice must load the unified navy-gold question stylesheet');
   assert.ok(html.includes(FINAL_THEME),
     subject+' Practice must load the approved illustrated question layout');
+  assert.ok(html.includes('gloria-practice-stability-20261024.css?v=glass-nav1'),
+    subject+' Practice must load final translucent iPad and nav repair');
   assert.ok(html.includes(entrypoint),
     subject+' Practice must keep the globally synchronized app entrypoint');
 }
@@ -67,6 +69,7 @@ function fixture(kind){
     '<link rel="stylesheet" href="/assets/practice-studio-20261023.css">'+
     '<link rel="stylesheet" href="/assets/gloria-unified-question-theme-20261024.css?v=20261024-progress2">'+
     '<link rel="stylesheet" href="/assets/gloria-practice-mockup-final-20261024.css?v=20261024-est-focus12">'+
+    '<link rel="stylesheet" href="/assets/gloria-practice-stability-20261024.css?v=glass-nav1">'+
     '<script>window.tapCount=0;</script><script defer src="/assets/practice-studio-20261023.js"></script><script defer src="/lux-theme.js"></script></head>'+
     '<body><div class="paper-wash"><header style="height:58px">Legacy top bar</header><aside style="height:400px">Sidebar</aside>'+
     '<main><section id="study-companion" class="cx-study-buddy"><span class="cx-pet-art" aria-label="Antler Bean" style="display:block;background-image:url(\'/pet/art-hd-20261009/level-1/antler-bean.webp\');background-size:contain;background-position:center;background-repeat:no-repeat"></span><strong>Antler Bean is beside you</strong><button type="button" id="lux-voice-cheer-toggle" onclick="window.tapCount++">🔊 Voice On</button></section>'+
@@ -264,6 +267,30 @@ async function checkFixture(browser,engine,kind,viewport){
   if(['mc','tiles','typed'].includes(kind)) assert.ok(details.card.bottom<details.nav.y-8,
     'question and answer card should stay above the Study bar in one iPad screen');
   assert.ok(details.decorativeBackground.includes('gloria-practice-academy-ornaments-20261024.svg'),'real approved academy illustration must load');
+  const stability=await page.evaluate(()=>{
+    const paper=document.querySelector('.paper-wash'),nav=document.getElementById('lux-daily-study-nav');
+    const q=document.querySelector('[data-question-id]');
+    const intro=q?.querySelector('[data-lux-question-intro]');
+    const form=q?.querySelector('form');
+    const prompt=q?.querySelector('[data-lux-prompt]');
+    const card=intro || prompt || form;
+    const art=getComputedStyle(paper).backgroundImage;
+    const navStyle=getComputedStyle(nav);
+    const target=card ? getComputedStyle(card) : null;
+    const rects={nav:nav.getBoundingClientRect(),form:form?.getBoundingClientRect()};
+    return {art,navPosition:navStyle.position,navTop:rects.nav.top,formBottom:rects.form?.bottom,
+      cardBackground:target?.backgroundColor,navWidth:rects.nav.width,clientWidth:innerWidth};
+  });
+  assert.ok(!stability.art.includes('gloria-approved-mockup-side-art.svg'),
+    'tiny 2.5KB side art must never be stretched behind an iPad question');
+  assert.equal(stability.navPosition,'relative',
+    'bottom navigation must be in flow and not cover the answer');
+  if(stability.formBottom!==undefined) assert.ok(stability.navTop>=stability.formBottom,
+    'iPad navigation must follow the active form without overlapping it: '+JSON.stringify(stability));
+  assert.ok(stability.navWidth<=viewport.width,
+    'bottom navigation must not overflow iPad width');
+  console.log('GLORIA_GLASS_NAV_CHECK '+JSON.stringify({engine,kind,viewport,stability}));
+
   const bgResponse=await page.request.get(base+'/assets/gloria-practice-academy-ornaments-20261024.svg');
   assert.equal(bgResponse.status(),200,'academy background asset must load');
   const bgSource=await bgResponse.text();
