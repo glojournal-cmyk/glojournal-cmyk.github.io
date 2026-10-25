@@ -130,6 +130,20 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     if(!current||proof>currentProgress||
        (saved.done===true&&current?.done!==true&&proof>=currentProgress))
       previous.set(saved.id,{...current,...saved,planDate:today});
+    else if(current){
+      // A catalog-not-ready rebuild can keep the score but drop the topic.
+      // Put the dated assignment back before prior credit is judged.
+      const generic=!current.href||current.href==='/study';
+      const savedHref=typeof saved.href==='string'&&saved.href.startsWith('/study/')?saved.href:'';
+      if((!current.assignedTopic&&saved.assignedTopic)||(generic&&savedHref))
+        previous.set(saved.id,{...current,
+          assignedTopic:current.assignedTopic||saved.assignedTopic,
+          assignedSubject:current.assignedSubject||saved.assignedSubject,
+          assignedYear:current.assignedYear||saved.assignedYear,
+          assignedLabel:current.assignedLabel||saved.assignedLabel,
+          href:generic&&savedHref?savedHref:current.href,
+          planDate:today});
+    }
   }
   const pools=Object.fromEntries(['latin',...rotation].map(subject=>[subject,curriculumTopics(subject,8,getCatalog,learning)]));
   const exposure=recentSubjectExposure(state,today);
@@ -171,7 +185,9 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   const savedMode=t=>{try{return new URL(t?.href,'https://scholar.invalid').searchParams.get('mode')}catch{return null}};
   const task=(id,topic,mode,target,description,masteryCheck=false)=>{
     const old=previous.get(id);
-    const same=!!topic&&old?.assignedTopic===topic.topicId;
+    let savedTopic=old?.assignedTopic;
+    if(!savedTopic&&old?.href){try{savedTopic=new URL(old.href,'https://scholar.invalid').searchParams.get('topic')}catch{}}
+    const same=!!topic&&savedTopic===topic.topicId;
     // Repair a saved pre-fix route. "retention" was not a recognised
     // practice mode, so its recorded answers cannot prove the Day 2/7 check.
     const legacyRecall=same&&savedMode(old)==='retention';

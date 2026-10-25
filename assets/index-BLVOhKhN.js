@@ -10,7 +10,7 @@ import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUno
 import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261025-recovery-correct1";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastery-count20-v1";
-import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261025-scorefix1";
+import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261025-scorefix2";
 import "./journey-navigation-20261004.js?v=20261024-latin-ipad-date2&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
@@ -1310,7 +1310,17 @@ function mistakeTopicAvailable(subject, topicId, year) {
 }
 
 function buildAdaptiveDaily(state) {
-  if (state.today >= "2026-10-19") return buildYear8DailyV2(state,getTopicCatalog,readCurriculumLearning());
+  if (state.today >= "2026-10-19") {
+    // Rebuilding before the topic catalogs load erases assignedTopic and the
+    // next pass then treats a saved 10/10 as a brand-new task.
+    let catalogReady = false;
+    try {
+      catalogReady = ["latin","french","biology","chemistry","physics"].every(subject =>
+        (getTopicCatalog(subject, 8) || []).length > 0);
+    } catch {}
+    if (!catalogReady && Array.isArray(state.daily) && state.daily.length) return state.daily;
+    return buildYear8DailyV2(state,getTopicCatalog,readCurriculumLearning());
+  }
   function masteryKeyCount(topicId) {
     const day = state.today || todayKey();
     const bucket = state.dailyCurriculumEvidenceByDay?.[day] || {};
