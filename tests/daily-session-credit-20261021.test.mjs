@@ -78,7 +78,7 @@ test('iPad loads refreshed Science Daily modules from active production route',(
  const file=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
  const practiceRelease='20261025-daily-retry1';
  const coreRelease='20261025-daily-retry1';
- const creditRelease='20261025-no-repeat2';
+ const creditRelease='20261025-daily-retry1';
  assert.ok(file('assets/index-BLVOhKhN.js').includes('index-BLVOhKhN.core.js?v='+coreRelease));
  assert.ok(file('assets/index-BLVOhKhN.core.js').includes('study._subject.practise-D_PWgUd7.js?v='+coreRelease));
  assert.ok(file('assets/study._subject.practise-D_PWgUd7.js').includes('quiz-session-y8fix-20260920.js?v='+practiceRelease));
