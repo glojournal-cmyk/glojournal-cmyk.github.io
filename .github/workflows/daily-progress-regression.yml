@@ -6,6 +6,9 @@ on:
       - 'assets/index-BLVOhKhN.js'
       - 'assets/daily-vocab-20261003.js'
       - 'assets/daily-completed-session-receipts-20261024.js'
+      - 'assets/daily-session-credit-20261021.js'
+      - 'assets/year8-daily-v2-20261018.js'
+      - 'assets/today-record-sync-20261024.js'
       - 'assets/journey-navigation-20261004.js'
       - 'tests/journey-ipad-date-iso-20261024.test.mjs'
       - 'assets/quiz-session-y8fix-20260920.js'
@@ -36,6 +39,9 @@ jobs:
           node --check assets/daily-unfinished-retry-20261025.js
           node --check assets/daily-completed-session-receipts-20261024.js
           node --check assets/quiz-session-y8fix-20260920.js
+          node --check assets/daily-session-credit-20261021.js
+          node --check assets/year8-daily-v2-20261018.js
+          node --check assets/today-record-sync-20261024.js
           node --check assets/progression-guard-20260927.js
       - name: Test formal counting, reload and refill
         run: |
