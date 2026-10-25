@@ -66,7 +66,7 @@ assert.equal(six.tasks.find(t=>t.id==="y8-practise").progress,0,
  "never invent Foundation answers");
 globalThis.localStorage={_m:new Map(),getItem(k){return this._m.has(k)?this._m.get(k):null},setItem(k,v){this._m.set(k,String(v))},removeItem(k){this._m.delete(k)}};
 const receipts=await load("recovery-receipt-20261018.js");
-assert.equal(receipts.saveRecoveryReceipt({date,taskId:"y8-practise",questionIds:events.map(e=>e.questionId)}),true);
+assert.equal(receipts.saveRecoveryReceipt({date,taskId:"y8-practise",questionIds:events.map(e=>e.questionId),verifiedCorrect:true,baseline:0}),true);
 const applied=receipts.applyRecoveryReceipts({
  [date]:{date,done:0,total:1,complete:false,tasks:[original]},
  [next]:finished});
