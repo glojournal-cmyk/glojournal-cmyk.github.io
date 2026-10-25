@@ -194,10 +194,19 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     // From 24 Oct onward the Home fraction means CORRECT answers, not taps.
     // Trust the formal journal only when it covers the prior saved count:
     // an iPad with a partly lost journal must not lose genuine old credit.
+    // This task may have an independently verified completed quiz whose
+    // iPad journal was only partially persisted (e.g. saved 10/10 -> 6/10).
+    // Never throw away identified correct questions from that SAME locked task.
+    const verifiedPrior=!!topic&&old?.planDate===today&&
+      old.assignedTopic===topic.topicId&&old.assignedSubject===topic.subject&&
+      Number(old.assignedYear)===Number(topic.year)&&
+      savedMode(old)===mode&&Number(old.target)===Number(target)&&
+      Array.isArray(old.verifiedCorrectIds);
+    const verifiedIds=verifiedPrior?[...new Set(old.verifiedCorrectIds.map(String).filter(Boolean))]:[];
     const correctOnlyEvidence=!!topic&&today>='2026-10-24'&&
-      attempted>0&&attempted>=prior;
-    let progress=topic?Math.min(target,correctOnlyEvidence?correct:
-      Math.max(prior,attempted)):0;
+      (verifiedIds.length>0||(attempted>0&&attempted>=prior));
+    let progress=topic?Math.min(target,Math.max(verifiedIds.length,
+      correctOnlyEvidence?correct:Math.max(prior,attempted))):0;
     // Mastery assessment still separately assesses 85% and recall. A wrong
     // response remains in attempt history, but cannot fill the Home quota.
     const passedToday=state.topicStats?.[topic?.topicId]?.masteryV2?.passedMasteryAt===today;
@@ -216,7 +225,8 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       detail:description+outcome,href:topic?curriculumHref(topic,mode,id):'/study',target,progress,xp:mode==='mastery'?20:15,
       planDate:today,assignedSubject:topic?.subject||null,assignedTopic:topic?.topicId||null,
       assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,masteryCheck,curriculumVersion:4,
-      ...(correctOnlyEvidence?{correctOnlyEvidence:true}:{})};
+      ...(correctOnlyEvidence?{correctOnlyEvidence:true}:{}),
+      ...(verifiedIds.length?{verifiedCorrectIds:verifiedIds.slice(0,60)}:{})};
   };
   const pendingRecall=t=>['check2','check7'].includes(
     state.topicStats?.[t.topicId]?.masteryV2?.stage);
