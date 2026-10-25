@@ -95,4 +95,5 @@ test('Both deployed Science and Latin/French Practice wait for saved original wr
  }
  const quiz=readFileSync(new URL('../assets/quiz-session-y8fix-20260920.js',import.meta.url),'utf8');
  assert.match(quiz,/priorReceipt:readDailyRetryReceiptSync/);
+ assert.match(quiz,/topicId:new URLSearchParams\(location\.search\)\.get\('topic'\)\|\|g/);
 });
