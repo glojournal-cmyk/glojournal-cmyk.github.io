@@ -42,6 +42,7 @@ export function reconcileDailySession(state,receipt={}) {
       remaining.set(String(question.id),(remaining.get(String(question.id))||0)+1);
   }
   let verified=0;
+  const creditedIds=new Set();
   for(const answer of answers){
     const id=String(answer?.questionId||'');
     if(!id||answer.repair||answer.formal===false||
@@ -49,9 +50,22 @@ export function reconcileDailySession(state,receipt={}) {
        !eligible.has(id)||!remaining.get(id))continue;
     remaining.set(id,remaining.get(id)-1);
     verified++;
+    if(day>='2026-10-24')creditedIds.add(id);
+  }
+  // Reopening an assigned quiz may show only the missing two questions.
+  // Merge independently marked journal evidence from the SAME task and day,
+  // rather than comparing 2 fresh answers against the old 8/10 snapshot.
+  if(day>='2026-10-24')for(const event of state.formalAttemptLog||[]){
+    if(event?.day!==day||event?.dailyTaskId!==taskId||
+       event?.subject!==subject||Number(event?.year)!==Number(year)||
+       event?.correct!==true||event?.repair||event?.formal===false||
+       event?.recoveryFor||!event.questionId)continue;
+    if(event.topicId!==task.assignedTopic&&
+       !(scienceTask&&event.topicId))continue;
+    creditedIds.add(String(event.questionId));
   }
   const target=Math.max(1,Number(task.target)||1),old=progressOf(task);
-  const progress=Math.min(target,Math.max(old,verified));
+  const progress=Math.min(target,Math.max(old,day>='2026-10-24'?creditedIds.size:verified));
   if(progress===old)return {...unchanged('already-counted'),progress:old,target};
   const daily=state.daily.map(t=>t===task?{...t,progress}:t);
   // Keep the dated Home/Recovery summary aligned without touching any other day.
