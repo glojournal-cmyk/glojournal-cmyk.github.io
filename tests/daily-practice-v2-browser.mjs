@@ -619,11 +619,13 @@ async function checkExhaustedBiologyDaily(browser,engine){
       question:document.querySelector('[data-question-id]')?.dataset.questionId,
       locked:document.querySelector('.lux-practice-view')?.innerText?.includes('This daily task is locked'),
       error:document.body.innerText.includes('This topic needs more unused questions'),
+      progressSafe:document.body.innerText.includes('Your saved progress has not been reset'),
       mask:getComputedStyle(document.body,'::before').display,
       ready:document.documentElement.classList.contains('lux-daily-ux-ready')
     }));
     assert.equal(result.question,undefined,'previously correct Biology questions must never be recycled as missing Daily credits');
     assert.equal(result.error,true,'tell learner when no unanswered questions remain in the assigned bank');
+    assert.equal(result.progressSafe,true,'an exhausted bank must explicitly preserve existing credit');
     assert.equal(result.mask,'none','no saved-progress mask over mounted Biology practice');
     assert.equal(result.ready,true,'final Practice shell stays ready');
     // The local Playwright HTTP fixture intentionally has no WebKit CORS
