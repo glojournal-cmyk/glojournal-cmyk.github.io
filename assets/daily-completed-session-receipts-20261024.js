@@ -155,6 +155,25 @@ export async function saveCompletedDailyReceipt(state,source){
   const persisted=await put(combined);
   return persisted||fallback;
 }
+
+/** Trusted persisted outcome for one dated locked assignment. Used only to
+ * select the unanswered/incorrect original question on a follow-up visit.
+ * This read never changes progress or grants any credit. */
+export function readDailyRetryReceiptSync({day,taskId,subject,year,topicId,mode}={}){
+ const matches=readFallback().filter(r=>r.day===day&&r.taskId===taskId&&
+   r.subject===subject&&r.year===Number(year)&&r.topicId===topicId&&r.mode===mode);
+ return matches.sort((a,b)=>Number(b.at||0)-Number(a.at||0))[0]||null;
+}
+export async function readDailyRetryReceipt(options={}){
+ const fallback=readDailyRetryReceiptSync(options);
+ const saved=(await all()).filter(r=>r.day===options.day&&r.taskId===options.taskId&&
+   r.subject===options.subject&&r.year===Number(options.year)&&
+   r.topicId===options.topicId&&r.mode===options.mode);
+ const latest=saved.sort((a,b)=>Number(b.at||0)-Number(a.at||0))[0]||null;
+ if(!fallback)return latest;
+ return latest?mergeReceipts(fallback,latest):fallback;
+}
+
 export function reconcileCompletedDailyReceipts(state,receipts){
   if(!state||!validDay(state.today)||!Array.isArray(state.daily)||state.daily.length<1)
     return null;
