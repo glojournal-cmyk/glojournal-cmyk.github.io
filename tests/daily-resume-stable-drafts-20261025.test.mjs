@@ -12,7 +12,7 @@ class Store {
 }
 const url=(task='year9-light',recover='')=>'https://glojournal-cmyk.github.io/study/biology/practise?daily=1&locked=1&year=9&mode=standard&topic=bio-y9-b1&task='+task+(recover?'&recover='+recover:'');
 const setup=()=>{
- const browser={URL,Intl,Date,Promise,Map,Set,localStorage:new Store(),
+ const browser={URL,Intl,Date,Promise,Map,Set,setTimeout,clearTimeout,localStorage:new Store(),
    sessionStorage:new Store(),location:{href:url()},console};
  browser.globalThis=browser;
  runInNewContext(source,browser,{filename:'practice-drafts-20261004.js'});
