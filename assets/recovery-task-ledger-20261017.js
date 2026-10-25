@@ -72,6 +72,13 @@ export function matchesAssignedPracticeEvidence(entry,task,taskId){
  // this task are safe to credit. Never guess from a generic quiz.
  return entry.dailyTaskId===taskId;
 }
+// Count distinct correct base questions, not taps, retries or incorrectly marked answers.
+export function recoveryCorrectCount(items){
+ const correctIds=new Set();
+ for(const [id,ok] of Object.entries(items||{}))
+   if(ok===true)correctIds.add(String(id).split('@')[0]);
+ return correctIds.size;
+}
 export function recordRecoveryAnswer(state,{today,date,taskId,questionId,correct,minimumCorrect}) {
   if(!canRecover(today,date)||!RECOVERY_IDS.has(taskId)||
      !questionId||typeof correct!=='boolean') return {state,accepted:false,completed:false};
@@ -85,12 +92,10 @@ export function recordRecoveryAnswer(state,{today,date,taskId,questionId,correct
   const baseline=Math.max(0,Math.min(Number(task.target),Number(old.originalCount??task.progress)||0));
   const required=Math.max(1,Number(old.totalNeeded)||Number(minimumCorrect)||Number(task.target)-baseline);
   const items={...(old.items||{})};
-  items[String(questionId)]=correct||items[String(questionId)]===true;
-  // Daily Recovery credits a completed, marked study activity.
-  // Correctness is still retained for feedback and correction review.
-  const count=taskId==='mistake-review'
-    ? Object.values(items).filter(Boolean).length
-    : Object.keys(items).length;
+  const baseId=String(questionId).split('@')[0];
+  // A wrong answer may be reviewed, but it must never earn a completion credit.
+  items[baseId]=correct===true||items[baseId]===true;
+  const count=recoveryCorrectCount(items);
   const completed=count>=required;
   const proof={...old,items,originalCount:baseline,totalNeeded:required,completed};
   const patch={...state,recoveryTaskByDay:{...all,[date]:{...forDay,[taskId]:proof}}};
@@ -115,9 +120,7 @@ export function reconcileRecoveredTaskHistory(state, existingLog) {
   for(const [date,proofs] of Object.entries(state?.recoveryTaskByDay||{})){
     if(!validDay(date))continue;
     let row=log[date];
-    const countProof=(id,proof)=>id==='mistake-review'
-      ?Object.values(proof?.items||{}).filter(Boolean).length
-      :Object.keys(proof?.items||{}).length;
+    const countProof=(id,proof)=>recoveryCorrectCount(proof?.items);
     if(!row||!Array.isArray(row.tasks)||!row.tasks.length){
       // Reconstruct a full, plainly labelled fallback only from real dated
       // answer evidence, including partially finished Recovery sessions.
@@ -158,8 +161,7 @@ export function reconcileRecoveredTaskHistory(state, existingLog) {
       const target=Math.max(1,Number(task.target)||1);
       const initial=Math.max(0,Number(proof.originalCount??task.progress)||0);
       const attempts=countProof(task.id,proof);
-      const progress=proof.completed===true?target:
-        Math.min(target,Math.max(Number(task.progress)||0,initial+attempts));
+      const progress=Math.min(target,Math.max(Number(task.progress)||0,initial+attempts));
       if(progress<=Number(task.progress||0))return task;
       changed=true;
       const done=proof.completed===true||progress>=target;
