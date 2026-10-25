@@ -19,6 +19,11 @@ on:
       - 'assets/quest-recovery-20261011.js'
       - 'assets/backup-vault-20261011.js'
       - '.github/workflows/daily-progress-regression.yml'
+  pull_request:
+    paths:
+      - 'assets/practice-drafts-20261004.js'
+      - 'tests/daily-resume-stable-drafts-20261025.test.mjs'
+      - '.github/workflows/daily-progress-regression.yml'
   workflow_dispatch:
 jobs:
   daily-progress:
@@ -47,6 +52,7 @@ jobs:
           node --test tests/daily-session-credit-20261021.test.mjs
           node --test tests/daily-biology-fifteen-credit-20261025.test.mjs
           node --test tests/daily-no-repeat-correct-20261025.test.mjs
+          node --test tests/daily-resume-stable-drafts-20261025.test.mjs
           node tests/daily-locked-empty-20261021.mjs
           node --test tests/latin-stage1-ipad-completion-receipt-20261024.test.mjs
           node --test tests/journey-ipad-date-iso-20261024.test.mjs
