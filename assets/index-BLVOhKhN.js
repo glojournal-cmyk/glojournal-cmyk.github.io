@@ -1,4 +1,4 @@
-import {restoreCompletedDailyReceipts} from "./daily-completed-session-receipts-20261024.js?v=20261025-daily-retry2";
+import {restoreCompletedDailyReceipts} from "./daily-completed-session-receipts-20261024.js?v=20261025-daily-retry3";
 import {syncTodayFromDatedRecord} from "./today-record-sync-20261024.js";
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261023-final-credit1";
 import {readOptionalBackupJson,linkedBackupManifest} from "./export-linked-storage-20261023.js";
