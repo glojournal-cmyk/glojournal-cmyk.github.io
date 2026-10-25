@@ -49,7 +49,7 @@ test('runtime wires matching practice answers into recovery and leaves XP untouc
 
 test('proof repairs the 30-day view without modifying persisted original',()=>{
  const s=fixture();
- s.recoveryTaskByDay={'2026-10-16':{'y8-practise':{completed:true}}};
+ s.recoveryTaskByDay={'2026-10-16':{'y8-practise':{completed:true,originalCount:8,totalNeeded:2,items:{one:true,two:true}}}};
  const snapshot=JSON.stringify(s.dailyLog);
  const log=reconcileRecoveredTaskHistory(s,s.dailyLog);
  assert.equal(log['2026-10-16'].done,2);
