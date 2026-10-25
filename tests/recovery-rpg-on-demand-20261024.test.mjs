@@ -31,7 +31,7 @@ test('iPad module bootstrap cache versions match after Recovery fix', () => {
  assert.match(continueJS, /home-rpg-live-20261019\.js\?v=20261025-daily-retry2/);
  assert.match(home, /home-rpg-live-20261019\.css\?v=20261024-recovery-dialog1/);
  assert.match(restorer, /quest-recovery-20261011\.js\?v=20261025-daily-retry2/);
- const shellVersion=(html.match(/index-BLVOhKhN\\.js\\?v=([^&"'\\s]+)/)||[])[1];
+ const shellVersion=(html.match(/index-BLVOhKhN\.js\?v=([^&"'\s]+)/)||[])[1];
  assert.ok(shellVersion,'index shell must identify its app-store module version');
  assert.ok(read('404.html').includes('index-BLVOhKhN.js?v='+shellVersion));
 });
