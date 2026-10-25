@@ -157,7 +157,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       assigned.assignedSubject===e.subject&&Number(assigned.assignedYear)===Number(e.year);
   });
   const tally=(topicId,taskId,modes=null,correctOnly=false)=>new Set(taskEvents(topicId,taskId,modes)
-    .filter(e=>!correctOnly||e.correct===true).map(e=>e.attemptId||e.questionId)).size;
+    .filter(e=>!correctOnly||e.correct===true).map(e=>String(e.questionId).split('@')[0])).size;
   const pick=(id,pool,condition,compare)=>{
     const old=previous.get(id);
     const frozen=old?.assignedTopic&&(pool.find(t=>t.topicId===old.assignedTopic)||
