@@ -6,6 +6,25 @@ const supported = new Set([
   'latin-standard','y8-standard-a','y8-standard-b',
   'y8-mastery-a','y8-mastery-b','y8-mastery-topup-a','y8-mastery-topup-b','weakness-review','due-review','year9-light'
 ]);
+// One independently marked quiz slot is evidence even if a depleted bank
+// accidentally served the same question ID twice. Do not infer extra slots
+// from duplicate saved receipts or unmarked questions.
+export function verifiedQuizSlots(questions,answers){
+ const buckets=new Map(),ordered=[];
+ for(const q of questions||[]){
+  if(!q?.id||q.formal===false||q._repair)continue;
+  const id=String(q.id),slot={id,question:q,correct:null},group=buckets.get(id)||[];
+  group.push(slot);buckets.set(id,group);ordered.push(slot);
+ }
+ for(const answer of answers||[]){
+  const id=String(answer?.questionId||''),group=buckets.get(id);
+  if(!group?.length||answer.repair||answer.formal===false||
+    typeof answer.correct!=='boolean')continue;
+  const slot=group.find(x=>x.correct===null);
+  if(slot)slot.correct=answer.correct;
+ }
+ return ordered.filter(x=>x.correct!==null);
+}
 const progressOf = t => Math.max(0,Math.min(Math.max(1,Number(t?.target)||1),Number(t?.progress)||0));
 export function reconcileDailySession(state,receipt={}) {
   const unchanged=(reason)=>({changed:false,reason,daily:state?.daily,progress:0,target:0});
@@ -52,6 +71,10 @@ export function reconcileDailySession(state,receipt={}) {
     verified++;
     if(day>='2026-10-24')creditedIds.add(id);
   }
+  const sourceSlots=verifiedQuizSlots(questions,answers)
+    .filter(x=>eligible.has(x.id));
+  let verifiedSlotCount=day>='2026-10-24'
+    ?sourceSlots.filter(x=>x.correct).length:verified;
   // Reopening an assigned quiz may show only the missing two questions.
   // Merge independently marked journal evidence from the SAME task and day,
   // rather than comparing 2 fresh answers against the old 8/10 snapshot.
@@ -61,12 +84,27 @@ export function reconcileDailySession(state,receipt={}) {
      prior.topicId===task.assignedTopic&&prior.mode===mode&&
      Number(prior.target)===Number(task.target)&&
      Array.isArray(prior.questions)&&Array.isArray(prior.answers)){
-    const allowedPrior=new Set(prior.questions.filter(q=>q?.id&&q.formal!==false&&!q._repair)
-      .map(q=>String(q.id)));
-    for(const priorAnswer of prior.answers)
-      if(priorAnswer?.correct===true&&priorAnswer.formal!==false&&!priorAnswer.repair&&
-         allowedPrior.has(String(priorAnswer.questionId)))
-        creditedIds.add(String(priorAnswer.questionId));
+    const oldSlots=verifiedQuizSlots(prior.questions,prior.answers)
+      .filter(x=>x.question?.topicId===task.assignedTopic||scienceTask);
+    const oldById=new Map(),newById=new Map();
+    for(const slot of oldSlots){
+      const row=oldById.get(slot.id)||{correct:0,wrong:0};
+      row[slot.correct?'correct':'wrong']++;
+      oldById.set(slot.id,row);
+      if(slot.correct)creditedIds.add(slot.id);
+    }
+    for(const slot of sourceSlots.filter(x=>x.correct)){
+      const row=newById.get(slot.id)||0;newById.set(slot.id,row+1);
+    }
+    // A retry first corrects an old wrong slot. Already-correct repeated IDs
+    // are not additional credits unless they occupied distinct ORIGINAL slots.
+    let combined=0;
+    for(const [id,row] of oldById){
+      const additional=Math.min(row.wrong,newById.get(id)||0);
+      combined+=row.correct+additional;
+    }
+    for(const [id,n] of newById)if(!oldById.has(id))combined+=n;
+    verifiedSlotCount=Math.max(verifiedSlotCount,combined);
   }
   if(day>='2026-10-24')for(const event of state.formalAttemptLog||[]){
     if(event?.day!==day||event?.dailyTaskId!==taskId||
@@ -89,15 +127,20 @@ export function reconcileDailySession(state,receipt={}) {
     task.assignedTopic===expected.searchParams.get('topic')&&
     expected.searchParams.get('mode')===mode?task.verifiedCorrectIds:[];
   for(const id of trustedOldIds)if(id)creditedIds.add(String(id));
+  const trustedOldSlots=task.verifiedCorrectAssignment===verifiedKey?
+    Math.max(0,Number(task.verifiedCorrectSlots)||0):0;
+  verifiedSlotCount=Math.max(verifiedSlotCount,trustedOldSlots);
   const target=Math.max(1,Number(task.target)||1),old=progressOf(task);
-  const progress=Math.min(target,Math.max(old,day>='2026-10-24'?creditedIds.size:verified));
-  if(progress===old&&
+  const progress=Math.min(target,Math.max(old,day>='2026-10-24'?
+    Math.max(creditedIds.size,verifiedSlotCount):verified));
+  if(progress===old&&verifiedSlotCount<=trustedOldSlots&&
      (!creditedIds.size||JSON.stringify([...creditedIds].sort())===
        JSON.stringify((task.verifiedCorrectIds||[]).map(String).sort())))
     return {...unchanged('already-counted'),progress:old,target};
   const stamped={...task,progress,done:progress>=target,
     ...(day>='2026-10-24'&&creditedIds.size?
       {verifiedCorrectIds:[...creditedIds].slice(0,60),
+       verifiedCorrectSlots:Math.min(target,verifiedSlotCount),
        verifiedCorrectAssignment:verifiedKey}:{})};
   const daily=state.daily.map(t=>t===task?stamped:t);
   // Keep the dated Home/Recovery summary aligned without touching any other day.
@@ -108,6 +151,7 @@ export function reconcileDailySession(state,receipt={}) {
       ...t,progress,done:progress>=target,
       ...(stamped.verifiedCorrectIds?{
         verifiedCorrectIds:stamped.verifiedCorrectIds,
+        verifiedCorrectSlots:stamped.verifiedCorrectSlots,
         verifiedCorrectAssignment:stamped.verifiedCorrectAssignment}:{})
     }:t);
     const done=tasks.filter(t=>t.done||Number(t.progress)>=Number(t.target)).length;
