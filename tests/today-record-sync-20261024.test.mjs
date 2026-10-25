@@ -37,5 +37,6 @@ test('no progress is manufactured from an incomplete 30-day snapshot',()=>{
   assert.equal(syncTodayFromDatedRecord(tasks,row(logged.slice(1)),day),tasks);
   const result=syncTodayFromDatedRecord(tasks,row(logged),day);
   assert.equal(result[0].progress,10);
-  assert.deepEqual(Object.keys(result[0]),Object.keys(tasks[0]));
+  assert.equal(result[0].done,true,'a verified 10/10 task must be complete on Home');
+  assert.deepEqual(Object.keys(result[0]).filter(k=>k!=='done'),Object.keys(tasks[0]));
 });
