@@ -1274,20 +1274,24 @@
         "accepted": [
           "no starch was detected",
           "no starch is present",
-          "starch was not detected"
+          "starch was not detected",
+          "starch is not present",
+          "starch is absent",
+          "no starch present",
+          "no starch detected"
         ],
         "totalMarks": 1
       },
       "stimulus": {},
       "feedback": {
-        "short": "Accepted answers include: no starch was detected / no starch is present / starch was not detected.",
+        "short": "Accepted answers include: no starch was detected / no starch is present / starch is not present / starch is absent.",
         "steps": [
-          "Accepted: no starch was detected / no starch is present / starch was not detected.",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
+          "Accepted: no starch was detected / no starch is present / starch is not present / starch is absent.",
+          "The iodine staying orange-brown means starch was not detected. Equivalent scientific wording is accepted.",
           "Suggested answer: no starch was detected"
         ],
-        "commonError": "Answering generally without covering every requested part or mark point.",
-        "remember": "Accepted answers include: no starch was detected / no starch is present / starch was not detected."
+        "commonError": "A blue-black colour would mean starch is present. Orange-brown means starch was not detected.",
+        "remember": "Accepted answers include: no starch was detected / no starch is present / starch is not present / starch is absent."
       },
       "task": {
         "label": "WRITE A SHORT ANSWER",
