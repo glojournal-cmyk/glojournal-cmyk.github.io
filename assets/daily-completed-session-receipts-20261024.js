@@ -195,7 +195,12 @@ export async function restoreCompletedDailyReceipts(store){
   if(!store?.getState||!store?.setState||store.persist?.hasHydrated?.()===false)return false;
   const raw=[...readFallback(),...(await all())];
   if(!raw.length)return false;
-  const receipts=[...new Map(raw.filter(valid).map(r=>[r.key,r])).values()];
+  // IndexedDB and localStorage can finish writes in either order on Safari.
+  // Combine verified outcomes; an older copy must never hide a newer correct retry.
+  const receiptMap=new Map();
+  for(const row of raw.filter(valid))
+    receiptMap.set(row.key,mergeReceipts(receiptMap.get(row.key),row));
+  const receipts=[...receiptMap.values()];
   const patch=reconcileCompletedDailyReceipts(store.getState(),receipts);
   if(!patch)return false;
   store.setState(patch);
