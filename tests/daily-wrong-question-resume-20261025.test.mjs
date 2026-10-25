@@ -54,8 +54,9 @@ test('Same answer twice does not fabricate missing Daily completion',()=>{
  const s=state(),old=originalReceipt();
  const result=reconcileDailySession(s,{day,taskId,subject:'latin',year:8,mode:'standard',
   questions:[questions[0]],answers:[scored(questions[0])],priorReceipt:old});
- assert.equal(result.changed,false);
- assert.equal(result.progress,9);
+ assert.equal(result.progress,9,'a repeated correct answer must not become the missing tenth');
+ assert.equal(result.daily[0].progress,9);
+ assert.equal(result.daily[0].verifiedCorrectIds?.length,9,'verified evidence may be saved without extra score');
 });
 test('A receipt for a different assignment/date/subject cannot add a phantom tenth credit',()=>{
  const s=state(),old=originalReceipt(),query={day,taskId,subject:'latin',year:8,
