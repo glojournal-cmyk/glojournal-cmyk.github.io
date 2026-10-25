@@ -90,6 +90,10 @@ test('an unopened future day creates ten dated assignments and recovery credits 
   let progress=prepared.state;
   for(let i=0;i<10;i++)progress=recordRecoveryAnswer(progress,{today:'2026-10-21',date:'2026-10-19',
     taskId:'y8-standard-a',questionId:'unique-'+i,correct:i%2===0}).state;
+  assert.equal(progress.dailyLog['2026-10-19'].tasks.find(t=>t.id==='y8-standard-a').progress,5);
+  assert.equal(progress.dailyLog['2026-10-19'].tasks.find(t=>t.id==='y8-standard-a').done,false);
+  for(let i=10;i<15;i++)progress=recordRecoveryAnswer(progress,{today:'2026-10-21',date:'2026-10-19',
+    taskId:'y8-standard-a',questionId:'unique-'+i,correct:true}).state;
   assert.equal(progress.dailyLog['2026-10-19'].tasks.find(t=>t.id==='y8-standard-a').done,true);
   assert.equal(progress.dailyLog['2026-10-17'].done,10);
   assert.equal(progress.today,'2026-10-21');
