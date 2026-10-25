@@ -32,6 +32,10 @@ jobs:
         run: |
           node --check assets/index-BLVOhKhN.js
           node --check assets/study._subject.practise-y8fix-20260920.js
+          node --check assets/study._subject.practise-D_PWgUd7.js
+          node --check assets/daily-unfinished-retry-20261025.js
+          node --check assets/daily-completed-session-receipts-20261024.js
+          node --check assets/quiz-session-y8fix-20260920.js
           node --check assets/progression-guard-20260927.js
       - name: Test formal counting, reload and refill
         run: |
