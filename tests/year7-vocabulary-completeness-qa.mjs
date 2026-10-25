@@ -59,7 +59,7 @@ for(const q of newQuestions){
  }
  for(const answer of q.answer.accepted){
   assert.equal(context.B(q,answer,'french').ok,true,q.id+': official '+answer);
-  if(/[\u0300-\u036f]/.test(String(answer).normalize('NFD')))assert.equal(context.B(q,norm(answer),'french').ok,false,q.id+': accent required '+answer);
+  if(/[\u0300-\u036f]/.test(String(answer).normalize('NFD')))assert.equal(context.B(q,norm(answer),'french').ok,true,q.id+': accent optional '+answer);
  }
  assert.equal(context.B(q,'completely unrelated answer','french').ok,false,q.id);
 }

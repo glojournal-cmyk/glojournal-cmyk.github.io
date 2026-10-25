@@ -1,0 +1,56 @@
+name: Current full app QA (no deployment)
+on:
+  push:
+    branches: [qa/current-audit-20261025]
+  pull_request:
+    paths:
+      - '.github/workflows/current-full-qa-20261025.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node tests/all-feature-qa.mjs
+      - run: node tests/chemistry-prose-marking-qa.mjs
+      - run: node --test tests/daily-vocab-year9-three-20261021.test.mjs tests/daily-vocab-total-20261020.test.mjs tests/daily-wrong-question-resume-20261025.test.mjs tests/daily-resume-stable-drafts-20261025.test.mjs tests/daily-ten-to-six-ipad-regression-20261025.test.mjs tests/recovery-question-diversity-20261025.test.mjs
+  ipad-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Test this exact checkout on virtual iPads
+        run: node tests/daily-practice-v2-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: current-ipad-checkout-evidence
+          path: test-results/daily-practice-v2/
+  live-pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Test the separately deployed production website
+        run: node tests/gloria-live-ipad-20261024.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: current-live-pages-evidence
+          path: test-results/gloria-live-ipad/
