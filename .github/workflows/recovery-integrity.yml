@@ -8,6 +8,7 @@ on:
       - "assets/durable-study-evidence-20261018.js"
       - "assets/quest-recovery-20261011.js"
       - "qa/recovery-consistency.test.mjs"
+      - "tests/recovery-correct-count-20261025.test.mjs"
       - ".github/workflows/recovery-integrity.yml"
   pull_request:
     paths:
@@ -16,6 +17,7 @@ on:
       - "assets/daily-record-integrity-20261018.js"
       - "assets/durable-study-evidence-20261018.js"
       - "qa/recovery-consistency.test.mjs"
+      - "tests/recovery-correct-count-20261025.test.mjs"
 jobs:
   recovery-regression:
     runs-on: ubuntu-latest
@@ -28,4 +30,6 @@ jobs:
         with:
           node-version: "22"
       - name: Check dated Recovery and historical Daily Records
-        run: node qa/recovery-consistency.test.mjs
+        run: |
+          node qa/recovery-consistency.test.mjs
+          node --test tests/recovery-correct-count-20261025.test.mjs
