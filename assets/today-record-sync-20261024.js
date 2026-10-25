@@ -56,7 +56,8 @@ export function syncTodayFromDatedRecord(daily, row, date) {
           verifiedCorrectAssignment:key,correctOnlyEvidence:true};
     }catch{}
     changed=true;
-    return {...task,progress:fromRecord,done:fromRecord>=Number(task.target),
+    return {...task,progress:fromRecord,
+      ...(fromRecord>=Number(task.target)?{done:true}:{}),
       ...(verified||{})};
   });
   return changed?reconciled:daily;
