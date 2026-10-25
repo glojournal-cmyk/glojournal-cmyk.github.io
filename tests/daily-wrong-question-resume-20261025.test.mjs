@@ -34,6 +34,7 @@ test('After correct retry of q9, locked Home and 30-day status become 10/10',()=
  assert.equal(result.changed,true);
  assert.equal(result.progress,10);
  assert.equal(result.daily[0].progress,10);
+ assert.equal(result.daily[0].done,true);
  assert.equal(result.dailyLog[day].tasks[0].progress,10);
  assert.equal(result.dailyLog[day].tasks[0].done,true);
  assert.equal(result.dailyLog[day].done,1);
