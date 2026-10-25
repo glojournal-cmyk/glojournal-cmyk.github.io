@@ -206,9 +206,11 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       savedMode(old)===mode&&Number(old.target)===Number(target)&&
       Array.isArray(old.verifiedCorrectIds);
     const verifiedIds=verifiedPrior?[...new Set(old.verifiedCorrectIds.map(String).filter(Boolean))]:[];
+    const verifiedSlots=verifiedPrior?Math.max(0,Math.min(target,
+      Number(old.verifiedCorrectSlots)||0)):0;
     const correctOnlyEvidence=!!topic&&today>='2026-10-24'&&
-      (verifiedIds.length>0||(attempted>0&&attempted>=prior));
-    let progress=topic?Math.min(target,Math.max(verifiedIds.length,
+      (verifiedIds.length>0||verifiedSlots>0||(attempted>0&&attempted>=prior));
+    let progress=topic?Math.min(target,Math.max(verifiedIds.length,verifiedSlots,
       correctOnlyEvidence?correct:Math.max(prior,attempted))):0;
     // Mastery assessment still separately assesses 85% and recall. A wrong
     // response remains in attempt history, but cannot fill the Home quota.
@@ -229,7 +231,8 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       planDate:today,assignedSubject:topic?.subject||null,assignedTopic:topic?.topicId||null,
       assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,masteryCheck,curriculumVersion:4,
       ...(correctOnlyEvidence?{correctOnlyEvidence:true}:{}),
-      ...(verifiedIds.length?{verifiedCorrectIds:verifiedIds.slice(0,60),
+      ...(verifiedIds.length||verifiedSlots?{verifiedCorrectIds:verifiedIds.slice(0,60),
+        verifiedCorrectSlots:verifiedSlots,
         verifiedCorrectAssignment:verifiedKey}:{})};
   };
   const pendingRecall=t=>['check2','check7'].includes(
