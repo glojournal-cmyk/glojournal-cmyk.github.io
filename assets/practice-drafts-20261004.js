@@ -252,5 +252,7 @@
    });
  }
  root.LuxPracticeDrafts={key,read,save,clear,ready,isReady:()=>loaded};
- void ready();
+ // Avoid an orphaned background IndexedDB probe on browsers that lack IDB.
+ // Read-only legacy/tab rescue still works; an explicit save invokes ready().
+ if(root.indexedDB)void ready().catch(()=>{});
 })(globalThis);
