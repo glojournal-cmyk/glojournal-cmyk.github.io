@@ -77,16 +77,32 @@ export function reconcileDailySession(state,receipt={}) {
        !(scienceTask&&event.topicId))continue;
     creditedIds.add(String(event.questionId));
   }
+  // Preserve only individually verified correct base-question IDs as durable
+  // proof. A later partial Safari journal cannot overrule this saved receipt.
+  // Subject/topic/year/day/mode were checked against the locked assignment.
+  const trustedOldIds=Array.isArray(task.verifiedCorrectIds)&&
+    task.planDate===day&&task.assignedSubject===subject&&
+    Number(task.assignedYear)===Number(year)&&
+    task.assignedTopic===expected.searchParams.get('topic')&&
+    expected.searchParams.get('mode')===mode?task.verifiedCorrectIds:[];
+  for(const id of trustedOldIds)if(id)creditedIds.add(String(id));
   const target=Math.max(1,Number(task.target)||1),old=progressOf(task);
   const progress=Math.min(target,Math.max(old,day>='2026-10-24'?creditedIds.size:verified));
-  if(progress===old)return {...unchanged('already-counted'),progress:old,target};
-  const daily=state.daily.map(t=>t===task?{...t,progress,done:progress>=target}:t);
+  if(progress===old&&
+     (!creditedIds.size||JSON.stringify([...creditedIds].sort())===
+       JSON.stringify((task.verifiedCorrectIds||[]).map(String).sort())))
+    return {...unchanged('already-counted'),progress:old,target};
+  const stamped={...task,progress,done:progress>=target,
+    ...(day>='2026-10-24'&&creditedIds.size?
+      {verifiedCorrectIds:[...creditedIds].slice(0,60)}:{})};
+  const daily=state.daily.map(t=>t===task?stamped:t);
   // Keep the dated Home/Recovery summary aligned without touching any other day.
   let dailyLog=state.dailyLog;
   const row=dailyLog?.[day];
   if(Array.isArray(row?.tasks)){
     const tasks=row.tasks.map(t=>t.id===taskId?{
-      ...t,progress,done:progress>=target
+      ...t,progress,done:progress>=target,
+      ...(stamped.verifiedCorrectIds?{verifiedCorrectIds:stamped.verifiedCorrectIds}:{})
     }:t);
     const done=tasks.filter(t=>t.done||Number(t.progress)>=Number(t.target)).length;
     dailyLog={...dailyLog,[day]:{...row,tasks,done,total:tasks.length,
