@@ -10,13 +10,15 @@ const state=JSON.stringify(loaded);
 const rank=rows=>rows;
 const select=(rows,mode,size)=>rows.slice(0,size);
 
-// Reproduce the iPad screenshot: all verified questions were excluded by the
-// previously-correct filter, so the Practice card said it needed unused ones.
+// An empty fresh pool may still contain unanswered or previously wrong questions;
+// NEVER reuse already-correct questions simply to fill a Daily target.
 const fresh=[];
 let picked=fillDailyLockedQuestions(fresh,loaded,{
  locked:true,mode:'standard',size:15,subject:'biology',topicId:'bio-y9-b1'
 },rank,select);
-assert.equal(picked.length,15,'exhausted Year 9 Biology must still open 15 formal revision questions');
+assert.equal(picked.length,15,'unanswered Biology questions can fill a fresh Daily assignment');
+assert.equal(fillDailyLockedQuestions([],loaded,{locked:true,mode:'standard',size:15,subject:'biology',topicId:'bio-y9-b1',correctIds:new Set(loaded.map(q=>q.id))},rank,select).length,0,
+ 'when all 77 questions were correct, never recycle those questions');
 assert.equal(new Set(picked.map(q=>q.id)).size,15,'do not repeat questions in the same Daily set');
 assert.ok(picked.every(q=>q.topicId==='bio-y9-b1'),'never credit the wrong assigned topic');
 assert.equal(JSON.stringify(loaded),state,'never modify or delete the original question bank');
@@ -44,4 +46,4 @@ vm.createContext(ctx);vm.runInContext(guard+'\nthis.guard=guardCurrentDailyRoute
 assert.equal(location.replaced,undefined,'delayed iPad progress hydration must not restart an assigned Daily route');
 const css=fs.readFileSync('assets/daily-practice-ux-v2-20261020.css','utf8');
 assert.match(css,/html:has\(\.lux-practice-view\) body::before/,'an already-rendered quiz cannot be covered by the global saved-progress mask');
-console.log('DAILY_EMPTY_IPAD_QA PASS: 77 Biology questions, 15 usable, no wrong-topic/duplicate/Vocab changes, no route reload and no mounted progress mask.');
+console.log('DAILY_EMPTY_IPAD_QA PASS: Biology unanswered questions refill a Daily session, but no already correct answers are recycled.');
