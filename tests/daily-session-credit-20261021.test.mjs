@@ -74,25 +74,22 @@ test('A session with no marked answers cannot generate completion',()=>{
  assert.equal(result.changed,false);
 });
 
-test('iPad loads cache-busted quiz, Daily route, wrapper and core (not stale JavaScript)',()=>{
+test('iPad loads refreshed Science Daily modules from active production route',()=>{
  const file=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
- const practiceRelease='20261024-latin-session-receipt1';
- const quizRelease='20261024-latin-session-receipt1';
- const creditRelease='20261024-festival-scenes1';
- // The core gets a fresh version when a different app feature is repaired.
- // Require a dated cache-buster, not one frozen release name.
- assert.ok(/index-BLVOhKhN\.core\.js\?v=20261024-[a-z0-9-]+/.test(file('assets/index-BLVOhKhN.js')));
- assert.ok(file('assets/index-BLVOhKhN.core.js').includes('study._subject.practise-y8fix-20260920.js?v='+practiceRelease));
- for(const module of ['assets/study._subject.practise-y8fix-20260920.js','assets/study._subject.practise-D_PWgUd7.js'])
-   assert.ok(file(module).includes('quiz-session-y8fix-20260920.js?v='+quizRelease),module);
+ const practiceRelease='20261025-biology-credit1';
+ const creditRelease='20261025-biology-daily15';
+ assert.ok(file('assets/index-BLVOhKhN.js').includes('index-BLVOhKhN.core.js?v='+practiceRelease));
+ assert.ok(file('assets/index-BLVOhKhN.core.js').includes('study._subject.practise-D_PWgUd7.js?v='+practiceRelease));
+ assert.ok(file('assets/study._subject.practise-D_PWgUd7.js').includes('quiz-session-y8fix-20260920.js?v='+practiceRelease));
  assert.ok(file('assets/quiz-session-y8fix-20260920.js').includes('daily-session-credit-20261021.js?v='+creditRelease));
+ assert.ok(file('assets/quiz-session-y8fix-20260920.js').includes('daily-completed-session-receipts-20261024.js?v='+practiceRelease));
  assert.ok(file('index.html').includes('index-BLVOhKhN.js?v='+practiceRelease));
- assert.ok(file('study/latin/practise/index.html').includes('quiz-session-y8fix-20260920.js?v='+quizRelease));
- assert.ok(file('assets/quiz-session-y8fix-20260920.js').includes('daily-completed-session-receipts-20261024.js'));
+ const biology=file('study/biology/practise/index.html');
+ assert.ok(biology.includes('study._subject.practise-D_PWgUd7.js?v='+practiceRelease));
+ assert.ok(biology.includes('quiz-session-y8fix-20260920.js?v='+practiceRelease));
  for(const route of ['index.html',...['latin','french','biology','chemistry','physics','english'].map(s=>'study/'+s+'/practise/index.html')])
-   assert.ok(/index-BLVOhKhN\.js\?v=20261024-[a-z0-9-]+/.test(file(route)),route);
+   assert.ok(/index-BLVOhKhN\\.js\\?v=2026102[45]-[a-z0-9-]+/.test(file(route)),route);
 });
-
 
 test('20 marked Mastery quiz slots count 20/20 including a repeated question ID',()=>{
  const masteryId='y8-mastery-a';
