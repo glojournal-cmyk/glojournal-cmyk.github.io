@@ -132,18 +132,45 @@
  }
  function key(subject,year,size,topic,daily,mode){
    const u=new URL(location.href);
-   return JSON.stringify([subject,year,size,topic||"",daily||"",
+   // A locked Daily assignment is one continuous sitting. Its remaining
+   // question count changes after every correct answer and must NOT change
+   // the draft identity (e.g. Biology 15 -> 10 on re-entry).
+   const locked=!!daily&&u.searchParams.get("daily")==="1"&&
+     u.searchParams.get("locked")==="1";
+   const today=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/London"}).format(new Date());
+   const taskDay=locked?(u.searchParams.get("recover")||today):(daily?today:"");
+   return JSON.stringify([subject,year,locked?"locked-task":size,topic||"",daily||"",
      mode||u.searchParams.get("mode")||"standard",u.searchParams.get("task")||"",
-     u.searchParams.get("scope")||"",
-     daily?new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/London"}).format(new Date()):""]);
+     u.searchParams.get("scope")||"",taskDay]);
  }
  function read(k){
    // A completed quiz must not become resumable between the UI completion
    // event and the asynchronous IndexedDB delete transaction.
    if(completedKeys.has(k))return null;
-   const row=cache.get(k),legacy=oldMap()[k],tab=inTab();
-   const candidate=newer(newer(row,legacy),tab?.key===k?tab.record:null);
-   return valid(candidate)?candidate:null;
+   const legacy=oldMap(),tab=inTab();
+   const exact=newer(newer(cache.get(k),legacy[k]),tab?.key===k?tab.record:null);
+   let best=valid(exact)?exact:null;
+   // Recover older in-progress sittings saved under the obsolete numeric
+   // *remaining-count* key. Match every other dimension, including the
+   // dated assignment, to avoid mixing different tasks or Recovery dates.
+   let identity;
+   try{identity=JSON.parse(k)}catch{return best}
+   if(!Array.isArray(identity)||identity.length!==9||identity[2]!=="locked-task")
+     return best;
+   const candidates=new Set([...cache.keys(),...Object.keys(legacy),...(tab?[tab.key]:[])]);
+   for(const previousKey of candidates){
+     if(previousKey===k||completedKeys.has(previousKey))continue;
+     let prior;
+     try{prior=JSON.parse(previousKey)}catch{continue}
+     if(!Array.isArray(prior)||prior.length!==9||
+       !Number.isInteger(prior[2])||prior[2]<1||
+       prior.some((value,index)=>index!==2&&value!==identity[index]))continue;
+     const draft=newer(newer(cache.get(previousKey),legacy[previousKey]),
+       tab?.key===previousKey?tab.record:null);
+     if(valid(draft)&&(!best||Number(draft.savedAt)>Number(best.savedAt)))
+       best=draft;
+   }
+   return best;
  }
  function recoveryReceipt(d){
    try{
