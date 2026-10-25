@@ -65,44 +65,54 @@ function commitCompletedRecoverySession(input){
  try{
   const params=new URLSearchParams(location.search);
   const date=params.get("recover")||input?.date,taskId=params.get("task")||input?.taskId;
-  if(!date||date!==input?.date||taskId!==input?.taskId)return false;
-  if(!["y8-practise","y8-mastery","year8-long-review","latin-standard","y8-standard-a","y8-standard-b","y8-mastery-a","y8-mastery-b","weakness-review","due-review","year9-light"].includes(taskId))return false;
-  if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!["french","latin","biology","chemistry","physics"].includes(input.subject))return false;
+  if(!date||date!==input?.date||taskId!==input?.taskId||!canRecover(todayKey(),date))return false;
+  if(!["y8-practise","y8-mastery","year8-long-review","latin-standard","y8-standard-a","y8-standard-b","y8-mastery-a","y8-mastery-b","y8-mastery-topup-a","y8-mastery-topup-b","weakness-review","due-review","year9-light","study-session","adaptive-focus","mistake-review"].includes(taskId))return false;
+  if(!["french","latin","biology","chemistry","physics"].includes(input.subject))return false;
   const current=store.getState(),row=current.dailyLog?.[date];
   const target=row?.tasks?.find(task=>task.id===taskId);
-  if(!target||Number(target.target)<=0)return false;
+  if(!target||Number(target.target)<=0||target.done)return false;
+  const assignedSubject=target.assignedSubject||target.reviewSubject||target.focusSubject||
+    String(target.href||"").match(/^\/study\/(french|latin|biology|chemistry|physics)\/practise/)?.[1];
+  if(assignedSubject&&assignedSubject!==input.subject)return false;
+  const expectedYear=Number(target.assignedYear||target.reviewYear||
+    new URL(target.href||"/",location.origin).searchParams.get("year"))||null;
+  if(expectedYear&&Number(input.year)!==expectedYear)return false;
+  // A real session is authoritative. Only the distinct, CORRECT, formally
+  // marked base questions can repair an incomplete iPad Recovery ledger.
   const checked=Array.isArray(input.answers)?input.answers.filter(a=>
-    a&&a.questionId&&a.formal!==false&&!a.repair&&typeof a.correct==="boolean"&&
+    a&&a.questionId&&a.correct===true&&a.formal!==false&&!a.repair&&
     matchesAssignedPracticeEvidence({
       ...a,subject:input.subject,year:Number(input.year)||8,
       dailyTaskId:taskId,formal:true,repair:false
     },target,taskId)):[];
-  // Completion credit is based on the actual marked base questions in this
-  // session, not the number of times its result screen has been opened.
-  const unique=new Set(checked.map(a=>String(a.questionId)));
-  if(unique.size<Number(target.target)||target.done)return false;
-  const dayKey=date+":"+taskId;
-  const proof={taskId,day:date,subject:input.subject,
-    topicId:target.assignedTopic||target.reviewTopic||null,
-    questionIds:[...unique].slice(0,Number(target.target)),
-    firstPassCorrect:checked.filter(a=>a.correct).length,
-    source:"verified-session-completion",at:new Date().toISOString()};
-  const tasks=row.tasks.map(t=>t.id===taskId?{
-    ...t,progress:Number(t.target),done:true,recovered:true,
-    recoveredFromSession:true
-  }:t);
-  const done=tasks.filter(t=>t.done||Number(t.progress)>=Number(t.target)).length;
-  const proofs={...(current.recoverySessionProofByDay||{})};
-  proofs[dayKey]=proof;
+  if(!checked.length)return false;
+  const unique=[...new Set(checked.map(a=>String(a.questionId)))];
+  let next=current,accepted=false;
+  for(const questionId of unique){
+    const result=recordRecoveryAnswer(next,{
+      today:todayKey(),date,taskId,questionId,correct:true
+    });
+    if(result.accepted){next=result.state;accepted=true;}
+  }
+  if(!accepted)return false;
+  const prior=current.recoverySessionProofByDay||{},key=date+":"+taskId;
+  const priorQuestions=prior[key]?.questionIds||[];
+  const evidence=[...new Set([...priorQuestions,...unique])];
   store.setState({
-    recoverySessionProofByDay:proofs,
-    dailyLog:{...(current.dailyLog||{}),[date]:{
-      ...row,tasks,done,total:tasks.length,complete:done===tasks.length
+    recoveryTaskByDay:next.recoveryTaskByDay,
+    dailyLog:next.dailyLog,
+    recoverySessionProofByDay:{...prior,[key]:{
+      taskId,day:date,subject:input.subject,
+      topicId:target.assignedTopic||target.reviewTopic||null,
+      questionIds:evidence.slice(0,Math.max(1,Number(target.target))),
+      firstPassCorrect:evidence.length,
+      source:"verified-correct-recovery-answers",at:new Date().toISOString()
     }}
   });
   return true;
- }catch(error){console.warn("Recovery session completion could not be recorded",error);return false}
+ }catch(error){console.warn("Recovery session answers could not be recorded",error);return false}
 }
+
 if(typeof globalThis!=="undefined")globalThis.LuxRecoveryCommitCompletedSession=commitCompletedRecoverySession;
 
 // The route guard used to replace a Recovery link with today's frontier and
