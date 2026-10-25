@@ -208,7 +208,7 @@ function backfillDatedFocusEvidence(){
      if(!task||task.done||Number(task.progress)>=Number(task.target))continue;
      const subject=task.focusSubject||task.assignedSubject||task.reviewSubject;
      const topic=task.focusTopic||task.assignedTopic||task.reviewTopic;
-     const matched=taskId==='study-session' ? entries : entries.filter(a=>
+     const matched=entries.filter(a=>a.dailyTaskId===taskId&&
        (!subject||a.subject===subject)&&(!topic||a.topicId===topic));
      if(!matched.length)continue;
      // If the historical row already shows partial progress but no proof
