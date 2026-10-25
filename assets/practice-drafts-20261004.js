@@ -8,6 +8,18 @@
  const LIFE_MS=7*86400000;
  const cache=new Map(), writes=new Map(), completedKeys=new Set();
  let dbPromise=null, readyPromise=null, loaded=false;
+ // Safari/iPad IndexedDB requests can remain pending without firing an error.
+ // Never let this optional draft store indefinitely block practice or saving.
+ const DRAFT_WAIT_MS=5000;
+ function withDeadline(promise,label){
+   return new Promise((resolve,reject)=>{
+     const timer=setTimeout(()=>reject(Error(label+" timed out")),DRAFT_WAIT_MS);
+     Promise.resolve(promise).then(
+       result=>{clearTimeout(timer);resolve(result)},
+       error=>{clearTimeout(timer);reject(error)}
+     );
+   });
+ }
 
  function oldMap(){
    try{
@@ -127,7 +139,9 @@
    }
  }
  function ready(){
-   if(!readyPromise)readyPromise=hydrate().catch(()=>{}).then(()=>{loaded=true;return true;});
+   if(!readyPromise)readyPromise=withDeadline(hydrate(),"Draft loading")
+     .catch(()=>{}) // Keep IDB/legacy records untouched if this device stalls.
+     .then(()=>{loaded=true;return true;});
    return readyPromise;
  }
  function key(subject,year,size,topic,daily,mode){
@@ -199,7 +213,7 @@
        const legacy=oldMap(),tab=inTab();
        const keys=[k,...oldDailyDraftKeys(k,legacy,tab)];
        for(const item of keys)completedKeys.add(item);
-       for(const item of keys)if(!(await dbDelete(item)))return false;
+       for(const item of keys)if(!(await withDeadline(dbDelete(item),"Draft removal")))return false;
        let changed=false;
        for(const item of keys)if(Object.prototype.hasOwnProperty.call(legacy,item)){
          delete legacy[item];changed=true;
@@ -222,7 +236,7 @@
    tabSave(k,snapshot); // Small same-tab rescue while the IndexedDB transaction is in flight.
    return enqueue(k,async()=>{
      await ready();
-     try{return await dbWrite(k,snapshot);}
+     try{return await withDeadline(dbWrite(k,snapshot),"Draft save");}
      catch{
        // Fallback must be a VERIFIED persistent write, not only sessionStorage.
        try{
