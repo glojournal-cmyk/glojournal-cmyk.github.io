@@ -87,6 +87,35 @@ function sanitized(source,task){
   receipt.key=key(receipt);
   return valid(receipt)?receipt:null;
 }
+
+// Merge separately finished sittings of the SAME dated, locked assignment.
+// Keep one marked result per question ID: a later correct retry supersedes an
+// earlier wrong answer, while an earlier correct answer can never be lost.
+// Reopening a quiz with the same answers never earns additional credit.
+function mergeReceipts(previous,current){
+ if(!valid(previous)||previous.key!==current.key)return current;
+ const rows=new Map();
+ for(const receipt of [previous,current]){
+  const questions=new Map(receipt.questions.filter(q=>q?.id&&!q._repair&&q.formal!==false)
+    .map(q=>[String(q.id),q]));
+  for(const answer of receipt.answers){
+   const id=String(answer.questionId||'');
+   if(!questions.has(id)||answer.formal===false||answer.repair||
+      typeof answer.correct!=='boolean')continue;
+   const old=rows.get(id);
+   rows.set(id,{question:questions.get(id),answer:{
+     questionId:id,correct:!!answer.correct||!!old?.answer.correct,
+     formal:true,repair:false
+   }});
+  }
+ }
+ const selected=[...rows.values()].sort((a,b)=>
+  Number(b.answer.correct)-Number(a.answer.correct)).slice(0,30);
+ return {...current,
+  questions:selected.map(row=>row.question),
+  answers:selected.map(row=>row.answer),
+  at:Math.max(Date.now(),Number(previous.at)||0)};
+}
 export async function saveCompletedDailyReceipt(state,source){
   if(!state||!source||state.today!==source.day||!validDay(source.day))return false;
   const candidate=[...(state.daily||[]),...(state.dailyLog?.[source.day]?.tasks||[])]
@@ -119,12 +148,15 @@ export async function saveCompletedDailyReceipt(state,source){
   if(marked<eligible.length)return false;
   // Save only the actually marked answers; never promote a partial 10/15
   // quiz to completion or turn an incorrect answer into a correct one.
-  const fallback=writeFallback(receipt);
-  const persisted=await put(receipt);
+  const previous=[...readFallback(),...(await all())].filter(row=>valid(row)&&
+    row.key===receipt.key).sort((a,b)=>(Number(b.at)||0)-(Number(a.at)||0))[0];
+  const combined=mergeReceipts(previous,receipt);
+  const fallback=writeFallback(combined);
+  const persisted=await put(combined);
   return persisted||fallback;
 }
 export function reconcileCompletedDailyReceipts(state,receipts){
-  if(!state||!validDay(state.today)||!Array.isArray(state.daily)||state.daily.length!==10)
+  if(!state||!validDay(state.today)||!Array.isArray(state.daily)||state.daily.length<1)
     return null;
   let next=state,changed=false;
   for(const item of receipts||[]){
