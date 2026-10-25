@@ -2566,7 +2566,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
           if(eligibleYear8Evidence(event,target,id))creditIds.add(id);
         }
       }
-      let nextState=store.getState(),accepted=false;
+      let nextState=store.getState(),accepted=false,creditedExplicit=false;
       for(const id of creditIds){
         const candidate=nextState.dailyLog?.[date]?.tasks?.find(t=>t.id===id);
         if(!candidate)continue;
@@ -2582,11 +2582,20 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
         const outcome=recordRecoveryAnswer(nextState,{
           today:todayKey(),date,taskId:id,questionId:savedKey,correct:!!correct
         });
-        if(outcome.accepted){nextState=outcome.state;accepted=true;}
+        if(outcome.accepted){nextState=outcome.state;accepted=true;if(id===taskId)creditedExplicit=true;}
       }
       if(accepted)store.setState({
         recoveryTaskByDay:nextState.recoveryTaskByDay,
         dailyLog:nextState.dailyLog
+      });
+      // Independent small proof for Safari: save EACH verified correct answer,
+      // not only a full Session Complete screen. Capture the original baseline
+      // once so 10 correct catch-up answers add 10 to an original 5/15, not 1.
+      if(creditedExplicit&&correct===true)saveRecoveryReceipt({
+        date,taskId,subject:resolved.subject||subject,
+        topicId:actual?.assignedTopic||actual?.reviewTopic||null,
+        questionIds:[questionId],verifiedCorrect:true,
+        baseline:Math.max(0,Number(actual?.progress)||0)
       });
     }
   }
