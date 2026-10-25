@@ -65,10 +65,15 @@ export function saveRecoveryReceipt(input) {
   if (!dayOk(date) || !TASKS.has(taskId)) return false;
   const ids = [...new Set((input.questionIds || []).map((id) => String(id || "")).filter(Boolean))];
   if (!ids.length) return false;
+  const verifiedCorrect = input.verifiedCorrect===true;
+  // Legacy Recovery receipts held ALL marked answers, including wrong ones;
+  // retain them for historical inspection but never count as correct proof.
   const all = readAll();
   const id = date + ":" + taskId;
   const prev = all[id] || {};
   const questionIds = [...new Set([...(prev.questionIds || []), ...ids])].slice(0, 80);
+  const correctQuestionIds = [...new Set([...(prev.correctQuestionIds || []),
+    ...(verifiedCorrect ? ids : [])])].slice(0, 80);
   const baseline = VOCAB.has(taskId)
     ? (Number.isFinite(Number(prev.baseline)) ? Number(prev.baseline)
       : (Number.isFinite(Number(input.baseline)) ? Math.max(0, Math.min(30, Number(input.baseline))) : 0))
@@ -79,6 +84,7 @@ export function saveRecoveryReceipt(input) {
     subject: input.subject || prev.subject || null,
     topicId: input.topicId || prev.topicId || null,
     questionIds,
+    ...(correctQuestionIds.length ? {correctQuestionIds,verifiedCorrect:true} : {}),
     ...(baseline == null ? {} : { baseline }),
     at: new Date().toISOString()
   };
@@ -99,9 +105,15 @@ export function applyRecoveryReceipts(dailyLog) {
     const task = row.tasks.find((item) => item.id === receipt.taskId);
     if (!task) continue;
     const target = Math.max(1, Number(task.target) || 1);
-    const count = receipt.questionIds.length;
-    const current = Number(task.progress) || 0;
     const vocab = VOCAB.has(receipt.taskId);
+    const gameOrGarden=receipt.taskId==="play-game"||receipt.taskId==="tend-garden";
+    const count = vocab||gameOrGarden
+      ? receipt.questionIds.length
+      : receipt.verifiedCorrect===true
+        ? new Set((receipt.correctQuestionIds||[]).map(id=>String(id).split("@")[0])).size
+        : 0;
+    if(!count)continue;
+    const current = Number(task.progress) || 0;
     const baseline = vocab && Number.isFinite(Number(receipt.baseline)) ? Number(receipt.baseline) : current;
     const progress = Math.min(target, Math.max(current, vocab ? baseline + count : count));
     if (progress <= current && (task.done || progress < target)) continue;
@@ -120,14 +132,16 @@ export function applyRecoveryReceipts(dailyLog) {
 export function commitRecoverySession(input) {
   const answers = Array.isArray(input?.answers) ? input.answers : [];
   const questionIds = answers
-    .filter((answer) => answer && answer.questionId && answer.formal !== false && !answer.repair)
+    .filter((answer) => answer && answer.questionId && answer.correct === true &&
+      answer.formal !== false && !answer.repair)
     .map((answer) => answer.questionId);
   return saveRecoveryReceipt({
     date: input?.date,
     taskId: input?.taskId,
     subject: input?.subject,
     topicId: input?.topicId,
-    questionIds
+    questionIds,
+    verifiedCorrect:true
   });
 }
 
