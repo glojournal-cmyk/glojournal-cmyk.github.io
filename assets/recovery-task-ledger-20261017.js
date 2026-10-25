@@ -42,6 +42,10 @@ export function matchesAssignedPracticeEvidence(entry,task,taskId){
    entry.formal===false||entry.repair===true||
    ["french-vocab","latin-vocab"].includes(entry.dailyTaskId)||
    ["french","latin"].includes(entry.dailyVocab))return false;
+ // Never assign a question explicitly marked for one Recovery card to a
+ // second card just because its subject/topic happens to be the same.
+ // Untagged legacy answers retain the strict original subject+topic check.
+ if(entry.dailyTaskId&&entry.dailyTaskId!==taskId)return false;
  const href=String(task.href||"");
  const route=href.match(/^\/study\/(french|latin|biology|chemistry|physics)\/practise(?:\?|\/|$)/);
  let hrefSubject=route?.[1]||null,hrefTopic=null,hrefYear=null;
