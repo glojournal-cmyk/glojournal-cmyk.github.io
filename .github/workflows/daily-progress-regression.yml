@@ -46,6 +46,8 @@ jobs:
           node --test tests/daily-correct-only-20261024.test.mjs
           node --test tests/daily-session-credit-20261021.test.mjs
           node --test tests/daily-biology-fifteen-credit-20261025.test.mjs
+          node --test tests/daily-no-repeat-correct-20261025.test.mjs
+          node tests/daily-locked-empty-20261021.mjs
           node --test tests/latin-stage1-ipad-completion-receipt-20261024.test.mjs
           node --test tests/journey-ipad-date-iso-20261024.test.mjs
           node --test tests/today-record-sync-20261024.test.mjs
