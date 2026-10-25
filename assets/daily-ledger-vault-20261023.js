@@ -88,7 +88,34 @@ async function restore(store){
  const merged=mergeDailyHistory(archived,s.dailyLog);
  if(JSON.stringify(merged)!==JSON.stringify(s.dailyLog||{}))
    store.setState({dailyLog:merged});
+ reconcileCurrentDay(store,merged);
 }
+
+// Restore only the EXACT current-day assignment from verified dated receipts.
+// A stale route/hydration snapshot must not lower today's visible task progress.
+function reconcileCurrentDay(store,archived){
+ const state=store.getState();
+ if(!validDate(state.today)||!Array.isArray(state.daily)||state.daily.length!==10)return false;
+ const row=archived?.[state.today];
+ if(!verifiedRow(row))return false;
+ let changed=false;
+ const daily=state.daily.map(task=>{
+   const saved=row.tasks.find(t=>t.id===task.id&&Number(t.target)===Number(task.target)&&
+     String(t.assignedSubject||'')===String(task.assignedSubject||'')&&
+     String(t.assignedTopic||'')===String(task.assignedTopic||'')&&
+     String(t.assignedYear||'')===String(task.assignedYear||''));
+   if(!saved)return task;
+   const target=Number(task.target);
+   const progress=Math.min(target,Math.max(Number(task.progress)||0,
+     Number(saved.progress)||0,saved.done===true?target:0));
+   if(progress<=(Number(task.progress)||0)&&(!saved.done||task.done===true))return task;
+   changed=true;
+   return {...task,progress,done:task.done===true||saved.done===true||progress>=target};
+ });
+ if(changed)store.setState({daily});
+ return changed;
+}
+
 function start(){
  if(initialized||initializing)return;
  const store=globalThis.__luxStore;
@@ -107,7 +134,14 @@ function start(){
      if(!prev||(!initialized)||(
        next.daily===prev.daily&&next.dailyLog===prev.dailyLog&&next.today===prev.today))return;
      if(timer!==null)clearTimeout(timer);
-     timer=setTimeout(()=>{timer=null;void record(store.getState()).catch(()=>{})},450);
+     timer=setTimeout(()=>{timer=null;void record(store.getState()).then(async()=>{
+       const saved=(await all()).filter(verifiedRow);
+       const archive=Object.fromEntries(saved.map(r=>[r.date,r]));
+       const current=store.getState();
+       const merged=mergeDailyHistory(archive,current.dailyLog);
+       if(JSON.stringify(current.dailyLog||{})!==JSON.stringify(merged))store.setState({dailyLog:merged});
+       reconcileCurrentDay(store,merged);
+     }).catch(e=>console.warn('Daily progress reconciliation unavailable',e?.name||e))},450);
    });
  });
 }
