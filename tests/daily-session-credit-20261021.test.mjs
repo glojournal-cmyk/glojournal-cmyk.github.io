@@ -83,7 +83,7 @@ test('iPad loads refreshed Science Daily modules from active production route',(
  assert.ok(file('assets/index-BLVOhKhN.core.js').includes('study._subject.practise-D_PWgUd7.js?v='+coreRelease));
  assert.ok(file('assets/study._subject.practise-D_PWgUd7.js').includes('quiz-session-y8fix-20260920.js?v='+practiceRelease));
  assert.ok(file('assets/quiz-session-y8fix-20260920.js').includes('daily-session-credit-20261021.js?v='+creditRelease));
- assert.ok(file('assets/quiz-session-y8fix-20260920.js').includes('daily-completed-session-receipts-20261024.js?v=20261025-no-repeat1'));
+ assert.ok(file('assets/quiz-session-y8fix-20260920.js').includes('daily-completed-session-receipts-20261024.js?v=20261025-daily-retry1'));
  assert.ok(file('index.html').includes('index-BLVOhKhN.js?v='+practiceRelease));
  const biology=file('study/biology/practise/index.html');
  assert.ok(biology.includes('study._subject.practise-D_PWgUd7.js?v='+practiceRelease));
