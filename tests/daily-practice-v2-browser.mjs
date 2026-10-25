@@ -624,6 +624,7 @@ async function checkExhaustedBiologyDaily(browser,engine){
       ready:document.documentElement.classList.contains('lux-daily-ux-ready')
     }));
     assert.equal(result.question,undefined,'previously correct Biology questions must never be recycled as missing Daily credits');
+    assert.equal(result.locked,true,'the depleted bank stays attached to the correct locked Daily task');
     assert.equal(result.error,true,'tell learner when no unanswered questions remain in the assigned bank');
     assert.equal(result.progressSafe,true,'an exhausted bank must explicitly preserve existing credit');
     assert.equal(result.mask,'none','no saved-progress mask over mounted Biology practice');
