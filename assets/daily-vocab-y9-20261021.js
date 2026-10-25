@@ -1,4 +1,4 @@
-import {LATIN_BOOKLET_GROUPS,latinBookletKey} from './latin-vocabulary-booklet-20261023.js';
+import {LATIN_BOOKLET_GROUPS,latinBookletKey} from './latin-vocabulary-booklet-20261023.js?ux=20261025-full-qa1';
 // Complete Year 9 source-backed vocabulary pool for the two Daily Vocab tasks.
 // Sources: school 2026-09-26 Year 9 vocabulary entries, Stage 1 Latin paradigms,
 // and the 2026-10-17 French holiday vocabulary booklet. Existing Year 9 French

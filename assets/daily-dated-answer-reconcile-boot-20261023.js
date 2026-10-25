@@ -1,6 +1,6 @@
 // Gloria historical Daily reconciliation — one safe pass on settled iPad hydration.
 // Never import the main app again. No XP, Mastery or new answer creation.
-import {rebuildDatedDailyRecords} from "./daily-dated-answer-reconcile-20261023.js?v=20261023-three-day-proof1";
+import {rebuildDatedDailyRecords} from "./daily-dated-answer-reconcile-20261023.js?v=20261023-three-day-proof1&ux=20261025-full-qa1";
 let attached=false,checked=false,scheduled=false;
 function attach(){
  if(attached)return true;

@@ -1,6 +1,6 @@
-import '../assets/player-ux-20261013.js?ux=20261013-corrections2&uxfix=20261022-priority-ux1';
-import {MAX_PET_LEVEL, EVOLUTION_COSTS, STAGE_NAMES, clampPetLevel, ADVANCED_FORMS} from './pet-evolution-config-20261012.js?v=20261019-baphomet1&ux=20261013-corrections2';
-import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
+import '../assets/player-ux-20261013.js?uxfix=20261022-priority-ux1&ux=20261025-full-qa1';
+import {MAX_PET_LEVEL, EVOLUTION_COSTS, STAGE_NAMES, clampPetLevel, ADVANCED_FORMS} from './pet-evolution-config-20261012.js?v=20261019-baphomet1&ux=20261025-full-qa1';
+import {petArtUrl, spriteStyle, applyPetSprite} from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261025-full-qa1';
 const APP_KEY = "lux-scholar-garden-v1";
 const PET_KEY = "lux-pet-companion-v1";
 

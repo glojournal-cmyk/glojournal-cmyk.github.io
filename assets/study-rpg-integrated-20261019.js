@@ -1,8 +1,8 @@
 /* Study RPG: presentation only. Keep all real learning/marking/save logic in
  * the existing Lux et Labor app. The Home outfit and Pet share their sources.
  */
-import { A as wardrobeOutfits, C as store } from './index-BLVOhKhN.js?v=20261024-medical-then-festival-mastery-v1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
-import { petArtUrl } from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
+import { A as wardrobeOutfits, C as store } from './index-BLVOhKhN.js?v=20261025-full-qa1&ux=20261025-full-qa1';
+import { petArtUrl } from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261025-full-qa1';
 
 if (!window.__luxStudyRpgIntegrated) {
   window.__luxStudyRpgIntegrated = true;
@@ -10,7 +10,7 @@ if (!window.__luxStudyRpgIntegrated) {
     const sheet = document.createElement('link');
     sheet.id = 'lux-study-rpg-style';
     sheet.rel = 'stylesheet';
-    sheet.href = '/assets/study-rpg-integrated-20261019.css?v=20261020-maths7-layout1';
+    sheet.href = '/assets/study-rpg-integrated-20261019.css?v=20261020-maths7-layout1&ux=20261025-full-qa1';
     document.head.append(sheet);
   }
   // Use a div with role=main: the old Pet enhancer decorates images inside <main>.

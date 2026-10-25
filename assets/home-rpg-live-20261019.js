@@ -1,14 +1,14 @@
-import { scholarMetrics } from './scholar-metrics-20261022.js';
+import { scholarMetrics } from './scholar-metrics-20261022.js?ux=20261025-full-qa1';
 /* Lux et Labor RPG Home — presentation layer only.
  * Integrates the original App state, never awards credit or edits a daily record.
  * The native Recovery module remains authoritative for dated recovery.
  */
-import './home-journey-v2-logic-20261010.js?v=20261023-no-zero-flicker1';
-import './journey-navigation-20261004.js?v=20261024-latin-ipad-date2';
-import { A as wardrobeOutfits, C as store, Z as scholarLevelProgress, B as rewardScenes } from './index-BLVOhKhN.js?v=20261025-recovery-correct1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
-import { selectedRewardScene } from './rpg-scene-selection-20261019.js?v=20261024-festival-scene-allowlist1';
-import { petArtUrl } from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261013-corrections2';
-import { getHomePersonality } from '/pet/home-personality-20261010.js?v=20261019-rpg-greeting1';
+import './home-journey-v2-logic-20261010.js?v=20261023-no-zero-flicker1&ux=20261025-full-qa1';
+import './journey-navigation-20261004.js?v=20261024-latin-ipad-date2&ux=20261025-full-qa1';
+import { A as wardrobeOutfits, C as store, Z as scholarLevelProgress, B as rewardScenes } from './index-BLVOhKhN.js?v=20261025-full-qa1&ux=20261025-full-qa1';
+import { selectedRewardScene } from './rpg-scene-selection-20261019.js?v=20261024-festival-scene-allowlist1&ux=20261025-full-qa1';
+import { petArtUrl } from '/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261025-full-qa1';
+import { getHomePersonality } from '/pet/home-personality-20261010.js?v=20261019-rpg-greeting1&ux=20261025-full-qa1';
 
 if (!window.__luxRpgLiveHome) {
   window.__luxRpgLiveHome = true;
@@ -16,7 +16,7 @@ if (!window.__luxRpgLiveHome) {
     const css = document.createElement('link');
     css.id = 'lux-rpg-live-css';
     css.rel = 'stylesheet';
-    css.href = '/assets/home-rpg-live-20261019.css?v=20261024-recovery-dialog1';
+    css.href = '/assets/home-rpg-live-20261019.css?v=20261024-recovery-dialog1&ux=20261025-full-qa1';
     document.head.append(css);
   }
   const root = document.createElement('div');
@@ -103,7 +103,7 @@ if (!window.__luxRpgLiveHome) {
     // Recovery was paused during the iPad memory emergency, so a DOM-only
     // poll reported "no tasks" even when the feature had never been loaded.
     // Import on demand: no background Recovery observer on ordinary Home.
-    void import('./quest-recovery-20261011.js?v=20261025-recovery-correct1')
+    void import('./quest-recovery-20261011.js?v=20261025-recovery-correct1&ux=20261025-full-qa1')
       .then(module => {
         if (gardenModal !== 'recovery' || !onHome()) return;
         module.mountRecoveryPanel();

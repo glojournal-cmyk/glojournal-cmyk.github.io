@@ -1,4 +1,4 @@
-import {frenchAliasGroups} from './french-duplicate-aliases-20261018.js';
+import {frenchAliasGroups} from './french-duplicate-aliases-20261018.js?ux=20261025-full-qa1';
 // Runtime-only deduplication. Do not delete historical question IDs: older
 // saved wrong-answer and review evidence still refers to those IDs.
 const normalise = value => String(value ?? '').normalize('NFKD')

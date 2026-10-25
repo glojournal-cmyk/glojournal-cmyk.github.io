@@ -1,5 +1,5 @@
-import {assessImport, mergeImportProgress, latestStudyEvidence} from "./backup-import-safety-20261023.js";
-import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
+import {assessImport, mergeImportProgress, latestStudyEvidence} from "./backup-import-safety-20261023.js?ux=20261025-full-qa1";
+import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1&ux=20261025-full-qa1";
 
 const KEY="lux-scholar-garden-v1";
 const PAIRS=[

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
-const CANON='index-BLVOhKhN.js?v=20261023-share-permission1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
+const CANON=read('index.html').match(/index-BLVOhKhN\.js\?[^"'<> ]+/)[0];
 test('DailyNext + Study experience use the exact Home app module, never a duplicate student store',()=>{
  for(const name of ['assets/journey-navigation-ui-20261004.js','assets/study-experience-20260927.js']){
   const s=read(name);

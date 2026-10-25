@@ -47,7 +47,7 @@
   function installSheet() {
     // Match the stylesheet used by the static Practice routes. Earlier Home
     // -> Daily SPA sessions imported ?v=preview1 from Safari's old cache.
-    const href = '/assets/practice-studio-20261023.css?v=studio-shell-stable3';
+    const href = '/assets/practice-studio-20261023.css?v=studio-shell-stable3&ux=20261025-full-qa1';
     sheet = sheet?.isConnected ? sheet : document.getElementById('lux-daily-practice-ux-v2-style');
     if (sheet) {
       if (sheet.getAttribute('href') !== href) {
@@ -65,7 +65,7 @@
   // Only inserts a CSS link. No question, grading, save or draft mutation.
   function installUnifiedQuestionTheme() {
     const id = 'gloria-unified-question-theme';
-    const href = '/assets/gloria-unified-question-theme-20261024.css?v=20261024-progress2';
+    const href = '/assets/gloria-unified-question-theme-20261024.css?v=20261024-progress2&ux=20261025-full-qa1';
     let link = document.getElementById(id);
     if (!link) {
       link = document.createElement('link');
@@ -81,7 +81,7 @@
   // controls; metadata attributes below are used only for CSS styling.
   function installMockupSkin() {
     const id='gloria-practice-final-skin';
-    const href='/assets/gloria-practice-mockup-final-20261024.css?v=20261024-est-focus12';
+    const href='/assets/gloria-practice-mockup-final-20261024.css?v=20261024-est-focus12&ux=20261025-full-qa1';
     let link=document.getElementById(id);
     if(!link) {
       link=document.createElement('link');
@@ -131,7 +131,7 @@
   // navigation. It is CSS-only and never mutates question state or scoring.
   function installStabilitySkin() {
     const id='gloria-practice-stability';
-    const href='/assets/gloria-practice-stability-20261024.css?v=night-art1';
+    const href='/assets/gloria-practice-stability-20261024.css?v=night-art1&ux=20261025-full-qa1';
     let link=document.getElementById(id);
     if(!link) {
       link=document.createElement('link');
@@ -245,8 +245,8 @@
     }
     if (!petResolver) {
       petResolver = Promise.all([
-        import('/pet/pet-art-hd-20261009.js'),
-        import('/assets/companion-goals-state-20261004.js')
+        import('/pet/pet-art-hd-20261009.js?ux=20261025-full-qa1'),
+        import('/assets/companion-goals-state-20261004.js?ux=20261025-full-qa1')
       ]).catch(()=>null);
     }
     petResolver.then(modules=>{

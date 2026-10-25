@@ -3,10 +3,10 @@
  * Never writes localStorage, never awards XP directly, never changes the
  * once-a-day watering rule, unlock conditions or equipped Home outfit/Pet.
  */
-import {gardenSceneForDate} from './garden-weekly-rotation-20261021.js';
+import {gardenSceneForDate} from './garden-weekly-rotation-20261021.js?ux=20261025-full-qa1';
 import { C as store, Q as gardenStage, U as collectibles, X as stages,
          G as needProgress, Y as requirementsContext } from
-  '/assets/index-BLVOhKhN.js?v=20261024-medical-then-festival-mastery-v1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
+  '/assets/index-BLVOhKhN.js?v=20261025-full-qa1&ux=20261025-full-qa1';
 if (typeof document !== 'undefined' && !window.__luxGardenAcademyPreviewInstalled) {
 window.__luxGardenAcademyPreviewInstalled = true;
 const enabled=()=>/^\/garden\/?$/.test(location.pathname)&&

@@ -2,7 +2,7 @@
  * Production presentation: never changes scores, XP, quest or unlocking state.
  * All 17 native /play/:game routes remain the only game implementations.
  */
-import {A as wardrobeOutfits, C as store} from './index-BLVOhKhN.js?v=20261024-medical-then-festival-mastery-v1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
+import {A as wardrobeOutfits, C as store} from './index-BLVOhKhN.js?v=20261025-full-qa1&ux=20261025-full-qa1';
 
 const PREVIEW_PARAM = 'playHallPreview';
 const GAME_LIST = Object.freeze([
@@ -40,7 +40,7 @@ if (!window.__luxPlayHallPreviewMounted && /^\/play\/?$/.test(location.pathname)
   window.__luxPlayHallPreviewMounted=true;
   const css=document.createElement('link');
   css.rel='stylesheet';css.id='lux-play-hall-preview-style';
-  css.href='/assets/play-hall-preview-20261020.css?v=20261020-full-list2';document.head.append(css);
+  css.href='/assets/play-hall-preview-20261020.css?v=20261020-full-list2&ux=20261025-full-qa1';document.head.append(css);
   const root=document.createElement('div');root.id='lux-play-hall-preview';root.className='lux-play-hall';
   root.setAttribute('aria-label','The Enchanted Game Hall');
   let currentGroup=null,modalOpen=false,previousFocus=null,lastSignature=null,scheduled=false;

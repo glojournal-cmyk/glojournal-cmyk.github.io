@@ -33,7 +33,7 @@
   function installSheet() {
     // Match the stylesheet used by the static Practice routes. Earlier Home
     // -> Daily SPA sessions imported ?v=preview1 from Safari's old cache.
-    const href = '/assets/daily-practice-ux-modern-picker-20261023.css?v=modern-picker-release1';
+    const href = '/assets/daily-practice-ux-modern-picker-20261023.css?v=modern-picker-release1&ux=20261025-full-qa1';
     sheet = sheet?.isConnected ? sheet : document.getElementById('lux-daily-practice-ux-v2-style');
     if (sheet) {
       if (sheet.getAttribute('href') !== href) {
@@ -135,8 +135,8 @@
     }
     if (!petResolver) {
       petResolver = Promise.all([
-        import('/pet/pet-art-hd-20261009.js'),
-        import('/assets/companion-goals-state-20261004.js')
+        import('/pet/pet-art-hd-20261009.js?ux=20261025-full-qa1'),
+        import('/assets/companion-goals-state-20261004.js?ux=20261025-full-qa1')
       ]).catch(()=>null);
     }
     petResolver.then(modules=>{

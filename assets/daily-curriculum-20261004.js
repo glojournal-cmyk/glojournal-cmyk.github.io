@@ -1,5 +1,5 @@
 // One curriculum policy for the daily planner and route guard. No reward writes.
-import {coveredTopic,masteryStage} from './mastery-v2-20261018.js';
+import {coveredTopic,masteryStage} from './mastery-v2-20261018.js?ux=20261025-full-qa1';
 export const progressionSubjects=['latin','french','biology','chemistry','physics'];
 const orders={
  latin:['stage-1-vocabulary','stage-2-vocabulary','stage-3-vocabulary','core-verbs','nouns-and-dictionary-entries','present-person-and-number','prepositions','stage-4-vocabulary','stage-5-vocabulary','stage-6-vocabulary','stage-7-vocabulary','stage-8-vocabulary','stage-9-vocabulary','stage-10-vocabulary','stage-11-vocabulary','stage-12-vocabulary','adjective-agreement','personal-pronouns','ille-singular','ille-plural','nouns-with-genitives','set-text-translation','perfect-cues'],

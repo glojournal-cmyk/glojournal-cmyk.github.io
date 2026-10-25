@@ -1,6 +1,6 @@
 // Opt-in per-device automatic encrypted backups. No secrets ship in static code.
 // Browser-stored credentials are readable to scripts on this origin: protect the origin.
-import {readCurrentProgress,encryptProgress,decryptProgress,uploadEncrypted} from './cloud-backup-client-20261022.js';
+import {readCurrentProgress,encryptProgress,decryptProgress,uploadEncrypted} from './cloud-backup-client-20261022.js?ux=20261025-full-qa1';
 const DB='gloria-cloud-backup-device-v1', STORE='settings';
 const INTERVAL=3*24*60*60*1000, RETRY=30*60*1000;
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));

@@ -98,7 +98,7 @@ async function syncCast(){
     // hydrates its own router and can hijack navigation on narrow iPad screens.
     const [response,petModule]=await Promise.all([
       fetch(ROOT+'outfits.json'),
-      import('/pet/pet-art-hd-20261009.js?v=20261019-baphomet1')
+      import('/pet/pet-art-hd-20261009.js?v=20261019-baphomet1&ux=20261025-full-qa1')
     ]);
     if(!response.ok)throw Error('Wardrobe artwork index unavailable');
     const wardrobe=(await response.json()).outfits||{},petArtUrl=petModule.petArtUrl;

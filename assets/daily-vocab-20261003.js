@@ -1,4 +1,4 @@
-import {LATIN_BOOKLET_GROUPS} from './latin-vocabulary-booklet-20261023.js';
+import {LATIN_BOOKLET_GROUPS} from './latin-vocabulary-booklet-20261023.js?ux=20261025-full-qa1';
 // Only independent word meanings, spellings and dictionary entries count as Daily Vocab.
 // Grammar transformations, sentences and comprehension belong to their own subject practice.
 function directionOf(q) {

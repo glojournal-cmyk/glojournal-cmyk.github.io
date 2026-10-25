@@ -31,7 +31,7 @@ function evidenceFor(task,event){
     String(event.questionId).startsWith(task.assignedTopic+'-')||
     String(event.questionId).startsWith(task.assignedTopic+':');
 }
-function key(e){return String(e.attemptId||
+function key(e){if(e.day>='2026-10-24')return String(e.questionId);return String(e.attemptId||
   (e.at?String(e.questionId)+'@'+String(e.at):String(e.questionId)))}
 export function replayDailyAnswerCredit(state){
   if(!validDay(state?.today)||!Array.isArray(state?.daily)||

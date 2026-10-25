@@ -17,7 +17,7 @@
 
   const stylesheet = document.createElement('link');
   stylesheet.rel = 'stylesheet';
-  stylesheet.href = '/assets/daily-keyboard-safe-20261020.css?v=1';
+  stylesheet.href = '/assets/daily-keyboard-safe-20261020.css?v=1&ux=20261025-full-qa1';
   stylesheet.id = 'lux-daily-keyboard-safe-styles';
   document.head.append(stylesheet);
 

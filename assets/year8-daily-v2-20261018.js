@@ -1,6 +1,6 @@
-import {curriculumTopics,curriculumHref} from './daily-curriculum-20261004.js';
-import {coveredTopic,masteryStage} from './mastery-v2-20261018.js';
-import {dailyVocabTotal} from './daily-vocab-total-20261020.js?v=20261023-final-credit1';
+import {curriculumTopics,curriculumHref} from './daily-curriculum-20261004.js?ux=20261025-full-qa1';
+import {coveredTopic,masteryStage} from './mastery-v2-20261018.js?ux=20261025-full-qa1';
+import {dailyVocabTotal} from './daily-vocab-total-20261020.js?v=20261023-final-credit1&ux=20261025-full-qa1';
 
 const rotation = ['physics','chemistry','biology','french'];
 const subjects = ['latin','french','biology','chemistry','physics'];
@@ -157,7 +157,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       assigned.assignedSubject===e.subject&&Number(assigned.assignedYear)===Number(e.year);
   });
   const tally=(topicId,taskId,modes=null,correctOnly=false)=>new Set(taskEvents(topicId,taskId,modes)
-    .filter(e=>!correctOnly||e.correct===true).map(e=>e.attemptId||e.questionId)).size;
+    .filter(e=>!correctOnly||e.correct===true).map(e=>correctOnly?e.questionId:(e.attemptId||e.questionId))).size;
   const pick=(id,pool,condition,compare)=>{
     const old=previous.get(id);
     const frozen=old?.assignedTopic&&(pool.find(t=>t.topicId===old.assignedTopic)||

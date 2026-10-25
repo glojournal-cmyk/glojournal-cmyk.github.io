@@ -1,11 +1,11 @@
 /* Recovery Quest UI: read-only display; the app records eligible answers separately. */
-import { C as store, Ut as todayKey, st as getTopicCatalog } from "/assets/index-BLVOhKhN.js?v=20261025-recovery-correct1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
-import {buildYear8DailyV2} from './year8-daily-v2-20261018.js';
-import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js?v=20261025-recovery-correct1";
-import {mergeDailyHistory,mergeDailyRecordRow,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261023-preserve-ten1";
-import {readMarkedAnswers} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
-import {applyRecoveryReceipts} from "./recovery-receipt-20261018.js?v=20261025-recovery-correct1";
-import {readAllBackups} from "./backup-vault-20261011.js?v=20261011-vault2&ux=20261013-corrections2";
+import { C as store, Ut as todayKey, st as getTopicCatalog } from "/assets/index-BLVOhKhN.js?v=20261025-full-qa1&ux=20261025-full-qa1";
+import {buildYear8DailyV2} from './year8-daily-v2-20261018.js?ux=20261025-full-qa1';
+import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js?v=20261025-recovery-correct1&ux=20261025-full-qa1";
+import {mergeDailyHistory,mergeDailyRecordRow,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261023-preserve-ten1&ux=20261025-full-qa1";
+import {readMarkedAnswers} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1&ux=20261025-full-qa1";
+import {applyRecoveryReceipts} from "./recovery-receipt-20261018.js?v=20261025-recovery-correct1&ux=20261025-full-qa1";
+import {readAllBackups} from "./backup-vault-20261011.js?v=20261011-vault2&ux=20261025-full-qa1";
 const DAY_MS=86400000;
 const fallbackFor=(state,date)=>date>='2026-10-19'?buildYear8DailyV2({...state,today:date,daily:[]},getTopicCatalog,{}):null;
 const dateAt=(d,n)=>new Date(Date.parse(d+"T12:00:00Z")+n*DAY_MS).toISOString().slice(0,10);

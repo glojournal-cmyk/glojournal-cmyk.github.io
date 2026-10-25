@@ -1,5 +1,5 @@
 /* Home outfit display reconciliation. Read-only: never changes persistence or XP. */
-import { A as outfits, C as store } from './index-BLVOhKhN.js?v=20261024-medical-then-festival-mastery-v1&uxfix=20261022-priority-ux1';
+import { A as outfits, C as store } from './index-BLVOhKhN.js?v=20261025-full-qa1&ux=20261025-full-qa1';
 (function () {
   if (window.__luxHomeOutfitSyncInstalled) return;
   window.__luxHomeOutfitSyncInstalled = true;

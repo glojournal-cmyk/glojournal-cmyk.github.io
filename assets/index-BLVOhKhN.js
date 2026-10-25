@@ -1,21 +1,21 @@
-import {restoreCompletedDailyReceipts} from "./daily-completed-session-receipts-20261024.js?v=20261025-no-repeat2";
-import {syncTodayFromDatedRecord} from "./today-record-sync-20261024.js";
-import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261023-final-credit1";
-import {readOptionalBackupJson,linkedBackupManifest} from "./export-linked-storage-20261023.js";
-import "./player-ux-20261013.js?ux=20261021-ipad-shell-lock3&uxfix=20261022-priority-ux1";
-import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261023-freeze-assigned-dates2";
-import "./daily-ledger-vault-20261023.js?v=20261023-history1";
-import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
-import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261025-recovery-correct1";
-import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261025-recovery-correct1";
-import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
-import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastery-count20-v1";
-import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261025-no-repeat2";
-import "./journey-navigation-20261004.js?v=20261024-latin-ipad-date2&ux=20261013-corrections2";
-import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
-import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
-import("/pet/pet-care-global.js?v=20261011-storage-qa1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261025-no-repeat2&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+import {restoreCompletedDailyReceipts} from "./daily-completed-session-receipts-20261024.js?v=20261025-no-repeat2&ux=20261025-full-qa1";
+import {syncTodayFromDatedRecord} from "./today-record-sync-20261024.js?ux=20261025-full-qa1";
+import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261023-final-credit1&ux=20261025-full-qa1";
+import {readOptionalBackupJson,linkedBackupManifest} from "./export-linked-storage-20261023.js?ux=20261025-full-qa1";
+import "./player-ux-20261013.js?uxfix=20261022-priority-ux1&ux=20261025-full-qa1";
+import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261023-freeze-assigned-dates2&ux=20261025-full-qa1";
+import "./daily-ledger-vault-20261023.js?v=20261023-history1&ux=20261025-full-qa1";
+import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1&ux=20261025-full-qa1";
+import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261025-recovery-correct1&ux=20261025-full-qa1";
+import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261025-recovery-correct1&ux=20261025-full-qa1";
+import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261025-full-qa1";
+import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastery-count20-v1&ux=20261025-full-qa1";
+import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261025-no-repeat2&ux=20261025-full-qa1";
+import "./journey-navigation-20261004.js?v=20261024-latin-ipad-date2&ux=20261025-full-qa1";
+import "./weekly-evidence-20261004.js?ux=20261025-full-qa1";
+import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261025-full-qa1";
+import("/pet/pet-care-global.js?v=20261011-storage-qa1&uxfix=20261022-priority-ux1&ux=20261025-full-qa1").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261025-full-qa1&ux=20261025-full-qa1";
 import {
   C as store,
   A as medicalOutfitCatalog,
@@ -31,7 +31,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261025-no-repeat2&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+} from "./index-BLVOhKhN.core.js?v=20261025-full-qa1&ux=20261025-full-qa1";
 
 // festival-mastery-after-medical-v1: only genuine cumulative Mastered topics count.
 // An earlier release auto-granted all Festival items. On first load this migration
@@ -3987,7 +3987,7 @@ if(typeof window!=="undefined"){
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261023-share-permission1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261023-share-permission1&uxfix=20261022-priority-ux1&ux=20261025-full-qa1").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){
