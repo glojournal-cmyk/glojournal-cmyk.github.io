@@ -1,4 +1,4 @@
-import {saveCompletedDailyReceipt,restoreCompletedDailyReceipts} from './daily-completed-session-receipts-20261024.js?v=20261025-no-repeat1';
+import {saveCompletedDailyReceipt,restoreCompletedDailyReceipts,readDailyRetryReceiptSync} from './daily-completed-session-receipts-20261024.js?v=20261025-daily-retry1';
 import {reconcileDailySession} from "./daily-session-credit-20261021.js?v=20261025-no-repeat2";
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261023-final-credit1";
 import {RecoveryProgress} from './recovery-progress-20261012.js?ux=20261013-corrections2&uxfix=20261022-priority-ux1';
@@ -350,7 +350,9 @@ function H({title:e,kicker:t,items:n,repairItems:repairBank=[],subject:a,dailyId
   if(!recoverOnFinish && taskOnFinish && sessionPlanDay===dayKey()){
     const receipt=reconcileDailySession(o.getState(),{
       day:sessionPlanDay,taskId:taskOnFinish,subject:a,year:sessionYear,
-      mode:resumeMode,questions:A,answers:sessionLog
+      mode:resumeMode,questions:A,answers:sessionLog,
+      priorReceipt:readDailyRetryReceiptSync({day:sessionPlanDay,
+        taskId:taskOnFinish,subject:a,year:sessionYear,topicId:g,mode:resumeMode})
     });
     if(receipt.changed)o.setState({daily:receipt.daily,
       ...(receipt.dailyLog?{dailyLog:receipt.dailyLog}:{})});
