@@ -615,6 +615,9 @@ async function checkExhaustedBiologyDaily(browser,engine){
     },ids);
     await page.reload({waitUntil:'domcontentloaded'});
     await page.waitForSelector('.lux-practice-view',{timeout:35000});
+    // The route shell mounts before its async topic bank is hydrated. Check the
+    // actual terminal state, not a transient blank/loading frame on Safari.
+    await page.waitForFunction(()=>document.body.innerText.includes('This topic needs more unused questions'),null,{timeout:35000});
     const result=await page.evaluate(()=>({
       question:document.querySelector('[data-question-id]')?.dataset.questionId,
       locked:document.querySelector('.lux-practice-view')?.innerText?.includes('This daily task is locked'),
