@@ -11,6 +11,14 @@ const isDone=t=>t?.done===true||(Number(t?.target)>0&&nonneg(t?.progress)>=Numbe
 const isFallback=t=>t?.recoveryFallback===true;
 function mergeTask(previous,incoming){
  const left=previous||{},right=incoming||{};
+ // An exhausted question bank closes the set at the verified score.
+ // Do not revive the old larger target, and do not invent the missing answers.
+ if(left.cappedBecauseQuestionBankExhausted||right.cappedBecauseQuestionBankExhausted){
+  const cap=right.cappedBecauseQuestionBankExhausted?right:left;
+  const progress=Math.max(nonneg(left.progress),nonneg(right.progress),nonneg(cap.progress));
+  const target=Math.max(1,progress,nonneg(cap.target)||progress);
+  return {...left,...right,...cap,target,progress:Math.min(target,progress),done:progress>=target,cappedBecauseQuestionBankExhausted:true};
+ }
  // A dated, already-started assignment is immutable. A later planner may
  // re-use the same task ID for a different topic, 5->20 target or mode.
  // That is a NEW task, not proof that the pupil lost the original answers.

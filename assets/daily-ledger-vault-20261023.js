@@ -1,6 +1,6 @@
 // Small, independent IndexedDB receipt vault for real dated Daily tasks.
 // It never stores the 593MB app, never creates XP/answers and never clears data.
-import {mergeDailyHistory,mergeDailyRecordRow} from "./daily-record-integrity-20261018.js?v=20261023-freeze-assigned-dates1";
+import {mergeDailyHistory,mergeDailyRecordRow} from "./daily-record-integrity-20261018.js?v=20261025-scorefix1";
 
 const DB="lux-daily-record-vault-v1",TABLE="dated-rows";
 let opening=null,recording=Promise.resolve(),initializing=false,initialized=false;

@@ -185,12 +185,15 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
         Number(old.progress||0)===0&&existingAnswers===0;
       target=legacyRecall?5:untouchedMastery?20:Number(old.target)||target;
       masteryCheck=legacyRecall||old.masteryCheck===true;
+      // A closed exhausted bank keeps the verified score. Do not reopen the old larger target.
+      if(old.cappedBecauseQuestionBankExhausted&&Number(old.progress)>0)target=Math.max(1,Number(old.progress)||0);
     }
     const modes=mode==='mastery'?['mastery','year8long']:mode==='retention'?['retention','due']:
       mode==='due'?['due','retention']:mode==='weak'?['weak']:null;
     const prior=same&&!legacyRecall?Number(old.progress)||0:0;
     const attempted=topic?tally(topic.topicId,id,modes):0;
     const correct=topic?tally(topic.topicId,id,modes,true):0;
+    const journalIds=topic?[...new Set(taskEvents(topic.topicId,id,modes).filter(e=>e.correct===true).map(e=>String(e.questionId).split('@')[0]))]:[];
     // From 24 Oct onward the Home fraction means CORRECT answers, not taps.
     // Trust the formal journal only when it covers the prior saved count:
     // an iPad with a partly lost journal must not lose genuine old credit.
@@ -208,10 +211,28 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     const verifiedIds=verifiedPrior?[...new Set(old.verifiedCorrectIds.map(String).filter(Boolean))]:[];
     const verifiedSlots=verifiedPrior?Math.max(0,Math.min(target,
       Number(old.verifiedCorrectSlots)||0)):0;
-    const correctOnlyEvidence=!!topic&&today>='2026-10-24'&&
-      (verifiedIds.length>0||verifiedSlots>0||(attempted>0&&attempted>=prior));
-    let progress=topic?Math.min(target,Math.max(verifiedIds.length,verifiedSlots,
-      correctOnlyEvidence?correct:Math.max(prior,attempted))):0;
+    // Never replace a saved score with a shorter or wrong-inclusive journal.
+    // A complete correct-ID journal can raise the score. A partial journal cannot lower it.
+    const savedIds=verifiedIds;
+    const absorbed=!!(verifiedPrior&&old?.verifiedCorrectIdsAbsorbed===true);
+    let creditIds=savedIds,nextAbsorbed=absorbed;
+    let progress=0;
+    if(topic){
+      if(savedIds.length&&absorbed){
+        const known=new Set(savedIds);
+        const fresh=journalIds.filter(id=>!known.has(id));
+        creditIds=[...known,...fresh];
+        progress=Math.min(target,Math.max(prior+fresh.length,verifiedSlots));
+      }else if(savedIds.length){
+        creditIds=[...new Set([...savedIds,...journalIds])];
+        progress=Math.min(target,Math.max(prior,creditIds.length,verifiedSlots,correct));
+      }else{
+        progress=Math.min(target,Math.max(prior,journalIds.length,verifiedSlots,correct));
+        // A shorter journal is not a new baseline: those IDs may already be inside the saved score.
+        creditIds=journalIds.length>=prior?journalIds:[];
+        nextAbsorbed=false;
+      }
+    }
     // Mastery assessment still separately assesses 85% and recall. A wrong
     // response remains in attempt history, but cannot fill the Home quota.
     const passedToday=state.topicStats?.[topic?.topicId]?.masteryV2?.passedMasteryAt===today;
@@ -230,10 +251,11 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       detail:description+outcome,href:topic?curriculumHref(topic,mode,id):'/study',target,progress,xp:mode==='mastery'?20:15,
       planDate:today,assignedSubject:topic?.subject||null,assignedTopic:topic?.topicId||null,
       assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,masteryCheck,curriculumVersion:4,
-      ...(correctOnlyEvidence?{correctOnlyEvidence:true}:{}),
-      ...(verifiedIds.length||verifiedSlots?{verifiedCorrectIds:verifiedIds.slice(0,60),
-        verifiedCorrectSlots:verifiedSlots,
-        verifiedCorrectAssignment:verifiedKey}:{})};
+      ...(old?.cappedBecauseQuestionBankExhausted?{cappedBecauseQuestionBankExhausted:true,done:true}:{}),
+      ...(creditIds.length?{verifiedCorrectIds:creditIds.slice(0,80),
+        verifiedCorrectSlots:Math.min(target,progress),
+        verifiedCorrectAssignment:verifiedKey,
+        ...(nextAbsorbed?{verifiedCorrectIdsAbsorbed:true}:{})}:{})};
   };
   const pendingRecall=t=>['check2','check7'].includes(
     state.topicStats?.[t.topicId]?.masteryV2?.stage);
