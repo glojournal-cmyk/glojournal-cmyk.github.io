@@ -19,6 +19,7 @@ on:
       - 'tests/storage-quota.test.mjs'
       - 'tests/recovery-quest.test.mjs'
       - 'tests/recovery-all-tasks-ledger.test.mjs'
+      - 'tests/recovery-correct-count-20261025.test.mjs'
       - 'assets/recovery-task-ledger-20261017.js'
       - '.github/workflows/progress-recovery-safety.yml'
   pull_request:
@@ -39,6 +40,7 @@ on:
       - 'tests/storage-quota.test.mjs'
       - 'tests/recovery-quest.test.mjs'
       - 'tests/recovery-all-tasks-ledger.test.mjs'
+      - 'tests/recovery-correct-count-20261025.test.mjs'
       - 'assets/recovery-task-ledger-20261017.js'
       - '.github/workflows/progress-recovery-safety.yml'
   workflow_dispatch:
@@ -60,10 +62,11 @@ jobs:
           node --check assets/home-continue-20261010.js
           node --check assets/home-extras-restorer-20261023.js
           node --check assets/recovery-task-ledger-20261017.js
+          node --check assets/recovery-receipt-20261018.js
           node --check assets/index-BLVOhKhN.js
           node --check assets/backup-vault-20261011.js
           node --check assets/daily-progress-save.js
           node --check assets/storage-health-20261011.js
       - name: Verify recovery rules and storage quota safety
         run: |
-          node --test tests/recovery-rpg-on-demand-20261024.test.mjs tests/recovery-all-tasks-ledger.test.mjs tests/recovery-quest.test.mjs tests/storage-quota.test.mjs tests/backup-export.test.mjs tests/backup-vault.test.mjs
+          node --test tests/recovery-rpg-on-demand-20261024.test.mjs tests/recovery-all-tasks-ledger.test.mjs tests/recovery-correct-count-20261025.test.mjs tests/recovery-quest.test.mjs tests/storage-quota.test.mjs tests/backup-export.test.mjs tests/backup-vault.test.mjs
