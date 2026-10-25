@@ -3,6 +3,11 @@ on:
   push:
     branches: [main]
     paths:
+      - 'index.html'
+      - '404.html'
+      - 'assets/index-BLVOhKhN.js'
+      - 'assets/index-BLVOhKhN.core.js'
+      - 'study/**/index.html'
       - 'scripts/sync-route-shells.py'
       - '.github/workflows/sync-route-shells.yml'
   workflow_dispatch:
