@@ -55,6 +55,19 @@ export function reconcileDailySession(state,receipt={}) {
   // Reopening an assigned quiz may show only the missing two questions.
   // Merge independently marked journal evidence from the SAME task and day,
   // rather than comparing 2 fresh answers against the old 8/10 snapshot.
+  const prior=receipt.priorReceipt;
+  if(day>='2026-10-24'&&prior&&prior.day===day&&prior.taskId===taskId&&
+     prior.subject===subject&&Number(prior.year)===Number(year)&&
+     prior.topicId===task.assignedTopic&&prior.mode===mode&&
+     Number(prior.target)===Number(task.target)&&
+     Array.isArray(prior.questions)&&Array.isArray(prior.answers)){
+    const allowedPrior=new Set(prior.questions.filter(q=>q?.id&&q.formal!==false&&!q._repair)
+      .map(q=>String(q.id)));
+    for(const priorAnswer of prior.answers)
+      if(priorAnswer?.correct===true&&priorAnswer.formal!==false&&!priorAnswer.repair&&
+         allowedPrior.has(String(priorAnswer.questionId)))
+        creditedIds.add(String(priorAnswer.questionId));
+  }
   if(day>='2026-10-24')for(const event of state.formalAttemptLog||[]){
     if(event?.day!==day||event?.dailyTaskId!==taskId||
        event?.subject!==subject||Number(event?.year)!==Number(year)||
