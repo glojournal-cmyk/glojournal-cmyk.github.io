@@ -13,10 +13,10 @@
  const DRAFT_WAIT_MS=5000;
  function withDeadline(promise,label){
    return new Promise((resolve,reject)=>{
-     const timer=setTimeout(()=>{idbTimedOut=true;reject(Error(label+" timed out"));},DRAFT_WAIT_MS);
+     const timer=typeof setTimeout==='function'?setTimeout(()=>{idbTimedOut=true;reject(Error(label+" timed out"));},DRAFT_WAIT_MS):null;
      Promise.resolve(promise).then(
-       result=>{clearTimeout(timer);resolve(result)},
-       error=>{clearTimeout(timer);reject(error)}
+       result=>{if(timer!=null)clearTimeout(timer);resolve(result)},
+       error=>{if(timer!=null)clearTimeout(timer);reject(error)}
      );
    });
  }
@@ -112,6 +112,8 @@
    for(const [k,d] of Object.entries(legacy))if(d&&typeof d==="object")
      cache.set(k,newer(cache.get(k),d));
    if(tab)cache.set(tab.key,newer(cache.get(tab.key),tab.record));
+   // No IndexedDB (Safari private/restricted context): keep legacy storage intact.
+   if(!root.indexedDB)return;
    try{
      const rows=await dbAll();
      for(const [k,d] of rows)if(d&&typeof d==="object")
@@ -213,7 +215,10 @@
        const legacy=oldMap(),tab=inTab();
        const keys=[k,...oldDailyDraftKeys(k,legacy,tab)];
        for(const item of keys)completedKeys.add(item);
-       for(const item of keys)if(!(await withDeadline(dbDelete(item),"Draft removal")))return false;
+       // In no-IDB contexts there is no database to delete; clear only the
+       // matching local/session drafts, never the Scholar progress journal.
+       if(root.indexedDB)for(const item of keys)
+         if(!(await withDeadline(dbDelete(item),"Draft removal")))return false;
        let changed=false;
        for(const item of keys)if(Object.prototype.hasOwnProperty.call(legacy,item)){
          delete legacy[item];changed=true;
@@ -237,7 +242,7 @@
    return enqueue(k,async()=>{
      await ready();
      try{
-       if(idbTimedOut)throw Error("Draft storage unresponsive");
+       if(!root.indexedDB||idbTimedOut)throw Error("Draft storage unresponsive");
        return await withDeadline(dbWrite(k,snapshot),"Draft save");
      }
      catch{
