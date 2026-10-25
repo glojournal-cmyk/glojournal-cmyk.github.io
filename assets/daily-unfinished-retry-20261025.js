@@ -20,20 +20,26 @@ function sameEvent(event,{day,taskId,subject,year,topicId}){
 }
 export function dailyUnfinishedQuestionIds(state,receipt,options={}){
  const {day,taskId,subject,year,topicId,mode}=options;
- const outcomes=new Map(),sourceIds=new Set();
+ const outcomes=new Map(),sourceIds=new Set(),repeatedWrong=new Set();
  if(!state||!supported.has(taskId)||!day)return {wrongIds:[],knownIds:[],correctIds:[]};
  // Receipt lists only base questions in the learner's last completed sitting.
  // A verified correct retry supersedes the earlier wrong outcome.
  if(sameReceipt(receipt,options)){
   const listed=new Set(receipt.questions.filter(q=>q?.id&&q.formal!==false&&!q._repair)
    .map(q=>String(q.id)));
+  const perQuestion=new Map();
   for(const answer of receipt.answers){
    const id=String(answer?.questionId||'');
    if(!listed.has(id)||answer.formal===false||answer.repair||
       typeof answer.correct!=='boolean')continue;
    sourceIds.add(id);
+   const c=perQuestion.get(id)||{right:0,wrong:0};
+   c[answer.correct?'right':'wrong']++;
+   perQuestion.set(id,c);
    outcomes.set(id,!!answer.correct||outcomes.get(id)===true);
   }
+  for(const [id,row] of perQuestion)
+   if(row.right>0&&row.wrong>0)repeatedWrong.add(id);
  }
  for(const event of state.formalAttemptLog||[]){
   if(!sameEvent(event,options)||!event.questionId||
@@ -43,6 +49,9 @@ export function dailyUnfinishedQuestionIds(state,receipt,options={}){
   outcomes.set(id,!!event.correct||outcomes.get(id)===true);
  }
  for(const id of sourceIds)if(Number(state.seenCorrect?.[id])>0)outcomes.set(id,true);
+ // Two base slots with the same question ID can have different outcomes.
+ // One correct instance must not conceal the OTHER still-wrong instance.
+ for(const id of repeatedWrong)outcomes.set(id,false);
  const wrongIds=[...outcomes].filter(([,correct])=>correct===false).map(([id])=>id);
  const correctIds=[...outcomes].filter(([,correct])=>correct===true).map(([id])=>id);
  return {wrongIds,correctIds,knownIds:[...sourceIds]};
