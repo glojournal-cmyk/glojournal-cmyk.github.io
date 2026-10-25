@@ -98,3 +98,15 @@ test('One Recovery answer is never automatically counted as another Recovery tas
  assert.match(ledger,/if\(entry\.dailyTaskId&&entry\.dailyTaskId!==taskId\)return false/);
  assert.match(quest,/const matched=entries\.filter\(a=>a\.dailyTaskId===taskId/);
 });
+
+test('Correct answers from yesterday are excluded from the other Recovery day even with only a compact iPad proof',()=>{
+ const s=state(),b=pool(60);
+ s.dailyLog['2026-10-23']={date:'2026-10-23',tasks:[t('year9-light',15)]};
+ s.recoveryTaskByDay['2026-10-23']={'year9-light':{items:{'q-12@ipad-1':true,'q-14':false}}};
+ s.recoveryReceipts=[{date:'2026-10-23',subject:'biology',taskId:'year9-light',
+   verifiedCorrect:true,correctQuestionIds:['q-18'],questionIds:['q-18']}];
+ const selected=selectDiverseRecoveryQuestions(b,b,opts(s,'study-session',15),rank,progression);
+ assert.equal(ids(selected).has('q-12'),false);
+ assert.equal(ids(selected).has('q-18'),false);
+ assert.equal(ids(selected).has('q-14'),true,'a wrong question from the previous date remains available after its scheduled retry');
+});
