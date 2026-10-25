@@ -112,3 +112,24 @@ test('Biology Food Tests ten repeated-ID slots survive reload of iPad completed-
   assert.equal(again[0].questions.length,10);
  }finally{globalThis.localStorage=oldLocal;}
 });
+
+test('A verified 10/10 Daily with repeated IDs still reads 10/10 after its journal reloads with six unique IDs',()=>{
+ const start=state(),plan=buildYear8DailyV2(start,get),task=findTask(plan);
+ const qs=['a','b','c','d','e','f','a','b','c','d'].map(x=>({
+  id:'test-'+x,topicId:task.assignedTopic,formal:true
+ }));
+ const receipt={day,taskId:task.id,subject:task.assignedSubject,year:task.assignedYear,
+  mode:'standard',questions:qs,answers:qs.map(q=>({questionId:q.id,correct:true,formal:true}))};
+ const first=reconcileDailySession({...start,daily:plan},receipt);
+ assert.equal(first.progress,10);
+ assert.equal(first.daily.find(x=>x.id===task.id).verifiedCorrectSlots,10);
+ assert.equal(first.daily.find(x=>x.id===task.id).verifiedCorrectIds.length,6);
+ const six=qs.slice(0,6).map((q,i)=>({
+  day,questionId:q.id,dailyTaskId:task.id,subject:task.assignedSubject,
+  year:task.assignedYear,topicId:task.assignedTopic,mode:'standard',
+  attemptId:'ipad-'+i,correct:true,formal:true,repair:false
+ }));
+ const rebuilt=buildYear8DailyV2({...start,daily:first.daily,formalAttemptLog:six},get);
+ assert.equal(findTask(rebuilt).progress,10);
+ assert.equal(findTask(rebuilt).verifiedCorrectSlots,10);
+});
