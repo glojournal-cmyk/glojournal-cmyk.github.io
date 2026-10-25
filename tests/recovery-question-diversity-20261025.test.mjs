@@ -37,7 +37,7 @@ test('Other Recovery task answers are excluded whether correct or wrong; already
 });
 test('Different IDs that print the same question are de-duplicated, including accented/whitespace variants',()=>{
  const s=state(),b=pool(35);
- b[1]={id:'duplicate-a',prompt:'  Décríbe   the   cell! ',format:'typed_short',topicId:topic};
+ b[1]={id:'duplicate-a',prompt:'  Déscríbe   the   cell! ',format:'typed_short',topicId:topic};
  b[2]={id:'duplicate-b',prompt:'describe the cell',format:'typed_short',topicId:topic};
  const selected=selectDiverseRecoveryQuestions(b,b,opts(s,'study-session',15),rank,progression);
  assert.equal(selected.filter(q=>q.id==='duplicate-a'||q.id==='duplicate-b').length,1);
