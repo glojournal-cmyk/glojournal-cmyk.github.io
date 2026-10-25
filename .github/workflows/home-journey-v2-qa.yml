@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - 'index.html'
+      - '404.html'
       - 'assets/phase2-quest-map-20261010.*'
       - 'tests/phase2-quest-map-qa.cjs'
       - 'assets/home-journey-v2-*.js'
