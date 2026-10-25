@@ -102,11 +102,12 @@ export async function saveCompletedDailyReceipt(state,source){
   const verificationState={...state,daily:[task]};
   const verified=reconcileDailySession(verificationState,{...receipt,year:receipt.year});
   if(!verified.target)return false;
-  // A receipt proves all actual quiz slots were marked, not merely that the
-  // learner clicked Finish or that 10 attempts were made on one question.
-  const eligible=receipt.questions.filter(q=>q.id&&!q._repair&&
-    q.formal&&q.topicId===task.assignedTopic);
-  if(eligible.length<receipt.target)return false;
+  // A dated, locked session with fewer visible questions than its 15-question
+  // Home target still proves those actually marked answers. Preserve that
+  // PARTIAL score (e.g. 10/15) on Safari instead of losing the entire session.
+  // The strict assignment, route, subject, day and year were verified above.
+  const eligible=receipt.questions.filter(q=>q.id&&!q._repair&&q.formal);
+  if(!eligible.length)return false;
   const remaining=new Map();
   for(const q of eligible)remaining.set(q.id,(remaining.get(q.id)||0)+1);
   let marked=0;
@@ -115,8 +116,9 @@ export async function saveCompletedDailyReceipt(state,source){
     remaining.set(a.questionId,remaining.get(a.questionId)-1);
     marked++;
   }
-  if(marked<receipt.target)return false;
-  // Save a compact independent proof; wrong answers stay wrong.
+  if(marked<eligible.length)return false;
+  // Save only the actually marked answers; never promote a partial 10/15
+  // quiz to completion or turn an incorrect answer into a correct one.
   const fallback=writeFallback(receipt);
   const persisted=await put(receipt);
   return persisted||fallback;
