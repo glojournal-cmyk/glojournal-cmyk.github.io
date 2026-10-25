@@ -1,4 +1,4 @@
-import {saveCompletedDailyReceipt} from './daily-completed-session-receipts-20261024.js?v=20261025-biology-credit1';
+import {saveCompletedDailyReceipt,restoreCompletedDailyReceipts} from './daily-completed-session-receipts-20261024.js?v=20261025-no-repeat1';
 import {reconcileDailySession} from "./daily-session-credit-20261021.js?v=20261025-biology-daily15";
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261023-final-credit1";
 import {RecoveryProgress} from './recovery-progress-20261012.js?ux=20261013-corrections2&uxfix=20261022-priority-ux1';
@@ -360,7 +360,7 @@ function H({title:e,kicker:t,items:n,repairItems:repairBank=[],subject:a,dailyId
     void saveCompletedDailyReceipt(o.getState(),{
       day:sessionPlanDay,taskId:taskOnFinish,subject:a,year:sessionYear,
       mode:resumeMode,questions:A,answers:sessionLog
-    }).catch(err=>console.warn('Completed Daily receipt not saved',err));
+    }).then(saved=>saved&&restoreCompletedDailyReceipts(o)).catch(err=>console.warn('Completed Daily receipt not saved',err));
     if(receipt.target){
       const current=o.getState().daily?.find(t=>t.id===taskOnFinish);
       const counted=Math.min(Number(current?.target)||receipt.target,Number(current?.progress)||0);
