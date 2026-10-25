@@ -1,3 +1,5 @@
+import {selectDiverseRecoveryQuestions} from './recovery-question-diversity-20261025.js?v=20261025-no-duplicate1';
+import {listRecoveryReceipts} from './recovery-receipt-20261018.js?v=20261025-recovery-correct1';
 import {uniqueFrenchQuestions} from "./french-unique-questions-20261018.js";
 import {fillDailyLockedQuestions,dailyCorrectQuestionIds} from './daily-locked-question-fallback-20261021.js?v=20261025-no-repeat1';
 import {selectProgressionQuestions} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
@@ -52,11 +54,15 @@ let W=dailyLocked&&dailyParams.has('recover')&&E!==`y8vocab`&&assignment?.target
 // has previously mastered every "fresh" question. Replay available verified
 // questions as revision; mark/save remains entirely owned by QuizSession.
 // Never change the matching assigned topic, year or vocabulary flow.
-safeU=fillDailyLockedQuestions(U,z,{locked:dailyLocked,mode:E,size:W,topicId:pinnedTopic,subject:e,
+safeU=selectDiverseRecoveryQuestions(fillDailyLockedQuestions(U,z,{locked:dailyLocked,mode:E,size:W,topicId:pinnedTopic,subject:e,
  correctIds:(()=>{const state=s.getState();const ids=dailyCorrectQuestionIds(state,{day:R,taskId:canonicalTask,subject:e,year:N,topicId:pinnedTopic});
  if(dailyLocked&&!dailyParams.has('recover')&&['standard','quick','mastery'].includes(E))
   for(const [id,count] of Object.entries(state.seenCorrect||{}))if(Number(count)>0)ids.add(String(id));
- return ids;})()},RQ,selectProgressionQuestions),
+ return ids;})()},RQ,selectProgressionQuestions),z,{
+ state:{...s.getState(),recoveryReceipts:listRecoveryReceipts()},
+ date:dailyParams.get('recover')||null,taskId:canonicalTask,subject:e,year:N,
+ topicId:pinnedTopic,size:W,mode:E
+},RQ,selectProgressionQuestions),
 sessionSnapshot=(0,w.useRef)(null),
 sessionKey=[e,N,E,O,dailyParams.get(`task`)||``,dailyParams.get(`recover`)||``].join(`:`),
 intendedMode=dailyParams.get(`mode`);
