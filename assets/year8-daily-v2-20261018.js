@@ -144,8 +144,17 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   const entries=(state.formalAttemptLog||[]).filter(e=>e.day===today&&!e.repair&&e.formal!==false&&!e.recoveryFor&&!e.dailyVocab);
   // One marked answer belongs to its opened assignment. Two tasks may visit
   // the same topic, but cannot both claim that answer toward the 155 total.
-  const taskEvents=(topicId,taskId,modes=null)=>entries.filter(e=>e.topicId===topicId&&
-    e.dailyTaskId===taskId&&(!modes||modes.includes(e.mode))&&typeof e.correct==='boolean');
+  // A marked answer is tied to its exact Daily task ID by the locked quiz.
+  // Some older iPad science banks supplied inconsistent topicId metadata;
+  // preserve that genuine answer when the dated task, subject and year match.
+  const taskEvents=(topicId,taskId,modes=null)=>entries.filter(e=>{
+    if(e.dailyTaskId!==taskId||!e.questionId||typeof e.correct!=='boolean'||
+       (modes&&!modes.includes(e.mode)))return false;
+    if(e.topicId===topicId)return true;
+    const assigned=previous.get(taskId);
+    return !!assigned&&assigned.assignedTopic===topicId&&
+      assigned.assignedSubject===e.subject&&Number(assigned.assignedYear)===Number(e.year);
+  });
   const tally=(topicId,taskId,modes=null,correctOnly=false)=>new Set(taskEvents(topicId,taskId,modes)
     .filter(e=>!correctOnly||e.correct===true).map(e=>e.attemptId||e.questionId)).size;
   const pick=(id,pool,condition,compare)=>{
