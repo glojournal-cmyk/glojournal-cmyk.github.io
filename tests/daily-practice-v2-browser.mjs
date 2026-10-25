@@ -340,6 +340,7 @@ async function checkFixture(browser,engine,kind,viewport){
           gridRows:c.gridTemplateRows,position:c.position}];
       }));
     });
+    assert.equal(compact.intro,'none','iPad keyboard focus must hide the repeated session heading immediately');
     const traceFocused=await styleTrace();
     await page.locator('[data-lux-question-card] input').blur();
     await page.waitForFunction(()=>!document.documentElement.classList.contains('lux-daily-typing'));
