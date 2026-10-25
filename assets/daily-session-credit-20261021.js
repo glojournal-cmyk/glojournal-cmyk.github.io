@@ -27,8 +27,12 @@ export function reconcileDailySession(state,receipt={}) {
      Number(expected.searchParams.get('year'))!==Number(year)||
      expected.pathname!==`/study/${subject}/practise`)
     return unchanged('wrong-route');
+  // The locked route above already validates the exact subject, year, topic,
+  // date, mode and assigned task. Questions in this *opened* Daily session
+  // are its bank: do not drop marked answers merely because an older science
+  // question has a stale/missing topicId. Free practice cannot reach here.
   const eligible=new Set(questions.filter(q=>q?.id&&q.formal!==false&&
-    q.topicId===task.assignedTopic&&!q._repair).map(q=>String(q.id)));
+    !q._repair).map(q=>String(q.id)));
   // Count a marked answer per visible quiz slot; repeated question IDs can
   // legitimately occupy separate slots, but duplicate receipts cannot.
   const remaining=new Map();
