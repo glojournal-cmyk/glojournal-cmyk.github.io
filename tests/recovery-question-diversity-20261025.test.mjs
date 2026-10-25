@@ -86,3 +86,15 @@ test('Both live Science and Latin/French Recovery entrypoints use cross-task sel
    assert.match(js,/seed:recoveryDate\?String\(seed\)\+':'\+recoveryDate:seed/);
  }
 });
+
+test('One Recovery answer is never automatically counted as another Recovery task',()=>{
+ const core=readFileSync(new URL('../assets/index-BLVOhKhN.js',import.meta.url),'utf8');
+ const ledger=readFileSync(new URL('../assets/recovery-task-ledger-20261017.js',import.meta.url),'utf8');
+ const quest=readFileSync(new URL('../assets/quest-recovery-20261011.js',import.meta.url),'utf8');
+ const start=core.indexOf('const creditIds=new Set([taskId]);',core.indexOf('function patchedRecordAttempt('));
+ const end=core.indexOf('let nextState=store.getState()',start);
+ assert.ok(start>0&&end>start);
+ assert.doesNotMatch(core.slice(start,end),/creditIds\.add\(/);
+ assert.match(ledger,/if\(entry\.dailyTaskId&&entry\.dailyTaskId!==taskId\)return false/);
+ assert.match(quest,/const matched=entries\.filter\(a=>a\.dailyTaskId===taskId/);
+});
