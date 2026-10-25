@@ -80,7 +80,7 @@ export function reconcileDailySession(state,receipt={}) {
   const target=Math.max(1,Number(task.target)||1),old=progressOf(task);
   const progress=Math.min(target,Math.max(old,day>='2026-10-24'?creditedIds.size:verified));
   if(progress===old)return {...unchanged('already-counted'),progress:old,target};
-  const daily=state.daily.map(t=>t===task?{...t,progress}:t);
+  const daily=state.daily.map(t=>t===task?{...t,progress,done:progress>=target}:t);
   // Keep the dated Home/Recovery summary aligned without touching any other day.
   let dailyLog=state.dailyLog;
   const row=dailyLog?.[day];
