@@ -51,8 +51,10 @@ export function syncTodayFromDatedRecord(daily, row, date) {
         Number(task.assignedYear),mode,Number(task.target)].join('|');
       if(saved.verifiedCorrectAssignment===key&&
          Array.isArray(saved.verifiedCorrectIds)&&
-         new Set(saved.verifiedCorrectIds).size>=fromRecord)
+         Math.max(new Set(saved.verifiedCorrectIds).size,
+           Number(saved.verifiedCorrectSlots)||0)>=fromRecord)
         verified={verifiedCorrectIds:saved.verifiedCorrectIds.slice(0,60),
+          verifiedCorrectSlots:Math.max(0,Number(saved.verifiedCorrectSlots)||0),
           verifiedCorrectAssignment:key,correctOnlyEvidence:true};
     }catch{}
     changed=true;
