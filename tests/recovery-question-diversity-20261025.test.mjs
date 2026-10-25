@@ -67,8 +67,9 @@ test('When the topic bank is exhausted, a shorter genuine set is used instead of
 });
 test('Review assignments stay within their original selected wrong/due pool and do not silently become random practice',()=>{
  const s=state(),b=pool(50),selected=[b[13],b[32]];
- const out=selectDiverseRecoveryQuestions(selected,b,opts(s,'study-session',10,'mistakes'),rank,progression);
- assert.deepEqual(ids(out),ids(selected));
+ const out=selectDiverseRecoveryQuestions(selected,b,{...opts(s,'study-session',10,'mistakes'),
+   reviewQuestionIds:['q-13']},rank,progression);
+ assert.deepEqual(ids(out),new Set(['q-13']));
 });
 test('Non-Recovery ordinary Study practice is unchanged and student records are read-only',()=>{
  const s=state(),b=pool(20),snapshot=JSON.stringify(s);
