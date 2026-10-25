@@ -471,3 +471,18 @@ html.lux-daily-ux-ready.lux-practice-choosing:has(.lux-practice-view) .paper-was
   background-size:cover,cover!important;
   background-repeat:no-repeat,no-repeat!important;
 }
+
+
+/* Safari/iPad regression: this stylesheet loads after the approved mockup.
+   The keyboard-compact heading must not be reinstated by the normal layout
+   rules with a higher :has() selector specificity. Keep the question and
+   answer form interactive; only hide the redundant session introduction. */
+html.lux-daily-ux-ready.lux-daily-compact:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id]
+ :is([data-lux-question-intro],div:has(>h1.font-display.text-3xl)) {
+  display:none!important;
+  min-height:0!important;
+  height:0!important;
+  padding:0!important;
+  margin:0!important;
+}
