@@ -133,9 +133,14 @@ export function reconcileDailySession(state,receipt={}) {
   const target=Math.max(1,Number(task.target)||1),old=progressOf(task);
   const progress=Math.min(target,Math.max(old,day>='2026-10-24'?
     Math.max(creditedIds.size,verifiedSlotCount):verified));
-  if(progress===old&&verifiedSlotCount<=trustedOldSlots&&
-     (!creditedIds.size||JSON.stringify([...creditedIds].sort())===
-       JSON.stringify((task.verifiedCorrectIds||[]).map(String).sort())))
+  // Never downgrade a verified old score with a shorter/incomplete replay;
+  // on legacy dates the quiz slot counter is not a correct-only proof.
+  const proofSufficient=verifiedSlotCount>=old||creditedIds.size>=old||trustedOldSlots>=old;
+  if(progress===old&&
+     (day<'2026-10-24'||!proofSufficient||
+      (verifiedSlotCount<=trustedOldSlots&&
+       (!creditedIds.size||JSON.stringify([...creditedIds].sort())===
+         JSON.stringify((task.verifiedCorrectIds||[]).map(String).sort())))))
     return {...unchanged('already-counted'),progress:old,target};
   const stamped={...task,progress,done:progress>=target,
     ...(day>='2026-10-24'&&creditedIds.size?
