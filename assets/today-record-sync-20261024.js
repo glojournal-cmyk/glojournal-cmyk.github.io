@@ -41,8 +41,23 @@ export function syncTodayFromDatedRecord(daily, row, date) {
       return task;
     const fromRecord=safeProgress(saved),live=safeProgress(task);
     if(fromRecord<=live)return task;
+    // Carry the independently verified correct-question proof back to Home
+    // with the progress. Otherwise the next Daily rebuild could fall from
+    // 10/10 to the six journal events Safari managed to retain.
+    let verified=null;
+    try{
+      const mode=new URL(task.href,'https://gloria.invalid').searchParams.get('mode');
+      const key=[date,task.id,task.assignedSubject,task.assignedTopic,
+        Number(task.assignedYear),mode,Number(task.target)].join('|');
+      if(saved.verifiedCorrectAssignment===key&&
+         Array.isArray(saved.verifiedCorrectIds)&&
+         new Set(saved.verifiedCorrectIds).size>=fromRecord)
+        verified={verifiedCorrectIds:saved.verifiedCorrectIds.slice(0,60),
+          verifiedCorrectAssignment:key,correctOnlyEvidence:true};
+    }catch{}
     changed=true;
-    return {...task,progress:fromRecord};
+    return {...task,progress:fromRecord,done:fromRecord>=Number(task.target),
+      ...(verified||{})};
   });
   return changed?reconciled:daily;
 }
