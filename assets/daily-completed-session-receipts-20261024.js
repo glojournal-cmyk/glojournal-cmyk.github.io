@@ -1,7 +1,7 @@
 // Durable receipts for fully answered, locked Daily practice sessions.
 // This does not award XP or claim wrong answers were correct. The source quiz
 // supplies individual marked outcomes; only the exact saved assignment can use them.
-import {reconcileDailySession} from './daily-session-credit-20261021.js?v=20261025-daily-retry1';
+import {reconcileDailySession} from './daily-session-credit-20261021.js?v=20261025-daily-retry2';
 const DB='lux-daily-completed-sessions-v1',TABLE='receipts';
 const FALLBACK='lux-daily-completed-sessions-safe-v1';
 const supported=new Set(['latin-standard','y8-standard-a','y8-standard-b',
