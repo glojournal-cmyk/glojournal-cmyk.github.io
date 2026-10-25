@@ -1336,17 +1336,4111 @@
       },
       "preview": false,
       "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-1",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-1",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-01 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "none of these four nutrients",
+        "starch",
+        "reducing sugar",
+        "starch, reducing sugar, protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "none of these four nutrients"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: none of these four nutrients. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: none of these four nutrients. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: none of these four nutrients. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-2",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-2",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-02 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar",
+        "starch, protein",
+        "reducing sugar, protein, lipid",
+        "starch"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-3",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-3",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "reducing sugar, lipid",
+        "starch, protein, lipid",
+        "reducing sugar",
+        "reducing sugar, protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-4",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-4",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "protein, lipid",
+        "starch, reducing sugar",
+        "starch, reducing sugar, lipid",
+        "reducing sugar"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-5",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-5",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-05 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "protein",
+        "starch, protein",
+        "reducing sugar, protein",
+        "starch, reducing sugar, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-6",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-6",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-06 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar, protein",
+        "starch",
+        "reducing sugar, lipid",
+        "starch, protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-7",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-7",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "reducing sugar, protein, lipid",
+        "starch, lipid",
+        "reducing sugar, protein",
+        "reducing sugar"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar, protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-8",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-8",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "lipid",
+        "starch, reducing sugar, protein",
+        "starch, reducing sugar, protein, lipid",
+        "reducing sugar, protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar, protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-9",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-9",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-09 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "lipid",
+        "starch, lipid",
+        "reducing sugar, lipid",
+        "starch, reducing sugar, protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-10",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-10",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-10 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar, lipid",
+        "starch, protein, lipid",
+        "reducing sugar, protein",
+        "starch, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-11",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-11",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "reducing sugar",
+        "starch, protein",
+        "reducing sugar, lipid",
+        "reducing sugar, protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-12",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-12",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "protein",
+        "starch, reducing sugar, lipid",
+        "starch, reducing sugar",
+        "reducing sugar, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-13",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-13",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-13 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "protein, lipid",
+        "starch, protein, lipid",
+        "reducing sugar, protein, lipid",
+        "starch, reducing sugar"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-14",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-14",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-14 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar, protein, lipid",
+        "starch, lipid",
+        "reducing sugar",
+        "starch, protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-15",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-15",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "reducing sugar, protein",
+        "starch",
+        "reducing sugar, protein, lipid",
+        "reducing sugar, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar, protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-16",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-1-16",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "During a practical, Sample F1-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "none of these four nutrients",
+        "starch, reducing sugar, protein, lipid",
+        "starch, reducing sugar, protein",
+        "reducing sugar, protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar, protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-1",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-1",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-01 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "reducing sugar",
+        "protein",
+        "starch, reducing sugar, protein, lipid",
+        "none of these four nutrients"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "none of these four nutrients"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: none of these four nutrients. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: none of these four nutrients. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: none of these four nutrients. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-2",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-2",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-02 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch, lipid",
+        "reducing sugar, protein, lipid",
+        "starch",
+        "starch, protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-3",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-3",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch, protein, lipid",
+        "reducing sugar",
+        "reducing sugar, lipid",
+        "starch, reducing sugar"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-4",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-4",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar",
+        "reducing sugar",
+        "starch",
+        "protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-5",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-5",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-05 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "reducing sugar, protein",
+        "none of these four nutrients",
+        "starch, reducing sugar, lipid",
+        "protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-6",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-6",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-06 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch, protein, lipid",
+        "reducing sugar, lipid",
+        "starch, protein",
+        "starch"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-7",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-7",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch, lipid",
+        "reducing sugar, protein",
+        "reducing sugar, protein, lipid",
+        "starch, reducing sugar, protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar, protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-8",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-8",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar, protein",
+        "reducing sugar, protein",
+        "starch, protein",
+        "lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar, protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-9",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-9",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-09 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "reducing sugar, lipid",
+        "protein, lipid",
+        "starch, reducing sugar, protein",
+        "lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-10",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-10",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-10 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch",
+        "reducing sugar, protein",
+        "starch, lipid",
+        "starch, protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-11",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-11",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch, protein",
+        "reducing sugar, lipid",
+        "reducing sugar",
+        "starch, reducing sugar, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-12",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-12",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar, lipid",
+        "reducing sugar, lipid",
+        "starch, lipid",
+        "protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-13",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-13",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-13 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "reducing sugar, protein, lipid",
+        "lipid",
+        "starch, reducing sugar",
+        "protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-14",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-14",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-14 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch, protein",
+        "reducing sugar",
+        "starch, protein, lipid",
+        "starch, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-15",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-15",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch",
+        "reducing sugar, protein, lipid",
+        "reducing sugar, protein",
+        "starch, reducing sugar, protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar, protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-16",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-2-16",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "In an independent food-sample assessment, Sample F2-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar, protein, lipid",
+        "reducing sugar, protein, lipid",
+        "starch, protein, lipid",
+        "none of these four nutrients"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar, protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-1",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-1",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-01 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "lipid",
+        "starch, reducing sugar, protein, lipid",
+        "none of these four nutrients",
+        "protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "none of these four nutrients"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: none of these four nutrients. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: none of these four nutrients. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: none of these four nutrients. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-2",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-2",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-02 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "reducing sugar, protein, lipid",
+        "starch",
+        "starch, lipid",
+        "none of these four nutrients"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-3",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-3",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "reducing sugar",
+        "starch, reducing sugar",
+        "none of these four nutrients",
+        "starch, protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-4",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-4",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch",
+        "starch, reducing sugar, protein",
+        "protein, lipid",
+        "starch, reducing sugar"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-5",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-5",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-05 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "protein, lipid",
+        "starch, reducing sugar, lipid",
+        "protein",
+        "none of these four nutrients"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-6",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-6",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-06 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "reducing sugar, lipid",
+        "starch, protein",
+        "starch, protein, lipid",
+        "protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-7",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-7",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "reducing sugar, protein",
+        "starch, reducing sugar, protein",
+        "protein",
+        "starch, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar, protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-8",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-8",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch, protein",
+        "starch, reducing sugar",
+        "lipid",
+        "starch, reducing sugar, protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar, protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-9",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-9",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-09 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "none of these four nutrients",
+        "starch, reducing sugar, protein",
+        "lipid",
+        "protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-10",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-10",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-10 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "reducing sugar, protein",
+        "starch, lipid",
+        "starch",
+        "lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-11",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-11",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "reducing sugar, lipid",
+        "starch, reducing sugar, lipid",
+        "lipid",
+        "starch, protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-12",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-12",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch, lipid",
+        "starch, reducing sugar, protein, lipid",
+        "protein",
+        "starch, reducing sugar, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-13",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-13",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-13 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "protein",
+        "starch, reducing sugar",
+        "protein, lipid",
+        "lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-14",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-14",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-14 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "reducing sugar",
+        "starch, protein, lipid",
+        "starch, protein",
+        "protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-15",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-15",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "reducing sugar, protein, lipid",
+        "starch, reducing sugar, protein, lipid",
+        "protein, lipid",
+        "starch"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar, protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-16",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-3-16",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A pupil checks four substances in an unknown extract. Sample F3-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch, protein, lipid",
+        "starch, reducing sugar, lipid",
+        "none of these four nutrients",
+        "starch, reducing sugar, protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar, protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-1",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-1",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-01 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar, protein, lipid",
+        "none of these four nutrients",
+        "lipid",
+        "starch"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "none of these four nutrients"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: none of these four nutrients. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: none of these four nutrients. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: none of these four nutrients. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-2",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-2",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-02 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch",
+        "none of these four nutrients",
+        "starch, reducing sugar",
+        "reducing sugar, protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-3",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-3",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "none of these four nutrients",
+        "reducing sugar, protein",
+        "starch, protein, lipid",
+        "reducing sugar"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-4",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-4",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar, lipid",
+        "protein, lipid",
+        "starch, reducing sugar",
+        "starch, reducing sugar, protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-5",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-5",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-05 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar, lipid",
+        "protein",
+        "protein, lipid",
+        "starch, protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-6",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-6",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-06 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch, protein",
+        "protein",
+        "starch, reducing sugar, protein",
+        "reducing sugar, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-7",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-7",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "protein",
+        "reducing sugar",
+        "starch, lipid",
+        "reducing sugar, protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar, protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-8",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-8",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar, protein, lipid",
+        "lipid",
+        "starch, reducing sugar, protein",
+        "starch, reducing sugar"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar, protein"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar, protein. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-9",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-9",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-09 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar, protein",
+        "lipid",
+        "none of these four nutrients",
+        "starch, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-10",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-10",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-10 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch, lipid",
+        "lipid",
+        "starch, reducing sugar, lipid",
+        "reducing sugar, protein"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-11",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-11",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "lipid",
+        "reducing sugar, protein, lipid",
+        "starch, protein",
+        "reducing sugar, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-12",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-12",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar",
+        "protein",
+        "starch, reducing sugar, lipid",
+        "starch, reducing sugar, protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-13",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-13",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-13 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar",
+        "protein, lipid",
+        "protein",
+        "starch, protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-14",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-14",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-14 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch, protein, lipid",
+        "protein, lipid",
+        "starch, reducing sugar, protein, lipid",
+        "reducing sugar"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-15",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-15",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "protein, lipid",
+        "reducing sugar, lipid",
+        "starch",
+        "reducing sugar, protein, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "reducing sugar, protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-16",
+      "conceptId": "bio-y8-concept-food-tests-case-20261025-4-16",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mc_single",
+      "prompt": "A laboratory technician checks an unknown food mixture. Sample F4-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "starch, reducing sugar, protein",
+        "none of these four nutrients",
+        "starch, reducing sugar, protein, lipid",
+        "starch, reducing sugar, lipid"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "starch, reducing sugar, protein, lipid"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Detected: starch, reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid.",
+        "steps": [
+          "Detected: starch, reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Detected: starch, reducing sugar, protein, lipid. Blue-black iodine indicates starch; heated Benedict's colour change indicates reducing sugar; purple Biuret indicates protein; cloudy white emulsion indicates lipid."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose one option supported by the experimental evidence."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sample-separation",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-sample-separation",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A pupil plans to test a drink for starch and reducing sugar. Explain why two separate portions of the drink should be used.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "reagents can interfere with one another",
+          "each test needs its own uncontaminated sample"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "reagents can interfere with one another; each test needs its own uncontaminated sample"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "reagents can interfere with one another; each test needs its own uncontaminated sample",
+        "steps": [
+          "reagents can interfere with one another",
+          "each test needs its own uncontaminated sample"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-iodine-repeat",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-iodine-repeat",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "Two iodine tests on the same food disagree. Suggest two actions to improve the reliability of the results.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "repeat the tests using fresh samples",
+          "use the same measured volume of sample and iodine"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "repeat the tests using fresh samples; use the same measured volume of sample and iodine"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "repeat the tests using fresh samples; use the same measured volume of sample and iodine",
+        "steps": [
+          "repeat the tests using fresh samples",
+          "use the same measured volume of sample and iodine"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-benedict-no-heat",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-benedict-no-heat",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A pupil adds Benedict's reagent to a glucose solution but leaves it cold. Explain why the result cannot be considered a valid negative.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Benedict's reducing-sugar test requires heating",
+          "without heating the expected positive colour change may not occur"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Benedict's reducing-sugar test requires heating; without heating the expected positive colour change may not occur"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Benedict's reducing-sugar test requires heating; without heating the expected positive colour change may not occur",
+        "steps": [
+          "Benedict's reducing-sugar test requires heating",
+          "without heating the expected positive colour change may not occur"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-negative-sugar",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-negative-sugar",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "After heating with Benedict's reagent, a drink remains blue. State the observation and what it means.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Benedict's solution remains blue",
+          "no reducing sugar was detected"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Benedict's solution remains blue; no reducing sugar was detected"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Benedict's solution remains blue; no reducing sugar was detected",
+        "steps": [
+          "Benedict's solution remains blue",
+          "no reducing sugar was detected"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-sugar",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-positive-sugar",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A heated food mixture changes Benedict's solution from blue to orange. Explain the conclusion.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "a colour change from blue indicates a positive test",
+          "reducing sugar is present"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "a colour change from blue indicates a positive test; reducing sugar is present"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "a colour change from blue indicates a positive test; reducing sugar is present",
+        "steps": [
+          "a colour change from blue indicates a positive test",
+          "reducing sugar is present"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-biuret-control",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-biuret-control",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A pupil tests an unknown food extract with Biuret reagent. What control sample could they use and why?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "use water as a negative control",
+          "it should stay blue to check for contamination"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "use water as a negative control; it should stay blue to check for contamination"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "use water as a negative control; it should stay blue to check for contamination",
+        "steps": [
+          "use water as a negative control",
+          "it should stay blue to check for contamination"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-iodine-control",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-iodine-control",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "Describe a suitable positive control for an iodine test and explain the expected colour.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "test a known starch solution",
+          "iodine should turn blue-black"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "test a known starch solution; iodine should turn blue-black"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "test a known starch solution; iodine should turn blue-black",
+        "steps": [
+          "test a known starch solution",
+          "iodine should turn blue-black"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-repeatability",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-repeatability",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "The same food sample is tested three times for reducing sugar. Give two conditions that must remain the same.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "use the same volume or mass of food extract",
+          "keep the heating time or water bath temperature the same"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "use the same volume or mass of food extract; keep the heating time or water bath temperature the same"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "use the same volume or mass of food extract; keep the heating time or water bath temperature the same",
+        "steps": [
+          "use the same volume or mass of food extract",
+          "keep the heating time or water bath temperature the same"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-cross-contamination",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-cross-contamination",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A pupil uses the same unwashed pipette in all four food tests. Explain two ways this could affect their conclusions.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "reagent or food from one sample could contaminate another",
+          "contamination can cause a false positive or unreliable result"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "reagent or food from one sample could contaminate another; contamination can cause a false positive or unreliable result"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "reagent or food from one sample could contaminate another; contamination can cause a false positive or unreliable result",
+        "steps": [
+          "reagent or food from one sample could contaminate another",
+          "contamination can cause a false positive or unreliable result"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-ethanol-emulsion-stages",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "Explain the correct sequence for testing an unknown food for lipids using ethanol.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "shake the food sample with ethanol",
+          "add water and look for a cloudy white emulsion"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "shake the food sample with ethanol; add water and look for a cloudy white emulsion"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "shake the food sample with ethanol; add water and look for a cloudy white emulsion",
+        "steps": [
+          "shake the food sample with ethanol",
+          "add water and look for a cloudy white emulsion"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-ethanol-ventilation",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-ethanol-ventilation",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "State two safety precautions when carrying out an ethanol emulsion test.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "keep ethanol away from naked flames because it is flammable",
+          "wear safety goggles to protect eyes"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "keep ethanol away from naked flames because it is flammable; wear safety goggles to protect eyes"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "keep ethanol away from naked flames because it is flammable; wear safety goggles to protect eyes",
+        "steps": [
+          "keep ethanol away from naked flames because it is flammable",
+          "wear safety goggles to protect eyes"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-benedict-hot-tube",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "Explain why a pupil should use a test-tube holder and point the tube away from others when heating Benedict's test.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "the test tube and water can be hot and cause burns",
+          "hot liquid could splash onto another person"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "the test tube and water can be hot and cause burns; hot liquid could splash onto another person"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "the test tube and water can be hot and cause burns; hot liquid could splash onto another person",
+        "steps": [
+          "the test tube and water can be hot and cause burns",
+          "hot liquid could splash onto another person"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-protein-extraction",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-protein-extraction",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "Before using Biuret reagent on a solid food, explain why the food may need to be crushed and mixed with water.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "crushing breaks up the sample to expose substances",
+          "mixing with water allows a testable extract to be produced"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "crushing breaks up the sample to expose substances; mixing with water allows a testable extract to be produced"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "crushing breaks up the sample to expose substances; mixing with water allows a testable extract to be produced",
+        "steps": [
+          "crushing breaks up the sample to expose substances",
+          "mixing with water allows a testable extract to be produced"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-starch-extraction",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-starch-extraction",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A pupil crushes a potato sample before adding iodine. Explain how this makes the test more effective.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "crushing increases exposed surface area or releases starch",
+          "iodine can contact the starch more easily"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "crushing increases exposed surface area or releases starch; iodine can contact the starch more easily"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "crushing increases exposed surface area or releases starch; iodine can contact the starch more easily",
+        "steps": [
+          "crushing increases exposed surface area or releases starch",
+          "iodine can contact the starch more easily"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-fair-amount",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-fair-amount",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "Two bread samples are compared using iodine. Explain why equal masses of each sample should be tested.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "the amount of sample is a control variable",
+          "different masses could make the comparison unfair"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "the amount of sample is a control variable; different masses could make the comparison unfair"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "the amount of sample is a control variable; different masses could make the comparison unfair",
+        "steps": [
+          "the amount of sample is a control variable",
+          "different masses could make the comparison unfair"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-fair-reagent",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-fair-reagent",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "Two food extracts receive different volumes of Benedict's solution. Explain why this is a problem.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "the reagent volume is not controlled",
+          "any difference in result could be due to reagent volume rather than the samples"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "the reagent volume is not controlled; any difference in result could be due to reagent volume rather than the samples"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "the reagent volume is not controlled; any difference in result could be due to reagent volume rather than the samples",
+        "steps": [
+          "the reagent volume is not controlled",
+          "any difference in result could be due to reagent volume rather than the samples"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-sugar-strength",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A pupil obtains green with one heated Benedict's sample and brick-red with another. Explain what this suggests and one limitation.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "brick-red suggests a greater amount of reducing sugar than green",
+          "the colour test gives an approximate result rather than an exact concentration"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "brick-red suggests a greater amount of reducing sugar than green; the colour test gives an approximate result rather than an exact concentration"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "brick-red suggests a greater amount of reducing sugar than green; the colour test gives an approximate result rather than an exact concentration",
+        "steps": [
+          "brick-red suggests a greater amount of reducing sugar than green",
+          "the colour test gives an approximate result rather than an exact concentration"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-cloudy-not-protein",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-cloudy-not-protein",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "After an emulsion test, the liquid becomes cloudy white. Explain why the pupil should not conclude the sample contains protein.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "cloudy white is evidence for lipid in the ethanol emulsion test",
+          "protein needs a separate Biuret test"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "cloudy white is evidence for lipid in the ethanol emulsion test; protein needs a separate Biuret test"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "cloudy white is evidence for lipid in the ethanol emulsion test; protein needs a separate Biuret test",
+        "steps": [
+          "cloudy white is evidence for lipid in the ethanol emulsion test",
+          "protein needs a separate Biuret test"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-starch-vs-glucose",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-starch-vs-glucose",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A sample tests positive with iodine but negative with heated Benedict's. What two conclusions are supported?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "starch was detected in the sample",
+          "reducing sugar was not detected"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "starch was detected in the sample; reducing sugar was not detected"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "starch was detected in the sample; reducing sugar was not detected",
+        "steps": [
+          "starch was detected in the sample",
+          "reducing sugar was not detected"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sugar-vs-starch",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-sugar-vs-starch",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A sample tests positive with Benedict's but iodine remains orange-brown. State two conclusions.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "reducing sugar was detected",
+          "starch was not detected"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "reducing sugar was detected; starch was not detected"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "reducing sugar was detected; starch was not detected",
+        "steps": [
+          "reducing sugar was detected",
+          "starch was not detected"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-biuret-vs-sugar",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-biuret-vs-sugar",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "Biuret turns purple and heated Benedict's remains blue. State two justified conclusions.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "protein was detected",
+          "reducing sugar was not detected"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "protein was detected; reducing sugar was not detected"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "protein was detected; reducing sugar was not detected",
+        "steps": [
+          "protein was detected",
+          "reducing sugar was not detected"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-lipid-vs-starch",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-lipid-vs-starch",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "An emulsion turns cloudy white but iodine stays orange-brown. State two justified conclusions.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "lipid was detected",
+          "starch was not detected"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "lipid was detected; starch was not detected"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "lipid was detected; starch was not detected",
+        "steps": [
+          "lipid was detected",
+          "starch was not detected"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-all-negative",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-all-negative",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "An unknown sample gives four negative food tests. Explain what can and cannot be concluded.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "none of starch reducing sugar protein or lipid were detected by these tests",
+          "a negative test does not prove the food contains no nutrients of any kind"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "none of starch reducing sugar protein or lipid were detected by these tests; a negative test does not prove the food contains no nutrients of any kind"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "none of starch reducing sugar protein or lipid were detected by these tests; a negative test does not prove the food contains no nutrients of any kind",
+        "steps": [
+          "none of starch reducing sugar protein or lipid were detected by these tests",
+          "a negative test does not prove the food contains no nutrients of any kind"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-retest-ethanol",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-retest-ethanol",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "The ethanol emulsion test is cloudy before water is added. Explain two reasons to repeat the test.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "the sample or glassware may have been contaminated",
+          "a valid result requires the correct ethanol then water procedure"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "the sample or glassware may have been contaminated; a valid result requires the correct ethanol then water procedure"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "the sample or glassware may have been contaminated; a valid result requires the correct ethanol then water procedure",
+        "steps": [
+          "the sample or glassware may have been contaminated",
+          "a valid result requires the correct ethanol then water procedure"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-glassware",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-glassware",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "Give two reasons to use clean labelled test tubes for four different food samples.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "labels prevent samples from being mixed up",
+          "clean tubes avoid contamination that could change results"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "labels prevent samples from being mixed up; clean tubes avoid contamination that could change results"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "labels prevent samples from being mixed up; clean tubes avoid contamination that could change results",
+        "steps": [
+          "labels prevent samples from being mixed up",
+          "clean tubes avoid contamination that could change results"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-eyes",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-eyes",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A student splashes an unknown reagent near their eyes while testing food. Explain the role of two safety precautions.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "goggles reduce risk of chemicals reaching the eyes",
+          "careful handling or pipetting reduces splashes"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "goggles reduce risk of chemicals reaching the eyes; careful handling or pipetting reduces splashes"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "goggles reduce risk of chemicals reaching the eyes; careful handling or pipetting reduces splashes",
+        "steps": [
+          "goggles reduce risk of chemicals reaching the eyes",
+          "careful handling or pipetting reduces splashes"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-heat-variable",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-heat-variable",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A pupil compares two sugar samples, heating one for 20 seconds and the other for 3 minutes. Why is the comparison unreliable?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "heating time is a variable that was changed",
+          "the colour difference might be due to heating time not sugar concentration"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "heating time is a variable that was changed; the colour difference might be due to heating time not sugar concentration"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "heating time is a variable that was changed; the colour difference might be due to heating time not sugar concentration",
+        "steps": [
+          "heating time is a variable that was changed",
+          "the colour difference might be due to heating time not sugar concentration"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-no-taste",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-no-taste",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "Explain why a pupil must not taste an unknown food sample during a food-test practical.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "the sample may contain harmful or contaminated substances",
+          "laboratory substances and chemicals must not be ingested"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "the sample may contain harmful or contaminated substances; laboratory substances and chemicals must not be ingested"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "the sample may contain harmful or contaminated substances; laboratory substances and chemicals must not be ingested",
+        "steps": [
+          "the sample may contain harmful or contaminated substances",
+          "laboratory substances and chemicals must not be ingested"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-recording",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-recording",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "Describe two useful pieces of information to record in a results table for each food test.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "record the reagent or type of test used",
+          "record the observed colour change or appearance and conclusion"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "record the reagent or type of test used; record the observed colour change or appearance and conclusion"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "record the reagent or type of test used; record the observed colour change or appearance and conclusion",
+        "steps": [
+          "record the reagent or type of test used",
+          "record the observed colour change or appearance and conclusion"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-inference",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-inference",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A pupil writes 'this snack is healthy' after finding proteins and sugars. Explain why the claim is not supported by the tests alone.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "food tests identify some nutrient groups but not overall nutritional balance",
+          "healthiness depends on amounts and other dietary factors"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "food tests identify some nutrient groups but not overall nutritional balance; healthiness depends on amounts and other dietary factors"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "food tests identify some nutrient groups but not overall nutritional balance; healthiness depends on amounts and other dietary factors",
+        "steps": [
+          "food tests identify some nutrient groups but not overall nutritional balance",
+          "healthiness depends on amounts and other dietary factors"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-weak-blueblack",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-weak-blueblack",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A pupil sees a faint blue-black colour with iodine. Suggest two scientifically sound actions before reporting the result.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "repeat the test with a clean sample or equipment",
+          "compare the result with a known positive and negative control"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "repeat the test with a clean sample or equipment; compare the result with a known positive and negative control"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "repeat the test with a clean sample or equipment; compare the result with a known positive and negative control",
+        "steps": [
+          "repeat the test with a clean sample or equipment",
+          "compare the result with a known positive and negative control"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-temperature-safety",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "Give two reasons for heating Benedict's mixture in a water bath instead of holding a test tube in a direct flame.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "a water bath provides more even or controlled heating",
+          "indirect heating lowers the risk of splashing or overheating"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "a water bath provides more even or controlled heating; indirect heating lowers the risk of splashing or overheating"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "a water bath provides more even or controlled heating; indirect heating lowers the risk of splashing or overheating",
+        "steps": [
+          "a water bath provides more even or controlled heating",
+          "indirect heating lowers the risk of splashing or overheating"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-test-plan",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-test-plan",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A food manufacturer wants to check whether a biscuit contains starch and fat. Name the two tests and a positive observation for each.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "iodine test for starch gives blue-black",
+          "ethanol emulsion test for fat gives cloudy white"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "iodine test for starch gives blue-black; ethanol emulsion test for fat gives cloudy white"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "iodine test for starch gives blue-black; ethanol emulsion test for fat gives cloudy white",
+        "steps": [
+          "iodine test for starch gives blue-black",
+          "ethanol emulsion test for fat gives cloudy white"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-positive-protein-negative-fat",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A sample turns Biuret reagent purple but produces no white emulsion. Explain both observations.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "purple Biuret is a positive test for protein",
+          "no cloudy emulsion means lipid was not detected"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "purple Biuret is a positive test for protein; no cloudy emulsion means lipid was not detected"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "purple Biuret is a positive test for protein; no cloudy emulsion means lipid was not detected",
+        "steps": [
+          "purple Biuret is a positive test for protein",
+          "no cloudy emulsion means lipid was not detected"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-result-not-proof",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-result-not-proof",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A reducing sugar test remains blue despite a pupil thinking the drink tastes sweet. Explain why the pupil should trust the chemical result cautiously.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "the test did not detect reducing sugar under the test conditions",
+          "sweetness does not prove that a reducing sugar is present"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "the test did not detect reducing sugar under the test conditions; sweetness does not prove that a reducing sugar is present"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "the test did not detect reducing sugar under the test conditions; sweetness does not prove that a reducing sugar is present",
+        "steps": [
+          "the test did not detect reducing sugar under the test conditions",
+          "sweetness does not prove that a reducing sugar is present"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-wrong-reagent",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-wrong-reagent",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A pupil uses iodine to test an unknown drink for protein. Explain why this method cannot support the claim.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "iodine tests for starch not protein",
+          "Biuret reagent is required to test for protein"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "iodine tests for starch not protein; Biuret reagent is required to test for protein"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "iodine tests for starch not protein; Biuret reagent is required to test for protein",
+        "steps": [
+          "iodine tests for starch not protein",
+          "Biuret reagent is required to test for protein"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-uncertain-emulsion",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-uncertain-emulsion",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A tube goes cloudy after ethanol and water, but the clean water control also goes cloudy. Explain the concern and a remedy.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "the control suggests contamination or a problem with reagents",
+          "repeat using fresh clean equipment and reagents"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "the control suggests contamination or a problem with reagents; repeat using fresh clean equipment and reagents"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "the control suggests contamination or a problem with reagents; repeat using fresh clean equipment and reagents",
+        "steps": [
+          "the control suggests contamination or a problem with reagents",
+          "repeat using fresh clean equipment and reagents"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-iodine-no-heat",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-iodine-no-heat",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "A student heats iodine solution with the food sample before observing it. Explain why this step is unnecessary and suggest the correct method.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "iodine starch testing does not require heating",
+          "add iodine solution to the sample and observe whether it turns blue-black"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "iodine starch testing does not require heating; add iodine solution to the sample and observe whether it turns blue-black"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "iodine starch testing does not require heating; add iodine solution to the sample and observe whether it turns blue-black",
+        "steps": [
+          "iodine starch testing does not require heating",
+          "add iodine solution to the sample and observe whether it turns blue-black"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-safe-bunsen",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-safe-bunsen",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "Why should a Bunsen burner be extinguished before an ethanol emulsion test begins?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "ethanol vapour is flammable",
+          "an open flame can ignite the ethanol causing fire"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "ethanol vapour is flammable; an open flame can ignite the ethanol causing fire"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "ethanol vapour is flammable; an open flame can ignite the ethanol causing fire",
+        "steps": [
+          "ethanol vapour is flammable",
+          "an open flame can ignite the ethanol causing fire"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-unknown-analysis",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-unknown-analysis",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "An unknown food gives a blue-black iodine test, purple Biuret, and a clear ethanol emulsion. State the three conclusions.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "starch is present",
+          "protein is present",
+          "lipid was not detected"
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "starch is present; protein is present; lipid was not detected"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "starch is present; protein is present; lipid was not detected",
+        "steps": [
+          "starch is present",
+          "protein is present",
+          "lipid was not detected"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sugar-analysis",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-sugar-analysis",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "mark_points",
+      "prompt": "Heated Benedict's turns orange but iodine remains orange-brown, and Biuret is blue. State all three conclusions.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "reducing sugar is present",
+          "starch was not detected",
+          "protein was not detected"
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "reducing sugar is present; starch was not detected; protein was not detected"
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "reducing sugar is present; starch was not detected; protein was not detected",
+        "steps": [
+          "reducing sugar is present",
+          "starch was not detected",
+          "protein was not detected"
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Use the observations, not guesses, to identify food groups."
+      },
+      "task": {
+        "label": "SHORT EXAM ANSWER",
+        "instruction": "Answer every part; each distinct accurate point earns a mark."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-negative-biuret",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-negative-biuret",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "typed_short",
+      "prompt": "What colour is Biuret reagent when the test is negative for protein?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "blue",
+          "remains blue",
+          "stays blue"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "A negative Biuret test stays blue.",
+        "steps": [
+          "A negative Biuret test stays blue."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "A negative Biuret test stays blue."
+      },
+      "task": {
+        "label": "WRITE A SHORT ANSWER",
+        "instruction": "Give a concise, scientifically accurate answer."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-negative-emulsion",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-negative-emulsion",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "typed_short",
+      "prompt": "What does a clear ethanol-water mixture indicate in a properly performed emulsion test?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "no lipid detected",
+          "lipid not detected",
+          "no fat detected",
+          "fat not detected",
+          "no lipid was detected",
+          "no fat was detected"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "A clear mixture means the lipid test is negative.",
+        "steps": [
+          "A clear mixture means the lipid test is negative."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "A clear mixture means the lipid test is negative."
+      },
+      "task": {
+        "label": "WRITE A SHORT ANSWER",
+        "instruction": "Give a concise, scientifically accurate answer."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-benedict",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-positive-benedict",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "typed_short",
+      "prompt": "Name a colour that shows a positive heated Benedict's test.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "green",
+          "yellow",
+          "orange",
+          "brick red",
+          "brick-red"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Green, yellow, orange or brick-red after heating indicates reducing sugar.",
+        "steps": [
+          "Green, yellow, orange or brick-red after heating indicates reducing sugar."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Green, yellow, orange or brick-red after heating indicates reducing sugar."
+      },
+      "task": {
+        "label": "WRITE A SHORT ANSWER",
+        "instruction": "Give a concise, scientifically accurate answer."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-starch-negative-colour",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-starch-negative-colour",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "typed_short",
+      "prompt": "In a negative iodine starch test, what colour should remain?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "orange brown",
+          "orange-brown",
+          "brown",
+          "yellow brown",
+          "yellow-brown"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Iodine remains orange-brown when starch is not detected.",
+        "steps": [
+          "Iodine remains orange-brown when starch is not detected."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Iodine remains orange-brown when starch is not detected."
+      },
+      "task": {
+        "label": "WRITE A SHORT ANSWER",
+        "instruction": "Give a concise, scientifically accurate answer."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-heating-method",
+      "conceptId": "bio-y8-concept-food-tests-application-20261025-heating-method",
+      "topicId": "bio-y8-food-tests",
+      "topic": "Food tests and laboratory safety",
+      "format": "typed_short",
+      "prompt": "Which piece of laboratory equipment provides indirect heating for Benedict's test?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "water bath",
+          "a water bath",
+          "hot water bath"
+        ],
+        "totalMarks": 1
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Heat Benedict's test in a water bath.",
+        "steps": [
+          "Heat Benedict's test in a water bath."
+        ],
+        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+        "remember": "Heat Benedict's test in a water bath."
+      },
+      "task": {
+        "label": "WRITE A SHORT ANSWER",
+        "instruction": "Give a concise, scientifically accurate answer."
+      },
+      "preview": false,
+      "ordinary": true
     }
   ],
-  "enabled": 33,
+  "enabled": 143,
   "preview": 0,
   "disabled": 0,
   "formats": {
-    "mc_single": 9,
+    "mc_single": 73,
     "typed_exact": 9,
-    "mark_points": 11,
+    "mark_points": 52,
     "matching": 3,
-    "typed_short": 1
+    "typed_short": 6
   },
   "gated": false,
   "note": {
