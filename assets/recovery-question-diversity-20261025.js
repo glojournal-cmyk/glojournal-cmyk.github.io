@@ -6,7 +6,7 @@ const taskSubject=task=>task?.assignedSubject||task?.focusSubject||task?.reviewS
   String(task?.href||'').match(/^\/study\/(french|latin|biology|chemistry|physics)\/practise/)?.[1]||null;
 const taskTopic=task=>task?.assignedTopic||task?.focusTopic||task?.reviewTopic||
   (()=>{try{return new URL(task?.href||'/', 'https://local.invalid').searchParams.get('topic')}catch{return null}})();
-const clean=value=>String(value||'').normalize('NFKC').toLowerCase()
+const clean=value=>String(value||'').normalize('NFKD').toLowerCase()
   .replace(/[\u0300-\u036f]/g,'').replace(/[^\p{L}\p{N}]+/gu,' ').trim().replace(/\s+/g,' ');
 export function recoveryQuestionFingerprint(question){
  if(!question)return '';
@@ -50,7 +50,7 @@ export function recoveryQuestionExclusions(state,{date,taskId,subject,year}={}){
  return {correct,otherTasks,ids:new Set([...correct,...otherTasks])};
 }
 export function selectDiverseRecoveryQuestions(fresh,loaded,options={},rank,progression){
- const {state,date,taskId,subject,year,topicId='',size=10,mode='standard'}=options;
+ const {state,date,taskId,subject,year,topicId='',size=10,mode='standard',day=state?.today}=options;
  const current=Array.isArray(fresh)?fresh:[];
  if(!date||!taskId||!PRACTICE_SUBJECTS.has(subject)||!state)return current;
  const excluded=recoveryQuestionExclusions(state,{date,taskId,subject,year});
@@ -58,6 +58,8 @@ export function selectDiverseRecoveryQuestions(fresh,loaded,options={},rank,prog
  const excludedFingerprints=new Set([...excluded.ids].map(id=>recoveryQuestionFingerprint(byId.get(id))).filter(Boolean));
  const allowed=q=>q?.id&&q.formal!==false&&!q._repair&&q.status!=='preview'&&
    (!topicId||q.topicId===topicId)&&!excluded.ids.has(asId(q.id))&&
+   !(day&&['standard','mastery','quick'].includes(mode)&&
+     state.reviews?.[q.id]?.due>day)&&
    !excludedFingerprints.has(recoveryQuestionFingerprint(q));
  const selectUnique=arr=>{
    const out=[],ids=new Set(),prints=new Set();
@@ -75,7 +77,7 @@ export function selectDiverseRecoveryQuestions(fresh,loaded,options={},rank,prog
  // Mistake/due review may only draw from its specifically assigned pool.
  const candidates=selectUnique(review?current:bank);
  if(!candidates.length)return selectUnique(current).slice(0,limit);
- const ranked=selectUnique(typeof rank==='function'?rank(candidates,subject,candidates.length):candidates);
+ const ranked=selectUnique(typeof rank==='function'?rank(candidates,subject,Math.max(1,Math.min(30,limit))):candidates);
  // Independent, non-overlapping portions of one subject/topic bank for
  // same-day Recovery assignments; prevents overlap even BEFORE first answer.
  const assignments=(state.dailyLog?.[date]?.tasks||[]).filter(t=>
