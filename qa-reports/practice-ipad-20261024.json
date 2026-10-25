@@ -1,15 +1,15 @@
 {
   "test": "Gloria Practice iPad QA",
   "date": "2026-10-24",
-  "commit": "dbee307a1bb53b149622ec4a127f76363396a37d",
-  "run": "40234331196",
-  "url": "https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/40234331196",
+  "commit": "0593bccbd4b71de5e71fb39b2d353b0fc87446f4",
+  "run": "40234859801",
+  "url": "https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/40234859801",
   "checks": {
-    "structural": "failure",
+    "structural": "success",
     "progress": "success",
     "browser_install": "success",
     "ipad_browser": "failure",
-    "live_pages": "success"
+    "live_pages": "failure"
   },
   "note": "Automated local-checkout and live GitHub Pages checks; virtual WebKit/Chromium iPads, not physical iPad verification"
 }
