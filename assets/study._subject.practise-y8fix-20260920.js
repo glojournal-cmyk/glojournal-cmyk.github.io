@@ -63,7 +63,7 @@ safeU=selectDiverseRecoveryQuestions(fillDailyLockedQuestions(U,z,{locked:dailyL
  return ids;})()},RQ,selectProgressionQuestions),z,{
  state:{...s.getState(),recoveryReceipts:listRecoveryReceipts()},
  date:dailyParams.get('recover')||null,taskId:canonicalTask,subject:e,year:N,
- topicId:pinnedTopic,size:W,mode:E
+ topicId:pinnedTopic,size:W,mode:E,reviewQuestionIds:assignment?.reviewQuestionIds
 },RQ,selectProgressionQuestions),
 sessionSnapshot=(0,w.useRef)(null),
 sessionKey=[e,N,E,O,dailyParams.get(`task`)||``,dailyParams.get(`recover`)||``].join(`:`),
