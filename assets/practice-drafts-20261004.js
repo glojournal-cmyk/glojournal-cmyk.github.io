@@ -7,13 +7,13 @@
  const DB_NAME="lux-practice-drafts-v2", STORE="drafts";
  const LIFE_MS=7*86400000;
  const cache=new Map(), writes=new Map(), completedKeys=new Set();
- let dbPromise=null, readyPromise=null, loaded=false;
+ let dbPromise=null, readyPromise=null, loaded=false, idbTimedOut=false;
  // Safari/iPad IndexedDB requests can remain pending without firing an error.
  // Never let this optional draft store indefinitely block practice or saving.
  const DRAFT_WAIT_MS=5000;
  function withDeadline(promise,label){
    return new Promise((resolve,reject)=>{
-     const timer=setTimeout(()=>reject(Error(label+" timed out")),DRAFT_WAIT_MS);
+     const timer=setTimeout(()=>{idbTimedOut=true;reject(Error(label+" timed out"));},DRAFT_WAIT_MS);
      Promise.resolve(promise).then(
        result=>{clearTimeout(timer);resolve(result)},
        error=>{clearTimeout(timer);reject(error)}
@@ -236,7 +236,10 @@
    tabSave(k,snapshot); // Small same-tab rescue while the IndexedDB transaction is in flight.
    return enqueue(k,async()=>{
      await ready();
-     try{return await withDeadline(dbWrite(k,snapshot),"Draft save");}
+     try{
+       if(idbTimedOut)throw Error("Draft storage unresponsive");
+       return await withDeadline(dbWrite(k,snapshot),"Draft save");
+     }
      catch{
        // Fallback must be a VERIFIED persistent write, not only sessionStorage.
        try{
