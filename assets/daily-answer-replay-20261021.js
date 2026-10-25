@@ -31,8 +31,10 @@ function evidenceFor(task,event){
     String(event.questionId).startsWith(task.assignedTopic+'-')||
     String(event.questionId).startsWith(task.assignedTopic+':');
 }
-function key(e){return String(e.attemptId||
-  (e.at?String(e.questionId)+'@'+String(e.at):String(e.questionId)))}
+function key(e){
+  // Retries of the same question earn one credit, even when attemptId changes.
+  return String(e.questionId).split('@')[0];
+}
 export function replayDailyAnswerCredit(state){
   if(!validDay(state?.today)||!Array.isArray(state?.daily)||
      !Array.isArray(state?.formalAttemptLog))return null;
@@ -51,7 +53,6 @@ export function replayDailyAnswerCredit(state){
     changed=true;
     return {...task,progress};
   });
-  if(!changed)return null;
   // Preserve all saved dated tasks, original IDs, and all previous progress.
   // normalizeState will also build a log for an initially unlogged day.
   const log=state.dailyLog||{},row=log[day];
@@ -68,8 +69,9 @@ export function replayDailyAnswerCredit(state){
         {...t,progress,done:progress>=target}:t;
     });
     const done=tasks.filter(t=>t.done===true||Number(t.progress)>=Number(t.target)).length;
-    dailyLog={...log,[day]:{...row,tasks,done,total:tasks.length,
-      complete:tasks.length>0&&done===tasks.length}};
+    if(tasks.some((t,i)=>t!==row.tasks[i])||done!==row.done||row.total!==tasks.length)
+      {dailyLog={...log,[day]:{...row,tasks,done,total:tasks.length,
+      complete:tasks.length>0&&done===tasks.length}};changed=true;}
   }
-  return {daily,...(dailyLog?{dailyLog}:{})};
+  return changed?{daily,...(dailyLog?{dailyLog}:{})}:null;
 }
