@@ -88,7 +88,6 @@ export function recordRecoveryAnswer(state,{today,date,taskId,questionId,correct
   if(!task||Number(task.target)<=0||task.done||Number(task.progress)>=Number(task.target))
     return {state,accepted:false,completed:false};
   const all=state.recoveryTaskByDay||{},forDay=all[date]||{},old=forDay[taskId]||{};
-  if(old.completed) return {state,accepted:false,completed:true};
   const baseline=Math.max(0,Math.min(Number(task.target),Number(old.originalCount??task.progress)||0));
   const required=Math.max(1,Number(old.totalNeeded)||Number(minimumCorrect)||Number(task.target)-baseline);
   const items={...(old.items||{})};
@@ -164,7 +163,7 @@ export function reconcileRecoveredTaskHistory(state, existingLog) {
       const progress=Math.min(target,Math.max(Number(task.progress)||0,initial+attempts));
       if(progress<=Number(task.progress||0))return task;
       changed=true;
-      const done=proof.completed===true||progress>=target;
+      const done=progress>=target;
       return {...task,progress,done,...(done?{recovered:true}:{})};
     });
     if(!changed)continue;
