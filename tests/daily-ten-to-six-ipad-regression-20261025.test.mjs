@@ -63,3 +63,52 @@ test('wrong-day subject or topic cannot borrow a different completed task proof'
  const rebuilt=buildYear8DailyV2({...start,daily:mismatched,formalAttemptLog:[]},get);
  assert.notEqual(findTask(rebuilt).verifiedCorrectIds?.length,10);
 });
+
+test('Biology Food Tests: ten marked CORRECT slots with only six unique IDs still count 10/10',()=>{
+ const topic='bio-y8-food-tests',id='y8-standard-a';
+ const task={id,planDate:day,target:10,progress:0,
+  assignedSubject:'biology',assignedTopic:topic,assignedYear:8,
+  href:'/study/biology/practise?daily=1&locked=1&year=8&mode=standard&task='+id+'&topic='+topic};
+ const questions=['a','b','c','d','e','f','a','b','c','d'].map(k=>({
+  id:'food-'+k,topicId:topic,formal:true
+ }));
+ const answers=questions.map(q=>({questionId:q.id,correct:true,formal:true,repair:false}));
+ const source={today:day,daily:[task],dailyLog:{[day]:{date:day,
+  tasks:[task],total:1,done:0}},formalAttemptLog:[]};
+ const result=reconcileDailySession(source,{day,taskId:id,subject:'biology',
+  year:8,mode:'standard',questions,answers});
+ assert.equal(result.progress,10,'ten marked slots must not collapse to six distinct IDs');
+ assert.equal(result.daily[0].verifiedCorrectIds.length,6);
+ assert.equal(result.daily[0].verifiedCorrectSlots,10);
+ assert.equal(result.daily[0].done,true);
+});
+test('Biology Food Tests ten repeated-ID slots survive reload of iPad completed-quiz receipt',async()=>{
+ const topic='bio-y8-food-tests',id='y8-standard-a';
+ const task={id,planDate:day,target:10,progress:6,
+  assignedSubject:'biology',assignedTopic:topic,assignedYear:8,
+  href:'/study/biology/practise?daily=1&locked=1&year=8&mode=standard&task='+id+'&topic='+topic};
+ const questions=['a','b','c','d','e','f','a','b','c','d'].map(k=>({
+  id:'food-'+k,topicId:topic,formal:true
+ }));
+ const answers=questions.map(q=>({questionId:q.id,correct:true,formal:true,repair:false}));
+ const source={day,taskId:id,subject:'biology',year:8,mode:'standard',questions,answers};
+ const saved=new Map(),oldLocal=globalThis.localStorage;
+ globalThis.localStorage={getItem:k=>saved.get(k)||null,setItem:(k,v)=>saved.set(k,String(v))};
+ try{
+  const snapshot={today:day,daily:[task],dailyLog:{[day]:{date:day,tasks:[task],total:1,done:0}},
+    formalAttemptLog:[]};
+  const {saveCompletedDailyReceipt,reconcileCompletedDailyReceipts}
+    =await import('../assets/daily-completed-session-receipts-20261024.js');
+  assert.equal(await saveCompletedDailyReceipt(snapshot,source),true);
+  const stored=JSON.parse(saved.get('lux-daily-completed-sessions-safe-v1'));
+  assert.equal(stored[0].questions.length,10);
+  const refreshed=reconcileCompletedDailyReceipts(snapshot,stored);
+  assert.equal(refreshed.daily[0].progress,10);
+  assert.equal(refreshed.daily[0].verifiedCorrectSlots,10);
+  assert.equal(refreshed.dailyLog[day].tasks[0].done,true);
+  // Re-sending this exact receipt must not count it twice.
+  assert.equal(await saveCompletedDailyReceipt(snapshot,source),true);
+  const again=JSON.parse(saved.get('lux-daily-completed-sessions-safe-v1'));
+  assert.equal(again[0].questions.length,10);
+ }finally{globalThis.localStorage=oldLocal;}
+});
