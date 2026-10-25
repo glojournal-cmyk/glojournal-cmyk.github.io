@@ -1,5 +1,5 @@
 /* Home outfit display reconciliation. Read-only: never changes persistence or XP. */
-import { A as outfits, C as store } from './index-BLVOhKhN.js?v=20261025-bio10-proof1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
+import { A as outfits, C as store } from './index-BLVOhKhN.js?v=20261025-monotonic-active1&ux=20261013-corrections2&uxfix=20261022-priority-ux1';
 (function () {
   if (window.__luxHomeOutfitSyncInstalled) return;
   window.__luxHomeOutfitSyncInstalled = true;
