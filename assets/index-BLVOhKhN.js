@@ -1,4 +1,4 @@
-import {restoreCompletedDailyReceipts} from "./daily-completed-session-receipts-20261024.js?v=20261025-daily-retry3";
+import {restoreCompletedDailyReceipts} from "./daily-completed-session-receipts-20261024.js?v=20261025-bio10-proof1";
 import {syncTodayFromDatedRecord} from "./today-record-sync-20261024.js";
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261023-final-credit1";
 import {readOptionalBackupJson,linkedBackupManifest} from "./export-linked-storage-20261023.js";
@@ -10,12 +10,12 @@ import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUno
 import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261025-recovery-correct1";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastery-count20-v1";
-import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261025-no-repeat2";
+import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261025-bio10-proof1";
 import "./journey-navigation-20261004.js?v=20261024-latin-ipad-date2&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import("/pet/pet-care-global.js?v=20261011-storage-qa1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261025-ipad-draft-failopen1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+export * from "./index-BLVOhKhN.core.js?v=20261025-bio10-proof1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 import {
   C as store,
   A as medicalOutfitCatalog,
@@ -31,7 +31,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261025-ipad-draft-failopen1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+} from "./index-BLVOhKhN.core.js?v=20261025-bio10-proof1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 
 // festival-mastery-after-medical-v1: only genuine cumulative Mastered topics count.
 // An earlier release auto-granted all Festival items. On first load this migration
