@@ -109,3 +109,19 @@ console.log('DAILY_SCIENCE_PUNCTUATION_QA',JSON.stringify({
   bundles:sources.length,cases:punctuationCases.length,
   verified:punctuationCases.length*sources.length,pass:true
 }));
+
+// Regression: orange-brown iodine result means starch was NOT detected.
+// Equivalent negative constructions must earn the mark; the opposite claim must not.
+const iodineNegative=JSON.parse(read('content/topics/bio-y8-food-tests.json'))
+ .questions.find(q=>q.id==='bio-y8-app-iodine-negative');
+assert.ok(iodineNegative,'negative iodine test question available');
+for(const source of sources){
+ const grade=fullGrader(source);
+ for(const answer of ['starch is not present','starch is absent','no starch present','no starch was detected']){
+  assert.equal(grade(iodineNegative,answer,'biology').score,1,source+' negative iodine: '+answer);
+ }
+ for(const answer of ['starch is present','starch was detected','iodine turned blue-black']){
+  assert.equal(grade(iodineNegative,answer,'biology').score,0,source+' opposite iodine conclusion: '+answer);
+ }
+}
+console.log('DAILY_NEGATIVE_IODINE_EQUIVALENCE_QA',JSON.stringify({bundles:sources.length,pass:true}));
