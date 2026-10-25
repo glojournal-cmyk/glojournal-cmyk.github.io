@@ -191,7 +191,7 @@ async function TC(e){
  let cached=xC.get(e);if(cached)return cached;
  let base=null;
  if(String(e).includes("20260919"))try{base=(await loadSchoolY9Bundle_20260919()).get(e)||null}catch(err){console.error("Year 9 topic load failed",err)}
- if(!base){let r=await fetch(`/content/topics/${encodeURIComponent(e)}.json?v=20261010-chem-marking1`);if(r.ok)base=await r.json()}
+ if(!base){let r=await fetch(`/content/topics/${encodeURIComponent(e)}.json?v=20261025-food-tests-bank2`);if(r.ok)base=await r.json()}
  if(base)base=await applyStudyNoteUpdates(base);
  let delta=null;try{delta=(await loadSchool20260926()).get(e)||null}catch(err){if(typeof schoolContentLeaving==="undefined"||!schoolContentLeaving)console.error("School update topic load failed",err)}
  if(delta){
