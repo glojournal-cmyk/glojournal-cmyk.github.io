@@ -76,8 +76,8 @@ test('A session with no marked answers cannot generate completion',()=>{
 
 test('iPad loads refreshed Science Daily modules from active production route',()=>{
  const file=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
- const practiceRelease='20261025-biology-credit1';
- const creditRelease='20261025-biology-daily15';
+ const practiceRelease='20261025-no-repeat2';
+ const creditRelease='20261025-no-repeat2';
  assert.ok(file('assets/index-BLVOhKhN.js').includes('index-BLVOhKhN.core.js?v='+practiceRelease));
  assert.ok(file('assets/index-BLVOhKhN.core.js').includes('study._subject.practise-D_PWgUd7.js?v='+practiceRelease));
  assert.ok(file('assets/study._subject.practise-D_PWgUd7.js').includes('quiz-session-y8fix-20260920.js?v='+practiceRelease));
