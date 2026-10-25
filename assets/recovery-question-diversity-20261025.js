@@ -54,13 +54,15 @@ export function recoveryQuestionExclusions(state,{date,taskId,subject,year}={}){
  return {correct,otherTasks,ids:new Set([...correct,...otherTasks])};
 }
 export function selectDiverseRecoveryQuestions(fresh,loaded,options={},rank,progression){
- const {state,date,taskId,subject,year,topicId='',size=10,mode='standard',day=state?.today}=options;
+ const {state,date,taskId,subject,year,topicId='',size=10,mode='standard',day=state?.today,reviewQuestionIds}=options;
  const current=Array.isArray(fresh)?fresh:[];
  if(!date||!taskId||!PRACTICE_SUBJECTS.has(subject)||!state)return current;
  const excluded=recoveryQuestionExclusions(state,{date,taskId,subject,year});
  const bank=(Array.isArray(loaded)?loaded:[]),byId=new Map(bank.map(q=>[String(q.id),q]));
  const excludedFingerprints=new Set([...excluded.ids].map(id=>recoveryQuestionFingerprint(byId.get(id))).filter(Boolean));
+ const reviewIds=mode==='mistakes'&&Array.isArray(reviewQuestionIds)&&reviewQuestionIds.length?new Set(reviewQuestionIds):null;
  const allowed=q=>q?.id&&q.formal!==false&&!q._repair&&q.status!=='preview'&&
+   (!reviewIds||reviewIds.has(q.id))&&
    (!topicId||q.topicId===topicId)&&!excluded.ids.has(asId(q.id))&&
    !(day&&['standard','mastery','quick'].includes(mode)&&
      state.reviews?.[q.id]?.due>day)&&
