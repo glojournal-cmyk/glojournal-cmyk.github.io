@@ -1,7 +1,7 @@
 // Durable receipts for fully answered, locked Daily practice sessions.
 // This does not award XP or claim wrong answers were correct. The source quiz
 // supplies individual marked outcomes; only the exact saved assignment can use them.
-import {reconcileDailySession} from './daily-session-credit-20261021.js?v=20261025-daily-retry3';
+import {reconcileDailySession,verifiedQuizSlots} from './daily-session-credit-20261021.js?v=20261025-daily-retry3';
 const DB='lux-daily-completed-sessions-v1',TABLE='receipts';
 const FALLBACK='lux-daily-completed-sessions-safe-v1';
 const supported=new Set(['latin-standard','y8-standard-a','y8-standard-b',
@@ -94,26 +94,41 @@ function sanitized(source,task){
 // Reopening a quiz with the same answers never earns additional credit.
 function mergeReceipts(previous,current){
  if(!valid(previous)||previous.key!==current.key)return current;
- const rows=new Map();
- for(const receipt of [previous,current]){
-  const questions=new Map(receipt.questions.filter(q=>q?.id&&!q._repair&&q.formal!==false)
-    .map(q=>[String(q.id),q]));
-  for(const answer of receipt.answers){
-   const id=String(answer.questionId||'');
-   if(!questions.has(id)||answer.formal===false||answer.repair||
-      typeof answer.correct!=='boolean')continue;
-   const old=rows.get(id);
-   rows.set(id,{question:questions.get(id),answer:{
-     questionId:id,correct:!!answer.correct||!!old?.answer.correct,
-     formal:true,repair:false
-   }});
-  }
+ // Preserve separately marked slots even when a depleted question bank
+ // accidentally repeated one ID. Collapsing by ID turned 10 correct
+ // answers with six distinct IDs into a false Home 6/10.
+ const oldSlots=verifiedQuizSlots(previous.questions,previous.answers);
+ const newSlots=verifiedQuizSlots(current.questions,current.answers);
+ const rows=oldSlots.map(x=>({...x}));
+ const byId=new Map();
+ for(const row of rows){
+  const group=byId.get(row.id)||[];group.push(row);byId.set(row.id,group);
  }
- const selected=[...rows.values()].sort((a,b)=>
-  Number(b.answer.correct)-Number(a.answer.correct)).slice(0,30);
+ const newById=new Map();
+ for(const row of newSlots){
+  const group=newById.get(row.id)||[];group.push(row);newById.set(row.id,group);
+ }
+ for(const [id,latest] of newById){
+  const old=byId.get(id)||[];
+  if(!old.length){
+   for(const row of latest){
+    if(rows.length>=30)break;
+    rows.push({...row});
+   }
+   continue;
+  }
+  // Correct retries repair a PREVIOUSLY WRONG occurrence of this ID.
+  // Re-saving the same completed 10-question sitting cannot fabricate
+  // additional credits, nor can a wrong retry erase a correct response.
+  const wrong=old.filter(x=>!x.correct);
+  for(const row of latest)if(row.correct&&wrong.length)
+    wrong.shift().correct=true;
+ }
+ const kept=rows.slice(0,30);
  return {...current,
-  questions:selected.map(row=>row.question),
-  answers:selected.map(row=>row.answer),
+  questions:kept.map(x=>x.question),
+  answers:kept.map(x=>({questionId:x.id,correct:x.correct,
+    formal:true,repair:false})),
   at:Math.max(Date.now(),Number(previous.at)||0)};
 }
 export async function saveCompletedDailyReceipt(state,source){
