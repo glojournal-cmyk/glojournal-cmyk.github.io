@@ -132,18 +132,49 @@
  }
  function key(subject,year,size,topic,daily,mode){
    const u=new URL(location.href);
-   return JSON.stringify([subject,year,size,topic||"",daily||"",
+   // A locked Daily assignment is one continuous sitting. Its remaining
+   // question count changes after every correct answer and must NOT change
+   // the draft identity (e.g. Biology 15 -> 10 on re-entry).
+   const locked=!!daily&&u.searchParams.get("daily")==="1"&&
+     u.searchParams.get("locked")==="1";
+   const today=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/London"}).format(new Date());
+   const taskDay=locked?(u.searchParams.get("recover")||today):(daily?today:"");
+   return JSON.stringify([subject,year,locked?"locked-task":size,topic||"",daily||"",
      mode||u.searchParams.get("mode")||"standard",u.searchParams.get("task")||"",
-     u.searchParams.get("scope")||"",
-     daily?new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/London"}).format(new Date()):""]);
+     u.searchParams.get("scope")||"",taskDay]);
+ }
+ function oldDailyDraftKeys(k,legacy=oldMap(),tab=inTab()){
+   let identity;
+   try{identity=JSON.parse(k)}catch{return []}
+   if(!Array.isArray(identity)||identity.length!==9||identity[2]!=="locked-task")
+     return [];
+   const candidates=new Set([...cache.keys(),...Object.keys(legacy),...(tab?[tab.key]:[])]);
+   return [...candidates].filter(previousKey=>{
+     if(previousKey===k)return false;
+     let prior;
+     try{prior=JSON.parse(previousKey)}catch{return false}
+     return Array.isArray(prior)&&prior.length===9&&
+       Number.isInteger(prior[2])&&prior[2]>=1&&
+       prior.every((value,index)=>index===2||value===identity[index]);
+   });
  }
  function read(k){
    // A completed quiz must not become resumable between the UI completion
    // event and the asynchronous IndexedDB delete transaction.
    if(completedKeys.has(k))return null;
-   const row=cache.get(k),legacy=oldMap()[k],tab=inTab();
-   const candidate=newer(newer(row,legacy),tab?.key===k?tab.record:null);
-   return valid(candidate)?candidate:null;
+   const legacy=oldMap(),tab=inTab();
+   const exact=newer(newer(cache.get(k),legacy[k]),tab?.key===k?tab.record:null);
+   let best=valid(exact)?exact:null;
+   // Recover already-started Daily sittings previously saved using their
+   // changing remaining-count key, but never borrow a different assignment.
+   for(const previousKey of oldDailyDraftKeys(k,legacy,tab)){
+     if(completedKeys.has(previousKey))continue;
+     const draft=newer(newer(cache.get(previousKey),legacy[previousKey]),
+       tab?.key===previousKey?tab.record:null);
+     if(valid(draft)&&(!best||Number(draft.savedAt)>Number(best.savedAt)))
+       best=draft;
+   }
+   return best;
  }
  function recoveryReceipt(d){
    try{
@@ -162,16 +193,23 @@
    await ready();
    return enqueue(k,async()=>{
      try{
-       if(!(await dbDelete(k)))return false;
-       const legacy=oldMap();
-       if(Object.prototype.hasOwnProperty.call(legacy,k)){
-         delete legacy[k];
-         // Keep the original if removal cannot be committed.
+       // Once the original sitting finishes, remove numeric-key drafts too.
+       // Otherwise an older 15-question snapshot could resurrect after
+       // a 10-question remainder completes and the browser reloads.
+       const legacy=oldMap(),tab=inTab();
+       const keys=[k,...oldDailyDraftKeys(k,legacy,tab)];
+       for(const item of keys)completedKeys.add(item);
+       for(const item of keys)if(!(await dbDelete(item)))return false;
+       let changed=false;
+       for(const item of keys)if(Object.prototype.hasOwnProperty.call(legacy,item)){
+         delete legacy[item];changed=true;
+       }
+       if(changed){
          try{localStorage.setItem(LEGACY_KEY,JSON.stringify(legacy));}
          catch{return false;}
        }
-       if(inTab()?.key===k){try{sessionStorage.removeItem(SESSION_KEY)}catch{}}
-       cache.delete(k);
+       if(keys.includes(tab?.key)){try{sessionStorage.removeItem(SESSION_KEY)}catch{}}
+       for(const item of keys)cache.delete(item);
        return true;
      }catch{return false;}
    });
