@@ -80,7 +80,10 @@ export function reconcileDailySession(state,receipt={}) {
   // Preserve only individually verified correct base-question IDs as durable
   // proof. A later partial Safari journal cannot overrule this saved receipt.
   // Subject/topic/year/day/mode were checked against the locked assignment.
+  const verifiedKey=[day,taskId,subject,task.assignedTopic,year,mode,
+    Number(task.target)].join('|');
   const trustedOldIds=Array.isArray(task.verifiedCorrectIds)&&
+    task.verifiedCorrectAssignment===verifiedKey&&
     task.planDate===day&&task.assignedSubject===subject&&
     Number(task.assignedYear)===Number(year)&&
     task.assignedTopic===expected.searchParams.get('topic')&&
@@ -94,7 +97,8 @@ export function reconcileDailySession(state,receipt={}) {
     return {...unchanged('already-counted'),progress:old,target};
   const stamped={...task,progress,done:progress>=target,
     ...(day>='2026-10-24'&&creditedIds.size?
-      {verifiedCorrectIds:[...creditedIds].slice(0,60)}:{})};
+      {verifiedCorrectIds:[...creditedIds].slice(0,60),
+       verifiedCorrectAssignment:verifiedKey}:{})};
   const daily=state.daily.map(t=>t===task?stamped:t);
   // Keep the dated Home/Recovery summary aligned without touching any other day.
   let dailyLog=state.dailyLog;
@@ -102,7 +106,9 @@ export function reconcileDailySession(state,receipt={}) {
   if(Array.isArray(row?.tasks)){
     const tasks=row.tasks.map(t=>t.id===taskId?{
       ...t,progress,done:progress>=target,
-      ...(stamped.verifiedCorrectIds?{verifiedCorrectIds:stamped.verifiedCorrectIds}:{})
+      ...(stamped.verifiedCorrectIds?{
+        verifiedCorrectIds:stamped.verifiedCorrectIds,
+        verifiedCorrectAssignment:stamped.verifiedCorrectAssignment}:{})
     }:t);
     const done=tasks.filter(t=>t.done||Number(t.progress)>=Number(t.target)).length;
     dailyLog={...dailyLog,[day]:{...row,tasks,done,total:tasks.length,
