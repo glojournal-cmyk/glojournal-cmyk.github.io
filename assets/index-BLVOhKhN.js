@@ -15,7 +15,7 @@ import "./journey-navigation-20261004.js?v=20261024-latin-ipad-date2&ux=20261013
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import("/pet/pet-care-global.js?v=20261011-storage-qa1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261025-recovery-diverse1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+export * from "./index-BLVOhKhN.core.js?v=20261025-recovery-diverse2&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 import {
   C as store,
   A as medicalOutfitCatalog,
@@ -31,7 +31,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261025-recovery-diverse1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+} from "./index-BLVOhKhN.core.js?v=20261025-recovery-diverse2&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 
 // festival-mastery-after-medical-v1: only genuine cumulative Mastered topics count.
 // An earlier release auto-granted all Festival items. On first load this migration
