@@ -4,6 +4,7 @@ const PRACTICE_SUBJECTS=new Set(['french','latin','biology','chemistry','physics
 const asId=value=>String(value||'').split('@')[0];
 const taskSubject=task=>task?.assignedSubject||task?.focusSubject||task?.reviewSubject||
   String(task?.href||'').match(/^\/study\/(french|latin|biology|chemistry|physics)\/practise/)?.[1]||null;
+const taskYear=task=>Number(task?.assignedYear||task?.reviewYear||(() => {try{return new URL(task?.href||'/', 'https://local.invalid').searchParams.get('year')}catch{return null}})())||0;
 const taskTopic=task=>task?.assignedTopic||task?.focusTopic||task?.reviewTopic||
   (()=>{try{return new URL(task?.href||'/', 'https://local.invalid').searchParams.get('topic')}catch{return null}})();
 const clean=value=>String(value||'').normalize('NFKD').toLowerCase()
@@ -23,28 +24,31 @@ export function recoveryQuestionExclusions(state,{date,taskId,subject,year}={}){
    if(Number(n)>0)add(correct,id);
  for(const entry of state?.formalAttemptLog||[]){
    if(!entry?.questionId||entry.formal===false||entry.repair||
-      entry.subject!==subject||(entry.year!=null&&year!=null&&Number(entry.year)!==Number(year)))continue;
+      entry.subject!==subject)continue;
    if(entry.correct===true)add(correct,entry.questionId);
    if(entry.recoveryFor===date&&entry.dailyTaskId&&entry.dailyTaskId!==taskId)
      add(otherTasks,entry.questionId);
  }
- const row=state?.dailyLog?.[date],tasks=row?.tasks||[];
- for(const [id,proof] of Object.entries(state?.recoveryTaskByDay?.[date]||{})){
+ const dated=state?.dailyLog||{},proofsByDay=state?.recoveryTaskByDay||{};
+ for(const [proofDay,proofs] of Object.entries(proofsByDay)){
+  const tasks=dated[proofDay]?.tasks||[];
+  for(const [id,proof] of Object.entries(proofs||{})){
    const assigned=tasks.find(t=>t.id===id);
    if(!assigned||taskSubject(assigned)!==subject)continue;
    for(const [qid,ok] of Object.entries(proof?.items||{})){
-     if(ok===true)add(correct,qid);
-     if(id!==taskId)add(otherTasks,qid);
+    // Even when iPad lost seenCorrect, a positive dated proof survives.
+    if(ok===true)add(correct,qid);
+    if(proofDay===date&&id!==taskId)add(otherTasks,qid);
    }
+  }
  }
- // Dedicated small Safari receipts hold correct-only proof if the main
- // Scholar state could not be saved. Legacy receipts (no correctness flag)
- // must NEVER be interpreted as correct answers.
+ // Separate iPad vault receipts can also outlive a missing main store.
+ // Legacy receipts lack correctness flags and must not be treated as mastered.
  for(const proof of state?.recoveryReceipts||[]){
-   if(proof?.date!==date||proof.subject!==subject)continue;
+   if(proof?.subject!==subject)continue;
    for(const id of proof.verifiedCorrect===true?proof.correctQuestionIds||[]:[])
      add(correct,id);
-   if(proof.taskId!==taskId)
+   if(proof.date===date&&proof.taskId!==taskId)
      for(const id of proof.questionIds||[])add(otherTasks,id);
  }
  return {correct,otherTasks,ids:new Set([...correct,...otherTasks])};
@@ -81,7 +85,8 @@ export function selectDiverseRecoveryQuestions(fresh,loaded,options={},rank,prog
  // Independent, non-overlapping portions of one subject/topic bank for
  // same-day Recovery assignments; prevents overlap even BEFORE first answer.
  const assignments=(state.dailyLog?.[date]?.tasks||[]).filter(t=>
-    taskSubject(t)===subject&&String(taskTopic(t)||'')===String(topicId||'')&&Number(t.target)>0);
+    taskSubject(t)===subject&&String(taskTopic(t)||'')===String(topicId||'')&&
+    (!taskYear(t)||!year||taskYear(t)===Number(year))&&Number(t.target)>0);
  const slot=assignments.findIndex(t=>t.id===taskId);
  const start=slot<0?0:assignments.slice(0,slot).reduce((n,t)=>n+Math.max(1,Number(t.target)||1),0);
  let ordered=ranked;
