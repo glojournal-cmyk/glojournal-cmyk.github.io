@@ -197,7 +197,10 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     // This task may have an independently verified completed quiz whose
     // iPad journal was only partially persisted (e.g. saved 10/10 -> 6/10).
     // Never throw away identified correct questions from that SAME locked task.
+    const verifiedKey=[today,id,topic?.subject,topic?.topicId,
+      Number(topic?.year),mode,Number(target)].join('|');
     const verifiedPrior=!!topic&&old?.planDate===today&&
+      old.verifiedCorrectAssignment===verifiedKey&&
       old.assignedTopic===topic.topicId&&old.assignedSubject===topic.subject&&
       Number(old.assignedYear)===Number(topic.year)&&
       savedMode(old)===mode&&Number(old.target)===Number(target)&&
@@ -226,7 +229,8 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       planDate:today,assignedSubject:topic?.subject||null,assignedTopic:topic?.topicId||null,
       assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,masteryCheck,curriculumVersion:4,
       ...(correctOnlyEvidence?{correctOnlyEvidence:true}:{}),
-      ...(verifiedIds.length?{verifiedCorrectIds:verifiedIds.slice(0,60)}:{})};
+      ...(verifiedIds.length?{verifiedCorrectIds:verifiedIds.slice(0,60),
+        verifiedCorrectAssignment:verifiedKey}:{})};
   };
   const pendingRecall=t=>['check2','check7'].includes(
     state.topicStats?.[t.topicId]?.masteryV2?.stage);
