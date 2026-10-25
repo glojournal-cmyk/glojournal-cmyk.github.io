@@ -11,7 +11,7 @@ async function checkFiles(request){
   const r=await request.get(base+route,{timeout:45000}),html=await r.text();
   assert.equal(r.status(),200,route+' live HTTP');
   assert.ok(html.includes('practice-studio-20261023.js?v=night-art1'),route+' latest runtime');
-  assert.ok(html.includes('gloria-practice-stability-20261024.css?v=night-art1'),route+' latest CSS');
+  assert.ok(html.includes('gloria-practice-stability-20261024.css?v=night-art2'),route+' latest CSS');
   results.push({type:'production-route',route,ok:true});
  }
  const r=await request.get(base+'/assets/gloria-practice-night-academy-20261024.png');
