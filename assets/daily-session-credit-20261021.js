@@ -131,6 +131,21 @@ export function reconcileDailySession(state,receipt={}) {
     Math.max(0,Number(task.verifiedCorrectSlots)||0):0;
   verifiedSlotCount=Math.max(verifiedSlotCount,trustedOldSlots);
   const target=Math.max(1,Number(task.target)||1),old=progressOf(task);
+  // Physics P1 had only eight assignable questions for a fifteen-credit Daily.
+  // Supplementary IDs were not available before the fix, so a NEW correct
+  // supplementary answer cannot duplicate an older unitemised Home credit.
+  // Track every such ID to prevent crediting it again after Safari re-entry.
+  if(day>='2026-10-25'&&taskId==='year9-light'&&subject==='physics'&&
+     task.assignedTopic==='phys-y9-p1'){
+    const prefix='phys-y9-p1-daily-expansion-';
+    const fresh=new Set(sourceSlots.filter(x=>x.correct&&x.id.startsWith(prefix))
+      .map(x=>x.id).filter(id=>!trustedOldIds.includes(id)));
+    if(fresh.size){
+      const priorCount=Math.max(old,trustedOldSlots);
+      verifiedSlotCount=Math.max(verifiedSlotCount,
+        Math.min(target,priorCount+fresh.size));
+    }
+  }
   const progress=Math.min(target,Math.max(old,day>='2026-10-24'?
     Math.max(creditedIds.size,verifiedSlotCount):verified));
   // Never downgrade a verified old score with a shorter/incomplete replay;
