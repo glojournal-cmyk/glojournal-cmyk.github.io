@@ -151,6 +151,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     if(e.dailyTaskId!==taskId||!e.questionId||typeof e.correct!=='boolean'||
        (modes&&!modes.includes(e.mode)))return false;
     if(e.topicId===topicId)return true;
+    if(!['biology','chemistry','physics'].includes(e.subject))return false;
     const assigned=previous.get(taskId);
     return !!assigned&&assigned.assignedTopic===topicId&&
       assigned.assignedSubject===e.subject&&Number(assigned.assignedYear)===Number(e.year);
