@@ -74,10 +74,11 @@ export function saveRecoveryReceipt(input) {
   const questionIds = [...new Set([...(prev.questionIds || []), ...ids])].slice(0, 80);
   const correctQuestionIds = [...new Set([...(prev.correctQuestionIds || []),
     ...(verifiedCorrect ? ids : [])])].slice(0, 80);
-  const baseline = VOCAB.has(taskId)
-    ? (Number.isFinite(Number(prev.baseline)) ? Number(prev.baseline)
-      : (Number.isFinite(Number(input.baseline)) ? Math.max(0, Math.min(30, Number(input.baseline))) : 0))
-    : null;
+  const baseline = prev.baseline != null && Number.isFinite(Number(prev.baseline))
+    ? Math.max(0,Number(prev.baseline))
+    : input.baseline != null && Number.isFinite(Number(input.baseline))
+      ? Math.max(0,Number(input.baseline))
+      : VOCAB.has(taskId) ? 0 : null;
   all[id] = {
     date,
     taskId,
@@ -114,8 +115,9 @@ export function applyRecoveryReceipts(dailyLog) {
         : 0;
     if(!count)continue;
     const current = Number(task.progress) || 0;
-    const baseline = vocab && Number.isFinite(Number(receipt.baseline)) ? Number(receipt.baseline) : current;
-    const progress = Math.min(target, Math.max(current, vocab ? baseline + count : count));
+    const baseline = receipt.baseline != null && Number.isFinite(Number(receipt.baseline))
+      ? Math.max(0,Number(receipt.baseline)) : (vocab ? current : 0);
+    const progress = Math.min(target,Math.max(current,baseline+count));
     if (progress <= current && (task.done || progress < target)) continue;
     const tasks = row.tasks.map((item) => item.id === receipt.taskId
       ? { ...item, progress, done: progress >= target, ...(progress >= target ? { recovered: true, recoveredFromReceipt: true } : {}) }
@@ -141,7 +143,8 @@ export function commitRecoverySession(input) {
     subject: input?.subject,
     topicId: input?.topicId,
     questionIds,
-    verifiedCorrect:true
+    verifiedCorrect:true,
+    baseline:input?.baseline
   });
 }
 
