@@ -2557,15 +2557,10 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
         repair:!!meta.repair,subject:resolved.subject||subject,
         topicId:resolved.topicId,year:Number(meta.yearOverride||before.year||9),
         dailyTaskId:taskId};
+      // Recovery cards are independent assignments. One marked answer belongs
+      // only to the task the learner opened, not also to Study/Focus/Mastery.
+      // Legacy dated proof is preserved; future answers never double-count.
       const creditIds=new Set([taskId]);
-      if(!meta.repair&&meta.formal!==false){
-        creditIds.add("study-session");
-        creditIds.add("adaptive-focus");
-        for(const id of YEAR8_RECOVERY_TASKS){
-          const target=preparedDay.dailyLog?.[date]?.tasks?.find(t=>t.id===id);
-          if(eligibleYear8Evidence(event,target,id))creditIds.add(id);
-        }
-      }
       let nextState=store.getState(),accepted=false,creditedExplicit=false;
       for(const id of creditIds){
         const candidate=nextState.dailyLog?.[date]?.tasks?.find(t=>t.id===id);
