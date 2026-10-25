@@ -89,7 +89,7 @@ test('iPad loads refreshed Science Daily modules from active production route',(
  assert.ok(biology.includes('study._subject.practise-D_PWgUd7.js?v='+practiceRelease));
  assert.ok(biology.includes('quiz-session-y8fix-20260920.js?v='+practiceRelease));
  for(const route of ['index.html',...['latin','french','biology','chemistry','physics','english'].map(s=>'study/'+s+'/practise/index.html')])
-   assert.ok(/index-BLVOhKhN\\.js\\?v=2026102[45]-[a-z0-9-]+/.test(file(route)),route);
+   assert.ok(/index-BLVOhKhN\.js\?v=2026102[45]-[a-z0-9-]+/.test(file(route)),route);
 });
 
 test('20 marked Mastery quiz slots count 20/20 including a repeated question ID',()=>{
