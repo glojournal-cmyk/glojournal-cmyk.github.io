@@ -5,7 +5,7 @@ import {readOptionalBackupJson,linkedBackupManifest} from "./export-linked-stora
 import "./player-ux-20261013.js?ux=20261021-ipad-shell-lock3&uxfix=20261022-priority-ux1";
 import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261025-scorefix1";
 import "./daily-ledger-vault-20261023.js?v=20261025-scorefix1";
-import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
+import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261026-journal-fallback3";
 import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261025-recovery-correct1";
 import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261025-recovery-correct1";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
@@ -15,7 +15,7 @@ import "./journey-navigation-20261004.js?v=20261024-latin-ipad-date2&ux=20261013
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import("/pet/pet-care-global.js?v=20261011-storage-qa1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261026-backup-ledger2";
+export * from "./index-BLVOhKhN.core.js?v=20261026-journal-fallback3";
 import {
   C as store,
   A as medicalOutfitCatalog,
@@ -31,7 +31,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261026-backup-ledger2";
+} from "./index-BLVOhKhN.core.js?v=20261026-journal-fallback3";
 
 // festival-xp-rewards-v2: Halloween free, nine paired XP rewards.
 // Migrate auto-granted Festival items without changing XP, study or mastery history.
@@ -2608,7 +2608,8 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   // Persist a small, verified answer event independently in IndexedDB.
   // If localStorage rejects the large Scholar store, the marked evidence
   // still survives reload and can rebuild the correct original-date task.
-  if(evidenceEntry.formal!==false&&!evidenceEntry.repair)void saveMarkedAnswer({
+  if(evidenceEntry.formal!==false&&(!evidenceEntry.repair||
+  (evidenceEntry.correct===true&&!!evidenceEntry.dailyVocab)))void saveMarkedAnswer({
     ...evidenceEntry,day:todayKey()
   });
   store.setState({formalAttemptLog:globalThis.LuxWeeklyEvidence.append(
