@@ -41,3 +41,26 @@ test('preserve an explicit confirmation that no pair has enough questions',()=>{
  const out=proposeTwoMasteryTopics([a,b],{today:'2026-10-26',seenCorrect:seen},'2026-10-26');
  assert.equal(out.status,'NOT_READY');assert.equal(out.eligibleTopics,0);
 });
+
+test('do not reuse a question already reserved by another Daily task',()=>{
+ const a=topic('A',20,10),b=topic('B',20,9);
+ const out=proposeTwoMasteryTopics([a,b],{today:'2026-10-26'},'2026-10-26',{reservedQuestions:[a.questions[0]]});
+ assert.equal(out.status,'NOT_READY');
+});
+test('reject question-family duplicates of existing Daily assignments even with distinct IDs',()=>{
+ const a=topic('A',20,10),b=topic('B',20,9);
+ const previous={...qs('other',1)[0],id:'earlier-daily',questionFamily:'shared-family'};
+ a.questions[0].questionFamily='shared-family';
+ const out=proposeTwoMasteryTopics([a,b],{today:'2026-10-26'},'2026-10-26',{reservedQuestions:[previous]});
+ assert.equal(out.status,'NOT_READY');
+});
+test('allow 40 new Mastery questions when existing Daily reservations do not conflict',()=>{
+ const a=topic('A',20,10),b=topic('B',20,9);
+ const out=proposeTwoMasteryTopics([a,b],{today:'2026-10-26'},'2026-10-26',{reservedQuestions:qs('other',5)});
+ assert.equal(out.status,'FULL_READY');
+ assert.equal(out.assignments.flatMap(x=>x.questionIds).length,40);
+});
+test('refuse invalid reservation records instead of silently ignoring occupied slots',()=>{
+ const out=proposeTwoMasteryTopics([topic('A',20,10),topic('B',20,9)],{},'2026-10-26',{reservedQuestions:[{prompt:'unknown question'}]});
+ assert.equal(out.status,'NEEDS_REVIEW');
+});
