@@ -2602,6 +2602,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     dailyTaskId: inRecovery ? recoveryTaskId : (meta.progressionTask || null),
     // Recovery attempts must not satisfy today's Vocab assignment.
     dailyVocab: inRecovery ? null : (dailyVocabSubject(resolved.subject || subject, meta) || null),
+    vocabConcept: typeof meta.vocabConcept === 'string' ? meta.vocabConcept : null,
     recoveryFor: inRecovery ? recoverDate : null
   };
   // Persist a small, verified answer event independently in IndexedDB.
