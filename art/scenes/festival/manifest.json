@@ -1,7 +1,7 @@
 {
   "collection": "Festival Backgrounds 2026",
   "count": 10,
-  "access": "halloween-free; other festival scenes require genuine cumulative Mastery after Medical",
+  "access": "halloween-free; other festival scenes require cumulative Scholar XP",
   "selection": "manual and independent of equipped outfit; current equipped legacy scene remains grandfathered",
   "scenes": [
     {
@@ -22,10 +22,10 @@
       "art": "/art/scenes/festival/bonfire.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "need": "Reach full Mastery in 110 different topics",
+      "need": "Earn 9,000 Scholar XP",
       "mood": "night",
       "needIf": {
-        "masteredTopics": 110
+        "xp": 9000
       }
     },
     {
@@ -35,10 +35,10 @@
       "art": "/art/scenes/festival/christmas.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "need": "Reach full Mastery in 120 different topics",
+      "need": "Earn 10,000 Scholar XP",
       "mood": "winter",
       "needIf": {
-        "masteredTopics": 120
+        "xp": 10000
       }
     },
     {
@@ -48,10 +48,10 @@
       "art": "/art/scenes/festival/new-year.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "need": "Reach full Mastery in 130 different topics",
+      "need": "Earn 11,000 Scholar XP",
       "mood": "night",
       "needIf": {
-        "masteredTopics": 130
+        "xp": 11000
       }
     },
     {
@@ -61,10 +61,10 @@
       "art": "/art/scenes/festival/lunar-new-year.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "need": "Reach full Mastery in 140 different topics",
+      "need": "Earn 12,000 Scholar XP",
       "mood": "warm",
       "needIf": {
-        "masteredTopics": 140
+        "xp": 12000
       }
     },
     {
@@ -74,10 +74,10 @@
       "art": "/art/scenes/festival/valentine.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "need": "Reach full Mastery in 150 different topics",
+      "need": "Earn 13,000 Scholar XP",
       "mood": "warm",
       "needIf": {
-        "masteredTopics": 150
+        "xp": 13000
       }
     },
     {
@@ -87,10 +87,10 @@
       "art": "/art/scenes/festival/easter.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "need": "Reach full Mastery in 160 different topics",
+      "need": "Earn 14,000 Scholar XP",
       "mood": "day",
       "needIf": {
-        "masteredTopics": 160
+        "xp": 14000
       }
     },
     {
@@ -100,10 +100,10 @@
       "art": "/art/scenes/festival/cherry-blossom.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "need": "Reach full Mastery in 170 different topics",
+      "need": "Earn 15,000 Scholar XP",
       "mood": "day",
       "needIf": {
-        "masteredTopics": 170
+        "xp": 15000
       }
     },
     {
@@ -113,10 +113,10 @@
       "art": "/art/scenes/festival/midsummer.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "need": "Reach full Mastery in 180 different topics",
+      "need": "Earn 16,000 Scholar XP",
       "mood": "day",
       "needIf": {
-        "masteredTopics": 180
+        "xp": 16000
       }
     },
     {
@@ -126,14 +126,27 @@
       "art": "/art/scenes/festival/mid-autumn.webp",
       "focus": "50% 54%",
       "category": "Festival",
-      "need": "Reach full Mastery in 190 different topics",
+      "need": "Earn 17,000 Scholar XP",
       "mood": "night",
       "needIf": {
-        "masteredTopics": 190
+        "xp": 17000
       }
     }
   ],
   "masteryStart": 110,
   "masteryStep": 10,
-  "completeAt": 190
+  "completeAt": 190,
+  "unlockPolicy": "xp-rewards; halloween-free",
+  "xpThresholds": [
+    9000,
+    10000,
+    11000,
+    12000,
+    13000,
+    14000,
+    15000,
+    16000,
+    17000
+  ],
+  "rewardPairing": "matching outfit and background unlock together at cumulative Scholar XP"
 }
