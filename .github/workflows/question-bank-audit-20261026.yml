@@ -16,6 +16,9 @@ on:
       - 'tests/global-allocation-preflight-20261026.test.mjs'
       - 'src/lib/daily/global-allocation-preflight-20261026.mjs'
   workflow_dispatch:
+concurrency:
+  group: scholar-bank-audit-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
