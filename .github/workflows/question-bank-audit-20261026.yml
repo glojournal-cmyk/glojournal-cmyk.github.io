@@ -9,6 +9,8 @@ on:
       - 'content/topics/**'
       - 'content/exam-practice/**'
       - 'tests/question-bank-20261026.test.mjs'
+      - 'tests/global-allocation-preflight-20261026.test.mjs'
+      - 'src/lib/daily/global-allocation-preflight-20261026.mjs'
   workflow_dispatch:
 permissions:
   contents: read
@@ -25,6 +27,8 @@ jobs:
         run: node --check scripts/question-bank-audit-20261026.mjs
       - name: Verify repaired topic banks
         run: node --test tests/question-bank-20261026.test.mjs
+      - name: Test global capacity preflight (synthetic inputs only)
+        run: node --test tests/global-allocation-preflight-20261026.test.mjs
       - name: Inventory all topic files
         run: node scripts/question-bank-audit-20261026.mjs --strict --output qa-reports/question-bank-inventory-20261026.json
       - name: Upload audit (does not publish website)
