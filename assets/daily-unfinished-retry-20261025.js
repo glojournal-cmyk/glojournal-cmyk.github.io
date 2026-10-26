@@ -67,7 +67,11 @@ export function selectUnfinishedDailyQuestions(current,loaded,options={}){
  const pool=Array.isArray(loaded)?loaded:[];
  const byId=new Map(pool.filter(q=>q?.id&&q.formal!==false&&!q._repair&&
    q.status!=='preview').map(q=>[String(q.id),q]));
- const correct=new Set(ids.correctIds);
+ // The fallback pool must honour ALL verified correct answers, not just
+ // the current receipt. Otherwise a partly finished Daily task silently
+ // reintroduces older mastered questions when its original set runs short.
+ const correct=new Set([...ids.correctIds,...Object.entries(state.seenCorrect||{})
+  .filter(([,count])=>Number(count)>0).map(([id])=>String(id))]);
  const chosen=[],used=new Set();
  const add=q=>{if(!q?.id||used.has(String(q.id))||correct.has(String(q.id)))return;
   used.add(String(q.id));chosen.push(q);

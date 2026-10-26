@@ -1,6 +1,9 @@
 /* Isolated visual layer. All learning data belongs to the existing App. */
 .rpg-home-live {--rpg-ink:#1a2428;--rpg-navy:#1c3a4a;--rpg-cream:#f4efe4;--rpg-hud:rgba(18,32,40,.8);position:fixed;inset:0;z-index:1000;display:grid;grid-template-columns:minmax(0,1fr) minmax(19rem,21.75rem);gap:1.5rem;padding:1.25rem 1.25rem calc(6rem + env(safe-area-inset-bottom));box-sizing:border-box;overflow:hidden;color:var(--rpg-ink);font-family:'Source Sans 3','Segoe UI',sans-serif;background:#1c3a4a center / cover no-repeat}
 .rpg-home-live *, .rpg-home-live *::before,.rpg-home-live *::after{box-sizing:border-box}
+/* Never allow the Home-only full-screen layer to intercept Study interactions
+   during history transitions or deferred Safari hydration. */
+html.lux-study-rpg-active #lux-rpg-live-home{display:none!important;pointer-events:none!important}
 .rpg-home-live .rpg-shade-live{pointer-events:none;position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,32,40,.12),transparent 20%,transparent 75%,rgba(18,32,40,.17))}
 .rpg-world-live,.rpg-rail-live{position:relative;z-index:1;min-height:0}
 .rpg-world-live{display:flex;flex-direction:column;align-items:flex-start;overflow:visible}

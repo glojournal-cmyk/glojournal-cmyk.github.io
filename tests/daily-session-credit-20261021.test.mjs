@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {reconcileDailySession} from '../assets/daily-session-credit-20261021.js';
+import {selectUnfinishedDailyQuestions} from '../assets/daily-unfinished-retry-20261025.js';
 
 const day='2026-10-21', topic='la-y8-prepositions', taskId='latin-standard';
 const assignedHref=`/study/latin/practise?daily=1&locked=1&year=8&mode=standard&task=${taskId}&topic=${topic}`;
@@ -74,25 +75,33 @@ test('A session with no marked answers cannot generate completion',()=>{
  assert.equal(result.changed,false);
 });
 
-test('iPad loads refreshed Science Daily modules from active production route',()=>{
+test('iPad uses one current Home, Practice and Quiz bundle instead of stale version URLs',()=>{
  const file=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
- const practiceRelease='20261025-bio10-proof1';
- const practiceBundleRelease='20261025-empty-bank1';
- const coreRelease='20261025-bio10-proof1';
- const appEntryRelease='20261025-bio10-proof1';
- const creditRelease='20261025-bio10-proof1';
- assert.ok(file('assets/index-BLVOhKhN.js').includes('index-BLVOhKhN.core.js?v='+coreRelease));
- assert.ok(file('assets/index-BLVOhKhN.core.js').includes('study._subject.practise-D_PWgUd7.js?v='+practiceBundleRelease));
- assert.ok(file('assets/study._subject.practise-D_PWgUd7.js').includes('quiz-session-y8fix-20260920.js?v='+practiceRelease));
- assert.ok(file('assets/quiz-session-y8fix-20260920.js').includes('daily-session-credit-20261021.js?v='+creditRelease));
- assert.ok(file('assets/quiz-session-y8fix-20260920.js').includes('daily-completed-session-receipts-20261024.js?v=20261025-bio10-proof1'));
- assert.ok(file('index.html').includes('index-BLVOhKhN.js?v='+appEntryRelease));
- assert.ok(file('404.html').includes('index-BLVOhKhN.js?v='+appEntryRelease));
+ const getVersion=(content,filename)=>{
+   const escaped=filename.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+   const version=content.match(new RegExp(escaped+'\\?v=([a-zA-Z0-9-]+)'))?.[1];
+   assert.ok(version,filename+' must have a versioned import');
+   return version;
+ };
+ const html=file('index.html'),entry=getVersion(html,'index-BLVOhKhN.js');
+ const app=file('assets/index-BLVOhKhN.js');
+ const coreRelease=getVersion(app,'index-BLVOhKhN.core.js');
+ const core=file('assets/index-BLVOhKhN.core.js');
+ const practiceRelease=getVersion(core,'study._subject.practise-D_PWgUd7.js');
+ const practice=file('assets/study._subject.practise-D_PWgUd7.js');
+ const quizRelease=getVersion(practice,'quiz-session-y8fix-20260920.js');
+ const quiz=file('assets/quiz-session-y8fix-20260920.js');
+ const creditRelease=getVersion(quiz,'daily-session-credit-20261021.js');
+ assert.ok(coreRelease&&practiceRelease&&quizRelease&&creditRelease);
+ assert.ok(quiz.includes('daily-completed-session-receipts-20261024.js?v='));
+ for(const page of ['index.html','404.html',
+   ...['latin','french','biology','chemistry','physics','english'].map(s=>'study/'+s+'/practise/index.html')]){
+   assert.ok(file(page).includes('index-BLVOhKhN.js?v='+entry),page+' must import canonical App');
+ }
  const biology=file('study/biology/practise/index.html');
- assert.ok(biology.includes('study._subject.practise-D_PWgUd7.js?v='+practiceBundleRelease));
- assert.ok(biology.includes('quiz-session-y8fix-20260920.js?v='+practiceRelease));
- for(const route of ['index.html',...['latin','french','biology','chemistry','physics','english'].map(s=>'study/'+s+'/practise/index.html')])
-   assert.ok(/index-BLVOhKhN\.js\?v=2026102[45]-[a-z0-9-]+/.test(file(route)),route);
+ assert.ok(biology.includes('study._subject.practise-D_PWgUd7.js?v='+practiceRelease));
+ assert.ok(biology.includes('quiz-session-y8fix-20260920.js?v='+quizRelease));
+ assert.ok(quiz.includes('daily-session-credit-20261021.js?v='+creditRelease));
 });
 
 test('20 marked Mastery quiz slots count 20/20 including a repeated question ID',()=>{
@@ -110,4 +119,22 @@ test('20 marked Mastery quiz slots count 20/20 including a repeated question ID'
    mode:'mastery',questions:repeated,answers:[...repeated.map(q=>({questionId:q.id,correct:false,formal:true})),
      {questionId:'mastery-0',correct:false,formal:true}]});
  assert.equal(duplicate.progress,20,'a forged extra repeat is not credited');
+});
+
+
+test('Unfinished Daily fallback cannot resurrect globally correct items when its receipt is short',()=>{
+ const bank=Array.from({length:10},(_,i)=>({id:'la-prep-'+i,topicId:topic,formal:true,status:'enabled'}));
+ const state={seenCorrect:Object.fromEntries(bank.slice(1).map(q=>[q.id,1])),
+  formalAttemptLog:[{day,attemptId:'q1',questionId:bank[0].id,correct:false,subject:'latin',
+   dailyTaskId:taskId,topicId:topic,year:8,formal:true,repair:false}]};
+ const options={state,day,taskId,subject:'latin',year:8,topicId:topic,mode:'standard',remaining:10};
+ const selected=selectUnfinishedDailyQuestions(bank.slice(0,2),bank,options);
+ assert.deepEqual(selected.map(q=>q.id),[bank[0].id],
+  'Only the one genuinely unfinished wrong item is allowed; global correct answers must stay excluded');
+});
+
+test('Depleted Daily banks never silently shrink targets to award artificial completion',()=>{
+ const source=readFileSync(new URL('../assets/study._subject.practise-y8fix-20260920.js',import.meta.url),'utf8');
+ assert.doesNotMatch(source,/target:progress,progress,done:true,cappedBecauseQuestionBankExhausted/);
+ assert.match(source,/An exhausted bank is NOT a passed task/);
 });
