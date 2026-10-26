@@ -30,6 +30,11 @@ test('Latin cases: preserves five original IDs and upgrades to 20 high-utility p
  });
  for(let i=1;i<=5;i++)assert.ok(b.questions.some(q=>q.id==='la-y8-src-24jul-case-intro-'+i));
  assert.ok(b.questions.filter(q=>q.status==='enabled'&&q.format!=='mc_single').length>=15);
+ const inherited = new Set(b.questions.slice(0,5).map(q=>q.conceptId));
+ const supplements = b.questions.filter(q=>q.id.startsWith('la-y8-case-role-supplement-20261026-'));
+ assert.equal(supplements.length,15);
+ assert.equal(new Set(b.questions.map(q=>q.conceptId)).size,20,'independent case-role tasks must not reserve the same question opportunity');
+ for (const q of supplements) assert.ok(inherited.has(q.sourceConceptId),'supplement must retain original grammar-case source linkage: '+q.id);
 });
 test('Biology mixed: retains old 12, adds short application and 4 rubric items',()=>{
  const b=inspect('bio-y8-mixed-exam',12,20,{
