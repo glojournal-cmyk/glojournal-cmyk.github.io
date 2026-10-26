@@ -219,20 +219,634 @@
       },
       "preview": false,
       "ordinary": true
+    },
+    {
+      "id": "la-y8-case-role-supplement-20261026-01",
+      "conceptId": "la-y8-concept-24jul-case-intro-1",
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "subject": "latin",
+      "year": 8,
+      "status": "enabled",
+      "ordinary": true,
+      "formal": true,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "Identify the nominative subject in: puella librum legit.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "puella"
+        ]
+      },
+      "feedback": {
+        "short": "The nominative names who reads; librum is the direct object.",
+        "steps": [
+          "The nominative names who reads; librum is the direct object."
+        ],
+        "commonError": "Choosing the noun from English word order rather than Latin case endings."
+      },
+      "task": {
+        "label": "IDENTIFY THE CASE OR WORD",
+        "instruction": "Answer from the Latin endings and the word's grammatical function."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "validation": "case/function rules checked against this topic's existing teaching note"
+      }
+    },
+    {
+      "id": "la-y8-case-role-supplement-20261026-02",
+      "conceptId": "la-y8-concept-24jul-case-intro-4",
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "subject": "latin",
+      "year": 8,
+      "status": "enabled",
+      "ordinary": true,
+      "formal": true,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "Identify the accusative direct object in: puella puerum videt.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "puerum"
+        ]
+      },
+      "feedback": {
+        "short": "The girl is the subject; puerum is the boy being seen.",
+        "steps": [
+          "The girl is the subject; puerum is the boy being seen."
+        ],
+        "commonError": "Choosing the noun from English word order rather than Latin case endings."
+      },
+      "task": {
+        "label": "IDENTIFY THE CASE OR WORD",
+        "instruction": "Answer from the Latin endings and the word's grammatical function."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "validation": "case/function rules checked against this topic's existing teaching note"
+      }
+    },
+    {
+      "id": "la-y8-case-role-supplement-20261026-03",
+      "conceptId": "la-y8-concept-24jul-case-intro-3",
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "subject": "latin",
+      "year": 8,
+      "status": "enabled",
+      "ordinary": true,
+      "formal": true,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "Which word is dative in: magister puero librum dat?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "puero"
+        ]
+      },
+      "feedback": {
+        "short": "Puero names the person receiving the book.",
+        "steps": [
+          "Puero names the person receiving the book."
+        ],
+        "commonError": "Choosing the noun from English word order rather than Latin case endings."
+      },
+      "task": {
+        "label": "IDENTIFY THE CASE OR WORD",
+        "instruction": "Answer from the Latin endings and the word's grammatical function."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "validation": "case/function rules checked against this topic's existing teaching note"
+      }
+    },
+    {
+      "id": "la-y8-case-role-supplement-20261026-04",
+      "conceptId": "la-y8-concept-24jul-case-intro-2",
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "subject": "latin",
+      "year": 8,
+      "status": "enabled",
+      "ordinary": true,
+      "formal": true,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "Identify the genitive word in: liber pueri est in mensa.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "pueri"
+        ]
+      },
+      "feedback": {
+        "short": "Pueri means 'of the boy' and marks possession.",
+        "steps": [
+          "Pueri means 'of the boy' and marks possession."
+        ],
+        "commonError": "Choosing the noun from English word order rather than Latin case endings."
+      },
+      "task": {
+        "label": "IDENTIFY THE CASE OR WORD",
+        "instruction": "Answer from the Latin endings and the word's grammatical function."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "validation": "case/function rules checked against this topic's existing teaching note"
+      }
+    },
+    {
+      "id": "la-y8-case-role-supplement-20261026-05",
+      "conceptId": "la-y8-concept-24jul-case-intro-5",
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "subject": "latin",
+      "year": 8,
+      "status": "enabled",
+      "ordinary": true,
+      "formal": true,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "Which word is ablative in: puella in villa habitat?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "villa"
+        ]
+      },
+      "feedback": {
+        "short": "In + ablative identifies a stationary location; villa is ablative singular.",
+        "steps": [
+          "In + ablative identifies a stationary location; villa is ablative singular."
+        ],
+        "commonError": "Choosing the noun from English word order rather than Latin case endings."
+      },
+      "task": {
+        "label": "IDENTIFY THE CASE OR WORD",
+        "instruction": "Answer from the Latin endings and the word's grammatical function."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "validation": "case/function rules checked against this topic's existing teaching note"
+      }
+    },
+    {
+      "id": "la-y8-case-role-supplement-20261026-06",
+      "conceptId": "la-y8-concept-24jul-case-intro-1",
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "subject": "latin",
+      "year": 8,
+      "status": "enabled",
+      "ordinary": true,
+      "formal": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "In puerum puella videt, which word is the subject despite its position?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "puella"
+        ]
+      },
+      "feedback": {
+        "short": "Word order does not change the nominative subject.",
+        "steps": [
+          "Word order does not change the nominative subject."
+        ],
+        "commonError": "Choosing the noun from English word order rather than Latin case endings."
+      },
+      "task": {
+        "label": "IDENTIFY THE CASE OR WORD",
+        "instruction": "Answer from the Latin endings and the word's grammatical function."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "validation": "case/function rules checked against this topic's existing teaching note"
+      }
+    },
+    {
+      "id": "la-y8-case-role-supplement-20261026-07",
+      "conceptId": "la-y8-concept-24jul-case-intro-4",
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "subject": "latin",
+      "year": 8,
+      "status": "enabled",
+      "ordinary": true,
+      "formal": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "In puellam puer videt, which word is the direct object?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "puellam"
+        ]
+      },
+      "feedback": {
+        "short": "The accusative ending -am identifies the person seen.",
+        "steps": [
+          "The accusative ending -am identifies the person seen."
+        ],
+        "commonError": "Choosing the noun from English word order rather than Latin case endings."
+      },
+      "task": {
+        "label": "IDENTIFY THE CASE OR WORD",
+        "instruction": "Answer from the Latin endings and the word's grammatical function."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "validation": "case/function rules checked against this topic's existing teaching note"
+      }
+    },
+    {
+      "id": "la-y8-case-role-supplement-20261026-08",
+      "conceptId": "la-y8-concept-24jul-case-intro-3",
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "subject": "latin",
+      "year": 8,
+      "status": "enabled",
+      "ordinary": true,
+      "formal": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "In magister puellae librum dat, who is the recipient? Give the Latin word.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "puellae"
+        ]
+      },
+      "feedback": {
+        "short": "The dative singular puellae means 'to the girl' here.",
+        "steps": [
+          "The dative singular puellae means 'to the girl' here."
+        ],
+        "commonError": "Choosing the noun from English word order rather than Latin case endings."
+      },
+      "task": {
+        "label": "IDENTIFY THE CASE OR WORD",
+        "instruction": "Answer from the Latin endings and the word's grammatical function."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "validation": "case/function rules checked against this topic's existing teaching note"
+      }
+    },
+    {
+      "id": "la-y8-case-role-supplement-20261026-09",
+      "conceptId": "la-y8-concept-24jul-case-intro-2",
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "subject": "latin",
+      "year": 8,
+      "status": "enabled",
+      "ordinary": true,
+      "formal": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "In porta villae, which word means 'of the house'? Give its Latin form.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "villae"
+        ]
+      },
+      "feedback": {
+        "short": "The genitive singular villae expresses possession.",
+        "steps": [
+          "The genitive singular villae expresses possession."
+        ],
+        "commonError": "Choosing the noun from English word order rather than Latin case endings."
+      },
+      "task": {
+        "label": "IDENTIFY THE CASE OR WORD",
+        "instruction": "Answer from the Latin endings and the word's grammatical function."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "validation": "case/function rules checked against this topic's existing teaching note"
+      }
+    },
+    {
+      "id": "la-y8-case-role-supplement-20261026-10",
+      "conceptId": "la-y8-concept-24jul-case-intro-5",
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "subject": "latin",
+      "year": 8,
+      "status": "enabled",
+      "ordinary": true,
+      "formal": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "In cum amico ambulat, which Latin word is in the ablative?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "amico"
+        ]
+      },
+      "feedback": {
+        "short": "Cum normally governs the ablative case.",
+        "steps": [
+          "Cum normally governs the ablative case."
+        ],
+        "commonError": "Choosing the noun from English word order rather than Latin case endings."
+      },
+      "task": {
+        "label": "IDENTIFY THE CASE OR WORD",
+        "instruction": "Answer from the Latin endings and the word's grammatical function."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "validation": "case/function rules checked against this topic's existing teaching note"
+      }
+    },
+    {
+      "id": "la-y8-case-role-supplement-20261026-11",
+      "conceptId": "la-y8-concept-24jul-case-intro-1",
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "subject": "latin",
+      "year": 8,
+      "status": "enabled",
+      "ordinary": true,
+      "formal": true,
+      "format": "controlled_translation",
+      "difficulty": 3,
+      "prompt": "Translate the whole sentence into English: puerum puella videt.",
+      "stimulus": {
+        "text": "puerum puella videt."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "the girl sees the boy",
+          "a girl sees the boy",
+          "the girl sees a boy",
+          "a girl sees a boy"
+        ]
+      },
+      "feedback": {
+        "short": "Puella is nominative and puerum accusative even though the object comes first.",
+        "steps": [
+          "Puella is nominative and puerum accusative even though the object comes first."
+        ],
+        "commonError": "Choosing the noun from English word order rather than Latin case endings."
+      },
+      "task": {
+        "label": "TRANSLATE INTO ENGLISH",
+        "instruction": "Answer from the Latin endings and the word's grammatical function."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "validation": "case/function rules checked against this topic's existing teaching note"
+      }
+    },
+    {
+      "id": "la-y8-case-role-supplement-20261026-12",
+      "conceptId": "la-y8-concept-24jul-case-intro-4",
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "subject": "latin",
+      "year": 8,
+      "status": "enabled",
+      "ordinary": true,
+      "formal": true,
+      "format": "controlled_translation",
+      "difficulty": 3,
+      "prompt": "Translate the whole sentence into English: puer puellam videt.",
+      "stimulus": {
+        "text": "puer puellam videt."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "the boy sees the girl",
+          "a boy sees the girl",
+          "the boy sees a girl",
+          "a boy sees a girl"
+        ]
+      },
+      "feedback": {
+        "short": "Puer is nominative subject; puellam is accusative object.",
+        "steps": [
+          "Puer is nominative subject; puellam is accusative object."
+        ],
+        "commonError": "Choosing the noun from English word order rather than Latin case endings."
+      },
+      "task": {
+        "label": "TRANSLATE INTO ENGLISH",
+        "instruction": "Answer from the Latin endings and the word's grammatical function."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "validation": "case/function rules checked against this topic's existing teaching note"
+      }
+    },
+    {
+      "id": "la-y8-case-role-supplement-20261026-13",
+      "conceptId": "la-y8-concept-24jul-case-intro-3",
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "subject": "latin",
+      "year": 8,
+      "status": "enabled",
+      "ordinary": true,
+      "formal": true,
+      "format": "controlled_translation",
+      "difficulty": 4,
+      "prompt": "Translate the whole sentence into English: magister puero librum dat.",
+      "stimulus": {
+        "text": "magister puero librum dat."
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "the teacher gives a book to the boy",
+          "the teacher gives the boy a book",
+          "a teacher gives a book to the boy",
+          "a teacher gives the boy a book",
+          "the teacher gives the boy the book",
+          "the teacher gives the book to the boy"
+        ]
+      },
+      "feedback": {
+        "short": "Puero is the recipient; librum is the thing given.",
+        "steps": [
+          "Puero is the recipient; librum is the thing given."
+        ],
+        "commonError": "Choosing the noun from English word order rather than Latin case endings."
+      },
+      "task": {
+        "label": "TRANSLATE INTO ENGLISH",
+        "instruction": "Answer from the Latin endings and the word's grammatical function."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "validation": "case/function rules checked against this topic's existing teaching note"
+      }
+    },
+    {
+      "id": "la-y8-case-role-supplement-20261026-14",
+      "conceptId": "la-y8-concept-24jul-case-intro-4",
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "subject": "latin",
+      "year": 8,
+      "status": "enabled",
+      "ordinary": true,
+      "formal": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "Which case follows in when the phrase means movement into a place, as in in villam?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "accusative",
+          "the accusative",
+          "accusative case"
+        ]
+      },
+      "feedback": {
+        "short": "In + accusative describes movement towards/into; in + ablative describes being in a place.",
+        "steps": [
+          "In + accusative describes movement towards/into; in + ablative describes being in a place."
+        ],
+        "commonError": "Choosing the noun from English word order rather than Latin case endings."
+      },
+      "task": {
+        "label": "IDENTIFY THE CASE OR WORD",
+        "instruction": "Answer from the Latin endings and the word's grammatical function."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "validation": "case/function rules checked against this topic's existing teaching note"
+      }
+    },
+    {
+      "id": "la-y8-case-role-supplement-20261026-15",
+      "conceptId": "la-y8-concept-24jul-case-intro-1",
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "subject": "latin",
+      "year": 8,
+      "status": "enabled",
+      "ordinary": true,
+      "formal": true,
+      "difficulty": 4,
+      "format": "mark_points",
+      "prompt": "Explain why puerum puella videt still means 'the girl sees the boy', even though puerum comes first. (2 marks)",
+      "stimulus": {
+        "text": "puerum puella videt"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 2,
+        "markPoints": [
+          {
+            "id": "case-subject",
+            "text": "puella is nominative and therefore the subject"
+          },
+          {
+            "id": "case-object",
+            "text": "puerum is accusative and therefore the direct object despite appearing first"
+          }
+        ],
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Identify the nominative subject and accusative object. Word order may vary without changing their roles.",
+        "steps": [
+          "1 mark: nominate puella as nominative subject.",
+          "1 mark: identify puerum as accusative object.",
+          "Conclude that case, not initial position, determines each role."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN (2 MARKS)",
+        "instruction": "Give two linked points: subject and object, supported by their Latin cases."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "validation": "case/function rules checked against this topic's existing teaching note"
+      }
     }
   ],
-  "enabled": 5,
+  "enabled": 20,
   "preview": 0,
   "disabled": 0,
   "formats": {
-    "mc_single": 5
+    "mc_single": 5,
+    "typed_equivalent": 11,
+    "controlled_translation": 3,
+    "mark_points": 1
   },
   "gated": false,
   "note": {
     "title": "Case-role introduction",
-    "overview": "This note supports 5 source-backed questions on Case-role introduction.",
+    "overview": "Five preserved source-backed case-role recognition questions, plus fifteen supplementary application, independent-recall and translation questions aligned with the same taught grammar rules.",
     "learningGoals": [
-      "Identify the grammatical clue and apply it accurately."
+      "Identify the grammatical clue and apply it accurately.",
+      "Identify grammatical roles despite varying Latin word order.",
+      "Independently translate case-based sentences and justify subject/object roles."
     ],
     "mustMemoriseRules": [
       "Common English meaning: ... (subject).",
