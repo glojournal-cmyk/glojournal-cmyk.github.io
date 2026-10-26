@@ -101,3 +101,16 @@ Implement staging-only 10-task Home/Quiz presentation, task-specific shortage me
 
 ### Next bounded build unit
 Staging browser smoke tests in a real browser where available; improve task-specific shortage explanation UX and safe restoration; later independent Codex review with exact failing test evidence. Do not touch production. 
+## 2026-10-26: Batch 1 Mastery bank expansion (five subjects)
+- Created **100 new author-draft questions**, five new Year 8 topics with 20 items each: Latin adjective/case reasoning; French negatives/mixed tenses/writing; Biology digestion/enzymes/absorption; Chemistry ionic formulae/equations; Physics speed–time motion.
+- Every topic provisionally holds **4 Foundation, 10 Application, 6 Challenge**, stable IDs, a model answer, explicit individual marking points, feedback, and semantic-review grading requirement. Drafts are isolated in `daily-v2/content/mastery/*.json`, NOT in original `content/catalog.json`.
+- Fixed two ambiguous authoring prompts (Latin correction-count instruction and French error-type wording); preliminary similar-prompt check across six related existing topic banks found no token Jaccard >=0.65 pairs. Neither step is independent curriculum QA.
+- Added `src/mastery-draft-validator.js`, `tests/mastery-drafts.test.js`, and `MASTERY_BANK_BATCH1_QA.md`. **10/10 new content/integration/depletion tests passed**, with old 169/169 freshly rerun = **179/179 V8 regression tests passing**. Native Node, Actions, true Safari QA remain UNVERIFIED.
+- Critical safe gate: the new topics are author drafts pending independent subject/mark-scheme review and verified taught status. `adaptCertifiedDailyV2Bank` presently marks **0/100 eligible for actual Daily allocation**. Free-response semantic grader is NOT yet implemented/validated; never use raw exact-match to award full marks.
+- Capacity finding: 100 topics-only questions permit two synthetic days of 2x20 fresh Mastery; on day 3 only one 20-question topic remains. 30-day real-bank readiness is NOT demonstrated. Future work needs more diverse topics AND certification of suitable existing bank questions after prior-correct exclusions.
+- No modifications to GitHub main, live app, real user XP/progress, or original question catalog.
+
+### Next content/build work
+1. Independent item-by-item educational review and meaningful accepted answers, especially open-ended French/Latin and GCSE-style science marking.
+2. Certify existing + new real question banks with source-bound fingerprints, corroborate taught content. Do not auto-certify authored draft labels.
+3. Extend bank supply across different topics per subject and 30-day real-student-safe capacity simulation; then implement validated semantic marking and stage full task/UI integration. Production release remains blocked.
