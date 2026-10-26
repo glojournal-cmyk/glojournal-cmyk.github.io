@@ -191,7 +191,7 @@ export function planDailyV2(input={}) {
      (count.get(a)||0)-(count.get(b)||0)||stableHash(day+'|'+a)-stableHash(day+'|'+b)||a.localeCompare(b));
    if(concepts.length<quota)fail(task,'VOCAB_CONCEPT_SHORTAGE',{year,needed:quota,available:concepts.length});
    for(const concept of concepts.slice(0,quota)){
-    const variant=choose(groups.get(concept).filter(allowed),1,day+'|'+concept)[0];
+    const variant=choose(groups.get(concept).filter(q=>!assigned.has(q.id)&&(!q._promptKey||!assignedPrompts.has(q._promptKey))),1,day+'|'+concept)[0];
     if(!variant){fail(task,'VOCAB_VARIANT_COLLISION',{concept});continue;}
     conceptUse.add(concept);chosen.push(variant);
    }
