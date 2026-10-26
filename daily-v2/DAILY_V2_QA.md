@@ -90,3 +90,9 @@
 - Draft-only simulated all-correct Mastery supply lasts five 40-question days, and becomes exhausted on day six. Source books and complete historical correct IDs not yet certified; actual readiness unknown.
 - Human curriculum and school-taught verification, answer alternatives, secure partial-credit rubric marking and independent native Node/iPad QA still outstanding. New questions remain **0/200 certified to the actual Daily adapter**.
 - See `MASTERY_BANK_BATCH2_QA.md`. No original content/catalog.json or production sources changed.
+
+## Original content and manual mark-point audit
+- Catalog Y8 total 153 enabled topics. Read real source for **59** of them, **4,885** eligible question records. Chemistry 8/8 and Physics 13/13 fully inspected at source level; Latin 11/65, French 13/30, Biology 14/37. **94 source topics remain unread**.
+- Review-only flags (source difficulty>=3 and possibly higher-order format): Latin 65, French 0, Biology 16, Chemistry 132, Physics 216; 429 total, **none independently certified** by this metadata exercise. Many flagged Chemistry/Physics examples are actually basic recall/application. Reports `QA_EXISTING_BANK_SOURCE_REVIEW.md`, `QA_EDUCATIONAL_SPOT_CHECKS.md`, and `audit/existing-*.json`.
+- Free response `src/rubric-review.js` performs **NO guessed auto-scoring**; `previewDailyV2Rubric` leaves marks null pending review and `recordDailyV2RubricReview` stores staging-only per-point reviewer awards with evidence and source fingerprint. Tests: 12/12 isolated module and 5/5 against actual authored question files (example Biology 2/4). Not a proven automated semantic grader; student ledger integration not authorized.
+- Previous base 179/179 tests from earlier checkpoint, plus 17 targeted new tests this turn. Native Node, browser/iPad not verified; existing 179 tests NOT rerun this turn.
