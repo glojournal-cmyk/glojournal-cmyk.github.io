@@ -145,3 +145,32 @@ test('regardless of insufficiency, no partial tasks are published',()=>{
  assert.equal(r.tasks.length,0);
  assert.equal(r.preflight.unpublished,true);
 });
+
+test('duplicate prompts inside Mastery are rejected rather than filling 20 with repeated wording',()=>{
+ const f=fixture();const first=f.questionBank.find(q=>q.id==='m-0-application-0').prompt;
+ f.questionBank.find(q=>q.id==='m-0-application-1').prompt=first;
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='MASTERY_BANK_OR_DEPTH_SHORTAGE'));
+});
+test('science Standard requires ten distinct prompts as well as IDs',()=>{
+ const f=fixture();f.questionBank.find(q=>q.id==='science-1').prompt=f.questionBank.find(q=>q.id==='science-0').prompt;
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='STANDARD_BANK_OR_SKILL_SHORTAGE'));
+});
+test('historical retention requires ten distinct past question prompts',()=>{
+ const f=fixture();f.questionBank.find(q=>q.id==='old-1').prompt=f.questionBank.find(q=>q.id==='old-0').prompt;
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='INSUFFICIENT_PERSISTED_HISTORY'));
+});
+test('duplicated vocabulary prompts cannot fill two concepts in one day',()=>{
+ const f=fixture();f.questionBank.find(q=>q.id==='la-v8-1').prompt=f.questionBank.find(q=>q.id==='la-v8-0').prompt;
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='VOCAB_VARIANT_COLLISION'));
+});
+test('unused GCSE-labeled questions cannot leak into Science Standard',()=>{
+ const f=fixture();f.questionBank=f.questionBank.filter(q=>q.id!=='science-9');
+ f.questionBank.push({id:'gcse-other',subject:'biology',year:8,topicId:'bio-exam',status:'enabled',formal:true,
+   prompt:'GCSE unique other',roles:['gcse','science-standard'],marks:1,markScheme:['point']});
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='STANDARD_BANK_OR_SKILL_SHORTAGE'));
+});
