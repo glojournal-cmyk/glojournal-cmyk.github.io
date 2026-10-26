@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {adaptCertifiedDailyV2Bank,certifiedTaughtTopicIds} from '../src/bank-adapter.js';
+import {adaptCertifiedDailyV2Bank,certifiedTaughtTopicIds,fingerprintDailyV2Source} from '../src/bank-adapter.js';
 import {planDailyV2} from '../src/planner.js';
 
 const q=(id='q1',opts={})=>({
@@ -14,7 +14,7 @@ const topic=(questions=[q()],opts={})=>({
  subject:'latin',year:8,topicId:'la-y8-set-text-translation',status:'enabled',questions,...opts
 });
 const cert=(roles,opts={})=>({
- reviewed:true,reviewer:'curriculum-reviewer',reviewedAt:'2026-10-26',roles,...opts
+ reviewed:true,reviewer:'curriculum-reviewer',reviewedAt:'2026-10-26',roles,sourceFingerprint:fingerprintDailyV2Source(topic(),q()),...opts
 });
 test('uncertified real questions are skipped, not guessed from difficulty=4',()=>{
  const r=adaptCertifiedDailyV2Bank({topics:[topic()]});
@@ -29,7 +29,7 @@ test('certified Latin passage becomes correct Daily Standard format',()=>{
 });
 test('actual identical translation instructions with different Latin stimulus are not duplicated',()=>{
  const two=q('q2',{stimulus:{text:'ego, postquam urbem intravi, clamorem ingentem audivi.',direction:'Latin → English'}});
- const c={q1:cert(['latin-standard'],{skill:'translation'}),q2:cert(['latin-standard'],{skill:'translation'})};
+ const c={q1:cert(['latin-standard'],{skill:'translation'}),q2:cert(['latin-standard'],{skill:'translation',sourceFingerprint:fingerprintDailyV2Source(topic([two]),two)})};
  const r=adaptCertifiedDailyV2Bank({topics:[topic([q(),two])],certifications:c});
  assert.equal(r.questionBank.length,2);
  // Planner cannot certify a complete day here, but it should accept two distinct question identities.
@@ -98,4 +98,25 @@ test('a real question carrying same generic prompt but changed stimulus is disti
   {persisted:true,day:'2026-10-24',questionId:'q2'}]});
  const retentionError=result.diagnostics.find(x=>x.code==='INSUFFICIENT_PERSISTED_HISTORY');
  assert.equal(retentionError?.available,2);
+});
+
+test('editing an approved original answer invalidates the certification',()=>{
+ const reviewed=cert(['latin-standard'],{skill:'translation'});
+ const changed=q('q1',{answer:{mode:'semantic_groups',accepted:['Different meaning!']}});
+ const result=adaptCertifiedDailyV2Bank({topics:[topic([changed])],certifications:{q1:reviewed}});
+ assert.equal(result.questionBank.length,0);
+ assert.ok(result.errors.some(e=>e.code==='STALE_OR_UNBOUND_CERTIFICATION'));
+});
+test('editing an approved stimulus invalidates the certification',()=>{
+ const reviewed=cert(['latin-standard'],{skill:'translation'});
+ const changed=q('q1',{stimulus:{text:'puer erat',direction:'Latin → English'}});
+ const result=adaptCertifiedDailyV2Bank({topics:[topic([changed])],certifications:{q1:reviewed}});
+ assert.equal(result.questionBank.length,0);
+ assert.ok(result.errors.some(e=>e.code==='STALE_OR_UNBOUND_CERTIFICATION'));
+});
+test('a previously reviewed manifest without fingerprint is never trusted',()=>{
+ const reviewed=cert(['latin-standard'],{skill:'translation',sourceFingerprint:undefined});
+ const result=adaptCertifiedDailyV2Bank({topics:[topic()],certifications:{q1:reviewed}});
+ assert.equal(result.questionBank.length,0);
+ assert.ok(result.errors.some(e=>e.code==='STALE_OR_UNBOUND_CERTIFICATION'));
 });
