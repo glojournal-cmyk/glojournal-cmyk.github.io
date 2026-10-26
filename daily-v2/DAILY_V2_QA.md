@@ -83,3 +83,10 @@
 - Latest 10/10 additional tests passed, old 169/169 freshly rechecked, aggregate **179/179** focused V8 tests. This is not a second human curriculum reviewer or actual Safari/browser evidence.
 - Content-only dry-run reveals fresh-question starvation by third day on 100 new questions alone. Full curriculum/taught-status, semantic marking, score and source fingerprint approval are required before learner release.
 - Reports: `MASTERY_BANK_BATCH1_QA.md`.
+
+## Mastery content Batch 2 (2026-10-26)
+- Five additional 20-question author-draft topics for Latin/French/Biology/Chemistry/Physics. Across both batches: 200 source question IDs in 10 distinct topics; 4 Foundation / 10 Application / 6 Challenge per topic.
+- `tests/mastery-batch2.test.js`: **10/10 passed** against exact fetched JSON in V8 harness. Combined cross-batch QA found zero duplicate IDs and zero repeated exact prompt+stimulus combinations. This is not a semantic near-duplicate corpus audit.
+- Draft-only simulated all-correct Mastery supply lasts five 40-question days, and becomes exhausted on day six. Source books and complete historical correct IDs not yet certified; actual readiness unknown.
+- Human curriculum and school-taught verification, answer alternatives, secure partial-credit rubric marking and independent native Node/iPad QA still outstanding. New questions remain **0/200 certified to the actual Daily adapter**.
+- See `MASTERY_BANK_BATCH2_QA.md`. No original content/catalog.json or production sources changed.
