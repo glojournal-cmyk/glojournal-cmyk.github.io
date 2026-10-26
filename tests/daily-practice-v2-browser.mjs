@@ -605,16 +605,20 @@ async function checkExhaustedBiologyDaily(browser,engine){
     await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
     await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:35000});
     await page.evaluate(ids=>{
-      const key='lux-scholar-garden-v1',raw=localStorage.getItem(key);
-      const persisted=raw?JSON.parse(raw):{state:{},version:0};
-      persisted.state.seenCorrect={...(persisted.state.seenCorrect||{}),
-        ...Object.fromEntries(ids.map(id=>[id,1]))};
-      localStorage.setItem(key,JSON.stringify(persisted));
+      // Update the active Zustand store, not only localStorage. A Safari
+      // pagehide persistence write can otherwise restore the older in-memory
+      // state over the synthetic fixture immediately before reload.
+      const store=window.__luxStore;
+      if(!store?.getState||!store?.setState)throw Error('Production learner store unavailable');
+      const state=store.getState();
+      store.setState({seenCorrect:{...(state.seenCorrect||{}),
+        ...Object.fromEntries(ids.map(id=>[id,1]))}});
       // This is the TEST browser only; never remove learner device records.
       localStorage.removeItem('lux-practice-drafts-v1');
     },ids);
     await page.reload({waitUntil:'domcontentloaded'});
     await page.waitForSelector('.lux-practice-view',{timeout:35000});
+    await page.waitForFunction(ids=>ids.every(id=>Number(window.__luxStore?.getState?.().seenCorrect?.[id])>0),ids,{timeout:15000});
     // The route shell mounts before its async topic bank is hydrated. Check the
     // actual terminal state, not a transient blank/loading frame on Safari.
     await page.waitForFunction(()=>document.body.innerText.includes('This topic needs more unused questions'),null,{timeout:35000});
