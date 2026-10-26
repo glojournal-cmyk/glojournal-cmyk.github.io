@@ -11,11 +11,11 @@ const unique=x=>new Set(x).size;
 const inspect=(bank,file)=>{
  const formal=(bank.questions||[]).filter(q=>q.status==='enabled'&&q.formal!==false&&!q._repair&&
   (q.year==null||Number(q.year)===9)&&(!q.subject||q.subject===bank.subject));
- const completed=new Set(formal.slice(0,5).map(q=>q.id));
- const afterFive=formal.filter(q=>!completed.has(q.id));
  const seenIds=new Set(),dedupFormal=[];
  for(const q of formal){if(q.id&&!seenIds.has(q.id)){seenIds.add(q.id);dedupFormal.push(q)}}
- const afterFiveIds=afterFive.filter(q=>seenIds.has(q.id));
+ // Reserve the first five DISTINCT eligible question IDs, not just five rows.
+ const completed=new Set(dedupFormal.slice(0,5).map(q=>q.id));
+ const afterFiveIds=dedupFormal.filter(q=>!completed.has(q.id));
  const formats={};for(const q of formal)formats[q.format]=(formats[q.format]||0)+1;
  const row={file,topicId:bank.topicId||file.replace(/\.json$/,''),title:bank.title||'',
   subject:bank.subject||'unknown',nominal:bank.questions?.length||0,
@@ -32,7 +32,7 @@ const inspect=(bank,file)=>{
  if(row.afterFiveFresh<20)row.flags.push('BELOW_20_AFTER_FIVE_CORRECT');
  if(row.afterFiveDistinctConcepts<20)row.flags.push('BELOW_20_CONCEPTS_AFTER_FIVE');
  if(row.application===0)row.flags.push('NO_APPLICATION_FORMAT');
- if(row.highDifficulty===0)row.flags.push('NO_GRADE_8_9_DEPTH_PROXY');
+ if(row.highDifficulty===0)row.flags.push('NO_DIFFICULTY_3_PLUS_TAG');
  // A rank is triage only; not based on unverified taught status.
  row.priorityScore=10*Number(row.formal<20)+8*Number(row.afterFiveFresh<20)+
   5*Number(row.afterFiveDistinctConcepts<20)+3*Number(row.application===0)+
