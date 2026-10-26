@@ -76,3 +76,10 @@
 - Bad answer does not earn a credit; a simulated write failure returns an error and the same eventId is retried; browser reload should re-read frozen day/ledger. 3 marked GCSE questions allow 5/6 marks, tracked separately.
 - Controller regression 11/11 in V8 harness; old suites freshly rerun 158/158 = total **169/169** isolated logic checks. Static HTML IDs/import references/syntax checked; NO live Safari/browser smoke test yet.
 - To execute manual QA: see `staging/README.md`; inspect from an authenticated feature-branch checkout served over HTTP (not `file://`). The page has NOT been deployed.
+
+## Mastery source content Batch 1
+- 100 original author-draft Mastery questions across Latin, French, Biology, Chemistry, Physics. 4/10/6 per subject, explicit Model Answers, Mark Points, common-error feedback. Source path `daily-v2/content/mastery/`.
+- `src/mastery-draft-validator.js` performs structural checks; `tests/mastery-drafts.test.js` validates source JSON and proves these drafts **cannot** be treated as certified Daily Mastery.
+- Latest 10/10 additional tests passed, old 169/169 freshly rechecked, aggregate **179/179** focused V8 tests. This is not a second human curriculum reviewer or actual Safari/browser evidence.
+- Content-only dry-run reveals fresh-question starvation by third day on 100 new questions alone. Full curriculum/taught-status, semantic marking, score and source fingerprint approval are required before learner release.
+- Reports: `MASTERY_BANK_BATCH1_QA.md`.
