@@ -25,6 +25,26 @@ const server=createServer((req,res)=>{
 });
 await new Promise(r=>server.listen(0,"127.0.0.1",r));
 const base="http://127.0.0.1:"+server.address().port;
+const recoveryScript=fs.readFileSync('assets/home-rpg-live-20261019.js','utf8')
+ .match(/quest-recovery-20261011\.js\?v=[A-Za-z0-9-]+/)?.[0];
+assert.ok(recoveryScript,'Home must declare a versioned on-demand Recovery engine');
+async function revealRecovery(page){
+  // The real RPG Home lazy-loads the original React Recovery engine on tap.
+  // This suite exercises that existing engine directly, while RPG browser QA
+  // checks the user's actual button and popup.
+  await page.evaluate(async script=>{
+    // Recovery intentionally remains unmounted on RPG Home until its modal
+    // is opened. Simulate that visible modal state BEFORE calling mount.
+    document.documentElement.classList.add('lux-rpg-recovery-open');
+    const recovery=await import('/assets/'+script);
+    recovery.mountRecoveryPanel();
+    const panel=document.getElementById('lux-recovery-quests');
+    if(!panel)throw Error('Recovery did not mount');
+    panel.open=true;
+    panel.hidden=false;
+  },recoveryScript);
+  await page.waitForSelector('#lux-recovery-date',{state:'visible',timeout:20000});
+}
 try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch({headless:true});try{
  const page=await browser.newPage({viewport:{width:834,height:1112}}),errors=[];page.on('pageerror',e=>errors.push(e.message));async function visit(url){
   await page.waitForLoadState('networkidle');
@@ -53,7 +73,7 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
   const logs={...store.getState().dailyLog};delete logs[date];
   store.setState({dailyLog:logs,dailyVocabByDay:{},formalAttemptLog:[],recoveryVocabByDay:{},recoveryAwarded:{}});return date;
  });
- await page.waitForSelector('#lux-recovery-date');await page.locator('#lux-recovery-date').selectOption(unopened);
+ await revealRecovery(page);await page.locator('#lux-recovery-date').selectOption(unopened);
  assert.equal(await page.locator('#lux-recovery-quests a').count(),2);
  assert.match(await page.locator('#lux-recovery-quests').innerText(),/0 \/ 30/);
  // An unopened date exposes an opt-in ten-task plan. Do not change today.
@@ -75,8 +95,20 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
  assert.equal(created.record.recoveryFallback,true);
  assert.equal(created.today,dailyBefore);
 
+ // Close the test-opened Recovery modal before opening the 30-day record.
+ // Real Garden navigation closes one modal before opening another; leaving
+ // both open made Recovery links intercept clicks on the record calendar.
+ // This is a UI-only transition: no learner state, answers or XP are changed.
+ await page.evaluate(()=>{
+   const recovery=document.getElementById('lux-recovery-quests');
+   if(recovery){recovery.open=false;recovery.hidden=true;}
+   document.documentElement.classList.remove('lux-rpg-recovery-open');
+ });
+ assert.equal(await page.locator('#lux-recovery-quests').isVisible(),false,
+   'Recovery must no longer cover 30-day record controls');
  await page.evaluate(()=>window.__luxOpenDailyRecord());
- await page.locator('.lux-record-dot').nth(28).click();
+ // Keep a REAL click to catch any remaining overlay or z-index obstruction.
+ await page.locator('.lux-record-dot').nth(28).click({timeout:15000});
  assert.equal(await page.locator('.lux-record-detail a.lux-record-recovery').count(),10);
  await page.locator('.lux-record-close').click();
  await visit(base+'/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab&recover='+unopened);
@@ -92,7 +124,7 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
  const persisted=await page.evaluate(async date=>{const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);return store.getState().dailyLog[date]},unopened);
  assert.equal(persisted.tasks.find(t=>t.id==='french-vocab').recovered,true);
  const dates=await page.evaluate(async()=>{const {C:store,Ut:day}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);const today=day(),date=n=>new Date(Date.parse(today+'T12:00:00Z')-n*86400000).toISOString().slice(0,10),a=date(1),b=date(2);const logs={...store.getState().dailyLog};for(const d of [a,b])logs[d]={date:d,tasks:[{id:'french-vocab',target:30,progress:20},{id:'latin-vocab',target:30,progress:30}]};store.setState({dailyLog:logs,recoveryVocabByDay:{},recoveryAwarded:{}});return [a,b]});
- await page.waitForSelector('#lux-recovery-date');for(const date of dates){
+ await revealRecovery(page);for(const date of dates){
   await page.locator('#lux-recovery-date').selectOption(date);
   // The earlier unopened-day fallback remains in the saved record; replacing a
   // row with two legacy tasks must not erase its other recovery assignments.
@@ -108,7 +140,7 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
   const result=await page.evaluate(async date=>{const {C:store}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);const before=store.getState().daily.map(t=>[t.id,t.progress]);for(let i=0;i<10;i++)store.getState().recordDailyVocabAttempt('french','recovery-qa-'+i,true);const state=store.getState();return {done:state.dailyLog[date].tasks.find(t=>t.id==='french-vocab').done,before,after:state.daily.map(t=>[t.id,t.progress])}},date);
   assert.equal(result.done,true);assert.deepEqual(result.after,result.before,'recovery never credits today');
  }
- await visit(base+'/');await page.waitForSelector('#lux-recovery-quests');
+ await visit(base+'/');await revealRecovery(page);
  const recoveryPanel=page.locator('#lux-recovery-quests');
  assert.equal(await recoveryPanel.isVisible(),true,'Recovery remains available on return Home');
  if(await recoveryPanel.getAttribute('open')===null)await page.locator('#lux-recovery-quests > summary').click();

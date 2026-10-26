@@ -67,13 +67,15 @@ try{
         await page.waitForFunction(()=>document.querySelector('main:not(#lux-study-rpg-integrated) select:has(option[value="9"])')?.value==='9');
         await page.waitForFunction(()=>document.querySelectorAll('#lux-study-rpg-integrated .lux-study-rpg-card').length===7);
         await page.evaluate(async()=>{
-          const store=(await import('/assets/index-BLVOhKhN.js?v=20261021-medical-careers1')).C;
+          const store=window.__luxStore;
           store.setState({equippedOutfit:'cardigan'});
           localStorage.setItem('lux-pet-companion-v1',JSON.stringify({species:'moss-hornling',petLevels:{'moss-hornling':2}}));
           dispatchEvent(new Event('scholar:pet-changed'));
         });
         await page.waitForFunction(async()=>{
-          const {A: outfits}=await import('/assets/index-BLVOhKhN.js?v=20261021-medical-careers1');
+          const indexHref=document.querySelector('link[rel="modulepreload"][href*="index-BLVOhKhN.js"]')?.getAttribute('href');
+          if(!indexHref)throw Error('Missing versioned production store module');
+          const {A: outfits}=await import(indexHref);
           const expected=outfits.find(o=>o.id==='cardigan')?.art;
           return Boolean(expected && document.querySelector('.lux-study-rpg-scholar')?.getAttribute('src')===expected);
         });
@@ -116,7 +118,8 @@ try{
     try{
       const page=await browser.newPage({viewport:{width:1024,height:768}});
       await page.goto(origin+'/');
-      await page.locator('a[href="/study"]').first().click();
+      // Tap the frontmost RPG Home navigation, not the covered legacy React link.
+      await page.locator('html.lux-rpg-live-active #lux-rpg-live-home .rpg-nav-live a[href="/study"]:visible').click();
       await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
       assert.equal(new URL(page.url()).pathname.replace(/\/$/,''),'/study');
       assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').count(),Number(await page.locator('.lux-study-rpg-year select').inputValue())===9?7:6,'Home→Study navigation loads production scene');

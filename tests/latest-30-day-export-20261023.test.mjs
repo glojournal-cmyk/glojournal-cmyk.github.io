@@ -78,16 +78,19 @@ test("Missing Daily Log with marked attempts remains unverified, not falsely com
  assert.equal(row.status,"answers-without-task-record");
  assert.equal(file.state.dailyLog["2026-10-19"],undefined);
 });
-test("Today's downloaded record always uses most recent ten-task UI state",async()=>{
+test("Export keeps latest ten Home assignments plus separately saved historic dated tasks",async()=>{
  const state=live(),stale={...live(),xp:4000,daily:ids.map((id,i)=>
   ({...task(id,i),progress:0,done:false}))};
  stale.dailyLog={...stale.dailyLog,[day]:{date:day,tasks:[
   {id:"old-six",target:5,progress:5,done:true}],done:1,total:1,complete:true}};
  const file=JSON.parse(await prepareLatest30DayExport(()=>state,()=>base(state),
   {readJournal:async()=>[],storage:storage(stale)}));
- assert.equal(file.state.dailyLog[day].tasks.length,10);
- assert.equal(file.state.dailyLog[day].done,8);
- assert.equal(file.recent30Days.days.at(-1).done,8);
+ assert.equal(file.state.dailyLog[day].tasks.length,11);
+ assert.equal(file.state.dailyLog[day].done,9);
+ assert.equal(file.recent30Days.days.at(-1).done,8,
+   'Active ten-task overview excludes preserved retired tasks');
+ assert.ok(file.state.dailyLog[day].tasks.some(t=>t.id==="old-six"&&t.done===true));
+ assert.equal(file.state.daily.length,10);
  assert.equal(file.state.daily.every((item,i)=>item.id===ids[i]),true);
 });
 test("Changes while collecting iPad data cause recapture, never stale download",async()=>{

@@ -10,7 +10,7 @@ const restorer = read('assets/home-extras-restorer-20261023.js');
 const html = read('index.html');
 
 test('RPG Recovery actually loads the dated task panel on tap, not an empty-state timer', () => {
- assert.match(home, /void import\('\.\/quest-recovery-20261011\.js\?v=20261025-bio10-proof1'\)/);
+ assert.ok(home.includes("void import('./quest-recovery-20261011.js?v="));
  assert.match(home, /module\.mountRecoveryPanel\(\)/);
  assert.doesNotMatch(home, /No Recovery tasks are currently available/);
  assert.match(quest, /export function mountRecoveryPanel\(\)/);
@@ -25,15 +25,26 @@ test('Recovery never overlays ordinary Home and does not observe all animated DO
  assert.match(quest, /Check saved backup for missing dates/);
 });
 
-test('iPad module bootstrap cache versions match after Recovery fix', () => {
- assert.match(html, /home-extras-restorer-20261023\.js\?v=20261025-bio10-proof1/);
- assert.match(restorer, /home-continue-20261010\.js\?v=20261025-bio10-proof1/);
- assert.match(continueJS, /home-rpg-live-20261019\.js\?v=20261025-bio10-proof1/);
- assert.match(home, /home-rpg-live-20261019\.css\?v=20261024-recovery-dialog1/);
- assert.match(restorer, /quest-recovery-20261011\.js\?v=20261025-bio10-proof1/);
- const shellVersion=(html.match(/index-BLVOhKhN\.js\?v=([^&"'\s]+)/)||[])[1];
- assert.ok(shellVersion,'index shell must identify its app-store module version');
- assert.ok(read('404.html').includes('index-BLVOhKhN.js?v='+shellVersion));
+test('iPad Recovery bootstrap shares one version of each reused module', () => {
+ const version=(src,name)=>{
+   const matches=[...src.matchAll(new RegExp(name.replaceAll('.','\\.')+
+     '\\.js\\?v=([A-Za-z0-9-]+)','g'))].map(x=>x[1]);
+   assert.ok(matches.length,'Missing versioned import of '+name);
+   assert.equal(new Set(matches).size,1,'Duplicate versions of '+name+' inside one source');
+   return matches[0];
+ };
+ const quest=version(html,'quest-recovery-20261011');
+ assert.equal(version(restorer,'quest-recovery-20261011'),quest);
+ assert.equal(version(home,'quest-recovery-20261011'),quest);
+ const next=version(html,'home-continue-20261010');
+ assert.equal(version(restorer,'home-continue-20261010'),next);
+ const rpg=version(continueJS,'home-rpg-live-20261019');
+ assert.ok(rpg);
+ assert.ok(version(html,'home-extras-restorer-20261023'));
+ assert.ok(home.includes('home-rpg-live-20261019.css?v='));
+ const shell=(html.match(/index-BLVOhKhN\.js\?v=([^&"'\s]+)/)||[])[1];
+ assert.ok(shell,'index shell must identify its app-store module version');
+ assert.ok(read('404.html').includes('index-BLVOhKhN.js?v='+shell));
 });
 
 test('no result is credited merely by opening a Recovery modal', () => {
