@@ -6,7 +6,10 @@ This is a **staging-only clean rebuild**. The live Daily Task engine remains unc
 - `src/ledger.js`: pure, replay-idempotent per-day answer evidence and progress projection. Ambiguous legacy baselines are explicitly flagged as unreconciled and do not silently double-credit.
 - `src/planner.js`: ten-task deterministic, all-or-nothing 163-question planner with exact quota checking. Prioritises Mastery topic depth, reserves GCSE originals, composes language skills across topics, cycles vocab, and uses only persisted prior attempts for Retention.
 - `src/storage.js`: compare-and-swap transaction CONTRACT for storing a frozen daily plan and answers with mandatory read-back verification. `createMemoryDailyV2Repository` is a **volatile testing fake only**, NOT a working Safari or production adapter.
-- `tests/*.test.js`: isolated regression suites.
+- `src/bank-adapter.js`: genuine topic JSON normalization requiring independent curriculum review manifest, never auto-upgrades bank formats into Mastery.
+- `src/indexeddb-repository.js`: staging-only actual IndexedDB CAS adapter; unit-tested with an IDB behavioral fake, NOT validated in iPad Safari.
+- `src/legacy-review.js`: read-only conversion/diagnostics for historical counter baselines, without invented identities or writes.
+- `tests/*.test.js`: isolated regression suites (97 passing in the V8 test harness; native Node/GitHub Actions outcome not yet verified).
 
 ## Run local Node tests
 ```bash
@@ -42,3 +45,6 @@ In production, implement `repo.read(day)` and `repo.compareAndSwap(day,expectedR
 
 ## Workflow
 Read `DAILY_V2_PROGRESS.md` before working, write a bounded module, run its tests, commit, log exactly what was verified. Do not patch legacy Daily as part of this new development.
+
+## Latest development checkpoint
+See `BANK_CERTIFICATION_GUIDE.md` and `DAILY_V2_PROGRESS.md` for the latest handoff. Do not confuse an implementation of IndexedDB browser code with proof of real Safari QA. Legacy opaque baseline reconciliation, true mastery-bank qualification and real-bank 163-question preflight are incomplete.
