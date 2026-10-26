@@ -48,3 +48,14 @@ test('new genetics probability keys are coherent',()=>{
  assert.ok(q.some(x=>x.prompt.includes('Aa × Aa')&&x.answer.accepted.includes('25%')));
  assert.ok(q.some(x=>x.prompt.includes('unaffected carrier')&&x.answer.accepted.includes('Aa')));
 });
+
+test('20 enabled does NOT mean 20 fresh after five prior correct questions',async()=>{
+ const {diagnoseTaskQuestionEligibility}=await import('../src/lib/daily/question-eligibility-diagnostics-20261026.mjs');
+ for(const topic of Object.keys(specs)){
+  const bank=open(topic),previouslyCorrect=Object.fromEntries(bank.questions.slice(0,5).map(q=>[q.id,1]));
+  const task={id:'mastery-'+topic,subject:'biology',year:8,topicId:topic,target:20,mode:'mastery'};
+  const r=diagnoseTaskQuestionEligibility(task,bank.questions,{today:'2026-10-26',seenCorrect:previouslyCorrect},'2026-10-26');
+  assert.equal(r.nominal,20,topic);assert.equal(r.eligible,15,topic);
+  assert.equal(r.shortage,5,topic);
+ }
+});
