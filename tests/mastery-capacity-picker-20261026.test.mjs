@@ -66,7 +66,7 @@ test('refuse invalid reservation records instead of silently ignoring occupied s
 });
 
 test('30-day replay never silently reuses credited Mastery questions',()=>{
- const pools=[topic('A',30,9),topic('B',30,8),topic('C',30,7)];
+ const pools=[topic('A',30,9),topic('B',30,8),topic('C',30,7),topic('D',30,6)];
  const seenCorrect={};
  let fullDays=0,firstShortfall=null;
  for(let day=1;day<=30;day++){
