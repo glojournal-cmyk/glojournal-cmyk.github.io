@@ -1,3 +1,4 @@
+import {dailyCorrectQuestionIds} from './daily-locked-question-fallback-20261021.js?v=20261026-bio-year9-urgent1';
 /* A partly finished locked Daily task must resume its ORIGINAL wrong base
  * question(s), not silently replace them with newly generated practice.
  * Read-only selection: verified answer receipts and formal events decide what
@@ -52,6 +53,7 @@ export function dailyUnfinishedQuestionIds(state,receipt,options={}){
  // Two base slots with the same question ID can have different outcomes.
  // One correct instance must not conceal the OTHER still-wrong instance.
  for(const id of repeatedWrong)outcomes.set(id,false);
+ for(const id of dailyCorrectQuestionIds(state,options)){sourceIds.add(id);outcomes.set(id,true);}
  const wrongIds=[...outcomes].filter(([,correct])=>correct===false).map(([id])=>id);
  const correctIds=[...outcomes].filter(([,correct])=>correct===true).map(([id])=>id);
  return {wrongIds,correctIds,knownIds:[...sourceIds]};
