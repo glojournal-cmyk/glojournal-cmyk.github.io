@@ -93,3 +93,10 @@ Pure `ledger.js` now supports optional `potentialLegacyKeys`, `potentialKeysVeri
 - `audit/existing-*.json` retains per-subject review candidates, actual source prompts, difficulty/format, rubric-point count and source blob SHA.
 - `src/rubric-review.js` plus 12 module tests and 5 real-draft integration tests provide source-bound staging *manual* partial-credit records. Example 2/4; all uncertain free-text answers remain `review-required` and `releaseGrade:false`; no auto marks and no student ledger writes.
 - Existing 200 unapproved new items remain drafts; native Node, actual Safari and independent subject review still needed.
+## Updated full existing-bank source review and staged grading
+- `QA_FULL_Y8_EXISTING_BANK_AUDIT.md`: all **153/153** enabled Year 8 original topic files inspected; 8,918 eligible loaded question records compared with 8,829 catalog enabled. 16 count disagreements, notably Biology Food Tests 143 loaded versus 33 catalog.
+- `audit/existing-*.json`: 14 source-backed per-topic evidence snapshots, SHA and possible higher-order review leads. 475 review leads are NOT an approval list; independent educational judgement is mandatory.
+- `MASTERY_CONTENT_PRIORITY_PLAN.md` and `QA_EDUCATIONAL_SPOT_CHECKS.md`: specific subject-focused improvement order and false-positive difficulty-label examples.
+- `src/catalog-integrity.js`: pure source-to-catalog audit; `tests/catalog-integrity.test.js` has 8 isolated data-backed tests.
+- `src/rubric-review.js`: free response always pending review, stage reviewer can record explicit 2/4 but never auto-credit or write XP; core 12 tests + real draft 5 tests passed.
+- New focused QA this session 25/25 passed in V8 harness; older tests and native GitHub Actions/iPad QA have not been independently rerun this turn.
