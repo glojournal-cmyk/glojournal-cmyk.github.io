@@ -154,7 +154,7 @@ export function planDailyV2(input={}) {
   let best=null,deficiency=null;
   for(const [,items] of options){
    const quota=task.id==='science-standard'
-     ? {ready:true,chosen:chooseUnique(items,task.target,day+'|'+task.id)}
+     ? (()=>{const chosen=chooseUnique(items,task.target,day+'|'+task.id);return {ready:chosen.length===task.target,chosen,missing:{required:task.target,available:chosen.length}};})()
      : allocateQuotas(items,QUOTAS[task.id],day+'|'+task.id);
    if(quota.ready){best={items:quota.chosen,topic:items[0]};break;}
    if(!deficiency)deficiency={topicId:items[0].topicId,...quota.missing};
@@ -242,7 +242,9 @@ export function planDailyV2(input={}) {
  else{take(reviewItems);taskById.set(retention.id,packageTask(retention,reviewItems,null,{historicalOnly:true}));}
 
  const finalTasks=DAILY_V2_TASKS.map(t=>taskById.get(t.id)).filter(Boolean);
- const blocked=diagnostics.length>0||finalTasks.length!==10;
+ const countsValid=finalTasks.every(t=>t.questionIds.length===t.target);
+ if(!countsValid)diagnostics.push({code:'PLAN_INVARIANT_FAILURE'});
+ const blocked=diagnostics.length>0||finalTasks.length!==10||!countsValid;
  return {version:2,day,status:blocked?'blocked':'ready',target:163,
   tasks:blocked?[]:finalTasks,diagnostics,preflight:{
     validatedQuestions:questions.length,
