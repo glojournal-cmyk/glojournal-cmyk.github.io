@@ -10,7 +10,7 @@ assert.ok(entry);
 const server=createServer((req,res)=>{
  try{
   const url=new URL(req.url,'http://localhost'),p=path.resolve(root,'.'+decodeURIComponent(url.pathname));
-  if(!p.startsWith(root+path.sep))throw Error('outside root');
+  if(p!==root&&!p.startsWith(root+path.sep))throw Error('outside root');
   const file=fs.statSync(p).isDirectory()?path.join(p,'index.html'):p;
   res.setHeader('content-type',({'.js':'text/javascript','.html':'text/html','.css':'text/css','.json':'application/json','.svg':'image/svg+xml'})[path.extname(file)]||'application/octet-stream');
   res.end(fs.readFileSync(file));
