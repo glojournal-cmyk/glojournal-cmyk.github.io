@@ -26,8 +26,7 @@ function verify(state,href,taskId,planDate,journey,storage){
  let committed;
  try{committed=journey.completion(journey.withReviewCredits(saved),href,taskId)}catch{}
  if(!committed||committed.task.id!==live.task.id ||
-    Number(committed.task.progress)<Number(live.task.progress) ||
-    Number(saved.xp||0)<Number(state.xp||0)){
+    Number(committed.task.progress)<Number(live.task.progress)){
    return {state:"unverified",verified:false,data:live};
  }
  return {state:committed.done?"complete":"in-progress",verified:true,data:committed};
