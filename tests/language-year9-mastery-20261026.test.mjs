@@ -8,6 +8,7 @@ import {allocateGlobalQuestions} from '../src/lib/daily/global-allocation-prefli
 const cases=[
  {topic:'fr-y9-u1-perfect-negatives',old:14,added:11,total:25,distinctConcepts:25,subject:'french'},
  {topic:'fr-y9-u2-comparatives-superlatives',old:13,added:12,total:25,distinctConcepts:25,subject:'french'},
+ {topic:'fr-y9-u2-perfect-vs-imperfect',old:11,added:14,total:25,distinctConcepts:25,subject:'french'},
  {topic:'la-y9-s01-case-functions',old:18,added:13,total:31,distinctConcepts:25,subject:'latin'}
 ];
 const get=topic=>JSON.parse(fs.readFileSync('content/topics/'+topic+'.json','utf8'));
@@ -64,11 +65,11 @@ for(const spec of cases){
   assert.equal(report.reasons.previously_correct,5);
  });
 }
-test('the three repaired Y9 language topics can allocate 60 mutually distinct formal opportunities',()=>{
+test('the four repaired Y9 language topics can allocate 80 mutually distinct formal opportunities',()=>{
  const tasks=cases.map(c=>({id:c.topic,target:20,candidates:get(c.topic).questions.filter(q=>q.status==='enabled'&&q.formal!==false)}));
  const x=allocateGlobalQuestions(tasks);
  assert.equal(x.status,'FULL_READY');
- assert.equal(x.requested,60);
- assert.equal(x.assigned,60);
- assert.equal(new Set(x.rows.flatMap(y=>y.items.map(q=>q.id))).size,60);
+ assert.equal(x.requested,80);
+ assert.equal(x.assigned,80);
+ assert.equal(new Set(x.rows.flatMap(y=>y.items.map(q=>q.id))).size,80);
 });
