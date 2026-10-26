@@ -38,7 +38,10 @@ for (const filename of files){
   const old=ids.get(x.id);if(old)errors.push('duplicate ID '+x.id+' in '+old+' and '+file);else ids.set(x.id,file);
   if(x.status==='enabled'&&(!x.prompt||!x.answer))errors.push(file+': incomplete enabled question '+x.id);
   if(x.status!=='enabled')continue;
-  const fp=[clean(x.prompt),clean(x.stimulus?.text),clean(x.format)].join('|');
+  const rawStim=typeof x.stimulus==='string'?x.stimulus:JSON.stringify(x.stimulus||{});
+  // For matching/sorting, answer pairs are the stimulus: the shared heading alone is not a duplicate.
+  const structured=['matching','sorting','sequence','diagram_label'].includes(x.format)?JSON.stringify(x.answer||x.options||{}):'';
+  const fp=[clean(x.prompt),clean(rawStim),clean(x.format),clean(structured)].join('|');
   const list=fingerprints.get(fp)||[];list.push({id:x.id,file});fingerprints.set(fp,list);
  }
 }
