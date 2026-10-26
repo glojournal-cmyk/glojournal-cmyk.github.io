@@ -10,7 +10,7 @@ This is a **staging-only clean rebuild**. The live Daily Task engine remains unc
 - `src/indexeddb-repository.js`: staging-only actual IndexedDB CAS adapter; unit-tested with an IDB behavioral fake, NOT validated in iPad Safari.
 - `src/legacy-review.js`: read-only conversion/diagnostics for historical counter baselines, without invented identities or writes.
 - `src/simulator.js`: read-only 1–90-day all-correct allocation stress test; a synthetic upper-bound test, not a real-bank availability claim.
-- `tests/*.test.js`: isolated regression suites (158 passing in the V8 test harness; native Node/GitHub Actions outcome not yet verified).
+- `tests/*.test.js`: isolated regression suites (169 passing in the V8 test harness; native Node/GitHub Actions outcome not yet verified).
 
 ## Run local Node tests
 ```bash
@@ -51,7 +51,7 @@ Read `DAILY_V2_PROGRESS.md` before working, write a bounded module, run its test
 See `BANK_CERTIFICATION_GUIDE.md` and `DAILY_V2_PROGRESS.md` for the latest handoff. Do not confuse an implementation of IndexedDB browser code with proof of real Safari QA. Legacy opaque baseline reconciliation, true mastery-bank qualification and real-bank 163-question preflight are incomplete.
 
 ## 2026-10-26 latest checks
-- 158 V8 harness tests passed against exact committed JavaScript, including 10 multi-day simulation cases and four additional GCSE-stored-mark assertions.
+- 169 V8 harness tests passed against exact committed JavaScript, including 10 multi-day simulation cases and four additional GCSE-stored-mark assertions.
 - `QA_REAL_BANK_12_TOPIC_SAMPLE.md` documents a real 12-topic / 594-question source audit. Many topics have no difficulty-3+ questions despite enough raw question IDs.
 - `bank-adapter.js` now rejects any certification missing a source-bound fingerprint. A changed prompt, stimulus, options or answer invalidates approval.
 - `storage.js` enforces exact 1/2/3 GCSE max marks in frozen plan and per-attempt grading. No live app/UI or real Safari testing has been completed.
@@ -65,4 +65,12 @@ Pure `ledger.js` now supports optional `potentialLegacyKeys`, `potentialKeysVeri
 - `src/day-summary.js`: Home/30-day projection from the verified ledger, blocks full-day rewards for any partial day.
 - `src/mastery-audit.js`: source evidence and individual question review queue, not automatic Mastery certification.
 - Source triage: `QA_MASTERY_TRIAGE_8_REAL_TOPICS.md`.
-- Latest regression: 158/158 passed in V8 test harness (native Node/CI and actual iPad Safari remain unverified).
+- Latest regression: 169/169 passed in V8 test harness (native Node/CI and actual iPad Safari remain unverified).
+
+
+## Standalone QA interface (latest 2026-10-26)
+- `staging/index.html` is a separate **non-deployed** browser QA app, not part of the student's Home/Study/Recovery routes.
+- `staging/qa-controller.js` uses frozen V2 plans, persisted readback and the single-source Home projection.
+- `staging/qa-fixture.js` supplies fake 163-question or fake 160/163 shortage scenarios. No real learning answers, XP or student history are involved.
+- `staging/README.md` describes how a developer can serve/check the feature branch over HTTP.
+- **169/169 isolated V8 harness tests passed** across 11 focused suites (previous 158 rerun plus 11 new staging-flow tests); the browser UI itself has NOT yet been run in Safari or signed off.
