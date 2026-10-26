@@ -17,7 +17,7 @@ Status as of 2026-10-26
 - [~] Stable frozen question assignments and same-question wrong-answer retry supported by planner + storage contract; explicit alternative-question reserve strategy, production retry UI and migration NOT done.
 - [ ] Build 10 task adapters, Vocab cycling, genuine history-only retention, independent GCSE marking.
 - [~] Metadata audit in daily-v2/QA_BANK_AUDIT.md. Conservative per-question real-bank adapter implemented, but complete authentic certification manifest and missing content authoring NOT done.
-- [~] 97 focused tests executed successfully against exact committed code in a V8 harness: ledger 12, planner 27, storage 20, bank-adapter 14, indexeddb-repository 12, legacy-review 12. Native Node/GitHub Actions result, property tests, actual-bank and 30-day simulations NOT yet verified.
+- [~] 114 focused tests executed successfully against exact committed code in a V8 harness: ledger 12, planner 27, storage 24, bank-adapter 17, indexeddb-repository 12, legacy-review 12, simulator 10. Native Node/GitHub Actions, real-bank 30-day simulation, property tests and Safari validation NOT yet verified.
 - [ ] Add staging-only UI integration and reconciliation layers (Home / Daily / 30 days / Recovery / XP).
 - [~] Real IndexedDB transaction adapter (staging namespace) implemented with 12 IndexedDB-behavior-fake tests. No REAL Safari/iPad hardware tests, browser quota tests or legacy production migration.
 - [ ] Produce independent Codex review handoff with exactly changed files and failed tests.
@@ -41,5 +41,17 @@ Status as of 2026-10-26
 - Safety behavior: opaque legacy baseline retains verified amount and flags new attempted credits as pending reconciliation, rather than fabricating evidence or silently double-crediting. Full historical migration is still a blocker.
 - No production files modified, no live data touched, no V2 integration.
 
+## 2026-10-26 latest checkpoint: simulation / source audit / exam invariants
+- Implemented `daily-v2/src/simulator.js` with ten deterministic stress scenarios in `tests/simulator.test.js`. A deliberately sufficient **synthetic** bank passed 30 days x 163 questions = 4,890 assignments; a small 2-day Mastery bank correctly blocked on day 3 (2026-10-28). Missing historical Retention and challenged Year 9 depth are detected before daily publication.
+- Hardened `bank-adapter.js`: a review now requires `sourceFingerprint` bound to topic + original prompt, stimulus, options, answer and format. Changed answers or stimuli invalidate certification. See test additions (17/17).
+- Hardened frozen exam manifest + `storage.js`: 1/2/3 allocated max marks are mandatory; forged exam totals, inconsistent correctness and nonexam marks are rejected. Storage suite now 24/24.
+- Inspected 12 REAL topic files (594 eligible records) read-only, documented in `QA_REAL_BANK_12_TOPIC_SAMPLE.md` including exact blob hashes. Latin adjective agreement (24) and Biology balanced diet (39) had **zero** source difficulty 3+; structural supply ≠ certified Mastery.
+- **Overall: 114/114** focused tests passed against exact GitHub committed JavaScript in V8 harness (imports combined and assertions emulated). This is NOT native Node `node --test`, GitHub Actions, real Safari or iPad validation.
+- New engine remains completely isolated; no edits to `main`, production UI, student records or XP.
+- OPEN: true 30-day student-evidence bank readiness; exhaustive content review and source-bound manifest; iPad storage QA; safe legacy opaque baseline resumption; UI/XP/Recovery integration and explicit task-shortage handling.
+- Current strict preflight blocks the WHOLE new daily plan if any one task has insufficient verified supply. This avoids mid-session dead-ends but is NOT acceptable as user-facing continuity; fallback policy must be designed and validated before release.
+
 ## Next build unit
-Implement DailyV2 deterministic question planner, dry-run eligibility gate, and tests; then genuine persistence adapter, migration and task adapters.
+1. Real-bank certification of taught topic/skill/depth and a safe, per-task shortage handling policy; do NOT bypass high-level Mastery.
+2. Read-only real emergency backup schema analysis and reconciliation for opaque 28/30 records, without changing user data.
+3. Run real certified-bank 30-day simulation; then staging UI integration, native CI and iPad Safari smoke tests. Production release requires approval.
