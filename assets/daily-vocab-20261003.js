@@ -269,7 +269,7 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
     const pickFrom=eligible.length?eligible:alternatives;
     const q=pickFrom[hash(`${seed}:${row.concept}:direction`)%pickFrom.length];
     const actual=directionOf(q);if(actual)directionCounts[actual]++;
-    return {...q,_dailyBucket:row.bucket,_previousSeen:row.encounters,_dailyVocab:subject,
+    return {...q,_vocabConcept:row.concept,_dailyBucket:row.bucket,_previousSeen:row.encounters,_dailyVocab:subject,
       _dailyYear8:!row.year9,_dailyYear9:row.year9,_adaptiveRank:i,_adaptiveBucket:row.bucket};
   });
 }
