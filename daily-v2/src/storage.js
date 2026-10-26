@@ -26,9 +26,15 @@ function persistedEvent(ledger,eventId){
  return ledger.attempts.find(e=>e.eventId===eventId)||null;
 }
 function validatePlan(plan){
- requireV2(plan?.version===2&&plan.status==='ready'&&typeof plan.day==='string'&&
-   Array.isArray(plan.tasks)&&plan.tasks.length===10&&plan.target===163,
-   'only fully verified ten-task plans can be frozen');
+ requireV2(plan?.version===2&&['ready','partial'].includes(plan.status)&&
+   typeof plan.day==='string'&&Array.isArray(plan.tasks)&&
+   plan.tasks.length>0&&plan.tasks.length<=10&&plan.target===163,
+   'only fully verified or explicitly staged partial plans can be frozen');
+ const isPartial=plan.status==='partial';
+ requireV2(isPartial?plan.stagingOnly===true&&plan.dailyComplete===false&&
+     plan.tasks.length<10&&Number.isInteger(plan.availableTarget):
+     plan.tasks.length===10,
+   'partial plan must preserve missing tasks and full-day completion as false');
  const seen=new Set(),knownTasks=new Set();
  const expectedTasks=new Map(DAILY_V2_TASKS.map(t=>[t.id,t]));
  for(const task of plan.tasks){
@@ -46,12 +52,30 @@ function validatePlan(plan){
   }
  }
  const exam=plan.tasks.find(t=>t.kind==='exam');
- requireV2(exam&&exam.questions.map(q=>q.marks).join(',')==='1,2,3',
-  'GCSE 1/2/3 marks quota missing');
- requireV2(knownTasks.size===DAILY_V2_TASKS.length && seen.size===plan.target,
+ if(exam)requireV2(exam.questions.map(q=>q.marks).join(',')==='1,2,3',
+   'GCSE 1/2/3 marks quota missing');
+ else requireV2(isPartial,'full daily plan missing GCSE task');
+ if(isPartial){
+  const missing=DAILY_V2_TASKS.filter(t=>!knownTasks.has(t.id));
+  requireV2(Array.isArray(plan.unavailable)&&plan.unavailable.length===missing.length
+    &&plan.unavailable.length===plan.blockedTasksCount,
+    'partial plan missing explicit blocked task list');
+  const unavailable=new Set();
+  for(const task of plan.unavailable){
+   requireV2(missing.some(t=>t.id===task.id&&t.target===task.target)
+    &&!unavailable.has(task.id)&&Array.isArray(task.reasonCodes)
+    &&task.reasonCodes.length>0,'invalid or duplicated unavailable task');
+   unavailable.add(task.id);
+  }
+  requireV2(plan.availableTarget===seen.size&&plan.availableTarget<163
+   &&unavailable.size+knownTasks.size===DAILY_V2_TASKS.length,
+   'partial plan may not fake 163/163 or omit blocked tasks');
+ }else requireV2(knownTasks.size===DAILY_V2_TASKS.length && seen.size===plan.target,
   'plan does not contain the exact 163 assigned questions');
 }
-export async function commitDailyV2Plan(repo,plan,{legacyBaselines={},maxRetries=5}={}){
+export async function commitDailyV2Plan(repo,plan,{legacyBaselines={},maxRetries=5,allowPartial=false}={}){
+ if(plan?.status==='partial')requireV2(allowPartial===true,
+  'PARTIAL_REQUIRES_EXPLICIT_STAGING_OPT_IN');
  validatePlan(plan);
  for(let i=0;i<maxRetries;i++){
   const row=await readRow(repo,plan.day);
@@ -75,7 +99,8 @@ export async function commitDailyV2Answer(repo,attempt,{maxRetries=8}={}){
  requireV2(attempt&&typeof attempt.day==='string'&&typeof attempt.taskId==='string','answer metadata missing');
  for(let i=0;i<maxRetries;i++){
   const row=await readRow(repo,attempt.day);
-  requireV2(row.plan?.version===2&&row.plan?.status==='ready','NO_FROZEN_DAILY_PLAN: answer not accepted');
+  requireV2(row.plan?.version===2&&['ready','partial'].includes(row.plan.status),
+   'NO_FROZEN_DAILY_PLAN: answer not accepted');
   const task=row.plan.tasks.find(t=>t.id===attempt.taskId);
   requireV2(task,'answer task not present in frozen plan');
   const question=task.questions.find(q=>q.questionId===attempt.questionId);
