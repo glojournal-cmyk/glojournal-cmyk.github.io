@@ -34,6 +34,18 @@ const sortByDay=(day,a,b)=>stableHash(day+'|'+a.id)-stableHash(day+'|'+b.id)||a.
 function choose(rows,n,day){
  return [...rows].sort((a,b)=>sortByDay(day,a,b)).slice(0,n);
 }
+function chooseUnique(rows,n,day,prior=[]){
+ const seenIds=new Set(prior.map(q=>q.id));
+ const seenPrompts=new Set(prior.map(q=>q._promptKey).filter(Boolean));
+ const selected=[];
+ for(const q of [...rows].sort((a,b)=>sortByDay(day,a,b))){
+  if(seenIds.has(q.id)||(q._promptKey&&seenPrompts.has(q._promptKey)))continue;
+  seenIds.add(q.id);if(q._promptKey)seenPrompts.add(q._promptKey);
+  selected.push(q);
+  if(selected.length>=n)break;
+ }
+ return selected;
+}
 function normalizeQuestions(raw, day, taught) {
  const seen=new Set(), questions=[],errors=[];
  for(const q of raw||[]){
@@ -61,7 +73,7 @@ function groupByTopic(rows,minimum,day,exposure={}) {
 function allocateQuotas(items,quotas,day) {
  const chosen=[],used=new Set();
  for(const [label,n] of Object.entries(quotas)){
-  const pool=choose(items.filter(q=>!used.has(q.id) && (q.skill===label||q.depthBand===label)),n,day+'|'+label);
+  const pool=chooseUnique(items.filter(q=>!used.has(q.id) && (q.skill===label||q.depthBand===label)),n,day+'|'+label,chosen);
   if(pool.length!==n)return {ready:false,missing:{band:label,required:n,available:pool.length}};
   for(const q of pool){used.add(q.id);chosen.push(q);}
  }
@@ -137,12 +149,12 @@ export function planDailyV2(input={}) {
 
  // Standard tracks demand their own types. Science is restricted to one topic.
  for(const task of DAILY_V2_TASKS.filter(t=>t.kind==='standard')){
-  const options=groupByTopic(questions.filter(q=>q.roles.includes(task.id) &&allowed(q) &&
+  const options=groupByTopic(questions.filter(q=>q.roles.includes(task.id) &&!q.roles.includes('gcse') &&allowed(q) &&
     (task.subject!=='science'||['biology','chemistry','physics'].includes(q.subject))),task.target,day,subjectExposure);
   let best=null,deficiency=null;
   for(const [,items] of options){
    const quota=task.id==='science-standard'
-     ? {ready:true,chosen:choose(items,task.target,day+'|'+task.id)}
+     ? {ready:true,chosen:chooseUnique(items,task.target,day+'|'+task.id)}
      : allocateQuotas(items,QUOTAS[task.id],day+'|'+task.id);
    if(quota.ready){best={items:quota.chosen,topic:items[0]};break;}
    if(!deficiency)deficiency={topicId:items[0].topicId,...quota.missing};
@@ -153,7 +165,7 @@ export function planDailyV2(input={}) {
 
  // Progressive Year 9: all questions from a taught Y9 topic, in skill order.
  const progressive=get('year9-progressive');
- const y9Options=groupByTopic(questions.filter(q=>q.year===9&&q.roles.includes('year9-progressive')&&allowed(q)),20,day,subjectExposure);
+ const y9Options=groupByTopic(questions.filter(q=>q.year===9&&q.roles.includes('year9-progressive')&&!q.roles.includes('gcse')&&allowed(q)),20,day,subjectExposure);
  let y9Choice=null;
  for(const [,items] of y9Options){
   const quota=allocateQuotas(items,QUOTAS['year9-progressive'],day+'|year9');
@@ -178,7 +190,7 @@ export function planDailyV2(input={}) {
   const count=new Map();
   for(const pair of known.keys()){const concept=pair.slice(0,pair.lastIndexOf('|'));count.set(concept,(count.get(concept)||0)+1);}
   const creditedToday=new Set(priorAttempts.filter(a=>a?.persisted===true&&a.day===day&&a.taskId===task.id&&a.correct===true).map(a=>a.conceptId));
-  const vocabQ=questions.filter(q=>q.roles.includes(task.id)&&q.subject===task.subject&&!assigned.has(q.id));
+  const vocabQ=questions.filter(q=>q.roles.includes(task.id)&&!q.roles.includes('gcse')&&q.subject===task.subject&&!assigned.has(q.id));
   const chosen=[];const conceptUse=new Set();
   for(const [year,quota] of [[8,25],[9,5]]){
    const groups=new Map();
@@ -191,7 +203,7 @@ export function planDailyV2(input={}) {
      (count.get(a)||0)-(count.get(b)||0)||stableHash(day+'|'+a)-stableHash(day+'|'+b)||a.localeCompare(b));
    if(concepts.length<quota)fail(task,'VOCAB_CONCEPT_SHORTAGE',{year,needed:quota,available:concepts.length});
    for(const concept of concepts.slice(0,quota)){
-    const variant=choose(groups.get(concept).filter(q=>!assigned.has(q.id)&&(!q._promptKey||!assignedPrompts.has(q._promptKey))),1,day+'|'+concept)[0];
+    const variant=choose(groups.get(concept).filter(q=>!assigned.has(q.id)&&(!q._promptKey||(!assignedPrompts.has(q._promptKey)&&!chosen.some(c=>c._promptKey===q._promptKey)))),1,day+'|'+concept)[0];
     if(!variant){fail(task,'VOCAB_VARIANT_COLLISION',{concept});continue;}
     conceptUse.add(concept);chosen.push(variant);
    }
@@ -218,7 +230,14 @@ export function planDailyV2(input={}) {
  seenRetention.sort((a,b)=>
   dueScore(a)-dueScore(b)||(a.entry.correct===false?-1:0)-(b.entry.correct===false?-1:0)
   ||daySpan(day,b.entry.day)-daySpan(day,a.entry.day)||a.question.id.localeCompare(b.question.id));
- const reviewItems=seenRetention.slice(0,10).map(r=>r.question);
+ const reviewItems=[];
+ const reviewPrompts=new Set();
+ for(const {question} of seenRetention){
+  if(question._promptKey&&reviewPrompts.has(question._promptKey))continue;
+  reviewItems.push(question);
+  if(question._promptKey)reviewPrompts.add(question._promptKey);
+  if(reviewItems.length===10)break;
+ }
  if(reviewItems.length!==10)fail(retention,'INSUFFICIENT_PERSISTED_HISTORY',{available:reviewItems.length,needed:10});
  else{take(reviewItems);taskById.set(retention.id,packageTask(retention,reviewItems,null,{historicalOnly:true}));}
 
