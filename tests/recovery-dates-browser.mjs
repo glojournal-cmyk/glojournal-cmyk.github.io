@@ -33,9 +33,11 @@ async function revealRecovery(page){
   // This suite exercises that existing engine directly, while RPG browser QA
   // checks the user's actual button and popup.
   await page.evaluate(async script=>{
+    // Recovery intentionally remains unmounted on RPG Home until its modal
+    // is opened. Simulate that visible modal state BEFORE calling mount.
+    document.documentElement.classList.add('lux-rpg-recovery-open');
     const recovery=await import('/assets/'+script);
     recovery.mountRecoveryPanel();
-    document.documentElement.classList.add('lux-rpg-recovery-open');
     const panel=document.getElementById('lux-recovery-quests');
     if(!panel)throw Error('Recovery did not mount');
     panel.open=true;
