@@ -645,25 +645,14 @@
         "mode": "mark_points",
         "totalMarks": 4,
         "markPoints": [
-          {
-            "id": "mp1",
-            "text": "some insects have inherited variation linked to pesticide resistance"
-          },
-          {
-            "id": "mp2",
-            "text": "resistant insects are more likely to survive spraying"
-          },
-          {
-            "id": "mp3",
-            "text": "survivors reproduce and pass the advantageous alleles to offspring"
-          },
-          {
-            "id": "mp4",
-            "text": "the resistant allele becomes more common over generations"
-          }
+          "some insects have inherited variation linked to pesticide resistance",
+          "resistant insects are more likely to survive spraying",
+          "survivors reproduce and pass the advantageous alleles to offspring",
+          "the resistant allele becomes more common over generations"
         ],
         "scoring": "criterion_checklist",
-        "manualReviewFallback": true
+        "manualReviewFallback": true,
+        "modelAnswer": "some insects have inherited variation linked to pesticide resistance resistant insects are more likely to survive spraying survivors reproduce and pass the advantageous alleles to offspring the resistant allele becomes more common over generations"
       },
       "feedback": {
         "short": "Natural selection requires variation, differential survival, inheritance and change across generations.",
@@ -701,25 +690,14 @@
         "mode": "mark_points",
         "totalMarks": 4,
         "markPoints": [
-          {
-            "id": "mp1",
-            "text": "vary light intensity systematically, for example using lamp distance"
-          },
-          {
-            "id": "mp2",
-            "text": "measure oxygen bubbles or oxygen volume per minute"
-          },
-          {
-            "id": "mp3",
-            "text": "keep temperature constant"
-          },
-          {
-            "id": "mp4",
-            "text": "keep pondweed species/length or carbon dioxide concentration constant"
-          }
+          "vary light intensity systematically, for example using lamp distance",
+          "measure oxygen bubbles or oxygen volume per minute",
+          "keep temperature constant",
+          "keep pondweed species/length or carbon dioxide concentration constant"
         ],
         "scoring": "criterion_checklist",
-        "manualReviewFallback": true
+        "manualReviewFallback": true,
+        "modelAnswer": "vary light intensity systematically, for example using lamp distance measure oxygen bubbles or oxygen volume per minute keep temperature constant keep pondweed species/length or carbon dioxide concentration constant"
       },
       "feedback": {
         "short": "IV, DV and at least two controls are needed for a fair investigation.",
@@ -757,25 +735,14 @@
         "mode": "mark_points",
         "totalMarks": 4,
         "markPoints": [
-          {
-            "id": "mp1",
-            "text": "initial heating raises kinetic energy"
-          },
-          {
-            "id": "mp2",
-            "text": "enzyme and substrate collide successfully more often up to the optimum"
-          },
-          {
-            "id": "mp3",
-            "text": "excess heating changes the enzyme's shape (denatures it)"
-          },
-          {
-            "id": "mp4",
-            "text": "the active site no longer fits the substrate so fewer enzyme-substrate complexes form"
-          }
+          "initial heating raises kinetic energy",
+          "enzyme and substrate collide successfully more often up to the optimum",
+          "excess heating changes the enzyme's shape (denatures it)",
+          "the active site no longer fits the substrate so fewer enzyme-substrate complexes form"
         ],
         "scoring": "criterion_checklist",
-        "manualReviewFallback": true
+        "manualReviewFallback": true,
+        "modelAnswer": "initial heating raises kinetic energy enzyme and substrate collide successfully more often up to the optimum excess heating changes the enzyme's shape (denatures it) the active site no longer fits the substrate so fewer enzyme-substrate complexes form"
       },
       "feedback": {
         "short": "Explain collision rate, optimum, denaturation and active-site shape.",
@@ -813,25 +780,14 @@
         "mode": "mark_points",
         "totalMarks": 4,
         "markPoints": [
-          {
-            "id": "mp1",
-            "text": "each parent can produce B or b gametes"
-          },
-          {
-            "id": "mp2",
-            "text": "possible offspring genotypes are BB, Bb, Bb and bb"
-          },
-          {
-            "id": "mp3",
-            "text": "only bb expresses the recessive phenotype"
-          },
-          {
-            "id": "mp4",
-            "text": "probability is 1 in 4, or 25 percent"
-          }
+          "each parent can produce B or b gametes",
+          "possible offspring genotypes are BB, Bb, Bb and bb",
+          "only bb expresses the recessive phenotype",
+          "probability is 1 in 4, or 25 percent"
         ],
         "scoring": "criterion_checklist",
-        "manualReviewFallback": true
+        "manualReviewFallback": true,
+        "modelAnswer": "each parent can produce B or b gametes possible offspring genotypes are BB, Bb, Bb and bb only bb expresses the recessive phenotype probability is 1 in 4, or 25 percent"
       },
       "feedback": {
         "short": "The recessive phenotype requires two recessive alleles.",
