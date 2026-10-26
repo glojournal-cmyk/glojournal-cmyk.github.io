@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {reconcileDailySession} from '../assets/daily-session-credit-20261021.js';
+import {selectUnfinishedDailyQuestions} from '../assets/daily-unfinished-retry-20261025.js';
 
 const day='2026-10-21', topic='la-y8-prepositions', taskId='latin-standard';
 const assignedHref=`/study/latin/practise?daily=1&locked=1&year=8&mode=standard&task=${taskId}&topic=${topic}`;
@@ -118,4 +119,22 @@ test('20 marked Mastery quiz slots count 20/20 including a repeated question ID'
    mode:'mastery',questions:repeated,answers:[...repeated.map(q=>({questionId:q.id,correct:false,formal:true})),
      {questionId:'mastery-0',correct:false,formal:true}]});
  assert.equal(duplicate.progress,20,'a forged extra repeat is not credited');
+});
+
+
+test('Unfinished Daily fallback cannot resurrect globally correct items when its receipt is short',()=>{
+ const bank=Array.from({length:10},(_,i)=>({id:'la-prep-'+i,topicId:topic,formal:true,status:'enabled'}));
+ const state={seenCorrect:Object.fromEntries(bank.slice(1).map(q=>[q.id,1])),
+  formalAttemptLog:[{day,attemptId:'q1',questionId:bank[0].id,correct:false,subject:'latin',
+   dailyTaskId:taskId,topicId:topic,year:8,formal:true,repair:false}]};
+ const options={state,day,taskId,subject:'latin',year:8,topicId:topic,mode:'standard',remaining:10};
+ const selected=selectUnfinishedDailyQuestions(bank.slice(0,2),bank,options);
+ assert.deepEqual(selected.map(q=>q.id),[bank[0].id],
+  'Only the one genuinely unfinished wrong item is allowed; global correct answers must stay excluded');
+});
+
+test('Depleted Daily banks never silently shrink targets to award artificial completion',()=>{
+ const source=readFileSync(new URL('../assets/study._subject.practise-y8fix-20260920.js',import.meta.url),'utf8');
+ assert.doesNotMatch(source,/target:progress,progress,done:true,cappedBecauseQuestionBankExhausted/);
+ assert.match(source,/sessionItems.length===0/);
 });
