@@ -9,6 +9,7 @@ on:
       - 'content/topics/**'
       - 'content/exam-practice/**'
       - 'tests/question-bank-20261026.test.mjs'
+      - 'tests/question-bank-20261026-round2.test.mjs'
       - 'tests/global-allocation-preflight-20261026.test.mjs'
       - 'src/lib/daily/global-allocation-preflight-20261026.mjs'
   workflow_dispatch:
@@ -27,6 +28,8 @@ jobs:
         run: node --check scripts/question-bank-audit-20261026.mjs
       - name: Verify repaired topic banks
         run: node --test tests/question-bank-20261026.test.mjs
+      - name: Verify continuous variation correlation and BER expansions
+        run: node --test tests/question-bank-20261026-round2.test.mjs
       - name: Test global capacity preflight (synthetic inputs only)
         run: node --test tests/global-allocation-preflight-20261026.test.mjs
       - name: Inventory all topic files
