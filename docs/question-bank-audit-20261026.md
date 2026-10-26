@@ -42,3 +42,35 @@ A dedicated, read-only GitHub Action uploads the complete JSON inventory as a no
 - **P2:** integrate an all-task allocation/preflight engine plus a board-reviewed GCSE bank; run 30 synthetic dates and controlled iPad acceptance before considering merge/deploy.
 
 **Release gate:** Keep PR in draft until completeness of 163-question allocation, updated learning policy, academic marking, data migration and iPad recovery have all been explicitly verified.
+
+## Round 2 — 26 October 2026, additional P0/P1 remediation
+
+Three previously under-capacity Year 8 Biology topics were expanded (original questions and stable IDs preserved):
+
+| Topic | Before | Added | After | Educational change |
+|---|---:|---:|---:|---|
+| `bio-y8-continuous-variation` | 13 | 7 | 20 | Continuous variables; histogram, frequency, polygenic/environmental reasoning |
+| `bio-y8-correlation` | 13 | 7 | 20 | Paired data, scatter plots, outliers, correlation vs causation |
+| `bio-y8-ber` | 10 | 10 | 20 | 6 numerical exercises, 4 multi-mark evaluations, correct units and dimensional reasoning |
+
+Both rounds combined add **47** question records across **5** topics: 15 Latin case role, 8 Biology mixed, 7 Biology continuous variation, 7 Biology correlation, 10 Biology BER. Structural checks and test specifications exist in `tests/question-bank-20261026-round2.test.mjs`.
+
+**Important:** This makes these five topics nominally eligible for the existing >=15 and >=20 static thresholds; it does **not** guarantee sufficient *fresh* or *past-attempted* questions for every actual date or task. These additional questions are supplemental authored content requiring academic approval and manual marking verification before exposure to learners.
+
+### P0 learner-state diagnostic (not connected to production)
+
+`src/lib/daily/question-eligibility-diagnostics-20261026.mjs` takes *sanitised* question/answer state and classifies exclusions: prior success, future review, incorrect topic/subject/year, status, and historical-only retention. It feeds the cross-task unique allocator and reports true quota shortfalls. The regression test uses **real Repo topic files** and covers:
+
+- BER 20 nominal enabled, nine historical successes → 11 eligible; Mastery shortfall 9.
+- Two Standard tasks asking for 15 answers each from the same 20-question topic → only 20 total question reservations, ten shortage.
+- Retention without genuinely attempted earlier-date questions → zero eligible, no invented progress.
+- Earlier-date attempts vs same-date attempts; not-yet-due review exclusion.
+- Standalone GCSE bank still lacks 1-mark and 2-mark questions.
+
+The prototype is **diagnostic only**: not wired into Scholar UI or current 165-task engine, and its use does not prove live iPad pass. Its assumptions may need adjustment when the 163-question daily business rules are frozen.
+
+### QA caveats
+
+The first action scan baseline succeeded on 254 original topic files. The rerun against latest modified head with new assertions may be queued. Final PASS must refer to the exact latest commit (not an older successful workflow).
+
+Do not merge until academic and runtime QA have passed. Next work should target the remaining blocked topics by actual taught/assigned frequency, rather than bulk-padding every small topic.
