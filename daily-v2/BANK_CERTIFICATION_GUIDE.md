@@ -13,6 +13,7 @@ const certifications = {
     reviewed: true,
     reviewer: "curriculum-reviewer-id",
     reviewedAt: "2026-10-26",
+    sourceFingerprint: fingerprintDailyV2Source(topic, sourceQuestion),
     roles: ["latin-standard"],
     skill: "translation"
   }
@@ -29,9 +30,12 @@ GCSE requires one exclusive `gcse` role, `gcseMarks` (1/2/3), exactly that many 
 
 Year 9 requires `depthBand` and teacher/school verified taught-topic evidence, converted using `certifiedTaughtTopicIds([...])`. A mere enabled Year 9 topic is NOT taught-topic proof.
 
+## Certify against immutable source
+After reviewing the **actual loaded** question and its mark scheme, calculate `fingerprintDailyV2Source(topic,sourceQuestion)` from the original topic/question JSON and include its unchanged result in each manifest entry. Fingerprint is a change detector, not an identity proof of a human reviewer. Re-review whenever an original answer, stimulus, options or wording changes. Stale/missing fingerprints block V2 eligibility.
+
 ## Normalization
 ```js
-import {adaptCertifiedDailyV2Bank,certifiedTaughtTopicIds} from "./src/bank-adapter.js";
+import {adaptCertifiedDailyV2Bank,certifiedTaughtTopicIds,fingerprintDailyV2Source} from "./src/bank-adapter.js";
 import {planDailyV2} from "./src/planner.js";
 const normalized=adaptCertifiedDailyV2Bank({topics,certifications});
 const taughtTopicIds=certifiedTaughtTopicIds(taughtEvidence);
@@ -46,5 +50,5 @@ If `normalized.errors.length>0`, stop and audit. If `plan.status==='blocked'`, d
 2. Prior correct filtering requires valid IDs and same-day concept evidence across all tasks.
 3. Enforce mark schemes and meaningful feedback for science written answers, not just model text matching.
 4. First audit Latin grammar/application and known passages; then French independent writing; then Biology multi-step reasoning.
-5. Build true cross-day 30-day simulations and a backup migration review using a read-only copy.
+5. The synthetic 30-day cross-day simulation passes; real certified-bank/student-history capacity simulation and actual backup schema review are still needed.
 6. iPad Safari IndexedDB behavior cannot be inferred from isolated V8/IDB test double success.
