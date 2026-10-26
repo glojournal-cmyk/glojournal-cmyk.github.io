@@ -17,7 +17,7 @@ Status as of 2026-10-26
 - [~] Stable frozen question assignments and same-question wrong-answer retry supported by planner + storage contract; explicit alternative-question reserve strategy, production retry UI and migration NOT done.
 - [ ] Build 10 task adapters, Vocab cycling, genuine history-only retention, independent GCSE marking.
 - [~] Metadata audit in daily-v2/QA_BANK_AUDIT.md. Conservative per-question real-bank adapter implemented, but complete authentic certification manifest and missing content authoring NOT done.
-- [~] 114 focused tests executed successfully against exact committed code in a V8 harness: ledger 12, planner 27, storage 24, bank-adapter 17, indexeddb-repository 12, legacy-review 12, simulator 10. Native Node/GitHub Actions, real-bank 30-day simulation, property tests and Safari validation NOT yet verified.
+- [~] 122 focused tests executed successfully against exact committed code in isolated V8 harness suites: ledger 16, planner 27, storage 24, bank-adapter 17, indexeddb-repository 12, legacy-review 16, simulator 10. Native Node/GitHub Actions, real-bank 30-day simulation, property tests and Safari validation NOT yet verified.
 - [ ] Add staging-only UI integration and reconciliation layers (Home / Daily / 30 days / Recovery / XP).
 - [~] Real IndexedDB transaction adapter (staging namespace) implemented with 12 IndexedDB-behavior-fake tests. No REAL Safari/iPad hardware tests, browser quota tests or legacy production migration.
 - [ ] Produce independent Codex review handoff with exactly changed files and failed tests.
@@ -50,6 +50,13 @@ Status as of 2026-10-26
 - New engine remains completely isolated; no edits to `main`, production UI, student records or XP.
 - OPEN: true 30-day student-evidence bank readiness; exhaustive content review and source-bound manifest; iPad storage QA; safe legacy opaque baseline resumption; UI/XP/Recovery integration and explicit task-shortage handling.
 - Current strict preflight blocks the WHOLE new daily plan if any one task has insufficient verified supply. This avoids mid-session dead-ends but is NOT acceptable as user-facing continuity; fallback policy must be designed and validated before release.
+
+## 2026-10-26 latest checkpoint: safe opaque-legacy credit recovery
+- `ledger.js` now permits credits above an opaque 28/30 historical baseline ONLY when a verified superset of all potentially credited old concept IDs is available, and only for new concept IDs definitively outside that set. It never invents which original 28 items were correct.
+- `legacy-review.js` can preserve this optional read-only verified historical frozen-assignment evidence from `assignedVocabularyConceptIds` (not question IDs). Mixed or conflicting device assignment sources invalidate proof.
+- Unknown or incomplete historical rosters remain a release blocker. The student's actual backup has NOT been successfully mapped into this format; no legacy migration or actual student repair has been performed.
+- 8 additional ledger/legacy review regression cases implemented and passed; **122/122 total** tests passed with each suite compiled separately to avoid cross-module namespace contamination.
+- Only development branch files changed; no production deployment or student writes.
 
 ## Next build unit
 1. Real-bank certification of taught topic/skill/depth and a safe, per-task shortage handling policy; do NOT bypass high-level Mastery.
