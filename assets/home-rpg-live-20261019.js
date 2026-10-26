@@ -469,16 +469,22 @@ if (!window.__luxRpgLiveHome) {
     if (originalVisible) return;
     const state = store.getState?.() || {};
     const pet = petState();
+    const progressView = modelFor(state);
     const signature = JSON.stringify({
+      // Only visible Home values should trigger a full rebuild. Avoid flicker
+      // from store writes that do not change the visible quest or CTA.
+      visibleQuests: {ready: progressView.ready, count: progressView.count,
+        total: progressView.total, rows: progressView.rows,
+        next: progressView.next},
       outfit: state.equippedOutfit, scene: state.equippedScene,
       xp: state.xp, level: state.level, scholarLevel: state.scholarLevel,
       metrics: scholarMetrics(state),
       // Avoid repainting the entire Home, including the Continue button, for
       // unrelated in-progress answer/log writes. Official task totals, XP,
       // daily history and recovery state still trigger a visual refresh.
-      today: state.today, daily: state.daily,
-      dailyLog: state.dailyLog,
-      recovery: state.recoveryHistory, petSpecies: pet.species,
+      today: state.today,
+      // Today's progress is already represented by visibleQuests.
+      petSpecies: pet.species,
       petLevels: pet.petLevels, petStage: pet.highestStage,
       greetingMessage, greetingCount
     });
