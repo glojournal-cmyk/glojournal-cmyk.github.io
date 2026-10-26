@@ -87,7 +87,8 @@ test("Export keeps latest ten Home assignments plus separately saved historic da
   {readJournal:async()=>[],storage:storage(stale)}));
  assert.equal(file.state.dailyLog[day].tasks.length,11);
  assert.equal(file.state.dailyLog[day].done,9);
- assert.equal(file.recent30Days.days.at(-1).done,9);
+ assert.equal(file.recent30Days.days.at(-1).done,8,
+   'Active ten-task overview excludes preserved retired tasks');
  assert.ok(file.state.dailyLog[day].tasks.some(t=>t.id==="old-six"&&t.done===true));
  assert.equal(file.state.daily.length,10);
  assert.equal(file.state.daily.every((item,i)=>item.id===ids[i]),true);
