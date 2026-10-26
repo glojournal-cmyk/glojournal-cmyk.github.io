@@ -16,6 +16,7 @@ export function dailyVocabTotal(state = {}, subject, day) {
     if (answer?.day !== date || !assigned || !answer?.questionId ||
         answer?.repair || answer?.recoveryFor || answer?.formal === false) continue;
     const id = String(answer.questionId);
+    // Once an answer is correct, later incorrect submissions never erase it.
     items[id] = !!items[id] || !!answer.correct;
   }
   // Do not erase a correct count the iPad has ALREADY saved in today's
