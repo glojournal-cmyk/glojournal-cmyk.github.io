@@ -88,7 +88,7 @@ test('two concurrent answers do not overwrite each other',async()=>{
 test('GCSE one marked answer counts as completed question, preserves marks',async()=>{
  const repo=createMemoryDailyV2Repository();await commitDailyV2Plan(repo,plan());
  const r=await commitDailyV2Answer(repo,answer({taskId:'gcse-exam-skills',
-  questionId:'gcse-exam-skills-q0',conceptId:null,correct:false,marksEarned:1,marksPossible:3}));
+  questionId:'gcse-exam-skills-q2',conceptId:null,correct:false,marksEarned:1,marksPossible:3}));
  assert.equal(r.progress.verifiedProgress,1);
  assert.deepEqual(r.progress.examMarks,{earned:1,possible:3});
 });
