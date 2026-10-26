@@ -2904,14 +2904,30 @@ function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, v
       (entry.dailyVocab===subject || (entry.dailyTaskId===subject+"-vocab"&&entry.subject===subject))&&entry.questionId)
       knownIds.add(String(entry.questionId));
   }
-  const originalBaseline=Math.max(0,Math.min(30,
-    current.baselineProgress!=null?Number(current.baselineProgress):
-      dailyVocabTotal(prior,subject,day).progress));
-  const frozenKnown=Array.isArray(current.baselineKnownIds)?
-    current.baselineKnownIds:[...knownIds];
-  const extras={...(current.additionalCorrectIds||{})};
-  const creditKey = conceptByQuestion[String(questionId)] || String(questionId);
-  const previouslyCreditedConcepts = new Set([...knownIds].map(id => conceptByQuestion[id] || id));
+  const priorScore=dailyVocabTotal(prior,subject,day).progress;
+  let originalBaseline=Math.max(0,Math.min(30,
+    current.baselineProgress!=null?Number(current.baselineProgress):priorScore));
+  let frozenKnown=Array.isArray(current.baselineKnownIds)?
+    [...current.baselineKnownIds]:[...knownIds];
+  let extras={...(current.additionalCorrectIds||{})};
+  const conceptKey=id=>conceptByQuestion[id]||id;
+  const priorExtraIds=Object.keys(extras).filter(id=>extras[id]===true);
+  const trackedSubtotal=Math.min(30,originalBaseline+
+    new Set(priorExtraIds.map(conceptKey)).size);
+  // Rebase at the precise PRE-answer checkpoint when independently saved
+  // Home/Daily progress exceeds the partial legacy ledger. Otherwise a
+  // real new correct answer is swallowed (observed: baseline 22 + 5 = 27
+  // while a separately saved Home receipt already records 28/30).
+  // Fold previous extras into the checkpoint, preserving their identities;
+  // the newly answered question is never part of preAnswerState.
+  if(priorScore>trackedSubtotal){
+    for(const id of priorExtraIds)knownIds.add(id);
+    frozenKnown=[...new Set([...frozenKnown,...knownIds])];
+    originalBaseline=priorScore;
+    extras={};
+  }
+  const creditKey=conceptKey(String(questionId));
+  const previouslyCreditedConcepts = new Set([...knownIds,...frozenKnown].map(conceptKey));
   // Only a genuinely marked correct answer not part of the saved baseline
   // may advance 29->30. Wrong/repeated IDs cannot generate phantom credit.
   if(correct&&!previouslyCreditedConcepts.has(creditKey) &&
