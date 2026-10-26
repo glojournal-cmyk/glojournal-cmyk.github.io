@@ -142,3 +142,12 @@ New tasks cover complementary DNA sequences, base-pair / nucleotide quantities, 
 **Cumulative question additions:** earlier rounds +66 across eleven files; this round +13 across DNA and Punnett; **+79 newly authored questions in eleven touched topic files**. Two topics now exceed 20 nominal entries rather than exactly 20. The old inventory baseline remains a historical snapshot, not a description of this branch's present learner-ready capacity.
 
 **Latest test requirements:** updated `tests/question-bank-capacity-round3-20261026.test.mjs` checks original-item preservation, correct handling of informal diagram questions, +7/+6 reserve entries, their answer schema, and the exact 25 → 20 synthetic Mastery availability scenario. Follow-up Actions must independently pass. No live Daily/XP/Recovery system rewrite was performed; the 163-slot proposal and full 30-day learner-state replay remain pending, as does real-browser grading acceptance.
+
+
+### Round 6 — Latin case-role headroom and source-linked variation
+
+The `la-y8-case-role-introduction` bank now contains **25 formally enabled questions**, compared with 5 original multiple-choice items and 15 earlier supplements at the start of this round. Five newly authored applied questions test plural dative recipients, genitive possession, accusative objects, plural-subject translation and ablative usage with `cum`. Each new ID and distinct per-task `conceptId` is linked back to the appropriate original case concept via `sourceConceptId`; all five original multiple-choice records are preserved. Accepted translation variants and two-mark rubrics are included, but require academic and real-grader verification before release.
+
+Read-only source inspection yields **25 formally eligible Latin case-role IDs; 20 remain after five earlier distinct correct answers**, without reusing IDs. A specific regression in `tests/question-bank-20261026.test.mjs` enforces that structural contract. Formal readiness for Mastery in the actual app remains **unproven** until cross-task reservation, stored-history, semantic marking and browser tests pass.
+
+**Cumulative authored questions in the draft audit scope: +84 across 11 original topic files** (+66 before reserve expansion, +13 Biology, +5 Latin). The three newly expanded banks with five-answer raw headroom are DNA Structure, Punnett Squares and Latin Case-role Introduction. The other topics and every full 163-question Daily assignment still require dynamic eligibility checks; the current additions do not finish Proposal v1.1.
