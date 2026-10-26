@@ -799,17 +799,12 @@
         "mode": "mark_points",
         "totalMarks": 2,
         "markPoints": [
-          {
-            "id": "case-subject",
-            "text": "puella is nominative and therefore the subject"
-          },
-          {
-            "id": "case-object",
-            "text": "puerum is accusative and therefore the direct object despite appearing first"
-          }
+          "puella is nominative and therefore the subject",
+          "puerum is accusative and therefore the direct object despite appearing first"
         ],
         "manualReviewFallback": true,
-        "scoring": "criterion_checklist"
+        "scoring": "criterion_checklist",
+        "modelAnswer": "puella is nominative and therefore the subject puerum is accusative and therefore the direct object despite appearing first"
       },
       "feedback": {
         "short": "Identify the nominative subject and accusative object. Word order may vary without changing their roles.",
