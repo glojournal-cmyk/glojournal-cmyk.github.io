@@ -42,7 +42,7 @@ test('iPad Recovery bootstrap shares one version of each reused module', () => {
  assert.ok(rpg);
  assert.ok(version(html,'home-extras-restorer-20261023'));
  assert.ok(home.includes('home-rpg-live-20261019.css?v='));
- const shell=(html.match(/index-BLVOhKhN\\.js\\?v=([^&"'\\s]+)/)||[])[1];
+ const shell=(html.match(/index-BLVOhKhN\.js\?v=([^&"'\s]+)/)||[])[1];
  assert.ok(shell,'index shell must identify its app-store module version');
  assert.ok(read('404.html').includes('index-BLVOhKhN.js?v='+shell));
 });
