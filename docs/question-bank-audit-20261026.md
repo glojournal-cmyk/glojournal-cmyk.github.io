@@ -74,3 +74,9 @@ The prototype is **diagnostic only**: not wired into Scholar UI or current 165-t
 The first action scan baseline succeeded on 254 original topic files. The rerun against latest modified head with new assertions may be queued. Final PASS must refer to the exact latest commit (not an older successful workflow).
 
 Do not merge until academic and runtime QA have passed. Next work should target the remaining blocked topics by actual taught/assigned frequency, rather than bulk-padding every small topic.
+
+### Scoring compatibility gate (additional critical discovery)
+
+The actual current `assets/quiz-session-rWAnuDVj.js` science rubric renderer uses `answer.markPoints.join('; ')` and passes each point as text to the matching function. Accordingly, all 17 newly authored `mark_points` questions in five improved topics were normalized to an **array of strings**, with `totalMarks` equal to string count. Tests now fail on object-shaped mark points. This addresses schema compatibility only; automatic semantic scoring of paraphrases must still be validated manually with correct and borderline wrong answers before merging.
+
+**Latest check:** five repaired files read back from GitHub, 47 new questions, all questions have unique IDs and answer keys; 17/17 supplemental `mark_points` rubrics are string arrays. This read-back is NOT a substitute for latest-head Actions passing.
