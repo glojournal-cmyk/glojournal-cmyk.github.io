@@ -73,7 +73,9 @@ try{
           dispatchEvent(new Event('scholar:pet-changed'));
         });
         await page.waitForFunction(async()=>{
-          const {A: outfits}=await import('/assets/index-BLVOhKhN.js?v=20261021-medical-careers1');
+          const indexHref=document.querySelector('link[rel="modulepreload"][href*="index-BLVOhKhN.js"]')?.getAttribute('href');
+          if(!indexHref)throw Error('Missing versioned production store module');
+          const {A: outfits}=await import(indexHref);
           const expected=outfits.find(o=>o.id==='cardigan')?.art;
           return Boolean(expected && document.querySelector('.lux-study-rpg-scholar')?.getAttribute('src')===expected);
         });
