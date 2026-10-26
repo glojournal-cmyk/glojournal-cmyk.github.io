@@ -24,3 +24,10 @@ test('given 163 distinct eligible items all ten daily quotas can be reserved',()
  const r=allocateGlobalQuestions(targets.map((target,i)=>({id:'task-'+i,target,candidates:Array.from({length:target},()=>{const num=n++;return q('question-'+num,'independent prompt '+num);})})));
  assert.equal(r.status,'FULL_READY');assert.equal(r.assigned,163);
 });
+
+test('matching cards with different word pairs are NOT identical merely because the heading matches',()=>{
+ const a={id:'match-a',prompt:'Match each term to its meaning.',format:'matching',stimulus:{},answer:{mode:'pair_map',pairs:[{left:'leaf',right:'photosynthesis'}]}};
+ const b={id:'match-b',prompt:'Match each term to its meaning.',format:'matching',stimulus:{},answer:{mode:'pair_map',pairs:[{left:'root',right:'absorption'}]}};
+ const r=allocateGlobalQuestions([{id:'a',target:1,candidates:[a]},{id:'b',target:1,candidates:[b]}]);
+ assert.equal(r.status,'FULL_READY');assert.equal(r.assigned,2);
+});
