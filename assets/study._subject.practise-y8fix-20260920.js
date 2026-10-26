@@ -23,7 +23,7 @@ const DAILY30_CONFIRM_KEY=`lux-needs-confirmation-v1`;const DAILY30_LATIN_ORDER=
   ledger={...ledger,[recordDay]:{...(ledger[recordDay]||{}),
     [subject]:{...(ledger[recordDay]?.[subject]||{}),items:{...former,...seen}}}};
  }
-}return selectDailyVocabulary({subject,items,year9Items:year9DailyVocabulary(subject,FY9),day:R,seed:recoveryDate?String(seed)+':'+recoveryDate:seed,ledger,reviews:A||{},spellingDue:spellingDue||{},seenCorrect:s.getState()?.seenCorrect||{},legacyVocabulary:subject===`french`?c:f,size:recoveryDate?35:(typeof window!=='undefined'&&new URLSearchParams(window.location.search).get('locked')==='1'?Math.max(1,30-dailyVocabTotal(s.getState(),subject,R).progress):30),topicLearning:(()=>{try{return JSON.parse(localStorage.getItem("lux-topic-learning-v1")||"{}")}catch{return {}}})()})}
+}return selectDailyVocabulary({subject,items,year9Items:year9DailyVocabulary(subject,FY9),day:R,seed:recoveryDate?String(R)+':recovery:'+recoveryDate:String(R)+':daily:'+subject,ledger,reviews:A||{},spellingDue:spellingDue||{},seenCorrect:s.getState()?.seenCorrect||{},legacyVocabulary:subject===`french`?c:f,size:recoveryDate?35:(typeof window!=='undefined'&&new URLSearchParams(window.location.search).get('locked')==='1'?Math.max(1,30-dailyVocabTotal(s.getState(),subject,R).progress):30),topicLearning:(()=>{try{return JSON.parse(localStorage.getItem("lux-topic-learning-v1")||"{}")}catch{return {}}})()})}
 // Wrong answers do not count. Remaining questions are correct answers still needed.
 function recoveryPracticeSize(subject,params,state){
  const date=params.get('recover');
