@@ -1,7 +1,7 @@
 {
   "collectionId": "festival-edition-2026",
   "title": "Festival Wardrobe — 10 Looks",
-  "unlockPolicy": "mastery-after-medical-100; halloween-free",
+  "unlockPolicy": "xp-rewards; halloween-free",
   "items": [
     {
       "id": "festival-halloween",
@@ -28,9 +28,9 @@
         "Autumn",
         "Limited Edition"
       ],
-      "need": "Reach full Mastery in 110 different topics",
+      "need": "Earn 9,000 Scholar XP",
       "needIf": {
-        "masteredTopics": 110
+        "xp": 9000
       }
     },
     {
@@ -44,9 +44,9 @@
         "Winter",
         "Limited Edition"
       ],
-      "need": "Reach full Mastery in 120 different topics",
+      "need": "Earn 10,000 Scholar XP",
       "needIf": {
-        "masteredTopics": 120
+        "xp": 10000
       }
     },
     {
@@ -60,9 +60,9 @@
         "Winter",
         "Limited Edition"
       ],
-      "need": "Reach full Mastery in 130 different topics",
+      "need": "Earn 11,000 Scholar XP",
       "needIf": {
-        "masteredTopics": 130
+        "xp": 11000
       }
     },
     {
@@ -76,9 +76,9 @@
         "Winter",
         "Limited Edition"
       ],
-      "need": "Reach full Mastery in 140 different topics",
+      "need": "Earn 12,000 Scholar XP",
       "needIf": {
-        "masteredTopics": 140
+        "xp": 12000
       }
     },
     {
@@ -92,9 +92,9 @@
         "Winter",
         "Limited Edition"
       ],
-      "need": "Reach full Mastery in 150 different topics",
+      "need": "Earn 13,000 Scholar XP",
       "needIf": {
-        "masteredTopics": 150
+        "xp": 13000
       }
     },
     {
@@ -108,9 +108,9 @@
         "Spring",
         "Limited Edition"
       ],
-      "need": "Reach full Mastery in 160 different topics",
+      "need": "Earn 14,000 Scholar XP",
       "needIf": {
-        "masteredTopics": 160
+        "xp": 14000
       }
     },
     {
@@ -124,9 +124,9 @@
         "Spring",
         "Limited Edition"
       ],
-      "need": "Reach full Mastery in 170 different topics",
+      "need": "Earn 15,000 Scholar XP",
       "needIf": {
-        "masteredTopics": 170
+        "xp": 15000
       }
     },
     {
@@ -140,9 +140,9 @@
         "Summer",
         "Limited Edition"
       ],
-      "need": "Reach full Mastery in 180 different topics",
+      "need": "Earn 16,000 Scholar XP",
       "needIf": {
-        "masteredTopics": 180
+        "xp": 16000
       }
     },
     {
@@ -156,9 +156,9 @@
         "Autumn",
         "Limited Edition"
       ],
-      "need": "Reach full Mastery in 190 different topics",
+      "need": "Earn 17,000 Scholar XP",
       "needIf": {
-        "masteredTopics": 190
+        "xp": 17000
       }
     }
   ],
@@ -168,5 +168,16 @@
   "masteryStart": 110,
   "masteryStep": 10,
   "completeAt": 190,
-  "rewardPairing": "each Festival Outfit and its matching Background unlock at the same cumulative unique Mastered Topics count"
+  "rewardPairing": "matching outfit and background unlock together at cumulative Scholar XP",
+  "xpThresholds": [
+    9000,
+    10000,
+    11000,
+    12000,
+    13000,
+    14000,
+    15000,
+    16000,
+    17000
+  ]
 }
