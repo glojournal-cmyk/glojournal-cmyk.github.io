@@ -1,4 +1,4 @@
-import './mission-complete-v2-core-20261010.js?v=20261010-mission-v2&ux=20261013-corrections2';
+import './mission-complete-v2-core-20261010.js?v=20261026-credit-independent-xp&ux=20261013-corrections2';
 import {dailyTaskGuidance} from "./daily-task-guidance-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import './journey-navigation-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2';
 import {i as interop,n as factory} from './jsx-runtime-Cltr0gcK.js?ux=20261013-corrections2';
