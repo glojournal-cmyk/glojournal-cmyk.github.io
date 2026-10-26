@@ -2941,6 +2941,41 @@ function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, v
   const days = Object.keys(all).sort();
   while (days.length > 30) delete all[days.shift()];
   store.setState({ dailyVocabByDay: all });
+  // Commit the verified word total to the two visible Daily receipt surfaces
+  // immediately. iPad WebKit may suspend before deferred normalization runs;
+  // leaving Home 0/30 while the word ledger already holds 28/30. Keep all
+  // other tasks and older dated receipts unchanged.
+  const checked=store.getState();
+  const taskId=subject+"-vocab";
+  const progress=dailyVocabTotal(checked,subject,day).progress;
+  const active=Array.isArray(checked.daily)?checked.daily:[];
+  const patchedDaily=active.map(t=>{
+    if(t?.id!==taskId||t.planDate!==day)return t;
+    const current=Math.max(0,Number(t.progress)||0);
+    const next=Math.max(current,progress);
+    if(next===current && (next<30||t.done===true))return t;
+    return {...t,progress:next,done:t.done===true||next>=30};
+  });
+  const log=checked.dailyLog||{};
+  const dated=log[day];
+  let patchedLog=log;
+  if(Array.isArray(dated?.tasks)){
+    const tasks=dated.tasks.map(t=>{
+      if(t?.id!==taskId)return t;
+      const current=Math.max(0,Number(t.progress)||0),next=Math.max(current,progress);
+      if(next===current&&(next<30||t.done===true))return t;
+      return {...t,progress:next,done:t.done===true||next>=30};
+    });
+    if(tasks.some((t,i)=>t!==dated.tasks[i])){
+      const done=tasks.filter(t=>t.done===true||
+        (Number(t.target)>0&&Number(t.progress)>=Number(t.target))).length;
+      patchedLog={...log,[day]:{...dated,tasks,done,total:tasks.length,
+        complete:tasks.length>0&&done===tasks.length}};
+    }
+  }
+  if(patchedDaily.some((t,i)=>t!==active[i])||patchedLog!==log)
+    store.setState({...(patchedDaily.some((t,i)=>t!==active[i])?{daily:patchedDaily}:{}),
+      ...(patchedLog!==log?{dailyLog:patchedLog}:{})});
   scheduleNormalizeState();
   originalBumpDaily(subject === "french" ? "french-vocab" : "latin-vocab", 0);
 }
