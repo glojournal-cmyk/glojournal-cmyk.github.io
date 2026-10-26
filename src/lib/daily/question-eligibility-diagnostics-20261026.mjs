@@ -46,6 +46,6 @@ export function diagnoseDailyCapacity(tasks=[],state={},today=state.today||''){
  const allocation=allocateGlobalQuestions(tasks.map((t,i)=>({id:t.id,target:t.target,candidates:rows[i].questions})));
  return {day:today,requested:allocation.requested,assigned:allocation.assigned,shortfall:allocation.shortfall,
  status:allocation.status,rows:rows.map((r,i)=>({...r,questions:undefined,allocated:allocation.rows[i].assigned,
- crossTaskShortage:Math.max(0,r.eligible-allocation.rows[i].assigned)})),
+ allocatedShortfall:Math.max(0,r.target-allocation.rows[i].assigned),crossTaskContention:Math.max(0,Math.min(r.eligible,r.target)-allocation.rows[i].assigned)})),
  assigned:allocation.rows.map(t=>({id:t.id,questionIds:t.items.map(q=>q.id)}))};
 }
