@@ -833,18 +833,274 @@
         "date": "2026-10-26",
         "reviewStatus": "requires-academic-and-grading-QA"
       }
+    },
+    {
+      "id": "bio-y8-punnett-squares-reserve-20261026-01",
+      "conceptId": "bio-y8-punnett-squares-concept-reserve-01",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-punnett-squares",
+      "topic": "Punnett squares and probability",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "In a simple Aa × Aa cross, what proportion of offspring are expected to have genotype Aa?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "50%",
+          "50 percent",
+          "1/2",
+          "one half",
+          "0.5",
+          "2/4",
+          "50"
+        ]
+      },
+      "feedback": {
+        "short": "The four equally likely combinations are AA, Aa, Aa and aa.",
+        "steps": [
+          "The four equally likely combinations are AA, Aa, Aa and aa."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-punnett-squares-reserve-20261026-02",
+      "conceptId": "bio-y8-punnett-squares-concept-reserve-02",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-punnett-squares",
+      "topic": "Punnett squares and probability",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "In a simple cross AA × Aa, where A is dominant, what is the probability of offspring showing the recessive phenotype?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "0%",
+          "zero percent",
+          "0",
+          "none"
+        ]
+      },
+      "feedback": {
+        "short": "Every offspring has at least one dominant A allele; none can be aa.",
+        "steps": [
+          "Every offspring has at least one dominant A allele; none can be aa."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-punnett-squares-reserve-20261026-03",
+      "conceptId": "bio-y8-punnett-squares-concept-reserve-03",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-punnett-squares",
+      "topic": "Punnett squares and probability",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "In a simple Aa × Aa cross with complete dominance of A, what percentage of offspring are expected to show the dominant phenotype?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "75%",
+          "75 percent",
+          "75",
+          "3/4",
+          "three quarters",
+          "0.75"
+        ]
+      },
+      "feedback": {
+        "short": "AA, Aa and Aa show the dominant phenotype; aa shows the recessive one.",
+        "steps": [
+          "AA, Aa and Aa show the dominant phenotype; aa shows the recessive one."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-punnett-squares-reserve-20261026-04",
+      "conceptId": "bio-y8-punnett-squares-concept-reserve-04",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-punnett-squares",
+      "topic": "Punnett squares and probability",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "For a BB × Bb cross, what fraction of offspring are expected to have the heterozygous genotype Bb?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "1/2",
+          "50%",
+          "50 percent",
+          "50",
+          "one half",
+          "0.5"
+        ]
+      },
+      "feedback": {
+        "short": "The BB parent contributes B; the Bb parent contributes B or b with equal probability.",
+        "steps": [
+          "The BB parent contributes B; the Bb parent contributes B or b with equal probability."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-punnett-squares-reserve-20261026-05",
+      "conceptId": "bio-y8-punnett-squares-concept-reserve-05",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-punnett-squares",
+      "topic": "Punnett squares and probability",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 4,
+      "prompt": "In a simple Aa × Aa cross, each child's chance of aa is 1/4. Assuming independent events, what is the chance that two children both have genotype aa?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "1/16",
+          "one sixteenth",
+          "6.25%",
+          "6.25 percent",
+          "0.0625"
+        ]
+      },
+      "feedback": {
+        "short": "For two independent births, 1/4 × 1/4 = 1/16.",
+        "steps": [
+          "For two independent births, 1/4 × 1/4 = 1/16."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-punnett-squares-reserve-20261026-06",
+      "conceptId": "bio-y8-punnett-squares-concept-reserve-06",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-punnett-squares",
+      "topic": "Punnett squares and probability",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 4,
+      "prompt": "In a simple single-gene model, B is dominant. Explain how two parents with the dominant phenotype could have a child with the recessive phenotype. (2 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Both parents can be heterozygous Bb and show the dominant phenotype.",
+          "Each parent can pass on b, giving a bb child that shows the recessive phenotype."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Both parents can be heterozygous Bb and show the dominant phenotype. Each parent can pass on b, giving a bb child that shows the recessive phenotype.",
+        "manualReviewFallback": true
+      },
+      "feedback": {
+        "short": "Both parents can be heterozygous Bb and show the dominant phenotype. Each parent can pass on b, giving a bb child that shows the recessive phenotype.",
+        "steps": [
+          "Both parents can be heterozygous Bb and show the dominant phenotype.",
+          "Each parent can pass on b, giving a bb child that shows the recessive phenotype."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / EVALUATE",
+        "instruction": "Award one mark per scientifically correct point; request manual review if uncertain."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
     }
   ],
-  "enabled": 20,
+  "enabled": 26,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 4,
     "typed_exact": 4,
-    "mark_points": 7,
+    "mark_points": 8,
     "matching": 1,
     "typed_short": 1,
-    "typed_equivalent": 3
+    "typed_equivalent": 8
   },
   "gated": false,
   "note": {
