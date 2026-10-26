@@ -86,3 +86,10 @@ Pure `ledger.js` now supports optional `potentialLegacyKeys`, `potentialKeysVeri
 - Ten distinct mastery topics, 200 draft items total (40 Latin, 40 French, 40 Biology, 40 Chemistry, 40 Physics); see `MASTERY_BANK_BATCH2_QA.md`.
 - `tests/mastery-batch2.test.js` includes 10 content/uniqueness/certification and five-day-depletion tests; 10/10 passed in V8 harness.
 - No drafts are loaded by the live catalog nor accepted by real Daily without valid signed independent curriculum review and source fingerprints.
+
+## Latest source-content and marking audit
+- `QA_EXISTING_BANK_SOURCE_REVIEW.md`: 59 existing Year 8 topic JSON files / 4,885 enabled items inspected as a **read-only stage**; 94 of 153 catalog topics still unread at item-level. Original Chemistry/Physics scanned completely, but no curriculum certification given.
+- `QA_EDUCATIONAL_SPOT_CHECKS.md` contains specific original Question IDs judged preliminarily by subject reasoning, showing that difficulty=3/4 often does not establish Challenge.
+- `audit/existing-*.json` retains per-subject review candidates, actual source prompts, difficulty/format, rubric-point count and source blob SHA.
+- `src/rubric-review.js` plus 12 module tests and 5 real-draft integration tests provide source-bound staging *manual* partial-credit records. Example 2/4; all uncertain free-text answers remain `review-required` and `releaseGrade:false`; no auto marks and no student ledger writes.
+- Existing 200 unapproved new items remain drafts; native Node, actual Safari and independent subject review still needed.
