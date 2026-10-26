@@ -359,7 +359,18 @@ function H({title:e,kicker:t,items:n,repairItems:repairBank=[],subject:a,dailyId
      mode:resumeMode,questions:[Y],
      answers:[{questionId:Y.id,correct:true,formal:true,repair:false}]
    });
-   if(!savedAnswer)console.warn('Biology answer storage not verified on this device');
+   if(savedAnswer){
+     // The attempt journal also remembers correct IDs; it MUST NOT run first,
+     // otherwise the finished-session verifier mistakes these new answers for
+     // credits already included in the existing 12/15.
+     const credit=reconcileDailySession(o.getState(),{
+       day:sessionPlanDay,taskId:journeyTaskId||c,subject:a,year:sessionYear,
+       mode:resumeMode,questions:[Y],
+       answers:[{questionId:Y.id,correct:true,formal:true,repair:false}]
+     });
+     if(credit.changed)o.setState({daily:credit.daily,
+       ...(credit.dailyLog?{dailyLog:credit.dailyLog}:{})});
+   }else console.warn('Biology answer storage not verified on this device');
  }
 }catch(err){console.warn('Biology immediate answer receipt failed',err)}})(),x(Y.id,n.ok,a,{topicId:Y.topicId||g,topicTitle:Y.topic,previewFirst:r,errorKind:n.errorKind,format:Y.format,skills:skillEvidence,cognitiveDepth:Y._sessionDepth||2,formal:Y.formal!==!1,repair:!!Y._repair,repairOf:Y._repairOf||null,excludeGeneralDaily:!!Y._dailyYear8||!!Y._dailyVocab,yearOverride:Y._dailyYear9?9:sessionYear,dailyVocab:Y._dailyVocab||null,progressionTask:journeyTaskId||c,progressionMode:resumeMode,recoveryFor:recoveryDate(location.search)||(()=>{
   try{return recoveryDate(new URL(saved?.href||"",location.origin).search)}catch{return null}
