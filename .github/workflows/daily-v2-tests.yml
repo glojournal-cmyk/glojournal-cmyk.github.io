@@ -1,0 +1,25 @@
+name: Daily V2 isolated tests
+on:
+  push:
+    branches:
+      - feature/daily-v2-clean-rebuild-20261026
+    paths:
+      - "daily-v2/**"
+      - ".github/workflows/daily-v2-tests.yml"
+  pull_request:
+    paths:
+      - "daily-v2/**"
+      - ".github/workflows/daily-v2-tests.yml"
+permissions:
+  contents: read
+jobs:
+  daily-v2-unit-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Run isolated Daily V2 tests
+        run: node --test daily-v2/tests/*.test.js
