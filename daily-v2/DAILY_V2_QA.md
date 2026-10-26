@@ -1,5 +1,5 @@
 # Daily V2 — QA and independent review handoff
-**Initial isolated implementation tests: 56/56 passed in a V8 harness** (ledger 12, planner 27, storage 17), 2026-10-26. Native Node/GitHub Actions completion and iPad testing are NOT verified. The following remain release acceptance criteria.
+**Initial isolated implementation tests: 97/97 passed in a V8 harness** (ledger 12, planner 27, storage 20, bank adapter 14, IndexedDB adapter 12, legacy review 12), 2026-10-26. Native Node/GitHub Actions completion and iPad testing are NOT verified. The following remain release acceptance criteria.
 
 ## Data reliability
 - Verified credit is derived only from persisted answer events or explicitly preserved legacy baselines.
@@ -38,8 +38,15 @@
 - Independent code and QA evidence; staged migration rehearsal; rollback verification; written approval before merge or prod cutover.
 
 ## Current execution evidence and limitations (2026-10-26)
-- Ledger 12/12, deterministic ten-task planner 27/27, CAS storage contract 17/17 in JS V8 harness executing GitHub-committed source and tests.
+- Ledger 12/12, deterministic ten-task planner 27/27, CAS storage contract 20/20, real-bank adapter 14/14, IndexedDB adapter 12/12, read-only legacy review 12/12 in JS V8 harness executing GitHub-committed source and tests.
 - CI workflow on staging branch: `.github/workflows/daily-v2-tests.yml`; no verified Actions outcome yet. Browser/workspace cannot directly reach public GitHub via container git (DNS unavailable).
 - Storage tests rely on in-memory repo, so they DO NOT establish iPad IndexedDB durability. No live Safari/real-device QA done.
 - Real topic catalogs have not yet been normalized to explicit roles and certified depth bands; no Daily V2 plans from real bank have been proven ready.
 - Mastery must be explicitly audited against past correct IDs; do not relax 20/depth gates to hide bank shortage.
+
+## New release blockers and findings
+- Real loaded bank has not yet received manually certified `roles`, `skill`, `depthBand` and appropriate rubrics; real 163-question readiness UNVERIFIED.
+- IndexedDB adapter implemented, but fake-backed tests do not prove iPad Safari reliability, actual quota recovery, secure origin persistence or hardware restart behavior.
+- Legacy 28/30 count with missing concept identities is preserved but **cannot yet safely progress** under ledger's opaque-baseline guard; reconciliation workflow is mandatory.
+- Duplicate generic passage instructions are differentiated by actual stimulus text to avoid rejecting independent Latin translations.
+- External Vercel build-rate-limit status is not relevant to V2 module tests; do not retry Vercel or claim CI green.
