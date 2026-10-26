@@ -55,7 +55,18 @@ try{
    },{entry,day,topic,task,correctIds,href});
    await page.goto(origin+href,{waitUntil:'domcontentloaded'});
    await page.waitForFunction(()=>window.__luxAppReady===true);
-   const answered=[];
+   const answered=[],trace=[];
+   const checkpoint=async phase=>{
+     const snapshot=await page.evaluate(async({entry,task})=>{
+       const {C}=await import(entry),v=C.getState();
+       return {progress:v.daily.find(t=>t.id===task)?.progress,
+         target:v.daily.find(t=>t.id===task)?.target,year:v.year,
+         recentAttempts:(v.formalAttemptLog||[]).filter(t=>t.dailyTaskId===task).slice(-8).map(t=>({id:t.questionId,correct:t.correct,year:t.year,formal:t.formal,mode:t.mode,topic:t.topicId})),
+         dailyLogProgress:v.dailyLog?.[v.today]?.tasks?.find(t=>t.id===task)?.progress};
+     },{entry,task});
+     trace.push({phase,...snapshot});console.log('BIOLOGY_E2E_TRACE',JSON.stringify(trace.at(-1)));
+   };
+   await checkpoint('starting-practice');
    for(let i=0;i<3;i++){
     await page.waitForSelector('[data-question-id]');
     const id=await page.locator('[data-question-id]').last().getAttribute('data-question-id');
@@ -72,7 +83,9 @@ try{
     }
     await page.getByText('Well done!',{exact:true}).waitFor();
     answered.push(id);
+    await checkpoint('correct-'+(i+1)+'-'+id);
     await page.getByRole('button',{name:/^(Next question|Finish)$/}).click();
+    await checkpoint('next-'+(i+1));
    }
    await page.waitForFunction(async({entry,task})=>{
     const {C}=await import(entry);return C.getState().daily.find(t=>t.id===task)?.progress===15;
@@ -87,6 +100,7 @@ try{
      events:s.formalAttemptLog.filter(e=>e.dailyTaskId===task).slice(-3),
      dailyLog:s.dailyLog[s.today]?.tasks.find(t=>t.id===task)};
    },{entry,task});
+   fs.writeFileSync(out+'/'+engine.name()+'-diagnostic.json',JSON.stringify({trace,answered,result},null,2));
    assert.equal(result.task.progress,15);assert.equal(result.task.target,15);
    assert.equal(result.dailyLog.progress,15);assert.equal(result.done,10);
    assert.equal(result.year,8,'Do not change the learner global year selector');
