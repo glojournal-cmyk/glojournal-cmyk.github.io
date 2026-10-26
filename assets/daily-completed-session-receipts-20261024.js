@@ -131,6 +131,32 @@ function mergeReceipts(previous,current){
     formal:true,repair:false})),
   at:Math.max(Date.now(),Number(previous.at)||0)};
 }
+// Synchronous, assignment-verified fallback for a marked Biology Daily answer.
+// The existing async IndexedDB receipt remains authoritative after Finish,
+// but a fast iPad navigation must not erase already-correct questions.
+export function saveVerifiedBiologyAnswerSync(state,source){
+  if(!state||!source||state.today!==source.day||!validDay(source.day)||
+     source.taskId!=='year9-light'||source.subject!=='biology'||
+     !Array.isArray(source.questions)||source.questions.length!==1||
+     !Array.isArray(source.answers)||source.answers.length!==1)return false;
+  const answer=source.answers[0],question=source.questions[0];
+  if(answer.correct!==true||answer.formal===false||answer.repair||
+     !question?.id||question.formal===false||question._repair||
+     String(answer.questionId)!==String(question.id))return false;
+  const candidate=[...(state.daily||[]),...(state.dailyLog?.[source.day]?.tasks||[])]
+    .find(t=>t?.id===source.taskId&&t.assignedSubject===source.subject&&
+      Number(t.assignedYear)===Number(source.year)&&t.assignedTopic);
+  if(!candidate)return false;
+  const task={...candidate,planDate:source.day};
+  const receipt=sanitized(source,task);
+  if(!receipt)return false;
+  const checked=reconcileDailySession({...state,daily:[task]},receipt);
+  if(!checked.target)return false; // rejects wrong date/year/topic/mode/unlocked route
+  const old=readFallback().filter(r=>r.key===receipt.key)
+    .sort((a,b)=>Number(b.at||0)-Number(a.at||0))[0];
+  return writeFallback(mergeReceipts(old,receipt));
+}
+
 export async function saveCompletedDailyReceipt(state,source){
   if(!state||!source||state.today!==source.day||!validDay(source.day))return false;
   const candidate=[...(state.daily||[]),...(state.dailyLog?.[source.day]?.tasks||[])]
