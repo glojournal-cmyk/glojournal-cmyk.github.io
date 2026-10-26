@@ -6,6 +6,8 @@ on:
     paths:
       - 'scripts/question-bank-audit-20261026.mjs'
       - '.github/workflows/question-bank-audit-20261026.yml'
+      - 'content/topics/**'
+      - 'content/exam-practice/**'
   workflow_dispatch:
 permissions:
   contents: read
