@@ -30,6 +30,11 @@ for (const filename of files){
  metadataMismatch:typeof d.enabled==='number'&&d.enabled!==enabledAll};
  topic.eligible15=topic.enabled>=15&&topic.independent>0;
  topic.eligible20=topic.eligible15&&topic.enabled>=20;
+ // Scenario headroom only: reserve >=5 or >=10 questions beyond the 20 Mastery quota.
+ // It is NOT the student's actual unseen pool or a verified learning plan.
+ topic.nominalMasteryReserve=topic.eligible20?topic.enabled-20:null;
+ topic.masteryAfterFiveCorrect=topic.eligible20&&topic.enabled>=25;
+ topic.masteryAfterTenCorrect=topic.eligible20&&topic.enabled>=30;
  topic.shallowRisk=topic.enabled>=20&&topic.high===0;
  if(topic.metadataMismatch)warnings.push(file+': declared enabled differs from actual');
  topics.push(topic);
@@ -48,9 +53,11 @@ for (const filename of files){
 const groups={};
 for(const t of topics){
  const name=t.subject+' Y'+t.year;
- const g=groups[name]??={topics:0,questions:0,enabled:0,preview:0,disabled:0,independent:0,application:0,high:0,extended:0,mark4:0,eligible15:0,eligible20:0,formats:{}};
+ const g=groups[name]??={topics:0,questions:0,enabled:0,preview:0,disabled:0,independent:0,application:0,high:0,extended:0,mark4:0,eligible15:0,eligible20:0,masteryAfterFiveCorrect:0,masteryAfterTenCorrect:0,formats:{}};
  g.topics++;for(const k of ['questions','enabled','preview','disabled','independent','application','high','extended','mark4'])g[k]+=t[k];
  g.eligible15+=Number(t.eligible15);g.eligible20+=Number(t.eligible20);
+ g.masteryAfterFiveCorrect+=Number(t.masteryAfterFiveCorrect);
+ g.masteryAfterTenCorrect+=Number(t.masteryAfterTenCorrect);
  for(const[k,v]of Object.entries(t.formats))g.formats[k]=(g.formats[k]||0)+v;
 }
 const dupeGroups=[...fingerprints.values()].filter(x=>x.length>1);
@@ -62,6 +69,8 @@ if(fs.existsSync(examPath)){
 }
 const flags={belowStandardMinimum:topics.filter(t=>!t.eligible15),
  standardEligibleButMasteryTooSmall:topics.filter(t=>t.eligible15&&!t.eligible20),
+ masteryReadyButNoFiveQuestionReserve:topics.filter(t=>t.eligible20&&!t.masteryAfterFiveCorrect),
+ masteryReadyButNoTenQuestionReserve:topics.filter(t=>t.eligible20&&!t.masteryAfterTenCorrect),
  zeroHigherDifficulty:topics.filter(t=>t.shallowRisk),
  noHighMarkQuestions:topics.filter(t=>t.enabled>=20&&t.mark4===0),
  exactDuplicateFingerprint:dupeGroups.slice(0,150)};
@@ -69,11 +78,14 @@ const totals={files:files.length,parsed:topics.length,questions:sum(topics,t=>t.
  preview:sum(topics,t=>t.preview),disabled:sum(topics,t=>t.disabled),uniqueIds:ids.size,
  standardEligibleTopics:topics.filter(t=>t.eligible15).length,
  mastery20EligibleTopics:topics.filter(t=>t.eligible20).length,
+ mastery20WithFiveQuestionReserve:topics.filter(t=>t.masteryAfterFiveCorrect).length,
+ mastery20WithTenQuestionReserve:topics.filter(t=>t.masteryAfterTenCorrect).length,
  exactDuplicateGroups:dupeGroups.length,errors:errors.length,warnings:warnings.length};
 const report={version:'1.0.0',snapshot:'2026-10-26',scope:'Repository inventory only: not live iPad, not learner state',
  caveats:['Nominal eligible count excludes learner-specific answered, due, learned-topic, cross-task reservations and mode-specific limitations.',
  'Difficulty tags are not a substitute for a subject-specialist quality review.',
- 'Standalone GCSE exam bank is not an integrated daily task.'],
+ 'Standalone GCSE exam bank is not an integrated daily task.',
+ 'The five- and ten-correct headroom flags are synthetic upper bounds based on raw enabled quantity; they DO NOT check previous successes, topic teaching, conceptual duplicates or other exclusions.'],
  proposal:{taskTargets:[30,30,10,10,10,20,20,10,3,20],total:163,year7to8Vocab:25,year9Vocab:5},
  existingPlanner:{vocabOld:27,vocabYear9:3,year9Light:15,usesWeaknessAndDueSlots:true,noDailyGCSE:true},
  totals,bySubjectYear:groups,exam,flags,topics,errors,warnings};
