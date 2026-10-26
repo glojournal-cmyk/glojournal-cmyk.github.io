@@ -12,6 +12,7 @@ on:
       - 'tests/question-bank-20261026-round2.test.mjs'
       - 'tests/question-bank-capacity-round3-20261026.test.mjs'
       - 'tests/mastery-capacity-picker-20261026.test.mjs'
+      - 'tests/mastery-30day-capacity-20261026.test.mjs'
       - 'src/lib/daily/mastery-capacity-picker-20261026.mjs'
       - 'tests/question-eligibility-diagnostics-20261026.test.mjs'
       - 'src/lib/daily/question-eligibility-diagnostics-20261026.mjs'
@@ -46,6 +47,8 @@ jobs:
         run: node --test tests/question-eligibility-diagnostics-20261026.test.mjs
       - name: Verify learner-aware Mastery pair selection
         run: node --test tests/mastery-capacity-picker-20261026.test.mjs
+      - name: Simulate 30 synthetic days of unique Mastery answers on real bank files
+        run: node --test tests/mastery-30day-capacity-20261026.test.mjs
       - name: Inventory all topic files
         run: node scripts/question-bank-audit-20261026.mjs --strict --output qa-reports/question-bank-inventory-20261026.json
       - name: Upload audit (does not publish website)
