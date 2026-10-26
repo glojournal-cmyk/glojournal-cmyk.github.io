@@ -10,7 +10,7 @@ This is a **staging-only clean rebuild**. The live Daily Task engine remains unc
 - `src/indexeddb-repository.js`: staging-only actual IndexedDB CAS adapter; unit-tested with an IDB behavioral fake, NOT validated in iPad Safari.
 - `src/legacy-review.js`: read-only conversion/diagnostics for historical counter baselines, without invented identities or writes.
 - `src/simulator.js`: read-only 1–90-day all-correct allocation stress test; a synthetic upper-bound test, not a real-bank availability claim.
-- `tests/*.test.js`: isolated regression suites (114 passing in the V8 test harness; native Node/GitHub Actions outcome not yet verified).
+- `tests/*.test.js`: isolated regression suites (122 passing in the V8 test harness; native Node/GitHub Actions outcome not yet verified).
 
 ## Run local Node tests
 ```bash
@@ -51,7 +51,10 @@ Read `DAILY_V2_PROGRESS.md` before working, write a bounded module, run its test
 See `BANK_CERTIFICATION_GUIDE.md` and `DAILY_V2_PROGRESS.md` for the latest handoff. Do not confuse an implementation of IndexedDB browser code with proof of real Safari QA. Legacy opaque baseline reconciliation, true mastery-bank qualification and real-bank 163-question preflight are incomplete.
 
 ## 2026-10-26 latest checks
-- 114 V8 harness tests passed against exact committed JavaScript, including 10 multi-day simulation cases and four additional GCSE-stored-mark assertions.
+- 122 V8 harness tests passed against exact committed JavaScript, including 10 multi-day simulation cases and four additional GCSE-stored-mark assertions.
 - `QA_REAL_BANK_12_TOPIC_SAMPLE.md` documents a real 12-topic / 594-question source audit. Many topics have no difficulty-3+ questions despite enough raw question IDs.
 - `bank-adapter.js` now rejects any certification missing a source-bound fingerprint. A changed prompt, stimulus, options or answer invalidates approval.
 - `storage.js` enforces exact 1/2/3 GCSE max marks in frozen plan and per-attempt grading. No live app/UI or real Safari testing has been completed.
+
+## 28/30 legacy preservation and safe recovery
+Pure `ledger.js` now supports optional `potentialLegacyKeys`, `potentialKeysVerified:true` and `potentialKeysSource` in a baseline. They represent a verified SUPERSET of all concept identities that could have been credited in the historical 28/30 task, not invented records of exactly 28 correct answers. Fresh correct concepts outside the entire old set may safely advance to 29/30 and 30/30. Without verified prior roster evidence, any fresh concepts remain pending review; the baseline 28 must not be reset. `legacy-review.js` reads this only from explicitly verified `assignedVocabularyConceptIds`, never from arbitrary question IDs.
