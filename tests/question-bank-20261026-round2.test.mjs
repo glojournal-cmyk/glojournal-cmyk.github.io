@@ -21,7 +21,7 @@ for(const x of sets)test(x.slug+' upgraded safely to 20 enabled and valid indepe
   if(question.format==='mark_points'){
    assert.ok(question.answer.manualReviewFallback);
    assert.equal(question.answer.totalMarks,question.answer.markPoints.length);
-   assert.ok(question.answer.markPoints.every(v=>v.id&&v.text));
+   assert.ok(question.answer.markPoints.every(v=>typeof v==='string'&&v.trim()),'app scoring requires string points');
   }else if(question.format==='calculation'){
    assert.equal(question.answer.mode,'numeric');assert.ok(Number.isFinite(question.answer.value));
    assert.ok(question.answer.units.length);
