@@ -12,8 +12,8 @@ test('Year 9 inventory covers all six taught-subject categories without reading 
  assert.equal(new Set(report.topics.map(x=>x.file)).size,report.topics.length);
  assert.ok(report.caveats.some(x=>x.includes('NOT a learner-specific')));
 });
-test('French perfect negatives and comparisons each have 20 independently labelled opportunities after five answers',()=>{
- for(const id of ['fr-y9-u1-perfect-negatives','fr-y9-u2-comparatives-superlatives']){
+test('three French grammar topics each have 20 independently labelled opportunities after five answers',()=>{
+ for(const id of ['fr-y9-u1-perfect-negatives','fr-y9-u2-comparatives-superlatives','fr-y9-u2-perfect-vs-imperfect']){
   const row=topic(id);
   assert.ok(row,id);
   assert.equal(row.formal,25);
@@ -34,10 +34,10 @@ test('Latin case-function duplicate concept variants are counted honestly',()=>{
  assert.ok(row.multiMark>=2,'two-mark explanation rubric added');
 });
 test('an unrepaired small French topic is still flagged as Mastery shortfall',()=>{
- const row=topic('fr-y9-u2-perfect-vs-imperfect');
+ const row=topic('fr-y9-u2-past-present-change');
  assert.ok(row);
- assert.equal(row.formal,11);
- assert.equal(row.afterFiveFresh,6);
+ assert.equal(row.formal,12);
+ assert.equal(row.afterFiveFresh,7);
  assert.ok(row.flags.includes('BELOW_NOMINAL_MASTERY_20'));
  assert.ok(report.priority.some(x=>x.topicId===row.topicId));
 });
