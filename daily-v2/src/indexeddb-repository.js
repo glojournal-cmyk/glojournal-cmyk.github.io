@@ -14,7 +14,7 @@ function idbError(label,reason){
 }
 function cloneValue(data){return data==null?data:JSON.parse(JSON.stringify(data));}
 function assertRevision(day,expected,next){
- if(typeof day!=='string'||!/^\\d{4}-\\d{2}-\\d{2}$/.test(day))throw Error('DailyV2 IndexedDB: invalid day');
+ if(typeof day!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(day))throw Error('DailyV2 IndexedDB: invalid day');
  if(!Number.isSafeInteger(expected)||expected<0)throw Error('DailyV2 IndexedDB: invalid revision');
  if(!next||next.day!==day||next.revision!==expected+1||next.ledger?.version!==2)
   throw Error('DailyV2 IndexedDB: mismatched snapshot');
@@ -88,7 +88,7 @@ export function createIndexedDbDailyV2Repository({
  }
  return {
   async read(day){
-   if(typeof day!=='string'||!/^\\d{4}-\\d{2}-\\d{2}$/.test(day))
+   if(typeof day!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(day))
     throw Error('DailyV2 IndexedDB: invalid day');
    return withTransaction(day,false);
   },
