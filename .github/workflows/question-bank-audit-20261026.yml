@@ -8,6 +8,7 @@ on:
       - '.github/workflows/question-bank-audit-20261026.yml'
       - 'content/topics/**'
       - 'content/exam-practice/**'
+      - 'tests/question-bank-20261026.test.mjs'
   workflow_dispatch:
 permissions:
   contents: read
@@ -22,6 +23,8 @@ jobs:
           node-version: '22'
       - name: Syntax check
         run: node --check scripts/question-bank-audit-20261026.mjs
+      - name: Verify repaired topic banks
+        run: node --test tests/question-bank-20261026.test.mjs
       - name: Inventory all topic files
         run: node scripts/question-bank-audit-20261026.mjs --strict --output qa-reports/question-bank-inventory-20261026.json
       - name: Upload audit (does not publish website)
