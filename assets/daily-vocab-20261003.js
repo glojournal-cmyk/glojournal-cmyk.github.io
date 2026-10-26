@@ -240,7 +240,7 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
   selected.push(...selectedRepairs);
   // A learner still receives fresh words after the ten repairs. The remaining
   // overdue errors are excluded from this one set, not treated as fresh words.
-  const freshPool=y8.filter(r=>!r.wrong);
+  const freshPool=y8.filter(r=>!r.wrong&&!credited.has(r.concept));
   const selectedY8=choose(freshPool,size-selected.length,'');
   selected.push(...selectedY8);
   // If all unused fresh words in a small/filtered pool are exhausted, keep
