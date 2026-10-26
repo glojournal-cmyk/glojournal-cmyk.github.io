@@ -98,8 +98,15 @@ test('iPad uses one current Home, Practice and Quiz bundle instead of stale vers
    ...['latin','french','biology','chemistry','physics','english'].map(s=>'study/'+s+'/practise/index.html')]){
    assert.ok(file(page).includes('index-BLVOhKhN.js?v='+entry),page+' must import canonical App');
  }
+ // Every entrypoint preloading the production Practice chunk must use the
+ // same URL as the router. Distinct Safari module URLs can split state.
+ for(const subject of ['biology','chemistry','physics','english']){
+   const page='study/'+subject+'/practise/index.html';
+   const html=file(page);
+   assert.ok(html.includes('study._subject.practise-D_PWgUd7.js?v='+practiceRelease),
+     page+' must not preload a second Practice module version');
+ }
  const biology=file('study/biology/practise/index.html');
- assert.ok(biology.includes('study._subject.practise-D_PWgUd7.js?v='+practiceRelease));
  assert.ok(biology.includes('quiz-session-y8fix-20260920.js?v='+quizRelease));
  assert.ok(quiz.includes('daily-session-credit-20261021.js?v='+creditRelease));
 });
