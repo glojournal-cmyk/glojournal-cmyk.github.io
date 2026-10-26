@@ -92,7 +92,7 @@ test('iPad uses one current Home, Practice and Quiz bundle instead of stale vers
  const quiz=file('assets/quiz-session-y8fix-20260920.js');
  const creditRelease=getVersion(quiz,'daily-session-credit-20261021.js');
  assert.ok(coreRelease&&practiceRelease&&quizRelease&&creditRelease);
- assert.ok(/daily-completed-session-receipts-20261024\\.js\\?v=/.test(quiz));
+ assert.ok(quiz.includes('daily-completed-session-receipts-20261024.js?v='));
  for(const page of ['index.html','404.html',
    ...['latin','french','biology','chemistry','physics','english'].map(s=>'study/'+s+'/practise/index.html')]){
    assert.ok(file(page).includes('index-BLVOhKhN.js?v='+entry),page+' must import canonical App');
