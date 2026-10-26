@@ -10,6 +10,7 @@ on:
       - 'content/exam-practice/**'
       - 'tests/question-bank-20261026.test.mjs'
       - 'tests/question-bank-20261026-round2.test.mjs'
+      - 'tests/question-bank-capacity-round3-20261026.test.mjs'
       - 'tests/question-eligibility-diagnostics-20261026.test.mjs'
       - 'src/lib/daily/question-eligibility-diagnostics-20261026.mjs'
       - 'tests/global-allocation-preflight-20261026.test.mjs'
@@ -32,6 +33,8 @@ jobs:
         run: node --test tests/question-bank-20261026.test.mjs
       - name: Verify continuous variation correlation and BER expansions
         run: node --test tests/question-bank-20261026-round2.test.mjs
+      - name: Verify six additional Year 8 Biology banks
+        run: node --test tests/question-bank-capacity-round3-20261026.test.mjs
       - name: Test global capacity preflight (synthetic inputs only)
         run: node --test tests/global-allocation-preflight-20261026.test.mjs
       - name: Validate actual-bank dynamic eligibility and retention safeguards
