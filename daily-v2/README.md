@@ -74,3 +74,9 @@ Pure `ledger.js` now supports optional `potentialLegacyKeys`, `potentialKeysVeri
 - `staging/qa-fixture.js` supplies fake 163-question or fake 160/163 shortage scenarios. No real learning answers, XP or student history are involved.
 - `staging/README.md` describes how a developer can serve/check the feature branch over HTTP.
 - **169/169 isolated V8 harness tests passed** across 11 focused suites (previous 158 rerun plus 11 new staging-flow tests); the browser UI itself has NOT yet been run in Safari or signed off.
+
+## New five-subject Mastery question packs (Batch 1)
+- `content/mastery/*.json`: 20 authored questions each for Latin, French, Biology, Chemistry and Physics (100 total).
+- `src/mastery-draft-validator.js`: rigid structural/mark-scheme completeness gate; `tests/mastery-drafts.test.js` has ten source-backed tests.
+- `MASTERY_BANK_BATCH1_QA.md` describes coverage and capacity limitations. Model answers require semantic/rubric review, NOT string equality, and student taught-topic status is not yet independently verified.
+- **179/179 V8 harness tests passed** (old 169 + new 10). The five draft topics are still excluded by `bank-adapter.js` without explicitly verified, fingerprint-bound curriculum certification.
