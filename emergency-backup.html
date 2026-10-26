@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>Scholar Garden — Emergency Rescue</title>
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#172a42;color:#20344b}
+*{box-sizing:border-box}body{margin:0;padding:24px 14px}
+main{max-width:660px;margin:2vh auto;background:#fffaf0;border:2px solid #c6a66b;border-radius:18px;padding:clamp(20px,5vw,36px)}
+h1{font-family:Georgia,serif;font-size:clamp(26px,5vw,36px);margin:0 0 18px;color:#182f4c}
+p{line-height:1.6}button,a.button{display:inline-block;border:1px solid #b59251;background:#192f48;color:#fff;padding:13px 18px;border-radius:10px;font-weight:600;font-size:16px;cursor:pointer;text-decoration:none;margin:6px 8px 6px 0}
+button:disabled{opacity:.5;cursor:wait}
+.note{border-left:4px solid #b39051;padding:10px 14px;background:#f4ebd6}
+#result{white-space:pre-wrap;line-height:1.5;margin-top:16px}
+small{color:#475b6c}
+</style></head>
+<body><main>
+<h1>Emergency Scholar Rescue</h1>
+<p>This is a <strong>read-only emergency backup</strong>. It saves whatever Scholar progress and question evidence the current browser can still read, without requiring the standard Export integrity check to pass.</p>
+<p class="note"><strong>Keep the data safe:</strong> Use this page in the <strong>same iPad app/browser</strong> that contains the progress. Do not Reset, Import or clear website data. The rescue JSON is <strong>not suitable for direct Import</strong>.</p>
+<button id="save" type="button">Save emergency raw JSON</button>
+<a href="/scholar" class="button">Return to Scholar</a>
+<div id="result" role="status" aria-live="polite">No backup attempted.</div>
+<p><small>All data stays on this device until you choose to save/share a file. The backup captures separate localStorage and IndexedDB sources for later recovery analysis; it does not modify grades or progress.</small></p>
+</main>
+<script type="module">
+import {captureEmergencyRescue,saveEmergencyRescue} from "/assets/emergency-rescue-20261026.js?v=20261026-raw-rescue1";
+const btn=document.getElementById("save"),out=document.getElementById("result");
+btn.addEventListener("click",async()=>{
+ btn.disabled=true;out.textContent="Reading saved Scholar data…";
+ try{
+   const data=await captureEmergencyRescue();
+   const detail=JSON.parse(data),name=saveEmergencyRescue(data);
+   out.textContent="Emergency raw file created: "+name+
+     "\nSaved local Scholar state: "+(detail.audit.hasPersistedScholarState?"yes":"not found")+
+     "\nSaved answer journal entries: "+detail.audit.answerJournalCount+
+     "\nPractice draft entries: "+detail.audit.practiceDraftCount+
+     "\nWarnings: "+(detail.warnings.join("; ")||"none")+
+     "\n\nCheck Safari Downloads / Files and KEEP this JSON. Do not Import it.";
+ }catch(err){out.textContent="Emergency rescue failed: "+String(err?.message||err)+
+     "\nDo NOT reset, clear website data or remove the PWA.";}
+ finally{btn.disabled=false}
+});
+</script>
+</body></html>
