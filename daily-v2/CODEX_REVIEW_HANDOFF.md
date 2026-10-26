@@ -63,3 +63,8 @@ High-risk review: is each question actually appropriate for a taught Y8 topic; d
 - `tests/mastery-batch2.test.js` 10/10 V8 passed, including 200-ID exact uniqueness and cross-batch five-day all-correct depletion. This is NOT 30-day real-bank readiness.
 - Reviewer priorities: known Stage/lesson coverage, tense and reflexive gender variants, experimental controls, calculation units and worked numerical answers, false-positive keyword matching in `rubric_review`, and read-only cross-question overlap against the entire original source catalog.
 - **0/200** new authored items are independently certified for the real Daily V2 adapter. No real student-facing deployment authorized.
+
+## Current audit additions (2026-10-26)
+- Original bank audit `QA_EXISTING_BANK_SOURCE_REVIEW.md` covers actual JSON of 59 Y8 topics/4,885 items and all of Chemistry/Physics; 429 source-format review hints only, **0 certified**. Example false-high-difficulty tags: `servus laborat`, visible spectrum colour listing, pH4 classification. `QA_EDUCATIONAL_SPOT_CHECKS.md`.
+- `src/rubric-review.js`: review-only per-point scoring with audited source fingerprint, not automatic semantic grading. `tests/rubric-review.test.js` 12/12 and `tests/rubric-real-drafts.test.js` 5/5 V8 harness. Every production answer must still pass validated marking semantics and iPad storage proof.
+- Do not claim 429 fresh Mastery questions, that student history is reconciled, or 30-day capacity based on these counts.
