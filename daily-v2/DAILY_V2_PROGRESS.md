@@ -144,3 +144,16 @@ Staging browser smoke tests in a real browser where available; improve task-spec
 2. Review per-subject alternative acceptable answers and create quality-vetted marking rubrics; avoid auto-awarding from keywords/one literal model answer.
 3. Inspect actual safe student backup and taught-topic evidence and rerun real 30-day simulator with prior-correct depletion.
 4. Integrate approved grading and bank into isolated test UI, then verify native Node CI and Safari iPad. Explicit release approval still required.
+## Full Year 8 source audit completed (2026-10-26) — supersedes previous 59-topic interim sample
+- **ALL 153/153 enabled original Y8 topic JSON files read**: Latin 65, French 30, Biology 37, Chemistry 8, Physics 13; **8,918 source-eligible non-preview formal question records**. Original catalog reports 8,829 nominal enabled, not a safe quantity for assignment. **16 individual topic count mismatches** found. Largest: `bio-y8-food-tests` catalog 33 vs actual 143 enabled formal question records (110 more); original file has no duplicate Question IDs in spot check. Some negative deltas are explained by source `formal:false` exclusions.
+- Source difficulty>=3 + potentially higher-order format produced **475 preliminary content review leads** (Latin 65, French 21, Biology 41, Chemistry 132, Physics 216). These are NOT qualified Mastery items. Original 200 authored questions remain pending independent review.
+- New `QA_FULL_Y8_EXISTING_BANK_AUDIT.md` is the authoritative full source inventory; 14 audit JSON manifests in `audit/` record per-topic source SHAs and candidate IDs. `QA_EDUCATIONAL_SPOT_CHECKS.md` records preliminary grade-quality dispositions and false-Challenge flags. `MASTERY_CONTENT_PRIORITY_PLAN.md` prioritizes next per-subject certification versus authoring.
+- New `src/catalog-integrity.js` and `tests/catalog-integrity.test.js`: **8/8 V8 checks passed** on exact GitHub audited data, detecting all 16 count discrepancies and refusing nominal counts as planning evidence. Does NOT rewrite original catalog.
+- Earlier today: `src/rubric-review.js` and `tests/rubric-review.test.js` 12/12, `tests/rubric-real-drafts.test.js` 5/5 passed against exact GitHub code+real authored drafts. These records are reviewed staging-only, NEVER automatic semantic grades or production XP.
+- **25/25 newly added focused audit+rubric tests passed this session.** Previously reported 179/179 older tests NOT fully re-executed this session; do not imply aggregate 204/204 ran together. Native Node/GitHub Actions green, genuine Safari/iPad, student migration and full real-bank readiness NOT verified.
+- All development only on feature branch, no content/catalog.json change, no student progress writes, no merge/deploy.
+
+### Next bounded stage
+1. Independently educationally certify actual candidate questions (not all 475; reject false positives); identify real remaining 4/10/6 Mastery capacity per subject and topic.
+2. Implement/verify accurate open response partial credit and safe interface workflow; present per-criterion evidence rather than string matching.
+3. Read student backup safely, confirm taught topics and per-question history, run real 30-day depletion. Reconcile 16 catalog drift cases safely. Release still blocked.
