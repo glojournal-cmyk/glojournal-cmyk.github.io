@@ -39,11 +39,15 @@ function validatePlan(plan){
   requireV2(typeof task.id==='string'&&Number.isInteger(task.target)&&
      Array.isArray(task.questions)&&task.questions.length===task.target,'invalid plan task roster');
   for(const q of task.questions){
+   if(task.kind==='exam')requireV2([1,2,3].includes(q.marks),'exam question maximum marks missing');
    requireV2(typeof q.questionId==='string'&&q.questionId.length>0&&!seen.has(q.questionId),
       'invalid or duplicated locked question');
    seen.add(q.questionId);
   }
  }
+ const exam=plan.tasks.find(t=>t.kind==='exam');
+ requireV2(exam&&exam.questions.map(q=>q.marks).join(',')==='1,2,3',
+  'GCSE 1/2/3 marks quota missing');
  requireV2(knownTasks.size===DAILY_V2_TASKS.length && seen.size===plan.target,
   'plan does not contain the exact 163 assigned questions');
 }
@@ -77,6 +81,16 @@ export async function commitDailyV2Answer(repo,attempt,{maxRetries=8}={}){
   const question=task.questions.find(q=>q.questionId===attempt.questionId);
   requireV2(question,'answer question not assigned to this task');
   if(task.kind==='vocab')requireV2(attempt.conceptId===question.conceptId,'answer concept does not match frozen roster');
+  if(task.kind==='exam'){
+   requireV2(Number.isInteger(attempt.marksEarned)&&
+      Number.isInteger(attempt.marksPossible)&&attempt.marksPossible===question.marks&&
+      attempt.marksEarned>=0&&attempt.marksEarned<=question.marks,
+      'EXAM_MARKS_MISMATCH: grading must match frozen maximum marks');
+   requireV2(attempt.correct===(attempt.marksEarned===question.marks),
+      'EXAM_CORRECTNESS_INCONSISTENT_WITH_MARKS');
+  }else requireV2(attempt.marksEarned===undefined&&attempt.marksPossible===undefined,
+    'non-exam answer cannot forge GCSE marks');
+
   // This pure normalization rejects invalid answer-event identity or marks,
   // regardless of whether the storage adapter later accepts the write.
   const nextLedger=projectSavedDailyV2Attempt(row.ledger,attempt);
