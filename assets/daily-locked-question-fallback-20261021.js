@@ -6,6 +6,25 @@ export function dailyCorrectQuestionIds(state, options={}) {
  const {day,taskId,subject,year,topicId}=options;
  const ids=new Set();
  if(!state||!taskId||!day)return ids;
+ // Saved assignment proof survives a partial journal and the old Year 8
+ // session-year bug. Do not make a learner redo these verified correct IDs.
+ const task=(state.daily||[]).find(t=>t.id===taskId&&t.planDate===day&&
+  t.assignedSubject===subject&&Number(t.assignedYear)===Number(year)&&
+  t.assignedTopic===topicId);
+ if(task){
+  try{
+   const url=new URL(task.href,'https://scholar.invalid');
+   const mode=url.searchParams.get('mode');
+   const key=[day,taskId,subject,topicId,year,mode,Number(task.target)].join('|');
+   if(url.pathname===`/study/${subject}/practise`&&
+      url.searchParams.get('daily')==='1'&&url.searchParams.get('locked')==='1'&&
+      url.searchParams.get('task')===taskId&&url.searchParams.get('topic')===topicId&&
+      Number(url.searchParams.get('year'))===Number(year)&&
+      task.verifiedCorrectAssignment===key)
+    for(const id of task.verifiedCorrectIds||[])if(id)ids.add(String(id));
+  }catch{}
+ }
+
  for(const row of state.formalAttemptLog||[]){
   if(row?.day!==day||row?.dailyTaskId!==taskId||
      row?.subject!==subject||Number(row?.year)!==Number(year)||

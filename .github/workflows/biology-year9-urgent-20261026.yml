@@ -1,0 +1,32 @@
+name: Urgent Biology Year 9 completion
+on:
+  push:
+    branches: [fix/urgent-biology-year9-credit-20261026]
+  pull_request:
+    paths:
+      - 'assets/practice-session-year-20261026.js'
+      - 'tests/biology-year9-*'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  biology-completion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test exact iPad state shape and answer receipts
+        run: node --test tests/biology-year9-session-20261026.test.mjs tests/daily-no-repeat-correct-20261025.test.mjs tests/daily-resume-stable-drafts-20261025.test.mjs tests/backup-export.test.mjs tests/backup-vault.test.mjs tests/storage-quota.test.mjs
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Answer three actual Biology questions and verify Home after reload
+        run: node tests/biology-year9-browser-20261026.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: urgent-biology-year9
+          path: test-results/biology-year9-urgent/
+          if-no-files-found: ignore
