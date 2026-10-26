@@ -1094,17 +1094,262 @@
         "date": "2026-10-26",
         "reviewStatus": "requires-academic-and-grading-QA"
       }
+    },
+    {
+      "id": "la-y9-s01-case-functions-mastery-20261026-08",
+      "conceptId": "la-y9-s01-case-functions-application-08",
+      "sourceConceptId": "la-y9-s01-concept-case-dat-function",
+      "subject": "latin",
+      "year": 9,
+      "topicId": "la-y9-s01-case-functions",
+      "topic": "Case functions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "controlled_translation",
+      "difficulty": 4,
+      "prompt": "Translate the complete Latin sentence into English: agricola servis aquam dat.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "the farmer gives water to the slaves",
+          "the farmer gives the slaves water",
+          "a farmer gives water to the slaves",
+          "a farmer gives the slaves water"
+        ]
+      },
+      "feedback": {
+        "short": "Servis is dative plural, marking those who receive the water.",
+        "steps": [
+          "Servis is dative plural, marking those who receive the water."
+        ]
+      },
+      "task": {
+        "label": "APPLY / TRANSLATE",
+        "instruction": "Answer using the sentence grammar and context."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "la-y9-s01-case-functions-mastery-20261026-09",
+      "conceptId": "la-y9-s01-case-functions-application-09",
+      "sourceConceptId": "la-y9-s01-concept-case-gen-function",
+      "subject": "latin",
+      "year": 9,
+      "topicId": "la-y9-s01-case-functions",
+      "topic": "Case functions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 4,
+      "prompt": "In liber puellarum est in mensa, identify the genitive plural word.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "puellarum"
+        ]
+      },
+      "feedback": {
+        "short": "Puellarum means 'of the girls' and is genitive plural.",
+        "steps": [
+          "Puellarum means 'of the girls' and is genitive plural."
+        ]
+      },
+      "task": {
+        "label": "APPLY / TRANSLATE",
+        "instruction": "Answer using the sentence grammar and context."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "la-y9-s01-case-functions-mastery-20261026-10",
+      "conceptId": "la-y9-s01-case-functions-application-10",
+      "sourceConceptId": "la-y9-s01-concept-case-voc-function",
+      "subject": "latin",
+      "year": 9,
+      "topicId": "la-y9-s01-case-functions",
+      "topic": "Case functions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 4,
+      "prompt": "In Marce, audi!, which word is in the vocative case?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "Marce"
+        ]
+      },
+      "feedback": {
+        "short": "Marce is the direct form of address to Marcus.",
+        "steps": [
+          "Marce is the direct form of address to Marcus."
+        ]
+      },
+      "task": {
+        "label": "APPLY / TRANSLATE",
+        "instruction": "Answer using the sentence grammar and context."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "la-y9-s01-case-functions-mastery-20261026-11",
+      "conceptId": "la-y9-s01-case-functions-application-11",
+      "sourceConceptId": "la-y9-s01-concept-case-abl-function",
+      "subject": "latin",
+      "year": 9,
+      "topicId": "la-y9-s01-case-functions",
+      "topic": "Case functions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 4,
+      "prompt": "In cum puella ambulat, identify the ablative singular word.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "puella"
+        ]
+      },
+      "feedback": {
+        "short": "The preposition cum governs the ablative.",
+        "steps": [
+          "The preposition cum governs the ablative."
+        ]
+      },
+      "task": {
+        "label": "APPLY / TRANSLATE",
+        "instruction": "Answer using the sentence grammar and context."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "la-y9-s01-case-functions-mastery-20261026-12",
+      "conceptId": "la-y9-s01-case-functions-application-12",
+      "sourceConceptId": "la-y9-s01-concept-case-acc-function",
+      "subject": "latin",
+      "year": 9,
+      "topicId": "la-y9-s01-case-functions",
+      "topic": "Case functions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "controlled_translation",
+      "difficulty": 4,
+      "prompt": "Translate into English: nauta puellam in villa videt.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "the sailor sees the girl in the house",
+          "a sailor sees the girl in the house",
+          "the sailor sees a girl in the house",
+          "the sailor sees the girl in the country house"
+        ]
+      },
+      "feedback": {
+        "short": "Nauta is nominative subject; puellam is accusative direct object.",
+        "steps": [
+          "Nauta is nominative subject; puellam is accusative direct object."
+        ]
+      },
+      "task": {
+        "label": "APPLY / TRANSLATE",
+        "instruction": "Answer using the sentence grammar and context."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "la-y9-s01-case-functions-mastery-20261026-13",
+      "conceptId": "la-y9-s01-case-functions-application-13",
+      "sourceConceptId": "la-y9-s01-concept-case-nom-function",
+      "subject": "latin",
+      "year": 9,
+      "topicId": "la-y9-s01-case-functions",
+      "topic": "Case functions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 4,
+      "prompt": "Compare puella and puellam in puella nautam videt and nauta puellam videt. Explain the difference in grammatical role. (2 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Puella is nominative and functions as the subject in the first sentence.",
+          "Puellam is accusative and functions as the direct object in the second sentence."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Puella is nominative and functions as the subject in the first sentence. Puellam is accusative and functions as the direct object in the second sentence.",
+        "manualReviewFallback": true
+      },
+      "feedback": {
+        "short": "Look at case endings, not Latin word position.",
+        "steps": [
+          "Puella is nominative and functions as the subject in the first sentence.",
+          "Puellam is accusative and functions as the direct object in the second sentence."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Give two distinct grammatical points; request manual review if uncertain."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
     }
   ],
-  "enabled": 25,
+  "enabled": 31,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 6,
     "typed_exact": 12,
-    "typed_equivalent": 5,
-    "controlled_translation": 1,
-    "mark_points": 1
+    "typed_equivalent": 8,
+    "controlled_translation": 3,
+    "mark_points": 2
   },
   "gated": false,
   "note": {
