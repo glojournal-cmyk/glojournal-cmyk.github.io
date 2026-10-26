@@ -17,7 +17,7 @@ Status as of 2026-10-26
 - [~] Stable frozen question assignments and same-question wrong-answer retry supported by planner + storage contract; explicit alternative-question reserve strategy, production retry UI and migration NOT done.
 - [ ] Build 10 task adapters, Vocab cycling, genuine history-only retention, independent GCSE marking.
 - [~] Metadata audit in daily-v2/QA_BANK_AUDIT.md. Conservative per-question real-bank adapter implemented, but complete authentic certification manifest and missing content authoring NOT done.
-- [~] 122 focused tests executed successfully against exact committed code in isolated V8 harness suites: ledger 16, planner 27, storage 24, bank-adapter 17, indexeddb-repository 12, legacy-review 16, simulator 10. Native Node/GitHub Actions, real-bank 30-day simulation, property tests and Safari validation NOT yet verified.
+- [~] 158 focused tests passed in isolated V8 harness suites: ledger 16, planner 29, storage 24, bank-adapter 17, indexeddb-repository 12, legacy-review 16, simulator 14, continuity 12, day-summary 9, mastery-audit 9. Native Node/GitHub Actions, real-bank 30-day simulation, property tests and Safari validation NOT yet verified.
 - [ ] Add staging-only UI integration and reconciliation layers (Home / Daily / 30 days / Recovery / XP).
 - [~] Real IndexedDB transaction adapter (staging namespace) implemented with 12 IndexedDB-behavior-fake tests. No REAL Safari/iPad hardware tests, browser quota tests or legacy production migration.
 - [ ] Produce independent Codex review handoff with exactly changed files and failed tests.
@@ -62,3 +62,24 @@ Status as of 2026-10-26
 1. Real-bank certification of taught topic/skill/depth and a safe, per-task shortage handling policy; do NOT bypass high-level Mastery.
 2. Read-only real emergency backup schema analysis and reconciliation for opaque 28/30 records, without changing user data.
 3. Run real certified-bank 30-day simulation; then staging UI integration, native CI and iPad Safari smoke tests. Production release requires approval.
+
+## Latest checkpoint — staged daily continuity + 30-day evidence (2026-10-26)
+- `planner.js` preserves strict `status:'blocked', tasks:[]` when any requirement fails, but now exposes safe, FULL-LENGTH `eligibleTasks` plus per-task availability reasons. A globally malformed catalog invalidates all candidates.
+- `continuity.js` converts only safe block diagnostics to an explicitly labelled **staging-only** 1–9 task partial plan. It never claims 163/163, changes Mastery difficulty or credits unavailable tasks. `storage.js` refuses partial freezing unless `allowPartial:true` explicitly supplied, and frozen rosters cannot be silently replaced. Saved answers can only apply to listed tasks.
+- `day-summary.js` builds Home/30-day display values from the verified event ledger: e.g. 9 available tasks completed and one blocked is **9/10, not 10/10**, and is NEVER eligible for a full-day completion reward.
+- `simulator.js` supports `continuityMode:'staging-partial'`: synthetic 30 days with missing GCSE 3-Mark bank produce **160 real planned questions/day, 4,800 allocations total, 90 questions explicitly unavailable**, versus strict-mode block. This is NOT proof of actual bank capacity or live UX.
+- `mastery-audit.js` creates conservative read-only per-topic reviewer candidate queues from authentic topic files; no auto-certified Mastery. Initial real run inspected 8 topics, 438 enabled records, 67 source high-format/difficulty candidates, 0 curriculum-certified. See `QA_MASTERY_TRIAGE_8_REAL_TOPICS.md`.
+- **Full regression: 158/158 passed** using exact GitHub-committed JS in an isolated V8 harness with test imports/assertions adapted; native `node --test`, Actions CI and physical iPad Safari remain UNVERIFIED.
+- Located prior 2026-10-26 emergency JSON and 2026-10-25 backup in user's Library, but authorized raw-byte materialization did NOT succeed. No raw backup data was read or modified; actual backup schema migration remains a blocker.
+- All changes on `feature/daily-v2-clean-rebuild-20261026` only. GitHub `main`, production App and student's original XP/history never modified.
+
+### Release blockers (do not bypass)
+1. Staging-only partial plan policy requires UI design and explicit release approval; unverified global source data must never permit partial.
+2. Certify actual educational item depth and mark schemes, add genuinely missing high-quality content, prove taught Year9 and per-student fresh IDs.
+3. Real backup mapping with immutable legacy correct records and verified assignment universe, safe import & rollback.
+4. Actual browser IndexedDB quota/private mode/reload/reopen and iPad Safari device persistence QA.
+5. Native Node/GitHub Actions evidence and genuine real-bank 30-day progression.
+6. No merge or production deployment without explicit approval.
+
+### Next bounded build unit
+Implement staging-only 10-task Home/Quiz presentation, task-specific shortage messages and a safe QA browser harness; continue source curriculum review. Do not alter live Daily/XP.
