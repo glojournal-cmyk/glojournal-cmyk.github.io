@@ -7,6 +7,8 @@ export function dailyVocabTotal(state = {}, subject, day) {
   const date = day || state.today;
   const row = state.dailyVocabByDay?.[date]?.[subject] || {};
   const items = { ...(row.items && typeof row.items === "object" ? row.items : {}) };
+  const concepts = { ...(row.conceptByQuestion || {}) };
+  const conceptKey = id => concepts[id] || id;
   // Merge dated formal answers into the day-specific ledger. This also
   // restores genuine answers saved before the dedicated vocabulary ledger.
   for (const answer of state.formalAttemptLog || []) {
@@ -16,6 +18,7 @@ export function dailyVocabTotal(state = {}, subject, day) {
     if (answer?.day !== date || !assigned || !answer?.questionId ||
         answer?.repair || answer?.recoveryFor || answer?.formal === false) continue;
     const id = String(answer.questionId);
+    if (typeof answer.vocabConcept === 'string' && answer.vocabConcept) concepts[id] = answer.vocabConcept;
     // Once an answer is correct, later incorrect submissions never erase it.
     items[id] = !!items[id] || !!answer.correct;
   }
@@ -35,10 +38,11 @@ export function dailyVocabTotal(state = {}, subject, day) {
   // marker records only NEW, actually correct question IDs after a frozen
   // pre-answer baseline. Repeated IDs can never add a second credit.
   const baseline=Math.max(0,Math.min(DAILY_VOCAB_TARGET,Number(row.baselineProgress)||0));
-  const verifiedExtras=Object.values(row.additionalCorrectIds||{}).filter(v=>v===true).length;
+  const verifiedExtras=new Set(Object.entries(row.additionalCorrectIds||{})
+    .filter(([,ok])=>ok===true).map(([id])=>conceptKey(id))).size;
   const carried=Math.min(DAILY_VOCAB_TARGET,baseline+verifiedExtras);
-  const attempts = Math.max(Object.keys(items).length, savedCorrect,carried);
-  const correct = Math.max(Object.values(items).filter(Boolean).length, savedCorrect,carried);
+  const attempts = Math.max(new Set(Object.keys(items).map(conceptKey)).size, savedCorrect,carried);
+  const correct = Math.max(new Set(Object.keys(items).filter(id=>items[id]).map(conceptKey)).size, savedCorrect,carried);
   return {
     subject, attempts, correct, target: DAILY_VOCAB_TARGET,
     passed: correct >= DAILY_VOCAB_TARGET,
