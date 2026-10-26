@@ -84,7 +84,7 @@ test('Both live Science and Latin/French Recovery entrypoints use cross-task sel
    assert.match(js,/selectDiverseRecoveryQuestions\(fillDailyLockedQuestions\(/);
    assert.match(js,/recoveryReceipts:listRecoveryReceipts\(\)/);
    assert.match(js,/Object\.entries\(s\.getState\(\)\?\.recoveryVocabByDay\|\|\{\}\)/);
-   assert.match(js,/seed:recoveryDate\?String\(seed\)\+':'\+recoveryDate:seed/);
+   assert.match(js,/seed:recoveryDate\?String\((?:seed|R)\)\+':(?:recovery:)?'\+recoveryDate:(?:seed|String\(R\)\+':daily:'\+subject)/);
  }
 });
 
