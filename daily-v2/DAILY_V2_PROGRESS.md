@@ -83,3 +83,21 @@ Status as of 2026-10-26
 
 ### Next bounded build unit
 Implement staging-only 10-task Home/Quiz presentation, task-specific shortage messages and a safe QA browser harness; continue source curriculum review. Do not alter live Daily/XP.
+
+## Current checkpoint — isolated staging browser QA (2026-10-26)
+- Created independent `daily-v2/staging/index.html`, `qa.css`, `qa.js`, `qa-fixture.js`, `qa-controller.js` and `staging/README.md`. Not linked to production, not merged, not deployed. Source page offers full synthetic 163 tasks, deliberately missing GCSE 3-mark item (160 of 163 in 9 available tasks), persistent browser QA score reading, wrong-answer retry, 1–3 GCSE marks, deliberate one-save failure injection, and wipe of **only** `scholar-daily-v2-staging-ui-*` database.
+- The QA controller routes through authentic V2 frozen planner, staging partial continuity opt-in, verified CAS receipt, pure ledger and Home projector. No real question banks or actual learner state are read or written.
+- **11/11 new controller tests** passed: first-plan freeze; 163 and 160 scenarios; wrong-then-right; unchanged event retry; 5/6 exam marks with 3/3 questions graded; reopen; unavailable-task exclusion; full 163 synthetic correct; QA-only no XP.
+- Re-ran prior 10 suites separately (**158/158 pass**) plus controller (**11/11 pass**) = **169/169 focused regression tests passed** against exact committed source in a V8 harness with imported module syntax and Node test API emulated. Staging `qa.js` syntax, documented DOM IDs and static asset links independently checked. This does NOT prove native Node CI or any browser/iPad behavior.
+- Fixed staging CSS to honor the HTML `hidden` property despite visible-label rules.
+- Staging test guide: `daily-v2/staging/README.md`. To run: checkout feature branch, run `python3 -m http.server 8000` from repo root, browse `http://localhost:8000/daily-v2/staging/`.
+- The prior real emergency JSON was found by Library metadata but could NOT be materialized to raw bytes; actual historical student import NOT done.
+
+### Release blockers still open
+1. Browser and real iPad Safari / PWA storage verification, including reload, storage failure/quota, reopen and multi-tab.
+2. Genuine student backup mapping, historical 28/30 ledger migration and rollback safety.
+3. Real curriculum bank question certification, taught Year9 evidence, actual 30-day bank and missing high-depth Mastery content.
+4. Full UI integration with live Home/Study/Recovery/XP remains deliberately withheld. User approval required before main merge and production deployment.
+
+### Next bounded build unit
+Staging browser smoke tests in a real browser where available; improve task-specific shortage explanation UX and safe restoration; later independent Codex review with exact failing test evidence. Do not touch production. 
