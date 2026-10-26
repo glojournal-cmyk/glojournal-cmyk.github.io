@@ -96,24 +96,9 @@ if(dailyLocked&&E!==`y8vocab`&&(!intendedMode||E===intendedMode)&&!V&&retryReady
 const sessionItems=dailyLocked&&E!==`y8vocab`&&sessionSnapshot.current?.key===sessionKey
  ?sessionSnapshot.current.items:!retryReady?[]:dailyLocked&&N===8?safeU.map(q=>({...q,_dailyYear8:!0})):safeU;
 
-(0,w.useEffect)(()=>{
- if(!(dailyLocked&&retryReady&&!V&&W>0&&sessionItems.length===0&&z.length>0))return;
- const state=s.getState();
- const task=(state.daily||[]).find(item=>item.id===canonicalTask&&item.planDate===state.today);
- if(!task||task.cappedBecauseQuestionBankExhausted)return;
- const progress=Math.max(0,Number(task.progress)||0);
- if(progress<=0)return;
- const capped={...task,target:progress,progress,done:true,cappedBecauseQuestionBankExhausted:true};
- const daily=state.daily.map(item=>item.id===task.id&&item.planDate===task.planDate?capped:item);
- let dailyLog=state.dailyLog;
- const row=dailyLog?.[state.today];
- if(row&&Array.isArray(row.tasks)){
-  const tasks=row.tasks.map(item=>item.id===task.id?{...item,...capped}:item);
-  const done=tasks.filter(item=>item.done||Number(item.progress)>=Number(item.target)).length;
-  dailyLog={...dailyLog,[state.today]:{...row,tasks,done,total:tasks.length,complete:tasks.length>0&&done===tasks.length}};
- }
- s.setState({daily,dailyLog});
-},[dailyLocked,retryReady,V,W,sessionItems.length,canonicalTask,z.length]);
+// An exhausted bank is NOT a passed task: keep the original target and
+// previously verified progress intact until genuinely unanswered questions
+// become available. Never change target to progress or mark done automatically.
 const G=[{id:`quick`,label:`Quick 5`,hint:`Warm-up`},{id:`standard`,label:`Standard 10`,hint:`A focused set`},{id:`mastery`,label:dailyLocked&&/^y8-mastery-(?:a|b|topup-a|topup-b)$/.test(canonicalTask||``)?`Mastery ${assignment?.target||20}`:`Mastery 15`,hint:`Stay until it sticks`},...e===`french`&&N===9?[{id:`exam`,label:`Exam Mix 15`,hint:`15 mixed questions · includes production`}]:[],...e===`english`&&N===9?[{id:`engmix`,label:`Year 9 Mix 15`,hint:`5 units · recall + analysis + MC`}]:[],...e===`biology`?[{id:`cellstructure`,label:`Cell structure · 72`,hint:`School assessment revision · short answers + diagrams`}]:[],...e===`biology`&&N===9?[{id:`biomix`,label:`Year 9 Mix 16`,hint:`All 16 topics · one question per topic · varied skills`}]:[],...e===`chemistry`&&N===9?[{id:`chemmix`,label:`Year 9 Mix 15`,hint:`Atoms + organic/rates + atmosphere · varied skills`}]:[],...e===`physics`&&N===9?[{id:`physmix`,label:`Year 9 Mix 15`,hint:`Autumn + Spring + Summer · varied skills`}]:[],{id:`weak`,label:`Weakness Review`,hint:`Target gaps`},{id:`due`,label:`Due Review`,hint:L?`${L} waiting`:`Nothing due`},...n?[{id:`dictation`,label:`Dictation`,hint:e===`french`?`Use the learned vocabulary bank`:`Spelling from the learned word bank`},{id:`vocab`,label:`Vocabulary Bank`,hint:e===`french`?`Year 7–8 revision words`:`Full learned word bank`}]:[]];
 // When a saved previous-mistake ID is retired, reassign only a real
 // earlier wrong question present in the loaded bank. Never invent an answer.
