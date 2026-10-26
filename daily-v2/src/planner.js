@@ -147,19 +147,32 @@ export function planDailyV2(input={}) {
  }
  if(examQ.length===3){take(examQ);taskById.set(exam.id,packageTask(exam,examQ,null,{marks:[1,2,3]}));}
 
- // Standard tracks demand their own types. Science is restricted to one topic.
+ // Latin / French Standard mix grammar, translation and passage/writing
+ // ACROSS taught topics. Forcing a single topic would make real language banks
+ // unusable, since the three skill families often have separate topic IDs.
+ // Science Standard instead selects one suitably stocked topic per day.
  for(const task of DAILY_V2_TASKS.filter(t=>t.kind==='standard')){
-  const options=groupByTopic(questions.filter(q=>q.roles.includes(task.id) &&!q.roles.includes('gcse') &&allowed(q) &&
-    (task.subject!=='science'||['biology','chemistry','physics'].includes(q.subject))),task.target,day,subjectExposure);
-  let best=null,deficiency=null;
-  for(const [,items] of options){
-   const quota=task.id==='science-standard'
-     ? (()=>{const chosen=chooseUnique(items,task.target,day+'|'+task.id);return {ready:chosen.length===task.target,chosen,missing:{required:task.target,available:chosen.length}};})()
-     : allocateQuotas(items,QUOTAS[task.id],day+'|'+task.id);
-   if(quota.ready){best={items:quota.chosen,topic:items[0]};break;}
-   if(!deficiency)deficiency={topicId:items[0].topicId,...quota.missing};
+  if(task.id!=='science-standard'){
+   const all=questions.filter(q=>q.roles.includes(task.id)&&!q.roles.includes('gcse')&&
+      q.subject===task.subject&&allowed(q));
+   const quota=allocateQuotas(all,QUOTAS[task.id],day+'|'+task.id);
+   if(!quota.ready){fail(task,'STANDARD_BANK_OR_SKILL_SHORTAGE',{available:all.length,
+      firstDeficiency:quota.missing});continue;}
+   take(quota.chosen);
+   taskById.set(task.id,packageTask(task,quota.chosen,null,{
+    topicIds:[...new Set(quota.chosen.map(q=>q.topicId))]
+   }));
+   continue;
   }
-  if(!best){fail(task,'STANDARD_BANK_OR_SKILL_SHORTAGE',{eligibleTopics:options.length,firstDeficiency:deficiency});continue;}
+  const options=groupByTopic(questions.filter(q=>q.roles.includes(task.id)&&
+    !q.roles.includes('gcse')&&allowed(q)&&
+    ['biology','chemistry','physics'].includes(q.subject)),task.target,day,subjectExposure);
+  let best=null;
+  for(const [,items] of options){
+   const chosen=chooseUnique(items,task.target,day+'|'+task.id);
+   if(chosen.length===task.target){best={items:chosen,topic:items[0]};break;}
+  }
+  if(!best){fail(task,'STANDARD_BANK_OR_SKILL_SHORTAGE',{eligibleTopics:options.length});continue;}
   take(best.items);taskById.set(task.id,packageTask(task,best.items,best.topic));
  }
 
