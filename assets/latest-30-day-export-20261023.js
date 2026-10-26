@@ -2,7 +2,7 @@
 // The app's memory is authoritative for today's work; the on-device persisted
 // store and independent IndexedDB journal can supply older dated evidence.
 // Missing dated records are labelled missing; no XP or completion is invented.
-import {readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
+import {readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261026-journal-fallback3";
 import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
 import {rebuildDatedDailyRecords} from "./daily-dated-answer-reconcile-20261023.js?v=1";
 import {assertFullProgressBackup} from "./full-progress-backup-guard-20261023.js";
