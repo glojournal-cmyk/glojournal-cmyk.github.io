@@ -1,0 +1,31 @@
+name: Scholar Question Bank Audit (read only)
+on:
+  push:
+    branches:
+      - audit/question-bank-20261026
+    paths:
+      - 'scripts/question-bank-audit-20261026.mjs'
+      - '.github/workflows/question-bank-audit-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax check
+        run: node --check scripts/question-bank-audit-20261026.mjs
+      - name: Inventory all topic files
+        run: node scripts/question-bank-audit-20261026.mjs --strict --output qa-reports/question-bank-inventory-20261026.json
+      - name: Upload audit (does not publish website)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scholar-question-bank-inventory-20261026
+          path: qa-reports/question-bank-inventory-20261026.json
+          if-no-files-found: warn
