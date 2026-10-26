@@ -315,9 +315,9 @@
       "topicId": "fr-y8-v2-mastery-reflexive-routines",
       "topic": "Mastery — reflexive routines and meaning",
       "format": "controlled_translation",
-      "prompt": "Correct both errors in this present-tense sentence and explain why.",
+      "prompt": "Rewrite this sentence as a reflexive 'you get up at eight', then explain the pronoun.",
       "stimulus": {
-        "text": "Tu me lèves à huit heures."
+        "text": "Tu me lèves à huit heures. (Meaning required: You get up at eight.)"
       },
       "difficulty": 3,
       "depthBand": "application",
@@ -332,9 +332,9 @@
         ],
         "modelAnswer": "Tu te lèves à huit heures.",
         "markPoints": [
-          "replace me with te for tu",
-          "lèves is tu form",
-          "keep time at eight"
+          "te reflects the tu subject for se lever",
+          "lèves is the tu form",
+          "à huit heures is preserved"
         ],
         "totalMarks": 3,
         "requiresSemanticAssessment": true,
@@ -349,9 +349,9 @@
       "feedback": {
         "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
         "steps": [
-          "replace me with te for tu",
-          "lèves is tu form",
-          "keep time at eight"
+          "te reflects the tu subject for se lever",
+          "lèves is the tu form",
+          "à huit heures is preserved"
         ],
         "commonError": "Using se with je/nous or moving pas after the participle.",
         "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
