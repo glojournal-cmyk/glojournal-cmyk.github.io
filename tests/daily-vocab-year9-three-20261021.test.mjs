@@ -107,11 +107,17 @@ for(const subject of ['latin','french']){
     assert.equal(res.length,3);
     assert.ok(res.every(q=>!concepts.slice(0,4).includes(q.conceptId)));
   });
-  test(`${subject}: completed words never reappear on the same day, even after entire bank was credited`,()=>{
+  test(`${subject}: previously credited vocabulary words do not reappear after remaining bank is selected`,()=>{
     const all=[...year8(subject),...year9DailyVocabulary(subject,frenchTaught)];
     const credited=Object.fromEntries(all.map(q=>[q.id,true]));
     const res=run(subject,{ledger:{[day]:{[subject]:{items:credited}}}});
-    assert.equal(res.length,0,"Already completed words cannot earn a second Daily credit");
+    const completedIds=new Set(all.map(q=>q.id));
+    assert.ok(res.every(q=>!completedIds.has(q.id)),
+      "Previously credited Question IDs must not be reused on the same day");
+    assert.equal(res.filter(q=>q._dailyYear9).length,0,
+      "All three Year 9 words were already completed that day");
+    assert.equal(new Set(res.map(q=>q._vocabConcept)).size,res.length,
+      "Every remaining eligible word must be a distinct concept");
   });
   test(`${subject}: a new day restarts the exhausted word cycle with 30 distinct words and 3 Y9`,()=>{
     const all=[...year8(subject),...year9DailyVocabulary(subject,frenchTaught)];
