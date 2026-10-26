@@ -73,3 +73,39 @@ test('production migration is never silently authorized',()=>{
  const r=make([{taskId:'latin-vocab',day,progress:0}]);
  assert.equal(r.productionMigrationAuthorized,false);assert.equal(r.readOnly,true);
 });
+
+test('verified old vocabulary assignment universe is preserved for safe disjoint post-legacy credit',()=>{
+ const possible=Array.from({length:30},(_,i)=>'vocab-original-'+i);
+ const r=make([{taskId:'french-vocab',day,verifiedCorrectSlots:28,
+  assignedVocabularyConceptIds:possible,
+  assignmentEvidenceVerified:true,assignmentEvidenceSource:'read-only-old-french-manifest'}]);
+ assert.equal(r.status,'requires-review');
+ assert.equal(r.legacyBaselines['french-vocab'].potentialKeysVerified,true);
+ assert.equal(r.legacyBaselines['french-vocab'].potentialLegacyKeys.length,30);
+ assert.equal(r.reconciliation[0].safePostLegacyCreditPossible,true);
+});
+test('old question IDs do not count as a verified vocabulary assignment universe',()=>{
+ const r=make([{taskId:'french-vocab',day,verifiedCorrectSlots:28,
+  assignedQuestionIds:Array.from({length:30},(_,i)=>'legacy-q-'+i),
+  assignmentEvidenceVerified:true,assignmentEvidenceSource:'wrong-kind'}]);
+ assert.equal(r.legacyBaselines['french-vocab'].potentialKeysVerified,false);
+ assert.equal(r.reconciliation[0].safePostLegacyCreditPossible,false);
+ assert.ok(r.issues.some(x=>x.code==='INCOMPLETE_VERIFIED_ASSIGNMENT_UNIVERSE'));
+});
+test('unverified roster metadata cannot prove disjoint historical credits',()=>{
+ const possible=Array.from({length:30},(_,i)=>'vocab-original-'+i);
+ const r=make([{taskId:'french-vocab',day,progress:28,
+  assignedVocabularyConceptIds:possible,assignmentEvidenceVerified:false,
+  assignmentEvidenceSource:'untrusted'}]);
+ assert.equal(r.legacyBaselines['french-vocab'].potentialKeysVerified,false);
+});
+test('conflicting merged device rosters do not produce falsely verified assignment universe',()=>{
+ const possible=Array.from({length:30},(_,i)=>'word-'+i);
+ const r=make([
+ {taskId:'french-vocab',day,progress:28,assignedVocabularyConceptIds:possible,
+   assignmentEvidenceVerified:true,assignmentEvidenceSource:'device-A'},
+ {taskId:'french-vocab',day,progress:28,assignedVocabularyConceptIds:possible,
+   assignmentEvidenceVerified:true,assignmentEvidenceSource:'device-B'}
+ ]);
+ assert.equal(r.legacyBaselines['french-vocab'].potentialKeysVerified,false);
+});
