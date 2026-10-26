@@ -565,18 +565,371 @@
       "preview": false,
       "ordinary": true,
       "formal": false
+    },
+    {
+      "id": "bio-y8-correlation-20261026-repair-corr-01",
+      "conceptId": "bio-y8-concept-correlation-positive-trend",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-correlation",
+      "topic": "Correlation: hand span and height",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "A scatter graph shows that pupils with larger hand spans usually have greater heights. What type of correlation is shown?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "positive correlation",
+          "positive",
+          "a positive correlation"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Both variables tend to increase together.",
+        "steps": [
+          "Both variables tend to increase together."
+        ]
+      },
+      "task": {
+        "label": "APPLY THE IDEA",
+        "instruction": "Answer the scientific question precisely."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "scope": "existing-topic-learning",
+        "date": "2026-10-26",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-correlation-20261026-repair-corr-02",
+      "conceptId": "bio-y8-concept-correlation-bestfit-method",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-correlation",
+      "topic": "Correlation: hand span and height",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "A pupil connects each point on a scatter graph in the order measurements were collected. What line should be used instead to show the overall trend?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "line of best fit",
+          "a line of best fit",
+          "best-fit line",
+          "best fit line"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "A line of best fit shows the general association rather than joining points.",
+        "steps": [
+          "A line of best fit shows the general association rather than joining points."
+        ]
+      },
+      "task": {
+        "label": "APPLY THE IDEA",
+        "instruction": "Answer the scientific question precisely."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "scope": "existing-topic-learning",
+        "date": "2026-10-26",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-correlation-20261026-repair-corr-03",
+      "conceptId": "bio-y8-concept-correlation-axis-reading",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-correlation",
+      "topic": "Correlation: hand span and height",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "A scatter graph has height (cm) on the horizontal axis and hand span (cm) on the vertical axis. Which variable belongs on the horizontal axis?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "height",
+          "height (cm)",
+          "pupil height",
+          "pupil height in cm"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "The plotted independent/explanatory variable is height in this example.",
+        "steps": [
+          "The plotted independent/explanatory variable is height in this example."
+        ]
+      },
+      "task": {
+        "label": "APPLY THE IDEA",
+        "instruction": "Answer the scientific question precisely."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "scope": "existing-topic-learning",
+        "date": "2026-10-26",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-correlation-20261026-repair-corr-04",
+      "conceptId": "bio-y8-concept-correlation-not-causation",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-correlation",
+      "topic": "Correlation: hand span and height",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 2,
+      "prompt": "A scatter graph shows a positive association between height and hand span. Why does this not prove that increasing a person's hand span would make them taller? (2 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 2,
+        "markPoints": [
+          {
+            "id": "mp1",
+            "text": "Correlation shows an association, not proof of cause and effect."
+          },
+          {
+            "id": "mp2",
+            "text": "Both measurements can be affected by other factors such as growth or genetics."
+          }
+        ],
+        "modelAnswer": "Correlation shows an association, not proof of cause and effect. Both measurements can be affected by other factors such as growth or genetics.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Association alone cannot prove that one variable causes the other.",
+        "steps": [
+          "Association alone cannot prove that one variable causes the other."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / DATA INTERPRETATION",
+        "instruction": "Award marks for distinct correct scientific points; use manual/checklist review."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "scope": "existing-topic-learning",
+        "date": "2026-10-26",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-correlation-20261026-repair-corr-05",
+      "conceptId": "bio-y8-concept-correlation-scatter-quality",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-correlation",
+      "topic": "Correlation: hand span and height",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "A student plots height against hand span. Explain three features of a useful scatter graph. (3 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 3,
+        "markPoints": [
+          {
+            "id": "mp1",
+            "text": "Choose and label both axes with the correct variables and units."
+          },
+          {
+            "id": "mp2",
+            "text": "Plot each measured pair accurately as one point."
+          },
+          {
+            "id": "mp3",
+            "text": "Use a line of best fit to indicate the overall trend; do not join points dot-to-dot."
+          }
+        ],
+        "modelAnswer": "Choose and label both axes with the correct variables and units. Plot each measured pair accurately as one point. Use a line of best fit to indicate the overall trend; do not join points dot-to-dot.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "A good scatter graph shows two measured quantities and their relationship.",
+        "steps": [
+          "A good scatter graph shows two measured quantities and their relationship."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / DATA INTERPRETATION",
+        "instruction": "Award marks for distinct correct scientific points; use manual/checklist review."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "scope": "existing-topic-learning",
+        "date": "2026-10-26",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-correlation-20261026-repair-corr-06",
+      "conceptId": "bio-y8-concept-correlation-paired-data",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-correlation",
+      "topic": "Correlation: hand span and height",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "Three pupils have paired values (height cm, hand span cm): (150,16), (160,17), (170,19). State the overall relationship and give two pieces of evidence from these pairs. (3 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 3,
+        "markPoints": [
+          {
+            "id": "mp1",
+            "text": "The sample shows a positive relationship."
+          },
+          {
+            "id": "mp2",
+            "text": "Height rises from 150 cm to 170 cm across the data."
+          },
+          {
+            "id": "mp3",
+            "text": "Hand span rises from 16 cm to 19 cm over the same pairs."
+          }
+        ],
+        "modelAnswer": "The sample shows a positive relationship. Height rises from 150 cm to 170 cm across the data. Hand span rises from 16 cm to 19 cm over the same pairs.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Use paired measurements to support the stated association.",
+        "steps": [
+          "Use paired measurements to support the stated association."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / DATA INTERPRETATION",
+        "instruction": "Award marks for distinct correct scientific points; use manual/checklist review."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "scope": "existing-topic-learning",
+        "date": "2026-10-26",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-correlation-20261026-repair-corr-07",
+      "conceptId": "bio-y8-concept-correlation-anomaly",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-correlation",
+      "topic": "Correlation: hand span and height",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "A student's scatter graph has one point far away from the other height/hand-span measurements. Give two checks and one reason not to delete the point automatically. (3 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 3,
+        "markPoints": [
+          {
+            "id": "mp1",
+            "text": "Check the original recorded measurements for transcription or reading errors."
+          },
+          {
+            "id": "mp2",
+            "text": "Check whether the two values were paired for the same pupil."
+          },
+          {
+            "id": "mp3",
+            "text": "A genuine unusual measurement is still valid data and should not be discarded merely because it is different."
+          }
+        ],
+        "modelAnswer": "Check the original recorded measurements for transcription or reading errors. Check whether the two values were paired for the same pupil. A genuine unusual measurement is still valid data and should not be discarded merely because it is different.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Verify the anomalous point without automatically deleting genuine data.",
+        "steps": [
+          "Verify the anomalous point without automatically deleting genuine data."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / DATA INTERPRETATION",
+        "instruction": "Award marks for distinct correct scientific points; use manual/checklist review."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "scope": "existing-topic-learning",
+        "date": "2026-10-26",
+        "publicationGate": "academic-review-required"
+      }
     }
   ],
-  "enabled": 13,
+  "enabled": 20,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 3,
     "typed_exact": 3,
-    "mark_points": 4,
+    "mark_points": 8,
     "matching": 1,
     "unordered_set": 1,
-    "diagram_label": 1
+    "typed_short": 1,
+    "typed_equivalent": 3
   },
   "gated": false,
   "note": {
@@ -585,7 +938,8 @@
     "learningGoals": [
       "Recall the precise Year 8 vocabulary for correlation: hand span and height.",
       "Apply the knowledge rather than relying on recognition alone.",
-      "Use the command word and include every required scientific point."
+      "Use the command word and include every required scientific point.",
+      "Apply evidence to new data examples and explain the reasoning behind an answer."
     ],
     "mustMemoriseRules": [
       "Hand span and height show positive correlation in the teacher data.",
