@@ -16,10 +16,10 @@ Status as of 2026-10-26
 - [~] Pure replay-idempotent ledger at daily-v2/src/ledger.js. Atomic CAS repository contract + readback verified receipts implemented at daily-v2/src/storage.js, but REAL IndexedDB durable adapter and legacy identity reconciliation NOT done.
 - [~] Stable frozen question assignments and same-question wrong-answer retry supported by planner + storage contract; explicit alternative-question reserve strategy, production retry UI and migration NOT done.
 - [ ] Build 10 task adapters, Vocab cycling, genuine history-only retention, independent GCSE marking.
-- [~] Metadata audit saved to daily-v2/QA_BANK_AUDIT.md from GitHub catalog; actual per-question independent depth certification and missing content authoring NOT done.
-- [~] 56 focused tests executed successfully against exact committed code in a V8 harness: ledger 12, planner 27, storage 17. Native Node/GitHub Actions result, property tests, actual-bank and 30-day simulations NOT yet verified.
+- [~] Metadata audit in daily-v2/QA_BANK_AUDIT.md. Conservative per-question real-bank adapter implemented, but complete authentic certification manifest and missing content authoring NOT done.
+- [~] 97 focused tests executed successfully against exact committed code in a V8 harness: ledger 12, planner 27, storage 20, bank-adapter 14, indexeddb-repository 12, legacy-review 12. Native Node/GitHub Actions result, property tests, actual-bank and 30-day simulations NOT yet verified.
 - [ ] Add staging-only UI integration and reconciliation layers (Home / Daily / 30 days / Recovery / XP).
-- [~] Storage-failure/concurrency/replay tests implemented against VOLATILE in-memory fake; Safari IndexedDB, quota, browser restart and migration QA NOT done.
+- [~] Real IndexedDB transaction adapter (staging namespace) implemented with 12 IndexedDB-behavior-fake tests. No REAL Safari/iPad hardware tests, browser quota tests or legacy production migration.
 - [ ] Produce independent Codex review handoff with exactly changed files and failed tests.
 - [ ] Run Work browser QA if useful; genuine iPad validation still required.
 - [ ] Independent sign-off and explicit permission before production switch.
