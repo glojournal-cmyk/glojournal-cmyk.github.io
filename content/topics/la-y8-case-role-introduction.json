@@ -838,16 +838,219 @@
         "validation": "case/function rules checked against this topic's existing teaching note"
       },
       "sourceConceptId": "la-y8-concept-24jul-case-intro-1"
+    },
+    {
+      "id": "la-y8-case-role-reserve-20261026-01",
+      "conceptId": "la-y8-concept-case-role-reserve-20261026-01",
+      "sourceConceptId": "la-y8-concept-24jul-case-intro-3",
+      "subject": "latin",
+      "year": 8,
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "In agricola puellis fabulas narrat, identify the Latin word meaning 'to the girls'.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "puellis"
+        ]
+      },
+      "feedback": {
+        "short": "Check the case ending in context. Correct answer: puellis.",
+        "steps": [
+          "Identify the grammatical role before choosing the form."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer; equivalent English phrasing may be accepted."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "la-y8-case-role-reserve-20261026-02",
+      "conceptId": "la-y8-concept-case-role-reserve-20261026-02",
+      "sourceConceptId": "la-y8-concept-24jul-case-intro-2",
+      "subject": "latin",
+      "year": 8,
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "In filius amici currit, which Latin word means 'of the friend'?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "amici"
+        ]
+      },
+      "feedback": {
+        "short": "Check the case ending in context. Correct answer: amici.",
+        "steps": [
+          "Identify the grammatical role before choosing the form."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer; equivalent English phrasing may be accepted."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "la-y8-case-role-reserve-20261026-03",
+      "conceptId": "la-y8-concept-case-role-reserve-20261026-03",
+      "sourceConceptId": "la-y8-concept-24jul-case-intro-4",
+      "subject": "latin",
+      "year": 8,
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "In servum dominus vocat, which word is the accusative direct object?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "servum"
+        ]
+      },
+      "feedback": {
+        "short": "Check the case ending in context. Correct answer: servum.",
+        "steps": [
+          "Identify the grammatical role before choosing the form."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer; equivalent English phrasing may be accepted."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "la-y8-case-role-reserve-20261026-04",
+      "conceptId": "la-y8-concept-case-role-reserve-20261026-04",
+      "sourceConceptId": "la-y8-concept-24jul-case-intro-1",
+      "subject": "latin",
+      "year": 8,
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "controlled_translation",
+      "difficulty": 3,
+      "prompt": "Translate the whole sentence into English: puellae rosas portant.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "the girls carry roses",
+          "girls carry roses",
+          "the girls are carrying roses",
+          "girls are carrying roses"
+        ]
+      },
+      "feedback": {
+        "short": "Check the case ending in context. Correct answer: the girls carry roses.",
+        "steps": [
+          "Identify the grammatical role before choosing the form."
+        ]
+      },
+      "task": {
+        "label": "TRANSLATE",
+        "instruction": "Give a precise answer; equivalent English phrasing may be accepted."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "la-y8-case-role-reserve-20261026-05",
+      "conceptId": "la-y8-concept-case-role-reserve-20261026-05",
+      "sourceConceptId": "la-y8-concept-24jul-case-intro-5",
+      "subject": "latin",
+      "year": 8,
+      "topicId": "la-y8-case-role-introduction",
+      "topic": "Case-role introduction",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 4,
+      "prompt": "Explain why cum amicis is an ablative phrase, although amicis can have more than one possible case without context. (2 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "The preposition cum takes the ablative case.",
+          "Amicis is therefore ablative plural in this phrase."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The preposition cum takes the ablative case. Amicis is therefore ablative plural in this phrase.",
+        "manualReviewFallback": true
+      },
+      "feedback": {
+        "short": "The preposition cum takes the ablative case. Amicis is therefore ablative plural in this phrase.",
+        "steps": [
+          "The preposition cum takes the ablative case.",
+          "Amicis is therefore ablative plural in this phrase."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Give two distinct grammatical reasons; manual review if necessary."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
     }
   ],
-  "enabled": 20,
+  "enabled": 25,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 5,
-    "typed_equivalent": 11,
-    "controlled_translation": 3,
-    "mark_points": 1
+    "typed_equivalent": 14,
+    "controlled_translation": 4,
+    "mark_points": 2
   },
   "gated": false,
   "note": {
