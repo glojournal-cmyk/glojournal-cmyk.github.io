@@ -26,7 +26,7 @@ const server=createServer((req,res)=>{
 await new Promise(r=>server.listen(0,"127.0.0.1",r));
 const base="http://127.0.0.1:"+server.address().port;
 const recoveryScript=fs.readFileSync('assets/home-rpg-live-20261019.js','utf8')
- .match(/quest-recovery-20261011\\.js\\?v=[A-Za-z0-9-]+/)?.[0];
+ .match(/quest-recovery-20261011\.js\?v=[A-Za-z0-9-]+/)?.[0];
 assert.ok(recoveryScript,'Home must declare a versioned on-demand Recovery engine');
 async function revealRecovery(page){
   // The real RPG Home lazy-loads the original React Recovery engine on tap.
