@@ -78,10 +78,18 @@ function mergeSnapshot(live,stored,archived){
      return {...task,progress,done:task.done===true||old.done===true||
        (Number(task.target)>0&&progress>=Number(task.target))};
    });
-   const done=countDone(datedTasks);
+   // Older iPad plans may have additional original task IDs (e.g. a
+   // 14-task dated record while today's canonical Home has ten). They
+   // remain historic evidence, not current assignments. The strict export
+   // guard rightly rejects a file that silently drops those dated rows.
+   const activeIds=new Set(datedTasks.map(t=>t.id));
+   const archived=(Array.isArray(previous.tasks)?previous.tasks:[])
+     .filter(t=>t?.id&&!activeIds.has(t.id));
+   const preserved=[...datedTasks,...archived];
+   const done=countDone(preserved);
    merged.dailyLog={...merged.dailyLog,
-     [live.today]:{...previous,date:live.today,tasks:datedTasks,
-       done,total:datedTasks.length,complete:done===datedTasks.length}};
+     [live.today]:{...previous,date:live.today,tasks:preserved,
+       done,total:preserved.length,complete:done===preserved.length}};
  }
  return merged;
 }
