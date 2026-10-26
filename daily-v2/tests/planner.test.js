@@ -195,3 +195,21 @@ test('French Standard may compose writing and translation across different taugh
  assert.equal(french.topicIds.length,3);
  assert.equal(french.questionIds.length,10);
 });
+
+test('one short GCSE task preserves nine fully eligible tasks as staging-only continuity candidates',()=>{
+ const f=fixture();f.questionBank=f.questionBank.filter(q=>q.id!=='gcse-3');
+ const result=planDailyV2(f);
+ assert.equal(result.status,'blocked');
+ assert.deepEqual(result.tasks,[]);
+ assert.equal(result.eligibleTasks.length,9);
+ assert.equal(result.preflight.eligibleQuestionCount,160);
+ assert.equal(result.availability.find(a=>a.taskId==='gcse-exam-skills').state,'unavailable');
+ assert.ok(result.diagnostics.some(d=>d.taskId==='gcse-exam-skills'&&d.code==='EXCLUSIVE_EXAM_MARK_SHORTAGE'));
+});
+test('globally invalid duplicate question IDs withhold ALL continuity candidates',()=>{
+ const f=fixture();f.questionBank.push({...f.questionBank[0]});
+ const result=planDailyV2(f);
+ assert.equal(result.status,'blocked');
+ assert.equal(result.preflight.globallyUnsafe,true);
+ assert.deepEqual(result.eligibleTasks,[]);
+});
