@@ -80,3 +80,9 @@ Pure `ledger.js` now supports optional `potentialLegacyKeys`, `potentialKeysVeri
 - `src/mastery-draft-validator.js`: rigid structural/mark-scheme completeness gate; `tests/mastery-drafts.test.js` has ten source-backed tests.
 - `MASTERY_BANK_BATCH1_QA.md` describes coverage and capacity limitations. Model answers require semantic/rubric review, NOT string equality, and student taught-topic status is not yet independently verified.
 - **179/179 V8 harness tests passed** (old 169 + new 10). The five draft topics are still excluded by `bank-adapter.js` without explicitly verified, fingerprint-bound curriculum certification.
+
+## Second Mastery content batch — educational draft, not production
+- `MASTERY_BATCH_2_FILES` and `ALL_MASTERY_DRAFT_FILES` constants in `src/mastery-draft-validator.js` enumerate the second and both subject packs respectively.
+- Ten distinct mastery topics, 200 draft items total (40 Latin, 40 French, 40 Biology, 40 Chemistry, 40 Physics); see `MASTERY_BANK_BATCH2_QA.md`.
+- `tests/mastery-batch2.test.js` includes 10 content/uniqueness/certification and five-day-depletion tests; 10/10 passed in V8 harness.
+- No drafts are loaded by the live catalog nor accepted by real Daily without valid signed independent curriculum review and source fingerprints.
