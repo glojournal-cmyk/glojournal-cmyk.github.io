@@ -65,10 +65,23 @@ function mergeSnapshot(live,stored,archived){
    (Number(t.target)>0&&Number(t.progress)>=Number(t.target))}));
  if(active.length===10){
    const previous=merged.dailyLog?.[live.today]||{};
-   const done=countDone(active);
+   // Today's Home state may temporarily lag behind a saved dated receipt.
+   // Never erase an independently saved higher score during export. Keep
+   // today's live assignments, but retain verified older dated progress.
+   const datedById=new Map((Array.isArray(previous.tasks)?previous.tasks:[])
+     .filter(t=>t?.id).map(t=>[t.id,t]));
+   const datedTasks=active.map(task=>{
+     const old=datedById.get(task.id);
+     if(!old || Number(old.target)!==Number(task.target) ||
+        (old.planDate && old.planDate!==live.today)) return task;
+     const progress=Math.max(Number(task.progress)||0,Number(old.progress)||0);
+     return {...task,progress,done:task.done===true||old.done===true||
+       (Number(task.target)>0&&progress>=Number(task.target))};
+   });
+   const done=countDone(datedTasks);
    merged.dailyLog={...merged.dailyLog,
-     [live.today]:{...previous,date:live.today,tasks:active,
-       done,total:active.length,complete:done===active.length}};
+     [live.today]:{...previous,date:live.today,tasks:datedTasks,
+       done,total:datedTasks.length,complete:done===datedTasks.length}};
  }
  return merged;
 }
