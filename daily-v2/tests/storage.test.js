@@ -115,3 +115,19 @@ test('lying answer adapter is caught, no success receipt is issued',async()=>{
  const repo={async read(k){return live.read(k);},async compareAndSwap(){return true;}};
  await assert.rejects(()=>commitDailyV2Answer(repo,answer()),/ANSWER_SAVE_NOT_VERIFIED/);
 });
+
+test('forged full-length plan with incorrect task target is rejected',async()=>{
+ const repo=createMemoryDailyV2Repository(),p=plan();
+ p.tasks[0].target=29;p.tasks[0].questions.pop();
+ await assert.rejects(()=>commitDailyV2Plan(repo,p),/invalid task identity, kind or target/);
+});
+test('two different assignments claiming same task ID are rejected',async()=>{
+ const repo=createMemoryDailyV2Repository(),p=plan();
+ p.tasks[1].id=p.tasks[0].id;
+ await assert.rejects(()=>commitDailyV2Plan(repo,p),/invalid task identity, kind or target/);
+});
+test('plan with nominal 163 target but repeated question ID is rejected',async()=>{
+ const repo=createMemoryDailyV2Repository(),p=plan();
+ p.tasks[1].questions[0].questionId=p.tasks[0].questions[0].questionId;
+ await assert.rejects(()=>commitDailyV2Plan(repo,p),/duplicated locked question/);
+});
