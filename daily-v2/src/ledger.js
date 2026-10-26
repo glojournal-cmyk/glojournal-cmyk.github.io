@@ -14,7 +14,16 @@ export function makeDailyV2Ledger(day, legacyBaselines={}){
     dailyV2Require(taskId.length>0,"baseline task ID required");
     dailyV2Require(Number.isInteger(v?.count)&&v.count>=0,"baseline count invalid");
     dailyV2Require(Array.isArray(v?.knownKeys),"baseline knownKeys array required");
-    baseline[taskId]={count:v.count,knownKeys:[...new Set(v.knownKeys.map(String))]};
+    const knownKeys=[...new Set(v.knownKeys.map(String))];
+    const potentialLegacyKeys=Array.isArray(v.potentialLegacyKeys)?
+      [...new Set(v.potentialLegacyKeys.map(String))]:[];
+    const trusted=v.potentialKeysVerified===true &&
+      typeof v.potentialKeysSource==='string'&&v.potentialKeysSource.length>0;
+    dailyV2Require(!trusted || (potentialLegacyKeys.length>=v.count &&
+      knownKeys.every(k=>potentialLegacyKeys.includes(k))),
+      "verified potential legacy keys must cover the historical credit count and known keys");
+    baseline[taskId]={count:v.count,knownKeys,potentialLegacyKeys,
+      potentialKeysVerified:trusted,potentialKeysSource:trusted?v.potentialKeysSource:null};
   }
   return {version:2,day:String(day),attempts:[],legacyBaselines:baseline};
 }
@@ -51,6 +60,9 @@ export function summarizeDailyV2Task(ledger,task){
   const b=ledger.legacyBaselines?.[task.id]||{count:0,knownKeys:[]};
   const oldKeys=new Set(b.knownKeys);
   const opaque=b.count>oldKeys.size;
+  const possibleOldKeys=new Set(b.potentialLegacyKeys||[]);
+  const trustedOldUniverse=b.potentialKeysVerified===true&&possibleOldKeys.size>=b.count&&
+    [...oldKeys].every(k=>possibleOldKeys.has(k));
   const fresh=new Set(),seen=new Set();
   let examEarned=0,examPossible=0;
   for(const a of ledger.attempts){
@@ -64,14 +76,22 @@ export function summarizeDailyV2Task(ledger,task){
       if(!oldKeys.has(key))fresh.add(key);
     }else if(a.correct&&!oldKeys.has(key))fresh.add(key);
   }
-  const verifiedProgress=Math.min(task.target,b.count+(opaque?0:fresh.size));
+  // Opaque old credits can progress ONLY when an independently VERIFIED
+  // superset of all potentially credited legacy keys is available. Any new
+  // key outside that superset is provably distinct; never infer the missing
+  // old correct identities themselves.
+  const newVerified=[...fresh].filter(k=>!opaque||(trustedOldUniverse&&!possibleOldKeys.has(k)));
+  const unverifiedCount=fresh.size-newVerified.length;
+  const verifiedProgress=Math.min(task.target,b.count+newVerified.length);
   return {
     taskId:task.id,target:task.target,verifiedProgress,
     complete:verifiedProgress===task.target,
     newDistinctCredits:fresh.size,
     legacyCredits:b.count,
     requiresLegacyReconciliation:opaque,
-    pendingUnreconciledCredits:opaque?fresh.size:0,
+    trustedLegacyExclusionUniverse:trustedOldUniverse,
+    newVerifiedDistinctCredits:newVerified.length,
+    pendingUnreconciledCredits:unverifiedCount,
     examMarks:task.kind==="exam"?{earned:examEarned,possible:examPossible}:null
   };
 }
