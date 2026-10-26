@@ -16,6 +16,7 @@ function inspect(name, oldCount, n, expectedFormats) {
   assert.ok(q.id&&q.conceptId&&q.prompt&&q.answer,'incomplete question: '+q.id);
   if(q.format==='mark_points'){
    assert.equal(q.answer.totalMarks,q.answer.markPoints.length,q.id);
+   assert.ok(q.answer.markPoints.every(x=>typeof x==='string'&&x.trim()),'mark scheme must match live string-array scorer: '+q.id);
    assert.equal(q.answer.manualReviewFallback,true,q.id);
   }else if(q.format!=='mc_single')assert.ok(q.answer.accepted?.length,q.id);
  }
