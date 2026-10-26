@@ -17,12 +17,14 @@ test('same-day two 15-question tasks cannot double claim one 20-question topic',
  const t=[task('a',questions,15,'standard'),task('b',questions,15,'standard')];
  const r=diagnoseDailyCapacity(t,{today:day},day);
  assert.equal(r.requested,30);assert.equal(r.assigned,20);assert.equal(r.shortfall,10);
- assert.equal(new Set(r.assigned.flatMap(row=>row.questionIds)).size,20);
+ assert.equal(new Set(r.assignments.flatMap(row=>row.questionIds)).size,20);
 });
 test('retention with zero historical questions never silently becomes new-questions practice',()=>{
  const qs=read('bio-y8-continuous-variation').questions;
  const r=diagnoseTaskQuestionEligibility(task('retention',qs,10,'retention'),qs,{today:day},day);
- assert.equal(r.eligible,0);assert.equal(r.shortage,10);assert.equal(r.reasons.no_prior_attempt,20);
+ assert.equal(r.eligible,0);assert.equal(r.shortage,10);
+ assert.equal(r.reasons.no_prior_attempt,19); // One enabled bank question is deliberately formal:false.
+ assert.equal(r.reasons.disabled_preview_or_informal,1);
 });
 test('retention admits ONLY previously marked questions from an earlier date',()=>{
  const qs=read('bio-y8-continuous-variation').questions;
