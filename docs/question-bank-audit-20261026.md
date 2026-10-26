@@ -80,3 +80,35 @@ Do not merge until academic and runtime QA have passed. Next work should target 
 The actual current `assets/quiz-session-rWAnuDVj.js` science rubric renderer uses `answer.markPoints.join('; ')` and passes each point as text to the matching function. Accordingly, all 17 newly authored `mark_points` questions in five improved topics were normalized to an **array of strings**, with `totalMarks` equal to string count. Tests now fail on object-shaped mark points. This addresses schema compatibility only; automatic semantic scoring of paraphrases must still be validated manually with correct and borderline wrong answers before merging.
 
 **Latest check:** five repaired files read back from GitHub, 47 new questions, all questions have unique IDs and answer keys; 17/17 supplemental `mark_points` rubrics are string arrays. This read-back is NOT a substitute for latest-head Actions passing.
+
+## Round 3 — six Year 8 Biology Mastery-size gaps closed on draft branch
+
+| Topic | Original | Added | New nominal total |
+|---|---:|---:|---:|
+| DNA Structure | 18 | 2 | 20 |
+| Fats & Cholesterol | 19 | 1 | 20 |
+| Genetic Disorders | 15 | 5 | 20 |
+| Nutrition Labels | 16 | 4 | 20 |
+| Practical Conclusions | 16 | 4 | 20 |
+| Punnett Squares | 17 | 3 | 20 |
+
+**Round 3 new = 19 questions; rounds 1–3 total = 66 new questions across 11 topic files.** Original question objects and IDs remain byte-for-byte equivalent after parsing. Manual read-back structural QA has found no duplicate IDs, missing answer objects, bad supplemental mark-point arrays, or incorrect automatic numeric mark counts for the 11 changed files. Automated GitHub Actions on the latest head must still independently pass.
+
+The six previously undersized topics now each meet the existing **nominal** 20-question Mastery gate, but a new mastery session can still have fewer than 20 eligible questions once history and overlap exclusions apply. **Do not claim these topics are daily-ready until the global eligibility preflight passes with learner-specific history.**
+
+### Scoring contract correction
+- All newly authored `mark_points` questions use `answer.markPoints` as **plain strings**, not objects, consistent with the live quiz grader's assumption.
+- Six earlier BER numeric questions were corrected from `totalMarks=2` to `totalMarks=1`: the current automatic numerical scorer awards final-answer credit as one mark, not method marks. New nutrition-label numeric questions follow the same rule. GCSE multi-mark calculation scoring remains a separate development requirement.
+- Correct long-answer synonyms and borderline wrong answers have **not** yet been browser-tested. Structural mark-schema QA must never be described as verified semantic marking.
+
+### Mastery headroom reporting
+The read-only audit now reports whether a nominally Mastery-eligible topic has five or ten additional enabled questions beyond the 20-slot quota (`>=25` or `>=30`). These are **synthetic stock scenarios only**; real eligibility also depends on student history, due dates, currently taught topics, IDs and conceptual overlap. At exactly 20 enabled questions there is no capacity reserve.
+
+### Work remaining in priority order
+1. Run latest-head GitHub Actions (all round-one, -two, -three, allocation and eligibility suites) and respond to actual failures.
+2. Rank all remaining blocked/marginal topics by current taught and daily-assignment frequency; do not indiscriminately pad banks that aren't in the learner's curriculum.
+3. Validate actual grading of new short-, long- and numeric-answer questions with plausible paraphrases and mistakes; ensure semantically correct responses do not fail due to strict matching.
+4. Develop genuine daily 1-, 2-, 3-mark GCSE bank, with validated source and paper board mapping, then build 163-slot plan allocation; no live deployment until accepted.
+5. Model 30 days with genuine or sanitised state, iPad persistence/recovery and idempotent scoring before merging.
+
+**Safety:** Draft PR #172 remains unmerged. No production `main` code, live data, student answers, XP or deployment modified.
