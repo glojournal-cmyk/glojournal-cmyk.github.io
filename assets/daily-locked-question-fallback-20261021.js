@@ -36,7 +36,7 @@ export function fillDailyLockedQuestions(fresh,loaded,options,rank,progression){
  }
  const bank=(Array.isArray(loaded)?loaded:[]).filter(q=>available(q)&&!used.has(String(q.id)));
  const ordered=[...bank.filter(q=>q.topicId===topicId),...bank.filter(q=>q.topicId!==topicId)];
- const ranked=rank(ordered,subject,ordered.length);
+ const ranked=rank(ordered,subject,Math.min(ordered.length,Math.max(limit,limit*3)));
  const extra=progression(ranked,mode,limit);
  for(const q of [...extra,...ordered]){
   if(result.length>=limit)break;

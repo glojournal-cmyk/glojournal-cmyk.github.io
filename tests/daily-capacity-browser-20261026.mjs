@@ -3,7 +3,8 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const browser=await (process.env.BROWSER==='webkit'?webkit:chromium).launch({headless:true});const page=await browser.newPage({viewport:{width:834,height:1194},isMobile:true,hasTouch:true});
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
-await page.goto('http://127.0.0.1:8765/');await page.waitForTimeout(2000);
+await page.goto('http://127.0.0.1:8765/',{waitUntil:'domcontentloaded'});await page.waitForTimeout(2000);
+const watchdog=setTimeout(()=>{console.error('Browser capacity check timed out');process.exit(1)},240000);
 const result=await page.evaluate(async()=>{
 const m=await import('/assets/index-BLVOhKhN.js?v=20261026-dailyweak1&ux=20261013-corrections2&uxfix=20261022-priority-ux1&capacity=20261026-v1');
 const {dailyTopicPool}=await import('/assets/daily-capacity-scope-20261026.js');
@@ -19,4 +20,4 @@ const selected=fillDailyLockedQuestions([],pool,options,m.rankAdaptiveQuestions,
 const depleted=fillDailyLockedQuestions([],pool,{...options,correctIds:new Set(own.map(q=>q.id))},m.rankAdaptiveQuestions,(x,mode,n)=>x.slice(0,n));
 return {id:t.topicId,subject:t.subject,own:own.length,related:pool.length,selected:selected.length,afterOwnExhausted:depleted.length};
 });return {rows,daily:m.C.getState().daily};
-});fs.writeFileSync(`qa/runtime-capacity-${process.env.BROWSER||'chromium'}.json`,JSON.stringify({...result,errors},null,2));console.log(JSON.stringify({short:result.rows.filter(x=>x.selected<20),depletedShort:result.rows.filter(x=>x.afterOwnExhausted<20),errors},null,2));await page.screenshot({path:`qa/daily-capacity-${process.env.BROWSER||'chromium'}.png`,fullPage:true});await browser.close();assert.deepEqual(result.rows.filter(x=>x.selected<20),[]);assert.deepEqual(errors,[]);
+});fs.writeFileSync(`qa/runtime-capacity-${process.env.BROWSER||'chromium'}.json`,JSON.stringify({...result,errors},null,2));console.log(JSON.stringify({short:result.rows.filter(x=>x.selected<20),depletedShort:result.rows.filter(x=>x.afterOwnExhausted<20),errors},null,2));await page.screenshot({path:`qa/daily-capacity-${process.env.BROWSER||'chromium'}.png`,fullPage:true});await browser.close();clearTimeout(watchdog);assert.deepEqual(result.rows.filter(x=>x.selected<20),[]);assert.deepEqual(errors,[]);

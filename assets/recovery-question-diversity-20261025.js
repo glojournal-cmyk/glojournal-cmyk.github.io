@@ -84,7 +84,7 @@ export function selectDiverseRecoveryQuestions(fresh,loaded,options={},rank,prog
  // Mistake/due review may only draw from its specifically assigned pool.
  const candidates=selectUnique(review?current:bank);
  if(!candidates.length)return selectUnique(current).slice(0,limit);
- const ranked=selectUnique(typeof rank==='function'?rank(candidates,subject,candidates.length):candidates);
+ const ranked=selectUnique(typeof rank==='function'?rank(candidates,subject,Math.min(candidates.length,Math.max(60,limit*3))):candidates);
  // Independent, non-overlapping portions of one subject/topic bank for
  // same-day Recovery assignments; prevents overlap even BEFORE first answer.
  const assignments=(state.dailyLog?.[date]?.tasks||[]).filter(t=>

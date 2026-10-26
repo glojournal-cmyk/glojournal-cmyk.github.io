@@ -11,7 +11,7 @@ const school=JSON.parse(gunzipSync(Buffer.from(Array.from({length:12},(_,i)=>fs.
 const delta=JSON.parse(fs.readFileSync('content/school-update-20260926/delta.json'));
 const banks=new Map(catalog.topics.map(t=>{try{return[t.topicId,JSON.parse(fs.readFileSync(`content/topics/${t.topicId}.json`)).questions||[]]}catch{return[t.topicId,[]]}}));
 for(const t of school.t)banks.set(t.id,t.q.map(q=>({id:q.i,topicId:t.id,subject:t.s,year:t.y,format:q.f,prompt:q.p,answer:q.a,stimulus:q.s||{},status:'enabled'})));
-for(const t of delta.topics||[])banks.set(t.topicId,t.questions||[]);
+for(const t of delta.topics||[])banks.set(t.topicId,[...(banks.get(t.topicId)||[]),...(t.questions||[])]);
 const valid=q=>q?.id&&q.prompt&&q.answer&&q.formal!==false&&!q._repair&&!['disabled','preview'].includes(q.status);
 for(const [id,qs] of banks)banks.set(id,extendDailyCapacity(qs).filter(valid));
 const choose=(pool,topic,size=20,correctIds=[])=>fillDailyLockedQuestions([],pool,{locked:true,mode:'mastery',topicId:topic,size,correctIds},x=>x,(x,m,n)=>x.slice(0,n));
@@ -57,3 +57,15 @@ test('50 original supplements have stable unique IDs and usable answer keys',()=
  for(const q of dailySupplement){assert.ok(valid(q));assert.ok(q.answer.accepted.length);assert.equal(q.year,9);}
 });
 test.after(()=>{if(process.env.CAPACITY_REPORT)fs.writeFileSync(process.env.CAPACITY_REPORT,JSON.stringify(report,null,2));});
+
+if(process.env.PROGRESS_BACKUP)test('Saved learner assignments retain enough uncredited questions',()=>{
+ const state=JSON.parse(fs.readFileSync(process.env.PROGRESS_BACKUP)).state;
+ const correct=new Set(Object.entries(state.seenCorrect||{}).filter(([,n])=>Number(n)>0).map(([id])=>id));
+ for(const task of state.daily.filter(t=>t.assignedTopic)){
+  const pool=dailyTopicPool(catalog.topics,task.assignedTopic).flatMap(t=>banks.get(t.topicId)||[]);
+  const need=Math.max(0,task.target-task.progress);
+  const selected=choose(pool,task.assignedTopic,need,correct);
+  console.log(JSON.stringify({task:task.id,need,available:choose(pool,task.assignedTopic,10000,correct).length}));
+  assert.equal(selected.length,need,task.id);
+ }
+});
