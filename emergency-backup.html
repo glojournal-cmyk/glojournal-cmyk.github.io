@@ -31,7 +31,13 @@ btn.addEventListener("click",async()=>{
  try{
    const data=await captureEmergencyRescue();
    const detail=JSON.parse(data),name=saveEmergencyRescue(data);
-   out.textContent="Emergency raw file created: "+name+
+   const manual=document.createElement("a");
+   manual.href=URL.createObjectURL(new Blob([data],{type:"application/json"}));
+   manual.download=name;manual.textContent="Tap here to download the emergency JSON again";
+   manual.className="button";
+   out.replaceChildren(manual,document.createElement("div"));
+   const summary=document.createElement("div");out.appendChild(summary);
+   summary.textContent="Emergency raw file prepared: "+name+
      "\nSaved local Scholar state: "+(detail.audit.hasPersistedScholarState?"yes":"not found")+
      "\nSaved answer journal entries: "+detail.audit.answerJournalCount+
      "\nPractice draft entries: "+detail.audit.practiceDraftCount+
