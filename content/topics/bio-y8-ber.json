@@ -401,17 +401,528 @@
       },
       "preview": false,
       "ordinary": true
+    },
+    {
+      "id": "bio-y8-ber-20261026-repair-01",
+      "conceptId": "bio-y8-concept-ber-application-01",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-ber",
+      "topic": "Basal energy requirement calculation",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "calculation",
+      "difficulty": 2,
+      "prompt": "A simplified school model uses daily BER = 5.4 × 24 × body mass (kg). Calculate daily BER for a fictional 40 kg case. Give kJ/day.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "numeric",
+        "totalMarks": 2,
+        "value": 5184.000000000001,
+        "tolerance": 0.1,
+        "units": [
+          "kJ/day",
+          "kJ per day",
+          "kJ day-1"
+        ],
+        "working": "5.4 × 24 × 40 = 5184 kJ/day",
+        "modelAnswer": "5184.000000000001 kJ/day"
+      },
+      "feedback": {
+        "short": "5.4 × 24 × 40 = 5184 kJ/day",
+        "steps": [
+          "Write the model relationship before substituting values.",
+          "5.4 × 24 × 40 = 5184 kJ/day",
+          "Add the correct unit."
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show method, substitution and final units."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "sourceBasis": "existing taught simplified 5.4 kJ kg-1 h-1 model",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-ber-20261026-repair-02",
+      "conceptId": "bio-y8-concept-ber-application-02",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-ber",
+      "topic": "Basal energy requirement calculation",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "calculation",
+      "difficulty": 2,
+      "prompt": "Using the same model, calculate daily BER for a fictional 60 kg case. Give kJ/day.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "numeric",
+        "totalMarks": 2,
+        "value": 7776.000000000002,
+        "tolerance": 0.1,
+        "units": [
+          "kJ/day",
+          "kJ per day",
+          "kJ day-1"
+        ],
+        "working": "5.4 × 24 × 60 = 7776 kJ/day",
+        "modelAnswer": "7776.000000000002 kJ/day"
+      },
+      "feedback": {
+        "short": "5.4 × 24 × 60 = 7776 kJ/day",
+        "steps": [
+          "Write the model relationship before substituting values.",
+          "5.4 × 24 × 60 = 7776 kJ/day",
+          "Add the correct unit."
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show method, substitution and final units."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "sourceBasis": "existing taught simplified 5.4 kJ kg-1 h-1 model",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-ber-20261026-repair-03",
+      "conceptId": "bio-y8-concept-ber-application-03",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-ber",
+      "topic": "Basal energy requirement calculation",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "calculation",
+      "difficulty": 3,
+      "prompt": "A model predicts a BER of 6480 kJ/day. Using 5.4 × 24 × body mass, calculate the mass used in the model, in kg.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "numeric",
+        "totalMarks": 2,
+        "value": 50,
+        "tolerance": 0.01,
+        "units": [
+          "kg",
+          "kilograms"
+        ],
+        "working": "6480 ÷ (5.4 × 24) = 50 kg",
+        "modelAnswer": "50 kg"
+      },
+      "feedback": {
+        "short": "6480 ÷ (5.4 × 24) = 50 kg",
+        "steps": [
+          "Write the model relationship before substituting values.",
+          "6480 ÷ (5.4 × 24) = 50 kg",
+          "Add the correct unit."
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show method, substitution and final units."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "sourceBasis": "existing taught simplified 5.4 kJ kg-1 h-1 model",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-ber-20261026-repair-04",
+      "conceptId": "bio-y8-concept-ber-application-04",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-ber",
+      "topic": "Basal energy requirement calculation",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "calculation",
+      "difficulty": 3,
+      "prompt": "Two fictional masses are 45 kg and 55 kg. By how many kJ/day do their calculated BER estimates differ? Use 5.4 × 24 × mass.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "numeric",
+        "totalMarks": 2,
+        "value": 1296.0000000000002,
+        "tolerance": 0.1,
+        "units": [
+          "kJ/day",
+          "kJ per day",
+          "kJ day-1"
+        ],
+        "working": "5.4 × 24 × (55 − 45) = 1296 kJ/day",
+        "modelAnswer": "1296.0000000000002 kJ/day"
+      },
+      "feedback": {
+        "short": "5.4 × 24 × (55 − 45) = 1296 kJ/day",
+        "steps": [
+          "Write the model relationship before substituting values.",
+          "5.4 × 24 × (55 − 45) = 1296 kJ/day",
+          "Add the correct unit."
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show method, substitution and final units."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "sourceBasis": "existing taught simplified 5.4 kJ kg-1 h-1 model",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-ber-20261026-repair-05",
+      "conceptId": "bio-y8-concept-ber-application-05",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-ber",
+      "topic": "Basal energy requirement calculation",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "calculation",
+      "difficulty": 3,
+      "prompt": "A model predicts 6480 kJ/day at rest for a fictional case. What is the model total for seven identical rest days, in kJ?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "numeric",
+        "totalMarks": 2,
+        "value": 45360,
+        "tolerance": 0.1,
+        "units": [
+          "kJ/day",
+          "kJ per day",
+          "kJ day-1"
+        ],
+        "working": "6480 × 7 = 45360 kJ",
+        "modelAnswer": "45360 kJ/day"
+      },
+      "feedback": {
+        "short": "6480 × 7 = 45360 kJ",
+        "steps": [
+          "Write the model relationship before substituting values.",
+          "6480 × 7 = 45360 kJ",
+          "Add the correct unit."
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show method, substitution and final units."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "sourceBasis": "existing taught simplified 5.4 kJ kg-1 h-1 model",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-ber-20261026-repair-06",
+      "conceptId": "bio-y8-concept-ber-application-06",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-ber",
+      "topic": "Basal energy requirement calculation",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "calculation",
+      "difficulty": 3,
+      "prompt": "A fictional person's predicted BER is 6480 kJ/day and a separate activity estimate is 1500 kJ/day. What is the combined daily estimate, in kJ/day?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "numeric",
+        "totalMarks": 2,
+        "value": 7980,
+        "tolerance": 0.1,
+        "units": [
+          "kJ/day",
+          "kJ per day",
+          "kJ day-1"
+        ],
+        "working": "6480 + 1500 = 7980 kJ/day",
+        "modelAnswer": "7980 kJ/day"
+      },
+      "feedback": {
+        "short": "6480 + 1500 = 7980 kJ/day",
+        "steps": [
+          "Write the model relationship before substituting values.",
+          "6480 + 1500 = 7980 kJ/day",
+          "Add the correct unit."
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show method, substitution and final units."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "sourceBasis": "existing taught simplified 5.4 kJ kg-1 h-1 model",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-ber-20261026-repair-07",
+      "conceptId": "bio-y8-concept-ber-application-07",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-ber",
+      "topic": "Basal energy requirement calculation",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "Explain why BER is not the same as a person's total daily energy requirement. (3 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 3,
+        "markPoints": [
+          {
+            "id": "mp1",
+            "text": "BER describes the estimated energy used by essential body functions at rest."
+          },
+          {
+            "id": "mp2",
+            "text": "Physical activity requires additional energy."
+          },
+          {
+            "id": "mp3",
+            "text": "Growth and other body demands can require additional energy."
+          }
+        ],
+        "modelAnswer": "BER describes the estimated energy used by essential body functions at rest. Physical activity requires additional energy. Growth and other body demands can require additional energy.",
+        "scoring": "criterion_checklist",
+        "manualReviewFallback": true
+      },
+      "feedback": {
+        "short": "Do not present an estimated basal requirement as total daily energy need.",
+        "steps": [
+          "BER describes the estimated energy used by essential body functions at rest.",
+          "Physical activity requires additional energy.",
+          "Growth and other body demands can require additional energy."
+        ]
+      },
+      "task": {
+        "label": "EVALUATE / EXPLAIN",
+        "instruction": "Credit one distinct correct scientific point per rubric item."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "sourceBasis": "existing Year8 BER teaching note",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-ber-20261026-repair-08",
+      "conceptId": "bio-y8-concept-ber-application-08",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-ber",
+      "topic": "Basal energy requirement calculation",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "Using the formula BER = 5.4 kJ kg⁻¹ h⁻¹ × 24 h × mass (kg), explain why the predicted daily result is in kJ. (3 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 3,
+        "markPoints": [
+          {
+            "id": "mp1",
+            "text": "The rate factor includes kJ per kg per hour."
+          },
+          {
+            "id": "mp2",
+            "text": "Multiplying by 24 hours cancels the per-hour unit."
+          },
+          {
+            "id": "mp3",
+            "text": "Multiplying by body mass in kilograms cancels the per-kilogram unit, leaving kJ for one day."
+          }
+        ],
+        "modelAnswer": "The rate factor includes kJ per kg per hour. Multiplying by 24 hours cancels the per-hour unit. Multiplying by body mass in kilograms cancels the per-kilogram unit, leaving kJ for one day.",
+        "scoring": "criterion_checklist",
+        "manualReviewFallback": true
+      },
+      "feedback": {
+        "short": "Explain cancellation of hours and kilograms.",
+        "steps": [
+          "The rate factor includes kJ per kg per hour.",
+          "Multiplying by 24 hours cancels the per-hour unit.",
+          "Multiplying by body mass in kilograms cancels the per-kilogram unit, leaving kJ for one day."
+        ]
+      },
+      "task": {
+        "label": "EVALUATE / EXPLAIN",
+        "instruction": "Credit one distinct correct scientific point per rubric item."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "sourceBasis": "existing Year8 BER teaching note",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-ber-20261026-repair-09",
+      "conceptId": "bio-y8-concept-ber-application-09",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-ber",
+      "topic": "Basal energy requirement calculation",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "A table gives model daily BERs of 5184 kJ at 40 kg and 7776 kJ at 60 kg. State the relationship, calculate how much higher the 60 kg estimate is, and give one limitation of the model. (3 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 3,
+        "markPoints": [
+          {
+            "id": "mp1",
+            "text": "In the simplified model, predicted BER increases with mass."
+          },
+          {
+            "id": "mp2",
+            "text": "7776 − 5184 = 2592 kJ/day."
+          },
+          {
+            "id": "mp3",
+            "text": "A single simplified rate does not account for individual variation or activity/growth when estimating total needs."
+          }
+        ],
+        "modelAnswer": "In the simplified model, predicted BER increases with mass. 7776 − 5184 = 2592 kJ/day. A single simplified rate does not account for individual variation or activity/growth when estimating total needs.",
+        "scoring": "criterion_checklist",
+        "manualReviewFallback": true
+      },
+      "feedback": {
+        "short": "Use differences rather than a vague statement that 'energy rises'.",
+        "steps": [
+          "In the simplified model, predicted BER increases with mass.",
+          "7776 − 5184 = 2592 kJ/day.",
+          "A single simplified rate does not account for individual variation or activity/growth when estimating total needs."
+        ]
+      },
+      "task": {
+        "label": "EVALUATE / EXPLAIN",
+        "instruction": "Credit one distinct correct scientific point per rubric item."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "sourceBasis": "existing Year8 BER teaching note",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-ber-20261026-repair-10",
+      "conceptId": "bio-y8-concept-ber-application-10",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-ber",
+      "topic": "Basal energy requirement calculation",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 4,
+      "prompt": "A pupil claims that two people with the same mass must have exactly the same real daily energy needs because their simplified BER estimate is equal. Evaluate this conclusion. (3 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 3,
+        "markPoints": [
+          {
+            "id": "mp1",
+            "text": "The given school formula predicts the same BER for equal masses."
+          },
+          {
+            "id": "mp2",
+            "text": "Real individuals can differ in biological or other factors not captured by the simplified estimate."
+          },
+          {
+            "id": "mp3",
+            "text": "Total daily energy requirements also depend on activity and growth, so equal model BER does not imply equal total need."
+          }
+        ],
+        "modelAnswer": "The given school formula predicts the same BER for equal masses. Real individuals can differ in biological or other factors not captured by the simplified estimate. Total daily energy requirements also depend on activity and growth, so equal model BER does not imply equal total need.",
+        "scoring": "criterion_checklist",
+        "manualReviewFallback": true
+      },
+      "feedback": {
+        "short": "Separate what a simple formula predicts from what real people require.",
+        "steps": [
+          "The given school formula predicts the same BER for equal masses.",
+          "Real individuals can differ in biological or other factors not captured by the simplified estimate.",
+          "Total daily energy requirements also depend on activity and growth, so equal model BER does not imply equal total need."
+        ]
+      },
+      "task": {
+        "label": "EVALUATE / EXPLAIN",
+        "instruction": "Credit one distinct correct scientific point per rubric item."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-10-26",
+        "sourceBasis": "existing Year8 BER teaching note",
+        "publicationGate": "academic-review-required"
+      }
     }
   ],
-  "enabled": 10,
+  "enabled": 20,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 2,
     "typed_exact": 2,
-    "mark_points": 3,
+    "mark_points": 7,
     "matching": 1,
-    "calculation": 2
+    "calculation": 8
   },
   "gated": false,
   "note": {
@@ -420,7 +931,8 @@
     "learningGoals": [
       "Recall the precise Year 8 vocabulary for basal energy requirement calculation.",
       "Apply the knowledge rather than relying on recognition alone.",
-      "Use the command word and include every required scientific point."
+      "Use the command word and include every required scientific point.",
+      "Use the taught BER model for worked calculations, reverse calculations, comparisons and limitations."
     ],
     "mustMemoriseRules": [
       "Daily BER = 5.4 kJ kg-1 h-1 x 24 h x body mass (kg).",
