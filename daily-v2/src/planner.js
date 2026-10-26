@@ -96,8 +96,9 @@ export function planDailyV2(input={}) {
         masteryStages={},subjectExposure={},existingPlan=null}=input;
  if(!validDay(day))throw new Error('DailyV2: invalid plan date');
  if(existingPlan!==null){
-  if(existingPlan.version!==2||existingPlan.day!==day||existingPlan.status!=='ready'
-     ||!Array.isArray(existingPlan.tasks)||existingPlan.tasks.length!==DAILY_V2_TASKS.length){
+  if(existingPlan.version!==2||existingPlan.day!==day||!['ready','partial'].includes(existingPlan.status)
+     ||!Array.isArray(existingPlan.tasks)||
+     (existingPlan.status==='ready'&&existingPlan.tasks.length!==DAILY_V2_TASKS.length)){
    throw new Error('DailyV2: invalid frozen plan');
   }
   return existingPlan; // never silently reroll an in-progress plan
@@ -258,10 +259,26 @@ export function planDailyV2(input={}) {
  const countsValid=finalTasks.every(t=>t.questionIds.length===t.target);
  if(!countsValid)diagnostics.push({code:'PLAN_INVARIANT_FAILURE'});
  const blocked=diagnostics.length>0||finalTasks.length!==10||!countsValid;
+ // On shortage, keep the existing strict public contract: tasks=[] and
+ // status=blocked. A separate opt-in STAGING continuity layer can inspect
+ // safe complete task candidates without pretending 163/163 is available.
+ const globalErrors=diagnostics.filter(d=>!d.taskId);
+ const safeCandidates=blocked&&globalErrors.length===0&&countsValid?finalTasks:[];
+ const candidatesById=new Map(safeCandidates.map(t=>[t.id,t]));
+ const availability=DAILY_V2_TASKS.map(t=>({
+   taskId:t.id,target:t.target,
+   state:candidatesById.has(t.id)?'available':blocked?'unavailable':'available',
+   reasonCodes:diagnostics.filter(d=>d.taskId===t.id).map(d=>d.code)
+ }));
  return {version:2,day,status:blocked?'blocked':'ready',target:163,
-  tasks:blocked?[]:finalTasks,diagnostics,preflight:{
+  tasks:blocked?[]:finalTasks,
+  // Diagnostic candidates are never directly publishable or persistent.
+  eligibleTasks:blocked?safeCandidates:[],
+  availability,diagnostics,preflight:{
     validatedQuestions:questions.length,
-    plannedQuestions:blocked?0:finalTasks.reduce((s,t)=>s+t.questions.length,0),
+    plannedQuestions:blocked?0:finalTasks.reduce((n,t)=>n+t.questions.length,0),
+    eligibleQuestionCount:safeCandidates.reduce((n,t)=>n+t.questions.length,0),
+    globallyUnsafe:globalErrors.length>0,
     taskCount:blocked?0:finalTasks.length,
     unpublished:blocked
   }};
