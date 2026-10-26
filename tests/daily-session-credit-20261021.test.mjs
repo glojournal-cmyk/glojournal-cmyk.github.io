@@ -74,25 +74,33 @@ test('A session with no marked answers cannot generate completion',()=>{
  assert.equal(result.changed,false);
 });
 
-test('iPad loads refreshed Science Daily modules from active production route',()=>{
+test('iPad uses one current Home, Practice and Quiz bundle instead of stale version URLs',()=>{
  const file=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
- const practiceRelease='20261025-bio10-proof1';
- const practiceBundleRelease='20261025-empty-bank1';
- const coreRelease='20261025-bio10-proof1';
- const appEntryRelease='20261025-bio10-proof1';
- const creditRelease='20261025-bio10-proof1';
- assert.ok(file('assets/index-BLVOhKhN.js').includes('index-BLVOhKhN.core.js?v='+coreRelease));
- assert.ok(file('assets/index-BLVOhKhN.core.js').includes('study._subject.practise-D_PWgUd7.js?v='+practiceBundleRelease));
- assert.ok(file('assets/study._subject.practise-D_PWgUd7.js').includes('quiz-session-y8fix-20260920.js?v='+practiceRelease));
- assert.ok(file('assets/quiz-session-y8fix-20260920.js').includes('daily-session-credit-20261021.js?v='+creditRelease));
- assert.ok(file('assets/quiz-session-y8fix-20260920.js').includes('daily-completed-session-receipts-20261024.js?v=20261025-bio10-proof1'));
- assert.ok(file('index.html').includes('index-BLVOhKhN.js?v='+appEntryRelease));
- assert.ok(file('404.html').includes('index-BLVOhKhN.js?v='+appEntryRelease));
+ const getVersion=(content,filename)=>{
+   const escaped=filename.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+   const version=content.match(new RegExp(escaped+'\\?v=([a-zA-Z0-9-]+)'))?.[1];
+   assert.ok(version,filename+' must have a versioned import');
+   return version;
+ };
+ const html=file('index.html'),entry=getVersion(html,'index-BLVOhKhN.js');
+ const app=file('assets/index-BLVOhKhN.js');
+ const coreRelease=getVersion(app,'index-BLVOhKhN.core.js');
+ const core=file('assets/index-BLVOhKhN.core.js');
+ const practiceRelease=getVersion(core,'study._subject.practise-D_PWgUd7.js');
+ const practice=file('assets/study._subject.practise-D_PWgUd7.js');
+ const quizRelease=getVersion(practice,'quiz-session-y8fix-20260920.js');
+ const quiz=file('assets/quiz-session-y8fix-20260920.js');
+ const creditRelease=getVersion(quiz,'daily-session-credit-20261021.js');
+ assert.ok(coreRelease&&practiceRelease&&quizRelease&&creditRelease);
+ assert.ok(/daily-completed-session-receipts-20261024\\.js\\?v=/.test(quiz));
+ for(const page of ['index.html','404.html',
+   ...['latin','french','biology','chemistry','physics','english'].map(s=>'study/'+s+'/practise/index.html')]){
+   assert.ok(file(page).includes('index-BLVOhKhN.js?v='+entry),page+' must import canonical App');
+ }
  const biology=file('study/biology/practise/index.html');
- assert.ok(biology.includes('study._subject.practise-D_PWgUd7.js?v='+practiceBundleRelease));
- assert.ok(biology.includes('quiz-session-y8fix-20260920.js?v='+practiceRelease));
- for(const route of ['index.html',...['latin','french','biology','chemistry','physics','english'].map(s=>'study/'+s+'/practise/index.html')])
-   assert.ok(/index-BLVOhKhN\.js\?v=2026102[45]-[a-z0-9-]+/.test(file(route)),route);
+ assert.ok(biology.includes('study._subject.practise-D_PWgUd7.js?v='+practiceRelease));
+ assert.ok(biology.includes('quiz-session-y8fix-20260920.js?v='+quizRelease));
+ assert.ok(quiz.includes('daily-session-credit-20261021.js?v='+creditRelease));
 });
 
 test('20 marked Mastery quiz slots count 20/20 including a repeated question ID',()=>{
