@@ -9,6 +9,14 @@ export const MASTERY_DRAFT_FILES = Object.freeze([
  'chemistry-y8-formulae-equations.json',
  'physics-y8-speed-time.json'
 ]);
+export const MASTERY_BATCH_2_FILES = Object.freeze([
+ 'latin-y8-verb-tenses.json',
+ 'french-y8-reflexive-routines.json',
+ 'biology-y8-photosynthesis.json',
+ 'chemistry-y8-acids-neutralisation.json',
+ 'physics-y8-series-parallel.json'
+]);
+export const ALL_MASTERY_DRAFT_FILES = Object.freeze([...MASTERY_DRAFT_FILES,...MASTERY_BATCH_2_FILES]);
 const REQUIRED = Object.freeze({foundation:4,application:10,challenge:6});
 const FORMATS = new Set(['typed_short','mark_points','controlled_translation','calculation','extended_response']);
 const ok=s=>typeof s==='string'&&s.trim().length>0;
