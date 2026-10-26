@@ -122,3 +122,23 @@ A new **read-only, not imported by the production app** `src/lib/daily/mastery-c
 The inventory also now records **Mastery reserve scenarios**: how many topics can still offer a 20-slot assignment after hypothetical five or ten prior correctly answered questions. Do not describe these static scenarios as the learner's real state or as results of the 30-day simulation.
 
 **P0/P1 cumulative summary:** Eleven original topic files each now contain 20 enabled questions, 66 added in total; the user's progress database and the live website remain unchanged. This is *initial structural capacity*, **not** a guarantee of all ten 163-question Daily tasks. The GCSE 1/2/3 mark bank, full Daily task migration, student-state 30-day test, semantic grading and iPad acceptance remain uncompleted. Keep PR #172 in draft.
+
+
+## Round 5 — iPad regression integration and real 5-answer Mastery reserve (26 October 2026)
+
+**Isolated draft integration:** PR #171's Safari/Vocab/backup module fixes were combined with the question-bank-only audit branch using a two-parent commit, leaving production `main` untouched. Earlier merged-tree verification compared the actual Git blobs: all 145 PR #171 modified files were retained and all 23 question-bank audit files were carried over. Do not describe this as live iPad acceptance or deployment. Full-head CI must pass independently.
+
+**Targeted Biology reserve improvement (authored, not published):**
+
+| Year 8 topic | Earlier nominal count | Informal diagram items | Added new applied tasks | New nominal | Formally eligible before past answers | Formally eligible after five distinct correct answers |
+|---|---:|---:|---:|---:|---:|---:|
+| DNA Structure | 20 | 2 | 7 | 27 | 25 | 20 |
+| Punnett Squares | 20 | 1 | 6 | 26 | 25 | 20 |
+
+New tasks cover complementary DNA sequences, base-pair / nucleotide quantities, karyograms, mutation, gene–chromosome distinction, Punnett genotype/phenotype probabilities, independent offspring events and evidence-based two-mark explanations. DNA teaching notes were amended to explicitly include the complementary pairing rules used by the new problems. Each question retains its independently identified answer, detailed feedback and `origin.reviewStatus=requires-academic-and-grading-QA`; no prior question ID, question object or student data was altered. The informal diagram items **remain informal** and do not count as Mastery capacity.
+
+**Read-back static QA:** the two revised files contain 25 formally eligible questions each, no duplicate IDs, no identical prompt/stimulus/format fingerprints, and no shared question-family reservations. Both support 20 unanswered formal question IDs in a synthetic scenario with five earlier verified correct answers. This is NOT a guarantee that real Student Daily Mastery will find 20 questions: taught-state, dated attempts, prior successes, review intervals, same-day reservations across all ten tasks and marking compatibility remain release gates.
+
+**Cumulative question additions:** earlier rounds +66 across eleven files; this round +13 across DNA and Punnett; **+79 newly authored questions in eleven touched topic files**. Two topics now exceed 20 nominal entries rather than exactly 20. The old inventory baseline remains a historical snapshot, not a description of this branch's present learner-ready capacity.
+
+**Latest test requirements:** updated `tests/question-bank-capacity-round3-20261026.test.mjs` checks original-item preservation, correct handling of informal diagram questions, +7/+6 reserve entries, their answer schema, and the exact 25 → 20 synthetic Mastery availability scenario. Follow-up Actions must independently pass. No live Daily/XP/Recovery system rewrite was performed; the 163-slot proposal and full 30-day learner-state replay remain pending, as does real-browser grading acceptance.
