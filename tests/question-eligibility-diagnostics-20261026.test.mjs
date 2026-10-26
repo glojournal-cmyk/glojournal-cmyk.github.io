@@ -50,3 +50,26 @@ test('GCSE one-, two-, three-mark candidate counts show explicit missing tiers',
  assert.equal(report.rows[0].eligible,0);assert.equal(report.rows[1].eligible,0);
  assert.ok(report.rows[2].eligible>0);assert.equal(report.shortfall,2);
 });
+
+test('correct answers cannot be reallocated to make two partly completed Standard tasks look finished',()=>{
+ const qs=read('bio-y8-correlation').questions;
+ const formal=qs.filter(q=>q.status==='enabled'&&q.formal!==false&&!q._repair);
+ const solved=Object.fromEntries(formal.slice(0,8).map(q=>[q.id,1]));
+ const tasks=[task('standard-one',qs,10,'standard'),task('standard-two',qs,10,'standard')];
+ const r=diagnoseDailyCapacity(tasks,{today:day,seenCorrect:solved},day);
+ assert.equal(r.requested,20);
+ assert.equal(r.assigned,formal.length-8);
+ assert.equal(r.shortfall,20-(formal.length-8));
+ assert.ok(r.rows.every(row=>row.allocatedShortfall>=0));
+ const credited=new Set(Object.keys(solved));
+ assert.ok(r.assignments.flatMap(row=>row.questionIds).every(id=>!credited.has(id)));
+ assert.equal(new Set(r.assignments.flatMap(row=>row.questionIds)).size,r.assigned);
+});
+test('no previously correct questions are resurrected after a fresh bank is exhausted',()=>{
+ const qs=read('bio-y8-ber').questions;
+ const solved=Object.fromEntries(qs.map(q=>[q.id,1]));
+ const r=diagnoseDailyCapacity([task('mastery',qs,20) ],{today:day,seenCorrect:solved},day);
+ assert.equal(r.status,'PARTIAL_READY');
+ assert.equal(r.assigned,0);assert.equal(r.shortfall,20);
+ assert.deepEqual(r.assignments[0].questionIds,[]);
+});
