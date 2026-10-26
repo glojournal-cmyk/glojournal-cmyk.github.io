@@ -136,5 +136,5 @@ test('Unfinished Daily fallback cannot resurrect globally correct items when its
 test('Depleted Daily banks never silently shrink targets to award artificial completion',()=>{
  const source=readFileSync(new URL('../assets/study._subject.practise-y8fix-20260920.js',import.meta.url),'utf8');
  assert.doesNotMatch(source,/target:progress,progress,done:true,cappedBecauseQuestionBankExhausted/);
- assert.match(source,/sessionItems.length===0/);
+ assert.match(source,/An exhausted bank is NOT a passed task/);
 });
