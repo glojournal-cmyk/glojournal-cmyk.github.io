@@ -15,7 +15,7 @@ import "./journey-navigation-20261004.js?v=20261024-latin-ipad-date2&ux=20261013
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
 import("/pet/pet-care-global.js?v=20261011-storage-qa1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261025-scorefix3&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+export * from "./index-BLVOhKhN.core.js?v=20261026-festival-xp2";
 import {
   C as store,
   A as medicalOutfitCatalog,
@@ -31,54 +31,38 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261025-scorefix3&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+} from "./index-BLVOhKhN.core.js?v=20261026-festival-xp2";
 
-// festival-mastery-after-medical-v1: only genuine cumulative Mastered topics count.
-// An earlier release auto-granted all Festival items. On first load this migration
-// keeps Halloween and already equipped looks/scenes without deleting academic records;
-// other old freebie flags become real 110..190 cumulative Mastery rewards.
+// festival-xp-rewards-v2: Halloween free, nine paired XP rewards.
+// Migrate auto-granted Festival items without changing XP, study or mastery history.
 const festivalLooks=medicalOutfitCatalog.filter(o=>o.category==="Festival");
 const festivalScenes=rewardScenes.filter(o=>o.category==="Festival" && o.id.startsWith("festival-scene-"));
-function syncMasteryCollections(){
+let syncingFestivalXP=false;
+function syncFestivalXPCollections(){
+ if(syncingFestivalXP)return;
  const state=store.getState();
- const count=Object.values(state.topicStats||{}).filter(t=>t?.state==="mastered").length;
- const wasMigrated=state.festivalMasteryGateV1===true;
+ const currentXP=Math.max(0,Number(state.xp)||0);
+ const wasMigrated=state.festivalXPRewardsV2===true;
  const oldLooks=Array.isArray(state.unlockedOutfits)?state.unlockedOutfits:["day"];
  const oldScenes=Array.isArray(state.unlockedScenes)?state.unlockedScenes:[];
- const festivalLookIds=new Set(festivalLooks.map(o=>o.id));
- const festivalSceneIds=new Set(festivalScenes.map(o=>o.id));
- // Once migration is recorded, an earned item stays earned even if a
- // later topic status changes temporarily. This does not award new Mastery.
- const ownedLooks=oldLooks.filter(id=>wasMigrated || !festivalLookIds.has(id) ||
-    id==="festival-halloween" || id===state.equippedOutfit);
- const ownedScenes=oldScenes.filter(id=>wasMigrated || !festivalSceneIds.has(id) ||
-    id==="festival-scene-halloween" || id===state.equippedScene);
- const earnedLooks=medicalOutfitCatalog.filter(o=>
-    (o.category==="Medical" || o.category==="Festival") &&
-    (o.needIf?.masteredTopics??Infinity)<=count).map(o=>o.id);
- const earnedScenes=festivalScenes.filter(o=>
-    (o.needIf?.masteredTopics??Infinity)<=count).map(o=>o.id);
- const outfits=[...new Set([...ownedLooks,"festival-halloween",...earnedLooks])];
- const scenes=[...new Set([...ownedScenes,"festival-scene-halloween",...earnedScenes])];
- const outfitsChanged=outfits.length!==oldLooks.length || outfits.some((id,i)=>oldLooks[i]!==id);
- const scenesChanged=scenes.length!==oldScenes.length || scenes.some((id,i)=>oldScenes[i]!==id);
- if(!wasMigrated || outfitsChanged || scenesChanged){
-    store.setState({unlockedOutfits:outfits,unlockedScenes:scenes,festivalMasteryGateV1:true});
- }
+ const lookIds=new Set(festivalLooks.map(o=>o.id));
+ const sceneIds=new Set(festivalScenes.map(o=>o.id));
+ const eligibleLooks=festivalLooks.filter(o=>o.free||(o.needIf?.xp??Infinity)<=currentXP).map(o=>o.id);
+ const eligibleScenes=festivalScenes.filter(o=>o.free||(o.needIf?.xp??Infinity)<=currentXP).map(o=>o.id);
+ // Only the current XP determines Festival ownership. Other earned rewards remain untouched.
+ const looks=[...new Set([...oldLooks.filter(id=>!lookIds.has(id)),...eligibleLooks])];
+ const scenes=[...new Set([...oldScenes.filter(id=>!sceneIds.has(id)),...eligibleScenes])];
+ const equippedOutfit=lookIds.has(state.equippedOutfit)&&!looks.includes(state.equippedOutfit)?"festival-halloween":state.equippedOutfit;
+ const equippedScene=sceneIds.has(state.equippedScene)&&!scenes.includes(state.equippedScene)?"festival-scene-halloween":state.equippedScene;
+ const changed=!wasMigrated||looks.length!==oldLooks.length||looks.some((id,i)=>id!==oldLooks[i])||scenes.length!==oldScenes.length||scenes.some((id,i)=>id!==oldScenes[i])||equippedOutfit!==state.equippedOutfit||equippedScene!==state.equippedScene;
+ if(changed){syncingFestivalXP=true;try{store.setState({unlockedOutfits:looks,unlockedScenes:scenes,equippedOutfit,equippedScene,festivalXPRewardsV2:true});}finally{syncingFestivalXP=false;}}
 }
 if(typeof window!=="undefined"){
  store.subscribe((next,prior)=>{
-   if(next.topicStats!==prior?.topicStats ||
-      next.unlockedOutfits!==prior?.unlockedOutfits ||
-      next.unlockedScenes!==prior?.unlockedScenes ||
-      next.equippedOutfit!==prior?.equippedOutfit ||
-      next.equippedScene!==prior?.equippedScene) syncMasteryCollections();
+   if(next.xp!==prior?.xp||next.unlockedOutfits!==prior?.unlockedOutfits||next.unlockedScenes!==prior?.unlockedScenes||next.equippedOutfit!==prior?.equippedOutfit||next.equippedScene!==prior?.equippedScene)syncFestivalXPCollections();
  });
- store.persist?.onFinishHydration?.(syncMasteryCollections);
- queueMicrotask(()=>{
-   // Never overwrite older persisted records with a pre-hydration migration.
-   if(store.persist?.hasHydrated?.()!==false)syncMasteryCollections();
- });
+ store.persist?.onFinishHydration?.(syncFestivalXPCollections);
+ queueMicrotask(()=>{if(store.persist?.hasHydrated?.()!==false)syncFestivalXPCollections();});
 }
 if(typeof window!=="undefined"){
  window.__luxStore=store;
