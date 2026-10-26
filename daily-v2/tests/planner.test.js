@@ -174,3 +174,24 @@ test('unused GCSE-labeled questions cannot leak into Science Standard',()=>{
  const r=planDailyV2(f);assert.equal(r.status,'blocked');
  assert.ok(r.diagnostics.some(x=>x.code==='STANDARD_BANK_OR_SKILL_SHORTAGE'));
 });
+
+test('Latin Standard may compose grammar, translation and passage from different taught topics',()=>{
+ const f=fixture();
+ for(const q of f.questionBank.filter(q=>q.roles.includes('latin-standard')))q.topicId='la-'+q.skill;
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready');
+ const latin=kinds(r).get('latin-standard');
+ assert.equal(latin.topicId,null);
+ assert.equal(latin.topicIds.length,3);
+ assert.equal(latin.questionIds.length,10);
+});
+test('French Standard may compose writing and translation across different taught topics',()=>{
+ const f=fixture();
+ for(const q of f.questionBank.filter(q=>q.roles.includes('french-standard')))q.topicId='fr-'+q.skill;
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready');
+ const french=kinds(r).get('french-standard');
+ assert.equal(french.topicId,null);
+ assert.equal(french.topicIds.length,3);
+ assert.equal(french.questionIds.length,10);
+});
