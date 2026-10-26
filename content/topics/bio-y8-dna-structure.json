@@ -950,7 +950,7 @@
       "ordinary": true,
       "format": "typed_equivalent",
       "difficulty": 3,
-      "prompt": "A human body-cell karyogram contains 22 pairs of autosomes and two sex chromosomes. How many chromosomes does the cell have in total?",
+      "prompt": "A karyogram from a typical human body cell contains 22 pairs of autosomes and two sex chromosomes. How many chromosomes does the cell have in total?",
       "stimulus": {
         "text": ""
       },
@@ -1170,7 +1170,8 @@
     "mustMemoriseRules": [
       "Nucleotide = sugar + phosphate + base.",
       "Homologous chromosomes carry the same types of genes at the same positions, one from each parent.",
-      "A karyogram arranges chromosomes by size and banding pattern."
+      "A karyogram arranges chromosomes by size and banding pattern.",
+      "Complementary DNA bases pair specifically: adenine with thymine and cytosine with guanine."
     ],
     "mustMemoriseVocabulary": [
       {
@@ -1238,7 +1239,8 @@
       "Use the structure hierarchy from nucleus to nucleotide.",
       "Use the command word and number of marks to decide how many distinct points are required.",
       "Use precise terminology and link cause to effect rather than listing disconnected facts.",
-      "For calculations, show the relationship, substitution, working and unit."
+      "For calculations, show the relationship, substitution, working and unit.",
+      "For base-pair questions, read the strands in the order shown; each paired position contributes two nucleotides."
     ],
     "quickCheck": [
       {
