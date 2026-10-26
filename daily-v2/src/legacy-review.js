@@ -47,6 +47,17 @@ export function reviewLegacyDailyV2Import({
   const keyField=kind==='vocab'?'verifiedCorrectConceptIds':'verifiedCorrectQuestionIds';
   const names=row[keyField];
   const keys=Array.isArray(names)?[...new Set(names.filter(s=>typeof s==='string'&&s.trim()).map(String))]:[];
+  // Optional read-only frozen-assignment evidence. For old vocab tasks, only
+  // concept identities (not question IDs) can prove a distinct new word.
+  const assignmentField=kind==='vocab'?'assignedVocabularyConceptIds':'assignedQuestionIds';
+  const originalAssignment=row[assignmentField];
+  const sourceVerified=row.assignmentEvidenceVerified===true&&
+    typeof row.assignmentEvidenceSource==='string'&&row.assignmentEvidenceSource.trim().length>0;
+  const possibleKeys=Array.isArray(originalAssignment)?
+    [...new Set(originalAssignment.filter(s=>typeof s==='string'&&s.trim()).map(String))]:[];
+  const possibleTrusted=sourceVerified&&possibleKeys.length>=count&&
+    keys.every(k=>possibleKeys.includes(k));
+  if(sourceVerified&&!possibleTrusted)issues.push({taskId:id,code:'INCOMPLETE_VERIFIED_ASSIGNMENT_UNIVERSE'});
   const t=targetByTask[id];
   if(t!==undefined&& (!Number.isInteger(t)||t<1||count>t)){
    issues.push({taskId:id,code:'COUNT_EXCEEDS_OR_INVALID_NEW_TARGET',count,target:t});continue;
@@ -56,8 +67,16 @@ export function reviewLegacyDailyV2Import({
    if(found.count!==count)issues.push({taskId:id,code:'DIVERGENT_LEGACY_COUNTERS',counts:[found.count,count]});
    found.count=Math.max(found.count,count);
    found.knownKeys=[...new Set([...found.knownKeys,...keys])];
+   found.potentialLegacyKeys=[...new Set([...found.potentialLegacyKeys,...possibleKeys])];
+   found.potentialKeysVerified=found.potentialKeysVerified&&possibleTrusted;
+   found.potentialKeysSource=found.potentialKeysSource===row.assignmentEvidenceSource?
+     found.potentialKeysSource:null;
    found.sourceRows++;
-  }else byTask.set(id,{count,knownKeys:keys,sourceRows:1});
+  }else byTask.set(id,{
+    count,knownKeys:keys,sourceRows:1,potentialLegacyKeys:possibleKeys,
+    potentialKeysVerified:possibleTrusted,
+    potentialKeysSource:possibleTrusted?row.assignmentEvidenceSource:null
+  });
   if(counts.some(x=>x.count!==count))issues.push({taskId:id,code:'LEGACY_SCORE_FIELD_DISAGREEMENT',counts});
  }
  const legacyBaselines={},reconciliation=[];
@@ -68,9 +87,17 @@ export function reviewLegacyDailyV2Import({
    // An impossible baseline must be investigated before import; no silent clamping.
    continue;
   }
-  legacyBaselines[id]={count:row.count,knownKeys:[...row.knownKeys]};
+  const trustedAssignment=row.potentialKeysVerified===true&&
+    typeof row.potentialKeysSource==='string'&&row.potentialLegacyKeys.length>=row.count&&
+    row.knownKeys.every(k=>row.potentialLegacyKeys.includes(k));
+  legacyBaselines[id]={count:row.count,knownKeys:[...row.knownKeys],
+    potentialLegacyKeys:trustedAssignment?[...row.potentialLegacyKeys]:[],
+    potentialKeysVerified:trustedAssignment,
+    potentialKeysSource:trustedAssignment?row.potentialKeysSource:null};
   reconciliation.push({taskId:id,count:row.count,knownIdentities:row.knownKeys.length,
-   opaque:row.count>row.knownKeys.length,unprovenIdentities:row.count-row.knownKeys.length});
+   opaque:row.count>row.knownKeys.length,
+   safePostLegacyCreditPossible:trustedAssignment,
+   unprovenIdentities:row.count-row.knownKeys.length});
  }
  return {
   status:issues.length||reconciliation.some(x=>x.opaque)?'requires-review':'ready-for-staging-import',
