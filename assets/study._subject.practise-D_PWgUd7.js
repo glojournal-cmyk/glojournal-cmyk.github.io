@@ -108,6 +108,7 @@ const sessionItems=dailyLocked&&sessionSnapshot.current?.key===sessionKey
   :!retryReady?[]:dailyLocked&&N===8?safeU.map(q=>({...q,_dailyYear8:!0})):safeU;
 
 (0,w.useEffect)(()=>{
+ if(E===`y8vocab`)return; // Never shrink a 30-word Vocab task to its partial score.
  if(!(dailyLocked&&retryReady&&!V&&W>0&&sessionItems.length===0&&z.length>0))return;
  const state=s.getState();
  const task=(state.daily||[]).find(item=>item.id===canonicalTask&&item.planDate===state.today);

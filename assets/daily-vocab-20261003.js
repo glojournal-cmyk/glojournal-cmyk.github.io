@@ -181,6 +181,15 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
     }
     for(const concept of successful)encounters.set(concept,(encounters.get(concept)||0)+1);
   }
+  // Modern Safari saves carry stable concept identities alongside question IDs.
+  // Resolve those identities directly so a different translation direction cannot
+  // accidentally bring an already-credited French word back into today's queue.
+  const todayRow=ledger?.[day]?.[subject]||{};
+  for(const [id,ok] of Object.entries(todayRow.items||{})){
+    if(!ok)continue;
+    const concept=todayRow.conceptByQuestion?.[id]||byId.get(id);
+    if(concept&&words.has(concept)){credited.add(concept);creditedQuestionIds.add(id);}
+  }
   // A completed *word*, not a direction-specific question, moves to the next
   // pass. Keep Year 7–8 and Year 9 as independent word-pool cycles.
   // seenCorrect is the existing persistent per-question correct count, so a
