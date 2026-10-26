@@ -81,7 +81,7 @@
   // controls; metadata attributes below are used only for CSS styling.
   function installMockupSkin() {
     const id='gloria-practice-final-skin';
-    const href='/assets/gloria-practice-mockup-final-20261024.css?v=20261024-est-focus12';
+    const href='/assets/gloria-practice-mockup-final-20261024.css?v=20261026-cue1';
     let link=document.getElementById(id);
     if(!link) {
       link=document.createElement('link');
@@ -352,7 +352,7 @@
     const scale=promptLen>140?'extended':promptLen>65?'long':'short';
     if(q.dataset.gloriaPromptScale!==scale)q.dataset.gloriaPromptScale=scale;
     if(card){
-      const label=[...card.children].find(x=>x!==prompt && x.matches?.('p') && (x.textContent||'').trim().length<72);
+      const label=[...card.children].find(x=>x!==prompt && x.matches?.('p') && (x.textContent||'').trim().length<72 && !(x.classList.contains('rounded-lg') && (String(x.className).includes('bg-sage')||String(x.className).includes('bg-sky'))));
       if(label&&!label.hasAttribute('data-gloria-question-label'))
         label.setAttribute('data-gloria-question-label','');
     }
@@ -377,6 +377,35 @@
     const isLanguageSubject=subject==='latin'||subject==='french';
     const isVocabLabel=(card?.querySelector('[data-gloria-question-label]')?.textContent||'').toLowerCase().includes('vocab');
     const lexicalContext=isLanguageSubject||isVocabLabel;
+    const fold=s=>(s||'').replace(/\s+/g,' ').trim();
+    const cueEl=[...(card?.children||[])].find(el=>
+      el!==prompt && el.matches?.('p') &&
+      el.classList.contains('rounded-lg') &&
+      (String(el.className).includes('bg-sage')||String(el.className).includes('bg-sky')) &&
+      fold(el.textContent).length>0
+    );
+    // A definition already printed inside the prompt must not stay a tiny
+    // caption under a giant duplicate. Attributes only; React text stays.
+    const applyRepeatedCue=()=>{
+      if(!prompt||!cueEl)return false;
+      const cueText=fold(cueEl.textContent).replace(/[.?!。？！:：]+$/u,'');
+      const folded=fold(prompt.textContent||'');
+      if(cueText.length<12||cueText.length>220)return false;
+      if(!folded.toLowerCase().includes(cueText.toLowerCase()))return false;
+      const stem=folded.replace(new RegExp(cueText.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'[\\s.?!。？！:：]*','iu'),' ')
+        .replace(/\s+/g,' ')
+        .replace(/[:：\-–—]\s*$/,'')
+        .trim();
+      if(stem.length<8||stem.toLowerCase()===folded.toLowerCase())return false;
+      q.dataset.gloriaQuestionLayout='cue';
+      q.removeAttribute('data-gloria-target-source');
+      cueEl.setAttribute('data-gloria-focus-cue','');
+      cueEl.removeAttribute('data-gloria-question-label');
+      prompt.setAttribute('data-gloria-instruction','');
+      prompt.setAttribute('data-gloria-stem',stem);
+      prompt.removeAttribute('data-gloria-inline-focus');
+      return true;
+    };
     if(prompt && card && instructionLike && promptText.length>=28 && lexicalContext){
       const quote=promptText.match(/[“"‘']([^”"’']{1,32})[”"’']/u);
       if(source){
@@ -385,24 +414,32 @@
         source.setAttribute('data-gloria-target-word','');
         prompt.setAttribute('data-gloria-instruction','');
         prompt.removeAttribute('data-gloria-inline-focus');
+        prompt.removeAttribute('data-gloria-stem');
       }else if(quote && quote[1] && quote[1].trim()){
         q.dataset.gloriaQuestionLayout='target';
         q.dataset.gloriaTargetSource='inline';
         prompt.setAttribute('data-gloria-inline-focus',quote[1].trim());
         prompt.setAttribute('data-gloria-instruction','');
-      }else{
+        prompt.removeAttribute('data-gloria-stem');
+      }else if(!applyRepeatedCue()){
         q.removeAttribute('data-gloria-question-layout');
         q.removeAttribute('data-gloria-target-source');
         prompt.removeAttribute('data-gloria-instruction');
         prompt.removeAttribute('data-gloria-inline-focus');
+        prompt.removeAttribute('data-gloria-stem');
       }
-    }else{
+    }else if(!applyRepeatedCue()){
       q.removeAttribute('data-gloria-question-layout');
       q.removeAttribute('data-gloria-target-source');
       prompt?.removeAttribute('data-gloria-instruction');
       prompt?.removeAttribute('data-gloria-inline-focus');
+      prompt?.removeAttribute('data-gloria-stem');
     }
     if(q.dataset.gloriaQuestionLayout!=='target')card?.querySelectorAll('[data-gloria-target-word]').forEach(el=>el.removeAttribute('data-gloria-target-word'));
+    if(q.dataset.gloriaQuestionLayout!=='cue'){
+      card?.querySelectorAll('[data-gloria-focus-cue]').forEach(el=>el.removeAttribute('data-gloria-focus-cue'));
+      prompt?.removeAttribute('data-gloria-stem');
+    }
     const tileWorkspace = q.dataset.questionFormat === 'word_tiles'
       ? q.querySelector('[data-lux-question-card] .mt-5.space-y-3')
       : null;

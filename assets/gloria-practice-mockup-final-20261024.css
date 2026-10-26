@@ -1159,6 +1159,97 @@ html.lux-daily-ux-ready.lux-daily-compact .lux-practice-view
  font-size:clamp(37px,4.7vw,61px)!important;
 }
 
+/* 2026-10-26 · A definition repeated inside the prompt is the readable card
+   once. The short stem stays a caption. The giant duplicate is not shown.
+   Higher specificity than the 82px prompt rule. No answer text is invented. */
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id][data-gloria-question-layout="cue"]
+ [data-lux-question-card]{
+ display:flex!important;
+ flex-direction:column!important;
+ align-items:stretch!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id][data-gloria-question-layout="cue"]
+ [data-gloria-question-label]{
+ order:0!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id][data-gloria-question-layout="cue"]
+ [data-lux-prompt][data-gloria-instruction]{
+ order:1!important;
+ display:block!important;
+ box-sizing:border-box!important;
+ width:100%!important;
+ min-height:0!important;
+ height:auto!important;
+ margin:0!important;
+ padding:2px 16px 0!important;
+ border:0!important;
+ border-radius:0!important;
+ background:transparent!important;
+ box-shadow:none!important;
+ color:transparent!important;
+ -webkit-text-fill-color:transparent!important;
+ font-size:0!important;
+ line-height:0!important;
+ letter-spacing:0!important;
+ text-shadow:none!important;
+ text-align:center!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id][data-gloria-question-layout="cue"]
+ [data-lux-prompt][data-gloria-instruction]::before{
+ content:attr(data-gloria-stem);
+ display:block!important;
+ color:#e7d7c0!important;
+ -webkit-text-fill-color:#e7d7c0!important;
+ font-family:"Source Sans 3",Georgia,sans-serif!important;
+ font-size:clamp(16px,1.55vw,20px)!important;
+ font-weight:600!important;
+ line-height:1.35!important;
+ letter-spacing:0!important;
+ text-align:center!important;
+ text-shadow:none!important;
+ white-space:normal!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id][data-gloria-question-layout="cue"]
+ [data-gloria-focus-cue]{
+ order:2!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ box-sizing:border-box!important;
+ width:100%!important;
+ min-height:0!important;
+ height:auto!important;
+ margin:0!important;
+ padding:clamp(18px,2.4vh,32px) clamp(18px,2.6vw,32px)!important;
+ border:1.5px solid #e2b268!important;
+ border-radius:18px!important;
+ background:
+   radial-gradient(ellipse at 50% 30%,#12325078 0%,transparent 62%),
+   #061b2ffd!important;
+ color:#fff0cd!important;
+ font-family:"Cormorant Garamond",Georgia,serif!important;
+ font-size:clamp(30px,3.4vw,44px)!important;
+ font-weight:600!important;
+ line-height:1.22!important;
+ letter-spacing:0!important;
+ text-align:center!important;
+ text-transform:none!important;
+ text-shadow:0 1px 1px #010a1488;
+ overflow-wrap:anywhere!important;
+ white-space:normal!important;
+}
+html.lux-daily-ux-ready:has(.lux-practice-view [data-question-id])
+ .lux-practice-view [data-question-id][data-gloria-question-layout="cue"]
+ [data-lux-question-card] > :is(form,[data-lux-mc-options],[data-lux-tiles]){
+ order:3!important;
+}
+
+
 
 /* Cropped ACTUAL approved mockup illustration, not a screenshot of fake
    buttons/questions: two edge-only image panels, with the interactive React
