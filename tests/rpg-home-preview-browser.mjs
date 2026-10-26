@@ -109,6 +109,10 @@ for (const run of runs) {
     assert.equal(rows.length,12,'two school items plus ten missions');
     assert.ok(rows.every(r=>r.name && r.text.includes(r.name) && r.width>12 && r.display!=='none'),
       'missing or hidden quest titles: '+JSON.stringify(rows));
+    // A scheduled animation frame applies the injected journey; wait for the actual CTA update.
+    await page.waitForFunction(() => /Resume saved question/.test(
+      document.querySelector('#lux-rpg-live-home .rpg-continue-live')?.textContent || ''
+    ), null, {timeout:15000});
     assert.match(await page.locator('#lux-rpg-live-home .rpg-continue-live').innerText(),/Resume saved question/);
     await page.screenshot({path:`test-results/rpg-home/${run.label}-ten-quests.png`,fullPage:true});
     // Both characters must stand on the same visible ground plane rather than
