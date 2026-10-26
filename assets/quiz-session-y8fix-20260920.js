@@ -1,4 +1,4 @@
-import {saveCompletedDailyReceipt,restoreCompletedDailyReceipts,readDailyRetryReceiptSync} from './daily-completed-session-receipts-20261024.js?v=20261025-scorefix1';
+import {saveCompletedDailyReceipt,restoreCompletedDailyReceipts,readDailyRetryReceiptSync} from './daily-completed-session-receipts-20261024.js?v=20261026-bio-savefix1';
 import {reconcileDailySession} from "./daily-session-credit-20261021.js?v=20261026-bio-savefix1";
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261023-final-credit1";
 import {RecoveryProgress} from './recovery-progress-20261012.js?ux=20261013-corrections2&uxfix=20261022-priority-ux1';
