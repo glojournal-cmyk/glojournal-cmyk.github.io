@@ -122,3 +122,34 @@ test('Vocab cycles can reuse old lexical concepts across successive days',()=>{
  assert.equal(r.completedDays,3);
  assert.equal(r.simulatedAnswered,489);
 });
+
+test('30-day partial mode keeps nine legitimate tasks usable without fabricating GCSE points',()=>{
+ const f=syntheticBank(30);
+ f.questionBank=f.questionBank.filter(q=>!q.id.startsWith('exam-')||!q.id.endsWith('-3'));
+ const r=simulateDailyV2Days({...f,continuityMode:'staging-partial'});
+ assert.equal(r.status,'partial');
+ assert.equal(r.completedDays,30);
+ assert.equal(r.partialDays,30);
+ assert.equal(r.questionsNotAssigned,90);
+ assert.equal(r.simulatedAnswered,4800);
+ assert.ok(r.days.every(d=>d.status==='partial'&&d.questions===160));
+});
+test('strict default simulation still blocks the entire day when GCSE bank is short',()=>{
+ const f=syntheticBank(30);
+ f.questionBank=f.questionBank.filter(q=>!q.id.startsWith('exam-')||!q.id.endsWith('-3'));
+ const r=simulateDailyV2Days(f);
+ assert.equal(r.status,'blocked');
+ assert.equal(r.completedDays,0);
+ assert.ok(r.diagnostics.some(d=>d.code==='EXCLUSIVE_EXAM_MARK_SHORTAGE'));
+});
+test('staging partial mode still rejects unsafe globally duplicated bank IDs',()=>{
+ const f=syntheticBank(2);
+ f.questionBank.push({...f.questionBank[0]});
+ const r=simulateDailyV2Days({...f,continuityMode:'staging-partial'});
+ assert.equal(r.status,'blocked');
+ assert.equal(r.completedDays,0);
+ assert.ok(r.diagnostics.some(d=>d.code==='INVALID_OR_DUPLICATE_QUESTION_ID'));
+});
+test('unsupported continuity modes cannot turn off shortage validation',()=>{
+ assert.throws(()=>simulateDailyV2Days({...syntheticBank(2),continuityMode:'disable-checks'}),/invalid continuity mode/);
+});
