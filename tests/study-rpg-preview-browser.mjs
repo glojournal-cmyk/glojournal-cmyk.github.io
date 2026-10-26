@@ -67,7 +67,7 @@ try{
         await page.waitForFunction(()=>document.querySelector('main:not(#lux-study-rpg-integrated) select:has(option[value="9"])')?.value==='9');
         await page.waitForFunction(()=>document.querySelectorAll('#lux-study-rpg-integrated .lux-study-rpg-card').length===7);
         await page.evaluate(async()=>{
-          const store=(await import('/assets/index-BLVOhKhN.js?v=20261021-medical-careers1')).C;
+          const store=window.__luxStore;
           store.setState({equippedOutfit:'cardigan'});
           localStorage.setItem('lux-pet-companion-v1',JSON.stringify({species:'moss-hornling',petLevels:{'moss-hornling':2}}));
           dispatchEvent(new Event('scholar:pet-changed'));
