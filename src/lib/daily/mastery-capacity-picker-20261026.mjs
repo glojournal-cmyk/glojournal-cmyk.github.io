@@ -7,6 +7,12 @@ const positive=x=>Number.isFinite(Number(x))?Number(x):0;
 export function proposeTwoMasteryTopics(topicPools=[],state={},day=state.today||'',options={}){
  const target=20,limit=Math.max(1,Math.min(2000,Math.floor(Number(options.maxPairs)||500)));
  const evaluated=[],skipped=[];
+ // Optional previously assigned Daily questions must be supplied as full question
+ // objects, not IDs, so family/fingerprint collisions can also be detected.
+ const reserved=options.reservedQuestions||[];
+ if(!Array.isArray(reserved)||reserved.some(q=>!q||!q.id))
+  return {status:'NEEDS_REVIEW',reason:'invalid_reserved_questions'};
+ const fixed=reserved.map((q,i)=>({id:'existing-daily-'+i,target:1,candidates:[q]}));
  for(const topic of topicPools){
   if(!topic?.topicId||topic.taught===false||topic.status==='disabled'||Number(topic.year||8)!==8){
    skipped.push({topicId:topic?.topicId||null,reason:'not_enabled_taught_y8'});continue;
@@ -26,13 +32,14 @@ export function proposeTwoMasteryTopics(topicPools=[],state={},day=state.today||
    if(checked++>=limit)return {status:'NEEDS_REVIEW',reason:'pair_search_limit',checked,eligibleTopics:evaluated.length,skipped};
    const [a,b]=[evaluated[i],evaluated[j]];
    const reservation=allocateGlobalQuestions([
+    ...fixed,
     {id:'y8-mastery-a',target,candidates:a.available},
     {id:'y8-mastery-b',target,candidates:b.available}
    ]);
    if(reservation.status!=='FULL_READY')continue;
    return {status:'FULL_READY',checked,eligibleTopics:evaluated.length,skipped,
-    assignments:[{taskId:'y8-mastery-a',topicId:a.topicId,subject:a.subject,questionIds:reservation.rows[0].items.map(q=>q.id)},
-     {taskId:'y8-mastery-b',topicId:b.topicId,subject:b.subject,questionIds:reservation.rows[1].items.map(q=>q.id)}]};
+    assignments:[{taskId:'y8-mastery-a',topicId:a.topicId,subject:a.subject,questionIds:reservation.rows[fixed.length].items.map(q=>q.id)},
+     {taskId:'y8-mastery-b',topicId:b.topicId,subject:b.subject,questionIds:reservation.rows[fixed.length+1].items.map(q=>q.id)}]};
   }
  }
  return {status:'NOT_READY',reason:'two_nonoverlapping_20_question_pools_unavailable',checked,
