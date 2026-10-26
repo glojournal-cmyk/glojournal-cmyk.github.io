@@ -8,7 +8,7 @@ function plan(){
  let cursor=0;
  return {version:2,day,status:'ready',target:163,tasks:DAILY_V2_TASKS.map(t=>({
   ...t,questions:Array.from({length:t.target},(_,i)=>({
-   questionId:t.id+'-q'+i,conceptId:t.kind==='vocab'?t.subject+'-word'+i:null
+   questionId:t.id+'-q'+i,conceptId:t.kind==='vocab'?t.subject+'-word'+i:null,marks:t.kind==='exam'?i+1:null
   }))
  }))};
 }
@@ -130,4 +130,24 @@ test('plan with nominal 163 target but repeated question ID is rejected',async()
  const repo=createMemoryDailyV2Repository(),p=plan();
  p.tasks[1].questions[0].questionId=p.tasks[0].questions[0].questionId;
  await assert.rejects(()=>commitDailyV2Plan(repo,p),/duplicated locked question/);
+});
+
+test('GCSE mark award cannot claim a different maximum than assigned question',async()=>{
+ const repo=createMemoryDailyV2Repository();await commitDailyV2Plan(repo,plan());
+ await assert.rejects(()=>commitDailyV2Answer(repo,answer({taskId:'gcse-exam-skills',
+   questionId:'gcse-exam-skills-q0',conceptId:null,correct:false,marksEarned:1,marksPossible:5})),/EXAM_MARKS_MISMATCH/);
+});
+test('GCSE partial marks must not be recorded as full correctness',async()=>{
+ const repo=createMemoryDailyV2Repository();await commitDailyV2Plan(repo,plan());
+ await assert.rejects(()=>commitDailyV2Answer(repo,answer({taskId:'gcse-exam-skills',
+   questionId:'gcse-exam-skills-q2',conceptId:null,correct:true,marksEarned:1,marksPossible:3})),/EXAM_CORRECTNESS_INCONSISTENT/);
+});
+test('ordinary answers cannot spoof exam marks',async()=>{
+ const repo=createMemoryDailyV2Repository();await commitDailyV2Plan(repo,plan());
+ await assert.rejects(()=>commitDailyV2Answer(repo,answer({marksEarned:1,marksPossible:1})),/non-exam answer/);
+});
+test('GCSE frozen plan needs exact 1,2,3 maximum marks',async()=>{
+ const repo=createMemoryDailyV2Repository(),p=plan();
+ p.tasks.find(t=>t.kind==='exam').questions[1].marks=1;
+ await assert.rejects(()=>commitDailyV2Plan(repo,p),/GCSE 1\/2\/3 marks quota missing/);
 });
