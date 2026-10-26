@@ -75,11 +75,12 @@ try{
     const q=bank.find(q=>q.id===id);assert.ok(q,'Unknown bank question '+id);
     const answer=q.answer?.accepted?.[0]||q.answer?.modelAnswer;
     assert.equal(typeof answer,'string','Test needs a usable model answer: '+id);
-    const choice=page.getByRole('button',{name:answer,exact:true});
+    const current=page.locator('[data-question-id]').last();
+    const choice=current.getByRole('button',{name:answer,exact:true});
     if(await choice.count())await choice.click();
     else{
-     await page.locator('form input,form textarea').first().fill(answer);
-     await page.getByRole('button',{name:'Submit',exact:true}).click();
+     await current.locator('form input, form textarea').last().fill(answer);
+     await current.getByRole('button',{name:'Submit',exact:true}).click();
     }
     await page.getByText('Well done!',{exact:true}).waitFor();
     answered.push(id);
