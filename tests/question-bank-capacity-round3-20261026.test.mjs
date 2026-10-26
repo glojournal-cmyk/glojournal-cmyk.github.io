@@ -55,7 +55,10 @@ test('20 enabled does NOT mean 20 fresh after five prior correct questions',asyn
   const bank=open(topic),previouslyCorrect=Object.fromEntries(bank.questions.slice(0,5).map(q=>[q.id,1]));
   const task={id:'mastery-'+topic,subject:'biology',year:8,topicId:topic,target:20,mode:'mastery'};
   const r=diagnoseTaskQuestionEligibility(task,bank.questions,{today:'2026-10-26',seenCorrect:previouslyCorrect},'2026-10-26');
-  assert.equal(r.nominal,20,topic);assert.equal(r.eligible,15,topic);
-  assert.equal(r.shortage,5,topic);
+  const informal=bank.questions.filter(q=>q.formal===false||q._repair||q.status!=='enabled').length;
+  const expectedEligible=20-5-informal;
+  assert.equal(r.nominal,20,topic);
+  assert.equal(r.eligible,expectedEligible,topic+' must not count nonformal diagrams or prior successes');
+  assert.equal(r.shortage,5+informal,topic);
  }
 });
