@@ -13,8 +13,10 @@ export function allocateGlobalQuestions(tasks=[]){
   const family=q.questionFamily||q.familyId;
   if(family)keys.push('family:'+family);
   const question=clean(q.prompt||q.question);
-  const rawStim=typeof q.stimulus==='string'?q.stimulus:q.stimulus?.text||q.stimulus?.masked||'';
-  if(question)keys.push('fingerprint:'+question+'|'+clean(rawStim)+'|'+clean(q.format));
+  const rawStim=typeof q.stimulus==='string'?q.stimulus:JSON.stringify(q.stimulus||{});
+  // Matching questions may share a heading while testing DIFFERENT pairs.
+  const structured=['matching','sorting','sequence','diagram_label'].includes(q.format)?JSON.stringify(q.answer||q.options||{}):'';
+  if(question)keys.push('fingerprint:'+question+'|'+clean(rawStim)+'|'+clean(q.format)+'|'+clean(structured));
   for(const k of keys){const earlier=seen.get(k);if(earlier!==undefined)union(i,earlier);else seen.set(k,i);}
  });
  const options=tasks.map(()=>new Map());
