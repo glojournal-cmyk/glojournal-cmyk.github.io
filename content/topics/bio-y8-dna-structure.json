@@ -774,18 +774,103 @@
       "preview": false,
       "ordinary": true,
       "formal": false
+    },
+    {
+      "id": "bio-y8-dna-structure-capacity-20261026-01",
+      "conceptId": "bio-y8-dna-structure-concept-capacity-01",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-dna-structure",
+      "topic": "DNA structure, homologous pairs and karyograms",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "Explain why two homologous chromosomes carry the same types of genes but may carry different alleles. (2 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "A homologous pair has one chromosome from each parent and the same genes at matching loci.",
+          "The versions (alleles) of those genes may differ between the two chromosomes."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "A homologous pair has one chromosome from each parent and the same genes at matching loci. The versions (alleles) of those genes may differ between the two chromosomes.",
+        "manualReviewFallback": true
+      },
+      "feedback": {
+        "short": "A homologous pair has one chromosome from each parent and the same genes at matching loci. The versions (alleles) of those genes may differ between the two chromosomes.",
+        "steps": [
+          "A homologous pair has one chromosome from each parent and the same genes at matching loci.",
+          "The versions (alleles) of those genes may differ between the two chromosomes."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / EVALUATE",
+        "instruction": "Write a scientific answer covering both mark points; review manually if marking is uncertain."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-dna-structure-capacity-20261026-02",
+      "conceptId": "bio-y8-dna-structure-concept-capacity-02",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-dna-structure",
+      "topic": "DNA structure, homologous pairs and karyograms",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "A karyogram shows two non-sex chromosomes matching in size, centromere position and banding pattern. What is this pair called?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "homologous pair",
+          "homologous chromosomes",
+          "a homologous pair",
+          "a pair of homologous chromosomes"
+        ]
+      },
+      "feedback": {
+        "short": "Check the original taught principle and apply it to this new context.",
+        "steps": [
+          "Identify the relevant scientific concept, then verify the answer."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
     }
   ],
-  "enabled": 18,
+  "enabled": 20,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 4,
     "typed_exact": 4,
-    "mark_points": 5,
+    "mark_points": 6,
     "matching": 2,
-    "sequence": 1,
-    "diagram_label": 2
+    "word_tiles": 1,
+    "typed_short": 2,
+    "typed_equivalent": 1
   },
   "gated": false,
   "note": {
