@@ -75,13 +75,13 @@ jobs:
     # skipping apt then failed due to missing GTK/GStreamer libraries.
     # Match the Playwright NPM release to the pinned official image.
     container:
-      image: mcr.microsoft.com/playwright:v1.64.0-noble
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install --no-save playwright@1.64.0
+      - run: npm install --no-save playwright@1.64.1
       - name: Verify Practice + Home + Mission V2 in browsers
         run: |
           node tests/mission-complete-v2-browser.mjs
