@@ -330,8 +330,14 @@ function H({title:e,kicker:t,items:n,repairItems:repairBank=[],subject:a,dailyId
   // Some Safari sessions lost the per-question store update while retaining
   // the graded session receipt (the visible 28/30 + one correct case).
   // Only genuinely correct, distinct word concepts can add credit.
-  if(!recoverOnFinish && taskOnFinish===a+"-vocab" &&
-     sessionPlanDay===dayKey() && resumeMode==="y8vocab"){
+  const vocabRoute=new URLSearchParams(location.search);
+  const isAssignedVocab=(
+    taskOnFinish===a+"-vocab" ||
+    vocabRoute.get("task")===a+"-vocab" ||
+    A.some(q=>q?._dailyVocab===a)
+  ) && (resumeMode==="y8vocab" || vocabRoute.get("mode")==="y8vocab" ||
+    A.some(q=>q?._dailyVocab===a));
+  if(!recoverOnFinish && isAssignedVocab && sessionPlanDay===dayKey()){
     const state=o.getState(),date=sessionPlanDay;
     const days={...(state.dailyVocabByDay||{})};
     const dayRow={...(days[date]||{})};
