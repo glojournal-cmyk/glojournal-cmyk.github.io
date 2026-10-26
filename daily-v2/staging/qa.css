@@ -33,3 +33,6 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 .muted{font-size:.9rem;color:#69767b}
 footer{font-size:.8rem;color:#607078;margin:25px 0 35px}
 @media(max-width:550px){.figures{grid-template-columns:1fr}.controls button{flex:1 1 45%}.section-head{align-items:start}}
+
+/* Honor HTML hidden on answer/mark controls despite author label styling. */
+[hidden]{display:none!important}
