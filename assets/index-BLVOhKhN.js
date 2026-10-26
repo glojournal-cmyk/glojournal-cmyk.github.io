@@ -2626,13 +2626,13 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
       store.setState({reviews:correct?retainMistakeReview(store.getState().reviews,questionId,todayKey()):store.getState().reviews,daily:(store.getState().daily||[]).map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
     }
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-    if (vocabSubject && !meta?.repair) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept);
+    if (vocabSubject && (!meta?.repair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept);
     scheduleNormalizeState();
     return result;
   }
   if (!resolved.topicId) {
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-    if (vocabSubject && !meta?.repair) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept);
+    if (vocabSubject && (!meta?.repair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept);
     return result;
   }
   const current = normalizeTopicStat(before.topicStats?.[resolved.topicId] || {});
@@ -2770,7 +2770,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
 
   const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
   const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-  if (!isRepair && vocabSubject) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept);
+  if (vocabSubject && (!isRepair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept);
 
   scheduleNormalizeState();
   return result;
