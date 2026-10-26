@@ -107,12 +107,18 @@ for(const subject of ['latin','french']){
     assert.equal(res.length,3);
     assert.ok(res.every(q=>!concepts.slice(0,4).includes(q.conceptId)));
   });
-  test(`${subject}: exhausted history still offers 30 distinct words with 3 Y9`,()=>{
+  test(`${subject}: completed words never reappear on the same day, even after entire bank was credited`,()=>{
     const all=[...year8(subject),...year9DailyVocabulary(subject,frenchTaught)];
     const credited=Object.fromEntries(all.map(q=>[q.id,true]));
     const res=run(subject,{ledger:{[day]:{[subject]:{items:credited}}}});
+    assert.equal(res.length,0,"Already completed words cannot earn a second Daily credit");
+  });
+  test(`${subject}: a new day restarts the exhausted word cycle with 30 distinct words and 3 Y9`,()=>{
+    const all=[...year8(subject),...year9DailyVocabulary(subject,frenchTaught)];
+    const credited=Object.fromEntries(all.map(q=>[q.id,true]));
+    const res=run(subject,{ledger:{'2026-10-20':{[subject]:{items:credited}}}});
     assert.equal(res.length,30);
     assert.equal(res.filter(q=>q._dailyYear9).length,3);
-    assert.equal(new Set(res.map(q=>q.conceptId)).size,30);
+    assert.equal(new Set(res.map(q=>q._vocabConcept)).size,30);
   });
 }
