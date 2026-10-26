@@ -16,7 +16,8 @@ export function dailyVocabTotal(state = {}, subject, day) {
     const assigned = answer?.dailyVocab === subject ||
       (answer?.dailyTaskId === subject + "-vocab" && answer?.subject === subject);
     if (answer?.day !== date || !assigned || !answer?.questionId ||
-        answer?.repair || answer?.recoveryFor || answer?.formal === false) continue;
+        answer?.recoveryFor || answer?.formal === false ||
+        (answer?.repair && answer?.correct !== true)) continue;
     const id = String(answer.questionId);
     if (typeof answer.vocabConcept === 'string' && answer.vocabConcept) concepts[id] = answer.vocabConcept;
     // Once an answer is correct, later incorrect submissions never erase it.
