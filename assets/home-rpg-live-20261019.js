@@ -280,6 +280,8 @@ if (!window.__luxRpgLiveHome) {
     root.dataset.sceneMood = coldScenes.has(scene.id) ? 'cool' : nightScenes.has(scene.id) ? 'night' : 'warm';
     // Reuse already-decoded character sprites across store updates to prevent iPad flicker.
     const previousScholar = root.querySelector('img.rpg-scholar-live');
+    // Preserve the Next Task control across unrelated Home state updates (iPad flicker).
+    const previousContinue = root.querySelector('button.rpg-continue-live');
     const previousPet = root.querySelector('a.rpg-pet-live img');
     root.replaceChildren();
     const darken = make('div','rpg-shade-live');
@@ -414,15 +416,19 @@ if (!window.__luxRpgLiveHome) {
     }
     if (progress.ready && progress.next?.href) {
       const next = progress.next;
-      const action = make('button','rpg-continue-live');
+      const action = previousContinue || make('button','rpg-continue-live');
       action.type = 'button';
-      action.setAttribute('aria-label',next.title+' · '+next.subtitle);
-      action.append(
-        make('strong',null,next.kind === 'resume' ? 'Resume saved question →' :
-          next.kind === 'complete' ? 'Visit garden →' : 'Continue next task →'),
-        make('span',null,next.subtitle)
-      );
-      action.addEventListener('click',() => location.assign(next.href));
+      const actionLabel = next.kind === 'resume' ? 'Resume saved question →' :
+        next.kind === 'complete' ? 'Visit garden →' : 'Continue next task →';
+      const actionDescription = next.title+' · '+next.subtitle;
+      if (action.getAttribute('aria-label') !== actionDescription)
+        action.setAttribute('aria-label',actionDescription);
+      if (action.querySelector('strong')?.textContent !== actionLabel ||
+          action.querySelector('span')?.textContent !== next.subtitle) {
+        action.replaceChildren(make('strong',null,actionLabel),make('span',null,next.subtitle));
+      }
+      // Replace the handler rather than accumulating one per Home redraw.
+      action.onclick = () => location.assign(next.href);
       panel.append(action);
     }
     // Read-only progress dots live outside the scrollable quest list, fixed to the rail.
