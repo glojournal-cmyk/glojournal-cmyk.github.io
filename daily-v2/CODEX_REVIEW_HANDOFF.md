@@ -48,3 +48,8 @@ Report code-specific/reproducible failures by file + line, prioritized by data-l
 - src/mastery-audit.js: read-only source Mastery review queue, not a curriculum certificate.
 - 30-day synthetic continuity test: missing GCSE 3-mark item still allows 160/163 questions per day; full-day completion remains false.
 - Total 158/158 isolated V8 tests; native Node, real Safari, real student backup and actual corpus readiness remain unverified.
+
+## Isolated browser staging addition — review scope
+- `daily-v2/staging/index.html` and companion CSS/browser JS, mock fixture and controller. It is not production UI and does not use real student data.
+- Browser tester has two scenarios: all 163 mock questions or 160 with GCSE 3-mark shortage. Verify no 163/163 false completion, no XP, persistence across reload, failed write recovery and 5/6 exam marks. Examine synthetic-only IndexedDB namespace and any XSS/DOM risks.
+- Added `tests/qa-controller.test.js` with 11 tests; entire suite now **169/169 V8 harness tests**. Native Node tests/CI and Safari/iPad are NOT verified.
