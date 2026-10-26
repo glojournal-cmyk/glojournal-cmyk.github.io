@@ -1,5 +1,5 @@
 # Daily V2 — QA and independent review handoff
-**No tests have been executed for Daily V2 yet.** This checklist describes acceptance criteria.
+**Initial isolated implementation tests: 56/56 passed in a V8 harness** (ledger 12, planner 27, storage 17), 2026-10-26. Native Node/GitHub Actions completion and iPad testing are NOT verified. The following remain release acceptance criteria.
 
 ## Data reliability
 - Verified credit is derived only from persisted answer events or explicitly preserved legacy baselines.
@@ -36,3 +36,10 @@
 
 ## Release gate
 - Independent code and QA evidence; staged migration rehearsal; rollback verification; written approval before merge or prod cutover.
+
+## Current execution evidence and limitations (2026-10-26)
+- Ledger 12/12, deterministic ten-task planner 27/27, CAS storage contract 17/17 in JS V8 harness executing GitHub-committed source and tests.
+- CI workflow on staging branch: `.github/workflows/daily-v2-tests.yml`; no verified Actions outcome yet. Browser/workspace cannot directly reach public GitHub via container git (DNS unavailable).
+- Storage tests rely on in-memory repo, so they DO NOT establish iPad IndexedDB durability. No live Safari/real-device QA done.
+- Real topic catalogs have not yet been normalized to explicit roles and certified depth bands; no Daily V2 plans from real bank have been proven ready.
+- Mastery must be explicitly audited against past correct IDs; do not relax 20/depth gates to hide bank shortage.
