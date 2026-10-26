@@ -16,8 +16,9 @@ test('same-day two 15-question tasks cannot double claim one 20-question topic',
  const questions=read('bio-y8-correlation').questions;
  const t=[task('a',questions,15,'standard'),task('b',questions,15,'standard')];
  const r=diagnoseDailyCapacity(t,{today:day},day);
- assert.equal(r.requested,30);assert.equal(r.assigned,20);assert.equal(r.shortfall,10);
- assert.equal(new Set(r.assignments.flatMap(row=>row.questionIds)).size,20);
+ assert.equal(r.requested,30);assert.equal(r.assigned,19);assert.equal(r.shortfall,11);
+ // Of 20 nominal questions, one chart-display item is deliberately formal:false.
+ assert.equal(new Set(r.assignments.flatMap(row=>row.questionIds)).size,19);
 });
 test('retention with zero historical questions never silently becomes new-questions practice',()=>{
  const qs=read('bio-y8-continuous-variation').questions;
