@@ -57,3 +57,6 @@ Status: DESIGN BASELINE (not deployed), 2026-10-26. This file describes the agre
 - Prove migration leaves original progress/XP unchanged, and rollback cannot discard answers created since cutover.
 - Inspect 100% of available Mastery questions for quality as well as counts. Latin depth is known weak; French/Biology need review. Science counts do not imply every question is deep.
 - No production cutover without tests and explicit approval.
+
+## Legacy opaque baseline credit restoration (implemented as isolated staging logic, not production)
+Old 28/30 progress may lack each exact correct concept ID. The new ledger preserves the historical count. To safely credit new, verified submissions without double-counting, it can optionally accept an **independently verified SUPerset** of all concept IDs that might have contributed to the old count, identified from the student's original frozen assignment evidence. Only a new concept outside that set can increase the old counter. The original 28 correct IDs are NOT inferred, and if the superset is unavailable the counter remains protected with any attempted credits marked unreconciled. Cross-device disagreement invalidates the superset until separately resolved. Actual backup-schema mapping and iPad import remain UNVERIFIED.
