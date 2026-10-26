@@ -61,7 +61,7 @@ function fakeIndexedDB(){
 function dailyPlan(){
  return {version:2,day:'2026-10-26',status:'ready',target:163,
   tasks:DAILY_V2_TASKS.map(t=>({...t,questions:Array.from({length:t.target},(_,i)=>({
-   questionId:t.id+'-'+i,conceptId:t.kind==='vocab'?t.id+'-concept-'+i:null}))}))};
+   questionId:t.id+'-'+i,conceptId:t.kind==='vocab'?t.id+'-concept-'+i:null,marks:t.kind==='exam'?i+1:null}))}))};
 }
 test('unavailable IndexedDB explicitly fails rather than falling back to volatile memory',()=>{
  assert.throws(()=>createIndexedDbDailyV2Repository({indexedDBFactory:null}),/unavailable/);
