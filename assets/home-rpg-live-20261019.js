@@ -49,10 +49,23 @@ if (!window.__luxRpgLiveHome) {
     d.setUTCDate(d.getUTCDate() - delta);
     return d.toISOString().slice(0,10);
   };
+  // Ignore transient not-ready results while a same-day plan is being
+  // reconciled. Safari storage/hydration may briefly return no plan between
+  // two valid snapshots; that must not blink the Continue button.
+  let lastReadyJourney = null;
+  let lastReadyDay = '';
   const modelFor = state => {
-    try {
-      return window.LuxHomeJourneyV2Logic?.homeJourney(state, window.LuxJourney, localStorage) || { ready:false, count:0, total:10, rows:[] };
-    } catch { return { ready:false, count:0, total:10, rows:[] }; }
+    let result;
+    try { result = window.LuxHomeJourneyV2Logic?.homeJourney(state, window.LuxJourney, localStorage); }
+    catch { /* Treat transient read failures as not-ready. */ }
+    const day = localDay();
+    if (result?.ready) {
+      lastReadyJourney = result;
+      lastReadyDay = day;
+      return result;
+    }
+    if (lastReadyJourney && lastReadyDay === day) return lastReadyJourney;
+    return result || { ready:false, count:0, total:10, rows:[] };
   };
   const petState = () => {
     try { return JSON.parse(localStorage.getItem('lux-pet-companion-v1') || '{}') || {}; }
