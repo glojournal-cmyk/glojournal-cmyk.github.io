@@ -2625,13 +2625,13 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
       store.setState({reviews:correct?retainMistakeReview(store.getState().reviews,questionId,todayKey()):store.getState().reviews,daily:(store.getState().daily||[]).map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
     }
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-    if (vocabSubject && !meta?.repair) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before);
+    if (vocabSubject && !meta?.repair) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept);
     scheduleNormalizeState();
     return result;
   }
   if (!resolved.topicId) {
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-    if (vocabSubject && !meta?.repair) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before);
+    if (vocabSubject && !meta?.repair) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept);
     return result;
   }
   const current = normalizeTopicStat(before.topicStats?.[resolved.topicId] || {});
@@ -2769,7 +2769,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
 
   const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
   const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-  if (!isRepair && vocabSubject) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before);
+  if (!isRepair && vocabSubject) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept);
 
   scheduleNormalizeState();
   return result;
@@ -2835,7 +2835,7 @@ function findRecoveryVocabSource(state, date, subject) {
 }
 if (typeof window !== "undefined") window.LuxRecoveryVocabSource = findRecoveryVocabSource;
 
-function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState) {
+function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, vocabConcept = null) {
   if (!["french", "latin"].includes(subject) || !questionId) return;
   const state = store.getState();
   // Recovery answers belong to the missed date, never to today's Vocab task.
@@ -2891,6 +2891,8 @@ function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState) {
   const dayRow = { ...(all[day] || {}) };
   const current = dayRow[subject] || {};
   const items = { ...(current.items || {}) };
+  const conceptByQuestion = { ...(current.conceptByQuestion || {}) };
+  if (vocabConcept && typeof vocabConcept === 'string') conceptByQuestion[String(questionId)] = vocabConcept;
   // Read the state BEFORE this question was marked: prevents the just-saved
   // formal answer from being accidentally included in the 29/30 baseline.
   const prior=preAnswerState&&typeof preAnswerState==="object"?preAnswerState:state;
@@ -2907,11 +2909,14 @@ function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState) {
   const frozenKnown=Array.isArray(current.baselineKnownIds)?
     current.baselineKnownIds:[...knownIds];
   const extras={...(current.additionalCorrectIds||{})};
+  const creditKey = conceptByQuestion[String(questionId)] || String(questionId);
+  const previouslyCreditedConcepts = new Set([...knownIds].map(id => conceptByQuestion[id] || id));
   // Only a genuinely marked correct answer not part of the saved baseline
   // may advance 29->30. Wrong/repeated IDs cannot generate phantom credit.
-  if(correct&&!frozenKnown.includes(String(questionId)))extras[String(questionId)]=true;
+  if(correct&&!previouslyCreditedConcepts.has(creditKey) &&
+     !Object.keys(extras).some(id => (conceptByQuestion[id] || id) === creditKey)) extras[String(questionId)]=true;
   items[String(questionId)] = !!correct || !!items[String(questionId)];
-  dayRow[subject] = { ...current,items,baselineProgress:originalBaseline,
+  dayRow[subject] = { ...current,items,conceptByQuestion,baselineProgress:originalBaseline,
     baselineKnownIds:frozenKnown,additionalCorrectIds:extras,
     updatedAt: new Date().toISOString() };
   all[day] = dayRow;
