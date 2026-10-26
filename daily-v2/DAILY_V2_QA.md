@@ -1,5 +1,5 @@
 # Daily V2 — QA and independent review handoff
-**Initial isolated implementation tests: 114/114 passed in a V8 harness** (ledger 12, planner 27, storage 24, bank adapter 17, IndexedDB adapter 12, legacy review 12, simulator 10), 2026-10-26. Native Node/GitHub Actions completion and iPad testing are NOT verified. The following remain release acceptance criteria.
+**Initial isolated implementation tests: 122/122 passed in a V8 harness** (ledger 16, planner 27, storage 24, bank adapter 17, IndexedDB adapter 12, legacy review 16, simulator 10), 2026-10-26. Native Node/GitHub Actions completion and iPad testing are NOT verified. The following remain release acceptance criteria.
 
 ## Data reliability
 - Verified credit is derived only from persisted answer events or explicitly preserved legacy baselines.
@@ -38,7 +38,7 @@
 - Independent code and QA evidence; staged migration rehearsal; rollback verification; written approval before merge or prod cutover.
 
 ## Current execution evidence and limitations (2026-10-26)
-- Ledger 12/12, deterministic ten-task planner 27/27, CAS storage contract 24/24, real-bank adapter 17/17, IndexedDB adapter 12/12, read-only legacy review 12/12, 30-day simulator 10/10 in JS V8 harness executing GitHub-committed source and tests.
+- Ledger 16/16, deterministic ten-task planner 27/27, CAS storage contract 24/24, real-bank adapter 17/17, IndexedDB adapter 12/12, read-only legacy review 16/16, 30-day simulator 10/10. in JS V8 harness executing GitHub-committed source and tests.
 - CI workflow on staging branch: `.github/workflows/daily-v2-tests.yml`; no verified Actions outcome yet. Browser/workspace cannot directly reach public GitHub via container git (DNS unavailable).
 - Storage tests rely on in-memory repo, so they DO NOT establish iPad IndexedDB durability. No live Safari/real-device QA done.
 - Real topic catalogs have not yet been normalized to explicit roles and certified depth bands; no Daily V2 plans from real bank have been proven ready.
@@ -57,3 +57,8 @@
 - Review-bound manifest fingerprints invalidate unreviewed changes. Certification authenticity and cognitive quality still need independent curriculum review.
 - GCSE saved-mark ceiling must equal frozen 1/2/3-mark question ceiling, and correctness must match fully awarded marks.
 - Caution: blocking all 10 tasks when ONE bank is short prevents broken halfway quizzes but also recreates an unusable Daily home experience. Define an explicit safe fallback before cutover; never pad with low-quality or double-counted items.
+
+## Opaque historic credit safety extension
+- Given an old 28/30 counter with unknown correct concept IDs, an independently verified frozen assignment universe allows safely crediting new concepts OUTSIDE all possibly credited previous concepts. New in-universe concepts remain uncredited pending reconciliation.
+- Legacy `assignedQuestionIds` are NOT interchangeable with vocabulary concept IDs. Never invent exact 28 old correct IDs.
+- The student's real archived legacy assignment evidence has not been mapped or verified. These tests do NOT establish that 28/30 has been fixed for them or that a backup import will work on iPad.
