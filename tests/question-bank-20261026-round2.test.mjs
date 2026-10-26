@@ -35,6 +35,6 @@ test('BER direct and reverse calculations reflect 5.4 kJ per kg per hour school 
  assert.deepEqual(keyed,{
  '01':5184,'02':7776,'03':50,'04':1296,'05':45360,'06':7980
  });
- assert.equal(5.4*24*55,7128.000000000001); // floating-point reference
+ assert.ok(Math.abs(5.4*24*55 - 7128)<1e-7);
  assert.equal(Math.round(5.4*24*55),7128);
 });
