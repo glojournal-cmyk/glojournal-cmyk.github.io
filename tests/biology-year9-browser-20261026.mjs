@@ -39,7 +39,14 @@ try{
      assignedTopic:topic,target:15,progress:12,href,verifiedCorrectIds:correctIds,verifiedCorrectSlots:12,
      verifiedCorrectAssignment:[day,task,'biology',topic,9,'standard',15].join('|')};
     const tasks=(s.daily||[]).filter(t=>t.id!==task).slice(0,9).map(t=>({...t,planDate:day,progress:t.target,done:true}));
-    assertTen:if(tasks.length!==9)throw Error('Expected nine companion tasks, got '+tasks.length);
+    // A clean browser may have fewer than nine tasks before its Daily plan settles.
+    // Fill only this anonymous test fixture; never overwrite a learner's real data.
+    while(tasks.length<9){
+      const n=tasks.length;
+      tasks.push({id:'qa-completed-'+n,title:'QA completed task '+n,planDate:day,
+        assignedSubject:'biology',assignedYear:9,assignedTopic:topic,
+        target:1,progress:1,done:true});
+    }
     tasks.push(bio);
     store.setState({year:8,today:day,daily:tasks,seenCorrect:{},reviews:{},
      formalAttemptLog:correctIds.map((questionId,i)=>({day,at:day+'T20:56:00Z',attemptId:'prior-'+i,
