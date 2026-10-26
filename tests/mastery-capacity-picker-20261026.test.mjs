@@ -64,3 +64,31 @@ test('refuse invalid reservation records instead of silently ignoring occupied s
  const out=proposeTwoMasteryTopics([topic('A',20,10),topic('B',20,9)],{},'2026-10-26',{reservedQuestions:[{prompt:'unknown question'}]});
  assert.equal(out.status,'NEEDS_REVIEW');
 });
+
+test('30-day replay never silently reuses credited Mastery questions',()=>{
+ const pools=[topic('A',30,9),topic('B',30,8),topic('C',30,7)];
+ const seenCorrect={};
+ let fullDays=0,firstShortfall=null;
+ for(let day=1;day<=30;day++){
+  const date='2026-10-'+String(day).padStart(2,'0');
+  const out=proposeTwoMasteryTopics(pools,{today:date,seenCorrect},date);
+  if(out.status==='FULL_READY'){
+   fullDays++;
+   const ids=out.assignments.flatMap(a=>a.questionIds);
+   assert.equal(ids.length,40);
+   assert.equal(new Set(ids).size,40);
+   for(const id of ids){assert.equal(seenCorrect[id],undefined,'previously credited question reused');seenCorrect[id]=1;}
+  }else{
+   assert.equal(out.status,'NOT_READY');
+   if(firstShortfall===null)firstShortfall=day;
+  }
+ }
+ assert.equal(fullDays,2);
+ assert.equal(firstShortfall,3);
+});
+test('cross-task matching prompt with different ID cannot be booked again',()=>{
+ const a=topic('A',20,10),b=topic('B',20,9);
+ const already={...qs('other',1)[0],id:'prior',prompt:a.questions[0].prompt,format:a.questions[0].format};
+ const out=proposeTwoMasteryTopics([a,b],{today:'2026-10-26'},'2026-10-26',{reservedQuestions:[already]});
+ assert.equal(out.status,'NOT_READY');
+});
