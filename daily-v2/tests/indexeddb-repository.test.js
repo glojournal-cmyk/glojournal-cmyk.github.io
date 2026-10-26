@@ -34,7 +34,7 @@ function fakeIndexedDB(){
           const r={result:null,error:null};
           requestCompletion(()=>{
            if(aborted)return;
-           r.result=stored.has(name+'|'+key)?structuredClone(stored.get(name+'|'+key)):undefined;
+           r.result=stored.has(name+'|'+key)?JSON.parse(JSON.stringify(stored.get(name+'|'+key))):undefined;
            r.onsuccess?.();
            requestCompletion(()=>{if(!aborted)tx.oncomplete?.();});
           });
@@ -42,7 +42,7 @@ function fakeIndexedDB(){
          },
          put(snapshot,key){
           if(mode!=='readwrite')throw Error('ReadonlyError');
-          if(!ghostWrite)stored.set(name+'|'+key,structuredClone(snapshot));
+          if(!ghostWrite)stored.set(name+'|'+key,JSON.parse(JSON.stringify(snapshot)));
          }
         };
        }
