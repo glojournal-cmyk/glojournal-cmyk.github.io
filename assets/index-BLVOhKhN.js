@@ -2608,7 +2608,8 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
   // Persist a small, verified answer event independently in IndexedDB.
   // If localStorage rejects the large Scholar store, the marked evidence
   // still survives reload and can rebuild the correct original-date task.
-  if(evidenceEntry.formal!==false&&!evidenceEntry.repair)void saveMarkedAnswer({
+  if(evidenceEntry.formal!==false&&(!evidenceEntry.repair||
+  (evidenceEntry.correct===true&&!!evidenceEntry.dailyVocab)))void saveMarkedAnswer({
     ...evidenceEntry,day:todayKey()
   });
   store.setState({formalAttemptLog:globalThis.LuxWeeklyEvidence.append(
