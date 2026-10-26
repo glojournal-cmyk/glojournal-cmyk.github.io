@@ -57,3 +57,9 @@ Report code-specific/reproducible failures by file + line, prioritized by data-l
 ## New content audit — 100 drafted Mastery questions
 Review `daily-v2/content/mastery/*.json` and `MASTERY_BANK_BATCH1_QA.md`: five subjects, 20 each, 4/10/6, open-ended Mark Points. `mastery-draft-validator.js` plus dedicated 10 source-backed tests included; total **179/179** isolated V8 tests.
 High-risk review: is each question actually appropriate for a taught Y8 topic; do French/Latin variants permit fair assessment; are scientific statements/calculations and partial marks accurate; does the eventual automated semantic grader accept equivalent correct responses and reject wrong causal explanations? Draft source `status:'enabled'` is only file-level, NOT independent review approval; **0/100 certified to live planner**. No live catalog/XP/student state changed.
+
+## Review now required for Batch 2 Mastery content
+- `MASTERY_BANK_BATCH2_QA.md`: 100 additional draft items in 5 new topics; across Batch 1 and 2 there are 200 candidates with provisional 4/10/6 band quotas.
+- `tests/mastery-batch2.test.js` 10/10 V8 passed, including 200-ID exact uniqueness and cross-batch five-day all-correct depletion. This is NOT 30-day real-bank readiness.
+- Reviewer priorities: known Stage/lesson coverage, tense and reflexive gender variants, experimental controls, calculation units and worked numerical answers, false-positive keyword matching in `rubric_review`, and read-only cross-question overlap against the entire original source catalog.
+- **0/200** new authored items are independently certified for the real Daily V2 adapter. No real student-facing deployment authorized.
