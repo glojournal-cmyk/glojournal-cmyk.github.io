@@ -1,11 +1,11 @@
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/biology-nov2-entry-20261017.js?v=1&ux=20261013-corrections2').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/phase7-voice-cheers-20261011.js?v=20261012-phase3&ux=20261013-corrections2').catch(()=>{});
-if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/star-map-gallery-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2&uxfix=20261022-priority-ux1').catch(console.error);
-if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/memory-stars-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2&uxfix=20261022-priority-ux1').catch(console.error);
+if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/star-map-gallery-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2&uxfix=20261022-priority-ux1&capacity=20261026-v1').catch(console.error);
+if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/memory-stars-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2&uxfix=20261022-priority-ux1&capacity=20261026-v1').catch(console.error);
 if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/daily-task-presentation-20261004.js?v=20261012-level10&ux=20261013-corrections2').catch(console.error);
-if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/companion-experience-20261004.js?v=20261012-level10&ux=20261013-corrections2&uxfix=20261022-priority-ux1').catch(console.error);
+if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/companion-experience-20261004.js?v=20261012-level10&ux=20261013-corrections2&uxfix=20261022-priority-ux1&capacity=20261026-v1').catch(console.error);
 import('/assets/ipad-experience-20261004.js?v=20261008-accent1&ux=20261013-corrections2').catch(console.error);
-if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/school-revision-home-20261004.js?v=20261017-bio-nov2&ux=20261013-corrections2&uxfix=20261022-priority-ux1').catch(error=>console.error('School revision panel could not load',error));
+if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/school-revision-home-20261004.js?v=20261017-bio-nov2&ux=20261013-corrections2&uxfix=20261022-priority-ux1&capacity=20261026-v1').catch(error=>console.error('School revision panel could not load',error));
 (() => {
   if (!document.querySelector('link[href*="lux-theme.css?ux=20261013-corrections2"]')) {
     const l = document.createElement('link');
@@ -54,7 +54,7 @@ if(!/^\/(pet|assessment)(\/|$)/.test(location.pathname)) import('/assets/school-
   if (typeof window === 'undefined' || window.__luxPlayHallBootRequested) return;
   window.__luxPlayHallBootRequested = true;
   const boot = document.createElement('script');
-  boot.src = '/assets/play-hall-live-boot-20261020.js?v=20261020-live1&uxfix=20261022-priority-ux1';
+  boot.src = '/assets/play-hall-live-boot-20261020.js?v=20261020-live1&uxfix=20261022-priority-ux1&capacity=20261026-v1';
   boot.defer = true;
   (document.head || document.documentElement).append(boot);
 })();

@@ -1,3 +1,4 @@
+import {compatibleDailyTopic} from './daily-capacity-scope-20261026.js?capacity=20261026-v1';
 // Reconcile a completed, *marked* Daily quiz with its exact assigned task.
 // A perfect quiz score / XP toast alone is not evidence of a Daily completion.
 // This is a fallback for Safari/store write ordering; the normal formal journal
@@ -52,7 +53,7 @@ export function reconcileDailySession(state,receipt={}) {
   // question has a stale/missing topicId. Free practice cannot reach here.
   const scienceTask=['biology','chemistry','physics'].includes(subject);
   const eligible=new Set(questions.filter(q=>q?.id&&q.formal!==false&&
-    !q._repair&&(q.topicId===task.assignedTopic||scienceTask)).map(q=>String(q.id)));
+    !q._repair&&(compatibleDailyTopic(task.assignedTopic,q.topicId)||scienceTask)).map(q=>String(q.id)));
   // Count a marked answer per visible quiz slot; repeated question IDs can
   // legitimately occupy separate slots, but duplicate receipts cannot.
   const remaining=new Map();
@@ -79,13 +80,17 @@ export function reconcileDailySession(state,receipt={}) {
   // Merge independently marked journal evidence from the SAME task and day,
   // rather than comparing 2 fresh answers against the old 8/10 snapshot.
   const prior=receipt.priorReceipt;
+  if(prior&&(prior.day!==day||prior.taskId!==taskId||prior.subject!==subject||
+     Number(prior.year)!==Number(year)||prior.topicId!==task.assignedTopic||prior.mode!==mode)){
+    return {...unchanged('mismatched-prior-receipt'),progress:progressOf(task),target:Number(task.target)};
+  }
   if(day>='2026-10-24'&&prior&&prior.day===day&&prior.taskId===taskId&&
      prior.subject===subject&&Number(prior.year)===Number(year)&&
      prior.topicId===task.assignedTopic&&prior.mode===mode&&
      Number(prior.target)===Number(task.target)&&
      Array.isArray(prior.questions)&&Array.isArray(prior.answers)){
     const oldSlots=verifiedQuizSlots(prior.questions,prior.answers)
-      .filter(x=>x.question?.topicId===task.assignedTopic||scienceTask);
+      .filter(x=>compatibleDailyTopic(task.assignedTopic,x.question?.topicId)||scienceTask);
     const oldById=new Map(),newById=new Map();
     for(const slot of oldSlots){
       const row=oldById.get(slot.id)||{correct:0,wrong:0};
@@ -111,7 +116,7 @@ export function reconcileDailySession(state,receipt={}) {
        event?.subject!==subject||Number(event?.year)!==Number(year)||
        event?.correct!==true||event?.repair||event?.formal===false||
        event?.recoveryFor||!event.questionId)continue;
-    if(event.topicId!==task.assignedTopic&&
+    if(!compatibleDailyTopic(task.assignedTopic,event.topicId)&&
        !(scienceTask&&event.topicId))continue;
     creditedIds.add(String(event.questionId));
   }
