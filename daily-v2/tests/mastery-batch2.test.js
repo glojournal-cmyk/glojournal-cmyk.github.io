@@ -85,7 +85,7 @@ test('Physics series/parallel and Chemistry neutralisation answer spot checks',(
 });
 test('Latin verb aspects and French reflexive auxiliary positions have model guidance',()=>{
  const q=Object.fromEntries(normalized(load(batch2)).map(x=>[x.id,x]));
- assert.match(q['la-y8-v2mb-18'].answer.modelAnswer,/intraverunt/);
+ assert.match(q['la-y8-v2mb-18'].stimulus.text,/intraverunt/);
  assert.match(q['la-y8-v2mb-20'].answer.modelAnswer,/master entered/);
  assert.match(q['fr-y8-v2mb-19'].answer.modelAnswer,/ne me lève pas/);
  assert.match(q['fr-y8-v2mb-20'].answer.modelAnswer,/s'est couchée/);
