@@ -5,7 +5,7 @@ import {practiceSessionYear} from '../assets/practice-session-year-20261026.js';
 import {dailyCorrectQuestionIds,fillDailyLockedQuestions} from '../assets/daily-locked-question-fallback-20261021.js';
 import {selectUnfinishedDailyQuestions} from '../assets/daily-unfinished-retry-20261025.js';
 import {reconcileDailySession} from '../assets/daily-session-credit-20261021.js';
-import {saveCompletedDailyReceipt,reconcileCompletedDailyReceipts} from '../assets/daily-completed-session-receipts-20261024.js';
+import {saveCompletedDailyReceipt,saveVerifiedBiologyAnswerSync,readDailyRetryReceiptSync,reconcileCompletedDailyReceipts} from '../assets/daily-completed-session-receipts-20261024.js';
 
 // Minimal anonymous reproduction of the 26 October iPad export: global Year 8,
 // locked Year 9 Biology, 12 verified slots, six saved IDs and old Year 8 events.
@@ -81,4 +81,48 @@ test('Safari fallback receipt restores the completed Biology target after a relo
   assert.equal(result.dailyLog[day].tasks[0].done,true);
   assert.deepEqual(result.daily[1],s.daily[1]);
  }finally{globalThis.localStorage=original;}
+});
+
+test('each correct Biology answer has an immediate assignment-checked durable fallback before page navigation',()=>{
+ const old=globalThis.localStorage,rows=new Map();
+ globalThis.localStorage={getItem:k=>rows.get(k)||null,setItem:(k,v)=>rows.set(k,String(v))};
+ try{
+  const learner=state(),three=choose(learner);
+  const receiptFor=(q,extra={})=>({...options,questions:[q],
+   answers:[{questionId:q.id,correct:true,formal:true,repair:false}],...extra});
+  assert.equal(saveVerifiedBiologyAnswerSync(learner,receiptFor(three[0],{year:8})),false);
+  assert.equal(saveVerifiedBiologyAnswerSync(learner,{
+    ...receiptFor(three[0]),answers:[{questionId:three[0].id,correct:false,formal:true,repair:false}]
+  }),false);
+  for(const q of three)assert.equal(saveVerifiedBiologyAnswerSync(learner,receiptFor(q)),true);
+  assert.equal(saveVerifiedBiologyAnswerSync(learner,receiptFor(three[2])),true);
+  const safe=readDailyRetryReceiptSync(options);
+  assert.ok(safe);
+  assert.equal(safe.answers.filter(a=>a.correct).length,3);
+  const restored=reconcileCompletedDailyReceipts(learner,[safe]);
+  assert.equal(restored.daily[0].progress,15);
+  assert.equal(restored.dailyLog[day].tasks[0].progress,15);
+  assert.equal(restored.daily[1].progress,30);
+ }finally{globalThis.localStorage=old}
+});
+
+test('per-answer receipt is credited before journal IDs can mark the answer as already seen',()=>{
+ const base=state(),fresh=choose(base);
+ let current=base;
+ for(let i=0;i<fresh.length;i++){
+  const one=source([fresh[i]]);
+  const result=reconcileDailySession(current,one);
+  assert.equal(result.changed,true,'Fresh verified question must count');
+  assert.equal(result.progress,13+i);
+  const daily=result.daily,dailyLog=result.dailyLog;
+  current={...current,daily,dailyLog,
+   formalAttemptLog:[...(current.formalAttemptLog||[]),{
+     day,questionId:fresh[i].id,subject:'biology',year:9,topicId,
+     dailyTaskId:taskId,correct:true,formal:true,repair:false,mode:'standard'}]};
+  assert.equal(reconcileDailySession(current,one).progress,13+i,
+    'Replaying marked ID must not add another credit');
+ }
+ assert.equal(current.daily[0].progress,15);
+ assert.equal(current.dailyLog[day].tasks[0].progress,15);
+ assert.equal(current.daily[1].progress,30);
 });
