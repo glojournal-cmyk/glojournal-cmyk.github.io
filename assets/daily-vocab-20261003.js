@@ -243,6 +243,19 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
   const freshPool=y8.filter(r=>!r.wrong);
   const selectedY8=choose(freshPool,size-selected.length,'');
   selected.push(...selectedY8);
+  // If all unused fresh words in a small/filtered pool are exhausted, keep
+  // the assigned 30-word quota achievable without re-crediting today's words.
+  // Not-yet-due wrong words are a LAST resort, never the first selection.
+  if(selected.length<size){
+    const fallback=y8.filter(r=>r.wrong&&!used.has(r.concept)&&!credited.has(r.concept));
+    selected.push(...choose(fallback,size-selected.length,'fallback-'));
+  }
+  // Keep a genuinely completed word out of this date's set. If the whole
+  // bank has been completed, the next cycle can still use prior-day words.
+  if(selected.length<size){
+    const other=y8.filter(r=>!used.has(r.concept)&&!credited.has(r.concept));
+    selected.push(...choose(other,size-selected.length,'next-cycle-'));
+  }
   // Keep the order of cycle tiers (all still-unanswered words before old
   // successes); the hash makes each tier and each fresh session random.
   selected.sort((a,b)=>
