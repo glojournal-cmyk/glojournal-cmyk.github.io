@@ -25,7 +25,7 @@ Do NOT scan the entire historic chat, repository, backups or visual assets unles
 ```bash
 node --test daily-v2/tests/*.test.js
 ```
-Current verified evidence: **122/122** test cases passed in separate V8 harness runs against exact committed JS with module imports adapted and node assertions emulated. **Native node:test, GitHub Actions green, real browser and iPad Safari are NOT verified.** No live integration.
+Current verified evidence: **158/158** test cases passed in separate V8 harness runs against exact committed JS with module imports adapted and node assertions emulated. **Native node:test, GitHub Actions green, real browser and iPad Safari are NOT verified.** No live integration.
 
 ## Independent reviewers: high-risk targets
 1. Ledger replay idempotence under concurrency, cross-date disallow, legacy missing-concept 28/30 safety. `potentialLegacyKeys` must be a verified superset of potential old credits, not a guessed set.
@@ -40,3 +40,11 @@ Current verified evidence: **122/122** test cases passed in separate V8 harness 
 
 ## Required output from Codex when invited
 Report code-specific/reproducible failures by file + line, prioritized by data-loss/stuck-task risk; patch only isolated branch; add regression tests. Do not merge to main or deploy. Request explicit approval for release cutover. Keep a compact review ledger with actual test output.
+
+
+## Current isolated build additions (2026-10-26)
+- src/continuity.js: explicit staging-only partial tasks with strong no-fake-completion and source-error guards.
+- src/day-summary.js: verified Home and 30-day projection, unavailable tasks never counted as completed.
+- src/mastery-audit.js: read-only source Mastery review queue, not a curriculum certificate.
+- 30-day synthetic continuity test: missing GCSE 3-mark item still allows 160/163 questions per day; full-day completion remains false.
+- Total 158/158 isolated V8 tests; native Node, real Safari, real student backup and actual corpus readiness remain unverified.
