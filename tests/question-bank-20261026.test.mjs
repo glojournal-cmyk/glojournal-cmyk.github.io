@@ -24,16 +24,16 @@ function inspect(name, oldCount, n, expectedFormats) {
   assert.equal(bank.formats[key],count);
  return bank;
 }
-test('Latin cases: preserves five original IDs and upgrades to 20 high-utility prompts',()=>{
- const b=inspect('la-y8-case-role-introduction',5,20,{
-  mc_single:5,typed_equivalent:11,controlled_translation:3,mark_points:1
+test('Latin cases: preserves five original IDs and upgrades to 25 varied prompts',()=>{
+ const b=inspect('la-y8-case-role-introduction',5,25,{
+  mc_single:5,typed_equivalent:14,controlled_translation:4,mark_points:2
  });
  for(let i=1;i<=5;i++)assert.ok(b.questions.some(q=>q.id==='la-y8-src-24jul-case-intro-'+i));
  assert.ok(b.questions.filter(q=>q.status==='enabled'&&q.format!=='mc_single').length>=15);
  const inherited = new Set(b.questions.slice(0,5).map(q=>q.conceptId));
  const supplements = b.questions.filter(q=>q.id.startsWith('la-y8-case-role-supplement-20261026-'));
  assert.equal(supplements.length,15);
- assert.equal(new Set(b.questions.map(q=>q.conceptId)).size,20,'independent case-role tasks must not reserve the same question opportunity');
+ assert.equal(new Set(b.questions.map(q=>q.conceptId)).size,25,'independent case-role tasks must not reserve the same question opportunity');
  for (const q of supplements) assert.ok(inherited.has(q.sourceConceptId),'supplement must retain original grammar-case source linkage: '+q.id);
 });
 test('Biology mixed: retains old 12, adds short application and 4 rubric items',()=>{
@@ -42,4 +42,23 @@ test('Biology mixed: retains old 12, adds short application and 4 rubric items',
  });
  for(let i=1;i<=12;i++)assert.ok(b.questions.some(q=>q.id==='bio-y8-mixed-review-'+i));
  assert.ok(b.questions.filter(q=>q.status==='enabled'&&q.format==='mark_points').every(q=>q.answer.totalMarks>=3));
+});
+
+
+test('Latin Case Role retains 20 formally eligible questions after five distinct prior successes',async()=>{
+ const {diagnoseTaskQuestionEligibility}=await import('../src/lib/daily/question-eligibility-diagnostics-20261026.mjs');
+ const b=read('la-y8-case-role-introduction');
+ const reserves=b.questions.filter(q=>q.id.includes('case-role-reserve-20261026'));
+ assert.equal(reserves.length,5);
+ assert.ok(reserves.every(q=>q.status==='enabled'&&q.formal===true&&q.origin?.reviewStatus==='requires-academic-and-grading-QA'));
+ const canonical=new Set(b.questions.slice(0,5).map(q=>q.conceptId));
+ assert.ok(reserves.every(q=>canonical.has(q.sourceConceptId)));
+ assert.ok(reserves.every(q=>q.answer&&(['typed_equivalent','controlled_translation','mark_points'].includes(q.format))));
+ assert.ok(reserves.filter(q=>q.format==='mark_points').every(q=>q.answer.markPoints.length===q.answer.totalMarks&&q.answer.manualReviewFallback===true));
+ const already=Object.fromEntries(b.questions.slice(0,5).map(q=>[q.id,1]));
+ const task={id:'latin-case-role-mastery',subject:'latin',year:8,topicId:b.topicId,mode:'mastery',target:20};
+ const report=diagnoseTaskQuestionEligibility(task,b.questions,{today:'2026-10-26',seenCorrect:already},'2026-10-26');
+ assert.equal(report.nominal,25);
+ assert.equal(report.eligible,20);
+ assert.equal(report.shortage,0);
 });
