@@ -326,6 +326,44 @@ function H({title:e,kicker:t,items:n,repairItems:repairBank=[],subject:a,dailyId
       });
     }catch(err){console.warn("Recovery completion reconciliation skipped",err)}
   }
+  // A completed locked Vocab session must reconcile its actual marked answers.
+  // Some Safari sessions lost the per-question store update while retaining
+  // the graded session receipt (the visible 28/30 + one correct case).
+  // Only genuinely correct, distinct word concepts can add credit.
+  if(!recoverOnFinish && taskOnFinish===a+"-vocab" &&
+     sessionPlanDay===dayKey() && resumeMode==="y8vocab"){
+    const state=o.getState(),date=sessionPlanDay;
+    const days={...(state.dailyVocabByDay||{})};
+    const dayRow={...(days[date]||{})};
+    const previous={...(dayRow[a]||{})};
+    const items={...(previous.items||{})};
+    const aliases={...(previous.conceptByQuestion||{})};
+    const extras={...(previous.additionalCorrectIds||{})};
+    const questions=new Map([...A,...rr].filter(q=>q?.id).map(q=>[String(q.id),q]));
+    const baselineIds=Array.isArray(previous.baselineKnownIds)?previous.baselineKnownIds:[];
+    const known=new Set(baselineIds.map(id=>aliases[id]||id));
+    const credited=new Set(Object.keys(extras).filter(id=>extras[id]===true)
+      .map(id=>aliases[id]||id));
+    let changed=false;
+    for(const answer of sessionLog){
+      if(answer?.correct!==true||!answer.questionId)continue;
+      const q=questions.get(String(answer.questionId));
+      if(!q||q.formal===false||q._dailyVocab!==a)continue;
+      const id=String(q.id),concept=q._vocabConcept||aliases[id]||id;
+      aliases[id]=concept;
+      if(!items[id]){items[id]=true;changed=true;}
+      if(!known.has(concept)&&!credited.has(concept)){
+        extras[id]=true;credited.add(concept);changed=true;
+      }
+    }
+    if(changed){
+      dayRow[a]={...previous,items,conceptByQuestion:aliases,
+        additionalCorrectIds:extras,
+        updatedAt:new Date().toISOString()};
+      days[date]=dayRow;
+      o.setState({dailyVocabByDay:days});
+    }
+  }
   // Quiz XP and a 100% toast are NOT proof the assigned Home task was counted.
   // Reconcile only the exact same-day, locked assignment from marked answers.
   let dailyReceiptNote="";
