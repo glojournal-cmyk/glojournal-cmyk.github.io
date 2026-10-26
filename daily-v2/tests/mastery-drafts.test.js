@@ -63,7 +63,7 @@ test('draft QA rejects pretending independently reviewed content without a real 
 test('actual draft topics can populate TWO Mastery candidates while the other eight daily tasks remain blocked',()=>{
  const topics=readDrafts();
  const day='2026-10-26';
- const result=planDailyV2({day,questionBank:topics.flatMap(t=>t.questions)});
+ const result=planDailyV2({day,questionBank:topics.flatMap(t=>t.questions.map(q=>({...q,subject:t.subject,year:t.year})))});
  assert.equal(result.status,'blocked');
  const mastery=result.eligibleTasks.filter(t=>t.kind==='mastery');
  assert.equal(mastery.length,2);
@@ -73,7 +73,7 @@ test('actual draft topics can populate TWO Mastery candidates while the other ei
  assert.equal(result.tasks.length,0);
 });
 test('100 new items alone cannot keep two fresh 20-question Masteries available on day 3',()=>{
- const topics=readDrafts(),questionBank=topics.flatMap(t=>t.questions);
+ const topics=readDrafts(),questionBank=topics.flatMap(t=>t.questions.map(q=>({...q,subject:t.subject,year:t.year})));
  let history=[],completedDays=0;
  for(let i=0;i<3;i++){
   const day='2026-10-'+String(26+i);
