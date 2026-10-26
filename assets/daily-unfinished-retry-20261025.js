@@ -1,3 +1,4 @@
+import {compatibleDailyTopic} from './daily-capacity-scope-20261026.js?capacity=20261026-v1';
 /* A partly finished locked Daily task must resume its ORIGINAL wrong base
  * question(s), not silently replace them with newly generated practice.
  * Read-only selection: verified answer receipts and formal events decide what
@@ -15,7 +16,7 @@ function sameEvent(event,{day,taskId,subject,year,topicId}){
  return event?.day===day&&event.dailyTaskId===taskId&&
   event.subject===subject&&Number(event.year)===Number(year)&&
   event.recoveryFor==null&&event.formal!==false&&!event.repair&&
-  (event.topicId===topicId||
+  (compatibleDailyTopic(topicId,event.topicId)||
    (['biology','chemistry','physics'].includes(subject)&&!!event.topicId));
 }
 export function dailyUnfinishedQuestionIds(state,receipt,options={}){
@@ -84,7 +85,7 @@ export function selectUnfinishedDailyQuestions(current,loaded,options={}){
  for(const q of base){if(chosen.length>=limit)break;add(q);}
  if(chosen.length<limit)for(const q of pool){
   if(chosen.length>=limit)break;
-  if(topicId&&q?.topicId!==topicId)continue;
+  if(!compatibleDailyTopic(topicId,q?.topicId)||q?.formal===false||q?._repair||['preview','disabled'].includes(q?.status)||Number(state.seenCorrect?.[q?.id])>0)continue;
   add(q);
  }
  return chosen.slice(0,limit);

@@ -1,0 +1,29 @@
+name: Daily capacity and iPad browser verification
+on:
+  push:
+    branches: [codex/daily-capacity-20261026, main]
+    paths: ['assets/**', 'tests/daily-capacity*', '.github/workflows/daily-capacity-20261026.yml']
+  workflow_dispatch:
+jobs:
+  capacity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test tests/daily-capacity-20261026.test.mjs tests/daily-no-repeat-correct-20261025.test.mjs tests/daily-wrong-question-resume-20261025.test.mjs tests/recovery-all-tasks-ledger.test.mjs tests/recovery-question-diversity-20261025.test.mjs tests/daily-resume-stable-drafts-20261025.test.mjs
+      - run: npm install --no-save --package-lock=false playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - run: |
+          python3 -m http.server 8765 > /tmp/capacity-server.log 2>&1 &
+          node tests/daily-capacity-browser-20261026.mjs
+          BROWSER=webkit node tests/daily-capacity-browser-20261026.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: daily-capacity-browser-evidence
+          path: |
+            qa/runtime-capacity-*.json
+            qa/daily-capacity-*.png

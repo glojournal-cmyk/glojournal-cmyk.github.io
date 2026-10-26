@@ -1,3 +1,4 @@
+import {compatibleDailyTopic} from './daily-capacity-scope-20261026.js?capacity=20261026-v1';
 /* Keep dated Recovery question sets distinct across tasks and across iPad reloads.
  * Read-only: the quiz's ordinary grading and dated Recovery ledger remain authoritative. */
 const PRACTICE_SUBJECTS=new Set(['french','latin','biology','chemistry','physics']);
@@ -63,7 +64,7 @@ export function selectDiverseRecoveryQuestions(fresh,loaded,options={},rank,prog
  const reviewIds=mode==='mistakes'&&Array.isArray(reviewQuestionIds)&&reviewQuestionIds.length?new Set(reviewQuestionIds):null;
  const allowed=q=>q?.id&&q.formal!==false&&!q._repair&&q.status!=='preview'&&
    (!reviewIds||reviewIds.has(q.id))&&
-   (!topicId||q.topicId===topicId)&&!excluded.ids.has(asId(q.id))&&
+   compatibleDailyTopic(topicId,q.topicId)&&!excluded.ids.has(asId(q.id))&&
    !(day&&['standard','mastery','quick'].includes(mode)&&
      state.reviews?.[q.id]?.due>day)&&
    !excludedFingerprints.has(recoveryQuestionFingerprint(q));
@@ -83,7 +84,7 @@ export function selectDiverseRecoveryQuestions(fresh,loaded,options={},rank,prog
  // Mistake/due review may only draw from its specifically assigned pool.
  const candidates=selectUnique(review?current:bank);
  if(!candidates.length)return selectUnique(current).slice(0,limit);
- const ranked=selectUnique(typeof rank==='function'?rank(candidates,subject,Math.max(1,Math.min(30,limit))):candidates);
+ const ranked=selectUnique(typeof rank==='function'?rank(candidates,subject,candidates.length):candidates);
  // Independent, non-overlapping portions of one subject/topic bank for
  // same-day Recovery assignments; prevents overlap even BEFORE first answer.
  const assignments=(state.dailyLog?.[date]?.tasks||[]).filter(t=>

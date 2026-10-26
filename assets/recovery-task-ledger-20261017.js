@@ -1,3 +1,4 @@
+import {compatibleDailyTopic} from './daily-capacity-scope-20261026.js?capacity=20261026-v1';
 // Date-scoped recovery ledger for daily tasks. Does not mutate today's task list.
 // This module is deliberately independent from React and localStorage so callers
 // must submit actual verified answer events, not clicks or page visits.
@@ -66,7 +67,7 @@ export function matchesAssignedPracticeEvidence(entry,task,taskId){
   return true;
  }
  if(subject&&entry.subject!==subject)return false;
- if(topic&&entry.topicId!==topic)return false;
+ if(topic&&!compatibleDailyTopic(topic,entry.topicId))return false;
  // A pinned topic is conclusive even if the old attempt metadata assigned
  // its year incorrectly during a Year 8-to-Year 9 progression.
  if(topic)return true;
