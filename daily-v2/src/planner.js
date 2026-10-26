@@ -59,7 +59,7 @@ function normalizeQuestions(raw, day, taught) {
   if(q.roles.includes('gcse') && (!isId(q.prompt)||![1,2,3].includes(Number(q.marks))||!q.markScheme)){
    errors.push({code:'GCSE_MISSING_MARK_SCHEME',questionId:q.id});continue;
   }
-  questions.push({...q,year:Number(q.year),roles:[...new Set(roles)],_promptKey:plain(q.prompt)});
+  questions.push({...q,year:Number(q.year),roles:[...new Set(roles)],_promptKey:plain([q.prompt,q.stimulus?.text||'',q.stimulus?.direction||'',q.stimulus?.imageId||''].join(' | '))});
  }
  return {questions,errors};
 }
