@@ -80,7 +80,7 @@ function allocateQuotas(items,quotas,day) {
  return {ready:true,chosen};
 }
 function redactQuestion(q) {
- return {questionId:q.id,conceptId:q.conceptId||null,subject:q.subject,year:q.year,topicId:q.topicId,role:q.roles.join(','),depthBand:q.depthBand||null};
+ return {questionId:q.id,conceptId:q.conceptId||null,subject:q.subject,year:q.year,topicId:q.topicId,role:q.roles.join(','),depthBand:q.depthBand||null,marks:q.roles.includes('gcse')?Number(q.marks):null};
 }
 function packageTask(task,questionRows,selectedTopic,extras={}) {
  return {id:task.id,kind:task.kind,target:task.target,subject:selectedTopic?.subject||task.subject||null,
