@@ -1,5 +1,5 @@
 # Daily V2 — QA and independent review handoff
-**Initial isolated implementation tests: 97/97 passed in a V8 harness** (ledger 12, planner 27, storage 20, bank adapter 14, IndexedDB adapter 12, legacy review 12), 2026-10-26. Native Node/GitHub Actions completion and iPad testing are NOT verified. The following remain release acceptance criteria.
+**Initial isolated implementation tests: 114/114 passed in a V8 harness** (ledger 12, planner 27, storage 24, bank adapter 17, IndexedDB adapter 12, legacy review 12, simulator 10), 2026-10-26. Native Node/GitHub Actions completion and iPad testing are NOT verified. The following remain release acceptance criteria.
 
 ## Data reliability
 - Verified credit is derived only from persisted answer events or explicitly preserved legacy baselines.
@@ -38,7 +38,7 @@
 - Independent code and QA evidence; staged migration rehearsal; rollback verification; written approval before merge or prod cutover.
 
 ## Current execution evidence and limitations (2026-10-26)
-- Ledger 12/12, deterministic ten-task planner 27/27, CAS storage contract 20/20, real-bank adapter 14/14, IndexedDB adapter 12/12, read-only legacy review 12/12 in JS V8 harness executing GitHub-committed source and tests.
+- Ledger 12/12, deterministic ten-task planner 27/27, CAS storage contract 24/24, real-bank adapter 17/17, IndexedDB adapter 12/12, read-only legacy review 12/12, 30-day simulator 10/10 in JS V8 harness executing GitHub-committed source and tests.
 - CI workflow on staging branch: `.github/workflows/daily-v2-tests.yml`; no verified Actions outcome yet. Browser/workspace cannot directly reach public GitHub via container git (DNS unavailable).
 - Storage tests rely on in-memory repo, so they DO NOT establish iPad IndexedDB durability. No live Safari/real-device QA done.
 - Real topic catalogs have not yet been normalized to explicit roles and certified depth bands; no Daily V2 plans from real bank have been proven ready.
@@ -50,3 +50,10 @@
 - Legacy 28/30 count with missing concept identities is preserved but **cannot yet safely progress** under ledger's opaque-baseline guard; reconciliation workflow is mandatory.
 - Duplicate generic passage instructions are differentiated by actual stimulus text to avoid rejecting independent Latin translations.
 - External Vercel build-rate-limit status is not relevant to V2 module tests; do not retry Vercel or claim CI green.
+
+## 30-day proof limits and real-file findings
+- Synthetic capacity stress passes 30 x 163 allocations. The 10 simulator tests also correctly block smaller Mastery banks after depletion; this is NOT real-student or real-bank evidence.
+- Spot audit: 12 authentic enabled topic files, 594 question records, detailed in `QA_REAL_BANK_12_TOPIC_SAMPLE.md`. No source difficulty 3–4 in Latin adjective agreement (24 items), French present tense (52), French accuracy traps (50), or Biology balanced diet (39). Depth labels alone are not quality certification.
+- Review-bound manifest fingerprints invalidate unreviewed changes. Certification authenticity and cognitive quality still need independent curriculum review.
+- GCSE saved-mark ceiling must equal frozen 1/2/3-mark question ceiling, and correctness must match fully awarded marks.
+- Caution: blocking all 10 tasks when ONE bank is short prevents broken halfway quizzes but also recreates an unusable Daily home experience. Define an explicit safe fallback before cutover; never pad with low-quality or double-counted items.
