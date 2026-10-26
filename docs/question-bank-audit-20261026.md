@@ -112,3 +112,13 @@ The read-only audit now reports whether a nominally Mastery-eligible topic has f
 5. Model 30 days with genuine or sanitised state, iPad persistence/recovery and idempotent scoring before merging.
 
 **Safety:** Draft PR #172 remains unmerged. No production `main` code, live data, student answers, XP or deployment modified.
+
+## Round 4 — Mastery actual-availability topic picker (independent prototype)
+
+A new **read-only, not imported by the production app** `src/lib/daily/mastery-capacity-picker-20261026.mjs` diagnoses the full learner-aware availability of each *taught Year 8* Mastery topic, requiring **20 currently eligible questions per slot** rather than trusting the topic's `enabled >= 20` metadata. It calls the global conflict-free allocator so two different topics must yield **40 distinct, non-overlapping question opportunities**. If this cannot be verified, it returns `NOT_READY` (or `NEEDS_REVIEW` if a bounded search limit is reached), **not fabricated completion**.
+
+`tests/mastery-capacity-picker-20261026.test.mjs` covers: a nominal 20-item topic depleted by five old successes; pairwise duplicate content with different IDs; only one eligible topic; an untaught topic excluded from selection; and all pools exhausted by past success. The test is now part of the dedicated Action workflow. **It does not yet preserve/merge historic in-progress assignments or run live quiz grading.** Those are separate runtime integration/release gates.
+
+The inventory also now records **Mastery reserve scenarios**: how many topics can still offer a 20-slot assignment after hypothetical five or ten prior correctly answered questions. Do not describe these static scenarios as the learner's real state or as results of the 30-day simulation.
+
+**P0/P1 cumulative summary:** Eleven original topic files each now contain 20 enabled questions, 66 added in total; the user's progress database and the live website remain unchanged. This is *initial structural capacity*, **not** a guarantee of all ten 163-question Daily tasks. The GCSE 1/2/3 mark bank, full Daily task migration, student-state 30-day test, semantic grading and iPad acceptance remain uncompleted. Keep PR #172 in draft.
