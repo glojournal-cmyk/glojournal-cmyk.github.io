@@ -16,9 +16,26 @@ const LANG_SKILLS={
 const DEPTH=new Set(['foundation','application','challenge']);
 const SUBJECTS=new Set(['latin','french','biology','chemistry','physics']);
 const okString=x=>typeof x==='string'&&x.trim().length>0;
+
+/** Stable, review-bound source checksum (FNV-1a32).
+ * This is a change detector, NOT a cryptographic authenticity guarantee.
+ * A certified question must be re-reviewed if prompt/stimulus/marking changes.
+ */
+export function fingerprintDailyV2Source(topic,question){
+ const payload=JSON.stringify([
+  topic?.topicId??null,topic?.subject??null,Number(topic?.year)||null,
+  question?.id??null,question?.format??null,question?.prompt??null,
+  question?.stimulus??null,question?.options??null,question?.answer??null
+ ]);
+ let hash=2166136261;
+ for(let i=0;i<payload.length;i++){hash^=payload.charCodeAt(i);hash=Math.imul(hash,16777619);}
+ return 'fnv1a32-'+(hash>>>0).toString(16).padStart(8,'0');
+}
+
 function certificationIssues(question,topic,c){
  const issues=[];
  if(!c||c.reviewed!==true||!okString(c.reviewer)||!okString(c.reviewedAt))return ['NOT_CERTIFIED'];
+ if(c.sourceFingerprint!==fingerprintDailyV2Source(topic,question))issues.push('STALE_OR_UNBOUND_CERTIFICATION');
  if(!Array.isArray(c.roles)||c.roles.length===0||c.roles.some(r=>!ROLES.has(r)))issues.push('INVALID_ROLES');
  if(!okString(topic.topicId)||!SUBJECTS.has(topic.subject)||![7,8,9].includes(Number(topic.year)))issues.push('INVALID_TOPIC');
  if(!okString(question.id)||!okString(question.prompt))issues.push('INVALID_QUESTION');
