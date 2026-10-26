@@ -6,21 +6,21 @@ import {allocateGlobalQuestions} from '../src/lib/daily/global-allocation-prefli
 
 // Read-only QA; no app runtime import, student progress edits, or deployment.
 const cases=[
- {topic:'fr-y9-u1-perfect-negatives',old:14,added:11,subject:'french'},
- {topic:'fr-y9-u2-comparatives-superlatives',old:13,added:12,subject:'french'},
- {topic:'la-y9-s01-case-functions',old:18,added:7,subject:'latin'}
+ {topic:'fr-y9-u1-perfect-negatives',old:14,added:11,total:25,distinctConcepts:25,subject:'french'},
+ {topic:'fr-y9-u2-comparatives-superlatives',old:13,added:12,total:25,distinctConcepts:25,subject:'french'},
+ {topic:'la-y9-s01-case-functions',old:18,added:13,total:31,distinctConcepts:25,subject:'latin'}
 ];
 const get=topic=>JSON.parse(fs.readFileSync('content/topics/'+topic+'.json','utf8'));
 const normal=x=>String(x??'').normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim();
 for(const spec of cases){
- test(spec.topic+' preserves pre-existing IDs and includes 25 formally eligible questions',()=>{
+ test(spec.topic+' preserves pre-existing IDs and has a Mastery reserve',()=>{
   const bank=get(spec.topic),q=bank.questions||[];
   assert.equal(bank.subject,spec.subject);
   assert.equal(bank.year,9);
-  assert.equal(q.length,25);
-  assert.equal(bank.enabled,25);
-  assert.equal(new Set(q.map(x=>x.id)).size,25);
-  assert.equal(new Set(q.map(x=>x.conceptId)).size,25,'mastery should have distinct question opportunities');
+  assert.equal(q.length,spec.total);
+  assert.equal(bank.enabled,spec.total);
+  assert.equal(new Set(q.map(x=>x.id)).size,spec.total);
+  assert.equal(new Set(q.map(x=>x.conceptId)).size,spec.distinctConcepts,'do not count legacy shared concept variants as independent concepts');
   const prior=q.slice(0,spec.old),supplement=q.slice(spec.old);
   assert.ok(prior.every(x=>!x.id.includes('-mastery-20261026-')),'prior record IDs must remain in original order');
   assert.equal(supplement.length,spec.added);
@@ -57,8 +57,9 @@ for(const spec of cases){
   const solved=Object.fromEntries(b.questions.slice(0,5).map(q=>[q.id,1]));
   const task={id:'preview-'+spec.topic,subject:spec.subject,year:9,topicId:spec.topic,mode:'mastery',target:20};
   const report=diagnoseTaskQuestionEligibility(task,b.questions,{today:'2026-10-26',seenCorrect:solved},'2026-10-26');
-  assert.equal(report.nominal,25);
-  assert.equal(report.eligible,20);
+  assert.equal(report.nominal,spec.total);
+  assert.equal(report.eligible,spec.total-5);
+  assert.ok(new Set(report.questions.map(x=>x.conceptId)).size>=20,'remaining tasks must cover at least 20 independently labeled concepts');
   assert.equal(report.shortage,0);
   assert.equal(report.reasons.previously_correct,5);
  });
