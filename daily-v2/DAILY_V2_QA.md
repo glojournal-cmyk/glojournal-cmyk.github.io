@@ -1,5 +1,5 @@
 # Daily V2 — QA and independent review handoff
-**Initial isolated implementation tests: 122/122 passed in a V8 harness** (ledger 16, planner 27, storage 24, bank adapter 17, IndexedDB adapter 12, legacy review 16, simulator 10), 2026-10-26. Native Node/GitHub Actions completion and iPad testing are NOT verified. The following remain release acceptance criteria.
+**Initial isolated implementation tests: 158/158 passed in a V8 harness** (ledger 16, planner 29, storage 24, bank adapter 17, IndexedDB adapter 12, legacy review 16, simulator 14, continuity 12, day-summary 9, mastery-audit 9), 2026-10-26. Native Node/GitHub Actions completion and iPad testing are NOT verified. The following remain release acceptance criteria.
 
 ## Data reliability
 - Verified credit is derived only from persisted answer events or explicitly preserved legacy baselines.
@@ -62,3 +62,10 @@
 - Given an old 28/30 counter with unknown correct concept IDs, an independently verified frozen assignment universe allows safely crediting new concepts OUTSIDE all possibly credited previous concepts. New in-universe concepts remain uncredited pending reconciliation.
 - Legacy `assignedQuestionIds` are NOT interchangeable with vocabulary concept IDs. Never invent exact 28 old correct IDs.
 - The student's real archived legacy assignment evidence has not been mapped or verified. These tests do NOT establish that 28/30 has been fixed for them or that a backup import will work on iPad.
+
+## Task-by-task continuity regression (staging-only)
+- 12/12 dedicated continuity tests: strict blocked plan remains unpublishable; partial plan needs explicit `allowPartial:true`; 1–9 FULL assigned tasks only; missing tasks cannot receive fictitious credit; duplicate IDs and globally invalid catalogs cannot use fallback.
+- 9/9 Home projection tests: when 9/10 tasks complete and one is unavailable, the summary never marks 10/10 or grants full-day eligibility, and no current progress is lost.
+- 14/14 30-day simulator tests: opt-in partial 160/day (missing GCSE 3 Marks) for 30 days, 4,800 genuine *synthetic* assignments; strict mode still blocks and rejects corrupt banks.
+- Entire regression 158/158 V8-only. Native Node, real Safari and production smoke tests NOT certified.
+- Curriculum review queue 9/9 tests; real 8 topic sample 438 source items, 67 advanced-format/difficulty review candidates, zero independently approved Mastery questions.
