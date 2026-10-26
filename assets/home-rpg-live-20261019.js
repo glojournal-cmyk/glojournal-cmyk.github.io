@@ -473,8 +473,11 @@ if (!window.__luxRpgLiveHome) {
       outfit: state.equippedOutfit, scene: state.equippedScene,
       xp: state.xp, level: state.level, scholarLevel: state.scholarLevel,
       metrics: scholarMetrics(state),
-      topicStats: state.topicStats, today: state.today, daily: state.daily,
-      dailyLog: state.dailyLog, formalAttemptLog: state.formalAttemptLog,
+      // Avoid repainting the entire Home, including the Continue button, for
+      // unrelated in-progress answer/log writes. Official task totals, XP,
+      // daily history and recovery state still trigger a visual refresh.
+      today: state.today, daily: state.daily,
+      dailyLog: state.dailyLog,
       recovery: state.recoveryHistory, petSpecies: pet.species,
       petLevels: pet.petLevels, petStage: pet.highestStage,
       greetingMessage, greetingCount
