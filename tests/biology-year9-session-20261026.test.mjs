@@ -105,3 +105,24 @@ test('each correct Biology answer has an immediate assignment-checked durable fa
   assert.equal(restored.daily[1].progress,30);
  }finally{globalThis.localStorage=old}
 });
+
+test('per-answer receipt is credited before journal IDs can mark the answer as already seen',()=>{
+ const base=state(),fresh=choose(base);
+ let current=base;
+ for(let i=0;i<fresh.length;i++){
+  const one=source([fresh[i]]);
+  const result=reconcileDailySession(current,one);
+  assert.equal(result.changed,true,'Fresh verified question must count');
+  assert.equal(result.progress,13+i);
+  const daily=result.daily,dailyLog=result.dailyLog;
+  current={...current,daily,dailyLog,
+   formalAttemptLog:[...(current.formalAttemptLog||[]),{
+     day,questionId:fresh[i].id,subject:'biology',year:9,topicId,
+     dailyTaskId:taskId,correct:true,formal:true,repair:false,mode:'standard'}]};
+  assert.equal(reconcileDailySession(current,one).progress,13+i,
+    'Replaying marked ID must not add another credit');
+ }
+ assert.equal(current.daily[0].progress,15);
+ assert.equal(current.dailyLog[day].tasks[0].progress,15);
+ assert.equal(current.daily[1].progress,30);
+});
