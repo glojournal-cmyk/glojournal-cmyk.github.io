@@ -10,13 +10,17 @@ const specs={
  'bio-y8-punnett-squares':{prior:17,added:3}
 };
 const open=key=>JSON.parse(fs.readFileSync('content/topics/'+key+'.json','utf8'));
+const reserves={'bio-y8-dna-structure':7,'bio-y8-punnett-squares':6};
 for(const [topic,{prior,added}]of Object.entries(specs)){
- test(topic+' has 20 enabled questions, stable originals, valid newly authored answers',()=>{
+ test(topic+' preserves originals and has valid supplemental questions',()=>{
   const b=open(topic),fresh=b.questions.filter(q=>q.id.includes('capacity-20261026'));
-  assert.equal(b.questions.length,20);assert.equal(b.enabled,20);
-  assert.equal(fresh.length,added);assert.equal(b.questions.length-fresh.length,prior);
-  assert.equal(new Set(b.questions.map(q=>q.id)).size,20);
-  assert.equal(new Set(b.questions.map(q=>JSON.stringify([q.prompt,q.stimulus,q.format]))).size,20);
+  const extra=b.questions.filter(q=>q.id.includes('reserve-20261026'));
+  const expected=20+(reserves[topic]||0);
+  assert.equal(b.questions.length,expected);assert.equal(b.enabled,expected);
+  assert.equal(fresh.length,added);assert.equal(extra.length,reserves[topic]||0);
+  assert.equal(b.questions.length-fresh.length-extra.length,prior);
+  assert.equal(new Set(b.questions.map(q=>q.id)).size,expected);
+  assert.equal(new Set(b.questions.map(q=>JSON.stringify([q.prompt,q.stimulus,q.format]))).size,expected);
   for(const q of fresh){
    assert.equal(q.status,'enabled');assert.equal(q.year,8);
    assert.equal(q.topicId,topic);assert.ok(q.prompt&&q.conceptId&&q.answer);
@@ -56,9 +60,40 @@ test('20 enabled does NOT mean 20 fresh after five prior correct questions',asyn
   const task={id:'mastery-'+topic,subject:'biology',year:8,topicId:topic,target:20,mode:'mastery'};
   const r=diagnoseTaskQuestionEligibility(task,bank.questions,{today:'2026-10-26',seenCorrect:previouslyCorrect},'2026-10-26');
   const informal=bank.questions.filter(q=>q.formal===false||q._repair||q.status!=='enabled').length;
-  const expectedEligible=20-5-informal;
-  assert.equal(r.nominal,20,topic);
-  assert.equal(r.eligible,expectedEligible,topic+' must not count nonformal diagrams or prior successes');
-  assert.equal(r.shortage,5+informal,topic);
+  const eligibleBeforeHistory=bank.questions.length-informal;
+  const expectedEligible=eligibleBeforeHistory-5;
+  assert.equal(r.nominal,bank.questions.length,topic);
+  assert.equal(r.eligible,expectedEligible,topic+' must exclude nonformal diagrams and previous successes');
+  assert.equal(r.shortage,Math.max(0,20-expectedEligible),topic);
+ }
+});
+
+
+test('DNA and Punnett each offer 20 formal Mastery questions after five prior correct answers',async()=>{
+ const {diagnoseTaskQuestionEligibility}=await import('../src/lib/daily/question-eligibility-diagnostics-20261026.mjs');
+ for(const [topic,amount] of Object.entries(reserves)){
+  const b=open(topic),res=b.questions.filter(q=>q.id.includes('reserve-20261026'));
+  assert.equal(res.length,amount);
+  assert.ok(res.every(q=>q.formal===true&&q.status==='enabled'&&q.origin?.reviewStatus==='requires-academic-and-grading-QA'));
+  assert.ok(res.every(q=>q.subject==='biology'&&q.year===8&&q.topicId===topic&&q.difficulty>=3));
+  const formal=b.questions.filter(q=>q.status==='enabled'&&q.formal!==false&&!q._repair);
+  assert.equal(formal.length,25);
+  assert.equal(new Set(formal.map(q=>q.conceptId)).size>=12,true);
+  for(const q of res){
+   if(q.format==='mark_points'){
+    assert.equal(q.answer.totalMarks,q.answer.markPoints.length);
+    assert.ok(q.answer.markPoints.length>=2&&q.answer.markPoints.every(x=>typeof x==='string'&&x.trim()));
+    assert.equal(q.answer.manualReviewFallback,true);
+   } else {
+    assert.equal(q.format,'typed_equivalent');
+    assert.equal(q.answer.mode,'exact_or_equivalent');
+    assert.ok(q.answer.accepted?.length>=2);
+   }
+  }
+  const seenCorrect=Object.fromEntries(formal.slice(0,5).map(q=>[q.id,1]));
+  const t={id:'mastery-'+topic,mode:'mastery',subject:'biology',year:8,topicId:topic,target:20};
+  const diagnostic=diagnoseTaskQuestionEligibility(t,b.questions,{today:'2026-10-26',seenCorrect},'2026-10-26');
+  assert.equal(diagnostic.eligible,20,topic);
+  assert.equal(diagnostic.shortage,0,topic);
  }
 });
