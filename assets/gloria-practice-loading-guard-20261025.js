@@ -1,9 +1,14 @@
 /* Fail-visible guard for iPad assigned Practice hydration.
  * No mutation to learning records, answers, XP or task assignment.
- * 2026-10-26: stronger fail-open + one automatic soft-retry for Recovery. */
+ * 2026-10-26: stronger fail-open + one automatic soft-retry for Recovery and Daily tasks. */
 (()=>{'use strict';if(typeof document==='undefined'||typeof window==='undefined')return;
 const route=()=>/^\/study\/(latin|french|biology|chemistry|physics)\/practise\/?$/.test(location.pathname);
-const isRecovery=()=>new URLSearchParams(location.search).has('recover');
+const params=()=>new URLSearchParams(location.search);
+const isRecovery=()=>params().has('recover');
+const isAssignedDaily=()=>{
+  const p=params();
+  return p.get('daily')==='1' || p.get('locked')==='1' || isRecovery();
+};
 let timer,notice,autoRetried=false;
 function remove(){notice?.remove();notice=null;}
 function isStuck(){
@@ -38,12 +43,12 @@ function showNotice(auto){
 function check(){
   clearTimeout(timer);remove();
   if(!route())return;
-  // Faster detection for Recovery (the path that previously required repeated exit/re-enter).
-  const delay=isRecovery()?4000:7000;
+  // Faster detection for any assigned Daily or Recovery practice.
+  const delay=isAssignedDaily()?4000:7000;
   timer=setTimeout(()=>{
     if(!route()||!isStuck())return;
-    // One automatic soft-retry for Recovery only. Avoids infinite loops.
-    if(isRecovery()&&!autoRetried&&!new URLSearchParams(location.search).has('gloriaRetry')){
+    // One automatic soft-retry for assigned Daily / Recovery. Avoids infinite loops.
+    if(isAssignedDaily()&&!autoRetried&&!params().has('gloriaRetry')){
       autoRetried=true;
       showNotice(true);
       setTimeout(softRetry,800);
