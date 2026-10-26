@@ -95,8 +95,20 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
  assert.equal(created.record.recoveryFallback,true);
  assert.equal(created.today,dailyBefore);
 
+ // Close the test-opened Recovery modal before opening the 30-day record.
+ // Real Garden navigation closes one modal before opening another; leaving
+ // both open made Recovery links intercept clicks on the record calendar.
+ // This is a UI-only transition: no learner state, answers or XP are changed.
+ await page.evaluate(()=>{
+   const recovery=document.getElementById('lux-recovery-quests');
+   if(recovery){recovery.open=false;recovery.hidden=true;}
+   document.documentElement.classList.remove('lux-rpg-recovery-open');
+ });
+ assert.equal(await page.locator('#lux-recovery-quests').isVisible(),false,
+   'Recovery must no longer cover 30-day record controls');
  await page.evaluate(()=>window.__luxOpenDailyRecord());
- await page.locator('.lux-record-dot').nth(28).click();
+ // Keep a REAL click to catch any remaining overlay or z-index obstruction.
+ await page.locator('.lux-record-dot').nth(28).click({timeout:15000});
  assert.equal(await page.locator('.lux-record-detail a.lux-record-recovery').count(),10);
  await page.locator('.lux-record-close').click();
  await visit(base+'/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab&recover='+unopened);
