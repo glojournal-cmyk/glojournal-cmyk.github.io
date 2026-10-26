@@ -706,9 +706,136 @@
       "preview": false,
       "ordinary": true,
       "formal": false
+    },
+    {
+      "id": "bio-y8-punnett-squares-capacity-20261026-01",
+      "conceptId": "bio-y8-punnett-squares-concept-capacity-01",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-punnett-squares",
+      "topic": "Punnett squares and probability",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "For AA × aa, what genotype will all offspring have?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "Aa",
+          "aA",
+          "all Aa",
+          "heterozygous Aa"
+        ]
+      },
+      "feedback": {
+        "short": "Check the original taught principle and apply it to this new context.",
+        "steps": [
+          "Identify the relevant scientific concept, then verify the answer."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-punnett-squares-capacity-20261026-02",
+      "conceptId": "bio-y8-punnett-squares-concept-capacity-02",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-punnett-squares",
+      "topic": "Punnett squares and probability",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "For Aa × aa, what percentage of offspring is expected to be aa?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "50%",
+          "50 percent",
+          "50",
+          "one half",
+          "1/2",
+          "0.5"
+        ]
+      },
+      "feedback": {
+        "short": "Check the original taught principle and apply it to this new context.",
+        "steps": [
+          "Identify the relevant scientific concept, then verify the answer."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-punnett-squares-capacity-20261026-03",
+      "conceptId": "bio-y8-punnett-squares-concept-capacity-03",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-punnett-squares",
+      "topic": "Punnett squares and probability",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 4,
+      "prompt": "In a simple single-gene model, B is dominant and b recessive. Two parents showing the dominant phenotype have a recessive bb child. What must both parents' genotypes be?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "Bb and Bb",
+          "Bb × Bb",
+          "Bb x Bb",
+          "both Bb",
+          "both heterozygous",
+          "two heterozygotes"
+        ]
+      },
+      "feedback": {
+        "short": "Check the original taught principle and apply it to this new context.",
+        "steps": [
+          "Identify the relevant scientific concept, then verify the answer."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
     }
   ],
-  "enabled": 17,
+  "enabled": 20,
   "preview": 0,
   "disabled": 0,
   "formats": {
@@ -716,7 +843,8 @@
     "typed_exact": 4,
     "mark_points": 7,
     "matching": 1,
-    "diagram_label": 1
+    "typed_short": 1,
+    "typed_equivalent": 3
   },
   "gated": false,
   "note": {
