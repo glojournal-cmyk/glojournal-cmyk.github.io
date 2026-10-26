@@ -12,14 +12,14 @@ Status as of 2026-10-26
 - [x] Record V2 10-task / 163-question agreement and non-negotiable acceptance gates.
 
 ## Not yet done — not to be represented as complete
-- [ ] Design and implement pure Daily V2 planner and question-preflight with dry-run mode.
-- [~] Pure replay-idempotent ledger projection IMPLEMENTED at daily-v2/src/ledger.js; durable storage receipt adapter and full legacy identity migration NOT done.
-- [ ] Implement stable question assignment and deterministic retry reserves.
+- [x] Implement pure deterministic ten-task planner with all-or-nothing preflight at daily-v2/src/planner.js (synthetic fixtures only; real bank adapter pending).
+- [~] Pure replay-idempotent ledger at daily-v2/src/ledger.js. Atomic CAS repository contract + readback verified receipts implemented at daily-v2/src/storage.js, but REAL IndexedDB durable adapter and legacy identity reconciliation NOT done.
+- [~] Stable frozen question assignments and same-question wrong-answer retry supported by planner + storage contract; explicit alternative-question reserve strategy, production retry UI and migration NOT done.
 - [ ] Build 10 task adapters, Vocab cycling, genuine history-only retention, independent GCSE marking.
-- [ ] Create automated bank-depth auditor and content improvement plan (Latin first).
-- [~] 12 focused ledger regression tests committed at daily-v2/tests/ledger.test.js; 12/12 executed successfully in JS test harness against exact GitHub source. Native node:test CI, property tests and 30-day simulations NOT yet executed.
+- [~] Metadata audit saved to daily-v2/QA_BANK_AUDIT.md from GitHub catalog; actual per-question independent depth certification and missing content authoring NOT done.
+- [~] 56 focused tests executed successfully against exact committed code in a V8 harness: ledger 12, planner 27, storage 17. Native Node/GitHub Actions result, property tests, actual-bank and 30-day simulations NOT yet verified.
 - [ ] Add staging-only UI integration and reconciliation layers (Home / Daily / 30 days / Recovery / XP).
-- [ ] Add Safari-specific persistence and failure recovery tests.
+- [~] Storage-failure/concurrency/replay tests implemented against VOLATILE in-memory fake; Safari IndexedDB, quota, browser restart and migration QA NOT done.
 - [ ] Produce independent Codex review handoff with exactly changed files and failed tests.
 - [ ] Run Work browser QA if useful; genuine iPad validation still required.
 - [ ] Independent sign-off and explicit permission before production switch.
