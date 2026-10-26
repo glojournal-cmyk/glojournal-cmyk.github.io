@@ -709,18 +709,9 @@
         "mode": "mark_points",
         "totalMarks": 3,
         "markPoints": [
-          {
-            "id": "mp1",
-            "text": "BER describes the estimated energy used by essential body functions at rest."
-          },
-          {
-            "id": "mp2",
-            "text": "Physical activity requires additional energy."
-          },
-          {
-            "id": "mp3",
-            "text": "Growth and other body demands can require additional energy."
-          }
+          "BER describes the estimated energy used by essential body functions at rest.",
+          "Physical activity requires additional energy.",
+          "Growth and other body demands can require additional energy."
         ],
         "modelAnswer": "BER describes the estimated energy used by essential body functions at rest. Physical activity requires additional energy. Growth and other body demands can require additional energy.",
         "scoring": "criterion_checklist",
@@ -765,18 +756,9 @@
         "mode": "mark_points",
         "totalMarks": 3,
         "markPoints": [
-          {
-            "id": "mp1",
-            "text": "The rate factor includes kJ per kg per hour."
-          },
-          {
-            "id": "mp2",
-            "text": "Multiplying by 24 hours cancels the per-hour unit."
-          },
-          {
-            "id": "mp3",
-            "text": "Multiplying by body mass in kilograms cancels the per-kilogram unit, leaving kJ for one day."
-          }
+          "The rate factor includes kJ per kg per hour.",
+          "Multiplying by 24 hours cancels the per-hour unit.",
+          "Multiplying by body mass in kilograms cancels the per-kilogram unit, leaving kJ for one day."
         ],
         "modelAnswer": "The rate factor includes kJ per kg per hour. Multiplying by 24 hours cancels the per-hour unit. Multiplying by body mass in kilograms cancels the per-kilogram unit, leaving kJ for one day.",
         "scoring": "criterion_checklist",
@@ -821,18 +803,9 @@
         "mode": "mark_points",
         "totalMarks": 3,
         "markPoints": [
-          {
-            "id": "mp1",
-            "text": "In the simplified model, predicted BER increases with mass."
-          },
-          {
-            "id": "mp2",
-            "text": "7776 − 5184 = 2592 kJ/day."
-          },
-          {
-            "id": "mp3",
-            "text": "A single simplified rate does not account for individual variation or activity/growth when estimating total needs."
-          }
+          "In the simplified model, predicted BER increases with mass.",
+          "7776 − 5184 = 2592 kJ/day.",
+          "A single simplified rate does not account for individual variation or activity/growth when estimating total needs."
         ],
         "modelAnswer": "In the simplified model, predicted BER increases with mass. 7776 − 5184 = 2592 kJ/day. A single simplified rate does not account for individual variation or activity/growth when estimating total needs.",
         "scoring": "criterion_checklist",
@@ -877,18 +850,9 @@
         "mode": "mark_points",
         "totalMarks": 3,
         "markPoints": [
-          {
-            "id": "mp1",
-            "text": "The given school formula predicts the same BER for equal masses."
-          },
-          {
-            "id": "mp2",
-            "text": "Real individuals can differ in biological or other factors not captured by the simplified estimate."
-          },
-          {
-            "id": "mp3",
-            "text": "Total daily energy requirements also depend on activity and growth, so equal model BER does not imply equal total need."
-          }
+          "The given school formula predicts the same BER for equal masses.",
+          "Real individuals can differ in biological or other factors not captured by the simplified estimate.",
+          "Total daily energy requirements also depend on activity and growth, so equal model BER does not imply equal total need."
         ],
         "modelAnswer": "The given school formula predicts the same BER for equal masses. Real individuals can differ in biological or other factors not captured by the simplified estimate. Total daily energy requirements also depend on activity and growth, so equal model BER does not imply equal total need.",
         "scoring": "criterion_checklist",
