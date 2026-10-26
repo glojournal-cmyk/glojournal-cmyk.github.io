@@ -69,17 +69,19 @@ jobs:
           node tests/phase3-home-personality-qa.mjs
   browser:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
+    # Browser engines and WebKit/Chromium system libraries are bundled together.
+    # The earlier runner repeatedly timed out downloading apt dependencies;
+    # skipping apt then failed due to missing GTK/GStreamer libraries.
+    # Match the Playwright NPM release to the pinned official image.
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.0-noble
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install --no-save playwright
-      # Ubuntu hosted runners already include the browser runtime libraries. Avoid
-      # Playwright's massive apt reinstall, which timed out repeatedly against
-      # the slow Ubuntu package mirror before ANY browser assertion could run.
-      - run: npx playwright install chromium webkit
+      - run: npm install --no-save playwright@1.64.0
       - name: Verify Practice + Home + Mission V2 in browsers
         run: |
           node tests/mission-complete-v2-browser.mjs
