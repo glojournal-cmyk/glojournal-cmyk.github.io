@@ -13,11 +13,11 @@ Status as of 2026-10-26
 
 ## Not yet done — not to be represented as complete
 - [ ] Design and implement pure Daily V2 planner and question-preflight with dry-run mode.
-- [ ] Implement append-only idempotent answer ledger with storage receipt and explicit legacy baseline migration.
+- [~] Pure replay-idempotent ledger projection IMPLEMENTED at daily-v2/src/ledger.js; durable storage receipt adapter and full legacy identity migration NOT done.
 - [ ] Implement stable question assignment and deterministic retry reserves.
 - [ ] Build 10 task adapters, Vocab cycling, genuine history-only retention, independent GCSE marking.
 - [ ] Create automated bank-depth auditor and content improvement plan (Latin first).
-- [ ] Add unit tests, property tests, 30-day progression simulations, corrupted-history tests.
+- [~] 12 focused ledger regression tests committed at daily-v2/tests/ledger.test.js; 12/12 executed successfully in JS test harness against exact GitHub source. Native node:test CI, property tests and 30-day simulations NOT yet executed.
 - [ ] Add staging-only UI integration and reconciliation layers (Home / Daily / 30 days / Recovery / XP).
 - [ ] Add Safari-specific persistence and failure recovery tests.
 - [ ] Produce independent Codex review handoff with exactly changed files and failed tests.
@@ -34,5 +34,12 @@ Status as of 2026-10-26
 7. Never claim integration, iPad validation, rollout or migration complete without evidence.
 8. If total viable Mastery supply is insufficient, report educational content gap; never fill with low-level MC merely to reach 20.
 
+## Verified progress (2026-10-26)
+- First isolated module: daily-v2/src/ledger.js; commit 5a9c21b28417dedce94054022a367fd47c3562c9.
+- Regression suite: daily-v2/tests/ledger.test.js; commit b7cf201c29c6594d4938000e3971fcfa3e2bbf20.
+- Verification: 12/12 cases passed in V8 harness executing the retrieved committed source/tests with Node assertion semantics emulated. This is NOT GitHub Actions or native node:test execution.
+- Safety behavior: opaque legacy baseline retains verified amount and flags new attempted credits as pending reconciliation, rather than fabricating evidence or silently double-crediting. Full historical migration is still a blocker.
+- No production files modified, no live data touched, no V2 integration.
+
 ## Next build unit
-Implement DailyV2 immutable journal and unit tests; then planner and task adapters.
+Implement DailyV2 deterministic question planner, dry-run eligibility gate, and tests; then genuine persistence adapter, migration and task adapters.
