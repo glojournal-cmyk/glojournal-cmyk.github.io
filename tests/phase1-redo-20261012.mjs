@@ -26,7 +26,9 @@ assert.match(again,/await saveCompletedDailyReceipt\(/);
 assert.match(again,/await restoreCompletedDailyReceipts\(/);
 assert.match(again,/await globalThis\.LuxPracticeDrafts\.clear\(draftKey\)/);
 assert.match(again,/window\.location\.assign\(pending\?task\.href/);
-assert.match(quiz,/if\(saved\)return saved\.base/,'resuming must preserve the actual saved questions');
+assert.match(quiz,/if\(saved\)\{const base=Array\.isArray\(saved\.base\)\?saved\.base:\[\]/,'resuming must read the original saved questions');
+assert.match(quiz,/if\(base\.length>=p\|\|!k\.length\)return base/,'a complete saved question set must never be replaced');
+assert.match(quiz,/const used=new Set\(base\.map\(q=>q\.id\)\)/,'an incomplete draft may only add questions not already saved');
 assert.match(practise,/dailyLocked\?chosen:chosen\.map\(q=>\(\{\.\.\.q,_dailyVocab:null\}\)\)/,'free vocabulary must not accrue daily-vocab answers');
 
 window.location.href='https://glojournal-cmyk.github.io/study/latin/practise?daily=1&locked=1&task=year8-long-review&mode=year8long';
