@@ -1,0 +1,57 @@
+name: Diagnose Gloria R2 Folder Layout
+on:
+  pull_request:
+    paths:
+      - .github/workflows/notes-r2-folder-layout.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Read Cloudflare R2 object names and sizes (no mutations)
+        shell: bash
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          [[ -n "${CF_ACCOUNT_ID:-}" && -n "${CF_API_TOKEN:-}" ]] || { echo "::error::Cloudflare secrets absent"; exit 1; }
+          echo "::add-mask::$CF_API_TOKEN"
+          curl -fsS --retry 2 --max-time 30 -G \
+            -H "Authorization: Bearer $CF_API_TOKEN" \
+            --data-urlencode "per_page=1000" \
+            "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/r2/buckets/gloria-notes-library/objects" \
+            > /tmp/gloria-objects.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('/tmp/gloria-objects.json'))
+          if not d.get('success'):
+            print('CLOUDFLARE_API_ERROR',[(e.get('code'),e.get('message')) for e in d.get('errors',[])])
+            raise SystemExit(1)
+          objects=d.get('result',[])
+          if isinstance(objects,dict):
+            objects=objects.get('objects',[])
+          print('OBJECTS_ON_FIRST_PAGE',len(objects))
+          print('TRUNCATED',d.get('result_info',{}).get('is_truncated'))
+          zip_names={'gloria-summer-notes-zip1-20261022.zip','gloria-summer-notes-zip2-20261022.zip'}
+          for z in sorted(zip_names):
+            matching=[(o.get('key'),o.get('size')) for o in objects if o.get('key','').endswith(z)]
+            print('EXPECTED_ARCHIVE',z,'FOUND',matching or 'NO')
+          misnested=[o for o in objects if o.get('key','').startswith(('year9/french/summer/','year9/french/year9/'))]
+          print('NESTED_SUMMER_OR_YEAR9_IN_FRENCH',len(misnested))
+          for o in misnested[:60]:
+            print('NESTED_KEY',repr(o.get('key')),o.get('size'))
+          print('OTHER_FRENCH_FOLDER_OBJECTS')
+          for o in objects:
+            key=o.get('key','')
+            if key.startswith('year9/french/') and o not in misnested:
+              print('FRENCH_KEY',repr(key),o.get('size'))
+          print('ROOT_MARKERS')
+          for o in objects:
+            key=o.get('key','')
+            if '/' not in key: print('ROOT_KEY',repr(key),o.get('size'))
+          print('READ_ONLY_INSPECTION_COMPLETE')
+          PY
