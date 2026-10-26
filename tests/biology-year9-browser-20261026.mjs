@@ -79,8 +79,20 @@ try{
     const choice=current.getByRole('button',{name:answer,exact:true});
     if(await choice.count())await choice.click();
     else{
-     await current.locator('form input, form textarea').last().fill(answer);
-     await current.getByRole('button',{name:'Submit',exact:true}).click();
+     const submit=current.getByRole('button',{name:'Submit',exact:true});
+     // Catalog hydration can remount the controlled input just after first paint.
+     // Re-enter the answer only when the active question itself is still unchanged.
+     let enabled=false;
+     for(let retry=0;retry<6;retry++){
+       const active=page.locator('[data-question-id]').last();
+       assert.equal(await active.getAttribute('data-question-id'),id,'Question remounted to a different ID before submission');
+       await active.locator('form input, form textarea').last().fill(answer);
+       enabled=await submit.isEnabled();
+       if(enabled)break;
+       await page.waitForTimeout(250);
+     }
+     assert.equal(enabled,true,'Typed Biology answer never enabled Submit for '+id);
+     await submit.click();
     }
     await page.getByText('Well done!',{exact:true}).waitFor();
     answered.push(id);
@@ -91,7 +103,11 @@ try{
    await page.waitForFunction(async({entry,task})=>{
     const {C}=await import(entry);return C.getState().daily.find(t=>t.id===task)?.progress===15;
    },{entry,task});
-   await page.goto(origin+'/',{waitUntil:'domcontentloaded'});
+   await checkpoint('reached-15-before-home');
+   // Use the same Home navigation control as a learner, not a forced full
+   // navigation racing the quiz's asynchronous finish/retry handler.
+   await page.getByRole('link',{name:'Home',exact:true}).last().click();
+   await page.waitForURL(url=>new URL(url).pathname==='/');
    await page.waitForFunction(()=>window.__luxAppReady===true);
    await page.reload({waitUntil:'domcontentloaded'});
    await page.waitForFunction(()=>window.__luxAppReady===true);
