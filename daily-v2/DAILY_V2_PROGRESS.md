@@ -114,3 +114,20 @@ Staging browser smoke tests in a real browser where available; improve task-spec
 1. Independent item-by-item educational review and meaningful accepted answers, especially open-ended French/Latin and GCSE-style science marking.
 2. Certify existing + new real question banks with source-bound fingerprints, corroborate taught content. Do not auto-certify authored draft labels.
 3. Extend bank supply across different topics per subject and 30-day real-student-safe capacity simulation; then implement validated semantic marking and stage full task/UI integration. Production release remains blocked.
+
+## 2026-10-26: Batch 2 Mastery authoring (latest checkpoint)
+- Added **five new Year 8 topic packs, 20 questions each, 100 Batch 2 additions**: Latin present/imperfect/perfect contexts, French reflexive routines, Biology photosynthesis experiments, Chemistry acids/alkalis/neutralisation, Physics series/parallel circuits.
+- Batch 1 + 2 total: **200 author-draft questions across 10 different provisional topics**, **40 per subject**, each 20-item pack provisionally distributed 4 Foundation / 10 Application / 6 Challenge. Each item carries answer, explicit independent marking points and semantic-assessment requirement.
+- Source files: `daily-v2/content/mastery/{latin-y8-verb-tenses,french-y8-reflexive-routines,biology-y8-photosynthesis,chemistry-y8-acids-neutralisation,physics-y8-series-parallel}.json`. Validator now exposes `MASTERY_BATCH_2_FILES` and `ALL_MASTERY_DRAFT_FILES` without changing existing Batch 1 consumers.
+- Content QA in V8 using exact fetched GitHub source+all 10 JSON files: **10/10 new Batch 2 tests passed**. Cross-batch source audit: 200/200 unique IDs and 200/200 distinct combined prompt+stimulus strings; all 10 topics preserve 4/10/6 and rubric structural completeness.
+- Two review-based revisions before QA: removed ambiguous Latin tense cue and clarified French nonreflexive alternative meaning.
+- All 200 remain author drafts and are **0/200 independently certified** to the Daily V2 bank adapter; external teacher coverage evidence and open-response semantic scoring QA are not completed. No live catalog edits.
+- Fresh all-correct planning with these 200 **alone** yields five complete Mastery allocation days (2×20/day), then no fresh topics on day six; this is a structural dry-run, NOT real 30-day readiness. Existing certified questions may be added once verified.
+- Full separate report: `daily-v2/MASTERY_BANK_BATCH2_QA.md`.
+- Prior 179 isolated tests were reported passing in the earlier checkpoint; this session ran 10 new content tests and structural QA. Do not claim current native Node/GitHub Actions or iPad success.
+
+### Next bounded work
+1. Review educational correctness and alternatives per item, and evidence of taught topics for this learner.
+2. Assess full existing Latin/French/Science source banks before authoring further questions; document actual certified remaining fresh supply.
+3. Build and verify semantic/mark-point partial-credit assessment; then real-bank, learner-history-aware 30-day stress test.
+4. Continue isolation. No main merge, production release or student state writes.
