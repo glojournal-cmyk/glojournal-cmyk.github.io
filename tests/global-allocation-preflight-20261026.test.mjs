@@ -51,3 +51,47 @@ test('the real standalone GCSE bank cannot supply the proposed 1+2+3 marks yet',
  assert.equal(r.status,'PARTIAL_READY');assert.equal(r.rows[0].deficit,1);assert.equal(r.rows[1].deficit,1);
  assert.equal(r.rows[2].assigned,1);
 });
+
+test('30 consecutive synthetic dates preserve 163 unique slots and never re-credit a prior success',()=>{
+ const quotas=[30,30,10,10,10,20,20,10,3,20];
+ assert.equal(quotas.reduce((a,b)=>a+b,0),163);
+ const pools=quotas.map((quota,task)=>Array.from({length:quota*30},(_,i)=>q('daybank-'+task+'-'+i,'unique '+task+'-'+i)));
+ const credited=new Set();
+ for(let day=0;day<30;day++){
+  const tasks=pools.map((pool,task)=>({
+   id:'daily-'+task,target:quotas[task],
+   candidates:pool.filter(question=>!credited.has(question.id))
+  }));
+  const result=allocateGlobalQuestions(tasks);
+  assert.equal(result.status,'FULL_READY','day '+(day+1)+' should be fully reserved');
+  assert.equal(result.assigned,163);
+  const ids=result.rows.flatMap(row=>row.items.map(question=>question.id));
+  assert.equal(new Set(ids).size,163);
+  for(const id of ids){
+   assert.equal(credited.has(id),false,'previously credited question recurred');
+   credited.add(id);
+  }
+ }
+ assert.equal(credited.size,4890);
+ const exhausted=allocateGlobalQuestions(pools.map((pool,task)=>({
+  id:'daily-'+task,target:quotas[task],candidates:pool.filter(question=>!credited.has(question.id))
+ })));
+ assert.equal(exhausted.status,'PARTIAL_READY');
+ assert.equal(exhausted.shortfall,163);
+});
+test('cross-task conceptual reservations make a nominal 163-question day explicitly partial',()=>{
+ const quotas=[30,30,10,10,10,20,20,10,3,20];
+ let index=0;
+ const tasks=quotas.map((target,task)=>({
+  id:'task-'+task,target,
+  candidates:Array.from({length:target},()=>{
+   const n=index++;
+   return {...q('id-'+n,'different text '+n),questionFamily:n===30?'previously-assigned-concept':'family-'+n};
+  })
+ }));
+ tasks[0].candidates[0].questionFamily='previously-assigned-concept';
+ const r=allocateGlobalQuestions(tasks);
+ assert.equal(r.status,'PARTIAL_READY');
+ assert.equal(r.shortfall,1);
+ assert.equal(r.assigned,162);
+});
