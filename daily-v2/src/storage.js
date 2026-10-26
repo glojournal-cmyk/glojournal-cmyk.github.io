@@ -5,6 +5,7 @@
  * Never update UI/XP/30-day history before an event receipt has verified readback.
  */
 import {makeDailyV2Ledger,projectSavedDailyV2Attempt,summarizeDailyV2Task} from './ledger.js';
+import {DAILY_V2_TASKS} from './planner.js';
 
 const clone = value=>value===undefined?undefined:JSON.parse(JSON.stringify(value));
 function requireV2(ok,msg){if(!ok)throw new Error('DailyV2 storage: '+msg);}
@@ -28,8 +29,13 @@ function validatePlan(plan){
  requireV2(plan?.version===2&&plan.status==='ready'&&typeof plan.day==='string'&&
    Array.isArray(plan.tasks)&&plan.tasks.length===10&&plan.target===163,
    'only fully verified ten-task plans can be frozen');
- const seen=new Set();
+ const seen=new Set(),knownTasks=new Set();
+ const expectedTasks=new Map(DAILY_V2_TASKS.map(t=>[t.id,t]));
  for(const task of plan.tasks){
+  const expected=expectedTasks.get(task.id);
+  requireV2(expected&&!knownTasks.has(task.id)&&task.kind===expected.kind&&task.target===expected.target,
+   'invalid task identity, kind or target');
+  knownTasks.add(task.id);
   requireV2(typeof task.id==='string'&&Number.isInteger(task.target)&&
      Array.isArray(task.questions)&&task.questions.length===task.target,'invalid plan task roster');
   for(const q of task.questions){
@@ -38,6 +44,8 @@ function validatePlan(plan){
    seen.add(q.questionId);
   }
  }
+ requireV2(knownTasks.size===DAILY_V2_TASKS.length && seen.size===plan.target,
+  'plan does not contain the exact 163 assigned questions');
 }
 export async function commitDailyV2Plan(repo,plan,{legacyBaselines={},maxRetries=5}={}){
  validatePlan(plan);
