@@ -31,3 +31,24 @@ export function saveV2Snapshot(storage,ledger,key=V2_STORAGE_KEY){
    error:String(error?.message||error)};
  }
 }
+
+/**
+ * Guard against a second tab or stale reload overwriting newer V2 progress.
+ * expectedRaw is the EXACT raw value read when the editing session began (null for new data).
+ * This is a synchronous adapter guard, not a cross-device atomic transaction.
+ */
+export function saveV2SnapshotIfUnchanged(storage,ledger,expectedRaw,key=V2_STORAGE_KEY){
+ if(!storage||typeof storage.getItem!=='function'||typeof storage.setItem!=='function')
+  throw new TypeError('Storage read/write adapter required');
+ if(typeof expectedRaw!=='string'&&expectedRaw!==null)
+  throw new TypeError('Expected raw snapshot string or null');
+ if(!isLedger(ledger))return {ok:false,reason:'invalid_ledger'};
+ try{
+  const current=storage.getItem(key);
+  if(current!==expectedRaw)return {ok:false,reason:'stale_snapshot'};
+  return saveV2Snapshot(storage,ledger,key);
+ }catch(error){
+  return {ok:false,reason:error?.name==='QuotaExceededError'?'quota_exceeded':'storage_failure',
+   error:String(error?.message||error)};
+ }
+}
