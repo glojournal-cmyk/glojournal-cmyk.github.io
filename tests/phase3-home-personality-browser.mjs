@@ -90,6 +90,16 @@ try{
             actionCounts:p.care.daily?.actionCounts,
             rewardLedger:p.care.rewardLedger}:null};
       });
+      // The initial Home hydration may rebuild its ten-task plan after the
+      // shell becomes visible. Baseline only after the actual persisted plan
+      // settles; Settings must still leave that settled record untouched.
+      let previousSnapshot=await snapshot();
+      for(let n=0;n<12;n++){
+        await page.waitForTimeout(250);
+        const currentSnapshot=await snapshot();
+        if(JSON.stringify(currentSnapshot)===JSON.stringify(previousSnapshot))break;
+        previousSnapshot=currentSnapshot;
+      }
       const before=await snapshot();
       // One locator action focuses and presses the *current* button.
       // A scheduled Home rerender between separate focus/keyboard calls can
