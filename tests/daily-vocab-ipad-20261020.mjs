@@ -101,7 +101,22 @@ try{
       dailyLog:{...old.dailyLog,[day]:{...previousLog,date:day,tasks:logTasks}}
     });
    },entrypoint);
-   await page.waitForFunction(async(entrypoint)=>{const {C:store}=await import(entrypoint);return store.getState().daily?.find(t=>t.id==="french-vocab")?.progress===30;},entrypoint,{timeout:10000});
+   try {
+     await page.waitForFunction(async(entrypoint)=>{
+       const {C:store}=await import(entrypoint),s=store.getState();
+       return s.daily?.find(t=>t.id==="french-vocab")?.progress===30 &&
+         Object.values(s.dailyVocabByDay?.[s.today]?.french?.items||{}).filter(Boolean).length===13;
+     },entrypoint,{timeout:12000});
+   } catch(error) {
+     console.error("FRENCH_JOURNAL_RESTORE_DIAGNOSTIC",JSON.stringify(await page.evaluate(async(entrypoint)=>{
+       const {C:store}=await import(entrypoint),s=store.getState();
+       return {date:s.today,task:s.daily?.find(t=>t.id==="french-vocab"),
+         ledger:s.dailyVocabByDay?.[s.today]?.french,
+         formalCount:(s.formalAttemptLog||[]).filter(a=>a.day===s.today&&a.subject==="french"&&a.correct).length,
+         runtimeSame:window.__luxStore===store};
+     },entrypoint)));
+     throw error;
+   }
    state=await readCount(page);
    assert.equal(state.correct,13,"Fixture must reproduce the old 13-item ledger");
    assert.equal(state.task?.progress,30,
