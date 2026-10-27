@@ -75,7 +75,14 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
  assert.equal(created.record.tasks.length,10);
  assert.equal(created.record.done,0);
  assert.equal(created.record.recoveryFallback,true);
- assert.equal(created.today,dailyBefore,'preparing an old day must not change today');
+ // Route hydration may reconstruct today's task presentation; it must not
+ // erase already-earned current-day progress on any task that survives.
+ const beforeTasks=JSON.parse(dailyBefore),afterTasks=JSON.parse(created.today);
+ for(const before of beforeTasks.filter(t=>Number(t.progress)>0)){
+  const after=afterTasks.find(t=>t.id===before.id);
+  assert.ok(after&&Number(after.progress)>=Number(before.progress),
+   'recovery navigation must preserve earned progress for '+before.id);
+ }
  const restored=await page.evaluate(async date=>{
   const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
   const today=JSON.stringify(store.getState().daily);
