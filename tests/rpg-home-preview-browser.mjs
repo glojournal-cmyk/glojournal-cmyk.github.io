@@ -215,7 +215,7 @@ for (const run of runs) {
       await page.waitForURL(/\/pet\/?$/,{timeout:15000});
       // Pet may replace its original header with a responsive navigation shell.
       // Use a visible Home link instead of relying on the retired pet-brand.
-      const homeLinks=page.locator('a[href="/"],a[href="/scholar/"]').filter({visible:true});
+      const homeLinks=page.locator('a[href="/"]:visible, a[href="/scholar/"]:visible');
       await homeLinks.first().waitFor({state:'visible',timeout:15000});
       await homeLinks.first().click();
       await page.waitForURL(url => url.pathname === '/',{timeout:15000});
