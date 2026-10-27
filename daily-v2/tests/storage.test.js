@@ -151,3 +151,28 @@ test('GCSE frozen plan needs exact 1,2,3 maximum marks',async()=>{
  p.tasks.find(t=>t.kind==='exam').questions[1].marks=1;
  await assert.rejects(()=>commitDailyV2Plan(repo,p),/GCSE 1\/2\/3 marks quota missing/);
 });
+
+
+test('distinct Vocab question IDs sharing one concept cannot freeze an impossible 30/30 task',async()=>{
+ const repo=createMemoryDailyV2Repository(),p=plan();
+ const vocab=p.tasks.find(t=>t.id==='french-vocab');
+ assert.notEqual(vocab.questions[0].questionId,vocab.questions[1].questionId);
+ vocab.questions[1].conceptId=vocab.questions[0].conceptId;
+ await assert.rejects(()=>commitDailyV2Plan(repo,p),/VOCAB_CONCEPT_ROSTER_INVALID/);
+ assert.equal(repo.readOnlySnapshot(day),null,'failed Vocab roster must never be saved');
+});
+test('missing or noncanonical Vocab concept IDs cannot be persisted as creditable assignments',async()=>{
+ for(const invalid of [null,'','  ',' word-with-spaces ']){
+  const repo=createMemoryDailyV2Repository(),p=plan();
+  p.tasks.find(t=>t.id==='latin-vocab').questions[0].conceptId=invalid;
+  await assert.rejects(()=>commitDailyV2Plan(repo,p),/VOCAB_CONCEPT_ROSTER_INVALID/);
+  assert.equal(repo.readOnlySnapshot(day),null);
+ }
+});
+test('independent identical-looking concepts in different language tasks are allowed',async()=>{
+ const repo=createMemoryDailyV2Repository(),p=plan();
+ p.tasks.find(t=>t.id==='french-vocab').questions[0].conceptId=
+    p.tasks.find(t=>t.id==='latin-vocab').questions[0].conceptId;
+ const receipt=await commitDailyV2Plan(repo,p);
+ assert.equal(receipt.revision,1,'concept identity scope is each subject task, not globally across languages');
+});
