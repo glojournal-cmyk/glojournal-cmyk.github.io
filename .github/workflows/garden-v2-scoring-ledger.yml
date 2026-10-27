@@ -25,3 +25,5 @@ jobs:
           node --check src/garden-v2/session.mjs
           node --test tests/garden-v2-session.test.mjs
           node --test tests/garden-v2-real-bank-capacity.test.mjs
+          node --check src/garden-v2/storage.mjs
+          node --test tests/garden-v2-storage.test.mjs
