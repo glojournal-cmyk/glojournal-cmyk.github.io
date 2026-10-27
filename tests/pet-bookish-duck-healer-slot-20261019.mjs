@@ -24,6 +24,6 @@ assert.match(home,/"star-toadlet": "Bookish Duck Healer"/);
 const personality=fs.readFileSync('pet/home-personality-20261010.js','utf8');
 assert.match(personality,/A tiny healer opens her favourite spellbook/);
 for(const p of ['index.html','404.html','pet/index.html']) assert.match(fs.readFileSync(p,'utf8'),/home-pet\.js\?v=20261026-bio-year9-savefix2/);
-assert.match(fs.readFileSync('pet/index.html','utf8'),/pet\.js\?v=20261019-baphomet1/);
+assert.match(fs.readFileSync('pet/index.html','utf8'),/pet\.js\?v=20261026-bio-year9-savefix2/);
 assert.equal(fs.readFileSync('index.html','utf8'),fs.readFileSync('404.html','utf8'));
 console.log('PASS duck healer 10-stage frog slot replacement; state identifiers retained');
