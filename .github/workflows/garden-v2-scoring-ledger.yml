@@ -1,0 +1,37 @@
+name: Garden V2 Scoring Ledger QA
+on:
+  push:
+    branches:
+      - feature/garden-v2-scoring-ledger-20261027
+    paths:
+      - 'src/garden-v2/**'
+      - 'tests/garden-v2-*.test.mjs'
+      - '.github/workflows/garden-v2-scoring-ledger.yml'
+  pull_request:
+    paths:
+      - 'src/garden-v2/**'
+      - 'tests/garden-v2-*.test.mjs'
+      - '.github/workflows/garden-v2-scoring-ledger.yml'
+  workflow_dispatch:
+jobs:
+  scoring:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax and isolated ledger regression
+        run: |
+          node --check src/garden-v2/scoring-ledger.mjs
+          node --test tests/garden-v2-scoring-ledger.test.mjs
+          node --check src/garden-v2/daily-planner.mjs
+          node --test tests/garden-v2-daily-planner.test.mjs
+          node --check src/garden-v2/session.mjs
+          node --test tests/garden-v2-session.test.mjs
+          node --test tests/garden-v2-real-bank-capacity.test.mjs
+          node --check src/garden-v2/storage.mjs
+          node --test tests/garden-v2-storage.test.mjs
+          node --check src/garden-v2/year9-staging-audit.mjs
+          node --test tests/garden-v2-year9-staging-audit.test.mjs
+          node --check scripts/garden-v2-stage-year9.mjs
