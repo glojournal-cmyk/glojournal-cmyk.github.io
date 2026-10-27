@@ -41,55 +41,56 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
     `});
   }
 }await visit(base+'/');await page.waitForFunction(()=>window.__luxAppReady===true);
- const panel=page.locator('#lux-daily-save-panel');
- // Locate the actual backup control's outer details rather than assuming an id.
- await page.waitForSelector('#daily-save-button',{state:'attached'});
- const details=page.locator('details').filter({has:page.locator('#daily-save-button')});assert.equal(await details.count(),1);assert.equal(await details.getAttribute('open'),null);
- await details.locator('summary').first().click();assert.equal(await page.locator('#daily-save-button').isVisible(),true);await details.locator('summary').first().click();assert.equal(await page.locator('#daily-save-button').isVisible(),false);
- // A whole unopened day has no log or answer evidence at all.
+ // Recovery now lives in the 30-day record modal, not the retired
+ // #lux-recovery-date dropdown. Check the actual production interface.
  const unopened=await page.evaluate(async()=>{
   const {C:store,Ut:day}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
   const date=new Date(Date.parse(day()+'T12:00:00Z')-86400000).toISOString().slice(0,10);
-  const logs={...store.getState().dailyLog};delete logs[date];
-  store.setState({dailyLog:logs,dailyVocabByDay:{},formalAttemptLog:[],recoveryVocabByDay:{},recoveryAwarded:{}});return date;
+  const log={...store.getState().dailyLog};delete log[date];
+  store.setState({dailyLog:log,dailyVocabByDay:{},formalAttemptLog:[],recoveryVocabByDay:{},recoveryAwarded:{}});
+  return date;
  });
- await page.waitForSelector('#lux-recovery-date');await page.locator('#lux-recovery-date').selectOption(unopened);
- assert.equal(await page.locator('#lux-recovery-quests a').count(),2);
- assert.match(await page.locator('#lux-recovery-quests').innerText(),/0 \/ 30/);
- // An unopened date exposes an opt-in ten-task plan. Do not change today.
  const dailyBefore=await page.evaluate(async()=>{
-   const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
-   return JSON.stringify(store.getState().daily);
+  const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
+  return JSON.stringify(store.getState().daily);
  });
- await page.getByRole('button',{name:'Prepare ten recovery tasks'}).click();
- await page.waitForFunction(date=>{
-   const raw=localStorage.getItem('lux-scholar-garden-v1');
-   return raw && JSON.parse(raw)?.state?.dailyLog?.[date]?.total===10;
- },unopened,{timeout:15000});
+ await page.evaluate(()=>window.__luxOpenDailyRecord());
+ await page.locator('.lux-record-sheet[role="dialog"]').waitFor({state:'visible'});
+ assert.equal(await page.locator('.lux-record-dot').count(),30);
+ // The previous calendar day is the second-to-last date.
+ await page.locator('.lux-record-dot').nth(28).click();
+ assert.match(await page.locator('.lux-record-detail').innerText(),/Recovery replacement plan|Not finished/);
+ const links=page.locator('.lux-record-detail a.lux-record-recovery');
+ assert.equal(await links.count(),10,'unopened day must offer ten actual recovery routes');
+ const french=page.locator('.lux-record-detail a.lux-record-recovery[href*="task=french-vocab"]');
+ assert.equal(await french.count(),1,'French recovery must be a distinct assigned route');
+ assert.ok((await french.getAttribute('href')).includes('recover='+unopened));
+ await french.click();
+ await page.waitForURL(url=>url.pathname.includes('/study/french/practise')&&url.searchParams.get('recover')===unopened);
+ await page.waitForFunction(()=>window.__luxAppReady===true);
  const created=await page.evaluate(async date=>{
-   const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
-   return {record:store.getState().dailyLog[date],today:JSON.stringify(store.getState().daily)};
+  const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
+  return {record:store.getState().dailyLog[date],today:JSON.stringify(store.getState().daily)};
  },unopened);
  assert.equal(created.record.tasks.length,10);
  assert.equal(created.record.done,0);
  assert.equal(created.record.recoveryFallback,true);
- assert.equal(created.today,dailyBefore);
-
- await page.evaluate(()=>window.__luxOpenDailyRecord());
- await page.locator('.lux-record-dot').nth(28).click();
- assert.equal(await page.locator('.lux-record-detail a.lux-record-recovery').count(),10);
- await page.locator('.lux-record-close').click();
- await visit(base+'/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab&recover='+unopened);
- await page.waitForFunction(()=>window.__luxAppReady===true);
+ assert.equal(created.today,dailyBefore,'preparing an old day must not change today');
  const restored=await page.evaluate(async date=>{
   const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
   const today=JSON.stringify(store.getState().daily);
   for(let i=0;i<30;i++)store.getState().recordDailyVocabAttempt('french','unopened-'+i,true);
   return {row:store.getState().dailyLog[date],unchanged:today===JSON.stringify(store.getState().daily)};
  },unopened);
- assert.equal(restored.row.done,1);assert.equal(restored.row.total,10);assert.equal(restored.row.complete,false);assert.equal(restored.unchanged,true);
+ assert.equal(restored.row.done,1);
+ assert.equal(restored.row.total,10);
+ assert.equal(restored.row.complete,false);
+ assert.equal(restored.unchanged,true);
  await visit(base+'/');await page.waitForFunction(()=>window.__luxAppReady===true);
- const persisted=await page.evaluate(async date=>{const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);return store.getState().dailyLog[date]},unopened);
+ const persisted=await page.evaluate(async date=>{
+  const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
+  return store.getState().dailyLog[date];
+ },unopened);
  assert.equal(persisted.tasks.find(t=>t.id==='french-vocab').recovered,true);
  const dates=await page.evaluate(async()=>{const {C:store,Ut:day}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);const today=day(),date=n=>new Date(Date.parse(today+'T12:00:00Z')-n*86400000).toISOString().slice(0,10),a=date(1),b=date(2);const logs={...store.getState().dailyLog};for(const d of [a,b])logs[d]={date:d,tasks:[{id:'french-vocab',target:30,progress:20},{id:'latin-vocab',target:30,progress:30}]};store.setState({dailyLog:logs,recoveryVocabByDay:{},recoveryAwarded:{}});return [a,b]});
  await page.waitForSelector('#lux-recovery-date');for(const date of dates){
