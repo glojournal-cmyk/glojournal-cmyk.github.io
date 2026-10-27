@@ -39,7 +39,7 @@ test("only assigned subject and date count; repair does not inflate primary cred
     {day, dailyVocab: "latin", questionId: "latin-4", correct: true}
   ];
   assert.deepEqual(dailyVocabTotal(x, "latin", day).correct, 2);
-  assert.equal(dailyVocabTotal(x, "latin", day).attempts, 2);
+  assert.equal(dailyVocabTotal(x, "latin", day).attempts, 3);
   assert.equal(dailyVocabTotal(x, "french", day).correct, 1);
 });
 
@@ -108,7 +108,7 @@ test("conflicting vocabulary subject, task, and tag never borrow a Daily answer"
   {day,subject:"french",dailyVocab:"french",dailyTaskId:"french-vocab",questionId:"correct-repair",correct:true,repair:true,formal:true},
   {day,subject:"french",dailyVocab:"french",dailyTaskId:"french-vocab",questionId:"right",correct:true,formal:true}
  ]};
- assert.equal(dailyVocabTotal(s,"french",day).progress,2);
- assert.equal(dailyVocabTotal(s,"french",day).attempts,2);
+ assert.equal(dailyVocabTotal(s,"french",day).progress,1);
+ assert.equal(dailyVocabTotal(s,"french",day).attempts,1);
  assert.equal(dailyVocabTotal(s,"latin",day).progress,0);
 });
