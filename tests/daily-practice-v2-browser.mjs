@@ -378,7 +378,8 @@ async function checkRealPractice(browser,engine){
   const before=await page.evaluate(()=>{
     const q=document.querySelector('[data-question-id]');
     const nav=document.querySelector('#lux-daily-study-nav');
-    const p=q?.querySelector('[data-lux-prompt], p.font-display.text-2xl');
+    const candidates=[...(q?.querySelectorAll('[data-lux-prompt], p.font-display.text-2xl, [data-lux-question-prompt]')||[])];
+    const p=candidates.find(el=>{const css=getComputedStyle(el);return css.display!=='none'&&css.visibility!=='hidden'&&el.getBoundingClientRect().height>0;})||candidates[0];
     return {id:q?.dataset.questionId,format:q?.dataset.questionFormat,
       navCount:nav?.children.length,
       promptSize:p?parseFloat(getComputedStyle(p).fontSize):0,
