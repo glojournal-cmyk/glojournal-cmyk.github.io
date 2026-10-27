@@ -17,7 +17,11 @@ for(const key of ['daily','locked','task','recover','day'])assert.equal(url.sear
 assert.equal(url.searchParams.get('year'),'8');
 assert.equal(url.searchParams.get('mode'),'y8vocab');
 assert.match(url.searchParams.get('redo'),/^\d{10,15}$/);
-assert.match(quiz,/onAgain:\(\)=>\{discardDraft\.current=true;globalThis\.LuxPracticeDrafts\.clear\(draftKey\);window\.location\.assign\(recoveryDate\(location\.search\)\?recoveryReplay\(location\.href\):luxRedoPracticeURL\(\)\)\}/);
+assert.match(quiz,/onAgain:async\(\)=>\{const task=/,'replay must inspect the assigned daily task');
+assert.match(quiz,/saveCompletedDailyReceipt\(/,'pending daily answers must be saved before a retry');
+assert.match(quiz,/discardDraft\.current=true;await globalThis\.LuxPracticeDrafts\.clear\(draftKey\)/,'rerun must discard the completed draft');
+assert.match(quiz,/window\.location\.assign\(pending\?task\.href/,'unfinished assigned daily tasks must resume their own URL');
+assert.match(quiz,/recoveryDate\(location\.search\)\?recoveryReplay\(location\.href\):luxRedoPracticeURL\(\)/,'finished or recovery sessions must remain isolated');
 assert.match(quiz,/if\(saved\)return saved\.base/,'resuming must preserve the actual saved questions');
 assert.match(practise,/dailyLocked\?chosen:chosen\.map\(q=>\(\{\.\.\.q,_dailyVocab:null\}\)\)/,'free vocabulary must not accrue daily-vocab answers');
 
