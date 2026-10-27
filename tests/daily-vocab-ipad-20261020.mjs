@@ -119,6 +119,17 @@ try{
    }
    state=await readCount(page);
    assert.equal(state.correct,13,"Fixture must reproduce the old 13-item ledger");
+   if(state.task?.progress!==30) {
+     console.error("FRENCH_AFTER_RESTORE_SNAPSHOT",JSON.stringify(await page.evaluate(async(entrypoint)=>{
+       const {C:store}=await import(entrypoint),s=store.getState(),day=s.today;
+       const {dailyVocabTotal}=await import("/assets/daily-vocab-total-20261020.js?v=20261026-vocabqa7");
+       return {day,task:s.daily?.find(t=>t.id==="french-vocab"),
+         record:s.dailyLog?.[day]?.tasks?.find(t=>t.id==="french-vocab"),
+         calculated:dailyVocabTotal(s,"french",day),
+         matchingEntries:(s.formalAttemptLog||[]).filter(a=>a.day===day&&a.subject==="french").length,
+         ledger:s.dailyVocabByDay?.[day]?.french,appReady:window.__luxAppReady===true};
+     },entrypoint)));
+   }
    assert.equal(state.task?.progress,30,
      "Actual Home builder must reconcile 30 marked answers and not show 13");
    await page.reload({waitUntil:"networkidle"});
