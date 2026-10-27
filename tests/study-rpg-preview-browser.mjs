@@ -116,7 +116,7 @@ try{
     try{
       const page=await browser.newPage({viewport:{width:1024,height:768}});
       await page.goto(origin+'/');
-      await page.locator('a[href="/study"]:visible, a[href="/study/"]:visible').first().click();
+      await page.locator('#lux-rpg-live-home .rpg-nav-live a[href="/study"]:visible').first().click();
       await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').first().waitFor({timeout:25000});
       assert.equal(new URL(page.url()).pathname.replace(/\/$/,''),'/study');
       assert.equal(await page.locator('#lux-study-rpg-integrated .lux-study-rpg-card').count(),Number(await page.locator('.lux-study-rpg-year select').inputValue())===9?7:6,'Home→Study navigation loads production scene');
