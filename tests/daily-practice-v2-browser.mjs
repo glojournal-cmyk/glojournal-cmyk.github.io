@@ -617,7 +617,22 @@ async function checkExhaustedBiologyDaily(browser,engine){
     await page.waitForSelector('.lux-practice-view',{timeout:35000});
     // The route shell mounts before its async topic bank is hydrated. Check the
     // actual terminal state, not a transient blank/loading frame on Safari.
-    await page.waitForFunction(()=>document.body.innerText.includes('This topic needs more unused questions'),null,{timeout:35000});
+    try{
+      await page.waitForFunction(()=>document.body.innerText.includes('This topic needs more unused questions'),null,{timeout:35000});
+    }catch(error){
+      const diagnostic=await page.evaluate(()=>({
+        path:location.pathname,query:location.search,
+        visibleText:document.body.innerText.slice(0,2400),
+        questionIds:[...document.querySelectorAll('[data-question-id]')].map(el=>el.dataset.questionId).slice(0,12),
+        appReady:document.documentElement.hasAttribute('data-lux-ready'),
+        practiceMounted:!!document.querySelector('.lux-practice-view'),
+        loadingError:!!document.querySelector('#lux-loading-recovery'),
+        storePresent:!!localStorage.getItem('lux-scholar-garden-v1')
+      }));
+      console.error('DAILY_BIOLOGY_REOPEN_TIMEOUT '+JSON.stringify({engine,diagnostic,errors}));
+      await page.screenshot({path:path.join(out,'biology-reopen-timeout-'+engine+'.png'),fullPage:true}).catch(()=>{});
+      throw error;
+    }
     const result=await page.evaluate(()=>({
       question:document.querySelector('[data-question-id]')?.dataset.questionId,
       locked:document.querySelector('.lux-practice-view')?.innerText?.includes('This daily task is locked'),
