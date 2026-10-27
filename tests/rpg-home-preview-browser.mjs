@@ -213,7 +213,11 @@ for (const run of runs) {
       // navigation, not just a synthetic popstate event.
       await page.locator('#lux-rpg-live-home .rpg-nav-live a[href="/pet/"]').click();
       await page.waitForURL(/\/pet\/?$/,{timeout:15000});
-      await page.locator('a.pet-brand[href="/"]').click();
+      // Pet may replace its original header with a responsive navigation shell.
+      // Use a visible Home link instead of relying on the retired pet-brand.
+      const homeLinks=page.locator('a[href="/"],a[href="/scholar/"]');
+      await homeLinks.first().waitFor({state:'visible',timeout:15000});
+      await homeLinks.first().click();
       await page.waitForURL(url => url.pathname === '/',{timeout:15000});
       await page.locator('#lux-rpg-live-home .rpg-quests-live h1').waitFor({timeout:25000});
       await page.waitForFunction(() => {
