@@ -109,7 +109,7 @@ for (const run of runs) {
     assert.equal(rows.length,12,'two school items plus ten missions');
     assert.ok(rows.every(r=>r.name && r.text.includes(r.name) && r.width>12 && r.display!=='none'),
       'missing or hidden quest titles: '+JSON.stringify(rows));
-    assert.match(await page.locator('#lux-rpg-live-home .rpg-continue-live').innerText(),/Resume saved question/);
+    await page.waitForFunction(() => document.querySelector('#lux-rpg-live-home .rpg-continue-live')?.textContent?.includes('Resume saved question'), {timeout:10000});
     await page.screenshot({path:`test-results/rpg-home/${run.label}-ten-quests.png`,fullPage:true});
     // Both characters must stand on the same visible ground plane rather than
     // floating beside reward-scene furniture (tested on desktop, iPad, phone).
