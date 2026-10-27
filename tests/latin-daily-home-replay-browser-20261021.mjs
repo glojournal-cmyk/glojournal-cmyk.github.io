@@ -52,7 +52,19 @@ try {
       dailyLog:{...current.dailyLog,[day]:{...old,tasks}}});
     return {day,xp:current.xp,mastery:current.masteryPoints};
    });
-   await page.waitForFunction(()=>window.__luxStore.getState().daily?.find(t=>t.id==='latin-standard')?.progress===10,null,{timeout:15000});
+   try {
+     await page.waitForFunction(()=>window.__luxStore.getState().daily?.find(t=>t.id==='latin-standard')?.progress===10,null,{timeout:15000});
+   } catch(error) {
+     const diagnostic=await page.evaluate(()=>{
+       const s=window.__luxStore?.getState?.()||{};
+       return {day:s.today,task:s.daily?.find(t=>t.id==='latin-standard'),
+         logged:s.dailyLog?.[s.today]?.tasks?.find(t=>t.id==='latin-standard'),
+         matchingAnswers:(s.formalAttemptLog||[]).filter(a=>a.subject==='latin'&&a.day===s.today).slice(-15),
+         hydrated:window.__luxStore?.persist?.hasHydrated?.()};
+     });
+     console.error('LATIN_RECONCILIATION_TIMEOUT',JSON.stringify(diagnostic));
+     throw error;
+   }
    let after=await page.evaluate(()=>{
       const s=window.__luxStore.getState();
       return {xp:s.xp,mastery:s.masteryPoints,progress:s.daily.find(t=>t.id==='latin-standard').progress};
