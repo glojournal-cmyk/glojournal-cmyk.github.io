@@ -112,7 +112,15 @@ for(const subject of ['latin','french']){
     const credited=Object.fromEntries(all.map(q=>[q.id,true]));
     const ledger={[day]:{[subject]:{items:credited}}};
     const today=run(subject,{ledger});
-    assert.equal(today.length,0,'Already credited words cannot return on the same date');
+    // Latin also has separate Year 7–8 booklet words, which remain available.
+    // Count only UNcredited concepts; never demand three already-awarded Y9 words.
+    const completedIds=new Set(all.map(q=>q.id));
+    assert.ok(today.every(q=>!completedIds.has(q.id)),
+      'A previously credited question ID cannot be reissued on the same date');
+    assert.equal(today.filter(q=>q._dailyYear9).length,0,
+      'Three completed Year 9 words must not be repeated to fill a quota');
+    assert.equal(new Set(today.map(q=>q._vocabConcept)).size,today.length,
+      'Every remaining available word must be a distinct concept');
     const tomorrow=selectDailyVocabulary({subject,items:year8(subject),
       year9Items:year9DailyVocabulary(subject,frenchTaught),
       day:'2026-10-22',seed:'qa-seed-1',size:30,ledger});
