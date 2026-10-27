@@ -12,10 +12,10 @@ test('return-to-Study bridge is available from Pet and every React top-level she
     assert.match(read(p),/home-pet\.js\?v=20261026-bio-year9-savefix2/,p);
   }
   for(const p of ['index.html','404.html','study/index.html']){
-    assert.match(read(p),/study-rpg-live-boot-20261020\.js\?v=20261026-bio-year9-urgent1/,p);
+    assert.match(read(p),/study-rpg-live-boot-20261020\.js\?v=20261026-bio-year9-savefix2/,p);
   }
   for(const p of ['pet/index.html','assessment/index.html']){
-    assert.match(read(p),/shell-frame\.js\?v=20261026-bio-year9-urgent1/,p);
+    assert.match(read(p),/shell-frame\.js\?v=20261020-return-nav1/,p);
   }
   assert.match(read('shell-frame.js'),/\["\/study\/", "Study"\]/);
 });
