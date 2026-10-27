@@ -25,9 +25,9 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const report=[];
 const RELEASE='studio-shell-stable3';
-const RUNTIME_RELEASE='night-art1';
+const RUNTIME_RELEASE='20261026-cue1';
 const UNIFIED_THEME='gloria-unified-question-theme-20261024.css?v=20261024-progress2';
-const FINAL_THEME='gloria-practice-mockup-final-20261024.css?v=20261024-est-focus12';
+const FINAL_THEME='gloria-practice-mockup-final-20261024.css?v=20261026-cue1';
 const entrypoint = fs.readFileSync('index.html','utf8').match(/\/assets\/index-BLVOhKhN\.js\?v=[^"']+/)?.[0];
 assert.ok(entrypoint, 'Home must expose the globally synchronized app entrypoint');
 for (const subject of ['french','latin','biology','chemistry','physics','english']) {
@@ -605,31 +605,44 @@ async function checkExhaustedBiologyDaily(browser,engine){
     await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
     await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:35000});
     await page.evaluate(ids=>{
-      const key='lux-scholar-garden-v1',raw=localStorage.getItem(key);
-      const persisted=raw?JSON.parse(raw):{state:{},version:0};
-      persisted.state.seenCorrect={...(persisted.state.seenCorrect||{}),
-        ...Object.fromEntries(ids.map(id=>[id,1]))};
-      localStorage.setItem(key,JSON.stringify(persisted));
+      // Update the active Zustand store, not only localStorage. A Safari
+      // pagehide persistence write can otherwise restore the older in-memory
+      // state over the synthetic fixture immediately before reload.
+      const store=window.__luxStore;
+      if(!store?.getState||!store?.setState)throw Error('Production learner store unavailable');
+      const state=store.getState();
+      store.setState({seenCorrect:{...(state.seenCorrect||{}),
+        ...Object.fromEntries(ids.map(id=>[id,1]))}});
       // This is the TEST browser only; never remove learner device records.
       localStorage.removeItem('lux-practice-drafts-v1');
     },ids);
     await page.reload({waitUntil:'domcontentloaded'});
     await page.waitForSelector('.lux-practice-view',{timeout:35000});
-    // The route shell mounts before its async topic bank is hydrated. Check the
-    // actual terminal state, not a transient blank/loading frame on Safari.
-    await page.waitForFunction(()=>document.body.innerText.includes('This topic needs more unused questions'),null,{timeout:35000});
+    await page.waitForFunction(ids=>ids.every(id=>Number(window.__luxStore?.getState?.().seenCorrect?.[id])>0),ids,{timeout:15000});
+    // Supplementary questions may legitimately have been added after this
+    // JSON fixture. An unseen, real assigned item is *better* than a depleted
+    // message. Both routes must refuse any previously mastered question.
+    await page.waitForFunction(()=>{
+      const practice=document.querySelector('.lux-practice-view');
+      return practice && (
+        practice.querySelector('[data-question-id]') ||
+        document.body.innerText.includes('This topic needs more unused questions')
+      );
+    },null,{timeout:35000});
     const result=await page.evaluate(()=>({
-      question:document.querySelector('[data-question-id]')?.dataset.questionId,
+      question:document.querySelector('.lux-practice-view [data-question-id]')?.dataset.questionId,
       locked:document.querySelector('.lux-practice-view')?.innerText?.includes('This daily task is locked'),
       error:document.body.innerText.includes('This topic needs more unused questions'),
       progressSafe:document.body.innerText.includes('Your saved progress has not been reset'),
       mask:getComputedStyle(document.body,'::before').display,
       ready:document.documentElement.classList.contains('lux-daily-ux-ready')
     }));
-    assert.equal(result.question,undefined,'previously correct Biology questions must never be recycled as missing Daily credits');
-    assert.equal(result.locked,true,'the depleted bank stays attached to the correct locked Daily task');
-    assert.equal(result.error,true,'tell learner when no unanswered questions remain in the assigned bank');
-    assert.equal(result.progressSafe,true,'an exhausted bank must explicitly preserve existing credit');
+    assert.ok(result.error||result.question,'locked Biology must supply a fresh question or an honest shortage');
+    assert.ok(!result.question||!ids.includes(result.question),
+      'previously correct Biology questions must never be recycled as missing Daily credits');
+    assert.equal(result.locked,true,'the depleted test remains attached to its original locked Daily task');
+    if(result.error)assert.equal(result.progressSafe,true,
+      'an exhausted bank must explicitly preserve existing credit');
     assert.equal(result.mask,'none','no saved-progress mask over mounted Biology practice');
     assert.equal(result.ready,true,'final Practice shell stays ready');
     // The local Playwright HTTP fixture intentionally has no WebKit CORS

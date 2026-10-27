@@ -613,16 +613,225 @@
       },
       "preview": false,
       "ordinary": true
+    },
+    {
+      "id": "bio-y8-genetic-disorders-capacity-20261026-01",
+      "conceptId": "bio-y8-genetic-disorders-concept-capacity-01",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-genetic-disorders",
+      "topic": "Genetic disorders",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "In a simple model of a recessive condition, A is the normal dominant allele and a is the recessive disease allele. Which genotype is affected?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "aa",
+          "homozygous recessive",
+          "aa (homozygous recessive)"
+        ]
+      },
+      "feedback": {
+        "short": "Check the original taught principle and apply it to this new context.",
+        "steps": [
+          "Identify the relevant scientific concept, then verify the answer."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-genetic-disorders-capacity-20261026-02",
+      "conceptId": "bio-y8-genetic-disorders-concept-capacity-02",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-genetic-disorders",
+      "topic": "Genetic disorders",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "In the same model, what is the genotype of an unaffected carrier?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "Aa",
+          "aA",
+          "heterozygous",
+          "Aa heterozygous"
+        ]
+      },
+      "feedback": {
+        "short": "Check the original taught principle and apply it to this new context.",
+        "steps": [
+          "Identify the relevant scientific concept, then verify the answer."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-genetic-disorders-capacity-20261026-03",
+      "conceptId": "bio-y8-genetic-disorders-concept-capacity-03",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-genetic-disorders",
+      "topic": "Genetic disorders",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "Two unaffected carriers (Aa × Aa) have a child. What is the probability the child has the recessive condition?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "25%",
+          "25 percent",
+          "one quarter",
+          "1/4",
+          "0.25"
+        ]
+      },
+      "feedback": {
+        "short": "Check the original taught principle and apply it to this new context.",
+        "steps": [
+          "Identify the relevant scientific concept, then verify the answer."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-genetic-disorders-capacity-20261026-04",
+      "conceptId": "bio-y8-genetic-disorders-concept-capacity-04",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-genetic-disorders",
+      "topic": "Genetic disorders",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "An extra finger or toe appears in a child despite neither parent showing it. Give one possible genetic explanation.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "a new mutation",
+          "a spontaneous mutation",
+          "new mutation",
+          "a de novo mutation",
+          "de novo mutation"
+        ]
+      },
+      "feedback": {
+        "short": "Check the original taught principle and apply it to this new context.",
+        "steps": [
+          "Identify the relevant scientific concept, then verify the answer."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-genetic-disorders-capacity-20261026-05",
+      "conceptId": "bio-y8-genetic-disorders-concept-capacity-05",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-genetic-disorders",
+      "topic": "Genetic disorders",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 4,
+      "prompt": "For a usually X-linked recessive condition such as haemophilia, explain why a boy with the relevant variant on his only X chromosome is more likely to show the condition. (2 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "A typical male (XY) has only one X chromosome.",
+          "There is no second X-linked normal allele to mask the recessive variant."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "A typical male (XY) has only one X chromosome. There is no second X-linked normal allele to mask the recessive variant.",
+        "manualReviewFallback": true
+      },
+      "feedback": {
+        "short": "A typical male (XY) has only one X chromosome. There is no second X-linked normal allele to mask the recessive variant.",
+        "steps": [
+          "A typical male (XY) has only one X chromosome.",
+          "There is no second X-linked normal allele to mask the recessive variant."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / EVALUATE",
+        "instruction": "Write a scientific answer covering both mark points; review manually if marking is uncertain."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
     }
   ],
-  "enabled": 15,
+  "enabled": 20,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 5,
     "typed_exact": 4,
-    "mark_points": 4,
-    "matching": 2
+    "mark_points": 5,
+    "matching": 2,
+    "typed_equivalent": 4
   },
   "gated": false,
   "note": {

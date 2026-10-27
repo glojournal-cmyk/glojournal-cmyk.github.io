@@ -109,6 +109,10 @@ for (const run of runs) {
     assert.equal(rows.length,12,'two school items plus ten missions');
     assert.ok(rows.every(r=>r.name && r.text.includes(r.name) && r.width>12 && r.display!=='none'),
       'missing or hidden quest titles: '+JSON.stringify(rows));
+    // A scheduled animation frame applies the injected journey; wait for the actual CTA update.
+    await page.waitForFunction(() => /Resume saved question/.test(
+      document.querySelector('#lux-rpg-live-home .rpg-continue-live')?.textContent || ''
+    ), null, {timeout:15000});
     assert.match(await page.locator('#lux-rpg-live-home .rpg-continue-live').innerText(),/Resume saved question/);
     await page.screenshot({path:`test-results/rpg-home/${run.label}-ten-quests.png`,fullPage:true});
     // Both characters must stand on the same visible ground plane rather than
@@ -213,7 +217,9 @@ for (const run of runs) {
       // navigation, not just a synthetic popstate event.
       await page.locator('#lux-rpg-live-home .rpg-nav-live a[href="/pet/"]').click();
       await page.waitForURL(/\/pet\/?$/,{timeout:15000});
-      await page.locator('a.pet-brand[href="/"]').click();
+      // The production Pet sanctuary removes the legacy header on iPad.
+      // Return using the actual bottom navigation visible to the student.
+      await page.locator('nav.pet-preview-bottom-bar a[href="/"]').click();
       await page.waitForURL(url => url.pathname === '/',{timeout:15000});
       await page.locator('#lux-rpg-live-home .rpg-quests-live h1').waitFor({timeout:25000});
       await page.waitForFunction(() => {

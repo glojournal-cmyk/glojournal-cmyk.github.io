@@ -42,8 +42,10 @@ try {
     const marked=Array.from({length:10},(_,i)=>({
       day,at:new Date(Date.now()-60000+i*500).toISOString(),
       attemptId:'latin-prepositions-qa-'+i,questionId:topic+'-qa-'+i,
-      correct:i%2===0,subject:'latin',topicId:topic,
-      formal:true,repair:false,dailyTaskId:null
+      // Current Daily credit is correct-only. All ten independently verified
+      // answers must belong to the exact locked assignment and school year.
+      correct:true,subject:'latin',topicId:topic,year:8,
+      formal:true,repair:false,dailyTaskId:'latin-standard'
     }));
     const daily=current.daily.map(t=>t.id==='latin-standard'?task:t);
     const old=current.dailyLog?.[day]||{date:day,tasks:[],done:0,total:0};

@@ -1,0 +1,71 @@
+name: Scholar Question Bank Audit (read only)
+on:
+  push:
+    branches:
+      - audit/question-bank-20261026
+    paths:
+      - 'scripts/question-bank-audit-20261026.mjs'
+      - '.github/workflows/question-bank-audit-20261026.yml'
+      - 'content/topics/**'
+      - 'content/exam-practice/**'
+      - 'tests/question-bank-20261026.test.mjs'
+      - 'tests/question-bank-20261026-round2.test.mjs'
+      - 'tests/question-bank-capacity-round3-20261026.test.mjs'
+      - 'tests/mastery-capacity-picker-20261026.test.mjs'
+      - 'tests/mastery-30day-capacity-20261026.test.mjs'
+      - 'tests/language-year9-mastery-20261026.test.mjs'
+      - 'scripts/year9-mastery-capacity-report-20261026.mjs'
+      - 'tests/year9-mastery-capacity-report-20261026.test.mjs'
+      - 'src/lib/daily/mastery-capacity-picker-20261026.mjs'
+      - 'tests/question-eligibility-diagnostics-20261026.test.mjs'
+      - 'src/lib/daily/question-eligibility-diagnostics-20261026.mjs'
+      - 'tests/global-allocation-preflight-20261026.test.mjs'
+      - 'src/lib/daily/global-allocation-preflight-20261026.mjs'
+  workflow_dispatch:
+concurrency:
+  group: scholar-bank-audit-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax check
+        run: node --check scripts/question-bank-audit-20261026.mjs
+      - name: Verify repaired topic banks
+        run: node --test tests/question-bank-20261026.test.mjs
+      - name: Verify continuous variation correlation and BER expansions
+        run: node --test tests/question-bank-20261026-round2.test.mjs
+      - name: Verify six additional Year 8 Biology banks
+        run: node --test tests/question-bank-capacity-round3-20261026.test.mjs
+      - name: Test global capacity preflight (synthetic inputs only)
+        run: node --test tests/global-allocation-preflight-20261026.test.mjs
+      - name: Validate actual-bank dynamic eligibility and retention safeguards
+        run: node --test tests/question-eligibility-diagnostics-20261026.test.mjs
+      - name: Verify learner-aware Mastery pair selection
+        run: node --test tests/mastery-capacity-picker-20261026.test.mjs
+      - name: Simulate 30 synthetic days of unique Mastery answers on real bank files
+        run: node --test tests/mastery-30day-capacity-20261026.test.mjs
+      - name: Verify Year 9 French and Latin grammar Mastery reserves
+        run: node --test tests/language-year9-mastery-20261026.test.mjs
+      - name: Verify Year 9 whole-curriculum capacity report
+        run: node --test tests/year9-mastery-capacity-report-20261026.test.mjs
+      - name: Inventory Year 9 topics and safe Mastery reserve scenarios
+        run: node scripts/year9-mastery-capacity-report-20261026.mjs --output qa-reports/year9-mastery-capacity-20261026.json
+      - name: Inventory all topic files
+        run: node scripts/question-bank-audit-20261026.mjs --strict --output qa-reports/question-bank-inventory-20261026.json
+      - name: Upload audit (does not publish website)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scholar-question-bank-inventory-20261026
+          path: |
+            qa-reports/question-bank-inventory-20261026.json
+            qa-reports/year9-mastery-capacity-20261026.json
+          if-no-files-found: warn

@@ -1,1 +1,1 @@
-import{t as e}from"./jsx-runtime-Cltr0gcK.js?ux=20261013-corrections2";import{tn as t}from"./index-BLVOhKhN.js?v=20261026-bio-year9-urgent1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as component};
+import{t as e}from"./jsx-runtime-Cltr0gcK.js?ux=20261013-corrections2";import{tn as t}from"./index-BLVOhKhN.js?v=20261027-pr172-integration1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as component};

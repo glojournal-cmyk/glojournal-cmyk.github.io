@@ -774,18 +774,389 @@
       "preview": false,
       "ordinary": true,
       "formal": false
+    },
+    {
+      "id": "bio-y8-dna-structure-capacity-20261026-01",
+      "conceptId": "bio-y8-dna-structure-concept-capacity-01",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-dna-structure",
+      "topic": "DNA structure, homologous pairs and karyograms",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "Explain why two homologous chromosomes carry the same types of genes but may carry different alleles. (2 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "A homologous pair has one chromosome from each parent and the same genes at matching loci.",
+          "The versions (alleles) of those genes may differ between the two chromosomes."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "A homologous pair has one chromosome from each parent and the same genes at matching loci. The versions (alleles) of those genes may differ between the two chromosomes.",
+        "manualReviewFallback": true
+      },
+      "feedback": {
+        "short": "A homologous pair has one chromosome from each parent and the same genes at matching loci. The versions (alleles) of those genes may differ between the two chromosomes.",
+        "steps": [
+          "A homologous pair has one chromosome from each parent and the same genes at matching loci.",
+          "The versions (alleles) of those genes may differ between the two chromosomes."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / EVALUATE",
+        "instruction": "Write a scientific answer covering both mark points; review manually if marking is uncertain."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-dna-structure-capacity-20261026-02",
+      "conceptId": "bio-y8-dna-structure-concept-capacity-02",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-dna-structure",
+      "topic": "DNA structure, homologous pairs and karyograms",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "A karyogram shows two non-sex chromosomes matching in size, centromere position and banding pattern. What is this pair called?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "homologous pair",
+          "homologous chromosomes",
+          "a homologous pair",
+          "a pair of homologous chromosomes"
+        ]
+      },
+      "feedback": {
+        "short": "Check the original taught principle and apply it to this new context.",
+        "steps": [
+          "Identify the relevant scientific concept, then verify the answer."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-dna-structure-reserve-20261026-01",
+      "conceptId": "bio-y8-dna-structure-concept-reserve-01",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-dna-structure",
+      "topic": "DNA structure, homologous pairs and karyograms",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "A double-stranded DNA fragment contains 14 base pairs. How many nucleotides are present in total?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "28",
+          "28 nucleotides"
+        ]
+      },
+      "feedback": {
+        "short": "Each base pair comprises two nucleotides, one on each strand.",
+        "steps": [
+          "Each base pair comprises two nucleotides, one on each strand."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-dna-structure-reserve-20261026-02",
+      "conceptId": "bio-y8-dna-structure-concept-reserve-02",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-dna-structure",
+      "topic": "DNA structure, homologous pairs and karyograms",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "In a DNA diagram one strand reads A-C-G-T-A from left to right. Write the five bases directly opposite it in the same left-to-right order.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "TGCAT",
+          "T-G-C-A-T",
+          "T G C A T"
+        ]
+      },
+      "feedback": {
+        "short": "A pairs with T and C pairs with G, giving T-G-C-A-T.",
+        "steps": [
+          "A pairs with T and C pairs with G, giving T-G-C-A-T."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-dna-structure-reserve-20261026-03",
+      "conceptId": "bio-y8-dna-structure-concept-reserve-03",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-dna-structure",
+      "topic": "DNA structure, homologous pairs and karyograms",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "A karyogram from a typical human body cell contains 22 pairs of autosomes and two sex chromosomes. How many chromosomes does the cell have in total?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "46",
+          "46 chromosomes"
+        ]
+      },
+      "feedback": {
+        "short": "22 pairs give 44 autosomes, plus two sex chromosomes.",
+        "steps": [
+          "22 pairs give 44 autosomes, plus two sex chromosomes."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-dna-structure-reserve-20261026-04",
+      "conceptId": "bio-y8-dna-structure-concept-reserve-04",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-dna-structure",
+      "topic": "DNA structure, homologous pairs and karyograms",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "A double-stranded DNA sample contains 37 cytosine bases. How many guanine bases must it contain?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "37",
+          "37 guanine bases"
+        ]
+      },
+      "feedback": {
+        "short": "Each cytosine pairs with a guanine, so their counts are equal.",
+        "steps": [
+          "Each cytosine pairs with a guanine, so their counts are equal."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-dna-structure-reserve-20261026-05",
+      "conceptId": "bio-y8-dna-structure-concept-reserve-05",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-dna-structure",
+      "topic": "DNA structure, homologous pairs and karyograms",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "A mutation replaces one base within a gene. Which feature of the DNA has changed?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "base sequence",
+          "the base sequence",
+          "DNA base sequence",
+          "sequence of bases",
+          "order of bases",
+          "sequence of DNA bases"
+        ]
+      },
+      "feedback": {
+        "short": "Changing a base changes the DNA base sequence; the impact on a protein may vary.",
+        "steps": [
+          "Changing a base changes the DNA base sequence; the impact on a protein may vary."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-dna-structure-reserve-20261026-06",
+      "conceptId": "bio-y8-dna-structure-concept-reserve-06",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-dna-structure",
+      "topic": "DNA structure, homologous pairs and karyograms",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 4,
+      "prompt": "Explain why a gene and a chromosome are not the same structure. (2 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "A gene is a particular section of DNA that carries information.",
+          "A chromosome is a long DNA molecule containing many genes."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "A gene is a particular section of DNA that carries information. A chromosome is a long DNA molecule containing many genes.",
+        "manualReviewFallback": true
+      },
+      "feedback": {
+        "short": "A gene is a particular section of DNA that carries information. A chromosome is a long DNA molecule containing many genes.",
+        "steps": [
+          "A gene is a particular section of DNA that carries information.",
+          "A chromosome is a long DNA molecule containing many genes."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / EVALUATE",
+        "instruction": "Award one mark per scientifically correct point; request manual review if uncertain."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-dna-structure-reserve-20261026-07",
+      "conceptId": "bio-y8-dna-structure-concept-reserve-07",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-dna-structure",
+      "topic": "DNA structure, homologous pairs and karyograms",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 4,
+      "prompt": "Explain why DNA must be copied accurately before a cell divides. (2 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "DNA copying passes genetic information to daughter cells.",
+          "Copying errors can alter the DNA sequence, potentially causing mutations."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "DNA copying passes genetic information to daughter cells. Copying errors can alter the DNA sequence, potentially causing mutations.",
+        "manualReviewFallback": true
+      },
+      "feedback": {
+        "short": "DNA copying passes genetic information to daughter cells. Copying errors can alter the DNA sequence, potentially causing mutations.",
+        "steps": [
+          "DNA copying passes genetic information to daughter cells.",
+          "Copying errors can alter the DNA sequence, potentially causing mutations."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / EVALUATE",
+        "instruction": "Award one mark per scientifically correct point; request manual review if uncertain."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
     }
   ],
-  "enabled": 18,
+  "enabled": 27,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 4,
     "typed_exact": 4,
-    "mark_points": 5,
+    "mark_points": 8,
     "matching": 2,
-    "sequence": 1,
-    "diagram_label": 2
+    "word_tiles": 1,
+    "typed_short": 2,
+    "typed_equivalent": 6
   },
   "gated": false,
   "note": {
@@ -799,7 +1170,8 @@
     "mustMemoriseRules": [
       "Nucleotide = sugar + phosphate + base.",
       "Homologous chromosomes carry the same types of genes at the same positions, one from each parent.",
-      "A karyogram arranges chromosomes by size and banding pattern."
+      "A karyogram arranges chromosomes by size and banding pattern.",
+      "Complementary DNA bases pair specifically: adenine with thymine and cytosine with guanine."
     ],
     "mustMemoriseVocabulary": [
       {
@@ -867,7 +1239,8 @@
       "Use the structure hierarchy from nucleus to nucleotide.",
       "Use the command word and number of marks to decide how many distinct points are required.",
       "Use precise terminology and link cause to effect rather than listing disconnected facts.",
-      "For calculations, show the relationship, substitution, working and unit."
+      "For calculations, show the relationship, substitution, working and unit.",
+      "For base-pair questions, read the strands in the order shown; each paired position contributes two nucleotides."
     ],
     "quickCheck": [
       {

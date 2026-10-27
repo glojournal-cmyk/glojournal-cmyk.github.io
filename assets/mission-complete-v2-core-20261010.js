@@ -25,7 +25,11 @@ function verify(state,href,taskId,planDate,journey,storage){
  }
  let committed;
  try{committed=journey.completion(journey.withReviewCredits(saved),href,taskId)}catch{}
- if(!committed||committed.task.id!==live.task.id ||
+ // A task cannot be reported as durably complete when the same snapshot
+ // still has uncommitted XP. Treat a partial multi-key save as unverified.
+ const xpMatches=Number.isFinite(Number(saved.xp)) && Number.isFinite(Number(state.xp))
+   ? Number(saved.xp)===Number(state.xp) : saved.xp===state.xp;
+ if(!committed||committed.task.id!==live.task.id || !xpMatches ||
     Number(committed.task.progress)<Number(live.task.progress)){
    return {state:"unverified",verified:false,data:live};
  }

@@ -90,7 +90,25 @@ try{
             actionCounts:p.care.daily?.actionCounts,
             rewardLedger:p.care.rewardLedger}:null};
       });
+      // Compare genuinely hydrated, durably persisted Daily plans. On first
+      // load the legacy six-task shell can be replaced by the ten-task plan
+      // while the Pet animation appears; that change is not a Settings click.
+      await page.waitForFunction(()=>{
+        try{
+          const store=window.__luxStore;
+          if(!store?.persist?.hasHydrated?.())return false;
+          const live=store.getState(),raw=JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}');
+          const saved=raw.state||raw;
+          return live.today===saved.today&&live.daily?.length===10&&saved.daily?.length===10&&
+            live.daily.every((t,i)=>t.id===saved.daily[i].id&&
+              Number(t.progress)===Number(saved.daily[i].progress)&&
+              Number(t.target)===Number(saved.daily[i].target));
+        }catch{return false}
+      },null,{timeout:15000});
       const before=await snapshot();
+      await page.waitForTimeout(300);
+      assert.deepEqual(await snapshot(),before,
+        'Home baseline must settle before testing navigation write safety');
       // One locator action focuses and presses the *current* button.
       // A scheduled Home rerender between separate focus/keyboard calls can
       // replace the button and leave Enter on a detached element.
@@ -109,7 +127,29 @@ try{
       await page.locator('#lux-rpg-live-home .rpg-nav-live a[href="/scholar/?open=settings"]').click();
       await page.waitForURL(url=>url.pathname==='/scholar/'&&url.searchParams.get('open')==='settings',{timeout:20000});
       await page.getByText('Chimes for answers, dress-up, watering and PE.').waitFor({timeout:20000});
-      assert.deepEqual(await snapshot(),before,'opening Settings must not edit progress');
+      // Loading a fresh Settings document may finish upgrading the legacy
+      // six all-zero starter tasks to the canonical ten-task curriculum.
+      // That is not lost progress. Fail if any existing task disappears,
+      // loses credit, changes target, or if XP/pet/wardrobe values change.
+      await page.waitForFunction(()=>{
+        try{return JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}')?.state?.daily?.length===10}
+        catch{return false}
+      },null,{timeout:15000});
+      const afterSettings=await snapshot();
+      const {daily:oldDaily,...oldStable}=before;
+      const {daily:newDaily,...newStable}=afterSettings;
+      assert.deepEqual(newStable,oldStable,'Settings must preserve XP, wardrobe and pet state');
+      assert.equal(newDaily.length,10,'Settings must show the canonical ten-task plan');
+      if(oldDaily.length===10){
+        assert.deepEqual(newDaily,oldDaily,'Settings must preserve the full existing task plan');
+      }else{
+        assert.equal(oldDaily.length,6,'Only the legacy six-task starter plan may expand');
+        const map=new Map(newDaily.map(row=>[row[0],row]));
+        for(const row of oldDaily){
+          assert.deepEqual(map.get(row[0]),row,
+            'Canonical upgrade may add tasks but may not change any saved task credit or target');
+        }
+      }
       if(errors.length)throw new Error('JavaScript errors: '+errors.slice(0,3).join('; '));
       reports.push({engine,viewport:vp.width,rpgGreeting:true,keyboard:true,
         settingsNative:true,viewportFixedNav:true,noSaveChanges:true});
