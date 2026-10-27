@@ -101,6 +101,7 @@ try{
       dailyLog:{...old.dailyLog,[day]:{...previousLog,date:day,tasks:logTasks}}
     });
    },entrypoint);
+   await page.waitForFunction(async(entrypoint)=>{const {C:store}=await import(entrypoint);return store.getState().daily?.find(t=>t.id==="french-vocab")?.progress===30;},entrypoint,{timeout:10000});
    state=await readCount(page);
    assert.equal(state.correct,13,"Fixture must reproduce the old 13-item ledger");
    assert.equal(state.task?.progress,30,
