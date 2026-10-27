@@ -58,6 +58,7 @@ try{
     store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-28",true);
     store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-29",true);
    },entrypoint);
+   await page.waitForFunction(()=>window.__luxStore?.getState().daily?.find(t=>t.id==="french-vocab")?.progress===30,null,{timeout:10000});
    state=await readCount(page);
    assert.equal(state.correct,30,"28 + 2 distinct correct must remain 30");
    assert.equal(state.task?.progress,30,"Live daily task must complete at 30");
