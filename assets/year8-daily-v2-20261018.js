@@ -208,8 +208,8 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       mode==='due'?['due','retention']:mode==='weak'?['weak']:null;
     const prior=same&&!legacyRecall?Number(old.progress)||0:0;
     const attempted=topic?tally(topic.topicId,id,modes):0;
-    const correct=topic?tally(topic.topicId,id,modes,true):0;
-    const journalIds=topic?[...new Set(taskEvents(topic.topicId,id,modes).filter(e=>e.correct===true).map(e=>String(e.questionId).split('@')[0]))]:[];
+    const correct=topic?tally(topic.topicId,id,modes,today>='2026-10-24'):0;
+    const journalIds=topic?[...new Set(taskEvents(topic.topicId,id,modes).filter(e=>today<'2026-10-24'||e.correct===true).map(e=>String(e.questionId).split('@')[0]))]:[];
     // From 24 Oct onward the Home fraction means CORRECT answers, not taps.
     // Trust the formal journal only when it covers the prior saved count:
     // an iPad with a partly lost journal must not lose genuine old credit.
