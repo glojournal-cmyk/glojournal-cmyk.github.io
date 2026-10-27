@@ -12,13 +12,13 @@
  const home=()=>location.pathname==='/'||location.pathname==='/index.html';
  const scholar=()=>/^\/scholar\/?$/.test(location.pathname);
  const features=[
-  {id:'study-bridge',src:'/assets/study-rpg-live-boot-20261020.js?v=20261026-bio-year9-urgent1&uxfix=20261022-priority-ux1'},
-  {id:'play-bridge',src:'/assets/play-hall-live-boot-20261020.js?v=20261026-bio-year9-urgent1&uxfix=20261022-priority-ux1'},
+  {id:'study-bridge',src:'/assets/study-rpg-live-boot-20261020.js?v=20261027-pr172-integration1&uxfix=20261022-priority-ux1'},
+  {id:'play-bridge',src:'/assets/play-hall-live-boot-20261020.js?v=20261027-pr172-integration1&uxfix=20261022-priority-ux1'},
   {id:'theme-icons',src:'/lux-theme.js?v=20261023-home-restore-safe1'},
-  {id:'home-continue',src:'/assets/home-continue-20261010.js?v=20261026-bio-year9-urgent1'},
-  {id:'pet-companion',src:'/pet/home-pet.js?v=20261026-bio-year9-urgent1',module:true},
+  {id:'home-continue',src:'/assets/home-continue-20261010.js?v=20261027-pr172-integration1'},
+  {id:'pet-companion',src:'/pet/home-pet.js?v=20261027-pr172-integration1',module:true},
   {id:'living-garden',src:'/assets/garden-life-20261007.js?v=20261023-home-restore-safe1'},
-  {id:'recovery-panel',src:'/assets/quest-recovery-20261011.js?v=20261026-bio-year9-urgent1',module:true}
+  {id:'recovery-panel',src:'/assets/quest-recovery-20261011.js?v=20261027-pr172-integration1',module:true}
  ];
  const scholarFeatures=[
   {id:'scholar-images',src:'/assets/scholar-image-recovery-20261020.js?v=20261023-home-restore-safe1'},

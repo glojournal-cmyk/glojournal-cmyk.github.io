@@ -1,6 +1,6 @@
 import "./home-journey-v2-logic-20261010.js?v=20261010-home-v2&ux=20261013-corrections2";
 import "./journey-navigation-20261004.js?ux=20261013-corrections2";
-import { C as store } from "./index-BLVOhKhN.js?v=20261026-bio-year9-urgent1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+import { C as store } from "./index-BLVOhKhN.js?v=20261027-pr172-integration1&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
 
 if (!window.__luxRpgShell) {
   window.__luxRpgShell = true;

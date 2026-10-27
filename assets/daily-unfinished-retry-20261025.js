@@ -1,4 +1,4 @@
-import {dailyCorrectQuestionIds} from './daily-locked-question-fallback-20261021.js?v=20261026-bio-year9-urgent1';
+import {dailyCorrectQuestionIds} from './daily-locked-question-fallback-20261021.js?v=20261027-pr172-integration1';
 /* A partly finished locked Daily task must resume its ORIGINAL wrong base
  * question(s), not silently replace them with newly generated practice.
  * Read-only selection: verified answer receipts and formal events decide what

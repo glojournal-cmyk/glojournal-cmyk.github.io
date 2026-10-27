@@ -2,7 +2,7 @@ import {restoreCompletedDailyReceipts} from "./daily-completed-session-receipts-
 import {syncTodayFromDatedRecord} from "./today-record-sync-20261024.js";
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261026-vocabqa7";
 import {readOptionalBackupJson,linkedBackupManifest} from "./export-linked-storage-20261023.js";
-import "./player-ux-20261013.js?v=20261026-bio-year9-savefix2&ux=20261021-ipad-shell-lock3&uxfix=20261022-priority-ux1";
+import "./player-ux-20261013.js?v=20261027-pr172-integration1&ux=20261021-ipad-shell-lock3&uxfix=20261022-priority-ux1";
 import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261025-scorefix1";
 import "./daily-ledger-vault-20261023.js?v=20261025-scorefix1";
 import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261026-journal-fallback3";
@@ -14,8 +14,8 @@ import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018
 import "./journey-navigation-20261004.js?v=20261024-latin-ipad-date2&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
-import("/pet/pet-care-global.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261026-bio-year9-savefix2";
+import("/pet/pet-care-global.js?v=20261027-pr172-integration1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261027-pr172-integration1";
 import {
   C as store,
   A as medicalOutfitCatalog,
@@ -31,7 +31,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261026-bio-year9-savefix2";
+} from "./index-BLVOhKhN.core.js?v=20261027-pr172-integration1";
 
 // festival-xp-rewards-v2: Halloween free, nine paired XP rewards.
 // Migrate auto-granted Festival items without changing XP, study or mastery history.
@@ -4084,7 +4084,7 @@ if(typeof window!=="undefined"){
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261027-pr172-integration1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){
