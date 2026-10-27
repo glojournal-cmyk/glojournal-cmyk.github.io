@@ -18,7 +18,8 @@ export function dailyVocabTotal(state = {}, subject, day) {
     if (answer?.day !== date || !assigned || !answer?.questionId ||
         (answer?.subject && answer.subject !== subject) ||
         (answer?.dailyTaskId && answer.dailyTaskId !== subject + "-vocab") ||
-        answer?.recoveryFor || answer?.formal === false || answer?.repair === true ||
+        answer?.recoveryFor || answer?.formal === false ||
+        (answer?.repair === true && answer?.correct !== true) ||
         typeof answer.correct !== "boolean") continue;
     const id = String(answer.questionId);
     if (typeof answer.vocabConcept === 'string' && answer.vocabConcept) concepts[id] = answer.vocabConcept;
