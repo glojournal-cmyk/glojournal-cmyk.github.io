@@ -100,7 +100,7 @@ test('all six school subject practice routes include mission styling and updated
  const bundle=source('assets/index-BLVOhKhN.core.js');
  assert.match(bundle,/assets\/study\._subject\.practise-[\w-]+\.js\?v=20261026-bio-year9-savefix2/,'canonical runtime must register the current practice route');
  assert.match(source('assets/quiz-session-y8fix-20260920.js'),
-   /session-reflection-20261004\.js\?v=20261010-mission-v2/);
+   /session-reflection-20261004\.js\?v=20261023-home-return-stable1/);
  assert.match(source('assets/quiz-session-rWAnuDVj.js'),
-   /journey-navigation-ui-20261004\.js\?v=20261010-mission-v2/);
+   /journey-navigation-ui-20261004\.js\?v=20261026-bio-year9-savefix2/);
 });
