@@ -30,7 +30,7 @@ test("repeated IDs and later wrong attempts never subtract credit", () => {
   assert.equal(total.attempts, 30);
 });
 
-test("only the assigned subject, date, and non-repair answers count", () => {
+test("only assigned subject and date count; correct formal repairs count once", () => {
   const x = state({"latin-1": true, "latin-2": false});
   x.formalAttemptLog = [
     {day, dailyVocab: "latin", questionId: "latin-2", correct: true, repair: true},
@@ -38,7 +38,7 @@ test("only the assigned subject, date, and non-repair answers count", () => {
     {day: "2026-10-19", dailyVocab: "latin", questionId: "latin-3", correct: true},
     {day, dailyVocab: "latin", questionId: "latin-4", correct: true}
   ];
-  assert.deepEqual(dailyVocabTotal(x, "latin", day).correct, 2);
+  assert.deepEqual(dailyVocabTotal(x, "latin", day).correct, 3);
   assert.equal(dailyVocabTotal(x, "latin", day).attempts, 3);
   assert.equal(dailyVocabTotal(x, "french", day).correct, 1);
 });
@@ -73,7 +73,7 @@ test("old same-day Daily Record credits survive missing vocabulary ledger", () =
   assert.equal(dailyVocabTotal({...x,today:"2026-10-21"},"french","2026-10-21").progress,0);
 });
 
-test("do not accept unassigned subject, wrong date, repair, informal or Recovery", () => {
+test("exclude wrong subject, wrong date, informal and Recovery; retain valid correct formal repair", () => {
   const x={today:day,formalAttemptLog:[
     {day,subject:"physics",dailyTaskId:"french-vocab",questionId:"a",correct:true},
     {day,subject:"french",dailyTaskId:"french-vocab",questionId:"b",correct:true,repair:true},
@@ -82,7 +82,7 @@ test("do not accept unassigned subject, wrong date, repair, informal or Recovery
     {day:"2026-10-19",subject:"french",dailyTaskId:"french-vocab",questionId:"e",correct:true},
     {day,subject:"french",dailyTaskId:"french-vocab",questionId:"real",correct:true}
   ]};
-  assert.equal(dailyVocabTotal(x,"french",day).progress,1);
+  assert.equal(dailyVocabTotal(x,"french",day).progress,2);
 });
 
 test("actual Year 8 Home builder displays 30 when ledger shows 13", () => {
