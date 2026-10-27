@@ -19,14 +19,17 @@ const server=createServer((req,res)=>{
 await new Promise(resolve=>server.listen(0,"127.0.0.1",resolve));
 const origin="http://127.0.0.1:"+server.address().port;
 const route="/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab";
-const readCount=async page=>page.evaluate(async()=>{
- const {C:store}=await import("/assets/index-BLVOhKhN.js");
+const entrypoint=fs.readFileSync("index.html","utf8").match(/\/assets\/index-BLVOhKhN\.js\?v=[^"'<> ]+/)?.[0];
+assert.ok(entrypoint,"Home must expose a canonical versioned runtime");
+assert.ok(fs.readFileSync("study/french/practise/index.html","utf8").includes(entrypoint),"Practice and Home must use the same app runtime");
+const readCount=async page=>page.evaluate(async(entrypoint)=>{
+ const {C:store}=await import(entrypoint);
  const s=store.getState(),date=s.today;
  const items=s.dailyVocabByDay?.[date]?.french?.items||{};
  return {day:date,correct:Object.values(items).filter(Boolean).length,
   attempts:Object.keys(items).length,task:s.daily?.find(t=>t.id==="french-vocab")||null,
   saved:localStorage.getItem("lux-scholar-garden-v1")};
-});
+},entrypoint);
 try{
  for(const engine of [chromium,webkit]){
   const browser=await engine.launch({headless:true});
@@ -36,10 +39,10 @@ try{
    page.on("pageerror",error=>errors.push(error.message));
    await page.goto(origin+"/",{waitUntil:"networkidle"});
    await page.waitForFunction(()=>window.__luxAppReady===true);
-   await page.evaluate(async()=>{
-    const {C:store}=await import("/assets/index-BLVOhKhN.js");
+   await page.evaluate(async(entrypoint)=>{
+    const {C:store}=await import(entrypoint);
     for(let i=0;i<28;i++)store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-"+i,true);
-   });
+   },entrypoint);
    let state=await readCount(page);
    assert.equal(state.correct,28,engine.name()+" initial 28");
    assert.equal(state.task?.progress,28,"Home daily task must show cumulative 28");
@@ -47,11 +50,11 @@ try{
    await page.waitForFunction(()=>window.__luxAppReady===true);
    state=await readCount(page);
    assert.equal(state.correct,28,"Entering Practice must not reset 28 correct");
-   await page.evaluate(async()=>{
-    const {C:store}=await import("/assets/index-BLVOhKhN.js");
+   await page.evaluate(async(entrypoint)=>{
+    const {C:store}=await import(entrypoint);
     store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-28",true);
     store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-29",true);
-   });
+   },entrypoint);
    state=await readCount(page);
    assert.equal(state.correct,30,"28 + 2 distinct correct must remain 30");
    assert.equal(state.task?.progress,30,"Live daily task must complete at 30");
@@ -59,11 +62,11 @@ try{
    await page.waitForFunction(()=>window.__luxAppReady===true);
    state=await readCount(page);
    assert.equal(state.correct,30,"Refresh must preserve all 30 correct");
-   await page.evaluate(async()=>{
-    const {C:store}=await import("/assets/index-BLVOhKhN.js");
+   await page.evaluate(async(entrypoint)=>{
+    const {C:store}=await import(entrypoint);
     store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-29",false);
     store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-29",true);
-   });
+   },entrypoint);
    state=await readCount(page);
    assert.equal(state.correct,30,"Retry cannot remove or double-count a credited answer");
    await page.goto(origin+"/",{waitUntil:"networkidle"});
@@ -74,8 +77,8 @@ try{
    // The user's real iPad showed French 13/30 even though 30 marked answers
    // were retained. Recreate THAT old persisted shape, not just 30 calls to
    // recordDailyVocabAttempt (the earlier test missed this path).
-   await page.evaluate(async()=>{
-    const {C:store}=await import("/assets/index-BLVOhKhN.js");
+   await page.evaluate(async(entrypoint)=>{
+    const {C:store}=await import(entrypoint);
     const old=store.getState(),day=old.today;
     const items=Object.fromEntries(Array.from({length:13},(_,i)=>["fr-old-"+i,true]));
     const formalAttemptLog=Array.from({length:30},(_,i)=>({
@@ -93,7 +96,7 @@ try{
       formalAttemptLog,daily:currentTasks,
       dailyLog:{...old.dailyLog,[day]:{...previousLog,date:day,tasks:logTasks}}
     });
-   });
+   },entrypoint);
    state=await readCount(page);
    assert.equal(state.correct,13,"Fixture must reproduce the old 13-item ledger");
    assert.equal(state.task?.progress,30,

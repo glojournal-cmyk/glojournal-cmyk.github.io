@@ -18,6 +18,7 @@ export function dailyVocabTotal(state = {}, subject, day) {
     if (answer?.day !== date || !assigned || !answer?.questionId ||
         (answer?.subject && answer.subject !== subject) ||
         (answer?.dailyTaskId && answer.dailyTaskId !== subject + "-vocab") ||
+        (answer?.dailyVocab && answer.dailyVocab !== subject) ||
         answer?.recoveryFor || answer?.formal === false ||
         (answer?.repair === true && answer?.correct !== true) ||
         typeof answer.correct !== "boolean") continue;

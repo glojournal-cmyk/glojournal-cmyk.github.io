@@ -30,7 +30,7 @@ test("repeated IDs and later wrong attempts never subtract credit", () => {
   assert.equal(total.attempts, 30);
 });
 
-test("only assigned subject and date count; correct formal repairs count once", () => {
+test("only assigned subject and date count; repair rounds do not add new primary credit", () => {
   const x = state({"latin-1": true, "latin-2": false});
   x.formalAttemptLog = [
     {day, dailyVocab: "latin", questionId: "latin-2", correct: true, repair: true},
@@ -38,7 +38,7 @@ test("only assigned subject and date count; correct formal repairs count once", 
     {day: "2026-10-19", dailyVocab: "latin", questionId: "latin-3", correct: true},
     {day, dailyVocab: "latin", questionId: "latin-4", correct: true}
   ];
-  assert.deepEqual(dailyVocabTotal(x, "latin", day).correct, 3);
+  assert.deepEqual(dailyVocabTotal(x, "latin", day).correct, 2);
   assert.equal(dailyVocabTotal(x, "latin", day).attempts, 3);
   assert.equal(dailyVocabTotal(x, "french", day).correct, 1);
 });
@@ -73,7 +73,7 @@ test("old same-day Daily Record credits survive missing vocabulary ledger", () =
   assert.equal(dailyVocabTotal({...x,today:"2026-10-21"},"french","2026-10-21").progress,0);
 });
 
-test("exclude wrong subject, wrong date, informal and Recovery; retain valid correct formal repair", () => {
+test("exclude wrong subject, wrong date, informal, repair and Recovery", () => {
   const x={today:day,formalAttemptLog:[
     {day,subject:"physics",dailyTaskId:"french-vocab",questionId:"a",correct:true},
     {day,subject:"french",dailyTaskId:"french-vocab",questionId:"b",correct:true,repair:true},
@@ -82,7 +82,7 @@ test("exclude wrong subject, wrong date, informal and Recovery; retain valid cor
     {day:"2026-10-19",subject:"french",dailyTaskId:"french-vocab",questionId:"e",correct:true},
     {day,subject:"french",dailyTaskId:"french-vocab",questionId:"real",correct:true}
   ]};
-  assert.equal(dailyVocabTotal(x,"french",day).progress,2);
+  assert.equal(dailyVocabTotal(x,"french",day).progress,1);
 });
 
 test("actual Year 8 Home builder displays 30 when ledger shows 13", () => {
@@ -98,4 +98,17 @@ test("actual Year 8 Home builder displays 30 when ledger shows 13", () => {
   const french=actualHomeTasks.find(t=>t.id==="french-vocab");
   assert.equal(french.progress,30);
   assert.equal(french.target,30);
+});
+
+test("conflicting vocabulary subject, task, and tag never borrow a Daily answer",()=>{
+ const s={today:day,formalAttemptLog:[
+  {day,subject:"physics",dailyVocab:"french",dailyTaskId:"french-vocab",questionId:"wrong-subject",correct:true,formal:true},
+  {day,subject:"french",dailyVocab:"french",dailyTaskId:"latin-vocab",questionId:"wrong-task",correct:true,formal:true},
+  {day,subject:"french",dailyVocab:"latin",dailyTaskId:"french-vocab",questionId:"wrong-tag",correct:true,formal:true},
+  {day,subject:"french",dailyVocab:"french",dailyTaskId:"french-vocab",questionId:"correct-repair",correct:true,repair:true,formal:true},
+  {day,subject:"french",dailyVocab:"french",dailyTaskId:"french-vocab",questionId:"right",correct:true,formal:true}
+ ]};
+ assert.equal(dailyVocabTotal(s,"french",day).progress,1);
+ assert.equal(dailyVocabTotal(s,"french",day).attempts,1);
+ assert.equal(dailyVocabTotal(s,"latin",day).progress,0);
 });
