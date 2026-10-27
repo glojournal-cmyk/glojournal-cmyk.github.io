@@ -209,7 +209,7 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
   // After the initial 30-word set, the remaining-credit session need not
   // repeat three Year 9 questions already answered on this date. Use the
   // number of fresh Year 9 concepts still available, then fill from Year 7–8.
-  const year9Target=Math.min(size,3,rows.filter(r=>r.year9&&!credited.has(r.concept)).length);
+  const year9Target=Math.min(size,3,rows.filter(r=>r.year9&&!credited.has(r.concept)&&(!r.wrong||r.due)).length);
   const selected=[],used=new Set();
   // Only repeat a successfully recalled word when the remaining pool in that
   // year is insufficient to fill the quota. Unanswered and wrong words lead.
@@ -235,7 +235,7 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
     return result;
   }
   const y9=rows.filter(r=>r.year9),y8=rows.filter(r=>!r.year9);
-  const selectedY9=choose(y9,year9Target,'year9-');
+  const selectedY9=choose(y9.filter(r=>!credited.has(r.concept)&&(!r.wrong||r.due)),year9Target,'year9-');
   selected.push(...selectedY9);
   // Repair no more than ten DUE mistakes in each 30-word session. Remaining
   // due mistakes stay eligible for a later session; a not-yet-due mistake must
@@ -254,15 +254,15 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
   selected.push(...selectedY8);
   // If all unused fresh words in a small/filtered pool are exhausted, keep
   // the assigned 30-word quota achievable without re-crediting today's words.
-  // Not-yet-due wrong words are a LAST resort, never the first selection.
+  // Not-yet-due wrong words must wait until their spaced-review due date.
   if(selected.length<size){
-    const fallback=y8.filter(r=>r.wrong&&!used.has(r.concept)&&!credited.has(r.concept));
+    const fallback=y8.filter(r=>r.wrong&&r.due&&!used.has(r.concept)&&!credited.has(r.concept));
     selected.push(...choose(fallback,size-selected.length,'fallback-'));
   }
   // Keep a genuinely completed word out of this date's set. If the whole
   // bank has been completed, the next cycle can still use prior-day words.
   if(selected.length<size){
-    const other=y8.filter(r=>!used.has(r.concept)&&!credited.has(r.concept));
+    const other=y8.filter(r=>!used.has(r.concept)&&!credited.has(r.concept)&&(!r.wrong||r.due));
     selected.push(...choose(other,size-selected.length,'next-cycle-'));
   }
   // Keep the order of cycle tiers (all still-unanswered words before old
