@@ -12,12 +12,18 @@ export function dailyVocabTotal(state = {}, subject, day) {
   // Merge dated formal answers into the day-specific ledger. This also
   // restores genuine answers saved before the dedicated vocabulary ledger.
   for (const answer of state.formalAttemptLog || []) {
-    // Older saved quizzes recorded the task ID but not dailyVocab.
-    const assigned = answer?.dailyVocab === subject ||
-      (answer?.dailyTaskId === subject + "-vocab" && answer?.subject === subject);
+    // Older saved quizzes recorded the exact task ID, but not dailyVocab.
+    // A matching vocabulary marker alone must NOT override a conflicting
+    // subject or task assignment: this incorrectly counted other subjects.
+    const taskId = subject + "-vocab";
+    const matchingTag = answer?.dailyVocab === subject;
+    const matchingTask = answer?.dailyTaskId === taskId;
+    const assigned = (matchingTag || (matchingTask && answer?.subject === subject)) &&
+      (!answer?.subject || answer.subject === subject) &&
+      (!answer?.dailyTaskId || matchingTask) &&
+      (!answer?.dailyVocab || matchingTag);
     if (answer?.day !== date || !assigned || !answer?.questionId ||
-        answer?.recoveryFor || answer?.formal === false ||
-        (answer?.repair && answer?.correct !== true)) continue;
+        answer?.recoveryFor || answer?.formal === false || answer?.repair === true) continue;
     const id = String(answer.questionId);
     if (typeof answer.vocabConcept === 'string' && answer.vocabConcept) concepts[id] = answer.vocabConcept;
     // Once an answer is correct, later incorrect submissions never erase it.

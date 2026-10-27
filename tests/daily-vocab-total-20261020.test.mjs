@@ -99,3 +99,16 @@ test("actual Year 8 Home builder displays 30 when ledger shows 13", () => {
   assert.equal(french.progress,30);
   assert.equal(french.target,30);
 });
+
+test("conflicting vocabulary tags, task ownership and correct repair attempts never inflate Daily credit", () => {
+  const x={today:day,formalAttemptLog:[
+    {day,subject:"physics",dailyVocab:"french",dailyTaskId:"french-vocab",questionId:"wrong-subject",correct:true,formal:true},
+    {day,subject:"french",dailyVocab:"french",dailyTaskId:"latin-vocab",questionId:"wrong-task",correct:true,formal:true},
+    {day,subject:"french",dailyVocab:"latin",dailyTaskId:"french-vocab",questionId:"conflicting-tag",correct:true,formal:true},
+    {day,subject:"french",dailyVocab:"french",dailyTaskId:"french-vocab",questionId:"repair-right",correct:true,repair:true,formal:true},
+    {day,subject:"french",dailyVocab:"french",dailyTaskId:"french-vocab",questionId:"right",correct:true,formal:true}
+  ]};
+  assert.equal(dailyVocabTotal(x,"french",day).correct,1);
+  assert.equal(dailyVocabTotal(x,"french",day).attempts,1);
+  assert.equal(dailyVocabTotal(x,"latin",day).correct,0);
+});
