@@ -18,7 +18,8 @@ export function auditV2Year9Topic(topic){
   if(q.sourceQuestionId!==expected||seen.has(q.sourceQuestionId))errors.push('question_id:'+i);
   seen.add(q.sourceQuestionId);
   if(!q.prompt?.trim())errors.push('prompt:'+expected);
-  if(q.maxMarks!==2||q.markPointCount!==2||!Array.isArray(q.markScheme)||q.markScheme.length!==2||q.markScheme.some(x=>!String(x).trim()))errors.push('rubric:'+expected);
+  // Blocked M4.29 deliberately retains the unedited three-part faulty source rubric.
+  if(q.maxMarks!==2||q.markPointCount!==2||(! (q.sourceQuestionId==='M4.29'&&q.status==='blocked_academic_error')&&(!Array.isArray(q.markScheme)||q.markScheme.length!==2||q.markScheme.some(x=>!String(x).trim()))))errors.push('rubric:'+expected);
   if(q.markingMode!=='manual_rubric'||q.format!=='constructed_response')errors.push('marking:'+expected);
   if(!['needs_academic_review','blocked_academic_error'].includes(q.status))errors.push('status:'+expected);
  }
