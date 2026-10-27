@@ -44,10 +44,21 @@ function validatePlan(plan){
   knownTasks.add(task.id);
   requireV2(typeof task.id==='string'&&Number.isInteger(task.target)&&
      Array.isArray(task.questions)&&task.questions.length===task.target,'invalid plan task roster');
+  // Distinct vocabulary question IDs can still translate to the SAME concept.
+  // Freezing such a plan creates an impossible 30/30 Daily because Ledger
+  // correctly awards at most one verified credit per vocabulary concept.
+  const vocabConcepts=new Set();
   for(const q of task.questions){
    if(task.kind==='exam')requireV2([1,2,3].includes(q.marks),'exam question maximum marks missing');
    requireV2(typeof q.questionId==='string'&&q.questionId.length>0&&!seen.has(q.questionId),
       'invalid or duplicated locked question');
+   if(task.kind==='vocab'){
+    const concept=q.conceptId;
+    requireV2(typeof concept==='string'&&concept.trim().length>0&&
+      concept===concept.trim()&&!vocabConcepts.has(concept),
+      'VOCAB_CONCEPT_ROSTER_INVALID: 30 independently creditable concepts required');
+    vocabConcepts.add(concept);
+   }
    seen.add(q.questionId);
   }
  }
