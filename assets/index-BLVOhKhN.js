@@ -4046,4 +4046,33 @@ if(typeof document!=='undefined') {
  setTimeout(showLoadedProgress,0);
 }
 
+
+// Keep the CURRENT Home task in sync with verified Daily Vocabulary evidence.
+// Older same-day Daily Record snapshots can overwrite normalized progress
+// during React/Zustand updates; never allow a 30-answer journal to show 13/30.
+// The subscription only touches the Home projection. It never creates a
+// correct answer, awards XP, changes the ledger, or alters another date.
+let reconcilingVocabHome=false;
+store.subscribe((next,previous)=>{
+  if(reconcilingVocabHome || !next || !Array.isArray(next.daily) ||
+     (previous && next.daily===previous.daily &&
+      next.formalAttemptLog===previous.formalAttemptLog &&
+      next.dailyVocabByDay===previous.dailyVocabByDay &&
+      next.today===previous.today))return;
+  const day=next.today;
+  if(day!==todayKey())return;
+  let changed=false;
+  const daily=next.daily.map(task=>{
+    if(task?.planDate!==day || !["french-vocab","latin-vocab"].includes(task?.id))return task;
+    const proof=dailyVocabTotal(next,task.id.slice(0,-6),day).progress;
+    if(proof<=Number(task.progress)||0)return task;
+    changed=true;
+    return {...task,progress:proof,...(proof>=Number(task.target)?{done:true}:{})};
+  });
+  if(changed){
+    reconcilingVocabHome=true;
+    try{store.setState({daily});}finally{reconcilingVocabHome=false;}
+  }
+});
+
 if(typeof window!=="undefined"&&window.addEventListener){window.addEventListener("scholar:learning-changed",normalizeState);window.addEventListener("storage",e=>{if(e.key==="lux-topic-learning-v1")normalizeState()});}
