@@ -34,3 +34,4 @@ jobs:
           node --test tests/garden-v2-storage.test.mjs
           node --check src/garden-v2/year9-staging-audit.mjs
           node --test tests/garden-v2-year9-staging-audit.test.mjs
+          node --check scripts/garden-v2-stage-year9.mjs
