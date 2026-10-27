@@ -1,0 +1,31 @@
+name: Canonical Scholar app entrypoints QA
+
+on:
+  push:
+    branches:
+      - fix/canonical-entrypoints-20261026
+  pull_request:
+    paths:
+      - 'index.html'
+      - '404.html'
+      - '**/index.html'
+      - 'assets/**'
+      - 'pet/**'
+      - 'tests/canonical-entrypoint-20261026.test.mjs'
+      - '.github/workflows/canonical-entrypoint-20261026.yml'
+  workflow_dispatch:
+
+jobs:
+  single-app:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify canonical app instance, 404 Home fallback and Biology receipts
+        run: |
+          node --test tests/canonical-entrypoint-20261026.test.mjs
+          node --test tests/single-app-entrypoint-20261023.test.mjs tests/home-return-oom-20261023.test.mjs
+          node --test tests/biology-year9-session-20261026.test.mjs

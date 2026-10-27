@@ -19,14 +19,17 @@ const server=createServer((req,res)=>{
 await new Promise(resolve=>server.listen(0,"127.0.0.1",resolve));
 const origin="http://127.0.0.1:"+server.address().port;
 const route="/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab";
-const readCount=async page=>page.evaluate(async()=>{
- const {C:store}=await import("/assets/index-BLVOhKhN.js");
+const entrypoint=fs.readFileSync("index.html","utf8").match(/\/assets\/index-BLVOhKhN\.js\?v=[^"'<> ]+/)?.[0];
+assert.ok(entrypoint,"Home must expose a canonical versioned runtime");
+assert.ok(fs.readFileSync("study/french/practise/index.html","utf8").includes(entrypoint),"Practice and Home must use the same app runtime");
+const readCount=async page=>page.evaluate(async(entrypoint)=>{
+ const {C:store}=await import(entrypoint);
  const s=store.getState(),date=s.today;
  const items=s.dailyVocabByDay?.[date]?.french?.items||{};
  return {day:date,correct:Object.values(items).filter(Boolean).length,
   attempts:Object.keys(items).length,task:s.daily?.find(t=>t.id==="french-vocab")||null,
   saved:localStorage.getItem("lux-scholar-garden-v1")};
-});
+},entrypoint);
 try{
  for(const engine of [chromium,webkit]){
   const browser=await engine.launch({headless:true});
@@ -36,10 +39,13 @@ try{
    page.on("pageerror",error=>errors.push(error.message));
    await page.goto(origin+"/",{waitUntil:"networkidle"});
    await page.waitForFunction(()=>window.__luxAppReady===true);
-   await page.evaluate(async()=>{
-    const {C:store}=await import("/assets/index-BLVOhKhN.js");
+   await page.evaluate(async(entrypoint)=>{
+    const {C:store}=await import(entrypoint);
     for(let i=0;i<28;i++)store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-"+i,true);
-   });
+   },entrypoint);
+   // Home progress is reconciled by a debounced 180ms store normalizer.
+   // Verify the eventual real Home state rather than a pre-normalization snapshot.
+   await page.waitForFunction(()=>window.__luxStore?.getState().daily?.find(t=>t.id==="french-vocab")?.progress===28,null,{timeout:10000});
    let state=await readCount(page);
    assert.equal(state.correct,28,engine.name()+" initial 28");
    assert.equal(state.task?.progress,28,"Home daily task must show cumulative 28");
@@ -47,11 +53,12 @@ try{
    await page.waitForFunction(()=>window.__luxAppReady===true);
    state=await readCount(page);
    assert.equal(state.correct,28,"Entering Practice must not reset 28 correct");
-   await page.evaluate(async()=>{
-    const {C:store}=await import("/assets/index-BLVOhKhN.js");
+   await page.evaluate(async(entrypoint)=>{
+    const {C:store}=await import(entrypoint);
     store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-28",true);
     store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-29",true);
-   });
+   },entrypoint);
+   await page.waitForFunction(()=>window.__luxStore?.getState().daily?.find(t=>t.id==="french-vocab")?.progress===30,null,{timeout:10000});
    state=await readCount(page);
    assert.equal(state.correct,30,"28 + 2 distinct correct must remain 30");
    assert.equal(state.task?.progress,30,"Live daily task must complete at 30");
@@ -59,11 +66,11 @@ try{
    await page.waitForFunction(()=>window.__luxAppReady===true);
    state=await readCount(page);
    assert.equal(state.correct,30,"Refresh must preserve all 30 correct");
-   await page.evaluate(async()=>{
-    const {C:store}=await import("/assets/index-BLVOhKhN.js");
+   await page.evaluate(async(entrypoint)=>{
+    const {C:store}=await import(entrypoint);
     store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-29",false);
     store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-29",true);
-   });
+   },entrypoint);
    state=await readCount(page);
    assert.equal(state.correct,30,"Retry cannot remove or double-count a credited answer");
    await page.goto(origin+"/",{waitUntil:"networkidle"});
@@ -74,8 +81,8 @@ try{
    // The user's real iPad showed French 13/30 even though 30 marked answers
    // were retained. Recreate THAT old persisted shape, not just 30 calls to
    // recordDailyVocabAttempt (the earlier test missed this path).
-   await page.evaluate(async()=>{
-    const {C:store}=await import("/assets/index-BLVOhKhN.js");
+   await page.evaluate(async(entrypoint)=>{
+    const {C:store}=await import(entrypoint);
     const old=store.getState(),day=old.today;
     const items=Object.fromEntries(Array.from({length:13},(_,i)=>["fr-old-"+i,true]));
     const formalAttemptLog=Array.from({length:30},(_,i)=>({
@@ -93,9 +100,36 @@ try{
       formalAttemptLog,daily:currentTasks,
       dailyLog:{...old.dailyLog,[day]:{...previousLog,date:day,tasks:logTasks}}
     });
-   });
+   },entrypoint);
+   try {
+     await page.waitForFunction(async(entrypoint)=>{
+       const {C:store}=await import(entrypoint),s=store.getState();
+       return s.daily?.find(t=>t.id==="french-vocab")?.progress===30 &&
+         Object.values(s.dailyVocabByDay?.[s.today]?.french?.items||{}).filter(Boolean).length===13;
+     },entrypoint,{timeout:12000});
+   } catch(error) {
+     console.error("FRENCH_JOURNAL_RESTORE_DIAGNOSTIC",JSON.stringify(await page.evaluate(async(entrypoint)=>{
+       const {C:store}=await import(entrypoint),s=store.getState();
+       return {date:s.today,task:s.daily?.find(t=>t.id==="french-vocab"),
+         ledger:s.dailyVocabByDay?.[s.today]?.french,
+         formalCount:(s.formalAttemptLog||[]).filter(a=>a.day===s.today&&a.subject==="french"&&a.correct).length,
+         runtimeSame:window.__luxStore===store};
+     },entrypoint)));
+     throw error;
+   }
    state=await readCount(page);
    assert.equal(state.correct,13,"Fixture must reproduce the old 13-item ledger");
+   if(state.task?.progress!==30) {
+     console.error("FRENCH_AFTER_RESTORE_SNAPSHOT",JSON.stringify(await page.evaluate(async(entrypoint)=>{
+       const {C:store}=await import(entrypoint),s=store.getState(),day=s.today;
+       const {dailyVocabTotal}=await import("/assets/daily-vocab-total-20261020.js?v=20261026-vocabqa7");
+       return {day,task:s.daily?.find(t=>t.id==="french-vocab"),
+         record:s.dailyLog?.[day]?.tasks?.find(t=>t.id==="french-vocab"),
+         calculated:dailyVocabTotal(s,"french",day),
+         matchingEntries:(s.formalAttemptLog||[]).filter(a=>a.day===day&&a.subject==="french").length,
+         ledger:s.dailyVocabByDay?.[day]?.french,appReady:window.__luxAppReady===true};
+     },entrypoint)));
+   }
    assert.equal(state.task?.progress,30,
      "Actual Home builder must reconcile 30 marked answers and not show 13");
    await page.reload({waitUntil:"networkidle"});

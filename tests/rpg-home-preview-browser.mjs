@@ -109,7 +109,7 @@ for (const run of runs) {
     assert.equal(rows.length,12,'two school items plus ten missions');
     assert.ok(rows.every(r=>r.name && r.text.includes(r.name) && r.width>12 && r.display!=='none'),
       'missing or hidden quest titles: '+JSON.stringify(rows));
-    assert.match(await page.locator('#lux-rpg-live-home .rpg-continue-live').innerText(),/Resume saved question/);
+    await page.waitForFunction(() => document.querySelector('#lux-rpg-live-home .rpg-continue-live')?.textContent?.includes('Resume saved question'), {timeout:10000});
     await page.screenshot({path:`test-results/rpg-home/${run.label}-ten-quests.png`,fullPage:true});
     // Both characters must stand on the same visible ground plane rather than
     // floating beside reward-scene furniture (tested on desktop, iPad, phone).
@@ -213,7 +213,11 @@ for (const run of runs) {
       // navigation, not just a synthetic popstate event.
       await page.locator('#lux-rpg-live-home .rpg-nav-live a[href="/pet/"]').click();
       await page.waitForURL(/\/pet\/?$/,{timeout:15000});
-      await page.locator('a.pet-brand[href="/"]').click();
+      // Pet may replace its original header with a responsive navigation shell.
+      // Use a visible Home link instead of relying on the retired pet-brand.
+      const homeLinks=page.locator('a[href="/"]:visible, a[href="/scholar/"]:visible');
+      await homeLinks.first().waitFor({state:'visible',timeout:15000});
+      await homeLinks.first().click();
       await page.waitForURL(url => url.pathname === '/',{timeout:15000});
       await page.locator('#lux-rpg-live-home .rpg-quests-live h1').waitFor({timeout:25000});
       await page.waitForFunction(() => {

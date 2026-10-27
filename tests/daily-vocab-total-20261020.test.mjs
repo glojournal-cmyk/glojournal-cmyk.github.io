@@ -30,7 +30,7 @@ test("repeated IDs and later wrong attempts never subtract credit", () => {
   assert.equal(total.attempts, 30);
 });
 
-test("only the assigned subject, date, and non-repair answers count", () => {
+test("only assigned subject and date count; repair does not inflate primary credit", () => {
   const x = state({"latin-1": true, "latin-2": false});
   x.formalAttemptLog = [
     {day, dailyVocab: "latin", questionId: "latin-2", correct: true, repair: true},
@@ -73,7 +73,7 @@ test("old same-day Daily Record credits survive missing vocabulary ledger", () =
   assert.equal(dailyVocabTotal({...x,today:"2026-10-21"},"french","2026-10-21").progress,0);
 });
 
-test("do not accept unassigned subject, wrong date, repair, informal or Recovery", () => {
+test("exclude wrong subject, wrong date, informal, Recovery and repair from primary credit", () => {
   const x={today:day,formalAttemptLog:[
     {day,subject:"physics",dailyTaskId:"french-vocab",questionId:"a",correct:true},
     {day,subject:"french",dailyTaskId:"french-vocab",questionId:"b",correct:true,repair:true},
@@ -98,4 +98,17 @@ test("actual Year 8 Home builder displays 30 when ledger shows 13", () => {
   const french=actualHomeTasks.find(t=>t.id==="french-vocab");
   assert.equal(french.progress,30);
   assert.equal(french.target,30);
+});
+
+test("conflicting vocabulary subject, task, and tag never borrow a Daily answer",()=>{
+ const s={today:day,formalAttemptLog:[
+  {day,subject:"physics",dailyVocab:"french",dailyTaskId:"french-vocab",questionId:"wrong-subject",correct:true,formal:true},
+  {day,subject:"french",dailyVocab:"french",dailyTaskId:"latin-vocab",questionId:"wrong-task",correct:true,formal:true},
+  {day,subject:"french",dailyVocab:"latin",dailyTaskId:"french-vocab",questionId:"wrong-tag",correct:true,formal:true},
+  {day,subject:"french",dailyVocab:"french",dailyTaskId:"french-vocab",questionId:"correct-repair",correct:true,repair:true,formal:true},
+  {day,subject:"french",dailyVocab:"french",dailyTaskId:"french-vocab",questionId:"right",correct:true,formal:true}
+ ]};
+ assert.equal(dailyVocabTotal(s,"french",day).progress,1);
+ assert.equal(dailyVocabTotal(s,"french",day).attempts,1);
+ assert.equal(dailyVocabTotal(s,"latin",day).progress,0);
 });

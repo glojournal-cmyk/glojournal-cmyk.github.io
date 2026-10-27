@@ -49,7 +49,12 @@ test('Need exact locked assigned link and plan date; do not duplicate real attem
 test('Do not overwrite stronger existing credit and other dated tasks',()=>{
  const before=state(Array.from({length:2},(_,i)=>attempt(i)),task({progress:9}));
  before.dailyLog['2026-10-20']={date:'2026-10-20',tasks:[{id,target:10,progress:7}]};
- assert.equal(replayDailyAnswerCredit(before),null);
+ const aligned=replayDailyAnswerCredit(before);
+ assert.equal(aligned.daily[0].progress,9,'Never reduce the stronger existing Home credit');
+ assert.equal(aligned.dailyLog[day].tasks[0].progress,9,'Repair the dated record to match saved Home 9/10');
+ assert.equal(aligned.dailyLog['2026-10-20'],before.dailyLog['2026-10-20']);
+ assert.equal(replayDailyAnswerCredit({...before,...aligned}),null,
+   'Replaying the same two answers after synchronization must be idempotent');
  const later=state(Array.from({length:10},(_,i)=>attempt(i)),task({progress:9}));
  later.dailyLog=before.dailyLog;
  const patch=replayDailyAnswerCredit(later);

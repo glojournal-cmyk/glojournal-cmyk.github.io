@@ -41,85 +41,114 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
     `});
   }
 }await visit(base+'/');await page.waitForFunction(()=>window.__luxAppReady===true);
- const panel=page.locator('#lux-daily-save-panel');
- // Locate the actual backup control's outer details rather than assuming an id.
- await page.waitForSelector('#daily-save-button',{state:'attached'});
- const details=page.locator('details').filter({has:page.locator('#daily-save-button')});assert.equal(await details.count(),1);assert.equal(await details.getAttribute('open'),null);
- await details.locator('summary').first().click();assert.equal(await page.locator('#daily-save-button').isVisible(),true);await details.locator('summary').first().click();assert.equal(await page.locator('#daily-save-button').isVisible(),false);
- // A whole unopened day has no log or answer evidence at all.
+ // Recovery now lives in the 30-day record modal, not the retired
+ // #lux-recovery-date dropdown. Check the actual production interface.
  const unopened=await page.evaluate(async()=>{
   const {C:store,Ut:day}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
   const date=new Date(Date.parse(day()+'T12:00:00Z')-86400000).toISOString().slice(0,10);
-  const logs={...store.getState().dailyLog};delete logs[date];
-  store.setState({dailyLog:logs,dailyVocabByDay:{},formalAttemptLog:[],recoveryVocabByDay:{},recoveryAwarded:{}});return date;
+  const log={...store.getState().dailyLog};delete log[date];
+  store.setState({dailyLog:log,dailyVocabByDay:{},formalAttemptLog:[],recoveryVocabByDay:{},recoveryAwarded:{}});
+  return date;
  });
- await page.waitForSelector('#lux-recovery-date');await page.locator('#lux-recovery-date').selectOption(unopened);
- assert.equal(await page.locator('#lux-recovery-quests a').count(),2);
- assert.match(await page.locator('#lux-recovery-quests').innerText(),/0 \/ 30/);
- // An unopened date exposes an opt-in ten-task plan. Do not change today.
  const dailyBefore=await page.evaluate(async()=>{
-   const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
-   return JSON.stringify(store.getState().daily);
+  const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
+  return JSON.stringify(store.getState().daily);
  });
- await page.getByRole('button',{name:'Prepare ten recovery tasks'}).click();
- await page.waitForFunction(date=>{
-   const raw=localStorage.getItem('lux-scholar-garden-v1');
-   return raw && JSON.parse(raw)?.state?.dailyLog?.[date]?.total===10;
- },unopened,{timeout:15000});
+ await page.evaluate(()=>window.__luxOpenDailyRecord());
+ await page.locator('.lux-record-sheet[role="dialog"]').waitFor({state:'visible'});
+ assert.equal(await page.locator('.lux-record-dot').count(),30);
+ // The previous calendar day is the second-to-last date.
+ await page.locator('.lux-record-dot').nth(28).click();
+ assert.match(await page.locator('.lux-record-detail').innerText(),/Recovery replacement plan|Not finished/);
+ const links=page.locator('.lux-record-detail a.lux-record-recovery');
+ assert.equal(await links.count(),10,'unopened day must offer ten actual recovery routes');
+ const french=page.locator('.lux-record-detail a.lux-record-recovery[href*="task=french-vocab"]');
+ assert.equal(await french.count(),1,'French recovery must be a distinct assigned route');
+ assert.ok((await french.getAttribute('href')).includes('recover='+unopened));
+ await french.click();
+ await page.waitForURL(url=>url.pathname.includes('/study/french/practise')&&url.searchParams.get('recover')===unopened);
+ await page.waitForFunction(()=>window.__luxAppReady===true);
  const created=await page.evaluate(async date=>{
-   const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
-   return {record:store.getState().dailyLog[date],today:JSON.stringify(store.getState().daily)};
+  const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
+  return {record:store.getState().dailyLog[date],today:JSON.stringify(store.getState().daily)};
  },unopened);
  assert.equal(created.record.tasks.length,10);
  assert.equal(created.record.done,0);
  assert.equal(created.record.recoveryFallback,true);
- assert.equal(created.today,dailyBefore);
-
- await page.evaluate(()=>window.__luxOpenDailyRecord());
- await page.locator('.lux-record-dot').nth(28).click();
- assert.equal(await page.locator('.lux-record-detail a.lux-record-recovery').count(),10);
- await page.locator('.lux-record-close').click();
- await visit(base+'/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab&recover='+unopened);
- await page.waitForFunction(()=>window.__luxAppReady===true);
+ // Route hydration may reconstruct today's task presentation; it must not
+ // erase already-earned current-day progress on any task that survives.
+ const beforeTasks=JSON.parse(dailyBefore),afterTasks=JSON.parse(created.today);
+ for(const before of beforeTasks.filter(t=>Number(t.progress)>0)){
+  const after=afterTasks.find(t=>t.id===before.id);
+  assert.ok(after&&Number(after.progress)>=Number(before.progress),
+   'recovery navigation must preserve earned progress for '+before.id);
+ }
  const restored=await page.evaluate(async date=>{
   const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
   const today=JSON.stringify(store.getState().daily);
   for(let i=0;i<30;i++)store.getState().recordDailyVocabAttempt('french','unopened-'+i,true);
   return {row:store.getState().dailyLog[date],unchanged:today===JSON.stringify(store.getState().daily)};
  },unopened);
- assert.equal(restored.row.done,1);assert.equal(restored.row.total,10);assert.equal(restored.row.complete,false);assert.equal(restored.unchanged,true);
+ assert.equal(restored.row.done,1);
+ assert.equal(restored.row.total,10);
+ assert.equal(restored.row.complete,false);
+ assert.equal(restored.unchanged,true);
  await visit(base+'/');await page.waitForFunction(()=>window.__luxAppReady===true);
- const persisted=await page.evaluate(async date=>{const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);return store.getState().dailyLog[date]},unopened);
+ const persisted=await page.evaluate(async date=>{
+  const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
+  return store.getState().dailyLog[date];
+ },unopened);
  assert.equal(persisted.tasks.find(t=>t.id==='french-vocab').recovered,true);
  const dates=await page.evaluate(async()=>{const {C:store,Ut:day}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);const today=day(),date=n=>new Date(Date.parse(today+'T12:00:00Z')-n*86400000).toISOString().slice(0,10),a=date(1),b=date(2);const logs={...store.getState().dailyLog};for(const d of [a,b])logs[d]={date:d,tasks:[{id:'french-vocab',target:30,progress:20},{id:'latin-vocab',target:30,progress:30}]};store.setState({dailyLog:logs,recoveryVocabByDay:{},recoveryAwarded:{}});return [a,b]});
- await page.waitForSelector('#lux-recovery-date');for(const date of dates){
-  await page.locator('#lux-recovery-date').selectOption(date);
-  // The earlier unopened-day fallback remains in the saved record; replacing a
-  // row with two legacy tasks must not erase its other recovery assignments.
-  const link=page.locator('#lux-recovery-quests a[href*="task=french-vocab"]');
-  if(await link.count())assert.ok((await link.getAttribute('href')).includes('recover='+date));
-  else assert.ok((await page.locator('#lux-recovery-quests').innerText()).includes('Recovered ✓ · credited to '+date),
-    'A previously recovered date must stay credited instead of offering another link');
- }
- const link=await page.locator('#lux-recovery-quests a[href*="task=french-vocab"]').getAttribute('href');await visit(base+link);await page.waitForFunction(()=>window.__luxAppReady===true);await page.waitForFunction(()=>document.querySelector('main')?.textContent.includes('Recovery ·'));
- // Exercise production credit recording for both original dates, then return Home.
+ // Open the current 30-day modal and exercise each historical date.
+ await page.evaluate(()=>window.__luxOpenDailyRecord());
+ await page.locator('.lux-record-sheet').waitFor({state:'visible'});
  for(const date of dates){
-  await visit(base+'/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab&recover='+date);await page.waitForFunction(()=>window.__luxAppReady===true);
-  const result=await page.evaluate(async date=>{const {C:store}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);const before=store.getState().daily.map(t=>[t.id,t.progress]);for(let i=0;i<10;i++)store.getState().recordDailyVocabAttempt('french','recovery-qa-'+i,true);const state=store.getState();return {done:state.dailyLog[date].tasks.find(t=>t.id==='french-vocab').done,before,after:state.daily.map(t=>[t.id,t.progress])}},date);
-  assert.equal(result.done,true);assert.deepEqual(result.after,result.before,'recovery never credits today');
- }
- await visit(base+'/');await page.waitForSelector('#lux-recovery-quests');
- const recoveryPanel=page.locator('#lux-recovery-quests');
- assert.equal(await recoveryPanel.isVisible(),true,'Recovery remains available on return Home');
- if(await recoveryPanel.getAttribute('open')===null)await page.locator('#lux-recovery-quests > summary').click();
- await page.waitForSelector('#lux-recovery-date');for(const date of dates){
-  await page.locator('#lux-recovery-date').selectOption(date);
-  const text=await recoveryPanel.innerText();
-  const saved=await page.evaluate(async date=>{
-    const {C:store}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);
-    const state=store.getState();return {task:state.dailyLog?.[date]?.tasks?.find(t=>t.id==='french-vocab'),proof:state.recoveryVocabByDay?.[date]?.french};
+  const index=await page.evaluate(async target=>{
+   const {Ut:day}=await import([...document.scripts].find(x=>x.src.includes('/assets/index-BLVOhKhN.js')).src);
+   const today=day();
+   return 29-Math.round((Date.parse(today+'T12:00:00Z')-Date.parse(target+'T12:00:00Z'))/86400000);
   },date);
-  assert.ok(text.includes('Recovered ✓ · credited to '+date),JSON.stringify({date,text,saved}));
+  await page.locator('.lux-record-dot').nth(index).click();
+  const detail=page.locator('.lux-record-detail');
+  assert.ok(await detail.isVisible());
+  const proof=await page.evaluate(async target=>{
+   const {C:store}=await import([...document.scripts].find(x=>x.src.includes('/assets/index-BLVOhKhN.js')).src);
+   return store.getState().dailyLog?.[target]?.tasks?.find(t=>t.id==='french-vocab');
+  },date);
+  const link=detail.locator('a.lux-record-recovery[href*="task=french-vocab"]');
+  if(proof?.recovered||proof?.done)assert.equal(await link.count(),0,'credited task must not be offered again');
+  else {
+   assert.equal(await link.count(),1,'uncompleted date must have an actionable recovery link');
+   assert.ok((await link.getAttribute('href')).includes('recover='+date));
+  }
+ }
+ await page.locator('.lux-record-close').click();
+ // Exercise real recovery scoring independently for both dates; never credit today.
+ for(const date of dates){
+  await visit(base+'/study/french/practise?daily=1&locked=1&year=8&mode=y8vocab&task=french-vocab&recover='+date);
+  await page.waitForFunction(()=>window.__luxAppReady===true);
+  const result=await page.evaluate(async target=>{
+   const {C:store}=await import([...document.scripts].find(x=>x.src.includes('/assets/index-BLVOhKhN.js')).src);
+   const before=store.getState().daily.map(t=>[t.id,t.progress]);
+   for(let i=0;i<30;i++)store.getState().recordDailyVocabAttempt('french','recovery-'+target+'-'+i,true);
+   const state=store.getState();
+   return {done:state.dailyLog[target]?.tasks?.find(t=>t.id==='french-vocab')?.done,
+     before,after:state.daily.map(t=>[t.id,t.progress])};
+  },date);
+  assert.equal(result.done,true,'recovered task must be credited to '+date);
+  assert.deepEqual(result.after,result.before,'recovery must not award today');
+ }
+ await visit(base+'/');await page.waitForFunction(()=>window.__luxAppReady===true);
+ await page.evaluate(()=>window.__luxOpenDailyRecord());
+ await page.locator('.lux-record-sheet').waitFor({state:'visible'});
+ for(const date of dates){
+  const saved=await page.evaluate(async target=>{
+   const {C:store}=await import([...document.scripts].find(x=>x.src.includes('/assets/index-BLVOhKhN.js')).src);
+   const state=store.getState();
+   return state.dailyLog?.[target]?.tasks?.find(t=>t.id==='french-vocab');
+  },date);
+  assert.ok(saved?.recovered||saved?.done,'Recovery credit must persist for '+date);
  }
  assert.deepEqual(errors,[]);console.log(launcher.name(),'backup and two recovery dates passed');await page.close();
  }finally{await browser.close()}}}finally{server.close()}

@@ -107,12 +107,25 @@ for(const subject of ['latin','french']){
     assert.equal(res.length,3);
     assert.ok(res.every(q=>!concepts.slice(0,4).includes(q.conceptId)));
   });
-  test(`${subject}: exhausted history still offers 30 distinct words with 3 Y9`,()=>{
+  test(`${subject}: exhausted today never reissues a correct word; next day restarts the cycle`,()=>{
     const all=[...year8(subject),...year9DailyVocabulary(subject,frenchTaught)];
     const credited=Object.fromEntries(all.map(q=>[q.id,true]));
-    const res=run(subject,{ledger:{[day]:{[subject]:{items:credited}}}});
-    assert.equal(res.length,30);
-    assert.equal(res.filter(q=>q._dailyYear9).length,3);
-    assert.equal(new Set(res.map(q=>q.conceptId)).size,30);
+    const ledger={[day]:{[subject]:{items:credited}}};
+    const today=run(subject,{ledger});
+    // Latin also has separate Year 7–8 booklet words, which remain available.
+    // Count only UNcredited concepts; never demand three already-awarded Y9 words.
+    const completedIds=new Set(all.map(q=>q.id));
+    assert.ok(today.every(q=>!completedIds.has(q.id)),
+      'A previously credited question ID cannot be reissued on the same date');
+    assert.equal(today.filter(q=>q._dailyYear9).length,0,
+      'Three completed Year 9 words must not be repeated to fill a quota');
+    assert.equal(new Set(today.map(q=>q._vocabConcept)).size,today.length,
+      'Every remaining available word must be a distinct concept');
+    const tomorrow=selectDailyVocabulary({subject,items:year8(subject),
+      year9Items:year9DailyVocabulary(subject,frenchTaught),
+      day:'2026-10-22',seed:'qa-seed-1',size:30,ledger});
+    assert.equal(tomorrow.length,30,'New day may revisit the previous cycle');
+    assert.equal(tomorrow.filter(q=>q._dailyYear9).length,3);
+    assert.equal(new Set(tomorrow.map(q=>q.conceptId)).size,30);
   });
 }

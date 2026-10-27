@@ -25,9 +25,9 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const report=[];
 const RELEASE='studio-shell-stable3';
-const RUNTIME_RELEASE='night-art1';
+const RUNTIME_RELEASE='20261026-cue1';
 const UNIFIED_THEME='gloria-unified-question-theme-20261024.css?v=20261024-progress2';
-const FINAL_THEME='gloria-practice-mockup-final-20261024.css?v=20261024-est-focus12';
+const FINAL_THEME='gloria-practice-mockup-final-20261024.css?v=20261026-cue1';
 const entrypoint = fs.readFileSync('index.html','utf8').match(/\/assets\/index-BLVOhKhN\.js\?v=[^"']+/)?.[0];
 assert.ok(entrypoint, 'Home must expose the globally synchronized app entrypoint');
 for (const subject of ['french','latin','biology','chemistry','physics','english']) {
@@ -378,11 +378,15 @@ async function checkRealPractice(browser,engine){
   const before=await page.evaluate(()=>{
     const q=document.querySelector('[data-question-id]');
     const nav=document.querySelector('#lux-daily-study-nav');
-    const p=q?.querySelector('[data-lux-prompt], p.font-display.text-2xl');
+    const candidates=[...(q?.querySelectorAll('[data-lux-prompt], [data-lux-question-prompt], p.font-display.text-2xl, p')||[])].filter(el=>el.innerText?.trim() && !el.closest('[data-lux-question-intro]'));
+    const p=candidates.filter(el=>{const css=getComputedStyle(el);return css.display!=='none'&&css.visibility!=='hidden'&&el.getBoundingClientRect().height>0;}).sort((a,b)=>parseFloat(getComputedStyle(b).fontSize)-parseFloat(getComputedStyle(a).fontSize))[0]||candidates[0];
     return {id:q?.dataset.questionId,format:q?.dataset.questionFormat,
       navCount:nav?.children.length,
       promptSize:p?parseFloat(getComputedStyle(p).fontSize):0,
       promptWeight:p?Number(getComputedStyle(p).fontWeight):0,
+      promptFound:!!p,
+      questionDOM:q?.outerHTML.slice(0,1600),
+      visibleQuestionText:q?.innerText.slice(0,350),
       typing:!!document.querySelector('.lux-practice-view [data-question-id] :is(input,textarea,select,button[type="submit"]):focus'),
       compact:document.documentElement.classList.contains('lux-daily-compact'),
       navBottom:nav?.getBoundingClientRect().bottom,
@@ -617,12 +621,27 @@ async function checkExhaustedBiologyDaily(browser,engine){
     await page.waitForSelector('.lux-practice-view',{timeout:35000});
     // The route shell mounts before its async topic bank is hydrated. Check the
     // actual terminal state, not a transient blank/loading frame on Safari.
-    await page.waitForFunction(()=>document.body.innerText.includes('This topic needs more unused questions'),null,{timeout:35000});
+    try{
+      await page.waitForFunction(()=>document.body.innerText.includes('No unused questions remain. Closing this assigned set at your saved score'),null,{timeout:35000});
+    }catch(error){
+      const diagnostic=await page.evaluate(()=>({
+        path:location.pathname,query:location.search,
+        visibleText:document.body.innerText.slice(0,2400),
+        questionIds:[...document.querySelectorAll('[data-question-id]')].map(el=>el.dataset.questionId).slice(0,12),
+        appReady:document.documentElement.hasAttribute('data-lux-ready'),
+        practiceMounted:!!document.querySelector('.lux-practice-view'),
+        loadingError:!!document.querySelector('#lux-loading-recovery'),
+        storePresent:!!localStorage.getItem('lux-scholar-garden-v1')
+      }));
+      console.error('DAILY_BIOLOGY_REOPEN_TIMEOUT '+JSON.stringify({engine,diagnostic,errors}));
+      await page.screenshot({path:path.join(out,'biology-reopen-timeout-'+engine+'.png'),fullPage:true}).catch(()=>{});
+      throw error;
+    }
     const result=await page.evaluate(()=>({
       question:document.querySelector('[data-question-id]')?.dataset.questionId,
       locked:document.querySelector('.lux-practice-view')?.innerText?.includes('This daily task is locked'),
-      error:document.body.innerText.includes('This topic needs more unused questions'),
-      progressSafe:document.body.innerText.includes('Your saved progress has not been reset'),
+      error:document.body.innerText.includes('No unused questions remain. Closing this assigned set at your saved score'),
+      progressSafe:document.body.innerText.includes('Your answers are unchanged.'),
       mask:getComputedStyle(document.body,'::before').display,
       ready:document.documentElement.classList.contains('lux-daily-ux-ready')
     }));
