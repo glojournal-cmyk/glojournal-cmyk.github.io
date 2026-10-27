@@ -7,15 +7,23 @@ const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8');
 const boot=read('assets/study-rpg-live-boot-20261020.js');
 
 test('return-to-Study bridge is available from Pet and every React top-level shell',()=>{
-  assert.match(read('pet/home-pet.js'),/import\('\/assets\/study-rpg-live-boot-20261020\.js\?v=20261026-bio-year9-urgent1(?:&uxfix=[a-z0-9-]+)?'\)/);
+  // Compare entrypoint versions, rather than pinning a date that changes with
+  // each deploy. Different Safari module URLs can create separate instances.
+  const petPage=read('pet/index.html');
+  const homePetVersion=petPage.match(/home-pet\.js\?v=([a-z0-9-]+)/)?.[1];
+  assert.ok(homePetVersion,'Pet must load a versioned home-pet.js');
+  assert.match(read('pet/home-pet.js'),
+    /import\('\/assets\/study-rpg-live-boot-20261020\.js\?v=[a-z0-9-]+(?:&uxfix=[a-z0-9-]+)?'\)/);
   for(const p of ['pet/index.html','play/index.html','garden/index.html','scholar/index.html','index.html','404.html','study/index.html']){
-    assert.match(read(p),/home-pet\.js\?v=20261026-bio-year9-urgent1/,p);
+    assert.ok(read(p).includes('home-pet.js?v='+homePetVersion),p+' must load canonical Pet module');
   }
   for(const p of ['index.html','404.html','study/index.html']){
-    assert.match(read(p),/study-rpg-live-boot-20261020\.js\?v=2026102[01]-[a-z0-9-]+/,p);
+    assert.match(read(p),/study-rpg-live-boot-20261020\.js\?v=[a-z0-9-]+/,p);
   }
+  const frameVersion=petPage.match(/shell-frame\.js\?v=([a-z0-9-]+)/)?.[1];
+  assert.ok(frameVersion,'Pet shell must have a versioned frame');
   for(const p of ['pet/index.html','assessment/index.html']){
-    assert.match(read(p),/shell-frame\.js\?v=20261020-return-nav1/,p);
+    assert.ok(read(p).includes('shell-frame.js?v='+frameVersion),p+' must share frame module');
   }
   assert.match(read('shell-frame.js'),/\["\/study\/", "Study"\]/);
 });
