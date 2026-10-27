@@ -22,7 +22,7 @@ assert.match(quiz,/saveCompletedDailyReceipt\(/,'pending daily answers must be s
 assert.match(quiz,/discardDraft\.current=true;await globalThis\.LuxPracticeDrafts\.clear\(draftKey\)/,'rerun must discard the completed draft');
 assert.match(quiz,/window\.location\.assign\(pending\?task\.href/,'unfinished assigned daily tasks must resume their own URL');
 assert.match(quiz,/recoveryDate\(location\.search\)\?recoveryReplay\(location\.href\):luxRedoPracticeURL\(\)/,'finished or recovery sessions must remain isolated');
-assert.match(quiz,/if\(saved\)return saved\.base/,'resuming must preserve the actual saved questions');
+assert.match(quiz,/if\(saved\)\{const base=Array\.isArray\(saved\.base\)\?saved\.base:\[\]/,'resuming must load the saved question IDs before any top-up');
 assert.match(practise,/dailyLocked\?chosen:chosen\.map\(q=>\(\{\.\.\.q,_dailyVocab:null\}\)\)/,'free vocabulary must not accrue daily-vocab answers');
 
 window.location.href='https://glojournal-cmyk.github.io/study/latin/practise?daily=1&locked=1&task=year8-long-review&mode=year8long';
