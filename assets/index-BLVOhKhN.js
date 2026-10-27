@@ -2,7 +2,7 @@ import {restoreCompletedDailyReceipts} from "./daily-completed-session-receipts-
 import {syncTodayFromDatedRecord} from "./today-record-sync-20261024.js";
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261026-vocabqa7";
 import {readOptionalBackupJson,linkedBackupManifest} from "./export-linked-storage-20261023.js";
-import "./player-ux-20261013.js?v=20261026-bio-year9-savefix2&ux=20261021-ipad-shell-lock3&uxfix=20261022-priority-ux1";
+import "./player-ux-20261013.js?ux=20261021-ipad-shell-lock3&uxfix=20261022-priority-ux1";
 import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261025-scorefix1";
 import "./daily-ledger-vault-20261023.js?v=20261025-scorefix1";
 import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261026-journal-fallback3";
@@ -14,8 +14,8 @@ import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018
 import "./journey-navigation-20261004.js?v=20261024-latin-ipad-date2&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
-import("/pet/pet-care-global.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(()=>{});
-export * from "./index-BLVOhKhN.core.js?v=20261026-bio-year9-savefix2";
+import("/pet/pet-care-global.js?v=20261011-storage-qa1&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(()=>{});
+export * from "./index-BLVOhKhN.core.js?v=20261026-journal-fallback3";
 import {
   C as store,
   A as medicalOutfitCatalog,
@@ -31,7 +31,7 @@ import {
   Dt as frenchLegacyQuestions,
   Nt as biologyLegacyQuestions,
   st as getTopicCatalog,
-} from "./index-BLVOhKhN.core.js?v=20261026-bio-year9-savefix2";
+} from "./index-BLVOhKhN.core.js?v=20261026-journal-fallback3";
 
 // festival-xp-rewards-v2: Halloween free, nine paired XP rewards.
 // Migrate auto-granted Festival items without changing XP, study or mastery history.
@@ -2941,6 +2941,41 @@ function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, v
   const days = Object.keys(all).sort();
   while (days.length > 30) delete all[days.shift()];
   store.setState({ dailyVocabByDay: all });
+  // Commit the verified word total to the two visible Daily receipt surfaces
+  // immediately. iPad WebKit may suspend before deferred normalization runs;
+  // leaving Home 0/30 while the word ledger already holds 28/30. Keep all
+  // other tasks and older dated receipts unchanged.
+  const checked=store.getState();
+  const taskId=subject+"-vocab";
+  const progress=dailyVocabTotal(checked,subject,day).progress;
+  const active=Array.isArray(checked.daily)?checked.daily:[];
+  const patchedDaily=active.map(t=>{
+    if(t?.id!==taskId||t.planDate!==day)return t;
+    const current=Math.max(0,Number(t.progress)||0);
+    const next=Math.max(current,progress);
+    if(next===current && (next<30||t.done===true))return t;
+    return {...t,progress:next,done:t.done===true||next>=30};
+  });
+  const log=checked.dailyLog||{};
+  const dated=log[day];
+  let patchedLog=log;
+  if(Array.isArray(dated?.tasks)){
+    const tasks=dated.tasks.map(t=>{
+      if(t?.id!==taskId)return t;
+      const current=Math.max(0,Number(t.progress)||0),next=Math.max(current,progress);
+      if(next===current&&(next<30||t.done===true))return t;
+      return {...t,progress:next,done:t.done===true||next>=30};
+    });
+    if(tasks.some((t,i)=>t!==dated.tasks[i])){
+      const done=tasks.filter(t=>t.done===true||
+        (Number(t.target)>0&&Number(t.progress)>=Number(t.target))).length;
+      patchedLog={...log,[day]:{...dated,tasks,done,total:tasks.length,
+        complete:tasks.length>0&&done===tasks.length}};
+    }
+  }
+  if(patchedDaily.some((t,i)=>t!==active[i])||patchedLog!==log)
+    store.setState({...(patchedDaily.some((t,i)=>t!==active[i])?{daily:patchedDaily}:{}),
+      ...(patchedLog!==log?{dailyLog:patchedLog}:{})});
   scheduleNormalizeState();
   originalBumpDaily(subject === "french" ? "french-vocab" : "latin-vocab", 0);
 }
@@ -3122,6 +3157,51 @@ function scheduleNormalizeState() {
    normalizeState();
  },180);
 }
+// Recover verified, same-day vocabulary journal evidence immediately.
+// A rapid iPad route switch can happen before the delayed normalizer runs;
+// Home must never display a lower count than the marked answers already saved.
+// This operation does not fabricate answers, overwrite prior dates, or award XP.
+let syncingVocabJournal=false;
+function syncVerifiedVocabJournal(state){
+ if(syncingVocabJournal||state?.today!==todayKey()||!Array.isArray(state.daily))return;
+ const updates={};
+ const goals={};
+ for(const subject of ["french","latin"]){
+  const id=subject+"-vocab";
+  const task=state.daily.find(t=>t?.id===id&&t.planDate===state.today);
+  if(!task)continue;
+  const progress=dailyVocabTotal(state,subject,state.today).progress;
+  const next=Math.min(Math.max(1,Number(task.target)||30),
+    Math.max(0,Number(task.progress)||0,progress));
+  if(next>Number(task.progress||0)||(next>=Number(task.target)&&task.done!==true))
+    goals[id]={progress:next,done:next>=Number(task.target)};
+ }
+ if(!Object.keys(goals).length)return;
+ const daily=state.daily.map(t=>goals[t.id]&&t.planDate===state.today?
+  {...t,progress:goals[t.id].progress,done:goals[t.id].done}:t);
+ const row=state.dailyLog?.[state.today];
+ let dated=state.dailyLog;
+ if(Array.isArray(row?.tasks)){
+  const tasks=row.tasks.map(t=>goals[t.id]?
+    {...t,progress:Math.max(Number(t.progress)||0,goals[t.id].progress),
+      done:!!t.done||goals[t.id].done}:t);
+  if(tasks.some((t,i)=>t!==row.tasks[i])){
+   const done=tasks.filter(t=>t.done===true||
+      Number(t.target)>0&&Number(t.progress)>=Number(t.target)).length;
+   dated={...state.dailyLog,[state.today]:{...row,tasks,done,
+     total:tasks.length,complete:tasks.length>0&&done===tasks.length}};
+  }
+ }
+ syncingVocabJournal=true;
+ try{store.setState({daily,...(dated!==state.dailyLog?{dailyLog:dated}:{})});}
+ finally{syncingVocabJournal=false;}
+}
+store.subscribe((next,previous)=>{
+ if(!previous||syncingVocabJournal||next.today!==previous.today&&next.today!==todayKey())return;
+ if(next.formalAttemptLog!==previous.formalAttemptLog||
+    next.dailyVocabByDay!==previous.dailyVocabByDay)
+   syncVerifiedVocabJournal(next);
+});
 store.subscribe((next,previous) => {
  if (!allowNormalize || normalizing || sealingDay || !previous) return;
  if (!NORMALIZE_LEARNING_FIELDS.some(key => next[key] !== previous[key])) return;
@@ -4004,7 +4084,7 @@ if(typeof window!=="undefined"){
 mountDailyRecord();
 mountDailyRecordButton();
 
-if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(console.error);
+if(typeof window!=="undefined")import("./daily-progress-save.js?v=20261025-physics15-bank2&ux=20261013-corrections2&uxfix=20261022-priority-ux1").catch(console.error);
 
 // Give every locked reward its concrete requirement, current evidence and remaining gap.
 export function rewardCountdown(condition,stats){

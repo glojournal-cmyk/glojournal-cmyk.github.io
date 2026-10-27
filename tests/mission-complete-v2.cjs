@@ -98,9 +98,15 @@ test('all six school subject practice routes include mission styling and updated
  const home=source('index.html');
  assert.doesNotMatch(home,/mission-complete-v2-20261010\.css/,'Home unaffected');
  const bundle=source('assets/index-BLVOhKhN.core.js');
- assert.match(bundle,/study\._subject\.practise-D_PWgUd7\.js\?v=20261023-study-catalog-fix2/);
- assert.match(source('assets/quiz-session-y8fix-20260920.js'),
-   /session-reflection-20261004\.js\?v=20261010-mission-v2/);
- assert.match(source('assets/quiz-session-rWAnuDVj.js'),
-   /journey-navigation-ui-20261004\.js\?v=20261010-mission-v2/);
+ // Verify versioned dependencies without pinning obsolete release strings.
+ const practiceRelease=bundle.match(/study\._subject\.practise-D_PWgUd7\.js\?v=([A-Za-z0-9-]+)/)?.[1];
+ assert.ok(practiceRelease,'Current practice bundle must be versioned');
+ const quizY8=source('assets/quiz-session-y8fix-20260920.js');
+ const quizDefault=source('assets/quiz-session-rWAnuDVj.js');
+ const getRelease=(src,name)=>src.match(new RegExp(name.replaceAll('.','\\.')+'\\.js\\?v=([A-Za-z0-9-]+)'))?.[1];
+ for(const name of ['session-reflection-20261004','journey-navigation-ui-20261004']){
+   assert.ok(getRelease(quizY8,name),name+' must be versioned in Year 8 quiz');
+   assert.equal(getRelease(quizY8,name),getRelease(quizDefault,name),
+     name+' must use the same release in all quiz entrypoints');
+ }
 });

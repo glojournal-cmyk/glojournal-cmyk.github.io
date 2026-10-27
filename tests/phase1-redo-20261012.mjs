@@ -17,8 +17,18 @@ for(const key of ['daily','locked','task','recover','day'])assert.equal(url.sear
 assert.equal(url.searchParams.get('year'),'8');
 assert.equal(url.searchParams.get('mode'),'y8vocab');
 assert.match(url.searchParams.get('redo'),/^\d{10,15}$/);
-assert.match(quiz,/onAgain:\(\)=>\{discardDraft\.current=true;globalThis\.LuxPracticeDrafts\.clear\(draftKey\);window\.location\.assign\(recoveryDate\(location\.search\)\?recoveryReplay\(location\.href\):luxRedoPracticeURL\(\)\)\}/);
-assert.match(quiz,/if\(saved\)return saved\.base/,'resuming must preserve the actual saved questions');
+// The async replay path must first persist a completed daily receipt and
+// continue unfinished official tasks, never silently turn them into free practice.
+const again=quiz.slice(quiz.indexOf('onAgain:async()=>{'));
+assert.ok(again.length>50,'the active Again handler must be present');
+assert.match(again,/const pending=task&&Number\(task\.progress\)<Number\(task\.target\)/);
+assert.match(again,/await saveCompletedDailyReceipt\(/);
+assert.match(again,/await restoreCompletedDailyReceipts\(/);
+assert.match(again,/await globalThis\.LuxPracticeDrafts\.clear\(draftKey\)/);
+assert.match(again,/window\.location\.assign\(pending\?task\.href/);
+assert.match(quiz,/if\(saved\)\{const base=Array\.isArray\(saved\.base\)\?saved\.base:\[\]/,'resuming must read the original saved questions');
+assert.match(quiz,/if\(base\.length>=p\|\|!k\.length\)return base/,'a complete saved question set must never be replaced');
+assert.match(quiz,/const used=new Set\(base\.map\(q=>q\.id\)\)/,'an incomplete draft may only add questions not already saved');
 assert.match(practise,/dailyLocked\?chosen:chosen\.map\(q=>\(\{\.\.\.q,_dailyVocab:null\}\)\)/,'free vocabulary must not accrue daily-vocab answers');
 
 window.location.href='https://glojournal-cmyk.github.io/study/latin/practise?daily=1&locked=1&task=year8-long-review&mode=year8long';

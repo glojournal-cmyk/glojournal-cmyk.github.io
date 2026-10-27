@@ -49,7 +49,10 @@ test('Need exact locked assigned link and plan date; do not duplicate real attem
 test('Do not overwrite stronger existing credit and other dated tasks',()=>{
  const before=state(Array.from({length:2},(_,i)=>attempt(i)),task({progress:9}));
  before.dailyLog['2026-10-20']={date:'2026-10-20',tasks:[{id,target:10,progress:7}]};
- assert.equal(replayDailyAnswerCredit(before),null);
+ const checkpoint=replayDailyAnswerCredit(before);
+ assert.equal(checkpoint.daily[0].progress,9);
+ assert.equal(checkpoint.dailyLog[day].tasks[0].progress,9,
+   'Dated receipt must catch up to verified higher Home credit');
  const later=state(Array.from({length:10},(_,i)=>attempt(i)),task({progress:9}));
  later.dailyLog=before.dailyLog;
  const patch=replayDailyAnswerCredit(later);
