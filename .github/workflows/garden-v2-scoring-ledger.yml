@@ -7,6 +7,11 @@ on:
       - 'src/garden-v2/**'
       - 'tests/garden-v2-*.test.mjs'
       - '.github/workflows/garden-v2-scoring-ledger.yml'
+  pull_request:
+    paths:
+      - 'src/garden-v2/**'
+      - 'tests/garden-v2-*.test.mjs'
+      - '.github/workflows/garden-v2-scoring-ledger.yml'
   workflow_dispatch:
 jobs:
   scoring:
