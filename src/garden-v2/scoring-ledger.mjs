@@ -36,6 +36,7 @@ export function recordV2Answer(ledger,answer) {
   const tasks={...ledger.tasks};
   const task=tasks[taskId]??{questionIds:[],earnedMarks:0,xp:0};
   tasks[taskId]={
+    ...task,
     questionIds:task.questionIds.includes(questionId)?[...task.questionIds]:[...task.questionIds,questionId],
     earnedMarks:task.earnedMarks+(receipt.earnedMarks-previousMarks),
     xp:task.xp+(awardedNow?awardXp:0)
