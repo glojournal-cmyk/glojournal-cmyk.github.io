@@ -1,0 +1,26 @@
+name: Daily Vocab credit integrity 20261027
+
+on:
+  push:
+    branches:
+      - fix/daily-vocab-assignment-20261027
+  pull_request:
+    paths:
+      - assets/daily-vocab-total-20261020.js
+      - tests/daily-vocab-total-20261020.test.mjs
+      - .github/workflows/daily-vocab-credit-20261027.yml
+  workflow_dispatch:
+
+jobs:
+  vocab-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check vocabulary date, subject, task and repair integrity
+        run: node --test tests/daily-vocab-total-20261020.test.mjs
+      - name: Verify Biology Year 9 daily credit regression
+        run: node --test tests/biology-year9-session-20261026.test.mjs
