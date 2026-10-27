@@ -22,3 +22,5 @@ jobs:
           node --test tests/garden-v2-scoring-ledger.test.mjs
           node --check src/garden-v2/daily-planner.mjs
           node --test tests/garden-v2-daily-planner.test.mjs
+          node --check src/garden-v2/session.mjs
+          node --test tests/garden-v2-session.test.mjs
