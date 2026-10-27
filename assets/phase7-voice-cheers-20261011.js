@@ -37,7 +37,7 @@ function mount(){
  let button=old;
  if(!button){
   button=document.createElement("button");button.id="lux-voice-cheer-toggle";button.type="button";button.className="lux-voice-cheer-toggle";
-  button.style.cssText="min-height:44px;padding:10px 14px;margin:12px 0;border:1px solid #c6b485;border-radius:24px;background:#fffbef;color:#234955;font:600 13px system-ui";
+  button.style.cssText="box-sizing:border-box!important;min-height:44px!important;height:auto!important;display:inline-flex!important;align-items:center!important;padding:10px 14px;margin:12px 0;border:1px solid #c6b485;border-radius:24px;background:#fffbef;color:#234955;font:600 13px system-ui";
   button.addEventListener("click",()=>{unlocked=true;enabled=!enabled;try{localStorage.setItem(KEY,enabled?"on":"off")}catch{}apply(button);if(enabled)speak(true);else root.speechSynthesis?.cancel?.()});
   host.append(button);
  }
