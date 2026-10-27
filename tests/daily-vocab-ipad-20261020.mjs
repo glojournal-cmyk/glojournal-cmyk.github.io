@@ -43,6 +43,9 @@ try{
     const {C:store}=await import(entrypoint);
     for(let i=0;i<28;i++)store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-"+i,true);
    },entrypoint);
+   // Home progress is reconciled by a debounced 180ms store normalizer.
+   // Verify the eventual real Home state rather than a pre-normalization snapshot.
+   await page.waitForFunction(()=>window.__luxStore?.getState().daily?.find(t=>t.id==="french-vocab")?.progress===28,null,{timeout:10000});
    let state=await readCount(page);
    assert.equal(state.correct,28,engine.name()+" initial 28");
    assert.equal(state.task?.progress,28,"Home daily task must show cumulative 28");
