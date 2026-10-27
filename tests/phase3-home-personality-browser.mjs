@@ -82,7 +82,7 @@ try{
         const raw=JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}');
         const s=raw.state||raw;
         const p=JSON.parse(localStorage.getItem('lux-pet-companion-v1')||'{}');
-        return {xp:Number(s.xp)||0,daily:(s.daily||[]).map(t=>[t.id,t.progress,t.target]),
+        return {xp:Number(s.xp)||0,dailyEvidence:s.dailyVocabByDay,answerEvidence:s.formalAttemptLog,datedHistory:s.dailyLog,
           unlocked:s.unlockedOutfits,equipped:s.equippedOutfit,
           petSpecies:p.species,petLevels:p.petLevels,masteryPoints:p.masteryPoints,
           care:p.care?{bond:p.care.bond,mood:p.care.mood,energy:p.care.energy,
