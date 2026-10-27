@@ -20,7 +20,7 @@ export function dailyVocabTotal(state = {}, subject, day) {
         (answer?.dailyTaskId && answer.dailyTaskId !== subject + "-vocab") ||
         (answer?.dailyVocab && answer.dailyVocab !== subject) ||
         answer?.recoveryFor || answer?.formal === false ||
-        (answer?.repair === true && answer?.correct !== true) ||
+        answer?.repair === true ||
         typeof answer.correct !== "boolean") continue;
     const id = String(answer.questionId);
     if (typeof answer.vocabConcept === 'string' && answer.vocabConcept) concepts[id] = answer.vocabConcept;
