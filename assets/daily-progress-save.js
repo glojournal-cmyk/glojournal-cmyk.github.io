@@ -59,7 +59,15 @@ async function autoSave(force=false){
   }
   if(previous?.data&&previous.day!==today.day){
    const older=await readBackup(PREVIOUS_KEY);
-   if(!older?.data||String(older.day||"")<String(previous.day||""))await putBackup(PREVIOUS_KEY,previous);
+   // Preserve the stronger historical XP snapshot even if a later app
+   // hydration or migration accidentally starts at a much lower XP.
+   // Keep today's newest progress in AUTO; never overwrite the only older
+   // higher-XP restore point merely because the calendar moved forward.
+   const xpOf=copy=>{try{return Math.max(0,Number(JSON.parse(copy?.data)?.state?.xp)||0)}catch{return 0}};
+   const oldXp=xpOf(older),previousXp=xpOf(previous);
+   if(!older?.data||previousXp>oldXp||
+      (previousXp===oldXp&&String(older.day||"")<String(previous.day||"")))
+     await putBackup(PREVIOUS_KEY,previous);
   }
   const saved={savedAt:new Date().toISOString(),...today,data};
   await putBackup(AUTO_KEY,saved);
