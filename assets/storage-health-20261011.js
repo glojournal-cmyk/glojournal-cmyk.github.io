@@ -27,8 +27,13 @@
   // storage fails. Keep failure state and verified non-destructive retry logic.
   // This does NOT mean answers were persisted; it changes presentation only.
   function paint(detail){
-    // Remove a legacy overlay if this script runs after an earlier version.
-    document.getElementById(ID)?.remove();
+    // Keep a small non-blocking notice so unsaved answers are never silent.
+    let notice=document.getElementById(ID);
+    const failed=detail?.saved===false||root.__luxUnsavedStudyChanges===true;
+    if(failed){
+      if(!notice){notice=document.createElement('div');notice.id=ID;notice.setAttribute('role','status');notice.style.cssText='position:fixed;bottom:env(safe-area-inset-bottom, 0px);right:10px;z-index:3000;max-width:260px;padding:7px 10px;background:#fff4db;color:#473517;border:1px solid #d8b865;border-radius:8px;font:12px/1.35 system-ui;pointer-events:none';document.body?.appendChild(notice)}
+      if(notice)notice.textContent='Progress not saved yet. Keep this app open until saving succeeds.';
+    }else if(detail?.saved===true&&!root.__luxUnsavedStudyChanges){notice?.remove()}
     const missing=detail?.saved===false||root.__luxStoreQuotaFailed===true;
     const clear=detail?.saved===true&&root.__luxStoreQuotaFailed!==true;
     if(clear)attempted=false;
