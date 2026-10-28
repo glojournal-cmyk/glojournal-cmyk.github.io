@@ -1,29 +1,16 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>MP Reallocation</title><style>body{font:16px/1.5 system-ui;background:#f6f4ec;color:#18364b;margin:0;padding:20px}main{max-width:650px;margin:auto;padding:24px;background:white;border:1px solid #d6c6a4;border-radius:14px}button,input{font:inherit}button{padding:11px;border-radius:8px}button:disabled{opacity:.5}label{display:block;margin:14px 0}#status{white-space:pre-wrap}</style></head><body><main><h1>Reallocate earned MP</h1><p>Only the pet wallet is affected. This tool does not import study progress or change Recovery, XP, bond or unlocks.</p><p>Choose the original <strong>26 October</strong> Scholar's Garden JSON, with both paid pet evolutions.</p><input type="file" id="file" accept=".json,application/json"><p id="status">No changes made.</p><section id="review" hidden><p id="details"></p><label><input type="checkbox" id="extra"> Include the additional 22 MP shown by the later 44 MP screenshot (not independently recorded in the 26 October ledger).</label><label><input type="checkbox" id="agree"> Confirm this is the correct learner's installed iPad app and I approve this one-time reallocation.</label><button id="apply" disabled>Restore MP and reset two pet levels</button></section><p><a href="/pet/">Back to Pets</a></p></main><script>
-(()=>{"use strict";
-const K="lux-pet-companion-v1",FLAG="mpReallocation20261028",get=id=>document.getElementById(id),say=s=>get("status").textContent=s;let proof=null;
-function current(){const raw=localStorage.getItem(K);if(!raw)throw Error("No Pet wallet in this app.");const p=JSON.parse(raw);if(!p||typeof p!=="object"||Array.isArray(p))throw Error("Invalid current Pet wallet.");return {raw,p}}
-function refresh(){get("apply").disabled=!proof||!get("agree").checked;get("details").textContent="Verified historical earnings: 122 MP. Verified upgrade costs: 100 MP (two pets). Reallocation wallet: "+(get("extra").checked?144:122)+" MP. Existing study progress stays untouched."}
-get("file").addEventListener("change",async()=>{proof=null;get("review").hidden=true;try{
-const f=get("file").files?.[0];if(!f||f.size>15000000)throw Error("Choose the original backup (under 15MB).");
-const d=JSON.parse(await f.text()),h=d.petCompanion;
-if(d.app!=="lux-scholar-garden"||!String(d.exportedAt||"").startsWith("2026-10-26")||!h)throw Error("Use the original 26 October full backup.");
-if(h.masteryPoints!==22||h.petLevels?.["snow-owl"]!==2||h.petLevels?.["pebble-wisp"]!==2||h.unlockedSecrets?.["snow-owl"]!==true)throw Error("Historical wallet and unlock proof do not match.");
-const earned=Object.values(h.mpLedger||{}).reduce((n,x)=>n+Number(x?.amount||0),0);
-const tx=(h.mpTransactions||[]).filter(x=>x?.kind==="evolution"&&x.from===1&&x.to===2&&x.amount===-50);
-if(earned!==122||tx.length!==2||new Set(tx.map(x=>x.species)).size!==2||!tx.some(x=>x.species==="snow-owl")||!tx.some(x=>x.species==="pebble-wisp"))throw Error("MP receipts are not verified.");
-const live=current();if(live.p[FLAG])throw Error("Already reallocated; duplicate award blocked.");
-if(Number(live.p.masteryPoints)!==0||Object.keys(live.p.mpLedger||{}).length||(live.p.mpTransactions||[]).length)throw Error("Current wallet is not the audited empty wallet; no changes made.");
-proof={h,raw:live.raw};get("extra").checked=false;get("agree").checked=false;get("review").hidden=false;refresh();say("Proof verified. Review the optional 22 MP before confirming.");
-}catch(e){say("Blocked: "+e.message)}});
-get("extra").addEventListener("change",refresh);get("agree").addEventListener("change",refresh);
-get("apply").addEventListener("click",()=>{if(!proof||!get("agree").checked)return;get("apply").disabled=true;let before=null;try{
-const live=current();before=live.raw;if(before!==proof.raw)throw Error("Wallet changed since preview. Restart verification.");
-const bonus=get("extra").checked?22:0,h=proof.h,p=live.p;
-const next={...p,masteryPoints:122+bonus,mpLedger:{...h.mpLedger},petLevels:{...(p.petLevels||{}),"pebble-wisp":1,"snow-owl":1},unlockedSecrets:{...(h.unlockedSecrets||{}),...(p.unlockedSecrets||{}),"snow-owl":true},[FLAG]:{when:new Date().toISOString(),historical:122,additionalScreenshot:bonus,refund:100}};
-const a=document.createElement("a"),url=URL.createObjectURL(new Blob([JSON.stringify({app:"lux-scholar-garden",petCompanion:p},null,2)],{type:"application/json"}));a.href=url;a.download="pet-wallet-before-reallocation.json";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
-const encoded=JSON.stringify(next);localStorage.setItem(K,encoded);
-if(localStorage.getItem(K)!==encoded)throw Error("Save verification failed.");
-say("Verified: "+next.masteryPoints+" MP available for your daughter to allocate. No study data touched. Return to Pets.");get("review").hidden=true;
-}catch(e){if(before!==null){try{localStorage.setItem(K,before)}catch{}}say("Blocked: "+e.message+". No verified changes.");}});
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Restore 144 MP · Scholar's Garden</title><style>body{font:16px/1.55 system-ui;background:#f6f4ec;color:#213448;padding:20px}main{max-width:630px;margin:0 auto;background:white;border:1px solid #c9bb94;border-radius:14px;padding:24px}button{font:inherit;padding:12px 20px;border:0;border-radius:9px;background:#213448;color:white}button:disabled{opacity:.5}#status{white-space:pre-wrap}</style></head><body><main><h1>Restore 144 MP</h1><p>This one-time restoration is authorised by the parent. It sets the current Pet wallet to <strong>144 MP</strong>, for the learner to spend on pets of her choice. No old backup file is required.</p><p id="status">Checking the Pet wallet in this installed app…</p><button id="restore" disabled>Restore 144 MP</button><p><a href="/pet/">Return to Pets</a></p></main><script>
+(()=>{'use strict';
+const K="lux-pet-companion-v1",FLAG="mpReallocation20261028",button=document.getElementById("restore"),status=document.getElementById("status");
+const say=t=>status.textContent=t;
+function read(){const raw=localStorage.getItem(K);if(!raw)throw Error("No saved Pet wallet in this app.");const p=JSON.parse(raw);if(!p||typeof p!=="object"||Array.isArray(p))throw Error("Saved Pet wallet is invalid.");return {raw,p};}
+let initial;
+try{initial=read();const p=initial.p;if(p[FLAG])throw Error("MP already restored in this app. No duplicate restoration.");if(Number(p.masteryPoints)!==0||Object.keys(p.mpLedger||{}).length||(p.mpTransactions||[]).length)throw Error("Current MP wallet is not the verified empty wallet. No changes made.");say("Current saved balance: 0 MP. This will set the balance to 144 MP exactly once and reset only Pebble Wisp and Snow Owl to Level 1. Other pet unlocks, bond and care, XP and Daily/Recovery remain unchanged.");button.disabled=false;}catch(e){say(e.message);}
+button.addEventListener("click",()=>{if(!initial||button.disabled)return;button.disabled=true;try{
+const now=read();if(now.raw!==initial.raw)throw Error("Pet wallet changed; reload to review again.");const p=now.p;
+const next={...p,masteryPoints:144,petLevels:{...(p.petLevels||{}),"pebble-wisp":1,"snow-owl":1},unlockedSecrets:{...(p.unlockedSecrets||{}),"snow-owl":true},[FLAG]:{at:new Date().toISOString(),amount:144,method:"parent-approved-direct-restoration",oldBalance:0}};
+const backup=JSON.stringify({app:"lux-scholar-garden",kind:"pet-wallet-before-144mp",petCompanion:p},null,2);
+const blob=new Blob([backup],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="pet-wallet-before-144MP.json";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+const encoded=JSON.stringify(next);localStorage.setItem(K,encoded);if(localStorage.getItem(K)!==encoded)throw Error("Write verification failed.");say("Success: 144 MP restored and saved. Open Pets to choose upgrades.");}
+catch(e){say("Restoration stopped: "+e.message+" No second grant was attempted.");}});
 })();
 </script></body></html>
