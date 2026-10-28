@@ -249,6 +249,10 @@ function render(){
   if(window.__luxPetReadFailed){
     document.getElementById("petTitle").textContent="Pet data needs recovery";
     document.getElementById("petSubtitle").textContent="Saved wallet could not be read. No pet changes will be saved.";
+    let panel=document.getElementById("mp-wallet-history");
+    if(!panel){panel=document.createElement("details");panel.id="mp-wallet-history";panel.className="pet-card";document.querySelector("main")?.append(panel)}
+    panel.open=true;
+    panel.innerHTML="<summary>Pet wallet recovery</summary><p>Original storage has been protected from overwriting. Export the raw diagnostic before attempting repair.</p>";
     installPetWalletSnapshotExport();
     return;
   }
@@ -422,8 +426,8 @@ function installPetWalletSnapshotExport(){
     // Read the same live key as the Pet UI, not the separately hydrated learner state.
     const raw=localStorage.getItem(PET_KEY);
     if(!raw){window.alert("Pet wallet is not saved in this app context. No file created.");return}
-    let pet;try{pet=JSON.parse(raw)}catch{window.alert("Pet wallet cannot be read. No file created.");return}
-    if(!pet||typeof pet!=="object"||Array.isArray(pet)){window.alert("Invalid pet wallet. No file created.");return}
+    let pet=null;try{pet=JSON.parse(raw)}catch{}
+    if(!pet||typeof pet!=="object"||Array.isArray(pet))pet=null;
     const snapshot={app:"lux-scholar-garden",type:"pet-wallet-diagnostic",exportedAt:new Date().toISOString(),
       context:{origin:location.origin,displayMode:matchMedia("(display-mode: standalone)").matches?"standalone":"browser"},
       petCompanion:pet,
