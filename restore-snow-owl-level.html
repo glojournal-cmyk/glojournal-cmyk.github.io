@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Restore Moonveil Owl Level · Lux et Labor</title>
+<style>body{margin:0;padding:24px;background:#f7f4ec;color:#193449;font:16px/1.55 system-ui}main{max-width:670px;margin:20px auto;padding:24px;background:white;border:1px solid #d9c5a0;border-radius:16px}h1{font-family:Georgia,serif}button,input{font:inherit}button{padding:12px 16px;color:white;background:#193449;border:0;border-radius:10px}button:disabled{opacity:.5}#status{white-space:pre-wrap}code{overflow-wrap:anywhere}</style></head><body><main>
+<h1>Restore Moonveil Owl's earned level</h1>
+<p>This tool repairs only an already-earned Snow Owl evolution and bond. <strong>Recovery, study progress, XP, MP wallet and other pets are never changed.</strong></p>
+<p>Select the original <strong>scholar-garden-2026-10-26-210214.json</strong> (not the 28 October restored file). It must contain both the Level 2 pet record and the 19 October paid evolution receipt.</p>
+<input id="file" type="file" accept=".json,application/json"><p id="status" role="status">Choose the original historical backup to verify.</p>
+<button id="apply" disabled>Restore verified Owl Level 2</button>
+<p><a href="/pet/">Return to Companion Corner</a></p>
+</main><script>
+(()=>{
+"use strict";
+const KEY="lux-pet-companion-v1",file=document.getElementById("file"),apply=document.getElementById("apply"),status=document.getElementById("status");let proof=null;
+const say=t=>{status.textContent=t};
+file.addEventListener("change",async()=>{
+ proof=null;apply.disabled=true;
+ try{
+ const f=file.files?.[0];if(!f)throw Error("Select a backup.");if(f.size>15000000)throw Error("File too large.");
+ const data=JSON.parse(await f.text()),src=data?.petCompanion;
+ if(data?.app!=="lux-scholar-garden"||!src||src.unlockedSecrets?.["snow-owl"]!==true)throw Error("Not an original Snow Owl unlock backup.");
+ if(Number(src.petLevels?.["snow-owl"])<2)throw Error("No earned Snow Owl Level 2 recorded.");
+ const paid=(src.mpHistory||[]).some(v=>v?.kind==="evolution"&&v?.species==="snow-owl"&&Number(v.from)===1&&Number(v.to)===2&&Number(v.amount)===-50);
+ if(!paid)throw Error("Paid Level 1 to 2 evolution receipt is missing. No changes made.");
+ const raw=localStorage.getItem(KEY);if(!raw)throw Error("No current pet record on this device.");
+ const live=JSON.parse(raw);if(!live||typeof live!=="object"||Array.isArray(live))throw Error("Device pet state unreadable.");
+ proof={level:Math.min(10,Math.floor(Number(src.petLevels["snow-owl"]))),bond:Math.max(0,Math.min(100,Number(src.careByPet?.["snow-owl"]?.bond)||0))};
+ apply.disabled=false;say("Verified: earned Snow Owl Level "+proof.level+", historical bond "+proof.bond+". Current MP wallet will not be changed.");
+ }catch(err){say("Blocked: "+err.message)}
+});
+apply.addEventListener("click",()=>{
+ if(!proof)return;apply.disabled=true;let original=null;
+ try{
+ original=localStorage.getItem(KEY);if(!original)throw Error("Current pet state missing.");
+ const pet=JSON.parse(original);if(!pet||typeof pet!=="object"||Array.isArray(pet))throw Error("Invalid current pet state.");
+ const blob=new Blob([original],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download="owl-pre-level-restore-"+new Date().toISOString().slice(0,10)+".json";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+ const oldCare=pet.careByPet?.["snow-owl"]||{};
+ const nextCare={...oldCare,bond:Math.max(Number(oldCare.bond)||0,proof.bond)};
+ const next={...pet,unlockedSecrets:{...(pet.unlockedSecrets||{}),"snow-owl":true},petLevels:{...(pet.petLevels||{}),"snow-owl":Math.max(Number(pet.petLevels?.["snow-owl"])||1,proof.level)},careByPet:{...(pet.careByPet||{}),"snow-owl":nextCare}};
+ // The currently selected owl's separate care alias is updated for a consistent display.
+ if(pet.species==="snow-owl")next.care={...(pet.care||{}),bond:Math.max(Number(pet.care?.bond)||0,nextCare.bond)};
+ const encoded=JSON.stringify(next);localStorage.setItem(KEY,encoded);
+ const read=localStorage.getItem(KEY),check=JSON.parse(read||"null");
+ if(read!==encoded||Number(check?.petLevels?.["snow-owl"])<proof.level||check?.unlockedSecrets?.["snow-owl"]!==true)throw Error("Read-back verification failed.");
+ window.dispatchEvent(new CustomEvent("scholar:pet-changed",{detail:next}));
+ say("Verified restored: Moonveil Owl Level "+check.petLevels["snow-owl"]+", bond "+nextCare.bond+". Your MP wallet, Recovery and study records were not modified. Return to Pet and reload.");
+ }catch(err){if(original!==null){try{localStorage.setItem(KEY,original)}catch{}}say("Save not verified: "+err.message+". Original pet data restored where possible.")}
+});
+})();
+</script></body></html>
