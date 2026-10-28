@@ -122,8 +122,31 @@ export function nativeImportSnapshot(payload){
 export function linkedAdditions(payload, storage){
   const entries=[];
   for(const [field,key] of PAIRS){
-    if(payload[field]==null || storage.getItem(key)!=null)continue;
-    entries.push([key,JSON.stringify(payload[field])]);
+    if(payload[field]==null)continue;
+    const existing=storage.getItem(key);
+    if(existing==null){
+      entries.push([key,JSON.stringify(payload[field])]);
+      continue;
+    }
+    // Pet state is stored separately from the Scholar progress JSON. A full
+    // import must restore earned secret-pet unlocks without replacing the
+    // active iPad's pet species, levels, care, bond, or other progress.
+    if(field!=="petCompanion")continue;
+    let live;
+    try{live=JSON.parse(existing)}catch{continue}
+    if(!live || typeof live!=="object" || Array.isArray(live))continue;
+    const incoming=payload[field];
+    const savedSecrets=incoming?.unlockedSecrets;
+    if(!savedSecrets || typeof savedSecrets!=="object" || Array.isArray(savedSecrets))continue;
+    const mergedSecrets={...(live.unlockedSecrets||{})};
+    let changed=false;
+    for(const id of ["snow-owl","night-spider"]){
+      if(savedSecrets[id]===true && mergedSecrets[id]!==true){
+        mergedSecrets[id]=true;
+        changed=true;
+      }
+    }
+    if(changed)entries.push([key,JSON.stringify({...live,unlockedSecrets:mergedSecrets})]);
   }
   return entries;
 }
@@ -273,14 +296,20 @@ export function commitToStorage(payload,existingRaw,storage){
   const additions=linkedAdditions(payload,storage);
   const staged=[];
   const undo=()=>{
-    for(const key of staged.reverse()){try{storage.removeItem(key)}catch{}}
+    for(const [key,previous] of staged.reverse()){
+      try{
+        if(previous==null)storage.removeItem(key);
+        else storage.setItem(key,previous);
+      }catch{}
+    }
   };
   try{
     // Stage only linked keys missing on the target; never replace newer local
     // drafts, pet progress, assessment data or other unrelated browser records.
     for(const [key,value] of additions){
+      const previous=storage.getItem(key);
+      staged.push([key,previous]);
       storage.setItem(key,value);
-      staged.push(key);
       if(storage.getItem(key)!==value)throw Error("Could not verify linked "+key);
     }
     storage.setItem(KEY,next);
