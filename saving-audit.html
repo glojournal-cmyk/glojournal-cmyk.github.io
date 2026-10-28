@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Saving Audit · Scholar's Garden</title><style>body{margin:0;padding:20px;background:#f7f5ee;color:#20354c;font:16px/1.5 system-ui}main{margin:auto;max-width:780px;background:#fff;border:1px solid #d9cba9;border-radius:12px;padding:22px}h1{font:30px Georgia}table{width:100%;border-collapse:collapse}td,th{padding:9px;border-bottom:1px solid #ddd;text-align:left}button{padding:12px 18px;background:#20354c;color:white;border:0;border-radius:8px;font:inherit}small{color:#566}code{word-break:break-all}</style></head><body><main><h1>Saving & Rewards Audit</h1><p>Read-only check of data actually saved in this iPad App. No XP, pets, items or study records are changed.</p><p id="status">Checking…</p><table><thead><tr><th>Category</th><th>Saved record</th><th>Check</th></tr></thead><tbody id="rows"></tbody></table><p><button id="refresh">Check again</button> <button id="export">Export audit snapshot</button></p><p><a href="/pet/">Return to Pet</a></p><small>Empty reward ledgers do not prove an award was lost. Compare them with actual completed games and other receipts before granting rewards.</small></main><script>
+(()=>{"use strict";
+const MAIN="lux-scholar-garden-v1",PET="lux-pet-companion-v1",get=id=>document.getElementById(id);
+let snapshot=null;
+const object=x=>x&&typeof x==="object"&&!Array.isArray(x)?x:{};
+const count=x=>Array.isArray(x)?x.length:Object.keys(object(x)).length;
+function read(key){let raw=localStorage.getItem(key);if(!raw)return {found:false,valid:false,bytes:0,data:null};try{let data=JSON.parse(raw);return {found:true,valid:!!data&&typeof data==="object",bytes:raw.length,data}}catch(e){return {found:true,valid:false,bytes:raw.length,data:null,error:String(e)}}}
+function run(){
+ const m=read(MAIN),p=read(PET),state=object(m.data?.state||m.data);
+ const pet=object(p.data),day=String(state.today||"");
+ const list=[
+ ["Main learner save",m.found?(m.valid?"JSON saved ("+m.bytes+" chars)":"Unreadable JSON"):"No saved state",m.valid?"Present":"Needs investigation"],
+ ["Pet wallet",p.found?(p.valid?"JSON saved ("+p.bytes+" chars)":"Unreadable JSON"):"No pet state",p.valid?"Present":"Needs investigation"],
+ ["Outfits",count(state.unlockedOutfits)+" unlocks; equipped "+String(state.equippedOutfit||"none"),Array.isArray(state.unlockedOutfits)&&state.unlockedOutfits.includes(state.equippedOutfit)?"Consistent":"Check equipped item"],
+ ["Scenes",count(state.unlockedScenes)+" unlocks; equipped "+String(state.equippedScene||"none"),Array.isArray(state.unlockedScenes)&&state.unlockedScenes.includes(state.equippedScene)?"Consistent":"Check equipped scene"],
+ ["Games",count(state.games)+" game entries; "+count(state.gamePractice)+" practice entries","Review rewards"],
+ ["Daily game",day+": "+(state.dailyGamePlayedByDay?.[day]?"played":"not marked"),"Evidence only"],
+ ["Game reward receipts",count(state.gameRewardByDay)+" dated ledgers; "+count(state.gameRewardByDay?.[day])+" today",state.dailyGamePlayedByDay?.[day]&&!count(state.gameRewardByDay?.[day])?"Check eligibility / receipt":"Record checked"],
+ ["Qualifying game receipts",count(state.qualifyingGameByDay)+" dated ledgers; "+count(state.qualifyingGameByDay?.[day])+" today","Check eligibility"],
+ ["Other reward receipts",count(state.rewardLedgerByDay)+" dated ledgers; "+count(state.peRewardByDay)+" PE days","Review"],
+ ["Weekly Boss",Number(state.weeklyBoss?.clears||0)+" clears; "+count(state.weeklyBoss?.weeks)+" week records","Record checked"],
+ ["Achievements",count(state.medals)+" medals; "+count(state.collectibles)+" collectibles","Record checked"],
+ ["Memory Stars",count(state.memoryStars)+" categories","Record checked"],
+ ["Pet unlocks / levels",count(pet.unlockedSecrets)+" secret records; "+count(pet.petLevels)+" pet levels","Record checked"],
+ ["Pet MP",Number(pet.masteryPoints||0)+" balance; "+count(pet.mpLedger)+" earned receipts; "+(Array.isArray(pet.mpTransactions)?pet.mpTransactions.length:0)+" transactions","Record checked"],
+ ["27 Oct completion",state.dailyCompleteAwarded?.["2026-10-27"]?"award flag present":"no award flag","Record checked"],
+ ["Study total XP",String(state.xp??"missing"),"Record checked"]
+ ];
+ get("rows").replaceChildren(...list.map(([name,value,result])=>{const tr=document.createElement("tr");for(const text of [name,value,result]){const td=document.createElement("td");td.textContent=text;tr.append(td)}return tr}));
+ snapshot={app:"lux-scholar-garden",kind:"read-only-saving-audit",exportedAt:new Date().toISOString(),environment:{origin:location.origin,mode:matchMedia("(display-mode: standalone)").matches?"standalone":"browser"},integrity:{main:{found:m.found,valid:m.valid,bytes:m.bytes},pet:{found:p.found,valid:p.valid,bytes:p.bytes}},records:list.map(([category,saved,check])=>({category,saved,check})),state:{xp:state.xp,today:state.today,unlockedOutfits:state.unlockedOutfits,equippedOutfit:state.equippedOutfit,unlockedScenes:state.unlockedScenes,equippedScene:state.equippedScene,games:state.games,gamePractice:state.gamePractice,gameRewardByDay:state.gameRewardByDay,qualifyingGameByDay:state.qualifyingGameByDay,dailyGamePlayedByDay:state.dailyGamePlayedByDay,weeklyBoss:state.weeklyBoss,medals:state.medals,collectibles:state.collectibles,memoryStars:state.memoryStars,rewardLedgerByDay:state.rewardLedgerByDay,peRewardByDay:state.peRewardByDay,dailyCompleteAwarded:state.dailyCompleteAwarded},petCompanion:pet};
+ get("status").textContent="Read-only check complete. "+(m.valid&&p.valid?"Both saved JSON records readable.":"One or more storage records missing or unreadable.")+" Export this snapshot for detailed comparison.";
+}
+get("refresh").onclick=run;get("export").onclick=()=>{if(!snapshot)run();const blob=new Blob([JSON.stringify(snapshot,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="scholar-saving-audit-"+new Date().toISOString().slice(0,10)+".json";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000)};
+run();
+})();
+</script></body></html>
