@@ -105,19 +105,25 @@ let recovering=null;
 export function recoverProgressStorage(store){
  if(recovering)return recovering;
  recovering=(async()=>{
-  try{await migrateOldBackups()}catch(error){console.warn("Optional backup migration failed; retrying primary learner save",error)}
   if(!store?.getState||!store?.setState||store.persist?.hasHydrated?.()===false)return false;
   const options=store.persist?.getOptions?.();
   if(!options||options.name!=="lux-scholar-garden-v1")return false;
-  // Confirm the primary payload, not an unrelated save key or stale quota flag.
   const snapshot=()=>JSON.stringify({state:options.partialize({...store.getState()}),version:options.version});
-  const before=snapshot();
-  if(localStorage.getItem(options.name)===before)return snapshot()===before;
-  // Save the live state without importing an older backup or discarding a pending answer.
-  store.setState({});
-  const after=snapshot();
-  // If an answer arrived while the retry was running, do not claim success.
-  return localStorage.getItem(options.name)===after && snapshot()===after;
+  // First try to save the latest learner state. Do not delay an ordinary retry
+  // behind optional IndexedDB migration, which may be slow or unavailable.
+  const attempt=()=>{
+    const expected=snapshot();
+    try{
+      if(localStorage.getItem(options.name)!==expected)store.setState({});
+      const after=snapshot();
+      return localStorage.getItem(options.name)===after&&snapshot()===after;
+    }catch{return false}
+  };
+  if(attempt())return true;
+  // Only use the verified archive migration as a quota recovery measure.
+  // It must never restore old study data over current unanswered work.
+  try{await migrateOldBackups()}catch(error){console.warn("Optional backup migration failed; retrying current progress",error)}
+  return attempt();
  })().catch(()=>false).finally(()=>{recovering=null});
  return recovering;
 }
