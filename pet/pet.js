@@ -90,6 +90,8 @@ function readPet(){
   try{
     const raw=localStorage.getItem(PET_KEY);
     const parsed=raw?JSON.parse(raw):{};
+    if(raw&&(!parsed||typeof parsed!=="object"||Array.isArray(parsed))) throw new Error("Saved Pet wallet is not an object");
+    window.__luxPetReadFailed=false;
     const chosen=pets.find(p=>p.id===parsed?.species);
     const species=chosen&&(!chosen.secret||parsed?.unlockedSecrets?.[chosen.id])?chosen.id:"moss-hornling";
     const petLevels=parsed?.petLevels&&typeof parsed.petLevels==="object"?{...parsed.petLevels}:{};
@@ -102,9 +104,10 @@ function readPet(){
       masteryPoints:Math.max(0,Number(parsed?.masteryPoints)||0),
       petLevels
     };
-  }catch{return {species:"moss-hornling",name:"",masteryPoints:0,petLevels:Object.fromEntries(pets.map(p=>[p.id,1]))}}
+  }catch(error){window.__luxPetReadFailed=true;console.error("Pet wallet unreadable; saving blocked to prevent data loss",error);return {species:"moss-hornling",name:"",masteryPoints:0,petLevels:Object.fromEntries(pets.map(p=>[p.id,1]))}}
 }
 function savePet(next){
+  if(window.__luxPetReadFailed) throw new Error("Pet wallet is unreadable. Save blocked to protect existing wallet. Export a backup before recovery.");
   const encoded=JSON.stringify(next);
   localStorage.setItem(PET_KEY,encoded);
   if(localStorage.getItem(PET_KEY)!==encoded){
