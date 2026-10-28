@@ -29,7 +29,8 @@ function store(){
  return {api,get:()=>state};
 }
 const s=store();
-await Promise.resolve();
+await new Promise(resolve=>s.api.persist.onFinishHydration(resolve));
+assert.equal(s.api.persist.hasHydrated(),true,"hydration completed before tests");
 s.get().setXP(12);
 assert.equal(JSON.parse(backing.get("test-scholar")).state.xp,12,"normal write saved");
 mode="quota";s.get().setXP(13);
