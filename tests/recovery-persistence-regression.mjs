@@ -45,8 +45,8 @@ store.setState=()=>{
   if(!injected){state.xp+=5;injected=true;}
 };
 state.xp+=1;
-assert.equal(await recoverProgressStorage(store),false,"stale save must never be reported as current");
-assert.notEqual(data.get(options.name),expected(),"concurrent progress must remain unsaved until retried");
+assert.equal(await recoverProgressStorage(store),true,"a second verified save should persist the new concurrent answer");
+assert.equal(data.get(options.name),expected(),"concurrent progress must be current when success is reported");
 store.setState=originalSetState;
 assert.equal(await recoverProgressStorage(store),true,"concurrent newer answer should be saved on next retry");
 assert.equal(JSON.parse(data.get(options.name)).state.xp,state.xp,"newest XP must survive retry");
