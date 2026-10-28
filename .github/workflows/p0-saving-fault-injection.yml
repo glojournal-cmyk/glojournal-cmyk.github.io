@@ -8,6 +8,8 @@ on:
       - "tests/recovery-persistence-regression.mjs"
       - "tests/pet-saving-smoke-20261028.mjs"
       - "pet/pet.js"
+      - "saving-audit.html"
+      - "tests/saving-audit-read-regression.mjs"
       - "assets/backup-vault-20261011.js"
       - ".github/workflows/p0-saving-fault-injection.yml"
   pull_request:
@@ -17,6 +19,8 @@ on:
       - "tests/recovery-persistence-regression.mjs"
       - "tests/pet-saving-smoke-20261028.mjs"
       - "pet/pet.js"
+      - "saving-audit.html"
+      - "tests/saving-audit-read-regression.mjs"
       - "assets/backup-vault-20261011.js"
       - ".github/workflows/p0-saving-fault-injection.yml"
   workflow_dispatch:
@@ -32,3 +36,4 @@ jobs:
       - run: node tests/p0-saving-fault-injection.mjs
       - run: node tests/recovery-persistence-regression.mjs
       - run: node tests/pet-saving-smoke-20261028.mjs
+      - run: node tests/saving-audit-read-regression.mjs
