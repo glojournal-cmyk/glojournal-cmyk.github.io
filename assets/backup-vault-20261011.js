@@ -108,14 +108,15 @@ export function recoverProgressStorage(store){
   if(!store?.getState||!store?.setState||store.persist?.hasHydrated?.()===false)return false;
   const options=store.persist?.getOptions?.();
   if(!options||options.name!=="lux-scholar-garden-v1")return false;
-  // If the primary already matches, this warning may concern a separate store.
-  // Do not clear a different save failure by rewriting an unchanged primary.
-  const before=JSON.stringify({state:options.partialize({...store.getState()}),version:options.version});
-  if(localStorage.getItem(options.name)===before)return true; // Exact persisted state proves the primary save is current.
+  // Confirm the primary payload, not an unrelated save key or stale quota flag.
+  const snapshot=()=>JSON.stringify({state:options.partialize({...store.getState()}),version:options.version});
+  const before=snapshot();
+  if(localStorage.getItem(options.name)===before)return snapshot()===before;
+  // Save the live state without importing an older backup or discarding a pending answer.
   store.setState({});
-  const state=options.partialize({...store.getState()});
-  const expected=JSON.stringify({state,version:options.version});
-  return localStorage.getItem(options.name)===expected;
+  const after=snapshot();
+  // If an answer arrived while the retry was running, do not claim success.
+  return localStorage.getItem(options.name)===after && snapshot()===after;
  })().catch(()=>false).finally(()=>{recovering=null});
  return recovering;
 }
