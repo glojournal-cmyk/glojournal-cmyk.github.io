@@ -12,6 +12,8 @@ on:
     paths:
       - "assets/index-BLVOhKhN.core.js"
       - "tests/p0-saving-fault-injection.mjs"
+      - "tests/recovery-persistence-regression.mjs"
+      - "assets/backup-vault-20261011.js"
       - ".github/workflows/p0-saving-fault-injection.yml"
   workflow_dispatch:
 jobs:
