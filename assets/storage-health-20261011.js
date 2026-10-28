@@ -20,7 +20,8 @@
     }catch{root.__luxStoreQuotaFailed=true;root.__luxUnsavedStudyChanges=true;paint({saved:false,quota:true})}
     finally{
       recovering=false;
-      if(button){button.disabled=false;button.textContent="Retry saving"}
+      // paint() replaces the retry button while recovering; refresh the live button, not the detached one.
+      paint({saved:!root.__luxUnsavedStudyChanges,quota:root.__luxStoreQuotaFailed});
     }
   }
   // A large fixed failure banner obstructed the iPad Daily Practice screen.
