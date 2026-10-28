@@ -1,5 +1,5 @@
 export { component } from "./routes-BEd1a0JC.core.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
-import { C as store } from "./index-BLVOhKhN.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1";
+import { C as store } from "./index-BLVOhKhN.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1&mpverify=20261028-1";
 
 // Avoid repeatedly parsing the multi-megabyte practice draft and assessment
 // storage on every decorative Home mutation. Invalidate on real store updates.
