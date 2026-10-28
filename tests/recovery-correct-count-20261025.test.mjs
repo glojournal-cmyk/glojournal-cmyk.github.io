@@ -81,3 +81,23 @@ test('Active Practice and completion bridge are not capped at Standard 10 or ful
  assert.doesNotMatch(quest,/if\(unique\.size<Number\(target\.target\)\)/);
  assert.match(runtime,/if\(creditedExplicit&&correct===true\)saveRecoveryReceipt/);
 });
+
+test('completed dated Recovery receipt restores 8/15 Daily row without replacing later study',()=>{
+ const missed='2026-10-26',next='2026-10-28';
+ const row={id:'year8-long-review',target:15,progress:8,done:false};
+ const original={date:missed,tasks:[row],done:0,total:1,complete:false};
+ const later={date:next,tasks:[{id:'latin-vocab',target:30,progress:4}],done:0,total:1};
+ const state={recoveryTaskByDay:{[missed]:{'year8-long-review':{
+   completed:true,originalCount:0,totalNeeded:15,
+   items:Object.fromEntries(Array.from({length:15},(_,i)=>['genuine-'+i,true]))
+ }}},dailyLog:{[missed]:original,[next]:later}};
+ const repaired=reconcileRecoveredTaskHistory(state,state.dailyLog);
+ assert.equal(repaired[missed].tasks[0].progress,15);
+ assert.equal(repaired[missed].tasks[0].done,true);
+ assert.equal(repaired[missed].tasks[0].recovered,true);
+ assert.equal(repaired[next],later);
+ const absent=reconcileRecoveredTaskHistory({...state,recoveryTaskByDay:{[missed]:{'year8-long-review':{
+    completed:true,originalCount:0,totalNeeded:15,items:{}
+ }}}},state.dailyLog);
+ assert.equal(absent[missed].tasks[0].progress,8,'bare completion flag cannot fabricate credit');
+});
