@@ -19,7 +19,7 @@ file.addEventListener("change",async()=>{
  const data=JSON.parse(await f.text()),src=data?.petCompanion;
  if(data?.app!=="lux-scholar-garden"||!src||src.unlockedSecrets?.["snow-owl"]!==true)throw Error("Not an original Snow Owl unlock backup.");
  if(Number(src.petLevels?.["snow-owl"])<2)throw Error("No earned Snow Owl Level 2 recorded.");
- const paid=(src.mpHistory||[]).some(v=>v?.kind==="evolution"&&v?.species==="snow-owl"&&Number(v.from)===1&&Number(v.to)===2&&Number(v.amount)===-50);
+ const paid=(src.mpTransactions||[]).some(v=>v?.kind==="evolution"&&v?.species==="snow-owl"&&Number(v.from)===1&&Number(v.to)===2&&Number(v.amount)===-50);
  if(!paid)throw Error("Paid Level 1 to 2 evolution receipt is missing. No changes made.");
  const raw=localStorage.getItem(KEY);if(!raw)throw Error("No current pet record on this device.");
  const live=JSON.parse(raw);if(!live||typeof live!=="object"||Array.isArray(live))throw Error("Device pet state unreadable.");
