@@ -56,4 +56,23 @@ state.xp+=1;
 assert.equal(await recoverProgressStorage(store),true,"optional backup read error must not block saving");
 assert.equal(JSON.parse(data.get(options.name)).state.xp,state.xp,"latest learner XP survives backup read fault");
 backupReadFault=false;
+// A full primary store may be blocked by an obsolete backup occupying storage.
+// The verified archive should release only that backup, then save the live state.
+data.set("lux-progress-auto-v1",JSON.stringify({app:"lux-scholar-garden",savedAt:"2026-10-27T12:00:00Z",data:JSON.stringify({app:"lux-scholar-garden",state:{xp:100,daily:[]}})}));
+const preserved=data.get("lux-progress-auto-v1");
+const underlyingSet=globalThis.localStorage.setItem;
+let archiveCleared=false;
+globalThis.localStorage.setItem=(key,value)=>{
+ if(key===options.name&&!archiveCleared)throw Object.assign(new Error("quota exceeded"),{name:"QuotaExceededError"});
+ return underlyingSet(key,value);
+};
+globalThis.localStorage.removeItem=(key)=>{if(key==="lux-progress-auto-v1"){archiveCleared=true;data.delete(key);}else data.delete(key)};
+state.xp+=1;
+// This test cannot emulate IndexedDB archival in Node, so verify that an
+// unavailable IndexedDB does NOT silently delete the original backup.
+assert.equal(await recoverProgressStorage(store),false,"quota remains a failure when archive is unavailable");
+assert.equal(data.get("lux-progress-auto-v1"),preserved,"backup must be retained when no verified archive exists");
+globalThis.localStorage.setItem=underlyingSet;
+assert.equal(await recoverProgressStorage(store),true,"live state saves after capacity is available");
+assert.equal(JSON.parse(data.get(options.name)).state.xp,state.xp,"latest XP is saved after recovery");
 console.log("PASS: saving retry, reload, outfit/game/daily preservation and concurrent progress race");
