@@ -1,9 +1,9 @@
 import assert from "node:assert/strict";
 import {recoverProgressStorage} from "../assets/backup-vault-20261011.js";
 
-const data=new Map();let mode="ok";let writes=0;
+const data=new Map();let mode="ok";let writes=0;let backupReadFault=false;
 globalThis.localStorage={
- getItem(k){return data.get(k)??null},
+ getItem(k){if(backupReadFault&&k==="lux-progress-auto-v1")throw Error("backup read failed");return data.get(k)??null},
  setItem(k,v){writes++;if(mode==="quota")throw Object.assign(new Error("quota"),{name:"QuotaExceededError"});if(mode==="no-op")return;data.set(k,v)},
  removeItem(k){data.delete(k)}
 };
@@ -50,4 +50,10 @@ assert.notEqual(data.get(options.name),expected(),"concurrent progress must rema
 store.setState=originalSetState;
 assert.equal(await recoverProgressStorage(store),true,"concurrent newer answer should be saved on next retry");
 assert.equal(JSON.parse(data.get(options.name)).state.xp,state.xp,"newest XP must survive retry");
+// A damaged optional backup must not prevent saving the current learner state.
+backupReadFault=true;
+state.xp+=1;
+assert.equal(await recoverProgressStorage(store),true,"optional backup read error must not block saving");
+assert.equal(JSON.parse(data.get(options.name)).state.xp,state.xp,"latest learner XP survives backup read fault");
+backupReadFault=false;
 console.log("PASS: saving retry, reload, outfit/game/daily preservation and concurrent progress race");
