@@ -4,7 +4,7 @@ const MAIN="lux-scholar-garden-v1",PET="lux-pet-companion-v1",get=id=>document.g
 let snapshot=null;
 const object=x=>x&&typeof x==="object"&&!Array.isArray(x)?x:{};
 const count=x=>Array.isArray(x)?x.length:Object.keys(object(x)).length;
-function read(key){let raw=localStorage.getItem(key);if(!raw)return {found:false,valid:false,bytes:0,data:null};try{let data=JSON.parse(raw);return {found:true,valid:!!data&&typeof data==="object",bytes:raw.length,data}}catch(e){return {found:true,valid:false,bytes:raw.length,data:null,error:String(e)}}}
+function read(key){let raw;try{raw=localStorage.getItem(key)}catch(e){return {found:false,valid:false,bytes:0,data:null,error:"Storage access failed: "+String(e)}}if(!raw)return {found:false,valid:false,bytes:0,data:null};try{let data=JSON.parse(raw);return {found:true,valid:!!data&&typeof data==="object"&&!Array.isArray(data),bytes:raw.length,data}}catch(e){return {found:true,valid:false,bytes:raw.length,data:null,error:String(e)}}}
 function run(){
  const m=read(MAIN),p=read(PET),state=object(m.data?.state||m.data);
  const pet=object(p.data),day=String(state.today||"");
