@@ -377,8 +377,35 @@ function renderWallet(pet){
  let panel=document.getElementById('mp-wallet-history');if(!panel){panel=document.createElement('details');panel.id='mp-wallet-history';panel.className='pet-card';document.querySelector('main').append(panel)}
  const rows=walletRows(pet),names=walletCatalog||{};
  panel.innerHTML=`<summary>Mastery Points · wallet history</summary><p>Available: <b>${pet.masteryPoints} MP</b>. First mastery: +10 MP; a qualifying retention pass: +2 MP. Each evolution spends MP on the selected companion only.</p><p>Earlier spending before this update was not recorded. Your saved balance is preserved.</p>${rows.length?`<table><thead><tr><th>Date</th><th>Reason</th><th>MP</th></tr></thead><tbody>${rows.slice(0,100).map(row=>`<tr><td>${safeWalletText(row.at?new Date(row.at).toLocaleString('en-GB'):'Earlier record')}</td><td>${safeWalletText(row.kind==='evolution'?`${pets.find(p=>p.id===row.species)?.name||'Companion'} · Level ${row.from} → ${row.to}`:`${row.kind==='mastery'?'First mastery':'Retention pass'} · ${names[row.topicId]||'Topic mastery'}`)}</td><td>${Number(row.amount)>0?'+':''}${Number(row.amount)||0}</td></tr>`).join('')}</tbody></table>`:'<p>No recorded transactions yet. Earn MP through formal mastery and retention.</p>'}`;
+ installPetWalletSnapshotExport();
  if(!walletCatalog){walletCatalog={};fetch('/content/catalog.json').then(r=>r.json()).then(d=>{walletCatalog=Object.fromEntries((d.topics||[]).map(t=>[t.topicId,t.title]));renderWallet(readPet())}).catch(()=>{})}
+}
+
+function installPetWalletSnapshotExport(){
+  const panel=document.getElementById("mp-wallet-history");
+  if(!panel||document.getElementById("exportPetWalletSnapshot"))return;
+  const button=document.createElement("button");
+  button.type="button";
+  button.id="exportPetWalletSnapshot";
+  button.textContent="Export this pet wallet (diagnostic)";
+  button.style.cssText="margin:12px 0;padding:10px 14px;border-radius:10px;cursor:pointer";
+  button.addEventListener("click",()=>{
+    // Read the same live key as the Pet UI, not the separately hydrated learner state.
+    const raw=localStorage.getItem(PET_KEY);
+    if(!raw){window.alert("Pet wallet is not saved in this app context. No file created.");return}
+    let pet;try{pet=JSON.parse(raw)}catch{window.alert("Pet wallet cannot be read. No file created.");return}
+    if(!pet||typeof pet!=="object"||Array.isArray(pet)){window.alert("Invalid pet wallet. No file created.");return}
+    const snapshot={app:"lux-scholar-garden",type:"pet-wallet-diagnostic",exportedAt:new Date().toISOString(),
+      context:{origin:location.origin,displayMode:matchMedia("(display-mode: standalone)").matches?"standalone":"browser"},
+      petCompanion:pet};
+    const blob=new Blob([JSON.stringify(snapshot,null,2)],{type:"application/json"});
+    const url=URL.createObjectURL(blob),a=document.createElement("a");
+    a.download="scholar-pet-wallet-"+new Date().toISOString().slice(0,10)+".json";a.href=url;
+    document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+  });
+  panel.append(button);
 }
 
 buildChooser();
 render();
+installPetWalletSnapshotExport();
