@@ -11,7 +11,7 @@
     const button=document.getElementById("lux-storage-retry");
     if(button){button.disabled=true;button.textContent="Saving…"}
     try{
-      const vault=await import("./backup-vault-20261011.js?v=20261028-retry-race2");
+      const vault=await import("./backup-vault-20261011.js?v=20261028-vault-isolation1");
       const saved=await vault.recoverProgressStorage(store);
       // A completed primary write is required; an archived backup alone is not success.
       root.__luxStoreQuotaFailed=!saved;
