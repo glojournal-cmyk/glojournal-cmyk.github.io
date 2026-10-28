@@ -18,13 +18,13 @@ const storage={
   removeItem(k){backing.delete(k)}
 };
 const window={localStorage:storage,dispatchEvent(e){statuses.push(e.detail)},__luxStoreQuotaFailed:false};
-const ctx=vm.createContext({window,CustomEvent:class{constructor(type,opts){this.type=type;this.detail=opts.detail}},console,JSON,Error,String,Promise,Number,Object,Set,Map});
+const ctx=vm.createContext({window,gw:fn=>({getItem:k=>{const v=fn().getItem(k);return v?JSON.parse(v):null},setItem:(k,v)=>fn().setItem(k,JSON.stringify(v)),removeItem:k=>fn().removeItem(k)}),_w:fn=>(...args)=>Promise.resolve().then(()=>fn(...args)),CustomEvent:class{constructor(type,opts){this.type=type;this.detail=opts.detail}},console,JSON,Error,String,Promise,Number,Object,Set,Map});
 const persist=vm.runInContext("("+middleware+")",ctx);
 function serialize(obj){return JSON.stringify(obj)}
 function store(){
  let state;
  const api={setState(update){state={...state,...update}},getState(){return state}};
- const creator=persist((set,get)=>({xp:0,gameRewardByDay:{},unlockedOutfits:["day"],setXP:x=>set({xp:x})}),{name:"test-scholar",storage:{getItem:key=>{let v=storage.getItem(key);return v?JSON.parse(v):null},setItem:(key,v)=>storage.setItem(key,serialize(v))}});
+ const creator=persist((set,get)=>({xp:0,gameRewardByDay:{},unlockedOutfits:["day"],setXP:x=>set({xp:x})}),{name:"test-scholar"});
  state=creator(update=>api.setState(update),()=>state,api);
  return {api,get:()=>state};
 }
