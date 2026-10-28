@@ -73,7 +73,8 @@ export function migrateOldBackups(){
  archiving=(async()=>{
   let moved=0,failed=0;
   for(const key of KEYS){
-   const original=localStorage.getItem(key);
+   let original;
+   try{original=localStorage.getItem(key)}catch{failed++;continue}
    let local;try{local=JSON.parse(original||"null")}catch{continue}
    if(!validSnapshot(local))continue;
    try{
@@ -104,7 +105,7 @@ let recovering=null;
 export function recoverProgressStorage(store){
  if(recovering)return recovering;
  recovering=(async()=>{
-  await migrateOldBackups();
+  try{await migrateOldBackups()}catch(error){console.warn("Optional backup migration failed; retrying primary learner save",error)}
   if(!store?.getState||!store?.setState||store.persist?.hasHydrated?.()===false)return false;
   const options=store.persist?.getOptions?.();
   if(!options||options.name!=="lux-scholar-garden-v1")return false;
