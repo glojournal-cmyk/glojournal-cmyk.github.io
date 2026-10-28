@@ -105,7 +105,11 @@ function readPet(){
   }catch{return {species:"moss-hornling",name:"",masteryPoints:0,petLevels:Object.fromEntries(pets.map(p=>[p.id,1]))}}
 }
 function savePet(next){
-  localStorage.setItem(PET_KEY,JSON.stringify(next));
+  const encoded=JSON.stringify(next);
+  localStorage.setItem(PET_KEY,encoded);
+  if(localStorage.getItem(PET_KEY)!==encoded){
+    throw new Error("Pet save verification failed. Existing progress was not confirmed.");
+  }
   window.dispatchEvent(new CustomEvent("scholar:pet-changed",{detail:next}));
 }
 function todayKey(){
@@ -145,7 +149,7 @@ function syncHiddenUnlocks(pet,state){
   if(!newlyUnlocked.length) return pet;
   const next={...pet,unlockedSecrets:{...pet.unlockedSecrets}};
   newlyUnlocked.forEach(id=>next.unlockedSecrets[id]=true);
-  localStorage.setItem(PET_KEY,JSON.stringify(next));
+  savePet(next);
   return next;
 }
 function petLevel(pet,species=pet.species){return clampPetLevel(pet.petLevels?.[species])}
