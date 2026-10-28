@@ -162,7 +162,7 @@ function hiddenUnlocked(pet,id,state){
 function syncHiddenUnlocks(pet,state){
   const ids=["snow-owl","night-spider"];
   const newlyUnlocked=ids.filter(id=>!pet.unlockedSecrets?.[id]&&hiddenUnlocked(pet,id,state));
-  if(!newlyUnlocked.length) return pet;
+  if(!newlyUnlocked.length){window.__luxPetUnlockSaveFailed=false;return pet;}
   const next={...pet,unlockedSecrets:{...pet.unlockedSecrets}};
   newlyUnlocked.forEach(id=>next.unlockedSecrets[id]=true);
   try{
