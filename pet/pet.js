@@ -91,6 +91,19 @@ function readPet(){
     const raw=localStorage.getItem(PET_KEY);
     const parsed=raw?JSON.parse(raw):{};
     if(raw&&(!parsed||typeof parsed!=="object"||Array.isArray(parsed))) throw new Error("Saved Pet wallet is not an object");
+    // A parseable but structurally corrupt wallet must never silently reset MP or pet levels.
+    if(raw){
+      if(parsed.masteryPoints!==undefined&&(!Number.isFinite(parsed.masteryPoints)||parsed.masteryPoints<0))
+        throw new Error("Saved Pet masteryPoints is invalid");
+      for(const key of ["petLevels","unlockedSecrets","mpLedger","careByPet"]){
+        if(parsed[key]!==undefined&&(parsed[key]===null||typeof parsed[key]!=="object"||Array.isArray(parsed[key])))
+          throw new Error("Saved Pet "+key+" is invalid");
+      }
+      if(parsed.mpTransactions!==undefined&&!Array.isArray(parsed.mpTransactions))
+        throw new Error("Saved Pet mpTransactions is invalid");
+      if(parsed.petLevels&&Object.values(parsed.petLevels).some(level=>!Number.isInteger(level)||level<1||level>MAX_PET_LEVEL))
+        throw new Error("Saved Pet petLevels contains invalid level");
+    }
     window.__luxPetReadFailed=false;
     const chosen=pets.find(p=>p.id===parsed?.species);
     const species=chosen&&(!chosen.secret||parsed?.unlockedSecrets?.[chosen.id])?chosen.id:"moss-hornling";
