@@ -29,4 +29,25 @@ assert.equal(await recoverProgressStorage(store),false,"silent dropped write det
 mode="ok";
 assert.equal(await recoverProgressStorage(store),true,"retry saves latest in-memory state");
 assert.equal(data.get(options.name),expected(),"latest state retained after successful retry");
-console.log("PASS: saving retry; exact byte verification; quota, dropped write and recovery");
+// Simulate an app restart by reading only the actual persisted bytes.
+const reloaded=JSON.parse(data.get(options.name)).state;
+assert.equal(reloaded.xp,state.xp,"XP must survive reload");
+assert.deepEqual(reloaded.unlockedOutfits,state.unlockedOutfits,"outfit unlocks must survive reload");
+assert.deepEqual(reloaded.gameRewardByDay,state.gameRewardByDay,"game receipts must survive reload");
+assert.deepEqual(reloaded.dailyLog,state.dailyLog,"Daily completion must survive reload");
+
+// Simulate a concurrent new answer arriving while the retry is writing.
+let injected=false;
+const originalSetState=store.setState;
+store.setState=()=>{
+  const prior=expected();
+  globalThis.localStorage.setItem(options.name,prior);
+  if(!injected){state.xp+=5;injected=true;}
+};
+state.xp+=1;
+assert.equal(await recoverProgressStorage(store),false,"stale save must never be reported as current");
+assert.notEqual(data.get(options.name),expected(),"concurrent progress must remain unsaved until retried");
+store.setState=originalSetState;
+assert.equal(await recoverProgressStorage(store),true,"concurrent newer answer should be saved on next retry");
+assert.equal(JSON.parse(data.get(options.name)).state.xp,state.xp,"newest XP must survive retry");
+console.log("PASS: saving retry, reload, outfit/game/daily preservation and concurrent progress race");
