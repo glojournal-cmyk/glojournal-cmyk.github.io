@@ -1,9 +1,9 @@
 import assert from "node:assert/strict";
 import {recoverProgressStorage} from "../assets/backup-vault-20261011.js";
 
-const data=new Map();let mode="ok";let writes=0;let backupReadFault=false;
+const data=new Map();let mode="ok";let writes=0;let backupReadFault=false;let backupReadFailures=0;
 globalThis.localStorage={
- getItem(k){if(backupReadFault&&k==="lux-progress-auto-v1")throw Error("backup read failed");return data.get(k)??null},
+ getItem(k){if(backupReadFault&&k==="lux-progress-auto-v1"){backupReadFailures++;throw Error("backup read failed")}return data.get(k)??null},
  setItem(k,v){writes++;if(mode==="quota")throw Object.assign(new Error("quota"),{name:"QuotaExceededError"});if(mode==="no-op")return;data.set(k,v)},
  removeItem(k){data.delete(k)}
 };
@@ -50,12 +50,19 @@ assert.notEqual(data.get(options.name),expected(),"concurrent progress must rema
 store.setState=originalSetState;
 assert.equal(await recoverProgressStorage(store),true,"concurrent newer answer should be saved on next retry");
 assert.equal(JSON.parse(data.get(options.name)).state.xp,state.xp,"newest XP must survive retry");
-// A damaged optional backup must not prevent saving the current learner state.
+// Exercise the ACTUAL migration path: first save must fail, forcing a
+// backup read, and that read fails too. No success or destructive cleanup.
 backupReadFault=true;
+mode="quota";
 state.xp+=1;
-assert.equal(await recoverProgressStorage(store),true,"optional backup read error must not block saving");
-assert.equal(JSON.parse(data.get(options.name)).state.xp,state.xp,"latest learner XP survives backup read fault");
+const persistedBeforeBackupFault=data.get(options.name);
+assert.equal(await recoverProgressStorage(store),false,"failed primary save plus damaged backup must not report saved");
+assert.ok(backupReadFailures>0,"backup read fault must actually be exercised");
+assert.equal(data.get(options.name),persistedBeforeBackupFault,"old durable learner data must remain untouched");
 backupReadFault=false;
+mode="ok";
+assert.equal(await recoverProgressStorage(store),true,"latest progress must be saved after backup fault clears");
+assert.equal(JSON.parse(data.get(options.name)).state.xp,state.xp,"latest learner XP survives real backup read fault");
 // A full primary store may be blocked by an obsolete backup occupying storage.
 // The verified archive should release only that backup, then save the live state.
 data.set("lux-progress-auto-v1",JSON.stringify({app:"lux-scholar-garden",savedAt:"2026-10-27T12:00:00Z",data:JSON.stringify({app:"lux-scholar-garden",state:{xp:100,daily:[]}})}));
