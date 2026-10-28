@@ -245,7 +245,14 @@ function petDisplayName(pet){
 function petById(id){return pets.find(p=>p.id===id)||pets[0]}
 function render(){
   const state=readAppState();
-  const pet=syncHiddenUnlocks(readPet(),state);
+  const loadedPet=readPet();
+  if(window.__luxPetReadFailed){
+    document.getElementById("petTitle").textContent="Pet data needs recovery";
+    document.getElementById("petSubtitle").textContent="Saved wallet could not be read. No pet changes will be saved.";
+    installPetWalletSnapshotExport();
+    return;
+  }
+  const pet=syncHiddenUnlocks(loadedPet,state);
   const species=petById(pet.species);
   const leaves=masteryCount(state);
   const stage=petLevel(pet);
@@ -419,7 +426,9 @@ function installPetWalletSnapshotExport(){
     if(!pet||typeof pet!=="object"||Array.isArray(pet)){window.alert("Invalid pet wallet. No file created.");return}
     const snapshot={app:"lux-scholar-garden",type:"pet-wallet-diagnostic",exportedAt:new Date().toISOString(),
       context:{origin:location.origin,displayMode:matchMedia("(display-mode: standalone)").matches?"standalone":"browser"},
-      petCompanion:pet};
+      petCompanion:pet,
+      petWalletStorageRaw:localStorage.getItem(PET_KEY),
+      petWalletReadFailed:Boolean(window.__luxPetReadFailed)};
     const blob=new Blob([JSON.stringify(snapshot,null,2)],{type:"application/json"});
     const url=URL.createObjectURL(blob),a=document.createElement("a");
     a.download="scholar-pet-wallet-"+new Date().toISOString().slice(0,10)+".json";a.href=url;
