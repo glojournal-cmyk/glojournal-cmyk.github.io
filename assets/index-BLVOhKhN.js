@@ -2292,7 +2292,9 @@ function awardMasteryPoints(kind, topicId) {
       masteryPoints: Math.max(0, Number(petState.masteryPoints) || 0) + amount,
       mpLedger: ledger,
     };
-    localStorage.setItem(PET_REWARD_KEY, JSON.stringify(next));
+    const encoded = JSON.stringify(next);
+    localStorage.setItem(PET_REWARD_KEY, encoded);
+    if (localStorage.getItem(PET_REWARD_KEY) !== encoded) throw new Error("Mastery Points save verification failed");
     window.dispatchEvent(new CustomEvent("scholar:mp-changed", { detail: { amount, balance: next.masteryPoints, kind, topicId } }));
     return amount;
   } catch {
