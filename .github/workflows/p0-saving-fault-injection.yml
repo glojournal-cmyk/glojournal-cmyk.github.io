@@ -1,0 +1,24 @@
+name: P0 Saving Fault Injection
+on:
+  push:
+    branches: [main]
+    paths:
+      - "assets/index-BLVOhKhN.core.js"
+      - "tests/p0-saving-fault-injection.mjs"
+      - ".github/workflows/p0-saving-fault-injection.yml"
+  pull_request:
+    paths:
+      - "assets/index-BLVOhKhN.core.js"
+      - "tests/p0-saving-fault-injection.mjs"
+      - ".github/workflows/p0-saving-fault-injection.yml"
+  workflow_dispatch:
+jobs:
+  saving-p0:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node tests/p0-saving-fault-injection.mjs
