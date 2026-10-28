@@ -164,7 +164,13 @@ export function reconcileRecoveredTaskHistory(state, existingLog) {
       const target=Math.max(1,Number(task.target)||1);
       const initial=Math.max(0,Number(proof.originalCount??task.progress)||0);
       const attempts=countProof(task.id,proof);
-      const progress=Math.min(target,Math.max(Number(task.progress)||0,initial+attempts));
+      // A prior verified Recovery completion may have been saved before its
+       // dailyLog commit (notably iPad quota errors). Restore that receipt
+       // only when marked question evidence still exists; never grant credit
+       // from a bare completed flag without answers.
+       const verifiedComplete=proof.completed===true&&attempts>0;
+       const progress=verifiedComplete?target:
+         Math.min(target,Math.max(Number(task.progress)||0,initial+attempts));
       if(progress<=Number(task.progress||0))return task;
       changed=true;
       const done=progress>=target;
