@@ -165,8 +165,15 @@ function syncHiddenUnlocks(pet,state){
   if(!newlyUnlocked.length) return pet;
   const next={...pet,unlockedSecrets:{...pet.unlockedSecrets}};
   newlyUnlocked.forEach(id=>next.unlockedSecrets[id]=true);
-  savePet(next);
-  return next;
+  try{
+    savePet(next);
+    window.__luxPetUnlockSaveFailed=false;
+    return next;
+  }catch(error){
+    window.__luxPetUnlockSaveFailed=true;
+    console.error("Pet secret unlock could not be saved; original wallet preserved",error);
+    return pet;
+  }
 }
 function petLevel(pet,species=pet.species){return clampPetLevel(pet.petLevels?.[species])}
 function evolutionCost(stage){return stage>=MAX_PET_LEVEL?0:evolutionCosts[stage-1]}
@@ -257,6 +264,11 @@ function render(){
     return;
   }
   const pet=syncHiddenUnlocks(loadedPet,state);
+  let warning=document.getElementById("pet-unlock-save-warning");
+  if(window.__luxPetUnlockSaveFailed){
+    if(!warning){warning=document.createElement("p");warning.id="pet-unlock-save-warning";warning.setAttribute("role","status");warning.style.cssText="padding:8px;border:1px solid #b78b48;border-radius:8px";document.querySelector("main")?.prepend(warning)}
+    if(warning)warning.textContent="A pet unlock could not be saved. Keep the app open and retry after freeing storage; no existing pet data was reset.";
+  }else warning?.remove();
   const species=petById(pet.species);
   const leaves=masteryCount(state);
   const stage=petLevel(pet);
