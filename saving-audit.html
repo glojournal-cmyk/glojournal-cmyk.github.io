@@ -12,8 +12,8 @@ function run(){
  m.valid=Boolean(m.valid&&Number.isFinite(state.xp)&&state.xp>=0);
  p.valid=Boolean(p.valid&&Number.isFinite(pet.masteryPoints)&&pet.masteryPoints>=0);
  const list=[
- ["Main learner save",m.found?(m.valid?"JSON saved ("+m.bytes+" chars)":"Unreadable JSON"):"No saved state",m.valid?"Present":"Needs investigation"],
- ["Pet wallet",p.found?(p.valid?"JSON saved ("+p.bytes+" chars)":"Unreadable JSON"):"No pet state",p.valid?"Present":"Needs investigation"],
+ ["Main learner save",m.found?(m.valid?"JSON saved ("+m.bytes+" chars)":m.data?"Incomplete learner record":"Unreadable JSON"):"No saved state",m.valid?"Present":"Needs investigation"],
+ ["Pet wallet",p.found?(p.valid?"JSON saved ("+p.bytes+" chars)":p.data?"Incomplete Pet wallet":"Unreadable JSON"):"No pet state",p.valid?"Present":"Needs investigation"],
  ["Outfits",count(state.unlockedOutfits)+" unlocks; equipped "+String(state.equippedOutfit||"none"),Array.isArray(state.unlockedOutfits)&&state.unlockedOutfits.includes(state.equippedOutfit)?"Consistent":"Check equipped item"],
  ["Scenes",count(state.unlockedScenes)+" unlocks; equipped "+String(state.equippedScene||"none"),Array.isArray(state.unlockedScenes)&&state.unlockedScenes.includes(state.equippedScene)?"Consistent":"Check equipped scene"],
  ["Games",count(state.games)+" game entries; "+count(state.gamePractice)+" practice entries","Review rewards"],
