@@ -16,4 +16,6 @@ assert.equal(check(()=>"[1,2]").valid,false);
 const failed=check(()=>{throw new Error("Storage blocked")});
 assert.equal(failed.valid,false);
 assert.match(failed.error,/Storage access failed/);
+assert.ok(html.includes("Incomplete learner record"),"Incomplete learner save must have distinct status");
+assert.ok(html.includes("Incomplete Pet wallet"),"Incomplete Pet wallet must have distinct status");
 console.log("PASS: Audit fields, valid/corrupt JSON and blocked storage reads");
