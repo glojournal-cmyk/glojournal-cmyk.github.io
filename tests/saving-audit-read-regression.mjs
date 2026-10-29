@@ -5,6 +5,8 @@ const html=fs.readFileSync(new URL("../saving-audit.html",import.meta.url),"utf8
 for(const key of ["unlockedOutfits","equippedOutfit","unlockedScenes","equippedScene","gameRewardByDay","qualifyingGameByDay","rewardLedgerByDay","masteryPoints","mpLedger","petLevels","dailyCompleteAwarded"]){
  assert.ok(html.includes(key),"Audit missing saved field: "+key);
 }
+assert.ok(html.includes("Number.isFinite(state.xp)"),"Main save must validate XP rather than only JSON parse");
+assert.ok(html.includes("Number.isFinite(pet.masteryPoints)"),"Pet save must validate MP rather than only JSON parse");
 const start=html.indexOf("function read(key){"),end=html.indexOf("function run(){",start);
 assert.ok(start>0&&end>start,"Audit read function missing");
 function check(getItem){return vm.runInNewContext(html.slice(start,end)+"\nread('test')",{localStorage:{getItem}})}
