@@ -61,7 +61,10 @@ test('missing catalog lesson sources are reported by exact topic identity',()=>{
  assert.ok(c.uniqueCatalogTopicKeys<=c.topics);
  assert.ok(c.uniqueSourceTopicKeys<=report.sourceTopicFiles);
  assert.equal(c.duplicateCatalogTopics.reduce((n,x)=>n+x.count-1,0),
-  c.topics-c.uniqueCatalogTopicKeys);
+  c.actualTopicRows-c.uniqueCatalogTopicKeys);
+ assert.equal(c.declaredVsListedTopicDelta,c.topics-c.actualTopicRows);
+ assert.ok(c.declaredVsListedTopicDelta!==0,
+  'known catalog header/list discrepancy must remain visible until repaired');
  assert.equal(c.duplicateSourceTopics.reduce((n,x)=>n+x.count-1,0),
   report.sourceTopicFiles-c.uniqueSourceTopicKeys);
  assert.ok(c.missingSources.length>0,'known source gap must not disappear into aggregate totals');
