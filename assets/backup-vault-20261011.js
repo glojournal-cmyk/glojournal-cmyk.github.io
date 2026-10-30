@@ -112,19 +112,27 @@ export function recoverProgressStorage(store){
   // First try to save the latest learner state. Do not delay an ordinary retry
   // behind optional IndexedDB migration, which may be slow or unavailable.
   const attempt=()=>{
-    const expected=snapshot();
-    try{
-      if(localStorage.getItem(options.name)!==expected)store.setState({});
-      const after=snapshot();
-      return localStorage.getItem(options.name)===after&&snapshot()===after;
-    }catch{return false}
+    // A marked answer can arrive while the first write is in flight.
+    // Retry only when the PRIOR snapshot was verified as durable but the live
+    // state advanced; never retry a quota failure or silent no-op write.
+    for(let tries=0;tries<3;tries++){
+      const expected=snapshot();
+      try{
+        if(localStorage.getItem(options.name)!==expected)store.setState({});
+        const persisted=localStorage.getItem(options.name);
+        const current=snapshot();
+        if(persisted===current&&current===snapshot())return true;
+        if(persisted!==expected)return false;
+      }catch{return false}
+    }
+    return false;
   };
   // A durable primary is not sufficient to declare that a DIFFERENT store
-  // (e.g. the Pet wallet) recovered. Only an explicit cleared quota flag can
-  // confirm that a concurrent primary write resolved this recovery attempt.
+  // (e.g. the Pet wallet) recovered. An explicitly raised quota failure
+  // from another store must not be cleared by verifying this one primary.
   let alreadyDurable=false;
   try{alreadyDurable=localStorage.getItem(options.name)===snapshot()}catch{}
-  if(alreadyDurable)return globalThis.__luxStoreQuotaFailed===false;
+  if(alreadyDurable)return globalThis.__luxStoreQuotaFailed!==true;
 
   // When duplicate LOCAL backup snapshots occupy the quota, move them into
   // verified IndexedDB storage BEFORE triggering a state write. This avoids
