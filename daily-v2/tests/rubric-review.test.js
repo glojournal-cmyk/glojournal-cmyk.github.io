@@ -75,3 +75,55 @@ test('missing semantic rubric never allows marks, even if model text matches',()
  assert.throws(()=>previewDailyV2Rubric(topic,{...q,answer:{...q.answer,requiresSemanticAssessment:false}},
   q.answer.modelAnswer),/rubric_review/);
 });
+
+test('real Biology mark_points source can enter manual point-by-point review with no auto marks',async()=>{
+ const {readFileSync}=await import('node:fs');
+ const real=JSON.parse(readFileSync(new URL('../../content/topics/bio-y8-balanced-diet.json',import.meta.url),'utf8'));
+ const question=real.questions.find(x=>x.id==='bio-y8-balanced-diet-balanced-diet-explain');
+ assert.equal(question.answer.mode,'mark_points');
+ assert.equal(question.answer.markPoints.length,1);
+ const preview=previewDailyV2Rubric(real,question,'A balanced diet has all essential nutrients.');
+ assert.equal(preview.status,'review-required');
+ assert.equal(preview.sourceAnswerMode,'mark_points');
+ assert.equal(preview.marksEarned,null);
+ assert.equal(preview.correct,null);
+ assert.equal(preview.releaseGrade,false);
+ const reviewed=recordDailyV2RubricReview({
+  topic:real,question,studentResponse:'A balanced diet has all essential nutrients.',
+  sourceFingerprint:preview.sourceFingerprint,reviewerId:'test-independent-reviewer',
+  reviewId:'test-biology-001',pointAwards:[1],
+  reviewerNotes:['Reviewer explicitly checked the criterion against the submitted response']
+ });
+ assert.equal(reviewed.marksEarned,1);
+ assert.equal(reviewed.marksPossible,1);
+ assert.equal(reviewed.autoGraded,false);
+ assert.equal(reviewed.releaseGrade,false);
+});
+test('real source mark_points reviewer cannot grant grade from word match or missing notes',async()=>{
+ const {readFileSync}=await import('node:fs');
+ const real=JSON.parse(readFileSync(new URL('../../content/topics/bio-y8-balanced-diet.json',import.meta.url),'utf8'));
+ const question=real.questions.find(x=>x.id==='bio-y8-balanced-diet-carbohydrate-explain');
+ const sourceFingerprint=fingerprintDailyV2Source(real,question);
+ const preview=previewDailyV2Rubric(real,question,question.answer.modelAnswer);
+ assert.equal(preview.marksEarned,null,'matching the published answer is not automatic credit');
+ assert.throws(()=>recordDailyV2RubricReview({
+  topic:real,question,studentResponse:question.answer.modelAnswer,sourceFingerprint,
+  reviewerId:'reviewer',reviewId:'test',pointAwards:[1],reviewerNotes:['']
+ }),/reviewer evidence/);
+});
+test('source mark_points cannot be reviewed if its explicit mark ceiling conflicts with point count',()=>{
+ const p={...q,id:'mismatched-source-1',answer:{mode:'mark_points',markPoints:['first','second'],totalMarks:3}};
+ assert.throws(()=>previewDailyV2Rubric(topic,p,'first second'),/invalid scored mark-point rubric/);
+});
+test('editing an existing source mark point after preview invalidates the manual review receipt',async()=>{
+ const {readFileSync}=await import('node:fs');
+ const real=JSON.parse(readFileSync(new URL('../../content/topics/bio-y8-balanced-diet.json',import.meta.url),'utf8'));
+ const question=real.questions.find(x=>x.id==='bio-y8-balanced-diet-balanced-diet-explain');
+ const original=fingerprintDailyV2Source(real,question);
+ const altered={...question,answer:{...question.answer,markPoints:['changed scientific criterion']}};
+ assert.throws(()=>recordDailyV2RubricReview({
+  topic:real,question:altered,studentResponse:'Some nutrients',
+  sourceFingerprint:original,reviewerId:'reviewer',reviewId:'r1',
+  pointAwards:[0],reviewerNotes:['No point met']
+ }),/stale question/);
+});
