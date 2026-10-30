@@ -110,3 +110,47 @@ test('incomplete claimed legacy roster cannot be marked trusted',()=>{
   potentialKeysVerified:true,potentialKeysSource:'incomplete-roster'
  }}),/verified potential legacy keys/);
 });
+
+test('GCSE 1/3 then verified 3/3 retry improves marks but not question count',()=>{
+ let l=makeDailyV2Ledger(day);
+ const exam={taskId:'gcse-exam-skills',questionId:'gcse-3',conceptId:null,marksPossible:3};
+ l=projectSavedDailyV2Attempt(l,a({...exam,eventId:'partial',correct:false,marksEarned:1}));
+ l=projectSavedDailyV2Attempt(l,a({...exam,eventId:'retry',correct:true,marksEarned:3}));
+ const s=progress(l,'exam',3,'gcse-exam-skills');
+ assert.equal(s.verifiedProgress,1);
+ assert.deepEqual(s.examMarks,{earned:3,possible:3});
+ assert.equal(l.attempts.length,2,'preserve both saved answer events');
+});
+test('GCSE retry summary is independent of event order and never adds marks twice',()=>{
+ const exam={taskId:'gcse-exam-skills',questionId:'gcse-3',conceptId:null,marksPossible:3};
+ const events=[
+  a({...exam,eventId:'partial',correct:false,marksEarned:1}),
+  a({...exam,eventId:'retry',correct:true,marksEarned:3}),
+  a({...exam,eventId:'later-wrong',correct:false,marksEarned:0})
+ ];
+ for(const order of [events,[...events].reverse()]){
+  let l=makeDailyV2Ledger(day);
+  for(const e of order)l=projectSavedDailyV2Attempt(l,e);
+  const s=progress(l,'exam',3,'gcse-exam-skills');
+  assert.equal(s.verifiedProgress,1);
+  assert.deepEqual(s.examMarks,{earned:3,possible:3});
+ }
+});
+test('GCSE multi-question total uses best marks on each distinct original',()=>{
+ let l=makeDailyV2Ledger(day);
+ for(const [id,q,earned,possible] of [
+  ['a','g1',0,1],['b','g2',1,2],['c','g2',2,2],['d','g3',1,3]
+ ])l=projectSavedDailyV2Attempt(l,a({eventId:id,taskId:'gcse-exam-skills',
+  questionId:q,conceptId:null,correct:earned===possible,marksEarned:earned,marksPossible:possible}));
+ const s=progress(l,'exam',3,'gcse-exam-skills');
+ assert.equal(s.verifiedProgress,3);
+ assert.deepEqual(s.examMarks,{earned:3,possible:6});
+});
+test('conflicting possible marks in persisted GCSE history are not silently aggregated',()=>{
+ let l=makeDailyV2Ledger(day);
+ l=projectSavedDailyV2Attempt(l,a({eventId:'a',taskId:'gcse-exam-skills',questionId:'g1',
+  conceptId:null,correct:false,marksEarned:1,marksPossible:2}));
+ l=projectSavedDailyV2Attempt(l,a({eventId:'b',taskId:'gcse-exam-skills',questionId:'g1',
+  conceptId:null,correct:true,marksEarned:3,marksPossible:3}));
+ assert.throws(()=>progress(l,'exam',3,'gcse-exam-skills'),/conflicting exam maximum marks/);
+});
