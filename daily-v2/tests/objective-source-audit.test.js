@@ -37,3 +37,18 @@ test('source answer group collisions are explicitly exposed as manual review blo
  assert.equal(r.reviewRequired,1);
  assert.equal(r.autoCertified,0);
 });
+
+test('shared-answer groups generate distinct correct examples across real Biology question bank',()=>{
+ const r=runObjectiveSourceAudit();
+ const ids=['bio-y8-app-alcohol-foetus','bio-y8-app-gut-bacteria-two',
+  'bio-y8-app-low-fat','bio-y8-app-glucose-uses-four'];
+ for(const id of ids)assert.ok(!r.samples.some(x=>x.questionId===id),
+  'QA must not repeat one rubric alternative for every different-answer group: '+id);
+});
+test('two-mark-per-matching-pair original science sources remain visible for manual rubric design',()=>{
+ const r=runObjectiveSourceAudit();
+ for(const id of ['bio-y8-app-enzyme-pathways','bio-y8-app-food-test-match'])
+  assert.ok(r.samples.some(x=>x.questionId===id&&x.status==='review-required'),
+   'two scoring components per pair cannot be silently converted to one point: '+id);
+ assert.equal(r.autoCertified,0);
+});
