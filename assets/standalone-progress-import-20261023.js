@@ -311,6 +311,10 @@ export function commitToStorage(payload,existingRaw,storage){
     // drafts, pet progress, assessment data or other unrelated browser records.
     for(const [key,value] of additions){
       const previous=storage.getItem(key);
+      // Another Scholar/Pet tab may have created a wallet after preview
+      // and even after linkedAdditions planned the clean-device import.
+      // Never replace that newly saved MP, stages, unlocks, or ledger.
+      if(key===PET_WALLET_KEY&&previous!==null)continue;
       staged.push([key,previous]);
       storage.setItem(key,value);
       if(storage.getItem(key)!==value)throw Error("Could not verify linked "+key);
