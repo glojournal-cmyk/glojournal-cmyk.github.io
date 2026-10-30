@@ -96,9 +96,18 @@ test('iPad Home and 404 load the new Recovery badge fix through uncached modules
   const extras=from('assets/home-extras-restorer-20261023.js');
   const homeContinue=from('assets/home-continue-20261010.js');
   assert.equal(fallback,index,'deep link and Home use the same shell');
-  assert.match(index,/home-extras-restorer-20261023\.js[^"']*history=20261030-ten-core2/);
-  assert.match(extras,/home-continue-20261010\.js[^"']*history=20261030-ten-core2/);
-  assert.match(homeContinue,/home-rpg-live-20261019\.js[^"']*history=20261030-ten-core2/);
+  assert.match(index,/home-extras-restorer-20261023\.js[^"']*history=20261030-ten-core3/);
+  assert.match(extras,/home-continue-20261010\.js[^"']*history=20261030-ten-core3/);
+  assert.match(homeContinue,/home-rpg-live-20261019\.js[^"']*history=20261030-ten-core3/);
   assert.ok(code.includes('dailyHistorySummary(row,date)'));
   assert.ok(code.includes('summary.canonicalOnly'));
+});
+
+test('native Recovery module and its pure selector use a new iPad cache key',()=>{
+ const from=path=>fs.readFileSync(new URL('../'+path,import.meta.url),'utf8');
+ const extras=from('assets/home-extras-restorer-20261023.js');
+ const recovery=from('assets/quest-recovery-20261011.js');
+ assert.match(code,/quest-recovery-20261011\.js[^"']*ten=20261030-1/);
+ assert.match(extras,/quest-recovery-20261011\.js[^"']*ten=20261030-1/);
+ assert.match(recovery,/recovery-task-ledger-20261017\.js[^"']*ten=20261030-1/);
 });
