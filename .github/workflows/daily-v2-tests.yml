@@ -23,3 +23,5 @@ jobs:
           node-version: "22"
       - name: Run isolated Daily V2 tests
         run: node --test daily-v2/tests/*.test.js
+      - name: Print actual-source capacity acceptance report (read only)
+        run: node daily-v2/scripts/qa-real-capacity.mjs
