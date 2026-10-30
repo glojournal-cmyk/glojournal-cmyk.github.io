@@ -40,8 +40,9 @@ export function triageDailyV2Sources(topics=[]){
   else if(idCounts.get(question.id)>1)reasons.push('DUPLICATE_QUESTION_ID');
   if(str(question.topicId)&&question.topicId!==topic.topicId)reasons.push('QUESTION_TOPIC_MISMATCH');
   if(!str(question.prompt))reasons.push('MISSING_PROMPT');
-  const {accepted,validMarkPoints,validPairs,validGroups,validNumeric,validCategories,
-   hasMarkingEvidence,requiresScoringAdapter}=inspectDailyV2AnswerShape(question.answer);
+  const {validMarkPoints,validPairs,validGroups,validNumeric,validCategories,
+   hasMarkingEvidence,structuredMode,structuredEvidence,requiresScoringAdapter}
+    =inspectDailyV2AnswerShape(question.answer);
   if(!hasMarkingEvidence)reasons.push('MISSING_MARKING_CONTENT');
   // The current certifying adapter accepts only answer.accepted[]. A genuine
   // source rubric of another mode is structurally meaningful, but still needs
