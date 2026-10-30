@@ -21,10 +21,13 @@ export function triageDailyV2Sources(topics=[]){
   }
  }
  const bySubjectYear={},reasonCounts={},samples={};
- let supported=0,ready=0,repair=0,unsupported=0;
+ let supported=0,ready=0,repair=0,unsupported=0,rubricReview=0;
+ const rubricSamples=[];
  for(const {topic,question} of inventory){
   const key=String(topic.subject)+'-y'+String(topic.year);
-  const bucket=bySubjectYear[key]||(bySubjectYear[key]={records:0,readyForReview:0,needsRepair:0,unsupported:0});
+  const bucket=bySubjectYear[key]||(bySubjectYear[key]={
+   records:0,readyForReview:0,needsRepair:0,unsupported:0,manualMarkPointReview:0
+  });
   bucket.records++;
   if(!SUBJECTS.has(topic.subject)){unsupported++;bucket.unsupported++;continue;}
   supported++;
@@ -34,9 +37,19 @@ export function triageDailyV2Sources(topics=[]){
   else if(idCounts.get(question.id)>1)reasons.push('DUPLICATE_QUESTION_ID');
   if(str(question.topicId)&&question.topicId!==topic.topicId)reasons.push('QUESTION_TOPIC_MISMATCH');
   if(!str(question.prompt))reasons.push('MISSING_PROMPT');
-  if(!Array.isArray(question.answer?.accepted)||
-     !question.answer.accepted.some(str))
-   reasons.push('MISSING_ACCEPTED_ANSWER');
+  const accepted=Array.isArray(question.answer?.accepted)&&question.answer.accepted.some(str);
+  const validMarkPoints=question.answer?.mode==='mark_points'&&
+   Array.isArray(question.answer.markPoints)&&question.answer.markPoints.length>0&&
+   question.answer.markPoints.every(str);
+  if(!accepted&&!validMarkPoints)reasons.push('MISSING_MARKING_CONTENT');
+  // An existing mark_points rubric is NOT a missing answer. It must be
+  // independently checked and explicitly integrated into manual partial-credit
+  // scoring before any learner-facing Daily V2 use.
+  if(validMarkPoints){
+   rubricReview++;bucket.manualMarkPointReview++;
+   if(rubricSamples.length<6)rubricSamples.push({topicId:topic.topicId,
+    questionId:question.id,subject:topic.subject,year:topic.year});
+  }
   if(reasons.length){
    repair++;bucket.needsRepair++;
    for(const reason of reasons){
@@ -55,9 +68,11 @@ export function triageDailyV2Sources(topics=[]){
   unsupportedSubjectRecords:unsupported,
   readyForHumanReview:ready,
   needsSourceRepair:repair,
+  requiresManualMarkPointReview:rubricReview,
+  markPointReviewSamples:rubricSamples,
   bySubjectYear,
   reasonCounts,samples,
   curriculumCertified:0,
-  note:'Structural review candidates only. Every role, lexical concept, mark point and cognitive level requires independent human approval.'
+  note:'Review candidates include source mark_points rubrics, not automatic grading. Mark points require independently reviewed partial-credit logic before Daily certification.'
  };
 }
