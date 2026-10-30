@@ -10,7 +10,7 @@ const restorer = read('assets/home-extras-restorer-20261023.js');
 const html = read('index.html');
 
 test('RPG Recovery actually loads the dated task panel on tap, not an empty-state timer', () => {
- assert.match(home, /void import\('\.\/quest-recovery-20261011\.js\?v=20261026-bio-year9-savefix2'\)/);
+ assert.match(home, /void import\('\.\/quest-recovery-20261011\.js\?v=20261026-bio-year9-savefix2&ten=20261030-1'\)/);
  assert.match(home, /module\.mountRecoveryPanel\(\)/);
  assert.doesNotMatch(home, /No Recovery tasks are currently available/);
  assert.match(quest, /export function mountRecoveryPanel\(\)/);
