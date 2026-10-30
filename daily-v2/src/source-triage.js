@@ -1,3 +1,4 @@
+import {inspectDailyV2AnswerShape} from './source-answer.js';
 /* Daily V2 actual-source review triage, not automatic curriculum certification.
  * Read-only: evaluate individual active source records before any claim of
  * independently approved roles, grading or daily-question capacity.
@@ -39,38 +40,13 @@ export function triageDailyV2Sources(topics=[]){
   else if(idCounts.get(question.id)>1)reasons.push('DUPLICATE_QUESTION_ID');
   if(str(question.topicId)&&question.topicId!==topic.topicId)reasons.push('QUESTION_TOPIC_MISMATCH');
   if(!str(question.prompt))reasons.push('MISSING_PROMPT');
-  const accepted=Array.isArray(question.answer?.accepted)&&question.answer.accepted.some(str);
-  const validMarkPoints=question.answer?.mode==='mark_points'&&
-   Array.isArray(question.answer.markPoints)&&question.answer.markPoints.length>0&&
-   question.answer.markPoints.every(str);
-  const validPairs=question.answer?.mode==='pair_map'&&
-   Array.isArray(question.answer.pairs)&&question.answer.pairs.length>0&&
-   question.answer.pairs.every(p=>str(p?.left)&&str(p?.right));
-  const validGroups=['unordered_required_groups','semantic_groups'].includes(question.answer?.mode)&&
-   Array.isArray(question.answer.requiredGroups)&&
-   question.answer.requiredGroups.length>0&&
-   question.answer.requiredGroups.every(g=>
-    Array.isArray(g?.alternatives)&&g.alternatives.some(str));
-  const validNumeric=question.answer?.mode==='numeric'&&
-   typeof question.answer.value==='number'&&Number.isFinite(question.answer.value)&&
-   (question.answer.tolerance===undefined||
-    (typeof question.answer.tolerance==='number'&&
-     Number.isFinite(question.answer.tolerance)&&question.answer.tolerance>=0))&&
-   (question.answer.units===undefined||
-    (Array.isArray(question.answer.units)&&question.answer.units.every(str)));
-  const categories=question.answer?.categories;
-  const validCategories=question.answer?.mode==='category_map'&&
-   categories!==null&&typeof categories==='object'&&!Array.isArray(categories)&&
-   Object.keys(categories).length>0&&
-   Object.values(categories).every(vals=>Array.isArray(vals)&&vals.length>0&&
-    vals.every(v=>str(v)||(typeof v==='number'&&Number.isFinite(v))));
-  if(!accepted&&!validMarkPoints&&!validPairs&&!validGroups&&!validNumeric&&!validCategories)
-   reasons.push('MISSING_MARKING_CONTENT');
+  const {accepted,validMarkPoints,validPairs,validGroups,validNumeric,validCategories,
+   hasMarkingEvidence,requiresScoringAdapter}=inspectDailyV2AnswerShape(question.answer);
+  if(!hasMarkingEvidence)reasons.push('MISSING_MARKING_CONTENT');
   // The current certifying adapter accepts only answer.accepted[]. A genuine
   // source rubric of another mode is structurally meaningful, but still needs
   // a separately validated scoring adapter before Daily can use it.
-  if(!accepted&&(validMarkPoints||validPairs||validGroups||validNumeric||validCategories))
-   adapterIntegration++;
+  if(requiresScoringAdapter)adapterIntegration++;
   if(validPairs||validGroups||validNumeric||validCategories){
    structuredReview++;bucket.structuredAnswerReview++;
    if(structuredSamples.length<6)structuredSamples.push({topicId:topic.topicId,
