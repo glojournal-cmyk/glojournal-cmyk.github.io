@@ -213,3 +213,45 @@ test('globally invalid duplicate question IDs withhold ALL continuity candidates
  assert.equal(result.preflight.globallyUnsafe,true);
  assert.deepEqual(result.eligibleTasks,[]);
 });
+
+test('previously correct GCSE ID is not served as a fresh exam question',()=>{
+ const f=fixture();
+ f.priorAttempts.push({eventId:'exam-yesterday',day:'2026-10-25',
+  taskId:'gcse-exam-skills',questionId:'gcse-2',correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(d=>d.code==='EXCLUSIVE_EXAM_MARK_SHORTAGE'&&d.marks===2));
+ assert.deepEqual(r.tasks,[]);
+});
+
+test('relabelled GCSE question with old correct wording is still excluded',()=>{
+ const f=fixture();
+ const old=f.questionBank.find(q=>q.id==='gcse-2');
+ f.questionBank.push({...old,id:'gcse-2-copy'});
+ f.priorAttempts.push({eventId:'exam-before',day:'2026-10-24',
+  taskId:'gcse-exam-skills',questionId:old.id,correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(d=>d.code==='EXCLUSIVE_EXAM_MARK_SHORTAGE'&&d.marks===2));
+});
+
+test('genuinely different GCSE question substitutes for a previously correct one',()=>{
+ const f=fixture();
+ const old=f.questionBank.find(q=>q.id==='gcse-2');
+ f.questionBank.push({...old,id:'gcse-2-fresh',prompt:'Explain two independent safeguards in a novel GCSE experiment.'});
+ f.priorAttempts.push({eventId:'exam-before',day:'2026-10-24',
+  taskId:'gcse-exam-skills',questionId:old.id,correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready');
+ assert.ok(kinds(r).get('gcse-exam-skills').questionIds.includes('gcse-2-fresh'));
+ assert.ok(!kinds(r).get('gcse-exam-skills').questionIds.includes('gcse-2'));
+});
+
+test('an incorrectly answered prior GCSE question remains eligible for retry',()=>{
+ const f=fixture();
+ f.priorAttempts.push({eventId:'exam-wrong',day:'2026-10-24',
+  taskId:'gcse-exam-skills',questionId:'gcse-2',correct:false,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready');
+ assert.ok(kinds(r).get('gcse-exam-skills').questionIds.includes('gcse-2'));
+});
