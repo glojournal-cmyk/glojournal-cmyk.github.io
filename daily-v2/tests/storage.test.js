@@ -193,3 +193,70 @@ test('persisted GCSE resubmission improves awarded marks without a second comple
  assert.equal(replay.alreadyRecorded,true);
  assert.deepEqual(replay.progress.examMarks,{earned:3,possible:3});
 });
+
+test('a newly saved correct answer credits exactly one verified unit',async()=>{
+ const repo=createMemoryDailyV2Repository();await commitDailyV2Plan(repo,plan());
+ const r=await commitDailyV2Answer(repo,answer());
+ assert.deepEqual({creditDelta:r.creditDelta,examMarkDelta:r.examMarkDelta,newVerifiedCredit:r.newVerifiedCredit},
+  {creditDelta:1,examMarkDelta:0,newVerifiedCredit:true});
+});
+test('incorrect saved attempt is durable but creates no verified progress or reward signal',async()=>{
+ const repo=createMemoryDailyV2Repository();await commitDailyV2Plan(repo,plan());
+ const r=await commitDailyV2Answer(repo,answer({correct:false}));
+ assert.equal(r.verified,true);
+ assert.equal(r.creditDelta,0);assert.equal(r.newVerifiedCredit,false);
+ assert.equal(repo.readOnlySnapshot(day).ledger.attempts.length,1);
+});
+test('the same event retry reports zero new credits even after a newer answer was saved',async()=>{
+ const repo=createMemoryDailyV2Repository();await commitDailyV2Plan(repo,plan());
+ await commitDailyV2Answer(repo,answer());
+ await commitDailyV2Answer(repo,answer({eventId:'next',questionId:'latin-vocab-q1',conceptId:'latin-word1'}));
+ const r=await commitDailyV2Answer(repo,answer());
+ assert.equal(r.alreadyRecorded,true);
+ assert.equal(r.creditDelta,0);assert.equal(r.examMarkDelta,0);
+ assert.equal(r.progress.verifiedProgress,2);
+});
+test('new event ID answering an already credited vocab concept never earns a second credit',async()=>{
+ const repo=createMemoryDailyV2Repository();await commitDailyV2Plan(repo,plan());
+ await commitDailyV2Answer(repo,answer());
+ const again=await commitDailyV2Answer(repo,answer({eventId:'retyped-identical-question'}));
+ assert.equal(again.alreadyRecorded,false,'a distinct retry event is kept for audit');
+ assert.equal(again.creditDelta,0);assert.equal(again.newVerifiedCredit,false);
+ assert.equal(again.progress.verifiedProgress,1);
+});
+test('opaque legacy 28/30 accepts a saved event but issues no unverified reward delta',async()=>{
+ const repo=createMemoryDailyV2Repository();await commitDailyV2Plan(repo,plan(),{
+  legacyBaselines:{'latin-vocab':{count:28,knownKeys:[]}}});
+ const r=await commitDailyV2Answer(repo,answer());
+ assert.equal(r.verified,true);assert.equal(r.creditDelta,0);
+ assert.equal(r.progress.pendingUnreconciledCredits,1);
+});
+test('a wrong answer followed by a verified correct retry credits only at successful retry',async()=>{
+ const repo=createMemoryDailyV2Repository();await commitDailyV2Plan(repo,plan());
+ const wrong=await commitDailyV2Answer(repo,answer({correct:false}));
+ const corrected=await commitDailyV2Answer(repo,answer({eventId:'second',correct:true}));
+ assert.equal(wrong.creditDelta,0);assert.equal(corrected.creditDelta,1);
+ assert.equal(corrected.progress.verifiedProgress,1);
+});
+test('GCSE first partial answer credits question once while later improved score only adds marks',async()=>{
+ const repo=createMemoryDailyV2Repository();await commitDailyV2Plan(repo,plan());
+ const exam={taskId:'gcse-exam-skills',questionId:'gcse-exam-skills-q2',
+  conceptId:null,marksPossible:3};
+ const first=await commitDailyV2Answer(repo,answer({...exam,eventId:'first',correct:false,marksEarned:1}));
+ const improved=await commitDailyV2Answer(repo,answer({...exam,eventId:'improved',correct:true,marksEarned:3}));
+ const worse=await commitDailyV2Answer(repo,answer({...exam,eventId:'worse',correct:false,marksEarned:0}));
+ assert.deepEqual([first.creditDelta,first.examMarkDelta],[1,1]);
+ assert.deepEqual([improved.creditDelta,improved.examMarkDelta],[0,2]);
+ assert.deepEqual([worse.creditDelta,worse.examMarkDelta],[0,0]);
+ assert.deepEqual(worse.progress.examMarks,{earned:3,possible:3});
+});
+test('two concurrent submissions of the same vocab concept have a combined verified delta of one',async()=>{
+ const repo=createMemoryDailyV2Repository();await commitDailyV2Plan(repo,plan());
+ const receipts=await Promise.all([
+  commitDailyV2Answer(repo,answer({eventId:'phone-tab'})),
+  commitDailyV2Answer(repo,answer({eventId:'ipad-tab'}))
+ ]);
+ assert.equal(receipts.reduce((n,r)=>n+r.creditDelta,0),1);
+ assert.equal(receipts.filter(r=>r.newVerifiedCredit).length,1);
+ assert.equal(repo.readOnlySnapshot(day).ledger.attempts.length,2);
+});
