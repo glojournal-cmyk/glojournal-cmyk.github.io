@@ -7,6 +7,13 @@
 import {makeDailyV2Ledger,projectSavedDailyV2Attempt,summarizeDailyV2Task} from './ledger.js';
 import {DAILY_V2_TASKS} from './planner.js';
 import {isValidDailyV2Day} from './calendar.js';
+import {previewFrozenDailyV2ObjectiveSubmission} from './staging-score-gate.js';
+import {digestDailyV2Value,verifyDailyV2SignedReceipt} from './grade-receipt.js';
+
+// Private capability: cannot be created by a caller passing an option or JSON.
+// The only issuer here is the TEST-ONLY signed receipt validation function.
+const STAGING_SIGNED_RECEIPT_TOKEN=Symbol('staging signed grade receipt');
+const TEST_ONLY_MEMORY_REPOSITORIES=new WeakSet();
 
 const clone = value=>value===undefined?undefined:JSON.parse(JSON.stringify(value));
 function requireV2(ok,msg){if(!ok)throw new Error('DailyV2 storage: '+msg);}
@@ -129,7 +136,7 @@ export async function commitDailyV2Plan(repo,plan,{legacyBaselines={},maxRetries
  }
  throw new Error('DailyV2 storage: VERSION_CONFLICT: plan save retries exhausted');
 }
-export async function commitDailyV2Answer(repo,attempt,{maxRetries=8}={}){
+export async function commitDailyV2Answer(repo,attempt,{maxRetries=8,stagingSignedToken=null}={}){
  // Do not accidentally treat a staging score preview or unapproved manual
  // review as a trusted graded attempt. This is a misuse guard, NOT
  // authentication: the future production caller must independently verify
@@ -152,7 +159,9 @@ export async function commitDailyV2Answer(repo,attempt,{maxRetries=8}={}){
   // verification receipt, NEVER trust caller-supplied "correct"/marks for a
   // real signed question. A caller could strip staging metadata otherwise.
   // The old unsigned synthetic/legacy storage contract remains testable.
-  requireV2(question.sourceFingerprint===undefined,
+  requireV2(question.sourceFingerprint===undefined||
+    (stagingSignedToken===STAGING_SIGNED_RECEIPT_TOKEN&&
+     TEST_ONLY_MEMORY_REPOSITORIES.has(repo)),
     'SOURCE_BOUND_GRADE_RELEASE_NOT_APPROVED: signed roster requires trusted scorer integration');
   if(task.kind==='vocab')requireV2(attempt.conceptId===question.conceptId,'answer concept does not match frozen roster');
   if(task.kind==='exam'){
@@ -192,7 +201,7 @@ export async function commitDailyV2Answer(repo,attempt,{maxRetries=8}={}){
 /** TEST ONLY. Volatile, no disk backup, no iPad reliability guarantees. */
 export function createMemoryDailyV2Repository({failWrites=0}={}){
  const rows=new Map();let remaining=failWrites;
- return {
+ const repo={
   async read(day){return clone(rows.get(day)||null);},
   async compareAndSwap(day,expectedRevision,next){
    if(remaining>0){remaining--;throw new Error('SIMULATED_STORAGE_FAILURE');}
@@ -202,5 +211,62 @@ export function createMemoryDailyV2Repository({failWrites=0}={}){
   },
   /** QA-only visibility. */
   readOnlySnapshot(day){return clone(rows.get(day)||null);}
+ };
+ TEST_ONLY_MEMORY_REPOSITORIES.add(repo);
+ return repo;
+}
+
+
+/**
+ * Explicit STAGING-ONLY rehearsal of the full certificate -> signed receipt ->
+ * idempotent CAS ledger contract, using createMemoryDailyV2Repository ONLY.
+ *
+ * Public/private keys, reviewer manifest and signer are externally supplied;
+ * no approved keys or real curriculum reviews exist in the repository.
+ * This is NOT an authenticated pupil-facing submission or release API.
+ */
+export async function commitSignedDailyV2AnswerForStaging(repo,{
+ payload,signatureHex,trustedPublicKeys,reviewManifest,
+ day,taskId,questionId,topic,question,response
+}={}){
+ requireV2(TEST_ONLY_MEMORY_REPOSITORIES.has(repo),
+  'STAGING_MEMORY_ONLY: cannot write signed grade into production storage');
+ const snapshot=await readRow(repo,day);
+ requireV2(snapshot.plan?.version===2,'NO_FROZEN_DAILY_PLAN');
+ const staged=await previewFrozenDailyV2ObjectiveSubmission(repo,{
+  day,taskId,questionId,topic,question,response});
+ requireV2(staged.reviewRequired===false&&Number.isInteger(staged.marksEarned)&&
+  Number.isInteger(staged.marksPossible)&&typeof staged.correct==='boolean',
+  'SCORING_REQUIRES_REVIEW: objective preview is not fully gradeable');
+ const planDigest=await digestDailyV2Value(snapshot.plan);
+ const answerDigest=await digestDailyV2Value(response);
+ const expected={
+  eventId:payload?.eventId,day,taskId,questionId,
+  sourceFingerprint:staged.sourceFingerprint,answerDigest,planDigest,
+  marksEarned:staged.marksEarned,marksPossible:staged.marksPossible,
+  correct:staged.correct
+ };
+ await verifyDailyV2SignedReceipt({payload,signatureHex,trustedPublicKeys,
+  reviewManifest,expected,allowedScorerId:'daily-v2-objective-v1'});
+ const task=snapshot.plan.tasks.find(t=>t.id===taskId);
+ const questionRoster=task.questions.find(q=>q.questionId===questionId);
+ const attempt={
+  eventId:payload.eventId,day,taskId,questionId,
+  conceptId:questionRoster.conceptId??null,
+  correct:staged.correct
+ };
+ if(task.kind==='exam'){
+  requireV2(staged.marksPossible===questionRoster.marks,
+   'SIGNED_GCSE_MARK_CEILING_MISMATCH');
+  attempt.marksPossible=staged.marksPossible;
+  attempt.marksEarned=staged.marksEarned;
+ }
+ const committed=await commitDailyV2Answer(repo,attempt,{
+  stagingSignedToken:STAGING_SIGNED_RECEIPT_TOKEN});
+ return {
+  ...committed,verifiedSignature:true,stagingOnly:true,
+  // In-memory test progress only: never turn the receipt into XP, MP or
+  // live Daily completion. Production integration requires separate approval.
+  releaseGrade:false,ledgerEligible:false,awardXP:false,awardMP:false
  };
 }
