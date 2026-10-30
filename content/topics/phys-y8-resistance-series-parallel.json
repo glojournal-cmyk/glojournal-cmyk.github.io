@@ -246,10 +246,14 @@
           "10 / 2.0 = 5 Ω."
         ],
         "totalMarks": 2,
-        "units": [],
+        "units": [
+          "Ω",
+          "ohm",
+          "ohms"
+        ],
         "value": 5,
         "tolerance": 0.001,
-        "modelAnswer": "5"
+        "modelAnswer": "5 Ω"
       },
       "stimulus": {},
       "feedback": {
