@@ -204,6 +204,12 @@ test('restore requires durable safeguard and verified primary persistence',async
  ctx.mergeDailyHistory=(a={},b={})=>({...a,...b});
  vm.runInContext(file('assets/backup-import-safety-20261023.js')
    .replace(/\bexport /g,'')+'\nthis.mergeImportProgress=mergeImportProgress;',ctx,{timeout:4000});
+ // The live restore now checks and protects the independent Pet wallet.
+ // Exercise the actual helper in this isolated VM, not a permissive stub.
+ vm.runInContext(file('assets/pet-wallet-backup-20261030.js')
+   .replace(/\bexport /g,'')+'\nthis.includePetWalletBackup=includePetWalletBackup;'+
+   'this.inspectPetWalletBackup=inspectPetWalletBackup;'+
+   'this.restorePetWalletBackup=restorePetWalletBackup;',ctx,{timeout:4000});
  vm.runInContext(source.slice(i,j)+'\nthis.restoreTest=restore',ctx,{timeout:4000});
  await ctx.restoreTest(payload(state(0)),'Backup');
  assert.equal(protectedCopy.done,2);
