@@ -1,0 +1,29 @@
+name: Live GitHub Pages iPad production smoke 20261030
+on:
+  push:
+    branches: [qa/live-github-pages-ipad-20261030]
+    paths:
+      - tests/live-production-ipad-20261030.mjs
+      - .github/workflows/live-production-ipad-20261030.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  production-ipad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Open real published GitHub Pages in desktop Chromium and iPad WebKit
+        run: node tests/live-production-ipad-20261030.mjs
+      - name: Keep read-only real-production screenshots and results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gloria-real-production-ipad-20261030
+          path: test-results/live-production-20261030/
+          if-no-files-found: warn
