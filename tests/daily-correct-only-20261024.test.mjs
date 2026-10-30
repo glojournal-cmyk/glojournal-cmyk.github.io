@@ -81,3 +81,24 @@ test('Current-day dated record may correct old inflated attempts without erasing
   assert.equal(next[day].tasks.find(t=>t.id===task.id).progress,1);
   assert.equal(next['2026-10-23'],prior['2026-10-23']);
 });
+
+test('partially lost journal never erases genuinely saved Daily progress',()=>{
+  const start=state(),plan=buildYear8DailyV2(start,get);
+  const task=find(plan,'y8-standard-a');
+  const prior=plan.map(t=>t.id===task.id?{...t,progress:7}:t);
+  const events=[ev(task,'q0',false,'0'),ev(task,'q1',true,'1')];
+  const next=buildYear8DailyV2({...start,daily:prior,formalAttemptLog:events},get);
+  assert.equal(find(next,task.id).progress,7);
+  assert.equal(find(next,task.id).correctOnlyEvidence,undefined);
+});
+test('full marked-answer proof can correct wrong-inclusive legacy Daily progress without deleting answer events',()=>{
+  const start=state(),plan=buildYear8DailyV2(start,get),task=find(plan,'y8-standard-a');
+  const attempts=[ev(task,'q0',false,'0'),ev(task,'q1',true,'1')];
+  const prior=plan.map(t=>t.id===task.id?{...t,progress:2}:t);
+  const before=JSON.stringify(prior),eventsBefore=JSON.stringify(attempts);
+  const corrected=buildYear8DailyV2({...start,daily:prior,formalAttemptLog:attempts},get);
+  assert.equal(find(corrected,task.id).progress,1);
+  assert.equal(find(corrected,task.id).correctOnlyEvidence,true);
+  assert.equal(JSON.stringify(prior),before);
+  assert.equal(JSON.stringify(attempts),eventsBefore);
+});
