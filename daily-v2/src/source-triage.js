@@ -21,7 +21,8 @@ export function triageDailyV2Sources(topics=[]){
   }
  }
  const bySubjectYear={},reasonCounts={},samples={};
- let supported=0,ready=0,repair=0,unsupported=0,rubricReview=0,structuredReview=0;
+ let supported=0,ready=0,repair=0,unsupported=0,rubricReview=0,structuredReview=0,
+  adapterIntegration=0;
  const rubricSamples=[],structuredSamples=[];
  for(const {topic,question} of inventory){
   const key=String(topic.subject)+'-y'+String(topic.year);
@@ -65,6 +66,11 @@ export function triageDailyV2Sources(topics=[]){
     vals.every(v=>str(v)||(typeof v==='number'&&Number.isFinite(v))));
   if(!accepted&&!validMarkPoints&&!validPairs&&!validGroups&&!validNumeric&&!validCategories)
    reasons.push('MISSING_MARKING_CONTENT');
+  // The current certifying adapter accepts only answer.accepted[]. A genuine
+  // source rubric of another mode is structurally meaningful, but still needs
+  // a separately validated scoring adapter before Daily can use it.
+  if(!accepted&&(validMarkPoints||validPairs||validGroups||validNumeric||validCategories))
+   adapterIntegration++;
   if(validPairs||validGroups||validNumeric||validCategories){
    structuredReview++;bucket.structuredAnswerReview++;
    if(structuredSamples.length<6)structuredSamples.push({topicId:topic.topicId,
@@ -99,6 +105,7 @@ export function triageDailyV2Sources(topics=[]){
   needsSourceRepair:repair,
   requiresManualMarkPointReview:rubricReview,
   requiresStructuredAnswerReview:structuredReview,
+  requiresScoringAdapterIntegration:adapterIntegration,
   markPointReviewSamples:rubricSamples,
   structuredReviewSamples:structuredSamples,
   bySubjectYear,
