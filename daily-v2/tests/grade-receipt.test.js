@@ -17,6 +17,7 @@ const day='2026-10-30',taskId='science-standard',questionId=question.id;
 const fp=fingerprintDailyV2Source(source,question);
 const response='7128 kJ/day';
 const eventId='qa-signed-event-001',keyId='qa-ephemeral-key';
+const ledgerScope='qa-pseudonymous-learner-a';
 const scorerId='daily-v2-objective-v1',scorerVersion='qa-v1';
 const reviewId='qa-independent-reviewed-001';
 
@@ -55,7 +56,7 @@ async function signed(ctx,overrides={}){
  const staged=await previewFrozenDailyV2ObjectiveSubmission(ctx.repo,{
   day,taskId,questionId,topic:source,question,response});
  const payload=makeDailyV2UnsignedReceipt({
-  keyId,eventId,day,taskId,questionId,sourceFingerprint:fp,
+  keyId,eventId,ledgerScope,day,taskId,questionId,sourceFingerprint:fp,
   answerDigest:await digestDailyV2Value(response),
   planDigest:await digestDailyV2Value(ctx.plan),
   scorerId,scorerVersion,reviewId,marksEarned:staged.marksEarned,
@@ -66,7 +67,7 @@ async function signed(ctx,overrides={}){
 }
 const submit=(ctx,receipt,overrides={})=>commitSignedDailyV2AnswerForStaging(ctx.repo,{
  ...receipt,trustedPublicKeys:ctx.trustedPublicKeys,
- reviewManifest:ctx.reviewManifest,day,taskId,questionId,
+ reviewManifest:ctx.reviewManifest,ledgerScope,day,taskId,questionId,
  topic:source,question,response,...overrides
 });
 test('signed receipt is a canonical stable projection, with no private signing key in repo',async()=>{
@@ -78,7 +79,7 @@ test('signed receipt is a canonical stable projection, with no private signing k
   ...r,trustedPublicKeys:ctx.trustedPublicKeys,reviewManifest:ctx.reviewManifest,
   allowedScorerId:scorerId,
   expected:{
-   eventId,day,taskId,questionId,sourceFingerprint:fp,
+   eventId,ledgerScope,day,taskId,questionId,sourceFingerprint:fp,
    answerDigest:r.payload.answerDigest,planDigest:r.payload.planDigest,
    marksEarned:2,marksPossible:2,correct:true
   }
@@ -169,7 +170,7 @@ test('production-shaped repository object is always rejected by staged signed co
   compareAndSwap:()=>{throw Error('must never write');}};
  await assert.rejects(commitSignedDailyV2AnswerForStaging(external,{
   ...receipt,trustedPublicKeys:ctx.trustedPublicKeys,reviewManifest:ctx.reviewManifest,
-  day,taskId,questionId,topic:source,question,response
+  ledgerScope,day,taskId,questionId,topic:source,question,response
  }),/STAGING_MEMORY_ONLY/);
  assert.deepEqual(ctx.repo.readOnlySnapshot(day),prior);
 });
@@ -185,4 +186,17 @@ test('extra fields or malicious JSON cannot change canonical signed protocol',as
   releaseGrade:true}),/UNEXPECTED_RECEIPT_FIELDS/);
  assert.throws(()=>serializeDailyV2GradeReceipt({...receipt.payload,
   marksEarned:3}),/INVALID_MARKS/);
+});
+
+test('grade signed for one learner scope cannot be replayed into a different learner profile',async()=>{
+ const ctx=await setup(),receipt=await signed(ctx),prior=ctx.repo.readOnlySnapshot(day);
+ await assert.rejects(submit(ctx,receipt,{ledgerScope:'qa-pseudonymous-learner-b'}),
+  /RECEIPT_BINDING_MISMATCH_LEDGERSCOPE/);
+ assert.deepEqual(ctx.repo.readOnlySnapshot(day),prior);
+});
+test('a receipt with missing learner scope is invalid before signature verification',async()=>{
+ const ctx=await setup(),receipt=await signed(ctx);
+ assert.throws(()=>serializeDailyV2GradeReceipt({...receipt.payload,ledgerScope:''}),
+  /MISSING_LEDGERSCOPE/);
+ await assert.rejects(submit(ctx,receipt,{ledgerScope:''}),/TRUSTED_LEDGER_SCOPE_REQUIRED/);
 });
