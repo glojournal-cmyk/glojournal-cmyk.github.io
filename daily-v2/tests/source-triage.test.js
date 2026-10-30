@@ -161,3 +161,25 @@ test('invalid numeric tolerance or empty classification must not be silently rev
  assert.equal(r.needsSourceRepair,3);
  assert.equal(r.reasonCounts.MISSING_MARKING_CONTENT,3);
 });
+
+test('semantic_groups natural-language grading rubrics exist and require separate scoring review',()=>{
+ const r=triageDailyV2Sources([make('french',[
+  q('age-dialogue',{answer:{mode:'semantic_groups',requiredGroups:[
+   {label:'question',alternatives:['quel âge as-tu']},
+   {label:'answer',alternatives:["j'ai","j ai"]}
+  ]}})
+ ])]);
+ assert.equal(r.readyForHumanReview,1);
+ assert.equal(r.needsSourceRepair,0);
+ assert.equal(r.requiresStructuredAnswerReview,1);
+});
+test('numeric pH category maps are valid sorting answers, not missing source content',()=>{
+ const r=triageDailyV2Sources([make('chemistry',[
+  q('pH',{answer:{mode:'category_map',categories:{
+   acidic:[1,5],neutral:[7],alkaline:[8,12]
+  }}})
+ ])]);
+ assert.equal(r.readyForHumanReview,1);
+ assert.equal(r.needsSourceRepair,0);
+ assert.equal(r.requiresStructuredAnswerReview,1);
+});
