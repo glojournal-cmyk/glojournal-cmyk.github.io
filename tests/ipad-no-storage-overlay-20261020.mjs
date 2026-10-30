@@ -12,7 +12,7 @@ assert.ok(source.includes("root.__luxStoreQuotaFailed=!saved"),"do not falsely m
 assert.ok(!source.includes("localStorage.clear("));
 for(const path of ["index.html","404.html"]){
  const page=fs.readFileSync(path,"utf8");
- assert.ok(page.includes("storage-health-20261011.js?v=20261020-no-overlay1"),"new script must be cache-busted on "+path);
+ assert.match(page,/storage-health-20261011\.js\?v=20261030-[a-z0-9-]+/i,"fixed storage script must be cache-busted on "+path);
 }
 const origin="http://127.0.0.1";
 const html='<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"></head>'+

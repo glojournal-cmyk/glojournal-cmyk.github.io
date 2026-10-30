@@ -25,6 +25,9 @@
   // Keep the failure flags, events, automatic retry and genuine read-back
   // verification. Save/Backup controls can read this unobtrusive state.
   function paint(detail){
+    // Cached pre-fix builds may have left an obstructive warning behind.
+    // Remove that DOM element without clearing quota flags or saved data.
+    document.getElementById('lux-storage-warning')?.remove();
     const failed=detail?.saved===false||root.__luxUnsavedStudyChanges===true;
     if(document.documentElement){
       document.documentElement.dataset.luxSaveState=failed?'unsaved':
