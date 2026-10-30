@@ -11,6 +11,7 @@ on:
       - "assets/recovery-question-diversity-20261025.js"
       - "tests/recovery-question-diversity-20261025.test.mjs"
       - "tests/recovery-correct-count-20261025.test.mjs"
+      - "tests/recovery-empty-french-20261030.test.mjs"
       - ".github/workflows/recovery-integrity.yml"
   pull_request:
     paths:
@@ -22,6 +23,7 @@ on:
       - "assets/recovery-question-diversity-20261025.js"
       - "tests/recovery-question-diversity-20261025.test.mjs"
       - "tests/recovery-correct-count-20261025.test.mjs"
+      - "tests/recovery-empty-french-20261030.test.mjs"
 jobs:
   recovery-regression:
     runs-on: ubuntu-latest
@@ -36,4 +38,4 @@ jobs:
       - name: Check dated Recovery and historical Daily Records
         run: |
           node qa/recovery-consistency.test.mjs
-          node --test tests/recovery-correct-count-20261025.test.mjs tests/recovery-question-diversity-20261025.test.mjs
+          node --test tests/recovery-correct-count-20261025.test.mjs tests/recovery-question-diversity-20261025.test.mjs tests/recovery-empty-french-20261030.test.mjs
