@@ -119,10 +119,26 @@ export function recoverProgressStorage(store){
       return localStorage.getItem(options.name)===after&&snapshot()===after;
     }catch{return false}
   };
-  if(attempt())return true;
-  // Only use the verified archive migration as a quota recovery measure.
-  // It must never restore old study data over current unanswered work.
-  try{await migrateOldBackups()}catch(error){console.warn("Optional backup migration failed; retrying current progress",error)}
+  // A durable primary is not sufficient to declare that a DIFFERENT store
+  // (e.g. the Pet wallet) recovered. Only an explicit cleared quota flag can
+  // confirm that a concurrent primary write resolved this recovery attempt.
+  let alreadyDurable=false;
+  try{alreadyDurable=localStorage.getItem(options.name)===snapshot()}catch{}
+  if(alreadyDurable)return globalThis.__luxStoreQuotaFailed===false;
+
+  // When duplicate LOCAL backup snapshots occupy the quota, move them into
+  // verified IndexedDB storage BEFORE triggering a state write. This avoids
+  // two writes under quota pressure and preserves every original snapshot if
+  // the vault fails; migrateOldBackups removes only byte-verified copies.
+  // Without valid local duplicates the live save is retried immediately.
+  let hasLocalDuplicates=false;
+  try{hasLocalDuplicates=KEYS.some(key=>fromLocal(key)!==null)}catch{}
+  if(hasLocalDuplicates){
+    try{await migrateOldBackups()}catch(error){
+      console.warn("Optional backup migration failed; retrying current progress",error)
+    }
+  }
+  // Never restore an older backup over the newest live learner state.
   return attempt();
  })().catch(()=>false).finally(()=>{recovering=null});
  return recovering;
