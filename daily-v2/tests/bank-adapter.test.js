@@ -142,3 +142,32 @@ test('changing any manually reviewed source GCSE marking rubric requires re-cert
  const changed=q('q1',{markScheme:['not the reviewed point']});
  assert.notEqual(fingerprintDailyV2Source(topic([changed]),changed),certFingerprint);
 });
+
+test('certification must not accept a question whose own topic ID points elsewhere',()=>{
+ const wrong=q('q1',{topicId:'foreign-topic'});
+ const found=topic([wrong]);
+ const c={reviewed:true,reviewer:'independent-reviewer',reviewedAt:'2026-10-30',
+  roles:['latin-standard'],skill:'translation',
+  sourceFingerprint:fingerprintDailyV2Source(found,wrong)};
+ const r=adaptCertifiedDailyV2Bank({topics:[found],certifications:{q1:c}});
+ assert.equal(r.summary.certified,0);
+ assert.ok(r.errors.some(e=>e.code==='QUESTION_TOPIC_MISMATCH'));
+});
+test('source question topic reassignment invalidates an older reviewed fingerprint',()=>{
+ const original=q();
+ const fingerprint=fingerprintDailyV2Source(topic(),original);
+ const edited=q('q1',{topicId:'another-topic'});
+ assert.notEqual(fingerprint,fingerprintDailyV2Source(topic([edited]),edited));
+});
+test('empty or non-text accepted answer cannot pass even with reviewer metadata',()=>{
+ for(const accepted of [[],[''],['   '],[null],[0]]) {
+  const edited=q('q1',{answer:{mode:'text',accepted}});
+  const source=topic([edited]);
+  const c={reviewed:true,reviewer:'reviewer',reviewedAt:'2026-10-30',
+   roles:['latin-standard'],skill:'translation',
+   sourceFingerprint:fingerprintDailyV2Source(source,edited)};
+  const r=adaptCertifiedDailyV2Bank({topics:[source],certifications:{q1:c}});
+  assert.equal(r.summary.certified,0,JSON.stringify(accepted));
+  assert.ok(r.errors.some(x=>x.code==='NO_MARKING_ANSWER'));
+ }
+});
