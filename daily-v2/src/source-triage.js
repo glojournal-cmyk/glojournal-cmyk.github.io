@@ -44,6 +44,8 @@ export function triageDailyV2Sources(topics=[]){
    hasMarkingEvidence,structuredMode,structuredEvidence,requiresScoringAdapter}
     =inspectDailyV2AnswerShape(question.answer);
   if(!hasMarkingEvidence)reasons.push('MISSING_MARKING_CONTENT');
+  if(structuredMode&&!structuredEvidence)
+   reasons.push('INVALID_STRUCTURED_ANSWER_SCHEMA');
   // The current certifying adapter accepts only answer.accepted[]. A genuine
   // source rubric of another mode is structurally meaningful, but still needs
   // a separately validated scoring adapter before Daily can use it.
