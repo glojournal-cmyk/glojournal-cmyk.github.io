@@ -93,6 +93,36 @@ for(const [engineName,browserType,viewport,mobile] of [
        {total:10,done:9,extra:4,eligible:10,unfinished:['year9-light'],
         completedTotal:10,completedDone:10,unchanged:true});
      results.push({test:engineName+' live 14-row History and 48h Recovery',...check});
+     // Interact with the REAL deployed 30-day Home modal, not just helper
+     // functions. This writes an artificial record into this isolated CI
+     // browser only; never touches a parent's real iPad or cloud account.
+     await page.evaluate(()=>{
+       const store=globalThis.__luxStore;
+       globalThis.__liveProbeOldDailyLog=store.getState().dailyLog;
+       const date='2026-10-29';
+       const ids=['latin-vocab','french-vocab','latin-standard','y8-standard-a',
+         'y8-standard-b','y8-mastery-a','y8-mastery-b','weakness-review',
+         'due-review','year9-light'];
+       const tasks=[...ids.map((id,i)=>({id,target:10,progress:i<9?10:0,done:i<9})),
+         ...['study-session','year8-long-review','tend-garden','play-game']
+           .map(id=>({id,target:1,progress:0,done:false}))];
+       store.setState({dailyLog:{...store.getState().dailyLog,
+         [date]:{date,tasks,total:14,done:9,complete:false}}});
+     });
+     await page.locator('[aria-label="Open your past 30-day study record"]').click();
+     const dialog=page.getByRole('dialog',{name:'Your past 30 days'});
+     await dialog.waitFor({timeout:12000});
+     const dated=dialog.locator('.rpg-record-row-live').filter({hasText:'2026-10-29'});
+     const rowText=await dated.textContent();
+     await page.screenshot({path:out+'/'+engineName+'-30day-modal.png'});
+     assert.ok(rowText.includes('9/10'),engineName+' displayed old 9/14 in live UI: '+rowText);
+     assert.ok(rowText.includes('+4 older records kept'),engineName+' did not label archive: '+rowText);
+     assert.ok(!rowText.includes('9/14'),engineName+' old total leaked: '+rowText);
+     results.push({test:engineName+' clicked real 30-day History modal',row:rowText});
+     await page.evaluate(()=>{
+       globalThis.__luxStore.setState({dailyLog:globalThis.__liveProbeOldDailyLog});
+       delete globalThis.__liveProbeOldDailyLog;
+     });
      const credit=await page.evaluate(async()=>{
        const {reconcileDailySession}=await import('/assets/daily-session-credit-20261021.js?v=20261026-bio-savefix1&modeguard=20261030-2');
        const day='2026-10-30',topic='bio-y9-cell-structure';
