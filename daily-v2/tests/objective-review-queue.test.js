@@ -11,7 +11,7 @@ test('review queue includes every real objective question, but none is teacher/s
  assert.deepEqual(queue.summary.byMode,{
   numeric:46,pair_map:115,category_map:8,unordered_required_groups:22});
  assert.deepEqual(queue.summary.technicalPreview,{
-  eligible:191,fullPreview:162,reviewRequired:29,errors:0,negativeFalseFull:0});
+  eligible:191,fullPreview:158,reviewRequired:33,errors:0,negativeFalseFull:0});
  assert.equal(queue.summary.curriculumCertified,0);
  assert.equal(queue.summary.scorerCertified,0);
  assert.equal(queue.summary.approvedForDaily,0);
@@ -111,4 +111,19 @@ test('queue generation is deterministic and duplicate IDs are visible as blocker
  assert.deepEqual(r.summary.duplicateIds,['duplicate']);
  assert.equal(r.summary.technicalPreview.errors,1);
  assert.equal(r.summary.approvedForDaily,0);
+});
+
+test('priority queue distinguishes method-mark support from 16 numeric items without points',()=>{
+ assert.equal(queue.summary.riskCounts.EXPLICIT_MANUAL_POINT_RUBRIC_PRESENT,13);
+ assert.equal(queue.summary.riskCounts.INDEPENDENT_MARK_POINTS_NOT_SPECIFIED,16);
+ assert.equal(queue.summary.riskCounts.OVERLAPPING_ACCEPTED_ALTERNATIVES,4);
+ const complete=queue.rows.filter(x=>x.flags.includes('EXPLICIT_MANUAL_POINT_RUBRIC_PRESENT'));
+ const incomplete=queue.rows.filter(x=>x.flags.includes('INDEPENDENT_MARK_POINTS_NOT_SPECIFIED'));
+ assert.equal(complete.length,13);
+ assert.equal(incomplete.length,16);
+ for(const r of incomplete){
+  assert.equal(r.priority,'high');
+  assert.equal(r.scorerDecision,'pending');
+  assert.equal(r.approvedForDaily,false);
+ }
 });
