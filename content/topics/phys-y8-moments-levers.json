@@ -247,13 +247,15 @@
         ],
         "totalMarks": 1,
         "units": [
-          "N",
-          "newton",
-          "newtons"
+          "N m",
+          "Nm",
+          "N·m",
+          "newton metre",
+          "newton metres"
         ],
         "value": 10,
         "tolerance": 0.001,
-        "modelAnswer": "10 N"
+        "modelAnswer": "10 N m"
       },
       "stimulus": {},
       "feedback": {
@@ -702,13 +704,14 @@
         ],
         "totalMarks": 2,
         "units": [
-          "N",
-          "newton",
-          "newtons"
+          "N m clockwise",
+          "Nm clockwise",
+          "N·m clockwise",
+          "newton metres clockwise"
         ],
         "value": 8,
         "tolerance": 0.001,
-        "modelAnswer": "8 N"
+        "modelAnswer": "8 N m clockwise"
       },
       "stimulus": {},
       "feedback": {

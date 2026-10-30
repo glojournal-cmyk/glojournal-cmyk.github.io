@@ -11,8 +11,8 @@ Status: DESIGN BASELINE (not deployed), 2026-10-26. This file describes the agre
 ## Daily task plan (10 tasks, 163 questions)
 | id | Name | Target | Criteria |
 |---|---|---:|---|
-| latin-vocab | Latin Vocab | 30 | 25 unique Y7-8 vocabulary concepts and 5 Y9 concepts, cyclic after whole round |
-| french-vocab | French Vocab | 30 | same; independent French-accent-tolerant grading |
+| latin-vocab | Latin Vocab | 30 | Up to 5 independently verified-taught Y9 vocabulary concepts; fill remaining slots with distinct Y7–8 concepts (30 Y7–8 when Y9 is untaught). Repeat only after concept rotation; never auto-unlock Y9. |
+| french-vocab | French Vocab | 30 | Same taught-only Year 9 fallback and 30 distinct concepts; independent French-accent-tolerant grading. |
 | latin-standard | Latin Standard | 10 | Y7-8 + taught Y9: 4 grammar, 3 translation, 3 taught passage analysis (suggested proportions) |
 | french-standard | French Standard | 10 | Y7-8 + taught Y9: 4 grammar, 3 translation, 3 short writing (suggested proportions) |
 | science-standard | Science Standard | 10 | taught biology/chemistry/physics, balanced long-term rotation |

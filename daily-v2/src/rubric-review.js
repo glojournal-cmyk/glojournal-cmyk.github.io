@@ -13,11 +13,20 @@ function normalize(s,accentInsensitive=false){
 }
 function validateQuestion(topic,question){
  invariant(topic&&question?.topicId===topic.topicId&&nonempty(question.id),'question identity does not match topic');
- invariant(question.answer?.mode==='rubric_review'&&question.answer.requiresSemanticAssessment===true,
-  'question must be free-response rubric_review');
+ const mode=question.answer?.mode;
+ // Existing real-source mark_points questions were previously impossible to
+ // review: this tool only accepted newly authored rubric_review drafts.
+ // This is a manual, staged review, NEVER an auto-grading / XP pathway.
+ invariant((mode==='rubric_review'&&question.answer.requiresSemanticAssessment===true)||
+  mode==='mark_points'||
+  (mode==='numeric'&&Number.isInteger(question.answer.totalMarks)&&
+   question.answer.totalMarks>1),
+  'question must be free-response rubric_review, source mark_points or multi-mark numeric with explicit points');
  const points=question.answer.markPoints;
  invariant(Array.isArray(points)&&points.length>0&&points.every(nonempty)&&
-  question.answer.totalMarks===points.length,'invalid scored mark-point rubric');
+  (question.answer.totalMarks===undefined||question.answer.totalMarks===points.length) &&
+  (mode!=='rubric_review'||question.answer.totalMarks===points.length),
+  'invalid scored mark-point rubric');
  return points;
 }
 /** No unverified free-text auto marks. A model-answer match is a hint only. */
@@ -31,8 +40,10 @@ export function previewDailyV2Rubric(topic,question,studentResponse){
   status:'review-required',
   questionId:question.id,sourceFingerprint:fingerprintDailyV2Source(topic,question),
   marksPossible:points.length,marksEarned:null,correct:null,
+  sourceAnswerMode:question.answer.mode,
   modelAnswerMatch:match,markPoints:[...points],
   reasons:['Open-ended answers can be equivalent without identical words.',
+   'Numeric final values cannot prove working, method, direction or explanation marks.',
    'Matching isolated keywords cannot prove causality, correct negation or full reasoning.'],
   releaseGrade:false
  };

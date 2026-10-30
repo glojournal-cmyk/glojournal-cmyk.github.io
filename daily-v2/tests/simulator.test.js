@@ -153,3 +153,18 @@ test('staging partial mode still rejects unsafe globally duplicated bank IDs',()
 test('unsupported continuity modes cannot turn off shortage validation',()=>{
  assert.throws(()=>simulateDailyV2Days({...syntheticBank(2),continuityMode:'disable-checks'}),/invalid continuity mode/);
 });
+
+test('real exhaustion: only 30 daily GCSE sets cannot pretend a 31st fresh set exists',()=>{
+ const f=syntheticBank(30);
+ const r=simulateDailyV2Days({...f,days:31});
+ assert.equal(r.status,'blocked');
+ assert.equal(r.completedDays,30);
+ assert.ok(r.diagnostics.some(d=>d.code==='EXCLUSIVE_EXAM_MARK_SHORTAGE'));
+});
+test('all-correct 30-day GCSE usage never silently repeats exam IDs',()=>{
+ const r=simulateDailyV2Days(syntheticBank(30));
+ assert.equal(r.status,'ready');
+ // The fixture provides exactly 90 originals (30 per mark band).
+ assert.equal(r.completedDays,30);
+ assert.equal(r.simulatedAnswered,4890);
+});

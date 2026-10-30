@@ -2,12 +2,13 @@
  * No student records are mutated. Missing question/concept identities are NOT
  * manufactured. Actual backup schemas must be audited before enabling cutover.
  */
+import {isValidDailyV2Day} from './calendar.js';
 const TASK_IDS=new Set([
  'latin-vocab','french-vocab','latin-standard','french-standard','science-standard',
  'mastery-a','mastery-b','spaced-retention','gcse-exam-skills','year9-progressive'
 ]);
 const taskKind=id=>id.endsWith('-vocab')?'vocab':'ordinary';
-function validDay(day){return typeof day==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(day);}
+const validDay=isValidDailyV2Day;
 function numericCounts(row){
  const result=[];
  for(const k of ['verifiedCorrectSlots','progress','correctCount']){

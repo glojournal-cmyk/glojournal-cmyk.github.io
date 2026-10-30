@@ -109,3 +109,11 @@ test('conflicting merged device rosters do not produce falsely verified assignme
  ]);
  assert.equal(r.legacyBaselines['french-vocab'].potentialKeysVerified,false);
 });
+
+test('historical import rejects impossible Gregorian calendar dates, not only malformed strings',()=>{
+ for(const invalid of ['2026-02-30','2026-04-31','2025-02-29']){
+  assert.throws(()=>reviewLegacyDailyV2Import({day:invalid,legacyRows:[]}),/invalid date/);
+ }
+ const leap=reviewLegacyDailyV2Import({day:'2024-02-29',legacyRows:[]});
+ assert.equal(leap.day,'2024-02-29');
+});
