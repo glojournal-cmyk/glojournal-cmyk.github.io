@@ -16,7 +16,9 @@ async function readRow(repo,day){
  requireV2(repo && typeof repo.read==='function' && typeof repo.compareAndSwap==='function','atomic repository required');
  const row=await repo.read(day);
  if(row===null||row===undefined)return record(day);
- requireV2(row.day===day&&row.ledger?.version===2&&Number.isInteger(row.revision)&&row.revision>=0,'invalid snapshot');
+ requireV2(row.day===day&&row.ledger?.version===2&&row.ledger?.day===day&&
+   (row.plan===null||row.plan===undefined||row.plan.day===day)&&
+   Number.isInteger(row.revision)&&row.revision>=0,'invalid snapshot');
  return row;
 }
 function acceptedSummary(ledger,task){
