@@ -6,6 +6,9 @@ test('actual checked-in source objective modes are inventoried and never auto-ce
  const r=runObjectiveSourceAudit();
  assert.ok(r.eligible>0);
  assert.equal(r.eligible,r.fullPreview+r.reviewRequired+r.errors);
+ assert.equal(r.negativeChecks,r.eligible);
+ assert.equal(r.negativeFalseFull,0,
+  'deliberately incorrect real answers must never earn full credit');
  for(const mode of ['numeric','pair_map','category_map','unordered_required_groups'])
   assert.ok(r.byMode[mode]?.scanned>0,mode);
  assert.equal(r.autoCertified,0);
