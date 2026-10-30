@@ -9,7 +9,7 @@
 - Home / Recovery / 30-day / XP read the same reconciliation results.
 
 ## Question availability
-- Vocab: 25 Y7–8 and 5 Y9 concepts; new cycle only after prior cycle exhausted; no same-day duplicate credit.
+- Vocab: 30 independently creditable concepts; up to five independently taught/verified Y9 concepts, with Year 7–8 supplying the remainder if Y9 is not taught. No same-day duplicate credit; new cycle only after prior cycle exhausted.
 - Mastery A/B: 20 available questions, quality checked; no Standard gate; prefer distinct taught topics.
 - Retention: 10 historical attempted question IDs; no unseen replacement; cross-day repetition permitted.
 - GCSE: 3 exclusively authored exam questions with marks 1/2/3 and no wording duplicates elsewhere.
@@ -123,3 +123,11 @@
 - Audited legacy baseline entry: previously a raw baseline count above task target could be clamped to a completed task (e.g. 31/30). Plan freezing now rejects unknown task baselines or credits above the frozen task target; `makeDailyV2Ledger` additionally rejects more distinct known keys than claimed credits.
 - Normal 28/30 baseline remains unchanged. Old legacy-review now uses the shared strict calendar validator (e.g., an impossible February 30 is refused). Five targeted baseline/calendar tests added.
 - No production code, active student scores, device data, Pet/MP/XP or live task counts changed. Real Safari and migration verification remain separate blockers.
+
+## 2026-10-30 — Original structured-answer scoring follow-up
+- The real-bank QA inventory contains 10,014 structurally active questions, of which 9,875 belong to Daily V2 subjects. Source-shape checking proves marking data exists for all 9,875, but **source structure is not curriculum certification or a proven scorer**. No student record was accessed.
+- Actual source format counts from read-only QA: 755 `mark_points` candidates and 286 other structured answer review candidates. The scoring-adapter release-blocker count is **1,041**; it includes structured-mode sources that happen to have `accepted[]` fallback text, because `semantic_groups`, numeric, mark points, matching and other multi-component scoring cannot be safely downgraded to a simple string comparator.
+- Fixed `src/rubric-review.js` to review original `answer.mode='mark_points'` questions with explicit per-point reviewer awards, written reasoning, an unchanged source fingerprint and a staging-only `releaseGrade:false` receipt. Tests use authentic Biology Year 8 source items. Mark ceiling mismatches and changed rubrics are rejected. This is **manual human review**, not automatic grades.
+- Centralized the recognized original answer shapes in `src/source-answer.js`. `src/bank-adapter.js` now emits `STRUCTURED_SCORING_ADAPTER_NOT_VERIFIED` for otherwise complete but not approved modes, and `STRUCTURED_MARKING_EVIDENCE_INVALID` for malformed structured rubrics, rather than incorrectly describing them as missing answers.
+- **Critical guard:** even a source with an `accepted[]` string and `semantic_groups` (or `mark_points`, numeric, matching etc.) must not be certified for generic automatic scoring; the structured scoring mode always wins. No manifest or reviewer field can bypass this guard in the current adapter.
+- GitHub Actions run `41049415112`: **296/296 PASS**, 0 failures. Real-source audit: 9,875 structural human-review candidates, zero missing marking content, 1,041 specialist scoring-adapter blockers, and **0 independently curriculum certified**. No formal Daily V2 planning release or physical iPad migration approved.
