@@ -41,7 +41,7 @@ const state={
 };
 const saved={savedAt:'2026-10-30T12:00:00Z',day:state.today,done:0,total:10,
  data:JSON.stringify({app:'lux-scholar-garden',version:10,state})};
-const petSidecar={level:8,mp:144,unlocked:['night-owl'],outfits:['winter']};
+const petSidecar={species:'snow-owl',masteryPoints:144,petLevels:{'moss-hornling':4,'snow-owl':2},unlockedSecrets:{'snow-owl':true},mpLedger:{'synthetic-topic':10},mpTransactions:[]};
 const originalPrimary={state,version:10};
 
 try{
@@ -56,7 +56,7 @@ try{
     const initial=await page.evaluate(async ({saved,petSidecar,originalPrimary})=>{
       const vault=await import('/assets/backup-vault-20261011.js');
       localStorage.setItem('lux-scholar-garden-v1',JSON.stringify(originalPrimary));
-      localStorage.setItem('lux-pet-v1',JSON.stringify(petSidecar));
+      localStorage.setItem('lux-pet-companion-v1',JSON.stringify(petSidecar));
       localStorage.setItem(vault.AUTO_KEY,JSON.stringify(saved,null,2));
       localStorage.setItem(vault.MANUAL_KEY,JSON.stringify(saved));
       const migration=await vault.migrateOldBackups();
@@ -66,7 +66,7 @@ try{
        localAuto:localStorage.getItem(vault.AUTO_KEY),
        localManual:localStorage.getItem(vault.MANUAL_KEY),
        primary:JSON.parse(localStorage.getItem('lux-scholar-garden-v1')),
-       pet:JSON.parse(localStorage.getItem('lux-pet-v1'))};
+       pet:JSON.parse(localStorage.getItem('lux-pet-companion-v1'))};
     },{saved,petSidecar,originalPrimary});
     assert.equal(initial.migration.moved,2);
     assert.equal(initial.migration.failed,0);
@@ -82,7 +82,7 @@ try{
       const vault=await import('/assets/backup-vault-20261011.js');
       return {auto:await vault.readBackup(vault.AUTO_KEY),
         primary:JSON.parse(localStorage.getItem('lux-scholar-garden-v1')),
-        pet:JSON.parse(localStorage.getItem('lux-pet-v1'))};
+        pet:JSON.parse(localStorage.getItem('lux-pet-companion-v1'))};
     });
     assert.deepEqual(offline.auto,saved,'verified IndexedDB snapshot must be readable offline');
     assert.deepEqual(offline.primary,originalPrimary);
@@ -94,7 +94,7 @@ try{
       const vault=await import('/assets/backup-vault-20261011.js');
       return {auto:await vault.readBackup(vault.AUTO_KEY),
         primary:JSON.parse(localStorage.getItem('lux-scholar-garden-v1')),
-        pet:JSON.parse(localStorage.getItem('lux-pet-v1'))};
+        pet:JSON.parse(localStorage.getItem('lux-pet-companion-v1'))};
     });
     assert.deepEqual(reopened.auto,saved);
     assert.deepEqual(reopened.primary,originalPrimary);
