@@ -75,3 +75,23 @@ test("a valid legacy Pet companion can still be restored onto an empty device",(
  assert.equal(result.saved.xp,2862);
  assert.deepEqual(JSON.parse(storage.getItem(PET_WALLET_KEY)),pet);
 });
+
+test("a concurrent Pet tab creating a wallet after import preview must not be overwritten",()=>{
+ const current=JSON.stringify({species:"moss-hornling",masteryPoints:74,
+   petLevels:{"moss-hornling":5},unlockedSecrets:{"night-spider":true}});
+ const rows=new Map();
+ let checks=0,writes=0;
+ const storage={
+   getItem:k=>{
+     if(k===PET_WALLET_KEY && ++checks===2) rows.set(k,current);
+     return rows.get(k)??null;
+   },
+   setItem:(k,v)=>{if(k===PET_WALLET_KEY)writes++;rows.set(k,String(v))},
+   removeItem:k=>rows.delete(k)
+ };
+ const outcome=commitToStorage(file(),null,storage);
+ assert.equal(outcome.saved.xp,2862);
+ assert.equal(rows.get(PET_WALLET_KEY),current);
+ assert.equal(writes,0,"concurrent live wallet must not be replaced");
+ assert.equal(outcome.linkedCount,0);
+});
