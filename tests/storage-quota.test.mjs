@@ -9,12 +9,14 @@ const factory=new Function("a","r","u","window","CustomEvent",core.slice(start,e
 class Event{constructor(type,props){this.type=type;this.detail=props.detail}}
 
 test("Quota exceeded does not abort an answer and an event warns that progress is unsaved",()=>{
- const events=[],win={__luxStoreQuotaFailed:false,dispatchEvent:e=>events.push(e.detail)};
+ const events=[],disk=new Map();
+ const win={__luxStoreQuotaFailed:false,localStorage:{getItem:key=>disk.get(key)||null},
+   dispatchEvent:e=>events.push(e.detail)};
  const storage={setItem:()=>{throw Object.assign(new Error("The quota has been exceeded"),{name:"QuotaExceededError"})}};
  const persist=factory({partialize:x=>x,version:10,name:"lux-scholar-garden-v1"},()=>({xp:2862}),storage,win,Event);
  assert.doesNotThrow(persist);assert.doesNotThrow(persist);
  assert.deepEqual(events,[{saved:false,quota:true,unsaved:true}]);assert.equal(win.__luxStoreQuotaFailed,true);
- storage.setItem=()=>true;
+ storage.setItem=(key,value)=>{disk.set(key,JSON.stringify(value));return true};
  assert.doesNotThrow(persist);assert.equal(win.__luxStoreQuotaFailed,false);
  assert.deepEqual(events.at(-1),{saved:true});
 });
