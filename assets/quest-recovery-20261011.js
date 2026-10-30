@@ -1,7 +1,7 @@
 /* Recovery Quest UI: read-only display; the app records eligible answers separately. */
 import { C as store, Ut as todayKey, st as getTopicCatalog } from "/assets/index-BLVOhKhN.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1&mpverify=20261028-3";
 import {buildYear8DailyV2} from './year8-daily-v2-20261018.js';
-import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js?v=20261025-recovery-correct1";
+import {eligibleRecoveryTasks,prepareUnopenedRecovery,recordRecoveryAnswer,matchesAssignedPracticeEvidence,reconcileRecoveredTaskHistory} from "./recovery-task-ledger-20261017.js?v=20261025-recovery-correct1&ten=20261030-1";
 import {mergeDailyHistory,mergeDailyRecordRow,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261023-preserve-ten1";
 import {readMarkedAnswers} from "./durable-study-evidence-20261018.js?v=20261018-evidence-v1";
 import {applyRecoveryReceipts} from "./recovery-receipt-20261018.js?v=20261025-recovery-correct1";
