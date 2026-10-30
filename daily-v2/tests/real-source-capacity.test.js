@@ -57,7 +57,13 @@ test('missing catalog lesson sources are reported by exact topic identity',()=>{
  assert.ok(Array.isArray(c.duplicateCatalogTopics));
  assert.ok(c.missingSources.every(x=>x.topicId&&x.subject&&Number.isInteger(x.year)));
  assert.equal(c.missingSources.length-c.unlistedSources.length,
-  c.topics-report.sourceTopicFiles);
+  c.uniqueCatalogTopicKeys-c.uniqueSourceTopicKeys);
+ assert.ok(c.uniqueCatalogTopicKeys<=c.topics);
+ assert.ok(c.uniqueSourceTopicKeys<=report.sourceTopicFiles);
+ assert.equal(c.duplicateCatalogTopics.reduce((n,x)=>n+x.count-1,0),
+  c.topics-c.uniqueCatalogTopicKeys);
+ assert.equal(c.duplicateSourceTopics.reduce((n,x)=>n+x.count-1,0),
+  report.sourceTopicFiles-c.uniqueSourceTopicKeys);
  assert.ok(c.missingSources.length>0,'known source gap must not disappear into aggregate totals');
 });
 test('read-only capacity audit distinguishes unsupported subject rows from V2 subject supply',()=>{
