@@ -1,5 +1,5 @@
 import "./home-journey-v2-logic-20261010.js?v=20261010-home-v2&ux=20261013-corrections2";
-import { C as store } from "./index-BLVOhKhN.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1&mpverify=20261030-save-retry3";
+import { C as store } from "./index-BLVOhKhN.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1&mpverify=20261030-save-retry3-modeguard2";
 
 // Layer over the existing React home: no state mutation, no new rewards,
 // and no moving the character, pet, or React-owned artwork.
