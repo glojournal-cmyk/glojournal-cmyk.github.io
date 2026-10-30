@@ -29,3 +29,5 @@ jobs:
         run: node --test daily-v2/tests/*.test.js
       - name: Print actual-source capacity acceptance report (read only)
         run: node daily-v2/scripts/qa-real-capacity.mjs
+      - name: Audit objective scorer against checked-in school questions (read only)
+        run: node daily-v2/scripts/qa-objective-scorer.mjs
