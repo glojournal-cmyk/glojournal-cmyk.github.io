@@ -57,3 +57,24 @@ test('two-mark-per-pair real science rubrics have distinct enzyme/product and re
    'two-scored-field source must be represented by separate answer fields: '+id);
  assert.equal(r.autoCertified,0);
 });
+
+test('source audit tests displayed numeric modelAnswer, not regenerated numeric answer.value',()=>{
+ const topic={topicId:'qa-numeric-inconsistency',subject:'physics',year:8,status:'enabled',
+  questions:[{
+   id:'numeric-wrong-displayed-answer',topicId:'qa-numeric-inconsistency',
+   prompt:'Calculate 540 g / 200 cm3',
+   answer:{mode:'numeric',value:2.7,units:['g/cm3'],
+    totalMarks:1,tolerance:0.001,modelAnswer:'3 g/cm3'}
+  },{
+   id:'numeric-unit-missing',topicId:'qa-numeric-inconsistency',
+   prompt:'Resistance 3+8+11',
+   answer:{mode:'numeric',value:22,units:['Ω'],
+    totalMarks:1,tolerance:0,modelAnswer:'22'}
+  }]};
+ const r=auditObjectiveSourceQuestions([topic]);
+ assert.equal(r.eligible,2);
+ assert.equal(r.fullPreview,0);
+ assert.equal(r.reviewRequired,2);
+ assert.equal(r.errors,0);
+ assert.equal(r.autoCertified,0);
+});
