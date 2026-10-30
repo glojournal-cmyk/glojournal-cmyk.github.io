@@ -1,4 +1,21 @@
-import {CORE_DAILY_TASK_IDS,dailyHistorySummary} from './daily-history-display-20261030.js';
+// Remain import-free: legacy Recovery QA and standalone repair tools load
+// this isolated module through a data: URL (which cannot resolve imports).
+// Keep these 10 IDs and four archived IDs aligned with the read-only
+// daily-history-display-20261030.js projection.
+const CORE_DAILY_TASK_IDS = new Set([
+  'latin-vocab','french-vocab','latin-standard','y8-standard-a','y8-standard-b',
+  'y8-mastery-a','y8-mastery-b','weakness-review','due-review','year9-light'
+]);
+const ARCHIVED_OLD_DAILY_IDS = new Set([
+  'study-session','year8-long-review','tend-garden','play-game'
+]);
+function onlyCanonicalTen(tasks,date) {
+  if (date<'2026-10-24'||!Array.isArray(tasks)||tasks.length<=10)return false;
+  const core=tasks.filter(t=>CORE_DAILY_TASK_IDS.has(t?.id));
+  const extra=tasks.filter(t=>!CORE_DAILY_TASK_IDS.has(t?.id));
+  return core.length===10 && new Set(core.map(t=>t.id)).size===10 &&
+    extra.every(t=>ARCHIVED_OLD_DAILY_IDS.has(t?.id));
+}
 // Date-scoped recovery ledger for daily tasks. Does not mutate today's task list.
 // This module is deliberately independent from React and localStorage so callers
 // must submit actual verified answer events, not clicks or page visits.
@@ -32,8 +49,8 @@ export function eligibleRecoveryTasks(state,date,today) {
   // The emergency iPad rescue archived four older Daily IDs alongside all
   // ten active tasks. Keep every row in storage, but do not assign fourteen
   // Recovery obligations for 28/29 October. Older-day legacy plans are intact.
-  const canonical=dailyHistorySummary(row,date).canonicalOnly;
-  const coreIds=canonical?new Set(CORE_DAILY_TASK_IDS):null;
+  const canonical=onlyCanonicalTen(tasks,date);
+  const coreIds=canonical?CORE_DAILY_TASK_IDS:null;
   return tasks.filter(t=>(!coreIds||coreIds.has(t.id))&&RECOVERY_IDS.has(t?.id)&&Number(t?.target)>0)
     .map(t=>({...t,remaining:Math.max(0,Number(t.target)-Number(t.progress||0)),
       done:!!t.done||Number(t.progress||0)>=Number(t.target)}));
