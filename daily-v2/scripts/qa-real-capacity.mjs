@@ -9,6 +9,7 @@ import {dirname,resolve,join} from 'node:path';
 import {adaptCertifiedDailyV2Bank,certifiedTaughtTopicIds} from '../src/bank-adapter.js';
 import {planDailyV2} from '../src/planner.js';
 import {simulateDailyV2Days} from '../src/simulator.js';
+import {triageDailyV2Sources} from '../src/source-triage.js';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'../..');
 const topicDir=join(root,'content/topics');
@@ -36,6 +37,7 @@ export function buildRealSourceCapacityReport() {
  const taughtEvidence=taughtPresent?parse(taughtFile):[];
  const taughtTopicIds=certifiedTaughtTopicIds(taughtEvidence);
  const adapted=adaptCertifiedDailyV2Bank({topics,certifications,includeUncertifiedDiagnostics:true});
+ const sourceTriage=triageDailyV2Sources(topics);
  const args={day,questionBank:adapted.questionBank,taughtTopicIds,
   priorAttempts:[],correctQuestionIds:[]};
  const plan=planDailyV2(args);
@@ -87,6 +89,7 @@ export function buildRealSourceCapacityReport() {
   system:'Daily V2 isolated real-source capacity audit',date:day,
   productionAffected:false,learnerDataRead:false,learnerHistoryAvailable:false,
   sourceTopicFiles:topics.length,sourceEligible:adapted.summary.scanned,
+  sourceTriage,
   sourceBySubjectYear:loadedBySubjectYear,
   catalogMetadata:{topics:catalog.totals?.topics??null,
    actualTopicRows:(catalog.topics||[]).length,
