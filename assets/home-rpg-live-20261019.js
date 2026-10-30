@@ -164,7 +164,7 @@ if (!window.__luxRpgLiveHome) {
       const label=status==='done'?'Completed':status==='partial'?'Partly completed':'Not opened';
       const extra=summary.extraSavedRecords>0?' · +'+summary.extraSavedRecords+' older records kept':
         summary.includesOldTasks?' · includes older records':'';
-      row.append(make('span',null,label + (total>0?' · ' + done + '/' + total:'') + extra);
+      row.append(make('span',null,label + (total>0?' · ' + done + '/' + total:'') + extra));
       list.append(row);
     }
     record.append(list);
