@@ -56,3 +56,22 @@ test("old Scholar-only backups stay valid and never erase an existing wallet",()
  commitToStorage(prior,null,storage);
  assert.equal(storage.getItem(PET_WALLET_KEY),petRaw);
 });
+
+test("legacy JSON cannot silently merge secret unlocks into an existing Pet wallet",()=>{
+ const current=JSON.stringify({species:"moss-hornling",masteryPoints:7,
+   petLevels:{"moss-hornling":4},unlockedSecrets:{},mpTransactions:[{id:"spent",amount:-5}]});
+ const storage=disk([[PET_WALLET_KEY,current]]);
+ const legacy={...progress(),petCompanion:{species:"snow-owl",masteryPoints:144,
+   petLevels:{"snow-owl":2},unlockedSecrets:{"snow-owl":true,"night-spider":true}}};
+ const result=commitToStorage(validatePlainBackup(JSON.stringify(legacy)),null,storage);
+ assert.equal(result.saved.xp,2862);
+ assert.equal(storage.getItem(PET_WALLET_KEY),current,
+   "import must never alter MP, levels, transactions OR hidden unlocks without consent");
+});
+test("a valid legacy Pet companion can still be restored onto an empty device",()=>{
+ const storage=disk();
+ const legacy={...progress(),petCompanion:pet};
+ const result=commitToStorage(validatePlainBackup(JSON.stringify(legacy)),null,storage);
+ assert.equal(result.saved.xp,2862);
+ assert.deepEqual(JSON.parse(storage.getItem(PET_WALLET_KEY)),pet);
+});
