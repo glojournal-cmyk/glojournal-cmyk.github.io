@@ -8,7 +8,7 @@
     if(!store||store.persist?.hasHydrated?.()===false)return;
     recovering=true;attempted=true;
     try{
-      const vault=await import("./backup-vault-20261011.js?v=20261028-live-first1");
+      const vault=await import("./backup-vault-20261011.js?v=20261030-safe-retry3");
       const saved=await vault.recoverProgressStorage(store);
       // A completed primary write is required; an archived backup alone is not success.
       root.__luxStoreQuotaFailed=!saved;
