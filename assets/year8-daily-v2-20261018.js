@@ -274,9 +274,9 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       detail:description+outcome,href:topic?curriculumHref(topic,mode,id):'/study',target,progress,xp:mode==='mastery'?20:15,
       planDate:today,assignedSubject:topic?.subject||null,assignedTopic:topic?.topicId||null,
       assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,masteryCheck,curriculumVersion:4,
-      ...(completeCorrectJournal?{correctOnlyEvidence:true}:{}),
+      ...((completeCorrectJournal||verifiedPrior)?{correctOnlyEvidence:true}:{}),
       ...(old?.cappedBecauseQuestionBankExhausted?{cappedBecauseQuestionBankExhausted:true,done:true}:{}),
-      ...(creditIds.length?{verifiedCorrectIds:creditIds.slice(0,80),
+      ...(creditIds.length&&(verifiedPrior||progress>=target)?{verifiedCorrectIds:creditIds.slice(0,80),
         verifiedCorrectSlots:Math.min(target,progress),
         verifiedCorrectAssignment:verifiedKey,
         ...(nextAbsorbed?{verifiedCorrectIdsAbsorbed:true}:{})}:{})};
