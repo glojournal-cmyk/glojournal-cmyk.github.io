@@ -183,3 +183,21 @@ test('numeric pH category maps are valid sorting answers, not missing source con
  assert.equal(r.needsSourceRepair,0);
  assert.equal(r.requiresStructuredAnswerReview,1);
 });
+
+test('real structured answer modes needing a different scoring adapter are reported separately',()=>{
+ const r=triageDailyV2Sources([make('biology',[
+  q('normal'),
+  q('manual',{answer:{mode:'mark_points',markPoints:['one valid point']}}),
+  q('numeric',{answer:{mode:'numeric',value:30,tolerance:0}}),
+  q('grouped',{answer:{mode:'semantic_groups',requiredGroups:[{alternatives:['valid']}]}})
+ ])]);
+ assert.equal(r.readyForHumanReview,4);
+ assert.equal(r.requiresScoringAdapterIntegration,3);
+ assert.equal(r.needsSourceRepair,0);
+});
+test('actual source scoring-adapter gap must be measured, not called independent certification',()=>{
+ const report=buildRealSourceCapacityReport(),r=report.sourceTriage;
+ assert.ok(r.requiresScoringAdapterIntegration>0);
+ assert.ok(r.requiresScoringAdapterIntegration<=r.readyForHumanReview);
+ assert.equal(report.bank.certified,0);
+});
