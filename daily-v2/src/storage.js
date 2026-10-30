@@ -99,6 +99,13 @@ export async function commitDailyV2Plan(repo,plan,{legacyBaselines={},maxRetries
  if(plan?.status==='partial')requireV2(allowPartial===true,
   'PARTIAL_REQUIRES_EXPLICIT_STAGING_OPT_IN');
  validatePlan(plan);
+ const targetByTask=new Map(plan.tasks.map(task=>[task.id,task.target]));
+ for(const [taskId,baseline] of Object.entries(legacyBaselines||{})){
+  const target=targetByTask.get(taskId);
+  requireV2(Number.isInteger(target)&&Number.isInteger(baseline?.count)&&
+    baseline.count>=0&&baseline.count<=target,
+    'LEGACY_BASELINE_TARGET_INVALID: cannot freeze excess or unknown task credits');
+ }
  for(let i=0;i<maxRetries;i++){
   const row=await readRow(repo,plan.day);
   if(row.plan){
