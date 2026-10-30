@@ -104,7 +104,9 @@ function numericScore(answer,response){
  }else {value=response.value;unit=response.unit??'';}
  ok(Number.isFinite(value)&&typeof unit==='string');
  const tolerance=answer.tolerance??0;
- const valueCorrect=Math.abs(value-answer.value)<=tolerance;
+ // IEEE-754 rounding must not reject exactly the published tolerance edge.
+ const roundingSlack=Number.EPSILON*4*Math.max(1,Math.abs(value),Math.abs(answer.value));
+ const valueCorrect=Math.abs(value-answer.value)<=tolerance+roundingSlack;
  const units=answer.units||[];
  const unitCorrect=units.length?units.some(u=>same(u,unit)):!text(unit);
  const ceiling=answer.totalMarks??1;
