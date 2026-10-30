@@ -50,9 +50,21 @@ export function triageDailyV2Sources(topics=[]){
    question.answer.requiredGroups.length>0&&
    question.answer.requiredGroups.every(g=>
     Array.isArray(g?.alternatives)&&g.alternatives.some(str));
-  if(!accepted&&!validMarkPoints&&!validPairs&&!validGroups)
+  const validNumeric=question.answer?.mode==='numeric'&&
+   typeof question.answer.value==='number'&&Number.isFinite(question.answer.value)&&
+   (question.answer.tolerance===undefined||
+    (typeof question.answer.tolerance==='number'&&
+     Number.isFinite(question.answer.tolerance)&&question.answer.tolerance>=0))&&
+   (question.answer.units===undefined||
+    (Array.isArray(question.answer.units)&&question.answer.units.every(str)));
+  const categories=question.answer?.categories;
+  const validCategories=question.answer?.mode==='category_map'&&
+   categories!==null&&typeof categories==='object'&&!Array.isArray(categories)&&
+   Object.keys(categories).length>0&&
+   Object.values(categories).every(vals=>Array.isArray(vals)&&vals.length>0&&vals.every(str));
+  if(!accepted&&!validMarkPoints&&!validPairs&&!validGroups&&!validNumeric&&!validCategories)
    reasons.push('MISSING_MARKING_CONTENT');
-  if(validPairs||validGroups){
+  if(validPairs||validGroups||validNumeric||validCategories){
    structuredReview++;bucket.structuredAnswerReview++;
    if(structuredSamples.length<6)structuredSamples.push({topicId:topic.topicId,
     questionId:question.id,subject:topic.subject,year:topic.year,
@@ -91,6 +103,6 @@ export function triageDailyV2Sources(topics=[]){
   bySubjectYear,
   reasonCounts,samples,
   curriculumCertified:0,
-  note:'Source answers may be accepted-text, mark_points, pair_map or unordered_required_groups. All structured formats require verified scoring integration, not automatic Daily certification.'
+  note:'Existing marking forms include accepted-text, mark_points, pair_map, unordered_required_groups, numeric and category_map. All structured formats require verified scoring integration and independent content review before Daily certification.'
  };
 }
