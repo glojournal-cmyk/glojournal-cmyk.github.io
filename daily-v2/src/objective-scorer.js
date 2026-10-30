@@ -76,7 +76,9 @@ function unorderedScore(answer,response){
  if(items.length>n)return {status:'review-required',reviewRequired:true,
   marksEarned:null,marksPossible:n,reason:'additional answer elements require review'};
  // Maximum bipartite matching guarantees a synonym cannot earn two mark points.
- const given=items.map(text),occupied=new Map();
+ // Identical submitted terms cannot independently satisfy two overlapping
+ // rubric groups (e.g. "glucose, glucose" is one concept, not two credits).
+ const given=[...new Set(items.map(text))],occupied=new Map();
  function canMatch(group,visited){
   for(let i=0;i<given.length;i++){
    if(visited.has(i)||!groups[group].includes(given[i]))continue;
