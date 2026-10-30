@@ -127,3 +127,59 @@ test('editing an existing source mark point after preview invalidates the manual
   pointAwards:[0],reviewerNotes:['No point met']
  }),/stale question/);
 });
+
+test('actual Physics three-mark energy explanation supports explicit manual 2/3 recording only',async()=>{
+ const {readFileSync}=await import('node:fs');
+ const real=JSON.parse(readFileSync(new URL('../../content/topics/phys-y8-energy-stores-transfers.json',import.meta.url),'utf8'));
+ const question=real.questions.find(x=>x.id==='phys-y8-energy-stores-transfers-conservation-apply');
+ assert.equal(question.answer.mode,'numeric');
+ assert.equal(question.answer.totalMarks,3);
+ assert.equal(question.answer.markPoints.length,3);
+ const preview=previewDailyV2Rubric(real,question,
+  '180 J left, it was transferred as heat.');
+ assert.equal(preview.marksEarned,null);
+ assert.equal(preview.marksPossible,3);
+ assert.equal(preview.sourceAnswerMode,'numeric');
+ assert.equal(preview.releaseGrade,false);
+ const reviewed=recordDailyV2RubricReview({
+  topic:real,question,studentResponse:'180 J left, it was transferred as heat.',
+  sourceFingerprint:preview.sourceFingerprint,reviewerId:'qa-test-only',
+  reviewId:'qa-energy-three-criteria',
+  pointAwards:[1,1,0],reviewerNotes:[
+   'Reviewer manually confirmed 500 minus 320',
+   'Reviewer manually confirmed energy transferred elsewhere',
+   'Conservation/non-destruction claim not stated'
+  ]
+ });
+ assert.equal(reviewed.marksEarned,2);
+ assert.equal(reviewed.marksPossible,3);
+ assert.equal(reviewed.fullCredit,false);
+ assert.equal(reviewed.autoGraded,false);
+ assert.equal(reviewed.releaseGrade,false);
+});
+test('2/3-mark numeric without individual markPoints cannot be manually guessed or released',async()=>{
+ const {readFileSync}=await import('node:fs');
+ const real=JSON.parse(readFileSync(new URL('../../content/topics/phys-y8-moments-levers.json',import.meta.url),'utf8'));
+ const question=real.questions.find(x=>x.id==='phys-y8-moments-levers-challenge');
+ assert.equal(question.answer.totalMarks,3);
+ assert.ok(!question.answer.markPoints?.length);
+ assert.throws(()=>previewDailyV2Rubric(real,question,'42 N'),/invalid scored mark-point rubric/);
+});
+test('numeric reviewer cannot award 2/2 on changed source or omit independent point notes',async()=>{
+ const {readFileSync}=await import('node:fs');
+ const real=JSON.parse(readFileSync(new URL('../../content/topics/phys-y8-moments-levers.json',import.meta.url),'utf8'));
+ const question=real.questions.find(x=>x.id==='phys-y8-moments-levers-direction-apply');
+ const response='8 N m clockwise, because the moments act in the same direction.';
+ const preview=previewDailyV2Rubric(real,question,response);
+ assert.equal(preview.markPoints.length,2);
+ const input={topic:real,question,studentResponse:response,
+  sourceFingerprint:preview.sourceFingerprint,reviewerId:'qa-reviewer',
+  reviewId:'qa-two-point',pointAwards:[1,1],
+  reviewerNotes:['direction checked','sum and clockwise checked']};
+ assert.equal(recordDailyV2RubricReview(input).marksEarned,2);
+ assert.throws(()=>recordDailyV2RubricReview({...input,reviewerNotes:['','yes']}),
+  /reviewer evidence/);
+ const altered={...question,answer:{...question.answer,units:['N']}};
+ assert.throws(()=>recordDailyV2RubricReview({...input,question:altered}),
+  /stale question/);
+});
