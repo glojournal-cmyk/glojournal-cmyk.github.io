@@ -148,6 +148,12 @@ export async function commitDailyV2Answer(repo,attempt,{maxRetries=8}={}){
   requireV2(task,'answer task not present in frozen plan');
   const question=task.questions.find(q=>q.questionId===attempt.questionId);
   requireV2(question,'answer question not assigned to this task');
+  // Until a separately audited, authoritative scorer can issue a source-bound
+  // verification receipt, NEVER trust caller-supplied "correct"/marks for a
+  // real signed question. A caller could strip staging metadata otherwise.
+  // The old unsigned synthetic/legacy storage contract remains testable.
+  requireV2(question.sourceFingerprint===undefined,
+    'SOURCE_BOUND_GRADE_RELEASE_NOT_APPROVED: signed roster requires trusted scorer integration');
   if(task.kind==='vocab')requireV2(attempt.conceptId===question.conceptId,'answer concept does not match frozen roster');
   if(task.kind==='exam'){
    requireV2(Number.isInteger(attempt.marksEarned)&&
