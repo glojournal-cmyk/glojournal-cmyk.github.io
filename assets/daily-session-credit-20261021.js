@@ -42,7 +42,7 @@ export function reconcileDailySession(state,receipt={}) {
   if(expected.searchParams.get('daily')!=='1'||expected.searchParams.get('locked')!=='1'||
      expected.searchParams.get('task')!==taskId||
      expected.searchParams.get('topic')!==task.assignedTopic||
-     (expected.searchParams.get('mode')!==mode&&!(subject==='biology'&&taskId==='year9-light'&&['standard','quick','mastery'].includes(mode)&&['standard','quick','mastery'].includes(expected.searchParams.get('mode'))))||
+     (expected.searchParams.get('mode')!==mode&&!(subject==='biology'&&taskId==='year9-light'&&['standard','quick'].includes(mode)&&['standard','quick'].includes(expected.searchParams.get('mode'))))||
      Number(expected.searchParams.get('year'))!==Number(year)||
      expected.pathname!==`/study/${subject}/practise`)
     return unchanged('wrong-route');

@@ -22,6 +22,13 @@ on:
       - 'assets/quest-recovery-20261011.js'
       - 'assets/backup-vault-20261011.js'
       - '.github/workflows/daily-progress-regression.yml'
+  pull_request:
+    paths:
+      - 'assets/year8-daily-v2-20261018.js'
+      - 'assets/index-BLVOhKhN.js'
+      - 'tests/daily-correct-only-20261024.test.mjs'
+      - 'tests/daily-*.mjs'
+      - '.github/workflows/daily-progress-regression.yml'
   workflow_dispatch:
 jobs:
   daily-progress:
