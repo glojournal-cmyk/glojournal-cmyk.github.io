@@ -26,6 +26,16 @@ function acceptedSummary(ledger,task){
 function persistedEvent(ledger,eventId){
  return ledger.attempts.find(e=>e.eventId===eventId)||null;
 }
+// A saved attempt is not automatically a newly earned credit. These values
+// describe *this event's* persisted contribution, not the current total.
+// Reward/XP integrations must use verified deltas, never "verified:true" alone.
+function receiptDelta(before,after){
+ const creditDelta=after.verifiedProgress-before.verifiedProgress;
+ const examMarkDelta=(after.examMarks?.earned||0)-(before.examMarks?.earned||0);
+ requireV2(creditDelta>=0&&creditDelta<=1&&examMarkDelta>=0,
+  'INVALID_CREDIT_DELTA: progress must be monotonic and one question can credit at most once');
+ return {creditDelta,examMarkDelta,newVerifiedCredit:creditDelta===1};
+}
 function validatePlan(plan){
  requireV2(plan?.version===2&&['ready','partial'].includes(plan.status)&&
    isValidDailyV2Day(plan.day)&&Array.isArray(plan.tasks)&&
@@ -135,8 +145,10 @@ export async function commitDailyV2Answer(repo,attempt,{maxRetries=8}={}){
    const saved=persistedEvent(row.ledger,attempt.eventId);
    requireV2(saved,'IDEMPOTENT_EVENT_MISSING');
    return {eventId:attempt.eventId,verified:true,alreadyRecorded:true,revision:row.revision,
-     progress:acceptedSummary(row.ledger,task)};
+     progress:acceptedSummary(row.ledger,task),
+     creditDelta:0,examMarkDelta:0,newVerifiedCredit:false};
   }
+  const delta=receiptDelta(acceptedSummary(row.ledger,task),acceptedSummary(nextLedger,task));
   const update={...row,revision:row.revision+1,ledger:nextLedger};
   const success=await repo.compareAndSwap(attempt.day,row.revision,update);
   if(!success)continue;
@@ -145,7 +157,7 @@ export async function commitDailyV2Answer(repo,attempt,{maxRetries=8}={}){
   requireV2(event && same(event,persistedEvent(nextLedger,attempt.eventId)),
     'ANSWER_SAVE_NOT_VERIFIED: do not grant credit or XP');
   return {eventId:attempt.eventId,verified:true,alreadyRecorded:false,revision:check.revision,
-    progress:acceptedSummary(check.ledger,task)};
+    progress:acceptedSummary(check.ledger,task),...delta};
  }
  throw new Error('DailyV2 storage: VERSION_CONFLICT: answer write retries exhausted');
 }
