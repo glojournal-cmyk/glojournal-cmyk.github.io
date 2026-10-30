@@ -63,18 +63,27 @@ export function summarizeDailyV2Task(ledger,task){
   const possibleOldKeys=new Set(b.potentialLegacyKeys||[]);
   const trustedOldUniverse=b.potentialKeysVerified===true&&possibleOldKeys.size>=b.count&&
     [...oldKeys].every(k=>possibleOldKeys.has(k));
-  const fresh=new Set(),seen=new Set();
+  const fresh=new Set(),examBest=new Map();
   let examEarned=0,examPossible=0;
   for(const a of ledger.attempts){
     if(a.taskId!==task.id||a.day!==ledger.day)continue;
     const key=task.kind==="vocab"?a.conceptId:a.questionId;
     dailyV2Require(typeof key==="string"&&key.length>0,"vocabulary events require conceptId");
     if(task.kind==="exam"){
-      if(a.marksEarned===null||a.marksPossible===null||seen.has(key))continue;
-      seen.add(key);
-      examEarned+=a.marksEarned;examPossible+=a.marksPossible;
+      if(a.marksEarned===null||a.marksPossible===null)continue;
+      const previous=examBest.get(key);
+      dailyV2Require(!previous||previous.possible===a.marksPossible,
+        "conflicting exam maximum marks for the same question");
+      // A genuine retry can improve partial marks. Count one question once,
+      // but award its best verified score, regardless of event replay order.
+      if(!previous||a.marksEarned>previous.earned)
+        examBest.set(key,{earned:a.marksEarned,possible:a.marksPossible});
       if(!oldKeys.has(key))fresh.add(key);
     }else if(a.correct&&!oldKeys.has(key))fresh.add(key);
+  }
+  for(const result of examBest.values()){
+    examEarned+=result.earned;
+    examPossible+=result.possible;
   }
   // Opaque old credits can progress ONLY when an independently VERIFIED
   // superset of all potentially credited legacy keys is available. Any new
