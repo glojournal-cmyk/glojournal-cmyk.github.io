@@ -17,6 +17,8 @@ export function makeDailyV2Ledger(day, legacyBaselines={}){
     dailyV2Require(Number.isInteger(v?.count)&&v.count>=0,"baseline count invalid");
     dailyV2Require(Array.isArray(v?.knownKeys),"baseline knownKeys array required");
     const knownKeys=[...new Set(v.knownKeys.map(String))];
+    dailyV2Require(knownKeys.length<=v.count,
+      "baseline has more known identities than credited items");
     const potentialLegacyKeys=Array.isArray(v.potentialLegacyKeys)?
       [...new Set(v.potentialLegacyKeys.map(String))]:[];
     const trusted=v.potentialKeysVerified===true &&
