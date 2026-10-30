@@ -89,3 +89,17 @@ test('14 saved entries still show Recovery when one of ten canonical tasks is ge
   assert.equal(modernRecoveryCount(mixed),1);
   assert.equal(modernTodayStatus(mixed,date),'partial');
 });
+
+test('iPad Home and 404 load the new Recovery badge fix through uncached modules',()=>{
+  const from=path=>fs.readFileSync(new URL('../'+path,import.meta.url),'utf8');
+  const index=from('index.html'),fallback=from('404.html');
+  const extras=from('assets/home-extras-restorer-20261023.js');
+  const homeContinue=from('assets/home-continue-20261010.js');
+  const version='history=20261030-ten-core2';
+  assert.equal(fallback,index,'deep link and Home use the same shell');
+  assert.match(index,/home-extras-restorer-20261023\\.js[^"']*history=20261030-ten-core2/);
+  assert.match(extras,/home-continue-20261010\\.js[^"']*history=20261030-ten-core2/);
+  assert.match(homeContinue,/home-rpg-live-20261019\\.js[^"']*history=20261030-ten-core2/);
+  assert.ok(code.includes('dailyHistorySummary(row,date)'));
+  assert.ok(code.includes('summary.canonicalOnly'));
+});
