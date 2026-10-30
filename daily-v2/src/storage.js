@@ -6,6 +6,7 @@
  */
 import {makeDailyV2Ledger,projectSavedDailyV2Attempt,summarizeDailyV2Task} from './ledger.js';
 import {DAILY_V2_TASKS} from './planner.js';
+import {isValidDailyV2Day} from './calendar.js';
 
 const clone = value=>value===undefined?undefined:JSON.parse(JSON.stringify(value));
 function requireV2(ok,msg){if(!ok)throw new Error('DailyV2 storage: '+msg);}
@@ -27,7 +28,7 @@ function persistedEvent(ledger,eventId){
 }
 function validatePlan(plan){
  requireV2(plan?.version===2&&['ready','partial'].includes(plan.status)&&
-   typeof plan.day==='string'&&Array.isArray(plan.tasks)&&
+   isValidDailyV2Day(plan.day)&&Array.isArray(plan.tasks)&&
    plan.tasks.length>0&&plan.tasks.length<=10&&plan.target===163,
    'only fully verified or explicitly staged partial plans can be frozen');
  const isPartial=plan.status==='partial';
@@ -107,7 +108,7 @@ export async function commitDailyV2Plan(repo,plan,{legacyBaselines={},maxRetries
  throw new Error('DailyV2 storage: VERSION_CONFLICT: plan save retries exhausted');
 }
 export async function commitDailyV2Answer(repo,attempt,{maxRetries=8}={}){
- requireV2(attempt&&typeof attempt.day==='string'&&typeof attempt.taskId==='string','answer metadata missing');
+ requireV2(attempt&&isValidDailyV2Day(attempt.day)&&typeof attempt.taskId==='string','answer metadata missing or invalid date');
  for(let i=0;i<maxRetries;i++){
   const row=await readRow(repo,attempt.day);
   requireV2(row.plan?.version===2&&['ready','partial'].includes(row.plan.status),
