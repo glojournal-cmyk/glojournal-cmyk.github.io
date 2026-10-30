@@ -141,3 +141,40 @@ test('duplicate identical submitted synonyms cannot earn two overlapping group c
  assert.equal(distinct.marksEarned,2);
  assert.equal(distinct.correct,true);
 });
+
+test('real enzyme/product matching gives two marks per pair and permits honest partial credit',()=>{
+ const topic=load('bio-y8-enzymes-gut'),q=get(topic,'bio-y8-app-enzyme-pathways');
+ const full=score(topic,q,{starch:['amylase','simple sugars'],
+  protein:['protease','amino acids'],lipid:['lipase','fatty acids and glycerol']});
+ assert.equal(full.marksPossible,6);
+ assert.equal(full.marksEarned,6);
+ assert.equal(full.releaseGrade,false);
+ const partial=score(topic,q,{starch:['carbohydrase','simple sugars'],
+  protein:['wrong enzyme','amino acids'],lipid:['lipase','wrong product']});
+ assert.equal(partial.marksEarned,4);
+ assert.equal(partial.correct,false);
+});
+test('real food tests reagent and positive colour each get distinct independent mark',()=>{
+ const topic=load('bio-y8-food-tests'),q=get(topic,'bio-y8-app-food-test-match');
+ const result=score(topic,q,{starch:['iodine','blue-black'],
+  'reducing sugar':["heated Benedict's",'orange'],
+  protein:['Biuret','purple'],lipid:['ethanol then water','cloudy white emulsion']});
+ assert.equal(result.marksEarned,8);
+ assert.equal(result.marksPossible,8);
+ assert.equal(result.correct,true);
+});
+test('ambiguous free-form two-mark matching input is sent to review, not guessed',()=>{
+ const topic=load('bio-y8-enzymes-gut'),q=get(topic,'bio-y8-app-enzyme-pathways');
+ const r=score(topic,q,{starch:'amylase -> simple sugars',protein:'protease -> amino acids',
+  lipid:'lipase -> fatty acids and glycerol'});
+ assert.equal(r.marksEarned,null);
+ assert.equal(r.reviewRequired,true);
+ assert.equal(r.releaseGrade,false);
+});
+test('two-point paired marking never invents marks when a source has no explicit two-part separator',()=>{
+ const q={id:'two-part-ambiguous',topicId:diet.topicId,answer:{mode:'pair_map',
+  totalMarks:2,pairs:[{left:'starch',right:'iodine turns blue-black'}]}};
+ const r=score(diet,q,{starch:['iodine','blue-black']});
+ assert.equal(r.reviewRequired,true);
+ assert.equal(r.marksEarned,null);
+});
