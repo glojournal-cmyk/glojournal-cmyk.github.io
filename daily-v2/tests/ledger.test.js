@@ -154,3 +154,9 @@ test('conflicting possible marks in persisted GCSE history are not silently aggr
   conceptId:null,correct:true,marksEarned:3,marksPossible:3}));
  assert.throws(()=>progress(l,'exam',3,'gcse-exam-skills'),/conflicting exam maximum marks/);
 });
+
+test('legacy baselines cannot claim fewer credits than the number of known distinct identities',()=>{
+ assert.throws(()=>makeDailyV2Ledger(day,{'latin-vocab':{
+  count:1,knownKeys:['word-a','word-b']
+ }}),/more known identities than credited items/);
+});
