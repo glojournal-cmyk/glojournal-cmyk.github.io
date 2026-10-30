@@ -18,6 +18,9 @@ const expected=()=>JSON.stringify({state,version:10});
 assert.equal(await recoverProgressStorage(store),true,"normal recovery saves full state");
 assert.equal(data.get(options.name),expected(),"outfits, games, daily records retained");
 const attempts=writes;
+// A saved primary is only enough when no other store has an unresolved failure.
+// This fixture explicitly models a previously cleared quota warning.
+globalThis.__luxStoreQuotaFailed=false;
 assert.equal(await recoverProgressStorage(store),true,"already-saved data are verified");
 assert.equal(writes,attempts,"verified state never needlessly rewritten");
 state.xp++;
