@@ -8,14 +8,15 @@ const score=(topic,question,response)=>grade({topic,question,response});
 const diet=load('bio-y8-balanced-diet');
 const ber=load('bio-y8-ber');
 const acid=load('chem-y8-acids-indicators-ph');
-test('real numeric BER answer: exact number, permissible units, and no live credit',()=>{
+test('real two-mark BER answer stays manual even with correct value and units',()=>{
  const question=get(ber,'bio-y8-app-ber-55');
  for(const answer of ['7128 kJ/day','7,128 kJ per day','7128 kJ day-1']){
   const r=score(ber,question,answer);
-  assert.equal(r.marksEarned,2,answer);assert.equal(r.marksPossible,2);
-  assert.equal(r.correct,true);assert.equal(r.releaseGrade,false);
+  assert.equal(r.marksEarned,null,answer);assert.equal(r.marksPossible,2);
+  assert.equal(r.correct,null);assert.equal(r.releaseGrade,false);
   assert.equal(r.ledgerEligible,false);
-  assert.equal(r.reviewRequired,false);
+  assert.equal(r.reviewRequired,true);
+  assert.match(r.reason,/multi-mark numeric/);
   assert.ok(r.sourceFingerprint);
  }
 });
@@ -30,8 +31,11 @@ test('missing unit, wrong unit or arithmetic result never guesses working marks'
 });
 test('real numeric tolerance permits small differences, refuses excess tolerance',()=>{
  const topic={...ber,questions:[]};
- const q={...get(ber,'bio-y8-app-ber-change')};
- assert.equal(score(topic,q,'259.3 kJ/day').marksEarned,2);
+ const real=get(ber,'bio-y8-app-ber-change');
+ // A synthetic SINGLE-mark wrapper isolates numeric tolerance calculation;
+ // the actual two-mark question is held for working/method review.
+ const q={...real,answer:{...real.answer,totalMarks:1}};
+ assert.equal(score(topic,q,'259.3 kJ/day').marksEarned,1);
  assert.equal(score(topic,q,'259.31 kJ/day').marksEarned,null);
 });
 test('real matching source uses one point per exact pair and accepts explicit slash alternatives',()=>{
@@ -116,8 +120,9 @@ test('malformed source or response cannot silently earn credit',()=>{
 
 test('a zero-tolerance numeric answer is genuinely exact, not loosened by floating-point slack',()=>{
  const q=get(ber,'bio-y8-app-ber-55');
- assert.equal(score(ber,q,'7128.00000001 kJ/day').marksEarned,null);
- assert.equal(score(ber,q,'7128 kJ/day').marksEarned,2);
+ const oneMark={...q,answer:{...q.answer,totalMarks:1}};
+ assert.equal(score(ber,oneMark,'7128.00000001 kJ/day').marksEarned,null);
+ assert.equal(score(ber,oneMark,'7128 kJ/day').marksEarned,1);
 });
 test('large-number tolerance cannot grow by nearly an extra whole unit',()=>{
  const topic={topicId:'large-precise',subject:'physics',year:8};
@@ -175,6 +180,40 @@ test('two-point paired marking never invents marks when a source has no explicit
  const q={id:'two-part-ambiguous',topicId:diet.topicId,answer:{mode:'pair_map',
   totalMarks:2,pairs:[{left:'starch',right:'iodine turns blue-black'}]}};
  const r=score(diet,q,{starch:['iodine','blue-black']});
+ assert.equal(r.reviewRequired,true);
+ assert.equal(r.marksEarned,null);
+});
+
+test('single-mark unit conversion is previewable but 2/3-mark working and explanation remain held',()=>{
+ const bio=load('bio-y8-graphs-calculations');
+ const unit=get(bio,'bio-y8-app-g-to-mg');
+ assert.equal(score(bio,unit,'1500 mg').marksEarned,1);
+ assert.equal(score(bio,unit,'1500 g').marksEarned,null);
+ const chem=load('chem-y8-reactivity-displacement-rusting');
+ const explain=get(chem,'chem-y8-reactivity-displacement-rusting-oxidation-mass-apply');
+ const result=score(chem,explain,'1.6 g');
+ assert.equal(result.marksPossible,2);
+ assert.equal(result.marksEarned,null);
+ assert.equal(result.correct,null);
+ assert.equal(result.reviewRequired,true,
+  'numerical answer alone cannot award chemical explanation mark');
+ const phys=load('phys-y8-power-efficiency');
+ const comparison=get(phys,'phys-y8-power-efficiency-power-v-efficiency-apply');
+ assert.equal(score(phys,comparison,'400 W').marksEarned,null,
+  '400 W alone cannot prove three comparison mark points');
+});
+test('repaired real density answer and moment units are scientifically consistent',()=>{
+ const densityTopic=load('phys-y8-pressure-density-fluids');
+ const density=get(densityTopic,'phys-y8-pressure-density-fluids-density-equation-apply');
+ assert.equal(density.answer.value,2.7);
+ assert.equal(score(densityTopic,density,'2.7 g/cm3').marksEarned,1);
+ assert.equal(score(densityTopic,density,'3 g/cm3').marksEarned,null);
+ const momentTopic=load('phys-y8-moments-levers');
+ const moment=get(momentTopic,'phys-y8-moments-levers-moment-equation-apply');
+ assert.equal(score(momentTopic,moment,'10 N m').marksEarned,1);
+ assert.equal(score(momentTopic,moment,'10 N').marksEarned,null);
+ const direction=get(momentTopic,'phys-y8-moments-levers-direction-apply');
+ const r=score(momentTopic,direction,'8 N m clockwise');
  assert.equal(r.reviewRequired,true);
  assert.equal(r.marksEarned,null);
 });
