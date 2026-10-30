@@ -9,7 +9,6 @@ const text=x=>String(x).normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim
 const obj=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 const keys=x=>Object.keys(x);
 const same=(a,b)=>text(a)===text(b);
-const unique=a=>new Set(a.map(text)).size===a.length;
 const markCount=(answer,n)=>{
  const ceiling=answer.totalMarks===undefined?n:answer.totalMarks;
  return Number.isInteger(ceiling)&&ceiling===n&&n>0;
@@ -55,7 +54,7 @@ function assignmentScore(answer,response,mode){
    reason:'response contains an unassigned extra label'};
  let earned=0;
  for(const [token,accepted] of expected){
-  if(accepted.includes(assignments.get(token)))earned++;
+  if(assignments.has(token)&&accepted.includes(assignments.get(token)))earned++;
  }
  return {marksPossible:n,marksEarned:earned,correct:earned===n,reviewRequired:false,
   scoring:'one point per correct independent assignment'};
@@ -105,7 +104,9 @@ function numericScore(answer,response){
  ok(Number.isFinite(value)&&typeof unit==='string');
  const tolerance=answer.tolerance??0;
  // IEEE-754 rounding must not reject exactly the published tolerance edge.
- const roundingSlack=Number.EPSILON*4*Math.max(1,Math.abs(value),Math.abs(answer.value));
+ // Never relax exact (tolerance=0) answers or grant large-number slack.
+ const roundingSlack=tolerance>0?Math.min(tolerance*1e-9,
+  Number.EPSILON*4*Math.max(1,Math.abs(value),Math.abs(answer.value))):0;
  const valueCorrect=Math.abs(value-answer.value)<=tolerance+roundingSlack;
  const units=answer.units||[];
  const unitCorrect=units.length?units.some(u=>same(u,unit)):!text(unit);
