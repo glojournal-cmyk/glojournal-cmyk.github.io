@@ -79,11 +79,18 @@ export function reconcileDailySession(state,receipt={}) {
   // Merge independently marked journal evidence from the SAME task and day,
   // rather than comparing 2 fresh answers against the old 8/10 snapshot.
   const prior=receipt.priorReceipt;
-  if(day>='2026-10-24'&&prior&&prior.day===day&&prior.taskId===taskId&&
-     prior.subject===subject&&Number(prior.year)===Number(year)&&
-     prior.topicId===task.assignedTopic&&prior.mode===mode&&
-     Number(prior.target)===Number(task.target)&&
-     Array.isArray(prior.questions)&&Array.isArray(prior.answers)){
+  const priorMatches=!!prior&&prior.day===day&&prior.taskId===taskId&&
+    prior.subject===subject&&Number(prior.year)===Number(year)&&
+    prior.topicId===task.assignedTopic&&prior.mode===mode&&
+    Number(prior.target)===Number(task.target)&&
+    Array.isArray(prior.questions)&&Array.isArray(prior.answers);
+  // An unrelated retry receipt must never validate an extra tenth answer.
+  // When the old receipt is present but mismatched, leave the existing
+  // durable score alone instead of inferring a new credit from one answer.
+  if(day>='2026-10-24'&&prior&&!priorMatches)
+    return {...unchanged('mismatched-prior-receipt'),
+      progress:progressOf(task),target:Math.max(1,Number(task.target)||1)};
+  if(day>='2026-10-24'&&priorMatches){
     const oldSlots=verifiedQuizSlots(prior.questions,prior.answers)
       .filter(x=>x.question?.topicId===task.assignedTopic||scienceTask);
     const oldById=new Map(),newById=new Map();
