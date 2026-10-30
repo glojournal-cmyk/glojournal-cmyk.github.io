@@ -32,8 +32,8 @@ test('missing prompt or missing marking answer must be repaired before review',(
  assert.equal(r.needsSourceRepair,3);
  assert.equal(r.readyForHumanReview,0);
  assert.equal(r.reasonCounts.MISSING_PROMPT,1);
- assert.equal(r.reasonCounts.MISSING_ACCEPTED_ANSWER,2);
- assert.equal(r.samples.MISSING_ACCEPTED_ANSWER[0].questionId,'no-answer');
+ assert.equal(r.reasonCounts.MISSING_MARKING_CONTENT,2);
+ assert.equal(r.samples.MISSING_MARKING_CONTENT[0].questionId,'no-answer');
 });
 test('both occurrences of a duplicate question ID are held from review',()=>{
  const r=triageDailyV2Sources([make('latin',[q('dup')]),make('french',[q('dup')])]);
@@ -63,4 +63,33 @@ test('real GitHub source triage reconciles per-subject and overall structural co
  assert.ok(t.bySubjectYear['latin-y8'].records>0);
  assert.ok(t.bySubjectYear['french-y8'].records>0);
  assert.equal(report.bank.certified,0,'structural review hints do not grant curriculum certification');
+});
+
+test('real-style mark_points source is a manual rubric review, not a missing answer',()=>{
+ const science=q('bio-point',{format:'mark_points',answer:{
+  mode:'mark_points',markPoints:['The water evaporates','The mass decreases'],
+  modelAnswer:'The water evaporates so its mass decreases.'
+ }});
+ const r=triageDailyV2Sources([make('biology',[science])]);
+ assert.equal(r.readyForHumanReview,1);
+ assert.equal(r.needsSourceRepair,0);
+ assert.equal(r.requiresManualMarkPointReview,1);
+ assert.equal(r.bySubjectYear['biology-y8'].manualMarkPointReview,1);
+});
+test('incomplete or empty mark_points evidence still requires a source fix',()=>{
+ const r=triageDailyV2Sources([make('physics',[
+  q('bad-rubric',{answer:{mode:'mark_points',markPoints:[' ','']}}),
+  q('missing-rubric',{answer:{mode:'mark_points',modelAnswer:'A plausible model with no marking points'}})
+ ])]);
+ assert.equal(r.readyForHumanReview,0);
+ assert.equal(r.needsSourceRepair,2);
+ assert.equal(r.requiresManualMarkPointReview,0);
+ assert.equal(r.reasonCounts.MISSING_MARKING_CONTENT,2);
+});
+test('actual source contains mark-point candidates that are counted, not treated as missing',()=>{
+ const report=buildRealSourceCapacityReport(),t=report.sourceTriage;
+ assert.ok(t.requiresManualMarkPointReview>0);
+ assert.ok(t.requiresManualMarkPointReview<=t.readyForHumanReview);
+ assert.ok(Array.isArray(t.markPointReviewSamples));
+ assert.equal(t.readyForHumanReview+t.needsSourceRepair,t.supportedSubjectRecords);
 });
