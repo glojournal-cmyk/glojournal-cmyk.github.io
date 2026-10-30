@@ -112,17 +112,41 @@ export function recoverProgressStorage(store){
   // First try to save the latest learner state. Do not delay an ordinary retry
   // behind optional IndexedDB migration, which may be slow or unavailable.
   const attempt=()=>{
-    const expected=snapshot();
-    try{
-      if(localStorage.getItem(options.name)!==expected)store.setState({});
-      const after=snapshot();
-      return localStorage.getItem(options.name)===after&&snapshot()===after;
-    }catch{return false}
+    // A marked answer can arrive while the first write is in flight.
+    // Retry only when the PRIOR snapshot was verified as durable but the live
+    // state advanced; never retry a quota failure or silent no-op write.
+    for(let tries=0;tries<3;tries++){
+      const expected=snapshot();
+      try{
+        if(localStorage.getItem(options.name)!==expected)store.setState({});
+        const persisted=localStorage.getItem(options.name);
+        const current=snapshot();
+        if(persisted===current&&current===snapshot())return true;
+        if(persisted!==expected)return false;
+      }catch{return false}
+    }
+    return false;
   };
-  if(attempt())return true;
-  // Only use the verified archive migration as a quota recovery measure.
-  // It must never restore old study data over current unanswered work.
-  try{await migrateOldBackups()}catch(error){console.warn("Optional backup migration failed; retrying current progress",error)}
+  // A durable primary is not sufficient to declare that a DIFFERENT store
+  // (e.g. the Pet wallet) recovered. An explicitly raised quota failure
+  // from another store must not be cleared by verifying this one primary.
+  let alreadyDurable=false;
+  try{alreadyDurable=localStorage.getItem(options.name)===snapshot()}catch{}
+  if(alreadyDurable)return globalThis.__luxStoreQuotaFailed!==true;
+
+  // When duplicate LOCAL backup snapshots occupy the quota, move them into
+  // verified IndexedDB storage BEFORE triggering a state write. This avoids
+  // two writes under quota pressure and preserves every original snapshot if
+  // the vault fails; migrateOldBackups removes only byte-verified copies.
+  // Without valid local duplicates the live save is retried immediately.
+  let hasLocalDuplicates=false;
+  try{hasLocalDuplicates=KEYS.some(key=>fromLocal(key)!==null)}catch{}
+  if(hasLocalDuplicates){
+    try{await migrateOldBackups()}catch(error){
+      console.warn("Optional backup migration failed; retrying current progress",error)
+    }
+  }
+  // Never restore an older backup over the newest live learner state.
   return attempt();
  })().catch(()=>false).finally(()=>{recovering=null});
  return recovering;
