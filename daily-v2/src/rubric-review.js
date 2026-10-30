@@ -18,7 +18,10 @@ function validateQuestion(topic,question){
  // review: this tool only accepted newly authored rubric_review drafts.
  // This is a manual, staged review, NEVER an auto-grading / XP pathway.
  invariant((mode==='rubric_review'&&question.answer.requiresSemanticAssessment===true)||
-  mode==='mark_points','question must be free-response rubric_review or source mark_points');
+  mode==='mark_points'||
+  (mode==='numeric'&&Number.isInteger(question.answer.totalMarks)&&
+   question.answer.totalMarks>1),
+  'question must be free-response rubric_review, source mark_points or multi-mark numeric with explicit points');
  const points=question.answer.markPoints;
  invariant(Array.isArray(points)&&points.length>0&&points.every(nonempty)&&
   (question.answer.totalMarks===undefined||question.answer.totalMarks===points.length) &&
@@ -40,6 +43,7 @@ export function previewDailyV2Rubric(topic,question,studentResponse){
   sourceAnswerMode:question.answer.mode,
   modelAnswerMatch:match,markPoints:[...points],
   reasons:['Open-ended answers can be equivalent without identical words.',
+   'Numeric final values cannot prove working, method, direction or explanation marks.',
    'Matching isolated keywords cannot prove causality, correct negation or full reasoning.'],
   releaseGrade:false
  };
