@@ -1,5 +1,5 @@
 import {selectUnfinishedDailyQuestions} from './daily-unfinished-retry-20261025.js?v=20261026-bio-year9-savefix2';
-import {readDailyRetryReceiptSync,readDailyRetryReceipt} from './daily-completed-session-receipts-20261024.js?v=20261025-scorefix1';
+import {readDailyRetryReceiptSync,readDailyRetryReceipt} from './daily-completed-session-receipts-20261024.js?v=20261026-bio-savefix2&modeguard=20261030-1';
 import {selectDiverseRecoveryQuestions} from './recovery-question-diversity-20261025.js?v=20261030-recovery-empty1';
 import {listRecoveryReceipts} from './recovery-receipt-20261018.js?v=20261025-recovery-correct1';
 import {dailyVocabTotal} from './daily-vocab-total-20261020.js?v=20261023-final-credit1';
