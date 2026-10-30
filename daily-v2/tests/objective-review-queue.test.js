@@ -11,7 +11,7 @@ test('review queue includes every real objective question, but none is teacher/s
  assert.deepEqual(queue.summary.byMode,{
   numeric:46,pair_map:115,category_map:8,unordered_required_groups:22});
  assert.deepEqual(queue.summary.technicalPreview,{
-  eligible:191,fullPreview:191,reviewRequired:0,errors:0,negativeFalseFull:0});
+  eligible:191,fullPreview:162,reviewRequired:29,errors:0,negativeFalseFull:0});
  assert.equal(queue.summary.curriculumCertified,0);
  assert.equal(queue.summary.scorerCertified,0);
  assert.equal(queue.summary.approvedForDaily,0);
