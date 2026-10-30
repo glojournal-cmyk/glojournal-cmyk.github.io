@@ -26,7 +26,7 @@ const server=createServer((req,res)=>{
 await new Promise(r=>server.listen(0,"127.0.0.1",r));
 const base="http://127.0.0.1:"+server.address().port;
 try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch({headless:true});try{
- const page=await browser.newPage({viewport:{width:834,height:1112}}),errors=[];page.on('pageerror',e=>errors.push(e.message));async function visit(url){
+ let page=await browser.newPage({viewport:{width:834,height:1112}});const errors=[];page.on('pageerror',e=>errors.push(e.message));async function visit(url){
   await page.waitForLoadState('networkidle');
   await page.goto(url,{waitUntil:'networkidle'});
   // The current Garden Home intentionally overlays (and hides) the original
@@ -105,6 +105,14 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
   return store.getState().dailyLog[date];
  },unopened);
  assert.equal(persisted.tasks.find(t=>t.id==='french-vocab').recovered,true);
+ // Start the two-date synthetic fixture in a FRESH browser context. The
+ // previous fixture just completed yesterday and durable state correctly
+ // refuses to forget completed work; resetting a few state fields on the same
+ // iPad session is not an independent test of a fresh missed day.
+ await page.close();
+ page=await browser.newPage({viewport:{width:834,height:1112}});
+ page.on('pageerror',e=>errors.push(e.message));
+ await visit(base+'/');await page.waitForFunction(()=>window.__luxAppReady===true);
  const dates=await page.evaluate(async()=>{const {C:store,Ut:day}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);const today=day(),date=n=>new Date(Date.parse(today+'T12:00:00Z')-n*86400000).toISOString().slice(0,10),a=date(1),b=date(2);const logs={...store.getState().dailyLog};for(const d of [a,b])logs[d]={date:d,tasks:[{id:'french-vocab',target:30,progress:20},{id:'latin-vocab',target:30,progress:30}]};
   // This is a NEW synthetic QA fixture: the prior test just completed a
   // recovery on date(a). Remove only its local browser TEST receipt so the
