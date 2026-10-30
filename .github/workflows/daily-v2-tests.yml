@@ -5,10 +5,14 @@ on:
       - feature/daily-v2-clean-rebuild-20261026
     paths:
       - "daily-v2/**"
+      - "content/topics/**"
+      - "content/catalog.json"
       - ".github/workflows/daily-v2-tests.yml"
   pull_request:
     paths:
       - "daily-v2/**"
+      - "content/topics/**"
+      - "content/catalog.json"
       - ".github/workflows/daily-v2-tests.yml"
 permissions:
   contents: read
