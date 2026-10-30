@@ -61,16 +61,16 @@ export function selectDiverseRecoveryQuestions(fresh,loaded,options={},rank,prog
  const bank=(Array.isArray(loaded)?loaded:[]),byId=new Map(bank.map(q=>[String(q.id),q]));
  const excludedFingerprints=new Set([...excluded.ids].map(id=>recoveryQuestionFingerprint(byId.get(id))).filter(Boolean));
  const reviewIds=mode==='mistakes'&&Array.isArray(reviewQuestionIds)&&reviewQuestionIds.length?new Set(reviewQuestionIds):null;
- const allowed=q=>q?.id&&q.formal!==false&&!q._repair&&q.status!=='preview'&&
+ const allowed=(q,allowOtherTopic=false)=>q?.id&&q.formal!==false&&!q._repair&&q.status!=='preview'&&
    (!reviewIds||reviewIds.has(q.id))&&
-   (!topicId||q.topicId===topicId)&&!excluded.ids.has(asId(q.id))&&
+   (!topicId||allowOtherTopic||q.topicId===topicId)&&!excluded.ids.has(asId(q.id))&&
    !(day&&['standard','mastery','quick'].includes(mode)&&
      state.reviews?.[q.id]?.due>day)&&
    !excludedFingerprints.has(recoveryQuestionFingerprint(q));
- const selectUnique=arr=>{
+ const selectUnique=(arr,allowOtherTopic=false)=>{
    const out=[],ids=new Set(),prints=new Set();
    for(const q of arr||[]){
-     if(!allowed(q)||ids.has(String(q.id)))continue;
+     if(!allowed(q,allowOtherTopic)||ids.has(String(q.id)))continue;
      const fp=recoveryQuestionFingerprint(q);
      if(fp&&prints.has(fp))continue;
      ids.add(String(q.id));if(fp)prints.add(fp);out.push(q);
@@ -82,8 +82,6 @@ export function selectDiverseRecoveryQuestions(fresh,loaded,options={},rank,prog
  const review=['due','retention','weak','mistakes'].includes(mode);
  // Mistake/due review may only draw from its specifically assigned pool.
  const candidates=selectUnique(review?current:bank);
- if(!candidates.length)return selectUnique(current).slice(0,limit);
- const ranked=selectUnique(typeof rank==='function'?rank(candidates,subject,Math.max(1,Math.min(30,limit))):candidates);
  // Independent, non-overlapping portions of one subject/topic bank for
  // same-day Recovery assignments; prevents overlap even BEFORE first answer.
  const assignments=(state.dailyLog?.[date]?.tasks||[]).filter(t=>
@@ -91,6 +89,11 @@ export function selectDiverseRecoveryQuestions(fresh,loaded,options={},rank,prog
     (!taskYear(t)||!year||taskYear(t)===Number(year))&&Number(t.target)>0);
  const slot=assignments.findIndex(t=>t.id===taskId);
  const start=slot<0?0:assignments.slice(0,slot).reduce((n,t)=>n+Math.max(1,Number(t.target)||1),0);
+ // The adaptive ranker LIMITS its output to the requested size. Ranking only
+ // `limit` questions here made the second task's reserved slice impossible.
+ // Request enough for this task's stable offset BEFORE splitting the pool.
+ const ranked=candidates.length?selectUnique(typeof rank==='function'
+   ?rank(candidates,subject,Math.max(1,Math.min(60,start+limit))):candidates):[];
  let ordered=ranked;
  if(!review&&slot>=0&&assignments.length>1&&ranked.length>=start+limit){
    // Deterministic reservation: neighboring assignments never select the
@@ -103,9 +106,28 @@ export function selectDiverseRecoveryQuestions(fresh,loaded,options={},rank,prog
    ordered=[...ranked.slice(offset),...ranked.slice(0,offset)];
  }
  const picked=selectUnique(ordered).slice(0,limit);
+ // Only a dated language Recovery may use alternative topics from the same
+ // loaded school year, and only after the assigned topic is exhausted.
+ // Correct IDs, duplicate prompts and other Recovery tasks stay excluded.
+ const fallback=!review&&!!topicId&&['french','latin'].includes(subject)&&picked.length<limit;
+ if(fallback){
+   const usedIds=new Set(picked.map(q=>String(q.id)));
+   const usedPrints=new Set(picked.map(recoveryQuestionFingerprint).filter(Boolean));
+   const extras=selectUnique(bank,true).filter(q=>q.topicId!==topicId);
+   const orderedExtras=selectUnique(typeof rank==='function'
+     ?rank(extras,subject,Math.max(1,Math.min(30,limit))):extras,true);
+   for(const q of orderedExtras){
+     if(picked.length>=limit)break;
+     const print=recoveryQuestionFingerprint(q);
+     if(usedIds.has(String(q.id))||(print&&usedPrints.has(print)))continue;
+     usedIds.add(String(q.id));if(print)usedPrints.add(print);
+     picked.push(q);
+   }
+ }
  if(typeof progression==='function'&&['mastery','year8long','standard'].includes(mode)){
    const p=progression(picked,mode,picked.length);
-   return selectUnique(p).slice(0,limit);
+   const progressed=selectUnique(p,fallback).slice(0,limit);
+   return progressed.length===picked.length?progressed:picked;
  }
  return picked;
 }
