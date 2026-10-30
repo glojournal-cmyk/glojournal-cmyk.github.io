@@ -1820,7 +1820,7 @@ function normalizeState() {
     {...stateForDaily,dailyLog:nextLog},getTopicCatalog);
   if(verifiedHistoricOct23)
     nextLog={...nextLog,"2026-10-23":verifiedHistoricOct23};
-  const receiptLog = applyRecoveryReceipts(nextLog);
+  const receiptLog = applyRecoveryReceipts(nextLog, stateForDaily.recoveryVocabByDay);
   // The 30-day record can retain three verified completions while a rebuilt
   // Home plan temporarily displays zero. Reuse only identical same-day
   // assignments; never create XP or replace correct-only answer evidence.
