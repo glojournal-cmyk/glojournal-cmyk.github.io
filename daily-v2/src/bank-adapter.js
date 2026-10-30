@@ -106,7 +106,9 @@ export function adaptCertifiedDailyV2Bank({topics=[],certifications={},includeUn
     prompt:question.prompt,stimulus:question.stimulus||{},
     format:question.format,status:'enabled',formal:true,roles:[...new Set(cert.roles)],
     skill:cert.skill||null,depthBand:cert.depthBand||null,
-    answer:question.answer
+    answer:question.answer,
+    // Carry reviewed source change detector into the frozen Daily roster.
+    sourceFingerprint:cert.sourceFingerprint
    };
    if(cert.roles.includes('gcse')){
     q.marks=Number(cert.gcseMarks);
