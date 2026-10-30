@@ -89,6 +89,8 @@ export function buildRealSourceCapacityReport() {
   sourceTopicFiles:topics.length,sourceEligible:adapted.summary.scanned,
   sourceBySubjectYear:loadedBySubjectYear,
   catalogMetadata:{topics:catalog.totals?.topics??null,
+   actualTopicRows:(catalog.topics||[]).length,
+   declaredVsListedTopicDelta:(catalog.totals?.topics??(catalog.topics||[]).length)-(catalog.topics||[]).length,
    enabledQuestions:catalog.totals?.enabled??null,
    filesVsCatalogTopics:topics.length-(catalog.totals?.topics??topics.length),
    eligibleVsCatalogEnabled:adapted.summary.scanned-(catalog.totals?.enabled??adapted.summary.scanned),
