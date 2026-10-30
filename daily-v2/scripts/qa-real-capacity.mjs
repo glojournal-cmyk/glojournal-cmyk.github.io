@@ -30,6 +30,7 @@ function inspectedFiles() {
 }
 export function buildRealSourceCapacityReport() {
  const topics=inspectedFiles();
+ const catalog=parse(join(root,'content/catalog.json'));
  const certsPresent=existsSync(certFile),taughtPresent=existsSync(taughtFile);
  const certifications=certsPresent?parse(certFile):{};
  const taughtEvidence=taughtPresent?parse(taughtFile):[];
@@ -49,11 +50,23 @@ export function buildRealSourceCapacityReport() {
   const row=loadedBySubjectYear[key]||(loadedBySubjectYear[key]={topics:0,questions:0});
   row.topics++;row.questions+=eligible;
  }
+ const catalogDisagreements=(catalog.bySubjectYear||[]).map(entry=>{
+  const key=String(entry.subject)+'-y'+String(entry.year);
+  const loaded=loadedBySubjectYear[key]||{topics:0,questions:0};
+  return {subjectYear:key,catalogTopics:entry.topics,sourceFiles:loaded.topics,
+   catalogEnabled:entry.enabled,sourceEligible:loaded.questions,
+   topicDelta:loaded.topics-entry.topics,eligibleDelta:loaded.questions-entry.enabled};
+ }).filter(entry=>entry.topicDelta!==0||entry.eligibleDelta!==0);
  return {
   system:'Daily V2 isolated real-source capacity audit',date:day,
   productionAffected:false,learnerDataRead:false,learnerHistoryAvailable:false,
   sourceTopicFiles:topics.length,sourceEligible:adapted.summary.scanned,
   sourceBySubjectYear:loadedBySubjectYear,
+  catalogMetadata:{topics:catalog.totals?.topics??null,
+   enabledQuestions:catalog.totals?.enabled??null,
+   filesVsCatalogTopics:topics.length-(catalog.totals?.topics??topics.length),
+   eligibleVsCatalogEnabled:adapted.summary.scanned-(catalog.totals?.enabled??adapted.summary.scanned),
+   subjectYearDisagreements:catalogDisagreements},
   certificationManifestPresent:certsPresent,taughtEvidencePresent:taughtPresent,
   certifiedTaughtTopics:taughtTopicIds.length,
   bank:{certified:adapted.summary.certified,rejected:adapted.summary.rejected,
