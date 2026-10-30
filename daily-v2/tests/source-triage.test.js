@@ -131,3 +131,33 @@ test('all structured review requirements are subsets of actual source records',(
  assert.ok(r.requiresManualMarkPointReview+r.requiresStructuredAnswerReview<=r.readyForHumanReview);
  assert.equal(r.readyForHumanReview+r.needsSourceRepair,r.supportedSubjectRecords);
 });
+
+test('numeric calculation answer with explicit units and tolerance is a structured review candidate',()=>{
+ const r=triageDailyV2Sources([make('biology',[
+  q('ber',{format:'calculation',answer:{mode:'numeric',value:7128,
+   tolerance:0,units:['kJ/day','kJ per day'],totalMarks:2}})
+ ])]);
+ assert.equal(r.readyForHumanReview,1);
+ assert.equal(r.needsSourceRepair,0);
+ assert.equal(r.requiresStructuredAnswerReview,1);
+});
+test('sorting categories stored in category_map are valid reviewable source material',()=>{
+ const r=triageDailyV2Sources([make('biology',[
+  q('sort',{format:'sorting',answer:{mode:'category_map',categories:{
+   biotic:['predator','pathogen'],abiotic:['temperature','soil pH']
+  }}})
+ ])]);
+ assert.equal(r.readyForHumanReview,1);
+ assert.equal(r.requiresStructuredAnswerReview,1);
+ assert.equal(r.needsSourceRepair,0);
+});
+test('invalid numeric tolerance or empty classification must not be silently review-ready',()=>{
+ const r=triageDailyV2Sources([make('physics',[
+  q('invalid-numeric',{answer:{mode:'numeric',value:12,tolerance:-1}}),
+  q('not-number',{answer:{mode:'numeric',value:'12',tolerance:0}}),
+  q('empty-map',{answer:{mode:'category_map',categories:{biotic:[]}}})
+ ])]);
+ assert.equal(r.readyForHumanReview,0);
+ assert.equal(r.needsSourceRepair,3);
+ assert.equal(r.reasonCounts.MISSING_MARKING_CONTENT,3);
+});
