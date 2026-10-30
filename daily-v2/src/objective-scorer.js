@@ -122,6 +122,15 @@ function unorderedScore(answer,response){
  const n=groups.length;
  if(!markCount(answer,n))return {status:'review-required',reviewRequired:true,marksEarned:null,
   marksPossible:answer.totalMarks??n,reason:'group rubric ceiling differs from group count'};
+ // Source patterns like "two different reasons" may list the same accepted
+ // alternatives under every mark point. Two different strings can still be
+ // one scientific concept (e.g. lipids/oils, FASD/learning difficulties).
+ // Lexical one-to-one matching cannot certify semantic independence.
+ const overlapping=groups.some((g,i)=>groups.slice(i+1).some(h=>
+  g.some(v=>h.includes(v))));
+ if(overlapping)return {status:'review-required',reviewRequired:true,
+  marksEarned:null,marksPossible:n,correct:null,
+  reason:'overlapping answer-group alternatives require human distinct-concept review'};
  if(items.length>n)return {status:'review-required',reviewRequired:true,
   marksEarned:null,marksPossible:n,reason:'additional answer elements require review'};
  // Maximum bipartite matching guarantees a synonym cannot earn two mark points.
