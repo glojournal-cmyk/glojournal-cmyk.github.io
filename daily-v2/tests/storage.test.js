@@ -260,3 +260,27 @@ test('two concurrent submissions of the same vocab concept have a combined verif
  assert.equal(receipts.filter(r=>r.newVerifiedCredit).length,1);
  assert.equal(repo.readOnlySnapshot(day).ledger.attempts.length,2);
 });
+
+test('oversized legacy baseline is rejected before it can pre-complete a 30-question task',async()=>{
+ const repo=createMemoryDailyV2Repository();
+ await assert.rejects(()=>commitDailyV2Plan(repo,plan(),{legacyBaselines:{
+  'latin-vocab':{count:31,knownKeys:[]}
+ }}),/LEGACY_BASELINE_TARGET_INVALID/);
+ assert.equal(repo.readOnlySnapshot(day),null);
+});
+test('baseline from an unmapped legacy task cannot be silently frozen as V2 data',async()=>{
+ const repo=createMemoryDailyV2Repository();
+ await assert.rejects(()=>commitDailyV2Plan(repo,plan(),{legacyBaselines:{
+  'unknown-recovery-task':{count:10,knownKeys:[]}
+ }}),/LEGACY_BASELINE_TARGET_INVALID/);
+ assert.equal(repo.readOnlySnapshot(day),null);
+});
+test('a valid traceable legacy 28/30 baseline still freezes without rewriting its known credits',async()=>{
+ const repo=createMemoryDailyV2Repository();
+ const names=Array.from({length:28},(_,i)=>'old-word-'+i);
+ await commitDailyV2Plan(repo,plan(),{legacyBaselines:{
+  'french-vocab':{count:28,knownKeys:names}
+ }});
+ const saved=repo.readOnlySnapshot(day).ledger.legacyBaselines['french-vocab'];
+ assert.equal(saved.count,28);assert.deepEqual(saved.knownKeys,names);
+});
