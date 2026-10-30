@@ -211,19 +211,25 @@ export function planDailyV2(input={}) {
   const creditedToday=new Set(priorAttempts.filter(a=>a?.persisted===true&&a.day===day&&a.taskId===task.id&&a.correct===true).map(a=>a.conceptId));
   const vocabQ=questions.filter(q=>q.roles.includes(task.id)&&!q.roles.includes('gcse')&&q.subject===task.subject&&!assigned.has(q.id));
   const chosen=[];const conceptUse=new Set();
-  for(const [year,quota] of [[8,25],[9,5]]){
+  // Only independently verified *taught* Year 9 questions survive
+  // normalizeQuestions. Take up to five taught Y9 concepts, then fill the
+  // remaining slots with Y7-8. A missing/partially taught Y9 bank must never
+  // turn a well-stocked Y7-8 vocab task into a false no-questions result.
+  // Y9 is selected first so its wording cannot collide with later Y7-8 picks.
+  for(const year of [9,8]){
+   const quota=year===9?5:30-chosen.length;
+   if(quota===0)continue;
    const groups=new Map();
    for(const q of vocabQ){
-    if(!isId(q.conceptId)||creditedToday.has(q.conceptId)|| (year===8?q.year===9:q.year!==9))continue;
+    if(!isId(q.conceptId)||creditedToday.has(q.conceptId)||
+       (year===8?q.year===9:q.year!==9))continue;
     if(!groups.has(q.conceptId))groups.set(q.conceptId,[]);
     groups.get(q.conceptId).push(q);
    }
    const concepts=[...groups.keys()].filter(x=>!conceptUse.has(x)).sort((a,b)=>
      (count.get(a)||0)-(count.get(b)||0)||stableHash(day+'|'+a)-stableHash(day+'|'+b)||a.localeCompare(b));
-   if(concepts.length<quota)fail(task,'VOCAB_CONCEPT_SHORTAGE',{year,needed:quota,available:concepts.length});
-   // A colliding concept is not a shortage when another independently
-   // creditable, fresh-prompt concept is available. Keep scanning instead of
-   // freezing the first `quota` concept IDs and falsely blocking the day.
+   // A colliding concept is not a shortage if another independently
+   // creditable concept or an alternative direction is available.
    let filled=0,collisions=0;
    for(const concept of concepts){
     if(filled===quota)break;
@@ -233,10 +239,14 @@ export function planDailyV2(input={}) {
     if(!variant){collisions++;continue;}
     conceptUse.add(concept);chosen.push(variant);filled++;
    }
-   if(filled<quota&&collisions>0)
-    fail(task,'VOCAB_VARIANT_COLLISION',{year,needed:quota,filled,collisions});
+   if(year===8&&filled<quota){
+    if(concepts.length<quota)fail(task,'VOCAB_CONCEPT_SHORTAGE',{year,needed:quota,available:concepts.length});
+    if(collisions>0)fail(task,'VOCAB_VARIANT_COLLISION',{year,needed:quota,filled,collisions});
+   }
   }
-  if(chosen.length===30){take(chosen);taskById.set(task.id,packageTask(task,chosen,null,{year7to8:25,year9:5}));}
+  if(chosen.length===30){take(chosen);taskById.set(task.id,packageTask(task,chosen,null,{
+   year7to8:chosen.filter(q=>q.year!==9).length,year9:chosen.filter(q=>q.year===9).length
+  }));}
  }
 
  // Historical retrieval: only actual persisted prior question identities.
