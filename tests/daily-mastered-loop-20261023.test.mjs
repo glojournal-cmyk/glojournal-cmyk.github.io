@@ -343,7 +343,7 @@ test('iPad route and replay boot use cache-busted current Daily modules',()=>{
   assert.match(read('assets/index-BLVOhKhN.js'),
     /import \{buildYear8DailyV2,verifiedOct23DatedRow\} from "\.\/year8-daily-v2-20261018\.js\?v=[\w-]+";/);
   assert.match(read('assets/quiz-session-y8fix-20260920.js'),
-    /import \{reconcileDailySession\} from "\.\/daily-session-credit-20261021\.js\?v=[\w-]+";/);
+    /import \{reconcileDailySession\} from "\.\/daily-session-credit-20261021\.js\?v=[\w-]+(?:&[\w-]+=[\w-]+)*";/);
   assert.ok(read('assets/daily-answer-replay-boot-20261021.js').includes('daily-answer-replay-20261021.js?v=20261024-festival-scenes1'));
   assert.ok(read('assets/study._subject.practise-y8fix-20260920.js').includes('E===\`due\`&&dailyLocked&&assignment?.masteryCheck?5'.replaceAll('\\','')));
 });
