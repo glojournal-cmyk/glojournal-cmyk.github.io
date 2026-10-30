@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {mkdirSync,writeFileSync} from 'node:fs';
 import {chromium,webkit} from 'playwright';
 
+// Live recheck requested 2026-10-30 12:06 UK; fresh production smoke, isolated storage.
 const base='https://glojournal-cmyk.github.io';
 const out='test-results/live-production-20261030';
 mkdirSync(out,{recursive:true});
