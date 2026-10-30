@@ -52,9 +52,10 @@ for(const [engineName,browserType,viewport,mobile] of [
        textHead:body.slice(0,340),
        storePresent:!!state,dailyTasks:state?.daily?.length??null,
        visibleButtons:document.querySelectorAll('button').length,
-       appRoot:!!document.querySelector('#root')};
+       appRoot:!!document.querySelector('main')};
    });
    await page.screenshot({path:out+'/'+engineName+'-'+item.name+'.png'});
+   console.log('LIVE_PAGE',JSON.stringify({engineName,...item,...data}));
    assert.ok(data.bodyChars>55,engineName+' '+item.name+' blank UI: '+JSON.stringify(data));
    assert.ok(data.appRoot,engineName+' '+item.name+' missing app root');
    if(/loading your saved progress/i.test(data.textHead)&&data.bodyChars<170)
