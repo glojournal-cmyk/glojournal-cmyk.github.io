@@ -284,3 +284,17 @@ test('a valid traceable legacy 28/30 baseline still freezes without rewriting it
  const saved=repo.readOnlySnapshot(day).ledger.legacyBaselines['french-vocab'];
  assert.equal(saved.count,28);assert.deepEqual(saved.knownKeys,names);
 });
+
+test('stored ledger for a different calendar day cannot be adopted into the requested day',async()=>{
+ const poisoned={revision:1,day,plan:null,
+  ledger:{version:2,day:'2026-10-25',attempts:[],legacyBaselines:{}}};
+ const repo={async read(){return poisoned;},async compareAndSwap(){throw Error('must not write');}};
+ await assert.rejects(()=>commitDailyV2Plan(repo,plan()),/invalid snapshot/);
+});
+test('a frozen plan stored under another day fails closed before recording any answer',async()=>{
+ const wrong=plan();wrong.day='2026-10-25';
+ const poisoned={revision:1,day,plan:wrong,
+  ledger:{version:2,day,attempts:[],legacyBaselines:{}}};
+ const repo={async read(){return poisoned;},async compareAndSwap(){throw Error('must not write');}};
+ await assert.rejects(()=>commitDailyV2Answer(repo,answer()),/invalid snapshot/);
+});
