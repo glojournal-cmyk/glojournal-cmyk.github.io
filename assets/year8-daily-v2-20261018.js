@@ -249,6 +249,22 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
         nextAbsorbed=false;
       }
     }
+    // Correct a CURRENT, unfinished Daily card that accidentally saved an
+    // attempted-answer count. Only do this when the same locked assignment has
+    // enough distinct, marked formal events to explain the entire old count.
+    // Incomplete Safari journals and already-completed/verified cards remain
+    // monotonic: a missing receipt must never erase earned learner credit.
+    const completeCurrentJournal=today>='2026-10-24'&&same&&
+      old?.planDate===today&&prior>0&&prior<target&&!verifiedPrior&&
+      attempted>=prior&&journalIds.length<prior;
+    const correctOnlyEvidence=completeCurrentJournal||
+      (old?.correctOnlyEvidence===true&&same&&old?.planDate===today&&
+       Number(old?.target)===Number(target));
+    if(completeCurrentJournal){
+      progress=Math.min(target,Math.max(correct,journalIds.length));
+      creditIds=journalIds;
+      nextAbsorbed=false;
+    }
     // Mastery assessment still separately assesses 85% and recall. A wrong
     // response remains in attempt history, but cannot fill the Home quota.
     const passedToday=state.topicStats?.[topic?.topicId]?.masteryV2?.passedMasteryAt===today;
@@ -266,6 +282,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     return {id,title,
       detail:description+outcome,href:topic?curriculumHref(topic,mode,id):'/study',target,progress,xp:mode==='mastery'?20:15,
       planDate:today,assignedSubject:topic?.subject||null,assignedTopic:topic?.topicId||null,
+      ...(correctOnlyEvidence?{correctOnlyEvidence:true}:{}),
       assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,masteryCheck,curriculumVersion:4,
       ...(old?.cappedBecauseQuestionBankExhausted?{cappedBecauseQuestionBankExhausted:true,done:true}:{}),
       ...(creditIds.length?{verifiedCorrectIds:creditIds.slice(0,80),
