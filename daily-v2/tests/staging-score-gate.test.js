@@ -8,8 +8,8 @@ import {commitDailyV2Plan,commitDailyV2Answer,createMemoryDailyV2Repository} fro
 import {previewFrozenDailyV2ObjectiveSubmission as stage} from '../src/staging-score-gate.js';
 
 const day='2026-10-30';
-const source=JSON.parse(readFileSync(new URL('../../content/topics/bio-y8-ber.json',import.meta.url),'utf8'));
-const question=source.questions.find(q=>q.id==='bio-y8-app-ber-55');
+const source=JSON.parse(readFileSync(new URL('../../content/topics/bio-y8-graphs-calculations.json',import.meta.url),'utf8'));
+const question=source.questions.find(q=>q.id==='bio-y8-app-g-to-mg');
 function plan({signed=true}={}){
  const p={version:2,status:'ready',day,target:163,tasks:DAILY_V2_TASKS.map(t=>({
   ...t,questions:Array.from({length:t.target},(_,i)=>({
@@ -26,7 +26,7 @@ function plan({signed=true}={}){
  return p;
 }
 const submission=changes=>({day,taskId:'science-standard',questionId:question.id,
- topic:source,question,response:'7128 kJ/day',...changes});
+ topic:source,question,response:'1500 mg',...changes});
 async function frozen(opts={}){
  const repo=createMemoryDailyV2Repository();
  await commitDailyV2Plan(repo,plan(opts));
@@ -36,8 +36,8 @@ test('frozen real numeric answer previews full credit without writing an attempt
  const repo=await frozen(),before=repo.readOnlySnapshot(day);
  const result=await stage(repo,submission());
  assert.equal(result.verifiedFrozenAssignment,true);
- assert.equal(result.marksPossible,2);
- assert.equal(result.marksEarned,2);
+ assert.equal(result.marksPossible,1);
+ assert.equal(result.marksEarned,1);
  assert.equal(result.correct,true);
  assert.equal(result.releaseGrade,false);
  assert.equal(result.ledgerEligible,false);
@@ -51,7 +51,7 @@ test('frozen real numeric answer previews full credit without writing an attempt
 });
 test('wrong numeric answer is left for review and never credited',async()=>{
  const repo=await frozen(),before=repo.readOnlySnapshot(day);
- const result=await stage(repo,submission({response:'6000 kJ/day'}));
+ const result=await stage(repo,submission({response:'6000 mg'}));
  assert.equal(result.status,'staging-review-required');
  assert.equal(result.marksEarned,null);
  assert.equal(result.creditDelta,0);
