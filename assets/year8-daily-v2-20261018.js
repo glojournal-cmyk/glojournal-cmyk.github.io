@@ -231,9 +231,12 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     // old attempted-count that included wrong answers. A shorter journal is
     // not grounds to erase a score that may have lost its iPad answer logs.
     const completeCorrectJournal=today>='2026-10-24'&&same&&
+      old?.planDate===today&&prior>0&&prior<target&&
       attempted>=prior&&attempted>0&&!verifiedPrior&&
       taskEvents(topic.topicId,id,modes).every(e=>e.dailyTaskId===id);
     if(completeCorrectJournal)prior=correct;
+    const correctOnlyEvidence=completeCorrectJournal||
+      (verifiedPrior&&(verifiedSlots>0||verifiedIds.length>0));
     // Never replace a saved score with a shorter or wrong-inclusive journal.
     // A complete correct-ID journal can raise the score. A partial journal cannot lower it.
     const savedIds=verifiedIds;
@@ -274,9 +277,9 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       detail:description+outcome,href:topic?curriculumHref(topic,mode,id):'/study',target,progress,xp:mode==='mastery'?20:15,
       planDate:today,assignedSubject:topic?.subject||null,assignedTopic:topic?.topicId||null,
       assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,masteryCheck,curriculumVersion:4,
-      ...(completeCorrectJournal?{correctOnlyEvidence:true}:{}),
+      ...(correctOnlyEvidence?{correctOnlyEvidence:true}:{}),
       ...(old?.cappedBecauseQuestionBankExhausted?{cappedBecauseQuestionBankExhausted:true,done:true}:{}),
-      ...(creditIds.length?{verifiedCorrectIds:creditIds.slice(0,80),
+      ...((verifiedPrior||completeCorrectJournal)&&creditIds.length?{verifiedCorrectIds:creditIds.slice(0,80),
         verifiedCorrectSlots:Math.min(target,progress),
         verifiedCorrectAssignment:verifiedKey,
         ...(nextAbsorbed?{verifiedCorrectIdsAbsorbed:true}:{})}:{})};
