@@ -246,6 +246,11 @@ test('direction and Ohms remain required in repaired Physics source model answer
  const resistance=get(resistances,'phys-y8-resistance-series-parallel-rvi-apply');
  assert.equal(resistance.answer.modelAnswer,'5 Ω');
  assert.deepEqual(resistance.answer.units,['Ω','ohm','ohms']);
+ const series=get(resistances,'phys-y8-resistance-series-parallel-series-resistance-apply');
+ assert.equal(series.answer.modelAnswer,'22 Ω');
+ assert.deepEqual(series.answer.units,['Ω','ohm','ohms']);
+ assert.equal(score(resistances,series,'22 Ω').marksEarned,1);
+ assert.equal(score(resistances,series,'22').marksEarned,null);
  for(const [t,q,resp] of [[forces,resultant,'7 N'],[resistances,resistance,'5']]){
   const r=score(t,q,resp);
   assert.equal(r.reviewRequired,true);
