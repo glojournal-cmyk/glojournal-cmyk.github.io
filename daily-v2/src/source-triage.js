@@ -45,7 +45,7 @@ export function triageDailyV2Sources(topics=[]){
   const validPairs=question.answer?.mode==='pair_map'&&
    Array.isArray(question.answer.pairs)&&question.answer.pairs.length>0&&
    question.answer.pairs.every(p=>str(p?.left)&&str(p?.right));
-  const validGroups=question.answer?.mode==='unordered_required_groups'&&
+  const validGroups=['unordered_required_groups','semantic_groups'].includes(question.answer?.mode)&&
    Array.isArray(question.answer.requiredGroups)&&
    question.answer.requiredGroups.length>0&&
    question.answer.requiredGroups.every(g=>
@@ -61,7 +61,8 @@ export function triageDailyV2Sources(topics=[]){
   const validCategories=question.answer?.mode==='category_map'&&
    categories!==null&&typeof categories==='object'&&!Array.isArray(categories)&&
    Object.keys(categories).length>0&&
-   Object.values(categories).every(vals=>Array.isArray(vals)&&vals.length>0&&vals.every(str));
+   Object.values(categories).every(vals=>Array.isArray(vals)&&vals.length>0&&
+    vals.every(v=>str(v)||(typeof v==='number'&&Number.isFinite(v))));
   if(!accepted&&!validMarkPoints&&!validPairs&&!validGroups&&!validNumeric&&!validCategories)
    reasons.push('MISSING_MARKING_CONTENT');
   if(validPairs||validGroups||validNumeric||validCategories){
@@ -103,6 +104,6 @@ export function triageDailyV2Sources(topics=[]){
   bySubjectYear,
   reasonCounts,samples,
   curriculumCertified:0,
-  note:'Existing marking forms include accepted-text, mark_points, pair_map, unordered_required_groups, numeric and category_map. All structured formats require verified scoring integration and independent content review before Daily certification.'
+  note:'Existing marking forms include accepted-text, mark_points, pair_map, semantic_groups, unordered_required_groups, numeric and category_map (including numeric labels). All structured formats require verified scoring integration and independent content review before Daily certification.'
  };
 }
