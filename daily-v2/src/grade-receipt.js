@@ -9,7 +9,7 @@ const nonempty=x=>typeof x==='string'&&x.trim().length>0;
 const expect=(v,code)=>{if(!v)throw Error('DailyV2 signed receipt: '+code);};
 const HEX=/^[0-9a-f]+$/;
 const fields=[
- 'version','keyId','eventId','day','taskId','questionId','sourceFingerprint',
+ 'version','keyId','eventId','ledgerScope','day','taskId','questionId','sourceFingerprint',
  'answerDigest','planDigest','scorerId','scorerVersion','reviewId',
  'marksEarned','marksPossible','correct','scoredAt'
 ];
@@ -18,7 +18,7 @@ export function serializeDailyV2GradeReceipt(p){
  expect(p&&typeof p==='object'&&!Array.isArray(p),'INVALID_RECEIPT');
  expect(sorted(Object.keys(p),[...fields]),'UNEXPECTED_RECEIPT_FIELDS');
  expect(p.version===1,'INVALID_PROTOCOL_VERSION');
- for(const name of ['keyId','eventId','day','taskId','questionId',
+ for(const name of ['keyId','eventId','ledgerScope','day','taskId','questionId',
   'sourceFingerprint','answerDigest','planDigest','scorerId','scorerVersion',
   'reviewId','scoredAt'])expect(nonempty(p[name]),'MISSING_'+name.toUpperCase());
  expect(/^\d{4}-\d{2}-\d{2}$/.test(p.day),'INVALID_DAY');
@@ -43,10 +43,10 @@ function hexBytes(hex){
  expect(typeof hex==='string'&&hex.length===128&&HEX.test(hex),'INVALID_SIGNATURE');
  return Uint8Array.from(hex.match(/../g).map(h=>parseInt(h,16)));
 }
-export function makeDailyV2UnsignedReceipt({keyId,eventId,day,taskId,
+export function makeDailyV2UnsignedReceipt({keyId,eventId,ledgerScope,day,taskId,
  questionId,sourceFingerprint,answerDigest,planDigest,scorerId,
  scorerVersion,reviewId,marksEarned,marksPossible,correct,scoredAt}={}){
- const payload={version:1,keyId,eventId,day,taskId,questionId,
+ const payload={version:1,keyId,eventId,ledgerScope,day,taskId,questionId,
   sourceFingerprint,answerDigest,planDigest,scorerId,scorerVersion,
   reviewId,marksEarned,marksPossible,correct,scoredAt};
  serializeDailyV2GradeReceipt(payload);
@@ -63,7 +63,7 @@ export async function verifyDailyV2SignedReceipt({
 }={}){
  const message=serializeDailyV2GradeReceipt(payload);
  expect(expected&&typeof expected==='object','EXPECTED_SUBMISSION_REQUIRED');
- for(const name of ['day','taskId','questionId','sourceFingerprint',
+ for(const name of ['ledgerScope','day','taskId','questionId','sourceFingerprint',
   'answerDigest','planDigest','eventId']){
   expect(expected[name]===payload[name],'RECEIPT_BINDING_MISMATCH_'+name.toUpperCase());
  }
