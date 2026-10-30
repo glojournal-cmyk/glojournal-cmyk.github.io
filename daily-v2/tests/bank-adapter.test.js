@@ -219,3 +219,12 @@ test('a malformed structured rubric cannot be approved even with accepted[] fall
  assert.equal(r.summary.certified,0);
  assert.ok(r.errors.some(e=>e.code==='STRUCTURED_MARKING_EVIDENCE_INVALID'));
 });
+
+test('independently reviewed source fingerprint survives real bank adapter for frozen roster',()=>{
+ const reviewerCert=cert(['latin-standard'],{skill:'translation'});
+ const r=adaptCertifiedDailyV2Bank({topics:[topic()],certifications:{q1:reviewerCert}});
+ assert.equal(r.summary.certified,1);
+ assert.equal(r.questionBank[0].sourceFingerprint,reviewerCert.sourceFingerprint);
+ assert.equal(r.questionBank[0].sourceFingerprint,fingerprintDailyV2Source(topic(),q()));
+ assert.equal(r.questionBank[0].answer.mode,'accepted_text');
+});
