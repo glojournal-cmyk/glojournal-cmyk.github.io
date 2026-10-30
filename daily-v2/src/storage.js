@@ -65,6 +65,9 @@ function validatePlan(plan){
    if(task.kind==='exam')requireV2([1,2,3].includes(q.marks),'exam question maximum marks missing');
    requireV2(typeof q.questionId==='string'&&q.questionId.length>0&&!seen.has(q.questionId),
       'invalid or duplicated locked question');
+   if(q.sourceFingerprint!==undefined)requireV2(
+      typeof q.sourceFingerprint==='string'&&/^fnv1a32-[0-9a-f]{8}$/.test(q.sourceFingerprint),
+      'INVALID_SOURCE_FINGERPRINT: roster source binding must be well-formed');
    if(task.kind==='vocab'){
     const concept=q.conceptId;
     requireV2(typeof concept==='string'&&concept.trim().length>0&&
