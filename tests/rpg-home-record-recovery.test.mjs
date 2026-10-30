@@ -2,7 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
-import {dailyHistorySummary} from '../assets/daily-history-display-20261030.js';
+import {dailyHistorySummary,CORE_DAILY_TASK_IDS} from '../assets/daily-history-display-20261030.js';
 
 const code=fs.readFileSync(new URL('../assets/home-rpg-live-20261019.js',import.meta.url),'utf8');
 const start=code.indexOf('  const todayStatus =');
@@ -49,4 +49,34 @@ test('historical fixture never changes as a side effect of UI reads',()=>{
   for(const d of Object.keys(history))todayStatus(state,d);
   recoveryCount(state);
   assert.equal(JSON.stringify(state),original);
+});
+
+test('14 saved entries do not show a Recovery badge when all ten current tasks are done',()=>{
+  const date='2026-10-18';
+  const tasks=[
+    ...CORE_DAILY_TASK_IDS.map(id=>({id,target:10,progress:10,done:true})),
+    ...['study-session','year8-long-review','tend-garden','play-game'].map((id,i)=>({
+      id,target:10,progress:i<2?10:0,done:i<2
+    }))
+  ];
+  const record={date,tasks,total:14,done:12,complete:false};
+  const mixed={dailyLog:{[date]:record},formalAttemptLog:[]};
+  const before=JSON.stringify(mixed);
+  // The UI must not treat two uncompleted old slots as new Daily obligations.
+  // Native Recovery retains original evidence and remains separately authoritative.
+  assert.equal(recoveryCount(mixed),0);
+  assert.equal(todayStatus(mixed,date),'done');
+  assert.equal(JSON.stringify(mixed),before);
+});
+test('14 saved entries still show Recovery when one of ten canonical tasks is genuinely unfinished',()=>{
+  const date='2026-10-18';
+  const tasks=[
+    ...CORE_DAILY_TASK_IDS.map((id,i)=>({id,target:10,progress:i===9?0:10,done:i!==9})),
+    ...['study-session','year8-long-review','tend-garden','play-game'].map(id=>({
+      id,target:1,progress:1,done:true
+    }))
+  ];
+  const mixed={dailyLog:{[date]:{date,tasks,total:14,done:13}},formalAttemptLog:[]};
+  assert.equal(recoveryCount(mixed),1);
+  assert.equal(todayStatus(mixed,date),'partial');
 });
