@@ -21,8 +21,57 @@ function preview(topic,question,result){
   status:result.status||'staging-preview',releaseGrade:false,ledgerEligible:false,
   ...result};
 }
+/**
+ * Only for existing explicitly two-mark-per-pair sources with a clear
+ * "first mark ; second mark" or "enzyme -> product" source rubric.
+ * Student answers MUST provide two separate fields per source left-hand
+ * concept: never parse an ambiguous natural-language response into marks.
+ */
+function twoPointPairScore(answer,response){
+ ok(obj(response));
+ const rubric=new Map();
+ for(const pair of answer.pairs){
+  const raw=pair.right;
+  const sections=raw.includes(' -> ')?raw.split(/\s+->\s+/):
+   raw.includes(';')?raw.split(/\s*;\s*/):[];
+  if(sections.length!==2||sections.some(x=>!x.trim()))
+   return {status:'review-required',reviewRequired:true,marksEarned:null,
+    marksPossible:answer.totalMarks,reason:'source rubric lacks exactly two explicit mark components'};
+  const key=text(pair.left);
+  ok(key&&!rubric.has(key));
+  const parts=sections.map(x=>x.split(/\s*\/\s*/).map(text));
+  if(parts.some(x=>x.some(v=>!v)))
+   return {status:'review-required',reviewRequired:true,marksEarned:null,
+    marksPossible:answer.totalMarks,reason:'source mark components are not unambiguous'};
+  rubric.set(key,parts);
+ }
+ const entered=new Map();
+ for(const [key,parts] of Object.entries(response)){
+  const token=text(key);
+  if(!rubric.has(token)||entered.has(token))
+   return {status:'review-required',reviewRequired:true,marksEarned:null,
+    marksPossible:answer.totalMarks,reason:'response includes unknown or repeated source labels'};
+  if(!Array.isArray(parts)||parts.length!==2||
+   !parts.every(x=>typeof x==='string'))
+   return {status:'review-required',reviewRequired:true,marksEarned:null,
+    marksPossible:answer.totalMarks,reason:'two independent response fields required per pair'};
+  entered.set(token,parts.map(text));
+ }
+ let earned=0;
+ for(const [key,parts] of rubric){
+  if(!entered.has(key))continue;
+  const given=entered.get(key);
+  for(let i=0;i<2;i++)if(parts[i].includes(given[i]))earned++;
+ }
+ return {marksPossible:answer.totalMarks,marksEarned:earned,
+  correct:earned===answer.totalMarks,reviewRequired:false,
+  scoring:'exact two independent source-mark fields per matching pair'};
+}
 function assignmentScore(answer,response,mode){
  ok(obj(response),'mapping response required');
+ if(mode==='pair_map'&&Number.isInteger(answer.totalMarks)&&
+    answer.totalMarks===answer.pairs.length*2)
+  return twoPointPairScore(answer,response);
  const expected=new Map();
  if(mode==='pair_map'){
   for(const pair of answer.pairs){
