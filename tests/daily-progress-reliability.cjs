@@ -192,6 +192,7 @@ test('restore requires durable safeguard and verified primary persistence',async
  const source=file('assets/daily-progress-save.js'),i=source.indexOf('async function restore('),j=source.indexOf('function mount(',i);
  assert.ok(i>=0&&j>i);
  let imported=false,reloaded=false,protectedCopy=null;
+ const restoreStatuses=[];
  const live={...state(2),exportProgress(){return payload(this)},
   importProgress(){imported=true;return {ok:true}}};
  const disk=new StorageMock();
@@ -200,7 +201,7 @@ test('restore requires durable safeguard and verified primary persistence',async
   putBackup:async(k,value)=>{protectedCopy=value},
   BEFORE_RESTORE_KEY:'lux-progress-before-restore-v1',
   summary:x=>({day:x.today,done:x.daily.filter(t=>t.progress>=t.target).length,total:x.daily.length}),
-  confirm:()=>true,status:()=>{},location:{reload:()=>{reloaded=true}},Date,JSON});
+  confirm:()=>true,status:(message)=>restoreStatuses.push(message),location:{reload:()=>{reloaded=true}},Date,JSON});
  ctx.mergeDailyHistory=(a={},b={})=>({...a,...b});
  vm.runInContext(file('assets/backup-import-safety-20261023.js')
    .replace(/\bexport /g,'')+'\nthis.mergeImportProgress=mergeImportProgress;',ctx,{timeout:4000});
@@ -212,6 +213,7 @@ test('restore requires durable safeguard and verified primary persistence',async
    'this.restorePetWalletBackup=restorePetWalletBackup;',ctx,{timeout:4000});
  vm.runInContext(source.slice(i,j)+'\nthis.restoreTest=restore',ctx,{timeout:4000});
  await ctx.restoreTest(payload(state(0)),'Backup');
+ assert.ok(protectedCopy,'The safety copy must be written first; statuses: '+JSON.stringify(restoreStatuses));
  assert.equal(protectedCopy.done,2);
  assert.equal(imported,true);
  assert.equal(reloaded,false,'do not reload without durable primary data');
