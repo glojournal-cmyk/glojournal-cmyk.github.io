@@ -10,7 +10,7 @@ const restorer = read('assets/home-extras-restorer-20261023.js');
 const html = read('index.html');
 
 test('RPG Recovery actually loads the dated task panel on tap, not an empty-state timer', () => {
- assert.match(home, /void import\('\.\/quest-recovery-20261011\.js\?v=20261026-bio-year9-savefix2'\)/);
+ assert.match(home, /void import\('\.\/quest-recovery-20261011\.js\?v=20261026-bio-year9-savefix2&ten=20261030-1'\)/);
  assert.match(home, /module\.mountRecoveryPanel\(\)/);
  assert.doesNotMatch(home, /No Recovery tasks are currently available/);
  assert.match(quest, /export function mountRecoveryPanel\(\)/);
@@ -30,7 +30,7 @@ test('iPad module bootstrap cache versions match after Recovery fix', () => {
  assert.match(restorer, /home-continue-20261010\.js\?v=20261026-bio-year9-savefix2/);
  assert.match(continueJS, /home-rpg-live-20261019\.js\?v=20261026-bio-year9-savefix2/);
  assert.match(home, /home-rpg-live-20261019\.css\?v=20261024-recovery-dialog1/);
- assert.match(restorer, /quest-recovery-20261011\.js\?v=20261026-bio-year9-savefix2/);
+ assert.match(restorer, /quest-recovery-20261011\.js\?v=20261026-bio-year9-savefix2&ten=20261030-1/);
  const shellVersion=(html.match(/index-BLVOhKhN\.js\?v=([^&"'\s]+)/)||[])[1];
  assert.ok(shellVersion,'index shell must identify its app-store module version');
  assert.ok(read('404.html').includes('index-BLVOhKhN.js?v='+shellVersion));
