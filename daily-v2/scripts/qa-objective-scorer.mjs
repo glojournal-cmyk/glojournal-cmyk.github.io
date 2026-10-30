@@ -43,10 +43,27 @@ function canonical(a){
  if(matches!==groups.length)return groups.map(g=>g.alternatives[0]);
  return [...assignments.values()].sort((a,b)=>a.group-b.group).map(x=>x.answer);
 }
+function deliberatelyWrong(answer,correct){
+ const candidate=JSON.parse(JSON.stringify(correct));
+ if(answer.mode==='numeric'){
+  candidate.value=answer.value+Math.max(1,2*(answer.tolerance??0)+1);
+  return candidate;
+ }
+ const first=Object.keys(candidate)[0];
+ if(answer.mode==='pair_map'||answer.mode==='category_map'){
+  if(first===undefined)return candidate;
+  if(Array.isArray(candidate[first]))candidate[first][0]='__impossible_wrong_field__';
+  else candidate[first]='__impossible_wrong_assignment__';
+  return candidate;
+ }
+ if(Array.isArray(candidate)&&candidate.length)candidate[0]='__impossible_wrong_group__';
+ return candidate;
+}
 export function auditObjectiveSourceQuestions(topics){
  if(!Array.isArray(topics))throw Error('DailyV2 objective audit: topic array required');
  const byMode={},samples=[],allQuestionIds=new Set();
- let eligible=0,fullPreview=0,reviewRequired=0,errors=0;
+ let eligible=0,fullPreview=0,reviewRequired=0,errors=0,
+  negativeChecks=0,negativeFalseFull=0;
  for(const topic of topics){
   if(!topic||topic.status!=='enabled'||!SUBJECTS.has(topic.subject))continue;
   if(!Array.isArray(topic.questions))throw Error('DailyV2 objective audit: invalid source topic');
@@ -62,6 +79,13 @@ export function auditObjectiveSourceQuestions(topics){
     allQuestionIds.add(question.id);
     const r=previewDailyV2ObjectiveScore({topic,question,response:canonical(question.answer)});
     if(r.releaseGrade!==false||r.ledgerEligible!==false)throw Error('Unsafe release flag');
+    const wrong=previewDailyV2ObjectiveScore({topic,question,
+     response:deliberatelyWrong(question.answer,canonical(question.answer))});
+    negativeChecks++;
+    if(wrong.correct===true||wrong.marksEarned===wrong.marksPossible||
+       wrong.releaseGrade!==false||wrong.ledgerEligible!==false){
+     negativeFalseFull++;throw Error('deliberately wrong source answer got full or releasable credit');
+    }
     if(r.marksEarned===r.marksPossible&&r.correct===true&&r.reviewRequired===false){
      fullPreview++;counts.fullPreview++;continue;
     }
@@ -77,7 +101,7 @@ export function auditObjectiveSourceQuestions(topics){
  }
  return {
   system:'Daily V2 real-source objective scorer compatibility QA',
-  eligible,fullPreview,reviewRequired,errors,byMode,samples,
+  eligible,fullPreview,reviewRequired,errors,negativeChecks,negativeFalseFull,byMode,samples,
   autoCertified:0,releaseReady:false,learnerDataRead:false,sourceModified:false,
   limitations:[
    'Generated responses from source answers only check scoring compatibility, not educational correctness.',
