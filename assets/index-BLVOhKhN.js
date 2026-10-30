@@ -2395,8 +2395,17 @@ function patchedImportProgress(text) {
     ["lux-maths-study-v1", parsed?.mathsStudy],
     ["lux-maths-draft-v1", parsed?.mathsDrafts],
     ["lux-assessment-v1", parsed?.assessmentProgress],
-    [PET_REWARD_KEY, parsed?.petCompanion],
   ].filter(([, value]) => value != null);
+  // An old plain JSON may carry a Pet companion object, but it must NEVER
+  // overwrite an existing wallet (MP spent since backup, secret pets, levels).
+  // Modern combined JSONs carry a lossless petWalletBackup envelope that is
+  // restored separately, only AFTER the Scholar primary is verified durable.
+  if (parsed?.petWalletBackup === undefined && parsed?.petCompanion != null) {
+    let existingPet;
+    try { existingPet = localStorage.getItem(PET_REWARD_KEY); }
+    catch { return {ok:false,error:"Existing Pet wallet could not be read. Import blocked."}; }
+    if (existingPet === null) linked.push([PET_REWARD_KEY,parsed.petCompanion]);
+  }
   const original = new Map(), written = [];
   const rollback = () => {
     for (const key of written.reverse()) {
@@ -2426,7 +2435,7 @@ function patchedImportProgress(text) {
     rollback();
     return result;
   }
-  const pet = parsed?.petCompanion;
+  const pet = linked.some(([key])=>key===PET_REWARD_KEY) ? parsed?.petCompanion : null;
   if (pet && typeof pet === "object") {
     try {
       window.dispatchEvent(new CustomEvent("scholar:pet-changed", { detail: pet }));
