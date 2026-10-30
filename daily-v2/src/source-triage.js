@@ -21,12 +21,13 @@ export function triageDailyV2Sources(topics=[]){
   }
  }
  const bySubjectYear={},reasonCounts={},samples={};
- let supported=0,ready=0,repair=0,unsupported=0,rubricReview=0;
- const rubricSamples=[];
+ let supported=0,ready=0,repair=0,unsupported=0,rubricReview=0,structuredReview=0;
+ const rubricSamples=[],structuredSamples=[];
  for(const {topic,question} of inventory){
   const key=String(topic.subject)+'-y'+String(topic.year);
   const bucket=bySubjectYear[key]||(bySubjectYear[key]={
-   records:0,readyForReview:0,needsRepair:0,unsupported:0,manualMarkPointReview:0
+   records:0,readyForReview:0,needsRepair:0,unsupported:0,
+   manualMarkPointReview:0,structuredAnswerReview:0
   });
   bucket.records++;
   if(!SUBJECTS.has(topic.subject)){unsupported++;bucket.unsupported++;continue;}
@@ -41,7 +42,22 @@ export function triageDailyV2Sources(topics=[]){
   const validMarkPoints=question.answer?.mode==='mark_points'&&
    Array.isArray(question.answer.markPoints)&&question.answer.markPoints.length>0&&
    question.answer.markPoints.every(str);
-  if(!accepted&&!validMarkPoints)reasons.push('MISSING_MARKING_CONTENT');
+  const validPairs=question.answer?.mode==='pair_map'&&
+   Array.isArray(question.answer.pairs)&&question.answer.pairs.length>0&&
+   question.answer.pairs.every(p=>str(p?.left)&&str(p?.right));
+  const validGroups=question.answer?.mode==='unordered_required_groups'&&
+   Array.isArray(question.answer.requiredGroups)&&
+   question.answer.requiredGroups.length>0&&
+   question.answer.requiredGroups.every(g=>
+    Array.isArray(g?.alternatives)&&g.alternatives.some(str));
+  if(!accepted&&!validMarkPoints&&!validPairs&&!validGroups)
+   reasons.push('MISSING_MARKING_CONTENT');
+  if(validPairs||validGroups){
+   structuredReview++;bucket.structuredAnswerReview++;
+   if(structuredSamples.length<6)structuredSamples.push({topicId:topic.topicId,
+    questionId:question.id,subject:topic.subject,year:topic.year,
+    mode:question.answer.mode});
+  }
   // An existing mark_points rubric is NOT a missing answer. It must be
   // independently checked and explicitly integrated into manual partial-credit
   // scoring before any learner-facing Daily V2 use.
@@ -69,10 +85,12 @@ export function triageDailyV2Sources(topics=[]){
   readyForHumanReview:ready,
   needsSourceRepair:repair,
   requiresManualMarkPointReview:rubricReview,
+  requiresStructuredAnswerReview:structuredReview,
   markPointReviewSamples:rubricSamples,
+  structuredReviewSamples:structuredSamples,
   bySubjectYear,
   reasonCounts,samples,
   curriculumCertified:0,
-  note:'Review candidates include source mark_points rubrics, not automatic grading. Mark points require independently reviewed partial-credit logic before Daily certification.'
+  note:'Source answers may be accepted-text, mark_points, pair_map or unordered_required_groups. All structured formats require verified scoring integration, not automatic Daily certification.'
  };
 }
