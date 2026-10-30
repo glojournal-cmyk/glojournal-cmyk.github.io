@@ -173,3 +173,13 @@
 - Corrected three real source marking faults in Physics: density **2.7 g/cm³, not 3**, moment **10 N m, not 10 N**, and directional combined moment **8 N m clockwise, not 8 N**. Updated actual topic JSON records and tests; previous source-linked review fingerprints of these items must be considered stale.
 - Latest isolated Daily V2 CI run `41060678755`: **365/365 PASS** (plus 191 full-bank negative probes, real-source audit and 191-row review artifact upload). Broader site CI independently identified failures in legacy app Daily/Home/Recovery QA on run `41060678847`; this staging review **cannot claim all-site green**.
 - Reviewer workflow and release blockers: `review/OBJECTIVE_REVIEW_HANDOFF.md`. No merge, deployment, iPad migration, curriculum approval or learner data writes.
+
+## 2026-10-30 — High-risk objective source followup, model answer QA and manual rubric handoff (LATEST)
+
+**Supersedes 162/191 auto-preview figures above.** Six Physics source model-answer/value/unit/direction problems have now been repaired within this staging branch: density 2.7 g/cm³, moment 10 N m, combined clockwise moment 8 N m clockwise, resultant 7 N east, resistance 5 Ω and series resistance 22 Ω. Changes must trigger fresh source/reviewer fingerprints, not inherited certificates.
+
+Four Biology questions with overlapping alternative groups are no longer lexically auto-scored because two distinct responses may express one concept. All four must be independently checked for semantic distinctness. In the 29 multi-mark numeric sources, 13 provide exact explicit `markPoints` and can enter the staged *manual* point-by-point reviewer tool; 16 lack individual criteria and remain held pending genuinely authored/reviewed criteria. No numeric method points or semantic independence are guessed.
+
+Objective source QA now verifies actual displayed `answer.modelAnswer` text against the structured scoring definition instead of only constructing a synthetic answer from `answer.value`. Real-bank results: **158/191** complete source-derived previews, **33/191** conservative review holds, **191 deliberately wrong probes with zero false-full-credit results**, and **0 approved actual Daily source questions**. Reviewer packet remains 191 questions across 62 source files, priority count 48.
+
+**GitHub Actions run 41063339588: 372/372 PASS, 0 failed** (isolated Daily V2). External answer-alternative audit also passed; broader Whole Site QA still has failing all-features jobs, so do not claim site-wide green or deploy. Updated human-review and source handoff: `review/OBJECTIVE_REVIEW_HANDOFF.md`; updated review CSV/JSON produced as an Actions artifact. No production XP/MP, student progress, backups, pet or outfits modified.
