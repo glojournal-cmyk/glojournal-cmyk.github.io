@@ -221,11 +221,20 @@ export function planDailyV2(input={}) {
    const concepts=[...groups.keys()].filter(x=>!conceptUse.has(x)).sort((a,b)=>
      (count.get(a)||0)-(count.get(b)||0)||stableHash(day+'|'+a)-stableHash(day+'|'+b)||a.localeCompare(b));
    if(concepts.length<quota)fail(task,'VOCAB_CONCEPT_SHORTAGE',{year,needed:quota,available:concepts.length});
-   for(const concept of concepts.slice(0,quota)){
-    const variant=choose(groups.get(concept).filter(q=>!assigned.has(q.id)&&(!q._promptKey||(!assignedPrompts.has(q._promptKey)&&!chosen.some(c=>c._promptKey===q._promptKey)))),1,day+'|'+concept)[0];
-    if(!variant){fail(task,'VOCAB_VARIANT_COLLISION',{concept});continue;}
-    conceptUse.add(concept);chosen.push(variant);
+   // A colliding concept is not a shortage when another independently
+   // creditable, fresh-prompt concept is available. Keep scanning instead of
+   // freezing the first `quota` concept IDs and falsely blocking the day.
+   let filled=0,collisions=0;
+   for(const concept of concepts){
+    if(filled===quota)break;
+    const variant=choose(groups.get(concept).filter(q=>!assigned.has(q.id)&&
+       (!q._promptKey||(!assignedPrompts.has(q._promptKey)&&
+       !chosen.some(c=>c._promptKey&&c._promptKey===q._promptKey)))),1,day+'|'+concept)[0];
+    if(!variant){collisions++;continue;}
+    conceptUse.add(concept);chosen.push(variant);filled++;
    }
+   if(filled<quota&&collisions>0)
+    fail(task,'VOCAB_VARIANT_COLLISION',{year,needed:quota,filled,collisions});
   }
   if(chosen.length===30){take(chosen);taskById.set(task.id,packageTask(task,chosen,null,{year7to8:25,year9:5}));}
  }
