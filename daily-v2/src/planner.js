@@ -109,6 +109,10 @@ export function planDailyV2(input={}) {
  const past=priorAttempts.filter(a=>a?.persisted===true && isId(a.questionId) && validDay(a.day) && a.day<day);
  const previousCorrect=new Set([...correctQuestionIds,
   ...past.filter(a=>a.correct===true).map(a=>a.questionId)]);
+ // A previously correct GCSE item (or a new ID with its old wording) is not
+ // a fresh exam question. Retention is the explicit pathway for revisits.
+ const previousExamPrompts=new Set(questions.filter(q=>previousCorrect.has(q.id)&&q.roles.includes('gcse'))
+  .map(q=>q._promptKey).filter(Boolean));
  const assigned=new Set(),assignedPrompts=new Set(),taskRows=[];
  const diagnostics=[...errors];const usedTopics=new Set();
  const allowed=q=>!assigned.has(q.id)&&!previousCorrect.has(q.id)&&
@@ -140,7 +144,7 @@ export function planDailyV2(input={}) {
  const examQ=[];
  for(const marks of [1,2,3]){
   const candidates=questions.filter(q=>q.roles.includes('gcse') &&Number(q.marks)===marks &&
-    !assigned.has(q.id) && (!q._promptKey||!assignedPrompts.has(q._promptKey)) &&
+    allowed(q) && !previousExamPrompts.has(q._promptKey) &&
     !examQ.some(e=>e._promptKey&&e._promptKey===q._promptKey) &&
     !questions.some(e=>e.id!==q.id && !e.roles.includes('gcse') && e._promptKey && e._promptKey===q._promptKey));
   const found=choose(candidates,1,day+'|exam-'+marks)[0];
