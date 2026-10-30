@@ -3,6 +3,7 @@
  * This planner expects an audited, fully loaded bank with explicit roles and
  * depth bands. An adapter/quality-audit layer is REQUIRED before integration.
  */
+import {isValidDailyV2Day} from './calendar.js';
 export const DAILY_V2_TASKS = Object.freeze([
  {id:'latin-vocab',kind:'vocab',target:30,subject:'latin'},
  {id:'french-vocab',kind:'vocab',target:30,subject:'french'},
@@ -24,7 +25,7 @@ const QUOTAS = {
  'mastery':{foundation:4,application:10,challenge:6},
  'year9-progressive':{foundation:6,application:11,challenge:3}
 };
-function validDay(day){ return /^\d{4}-\d{2}-\d{2}$/.test(day) && !Number.isNaN(Date.parse(day+'T12:00:00Z')); }
+const validDay=isValidDailyV2Day;
 function daySpan(day,oldDay){
  if(!validDay(day)||!validDay(oldDay))return -1;
  return Math.round((Date.parse(day+'T12:00:00Z')-Date.parse(oldDay+'T12:00:00Z'))/86400000);
