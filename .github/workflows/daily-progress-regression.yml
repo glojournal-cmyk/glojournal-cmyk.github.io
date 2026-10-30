@@ -22,6 +22,27 @@ on:
       - 'assets/quest-recovery-20261011.js'
       - 'assets/backup-vault-20261011.js'
       - '.github/workflows/daily-progress-regression.yml'
+  pull_request:
+    paths:
+      - 'assets/index-BLVOhKhN.js'
+      - 'assets/daily-vocab-20261003.js'
+      - 'assets/daily-completed-session-receipts-20261024.js'
+      - 'assets/daily-session-credit-20261021.js'
+      - 'assets/year8-daily-v2-20261018.js'
+      - 'assets/today-record-sync-20261024.js'
+      - 'assets/journey-navigation-20261004.js'
+      - 'tests/journey-ipad-date-iso-20261024.test.mjs'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'tests/latin-stage1-ipad-completion-receipt-20261024.test.mjs'
+      - 'assets/study._subject.practise-y8fix-20260920.js'
+      - 'assets/progression-guard-20260927.js'
+      - 'tests/daily-*.mjs'
+      - 'tests/mastery-v2-qa.mjs'
+      - 'tests/backup-export.test.mjs'
+      - 'tests/storage-quota.test.mjs'
+      - 'assets/quest-recovery-20261011.js'
+      - 'assets/backup-vault-20261011.js'
+      - '.github/workflows/daily-progress-regression.yml'
   workflow_dispatch:
 jobs:
   daily-progress:
