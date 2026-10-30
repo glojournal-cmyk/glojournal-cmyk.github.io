@@ -163,9 +163,17 @@ function numericScore(answer,response){
  const unitCorrect=units.length?units.some(u=>same(u,unit)):!text(unit);
  const ceiling=answer.totalMarks??1;
  ok(Number.isInteger(ceiling)&&ceiling>0);
- if(valueCorrect&&unitCorrect)
+ if(valueCorrect&&unitCorrect){
+  // A correct final number alone does not establish full credit on a
+  // 2-/3-mark item. Existing science rubrics separately require equations,
+  // working, explanation, direction or a comparison. Never issue 3/3 by
+  // checking the number and unit only.
+  if(ceiling>1)return {status:'review-required',reviewRequired:true,
+   marksEarned:null,marksPossible:ceiling,correct:null,
+   reason:'multi-mark numeric source requires independent method/meaning marking'};
   return {marksPossible:ceiling,marksEarned:ceiling,correct:true,reviewRequired:false,
-   scoring:'exact numeric value within source tolerance and approved units'};
+   scoring:'single-mark exact numeric value within source tolerance and approved units'};
+ }
  // A multi-mark calculation may still earn working or unit marks. Never
  // fabricate a partial score from the final numerical value alone.
  return {status:'review-required',reviewRequired:true,marksEarned:null,
