@@ -200,3 +200,34 @@ test('a receipt with missing learner scope is invalid before signature verificat
   /MISSING_LEDGERSCOPE/);
  await assert.rejects(submit(ctx,receipt,{ledgerScope:''}),/TRUSTED_LEDGER_SCOPE_REQUIRED/);
 });
+
+test('two separately signed answer events on the same question still credit the task only once',async()=>{
+ const ctx=await setup();
+ const first=await signed(ctx,{eventId:'signed-event-a'});
+ const next=await signed(ctx,{eventId:'signed-event-b'});
+ const a=await submit(ctx,first),b=await submit(ctx,next);
+ assert.equal(a.creditDelta,1);
+ assert.equal(b.creditDelta,0);
+ assert.equal(b.newVerifiedCredit,false);
+ assert.equal(ctx.repo.readOnlySnapshot(day).ledger.attempts.length,2);
+});
+test('a correctly signed receipt cannot be reused for another frozen plan',async()=>{
+ const ctx=await setup();
+ const receipt=await signed(ctx,{planDigest:'0'.repeat(64)});
+ const original=ctx.repo.readOnlySnapshot(day);
+ await assert.rejects(submit(ctx,receipt),/RECEIPT_BINDING_MISMATCH_PLANDIGEST/);
+ assert.deepEqual(ctx.repo.readOnlySnapshot(day),original);
+});
+test('a signed grade does not claim success when the atomic storage write fails',async()=>{
+ const ctx=await setup(),receipt=await signed(ctx),before=ctx.repo.readOnlySnapshot(day);
+ const originalWrite=ctx.repo.compareAndSwap;
+ ctx.repo.compareAndSwap=async()=>{throw Error('SIMULATED_QUOTA_EXCEEDED');};
+ await assert.rejects(submit(ctx,receipt),/SIMULATED_QUOTA_EXCEEDED/);
+ assert.deepEqual(ctx.repo.readOnlySnapshot(day),before);
+ ctx.repo.compareAndSwap=originalWrite;
+ const recovered=await submit(ctx,receipt);
+ assert.equal(recovered.creditDelta,1);
+ const retried=await submit(ctx,receipt);
+ assert.equal(retried.creditDelta,0);
+ assert.equal(ctx.repo.readOnlySnapshot(day).ledger.attempts.length,1);
+});
