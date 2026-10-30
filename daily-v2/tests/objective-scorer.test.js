@@ -80,16 +80,18 @@ test('unknown extra answers do not grant all marks or automatically mark the res
  assert.equal(r.marksEarned,null);
  assert.equal(r.reviewRequired,true);
 });
-test('one submitted synonym cannot satisfy multiple overlapping rubric groups',()=>{
+test('overlapping rubric groups are never automatically marked as different science concepts',()=>{
  const topic={subject:'biology',year:8,topicId:'test-groups'};
  const q={id:'overlap',topicId:'test-groups',answer:{mode:'unordered_required_groups',requiredGroups:[
   {alternatives:['glucose','sugar']},{alternatives:['glucose','dextrose']}
  ],totalMarks:2}};
- const r=score(topic,q,['glucose']);
- assert.equal(r.marksEarned,1);
- assert.equal(r.correct,false);
- const both=score(topic,q,['glucose','dextrose']);
- assert.equal(both.marksEarned,2);
+ for(const answer of [['glucose'],['glucose','dextrose'],['glucose','glucose']]){
+  const r=score(topic,q,answer);
+  assert.equal(r.marksEarned,null);
+  assert.equal(r.reviewRequired,true);
+  assert.equal(r.correct,null);
+  assert.equal(r.releaseGrade,false);
+ }
 });
 test('numeric total marks include working: no fabricated partial credit for a wrong answer',()=>{
  const q=get(ber,'bio-y8-app-ber-55');
@@ -140,11 +142,12 @@ test('duplicate identical submitted synonyms cannot earn two overlapping group c
    {alternatives:['glucose','sugar']},{alternatives:['glucose','dextrose']}
   ]}};
  const repeated=score(topic,q,['glucose','glucose']);
- assert.equal(repeated.marksEarned,1);
- assert.equal(repeated.correct,false);
+ assert.equal(repeated.marksEarned,null);
+ assert.equal(repeated.reviewRequired,true);
  const distinct=score(topic,q,['glucose','dextrose']);
- assert.equal(distinct.marksEarned,2);
- assert.equal(distinct.correct,true);
+ assert.equal(distinct.marksEarned,null);
+ assert.equal(distinct.correct,null);
+ assert.equal(distinct.reviewRequired,true);
 });
 
 test('real enzyme/product matching gives two marks per pair and permits honest partial credit',()=>{
@@ -216,4 +219,36 @@ test('repaired real density answer and moment units are scientifically consisten
  const r=score(momentTopic,direction,'8 N m clockwise');
  assert.equal(r.reviewRequired,true);
  assert.equal(r.marksEarned,null);
+});
+
+test('real Biology two/four different reasons are held for semantic distinctness review',()=>{
+ const cases=[
+  ['bio-y8-balanced-diet','bio-y8-app-alcohol-foetus',['FASD','learning problems']],
+  ['bio-y8-enzymes-gut','bio-y8-app-gut-bacteria-two',['help break down fibre','help digest substances']],
+  ['bio-y8-nutrition-labels','bio-y8-app-low-fat',['may be high in energy','portion may be large']],
+  ['bio-y8-photosynthesis-glucose','bio-y8-app-glucose-uses-four',
+   ['respiration','stored as starch','make lipids','make oils']]
+ ];
+ for(const [file,id,answer] of cases){
+  const topic=load(file),q=get(topic,id);
+  const r=score(topic,q,answer);
+  assert.equal(r.reviewRequired,true,id);
+  assert.equal(r.marksEarned,null,id);
+  assert.equal(r.correct,null,id);
+ }
+});
+test('direction and Ohms remain required in repaired Physics source model answers',()=>{
+ const forces=load('phys-y8-forces-newton-motion');
+ const resultant=get(forces,'phys-y8-forces-newton-motion-resultant-apply');
+ assert.equal(resultant.answer.modelAnswer,'7 N east');
+ assert.ok(resultant.answer.units.every(u=>/east/i.test(u)));
+ const resistances=load('phys-y8-resistance-series-parallel');
+ const resistance=get(resistances,'phys-y8-resistance-series-parallel-rvi-apply');
+ assert.equal(resistance.answer.modelAnswer,'5 Ω');
+ assert.deepEqual(resistance.answer.units,['Ω','ohm','ohms']);
+ for(const [t,q,resp] of [[forces,resultant,'7 N'],[resistances,resistance,'5']]){
+  const r=score(t,q,resp);
+  assert.equal(r.reviewRequired,true);
+  assert.equal(r.marksEarned,null);
+ }
 });
