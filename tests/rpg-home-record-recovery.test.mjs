@@ -23,7 +23,7 @@ const modernScope=vm.createContext({
   dayBefore:n=>['2026-10-30','2026-10-29','2026-10-28'][n]||''
 });
 vm.runInContext(code.slice(start,end)+'\n globalThis.q={todayStatus,recoveryCount};',modernScope);
-const {todayStatus:modernTodayStatus,recoveryCount:modernRecoveryCount}=modernScope;
+const {todayStatus:modernTodayStatus,recoveryCount:modernRecoveryCount}=modernScope.q;
 
 // Minimal anonymised fixture based on the user's 18 Oct backup:
 // 16 Oct 7/10, 17 Oct 10/10, 18 Oct 9/10.
