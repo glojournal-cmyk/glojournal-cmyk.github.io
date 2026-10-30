@@ -1,4 +1,5 @@
 import { scholarMetrics } from './scholar-metrics-20261022.js';
+import { dailyHistorySummary } from './daily-history-display-20261030.js';
 /* Lux et Labor RPG Home — presentation layer only.
  * Integrates the original App state, never awards credit or edits a daily record.
  * The native Recovery module remains authoritative for dated recovery.
@@ -73,6 +74,14 @@ if (!window.__luxRpgLiveHome) {
   };
   const todayStatus = (state, date) => {
     const row = state.dailyLog?.[date];
+    const summary = dailyHistorySummary(row,date);
+    // A rescued fourteen-row log can be "complete" while some of its ten
+    // actual Daily assignments remain open. Match the canonical set first.
+    if (summary.canonicalOnly) {
+      if (summary.done === summary.total) return 'done';
+      if (summary.done > 0 || state.formalAttemptLog?.some(a => a.day === date || a.recoveryFor === date)) return 'partial';
+      return '';
+    }
     if (row?.complete || (row?.total > 0 && row?.done >= row?.total)) return 'done';
     if (row?.tasks?.some(task => number(task.progress) > 0 || task.done) ||
         state.formalAttemptLog?.some(a => a.day === date || a.recoveryFor === date)) return 'partial';
@@ -143,17 +152,19 @@ if (!window.__luxRpgLiveHome) {
     record.setAttribute('aria-modal','true');
     record.setAttribute('aria-label','Your past 30 days');
     record.append(make('h2',null,'Your past 30 days'));
-    record.append(make('p','rpg-record-subtitle-live','Saved study records · read only'));
+    record.append(make('p','rpg-record-subtitle-live','Daily totals exclude older saved task IDs · all original records are kept'));
     const state = store.getState?.() || {};
     const list = make('div','rpg-record-list-live');
     for (let age=0;age<30;age++) {
       const date=dayBefore(age), entry=state.dailyLog?.[date], status=todayStatus(state,date);
       const row=make('div','rpg-record-row-live ' + (status || 'unopened'));
       row.append(make('strong',null,date));
-      const total=number(entry?.total);
-      const done=number(entry?.done);
+      const summary=dailyHistorySummary(entry,date);
+      const total=summary.total,done=summary.done;
       const label=status==='done'?'Completed':status==='partial'?'Partly completed':'Not opened';
-      row.append(make('span',null,label + (total>0?' · ' + done + '/' + total:'')));
+      const extra=summary.extraSavedRecords>0?' · +'+summary.extraSavedRecords+' older records kept':
+        summary.includesOldTasks?' · includes older records':'';
+      row.append(make('span',null,label + (total>0?' · ' + done + '/' + total:'') + extra));
       list.append(row);
     }
     record.append(list);
