@@ -36,6 +36,17 @@ export function reconcileDailySession(state,receipt={}) {
   const task=state.daily.find(t=>t.id===taskId&&t.planDate===day);
   if(!task||!task.assignedTopic||task.assignedSubject!==subject||Number(task.assignedYear)!==Number(year))
     return unchanged('wrong-assignment');
+  // A retry may carry an older Safari receipt. Never award a "missing tenth"
+  // when that receipt explicitly belongs to a different day, assignment,
+  // subject or scoring mode. Missing optional legacy fields are tolerated.
+  const prior=receipt.priorReceipt;
+  if(prior&&[
+    ['day',day],['taskId',taskId],['subject',subject],['year',Number(year)],
+    ['topicId',task.assignedTopic],['mode',mode],['target',Number(task.target)]
+  ].some(([key,value])=>prior[key]!=null&&
+    String(prior[key])!==String(value)))
+    return {changed:false,reason:'wrong-prior-receipt',
+      daily:state.daily,progress:progressOf(task),target:Number(task.target)};
   // Require the saved Home task's *locked* route, not merely an arbitrary task id.
   let expected;
   try{expected=new URL(task.href,'https://scholar.invalid')}catch{return unchanged('invalid-link')}
@@ -78,7 +89,6 @@ export function reconcileDailySession(state,receipt={}) {
   // Reopening an assigned quiz may show only the missing two questions.
   // Merge independently marked journal evidence from the SAME task and day,
   // rather than comparing 2 fresh answers against the old 8/10 snapshot.
-  const prior=receipt.priorReceipt;
   if(day>='2026-10-24'&&prior&&prior.day===day&&prior.taskId===taskId&&
      prior.subject===subject&&Number(prior.year)===Number(year)&&
      prior.topicId===task.assignedTopic&&prior.mode===mode&&
