@@ -72,3 +72,22 @@ test('iPad receipt vault saves a finished 10-question quiz as PARTIAL 10/15 evid
     assert.equal(repaired.daily[0].target,15);
   }finally{delete globalThis.localStorage;}
 });
+
+test('installed iPad Practice and Home use the same updated Daily mode scorer',()=>{
+ const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
+ const ref='daily-session-credit-20261021.js?v=20261026-bio-savefix1&modeguard=20261030-2';
+ const receipt='daily-completed-session-receipts-20261024.js?v=20261026-bio-savefix2&modeguard=20261030-2';
+ const app=read('assets/index-BLVOhKhN.js'),core=read('assets/index-BLVOhKhN.core.js');
+ const quiz=read('assets/quiz-session-y8fix-20260920.js');
+ const receipts=read('assets/daily-completed-session-receipts-20261024.js');
+ const route=read('assets/study._subject.practise-y8fix-20260920.js');
+ const home=read('index.html'),fallback=read('404.html');
+ assert.ok(quiz.includes(ref));
+ assert.ok(receipts.includes(ref));
+ assert.ok(quiz.includes(receipt)&&app.includes(receipt)&&route.includes(receipt));
+ assert.ok(route.includes('quiz-session-y8fix-20260920.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1&modeguard=20261030-2'));
+ assert.ok(core.includes('modeguard=20261030-2'));
+ assert.ok(app.includes('saveverify=20261030-safe-retry3&modeguard=20261030-2'));
+ assert.equal(home,fallback);
+ assert.ok(home.includes('mpverify=20261030-save-retry3-modeguard2'));
+});
