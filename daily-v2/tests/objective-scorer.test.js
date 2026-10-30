@@ -127,3 +127,17 @@ test('large-number tolerance cannot grow by nearly an extra whole unit',()=>{
  assert.equal(score(topic,q,'1000000000000000.5').marksEarned,null);
  assert.equal(score(topic,q,'1000000000000000').marksEarned,1);
 });
+
+test('duplicate identical submitted synonyms cannot earn two overlapping group credits',()=>{
+ const topic={subject:'biology',year:8,topicId:'synonym-overlap'};
+ const q={id:'ambiguous',topicId:topic.topicId,answer:{mode:'unordered_required_groups',
+  totalMarks:2,requiredGroups:[
+   {alternatives:['glucose','sugar']},{alternatives:['glucose','dextrose']}
+  ]}};
+ const repeated=score(topic,q,['glucose','glucose']);
+ assert.equal(repeated.marksEarned,1);
+ assert.equal(repeated.correct,false);
+ const distinct=score(topic,q,['glucose','dextrose']);
+ assert.equal(distinct.marksEarned,2);
+ assert.equal(distinct.correct,true);
+});
