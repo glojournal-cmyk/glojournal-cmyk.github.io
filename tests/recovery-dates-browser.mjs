@@ -87,8 +87,14 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
   const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
   const today=JSON.stringify(store.getState().daily);
   for(let i=0;i<30;i++)store.getState().recordDailyVocabAttempt('french','unopened-'+i,true);
-  return {row:store.getState().dailyLog[date],unchanged:today===JSON.stringify(store.getState().daily)};
+  const premature=store.getState().dailyLog[date]?.done||0;
+  const pending=store.getState().recoveryVocabByDay?.[date]?.french;
+  for(let i=30;i<35;i++)store.getState().recordDailyVocabAttempt('french','unopened-'+i,true);
+  return {row:store.getState().dailyLog[date],premature,pendingNeeded:pending?.totalNeeded,
+   unchanged:today===JSON.stringify(store.getState().daily)};
  },unopened);
+ assert.equal(restored.premature,0,'30/35 must not mark a missed day complete');
+ assert.equal(restored.pendingNeeded,35);
  assert.equal(restored.row.done,1);
  assert.equal(restored.row.total,10);
  assert.equal(restored.row.complete,false);
@@ -131,11 +137,16 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
   const result=await page.evaluate(async target=>{
    const {C:store}=await import([...document.scripts].find(x=>x.src.includes('/assets/index-BLVOhKhN.js')).src);
    const before=store.getState().daily.map(t=>[t.id,t.progress]);
-   for(let i=0;i<30;i++)store.getState().recordDailyVocabAttempt('french','recovery-'+target+'-'+i,true);
+   for(let i=0;i<14;i++)store.getState().recordDailyVocabAttempt('french','recovery-'+target+'-'+i,true);
+   const notYet=store.getState().dailyLog[target]?.tasks?.find(t=>t.id==='french-vocab')?.done===true;
+   store.getState().recordDailyVocabAttempt('french','recovery-'+target+'-14',true);
    const state=store.getState();
-   return {done:state.dailyLog[target]?.tasks?.find(t=>t.id==='french-vocab')?.done,
+   return {notYet,done:state.dailyLog[target]?.tasks?.find(t=>t.id==='french-vocab')?.done,
+     needed:state.recoveryVocabByDay[target]?.french?.totalNeeded,
      before,after:state.daily.map(t=>[t.id,t.progress])};
   },date);
+  assert.equal(result.notYet,false,'14 of 15 additional correct words must not complete Recovery');
+  assert.equal(result.needed,15);
   assert.equal(result.done,true,'recovered task must be credited to '+date);
   assert.deepEqual(result.after,result.before,'recovery must not award today');
  }
