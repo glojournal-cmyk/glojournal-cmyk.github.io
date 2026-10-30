@@ -223,7 +223,7 @@ test('repaired real density answer and moment units are scientifically consisten
 
 test('real Biology two/four different reasons are held for semantic distinctness review',()=>{
  const cases=[
-  ['bio-y8-balanced-diet','bio-y8-app-alcohol-foetus',['FASD','learning problems']],
+  ['bio-y8-drugs-alcohol','bio-y8-app-alcohol-foetus',['FASD','learning problems']],
   ['bio-y8-enzymes-gut','bio-y8-app-gut-bacteria-two',['help break down fibre','help digest substances']],
   ['bio-y8-nutrition-labels','bio-y8-app-low-fat',['may be high in energy','portion may be large']],
   ['bio-y8-photosynthesis-glucose','bio-y8-app-glucose-uses-four',
