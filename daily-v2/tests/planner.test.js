@@ -312,3 +312,51 @@ test('extra taught Y9 concept backfills colliding Year 9 vocabulary without leak
  assert.equal(vocab.questions.filter(q=>q.year===9).length,5);
  assert.equal(new Set(vocab.questions.map(q=>q.conceptId)).size,30);
 });
+
+test('Year 9 vocabulary stays locked when untaught; thirty independent Y7-8 words still form a full task',()=>{
+ const f=fixture();
+ f.taughtTopicIds=f.taughtTopicIds.filter(id=>!['la-y9-vocab','fr-y9-vocab'].includes(id));
+ for(const [prefix,subject] of [['la','latin'],['fr','french']])
+  for(let i=0;i<5;i++)f.questionBank.push({id:prefix+'-additional-y8-'+i,subject,
+   year:8,topicId:prefix+'-vocab-y8',status:'enabled',formal:true,
+   prompt:'Extra Year 8 '+prefix+' '+i,roles:[subject+'-vocab'],
+   conceptId:prefix+'-extra-word-'+i});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ for(const id of ['latin-vocab','french-vocab']){
+  const task=kinds(r).get(id);
+  assert.equal(task.questions.length,30);
+  assert.equal(task.questions.filter(q=>q.year===9).length,0);
+  assert.equal(task.year7to8,30);
+  assert.equal(task.year9,0);
+  assert.equal(new Set(task.questions.map(q=>q.conceptId)).size,30);
+ }
+ assert.equal(kinds(r).get('year9-progressive').questions.length,20);
+});
+test('a partially taught Year 9 vocabulary bank fills the remaining 30 slots from certified Y7-8',()=>{
+ const f=fixture();
+ for(const [prefix,subject] of [['la','latin'],['fr','french']]){
+  f.questionBank=f.questionBank.filter(q=>!(q.id.startsWith(prefix+'-v9-')&&Number(q.id.slice(-1))>=2));
+  for(let i=0;i<3;i++)f.questionBank.push({id:prefix+'-extra-y8-'+i,subject,
+   year:8,topicId:prefix+'-vocab-y8',status:'enabled',formal:true,
+   prompt:'Certified extra '+prefix+' '+i,roles:[subject+'-vocab'],
+   conceptId:prefix+'-additional-y8-word-'+i});
+ }
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ for(const id of ['latin-vocab','french-vocab']){
+  const task=kinds(r).get(id);
+  assert.equal(task.year9,2);
+  assert.equal(task.year7to8,28);
+  assert.equal(task.questionIds.length,30);
+ }
+});
+test('no verified Y9 supply cannot be replaced by unavailable or duplicated Y7-8 words',()=>{
+ const f=fixture();
+ f.taughtTopicIds=f.taughtTopicIds.filter(x=>!['la-y9-vocab','fr-y9-vocab'].includes(x));
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(d=>d.taskId==='latin-vocab'&&d.code==='VOCAB_CONCEPT_SHORTAGE'));
+ assert.ok(r.diagnostics.some(d=>d.taskId==='french-vocab'&&d.code==='VOCAB_CONCEPT_SHORTAGE'));
+ assert.equal(r.tasks.length,0);
+});
