@@ -606,18 +606,24 @@ async function checkExhaustedBiologyDaily(browser,engine){
   const ids=JSON.parse(fs.readFileSync('content/topics/bio-y9-b1.json','utf8')).questions.map(q=>q.id);
   const url=base+'/study/biology/practise?daily=1&locked=1&year=9&mode=standard&task=year9-light&topic=bio-y9-b1';
   try{
-    await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
-    await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:35000});
-    await page.evaluate(ids=>{
-      const key='lux-scholar-garden-v1',raw=localStorage.getItem(key);
+    // Seed a fresh synthetic student BEFORE the practice route mounts.
+    // Seeding after the first question mounts and then reloading can leave a
+    // pending Safari/WebKit resume draft that overrides the depleted bank.
+    // This test must exercise a new visit with already-correct history, not
+    // a partially resumed, independently unfinished learner session.
+    await context.addInitScript(questionIds=>{
+      const key='lux-scholar-garden-v1';
+      const raw=localStorage.getItem(key);
       const persisted=raw?JSON.parse(raw):{state:{},version:0};
-      persisted.state.seenCorrect={...(persisted.state.seenCorrect||{}),
-        ...Object.fromEntries(ids.map(id=>[id,1]))};
+      persisted.state={...(persisted.state||{}),seenCorrect:{
+        ...(persisted.state?.seenCorrect||{}),
+        ...Object.fromEntries(questionIds.map(id=>[id,1]))
+      }};
       localStorage.setItem(key,JSON.stringify(persisted));
-      // This is the TEST browser only; never remove learner device records.
+      // Isolated local browser fixture only, never any real learner storage.
       localStorage.removeItem('lux-practice-drafts-v1');
     },ids);
-    await page.reload({waitUntil:'domcontentloaded'});
+    await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
     await page.waitForSelector('.lux-practice-view',{timeout:35000});
     // The route shell mounts before its async topic bank is hydrated. Check the
     // actual terminal state, not a transient blank/loading frame on Safari.
