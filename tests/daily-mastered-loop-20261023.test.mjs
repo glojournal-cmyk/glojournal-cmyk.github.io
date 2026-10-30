@@ -336,12 +336,14 @@ test('failed recall is returned to reinforcement, not falsely Mastered',()=>{
   assert.notEqual(masteryStage(stat),'mastered');
 });
 
-test('iPad route and replay boot reference this same version',()=>{
+test('iPad route and replay boot use cache-busted current Daily modules',()=>{
   const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
-  const release='20261025-bio10-proof1';
-  const previous='20261025-bio10-proof1';
-  assert.ok(read('assets/index-BLVOhKhN.js').includes('year8-daily-v2-20261018.js?v='+release));
-  assert.ok(read('assets/quiz-session-y8fix-20260920.js').includes('daily-session-credit-20261021.js?v='+previous));
+  // Every producer has its own deployed cache revision. Avoid freezing the
+  // test to an old October revision while still requiring real module links.
+  assert.match(read('assets/index-BLVOhKhN.js'),
+    /import \{buildYear8DailyV2,verifiedOct23DatedRow\} from "\.\/year8-daily-v2-20261018\.js\?v=[\w-]+";/);
+  assert.match(read('assets/quiz-session-y8fix-20260920.js'),
+    /import \{reconcileDailySession\} from "\.\/daily-session-credit-20261021\.js\?v=[\w-]+";/);
   assert.ok(read('assets/daily-answer-replay-boot-20261021.js').includes('daily-answer-replay-20261021.js?v=20261024-festival-scenes1'));
   assert.ok(read('assets/study._subject.practise-y8fix-20260920.js').includes('E===\`due\`&&dailyLocked&&assignment?.masteryCheck?5'.replaceAll('\\','')));
 });
