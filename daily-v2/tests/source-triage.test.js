@@ -93,3 +93,41 @@ test('actual source contains mark-point candidates that are counted, not treated
  assert.ok(Array.isArray(t.markPointReviewSamples));
  assert.equal(t.readyForHumanReview+t.needsSourceRepair,t.supportedSubjectRecords);
 });
+
+test('real-style pairing tasks are reviewed as structured answers, not wrongly marked missing',()=>{
+ const pairs=q('match',{format:'matching',answer:{mode:'pair_map',pairs:[
+  {left:'protein',right:'growth and repair'},
+  {left:'lipid',right:'insulation and storage'}
+ ]}});
+ const r=triageDailyV2Sources([make('biology',[pairs])]);
+ assert.equal(r.readyForHumanReview,1);
+ assert.equal(r.needsSourceRepair,0);
+ assert.equal(r.requiresStructuredAnswerReview,1);
+ assert.equal(r.structuredReviewSamples[0].mode,'pair_map');
+});
+test('unordered required groups with alternate accepted terms are valid review candidates',()=>{
+ const grouped=q('seven-nutrients',{format:'unordered_set',answer:{
+  mode:'unordered_required_groups',requiredGroups:[
+   {alternatives:['lipid','fat']},{alternatives:['protein']}
+  ],totalMarks:2
+ }});
+ const r=triageDailyV2Sources([make('biology',[grouped])]);
+ assert.equal(r.readyForHumanReview,1);
+ assert.equal(r.requiresStructuredAnswerReview,1);
+ assert.equal(r.needsSourceRepair,0);
+});
+test('invalid or empty matching and unordered mark content remains a source repair issue',()=>{
+ const r=triageDailyV2Sources([make('biology',[
+  q('empty-pairs',{answer:{mode:'pair_map',pairs:[]}}),
+  q('broken-pair',{answer:{mode:'pair_map',pairs:[{left:'carbohydrate',right:''}]}}),
+  q('broken-group',{answer:{mode:'unordered_required_groups',requiredGroups:[{alternatives:['']}]}})
+ ])]);
+ assert.equal(r.readyForHumanReview,0);
+ assert.equal(r.needsSourceRepair,3);
+ assert.equal(r.reasonCounts.MISSING_MARKING_CONTENT,3);
+});
+test('all structured review requirements are subsets of actual source records',()=>{
+ const r=buildRealSourceCapacityReport().sourceTriage;
+ assert.ok(r.requiresManualMarkPointReview+r.requiresStructuredAnswerReview<=r.readyForHumanReview);
+ assert.equal(r.readyForHumanReview+r.needsSourceRepair,r.supportedSubjectRecords);
+});
