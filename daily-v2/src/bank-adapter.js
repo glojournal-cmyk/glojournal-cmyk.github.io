@@ -25,7 +25,10 @@ export function fingerprintDailyV2Source(topic,question){
  const payload=JSON.stringify([
   topic?.topicId??null,topic?.subject??null,Number(topic?.year)||null,
   question?.id??null,question?.format??null,question?.prompt??null,
-  question?.stimulus??null,question?.options??null,question?.answer??null
+  question?.stimulus??null,question?.options??null,question?.answer??null,
+  // Source-provided GCSE mark points are part of the assessed material.
+  // Changing a mark scheme must invalidate previously reviewed certificates.
+  question?.markScheme??null
  ]);
  let hash=2166136261;
  for(let i=0;i<payload.length;i++){hash^=payload.charCodeAt(i);hash=Math.imul(hash,16777619);}
