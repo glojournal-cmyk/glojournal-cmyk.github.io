@@ -105,7 +105,12 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
   return store.getState().dailyLog[date];
  },unopened);
  assert.equal(persisted.tasks.find(t=>t.id==='french-vocab').recovered,true);
- const dates=await page.evaluate(async()=>{const {C:store,Ut:day}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);const today=day(),date=n=>new Date(Date.parse(today+'T12:00:00Z')-n*86400000).toISOString().slice(0,10),a=date(1),b=date(2);const logs={...store.getState().dailyLog};for(const d of [a,b])logs[d]={date:d,tasks:[{id:'french-vocab',target:30,progress:20},{id:'latin-vocab',target:30,progress:30}]};store.setState({dailyLog:logs,recoveryVocabByDay:{},recoveryAwarded:{}});return [a,b]});
+ const dates=await page.evaluate(async()=>{const {C:store,Ut:day}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);const today=day(),date=n=>new Date(Date.parse(today+'T12:00:00Z')-n*86400000).toISOString().slice(0,10),a=date(1),b=date(2);const logs={...store.getState().dailyLog};for(const d of [a,b])logs[d]={date:d,tasks:[{id:'french-vocab',target:30,progress:20},{id:'latin-vocab',target:30,progress:30}]};
+  // This is a NEW synthetic QA fixture: the prior test just completed a
+  // recovery on date(a). Remove only its local browser TEST receipt so the
+  // second fixture cannot inherit that unrelated completed evidence.
+  localStorage.removeItem('lux-recovery-receipts-v1');
+  store.setState({dailyLog:logs,recoveryVocabByDay:{},recoveryAwarded:{}});return [a,b]});
  // Open the current 30-day modal and exercise each historical date.
  await page.evaluate(()=>window.__luxOpenDailyRecord());
  await page.locator('.lux-record-sheet').waitFor({state:'visible'});
