@@ -176,3 +176,20 @@ test('independent identical-looking concepts in different language tasks are all
  const receipt=await commitDailyV2Plan(repo,p);
  assert.equal(receipt.revision,1,'concept identity scope is each subject task, not globally across languages');
 });
+
+test('persisted GCSE resubmission improves awarded marks without a second completed question',async()=>{
+ const repo=createMemoryDailyV2Repository();await commitDailyV2Plan(repo,plan());
+ const common={taskId:'gcse-exam-skills',questionId:'gcse-exam-skills-q2',
+  conceptId:null,marksPossible:3};
+ const first=await commitDailyV2Answer(repo,answer({...common,eventId:'exam-1',correct:false,marksEarned:1}));
+ assert.equal(first.progress.verifiedProgress,1);
+ assert.deepEqual(first.progress.examMarks,{earned:1,possible:3});
+ const retry=await commitDailyV2Answer(repo,answer({...common,eventId:'exam-2',correct:true,marksEarned:3}));
+ assert.equal(retry.verified,true);
+ assert.equal(retry.progress.verifiedProgress,1);
+ assert.deepEqual(retry.progress.examMarks,{earned:3,possible:3});
+ assert.equal(repo.readOnlySnapshot(day).ledger.attempts.length,2);
+ const replay=await commitDailyV2Answer(repo,answer({...common,eventId:'exam-2',correct:true,marksEarned:3}));
+ assert.equal(replay.alreadyRecorded,true);
+ assert.deepEqual(replay.progress.examMarks,{earned:3,possible:3});
+});
