@@ -11,11 +11,11 @@ import {digestDailyV2Value,serializeDailyV2GradeReceipt,
  makeDailyV2UnsignedReceipt,verifyDailyV2SignedReceipt} from '../src/grade-receipt.js';
 
 const subtle=(globalThis.crypto||webcrypto).subtle;
-const source=JSON.parse(readFileSync(new URL('../../content/topics/bio-y8-ber.json',import.meta.url),'utf8'));
-const question=source.questions.find(q=>q.id==='bio-y8-app-ber-55');
+const source=JSON.parse(readFileSync(new URL('../../content/topics/bio-y8-graphs-calculations.json',import.meta.url),'utf8'));
+const question=source.questions.find(q=>q.id==='bio-y8-app-g-to-mg');
 const day='2026-10-30',taskId='science-standard',questionId=question.id;
 const fp=fingerprintDailyV2Source(source,question);
-const response='7128 kJ/day';
+const response='1500 mg';
 const eventId='qa-signed-event-001',keyId='qa-ephemeral-key';
 const ledgerScope='qa-pseudonymous-learner-a';
 const scorerId='daily-v2-objective-v1',scorerVersion='qa-v1';
@@ -81,7 +81,7 @@ test('signed receipt is a canonical stable projection, with no private signing k
   expected:{
    eventId,ledgerScope,day,taskId,questionId,sourceFingerprint:fp,
    answerDigest:r.payload.answerDigest,planDigest:r.payload.planDigest,
-   marksEarned:2,marksPossible:2,correct:true
+   marksEarned:1,marksPossible:1,correct:true
   }
  });
  assert.equal(proof.verifiedSignature,true);
@@ -122,7 +122,7 @@ test('tampering marks or correctness after signing fails and leaves ledger uncha
 });
 test('a mismatched response is not bound to old signed receipt, even if correct',async()=>{
  const ctx=await setup(),receipt=await signed(ctx),prior=ctx.repo.readOnlySnapshot(day);
- await assert.rejects(submit(ctx,receipt,{response:'7,128 kJ per day'}),
+ await assert.rejects(submit(ctx,receipt,{response:'1,500 mg'}),
   /RECEIPT_BINDING_MISMATCH_ANSWERDIGEST/);
  assert.deepEqual(ctx.repo.readOnlySnapshot(day),prior);
 });
@@ -176,7 +176,7 @@ test('production-shaped repository object is always rejected by staged signed co
 });
 test('zero and partial objective previews must never become guessed work/GCSE marks',async()=>{
  const ctx=await setup(),receipt=await signed(ctx),prior=ctx.repo.readOnlySnapshot(day);
- await assert.rejects(submit(ctx,receipt,{response:'1000 kJ/day'}),
+ await assert.rejects(submit(ctx,receipt,{response:'1000 mg'}),
   /SCORING_REQUIRES_REVIEW/);
  assert.deepEqual(ctx.repo.readOnlySnapshot(day),prior);
 });
