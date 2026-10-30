@@ -1,6 +1,6 @@
 import {extendYear9ParticleQuestions} from './physics-year9-particle-daily-expansion-20261025.js?v=1';
 import {selectUnfinishedDailyQuestions} from './daily-unfinished-retry-20261025.js?v=20261026-bio-year9-savefix2';
-import {readDailyRetryReceiptSync,readDailyRetryReceipt} from './daily-completed-session-receipts-20261024.js?v=20261025-bio10-proof1';
+import {readDailyRetryReceiptSync,readDailyRetryReceipt} from './daily-completed-session-receipts-20261024.js?v=20261026-bio-savefix2&modeguard=20261030-1';
 import {selectDiverseRecoveryQuestions} from './recovery-question-diversity-20261025.js?v=20261025-recovery-diverse2';
 import {listRecoveryReceipts} from './recovery-receipt-20261018.js?v=20261025-recovery-correct1';
 import {uniqueFrenchQuestions} from "./french-unique-questions-20261018.js";
