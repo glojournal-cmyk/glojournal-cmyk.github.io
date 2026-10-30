@@ -50,6 +50,25 @@ export function buildRealSourceCapacityReport() {
   const row=loadedBySubjectYear[key]||(loadedBySubjectYear[key]={topics:0,questions:0});
   row.topics++;row.questions+=eligible;
  }
+ // Metadata totals alone cannot identify which existing lesson file is absent.
+ // Resolve each catalog topic to an actual loaded, subject/year-matched JSON.
+ const keyOf=t=>[t?.subject,t?.year,t?.topicId].map(String).join('|');
+ const loadedKeys=new Map(),catalogKeys=new Map();
+ for(const t of topics){const key=keyOf(t);loadedKeys.set(key,(loadedKeys.get(key)||0)+1);}
+ for(const t of catalog.topics||[]){const key=keyOf(t);catalogKeys.set(key,(catalogKeys.get(key)||0)+1);}
+ const missingSources=(catalog.topics||[]).filter(t=>!loadedKeys.has(keyOf(t)))
+  .map(t=>({topicId:t.topicId,subject:t.subject,year:t.year,status:t.status||null,
+    catalogEnabled:t.enabled??null}));
+ const unlistedSources=topics.filter(t=>!catalogKeys.has(keyOf(t)))
+  .map(t=>({topicId:t.topicId,subject:t.subject,year:t.year,status:t.status||null}));
+ const duplicateSourceTopics=[...loadedKeys].filter(([,n])=>n>1)
+  .map(([key,n])=>({key,count:n}));
+ const duplicateCatalogTopics=[...catalogKeys].filter(([,n])=>n>1)
+  .map(([key,n])=>({key,count:n}));
+ const supported=new Set(['latin','french','biology','chemistry','physics']);
+ const outsideV2=topics.filter(t=>t.status==='enabled'&&!supported.has(t.subject))
+  .reduce((n,t)=>n+t.questions.filter(q=>q&&q.status!=='disabled'&&
+     q.status!=='preview'&&q.preview!==true&&q.formal!==false&&!q._repair).length,0);
  const catalogDisagreements=(catalog.bySubjectYear||[]).map(entry=>{
   const key=String(entry.subject)+'-y'+String(entry.year);
   const loaded=loadedBySubjectYear[key]||{topics:0,questions:0};
@@ -66,7 +85,10 @@ export function buildRealSourceCapacityReport() {
    enabledQuestions:catalog.totals?.enabled??null,
    filesVsCatalogTopics:topics.length-(catalog.totals?.topics??topics.length),
    eligibleVsCatalogEnabled:adapted.summary.scanned-(catalog.totals?.enabled??adapted.summary.scanned),
-   subjectYearDisagreements:catalogDisagreements},
+   subjectYearDisagreements:catalogDisagreements,
+   missingSources,unlistedSources,duplicateSourceTopics,duplicateCatalogTopics,
+   supportedV2SubjectEligible:adapted.summary.scanned-outsideV2,
+   unsupportedSubjectEligible:outsideV2},
   certificationManifestPresent:certsPresent,taughtEvidencePresent:taughtPresent,
   certifiedTaughtTopics:taughtTopicIds.length,
   bank:{certified:adapted.summary.certified,rejected:adapted.summary.rejected,
