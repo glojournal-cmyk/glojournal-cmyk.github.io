@@ -5,10 +5,12 @@
  * historical identity reconciliation prevents double-counting.
  */
 
+import {isValidDailyV2Day} from './calendar.js';
+
 function dailyV2Require(ok,message){if(!ok)throw new Error(`DailyV2: ${message}`);}
 
 export function makeDailyV2Ledger(day, legacyBaselines={}){
-  dailyV2Require(/^\d{4}-\d{2}-\d{2}$/.test(String(day)),"day must be YYYY-MM-DD");
+  dailyV2Require(isValidDailyV2Day(day),"day must be a real YYYY-MM-DD calendar date");
   const baseline={};
   for(const [taskId,v] of Object.entries(legacyBaselines)){
     dailyV2Require(taskId.length>0,"baseline task ID required");
@@ -32,7 +34,7 @@ export function projectSavedDailyV2Attempt(ledger,attempt){
   dailyV2Require(ledger?.version===2,"ledger version incompatible");
   const required=["eventId","day","taskId","questionId"];
   for(const key of required)dailyV2Require(typeof attempt?.[key]==="string"&&attempt[key].trim().length>0,`missing ${key}`);
-  dailyV2Require(attempt.day===ledger.day,"event date does not match ledger");
+  dailyV2Require(isValidDailyV2Day(attempt.day)&&attempt.day===ledger.day,"event date does not match ledger");
   dailyV2Require(typeof attempt.correct==="boolean","event correct must be boolean");
   if(attempt.marksEarned!==undefined||attempt.marksPossible!==undefined){
     dailyV2Require(Number.isFinite(attempt.marksEarned)&&Number.isFinite(attempt.marksPossible)&&attempt.marksPossible>0&&attempt.marksEarned>=0&&attempt.marksEarned<=attempt.marksPossible,"marks invalid");
