@@ -13,7 +13,7 @@ test("Quota exceeded does not abort an answer and an event warns that progress i
  const storage={setItem:()=>{throw Object.assign(new Error("The quota has been exceeded"),{name:"QuotaExceededError"})}};
  const persist=factory({partialize:x=>x,version:10,name:"lux-scholar-garden-v1"},()=>({xp:2862}),storage,win,Event);
  assert.doesNotThrow(persist);assert.doesNotThrow(persist);
- assert.deepEqual(events,[{saved:false,quota:true}]);assert.equal(win.__luxStoreQuotaFailed,true);
+ assert.deepEqual(events,[{saved:false,quota:true,unsaved:true}]);assert.equal(win.__luxStoreQuotaFailed,true);assert.equal(win.__luxUnsavedStudyChanges,true);
  storage.setItem=()=>true;
  assert.doesNotThrow(persist);assert.equal(win.__luxStoreQuotaFailed,false);
  assert.deepEqual(events.at(-1),{saved:true});
