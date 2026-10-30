@@ -130,6 +130,15 @@ export async function commitDailyV2Plan(repo,plan,{legacyBaselines={},maxRetries
  throw new Error('DailyV2 storage: VERSION_CONFLICT: plan save retries exhausted');
 }
 export async function commitDailyV2Answer(repo,attempt,{maxRetries=8}={}){
+ // Do not accidentally treat a staging score preview or unapproved manual
+ // review as a trusted graded attempt. This is a misuse guard, NOT
+ // authentication: the future production caller must independently verify
+ // scorer identity and authorisation before invoking this low-level writer.
+ requireV2(attempt?.releaseGrade!==false&&attempt?.ledgerEligible!==false&&
+   attempt?.persisted!==false&&
+   !['staging-uncredited-preview','staging-review-required','review-required',
+     'staging-review-recorded','staging-preview'].includes(attempt?.status),
+   'NON_AUTHORITATIVE_SCORING_PREVIEW: cannot persist or reward a staged grade');
  requireV2(attempt&&isValidDailyV2Day(attempt.day)&&typeof attempt.taskId==='string','answer metadata missing or invalid date');
  for(let i=0;i<maxRetries;i++){
   const row=await readRow(repo,attempt.day);
