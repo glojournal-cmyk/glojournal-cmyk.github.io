@@ -109,21 +109,34 @@ export function recoverProgressStorage(store){
   const options=store.persist?.getOptions?.();
   if(!options||options.name!=="lux-scholar-garden-v1")return false;
   const snapshot=()=>JSON.stringify({state:options.partialize({...store.getState()}),version:options.version});
-  // First try to save the latest learner state. Do not delay an ordinary retry
-  // behind optional IndexedDB migration, which may be slow or unavailable.
+  // A matching primary is not evidence that a DIFFERENT store's failed
+  // write has recovered. Only an explicitly cleared global quota flag
+  // permits this no-write success path; otherwise preserve the warning.
+  const expected=snapshot();
+  let primaryAlreadyDurable=false;
+  try{primaryAlreadyDurable=localStorage.getItem(options.name)===expected}catch{}
+  if(primaryAlreadyDurable)return globalThis.__luxStoreQuotaFailed===false;
+
   const attempt=()=>{
-    const expected=snapshot();
     try{
-      if(localStorage.getItem(options.name)!==expected)store.setState({});
+      const before=snapshot();
+      if(localStorage.getItem(options.name)!==before)store.setState({});
       const after=snapshot();
       return localStorage.getItem(options.name)===after&&snapshot()===after;
     }catch{return false}
   };
+  // Make room before retrying when verified legacy backups already occupy
+  // localStorage. Migration never changes the learner's primary progress.
+  const legacyPresent=KEYS.some(key=>fromLocal(key)!==null);
+  if(legacyPresent){
+    try{await migrateOldBackups()}catch(error){console.warn("Optional backup migration failed; retrying current progress",error)}
+  }
   if(attempt())return true;
-  // Only use the verified archive migration as a quota recovery measure.
-  // It must never restore old study data over current unanswered work.
-  try{await migrateOldBackups()}catch(error){console.warn("Optional backup migration failed; retrying current progress",error)}
-  return attempt();
+  if(!legacyPresent){
+    try{await migrateOldBackups()}catch(error){console.warn("Optional backup migration failed; retrying current progress",error)}
+    return attempt();
+  }
+  return false;
  })().catch(()=>false).finally(()=>{recovering=null});
  return recovering;
 }
