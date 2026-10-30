@@ -48,3 +48,22 @@ test('catalog metadata differences are exposed rather than treated as daily ques
   report.sourceEligible-report.catalogMetadata.enabledQuestions);
  assert.ok(Array.isArray(report.catalogMetadata.subjectYearDisagreements));
 });
+
+test('missing catalog lesson sources are reported by exact topic identity',()=>{
+ const c=report.catalogMetadata;
+ assert.ok(Array.isArray(c.missingSources));
+ assert.ok(Array.isArray(c.unlistedSources));
+ assert.ok(Array.isArray(c.duplicateSourceTopics));
+ assert.ok(Array.isArray(c.duplicateCatalogTopics));
+ assert.ok(c.missingSources.every(x=>x.topicId&&x.subject&&Number.isInteger(x.year)));
+ assert.equal(c.missingSources.length-c.unlistedSources.length,
+  c.topics-report.sourceTopicFiles);
+ assert.ok(c.missingSources.length>0,'known source gap must not disappear into aggregate totals');
+});
+test('read-only capacity audit distinguishes unsupported subject rows from V2 subject supply',()=>{
+ const c=report.catalogMetadata;
+ assert.ok(c.unsupportedSubjectEligible>=0);
+ assert.ok(c.supportedV2SubjectEligible>=0);
+ assert.equal(c.supportedV2SubjectEligible+c.unsupportedSubjectEligible,report.sourceEligible);
+ assert.ok(c.unsupportedSubjectEligible>0,'existing English sources are not eligible for five-subject V2');
+});
