@@ -13,7 +13,11 @@ const SUBJECTS=new Set(['latin','french','biology','chemistry','physics']);
 const active=q=>q&&q.status!=='disabled'&&q.status!=='preview'&&q.preview!==true&&
  q.formal!==false&&!q._repair;
 function canonical(a){
- if(a.mode==='numeric')return {value:a.value,unit:a.units?.[0]??''};
+ // Test the actually displayed model answer, not a response regenerated
+ // from the same answer.value being audited. This catches wrong published
+ // answers like 540/200 labelled "3" despite the numeric source being 2.7.
+ if(a.mode==='numeric')return typeof a.modelAnswer==='string'&&a.modelAnswer.trim()?
+  a.modelAnswer:{value:a.value,unit:a.units?.[0]??''};
  if(a.mode==='pair_map')return Object.fromEntries(a.pairs.map(p=>{
   if(a.totalMarks===a.pairs.length*2){
    const parts=p.right.includes(' -> ')?p.right.split(/\s+->\s+/):
@@ -46,8 +50,8 @@ function canonical(a){
 function deliberatelyWrong(answer,correct){
  const candidate=JSON.parse(JSON.stringify(correct));
  if(answer.mode==='numeric'){
-  candidate.value=answer.value+Math.max(1,2*(answer.tolerance??0)+1);
-  return candidate;
+  return {value:answer.value+Math.max(1,2*(answer.tolerance??0)+1),
+   unit:answer.units?.[0]??''};
  }
  const first=Object.keys(candidate)[0];
  if(answer.mode==='pair_map'||answer.mode==='category_map'){
