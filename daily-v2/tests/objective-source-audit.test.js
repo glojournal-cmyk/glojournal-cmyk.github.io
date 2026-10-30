@@ -45,10 +45,10 @@ test('shared-answer groups generate distinct correct examples across real Biolog
  for(const id of ids)assert.ok(!r.samples.some(x=>x.questionId===id),
   'QA must not repeat one rubric alternative for every different-answer group: '+id);
 });
-test('two-mark-per-matching-pair original science sources remain visible for manual rubric design',()=>{
+test('two-mark-per-pair real science rubrics have distinct enzyme/product and reagent/result preview fields',()=>{
  const r=runObjectiveSourceAudit();
  for(const id of ['bio-y8-app-enzyme-pathways','bio-y8-app-food-test-match'])
-  assert.ok(r.samples.some(x=>x.questionId===id&&x.status==='review-required'),
-   'two scoring components per pair cannot be silently converted to one point: '+id);
+  assert.ok(!r.samples.some(x=>x.questionId===id),
+   'two-scored-field source must be represented by separate answer fields: '+id);
  assert.equal(r.autoCertified,0);
 });
