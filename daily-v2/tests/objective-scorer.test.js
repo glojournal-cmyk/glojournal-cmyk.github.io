@@ -113,3 +113,17 @@ test('malformed source or response cannot silently earn credit',()=>{
  assert.throws(()=>score(ber,question,{value:7128,unit:7}),/invalid source/);
  assert.throws(()=>score(diet,get(diet,'bio-y8-app-seven-nutrients'),[1,2]),/invalid source/);
 });
+
+test('a zero-tolerance numeric answer is genuinely exact, not loosened by floating-point slack',()=>{
+ const q=get(ber,'bio-y8-app-ber-55');
+ assert.equal(score(ber,q,'7128.00000001 kJ/day').marksEarned,null);
+ assert.equal(score(ber,q,'7128 kJ/day').marksEarned,2);
+});
+test('large-number tolerance cannot grow by nearly an extra whole unit',()=>{
+ const topic={topicId:'large-precise',subject:'physics',year:8};
+ const q={id:'large-numeric',topicId:topic.topicId,answer:{
+  mode:'numeric',value:1000000000000000,tolerance:0.1,totalMarks:1
+ }};
+ assert.equal(score(topic,q,'1000000000000000.5').marksEarned,null);
+ assert.equal(score(topic,q,'1000000000000000').marksEarned,1);
+});
