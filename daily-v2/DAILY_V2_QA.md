@@ -109,3 +109,9 @@
 - Corrected `planDailyV2` to exclude previously correct GCSE question IDs AND different IDs carrying the identical previously correct exam prompt/stimulus fingerprint. Incorrect past GCSE responses remain eligible for later practice. History is read-only; no records are rewritten.
 - Added four planner regressions (old correct ID, clone wording, truly fresh substitute, wrong-answer retry) and two 30-day simulator regressions (31st-day depletion and 30-day completed fixture).
 - These checks use a synthetic bank only and **cannot certify the real 163-question bank**, unknown actual learner history, GCSE content originality, or iPad durability. Native Node and Actions results must be recorded separately; no production cutover.
+
+## 2026-10-30 — GCSE partial-credit retry repair (staging-only)
+- Confirmed `summarizeDailyV2Task` used only the first marked event per GCSE question. A persisted 1/3 followed by a verified 3/3 retry remained 1/3, despite the retained answer history. This was a genuine data/projection inconsistency, not a learner error.
+- Updated isolated `src/ledger.js` to sum the **best verified marks per original question ID**, count each exam question once, preserve both immutable events, and reject contradictory per-question max marks in a saved ledger.
+- Added four direct ledger cases (partial-to-full, reverse event order, three distinct questions with a retry, contradictory maximum) and one end-to-end atomic storage/replay regression. Production scoring, XP, saved learner records and main branch unchanged.
+- This protects QA-only marking projections. It does NOT approve automatic written-answer evaluation, actual iPad IndexedDB behavior, historical student import or production rollout.
