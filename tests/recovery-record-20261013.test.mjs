@@ -9,18 +9,20 @@ const runtime=read('assets/index-BLVOhKhN.js');
 const params=new URLSearchParams('recover=2026-10-12&task=french-vocab');
 const size=new Function('globalThis',practice.slice(practice.indexOf('function recoveryPracticeSize('),practice.indexOf('function qp('))+';return recoveryPracticeSize')({LuxRecoveryVocabSource:(s,d,subject)=>({task:{progress:s.dailyLog?.[d]?.tasks.find(t=>t.id===subject+'-vocab')?.progress||0}})});
 function fixture(progress=0){return {today:'2026-10-13',daily:[],dailyLog:{'2026-10-12':{date:'2026-10-12',done:9,total:10,complete:false,tasks:[{id:'french-vocab',title:'French vocab',target:30,progress,done:false},...Array.from({length:9},(_,i)=>({id:'other-'+i,title:'Other task '+i,target:1,progress:1,done:true}))]}},recoveryVocabByDay:{}}}
-test('a completely missed Vocab session supplies all 30 recovery questions',()=>assert.equal(size('french',params,fixture()),30));
+test('a completely missed Vocab session requires 35 correct Recovery concepts including five extra',()=>assert.equal(size('french',params,fixture()),35));
 test('new recovery sets only ask for the remaining correct answers',()=>{
- assert.equal(size('french',params,fixture(20)),10);
+ assert.equal(size('french',params,fixture(20)),15);
  const s=fixture();s.recoveryVocabByDay['2026-10-12']={french:{originalCount:0,totalNeeded:30,items:Object.fromEntries(Array.from({length:25},(_,i)=>['q'+i,true]))}};
  assert.equal(size('french',params,s),5);
  s.recoveryVocabByDay['2026-10-12'].french.items.wrong=false;
  assert.equal(size('french',params,s),5);
 });
 test('ordinary daily vocabulary still has 30 questions',()=>assert.equal(size('french',new URLSearchParams(),fixture()),30));
-test('existing 30-question recovery draft remains resumable',()=>{
- const fn=new Function('globalThis',practice.slice(practice.indexOf('function recoveryPracticeSize('),practice.indexOf('function qp('))+';return recoveryPracticeSize')({LuxPracticeDrafts:{key:(_s,_y,size)=>size,read:key=>key===30?({j:12,base:Array(30)}):null}});
- assert.equal(fn('french',params,fixture()),30);
+test('existing 30-answer recovery proof stays frozen instead of retroactively adding penalty',()=>{
+ const s=fixture();
+ s.recoveryVocabByDay['2026-10-12']={french:{originalCount:0,totalNeeded:30,
+  items:Object.fromEntries(Array.from({length:12},(_,i)=>['q'+i,true]))}};
+ assert.equal(size('french',params,s),18);
  assert.match(practice,/function recoveryPracticeSize\(subject,params,state\)/);
 });
 class Element{
@@ -76,10 +78,18 @@ test('Recovery asks only for remaining correct answers even with older saved dra
  const helper=practice.slice(practice.indexOf('function recoveryPracticeSize('),practice.indexOf('function qp('));
  for(const savedSize of [35,15,5]){
   const fn=new Function('globalThis',helper+';return recoveryPracticeSize')({LuxPracticeDrafts:{key:(_s,_y,size)=>size,read:key=>key===savedSize?({savedAt:100,j:1}):null}});
-  assert.equal(fn('french',params,fixture()),30);
+  assert.equal(fn('french',params,fixture()),35);
  }
 });
 test('both practice entry files use the same recovery sizing',()=>{
  const base=read('assets/study._subject.practise-D_PWgUd7.js');
  assert.equal(base.slice(base.indexOf('function recoveryPracticeSize('),base.indexOf('function qp(')),practice.slice(practice.indexOf('function recoveryPracticeSize('),practice.indexOf('function qp(')));
+});
+test('Recovery remaining counts distinct vocab concepts and never offers a false 35/35',()=>{
+ const s=fixture();
+ s.recoveryVocabByDay['2026-10-12']={french:{originalCount:0,totalNeeded:35,
+  items:{a:true,b:true,c:false},conceptByQuestion:{a:'same-word',b:'same-word'}}};
+ assert.equal(size('french',params,s),34);
+ const older=fixture(27);
+ assert.equal(size('french',params,older),8);
 });
