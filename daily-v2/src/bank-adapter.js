@@ -4,6 +4,8 @@
  * A reviewer-authored manifest must certify each role/skill/depth before use.
  * No legacy progress, student state or topic JSON is mutated.
  */
+import {inspectDailyV2AnswerShape} from './source-answer.js';
+
 export const DAILY_V2_ROLES = Object.freeze([
  'latin-vocab','french-vocab','latin-standard','french-standard',
  'science-standard','mastery','retention-source','gcse','year9-progressive'
@@ -45,9 +47,14 @@ function certificationIssues(question,topic,c){
  if(!okString(question.id)||!okString(question.prompt))issues.push('INVALID_QUESTION');
  if(okString(question.topicId)&&question.topicId!==topic.topicId)
   issues.push('QUESTION_TOPIC_MISMATCH');
- if(!Array.isArray(question.answer?.accepted)||
-    !question.answer.accepted.some(okString))
-  issues.push('NO_MARKING_ANSWER');
+ const answerShape=inspectDailyV2AnswerShape(question.answer);
+ if(!answerShape.accepted){
+  // A real mark_points, matching, numeric or semantic source answer is NOT
+  // missing. But it cannot be certified for automatic Daily scoring merely
+  // because a human has certified the question's educational content.
+  issues.push(answerShape.requiresScoringAdapter?
+   'STRUCTURED_SCORING_ADAPTER_NOT_VERIFIED':'NO_MARKING_ANSWER');
+ }
  if(c.roles?.includes('gcse')&&c.roles.length!==1)issues.push('GCSE_MUST_BE_EXCLUSIVE');
  const vocabRoles=(c.roles||[]).filter(r=>r==='latin-vocab'||r==='french-vocab');
  if(vocabRoles.length){
