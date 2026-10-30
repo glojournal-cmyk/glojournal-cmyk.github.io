@@ -2,12 +2,14 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
+import {dailyHistorySummary} from '../assets/daily-history-display-20261030.js';
 
 const code=fs.readFileSync(new URL('../assets/home-rpg-live-20261019.js',import.meta.url),'utf8');
 const start=code.indexOf('  const todayStatus =');
 const end=code.indexOf('  function nativePanel(',start);
 assert.ok(start>0 && end>start,'record helpers must be present in the actual RPG UI');
 const scope=vm.createContext({
+  dailyHistorySummary,
   number:v=>Math.max(0,Number(v)||0),
   dayBefore:n=>['2026-10-19','2026-10-18','2026-10-17'][n]||''
 });
