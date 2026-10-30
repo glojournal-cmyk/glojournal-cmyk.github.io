@@ -1,5 +1,6 @@
 import {assessImport, mergeImportProgress, latestStudyEvidence} from "./backup-import-safety-20261023.js";
 import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
+import {inspectPetWalletBackup,PET_WALLET_KEY} from "./pet-wallet-backup-20261030.js";
 
 const KEY="lux-scholar-garden-v1";
 const PAIRS=[
@@ -37,6 +38,7 @@ export function validatePlainBackup(raw){
   for(const [field] of PAIRS)
     if(payload[field]!=null && (typeof payload[field]!=="object" || Array.isArray(payload[field])))
       throw Error("Invalid "+field+" in backup; import has not started.");
+  inspectPetWalletBackup(payload,null); // validates lossless Pet wallet without touching this device
   return payload;
 }
 // An older device may have 18 Oct receipts not present in a later 20 Oct
@@ -121,7 +123,16 @@ export function nativeImportSnapshot(payload){
 }
 export function linkedAdditions(payload, storage){
   const entries=[];
+  const walletPlan=inspectPetWalletBackup(payload,storage);
+  // Modern full Scholar exports carry the actual Pet wallet as lossless raw
+  // bytes. Install only on a device with NO existing Pet wallet; never
+  // overwrite a newer/spent wallet, and never grant MP twice on re-import.
+  if(walletPlan.status==='install')
+    entries.push([PET_WALLET_KEY,payload.petWalletBackup.raw]);
   for(const [field,key] of PAIRS){
+    // Legacy petCompanion object is a different transport; do not apply it
+    // when a modern wallet envelope explicitly exists in the JSON.
+    if(field==='petCompanion'&&payload.petWalletBackup!==undefined)continue;
     if(payload[field]==null)continue;
     const existing=storage.getItem(key);
     if(existing==null){
@@ -204,6 +215,10 @@ function previewDetails(){
   reportLine(dl,"Backup file",pendingFileName);
   reportLine(dl,"Backup exported",pending.exportedAt||pending.savedAt||"Not recorded");
   reportLine(dl,"Backup XP",saved.xp);
+  const pet=inspectPetWalletBackup(pending,localStorage);
+  reportLine(dl,"Pet wallet in backup",pet.status==='install'?"Restorable on this device":
+    pet.status==='identical'?"Already identical":pet.status==='conflict'?"Existing different wallet protected":
+    pet.status==='legacy'?"Not included in legacy JSON":pet.status==='absent'?"Not included":pet.status);
   reportLine(dl,"Existing device XP",Number(live.xp)||0);
   reportLine(dl,"Backup daily tasks",saved.daily.length);
   reportLine(dl,"Existing daily tasks",Array.isArray(live.daily)?live.daily.length:0);
@@ -235,6 +250,8 @@ async function previewFile(){
     const warnings=[];
     if(plan.report.legacy)
       warnings.push("This is a legacy/partial file; it cannot supply dated records that were not exported.");
+    if(inspectPetWalletBackup(payload,localStorage).status==="conflict")
+      warnings.push("A different Pet wallet already exists on this iPad. The incoming MP/levels will NOT overwrite it. Export and review both wallets separately.");
     if(plan.report.newerOnDevice && !unsafeMerge)
       warnings.push("This device has newer study records. A verified protective MERGE is available: the existing progress and completion evidence are kept, and distinct evidence from this older file can be added. Download and check the device safety copy before continuing. Missing days not in either record cannot be recovered.");
     if(unsafeMerge)
