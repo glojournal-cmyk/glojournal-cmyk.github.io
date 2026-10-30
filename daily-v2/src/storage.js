@@ -227,7 +227,7 @@ export function createMemoryDailyV2Repository({failWrites=0}={}){
  */
 export async function commitSignedDailyV2AnswerForStaging(repo,{
  payload,signatureHex,trustedPublicKeys,reviewManifest,
- day,taskId,questionId,topic,question,response
+ ledgerScope,day,taskId,questionId,topic,question,response
 }={}){
  requireV2(TEST_ONLY_MEMORY_REPOSITORIES.has(repo),
   'STAGING_MEMORY_ONLY: cannot write signed grade into production storage');
@@ -240,8 +240,10 @@ export async function commitSignedDailyV2AnswerForStaging(repo,{
   'SCORING_REQUIRES_REVIEW: objective preview is not fully gradeable');
  const planDigest=await digestDailyV2Value(snapshot.plan);
  const answerDigest=await digestDailyV2Value(response);
+ requireV2(typeof ledgerScope==='string'&&ledgerScope.trim().length>0,
+  'TRUSTED_LEDGER_SCOPE_REQUIRED: reviewer receipt needs independent learner identity');
  const expected={
-  eventId:payload?.eventId,day,taskId,questionId,
+  eventId:payload?.eventId,ledgerScope,day,taskId,questionId,
   sourceFingerprint:staged.sourceFingerprint,answerDigest,planDigest,
   marksEarned:staged.marksEarned,marksPossible:staged.marksPossible,
   correct:staged.correct
