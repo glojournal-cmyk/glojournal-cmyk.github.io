@@ -24,7 +24,8 @@ const okString=x=>typeof x==='string'&&x.trim().length>0;
 export function fingerprintDailyV2Source(topic,question){
  const payload=JSON.stringify([
   topic?.topicId??null,topic?.subject??null,Number(topic?.year)||null,
-  question?.id??null,question?.format??null,question?.prompt??null,
+  question?.id??null,question?.topicId??null,
+  question?.format??null,question?.prompt??null,
   question?.stimulus??null,question?.options??null,question?.answer??null,
   // Source-provided GCSE mark points are part of the assessed material.
   // Changing a mark scheme must invalidate previously reviewed certificates.
@@ -42,7 +43,10 @@ function certificationIssues(question,topic,c){
  if(!Array.isArray(c.roles)||c.roles.length===0||c.roles.some(r=>!ROLES.has(r)))issues.push('INVALID_ROLES');
  if(!okString(topic.topicId)||!SUBJECTS.has(topic.subject)||![7,8,9].includes(Number(topic.year)))issues.push('INVALID_TOPIC');
  if(!okString(question.id)||!okString(question.prompt))issues.push('INVALID_QUESTION');
- if(!question.answer || !Array.isArray(question.answer.accepted) || !question.answer.accepted.length)
+ if(okString(question.topicId)&&question.topicId!==topic.topicId)
+  issues.push('QUESTION_TOPIC_MISMATCH');
+ if(!Array.isArray(question.answer?.accepted)||
+    !question.answer.accepted.some(okString))
   issues.push('NO_MARKING_ANSWER');
  if(c.roles?.includes('gcse')&&c.roles.length!==1)issues.push('GCSE_MUST_BE_EXCLUSIVE');
  const vocabRoles=(c.roles||[]).filter(r=>r==='latin-vocab'||r==='french-vocab');
