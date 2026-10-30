@@ -2,7 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
-import {dailyHistorySummary} from '../assets/daily-history-display-20261030.js';
+import {dailyHistorySummary,CORE_DAILY_TASK_IDS} from '../assets/daily-history-display-20261030.js';
 
 const code=fs.readFileSync(new URL('../assets/home-rpg-live-20261019.js',import.meta.url),'utf8');
 const start=code.indexOf('  const todayStatus =');
@@ -15,6 +15,15 @@ const scope=vm.createContext({
 });
 vm.runInContext(code.slice(start,end)+'\n globalThis.q={todayStatus,recoveryCount};',scope);
 const {todayStatus,recoveryCount}=scope.q;
+// The modern iPad fixture is 29 October, while the older recovery fixtures
+// above intentionally exercise the 17/18 October legacy plan.
+const modernScope=vm.createContext({
+  dailyHistorySummary,
+  number:v=>Math.max(0,Number(v)||0),
+  dayBefore:n=>['2026-10-30','2026-10-29','2026-10-28'][n]||''
+});
+vm.runInContext(code.slice(start,end)+'\n globalThis.q={todayStatus,recoveryCount};',modernScope);
+const {todayStatus:modernTodayStatus,recoveryCount:modernRecoveryCount}=modernScope;
 
 // Minimal anonymised fixture based on the user's 18 Oct backup:
 // 16 Oct 7/10, 17 Oct 10/10, 18 Oct 9/10.
@@ -49,4 +58,34 @@ test('historical fixture never changes as a side effect of UI reads',()=>{
   for(const d of Object.keys(history))todayStatus(state,d);
   recoveryCount(state);
   assert.equal(JSON.stringify(state),original);
+});
+
+test('14 saved entries do not show a Recovery badge when all ten current tasks are done',()=>{
+  const date='2026-10-29';
+  const tasks=[
+    ...CORE_DAILY_TASK_IDS.map(id=>({id,target:10,progress:10,done:true})),
+    ...['study-session','year8-long-review','tend-garden','play-game'].map((id,i)=>({
+      id,target:10,progress:i<2?10:0,done:i<2
+    }))
+  ];
+  const record={date,tasks,total:14,done:12,complete:false};
+  const mixed={dailyLog:{[date]:record},formalAttemptLog:[]};
+  const before=JSON.stringify(mixed);
+  // The UI must not treat two uncompleted old slots as new Daily obligations.
+  // Native Recovery retains original evidence and remains separately authoritative.
+  assert.equal(modernRecoveryCount(mixed),0);
+  assert.equal(modernTodayStatus(mixed,date),'done');
+  assert.equal(JSON.stringify(mixed),before);
+});
+test('14 saved entries still show Recovery when one of ten canonical tasks is genuinely unfinished',()=>{
+  const date='2026-10-29';
+  const tasks=[
+    ...CORE_DAILY_TASK_IDS.map((id,i)=>({id,target:10,progress:i===9?0:10,done:i!==9})),
+    ...['study-session','year8-long-review','tend-garden','play-game'].map(id=>({
+      id,target:1,progress:1,done:true
+    }))
+  ];
+  const mixed={dailyLog:{[date]:{date,tasks,total:14,done:13}},formalAttemptLog:[]};
+  assert.equal(modernRecoveryCount(mixed),1);
+  assert.equal(modernTodayStatus(mixed,date),'partial');
 });
