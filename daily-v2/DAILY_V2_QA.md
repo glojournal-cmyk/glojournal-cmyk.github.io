@@ -103,3 +103,9 @@
 - Earlier same turn `src/rubric-review.js` manual 0/1 per-point stage review: **12/12** core and **5/5** authored-draft integration tests passed in V8; free-text preview always leaves scores null (never auto-awards), even exact model-answer matches. No real student score writes.
 - Session new tests **25/25**; previously 179 tests historically reported but NOT rerun entirely this turn. Native Node CI, actual iPad Safari, independent school/GCSE curriculum approval and real 30-day capacity remain incomplete.
 - Next curriculum priority and task ownership: `MASTERY_CONTENT_PRIORITY_PLAN.md`.
+
+## 2026-10-30 — GCSE exam freshness across dates (staging branch)
+- Found a real preflight gap: exam allocation checked same-day collisions and source originality, but did not filter `previousCorrect`, unlike Standard/Mastery/Year 9. Repeating yesterday's correct 1/2/3-mark question could make a synthetic 30-day pass look more substantial than it was.
+- Corrected `planDailyV2` to exclude previously correct GCSE question IDs AND different IDs carrying the identical previously correct exam prompt/stimulus fingerprint. Incorrect past GCSE responses remain eligible for later practice. History is read-only; no records are rewritten.
+- Added four planner regressions (old correct ID, clone wording, truly fresh substitute, wrong-answer retry) and two 30-day simulator regressions (31st-day depletion and 30-day completed fixture).
+- These checks use a synthetic bank only and **cannot certify the real 163-question bank**, unknown actual learner history, GCSE content originality, or iPad durability. Native Node and Actions results must be recorded separately; no production cutover.
