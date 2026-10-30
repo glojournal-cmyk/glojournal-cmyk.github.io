@@ -91,7 +91,15 @@ if (!window.__luxRpgLiveHome) {
     // This is NOT the number of tasks available. Only the native Recovery
     // module calculates eligible tasks, which depend on saved evidence.
     const dates = [dayBefore(1), dayBefore(2)];
-    return dates.filter(date => state.dailyLog?.[date]?.tasks?.some(t => !t.done && number(t.progress) < number(t.target))).length;
+    return dates.filter(date => {
+      const row=state.dailyLog?.[date];
+      const summary=dailyHistorySummary(row,date);
+      // Rescue/import kept some old task rows. They are still in the backup
+      // and native Recovery, but must not create a phantom Daily badge when
+      // the genuine ten assignments were already completed.
+      if(summary.canonicalOnly) return summary.done < summary.total;
+      return row?.tasks?.some(t => !t.done && number(t.progress) < number(t.target));
+    }).length;
   };
 
   // Keep React's REAL Recovery controls mounted in its own React tree.
