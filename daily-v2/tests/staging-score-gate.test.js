@@ -148,3 +148,23 @@ test('planner carries source fingerprint only when supplied by the reviewed bank
  assert.ok(roster.some(q=>q.questionId!=='qa-science-0'&&
   q.sourceFingerprint===undefined));
 });
+
+test('caller cannot strip staging metadata to forge credit on a signed real question',async()=>{
+ const repo=await frozen();
+ const before=repo.readOnlySnapshot(day);
+ const forged={eventId:'forged-credit',day,taskId:'science-standard',
+  questionId:question.id,correct:true};
+ await assert.rejects(commitDailyV2Answer(repo,forged),
+  /SOURCE_BOUND_GRADE_RELEASE_NOT_APPROVED/);
+ await assert.rejects(commitDailyV2Answer(repo,{...forged,correct:false,eventId:'forged-wrong'}),
+  /SOURCE_BOUND_GRADE_RELEASE_NOT_APPROVED/);
+ assert.deepEqual(repo.readOnlySnapshot(day),before);
+});
+test('signed question cannot receive unverified GCSE marks even when event format looks valid',async()=>{
+ const repo=await frozen(),before=repo.readOnlySnapshot(day);
+ const forged={eventId:'forged-mark',day,taskId:'science-standard',
+  questionId:question.id,correct:true,marksEarned:2,marksPossible:2};
+ await assert.rejects(commitDailyV2Answer(repo,forged),
+  /SOURCE_BOUND_GRADE_RELEASE_NOT_APPROVED/);
+ assert.deepEqual(repo.readOnlySnapshot(day),before);
+});
