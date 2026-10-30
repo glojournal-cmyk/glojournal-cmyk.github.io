@@ -206,7 +206,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     }
     const modes=mode==='mastery'?['mastery','year8long']:mode==='retention'?['retention','due']:
       mode==='due'?['due','retention']:mode==='weak'?['weak']:null;
-    const prior=same&&!legacyRecall?Number(old.progress)||0:0;
+    let prior=same&&!legacyRecall?Number(old.progress)||0:0;
     const attempted=topic?tally(topic.topicId,id,modes):0;
     const correct=topic?tally(topic.topicId,id,modes,today>='2026-10-24'):0;
     const journalIds=topic?[...new Set(taskEvents(topic.topicId,id,modes).filter(e=>today<'2026-10-24'||e.correct===true).map(e=>String(e.questionId).split('@')[0]))]:[];
@@ -227,6 +227,13 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     const verifiedIds=verifiedPrior?[...new Set(old.verifiedCorrectIds.map(String).filter(Boolean))]:[];
     const verifiedSlots=verifiedPrior?Math.max(0,Math.min(target,
       Number(old.verifiedCorrectSlots)||0)):0;
+    // Only a full dated, task-scoped formal answer journal can correct an
+    // old attempted-count that included wrong answers. A shorter journal is
+    // not grounds to erase a score that may have lost its iPad answer logs.
+    const completeCorrectJournal=today>='2026-10-24'&&same&&
+      attempted>=prior&&attempted>0&&!verifiedPrior&&
+      taskEvents(topic.topicId,id,modes).every(e=>e.dailyTaskId===id);
+    if(completeCorrectJournal)prior=correct;
     // Never replace a saved score with a shorter or wrong-inclusive journal.
     // A complete correct-ID journal can raise the score. A partial journal cannot lower it.
     const savedIds=verifiedIds;
@@ -267,6 +274,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       detail:description+outcome,href:topic?curriculumHref(topic,mode,id):'/study',target,progress,xp:mode==='mastery'?20:15,
       planDate:today,assignedSubject:topic?.subject||null,assignedTopic:topic?.topicId||null,
       assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,masteryCheck,curriculumVersion:4,
+      ...(completeCorrectJournal?{correctOnlyEvidence:true}:{}),
       ...(old?.cappedBecauseQuestionBankExhausted?{cappedBecauseQuestionBankExhausted:true,done:true}:{}),
       ...(creditIds.length?{verifiedCorrectIds:creditIds.slice(0,80),
         verifiedCorrectSlots:Math.min(target,progress),
