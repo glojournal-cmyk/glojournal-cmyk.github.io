@@ -14,7 +14,10 @@ test('real source audit reads actual Year 8 topic files, not nominal catalog cou
 
 test('real source audit cannot claim 163 certified items from unreviewed originals',()=>{
  assert.ok(report.bank.certified<=report.sourceEligible);
- if(!report.certificationManifestPresent)assert.equal(report.bank.certified,0);
+ if(!report.certificationManifestPresent){
+  assert.equal(report.bank.certified,0);
+  assert.ok(report.bank.unclassified>0,'missing review manifest must count unclassified records');
+ }
  assert.equal(report.releaseReady,false);
  assert.notEqual(report.preflight.status,'ready');
  assert.ok(report.preflight.blockedTasks.length>0);
