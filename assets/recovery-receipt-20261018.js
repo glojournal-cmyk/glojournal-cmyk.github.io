@@ -113,7 +113,7 @@ export function applyRecoveryReceipts(dailyLog, recoveryVocabByDay = {}) {
     // Only a dated, source-matched Recovery ledger can authorise completing
     // a Vocab task; preserve previously completed historical day records.
     const proof = vocab ? recoveryVocabByDay?.[receipt.date]?.[receipt.taskId.slice(0,-6)] : null;
-    if(vocab && !proof)continue;
+    if(vocab && (!proof || task.done===true))continue;
     const concepts = proof?.conceptByQuestion || {};
     const count = vocab
       ? new Set(Object.keys(proof.items||{}).filter(id=>proof.items[id]===true)
@@ -131,9 +131,12 @@ export function applyRecoveryReceipts(dailyLog, recoveryVocabByDay = {}) {
         ? Math.max(0,Number(receipt.baseline)) : 0;
     const progress = vocab
       ? proof.completed===true ? target
-        : Math.max(current,Math.min(target-1,baseline+count))
+        : Math.min(target-1,Math.max(current,baseline+count))
       : Math.min(target,Math.max(current,baseline+count));
-    if (progress <= current && (task.done || progress < target)) continue;
+    const undoPrematureUnsignedCredit=vocab && proof.completed!==true &&
+      task.done!==true && current>=target && progress<target;
+    if (!undoPrematureUnsignedCredit && progress <= current &&
+        (task.done || progress < target)) continue;
     const tasks = row.tasks.map((item) => item.id === receipt.taskId
       ? { ...item, progress, done: progress >= target, ...(progress >= target ? { recovered: true, recoveredFromReceipt: true } : {}) }
       : item);
