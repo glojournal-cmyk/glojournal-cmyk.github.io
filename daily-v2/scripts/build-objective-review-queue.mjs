@@ -43,8 +43,15 @@ function flags(t,q){
  if(str(q.topicId)&&q.topicId!==t.topicId)result.push('TOPIC_ID_MISMATCH');
  if(a.mode==='numeric'){
   result.push('NUMERIC_TOLERANCE_AND_UNITS_REVIEW');
-  if((a.totalMarks||1)>1||str(a.working))
+  if((a.totalMarks||1)>1||str(a.working)){
    result.push('WORKING_METHOD_MARKS_NEED_REVIEW');
+   if(Number.isInteger(a.totalMarks)&&a.totalMarks>1){
+    if(Array.isArray(a.markPoints)&&a.markPoints.length===a.totalMarks&&
+       a.markPoints.every(str))
+     result.push('EXPLICIT_MANUAL_POINT_RUBRIC_PRESENT');
+    else result.push('INDEPENDENT_MARK_POINTS_NOT_SPECIFIED');
+   }
+  }
  }else if(a.mode==='pair_map'){
   result.push('MATCHING_SOURCE_PAIRS_REVIEW');
   if(a.totalMarks===a.pairs?.length*2)
