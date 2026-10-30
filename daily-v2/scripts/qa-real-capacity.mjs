@@ -34,7 +34,7 @@ export function buildRealSourceCapacityReport() {
  const certifications=certsPresent?parse(certFile):{};
  const taughtEvidence=taughtPresent?parse(taughtFile):[];
  const taughtTopicIds=certifiedTaughtTopicIds(taughtEvidence);
- const adapted=adaptCertifiedDailyV2Bank({topics,certifications,includeUncertifiedDiagnostics:false});
+ const adapted=adaptCertifiedDailyV2Bank({topics,certifications,includeUncertifiedDiagnostics:true});
  const args={day,questionBank:adapted.questionBank,taughtTopicIds,
   priorAttempts:[],correctQuestionIds:[]};
  const plan=planDailyV2(args);
