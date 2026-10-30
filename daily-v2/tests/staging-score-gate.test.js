@@ -1,9 +1,10 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {DAILY_V2_TASKS} from '../src/planner.js';
+import {DAILY_V2_TASKS,planDailyV2} from '../src/planner.js';
+import {createStagingFixture} from '../staging/qa-fixture.js';
 import {fingerprintDailyV2Source} from '../src/bank-adapter.js';
-import {commitDailyV2Plan,createMemoryDailyV2Repository} from '../src/storage.js';
+import {commitDailyV2Plan,commitDailyV2Answer,createMemoryDailyV2Repository} from '../src/storage.js';
 import {previewFrozenDailyV2ObjectiveSubmission as stage} from '../src/staging-score-gate.js';
 
 const day='2026-10-30';
@@ -115,4 +116,35 @@ test('plan cannot freeze malformed source fingerprints',async()=>{
  p.tasks.find(t=>t.id==='science-standard').questions[0].sourceFingerprint='trusted-me';
  await assert.rejects(commitDailyV2Plan(repo,p),/INVALID_SOURCE_FINGERPRINT/);
  assert.equal(repo.readOnlySnapshot(day),null);
+});
+
+test('generic student submission cannot accidentally persist a staged full-score receipt',async()=>{
+ const repo=await frozen();
+ const preview=await stage(repo,submission());
+ const base={eventId:'accidental-preview',day,taskId:'science-standard',
+  questionId:question.id,correct:true};
+ for(const field of [
+  {releaseGrade:false},{ledgerEligible:false},{persisted:false},
+  {status:'staging-uncredited-preview'},{status:'staging-review-required'},
+  {status:'staging-review-recorded'}
+ ]){
+  await assert.rejects(commitDailyV2Answer(repo,{...base,...field}),
+   /NON_AUTHORITATIVE_SCORING_PREVIEW/);
+ }
+ await assert.rejects(commitDailyV2Answer(repo,{...base,...preview}),
+  /NON_AUTHORITATIVE_SCORING_PREVIEW/);
+ assert.equal(repo.readOnlySnapshot(day).ledger.attempts.length,0);
+});
+test('planner carries source fingerprint only when supplied by the reviewed bank adapter',()=>{
+ const args=createStagingFixture({day});
+ const science=args.questionBank.find(q=>q.id==='qa-science-0');
+ const mockTopic={topicId:science.topicId,subject:science.subject,year:science.year};
+ science.sourceFingerprint=fingerprintDailyV2Source(mockTopic,science);
+ const p=planDailyV2(args);
+ assert.equal(p.status,'ready');
+ const roster=p.tasks.find(t=>t.id==='science-standard').questions;
+ assert.equal(roster.find(q=>q.questionId==='qa-science-0').sourceFingerprint,
+  science.sourceFingerprint);
+ assert.ok(roster.some(q=>q.questionId!=='qa-science-0'&&
+  q.sourceFingerprint===undefined));
 });
