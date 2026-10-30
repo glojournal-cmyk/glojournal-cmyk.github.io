@@ -48,7 +48,8 @@ test('new 48h Recovery requires 35 distinct correct concepts, not the old 30',()
  assert.equal(s.state().dailyLog[missed].tasks[0].done,true);
  assert.equal(s.awards.length,1);
  assert.equal(s.state().dailyVocabByDay[today].french.items['today-safe'],true);
- assert.equal(Object.keys(s.state().dailyVocabByDay[today].french.items).length,1,
+ const safeItems = s.state().dailyVocabByDay[today].french.items;
+ assert.equal(Object.keys(safeItems).length,1,
   'yesterday Recovery must not credit today's vocabulary');
  s.record('q34',true,'q34');
  assert.equal(s.awards.length,1,'replay never duplicates XP');
