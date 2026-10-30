@@ -8,7 +8,7 @@ const TASK_IDS=new Set([
  'mastery-a','mastery-b','spaced-retention','gcse-exam-skills','year9-progressive'
 ]);
 const taskKind=id=>id.endsWith('-vocab')?'vocab':'ordinary';
-function validDay(day){return typeof day==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(day);}
+const validDay=isValidDailyV2Day;
 function numericCounts(row){
  const result=[];
  for(const k of ['verifiedCorrectSlots','progress','correctCount']){
