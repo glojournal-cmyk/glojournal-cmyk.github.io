@@ -14,8 +14,14 @@ const active=q=>q&&q.status!=='disabled'&&q.status!=='preview'&&q.preview!==true
  q.formal!==false&&!q._repair;
 function canonical(a){
  if(a.mode==='numeric')return {value:a.value,unit:a.units?.[0]??''};
- if(a.mode==='pair_map')return Object.fromEntries(a.pairs.map(p=>
-  [p.left,p.right.split(/\s+\/\s+/)[0]]));
+ if(a.mode==='pair_map')return Object.fromEntries(a.pairs.map(p=>{
+  if(a.totalMarks===a.pairs.length*2){
+   const parts=p.right.includes(' -> ')?p.right.split(/\s+->\s+/):
+    p.right.includes(';')?p.right.split(/\s*;\s*/):[];
+   if(parts.length===2)return [p.left,parts.map(x=>x.split(/\s*\/\s*/)[0])];
+  }
+  return [p.left,p.right.split(/\s+\/\s+/)[0]];
+ }));
  if(a.mode==='category_map')return Object.fromEntries(
   Object.entries(a.categories).flatMap(([label,items])=>items.map(x=>[String(x),label])));
  // Groups saying "two different harms" deliberately share alternatives.
