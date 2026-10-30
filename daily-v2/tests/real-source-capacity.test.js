@@ -38,3 +38,13 @@ test('capacity audit is serializable for CI inspection and emits no learner iden
  assert.equal(typeof report.bank.byRole['gcse'],'number');
  assert.ok(report.limitations.some(x=>x.includes('iPad')));
 });
+
+test('catalog metadata differences are exposed rather than treated as daily question supply',()=>{
+ assert.ok(Number.isInteger(report.catalogMetadata.topics));
+ assert.ok(Number.isInteger(report.catalogMetadata.enabledQuestions));
+ assert.equal(report.catalogMetadata.filesVsCatalogTopics,
+  report.sourceTopicFiles-report.catalogMetadata.topics);
+ assert.equal(report.catalogMetadata.eligibleVsCatalogEnabled,
+  report.sourceEligible-report.catalogMetadata.enabledQuestions);
+ assert.ok(Array.isArray(report.catalogMetadata.subjectYearDisagreements));
+});
