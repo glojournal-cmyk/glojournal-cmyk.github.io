@@ -8,6 +8,8 @@ on:
       - "assets/daily-progress-save.js"
       - "assets/index-BLVOhKhN.core.js"
       - "tests/storage-quota-ipad-20261020.mjs"
+      - "tests/ipad-rewards-vault-webkit-20261030.mjs"
+      - "assets/recovery-receipt-20261018.js"
       - ".github/workflows/storage-quota-ipad-20261020.yml"
   pull_request:
     paths:
@@ -16,6 +18,8 @@ on:
       - "assets/daily-progress-save.js"
       - "assets/index-BLVOhKhN.core.js"
       - "tests/storage-quota-ipad-20261020.mjs"
+      - "tests/ipad-rewards-vault-webkit-20261030.mjs"
+      - "assets/recovery-receipt-20261018.js"
       - ".github/workflows/storage-quota-ipad-20261020.yml"
   workflow_dispatch:
 permissions:
@@ -34,3 +38,4 @@ jobs:
       - run: npm install --no-save playwright
       - run: npx playwright install --with-deps webkit
       - run: node tests/storage-quota-ipad-20261020.mjs
+      - run: node tests/ipad-rewards-vault-webkit-20261030.mjs
