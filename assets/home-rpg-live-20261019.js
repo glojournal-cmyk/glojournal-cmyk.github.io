@@ -133,7 +133,7 @@ if (!window.__luxRpgLiveHome) {
     // Recovery was paused during the iPad memory emergency, so a DOM-only
     // poll reported "no tasks" even when the feature had never been loaded.
     // Import on demand: no background Recovery observer on ordinary Home.
-    void import('./quest-recovery-20261011.js?v=20261026-bio-year9-savefix2')
+    void import('./quest-recovery-20261011.js?v=20261026-bio-year9-savefix2&ten=20261030-1')
       .then(module => {
         if (gardenModal !== 'recovery' || !onHome()) return;
         module.mountRecoveryPanel();
