@@ -15,6 +15,15 @@ const scope=vm.createContext({
 });
 vm.runInContext(code.slice(start,end)+'\n globalThis.q={todayStatus,recoveryCount};',scope);
 const {todayStatus,recoveryCount}=scope.q;
+// The modern iPad fixture is 29 October, while the older recovery fixtures
+// above intentionally exercise the 17/18 October legacy plan.
+const modernScope=vm.createContext({
+  dailyHistorySummary,
+  number:v=>Math.max(0,Number(v)||0),
+  dayBefore:n=>['2026-10-30','2026-10-29','2026-10-28'][n]||''
+});
+vm.runInContext(code.slice(start,end)+'\n globalThis.q={todayStatus,recoveryCount};',modernScope);
+const {todayStatus:modernTodayStatus,recoveryCount:modernRecoveryCount}=modernScope;
 
 // Minimal anonymised fixture based on the user's 18 Oct backup:
 // 16 Oct 7/10, 17 Oct 10/10, 18 Oct 9/10.
@@ -52,7 +61,7 @@ test('historical fixture never changes as a side effect of UI reads',()=>{
 });
 
 test('14 saved entries do not show a Recovery badge when all ten current tasks are done',()=>{
-  const date='2026-10-18';
+  const date='2026-10-29';
   const tasks=[
     ...CORE_DAILY_TASK_IDS.map(id=>({id,target:10,progress:10,done:true})),
     ...['study-session','year8-long-review','tend-garden','play-game'].map((id,i)=>({
@@ -64,12 +73,12 @@ test('14 saved entries do not show a Recovery badge when all ten current tasks a
   const before=JSON.stringify(mixed);
   // The UI must not treat two uncompleted old slots as new Daily obligations.
   // Native Recovery retains original evidence and remains separately authoritative.
-  assert.equal(recoveryCount(mixed),0);
-  assert.equal(todayStatus(mixed,date),'done');
+  assert.equal(modernRecoveryCount(mixed),0);
+  assert.equal(modernTodayStatus(mixed,date),'done');
   assert.equal(JSON.stringify(mixed),before);
 });
 test('14 saved entries still show Recovery when one of ten canonical tasks is genuinely unfinished',()=>{
-  const date='2026-10-18';
+  const date='2026-10-29';
   const tasks=[
     ...CORE_DAILY_TASK_IDS.map((id,i)=>({id,target:10,progress:i===9?0:10,done:i!==9})),
     ...['study-session','year8-long-review','tend-garden','play-game'].map(id=>({
@@ -77,6 +86,6 @@ test('14 saved entries still show Recovery when one of ten canonical tasks is ge
     }))
   ];
   const mixed={dailyLog:{[date]:{date,tasks,total:14,done:13}},formalAttemptLog:[]};
-  assert.equal(recoveryCount(mixed),1);
-  assert.equal(todayStatus(mixed,date),'partial');
+  assert.equal(modernRecoveryCount(mixed),1);
+  assert.equal(modernTodayStatus(mixed,date),'partial');
 });
