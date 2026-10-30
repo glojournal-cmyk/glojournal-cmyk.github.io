@@ -139,25 +139,11 @@ export function linkedAdditions(payload, storage){
       entries.push([key,JSON.stringify(payload[field])]);
       continue;
     }
-    // Pet state is stored separately from the Scholar progress JSON. A full
-    // import must restore earned secret-pet unlocks without replacing the
-    // active iPad's pet species, levels, care, bond, or other progress.
-    if(field!=="petCompanion")continue;
-    let live;
-    try{live=JSON.parse(existing)}catch{continue}
-    if(!live || typeof live!=="object" || Array.isArray(live))continue;
-    const incoming=payload[field];
-    const savedSecrets=incoming?.unlockedSecrets;
-    if(!savedSecrets || typeof savedSecrets!=="object" || Array.isArray(savedSecrets))continue;
-    const mergedSecrets={...(live.unlockedSecrets||{})};
-    let changed=false;
-    for(const id of ["snow-owl","night-spider"]){
-      if(savedSecrets[id]===true && mergedSecrets[id]!==true){
-        mergedSecrets[id]=true;
-        changed=true;
-      }
-    }
-    if(changed)entries.push([key,JSON.stringify({...live,unlockedSecrets:mergedSecrets})]);
+    // An existing independent wallet is never modified by a legacy
+    // Scholar import. Even merging only a "hidden unlock" would silently
+    // mutate real learner rewards, so protect its original bytes as-is.
+    // Any distinct missing rewards require explicit reconciliation later.
+    if(field==="petCompanion")continue;
   }
   return entries;
 }
