@@ -3,6 +3,9 @@
  * The adapter must still fail closed for all unverified structured scorers.
  */
 const nonblank=x=>typeof x==='string'&&x.trim().length>0;
+const STRUCTURED_MODES=new Set([
+ 'mark_points','pair_map','unordered_required_groups','semantic_groups','numeric','category_map'
+]);
 export function inspectDailyV2AnswerShape(answer){
  const accepted=Array.isArray(answer?.accepted)&&answer.accepted.some(nonblank);
  const validMarkPoints=answer?.mode==='mark_points'&&
@@ -27,12 +30,17 @@ export function inspectDailyV2AnswerShape(answer){
   Object.values(categories).every(vals=>Array.isArray(vals)&&vals.length>0&&
     vals.every(v=>nonblank(v)||(typeof v==='number'&&Number.isFinite(v))));
  const structured=Boolean(validMarkPoints||validPairs||validGroups||validNumeric||validCategories);
+ const structuredMode=STRUCTURED_MODES.has(answer?.mode);
  return {
   accepted:Boolean(accepted),validMarkPoints:Boolean(validMarkPoints),
   validPairs:Boolean(validPairs),validGroups:Boolean(validGroups),
   validNumeric:Boolean(validNumeric),validCategories:Boolean(validCategories),
   hasMarkingEvidence:Boolean(accepted||structured),
-  requiresScoringAdapter:Boolean(!accepted&&structured),
+  structuredMode,
+  structuredEvidence:structured,
+  // Even if accepted[] is also present, a multi-point/semantic/numeric mode
+  // cannot be safely graded by a generic string matcher.
+  requiresScoringAdapter:structuredMode,
   sourceAnswerMode:typeof answer?.mode==='string'?answer.mode:null
  };
 }
