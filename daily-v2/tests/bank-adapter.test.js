@@ -8,7 +8,7 @@ const q=(id='q1',opts={})=>({
  format:'controlled_translation',difficulty:4,
  prompt:'TRANSLATE — Translate this set-text sentence into natural English.',
  stimulus:{text:'nos urbem petivimus, quod valde timebamus.',direction:'Latin → English'},
- answer:{mode:'semantic_groups',accepted:['We headed for the city because we were very afraid.']},...opts
+ answer:{mode:'accepted_text',accepted:['We headed for the city because we were very afraid.']},...opts
 });
 const topic=(questions=[q()],opts={})=>({
  subject:'latin',year:8,topicId:'la-y8-set-text-translation',status:'enabled',questions,...opts
@@ -170,4 +170,52 @@ test('empty or non-text accepted answer cannot pass even with reviewer metadata'
   assert.equal(r.summary.certified,0,JSON.stringify(accepted));
   assert.ok(r.errors.some(x=>x.code==='NO_MARKING_ANSWER'));
  }
+});
+
+test('reviewing a real mark_points source does not auto-certify its unverified scorer',async()=>{
+ const {readFileSync}=await import('node:fs');
+ const real=JSON.parse(readFileSync(new URL('../../content/topics/bio-y8-balanced-diet.json',import.meta.url),'utf8'));
+ const question=real.questions.find(q=>q.id==='bio-y8-balanced-diet-balanced-diet-explain');
+ const c={reviewed:true,reviewer:'independent-reviewer',reviewedAt:'2026-10-30',
+  roles:['science-standard'],sourceFingerprint:fingerprintDailyV2Source(real,question)};
+ const result=adaptCertifiedDailyV2Bank({topics:[{...real,questions:[question]}],
+  certifications:{[question.id]:c}});
+ assert.equal(result.summary.certified,0);
+ assert.ok(result.errors.some(e=>e.code==='STRUCTURED_SCORING_ADAPTER_NOT_VERIFIED'));
+ assert.ok(!result.errors.some(e=>e.code==='NO_MARKING_ANSWER'),
+  'a genuine mark_points source is NOT missing its answer rubric');
+});
+test('reviewing a real numeric science source does not auto-award marks from values alone',async()=>{
+ const {readFileSync}=await import('node:fs');
+ const real=JSON.parse(readFileSync(new URL('../../content/topics/bio-y8-ber.json',import.meta.url),'utf8'));
+ const question=real.questions.find(q=>q.id==='bio-y8-app-ber-55');
+ const c={reviewed:true,reviewer:'reviewer',reviewedAt:'2026-10-30',roles:['science-standard'],
+  sourceFingerprint:fingerprintDailyV2Source(real,question)};
+ const result=adaptCertifiedDailyV2Bank({topics:[{...real,questions:[question]}],
+  certifications:{[question.id]:c}});
+ assert.equal(result.summary.certified,0);
+ assert.ok(result.errors.some(e=>e.code==='STRUCTURED_SCORING_ADAPTER_NOT_VERIFIED'));
+});
+test('an accepted string cannot bypass a semantic_groups multi-mark source rubric',()=>{
+ const original=q('q1',{answer:{mode:'semantic_groups',
+  accepted:['a possible full sentence'],
+  requiredGroups:[{label:'reason',alternatives:['a possible full sentence']},{label:'tense',alternatives:['past tense']}]
+ }});
+ const source=topic([original]);
+ const c={reviewed:true,reviewer:'reviewer',reviewedAt:'2026-10-30',
+  sourceFingerprint:fingerprintDailyV2Source(source,original),
+  roles:['latin-standard'],skill:'translation'};
+ const r=adaptCertifiedDailyV2Bank({topics:[source],certifications:{q1:c}});
+ assert.equal(r.summary.certified,0);
+ assert.ok(r.errors.some(e=>e.code==='STRUCTURED_SCORING_ADAPTER_NOT_VERIFIED'));
+});
+test('a malformed structured rubric cannot be approved even with accepted[] fallback',()=>{
+ const original=q('q1',{answer:{mode:'numeric',value:'7,128',accepted:['7128 kJ/day']}});
+ const source=topic([original]);
+ const c={reviewed:true,reviewer:'reviewer',reviewedAt:'2026-10-30',
+  sourceFingerprint:fingerprintDailyV2Source(source,original),
+  roles:['latin-standard'],skill:'translation'};
+ const r=adaptCertifiedDailyV2Bank({topics:[source],certifications:{q1:c}});
+ assert.equal(r.summary.certified,0);
+ assert.ok(r.errors.some(e=>e.code==='STRUCTURED_MARKING_EVIDENCE_INVALID'));
 });
