@@ -1,7 +1,16 @@
 name: Recovery and Daily Record regression checks
 on:
   push:
+    branches: [main]
     paths:
+      # Route-shell cache revisions can split the app singleton and strand
+      # previously assigned French/Latin Recovery questions.
+      - "index.html"
+      - "404.html"
+      - "study/french/practise/index.html"
+      - "study/latin/practise/index.html"
+      - "assets/index-BLVOhKhN.core.js"
+      - "assets/study._subject.practise-y8fix-20260920.js"
       - "assets/index-BLVOhKhN.js"
       - "assets/recovery-task-ledger-20261017.js"
       - "assets/daily-record-integrity-20261018.js"
@@ -15,6 +24,12 @@ on:
       - ".github/workflows/recovery-integrity.yml"
   pull_request:
     paths:
+      - "index.html"
+      - "404.html"
+      - "study/french/practise/index.html"
+      - "study/latin/practise/index.html"
+      - "assets/index-BLVOhKhN.core.js"
+      - "assets/study._subject.practise-y8fix-20260920.js"
       - "assets/index-BLVOhKhN.js"
       - "assets/recovery-task-ledger-20261017.js"
       - "assets/daily-record-integrity-20261018.js"
@@ -24,6 +39,8 @@ on:
       - "tests/recovery-question-diversity-20261025.test.mjs"
       - "tests/recovery-correct-count-20261025.test.mjs"
       - "tests/recovery-empty-french-20261030.test.mjs"
+      - ".github/workflows/recovery-integrity.yml"
+  workflow_dispatch:
 jobs:
   recovery-regression:
     runs-on: ubuntu-latest

@@ -31,13 +31,16 @@ jobs:
             curl --retry 1 -fsSL --max-time 20 "$base/assets/daily-vocab-y9-20261021.js?v=$GITHUB_SHA" -o /tmp/latin-y9
             curl --retry 1 -fsSL --max-time 20 "$base/assets/latin-vocabulary-booklet-20261023.js?v=$GITHUB_SHA" -o /tmp/latin-book
             if grep -q 'study._subject.practise-y8fix-20260920.js' /tmp/latin-page &&
-               grep -q 'study._subject.practise-D_PWgUd7.js?v=20261023-study-catalog-fix2' /tmp/latin-core &&
+               # Accept the current cache-busted module, not an obsolete
+               # October release token. The live file and its Latin markers
+               # are still verified below, so a missing module cannot pass.
+               grep -Fq 'study._subject.practise-D_PWgUd7.js?v=' /tmp/latin-core &&
                grep -q '20261023-latinbooklet277-v1' /tmp/latin-practice &&
                grep -q '20261023-latinbooklet277-v1' /tmp/latin-practice-modern &&
                grep -q 'LATIN_BOOKLET_GROUPS' /tmp/latin-selector &&
                grep -q 'canonicalKeys' /tmp/latin-y9 &&
                grep -q 'LATIN_BOOKLET_RECORDS' /tmp/latin-book; then
-              echo 'LATIN_BOOKLET_277_LIVE deployed sources and exact practice import confirmed'
+              echo 'LATIN_BOOKLET_277_LIVE deployed sources and current versioned practice imports confirmed'
               exit 0
             fi
             sleep 8
