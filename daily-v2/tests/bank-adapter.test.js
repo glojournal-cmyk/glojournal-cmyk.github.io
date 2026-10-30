@@ -120,3 +120,25 @@ test('a previously reviewed manifest without fingerprint is never trusted',()=>{
  assert.equal(result.questionBank.length,0);
  assert.ok(result.errors.some(e=>e.code==='STALE_OR_UNBOUND_CERTIFICATION'));
 });
+
+test('changing source GCSE mark points invalidates reviewer certificate even when answer unchanged',()=>{
+ const original=q('q1',{markScheme:['identify first cause','explain second cause']});
+ const sourceTopic=topic([original]);
+ const certification={
+  reviewed:true,reviewer:'curriculum-reviewer',reviewedAt:'2026-10-26',
+  roles:['gcse'],gcseMarks:2,gcseOriginalityChecked:true,
+  sourceFingerprint:fingerprintDailyV2Source(sourceTopic,original)
+ };
+ const first=adaptCertifiedDailyV2Bank({topics:[sourceTopic],certifications:{q1:certification}});
+ assert.equal(first.summary.certified,1);
+ const revised=q('q1',{markScheme:['identify first cause','different second mark point']});
+ const result=adaptCertifiedDailyV2Bank({topics:[topic([revised])],certifications:{q1:certification}});
+ assert.equal(result.summary.certified,0);
+ assert.ok(result.errors.some(e=>e.code==='STALE_OR_UNBOUND_CERTIFICATION'));
+});
+test('changing any manually reviewed source GCSE marking rubric requires re-certification',()=>{
+ const original=q('q1',{markScheme:['first']});
+ const certFingerprint=fingerprintDailyV2Source(topic([original]),original);
+ const changed=q('q1',{markScheme:['not the reviewed point']});
+ assert.notEqual(fingerprintDailyV2Source(topic([changed]),changed),certFingerprint);
+});
