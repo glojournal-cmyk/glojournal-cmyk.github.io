@@ -41,12 +41,14 @@ test('source answer group collisions are explicitly exposed as manual review blo
  assert.equal(r.autoCertified,0);
 });
 
-test('shared-answer groups generate distinct correct examples across real Biology question bank',()=>{
+test('overlapping different-answer Biology groups are explicitly held for reviewer judgement',()=>{
  const r=runObjectiveSourceAudit();
  const ids=['bio-y8-app-alcohol-foetus','bio-y8-app-gut-bacteria-two',
   'bio-y8-app-low-fat','bio-y8-app-glucose-uses-four'];
- for(const id of ids)assert.ok(!r.samples.some(x=>x.questionId===id),
-  'QA must not repeat one rubric alternative for every different-answer group: '+id);
+ for(const id of ids)assert.ok(r.samples.some(x=>x.questionId===id&&
+  x.status==='review-required'),
+  'semantic independence must not be automatically credited: '+id);
+ assert.equal(r.autoCertified,0);
 });
 test('two-mark-per-pair real science rubrics have distinct enzyme/product and reagent/result preview fields',()=>{
  const r=runObjectiveSourceAudit();
