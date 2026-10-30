@@ -97,7 +97,7 @@ export function listRecoveryReceipts() {
 }
 
 // Monotonic: receipts can complete a saved task, never erase one.
-export function applyRecoveryReceipts(dailyLog) {
+export function applyRecoveryReceipts(dailyLog, recoveryVocabByDay = {}) {
   const base = dailyLog && typeof dailyLog === "object" ? dailyLog : {};
   let log = base;
   for (const receipt of listRecoveryReceipts()) {
@@ -108,16 +108,31 @@ export function applyRecoveryReceipts(dailyLog) {
     const target = Math.max(1, Number(task.target) || 1);
     const vocab = VOCAB.has(receipt.taskId);
     const gameOrGarden=receipt.taskId==="play-game"||receipt.taskId==="tend-garden";
-    const count = vocab||gameOrGarden
-      ? receipt.questionIds.length
-      : receipt.verifiedCorrect===true
-        ? new Set((receipt.correctQuestionIds||[]).map(id=>String(id).split("@")[0])).size
-        : 0;
-    if(!count)continue;
+    // Historical vocab receipts contain question IDs (sometimes including
+    // wrong answers) and alone cannot prove the 48h +5 correct-concept fee.
+    // Only a dated, source-matched Recovery ledger can authorise completing
+    // a Vocab task; preserve previously completed historical day records.
+    const proof = vocab ? recoveryVocabByDay?.[receipt.date]?.[receipt.taskId.slice(0,-6)] : null;
+    if(vocab && !proof)continue;
+    const concepts = proof?.conceptByQuestion || {};
+    const count = vocab
+      ? new Set(Object.keys(proof.items||{}).filter(id=>proof.items[id]===true)
+        .map(id=>concepts[id]||id)).size
+      : gameOrGarden
+        ? receipt.questionIds.length
+        : receipt.verifiedCorrect===true
+          ? new Set((receipt.correctQuestionIds||[]).map(id=>String(id).split("@")[0])).size
+          : 0;
+    if(!count && !proof?.completed)continue;
     const current = Number(task.progress) || 0;
-    const baseline = receipt.baseline != null && Number.isFinite(Number(receipt.baseline))
-      ? Math.max(0,Number(receipt.baseline)) : (vocab ? current : 0);
-    const progress = Math.min(target,Math.max(current,baseline+count));
+    const baseline = vocab
+      ? Math.max(0,Math.min(target,Number(proof.originalCount)||0))
+      : receipt.baseline != null && Number.isFinite(Number(receipt.baseline))
+        ? Math.max(0,Number(receipt.baseline)) : 0;
+    const progress = vocab
+      ? proof.completed===true ? target
+        : Math.max(current,Math.min(target-1,baseline+count))
+      : Math.min(target,Math.max(current,baseline+count));
     if (progress <= current && (task.done || progress < target)) continue;
     const tasks = row.tasks.map((item) => item.id === receipt.taskId
       ? { ...item, progress, done: progress >= target, ...(progress >= target ? { recovered: true, recoveredFromReceipt: true } : {}) }
