@@ -116,3 +116,20 @@ test('game completion requires real qualifying stars, not an opening of /play',(
  assert.match(source,/canRecover\(todayKey\(\),pending.date\)/);
  assert.match(source,/recoveryPendingGame:null/);
 });
+
+test('rescued fourteen-row modern day only offers ten canonical Recovery assignments',()=>{
+ const date='2026-10-29',today='2026-10-30';
+ const originalCore=['latin-vocab','french-vocab','latin-standard','y8-standard-a',
+   'y8-standard-b','y8-mastery-a','y8-mastery-b','weakness-review',
+   'due-review','year9-light'];
+ const old=['study-session','year8-long-review','tend-garden','play-game'];
+ const tasks=[...originalCore.map((id,i)=>({id,progress:i<8?10:0,target:10,done:i<8})),
+   ...old.map(id=>({id,progress:0,target:1,done:false}))];
+ const state={dailyLog:{[date]:{date,done:8,total:14,tasks}}};
+ const backupBefore=JSON.stringify(state);
+ const eligible=eligibleRecoveryTasks(state,date,today);
+ assert.equal(eligible.length,10);
+ assert.deepEqual(eligible.map(t=>t.id),originalCore);
+ assert.equal(eligible.filter(t=>!t.done).length,2);
+ assert.equal(JSON.stringify(state),backupBefore,'all fourteen original rows remain saved');
+});

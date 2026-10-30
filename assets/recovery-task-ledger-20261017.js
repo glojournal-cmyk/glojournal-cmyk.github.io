@@ -1,3 +1,4 @@
+import {CORE_DAILY_TASK_IDS,dailyHistorySummary} from './daily-history-display-20261030.js';
 // Date-scoped recovery ledger for daily tasks. Does not mutate today's task list.
 // This module is deliberately independent from React and localStorage so callers
 // must submit actual verified answer events, not clicks or page visits.
@@ -28,7 +29,12 @@ export function eligibleRecoveryTasks(state,date,today) {
   // An absent row is not evidence of the actual personalized assignments.
   // The UI must display a separate, explicitly labelled fallback plan.
   const tasks=Array.isArray(row?.tasks)?row.tasks:[];
-  return tasks.filter(t=>RECOVERY_IDS.has(t?.id)&&Number(t?.target)>0)
+  // The emergency iPad rescue archived four older Daily IDs alongside all
+  // ten active tasks. Keep every row in storage, but do not assign fourteen
+  // Recovery obligations for 28/29 October. Older-day legacy plans are intact.
+  const canonical=dailyHistorySummary(row,date).canonicalOnly;
+  const coreIds=canonical?new Set(CORE_DAILY_TASK_IDS):null;
+  return tasks.filter(t=>(!coreIds||coreIds.has(t.id))&&RECOVERY_IDS.has(t?.id)&&Number(t?.target)>0)
     .map(t=>({...t,remaining:Math.max(0,Number(t.target)-Number(t.progress||0)),
       done:!!t.done||Number(t.progress||0)>=Number(t.target)}));
 }

@@ -41,3 +41,14 @@ test('old historic plan is not silently rewritten as the current planner',()=>{
  const result=dailyHistorySummary(saved,'2026-10-18');
  assert.equal(result.total,14);assert.equal(result.canonicalOnly,false);
 });
+
+test('legitimate newer Mastery top-up is NOT hidden as an old rescued task',()=>{
+ const date='2026-10-29',core=CORE_DAILY_TASK_IDS.map(id=>task(id,true));
+ const row={date,tasks:[...core,task('y8-mastery-topup-a',false)],
+   total:11,done:10,complete:false};
+ const summary=dailyHistorySummary(row,date);
+ assert.equal(summary.canonicalOnly,false);
+ assert.equal(summary.total,11);
+ assert.equal(summary.done,10);
+ assert.equal(summary.includesOldTasks,false);
+});
