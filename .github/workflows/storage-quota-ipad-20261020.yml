@@ -1,10 +1,20 @@
 name: iPad storage quota recovery
 on:
+  push:
+    branches: [main]
+    paths:
+      - "assets/backup-vault-20261011.js"
+      - "assets/storage-health-20261011.js"
+      - "assets/daily-progress-save.js"
+      - "assets/index-BLVOhKhN.core.js"
+      - "tests/storage-quota-ipad-20261020.mjs"
+      - ".github/workflows/storage-quota-ipad-20261020.yml"
   pull_request:
     paths:
       - "assets/backup-vault-20261011.js"
       - "assets/storage-health-20261011.js"
       - "assets/daily-progress-save.js"
+      - "assets/index-BLVOhKhN.core.js"
       - "tests/storage-quota-ipad-20261020.mjs"
       - ".github/workflows/storage-quota-ipad-20261020.yml"
   workflow_dispatch:
