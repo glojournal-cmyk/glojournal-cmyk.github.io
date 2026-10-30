@@ -33,6 +33,10 @@ jobs:
         run: node daily-v2/scripts/qa-objective-scorer.mjs
       - name: Generate independent human review worksheets (pending, no approvals)
         run: node daily-v2/scripts/build-objective-review-queue.mjs --out "$RUNNER_TEMP/daily-v2-review"
+      - name: Validate 16 unapproved numeric method-mark proposals and copy reviewer draft
+        run: |
+          node daily-v2/scripts/qa-numeric-method-drafts.mjs
+          cp daily-v2/review/NUMERIC_METHOD_MARK_PROPOSALS.json "$RUNNER_TEMP/daily-v2-review/"
       - name: Upload 191-question human-review workbook and source evidence
         uses: actions/upload-artifact@v4
         with:
