@@ -77,3 +77,31 @@ test('other Recovery receipts keep legacy task behavior without Vocab-only gate'
  const result=applyRecoveryReceipts(original);
  assert.equal(result[date].tasks[1].done,true);
 });
+
+test('incomplete 30/35 receipt clears misleading recovered badges without withdrawing genuine task completion',()=>{
+ reset();
+ saveRecoveryReceipt({date,taskId,subject:'french',questionIds:['q0'],baseline:0});
+ const stale=row(30,false);
+ stale[date].tasks[0]={...stale[date].tasks[0],recovered:true,recoveredFromReceipt:true};
+ const corrected=applyRecoveryReceipts(stale,proof(30,false));
+ const task=corrected[date].tasks[0];
+ assert.equal(task.progress,29);
+ assert.equal(task.done,false);
+ assert.equal(Object.hasOwn(task,'recovered'),false);
+ assert.equal(Object.hasOwn(task,'recoveredFromReceipt'),false);
+ assert.equal(corrected[date].done,0);
+ const completed=row(30,true);
+ completed[date].tasks[0].recovered=true;
+ assert.deepEqual(applyRecoveryReceipts(completed,proof(30,false)),completed,
+  'already-completed historical tasks remain untouched');
+});
+test('stale recovered marker is removed even when no new progress can be computed',()=>{
+ reset();
+ saveRecoveryReceipt({date,taskId,subject:'french',questionIds:['q0'],baseline:0});
+ const stale=row(29,false);
+ stale[date].tasks[0].recovered=true;
+ const corrected=applyRecoveryReceipts(stale,proof(0,false));
+ assert.equal(corrected[date].tasks[0].progress,29);
+ assert.equal(corrected[date].tasks[0].done,false);
+ assert.equal(Object.hasOwn(corrected[date].tasks[0],'recovered'),false);
+});
