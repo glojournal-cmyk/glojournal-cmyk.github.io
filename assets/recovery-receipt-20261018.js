@@ -114,6 +114,11 @@ export function applyRecoveryReceipts(dailyLog, recoveryVocabByDay = {}) {
     // a Vocab task; preserve previously completed historical day records.
     const proof = vocab ? recoveryVocabByDay?.[receipt.date]?.[receipt.taskId.slice(0,-6)] : null;
     if(vocab && (!proof || task.done===true))continue;
+    // An interrupted old restore may have left a "recovered" badge on a
+    // task that was never marked done. A dated, incomplete 35-correct ledger
+    // must also clear that misleading badge, even when progress is unchanged.
+    const staleVocabMarker = vocab && proof?.completed !== true && task.done !== true &&
+      (task.recovered === true || task.recoveredFromReceipt === true);
     const concepts = proof?.conceptByQuestion || {};
     const count = vocab
       ? new Set(Object.keys(proof.items||{}).filter(id=>proof.items[id]===true)
@@ -123,7 +128,7 @@ export function applyRecoveryReceipts(dailyLog, recoveryVocabByDay = {}) {
         : receipt.verifiedCorrect===true
           ? new Set((receipt.correctQuestionIds||[]).map(id=>String(id).split("@")[0])).size
           : 0;
-    if(!count && !proof?.completed)continue;
+    if(!count && !proof?.completed && !staleVocabMarker)continue;
     const current = Number(task.progress) || 0;
     const baseline = vocab
       ? Math.max(0,Math.min(target,Number(proof.originalCount)||0))
@@ -135,11 +140,17 @@ export function applyRecoveryReceipts(dailyLog, recoveryVocabByDay = {}) {
       : Math.min(target,Math.max(current,baseline+count));
     const undoPrematureUnsignedCredit=vocab && proof.completed!==true &&
       task.done!==true && current>=target && progress<target;
-    if (!undoPrematureUnsignedCredit && progress <= current &&
+    if (!undoPrematureUnsignedCredit && !staleVocabMarker && progress <= current &&
         (task.done || progress < target)) continue;
-    const tasks = row.tasks.map((item) => item.id === receipt.taskId
-      ? { ...item, progress, done: progress >= target, ...(progress >= target ? { recovered: true, recoveredFromReceipt: true } : {}) }
-      : item);
+    const tasks = row.tasks.map((item) => {
+      if (item.id !== receipt.taskId) return item;
+      if (staleVocabMarker) {
+        const { recovered, recoveredFromReceipt, ...pending } = item;
+        return { ...pending, progress, done: false };
+      }
+      return { ...item, progress, done: progress >= target,
+        ...(progress >= target ? { recovered: true, recoveredFromReceipt: true } : {}) };
+    });
     const done = tasks.filter((item) => item.done || Number(item.progress) >= Number(item.target)).length;
     log = {
       ...log,
