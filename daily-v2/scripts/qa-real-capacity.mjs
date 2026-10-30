@@ -56,11 +56,18 @@ export function buildRealSourceCapacityReport() {
  const loadedKeys=new Map(),catalogKeys=new Map();
  for(const t of topics){const key=keyOf(t);loadedKeys.set(key,(loadedKeys.get(key)||0)+1);}
  for(const t of catalog.topics||[]){const key=keyOf(t);catalogKeys.set(key,(catalogKeys.get(key)||0)+1);}
- const missingSources=(catalog.topics||[]).filter(t=>!loadedKeys.has(keyOf(t)))
-  .map(t=>({topicId:t.topicId,subject:t.subject,year:t.year,status:t.status||null,
+ const missingSeen=new Set(),unlistedSeen=new Set();
+ const missingSources=(catalog.topics||[]).filter(t=>{
+   const key=keyOf(t);
+   if(loadedKeys.has(key)||missingSeen.has(key))return false;
+   missingSeen.add(key);return true;
+  }).map(t=>({topicId:t.topicId,subject:t.subject,year:t.year,status:t.status||null,
     catalogEnabled:t.enabled??null}));
- const unlistedSources=topics.filter(t=>!catalogKeys.has(keyOf(t)))
-  .map(t=>({topicId:t.topicId,subject:t.subject,year:t.year,status:t.status||null}));
+ const unlistedSources=topics.filter(t=>{
+   const key=keyOf(t);
+   if(catalogKeys.has(key)||unlistedSeen.has(key))return false;
+   unlistedSeen.add(key);return true;
+  }).map(t=>({topicId:t.topicId,subject:t.subject,year:t.year,status:t.status||null}));
  const duplicateSourceTopics=[...loadedKeys].filter(([,n])=>n>1)
   .map(([key,n])=>({key,count:n}));
  const duplicateCatalogTopics=[...catalogKeys].filter(([,n])=>n>1)
@@ -86,6 +93,7 @@ export function buildRealSourceCapacityReport() {
    filesVsCatalogTopics:topics.length-(catalog.totals?.topics??topics.length),
    eligibleVsCatalogEnabled:adapted.summary.scanned-(catalog.totals?.enabled??adapted.summary.scanned),
    subjectYearDisagreements:catalogDisagreements,
+   uniqueSourceTopicKeys:loadedKeys.size,uniqueCatalogTopicKeys:catalogKeys.size,
    missingSources,unlistedSources,duplicateSourceTopics,duplicateCatalogTopics,
    supportedV2SubjectEligible:adapted.summary.scanned-outsideV2,
    unsupportedSubjectEligible:outsideV2},
