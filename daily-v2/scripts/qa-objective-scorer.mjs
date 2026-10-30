@@ -18,7 +18,24 @@ function canonical(a){
   [p.left,p.right.split(/\s+\/\s+/)[0]]));
  if(a.mode==='category_map')return Object.fromEntries(
   Object.entries(a.categories).flatMap(([label,items])=>items.map(x=>[String(x),label])));
- return a.requiredGroups.map(g=>g.alternatives[0]);
+ // Groups saying "two different harms" deliberately share alternatives.
+ // Manufacture DISTINCT correct examples for QA, not the same headword twice.
+ const groups=a.requiredGroups,assignments=new Map();
+ const normalize=x=>String(x).normalize('NFKC').toLowerCase().trim();
+ function assign(group,seen){
+  for(const alternative of groups[group].alternatives){
+   const key=normalize(alternative);
+   if(seen.has(key))continue;
+   seen.add(key);
+   if(!assignments.has(key)||assign(assignments.get(key).group,seen)){
+    assignments.set(key,{group,answer:alternative});return true;
+   }
+  }
+  return false;
+ }
+ const matches=groups.reduce((n,_g,i)=>n+Number(assign(i,new Set())),0);
+ if(matches!==groups.length)return groups.map(g=>g.alternatives[0]);
+ return [...assignments.values()].sort((a,b)=>a.group-b.group).map(x=>x.answer);
 }
 export function auditObjectiveSourceQuestions(topics){
  if(!Array.isArray(topics))throw Error('DailyV2 objective audit: topic array required');
