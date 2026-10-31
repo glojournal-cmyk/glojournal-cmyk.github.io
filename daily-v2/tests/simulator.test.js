@@ -9,10 +9,12 @@ function syntheticBank(days=30){
    prompt:'QUESTION '+id,roles:[role],...details});
  };
  for(const subject of ['latin','french']){
-  for(let i=0;i<25;i++)add(subject+'-v8-'+i,subject,8,subject+'-v8-vocabulary',
+  // Two disjoint 25-concept sets permit next-day spacing without
+  // changing the 25 Y7-8 + up-to-5 verified Y9 Daily slot allocation.
+  for(let i=0;i<50;i++)add(subject+'-v8-'+i,subject,8,subject+'-v8-vocabulary',
     subject+'-vocab',{conceptId:subject+'-concept-8-'+i});
   taughtTopicIds.push(subject+'-y9-vocabulary');
-  for(let i=0;i<5;i++)add(subject+'-v9-'+i,subject,9,subject+'-y9-vocabulary',
+  for(let i=0;i<10;i++)add(subject+'-v9-'+i,subject,9,subject+'-y9-vocabulary',
     subject+'-vocab',{conceptId:subject+'-concept-9-'+i});
  }
  for(let d=0;d<days;d++){
@@ -114,6 +116,32 @@ test('progressive question exhaustion is not covered up by repeating yesterday q
  assert.equal(r.status,'blocked');
  assert.equal(r.completedDays,2);
  assert.ok(r.diagnostics.some(d=>d.code==='YEAR9_PROGRESSIVE_BANK_OR_DEPTH_SHORTAGE'));
+});
+test('two consecutive days never count yesterday-correct vocabulary concepts again',()=>{
+ const f=syntheticBank(3);
+ const r=simulateDailyV2Days(f);
+ assert.equal(r.status,'ready');
+ const pick=(day,subject)=>r.days[day].vocabConceptsBySubject?.[subject]||[];
+ // The simulation audits concept IDs directly; alternate source question
+ // IDs/directions must not make the same concept newly creditable.
+ for(const subject of ['latin','french']){
+  assert.equal(pick(0,subject).length,30);
+  assert.equal(pick(1,subject).length,30);
+  assert.equal(pick(0,subject).filter(c=>pick(1,subject).includes(c)).length,0);
+  assert.equal(pick(2,subject).length,30);
+ }
+});
+test('30-word bank cannot masquerade as 30 fresh words on the next day',()=>{
+ const f=syntheticBank(2);
+ f.questionBank=f.questionBank.filter(q=>
+   !q.roles.includes('latin-vocab')&&!q.roles.includes('french-vocab')||
+   (q.year===9?Number(q.id.split('-').at(-1))<5:
+     Number(q.id.split('-').at(-1))<25));
+ const r=simulateDailyV2Days(f);
+ assert.equal(r.status,'blocked');
+ assert.equal(r.completedDays,1);
+ assert.equal(r.firstBlockedDay,'2026-10-27');
+ assert.ok(r.diagnostics.some(d=>d.code==='VOCAB_SPACING_CAPACITY_SHORTAGE'));
 });
 test('Vocab cycles can reuse old lexical concepts across successive days',()=>{
  const f=syntheticBank(3);
