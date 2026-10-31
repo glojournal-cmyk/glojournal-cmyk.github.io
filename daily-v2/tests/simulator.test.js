@@ -45,7 +45,10 @@ function syntheticBank(days=30){
    }
   }
  }
- for(let i=0;i<10;i++){
+ // Twenty independently persisted history IDs are required to sustain
+ // 10 spaced-retrieval assignments on BOTH day one and day two without
+ // reusing yesterday's answers. Subsequent days can rotate two due cohorts.
+ for(let i=0;i<20;i++){
   const id='historical-'+i;
   add(id,'physics',8,'historical-topic','retention-source');
   history.push({day:'2026-10-01',eventId:'h'+i,
@@ -85,6 +88,17 @@ test('a missing challenge question halts BEFORE the child starts practice',()=>{
  assert.equal(r.status,'blocked');
  assert.equal(r.completedDays,29);
  assert.ok(r.diagnostics.some(d=>d.code==='MASTERY_BANK_OR_DEPTH_SHORTAGE'));
+});
+test('a ten-question historical pool cannot sustain three days of two-day spaced review',()=>{
+ const f=syntheticBank(3);
+ f.questionBank=f.questionBank.filter(q=>!q.id.startsWith('historical-')||
+   Number(q.id.split('-').at(-1))<10);
+ f.priorAttempts=f.priorAttempts.filter(a=>Number(a.questionId.split('-').at(-1))<10);
+ const result=simulateDailyV2Days(f);
+ assert.equal(result.status,'blocked');
+ assert.equal(result.completedDays,1);
+ assert.equal(result.firstBlockedDay,'2026-10-27');
+ assert.ok(result.diagnostics.some(d=>d.code==='INSUFFICIENT_PERSISTED_HISTORY'));
 });
 test('no persisted historical questions cannot silently become Retention',()=>{
  const f=syntheticBank();f.priorAttempts=[];
