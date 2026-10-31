@@ -19,7 +19,7 @@ permissions:
 jobs:
   daily-v2-unit-tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -29,6 +29,12 @@ jobs:
         run: node --test daily-v2/tests/*.test.js
       - name: Print actual-source capacity acceptance report (read only)
         run: node daily-v2/scripts/qa-real-capacity.mjs
+      - name: Prepare isolated iPad Safari WebKit runner
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps webkit
+      - name: Check V2 atomic IndexedDB in isolated WebKit (no real pupil data)
+        run: node daily-v2/tests/webkit-indexeddb-smoke.mjs
       - name: Audit objective scorer against checked-in school questions (read only)
         run: node daily-v2/scripts/qa-objective-scorer.mjs
       - name: Generate independent human review worksheets (pending, no approvals)
