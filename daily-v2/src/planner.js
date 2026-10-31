@@ -3,6 +3,7 @@
  * This planner expects an audited, fully loaded bank with explicit roles and
  * depth bands. An adapter/quality-audit layer is REQUIRED before integration.
  */
+import {isValidDailyV2Day} from './calendar.js';
 export const DAILY_V2_TASKS = Object.freeze([
  {id:'latin-vocab',kind:'vocab',target:30,subject:'latin'},
  {id:'french-vocab',kind:'vocab',target:30,subject:'french'},
@@ -24,7 +25,7 @@ const QUOTAS = {
  'mastery':{foundation:4,application:10,challenge:6},
  'year9-progressive':{foundation:6,application:11,challenge:3}
 };
-function validDay(day){ return /^\d{4}-\d{2}-\d{2}$/.test(day) && !Number.isNaN(Date.parse(day+'T12:00:00Z')); }
+const validDay=isValidDailyV2Day;
 function daySpan(day,oldDay){
  if(!validDay(day)||!validDay(oldDay))return -1;
  return Math.round((Date.parse(day+'T12:00:00Z')-Date.parse(oldDay+'T12:00:00Z'))/86400000);
@@ -80,7 +81,9 @@ function allocateQuotas(items,quotas,day) {
  return {ready:true,chosen};
 }
 function redactQuestion(q) {
- return {questionId:q.id,conceptId:q.conceptId||null,subject:q.subject,year:q.year,topicId:q.topicId,role:q.roles.join(','),depthBand:q.depthBand||null,marks:q.roles.includes('gcse')?Number(q.marks):null};
+ return {questionId:q.id,conceptId:q.conceptId||null,subject:q.subject,year:q.year,topicId:q.topicId,role:q.roles.join(','),depthBand:q.depthBand||null,marks:q.roles.includes('gcse')?Number(q.marks):null,
+  ...(typeof q.sourceFingerprint==='string'&&q.sourceFingerprint.trim()?{
+   sourceFingerprint:q.sourceFingerprint}:{})};
 }
 function packageTask(task,questionRows,selectedTopic,extras={}) {
  return {id:task.id,kind:task.kind,target:task.target,subject:selectedTopic?.subject||task.subject||null,
@@ -109,10 +112,19 @@ export function planDailyV2(input={}) {
  const past=priorAttempts.filter(a=>a?.persisted===true && isId(a.questionId) && validDay(a.day) && a.day<day);
  const previousCorrect=new Set([...correctQuestionIds,
   ...past.filter(a=>a.correct===true).map(a=>a.questionId)]);
+ // Previously correct source wording cannot re-enter Standard, Mastery,
+ // Year 9 or GCSE as "new" merely because someone renamed its question ID.
+ // Vocab has its separately permitted concept-level spaced rotation, while
+ // Retention is the explicit route for reviewing genuinely old questions.
+ const previousCorrectPrompts=new Set(questions.filter(q=>previousCorrect.has(q.id))
+  .map(q=>q._promptKey).filter(Boolean));
+ const previousExamPrompts=new Set(questions.filter(q=>previousCorrect.has(q.id)&&q.roles.includes('gcse'))
+  .map(q=>q._promptKey).filter(Boolean));
  const assigned=new Set(),assignedPrompts=new Set(),taskRows=[];
  const diagnostics=[...errors];const usedTopics=new Set();
  const allowed=q=>!assigned.has(q.id)&&!previousCorrect.has(q.id)&&
-   (!q._promptKey||!assignedPrompts.has(q._promptKey));
+   (!q._promptKey||(!assignedPrompts.has(q._promptKey)&&
+     !previousCorrectPrompts.has(q._promptKey)));
  const take=rows=>{for(const q of rows){assigned.add(q.id);if(q._promptKey)assignedPrompts.add(q._promptKey);}};
  const fail=(task,code,detail={})=>diagnostics.push({taskId:task.id,code,...detail});
  const get=type=>DAILY_V2_TASKS.find(t=>t.id===type);
@@ -140,7 +152,7 @@ export function planDailyV2(input={}) {
  const examQ=[];
  for(const marks of [1,2,3]){
   const candidates=questions.filter(q=>q.roles.includes('gcse') &&Number(q.marks)===marks &&
-    !assigned.has(q.id) && (!q._promptKey||!assignedPrompts.has(q._promptKey)) &&
+    allowed(q) && !previousExamPrompts.has(q._promptKey) &&
     !examQ.some(e=>e._promptKey&&e._promptKey===q._promptKey) &&
     !questions.some(e=>e.id!==q.id && !e.roles.includes('gcse') && e._promptKey && e._promptKey===q._promptKey));
   const found=choose(candidates,1,day+'|exam-'+marks)[0];
@@ -204,38 +216,87 @@ export function planDailyV2(input={}) {
   const count=new Map();
   for(const pair of known.keys()){const concept=pair.slice(0,pair.lastIndexOf('|'));count.set(concept,(count.get(concept)||0)+1);}
   const creditedToday=new Set(priorAttempts.filter(a=>a?.persisted===true&&a.day===day&&a.taskId===task.id&&a.correct===true).map(a=>a.conceptId));
+  // A correct lexical concept cannot reappear the very next day, even
+  // as a reverse-direction question or a different source question ID.
+  // If there are no other qualified concepts, block rather than pad 30.
+  const yesterdayCorrect=new Set(past.filter(a=>a.taskId===task.id&&
+    a.correct===true&&isId(a.conceptId)&&daySpan(day,a.day)===1)
+    .map(a=>a.conceptId));
   const vocabQ=questions.filter(q=>q.roles.includes(task.id)&&!q.roles.includes('gcse')&&q.subject===task.subject&&!assigned.has(q.id));
   const chosen=[];const conceptUse=new Set();
-  for(const [year,quota] of [[8,25],[9,5]]){
+  // Only independently verified *taught* Year 9 questions survive
+  // normalizeQuestions. Take up to five taught Y9 concepts, then fill the
+  // remaining slots with Y7-8. A missing/partially taught Y9 bank must never
+  // turn a well-stocked Y7-8 vocab task into a false no-questions result.
+  // Y9 is selected first so its wording cannot collide with later Y7-8 picks.
+  for(const year of [9,8]){
+   const quota=year===9?5:30-chosen.length;
+   if(quota===0)continue;
    const groups=new Map();
    for(const q of vocabQ){
-    if(!isId(q.conceptId)||creditedToday.has(q.conceptId)|| (year===8?q.year===9:q.year!==9))continue;
+    if(!isId(q.conceptId)||creditedToday.has(q.conceptId)||
+       yesterdayCorrect.has(q.conceptId)||
+       (year===8?q.year===9:q.year!==9))continue;
     if(!groups.has(q.conceptId))groups.set(q.conceptId,[]);
     groups.get(q.conceptId).push(q);
    }
    const concepts=[...groups.keys()].filter(x=>!conceptUse.has(x)).sort((a,b)=>
      (count.get(a)||0)-(count.get(b)||0)||stableHash(day+'|'+a)-stableHash(day+'|'+b)||a.localeCompare(b));
-   if(concepts.length<quota)fail(task,'VOCAB_CONCEPT_SHORTAGE',{year,needed:quota,available:concepts.length});
-   for(const concept of concepts.slice(0,quota)){
-    const variant=choose(groups.get(concept).filter(q=>!assigned.has(q.id)&&(!q._promptKey||(!assignedPrompts.has(q._promptKey)&&!chosen.some(c=>c._promptKey===q._promptKey)))),1,day+'|'+concept)[0];
-    if(!variant){fail(task,'VOCAB_VARIANT_COLLISION',{concept});continue;}
-    conceptUse.add(concept);chosen.push(variant);
+   // A colliding concept is not a shortage if another independently
+   // creditable concept or an alternative direction is available.
+   let filled=0,collisions=0;
+   for(const concept of concepts){
+    if(filled===quota)break;
+    const variant=choose(groups.get(concept).filter(q=>!assigned.has(q.id)&&
+       (!q._promptKey||(!assignedPrompts.has(q._promptKey)&&
+       !chosen.some(c=>c._promptKey&&c._promptKey===q._promptKey)))),1,day+'|'+concept)[0];
+    if(!variant){collisions++;continue;}
+    conceptUse.add(concept);chosen.push(variant);filled++;
+   }
+   if(year===8&&filled<quota){
+    if(concepts.length<quota)fail(task,'VOCAB_CONCEPT_SHORTAGE',{year,needed:quota,available:concepts.length});
+    if(collisions>0)fail(task,'VOCAB_VARIANT_COLLISION',{year,needed:quota,filled,collisions});
    }
   }
-  if(chosen.length===30){take(chosen);taskById.set(task.id,packageTask(task,chosen,null,{year7to8:25,year9:5}));}
+  if(chosen.length<30&&yesterdayCorrect.size>0)
+   fail(task,'VOCAB_SPACING_CAPACITY_SHORTAGE',{required:30,available:chosen.length,
+     yesterdayCorrectConcepts:yesterdayCorrect.size});
+  if(chosen.length===30){take(chosen);taskById.set(task.id,packageTask(task,chosen,null,{
+   year7to8:chosen.filter(q=>q.year!==9).length,year9:chosen.filter(q=>q.year===9).length
+  }));}
  }
 
  // Historical retrieval: only actual persisted prior question identities.
  // GCSE's exclusivity is lifelong, not merely same-day.
  const retention=get('spaced-retention');
- const last=new Map();
+ const last=new Map(),lastConceptDay=new Map();
+ const conceptScope=(q,conceptId)=>q.subject+'|'+conceptId;
  for(const a of past){
-  if(!catalogById.has(a.questionId))continue;
+  const source=catalogById.get(a.questionId);
+  if(!source)continue;
   const old=last.get(a.questionId);
   if(!old||old.day<a.day)last.set(a.questionId,a);
+  // A reverse translation may have a different question ID while testing
+  // exactly the same lexical concept. Use the most recent persisted date
+  // for the concept, scoped to its language, not the oldest source ID.
+  // The certified source question is authoritative for its concept ID.
+  // Some older persisted attempts lack a conceptId even though their
+  // question ID unambiguously identifies one in the audited bank.
+  const eventConcept=isId(source.conceptId)?source.conceptId:a.conceptId;
+  if(isId(eventConcept)){
+   const key=conceptScope(source,eventConcept);
+   const previous=lastConceptDay.get(key);
+   if(!previous||previous<a.day)lastConceptDay.set(key,a.day);
+  }
  }
+ // A historical question is not necessarily due for spaced retention.
+ // Require at least a two-day gap since the LAST attempt to the question
+ // and (where identified) the same concept under any alternate question ID.
  const seenRetention=[...last.values()].map(a=>({entry:a,question:catalogById.get(a.questionId)}))
-  .filter(({question})=>question && !question.roles.includes('gcse')&&!assigned.has(question.id) &&
+  .filter(({entry,question})=>daySpan(day,entry.day)>=2&&
+    question && (!isId(question.conceptId)||
+      daySpan(day,lastConceptDay.get(conceptScope(question,question.conceptId))||entry.day)>=2)&&
+    !question.roles.includes('gcse')&&!assigned.has(question.id) &&
     (!question._promptKey||!assignedPrompts.has(question._promptKey)));
  const dueScore=row=>{
   const gap=daySpan(day,row.entry.day);
@@ -245,11 +306,14 @@ export function planDailyV2(input={}) {
   dueScore(a)-dueScore(b)||(a.entry.correct===false?-1:0)-(b.entry.correct===false?-1:0)
   ||daySpan(day,b.entry.day)-daySpan(day,a.entry.day)||a.question.id.localeCompare(b.question.id));
  const reviewItems=[];
- const reviewPrompts=new Set();
+ const reviewPrompts=new Set(),reviewConcepts=new Set();
  for(const {question} of seenRetention){
   if(question._promptKey&&reviewPrompts.has(question._promptKey))continue;
+  const concept=isId(question.conceptId)?conceptScope(question,question.conceptId):null;
+  if(concept&&reviewConcepts.has(concept))continue;
   reviewItems.push(question);
   if(question._promptKey)reviewPrompts.add(question._promptKey);
+  if(concept)reviewConcepts.add(concept);
   if(reviewItems.length===10)break;
  }
  if(reviewItems.length!==10)fail(retention,'INSUFFICIENT_PERSISTED_HISTORY',{available:reviewItems.length,needed:10});

@@ -4,6 +4,8 @@
  * A reviewer-authored manifest must certify each role/skill/depth before use.
  * No legacy progress, student state or topic JSON is mutated.
  */
+import {inspectDailyV2AnswerShape} from './source-answer.js';
+
 export const DAILY_V2_ROLES = Object.freeze([
  'latin-vocab','french-vocab','latin-standard','french-standard',
  'science-standard','mastery','retention-source','gcse','year9-progressive'
@@ -24,8 +26,12 @@ const okString=x=>typeof x==='string'&&x.trim().length>0;
 export function fingerprintDailyV2Source(topic,question){
  const payload=JSON.stringify([
   topic?.topicId??null,topic?.subject??null,Number(topic?.year)||null,
-  question?.id??null,question?.format??null,question?.prompt??null,
-  question?.stimulus??null,question?.options??null,question?.answer??null
+  question?.id??null,question?.topicId??null,
+  question?.format??null,question?.prompt??null,
+  question?.stimulus??null,question?.options??null,question?.answer??null,
+  // Source-provided GCSE mark points are part of the assessed material.
+  // Changing a mark scheme must invalidate previously reviewed certificates.
+  question?.markScheme??null
  ]);
  let hash=2166136261;
  for(let i=0;i<payload.length;i++){hash^=payload.charCodeAt(i);hash=Math.imul(hash,16777619);}
@@ -39,8 +45,15 @@ function certificationIssues(question,topic,c){
  if(!Array.isArray(c.roles)||c.roles.length===0||c.roles.some(r=>!ROLES.has(r)))issues.push('INVALID_ROLES');
  if(!okString(topic.topicId)||!SUBJECTS.has(topic.subject)||![7,8,9].includes(Number(topic.year)))issues.push('INVALID_TOPIC');
  if(!okString(question.id)||!okString(question.prompt))issues.push('INVALID_QUESTION');
- if(!question.answer || !Array.isArray(question.answer.accepted) || !question.answer.accepted.length)
-  issues.push('NO_MARKING_ANSWER');
+ if(okString(question.topicId)&&question.topicId!==topic.topicId)
+  issues.push('QUESTION_TOPIC_MISMATCH');
+ const answerShape=inspectDailyV2AnswerShape(question.answer);
+ if(answerShape.structuredMode){
+  // Even accepted[] with semantic_groups/mark_points is not a permit to
+  // auto-grade multi-part answers using a generic string comparator.
+  issues.push(answerShape.structuredEvidence?
+   'STRUCTURED_SCORING_ADAPTER_NOT_VERIFIED':'STRUCTURED_MARKING_EVIDENCE_INVALID');
+ }else if(!answerShape.accepted)issues.push('NO_MARKING_ANSWER');
  if(c.roles?.includes('gcse')&&c.roles.length!==1)issues.push('GCSE_MUST_BE_EXCLUSIVE');
  const vocabRoles=(c.roles||[]).filter(r=>r==='latin-vocab'||r==='french-vocab');
  if(vocabRoles.length){
@@ -93,7 +106,9 @@ export function adaptCertifiedDailyV2Bank({topics=[],certifications={},includeUn
     prompt:question.prompt,stimulus:question.stimulus||{},
     format:question.format,status:'enabled',formal:true,roles:[...new Set(cert.roles)],
     skill:cert.skill||null,depthBand:cert.depthBand||null,
-    answer:question.answer
+    answer:question.answer,
+    // Carry reviewed source change detector into the frozen Daily roster.
+    sourceFingerprint:cert.sourceFingerprint
    };
    if(cert.roles.includes('gcse')){
     q.marks=Number(cert.gcseMarks);

@@ -9,10 +9,12 @@ function syntheticBank(days=30){
    prompt:'QUESTION '+id,roles:[role],...details});
  };
  for(const subject of ['latin','french']){
-  for(let i=0;i<25;i++)add(subject+'-v8-'+i,subject,8,subject+'-v8-vocabulary',
+  // Two disjoint 25-concept sets permit next-day spacing without
+  // changing the 25 Y7-8 + up-to-5 verified Y9 Daily slot allocation.
+  for(let i=0;i<50;i++)add(subject+'-v8-'+i,subject,8,subject+'-v8-vocabulary',
     subject+'-vocab',{conceptId:subject+'-concept-8-'+i});
   taughtTopicIds.push(subject+'-y9-vocabulary');
-  for(let i=0;i<5;i++)add(subject+'-v9-'+i,subject,9,subject+'-y9-vocabulary',
+  for(let i=0;i<10;i++)add(subject+'-v9-'+i,subject,9,subject+'-y9-vocabulary',
     subject+'-vocab',{conceptId:subject+'-concept-9-'+i});
  }
  for(let d=0;d<days;d++){
@@ -43,7 +45,10 @@ function syntheticBank(days=30){
    }
   }
  }
- for(let i=0;i<10;i++){
+ // Twenty independently persisted history IDs are required to sustain
+ // 10 spaced-retrieval assignments on BOTH day one and day two without
+ // reusing yesterday's answers. Subsequent days can rotate two due cohorts.
+ for(let i=0;i<20;i++){
   const id='historical-'+i;
   add(id,'physics',8,'historical-topic','retention-source');
   history.push({day:'2026-10-01',eventId:'h'+i,
@@ -84,6 +89,17 @@ test('a missing challenge question halts BEFORE the child starts practice',()=>{
  assert.equal(r.completedDays,29);
  assert.ok(r.diagnostics.some(d=>d.code==='MASTERY_BANK_OR_DEPTH_SHORTAGE'));
 });
+test('a ten-question historical pool cannot sustain three days of two-day spaced review',()=>{
+ const f=syntheticBank(3);
+ f.questionBank=f.questionBank.filter(q=>!q.id.startsWith('historical-')||
+   Number(q.id.split('-').at(-1))<10);
+ f.priorAttempts=f.priorAttempts.filter(a=>Number(a.questionId.split('-').at(-1))<10);
+ const result=simulateDailyV2Days(f);
+ assert.equal(result.status,'blocked');
+ assert.equal(result.completedDays,1);
+ assert.equal(result.firstBlockedDay,'2026-10-27');
+ assert.ok(result.diagnostics.some(d=>d.code==='INSUFFICIENT_PERSISTED_HISTORY'));
+});
 test('no persisted historical questions cannot silently become Retention',()=>{
  const f=syntheticBank();f.priorAttempts=[];
  const r=simulateDailyV2Days(f);
@@ -114,6 +130,32 @@ test('progressive question exhaustion is not covered up by repeating yesterday q
  assert.equal(r.status,'blocked');
  assert.equal(r.completedDays,2);
  assert.ok(r.diagnostics.some(d=>d.code==='YEAR9_PROGRESSIVE_BANK_OR_DEPTH_SHORTAGE'));
+});
+test('two consecutive days never count yesterday-correct vocabulary concepts again',()=>{
+ const f=syntheticBank(3);
+ const r=simulateDailyV2Days(f);
+ assert.equal(r.status,'ready');
+ const pick=(day,subject)=>r.days[day].vocabConceptsBySubject?.[subject]||[];
+ // The simulation audits concept IDs directly; alternate source question
+ // IDs/directions must not make the same concept newly creditable.
+ for(const subject of ['latin','french']){
+  assert.equal(pick(0,subject).length,30);
+  assert.equal(pick(1,subject).length,30);
+  assert.equal(pick(0,subject).filter(c=>pick(1,subject).includes(c)).length,0);
+  assert.equal(pick(2,subject).length,30);
+ }
+});
+test('30-word bank cannot masquerade as 30 fresh words on the next day',()=>{
+ const f=syntheticBank(2);
+ f.questionBank=f.questionBank.filter(q=>
+   !q.roles.includes('latin-vocab')&&!q.roles.includes('french-vocab')||
+   (q.year===9?Number(q.id.split('-').at(-1))<5:
+     Number(q.id.split('-').at(-1))<25));
+ const r=simulateDailyV2Days(f);
+ assert.equal(r.status,'blocked');
+ assert.equal(r.completedDays,1);
+ assert.equal(r.firstBlockedDay,'2026-10-27');
+ assert.ok(r.diagnostics.some(d=>d.code==='VOCAB_SPACING_CAPACITY_SHORTAGE'));
 });
 test('Vocab cycles can reuse old lexical concepts across successive days',()=>{
  const f=syntheticBank(3);
@@ -152,4 +194,19 @@ test('staging partial mode still rejects unsafe globally duplicated bank IDs',()
 });
 test('unsupported continuity modes cannot turn off shortage validation',()=>{
  assert.throws(()=>simulateDailyV2Days({...syntheticBank(2),continuityMode:'disable-checks'}),/invalid continuity mode/);
+});
+
+test('real exhaustion: only 30 daily GCSE sets cannot pretend a 31st fresh set exists',()=>{
+ const f=syntheticBank(30);
+ const r=simulateDailyV2Days({...f,days:31});
+ assert.equal(r.status,'blocked');
+ assert.equal(r.completedDays,30);
+ assert.ok(r.diagnostics.some(d=>d.code==='EXCLUSIVE_EXAM_MARK_SHORTAGE'));
+});
+test('all-correct 30-day GCSE usage never silently repeats exam IDs',()=>{
+ const r=simulateDailyV2Days(syntheticBank(30));
+ assert.equal(r.status,'ready');
+ // The fixture provides exactly 90 originals (30 per mark band).
+ assert.equal(r.completedDays,30);
+ assert.equal(r.simulatedAnswered,4890);
 });

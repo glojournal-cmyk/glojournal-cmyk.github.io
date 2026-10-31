@@ -50,8 +50,10 @@ export function simulateDailyV2Days({
     conceptId:question.conceptId||null,correct:true,persisted:true
    });
   }
+  const vocabConceptsBySubject=Object.fromEntries(plan.tasks.filter(t=>t.kind==='vocab')
+   .map(t=>[t.subject,t.questions.map(q=>q.conceptId)]));
   details.push({day,status:plan.status==='partial'?'partial':'completed',questions:questions.length,
-   taskCount:plan.tasks.length,
+   taskCount:plan.tasks.length,vocabConceptsBySubject,
    masteryTopicIds:plan.tasks.filter(t=>t.kind==='mastery').map(t=>t.topicId),
    retentionCount:plan.tasks.find(t=>t.kind==='retention')?.questions.length||0});
   dailyTotals.push(questions.length);
