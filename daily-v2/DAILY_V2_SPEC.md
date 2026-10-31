@@ -25,7 +25,7 @@ Status: DESIGN BASELINE (not deployed), 2026-10-26. This file describes the agre
 ### Core allocation and completion rules
 1. Preflight all ten tasks before publishing a day plan. Eligibility uses actual loaded question objects, not catalog counts.
 2. Pre-assign stable question/variant identities and maintain a reserve strategy for incorrect answers. An incomplete task must never become a dead end; never silently cap/auto-complete for exhausted questions.
-3. Exclude already-correct questions from ordinary same-day task reassignment; allow explicitly valid cross-day Vocab cycle and historical Spaced Retention. Do not double-credit the same answer event or concept.
+3. Exclude already-correct questions from ordinary same-day task reassignment. A **correct** Latin/French vocabulary concept is ineligible the following calendar day, including reverse-direction and alternate source question IDs; a previously wrong concept remains retryable. Vocab cycles may resume from day +2, subject to certified supply and one credit per concept/day. Historical Spaced Retention is a separate task. Never fill a 30-word target using yesterday-correct repeats or double-credit an event.
 4. Each recorded attempt has immutable event ID, date, task ID, question ID, concept ID (if applicable), assigned subject/year/topic, marking result, timestamp, storage receipt. One event cannot count for two Daily tasks.
 5. Durable commit first; only then display verified progress. Home, 30-day history, XP and Recovery derive from one reconciled source of truth. Save failures are visible and recoverable.
 6. Quiz reopening restores the frozen assignment and correct-score tally; no rerolls/double credit. Don't recompute an in-progress plan from changed mastery state or changed catalog metadata.
@@ -51,7 +51,7 @@ Status: DESIGN BASELINE (not deployed), 2026-10-26. This file describes the agre
 - How to handle permanently exhausted genuine mastery topics without degrading educational quality.
 
 ## Hard acceptance gates
-- 30-day deterministic simulation including low-bank, high-mastery, fully cycled vocab, varied taught-topic and error-heavy cases.
+- 30-day deterministic simulation including low-bank, high-mastery, fully cycled vocab, varied taught-topic and error-heavy cases. The **first two days require 60 distinct eligible vocabulary concepts per language** if both days were correct, with no more than five verified-taught Y9 on either day; when Year 9 is not independently verified, all 60 must be from Y7–8. Separate certified quota floors need 300 Latin Standard, 300 French Standard, 300 Science Standard, 1,200 Mastery, 600 Y9 Progressive, 90 distinct GCSE originals (30 each mark band) and genuine historical Retention evidence. These are necessary, never sufficient, counts: overlap, task balance and real learner history may increase the actual supply required.
 - Reproduce historical 28/30 French, 12/15 Biology, 8/15 Physics dead ends in test fixtures and ensure all are recoverable.
 - Verify iPad/Safari reload, close/reopen, failure to write, storage-quota errors and device-local restored data.
 - Prove migration leaves original progress/XP unchanged, and rollback cannot discard answers created since cutover.
