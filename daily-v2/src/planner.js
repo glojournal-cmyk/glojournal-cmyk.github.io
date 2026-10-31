@@ -264,20 +264,30 @@ export function planDailyV2(input={}) {
  // Historical retrieval: only actual persisted prior question identities.
  // GCSE's exclusivity is lifelong, not merely same-day.
  const retention=get('spaced-retention');
- const last=new Map();
+ const last=new Map(),lastConceptDay=new Map();
+ const conceptScope=(q,conceptId)=>q.subject+'|'+conceptId;
  for(const a of past){
-  if(!catalogById.has(a.questionId))continue;
+  const source=catalogById.get(a.questionId);
+  if(!source)continue;
   const old=last.get(a.questionId);
   if(!old||old.day<a.day)last.set(a.questionId,a);
+  // A reverse translation may have a different question ID while testing
+  // exactly the same lexical concept. Use the most recent persisted date
+  // for the concept, scoped to its language, not the oldest source ID.
+  if(isId(a.conceptId)){
+   const key=conceptScope(source,a.conceptId);
+   const previous=lastConceptDay.get(key);
+   if(!previous||previous<a.day)lastConceptDay.set(key,a.day);
+  }
  }
  // A historical question is not necessarily due for spaced retention.
- // Never use yesterday's attempts to fill the ten slots: an early replay
- // defeats spacing and can replace genuinely due concepts. Re-admit only
- // after at least two full calendar dates have elapsed since the LAST
- // persisted attempt, irrespective of correctness or alternative source IDs.
+ // Require at least a two-day gap since the LAST attempt to the question
+ // and (where identified) the same concept under any alternate question ID.
  const seenRetention=[...last.values()].map(a=>({entry:a,question:catalogById.get(a.questionId)}))
   .filter(({entry,question})=>daySpan(day,entry.day)>=2&&
-    question && !question.roles.includes('gcse')&&!assigned.has(question.id) &&
+    question && (!isId(question.conceptId)||
+      daySpan(day,lastConceptDay.get(conceptScope(question,question.conceptId))||entry.day)>=2)&&
+    !question.roles.includes('gcse')&&!assigned.has(question.id) &&
     (!question._promptKey||!assignedPrompts.has(question._promptKey)));
  const dueScore=row=>{
   const gap=daySpan(day,row.entry.day);
@@ -287,11 +297,14 @@ export function planDailyV2(input={}) {
   dueScore(a)-dueScore(b)||(a.entry.correct===false?-1:0)-(b.entry.correct===false?-1:0)
   ||daySpan(day,b.entry.day)-daySpan(day,a.entry.day)||a.question.id.localeCompare(b.question.id));
  const reviewItems=[];
- const reviewPrompts=new Set();
+ const reviewPrompts=new Set(),reviewConcepts=new Set();
  for(const {question} of seenRetention){
   if(question._promptKey&&reviewPrompts.has(question._promptKey))continue;
+  const concept=isId(question.conceptId)?conceptScope(question,question.conceptId):null;
+  if(concept&&reviewConcepts.has(concept))continue;
   reviewItems.push(question);
   if(question._promptKey)reviewPrompts.add(question._promptKey);
+  if(concept)reviewConcepts.add(concept);
   if(reviewItems.length===10)break;
  }
  if(reviewItems.length!==10)fail(retention,'INSUFFICIENT_PERSISTED_HISTORY',{available:reviewItems.length,needed:10});
