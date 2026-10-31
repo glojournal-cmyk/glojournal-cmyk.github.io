@@ -85,14 +85,16 @@ try{
 
    const secondPage=await context.newPage();
    await secondPage.goto(url);
-   const contenders=async(page,writer)=>page.evaluate(async(writer)=>{
+   // Both tabs deliberately target the SAME frozen revision. A late
+   // reader must not turn the race test into two legal sequential writes.
+   const contenders=async(page,writer)=>page.evaluate(async({writer,expected})=>{
      const {createIndexedDbDailyV2Repository}=await import('/daily-v2/src/indexeddb-repository.js');
      const repo=createIndexedDbDailyV2Repository({databaseName:'scholar-daily-v2-webkit-isolated'});
      const row=await repo.read('2026-10-31');
-     return repo.compareAndSwap('2026-10-31',row.revision,{
-       ...row,revision:row.revision+1,qaWriter:writer
+     return repo.compareAndSwap('2026-10-31',expected,{
+       ...row,revision:expected+1,qaWriter:writer
      });
-   },writer);
+   },{writer,expected:initial.revision});
    const outcomes=await Promise.all([contenders(page,'one'),contenders(secondPage,'two')]);
    assert.deepEqual(outcomes.slice().sort(),[false,true]);
    const after=await page.evaluate(async()=>{
