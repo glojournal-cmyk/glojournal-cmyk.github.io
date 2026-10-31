@@ -10,6 +10,7 @@ import {adaptCertifiedDailyV2Bank,certifiedTaughtTopicIds} from '../src/bank-ada
 import {planDailyV2} from '../src/planner.js';
 import {simulateDailyV2Days} from '../src/simulator.js';
 import {triageDailyV2Sources} from '../src/source-triage.js';
+import {auditDailyV2ReleaseCapacity} from '../src/release-capacity.js';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'../..');
 const topicDir=join(root,'content/topics');
@@ -38,6 +39,7 @@ export function buildRealSourceCapacityReport() {
  const taughtTopicIds=certifiedTaughtTopicIds(taughtEvidence);
  const adapted=adaptCertifiedDailyV2Bank({topics,certifications,includeUncertifiedDiagnostics:true});
  const sourceTriage=triageDailyV2Sources(topics);
+ const thirtyDayRoleSupply=auditDailyV2ReleaseCapacity(adapted.questionBank,taughtTopicIds);
  const args={day,questionBank:adapted.questionBank,taughtTopicIds,
   priorAttempts:[],correctQuestionIds:[]};
  const plan=planDailyV2(args);
@@ -110,6 +112,7 @@ export function buildRealSourceCapacityReport() {
   preflight:{status:plan.status,validatedQuestions:plan.preflight.validatedQuestions,
    plannedQuestions:plan.preflight.plannedQuestions,
    blockedTasks:plan.availability.filter(t=>t.state!=='available')},
+  thirtyDayRoleSupply,
   thirtyDay:{status:simulation.status,completedDays:simulation.completedDays,
    firstBlockedDay:simulation.firstBlockedDay||null,
    diagnostics:(simulation.diagnostics||[]).slice(0,20)},
