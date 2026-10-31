@@ -63,6 +63,7 @@ test('CSV protects leading spreadsheet formulas even in source prompts and answe
  ])]).rows;
  const s=csvRows(rows);
  assert.ok(s.includes("'=SUM(A1:A2)"));
- assert.ok(s.includes("'@unsafe"));
+ assert.ok(s.includes('[@unsafe')===false,'raw spreadsheet functions must not be emitted');
+ assert.ok(s.includes('@unsafe'),'answers remain available for reviewer inspection');
  assert.ok(!s.includes('curriculumCertified,true'));
 });
