@@ -122,6 +122,52 @@ test('retention can use exactly two-day-old histories, but not yesterday if ten 
  assert.ok(retention.questionIds.includes('old-0'));
  assert.ok(!retention.questionIds.includes('extra-recent'));
 });
+test('recent reverse-direction vocabulary attempt makes an older synonymous Retention ID not due',()=>{
+ const f=fixture();
+ const original=f.questionBank.find(q=>q.id==='old-0');
+ original.conceptId='same-science-concept';
+ f.questionBank.push({...original,id:'old-0-reversed',
+  prompt:'Reverse direction of the older concept'});
+ f.priorAttempts.push({eventId:'reverse-yesterday',day:'2026-10-25',
+  taskId:'vocab-other',questionId:'old-0-reversed',
+  // Older receipts may omit conceptId; the audited question still binds it.
+  correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(d=>d.taskId==='spaced-retention'&&
+   d.code==='INSUFFICIENT_PERSISTED_HISTORY'&&d.available===9),
+   JSON.stringify(r.diagnostics));
+ assert.deepEqual(r.tasks,[]);
+});
+test('Retention counts independently due concepts, never alternate direction IDs as two credits',()=>{
+ const f=fixture(),original=f.questionBank.find(q=>q.id==='old-0');
+ original.conceptId='shared-original';
+ f.questionBank.push({...original,id:'old-0-direction-2',
+  prompt:'Distinct second direction for shared original'});
+ f.priorAttempts.push({eventId:'earlier-second-direction',day:'2026-10-16',
+  taskId:'different-practice',questionId:'old-0-direction-2',
+  conceptId:'shared-original',correct:false,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ const review=r.tasks.find(t=>t.id==='spaced-retention');
+ assert.equal(review.questionIds.length,10);
+ assert.equal(review.questions.filter(q=>q.conceptId==='shared-original').length,1);
+ assert.ok(review.questionIds.includes('old-1'));
+});
+test('Retention concept spacing is subject scoped: same spelling in two subjects is not the same concept',()=>{
+ const f=fixture(),original=f.questionBank.find(q=>q.id==='old-0');
+ original.conceptId='shared-spelling';
+ f.questionBank.push({id:'french-same-spelling',subject:'french',year:8,
+  topicId:'french-other',status:'enabled',formal:true,
+  prompt:'Unrelated French concept with same key',roles:['retention-source'],
+  conceptId:'shared-spelling'});
+ f.priorAttempts.push({eventId:'french-yesterday',day:'2026-10-25',
+  taskId:'french-standard',questionId:'french-same-spelling',
+  conceptId:'shared-spelling',correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ assert.ok(r.tasks.find(t=>t.id==='spaced-retention').questionIds.includes('old-0'));
+});
 test('same-day historical attempt cannot be used as spaced retention history',()=>{
  const f=fixture();f.priorAttempts[0].day=day;
  const r=planDailyV2(f);assert.equal(r.status,'blocked');
