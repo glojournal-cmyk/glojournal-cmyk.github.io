@@ -270,8 +270,14 @@ export function planDailyV2(input={}) {
   const old=last.get(a.questionId);
   if(!old||old.day<a.day)last.set(a.questionId,a);
  }
+ // A historical question is not necessarily due for spaced retention.
+ // Never use yesterday's attempts to fill the ten slots: an early replay
+ // defeats spacing and can replace genuinely due concepts. Re-admit only
+ // after at least two full calendar dates have elapsed since the LAST
+ // persisted attempt, irrespective of correctness or alternative source IDs.
  const seenRetention=[...last.values()].map(a=>({entry:a,question:catalogById.get(a.questionId)}))
-  .filter(({question})=>question && !question.roles.includes('gcse')&&!assigned.has(question.id) &&
+  .filter(({entry,question})=>daySpan(day,entry.day)>=2&&
+    question && !question.roles.includes('gcse')&&!assigned.has(question.id) &&
     (!question._promptKey||!assignedPrompts.has(question._promptKey)));
  const dueScore=row=>{
   const gap=daySpan(day,row.entry.day);
