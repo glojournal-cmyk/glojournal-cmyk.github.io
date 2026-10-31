@@ -15,7 +15,7 @@ test('V2 staging browser fixture is recognisably QA-only and cannot hydrate the 
 });
 test('production HTML version audit excludes exactly the QA fixture, not production Home or learning routes',()=>{
  assert.match(suite,/rel\(p\)!=="daily-v2\/staging\/qa\.html"/);
- assert.match(suite,/execFileSync\("git",\["ls-files","-z"\]/);
+ assert.match(suite,/\["ls-tree","-r","-z","--name-only","HEAD"\]/);
  assert.match(suite,/trackedFiles\.has\(rel\(p\)\)/);
  assert.match(suite,/const html=files\.filter\(p=>p\.endsWith\("\.html"\)/);
  assert.match(suite,/root-runtime-unversioned/);
