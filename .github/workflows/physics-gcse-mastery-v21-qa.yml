@@ -1,0 +1,20 @@
+name: Physics GCSE Mastery Pilot QA
+on:
+  pull_request:
+    paths:
+      - 'content/physics-gcse-mastery-v21/**'
+      - 'study/physics/mastery/**'
+      - 'tests/physics-gcse-mastery-v21-qa.mjs'
+      - '.github/workflows/physics-gcse-mastery-v21-qa.yml'
+  workflow_dispatch:
+jobs:
+  validate-physics-pilot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JavaScript
+        run: |
+          node --check study/physics/mastery/app.js
+          node --check study/physics/mastery/diagrams.js
+      - name: Check 90-question bank and isolation rules
+        run: node tests/physics-gcse-mastery-v21-qa.mjs
