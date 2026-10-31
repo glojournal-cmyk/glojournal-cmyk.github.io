@@ -1,0 +1,897 @@
+{
+  "schemaVersion": "daily-v2-mastery-draft-1",
+  "subject": "latin",
+  "year": 8,
+  "topicId": "la-y8-v2-mastery-adjective-agreement",
+  "title": "Mastery — adjective agreement and case reasoning",
+  "status": "enabled",
+  "origin": "daily-v2-isolated-draft",
+  "curriculumReview": "pending-independent-review",
+  "taughtStatus": "not-verified-for-student",
+  "questions": [
+    {
+      "id": "la-y8-v2ma-01",
+      "conceptId": "la-y8-v2ma-concept-01",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "typed_short",
+      "prompt": "In 'puella laeta ridet', state the case, number and gender of 'laeta'.",
+      "stimulus": {
+        "text": "puella laeta ridet"
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "nominative singular feminine"
+        ],
+        "modelAnswer": "nominative singular feminine",
+        "markPoints": [
+          "'laeta' agrees with 'puella'",
+          "nominative",
+          "singular feminine"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "'laeta' agrees with 'puella'",
+          "nominative",
+          "singular feminine"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-02",
+      "conceptId": "la-y8-v2ma-concept-02",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "typed_short",
+      "prompt": "In 'servos bonos video', identify the noun modified by 'bonos'.",
+      "stimulus": {
+        "text": "servos bonos video"
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "servos"
+        ],
+        "modelAnswer": "servos",
+        "markPoints": [
+          "'bonos' describes 'servos'",
+          "both accusative plural masculine"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "'bonos' describes 'servos'",
+          "both accusative plural masculine"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-03",
+      "conceptId": "la-y8-v2ma-concept-03",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "typed_short",
+      "prompt": "Complete the correct adjective in 'puellam ___ video' (good).",
+      "stimulus": {
+        "text": "puellam ___ video"
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "bonam"
+        ],
+        "modelAnswer": "bonam",
+        "markPoints": [
+          "puellam is accusative singular feminine",
+          "the matching adjective is bonam"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "puellam is accusative singular feminine",
+          "the matching adjective is bonam"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-04",
+      "conceptId": "la-y8-v2ma-concept-04",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "typed_short",
+      "prompt": "Complete the correct adjective in 'pueri ___ currunt' (happy).",
+      "stimulus": {
+        "text": "pueri ___ currunt"
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "laeti"
+        ],
+        "modelAnswer": "laeti",
+        "markPoints": [
+          "pueri is nominative plural masculine",
+          "laeti agrees in case number and gender"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "pueri is nominative plural masculine",
+          "laeti agrees in case number and gender"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-05",
+      "conceptId": "la-y8-v2ma-concept-05",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "mark_points",
+      "prompt": "Change 'puella bona' (subject, singular) into the accusative singular phrase.",
+      "stimulus": {
+        "text": "puella bona"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "puellam bonam"
+        ],
+        "modelAnswer": "puellam bonam",
+        "markPoints": [
+          "puella becomes puellam",
+          "bona becomes bonam",
+          "both accusative singular feminine"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "puella becomes puellam",
+          "bona becomes bonam",
+          "both accusative singular feminine"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-06",
+      "conceptId": "la-y8-v2ma-concept-06",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "mark_points",
+      "prompt": "Change 'servus bonus' (subject, singular) to a nominative plural subject.",
+      "stimulus": {
+        "text": "servus bonus"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "servi boni"
+        ],
+        "modelAnswer": "servi boni",
+        "markPoints": [
+          "servus becomes servi",
+          "bonus becomes boni",
+          "both nominative plural masculine"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "servus becomes servi",
+          "bonus becomes boni",
+          "both nominative plural masculine"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-07",
+      "conceptId": "la-y8-v2ma-concept-07",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "mark_points",
+      "prompt": "Translate the whole sentence and name the adjective that agrees with 'puellam'.",
+      "stimulus": {
+        "text": "servus bonus puellam laetam laudat"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "The good slave praises the happy girl."
+        ],
+        "modelAnswer": "The good slave praises the happy girl.",
+        "markPoints": [
+          "good slave is subject",
+          "happy girl is object",
+          "laetam modifies puellam"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "good slave is subject",
+          "happy girl is object",
+          "laetam modifies puellam"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-08",
+      "conceptId": "la-y8-v2ma-concept-08",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "mark_points",
+      "prompt": "Why is 'bonas' correct rather than 'boni' in this sentence?",
+      "stimulus": {
+        "text": "pueri puellas bonas vident"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Because it agrees with puellas, accusative plural feminine."
+        ],
+        "modelAnswer": "Because it agrees with puellas, accusative plural feminine.",
+        "markPoints": [
+          "bonas agrees with puellas",
+          "puellas is accusative plural feminine",
+          "boni would not match"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "bonas agrees with puellas",
+          "puellas is accusative plural feminine",
+          "boni would not match"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-09",
+      "conceptId": "la-y8-v2ma-concept-09",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "mark_points",
+      "prompt": "Correct the agreement mistake and explain the corrected ending.",
+      "stimulus": {
+        "text": "pueri bonum ambulabant"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "pueri boni ambulabant"
+        ],
+        "modelAnswer": "pueri boni ambulabant",
+        "markPoints": [
+          "change bonum to boni",
+          "pueri is masculine plural nominative subject",
+          "verb is imperfect; adjective agrees with noun, not tense"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "change bonum to boni",
+          "pueri is masculine plural nominative subject",
+          "verb is imperfect; adjective agrees with noun, not tense"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-10",
+      "conceptId": "la-y8-v2ma-concept-10",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "mark_points",
+      "prompt": "Translate and identify both adjective–noun pairs.",
+      "stimulus": {
+        "text": "feminae bonae libros novos portant"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "The good women carry new books."
+        ],
+        "modelAnswer": "The good women carry new books.",
+        "markPoints": [
+          "bonae describes feminae, nominative plural feminine",
+          "novos describes libros, accusative plural masculine"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "bonae describes feminae, nominative plural feminine",
+          "novos describes libros, accusative plural masculine"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-11",
+      "conceptId": "la-y8-v2ma-concept-11",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "mark_points",
+      "prompt": "Complete both adjectives: 'pueri ___ puellas ___ vident' (happy boys, good girls).",
+      "stimulus": {
+        "text": "pueri ___ puellas ___ vident"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "laeti; bonas"
+        ],
+        "modelAnswer": "laeti; bonas",
+        "markPoints": [
+          "laeti agrees with pueri",
+          "bonas agrees with puellas",
+          "subject/object case difference"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "laeti agrees with pueri",
+          "bonas agrees with puellas",
+          "subject/object case difference"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-12",
+      "conceptId": "la-y8-v2ma-concept-12",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "mark_points",
+      "prompt": "In 'magistra bona pueros laetos videt', identify the grammatical role of 'pueros laetos'.",
+      "stimulus": {
+        "text": "magistra bona pueros laetos videt"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Accusative plural masculine direct object."
+        ],
+        "modelAnswer": "Accusative plural masculine direct object.",
+        "markPoints": [
+          "pueros laetos is direct object",
+          "accusative plural",
+          "both masculine"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "pueros laetos is direct object",
+          "accusative plural",
+          "both masculine"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-13",
+      "conceptId": "la-y8-v2ma-concept-13",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "mark_points",
+      "prompt": "Translate and explain how the subject is identified despite the word order.",
+      "stimulus": {
+        "text": "puellam laetam servus bonus salutat"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "The good slave greets the happy girl."
+        ],
+        "modelAnswer": "The good slave greets the happy girl.",
+        "markPoints": [
+          "servus bonus is nominative subject",
+          "puellam laetam is accusative object",
+          "word order does not override endings"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "servus bonus is nominative subject",
+          "puellam laetam is accusative object",
+          "word order does not override endings"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-14",
+      "conceptId": "la-y8-v2ma-concept-14",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "mark_points",
+      "prompt": "In 'ancillae laetae currunt', give grammatical evidence that 'ancillae' is plural subject, not a singular genitive.",
+      "stimulus": {
+        "text": "ancillae laetae currunt"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "The plural verb currunt confirms ancillae laetae is nominative plural."
+        ],
+        "modelAnswer": "The plural verb currunt confirms ancillae laetae is nominative plural.",
+        "markPoints": [
+          "currunt is third-person plural",
+          "ancillae laetae agrees as plural subject",
+          "-ae alone is ambiguous"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "currunt is third-person plural",
+          "ancillae laetae agrees as plural subject",
+          "-ae alone is ambiguous"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-15",
+      "conceptId": "la-y8-v2ma-concept-15",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "extended_response",
+      "prompt": "Translate the sentence, identify subject/object phrases, and explain how the adjectives establish roles.",
+      "stimulus": {
+        "text": "pueri laeti puellas bonas vocaverunt"
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "The happy boys called the good girls."
+        ],
+        "modelAnswer": "The happy boys called the good girls.",
+        "markPoints": [
+          "pueri laeti nominative plural masculine subject",
+          "puellas bonas accusative plural feminine object",
+          "vocaverunt is perfect third-person plural",
+          "complete translation retains who did what"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "pueri laeti nominative plural masculine subject",
+          "puellas bonas accusative plural feminine object",
+          "vocaverunt is perfect third-person plural",
+          "complete translation retains who did what"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-16",
+      "conceptId": "la-y8-v2ma-concept-16",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "extended_response",
+      "prompt": "Translate precisely and explain which verb ending resolves the case ambiguity of 'puellae'.",
+      "stimulus": {
+        "text": "puellae bonae servos malos videbant"
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "The good girls were watching the bad slaves."
+        ],
+        "modelAnswer": "The good girls were watching the bad slaves.",
+        "markPoints": [
+          "videbant third-person plural imperfect",
+          "puellae bonae nominative plural subject",
+          "servos malos accusative plural object",
+          "translation preserves past continuous or 'used to'"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "videbant third-person plural imperfect",
+          "puellae bonae nominative plural subject",
+          "servos malos accusative plural object",
+          "translation preserves past continuous or 'used to'"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-17",
+      "conceptId": "la-y8-v2ma-concept-17",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "extended_response",
+      "prompt": "Translate both clauses and explain how changing case endings changes who is the subject.",
+      "stimulus": {
+        "text": "servus bonus puellam bonam vidit, sed puella bona servum malum non vidit"
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "The good slave saw the good girl, but the good girl did not see the bad slave."
+        ],
+        "modelAnswer": "The good slave saw the good girl, but the good girl did not see the bad slave.",
+        "markPoints": [
+          "first clause servus subject puellam object",
+          "second clause puella subject servum object",
+          "vidit perfect, non negates second clause",
+          "adjectives match each noun's case/number/gender"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "first clause servus subject puellam object",
+          "second clause puella subject servum object",
+          "vidit perfect, non negates second clause",
+          "adjectives match each noun's case/number/gender"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-18",
+      "conceptId": "la-y8-v2ma-concept-18",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "extended_response",
+      "prompt": "Explain why the adjective 'longas' modifies 'vias' rather than 'ancillae', then translate accurately.",
+      "stimulus": {
+        "text": "ancillae laetae per vias longas currebant"
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "The happy slave girls were running along the long streets."
+        ],
+        "modelAnswer": "The happy slave girls were running along the long streets.",
+        "markPoints": [
+          "per takes accusative",
+          "vias longas accusative plural feminine",
+          "ancillae laetae nominative plural feminine",
+          "currebant imperfect plural and accurate translation"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "per takes accusative",
+          "vias longas accusative plural feminine",
+          "ancillae laetae nominative plural feminine",
+          "currebant imperfect plural and accurate translation"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-19",
+      "conceptId": "la-y8-v2ma-concept-19",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "extended_response",
+      "prompt": "Correct the error in this sentence, then explain why the subject, adjective and verb must agree in number.",
+      "stimulus": {
+        "text": "puellam bonus servus vident"
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "puellam bonus servus videt"
+        ],
+        "modelAnswer": "puellam bonus servus videt",
+        "markPoints": [
+          "vident corrected to videt because servus is singular",
+          "bonus agrees with servus nominative singular masculine",
+          "puellam remains accusative singular feminine object",
+          "adjective bonus should not be changed to bonam"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "vident corrected to videt because servus is singular",
+          "bonus agrees with servus nominative singular masculine",
+          "puellam remains accusative singular feminine object",
+          "adjective bonus should not be changed to bonam"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "la-y8-v2ma-20",
+      "conceptId": "la-y8-v2ma-concept-20",
+      "topicId": "la-y8-v2-mastery-adjective-agreement",
+      "topic": "Mastery — adjective agreement in context",
+      "format": "extended_response",
+      "prompt": "Compare the two sentences: for each, identify who praises whom and explain why word order is not decisive.",
+      "stimulus": {
+        "text": "puella bona servum laudat. / puellam bonam servus laudat."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "In the first, the good girl praises the slave. In the second, the slave praises the good girl."
+        ],
+        "modelAnswer": "In the first, the good girl praises the slave. In the second, the slave praises the good girl.",
+        "markPoints": [
+          "first nominative puella bona acts, accusative servum receives",
+          "second nominative servus acts, accusative puellam bonam receives",
+          "nominative and accusative endings assign roles",
+          "correct translation of both sentences"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check the complete case/number/gender agreement and grammatical roles.",
+        "steps": [
+          "first nominative puella bona acts, accusative servum receives",
+          "second nominative servus acts, accusative puellam bonam receives",
+          "nominative and accusative endings assign roles",
+          "correct translation of both sentences"
+        ],
+        "commonError": "Matching adjective gender alone without matching the noun's case and number.",
+        "remember": "An adjective agrees with its noun in case, number and gender, not necessarily identical endings."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    }
+  ]
+}

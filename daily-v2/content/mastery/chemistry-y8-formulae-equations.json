@@ -1,0 +1,897 @@
+{
+  "schemaVersion": "daily-v2-mastery-draft-1",
+  "subject": "chemistry",
+  "year": 8,
+  "topicId": "chem-y8-v2-mastery-formulae-equations",
+  "title": "Mastery — formulae, valency and conservation",
+  "status": "enabled",
+  "origin": "daily-v2-isolated-draft",
+  "curriculumReview": "pending-independent-review",
+  "taughtStatus": "not-verified-for-student",
+  "questions": [
+    {
+      "id": "chem-y8-v2ma-01",
+      "conceptId": "chem-y8-v2ma-concept-01",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "typed_short",
+      "prompt": "Write the chemical formula of magnesium chloride using Mg²⁺ and Cl⁻ ions.",
+      "stimulus": {
+        "text": "Magnesium ion charge +2; chloride ion charge −1."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "MgCl2"
+        ],
+        "modelAnswer": "MgCl2",
+        "markPoints": [
+          "one Mg²⁺ ion",
+          "two Cl⁻ ions",
+          "overall charge zero"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "one Mg²⁺ ion",
+          "two Cl⁻ ions",
+          "overall charge zero"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-02",
+      "conceptId": "chem-y8-v2ma-concept-02",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "typed_short",
+      "prompt": "Explain why the correct formula for magnesium oxide is MgO, not Mg2O2.",
+      "stimulus": {
+        "text": "Mg²⁺ and O²⁻ ions combine."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "MgO is the smallest whole-number ratio; the charges cancel one to one."
+        ],
+        "modelAnswer": "MgO is the smallest whole-number ratio; the charges cancel one to one.",
+        "markPoints": [
+          "+2 and −2 cancel",
+          "formula uses simplest ratio"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "+2 and −2 cancel",
+          "formula uses simplest ratio"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-03",
+      "conceptId": "chem-y8-v2ma-concept-03",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "typed_short",
+      "prompt": "How many oxygen atoms are represented by the formula Al2O3?",
+      "stimulus": {
+        "text": "Al2O3"
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Three oxygen atoms."
+        ],
+        "modelAnswer": "Three oxygen atoms.",
+        "markPoints": [
+          "the subscript 3 counts three oxygen atoms"
+        ],
+        "totalMarks": 1,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "the subscript 3 counts three oxygen atoms"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-04",
+      "conceptId": "chem-y8-v2ma-concept-04",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "typed_short",
+      "prompt": "State the meaning of the 2 in the formula H2O.",
+      "stimulus": {
+        "text": "H2O"
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "There are two hydrogen atoms per water molecule."
+        ],
+        "modelAnswer": "There are two hydrogen atoms per water molecule.",
+        "markPoints": [
+          "subscript applies to H only",
+          "two hydrogen atoms"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "subscript applies to H only",
+          "two hydrogen atoms"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-05",
+      "conceptId": "chem-y8-v2ma-concept-05",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "calculation",
+      "prompt": "Work out the formula of aluminium oxide and show how ionic charges balance.",
+      "stimulus": {
+        "text": "Al³⁺ and O²⁻."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Al2O3"
+        ],
+        "modelAnswer": "Al2O3",
+        "markPoints": [
+          "two aluminium ions give total +6",
+          "three oxide ions give total −6",
+          "formula Al2O3"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "two aluminium ions give total +6",
+          "three oxide ions give total −6",
+          "formula Al2O3"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-06",
+      "conceptId": "chem-y8-v2ma-concept-06",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "mark_points",
+      "prompt": "Work out the formula of calcium fluoride and explain why CaF is wrong.",
+      "stimulus": {
+        "text": "Ca²⁺ and F⁻."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "CaF2, because two F⁻ ions balance one Ca²⁺."
+        ],
+        "modelAnswer": "CaF2, because two F⁻ ions balance one Ca²⁺.",
+        "markPoints": [
+          "Ca has +2 charge",
+          "two F ions each −1",
+          "CaF2"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "Ca has +2 charge",
+          "two F ions each −1",
+          "CaF2"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-07",
+      "conceptId": "chem-y8-v2ma-concept-07",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "mark_points",
+      "prompt": "A student writes NaO for sodium oxide. Correct it with a charge explanation.",
+      "stimulus": {
+        "text": "Na⁺ and O²⁻."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Na2O"
+        ],
+        "modelAnswer": "Na2O",
+        "markPoints": [
+          "two Na⁺ ions are needed",
+          "one O²⁻ balances both",
+          "Na2O"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "two Na⁺ ions are needed",
+          "one O²⁻ balances both",
+          "Na2O"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-08",
+      "conceptId": "chem-y8-v2ma-concept-08",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "calculation",
+      "prompt": "Balance the equation for hydrogen reacting with oxygen to form water.",
+      "stimulus": {
+        "text": "H2 + O2 → H2O"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "2H2 + O2 → 2H2O"
+        ],
+        "modelAnswer": "2H2 + O2 → 2H2O",
+        "markPoints": [
+          "two water molecules formed",
+          "four hydrogen atoms on each side",
+          "two oxygen atoms on each side"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "two water molecules formed",
+          "four hydrogen atoms on each side",
+          "two oxygen atoms on each side"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-09",
+      "conceptId": "chem-y8-v2ma-concept-09",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "calculation",
+      "prompt": "Explain why chemical equations must be balanced without changing subscripts.",
+      "stimulus": {
+        "text": "Mg + O2 → MgO"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Atoms are conserved in a chemical reaction; change coefficients, not substance identities."
+        ],
+        "modelAnswer": "Atoms are conserved in a chemical reaction; change coefficients, not substance identities.",
+        "markPoints": [
+          "same number each atom before and after",
+          "conservation of mass",
+          "coefficients rather than formula subscripts"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "same number each atom before and after",
+          "conservation of mass",
+          "coefficients rather than formula subscripts"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-10",
+      "conceptId": "chem-y8-v2ma-concept-10",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "calculation",
+      "prompt": "Balance and explain the magnesium–oxygen equation.",
+      "stimulus": {
+        "text": "Mg + O2 → MgO"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "2Mg + O2 → 2MgO"
+        ],
+        "modelAnswer": "2Mg + O2 → 2MgO",
+        "markPoints": [
+          "2 before Mg",
+          "2 before MgO",
+          "2 Mg and 2 O atoms on each side"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "2 before Mg",
+          "2 before MgO",
+          "2 Mg and 2 O atoms on each side"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-11",
+      "conceptId": "chem-y8-v2ma-concept-11",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "calculation",
+      "prompt": "A sample has 12 g of carbon and reacts completely with 32 g of oxygen. Calculate mass of carbon dioxide if no gas escapes.",
+      "stimulus": {
+        "text": "12 g carbon + 32 g oxygen → carbon dioxide."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "44 g carbon dioxide."
+        ],
+        "modelAnswer": "44 g carbon dioxide.",
+        "markPoints": [
+          "12+32=44",
+          "conservation of mass",
+          "g unit"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "12+32=44",
+          "conservation of mass",
+          "g unit"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-12",
+      "conceptId": "chem-y8-v2ma-concept-12",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "mark_points",
+      "prompt": "Work out the neutral ionic formula for potassium sulfide, given the charges.",
+      "stimulus": {
+        "text": "K⁺ and S²⁻."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "K2S"
+        ],
+        "modelAnswer": "K2S",
+        "markPoints": [
+          "two K⁺ ions needed",
+          "one S²⁻ ion",
+          "K2S"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "two K⁺ ions needed",
+          "one S²⁻ ion",
+          "K2S"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-13",
+      "conceptId": "chem-y8-v2ma-concept-13",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "mark_points",
+      "prompt": "For AlCl3, identify the number of each atom and explain why the formula is neutral.",
+      "stimulus": {
+        "text": "Al³⁺ and Cl⁻."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "One Al and three Cl; +3 is balanced by three −1 charges."
+        ],
+        "modelAnswer": "One Al and three Cl; +3 is balanced by three −1 charges.",
+        "markPoints": [
+          "one aluminium atom",
+          "three chlorine atoms",
+          "charge balance"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "one aluminium atom",
+          "three chlorine atoms",
+          "charge balance"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-14",
+      "conceptId": "chem-y8-v2ma-concept-14",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "calculation",
+      "prompt": "A student balances 2Na + Cl2 → NaCl2. Identify the chemical mistake and write a correctly balanced equation.",
+      "stimulus": {
+        "text": "Na + Cl2 → NaCl"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "2Na + Cl2 → 2NaCl"
+        ],
+        "modelAnswer": "2Na + Cl2 → 2NaCl",
+        "markPoints": [
+          "NaCl is fixed formula",
+          "change coefficient to 2NaCl, not subscript",
+          "2Na reactant and 1Cl2 reactant"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "NaCl is fixed formula",
+          "change coefficient to 2NaCl, not subscript",
+          "2Na reactant and 1Cl2 reactant"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-15",
+      "conceptId": "chem-y8-v2ma-concept-15",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "extended_response",
+      "prompt": "A student chooses Mg2O2 because both ions have valency two. Diagnose the error, write the correct formula and compare it with aluminium oxide.",
+      "stimulus": {
+        "text": "Mg²⁺, O²⁻, Al³⁺."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "MgO; charges cancel 1:1. Aluminium oxide is Al2O3 because +6 and −6 cancel."
+        ],
+        "modelAnswer": "MgO; charges cancel 1:1. Aluminium oxide is Al2O3 because +6 and −6 cancel.",
+        "markPoints": [
+          "Mg2O2 reduces to MgO",
+          "Mg²⁺ and O²⁻ cancel 1:1",
+          "Al³⁺ and O²⁻ require 2:3",
+          "Al2O3"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "Mg2O2 reduces to MgO",
+          "Mg²⁺ and O²⁻ cancel 1:1",
+          "Al³⁺ and O²⁻ require 2:3",
+          "Al2O3"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-16",
+      "conceptId": "chem-y8-v2ma-concept-16",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "extended_response",
+      "prompt": "Balance the formation of aluminium oxide and explain each coefficient using atom conservation.",
+      "stimulus": {
+        "text": "Al + O2 → Al2O3"
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "4Al + 3O2 → 2Al2O3"
+        ],
+        "modelAnswer": "4Al + 3O2 → 2Al2O3",
+        "markPoints": [
+          "4 aluminium atoms react",
+          "three O2 yield six oxygen atoms",
+          "two Al2O3 contain four Al and six O",
+          "balanced equation"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "4 aluminium atoms react",
+          "three O2 yield six oxygen atoms",
+          "two Al2O3 contain four Al and six O",
+          "balanced equation"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-17",
+      "conceptId": "chem-y8-v2ma-concept-17",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "extended_response",
+      "prompt": "Three white solids are labelled NaCl, CaCl2 and AlCl3. Explain why their metal-to-chloride ratios differ using the ion charges.",
+      "stimulus": {
+        "text": "Na⁺, Ca²⁺, Al³⁺ and Cl⁻."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "NaCl 1:1, CaCl2 1:2 and AlCl3 1:3 because each compound must have zero net charge."
+        ],
+        "modelAnswer": "NaCl 1:1, CaCl2 1:2 and AlCl3 1:3 because each compound must have zero net charge.",
+        "markPoints": [
+          "Na+ needs one Cl−",
+          "Ca2+ needs two Cl−",
+          "Al3+ needs three Cl−",
+          "neutral charge principle"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "Na+ needs one Cl−",
+          "Ca2+ needs two Cl−",
+          "Al3+ needs three Cl−",
+          "neutral charge principle"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-18",
+      "conceptId": "chem-y8-v2ma-concept-18",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "extended_response",
+      "prompt": "A pupil incorrectly balances H2 + O2 → H2O as H2 + O2 → H2O2. Explain two different scientific errors and give the correct equation.",
+      "stimulus": {
+        "text": "The substances are hydrogen, oxygen and water."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "2H2 + O2 → 2H2O. Changing H2O to H2O2 changes the product, rather than balancing the equation."
+        ],
+        "modelAnswer": "2H2 + O2 → 2H2O. Changing H2O to H2O2 changes the product, rather than balancing the equation.",
+        "markPoints": [
+          "correct water formula H2O",
+          "H2O2 is a different substance",
+          "coefficients needed",
+          "2H2 + O2 → 2H2O"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "correct water formula H2O",
+          "H2O2 is a different substance",
+          "coefficients needed",
+          "2H2 + O2 → 2H2O"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-19",
+      "conceptId": "chem-y8-v2ma-concept-19",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "extended_response",
+      "prompt": "A sealed vessel contains 8 g of oxygen and 12 g of magnesium. On completion 20 g of magnesium oxide is recovered. Evaluate whether the data support conservation of mass and identify one uncertainty.",
+      "stimulus": {
+        "text": "Measured total before: 20 g; product after: 20 g."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "The recorded masses are consistent with mass conservation, but measurement uncertainty or incomplete reaction must be considered."
+        ],
+        "modelAnswer": "The recorded masses are consistent with mass conservation, but measurement uncertainty or incomplete reaction must be considered.",
+        "markPoints": [
+          "8+12=20 g reactants",
+          "20 g product, consistent conservation",
+          "does not prove zero measurement error",
+          "identify uncertainty such as balance precision"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "8+12=20 g reactants",
+          "20 g product, consistent conservation",
+          "does not prove zero measurement error",
+          "identify uncertainty such as balance precision"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2ma-20",
+      "conceptId": "chem-y8-v2ma-concept-20",
+      "topicId": "chem-y8-v2-mastery-formulae-equations",
+      "topic": "Mastery — chemical formulae, valency and conservation",
+      "format": "extended_response",
+      "prompt": "Explain how to deduce the formula Al2O3 and then calculate its formula mass from Al=27 and O=16.",
+      "stimulus": {
+        "text": "Al³⁺, O²⁻; relative atomic masses Al 27, O 16."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Al2O3; formula mass = 2×27 + 3×16 = 102."
+        ],
+        "modelAnswer": "Al2O3; formula mass = 2×27 + 3×16 = 102.",
+        "markPoints": [
+          "balance ionic charges 2:3",
+          "Al2O3",
+          "54+48 calculation",
+          "relative formula mass 102"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Check ionic charge balance, atom conservation and clear step-by-step reasoning.",
+        "steps": [
+          "balance ionic charges 2:3",
+          "Al2O3",
+          "54+48 calculation",
+          "relative formula mass 102"
+        ],
+        "commonError": "Changing chemical subscripts to balance equations, or leaving net ionic charge.",
+        "remember": "Formulae give simplest neutral atom/ion ratios; coefficients balance complete reactions."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    }
+  ]
+}

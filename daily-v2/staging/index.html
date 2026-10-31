@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+ <meta name="robots" content="noindex,nofollow">
+ <meta name="color-scheme" content="light">
+ <title>Scholar's Garden — Daily V2 Isolated QA</title>
+ <link rel="stylesheet" href="./qa.css">
+</head>
+<body>
+ <main class="page">
+  <header class="header">
+   <div class="eyebrow">LUX ET LABOR · THE SCHOLAR'S GARDEN</div>
+   <h1>Daily V2 · Independent QA</h1>
+   <p>This is a <strong>simulated staging test</strong>, not the learning app. Answers and scores here never affect student progress, XP, Home or any real topic.</p>
+  </header>
+  <section class="controls panel" aria-label="Staging controls">
+   <div>
+    <label for="scenario">Simulated bank</label>
+    <select id="scenario">
+      <option value="ready">Complete: all 10 tasks / 163 items</option>
+      <option value="missing-gcse">One shortage: 9 tasks / 160 items</option>
+    </select>
+   </div>
+   <button id="initialize" type="button" class="primary">Create / resume QA day</button>
+   <button id="simulateFailure" type="button" class="secondary">Fail next save once</button>
+   <button id="refreshView" type="button" class="secondary">Read saved state</button>
+   <button id="reset" type="button" class="danger">Clear QA-only database</button>
+  </section>
+  <div id="notice" role="status" aria-live="polite" class="notice">No student data is used. Select a scenario and create a test plan.</div>
+  <section class="panel" aria-label="Verified progress">
+   <div class="section-head"><h2>Verified progress</h2><span id="planStatus" class="pill">Not started</span></div>
+   <div class="figures">
+    <div><strong id="credits">0 / 163</strong><small>Persisted question credits</small></div>
+    <div><strong id="tasksDone">0 / 10</strong><small>Tasks completed</small></div>
+    <div><strong id="unavailable">0</strong><small>Unavailable tasks</small></div>
+   </div>
+   <p id="fullDay" class="muted">Full-day reward not eligible.</p>
+  </section>
+  <section class="panel" aria-label="Daily tasks">
+   <h2>Ten task records</h2>
+   <p class="muted">A shortage is never marked complete, never earns XP and never changes the required full-day target of 163.</p>
+   <div id="taskGrid" class="task-grid" aria-live="polite"></div>
+  </section>
+  <section class="panel quiz" id="practice" aria-label="QA practice">
+   <div class="section-head"><h2 id="taskTitle">Practice</h2><span id="taskProgress" class="pill"></span></div>
+   <div id="questionArea" class="muted">Choose an available task to test its score and storage.</div>
+   <form id="answerForm" hidden>
+    <p id="questionText" class="question"></p>
+    <label id="answerLabel" for="answer">Simulated answer — type QA_OK to count as correct</label>
+    <input id="answer" autocapitalize="off" autocomplete="off" spellcheck="false">
+    <label id="markLabel" for="marks" hidden>Simulated GCSE points awarded</label>
+    <select id="marks" hidden></select>
+    <button type="submit" id="submitAnswer" class="primary">Save test answer</button>
+    <p class="muted">A wrong answer may be retried. This panel tests persistence, not genuine answer marking.</p>
+   </form>
+  </section>
+  <footer>
+   Staging namespace only: <code>scholar-daily-v2-staging-ui-*</code>.
+   A passing simulated run cannot establish real iPad Safari reliability or curriculum accuracy.
+  </footer>
+ </main>
+ <script type="module" src="./qa.js"></script>
+</body>
+</html>
