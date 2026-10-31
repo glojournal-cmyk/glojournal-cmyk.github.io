@@ -3,6 +3,7 @@ import {readBackup,putBackup,migrateOldBackups,PREVIOUS_KEY,MANUAL_KEY,BEFORE_KE
 import { C as store } from "/assets/index-BLVOhKhN.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1&mpverify=20261030-save-retry3-modeguard2";
 import { assertFullProgressBackup } from "./full-progress-backup-guard-20261023.js";
 import {includePetWalletBackup,inspectPetWalletBackup,restorePetWalletBackup} from "./pet-wallet-backup-20261030.js";
+import {auditBackupFile} from "./backup-file-audit-20261031.js";
 import {prepareLatest30DayExport} from "./latest-30-day-export-20261023.js?v=1";
 import {assessImport,mergeImportProgress} from "./backup-import-safety-20261023.js";
 import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261023-preserve-ten1";
@@ -391,9 +392,12 @@ function mount() {
     <div class="daily-save-actions"><button id="daily-save-button" type="button">Save progress & backup</button>
 <button id="daily-share-button" type="button">Share backup (optional)</button>
 <button id="daily-import-file-button" type="button">Import JSON from Files</button>
+<button id="daily-verify-file-button" type="button">Verify downloaded JSON (read-only)</button>
+<input id="daily-verify-file" type="file" accept="application/json,.json" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none" aria-label="Select downloaded Scholar JSON to verify">
 <input id="daily-backup-file" type="file" accept="application/json,.json" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none" aria-label="Choose Scholar Garden JSON backup">
 </div>
     <p class="daily-save-note">Directly exports your current progress to Files without first using iPad website storage. Always verify the JSON file in Files.</p>
+    <p id="daily-verify-result" role="status" aria-live="polite" style="white-space:pre-wrap"></p>
     <details id="daily-recovery-options"><summary>Backup history & restore</summary>
       <p class="daily-save-note">Preview a copy before restoring. Files kept in Files or iCloud Drive can recover progress after browser data is cleared.</p>
       <div class="daily-backup-copy"><button id="daily-before-restore" type="button">Preview progress before last restore</button><p id="daily-before-restore-info"></p></div>
@@ -452,6 +456,22 @@ function mount() {
   refreshCopies();
   panel.querySelector('#daily-recovery-options').addEventListener('toggle',refreshCopies);
   panel.querySelector('#daily-import-file-button').addEventListener('click',()=>panel.querySelector('#daily-backup-file').click());
+  panel.querySelector('#daily-verify-file-button').addEventListener('click',()=>panel.querySelector('#daily-verify-file').click());
+  panel.querySelector('#daily-verify-file').addEventListener('change',async event=>{
+    const file=event.target.files?.[0];event.target.value='';
+    if(!file)return;
+    const result=panel.querySelector('#daily-verify-result');
+    try{
+      const audit=auditBackupFile(await file.text(),localStorage);
+      result.textContent='File: '+file.name+'\n'+audit.message+'\n'+
+        audit.facts.map(([key,value])=>key+': '+value).join('\n')+'\nNo progress has been imported or changed.';
+      result.dataset.tone=audit.status==='complete'||audit.status==='pet-diagnostic'?'success':'error';
+    }catch(error){
+      result.textContent='Verification unavailable: '+(error?.message||String(error))+
+        '. Nothing was imported or changed.';
+      result.dataset.tone='error';
+    }
+  });
   panel.querySelector('#daily-restore-apply').addEventListener('click',()=>{if(selectedRestore)restore(selectedRestore.data,selectedRestore.name)});
   panel.querySelector('#daily-restore-cancel').addEventListener('click',()=>{
     selectedRestore=null;pendingExternalSafety=null;externalSafetyOffered=false;
