@@ -211,6 +211,12 @@ export function planDailyV2(input={}) {
   const count=new Map();
   for(const pair of known.keys()){const concept=pair.slice(0,pair.lastIndexOf('|'));count.set(concept,(count.get(concept)||0)+1);}
   const creditedToday=new Set(priorAttempts.filter(a=>a?.persisted===true&&a.day===day&&a.taskId===task.id&&a.correct===true).map(a=>a.conceptId));
+  // A correct lexical concept cannot reappear the very next day, even
+  // as a reverse-direction question or a different source question ID.
+  // If there are no other qualified concepts, block rather than pad 30.
+  const yesterdayCorrect=new Set(past.filter(a=>a.taskId===task.id&&
+    a.correct===true&&isId(a.conceptId)&&daySpan(day,a.day)===1)
+    .map(a=>a.conceptId));
   const vocabQ=questions.filter(q=>q.roles.includes(task.id)&&!q.roles.includes('gcse')&&q.subject===task.subject&&!assigned.has(q.id));
   const chosen=[];const conceptUse=new Set();
   // Only independently verified *taught* Year 9 questions survive
@@ -224,6 +230,7 @@ export function planDailyV2(input={}) {
    const groups=new Map();
    for(const q of vocabQ){
     if(!isId(q.conceptId)||creditedToday.has(q.conceptId)||
+       yesterdayCorrect.has(q.conceptId)||
        (year===8?q.year===9:q.year!==9))continue;
     if(!groups.has(q.conceptId))groups.set(q.conceptId,[]);
     groups.get(q.conceptId).push(q);
@@ -246,6 +253,9 @@ export function planDailyV2(input={}) {
     if(collisions>0)fail(task,'VOCAB_VARIANT_COLLISION',{year,needed:quota,filled,collisions});
    }
   }
+  if(chosen.length<30&&yesterdayCorrect.size>0)
+   fail(task,'VOCAB_SPACING_CAPACITY_SHORTAGE',{required:30,available:chosen.length,
+     yesterdayCorrectConcepts:yesterdayCorrect.size});
   if(chosen.length===30){take(chosen);taskById.set(task.id,packageTask(task,chosen,null,{
    year7to8:chosen.filter(q=>q.year!==9).length,year9:chosen.filter(q=>q.year===9).length
   }));}
