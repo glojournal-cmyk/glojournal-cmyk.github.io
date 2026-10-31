@@ -69,7 +69,7 @@ Pure `ledger.js` now supports optional `potentialLegacyKeys`, `potentialKeysVeri
 
 
 ## Standalone QA interface (latest 2026-10-26)
-- `staging/index.html` is a separate **non-deployed** browser QA app, not part of the student's Home/Study/Recovery routes.
+- `staging/qa.html` is a separate **non-deployed** browser QA app, not part of the student's Home/Study/Recovery routes.
 - `staging/qa-controller.js` uses frozen V2 plans, persisted readback and the single-source Home projection.
 - `staging/qa-fixture.js` supplies fake 163-question or fake 160/163 shortage scenarios. No real learning answers, XP or student history are involved.
 - `staging/README.md` describes how a developer can serve/check the feature branch over HTTP.
