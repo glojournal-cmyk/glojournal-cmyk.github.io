@@ -20,8 +20,16 @@ const MIN_AUTO_INTERVAL_MS = 15000, QUOTA_RETRY_MS = 600000;
 function backupSignature(data) {
  try {
   const parsed = JSON.parse(data);
-  // exportProgress adds a timestamp on every call, even without a state change.
+  // Both timestamps are regenerated every time the iPad makes a 30-day
+  // manifest, even if no learning, pet, reward or recovery data changed.
+  // They are audit metadata, not saved progress: including them causes a
+  // fresh IndexedDB write for every autosave and can exhaust Safari quota.
+  // Preserve ALL other fields, including manifest dates/statuses, XP, wallet,
+  // unlocks, Daily ledgers, games, outfits and recovery receipt evidence.
   delete parsed.exportedAt;
+  if(parsed.recent30Days && typeof parsed.recent30Days==="object" &&
+     !Array.isArray(parsed.recent30Days))
+    delete parsed.recent30Days.capturedAt;
   return JSON.stringify(parsed);
  } catch { return String(data || ""); }
 }
