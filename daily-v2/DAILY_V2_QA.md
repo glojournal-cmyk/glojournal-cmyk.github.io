@@ -71,7 +71,7 @@
 - Curriculum review queue 9/9 tests; real 8 topic sample 438 source items, 67 advanced-format/difficulty review candidates, zero independently approved Mastery questions.
 
 ## Independent staging QA UI (2026-10-26)
-- `staging/index.html` + `staging/qa.js` demonstrate simulated full plan and one-missing-GCSE partial plan, with a visually explicit 0..163 counter, separate 0..10 tasks-completed counter, unavailable task descriptions, and full-day XP ineligibility for partial days.
+- `staging/qa.html` + `staging/qa.js` demonstrate simulated full plan and one-missing-GCSE partial plan, with a visually explicit 0..163 counter, separate 0..10 tasks-completed counter, unavailable task descriptions, and full-day XP ineligibility for partial days.
 - Browser UI uses only `scholar-daily-v2-staging-ui-ready` or `scholar-daily-v2-staging-ui-missing-gcse` and never reads original App storage or legacy profile. It uses actual V2 IndexedDB CAS module but browser behavior hasn't been verified on a device.
 - Bad answer does not earn a credit; a simulated write failure returns an error and the same eventId is retried; browser reload should re-read frozen day/ledger. 3 marked GCSE questions allow 5/6 marks, tracked separately.
 - Controller regression 11/11 in V8 harness; old suites freshly rerun 158/158 = total **169/169** isolated logic checks. Static HTML IDs/import references/syntax checked; NO live Safari/browser smoke test yet.
