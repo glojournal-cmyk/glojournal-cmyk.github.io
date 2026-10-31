@@ -112,14 +112,19 @@ export function planDailyV2(input={}) {
  const past=priorAttempts.filter(a=>a?.persisted===true && isId(a.questionId) && validDay(a.day) && a.day<day);
  const previousCorrect=new Set([...correctQuestionIds,
   ...past.filter(a=>a.correct===true).map(a=>a.questionId)]);
- // A previously correct GCSE item (or a new ID with its old wording) is not
- // a fresh exam question. Retention is the explicit pathway for revisits.
+ // Previously correct source wording cannot re-enter Standard, Mastery,
+ // Year 9 or GCSE as "new" merely because someone renamed its question ID.
+ // Vocab has its separately permitted concept-level spaced rotation, while
+ // Retention is the explicit route for reviewing genuinely old questions.
+ const previousCorrectPrompts=new Set(questions.filter(q=>previousCorrect.has(q.id))
+  .map(q=>q._promptKey).filter(Boolean));
  const previousExamPrompts=new Set(questions.filter(q=>previousCorrect.has(q.id)&&q.roles.includes('gcse'))
   .map(q=>q._promptKey).filter(Boolean));
  const assigned=new Set(),assignedPrompts=new Set(),taskRows=[];
  const diagnostics=[...errors];const usedTopics=new Set();
  const allowed=q=>!assigned.has(q.id)&&!previousCorrect.has(q.id)&&
-   (!q._promptKey||!assignedPrompts.has(q._promptKey));
+   (!q._promptKey||(!assignedPrompts.has(q._promptKey)&&
+     !previousCorrectPrompts.has(q._promptKey)));
  const take=rows=>{for(const q of rows){assigned.add(q.id);if(q._promptKey)assignedPrompts.add(q._promptKey);}};
  const fail=(task,code,detail={})=>diagnostics.push({taskId:task.id,code,...detail});
  const get=type=>DAILY_V2_TASKS.find(t=>t.id===type);
