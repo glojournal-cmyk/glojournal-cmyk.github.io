@@ -27,7 +27,7 @@ if(!runtimeVersion)failures.push({type:"root-runtime-unversioned"});
 const standaloneShells=new Set(["study/maths/index.html","study/maths/learn/index.html","study/maths/practise/index.html","study/maths/progress/index.html","assessment/latin-oct17/practice/index.html","progress/weekly/index.html","pet/index.html","assessment/index.html","assessment/biology-cell-structure/index.html","assessment/biology-nov2/practice/index.html","preview/index.html","study/biology/school-notes/index.html","notes/index.html","study/exam-practice/index.html","rescue.html","emergency-backup.html","cloud-backup.html","encrypted-backup-restore.html","import-progress.html","restore-snow-owl.html","restore-snow-owl-level.html","mp-reallocation.html","saving-audit.html","content/practice-guides/french-future-tense.html"]);
 const files=walk(root);
 const fileSet=new Set(files.map(rel));
-const html=files.filter(p=>p.endsWith(".html"));
+// This exact V2 test fixture is deliberately NOT a production app shell.\n// Check it separately in daily-v2/tests/staging-route-isolation.test.js.\n// Do not broaden this exception to any live Home, Study or Pet route.\nconst html=files.filter(p=>p.endsWith(".html")&&rel(p)!=="daily-v2/staging/qa.html");
 const js=files.filter(p=>rel(p).startsWith("assets/")&&p.endsWith(".js"));
 
 for(const file of html){
