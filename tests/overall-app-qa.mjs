@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import {execFileSync} from "node:child_process";
 
 const root=process.cwd();
 const failures=[];
@@ -30,7 +31,14 @@ const fileSet=new Set(files.map(rel));
 // This exact V2 test fixture is deliberately NOT a production app shell.
 // Check it separately in daily-v2/tests/staging-route-isolation.test.js.
 // Do not broaden this exception to any live Home, Study or Pet route.
-const html=files.filter(p=>p.endsWith(".html")&&rel(p)!=="daily-v2/staging/qa.html");
+// Only committed pages can be deployed. Tests can generate untracked
+// temporary HTML during the full-site QA run; do not classify them as
+// production app entrypoints or allow them to mask missing tracked assets.
+const trackedFiles=new Set(execFileSync("git",["ls-files","-z"],{
+  cwd:root,encoding:"utf8"
+}).split("\0").filter(Boolean));
+const html=files.filter(p=>p.endsWith(".html")&&trackedFiles.has(rel(p))&&
+  rel(p)!=="daily-v2/staging/qa.html");
 const js=files.filter(p=>rel(p).startsWith("assets/")&&p.endsWith(".js"));
 
 for(const file of html){
