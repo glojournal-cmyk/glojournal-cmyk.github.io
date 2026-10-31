@@ -274,8 +274,12 @@ export function planDailyV2(input={}) {
   // A reverse translation may have a different question ID while testing
   // exactly the same lexical concept. Use the most recent persisted date
   // for the concept, scoped to its language, not the oldest source ID.
-  if(isId(a.conceptId)){
-   const key=conceptScope(source,a.conceptId);
+  // The certified source question is authoritative for its concept ID.
+  // Some older persisted attempts lack a conceptId even though their
+  // question ID unambiguously identifies one in the audited bank.
+  const eventConcept=isId(source.conceptId)?source.conceptId:a.conceptId;
+  if(isId(eventConcept)){
+   const key=conceptScope(source,eventConcept);
    const previous=lastConceptDay.get(key);
    if(!previous||previous<a.day)lastConceptDay.set(key,a.day);
   }
