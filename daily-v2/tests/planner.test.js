@@ -296,6 +296,54 @@ test('globally invalid duplicate question IDs withhold ALL continuity candidates
  assert.deepEqual(result.eligibleTasks,[]);
 });
 
+test('previously correct Mastery prompt cannot regain fresh credit under a new question ID',()=>{
+ const f=fixture(),old=f.questionBank.find(q=>q.id==='m-0-application-0');
+ f.questionBank.push({...old,id:'m-0-application-copy'});
+ f.priorAttempts.push({eventId:'mastery-correct',day:'2026-10-24',
+  taskId:'mastery-a',questionId:old.id,correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(d=>d.code==='MASTERY_BANK_OR_DEPTH_SHORTAGE'),JSON.stringify(r.diagnostics));
+});
+test('previously correct Standard prompt cannot regain fresh credit via a relabelled ID',()=>{
+ const f=fixture(),old=f.questionBank.find(q=>q.id==='latin-grammar-0');
+ f.questionBank.push({...old,id:'latin-grammar-copy'});
+ f.priorAttempts.push({eventId:'standard-correct',day:'2026-10-24',
+  taskId:'latin-standard',questionId:old.id,correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(d=>d.taskId==='latin-standard'&&
+   d.code==='STANDARD_BANK_OR_SKILL_SHORTAGE'),JSON.stringify(r.diagnostics));
+});
+test('a genuinely different substitute Standard question remains eligible after a prior correct one',()=>{
+ const f=fixture(),old=f.questionBank.find(q=>q.id==='latin-grammar-0');
+ f.questionBank.push({...old,id:'latin-grammar-fresh',
+  prompt:'Entirely new grammar construction with independent meaning'});
+ f.priorAttempts.push({eventId:'standard-correct',day:'2026-10-24',
+  taskId:'latin-standard',questionId:old.id,correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ const task=r.tasks.find(t=>t.id==='latin-standard');
+ assert.ok(task.questionIds.includes('latin-grammar-fresh'));
+ assert.ok(!task.questionIds.includes(old.id));
+});
+test('previously correct Year 9 prompt cannot be recycled under a new source ID',()=>{
+ const f=fixture(),old=f.questionBank.find(q=>q.id==='y9-application-0');
+ f.questionBank.push({...old,id:'y9-application-copy'});
+ f.priorAttempts.push({eventId:'year9-correct',day:'2026-10-24',
+  taskId:'year9-progressive',questionId:old.id,correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(d=>d.code==='YEAR9_PROGRESSIVE_BANK_OR_DEPTH_SHORTAGE'));
+});
+test('wrong old Standard answers remain eligible for a genuine retry',()=>{
+ const f=fixture();
+ f.priorAttempts.push({eventId:'standard-wrong',day:'2026-10-24',
+  taskId:'latin-standard',questionId:'latin-grammar-0',correct:false,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ assert.ok(r.tasks.find(t=>t.id==='latin-standard').questionIds.includes('latin-grammar-0'));
+});
 test('previously correct GCSE ID is not served as a fresh exam question',()=>{
  const f=fixture();
  f.priorAttempts.push({eventId:'exam-yesterday',day:'2026-10-25',
