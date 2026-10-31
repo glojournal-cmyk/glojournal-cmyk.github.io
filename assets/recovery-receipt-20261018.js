@@ -97,7 +97,7 @@ export function listRecoveryReceipts() {
 }
 
 // Monotonic: receipts can complete a saved task, never erase one.
-export function applyRecoveryReceipts(dailyLog) {
+export function applyRecoveryReceipts(dailyLog, recoveryVocabByDay = {}) {
   const base = dailyLog && typeof dailyLog === "object" ? dailyLog : {};
   let log = base;
   for (const receipt of listRecoveryReceipts()) {
@@ -108,20 +108,49 @@ export function applyRecoveryReceipts(dailyLog) {
     const target = Math.max(1, Number(task.target) || 1);
     const vocab = VOCAB.has(receipt.taskId);
     const gameOrGarden=receipt.taskId==="play-game"||receipt.taskId==="tend-garden";
-    const count = vocab||gameOrGarden
-      ? receipt.questionIds.length
-      : receipt.verifiedCorrect===true
-        ? new Set((receipt.correctQuestionIds||[]).map(id=>String(id).split("@")[0])).size
-        : 0;
-    if(!count)continue;
+    // Historical vocab receipts contain question IDs (sometimes including
+    // wrong answers) and alone cannot prove the 48h +5 correct-concept fee.
+    // Only a dated, source-matched Recovery ledger can authorise completing
+    // a Vocab task; preserve previously completed historical day records.
+    const proof = vocab ? recoveryVocabByDay?.[receipt.date]?.[receipt.taskId.slice(0,-6)] : null;
+    if(vocab && (!proof || task.done===true))continue;
+    // An interrupted old restore may have left a "recovered" badge on a
+    // task that was never marked done. A dated, incomplete 35-correct ledger
+    // must also clear that misleading badge, even when progress is unchanged.
+    const staleVocabMarker = vocab && proof?.completed !== true && task.done !== true &&
+      (task.recovered === true || task.recoveredFromReceipt === true);
+    const concepts = proof?.conceptByQuestion || {};
+    const count = vocab
+      ? new Set(Object.keys(proof.items||{}).filter(id=>proof.items[id]===true)
+        .map(id=>concepts[id]||id)).size
+      : gameOrGarden
+        ? receipt.questionIds.length
+        : receipt.verifiedCorrect===true
+          ? new Set((receipt.correctQuestionIds||[]).map(id=>String(id).split("@")[0])).size
+          : 0;
+    if(!count && !proof?.completed && !staleVocabMarker)continue;
     const current = Number(task.progress) || 0;
-    const baseline = receipt.baseline != null && Number.isFinite(Number(receipt.baseline))
-      ? Math.max(0,Number(receipt.baseline)) : (vocab ? current : 0);
-    const progress = Math.min(target,Math.max(current,baseline+count));
-    if (progress <= current && (task.done || progress < target)) continue;
-    const tasks = row.tasks.map((item) => item.id === receipt.taskId
-      ? { ...item, progress, done: progress >= target, ...(progress >= target ? { recovered: true, recoveredFromReceipt: true } : {}) }
-      : item);
+    const baseline = vocab
+      ? Math.max(0,Math.min(target,Number(proof.originalCount)||0))
+      : receipt.baseline != null && Number.isFinite(Number(receipt.baseline))
+        ? Math.max(0,Number(receipt.baseline)) : 0;
+    const progress = vocab
+      ? proof.completed===true ? target
+        : Math.min(target-1,Math.max(current,baseline+count))
+      : Math.min(target,Math.max(current,baseline+count));
+    const undoPrematureUnsignedCredit=vocab && proof.completed!==true &&
+      task.done!==true && current>=target && progress<target;
+    if (!undoPrematureUnsignedCredit && !staleVocabMarker && progress <= current &&
+        (task.done || progress < target)) continue;
+    const tasks = row.tasks.map((item) => {
+      if (item.id !== receipt.taskId) return item;
+      if (staleVocabMarker) {
+        const { recovered, recoveredFromReceipt, ...pending } = item;
+        return { ...pending, progress, done: false };
+      }
+      return { ...item, progress, done: progress >= target,
+        ...(progress >= target ? { recovered: true, recoveredFromReceipt: true } : {}) };
+    });
     const done = tasks.filter((item) => item.done || Number(item.progress) >= Number(item.target)).length;
     log = {
       ...log,

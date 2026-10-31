@@ -75,19 +75,31 @@ assert.equal(applied[date].tasks[0].progress,10);
 assert.deepEqual(applied[next],finished,"a receipt cannot alter the next day");
 const words=Array.from({length:20},(_,i)=>"fr-word-"+i);
 assert.equal(receipts.saveRecoveryReceipt({date,taskId:"french-vocab",subject:"french",questionIds:words,baseline:10}),true);
-const vocab=receipts.applyRecoveryReceipts({
+const vocabLog={
  [date]:{date,done:0,total:2,complete:false,tasks:[
   original,{id:"french-vocab",target:30,progress:10,done:false}]},
- [next]:finished});
-assert.equal(vocab[date].tasks.find(t=>t.id==="french-vocab").progress,30);
-assert.equal(vocab[date].tasks.find(t=>t.id==="french-vocab").done,true);
+ [next]:finished};
+const frenchProof={ [date]:{french:{originalCount:10,totalNeeded:25,
+ items:Object.fromEntries(words.map(id=>[id,true])),completed:false}}};
+const vocab=receipts.applyRecoveryReceipts(vocabLog,frenchProof);
+assert.equal(vocab[date].tasks.find(t=>t.id==="french-vocab").progress,29);
+assert.equal(vocab[date].tasks.find(t=>t.id==="french-vocab").done,false,
+ "20 new correct words cannot bypass 30+5 Recovery condition");
+const completeProof={ [date]:{french:{originalCount:10,totalNeeded:25,
+ items:Object.fromEntries([...words,...Array.from({length:5},(_,i)=>"extra"+i)].map(id=>[id,true])),
+ completed:true}}};
+const completedVocab=receipts.applyRecoveryReceipts(vocabLog,completeProof);
+assert.equal(completedVocab[date].tasks.find(t=>t.id==="french-vocab").progress,30);
+assert.equal(completedVocab[date].tasks.find(t=>t.id==="french-vocab").done,true);
 assert.equal(vocab[date].tasks[0].done,true,"practice credit stays");
 assert.deepEqual(vocab[next],finished);
 const partial=receipts.applyRecoveryReceipts({
  [date]:{date,done:0,total:1,complete:false,tasks:[{id:"latin-vocab",target:30,progress:5,done:false}]}});
 assert.equal(receipts.saveRecoveryReceipt({date,taskId:"latin-vocab",questionIds:Array.from({length:10},(_,i)=>"la"+i),baseline:5}),true);
 const latin=receipts.applyRecoveryReceipts({
- [date]:{date,done:0,total:1,complete:false,tasks:[{id:"latin-vocab",target:30,progress:5,done:false}]}});
+ [date]:{date,done:0,total:1,complete:false,tasks:[{id:"latin-vocab",target:30,progress:5,done:false}]}},
+ { [date]:{latin:{originalCount:5,totalNeeded:30,
+ items:Object.fromEntries(Array.from({length:10},(_,i)=>["la"+i,true])),completed:false}}});
 assert.equal(latin[date].tasks[0].progress,15);
 assert.equal(latin[date].tasks[0].done,false,"ten new correct words do not finish a thirty-word task");
 assert.equal(partial[date].tasks[0].progress,5,"a vocab receipt is not applied before it exists");

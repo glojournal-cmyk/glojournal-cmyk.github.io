@@ -33,8 +33,15 @@ function recoveryPracticeSize(subject,params,state){
  const proof=state?.recoveryVocabByDay?.[date]?.[subject];
  const progress=globalThis.LuxRecoveryVocabSource?.(state,date,subject)?.task?.progress||0;
  const base=Math.max(0,Math.min(30,Number(proof?.originalCount??progress)||0));
- const correct=Object.values(proof?.items||{}).filter(Boolean).length;
- return Math.max(1,Math.min(30,30-base-correct));
+ const saved=Number(proof?.totalNeeded);
+ const lower=Math.max(1,30-base),upper=35-base;
+ // A new 48h Recovery requires 5 extra correct concepts, but a
+ // previously started frozen 30-answer session is grandfathered.
+ const needed=Number.isInteger(saved)&&saved>=lower&&saved<=upper?saved:upper;
+ const concepts=proof?.conceptByQuestion||{};
+ const correct=new Set(Object.keys(proof?.items||{}).filter(id=>proof.items[id])
+  .map(id=>concepts[id]||id)).size;
+ return Math.max(1,Math.min(35,needed-correct));
 }
 function qp(v){if(typeof v!=`string`||v.length<2||v[0]!==`"`||v.at(-1)!==`"`)return v;try{let n=JSON.parse(v);return typeof n==`string`||typeof n==`number`?String(n):v}catch{return v.slice(1,-1)}}function readParams(){let p=typeof window===`undefined`?new URLSearchParams():new URLSearchParams(window.location.search),g=p.get.bind(p);return p.get=k=>{let v=g(k);return v==null?v:qp(v)},p}function resolveDailyAssignment(subject,params,daily=[],history={}){
  const recover=params.get('recover');

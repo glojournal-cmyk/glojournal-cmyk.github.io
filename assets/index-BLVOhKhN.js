@@ -1774,8 +1774,17 @@ function normalizeState() {
       const proof = subjects?.[subject];
       if (!proof || typeof proof !== "object") continue;
       const originalCount = Math.max(0, Math.min(30, Number(proof.originalCount) || 0));
-      const needed = Math.max(1, 30 - originalCount);
-      const count = Object.values(proof.items || {}).filter(Boolean).length;
+      // Preserve a started legacy 30-question Recovery contract. For newly
+      // opened missed-day Recovery, require five EXTRA correct concepts.
+      // A stale/invalid saved quota must not reduce the original 30 target.
+      const oldNeeded = Number(proof.totalNeeded);
+      const minimum = Math.max(1, 30 - originalCount);
+      const maximum = 35 - originalCount;
+      const needed = Number.isInteger(oldNeeded) && oldNeeded >= minimum && oldNeeded <= maximum
+        ? oldNeeded : maximum;
+      const concepts = proof.conceptByQuestion || {};
+      const count = new Set(Object.keys(proof.items || {}).filter(id => proof.items[id])
+        .map(id => concepts[id] || id)).size;
       const completed = proof.completed === true || count >= needed;
       if (Number(proof.totalNeeded) === needed && proof.completed === completed) continue;
       if (updated === subjects) updated = { ...subjects };
@@ -1811,7 +1820,7 @@ function normalizeState() {
     {...stateForDaily,dailyLog:nextLog},getTopicCatalog);
   if(verifiedHistoricOct23)
     nextLog={...nextLog,"2026-10-23":verifiedHistoricOct23};
-  const receiptLog = applyRecoveryReceipts(nextLog);
+  const receiptLog = applyRecoveryReceipts(nextLog, stateForDaily.recoveryVocabByDay);
   // The 30-day record can retain three verified completions while a rebuilt
   // Home plan temporarily displays zero. Reuse only identical same-day
   // assignments; never create XP or replace correct-only answer evidence.
@@ -2386,8 +2395,17 @@ function patchedImportProgress(text) {
     ["lux-maths-study-v1", parsed?.mathsStudy],
     ["lux-maths-draft-v1", parsed?.mathsDrafts],
     ["lux-assessment-v1", parsed?.assessmentProgress],
-    [PET_REWARD_KEY, parsed?.petCompanion],
   ].filter(([, value]) => value != null);
+  // An old plain JSON may carry a Pet companion object, but it must NEVER
+  // overwrite an existing wallet (MP spent since backup, secret pets, levels).
+  // Modern combined JSONs carry a lossless petWalletBackup envelope that is
+  // restored separately, only AFTER the Scholar primary is verified durable.
+  if (parsed?.petWalletBackup === undefined && parsed?.petCompanion != null) {
+    let existingPet;
+    try { existingPet = localStorage.getItem(PET_REWARD_KEY); }
+    catch { return {ok:false,error:"Existing Pet wallet could not be read. Import blocked."}; }
+    if (existingPet === null) linked.push([PET_REWARD_KEY,parsed.petCompanion]);
+  }
   const original = new Map(), written = [];
   const rollback = () => {
     for (const key of written.reverse()) {
@@ -2417,7 +2435,7 @@ function patchedImportProgress(text) {
     rollback();
     return result;
   }
-  const pet = parsed?.petCompanion;
+  const pet = linked.some(([key])=>key===PET_REWARD_KEY) ? parsed?.petCompanion : null;
   if (pet && typeof pet === "object") {
     try {
       window.dispatchEvent(new CustomEvent("scholar:pet-changed", { detail: pet }));
@@ -2867,13 +2885,23 @@ function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, v
     const row = perDay[subject] || {};
     // Freeze the previous day's starting credit at the first Recovery answer.
     const originalCount = Math.max(0, Math.min(30, Number(row.originalCount ?? previous.progress) || 0));
-    // A recovered Vocab task fills the original 30-correct target; no +5 fee.
-    // Old persisted 35-answer thresholds are upgraded by normalizeState.
-    const totalNeeded = Math.max(1, 30 - originalCount);
+    // Five genuinely NEW correct vocab concepts are required after a
+    // missed-day Recovery (30 + 5), in addition to the frozen original credit.
+    // An existing partially answered 30-target legacy proof keeps its older
+    // already-started contract; never retroactively revoke old achievements.
+    const savedNeeded = Number(row.totalNeeded);
+    const lower = Math.max(1, 30 - originalCount);
+    const upper = 35 - originalCount;
+    const totalNeeded = Number.isInteger(savedNeeded) && savedNeeded >= lower && savedNeeded <= upper
+      ? savedNeeded : upper;
     const items = { ...(row.items || {}) };
+    const conceptByQuestion = { ...(row.conceptByQuestion || {}) };
+    if (typeof vocabConcept === "string" && vocabConcept) conceptByQuestion[String(questionId)] = vocabConcept;
     items[String(questionId)] = !!correct || !!items[String(questionId)];
-    const credited = Object.values(items).filter(Boolean).length;
-    perDay[subject] = { items, originalCount, totalNeeded, completed: credited >= totalNeeded, updatedAt: new Date().toISOString() };
+    const credited = new Set(Object.keys(items).filter(id => items[id])
+      .map(id => conceptByQuestion[id] || id)).size;
+    perDay[subject] = { ...row, items, conceptByQuestion, originalCount, totalNeeded,
+      completed: row.completed === true || credited >= totalNeeded, updatedAt: new Date().toISOString() };
     all[recover] = perDay;
     const correctIds = Object.keys(items).filter((id) => items[id]);
     if (correctIds.length) saveRecoveryReceipt({

@@ -21,11 +21,17 @@ assert.equal(saved.state.dailyTopicAttemptsByDay["2026-10-03"].latin,25);
 assert.equal(saved.state.dailyLog["2026-10-02"][0].progress,30);
 assert.equal(saved.mathsStudy.records["math-y9-indices-001"].attempts,2);
 assert.equal(saved.mathsDrafts["math-y9-indices-001"],"x² × x³ = x⁵");
-state={xp:0};localStorage.setItem("lux-assessment-v1","{}");localStorage.setItem("lux-pet-companion-v1","{}");localStorage.setItem("lux-maths-study-v1","{}");localStorage.setItem("lux-maths-draft-v1","{}");
+state={xp:0};localStorage.setItem("lux-assessment-v1","{}");// Simulate a clean reinstall: no wallet exists, so the legacy full JSON may restore it.
+data.delete("lux-pet-companion-v1");localStorage.setItem("lux-maths-study-v1","{}");localStorage.setItem("lux-maths-draft-v1","{}");
 assert.equal(api.importer(serialized).ok,true);
 assert.equal(state.dailyYear8FormalByDay["2026-10-03"].latin,25);
 assert.equal(JSON.parse(localStorage.getItem("lux-assessment-v1")).results[0].score,90);
 assert.equal(JSON.parse(localStorage.getItem("lux-pet-companion-v1")).masteryPoints,30);
+const activePet={species:"snow-owl",masteryPoints:99,petLevels:{"snow-owl":3},unlockedSecrets:{"snow-owl":true}};
+localStorage.setItem("lux-pet-companion-v1",JSON.stringify(activePet));
+assert.equal(api.importer(serialized).ok,true,"Study history still imports if an existing Pet wallet is different");
+assert.deepEqual(JSON.parse(localStorage.getItem("lux-pet-companion-v1")),activePet,
+  "a legacy Scholar backup MUST NOT replace existing Pet MP, evolution and secret owl");
 assert.equal(JSON.parse(localStorage.getItem("lux-maths-study-v1")).records["math-y9-indices-001"].correct,false);
 assert.equal(JSON.parse(localStorage.getItem("lux-maths-draft-v1"))["math-y9-indices-001"],"x² × x³ = x⁵");
 assert.equal(api.importer(JSON.stringify({...saved,mathsStudy:[]})).ok,false,"Array-shaped Maths data must be rejected");

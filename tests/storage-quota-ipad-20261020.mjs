@@ -35,7 +35,11 @@ try{
      const backup={savedAt:"2026-10-20T12:00:00Z",day:"2026-10-20",done:0,total:0,
       data:JSON.stringify({app:"lux-scholar-garden",state:{...original.state,notes:"b".repeat(700000)}})};
      localStorage.setItem(auto,JSON.stringify(backup,null,2));
-     localStorage.setItem("lux-pet-v1",'{"level":8}');
+     localStorage.setItem("lux-pet-companion-v1",JSON.stringify({
+      species:"snow-owl",masteryPoints:144,
+      petLevels:{"snow-owl":2,"moss-hornling":4},
+      unlockedSecrets:{"snow-owl":true},mpLedger:{"synthetic-topic":10}
+     }));
      localStorage.setItem("lux-assessment-v1",'{"score":28}');
      // Exhaust native Safari localStorage, then attempt a larger current save.
      for(let i=0;i<200;i++){try{localStorage.setItem("quota-fixture-"+i,"x".repeat(65536))}catch{break}}
@@ -66,7 +70,11 @@ try{
      assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem("lux-scholar-garden-v1")).state.xp),2862);
      assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem("lux-scholar-garden-v1")).state.reviews.q.stage),3);
     }
-    assert.equal(await page.evaluate(()=>localStorage.getItem("lux-pet-v1")),'{"level":8}');
+    assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem("lux-pet-companion-v1"))),{
+      species:"snow-owl",masteryPoints:144,
+      petLevels:{"snow-owl":2,"moss-hornling":4},
+      unlockedSecrets:{"snow-owl":true},mpLedger:{"synthetic-topic":10}
+    },"the actual Pet wallet, secret owl and MP must survive quota recovery");
     assert.equal(await page.evaluate(()=>localStorage.getItem("lux-assessment-v1")),'{"score":28}');
     assert.deepEqual(errors,[]);
     console.log("PASS Safari iPad "+width+" native quota "+(blocked?"vault failure":"verified recovery"));

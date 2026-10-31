@@ -26,7 +26,7 @@ const server=createServer((req,res)=>{
 await new Promise(r=>server.listen(0,"127.0.0.1",r));
 const base="http://127.0.0.1:"+server.address().port;
 try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch({headless:true});try{
- const page=await browser.newPage({viewport:{width:834,height:1112}}),errors=[];page.on('pageerror',e=>errors.push(e.message));async function visit(url){
+ let page=await browser.newPage({viewport:{width:834,height:1112}});const errors=[];page.on('pageerror',e=>errors.push(e.message));async function visit(url){
   await page.waitForLoadState('networkidle');
   await page.goto(url,{waitUntil:'networkidle'});
   // The current Garden Home intentionally overlays (and hides) the original
@@ -87,8 +87,14 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
   const {C:store}=await import([...document.scripts].find(s=>s.src.includes('/assets/index-BLVOhKhN.js')).src);
   const today=JSON.stringify(store.getState().daily);
   for(let i=0;i<30;i++)store.getState().recordDailyVocabAttempt('french','unopened-'+i,true);
-  return {row:store.getState().dailyLog[date],unchanged:today===JSON.stringify(store.getState().daily)};
+  const premature=store.getState().dailyLog[date]?.done||0;
+  const pending=store.getState().recoveryVocabByDay?.[date]?.french;
+  for(let i=30;i<35;i++)store.getState().recordDailyVocabAttempt('french','unopened-'+i,true);
+  return {row:store.getState().dailyLog[date],premature,pendingNeeded:pending?.totalNeeded,
+   unchanged:today===JSON.stringify(store.getState().daily)};
  },unopened);
+ assert.equal(restored.premature,0,'30/35 must not mark a missed day complete');
+ assert.equal(restored.pendingNeeded,35);
  assert.equal(restored.row.done,1);
  assert.equal(restored.row.total,10);
  assert.equal(restored.row.complete,false);
@@ -99,7 +105,20 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
   return store.getState().dailyLog[date];
  },unopened);
  assert.equal(persisted.tasks.find(t=>t.id==='french-vocab').recovered,true);
- const dates=await page.evaluate(async()=>{const {C:store,Ut:day}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);const today=day(),date=n=>new Date(Date.parse(today+'T12:00:00Z')-n*86400000).toISOString().slice(0,10),a=date(1),b=date(2);const logs={...store.getState().dailyLog};for(const d of [a,b])logs[d]={date:d,tasks:[{id:'french-vocab',target:30,progress:20},{id:'latin-vocab',target:30,progress:30}]};store.setState({dailyLog:logs,recoveryVocabByDay:{},recoveryAwarded:{}});return [a,b]});
+ // Start the two-date synthetic fixture in a FRESH browser context. The
+ // previous fixture just completed yesterday and durable state correctly
+ // refuses to forget completed work; resetting a few state fields on the same
+ // iPad session is not an independent test of a fresh missed day.
+ await page.close();
+ page=await browser.newPage({viewport:{width:834,height:1112}});
+ page.on('pageerror',e=>errors.push(e.message));
+ await visit(base+'/');await page.waitForFunction(()=>window.__luxAppReady===true);
+ const dates=await page.evaluate(async()=>{const {C:store,Ut:day}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);const today=day(),date=n=>new Date(Date.parse(today+'T12:00:00Z')-n*86400000).toISOString().slice(0,10),a=date(1),b=date(2);const logs={...store.getState().dailyLog};for(const d of [a,b])logs[d]={date:d,tasks:[{id:'french-vocab',target:30,progress:20},{id:'latin-vocab',target:30,progress:30}]};
+  // This is a NEW synthetic QA fixture: the prior test just completed a
+  // recovery on date(a). Remove only its local browser TEST receipt so the
+  // second fixture cannot inherit that unrelated completed evidence.
+  localStorage.removeItem('lux-recovery-receipts-v1');
+  store.setState({dailyLog:logs,recoveryVocabByDay:{},recoveryAwarded:{}});return [a,b]});
  // Open the current 30-day modal and exercise each historical date.
  await page.evaluate(()=>window.__luxOpenDailyRecord());
  await page.locator('.lux-record-sheet').waitFor({state:'visible'});
@@ -131,11 +150,16 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
   const result=await page.evaluate(async target=>{
    const {C:store}=await import([...document.scripts].find(x=>x.src.includes('/assets/index-BLVOhKhN.js')).src);
    const before=store.getState().daily.map(t=>[t.id,t.progress]);
-   for(let i=0;i<30;i++)store.getState().recordDailyVocabAttempt('french','recovery-'+target+'-'+i,true);
+   for(let i=0;i<14;i++)store.getState().recordDailyVocabAttempt('french','recovery-'+target+'-'+i,true);
+   const notYet=store.getState().dailyLog[target]?.tasks?.find(t=>t.id==='french-vocab')?.done===true;
+   store.getState().recordDailyVocabAttempt('french','recovery-'+target+'-14',true);
    const state=store.getState();
-   return {done:state.dailyLog[target]?.tasks?.find(t=>t.id==='french-vocab')?.done,
+   return {notYet,done:state.dailyLog[target]?.tasks?.find(t=>t.id==='french-vocab')?.done,
+     needed:state.recoveryVocabByDay[target]?.french?.totalNeeded,
      before,after:state.daily.map(t=>[t.id,t.progress])};
   },date);
+  assert.equal(result.notYet,false,'14 of 15 additional correct words must not complete Recovery');
+  assert.equal(result.needed,15);
   assert.equal(result.done,true,'recovered task must be credited to '+date);
   assert.deepEqual(result.after,result.before,'recovery must not award today');
  }
