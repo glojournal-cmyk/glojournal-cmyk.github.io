@@ -86,6 +86,42 @@ test('spaced retention admits only persisted previously attempted IDs',()=>{
  const r=planDailyV2(f);assert.equal(r.status,'blocked');
  assert.ok(r.diagnostics.some(x=>x.code==='INSUFFICIENT_PERSISTED_HISTORY'));
 });
+test('yesterday-correct or yesterday-wrong history never pads spaced retention to ten',()=>{
+ for(const correct of [true,false]){
+  const f=fixture();
+  f.priorAttempts[0].day='2026-10-25';
+  f.priorAttempts[0].correct=correct;
+  const r=planDailyV2(f);
+  assert.equal(r.status,'blocked');
+  assert.ok(r.diagnostics.some(x=>x.taskId==='spaced-retention'&&
+   x.code==='INSUFFICIENT_PERSISTED_HISTORY'&&x.available===9),JSON.stringify(r.diagnostics));
+  assert.equal(r.tasks.length,0,'not-due retention cannot silently become a full daily plan');
+ }
+});
+test('last saved attempt controls retention due date, not an older eligible attempt',()=>{
+ const f=fixture();
+ f.priorAttempts.push({eventId:'recent-retry',day:'2026-10-25',
+  taskId:'retention-attempt',questionId:'old-0',correct:false,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.taskId==='spaced-retention'&&x.available===9),
+  'an earlier due attempt must not bypass its more recent retry');
+});
+test('retention can use exactly two-day-old histories, but not yesterday if ten due exist',()=>{
+ const f=fixture();
+ f.priorAttempts[0].day='2026-10-24'; // precisely two days, valid
+ f.questionBank.push({id:'extra-recent',subject:'physics',year:8,
+  topicId:'retention-extra',status:'enabled',formal:true,
+  prompt:'Unique yesterday question',roles:['retention-source']});
+ f.priorAttempts.push({eventId:'recent',day:'2026-10-25',taskId:'historical',
+  questionId:'extra-recent',correct:false,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ const retention=r.tasks.find(t=>t.id==='spaced-retention');
+ assert.equal(retention.questions.length,10);
+ assert.ok(retention.questionIds.includes('old-0'));
+ assert.ok(!retention.questionIds.includes('extra-recent'));
+});
 test('same-day historical attempt cannot be used as spaced retention history',()=>{
  const f=fixture();f.priorAttempts[0].day=day;
  const r=planDailyV2(f);assert.equal(r.status,'blocked');
