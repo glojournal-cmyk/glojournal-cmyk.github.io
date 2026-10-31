@@ -93,9 +93,16 @@ test("standalone Import safety JSON includes original Pet wallet bytes, not just
  const start=source.indexOf("function collectSafetySnapshot(raw){");
  const end=source.indexOf("\nfunction previewDetails()",start);
  assert.ok(start>0&&end>start);
- const collect=new Function("localStorage","includePetWalletBackup",
+ const linked=[["practiceDrafts","lux-practice-drafts-v1"],
+   ["biologyPractice","scholar-biology-cell-practice-v1"],
+   ["topicLearning","lux-topic-learning-v1"],
+   ["mathsStudy","lux-maths-study-v1"],
+   ["mathsDrafts","lux-maths-draft-v1"],
+   ["assessmentProgress","lux-assessment-v1"],
+   ["petCompanion",PET_WALLET_KEY]];
+ const collect=new Function("localStorage","includePetWalletBackup","PAIRS",
   source.slice(start,end)+"\nreturn collectSafetySnapshot;")(
-   mockStorage(rawWallet),includePetWalletBackup);
+   mockStorage(rawWallet),includePetWalletBackup,linked);
  const data=JSON.parse(collect(JSON.stringify({state:full().state,version:10})));
  assert.equal(data.petWalletBackup.raw,rawWallet);
  assert.equal(data.petWalletBackup.storageKey,PET_WALLET_KEY);
