@@ -1,6 +1,6 @@
 import {assessImport, mergeImportProgress, latestStudyEvidence} from "./backup-import-safety-20261023.js";
 import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
-import {inspectPetWalletBackup,PET_WALLET_KEY} from "./pet-wallet-backup-20261030.js";
+import {includePetWalletBackup,inspectPetWalletBackup,PET_WALLET_KEY} from "./pet-wallet-backup-20261030.js";
 
 const KEY="lux-scholar-garden-v1";
 const PAIRS=[
@@ -186,14 +186,15 @@ function collectSafetySnapshot(raw){
       try{extra[field]=JSON.parse(value)}catch{extra[field+"Unparsed"]=value}
     }
   }
-  return JSON.stringify({
+  const safe=includePetWalletBackup({
     app:"lux-scholar-garden",
     version:10,
     exportedAt:new Date().toISOString(),
     safetyCopyFromDevice:true,
     state:native.state,
     ...extra
-  },null,2);
+  },localStorage);
+  return JSON.stringify(safe,null,2);
 }
 function previewDetails(){
   const saved=pending.state,live=currentData?.state||{};
