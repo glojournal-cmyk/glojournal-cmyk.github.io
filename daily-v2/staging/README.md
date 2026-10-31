@@ -3,7 +3,7 @@
 **NOT THE STUDENT APP.** No curriculum grading, real user profile, XP, legacy data, production storage, or main-branch deployment. This QA view is intentionally disconnected from all original Scholar's Garden UI.
 
 ## Source
-- \`staging/index.html\`: independent interface, accessible controls and status messages.
+- \`staging/qa.html\`: independent interface, accessible controls and status messages.
 - \`staging/qa.css\`: compact responsive interface (including iPad-style widths).
 - \`staging/qa.js\`: DOM bindings, injected one-write failure, persisted readback, input controls.
 - \`staging/qa-fixture.js\`: fully synthetic 163-question bank and seeded synthetic historical Retention.
