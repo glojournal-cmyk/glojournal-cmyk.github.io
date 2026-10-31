@@ -34,7 +34,10 @@ const fileSet=new Set(files.map(rel));
 // Only committed pages can be deployed. Tests can generate untracked
 // temporary HTML during the full-site QA run; do not classify them as
 // production app entrypoints or allow them to mask missing tracked assets.
-const trackedFiles=new Set(execFileSync("git",["ls-files","-z"],{
+// Git's INDEX may contain test-generated staged files. HEAD's committed
+// tree is the release source of truth, not a mutable index or workspace.
+const trackedFiles=new Set(execFileSync("git",
+  ["ls-tree","-r","-z","--name-only","HEAD"],{
   cwd:root,encoding:"utf8"
 }).split("\0").filter(Boolean));
 const html=files.filter(p=>p.endsWith(".html")&&trackedFiles.has(rel(p))&&
