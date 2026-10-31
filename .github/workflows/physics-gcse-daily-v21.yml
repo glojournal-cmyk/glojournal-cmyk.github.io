@@ -1,0 +1,30 @@
+name: Physics GCSE V2.1 Daily integration QA
+on:
+  pull_request:
+    paths:
+      - 'assets/physics-gcse-v21-daily-20261031.js'
+      - 'assets/study._subject.practise-D_PWgUd7.js'
+      - 'content/physics-gcse-mastery-v21/bank.json'
+      - 'tests/physics-gcse-daily-v21.test.mjs'
+      - '.github/workflows/physics-gcse-daily-v21.yml'
+  push:
+    branches:
+      - 'feat/physics-gcse-mastery-v21-20261031'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JS parsing
+        run: |
+          node --check assets/physics-gcse-v21-daily-20261031.js
+          node --check assets/study._subject.practise-D_PWgUd7.js
+      - name: Verify Physics old Daily bank and selection
+        run: node --test tests/physics-gcse-daily-v21.test.mjs
