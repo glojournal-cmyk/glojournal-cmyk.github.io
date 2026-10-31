@@ -61,8 +61,9 @@ export function auditDailyV2ReleaseCapacity(questionBank=[],taughtTopicIds=[]){
   certifiedQuestionCount:uniqueIds(questionBank),
   vocabulary,
   minimumFreshQuestionSupply:rows,
-  retention:{target:10,perThirtyDays:300,proven:false,
-   reason:'Requires at least 10 source-identifiable previously persisted learner attempts; real history is not read in CI.'},
+  retention:{target:10,perThirtyDays:300,
+   minimumDueSourceIdsForFirstTwoDays:20,minimumGapDays:2,proven:false,
+   reason:'Requires at least 20 distinct eligible historical question IDs due for initial two days (10 each, no next-day replay); real learner history, latest attempt dates, prompt collisions and actual further supply are not read in CI.'},
   floorsMet:vocabulary.every(v=>v.floorMet)&&rows.every(r=>r.floorMet),
   releaseReady:false,
   limitations:[
