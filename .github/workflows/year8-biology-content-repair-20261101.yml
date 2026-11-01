@@ -1,0 +1,27 @@
+name: Year 8 Biology content repair QA
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'content/catalog.json'
+      - 'content/topics/bio-y8-ber.json'
+      - 'content/topics/bio-y8-continuous-variation.json'
+      - 'content/topics/bio-y8-correlation.json'
+      - 'content/topics/bio-y8-mixed-exam.json'
+      - 'tests/year8-biology-content-repair-20261101.mjs'
+      - '.github/workflows/year8-biology-content-repair-20261101.yml'
+jobs:
+  source-preservation-and-marking:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: git fetch origin main --depth=1
+      - run: node --check tests/year8-biology-content-repair-20261101.mjs
+      - run: node tests/year8-biology-content-repair-20261101.mjs
