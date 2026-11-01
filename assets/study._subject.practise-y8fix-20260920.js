@@ -89,6 +89,7 @@ retryEffect=(0,w.useEffect)(()=>{
  return()=>{alive=false};
 },[retryKey,needRetryLookup]),
 safeU=selectUnfinishedDailyQuestions(selectDiverseRecoveryQuestions(fillDailyLockedQuestions(U,z,{locked:dailyLocked,mode:E,size:W,topicId:pinnedTopic,subject:e,
+ requireDistinctConcepts:dailyLocked&&N===8&&E===`mastery`&&canonicalTask!==`y8vocab`,
  correctIds:(()=>{const state=s.getState();const ids=dailyCorrectQuestionIds(state,{day:R,taskId:canonicalTask,subject:e,year:N,topicId:pinnedTopic});
  if(dailyLocked&&!dailyParams.has('recover')&&['standard','quick','mastery'].includes(E))
   for(const [id,count] of Object.entries(state.seenCorrect||{}))if(Number(count)>0)ids.add(String(id));
