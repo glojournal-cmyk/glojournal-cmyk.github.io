@@ -362,8 +362,12 @@ export function commitToStorage(payload,existingRaw,storage){
     // If primary write succeeded but verification failed, try to put the
     // original bytes back. The external safety JSON was required beforehand.
     try{
-      if(existingRaw==null)storage.removeItem(KEY);
-      else storage.setItem(KEY,existingRaw);
+      // Do not roll back over newer Scholar work saved by another tab.
+      const now=storage.getItem(KEY);
+      if(now===next){
+        if(existingRaw==null)storage.removeItem(KEY);
+        else storage.setItem(KEY,existingRaw);
+      }
     }catch{}
     undo();
     throw Error("Import not verified on this device: "+(error?.message||error)+
