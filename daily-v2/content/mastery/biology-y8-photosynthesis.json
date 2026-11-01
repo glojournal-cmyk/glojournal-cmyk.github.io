@@ -1,0 +1,897 @@
+{
+  "schemaVersion": "daily-v2-mastery-draft-1",
+  "subject": "biology",
+  "year": 8,
+  "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+  "title": "Mastery — photosynthesis and experimental evidence",
+  "status": "enabled",
+  "origin": "daily-v2-isolated-draft",
+  "curriculumReview": "pending-independent-review",
+  "taughtStatus": "not-verified-for-student",
+  "questions": [
+    {
+      "id": "bio-y8-v2mb-01",
+      "conceptId": "bio-y8-v2mb-concept-01",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "typed_short",
+      "prompt": "State the word equation for photosynthesis.",
+      "stimulus": {
+        "text": "Plants receive light, water and carbon dioxide."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Carbon dioxide + water → glucose + oxygen (in the presence of light and chlorophyll)."
+        ],
+        "modelAnswer": "Carbon dioxide + water → glucose + oxygen (in the presence of light and chlorophyll).",
+        "markPoints": [
+          "carbon dioxide and water react",
+          "glucose and oxygen formed",
+          "light required"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "carbon dioxide and water react",
+          "glucose and oxygen formed",
+          "light required"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-02",
+      "conceptId": "bio-y8-v2mb-concept-02",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "typed_short",
+      "prompt": "What is the role of chlorophyll in photosynthesis?",
+      "stimulus": {
+        "text": "A green leaf contains chloroplasts."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Chlorophyll absorbs light energy for photosynthesis."
+        ],
+        "modelAnswer": "Chlorophyll absorbs light energy for photosynthesis.",
+        "markPoints": [
+          "absorbs light energy",
+          "in chloroplasts"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "absorbs light energy",
+          "in chloroplasts"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-03",
+      "conceptId": "bio-y8-v2mb-concept-03",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "typed_short",
+      "prompt": "Explain why photosynthesis cannot continue at a normal rate in total darkness.",
+      "stimulus": {
+        "text": "A healthy plant is placed in darkness."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "There is no light energy to drive photosynthesis."
+        ],
+        "modelAnswer": "There is no light energy to drive photosynthesis.",
+        "markPoints": [
+          "light energy is required",
+          "rate drops greatly without light"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "light energy is required",
+          "rate drops greatly without light"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-04",
+      "conceptId": "bio-y8-v2mb-concept-04",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "typed_short",
+      "prompt": "State one use of glucose produced in a green plant.",
+      "stimulus": {
+        "text": "A leaf produces glucose during daylight."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Glucose can be used in respiration / converted to starch for storage / used to make cellulose."
+        ],
+        "modelAnswer": "Glucose can be used in respiration / converted to starch for storage / used to make cellulose.",
+        "markPoints": [
+          "one valid use of glucose"
+        ],
+        "totalMarks": 1,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "one valid use of glucose"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-05",
+      "conceptId": "bio-y8-v2mb-concept-05",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "calculation",
+      "prompt": "An aquatic plant makes 40 oxygen bubbles in 2 minutes. Calculate bubbles per minute and explain a limitation of this measure.",
+      "stimulus": {
+        "text": "40 counted bubbles in 120 seconds."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "20 bubbles per minute; bubbles can vary in size, so count is only an estimate of oxygen production."
+        ],
+        "modelAnswer": "20 bubbles per minute; bubbles can vary in size, so count is only an estimate of oxygen production.",
+        "markPoints": [
+          "40÷2=20 bubbles/min",
+          "oxygen bubbles indicate photosynthesis",
+          "bubble sizes vary"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "40÷2=20 bubbles/min",
+          "oxygen bubbles indicate photosynthesis",
+          "bubble sizes vary"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-06",
+      "conceptId": "bio-y8-v2mb-concept-06",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "mark_points",
+      "prompt": "Predict how photosynthesis rate changes when light intensity increases from low to moderate, with other factors plentiful.",
+      "stimulus": {
+        "text": "The plant has sufficient carbon dioxide, water and suitable temperature."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Rate rises because more light energy is available."
+        ],
+        "modelAnswer": "Rate rises because more light energy is available.",
+        "markPoints": [
+          "light availability increases",
+          "more light-dependent energy capture",
+          "rate rises if light limiting"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "light availability increases",
+          "more light-dependent energy capture",
+          "rate rises if light limiting"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-07",
+      "conceptId": "bio-y8-v2mb-concept-07",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "mark_points",
+      "prompt": "Explain why doubling light intensity may fail to double photosynthesis at very high intensity.",
+      "stimulus": {
+        "text": "Leaf receives plenty of light but little carbon dioxide."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "CO2 or temperature may be the limiting factor, so rate levels off."
+        ],
+        "modelAnswer": "CO2 or temperature may be the limiting factor, so rate levels off.",
+        "markPoints": [
+          "light may no longer limit",
+          "identify CO2 or temperature limiting",
+          "plateau despite extra light"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "light may no longer limit",
+          "identify CO2 or temperature limiting",
+          "plateau despite extra light"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-08",
+      "conceptId": "bio-y8-v2mb-concept-08",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "mark_points",
+      "prompt": "Explain why a plant needs stomata for photosynthesis and give one trade-off.",
+      "stimulus": {
+        "text": "Lower leaf surface has open stomata."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Stomata permit CO2 to enter; opening also allows water vapour to leave."
+        ],
+        "modelAnswer": "Stomata permit CO2 to enter; opening also allows water vapour to leave.",
+        "markPoints": [
+          "carbon dioxide diffuses in",
+          "water vapour lost by transpiration",
+          "trade-off described"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "carbon dioxide diffuses in",
+          "water vapour lost by transpiration",
+          "trade-off described"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-09",
+      "conceptId": "bio-y8-v2mb-concept-09",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "mark_points",
+      "prompt": "Predict the starch-test outcome after a green leaf is kept in darkness long enough to use stored starch, then explain.",
+      "stimulus": {
+        "text": "Destarched plant placed in darkness during test interval."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Iodine may stay orange-brown because insufficient new starch has been made without light."
+        ],
+        "modelAnswer": "Iodine may stay orange-brown because insufficient new starch has been made without light.",
+        "markPoints": [
+          "little/no photosynthesis in dark",
+          "little/no starch newly formed",
+          "iodine not blue-black"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "little/no photosynthesis in dark",
+          "little/no starch newly formed",
+          "iodine not blue-black"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-10",
+      "conceptId": "bio-y8-v2mb-concept-10",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "mark_points",
+      "prompt": "Explain why a variegated leaf may show a different starch-test colour in its white areas.",
+      "stimulus": {
+        "text": "Leaf has green and white patches, all receive the same light."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Green areas with chlorophyll can produce glucose/starch; white areas lacking chlorophyll generally cannot."
+        ],
+        "modelAnswer": "Green areas with chlorophyll can produce glucose/starch; white areas lacking chlorophyll generally cannot.",
+        "markPoints": [
+          "chlorophyll needed to capture light",
+          "green patches positive blue-black",
+          "white patches may remain orange-brown"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "chlorophyll needed to capture light",
+          "green patches positive blue-black",
+          "white patches may remain orange-brown"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-11",
+      "conceptId": "bio-y8-v2mb-concept-11",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "mark_points",
+      "prompt": "A student measures oxygen released by pondweed in identical conditions at distances of 10 and 20 cm from a lamp. Predict a trend and identify the independent variable.",
+      "stimulus": {
+        "text": "Lamp–pondweed distance changed; CO2 and temperature held constant."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Closer lamp generally raises light intensity and oxygen production, until another factor limits it."
+        ],
+        "modelAnswer": "Closer lamp generally raises light intensity and oxygen production, until another factor limits it.",
+        "markPoints": [
+          "independent variable lamp distance or light intensity",
+          "predict greater rate at 10 cm",
+          "control CO2 and temperature"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "independent variable lamp distance or light intensity",
+          "predict greater rate at 10 cm",
+          "control CO2 and temperature"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-12",
+      "conceptId": "bio-y8-v2mb-concept-12",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "mark_points",
+      "prompt": "Name the dependent variable and two controls for an investigation into CO2 concentration and photosynthesis.",
+      "stimulus": {
+        "text": "CO2 varied using different bicarbonate concentrations."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Rate of oxygen production is the dependent variable; control light intensity, temperature and pondweed size."
+        ],
+        "modelAnswer": "Rate of oxygen production is the dependent variable; control light intensity, temperature and pondweed size.",
+        "markPoints": [
+          "dependent oxygen production rate",
+          "at least two suitable controls",
+          "CO2 is independent variable"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "dependent oxygen production rate",
+          "at least two suitable controls",
+          "CO2 is independent variable"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-13",
+      "conceptId": "bio-y8-v2mb-concept-13",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "mark_points",
+      "prompt": "Explain why plants can gain mass even though most of a seedling's starting mass is very small.",
+      "stimulus": {
+        "text": "Seedling photosynthesises over weeks."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Carbon from atmospheric CO2 is fixed into sugars and other biomass; water also contributes to mass."
+        ],
+        "modelAnswer": "Carbon from atmospheric CO2 is fixed into sugars and other biomass; water also contributes to mass.",
+        "markPoints": [
+          "CO2 provides carbon",
+          "glucose synthesised",
+          "carbon compounds build plant biomass"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "CO2 provides carbon",
+          "glucose synthesised",
+          "carbon compounds build plant biomass"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-14",
+      "conceptId": "bio-y8-v2mb-concept-14",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "calculation",
+      "prompt": "Calculate mean bubble count when results are 18, 20 and 22 bubbles per minute and explain why repeats help.",
+      "stimulus": {
+        "text": "Three repeats: 18,20,22."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Mean 20 bubbles/min; repeats improve reliability and help spot anomalies."
+        ],
+        "modelAnswer": "Mean 20 bubbles/min; repeats improve reliability and help spot anomalies.",
+        "markPoints": [
+          "(18+20+22)/3 =20",
+          "correct unit",
+          "repeats reveal variation/anomalies"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "(18+20+22)/3 =20",
+          "correct unit",
+          "repeats reveal variation/anomalies"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-15",
+      "conceptId": "bio-y8-v2mb-concept-15",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "extended_response",
+      "prompt": "Design a safe practical to test the effect of light distance on pondweed photosynthesis. Identify rate measure, controlled variables and repeated readings.",
+      "stimulus": {
+        "text": "Pondweed, lamp, ruler, timer, thermometer, water and bicarbonate solution available."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Move lamp to measured distances; time oxygen output, ideally collect gas volume, and repeat with temperature, plant length and CO2 controlled."
+        ],
+        "modelAnswer": "Move lamp to measured distances; time oxygen output, ideally collect gas volume, and repeat with temperature, plant length and CO2 controlled.",
+        "markPoints": [
+          "distance/light is independent variable",
+          "oxygen volume/time as dependent",
+          "temperature, CO2, plant size controlled",
+          "repeats and suitable safety precautions"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "distance/light is independent variable",
+          "oxygen volume/time as dependent",
+          "temperature, CO2, plant size controlled",
+          "repeats and suitable safety precautions"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-16",
+      "conceptId": "bio-y8-v2mb-concept-16",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "extended_response",
+      "prompt": "Explain why bubble counts may mislead when comparing rates at two temperatures even if the experiment is repeated.",
+      "stimulus": {
+        "text": "Pondweed gives 30 small bubbles/min at one temperature, 25 large bubbles/min at another."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Different bubble size means bubble count may not equal oxygen volume; compare collected gas volume per unit time instead."
+        ],
+        "modelAnswer": "Different bubble size means bubble count may not equal oxygen volume; compare collected gas volume per unit time instead.",
+        "markPoints": [
+          "bubble number not volume",
+          "bubble sizes can vary",
+          "measure oxygen volume over fixed time",
+          "keep CO2/light controlled"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "bubble number not volume",
+          "bubble sizes can vary",
+          "measure oxygen volume over fixed time",
+          "keep CO2/light controlled"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-17",
+      "conceptId": "bio-y8-v2mb-concept-17",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "extended_response",
+      "prompt": "An illuminated plant is put into low-CO2 air. Predict changes in glucose production and explain why increasing light cannot fully restore the rate.",
+      "stimulus": {
+        "text": "Light stays high, CO2 is decreased; water and temperature remain suitable."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Photosynthesis slows because CO2 is a reactant; more light cannot compensate while CO2 limits."
+        ],
+        "modelAnswer": "Photosynthesis slows because CO2 is a reactant; more light cannot compensate while CO2 limits.",
+        "markPoints": [
+          "CO2 is photosynthesis reactant",
+          "low CO2 restricts carbon fixation",
+          "glucose production falls",
+          "light is not the limiting factor"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "CO2 is photosynthesis reactant",
+          "low CO2 restricts carbon fixation",
+          "glucose production falls",
+          "light is not the limiting factor"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-18",
+      "conceptId": "bio-y8-v2mb-concept-18",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "extended_response",
+      "prompt": "A pupil says 'plants only respire at night because photosynthesis supplies their energy during the day'. Critically correct the idea.",
+      "stimulus": {
+        "text": "Green plant in light and dark periods."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Plants respire continuously to release usable energy; photosynthesis makes glucose only when light is available."
+        ],
+        "modelAnswer": "Plants respire continuously to release usable energy; photosynthesis makes glucose only when light is available.",
+        "markPoints": [
+          "respiration occurs day and night",
+          "photosynthesis needs light",
+          "glucose produced can fuel respiration",
+          "different purposes of processes"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "respiration occurs day and night",
+          "photosynthesis needs light",
+          "glucose produced can fuel respiration",
+          "different purposes of processes"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-19",
+      "conceptId": "bio-y8-v2mb-concept-19",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "extended_response",
+      "prompt": "Evaluate why a laboratory investigation with different-coloured light might be unfair, even if each light is on for 10 minutes.",
+      "stimulus": {
+        "text": "Red lamp and blue lamp differ in brightness and heat output."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Wavelength is not the only variable: intensity, temperature and distance could differ; match photon intensity or comparable light levels and control temperature."
+        ],
+        "modelAnswer": "Wavelength is not the only variable: intensity, temperature and distance could differ; match photon intensity or comparable light levels and control temperature.",
+        "markPoints": [
+          "light wavelength/colour is intended independent variable",
+          "brightness/intensity can confound",
+          "heat/temperature can confound",
+          "propose valid controls and repeats"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "light wavelength/colour is intended independent variable",
+          "brightness/intensity can confound",
+          "heat/temperature can confound",
+          "propose valid controls and repeats"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "bio-y8-v2mb-20",
+      "conceptId": "bio-y8-v2mb-concept-20",
+      "topicId": "bio-y8-v2-mastery-photosynthesis-investigation",
+      "topic": "Mastery — photosynthesis, limiting factors and practical evidence",
+      "format": "extended_response",
+      "prompt": "Plan a leaf starch test and explain the evidence for photosynthesis, including one safety precaution.",
+      "stimulus": {
+        "text": "A destarched plant is exposed to light, then sampled."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Boil leaf in water, remove chlorophyll with hot ethanol in a water bath, rinse and add iodine; blue-black signals starch. Ethanol must not be heated over naked flame."
+        ],
+        "modelAnswer": "Boil leaf in water, remove chlorophyll with hot ethanol in a water bath, rinse and add iodine; blue-black signals starch. Ethanol must not be heated over naked flame.",
+        "markPoints": [
+          "destarch and expose leaf to light",
+          "boil water and remove chlorophyll with hot ethanol in water bath",
+          "iodine blue-black indicates starch",
+          "ethanol flammability precaution"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish photosynthesis, respiration and limiting factors; name variables and evidence.",
+        "steps": [
+          "destarch and expose leaf to light",
+          "boil water and remove chlorophyll with hot ethanol in water bath",
+          "iodine blue-black indicates starch",
+          "ethanol flammability precaution"
+        ],
+        "commonError": "Assuming all increases in light produce proportional rate increases or confusing bubble number with oxygen volume.",
+        "remember": "Light, carbon dioxide and temperature can limit photosynthesis; practical controls matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    }
+  ]
+}

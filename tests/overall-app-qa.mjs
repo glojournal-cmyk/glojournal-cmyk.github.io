@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import {execFileSync} from "node:child_process";
 
 const root=process.cwd();
 const failures=[];
@@ -24,10 +25,23 @@ function forbid(source,label,token){if(source.includes(token)) failures.push({ty
 const rootSource=fs.readFileSync("index.html","utf8");
 const runtimeVersion=rootSource.match(/\/assets\/index-BLVOhKhN\.js\?v=([^"'<> ]+)/)?.[1];
 if(!runtimeVersion)failures.push({type:"root-runtime-unversioned"});
-const standaloneShells=new Set(["study/maths/index.html","study/maths/learn/index.html","study/maths/practise/index.html","study/maths/progress/index.html","assessment/latin-oct17/practice/index.html","progress/weekly/index.html","pet/index.html","assessment/index.html","assessment/biology-cell-structure/index.html","assessment/biology-nov2/practice/index.html","preview/index.html","study/biology/school-notes/index.html","study/physics/mastery/index.html","notes/index.html","study/exam-practice/index.html","rescue.html","emergency-backup.html","cloud-backup.html","encrypted-backup-restore.html","import-progress.html","restore-snow-owl.html","restore-snow-owl-level.html","mp-reallocation.html","saving-audit.html","content/practice-guides/french-future-tense.html"]);
+const standaloneShells=new Set(["study/physics/mastery/index.html","study/maths/index.html","study/maths/learn/index.html","study/maths/practise/index.html","study/maths/progress/index.html","assessment/latin-oct17/practice/index.html","progress/weekly/index.html","pet/index.html","assessment/index.html","assessment/biology-cell-structure/index.html","assessment/biology-nov2/practice/index.html","preview/index.html","study/biology/school-notes/index.html","notes/index.html","study/exam-practice/index.html","rescue.html","emergency-backup.html","cloud-backup.html","encrypted-backup-restore.html","import-progress.html","restore-snow-owl.html","restore-snow-owl-level.html","mp-reallocation.html","saving-audit.html","content/practice-guides/french-future-tense.html"]);
 const files=walk(root);
 const fileSet=new Set(files.map(rel));
-const html=files.filter(p=>p.endsWith(".html"));
+// This exact V2 test fixture is deliberately NOT a production app shell.
+// Check it separately in daily-v2/tests/staging-route-isolation.test.js.
+// Do not broaden this exception to any live Home, Study or Pet route.
+// Only committed pages can be deployed. Tests can generate untracked
+// temporary HTML during the full-site QA run; do not classify them as
+// production app entrypoints or allow them to mask missing tracked assets.
+// Git's INDEX may contain test-generated staged files. HEAD's committed
+// tree is the release source of truth, not a mutable index or workspace.
+const trackedFiles=new Set(execFileSync("git",
+  ["ls-tree","-r","-z","--name-only","HEAD"],{
+  cwd:root,encoding:"utf8"
+}).split("\0").filter(Boolean));
+const html=files.filter(p=>p.endsWith(".html")&&trackedFiles.has(rel(p))&&
+  rel(p)!=="daily-v2/staging/qa.html");
 const js=files.filter(p=>rel(p).startsWith("assets/")&&p.endsWith(".js"));
 
 for(const file of html){

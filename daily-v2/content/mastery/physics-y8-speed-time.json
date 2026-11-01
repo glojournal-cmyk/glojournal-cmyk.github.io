@@ -1,0 +1,909 @@
+{
+  "schemaVersion": "daily-v2-mastery-draft-1",
+  "subject": "physics",
+  "year": 8,
+  "topicId": "phys-y8-v2-mastery-speed-time",
+  "title": "Mastery — speed–time graphs and multi-stage motion",
+  "status": "enabled",
+  "origin": "daily-v2-isolated-draft",
+  "curriculumReview": "pending-independent-review",
+  "taughtStatus": "not-verified-for-student",
+  "questions": [
+    {
+      "id": "phys-y8-v2ma-01",
+      "conceptId": "phys-y8-v2ma-concept-01",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "typed_short",
+      "prompt": "A runner travels 150 m in 30 s at constant speed. Calculate speed including unit.",
+      "stimulus": {
+        "text": "Distance 150 m; time 30 s."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "5 m/s"
+        ],
+        "modelAnswer": "5 m/s",
+        "markPoints": [
+          "speed = distance ÷ time",
+          "150 ÷ 30 = 5 m/s"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "speed = distance ÷ time",
+          "150 ÷ 30 = 5 m/s"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-02",
+      "conceptId": "phys-y8-v2ma-concept-02",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "typed_short",
+      "prompt": "Explain the meaning of a horizontal line above zero on a speed–time graph.",
+      "stimulus": {
+        "text": "A line remains at 4 m/s from t=2 s to t=6 s."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Constant speed of 4 m/s."
+        ],
+        "modelAnswer": "Constant speed of 4 m/s.",
+        "markPoints": [
+          "speed is constant",
+          "4 m/s"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "speed is constant",
+          "4 m/s"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-03",
+      "conceptId": "phys-y8-v2ma-concept-03",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "typed_short",
+      "prompt": "What does the gradient of a speed–time graph represent?",
+      "stimulus": {
+        "text": "The graph's vertical axis is speed and horizontal axis is time."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Acceleration."
+        ],
+        "modelAnswer": "Acceleration.",
+        "markPoints": [
+          "gradient = change in speed ÷ change in time",
+          "represents acceleration"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "gradient = change in speed ÷ change in time",
+          "represents acceleration"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-04",
+      "conceptId": "phys-y8-v2ma-concept-04",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "typed_short",
+      "prompt": "Calculate the distance from a speed–time graph with a constant speed of 4 m/s for 5 s.",
+      "stimulus": {
+        "text": "Rectangle of height 4 m/s and width 5 s."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "20 m"
+        ],
+        "modelAnswer": "20 m",
+        "markPoints": [
+          "area under speed–time graph gives distance",
+          "4 × 5 = 20 m"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "area under speed–time graph gives distance",
+          "4 × 5 = 20 m"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-05",
+      "conceptId": "phys-y8-v2ma-concept-05",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "calculation",
+      "prompt": "A cyclist increases speed from 0 to 6 m/s in 3 s. Calculate acceleration and interpret the sign.",
+      "stimulus": {
+        "text": "Uniform speed increase in 3 s."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "2 m/s²; positive acceleration means speed increases."
+        ],
+        "modelAnswer": "2 m/s²; positive acceleration means speed increases.",
+        "markPoints": [
+          "6−0 m/s change",
+          "divide by 3 s",
+          "2 m/s² positive"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "6−0 m/s change",
+          "divide by 3 s",
+          "2 m/s² positive"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-06",
+      "conceptId": "phys-y8-v2ma-concept-06",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "calculation",
+      "prompt": "A car slows from 10 m/s to 4 m/s in 3 s. Calculate acceleration and state whether it is positive or negative.",
+      "stimulus": {
+        "text": "Constant deceleration over 3 s."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "−2 m/s²."
+        ],
+        "modelAnswer": "−2 m/s².",
+        "markPoints": [
+          "4−10=−6 m/s",
+          "divide by 3",
+          "−2 m/s² indicates slowing"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "4−10=−6 m/s",
+          "divide by 3",
+          "−2 m/s² indicates slowing"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-07",
+      "conceptId": "phys-y8-v2ma-concept-07",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "mark_points",
+      "prompt": "A student says a flat line at 3 m/s shows the object is stationary. Explain the misconception.",
+      "stimulus": {
+        "text": "Horizontal graph segment: speed=3 m/s from 0 to 8 s."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "It moves at a constant non-zero speed and covers 24 m in 8 s."
+        ],
+        "modelAnswer": "It moves at a constant non-zero speed and covers 24 m in 8 s.",
+        "markPoints": [
+          "horizontal means speed constant",
+          "3 m/s is not stationary",
+          "3×8=24 m"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "horizontal means speed constant",
+          "3 m/s is not stationary",
+          "3×8=24 m"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-08",
+      "conceptId": "phys-y8-v2ma-concept-08",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "calculation",
+      "prompt": "Calculate the distance from a straight-line speed rise from 0 to 8 m/s over 4 s.",
+      "stimulus": {
+        "text": "Triangle under graph, base 4 s and height 8 m/s."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "16 m."
+        ],
+        "modelAnswer": "16 m.",
+        "markPoints": [
+          "triangular area",
+          "0.5×4×8=16 m"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "triangular area",
+          "0.5×4×8=16 m"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-09",
+      "conceptId": "phys-y8-v2ma-concept-09",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "calculation",
+      "prompt": "A bus travels at 6 m/s for 3 seconds. Calculate distance from graph area.",
+      "stimulus": {
+        "text": "A horizontal segment at 6 m/s for 3 s."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "18 m."
+        ],
+        "modelAnswer": "18 m.",
+        "markPoints": [
+          "rectangle area speed × time",
+          "6×3=18 m"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "rectangle area speed × time",
+          "6×3=18 m"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-10",
+      "conceptId": "phys-y8-v2ma-concept-10",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "calculation",
+      "prompt": "Speed changes uniformly from 2 m/s to 8 m/s over 3 seconds. Calculate distance from trapezium area.",
+      "stimulus": {
+        "text": "Straight rising line, initial 2 m/s, final 8 m/s, width 3 s."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "15 m."
+        ],
+        "modelAnswer": "15 m.",
+        "markPoints": [
+          "average speed (2+8)/2 =5",
+          "5 × 3 =15 m"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "average speed (2+8)/2 =5",
+          "5 × 3 =15 m"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-11",
+      "conceptId": "phys-y8-v2ma-concept-11",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "mark_points",
+      "prompt": "Explain why a line sloping downwards on a nonnegative speed–time graph indicates deceleration, not travel backwards.",
+      "stimulus": {
+        "text": "Speed declines from 6 m/s to 2 m/s."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Speed is decreasing; speed alone does not specify direction."
+        ],
+        "modelAnswer": "Speed is decreasing; speed alone does not specify direction.",
+        "markPoints": [
+          "downward gradient means negative acceleration",
+          "speed remains nonnegative",
+          "direction cannot be inferred from speed–time alone"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "downward gradient means negative acceleration",
+          "speed remains nonnegative",
+          "direction cannot be inferred from speed–time alone"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-12",
+      "conceptId": "phys-y8-v2ma-concept-12",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "calculation",
+      "prompt": "Calculate total distance: speed increases 0 to 4 m/s in 2 s, then stays at 4 m/s for 3 s.",
+      "stimulus": {
+        "text": "Triangle followed by rectangle."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "16 m."
+        ],
+        "modelAnswer": "16 m.",
+        "markPoints": [
+          "triangle 0.5×2×4=4 m",
+          "rectangle 4×3=12 m",
+          "total 16 m"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "triangle 0.5×2×4=4 m",
+          "rectangle 4×3=12 m",
+          "total 16 m"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-13",
+      "conceptId": "phys-y8-v2ma-concept-13",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "calculation",
+      "prompt": "Find acceleration from a graph segment rising from 4 to 10 m/s over 2 s.",
+      "stimulus": {
+        "text": "Speed: 4 m/s to 10 m/s in 2 s."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "3 m/s²."
+        ],
+        "modelAnswer": "3 m/s².",
+        "markPoints": [
+          "change in speed 6 m/s",
+          "6÷2=3 m/s²"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "change in speed 6 m/s",
+          "6÷2=3 m/s²"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-14",
+      "conceptId": "phys-y8-v2ma-concept-14",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "mark_points",
+      "prompt": "Runner A moves at 4 m/s for 5 s; runner B accelerates uniformly from 0 to 8 m/s over 5 s. Compare distances.",
+      "stimulus": {
+        "text": "Graph A rectangle 4×5; graph B triangle 0.5×5×8."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Both travel 20 m."
+        ],
+        "modelAnswer": "Both travel 20 m.",
+        "markPoints": [
+          "A rectangle area 20 m",
+          "B triangle area 20 m",
+          "same distance despite different final speed"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "A rectangle area 20 m",
+          "B triangle area 20 m",
+          "same distance despite different final speed"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-15",
+      "conceptId": "phys-y8-v2ma-concept-15",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "extended_response",
+      "prompt": "An object accelerates 0 to 6 m/s in 3 s, travels at 6 m/s for 4 s, then slows uniformly to rest in 3 s. Calculate total distance and identify which phase covers most distance.",
+      "stimulus": {
+        "text": "Triangle, rectangle, triangle across 10 s."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "42 m total; constant-speed section covers 24 m."
+        ],
+        "modelAnswer": "42 m total; constant-speed section covers 24 m.",
+        "markPoints": [
+          "first triangle 9 m",
+          "middle rectangle 24 m",
+          "last triangle 9 m",
+          "total 42 m and middle phase greatest"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "first triangle 9 m",
+          "middle rectangle 24 m",
+          "last triangle 9 m",
+          "total 42 m and middle phase greatest"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-16",
+      "conceptId": "phys-y8-v2ma-concept-16",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "extended_response",
+      "prompt": "Two cars cover the same 20 m over 5 s: A has constant speed; B starts from rest and accelerates uniformly. Find A's speed and B's final speed, explaining with graph area.",
+      "stimulus": {
+        "text": "Total distance 20 m; duration 5 s for both."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "A: 4 m/s; B final: 8 m/s."
+        ],
+        "modelAnswer": "A: 4 m/s; B final: 8 m/s.",
+        "markPoints": [
+          "rectangle A speed=20/5=4 m/s",
+          "triangle B area=0.5×5×v",
+          "v=8 m/s",
+          "same distance different motion"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "rectangle A speed=20/5=4 m/s",
+          "triangle B area=0.5×5×v",
+          "v=8 m/s",
+          "same distance different motion"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-17",
+      "conceptId": "phys-y8-v2ma-concept-17",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "extended_response",
+      "prompt": "A driver speeds up 0 to 8 m/s uniformly in 4 s, then continues at 8 m/s for 5 s. Calculate distance, mean speed for 9 s and initial acceleration.",
+      "stimulus": {
+        "text": "Two graph regions: 0–4 s triangle; 4–9 s rectangle."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Distance 56 m; mean speed 56/9 ≈6.22 m/s; acceleration 2 m/s²."
+        ],
+        "modelAnswer": "Distance 56 m; mean speed 56/9 ≈6.22 m/s; acceleration 2 m/s².",
+        "markPoints": [
+          "triangle 16 m",
+          "rectangle 40 m, total 56 m",
+          "mean speed 56÷9 ≈6.22 m/s",
+          "acceleration 8÷4=2 m/s²"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "triangle 16 m",
+          "rectangle 40 m, total 56 m",
+          "mean speed 56÷9 ≈6.22 m/s",
+          "acceleration 8÷4=2 m/s²"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-18",
+      "conceptId": "phys-y8-v2ma-concept-18",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "extended_response",
+      "prompt": "A speed–time graph rises from 2 to 8 m/s over 3 s and then falls to 2 m/s over 3 s. Calculate total distance and compare the accelerations in both intervals.",
+      "stimulus": {
+        "text": "Straight rise then straight fall; two trapezia of equal width."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "30 m; acceleration +2 m/s² then −2 m/s²."
+        ],
+        "modelAnswer": "30 m; acceleration +2 m/s² then −2 m/s².",
+        "markPoints": [
+          "each trapezium 0.5×(2+8)×3=15 m",
+          "total 30 m",
+          "first acceleration (8−2)/3=+2",
+          "second (2−8)/3=−2"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "each trapezium 0.5×(2+8)×3=15 m",
+          "total 30 m",
+          "first acceleration (8−2)/3=+2",
+          "second (2−8)/3=−2"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-19",
+      "conceptId": "phys-y8-v2ma-concept-19",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "extended_response",
+      "prompt": "A student claims the highest point on a speed–time graph shows the greatest distance travelled. Explain the error using a counterexample.",
+      "stimulus": {
+        "text": "Vehicle A: 10 m/s for 1 s; vehicle B: 4 m/s for 5 s."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "A travels 10 m while B travels 20 m; distance comes from area, not graph height."
+        ],
+        "modelAnswer": "A travels 10 m while B travels 20 m; distance comes from area, not graph height.",
+        "markPoints": [
+          "graph height gives speed",
+          "distance = area under graph",
+          "A 10 m versus B 20 m",
+          "higher speed need not mean greater distance"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "graph height gives speed",
+          "distance = area under graph",
+          "A 10 m versus B 20 m",
+          "higher speed need not mean greater distance"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2ma-20",
+      "conceptId": "phys-y8-v2ma-concept-20",
+      "topicId": "phys-y8-v2-mastery-speed-time",
+      "topic": "Mastery — motion and speed–time graph reasoning",
+      "format": "extended_response",
+      "prompt": "Design a method to collect speed–time data for a trolley on a ramp, and explain two controls or sources of uncertainty. State how you would calculate acceleration.",
+      "stimulus": {
+        "text": "Trolley, ramp, light gates or motion sensor, metre rule available."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Measure speeds at known times using a calibrated sensor, plot speed against time, calculate gradient; keep start position/ramp angle fixed, repeat for reliable readings."
+        ],
+        "modelAnswer": "Measure speeds at known times using a calibrated sensor, plot speed against time, calculate gradient; keep start position/ramp angle fixed, repeat for reliable readings.",
+        "markPoints": [
+          "measurement of speed and times with suitable sensor",
+          "plot speed against time",
+          "gradient for acceleration with m/s²",
+          "controlled ramp angle/start conditions and repeat/uncertainty"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "unitsHint": "Show correct units for calculations."
+      },
+      "feedback": {
+        "short": "Use the graph gradient for acceleration, area under it for distance, and label all units.",
+        "steps": [
+          "measurement of speed and times with suitable sensor",
+          "plot speed against time",
+          "gradient for acceleration with m/s²",
+          "controlled ramp angle/start conditions and repeat/uncertainty"
+        ],
+        "commonError": "Using the speed–time gradient to calculate distance or confusing speed with direction.",
+        "remember": "Area under speed–time graph = distance; gradient = acceleration."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    }
+  ]
+}

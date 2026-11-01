@@ -1,0 +1,492 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {DAILY_V2_TASKS,planDailyV2} from '../src/planner.js';
+const day='2026-10-26';
+const marks=[1,2,3];
+function fixture(){
+ const bank=[],prior=[],taught=['la-y9-vocab','fr-y9-vocab','y9-cell-topic'];
+ const add=(id,subject,year,topicId,role,opts={})=>{
+  const q={id,subject,year,topicId,status:'enabled',formal:true,prompt:'PROMPT '+id,
+   roles:[role],...opts};bank.push(q);return q;
+ };
+ for(let n=0;n<2;n++){
+  const subject=n===0?'physics':'chemistry',topicId=n===0?'phys-mastery':'chem-mastery';
+  for(const [band,total] of [['foundation',4],['application',10],['challenge',6]]){
+   for(let i=0;i<total;i++)add('m-'+n+'-'+band+'-'+i,subject,8,topicId,'mastery',{depthBand:band});
+  }
+ }
+ for(const [lang,role,topic,parts] of [
+  ['latin','latin-standard','la-std',{grammar:4,translation:3,passage:3}],
+  ['french','french-standard','fr-std',{grammar:4,translation:3,writing:3}]]){
+  for(const [skill,total] of Object.entries(parts))
+   for(let i=0;i<total;i++)add(lang+'-'+skill+'-'+i,lang,8,topic,role,{skill});
+ }
+ for(let i=0;i<10;i++)add('science-'+i,'biology',8,'bio-std','science-standard',{depthBand:'application'});
+ for(const [band,total] of [['foundation',6],['application',11],['challenge',3]])
+  for(let i=0;i<total;i++)add('y9-'+band+'-'+i,'biology',9,'y9-cell-topic','year9-progressive',{depthBand:band});
+ for(const subject of ['latin','french']){
+  const t=subject==='latin'?'la':'fr';
+  for(let i=0;i<25;i++)add(t+'-v8-'+i,subject,8,t+'-vocab-y8',subject+'-vocab',{conceptId:t+'-y8-word-'+i});
+  for(let i=0;i<5;i++)add(t+'-v9-'+i,subject,9,t+'-y9-vocab',subject+'-vocab',{conceptId:t+'-y9-word-'+i});
+ }
+ for(let i=0;i<10;i++){
+  const q=add('old-'+i,'physics',8,'phys-revision','retention-source');
+  prior.push({eventId:'old-attempt-'+i,day:'2026-10-'+String(10+i).padStart(2,'0'),
+    taskId:'old-task',questionId:q.id,correct:i%2===0,persisted:true});
+ }
+ marks.forEach(m=>add('gcse-'+m,'biology',8,'bio-exam','gcse',{marks:m,markScheme:['markpoint']}));
+ return {day,questionBank:bank,priorAttempts:prior,taughtTopicIds:taught};
+}
+function kinds(plan){return new Map(plan.tasks.map(t=>[t.id,t]));}
+test('ready preflight publishes exactly ten tasks and 163 unique IDs',()=>{
+ const r=planDailyV2(fixture());assert.equal(r.status,'ready');assert.equal(r.target,163);
+ assert.equal(r.tasks.length,10);assert.equal(r.preflight.plannedQuestions,163);
+ assert.equal(new Set(r.tasks.flatMap(t=>t.questionIds)).size,163);
+ for(const {id,target} of DAILY_V2_TASKS)assert.equal(kinds(r).get(id).questionIds.length,target);
+});
+test('mastery meets band quota and is allocated on distinct topics',()=>{
+ const r=planDailyV2(fixture());const t=kinds(r);
+ assert.notEqual(t.get('mastery-a').topicId,t.get('mastery-b').topicId);
+ for(const id of ['mastery-a','mastery-b']){
+  const b=t.get(id).questions.map(q=>q.depthBand);
+  assert.equal(b.filter(x=>x==='foundation').length,4);
+  assert.equal(b.filter(x=>x==='application').length,10);
+  assert.equal(b.filter(x=>x==='challenge').length,6);
+ }
+});
+test('identical inputs produce identical plans',()=>{
+ const f=fixture();assert.deepEqual(planDailyV2(f),planDailyV2(f));
+});
+test('frozen ready plan is restored, never regenerated from changed bank',()=>{
+ const p=planDailyV2(fixture());
+ const r=planDailyV2({day,existingPlan:p,questionBank:[]});
+ assert.strictEqual(r,p);
+});
+test('frozen plan from a different date rejected',()=>{
+ const p=planDailyV2(fixture());
+ assert.throws(()=>planDailyV2({day:'2026-10-27',existingPlan:p}),/invalid frozen/);
+});
+test('one mastery topic only is blocked, not assigned to two 20-question tasks',()=>{
+ const f=fixture();f.questionBank=f.questionBank.filter(q=>q.topicId!=='chem-mastery');
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');assert.deepEqual(r.tasks,[]);
+ assert.ok(r.diagnostics.some(x=>x.code==='MASTERY_BANK_OR_DEPTH_SHORTAGE'));
+});
+test('loss of one challenge question blocks mastery, never substitutes MC',()=>{
+ const f=fixture();f.questionBank=f.questionBank.filter(q=>q.id!=='m-1-challenge-5');
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='MASTERY_BANK_OR_DEPTH_SHORTAGE'));
+});
+test('a Y9 topic not taught is blocked even when catalog says enabled',()=>{
+ const f=fixture();f.taughtTopicIds=[];
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='YEAR9_PROGRESSIVE_BANK_OR_DEPTH_SHORTAGE'));
+});
+test('spaced retention admits only persisted previously attempted IDs',()=>{
+ const f=fixture();f.priorAttempts[0].persisted=false;
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='INSUFFICIENT_PERSISTED_HISTORY'));
+});
+test('yesterday-correct or yesterday-wrong history never pads spaced retention to ten',()=>{
+ for(const correct of [true,false]){
+  const f=fixture();
+  f.priorAttempts[0].day='2026-10-25';
+  f.priorAttempts[0].correct=correct;
+  const r=planDailyV2(f);
+  assert.equal(r.status,'blocked');
+  assert.ok(r.diagnostics.some(x=>x.taskId==='spaced-retention'&&
+   x.code==='INSUFFICIENT_PERSISTED_HISTORY'&&x.available===9),JSON.stringify(r.diagnostics));
+  assert.equal(r.tasks.length,0,'not-due retention cannot silently become a full daily plan');
+ }
+});
+test('last saved attempt controls retention due date, not an older eligible attempt',()=>{
+ const f=fixture();
+ f.priorAttempts.push({eventId:'recent-retry',day:'2026-10-25',
+  taskId:'retention-attempt',questionId:'old-0',correct:false,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.taskId==='spaced-retention'&&x.available===9),
+  'an earlier due attempt must not bypass its more recent retry');
+});
+test('retention can use exactly two-day-old histories, but not yesterday if ten due exist',()=>{
+ const f=fixture();
+ f.priorAttempts[0].day='2026-10-24'; // precisely two days, valid
+ f.questionBank.push({id:'extra-recent',subject:'physics',year:8,
+  topicId:'retention-extra',status:'enabled',formal:true,
+  prompt:'Unique yesterday question',roles:['retention-source']});
+ f.priorAttempts.push({eventId:'recent',day:'2026-10-25',taskId:'historical',
+  questionId:'extra-recent',correct:false,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ const retention=r.tasks.find(t=>t.id==='spaced-retention');
+ assert.equal(retention.questions.length,10);
+ assert.ok(retention.questionIds.includes('old-0'));
+ assert.ok(!retention.questionIds.includes('extra-recent'));
+});
+test('recent reverse-direction vocabulary attempt makes an older synonymous Retention ID not due',()=>{
+ const f=fixture();
+ const original=f.questionBank.find(q=>q.id==='old-0');
+ original.conceptId='same-science-concept';
+ f.questionBank.push({...original,id:'old-0-reversed',
+  prompt:'Reverse direction of the older concept'});
+ f.priorAttempts.push({eventId:'reverse-yesterday',day:'2026-10-25',
+  taskId:'vocab-other',questionId:'old-0-reversed',
+  // Older receipts may omit conceptId; the audited question still binds it.
+  correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(d=>d.taskId==='spaced-retention'&&
+   d.code==='INSUFFICIENT_PERSISTED_HISTORY'&&d.available===9),
+   JSON.stringify(r.diagnostics));
+ assert.deepEqual(r.tasks,[]);
+});
+test('Retention counts independently due concepts, never alternate direction IDs as two credits',()=>{
+ const f=fixture(),original=f.questionBank.find(q=>q.id==='old-0');
+ original.conceptId='shared-original';
+ f.questionBank.push({...original,id:'old-0-direction-2',
+  prompt:'Distinct second direction for shared original'});
+ f.priorAttempts.push({eventId:'earlier-second-direction',day:'2026-10-16',
+  taskId:'different-practice',questionId:'old-0-direction-2',
+  conceptId:'shared-original',correct:false,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ const review=r.tasks.find(t=>t.id==='spaced-retention');
+ assert.equal(review.questionIds.length,10);
+ assert.equal(review.questions.filter(q=>q.conceptId==='shared-original').length,1);
+ assert.ok(review.questionIds.includes('old-1'));
+});
+test('Retention concept spacing is subject scoped: same spelling in two subjects is not the same concept',()=>{
+ const f=fixture(),original=f.questionBank.find(q=>q.id==='old-0');
+ original.conceptId='shared-spelling';
+ f.questionBank.push({id:'french-same-spelling',subject:'french',year:8,
+  topicId:'french-other',status:'enabled',formal:true,
+  prompt:'Unrelated French concept with same key',roles:['retention-source'],
+  conceptId:'shared-spelling'});
+ f.priorAttempts.push({eventId:'french-yesterday',day:'2026-10-25',
+  taskId:'french-standard',questionId:'french-same-spelling',
+  conceptId:'shared-spelling',correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ assert.ok(r.tasks.find(t=>t.id==='spaced-retention').questionIds.includes('old-0'));
+});
+test('same-day historical attempt cannot be used as spaced retention history',()=>{
+ const f=fixture();f.priorAttempts[0].day=day;
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+});
+test('full past vocab rounds cycle again when completed in previous dates',()=>{
+ const f=fixture();
+ const prior=f.questionBank.filter(q=>q.roles.includes('latin-vocab')||q.roles.includes('french-vocab'))
+   .map(q=>({day:'2026-10-24',taskId:q.subject+'-vocab',questionId:q.id,conceptId:q.conceptId,correct:true,persisted:true}));
+ f.priorAttempts.push(...prior);
+ const r=planDailyV2(f);assert.equal(r.status,'ready');
+ assert.equal(kinds(r).get('latin-vocab').questionIds.length,30);
+ assert.equal(kinds(r).get('french-vocab').questionIds.length,30);
+});
+test('same-day vocab concept credited is not silently assigned again',()=>{
+ const f=fixture();f.priorAttempts.push({day,taskId:'french-vocab',questionId:'fr-v8-0',conceptId:'fr-y8-word-0',correct:true,persisted:true});
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='VOCAB_CONCEPT_SHORTAGE'));
+});
+test('GCSE 1,2,3 mark items are distinct and carry marks metadata',()=>{
+ const r=planDailyV2(fixture());assert.equal(r.status,'ready');
+ assert.deepEqual(kinds(r).get('gcse-exam-skills').marks,[1,2,3]);
+});
+test('GCSE prompt matching ordinary question is disallowed, even with different ID',()=>{
+ const f=fixture();f.questionBank.find(q=>q.id==='gcse-2').prompt='PROMPT science-0';
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='EXCLUSIVE_EXAM_MARK_SHORTAGE'));
+});
+test('exam lacks mark scheme: reject bank as invalid',()=>{
+ const f=fixture();f.questionBank.find(q=>q.id==='gcse-3').markScheme=null;
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='GCSE_MISSING_MARK_SCHEME'));
+});
+test('duplicate question IDs are rejected, not counted twice',()=>{
+ const f=fixture();f.questionBank.push({...f.questionBank[0]});
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='INVALID_OR_DUPLICATE_QUESTION_ID'));
+});
+test('Latin grammar quota does not silently become multiple choice vocabulary',()=>{
+ const f=fixture();f.questionBank.find(q=>q.id==='latin-grammar-0').skill='vocabulary';
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='STANDARD_BANK_OR_SKILL_SHORTAGE'));
+});
+test('Y9 progresses from foundation to application to challenge',()=>{
+ const r=planDailyV2(fixture());const stages=kinds(r).get('year9-progressive').questions.map(x=>x.depthBand);
+ assert.deepEqual(stages.slice(0,6),Array(6).fill('foundation'));
+ assert.deepEqual(stages.slice(6,17),Array(11).fill('application'));
+ assert.deepEqual(stages.slice(17),Array(3).fill('challenge'));
+});
+test('history-only retention never credits exam questions even from old days',()=>{
+ const f=fixture();f.priorAttempts[0].questionId='gcse-1';
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='INSUFFICIENT_PERSISTED_HISTORY'));
+});
+test('regardless of insufficiency, no partial tasks are published',()=>{
+ const f=fixture();f.questionBank=f.questionBank.filter(q=>q.id!=='fr-v9-4');
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.equal(r.tasks.length,0);
+ assert.equal(r.preflight.unpublished,true);
+});
+
+test('duplicate prompts inside Mastery are rejected rather than filling 20 with repeated wording',()=>{
+ const f=fixture();const first=f.questionBank.find(q=>q.id==='m-0-application-0').prompt;
+ f.questionBank.find(q=>q.id==='m-0-application-1').prompt=first;
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='MASTERY_BANK_OR_DEPTH_SHORTAGE'));
+});
+test('science Standard requires ten distinct prompts as well as IDs',()=>{
+ const f=fixture();f.questionBank.find(q=>q.id==='science-1').prompt=f.questionBank.find(q=>q.id==='science-0').prompt;
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='STANDARD_BANK_OR_SKILL_SHORTAGE'));
+});
+test('historical retention requires ten distinct past question prompts',()=>{
+ const f=fixture();f.questionBank.find(q=>q.id==='old-1').prompt=f.questionBank.find(q=>q.id==='old-0').prompt;
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='INSUFFICIENT_PERSISTED_HISTORY'));
+});
+test('duplicated vocabulary prompts cannot fill two concepts in one day',()=>{
+ const f=fixture();f.questionBank.find(q=>q.id==='la-v8-1').prompt=f.questionBank.find(q=>q.id==='la-v8-0').prompt;
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='VOCAB_VARIANT_COLLISION'));
+});
+test('unused GCSE-labeled questions cannot leak into Science Standard',()=>{
+ const f=fixture();f.questionBank=f.questionBank.filter(q=>q.id!=='science-9');
+ f.questionBank.push({id:'gcse-other',subject:'biology',year:8,topicId:'bio-exam',status:'enabled',formal:true,
+   prompt:'GCSE unique other',roles:['gcse','science-standard'],marks:1,markScheme:['point']});
+ const r=planDailyV2(f);assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(x=>x.code==='STANDARD_BANK_OR_SKILL_SHORTAGE'));
+});
+
+test('Latin Standard may compose grammar, translation and passage from different taught topics',()=>{
+ const f=fixture();
+ for(const q of f.questionBank.filter(q=>q.roles.includes('latin-standard')))q.topicId='la-'+q.skill;
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready');
+ const latin=kinds(r).get('latin-standard');
+ assert.equal(latin.topicId,null);
+ assert.equal(latin.topicIds.length,3);
+ assert.equal(latin.questionIds.length,10);
+});
+test('French Standard may compose writing and translation across different taught topics',()=>{
+ const f=fixture();
+ for(const q of f.questionBank.filter(q=>q.roles.includes('french-standard')))q.topicId='fr-'+q.skill;
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready');
+ const french=kinds(r).get('french-standard');
+ assert.equal(french.topicId,null);
+ assert.equal(french.topicIds.length,3);
+ assert.equal(french.questionIds.length,10);
+});
+
+test('one short GCSE task preserves nine fully eligible tasks as staging-only continuity candidates',()=>{
+ const f=fixture();f.questionBank=f.questionBank.filter(q=>q.id!=='gcse-3');
+ const result=planDailyV2(f);
+ assert.equal(result.status,'blocked');
+ assert.deepEqual(result.tasks,[]);
+ assert.equal(result.eligibleTasks.length,9);
+ assert.equal(result.preflight.eligibleQuestionCount,160);
+ assert.equal(result.availability.find(a=>a.taskId==='gcse-exam-skills').state,'unavailable');
+ assert.ok(result.diagnostics.some(d=>d.taskId==='gcse-exam-skills'&&d.code==='EXCLUSIVE_EXAM_MARK_SHORTAGE'));
+});
+test('globally invalid duplicate question IDs withhold ALL continuity candidates',()=>{
+ const f=fixture();f.questionBank.push({...f.questionBank[0]});
+ const result=planDailyV2(f);
+ assert.equal(result.status,'blocked');
+ assert.equal(result.preflight.globallyUnsafe,true);
+ assert.deepEqual(result.eligibleTasks,[]);
+});
+
+test('previously correct Mastery prompt cannot regain fresh credit under a new question ID',()=>{
+ const f=fixture(),old=f.questionBank.find(q=>q.id==='m-0-application-0');
+ f.questionBank.push({...old,id:'m-0-application-copy'});
+ f.priorAttempts.push({eventId:'mastery-correct',day:'2026-10-24',
+  taskId:'mastery-a',questionId:old.id,correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(d=>d.code==='MASTERY_BANK_OR_DEPTH_SHORTAGE'),JSON.stringify(r.diagnostics));
+});
+test('previously correct Standard prompt cannot regain fresh credit via a relabelled ID',()=>{
+ const f=fixture(),old=f.questionBank.find(q=>q.id==='latin-grammar-0');
+ f.questionBank.push({...old,id:'latin-grammar-copy'});
+ f.priorAttempts.push({eventId:'standard-correct',day:'2026-10-24',
+  taskId:'latin-standard',questionId:old.id,correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(d=>d.taskId==='latin-standard'&&
+   d.code==='STANDARD_BANK_OR_SKILL_SHORTAGE'),JSON.stringify(r.diagnostics));
+});
+test('a genuinely different substitute Standard question remains eligible after a prior correct one',()=>{
+ const f=fixture(),old=f.questionBank.find(q=>q.id==='latin-grammar-0');
+ f.questionBank.push({...old,id:'latin-grammar-fresh',
+  prompt:'Entirely new grammar construction with independent meaning'});
+ f.priorAttempts.push({eventId:'standard-correct',day:'2026-10-24',
+  taskId:'latin-standard',questionId:old.id,correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ const task=r.tasks.find(t=>t.id==='latin-standard');
+ assert.ok(task.questionIds.includes('latin-grammar-fresh'));
+ assert.ok(!task.questionIds.includes(old.id));
+});
+test('previously correct Year 9 prompt cannot be recycled under a new source ID',()=>{
+ const f=fixture(),old=f.questionBank.find(q=>q.id==='y9-application-0');
+ f.questionBank.push({...old,id:'y9-application-copy'});
+ f.priorAttempts.push({eventId:'year9-correct',day:'2026-10-24',
+  taskId:'year9-progressive',questionId:old.id,correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(d=>d.code==='YEAR9_PROGRESSIVE_BANK_OR_DEPTH_SHORTAGE'));
+});
+test('wrong old Standard answers remain eligible for a genuine retry',()=>{
+ const f=fixture();
+ f.priorAttempts.push({eventId:'standard-wrong',day:'2026-10-24',
+  taskId:'latin-standard',questionId:'latin-grammar-0',correct:false,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ assert.ok(r.tasks.find(t=>t.id==='latin-standard').questionIds.includes('latin-grammar-0'));
+});
+test('previously correct GCSE ID is not served as a fresh exam question',()=>{
+ const f=fixture();
+ f.priorAttempts.push({eventId:'exam-yesterday',day:'2026-10-25',
+  taskId:'gcse-exam-skills',questionId:'gcse-2',correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(d=>d.code==='EXCLUSIVE_EXAM_MARK_SHORTAGE'&&d.marks===2));
+ assert.deepEqual(r.tasks,[]);
+});
+
+test('relabelled GCSE question with old correct wording is still excluded',()=>{
+ const f=fixture();
+ const old=f.questionBank.find(q=>q.id==='gcse-2');
+ f.questionBank.push({...old,id:'gcse-2-copy'});
+ f.priorAttempts.push({eventId:'exam-before',day:'2026-10-24',
+  taskId:'gcse-exam-skills',questionId:old.id,correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(d=>d.code==='EXCLUSIVE_EXAM_MARK_SHORTAGE'&&d.marks===2));
+});
+
+test('genuinely different GCSE question substitutes for a previously correct one',()=>{
+ const f=fixture();
+ const old=f.questionBank.find(q=>q.id==='gcse-2');
+ f.questionBank.push({...old,id:'gcse-2-fresh',prompt:'Explain two independent safeguards in a novel GCSE experiment.'});
+ f.priorAttempts.push({eventId:'exam-before',day:'2026-10-24',
+  taskId:'gcse-exam-skills',questionId:old.id,correct:true,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready');
+ assert.ok(kinds(r).get('gcse-exam-skills').questionIds.includes('gcse-2-fresh'));
+ assert.ok(!kinds(r).get('gcse-exam-skills').questionIds.includes('gcse-2'));
+});
+
+test('an incorrectly answered prior GCSE question remains eligible for retry',()=>{
+ const f=fixture();
+ f.priorAttempts.push({eventId:'exam-wrong',day:'2026-10-24',
+  taskId:'gcse-exam-skills',questionId:'gcse-2',correct:false,persisted:true});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready');
+ assert.ok(kinds(r).get('gcse-exam-skills').questionIds.includes('gcse-2'));
+});
+
+test('extra certified Y8 word backfills a colliding top-ranked vocabulary concept',()=>{
+ const f=fixture();
+ f.questionBank.push({id:'la-v8-extra',subject:'latin',year:8,topicId:'la-vocab-y8',
+  status:'enabled',formal:true,prompt:'Distinct supplemental Latin concept',roles:['latin-vocab'],
+  conceptId:'la-y8-word-extra'});
+ // Inspect the deterministic top 25 in a 26-concept pool, then force a
+ // collision between two of them. The 26th available concept must be used.
+ const original=planDailyV2(f);
+ assert.equal(original.status,'ready');
+ const initial=kinds(original).get('latin-vocab').questionIds.filter(id=>id.includes('-v8-'));
+ assert.equal(initial.length,25);
+ const a=f.questionBank.find(q=>q.id===initial[0]);
+ const b=f.questionBank.find(q=>q.id===initial[1]);
+ b.prompt=a.prompt;
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ const task=kinds(r).get('latin-vocab');
+ assert.equal(task.questionIds.length,30);
+ assert.equal(task.questions.filter(q=>q.year===8).length,25);
+ assert.equal(task.questions.filter(q=>q.year===9).length,5);
+ assert.equal(task.questionIds.includes(a.id)&&task.questionIds.includes(b.id),false);
+ assert.equal(new Set(task.questions.map(q=>q.conceptId)).size,30);
+});
+test('an alternative certified question variant rescues a colliding vocabulary concept',()=>{
+ const f=fixture();
+ const first=planDailyV2(f);
+ const initial=kinds(first).get('latin-vocab').questionIds.filter(id=>id.includes('-v8-'));
+ const a=f.questionBank.find(q=>q.id===initial[0]);
+ const b=f.questionBank.find(q=>q.id===initial[1]);
+ b.prompt=a.prompt;
+ f.questionBank.push({...b,id:'alternate-'+b.id,prompt:'Unique alternative for the same Latin concept'});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ const words=kinds(r).get('latin-vocab');
+ assert.ok(words.questionIds.includes('alternate-'+b.id));
+ assert.ok(!words.questionIds.includes(b.id));
+ assert.equal(new Set(words.questions.map(q=>q.conceptId)).size,30);
+});
+test('extra taught Y9 concept backfills colliding Year 9 vocabulary without leaking untaught topics',()=>{
+ const f=fixture();
+ f.questionBank.push({id:'fr-v9-extra',subject:'french',year:9,topicId:'fr-y9-vocab',
+  status:'enabled',formal:true,prompt:'Fresh taught Year 9 concept',roles:['french-vocab'],
+  conceptId:'fr-y9-word-extra'});
+ const baseline=planDailyV2(f);
+ assert.equal(baseline.status,'ready');
+ const initial=kinds(baseline).get('french-vocab').questionIds.filter(id=>id.includes('-v9-'));
+ assert.equal(initial.length,5);
+ const a=f.questionBank.find(q=>q.id===initial[0]);
+ const b=f.questionBank.find(q=>q.id===initial[1]);
+ b.prompt=a.prompt;
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ const vocab=kinds(r).get('french-vocab');
+ assert.equal(vocab.questions.filter(q=>q.year===9).length,5);
+ assert.equal(new Set(vocab.questions.map(q=>q.conceptId)).size,30);
+});
+
+test('Year 9 vocabulary stays locked when untaught; thirty independent Y7-8 words still form a full task',()=>{
+ const f=fixture();
+ f.taughtTopicIds=f.taughtTopicIds.filter(id=>!['la-y9-vocab','fr-y9-vocab'].includes(id));
+ for(const [prefix,subject] of [['la','latin'],['fr','french']])
+  for(let i=0;i<5;i++)f.questionBank.push({id:prefix+'-additional-y8-'+i,subject,
+   year:8,topicId:prefix+'-vocab-y8',status:'enabled',formal:true,
+   prompt:'Extra Year 8 '+prefix+' '+i,roles:[subject+'-vocab'],
+   conceptId:prefix+'-extra-word-'+i});
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ for(const id of ['latin-vocab','french-vocab']){
+  const task=kinds(r).get(id);
+  assert.equal(task.questions.length,30);
+  assert.equal(task.questions.filter(q=>q.year===9).length,0);
+  assert.equal(task.year7to8,30);
+  assert.equal(task.year9,0);
+  assert.equal(new Set(task.questions.map(q=>q.conceptId)).size,30);
+ }
+ assert.equal(kinds(r).get('year9-progressive').questions.length,20);
+});
+test('a partially taught Year 9 vocabulary bank fills the remaining 30 slots from certified Y7-8',()=>{
+ const f=fixture();
+ for(const [prefix,subject] of [['la','latin'],['fr','french']]){
+  f.questionBank=f.questionBank.filter(q=>!(q.id.startsWith(prefix+'-v9-')&&Number(q.id.slice(-1))>=2));
+  for(let i=0;i<3;i++)f.questionBank.push({id:prefix+'-extra-y8-'+i,subject,
+   year:8,topicId:prefix+'-vocab-y8',status:'enabled',formal:true,
+   prompt:'Certified extra '+prefix+' '+i,roles:[subject+'-vocab'],
+   conceptId:prefix+'-additional-y8-word-'+i});
+ }
+ const r=planDailyV2(f);
+ assert.equal(r.status,'ready',JSON.stringify(r.diagnostics));
+ for(const id of ['latin-vocab','french-vocab']){
+  const task=kinds(r).get(id);
+  assert.equal(task.year9,2);
+  assert.equal(task.year7to8,28);
+  assert.equal(task.questionIds.length,30);
+ }
+});
+test('no verified Y9 supply cannot be replaced by unavailable or duplicated Y7-8 words',()=>{
+ const f=fixture();
+ f.taughtTopicIds=f.taughtTopicIds.filter(x=>!['la-y9-vocab','fr-y9-vocab'].includes(x));
+ const r=planDailyV2(f);
+ assert.equal(r.status,'blocked');
+ assert.ok(r.diagnostics.some(d=>d.taskId==='latin-vocab'&&d.code==='VOCAB_CONCEPT_SHORTAGE'));
+ assert.ok(r.diagnostics.some(d=>d.taskId==='french-vocab'&&d.code==='VOCAB_CONCEPT_SHORTAGE'));
+ assert.equal(r.tasks.length,0);
+});
