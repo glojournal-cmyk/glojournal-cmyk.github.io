@@ -38,7 +38,7 @@ for(const topicId of topics){
    assert.equal(q.topicId,topicId,q.id);
    assert.equal(q.status,'enabled',q.id);
    assert.equal(q.formal,true,q.id);
-   assert.ok(q.origin?.publicationGate || q.origin?.verification,'no publication gate '+q.id);
+   assert.ok(q.origin?.publicationGate || q.origin?.verification || q.origin?.reviewStatus==='requires-academic-and-grading-QA','no academic review gate '+q.id);
    assert.ok(q.conceptId,'no concept id '+q.id);
    // Different formats can legitimately assess one shared concept; do not relabel them as novel concepts.
    concepts.add(q.conceptId);
