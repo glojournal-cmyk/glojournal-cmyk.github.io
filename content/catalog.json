@@ -3,8 +3,8 @@
   "buildDate": "2026-11-01",
   "totals": {
     "topics": 282,
-    "questions": 16609,
-    "enabled": 15480,
+    "questions": 16698,
+    "enabled": 15565,
     "preview": 266,
     "disabled": 863
   },
@@ -58,10 +58,10 @@
       "subject": "biology",
       "year": 8,
       "topics": 37,
-      "enabled": 1001,
+      "enabled": 1086,
       "preview": 0,
       "disabled": 0,
-      "questions": 1001
+      "questions": 1090
     },
     {
       "subject": "biology",
@@ -2781,16 +2781,16 @@
       "topicId": "bio-y8-ber",
       "title": "Basal energy requirement calculation",
       "status": "enabled",
-      "questions": 10,
-      "enabled": 10,
+      "questions": 25,
+      "enabled": 25,
       "preview": 0,
       "disabled": 0,
       "formats": {
         "mc_single": 2,
         "typed_exact": 2,
-        "mark_points": 3,
+        "mark_points": 7,
         "matching": 1,
-        "calculation": 2
+        "calculation": 13
       },
       "gated": false,
       "unitId": "biology-y8-u01",
@@ -2868,16 +2868,18 @@
       "topicId": "bio-y8-continuous-variation",
       "title": "Continuous variation and bell-shaped distributions",
       "status": "enabled",
-      "questions": 13,
-      "enabled": 13,
+      "questions": 26,
+      "enabled": 25,
       "preview": 0,
       "disabled": 0,
       "formats": {
         "mc_single": 4,
         "typed_exact": 3,
-        "mark_points": 4,
+        "mark_points": 9,
         "matching": 1,
-        "diagram_label": 1
+        "typed_short": 0,
+        "typed_equivalent": 7,
+        "calculation": 1
       },
       "gated": false,
       "unitId": "biology-y8-u01",
@@ -2890,17 +2892,18 @@
       "topicId": "bio-y8-correlation",
       "title": "Correlation: hand span and height",
       "status": "enabled",
-      "questions": 13,
-      "enabled": 13,
+      "questions": 26,
+      "enabled": 25,
       "preview": 0,
       "disabled": 0,
       "formats": {
         "mc_single": 3,
         "typed_exact": 3,
-        "mark_points": 4,
+        "mark_points": 10,
         "matching": 1,
         "unordered_set": 1,
-        "diagram_label": 1
+        "typed_short": 0,
+        "typed_equivalent": 7
       },
       "gated": false,
       "unitId": "biology-y8-u02",
@@ -3246,16 +3249,17 @@
       "topicId": "bio-y8-limiting-factors",
       "title": "Limiting factors and graphs",
       "status": "enabled",
-      "questions": 20,
-      "enabled": 20,
+      "questions": 37,
+      "enabled": 35,
       "preview": 0,
       "disabled": 0,
       "formats": {
         "mc_single": 5,
         "typed_exact": 5,
-        "mark_points": 7,
+        "mark_points": 16,
         "matching": 1,
-        "diagram_label": 2
+        "typed_equivalent": 4,
+        "calculation": 4
       },
       "gated": false,
       "unitId": "biology-y8-u04",
@@ -3311,17 +3315,18 @@
       "topicId": "bio-y8-nutrition-labels",
       "title": "Reading nutrition labels",
       "status": "enabled",
-      "questions": 16,
-      "enabled": 16,
+      "questions": 25,
+      "enabled": 25,
       "preview": 0,
       "disabled": 0,
       "formats": {
         "mc_single": 4,
         "typed_exact": 4,
-        "mark_points": 4,
+        "mark_points": 7,
         "matching": 1,
-        "calculation": 2,
-        "unordered_set": 1
+        "calculation": 6,
+        "unordered_set": 1,
+        "typed_equivalent": 2
       },
       "gated": false,
       "unitId": "biology-y8-u05",
@@ -3378,16 +3383,17 @@
       "topicId": "bio-y8-practical-conclusions",
       "title": "Practical methods and conclusions",
       "status": "enabled",
-      "questions": 16,
-      "enabled": 16,
+      "questions": 25,
+      "enabled": 25,
       "preview": 0,
       "disabled": 0,
       "formats": {
         "mc_single": 4,
         "typed_exact": 4,
-        "mark_points": 5,
+        "mark_points": 9,
         "matching": 2,
-        "sorting": 1
+        "sorting": 1,
+        "typed_equivalent": 5
       },
       "gated": false,
       "unitId": "biology-y8-u05",
@@ -5888,14 +5894,17 @@
       "topicId": "bio-y8-mixed-exam",
       "title": "Mixed exam practice",
       "status": "enabled",
-      "enabled": 12,
+      "enabled": 25,
       "preview": 0,
       "disabled": 0,
       "formats": {
-        "typed_exact": 12
+        "typed_exact": 12,
+        "typed_equivalent": 9,
+        "mark_points": 3,
+        "calculation": 1
       },
       "gated": false,
-      "questions": 12,
+      "questions": 25,
       "unitId": "biology-y8-review",
       "unitName": "Mixed Year 8 review",
       "diagramQuestions": 0
