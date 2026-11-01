@@ -10,6 +10,16 @@ on:
       - "assessment/index.html"
       - "assessment/aqa-science-practice-20261024.js"
       - "tests/aqa-science-deploy-20261024.mjs"
+  pull_request:
+    paths:
+      - "content/topics/phys-y9-p2.json"
+      - "content/topics/chem-y9-c4.json"
+      - "content/topics/bio-y9-b3.json"
+      - "content/catalog.json"
+      - "assessment/index.html"
+      - "assessment/aqa-science-practice-20261024.js"
+      - "tests/aqa-science-deploy-20261024.mjs"
+      - ".github/workflows/aqa-science-12-20261024.yml"
   workflow_dispatch:
 permissions:
   contents: read
