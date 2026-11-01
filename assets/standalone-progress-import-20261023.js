@@ -1,5 +1,6 @@
 import {assessImport, mergeImportProgress, latestStudyEvidence} from "./backup-import-safety-20261023.js";
 import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
+import {includePetWalletBackup,inspectPetWalletBackup,PET_WALLET_KEY} from "./pet-wallet-backup-20261030.js";
 
 const KEY="lux-scholar-garden-v1";
 const PAIRS=[
@@ -37,6 +38,7 @@ export function validatePlainBackup(raw){
   for(const [field] of PAIRS)
     if(payload[field]!=null && (typeof payload[field]!=="object" || Array.isArray(payload[field])))
       throw Error("Invalid "+field+" in backup; import has not started.");
+  inspectPetWalletBackup(payload,null); // validates lossless Pet wallet without touching this device
   return payload;
 }
 // An older device may have 18 Oct receipts not present in a later 20 Oct
@@ -121,32 +123,27 @@ export function nativeImportSnapshot(payload){
 }
 export function linkedAdditions(payload, storage){
   const entries=[];
+  const walletPlan=inspectPetWalletBackup(payload,storage);
+  // Modern full Scholar exports carry the actual Pet wallet as lossless raw
+  // bytes. Install only on a device with NO existing Pet wallet; never
+  // overwrite a newer/spent wallet, and never grant MP twice on re-import.
+  if(walletPlan.status==='install')
+    entries.push([PET_WALLET_KEY,payload.petWalletBackup.raw]);
   for(const [field,key] of PAIRS){
+    // Legacy petCompanion object is a different transport; do not apply it
+    // when a modern wallet envelope explicitly exists in the JSON.
+    if(field==='petCompanion'&&payload.petWalletBackup!==undefined)continue;
     if(payload[field]==null)continue;
     const existing=storage.getItem(key);
     if(existing==null){
       entries.push([key,JSON.stringify(payload[field])]);
       continue;
     }
-    // Pet state is stored separately from the Scholar progress JSON. A full
-    // import must restore earned secret-pet unlocks without replacing the
-    // active iPad's pet species, levels, care, bond, or other progress.
-    if(field!=="petCompanion")continue;
-    let live;
-    try{live=JSON.parse(existing)}catch{continue}
-    if(!live || typeof live!=="object" || Array.isArray(live))continue;
-    const incoming=payload[field];
-    const savedSecrets=incoming?.unlockedSecrets;
-    if(!savedSecrets || typeof savedSecrets!=="object" || Array.isArray(savedSecrets))continue;
-    const mergedSecrets={...(live.unlockedSecrets||{})};
-    let changed=false;
-    for(const id of ["snow-owl","night-spider"]){
-      if(savedSecrets[id]===true && mergedSecrets[id]!==true){
-        mergedSecrets[id]=true;
-        changed=true;
-      }
-    }
-    if(changed)entries.push([key,JSON.stringify({...live,unlockedSecrets:mergedSecrets})]);
+    // An existing independent wallet is never modified by a legacy
+    // Scholar import. Even merging only a "hidden unlock" would silently
+    // mutate real learner rewards, so protect its original bytes as-is.
+    // Any distinct missing rewards require explicit reconciliation later.
+    if(field==="petCompanion")continue;
   }
   return entries;
 }
@@ -189,14 +186,15 @@ function collectSafetySnapshot(raw){
       try{extra[field]=JSON.parse(value)}catch{extra[field+"Unparsed"]=value}
     }
   }
-  return JSON.stringify({
+  const safe=includePetWalletBackup({
     app:"lux-scholar-garden",
     version:10,
     exportedAt:new Date().toISOString(),
     safetyCopyFromDevice:true,
     state:native.state,
     ...extra
-  },null,2);
+  },localStorage);
+  return JSON.stringify(safe,null,2);
 }
 function previewDetails(){
   const saved=pending.state,live=currentData?.state||{};
@@ -204,6 +202,10 @@ function previewDetails(){
   reportLine(dl,"Backup file",pendingFileName);
   reportLine(dl,"Backup exported",pending.exportedAt||pending.savedAt||"Not recorded");
   reportLine(dl,"Backup XP",saved.xp);
+  const pet=inspectPetWalletBackup(pending,localStorage);
+  reportLine(dl,"Pet wallet in backup",pet.status==='install'?"Restorable on this device":
+    pet.status==='identical'?"Already identical":pet.status==='conflict'?"Existing different wallet protected":
+    pet.status==='legacy'?"Not included in legacy JSON":pet.status==='absent'?"Not included":pet.status);
   reportLine(dl,"Existing device XP",Number(live.xp)||0);
   reportLine(dl,"Backup daily tasks",saved.daily.length);
   reportLine(dl,"Existing daily tasks",Array.isArray(live.daily)?live.daily.length:0);
@@ -235,6 +237,8 @@ async function previewFile(){
     const warnings=[];
     if(plan.report.legacy)
       warnings.push("This is a legacy/partial file; it cannot supply dated records that were not exported.");
+    if(inspectPetWalletBackup(payload,localStorage).status==="conflict")
+      warnings.push("A different Pet wallet already exists on this iPad. The incoming MP/levels will NOT overwrite it. Export and review both wallets separately.");
     if(plan.report.newerOnDevice && !unsafeMerge)
       warnings.push("This device has newer study records. A verified protective MERGE is available: the existing progress and completion evidence are kept, and distinct evidence from this older file can be added. Download and check the device safety copy before continuing. Missing days not in either record cannot be recovered.");
     if(unsafeMerge)
@@ -308,6 +312,10 @@ export function commitToStorage(payload,existingRaw,storage){
     // drafts, pet progress, assessment data or other unrelated browser records.
     for(const [key,value] of additions){
       const previous=storage.getItem(key);
+      // Another Scholar/Pet tab may have created a wallet after preview
+      // and even after linkedAdditions planned the clean-device import.
+      // Never replace that newly saved MP, stages, unlocks, or ledger.
+      if(key===PET_WALLET_KEY&&previous!==null)continue;
       staged.push([key,previous]);
       storage.setItem(key,value);
       if(storage.getItem(key)!==value)throw Error("Could not verify linked "+key);

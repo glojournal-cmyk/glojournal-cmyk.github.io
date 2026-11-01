@@ -6,6 +6,7 @@ import {readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20
 import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
 import {rebuildDatedDailyRecords} from "./daily-dated-answer-reconcile-20261023.js?v=1";
 import {assertFullProgressBackup} from "./full-progress-backup-guard-20261023.js";
+import {includePetWalletBackup} from "./pet-wallet-backup-20261030.js";
 const DATE=/^\d{4}-\d{2}-\d{2}$/;
 const object=value=>value&&typeof value==="object"&&!Array.isArray(value);
 const dayValid=d=>DATE.test(String(d||""))&&
@@ -142,10 +143,10 @@ export async function prepareLatest30DayExport(getState,getBaseExport,options={}
   const snapshot=mergeSnapshot(live,stored,journal);
   const capturedAt=new Date().toISOString();
   const manifest=thirtyDayManifest(snapshot,capturedAt);
-  const file={...base,app:"lux-scholar-garden",version:10,
+  const file=includePetWalletBackup({...base,app:"lux-scholar-garden",version:10,
    exportedAt:capturedAt,
    state:safeCopy(snapshot),
-   recent30Days:manifest};
+   recent30Days:manifest},storage);
   assertFullProgressBackup(file,live);
   // Snapshot must include every available journal receipt. No fragile
   // array-length check: distinct attemptId is the durable answer identity.
@@ -155,7 +156,11 @@ export async function prepareLatest30DayExport(getState,getBaseExport,options={}
       (e?.at+":"+e?.subject+":"+e?.questionId)))))
    throw Error("The exported answer history is incomplete.");
   const after=getState();
-  if(snapshotKey(after)!==before)continue;
+  // If the Pet wallet was updated while the Scholar export was assembling,
+  // retry rather than send a mixed-age "complete" snapshot to Files.
+  const latestWallet=includePetWalletBackup({app:"lux-scholar-garden"},storage).petWalletBackup;
+  if(snapshotKey(after)!==before ||
+     JSON.stringify(latestWallet)!==JSON.stringify(file.petWalletBackup))continue;
   const data=JSON.stringify(file,null,2);
   const parsed=JSON.parse(data);
   if(parsed.recent30Days.days.length!==30||

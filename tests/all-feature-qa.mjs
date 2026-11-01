@@ -19,6 +19,9 @@ commands.push("node --test tests/large-history-normalization-oom-20261023.test.m
 commands.push("node --test tests/daily-ipad-reliability-20261023.test.mjs");
 commands.push("node --test tests/daily-resume-stable-drafts-20261025.test.mjs");
 commands.push("node --test tests/restore-home-extras-safe-20261023.test.mjs");
+commands.push("node --test tests/daily-vocab-due-concept-20261030.test.mjs");
+commands.push("node --test tests/recovery-vocab-extra-five-20261030.test.mjs");
+commands.push("node --test tests/recovery-receipt-five-gate-20261030.test.mjs");
 commands.push("node tests/french-unique-questions-qa.mjs","node tests/biology-nov2-qa.mjs","node tests/biology-nov2-diagrams-qa.mjs","node --test tests/mastery-v2-qa.mjs");
 const failures=[];
 for(const command of commands){const [cmd,...args]=command.split(" ");const r=spawnSync(cmd,args,{encoding:"utf8",env:{...process.env,STRICT:"1"}});console.log(r.stdout);console.error(r.stderr);if(r.status!==0)failures.push({command,status:r.status});}

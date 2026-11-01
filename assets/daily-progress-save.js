@@ -2,6 +2,8 @@ import {backupPreview} from "./progress-backup-preview-20261004.js?ux=20261013-c
 import {readBackup,putBackup,migrateOldBackups,PREVIOUS_KEY,MANUAL_KEY,BEFORE_KEY} from "./backup-vault-20261011.js?v=20261020-quota-retry1&ux=20261013-corrections2";
 import { C as store } from "/assets/index-BLVOhKhN.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1&mpverify=20261030-save-retry3-modeguard2";
 import { assertFullProgressBackup } from "./full-progress-backup-guard-20261023.js";
+import {includePetWalletBackup,inspectPetWalletBackup,restorePetWalletBackup} from "./pet-wallet-backup-20261030.js";
+import {auditBackupFile} from "./backup-file-audit-20261031.js";
 import {prepareLatest30DayExport} from "./latest-30-day-export-20261023.js?v=1";
 import {assessImport,mergeImportProgress} from "./backup-import-safety-20261023.js";
 import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261023-preserve-ten1";
@@ -19,8 +21,16 @@ const MIN_AUTO_INTERVAL_MS = 15000, QUOTA_RETRY_MS = 600000;
 function backupSignature(data) {
  try {
   const parsed = JSON.parse(data);
-  // exportProgress adds a timestamp on every call, even without a state change.
+  // Both timestamps are regenerated every time the iPad makes a 30-day
+  // manifest, even if no learning, pet, reward or recovery data changed.
+  // They are audit metadata, not saved progress: including them causes a
+  // fresh IndexedDB write for every autosave and can exhaust Safari quota.
+  // Preserve ALL other fields, including manifest dates/statuses, XP, wallet,
+  // unlocks, Daily ledgers, games, outfits and recovery receipt evidence.
   delete parsed.exportedAt;
+  if(parsed.recent30Days && typeof parsed.recent30Days==="object" &&
+     !Array.isArray(parsed.recent30Days))
+    delete parsed.recent30Days.capturedAt;
   return JSON.stringify(parsed);
  } catch { return String(data || ""); }
 }
@@ -214,6 +224,7 @@ function previewRestore(data, name, meta = {}) {
   try {
     const info=backupPreview(data,store.getState(),meta);
     const report=assessImport(JSON.parse(data),store.getState());
+    const petPlan=inspectPetWalletBackup(JSON.parse(data));
     selectedRestore={data,name};
     pendingExternalSafety=null;externalSafetyOffered=false;
     const pendingBox=document.getElementById('daily-external-safety');
@@ -227,7 +238,14 @@ function previewRestore(data, name, meta = {}) {
       : '';
     document.getElementById('daily-restore-description').textContent=
       `${name} · ${when}. Backup: ${info.saved.day}, ${info.saved.done}/${info.saved.total} tasks, ${info.saved.xp} XP. Current: ${info.current.day}, ${info.current.done}/${info.current.total} tasks, ${info.current.xp} XP. `+
-      warning+'Import safely combines existing and backup learning evidence; XP is not added twice. A safety copy is required if this device has progress.';
+      warning+'Import safely combines existing and backup learning evidence; XP is not added twice. '+
+      (petPlan.status==='install'?'Pet MP, levels and secret unlocks will also be restored. ':
+       petPlan.status==='identical'?'The same Pet wallet is already on this device. ':
+       petPlan.status==='conflict'?'A DIFFERENT Pet wallet exists: it will NOT be overwritten. ':
+       petPlan.status==='legacy'?'Older backup: it does not include a Pet wallet. ':
+       petPlan.status==='absent'?'This backup has no Pet wallet. ':
+       'Pet wallet storage is not available. ')+
+      'A safety copy is required if this device has progress.';
     status('Backup opened successfully. Review the missing-history warning, then choose Import & keep existing progress.');
   } catch(error) { selectedRestore=null;const box=document.getElementById('daily-restore-preview');if(box)box.hidden=true;status(error.message||'Could not read this backup.','error'); }
 }
@@ -274,11 +292,11 @@ async function refreshCopies(){
 async function restore(data, name, externalSafetyConfirmed=false) {
   const live=store.getState();
   let plan;
-  try {plan=mergeImportProgress(JSON.parse(data),live,mergeDailyHistory);}
+  try {inspectPetWalletBackup(JSON.parse(data));plan=mergeImportProgress(JSON.parse(data),live,mergeDailyHistory);}
   catch(error) {return status("Import failed: "+(error?.message||"Unreadable JSON"),"error");}
   const {backup,report}=plan;
   const text=report.legacy ? " This is a legacy PARTIAL backup: it cannot bring back missing dated study evidence." : "";
-  if(!confirm("Import "+name+" and safely combine learning progress? Existing saved completion dates and higher XP are preserved."+text))return;
+  if(!confirm("Import "+name+" and safely combine learning progress? Existing saved completion dates and higher XP are preserved. A different Pet wallet on this device will NOT be overwritten."+text))return;
   if(report.currentHasProgress && !externalSafetyConfirmed) {
     // An existing learner's progress ALWAYS needs a verified safety copy.
     let currentData;
@@ -305,6 +323,9 @@ async function restore(data, name, externalSafetyConfirmed=false) {
       }
     }
     try {
+      // Store BOTH the live Scholar progress and any current Pet wallet in
+      // the verified pre-restore safety copy, never just the Scholar half.
+      currentData=JSON.stringify(includePetWalletBackup(JSON.parse(currentData)));
       await putBackup(BEFORE_RESTORE_KEY,{
         savedAt:new Date().toISOString(),...summary(live),data:currentData
       });
@@ -334,7 +355,21 @@ async function restore(data, name, externalSafetyConfirmed=false) {
     hasReceipts&&hasRows;
   if(!correct)return status("Import reached memory but could not be VERIFIED on this device. "+
     "Do NOT reload or delete the JSON. Device storage may be full; your safety copy is preserved.","error");
-  status("Import successful: progress verified in device storage, with earlier records preserved.","success");
+  let petResult;
+  try {petResult=restorePetWalletBackup(JSON.parse(data));}
+  catch(error){
+    return status("Scholar progress restored and verified, but Pet wallet restore failed: "+
+      (error?.message||"device storage unavailable")+
+      ". Keep both JSON and safety copy. Do not reinstall or reload yet.","error");
+  }
+  if(petResult.status==='conflict' || petResult.status==='unavailable'){
+    return status("Scholar progress restored and verified. A different/existing Pet wallet was preserved unchanged. "+
+      "The Pet wallet in this JSON was NOT imported; keep both backups and review before changing wallets.","error");
+  }
+  status("Import successful: Scholar progress verified. "+
+    (petResult.status==='restored'?'Pet MP, levels and unlocks restored and verified.':
+     petResult.status==='identical'?'Pet wallet was already identical.':
+     'This backup has no Pet wallet; the existing wallet was not touched.'), "success");
   selectedRestore=null;
   location.reload();
 }
@@ -357,9 +392,12 @@ function mount() {
     <div class="daily-save-actions"><button id="daily-save-button" type="button">Save progress & backup</button>
 <button id="daily-share-button" type="button">Share backup (optional)</button>
 <button id="daily-import-file-button" type="button">Import JSON from Files</button>
+<button id="daily-verify-file-button" type="button">Verify downloaded JSON (read-only)</button>
+<input id="daily-verify-file" type="file" accept="application/json,.json" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none" aria-label="Select downloaded Scholar JSON to verify">
 <input id="daily-backup-file" type="file" accept="application/json,.json" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none" aria-label="Choose Scholar Garden JSON backup">
 </div>
     <p class="daily-save-note">Directly exports your current progress to Files without first using iPad website storage. Always verify the JSON file in Files.</p>
+    <p id="daily-verify-result" role="status" aria-live="polite" style="white-space:pre-wrap"></p>
     <details id="daily-recovery-options"><summary>Backup history & restore</summary>
       <p class="daily-save-note">Preview a copy before restoring. Files kept in Files or iCloud Drive can recover progress after browser data is cleared.</p>
       <div class="daily-backup-copy"><button id="daily-before-restore" type="button">Preview progress before last restore</button><p id="daily-before-restore-info"></p></div>
@@ -418,6 +456,22 @@ function mount() {
   refreshCopies();
   panel.querySelector('#daily-recovery-options').addEventListener('toggle',refreshCopies);
   panel.querySelector('#daily-import-file-button').addEventListener('click',()=>panel.querySelector('#daily-backup-file').click());
+  panel.querySelector('#daily-verify-file-button').addEventListener('click',()=>panel.querySelector('#daily-verify-file').click());
+  panel.querySelector('#daily-verify-file').addEventListener('change',async event=>{
+    const file=event.target.files?.[0];event.target.value='';
+    if(!file)return;
+    const result=panel.querySelector('#daily-verify-result');
+    try{
+      const audit=auditBackupFile(await file.text(),localStorage);
+      result.textContent='File: '+file.name+'\n'+audit.message+'\n'+
+        audit.facts.map(([key,value])=>key+': '+value).join('\n')+'\nNo progress has been imported or changed.';
+      result.dataset.tone=audit.status==='complete'||audit.status==='pet-diagnostic'?'success':'error';
+    }catch(error){
+      result.textContent='Verification unavailable: '+(error?.message||String(error))+
+        '. Nothing was imported or changed.';
+      result.dataset.tone='error';
+    }
+  });
   panel.querySelector('#daily-restore-apply').addEventListener('click',()=>{if(selectedRestore)restore(selectedRestore.data,selectedRestore.name)});
   panel.querySelector('#daily-restore-cancel').addEventListener('click',()=>{
     selectedRestore=null;pendingExternalSafety=null;externalSafetyOffered=false;
