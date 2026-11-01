@@ -3,8 +3,8 @@
   "buildDate": "2026-11-01",
   "totals": {
     "topics": 282,
-    "questions": 16663,
-    "enabled": 15532,
+    "questions": 16688,
+    "enabled": 15555,
     "preview": 266,
     "disabled": 863
   },
@@ -58,10 +58,10 @@
       "subject": "biology",
       "year": 8,
       "topics": 37,
-      "enabled": 1053,
+      "enabled": 1076,
       "preview": 0,
       "disabled": 0,
-      "questions": 1055
+      "questions": 1080
     },
     {
       "subject": "biology",
@@ -3249,16 +3249,18 @@
       "topicId": "bio-y8-limiting-factors",
       "title": "Limiting factors and graphs",
       "status": "enabled",
-      "questions": 20,
-      "enabled": 20,
+      "questions": 27,
+      "enabled": 25,
       "preview": 0,
       "disabled": 0,
       "formats": {
         "mc_single": 5,
         "typed_exact": 5,
-        "mark_points": 7,
+        "mark_points": 10,
         "matching": 1,
-        "diagram_label": 2
+        "typed_short": 0,
+        "typed_equivalent": 3,
+        "calculation": 1
       },
       "gated": false,
       "unitId": "biology-y8-u04",
@@ -3314,17 +3316,18 @@
       "topicId": "bio-y8-nutrition-labels",
       "title": "Reading nutrition labels",
       "status": "enabled",
-      "questions": 16,
-      "enabled": 16,
+      "questions": 25,
+      "enabled": 25,
       "preview": 0,
       "disabled": 0,
       "formats": {
         "mc_single": 4,
         "typed_exact": 4,
-        "mark_points": 4,
+        "mark_points": 7,
         "matching": 1,
-        "calculation": 2,
-        "unordered_set": 1
+        "calculation": 6,
+        "unordered_set": 1,
+        "typed_equivalent": 2
       },
       "gated": false,
       "unitId": "biology-y8-u05",
@@ -3381,16 +3384,17 @@
       "topicId": "bio-y8-practical-conclusions",
       "title": "Practical methods and conclusions",
       "status": "enabled",
-      "questions": 16,
-      "enabled": 16,
+      "questions": 25,
+      "enabled": 25,
       "preview": 0,
       "disabled": 0,
       "formats": {
         "mc_single": 4,
         "typed_exact": 4,
-        "mark_points": 5,
+        "mark_points": 9,
         "matching": 2,
-        "sorting": 1
+        "sorting": 1,
+        "typed_equivalent": 5
       },
       "gated": false,
       "unitId": "biology-y8-u05",
