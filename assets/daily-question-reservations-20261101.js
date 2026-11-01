@@ -113,7 +113,11 @@ export function otherYear8DailyReservations(state,loaded,options={}){
   }
  }
  const forbidden=new Set(recoveryFamilies);
- for(const [f,holders] of owners)if(!holders.has(taskId)||holders.size>1)forbidden.add(f);
+ // Historical Safari records can prove the SAME question was already marked
+ // for two different pinned tasks. A future allocation must avoid this,
+ // but do not revoke a previously marked question from BOTH original tasks.
+ // Such conflicts stay in their own task-specific receipts for review.
+ for(const [f,holders] of owners)if(!holders.has(taskId))forbidden.add(f);
  // Exclude all variants of a reserved concept, not just a matching ID.
  return new Set([...byId.values()].filter(q=>forbidden.has(family(q))).map(q=>baseId(q.id)));
 }
