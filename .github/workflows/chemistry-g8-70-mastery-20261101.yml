@@ -5,6 +5,7 @@ on:
       - feature/chemistry-grade8-70-mastery-20261101
     paths:
       - 'content/topics/chem-y9-c1.json'
+      - 'content/topics/chem-y9-c3.json'
       - 'content/topics/chem-y9-c4.json'
       - 'content/catalog.json'
       - 'content/diagrams/chem-g8-*.svg'
@@ -13,6 +14,7 @@ on:
   pull_request:
     paths:
       - 'content/topics/chem-y9-c1.json'
+      - 'content/topics/chem-y9-c3.json'
       - 'content/topics/chem-y9-c4.json'
       - 'content/catalog.json'
       - 'content/diagrams/chem-g8-*.svg'
