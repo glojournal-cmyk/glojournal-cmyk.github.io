@@ -5,6 +5,10 @@ on:
     paths:
       - 'assets/daily-question-reservations-20261101.js'
       - 'assets/study._subject.practise-y8fix-20260920.js'
+      - 'assets/study._subject.practise-D_PWgUd7.js'
+      - 'study/biology/practise/index.html'
+      - 'study/chemistry/practise/index.html'
+      - 'study/physics/practise/index.html'
       - 'tests/year8-same-day-reservations-20261101.mjs'
       - '.github/workflows/year8-same-day-reservations-20261101.yml'
 jobs:
@@ -19,4 +23,5 @@ jobs:
           node-version: '22'
       - run: node --check assets/daily-question-reservations-20261101.js
       - run: node --check assets/study._subject.practise-y8fix-20260920.js
+      - run: node --check assets/study._subject.practise-D_PWgUd7.js
       - run: node --test tests/year8-same-day-reservations-20261101.mjs
