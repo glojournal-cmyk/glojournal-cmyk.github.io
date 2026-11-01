@@ -85,6 +85,18 @@ try{
    }
    await status(page,'credits','5 / 163');
    assert.match(await taskButton(page,'gcse-exam-skills').innerText(),/exam marks 5\/6/);
+   // 3/3 marked questions, but one mark still missing. Retry the same
+   // original question after the unused questions have all been attempted.
+   assert.match(await page.locator('#questionArea').innerText(),/qa-gcse-3/);
+   await page.selectOption('#marks','3');
+   await page.click('#submitAnswer');
+   await page.waitForFunction(()=>document.getElementById('notice')?.textContent?.includes('Task progress: 3/3'));
+   await status(page,'credits','5 / 163');
+   assert.match(await taskButton(page,'gcse-exam-skills').innerText(),/exam marks 6\/6/);
+   assert.equal(await page.locator('#answerForm').isHidden(),true);
+   await page.reload();
+   await status(page,'credits','5 / 163');
+   assert.match(await taskButton(page,'gcse-exam-skills').innerText(),/exam marks 6\/6/);
 
    await page.selectOption('#scenario','missing-gcse');
    await page.click('#initialize');
@@ -104,7 +116,7 @@ try{
    assert.deepEqual(errors,[]);
    console.log('DAILY_V2_WEBKIT_STAGING_UI_PASS',JSON.stringify({viewport,
     checks:['ten-task 163-plan','wrong answer no credit','correct credit survives reload',
-     'save failure no optimistic credit','retry counts once','GCSE partial marks',
+     'save failure no optimistic credit','retry counts once','GCSE partial marks and retry without duplicate credit',
      '9-task shortage blocks full-day reward','legacy Scholar/Pet keys unchanged',
      'no uncaught page errors']}));
   }finally{await context.close();}
