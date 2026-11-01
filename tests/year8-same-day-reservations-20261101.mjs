@@ -149,3 +149,26 @@ test('historical two-task marked-ID collisions remain credited within their pinn
  assert.ok(!reserveB.has('q7'),'do not erase B original wrong question needed for retry');
  assert.equal(s.formalAttemptLog.length,2);
 });
+
+test('real Biology, Chemistry and Physics HTML routes load the updated Science Practice guard',()=>{
+ const science=fs.readFileSync('assets/study._subject.practise-D_PWgUd7.js','utf8');
+ const language=fs.readFileSync('assets/study._subject.practise-y8fix-20260920.js','utf8');
+ for(const subject of ['biology','chemistry','physics']){
+   const html=fs.readFileSync('study/'+subject+'/practise/index.html','utf8');
+   assert.ok(html.includes('study._subject.practise-D_PWgUd7.js'),
+     'Science route must point to tested module: '+subject);
+ }
+ for(const subject of ['latin','french']){
+   const html=fs.readFileSync('study/'+subject+'/practise/index.html','utf8');
+   assert.ok(html.includes('study._subject.practise-y8fix-20260920.js'),
+     'Language route must point to tested module: '+subject);
+ }
+ for(const c of [science,language]){
+   assert.ok(c.includes('dailyReservations=otherYear8DailyReservations('));
+   assert.ok(c.includes('safeU=excludeOtherYear8Reservations(enforceDistinctYear8MasteryAfterRetry('));
+   assert.ok(c.includes('requireDistinctConcepts:dailyLocked&&N===8&&E===`mastery`'));
+   assert.ok(c.includes('Not enough fresh Year 8 questions'));
+   assert.ok(c.includes('this task is NOT automatically marked complete'));
+   assert.ok(!c.includes('target:progress,progress,done:true,cappedBecauseQuestionBankExhausted:true'));
+ }
+});
