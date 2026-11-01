@@ -137,6 +137,28 @@ try{
    state=await readCount(page);
    assert.equal(state.correct,13,"Do not falsify or overwrite the dedicated answer ledger");
    assert.equal(state.task?.progress,30,"After iPad app reload, Home must still show 30/30");
+   // Wait for the actual rendered Home tasks (not just the store) to
+   // reflect the previously verified 30 correct answers.
+   try{
+     await page.waitForFunction(()=>
+       /French Vocab\s*30\/30/.test(document.body.innerText),null,{timeout:12000});
+   }catch(error){
+     console.error("FRENCH_HOME_RENDER_DIAGNOSTIC",JSON.stringify(
+       await page.evaluate(async(entrypoint)=>{
+         const {C:store}=await import(entrypoint),s=store.getState();
+         let journey=null;
+         try{journey=window.LuxHomeJourneyV2Logic?.homeJourney(s,window.LuxJourney,localStorage);}
+         catch(e){journey={error:String(e)};}
+         return {today:s.today,calendar:window.LuxJourney?.day?.(),
+           dailyLength:s.daily?.length,
+           completed:s.daily?.filter(t=>Number(t.progress)>=Number(t.target)).length,
+           vocab:s.daily?.find(t=>t.id==="french-vocab"),
+           journey:{ready:journey?.ready,count:journey?.count,total:journey?.total,
+             title:journey?.title,error:journey?.error},
+           homePanel:document.querySelector("#lux-rpg-live-home")?.innerText?.slice(0,1400)};
+       },entrypoint)));
+     throw error;
+   }
    const homeText=await page.locator("body").innerText();
    assert.match(homeText,/French Vocab\s*30\/30/,
      "Rendered iPad Home must display French 30/30, not only store state");
