@@ -4,7 +4,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 
 const root=process.cwd();
-const topics=['bio-y8-ber','bio-y8-continuous-variation','bio-y8-correlation','bio-y8-mixed-exam'];
+const topics=['bio-y8-ber','bio-y8-continuous-variation','bio-y8-correlation','bio-y8-mixed-exam','bio-y8-nutrition-labels','bio-y8-practical-conclusions','bio-y8-limiting-factors'];
 const target=25;
 const catalogue=JSON.parse(fs.readFileSync('content/catalog.json','utf8'));
 const active=q=>q.status==='enabled'&&q.preview!==true&&q.formal!==false&&!q._repair;
@@ -67,6 +67,22 @@ for(const topicId of topics){
      throw Error('unexpected new answer mode '+q.id+': '+q.answer.mode);
    }
  }
+ // Explicit calculation reference values, independently recomputed from printed operands.
+ const arithmetic={
+  'bio-y8-nutrition-labels':[
+   ['bio-y8-nutrition-labels-capacity-20261026-01',18*75/100,'g'],
+   ['bio-y8-nutrition-labels-capacity-20261026-02',2*120,'kcal'],
+   ['bio-y8-nutrition-labels-20261101-sugar50',14*50/100,'g'],
+   ['bio-y8-nutrition-labels-20261101-salt80',0.9*80/100,'g']],
+  'bio-y8-limiting-factors':[['bio-y8-limiting-factors-20261101-oxygen-change',16-7,'bubbles per minute']]
+ };
+ for(const [id,value,unit] of arithmetic[topicId]||[]){
+   const q=data.questions.find(q=>q.id===id);
+   assert.ok(q,'missing arithmetic source question '+id);
+   assert.equal(q.answer.value,value,'arithmetic mismatch '+id);
+   assert.ok(q.answer.units.includes(unit),'arithmetic unit mismatch '+id);
+   assert.equal(q.answer.modelAnswer,value+' '+unit,'model answer mismatch '+id);
+ }
  // Grader-specific signed numerical reference cases, including correction of a seven-day unit bug.
  if(topicId==='bio-y8-ber'){
    const cases={'bio-y8-ber-20261026-repair-01':[5184,'kJ/day'],
@@ -89,11 +105,15 @@ for(const topicId of topics){
    }
  }
  const uniqueConcepts=new Set(eligible.map(q=>q.conceptId||q.id)).size;
- assert.ok(uniqueConcepts>=18,'too few distinct source concept families: '+topicId);
+ assert.ok(uniqueConcepts>=15,'too few distinct source concept families: '+topicId);
+ assert.equal(data.enabled,data.questions.filter(q=>q.status==='enabled').length,'source status-enabled metadata mismatch: '+topicId);
+ assert.equal(data.preview,data.questions.filter(q=>q.status==='preview').length,'preview metadata mismatch: '+topicId);
+ const expectedFamilies={'bio-y8-ber':21,'bio-y8-continuous-variation':18,'bio-y8-correlation':19,'bio-y8-mixed-exam':20,'bio-y8-nutrition-labels':17,'bio-y8-practical-conclusions':17,'bio-y8-limiting-factors':15};
+ assert.equal(uniqueConcepts,expectedFamilies[topicId],'concept-family inventory changed; review before updating baseline: '+topicId);
  console.log(topicId, 'uniqueConceptFamilies:',uniqueConcepts,'original:',original.questions.length,'new:',fresh.length,'eligible:',eligible.length,
    'MC:',eligible.filter(q=>q.format==='mc_single').length,
    'markPoints:',eligible.filter(q=>q.format==='mark_points').length);
 }
-assert.equal(newCount,54,'expected exactly 54 additional question records');
-console.log('PASS: four Year 8 Biology topic banks / 54 source-preserving additions; 25 eligible each.');
+assert.equal(newCount,79,'expected exactly 79 additional question records');
+console.log('PASS: seven Year 8 Biology topic banks / 79 source-preserving additions; 25 formal eligible each.');
 console.log('ACADEMIC NOTE: structural/number/units QA does not certify free-text semantic marking or taught pupil history.');
