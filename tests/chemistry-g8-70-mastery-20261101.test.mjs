@@ -4,14 +4,16 @@ import {test} from 'node:test';
 
 const load = (name) => JSON.parse(readFileSync(new URL('../content/topics/'+name+'.json',import.meta.url),'utf8'));
 const catalog = JSON.parse(readFileSync(new URL('../content/catalog.json',import.meta.url),'utf8'));
-const topicIds = ['chem-y9-c4','chem-y9-c1'];
+const topicIds = ['chem-y9-c3','chem-y9-c4','chem-y9-c1'];
 const docs = topicIds.map(load);
 const imported = docs.flatMap(doc=>doc.questions.filter(q=>q.id.startsWith('chem-g8-20261101-')));
-const sep = imported.filter(q=>q.topicId==='chem-y9-c4');
+const sep = imported.filter(q=>q.qaSource?.sourceId?.startsWith('CHEM-SEP-'));
 const pt = imported.filter(q=>q.topicId==='chem-y9-c1');
 
 test('the QA-corrected 70-question GCSE Chemistry bank is available in Year 9 Mastery topics', () => {
   assert.equal(sep.length,40);
+  assert.equal(sep.filter(q=>q.topicId==='chem-y9-c3').length,13);
+  assert.equal(sep.filter(q=>q.topicId==='chem-y9-c4').length,27);
   assert.equal(pt.length,30);
   assert.equal(imported.reduce((sum,q)=>sum+q.stimulus.marks,0),152);
   assert.equal(new Set(imported.map(q=>q.id)).size,70);
