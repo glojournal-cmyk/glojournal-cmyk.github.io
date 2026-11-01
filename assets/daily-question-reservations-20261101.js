@@ -14,7 +14,7 @@ const dayOffset=(today,then)=>{
  return Math.round((Date.parse(today+'T12:00:00Z')-Date.parse(then+'T12:00:00Z'))/86400000);
 };
 const activeQuestion=q=>!!q?.id&&q.status!=='disabled'&&q.status!=='preview'&&
- q.formal!==false&&!q._repair;
+ q.preview!==true&&q.formal!==false&&!q._repair;
 const matches=(t,scope)=>{
  if(!t||t.assignedTopic!==scope.topicId||t.assignedSubject!==scope.subject||
     Number(t.assignedYear)!==Number(scope.year)||!t.id||Number(t.target)<=0)return false;
