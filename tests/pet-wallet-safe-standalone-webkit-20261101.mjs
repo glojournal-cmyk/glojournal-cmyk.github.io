@@ -44,6 +44,8 @@ try{
   await page.waitForFunction(()=>document.getElementById("status")?.textContent?.includes("Preview ready"));
   assert.match(await page.locator("#comparison").innerText(),/Pet wallet in backup/i);
   assert.match(await page.locator("#comparison").innerText(),/Ready: new empty wallet/i);
+  assert.match(await page.locator("#comparison").innerText(),/Pet MP in backup[\\s\\S]*144/i);
+  assert.match(await page.locator("#comparison").innerText(),/MP transactions stored[\\s\\S]*1/i);
   assert.equal(await page.locator("#apply-button").isEnabled(),true);
   await page.locator("#apply-button").click();
   await page.waitForFunction(()=>document.getElementById("result")?.textContent?.includes("Import verified"));
