@@ -548,17 +548,596 @@
       "preview": false,
       "ordinary": true,
       "formal": false
+    },
+    {
+      "id": "bio-y8-continuous-variation-20261026-repair-cont-01",
+      "conceptId": "bio-y8-concept-continuous-variation-measurement",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-continuous-variation",
+      "topic": "Continuous variation and bell-shaped distributions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "A researcher measures pupils’ heights to the nearest millimetre. Is height continuous or discontinuous variation?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "continuous",
+          "continuous variation"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Height can take values anywhere within a range.",
+        "steps": [
+          "Height can take values anywhere within a range."
+        ]
+      },
+      "task": {
+        "label": "APPLY THE IDEA",
+        "instruction": "Answer the scientific question precisely."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "scope": "existing-topic-learning",
+        "date": "2026-10-26",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-continuous-variation-20261026-repair-cont-02",
+      "conceptId": "bio-y8-concept-continuous-variation-measurement",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-continuous-variation",
+      "topic": "Continuous variation and bell-shaped distributions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "In a class survey, which value is a continuous measurement: number of siblings or hand span in centimetres?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "hand span",
+          "hand span in centimetres",
+          "hand span (cm)",
+          "hand span measured in centimetres"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "Hand span is measured on a continuous scale; sibling count is a whole-number count.",
+        "steps": [
+          "Hand span is measured on a continuous scale; sibling count is a whole-number count."
+        ]
+      },
+      "task": {
+        "label": "APPLY THE IDEA",
+        "instruction": "Answer the scientific question precisely."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "scope": "existing-topic-learning",
+        "date": "2026-10-26",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-continuous-variation-20261026-repair-cont-03",
+      "conceptId": "bio-y8-concept-continuous-variation-data-reading",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-continuous-variation",
+      "topic": "Continuous variation and bell-shaped distributions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "A height histogram has intervals 140–149, 150–159, 160–169, 170–179 cm with frequencies 3, 9, 12, 5. Which interval contains the most pupils?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "160–169 cm",
+          "160-169 cm",
+          "160 to 169 cm",
+          "160–169",
+          "160-169",
+          "160 to 169"
+        ],
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreTerminalPunctuation": true
+        }
+      },
+      "feedback": {
+        "short": "The 160–169 cm group has frequency 12, the highest.",
+        "steps": [
+          "The 160–169 cm group has frequency 12, the highest."
+        ]
+      },
+      "task": {
+        "label": "APPLY THE IDEA",
+        "instruction": "Answer the scientific question precisely."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "scope": "existing-topic-learning",
+        "date": "2026-10-26",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-continuous-variation-20261026-repair-cont-04",
+      "conceptId": "bio-y8-concept-continuous-variation-genetic-environment",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-continuous-variation",
+      "topic": "Continuous variation and bell-shaped distributions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "A measured characteristic such as height often forms a roughly bell-shaped distribution. Explain two reasons for variation and the shape of the pattern. (3 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 3,
+        "markPoints": [
+          "Height is influenced by many genes.",
+          "Environmental factors such as nutrition also influence growth.",
+          "Many values cluster near the mean and fewer occur at the extremes."
+        ],
+        "modelAnswer": "Height is influenced by many genes. Environmental factors such as nutrition also influence growth. Many values cluster near the mean and fewer occur at the extremes.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Variation results from combined genetic and environmental influences; most measurements are near the centre.",
+        "steps": [
+          "Variation results from combined genetic and environmental influences; most measurements are near the centre."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / DATA INTERPRETATION",
+        "instruction": "Award marks for distinct correct scientific points; use manual/checklist review."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "scope": "existing-topic-learning",
+        "date": "2026-10-26",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-continuous-variation-20261026-repair-cont-05",
+      "conceptId": "bio-y8-concept-continuous-variation-histogram-interpretation",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-continuous-variation",
+      "topic": "Continuous variation and bell-shaped distributions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "A scientist records pupils’ heights in grouped intervals. Explain why a histogram is suitable and what the height of each bar tells you when all class widths are equal. (3 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 3,
+        "markPoints": [
+          "Height is a continuous measurement.",
+          "Adjacent intervals meet without gaps on a histogram.",
+          "For equal-width classes, taller bars represent more pupils in that interval."
+        ],
+        "modelAnswer": "Height is a continuous measurement. Adjacent intervals meet without gaps on a histogram. For equal-width classes, taller bars represent more pupils in that interval.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Histograms display continuous grouped data; for unequal class widths, frequency density is needed.",
+        "steps": [
+          "Histograms display continuous grouped data; for unequal class widths, frequency density is needed."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / DATA INTERPRETATION",
+        "instruction": "Award marks for distinct correct scientific points; use manual/checklist review."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "scope": "existing-topic-learning",
+        "date": "2026-10-26",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-continuous-variation-20261026-repair-cont-06",
+      "conceptId": "bio-y8-concept-continuous-variation-frequency",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-continuous-variation",
+      "topic": "Continuous variation and bell-shaped distributions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "A sample of 20 pupils has height frequencies 2, 5, 9, 4 in four equal-width intervals ordered from shortest to tallest. Explain the main feature of the distribution and calculate the fraction in the third interval. (3 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 3,
+        "markPoints": [
+          "The third interval is most common (modal interval).",
+          "9 out of 20 pupils are in that interval.",
+          "9/20 = 0.45 (or 45%)."
+        ],
+        "modelAnswer": "The third interval is most common (modal interval). 9 out of 20 pupils are in that interval. 9/20 = 0.45 (or 45%).",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Read the highest frequency, then divide it by the total of 20.",
+        "steps": [
+          "Read the highest frequency, then divide it by the total of 20."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / DATA INTERPRETATION",
+        "instruction": "Award marks for distinct correct scientific points; use manual/checklist review."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "scope": "existing-topic-learning",
+        "date": "2026-10-26",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-continuous-variation-20261026-repair-cont-07",
+      "conceptId": "bio-y8-concept-continuous-variation-polygenic",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-continuous-variation",
+      "topic": "Continuous variation and bell-shaped distributions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "Two pupils in the same year group have different heights. Explain why this does not necessarily mean one has a single 'height gene' causing the difference. (3 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 3,
+        "markPoints": [
+          "Height is influenced by many genes.",
+          "Environmental influences can affect growth.",
+          "Different combinations of genes and environmental influences produce a range of measured heights."
+        ],
+        "modelAnswer": "Height is influenced by many genes. Environmental influences can affect growth. Different combinations of genes and environmental influences produce a range of measured heights.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Do not assume a single-gene explanation for a normally polygenic characteristic.",
+        "steps": [
+          "Do not assume a single-gene explanation for a normally polygenic characteristic."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / DATA INTERPRETATION",
+        "instruction": "Award marks for distinct correct scientific points; use manual/checklist review."
+      },
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "scope": "existing-topic-learning",
+        "date": "2026-10-26",
+        "publicationGate": "academic-review-required"
+      }
+    },
+    {
+      "id": "bio-y8-continuous-variation-20261101-wing-length",
+      "conceptId": "bio-y8-variation-20261101-wing-length",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-continuous-variation",
+      "topic": "Continuous variation and bell-shaped distributions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "difficulty": 2,
+      "prompt": "Butterfly wingspans are measured to the nearest millimetre. Is wingspan continuous or discontinuous variation?",
+      "stimulus": {},
+      "format": "typed_equivalent",
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "teacher-and-grading-QA-required"
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "continuous variation",
+          "continuous"
+        ]
+      },
+      "feedback": {
+        "short": "continuous variation",
+        "steps": [
+          "Classify the type of data, not only the way it is written down.",
+          "continuous variation"
+        ]
+      },
+      "task": {
+        "label": "APPLY",
+        "instruction": "Answer briefly with the precise scientific term."
+      }
+    },
+    {
+      "id": "bio-y8-continuous-variation-20261101-sibling-count",
+      "conceptId": "bio-y8-variation-20261101-sibling-count",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-continuous-variation",
+      "topic": "Continuous variation and bell-shaped distributions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "difficulty": 2,
+      "prompt": "The number of siblings in a family is recorded as 0, 1, 2, 3 and so on. Is this a continuous measurement or a discrete count?",
+      "stimulus": {},
+      "format": "typed_equivalent",
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "teacher-and-grading-QA-required"
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "discrete count",
+          "discrete",
+          "discontinuous",
+          "discontinuous variation"
+        ]
+      },
+      "feedback": {
+        "short": "discrete count",
+        "steps": [
+          "Classify the type of data, not only the way it is written down.",
+          "discrete count"
+        ]
+      },
+      "task": {
+        "label": "APPLY",
+        "instruction": "Answer briefly with the precise scientific term."
+      }
+    },
+    {
+      "id": "bio-y8-continuous-variation-20261101-graph-selection",
+      "conceptId": "bio-y8-variation-20261101-graph-selection",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-continuous-variation",
+      "topic": "Continuous variation and bell-shaped distributions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "difficulty": 2,
+      "prompt": "Which graph is suitable for showing frequencies of heights grouped into touching measurement intervals?",
+      "stimulus": {},
+      "format": "typed_equivalent",
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "teacher-and-grading-QA-required"
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "histogram",
+          "a histogram"
+        ]
+      },
+      "feedback": {
+        "short": "histogram",
+        "steps": [
+          "Classify the type of data, not only the way it is written down.",
+          "histogram"
+        ]
+      },
+      "task": {
+        "label": "APPLY",
+        "instruction": "Answer briefly with the precise scientific term."
+      }
+    },
+    {
+      "id": "bio-y8-continuous-variation-20261101-modal-class",
+      "conceptId": "bio-y8-variation-20261101-modal-class",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-continuous-variation",
+      "topic": "Continuous variation and bell-shaped distributions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "difficulty": 2,
+      "prompt": "A height table has groups 140–149, 150–159, 160–169 and 170–179 cm, with frequencies 3, 7, 11 and 6. Which group has the greatest frequency?",
+      "stimulus": {},
+      "format": "typed_equivalent",
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "teacher-and-grading-QA-required"
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "160–169 cm",
+          "160-169 cm",
+          "160 to 169 cm",
+          "160–169",
+          "160-169",
+          "160 to 169"
+        ]
+      },
+      "feedback": {
+        "short": "160–169 cm",
+        "steps": [
+          "Classify the type of data, not only the way it is written down.",
+          "160–169 cm"
+        ]
+      },
+      "task": {
+        "label": "APPLY",
+        "instruction": "Answer briefly with the precise scientific term."
+      }
+    },
+    {
+      "id": "bio-y8-continuous-variation-20261101-range-height",
+      "conceptId": "bio-y8-variation-20261101-range-height",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-continuous-variation",
+      "topic": "Continuous variation and bell-shaped distributions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "difficulty": 2,
+      "prompt": "The measured heights 142, 150, 155, 161 and 171 cm are recorded. Calculate their range in cm.",
+      "stimulus": {},
+      "format": "calculation",
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "teacher-and-grading-QA-required"
+      },
+      "answer": {
+        "mode": "numeric",
+        "value": 29,
+        "tolerance": 0.001,
+        "totalMarks": 1,
+        "units": [
+          "cm",
+          "centimetres",
+          "centimeters"
+        ],
+        "working": "171 − 142 = 29 cm",
+        "modelAnswer": "29 cm"
+      },
+      "feedback": {
+        "short": "171 − 142 = 29 cm",
+        "steps": [
+          "Subtract smallest from largest.",
+          "171 − 142 = 29 cm"
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Calculate and give the correct unit."
+      }
+    },
+    {
+      "id": "bio-y8-continuous-variation-20261101-genes-environment",
+      "conceptId": "bio-y8-variation-20261101-genes-environment",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-continuous-variation",
+      "topic": "Continuous variation and bell-shaped distributions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "difficulty": 3,
+      "prompt": "Explain two different influences on human height. (2 marks)",
+      "stimulus": {},
+      "format": "mark_points",
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "teacher-and-grading-QA-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 2,
+        "markPoints": [
+          "Inherited genes can contribute to differences in height.",
+          "Environmental conditions such as nutrition can affect growth."
+        ],
+        "modelAnswer": "Inherited genes can contribute to differences in height. Environmental conditions such as nutrition can affect growth.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Inherited genes can contribute to differences in height. Environmental conditions such as nutrition can affect growth.",
+        "steps": [
+          "Inherited genes can contribute to differences in height.",
+          "Environmental conditions such as nutrition can affect growth."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Give two distinct scientific points; alternate correct wording needs review."
+      }
     }
   ],
-  "enabled": 13,
+  "enabled": 25,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 4,
     "typed_exact": 3,
-    "mark_points": 4,
+    "mark_points": 9,
     "matching": 1,
-    "diagram_label": 1
+    "typed_short": 0,
+    "typed_equivalent": 7,
+    "calculation": 1
   },
   "gated": false,
   "note": {
