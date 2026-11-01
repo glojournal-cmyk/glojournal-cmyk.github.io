@@ -24,7 +24,7 @@ Then use \`http://localhost:8000/daily-v2/staging/\` on a local browser. Do not 
 2. Open French Vocab. Enter \`WRONG\` and save. Expect verified write but **0/30** credit; the same assigned question remains.
 3. Enter \`QA_OK\` and save. Expect 1/30. Refresh view, reload tab, restart browser; expect 1/30 (same plan/question list).
 4. Click **Fail next save once**; attempt another \`QA_OK\`. Expect explicit save-failed message; no optimistic credit. Click Save again for same answer, expect exactly one additional credit (2/30).
-5. Open GCSE Exam Skills; record three questions with 1/1, 2/2, 2/3. Expect **3/3 marked** and **5/6 exam marks**.
+5. Open GCSE Exam Skills; record three questions with 1/1, 2/2, 2/3. Expect **3/3 marked** and **5/6 exam marks**. The page should then offer a retry of the original 3-mark question. Save **3/3** on that same question and verify **3/3 question credits still**, now **6/6 exam marks**. Reload again; neither total may regress and no fourth question credit may appear.
 6. Select **One shortage: 9 tasks** scenario. Create separate QA day. Expect 0/163, 1 unavailable task (GCSE), 9 available tasks totaling 160. Full-day reward NEVER becomes eligible when this partial day completes.
 7. Refresh view, navigate between tasks, reload; do not see unearned XP, phantom tasks or re-rolled daily assignments.
 8. Click **Clear QA-only database** to remove only the chosen scenario's \`scholar-daily-v2-staging-ui-<scenario>\` database. No real app storage keys should be touched.
