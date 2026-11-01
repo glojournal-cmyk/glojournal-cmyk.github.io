@@ -1,5 +1,5 @@
 {
-  "version": "2.4.1+biology-school-20260927-chem-aqa-20260930-fullmarks2-y7-vocab-complete+fr-future-oct17+phys-gcse-20261020+aqa-science-qa-20261024+chem-g8-master70-20261101",
+  "version": "2.4.1+biology-school-20260927-chem-aqa-20260930-fullmarks2-y7-vocab-complete+fr-future-oct17+phys-gcse-20261020+aqa-science-qa-20261024+chem-g8-master70-20261101+chem70-topic-routing-20261101",
   "buildDate": "2026-11-01",
   "totals": {
     "topics": 282,
@@ -4425,23 +4425,24 @@
       "topicId": "chem-y9-c3",
       "title": "Separation techniques — filtration and distillation",
       "status": "enabled",
-      "questions": 78,
-      "enabled": 68,
+      "questions": 91,
+      "enabled": 81,
       "preview": 10,
       "disabled": 0,
       "formats": {
+        "mc_single": 21,
         "typed_exact": 8,
         "spelling_restore": 10,
+        "mark_points": 40,
+        "typed_short": 5,
         "matching": 3,
-        "mark_points": 34,
-        "mc_single": 20,
-        "typed_short": 2,
-        "diagram_label": 1
+        "diagram_label": 1,
+        "extended_response": 3
       },
       "gated": false,
       "unitId": "chemistry-y9-u02",
       "unitName": "Unit 2",
-      "diagramQuestions": 1
+      "diagramQuestions": 2
     },
     {
       "subject": "chemistry",
@@ -4449,27 +4450,27 @@
       "topicId": "chem-y9-c4",
       "title": "Paper chromatography, Rf and reproducibility — Required Practical 6",
       "status": "enabled",
-      "questions": 157,
-      "enabled": 157,
+      "questions": 144,
+      "enabled": 144,
       "preview": 0,
       "disabled": 0,
       "formats": {
+        "mc_single": 31,
         "typed_exact": 11,
         "spelling_restore": 14,
+        "mark_points": 50,
+        "typed_short": 6,
         "matching": 3,
-        "mark_points": 56,
-        "mc_single": 32,
         "calculation": 19,
-        "practical_design": 1,
-        "typed_short": 9,
         "word_tiles": 1,
+        "practical_design": 1,
         "diagram_label": 1,
-        "extended_response": 10
+        "extended_response": 7
       },
       "gated": false,
       "unitId": "chemistry-y9-u02",
       "unitName": "Unit 2",
-      "diagramQuestions": 6
+      "diagramQuestions": 3
     },
     {
       "subject": "chemistry",
