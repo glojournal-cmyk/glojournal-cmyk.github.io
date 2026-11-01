@@ -72,7 +72,7 @@ test('only strictly assignment-verified correct IDs reserve other task questions
  assert.equal(otherYear8DailyReservations(s,bank,opts('y8-standard-a')).has('q5'),true);
  const forged=state(tasks.map(t=>({...t,verifiedCorrectAssignment:'wrong-scope'})));
  const baseline=otherYear8DailyReservations(forged,bank,opts('y8-standard-a'));
- assert.ok(baseline.has('q5'),'q5 already allocated by deterministic task A; unrelated stored claim cannot alter allocations');
+ assert.equal(baseline.has('q5'),false,'a forged receipt is not proof to reserve q5 for task B; original deterministic slot belongs to A');
 });
 test('read-only two-day Recovery proof protects its still-unfinished source question',()=>{
  const oldDay='2026-10-31';
