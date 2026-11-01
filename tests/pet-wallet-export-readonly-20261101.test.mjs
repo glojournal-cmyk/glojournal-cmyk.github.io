@@ -77,3 +77,27 @@ test("older Scholar-only JSON remains explicitly legacy, with no invented MP",()
  const previous={app:"lux-scholar-garden",state:state()};
  assert.equal(inspectPetWalletBackup(previous,storage()).status,"legacy");
 });
+
+test("read-only Pet inspection flags a conflicting current MP wallet without rewriting it",()=>{
+ const older=includePetWalletBackup({app:"lux-scholar-garden",state:state()},storage(originalRaw));
+ const currentRaw=JSON.stringify({...wallet,masteryPoints:50,mpTransactions:[{id:"spend-1",amount:-94}]});
+ const current=storage(currentRaw);
+ const result=inspectPetWalletBackup(older,current);
+ assert.equal(result.status,"conflict");
+ assert.equal(result.incoming.masteryPoints,144);
+ assert.equal(JSON.parse(current.getItem(PET_WALLET_KEY)).masteryPoints,50);
+});
+
+test("an absent installed wallet and corrupted installed wallet have distinct, non-writing results",()=>{
+ const envelope=includePetWalletBackup({app:"lux-scholar-garden",state:state()},storage());
+ assert.equal(inspectPetWalletBackup(envelope,storage(null)).status,"install");
+ assert.throws(()=>inspectPetWalletBackup(envelope,storage("{corrupted")) ,/valid JSON/i);
+});
+
+test("a Scholar pet preview does not substitute for lossless Pet raw when source wallet is absent",()=>{
+ const payload={app:"lux-scholar-garden",state:state(),petCompanion:wallet};
+ const created=includePetWalletBackup(payload,storage(null));
+ assert.deepEqual(created.petCompanion,wallet);
+ assert.equal(created.petWalletBackup,null);
+ assert.equal(inspectPetWalletBackup(created,storage(null)).status,"absent");
+});
