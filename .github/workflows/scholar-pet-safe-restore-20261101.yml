@@ -1,0 +1,36 @@
+name: Scholar Pet wallet safe restore QA
+on:
+  push:
+    branches:
+      - main
+      - fix/scholar-standalone-pet-wallet-restore-20261101
+    paths:
+      - "assets/pet-wallet-backup-20261030.js"
+      - "assets/standalone-progress-import-20261023.js"
+      - "assets/daily-progress-save.js"
+      - "import-progress.html"
+      - "tests/pet-wallet-safe-standalone-restore-20261101.test.mjs"
+      - ".github/workflows/scholar-pet-safe-restore-20261101.yml"
+  pull_request:
+    paths:
+      - "assets/pet-wallet-backup-20261030.js"
+      - "assets/standalone-progress-import-20261023.js"
+      - "assets/daily-progress-save.js"
+      - "import-progress.html"
+      - "tests/pet-wallet-safe-standalone-restore-20261101.test.mjs"
+      - ".github/workflows/scholar-pet-safe-restore-20261101.yml"
+permissions:
+  contents: read
+jobs:
+  wallet-restore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Exercise failure-atomic Scholar and Pet import
+        run: node --test tests/pet-wallet-safe-standalone-restore-20261101.test.mjs tests/standalone-progress-import-20261023.test.mjs tests/pet-wallet-export-readonly-20261101.test.mjs
+      - name: Verify core Scholar backup and retained histories
+        run: node --test tests/backup-import-legacy-ipad-20261023.test.mjs tests/latest-30-day-export-20261023.test.mjs tests/full-progress-backup-guard-20261023.test.mjs
