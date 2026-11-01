@@ -1,0 +1,27 @@
+name: Year 8 Latin micro-topic composite preview QA
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'content/year8-latin-composites-20261101.json'
+      - 'scripts/year8-latin-composite-audit-20261101.mjs'
+      - 'tests/year8-latin-composite-20261101.mjs'
+      - '.github/workflows/year8-latin-composite-20261101.yml'
+jobs:
+  source-only-composite:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/year8-latin-composite-audit-20261101.mjs
+      - run: node --test tests/year8-latin-composite-20261101.mjs
+      - run: node scripts/year8-latin-composite-audit-20261101.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: year8-latin-source-composite-audit
+          path: qa-reports/year8-latin-composites
