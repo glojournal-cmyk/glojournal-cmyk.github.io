@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {fillDailyLockedQuestions} from '../assets/daily-locked-question-fallback-20261021.js';
+import {fillDailyLockedQuestions,enforceDistinctYear8MasteryAfterRetry} from '../assets/daily-locked-question-fallback-20261021.js';
 const rank=(rows,subject,limit)=>rows.slice(0,limit);
 const progression=(rows,mode,limit)=>rows.slice(0,limit);
 const q=(n,conceptId,format='typed_exact')=>({id:'q'+n,conceptId,format,topicId:'la-y8-case-role-introduction',
@@ -74,4 +74,15 @@ test('practice runtime never shrinks target or auto-completes an exhausted Daily
  assert.ok(!code.includes('s.setState({daily,dailyLog});'));
  assert.ok(code.includes('sessionSnapshot.current'));
  assert.ok(code.includes('selectUnfinishedDailyQuestions'));
+});
+
+test('post-retry guard removes previously credited concept variants and duplicates',()=>{
+ const loaded=[q(1,'concept-A'),q(2,'concept-A'),q(3,'concept-B'),q(4,'concept-B'),q(5,'concept-C')];
+ const result=enforceDistinctYear8MasteryAfterRetry(
+   [loaded[1],loaded[2],loaded[3],loaded[4]],loaded,
+   {locked:true,year:8,mode:'mastery',creditedIds:['q1']});
+ assert.deepEqual(result.map(x=>x.id),['q3','q5']);
+ const year9=enforceDistinctYear8MasteryAfterRetry([loaded[1],loaded[2],loaded[3]],loaded,
+   {locked:true,year:9,mode:'mastery',creditedIds:['q1']});
+ assert.deepEqual(year9.map(x=>x.id),['q2','q3','q4']);
 });
