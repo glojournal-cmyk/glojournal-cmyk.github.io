@@ -104,14 +104,43 @@ try{
    assert.equal(after.revision,initial.revision+1);
    assert.equal(after.ledger.attempts.length,1);
 
+   // Unlike a raw CAS smoke, these are two real graded answer commits from
+   // separate Safari/WebKit tabs for the SAME question and concept.
+   const answerFromTab=(tab,eventId)=>tab.evaluate(async id=>{
+    const {createIndexedDbDailyV2Repository}=await import('/daily-v2/src/indexeddb-repository.js');
+    const {commitDailyV2Answer}=await import('/daily-v2/src/storage.js');
+    const repo=createIndexedDbDailyV2Repository({databaseName:'scholar-daily-v2-webkit-isolated'});
+    return commitDailyV2Answer(repo,{eventId:id,day:'2026-10-31',
+      taskId:'latin-vocab',questionId:'latin-vocab-q1',conceptId:'latin-word-1',
+      correct:true});
+   },eventId);
+   const twoAnswers=await Promise.all([
+    answerFromTab(page,'qa-second-tab-vocab-a'),
+    answerFromTab(secondPage,'qa-second-tab-vocab-b')
+   ]);
+   assert.deepEqual(twoAnswers.map(x=>x.creditDelta).sort(),[0,1],
+     'two Safari tabs must not earn duplicate concept credit');
+   assert.ok(twoAnswers.every(x=>x.verified===true));
+   const afterBoth=await page.evaluate(async()=>{
+    const {createIndexedDbDailyV2Repository}=await import('/daily-v2/src/indexeddb-repository.js');
+    return createIndexedDbDailyV2Repository({databaseName:'scholar-daily-v2-webkit-isolated'}).read('2026-10-31');
+   });
+   assert.equal(afterBoth.ledger.attempts.length,3,
+    'preserve both attempt receipts and the original first answer');
+   const twoQuestionAttempts=afterBoth.ledger.attempts.filter(x=>
+     x.questionId==='latin-vocab-q1');
+   assert.equal(twoQuestionAttempts.length,2);
+   assert.equal(new Set(twoQuestionAttempts.map(x=>x.conceptId)).size,1);
+   assert.equal(afterBoth.revision,after.revision+2);
+
    await context.setOffline(true);
    const offline=await page.evaluate(async()=>{
      const {createIndexedDbDailyV2Repository}=await import('/daily-v2/src/indexeddb-repository.js');
      const repo=createIndexedDbDailyV2Repository({databaseName:'scholar-daily-v2-webkit-isolated'});
      return repo.read('2026-10-31');
    });
-   assert.equal(offline.revision,after.revision);
-   assert.equal(offline.ledger.attempts.length,1);
+   assert.equal(offline.revision,afterBoth.revision);
+   assert.equal(offline.ledger.attempts.length,3);
    await context.setOffline(false);
    const invalid=await page.evaluate(async()=>{
     const {createIndexedDbDailyV2Repository}=await import('/daily-v2/src/indexeddb-repository.js');
@@ -121,7 +150,8 @@ try{
    assert.equal(invalid,true);
    console.log('DAILY_V2_WEBKIT_IDB_PASS',JSON.stringify({viewport,
      checks:['163-question atomic freeze','one correct credited once','reopen and read-back',
-       'concurrent CAS one winner','offline IndexedDB read','invalid calendar rejection',
+       'concurrent CAS one winner','two-tab real answer deduplication',
+       'offline IndexedDB read','invalid calendar rejection',
        'legacy Scholar and Pet wallet unchanged']}));
   }finally{await context.close()}
  }
