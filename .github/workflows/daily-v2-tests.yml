@@ -44,6 +44,8 @@ jobs:
         run: node daily-v2/scripts/build-objective-review-queue.mjs --out "$RUNNER_TEMP/daily-v2-review"
       - name: Generate Year 7-8 Latin/French vocabulary reviewer queue (pending, no approvals)
         run: node daily-v2/scripts/build-vocab-review-queue.mjs --out "$RUNNER_TEMP/daily-v2-review"
+      - name: Print source-bound lexical risks for human review (no approvals)
+        run: node daily-v2/scripts/qa-vocab-lexical-risk.mjs
       - name: Validate 16 unapproved numeric method-mark proposals and copy reviewer draft
         run: |
           node daily-v2/scripts/qa-numeric-method-drafts.mjs
