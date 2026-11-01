@@ -36,3 +36,13 @@ The previous latest-head branch passed Whole Site but failed the **Biology WebKi
 A further read-only historical safeguard preserves original per-task marked question evidence when a legacy data log already shows the same ID answered for two different tasks. We cannot retroactively pretend those two saved records never existed; future fresh allocations remain disjoint. Added automated checks for this case and for no Year 9, preview or informal content in Year 8 source reservations. This is still NOT a cross-tab atomic reservation lock.
 
 Release gate remains the latest commit's separate WebKit smoke, Whole Site Browser, Recovery and 48-hour Day 2/7 QA results, followed by a real learner export/import replay before merge.
+
+## Critical route coverage correction (1 November 2026)
+The published HTML manifests do **not** all use one Practice component:
+- `/study/latin/practise` and `/study/french/practise` preload `assets/study._subject.practise-y8fix-20260920.js`.
+- `/study/biology/practise`, `/study/chemistry/practise` and `/study/physics/practise` preload **`assets/study._subject.practise-D_PWgUd7.js`**, which was not previously patched by #249/#252.
+- The Science component has its own question refill and stale "closing this assigned set" status. It also contained a dormant (guarded-off) question-bank-exhaustion target-shrink effect.
+
+We now wire the same strict Year 8 reservation pre-/post-selector, unique Mastery family checks and explicit shortfall notice into the **Science active module**, and remove the dormant auto-completion effect. Year 9 Science remains on its original selection path, to protect upcoming school assessments. Additional CI asserts both deployed route manifests point to their intended module, both modules have the guards and no silent completion block remains. **A previously passing test against only the language asset did not certify Science Year 8.**
+
+Cache-aware production verification remains necessary after any future deployment because iPad PWA/browser caches may contain older JS module URLs.
