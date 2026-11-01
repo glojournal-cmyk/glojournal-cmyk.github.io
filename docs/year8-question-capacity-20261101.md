@@ -65,6 +65,23 @@
 
 See `qa-reports/year8-bank-catalog-snapshot-20261101.csv` for **all 153 topics** and the 20–24 and 25+ cohorts. This CSV is a catalog-only snapshot, NOT a source verification.
 
+## Verified current-source run — 1 November 2026
+
+**GitHub Actions [Year 8 bank source capacity inventory](https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/41288632787) completed SUCCESS**, executing the checked-in script against all 153 current topic source files. Its full current-source CSV and report are available in the [uploaded artifact](https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/41288632787/artifacts/13075899834).
+
+| Subject | Actual source-eligible questions | Below 15 | 15–19 | 20–24 | Source/catalog disagreements |
+|---|---:|---:|---:|---:|---:|
+| Latin | 2,492 | 34 | 2 | 3 | 0 |
+| French | 4,601 | 0 | 0 | 0 | 0 |
+| Biology | 1,097 | 4 | 7 | 3 | 12 |
+| Chemistry | 280 | 0 | 0 | 0 | 0 |
+| Physics | 448 | 0 | 0 | 0 | 4 |
+| **Total** | **8,918** | **38** | **9** | **6** | **16** |
+
+**Verified Biology actual-source P0 (<15):** `bio-y8-ber` (10), `bio-y8-continuous-variation` (12), `bio-y8-correlation` (12), `bio-y8-mixed-exam` (12). **P1 (15–19):** `bio-y8-genetic-disorders` (15), `bio-y8-dna-structure` (16), `bio-y8-nutrition-labels` (16), `bio-y8-practical-conclusions` (16), `bio-y8-punnett-squares` (16), `bio-y8-limiting-factors` (18), `bio-y8-fats-cholesterol` (19). Physics has four source shortfalls against catalog, but all Physics Year 8 topics still exceed 25 source-eligible questions.
+
+**Success means the read-only source inventory ran and found zero fatal schema/ID validation errors.** It does *not* mean any of the 38 below-standard topic gaps, 16 count differences, duplicate-concept risks, academic certification or student-specific availability have been fixed.
+
 ## Source-of-truth audit: existing evidence and discrepancies
 - An isolated 26 October 2026 audit in **draft PR #240** checked all 153 Year 8 topic files, observing 8,918 source-eligible records versus 8,829 catalog-enabled counts and **16 source/catalog mismatches**. The biggest was `bio-y8-food-tests` (catalog 33 vs actual 143); other topic files had 1–3 fewer eligible items than advertised. The present script reruns against actual current source files; prior values must not be treated as latest-head verification.
 - The active `main` catalog still reports e.g. Biology BER=10, Mixed exam=12, Continuous variation=13, Correlation=13, and Latin Case-role Introduction=5. **Draft PR #172** proposed additions to 11 original topic files (79 supplemental questions in its later rounds), but remains unmerged; do NOT count those draft questions as live supply or merge the PR without academic and grader QA.
