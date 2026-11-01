@@ -57,8 +57,12 @@ export function fillDailyLockedQuestions(fresh,loaded,options,rank,progression){
   if(result.length>=limit)return result;
  }
  const bank=(Array.isArray(loaded)?loaded:[]).filter(q=>available(q)&&!used.has(String(q.id)));
- const ranked=rank(bank,subject,limit);
- const extra=progression(ranked,mode,limit);
+ // Wider candidates are needed when several formats share one concept ID.
+ // Only the strict Mastery path expands the candidate search; existing other
+ // formats and legacy Daily assignment sizes remain unchanged.
+ const candidateLimit=requireDistinctConcepts?Math.max(limit,Math.min(bank.length,limit*6)):limit;
+ const ranked=rank(bank,subject,candidateLimit);
+ const extra=progression(ranked,mode,candidateLimit);
  for(const q of extra){
   if(result.length>=limit)break;
   if(!available(q)||used.has(String(q.id)))continue;
