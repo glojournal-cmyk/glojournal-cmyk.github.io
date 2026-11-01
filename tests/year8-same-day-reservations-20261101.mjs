@@ -125,11 +125,12 @@ test('production Practice route applies guard before and after unfinished retry,
 
 test('ineligible Year 9 or wrong-topic records never become same-day Year 8 reservations',()=>{
  const tasks=[task('y8-standard-a',15),task('y8-standard-b',15)];
- const mixed=[...bank.slice(0,20),{...q(41),year:9},{...q(42),topicId:'bio-y9-unrelated'}];
+ const mixed=[...bank.slice(0,20),{...q(41),year:9},{...q(42),topicId:'bio-y9-unrelated'},
+  {...q(43),preview:true},{...q(44),formal:false}];
  const a=otherYear8DailyReservations(state(tasks),mixed,opts('y8-standard-a'));
  const b=otherYear8DailyReservations(state(tasks),mixed,opts('y8-standard-b'));
- assert.equal(a.has('q41')||a.has('q42'),false);
- assert.equal(b.has('q41')||b.has('q42'),false);
+ assert.equal(['q41','q42','q43','q44'].some(id=>a.has(id)),false);
+ assert.equal(['q41','q42','q43','q44'].some(id=>b.has(id)),false);
  assert.equal(a.size,5,'second task gets the five eligible remaining topics');
  assert.equal(b.size,15,'first task keeps its full 15 eligible questions');
 });
