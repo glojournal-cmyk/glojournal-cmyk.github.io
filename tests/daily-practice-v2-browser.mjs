@@ -687,12 +687,44 @@ async function checkExhaustedBiologyDaily(browser,engine){
   }finally{await context.close()}
 }
 
+
+async function checkYear8ScienceMasteryShortfall(browser,engine){
+ const context=await browser.newContext({viewport:{width:1024,height:768},hasTouch:true,deviceScaleFactor:2});
+ const page=await context.newPage(),errors=[];
+ page.on('pageerror',e=>errors.push(e.message));
+ const url=base+'/study/biology/practise?daily=1&locked=1&year=8&mode=mastery&task=y8-mastery-a&topic=bio-y8-ber';
+ try{
+   await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
+   await page.waitForSelector('.lux-practice-view',{timeout:35000});
+   await page.waitForFunction(()=>document.body.innerText.includes('Not enough fresh Year 8 questions'),null,{timeout:35000});
+   const result=await page.evaluate(()=>({
+     path:location.pathname,
+     visible:document.body.innerText,
+     assignedQuestion:!!document.querySelector('[data-question-id]'),
+     ready:document.documentElement.classList.contains('lux-daily-ux-ready'),
+     studyLink:!![...document.querySelectorAll('a')].find(a=>a.textContent.trim()==='Back to Study')
+   }));
+   assert.equal(result.assignedQuestion,false,'10-question source must not masquerade as a 20-question Mastery');
+   assert.ok(result.visible.includes('this task is NOT automatically marked complete.'),
+     'Year 8 science shortfall must explicitly preserve task target');
+   assert.equal(result.studyLink,true,'safe exit must be visible on real Science route');
+   assert.equal(result.ready,true,'Science practice shell stays ready');
+   const cors=/^\/127\.0\.0\.1:\d+\/(?:content\/topics\/chem-y9-c(?:1|3)\.json|assessment\/french-school-1\.json|content\/topics\/fr-y9-u1-paris-travel\.json) due to access control checks\.$/;
+   const liveErrors=errors.filter(e=>!cors.test(e));
+   assert.equal(liveErrors.length,0,'no real JS exceptions on Year 8 Biology Mastery shortage');
+   console.log('DAILY_YEAR8_SCIENCE_SHORTFALL '+JSON.stringify({engine,assignedQuestion:result.assignedQuestion,
+     studyLink:result.studyLink,ready:result.ready,errors:liveErrors}));
+   report.push({engine,kind:'real-year8-biology-mastery-shortfall',ok:true});
+ }finally{await context.close()}
+}
+
 try{
   for(const [engine,launcher] of [['chromium',chromium],['webkit',webkit]]){
     const browser=await launcher.launch({headless:true});
     try{
       if(process.env.LUX_BIOLOGY_ONLY==='1'){
         await checkExhaustedBiologyDaily(browser,engine);
+        await checkYear8ScienceMasteryShortfall(browser,engine);
         continue;
       }
       for(const size of [{width:1024,height:768},{width:1366,height:1024}]){
@@ -701,6 +733,7 @@ try{
       await checkRealPractice(browser,engine);
       await checkAssignedStandard(browser,engine);
       await checkExhaustedBiologyDaily(browser,engine);
+      await checkYear8ScienceMasteryShortfall(browser,engine);
     }finally{await browser.close();}
   }
 }finally{
