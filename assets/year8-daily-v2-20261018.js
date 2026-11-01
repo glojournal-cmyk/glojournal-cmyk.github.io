@@ -433,8 +433,13 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   // Do not assign the same weak topic a second time in one Daily plan
   // when a Standard, Mastery or due check has already reserved it.
   const availableWeak=genuineWeak.filter(t=>!assigned.has(t.topicId));
+  // The three-topic consolidation window can already be occupied by
+  // Standard, Mastery and Due slots. Expand to other Year 8 topics rather
+  // than silently allocating its first (already reserved) Stage again.
+  const weakConsolidation=reviewWindow.some(t=>!assigned.has(t.topicId))
+    ?reviewWindow:allTopics.filter(t=>!pendingRecall(t));
   const weak=pick('weakness-review',availableWeak.length?availableWeak:
-    reviewWindow.length?reviewWindow:allTopics,
+    weakConsolidation.length?weakConsolidation:allTopics,
     ()=>true,availableWeak.length?(a,b)=>accuracy(a)-accuracy(b)||
       reviewCompare(a,b):reviewCompare);
   const taught=['latin','french','chemistry','biology','physics'].flatMap(s=>(getCatalog(s,9)||[])
