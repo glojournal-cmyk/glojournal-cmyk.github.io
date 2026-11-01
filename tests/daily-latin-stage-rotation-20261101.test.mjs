@@ -101,6 +101,7 @@ test('iPad keeps single app module identity and refreshes only the Latin planner
   for(const module of ['study._subject.practise-D_PWgUd7.js',
     'quiz-session-rWAnuDVj.js','quiz-session-y8fix-20260920.js']){
     const js=readFileSync(new URL('../assets/'+module,import.meta.url),'utf8');
-    assert.ok(js.includes(oldRoot.slice(1)),module+' must import the same root URL');
+    assert.ok(js.includes(oldRoot.replace('/assets/','./')),
+      module+' must import the same root URL');
   }
 });
