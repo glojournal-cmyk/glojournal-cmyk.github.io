@@ -86,6 +86,43 @@ export function buildVocabReviewQueue(sources){
   if(conceptCounts.get(row.subject+'|'+row.conceptId)>1)
    row.flags.push('MULTIPLE_QUESTIONS_SAME_CONCEPT');
  }
+ // Review-only lexical ambiguity checks: these are risks, not automatic
+ // declarations that a translation is wrong or permission to alter marking.
+ // A bare 'calculator' alongside 'calculator (plural)' loses an explicit
+ // grammatical-number cue, even if a scorer currently accepts both strings.
+ const normalizeReview=v=>String(v).normalize('NFKD').toLowerCase()
+  .replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+ const directionFor=row=>{
+  const stated=String(row.stimulus?.direction||'');
+  if(stated.trim())return normalizeReview(stated);
+  if(/TRANSLATE INTO ENGLISH/i.test(row.prompt))return 'into english';
+  if(/TRANSLATE INTO FRENCH/i.test(row.prompt))return 'into french';
+  if(/TRANSLATE INTO LATIN/i.test(row.prompt))return 'into latin';
+  return '';
+ };
+ const sharedPrompts=new Map();
+ for(const row of rows){
+  const pluralTagged=row.acceptedAnswers.filter(answer=>/\\(\\s*plural\\s*\\)/i.test(answer));
+  if(pluralTagged.some(tag=>{
+   const bare=normalizeReview(tag.replace(/\\(\\s*plural\\s*\\)/ig,''));
+   return bare&&row.acceptedAnswers.some(answer=>answer!==tag&&normalizeReview(answer)===bare);
+  }))row.flags.push('PLURAL_CUE_DROPPED_BY_ALTERNATIVE');
+  const stimulus=normalizeReview(row.stimulus?.text||'');
+  const direction=directionFor(row);
+  if(!stimulus||!direction)continue;
+  const key=[row.subject,row.year,direction,stimulus].join('|');
+  if(!sharedPrompts.has(key))sharedPrompts.set(key,[]);
+  sharedPrompts.get(key).push(row);
+ }
+ for(const group of sharedPrompts.values()){
+  const concepts=new Set(group.map(row=>row.conceptId));
+  if(concepts.size<2)continue;
+  const answerSets=new Set(group.map(row=>
+   [...new Set(row.acceptedAnswers.map(normalizeReview))].sort().join('|')));
+  const flag=answerSets.size>1?
+   'SAME_STIMULUS_DIFFERENT_CONCEPT_ANSWERS':'DUPLICATE_CONCEPT_FOR_SAME_PROMPT';
+  for(const row of group)row.flags.push(flag);
+ }
  const bySubject={};
  const shortlist=[];
  for(const subject of ['latin','french']){
@@ -155,6 +192,10 @@ if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
   mkdirSync(dir,{recursive:true});
   writeFileSync(join(dir,'vocab-human-review-queue.csv'),csvRows(result.rows));
   writeFileSync(join(dir,'vocab-60-each-priority-review.csv'),csvRows(result.shortlist));
+  const lexicalRiskFlags=new Set(['PLURAL_CUE_DROPPED_BY_ALTERNATIVE',
+   'SAME_STIMULUS_DIFFERENT_CONCEPT_ANSWERS','DUPLICATE_CONCEPT_FOR_SAME_PROMPT']);
+  const lexicalRisks=result.rows.filter(row=>row.flags.some(flag=>lexicalRiskFlags.has(flag)));
+  writeFileSync(join(dir,'vocab-lexical-risk-review.csv'),csvRows(lexicalRisks));
   writeFileSync(join(dir,'vocab-review-summary.json'),
     JSON.stringify(result.summary,null,2)+'\n');
  }
