@@ -852,17 +852,323 @@
       "preview": false,
       "ordinary": true,
       "formal": false
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-lower-light",
+      "conceptId": "bio-y8-limiting-factors-20261101-lower-light",
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "A lamp is moved farther from pondweed while all other conditions remain similar. What normally happens to the light intensity reaching it?",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "decreases",
+          "it decreases",
+          "lower",
+          "less light",
+          "decreases as the distance increases"
+        ]
+      },
+      "feedback": {
+        "short": "decreases",
+        "steps": [
+          "Use the scenario to identify the scientific concept.",
+          "decreases"
+        ]
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Give the scientifically correct word or phrase."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-plateau-factor",
+      "conceptId": "bio-y8-limiting-factors-20261101-plateau-factor",
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "A photosynthesis graph levels off even as light intensity continues increasing. What can you conclude about light?",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "light is no longer the limiting factor",
+          "light is not limiting",
+          "light intensity is no longer limiting",
+          "another factor is limiting the rate"
+        ]
+      },
+      "feedback": {
+        "short": "light is no longer the limiting factor",
+        "steps": [
+          "Use the scenario to identify the scientific concept.",
+          "light is no longer the limiting factor"
+        ]
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Give the scientifically correct word or phrase."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-carbon-dioxide",
+      "conceptId": "bio-y8-limiting-factors-20261101-carbon-dioxide",
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "A brightly lit plant has very little carbon dioxide available. Which reactant could limit its photosynthesis?",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "carbon dioxide",
+          "CO2",
+          "carbon dioxide concentration"
+        ]
+      },
+      "feedback": {
+        "short": "carbon dioxide",
+        "steps": [
+          "Use the scenario to identify the scientific concept.",
+          "carbon dioxide"
+        ]
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Give the scientifically correct word or phrase."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-data-trend",
+      "conceptId": "bio-y8-limiting-factors-20261101-data-trend",
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "Under increasing light, a pondweed produces 4, then 8, then 12 oxygen bubbles per minute. State the trend and quote the evidence. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 2,
+        "markPoints": [
+          "The observed bubble production rate increases with the light conditions used.",
+          "It rises from 4 to 12 bubbles per minute across the three readings."
+        ],
+        "modelAnswer": "The observed bubble production rate increases with the light conditions used. It rises from 4 to 12 bubbles per minute across the three readings.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "The observed bubble production rate increases with the light conditions used. It rises from 4 to 12 bubbles per minute across the three readings.",
+        "steps": [
+          "The observed bubble production rate increases with the light conditions used.",
+          "It rises from 4 to 12 bubbles per minute across the three readings."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Give two independent scientific points. Correct alternate wording needs review."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-plateau-explanation",
+      "conceptId": "bio-y8-limiting-factors-20261101-plateau-explanation",
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "A plant's photosynthesis rate stops increasing at high light intensity. Explain two scientifically reasonable points about this plateau. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 2,
+        "markPoints": [
+          "Increasing light further is no longer increasing the rate because light is not the limiting factor.",
+          "A different factor, for example carbon dioxide availability or temperature, may now limit the rate."
+        ],
+        "modelAnswer": "Increasing light further is no longer increasing the rate because light is not the limiting factor. A different factor, for example carbon dioxide availability or temperature, may now limit the rate.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Increasing light further is no longer increasing the rate because light is not the limiting factor. A different factor, for example carbon dioxide availability or temperature, may now limit the rate.",
+        "steps": [
+          "Increasing light further is no longer increasing the rate because light is not the limiting factor.",
+          "A different factor, for example carbon dioxide availability or temperature, may now limit the rate."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Give two independent scientific points. Correct alternate wording needs review."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-light-test-controls",
+      "conceptId": "bio-y8-limiting-factors-20261101-light-test-controls",
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "When testing how lamp distance affects photosynthesis, state two things to keep constant. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 2,
+        "markPoints": [
+          "Use comparable pondweed lengths or amounts.",
+          "Keep water temperature similar between measurements."
+        ],
+        "modelAnswer": "Use comparable pondweed lengths or amounts. Keep water temperature similar between measurements.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Use comparable pondweed lengths or amounts. Keep water temperature similar between measurements.",
+        "steps": [
+          "Use comparable pondweed lengths or amounts.",
+          "Keep water temperature similar between measurements."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Give two independent scientific points. Correct alternate wording needs review."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-oxygen-change",
+      "conceptId": "bio-y8-limiting-factors-20261101-oxygen-change",
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "calculation",
+      "difficulty": 3,
+      "prompt": "A plant produces 7 oxygen bubbles per minute at one light level and 16 bubbles per minute at a higher light level. Calculate the increase in bubbles per minute.",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "numeric",
+        "totalMarks": 1,
+        "value": 9,
+        "tolerance": 0.001,
+        "units": [
+          "bubbles per minute",
+          "bubbles/min",
+          "bubbles/minute"
+        ],
+        "working": "16 − 7 = 9 bubbles per minute",
+        "modelAnswer": "9 bubbles per minute"
+      },
+      "feedback": {
+        "short": "16 − 7 = 9 bubbles per minute",
+        "steps": [
+          "Use the given numbers.",
+          "16 − 7 = 9 bubbles per minute"
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show working and report the answer with correct units."
+      }
     }
   ],
-  "enabled": 20,
+  "enabled": 27,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 5,
     "typed_exact": 5,
-    "mark_points": 7,
+    "mark_points": 10,
     "matching": 1,
-    "diagram_label": 2
+    "typed_short": 0,
+    "typed_equivalent": 3,
+    "calculation": 1
   },
   "gated": false,
   "note": {
