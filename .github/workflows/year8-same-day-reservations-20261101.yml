@@ -1,0 +1,22 @@
+name: Year 8 same-day question reservations QA
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'assets/daily-question-reservations-20261101.js'
+      - 'assets/study._subject.practise-y8fix-20260920.js'
+      - 'tests/year8-same-day-reservations-20261101.mjs'
+      - '.github/workflows/year8-same-day-reservations-20261101.yml'
+jobs:
+  deterministic-reservations:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/daily-question-reservations-20261101.js
+      - run: node --check assets/study._subject.practise-y8fix-20260920.js
+      - run: node --test tests/year8-same-day-reservations-20261101.mjs
