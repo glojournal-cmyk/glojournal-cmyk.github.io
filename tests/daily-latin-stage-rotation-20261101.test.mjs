@@ -85,6 +85,60 @@ test('six-day exposure window permits later re-review instead of permanently ban
   assert.equal(topic(buildYear8DailyV2(input,get)),ids[0]);
 });
 
+
+test('an empty weakness score is not evidence that Stage 1 or 2 is weak',()=>{
+  const plan=buildYear8DailyV2(state(),get);
+  const weak=plan.find(t=>t.id==='weakness-review');
+  const due=plan.find(t=>t.id==='due-review');
+  assert.match(weak.detail,/no recorded weak topic/);
+  assert.match(due.detail,/nothing due today/);
+  assert.notEqual(weak.assignedTopic,due.assignedTopic,
+    'one unlearned topic should not be assigned to both review slots');
+});
+
+test('a genuine weak topic already reserved for Mastery is not assigned twice',()=>{
+  const input=state({topicStats:{[ids[3]]:{attempted:12,correct:4,accuracy:1/3}}});
+  const plan=buildYear8DailyV2(input,get);
+  const weak=plan.find(t=>t.id==='weakness-review');
+  assert.ok(plan.some(t=>t.id.startsWith('y8-mastery-')&&t.assignedTopic===ids[3]));
+  assert.notEqual(weak.assignedTopic,ids[3]);
+  assert.match(weak.detail,/Consolidation/);
+});
+
+test('no-due review rotates between subjects with real catalog choices',()=>{
+  const allSubjects=['latin','french','biology','chemistry','physics'];
+  const mixed=allSubjects.flatMap(subject=>Array.from({length:6},(_,i)=>({
+    subject,year:8,topicId:subject+'-y8-topic-'+i,title:'Topic '+i,
+    status:'enabled',enabled:35,formats:{typed_short:20}
+  })));
+  const getMixed=(subject,year)=>year===8?mixed.filter(t=>t.subject===subject):[];
+  const past={};const dueSubjects=new Set(),weakSubjects=new Set();
+  const date=d=>'2026-11-'+String(d).padStart(2,'0');
+  for(let n=1;n<=7;n++){
+    const d=date(n);
+    const plan=buildYear8DailyV2(state({today:d,dailyLog:past}),getMixed);
+    const due=plan.find(t=>t.id==='due-review'),weak=plan.find(t=>t.id==='weakness-review');
+    assert.match(due.detail,/nothing due today/);
+    assert.match(weak.detail,/no recorded weak topic/);
+    dueSubjects.add(due.assignedSubject);
+    weakSubjects.add(weak.assignedSubject);
+    past[d]={tasks:plan.filter(t=>t.assignedTopic).map(t=>({
+      id:t.id,assignedTopic:t.assignedTopic,
+      assignedSubject:t.assignedSubject,assignedYear:t.assignedYear
+    }))};
+  }
+  assert.ok(dueSubjects.size>=2,'Consolidation should not always be Latin');
+  assert.ok(weakSubjects.size>=2,'Unknown-accuracy review should not always be Latin');
+});
+
+test('a partly answered weakness review keeps the same date and score',()=>{
+  const old=saved('2026-11-01','weakness-review',ids[1],5);
+  const plan=buildYear8DailyV2(state({daily:[old]}),get);
+  const weak=plan.find(t=>t.id==='weakness-review');
+  assert.equal(weak.assignedTopic,ids[1]);
+  assert.equal(weak.progress,5);
+});
+
 test('iPad keeps single app module identity and refreshes only the Latin planner import',()=>{
   const active=readFileSync(new URL('../assets/index-BLVOhKhN.js',import.meta.url),'utf8');
   const version='year8-daily-v2-20261018.js?v=20261025-scorefix2&latinrotation=20261101a';
