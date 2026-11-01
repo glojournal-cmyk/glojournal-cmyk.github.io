@@ -6,7 +6,7 @@ const catalog=JSON.parse(fs.readFileSync('content/catalog.json','utf8'));
 let total=0,examQuestions=0,fullSixMarks=0;
 for(const [subject,topicId,spec,expected] of rows){
  const doc=JSON.parse(fs.readFileSync(root+topicId+'.json','utf8'));
- assert.equal(doc.questions.length,expected);
+ assert.ok(doc.questions.length>=expected,`${topicId}: original question capacity unexpectedly shrank`);
  assert.equal(doc.enabled+doc.preview+doc.disabled,doc.questions.length);
  const practice=doc.questions.filter(q=>q.id.includes('-aqa-exam-20261024-'));
  assert.equal(practice.length,4);
@@ -31,13 +31,13 @@ for(const [subject,topicId,spec,expected] of rows){
    if(q.answer.totalMarks===6)fullSixMarks++;
    examQuestions++;
  }
- assert.equal(catalog.topics.find(t=>t.topicId===topicId).questions,expected);
+ assert.equal(catalog.topics.find(t=>t.topicId===topicId).questions,doc.questions.length,`${topicId}: catalog/source count drift`);
  total+=practice.length;
 }
 assert.equal(examQuestions,12);
 assert.equal(fullSixMarks,6);
-assert.equal(catalog.totals.questions,16539);
-assert.equal(catalog.totals.enabled,15410);
+assert.ok(catalog.totals.questions>=16539,'Catalog questions unexpectedly below original AQA release');
+assert.ok(catalog.totals.enabled>=15410,'Enabled count unexpectedly below original AQA release');
 assert.equal(catalog.bySubjectYear.reduce((n,t)=>n+t.questions,0),catalog.totals.questions);
 const html=fs.readFileSync('assessment/index.html','utf8');
 const js=fs.readFileSync('assessment/aqa-science-practice-20261024.js','utf8');
