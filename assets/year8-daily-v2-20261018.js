@@ -41,6 +41,26 @@ function balancedCompare(a,b,primary,secondary,order,today){
     cyclicRank(a.subject,order,today)-cyclicRank(b.subject,order,today);
 }
 
+// Count dated *topic assignments*, not answer credit. A saved iPad that has
+ // not persisted the topic's coverage score must still avoid showing the same
+ // Latin Stage 1/2 as new Standard work every morning. This is read-only.
+function recentLatinTopicExposure(state,today){
+  const counts=new Map(),now=dayNumber(today);
+  for(const [date,row] of Object.entries(state.dailyLog||{})){
+    const age=now-dayNumber(date);
+    if(!Number.isFinite(age)||age<1||age>6)continue;
+    for(const t of row?.tasks||[]){
+      if(!t?.assignedTopic||t.id==='latin-vocab')continue;
+      const subject=t.assignedSubject||
+        (typeof t.href==='string'?t.href.split('/')[2]:null);
+      if(subject!=='latin'||Number(t.assignedYear||8)!==8)continue;
+      const old=counts.get(t.assignedTopic)||{count:0,lastAge:Infinity};
+      counts.set(t.assignedTopic,{count:old.count+1,lastAge:Math.min(old.lastAge,age)});
+    }
+  }
+  return counts;
+}
+
 // Ten assignments, normally 165 answers: 60 vocab, 10 Latin, 20 Standard,
 // two separate 20-question Mastery sets, 10 weakness, 10 due, 15 Year 9.
 // Day 2/7 retention stays in Due Review; it never replaces daily Mastery A/B.
@@ -284,8 +304,25 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   const pendingRecall=t=>['check2','check7'].includes(
     state.topicStats?.[t.topicId]?.masteryV2?.stage);
   // Reserve every in-progress recall topic for its five-question due date.
-  const latin=pick('latin-standard',pools.latin.filter(t=>!pendingRecall(t)),
-    t=>!coveredTopic(state,t.topicId));
+  // Keep the Standard frontier gradual (up to four Year 8 topics), but
+  // rotate by actual recent Daily assignments rather than repeatedly forcing
+  // the first uncovered Stage 1/2 when its credit/coverage has not caught up.
+  // Intentionally due and weakness-review tasks remain independently eligible.
+  const latinReady=pools.latin.filter(t=>!pendingRecall(t));
+  const latinAvailable=latinReady.length?latinReady:pools.latin;
+  const latinUncovered=latinAvailable.filter(t=>!coveredTopic(state,t.topicId));
+  const latinWindow=latinUncovered.slice(0,4);
+  for(const t of latinAvailable){
+    if(latinWindow.length>=4)break;
+    if(!latinWindow.some(chosen=>chosen.topicId===t.topicId))latinWindow.push(t);
+  }
+  const latinHistory=recentLatinTopicExposure(state,today);
+  const latin=pick('latin-standard',latinWindow,()=>true,(a,b)=>{
+    const aSeen=latinHistory.get(a.topicId),bSeen=latinHistory.get(b.topicId);
+    return (aSeen?.count||0)-(bSeen?.count||0)||
+      (bSeen?.lastAge||7)-(aSeen?.lastAge||7)||
+      Number(coveredTopic(state,a.topicId))-Number(coveredTopic(state,b.topicId));
+  });
   const standardPool=(pools[subject]||[]).filter(t=>!pendingRecall(t));
   const standards=['y8-standard-a','y8-standard-b'].map(id=>{
     const topic=pick(id,standardPool,t=>!coveredTopic(state,t.topicId));
