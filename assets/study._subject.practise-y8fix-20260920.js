@@ -4,7 +4,7 @@ import {selectDiverseRecoveryQuestions} from './recovery-question-diversity-2026
 import {listRecoveryReceipts} from './recovery-receipt-20261018.js?v=20261025-recovery-correct1';
 import {dailyVocabTotal} from './daily-vocab-total-20261020.js?v=20261023-final-credit1';
 import {uniqueFrenchQuestions} from "./french-unique-questions-20261018.js";
-import {fillDailyLockedQuestions,dailyCorrectQuestionIds} from "./daily-locked-question-fallback-20261021.js?v=20261026-bio-year9-savefix2";
+import {fillDailyLockedQuestions,dailyCorrectQuestionIds,enforceDistinctYear8MasteryAfterRetry} from "./daily-locked-question-fallback-20261021.js?v=20261026-bio-year9-savefix2";
 import {selectProgressionQuestions} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {BiologyCellPractice} from "./biology-cell-practice-20261003.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {TopicBrowser} from "./topic-browser-20261018b.js?v=20261018-clarity3&ux=20261013-corrections2";
@@ -88,7 +88,7 @@ retryEffect=(0,w.useEffect)(()=>{
  }).catch(()=>{if(alive)setRetryLoaded({key:retryKey,receipt:null})});
  return()=>{alive=false};
 },[retryKey,needRetryLookup]),
-safeU=selectUnfinishedDailyQuestions(selectDiverseRecoveryQuestions(fillDailyLockedQuestions(U,z,{locked:dailyLocked,mode:E,size:W,topicId:pinnedTopic,subject:e,
+safeU=enforceDistinctYear8MasteryAfterRetry(selectUnfinishedDailyQuestions(selectDiverseRecoveryQuestions(fillDailyLockedQuestions(U,z,{locked:dailyLocked,mode:E,size:W,topicId:pinnedTopic,subject:e,
  requireDistinctConcepts:dailyLocked&&N===8&&E===`mastery`&&canonicalTask!==`y8vocab`,
  correctIds:(()=>{const state=s.getState();const ids=dailyCorrectQuestionIds(state,{day:R,taskId:canonicalTask,subject:e,year:N,topicId:pinnedTopic});
  if(dailyLocked&&!dailyParams.has('recover')&&['standard','quick','mastery'].includes(E))
@@ -101,7 +101,8 @@ safeU=selectUnfinishedDailyQuestions(selectDiverseRecoveryQuestions(fillDailyLoc
  // Today's retry receipts must never replace a different missed day's Recovery pool.
  state:dailyParams.has('recover')?null:s.getState(),receipt:retryData,day:R,taskId:canonicalTask,subject:e,
  year:N,topicId:pinnedTopic,mode:E,remaining:W
-}),
+}),z,{locked:dailyLocked&&!dailyParams.has("recover"),year:N,mode:E,seenCorrect:s.getState().seenCorrect,
+ creditedIds:dailyCorrectQuestionIds(s.getState(),{day:R,taskId:canonicalTask,subject:e,year:N,topicId:pinnedTopic})}),
 sessionSnapshot=(0,w.useRef)(null),
 sessionKey=[e,N,E,O,dailyParams.get(`task`)||``,dailyParams.get(`recover`)||``].join(`:`),
 intendedMode=dailyParams.get(`mode`);
