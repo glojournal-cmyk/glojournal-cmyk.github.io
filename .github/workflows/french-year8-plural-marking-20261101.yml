@@ -1,0 +1,32 @@
+name: French Year 8 plural marking and scorer QA
+on:
+  push:
+    branches:
+      - main
+      - fix/year8-french-plural-marking-20261101
+    paths:
+      - "content/topics/fr-y8-s25-classroom-objects.json"
+      - "tests/french-year8-classroom-plurals-20261101.test.mjs"
+      - "assets/quiz-session-rWAnuDVj.js"
+      - ".github/workflows/french-year8-plural-marking-20261101.yml"
+  pull_request:
+    paths:
+      - "content/topics/fr-y8-s25-classroom-objects.json"
+      - "tests/french-year8-classroom-plurals-20261101.test.mjs"
+      - "assets/quiz-session-rWAnuDVj.js"
+      - ".github/workflows/french-year8-plural-marking-20261101.yml"
+permissions:
+  contents: read
+jobs:
+  source-scoring:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Exercise all fourteen source corrections through actual French scorer
+        run: node --test tests/french-year8-classroom-plurals-20261101.test.mjs
+      - name: Regression check existing French translation marking
+        run: node tests/answer-alternatives-20261020.test.mjs
