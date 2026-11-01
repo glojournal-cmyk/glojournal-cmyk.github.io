@@ -657,18 +657,412 @@
       },
       "preview": false,
       "ordinary": true
+    },
+    {
+      "id": "bio-y8-nutrition-labels-capacity-20261026-01",
+      "conceptId": "bio-y8-nutrition-labels-concept-capacity-01",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-nutrition-labels",
+      "topic": "Reading nutrition labels",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "calculation",
+      "difficulty": 2,
+      "prompt": "A food label says 18 g sugar per 100 g. Calculate the sugar in a 75 g serving, in grams.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "numeric",
+        "value": 13.5,
+        "tolerance": 0.001,
+        "units": [
+          "g",
+          "g sugar"
+        ],
+        "working": "18 × 75 ÷ 100 = 13.5 g",
+        "modelAnswer": "13.5 g",
+        "totalMarks": 1
+      },
+      "feedback": {
+        "short": "18 × 75 ÷ 100 = 13.5 g",
+        "steps": [
+          "18 × 75 ÷ 100 = 13.5 g"
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show working separately; automatic check verifies the final numerical value and unit only."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-nutrition-labels-capacity-20261026-02",
+      "conceptId": "bio-y8-nutrition-labels-concept-capacity-02",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-nutrition-labels",
+      "topic": "Reading nutrition labels",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "calculation",
+      "difficulty": 2,
+      "prompt": "A packet contains two servings and its label states 120 kcal per serving. How many kcal are in the full packet?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "numeric",
+        "value": 240,
+        "tolerance": 0.001,
+        "units": [
+          "kcal",
+          "kilocalories"
+        ],
+        "working": "2 × 120 = 240 kcal",
+        "modelAnswer": "240 kcal",
+        "totalMarks": 1
+      },
+      "feedback": {
+        "short": "2 × 120 = 240 kcal",
+        "steps": [
+          "2 × 120 = 240 kcal"
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show working separately; automatic check verifies the final numerical value and unit only."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-nutrition-labels-capacity-20261026-03",
+      "conceptId": "bio-y8-nutrition-labels-concept-capacity-03",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-nutrition-labels",
+      "topic": "Reading nutrition labels",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "Food A has 8 g sugar per 100 g; Food B has 10 g sugar per 100 g. Which food has less sugar per 100 g?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "A",
+          "Food A",
+          "food a"
+        ]
+      },
+      "feedback": {
+        "short": "Check the original taught principle and apply it to this new context.",
+        "steps": [
+          "Identify the relevant scientific concept, then verify the answer."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-nutrition-labels-capacity-20261026-04",
+      "conceptId": "bio-y8-nutrition-labels-concept-capacity-04",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-nutrition-labels",
+      "topic": "Reading nutrition labels",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "A nutrition label lists 500 kJ and another lists 120 kcal. Explain why 500 and 120 cannot be compared directly as if the units were identical. (2 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Kilojoules and kilocalories are different units of energy.",
+          "One unit must be converted to the other before comparing values numerically."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Kilojoules and kilocalories are different units of energy. One unit must be converted to the other before comparing values numerically.",
+        "manualReviewFallback": true
+      },
+      "feedback": {
+        "short": "Kilojoules and kilocalories are different units of energy. One unit must be converted to the other before comparing values numerically.",
+        "steps": [
+          "Kilojoules and kilocalories are different units of energy.",
+          "One unit must be converted to the other before comparing values numerically."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / EVALUATE",
+        "instruction": "Write a scientific answer covering both mark points; review manually if marking is uncertain."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-nutrition-labels-20261101-sugar50",
+      "conceptId": "bio-y8-nutrition-labels-20261101-sugar50",
+      "topicId": "bio-y8-nutrition-labels",
+      "topic": "Reading nutrition labels",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "calculation",
+      "difficulty": 3,
+      "prompt": "A breakfast cereal contains 14 g sugar per 100 g. Calculate the sugar in a 50 g serving, in grams.",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "numeric",
+        "totalMarks": 1,
+        "value": 7,
+        "tolerance": 0.001,
+        "units": [
+          "g",
+          "grams",
+          "gram"
+        ],
+        "working": "14 × 50 ÷ 100 = 7 g",
+        "modelAnswer": "7 g"
+      },
+      "feedback": {
+        "short": "14 × 50 ÷ 100 = 7 g",
+        "steps": [
+          "Use the given numbers.",
+          "14 × 50 ÷ 100 = 7 g"
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show working and report the answer with correct units."
+      }
+    },
+    {
+      "id": "bio-y8-nutrition-labels-20261101-salt80",
+      "conceptId": "bio-y8-nutrition-labels-20261101-salt80",
+      "topicId": "bio-y8-nutrition-labels",
+      "topic": "Reading nutrition labels",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "calculation",
+      "difficulty": 3,
+      "prompt": "A snack contains 0.9 g salt per 100 g. Calculate the salt in an 80 g portion, in grams.",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "numeric",
+        "totalMarks": 1,
+        "value": 0.72,
+        "tolerance": 0.001,
+        "units": [
+          "g",
+          "grams",
+          "gram"
+        ],
+        "working": "0.9 × 80 ÷ 100 = 0.72 g",
+        "modelAnswer": "0.72 g"
+      },
+      "feedback": {
+        "short": "0.9 × 80 ÷ 100 = 0.72 g",
+        "steps": [
+          "Use the given numbers.",
+          "0.9 × 80 ÷ 100 = 0.72 g"
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show working and report the answer with correct units."
+      }
+    },
+    {
+      "id": "bio-y8-nutrition-labels-20261101-fair-basis",
+      "conceptId": "bio-y8-nutrition-labels-20261101-fair-basis",
+      "topicId": "bio-y8-nutrition-labels",
+      "topic": "Reading nutrition labels",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "Two foods have different pack sizes. Which label basis allows a direct comparison of their sugar amounts?",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "per 100 g",
+          "per 100g",
+          "amount per 100 g",
+          "per hundred grams"
+        ]
+      },
+      "feedback": {
+        "short": "per 100 g",
+        "steps": [
+          "Use the scenario to identify the scientific concept.",
+          "per 100 g"
+        ]
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Give the scientifically correct word or phrase."
+      }
+    },
+    {
+      "id": "bio-y8-nutrition-labels-20261101-portion-energy",
+      "conceptId": "bio-y8-nutrition-labels-20261101-portion-energy",
+      "topicId": "bio-y8-nutrition-labels",
+      "topic": "Reading nutrition labels",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "Explain why the energy per serving depends on portion size, even when the food is unchanged. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 2,
+        "markPoints": [
+          "The label energy per 100 g gives an amount for a fixed mass.",
+          "A larger serving contains more food, so the energy value must be scaled to the amount actually eaten."
+        ],
+        "modelAnswer": "The label energy per 100 g gives an amount for a fixed mass. A larger serving contains more food, so the energy value must be scaled to the amount actually eaten.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "The label energy per 100 g gives an amount for a fixed mass. A larger serving contains more food, so the energy value must be scaled to the amount actually eaten.",
+        "steps": [
+          "The label energy per 100 g gives an amount for a fixed mass.",
+          "A larger serving contains more food, so the energy value must be scaled to the amount actually eaten."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Give two independent scientific points. Correct alternate wording needs review."
+      }
+    },
+    {
+      "id": "bio-y8-nutrition-labels-20261101-sugar-comparison",
+      "conceptId": "bio-y8-nutrition-labels-20261101-sugar-comparison",
+      "topicId": "bio-y8-nutrition-labels",
+      "topic": "Reading nutrition labels",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "Food A contains 9 g sugar per 100 g and a serving is 150 g. Food B contains 6 g sugar per 100 g and a serving is 100 g. Which serving contains less sugar? Show the comparison. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 2,
+        "markPoints": [
+          "Food A serving has 13.5 g sugar (9 × 150 ÷ 100); Food B serving has 6 g.",
+          "Food B's specified serving contains less sugar (6 g compared with 13.5 g)."
+        ],
+        "modelAnswer": "Food A serving has 13.5 g sugar (9 × 150 ÷ 100); Food B serving has 6 g. Food B's specified serving contains less sugar (6 g compared with 13.5 g).",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Food A serving has 13.5 g sugar (9 × 150 ÷ 100); Food B serving has 6 g. Food B's specified serving contains less sugar (6 g compared with 13.5 g).",
+        "steps": [
+          "Food A serving has 13.5 g sugar (9 × 150 ÷ 100); Food B serving has 6 g.",
+          "Food B's specified serving contains less sugar (6 g compared with 13.5 g)."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Give two independent scientific points. Correct alternate wording needs review."
+      }
     }
   ],
-  "enabled": 16,
+  "enabled": 25,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 4,
     "typed_exact": 4,
-    "mark_points": 4,
+    "mark_points": 7,
     "matching": 1,
-    "calculation": 2,
-    "unordered_set": 1
+    "calculation": 6,
+    "unordered_set": 1,
+    "typed_equivalent": 2
   },
   "gated": false,
   "note": {
