@@ -20,6 +20,15 @@ School reference: [Tiffin Girls' School Year 8 KS3 Science Curriculum Outline 20
 
 **Critical unit correction:** Original unmerged draft BER seven-day total of `45360 kJ` incorrectly listed accepted units/model answer as `kJ/day`; the draft question now gives `kJ`. It calculates `6480 kJ/day × 7 days` and is a one-mark final-answer question. A week-total answer in kJ/day is scientifically incorrect.
 
+## Additional independent-concept capacity warning (important)
+The candidate records are NOT all independent concepts. Unique `conceptId` family counts among 25 eligible items are:
+- BER: **21** distinct families / 25 question IDs
+- Continuous variation: **18** / 25
+- Correlation: **19** / 25
+- Mixed exam: **20** / 25
+
+Some original vocabulary questions intentionally assess the **same concept** as multiple-choice and typed responses. One proposed continuous-variation pair also shares a concept ID legitimately. Do not rename shared concepts solely to manufacture fresh independent stock. For genuine Mastery capacity, the target remains **at least 20 fresh, independent and unreserved concept families at assignment time**, considering answer history and due dates. Current batches remain CONTENT CANDIDATES, not proven Mastery-ready. A subsequent distinct-concept authoring/merging pass and a learner-aware preflight are required.
+
 ## Marking contract and education gates
 - Every new numeric question: exactly one machine-graded final-answer mark with value, units, stated working and model answer. Never invent a second method mark from a final-answer-only scorer.
 - Typed short answers: explicit accepted alternatives; synonyms not in accepted arrays are not guaranteed accepted by the live marker.
