@@ -31,7 +31,14 @@ School reference: [Tiffin Girls' School Year 8 KS3 Science Curriculum Outline 20
 | Limiting factors | 18 | 25 | 7 (new) | 15 |
 | **Phase 2 total** | **50** | **75** | **25** | — |
 
-**Phase 1 + 2 combined:** 7 topics, source-eligible inventory **96 → 175**, with **79 newly added question records** (and 2 legacy informal diagram entries remain non-formal). Every original question, stable ID and existing attempts remain intact. `content/catalog.json` is updated to match the original and added formal eligibility counts; in original source topic files, the `.enabled` metadata counts *all status-enabled items* (including two informal diagrams), while the catalog `.enabled` counts *formal-eligible items* for planning. This difference is intentional and now asserted by both the priority content test and targeted QA.
+**Phase 1 + 3 combined:** 7 topics, source-eligible inventory **96 → 185**, with **89 newly added question records** (and 2 legacy informal diagram entries remain non-formal). Every original question, stable ID and existing attempts remain intact. `content/catalog.json` is updated to match the original and added formal eligibility counts; in original source topic files, the `.enabled` metadata counts *all status-enabled items* (including two informal diagrams), while the catalog `.enabled` counts *formal-eligible items* for planning. This difference is intentional and now asserted by both the priority content test and targeted QA.
+
+## Phase 3 — genuine independent-concept reserve for Limiting Factors
+The original Phase 2 Limiting Factors pool contained 25 formal question IDs but only 15 distinct concept IDs. An additional **10 new independently scoped questions** now cover temperature confounding, rate conversion, repeat means, anomalous observations, experimental independent variables, genuinely light-limited carbon-dioxide cases, bubble-size measurement limitations, whether a plateau identifies another limiting factor, time-period standardisation and scientific graph axis units. This brings Limiting Factors to **35 formal item IDs / 25 distinct concept IDs** (including the existing informal diagrams excluded from formal marks).
+
+Explicitly validated numeric results: 9 bubbles in 30 s = 18 bubbles/min; mean of 10, 12, 14 = 12 bubbles/min; 24 bubbles in 2 min = 12 bubbles/min. One-mark numeric model answers include correct units; all two-mark explanations identify exactly two separate criteria, with manual review fallback. These topics are covered under Year 8 working scientifically/photosynthesis, not extra Year 9-only theory.
+
+**Seven-topic running total: 89 added candidate question records; 185 formal-eligible records** (main had 96). Five of the remaining topics are still below 20 independent concept families; formal count alone does NOT guarantee fresh 20-question Mastery after past corrects.
 
 ## Higher-level topics not cleared for Year 8 Daily
 The official school Year 8 outline describes **a simple model of chromosomes, genes and DNA**, but does not explicitly prescribe Punnett square dominance crosses, named genetic disorders with X-linked inheritance, DNA base-pair arithmetic/karyograms, or detailed LDL/HDL lipid biochemistry. These appear in older `bio-y8-punnett-squares`, `bio-y8-genetic-disorders`, `bio-y8-dna-structure`, and `bio-y8-fats-cholesterol` banks. They are **not** independently certified as taught Year 8 or appropriate for compulsory Year 8 Daily. We deliberately did **not add** new questions to these four unconfirmed pools; any later selection eligibility restriction requires a careful learner-record-compatible planner change, rather than deleting legacy data or silently retagging Year 9 questions.
@@ -60,3 +67,5 @@ Genetic disorders, DNA structure, nutrition labels, practical conclusions, Punne
 
 ## Current release checkpoint
 Content schema/number QA, the whole-site integrity regression, actual live scorer tests for accepted alternatives and wrong answers, and physical iPad preservation are separate checks. The draft PR does not and must not count as deployment or a proven 30-day fresh-question supply. No learner backup was read/written or migrated.
+
+Latest audited Limiting Factors total is 35 / 25 concept families. Older Phase 2 row above is retained as historical milestone, not current final count.
