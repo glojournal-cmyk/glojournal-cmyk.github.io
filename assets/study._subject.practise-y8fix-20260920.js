@@ -149,7 +149,7 @@ return dailyLocked&&!retryReady?(0,T.jsx)(`div`,{className:`p-6 text-sm text-mut
  (0,T.jsx)(`h2`,{className:`text-lg font-semibold`,children:`Not enough fresh Year 8 questions`}),
  (0,T.jsx)(`p`,{className:`text-sm text-muted`,children:`This locked assignment needs ${W} more question${W===1?``:`s`}, but only ${sessionItems.length} eligible unused question${sessionItems.length===1?``:`s`} can be loaded. To avoid a false Mastery pass, this set cannot start with a reduced target. Your correct answers, assignment, original target, XP/MP and Recovery record are unchanged.`}),
  (0,T.jsx)(`a`,{href:`/study`,className:`inline-block min-h-11 rounded-xl bg-navy px-4 py-3 text-card`,children:`Back to Study`})
-]})):(E===`due`||E===`weak`)&&!U.length?(0,T.jsx)(x,{className:`p-6 text-sm text-muted`,children:E===`due`?`Nothing is due in this year bank right now.`:`No weak topics in this year bank yet.`}):E===`mistakes`&&dailyLocked&&canonicalTask===`mistake-review`&&!assignment&&dailyPlan.some(q=>q.id===`mistake-review`&&q.reviewSubject&&q.reviewSubject!==e)?
+]}):(E===`due`||E===`weak`)&&!U.length?(0,T.jsx)(x,{className:`p-6 text-sm text-muted`,children:E===`due`?`Nothing is due in this year bank right now.`:`No weak topics in this year bank yet.`}):E===`mistakes`&&dailyLocked&&canonicalTask===`mistake-review`&&!assignment&&dailyPlan.some(q=>q.id===`mistake-review`&&q.reviewSubject&&q.reviewSubject!==e)?
 (0,T.jsxs)(x,{className:`p-5 space-y-3`,children:[
  (0,T.jsx)(`h2`,{className:`text-lg font-semibold`,children:`Today's mistakes are now in another subject`}),
  (0,T.jsx)(`p`,{className:`text-sm text-muted`,children:`The previous ${e} question is unavailable; an answerable question from another subject has been assigned.`}),
