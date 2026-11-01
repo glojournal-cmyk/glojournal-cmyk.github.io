@@ -134,3 +134,18 @@ test('ineligible Year 9 or wrong-topic records never become same-day Year 8 rese
  assert.equal(a.size,5,'second task gets the five eligible remaining topics');
  assert.equal(b.size,15,'first task keeps its full 15 eligible questions');
 });
+
+test('historical two-task marked-ID collisions remain credited within their pinned tasks',()=>{
+ const tasks=[task('y8-standard-a'),task('y8-standard-b')];
+ const s=state(tasks,{formalAttemptLog:[
+   {day:DAY,dailyTaskId:'y8-standard-a',questionId:'q7',
+    subject:'biology',year:8,topicId:'bio-y8-test',correct:true,formal:true},
+   {day:DAY,dailyTaskId:'y8-standard-b',questionId:'q7',
+    subject:'biology',year:8,topicId:'bio-y8-test',correct:false,formal:true}
+ ]});
+ const reserveA=otherYear8DailyReservations(s,bank,opts('y8-standard-a'));
+ const reserveB=otherYear8DailyReservations(s,bank,opts('y8-standard-b'));
+ assert.ok(!reserveA.has('q7'),'do not revoke A independently marked correct credit');
+ assert.ok(!reserveB.has('q7'),'do not erase B original wrong question needed for retry');
+ assert.equal(s.formalAttemptLog.length,2);
+});
