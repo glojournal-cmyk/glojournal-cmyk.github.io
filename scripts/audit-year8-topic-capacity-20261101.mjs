@@ -9,7 +9,7 @@ const topics = cat.topics.filter(t => Number(t.year) === 8 && t.status === 'enab
 const out = path.join(root, 'qa-reports/year8-capacity-current');
 fs.mkdirSync(out, {recursive:true});
 const rows = [], bad = [];
-const clean = s => String(s ?? '').toLowerCase().replace(/\\s+/g, ' ').trim();
+const clean = s => String(s ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
 const quote = s => '"' + String(s ?? '').replace(/"/g, '""') + '"';
 for (const t of topics) {
   const src = path.join(root, 'content/topics', t.topicId + '.json');
@@ -34,11 +34,11 @@ for (const t of topics) {
 }
 rows.sort((a,b)=>a.subject.localeCompare(b.subject)||a.source-b.source||a.id.localeCompare(b.id));
 const header=['subject','topic_id','title','catalog_enabled','real_source_eligible','total_source_records','eligible_mc','eligible_independent','unique_concept_ids','unique_prompt_stimulus','source_minus_catalog','capacity_flag'];
-const csv=[header.join(','),...rows.map(r=>[r.subject,r.id,r.title,r.catalog,r.source,r.raw,r.mc,r.independent,r.concepts,r.uniquePrompts,r.diff,r.risk].map(quote).join(','))].join('\\n')+'\\n';
+const csv=[header.join(','),...rows.map(r=>[r.subject,r.id,r.title,r.catalog,r.source,r.raw,r.mc,r.independent,r.concepts,r.uniquePrompts,r.diff,r.risk].map(quote).join(','))].join('\n')+'\n';
 fs.writeFileSync(path.join(out,'topics.csv'),csv);
 const subs=['latin','french','biology','chemistry','physics'];
 const stats=subs.map(s=>{const a=rows.filter(r=>r.subject===s);return '|'+[s,a.length,a.reduce((n,r)=>n+r.source,0),a.filter(r=>r.source<15).length,a.filter(r=>r.source>=15&&r.source<20).length,a.filter(r=>r.source>=20&&r.source<25).length,a.filter(r=>r.diff!==0).length].join('|')+'|';});
-const message=['# Year 8 real source-file question-capacity audit','', 'Source-eligible = status enabled, not preview, formal not false, not _repair. Counts do NOT establish Mastery quality, past-correct freshness, taught status, or learner-specific capacity.','','|Subject|Topics|Source eligible|Below 15|15–19|20–24|Catalog discrepancies|','|---|---:|---:|---:|---:|---:|---:|',...stats,'','Problems found in source validation: '+bad.length,'',...bad.map(x=>'- '+x),'','Topics below 25 actual source questions:',...rows.filter(r=>r.source<25).map(r=>'- '+r.id+': '+r.source+' eligible; '+r.risk),'','See topics.csv for all topic rows.'].join('\\n')+'\\n';
+const message=['# Year 8 real source-file question-capacity audit','', 'Source-eligible = status enabled, not preview, formal not false, not _repair. Counts do NOT establish Mastery quality, past-correct freshness, taught status, or learner-specific capacity.','','|Subject|Topics|Source eligible|Below 15|15–19|20–24|Catalog discrepancies|','|---|---:|---:|---:|---:|---:|---:|',...stats,'','Problems found in source validation: '+bad.length,'',...bad.map(x=>'- '+x),'','Topics below 25 actual source questions:',...rows.filter(r=>r.source<25).map(r=>'- '+r.id+': '+r.source+' eligible; '+r.risk),'','See topics.csv for all topic rows.'].join('\n')+'\n';
 fs.writeFileSync(path.join(out,'summary.md'),message);
 console.log(message);
 if (rows.length!==topics.length || bad.length) process.exitCode=1;
