@@ -50,7 +50,7 @@ test('a 30-question bank with only 15 concepts cannot feed two disjoint 10-slot 
  assert.ok([...aFamily].every(f=>!bFamily.has(f)));
 });
 test('a marked wrong answer belongs to its original task even if it is outside the usual partition',()=>{
- const tasks=[task('y8-standard-a'),task('y8-standard-b',{target:10})];
+ const tasks=[task('y8-standard-a'),task('y8-standard-b',10)];
  const s=state(tasks,{formalAttemptLog:[{
   day:DAY,dailyTaskId:'y8-standard-b',questionId:'q2',
   subject:'biology',year:8,topicId:'bio-y8-test',formal:true,correct:false
