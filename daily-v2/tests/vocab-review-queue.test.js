@@ -68,17 +68,32 @@ test('CSV protects leading spreadsheet formulas even in source prompts and answe
  assert.ok(!s.includes('curriculumCertified,true'));
 });
 
-test('real French plural marking alternative is surfaced for review, not silently certified',()=>{
+test('real French plural source is either flagged as legacy or resolved, never auto-certified',()=>{
  const queue=loadVocabReviewQueue();
  const row=queue.rows.find(r=>r.questionId==='fr-y8-src-fr-25-1230-des-calculatrices');
  assert.ok(row,'authentic Year 8 classroom objects question must remain traceable');
  assert.ok(row.acceptedAnswers.includes('calculator (plural)'));
- assert.ok(row.acceptedAnswers.includes('calculator'));
- assert.ok(row.flags.includes('PLURAL_CUE_DROPPED_BY_ALTERNATIVE'));
- assert.ok(queue.summary.flagCounts.PLURAL_CUE_DROPPED_BY_ALTERNATIVE>=1);
+ if(row.acceptedAnswers.includes('calculator')){
+  assert.ok(row.flags.includes('PLURAL_CUE_DROPPED_BY_ALTERNATIVE'));
+ }else{
+  assert.ok(row.acceptedAnswers.includes('calculators'));
+  assert.ok(row.acceptedAnswers.includes('some calculators'));
+  assert.ok(!row.flags.includes('PLURAL_CUE_DROPPED_BY_ALTERNATIVE'));
+ }
  assert.equal(row.approvedForDaily,false);
  assert.equal(row.curriculumDecision,'pending');
  assert.equal(row.scoringDecision,'pending');
+});
+test('synthetic plural cue omission is always flagged even after source corrections',()=>{
+ const q=buildVocabReviewQueue([topic('french',8,[
+  question('fr-plural-risk','plural-pens',{
+   stimulus:{text:'des stylos'},
+   answer:{mode:'exact_or_equivalent',accepted:['pen (plural)','pen']}
+  })
+ ])]);
+ assert.ok(q.rows[0].flags.includes('PLURAL_CUE_DROPPED_BY_ALTERNATIVE'));
+ assert.equal(q.summary.flagCounts.PLURAL_CUE_DROPPED_BY_ALTERNATIVE,1);
+ assert.equal(q.rows[0].approvedForDaily,false);
 });
 test('identical directional stimulus with different concepts and answers is a reviewer flag',()=>{
  const sharedStimulus={text:'friend',direction:'English → Latin'};
