@@ -1,0 +1,32 @@
+name: Scholar export preserves Pet wallet without writes
+on:
+  push:
+    branches:
+      - main
+      - fix/scholar-export-preserve-pet-wallet-20261101
+    paths:
+      - "assets/pet-wallet-backup-20261030.js"
+      - "assets/latest-30-day-export-20261023.js"
+      - "tests/pet-wallet-export-readonly-20261101.test.mjs"
+      - ".github/workflows/scholar-export-pet-wallet-20261101.yml"
+  pull_request:
+    paths:
+      - "assets/pet-wallet-backup-20261030.js"
+      - "assets/latest-30-day-export-20261023.js"
+      - "tests/pet-wallet-export-readonly-20261101.test.mjs"
+      - ".github/workflows/scholar-export-pet-wallet-20261101.yml"
+permissions:
+  contents: read
+jobs:
+  verify-scholar-and-pet-export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify complete source-bound Scholar + Pet export and race conditions
+        run: node --test tests/pet-wallet-export-readonly-20261101.test.mjs tests/latest-30-day-export-20261023.test.mjs tests/full-progress-backup-guard-20261023.test.mjs
+      - name: Verify existing full backup contract
+        run: node tests/complete-backup-qa.mjs
