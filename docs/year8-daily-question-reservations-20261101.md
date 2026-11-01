@@ -29,3 +29,10 @@ This is a **deterministic read-only reservation policy**, NOT a database-backed 
 - 20-item/17-correct with 3 independent correct evidence, repeated-question submissions, 48-hour recovery and Day 2/7 review.
 - Verify real iPad export/import, task-specific drafts, existing Pet/Outfit/XP/MP records and no quotas exceeded.
 - Do not mark any incomplete assignment as done; never replace an already pinned assignment or alter historic receipts.
+
+## 1 November follow-up: WebKit and legacy collision QA
+The previous latest-head branch passed Whole Site but failed the **Biology WebKit iPad smoke** because its synthetic test attempted to remove only a legacy localStorage draft. Safari correctly resumed a newer test draft saved in IndexedDB/sessionStorage, hiding the expected depleted-bank state. The test now uses the existing visible **Start a fresh set** button inside the disposable Playwright test browser only, and asserts the Student Scholar state (daily task rows, correct-answer IDs) is unchanged after that test-only draft cleanup. **No production code automatically deletes drafts** and no real iPad data was accessed.
+
+A further read-only historical safeguard preserves original per-task marked question evidence when a legacy data log already shows the same ID answered for two different tasks. We cannot retroactively pretend those two saved records never existed; future fresh allocations remain disjoint. Added automated checks for this case and for no Year 9, preview or informal content in Year 8 source reservations. This is still NOT a cross-tab atomic reservation lock.
+
+Release gate remains the latest commit's separate WebKit smoke, Whole Site Browser, Recovery and 48-hour Day 2/7 QA results, followed by a real learner export/import replay before merge.
