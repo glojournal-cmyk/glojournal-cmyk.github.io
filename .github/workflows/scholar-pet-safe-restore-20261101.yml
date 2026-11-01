@@ -10,6 +10,7 @@ on:
       - "assets/daily-progress-save.js"
       - "import-progress.html"
       - "tests/pet-wallet-safe-standalone-restore-20261101.test.mjs"
+      - "tests/pet-wallet-safe-standalone-webkit-20261101.mjs"
       - ".github/workflows/scholar-pet-safe-restore-20261101.yml"
   pull_request:
     paths:
@@ -32,5 +33,11 @@ jobs:
           node-version: "22"
       - name: Exercise failure-atomic Scholar and Pet import
         run: node --test tests/pet-wallet-safe-standalone-restore-20261101.test.mjs tests/standalone-progress-import-20261023.test.mjs tests/pet-wallet-export-readonly-20261101.test.mjs
+      - name: Install WebKit for iPad Safari-style import tests
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps webkit
+      - name: Exercise actual standalone JSON File import in WebKit
+        run: node tests/pet-wallet-safe-standalone-webkit-20261101.mjs
       - name: Verify core Scholar backup and retained histories
         run: node --test tests/backup-import-legacy-ipad-20261023.test.mjs tests/latest-30-day-export-20261023.test.mjs tests/full-progress-backup-guard-20261023.test.mjs
