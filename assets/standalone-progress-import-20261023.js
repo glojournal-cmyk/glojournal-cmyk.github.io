@@ -1,5 +1,6 @@
 import {assessImport, mergeImportProgress, latestStudyEvidence} from "./backup-import-safety-20261023.js";
 import {mergeDailyHistory} from "./daily-record-integrity-20261018.js?v=20261018-daily-record1";
+import {includePetWalletBackup,inspectPetWalletBackup,restorePetWalletBackup,PET_WALLET_KEY} from "./pet-wallet-backup-20261030.js";
 
 const KEY="lux-scholar-garden-v1";
 const PAIRS=[
@@ -12,7 +13,7 @@ const PAIRS=[
   ["petCompanion","lux-pet-companion-v1"]
 ];
 const $=id=>document.getElementById(id);
-let pending=null, currentRaw=null, plan=null, currentData=null, safetyAttempted=false, unsafeMerge=false;
+let pending=null, currentRaw=null, plan=null, currentData=null, safetyAttempted=false, unsafeMerge=false, petConflict=false, petImportStatus="legacy";
 
 export function parseNativeState(raw){
   if(raw==null || raw==="")return null;
@@ -37,6 +38,8 @@ export function validatePlainBackup(raw){
   for(const [field] of PAIRS)
     if(payload[field]!=null && (typeof payload[field]!=="object" || Array.isArray(payload[field])))
       throw Error("Invalid "+field+" in backup; import has not started.");
+  // Verify the raw envelope before any study data can be touched.
+  inspectPetWalletBackup(payload,null);
   return payload;
 }
 // An older device may have 18 Oct receipts not present in a later 20 Oct
@@ -122,6 +125,9 @@ export function nativeImportSnapshot(payload){
 export function linkedAdditions(payload, storage){
   const entries=[];
   for(const [field,key] of PAIRS){
+    // For modern combined files, the original Pet wallet is applied only
+    // AFTER Scholar data has been persisted and verified, never here.
+    if(field==="petCompanion" && payload.petWalletBackup!==undefined)continue;
     if(payload[field]==null)continue;
     const existing=storage.getItem(key);
     if(existing==null){
@@ -157,6 +163,7 @@ function reportLine(dl,label,value){
 }
 function reset(){
   pending=null;currentRaw=null;plan=null;currentData=null;safetyAttempted=false;unsafeMerge=false;
+  petConflict=false;petImportStatus="legacy";
   $("comparison").replaceChildren();
   $("preview").hidden=true;
   $("safety").hidden=true;
@@ -189,14 +196,14 @@ function collectSafetySnapshot(raw){
       try{extra[field]=JSON.parse(value)}catch{extra[field+"Unparsed"]=value}
     }
   }
-  return JSON.stringify({
+  return JSON.stringify(includePetWalletBackup({
     app:"lux-scholar-garden",
     version:10,
     exportedAt:new Date().toISOString(),
     safetyCopyFromDevice:true,
     state:native.state,
     ...extra
-  },null,2);
+  },localStorage),null,2);
 }
 function previewDetails(){
   const saved=pending.state,live=currentData?.state||{};
@@ -213,6 +220,7 @@ function previewDetails(){
   reportLine(dl,"Existing completed today's tasks",summarizeTasks(live));
   reportLine(dl,"Backup 22 Oct completion receipt",saved.dailyCompleteAwarded?.["2026-10-22"]===true?"Present":"Not present");
   reportLine(dl,"Existing 22 Oct completion receipt",live.dailyCompleteAwarded?.["2026-10-22"]===true?"Present":"Not present");
+  reportLine(dl,"Pet wallet in backup",petImportStatus==="install"?"Ready: new empty wallet":petImportStatus==="identical"?"Already identical":petImportStatus==="conflict"?"CONFLICT — import blocked":petImportStatus==="absent"?"Not included":"Legacy or unavailable");
 }
 let pendingFileName="";
 async function previewFile(){
@@ -229,10 +237,17 @@ async function previewFile(){
     currentData=native;
     plan=mergeImportProgress(payload,native?.state||{},mergeDailyHistory);
     unsafeMerge=wouldOverwriteNewerStudy(payload,native?.state||{});
+    const petPlan=inspectPetWalletBackup(payload,localStorage);
+    petImportStatus=petPlan.status;
+    petConflict=petImportStatus==="conflict";
     pending=payload;pendingFileName=file.name;
     previewDetails();
     $("preview").hidden=false;
     const warnings=[];
+    if(petConflict)
+      warnings.push("A DIFFERENT Pet MP wallet already exists. Import is blocked to protect current MP, pet levels and rewards. Keep both files; no automatic MP merge or overwrite is permitted.");
+    if(petImportStatus==="legacy"||petImportStatus==="absent")
+      warnings.push("This file has no lossless Pet MP wallet. Scholar progress may be imported, but full Pet rewards cannot be verified from this file.");
     if(plan.report.legacy)
       warnings.push("This is a legacy/partial file; it cannot supply dated records that were not exported.");
     if(plan.report.newerOnDevice && !unsafeMerge)
@@ -246,7 +261,9 @@ async function previewFile(){
     updateApply();
     if(plan.report.currentHasProgress)$("safety-next-step").textContent=
       "STEP 1 OF 3 — Download the current device safety copy, then find it in Files / Downloads. After that, tick the confirmation checkbox below.";
-    $("status").textContent=unsafeMerge
+    $("status").textContent=petConflict
+       ?"Preview ready — Pet MP wallet conflict: import blocked to protect current rewards."
+       :unsafeMerge
        ?"Preview ready — unsafe merge blocked to protect existing records."
        :plan.report.currentHasProgress
          ?"Preview ready. Step 1: download and check the current device safety copy."
@@ -281,7 +298,8 @@ function updateApply(){
   // Always allow a click after a safe preview; the handler guides the user
   // if a required safety step has not been acknowledged.
   $("apply-button").disabled=!pending || unsafeMerge;
-  if(!pending||unsafeMerge||!plan?.report.currentHasProgress)return;
+  if(petConflict)$("apply-button").disabled=true;
+  if(!pending||unsafeMerge||petConflict||!plan?.report.currentHasProgress)return;
   if(safetyAttempted&&$("safety-confirm").checked){
     $("safety-next-step").textContent="STEP 3 OF 3 — Safety copy confirmed by you. Press Import and verify saved progress.";
     $("status").textContent="Ready for Import. Your existing dated progress is protected by the verified merge.";
@@ -332,6 +350,10 @@ export function commitToStorage(payload,existingRaw,storage){
 }
 function performImport(){
   if(!pending||!plan)return;
+  if(petConflict){
+    $("status").textContent="Import blocked: existing Pet MP wallet differs from the backup. Nothing changed.";
+    return;
+  }
   if(unsafeMerge){
     $("status").textContent="Import stopped: merged data did not pass the existing-record protection check.";return;
   }
