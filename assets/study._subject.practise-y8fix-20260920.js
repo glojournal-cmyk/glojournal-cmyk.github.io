@@ -1,3 +1,4 @@
+import {otherYear8DailyReservations,excludeOtherYear8Reservations} from './daily-question-reservations-20261101.js?v=20261101-reservations1';
 import {selectUnfinishedDailyQuestions} from './daily-unfinished-retry-20261025.js?v=20261026-bio-year9-savefix2';
 import {readDailyRetryReceiptSync,readDailyRetryReceipt} from './daily-completed-session-receipts-20261024.js?v=20261026-bio-savefix2&modeguard=20261030-2';
 import {selectDiverseRecoveryQuestions} from './recovery-question-diversity-20261025.js?v=20261030-recovery-empty1';
@@ -88,8 +89,10 @@ retryEffect=(0,w.useEffect)(()=>{
  }).catch(()=>{if(alive)setRetryLoaded({key:retryKey,receipt:null})});
  return()=>{alive=false};
 },[retryKey,needRetryLookup]),
-safeU=enforceDistinctYear8MasteryAfterRetry(selectUnfinishedDailyQuestions(selectDiverseRecoveryQuestions(fillDailyLockedQuestions(U,z,{locked:dailyLocked,mode:E,size:W,topicId:pinnedTopic,subject:e,
+dailyReservations=otherYear8DailyReservations(s.getState(),z,{day:R,taskId:canonicalTask,subject:e,year:N,topicId:pinnedTopic,recoveryDate:dailyParams.get('recover')||null}),
+safeU=excludeOtherYear8Reservations(enforceDistinctYear8MasteryAfterRetry(selectUnfinishedDailyQuestions(selectDiverseRecoveryQuestions(fillDailyLockedQuestions(U,z,{locked:dailyLocked,mode:E,size:W,topicId:pinnedTopic,subject:e,
  requireDistinctConcepts:dailyLocked&&N===8&&E===`mastery`&&canonicalTask!==`y8vocab`,
+ reservedIds:dailyReservations,
  correctIds:(()=>{const state=s.getState();const ids=dailyCorrectQuestionIds(state,{day:R,taskId:canonicalTask,subject:e,year:N,topicId:pinnedTopic});
  if(dailyLocked&&!dailyParams.has('recover')&&['standard','quick','mastery'].includes(E))
   for(const [id,count] of Object.entries(state.seenCorrect||{}))if(Number(count)>0)ids.add(String(id));
@@ -102,7 +105,7 @@ safeU=enforceDistinctYear8MasteryAfterRetry(selectUnfinishedDailyQuestions(selec
  state:dailyParams.has('recover')?null:s.getState(),receipt:retryData,day:R,taskId:canonicalTask,subject:e,
  year:N,topicId:pinnedTopic,mode:E,remaining:W
 }),z,{locked:dailyLocked&&!dailyParams.has("recover"),year:N,mode:E,seenCorrect:s.getState().seenCorrect,
- creditedIds:dailyCorrectQuestionIds(s.getState(),{day:R,taskId:canonicalTask,subject:e,year:N,topicId:pinnedTopic})}),
+ creditedIds:dailyCorrectQuestionIds(s.getState(),{day:R,taskId:canonicalTask,subject:e,year:N,topicId:pinnedTopic})}),dailyReservations),
 sessionSnapshot=(0,w.useRef)(null),
 sessionKey=[e,N,E,O,dailyParams.get(`task`)||``,dailyParams.get(`recover`)||``].join(`:`),
 intendedMode=dailyParams.get(`mode`);
