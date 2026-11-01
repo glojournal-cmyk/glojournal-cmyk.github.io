@@ -16,6 +16,10 @@ function setBusy(value){
  busy=value;
  for(const id of ['scenario','initialize','simulateFailure','refreshView','reset','submitAnswer'])
   el(id).disabled=busy;
+ // Task buttons rendered during initialize() inherit busy=true. Reconcile
+ // their disabled state after the async write, without enabling shortages.
+ for(const button of el('taskGrid').querySelectorAll('button.task'))
+  button.disabled=busy||!session?.plan||button.classList.contains('unavailable');
 }
 async function guarded(job){
  if(busy)return;
