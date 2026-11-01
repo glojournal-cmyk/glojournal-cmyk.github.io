@@ -221,6 +221,13 @@ function previewDetails(){
   reportLine(dl,"Backup 22 Oct completion receipt",saved.dailyCompleteAwarded?.["2026-10-22"]===true?"Present":"Not present");
   reportLine(dl,"Existing 22 Oct completion receipt",live.dailyCompleteAwarded?.["2026-10-22"]===true?"Present":"Not present");
   reportLine(dl,"Pet wallet in backup",petImportStatus==="install"?"Ready: new empty wallet":petImportStatus==="identical"?"Already identical":petImportStatus==="conflict"?"CONFLICT — import blocked":petImportStatus==="absent"?"Not included":"Legacy or unavailable");
+  if(pending.petWalletBackup?.raw){
+    const pet=inspectPetWalletBackup(pending,null).incoming;
+    reportLine(dl,"Pet MP in backup",pet.masteryPoints??"not recorded");
+    reportLine(dl,"Pet levels stored",Object.keys(pet.petLevels||{}).length);
+    reportLine(dl,"MP transactions stored",Array.isArray(pet.mpTransactions)?pet.mpTransactions.length:0);
+    reportLine(dl,"Secret pet flags stored",Object.keys(pet.unlockedSecrets||{}).length);
+  }
 }
 let pendingFileName="";
 async function previewFile(){
