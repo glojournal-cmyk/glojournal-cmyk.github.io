@@ -40,6 +40,10 @@ export function addMasteryEvidence(stat = {}, entry = {}) {
     const eventId = String(entry.attemptId || (entry.at ? `${id}@${entry.at}` : id));
     const attempts = [...(current.attempts || [])];
     if (attempts.some(row => row.id === eventId)) return current;
+    // Fresh 20-slot Mastery requires 20 different question IDs, not 20 taps
+    // on a repeated question with new attempt IDs. Preserve historical 15-slot
+    // rounds unchanged so old valid iPad work is never retroactively rejected.
+    if (target === 20 && attempts.some(row => row.questionId === id)) return current;
     attempts.push({id: eventId, questionId: id, correct: !!entry.correct, independent: !!entry.correct && independentRecallFormats.has(entry.format)});
     const round = attempts.slice(-target);
     if (round.length < target) return {...current, stage: 'learning', roundTarget: target, attempts: round};

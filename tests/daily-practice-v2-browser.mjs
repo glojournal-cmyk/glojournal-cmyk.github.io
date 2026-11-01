@@ -622,7 +622,7 @@ async function checkExhaustedBiologyDaily(browser,engine){
     // The route shell mounts before its async topic bank is hydrated. Check the
     // actual terminal state, not a transient blank/loading frame on Safari.
     try{
-      await page.waitForFunction(()=>document.body.innerText.includes('No unused questions remain. Closing this assigned set at your saved score'),null,{timeout:35000});
+      await page.waitForFunction(()=>document.body.innerText.includes('This assignment does not have enough eligible unused questions to finish the original target'),null,{timeout:35000});
     }catch(error){
       const diagnostic=await page.evaluate(()=>({
         path:location.pathname,query:location.search,
@@ -640,8 +640,8 @@ async function checkExhaustedBiologyDaily(browser,engine){
     const result=await page.evaluate(()=>({
       question:document.querySelector('[data-question-id]')?.dataset.questionId,
       locked:document.querySelector('.lux-practice-view')?.innerText?.includes('This daily task is locked'),
-      error:document.body.innerText.includes('No unused questions remain. Closing this assigned set at your saved score'),
-      progressSafe:document.body.innerText.includes('Your answers are unchanged.'),
+      error:document.body.innerText.includes('This assignment does not have enough eligible unused questions to finish the original target'),
+      progressSafe:document.body.innerText.includes('Your saved answers and original target are preserved; this task is NOT automatically marked complete.'),
       mask:getComputedStyle(document.body,'::before').display,
       ready:document.documentElement.classList.contains('lux-daily-ux-ready')
     }));

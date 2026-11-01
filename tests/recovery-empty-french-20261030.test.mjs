@@ -45,7 +45,9 @@ test('the Recovery screen loads Year 8 alternatives and never auto-caps a missed
  const script=fs.readFileSync(new URL('../assets/study._subject.practise-y8fix-20260920.js',import.meta.url),'utf8');
  assert.match(script,/fallbackIds=new Set\(/);
  assert.match(script,/assignment&&N===8&&e==='french'/);
- assert.match(script,/dailyParams\.has\('recover'\)\|\|!\(dailyLocked&&retryReady/);
+ assert.match(script,/dailyQuestionShortage/);
+ assert.doesNotMatch(script,/target:progress,progress,done:true,cappedBecauseQuestionBankExhausted:true/);
+ assert.match(script,/Your saved answers and original target are preserved/);
  assert.match(script,/the task is not automatically marked complete/);
  assert.match(script,/recoveryTaskProof/);
 });
