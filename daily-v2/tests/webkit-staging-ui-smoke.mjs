@@ -90,7 +90,11 @@ try{
    assert.match(await page.locator('#questionArea').innerText(),/qa-gcse-3/);
    await page.selectOption('#marks','3');
    await page.click('#submitAnswer');
-   await page.waitForFunction(()=>document.getElementById('notice')?.textContent?.includes('Task progress: 3/3'));
+   // A preceding 2/3 answer already left 'Task progress: 3/3' in #notice;
+   // waiting on that stale message can assert before the retry is persisted.
+   await page.waitForFunction(()=>Array.from(document.querySelectorAll('#taskGrid button'))
+    .some(button=>button.textContent?.includes('Gcse Exam Skills')&&
+      button.textContent?.includes('exam marks 6/6')));
    await status(page,'credits','5 / 163');
    assert.match(await taskButton(page,'gcse-exam-skills').innerText(),/exam marks 6\/6/);
    assert.equal(await page.locator('#answerForm').isHidden(),true);
