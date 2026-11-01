@@ -72,7 +72,29 @@ test('partly marked GCSE question is one question completed with separate marks'
  const row=s.summary.tasks.find(t=>t.taskId==='gcse-exam-skills');
  assert.equal(row.verifiedProgress,3);
  assert.deepEqual(row.examMarks,{earned:5,possible:6});
+ // The existing 3/3 completed-question credits are retained, while the one
+ // unfinished mark can be earned by retrying the same original 3-mark ID.
+ const unfinished=nextQaQuestion(s.plan,s.ledger,task.id);
+ assert.equal(unfinished.marks,3);
+ const retry=await commitQaAttempt(r,{eventId:'exam-retry-3',taskId:task.id,
+  questionId:unfinished.questionId,marksEarned:3});
+ assert.equal(retry.creditDelta,0,'the original question cannot be double-credited');
+ assert.equal(retry.examMarkDelta,1,'only the missing mark should be added');
+ assert.equal(retry.newVerifiedCredit,false);
+ s=await readQaSession(r);
+ assert.equal(s.summary.tasks.find(t=>t.taskId===task.id).verifiedProgress,3);
+ assert.deepEqual(s.summary.tasks.find(t=>t.taskId===task.id).examMarks,
+  {earned:6,possible:6});
  assert.equal(nextQaQuestion(s.plan,s.ledger,task.id),null);
+});
+test('GCSE staging question selection always prioritises unmarked items over partial retries',async()=>{
+ const r=repo();let s=await openQaSession(r);
+ const exam=s.plan.tasks.find(t=>t.kind==='exam');
+ await commitQaAttempt(r,{eventId:'exam-partial-first',taskId:exam.id,
+  questionId:exam.questions[0].questionId,marksEarned:0});
+ s=await readQaSession(r);
+ assert.equal(nextQaQuestion(s.plan,s.ledger,exam.id).questionId,
+  exam.questions[1].questionId);
 });
 test('unavailable exam cannot be answered or added to full-day credit',async()=>{
  const r=repo();const s=await openQaSession(r,{scenario:'missing-gcse'});
