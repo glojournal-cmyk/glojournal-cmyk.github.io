@@ -306,6 +306,10 @@ function updateApply(){
   }
 }
 export function commitToStorage(payload,existingRaw,storage){
+  // A conflict is an explicit STOP, not an invitation to merge/spend MP.
+  const walletPlan=inspectPetWalletBackup(payload,storage);
+  if(walletPlan.status==="conflict")
+    throw Error("Pet wallet conflict: current MP, levels and transactions differ. Nothing was imported.");
   const native=parseNativeState(existingRaw);
   const merge=mergeImportProgress(payload,native?.state||{},mergeDailyHistory);
   if(wouldOverwriteNewerStudy(payload,native?.state||{}))
@@ -335,8 +339,26 @@ export function commitToStorage(payload,existingRaw,storage){
     const stored=parseNativeState(storage.getItem(KEY));
     if(JSON.stringify(stored.state)!==JSON.stringify(merge.backup.state))
       throw Error("Stored progress differs from imported progress");
-    return {saved:stored.state,report:merge.report,linkedCount:staged.length};
+    // Only NOW may a modern original wallet be restored on a truly blank device.
+    // This function independently rechecks storage for another active Pet tab.
+    let petStatus=walletPlan.status;
+    if(petStatus==="install"){
+      const result=restorePetWalletBackup(payload,storage);
+      if(result.status!=="restored"||
+         storage.getItem(PET_WALLET_KEY)!==payload.petWalletBackup.raw)
+        throw Error("Pet wallet was not verified after Scholar progress persisted");
+      petStatus=result.status;
+    }
+    return {saved:stored.state,report:merge.report,
+      linkedCount:staged.length,petWalletStatus:petStatus};
   }catch(error){
+    // A Pet write may have succeeded before its readback raised an error.
+    // Remove ONLY bytes belonging to this in-flight import; never delete
+    // another tab\'s distinct wallet. Original import file remains untouched.
+    if(walletPlan.status==="install" &&
+       storage.getItem(PET_WALLET_KEY)===payload.petWalletBackup.raw){
+      try{storage.removeItem(PET_WALLET_KEY);}catch{}
+    }
     // If primary write succeeded but verification failed, try to put the
     // original bytes back. The external safety JSON was required beforehand.
     try{
@@ -380,7 +402,9 @@ function performImport(){
     const result=commitToStorage(pending,currentRaw,localStorage);
     $("result").textContent="Import verified in browser storage. Saved "+result.saved.xp+
       " XP; linked datasets added: "+result.linkedCount+
+      "; Pet wallet: "+result.petWalletStatus+
       ". Close any other Gloria tabs before opening the Scholar app.";
+    $("status").textContent="Scholar and Pet storage read-back completed; keep the original JSON." ;
     $("status").textContent="Import completed and storage read-back verified.";
     $("preview").hidden=true;
   }catch(error){
