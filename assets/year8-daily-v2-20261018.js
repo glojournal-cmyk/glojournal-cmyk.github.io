@@ -430,9 +430,12 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       (Number(stat.correct)||0)/attempted;
   };
   const genuineWeak=learningTopics.filter(t=>accuracy(t)!==null&&accuracy(t)<.85);
-  const weak=pick('weakness-review',genuineWeak.length?genuineWeak:
+  // Do not assign the same weak topic a second time in one Daily plan
+  // when a Standard, Mastery or due check has already reserved it.
+  const availableWeak=genuineWeak.filter(t=>!assigned.has(t.topicId));
+  const weak=pick('weakness-review',availableWeak.length?availableWeak:
     reviewWindow.length?reviewWindow:allTopics,
-    ()=>true,genuineWeak.length?(a,b)=>accuracy(a)-accuracy(b)||
+    ()=>true,availableWeak.length?(a,b)=>accuracy(a)-accuracy(b)||
       reviewCompare(a,b):reviewCompare);
   const taught=['latin','french','chemistry','biology','physics'].flatMap(s=>(getCatalog(s,9)||[])
     .filter(t=>t?.status==='enabled'&&Number(t.enabled??t.questions??0)>=15)
@@ -456,7 +459,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     ...standards.map((t,i)=>task('y8-standard-'+('ab'[i]),t,'standard',10,'Year 8 Standard 10 · topic '+(i+1)+' of 2')),
     ...mastery.map((m,i)=>task('y8-mastery-'+('ab'[i]),m.topic,m.mode,m.check?5:20,m.check?'Year 8 Day 2/7 recall · five questions':'Year 8 Mastery · 17/20 including three independent answers',m.check)),
     ...makeUpMastery,
-    task('weakness-review',weak,'weak',10,genuineWeak.length?'Repair weak concepts':'Consolidation · no recorded weak topic'),
+    task('weakness-review',weak,'weak',10,availableWeak.length?'Repair weak concepts':'Consolidation · no recorded weak topic'),
     task('due-review',due,dueMode,dueCheck?5:10,dueCheck?'Year 8 Day 2/7 recall · five questions':dueMode==='weak'?'Consolidation · nothing due today':'Due review',dueCheck),
     task('year9-light',year9,'standard',15,'Year 9 · light daily study')];
 }
