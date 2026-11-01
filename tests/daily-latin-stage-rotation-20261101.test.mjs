@@ -85,15 +85,22 @@ test('six-day exposure window permits later re-review instead of permanently ban
   assert.equal(topic(buildYear8DailyV2(input,get)),ids[0]);
 });
 
-test('iPad entrypoints must fetch refreshed Latin planner modules',()=>{
+test('iPad keeps single app module identity and refreshes only the Latin planner import',()=>{
   const active=readFileSync(new URL('../assets/index-BLVOhKhN.js',import.meta.url),'utf8');
-  assert.ok(active.includes('year8-daily-v2-20261018.js?v=20261025-scorefix2&latinrotation=20261101a'));
+  const version='year8-daily-v2-20261018.js?v=20261025-scorefix2&latinrotation=20261101a';
+  assert.ok(active.includes(version),'root must import updated Latin planner');
+  const oldRoot='/assets/index-BLVOhKhN.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1&mpverify=20261030-save-retry3-modeguard2';
   for(const route of ['index.html','404.html','study/index.html',
     'study/latin/index.html','study/latin/practise/index.html']){
     const html=readFileSync(new URL('../'+route,import.meta.url),'utf8');
-    const old='mpverify=20261030-save-retry3-modeguard2';
-    assert.equal(html.split(old).length-1,4,route+' existing four script refs intact');
-    assert.equal(html.split(old+'&latinrotation=20261101a').length-1,4,
-      route+' must fetch refreshed root');
+    assert.equal(html.split(oldRoot).length-1,4,
+      route+' must retain one shared runtime URL across hydration and routes');
+    assert.ok(!html.includes('&latinrotation=20261101a'),
+      route+' must not fork root runtime version');
+  }
+  for(const module of ['study._subject.practise-D_PWgUd7.js',
+    'quiz-session-rWAnuDVj.js','quiz-session-y8fix-20260920.js']){
+    const js=readFileSync(new URL('../assets/'+module,import.meta.url),'utf8');
+    assert.ok(js.includes(oldRoot.slice(1)),module+' must import the same root URL');
   }
 });
