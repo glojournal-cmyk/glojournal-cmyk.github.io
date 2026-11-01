@@ -28,3 +28,10 @@ jobs:
       - run: git fetch origin main --depth=1
       - run: node --check tests/year8-biology-content-repair-20261101.mjs
       - run: node tests/year8-biology-content-repair-20261101.mjs
+      - run: node tests/year8-biology-live-marking-20261101.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: year8-biology-live-marking-report
+          path: test-results/year8-biology-live-marking-20261101.json
+          if-no-files-found: warn
