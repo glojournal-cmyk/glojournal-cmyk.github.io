@@ -1,0 +1,120 @@
+{
+  "version": "2026-11-01-draft-1",
+  "year": 8,
+  "subject": "latin",
+  "source": "https://fra1.digitaloceanspaces.com/tiffingirls.org/wp-content/uploads/2026/07/10161333/Classics-Curriculum-Outline-Y8-20226-7.pdf",
+  "mode": "standalone-preview-no-progress-no-xp-no-mastery-credit",
+  "policy": "Content source references preserve original question IDs, answers and learner statistics; grouping is not proof of current taught status",
+  "groups": [
+    {
+      "id": "cases-nouns",
+      "label": "Noun cases & roles (Year 8)",
+      "phase": "St 8–12 / Cullen & Taylor Chapter 2 (summer)",
+      "sourceTopics": [
+        "la-y8-accusative-forms",
+        "la-y8-case-and-grammar-role",
+        "la-y8-case-functions",
+        "la-y8-case-role-introduction",
+        "la-y8-declension-recognition",
+        "la-y8-genitive-phrases",
+        "la-y8-vocative",
+        "la-y8-possessives"
+      ],
+      "skills": [
+        "nom./acc./dat./gen. and later ablative",
+        "declension recognition",
+        "case in sentence",
+        "noun translation"
+      ],
+      "learnerTaughtCheck": true
+    },
+    {
+      "id": "verbs-tenses",
+      "label": "Present, perfect & imperfect verb control (Year 8)",
+      "phase": "St 10–12 / Chapter 2 revision",
+      "sourceTopics": [
+        "la-y8-find-the-finite-verb",
+        "la-y8-finite-verb-control",
+        "la-y8-person-and-number",
+        "la-y8-perfect-patterns",
+        "la-y8-tense-in-context",
+        "la-y8-tense-meaning",
+        "la-y8-tense-purpose",
+        "la-y8-tense-recognition",
+        "la-y8-tense-recognition-from-models",
+        "la-y8-restore-the-exact-verb",
+        "la-y8-present-person-and-number"
+      ],
+      "skills": [
+        "finite verbs",
+        "person and number",
+        "present perfect and imperfect"
+      ],
+      "learnerTaughtCheck": true
+    },
+    {
+      "id": "translation-comprehension",
+      "label": "Short-sentence translation & comprehension (Year 8)",
+      "phase": "Year 8 foundation / Stages 8–12",
+      "sourceTopics": [
+        "la-y8-english-latin",
+        "la-y8-latin-english",
+        "la-y8-complete-comprehension",
+        "la-y8-choose-the-complete-translation",
+        "la-y8-choose-the-exact-latin",
+        "la-y8-restore-the-sentence",
+        "la-y8-test-style-production",
+        "la-y8-test-style-translation",
+        "la-y8-translation-method",
+        "la-y8-production-method",
+        "la-y8-whole-passage-understanding"
+      ],
+      "skills": [
+        "Latin to English",
+        "scaffolded English to Latin",
+        "meaning in context"
+      ],
+      "learnerTaughtCheck": true
+    },
+    {
+      "id": "prepositions-location",
+      "label": "Prepositions, governed cases & location (Year 8)",
+      "phase": "Cullen & Taylor Chapter 2 (summer)",
+      "sourceTopics": [
+        "la-y8-prepositions",
+        "la-y8-photo-prepositions",
+        "la-y8-preposition-dictionary-entries",
+        "la-y8-map-locations",
+        "la-y8-why-each-place-matters"
+      ],
+      "skills": [
+        "accusative and ablative with prepositions",
+        "to/from/in cities"
+      ],
+      "learnerTaughtCheck": true
+    }
+  ],
+  "excludedUntilEvidence": [
+    {
+      "topicId": "la-y8-pluperfect-recognition",
+      "reason": "Pluperfect is not listed in the TGS Year 8 2026-27 outline (which specifies present, perfect, imperfect); not imported into composites."
+    },
+    {
+      "topicId": "la-y8-set-text-comprehension",
+      "reason": "A specific set text may relate to different class/stage; compare against Year 8 sources before grouping."
+    },
+    {
+      "topicId": "la-y8-set-text-translation",
+      "reason": "Passage provenance must be confirmed; cannot assume all prior set-text packs were Year 8."
+    }
+  ],
+  "resultContract": {
+    "defaultSetSize": 15,
+    "requireTrueLearnerTaughtStatus": true,
+    "excludePreviouslyCorrectIds": true,
+    "noDifferentIdSameConcept": true,
+    "noDuplicatePromptStimulus": true,
+    "preserveOriginalQuestionIds": true,
+    "noRewardsOnPreview": true
+  }
+}
