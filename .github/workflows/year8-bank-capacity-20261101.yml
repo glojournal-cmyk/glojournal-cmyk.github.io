@@ -1,0 +1,27 @@
+name: Year 8 bank source capacity inventory
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'content/catalog.json'
+      - 'content/topics/**'
+      - 'scripts/audit-year8-topic-capacity-20261101.mjs'
+      - '.github/workflows/year8-bank-capacity-20261101.yml'
+jobs:
+  read-only-capacity:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/audit-year8-topic-capacity-20261101.mjs
+      - run: node scripts/audit-year8-topic-capacity-20261101.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: year8-bank-current-source-inventory
+          path: qa-reports/year8-capacity-current/
+          if-no-files-found: warn
