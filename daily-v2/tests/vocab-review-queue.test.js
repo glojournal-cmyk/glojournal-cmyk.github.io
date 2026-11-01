@@ -113,3 +113,22 @@ test('same English stimulus in opposite directions is not itself a collision',()
  ])]);
  assert.equal(result.summary.flagCounts.SAME_STIMULUS_DIFFERENT_CONCEPT_ANSWERS||0,0);
 });
+
+test('same English gloss with two source concepts and identical answers is never auto-certified',()=>{
+ const dup=buildVocabReviewQueue([topic('french',8,[
+  question('fr-first-weather','weather-concept-one',{
+   prompt:'TRANSLATE INTO ENGLISH — il fait chaud',
+   stimulus:{text:'il fait chaud'},
+   answer:{mode:'exact_or_equivalent',accepted:['it is hot']}
+  }),
+  question('fr-second-weather','weather-concept-two',{
+   prompt:'TRANSLATE INTO ENGLISH — il fait chaud',
+   stimulus:{text:'il fait chaud'},
+   answer:{mode:'exact_or_equivalent',accepted:['it is hot']}
+  })
+ ])]);
+ assert.equal(dup.summary.flagCounts.DUPLICATE_CONCEPT_FOR_SAME_PROMPT,2);
+ assert.ok(dup.rows.every(r=>r.flags.includes('DUPLICATE_CONCEPT_FOR_SAME_PROMPT')));
+ assert.ok(dup.rows.every(r=>r.approvedForDaily===false));
+ assert.equal(dup.summary.independentlyCertified,0);
+});
