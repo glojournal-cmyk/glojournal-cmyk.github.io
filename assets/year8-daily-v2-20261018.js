@@ -41,6 +41,40 @@ function balancedCompare(a,b,primary,secondary,order,today){
     cyclicRank(a.subject,order,today)-cyclicRank(b.subject,order,today);
 }
 
+// Dated assignments, never inferred answer scores. Missing iPad coverage
+// evidence must not repeatedly force the earliest Latin Stage in Standard,
+// or make the fallback (not genuinely due) review choose Stage 1 every day.
+function recentTopicExposure(state,today){
+  const counts=new Map(),now=dayNumber(today);
+  for(const [date,row] of Object.entries(state.dailyLog||{})){
+    const age=now-dayNumber(date);
+    if(!Number.isFinite(age)||age<1||age>6)continue;
+    for(const t of row?.tasks||[]){
+      if(!t?.assignedTopic||t.id==='latin-vocab'||t.id==='french-vocab')continue;
+      const subject=t.assignedSubject||
+        (typeof t.href==='string'?t.href.split('/')[2]:null);
+      if(!subjects.includes(subject)||Number(t.assignedYear||8)!==8)continue;
+      const old=counts.get(t.assignedTopic)||{count:0,lastAge:Infinity};
+      counts.set(t.assignedTopic,{count:old.count+1,lastAge:Math.min(old.lastAge,age)});
+    }
+  }
+  return counts;
+}
+function recentReviewSubjectExposure(state,today){
+  const counts=Object.fromEntries(subjects.map(s=>[s,0])),now=dayNumber(today);
+  for(const [date,row] of Object.entries(state.dailyLog||{})){
+    const age=now-dayNumber(date);
+    if(!Number.isFinite(age)||age<1||age>6)continue;
+    for(const t of row?.tasks||[]){
+      if(!['due-review','weakness-review'].includes(t?.id))continue;
+      const subject=t.assignedSubject||
+        (typeof t.href==='string'?t.href.split('/')[2]:null);
+      if(subjects.includes(subject))counts[subject]++;
+    }
+  }
+  return counts;
+}
+
 // Ten assignments, normally 165 answers: 60 vocab, 10 Latin, 20 Standard,
 // two separate 20-question Mastery sets, 10 weakness, 10 due, 15 Year 9.
 // Day 2/7 retention stays in Due Review; it never replaces daily Mastery A/B.
@@ -284,8 +318,25 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   const pendingRecall=t=>['check2','check7'].includes(
     state.topicStats?.[t.topicId]?.masteryV2?.stage);
   // Reserve every in-progress recall topic for its five-question due date.
-  const latin=pick('latin-standard',pools.latin.filter(t=>!pendingRecall(t)),
-    t=>!coveredTopic(state,t.topicId));
+  // Keep the Standard frontier gradual (up to four Year 8 topics), but
+  // rotate by actual recent Daily assignments rather than repeatedly forcing
+  // the first uncovered Stage 1/2 when its credit/coverage has not caught up.
+  // Intentionally due and weakness-review tasks remain independently eligible.
+  const latinReady=pools.latin.filter(t=>!pendingRecall(t));
+  const latinAvailable=latinReady.length?latinReady:pools.latin;
+  const latinUncovered=latinAvailable.filter(t=>!coveredTopic(state,t.topicId));
+  const latinWindow=latinUncovered.slice(0,4);
+  for(const t of latinAvailable){
+    if(latinWindow.length>=4)break;
+    if(!latinWindow.some(chosen=>chosen.topicId===t.topicId))latinWindow.push(t);
+  }
+  const latinHistory=recentTopicExposure(state,today);
+  const latin=pick('latin-standard',latinWindow,()=>true,(a,b)=>{
+    const aSeen=latinHistory.get(a.topicId),bSeen=latinHistory.get(b.topicId);
+    return (aSeen?.count||0)-(bSeen?.count||0)||
+      (bSeen?.lastAge||7)-(aSeen?.lastAge||7)||
+      Number(coveredTopic(state,a.topicId))-Number(coveredTopic(state,b.topicId));
+  });
   const standardPool=(pools[subject]||[]).filter(t=>!pendingRecall(t));
   const standards=['y8-standard-a','y8-standard-b'].map(id=>{
     const topic=pick(id,standardPool,t=>!coveredTopic(state,t.topicId));
@@ -301,7 +352,27 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     (state.topicStats[a.topicId].masteryV2.stage==='check7'?-1:1));
   const generalDue=allTopics.filter(t=>Object.values(state.reviews||{}).some(r=>
     r?.topicId===t.topicId&&r?.due&&r.due<=today));
-  const due=pick('due-review',dueMastery.length?dueMastery:generalDue.length?generalDue:allTopics.filter(t=>!pendingRecall(t)),()=>true);
+  // A no-due day is consolidation, not a fake due date. Distribute it
+  // across familiar early Year 8 topics and subjects instead of repeatedly
+  // taking the first Latin Stage. Actual Day 2/7/due reviews override rotation.
+  const reviewWindow=subjects.flatMap(s=>{
+    const available=(pools[s]||[]).filter(t=>!pendingRecall(t));
+    const uncovered=available.filter(t=>!coveredTopic(state,t.topicId));
+    return [...uncovered,...available.filter(t=>coveredTopic(state,t.topicId))]
+      .slice(0,3);
+  });
+  const reviewSubjects=recentReviewSubjectExposure(state,today);
+  const reviewCompare=(a,b)=>
+    (reviewSubjects[a.subject]||0)-(reviewSubjects[b.subject]||0)||
+    (latinHistory.get(a.topicId)?.count||0)-(latinHistory.get(b.topicId)?.count||0)||
+    (latinHistory.get(b.topicId)?.lastAge||7)-(latinHistory.get(a.topicId)?.lastAge||7)||
+    (exposure.flex[a.subject]||0)-(exposure.flex[b.subject]||0)||
+    cyclicRank(a.subject,subjects,today)-cyclicRank(b.subject,subjects,today);
+  const hasActualDue=dueMastery.length>0||generalDue.length>0;
+  const due=pick('due-review',dueMastery.length?dueMastery:generalDue.length?generalDue:
+    reviewWindow.length?reviewWindow:allTopics.filter(t=>!pendingRecall(t)),()=>true,
+    hasActualDue?undefined:reviewCompare);
+  if(due?.subject)reviewSubjects[due.subject]++;
   const oldDue=previous.get('due-review');
   const dueCheck=oldDue?.assignedTopic?oldDue.masteryCheck===true:
     dueMastery.some(t=>t.topicId===due?.topicId);
@@ -349,8 +420,28 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     if(chosen?.subject){exposure.mastery[chosen.subject]++;exposure.flex[chosen.subject]++;}
     return [task(id,chosen,'mastery',20,'Year 8 Mastery · 20 new questions; previous five-question recall remains recorded')];
   });
-  const weak=pick('weakness-review',learningTopics.length?learningTopics:allTopics,
-    t=>Number(state.topicStats?.[t.topicId]?.accuracy||0)<.85);
+  // No attempted answers means UNKNOWN accuracy, not 0%. Do not put an
+  // unattempted Stage 1/2 into Weakness Review solely because no score exists.
+  const accuracy=t=>{
+    const stat=state.topicStats?.[t.topicId]||{},attempted=Number(stat.attempted)||0;
+    if(attempted<=0)return null;
+    const saved=Number(stat.accuracy);
+    return stat.accuracy!=null&&Number.isFinite(saved)?saved:
+      (Number(stat.correct)||0)/attempted;
+  };
+  const genuineWeak=learningTopics.filter(t=>accuracy(t)!==null&&accuracy(t)<.85);
+  // Do not assign the same weak topic a second time in one Daily plan
+  // when a Standard, Mastery or due check has already reserved it.
+  const availableWeak=genuineWeak.filter(t=>!assigned.has(t.topicId));
+  // The three-topic consolidation window can already be occupied by
+  // Standard, Mastery and Due slots. Expand to other Year 8 topics rather
+  // than silently allocating its first (already reserved) Stage again.
+  const weakConsolidation=reviewWindow.some(t=>!assigned.has(t.topicId))
+    ?reviewWindow:allTopics.filter(t=>!pendingRecall(t));
+  const weak=pick('weakness-review',availableWeak.length?availableWeak:
+    weakConsolidation.length?weakConsolidation:allTopics,
+    ()=>true,availableWeak.length?(a,b)=>accuracy(a)-accuracy(b)||
+      reviewCompare(a,b):reviewCompare);
   const taught=['latin','french','chemistry','biology','physics'].flatMap(s=>(getCatalog(s,9)||[])
     .filter(t=>t?.status==='enabled'&&Number(t.enabled??t.questions??0)>=15)
     .map(t=>({...t,subject:s,year:9,topicLabel:t.title||t.topicId})));
@@ -373,7 +464,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     ...standards.map((t,i)=>task('y8-standard-'+('ab'[i]),t,'standard',10,'Year 8 Standard 10 · topic '+(i+1)+' of 2')),
     ...mastery.map((m,i)=>task('y8-mastery-'+('ab'[i]),m.topic,m.mode,m.check?5:20,m.check?'Year 8 Day 2/7 recall · five questions':'Year 8 Mastery · 17/20 including three independent answers',m.check)),
     ...makeUpMastery,
-    task('weakness-review',weak,'weak',10,'Repair weak concepts'),
+    task('weakness-review',weak,'weak',10,availableWeak.length?'Repair weak concepts':'Consolidation · no recorded weak topic'),
     task('due-review',due,dueMode,dueCheck?5:10,dueCheck?'Year 8 Day 2/7 recall · five questions':dueMode==='weak'?'Consolidation · nothing due today':'Due review',dueCheck),
     task('year9-light',year9,'standard',15,'Year 9 · light daily study')];
 }
