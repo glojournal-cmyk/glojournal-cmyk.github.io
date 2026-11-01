@@ -72,3 +72,25 @@ export function fillDailyLockedQuestions(fresh,loaded,options,rank,progression){
  // preferable to making the learner redo eight already-mastered answers.
  return result;
 }
+
+/* Final read-only guard after unfinished receipts and dated Recovery selectors.
+ * Those legacy helpers can reorder or reinsert original questions after the
+ * fallback allocator. Never delete prior answers or replace locked receipts. */
+export function enforceDistinctYear8MasteryAfterRetry(items,loaded,options={}){
+ const {locked=false,year=0,mode='',creditedIds=[],seenCorrect={}}=options;
+ const original=Array.isArray(items)?items:[];
+ if(!locked||Number(year)!==8||mode!=='mastery')return original;
+ const id=q=>String(q?.id||'');
+ const family=q=>String(q?.conceptId||q?.id||'');
+ const credited=new Set(creditedIds||[]);
+ for(const [qid,count] of Object.entries(seenCorrect||{}))if(Number(count)>0)credited.add(String(qid));
+ const forbidden=new Set((Array.isArray(loaded)?loaded:[])
+   .filter(q=>credited.has(id(q))).map(family));
+ const used=new Set(),seenIds=new Set();
+ return original.filter(q=>{
+   if(!q?.id||q.formal===false||q._repair||q.status==='preview')return false;
+   const qid=id(q),concept=family(q);
+   if(credited.has(qid)||forbidden.has(concept)||seenIds.has(qid)||used.has(concept))return false;
+   seenIds.add(qid);used.add(concept);return true;
+ });
+}
