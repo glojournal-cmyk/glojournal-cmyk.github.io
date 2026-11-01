@@ -40,7 +40,7 @@ for(const topicId of topics){
    assert.equal(q.formal,true,q.id);
    assert.ok(q.origin?.publicationGate || q.origin?.verification,'no publication gate '+q.id);
    assert.ok(q.conceptId,'no concept id '+q.id);
-   assert.ok(!concepts.has(q.conceptId),'reused conceptId in new records '+q.id);
+   // Different formats can legitimately assess one shared concept; do not relabel them as novel concepts.
    concepts.add(q.conceptId);
    const fingerprint=JSON.stringify([String(q.prompt||'').replace(/\s+/g,' ').trim().toLowerCase(),q.stimulus||{}]);
    assert.ok(!keys.has(fingerprint),'duplicate prompt/stimulus '+q.id);
@@ -88,7 +88,9 @@ for(const topicId of topics){
      assert.equal(q.answer.modelAnswer,v+' '+u,id);
    }
  }
- console.log(topicId, 'original:',original.questions.length,'new:',fresh.length,'eligible:',eligible.length,
+ const uniqueConcepts=new Set(eligible.map(q=>q.conceptId||q.id)).size;
+ assert.ok(uniqueConcepts>=18,'too few distinct source concept families: '+topicId);
+ console.log(topicId, 'uniqueConceptFamilies:',uniqueConcepts,'original:',original.questions.length,'new:',fresh.length,'eligible:',eligible.length,
    'MC:',eligible.filter(q=>q.format==='mc_single').length,
    'markPoints:',eligible.filter(q=>q.format==='mark_points').length);
 }
