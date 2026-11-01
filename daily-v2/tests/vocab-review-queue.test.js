@@ -67,3 +67,34 @@ test('CSV protects leading spreadsheet formulas even in source prompts and answe
  assert.ok(s.includes('@unsafe'),'answers remain available for reviewer inspection');
  assert.ok(!s.includes('curriculumCertified,true'));
 });
+
+test('real French plural marking alternative is surfaced for review, not silently certified',()=>{
+ const queue=loadVocabReviewQueue();
+ const row=queue.rows.find(r=>r.questionId==='fr-y8-src-fr-25-1230-des-calculatrices');
+ assert.ok(row,'authentic Year 8 classroom objects question must remain traceable');
+ assert.ok(row.acceptedAnswers.includes('calculator (plural)'));
+ assert.ok(row.acceptedAnswers.includes('calculator'));
+ assert.ok(row.flags.includes('PLURAL_CUE_DROPPED_BY_ALTERNATIVE'));
+ assert.ok(queue.summary.flagCounts.PLURAL_CUE_DROPPED_BY_ALTERNATIVE>=1);
+ assert.equal(row.approvedForDaily,false);
+ assert.equal(row.curriculumDecision,'pending');
+ assert.equal(row.scoringDecision,'pending');
+});
+test('identical directional stimulus with different concepts and answers is a reviewer flag',()=>{
+ const sharedStimulus={text:'friend',direction:'English → Latin'};
+ const result=buildVocabReviewQueue([topic('latin',8,[
+  question('q-amicus','latin-concept-1',{stimulus:sharedStimulus,
+   answer:{mode:'exact_or_equivalent',accepted:['amicus']}}),
+  question('q-amica','latin-concept-2',{stimulus:sharedStimulus,
+   answer:{mode:'exact_or_equivalent',accepted:['amica']}})
+ ])]);
+ assert.equal(result.summary.flagCounts.SAME_STIMULUS_DIFFERENT_CONCEPT_ANSWERS,2);
+ assert.ok(result.rows.every(r=>r.approvedForDaily===false));
+});
+test('same English stimulus in opposite directions is not itself a collision',()=>{
+ const result=buildVocabReviewQueue([topic('latin',8,[
+  question('q-a','concept-a',{stimulus:{text:'friend',direction:'Latin → English'}}),
+  question('q-b','concept-b',{stimulus:{text:'friend',direction:'English → Latin'}})
+ ])]);
+ assert.equal(result.summary.flagCounts.SAME_STIMULUS_DIFFERENT_CONCEPT_ANSWERS||0,0);
+});
