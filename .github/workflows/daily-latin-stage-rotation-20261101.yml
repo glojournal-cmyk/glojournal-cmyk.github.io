@@ -1,0 +1,27 @@
+name: Daily Latin Stage Rotation QA
+on:
+  pull_request:
+    paths:
+      - 'assets/year8-daily-v2-20261018.js'
+      - 'tests/daily-latin-stage-rotation-20261101.test.mjs'
+      - '.github/workflows/daily-latin-stage-rotation-20261101.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  latin-rotation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test multi-day Latin topic rotation
+        run: node --test tests/daily-latin-stage-rotation-20261101.test.mjs
+      - name: Protect existing Daily credit and curriculum QA
+        run: |
+          node --test tests/daily-mastered-loop-20261023.test.mjs
+          node tests/daily-progression-qa.mjs
+          node tests/daily-vocab-only-qa.mjs
