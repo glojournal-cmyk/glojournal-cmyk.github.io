@@ -318,8 +318,10 @@ export function commitToStorage(payload,existingRaw,storage){
   const additions=linkedAdditions(payload,storage);
   const staged=[];
   const undo=()=>{
-    for(const [key,previous] of staged.reverse()){
+    for(const [key,previous,ours] of staged.reverse()){
       try{
+        // Another tab's later update must win over our rollback.
+        if(storage.getItem(key)!==ours)continue;
         if(previous==null)storage.removeItem(key);
         else storage.setItem(key,previous);
       }catch{}
@@ -330,7 +332,7 @@ export function commitToStorage(payload,existingRaw,storage){
     // drafts, pet progress, assessment data or other unrelated browser records.
     for(const [key,value] of additions){
       const previous=storage.getItem(key);
-      staged.push([key,previous]);
+      staged.push([key,previous,value]);
       storage.setItem(key,value);
       if(storage.getItem(key)!==value)throw Error("Could not verify linked "+key);
     }
