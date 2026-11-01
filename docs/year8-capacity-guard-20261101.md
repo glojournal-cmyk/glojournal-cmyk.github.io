@@ -18,3 +18,6 @@ A bank with fewer than 20 fresh distinct concept families cannot offer a 20-item
 Run node --test tests/year8-capacity-guard-20261101.mjs. Tests cover 30 IDs/15 concepts, 48 IDs/24 concepts, exclusion of credited and reserved IDs, no repeated concepts, legacy Standard behaviour, exhausted-bank behaviour and absence of false-completion side effects.
 
 Before merge: actual browser + iPad recovery replay, old Daily pinned sessions and correct-answer receipts, 20 items/17 correct and 3 independent correct evidence, Day 2/7 retention checks, 48-hour Recovery and XP/MP/Pet safeguarding.
+
+## Distinct score evidence integrity
+The 20-question Year 8 Mastery scorer now refuses to count two separate attempt event IDs for the **same original question ID in one 20-slot round**, even if the quiz was resumed or submitted again. The original 17/20 correct and three correct independent answers requirements stay intact. The historical 15-question round retains its prior event scoring semantics (13/15) to avoid retroactively invalidating old iPad achievements. A new regression checks the 19 + duplicate + genuinely 20th sequence.
