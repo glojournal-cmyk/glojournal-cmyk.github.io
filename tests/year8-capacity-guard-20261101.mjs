@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {fillDailyLockedQuestions,enforceDistinctYear8MasteryAfterRetry} from '../assets/daily-locked-question-fallback-20261021.js';
+import {addMasteryEvidence} from '../assets/mastery-v2-20261018.js';
 const rank=(rows,subject,limit)=>rows.slice(0,limit);
 const progression=(rows,mode,limit)=>rows.slice(0,limit);
 const q=(n,conceptId,format='typed_exact')=>({id:'q'+n,conceptId,format,topicId:'la-y8-case-role-introduction',
@@ -85,4 +86,34 @@ test('post-retry guard removes previously credited concept variants and duplicat
  const year9=enforceDistinctYear8MasteryAfterRetry([loaded[1],loaded[2],loaded[3]],loaded,
    {locked:true,year:9,mode:'mastery',creditedIds:['q1']});
  assert.deepEqual(year9.map(x=>x.id),['q2','q3','q4']);
+});
+
+test('20-slot Mastery evidence cannot be inflated with repeat answer events',()=>{
+ let raw={};
+ const submit=(i,correct,attemptId)=>{raw={masteryV2:addMasteryEvidence(raw,{
+   year:8,day:'2026-11-01',mode:'mastery',masteryTarget:20,
+   questionId:'distinct-'+i,attemptId,correct,format:i<3?'typed_short':'mc_single'
+ })};};
+ for(let i=0;i<19;i++)submit(i,i<17,'a-'+i);
+ assert.equal(raw.masteryV2.attempts.length,19);
+ submit(0,true,'retry-same-question-different-attempt-id');
+ assert.equal(raw.masteryV2.attempts.length,19,'repeat must not create twentieth question');
+ assert.equal(raw.masteryV2.stage,'learning','same question cannot trigger check2');
+ submit(19,false,'a-19');
+ assert.equal(raw.masteryV2.stage,'check2','20th distinct scored answer advances 17/20 with 3 independent correct');
+ assert.equal(raw.masteryV2.due,'2026-11-03');
+});
+
+test('historical pinned fifteen-question Mastery can retain original duplicate-attempt scoring policy',()=>{
+ let raw={};
+ raw={masteryV2:addMasteryEvidence(raw,{
+  year:8,day:'2026-11-01',mode:'mastery',masteryTarget:15,
+  questionId:'legacy-q1',attemptId:'legacy-attempt-1',correct:true,format:'typed_short'
+ })};
+ raw={masteryV2:addMasteryEvidence(raw,{
+  year:8,day:'2026-11-01',mode:'mastery',masteryTarget:15,
+  questionId:'legacy-q1',attemptId:'legacy-attempt-2',correct:true,format:'typed_short'
+ })};
+ assert.equal(raw.masteryV2.roundTarget,15);
+ assert.equal(raw.masteryV2.attempts.length,2,'existing 15-slot evidence not silently revoked');
 });
