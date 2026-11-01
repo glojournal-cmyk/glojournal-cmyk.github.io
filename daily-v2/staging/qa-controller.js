@@ -28,8 +28,18 @@ export async function openQaSession(repo,{scenario='ready',day=STAGING_DAY}={}){
 export function nextQaQuestion(plan,ledger,taskId){
  const task=plan?.tasks?.find(t=>t.id===taskId);
  if(!task)return null;
- const credited=new Set((ledger?.attempts||[]).filter(a=>a.taskId===taskId&&
-   (task.kind==='exam'?Number.isInteger(a.marksEarned):a.correct===true))
+ if(task.kind==='exam'){
+  // Give unseen questions first. Once the three have been marked, allow a
+  // partial-score retry. A retry can improve MARKS but not question credits.
+  const best=new Map();
+  for(const a of ledger?.attempts||[]){
+   if(a.taskId!==taskId||!Number.isInteger(a.marksEarned))continue;
+   best.set(a.questionId,Math.max(best.get(a.questionId)??-1,a.marksEarned));
+  }
+  return task.questions.find(q=>!best.has(q.questionId))||
+    task.questions.find(q=>best.get(q.questionId)<q.marks)||null;
+ }
+ const credited=new Set((ledger?.attempts||[]).filter(a=>a.taskId===taskId&&a.correct===true)
   .map(a=>a.questionId));
  return task.questions.find(q=>!credited.has(q.questionId))||null;
 }
