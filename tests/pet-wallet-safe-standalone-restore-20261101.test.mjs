@@ -154,3 +154,38 @@ test("standalone safety copy preserves the raw Pet wallet, not a lossy preview",
  assert.equal(result.petWalletBackup.raw,raw);
  assert.equal(result.state.xp,2862);
 });
+
+test("failed Pet restore never rolls back a newer Scholar state from another tab",()=>{
+ const storage=new Storage();
+ const newer=JSON.stringify({state:{...scholar().state,xp:9999},version:10});
+ const orig=storage.setItem.bind(storage);
+ storage.setItem=(key,value)=>{
+  if(key===PET_WALLET_KEY){
+   storage.map.set(SCHOLAR_KEY,newer);
+   throw Error("QuotaExceededError");
+  }
+  orig(key,value);
+ };
+ assert.throws(()=>commitToStorage(combined(),null,storage),/Import not verified/);
+ assert.equal(storage.getItem(SCHOLAR_KEY),newer);
+ assert.equal(storage.getItem(PET_WALLET_KEY),null);
+});
+
+test("a newer linked draft from another tab is not deleted during import rollback",()=>{
+ const storage=new Storage();
+ const draftKey="lux-maths-draft-v1";
+ const newer=JSON.stringify({topic9:{answer:"beyond"}});
+ const orig=storage.setItem.bind(storage);
+ storage.setItem=(key,value)=>{
+  if(key===PET_WALLET_KEY){
+   storage.map.set(draftKey,newer);
+   throw Error("QuotaExceededError");
+  }
+  orig(key,value);
+ };
+ const file={...combined(),mathsDrafts:{topic1:{answer:"previous"}}};
+ assert.throws(()=>commitToStorage(file,null,storage),/Import not verified/);
+ assert.equal(storage.getItem(draftKey),newer);
+ assert.equal(storage.getItem(PET_WALLET_KEY),null);
+ assert.equal(storage.getItem(SCHOLAR_KEY),null);
+});
