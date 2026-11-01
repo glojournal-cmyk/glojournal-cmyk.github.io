@@ -36,6 +36,6 @@ const report={
  scannedRows:q.rows.length,distinctByFlag,plural,collisionGroups:collisions.length,
  collisionGroupsByType:Object.fromEntries(flags.slice(1).map(f=>[f,
   collisions.filter(g=>g.flags.includes(f)).length])),
- collisionExamples:collisions.slice(0,18),
+ collisionExamples:collisions.map(({ids,...rest})=>({...rest,exampleQuestionIds:ids.slice(0,3),questionCount:ids.length})),
  certificationCount:0,readonly:true};
 console.log('LEXICAL_RISK_TRIAGE_JSON',JSON.stringify(report));
