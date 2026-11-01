@@ -77,10 +77,11 @@ try{
    await status(page,'credits','2 / 163');
 
    await taskButton(page,'gcse-exam-skills').click();
-   for(const n of [1,2,2]){
-    await page.selectOption('#marks',String(n));
+   for(const [index,marks] of [1,2,2].entries()){
+    await page.selectOption('#marks',String(marks));
     await page.click('#submitAnswer');
-    await page.waitForFunction(n=>document.getElementById('notice')?.textContent?.includes('Task progress: '+n+'/3'),[1,2,3].indexOf(n)+1).catch(()=>{});
+    await page.waitForFunction(progress=>
+     document.getElementById('notice')?.textContent?.includes('Task progress: '+progress+'/3'),index+1);
    }
    await status(page,'credits','5 / 163');
    assert.match(await taskButton(page,'gcse-exam-skills').innerText(),/exam marks 5\/6/);
