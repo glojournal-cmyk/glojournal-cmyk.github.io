@@ -82,8 +82,8 @@ for(const [number,prior,expected,baseline] of targets){
 assert.equal(questions,484);
 assert.equal(added,122);
 assert.equal(catalog.bySubjectYear.find(r=>r.subject==="physics"&&r.year===9).enabled,1044);
-assert.equal(catalog.totals.enabled,15410);
-assert.equal(catalog.totals.questions,16539);
+assert.equal(catalog.totals.enabled,catalog.bySubjectYear.reduce((sum,row)=>sum+row.enabled,0));
+assert.equal(catalog.totals.questions,catalog.bySubjectYear.reduce((sum,row)=>sum+row.questions,0));
 assert.ok(catalog.version.includes("phys-gcse-20261020"));
 const read=n=>JSON.parse(fs.readFileSync(`content/topics/phys-y9-p${n}.json`,"utf8"));
 assert.match(JSON.stringify(read(1)).toLowerCase(),/brownian motion/);

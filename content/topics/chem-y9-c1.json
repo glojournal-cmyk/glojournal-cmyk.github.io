@@ -3751,19 +3751,1680 @@
         "commonError": "A gap alone is not a prediction: explain how the group supplies evidence.",
         "stage": "Application"
       }
+    },
+    {
+      "id": "chem-g8-20261101-pt-001",
+      "conceptId": "chem-g8-20261101-pt-001-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "Figure 5 is a simplified illustration of selected groups and two gaps in Mendeleev’s predicted arrangement. What do the TWO DASHED boxes below aluminium and silicon represent?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Positions reserved for undiscovered elements later identified as gallium and germanium"
+        ],
+        "totalMarks": 1,
+        "modelAnswer": "Positions reserved for undiscovered elements later identified as gallium and germanium . The other empty cells simply omit elements from this simplified diagram."
+      },
+      "stimulus": {
+        "marks": 1,
+        "sourceId": "CHEM-PT-001",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper",
+        "image": "/content/diagrams/chem-g8-mendeleev-gaps-20261101.svg",
+        "imageAlt": "Simplified Mendeleev arrangement showing dashed prediction boxes below aluminium and silicon."
+      },
+      "feedback": {
+        "short": "Positions reserved for undiscovered elements later identified as gallium and germanium (1). The other empty cells simply omit elements from this simplified diagram.",
+        "steps": [
+          "Positions reserved for undiscovered elements later identified as gallium and germanium"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Positions reserved for undiscovered elements later identified as gallium and germanium (1). The other empty cells simply omit elements from this simplified diagram."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 1 mark."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-001",
+        "markScheme": "Positions reserved for undiscovered elements later identified as gallium and germanium (1). The other empty cells simply omit elements from this simplified diagram."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-002",
+      "conceptId": "chem-g8-20261101-pt-002-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "Explain why Mendeleev deliberately left gaps for some elements in his periodic table.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "He expected elements that had not yet been discovered",
+          "and used patterns in the surrounding elements to predict their properties / maintain chemically similar groups"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "He expected elements that had not yet been discovered and used patterns in the surrounding elements to predict their properties / maintain chemically similar groups ."
+      },
+      "stimulus": {
+        "marks": 2,
+        "sourceId": "CHEM-PT-002",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "He expected elements that had not yet been discovered (1) and used patterns in the surrounding elements to predict their properties / maintain chemically similar groups (1).",
+        "steps": [
+          "He expected elements that had not yet been discovered",
+          "and used patterns in the surrounding elements to predict their properties / maintain chemically similar groups"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "He expected elements that had not yet been discovered (1) and used patterns in the surrounding elements to predict their properties / maintain chemically similar groups (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 2 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-002",
+        "markScheme": "He expected elements that had not yet been discovered (1) and used patterns in the surrounding elements to predict their properties / maintain chemically similar groups (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-003",
+      "conceptId": "chem-g8-20261101-pt-003-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "Give two problems with Newlands’ Law of Octaves.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Any two: chemically dissimilar elements were sometimes grouped together",
+          "he left no gaps for missing elements",
+          "the octave pattern broke down beyond the lighter elements",
+          "he sometimes placed two elements in one position"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Any two: chemically dissimilar elements were sometimes grouped together ; he left no gaps for missing elements ; the octave pattern broke down beyond the lighter elements ; he sometimes placed two elements in one position . Maximum 2.",
+        "acceptAnyDistinct": 2
+      },
+      "stimulus": {
+        "marks": 2,
+        "sourceId": "CHEM-PT-003",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Any two: chemically dissimilar elements were sometimes grouped together (1); he left no gaps for missing elements (1); the octave pattern broke down beyond the lighter elements (1); he sometimes placed two elements in one position (1). Maximum 2.",
+        "steps": [
+          "Any two: chemically dissimilar elements were sometimes grouped together",
+          "he left no gaps for missing elements",
+          "the octave pattern broke down beyond the lighter elements",
+          "he sometimes placed two elements in one position"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Any two: chemically dissimilar elements were sometimes grouped together (1); he left no gaps for missing elements (1); the octave pattern broke down beyond the lighter elements (1); he sometimes placed two elements in one position (1). Maximum 2."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 2 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-003",
+        "markScheme": "Any two: chemically dissimilar elements were sometimes grouped together (1); he left no gaps for missing elements (1); the octave pattern broke down beyond the lighter elements (1); he sometimes placed two elements in one position (1). Maximum 2."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-004",
+      "conceptId": "chem-g8-20261101-pt-004-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "In which year did Mendeleev publish his periodic table?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "1869"
+        ],
+        "totalMarks": 1,
+        "modelAnswer": "1869 ."
+      },
+      "stimulus": {
+        "marks": 1,
+        "sourceId": "CHEM-PT-004",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "1869 (1).",
+        "steps": [
+          "1869"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "1869 (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 1 mark."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-004",
+        "markScheme": "1869 (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-005",
+      "conceptId": "chem-g8-20261101-pt-005-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "Mendeleev did not always follow increasing atomic mass. Explain why he sometimes changed the order of neighbouring elements.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Strict mass order would place some elements in groups with dissimilar chemical properties",
+          "he reversed their order to keep elements with similar properties in the same group"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Strict mass order would place some elements in groups with dissimilar chemical properties ; he reversed their order to keep elements with similar properties in the same group ."
+      },
+      "stimulus": {
+        "marks": 2,
+        "sourceId": "CHEM-PT-005",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Strict mass order would place some elements in groups with dissimilar chemical properties (1); he reversed their order to keep elements with similar properties in the same group (1).",
+        "steps": [
+          "Strict mass order would place some elements in groups with dissimilar chemical properties",
+          "he reversed their order to keep elements with similar properties in the same group"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Strict mass order would place some elements in groups with dissimilar chemical properties (1); he reversed their order to keep elements with similar properties in the same group (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 2 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-005",
+        "markScheme": "Strict mass order would place some elements in groups with dissimilar chemical properties (1); he reversed their order to keep elements with similar properties in the same group (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-006",
+      "conceptId": "chem-g8-20261101-pt-006-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mc_single",
+      "prompt": "Which scientist’s table was criticised for placing two elements at the same position? Choose the correct answer.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "Lavoisier",
+        "Newlands",
+        "Mendeleev"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "Newlands"
+        ]
+      },
+      "stimulus": {
+        "marks": 1,
+        "sourceId": "CHEM-PT-006",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "B — Newlands (1).",
+        "steps": [
+          "B — Newlands"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "B — Newlands (1)."
+      },
+      "task": {
+        "label": "CHOOSE",
+        "instruction": "Choose one correct answer."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-006",
+        "markScheme": "B — Newlands (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-007",
+      "conceptId": "chem-g8-20261101-pt-007-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "Suggest why the discovery of new elements after 1869 supported Mendeleev’s table more than Newlands’ table.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Later discoveries fitted Mendeleev’s deliberately left gaps and matched predicted properties",
+          "Newlands left no corresponding gaps to accommodate new elements"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Later discoveries fitted Mendeleev’s deliberately left gaps and matched predicted properties ; Newlands left no corresponding gaps to accommodate new elements ."
+      },
+      "stimulus": {
+        "marks": 2,
+        "sourceId": "CHEM-PT-007",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Later discoveries fitted Mendeleev’s deliberately left gaps and matched predicted properties (1); Newlands left no corresponding gaps to accommodate new elements (1).",
+        "steps": [
+          "Later discoveries fitted Mendeleev’s deliberately left gaps and matched predicted properties",
+          "Newlands left no corresponding gaps to accommodate new elements"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Later discoveries fitted Mendeleev’s deliberately left gaps and matched predicted properties (1); Newlands left no corresponding gaps to accommodate new elements (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 2 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-007",
+        "markScheme": "Later discoveries fitted Mendeleev’s deliberately left gaps and matched predicted properties (1); Newlands left no corresponding gaps to accommodate new elements (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-008",
+      "conceptId": "chem-g8-20261101-pt-008-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "How are elements ordered in the modern periodic table?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Increasing atomic number (proton number)"
+        ],
+        "totalMarks": 1,
+        "modelAnswer": "Increasing atomic number (proton number) ."
+      },
+      "stimulus": {
+        "marks": 1,
+        "sourceId": "CHEM-PT-008",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Increasing atomic number (proton number) (1).",
+        "steps": [
+          "Increasing atomic number (proton number)"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Increasing atomic number (proton number) (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 1 mark."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-008",
+        "markScheme": "Increasing atomic number (proton number) (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-009",
+      "conceptId": "chem-g8-20261101-pt-009-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "Explain three features of Mendeleev’s approach that made his periodic table more useful than earlier arrangements.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "grouped elements by similar chemical properties",
+          "allowed exceptions to strict atomic-mass ordering to preserve those groups",
+          "left deliberate gaps for predicted undiscovered elements",
+          "predicted testable properties of elements that later filled gaps"
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Any three distinct points: grouped elements by similar chemical properties ; allowed exceptions to strict atomic-mass ordering to preserve those groups ; left deliberate gaps for predicted undiscovered elements ; predicted testable properties of elements that later filled gaps . Maximum 3.",
+        "acceptAnyDistinct": 3
+      },
+      "stimulus": {
+        "marks": 3,
+        "sourceId": "CHEM-PT-009",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Any three distinct points: grouped elements by similar chemical properties (1); allowed exceptions to strict atomic-mass ordering to preserve those groups (1); left deliberate gaps for predicted undiscovered elements (1); predicted testable properties of elements that later filled gaps (1). Maximum 3.",
+        "steps": [
+          "grouped elements by similar chemical properties",
+          "allowed exceptions to strict atomic-mass ordering to preserve those groups",
+          "left deliberate gaps for predicted undiscovered elements",
+          "predicted testable properties of elements that later filled gaps"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Any three distinct points: grouped elements by similar chemical properties (1); allowed exceptions to strict atomic-mass ordering to preserve those groups (1); left deliberate gaps for predicted undiscovered elements (1); predicted testable properties of elements that later filled gaps (1). Maximum 3."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 3 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-009",
+        "markScheme": "Any three distinct points: grouped elements by similar chemical properties (1); allowed exceptions to strict atomic-mass ordering to preserve those groups (1); left deliberate gaps for predicted undiscovered elements (1); predicted testable properties of elements that later filled gaps (1). Maximum 3."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-010",
+      "conceptId": "chem-g8-20261101-pt-010-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "A student says: “Mendeleev ordered elements only by atomic mass.” Evaluate this statement.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Correct that Mendeleev generally used atomic masses",
+          "incorrect to say ONLY that rule governed his order",
+          "he made exceptions to keep similar chemical properties together"
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Correct that Mendeleev generally used atomic masses ; incorrect to say ONLY that rule governed his order ; he made exceptions to keep similar chemical properties together ."
+      },
+      "stimulus": {
+        "marks": 3,
+        "sourceId": "CHEM-PT-010",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Correct that Mendeleev generally used atomic masses (1); incorrect to say ONLY that rule governed his order (1); he made exceptions to keep similar chemical properties together (1).",
+        "steps": [
+          "Correct that Mendeleev generally used atomic masses",
+          "incorrect to say ONLY that rule governed his order",
+          "he made exceptions to keep similar chemical properties together"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Correct that Mendeleev generally used atomic masses (1); incorrect to say ONLY that rule governed his order (1); he made exceptions to keep similar chemical properties together (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 3 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-010",
+        "markScheme": "Correct that Mendeleev generally used atomic masses (1); incorrect to say ONLY that rule governed his order (1); he made exceptions to keep similar chemical properties together (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-011",
+      "conceptId": "chem-g8-20261101-pt-011-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "What did Mendeleev predict about the elements that would fit into the gaps he left?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Their chemical and physical properties / approximate relative atomic masses"
+        ],
+        "totalMarks": 1,
+        "modelAnswer": "Their chemical and physical properties / approximate relative atomic masses ."
+      },
+      "stimulus": {
+        "marks": 1,
+        "sourceId": "CHEM-PT-011",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Their chemical and physical properties / approximate relative atomic masses (1).",
+        "steps": [
+          "Their chemical and physical properties / approximate relative atomic masses"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Their chemical and physical properties / approximate relative atomic masses (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 1 mark."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-011",
+        "markScheme": "Their chemical and physical properties / approximate relative atomic masses (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-012",
+      "conceptId": "chem-g8-20261101-pt-012-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "Explain why arranging all elements in strict increasing order of relative atomic mass can conflict with chemical patterns.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "It can put an element into the wrong group relative to elements with similar properties",
+          "because relative atomic mass does not always rise in the same order as atomic number"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "It can put an element into the wrong group relative to elements with similar properties , because relative atomic mass does not always rise in the same order as atomic number ."
+      },
+      "stimulus": {
+        "marks": 2,
+        "sourceId": "CHEM-PT-012",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "It can put an element into the wrong group relative to elements with similar properties (1), because relative atomic mass does not always rise in the same order as atomic number (1).",
+        "steps": [
+          "It can put an element into the wrong group relative to elements with similar properties",
+          "because relative atomic mass does not always rise in the same order as atomic number"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "It can put an element into the wrong group relative to elements with similar properties (1), because relative atomic mass does not always rise in the same order as atomic number (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 2 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-012",
+        "markScheme": "It can put an element into the wrong group relative to elements with similar properties (1), because relative atomic mass does not always rise in the same order as atomic number (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-013",
+      "conceptId": "chem-g8-20261101-pt-013-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "What was Newlands’ idea that every eighth element had similar properties called?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Law of Octaves"
+        ],
+        "totalMarks": 1,
+        "modelAnswer": "Law of Octaves ."
+      },
+      "stimulus": {
+        "marks": 1,
+        "sourceId": "CHEM-PT-013",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Law of Octaves (1).",
+        "steps": [
+          "Law of Octaves"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Law of Octaves (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 1 mark."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-013",
+        "markScheme": "Law of Octaves (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-014",
+      "conceptId": "chem-g8-20261101-pt-014-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "Explain why the discovery of extra elements created difficulties for Newlands’ arrangement of the periodic table.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Newlands had left no deliberate gaps for undiscovered elements",
+          "so inserting new elements shifted the every-eighth-element pattern / brought unlike elements into the same groups"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Newlands had left no deliberate gaps for undiscovered elements , so inserting new elements shifted the every-eighth-element pattern / brought unlike elements into the same groups ."
+      },
+      "stimulus": {
+        "marks": 2,
+        "sourceId": "CHEM-PT-014",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Newlands had left no deliberate gaps for undiscovered elements (1), so inserting new elements shifted the every-eighth-element pattern / brought unlike elements into the same groups (1).",
+        "steps": [
+          "Newlands had left no deliberate gaps for undiscovered elements",
+          "so inserting new elements shifted the every-eighth-element pattern / brought unlike elements into the same groups"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Newlands had left no deliberate gaps for undiscovered elements (1), so inserting new elements shifted the every-eighth-element pattern / brought unlike elements into the same groups (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 2 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-014",
+        "markScheme": "Newlands had left no deliberate gaps for undiscovered elements (1), so inserting new elements shifted the every-eighth-element pattern / brought unlike elements into the same groups (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-015",
+      "conceptId": "chem-g8-20261101-pt-015-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "Explain why Mendeleev placed tellurium before iodine even though tellurium has a higher atomic mass.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Tellurium had properties like other elements in its group",
+          "while iodine had halogen-like properties, so Mendeleev prioritised grouping by properties over strict mass order"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Tellurium had properties like other elements in its group , while iodine had halogen-like properties, so Mendeleev prioritised grouping by properties over strict mass order ."
+      },
+      "stimulus": {
+        "marks": 2,
+        "sourceId": "CHEM-PT-015",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Tellurium had properties like other elements in its group (1), while iodine had halogen-like properties, so Mendeleev prioritised grouping by properties over strict mass order (1).",
+        "steps": [
+          "Tellurium had properties like other elements in its group",
+          "while iodine had halogen-like properties, so Mendeleev prioritised grouping by properties over strict mass order"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Tellurium had properties like other elements in its group (1), while iodine had halogen-like properties, so Mendeleev prioritised grouping by properties over strict mass order (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 2 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-015",
+        "markScheme": "Tellurium had properties like other elements in its group (1), while iodine had halogen-like properties, so Mendeleev prioritised grouping by properties over strict mass order (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-016",
+      "conceptId": "chem-g8-20261101-pt-016-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "How did the discovery of gallium support Mendeleev’s periodic table?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Gallium filled a predicted gap in the table",
+          "and had chemical/physical properties close to Mendeleev’s predictions"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Gallium filled a predicted gap in the table and had chemical/physical properties close to Mendeleev’s predictions ."
+      },
+      "stimulus": {
+        "marks": 2,
+        "sourceId": "CHEM-PT-016",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Gallium filled a predicted gap in the table (1) and had chemical/physical properties close to Mendeleev’s predictions (1).",
+        "steps": [
+          "Gallium filled a predicted gap in the table",
+          "and had chemical/physical properties close to Mendeleev’s predictions"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Gallium filled a predicted gap in the table (1) and had chemical/physical properties close to Mendeleev’s predictions (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 2 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-016",
+        "markScheme": "Gallium filled a predicted gap in the table (1) and had chemical/physical properties close to Mendeleev’s predictions (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-017",
+      "conceptId": "chem-g8-20261101-pt-017-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "A student has three elements with atomic numbers 11, 13 and 12. In what order should they appear from left to right in the modern periodic table?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "11, then 12, then 13, because the modern periodic table is arranged by increasing atomic number"
+        ],
+        "totalMarks": 1,
+        "modelAnswer": "11, then 12, then 13, because the modern periodic table is arranged by increasing atomic number ."
+      },
+      "stimulus": {
+        "marks": 1,
+        "sourceId": "CHEM-PT-017",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "11, then 12, then 13, because the modern periodic table is arranged by increasing atomic number (1).",
+        "steps": [
+          "11, then 12, then 13, because the modern periodic table is arranged by increasing atomic number"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "11, then 12, then 13, because the modern periodic table is arranged by increasing atomic number (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 1 mark."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-017",
+        "markScheme": "11, then 12, then 13, because the modern periodic table is arranged by increasing atomic number (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-018",
+      "conceptId": "chem-g8-20261101-pt-018-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "Explain three ways in which the modern periodic table improved on the early version developed by Mendeleev.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "arranged in increasing atomic/proton number",
+          "groups explained by electrons in outer shells / electron structure",
+          "isotopes account for mass-order anomalies",
+          "later- discovered elements, including noble gases, were incorporated"
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Any three distinct points: arranged in increasing atomic/proton number ; groups explained by electrons in outer shells / electron structure ; isotopes account for mass-order anomalies ; later- discovered elements, including noble gases, were incorporated . Maximum 3.",
+        "acceptAnyDistinct": 3
+      },
+      "stimulus": {
+        "marks": 3,
+        "sourceId": "CHEM-PT-018",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Any three distinct points: arranged in increasing atomic/proton number (1); groups explained by electrons in outer shells / electron structure (1); isotopes account for mass-order anomalies (1); later- discovered elements, including noble gases, were incorporated (1). Maximum 3.",
+        "steps": [
+          "arranged in increasing atomic/proton number",
+          "groups explained by electrons in outer shells / electron structure",
+          "isotopes account for mass-order anomalies",
+          "later- discovered elements, including noble gases, were incorporated"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Any three distinct points: arranged in increasing atomic/proton number (1); groups explained by electrons in outer shells / electron structure (1); isotopes account for mass-order anomalies (1); later- discovered elements, including noble gases, were incorporated (1). Maximum 3."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 3 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-018",
+        "markScheme": "Any three distinct points: arranged in increasing atomic/proton number (1); groups explained by electrons in outer shells / electron structure (1); isotopes account for mass-order anomalies (1); later- discovered elements, including noble gases, were incorporated (1). Maximum 3."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-019",
+      "conceptId": "chem-g8-20261101-pt-019-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "Give one limitation of Lavoisier’s early classification of substances as elements.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "He listed heat/light as elementary substances, even though they are not chemical elements"
+        ],
+        "totalMarks": 1,
+        "modelAnswer": "He listed heat/light as elementary substances, even though they are not chemical elements . Accept: some entries were not true elements."
+      },
+      "stimulus": {
+        "marks": 1,
+        "sourceId": "CHEM-PT-019",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "He listed heat/light as elementary substances, even though they are not chemical elements (1). Accept: some entries were not true elements.",
+        "steps": [
+          "He listed heat/light as elementary substances, even though they are not chemical elements"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "He listed heat/light as elementary substances, even though they are not chemical elements (1). Accept: some entries were not true elements."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 1 mark."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-019",
+        "markScheme": "He listed heat/light as elementary substances, even though they are not chemical elements (1). Accept: some entries were not true elements."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-020",
+      "conceptId": "chem-g8-20261101-pt-020-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "A student says: “Mendeleev’s table was perfect because he left gaps.” Evaluate this statement.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Leaving gaps made testable predictions possible",
+          "some predictions were verified by new discoveries",
+          "but the early table was incomplete and could not fully explain atomic-mass anomalies because atomic structure was not yet understood"
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Leaving gaps made testable predictions possible ; some predictions were verified by new discoveries ; but the early table was incomplete and could not fully explain atomic-mass anomalies because atomic structure was not yet understood ."
+      },
+      "stimulus": {
+        "marks": 3,
+        "sourceId": "CHEM-PT-020",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Leaving gaps made testable predictions possible (1); some predictions were verified by new discoveries (1); but the early table was incomplete and could not fully explain atomic-mass anomalies because atomic structure was not yet understood (1).",
+        "steps": [
+          "Leaving gaps made testable predictions possible",
+          "some predictions were verified by new discoveries",
+          "but the early table was incomplete and could not fully explain atomic-mass anomalies because atomic structure was not yet understood"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Leaving gaps made testable predictions possible (1); some predictions were verified by new discoveries (1); but the early table was incomplete and could not fully explain atomic-mass anomalies because atomic structure was not yet understood (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 3 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-020",
+        "markScheme": "Leaving gaps made testable predictions possible (1); some predictions were verified by new discoveries (1); but the early table was incomplete and could not fully explain atomic-mass anomalies because atomic structure was not yet understood (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-021",
+      "conceptId": "chem-g8-20261101-pt-021-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "Argon has relative atomic mass 39.95 and atomic number 18. Potassium has relative atomic mass 39.10 and atomic number 19. Which element would come first if ordered by increasing relative atomic mass? Explain why the modern periodic table places them in the opposite order.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Potassium would appear first by relative atomic mass (39.10 is lower than 39.95)",
+          "the modern table uses increasing atomic number",
+          "argon (18) therefore comes before potassium (19)"
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Potassium would appear first by relative atomic mass (39.10 is lower than 39.95) ; the modern table uses increasing atomic number ; argon therefore comes before potassium ."
+      },
+      "stimulus": {
+        "marks": 3,
+        "sourceId": "CHEM-PT-021",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Potassium would appear first by relative atomic mass (39.10 is lower than 39.95) (1); the modern table uses increasing atomic number (1); argon (18) therefore comes before potassium (19) (1).",
+        "steps": [
+          "Potassium would appear first by relative atomic mass (39.10 is lower than 39.95)",
+          "the modern table uses increasing atomic number",
+          "argon (18) therefore comes before potassium (19)"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Potassium would appear first by relative atomic mass (39.10 is lower than 39.95) (1); the modern table uses increasing atomic number (1); argon (18) therefore comes before potassium (19) (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 3 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-021",
+        "markScheme": "Potassium would appear first by relative atomic mass (39.10 is lower than 39.95) (1); the modern table uses increasing atomic number (1); argon (18) therefore comes before potassium (19) (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-022",
+      "conceptId": "chem-g8-20261101-pt-022-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "calculation",
+      "prompt": "Calculate the number of neutrons in an atom of lithium (atomic number 3, mass number 7).",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 4,
+        "working": "Neutrons = mass number − atomic number = 7 − 3 = 4. Correct subtraction (1); answer 4 (1).",
+        "tolerance": 0,
+        "units": [],
+        "modelAnswer": "4"
+      },
+      "stimulus": {
+        "marks": 2,
+        "sourceId": "CHEM-PT-022",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Neutrons = mass number − atomic number = 7 − 3 = 4. Correct subtraction (1); answer 4 (1).",
+        "steps": [
+          "Neutrons = mass number − atomic number = 7 − 3 = 4. Correct subtraction",
+          "answer 4"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Neutrons = mass number − atomic number = 7 − 3 = 4. Correct subtraction (1); answer 4 (1)."
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show working and enter the final numerical value with units where needed."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-022",
+        "markScheme": "Neutrons = mass number − atomic number = 7 − 3 = 4. Correct subtraction (1); answer 4 (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-023",
+      "conceptId": "chem-g8-20261101-pt-023-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "calculation",
+      "prompt": "Calculate the number of neutrons in an oxygen atom with mass number 16 and atomic number 8.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 8,
+        "working": "16 − 8 = 8 neutrons (1).",
+        "tolerance": 0,
+        "units": [],
+        "modelAnswer": "8"
+      },
+      "stimulus": {
+        "marks": 1,
+        "sourceId": "CHEM-PT-023",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "16 − 8 = 8 neutrons (1).",
+        "steps": [
+          "16 − 8 = 8 neutrons"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "16 − 8 = 8 neutrons (1)."
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show working and enter the final numerical value with units where needed."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-023",
+        "markScheme": "16 − 8 = 8 neutrons (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-024",
+      "conceptId": "chem-g8-20261101-pt-024-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "In which group is chlorine?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Group 7 (GCSE notation) or group 17 (IUPAC notation)"
+        ],
+        "totalMarks": 1,
+        "modelAnswer": "Group 7 (GCSE notation) or group 17 (IUPAC notation) .",
+        "markPointAlternatives": [
+          [
+            "Group 7",
+            "7",
+            "Group 17",
+            "17"
+          ]
+        ]
+      },
+      "stimulus": {
+        "marks": 1,
+        "sourceId": "CHEM-PT-024",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Group 7 (GCSE notation) or group 17 (IUPAC notation) (1).",
+        "steps": [
+          "Group 7 (GCSE notation) or group 17 (IUPAC notation)"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Group 7 (GCSE notation) or group 17 (IUPAC notation) (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 1 mark."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-024",
+        "markScheme": "Group 7 (GCSE notation) or group 17 (IUPAC notation) (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-025",
+      "conceptId": "chem-g8-20261101-pt-025-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "calculation",
+      "prompt": "An element has atomic number 12. How many protons does an atom of this element have?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 12,
+        "working": "12 protons (1).",
+        "tolerance": 0,
+        "units": [],
+        "modelAnswer": "12"
+      },
+      "stimulus": {
+        "marks": 1,
+        "sourceId": "CHEM-PT-025",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "12 protons (1).",
+        "steps": [
+          "12 protons"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "12 protons (1)."
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show working and enter the final numerical value with units where needed."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-025",
+        "markScheme": "12 protons (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-026",
+      "conceptId": "chem-g8-20261101-pt-026-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "Elements in one group often have similar chemical properties even if their relative atomic masses differ greatly. Explain why.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "They have the same number of electrons in their outer shell",
+          "giving similar bonding / reactions / chemical properties"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "They have the same number of electrons in their outer shell , giving similar bonding / reactions / chemical properties ."
+      },
+      "stimulus": {
+        "marks": 2,
+        "sourceId": "CHEM-PT-026",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "They have the same number of electrons in their outer shell (1), giving similar bonding / reactions / chemical properties (1).",
+        "steps": [
+          "They have the same number of electrons in their outer shell",
+          "giving similar bonding / reactions / chemical properties"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "They have the same number of electrons in their outer shell (1), giving similar bonding / reactions / chemical properties (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 2 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-026",
+        "markScheme": "They have the same number of electrons in their outer shell (1), giving similar bonding / reactions / chemical properties (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-027",
+      "conceptId": "chem-g8-20261101-pt-027-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "calculation",
+      "prompt": "An atom has a mass number of 39 and an atomic number of 19. Calculate the number of neutrons.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 20,
+        "working": "39 − 19 = 20 neutrons (1).",
+        "tolerance": 0,
+        "units": [],
+        "modelAnswer": "20"
+      },
+      "stimulus": {
+        "marks": 1,
+        "sourceId": "CHEM-PT-027",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "39 − 19 = 20 neutrons (1).",
+        "steps": [
+          "39 − 19 = 20 neutrons"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "39 − 19 = 20 neutrons (1)."
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show working and enter the final numerical value with units where needed."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-027",
+        "markScheme": "39 − 19 = 20 neutrons (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-028",
+      "conceptId": "chem-g8-20261101-pt-028-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "Explain how understanding isotopes helped scientists account for cases where ordering elements by relative atomic mass did not match their chemical properties.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Relative atomic mass is a weighted average affected by an element’s isotopes",
+          "whereas atomic number (number of protons) fixes the element’s identity and gives the appropriate modern order"
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Relative atomic mass is a weighted average affected by an element’s isotopes , whereas atomic number (number of protons) fixes the element’s identity and gives the appropriate modern order ."
+      },
+      "stimulus": {
+        "marks": 2,
+        "sourceId": "CHEM-PT-028",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Relative atomic mass is a weighted average affected by an element’s isotopes (1), whereas atomic number (number of protons) fixes the element’s identity and gives the appropriate modern order (1).",
+        "steps": [
+          "Relative atomic mass is a weighted average affected by an element’s isotopes",
+          "whereas atomic number (number of protons) fixes the element’s identity and gives the appropriate modern order"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Relative atomic mass is a weighted average affected by an element’s isotopes (1), whereas atomic number (number of protons) fixes the element’s identity and gives the appropriate modern order (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 2 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-028",
+        "markScheme": "Relative atomic mass is a weighted average affected by an element’s isotopes (1), whereas atomic number (number of protons) fixes the element’s identity and gives the appropriate modern order (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-029",
+      "conceptId": "chem-g8-20261101-pt-029-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "calculation",
+      "prompt": "A sample of chlorine contains 75% ³⁵Cl and 25% ³⁷Cl. Calculate the relative atomic mass of chlorine. Show your working.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "numeric",
+        "value": 35.5,
+        "working": "(75 × 35 + 25 × 37) / 100 (1); correct intermediate calculation 26.25 + 9.25 (1); relative atomic mass = 35.5 (1).",
+        "tolerance": 0,
+        "units": [],
+        "modelAnswer": "35.5"
+      },
+      "stimulus": {
+        "marks": 3,
+        "sourceId": "CHEM-PT-029",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "(75 × 35 + 25 × 37) / 100 (1); correct intermediate calculation 26.25 + 9.25 (1); relative atomic mass = 35.5 (1).",
+        "steps": [
+          "(75 × 35 + 25 × 37) / 100",
+          "correct intermediate calculation 26.25 + 9.25",
+          "relative atomic mass = 35.5"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "(75 × 35 + 25 × 37) / 100 (1); correct intermediate calculation 26.25 + 9.25 (1); relative atomic mass = 35.5 (1)."
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show working and enter the final numerical value with units where needed."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-029",
+        "markScheme": "(75 × 35 + 25 × 37) / 100 (1); correct intermediate calculation 26.25 + 9.25 (1); relative atomic mass = 35.5 (1)."
+      }
+    },
+    {
+      "id": "chem-g8-20261101-pt-030",
+      "conceptId": "chem-g8-20261101-pt-030-concept",
+      "topicId": "chem-y9-c1",
+      "topic": "Development of the Periodic Table — Newlands and Mendeleev",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "mark_points",
+      "prompt": "Mendeleev predicted an undiscovered element below aluminium with relative atomic mass about 68 and an oxide of formula E₂O₃. Gallium was later discovered with relative atomic mass about 69.7 and oxide Ga₂O₃. Explain why this discovery supported Mendeleev’s table.",
+      "difficulty": 4,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Gallium filled the predicted gap below aluminium",
+          "its relative atomic mass was close to the predicted value",
+          "and its oxide formula matched the predicted E₂O₃ pattern"
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Gallium filled the predicted gap below aluminium ; its relative atomic mass was close to the predicted value ; and its oxide formula matched the predicted E₂O₃ pattern ."
+      },
+      "stimulus": {
+        "marks": 3,
+        "sourceId": "CHEM-PT-030",
+        "originality": "Teacher QA-corrected Grade 8 practice bank; not official AQA paper"
+      },
+      "feedback": {
+        "short": "Gallium filled the predicted gap below aluminium (1); its relative atomic mass was close to the predicted value (1); and its oxide formula matched the predicted E₂O₃ pattern (1).",
+        "steps": [
+          "Gallium filled the predicted gap below aluminium",
+          "its relative atomic mass was close to the predicted value",
+          "and its oxide formula matched the predicted E₂O₃ pattern"
+        ],
+        "commonError": "Credit equivalent scientific language and correct working; do not deduct marks for harmless punctuation or spacing.",
+        "remember": "Gallium filled the predicted gap below aluminium (1); its relative atomic mass was close to the predicted value (1); and its oxide formula matched the predicted E₂O₃ pattern (1)."
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question for 3 marks."
+      },
+      "ordinary": true,
+      "preview": false,
+      "formal": false,
+      "examPractice": {
+        "board": "AQA",
+        "specification": "8462",
+        "originalQuestion": true,
+        "schoolYear": 9,
+        "marking": "formative"
+      },
+      "qaSource": {
+        "bank": "GCSE_Chemistry_Grade8_70_Questions_QA_FIXED.docx",
+        "sourceId": "CHEM-PT-030",
+        "markScheme": "Gallium filled the predicted gap below aluminium (1); its relative atomic mass was close to the predicted value (1); and its oxide formula matched the predicted E₂O₃ pattern (1)."
+      }
     }
   ],
-  "enabled": 82,
+  "enabled": 112,
   "preview": 0,
   "disabled": 0,
   "formats": {
+    "mc_single": 25,
     "typed_exact": 5,
     "spelling_restore": 12,
+    "mark_points": 46,
+    "typed_short": 15,
     "matching": 3,
-    "mark_points": 30,
-    "mc_single": 24,
-    "typed_short": 7,
-    "word_tiles": 1
+    "word_tiles": 1,
+    "calculation": 5
   },
   "gated": false,
   "note": {

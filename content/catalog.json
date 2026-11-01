@@ -1,10 +1,10 @@
 {
-  "version": "2.4.1+biology-school-20260927-chem-aqa-20260930-fullmarks2-y7-vocab-complete+fr-future-oct17+phys-gcse-20261020+aqa-science-qa-20261024",
-  "buildDate": "2026-10-24",
+  "version": "2.4.1+biology-school-20260927-chem-aqa-20260930-fullmarks2-y7-vocab-complete+fr-future-oct17+phys-gcse-20261020+aqa-science-qa-20261024+chem-g8-master70-20261101",
+  "buildDate": "2026-11-01",
   "totals": {
     "topics": 282,
-    "questions": 16539,
-    "enabled": 15410,
+    "questions": 16609,
+    "enabled": 15480,
     "preview": 266,
     "disabled": 863
   },
@@ -85,10 +85,10 @@
       "subject": "chemistry",
       "year": 9,
       "topics": 17,
-      "enabled": 1080,
+      "enabled": 1150,
       "preview": 10,
       "disabled": 0,
-      "questions": 1090
+      "questions": 1160
     },
     {
       "subject": "physics",
@@ -4178,23 +4178,24 @@
       "topicId": "chem-y9-c1",
       "title": "Development of the Periodic Table — Newlands and Mendeleev",
       "status": "enabled",
-      "questions": 82,
-      "enabled": 82,
+      "questions": 112,
+      "enabled": 112,
       "preview": 0,
       "disabled": 0,
       "formats": {
         "typed_exact": 5,
         "spelling_restore": 12,
         "matching": 3,
-        "mark_points": 30,
-        "mc_single": 24,
-        "typed_short": 7,
-        "word_tiles": 1
+        "mark_points": 46,
+        "mc_single": 25,
+        "typed_short": 15,
+        "word_tiles": 1,
+        "calculation": 5
       },
       "gated": false,
       "unitId": "chemistry-y9-u01",
       "unitName": "Unit 1",
-      "diagramQuestions": 0
+      "diagramQuestions": 1
     },
     {
       "subject": "chemistry",
@@ -4448,27 +4449,27 @@
       "topicId": "chem-y9-c4",
       "title": "Paper chromatography, Rf and reproducibility — Required Practical 6",
       "status": "enabled",
-      "questions": 117,
-      "enabled": 117,
+      "questions": 157,
+      "enabled": 157,
       "preview": 0,
       "disabled": 0,
       "formats": {
         "typed_exact": 11,
         "spelling_restore": 14,
         "matching": 3,
-        "mark_points": 40,
-        "mc_single": 28,
-        "calculation": 13,
+        "mark_points": 56,
+        "mc_single": 32,
+        "calculation": 19,
         "practical_design": 1,
-        "typed_short": 3,
+        "typed_short": 9,
         "word_tiles": 1,
         "diagram_label": 1,
-        "extended_response": 2
+        "extended_response": 10
       },
       "gated": false,
       "unitId": "chemistry-y9-u02",
       "unitName": "Unit 2",
-      "diagramQuestions": 1
+      "diagramQuestions": 6
     },
     {
       "subject": "chemistry",

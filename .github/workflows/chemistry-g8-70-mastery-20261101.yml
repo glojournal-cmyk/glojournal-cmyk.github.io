@@ -1,0 +1,33 @@
+name: GCSE Chemistry 70-question Mastery bank QA
+on:
+  push:
+    branches:
+      - feature/chemistry-grade8-70-mastery-20261101
+    paths:
+      - 'content/topics/chem-y9-c1.json'
+      - 'content/topics/chem-y9-c4.json'
+      - 'content/catalog.json'
+      - 'content/diagrams/chem-g8-*.svg'
+      - 'tests/chemistry-g8-70-mastery-20261101.test.mjs'
+      - '.github/workflows/chemistry-g8-70-mastery-20261101.yml'
+  pull_request:
+    paths:
+      - 'content/topics/chem-y9-c1.json'
+      - 'content/topics/chem-y9-c4.json'
+      - 'content/catalog.json'
+      - 'content/diagrams/chem-g8-*.svg'
+      - 'tests/chemistry-g8-70-mastery-20261101.test.mjs'
+      - '.github/workflows/chemistry-g8-70-mastery-20261101.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate 70 Chemistry Mastery questions, rubrics and diagrams
+        run: node --test tests/chemistry-g8-70-mastery-20261101.test.mjs
