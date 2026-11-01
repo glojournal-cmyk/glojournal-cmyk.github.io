@@ -619,6 +619,27 @@ async function checkExhaustedBiologyDaily(browser,engine){
     },ids);
     await page.reload({waitUntil:'domcontentloaded'});
     await page.waitForSelector('.lux-practice-view',{timeout:35000});
+    // WebKit can restore a real persisted IndexedDB/sessionStorage practice
+    // draft even when the localStorage legacy draft entry was removed above.
+    // Do not mistake valid resume behavior for a depleted-bank regression.
+    // This is a synthetic, disposable Playwright context only: explicitly
+    // discard its previously opened practice using the learner-visible action,
+    // then verify the brand-new set cannot recycle already-correct questions.
+    const freshButton=page.getByRole('button',{name:'Start a fresh set'});
+    if(await freshButton.count()){
+      const before=await page.evaluate(()=>({
+        progress:JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}').state?.daily||[],
+        seenCorrect:JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}').state?.seenCorrect||{}
+      }));
+      await freshButton.click();
+      await page.waitForFunction(()=>!document.body.innerText.includes('Resumed saved practice'),null,{timeout:15000});
+      const after=await page.evaluate(()=>({
+        progress:JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}').state?.daily||[],
+        seenCorrect:JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}').state?.seenCorrect||{}
+      }));
+      assert.deepEqual(after,before,'discarding TEST draft must not delete Scholar marks, assignments or seenCorrect');
+      console.log('DAILY_BIOLOGY_TEST_DRAFT_CLEARED '+JSON.stringify({engine}));
+    }
     // The route shell mounts before its async topic bank is hydrated. Check the
     // actual terminal state, not a transient blank/loading frame on Safari.
     try{
