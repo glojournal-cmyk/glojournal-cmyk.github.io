@@ -102,9 +102,9 @@ export function buildVocabReviewQueue(sources){
  };
  const sharedPrompts=new Map();
  for(const row of rows){
-  const pluralTagged=row.acceptedAnswers.filter(answer=>/\\(\\s*plural\\s*\\)/i.test(answer));
+  const pluralTagged=row.acceptedAnswers.filter(answer=>/\(\s*plural\s*\)/i.test(answer));
   if(pluralTagged.some(tag=>{
-   const bare=normalizeReview(tag.replace(/\\(\\s*plural\\s*\\)/ig,''));
+   const bare=normalizeReview(tag.replace(/\(\s*plural\s*\)/ig,''));
    return bare&&row.acceptedAnswers.some(answer=>answer!==tag&&normalizeReview(answer)===bare);
   }))row.flags.push('PLURAL_CUE_DROPPED_BY_ALTERNATIVE');
   const stimulus=normalizeReview(row.stimulus?.text||'');
