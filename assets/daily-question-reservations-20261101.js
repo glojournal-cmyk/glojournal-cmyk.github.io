@@ -55,7 +55,11 @@ export function otherYear8DailyReservations(state,loaded,options={}){
     Number(year)!==8||recoveryDate||!['latin','french','biology','chemistry','physics'].includes(subject))
   return empty;
  const byId=new Map((Array.isArray(loaded)?loaded:[])
-   .filter(activeQuestion).map(q=>[baseId(q.id),q]));
+   .filter(q=>activeQuestion(q)&&
+     (q.year==null||Number(q.year)===8)&&
+     (!q.subject||q.subject===subject)&&
+     (!q.topicId||q.topicId===topicId))
+   .map(q=>[baseId(q.id),q]));
  if(!byId.size)return empty;
  const scope={day,taskId,subject,year,topicId};
  const tasks=tasksForDay(state,scope);
