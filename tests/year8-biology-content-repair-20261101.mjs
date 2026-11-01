@@ -21,7 +21,7 @@ for(const topicId of topics){
  // Existing questions, ID, answer keys, model text and marking must remain unchanged.
  assert.deepEqual(data.questions.slice(0,original.questions.length),original.questions,'original question changed: '+topicId);
  const eligible=data.questions.filter(active);
- assert.equal(eligible.length,target,'wrong actual eligible count: '+topicId);
+ assert.equal(eligible.length,topicId==='bio-y8-limiting-factors'?35:target,'wrong actual eligible count: '+topicId);
  assert.equal(catalog.enabled,eligible.length,'catalog enabled mismatch: '+topicId);
  assert.equal(catalog.questions,data.questions.length,'catalog total mismatch: '+topicId);
  const ids=new Set(),keys=new Set(),concepts=new Set();
@@ -74,7 +74,11 @@ for(const topicId of topics){
    ['bio-y8-nutrition-labels-capacity-20261026-02',2*120,'kcal'],
    ['bio-y8-nutrition-labels-20261101-sugar50',14*50/100,'g'],
    ['bio-y8-nutrition-labels-20261101-salt80',0.9*80/100,'g']],
-  'bio-y8-limiting-factors':[['bio-y8-limiting-factors-20261101-oxygen-change',16-7,'bubbles per minute']]
+  'bio-y8-limiting-factors':[
+    ['bio-y8-limiting-factors-20261101-oxygen-change',16-7,'bubbles per minute'],
+    ['bio-y8-limiting-factors-20261101-independence-oxygen-per-minute',9/30*60,'bubbles per minute'],
+    ['bio-y8-limiting-factors-20261101-independence-repeats-mean',(10+12+14)/3,'bubbles per minute'],
+    ['bio-y8-limiting-factors-20261101-independence-rate-comparison-periods',24/2,'bubbles per minute']]
  };
  for(const [id,value,unit] of arithmetic[topicId]||[]){
    const q=data.questions.find(q=>q.id===id);
@@ -108,12 +112,12 @@ for(const topicId of topics){
  assert.ok(uniqueConcepts>=15,'too few distinct source concept families: '+topicId);
  assert.equal(data.enabled,data.questions.filter(q=>q.status==='enabled').length,'source status-enabled metadata mismatch: '+topicId);
  assert.equal(data.preview,data.questions.filter(q=>q.status==='preview').length,'preview metadata mismatch: '+topicId);
- const expectedFamilies={'bio-y8-ber':21,'bio-y8-continuous-variation':18,'bio-y8-correlation':19,'bio-y8-mixed-exam':20,'bio-y8-nutrition-labels':17,'bio-y8-practical-conclusions':17,'bio-y8-limiting-factors':15};
+ const expectedFamilies={'bio-y8-ber':21,'bio-y8-continuous-variation':18,'bio-y8-correlation':19,'bio-y8-mixed-exam':20,'bio-y8-nutrition-labels':17,'bio-y8-practical-conclusions':17,'bio-y8-limiting-factors':25};
  assert.equal(uniqueConcepts,expectedFamilies[topicId],'concept-family inventory changed; review before updating baseline: '+topicId);
  console.log(topicId, 'uniqueConceptFamilies:',uniqueConcepts,'original:',original.questions.length,'new:',fresh.length,'eligible:',eligible.length,
    'MC:',eligible.filter(q=>q.format==='mc_single').length,
    'markPoints:',eligible.filter(q=>q.format==='mark_points').length);
 }
-assert.equal(newCount,79,'expected exactly 79 additional question records');
-console.log('PASS: seven Year 8 Biology topic banks / 79 source-preserving additions; 25 formal eligible each.');
+assert.equal(newCount,89,'expected exactly 89 additional question records');
+console.log('PASS: seven Year 8 Biology topic banks / 89 source-preserving additions; six with 25 formal eligible and limiting-factors with 35.');
 console.log('ACADEMIC NOTE: structural/number/units QA does not certify free-text semantic marking or taught pupil history.');
