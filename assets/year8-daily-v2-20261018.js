@@ -2,7 +2,7 @@ import {curriculumTopics,curriculumHref} from './daily-curriculum-20261004.js';
 import {coveredTopic,masteryStage} from './mastery-v2-20261018.js';
 import {dailyVocabTotal} from './daily-vocab-total-20261020.js?v=20261023-final-credit1';
 import {datedAssignmentEvidence} from './daily-dated-assignment-evidence-20261103.js';
-import {canAssignVerifiedYear8Mastery} from './year8-mastery-source-capacity-20261103.js';
+import {canAssignVerifiedYear8Mastery,canAssignVerifiedYear8Standard} from './year8-mastery-source-capacity-20261103.js';
 
 const savedDatedMode=t=>{try{return new URL(t?.href,'https://scholar.invalid').searchParams.get('mode')}catch{return null}};
 
@@ -169,11 +169,16 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       href:curriculumHref(original,evidence.mode,id)});
   }
   const pools=Object.fromEntries(['latin',...rotation].map(subject=>[subject,curriculumTopics(subject,8,getCatalog,learning)]));
+  // A 10-correct Standard cannot draw from a nine-concept science bank.
+  // Choose the balanced subject among independently certifiable sources,
+  // while retaining each already-started assignment below.
+  const standardPools=Object.fromEntries(rotation.map(subject=>[
+    subject,pools[subject].filter(t=>canAssignVerifiedYear8Standard(t.topicId))]));
   const exposure=recentSubjectExposure(state,today);
-  const active=rotation.filter(subject=>pools[subject].some(t=>!coveredTopic(state,t.topicId)));
+  const active=rotation.filter(subject=>standardPools[subject].some(t=>!coveredTopic(state,t.topicId)));
   const available=active.length?active:rotation.filter(subject=>
-    pools[subject].some(t=>masteryStage(state.topicStats?.[t.topicId])!=='mastered'));
-  const candidates=available.length?available:rotation.filter(subject=>pools[subject].length);
+    standardPools[subject].some(t=>masteryStage(state.topicStats?.[t.topicId])!=='mastered'));
+  const candidates=available.length?available:rotation.filter(subject=>standardPools[subject].length);
   const subject=[...candidates].sort((a,b)=>
     (exposure.standard[a]||0)-(exposure.standard[b]||0)||
     cyclicRank(a,rotation,today)-cyclicRank(b,rotation,today))[0];
@@ -204,7 +209,11 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       old?.assignedTopic&&!canAssignVerifiedYear8Mastery(old.assignedTopic)&&
       !old.done&&!(Number(old.progress)>0)&&
       !entries.some(e=>e.dailyTaskId===id);
-    const frozen=!unopenedIneligibleMastery&&old?.assignedTopic&&
+    const unopenedIneligibleStandard=/^y8-standard-[ab]$/.test(id)&&
+      old?.assignedTopic&&!canAssignVerifiedYear8Standard(old.assignedTopic)&&
+      !old.done&&!(Number(old.progress)>0)&&
+      !entries.some(e=>e.dailyTaskId===id);
+    const frozen=!(unopenedIneligibleMastery||unopenedIneligibleStandard)&&old?.assignedTopic&&
       (pool.find(t=>t.topicId===old.assignedTopic)||
       {topicId:old.assignedTopic,topicLabel:old.assignedLabel,subject:old.assignedSubject,year:old.assignedYear||8});
     const eligible=pool.filter(t=>!assigned.has(t.topicId)&&condition(t));
@@ -325,7 +334,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   // Reserve every in-progress recall topic for its five-question due date.
   const latin=pick('latin-standard',pools.latin.filter(t=>!pendingRecall(t)),
     t=>!coveredTopic(state,t.topicId));
-  const standardPool=(pools[subject]||[]).filter(t=>!pendingRecall(t));
+  const standardPool=(standardPools[subject]||[]).filter(t=>!pendingRecall(t));
   const standards=['y8-standard-a','y8-standard-b'].map(id=>{
     const topic=pick(id,standardPool,t=>!coveredTopic(state,t.topicId));
     if(topic?.subject){exposure.standard[topic.subject]++;exposure.flex[topic.subject]++;}
@@ -340,12 +349,14 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     (state.topicStats[a.topicId].masteryV2.stage==='check7'?-1:1));
   const generalDue=allTopics.filter(t=>Object.values(state.reviews||{}).some(r=>
     r?.topicId===t.topicId&&r?.due&&r.due<=today));
-  const due=pick('due-review',dueMastery.length?dueMastery:generalDue.length?generalDue:allTopics.filter(t=>!pendingRecall(t)),()=>true);
+  const answerableDue=generalDue.filter(t=>canAssignVerifiedYear8Standard(t.topicId));
+  const due=pick('due-review',dueMastery.length?dueMastery:answerableDue.length?answerableDue:
+    allTopics.filter(t=>!pendingRecall(t)&&canAssignVerifiedYear8Standard(t.topicId)),()=>true);
   const oldDue=previous.get('due-review');
   const dueCheck=oldDue?.assignedTopic?oldDue.masteryCheck===true:
     dueMastery.some(t=>t.topicId===due?.topicId);
   const dueMode=(oldDue?.assignedTopic?savedMode(oldDue):null)||
-    (dueCheck?'due':generalDue.length?'due':'weak');
+    (dueCheck?'due':answerableDue.length?'due':'weak');
   // Never reassign a pending Day 2/7 topic to a new 15-question gate.
   const learningTopics=allTopics.filter(t=>
     ['learning','needs-reinforcement'].includes(masteryStage(state.topicStats?.[t.topicId])));
@@ -391,7 +402,9 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     if(chosen?.subject){exposure.mastery[chosen.subject]++;exposure.flex[chosen.subject]++;}
     return [task(id,chosen,'mastery',20,'Year 8 Mastery · 20 new questions; previous five-question recall remains recorded')];
   });
-  const weak=pick('weakness-review',learningTopics.length?learningTopics:allTopics,
+  const weakPool=(learningTopics.length?learningTopics:allTopics).filter(t=>
+    canAssignVerifiedYear8Standard(t.topicId));
+  const weak=pick('weakness-review',weakPool,
     t=>Number(state.topicStats?.[t.topicId]?.accuracy||0)<.85);
   const taught=['latin','french','chemistry','biology','physics'].flatMap(s=>(getCatalog(s,9)||[])
     .filter(t=>t?.status==='enabled'&&Number(t.enabled??t.questions??0)>=15)
