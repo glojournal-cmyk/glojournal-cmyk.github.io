@@ -203,6 +203,14 @@ test('dated Daily Record merge cannot resurrect a capped 6/6 from a legitimate 6
  assert.equal(current.tasks[0].done,false);
  assert.equal(current.complete,false);
  assert.equal(current.tasks[0].cappedBecauseQuestionBankExhausted,true);
+ const reversed=mergeDailyRecordRow({date:today,tasks:[verified]},
+  {date:today,tasks:[original]},today);
+ assert.equal(reversed.tasks[0].target,20,'merge order must not shorten original target');
+ assert.equal(reversed.tasks[0].progress,6);
+ assert.equal(reversed.tasks[0].done,false);
+ const wrongYear=mergeDailyRecordRow({date:today,tasks:[original]},
+  {date:today,tasks:[{...verified,assignedYear:9}]},today);
+ assert.equal(wrongYear.tasks[0].target,6,'cannot transfer old cap to a different year');
  const unrelated={...verified,assignedTopic:'la-y8-core-verbs'};
  const alien=mergeDailyRecordRow({date:today,tasks:[original]},
   {date:today,tasks:[unrelated]},today);
