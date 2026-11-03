@@ -314,7 +314,7 @@ test('all 115 eligible Year 8 topic packs have accurate Standard concept-capacit
    'typed_exact','typed_short','typed_equivalent','spelling_restore','controlled_translation',
    'mark_points','extended_response','practical_design','calculation','unordered_set']
    .includes(k)&&Number(v)>0)));
- assert.equal(qualified.length,115,'coverage cannot silently shrink');
+ assert.equal(qualified.length,110,'five non-production-only Latin packs are excluded by the real Daily curriculum filter');
  assert.equal(Object.keys(verifiedYear8OtherShortConcepts).length,9);
  let ineligible=0;
  for(const t of qualified){
