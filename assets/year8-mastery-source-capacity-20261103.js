@@ -12,11 +12,44 @@ export const verifiedYear8MasteryConcepts=Object.freeze({
  'fr-y8-s25-classroom-objects':{concepts:59,independent:59},
  'bio-y8-food-tests':{concepts:125,independent:58}
 });
-// Source-reverified Chemistry (8 topics) and Physics (13 topics) each have
-// only NINE independent concept families, despite 32-35 question variants.
-// They remain available in Standard, review and free practice, but not in a
-// 20-distinct-question Year 8 Mastery until independent content is added.
+// Eight Year 8 Chemistry and twelve Year 8 Physics topics still have only
+// nine independent concepts. Physics Energy stores now has nineteen after
+// source QA, sufficient for Standard but NOT for twenty-concept Mastery.
 export function canAssignVerifiedYear8Mastery(topicId){
  const row=verifiedYear8MasteryConcepts[String(topicId||'')];
  return !!row&&row.concepts>=25&&row.independent>=3;
+}
+
+/** Source-reverified concept totals for all 21 enabled Year 8 Physics/Chemistry packs.
+ * These are not the number of question ID variants. 2026-11-03.
+ * Unlisted science packs are conservatively not certifiable until audited.
+ */
+export const verifiedYear8ScienceStandardConcepts=Object.freeze({
+ "chem-y8-acids-indicators-ph":9,
+ "chem-y8-chemical-analysis":9,
+ "chem-y8-conservation-equations":9,
+ "chem-y8-formulae-valency":9,
+ "chem-y8-metals-reactions":9,
+ "chem-y8-neutralisation-salts":9,
+ "chem-y8-reactivity-displacement-rusting":9,
+ "chem-y8-working-scientifically":9,
+ "phys-y8-circuits-current-voltage":9,
+ "phys-y8-colour-eye":9,
+ "phys-y8-electromagnets":9,
+ "phys-y8-energy-stores-transfers":19,
+ "phys-y8-forces-newton-motion":9,
+ "phys-y8-light-reflection-refraction":9,
+ "phys-y8-magnets-domains":9,
+ "phys-y8-moments-levers":9,
+ "phys-y8-power-efficiency":9,
+ "phys-y8-pressure-density-fluids":9,
+ "phys-y8-resistance-series-parallel":9,
+ "phys-y8-speed-time-graphs":9,
+ "phys-y8-universe-stars-gravity":9,
+});
+export function canAssignVerifiedYear8Standard(topicId,minimum=10){
+ const id=String(topicId||'');
+ if(!/^((phys|chem)-y8-)/.test(id))return true;
+ const concepts=verifiedYear8ScienceStandardConcepts[id];
+ return Number.isInteger(concepts)&&concepts>=minimum;
 }
