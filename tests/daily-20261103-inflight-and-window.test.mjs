@@ -57,7 +57,8 @@ test('november in-flight plan reconstructs only evidenced topic and preserves va
  assert.equal(by('y8-standard-a').target,10);
  assert.equal(by('y8-mastery-a').target,20);
  assert.ok(canAssignVerifiedYear8Mastery(by('y8-mastery-a').assignedTopic));
- assert.notEqual(by('y8-mastery-a').assignedTopic,'chem-y8-working-scientifically');
+ assert.equal(by('y8-mastery-a').assignedTopic,'chem-y8-working-scientifically',
+  'new 27-concept Chemistry Mastery must stay on the student original unopened topic');
  assert.equal(result.filter(x=>x.id==='y8-mastery-a').length,1);
  assert.equal(result.length,10);
  assert.equal(state.daily[3].assignedTopic,'chem-y8-working-scientifically','planner must not mutate original state');
@@ -73,7 +74,7 @@ test('strict Mastery allowlist is checked against actual source concepts',()=>{
   assert.equal(production.size,expected.independent,id);
   assert.ok(canAssignVerifiedYear8Mastery(id),id);
  }
- for(const id of ['chem-y8-working-scientifically','phys-y8-energy-stores-transfers']){
+ for(const id of ['chem-y8-acids-indicators-ph','phys-y8-energy-stores-transfers']){
   const concepts=new Set(source(id).map(q=>q.conceptId||q.id));
   assert.equal(concepts.size,id==='phys-y8-energy-stores-transfers'?19:9,id);
   assert.equal(canAssignVerifiedYear8Mastery(id),false,id);
@@ -270,7 +271,9 @@ test('all 21 Year 8 Chemistry and Physics catalog capacities are source checked'
   const conceptCount=new Set(qs.map(q=>q.conceptId||q.id)).size;
   assert.equal(conceptCount,verifiedYear8ScienceStandardConcepts[t.topicId],t.topicId);
   assert.equal(canAssignVerifiedYear8Standard(t.topicId),conceptCount>=10);
-  if(t.topicId!=='phys-y8-energy-stores-transfers')assert.equal(conceptCount,9,t.topicId);
+  if(t.topicId==='phys-y8-energy-stores-transfers')assert.equal(conceptCount,19,t.topicId);
+  else if(t.topicId==='chem-y8-working-scientifically')assert.equal(conceptCount,27,t.topicId);
+  else assert.equal(conceptCount,9,t.topicId);
  }
 });
 
@@ -294,7 +297,7 @@ test('fresh Daily never overbooks 19-concept Physics or assigns nine-concept Sci
 });
 
 test('unopened impossible Science Standard is safely reassigned; started one stays pinned',()=>{
- const old=task('y8-standard-a','chemistry','chem-y8-working-scientifically','standard',10,0);
+ const old=task('y8-standard-a','chemistry','chem-y8-acids-indicators-ph','standard',10,0);
  const base={today,daily:[old],dailyLog:{},year:8,formalAttemptLog:[],reviews:{},topicStats:{}};
  const fresh=buildYear8DailyV2(base,getCatalog,{});
  assert.notEqual(fresh.find(x=>x.id===old.id).assignedTopic,old.assignedTopic);
@@ -324,7 +327,7 @@ test('all 115 eligible Year 8 topic packs have accurate Standard concept-capacit
   assert.equal(canAssign,n>=10,'source audit concept-count error: '+t.topicId);
   if(!canAssign)ineligible++;
  }
- assert.equal(ineligible,29,'twenty science and nine Latin/Biology topics require bank repair');
+ assert.equal(ineligible,28,'nineteen science and nine Latin/Biology topics require bank repair');
 });
 
 test('real dated planner preserves started Biology/Latin credit but rotates unopened 8-concept Standard',()=>{
@@ -344,4 +347,31 @@ test('real dated planner preserves started Biology/Latin credit but rotates unop
   assert.equal(ongoing.progress,4);
   assert.equal(ongoing.target,10);
  }
+});
+
+test('new Chemistry working scientifically Mastery has 27 real concepts and production marking',()=>{
+ const all=source('chem-y8-working-scientifically');
+ const bank=all.filter(q=>q.status==='enabled'&&q.preview!==true);
+ const concepts=new Set(bank.map(q=>q.conceptId||q.id));
+ const production=new Set(bank.filter(q=>['typed_short','typed_exact','mark_points','calculation','extended_response']
+  .includes(q.format)).map(q=>q.conceptId||q.id));
+ assert.equal(concepts.size,27);
+ assert.equal(production.size,11);
+ assert.ok(canAssignVerifiedYear8Mastery('chem-y8-working-scientifically'));
+ const fresh=bank.filter(q=>['testable-hypothesis','measuring-cylinder','read-meniscus',
+  'tare-balance','table-units','calculate-mean','anomalous-reading','continuous-line-graph',
+  'increase-trials','prevent-contamination','balance-resolution','representative-sampling',
+  'regular-timings','calibrate-thermometer','correlation-causation',
+  'observation-inference','range-of-data','qualitative-data'].some(slug=>
+   q.id==='chem-y8-working-scientifically-'+slug));
+ assert.equal(fresh.length,18);
+ assert.equal(new Set(fresh.map(q=>q.conceptId)).size,18);
+ for(const q of fresh){
+  assert.ok(q.feedback?.short&&q.feedback?.steps?.length);
+  if(q.format==='mc_single')assert.equal(
+   q.options.filter(v=>q.answer.accepted.includes(v)).length,1,'one correct option: '+q.id);
+  else assert.ok(q.answer.accepted.length>=2,'typed marking synonyms: '+q.id);
+ }
+ const metadata=catalog.find(t=>t.topicId==='chem-y8-working-scientifically');
+ assert.equal(metadata.enabled,all.length);
 });

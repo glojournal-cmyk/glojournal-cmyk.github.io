@@ -10,9 +10,10 @@ export const verifiedYear8MasteryConcepts=Object.freeze({
  'fr-y8-s03-home-family-and-descriptions':{concepts:79,independent:79},
  'fr-y8-s07-passe-compose':{concepts:61,independent:61},
  'fr-y8-s25-classroom-objects':{concepts:59,independent:59},
- 'bio-y8-food-tests':{concepts:125,independent:58}
+ 'bio-y8-food-tests':{concepts:125,independent:58},
+ 'chem-y8-working-scientifically':{concepts:27,independent:11}
 });
-// Eight Year 8 Chemistry and twelve Year 8 Physics topics still have only
+// Seven Year 8 Chemistry and twelve Year 8 Physics topics still have only
 // nine independent concepts. Physics Energy stores now has nineteen after
 // source QA, sufficient for Standard but NOT for twenty-concept Mastery.
 export function canAssignVerifiedYear8Mastery(topicId){
@@ -32,7 +33,7 @@ export const verifiedYear8ScienceStandardConcepts=Object.freeze({
  "chem-y8-metals-reactions":9,
  "chem-y8-neutralisation-salts":9,
  "chem-y8-reactivity-displacement-rusting":9,
- "chem-y8-working-scientifically":9,
+ "chem-y8-working-scientifically":27,
  "phys-y8-circuits-current-voltage":9,
  "phys-y8-colour-eye":9,
  "phys-y8-electromagnets":9,
