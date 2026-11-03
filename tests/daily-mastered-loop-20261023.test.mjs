@@ -349,16 +349,23 @@ test('iPad route and replay boot use cache-busted current Daily modules',()=>{
 });
 
 
-test('two genuinely marked appearances of one question can complete a 20-event Mastery',()=>{
-  let stat={};
-  for(let i=0;i<20;i++){
-    stat={masteryV2:addMasteryEvidence(stat,{day,year:8,mode:'mastery',
-      questionId:'repeated-'+(i%10),attemptId:'marked-'+i,
-      correct:i<17,format:i<3?'typed_short':'mc_single',formal:true})};
-  }
-  assert.equal(stat.masteryV2.stage,'check2');
-  assert.equal(stat.masteryV2.passedMasteryAt,day);
-  const same=addMasteryEvidence(stat,{day,year:8,mode:'mastery',
-    questionId:'repeated-0',attemptId:'marked-0',correct:true,format:'typed_short'});
-  assert.deepEqual(same,stat.masteryV2,'same marked event may not count twice');
+test('twenty-item Mastery counts distinct questions, not repeated appearances',()=>{
+ let stat={};
+ // Ten IDs shown twice are still only ten independent question opportunities.
+ for(let i=0;i<20;i++){
+   stat={masteryV2:addMasteryEvidence(stat,{day,year:8,mode:'mastery',
+     questionId:'repeated-'+(i%10),attemptId:'marked-'+i,
+     correct:i<17,format:i<3?'typed_short':'mc_single',formal:true})};
+ }
+ assert.equal(stat.masteryV2.stage,'learning');
+ assert.equal(stat.masteryV2.attempts.length,10);
+ // Ten more different marked questions can legitimately complete the round.
+ for(let i=10;i<20;i++)stat={masteryV2:addMasteryEvidence(stat,{
+   day,year:8,mode:'mastery',questionId:'repeated-'+i,attemptId:'new-'+i,
+   correct:i<17,format:i<13?'typed_short':'mc_single',formal:true})};
+ assert.equal(stat.masteryV2.stage,'check2');
+ assert.equal(stat.masteryV2.passedMasteryAt,day);
+ const same=addMasteryEvidence(stat,{day,year:8,mode:'mastery',
+   questionId:'repeated-0',attemptId:'marked-0',correct:true,format:'typed_short'});
+ assert.deepEqual(same,stat.masteryV2,'same marked event may not count twice');
 });

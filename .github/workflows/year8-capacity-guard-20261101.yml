@@ -1,0 +1,22 @@
+name: Year 8 locked Mastery shortfall and distinct concept QA
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'assets/study._subject.practise-y8fix-20260920.js'
+      - 'assets/daily-locked-question-fallback-20261021.js'
+      - 'tests/year8-capacity-guard-20261101.mjs'
+      - '.github/workflows/year8-capacity-guard-20261101.yml'
+jobs:
+  historical-answer-and-shortage:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/study._subject.practise-y8fix-20260920.js
+      - run: node --check assets/daily-locked-question-fallback-20261021.js
+      - run: node --test tests/year8-capacity-guard-20261101.mjs
