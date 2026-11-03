@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {datedAssignmentEvidence} from '../assets/daily-dated-assignment-evidence-20261103.js';
-import {canAssignVerifiedYear8Mastery,canAssignVerifiedYear8Standard,verifiedYear8MasteryConcepts,verifiedYear8ScienceStandardConcepts} from '../assets/year8-mastery-source-capacity-20261103.js';
+import {canAssignVerifiedYear8Mastery,canAssignVerifiedYear8Standard,verifiedYear8MasteryConcepts,verifiedYear8ScienceStandardConcepts,verifiedYear8OtherShortConcepts} from '../assets/year8-mastery-source-capacity-20261103.js';
 import {buildYear8DailyV2} from '../assets/year8-daily-v2-20261018.js';
 import {selectDailyVocabulary} from '../assets/daily-vocab-20261003.js';
 
@@ -304,4 +304,44 @@ test('unopened impossible Science Standard is safely reassigned; started one sta
  assert.equal(matched.assignedTopic,old.assignedTopic,'preserve historic partial credits');
  assert.equal(matched.progress,3);
  assert.equal(matched.target,10,'never reduce threshold to saved answers');
+});
+
+test('all 115 eligible Year 8 topic packs have accurate Standard concept-capacity routing',()=>{
+ const subjects=['latin','french','biology','chemistry','physics'];
+ const qualified=catalog.filter(t=>t.year===8&&subjects.includes(t.subject)&&
+  t.status==='enabled'&&Number(t.enabled)>=15&&
+  (!t.formats||Object.entries(t.formats).some(([k,v])=>[
+   'typed_exact','typed_short','typed_equivalent','spelling_restore','controlled_translation',
+   'mark_points','extended_response','practical_design','calculation','unordered_set']
+   .includes(k)&&Number(v)>0)));
+ assert.equal(qualified.length,115,'coverage cannot silently shrink');
+ assert.equal(Object.keys(verifiedYear8OtherShortConcepts).length,9);
+ let ineligible=0;
+ for(const t of qualified){
+  const qs=source(t.topicId).filter(q=>q.status==='enabled'&&q.preview!==true);
+  const n=new Set(qs.map(q=>q.conceptId||q.id)).size;
+  const canAssign=canAssignVerifiedYear8Standard(t.topicId);
+  assert.equal(canAssign,n>=10,'source audit concept-count error: '+t.topicId);
+  if(!canAssign)ineligible++;
+ }
+ assert.equal(ineligible,29,'twenty science and nine Latin/Biology topics require bank repair');
+});
+
+test('real dated planner preserves started Biology/Latin credit but rotates unopened 8-concept Standard',()=>{
+ for(const [subject,topic] of [
+  ['biology','bio-y8-dna-structure'],['latin','la-y8-adjective-agreement']
+ ]){
+  const id=subject==='latin'?'latin-standard':'y8-standard-b', mode='standard';
+  const original=task(id,subject,topic,mode,10,0);
+  const base={today,daily:[original],dailyLog:{},year:8,formalAttemptLog:[],
+    reviews:{},topicStats:{},skillStats:{}};
+  const fresh=buildYear8DailyV2(base,getCatalog,{}).find(t=>t.id===id);
+  assert.notEqual(fresh.assignedTopic,topic,'unstarted short topic must be replaced');
+  assert.ok(canAssignVerifiedYear8Standard(fresh.assignedTopic));
+  const ongoing=buildYear8DailyV2({...base,daily:[{...original,progress:4}]},getCatalog,{})
+   .find(t=>t.id===id);
+  assert.equal(ongoing.assignedTopic,topic,'existing marked work cannot be silently moved');
+  assert.equal(ongoing.progress,4);
+  assert.equal(ongoing.target,10);
+ }
 });
