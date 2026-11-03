@@ -3,14 +3,14 @@ import {syncTodayFromDatedRecord} from "./today-record-sync-20261024.js";
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261026-vocabqa7";
 import {readOptionalBackupJson,linkedBackupManifest} from "./export-linked-storage-20261023.js";
 import "./player-ux-20261013.js?v=20261026-bio-year9-savefix2&ux=20261021-ipad-shell-lock3&uxfix=20261022-priority-ux1";
-import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261025-scorefix1";
+import {mergeDailyRecordRow,mergeDailyHistory,reconcileOriginalCurriculumHistory} from "./daily-record-integrity-20261018.js?v=20261025-scorefix1&dailyfix=20261103b";
 import "./daily-ledger-vault-20261023.js?v=20261025-scorefix1";
 import {saveMarkedAnswer,readMarkedAnswers,mergeMarkedEvidence} from "./durable-study-evidence-20261018.js?v=20261026-journal-fallback3";
 import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUnopenedRecovery,UNOPENED_FALLBACK_TASKS,RECOVERY_IDS,matchesAssignedPracticeEvidence} from "./recovery-task-ledger-20261017.js?v=20261025-recovery-correct1";
 import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261025-recovery-correct1";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastery-count20-v1";
-import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261025-scorefix2&latinrotation=20261101a";
+import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261025-scorefix2&dailyfix=20261103b";
 import "./journey-navigation-20261004.js?v=20261024-latin-ipad-date2&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
@@ -1509,7 +1509,21 @@ function compactDailyTasks(daily) {
 function writeDailyLog(existing, date, daily) {
   const base = existing && typeof existing === "object" ? existing : {};
   if (!date) return base;
-  const tasks = compactDailyTasks(daily);
+  const rawTasks = compactDailyTasks(daily);
+  // The Home planner may still include four obsolete zero-credit shell rows
+  // alongside its real ten V2 assignments after Safari hydration. Do not
+  // write those placeholders back into a canonical ten-task dated record.
+  const canonicalIds=new Set(['latin-vocab','french-vocab','latin-standard',
+    'y8-standard-a','y8-standard-b','y8-mastery-a','y8-mastery-b',
+    'weakness-review','due-review','year9-light']);
+  const ten=rawTasks.filter(t=>canonicalIds.has(t.id));
+  const extras=rawTasks.filter(t=>!canonicalIds.has(t.id));
+  const oldIds=new Set(['study-session','year8-long-review','tend-garden','play-game']);
+  const safeTen= date>='2026-11-03'&&date===todayKey()&&
+    ten.length===10&&new Set(ten.map(t=>t.id)).size===10&&
+    extras.length>0&&extras.every(t=>oldIds.has(t.id)&&
+      Number(t.progress||0)===0&&t.done!==true);
+  const tasks=safeTen?ten:rawTasks;
   if (!tasks.length) return base;
   const done = tasks.filter((task) => task.done).length;
   const incoming = { date, done, total: tasks.length, complete: done === tasks.length, tasks };
@@ -1539,6 +1553,26 @@ function writeDailyLog(existing, date, daily) {
     // Do not replace genuinely saved task completion with 0/10 on hydration.
     row=mergeDailyRecordRow(prev,incoming,date);
   }
+  // A historic four-task shell was incorrectly unioned into 10-task Daily V2
+  // on some iPad saves. Archive ONLY these obsolete zero-credit placeholders
+  // when all ten canonical slots are present. Never erase genuine extra work,
+  // old days, XP/MP or any stored question/answer evidence.
+  const retiredSlots=new Set(['study-session','year8-long-review','tend-garden','play-game']);
+  if(date>='2026-11-03'&&date===todayKey()&&tasks.length===10&&
+     Array.isArray(row?.tasks)&&
+     row.tasks.some(t=>retiredSlots.has(t.id))&&
+     row.tasks.every(t=>tasks.some(now=>now.id===t.id)||retiredSlots.has(t.id))){
+    const legacy=row.tasks.filter(t=>retiredSlots.has(t.id));
+    if(legacy.every(t=>Number(t.progress||0)===0&&t.done!==true)){
+      const retained=row.tasks.filter(t=>!retiredSlots.has(t.id));
+      const archive=[...(row.legacyExtraTasks||[])];
+      for(const t of legacy)if(!archive.some(old=>old.id===t.id&&old.planDate===t.planDate))archive.push(t);
+      const completed=retained.filter(t=>t.done===true||Number(t.progress)>=Number(t.target)).length;
+      row={...row,tasks:retained,total:retained.length,done:completed,
+        complete:completed===retained.length,
+        legacyExtraTasks:archive.slice(-12)};
+    }
+  }
   // For the CURRENT 24-Oct-or-later plan only, a complete marked-answer
   // journal is stronger than legacy attempted-count snapshots. Ordinary
   // monotonic history merging would otherwise re-credit wrong answers.
@@ -1565,6 +1599,30 @@ function writeDailyLog(existing, date, daily) {
   return log;
 }
 
+// One known 2026-11-03 iPad backup combined the ten genuine Daily V2
+// tasks with four unearned V1 shell placeholders. Recover the HISTORICAL
+// record on later dates too; archive rather than delete the four rows.
+// Never alter another date, incomplete actual question evidence or rewards.
+function archiveNov3ZeroCreditLegacyHistory(log) {
+  const day='2026-11-03',row=log?.[day];
+  if(!Array.isArray(row?.tasks))return log;
+  const official=new Set(['latin-vocab','french-vocab','latin-standard',
+    'y8-standard-a','y8-standard-b','y8-mastery-a','y8-mastery-b',
+    'weakness-review','due-review','year9-light']);
+  const obsolete=new Set(['study-session','year8-long-review','tend-garden','play-game']);
+  const genuine=row.tasks.filter(t=>official.has(t.id));
+  const extra=row.tasks.filter(t=>!official.has(t.id));
+  if(genuine.length!==10||new Set(genuine.map(t=>t.id)).size!==10||
+     extra.length!==4||new Set(extra.map(t=>t.id)).size!==4||
+     !extra.every(t=>obsolete.has(t.id)&&Number(t.progress||0)===0&&t.done!==true))
+    return log;
+  const oldArchive=Array.isArray(row.legacyExtraTasks)?row.legacyExtraTasks:[];
+  const archive=[...oldArchive];
+  for(const t of extra)if(!archive.some(a=>a.id===t.id))archive.push(t);
+  const done=genuine.filter(t=>Number(t.progress)>=Number(t.target)).length;
+  return {...log,[day]:{...row,tasks:genuine,done,total:10,complete:done===10,
+    legacyExtraTasks:archive.slice(-12)}};
+}
 function sealDailyLog(date, daily, existing) {
   const base = existing && typeof existing === "object" ? existing : {};
   const next = writeDailyLog(base, date, daily);
@@ -1811,7 +1869,7 @@ function normalizeState() {
     {...stateForDaily,dailyLog:nextLog},getTopicCatalog);
   if(verifiedHistoricOct23)
     nextLog={...nextLog,"2026-10-23":verifiedHistoricOct23};
-  const receiptLog = applyRecoveryReceipts(nextLog);
+  const receiptLog = archiveNov3ZeroCreditLegacyHistory(applyRecoveryReceipts(nextLog));
   // The 30-day record can retain three verified completions while a rebuilt
   // Home plan temporarily displays zero. Reuse only identical same-day
   // assignments; never create XP or replace correct-only answer evidence.

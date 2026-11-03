@@ -9,10 +9,24 @@ const nonneg=v=>Math.max(0,Number(v)||0);
 const tasksOf=row=>Array.isArray(row?.tasks)?row.tasks.filter(t=>t&&typeof t.id==="string"&&t.id):[];
 const isDone=t=>t?.done===true||(Number(t?.target)>0&&nonneg(t?.progress)>=Number(t.target));
 const isFallback=t=>t?.recoveryFallback===true;
-function mergeTask(previous,incoming){
+function mergeTask(previous,incoming,date){
  const left=previous||{},right=incoming||{};
- // An exhausted question bank closes the set at the verified score.
- // Do not revive the old larger target, and do not invent the missing answers.
+ // Previously exhausted banks used to shrink target=progress, creating a
+ // fake completed task. From 3 November, if the CURRENT recomputed task has
+ // an intact, larger target and the same explicit assignment, restore that
+ // planned threshold without altering correct answers, rewards or old dates.
+ if((left.cappedBecauseQuestionBankExhausted||right.cappedBecauseQuestionBankExhausted)&&
+    date>='2026-11-03'&&right.id&&right.id===left.id&&
+    right.assignedSubject&&right.assignedSubject===left.assignedSubject&&
+    right.assignedTopic&&right.assignedTopic===left.assignedTopic&&
+    Number(right.target)>Number(left.target)){
+   const target=Math.max(1,nonneg(right.target));
+   const progress=Math.min(target,Math.max(nonneg(left.progress),nonneg(right.progress)));
+   return {...left,...right,target,progress,done:progress>=target,
+     cappedBecauseQuestionBankExhausted:true};
+ }
+ // For genuinely historical capped records, do not rewrite achievement or
+ // recovery claims without a new same-assignment, higher-target proof.
  if(left.cappedBecauseQuestionBankExhausted||right.cappedBecauseQuestionBankExhausted){
   const cap=right.cappedBecauseQuestionBankExhausted?right:left;
   const progress=Math.max(nonneg(left.progress),nonneg(right.progress),nonneg(cap.progress));
@@ -95,7 +109,7 @@ export function mergeDailyRecordRow(previous,incoming,date){
  if(startedTen&&assignmentIdsChanged){
    const tasks=oldTasks.map(old=>{
      const matching=newTasks.find(t=>t.id===old.id);
-     return matching?mergeTask(old,matching):old;
+     return matching?mergeTask(old,matching,date):old;
    });
    const done=tasks.filter(isDone).length;
    return {...previous,date:date||previous?.date,tasks,done,total:tasks.length,
@@ -106,12 +120,12 @@ export function mergeDailyRecordRow(previous,incoming,date){
  const used=new Set();
  for(const old of oldTasks){
    const next=newTasks.find(t=>t.id===old.id);
-   merged.push(next?mergeTask(old,next):mergeTask(old,{}));
+   merged.push(next?mergeTask(old,next,date):mergeTask(old,{},date));
    used.add(old.id);
  }
  for(const next of newTasks)if(!used.has(next.id)){
    // Only add genuinely new IDs; never throw away a completed old item.
-   merged.push(mergeTask({},next));used.add(next.id);
+   merged.push(mergeTask({},next,date));used.add(next.id);
  }
  const total=merged.length,verifiedReceipt=total===10&&
    (fullReceipt(previous,oldTasks)||fullReceipt(incoming,newTasks));
