@@ -335,8 +335,16 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   const latin=pick('latin-standard',pools.latin.filter(t=>!pendingRecall(t)),
     t=>!coveredTopic(state,t.topicId));
   const standardPool=(standardPools[subject]||[]).filter(t=>!pendingRecall(t));
+  const alternateStandardPool=rotation.flatMap(s=>standardPools[s])
+    .filter(t=>!pendingRecall(t));
   const standards=['y8-standard-a','y8-standard-b'].map(id=>{
-    const topic=pick(id,standardPool,t=>!coveredTopic(state,t.topicId));
+    // E.g. Physics Energy has nineteen independent concepts: sufficient for
+    // ONE 10/10 Standard, not TWO independent sets of ten. Fall back to
+    // another already-verified subject/topic for the second slot.
+    const eligibleLocal=standardPool.filter(t=>!assigned.has(t.topicId));
+    const pool=eligibleLocal.length?standardPool:alternateStandardPool.filter(t=>
+      !assigned.has(t.topicId));
+    const topic=pick(id,pool,t=>!coveredTopic(state,t.topicId));
     if(topic?.subject){exposure.standard[topic.subject]++;exposure.flex[topic.subject]++;}
     return topic;
   });
