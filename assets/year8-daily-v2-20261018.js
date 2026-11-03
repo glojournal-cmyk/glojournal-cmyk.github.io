@@ -209,7 +209,8 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       old?.assignedTopic&&!canAssignVerifiedYear8Mastery(old.assignedTopic)&&
       !old.done&&!(Number(old.progress)>0)&&
       !entries.some(e=>e.dailyTaskId===id);
-    const unopenedIneligibleStandard=/^y8-standard-[ab]$/.test(id)&&
+    const unopenedIneligibleStandard=/^(?:y8-standard-[ab]|latin-standard|weakness-review|due-review)$/.test(id)&&
+      Number(old?.target||10)>=10&&
       old?.assignedTopic&&!canAssignVerifiedYear8Standard(old.assignedTopic)&&
       !old.done&&!(Number(old.progress)>0)&&
       !entries.some(e=>e.dailyTaskId===id);
@@ -332,7 +333,8 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   const pendingRecall=t=>['check2','check7'].includes(
     state.topicStats?.[t.topicId]?.masteryV2?.stage);
   // Reserve every in-progress recall topic for its five-question due date.
-  const latin=pick('latin-standard',pools.latin.filter(t=>!pendingRecall(t)),
+  const latin=pick('latin-standard',pools.latin.filter(t=>
+    !pendingRecall(t)&&canAssignVerifiedYear8Standard(t.topicId)),
     t=>!coveredTopic(state,t.topicId));
   const standardPool=(standardPools[subject]||[]).filter(t=>!pendingRecall(t));
   const alternateStandardPool=rotation.flatMap(s=>standardPools[s])
