@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {datedAssignmentEvidence} from '../assets/daily-dated-assignment-evidence-20261103.js';
-import {canAssignVerifiedYear8Mastery,verifiedYear8MasteryConcepts} from '../assets/year8-mastery-source-capacity-20261103.js';
+import {canAssignVerifiedYear8Mastery,canAssignVerifiedYear8Standard,verifiedYear8MasteryConcepts,verifiedYear8ScienceStandardConcepts} from '../assets/year8-mastery-source-capacity-20261103.js';
 import {buildYear8DailyV2} from '../assets/year8-daily-v2-20261018.js';
 import {selectDailyVocabulary} from '../assets/daily-vocab-20261003.js';
 
@@ -259,4 +259,49 @@ test('real Year 8 Physics energy Standard now has enough genuinely fresh concept
   'nineteen concepts still insufficient for 20-question Mastery');
  const record=catalog.find(t=>t.topicId==='phys-y8-energy-stores-transfers');
  assert.equal(record.enabled,items.length);
+});
+
+test('all 21 Year 8 Chemistry and Physics catalog capacities are source checked',()=>{
+ const science=catalog.filter(t=>t.year===8&&['chemistry','physics'].includes(t.subject)&&t.status==='enabled');
+ assert.equal(science.length,21);
+ assert.equal(Object.keys(verifiedYear8ScienceStandardConcepts).length,21);
+ for(const t of science){
+  const qs=source(t.topicId);
+  const conceptCount=new Set(qs.map(q=>q.conceptId||q.id)).size;
+  assert.equal(conceptCount,verifiedYear8ScienceStandardConcepts[t.topicId],t.topicId);
+  assert.equal(canAssignVerifiedYear8Standard(t.topicId),conceptCount>=10);
+  if(t.topicId!=='phys-y8-energy-stores-transfers')assert.equal(conceptCount,9,t.topicId);
+ }
+});
+
+test('fresh Daily never overbooks 19-concept Physics or assigns nine-concept Science Standard',()=>{
+ for(const date of ['2026-11-04','2026-11-05','2026-11-06','2026-11-07','2026-11-08']){
+  const state={today:date,daily:[],dailyLog:{},year:8,formalAttemptLog:[],
+    reviews:{},topicStats:{},skillStats:{}};
+  const before=JSON.stringify(state);
+  const rows=buildYear8DailyV2(state,getCatalog,{});
+  assert.equal(rows.length,10,date);
+  const standards=rows.filter(t=>t.id==='y8-standard-a'||t.id==='y8-standard-b');
+  assert.equal(standards.length,2,date);
+  assert.equal(new Set(standards.map(t=>t.assignedTopic)).size,2,
+   'two 10-question Standard slots must reserve different topic pools on '+date);
+  assert.ok(standards.every(t=>t.assignedTopic&&
+   canAssignVerifiedYear8Standard(t.assignedTopic)),date);
+  assert.ok(rows.filter(t=>['due-review','weakness-review'].includes(t.id))
+   .every(t=>canAssignVerifiedYear8Standard(t.assignedTopic)),date);
+  assert.equal(JSON.stringify(state),before,'planner cannot edit XP, MP or any state');
+ }
+});
+
+test('unopened impossible Science Standard is safely reassigned; started one stays pinned',()=>{
+ const old=task('y8-standard-a','chemistry','chem-y8-working-scientifically','standard',10,0);
+ const base={today,daily:[old],dailyLog:{},year:8,formalAttemptLog:[],reviews:{},topicStats:{}};
+ const fresh=buildYear8DailyV2(base,getCatalog,{});
+ assert.notEqual(fresh.find(x=>x.id===old.id).assignedTopic,old.assignedTopic);
+ assert.ok(canAssignVerifiedYear8Standard(fresh.find(x=>x.id===old.id).assignedTopic));
+ const started=buildYear8DailyV2({...base,daily:[{...old,progress:3}]},getCatalog,{});
+ const matched=started.find(t=>t.id===old.id);
+ assert.equal(matched.assignedTopic,old.assignedTopic,'preserve historic partial credits');
+ assert.equal(matched.progress,3);
+ assert.equal(matched.target,10,'never reduce threshold to saved answers');
 });
