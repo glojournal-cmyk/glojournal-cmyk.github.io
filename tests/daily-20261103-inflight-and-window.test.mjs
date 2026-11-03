@@ -75,7 +75,7 @@ test('strict Mastery allowlist is checked against actual source concepts',()=>{
  }
  for(const id of ['chem-y8-working-scientifically','phys-y8-energy-stores-transfers']){
   const concepts=new Set(source(id).map(q=>q.conceptId||q.id));
-  assert.equal(concepts.size,9,id);
+  assert.equal(concepts.size,id==='phys-y8-energy-stores-transfers'?19:9,id);
   assert.equal(canAssignVerifiedYear8Mastery(id),false,id);
  }
 });
@@ -221,4 +221,42 @@ test('dated Daily Record merge cannot resurrect a capped 6/6 from a legitimate 6
  const historical=mergeDailyRecordRow({date:'2026-10-23',tasks:[original]},
   {date:'2026-10-23',tasks:[verified]},'2026-10-23');
  assert.equal(historical.tasks[0].target,6,'prior-day completed historic cap unchanged');
+});
+
+test('real Year 8 Physics energy Standard now has enough genuinely fresh concepts to refill 5/10',()=>{
+ const items=source('phys-y8-energy-stores-transfers');
+ const groups=new Map();
+ for(const q of items){
+   assert.equal(q.status,'enabled');
+   assert.equal(q.topicId,'phys-y8-energy-stores-transfers');
+   const id=q.conceptId||q.id;
+   groups.set(id,[...(groups.get(id)||[]),q]);
+ }
+ assert.equal(groups.size,19,'35 question variants were only 9 concepts; ten new independent concepts added');
+ const additions=items.filter(q=>/-20261103$/.test(q.id));
+ // Fixed IDs are stable and source-marked; do not rely on suffixes.
+ const newItems=items.filter(q=>['kinetic-faster','raising-backpack','hot-water-cold-spoon',
+  'sunlight-vacuum','lamp-electrical-pathway','thermal-insulation','brake-friction',
+  'efficiency-40-percent','sankey-width','joule-unit']
+  .some(slug=>q.id==='phys-y8-energy-stores-transfers-'+slug));
+ assert.equal(newItems.length,10);
+ assert.equal(new Set(newItems.map(q=>q.conceptId)).size,10);
+ for(const q of newItems){
+  assert.ok(q.feedback?.short&&q.feedback?.steps?.length,'usable explanatory marking');
+  if(q.format==='mc_single'){
+   assert.equal(q.options?.length,4);
+   assert.equal(new Set(q.options).size,4);
+   assert.equal(q.answer?.mode,'choice');
+   assert.equal(q.options.filter(t=>q.answer.accepted.includes(t)).length,1,'one correct choice');
+  }else{
+   assert.equal(q.format,'typed_short');
+   assert.equal(q.answer.mode,'equivalent');
+   assert.ok(q.answer.accepted.includes('J'));
+  }
+ }
+ assert.ok(groups.size-5>=10,'even five already-credited concepts leave >=10 distinct concepts');
+ assert.equal(canAssignVerifiedYear8Mastery('phys-y8-energy-stores-transfers'),false,
+  'nineteen concepts still insufficient for 20-question Mastery');
+ const record=catalog.find(t=>t.topicId==='phys-y8-energy-stores-transfers');
+ assert.equal(record.enabled,items.length);
 });
