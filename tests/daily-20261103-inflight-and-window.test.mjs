@@ -5,6 +5,8 @@ import {datedAssignmentEvidence} from '../assets/daily-dated-assignment-evidence
 import {canAssignVerifiedYear8Mastery,canAssignVerifiedYear8Standard,verifiedYear8MasteryConcepts,verifiedYear8ScienceStandardConcepts,verifiedYear8OtherShortConcepts} from '../assets/year8-mastery-source-capacity-20261103.js';
 import {buildYear8DailyV2} from '../assets/year8-daily-v2-20261018.js';
 import {selectDailyVocabulary} from '../assets/daily-vocab-20261003.js';
+import {selectProgressionQuestions} from '../assets/daily-curriculum-20261004.js';
+import {fillDailyLockedQuestions} from '../assets/daily-locked-question-fallback-20261021.js';
 
 const today='2026-11-03';
 const catalog=JSON.parse(fs.readFileSync('content/catalog.json','utf8')).topics;
@@ -374,4 +376,34 @@ test('new Chemistry working scientifically Mastery has 27 real concepts and prod
  }
  const metadata=catalog.find(t=>t.topicId==='chem-y8-working-scientifically');
  assert.equal(metadata.enabled,all.length);
+});
+
+test('real locked Chemistry Mastery can build 20 different concepts including 3+ production prompts',()=>{
+ const bank=source('chem-y8-working-scientifically').filter(q=>q.status==='enabled'&&q.preview!==true);
+ const initial=selectProgressionQuestions(bank,'mastery',20);
+ const selected=fillDailyLockedQuestions(initial,bank,{
+  locked:true,mode:'mastery',size:20,topicId:'chem-y8-working-scientifically',
+  subject:'chemistry',requireDistinctConcepts:true
+ },(xs,subject,n)=>xs.slice(0,n),selectProgressionQuestions);
+ const production=new Set(['typed_exact','typed_short','typed_equivalent','mark_points',
+  'extended_response','practical_design','calculation','unordered_set']);
+ assert.equal(selected.length,20,'a short 9-concept session must never masquerade as 20 Mastery');
+ assert.equal(new Set(selected.map(q=>q.conceptId||q.id)).size,20);
+ assert.ok(selected.filter(q=>production.has(q.format)).length>=3,
+  'Mastery needs independent written/application responses, not MC only');
+ assert.ok(selected.every(q=>q.topicId==='chem-y8-working-scientifically'));
+});
+
+test('real locked Physics 5/10 continuation can load five new distinct concepts without recycling credit',()=>{
+ const bank=source('phys-y8-energy-stores-transfers').filter(q=>q.status==='enabled'&&q.preview!==true);
+ const correct=['dissipation-mc','synthesis-match','pathways-mc','store-list-mc',
+  'conservation-mc'].map(id=>'phys-y8-energy-stores-transfers-'+id);
+ const first=selectProgressionQuestions(bank,'standard',5);
+ const picked=fillDailyLockedQuestions(first,bank,{
+  locked:true,mode:'standard',size:5,topicId:'phys-y8-energy-stores-transfers',
+  subject:'physics',requireDistinctConcepts:true,correctIds:correct
+ },(xs,subject,n)=>xs.slice(0,n),selectProgressionQuestions);
+ assert.equal(picked.length,5);
+ assert.equal(new Set(picked.map(q=>q.conceptId||q.id)).size,5);
+ assert.ok(picked.every(q=>!correct.includes(q.id)));
 });
