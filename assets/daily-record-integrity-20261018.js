@@ -19,8 +19,13 @@ function mergeTask(previous,incoming,date){
     date>='2026-11-03'&&right.id&&right.id===left.id&&
     right.assignedSubject&&right.assignedSubject===left.assignedSubject&&
     right.assignedTopic&&right.assignedTopic===left.assignedTopic&&
-    Number(right.target)>Number(left.target)){
-   const target=Math.max(1,nonneg(right.target));
+    Number(right.assignedYear)===Number(left.assignedYear)&&
+    Number(left.target)>0&&Number(right.target)>0&&
+    // A separately stored, larger target is direct evidence that the
+    // exhausted lower target was shortened by an old version. Merging is
+    // independent of old/new row order and never invents a marked answer.
+    Number(right.target)!==Number(left.target)){
+   const target=Math.max(1,nonneg(left.target),nonneg(right.target));
    const progress=Math.min(target,Math.max(nonneg(left.progress),nonneg(right.progress)));
    return {...left,...right,target,progress,done:progress>=target,
      cappedBecauseQuestionBankExhausted:true};
