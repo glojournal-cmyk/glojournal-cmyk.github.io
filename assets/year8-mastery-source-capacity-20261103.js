@@ -47,9 +47,28 @@ export const verifiedYear8ScienceStandardConcepts=Object.freeze({
  "phys-y8-speed-time-graphs":9,
  "phys-y8-universe-stars-gravity":9,
 });
+// Independent concept source audit of all 115 Year 8 topics with >=15
+// enabled questions (Latin 31, French 30, Biology 33, Chemistry 8, Physics
+// 13). These nine Latin/Biology topics contain fewer than ten distinct
+// assessable concepts despite their question-ID counts.
+export const verifiedYear8OtherShortConcepts=Object.freeze({
+ "la-y8-adjective-agreement":6,
+ "la-y8-miscellaneous-words":7,
+ "bio-y8-dna-structure":8,
+ "bio-y8-fats-cholesterol":9,
+ "bio-y8-genetic-disorders":7,
+ "bio-y8-limiting-factors":8,
+ "bio-y8-nutrition-labels":8,
+ "bio-y8-practical-conclusions":8,
+ "bio-y8-punnett-squares":8,
+});
 export function canAssignVerifiedYear8Standard(topicId,minimum=10){
  const id=String(topicId||'');
- if(!/^((phys|chem)-y8-)/.test(id))return true;
- const concepts=verifiedYear8ScienceStandardConcepts[id];
- return Number.isInteger(concepts)&&concepts>=minimum;
+ if(Object.prototype.hasOwnProperty.call(verifiedYear8OtherShortConcepts,id))
+   return verifiedYear8OtherShortConcepts[id]>=minimum;
+ if(/^((phys|chem)-y8-)/.test(id)){
+   const concepts=verifiedYear8ScienceStandardConcepts[id];
+   return Number.isInteger(concepts)&&concepts>=minimum;
+ }
+ return true;
 }
