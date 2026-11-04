@@ -10,8 +10,9 @@ on:
   workflow_dispatch:
 jobs:
   biology-ipad:
-    runs-on: ubuntu-latest
-    timeout-minutes: 12
+    # Pin a stable runner: ubuntu-latest apt dependency setup exceeded the old 12-minute cap.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
