@@ -70,7 +70,7 @@ test('practice runtime never shrinks target or auto-completes an exhausted Daily
  const code=fs.readFileSync('assets/study._subject.practise-y8fix-20260920.js','utf8');
  assert.ok(code.includes('Not enough fresh Year 8 questions'));
  assert.ok(code.includes('requireDistinctConcepts:dailyLocked&&N===8&&E===\x60mastery\x60'));
- assert.ok(code.includes('Your correct answers, assignment, original target, XP/MP and Recovery record are unchanged.'));
+ assert.ok(code.includes('Your correct answers, assignment, original target, XP/MP and Recovery record are unchanged; this task is NOT automatically marked complete.'));
  assert.ok(!code.includes('target:progress,progress,done:true,cappedBecauseQuestionBankExhausted:true'));
  assert.ok(!code.includes('s.setState({daily,dailyLog});'));
  assert.ok(code.includes('sessionSnapshot.current'));
