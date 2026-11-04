@@ -1,0 +1,1041 @@
+{
+  "schemaVersion": "daily-v2-mastery-draft-1",
+  "subject": "french",
+  "year": 8,
+  "topicId": "fr-y8-v2-mastery-reflexive-routines",
+  "title": "Mastery — reflexive verbs and routines",
+  "status": "enabled",
+  "origin": "daily-v2-isolated-draft",
+  "curriculumReview": "pending-independent-review",
+  "taughtStatus": "not-verified-for-student",
+  "questions": [
+    {
+      "id": "fr-y8-v2mb-01",
+      "conceptId": "fr-y8-v2mb-concept-01",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "typed_short",
+      "prompt": "Choose the correct reflexive pronoun and complete the sentence: je ___ lève à sept heures.",
+      "stimulus": {
+        "text": "je ___ lève"
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "je me lève"
+        ],
+        "modelAnswer": "je me lève",
+        "markPoints": [
+          "me matches je",
+          "lève is first-person singular"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "me matches je",
+          "lève is first-person singular"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-02",
+      "conceptId": "fr-y8-v2mb-concept-02",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "typed_short",
+      "prompt": "Write the 'nous' present-tense form of se laver.",
+      "stimulus": {
+        "text": "nous ___"
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "nous nous lavons"
+        ],
+        "modelAnswer": "nous nous lavons",
+        "markPoints": [
+          "nous subject and reflexive pronoun",
+          "lavons matches nous"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "nous subject and reflexive pronoun",
+          "lavons matches nous"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-03",
+      "conceptId": "fr-y8-v2mb-concept-03",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "typed_short",
+      "prompt": "Turn 'elle se réveille' into a simple negative.",
+      "stimulus": {
+        "text": "elle se réveille"
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "elle ne se réveille pas"
+        ],
+        "modelAnswer": "elle ne se réveille pas",
+        "markPoints": [
+          "ne before se",
+          "pas after réveille"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "ne before se",
+          "pas after réveille"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-04",
+      "conceptId": "fr-y8-v2mb-concept-04",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "typed_short",
+      "prompt": "Translate 'Je me couche à dix heures' into English.",
+      "stimulus": {
+        "text": "Je me couche à dix heures."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "I go to bed at ten o'clock."
+        ],
+        "modelAnswer": "I go to bed at ten o'clock.",
+        "markPoints": [
+          "me couche go to bed",
+          "à dix heures ten o'clock"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "me couche go to bed",
+          "à dix heures ten o'clock"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-05",
+      "conceptId": "fr-y8-v2mb-concept-05",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "controlled_translation",
+      "prompt": "Rewrite the statement as a negative, preserving correct pronoun order.",
+      "stimulus": {
+        "text": "Nous nous levons tôt."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Nous ne nous levons pas tôt."
+        ],
+        "modelAnswer": "Nous ne nous levons pas tôt.",
+        "markPoints": [
+          "ne before reflexive nous",
+          "pas after levons",
+          "tôt retained"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "ne before reflexive nous",
+          "pas after levons",
+          "tôt retained"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-06",
+      "conceptId": "fr-y8-v2mb-concept-06",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "controlled_translation",
+      "prompt": "Translate the whole routine sentence accurately.",
+      "stimulus": {
+        "text": "I get dressed at seven and I wash at half past seven."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Je m'habille à sept heures et je me lave à sept heures et demie."
+        ],
+        "modelAnswer": "Je m'habille à sept heures et je me lave à sept heures et demie.",
+        "markPoints": [
+          "je m'habille reflexive",
+          "je me lave reflexive",
+          "sept heures et demie correct",
+          "et links both"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "je m'habille reflexive",
+          "je me lave reflexive",
+          "sept heures et demie correct",
+          "et links both"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-07",
+      "conceptId": "fr-y8-v2mb-concept-07",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "controlled_translation",
+      "prompt": "Rewrite this sentence as a reflexive 'you get up at eight', then explain the pronoun.",
+      "stimulus": {
+        "text": "Tu me lèves à huit heures. (Meaning required: You get up at eight.)"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Tu te lèves à huit heures."
+        ],
+        "modelAnswer": "Tu te lèves à huit heures.",
+        "markPoints": [
+          "te reflects the tu subject for se lever",
+          "lèves is the tu form",
+          "à huit heures is preserved"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "te reflects the tu subject for se lever",
+          "lèves is the tu form",
+          "à huit heures is preserved"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-08",
+      "conceptId": "fr-y8-v2mb-concept-08",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "controlled_translation",
+      "prompt": "Explain why 'ils se couchent' cannot be replaced by 'ils nous couchent' to keep the same meaning.",
+      "stimulus": {
+        "text": "ils se couchent / ils nous couchent"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "'se' marks that they go to bed themselves; 'nous' means us, a different object."
+        ],
+        "modelAnswer": "'se' marks that they go to bed themselves; 'nous' means us, a different object.",
+        "markPoints": [
+          "se refers back to ils",
+          "nous refers to us",
+          "meaning is changed"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "se refers back to ils",
+          "nous refers to us",
+          "meaning is changed"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-09",
+      "conceptId": "fr-y8-v2mb-concept-09",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "controlled_translation",
+      "prompt": "Change 'je me lave' into the passé composé and state the auxiliary verb.",
+      "stimulus": {
+        "text": "je me lave"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "je me suis lavé(e)"
+        ],
+        "modelAnswer": "je me suis lavé(e)",
+        "markPoints": [
+          "je me suis reflexive passé composé with être",
+          "lavé or lavée agrees with speaker gender",
+          "correct placement of me"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "je me suis reflexive passé composé with être",
+          "lavé or lavée agrees with speaker gender",
+          "correct placement of me"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-10",
+      "conceptId": "fr-y8-v2mb-concept-10",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "controlled_translation",
+      "prompt": "Write an accurate negative passé composé sentence based on this present statement.",
+      "stimulus": {
+        "text": "Je me réveille tôt."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Je ne me suis pas réveillé(e) tôt."
+        ],
+        "modelAnswer": "Je ne me suis pas réveillé(e) tôt.",
+        "markPoints": [
+          "ne ... pas surrounds suis",
+          "me remains before suis",
+          "réveillé(e) correct past participle"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "ne ... pas surrounds suis",
+          "me remains before suis",
+          "réveillé(e) correct past participle"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-11",
+      "conceptId": "fr-y8-v2mb-concept-11",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "controlled_translation",
+      "prompt": "A friend writes 'nous se lavons'. Correct it and justify your answer.",
+      "stimulus": {
+        "text": "nous se lavons"
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "nous nous lavons; the reflexive pronoun must match nous."
+        ],
+        "modelAnswer": "nous nous lavons; the reflexive pronoun must match nous.",
+        "markPoints": [
+          "reflexive nous not se",
+          "lavons first-person plural",
+          "explanation of agreement"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "reflexive nous not se",
+          "lavons first-person plural",
+          "explanation of agreement"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-12",
+      "conceptId": "fr-y8-v2mb-concept-12",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "controlled_translation",
+      "prompt": "Translate, linking two routine actions in chronological order.",
+      "stimulus": {
+        "text": "First I brush my teeth; then I go to bed."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "D'abord, je me brosse les dents, puis je me couche."
+        ],
+        "modelAnswer": "D'abord, je me brosse les dents, puis je me couche.",
+        "markPoints": [
+          "d'abord / puis sequence",
+          "je me brosse les dents",
+          "je me couche",
+          "clear complete meaning"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "d'abord / puis sequence",
+          "je me brosse les dents",
+          "je me couche",
+          "clear complete meaning"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-13",
+      "conceptId": "fr-y8-v2mb-concept-13",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "controlled_translation",
+      "prompt": "Translate the complete statement in the past tense.",
+      "stimulus": {
+        "text": "Yesterday she got up late."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Hier, elle s'est levée tard."
+        ],
+        "modelAnswer": "Hier, elle s'est levée tard.",
+        "markPoints": [
+          "hier past",
+          "s'est levée uses être",
+          "feminine singular participle levée"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "hier past",
+          "s'est levée uses être",
+          "feminine singular participle levée"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-14",
+      "conceptId": "fr-y8-v2mb-concept-14",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "controlled_translation",
+      "prompt": "Correct the negative word order and identify the subject and auxiliary.",
+      "stimulus": {
+        "text": "Ils se sont couchés pas tôt."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Ils ne se sont pas couchés tôt."
+        ],
+        "modelAnswer": "Ils ne se sont pas couchés tôt.",
+        "markPoints": [
+          "ne before se and pas after sont",
+          "sont reflexive passé composé auxiliary",
+          "couchés masculine/mixed plural or discuss agreement"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "ne before se and pas after sont",
+          "sont reflexive passé composé auxiliary",
+          "couchés masculine/mixed plural or discuss agreement"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-15",
+      "conceptId": "fr-y8-v2mb-concept-15",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "extended_response",
+      "prompt": "Write four connected sentences describing a morning routine; include two reflexive verbs, one negative and one accurate time.",
+      "stimulus": {
+        "text": "You may choose taught routine verbs and times."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Je me réveille à sept heures. Je me lève à sept heures et quart. Je ne me couche pas tard. Puis, je me lave."
+        ],
+        "modelAnswer": "Je me réveille à sept heures. Je me lève à sept heures et quart. Je ne me couche pas tard. Puis, je me lave.",
+        "markPoints": [
+          "two different correctly conjugated reflexive verbs",
+          "grammatically positioned negative",
+          "at least one valid French time",
+          "four coherent connected sentences"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "two different correctly conjugated reflexive verbs",
+          "grammatically positioned negative",
+          "at least one valid French time",
+          "four coherent connected sentences"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-16",
+      "conceptId": "fr-y8-v2mb-concept-16",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "extended_response",
+      "prompt": "Rewrite this paragraph entirely in the passé composé, preserving gender where indicated.",
+      "stimulus": {
+        "text": "Elle se lève tôt, se lave et se couche tard."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Elle s'est levée tôt, s'est lavée et s'est couchée tard."
+        ],
+        "modelAnswer": "Elle s'est levée tôt, s'est lavée et s'est couchée tard.",
+        "markPoints": [
+          "s'est levée using être with feminine agreement",
+          "s'est lavée",
+          "s'est couchée",
+          "coherent sequence and time expressions"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "s'est levée using être with feminine agreement",
+          "s'est lavée",
+          "s'est couchée",
+          "coherent sequence and time expressions"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-17",
+      "conceptId": "fr-y8-v2mb-concept-17",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "extended_response",
+      "prompt": "A pupil changes 'je ne me lève pas' to past as 'je ne suis me pas levé'. Correct and explain the entire pronoun and negative sequence.",
+      "stimulus": {
+        "text": "je ne suis me pas levé"
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Je ne me suis pas levé(e)."
+        ],
+        "modelAnswer": "Je ne me suis pas levé(e).",
+        "markPoints": [
+          "je ne me suis pas order",
+          "suis is auxiliary être",
+          "levé(e) past participle after pas",
+          "gender variant accepted"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "je ne me suis pas order",
+          "suis is auxiliary être",
+          "levé(e) past participle after pas",
+          "gender variant accepted"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-18",
+      "conceptId": "fr-y8-v2mb-concept-18",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "extended_response",
+      "prompt": "Compare the form and meaning of two sentences; translate both into English.",
+      "stimulus": {
+        "text": "Nous nous lavons avant l'école. / Nous nous sommes lavés avant l'école."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "We wash before school. / We washed (have washed) before school."
+        ],
+        "modelAnswer": "We wash before school. / We washed (have washed) before school.",
+        "markPoints": [
+          "lavons present versus sommes lavés passé composé",
+          "nous reflexive pronoun in both",
+          "present habitual versus completed past",
+          "accurate translation"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "lavons present versus sommes lavés passé composé",
+          "nous reflexive pronoun in both",
+          "present habitual versus completed past",
+          "accurate translation"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-19",
+      "conceptId": "fr-y8-v2mb-concept-19",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "extended_response",
+      "prompt": "Translate the full three-clause statement, showing past, present and future without mixing word order.",
+      "stimulus": {
+        "text": "Yesterday I got up at six. Today I do not get up early. Tomorrow I am going to get up at seven."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Hier, je me suis levé(e) à six heures. Aujourd'hui, je ne me lève pas tôt. Demain, je vais me lever à sept heures."
+        ],
+        "modelAnswer": "Hier, je me suis levé(e) à six heures. Aujourd'hui, je ne me lève pas tôt. Demain, je vais me lever à sept heures.",
+        "markPoints": [
+          "hier reflexive passé composé je me suis levé(e)",
+          "aujourd'hui ne me lève pas",
+          "demain je vais me lever near future",
+          "all time details preserved"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "hier reflexive passé composé je me suis levé(e)",
+          "aujourd'hui ne me lève pas",
+          "demain je vais me lever near future",
+          "all time details preserved"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2mb-20",
+      "conceptId": "fr-y8-v2mb-concept-20",
+      "topicId": "fr-y8-v2-mastery-reflexive-routines",
+      "topic": "Mastery — reflexive routines and meaning",
+      "format": "extended_response",
+      "prompt": "Explain and correct agreement and auxiliary errors in a female speaker's French sentence.",
+      "stimulus": {
+        "text": "Hier, je me suis lavé et ma soeur s'a couché tôt. (Both speakers female.)"
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Hier, je me suis lavée et ma sœur s'est couchée tôt."
+        ],
+        "modelAnswer": "Hier, je me suis lavée et ma sœur s'est couchée tôt.",
+        "markPoints": [
+          "je me suis lavée with feminine agreement in this context",
+          "ma soeur s'est (être), not s'a",
+          "couchée feminine singular agreement",
+          "hier and tôt preserved"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "normalizeApostrophes": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check reflexive pronoun, conjugation, and placement of ne ... pas and auxiliary.",
+        "steps": [
+          "je me suis lavée with feminine agreement in this context",
+          "ma soeur s'est (être), not s'a",
+          "couchée feminine singular agreement",
+          "hier and tôt preserved"
+        ],
+        "commonError": "Using se with je/nous or moving pas after the participle.",
+        "remember": "French accent omissions alone should not lose marks; grammar and meaning still matter."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    }
+  ]
+}

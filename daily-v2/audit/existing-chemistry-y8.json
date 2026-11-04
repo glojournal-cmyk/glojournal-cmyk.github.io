@@ -1,0 +1,1010 @@
+{
+  "source": "actual topic JSON",
+  "subject": "chemistry",
+  "rows": [
+    {
+      "subject": "chemistry",
+      "topicId": "chem-y8-acids-indicators-ph",
+      "n": 35,
+      "high": 17,
+      "depth3": 19,
+      "candidate": [
+        {
+          "id": "chem-y8-acids-indicators-ph-acid-apply",
+          "format": "mark_points",
+          "prompt": "An unknown has pH 4. State its category and one suitable indicator observation.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-acids-indicators-ph-acid-repair",
+          "format": "mark_points",
+          "prompt": "For Acid, a student says: ‘It always has pH 7.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-acids-indicators-ph-alkali-base-apply",
+          "format": "mark_points",
+          "prompt": "Magnesium oxide neutralises acid but is not very soluble. Explain why it is a base but not necessarily an alkali.",
+          "marks": 3,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-acids-indicators-ph-alkali-base-repair",
+          "format": "mark_points",
+          "prompt": "For Base and alkali, a student says: ‘Every base is insoluble and every alkali is an acid.’ Correct the statement and explain the ",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-acids-indicators-ph-universal-indicator-apply",
+          "format": "mark_points",
+          "prompt": "A solution gives purple universal indicator. What can and cannot be concluded?",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-acids-indicators-ph-universal-indicator-repair",
+          "format": "mark_points",
+          "prompt": "For Universal indicator, a student says: ‘It gives the exact concentration in mol/dm3.’ Correct the statement and explain the scie",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-acids-indicators-ph-ui-colours-apply",
+          "format": "mark_points",
+          "prompt": "A sample turns universal indicator green. State the pH category and approximate pH.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-acids-indicators-ph-ui-colours-repair",
+          "format": "mark_points",
+          "prompt": "For Universal-indicator colours, a student says: ‘Acid: blue; neutral: red; alkali: green.’ Correct the statement and explain the ",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-acids-indicators-ph-litmus-apply",
+          "format": "mark_points",
+          "prompt": "Blue litmus stays blue and red litmus turns blue. Interpret the evidence.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-acids-indicators-ph-litmus-repair",
+          "format": "mark_points",
+          "prompt": "For Litmus tests, a student says: ‘Acid turns red litmus blue and alkali turns blue litmus red.’ Correct the statement and explain",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-acids-indicators-ph-indicator-purpose-apply",
+          "format": "mark_points",
+          "prompt": "Explain why indicator colour alone cannot identify an unknown chemical.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-acids-indicators-ph-indicator-purpose-repair",
+          "format": "mark_points",
+          "prompt": "For Purpose of indicators, a student says: ‘They make every substance neutral.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-acids-indicators-ph-indicator-quality-apply",
+          "format": "mark_points",
+          "prompt": "Suggest two changes that make home-made indicator colour judgements more dependable.",
+          "marks": 3,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-acids-indicators-ph-indicator-quality-repair",
+          "format": "mark_points",
+          "prompt": "For Reliable indicator testing, a student says: ‘Use a different indicator volume every time.’ Correct the statement and explain t",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-acids-indicators-ph-boss",
+          "format": "extended_response",
+          "prompt": "Plan how to use red-cabbage indicator to place four unknown solutions into acidic, neutral or alkaline groups.",
+          "marks": 8,
+          "depth": 4
+        }
+      ],
+      "sha": "4b3a5f55d9fa10e8147d4d291110daa42922444a"
+    },
+    {
+      "subject": "chemistry",
+      "topicId": "chem-y8-chemical-analysis",
+      "n": 35,
+      "high": 17,
+      "depth3": 23,
+      "candidate": [
+        {
+          "id": "chem-y8-chemical-analysis-qual-quant-apply",
+          "format": "mark_points",
+          "prompt": "Classify 'solution turned blue' and 'temperature rose by 6 C'.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-chemical-analysis-qual-quant-repair",
+          "format": "mark_points",
+          "prompt": "For Qualitative and quantitative data, a student says: ‘Qualitative data are always numbers and quantitative data are colours.’ Co",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-chemical-analysis-filtration-apply",
+          "format": "mark_points",
+          "prompt": "Explain why filtration separates sand from salt solution but not dissolved salt.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-chemical-analysis-filtration-repair",
+          "format": "mark_points",
+          "prompt": "For Filtration, a student says: ‘A dissolved solid from its solution.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-chemical-analysis-crystallisation-apply",
+          "format": "mark_points",
+          "prompt": "Describe why some solvent is evaporated before leaving a solution to cool.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-chemical-analysis-crystallisation-repair",
+          "format": "mark_points",
+          "prompt": "For Crystallisation, a student says: ‘To collect an insoluble solid in filter paper.’ Correct the statement and explain the scienc",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-chemical-analysis-distillation-apply",
+          "format": "mark_points",
+          "prompt": "Explain how pure water can be collected from salt solution by distillation.",
+          "marks": 3,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-chemical-analysis-distillation-repair",
+          "format": "mark_points",
+          "prompt": "For Simple distillation, a student says: ‘Only the insoluble residue on filter paper.’ Correct the statement and explain the scien",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-chemical-analysis-chromatography-apply",
+          "format": "mark_points",
+          "prompt": "An ink produces three spots. What is the safest conclusion?",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-chemical-analysis-chromatography-repair",
+          "format": "mark_points",
+          "prompt": "For Chromatography, a student says: ‘Every substance travels exactly the same distance.’ Correct the statement and explain the sci",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-chemical-analysis-pure-point-apply",
+          "format": "mark_points",
+          "prompt": "Reference X melts at 63 C. A sample melts from 58-61 C. Evaluate whether it is pure X.",
+          "marks": 3,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-chemical-analysis-pure-point-repair",
+          "format": "mark_points",
+          "prompt": "For Purity and melting/boiling points, a student says: ‘Pure substances always melt over the widest range.’ Correct the statement ",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-chemical-analysis-unknown-evidence-apply",
+          "format": "mark_points",
+          "prompt": "Two substances have the same colour. Explain why another test is needed.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-chemical-analysis-unknown-evidence-repair",
+          "format": "mark_points",
+          "prompt": "For Identifying an unknown, a student says: ‘Use one vague observation only.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-chemical-analysis-observation-inference-apply",
+          "format": "mark_points",
+          "prompt": "Rewrite 'hydrogen bubbles appeared' as a careful observation and inference.",
+          "marks": 3,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-chemical-analysis-observation-inference-repair",
+          "format": "mark_points",
+          "prompt": "For Observation and inference, a student says: ‘An observation is a guess and an inference is a unit.’ Correct the statement and e",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-chemical-analysis-boss",
+          "format": "extended_response",
+          "prompt": "A mixture contains sand, salt and water. Describe how to recover dry sand, salt crystals and distilled water, explaining each sepa",
+          "marks": 8,
+          "depth": 5
+        }
+      ],
+      "sha": "07a99a670c7400e17728f8a3f6dcb397f6bb6353"
+    },
+    {
+      "subject": "chemistry",
+      "topicId": "chem-y8-conservation-equations",
+      "n": 35,
+      "high": 18,
+      "depth3": 19,
+      "candidate": [
+        {
+          "id": "chem-y8-conservation-equations-atom-rearrangement-apply",
+          "format": "mark_points",
+          "prompt": "Explain conservation of mass using particles.",
+          "marks": 3,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-conservation-equations-atom-rearrangement-repair",
+          "format": "mark_points",
+          "prompt": "For Atoms are rearranged, a student says: ‘Atoms vanish and new atoms appear.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-conservation-equations-balanced-meaning-apply",
+          "format": "mark_points",
+          "prompt": "Explain why H2 + O2 -> H2O is not balanced.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-conservation-equations-balanced-meaning-repair",
+          "format": "mark_points",
+          "prompt": "For Meaning of balanced, a student says: ‘It has the same number of formulae on both sides.’ Correct the statement and explain the",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-conservation-equations-coefficients-apply",
+          "format": "mark_points",
+          "prompt": "Correct the student's attempt H2 + O2 -> H2O2 for making water.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-conservation-equations-coefficients-repair",
+          "format": "mark_points",
+          "prompt": "For Coefficients, a student says: ‘Change the subscripts inside formulae.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-conservation-equations-closed-mass-apply",
+          "format": "calculation",
+          "prompt": "A sealed vessel contains 6.4 g and 3.6 g of reactants. Predict product mass.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-conservation-equations-closed-mass-repair",
+          "format": "mark_points",
+          "prompt": "For Mass in a closed system, a student says: ‘Mass always halves.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-conservation-equations-gas-escape-apply",
+          "format": "mark_points",
+          "prompt": "A carbonate reacts with acid in an open beaker and mass falls. Explain the observation.",
+          "marks": 3,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-conservation-equations-gas-escape-repair",
+          "format": "mark_points",
+          "prompt": "For Apparent mass loss, a student says: ‘Atoms are destroyed by the reaction.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-conservation-equations-oxygen-entry-apply",
+          "format": "mark_points",
+          "prompt": "Magnesium ribbon forms a heavier white solid when burned. Explain the mass increase.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-conservation-equations-oxygen-entry-repair",
+          "format": "mark_points",
+          "prompt": "For Apparent mass gain, a student says: ‘The metal creates extra atoms.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-conservation-equations-word-symbol-apply",
+          "format": "mark_points",
+          "prompt": "Write both forms for magnesium reacting with oxygen.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-conservation-equations-word-symbol-repair",
+          "format": "mark_points",
+          "prompt": "For Word and symbol equations, a student says: ‘A word equation is always balanced but a symbol equation never is.’ Correct the st",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-conservation-equations-boss",
+          "format": "extended_response",
+          "prompt": "A student reacts acid with carbonate first in an open beaker and then in a sealed safe container. Explain the different balance re",
+          "marks": 6,
+          "depth": 4
+        }
+      ],
+      "sha": "8ee0d6ea03f1dd83eaf40e6b33aaeab8425babff"
+    },
+    {
+      "subject": "chemistry",
+      "topicId": "chem-y8-formulae-valency",
+      "n": 35,
+      "high": 17,
+      "depth3": 21,
+      "candidate": [
+        {
+          "id": "chem-y8-formulae-valency-symbol-case-apply",
+          "format": "mark_points",
+          "prompt": "Explain why Co and CO cannot be interchanged.",
+          "marks": 3,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-formulae-valency-symbol-case-repair",
+          "format": "mark_points",
+          "prompt": "For Symbol capitalisation, a student says: ‘Every letter is capital.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-formulae-valency-element-compound-apply",
+          "format": "mark_points",
+          "prompt": "Classify O2 and CO2 as element or compound and justify both.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-formulae-valency-element-compound-repair",
+          "format": "mark_points",
+          "prompt": "For Element and compound, a student says: ‘A compound is any mixture and an element is always a gas.’ Correct the statement and ex",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-formulae-valency-formula-meaning-apply",
+          "format": "mark_points",
+          "prompt": "Interpret Al2O3 in words.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-formulae-valency-formula-meaning-repair",
+          "format": "mark_points",
+          "prompt": "For Meaning of a formula, a student says: ‘It gives the colour and state only.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-formulae-valency-subscripts-apply",
+          "format": "mark_points",
+          "prompt": "Compare CO and CO2 without naming them.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-formulae-valency-subscripts-repair",
+          "format": "mark_points",
+          "prompt": "For Subscripts, a student says: ‘There are two oxygen atoms.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-formulae-valency-valency-apply",
+          "format": "mark_points",
+          "prompt": "Explain why one Mg atom combines with two Cl atoms when their valencies are 2 and 1.",
+          "marks": 3,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-formulae-valency-valency-repair",
+          "format": "mark_points",
+          "prompt": "For Valency, a student says: ‘Valency is the atomic mass.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-formulae-valency-formula-ratio-apply",
+          "format": "mark_points",
+          "prompt": "Valencies give Ca2O2. Correct the formula and explain.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-formulae-valency-formula-ratio-repair",
+          "format": "mark_points",
+          "prompt": "For Smallest whole-number ratio, a student says: ‘Because every compound contains only two atoms.’ Correct the statement and expla",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-formulae-valency-groups-periods-apply",
+          "format": "mark_points",
+          "prompt": "Two elements are directly above and below each other. What table feature do they share?",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-formulae-valency-groups-periods-repair",
+          "format": "mark_points",
+          "prompt": "For Groups and periods, a student says: ‘Groups are rows and periods are columns.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-formulae-valency-metal-position-apply",
+          "format": "mark_points",
+          "prompt": "An unfamiliar element lies on the far left. State the more likely broad classification and one limitation of this inference.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-formulae-valency-metal-position-repair",
+          "format": "mark_points",
+          "prompt": "For Metals and non-metals in the table, a student says: ‘All metals are on the far right.’ Correct the statement and explain the s",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-formulae-valency-boss",
+          "format": "extended_response",
+          "prompt": "Explain a reliable method for writing the formula of aluminium oxide from valencies Al = 3 and O = 2.",
+          "marks": 6,
+          "depth": 4
+        }
+      ],
+      "sha": "d99d412c69f6d75ba13f4bacc77cec6b49d16d8c"
+    },
+    {
+      "subject": "chemistry",
+      "topicId": "chem-y8-metals-reactions",
+      "n": 35,
+      "high": 17,
+      "depth3": 23,
+      "candidate": [
+        {
+          "id": "chem-y8-metals-reactions-metal-properties-apply",
+          "format": "mark_points",
+          "prompt": "Explain why copper is suitable for electrical wires.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-metals-reactions-metal-properties-repair",
+          "format": "mark_points",
+          "prompt": "For Typical metal properties, a student says: ‘They are always brittle, dull and insulating.’ Correct the statement and explain th",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-metals-reactions-nonmetal-properties-apply",
+          "format": "mark_points",
+          "prompt": "A brittle solid does not conduct electricity. Give a cautious classification and explain the word cautious.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-metals-reactions-nonmetal-properties-repair",
+          "format": "mark_points",
+          "prompt": "For Typical non-metal properties, a student says: ‘They are always shiny conductors.’ Correct the statement and explain the scienc",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-metals-reactions-metal-acid-apply",
+          "format": "mark_points",
+          "prompt": "Name the products when zinc reacts with hydrochloric acid.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-metals-reactions-metal-acid-repair",
+          "format": "mark_points",
+          "prompt": "For Metal plus acid, a student says: ‘metal + acid -> metal oxide + water’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-metals-reactions-metal-oxygen-apply",
+          "format": "mark_points",
+          "prompt": "Write the word equation for magnesium burning in oxygen.",
+          "marks": 1,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-metals-reactions-metal-oxygen-repair",
+          "format": "mark_points",
+          "prompt": "For Metal plus oxygen, a student says: ‘A metal chloride forms.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-metals-reactions-metal-water-apply",
+          "format": "mark_points",
+          "prompt": "Sodium reacts with water. State the two product types in the model.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-metals-reactions-metal-water-repair",
+          "format": "mark_points",
+          "prompt": "For Reactive metal plus water, a student says: ‘metal + water -> metal chloride’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-metals-reactions-observations-apply",
+          "format": "mark_points",
+          "prompt": "Separate observation from inference for 'bubbles show hydrogen'.",
+          "marks": 3,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-metals-reactions-observations-repair",
+          "format": "mark_points",
+          "prompt": "For Reaction observations, a student says: ‘The number of atoms becomes visible.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-metals-reactions-compare-rate-apply",
+          "format": "mark_points",
+          "prompt": "Choose a better DV than 'amount of fizzing' and explain why.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-metals-reactions-compare-rate-repair",
+          "format": "mark_points",
+          "prompt": "For Comparing reaction rate, a student says: ‘Count bubbles of different sizes once.’ Correct the statement and explain the scienc",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-metals-reactions-controlled-metal-test-apply",
+          "format": "mark_points",
+          "prompt": "Explain why equal mass alone may not make metal samples comparable.",
+          "marks": 3,
+          "depth": 5
+        },
+        {
+          "id": "chem-y8-metals-reactions-controlled-metal-test-repair",
+          "format": "mark_points",
+          "prompt": "For Controls in a metal test, a student says: ‘Change acid concentration with each metal.’ Correct the statement and explain the s",
+          "marks": 2,
+          "depth": 5
+        },
+        {
+          "id": "chem-y8-metals-reactions-boss",
+          "format": "extended_response",
+          "prompt": "Design an investigation that ranks magnesium, zinc and iron by their reaction with dilute hydrochloric acid.",
+          "marks": 8,
+          "depth": 4
+        }
+      ],
+      "sha": "d3ac56c685d55915fb244e7d3246f1eb9ace7269"
+    },
+    {
+      "subject": "chemistry",
+      "topicId": "chem-y8-neutralisation-salts",
+      "n": 35,
+      "high": 17,
+      "depth3": 19,
+      "candidate": [
+        {
+          "id": "chem-y8-neutralisation-salts-neutralisation-pattern-apply",
+          "format": "mark_points",
+          "prompt": "Complete and explain the products when nitric acid reacts with copper oxide.",
+          "marks": 3,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-neutralisation-pattern-repair",
+          "format": "mark_points",
+          "prompt": "For Neutralisation pattern, a student says: ‘acid + base -> hydrogen only’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-alkali-pattern-apply",
+          "format": "mark_points",
+          "prompt": "Explain why acid plus alkali is called neutralisation.",
+          "marks": 3,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-alkali-pattern-repair",
+          "format": "mark_points",
+          "prompt": "For Acid plus alkali, a student says: ‘Hydrogen and oxygen form.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-carbonate-pattern-apply",
+          "format": "mark_points",
+          "prompt": "Calcium carbonate is added to hydrochloric acid. Name all products.",
+          "marks": 3,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-carbonate-pattern-repair",
+          "format": "mark_points",
+          "prompt": "For Acid plus carbonate, a student says: ‘acid + carbonate -> salt + hydrogen’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-fizzing-apply",
+          "format": "mark_points",
+          "prompt": "A student sees fizzing after adding acid to a powder. What is supported and what is not yet proved?",
+          "marks": 3,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-fizzing-repair",
+          "format": "mark_points",
+          "prompt": "For Effervescence, a student says: ‘The acid boils at room temperature.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-salt-chloride-apply",
+          "format": "mark_points",
+          "prompt": "Name the salt made from hydrochloric acid and sodium hydroxide.",
+          "marks": 3,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-salt-chloride-repair",
+          "format": "mark_points",
+          "prompt": "For Chloride salts, a student says: ‘sulfate’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-salt-sulfate-apply",
+          "format": "mark_points",
+          "prompt": "Name the salt made when sulfuric acid reacts with magnesium oxide.",
+          "marks": 3,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-salt-sulfate-repair",
+          "format": "mark_points",
+          "prompt": "For Sulfate salts, a student says: ‘chloride’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-salt-nitrate-apply",
+          "format": "mark_points",
+          "prompt": "Name the salt made from nitric acid and calcium carbonate.",
+          "marks": 3,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-salt-nitrate-repair",
+          "format": "mark_points",
+          "prompt": "For Nitrate salts, a student says: ‘chloride’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-excess-ph-apply",
+          "format": "mark_points",
+          "prompt": "Too much alkali is added to a fixed acid volume. Predict the final pH category and justify it.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-excess-ph-repair",
+          "format": "mark_points",
+          "prompt": "For Excess reactant and final pH, a student says: ‘Neutralisation can never produce water.’ Correct the statement and explain the ",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-neutralisation-salts-boss",
+          "format": "extended_response",
+          "prompt": "A student must make a neutral solution using dilute acid and alkali. Describe a controlled method and how the student knows when t",
+          "marks": 7,
+          "depth": 4
+        }
+      ],
+      "sha": "fe9f86afa0fe199eca67bd78340bea3eafd94310"
+    },
+    {
+      "subject": "chemistry",
+      "topicId": "chem-y8-reactivity-displacement-rusting",
+      "n": 35,
+      "high": 17,
+      "depth3": 24,
+      "candidate": [
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-series-purpose-apply",
+          "format": "mark_points",
+          "prompt": "Explain how the series helps predict a reaction between a metal and a metal compound.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-series-purpose-repair",
+          "format": "mark_points",
+          "prompt": "For Purpose of the reactivity series, a student says: ‘It orders metals only by density.’ Correct the statement and explain the sc",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-reference-order-apply",
+          "format": "mark_points",
+          "prompt": "Use the order to predict which of these metals reacts fastest with the same dilute acid.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-reference-order-repair",
+          "format": "mark_points",
+          "prompt": "For Reference reactivity order, a student says: ‘copper > iron > zinc > magnesium’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-displacement-rule-apply",
+          "format": "mark_points",
+          "prompt": "Predict the result of iron placed in copper sulfate and explain.",
+          "marks": 3,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-displacement-rule-repair",
+          "format": "mark_points",
+          "prompt": "For Displacement rule, a student says: ‘When the added metal is less reactive.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-no-displacement-apply",
+          "format": "mark_points",
+          "prompt": "State what should be recorded when copper is added to magnesium sulfate.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-no-displacement-repair",
+          "format": "mark_points",
+          "prompt": "For No-displacement prediction, a student says: ‘Copper has too many letters.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-rust-requirements-apply",
+          "format": "mark_points",
+          "prompt": "Explain why a nail in boiled water under an oil layer rusts very little.",
+          "marks": 3,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-rust-requirements-repair",
+          "format": "mark_points",
+          "prompt": "For Conditions for rusting, a student says: ‘Only bright light is required.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-barrier-apply",
+          "format": "mark_points",
+          "prompt": "Explain why a scratched paint coating may fail.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-barrier-repair",
+          "format": "mark_points",
+          "prompt": "For Barrier protection, a student says: ‘They remove all iron atoms.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-galvanising-apply",
+          "format": "mark_points",
+          "prompt": "Why may galvanised iron remain protected after a small scratch?",
+          "marks": 2,
+          "depth": 5
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-galvanising-repair",
+          "format": "mark_points",
+          "prompt": "For Galvanising, a student says: ‘Zinc is less reactive and therefore attracts rust onto iron.’ Correct the statement and explain ",
+          "marks": 2,
+          "depth": 5
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-oxidation-mass-apply",
+          "format": "calculation",
+          "prompt": "A 2.4 g metal sample forms 4.0 g oxide. Calculate oxygen mass added and explain.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-oxidation-mass-repair",
+          "format": "mark_points",
+          "prompt": "For Oxidation and mass gain, a student says: ‘The metal creates atoms from nothing.’ Correct the statement and explain the science",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-reactivity-displacement-rusting-boss",
+          "format": "extended_response",
+          "prompt": "Explain why galvanising is often more protective than painting when a coating is scratched.",
+          "marks": 6,
+          "depth": 4
+        }
+      ],
+      "sha": "ce7903f104f364b3c08f50a83176d698234af778"
+    },
+    {
+      "subject": "chemistry",
+      "topicId": "chem-y8-working-scientifically",
+      "n": 35,
+      "high": 17,
+      "depth3": 21,
+      "candidate": [
+        {
+          "id": "chem-y8-working-scientifically-hazard-risk-apply",
+          "format": "mark_points",
+          "prompt": "A bottle is labelled corrosive. Explain one hazard, one risk and one control measure.",
+          "marks": 3,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-working-scientifically-hazard-risk-repair",
+          "format": "mark_points",
+          "prompt": "For Hazard and risk, a student says: ‘A hazard is the chance of harm and risk is the apparatus used.’ Correct the statement and ex",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-working-scientifically-variables-apply",
+          "format": "mark_points",
+          "prompt": "In a test of magnesium length against reaction time, identify the IV, DV and two controls.",
+          "marks": 3,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-working-scientifically-variables-repair",
+          "format": "mark_points",
+          "prompt": "For Experimental variables, a student says: ‘All variables are deliberately changed.’ Correct the statement and explain the scienc",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-working-scientifically-fair-test-apply",
+          "format": "mark_points",
+          "prompt": "Explain why using different acid volumes would weaken a test of acid concentration.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-working-scientifically-fair-test-repair",
+          "format": "mark_points",
+          "prompt": "For Fair test, a student says: ‘Every factor is changed by the same amount.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-working-scientifically-accuracy-precision-apply",
+          "format": "mark_points",
+          "prompt": "A set of readings is tightly grouped but all are 2.0 units above a reference value. Describe the precision and accuracy.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-working-scientifically-accuracy-precision-repair",
+          "format": "mark_points",
+          "prompt": "For Accuracy and precision, a student says: ‘Accuracy means many decimal places and precision means a correct unit.’ Correct the s",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-working-scientifically-repeatability-apply",
+          "format": "mark_points",
+          "prompt": "Two groups use the same written method and obtain similar means. What quality of evidence has improved?",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-working-scientifically-repeatability-repair",
+          "format": "mark_points",
+          "prompt": "For Repeatability and reproducibility, a student says: ‘Repeatability means one reading and reproducibility means two readings.’ C",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-working-scientifically-random-systematic-apply",
+          "format": "mark_points",
+          "prompt": "A balance reads 0.50 g before anything is placed on it. Identify the error and a suitable correction.",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-working-scientifically-random-systematic-repair",
+          "format": "mark_points",
+          "prompt": "For Random and systematic error, a student says: ‘Random error always increases every value by the same amount.’ Correct the state",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-working-scientifically-graphs-apply",
+          "format": "mark_points",
+          "prompt": "A student changes temperature and measures reaction time. State both axis labels, including suitable units.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-working-scientifically-graphs-repair",
+          "format": "mark_points",
+          "prompt": "For Tables and graphs, a student says: ‘Both belong on the x-axis.’ Correct the statement and explain the science.",
+          "marks": 2,
+          "depth": 3
+        },
+        {
+          "id": "chem-y8-working-scientifically-conclusion-evaluation-apply",
+          "format": "mark_points",
+          "prompt": "Write the structure of a high-quality evaluation point.",
+          "marks": 3,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-working-scientifically-conclusion-evaluation-repair",
+          "format": "mark_points",
+          "prompt": "For Conclusion and evaluation, a student says: ‘A conclusion lists equipment while an evaluation repeats the aim.’ Correct the sta",
+          "marks": 2,
+          "depth": 4
+        },
+        {
+          "id": "chem-y8-working-scientifically-boss",
+          "format": "extended_response",
+          "prompt": "A reaction investigation produced one anomalous value and a wide spread between repeats. Evaluate the evidence and propose a stron",
+          "marks": 7,
+          "depth": 4
+        }
+      ],
+      "sha": "19470d59d12647a16bf856016c3382c7bff24a5e"
+    }
+  ]
+}
