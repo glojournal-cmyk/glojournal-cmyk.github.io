@@ -411,12 +411,19 @@ test('real locked Physics 5/10 continuation can load five new distinct concepts 
 test('11 Nov 4 and later 10-task History resists asynchronous legacy shell reinsertion',()=>{
  const code=fs.readFileSync('assets/index-BLVOhKhN.js','utf8');
  const first=code.indexOf('function compactDailyTasks('),last=code.indexOf('function sealDailyLog(',first);
- const callbacks=[];
- const store={subscribe:fn=>{callbacks.push(fn)}};
+ const callbacks=[],writes=[];
+ const store={subscribe:fn=>{callbacks.push(fn)},setState:patch=>{writes.push(patch)}};
  const api=new Function('mergeDailyRecordRow','todayKey','store',
   code.slice(first,last)+';return {archiveZeroCreditLegacyDailyV2History,preventLateLegacyDailyV2Rows,writeDailyLog};')(
     (old,row)=>({...old,...row,tasks:[...(old?.tasks||[]),...row.tasks.filter(t=>
      !(old?.tasks||[]).some(x=>x.id===t.id))]}),()=> '2026-11-04',store);
+ // The observer is intentionally installed AFTER sealDailyLog, outside
+ // the pure writer snippet compiled by older Daily/Recovery regression QA.
+ const subscriberStart=code.indexOf('let repairingLateLegacyDaily=false;');
+ const subscriberEnd=code.indexOf('// Repair historical Vocab omissions',subscriberStart);
+ assert.ok(subscriberStart>last&&subscriberEnd>subscriberStart);
+ new Function('store','preventLateLegacyDailyV2Rows',
+  code.slice(subscriberStart,subscriberEnd))(store,api.preventLateLegacyDailyV2Rows);
  assert.equal(callbacks.length,1);
  const date='2026-11-04';
  const real=['latin-vocab','french-vocab','latin-standard','y8-standard-a',
@@ -429,6 +436,10 @@ test('11 Nov 4 and later 10-task History resists asynchronous legacy shell reins
  const restored=api.preventLateLegacyDailyV2Rows(delayed,baseline);
  assert.deepEqual(restored,baseline,
   'a greeting-triggered zero-credit V1 write must not alter any valid dated history');
+ callbacks[0]({dailyLog:delayed},{dailyLog:baseline});
+ assert.equal(writes.length,1,'late iPad subscriber must immediately restore canonical row');
+ assert.deepEqual(writes[0].dailyLog,baseline);
+
  const firstSave=api.writeDailyLog(baseline,date,[...legacy,...real]);
  assert.equal(firstSave[date].total,10);
  assert.deepEqual(firstSave[date].tasks,real);
