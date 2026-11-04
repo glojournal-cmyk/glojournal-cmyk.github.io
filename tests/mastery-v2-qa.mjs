@@ -10,6 +10,17 @@ const catalog=subjects.flatMap(subject=>Array.from({length:4},(_,i)=>({
   subject,year:8,topicId:`${subject}-y8-t${i+1}`,title:`Topic ${i+1}`,status:'enabled',enabled:40,
   formats:{typed_short:20}
 }))).concat(subjects.map(subject=>({subject,year:9,topicId:`${subject}-y9-t1`,title:'Year 9',status:'enabled',enabled:40})));
+// Mastery requires audited 20+ unique concepts. Keep the synthetic
+// curriculum entries for Standard/legacy tests, but add source-certified
+// Mastery candidates instead of weakening the production guard.
+catalog.push(...[
+ ['latin','la-y8-nouns-and-dictionary-entries'],
+ ['latin','la-y8-nouns-with-genitives'],
+ ['french','fr-y8-s02-weather-activities-and-opinions'],
+ ['biology','bio-y8-food-tests'],
+ ['chemistry','chem-y8-working-scientifically']
+].map(([subject,topicId])=>({subject,year:8,topicId,title:topicId,
+  status:'enabled',enabled:80,formats:{typed_short:30}})));
 const get=(subject,year)=>catalog.filter(t=>t.subject===subject&&t.year===year);
 
 test('legacy coverage and mastered status survive; a new round advances separately',()=>{
