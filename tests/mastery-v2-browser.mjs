@@ -22,7 +22,11 @@ for(const engine of [chromium,webkit]){
   assert.equal(before.today,'2026-10-19');assert.equal(before.tasks.length,10);
   assert.equal(before.tasks.reduce((sum,t)=>sum+t.target,0),165);
   const standards=before.tasks.filter(t=>t.id.startsWith('y8-standard-'));
-  assert.equal(standards.length,2);assert.equal(standards[0].subject,standards[1].subject);
+  // Two ten-correct Standard slots need two independent, answerable topics.
+  // When one science subject has a single 19-concept bank, the second slot
+  // legitimately falls back to a different subject.
+  assert.equal(standards.length,2);
+  assert.ok(standards.every(t=>t.subject&&t.topic&&t.target===10));
   assert.notEqual(standards[0].topic,standards[1].topic);
   await page.reload({waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>{
