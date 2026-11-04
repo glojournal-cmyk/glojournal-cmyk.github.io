@@ -45,6 +45,9 @@ jobs:
         with:
           node-version: 22
       - run: npm install --no-save playwright
-      - run: npx playwright install --with-deps chromium webkit
+      # The OS dependency apt transaction exceeded the 40-minute cap twice; install
+      # browser binaries directly on the pinned Ubuntu runner, and let real browser
+      # assertions report any missing runtime libraries instead of silently skipping QA.
+      - run: npx playwright install chromium webkit
       - name: Check real front page and reload in Chromium and iPad WebKit
         run: node tests/latin-daily-home-replay-browser-20261021.mjs
