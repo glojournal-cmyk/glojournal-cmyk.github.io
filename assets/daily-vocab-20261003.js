@@ -209,7 +209,17 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
   // After the initial 30-word set, the remaining-credit session need not
   // repeat three Year 9 questions already answered on this date. Use the
   // number of fresh Year 9 concepts still available, then fill from Year 7–8.
-  const year9Target=Math.min(size,3,rows.filter(r=>r.year9&&!credited.has(r.concept)&&(!r.wrong||r.due)).length);
+  // Limit Year 9 exposure ACROSS all resumed sessions today, not three per
+  // newly opened section. Both wrong and right attempts occupy today's quota;
+  // they do not receive fake credit and wrong words retain their due schedule.
+  const seenYear9Today=new Set();
+  for(const questionId of Object.keys(todayRow.items||{})){
+    for(const concept of conceptsFor(questionId))
+      if(concept.includes('-y9-vocab-'))seenYear9Today.add(concept);
+  }
+  const year9Remaining=Math.max(0,3-seenYear9Today.size);
+  const year9Target=Math.min(size,year9Remaining,rows.filter(r=>
+    r.year9&&!credited.has(r.concept)&&(!r.wrong||r.due)).length);
   const selected=[],used=new Set();
   // Only repeat a successfully recalled word when the remaining pool in that
   // year is insufficient to fill the quota. Unanswered and wrong words lead.

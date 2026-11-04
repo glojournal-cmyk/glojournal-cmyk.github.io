@@ -1346,14 +1346,381 @@
       },
       "preview": false,
       "ordinary": true
+    },
+    {
+      "id": "phys-y8-energy-stores-transfers-kinetic-faster",
+      "conceptId": "phys-y8-energy-stores-transfers-concept-kinetic-faster",
+      "topicId": "phys-y8-energy-stores-transfers",
+      "topic": "Energy stores, transfers and dissipation",
+      "format": "mc_single",
+      "prompt": "Two identical bicycles are moving. Which has the greater kinetic energy store?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "The faster-moving bicycle.",
+        "The slower-moving bicycle.",
+        "Both always have the same kinetic energy.",
+        "Neither has a kinetic energy store."
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "The faster-moving bicycle."
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "For objects of equal mass, greater speed means a larger kinetic energy store.",
+        "steps": [
+          "For objects of equal mass, greater speed means a larger kinetic energy store."
+        ],
+        "commonError": "A moving object cannot have kinetic energy.",
+        "remember": "For objects of equal mass, greater speed means a larger kinetic energy store."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose the one correct option."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y8-energy-stores-transfers-raising-backpack",
+      "conceptId": "phys-y8-energy-stores-transfers-concept-raising-backpack",
+      "topicId": "phys-y8-energy-stores-transfers",
+      "topic": "Energy stores, transfers and dissipation",
+      "format": "mc_single",
+      "prompt": "A backpack is lifted from the floor onto a high shelf. Which energy store of the backpack–Earth system increases?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "Gravitational potential energy store.",
+        "Kinetic energy store, even after it stops.",
+        "Nuclear energy store.",
+        "Electrostatic energy store."
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "Gravitational potential energy store."
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Raising an object against gravity increases its gravitational potential energy store.",
+        "steps": [
+          "Raising an object against gravity increases its gravitational potential energy store."
+        ],
+        "commonError": "Its kinetic store must increase after it has stopped.",
+        "remember": "Raising an object against gravity increases its gravitational potential energy store."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose the one correct option."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y8-energy-stores-transfers-hot-water-cold-spoon",
+      "conceptId": "phys-y8-energy-stores-transfers-concept-hot-water-cold-spoon",
+      "topicId": "phys-y8-energy-stores-transfers",
+      "topic": "Energy stores, transfers and dissipation",
+      "format": "mc_single",
+      "prompt": "A cool metal spoon is placed in hot water. In which direction is energy initially transferred by heating?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "From the hot water to the cooler spoon.",
+        "From the cooler spoon to the hot water.",
+        "From both objects into nothing.",
+        "There is no energy transfer until the water boils."
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "From the hot water to the cooler spoon."
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Net energy transfer by heating is from a higher-temperature object to a lower-temperature object.",
+        "steps": [
+          "Net energy transfer by heating is from a higher-temperature object to a lower-temperature object."
+        ],
+        "commonError": "Thermal energy naturally transfers from cold to hot without work.",
+        "remember": "Net energy transfer by heating is from a higher-temperature object to a lower-temperature object."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose the one correct option."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y8-energy-stores-transfers-sunlight-vacuum",
+      "conceptId": "phys-y8-energy-stores-transfers-concept-sunlight-vacuum",
+      "topicId": "phys-y8-energy-stores-transfers",
+      "topic": "Energy stores, transfers and dissipation",
+      "format": "mc_single",
+      "prompt": "Energy from the Sun crosses mostly empty space before warming Earth. Which pathway makes this possible?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "Transfer by radiation.",
+        "Transfer by conduction through air all the way from the Sun.",
+        "Transfer mechanically by a solid rod.",
+        "Transfer electrically through a wire from the Sun."
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "Transfer by radiation."
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Radiation transfers energy across a vacuum; conduction and convection require matter.",
+        "steps": [
+          "Radiation transfers energy across a vacuum; conduction and convection require matter."
+        ],
+        "commonError": "Radiation cannot carry energy through empty space.",
+        "remember": "Radiation transfers energy across a vacuum; conduction and convection require matter."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose the one correct option."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y8-energy-stores-transfers-lamp-electrical-pathway",
+      "conceptId": "phys-y8-energy-stores-transfers-concept-lamp-electrical-pathway",
+      "topicId": "phys-y8-energy-stores-transfers",
+      "topic": "Energy stores, transfers and dissipation",
+      "format": "mc_single",
+      "prompt": "A battery is connected to a lamp with wires. Which pathway transfers energy from the battery to the lamp?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "Electrically, as current flows around the circuit.",
+        "Mechanically, because a hand touches the switch.",
+        "By heating through the air only.",
+        "By gravitational attraction between the bulbs."
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "Electrically, as current flows around the circuit."
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "A current carries energy electrically from the battery's chemical store to the lamp, where energy is transferred by radiation and heating.",
+        "steps": [
+          "A current carries energy electrically from the battery's chemical store to the lamp, where energy is transferred by radiation and heating."
+        ],
+        "commonError": "Electricity is an energy store rather than a transfer pathway.",
+        "remember": "A current carries energy electrically from the battery's chemical store to the lamp, where energy is transferred by radiation and heating."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose the one correct option."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y8-energy-stores-transfers-thermal-insulation",
+      "conceptId": "phys-y8-energy-stores-transfers-concept-thermal-insulation",
+      "topicId": "phys-y8-energy-stores-transfers",
+      "topic": "Energy stores, transfers and dissipation",
+      "format": "mc_single",
+      "prompt": "Why can adding insulating material around a hot-water tank reduce energy waste?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "It slows unwanted energy transfer by heating to the surroundings.",
+        "It creates new energy inside the tank.",
+        "It stops every kind of energy transfer permanently.",
+        "It turns thermal energy into mass."
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "It slows unwanted energy transfer by heating to the surroundings."
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Insulation reduces the rate of unwanted heating transfers; it does not create energy.",
+        "steps": [
+          "Insulation reduces the rate of unwanted heating transfers; it does not create energy."
+        ],
+        "commonError": "Insulation creates energy or prevents any change.",
+        "remember": "Insulation reduces the rate of unwanted heating transfers; it does not create energy."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose the one correct option."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y8-energy-stores-transfers-brake-friction",
+      "conceptId": "phys-y8-energy-stores-transfers-concept-brake-friction",
+      "topicId": "phys-y8-energy-stores-transfers",
+      "topic": "Energy stores, transfers and dissipation",
+      "format": "mc_single",
+      "prompt": "A bicycle stops when its brakes rub against the wheel. What happens to most of its original kinetic energy?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "It transfers mainly to thermal energy stores of the brakes, wheel and surroundings.",
+        "It disappears from the universe.",
+        "It turns entirely into gravitational potential energy.",
+        "It is stored only in the bicycle lights."
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "It transfers mainly to thermal energy stores of the brakes, wheel and surroundings."
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Work done against friction reduces the bicycle's kinetic store and increases thermal stores; total energy is conserved.",
+        "steps": [
+          "Work done against friction reduces the bicycle's kinetic store and increases thermal stores; total energy is conserved."
+        ],
+        "commonError": "Energy is destroyed when friction acts.",
+        "remember": "Work done against friction reduces the bicycle's kinetic store and increases thermal stores; total energy is conserved."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose the one correct option."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y8-energy-stores-transfers-efficiency-40-percent",
+      "conceptId": "phys-y8-energy-stores-transfers-concept-efficiency-40-percent",
+      "topicId": "phys-y8-energy-stores-transfers",
+      "topic": "Energy stores, transfers and dissipation",
+      "format": "mc_single",
+      "prompt": "A device receives 100 J of energy and transfers 40 J usefully. What is its energy efficiency?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "40%",
+        "60%",
+        "140%",
+        "250%"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "40%"
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Efficiency = useful output / total input × 100% = 40 / 100 × 100% = 40%.",
+        "steps": [
+          "Efficiency = useful output / total input × 100% = 40 / 100 × 100% = 40%."
+        ],
+        "commonError": "Using wasted output rather than useful output to calculate efficiency.",
+        "remember": "Efficiency = useful output / total input × 100% = 40 / 100 × 100% = 40%."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose the one correct option."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y8-energy-stores-transfers-sankey-width",
+      "conceptId": "phys-y8-energy-stores-transfers-concept-sankey-width",
+      "topicId": "phys-y8-energy-stores-transfers",
+      "topic": "Energy stores, transfers and dissipation",
+      "format": "mc_single",
+      "prompt": "In a Sankey diagram showing energy transfers, what does the width of each arrow represent?",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": [
+        "The amount of energy transferred.",
+        "The time taken by the device.",
+        "The colour of the energy store.",
+        "How loud the device is."
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "The amount of energy transferred."
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Sankey arrow widths are drawn proportional to the energy they represent, so input width equals the sum of output widths.",
+        "steps": [
+          "Sankey arrow widths are drawn proportional to the energy they represent, so input width equals the sum of output widths."
+        ],
+        "commonError": "Arrow width is an arbitrary decoration.",
+        "remember": "Sankey arrow widths are drawn proportional to the energy they represent, so input width equals the sum of output widths."
+      },
+      "task": {
+        "label": "CHOOSE THE ANSWER",
+        "instruction": "Choose the one correct option."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "phys-y8-energy-stores-transfers-joule-unit",
+      "conceptId": "phys-y8-energy-stores-transfers-concept-joule-unit",
+      "topicId": "phys-y8-energy-stores-transfers",
+      "topic": "Energy stores, transfers and dissipation",
+      "format": "typed_short",
+      "prompt": "What is the SI unit used to measure energy transferred or stored? Write its name or symbol.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "equivalent",
+        "accepted": [
+          "joule",
+          "joules",
+          "J"
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Energy is measured in joules, symbol J.",
+        "steps": [
+          "Energy is measured in joules, symbol J."
+        ],
+        "commonError": "Watts (W) measure power, not energy.",
+        "remember": "Energy is measured in joules, symbol J."
+      },
+      "task": {
+        "label": "WRITE A SHORT ANSWER",
+        "instruction": "Write the correct scientific unit."
+      },
+      "preview": false,
+      "ordinary": true
     }
   ],
-  "enabled": 35,
+  "enabled": 45,
   "preview": 0,
   "disabled": 0,
   "formats": {
-    "mc_single": 8,
-    "typed_short": 8,
+    "mc_single": 17,
+    "typed_short": 9,
     "mark_points": 15,
     "calculation": 2,
     "matching": 1,

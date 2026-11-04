@@ -36,13 +36,19 @@ jobs:
       - name: Check no duplicate, borrowed or unmarked Latin credit
         run: node --test tests/daily-answer-replay-20261021.test.mjs
   webkit-home:
-    runs-on: ubuntu-latest
+    # Official Playwright image includes Chromium, WebKit and their Linux libraries.
+    # Pin image and npm package to the same Playwright version.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install --no-save playwright
-      - run: npx playwright install --with-deps chromium webkit
+      - run: npm install --no-save playwright@1.64.1
+      - name: Verify Chromium and WebKit are preinstalled and usable
+        run: node -e "const {chromium, webkit} = require('playwright'); require('fs').accessSync(chromium.executablePath()); require('fs').accessSync(webkit.executablePath());"
       - name: Check real front page and reload in Chromium and iPad WebKit
         run: node tests/latin-daily-home-replay-browser-20261021.mjs

@@ -15,6 +15,17 @@ const catalog=subjects.flatMap(s=>Array.from({length:5},(_,i)=>({
   subject:s,year:9,topicId:s+'-y9-new',title:'New topic',
   status:'enabled',enabled:40,formats:{typed_short:20}
 })));
+// Mastery allocation now requires actual source-verified concept capacity;
+// retain the old synthetic t0...t4 to test Standard/retention, but provide
+// source-verified candidates for the two formal 20-question Mastery slots.
+for(const id of [
+ 'la-y8-nouns-and-dictionary-entries','la-y8-nouns-with-genitives',
+ 'fr-y8-s02-weather-activities-and-opinions','fr-y8-s03-home-family-and-descriptions',
+ 'bio-y8-food-tests']){
+ const subject=id.startsWith('la-')?'latin':id.startsWith('fr-')?'french':'biology';
+ catalog.push({subject,year:8,topicId:id,title:id,status:'enabled',
+   enabled:80,formats:{typed_short:30}});
+}
 const get=(subject,year)=>catalog.filter(t=>t.subject===subject&&t.year===year);
 function state(date=day){
   return {today:date,year:9,daily:[],dailyLog:{},topicStats:{},
@@ -114,7 +125,7 @@ test('Oct 23 dated Record becomes the original eight completions without losing 
   const end=js.indexOf('function sealDailyLog(',start);
   assert.ok(start>0&&end>start);
   const merge=(left,right)=>right;
-  const write=new Function('mergeDailyRecordRow',js.slice(start,end)+';return writeDailyLog;')(merge);
+  const write=new Function('mergeDailyRecordRow','store',js.slice(start,end)+';return writeDailyLog;')(merge,{subscribe:()=>{}});
   const first=write(input.dailyLog,day,repaired);
   const row=first[day];
   assert.equal(row.total,10);

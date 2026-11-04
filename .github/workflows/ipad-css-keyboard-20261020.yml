@@ -11,8 +11,9 @@ permissions:
   contents: read
 jobs:
   no-jitter:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # Use a stable runner for Chromium/WebKit dependency setup.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

@@ -12,6 +12,15 @@ const catalog=subjects.flatMap(s=>Array.from({length:3},(_,i)=>({
 }))).concat(subjects.map(s=>({
   subject:s,year:9,topicId:s+'-y9-new',title:'New topic',status:'enabled',enabled:40,
 })));
+// The new 20-distinct-concept gate excludes synthetic t0-t2 records from
+// Mastery; retain them for Standard and add audited-source candidates.
+for(const [id,subject] of [
+  ['la-y8-nouns-and-dictionary-entries','latin'],
+  ['la-y8-nouns-with-genitives','latin'],
+  ['fr-y8-s02-weather-activities-and-opinions','french'],
+  ['bio-y8-food-tests','biology']
+]) catalog.push({topicId:id,subject,year:8,title:id,status:'enabled',
+  enabled:80,formats:{typed_short:30}});
 const get=(s,y)=>catalog.filter(t=>t.subject===s&&t.year===y);
 const state=()=>({today:day,year:9,daily:[],dailyLog:{},
   topicStats:{},formalAttemptLog:[],dailyVocabByDay:{},reviews:{}});
@@ -69,13 +78,13 @@ test('Current-day dated record may correct old inflated attempts without erasing
   const js=readFileSync(new URL('../assets/index-BLVOhKhN.js',import.meta.url),'utf8');
   const a=js.indexOf('function compactDailyTasks('),b=js.indexOf('function sealDailyLog(',a);
   assert.ok(a>0&&b>a);
-  const write=new Function('mergeDailyRecordRow','todayKey',
+  const write=new Function('mergeDailyRecordRow','todayKey','store',
     js.slice(a,b)+';return writeDailyLog;')((old,row)=>({
       ...old,tasks:old.tasks.map(t=>{
         const incoming=row.tasks.find(x=>x.id===t.id);
         return incoming?{...t,progress:Math.max(t.progress,incoming.progress)}:t;
       })
-    }),()=>day);
+    }),()=>day,{subscribe:()=>{}});
   const prior={'2026-10-23':{done:8,total:10,complete:false},[day]:oldLog};
   const next=write(prior,day,corrected);
   assert.equal(next[day].tasks.find(t=>t.id===task.id).progress,1);

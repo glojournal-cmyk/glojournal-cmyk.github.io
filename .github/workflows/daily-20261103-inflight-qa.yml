@@ -1,0 +1,37 @@
+name: Daily 3 Nov in-flight / early Finish QA
+on:
+  pull_request:
+    paths:
+      - 'assets/daily-dated-assignment-evidence-20261103.js'
+      - 'assets/daily-vocab-20261003.js'
+      - 'assets/year8-mastery-source-capacity-20261103.js'
+      - 'assets/year8-daily-v2-20261018.js'
+      - 'assets/index-BLVOhKhN.js'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/study._subject.practise-D_PWgUd7.js'
+      - 'assets/study._subject.practise-y8fix-20260920.js'
+      - 'tests/daily-20261103-inflight-and-window.test.mjs'
+      - '.github/workflows/daily-20261103-inflight-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  daily-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax check changed production modules
+        run: |
+          node --check assets/daily-dated-assignment-evidence-20261103.js
+          node --check assets/daily-vocab-20261003.js
+          node --check assets/year8-mastery-source-capacity-20261103.js
+          node --check assets/year8-daily-v2-20261018.js
+          node --check assets/index-BLVOhKhN.js
+          node --check assets/quiz-session-y8fix-20260920.js
+          node --check assets/study._subject.practise-D_PWgUd7.js
+          node --check assets/study._subject.practise-y8fix-20260920.js
+      - name: Replay synthetic dated tasks and question allocation
+        run: node --test tests/daily-20261103-inflight-and-window.test.mjs tests/year8-capacity-guard-20261101.mjs tests/year8-same-day-reservations-20261101.mjs
