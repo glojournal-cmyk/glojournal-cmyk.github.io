@@ -68,8 +68,9 @@ jobs:
           node tests/phase1-ux-qa.mjs
           node tests/phase3-home-personality-qa.mjs
   browser:
-    runs-on: ubuntu-latest
-    timeout-minutes: 18
+    # Browser dependencies on the moving ubuntu-latest runner exceeded 18 minutes.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
