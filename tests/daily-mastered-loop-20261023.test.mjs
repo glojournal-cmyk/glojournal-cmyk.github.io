@@ -125,7 +125,7 @@ test('Oct 23 dated Record becomes the original eight completions without losing 
   const end=js.indexOf('function sealDailyLog(',start);
   assert.ok(start>0&&end>start);
   const merge=(left,right)=>right;
-  const write=new Function('mergeDailyRecordRow',js.slice(start,end)+';return writeDailyLog;')(merge);
+  const write=new Function('mergeDailyRecordRow','store',js.slice(start,end)+';return writeDailyLog;')(merge,{subscribe:()=>{}});
   const first=write(input.dailyLog,day,repaired);
   const row=first[day];
   assert.equal(row.total,10);
