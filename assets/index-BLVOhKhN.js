@@ -1596,8 +1596,8 @@ function writeDailyLog(existing, date, daily) {
   // Canonicalize the verified Nov 3 10-task record at EVERY dated-ledger
   // write boundary, not only in an eventual async normalization callback.
   // Keep the four 0-credit V1 rows in the archive, never in today's total.
-  if(date==='2026-11-03')
-    row=archiveNov3ZeroCreditLegacyHistory({[date]:row})[date];
+  if(date>='2026-11-03')
+    row=archiveZeroCreditLegacyDailyV2History({[date]:row})[date];
   if (prev && JSON.stringify(prev) === JSON.stringify(row)) return base;
   const log = { ...base, [date]: row };
   const keys = Object.keys(log).sort();
@@ -1609,26 +1609,73 @@ function writeDailyLog(existing, date, daily) {
 // tasks with four unearned V1 shell placeholders. Recover the HISTORICAL
 // record on later dates too; archive rather than delete the four rows.
 // Never alter another date, incomplete actual question evidence or rewards.
-function archiveNov3ZeroCreditLegacyHistory(log) {
-  const day='2026-11-03',row=log?.[day];
-  if(!Array.isArray(row?.tasks))return log;
-  const official=new Set(['latin-vocab','french-vocab','latin-standard',
-    'y8-standard-a','y8-standard-b','y8-mastery-a','y8-mastery-b',
-    'weakness-review','due-review','year9-light']);
-  const obsolete=new Set(['study-session','year8-long-review','tend-garden','play-game']);
-  const genuine=row.tasks.filter(t=>official.has(t.id));
-  const extra=row.tasks.filter(t=>!official.has(t.id));
-  if(genuine.length!==10||new Set(genuine.map(t=>t.id)).size!==10||
-     extra.length!==4||new Set(extra.map(t=>t.id)).size!==4||
-     !extra.every(t=>obsolete.has(t.id)&&Number(t.progress||0)===0&&t.done!==true))
-    return log;
-  const oldArchive=Array.isArray(row.legacyExtraTasks)?row.legacyExtraTasks:[];
-  const archive=[...oldArchive];
-  for(const t of extra)if(!archive.some(a=>a.id===t.id))archive.push(t);
-  const done=genuine.filter(t=>Number(t.progress)>=Number(t.target)).length;
-  return {...log,[day]:{...row,tasks:genuine,done,total:10,complete:done===10,
-    legacyExtraTasks:archive.slice(-12)}};
+// Valid only for a complete canonical 10-task Year 8 Daily V2 with the
+// same four known, NEVER-credited V1 shell rows. Do not infer learner answers.
+function canonicalizeZeroCreditDailyV2Row(row){
+ if(!Array.isArray(row?.tasks))return null;
+ const official=new Set(['latin-vocab','french-vocab','latin-standard',
+   'y8-standard-a','y8-standard-b','y8-mastery-a','y8-mastery-b',
+   'weakness-review','due-review','year9-light']);
+ const obsolete=new Set(['study-session','year8-long-review','tend-garden','play-game']);
+ const real=row.tasks.filter(t=>official.has(t.id));
+ const extra=row.tasks.filter(t=>!official.has(t.id));
+ if(real.length!==10||new Set(real.map(t=>t.id)).size!==10||
+    extra.length!==4||new Set(extra.map(t=>t.id)).size!==4||
+    !extra.every(t=>obsolete.has(t.id)&&Number(t.progress||0)===0&&t.done!==true))
+   return null;
+ const already=Array.isArray(row.legacyExtraTasks)?row.legacyExtraTasks:[];
+ const archive=[...already];
+ for(const t of extra)if(!archive.some(a=>a.id===t.id))archive.push(t);
+ const done=real.filter(t=>t.done===true||Number(t.progress)>=Number(t.target)).length;
+ return {...row,tasks:real,done,total:10,complete:done===10,
+   legacyExtraTasks:archive.slice(-12)};
 }
+// Protect all Nov 3 onward Daily V2 dates, not only the first reported day.
+// This also runs on date rollover and Recovery merges, without touching XP,
+// MP, pets, wardrobe, marked answers, or genuine old-task achievements.
+function archiveZeroCreditLegacyDailyV2History(log){
+ let updated=log;
+ for(const [day,row] of Object.entries(log||{})){
+  if(day<'2026-11-03')continue;
+  const clean=canonicalizeZeroCreditDailyV2Row(row);
+  if(clean)updated={...updated,[day]:clean};
+ }
+ return updated;
+}
+// Keep the historical test/diagnostic API intact.
+function archiveNov3ZeroCreditLegacyHistory(log){
+ return archiveZeroCreditLegacyDailyV2History(log);
+}
+// A late Safari/Chromium hydration or core store event may bypass the normal
+// planner's ledger writer entirely. If it resurrects only four unearned
+// placeholders, reconcile it synchronously BEFORE persistence can settle.
+function preventLateLegacyDailyV2Rows(nextLog,previousLog){
+ let fixed=nextLog;
+ for(const [day,row] of Object.entries(nextLog||{})){
+  if(day<'2026-11-03')continue;
+  const clean=canonicalizeZeroCreditDailyV2Row(row);
+  if(!clean)continue;
+  const prior=previousLog?.[day];
+  // No newly earned answers/assignments: restore the exact stable 10-task
+  // row instead of injecting a new archive record during a greeting.
+  if(Array.isArray(prior?.tasks)&&prior.tasks.length===10&&
+     JSON.stringify(clean.tasks)===JSON.stringify(prior.tasks)){
+   fixed={...fixed,[day]:prior};
+  }else{
+   fixed={...fixed,[day]:clean};
+  }
+ }
+ return fixed;
+}
+let repairingLateLegacyDaily=false;
+store.subscribe((next,previous)=>{
+ if(repairingLateLegacyDaily||!next?.dailyLog||
+    next.dailyLog===previous?.dailyLog)return;
+ const safe=preventLateLegacyDailyV2Rows(next.dailyLog,previous?.dailyLog);
+ if(safe===next.dailyLog)return;
+ repairingLateLegacyDaily=true;
+ try{store.setState({dailyLog:safe})}finally{repairingLateLegacyDaily=false;}
+});
 function sealDailyLog(date, daily, existing) {
   const base = existing && typeof existing === "object" ? existing : {};
   const next = writeDailyLog(base, date, daily);
@@ -1875,7 +1922,7 @@ function normalizeState() {
     {...stateForDaily,dailyLog:nextLog},getTopicCatalog);
   if(verifiedHistoricOct23)
     nextLog={...nextLog,"2026-10-23":verifiedHistoricOct23};
-  const receiptLog = archiveNov3ZeroCreditLegacyHistory(applyRecoveryReceipts(nextLog));
+  const receiptLog = archiveZeroCreditLegacyDailyV2History(applyRecoveryReceipts(nextLog));
   // The 30-day record can retain three verified completions while a rebuilt
   // Home plan temporarily displays zero. Reuse only identical same-day
   // assignments; never create XP or replace correct-only answer evidence.
