@@ -131,8 +131,8 @@ test('Home hydration does not recreate fourteen Daily tasks or remove verified e
  // visible to the writer; current date must still preserve just ten slots.
  const merge=(old,row)=>({...old,...row,tasks:[
    ...(old?.tasks||[]),...row.tasks.filter(t=>!(old?.tasks||[]).some(x=>x.id===t.id))]});
- const write=new Function('mergeDailyRecordRow','todayKey',
-   code.slice(first,last)+';return writeDailyLog;')(merge,()=>today);
+ const write=new Function('mergeDailyRecordRow','todayKey','store',
+   code.slice(first,last)+';return writeDailyLog;')(merge,()=>today,{subscribe:()=>{}});
  const canonical=['latin-vocab','french-vocab','latin-standard','y8-standard-a',
    'y8-standard-b','y8-mastery-a','y8-mastery-b','weakness-review','due-review','year9-light']
    .map(id=>({id,target:10,progress:id==='latin-standard'?10:0,planDate:today}));
@@ -153,8 +153,8 @@ test('Home hydration does not recreate fourteen Daily tasks or remove verified e
 test('historical Nov 3 cleanup works safely after midnight without altering XP or other days',()=>{
  const code=fs.readFileSync('assets/index-BLVOhKhN.js','utf8');
  const start=code.indexOf('function compactDailyTasks('),end=code.indexOf('function sealDailyLog(',start);
- const fn=new Function('mergeDailyRecordRow','todayKey',
-   code.slice(start,end)+';return archiveNov3ZeroCreditLegacyHistory;')((a,b)=>b,()=> '2026-11-04');
+ const fn=new Function('mergeDailyRecordRow','todayKey','store',
+   code.slice(start,end)+';return archiveNov3ZeroCreditLegacyHistory;')((a,b)=>b,()=> '2026-11-04',{subscribe:()=>{}});
  const canonical=['latin-vocab','french-vocab','latin-standard','y8-standard-a','y8-standard-b',
    'y8-mastery-a','y8-mastery-b','weakness-review','due-review','year9-light']
    .map(id=>({id,target:10,progress:id==='latin-standard'?10:0,done:id==='latin-standard'}));
@@ -406,4 +406,37 @@ test('real locked Physics 5/10 continuation can load five new distinct concepts 
  assert.equal(picked.length,5);
  assert.equal(new Set(picked.map(q=>q.conceptId||q.id)).size,5);
  assert.ok(picked.every(q=>!correct.includes(q.id)));
+});
+
+test('11 Nov 4 and later 10-task History resists asynchronous legacy shell reinsertion',()=>{
+ const code=fs.readFileSync('assets/index-BLVOhKhN.js','utf8');
+ const first=code.indexOf('function compactDailyTasks('),last=code.indexOf('function sealDailyLog(',first);
+ const callbacks=[];
+ const store={subscribe:fn=>{callbacks.push(fn)}};
+ const api=new Function('mergeDailyRecordRow','todayKey','store',
+  code.slice(first,last)+';return {archiveZeroCreditLegacyDailyV2History,preventLateLegacyDailyV2Rows,writeDailyLog};')(
+    (old,row)=>({...old,...row,tasks:[...(old?.tasks||[]),...row.tasks.filter(t=>
+     !(old?.tasks||[]).some(x=>x.id===t.id))]}),()=> '2026-11-04',store);
+ assert.equal(callbacks.length,1);
+ const date='2026-11-04';
+ const real=['latin-vocab','french-vocab','latin-standard','y8-standard-a',
+  'y8-standard-b','y8-mastery-a','y8-mastery-b','weakness-review','due-review',
+  'year9-light'].map(id=>({id,title:id,target:10,progress:0,done:false}));
+ const legacy=['study-session','year8-long-review','tend-garden','play-game']
+  .map(id=>({id,title:id,target:1,progress:0,done:false}));
+ const baseline={[date]:{date,tasks:real,done:0,total:10,complete:false}};
+ const delayed={[date]:{date,tasks:[...legacy,...real],done:0,total:14,complete:false}};
+ const restored=api.preventLateLegacyDailyV2Rows(delayed,baseline);
+ assert.deepEqual(restored,baseline,
+  'a greeting-triggered zero-credit V1 write must not alter any valid dated history');
+ const firstSave=api.writeDailyLog(baseline,date,[...legacy,...real]);
+ assert.equal(firstSave[date].total,10);
+ assert.deepEqual(firstSave[date].tasks,real);
+ const historical=api.archiveZeroCreditLegacyDailyV2History(delayed);
+ assert.equal(historical[date].total,10);
+ assert.equal(historical[date].legacyExtraTasks.length,4);
+ const legitimatelyEarned={...delayed,[date]:{...delayed[date],
+  tasks:[{...legacy[0],progress:1,done:true},...legacy.slice(1),...real]}};
+ assert.equal(api.archiveZeroCreditLegacyDailyV2History(legitimatelyEarned),legitimatelyEarned,
+  'even old shell credit must not disappear without evidence-based reconciliation');
 });
