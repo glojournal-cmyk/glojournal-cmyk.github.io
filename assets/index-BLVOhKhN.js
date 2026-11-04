@@ -1592,6 +1592,12 @@ function writeDailyLog(existing, date, daily) {
         complete:corrected.length>0&&correctedDone===corrected.length};
     }
   }
+  // Seal/hydrate writes can run independently of normalizeState in WebKit.
+  // Canonicalize the verified Nov 3 10-task record at EVERY dated-ledger
+  // write boundary, not only in an eventual async normalization callback.
+  // Keep the four 0-credit V1 rows in the archive, never in today's total.
+  if(date==='2026-11-03')
+    row=archiveNov3ZeroCreditLegacyHistory({[date]:row})[date];
   if (prev && JSON.stringify(prev) === JSON.stringify(row)) return base;
   const log = { ...base, [date]: row };
   const keys = Object.keys(log).sort();
