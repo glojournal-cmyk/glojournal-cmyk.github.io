@@ -36,7 +36,9 @@ jobs:
       - name: Check no duplicate, borrowed or unmarked Latin credit
         run: node --test tests/daily-answer-replay-20261021.test.mjs
   webkit-home:
-    runs-on: ubuntu-latest
+    # Stable OS image prevents the slow moving ubuntu-latest dependency install.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
