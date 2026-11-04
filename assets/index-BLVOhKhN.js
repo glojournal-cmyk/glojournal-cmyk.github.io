@@ -1658,8 +1658,19 @@ function preventLateLegacyDailyV2Rows(nextLog,previousLog){
   const prior=previousLog?.[day];
   // No newly earned answers/assignments: restore the exact stable 10-task
   // row instead of injecting a new archive record during a greeting.
-  if(Array.isArray(prior?.tasks)&&prior.tasks.length===10&&
-     JSON.stringify(clean.tasks)===JSON.stringify(prior.tasks)){
+  const stable=Array.isArray(prior?.tasks)&&prior.tasks.length===10&&
+    clean.tasks.every(t=>{
+      const old=prior.tasks.find(x=>x.id===t.id);
+      return old&&old.progress===t.progress&&old.target===t.target&&
+        old.done===t.done&&old.assignedTopic===t.assignedTopic&&
+        old.assignedSubject===t.assignedSubject&&old.assignedYear===t.assignedYear&&
+        old.href===t.href;
+    });
+  const oldMetadata={...(prior||{})},newMetadata={...clean};
+  for(const key of ['tasks','done','total','complete','legacyExtraTasks']){
+    delete oldMetadata[key];delete newMetadata[key];
+  }
+  if(stable&&JSON.stringify(oldMetadata)===JSON.stringify(newMetadata)){
    fixed={...fixed,[day]:prior};
   }else{
    fixed={...fixed,[day]:clean};
