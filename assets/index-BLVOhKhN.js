@@ -1678,15 +1678,6 @@ function preventLateLegacyDailyV2Rows(nextLog,previousLog){
  }
  return fixed;
 }
-let repairingLateLegacyDaily=false;
-store.subscribe((next,previous)=>{
- if(repairingLateLegacyDaily||!next?.dailyLog||
-    next.dailyLog===previous?.dailyLog)return;
- const safe=preventLateLegacyDailyV2Rows(next.dailyLog,previous?.dailyLog);
- if(safe===next.dailyLog)return;
- repairingLateLegacyDaily=true;
- try{store.setState({dailyLog:safe})}finally{repairingLateLegacyDaily=false;}
-});
 function sealDailyLog(date, daily, existing) {
   const base = existing && typeof existing === "object" ? existing : {};
   const next = writeDailyLog(base, date, daily);
@@ -1697,6 +1688,16 @@ function sealDailyLog(date, daily, existing) {
   }
   return next;
 }
+
+let repairingLateLegacyDaily=false;
+store.subscribe((next,previous)=>{
+ if(repairingLateLegacyDaily||!next?.dailyLog||
+    next.dailyLog===previous?.dailyLog)return;
+ const safe=preventLateLegacyDailyV2Rows(next.dailyLog,previous?.dailyLog);
+ if(safe===next.dailyLog)return;
+ repairingLateLegacyDaily=true;
+ try{store.setState({dailyLog:safe})}finally{repairingLateLegacyDaily=false;}
+});
 
 // Repair historical Vocab omissions only from 30 distinct, correct,
 // dated answers already saved in the dedicated Vocab ledger.
