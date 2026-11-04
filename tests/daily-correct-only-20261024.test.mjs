@@ -78,13 +78,13 @@ test('Current-day dated record may correct old inflated attempts without erasing
   const js=readFileSync(new URL('../assets/index-BLVOhKhN.js',import.meta.url),'utf8');
   const a=js.indexOf('function compactDailyTasks('),b=js.indexOf('function sealDailyLog(',a);
   assert.ok(a>0&&b>a);
-  const write=new Function('mergeDailyRecordRow','todayKey',
+  const write=new Function('mergeDailyRecordRow','todayKey','store',
     js.slice(a,b)+';return writeDailyLog;')((old,row)=>({
       ...old,tasks:old.tasks.map(t=>{
         const incoming=row.tasks.find(x=>x.id===t.id);
         return incoming?{...t,progress:Math.max(t.progress,incoming.progress)}:t;
       })
-    }),()=>day);
+    }),()=>day,{subscribe:()=>{}});
   const prior={'2026-10-23':{done:8,total:10,complete:false},[day]:oldLog};
   const next=write(prior,day,corrected);
   assert.equal(next[day].tasks.find(t=>t.id===task.id).progress,1);
