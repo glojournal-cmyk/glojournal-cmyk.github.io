@@ -608,16 +608,33 @@ async function checkExhaustedBiologyDaily(browser,engine){
   try{
     await page.goto(url,{waitUntil:'domcontentloaded',timeout:45000});
     await page.waitForSelector('.lux-practice-view [data-question-id]',{timeout:35000});
+    // Use the real active Zustand store, not a direct localStorage write:
+    // Safari can asynchronously flush a live store after the test wrote
+    // localStorage, undoing the fake credits before the next navigation.
+    // This is an isolated synthetic Playwright context, NEVER user data.
     await page.evaluate(ids=>{
-      const key='lux-scholar-garden-v1',raw=localStorage.getItem(key);
-      const persisted=raw?JSON.parse(raw):{state:{},version:0};
-      persisted.state.seenCorrect={...(persisted.state.seenCorrect||{}),
-        ...Object.fromEntries(ids.map(id=>[id,1]))};
-      localStorage.setItem(key,JSON.stringify(persisted));
-      // This is the TEST browser only; never remove learner device records.
+      const store=window.__luxStore;
+      if(!store?.getState||!store?.setState||store.persist?.hasHydrated?.()===false)
+        throw Error('QA Scholar store not hydrated');
+      const previous=store.getState().seenCorrect||{};
+      store.setState({seenCorrect:{...previous,
+        ...Object.fromEntries(ids.map(id=>[id,1]))}});
       localStorage.removeItem('lux-practice-drafts-v1');
     },ids);
+    await page.waitForFunction(ids=>{
+      try{
+        const state=window.__luxStore?.getState();
+        const saved=JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}').state;
+        return ids.every(id=>Number(state?.seenCorrect?.[id])>0&&
+          Number(saved?.seenCorrect?.[id])>0);
+      }catch{return false}
+    },ids,{timeout:15000});
     await page.reload({waitUntil:'domcontentloaded'});
+    await page.waitForFunction(ids=>{
+      const state=window.__luxStore?.getState();
+      return window.__luxStore?.persist?.hasHydrated?.()!==false&&
+        ids.every(id=>Number(state?.seenCorrect?.[id])>0);
+    },ids,{timeout:15000});
     await page.waitForSelector('.lux-practice-view',{timeout:35000});
     // WebKit can restore a real persisted IndexedDB/sessionStorage practice
     // draft even when the localStorage legacy draft entry was removed above.
