@@ -637,17 +637,404 @@
       },
       "preview": false,
       "ordinary": true
+    },
+    {
+      "id": "bio-y8-practical-conclusions-capacity-20261026-01",
+      "conceptId": "bio-y8-practical-conclusions-concept-capacity-01",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-practical-conclusions",
+      "topic": "Practical methods and conclusions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "A leaf starch test shows a blue-black colour after iodine solution is added. What does this positive result indicate?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "starch is present",
+          "presence of starch",
+          "starch",
+          "the leaf contains starch"
+        ]
+      },
+      "feedback": {
+        "short": "Check the original taught principle and apply it to this new context.",
+        "steps": [
+          "Identify the relevant scientific concept, then verify the answer."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-practical-conclusions-capacity-20261026-02",
+      "conceptId": "bio-y8-practical-conclusions-concept-capacity-02",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-practical-conclusions",
+      "topic": "Practical methods and conclusions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "A pondweed experiment measures oxygen bubbles per minute at different lamp distances. What is the dependent variable?",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "number of oxygen bubbles per minute",
+          "oxygen bubbles per minute",
+          "rate of oxygen bubble production",
+          "rate of oxygen production",
+          "oxygen production per minute"
+        ]
+      },
+      "feedback": {
+        "short": "Check the original taught principle and apply it to this new context.",
+        "steps": [
+          "Identify the relevant scientific concept, then verify the answer."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-practical-conclusions-capacity-20261026-03",
+      "conceptId": "bio-y8-practical-conclusions-concept-capacity-03",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-practical-conclusions",
+      "topic": "Practical methods and conclusions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "A student repeats each pondweed reading three times and calculates a mean. Name the main reason for repeating measurements.",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "improve reliability",
+          "improves reliability",
+          "to improve reliability",
+          "check reliability",
+          "identify anomalous results",
+          "to identify anomalies"
+        ]
+      },
+      "feedback": {
+        "short": "Check the original taught principle and apply it to this new context.",
+        "steps": [
+          "Identify the relevant scientific concept, then verify the answer."
+        ]
+      },
+      "task": {
+        "label": "APPLY / RECALL",
+        "instruction": "Give a precise answer."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-practical-conclusions-capacity-20261026-04",
+      "conceptId": "bio-y8-practical-conclusions-concept-capacity-04",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-practical-conclusions",
+      "topic": "Practical methods and conclusions",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "format": "mark_points",
+      "difficulty": 4,
+      "prompt": "A student records oxygen bubbles per minute as 8, 15 and 20 at increasing light intensities. Give a supported conclusion and one limitation of using bubble counts. (2 marks)",
+      "stimulus": {
+        "text": ""
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "The measured photosynthesis rate increases as the light intensity increases (8 to 20 bubbles per minute).",
+          "Counting bubbles is only an approximate measure because bubbles can differ in volume."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The measured photosynthesis rate increases as the light intensity increases (8 to 20 bubbles per minute). Counting bubbles is only an approximate measure because bubbles can differ in volume.",
+        "manualReviewFallback": true
+      },
+      "feedback": {
+        "short": "The measured photosynthesis rate increases as the light intensity increases (8 to 20 bubbles per minute). Counting bubbles is only an approximate measure because bubbles can differ in volume.",
+        "steps": [
+          "The measured photosynthesis rate increases as the light intensity increases (8 to 20 bubbles per minute).",
+          "Counting bubbles is only an approximate measure because bubbles can differ in volume."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN / EVALUATE",
+        "instruction": "Write a scientific answer covering both mark points; review manually if marking is uncertain."
+      },
+      "origin": {
+        "kind": "supplemental-authored",
+        "date": "2026-10-26",
+        "reviewStatus": "requires-academic-and-grading-QA"
+      }
+    },
+    {
+      "id": "bio-y8-practical-conclusions-20261101-oxygen-measure",
+      "conceptId": "bio-y8-practical-conclusions-20261101-oxygen-measure",
+      "topicId": "bio-y8-practical-conclusions",
+      "topic": "Practical methods and conclusions",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "Instead of counting pondweed oxygen bubbles, what could be measured each minute to estimate oxygen production more directly?",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "volume of oxygen",
+          "volume of oxygen produced",
+          "volume of oxygen per minute",
+          "oxygen volume per minute",
+          "volume of oxygen gas produced per minute"
+        ]
+      },
+      "feedback": {
+        "short": "volume of oxygen",
+        "steps": [
+          "Use the scenario to identify the scientific concept.",
+          "volume of oxygen"
+        ]
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Give the scientifically correct word or phrase."
+      }
+    },
+    {
+      "id": "bio-y8-practical-conclusions-20261101-anomalous-reading",
+      "conceptId": "bio-y8-practical-conclusions-20261101-anomalous-reading",
+      "topicId": "bio-y8-practical-conclusions",
+      "topic": "Practical methods and conclusions",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "A pupil records 6, 7 and 22 oxygen bubbles per minute during repeats under the same conditions. Which reading is anomalous?",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "22",
+          "22 bubbles",
+          "22 bubbles per minute",
+          "22 bubbles/min"
+        ]
+      },
+      "feedback": {
+        "short": "22",
+        "steps": [
+          "Use the scenario to identify the scientific concept.",
+          "22"
+        ]
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Give the scientifically correct word or phrase."
+      }
+    },
+    {
+      "id": "bio-y8-practical-conclusions-20261101-covered-leaf",
+      "conceptId": "bio-y8-practical-conclusions-20261101-covered-leaf",
+      "topicId": "bio-y8-practical-conclusions",
+      "topic": "Practical methods and conclusions",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "A destarched plant is exposed to light while part of one leaf is covered with opaque paper. After iodine testing, the covered part stays orange-brown. Give a conclusion and its explanation. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 2,
+        "markPoints": [
+          "The covered part did not produce detectable starch during the experiment.",
+          "Opaque paper stopped light reaching it, so photosynthesis could not produce new glucose for starch there."
+        ],
+        "modelAnswer": "The covered part did not produce detectable starch during the experiment. Opaque paper stopped light reaching it, so photosynthesis could not produce new glucose for starch there.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "The covered part did not produce detectable starch during the experiment. Opaque paper stopped light reaching it, so photosynthesis could not produce new glucose for starch there.",
+        "steps": [
+          "The covered part did not produce detectable starch during the experiment.",
+          "Opaque paper stopped light reaching it, so photosynthesis could not produce new glucose for starch there."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Give two independent scientific points. Correct alternate wording needs review."
+      }
+    },
+    {
+      "id": "bio-y8-practical-conclusions-20261101-controlled-variables",
+      "conceptId": "bio-y8-practical-conclusions-20261101-controlled-variables",
+      "topicId": "bio-y8-practical-conclusions",
+      "topic": "Practical methods and conclusions",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "When changing lamp distance in a pondweed photosynthesis investigation, explain two factors that should be controlled for a fair test. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 2,
+        "markPoints": [
+          "Keep the temperature similar because it can affect the photosynthesis rate.",
+          "Keep available carbon dioxide similar so it does not change the rate independently of light."
+        ],
+        "modelAnswer": "Keep the temperature similar because it can affect the photosynthesis rate. Keep available carbon dioxide similar so it does not change the rate independently of light.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Keep the temperature similar because it can affect the photosynthesis rate. Keep available carbon dioxide similar so it does not change the rate independently of light.",
+        "steps": [
+          "Keep the temperature similar because it can affect the photosynthesis rate.",
+          "Keep available carbon dioxide similar so it does not change the rate independently of light."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Give two independent scientific points. Correct alternate wording needs review."
+      }
+    },
+    {
+      "id": "bio-y8-practical-conclusions-20261101-unfair-plant-length",
+      "conceptId": "bio-y8-practical-conclusions-20261101-unfair-plant-length",
+      "topicId": "bio-y8-practical-conclusions",
+      "topic": "Practical methods and conclusions",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "Two groups compare pondweed photosynthesis using different lamp distances, but one also uses twice the length of pondweed. Explain the problem and one correction. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 2,
+        "markPoints": [
+          "Different amounts of pondweed could affect total oxygen production, so lamp distance is not the only changed factor.",
+          "Use the same species and similar length or mass of pondweed in each trial."
+        ],
+        "modelAnswer": "Different amounts of pondweed could affect total oxygen production, so lamp distance is not the only changed factor. Use the same species and similar length or mass of pondweed in each trial.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Different amounts of pondweed could affect total oxygen production, so lamp distance is not the only changed factor. Use the same species and similar length or mass of pondweed in each trial.",
+        "steps": [
+          "Different amounts of pondweed could affect total oxygen production, so lamp distance is not the only changed factor.",
+          "Use the same species and similar length or mass of pondweed in each trial."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Give two independent scientific points. Correct alternate wording needs review."
+      }
     }
   ],
-  "enabled": 16,
+  "enabled": 25,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 4,
     "typed_exact": 4,
-    "mark_points": 5,
+    "mark_points": 9,
     "matching": 2,
-    "sorting": 1
+    "sorting": 1,
+    "typed_equivalent": 5
   },
   "gated": false,
   "note": {
