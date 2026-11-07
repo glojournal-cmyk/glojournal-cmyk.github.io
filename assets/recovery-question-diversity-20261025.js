@@ -60,20 +60,29 @@ export function selectDiverseRecoveryQuestions(fresh,loaded,options={},rank,prog
  const excluded=recoveryQuestionExclusions(state,{date,taskId,subject,year});
  const bank=(Array.isArray(loaded)?loaded:[]),byId=new Map(bank.map(q=>[String(q.id),q]));
  const excludedFingerprints=new Set([...excluded.ids].map(id=>recoveryQuestionFingerprint(byId.get(id))).filter(Boolean));
+ // A school word may have six IDs (both directions, typed/MC/tiles).
+ // Dated Latin Recovery must not count those as six fresh words.
+ const family=q=>String(q?.conceptId||q?.id||'');
+ const strictLatin=subject==='latin'&&!['due','retention','weak','mistakes'].includes(mode);
+ const excludedFamilies=new Set(strictLatin?[...excluded.ids].map(id=>byId.get(id))
+   .filter(Boolean).map(family):[]);
  const reviewIds=mode==='mistakes'&&Array.isArray(reviewQuestionIds)&&reviewQuestionIds.length?new Set(reviewQuestionIds):null;
  const allowed=(q,allowOtherTopic=false)=>q?.id&&q.formal!==false&&!q._repair&&q.status!=='preview'&&
    (!reviewIds||reviewIds.has(q.id))&&
    (!topicId||allowOtherTopic||q.topicId===topicId)&&!excluded.ids.has(asId(q.id))&&
+   (!strictLatin||!excludedFamilies.has(family(q)))&&
    !(day&&['standard','mastery','quick'].includes(mode)&&
      state.reviews?.[q.id]?.due>day)&&
    !excludedFingerprints.has(recoveryQuestionFingerprint(q));
  const selectUnique=(arr,allowOtherTopic=false)=>{
-   const out=[],ids=new Set(),prints=new Set();
+   const out=[],ids=new Set(),prints=new Set(),families=new Set();
    for(const q of arr||[]){
      if(!allowed(q,allowOtherTopic)||ids.has(String(q.id)))continue;
-     const fp=recoveryQuestionFingerprint(q);
-     if(fp&&prints.has(fp))continue;
-     ids.add(String(q.id));if(fp)prints.add(fp);out.push(q);
+     const fp=recoveryQuestionFingerprint(q),concept=family(q);
+     if((fp&&prints.has(fp))||(strictLatin&&families.has(concept)))continue;
+     ids.add(String(q.id));if(fp)prints.add(fp);
+     if(strictLatin)families.add(concept);
+     out.push(q);
    }
    return out;
  };
@@ -113,14 +122,17 @@ export function selectDiverseRecoveryQuestions(fresh,loaded,options={},rank,prog
  if(fallback){
    const usedIds=new Set(picked.map(q=>String(q.id)));
    const usedPrints=new Set(picked.map(recoveryQuestionFingerprint).filter(Boolean));
+   const usedFamilies=new Set(strictLatin?picked.map(family):[]);
    const extras=selectUnique(bank,true).filter(q=>q.topicId!==topicId);
    const orderedExtras=selectUnique(typeof rank==='function'
      ?rank(extras,subject,Math.max(1,Math.min(30,limit))):extras,true);
    for(const q of orderedExtras){
      if(picked.length>=limit)break;
      const print=recoveryQuestionFingerprint(q);
-     if(usedIds.has(String(q.id))||(print&&usedPrints.has(print)))continue;
+     if(usedIds.has(String(q.id))||(print&&usedPrints.has(print))||
+        (strictLatin&&usedFamilies.has(family(q))))continue;
      usedIds.add(String(q.id));if(print)usedPrints.add(print);
+     if(strictLatin)usedFamilies.add(family(q));
      picked.push(q);
    }
  }
