@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {buildYear8DailyV2} from '../assets/year8-daily-v2-20261018.js';
 import {latinDailyUncreditedConcepts} from '../assets/latin-daily-capacity-20261107.js';
+import {fillDailyLockedQuestions} from '../assets/daily-locked-question-fallback-20261021.js';
 const topics=JSON.parse(fs.readFileSync('content/catalog.json','utf8')).topics;
 const catalog=(s,y)=>topics.filter(t=>t.subject===s&&Number(t.year)===y);
 const s1='la-y8-stage-1-vocabulary',s2='la-y8-stage-2-vocabulary',s3='la-y8-stage-3-vocabulary';
@@ -109,5 +110,27 @@ test('Stage 4–12 inventory is source-backed and independently answerable',()=>
   const count=new Set(qs(stage).map(q=>q.conceptId)).size;
   assert.equal(latinDailyUncreditedConcepts(stage,{}),count);
   assert.ok(count>=10,stage+' insufficient verified concepts');
+ }
+});
+
+test('unopened Latin Standard answers use ten distinct concepts, not ten variants of Stage 1',()=>{
+ const loaded=qs(s1),rank=(rows,subject,limit)=>rows.slice(0,limit);
+ const progression=(rows,mode,limit)=>rows.slice(0,limit);
+ const select=correctIds=>fillDailyLockedQuestions([],loaded,{locked:true,mode:'standard',
+   topicId:s1,subject:'latin',size:10,requireDistinctConcepts:true,correctIds},
+   rank,progression);
+ const first=select(new Set());
+ assert.equal(first.length,10);
+ assert.equal(new Set(first.map(q=>q.conceptId)).size,10);
+ const known=new Set([loaded[0].id]);
+ const second=select(known);
+ assert.equal(second.length,10);
+ assert.ok(second.every(q=>q.conceptId!==loaded[0].conceptId),
+   'previously correct concept must not reappear as an alternate direction');
+ for(const path of ['assets/study._subject.practise-D_PWgUd7.js',
+                    'assets/study._subject.practise-y8fix-20260920.js']){
+   const js=fs.readFileSync(path,'utf8');
+   assert.ok(js.includes('canonicalTask===\u0060latin-standard\u0060&&!Number(assignment?.progress)'),
+     path+' must opt into distinct concepts before offering new Latin Standard');
  }
 });
