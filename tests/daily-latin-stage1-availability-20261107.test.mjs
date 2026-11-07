@@ -21,22 +21,22 @@ test('source holds 72 Stage 1 variants over 12 concepts, not an empty file',()=>
 });
 test('old correctly answered Stage 1 rotates to Stage 2 without changing saved state',()=>{
  const x=state({seenCorrect:done([s1])}),before=JSON.stringify(x),t=latin(x);
- assert.equal(t.assignedTopic,s2);assert.equal(t.target,10);assert.equal(t.progress,0);
+ assert.equal(t.assignedTopic,'la-y8-stage-8-vocabulary');assert.equal(t.target,10);assert.equal(t.progress,0);
  assert.equal(JSON.stringify(x),before);
 });
 test('only nine remaining distinct concepts is not enough for 10/10',()=>{
  const concepts=[...new Set(qs(s1).map(q=>q.conceptId))];
  const seenCorrect=Object.fromEntries(qs(s1).filter(q=>concepts.slice(0,3).includes(q.conceptId)).map(q=>[q.id,1]));
  assert.equal(latinDailyUncreditedConcepts(s1,seenCorrect),9);
- assert.equal(latin(state({seenCorrect})).assignedTopic,s2);
+ assert.equal(latin(state({seenCorrect})).assignedTopic,'la-y8-stage-8-vocabulary');
 });
 test('depleted Stage 1 and 2 route to Stage 3, never award recycled answers',()=>{
- assert.equal(latin(state({seenCorrect:done([s1,s2])})).assignedTopic,s3);
+ assert.equal(latin(state({seenCorrect:done([s1,s2])})).assignedTopic,'la-y8-stage-8-vocabulary');
 });
 test('unopened same-day Stage 1 may rotate; partially done task must remain unchanged',()=>{
  const seenCorrect=done([s1]);
  const empty=latin(state({daily:[old()],seenCorrect}));
- assert.equal(empty.assignedTopic,s2);assert.equal(empty.progress,0);
+ assert.equal(empty.assignedTopic,'la-y8-stage-8-vocabulary');assert.equal(empty.progress,0);
  const started=latin(state({daily:[old(3)],seenCorrect}));
  assert.equal(started.assignedTopic,s1);assert.equal(started.progress,3);
 });
@@ -51,4 +51,63 @@ test('single root JS identity, only versioned child planner',()=>{
  assert.ok(root.includes('latinrotation=20261101a&latincapacity=20261107a'));
  for(const p of ['index.html','404.html','study/latin/practise/index.html'])
   assert.ok(!fs.readFileSync(p,'utf8').includes('latincapacity=20261107a'));
+});
+
+test('all twelve original Year 8 vocab stages rotate over twelve days even without stored history',()=>{
+ const assigned=[];
+ const epoch=Date.UTC(2026,9,19);
+ for(let i=0;i<12;i++){
+  const d=new Date(epoch+i*86400000).toISOString().slice(0,10);
+  const row=latin(state({today:d}));
+  assigned.push(row.assignedTopic);
+  assert.equal(row.target,10,d+' must keep 10-answer target');
+ }
+ assert.equal(new Set(assigned).size,12,'do not trap all dates in Stage 1–4');
+ assert.deepEqual(assigned,Array.from({length:12},(_,i)=>'la-y8-stage-'+(i+1)+'-vocabulary'));
+});
+
+test('recent Stage 1 exposure is avoided even when mastery/coverage is missing',()=>{
+ const today='2026-10-31'; // calendar rotation would otherwise favour Stage 1
+ const x=state({today,dailyLog:{'2026-10-30':{tasks:[{
+   id:'latin-standard',assignedSubject:'latin',assignedYear:8,
+   assignedTopic:s1,target:10,progress:0}]}}});
+ assert.notEqual(latin(x).assignedTopic,s1);
+});
+
+test('a dormant repeated Stage 1 same-day card is rerouted, but verified answers stay pinned',()=>{
+ const dailyLog={'2026-11-06':{tasks:[{
+  id:'latin-standard',assignedTopic:s1,assignedSubject:'latin',assignedYear:8,
+  progress:0,target:10}]}};
+ const changed=latin(state({daily:[old()],dailyLog}));
+ assert.notEqual(changed.assignedTopic,s1);
+ const kept=latin(state({daily:[old(2)],dailyLog}));
+ assert.equal(kept.assignedTopic,s1);
+ assert.equal(kept.progress,2);
+});
+
+test('untaught Year 8 stages remain locked out of Standard rotation',()=>{
+ const learning={'la-y8-stage-8-vocabulary':false};
+ const x=state();
+ const original=latin(x);
+ const filtered=buildYear8DailyV2(x,catalog,learning)
+   .find(t=>t.id==='latin-standard');
+ assert.equal(original.assignedTopic,'la-y8-stage-8-vocabulary');
+ assert.notEqual(filtered.assignedTopic,original.assignedTopic);
+ assert.equal(filtered.assignedYear,8);
+});
+
+test('prior-correct alternate versions also make a Latin concept non-fresh',()=>{
+ const q=qs(s1).find(item=>item.conceptId);
+ const partial={[q.id]:1};
+ assert.equal(latinDailyUncreditedConcepts(s1,partial),11,
+  'one correct direction is enough to retire this concept from NEW Daily credit');
+});
+
+test('Stage 4–12 inventory is source-backed and independently answerable',()=>{
+ for(let n=4;n<=12;n++){
+  const stage='la-y8-stage-'+n+'-vocabulary';
+  const count=new Set(qs(stage).map(q=>q.conceptId)).size;
+  assert.equal(latinDailyUncreditedConcepts(stage,{}),count);
+  assert.ok(count>=10,stage+' insufficient verified concepts');
+ }
 });
