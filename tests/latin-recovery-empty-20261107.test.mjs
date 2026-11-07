@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import {latinRecoveryYear8Sources} from '../assets/latin-recovery-topic-pool-20261107.js';
 import {selectDiverseRecoveryQuestions} from '../assets/recovery-question-diversity-20261025.js';
 import {fillDailyLockedQuestions} from '../assets/daily-locked-question-fallback-20261021.js';
+import {matchesAssignedPracticeEvidence,recordRecoveryAnswer} from '../assets/recovery-task-ledger-20261017.js';
 
 const date='2026-11-06',today='2026-11-07',s1='la-y8-stage-1-vocabulary',
       s2='la-y8-stage-2-vocabulary',s3='la-y8-stage-3-vocabulary';
@@ -83,4 +84,29 @@ test('live iPad Latin Practice loader brings additional Year 8 banks only to dat
  assert.ok(js.includes('latinRecoveryYear8Sources(I,pinnedTopic,s.getState()?.seenCorrect,8)'));
  assert.ok(js.includes('...fallbacks.filter(t=>!known.has(t.topicId))'));
  assert.ok(js.includes('recovery-question-diversity-20261025.js?v=20261107-latin-recovery1'));
+});
+
+test('five correctly marked Stage 3 fallback words credit Nov 6 original Latin task, not Nov 7',()=>{
+ const seenCorrect=scored([s1,s2]),st=state({seenCorrect}),before=JSON.stringify(st);
+ const offered=select(st,[...q(s1),...q(s3)],5);
+ assert.equal(offered.length,5);
+ let next=st;
+ for(let i=0;i<offered.length;i++){
+  const question=offered[i];
+  const event={dailyTaskId:'latin-standard',subject:'latin',year:8,
+    topicId:question.topicId,questionId:question.id,correct:true,formal:true};
+  assert.equal(matchesAssignedPracticeEvidence(event,task,'latin-standard'),true,
+    'dated task ID and subject permit the genuine Year 8 fallback topic');
+  const result=recordRecoveryAnswer(next,{today,date,taskId:'latin-standard',
+    questionId:question.id,correct:true,minimumCorrect:5});
+  assert.equal(result.accepted,true);
+  assert.equal(result.completed,i===4);
+  next=result.state;
+ }
+ assert.equal(next.dailyLog[date].tasks[0].progress,5);
+ assert.equal(next.dailyLog[date].tasks[0].recovered,true);
+ assert.equal(next.recoveryTaskByDay[date]['latin-standard'].completed,true);
+ assert.equal(next.dailyLog[today],undefined,'missed day only: do not credit today');
+ assert.equal(JSON.stringify(st),before,'read-only original state');
+ assert.equal(next.recoveryAwarded,undefined,'selection never manufactures rewards');
 });
