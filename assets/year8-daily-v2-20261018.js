@@ -254,12 +254,19 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     // any actual attempt, credit or independently saved evidence stays pinned.
     const remainingLatin=id==='latin-standard'&&old?.assignedTopic
       ? latinDailyUncreditedConcepts(old.assignedTopic,state.seenCorrect):null;
-    const unopenedDepletedLatin=id==='latin-standard'&&old?.assignedTopic&&
-      remainingLatin!==null&&remainingLatin<Math.max(1,Number(old.target)||10)&&
-      !old.done&&!(Number(old.progress)>0)&&
+    const latinUnopened=id==='latin-standard'&&old?.assignedTopic&&
+      old.planDate===today&&!old.done&&!(Number(old.progress)>0)&&
       !(Array.isArray(old.verifiedCorrectIds)&&old.verifiedCorrectIds.length)&&
       !entries.some(e=>e.dailyTaskId===id);
-    const frozen=!(unopenedIneligibleMastery||unopenedIneligibleStandard||unopenedDepletedLatin)&&old?.assignedTopic&&
+    const unopenedDepletedLatin=latinUnopened&&remainingLatin!==null&&
+      remainingLatin<Math.max(1,Number(old.target)||10);
+    // Pre-fix idle cards may have Stage 1 even though it was assigned recently.
+    // Rotate this untouched card once; keep every attempted/credited task frozen.
+    const unopenedRepeatedLatin=latinUnopened&&
+      (recentTopicExposure(state,today).get(old.assignedTopic)?.count||0)>0&&
+      pool.some(t=>t.topicId!==old.assignedTopic);
+    const frozen=!(unopenedIneligibleMastery||unopenedIneligibleStandard||
+      unopenedDepletedLatin||unopenedRepeatedLatin)&&old?.assignedTopic&&
       (pool.find(t=>t.topicId===old.assignedTopic)||
       {topicId:old.assignedTopic,topicLabel:old.assignedLabel,subject:old.assignedSubject,year:old.assignedYear||8});
     const eligible=pool.filter(t=>!assigned.has(t.topicId)&&condition(t));
@@ -393,18 +400,23 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     canAssignVerifiedYear8Standard(t.topicId)&&latinHasFreshTen(t));
   const latinAvailable=latinReady.length?latinReady:pools.latin.filter(t=>
     canAssignVerifiedYear8Standard(t.topicId)&&latinHasFreshTen(t));
-  const latinUncovered=latinAvailable.filter(t=>!coveredTopic(state,t.topicId));
-  const latinWindow=latinUncovered.slice(0,4);
-  for(const t of latinAvailable){
-    if(latinWindow.length>=4)break;
-    if(!latinWindow.some(chosen=>chosen.topicId===t.topicId))latinWindow.push(t);
-  }
+  // A four-topic "uncovered" frontier pinned Stage 1/2 indefinitely when
+  // Stage mastery was incomplete or iPad topic coverage was not persisted.
+  // Daily Latin Standard is a revision rotation, not a mastery unlock gate:
+  // rotate across all *eligible and Year-8-taught* Stage 1–12 word lists.
+  // Stage 1/2 errors still receive their proper due/weakness review separately.
+  const latinStages=latinAvailable.filter(t=>/^la-y8-stage-(?:[1-9]|1[0-2])-vocabulary$/.test(t.topicId));
+  const latinWindow=latinStages.length?latinStages:latinAvailable;
+  const rotated=[...latinWindow];
+  const start=rotated.length?((dayNumber(today)%rotated.length)+rotated.length)%rotated.length:0;
+  const rotationOrder=new Map([...rotated.slice(start),...rotated.slice(0,start)]
+    .map((t,i)=>[t.topicId,i]));
   const latinHistory=recentTopicExposure(state,today);
   const latin=pick('latin-standard',latinWindow,()=>true,(a,b)=>{
     const aSeen=latinHistory.get(a.topicId),bSeen=latinHistory.get(b.topicId);
     return (aSeen?.count||0)-(bSeen?.count||0)||
       (bSeen?.lastAge||7)-(aSeen?.lastAge||7)||
-      Number(coveredTopic(state,a.topicId))-Number(coveredTopic(state,b.topicId));
+      (rotationOrder.get(a.topicId)||0)-(rotationOrder.get(b.topicId)||0);
   });
   const standardPool=(standardPools[subject]||[]).filter(t=>!pendingRecall(t));
   const alternateStandardPool=rotation.flatMap(s=>standardPools[s])
