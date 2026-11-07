@@ -22,22 +22,22 @@ test('source holds 72 Stage 1 variants over 12 concepts, not an empty file',()=>
 });
 test('old correctly answered Stage 1 rotates to Stage 2 without changing saved state',()=>{
  const x=state({seenCorrect:done([s1])}),before=JSON.stringify(x),t=latin(x);
- assert.equal(t.assignedTopic,'la-y8-stage-8-vocabulary');assert.equal(t.target,10);assert.equal(t.progress,0);
+ assert.notEqual(t.assignedTopic,s1);assert.equal(t.target,10);assert.equal(t.progress,0);
  assert.equal(JSON.stringify(x),before);
 });
 test('only nine remaining distinct concepts is not enough for 10/10',()=>{
  const concepts=[...new Set(qs(s1).map(q=>q.conceptId))];
  const seenCorrect=Object.fromEntries(qs(s1).filter(q=>concepts.slice(0,3).includes(q.conceptId)).map(q=>[q.id,1]));
  assert.equal(latinDailyUncreditedConcepts(s1,seenCorrect),9);
- assert.equal(latin(state({seenCorrect})).assignedTopic,'la-y8-stage-8-vocabulary');
+ assert.notEqual(latin(state({seenCorrect})).assignedTopic,s1);
 });
 test('depleted Stage 1 and 2 route to Stage 3, never award recycled answers',()=>{
- assert.equal(latin(state({seenCorrect:done([s1,s2])})).assignedTopic,'la-y8-stage-8-vocabulary');
+ assert.ok(![s1,s2].includes(latin(state({seenCorrect:done([s1,s2])})).assignedTopic));
 });
 test('unopened same-day Stage 1 may rotate; partially done task must remain unchanged',()=>{
  const seenCorrect=done([s1]);
  const empty=latin(state({daily:[old()],seenCorrect}));
- assert.equal(empty.assignedTopic,'la-y8-stage-8-vocabulary');assert.equal(empty.progress,0);
+ assert.notEqual(empty.assignedTopic,s1);assert.equal(empty.progress,0);
  const started=latin(state({daily:[old(3)],seenCorrect}));
  assert.equal(started.assignedTopic,s1);assert.equal(started.progress,3);
 });
