@@ -166,7 +166,8 @@ test('real Biology, Chemistry and Physics HTML routes load the updated Science P
  for(const c of [science,language]){
    assert.ok(c.includes('dailyReservations=otherYear8DailyReservations('));
    assert.ok(c.includes('safeU=excludeOtherYear8Reservations(enforceDistinctYear8MasteryAfterRetry('));
-   assert.ok(c.includes('requireDistinctConcepts:dailyLocked&&N===8&&E===`mastery`'));
+   assert.ok(c.includes('requireDistinctConcepts:dailyLocked&&N===8&&(E===`mastery`'),
+     'keep Year 8 Mastery concept guard and extend unopened Latin Standard');
    assert.ok(c.includes('Not enough fresh Year 8 questions'));
    assert.ok(c.includes('this task is NOT automatically marked complete'));
    assert.ok(!c.includes('target:progress,progress,done:true,cappedBecauseQuestionBankExhausted:true'));

@@ -99,7 +99,7 @@ retryEffect=(0,w.useEffect)(()=>{
 },[retryKey,needRetryLookup]),
 dailyReservations=otherYear8DailyReservations(s.getState(),z,{day:R,taskId:canonicalTask,subject:e,year:N,topicId:pinnedTopic,recoveryDate:dailyParams.get('recover')||null}),
 safeU=excludeOtherYear8Reservations(enforceDistinctYear8MasteryAfterRetry(selectUnfinishedDailyQuestions(selectDiverseRecoveryQuestions(fillDailyLockedQuestions(U,z,{locked:dailyLocked,mode:E,size:W,topicId:pinnedTopic,subject:e,
- requireDistinctConcepts:dailyLocked&&N===8&&E===`mastery`&&canonicalTask!==`y8vocab`,
+ requireDistinctConcepts:dailyLocked&&N===8&&(E===`mastery`||(e===`latin`&&E===`standard`&&canonicalTask===`latin-standard`&&!Number(assignment?.progress))),
  reservedIds:dailyReservations,
  correctIds:(()=>{const state=s.getState();const ids=dailyCorrectQuestionIds(state,{day:R,taskId:canonicalTask,subject:e,year:N,topicId:pinnedTopic});
  if(dailyLocked&&!dailyParams.has('recover')&&['standard','quick','mastery'].includes(E))
