@@ -2,6 +2,7 @@ import {curriculumTopics,curriculumHref} from './daily-curriculum-20261004.js';
 import {coveredTopic,masteryStage} from './mastery-v2-20261018.js';
 import {dailyVocabTotal} from './daily-vocab-total-20261020.js?v=20261023-final-credit1';
 import {datedAssignmentEvidence} from './daily-dated-assignment-evidence-20261103.js';
+import {latinDailyUncreditedConcepts} from './latin-daily-capacity-20261107.js';
 import {canAssignVerifiedYear8Mastery,canAssignVerifiedYear8Standard} from './year8-mastery-source-capacity-20261103.js';
 
 const savedDatedMode=t=>{try{return new URL(t?.href,'https://scholar.invalid').searchParams.get('mode')}catch{return null}};
@@ -248,7 +249,17 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       old?.assignedTopic&&!canAssignVerifiedYear8Standard(old.assignedTopic)&&
       !old.done&&!(Number(old.progress)>0)&&
       !entries.some(e=>e.dailyTaskId===id);
-    const frozen=!(unopenedIneligibleMastery||unopenedIneligibleStandard)&&old?.assignedTopic&&
+    // Stage 1 can contain 72 real questions yet have none left after
+    // earlier correct attempts. An unopened 0/10 card may safely rotate;
+    // any actual attempt, credit or independently saved evidence stays pinned.
+    const remainingLatin=id==='latin-standard'&&old?.assignedTopic
+      ? latinDailyUncreditedConcepts(old.assignedTopic,state.seenCorrect):null;
+    const unopenedDepletedLatin=id==='latin-standard'&&old?.assignedTopic&&
+      remainingLatin!==null&&remainingLatin<Math.max(1,Number(old.target)||10)&&
+      !old.done&&!(Number(old.progress)>0)&&
+      !(Array.isArray(old.verifiedCorrectIds)&&old.verifiedCorrectIds.length)&&
+      !entries.some(e=>e.dailyTaskId===id);
+    const frozen=!(unopenedIneligibleMastery||unopenedIneligibleStandard||unopenedDepletedLatin)&&old?.assignedTopic&&
       (pool.find(t=>t.topicId===old.assignedTopic)||
       {topicId:old.assignedTopic,topicLabel:old.assignedLabel,subject:old.assignedSubject,year:old.assignedYear||8});
     const eligible=pool.filter(t=>!assigned.has(t.topicId)&&condition(t));
@@ -357,7 +368,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       planDate:today,assignedSubject:topic?.subject||null,assignedTopic:topic?.topicId||null,
       assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,masteryCheck,curriculumVersion:4,
       ...((completeCorrectJournal||verifiedPrior)?{correctOnlyEvidence:true}:{}),
-      ...(old?.cappedBecauseQuestionBankExhausted?
+      ...(same&&old?.cappedBecauseQuestionBankExhausted?
         {cappedBecauseQuestionBankExhausted:true,done:progress>=target}:{}),
       ...(creditIds.length&&(verifiedPrior||progress>=target)?{verifiedCorrectIds:creditIds.slice(0,80),
         verifiedCorrectSlots:Math.min(target,progress),
@@ -371,8 +382,17 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   // rotate by actual recent Daily assignments rather than repeatedly forcing
   // the first uncovered Stage 1/2 when its credit/coverage has not caught up.
   // Intentionally due and weakness-review tasks remain independently eligible.
-  const latinReady=pools.latin.filter(t=>!pendingRecall(t)&&canAssignVerifiedYear8Standard(t.topicId));
-  const latinAvailable=latinReady.length?latinReady:pools.latin.filter(t=>canAssignVerifiedYear8Standard(t.topicId));
+  // Read-only preflight: do not offer an exhausted Stage when another source
+  // has ten independently fresh concepts. Unknown source capacity is left
+  // eligible, not guessed from nominal catalog question counts.
+  const latinHasFreshTen=t=>{
+    const remaining=latinDailyUncreditedConcepts(t.topicId,state.seenCorrect);
+    return remaining===null||remaining>=10;
+  };
+  const latinReady=pools.latin.filter(t=>!pendingRecall(t)&&
+    canAssignVerifiedYear8Standard(t.topicId)&&latinHasFreshTen(t));
+  const latinAvailable=latinReady.length?latinReady:pools.latin.filter(t=>
+    canAssignVerifiedYear8Standard(t.topicId)&&latinHasFreshTen(t));
   const latinUncovered=latinAvailable.filter(t=>!coveredTopic(state,t.topicId));
   const latinWindow=latinUncovered.slice(0,4);
   for(const t of latinAvailable){
