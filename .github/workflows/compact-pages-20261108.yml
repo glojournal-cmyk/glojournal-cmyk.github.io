@@ -1,0 +1,75 @@
+name: Compact Pages publish (safe staging)
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/compact-pages-20261108.yml'
+      - 'scripts/stage-compact-pages-20261108.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: compact-pages-publish
+  cancel-in-progress: false
+
+jobs:
+  stage:
+    name: Verify complete, smaller public website
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Stage app into a separate directory (no repository modifications)
+        run: |
+          python3 scripts/stage-compact-pages-20261108.py \
+            --output "${{ runner.temp }}/compact-pages" \
+            --report "${{ runner.temp }}/compact-report.json"
+      - name: Confirm Year 8 Latin Recovery and all 12 real Stage packs
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import os
+          base=Path(os.environ['RUNNER_TEMP'])/'compact-pages'
+          for n in range(1,13):
+              p=base/f'content/topics/la-y8-stage-{n}-vocabulary.json'
+              if not p.is_file():
+                  raise SystemExit(f'Missing Latin Stage {n}: {p}')
+          for name in (
+              'assets/latin-recovery-topic-pool-20261107.js',
+              'assets/recovery-question-diversity-20261025.js',
+              'assets/study._subject.practise-y8fix-20260920.js',
+              'pet/art-inkling-all10-20261018/level-10.png',
+              'pet/art-baphomet-assassin-20261019/level-10.png',
+          ):
+              if not (base/name).is_file():
+                  raise SystemExit(f'Missing live learning or pet resource: {name}')
+          print('All 12 Latin Stage files, Recovery code and active pet assets verified')
+          PY
+      - name: Confirm route and Recovery regression QA
+        run: |
+          node tests/route-shell-qa.mjs
+          node --test tests/latin-recovery-empty-20261107.test.mjs
+      - name: Publish staged artifact (manual runs on main only)
+        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: "${{ runner.temp }}/compact-pages"
+
+  deploy:
+    name: Deploy compact site after Pages source switched to GitHub Actions
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    needs: stage
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy verified compact Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v5
+        with:
+          timeout: 600000
