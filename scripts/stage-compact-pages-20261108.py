@@ -75,9 +75,12 @@ def analyze_pet_folders(files):
             except (UnicodeError, OSError):
                 continue
     combined = "\n".join(serving_text)
+    # Preserve hidden pets and older 3D art in case a learner has a
+    # previously saved outfit/skin URL, even when no current JS uses it.
+    saved_url_compatibility = {"art-secret", "art-3d-v2"}
     archived = set()
     for d in (REPO / "pet").iterdir():
-        if d.is_dir() and d.name.startswith("art-") and d.name not in combined:
+        if d.is_dir() and d.name.startswith("art-") and d.name not in combined and d.name not in saved_url_compatibility:
             archived.add(d.name)
     return archived
 
