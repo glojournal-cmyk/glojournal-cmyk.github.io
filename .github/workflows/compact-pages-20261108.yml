@@ -1,5 +1,7 @@
 name: Compact Pages publish (safe staging)
 on:
+  push:
+    branches: [main]
   pull_request:
     paths:
       - '.github/workflows/compact-pages-20261108.yml'
@@ -16,7 +18,31 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  pages-mode:
+    name: Check publishing source before automatic deployment
+    runs-on: ubuntu-latest
+    outputs:
+      enabled: ${{ steps.mode.outputs.enabled }}
+    steps:
+      - id: mode
+        name: Read Pages source (legacy branches must not get parallel deployments)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          response="$(curl -sSf -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages" || echo '{}')"
+          mode="$(printf '%s' "$response" | jq -r '.build_type // "legacy"')"
+          if [ "$mode" = "workflow" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "GitHub Pages is configured for custom Actions."
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "Pages source is not GitHub Actions; skipping automatic deploy."
+          fi
+
   stage:
+    needs: pages-mode
+    if: github.event_name != 'push' || needs.pages-mode.outputs.enabled == 'true'
     name: Verify complete, smaller public website
     runs-on: ubuntu-latest
     steps:
@@ -54,15 +80,15 @@ jobs:
           node tests/route-shell-qa.mjs
           node --test tests/latin-recovery-empty-20261107.test.mjs
       - name: Publish staged artifact (manual runs on main only)
-        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && needs.pages-mode.outputs.enabled == 'true'))
         uses: actions/upload-pages-artifact@v4
         with:
           path: "${{ runner.temp }}/compact-pages"
 
   deploy:
     name: Deploy compact site after Pages source switched to GitHub Actions
-    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
-    needs: stage
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && needs.pages-mode.outputs.enabled == 'true'))
+    needs: [pages-mode, stage]
     runs-on: ubuntu-latest
     environment:
       name: github-pages
