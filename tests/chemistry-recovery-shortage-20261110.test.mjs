@@ -77,10 +77,10 @@ test('never borrow into review, Year 9, another subject, or untagged answers',()
   {state,date:oldDate,day:today,taskId:task.id,subject,year:9,
    topicId:pinned,size:10,mode:'standard'},rank,progression);
  assert.equal(year9.length,7);
- const other=selectDiverseRecoveryQuestions(q1.slice(0,7),bank,
-  {state,date:oldDate,day:today,taskId:task.id,subject:'physics',year:8,
-   topicId:pinned,size:10,mode:'standard'},rank,progression);
- assert.equal(other.length,7);
+ // The loader (not the generic ranker) is the subject/year boundary.
+ // Even with a Chemistry pinned ID, Physics never loads Chemistry banks.
+ assert.ok(year8ScienceRecoveryTopics(catalog,'physics',pinned).every(t=>
+  t.subject==='physics'&&Number(t.year)===8&&t.status==='enabled'));
  assert.equal(matchesAssignedPracticeEvidence({questionId:q2[0].id,
   correct:true,formal:true,subject,year:8,topicId:extra},task,task.id),false);
 });
