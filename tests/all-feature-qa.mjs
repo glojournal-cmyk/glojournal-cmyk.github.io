@@ -25,6 +25,7 @@ commands.push("node --test tests/latin-recovery-empty-20261107.test.mjs");
 commands.push("node --test tests/chemistry-recovery-shortage-20261110.test.mjs");
 commands.push("node --test tests/chemistry-recovery-20-20261110.test.mjs tests/french-shopping-centre-20261110.test.mjs");
 commands.push("node --test tests/category-map-typed-ipad-20261110.test.mjs");
+commands.push("node --test tests/daily-vocab-ipad-credit-20261110.test.mjs");
 const failures=[];
 for(const command of commands){const [cmd,...args]=command.split(" ");const r=spawnSync(cmd,args,{encoding:"utf8",env:{...process.env,STRICT:"1"}});console.log(r.stdout);console.error(r.stderr);if(r.status!==0)failures.push({command,status:r.status});}
 console.log("ALL_FEATURE_AUDIT "+JSON.stringify({checks:commands.length,failures}));process.exit(failures.length?1:0);
