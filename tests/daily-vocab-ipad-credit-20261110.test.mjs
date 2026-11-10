@@ -14,7 +14,7 @@ test('French and Latin correct Daily words count after 23/30 saved, without fals
  const start=source.indexOf('function recordDailyVocabAttempt(');
  const end=source.indexOf('function patchedRecordSpelling(',start);
  assert.ok(start>0&&end>start,'real runtime recorder is present');
- const box=vm.createContext({store,window:{location:{search:'?daily=1&locked=1&mode=y8vocab'}},
+ const box=vm.createContext({store,URLSearchParams,window:{location:{search:'?daily=1&locked=1&mode=y8vocab'}},
    todayKey:()=>day,dailyVocabTotal,originalBumpDaily:()=>{},scheduleNormalizeState:()=>{}});
  vm.runInContext(source.slice(start,end),box);
  const mark=(subject,id,correct,concept)=>{
