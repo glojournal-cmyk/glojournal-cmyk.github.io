@@ -3,6 +3,7 @@ import {selectUnfinishedDailyQuestions} from './daily-unfinished-retry-20261025.
 import {readDailyRetryReceiptSync,readDailyRetryReceipt} from './daily-completed-session-receipts-20261024.js?v=20261026-bio-savefix2&modeguard=20261030-2';
 import {selectDiverseRecoveryQuestions} from './recovery-question-diversity-20261025.js?v=20261110-science-recovery1';
 import {latinRecoveryYear8Sources} from './latin-recovery-topic-pool-20261107.js';
+import {year8ScienceRecoveryTopics} from './year8-science-recovery-sources-20261110.js';
 import {listRecoveryReceipts} from './recovery-receipt-20261018.js?v=20261025-recovery-correct1';
 import {dailyVocabTotal} from './daily-vocab-total-20261020.js?v=20261023-final-credit1';
 import {uniqueFrenchQuestions} from "./french-unique-questions-20261018.js";
@@ -83,10 +84,7 @@ function E(){const loadedCatalog=useLoadedCatalog();const [bioActive,setBioActiv
  if(dailyLocked&&dailyParams.has('recover')&&assignment&&N===8&&
     ['chemistry','biology','physics'].includes(e)&&
     ['standard','quick','mastery','year8long'].includes(E)&&pinnedTopic){
-   const known=new Set(n.map(t=>t.topicId));
-   const safeSources=I.filter(t=>t?.subject===e&&Number(t.year)===8&&
-     t.status==='enabled'&&t.topicId!==pinnedTopic&&!known.has(t.topicId));
-   n=[...n,...safeSources];
+   n=[...n,...year8ScienceRecoveryTopics(I,e,pinnedTopic,n)];
  }
  if(!n.length){B([]);reviewLoaded(!1);return}H(!0);try{let e=await Promise.all(n.map(e=>Promise.resolve().then(()=>u(e.topicId)).catch(()=>[])));if(!t)return;B(e.flatMap(e=>h(e,{includePreview:!0})).filter(q=>!(/this Latin entry/i.test(String(q.prompt||``))&&!String(q.stimulus?.text||``).trim())));reviewLoaded(reviewKey)}finally{t&&H(!1)}}return n(),()=>{t=!1}},[e,N,O,E,F,P,pinnedTopic,I]);const recoverySize=(0,w.useRef)(recoveryPracticeSize(e,dailyParams,s.getState())).current,vocabSessionSeed=(0,w.useRef)(String(R)+":"+Math.random()+":"+Date.now()).current;const lockedRemainingRef=(0,w.useRef)({key:'',remaining:null});
 const remainingKey=[R,e,N,E,canonicalTask,assignment?.assignedTopic,assignment?.target,dailyParams.get('recover')||''].join(':');
