@@ -56,7 +56,7 @@ test('the runtime router, preload map and static French/Latin pages all use the 
  const core=fs.readFileSync(new URL('../assets/index-BLVOhKhN.core.js',import.meta.url),'utf8');
  const french=fs.readFileSync(new URL('../study/french/practise/index.html',import.meta.url),'utf8');
  const latin=fs.readFileSync(new URL('../study/latin/practise/index.html',import.meta.url),'utf8');
- const modulePath='study._subject.practise-y8fix-20260920.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1&vocabcap=20261023-repair10-v1&recoveryfix=20261107-latin-recovery1';
+ const modulePath='study._subject.practise-y8fix-20260920.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1&vocabcap=20261023-repair10-v1&recoveryfix=20261110-science-recovery1';
  assert.ok(core.includes('./'+modulePath),'router actually loads the fixed bundle');
  assert.ok(core.includes('assets/study._subject.practise-D_PWgUd7.js?v=20261026-bio-year9-savefix2'),'shared science preload remains available');
  for(const [subject,page] of [['french',french],['latin',latin]]){
