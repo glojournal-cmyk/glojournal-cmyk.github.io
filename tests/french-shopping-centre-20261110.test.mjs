@@ -45,3 +45,20 @@ for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-
   assert.equal(mark(reverse,'au parc').ok,false);
  });
 }
+
+test('French Daily vocabulary gives full credit without typed accents, while teaching proper spelling',()=>{
+ const question={id:'french-accent-daily-test',format:'controlled_translation',
+  prompt:'TRANSLATE INTO FRENCH — to the school',status:'enabled',
+  answer:{mode:'exact_or_equivalent',accepted:["à l'école"],
+    normalization:{ignoreFrenchDiacriticsForScore:true}},
+  feedback:{short:"à l'école"}};
+ for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWAnuDVj.js']){
+   const mark=markFrom(path);
+   const result=mark(question,"a l'ecole");
+   assert.equal(result.ok,true,path+': missing accent must still pass');
+   assert.equal(result.score,1);
+   assert.equal(result.accentOnly,true,'learning feedback may point out the missing accent');
+   const strict={...question,answer:{...question.answer,normalization:{ignoreFrenchDiacriticsForScore:false}}};
+   assert.equal(mark(strict,"a l'ecole").ok,false,'explicit accent-sensitive policy still works');
+ }
+});
