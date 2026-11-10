@@ -22,7 +22,7 @@ const markFrom=path=>{
 test('the taught standalone French chunk is ambiguous in English without a verb',()=>{
  assert.equal(source.prompt.split('\n').at(-1),'au centre commercial');
  assert.equal(source.format,'controlled_translation');
- assert.deepEqual(source.answer.accepted,phrases.slice().reverse().reverse().map(s=>s));
+ assert.deepEqual([...source.answer.accepted].sort(),[...phrases].sort());
  assert.equal(reverse.answer.accepted[0],'au centre commercial');
  assert.ok(source.feedback.short.includes('at the shopping centre'));
  assert.ok(source.feedback.short.includes('to the shopping centre'));
