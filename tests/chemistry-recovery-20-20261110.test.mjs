@@ -28,12 +28,13 @@ test('Nov 9 Year 8 Chemistry Mastery 0/20 has real source-backed fallback from 1
  assert.ok(pinned.length>=20);
  const s=state(),before=JSON.stringify(s);
  const original=choose(s,pinned);
- assert.equal(original.length,14,'reproduces screenshot under assigned-bank-only loader');
+ assert.ok(original.length<20,'assigned-bank-only cannot produce 20 independent concepts');
  const full=choose(s,[...pinned,...fromOther]);
  assert.equal(full.length,20,'retain 20/20 original target');
- assert.equal(full.filter(q=>q.topicId===topic).length,14);
- assert.equal(full.filter(q=>q.topicId!==topic).length,6);
+ assert.ok(full.filter(q=>q.topicId===topic).length<=14);
+ assert.ok(full.some(q=>q.topicId!==topic));
  assert.equal(new Set(full.map(q=>q.id)).size,20);
+ assert.equal(new Set(full.map(q=>q.conceptId||q.id)).size,20,'all 20 Mastery questions must test different concepts');
  assert.ok(full.every(q=>!s.seenCorrect[q.id]&&q.formal!==false&&q.status!=='preview'&&!q._repair));
  assert.ok(full.every(q=>q.topicId===topic||altTopics.some(t=>t.topicId===q.topicId)));
  assert.equal(JSON.stringify(s),before,'selection never rewrites progress');
@@ -59,4 +60,17 @@ test('20 actually correct Year 8 answers credit Nov 9 only, no fabricated comple
  assert.equal(s.dailyLog[date].tasks[0].recovered,true);
  assert.equal(s.dailyLog[today],undefined);
  assert.equal(s.recoveryTaskByDay[date][task.id].completed,true);
+});
+
+
+test('post-selector Year 8 Mastery concept guard still receives all 20 questions',async()=>{
+ const {enforceDistinctYear8MasteryAfterRetry}=await import('../assets/daily-locked-question-fallback-20261021.js');
+ const state0=state();
+ const source=[...pinned,...fromOther];
+ const selected=choose(state0,source);
+ const guarded=enforceDistinctYear8MasteryAfterRetry(selected,source,{
+   locked:true,year:8,mode:'mastery',seenCorrect:state0.seenCorrect,creditedIds:[]
+ });
+ assert.equal(guarded.length,20,'nothing lost at final 20/14 iPad guard');
+ assert.equal(new Set(guarded.map(q=>q.conceptId||q.id)).size,20);
 });
