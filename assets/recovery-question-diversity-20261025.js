@@ -115,10 +115,13 @@ export function selectDiverseRecoveryQuestions(fresh,loaded,options={},rank,prog
    ordered=[...ranked.slice(offset),...ranked.slice(0,offset)];
  }
  const picked=selectUnique(ordered).slice(0,limit);
- // Only a dated language Recovery may use alternative topics from the same
- // loaded school year, and only after the assigned topic is exhausted.
- // Correct IDs, duplicate prompts and other Recovery tasks stay excluded.
- const fallback=!review&&!!topicId&&['french','latin'].includes(subject)&&picked.length<limit;
+ // Dated Year 8 science Recovery may use other *enabled* topics of the
+ // same subject/year, already validated by the route loader. A Recovery card
+ // retains its saved subject, day, original target and marking rules.
+ // Neither Year 9 nor strict mistake/due reviews can borrow other topics.
+ const mayBorrow=['french','latin'].includes(subject)||
+   (Number(year)===8&&['biology','chemistry','physics'].includes(subject));
+ const fallback=!review&&!!topicId&&mayBorrow&&picked.length<limit;
  if(fallback){
    const usedIds=new Set(picked.map(q=>String(q.id)));
    const usedPrints=new Set(picked.map(recoveryQuestionFingerprint).filter(Boolean));
