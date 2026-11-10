@@ -83,7 +83,7 @@ test('live iPad Latin Practice loader brings additional Year 8 banks only to dat
  assert.ok(js.includes('dailyLocked&&dailyParams.has(\'recover\')&&assignment&&N===8&&e===\'latin\''));
  assert.ok(js.includes('latinRecoveryYear8Sources(I,pinnedTopic,s.getState()?.seenCorrect,8)'));
  assert.ok(js.includes('...fallbacks.filter(t=>!known.has(t.topicId))'));
- assert.ok(js.includes('recovery-question-diversity-20261025.js?v=20261107-latin-recovery1'));
+ assert.ok(js.includes('recovery-question-diversity-20261025.js?v=20261110-science-recovery1'));
 });
 
 test('five correctly marked Stage 3 fallback words credit Nov 6 original Latin task, not Nov 7',()=>{
