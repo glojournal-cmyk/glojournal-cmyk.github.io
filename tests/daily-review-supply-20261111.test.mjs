@@ -60,6 +60,11 @@ test('Day 2 and Day 7 scheduled recalls have different and shared due rules',()=
  assert.equal(year8ReviewInterval('due-review',id,general),2);
 });
 
+test('unindexed old topic does not erase a preserved in-flight Review',()=>{
+ assert.equal(year8ReviewEligibleQuestionIds('unknown-legacy-topic',state()),null);
+ assert.equal(preflightYear8Task('unknown-legacy-topic',state(),10,{reviewAfterDays:7}).canStart,false);
+});
+
 test('legacy undated credit is not treated as due automatically',()=>{
  const x=state({seenCorrect:{[groups[0][0]]:1}});
  const allowed=year8ReviewEligibleQuestionIds(id,x,{reviewAfterDays:7});
