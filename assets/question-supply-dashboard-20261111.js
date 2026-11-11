@@ -2,7 +2,7 @@
  * No MutationObserver, no timers and no learner-data writes (iPad-safe).
  */
 import {C as store,st as getTopicCatalog} from '/assets/index-BLVOhKhN.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1&mpverify=20261030-save-retry3-modeguard2&scienceRecover=20261110a&frenchShopping=20261110a&nov10Fix=20261110c';
-import {buildYear8DailyV2} from './year8-daily-v2-20261018.js';
+import {buildYear8DailyV2} from ''./year8-daily-v2-20261018.js?v=20261025-scorefix2&latinrotation=20261101a&latincapacity=20261107a&dailyfix=20261104-regression1&supply=20261111a';
 import {year8SupplyBySubject,forecastYear8Tasks,preflightYear8Task} from './question-supply-preflight-20261111.js';
 const KEY='year8-question-supply-inspector';
 const subjectLabels={latin:'Latin',french:'French',biology:'Biology',chemistry:'Chemistry',physics:'Physics'};
