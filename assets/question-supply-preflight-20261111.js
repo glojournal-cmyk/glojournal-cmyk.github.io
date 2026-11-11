@@ -41,11 +41,67 @@ export function year8CorrectQuestionIds(state={},subject=''){
  }
  return ids;
 }
+// Date-aware formal review: a correctly answered concept can be assessed again
+// after its due interval, but never because the same question has a new format.
+// Undated legacy success stays protected rather than assuming it is old.
+function year8LastCorrectDays(state={},subject=''){
+ const days=new Map(),add=(id,day)=>{
+  if(!id||!SAFE_DAY.test(day||''))return;
+  const key=BASE(id),previous=days.get(key);
+  if(!previous||day>previous)days.set(key,day);
+ };
+ for(const row of state.formalAttemptLog||[])
+  if(row?.correct===true&&row.formal!==false&&!row.repair&&
+     (!subject||row.subject===subject)&&(row.year==null||Number(row.year)===8))
+   add(row.questionId,row.day);
+ for(const [day,proofs] of Object.entries(state.recoveryTaskByDay||{})){
+  const tasks=state.dailyLog?.[day]?.tasks||[];
+  for(const [taskId,proof] of Object.entries(proofs||{})){
+   const task=tasks.find(t=>t.id===taskId);
+   if(!task||subjectOf(task)!==subject||Number(task.assignedYear||8)!==8)continue;
+   for(const [qid,correct] of Object.entries(proof?.items||{}))
+    if(correct===true)add(qid,day);
+  }
+ }
+ const tasks=[...(state.daily||[]),...Object.values(state.dailyLog||{}).flatMap(row=>row?.tasks||[])];
+ for(const task of tasks){
+  if(subjectOf(task)!==subject||Number(task.assignedYear||8)!==8||
+     !Array.isArray(task.verifiedCorrectIds))continue;
+  try{
+   const u=new URL(task.href,'https://supply.invalid'),day=task.planDate;
+   const proof=[day,task.id,subject,task.assignedTopic,8,u.searchParams.get('mode'),Number(task.target)].join('|');
+   if(u.searchParams.get('daily')==='1'&&u.searchParams.get('locked')==='1'&&
+      u.searchParams.get('task')===task.id&&
+      task.verifiedCorrectAssignment===proof)
+    for(const id of task.verifiedCorrectIds)add(id,day);
+  }catch{}
+ }
+ return days;
+}
+function reviewableGroups(topicId,state={},options={}){
+ const source=year8SupplyGroups[String(topicId||'')];
+ if(!source)return null;
+ const [subject,groups]=source,correct=year8CorrectQuestionIds(state,subject);
+ const interval=Math.max(1,Math.min(30,Number(options.reviewAfterDays)||7));
+ const last=year8LastCorrectDays(state,subject),today=options.day||state.today;
+ return groups.filter(ids=>{
+  if(!ids.some(id=>correct.has(BASE(id))))return true;
+  let latest='';
+  for(const id of ids){const day=last.get(BASE(id));if(day&&day>latest)latest=day;}
+  return !!latest&&age(today,latest)>=interval;
+ });
+}
+export function year8ReviewEligibleQuestionIds(topicId,state={},options={}){
+ const groups=reviewableGroups(topicId,state,options);
+ return new Set((groups||[]).flat().map(String));
+}
 export function year8TopicSupply(topicId,state={},options={}){
  const source=year8SupplyGroups[String(topicId||'')];
  if(!source)return {topicId,subject:null,known:false,total:0,mastered:0,available:0,reserved:0,remaining:[]};
  const [subject,groups]=source,correct=options.correctIds instanceof Set?options.correctIds:year8CorrectQuestionIds(state,subject);
- const remaining=groups.filter(ids=>!ids.some(id=>correct.has(BASE(id))));
+ const remaining=options.reviewAfterDays
+  ?reviewableGroups(topicId,state,options)
+  :groups.filter(ids=>!ids.some(id=>correct.has(BASE(id))));
  // Existing same-day tasks claim a conservative number of independent
  // concepts. Do NOT infer that unattempted tasks have marked correct answers.
  // Ignore the task being preflighted and leave actual reservation to runtime.
