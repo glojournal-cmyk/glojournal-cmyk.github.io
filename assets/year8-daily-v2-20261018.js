@@ -159,8 +159,10 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   }
   const today=state.today, previous=new Map((state.daily||[]).filter(t=>t.planDate===today).map(t=>[t.id,t]));
   // Read-only learner preflight: count distinct UNcredited Year 8 source concepts.
-  const canStart=(topicId,count,taskId)=>preflightYear8Task(topicId,state,count,
-    {taskId,day:today,countReservations:!!taskId}).canStart;
+  const supply=(topicId,count,taskId)=>preflightYear8Task(topicId,state,count,
+    {taskId,day:today,countReservations:!!taskId});
+  const canStart=(topicId,count,taskId)=>supply(topicId,count,taskId).canStart;
+  const hasBuffer=(topicId,count)=>supply(topicId,count).buffered;
   // Read actual dated task receipts, including an archived pre-reassignment
   // slot. Once an assignment has real credited work, keep that subject,
   // topic, route, and target instead of replacing it with today's 0/20.
@@ -437,7 +439,9 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     const eligibleLocal=standardPool.filter(t=>!assigned.has(t.topicId));
     const pool=eligibleLocal.length?standardPool:alternateStandardPool.filter(t=>
       !assigned.has(t.topicId));
-    const topic=pick(id,pool,t=>!coveredTopic(state,t.topicId));
+    // Prefer an independently sourced 25% reserve when possible.
+    const topic=pick(id,pool,t=>!coveredTopic(state,t.topicId),
+      (a,b)=>Number(hasBuffer(b.topicId,10))-Number(hasBuffer(a.topicId,10)));
     if(topic?.subject){exposure.standard[topic.subject]++;exposure.flex[topic.subject]++;}
     return topic;
   });
@@ -505,6 +509,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     const retained=previous.get(id);
     const topic=pick(id,recallStarted?[...masteryPool,...dueMastery]:masteryPool,
       t=>!assigned.has(t.topicId),(a,b)=>
+        Number(hasBuffer(b.topicId,20))-Number(hasBuffer(a.topicId,20))||
         balancedCompare(a,b,exposure.flex,exposure.mastery,subjects,today));
     if(topic?.subject){exposure.mastery[topic.subject]++;exposure.flex[topic.subject]++;}
     return {topic,mode:recallStarted?'due':retained?.assignedTopic?(savedMode(retained)||'mastery'):'mastery',
@@ -518,6 +523,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     if(!m.check)return [];
     const id='y8-mastery-topup-'+('ab'[i]);
     const chosen=pick(id,masteryPool,t=>!assigned.has(t.topicId),(a,b)=>
+      Number(hasBuffer(b.topicId,20))-Number(hasBuffer(a.topicId,20))||
       balancedCompare(a,b,exposure.flex,exposure.mastery,subjects,today));
     if(chosen?.subject){exposure.mastery[chosen.subject]++;exposure.flex[chosen.subject]++;}
     return [task(id,chosen,'mastery',20,'Year 8 Mastery · 20 new questions; previous five-question recall remains recorded')];
