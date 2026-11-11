@@ -17,7 +17,7 @@
     let reason=question.feedback?.distractors?.[given]||'';
     const correct=result.ok??result.credit===1;
     // These tasks request an example of a category, not the category label itself.
-    const purposeMatch=String(question.prompt||'').match(/Give one taught French option for this purpose:\s*([^\\n.]+)/i);
+    const purposeMatch=String(question.prompt||'').match(/Give one taught French option for this purpose:\s*(sequence|contrast|time|reaction)/i);
     const purpose=purposeMatch?.[1]?.trim()||'';
     if(!correct&&!reason){
       if(result.errorKind==='blank'||!given.trim())reason='No answer was supplied, so there is no evidence to award this point.';
