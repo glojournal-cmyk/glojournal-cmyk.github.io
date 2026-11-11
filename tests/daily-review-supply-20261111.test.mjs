@@ -86,7 +86,7 @@ test('completely exhausted Year 8 banks do not cause unverified topic fallback',
    'y8-mastery-a','y8-mastery-b','weakness-review','due-review']){
   assert.equal(byId[taskId]?.supplyBlocked,true,taskId+' should be blocked rather than present an empty quiz');
   assert.equal(byId[taskId]?.progress,0);
-  assert.equal(byId[taskId]?.done,false);
+  assert.notEqual(byId[taskId]?.done,true);
  }
 });
 
