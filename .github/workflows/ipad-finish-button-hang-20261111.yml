@@ -1,0 +1,36 @@
+name: iPad Finish button and Daily receipt timeout QA
+on:
+  pull_request:
+    paths:
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'assets/daily-completed-session-receipts-20261024.js'
+      - 'assets/index-BLVOhKhN.js'
+      - 'assets/index-BLVOhKhN.core.js'
+      - 'assets/study._subject.practise-*.js'
+      - 'tests/ipad-finish-button-hang-20261111.test.mjs'
+      - '.github/workflows/ipad-finish-button-hang-20261111.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'assets/daily-completed-session-receipts-20261024.js'
+      - 'tests/ipad-finish-button-hang-20261111.test.mjs'
+      - '.github/workflows/ipad-finish-button-hang-20261111.yml'
+permissions:
+  contents: read
+jobs:
+  finish-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - name: Syntax check
+        run: |
+          node --check assets/daily-completed-session-receipts-20261024.js
+          node --check assets/quiz-session-y8fix-20260920.js
+          node --check assets/quiz-session-rWAnuDVj.js
+      - name: Exercise blocked IndexedDB and Finish fallback
+        run: node --test tests/ipad-finish-button-hang-20261111.test.mjs
