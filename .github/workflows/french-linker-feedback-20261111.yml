@@ -1,0 +1,36 @@
+name: French linker feedback regression
+on:
+  pull_request:
+    paths:
+      - 'assets/learning-feedback-20261003.js'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'content/topics/fr-y8-s22-high-scoring-structures.json'
+      - 'tests/french-linker-feedback-20261111.test.mjs'
+      - '.github/workflows/french-linker-feedback-20261111.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'assets/learning-feedback-20261003.js'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'content/topics/fr-y8-s22-high-scoring-structures.json'
+      - 'tests/french-linker-feedback-20261111.test.mjs'
+      - '.github/workflows/french-linker-feedback-20261111.yml'
+permissions:
+  contents: read
+jobs:
+  feedback:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check changed JavaScript syntax
+        run: |
+          node --check assets/learning-feedback-20261003.js
+          node --check assets/quiz-session-y8fix-20260920.js
+          node --check assets/quiz-session-rWAnuDVj.js
+      - name: Verify French linker feedback and scoring examples
+        run: node --test tests/french-linker-feedback-20261111.test.mjs
