@@ -243,18 +243,39 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     .filter(e=>!correctOnly||e.correct===true).map(e=>String(e.questionId).split('@')[0])).size;
   const pick=(id,pool,condition,compare)=>{
     const old=previous.get(id);
+    // Every new Year 8 slot (including Due/Weakness) must have enough
+    // truly selectable concepts. Scheduled Due checks may revisit after two
+    // days; Weakness consolidation waits seven days after a correct answer.
+    const reviewDays=id==='due-review'?2:id==='weakness-review'?7:0;
+    const slotTarget=t=>{
+      if(id.startsWith('y8-mastery-'))return 20;
+      if(id==='due-review'){
+        const m=state.topicStats?.[t.topicId]?.masteryV2;
+        if((old?.assignedTopic===t.topicId&&old?.masteryCheck===true)||
+           (['check2','check7'].includes(m?.stage)&&m?.due&&m.due<=today))return 5;
+      }
+      return 10;
+    };
+    const ready=t=>!!t&&(Number(t.year||8)!==8||
+      preflightYear8Task(t.topicId,state,slotTarget(t),{
+        taskId:id,day:today,countReservations:true,
+        ...(reviewDays?{reviewAfterDays:reviewDays}:{})
+      }).canStart);
+    const attempted=!!old&&(Number(old.progress)>0||old.done===true||
+      entries.some(e=>e.dailyTaskId===id)||
+      (Array.isArray(old.verifiedCorrectIds)&&old.verifiedCorrectIds.length>0));
     // A zero-credit, unopened Mastery from a 9-concept bank is not a
     // permanent lock: choose a certified 20+ concept source instead.
     // Any dated attempt (even wrong) or correct credit keeps its original task.
     const unopenedIneligibleMastery=id.startsWith('y8-mastery-')&&
       old?.assignedTopic&&(!canAssignVerifiedYear8Mastery(old.assignedTopic)||
-        !canStart(old.assignedTopic,Math.max(20,Number(old.target)||20),id))&&
+        !ready({topicId:old.assignedTopic,year:old.assignedYear||8}))&&
       !old.done&&!(Number(old.progress)>0)&&
       !entries.some(e=>e.dailyTaskId===id);
     const unopenedIneligibleStandard=/^(?:y8-standard-[ab]|latin-standard|weakness-review|due-review)$/.test(id)&&
       Number(old?.target||10)>=10&&
       old?.assignedTopic&&(!canAssignVerifiedYear8Standard(old.assignedTopic)||
-        !canStart(old.assignedTopic,Math.max(10,Number(old.target)||10),id))&&
+        !ready({topicId:old.assignedTopic,year:old.assignedYear||8}))&&
       !old.done&&!(Number(old.progress)>0)&&
       !entries.some(e=>e.dailyTaskId===id);
     // Stage 1 can contain 72 real questions yet have none left after
@@ -273,14 +294,16 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     const unopenedRepeatedLatin=latinUnopened&&
       (recentTopicExposure(state,today).get(old.assignedTopic)?.count||0)>0&&
       pool.some(t=>t.topicId!==old.assignedTopic);
-    const frozen=!(unopenedIneligibleMastery||unopenedIneligibleStandard||
-      unopenedDepletedLatin||unopenedRepeatedLatin)&&old?.assignedTopic&&
+    const previousTopic=old?.assignedTopic&&
       (pool.find(t=>t.topicId===old.assignedTopic)||
-      {topicId:old.assignedTopic,topicLabel:old.assignedLabel,subject:old.assignedSubject,year:old.assignedYear||8});
-    const eligible=pool.filter(t=>!assigned.has(t.topicId)&&condition(t));
-    // Do not reuse a reserved topic merely because the eligible pool ran out.
-    const choice=frozen||(compare?[...eligible].sort(compare)[0]:eligible[0])||
-      pool.find(t=>!assigned.has(t.topicId))||null;
+       {topicId:old.assignedTopic,topicLabel:old.assignedLabel,subject:old.assignedSubject,year:old.assignedYear||8});
+    const frozen=!(unopenedIneligibleMastery||unopenedIneligibleStandard||
+      unopenedDepletedLatin||unopenedRepeatedLatin)&&previousTopic&&
+      (attempted||ready(previousTopic))?previousTopic:null;
+    const eligible=pool.filter(t=>!assigned.has(t.topicId)&&condition(t)&&ready(t));
+    // Capacity is a hard constraint. Never fall through to the first topic
+    // just because all independently answerable sources were exhausted.
+    const choice=frozen||(compare?[...eligible].sort(compare)[0]:eligible[0])||null;
     if(choice)assigned.add(choice.topicId);
     return choice;
   };
