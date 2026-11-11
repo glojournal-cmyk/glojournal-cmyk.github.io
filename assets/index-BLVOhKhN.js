@@ -2764,13 +2764,13 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
       store.setState({reviews:correct?retainMistakeReview(store.getState().reviews,questionId,todayKey()):store.getState().reviews,daily:(store.getState().daily||[]).map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
     }
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-    if (vocabSubject && (!meta?.repair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept);
+    if (vocabSubject && (!meta?.repair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept, true);
     scheduleNormalizeState();
     return result;
   }
   if (!resolved.topicId) {
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-    if (vocabSubject && (!meta?.repair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept);
+    if (vocabSubject && (!meta?.repair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept, true);
     return result;
   }
   const current = normalizeTopicStat(before.topicStats?.[resolved.topicId] || {});
@@ -2908,7 +2908,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
 
   const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
   const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-  if (vocabSubject && (!isRepair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept);
+  if (vocabSubject && (!isRepair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept, true);
 
   scheduleNormalizeState();
   return result;
@@ -2974,7 +2974,7 @@ function findRecoveryVocabSource(state, date, subject) {
 }
 if (typeof window !== "undefined") window.LuxRecoveryVocabSource = findRecoveryVocabSource;
 
-function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, vocabConcept = null) {
+function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, vocabConcept = null, verifiedFormalAttempt = false) {
   if (!["french", "latin"].includes(subject) || !questionId) return;
   const state = store.getState();
   // Recovery answers belong to the missed date, never to today's Vocab task.
@@ -3024,6 +3024,16 @@ function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, v
     return;
   }
   if (recover) return;
+
+  // Free Dictation and legacy Vocabulary review call this recorder directly.
+  // They must not create formal Daily credits. The marked Practice scorer may
+  // pass its verified task identity even if an SPA route changes mid-session.
+  const dailyRoute = typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search) : null;
+  const lockedVocabRoute = dailyRoute?.get("daily") === "1" &&
+    dailyRoute?.get("locked") === "1" && dailyRoute?.get("mode") === "y8vocab" &&
+    dailyRoute?.get("task") === subject + "-vocab";
+  if (!lockedVocabRoute && verifiedFormalAttempt !== true) return;
 
   const day = todayKey();
   const all = { ...(state.dailyVocabByDay || {}) };
