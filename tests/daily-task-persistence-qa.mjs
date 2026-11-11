@@ -42,7 +42,7 @@ for(const token of [
 for(const token of [
   "const lockedYear8Plan = oldYear8Review.planDate === state.today",
   "const year8Review = recoveredYear8Review || (lockedYear8Plan",
-  "function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, vocabConcept = null)",
+  "function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, vocabConcept = null, verifiedFormalAttempt = false)",
   "function completedYear8ReviewEvidence(state)",
   "const recoveredYear8Review = completedYear8ReviewEvidence(state)",
   "const year8ReviewProgress = recoveredYear8Review ? 25",
