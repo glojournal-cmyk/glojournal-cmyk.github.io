@@ -1,4 +1,4 @@
-import {year8ReviewEligibleQuestionIds} from './question-supply-preflight-20261111.js?v=20261111-spaced-review1';
+import {year8ReviewEligibleQuestionIds,year8ReviewInterval} from './question-supply-preflight-20261111.js?v=20261111-spaced-review1';
 import {otherYear8DailyReservations,excludeOtherYear8Reservations} from './daily-question-reservations-20261101.js?v=20261101-reservations1';
 import {selectUnfinishedDailyQuestions} from './daily-unfinished-retry-20261025.js?v=20261026-bio-year9-savefix2';
 import {readDailyRetryReceiptSync,readDailyRetryReceipt} from './daily-completed-session-receipts-20261024.js?v=20261026-bio-savefix2&modeguard=20261030-2';
@@ -124,7 +124,7 @@ dailyReservations=otherYear8DailyReservations(s.getState(),z,{day:R,taskId:canon
 reviewEligibleIds=dailyLocked&&!dailyParams.has('recover')&&N===8&&pinnedTopic&&
  (canonicalTask==='weakness-review'||canonicalTask==='due-review')
  ?year8ReviewEligibleQuestionIds(pinnedTopic,s.getState(),{
-   day:R,reviewAfterDays:canonicalTask==='due-review'?2:7}):null,
+   day:R,reviewAfterDays:year8ReviewInterval(canonicalTask,pinnedTopic,s.getState(),R)}):null,
 safeU=excludeOtherYear8Reservations(enforceDistinctYear8MasteryAfterRetry(selectUnfinishedDailyQuestions(selectDiverseRecoveryQuestions(fillDailyLockedQuestions(U,z,{locked:dailyLocked,mode:E,size:W,topicId:pinnedTopic,subject:e,
  requireDistinctConcepts:dailyLocked&&N===8&&(E===`mastery`||(e===`latin`&&E===`standard`&&canonicalTask===`latin-standard`&&!Number(assignment?.progress))||!!reviewEligibleIds),
  allowedIds:reviewEligibleIds,
