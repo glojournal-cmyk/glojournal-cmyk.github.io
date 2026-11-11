@@ -37,17 +37,21 @@ export function dailyCorrectQuestionIds(state, options={}) {
 }
 export function fillDailyLockedQuestions(fresh,loaded,options,rank,progression){
  const current=Array.isArray(fresh)?fresh:[];
- const {locked=false,mode='',size=10,topicId='',subject='',correctIds=[],requireDistinctConcepts=false,reservedIds=[]}=options||{};
+ const {locked=false,mode='',size=10,topicId='',subject='',correctIds=[],requireDistinctConcepts=false,reservedIds=[],allowedIds=null}=options||{};
  if(!locked||mode==='y8vocab')return current;
  const limit=Math.max(0,Number(size)||0);
  if(!limit)return [];
  const credited=new Set(correctIds||[]),reserved=new Set(reservedIds||[]);
+ const permitted=allowedIds instanceof Set?allowedIds:null;
+ // Review attempts use the same concept-distinct guarantee as Mastery;
+ // only verified fresh or date-due original IDs can enter the review pool.
  // Keep distinct conceptual evidence in a new Year 8 Mastery set. Existing
  // correct variants of the SAME concept also stay excluded until a due review.
  const concept=q=>String(q?.conceptId||q?.id||'');
  const usedConcepts=new Set(requireDistinctConcepts?(Array.isArray(loaded)?loaded:[])
    .filter(q=>credited.has(String(q?.id))).map(concept):[]);
  const available=q=>q?.id&&!credited.has(String(q.id))&&!reserved.has(String(q.id))&&
+  (!permitted||permitted.has(String(q.id)))&&
   (!requireDistinctConcepts||!usedConcepts.has(concept(q)))&&q.formal!==false&&
   !q._repair&&q.status!=='preview'&&(!topicId||q.topicId===topicId);
  const result=[],used=new Set();
