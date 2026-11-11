@@ -106,7 +106,7 @@ function reviewableGroups(topicId,state={},options={}){
 }
 export function year8ReviewEligibleQuestionIds(topicId,state={},options={}){
  const groups=reviewableGroups(topicId,state,options);
- return new Set((groups||[]).flat().map(String));
+ return groups?new Set(groups.flat().map(String)):null;
 }
 export function year8TopicSupply(topicId,state={},options={}){
  const source=year8SupplyGroups[String(topicId||'')];
