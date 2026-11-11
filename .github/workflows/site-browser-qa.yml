@@ -20,8 +20,11 @@ jobs:
         run: |
           node tests/route-shell-qa.mjs
           node tests/overall-app-qa.mjs
-      - uses: actions/upload-artifact@v4
+      # Artifact service outages must not override the result of actual QA.
+      - name: Upload all-feature QA evidence (best effort)
+        uses: actions/upload-artifact@v4
         if: always()
+        continue-on-error: true
         with: {name: all-feature-qa, path: test-results}
   browser:
     runs-on: ubuntu-latest
@@ -33,9 +36,10 @@ jobs:
       - run: npx playwright install --with-deps chromium webkit
       - name: Check Garden Academy iPad map and original watering flow
         run: node tests/garden-academy-preview-browser.mjs
-      - name: Save Garden iPad approval screenshots
+      - name: Save Garden iPad approval screenshots (best effort)
         uses: actions/upload-artifact@v4
         if: always()
+        continue-on-error: true
         with:
           name: garden-academy-ipad-preview
           path: test-results/garden-academy-preview/
@@ -50,8 +54,10 @@ jobs:
           QA_BASE_URL=http://127.0.0.1:8777 node tests/site-browser-qa.mjs
       - name: Check Mastery 2.0 assignment and reload on iPad viewport
         run: QA_BASE_URL=http://127.0.0.1:8777 node tests/mastery-v2-browser.mjs
-      - uses: actions/upload-artifact@v4
+      - name: Upload browser QA evidence (best effort)
+        uses: actions/upload-artifact@v4
         if: always()
+        continue-on-error: true
         with:
           name: whole-site-browser-qa
           path: |
