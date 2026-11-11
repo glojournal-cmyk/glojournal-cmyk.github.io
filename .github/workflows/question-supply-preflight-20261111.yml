@@ -1,0 +1,43 @@
+name: Year 8 question supply preflight and forecast
+on:
+  pull_request:
+    paths:
+      - 'assets/year8-question-supply-manifest-20261111.js'
+      - 'assets/question-supply-preflight-20261111.js'
+      - 'assets/year8-daily-v2-20261018.js'
+      - 'assets/daily-locked-question-fallback-20261021.js'
+      - 'tests/question-supply-preflight-20261111.test.mjs'
+      - 'content/topics/**'
+      - '.github/workflows/question-supply-preflight-20261111.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'assets/year8-question-supply-manifest-20261111.js'
+      - 'assets/question-supply-preflight-20261111.js'
+      - 'assets/year8-daily-v2-20261018.js'
+      - 'assets/daily-locked-question-fallback-20261021.js'
+      - 'tests/question-supply-preflight-20261111.test.mjs'
+      - 'content/topics/**'
+      - '.github/workflows/question-supply-preflight-20261111.yml'
+  workflow_dispatch:
+jobs:
+  supply-audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check generated manifest and preflight syntax
+        run: |
+          node --check assets/year8-question-supply-manifest-20261111.js
+          node --check assets/question-supply-preflight-20261111.js
+          node --check assets/year8-daily-v2-20261018.js
+      - name: Check real source capacity, historical credits and seven-day forecast
+        run: node --test tests/question-supply-preflight-20261111.test.mjs
+      - name: Check existing capacity and same-day reservations
+        run: |
+          node --test tests/year8-capacity-guard-20261101.mjs tests/year8-same-day-reservations-20261101.mjs
+          node --test tests/daily-latin-stage1-availability-20261107.test.mjs tests/daily-latin-stage-rotation-20261101.test.mjs

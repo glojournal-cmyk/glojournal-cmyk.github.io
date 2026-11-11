@@ -17,7 +17,11 @@ const catalog=subjects.flatMap(s=>Array.from({length:3},(_,i)=>({
 for(const [id,subject] of [
   ['la-y8-nouns-and-dictionary-entries','latin'],
   ['la-y8-nouns-with-genitives','latin'],
+  ['la-y8-core-verbs','latin'],
   ['fr-y8-s02-weather-activities-and-opinions','french'],
+  ['fr-y8-s03-home-family-and-descriptions','french'],
+  ['fr-y8-s07-passe-compose','french'],
+  ['fr-y8-s25-classroom-objects','french'],
   ['bio-y8-food-tests','biology']
 ]) catalog.push({topicId:id,subject,year:8,title:id,status:'enabled',
   enabled:80,formats:{typed_short:30}});

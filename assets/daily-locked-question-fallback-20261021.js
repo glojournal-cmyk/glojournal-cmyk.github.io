@@ -68,8 +68,16 @@ export function fillDailyLockedQuestions(fresh,loaded,options,rank,progression){
   if(!available(q)||used.has(String(q.id)))continue;
   used.add(String(q.id));if(requireDistinctConcepts)usedConcepts.add(concept(q));result.push(q);
  }
- // Never refill the shortage with known correct questions. A smaller set is
- // preferable to making the learner redo eight already-mastered answers.
+ // The adaptive ranker may return many ID variants of very few concepts.
+ // After respecting rank order, scan the entire REAL bank for more fresh
+ // independent concepts. Do not reuse mastered/reserved variants or lower target.
+ if(requireDistinctConcepts&&result.length<limit)
+  for(const q of bank){
+   if(result.length>=limit)break;
+   if(!available(q)||used.has(String(q.id)))continue;
+   used.add(String(q.id));usedConcepts.add(concept(q));result.push(q);
+  }
+ // An actually exhausted source remains a shortage, never fake completion.
  return result;
 }
 

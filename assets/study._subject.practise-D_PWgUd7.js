@@ -5,7 +5,7 @@ import {readDailyRetryReceiptSync,readDailyRetryReceipt} from './daily-completed
 import {selectDiverseRecoveryQuestions} from './recovery-question-diversity-20261025.js?v=20261025-recovery-diverse2';
 import {listRecoveryReceipts} from './recovery-receipt-20261018.js?v=20261025-recovery-correct1';
 import {uniqueFrenchQuestions} from "./french-unique-questions-20261018.js";
-import {fillDailyLockedQuestions,dailyCorrectQuestionIds,enforceDistinctYear8MasteryAfterRetry} from './daily-locked-question-fallback-20261021.js?v=20261101-year8-reservation2';
+import {fillDailyLockedQuestions,dailyCorrectQuestionIds,enforceDistinctYear8MasteryAfterRetry} from './daily-locked-question-fallback-20261021.js?v=20261101-year8-reservation2&supply=20261111a';
 import {otherYear8DailyReservations,excludeOtherYear8Reservations} from './daily-question-reservations-20261101.js?v=20261101-reservations2';
 import {selectProgressionQuestions} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {eligibleFreshQuestions} from "./mastery-v2-20261018.js?v=20261023-mastered20-v1";

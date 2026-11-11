@@ -65,13 +65,16 @@ test('a correct word is withheld until the rest of its vocabulary pool is answer
   assert.ok(dueAfterCycle.some(q=>q.id==='fr-word-0'), 'once the bank cycles, a due word can return');
 });
 
-test('future plan has two different same-subject Standard topics and retains assigned topic on reload',()=>{
+test('future plan has two source-backed, distinct Standard topics and retains both on reload',()=>{
   const state={today:'2026-10-19',daily:[],topicStats:{'latin-y8-t1':{attempted:10,correct:8}},formalAttemptLog:[],dailyVocabByDay:{}};
   const first=buildYear8DailyV2(state,get);
   assert.equal(first.length,10);assert.equal(first.reduce((sum,t)=>sum+t.target,0),165);
   assert.equal(first.find(t=>t.id==='latin-vocab').target,30);
   const [a,b]=['y8-standard-a','y8-standard-b'].map(id=>first.find(t=>t.id===id));
-  assert.equal(a.assignedSubject,b.assignedSubject);assert.notEqual(a.assignedTopic,b.assignedTopic);
+  // If the chosen science subject has only one fresh 10-concept bank, the
+  // second slot may safely use another taught Year 8 subject instead.
+  assert.ok(a.assignedSubject&&b.assignedSubject);
+  assert.notEqual(a.assignedTopic,b.assignedTopic);
   const frozen=buildYear8DailyV2({...state,daily:first,topicStats:{...state.topicStats,[a.assignedTopic]:{attempted:11,correct:11}}},get);
   assert.equal(frozen.find(t=>t.id==='y8-standard-a').assignedTopic,a.assignedTopic);
   assert.equal(frozen.find(t=>t.id==='y8-standard-b').assignedTopic,b.assignedTopic);
