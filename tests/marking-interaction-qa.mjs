@@ -65,7 +65,8 @@ for(const q of questions){
       if(!String(value).trim()) continue;
       const r=B(q,value,"french",{});
       if(kind==="accentless" && stripAccents(first)!==first){
-        if(r.ok) failures.push({type:"accentless-counted-correct",file:q.__file,id:q.id,format:q.format,official:first,input:value,result:r});
+        // French Daily and Practice typing accepts accent-free equivalents; retain a spelling hint via accentOnly.
+        if(!r.ok) failures.push({type:"accentless-false-negative",file:q.__file,id:q.id,format:q.format,official:first,input:value,result:r});
         continue;
       }
       if(!r.ok) failures.push({type:"french-normalization-false-negative",kind,file:q.__file,id:q.id,format:q.format,official:first,input:value,result:r});
