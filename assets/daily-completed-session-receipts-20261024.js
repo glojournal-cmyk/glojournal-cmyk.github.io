@@ -10,18 +10,41 @@ const supported=new Set(['latin-standard','y8-standard-a','y8-standard-b',
 const validDay=d=>/^\d{4}-\d{2}-\d{2}$/.test(d||'') &&
   !Number.isNaN(Date.parse(d+'T12:00:00Z'));
 const key=r=>[r.day,r.taskId,r.subject,r.topicId,r.mode,r.target].join('|');
+// iPad Safari can leave IndexedDB open/transaction events pending indefinitely.
+// A stalled DB must not trap the pupil on the last question: the existing
+// verified localStorage receipt remains the fallback. Never invent marks.
+const IDB_WAIT_MS=1800;
+let idbStalled=false;
+async function boundedIDB(promise,fallback){
+  if(idbStalled)return fallback;
+  let timer;
+  try{
+    return await Promise.race([
+      promise,
+      new Promise(resolve=>{timer=setTimeout(()=>{
+        idbStalled=true;
+        console.warn('Daily receipt IndexedDB timeout; using saved local fallback');
+        resolve(fallback);
+      },IDB_WAIT_MS)})
+    ]);
+  }catch{return fallback}
+  finally{clearTimeout(timer)}
+}
 function openDB(){
-  if(typeof indexedDB==='undefined')return Promise.resolve(null);
-  return new Promise(resolve=>{
+  if(idbStalled||typeof indexedDB==='undefined')return Promise.resolve(null);
+  return boundedIDB(new Promise(resolve=>{
     try{
       const request=indexedDB.open(DB,1);
       request.onupgradeneeded=()=>{if(!request.result.objectStoreNames.contains(TABLE))
         request.result.createObjectStore(TABLE,{keyPath:'key'});};
-      request.onsuccess=()=>resolve(request.result);
+      request.onsuccess=()=>{
+        if(idbStalled){try{request.result.close()}catch{};resolve(null)}
+        else resolve(request.result);
+      };
       request.onerror=()=>resolve(null);
       request.onblocked=()=>resolve(null);
     }catch{resolve(null)}
-  });
+  }),null);
 }
 function valid(r){
   return r&&validDay(r.day)&&supported.has(r.taskId)&&
@@ -49,7 +72,7 @@ function writeFallback(receipt){
 async function put(receipt){
   const db=await openDB();
   if(!db)return false;
-  return new Promise(resolve=>{
+  return boundedIDB(new Promise(resolve=>{
     try{
       const tx=db.transaction(TABLE,'readwrite');
       const request=tx.objectStore(TABLE).put(receipt);
@@ -58,12 +81,12 @@ async function put(receipt){
       tx.onerror=()=>{db.close();resolve(false)};
       tx.onabort=()=>{db.close();resolve(false)};
     }catch{db.close();resolve(false)}
-  });
+  }),false);
 }
 async function all(){
   const db=await openDB();
   if(!db)return [];
-  return new Promise(resolve=>{
+  return boundedIDB(new Promise(resolve=>{
     try{
       const tx=db.transaction(TABLE,'readonly');
       const request=tx.objectStore(TABLE).getAll();
@@ -71,7 +94,7 @@ async function all(){
       request.onerror=()=>resolve([]);
       tx.oncomplete=()=>db.close();
     }catch{db.close();resolve([])}
-  });
+  }),[]);
 }
 function sanitized(source,task){
   if(!source||!task||!Array.isArray(source.questions)||!Array.isArray(source.answers))return null;
