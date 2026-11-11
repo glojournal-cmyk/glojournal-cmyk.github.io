@@ -112,7 +112,7 @@ test('iPad retained 29/30 task but lost word IDs: exactly one NEW marked correct
      correct,day,dailyTaskId:'french-vocab',dailyVocab:'french',formal:true}]};
    const store={getState:()=>state,setState:p=>{state={...state,...p}}};
    const mark=record(store,()=>day,dailyVocabTotal,()=>{},()=>{},()=>{},()=>{},()=>{});
-   mark('french','new-french-word',correct,first);
+   mark('french','new-french-word',correct,first,null,true);
    return {total:dailyVocabTotal(state,'french',day),row:state.dailyVocabByDay[day].french};
  };
  const yes=simulate(true),no=simulate(false);
