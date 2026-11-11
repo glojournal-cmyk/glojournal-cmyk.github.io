@@ -41,7 +41,7 @@ try{
    await page.waitForFunction(()=>window.__luxAppReady===true);
    await page.evaluate(async(entrypoint)=>{
     const {C:store}=await import(entrypoint);
-    for(let i=0;i<28;i++)store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-"+i,true);
+    for(let i=0;i<28;i++)store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-"+i,true,store.getState(),null,true);
    },entrypoint);
    // Home progress is reconciled by a debounced 180ms store normalizer.
    // Verify the eventual real Home state rather than a pre-normalization snapshot.
@@ -55,8 +55,8 @@ try{
    assert.equal(state.correct,28,"Entering Practice must not reset 28 correct");
    await page.evaluate(async(entrypoint)=>{
     const {C:store}=await import(entrypoint);
-    store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-28",true);
-    store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-29",true);
+    store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-28",true,store.getState(),null,true);
+    store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-29",true,store.getState(),null,true);
    },entrypoint);
    await page.waitForFunction(()=>window.__luxStore?.getState().daily?.find(t=>t.id==="french-vocab")?.progress===30,null,{timeout:10000});
    state=await readCount(page);
@@ -68,8 +68,8 @@ try{
    assert.equal(state.correct,30,"Refresh must preserve all 30 correct");
    await page.evaluate(async(entrypoint)=>{
     const {C:store}=await import(entrypoint);
-    store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-29",false);
-    store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-29",true);
+    store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-29",false,store.getState(),null,true);
+    store.getState().recordDailyVocabAttempt("french","qa-daily-vocab-29",true,store.getState(),null,true);
    },entrypoint);
    state=await readCount(page);
    assert.equal(state.correct,30,"Retry cannot remove or double-count a credited answer");
