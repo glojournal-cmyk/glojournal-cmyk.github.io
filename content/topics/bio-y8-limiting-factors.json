@@ -852,17 +852,766 @@
       "preview": false,
       "ordinary": true,
       "formal": false
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-lower-light",
+      "conceptId": "bio-y8-limiting-factors-20261101-lower-light",
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "A lamp is moved farther from pondweed while all other conditions remain similar. What normally happens to the light intensity reaching it?",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "decreases",
+          "it decreases",
+          "lower",
+          "less light",
+          "decreases as the distance increases"
+        ]
+      },
+      "feedback": {
+        "short": "decreases",
+        "steps": [
+          "Use the scenario to identify the scientific concept.",
+          "decreases"
+        ]
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Give the scientifically correct word or phrase."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-plateau-factor",
+      "conceptId": "bio-y8-limiting-factors-20261101-plateau-factor",
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "A photosynthesis graph levels off even as light intensity continues increasing. What can you conclude about light?",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "light is no longer the limiting factor",
+          "light is not limiting",
+          "light intensity is no longer limiting",
+          "another factor is limiting the rate"
+        ]
+      },
+      "feedback": {
+        "short": "light is no longer the limiting factor",
+        "steps": [
+          "Use the scenario to identify the scientific concept.",
+          "light is no longer the limiting factor"
+        ]
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Give the scientifically correct word or phrase."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-carbon-dioxide",
+      "conceptId": "bio-y8-limiting-factors-20261101-carbon-dioxide",
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "typed_equivalent",
+      "difficulty": 2,
+      "prompt": "A brightly lit plant has very little carbon dioxide available. Which reactant could limit its photosynthesis?",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "carbon dioxide",
+          "CO2",
+          "carbon dioxide concentration"
+        ]
+      },
+      "feedback": {
+        "short": "carbon dioxide",
+        "steps": [
+          "Use the scenario to identify the scientific concept.",
+          "carbon dioxide"
+        ]
+      },
+      "task": {
+        "label": "SHORT ANSWER",
+        "instruction": "Give the scientifically correct word or phrase."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-data-trend",
+      "conceptId": "bio-y8-limiting-factors-20261101-data-trend",
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "Under increasing light, a pondweed produces 4, then 8, then 12 oxygen bubbles per minute. State the trend and quote the evidence. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 2,
+        "markPoints": [
+          "The observed bubble production rate increases with the light conditions used.",
+          "It rises from 4 to 12 bubbles per minute across the three readings."
+        ],
+        "modelAnswer": "The observed bubble production rate increases with the light conditions used. It rises from 4 to 12 bubbles per minute across the three readings.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "The observed bubble production rate increases with the light conditions used. It rises from 4 to 12 bubbles per minute across the three readings.",
+        "steps": [
+          "The observed bubble production rate increases with the light conditions used.",
+          "It rises from 4 to 12 bubbles per minute across the three readings."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Give two independent scientific points. Correct alternate wording needs review."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-plateau-explanation",
+      "conceptId": "bio-y8-limiting-factors-20261101-plateau-explanation",
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "A plant's photosynthesis rate stops increasing at high light intensity. Explain two scientifically reasonable points about this plateau. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 2,
+        "markPoints": [
+          "Increasing light further is no longer increasing the rate because light is not the limiting factor.",
+          "A different factor, for example carbon dioxide availability or temperature, may now limit the rate."
+        ],
+        "modelAnswer": "Increasing light further is no longer increasing the rate because light is not the limiting factor. A different factor, for example carbon dioxide availability or temperature, may now limit the rate.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Increasing light further is no longer increasing the rate because light is not the limiting factor. A different factor, for example carbon dioxide availability or temperature, may now limit the rate.",
+        "steps": [
+          "Increasing light further is no longer increasing the rate because light is not the limiting factor.",
+          "A different factor, for example carbon dioxide availability or temperature, may now limit the rate."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Give two independent scientific points. Correct alternate wording needs review."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-light-test-controls",
+      "conceptId": "bio-y8-limiting-factors-20261101-light-test-controls",
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "When testing how lamp distance affects photosynthesis, state two things to keep constant. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "totalMarks": 2,
+        "markPoints": [
+          "Use comparable pondweed lengths or amounts.",
+          "Keep water temperature similar between measurements."
+        ],
+        "modelAnswer": "Use comparable pondweed lengths or amounts. Keep water temperature similar between measurements.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Use comparable pondweed lengths or amounts. Keep water temperature similar between measurements.",
+        "steps": [
+          "Use comparable pondweed lengths or amounts.",
+          "Keep water temperature similar between measurements."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Give two independent scientific points. Correct alternate wording needs review."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-oxygen-change",
+      "conceptId": "bio-y8-limiting-factors-20261101-oxygen-change",
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "subject": "biology",
+      "year": 8,
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "calculation",
+      "difficulty": 3,
+      "prompt": "A plant produces 7 oxygen bubbles per minute at one light level and 16 bubbles per minute at a higher light level. Calculate the increase in bubbles per minute.",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS-Year8-2026-27",
+        "publicationGate": "independent-marking-and-browser-QA-required"
+      },
+      "answer": {
+        "mode": "numeric",
+        "totalMarks": 1,
+        "value": 9,
+        "tolerance": 0.001,
+        "units": [
+          "bubbles per minute",
+          "bubbles/min",
+          "bubbles/minute"
+        ],
+        "working": "16 − 7 = 9 bubbles per minute",
+        "modelAnswer": "9 bubbles per minute"
+      },
+      "feedback": {
+        "short": "16 − 7 = 9 bubbles per minute",
+        "steps": [
+          "Use the given numbers.",
+          "16 − 7 = 9 bubbles per minute"
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show working and report the answer with correct units."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-independence-temperature-lamp-control",
+      "conceptId": "bio-y8-limiting-factors-20261101-independence-temperature-lamp-control",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "In a pondweed investigation, a lamp moved closer makes the water warmer as well as brighter. Explain why this is a problem and give one way to control it. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS Year8 photosynthesis+scientific-working",
+        "publicationGate": "academic-and-grader-review-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Water temperature also affects the rate of photosynthesis, so two variables would change together.",
+          "Keep water temperature constant, for example using a water bath or a low-heat light source."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Water temperature also affects the rate of photosynthesis, so two variables would change together. Keep water temperature constant, for example using a water bath or a low-heat light source.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Water temperature also affects the rate of photosynthesis, so two variables would change together. Keep water temperature constant, for example using a water bath or a low-heat light source.",
+        "steps": [
+          "Water temperature also affects the rate of photosynthesis, so two variables would change together.",
+          "Keep water temperature constant, for example using a water bath or a low-heat light source."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Include each distinct scientific marking point. Alternative valid wording needs review."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-independence-oxygen-per-minute",
+      "conceptId": "bio-y8-limiting-factors-20261101-independence-oxygen-per-minute",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "calculation",
+      "difficulty": 3,
+      "prompt": "A pondweed produces 9 oxygen bubbles in 30 seconds. Calculate the rate in bubbles per minute, assuming the rate stays constant.",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS Year8 photosynthesis+scientific-working",
+        "publicationGate": "academic-and-grader-review-required"
+      },
+      "answer": {
+        "mode": "numeric",
+        "value": 18,
+        "totalMarks": 1,
+        "tolerance": 0.001,
+        "units": [
+          "bubbles per minute",
+          "bubbles/min",
+          "bubbles/minute"
+        ],
+        "working": "9 bubbles ÷ 30 seconds × 60 seconds = 18 bubbles per minute.",
+        "modelAnswer": "18 bubbles per minute"
+      },
+      "feedback": {
+        "short": "9 bubbles ÷ 30 seconds × 60 seconds = 18 bubbles per minute.",
+        "steps": [
+          "Convert to a rate per minute.",
+          "9 bubbles ÷ 30 seconds × 60 seconds = 18 bubbles per minute."
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show your calculation, then report the answer with units."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-independence-repeats-mean",
+      "conceptId": "bio-y8-limiting-factors-20261101-independence-repeats-mean",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "calculation",
+      "difficulty": 3,
+      "prompt": "Three repeat measurements of oxygen bubbles per minute are 10, 12 and 14. Calculate the mean number of bubbles per minute.",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS Year8 photosynthesis+scientific-working",
+        "publicationGate": "academic-and-grader-review-required"
+      },
+      "answer": {
+        "mode": "numeric",
+        "value": 12,
+        "totalMarks": 1,
+        "tolerance": 0.001,
+        "units": [
+          "bubbles per minute",
+          "bubbles/min",
+          "bubbles/minute"
+        ],
+        "working": "(10 + 12 + 14) ÷ 3 = 12 bubbles per minute.",
+        "modelAnswer": "12 bubbles per minute"
+      },
+      "feedback": {
+        "short": "(10 + 12 + 14) ÷ 3 = 12 bubbles per minute.",
+        "steps": [
+          "Convert to a rate per minute.",
+          "(10 + 12 + 14) ÷ 3 = 12 bubbles per minute."
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show your calculation, then report the answer with units."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-independence-anomaly-review",
+      "conceptId": "bio-y8-limiting-factors-20261101-independence-anomaly-review",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "The three bubble-count results at one light level are 9, 10 and 34 per minute. Identify the unusual result and explain what to check before removing it. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS Year8 photosynthesis+scientific-working",
+        "publicationGate": "academic-and-grader-review-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "34 bubbles per minute is much higher than the other two readings and may be anomalous.",
+          "Check for recording/counting errors or repeat the measurement before deciding whether to exclude it."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "34 bubbles per minute is much higher than the other two readings and may be anomalous. Check for recording/counting errors or repeat the measurement before deciding whether to exclude it.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "34 bubbles per minute is much higher than the other two readings and may be anomalous. Check for recording/counting errors or repeat the measurement before deciding whether to exclude it.",
+        "steps": [
+          "34 bubbles per minute is much higher than the other two readings and may be anomalous.",
+          "Check for recording/counting errors or repeat the measurement before deciding whether to exclude it."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Include each distinct scientific marking point. Alternative valid wording needs review."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-independence-carbon-dioxide-variable",
+      "conceptId": "bio-y8-limiting-factors-20261101-independence-carbon-dioxide-variable",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "typed_equivalent",
+      "difficulty": 3,
+      "prompt": "A class investigates how changing dissolved carbon dioxide affects pondweed oxygen production while keeping light and temperature constant. What is the independent variable?",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS Year8 photosynthesis+scientific-working",
+        "publicationGate": "academic-and-grader-review-required"
+      },
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "carbon dioxide concentration",
+          "dissolved carbon dioxide concentration",
+          "amount of dissolved carbon dioxide",
+          "concentration of carbon dioxide"
+        ]
+      },
+      "feedback": {
+        "short": "carbon dioxide concentration",
+        "steps": [
+          "Identify the factor deliberately changed.",
+          "carbon dioxide concentration"
+        ]
+      },
+      "task": {
+        "label": "IDENTIFY",
+        "instruction": "Identify the correct experimental variable."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-independence-light-limited-co2",
+      "conceptId": "bio-y8-limiting-factors-20261101-independence-light-limited-co2",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "A plant receives very little light but plenty of carbon dioxide. Explain why adding still more carbon dioxide may not increase the rate of photosynthesis. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS Year8 photosynthesis+scientific-working",
+        "publicationGate": "academic-and-grader-review-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Light is in short supply, so it may be the limiting factor for photosynthesis.",
+          "Increasing carbon dioxide alone cannot increase the rate while light remains limiting."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Light is in short supply, so it may be the limiting factor for photosynthesis. Increasing carbon dioxide alone cannot increase the rate while light remains limiting.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Light is in short supply, so it may be the limiting factor for photosynthesis. Increasing carbon dioxide alone cannot increase the rate while light remains limiting.",
+        "steps": [
+          "Light is in short supply, so it may be the limiting factor for photosynthesis.",
+          "Increasing carbon dioxide alone cannot increase the rate while light remains limiting."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Include each distinct scientific marking point. Alternative valid wording needs review."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-independence-bubble-volume-limitation",
+      "conceptId": "bio-y8-limiting-factors-20261101-independence-bubble-volume-limitation",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "Explain one reason why counting oxygen bubbles may give a less accurate measure of photosynthesis rate than measuring gas volume. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS Year8 photosynthesis+scientific-working",
+        "publicationGate": "academic-and-grader-review-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Bubbles may not all have the same volume.",
+          "The same number of bubbles can therefore contain different total volumes of oxygen."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Bubbles may not all have the same volume. The same number of bubbles can therefore contain different total volumes of oxygen.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "Bubbles may not all have the same volume. The same number of bubbles can therefore contain different total volumes of oxygen.",
+        "steps": [
+          "Bubbles may not all have the same volume.",
+          "The same number of bubbles can therefore contain different total volumes of oxygen."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Include each distinct scientific marking point. Alternative valid wording needs review."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-independence-plateau-inference",
+      "conceptId": "bio-y8-limiting-factors-20261101-independence-plateau-inference",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "A graph of rate against light intensity becomes flat at high light. Can the graph alone tell you whether temperature or carbon dioxide is the next limiting factor? Explain. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS Year8 photosynthesis+scientific-working",
+        "publicationGate": "academic-and-grader-review-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "No: the plateau shows that more light no longer increases the rate, not which other factor is responsible.",
+          "Separate tests that change temperature or carbon dioxide while controlling other variables would be needed."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "No: the plateau shows that more light no longer increases the rate, not which other factor is responsible. Separate tests that change temperature or carbon dioxide while controlling other variables would be needed.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "No: the plateau shows that more light no longer increases the rate, not which other factor is responsible. Separate tests that change temperature or carbon dioxide while controlling other variables would be needed.",
+        "steps": [
+          "No: the plateau shows that more light no longer increases the rate, not which other factor is responsible.",
+          "Separate tests that change temperature or carbon dioxide while controlling other variables would be needed."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Include each distinct scientific marking point. Alternative valid wording needs review."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-independence-rate-comparison-periods",
+      "conceptId": "bio-y8-limiting-factors-20261101-independence-rate-comparison-periods",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "calculation",
+      "difficulty": 3,
+      "prompt": "A pondweed produces 24 bubbles in 2 minutes at one lamp distance. Calculate its rate in bubbles per minute.",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS Year8 photosynthesis+scientific-working",
+        "publicationGate": "academic-and-grader-review-required"
+      },
+      "answer": {
+        "mode": "numeric",
+        "value": 12,
+        "totalMarks": 1,
+        "tolerance": 0.001,
+        "units": [
+          "bubbles per minute",
+          "bubbles/min",
+          "bubbles/minute"
+        ],
+        "working": "24 bubbles ÷ 2 minutes = 12 bubbles per minute.",
+        "modelAnswer": "12 bubbles per minute"
+      },
+      "feedback": {
+        "short": "24 bubbles ÷ 2 minutes = 12 bubbles per minute.",
+        "steps": [
+          "Convert to a rate per minute.",
+          "24 bubbles ÷ 2 minutes = 12 bubbles per minute."
+        ]
+      },
+      "task": {
+        "label": "CALCULATE",
+        "instruction": "Show your calculation, then report the answer with units."
+      }
+    },
+    {
+      "id": "bio-y8-limiting-factors-20261101-independence-clear-data-axis",
+      "conceptId": "bio-y8-limiting-factors-20261101-independence-clear-data-axis",
+      "subject": "biology",
+      "year": 8,
+      "topicId": "bio-y8-limiting-factors",
+      "topic": "Limiting factors and graphs",
+      "status": "enabled",
+      "formal": true,
+      "ordinary": true,
+      "preview": false,
+      "format": "mark_points",
+      "difficulty": 3,
+      "prompt": "A student draws a graph of bubble rate against lamp distance but labels the vertical axis only 'number'. Give two details needed for a scientifically clear vertical-axis label. (2 marks)",
+      "stimulus": {},
+      "origin": {
+        "kind": "supplemental-authored-practice",
+        "date": "2026-11-01",
+        "curriculum": "TGS Year8 photosynthesis+scientific-working",
+        "publicationGate": "academic-and-grader-review-required"
+      },
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "State what was counted: oxygen bubbles (or bubble production rate).",
+          "Include the measurement interval/unit, for example bubbles per minute."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "State what was counted: oxygen bubbles (or bubble production rate). Include the measurement interval/unit, for example bubbles per minute.",
+        "manualReviewFallback": true,
+        "scoring": "criterion_checklist"
+      },
+      "feedback": {
+        "short": "State what was counted: oxygen bubbles (or bubble production rate). Include the measurement interval/unit, for example bubbles per minute.",
+        "steps": [
+          "State what was counted: oxygen bubbles (or bubble production rate).",
+          "Include the measurement interval/unit, for example bubbles per minute."
+        ]
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Include each distinct scientific marking point. Alternative valid wording needs review."
+      }
     }
   ],
-  "enabled": 20,
+  "enabled": 37,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 5,
     "typed_exact": 5,
-    "mark_points": 7,
+    "mark_points": 16,
     "matching": 1,
-    "diagram_label": 2
+    "typed_equivalent": 4,
+    "calculation": 4
   },
   "gated": false,
   "note": {
