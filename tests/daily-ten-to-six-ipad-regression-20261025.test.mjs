@@ -8,6 +8,18 @@ const catalog=subjects.flatMap(subject=>Array.from({length:4},(_,i)=>({
  subject,year:8,topicId:subject+'-y8-t'+(i+1),title:subject+' '+i,
  status:'enabled',enabled:40,formats:{typed_short:20}
 })));
+// Receipt integrity tests need source-backed, actually assignable pools;
+// synthetic t1-t4 catalog labels have no real question bank and are blocked.
+for(const [topicId,subject] of [
+ ['la-y8-nouns-and-dictionary-entries','latin'],
+ ['la-y8-nouns-with-genitives','latin'],
+ ['la-y8-core-verbs','latin'],
+ ['fr-y8-s02-weather-activities-and-opinions','french'],
+ ['fr-y8-s03-home-family-and-descriptions','french'],
+ ['fr-y8-s07-passe-compose','french'],
+ ['fr-y8-s25-classroom-objects','french'],
+ ['bio-y8-food-tests','biology']
+])catalog.push({subject,year:8,topicId,title:topicId,status:'enabled',enabled:80,formats:{typed_short:30}});
 const get=(s,y)=>catalog.filter(t=>t.subject===s&&t.year===y);
 const state=()=>({today:day,year:9,daily:[],dailyLog:{},topicStats:{},formalAttemptLog:[],dailyVocabByDay:{},reviews:{}});
 const findTask=rows=>rows.find(t=>t.id==='y8-standard-a');
