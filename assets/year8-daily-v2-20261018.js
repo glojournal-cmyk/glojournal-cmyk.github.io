@@ -4,7 +4,7 @@ import {dailyVocabTotal} from './daily-vocab-total-20261020.js?v=20261023-final-
 import {datedAssignmentEvidence} from './daily-dated-assignment-evidence-20261103.js';
 import {latinDailyUncreditedConcepts} from './latin-daily-capacity-20261107.js';
 import {canAssignVerifiedYear8Mastery,canAssignVerifiedYear8Standard} from './year8-mastery-source-capacity-20261103.js';
-import {preflightYear8Task} from './question-supply-preflight-20261111.js';
+import {preflightYear8Task,year8ReviewInterval} from './question-supply-preflight-20261111.js';
 
 const savedDatedMode=t=>{try{return new URL(t?.href,'https://scholar.invalid').searchParams.get('mode')}catch{return null}};
 
@@ -246,7 +246,8 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     // Every new Year 8 slot (including Due/Weakness) must have enough
     // truly selectable concepts. Scheduled Due checks may revisit after two
     // days; Weakness consolidation waits seven days after a correct answer.
-    const reviewDays=id==='due-review'?2:id==='weakness-review'?7:0;
+    const reviewDays=t=>id==='due-review'?year8ReviewInterval(id,t.topicId,state,today):
+      id==='weakness-review'?7:0;
     const slotTarget=t=>{
       if(id.startsWith('y8-mastery-'))return 20;
       if(id==='due-review'){
@@ -259,7 +260,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     const ready=t=>!!t&&(Number(t.year||8)!==8||
       preflightYear8Task(t.topicId,state,slotTarget(t),{
         taskId:id,day:today,countReservations:true,
-        ...(reviewDays?{reviewAfterDays:reviewDays}:{})
+        ...(reviewDays(t)?{reviewAfterDays:reviewDays(t)}:{})
       }).canStart);
     const attempted=!!old&&(Number(old.progress)>0||old.done===true||
       entries.some(e=>e.dailyTaskId===id)||
