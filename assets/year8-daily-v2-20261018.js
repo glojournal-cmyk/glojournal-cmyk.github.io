@@ -4,6 +4,7 @@ import {dailyVocabTotal} from './daily-vocab-total-20261020.js?v=20261023-final-
 import {datedAssignmentEvidence} from './daily-dated-assignment-evidence-20261103.js';
 import {latinDailyUncreditedConcepts} from './latin-daily-capacity-20261107.js';
 import {canAssignVerifiedYear8Mastery,canAssignVerifiedYear8Standard} from './year8-mastery-source-capacity-20261103.js';
+import {preflightYear8Task} from './question-supply-preflight-20261111.js';
 
 const savedDatedMode=t=>{try{return new URL(t?.href,'https://scholar.invalid').searchParams.get('mode')}catch{return null}};
 
@@ -157,6 +158,9 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     if(restored)return restored;
   }
   const today=state.today, previous=new Map((state.daily||[]).filter(t=>t.planDate===today).map(t=>[t.id,t]));
+  // Read-only learner preflight: count distinct UNcredited Year 8 source concepts.
+  const canStart=(topicId,count,taskId)=>preflightYear8Task(topicId,state,count,
+    {taskId,day:today,countReservations:!!taskId}).canStart;
   // Read actual dated task receipts, including an archived pre-reassignment
   // slot. Once an assignment has real credited work, keep that subject,
   // topic, route, and target instead of replacing it with today's 0/20.
@@ -208,7 +212,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   // Choose the balanced subject among independently certifiable sources,
   // while retaining each already-started assignment below.
   const standardPools=Object.fromEntries(rotation.map(subject=>[
-    subject,pools[subject].filter(t=>canAssignVerifiedYear8Standard(t.topicId))]));
+    subject,pools[subject].filter(t=>canAssignVerifiedYear8Standard(t.topicId)&&canStart(t.topicId,10))]));
   const exposure=recentSubjectExposure(state,today);
   const active=rotation.filter(subject=>standardPools[subject].some(t=>!coveredTopic(state,t.topicId)));
   const available=active.length?active:rotation.filter(subject=>
@@ -241,12 +245,14 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     // permanent lock: choose a certified 20+ concept source instead.
     // Any dated attempt (even wrong) or correct credit keeps its original task.
     const unopenedIneligibleMastery=id.startsWith('y8-mastery-')&&
-      old?.assignedTopic&&!canAssignVerifiedYear8Mastery(old.assignedTopic)&&
+      old?.assignedTopic&&(!canAssignVerifiedYear8Mastery(old.assignedTopic)||
+        !canStart(old.assignedTopic,Math.max(20,Number(old.target)||20),id))&&
       !old.done&&!(Number(old.progress)>0)&&
       !entries.some(e=>e.dailyTaskId===id);
     const unopenedIneligibleStandard=/^(?:y8-standard-[ab]|latin-standard|weakness-review|due-review)$/.test(id)&&
       Number(old?.target||10)>=10&&
-      old?.assignedTopic&&!canAssignVerifiedYear8Standard(old.assignedTopic)&&
+      old?.assignedTopic&&(!canAssignVerifiedYear8Standard(old.assignedTopic)||
+        !canStart(old.assignedTopic,Math.max(10,Number(old.target)||10),id))&&
       !old.done&&!(Number(old.progress)>0)&&
       !entries.some(e=>e.dailyTaskId===id);
     // Stage 1 can contain 72 real questions yet have none left after
@@ -270,8 +276,9 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
       (pool.find(t=>t.topicId===old.assignedTopic)||
       {topicId:old.assignedTopic,topicLabel:old.assignedLabel,subject:old.assignedSubject,year:old.assignedYear||8});
     const eligible=pool.filter(t=>!assigned.has(t.topicId)&&condition(t));
+    // Do not reuse a reserved topic merely because the eligible pool ran out.
     const choice=frozen||(compare?[...eligible].sort(compare)[0]:eligible[0])||
-      pool.find(t=>!assigned.has(t.topicId))||pool[0];
+      pool.find(t=>!assigned.has(t.topicId))||null;
     if(choice)assigned.add(choice.topicId);
     return choice;
   };
@@ -367,11 +374,13 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     const displaySubject=label[topic?.subject]||'Year 8';
     const displayTopic=topic?.topicLabel||description;
     const displaySlot=id.endsWith('-b')?'B':'A';
-    const title=fullMastery?`Mastery ${displaySlot} · ${displaySubject} · ${displayTopic}`:
+    const title=!topic?`Question supply unavailable · ${id}`:
+      fullMastery?`Mastery ${displaySlot} · ${displaySubject} · ${displayTopic}`:
       recallInOldMastery?`Day 2/7 recall · ${displaySubject} · ${displayTopic}`:
       `${displaySubject} · ${displayTopic}`;
     return {id,title,
-      detail:description+outcome,href:topic?curriculumHref(topic,mode,id):'/study',target,progress,xp:mode==='mastery'?20:15,
+      detail:topic?description+outcome:'Not enough eligible fresh Year 8 concepts. Existing credit remains untouched; this task cannot be auto-completed.',
+      href:topic?curriculumHref(topic,mode,id):'/study',target,progress,xp:mode==='mastery'?20:15,supplyBlocked:!topic,
       planDate:today,assignedSubject:topic?.subject||null,assignedTopic:topic?.topicId||null,
       assignedYear:topic?.year||8,assignedLabel:topic?.topicLabel||null,masteryCheck,curriculumVersion:4,
       ...((completeCorrectJournal||verifiedPrior)?{correctOnlyEvidence:true}:{}),
@@ -394,7 +403,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   // eligible, not guessed from nominal catalog question counts.
   const latinHasFreshTen=t=>{
     const remaining=latinDailyUncreditedConcepts(t.topicId,state.seenCorrect);
-    return remaining===null||remaining>=10;
+    return canStart(t.topicId,10)&&(remaining===null||remaining>=10);
   };
   const latinReady=pools.latin.filter(t=>!pendingRecall(t)&&
     canAssignVerifiedYear8Standard(t.topicId)&&latinHasFreshTen(t));
@@ -475,7 +484,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
   // Some shorter Year 8 Biology banks remain available for Standard/review.
   const masteryEligible=learningTopics.filter(t=>
     Number(t.enabled??t.questions??0)>=20&&
-    canAssignVerifiedYear8Mastery(t.topicId));
+    canAssignVerifiedYear8Mastery(t.topicId)&&canStart(t.topicId,20));
   const covered=masteryEligible.filter(t=>coveredTopic(state,t.topicId))
     .sort((a,b)=>(Number(state.topicStats?.[a.topicId]?.attempted)||0)-
       (Number(state.topicStats?.[b.topicId]?.attempted)||0));
