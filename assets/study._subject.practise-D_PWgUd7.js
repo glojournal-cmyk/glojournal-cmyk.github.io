@@ -1,3 +1,4 @@
+import {year8ReviewEligibleQuestionIds} from './question-supply-preflight-20261111.js?v=20261111-spaced-review1';
 import {extendYear9ParticleQuestions} from './physics-year9-particle-daily-expansion-20261025.js?v=1';
 import {extendGcsePhysicsDaily,includeGcsePhysicsDaily} from './physics-gcse-v21-daily-20261031.js?v=1';
 import {selectUnfinishedDailyQuestions} from './daily-unfinished-retry-20261025.js?v=20261026-bio-year9-savefix2';
@@ -96,8 +97,13 @@ retryEffect=(0,w.useEffect)(()=>{
  return()=>{alive=false};
 },[retryKey,needRetryLookup]),
 dailyReservations=otherYear8DailyReservations(s.getState(),z,{day:R,taskId:canonicalTask,subject:e,year:N,topicId:pinnedTopic,recoveryDate:dailyParams.get('recover')||null}),
+reviewEligibleIds=dailyLocked&&!dailyParams.has('recover')&&N===8&&pinnedTopic&&
+ (canonicalTask==='weakness-review'||canonicalTask==='due-review')
+ ?year8ReviewEligibleQuestionIds(pinnedTopic,s.getState(),{
+   day:R,reviewAfterDays:canonicalTask==='due-review'?2:7}):null,
 safeU=excludeOtherYear8Reservations(enforceDistinctYear8MasteryAfterRetry(selectUnfinishedDailyQuestions(selectDiverseRecoveryQuestions(fillDailyLockedQuestions(U,z,{locked:dailyLocked,mode:E,size:W,topicId:pinnedTopic,subject:e,
- requireDistinctConcepts:dailyLocked&&N===8&&(E===`mastery`||(e===`latin`&&E===`standard`&&canonicalTask===`latin-standard`&&!Number(assignment?.progress))),reservedIds:dailyReservations,
+ requireDistinctConcepts:dailyLocked&&N===8&&(E===`mastery`||(e===`latin`&&E===`standard`&&canonicalTask===`latin-standard`&&!Number(assignment?.progress))||!!reviewEligibleIds),
+ allowedIds:reviewEligibleIds,reservedIds:dailyReservations,
  correctIds:(()=>{const state=s.getState();const ids=dailyCorrectQuestionIds(state,{day:R,taskId:canonicalTask,subject:e,year:N,topicId:pinnedTopic});
  if(dailyLocked&&!dailyParams.has('recover')&&['standard','quick','mastery'].includes(E))
   for(const [id,count] of Object.entries(state.seenCorrect||{}))if(Number(count)>0)ids.add(String(id));
@@ -109,7 +115,7 @@ safeU=excludeOtherYear8Reservations(enforceDistinctYear8MasteryAfterRetry(select
  state:s.getState(),receipt:retryData,day:R,taskId:canonicalTask,subject:e,
  year:N,topicId:pinnedTopic,mode:E,remaining:W
 }),z,{locked:dailyLocked&&!dailyParams.has('recover'),year:N,mode:E,seenCorrect:s.getState().seenCorrect,
- creditedIds:dailyCorrectQuestionIds(s.getState(),{day:R,taskId:canonicalTask,subject:e,year:N,topicId:pinnedTopic})}),dailyReservations),
+ creditedIds:dailyCorrectQuestionIds(s.getState(),{day:R,taskId:canonicalTask,subject:e,year:N,topicId:pinnedTopic})}),dailyReservations).filter(q=>!reviewEligibleIds||reviewEligibleIds.has(String(q?.id))),
 sessionSnapshot=(0,w.useRef)(null),
 sessionKey=[e,N,E,O,dailyParams.get(`task`)||``,dailyParams.get(`recover`)||``].join(`:`),
 intendedMode=dailyParams.get(`mode`);
