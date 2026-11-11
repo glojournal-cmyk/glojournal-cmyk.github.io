@@ -77,9 +77,12 @@ export function preflightYear8Task(topicId,state={},target=10,options={}){
    bufferShortfall:Math.max(0,recommended-supply.available)};
 }
 export function year8SupplyBySubject(state={},options={}){
- const bySubject={};
+ const bySubject={},correctBySubject={};
+ for(const subject of ['latin','french','biology','chemistry','physics'])
+   correctBySubject[subject]=year8CorrectQuestionIds(state,subject);
  for(const topicId of Object.keys(year8SupplyGroups)){
-   const supply=year8TopicSupply(topicId,state,{...options,countReservations:false});
+   const source=year8SupplyGroups[topicId];
+   const supply=year8TopicSupply(topicId,state,{...options,countReservations:false,correctIds:correctBySubject[source[0]]});
    const subject=supply.subject;
    if(!bySubject[subject])bySubject[subject]={subject,topics:0,total:0,mastered:0,available:0,standardReady:0,masteryReady:0};
    const row=bySubject[subject];row.topics++;row.total+=supply.total;row.mastered+=supply.mastered;
@@ -100,6 +103,10 @@ export function forecastYear8Tasks(state,planForDate,days=7){
    const mock={...state,today:day,daily:[],dailyLog:logs,seenCorrect:seen};
    const tasks=planForDate(mock)||[],warnings=[],usedTopics=new Set();
    for(const task of tasks){
+     if(task?.supplyBlocked===true){
+       warnings.push({taskId:task.id,topicId:null,target:limit(task.target),available:0,reason:'unavailable-source'});
+       continue;
+     }
      if(!task.assignedTopic||Number(task.assignedYear)!==8)continue;
      const mode=String(task.href||'').match(/[?&]mode=([^&]+)/)?.[1]||'';
      if(!['standard','mastery'].includes(mode))continue;
