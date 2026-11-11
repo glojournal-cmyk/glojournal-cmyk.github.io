@@ -44,6 +44,19 @@ export function year8CorrectQuestionIds(state={},subject=''){
 // Date-aware formal review: a correctly answered concept can be assessed again
 // after its due interval, but never because the same question has a new format.
 // Undated legacy success stays protected rather than assuming it is old.
+// One interval decision shared by the Daily planner and both Practice routes.
+// A Day-7 recall remains a seven-day check even after a Day-2 success.
+export function year8ReviewInterval(taskId,topicId,state={},today=state.today){
+ if(taskId!=='due-review')return 7;
+ const m=state.topicStats?.[topicId]?.masteryV2;
+ if(m?.due&&m.due<=today){
+  if(m.stage==='check7')return 7;
+  if(m.stage==='check2')return 2;
+ }
+ const due=Object.values(state.reviews||{}).some(r=>
+  r?.topicId===topicId&&r?.due&&r.due<=today);
+ return due?2:7;
+}
 function year8LastCorrectDays(state={},subject=''){
  const days=new Map(),add=(id,day)=>{
   if(!id||!SAFE_DAY.test(day||''))return;
@@ -117,8 +130,10 @@ export function year8TopicSupply(topicId,state={},options={}){
  }
  const reserved=options.countReservations===true?
    Math.min(remaining.length,[...claimed.values()].reduce((n,v)=>n+v,0)):0;
- return {topicId,subject,known:true,total:groups.length,
-   mastered:groups.length-remaining.length,available:Math.max(0,remaining.length-reserved),
+ const mastered=groups.filter(ids=>ids.some(id=>correct.has(BASE(id)))).length;
+ const due=options.reviewAfterDays?remaining.filter(ids=>ids.some(id=>correct.has(BASE(id)))).length:0;
+ return {topicId,subject,known:true,total:groups.length,mastered,reviewDue:due,
+   available:Math.max(0,remaining.length-reserved),
    reserved,remaining};
 }
 export function preflightYear8Task(topicId,state={},target=10,options={}){
