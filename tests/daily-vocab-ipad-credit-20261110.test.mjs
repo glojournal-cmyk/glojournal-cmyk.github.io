@@ -19,7 +19,7 @@ test('French and Latin correct Daily words count after 23/30 saved, without fals
  vm.runInContext(source.slice(start,end),box);
  const mark=(subject,id,correct,concept)=>{
    const before=structuredClone(state);
-   box.recordDailyVocabAttempt(subject,id,correct,before,concept);
+   box.recordDailyVocabAttempt(subject,id,correct,before,concept,true);
  };
  mark('french','f01',true,'bonjour');
  assert.equal(dailyVocabTotal(state,'french',day).progress,24);
