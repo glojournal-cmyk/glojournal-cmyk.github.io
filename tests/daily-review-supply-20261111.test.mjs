@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {year8SupplyGroups} from '../assets/year8-question-supply-manifest-20261111.js';
-import {year8TopicSupply,preflightYear8Task,year8ReviewEligibleQuestionIds}
+import {year8TopicSupply,preflightYear8Task,year8ReviewEligibleQuestionIds,year8ReviewInterval}
  from '../assets/question-supply-preflight-20261111.js';
 import {fillDailyLockedQuestions} from '../assets/daily-locked-question-fallback-20261021.js';
 import {buildYear8DailyV2} from '../assets/year8-daily-v2-20261018.js';
@@ -45,6 +45,19 @@ test('2-day scheduled Due review allows due concepts but not yesterday successes
  const recent=finished(12,'2026-11-10'),mature=finished(12,'2026-11-09');
  assert.equal(year8TopicSupply(id,recent,{reviewAfterDays:2}).available,groups.length-12);
  assert.equal(year8TopicSupply(id,mature,{reviewAfterDays:2}).available,groups.length);
+});
+
+
+test('Day 2 and Day 7 scheduled recalls have different and shared due rules',()=>{
+ const old=state({topicStats:{[id]:{masteryV2:{stage:'check2',due:'2026-11-10'}}}});
+ assert.equal(year8ReviewInterval('due-review',id,old),2);
+ old.topicStats[id].masteryV2={stage:'check7',due:'2026-11-11'};
+ assert.equal(year8ReviewInterval('due-review',id,old),7);
+ old.topicStats[id].masteryV2={stage:'check2',due:'2026-11-13'};
+ assert.equal(year8ReviewInterval('due-review',id,old),7);
+ assert.equal(year8ReviewInterval('weakness-review',id,old),7);
+ const general=state({reviews:{x:{topicId:id,due:'2026-11-10'}}});
+ assert.equal(year8ReviewInterval('due-review',id,general),2);
 });
 
 test('legacy undated credit is not treated as due automatically',()=>{
@@ -107,7 +120,7 @@ test('live Practice routes apply exactly the same spaced-repetition evidence gat
   const src=fs.readFileSync(path,'utf8');
   assert.match(src,/year8ReviewEligibleQuestionIds/);
   assert.match(src,/allowedIds:reviewEligibleIds/);
-  assert.match(src,/reviewAfterDays:canonicalTask==='due-review'\?2:7/);
+  assert.match(src,/reviewAfterDays:year8ReviewInterval\(canonicalTask,pinnedTopic,s\.getState\(\),R\)/);
   assert.match(src,/!dailyParams.has\('recover'\)/);
   assert.match(src,/reviewEligibleIds\.has\(String\(q\?\.id\)\)/);
  }
