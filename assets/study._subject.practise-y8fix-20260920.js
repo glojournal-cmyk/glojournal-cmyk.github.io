@@ -7,7 +7,7 @@ import {year8ScienceRecoveryTopics} from './year8-science-recovery-sources-20261
 import {listRecoveryReceipts} from './recovery-receipt-20261018.js?v=20261025-recovery-correct1';
 import {dailyVocabTotal} from './daily-vocab-total-20261020.js?v=20261023-final-credit1';
 import {uniqueFrenchQuestions} from "./french-unique-questions-20261018.js";
-import {fillDailyLockedQuestions,dailyCorrectQuestionIds,enforceDistinctYear8MasteryAfterRetry} from "./daily-locked-question-fallback-20261021.js?v=20261026-bio-year9-savefix2";
+import {fillDailyLockedQuestions,dailyCorrectQuestionIds,enforceDistinctYear8MasteryAfterRetry} from "./daily-locked-question-fallback-20261021.js?v=20261026-bio-year9-savefix2&supply=20261111a";
 import {selectProgressionQuestions} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {BiologyCellPractice} from "./biology-cell-practice-20261003.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {TopicBrowser} from "./topic-browser-20261018b.js?v=20261018-clarity3&ux=20261013-corrections2";
