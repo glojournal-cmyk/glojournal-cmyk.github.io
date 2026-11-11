@@ -64,11 +64,11 @@ for(const q of questions){
     for(const [kind,value] of variants){
       if(!String(value).trim()) continue;
       const r=B(q,value,"french",{});
-      if(kind==="accentless" && stripAccents(first)!==first){
-        if(r.ok) failures.push({type:"accentless-counted-correct",file:q.__file,id:q.id,format:q.format,official:first,input:value,result:r});
-        continue;
-      }
+      // French policy: omitting accents must not cost a mark. The original accented
+      // model stays visible while case, spaces, apostrophes and accent-free forms count.
       if(!r.ok) failures.push({type:"french-normalization-false-negative",kind,file:q.__file,id:q.id,format:q.format,official:first,input:value,result:r});
+      if(kind==="accentless" && stripAccents(first)!==first && r.ok && r.score!==r.total)
+        failures.push({type:"french-accentless-partial-credit",file:q.__file,id:q.id,format:q.format,official:first,input:value,result:r});
     }
   }
 
