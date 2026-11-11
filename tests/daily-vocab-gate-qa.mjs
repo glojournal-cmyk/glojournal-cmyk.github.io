@@ -16,7 +16,7 @@ for(const token of [
 for(const token of [
   "function vocabGateState(state, subject)",
   "return dailyVocabTotal(state, subject, state.today || todayKey());",
-  "function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, vocabConcept = null)",
+  "function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, vocabConcept = null, verifiedFormalAttempt = false)",
   'items[String(questionId)] = !!correct || !!items[String(questionId)];',
   'id: "french-vocab", title: "French Vocab"',
   'id: "latin-vocab", title: "Latin Vocab"'
