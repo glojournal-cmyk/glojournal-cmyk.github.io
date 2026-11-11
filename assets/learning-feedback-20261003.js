@@ -16,16 +16,26 @@
     if(question.format==='diagram_label'&&result.pairs)for(const [anchor,label] of Object.entries(answer.labelMap||{}))if(normal(result.pairs[anchor])!==normal(label))missing.push(`Label ${anchor}: ${label}`);
     let reason=question.feedback?.distractors?.[given]||'';
     const correct=result.ok??result.credit===1;
+    // These tasks request an example of a category, not the category label itself.
+    const purposeMatch=String(question.prompt||'').match(/Give one taught French option for this purpose:\s*([^\\n.]+)/i);
+    const purpose=purposeMatch?.[1]?.trim()||'';
     if(!correct&&!reason){
       if(result.errorKind==='blank'||!given.trim())reason='No answer was supplied, so there is no evidence to award this point.';
       else if(question.format==='calculation')reason=result.score===.5?'The numerical value is right, but the required unit is missing or incorrect.':'The numerical value does not match. Check the formula, substitution and unit conversion.';
       else if(missing.length)reason='Your response has not demonstrated every required point. Add the missing ideas below in your own words.';
       else if(question.format==='mc_single')reason=`You selected “${given}”. It does not satisfy the complete cue. Compare it with “${model}” using the explanation below.`;
-      else if(subject==='french'||subject==='latin')reason=`Compare “${given}” with the accepted wording “${model}”. Check the specific language rule below; a familiar stem alone is not enough.`;
+      else if(subject==='french'&&purpose){
+        const typed=normal(given),category=normal(purpose);
+        const namedCategory=typed===category||typed==='la '+category||typed==='le '+category||typed==='the '+category;
+        reason=namedCategory?`“${given}” names the category (${purpose}), but the question asks for one French expression that shows it. For example: “${model}”.`:`“${given}” is not one of the taught French expressions for ${purpose}. Give one example such as “${model}”, not the name of the category.`;
+      }
+      else if(subject==='french'||subject==='latin')reason=`“${given}” does not match an accepted answer for this question. Compare it with “${model}” and check the requested meaning or form.`;
       else reason='The response does not match the required idea. Use the explanation and model to check your reasoning.';
     }
     const expected=normal(model).split(' ').filter(Boolean),actual=new Set(normal(given).split(' '));
-    const missingWords=(subject==='french'||subject==='latin')&&!correct&&!missing.length?expected.filter(x=>!actual.has(x)):[];
+    // A one-example prompt is not a missing-word/cloze exercise. Avoid telling
+    // pupils that a category label is a grammar-ending or missing-word error.
+    const missingWords=(subject==='french'||subject==='latin')&&!correct&&!missing.length&&!purpose&&question.format!=='mc_single'&&expected.length>1?expected.filter(x=>!actual.has(x)):[];
     return {reason,missing:[...new Set(missing)],missingWords:[...new Set(missingWords)],rule:question.feedback?.rule||question.examGuidance?.commonError||question.hint||question.feedback?.remember||'',next:question.feedback?.nextStep||'Cover the correction, explain the rule aloud, then answer a different question on the same idea.'};
   }
   root.LuxLearningFeedback={buildCorrection,selectTransferQuestion};
