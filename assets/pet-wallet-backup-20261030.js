@@ -55,3 +55,21 @@ export function inspectPetWalletBackup(payload, storage) {
   if (currentRaw === item.raw) return {status:"identical",incoming};
   return {status:"conflict",incoming};
 }
+
+/** Install only into an empty wallet, AFTER the caller verified Scholar
+ * persistence. Never overwrite existing MP, levels, outfits or transactions.
+ * A conflicting wallet must be resolved separately by a human.
+ */
+export function restorePetWalletBackup(payload, storage) {
+  const disk=storageOrNull(storage);
+  const plan=inspectPetWalletBackup(payload,disk);
+  if(plan.status!=="install")return {status:plan.status,changed:false};
+  const raw=payload.petWalletBackup.raw;
+  // Another iPad tab may have created this wallet during Scholar verification.
+  if(disk.getItem(PET_WALLET_KEY)!==null)
+    return {status:"conflict",changed:false};
+  disk.setItem(PET_WALLET_KEY,raw);
+  if(disk.getItem(PET_WALLET_KEY)!==raw)
+    throw Error("Pet wallet write could not be verified. Keep the backup JSON.");
+  return {status:"restored",changed:true};
+}
