@@ -1,5 +1,5 @@
 import { LATIN_BOOKLET_RECORDS } from "/assets/latin-vocabulary-booklet-20261023.js";
-import { SYLLABUS, GRAMMAR, MOCK, validateMock } from "./exam-data.js?v=20261113a";
+import { SYLLABUS, GRAMMAR, PRACTICE, MOCK, validateMock } from "./exam-data.js?v=20261113a";
 
 validateMock();
 const root = document.getElementById("app");
@@ -21,10 +21,11 @@ const shuffle = rows => {
   }
   return out;
 };
-let tab = "overview", chapter = "all", queue = [], wordIndex = 0;
+let tab = "overview", chapter = "all", wordDirection = "l2e", queue = [], wordIndex = 0;
 let wordShown = false, wordAnswer = "";
 const wordKnown = new Set(), wordMissed = new Set();
 let grammarGroup = "All topics", grammarIndex = 0, grammarShown = false, grammarAnswer = "";
+let practiceGroup = "English → Latin", practiceIndex = 0, practiceShown = false, practiceAnswer = "";
 let mockState = "ready", deadline = 0, ticker = null;
 const responses = {}, awarded = new Set();
 
@@ -45,10 +46,12 @@ function renderOverview() {
 }
 function renderVocabulary() {
   const row = queue[wordIndex];
-  const extra = row ? '<div class="flashword" lang="la">' + esc(row.latin) + '</div>' +
-    '<p class="help">Write an English meaning from memory, then reveal the complete booklet meaning.</p>' +
-    '<label for="word-input">Your English meaning</label><input id="word-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" value="' + esc(wordAnswer) + '"' + (wordShown ? ' disabled' : '') + '>' +
-    (wordShown ? '<div class="model"><strong>Booklet answer</strong><p>' + esc(row.english) + '</p><p class="help">Count equivalent accurate meanings as correct. Pay attention to all the senses shown.</p></div>' +
+  const front = row ? (wordDirection === "l2e" ? row.latin : row.english) : "";
+  const back = row ? (wordDirection === "l2e" ? row.english : row.latin) : "";
+  const extra = row ? '<div class="flashword" lang="la">' + esc(front) + '</div>' +
+    '<p class="help">' + (wordDirection === 'l2e' ? 'Write an English meaning' : 'Write the Latin headword or dictionary entry') + ' from memory, then reveal the complete booklet entry.</p>' +
+    '<label for="word-input">Your ' + (wordDirection === 'l2e' ? 'English meaning' : 'Latin word') + '</label><input id="word-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" value="' + esc(wordAnswer) + '"' + (wordShown ? ' disabled' : '') + '>' +
+    (wordShown ? '<div class="model"><strong>Booklet answer</strong><p>' + esc(back) + '</p><p class="help">Count equivalent accurate meanings as correct. Pay attention to the correct forms and all senses shown.</p></div>' +
       '<div class="btnrow"><button class="btn" data-action="word-known">✓ I knew it</button><button class="btn secondary" data-action="word-missed">↻ Review again</button></div>' :
       '<div class="btnrow"><button class="btn" data-action="word-reveal">Reveal the meaning</button></div>') :
     '<h3>Chapter complete!</h3><p>You reviewed every word in this set. Choose “Another round” to shuffle the set and practise again.</p><div class="btnrow"><button class="btn" data-action="vocab-restart">Another round</button></div>';
@@ -56,6 +59,7 @@ function renderVocabulary() {
     '<p class="help">Loaded from the existing Scholar’s Garden Taylor booklet: Chapter 1 (40), Chapter 2 (45), Chapter 3 (45). Both halves of each chapter are included. No Chapter 4–6 items appear here.</p>' +
     '<label for="word-chapter">Select chapter</label><select id="word-chapter"><option value="all"' + (chapter === "all" ? ' selected' : '') + '>Chapters 1–3 (all 130)</option>' +
     [1,2,3].map((n,i) => '<option value="' + n + '"' + (chapter === String(n) ? ' selected' : '') + '>Chapter ' + n + ' (' + counts[i] + ' entries)</option>').join("") + '</select>' +
+    '<label for="word-direction">Recall direction</label><select id="word-direction"><option value="l2e"' + (wordDirection === 'l2e' ? ' selected' : '') + '>Latin → English</option><option value="e2l"' + (wordDirection === 'e2l' ? ' selected' : '') + '>English → Latin</option></select>' +
     '<div class="divider"></div><div class="metrics"><span><strong>' + Math.min(wordIndex + 1, queue.length) + '/' + queue.length + '</strong> words in this round</span><span>Known: <strong>' + wordKnown.size + '</strong> · To review: <strong>' + wordMissed.size + '</strong></span></div>' + extra +
     '</section>';
 }
@@ -75,6 +79,25 @@ function renderGrammar() {
     '<label for="grammar-input">Your answer</label><input type="text" id="grammar-input" autocomplete="off" spellcheck="false" value="' + esc(grammarAnswer) + '"' + (grammarShown ? ' disabled' : '') + '>' +
     (grammarShown ? '<div class="model"><strong>Model answer: ' + esc(q[2]) + '</strong><p>' + esc(q[3]) + '</p></div><div class="btnrow"><button class="btn" data-action="grammar-next">Next question</button></div>' :
       '<div class="btnrow"><button class="btn" data-action="grammar-reveal">Show answer and explanation</button></div>') +
+    '</section>';
+}
+function renderPractice() {
+  const group = PRACTICE.find(item => item.group === practiceGroup) || PRACTICE[0];
+  const q = group.items[practiceIndex % group.items.length];
+  const latinFirst = practiceGroup === "Latin → English";
+  const passage = group.passage ? '<div class="latinpassage" lang="la">' +
+    group.passage.map(line => '<p>' + esc(line) + '</p>').join("") + '</div>' : "";
+  return '<section class="panel"><div class="eyebrow">Untimed exam-style training</div><h2>Translation & comprehension</h2>' +
+    '<p class="help">Separate from the timed mock. Try the question without help; reveal the model answer only when ready.</p>' +
+    '<label for="practice-group">Choose skill</label><select id="practice-group">' +
+    PRACTICE.map(item => '<option value="' + esc(item.group) + '"' + (practiceGroup === item.group ? ' selected' : '') + '>' + esc(item.group) + ' (' + item.items.length + ')</option>').join("") + '</select>' +
+    '<div class="divider"></div><div class="count">Question ' + (practiceIndex + 1) + ' / ' + group.items.length + '</div>' +
+    passage + '<h3 class="' + (latinFirst ? "latin" : "prompt") + '">' + esc(q[0]) + '</h3>' +
+    '<label for="practice-input">Your ' + (practiceGroup === "English → Latin" ? "Latin" : "English") + ' answer</label>' +
+    '<textarea id="practice-input" spellcheck="false"' + (practiceShown ? ' readonly' : '') + '>' + esc(practiceAnswer) + '</textarea>' +
+    (practiceShown ? '<div class="model"><strong>Model answer</strong><p>' + esc(q[1]) + '</p><p class="help">' + esc(q[2]) + '</p></div>' +
+      '<div class="btnrow"><button class="btn" data-action="practice-next">Next practice question</button></div>' :
+      '<div class="btnrow"><button class="btn" data-action="practice-reveal">Reveal model answer</button></div>') +
     '</section>';
 }
 function countdown() {
@@ -165,7 +188,8 @@ function render() {
   tabs.forEach(b => b.setAttribute("aria-selected",b.dataset.tab === tab ? "true" : "false"));
   root.innerHTML = tab === "overview" ? renderOverview() :
     tab === "vocabulary" ? renderVocabulary() :
-    tab === "grammar" ? renderGrammar() : renderMock();
+    tab === "grammar" ? renderGrammar() :
+    tab === "practice" ? renderPractice() : renderMock();
 }
 function awardScore() {
   const el = document.getElementById("score-text");
@@ -176,12 +200,15 @@ root.addEventListener("input", event => {
   const el = event.target;
   if (el.id === "word-input") wordAnswer = el.value;
   if (el.id === "grammar-input") grammarAnswer = el.value;
+  if (el.id === "practice-input") practiceAnswer = el.value;
   if (el.dataset.response && mockState === "active") responses[el.dataset.response] = el.value;
 });
 root.addEventListener("change", event => {
   const el = event.target;
   if (el.id === "word-chapter") { chapter = el.value; resetVocab(); render(); }
+  if (el.id === "word-direction") { wordDirection = el.value; resetVocab(); render(); }
   if (el.id === "grammar-group") { grammarGroup = el.value; grammarIndex = 0; grammarAnswer = ""; grammarShown = false; render(); }
+  if (el.id === "practice-group") { practiceGroup = el.value; practiceIndex = 0; practiceAnswer = ""; practiceShown = false; render(); }
   if (el.dataset.award && mockState === "submitted") {
     if (el.checked) awarded.add(el.dataset.award); else awarded.delete(el.dataset.award);
     awardScore();
@@ -206,6 +233,11 @@ root.addEventListener("click", event => {
     const len = grammarPool().length;
     grammarIndex = (grammarIndex + 1) % len;
     grammarShown = false;grammarAnswer = "";render();
+  }
+  if (action === "practice-reveal") { practiceShown = true; render(); }
+  if (action === "practice-next") {
+    practiceIndex = (practiceIndex + 1) % PRACTICE.find(item => item.group === practiceGroup).items.length;
+    practiceShown = false; practiceAnswer = ""; render();
   }
   if (action === "mock-start") startMock();
   if (action === "mock-submit") submitMock(false);
