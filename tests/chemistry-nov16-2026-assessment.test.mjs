@@ -94,8 +94,9 @@ test('live Chemistry scorer credits model answers and rejects wrong answers', ()
 });
 
 test('catalog totals, topic counts and enabled counts stay in sync', () => {
-  assert.equal(catalog.totals.questions, 16671);
-  assert.equal(catalog.totals.enabled, 15542);
+  // Other subjects may add questions independently; guard the aggregate against its source rows.
+  assert.equal(catalog.totals.questions, catalog.bySubjectYear.reduce((sum,row)=>sum+row.questions,0));
+  assert.equal(catalog.totals.enabled, catalog.bySubjectYear.reduce((sum,row)=>sum+row.enabled,0));
   const summary = catalog.bySubjectYear.find(x => x.subject === 'chemistry' && x.year === 9);
   assert.equal(summary.questions, 1222);
   assert.equal(summary.enabled, 1212);
