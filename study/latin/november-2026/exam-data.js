@@ -165,6 +165,40 @@ export const MOCK = {
     {id:"C",title:"C · Latin passage translation",description:"50 marks · translate each Latin sentence into natural, accurate English.",passage:C_LINES.map(x=>x.latin),questions:C_LINES.map((x,i)=>({id:"C"+(i+1),prompt:"Translate sentence "+(i+1)+".",latin:x.latin,model:x.model,points:x.points}))}
   ]
 };
+// Separate from the mock: fresh, untimed original practice items.
+export const PRACTICE = [
+  {group:"English → Latin",items:[
+    ["The woman was walking through the garden.","femina per hortum ambulabat.","per + accusative; imperfect 3rd singular."],
+    ["The boys are reading letters.","pueri epistulas legunt.","pueri nominative plural; epistulas accusative plural."],
+    ["I was carrying water to the villa.","aquam ad villam portabam.","1st person singular imperfect; ad + accusative."],
+    ["The master can warn the slave.","dominus servum monere potest.","possum + infinitive; direct object accusative."],
+    ["The women were sitting in the temple.","feminae in templo sedebant.","Location: in + ablative; 3rd plural imperfect."],
+    ["We are sending the messenger to the forum.","nuntium ad forum mittimus.","1st plural present; destination ad + accusative."]
+  ]},
+  {group:"Comprehension",passage:[
+    "puer et puella in horto ambulabant.",
+    "subito equus magnus per portam cucurrit.",
+    "puer timebat sed puella equum videbat.",
+    "nuntius ad villam festinavit et dominum monuit.",
+    "dominus servos vocavit.",
+    "servi portam custodiebant."
+  ],items:[
+    ["Where were the boy and girl walking?","In the garden.","in horto is ablative of location."],
+    ["What went through the gate?","A big horse.","equus magnus; per portam."],
+    ["How did the two children react?","The boy was afraid; the girl was watching/seeing the horse.","timebat = was afraid; videbat = was seeing."],
+    ["Who warned the master, and what did the master then do?","The messenger warned him; the master called the slaves.","monuit = warned, vocavit = called."]
+  ]},
+  {group:"Latin → English",items:[
+    ["ancillae cibum in villa parabant.","The slave-girls were preparing food in the house.","Imperfect 3rd plural; in villa is location."],
+    ["puellae laetae ad templum festinaverunt.","The happy girls hurried to the temple.","2-1-2 adjective agreement; perfect tense."],
+    ["nautae irati ad portam cucurrerunt.","The angry sailors ran to the gate.","Masculine plural adjective; perfect of curro."],
+    ["Romanus multas horas in horto laborabat.","The Roman was working in the garden for many hours.","Duration accusative; imperfect."],
+    ["puellae in agris aquam portabant.","The girls were carrying water in the fields.","In agris uses ablative plural."],
+    ["servus epistulam scribere potest.","The slave can write a letter.","possum + infinitive; epistulam direct object."],
+    ["dominae servum bonum invitaverunt.","The mistresses invited the good slave.","Adjective in masculine accusative singular; perfect."],
+    ["tandem nuntius Roma discessit.","At last the messenger departed from Rome.","City-of-origin rule: Roma without a preposition."]
+  ]}
+];
 export function validateMock(mock=MOCK){
  const a=mock.sections.map(s=>s.questions.reduce((n,q)=>n+q.points.length,0));
  if(a.join(",")!=="11,14,50")throw Error("Incorrect section marks: "+a);
