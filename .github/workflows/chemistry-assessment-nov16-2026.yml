@@ -1,0 +1,34 @@
+name: Year 9 Chemistry Nov 16 assessment bank QA
+on:
+  pull_request:
+    paths:
+      - 'content/topics/chem-y9-c5.json'
+      - 'content/topics/chem-y9-c6.json'
+      - 'content/topics/chem-y9-c7.json'
+      - 'content/catalog.json'
+      - 'tests/chemistry-nov16-2026-assessment.test.mjs'
+      - '.github/workflows/chemistry-assessment-nov16-2026.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'content/topics/chem-y9-c5.json'
+      - 'content/topics/chem-y9-c6.json'
+      - 'content/topics/chem-y9-c7.json'
+      - 'tests/chemistry-nov16-2026-assessment.test.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Chemistry calculation and marking regression
+        run: |
+          node --test tests/chemistry-nov16-2026-assessment.test.mjs
+          node tests/chemistry-answer-bank-qa.mjs
+          node tests/chemistry-notation-qa.mjs
+          node --test tests/chemistry-g8-70-mastery-20261101.test.mjs
