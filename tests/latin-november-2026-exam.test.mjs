@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
 import {LATIN_BOOKLET_RECORDS} from "../assets/latin-vocabulary-booklet-20261023.js";
-import {SYLLABUS,GRAMMAR,MOCK,validateMock} from "../study/latin/november-2026/exam-data.js";
+import {SYLLABUS,GRAMMAR,PRACTICE,MOCK,validateMock} from "../study/latin/november-2026/exam-data.js";
 
 const here = new URL("../study/latin/november-2026/",import.meta.url);
 const page=readFileSync(new URL("index.html",here),"utf8");
@@ -68,4 +68,14 @@ test("Static entry point and iPad-friendly controls are present",()=>{
   assert.match(page,/exam\.js\?v=20261113a/);
   assert.match(client,/root\.addEventListener\("input"/);
   assert.match(client,/root\.addEventListener\("click"/);
+});
+
+test("Independent untimed practice covers all three assessed task formats",()=>{
+  assert.deepEqual(PRACTICE.map(x=>x.group),["English → Latin","Comprehension","Latin → English"]);
+  assert.deepEqual(PRACTICE.map(x=>x.items.length),[6,4,8]);
+  assert.ok(PRACTICE.every(group=>group.items.every(x=>x.length===3&&x.every(Boolean))));
+  assert.ok(PRACTICE[1].passage.length>=5);
+  assert.match(page,/data-tab="practice"/);
+  assert.match(client,/renderPractice/);
+  assert.match(client,/wordDirection/);
 });
