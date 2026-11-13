@@ -1,0 +1,1063 @@
+{
+  "schemaVersion": "daily-v2-mastery-draft-1",
+  "subject": "french",
+  "year": 8,
+  "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+  "title": "Mastery — negatives, mixed tenses and independent writing",
+  "status": "enabled",
+  "origin": "daily-v2-isolated-draft",
+  "curriculumReview": "pending-independent-review",
+  "taughtStatus": "not-verified-for-student",
+  "questions": [
+    {
+      "id": "fr-y8-v2ma-01",
+      "conceptId": "fr-y8-v2ma-concept-01",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "typed_short",
+      "prompt": "Change this affirmative sentence into a negative one using ne ... pas.",
+      "stimulus": {
+        "text": "J'aime le français."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Je n'aime pas le français."
+        ],
+        "modelAnswer": "Je n'aime pas le français.",
+        "markPoints": [
+          "n' before aime",
+          "pas after finite verb",
+          "retain le français"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "n' before aime",
+          "pas after finite verb",
+          "retain le français"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-02",
+      "conceptId": "fr-y8-v2ma-concept-02",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "typed_short",
+      "prompt": "Write the correct form of 'faire' for 'nous' in the present tense.",
+      "stimulus": {
+        "text": "Nous ___ nos devoirs."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "faisons"
+        ],
+        "modelAnswer": "faisons",
+        "markPoints": [
+          "nous faisons is correct",
+          "present tense first-person plural"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "nous faisons is correct",
+          "present tense first-person plural"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-03",
+      "conceptId": "fr-y8-v2ma-concept-03",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "typed_short",
+      "prompt": "Correct the adjective ending: 'Ma soeur est sportif'.",
+      "stimulus": {
+        "text": "Ma soeur est sportif."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Ma soeur est sportive."
+        ],
+        "modelAnswer": "Ma soeur est sportive.",
+        "markPoints": [
+          "sportive agrees with feminine singular soeur",
+          "sentence meaning preserved"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "sportive agrees with feminine singular soeur",
+          "sentence meaning preserved"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-04",
+      "conceptId": "fr-y8-v2ma-concept-04",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "typed_short",
+      "prompt": "Write the complete first-person singular present tense of 'aller' in 'Je ___ au collège'.",
+      "stimulus": {
+        "text": "Je ___ au collège."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Je vais au collège."
+        ],
+        "modelAnswer": "Je vais au collège.",
+        "markPoints": [
+          "vais is the correct first-person singular of aller",
+          "correct subject and phrase"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "vais is the correct first-person singular of aller",
+          "correct subject and phrase"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-05",
+      "conceptId": "fr-y8-v2ma-concept-05",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "controlled_translation",
+      "prompt": "Correct all mistakes in this negative sentence, then explain their positions.",
+      "stimulus": {
+        "text": "Je pas aime les maths."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Je n'aime pas les maths."
+        ],
+        "modelAnswer": "Je n'aime pas les maths.",
+        "markPoints": [
+          "n' before vowel-starting verb aime",
+          "pas after the conjugated verb",
+          "les maths retained"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "n' before vowel-starting verb aime",
+          "pas after the conjugated verb",
+          "les maths retained"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-06",
+      "conceptId": "fr-y8-v2ma-concept-06",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "controlled_translation",
+      "prompt": "Translate into French and preserve the full reason and opinion.",
+      "stimulus": {
+        "text": "I do not like history because it is boring."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Je n'aime pas l'histoire parce que c'est ennuyeux."
+        ],
+        "modelAnswer": "Je n'aime pas l'histoire parce que c'est ennuyeux.",
+        "markPoints": [
+          "ne ... pas correctly brackets aime",
+          "l'histoire uses elision",
+          "parce que expresses the reason",
+          "c'est ennuyeux expresses boring"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "ne ... pas correctly brackets aime",
+          "l'histoire uses elision",
+          "parce que expresses the reason",
+          "c'est ennuyeux expresses boring"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-07",
+      "conceptId": "fr-y8-v2ma-concept-07",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "controlled_translation",
+      "prompt": "Turn this statement into a negative in the passé composé, keeping the meaning.",
+      "stimulus": {
+        "text": "J'ai joué au tennis."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Je n'ai pas joué au tennis."
+        ],
+        "modelAnswer": "Je n'ai pas joué au tennis.",
+        "markPoints": [
+          "n' before auxiliary ai",
+          "pas after auxiliary ai",
+          "joué remains past participle"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "n' before auxiliary ai",
+          "pas after auxiliary ai",
+          "joué remains past participle"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-08",
+      "conceptId": "fr-y8-v2ma-concept-08",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "controlled_translation",
+      "prompt": "Translate the whole sentence using a near-future structure.",
+      "stimulus": {
+        "text": "Tomorrow I am going to do my homework after school."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Demain, je vais faire mes devoirs après le collège."
+        ],
+        "modelAnswer": "Demain, je vais faire mes devoirs après le collège.",
+        "markPoints": [
+          "demain conveys tomorrow",
+          "je vais faire near future",
+          "mes devoirs plural",
+          "après le collège conveys after school"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "demain conveys tomorrow",
+          "je vais faire near future",
+          "mes devoirs plural",
+          "après le collège conveys after school"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-09",
+      "conceptId": "fr-y8-v2ma-concept-09",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "controlled_translation",
+      "prompt": "Correct the past-tense forms in this sentence about yesterday, keeping the original meaning.",
+      "stimulus": {
+        "text": "Hier, je joue au foot et j'ai regarde la télé."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Hier, j'ai joué au foot et j'ai regardé la télé."
+        ],
+        "modelAnswer": "Hier, j'ai joué au foot et j'ai regardé la télé.",
+        "markPoints": [
+          "hier signals past",
+          "j'ai joué is passé composé",
+          "j'ai regardé is passé composé",
+          "correct accent not penalised by itself in Daily scoring"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "hier signals past",
+          "j'ai joué is passé composé",
+          "j'ai regardé is passé composé",
+          "correct accent not penalised by itself in Daily scoring"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-10",
+      "conceptId": "fr-y8-v2ma-concept-10",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "controlled_translation",
+      "prompt": "Write two linked sentences giving a school subject, an opinion and a reason.",
+      "stimulus": {
+        "text": "Say: I like biology. It is interesting."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "J'aime la biologie parce que c'est intéressant."
+        ],
+        "modelAnswer": "J'aime la biologie parce que c'est intéressant.",
+        "markPoints": [
+          "express likes biology",
+          "give reason interesting",
+          "connect with parce que or two well-formed sentences"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "express likes biology",
+          "give reason interesting",
+          "connect with parce que or two well-formed sentences"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-11",
+      "conceptId": "fr-y8-v2ma-concept-11",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "controlled_translation",
+      "prompt": "Translate into French, using a reflexive verb and a correct negative.",
+      "stimulus": {
+        "text": "I do not get up at six o'clock."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Je ne me lève pas à six heures."
+        ],
+        "modelAnswer": "Je ne me lève pas à six heures.",
+        "markPoints": [
+          "me lever present je me lève",
+          "ne before reflexive pronoun and pas after conjugated verb",
+          "à six heures correct time"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "me lever present je me lève",
+          "ne before reflexive pronoun and pas after conjugated verb",
+          "à six heures correct time"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-12",
+      "conceptId": "fr-y8-v2ma-concept-12",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "controlled_translation",
+      "prompt": "Explain the difference in time reference between these two French sentences.",
+      "stimulus": {
+        "text": "Je mange au collège. / J'ai mangé au collège."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "The first means I eat at school; the second means I ate or have eaten at school."
+        ],
+        "modelAnswer": "The first means I eat at school; the second means I ate or have eaten at school.",
+        "markPoints": [
+          "first is present",
+          "second is passé composé with avoir",
+          "correct English meanings"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "first is present",
+          "second is passé composé with avoir",
+          "correct English meanings"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-13",
+      "conceptId": "fr-y8-v2ma-concept-13",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "controlled_translation",
+      "prompt": "Correct subject–verb and adjective agreement in this description.",
+      "stimulus": {
+        "text": "Mes amies est intelligents."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Mes amies sont intelligentes."
+        ],
+        "modelAnswer": "Mes amies sont intelligentes.",
+        "markPoints": [
+          "sont agrees with plural mes amies",
+          "intelligentes feminine plural",
+          "meaning remains my female friends are intelligent"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "sont agrees with plural mes amies",
+          "intelligentes feminine plural",
+          "meaning remains my female friends are intelligent"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-14",
+      "conceptId": "fr-y8-v2ma-concept-14",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "controlled_translation",
+      "prompt": "Combine both ideas into one grammatically accurate French sentence.",
+      "stimulus": {
+        "text": "I like maths, but I don't like French."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "J'aime les maths, mais je n'aime pas le français."
+        ],
+        "modelAnswer": "J'aime les maths, mais je n'aime pas le français.",
+        "markPoints": [
+          "j'aime les maths",
+          "mais links contrast",
+          "je n'aime pas le français correctly negatives"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "j'aime les maths",
+          "mais links contrast",
+          "je n'aime pas le français correctly negatives"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-15",
+      "conceptId": "fr-y8-v2ma-concept-15",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "extended_response",
+      "prompt": "Write three connected French sentences about school, including an opinion with a reason, a negative, and a near-future plan.",
+      "stimulus": {
+        "text": "You may choose a taught school subject and an activity."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "J'aime la biologie parce que c'est intéressant. Je n'aime pas l'histoire. Demain, je vais étudier la chimie."
+        ],
+        "modelAnswer": "J'aime la biologie parce que c'est intéressant. Je n'aime pas l'histoire. Demain, je vais étudier la chimie.",
+        "markPoints": [
+          "independent correct subject opinion and reason",
+          "accurate ne ... pas negative",
+          "accurate aller + infinitive near future",
+          "three comprehensible linked sentences"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "independent correct subject opinion and reason",
+          "accurate ne ... pas negative",
+          "accurate aller + infinitive near future",
+          "three comprehensible linked sentences"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-16",
+      "conceptId": "fr-y8-v2ma-concept-16",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "extended_response",
+      "prompt": "Translate the short paragraph into French, keeping changes of tense and meaning.",
+      "stimulus": {
+        "text": "Yesterday I did my homework. Today I like science because it is interesting. Tomorrow I am going to play badminton."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Hier, j'ai fait mes devoirs. Aujourd'hui, j'aime les sciences parce que c'est intéressant. Demain, je vais jouer au badminton."
+        ],
+        "modelAnswer": "Hier, j'ai fait mes devoirs. Aujourd'hui, j'aime les sciences parce que c'est intéressant. Demain, je vais jouer au badminton.",
+        "markPoints": [
+          "hier j'ai fait past tense",
+          "aujourd'hui j'aime present opinion",
+          "parce que reason",
+          "demain je vais jouer near future"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "hier j'ai fait past tense",
+          "aujourd'hui j'aime present opinion",
+          "parce que reason",
+          "demain je vais jouer near future"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-17",
+      "conceptId": "fr-y8-v2ma-concept-17",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "extended_response",
+      "prompt": "A student writes 'Je n'ai joué pas au tennis'. Identify the error, correct it, and explain the grammatical rule.",
+      "stimulus": {
+        "text": "Je n'ai joué pas au tennis."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Je n'ai pas joué au tennis. The negative surrounds the auxiliary ai in the passé composé."
+        ],
+        "modelAnswer": "Je n'ai pas joué au tennis. The negative surrounds the auxiliary ai in the passé composé.",
+        "markPoints": [
+          "corrected sentence",
+          "ne/n' before auxiliary",
+          "pas immediately after auxiliary",
+          "joué past participle comes after pas"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "corrected sentence",
+          "ne/n' before auxiliary",
+          "pas immediately after auxiliary",
+          "joué past participle comes after pas"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-18",
+      "conceptId": "fr-y8-v2ma-concept-18",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "extended_response",
+      "prompt": "Read both sentences and explain why the negative word order differs. Translate both into English.",
+      "stimulus": {
+        "text": "Je ne regarde pas la télé. / Je n'ai pas regardé la télé."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "I do not watch TV. / I did not watch TV."
+        ],
+        "modelAnswer": "I do not watch TV. / I did not watch TV.",
+        "markPoints": [
+          "first present tense ne ... pas brackets regarde",
+          "second passé composé brackets ai, not regardé",
+          "accurate translations of both"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "first present tense ne ... pas brackets regarde",
+          "second passé composé brackets ai, not regardé",
+          "accurate translations of both"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-19",
+      "conceptId": "fr-y8-v2ma-concept-19",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "extended_response",
+      "prompt": "Write a short response correcting a friend's misconception that French adjectives always end in -s when plural. Use an accurate feminine-plural example.",
+      "stimulus": {
+        "text": "Explain and exemplify using 'intelligent'."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Feminine plural adjectives often add -es: mes amies sont intelligentes. The form agrees with feminine plural amies."
+        ],
+        "modelAnswer": "Feminine plural adjectives often add -es: mes amies sont intelligentes. The form agrees with feminine plural amies.",
+        "markPoints": [
+          "explain gender and number both matter",
+          "intelligentes feminine plural",
+          "provide agreement with a feminine plural noun",
+          "not all adjectives follow a single -s rule"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "explain gender and number both matter",
+          "intelligentes feminine plural",
+          "provide agreement with a feminine plural noun",
+          "not all adjectives follow a single -s rule"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "fr-y8-v2ma-20",
+      "conceptId": "fr-y8-v2ma-concept-20",
+      "topicId": "fr-y8-v2-mastery-negative-tenses-writing",
+      "topic": "Mastery — French negatives, tenses and independent writing",
+      "format": "extended_response",
+      "prompt": "Translate, then explain the pronoun and tense placement in this negative reflexive sentence.",
+      "stimulus": {
+        "text": "Yesterday I did not get up early."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Hier, je ne me suis pas levé(e) tôt."
+        ],
+        "modelAnswer": "Hier, je ne me suis pas levé(e) tôt.",
+        "markPoints": [
+          "hier sets past time",
+          "je me suis levé(e) reflexive passé composé",
+          "ne ... pas surrounds auxiliary suis",
+          "appropriate past participle agreement with speaker gender or explicitly accepted variant"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true,
+        "normalization": {
+          "ignoreCase": true,
+          "ignoreExtraWhitespace": true,
+          "normalizeApostrophes": true,
+          "ignoreTerminalPunctuation": true,
+          "ignoreFrenchDiacriticsForScore": true,
+          "showAccentFeedback": true
+        }
+      },
+      "feedback": {
+        "short": "Check grammar, meaning, tense and agreement. Other valid wording can receive credit.",
+        "steps": [
+          "hier sets past time",
+          "je me suis levé(e) reflexive passé composé",
+          "ne ... pas surrounds auxiliary suis",
+          "appropriate past participle agreement with speaker gender or explicitly accepted variant"
+        ],
+        "commonError": "Word-for-word translation without correct subject agreement or negation placement.",
+        "remember": "Negative positioning and tense are important; accent omission alone should not lose credit."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    }
+  ]
+}

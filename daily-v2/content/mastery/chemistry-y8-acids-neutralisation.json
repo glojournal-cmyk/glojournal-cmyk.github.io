@@ -1,0 +1,893 @@
+{
+  "schemaVersion": "daily-v2-mastery-draft-1",
+  "subject": "chemistry",
+  "year": 8,
+  "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+  "title": "Mastery — acids, indicators and neutralisation",
+  "status": "enabled",
+  "origin": "daily-v2-isolated-draft",
+  "curriculumReview": "pending-independent-review",
+  "taughtStatus": "not-verified-for-student",
+  "questions": [
+    {
+      "id": "chem-y8-v2mb-01",
+      "conceptId": "chem-y8-v2mb-concept-01",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "typed_short",
+      "prompt": "State the pH of a neutral solution at room temperature.",
+      "stimulus": {
+        "text": "A clean sample of pure water."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "pH 7."
+        ],
+        "modelAnswer": "pH 7.",
+        "markPoints": [
+          "neutral is pH 7"
+        ],
+        "totalMarks": 1,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "neutral is pH 7"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-02",
+      "conceptId": "chem-y8-v2mb-concept-02",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "typed_short",
+      "prompt": "Classify a solution of pH 3 and explain.",
+      "stimulus": {
+        "text": "Universal indicator indicates pH 3."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Acidic because its pH is below 7."
+        ],
+        "modelAnswer": "Acidic because its pH is below 7.",
+        "markPoints": [
+          "pH below 7",
+          "acidic"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "pH below 7",
+          "acidic"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-03",
+      "conceptId": "chem-y8-v2mb-concept-03",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "typed_short",
+      "prompt": "State the colour of blue litmus paper in an acid.",
+      "stimulus": {
+        "text": "Blue litmus is dipped into dilute acid."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Blue litmus turns red."
+        ],
+        "modelAnswer": "Blue litmus turns red.",
+        "markPoints": [
+          "blue litmus red in acid"
+        ],
+        "totalMarks": 1,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "blue litmus red in acid"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-04",
+      "conceptId": "chem-y8-v2mb-concept-04",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "typed_short",
+      "prompt": "Write the general word equation for neutralisation by an acid and an alkali.",
+      "stimulus": {
+        "text": "A soluble alkali is mixed with an acid."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Acid + alkali → salt + water."
+        ],
+        "modelAnswer": "Acid + alkali → salt + water.",
+        "markPoints": [
+          "salt forms",
+          "water forms"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "salt forms",
+          "water forms"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-05",
+      "conceptId": "chem-y8-v2mb-concept-05",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "mark_points",
+      "prompt": "A test gives three pH readings: 2, 7, 11. Classify each without treating pH as a substance amount.",
+      "stimulus": {
+        "text": "Solutions labelled P=2,Q=7,R=11."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "P acidic, Q neutral, R alkaline."
+        ],
+        "modelAnswer": "P acidic, Q neutral, R alkaline.",
+        "markPoints": [
+          "pH 2 acidic",
+          "pH 7 neutral",
+          "pH 11 alkaline"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "pH 2 acidic",
+          "pH 7 neutral",
+          "pH 11 alkaline"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-06",
+      "conceptId": "chem-y8-v2mb-concept-06",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "mark_points",
+      "prompt": "Explain what happens to the pH of an acidic solution when small amounts of dilute alkali are added, before reaching neutralisation.",
+      "stimulus": {
+        "text": "Starting acid pH 2 and gradual addition of alkali."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Its pH generally rises towards 7 as the acid is neutralised."
+        ],
+        "modelAnswer": "Its pH generally rises towards 7 as the acid is neutralised.",
+        "markPoints": [
+          "acid starts below 7",
+          "addition neutralises some acid",
+          "pH increases towards 7"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "acid starts below 7",
+          "addition neutralises some acid",
+          "pH increases towards 7"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-07",
+      "conceptId": "chem-y8-v2mb-concept-07",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "mark_points",
+      "prompt": "A student says acid must be safe because it is diluted. Explain why this conclusion is unsafe.",
+      "stimulus": {
+        "text": "An unlabeled acid solution has low concentration."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Dilute acids can still irritate or damage tissue; use appropriate eye protection and follow risk assessment."
+        ],
+        "modelAnswer": "Dilute acids can still irritate or damage tissue; use appropriate eye protection and follow risk assessment.",
+        "markPoints": [
+          "dilution does not guarantee harmlessness",
+          "appropriate eye protection/risk controls",
+          "concentration and hazard both matter"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "dilution does not guarantee harmlessness",
+          "appropriate eye protection/risk controls",
+          "concentration and hazard both matter"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-08",
+      "conceptId": "chem-y8-v2mb-concept-08",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "mark_points",
+      "prompt": "A solution turns red universal indicator, then green after adding alkali. Explain the colour change.",
+      "stimulus": {
+        "text": "Start acid; add alkali gradually."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Red indicates acidic conditions; green approximately neutral pH 7 after neutralisation."
+        ],
+        "modelAnswer": "Red indicates acidic conditions; green approximately neutral pH 7 after neutralisation.",
+        "markPoints": [
+          "red acidic",
+          "alkali added neutralises acid",
+          "green neutral around 7"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "red acidic",
+          "alkali added neutralises acid",
+          "green neutral around 7"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-09",
+      "conceptId": "chem-y8-v2mb-concept-09",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "mark_points",
+      "prompt": "Explain why a pH 9 solution is described as alkaline rather than acidic, and identify one simple measurement to verify.",
+      "stimulus": {
+        "text": "A liquid pH meter reads 9."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "pH 9 is above 7; check with pH paper or calibrated pH probe."
+        ],
+        "modelAnswer": "pH 9 is above 7; check with pH paper or calibrated pH probe.",
+        "markPoints": [
+          "pH >7 alkaline",
+          "valid indicator or probe check"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "pH >7 alkaline",
+          "valid indicator or probe check"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-10",
+      "conceptId": "chem-y8-v2mb-concept-10",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "mark_points",
+      "prompt": "Predict the products when hydrochloric acid reacts with sodium hydroxide, using a word equation.",
+      "stimulus": {
+        "text": "Hydrochloric acid + sodium hydroxide."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Sodium chloride + water."
+        ],
+        "modelAnswer": "Sodium chloride + water.",
+        "markPoints": [
+          "sodium chloride salt",
+          "water",
+          "correct word equation"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "sodium chloride salt",
+          "water",
+          "correct word equation"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-11",
+      "conceptId": "chem-y8-v2mb-concept-11",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "mark_points",
+      "prompt": "Explain why red litmus alone is insufficient to distinguish neutral water from an acid.",
+      "stimulus": {
+        "text": "Red litmus is unchanged in two samples."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Red litmus remains red in acid and neutral; use blue litmus, universal indicator or pH paper."
+        ],
+        "modelAnswer": "Red litmus remains red in acid and neutral; use blue litmus, universal indicator or pH paper.",
+        "markPoints": [
+          "red litmus does not distinguish both",
+          "appropriate alternative test",
+          "interpret blue litmus or pH"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "red litmus does not distinguish both",
+          "appropriate alternative test",
+          "interpret blue litmus or pH"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-12",
+      "conceptId": "chem-y8-v2mb-concept-12",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "mark_points",
+      "prompt": "Describe a fair method to compare the pH of two unknown liquids using universal indicator.",
+      "stimulus": {
+        "text": "Equal sample volumes available and clean test tubes."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Use equal indicator amounts in fresh separate samples; match colour to pH chart and avoid cross-contamination."
+        ],
+        "modelAnswer": "Use equal indicator amounts in fresh separate samples; match colour to pH chart and avoid cross-contamination.",
+        "markPoints": [
+          "separate clean tubes",
+          "same indicator method",
+          "match reference pH chart",
+          "avoid contamination"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "separate clean tubes",
+          "same indicator method",
+          "match reference pH chart",
+          "avoid contamination"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-13",
+      "conceptId": "chem-y8-v2mb-concept-13",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "mark_points",
+      "prompt": "Explain why a solution with pH 5 is more acidic than one with pH 6, without calling pH a percentage.",
+      "stimulus": {
+        "text": "Two aqueous solutions at similar conditions."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Lower pH indicates greater acidity; pH 5 is more acidic than pH 6."
+        ],
+        "modelAnswer": "Lower pH indicates greater acidity; pH 5 is more acidic than pH 6.",
+        "markPoints": [
+          "lower pH means more acidic",
+          "pH 5 lower than 6",
+          "avoid treating pH as concentration percentage"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "lower pH means more acidic",
+          "pH 5 lower than 6",
+          "avoid treating pH as concentration percentage"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-14",
+      "conceptId": "chem-y8-v2mb-concept-14",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "mark_points",
+      "prompt": "A metal carbonate reacts with dilute acid and bubbles form. Name the gas and suggest one confirmatory test.",
+      "stimulus": {
+        "text": "Calcium carbonate added to dilute hydrochloric acid."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Carbon dioxide; bubble it through limewater, which turns cloudy."
+        ],
+        "modelAnswer": "Carbon dioxide; bubble it through limewater, which turns cloudy.",
+        "markPoints": [
+          "carbon dioxide produced",
+          "limewater turns cloudy",
+          "acid–carbonate reaction"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "carbon dioxide produced",
+          "limewater turns cloudy",
+          "acid–carbonate reaction"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-15",
+      "conceptId": "chem-y8-v2mb-concept-15",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "extended_response",
+      "prompt": "Design a method to compare how much dilute alkali is needed to neutralise two equal-volume acid samples. Describe endpoint and safety.",
+      "stimulus": {
+        "text": "Two unknown dilute acids, one alkali, universal indicator and measuring cylinder."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Use equal measured acid volumes, add same alkali in small increments while swirling, stop near neutral green, record volume, repeat and wear eye protection."
+        ],
+        "modelAnswer": "Use equal measured acid volumes, add same alkali in small increments while swirling, stop near neutral green, record volume, repeat and wear eye protection.",
+        "markPoints": [
+          "equal measured acid volumes",
+          "same alkali and controlled additions",
+          "indicator endpoint around pH 7",
+          "record and repeat volumes with safe handling"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "equal measured acid volumes",
+          "same alkali and controlled additions",
+          "indicator endpoint around pH 7",
+          "record and repeat volumes with safe handling"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-16",
+      "conceptId": "chem-y8-v2mb-concept-16",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "extended_response",
+      "prompt": "A student adds 5 mL alkali to one acid and 20 mL to another, then claims the second acid is always 'four times stronger'. Evaluate.",
+      "stimulus": {
+        "text": "Acid concentrations and volumes originally unrecorded."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "The conclusion is not supported: acid sample volumes, concentrations and alkali concentration must be controlled; different acid chemistry can also matter."
+        ],
+        "modelAnswer": "The conclusion is not supported: acid sample volumes, concentrations and alkali concentration must be controlled; different acid chemistry can also matter.",
+        "markPoints": [
+          "cannot infer 4x strength directly",
+          "same acid volume required",
+          "same alkali concentration required",
+          "consider acid type/stoichiometry"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "cannot infer 4x strength directly",
+          "same acid volume required",
+          "same alkali concentration required",
+          "consider acid type/stoichiometry"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-17",
+      "conceptId": "chem-y8-v2mb-concept-17",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "extended_response",
+      "prompt": "A student measures pH before and after neutralisation: 2.0 then 7.0. Explain why the pH change alone does not prove the final solution contains no dissolved substances.",
+      "stimulus": {
+        "text": "Acid reacts with alkali to pH 7."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "The acidic/alkaline balance is neutral but dissolved salt remains in water."
+        ],
+        "modelAnswer": "The acidic/alkaline balance is neutral but dissolved salt remains in water.",
+        "markPoints": [
+          "pH 7 neutral not chemically empty",
+          "neutralisation produces a salt",
+          "water also present",
+          "pH alone cannot show purity"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "pH 7 neutral not chemically empty",
+          "neutralisation produces a salt",
+          "water also present",
+          "pH alone cannot show purity"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-18",
+      "conceptId": "chem-y8-v2mb-concept-18",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "extended_response",
+      "prompt": "A weakly coloured solution gives inconsistent universal-indicator readings because students use different indicator volumes. Identify the fairness problem and propose improvements.",
+      "stimulus": {
+        "text": "Two groups add 1 drop versus 15 drops to samples."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Unequal indicator amounts and colour mixing reduce comparison reliability; standardise sample/indicator amounts and use a calibrated pH probe or narrow-range pH paper."
+        ],
+        "modelAnswer": "Unequal indicator amounts and colour mixing reduce comparison reliability; standardise sample/indicator amounts and use a calibrated pH probe or narrow-range pH paper.",
+        "markPoints": [
+          "amount of indicator uncontrolled",
+          "colour comparison confounded",
+          "standardise amounts",
+          "independent pH measurement or repeats"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "amount of indicator uncontrolled",
+          "colour comparison confounded",
+          "standardise amounts",
+          "independent pH measurement or repeats"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-19",
+      "conceptId": "chem-y8-v2mb-concept-19",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "extended_response",
+      "prompt": "Write word equations and predict gases for two different acid reactions: acid with a carbonate, and acid with an alkali. Explain a safe distinguishing test.",
+      "stimulus": {
+        "text": "Hydrochloric acid mixed separately with calcium carbonate and sodium hydroxide."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Acid + carbonate → salt + water + CO2, acid + alkali → salt + water; CO2 turns limewater milky."
+        ],
+        "modelAnswer": "Acid + carbonate → salt + water + CO2, acid + alkali → salt + water; CO2 turns limewater milky.",
+        "markPoints": [
+          "carbonate reaction makes salt water CO2",
+          "alkali reaction makes salt water",
+          "limewater test confirms CO2",
+          "distinguish bubbling gas from neutralisation without carbonate"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "carbonate reaction makes salt water CO2",
+          "alkali reaction makes salt water",
+          "limewater test confirms CO2",
+          "distinguish bubbling gas from neutralisation without carbonate"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "chem-y8-v2mb-20",
+      "conceptId": "chem-y8-v2mb-concept-20",
+      "topicId": "chem-y8-v2-mastery-acids-neutralisation",
+      "topic": "Mastery — acids, alkalis and neutralisation evidence",
+      "format": "extended_response",
+      "prompt": "A learner puts universal indicator into a neutral solution and obtains pale blue, but claims it must be 'exactly neutral'. Critique the interpretation and plan reliable verification.",
+      "stimulus": {
+        "text": "Indicator shade near green/blue in uncertain lighting."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Blue can indicate mild alkalinity; don't claim exact pH from one colour. Repeat with fresh solution, use pH probe or calibrated paper and account for lighting."
+        ],
+        "modelAnswer": "Blue can indicate mild alkalinity; don't claim exact pH from one colour. Repeat with fresh solution, use pH probe or calibrated paper and account for lighting.",
+        "markPoints": [
+          "blue can indicate alkaline above 7",
+          "indicator colour is approximate",
+          "repeat/calibrate/use probe",
+          "explain uncertainty and avoid false precision"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Distinguish pH evidence, salt formation and safe experimental controls.",
+        "steps": [
+          "blue can indicate alkaline above 7",
+          "indicator colour is approximate",
+          "repeat/calibrate/use probe",
+          "explain uncertainty and avoid false precision"
+        ],
+        "commonError": "Assuming pH 7 means pure water or claiming one indicator colour gives exact concentration.",
+        "remember": "Acid + alkali gives salt + water; neutral pH does not imply absence of dissolved salts."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    }
+  ]
+}

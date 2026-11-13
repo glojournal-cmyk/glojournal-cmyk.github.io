@@ -1,0 +1,887 @@
+{
+  "schemaVersion": "daily-v2-mastery-draft-1",
+  "subject": "physics",
+  "year": 8,
+  "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+  "title": "Mastery — series and parallel circuits",
+  "status": "enabled",
+  "origin": "daily-v2-isolated-draft",
+  "curriculumReview": "pending-independent-review",
+  "taughtStatus": "not-verified-for-student",
+  "questions": [
+    {
+      "id": "phys-y8-v2mb-01",
+      "conceptId": "phys-y8-v2mb-concept-01",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "typed_short",
+      "prompt": "Name the instrument used to measure current and state how to connect it.",
+      "stimulus": {
+        "text": "A simple cell, lamp and switch circuit."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "An ammeter, connected in series."
+        ],
+        "modelAnswer": "An ammeter, connected in series.",
+        "markPoints": [
+          "ammeter measures current",
+          "connected in series"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "ammeter measures current",
+          "connected in series"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-02",
+      "conceptId": "phys-y8-v2mb-concept-02",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "typed_short",
+      "prompt": "Name the instrument used to measure potential difference across a lamp and how to connect it.",
+      "stimulus": {
+        "text": "A lamp connected to a cell."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "A voltmeter, connected in parallel across the lamp."
+        ],
+        "modelAnswer": "A voltmeter, connected in parallel across the lamp.",
+        "markPoints": [
+          "voltmeter measures potential difference",
+          "connected in parallel"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "voltmeter measures potential difference",
+          "connected in parallel"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-03",
+      "conceptId": "phys-y8-v2mb-concept-03",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "typed_short",
+      "prompt": "In a single-loop series circuit, how does current through two lamps compare?",
+      "stimulus": {
+        "text": "Two lamps and one battery connected in series."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "The same current flows through both lamps."
+        ],
+        "modelAnswer": "The same current flows through both lamps.",
+        "markPoints": [
+          "current same everywhere in a single series loop"
+        ],
+        "totalMarks": 1,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "current same everywhere in a single series loop"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-04",
+      "conceptId": "phys-y8-v2mb-concept-04",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "typed_short",
+      "prompt": "State what happens to current when the only switch in a simple series circuit is opened.",
+      "stimulus": {
+        "text": "One cell, one lamp, one switch."
+      },
+      "difficulty": 2,
+      "depthBand": "foundation",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Current becomes zero because the conducting path is broken."
+        ],
+        "modelAnswer": "Current becomes zero because the conducting path is broken.",
+        "markPoints": [
+          "open switch breaks circuit",
+          "no steady current"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "open switch breaks circuit",
+          "no steady current"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-05",
+      "conceptId": "phys-y8-v2mb-concept-05",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "mark_points",
+      "prompt": "A series circuit ammeter reads 0.4 A before the first lamp. What reading should an ammeter after the second lamp give? Explain.",
+      "stimulus": {
+        "text": "Two lamps in one series loop with 0.4 A current."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "0.4 A, because current is the same throughout the series loop."
+        ],
+        "modelAnswer": "0.4 A, because current is the same throughout the series loop.",
+        "markPoints": [
+          "0.4 A",
+          "single path",
+          "current conserved around series loop"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "0.4 A",
+          "single path",
+          "current conserved around series loop"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-06",
+      "conceptId": "phys-y8-v2mb-concept-06",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "calculation",
+      "prompt": "A 6 V supply is connected to two series lamps. One has a potential difference of 2 V. Find the other lamp's potential difference.",
+      "stimulus": {
+        "text": "Negligible wire losses; two lamps only."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "4 V."
+        ],
+        "modelAnswer": "4 V.",
+        "markPoints": [
+          "potential differences add to 6 V",
+          "6−2=4 V"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "potential differences add to 6 V",
+          "6−2=4 V"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-07",
+      "conceptId": "phys-y8-v2mb-concept-07",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "mark_points",
+      "prompt": "Two identical lamps are connected in separate branches across an ideal 3 V battery. What is the potential difference across each lamp?",
+      "stimulus": {
+        "text": "Ideal parallel branches connected to same battery terminals."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "3 V across each lamp."
+        ],
+        "modelAnswer": "3 V across each lamp.",
+        "markPoints": [
+          "parallel branches share supply potential difference",
+          "3 V each"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "parallel branches share supply potential difference",
+          "3 V each"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-08",
+      "conceptId": "phys-y8-v2mb-concept-08",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "calculation",
+      "prompt": "An ammeter in the main wire of a parallel circuit reads 0.9 A. One branch carries 0.4 A. Calculate the current in the other branch.",
+      "stimulus": {
+        "text": "Two parallel branches only."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "0.5 A."
+        ],
+        "modelAnswer": "0.5 A.",
+        "markPoints": [
+          "main current equals sum of branch currents",
+          "0.9−0.4=0.5 A"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "main current equals sum of branch currents",
+          "0.9−0.4=0.5 A"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-09",
+      "conceptId": "phys-y8-v2mb-concept-09",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "mark_points",
+      "prompt": "Explain why placing an ammeter directly across a battery is dangerous or wrong.",
+      "stimulus": {
+        "text": "Student proposes connecting ammeter in parallel across cell."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "An ammeter has very low resistance and should be in series; across a cell can cause a large current and damage."
+        ],
+        "modelAnswer": "An ammeter has very low resistance and should be in series; across a cell can cause a large current and damage.",
+        "markPoints": [
+          "ammeter must be in series",
+          "very low resistance",
+          "parallel connection risks excessive current"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "ammeter must be in series",
+          "very low resistance",
+          "parallel connection risks excessive current"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-10",
+      "conceptId": "phys-y8-v2mb-concept-10",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "mark_points",
+      "prompt": "Predict what happens if one lamp fails open-circuit in a series circuit of two lamps.",
+      "stimulus": {
+        "text": "Two lamps, one battery, one closed switch in series."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Both go off because the single path is broken."
+        ],
+        "modelAnswer": "Both go off because the single path is broken.",
+        "markPoints": [
+          "series single path",
+          "open lamp breaks it",
+          "both stop"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "series single path",
+          "open lamp breaks it",
+          "both stop"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-11",
+      "conceptId": "phys-y8-v2mb-concept-11",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "mark_points",
+      "prompt": "Predict what happens when one lamp fails open-circuit in one branch of two parallel lamps.",
+      "stimulus": {
+        "text": "Two lamps on separate battery branches."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "The other lamp can remain lit because it has a separate complete path."
+        ],
+        "modelAnswer": "The other lamp can remain lit because it has a separate complete path.",
+        "markPoints": [
+          "parallel separate paths",
+          "only failed branch opens",
+          "other branch still works"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "parallel separate paths",
+          "only failed branch opens",
+          "other branch still works"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-12",
+      "conceptId": "phys-y8-v2mb-concept-12",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "mark_points",
+      "prompt": "Explain why a voltmeter must be connected across a component instead of inserted in the main series path.",
+      "stimulus": {
+        "text": "Measure p.d. across a lamp."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "A voltmeter compares electrical potential at the two terminals, so it is placed in parallel."
+        ],
+        "modelAnswer": "A voltmeter compares electrical potential at the two terminals, so it is placed in parallel.",
+        "markPoints": [
+          "potential difference between two points",
+          "parallel across component",
+          "series placement inappropriate"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "potential difference between two points",
+          "parallel across component",
+          "series placement inappropriate"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-13",
+      "conceptId": "phys-y8-v2mb-concept-13",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "calculation",
+      "prompt": "An ideal 6 V battery drives three components in series; measured drops are 1.5 V, 2.5 V and unknown. Find the unknown drop.",
+      "stimulus": {
+        "text": "Negligible wire resistance."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "2.0 V."
+        ],
+        "modelAnswer": "2.0 V.",
+        "markPoints": [
+          "sum voltage drops 6 V",
+          "6−1.5−2.5=2.0 V"
+        ],
+        "totalMarks": 2,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "sum voltage drops 6 V",
+          "6−1.5−2.5=2.0 V"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-14",
+      "conceptId": "phys-y8-v2mb-concept-14",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "mark_points",
+      "prompt": "Explain how a student's observation that both parallel lamps stay on when one branch switch opens helps identify the circuit type.",
+      "stimulus": {
+        "text": "Two lamps with separate branch switches."
+      },
+      "difficulty": 3,
+      "depthBand": "application",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "It is parallel because each lamp has its own current path; one open branch need not disconnect the other."
+        ],
+        "modelAnswer": "It is parallel because each lamp has its own current path; one open branch need not disconnect the other.",
+        "markPoints": [
+          "independent branches",
+          "one branch can be open",
+          "other lamp remains connected"
+        ],
+        "totalMarks": 3,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "independent branches",
+          "one branch can be open",
+          "other lamp remains connected"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-15",
+      "conceptId": "phys-y8-v2mb-concept-15",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "extended_response",
+      "prompt": "A two-branch parallel circuit draws 1.2 A total. Branch A carries twice the current of B. Determine each branch current and check conservation.",
+      "stimulus": {
+        "text": "Only branches A and B; ideal junction."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "A=0.8 A and B=0.4 A."
+        ],
+        "modelAnswer": "A=0.8 A and B=0.4 A.",
+        "markPoints": [
+          "A=2B",
+          "A+B=1.2 A",
+          "3B=1.2 so B=0.4",
+          "A=0.8; add back 1.2"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "A=2B",
+          "A+B=1.2 A",
+          "3B=1.2 so B=0.4",
+          "A=0.8; add back 1.2"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-16",
+      "conceptId": "phys-y8-v2mb-concept-16",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "extended_response",
+      "prompt": "A 9 V supply feeds two lamps in series. A voltmeter across lamp 1 reads 6 V. A pupil says lamp 2 must read 9 V because both use the full battery. Explain and correct.",
+      "stimulus": {
+        "text": "Two series lamps; negligible wire drops."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Lamp 2 has 3 V: in series individual voltage drops sum to the source voltage."
+        ],
+        "modelAnswer": "Lamp 2 has 3 V: in series individual voltage drops sum to the source voltage.",
+        "markPoints": [
+          "lamp 2=9−6=3 V",
+          "voltage shared in series",
+          "sum equals 9 V",
+          "distinguish parallel full battery voltage"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "lamp 2=9−6=3 V",
+          "voltage shared in series",
+          "sum equals 9 V",
+          "distinguish parallel full battery voltage"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-17",
+      "conceptId": "phys-y8-v2mb-concept-17",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "extended_response",
+      "prompt": "Describe a safe practical that compares current and potential difference in series and parallel arrangements of the same two lamps. Identify at least two controls.",
+      "stimulus": {
+        "text": "Two identical lamps, cell pack, wires, ammeter, voltmeter and switches."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Keep supply voltage and lamp type the same, measure ammeter current in series at several points and voltmeter across each lamp, then compare parallel branch values."
+        ],
+        "modelAnswer": "Keep supply voltage and lamp type the same, measure ammeter current in series at several points and voltmeter across each lamp, then compare parallel branch values.",
+        "markPoints": [
+          "control supply and lamp type",
+          "ammeter in series",
+          "voltmeter across lamps",
+          "collect and compare both arrangements"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "control supply and lamp type",
+          "ammeter in series",
+          "voltmeter across lamps",
+          "collect and compare both arrangements"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-18",
+      "conceptId": "phys-y8-v2mb-concept-18",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "extended_response",
+      "prompt": "A student records 0.30 A at the start of a series loop but 0.10 A immediately after a lamp; both ammeters are in the same steady path. Evaluate the measurements.",
+      "stimulus": {
+        "text": "One ideal single-loop steady series circuit."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Readings should match; investigate instrument placement, calibration, loose connections or reading errors."
+        ],
+        "modelAnswer": "Readings should match; investigate instrument placement, calibration, loose connections or reading errors.",
+        "markPoints": [
+          "series steady current equal",
+          "data inconsistent",
+          "identify measurement error possibilities",
+          "repeat/check placement or calibration"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "series steady current equal",
+          "data inconsistent",
+          "identify measurement error possibilities",
+          "repeat/check placement or calibration"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-19",
+      "conceptId": "phys-y8-v2mb-concept-19",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "extended_response",
+      "prompt": "Two parallel branches are connected to the same ideal 6 V source. One branch has two identical lamps in series while the other branch has a single identical lamp. Compare branch voltages and justify why lamp potential differences within branches differ.",
+      "stimulus": {
+        "text": "Identical lamps; negligible wires; ideal supply."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Both branches receive 6 V. The two identical series lamps share it equally (3 V each); the single lamp receives 6 V."
+        ],
+        "modelAnswer": "Both branches receive 6 V. The two identical series lamps share it equally (3 V each); the single lamp receives 6 V.",
+        "markPoints": [
+          "parallel branches each 6 V",
+          "within double-lamp branch two identical lamps share p.d.",
+          "3 V each in series pair",
+          "single-lamp branch 6 V"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "parallel branches each 6 V",
+          "within double-lamp branch two identical lamps share p.d.",
+          "3 V each in series pair",
+          "single-lamp branch 6 V"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    },
+    {
+      "id": "phys-y8-v2mb-20",
+      "conceptId": "phys-y8-v2mb-concept-20",
+      "topicId": "phys-y8-v2-mastery-series-parallel-circuits",
+      "topic": "Mastery — current, voltage and circuit evidence",
+      "format": "extended_response",
+      "prompt": "Design an investigation to determine whether a circuit contains series or parallel branches when only current readings are available. Give expected patterns and an uncertainty.",
+      "stimulus": {
+        "text": "Battery, suitable ammeter, leads; circuit diagram concealed."
+      },
+      "difficulty": 4,
+      "depthBand": "challenge",
+      "roles": [
+        "mastery"
+      ],
+      "status": "enabled",
+      "answer": {
+        "mode": "rubric_review",
+        "accepted": [
+          "Measure current before/after junctions and in possible branches: in series same everywhere, while in parallel the main current equals branch-current sum; repeat with meter correctly in series."
+        ],
+        "modelAnswer": "Measure current before/after junctions and in possible branches: in series same everywhere, while in parallel the main current equals branch-current sum; repeat with meter correctly in series.",
+        "markPoints": [
+          "identify junction/branch measurements",
+          "same current across one series path",
+          "main current is sum of branch currents",
+          "state measurement uncertainty and proper ammeter placement"
+        ],
+        "totalMarks": 4,
+        "requiresSemanticAssessment": true
+      },
+      "feedback": {
+        "short": "Separate series current rules from parallel voltage and branch-current rules.",
+        "steps": [
+          "identify junction/branch measurements",
+          "same current across one series path",
+          "main current is sum of branch currents",
+          "state measurement uncertainty and proper ammeter placement"
+        ],
+        "commonError": "Confusing where to connect ammeters and voltmeters, or giving each series component full supply potential difference.",
+        "remember": "Series: same current, split supply voltage; parallel: branch voltage matches supply, total current sums."
+      },
+      "reviewStatus": "author-draft-awaiting-curriculum-review",
+      "preview": false,
+      "formal": true
+    }
+  ]
+}
