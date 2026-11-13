@@ -65,7 +65,7 @@ export const GRAMMAR = [
   ["Adjectives","Give the neuter nominative singular of bonus.","bonum","Second-declension neuter."],
   ["Adjectives","Give the masculine accusative plural of magnus.","magnos","2nd declension masculine accusative plural."],
   ["Adjectives","Give the feminine accusative singular of parvus.","parvam","Agrees with a 1st-declension feminine object."],
-  ["Adjectives","Translate 'puellae laetae'.","happy girls","Both noun and adjective are feminine nominative plural here."],
+  ["Adjectives","Translate 'puellae laetae' as nominative plural.","happy girls","Both noun and adjective are feminine nominative plural here."],
   ["Adjectives","Translate 'servum bonum'.","good slave","Both words are masculine accusative singular."],
   ["Prepositions","Which case follows ad (to/towards)?","accusative","ad + accusative."],
   ["Prepositions","Which case follows per (through)?","accusative","per + accusative."],
