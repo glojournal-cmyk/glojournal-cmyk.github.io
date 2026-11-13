@@ -2811,9 +2811,359 @@
       },
       "preview": true,
       "ordinary": true
+    },
+    {
+      "id": "chem-y9-c5-nov16-2026-calc-01",
+      "conceptId": "chem-y9-c5-nov16-2026-calc-01-concept",
+      "topicId": "chem-y9-c5",
+      "topic": "Atomic structure, isotopes and electron arrangement",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "A neutral magnesium-24 atom has atomic number 12. How many neutrons does it contain?",
+      "difficulty": 1,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "12"
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "12",
+        "steps": [
+          "Subtract the atomic number (12 protons) from the mass number (24): 24 − 12 = 12 neutrons.",
+          "Correct answer: 12"
+        ],
+        "commonError": "Check the scientific meaning, formula subscripts and numbers before submitting.",
+        "remember": "Subtract the atomic number (12 protons) from the mass number (24): 24 − 12 = 12 neutrons."
+      },
+      "task": {
+        "label": "ATOMIC STRUCTURE",
+        "instruction": "Write only the requested number or comma-separated electron arrangement."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "chem-y9-c5-nov16-2026-calc-02",
+      "conceptId": "chem-y9-c5-nov16-2026-calc-02-concept",
+      "topicId": "chem-y9-c5",
+      "topic": "Atomic structure, isotopes and electron arrangement",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "A neutral chlorine-35 atom has atomic number 17. How many neutrons does it contain?",
+      "difficulty": 1,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "18"
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "18",
+        "steps": [
+          "35 − 17 = 18 neutrons.",
+          "Correct answer: 18"
+        ],
+        "commonError": "Check the scientific meaning, formula subscripts and numbers before submitting.",
+        "remember": "35 − 17 = 18 neutrons."
+      },
+      "task": {
+        "label": "ATOMIC STRUCTURE",
+        "instruction": "Write only the requested number or comma-separated electron arrangement."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "chem-y9-c5-nov16-2026-calc-03",
+      "conceptId": "chem-y9-c5-nov16-2026-calc-03-concept",
+      "topicId": "chem-y9-c5",
+      "topic": "Atomic structure, isotopes and electron arrangement",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "An aluminium-27 atom has atomic number 13. How many protons does it contain?",
+      "difficulty": 1,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "13"
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "13",
+        "steps": [
+          "Atomic number is always the proton number.",
+          "Correct answer: 13"
+        ],
+        "commonError": "Check the scientific meaning, formula subscripts and numbers before submitting.",
+        "remember": "Atomic number is always the proton number."
+      },
+      "task": {
+        "label": "ATOMIC STRUCTURE",
+        "instruction": "Write only the requested number or comma-separated electron arrangement."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "chem-y9-c5-nov16-2026-calc-04",
+      "conceptId": "chem-y9-c5-nov16-2026-calc-04-concept",
+      "topicId": "chem-y9-c5",
+      "topic": "Atomic structure, isotopes and electron arrangement",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "A potassium-39 atom has atomic number 19. How many neutrons does it contain?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "20"
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "20",
+        "steps": [
+          "39 − 19 = 20 neutrons.",
+          "Correct answer: 20"
+        ],
+        "commonError": "Check the scientific meaning, formula subscripts and numbers before submitting.",
+        "remember": "39 − 19 = 20 neutrons."
+      },
+      "task": {
+        "label": "ATOMIC STRUCTURE",
+        "instruction": "Write only the requested number or comma-separated electron arrangement."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "chem-y9-c5-nov16-2026-calc-05",
+      "conceptId": "chem-y9-c5-nov16-2026-calc-05-concept",
+      "topicId": "chem-y9-c5",
+      "topic": "Atomic structure, isotopes and electron arrangement",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "A neutral calcium-40 atom has atomic number 20. How many electrons does it contain?",
+      "difficulty": 1,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "20"
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "20",
+        "steps": [
+          "A neutral atom has the same number of electrons as protons.",
+          "Correct answer: 20"
+        ],
+        "commonError": "Check the scientific meaning, formula subscripts and numbers before submitting.",
+        "remember": "A neutral atom has the same number of electrons as protons."
+      },
+      "task": {
+        "label": "ATOMIC STRUCTURE",
+        "instruction": "Write only the requested number or comma-separated electron arrangement."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "chem-y9-c5-nov16-2026-calc-06",
+      "conceptId": "chem-y9-c5-nov16-2026-calc-06-concept",
+      "topicId": "chem-y9-c5",
+      "topic": "Atomic structure, isotopes and electron arrangement",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "An oxygen-18 atom has atomic number 8. How many neutrons does it contain?",
+      "difficulty": 1,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "10"
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "10",
+        "steps": [
+          "18 − 8 = 10 neutrons.",
+          "Correct answer: 10"
+        ],
+        "commonError": "Check the scientific meaning, formula subscripts and numbers before submitting.",
+        "remember": "18 − 8 = 10 neutrons."
+      },
+      "task": {
+        "label": "ATOMIC STRUCTURE",
+        "instruction": "Write only the requested number or comma-separated electron arrangement."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "chem-y9-c5-nov16-2026-calc-07",
+      "conceptId": "chem-y9-c5-nov16-2026-calc-07-concept",
+      "topicId": "chem-y9-c5",
+      "topic": "Atomic structure, isotopes and electron arrangement",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "Write the electron arrangement of a neutral atom with 12 electrons using comma notation.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "2,8,2"
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "2,8,2",
+        "steps": [
+          "The first shell holds 2, the second holds 8 and the remaining 2 occupy the third shell.",
+          "Correct answer: 2,8,2"
+        ],
+        "commonError": "Check the scientific meaning, formula subscripts and numbers before submitting.",
+        "remember": "The first shell holds 2, the second holds 8 and the remaining 2 occupy the third shell."
+      },
+      "task": {
+        "label": "ATOMIC STRUCTURE",
+        "instruction": "Write only the requested number or comma-separated electron arrangement."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "chem-y9-c5-nov16-2026-calc-08",
+      "conceptId": "chem-y9-c5-nov16-2026-calc-08-concept",
+      "topicId": "chem-y9-c5",
+      "topic": "Atomic structure, isotopes and electron arrangement",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "Write the electron arrangement of a neutral atom with 16 electrons using comma notation.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "2,8,6"
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "2,8,6",
+        "steps": [
+          "2 + 8 + 6 = 16.",
+          "Correct answer: 2,8,6"
+        ],
+        "commonError": "Check the scientific meaning, formula subscripts and numbers before submitting.",
+        "remember": "2 + 8 + 6 = 16."
+      },
+      "task": {
+        "label": "ATOMIC STRUCTURE",
+        "instruction": "Write only the requested number or comma-separated electron arrangement."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "chem-y9-c5-nov16-2026-calc-09",
+      "conceptId": "chem-y9-c5-nov16-2026-calc-09-concept",
+      "topicId": "chem-y9-c5",
+      "topic": "Atomic structure, isotopes and electron arrangement",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "Write the electron arrangement of a neutral atom with 19 electrons using comma notation.",
+      "difficulty": 3,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "2,8,8,1"
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "2,8,8,1",
+        "steps": [
+          "For the first 20 elements use shell capacities 2,8,8 before putting the final electron in shell four.",
+          "Correct answer: 2,8,8,1"
+        ],
+        "commonError": "Check the scientific meaning, formula subscripts and numbers before submitting.",
+        "remember": "For the first 20 elements use shell capacities 2,8,8 before putting the final electron in shell four."
+      },
+      "task": {
+        "label": "ATOMIC STRUCTURE",
+        "instruction": "Write only the requested number or comma-separated electron arrangement."
+      },
+      "preview": false,
+      "ordinary": true
+    },
+    {
+      "id": "chem-y9-c5-nov16-2026-calc-10",
+      "conceptId": "chem-y9-c5-nov16-2026-calc-10-concept",
+      "topicId": "chem-y9-c5",
+      "topic": "Atomic structure, isotopes and electron arrangement",
+      "subject": "chemistry",
+      "year": 9,
+      "format": "typed_short",
+      "prompt": "Write the electron arrangement of a neutral atom with 13 electrons using comma notation.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "2,8,3"
+        ]
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "2,8,3",
+        "steps": [
+          "2 + 8 + 3 = 13.",
+          "Correct answer: 2,8,3"
+        ],
+        "commonError": "Check the scientific meaning, formula subscripts and numbers before submitting.",
+        "remember": "2 + 8 + 3 = 13."
+      },
+      "task": {
+        "label": "ATOMIC STRUCTURE",
+        "instruction": "Write only the requested number or comma-separated electron arrangement."
+      },
+      "preview": false,
+      "ordinary": true
     }
   ],
-  "enabled": 68,
+  "enabled": 78,
   "preview": 0,
   "disabled": 0,
   "formats": {
@@ -2821,7 +3171,7 @@
     "typed_exact": 8,
     "spelling_restore": 12,
     "mark_points": 14,
-    "typed_short": 5,
+    "typed_short": 15,
     "matching": 4,
     "diagram_label": 1
   },
