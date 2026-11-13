@@ -32,7 +32,7 @@ test('catalog enables the new questions without changing the number of topics', 
   }
   const summary=catalog.bySubjectYear.find(r=>r.subject==='chemistry'&&r.year===9);
   assert.equal(summary.questions,1222);
-  assert.equal(summary.enabled,1150);
+  assert.equal(summary.enabled,1212);
 });
 
 test('all GCSE Chemistry figure references have valid accessible illustration files', () => {
