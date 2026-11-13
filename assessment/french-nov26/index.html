@@ -161,7 +161,7 @@ var P=[
 ];
 var D=["I responded to both compulsory bullet points, with relevant details.","I developed ideas using opinions and reasons, not just a list.","I included past events using the perfect tense accurately.","I included future plans using an appropriate future tense.","I checked subject-verb agreement, spelling, accents and negation.","I used varied vocabulary, connectors and some complex language.","My letter has an appropriate opening and closing (teacher's writing-frame practice)."];
 var $=function(id){return document.getElementById(id)};
-var esc=function(s){return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&#39;",'"':"&#39;"}[c]})};
+var esc=function(s){return String(s||"").replace(/[&<>"']/g,function(c){switch(c){case "&":return "&amp;";case "<":return "&lt;";case ">":return "&gt;";case '"':return "&quot;";case "'":return "&#39;";default:return c}})};
 var norm=function(s){return String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[’‘]/g,"'").replace(/[^a-z0-9 ]/g," ").replace(/\s+/g," ").trim()};
 var data;try{data=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){data={}}
 if(typeof data!=="object"||Array.isArray(data))data={};
@@ -208,7 +208,7 @@ $("rubrics").innerHTML=markInput("AO2: Content and communication","ao2",15,"Both
 scoreUpdate()}
 function scoreUpdate(){var p=draft().points;var a=Number(p.ao2)||0,b=Number(p.range)||0,c=Number(p.accuracy)||0;
 if(a===0){b=0;c=0}
-$("score").textContent=p.ao2===undefined||p.range===undefined||p.accuracy===undefined?"Not marked yet — assess all three criteria":"Practice self-mark: "+(a+b+c)+"/25"+(a===0?" (AQA rule: AO3 = 0 when AO2 = 0)":"")}
+$("score").textContent=p.ao2===undefined||p.range===undefined||p.accuracy===undefined?"Not marked yet — assess all three criteria":"Practice self-mark: "+(a+b+c)+"/25"+(a===0?" (AQA rule: AO3 = 0 when AO2 = 0)":"");
 $("rubrics").querySelectorAll("select").forEach(function(x){if(a===0&&x.dataset.mark!=="ao2")x.value="0"})}
 $("checks").addEventListener("change",function(e){if(e.target.dataset.ref===undefined)return;var d=draft();d.checks=d.checks||{};d.checks[e.target.dataset.ref]=e.target.checked;save()});
 $("rubrics").addEventListener("change",function(e){if(e.target.dataset.mark===undefined)return;draft().points[e.target.dataset.mark]=Number(e.target.value);if(Number(draft().points.ao2)===0){draft().points.range=0;draft().points.accuracy=0}save();scoreUpdate()});
