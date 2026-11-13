@@ -31,7 +31,7 @@ test('catalog enables the new questions without changing the number of topics', 
     assert.equal(meta.enabled,doc.questions.filter(q=>q.status==='enabled').length);
   }
   const summary=catalog.bySubjectYear.find(r=>r.subject==='chemistry'&&r.year===9);
-  assert.equal(summary.questions,1160);
+  assert.equal(summary.questions,1222);
   assert.equal(summary.enabled,1150);
 });
 
