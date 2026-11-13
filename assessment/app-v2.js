@@ -157,7 +157,7 @@ function tracker(){
       }).join('');
     const hasGuide=x.subject==='Biology'&&x.paperId!=='biology-nov2';
     const resources=topicLinks||hasGuide?`<details class="assessment-tracker-resources"><summary>Notes &amp; topic practice</summary><div class="assessment-tracker-resource-list">${topicLinks}${hasGuide?'<a href="/assessment/biology-cell-structure/">Cell structure revision guide</a>':''}</div></details>`:'';
-    const paperButton=isSchool&&x.paperId?`<button class="primary" data-tracker-paper="${esc(x.paperId)}">${state.drafts[x.paperId]?.version===2?'Continue practice paper':'Start practice paper'}</button>`:'';
+    const paperButton=isSchool&&x.paperId?(x.paperId==="french-nov26"?'<a class="primary" href="/assessment/french-nov26/">Open 150-word Higher-style writing mock</a>':`<button class="primary" data-tracker-paper="${esc(x.paperId)}">${state.drafts[x.paperId]?.version===2?'Continue practice paper':'Start practice paper'}</button>`):'';
     return `<article class="entry assessment-tracker-entry tracker-row-${esc(String(x.subject||"Other").toLowerCase().replace(/[^a-z0-9-]/g,"-"))}">
       <details class="assessment-tracker-item">
         <summary aria-label="${esc(`${x.subject}, ${x.title}, ${date}, ${status}. Show details`)}">
