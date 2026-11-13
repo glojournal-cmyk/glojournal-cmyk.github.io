@@ -2598,16 +2598,139 @@
       },
       "preview": true,
       "ordinary": true
+    },
+    {
+      "id": "phys-y9-p7-nov26-p06",
+      "conceptId": "phys-y9-p7-nov26-p06-concept",
+      "topicId": "phys-y9-p7",
+      "topic": "Changes of state",
+      "format": "mark_points",
+      "prompt": "Give two differences between boiling and evaporation. (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Boiling occurs throughout a liquid at its boiling point.",
+          "Evaporation happens at the surface and may occur below boiling point."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Boiling occurs throughout a liquid at its boiling point. Evaporation happens at the surface and may occur below boiling point."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Boiling occurs throughout a liquid at its boiling point. Evaporation happens at the surface and may occur below boiling point.",
+        "steps": [
+          "Boiling occurs throughout a liquid at its boiling point.",
+          "Evaporation happens at the surface and may occur below boiling point.",
+          "Suggested answer: Boiling occurs throughout a liquid at its boiling point. Evaporation happens at the surface and may occur below boiling point."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "Boiling occurs throughout a liquid at its boiling point. Evaporation happens at the surface and may occur below boiling point."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 2 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p7-nov26-p08",
+      "conceptId": "phys-y9-p7-nov26-p08-concept",
+      "topicId": "phys-y9-p7",
+      "topic": "Changes of state",
+      "format": "mc_single",
+      "prompt": "A solid changes directly to gas without becoming liquid. Name the process.",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "Boiling",
+        "Condensation",
+        "Sublimation",
+        "Freezing"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "Sublimation"
+        ]
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "Sublimation",
+        "steps": [
+          "Suggested answer: Sublimation"
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "Sublimation"
+      },
+      "task": {
+        "label": "CHOOSE",
+        "instruction": "Choose the single scientifically correct answer."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p7-nov26-p10",
+      "conceptId": "phys-y9-p7-nov26-p10-concept",
+      "topicId": "phys-y9-p7",
+      "topic": "Changes of state",
+      "format": "mc_single",
+      "prompt": "When ice melts into liquid water, what happens to its molecules?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "They change to hydrogen and oxygen.",
+        "They remain H₂O; only arrangement and movement change.",
+        "They stop moving.",
+        "Their number doubles."
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "They remain H₂O; only arrangement and movement change."
+        ]
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "They remain H₂O; only arrangement and movement change.",
+        "steps": [
+          "Suggested answer: They remain H₂O; only arrangement and movement change."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "They remain H₂O; only arrangement and movement change."
+      },
+      "task": {
+        "label": "CHOOSE",
+        "instruction": "Choose the single scientifically correct answer."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
     }
   ],
-  "enabled": 63,
+  "enabled": 66,
   "preview": 0,
   "disabled": 0,
   "formats": {
-    "mc_single": 17,
+    "mc_single": 19,
     "typed_exact": 7,
     "spelling_restore": 8,
-    "mark_points": 25,
+    "mark_points": 26,
     "typed_short": 1,
     "matching": 3,
     "word_tiles": 1,

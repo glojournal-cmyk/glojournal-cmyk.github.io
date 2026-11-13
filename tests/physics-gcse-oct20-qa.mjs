@@ -32,9 +32,10 @@ for(const [number,prior,expected,baseline] of targets){
  const id=`phys-y9-p${number}`,file=`content/topics/${id}.json`;
  const doc=JSON.parse(fs.readFileSync(file,"utf8"));
  assert.equal(doc.topicId,id);
- assert.equal(doc.questions.length,expected,`${id} question count`);
- const old=doc.questions.filter(q=>!q.id.includes("-gcse-oct20-")&&!q.id.includes("-aqa-exam-20261024-"));
- const fresh=doc.questions.filter(q=>q.id.includes("-gcse-oct20-"));
+ const legacy=doc.questions.filter(q=>!q.id.includes("-nov26-"));
+ assert.equal(legacy.length,expected,`${id} original October question count`);
+ const old=legacy.filter(q=>!q.id.includes("-gcse-oct20-")&&!q.id.includes("-aqa-exam-20261024-"));
+ const fresh=legacy.filter(q=>q.id.includes("-gcse-oct20-"));
  assert.equal(old.length,prior,`${id}: all original question IDs kept`);
  assert.equal(hashIds(old.map(q=>q.id)),baseline,`${id}: original question IDs or order changed`);
  assert.ok(doc.questions.length>=60,`${id}: fewer than 60`);
@@ -79,9 +80,9 @@ for(const [number,prior,expected,baseline] of targets){
   }
  }
 }
-assert.equal(questions,484);
+assert.equal(questions,506);
 assert.equal(added,122);
-assert.equal(catalog.bySubjectYear.find(r=>r.subject==="physics"&&r.year===9).enabled,1044);
+assert.equal(catalog.bySubjectYear.find(r=>r.subject==="physics"&&r.year===9).enabled,1066);
 assert.equal(catalog.totals.enabled,catalog.bySubjectYear.reduce((sum,row)=>sum+row.enabled,0));
 assert.equal(catalog.totals.questions,catalog.bySubjectYear.reduce((sum,row)=>sum+row.questions,0));
 assert.ok(catalog.version.includes("phys-gcse-20261020"));

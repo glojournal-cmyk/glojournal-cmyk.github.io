@@ -1,0 +1,27 @@
+name: Year 9 Physics November School Assessment QA
+on:
+  pull_request:
+    paths:
+      - 'assessment/physics-nov26-20261113.json'
+      - 'assessment/diagrams/physics-nov26-rp2-cooling.svg'
+      - 'assessment/app-v2.js'
+      - 'assessment/index.html'
+      - 'study/physics/index.html'
+      - 'content/topics/phys-y9-p*.json'
+      - 'content/catalog.json'
+      - 'tests/physics-nov26-assessment.test.mjs'
+      - 'tests/physics-gcse-oct20-qa.mjs'
+      - '.github/workflows/physics-nov26-qa.yml'
+  workflow_dispatch:
+jobs:
+  physics-nov26:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check assessment JavaScript syntax
+        run: node --check assessment/app-v2.js
+      - name: Check November Physics bank, scope, rubric, graph and routing
+        run: node tests/physics-nov26-assessment.test.mjs
+      - name: Run existing October Physics regression
+        run: node tests/physics-gcse-oct20-qa.mjs

@@ -3360,16 +3360,311 @@
         "schoolYear": 9,
         "marking": "formative"
       }
+    },
+    {
+      "id": "phys-y9-p2-nov26-d06",
+      "conceptId": "phys-y9-p2-nov26-d06-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "A 2 × 3 × 5 cm cuboid has density 8 g/cm³. Calculate its mass in kg. (3 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Its volume is 30 cm³.",
+          "Its mass is 240 g.",
+          "Its mass is 0.24 kg."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Its volume is 30 cm³. Its mass is 240 g. Its mass is 0.24 kg."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Its volume is 30 cm³. Its mass is 240 g. Its mass is 0.24 kg.",
+        "steps": [
+          "Its volume is 30 cm³.",
+          "Its mass is 240 g.",
+          "Its mass is 0.24 kg.",
+          "Suggested answer: Its volume is 30 cm³. Its mass is 240 g. Its mass is 0.24 kg."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "Its volume is 30 cm³. Its mass is 240 g. Its mass is 0.24 kg."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 3 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p2-nov26-d07",
+      "conceptId": "phys-y9-p2-nov26-d07-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mc_single",
+      "prompt": "An object is 800 kg/m³ in water of 1000 kg/m³. What happens if it does not dissolve?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "It must sink.",
+        "It floats because it is less dense than water.",
+        "It stays at exactly mid-depth.",
+        "Its density becomes zero."
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "It floats because it is less dense than water."
+        ]
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "It floats because it is less dense than water.",
+        "steps": [
+          "Suggested answer: It floats because it is less dense than water."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "It floats because it is less dense than water."
+      },
+      "task": {
+        "label": "CHOOSE",
+        "instruction": "Choose the single scientifically correct answer."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p2-nov26-d09",
+      "conceptId": "phys-y9-p2-nov26-d09-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "Water rises from 40 to 65 cm³ after a 75 g rock is submerged. Calculate density. (3 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "The rock volume is 25 cm³.",
+          "Density is mass divided by volume.",
+          "The density is 3 g/cm³."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "The rock volume is 25 cm³. Density is mass divided by volume. The density is 3 g/cm³."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "The rock volume is 25 cm³. Density is mass divided by volume. The density is 3 g/cm³.",
+        "steps": [
+          "The rock volume is 25 cm³.",
+          "Density is mass divided by volume.",
+          "The density is 3 g/cm³.",
+          "Suggested answer: The rock volume is 25 cm³. Density is mass divided by volume. The density is 3 g/cm³."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "The rock volume is 25 cm³. Density is mass divided by volume. The density is 3 g/cm³."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 3 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p2-nov26-r02",
+      "conceptId": "phys-y9-p2-nov26-r02-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "How does a displacement (Eureka) can measure irregular-rock volume? (3 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Fill the Eureka can to the spout and drain excess.",
+          "Submerge rock and collect displaced water.",
+          "Read displaced water in a measuring cylinder; it equals rock volume."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Fill the Eureka can to the spout and drain excess. Submerge rock and collect displaced water. Read displaced water in a measuring cylinder; it equals rock volume."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Fill the Eureka can to the spout and drain excess. Submerge rock and collect displaced water. Read displaced water in a measuring cylinder; it equals rock volume.",
+        "steps": [
+          "Fill the Eureka can to the spout and drain excess.",
+          "Submerge rock and collect displaced water.",
+          "Read displaced water in a measuring cylinder; it equals rock volume.",
+          "Suggested answer: Fill the Eureka can to the spout and drain excess. Submerge rock and collect displaced water. Read displaced water in a measuring cylinder; it equals rock volume."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "Fill the Eureka can to the spout and drain excess. Submerge rock and collect displaced water. Read displaced water in a measuring cylinder; it equals rock volume."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 3 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p2-nov26-r03",
+      "conceptId": "phys-y9-p2-nov26-r03-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "Define parallax error and explain how to avoid it when reading a water meniscus. (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Parallax occurs when a scale is viewed at an angle.",
+          "Read at eye level from the bottom of the meniscus."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Parallax occurs when a scale is viewed at an angle. Read at eye level from the bottom of the meniscus."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Parallax occurs when a scale is viewed at an angle. Read at eye level from the bottom of the meniscus.",
+        "steps": [
+          "Parallax occurs when a scale is viewed at an angle.",
+          "Read at eye level from the bottom of the meniscus.",
+          "Suggested answer: Parallax occurs when a scale is viewed at an angle. Read at eye level from the bottom of the meniscus."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "Parallax occurs when a scale is viewed at an angle. Read at eye level from the bottom of the meniscus."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 2 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p2-nov26-r09",
+      "conceptId": "phys-y9-p2-nov26-r09-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "Air bubbles cling to a rock during displacement. Explain effect on calculated density. (3 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Air bubbles increase apparent displaced volume.",
+          "The rock mass stays the same.",
+          "Calculated density becomes too low."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Air bubbles increase apparent displaced volume. The rock mass stays the same. Calculated density becomes too low."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Air bubbles increase apparent displaced volume. The rock mass stays the same. Calculated density becomes too low.",
+        "steps": [
+          "Air bubbles increase apparent displaced volume.",
+          "The rock mass stays the same.",
+          "Calculated density becomes too low.",
+          "Suggested answer: Air bubbles increase apparent displaced volume. The rock mass stays the same. Calculated density becomes too low."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "Air bubbles increase apparent displaced volume. The rock mass stays the same. Calculated density becomes too low."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 3 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p2-nov26-r11",
+      "conceptId": "phys-y9-p2-nov26-r11-concept",
+      "topicId": "phys-y9-p2",
+      "topic": "Density and Required Practical 5",
+      "format": "mark_points",
+      "prompt": "Cylinder level changes from 31 to 50 cm³. Calculate irregular stone volume. (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Volume equals final water reading minus initial reading.",
+          "The volume is 19 cm³."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Volume equals final water reading minus initial reading. The volume is 19 cm³."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Volume equals final water reading minus initial reading. The volume is 19 cm³.",
+        "steps": [
+          "Volume equals final water reading minus initial reading.",
+          "The volume is 19 cm³.",
+          "Suggested answer: Volume equals final water reading minus initial reading. The volume is 19 cm³."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "Volume equals final water reading minus initial reading. The volume is 19 cm³."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 2 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
     }
   ],
-  "enabled": 80,
+  "enabled": 87,
   "preview": 0,
   "disabled": 0,
   "formats": {
-    "mc_single": 22,
+    "mc_single": 23,
     "typed_exact": 6,
     "spelling_restore": 10,
-    "mark_points": 21,
+    "mark_points": 27,
     "typed_short": 4,
     "matching": 2,
     "calculation": 11,

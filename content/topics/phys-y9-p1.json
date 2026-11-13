@@ -3210,16 +3210,139 @@
       },
       "preview": true,
       "ordinary": true
+    },
+    {
+      "id": "phys-y9-p1-nov26-p04",
+      "conceptId": "phys-y9-p1-nov26-p04-concept",
+      "topicId": "phys-y9-p1",
+      "topic": "Kinetic theory and the particle model — solids, liquids and gases",
+      "format": "mark_points",
+      "prompt": "200 g of ice melts in a sealed container. State the water mass and explain. (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "The water mass is 200 g.",
+          "Mass is conserved because the same particles remain."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "The water mass is 200 g. Mass is conserved because the same particles remain."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "The water mass is 200 g. Mass is conserved because the same particles remain.",
+        "steps": [
+          "The water mass is 200 g.",
+          "Mass is conserved because the same particles remain.",
+          "Suggested answer: The water mass is 200 g. Mass is conserved because the same particles remain."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "The water mass is 200 g. Mass is conserved because the same particles remain."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 2 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p1-nov26-p05",
+      "conceptId": "phys-y9-p1-nov26-p05-concept",
+      "topicId": "phys-y9-p1",
+      "topic": "Kinetic theory and the particle model — solids, liquids and gases",
+      "format": "mark_points",
+      "prompt": "Why is melting a physical change rather than a chemical change? (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "No new substance is made.",
+          "The original particles remain chemically unchanged."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "No new substance is made. The original particles remain chemically unchanged."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "No new substance is made. The original particles remain chemically unchanged.",
+        "steps": [
+          "No new substance is made.",
+          "The original particles remain chemically unchanged.",
+          "Suggested answer: No new substance is made. The original particles remain chemically unchanged."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "No new substance is made. The original particles remain chemically unchanged."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 2 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p1-nov26-p09",
+      "conceptId": "phys-y9-p1-nov26-p09-concept",
+      "topicId": "phys-y9-p1",
+      "topic": "Kinetic theory and the particle model — solids, liquids and gases",
+      "format": "mark_points",
+      "prompt": "Explain why a gas occupies all available space in its container. (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Gas particles move in random directions.",
+          "They are far apart and can move freely."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Gas particles move in random directions. They are far apart and can move freely."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Gas particles move in random directions. They are far apart and can move freely.",
+        "steps": [
+          "Gas particles move in random directions.",
+          "They are far apart and can move freely.",
+          "Suggested answer: Gas particles move in random directions. They are far apart and can move freely."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "Gas particles move in random directions. They are far apart and can move freely."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 2 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
     }
   ],
-  "enabled": 77,
+  "enabled": 80,
   "preview": 0,
   "disabled": 0,
   "formats": {
     "mc_single": 25,
     "typed_exact": 2,
     "spelling_restore": 12,
-    "mark_points": 23,
+    "mark_points": 26,
     "typed_short": 10,
     "matching": 3,
     "sorting": 1,
