@@ -93,7 +93,8 @@ function repaint(){
  '<nav class="lux-study-shortcuts" aria-label="Study shortcuts">'+
  '<a href="/">Daily Revision <small>'+(d.valid?d.done+' / 10 completed':'View today’s tasks')+'</small></a>'+
  (d.paused?'<a href="'+y(d.href)+'">Resume Practice <small>Continue your saved question</small></a>':'')+
- '<a href="/assessment/">School Assessments <small>Prepare for your school tests</small></a></nav>';
+ '<a href="/assessment/">School Assessments <small>Prepare for your school tests</small></a>'+ 
+ '<a href="/study/chemistry/exam-revision/">Exam Revision <small>Year 9 Chemistry · November assessment</small></a></nav>';
  for(const b of card.querySelectorAll("[data-lux-year]"))b.addEventListener("click",()=>{
   if(selectYear(Number(b.dataset.luxYear)))for(const other of card.querySelectorAll("[data-lux-year]"))
    other.setAttribute("aria-pressed",String(other===b));
