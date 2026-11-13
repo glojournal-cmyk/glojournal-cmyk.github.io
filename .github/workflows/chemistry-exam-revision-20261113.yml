@@ -1,0 +1,42 @@
+name: Chemistry Exam Revision independent mode QA
+on:
+  pull_request:
+    paths:
+      - 'study/chemistry/exam-revision/**'
+      - 'study/chemistry/index.html'
+      - 'assets/chemistry-exam-revision-*'
+      - 'assets/study._subject.index-safe-20260920.js'
+      - 'tests/chemistry-exam-revision-*'
+      - '.github/workflows/chemistry-exam-revision-20261113.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'study/chemistry/exam-revision/**'
+      - 'assets/chemistry-exam-revision-*'
+      - 'tests/chemistry-exam-revision-*'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/chemistry-exam-revision-core-20261113.js
+      - run: node --check assets/chemistry-exam-revision-20261113.js
+      - run: node --test tests/chemistry-exam-revision-20261113.test.mjs
+      - run: node --test tests/chemistry-nov16-2026-assessment.test.mjs
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/chemistry-exam-revision-browser-20261113.mjs
