@@ -2943,16 +2943,387 @@
       },
       "preview": true,
       "ordinary": true
+    },
+    {
+      "id": "phys-y9-p4-nov26-c04",
+      "conceptId": "phys-y9-p4-nov26-c04-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mc_single",
+      "prompt": "Same material, same temperature difference: which wall loses heat faster by conduction?",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": [
+        "The wall 20 cm thick",
+        "The wall 10 cm thick",
+        "Both at same rate regardless of thickness",
+        "Neither wall conducts"
+      ],
+      "answer": {
+        "mode": "choice",
+        "accepted": [
+          "The wall 10 cm thick"
+        ]
+      },
+      "stimulus": {
+        "marks": 1
+      },
+      "feedback": {
+        "short": "The wall 10 cm thick",
+        "steps": [
+          "Suggested answer: The wall 10 cm thick"
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "The wall 10 cm thick"
+      },
+      "task": {
+        "label": "CHOOSE",
+        "instruction": "Choose the single scientifically correct answer."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p4-nov26-c05",
+      "conceptId": "phys-y9-p4-nov26-c05-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "How does double glazing reduce conduction through a window? (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Two panes enclose a gap containing gas or vacuum.",
+          "The gas is a poor conductor while a vacuum blocks conduction across the gap."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Two panes enclose a gap containing gas or vacuum. The gas is a poor conductor while a vacuum blocks conduction across the gap."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Two panes enclose a gap containing gas or vacuum. The gas is a poor conductor while a vacuum blocks conduction across the gap.",
+        "steps": [
+          "Two panes enclose a gap containing gas or vacuum.",
+          "The gas is a poor conductor while a vacuum blocks conduction across the gap.",
+          "Suggested answer: Two panes enclose a gap containing gas or vacuum. The gas is a poor conductor while a vacuum blocks conduction across the gap."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "Two panes enclose a gap containing gas or vacuum. The gas is a poor conductor while a vacuum blocks conduction across the gap."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 2 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p4-nov26-c06",
+      "conceptId": "phys-y9-p4-nov26-c06-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "Explain how loft insulation reduces heat transfer. (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Fibreglass traps air in small pockets.",
+          "Air has low thermal conductivity."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Fibreglass traps air in small pockets. Air has low thermal conductivity."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Fibreglass traps air in small pockets. Air has low thermal conductivity.",
+        "steps": [
+          "Fibreglass traps air in small pockets.",
+          "Air has low thermal conductivity.",
+          "Suggested answer: Fibreglass traps air in small pockets. Air has low thermal conductivity."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "Fibreglass traps air in small pockets. Air has low thermal conductivity."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 2 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p4-nov26-c09",
+      "conceptId": "phys-y9-p4-nov26-c09-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "How does cavity-wall foam reduce conduction? (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Foam traps air in the wall cavity.",
+          "Both the foam and trapped air have low thermal conductivity."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Foam traps air in the wall cavity. Both the foam and trapped air have low thermal conductivity."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Foam traps air in the wall cavity. Both the foam and trapped air have low thermal conductivity.",
+        "steps": [
+          "Foam traps air in the wall cavity.",
+          "Both the foam and trapped air have low thermal conductivity.",
+          "Suggested answer: Foam traps air in the wall cavity. Both the foam and trapped air have low thermal conductivity."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "Foam traps air in the wall cavity. Both the foam and trapped air have low thermal conductivity."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 2 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p4-nov26-i04",
+      "conceptId": "phys-y9-p4-nov26-i04-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "Water in newspaper starts at 80 °C and ends at 60.3 °C after 10 minutes. Find the temperature fall. (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Temperature fall equals starting minus final temperature.",
+          "The fall is 19.7 °C."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Temperature fall equals starting minus final temperature. The fall is 19.7 °C."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Temperature fall equals starting minus final temperature. The fall is 19.7 °C.",
+        "steps": [
+          "Temperature fall equals starting minus final temperature.",
+          "The fall is 19.7 °C.",
+          "Suggested answer: Temperature fall equals starting minus final temperature. The fall is 19.7 °C."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "Temperature fall equals starting minus final temperature. The fall is 19.7 °C."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 2 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p4-nov26-i05",
+      "conceptId": "phys-y9-p4-nov26-i05-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "A graph shows bubble-wrap water cools to 68.4 °C; uninsulated water to 53.1 °C. Both start at 80 °C. Explain which is better. (3 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Bubble wrap has the smaller fall.",
+          "Bubble wrap loses 11.6 °C, less than 26.9 °C without insulation.",
+          "It transfers less thermal energy in the same time."
+        ],
+        "totalMarks": 3,
+        "modelAnswer": "Bubble wrap has the smaller fall. Bubble wrap loses 11.6 °C, less than 26.9 °C without insulation. It transfers less thermal energy in the same time."
+      },
+      "stimulus": {
+        "marks": 3
+      },
+      "feedback": {
+        "short": "Bubble wrap has the smaller fall. Bubble wrap loses 11.6 °C, less than 26.9 °C without insulation. It transfers less thermal energy in the same time.",
+        "steps": [
+          "Bubble wrap has the smaller fall.",
+          "Bubble wrap loses 11.6 °C, less than 26.9 °C without insulation.",
+          "It transfers less thermal energy in the same time.",
+          "Suggested answer: Bubble wrap has the smaller fall. Bubble wrap loses 11.6 °C, less than 26.9 °C without insulation. It transfers less thermal energy in the same time."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "Bubble wrap has the smaller fall. Bubble wrap loses 11.6 °C, less than 26.9 °C without insulation. It transfers less thermal energy in the same time."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 3 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p4-nov26-i06",
+      "conceptId": "phys-y9-p4-nov26-i06-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "Why should identical lids be used on all RP2 beakers? (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Lids reduce heat loss through the top.",
+          "Identical lids keep that factor controlled."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Lids reduce heat loss through the top. Identical lids keep that factor controlled."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Lids reduce heat loss through the top. Identical lids keep that factor controlled.",
+        "steps": [
+          "Lids reduce heat loss through the top.",
+          "Identical lids keep that factor controlled.",
+          "Suggested answer: Lids reduce heat loss through the top. Identical lids keep that factor controlled."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "Lids reduce heat loss through the top. Identical lids keep that factor controlled."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 2 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p4-nov26-i07",
+      "conceptId": "phys-y9-p4-nov26-i07-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "Why use one beaker with no insulation? (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "It provides a control or baseline.",
+          "This allows cooling with insulation to be compared."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "It provides a control or baseline. This allows cooling with insulation to be compared."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "It provides a control or baseline. This allows cooling with insulation to be compared.",
+        "steps": [
+          "It provides a control or baseline.",
+          "This allows cooling with insulation to be compared.",
+          "Suggested answer: It provides a control or baseline. This allows cooling with insulation to be compared."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "It provides a control or baseline. This allows cooling with insulation to be compared."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 2 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
+    },
+    {
+      "id": "phys-y9-p4-nov26-i09",
+      "conceptId": "phys-y9-p4-nov26-i09-concept",
+      "topicId": "phys-y9-p4",
+      "topic": "Conduction and thermal insulation — Required Practical 2",
+      "format": "mark_points",
+      "prompt": "Why repeat the thermal insulation test and calculate a mean? (2 marks)",
+      "difficulty": 2,
+      "status": "enabled",
+      "options": null,
+      "answer": {
+        "mode": "mark_points",
+        "markPoints": [
+          "Repeats reveal anomalous results.",
+          "A mean reduces the effect of random errors."
+        ],
+        "totalMarks": 2,
+        "modelAnswer": "Repeats reveal anomalous results. A mean reduces the effect of random errors."
+      },
+      "stimulus": {
+        "marks": 2
+      },
+      "feedback": {
+        "short": "Repeats reveal anomalous results. A mean reduces the effect of random errors.",
+        "steps": [
+          "Repeats reveal anomalous results.",
+          "A mean reduces the effect of random errors.",
+          "Suggested answer: Repeats reveal anomalous results. A mean reduces the effect of random errors."
+        ],
+        "commonError": "Include the physical reason, and show numbers and units.",
+        "remember": "Repeats reveal anomalous results. A mean reduces the effect of random errors."
+      },
+      "task": {
+        "label": "EXPLAIN",
+        "instruction": "Explain your answer with 2 distinct marking points."
+      },
+      "preview": true,
+      "ordinary": true,
+      "year": 9,
+      "subject": "physics"
     }
   ],
-  "enabled": 72,
+  "enabled": 81,
   "preview": 0,
   "disabled": 0,
   "formats": {
-    "mc_single": 21,
+    "mc_single": 22,
     "typed_exact": 7,
     "spelling_restore": 10,
-    "mark_points": 25,
+    "mark_points": 33,
     "typed_short": 3,
     "matching": 2,
     "practical_design": 1,
