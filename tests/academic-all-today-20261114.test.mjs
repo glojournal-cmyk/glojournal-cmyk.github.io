@@ -135,7 +135,7 @@ test('Chemistry main topic: 90 distinct, markable Year 9 formula/equation items'
   }
 });
 
-test('Physics: 65 questions in five explicitly teacher-taught topics',()=>{
+test('Physics: all 200 questions in five explicitly teacher-taught topics',()=>{
   assert.equal(phys.length,200);
   assert.ok(unique(phys));
   assert.deepEqual(physics.groups.map(g=>g.questions.length),[40,40,40,40,40]);
