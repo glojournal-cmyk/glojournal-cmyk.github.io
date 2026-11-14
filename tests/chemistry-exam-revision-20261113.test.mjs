@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {CATEGORIES,STORE_KEY,categoryOf,buildBank,selectPaper,isCorrect,scorePaper,validateStoredState} from '../assets/chemistry-exam-revision-core-20261113.js';
+import {CATEGORIES,STORE_KEY,categoryOf,buildBank,selectPaper,isCorrect,scorePaper,validateStoredState,isExamEligible} from '../assets/chemistry-exam-revision-core-20261113.js';
 
 const read=p=>JSON.parse(fs.readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const sources=[...([5,6,7].map(n=>read('content/topics/chem-y9-c'+n+'.json'))),read('content/exam-revision/chemistry-nov16-2026-applied.json')];
@@ -11,10 +11,12 @@ function draft(selected,answers={},index=0){
   return {id:'qa-paper',scope:'mixed',index,questionIds:selected.map(q=>q.id),answers,startedAt:new Date().toISOString()};
 }
 
-test('134 enabled questions cover only the four Chemistry assessment areas',()=>{
-  assert.equal(questions.length,134);
-  assert.equal(new Set(questions.map(q=>q.id)).size,134);
-  const distribution=Object.fromEntries(CATEGORIES.map(c=>[c.id,questions.filter(q=>categoryOf(q)===c.id).length]));
+test('134 assessed questions plus 16 historical extensions remain available for saved results',()=>{
+  assert.equal(questions.length,150);
+  assert.equal(questions.filter(isExamEligible).length,134);
+  assert.equal(questions.filter(q=>!isExamEligible(q)).length,16);
+  assert.equal(new Set(questions.map(q=>q.id)).size,150);
+  const distribution=Object.fromEntries(CATEGORIES.map(c=>[c.id,questions.filter(q=>isExamEligible(q)&&categoryOf(q)===c.id).length]));
   assert.deepEqual(distribution,{history:22,atomic:28,formula:32,balance:52});
   assert.ok(questions.every(q=>q.status==='enabled'&&q.subject==='chemistry'&&q.year===9));
 });
@@ -133,4 +135,27 @@ test('rubric answers do not auto-mark; partial marks and pending grades are supp
   assert.ok(full.percentage<100,'partial evidence must not earn full marks');
   assert.equal(validateStoredState({version:1,active:null,latest:session,history:[session]},questions).latest,session);
   assert.throws(()=>validateStoredState({version:1,active:null,latest:{...session,reviewMarks:{[a.id]:100}},history:[]},questions));
+});
+
+test('C1.7/C1.8 questions are NEVER selected for new school papers but remain readable in saved history',()=>{
+  const extensions=questions.filter(q=>!isExamEligible(q));
+  assert.equal(extensions.length,16);
+  assert.ok(extensions.every(q=>categoryOf(q)==='atomic'));
+  for(const length of [10,20,24]){
+    const rng=deterministic();
+    for(let trial=0;trial<100;trial++){
+      for(const scope of ['mixed','atomic']){
+        const paper=selectPaper(questions,{scope,length,rng});
+        assert.ok(paper.every(isExamEligible),'out-of-scope item selected for '+scope);
+        assert.equal(new Set(paper.map(q=>q.id)).size,paper.length);
+      }
+    }
+  }
+  const legacy=draft(extensions.slice(0,2),{
+    [extensions[0].id]:extensions[0].answer.accepted[0],
+    [extensions[1].id]:extensions[1].answer.accepted[0]
+  });
+  const historical=scorePaper(questions,legacy);
+  assert.equal(historical.total,2);
+  assert.equal(validateStoredState({version:1,active:legacy,history:[],latest:null},questions).active,legacy);
 });
