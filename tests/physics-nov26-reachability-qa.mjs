@@ -26,6 +26,10 @@ assert.equal(new Set(questions.map(q=>q.id)).size,200);
 assert.ok(app.includes("state.recent[p.id]=p.id==='physics-nov26'"),'Physics-specific recent history');
 assert.ok(app.includes("[...(state.recent[p.id]||[]),...d.questions.map(q=>q.id)].slice(-160)"),'bounded 160-item history');
 let history=[],lastPaper=[],lastOverlap=0,maxOverlap=0;
+const repeatedDatasetPairs=[
+ ['phys-nov26-d06','phys-nov26-d12'],
+ ['phys-nov26-d09','phys-nov26-r06']
+];
 const counts=new Map(questions.map(q=>[q.id,0]));
 const simulations=5000;
 for(let n=0;n<simulations;n++){
@@ -33,6 +37,9 @@ for(let n=0;n<simulations;n++){
  const ids=paper.map(q=>q.id);
  assert.equal(paper.length,25,'paper contains 25 items');
  assert.equal(new Set(ids).size,25,'unique question IDs');
+ for(const [first,second] of repeatedDatasetPairs)
+   assert.ok(!(ids.includes(first)&&ids.includes(second)),
+     'same numerical data must not appear twice in a paper: '+first+' and '+second);
  assert.equal(aligned({questions:paper}),true,'every paper has valid practical coverage');
  assert.equal(paper.filter(q=>q.answer.mode==='choice').length,5,'five MC per paper');
  for(const [topic,quantity] of Object.entries(quotas)){
@@ -66,5 +73,6 @@ console.log('PHYSICS_NOV26_REACHABILITY_QA_PASS',JSON.stringify({
  bank:questions.length,simulations,draws:simulations*25,
  accessible:questions.filter(q=>counts.get(q.id)>0).length,
  inaccessible:never.length,maxConsecutiveOverlap:maxOverlap,historyWindow:160,
+ repeatedDataFamiliesGuarded:repeatedDatasetPairs.length,
  rp2Accessible:40,rp5Accessible:40
 }));
