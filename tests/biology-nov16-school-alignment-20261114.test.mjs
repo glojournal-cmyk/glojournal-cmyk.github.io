@@ -28,7 +28,7 @@ assert.match(app,/const school=SCHOOL_ASSESSMENTS\.filter\(x=>x\.id!=='school-bi
 assert.doesNotMatch(app,/x\.id!=='school-biology-20261116'/);
 assert.match(app,/[Hh]ome practice target 85%/);
 assert.match(school,/id:'school-biology-20261116'/);
-assert.match(index,/Biology: first GCSE assessment · week beginning 16 November/);
+assert.ok(!index.includes('Biology: first GCSE assessment · week beginning 16 November'), 'Remove redundant banner to keep all mock cards visible on iPad');
 assert.match(index,/app-v2\.js\?v=20261114-biology-411-school-qa2/);
 assert.equal((guide.match(/class="question"/g)||[]).length,156,'144 core and 12 extended');
 assert.equal((guide.match(/self-mark checklist/g)||[]).length,12);
