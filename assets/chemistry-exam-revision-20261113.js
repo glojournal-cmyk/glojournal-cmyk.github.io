@@ -1,4 +1,4 @@
-import {CATEGORIES,STORE_KEY,categoryOf,buildBank,selectPaper,scorePaper,validateStoredState} from './chemistry-exam-revision-core-20261113.js';
+import {CATEGORIES,STORE_KEY,categoryOf,buildBank,selectPaper,scorePaper,validateStoredState,marksOf,isRubric} from './chemistry-exam-revision-core-20261113.js';
 
 const $=id=>document.getElementById(id);
 const el=(tag,text,cls)=>{
@@ -52,10 +52,18 @@ function history(){
   const root=$('history');root.replaceChildren();
   if(!state.history.length){root.append(el('p','No papers completed yet.','muted'));return;}
   for(const paper of state.history.slice(0,8)){
-    const result=scorePaper(bank,paper),row=el('div',null,'history-item');
-    row.append(el('span',String(paper.submittedAt||'').slice(0,10)+' · '+paperName(paper.scope)),
-      el('strong',result.correct+' / '+result.total+' ('+result.percentage+'%)'));
-    root.append(row);
+    const outcome=scorePaper(bank,paper),row=el('div',null,'history-item');
+    const summary=outcome.pendingQuestions?
+      outcome.awarded+' / '+outcome.totalMarks+' confirmed · '+outcome.pendingQuestions+' responses awaiting rubric review':
+      outcome.awarded+' / '+outcome.totalMarks+' ('+outcome.percentage+'%)';
+    const left=el('span',String(paper.submittedAt||'').slice(0,10)+' · '+paperName(paper.scope)+' · '+summary);
+    const open=el('button','Review paper');open.type='button';
+    open.addEventListener('click',()=>{
+      state.latest=paper;
+      save();
+      results();
+    });
+    row.append(left,open);root.append(row);
   }
 }
 function home(){
@@ -104,10 +112,25 @@ function renderPaper(){
   $('progress').value=index+1;$('progress').max=count;
   $('question-category').textContent=categoryName(categoryOf(question));
   $('question-number').textContent='Question '+(index+1);
+  const maxMarks=marksOf(question);
+  $('question-marks').textContent=maxMarks+' mark'+(maxMarks===1?'':'s')+' · '+(isRubric(question)?'Written response (self-review after submission)':'Automatically marked after submission');
+  const stimulus=$('question-stimulus');
+  const source=question.stimulus?.text||'';
+  stimulus.textContent=source;stimulus.hidden=!source;
   $('prompt').textContent=question.prompt;
   const area=$('answer-area');area.replaceChildren();
   const previous=String(session.answers[id]||'');
-  if(question.format==='mc_single'){
+  if(isRubric(question)){
+    const label=el('label',null,'answer-box');
+    label.append(el('span','Write your answer. Include working or scientific reasons where requested.'));
+    const input=el('textarea');input.value=previous;input.maxLength=2000;
+    input.autocomplete='off';input.spellcheck=false;
+    input.setAttribute('aria-label','Your written response');
+    input.placeholder='Write your explanation or show the stages of your calculation here.';
+    input.addEventListener('input',()=>saveAnswer(input.value));
+    label.append(input);area.append(label);
+    $('answer-hint').textContent='Marks and model answers stay hidden until you submit. Then award marks point by point using the rubric.';
+  }else if(question.format==='mc_single'){
     const fieldset=el('fieldset',null,'options');
     fieldset.append(el('legend','Choose one answer'));
     for(const choice of question.options||[]){
@@ -137,39 +160,85 @@ function renderPaper(){
   $('next').hidden=index===count-1;
   $('submit').hidden=index!==count-1;
 }
-function results(){
-  const session=state.latest;
-  if(!session){home();return;}
-  show('results');
-  const outcome=scorePaper(bank,session),missed=outcome.rows.filter(x=>!x.correct);
-  $('result-score').textContent=outcome.correct+' / '+outcome.total+' · '+outcome.percentage+'%';
-  $('result-summary').textContent=missed.length?
-    missed.length+' question'+(missed.length===1?'':'s')+' to review. Read the explanations and retry the missed ones.':
-    'All correct! Start another paper to strengthen recall.';
+function updateResultSummary(){
+  const paper=state.latest;if(!paper)return;
+  const outcome=scorePaper(bank,paper);
+  $('result-score').textContent=outcome.pendingQuestions?
+    outcome.awarded+' / '+outcome.totalMarks+' marks confirmed':
+    outcome.awarded+' / '+outcome.totalMarks+' · '+outcome.percentage+'%';
+  $('result-summary').textContent=outcome.pendingQuestions?
+    outcome.pendingQuestions+' written answer'+(outcome.pendingQuestions===1?'':'s')+
+      ' need self-marking below ('+outcome.pendingMarks+' marks pending). Compare each response with the marking points before selecting a score.':
+    (outcome.awarded===outcome.totalMarks?
+      'Full marks. Excellent recall and scientific explanation.':
+      'All responses reviewed. Use the answer explanations below to identify your next revision targets.');
   const breakdown=$('breakdown');breakdown.replaceChildren();
   for(const cat of CATEGORIES){
-    const stat=outcome.byCategory[cat.id];
-    if(!stat.total)continue;
+    const stat=outcome.byCategory[cat.id];if(!stat.total)continue;
     const row=el('div',null,'topic-result'),progress=el('progress');
-    progress.value=stat.correct;progress.max=stat.total;
-    progress.setAttribute('aria-label',cat.short+' correct');
-    row.append(el('span',cat.short),progress,el('b',stat.correct+' / '+stat.total));
+    progress.value=stat.awarded;progress.max=stat.max;
+    progress.setAttribute('aria-label',cat.short+' assessed marks');
+    row.append(el('span',cat.short),progress,
+      el('b',stat.awarded+' / '+stat.max+(stat.pending?'*':'')));
     breakdown.append(row);
   }
-  $('redo-wrong').hidden=!missed.length;
+  const missed=outcome.rows.filter(x=>x.awarded!==null&&x.awarded<x.marks);
+  $('redo-wrong').hidden=outcome.pendingQuestions>0||!missed.length;
   $('redo-wrong').onclick=()=>start({ids:missed.map(x=>x.id)});
+}
+function results(){
+  const session=state.latest;if(!session){home();return;}
+  show('results');
+  const outcome=scorePaper(bank,session);
   const review=$('review');review.replaceChildren();
   for(const row of outcome.rows){
-    const q=row.question,card=el('article',null,'review-item '+(row.correct?'correct':'incorrect'));
-    card.append(el('span',row.correct?'Correct · 1 mark':'Check this answer · 0 marks','marker'));
+    const q=row.question,needsReview=row.pending;
+    const stateClass=needsReview?'pending':row.correct?'correct':'incorrect';
+    const card=el('article',null,'review-item '+stateClass);
+    card.append(el('span',needsReview?'Written answer · self-mark required':
+      (row.awarded+' / '+row.marks+' mark'+(row.marks===1?'':'s')),'marker'));
     card.append(el('p',categoryName(row.category),'eyebrow'));
     card.append(el('h4',q.prompt));
     const given=el('p',null,'your-answer'),model=el('p',null,'model');
     given.append(el('strong','Your answer: '),document.createTextNode(row.response.trim()||'Not answered'));
-    model.append(el('strong','Correct answer: '),document.createTextNode(q.answer.accepted[0]));
-    card.append(given,model,el('p',q.feedback?.steps?.[0]||q.feedback?.short||'Review the model answer.','explanation'));
+    model.append(el('strong',isRubric(q)?'Indicative model answer: ':'Correct answer: '),
+      document.createTextNode(q.answer.accepted[0]));
+    card.append(given,model);
+    if(isRubric(q)){
+      const heading=el('h4','Mark scheme · '+row.marks+' marks'),criteria=el('ol',null,'rubric-marks');
+      for(const item of q.markScheme)criteria.append(el('li',item));
+      card.append(heading,criteria);
+      if(row.response.trim()){
+        const label=el('label',null,'self-mark');
+        label.append(el('span','Award marks from the criteria above ('+row.marks+' maximum)'));
+        const select=el('select');
+        select.setAttribute('aria-label','Award marks for question '+row.id);
+        const initial=el('option','Select reviewed mark');initial.value='';select.append(initial);
+        for(let mark=0;mark<=row.marks;mark++){
+          const option=el('option',mark+' / '+row.marks);
+          option.value=String(mark);select.append(option);
+        }
+        select.value=session.reviewMarks?.[row.id]===undefined?'':String(session.reviewMarks[row.id]);
+        select.addEventListener('change',()=>{
+          if(select.value==='')return;
+          if(!session.reviewMarks)session.reviewMarks={};
+          session.reviewMarks[row.id]=Number(select.value);
+          for(const item of state.history)
+            if(item.id===session.id){item.reviewMarks={...session.reviewMarks};}
+          save();
+          updateResultSummary();
+          card.querySelector('.marker').textContent=select.value+' / '+row.marks+' marks · self-reviewed';
+          card.classList.remove('pending','correct','incorrect');
+          card.classList.add(Number(select.value)===row.marks?'correct':'incorrect');
+        });
+        label.append(select);card.append(label);
+      }else{
+        card.append(el('p','No response was submitted; 0 marks.','muted'));
+      }
+    }else card.append(el('p',q.feedback?.steps?.[0]||q.feedback?.short||'Review the model answer.','explanation'));
     review.append(card);
   }
+  updateResultSummary();
 }
 function submit(){
   const session=state.active;
@@ -196,7 +265,7 @@ function exportBackup(){
 async function importBackup(event){
   const file=event.target.files?.[0];if(!file)return;
   try{
-    if(file.size>300000)throw Error('This backup file is too large.');
+    if(file.size>2000000)throw Error('This backup file is too large.');
     const incoming=validateStoredState(JSON.parse(await file.text()),bank);
     if(!window.confirm('Replace ONLY this device’s separate Chemistry Exam Revision record? Your main Scholar progress will not change.'))return;
     const content=JSON.stringify(incoming);
@@ -218,12 +287,12 @@ $('export').addEventListener('click',exportBackup);
 $('import').addEventListener('change',importBackup);
 
 try{
-  const urls=[5,6,7].map(n=>'/content/topics/chem-y9-c'+n+'.json?v=20261113-exam-revision');
+  const urls=[...([5,6,7].map(n=>'/content/topics/chem-y9-c'+n+'.json?v=20261114-exam-revision')), '/content/exam-revision/chemistry-nov16-2026-applied.json?v=20261114'];
   const responses=await Promise.all(urls.map(url=>fetch(url,{cache:'no-store'})));
   if(responses.some(r=>!r.ok))throw Error('One or more Chemistry topic files could not load.');
   bank=buildBank(await Promise.all(responses.map(r=>r.json())));
   load();home();
-  if(!storageBlocked)notice('62 assessment questions ready. Choose a topic or start a mixed paper.');
+  if(!storageBlocked)notice(bank.length+' assessment questions ready, including multi-mark explanations. Choose a topic or start a mixed paper.');
 }catch(error){
   notice('Exam Revision could not load safely: '+error.message+' Try refreshing when online.',true);
   $('setup').hidden=false;$('start').disabled=true;$('resume').disabled=true;
