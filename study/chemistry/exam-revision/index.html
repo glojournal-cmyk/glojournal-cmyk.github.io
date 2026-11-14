@@ -25,12 +25,12 @@
   </header>
   <p id="status" class="status" role="status" aria-live="polite">Loading your Chemistry revision questions…</p>
   <section id="setup" class="page" hidden aria-label="Choose a revision paper">
-    <div class="section-heading"><div><p class="eyebrow">YOUR ASSESSMENT SCOPE</p><h2>Choose what to revise</h2></div><span class="count">62 exam-focused questions</span></div>
+    <div class="section-heading"><div><p class="eyebrow">YOUR ASSESSMENT SCOPE</p><h2>Choose what to revise</h2></div><span class="count">134 exam-focused questions · 72 applied questions</span></div>
     <div class="topics" aria-label="Four assessment topics">
-      <article class="topic-card"><span class="topic-code">C1.5</span><h3>History of the Atom</h3><p>Models, experiments and evidence</p><span class="topic-count">8 questions</span></article>
-      <article class="topic-card"><span class="topic-code">C1.6</span><h3>Atomic Structure</h3><p>Protons, neutrons and electron shells</p><span class="topic-count">10 questions</span></article>
-      <article class="topic-card"><span class="topic-code">FORMULAE</span><h3>Chemical Formulae</h3><p>Ionic charges and formula writing</p><span class="topic-count">14 questions</span></article>
-      <article class="topic-card"><span class="topic-code">EQUATIONS</span><h3>Balancing Equations</h3><p>Coefficients and atom conservation</p><span class="topic-count">30 questions</span></article>
+      <article class="topic-card"><span class="topic-code">C1.5</span><h3>History of the Atom</h3><p>Models, experiments and evidence</p><span class="topic-count">22 questions</span></article>
+      <article class="topic-card"><span class="topic-code">C1.6</span><h3>Atomic Structure</h3><p>Protons, neutrons and electron shells</p><span class="topic-count">28 questions</span></article>
+      <article class="topic-card"><span class="topic-code">FORMULAE</span><h3>Chemical Formulae</h3><p>Ionic charges and formula writing</p><span class="topic-count">32 questions</span></article>
+      <article class="topic-card"><span class="topic-code">EQUATIONS</span><h3>Balancing Equations</h3><p>Coefficients and atom conservation</p><span class="topic-count">52 questions</span></article>
     </div>
     <section class="panel" aria-label="Paper settings">
       <div><p class="eyebrow">START A PAPER</p><h2>Build your revision set</h2><p class="muted">Mixed papers include all four topics. Topic papers focus on one skill. A topic paper uses every available question if fewer than the requested length.</p></div>
@@ -49,7 +49,7 @@
         </label>
       </div>
       <div class="actions"><button class="primary" id="start" type="button">Start revision paper</button><button id="resume" type="button" hidden>Resume unfinished paper</button></div>
-      <p id="setup-note" class="small">Scored separately from Daily Tasks, Mastery, XP and MP. One mark per question.</p>
+      <p id="setup-note" class="small">Scored separately from Daily Tasks, Mastery, XP and MP. Mixed 1–6 mark questions. Short answers are auto-marked; written explanations are self-marked against detailed criteria after submission.</p>
     </section>
     <section class="panel history-panel" aria-label="Recent results"><h2>Recent papers</h2><div id="history"><p class="muted">No papers completed yet.</p></div></section>
     <section class="backup" aria-label="Backup exam revision">
@@ -62,12 +62,12 @@
     <div class="paper-top"><div><p class="eyebrow">EXAM REVISION · NO MARKS UNTIL SUBMISSION</p><h2 id="paper-title">Revision paper</h2></div><button id="back-setup" type="button" class="quiet">Back to revision home</button></div>
     <div class="progress-row"><span id="position" aria-live="polite">Question 1</span><span id="answered">0 answered</span></div>
     <progress id="progress" value="1" max="20" aria-label="Revision paper progress"></progress>
-    <article class="question-panel"><p class="eyebrow" id="question-category">Topic</p><h3 id="question-number">Question 1</h3><p id="prompt" class="prompt"></p><div id="answer-area"></div><p id="answer-hint" class="muted hint"></p></article>
+    <article class="question-panel"><p class="eyebrow" id="question-category">Topic</p><h3 id="question-number">Question 1</h3><p id="question-marks" class="muted"></p><pre id="question-stimulus" class="stimulus" hidden></pre><p id="prompt" class="prompt"></p><div id="answer-area"></div><p id="answer-hint" class="muted hint"></p></article>
     <div class="paper-actions"><button id="previous" type="button">Previous</button><button id="next" type="button" class="primary">Next question</button><button id="submit" type="button" class="primary" hidden>Submit paper &amp; show marks</button></div>
     <p class="small">Answers are saved as you type. You can return to earlier questions before submitting.</p>
   </section>
   <section id="results" class="page" hidden aria-label="Your marked paper">
-    <div class="result-top"><p class="eyebrow">PAPER COMPLETED · REVISION REVIEW</p><h2>Exam Revision Results</h2><p class="score" id="result-score">0 / 20</p><p id="result-summary"></p><p class="small">Practice score only, not a school test result or GCSE grade.</p></div>
+    <div class="result-top"><p class="eyebrow">PAPER COMPLETED · REVISION REVIEW</p><h2>Exam Revision Results</h2><p class="score" id="result-score">0 / 20</p><p id="result-summary"></p><p class="small">Practice score only, not a school test result or GCSE grade. Written explanations require self-review against the mark scheme; no marks are invented by keyword matching.</p></div>
     <section class="panel" aria-label="Topic breakdown"><h3>Marks by topic</h3><div id="breakdown"></div></section>
     <div class="actions"><button id="redo-wrong" type="button" class="primary" hidden>Practise missed questions</button><button id="new-paper" type="button">Create another paper</button></div>
     <section class="review-list" aria-label="Marked answers"><h3>Answer review &amp; explanations</h3><div id="review"></div></section>

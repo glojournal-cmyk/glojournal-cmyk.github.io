@@ -2,7 +2,7 @@ import {createServer} from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
-import {buildBank,STORE_KEY} from '../assets/chemistry-exam-revision-core-20261113.js';
+import {buildBank,scorePaper,STORE_KEY} from '../assets/chemistry-exam-revision-core-20261113.js';
 
 const {chromium,webkit}=await import(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES?
   process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+'/playwright/index.mjs':'playwright');
@@ -18,7 +18,7 @@ const server=createServer((req,res)=>{
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
-const bank=buildBank([5,6,7].map(n=>JSON.parse(fs.readFileSync('content/topics/chem-y9-c'+n+'.json','utf8'))));
+const bank=buildBank([...([5,6,7].map(n=>JSON.parse(fs.readFileSync('content/topics/chem-y9-c'+n+'.json','utf8')))),JSON.parse(fs.readFileSync('content/exam-revision/chemistry-nov16-2026-applied.json','utf8'))]);
 const byId=new Map(bank.map(q=>[q.id,q]));
 const errors=[];
 async function state(page){return page.evaluate(key=>JSON.parse(localStorage.getItem(key)),STORE_KEY);}
@@ -36,7 +36,7 @@ try{
       await page.goto(base+'/study/chemistry/exam-revision/');
       await page.locator('#start').waitFor({state:'visible'});
       await page.evaluate(()=>localStorage.setItem('scholar-progression-qa-guard','unchanged'));
-      assert.match(await page.locator('#status').innerText(),/62 assessment questions ready/);
+      assert.match(await page.locator('#status').innerText(),/134 assessment questions ready/);
       await page.selectOption('#scope','mixed');
       await page.selectOption('#length','10');
       await page.click('#start');
@@ -46,6 +46,8 @@ try{
       const first=draft.active.questionIds[0],firstQuestion=byId.get(first);
       if(firstQuestion.format==='mc_single'){
         await page.locator('input[name="exam-choice"]').nth(firstQuestion.options.indexOf(firstQuestion.answer.accepted[0])).check();
+      }else if(firstQuestion.format==='rubric_response'){
+        await page.locator('#answer-area textarea').fill(firstQuestion.answer.accepted[0]);
       }else{
         await page.locator('#answer-area input[type="text"]').fill(firstQuestion.answer.accepted[0]);
       }
@@ -62,13 +64,24 @@ try{
         const q=byId.get(draft.active.questionIds[i]);
         if(q.format==='mc_single'){
           await page.locator('input[name="exam-choice"]').nth(q.options.indexOf(q.answer.accepted[0])).check();
+        }else if(q.format==='rubric_response'){
+          await page.locator('#answer-area textarea').fill(q.answer.accepted[0]);
         }else await page.locator('#answer-area input[type="text"]').fill(q.answer.accepted[0]);
         if(i<9)await page.click('#next');
       }
       await page.click('#submit');
       await page.locator('#results').waitFor({state:'visible'});
-      assert.match(await page.locator('#result-score').innerText(),/10 \/ 10 · 100%/);
+      const afterSubmit=scorePaper(bank,(await state(page)).latest);
+      assert.ok(afterSubmit.pendingQuestions>0,'Assessment papers must include self-marked multi-part responses');
       assert.equal(await page.locator('.review-item').count(),10);
+      assert.match(await page.locator('#result-score').innerText(),/marks confirmed/);
+      for(const row of afterSubmit.rows.filter(x=>x.pending)){
+        await page.getByLabel('Award marks for question '+row.id).selectOption(String(row.marks));
+      }
+      const graded=scorePaper(bank,(await state(page)).latest);
+      assert.equal(graded.pendingQuestions,0);
+      assert.equal(graded.percentage,100,'Every mark scheme point was awarded');
+      assert.match(await page.locator('#result-score').innerText(),/100%/);
       assert.equal(await page.locator('#redo-wrong').isVisible(),false);
       assert.equal((await state(page)).active,null);
       assert.equal(await page.evaluate(()=>localStorage.getItem('scholar-progression-qa-guard')),'unchanged');
@@ -78,13 +91,16 @@ try{
       await page.selectOption('#length','20');
       await page.click('#start');
       draft=await state(page);
-      assert.equal(draft.active.questionIds.length,8,'History topic paper must not claim 20 available questions');
-      for(let i=0;i<7;i++)await page.click('#next');
-      await page.click('#submit'); // Confirm blank submission; no accidental credit.
-      assert.match(await page.locator('#result-score').innerText(),/0 \/ 8 · 0%/);
+      assert.equal(draft.active.questionIds.length,20,'History topic bank now has 22 questions');
+      for(let i=0;i<19;i++)await page.click('#next');
+      await page.click('#submit'); // Blank multi-mark responses must be zero, not pending.
+      const empty=scorePaper(bank,(await state(page)).latest);
+      assert.equal(empty.awarded,0);
+      assert.equal(empty.pendingQuestions,0);
+      assert.match(await page.locator('#result-score').innerText(),/0 \/ .* · 0%/);
       await page.click('#redo-wrong');
-      assert.equal((await state(page)).active.questionIds.length,8);
-      console.log('EXAM_REVISION_BROWSER '+label+' PASS: load, start, resume, answer, end-mark, review, empty submission, wrong retry, isolated storage');
+      assert.equal((await state(page)).active.questionIds.length,20);
+      console.log('EXAM_REVISION_BROWSER '+label+' PASS: load, start, resume, answer, end-mark, multi-mark self-review, empty submission, wrong retry, isolated storage');
     }finally{await browser.close();}
   }
   assert.deepEqual(errors,[],'No browser page errors');

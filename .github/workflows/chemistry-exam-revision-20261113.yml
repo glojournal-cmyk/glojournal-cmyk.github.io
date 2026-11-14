@@ -9,6 +9,8 @@ on:
       - 'tests/chemistry-exam-revision-*'
       - 'tests/chemistry-exam-question-content-*'
       - 'content/topics/chem-y9-c7.json'
+      - 'content/exam-revision/**'
+      - 'tests/chemistry-applied-revision-*'
       - '.github/workflows/chemistry-exam-revision-20261113.yml'
   push:
     branches: [main]
@@ -18,6 +20,8 @@ on:
       - 'tests/chemistry-exam-revision-*'
       - 'tests/chemistry-exam-question-content-*'
       - 'content/topics/chem-y9-c7.json'
+      - 'content/exam-revision/**'
+      - 'tests/chemistry-applied-revision-*'
   workflow_dispatch:
 permissions:
   contents: read
@@ -32,6 +36,7 @@ jobs:
       - run: node --check assets/chemistry-exam-revision-core-20261113.js
       - run: node --check assets/chemistry-exam-revision-20261113.js
       - run: node --test tests/chemistry-exam-revision-20261113.test.mjs
+      - run: node --test tests/chemistry-applied-revision-20261114.test.mjs
       - run: node --test tests/chemistry-exam-question-content-20261114.test.mjs
       - run: node --test tests/chemistry-nov16-2026-assessment.test.mjs
   browser:
