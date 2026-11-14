@@ -1,0 +1,528 @@
+{
+  "specification": "4.1.1.4",
+  "topic": "Cell differentiation",
+  "questions": [
+    {
+      "id": "bio-cell-20261114-109",
+      "conceptId": "bio-cell-20261114-109",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A newly formed animal cell develops several specialised structures as the animal grows. Name this process and state its purpose.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The process is cell differentiation. Differentiation produces cells suited to carrying out particular functions."
+        ],
+        "points": [
+          {
+            "label": "The process is cell differentiation.",
+            "patterns": [
+              "differentiat"
+            ]
+          },
+          {
+            "label": "Differentiation produces cells suited to carrying out particular functions.",
+            "patterns": [
+              "(specialis|specializ|function|job)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The process is cell differentiation. Differentiation produces cells suited to carrying out particular functions.",
+      "markKeywords": [
+        "The process is cell differentiation.",
+        "Differentiation produces cells suited to carrying out particular functions."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-110",
+      "conceptId": "bio-cell-20261114-110",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A seedling continues producing new types of cells at its root tip. Give two facts that help explain this.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Many plant cells retain the ability to differentiate throughout life. New plant cells can develop specialised structures for particular roles."
+        ],
+        "points": [
+          {
+            "label": "Many plant cells retain the ability to differentiate throughout life.",
+            "patterns": [
+              "plant.{0,75}(throughout|life|retain|continue)"
+            ]
+          },
+          {
+            "label": "New plant cells can develop specialised structures for particular roles.",
+            "patterns": [
+              "(new|plant|cell).{0,75}(specialis|specializ|structure|function)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Many plant cells retain the ability to differentiate throughout life. New plant cells can develop specialised structures for particular roles.",
+      "markKeywords": [
+        "Many plant cells retain the ability to differentiate throughout life.",
+        "New plant cells can develop specialised structures for particular roles."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-111",
+      "conceptId": "bio-cell-20261114-111",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Explain how cell division and cell differentiation differ in what they achieve.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Cell division increases the number of cells. Cell differentiation makes cells specialised for particular tasks."
+        ],
+        "points": [
+          {
+            "label": "Cell division increases the number of cells.",
+            "patterns": [
+              "division.{0,60}(number|more|new)"
+            ]
+          },
+          {
+            "label": "Cell differentiation makes cells specialised for particular tasks.",
+            "patterns": [
+              "differentiat.{0,75}(specialis|specializ|function|task|role)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Cell division increases the number of cells. Cell differentiation makes cells specialised for particular tasks.",
+      "markKeywords": [
+        "Cell division increases the number of cells.",
+        "Cell differentiation makes cells specialised for particular tasks."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-112",
+      "conceptId": "bio-cell-20261114-112",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Why is replacing damaged cells a major reason for cell division in a fully grown animal? Give two linked points.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Mature animals use cell division mainly for repair and replacement. Division supplies new cells to replace lost or damaged cells."
+        ],
+        "points": [
+          {
+            "label": "Mature animals use cell division mainly for repair and replacement.",
+            "patterns": [
+              "(mature|adult).{0,75}(repair|replac|division)"
+            ]
+          },
+          {
+            "label": "Division supplies new cells to replace lost or damaged cells.",
+            "patterns": [
+              "(new|replacement).{0,75}(damag|lost|worn|repair|replac)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Mature animals use cell division mainly for repair and replacement. Division supplies new cells to replace lost or damaged cells.",
+      "markKeywords": [
+        "Mature animals use cell division mainly for repair and replacement.",
+        "Division supplies new cells to replace lost or damaged cells."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-113",
+      "conceptId": "bio-cell-20261114-113",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A developing nerve cell grows a long axon. Identify the process and its functional benefit.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The change occurs during cell differentiation. The axon allows impulses to be carried over long distances."
+        ],
+        "points": [
+          {
+            "label": "The change occurs during cell differentiation.",
+            "patterns": [
+              "differentiat"
+            ]
+          },
+          {
+            "label": "The axon allows impulses to be carried over long distances.",
+            "patterns": [
+              "axon.{0,75}(impulse|long|distance)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The change occurs during cell differentiation. The axon allows impulses to be carried over long distances.",
+      "markKeywords": [
+        "The change occurs during cell differentiation.",
+        "The axon allows impulses to be carried over long distances."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-114",
+      "conceptId": "bio-cell-20261114-114",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Why is it incorrect to say that a differentiated cell always has more organelles than before?",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Differentiation changes which sub-cellular structures are suited to a specific function. Some structures may be reduced or lost as well as acquired."
+        ],
+        "points": [
+          {
+            "label": "Differentiation changes which sub-cellular structures are suited to a specific function.",
+            "patterns": [
+              "(differentiat|specialis|specializ).{0,75}(structure|organelle|function)"
+            ]
+          },
+          {
+            "label": "Some structures may be reduced or lost as well as acquired.",
+            "patterns": [
+              "(lose|lost|reduc|remove|fewer).{0,70}(structure|organelle|nucleus|cell)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Differentiation changes which sub-cellular structures are suited to a specific function. Some structures may be reduced or lost as well as acquired.",
+      "markKeywords": [
+        "Differentiation changes which sub-cellular structures are suited to a specific function.",
+        "Some structures may be reduced or lost as well as acquired."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-115",
+      "conceptId": "bio-cell-20261114-115",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A young animal contains generalised cells, but its adult body contains muscle, nerve and red blood cells. Explain three observations.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Many animal cells differentiate early in development. Different types develop distinct structures to carry out their functions. For example, muscle cells develop features that enable contraction."
+        ],
+        "points": [
+          {
+            "label": "Many animal cells differentiate early in development.",
+            "patterns": [
+              "animal.{0,70}(early|develop)"
+            ]
+          },
+          {
+            "label": "Different types develop distinct structures to carry out their functions.",
+            "patterns": [
+              "(different|distinct).{0,65}(structure|function|specialis|specializ)"
+            ]
+          },
+          {
+            "label": "For example, muscle cells develop features that enable contraction.",
+            "patterns": [
+              "muscle.{0,65}(contract|mitochondri|filament)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Many animal cells differentiate early in development. Different types develop distinct structures to carry out their functions. For example, muscle cells develop features that enable contraction.",
+      "markKeywords": [
+        "Many animal cells differentiate early in development.",
+        "Different types develop distinct structures to carry out their functions.",
+        "For example, muscle cells develop features that enable contraction."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-116",
+      "conceptId": "bio-cell-20261114-116",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A student claims that plants stop making specialised cells after they reach their adult height. Challenge this claim with three points.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Many plant cells retain their ability to differentiate throughout life. The roots or shoots can continue growing new tissues. The new cells can specialise for functions such as transporting water."
+        ],
+        "points": [
+          {
+            "label": "Many plant cells retain their ability to differentiate throughout life.",
+            "patterns": [
+              "plant.{0,75}(throughout|life|retain)"
+            ]
+          },
+          {
+            "label": "The roots or shoots can continue growing new tissues.",
+            "patterns": [
+              "(root|shoot).{0,70}(grow|new|tissue)"
+            ]
+          },
+          {
+            "label": "The new cells can specialise for functions such as transporting water.",
+            "patterns": [
+              "(specialis|specializ|new cells|tissue).{0,75}(water|transport|function)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Many plant cells retain their ability to differentiate throughout life. The roots or shoots can continue growing new tissues. The new cells can specialise for functions such as transporting water.",
+      "markKeywords": [
+        "Many plant cells retain their ability to differentiate throughout life.",
+        "The roots or shoots can continue growing new tissues.",
+        "The new cells can specialise for functions such as transporting water."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-117",
+      "conceptId": "bio-cell-20261114-117",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A newly produced plant cell becomes part of a xylem vessel. Explain three changes or outcomes of this specialisation.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The cell undergoes differentiation to a specialised xylem cell. The mature xylem cell develops strengthened lignified walls. The resulting hollow vessel conducts water efficiently."
+        ],
+        "points": [
+          {
+            "label": "The cell undergoes differentiation to a specialised xylem cell.",
+            "patterns": [
+              "(differentiat|specialis|specializ).{0,75}xylem|xylem.{0,75}(differentiat|specialis|specializ)"
+            ]
+          },
+          {
+            "label": "The mature xylem cell develops strengthened lignified walls.",
+            "patterns": [
+              "(lignin|lignif).{0,65}(wall|strength)"
+            ]
+          },
+          {
+            "label": "The resulting hollow vessel conducts water efficiently.",
+            "patterns": [
+              "(hollow|tube|vessel).{0,65}(water|transport|flow)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The cell undergoes differentiation to a specialised xylem cell. The mature xylem cell develops strengthened lignified walls. The resulting hollow vessel conducts water efficiently.",
+      "markKeywords": [
+        "The cell undergoes differentiation to a specialised xylem cell.",
+        "The mature xylem cell develops strengthened lignified walls.",
+        "The resulting hollow vessel conducts water efficiently."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-118",
+      "conceptId": "bio-cell-20261114-118",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Explain why animal cells differentiate and why cell division continues in mature animals.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Differentiation produces cells with different functions. Division produces new cells. In mature animals, this division mainly repairs or replaces damaged cells."
+        ],
+        "points": [
+          {
+            "label": "Differentiation produces cells with different functions.",
+            "patterns": [
+              "differentiat.{0,65}(different|specialis|specializ|function)"
+            ]
+          },
+          {
+            "label": "Division produces new cells.",
+            "patterns": [
+              "division.{0,55}(new|more|number)"
+            ]
+          },
+          {
+            "label": "In mature animals, this division mainly repairs or replaces damaged cells.",
+            "patterns": [
+              "(adult|mature).{0,75}(repair|replac)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Differentiation produces cells with different functions. Division produces new cells. In mature animals, this division mainly repairs or replaces damaged cells.",
+      "markKeywords": [
+        "Differentiation produces cells with different functions.",
+        "Division produces new cells.",
+        "In mature animals, this division mainly repairs or replaces damaged cells."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-119",
+      "conceptId": "bio-cell-20261114-119",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A plant cell develops a large vacuole while it is differentiating. Explain what process is happening and why the new structure may matter.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The cell is becoming specialised by differentiation. The large vacuole contains cell sap. The full vacuole helps maintain turgor and supports the cell."
+        ],
+        "points": [
+          {
+            "label": "The cell is becoming specialised by differentiation.",
+            "patterns": [
+              "(differentiat|specialis|specializ)"
+            ]
+          },
+          {
+            "label": "The large vacuole contains cell sap.",
+            "patterns": [
+              "vacuole.{0,65}(sap|fluid)"
+            ]
+          },
+          {
+            "label": "The full vacuole helps maintain turgor and supports the cell.",
+            "patterns": [
+              "vacuole.{0,70}(turgor|support|firm)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The cell is becoming specialised by differentiation. The large vacuole contains cell sap. The full vacuole helps maintain turgor and supports the cell.",
+      "markKeywords": [
+        "The cell is becoming specialised by differentiation.",
+        "The large vacuole contains cell sap.",
+        "The full vacuole helps maintain turgor and supports the cell."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-120",
+      "conceptId": "bio-cell-20261114-120",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Three pupils describe development: 'cells grow larger', 'cells increase in number', and 'cells become specialised'. Identify which involves differentiation and explain the other two descriptions.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Cells becoming specialised is differentiation. An increase in cell number is caused by cell division. A cell getting larger is growth rather than necessarily differentiation."
+        ],
+        "points": [
+          {
+            "label": "Cells becoming specialised is differentiation.",
+            "patterns": [
+              "(specialis|specializ).{0,45}differentiat|differentiat.{0,45}(specialis|specializ)"
+            ]
+          },
+          {
+            "label": "An increase in cell number is caused by cell division.",
+            "patterns": [
+              "(number|increase).{0,60}division|division.{0,60}(number|increase)"
+            ]
+          },
+          {
+            "label": "A cell getting larger is growth rather than necessarily differentiation.",
+            "patterns": [
+              "(larger|size|grow|growth).{0,65}(differentiat|specialis|specializ|not|instead)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Cells becoming specialised is differentiation. An increase in cell number is caused by cell division. A cell getting larger is growth rather than necessarily differentiation.",
+      "markKeywords": [
+        "Cells becoming specialised is differentiation.",
+        "An increase in cell number is caused by cell division.",
+        "A cell getting larger is growth rather than necessarily differentiation."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    }
+  ]
+}
