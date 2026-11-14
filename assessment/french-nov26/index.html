@@ -96,9 +96,12 @@ a{color:#28586b}details{margin:15px 0}summary{cursor:pointer;font-weight:700}
 <div id="review" hidden>
 <h3>After-exam self-review</h3><p class="note">Use the actual AQA Higher Q3 assessment structure: AO2 content 15, AO3 range 5, AO3 accuracy 5. These scores require a human reading the whole answer; the app does not invent a mark from keywords or word count.</p>
 <div id="checks"></div>
+<label for="bulletcoverage"><strong>Which compulsory bullet points did you cover?</strong></label>
+<select id="bulletcoverage"><option value="2">Both bullet points</option><option value="1">Only one bullet point</option><option value="0">Neither / no relevant content</option></select>
+<p class="small">AQA: AO2 is capped at 12/15 if only one bullet is covered. If AO2 = 0, AO3 = 0.</p>
 <h3>AQA-aligned self-mark: /25</h3>
 <details open><summary>How to award AQA Higher Q3 marks</summary>
-<p class="small">AO2 is a holistic judgement of relevance, idea development and how clearly you communicate. Both bullet points should be covered. If only one bullet is addressed, the AQA AO2 maximum is 12/15.</p>
+<p class="small">AO2 is a holistic judgement of relevance, idea development and how clearly you communicate. Both bullet points should be covered. If only one bullet is addressed, the AQA AO2 maximum is 12/15; the selector below applies this cap to the self-mark.</p>
 <table><thead><tr><th>AO2 band</th><th>Guidance</th></tr></thead><tbody>
 <tr><td>13–15</td><td>Substantial relevant detail, ideas regularly developed and communication very clear</td></tr>
 <tr><td>10–12</td><td>Good amount of relevant detail, mostly successful development and generally clear meaning</td></tr>
@@ -216,23 +219,25 @@ function draft(){return data.essays[prompt.value]||(data.essays[prompt.value]={t
 function words(s){return (String(s||"").match(/[\p{L}]+(?:[’'-][\p{L}]+)*/gu)||[]).length}
 function renderWords(){$("wordcount").textContent=words(area.value)+" French words · target approximately 150"}
 function essayLoad(){var x=P[Number(prompt.value)],d=draft();
-$("paperquestion").innerHTML="<strong>Question 3 — Mes dernières vacances · 25 marks</strong><p>Vous écrivez une lettre à un(e) ami(e) francophone au sujet de vos vacances.</p><p>Write approximately 150 words in French about:</p><ul><li>"+esc(x.b1)+"</li><li>"+esc(x.b2)+"</li></ul><p class='small'>Both bullet points are compulsory. You should develop your answers and use a range of tenses and structures.</p>";
-area.value=d.text||"";$("review").hidden=!d.done;renderWords();renderReview()}
+$("paperquestion").innerHTML="<strong>Question 3 — Mes dernières vacances · 25 marks</strong><p>You are writing to a French-speaking friend about your holidays.</p><p>Write approximately 150 words in French about:</p><ul><li>"+esc(x.b1)+"</li><li>"+esc(x.b2)+"</li></ul><p class='small'>Both bullet points are compulsory. You should develop your answers and use a range of tenses and structures.</p>";
+area.value=d.text||"";$("review").hidden=!d.done;$("bulletcoverage").value=String(d.bulletcoverage===undefined?2:d.bulletcoverage);renderWords();renderReview()}
 prompt.addEventListener("change",function(){data.prompt=Number(prompt.value);save();essayLoad()});
 area.addEventListener("input",function(){var d=draft();d.text=area.value;d.done=false;$("review").hidden=true;renderWords();save()});
 $("essaysubmit").addEventListener("click",function(){if(words(area.value)<20){alert("Please write at least 20 words before reviewing.");return}var d=draft();d.text=area.value;d.done=true;save();essayLoad();$("review").scrollIntoView({block:"start",behavior:"smooth"})});
 $("essayclear").addEventListener("click",function(){if(!confirm("Clear only this mock essay?"))return;data.essays[prompt.value]={text:"",done:false,points:{}};save();essayLoad()});
 function markInput(label,key,max,desc){var p=draft().points;var opts="";for(var n=0;n<=max;n++)opts+='<option value="'+n+'" '+(p[key]===n?"selected":"")+">"+n+"</option>";
 return '<div class="markrow"><div><strong>'+label+'</strong><div class="small">'+desc+'</div></div><label><span class="small">Mark out of '+max+'</span><select data-mark="'+key+'" aria-label="'+label+'">'+opts+'</select></label></div>'}
+$("bulletcoverage").addEventListener("change",function(e){draft().bulletcoverage=Number(e.target.value);enforceCaps();save();renderReview()});
+function enforceCaps(){var p=draft().points;var covered=draft().bulletcoverage===undefined?2:Number(draft().bulletcoverage);if(covered<2&&p.ao2!==undefined&&p.ao2>12)p.ao2=12;if(covered===0)p.ao2=0;if(p.ao2===0){p.range=0;p.accuracy=0}}
 function renderReview(){$("checks").innerHTML=D.map(function(t,i){return '<label class="check"><input type="checkbox" data-ref="'+i+'" '+(draft().checks&&draft().checks[i]?"checked":"")+">"+esc(t)+"</label>"}).join("");
 $("rubrics").innerHTML=markInput("AO2: Content and communication","ao2",15,"Both bullets, developed ideas, clarity and relevant detail.")+markInput("AO3 Grid 1: Range and complexity","range",5,"Vocabulary variety and successfully used complex structures.")+markInput("AO3 Grid 2: Accuracy","accuracy",5,"Grammar, verbs, tense formation and how errors affect meaning.");
 scoreUpdate()}
-function scoreUpdate(){var p=draft().points;var a=Number(p.ao2)||0,b=Number(p.range)||0,c=Number(p.accuracy)||0;
+function scoreUpdate(){enforceCaps();var p=draft().points;var a=Number(p.ao2)||0,b=Number(p.range)||0,c=Number(p.accuracy)||0;
 if(a===0){b=0;c=0}
 $("score").textContent=p.ao2===undefined||p.range===undefined||p.accuracy===undefined?"Not marked yet — assess all three criteria":"Practice self-mark: "+(a+b+c)+"/25"+(a===0?" (AQA rule: AO3 = 0 when AO2 = 0)":"");
 $("rubrics").querySelectorAll("select").forEach(function(x){if(a===0&&x.dataset.mark!=="ao2")x.value="0"})}
 $("checks").addEventListener("change",function(e){if(e.target.dataset.ref===undefined)return;var d=draft();d.checks=d.checks||{};d.checks[e.target.dataset.ref]=e.target.checked;save()});
-$("rubrics").addEventListener("change",function(e){if(e.target.dataset.mark===undefined)return;draft().points[e.target.dataset.mark]=Number(e.target.value);if(Number(draft().points.ao2)===0){draft().points.range=0;draft().points.accuracy=0}save();scoreUpdate()});
+$("rubrics").addEventListener("change",function(e){if(e.target.dataset.mark===undefined)return;draft().points[e.target.dataset.mark]=Number(e.target.value);enforceCaps();save();renderReview()});
 $("scoresave").addEventListener("click",function(){save();$("saved").textContent="Self-mark saved on this device"});
 if(data.prompt>=0&&data.prompt<P.length)prompt.value=String(data.prompt);
 vocabRender();grammarRender();essayLoad();
