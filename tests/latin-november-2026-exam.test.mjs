@@ -21,10 +21,10 @@ test("Teacher's November exam structure: 50 min / 75 marks / 11+14+50",()=>{
   assert.equal(MOCK.durationMinutes,50);
   assert.equal(MOCK.totalMarks,75);
   assert.deepEqual(MOCK.sections.map(s=>s.questions.reduce((sum,q)=>sum+q.points.length,0)),[11,14,50]);
-  assert.equal(MOCK.sections[0].questions.length,5);
+  assert.equal(MOCK.sections[0].questions.length,4);
   assert.equal(MOCK.sections[1].questions.length,7);
-  assert.equal(MOCK.sections[2].questions.length,10);
-  assert.equal(MOCK.sections[2].passage.length,10);
+  assert.equal(MOCK.sections[2].questions.length,9);
+  assert.equal(MOCK.sections[2].passage.length,9);
   const all=MOCK.sections.flatMap(s=>s.questions);
   assert.equal(new Set(all.map(q=>q.id)).size,all.length);
   assert.ok(all.every(q=>q.points.every(x=>x&&typeof x==="string")));
@@ -38,7 +38,7 @@ test("English→Latin paper deliberately excludes composition-only forbidden top
 });
 test("Comprehension and translation actually practise special school syntax",()=>{
   const latin=MOCK.sections[1].passage.join(" ")+" "+MOCK.sections[2].passage.join(" ");
-  for(const word of ["Romae","Romam","multas horas","audire debebant","servum bonum"])
+  for(const word of ["Romae","Romam","Roma discessit","multas horas","portare iussit","puella laeta"])
     assert.ok(latin.includes(word),"Expected in-scope structure: "+word);
   assert.ok(SYLLABUS.some(x=>x[1].includes("possum")));
 });
@@ -79,4 +79,48 @@ test("Independent untimed practice covers all three assessed task formats",()=>{
   assert.match(page,/data-tab="practice"/);
   assert.match(client,/renderPractice/);
   assert.match(client,/wordDirection/);
+});
+
+
+test("Calibrated mock uses a continuous narrative and varied mark-weighted segments",()=>{
+  assert.equal(MOCK.version,"2026-11-14.2");
+  assert.equal(MOCK.sections[0].questions.length,4);
+  assert.equal(MOCK.sections[1].passage.length,9);
+  assert.equal(MOCK.sections[2].questions.length,9);
+  const wordCount=MOCK.sections[2].passage.join(" ").trim().split(/\s+/).length;
+  assert.ok(wordCount>=120&&wordCount<=175,"Length must be a manageable but sustained unseen passage");
+  const lineMarks=MOCK.sections[2].questions.map(q=>q.points.length);
+  assert.ok(new Set(lineMarks).size>=2,"Avoid the old fixed five marks on every sentence");
+  assert.deepEqual(lineMarks,[6,6,6,5,5,6,6,5,5]);
+  assert.equal(MOCK.sections[2].questions.reduce((n,q)=>n+q.points.length,0),50);
+  assert.ok(MOCK.sections[2].passage.join(" ").includes("Romae "));
+  assert.ok(MOCK.sections[2].passage.join(" ").includes(" Roma discessit"));
+  assert.ok(MOCK.sections[2].passage.join(" ").includes(" Romam misit"));
+  assert.match(MOCK.guidance,/not an official/);
+});
+test("Comprehension tests more than isolated dictionary meanings",()=>{
+  const questions=MOCK.sections[1].questions;
+  assert.equal(questions.length,7);
+  assert.ok(questions.every(q=>q.points.length===2));
+  assert.ok(questions.some(q=>/after hearing|result|respond|end/i.test(q.prompt)));
+  assert.ok(questions.some(q=>/details.*show/i.test(q.prompt)));
+  assert.ok(questions.every(q=>q.points.every(p=>p.includes("1 mark"))));
+});
+test("Composition includes present, imperfect, dative and possum; excludes school-excluded grammar",()=>{
+  const a=MOCK.sections[0].questions.map(q=>q.model.toLowerCase()).join(" ");
+  assert.match(a,/portabat/);
+  assert.match(a,/scribebamus/);
+  assert.match(a,/possunt/);
+  assert.match(a,/domino/);
+  const noPerfect="paravit monuit vocavit habuit fuerunt dedit misit legit portavit".split(" ");
+  const tokens=new Set(a.match(/[a-z]+/g));
+  for(const word of noPerfect)assert.ok(!tokens.has(word),"No perfect in composition: "+word);
+});
+test("Mock scoring criteria have no duplicate IDs or empty point cells",()=>{
+  const qs=MOCK.sections.flatMap(s=>s.questions);
+  const checks=qs.flatMap(q=>q.points.map((p,i)=>q.id+":"+i));
+  assert.equal(checks.length,75);
+  assert.equal(new Set(checks).size,75);
+  assert.ok(qs.every(q=>q.model&&q.prompt&&q.points.every(p=>typeof p==="string"&&p.length>25)));
+  assert.ok(!MOCK.sections[0].questions.some(q=>/romam|romae|\broma\b/i.test(q.model)));
 });
