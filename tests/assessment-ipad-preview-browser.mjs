@@ -56,7 +56,7 @@ for(const browserType of [chromium,webkit]){
    if(viewport.width===1024){
      const navTop=await page.locator('.lux-shell-nav').evaluate(el=>el.getBoundingClientRect().top);
      const last= bounds[bounds.length-1];
-     assert.ok(last.y+last.h < navTop-6, 'All four Biology papers must fit above the bottom iPad navigation');
+     assert.ok(last.y+last.h < navTop-6, `All four Biology papers must fit above bottom nav: lastRowBottom=${Math.round(last.y+last.h)}, navTop=${Math.round(navTop)}, viewport=${viewport.width}x${viewport.height}`);
    }
    const groups=await page.locator('#subject-bar button[data-subject]').allTextContents();
    assert.deepEqual(groups,['Latin','Chemistry','English','French','Biology','Physics'],'Keep all six assessment subjects');
