@@ -253,8 +253,11 @@ function selectPhysicsSchool(questions,count,recent=[],quotas={}){
       &&(!datasetFamily(q)||!usedDatasets.has(datasetFamily(q)))&&filter(q)));
     // Prefer a fresh numerical dataset as well as a fresh question ID.
     // This works across density-calculation and RP5 groups, not just in one.
-    const stale=q=>old.has(q.id)||Boolean(datasetFamily(q)&&recentDatasets.has(datasetFamily(q)));
-    options.sort((a,b)=>(stale(a)?1:0)-(stale(b)?1:0)
+    // Avoid the immediately previous paper's numerical data first, then
+    // prefer an ID outside the bounded 160-question history.
+    const recentData=q=>Boolean(datasetFamily(q)&&recentDatasets.has(datasetFamily(q)));
+    options.sort((a,b)=>(recentData(a)?1:0)-(recentData(b)?1:0)
+      ||(old.has(a.id)?1:0)-(old.has(b.id)?1:0)
       ||(lastSeen.get(a.id)??-1)-(lastSeen.get(b.id)??-1));
     const q=options[0];
     if(!q)return false;
