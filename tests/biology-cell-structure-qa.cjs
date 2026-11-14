@@ -20,6 +20,7 @@ for(let k=0;k<200;k++){
  if(recent.length)overlap.push(p.filter(q=>recent.includes(q.id)).length);
  recent=p.map(q=>q.id);
 }
+assert(overlap.every(n=>n===0),'consecutive Biology mocks must not reuse questions when the 144-question bank provides alternatives');
 const sperm=bank.questions[24];assert.equal(sandbox.mark(sperm,'The tail propels the sperm towards the egg.').credit,0.5);
 assert.equal(sandbox.mark(sperm,'The tail does not propel the sperm. Mitochondria do not release energy for movement.').credit,0);
 assert.equal(sandbox.mark(bank.questions[62],'30 degrees C.').credit,0);
@@ -30,5 +31,5 @@ assert.equal(sandbox.mark(bank.questions[2],'Ribosomes, ribosomes.').credit,0.5)
 assert.equal(sandbox.mark(bank.questions[58],'Cell walls and cytoplasm. Mitochondria are too small to resolve.').credit,1);
 assert.equal(sandbox.mark(bank.questions[23],'It is a specialised animal cell. It has no mitochondria or ribosomes.').credit,1);
 assert.equal(sandbox.mark(bank.questions[20],'Ribosomes and mitochondria. Mitochondria release energy needed for protein production.').credit,1);
-console.log(JSON.stringify({questions:72,modelsPassed:72-failures.length,balancedPapers:200,marks:60,overlapMin:Math.min(...overlap),overlapMax:Math.max(...overlap),partialCredit:true,negation:true},null,2));
+console.log(JSON.stringify({questions:144,modelsPassed:144-failures.length,balancedPapers:200,marks:60,overlapMin:Math.min(...overlap),overlapMax:Math.max(...overlap),partialCredit:true,negation:true},null,2));
 if(failures.length)process.exit(1);

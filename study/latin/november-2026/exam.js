@@ -1,6 +1,6 @@
 import { LATIN_BOOKLET_RECORDS } from "/assets/latin-vocabulary-booklet-20261023.js";
 import { SYLLABUS, GRAMMAR, PRACTICE, MOCK, validateMock } from "./exam-data.js?v=20261114c";
-import { UNSEEN_PASSAGES, validateUnseens } from "./unseen-passages.js?v=20261114a";
+import { UNSEEN_PASSAGES, validateUnseens } from "./unseen-passages.js?v=20261114c";
 
 validateMock();
 validateUnseens();
@@ -30,6 +30,7 @@ let grammarGroup = "All topics", grammarIndex = 0, grammarShown = false, grammar
 let practiceGroup = "English → Latin", practiceIndex = 0, practiceShown = false, practiceAnswer = "";
 let unseenIndex = 0, unseenSubmitted = false;
 const unseenAnswers = Object.create(null);
+const unseenOptionOrders = Object.create(null);
 let mockState = "ready", deadline = 0, ticker = null;
 const responses = {}, awarded = new Set();
 
@@ -121,13 +122,15 @@ function renderUnseen() {
     '<div class="latinpassage" lang="la">'+p.passage.map((line,i)=>'<p><strong>'+(i+1)+'.</strong> '+esc(line)+'</p>').join("")+'</div></section>';
   const questions=p.questions.map((q,i)=>{
     const selected=unseenAnswers[q.id];
-    const options=q.options.map((option,j)=>{
-      const checked=selected===j;
-      const status=review && j===q.answer?' <strong class="mc-correct-label">✓ Correct answer</strong>':
-        review && checked && j!==q.answer?' <strong class="mc-wrong-label">Your answer</strong>':'';
-      return '<label class="mc-choice'+(review && j===q.answer?' mc-is-correct':'')+'">'+
-        '<input type="radio" name="unseen-'+esc(q.id)+'" value="'+j+'" data-unseen-answer="'+esc(q.id)+'"'+(checked?' checked':'')+(review?' disabled':'')+'>'+
-        '<span><strong>'+("ABCD"[j])+'.</strong> '+esc(option)+status+'</span></label>';
+    const order=unseenOptionOrders[q.id] || (unseenOptionOrders[q.id]=shuffle([0,1,2,3]));
+    const options=order.map((canonicalIndex,displayIndex)=>{
+      const option=q.options[canonicalIndex];
+      const checked=selected===canonicalIndex;
+      const status=review && canonicalIndex===q.answer?' <strong class="mc-correct-label">✓ Correct answer</strong>':
+        review && checked && canonicalIndex!==q.answer?' <strong class="mc-wrong-label">Your answer</strong>':'';
+      return '<label class="mc-choice'+(review && canonicalIndex===q.answer?' mc-is-correct':'')+'">'+
+        '<input type="radio" name="unseen-'+esc(q.id)+'" value="'+canonicalIndex+'" data-unseen-answer="'+esc(q.id)+'"'+(checked?' checked':'')+(review?' disabled':'')+'>'+
+        '<span><strong>'+("ABCD"[displayIndex])+'.</strong> '+esc(option)+status+'</span></label>';
     }).join("");
     const feedback=review?'<div class="model"><strong>'+(selected===q.answer?'Correct · 1/1':'Review · 0/1')+'</strong>'+
       '<p><strong>Evidence:</strong> <span lang="la">'+esc(q.evidence)+'</span></p><p>'+esc(q.explanation)+'</p>'+
@@ -144,7 +147,7 @@ function renderUnseen() {
 }
 function resetUnseen(){
   unseenSubmitted=false;
-  for(const q of UNSEEN_PASSAGES[unseenIndex].questions)delete unseenAnswers[q.id];
+  for(const q of UNSEEN_PASSAGES[unseenIndex].questions){delete unseenAnswers[q.id];delete unseenOptionOrders[q.id];}
 }
 function countdown() {
   return Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
