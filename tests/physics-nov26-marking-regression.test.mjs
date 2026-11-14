@@ -68,7 +68,7 @@ for(const suffix of ['i03','i04','i05','i11','i12']){
 const svg=fs.readFileSync('assessment/diagrams/physics-nov26-rp2-cooling.svg','utf8');
 assert.match(svg,/Illustrative practice data only/);
 assert.doesNotMatch(svg,/data from supplied revision slides/);
-assert.ok(app.includes('20261114-physics-qa3'));
+assert.ok(app.includes('20261114-physics-bank200-b'));
 
 console.log('PHYSICS_NOV26_MARKING_REGRESSION PASS',JSON.stringify({
  canonical:all.length,alternativeAnswers:equivalent.length,

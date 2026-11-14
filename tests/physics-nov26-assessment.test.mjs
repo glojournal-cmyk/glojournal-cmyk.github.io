@@ -9,19 +9,19 @@ const catalog=json('content/catalog.json');
 assert.equal(bank.subject,'physics');
 assert.equal(bank.year,9);
 assert.equal(bank.groups.length,5);
-assert.ok(bank.version.startsWith('2026-11-14-school-standard-v3'), 'expected school-aligned question bank version');
+assert.ok(bank.version.startsWith('2026-11-14-physics-bank200'), 'expected school-aligned question bank version');
 
 
-const totals=[13,13,13,13,13];
+const totals=[40,40,40,40,40];
 const all=bank.groups.flatMap(g=>g.questions);
-assert.equal(all.length,65);
+assert.equal(all.length,200);
 assert.deepEqual(bank.groups.map(g=>g.questions.length),totals);
-assert.equal(all.filter(q=>q.marks>=3).length,24,'enough 3–4 mark school-style questions');
-assert.equal(all.filter(q=>q.schoolExamStyle).length,13);
+assert.ok(all.filter(q=>q.marks>=3).length>=70,'enough 3–4 mark school-style questions');
+assert.equal(all.filter(q=>q.schoolExamStyle).length,148);
 assert.ok(!all.some(q=>/\b(?:convection|radiation|infrared)\b/i.test(q.prompt)));
 
-assert.equal(new Set(all.map(q=>q.id)).size,65);
-assert.equal(new Set(all.map(q=>q.conceptId)).size,65);
+assert.equal(new Set(all.map(q=>q.id)).size,200);
+assert.equal(new Set(all.map(q=>q.conceptId)).size,200);
 
 const groupNames=bank.groups.map(g=>g.title);
 assert.deepEqual(groupNames,[
@@ -62,8 +62,9 @@ assert.match(app,/id:'physics-nov26'/);
 assert.ok(app.includes('/assessment/physics-nov26-20261113.json'));
 assert.match(app,/subject:'Physics'.*physics-nov26/);
 assert.match(app,/count:25,minutes:60/);
-for(const g of groupNames)assert.ok(app.includes("'"+g+"':5"),'quota missing for '+g);
-assert.ok(read('assessment/index.html').includes('app-v2.js?v=20261114-physics-qa3'));
+const expectedQuotas={'Particle model & changes of state':8,'Density calculations':4,'Conduction & insulation':7,'RP2 thermal insulation':3,'RP5 density':3};
+for(const g of groupNames)assert.ok(app.includes("'"+g+"':"+expectedQuotas[g]),'quota missing for '+g);
+assert.ok(read('assessment/index.html').includes('app-v2.js?v=20261114-physics-bank200-b'));
 assert.ok(read('study/physics/index.html').includes('/assessment/?subject=physics'));
 const svg=read('assessment/diagrams/physics-nov26-rp2-cooling.svg');
 for(const val of ['53.1','60.3','68.4','Temperature (°C)','Time (minutes)','Bubble wrap','Newspaper','No insulation']){
