@@ -1,0 +1,34 @@
+name: Biology 16 November school-scope QA
+on:
+  pull_request:
+    paths:
+      - 'assessment/app-v2.js'
+      - 'assessment/index.html'
+      - 'assessment/biology-cell-structure/**'
+      - 'assessment/biology-cell-structure-20261003.json'
+      - 'tests/biology-*'
+      - '.github/workflows/biology-nov16-school-qa-20261114.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'assessment/app-v2.js'
+      - 'assessment/index.html'
+      - 'assessment/biology-cell-structure/**'
+      - 'assessment/biology-cell-structure-20261003.json'
+      - 'tests/biology-nov16-school-alignment-20261114.test.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-question-and-mock-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check teacher notice, official syllabus, school tracker and extended questions
+        run: node tests/biology-nov16-school-alignment-20261114.test.mjs
+      - name: Check 72 model answers, rubric marking, calculation examples and 200 balanced mocks
+        run: node tests/biology-cell-structure-qa.cjs
