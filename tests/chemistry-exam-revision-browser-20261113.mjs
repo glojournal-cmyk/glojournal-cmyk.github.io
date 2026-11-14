@@ -119,7 +119,16 @@ try{
       assert.equal(draft.active.questionIds.length,20,'History topic bank now has 22 questions');
       for(let i=0;i<19;i++)await page.click('#next');
       const unsent=(await state(page)).active.id;
-      await page.evaluate(()=>{window.__examWriteBlocked=true;});
+      // Reloading removed our first Storage monkey patch: re-install before testing.
+      await page.evaluate(key=>{
+        const original=Storage.prototype.setItem;
+        Storage.prototype.setItem=function(k,v){
+          if(k===key&&window.__examWriteBlocked)
+            throw new DOMException('Simulated storage quota error','QuotaExceededError');
+          return original.call(this,k,v);
+        };
+        window.__examWriteBlocked=true;
+      },STORE_KEY);
       await page.click('#submit'); // Failed writes must not destroy the old draft.
       assert.equal(await page.locator('#paper').isVisible(),true,'failed submit must remain on paper');
       assert.equal((await state(page)).active.id,unsent,'completed draft must survive failed submit');
