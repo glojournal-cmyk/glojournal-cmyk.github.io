@@ -14,7 +14,7 @@ const IN_SCOPE_FORMS={
   ancilla:"ancilla ancillae ancillam", aqua:"aquam", auxilium:"auxilium",
   bellum:"bello", bonus:"bonum", cibus:"cibum", consilium:"consilium",
   cum:"cum", curro:"cucurrerunt cucurrit",
-  custodio:"custodiebat custodire custodiverunt custodivit",
+  custodio:"custodiebat custodire custodite custodiverunt custodivit",
   de:"de", debeo:"debebant debebat", do:"dedit", discedo:"discessit",
   domina:"domina dominam", dominus:"dominum dominus", donum:"donum",
   duco:"duxit", epistula:"epistulam", equus:"equum equus", et:"et",
@@ -28,11 +28,11 @@ const IN_SCOPE_FORMS={
   non:"non", novus:"novum", nuntius:"nuntium nuntius",
   paro:"parabant parabat", parvus:"parva", pecunia:"pecuniam",
   per:"per", periculum:"periculo periculum", porta:"portam",
-  porto:"portabant portare portavit", possum:"poterat",
+  porto:"porta portabant portare portavit", possum:"poterat",
   puella:"puella puellae puellam puellas", puer:"puer pueri pueris",
   quaero:"quaerebat quaerere quaesivit", roma:"roma romae romam",
   romanus:"romano romanum romanus", saluto:"salutavit",
-  scribo:"scripsit", sed:"sed", servus:"servi servis servo servos servum servus",
+  scribo:"scripsit", sed:"sed", servus:"serve servi servis servo servos servum servus",
   statim:"statim", stultus:"stultus", subito:"subito",
   sum:"erant erat est", taberna:"tabernam", tandem:"tandem",
   templum:"templi templum", timeo:"timebant timebat",
@@ -60,7 +60,7 @@ const APPROVED_ANSWERS={
   ],
   temple:[
     "A new temple in a field","Slaves and slave-girls","Food","To the slaves",
-    "War","The slaves should guard the temple","To the villa",
+    "War","Guard the temple! (plural command)","To the villa",
     "The gate of the temple","There was no danger","The slaves built the temple"
   ],
   market:[
@@ -115,7 +115,10 @@ test("Grammar and evidence: no unfair ambiguous Roman-case or iubeo readings",()
   assert.match(text.island,/Roma discessit/);
   assert.match(text.island,/multas horas navigabant/);
   assert.match(text.temple,/servos templum custodire iussit/);
-  assert.match(text.market,/servum pecuniam ad villam portare iussit/);
+  assert.match(text.temple,/servi, templum custodite/);
+  assert.equal(by.temple.questions[5].skill,'imperative');
+  assert.match(text.market,/serve, pecuniam ad villam porta/);
+  assert.match(text.market,/serve, pecuniam ad villam porta/);
   assert.match(text.market,/donum magnum ad dominam portabant/);
   assert.doesNotMatch(text.market,/donum magnum dominae portabant/);
   const q=by.market.questions[9];
