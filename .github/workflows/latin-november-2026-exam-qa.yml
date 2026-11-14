@@ -1,0 +1,25 @@
+name: Latin November 2026 Exam Revision QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'study/latin/november-2026/**'
+      - 'assets/latin-vocabulary-booklet-20261023.js'
+      - 'tests/latin-november-2026-exam.test.mjs'
+      - '.github/workflows/latin-november-2026-exam-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate standalone Latin exam and question bank
+        run: |
+          node --check study/latin/november-2026/exam.js
+          node --check study/latin/november-2026/exam-data.js
+          node --test tests/latin-november-2026-exam.test.mjs
