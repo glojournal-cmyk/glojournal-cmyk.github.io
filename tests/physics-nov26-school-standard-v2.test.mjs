@@ -21,17 +21,17 @@ assert.ok(code.includes("count:25,minutes:60"));
 assert.ok(code.includes("The 85% threshold is a home practice target, not the school pass grade"));
 assert.ok(!code.includes('const calcFinal='),'No final-answer full-credit shortcut allowed');
 const quotas={
- 'Particle model & changes of state':5,
+ 'Particle model & changes of state':8,
  'Density calculations':5,
- 'Conduction & insulation':5,
- 'RP2 thermal insulation':5,
- 'RP5 density':5
+ 'Conduction & insulation':7,
+ 'RP2 thermal insulation':3,
+ 'RP5 density':2
 };
-assert.equal(qs.length,65);
+assert.equal(qs.length,200);
 assert.ok(qs.every(q=>q.subject==='physics'&&q.year===9));
 assert.equal(new Set(qs.map(q=>q.id)).size,qs.length);
-assert.deepEqual(bank.groups.map(g=>g.questions.length),[13,13,13,13,13]);
-assert.equal(qs.filter(q=>q.schoolExamStyle).length,13);
+assert.deepEqual(bank.groups.map(g=>g.questions.length),[40,40,40,40,40]);
+assert.equal(qs.filter(q=>q.schoolExamStyle).length,148);
 
 for(const q of qs){
  assert.ok(!/\b(convection|radiation|infrared)\b/i.test(q.prompt),q.id+' outside teacher scope');
@@ -59,8 +59,8 @@ for(let n=0;n<300;n++){
  const ids=new Set(picked.map(q=>q.id));
  assert.ok(picked.some(q=>q.topic==='RP2 thermal insulation'&&q.diagram),'RP2 graph question on every paper');
  assert.ok([...['i08','i13']].some(id=>ids.has('phys-nov26-'+id)),'RP2 fair-test design on every paper');
- assert.ok(['r01','r02','r05','r12','r13'].some(id=>ids.has('phys-nov26-'+id)),'RP5 practical method on every paper');
- assert.ok(['r03','r06','r09','r11'].some(id=>ids.has('phys-nov26-'+id)),'RP5 error/calculation on every paper');
+ assert.ok(['r01','r02','r05','r12','r13','r27','r28','r29','r30'].some(id=>ids.has('phys-nov26-'+id)),'RP5 practical method on every paper');
+ assert.ok(['r06','r09','r34','r35','r36'].some(id=>ids.has('phys-nov26-'+id)),'RP5 error/calculation on every paper');
  assert.ok(['d11','d13','d06'].some(id=>ids.has('phys-nov26-'+id)),'integrated density application on every paper');
  previous=picked.map(q=>q.id);
 }
