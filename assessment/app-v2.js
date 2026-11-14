@@ -253,7 +253,7 @@ function selectPhysicsSchool(questions,count,recent=[],quotas={}){
       if(!take(pool,rule))throw Error('Missing required exam question type in '+topic);
     }
     // Retain meaningful explanations, not just recall and MC questions.
-    while(selected.length-before<Math.min(quota,2)&&take(pool,q=>q.marks>=3)){}
+    while(selected.filter(q=>q.topic===topic&&q.marks>=3).length<Math.min(quota,2)&&take(pool,q=>q.marks>=3)){}
     while(selected.length-before<quota&&take(pool,q=>q.marks>=2)){}
     while(selected.length-before<quota&&take(pool,()=>true)){}
     if(selected.length-before!==quota)throw Error('Incomplete school exam topic allocation: '+topic);
