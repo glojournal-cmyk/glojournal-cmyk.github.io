@@ -1,5 +1,5 @@
 import { LATIN_BOOKLET_RECORDS } from "/assets/latin-vocabulary-booklet-20261023.js";
-import { SYLLABUS, GRAMMAR, PRACTICE, MOCK, validateMock } from "./exam-data.js?v=20261113a";
+import { SYLLABUS, GRAMMAR, PRACTICE, MOCK, validateMock } from "./exam-data.js?v=20261114b";
 
 validateMock();
 const root = document.getElementById("app");
@@ -138,7 +138,7 @@ function renderPaperQuestion(q, review) {
   let after = "";
   if (review) {
     after = '<div class="model"><strong>Model answer</strong><p>' + esc(q.model) + '</p>' +
-      '<p class="help">Home-practice mark scheme: tick each independently correct detail (1 mark). Do not tick wrong case, person, number or tense. Accept equivalent accurate English wording in B/C.</p></div>' +
+      '<p class="help">Award one mark for each complete, independently correct criterion. For A accept any grammatical Latin word order; for B/C accept accurate English equivalents. Do not award a criterion if its essential case, person, number, tense or negation is wrong. Avoid penalising one error twice.</p></div>' +
       '<ul class="marklist">' + q.points.map((item,i) => {
         const key = q.id + "-" + i;
         return '<li><label><input type="checkbox" data-award="' + esc(key) + '"' + (awarded.has(key) ? ' checked' : '') + '><span><strong>1 mark · </strong>' + esc(item) + '</span></label></li>';
@@ -157,17 +157,17 @@ function renderExamSection(sec,review) {
   const passage = sec.passage ? '<div class="latinpassage" lang="la">' +
     sec.passage.map((line,i) => '<p><strong>' + (i+1) + '.</strong> ' + esc(line) + '</p>').join("") + '</div>' : "";
   return '<section class="exam-block"><div class="sectionhead"><h2>' + esc(sec.title) + '</h2><span class="pill">' + marks + ' marks</span></div>' +
-    '<p class="muted">' + esc(sec.description) + '</p>' + passage + '</section>' +
+    '<p class="muted">' + esc(sec.description) + '</p>' + (review ? '<p class="help">Section score: <strong id="score-section-' + sec.id + '">0</strong> / ' + marks + ' (provisional self-mark)</p>' : '') + passage + '</section>' +
     sec.questions.map(q => renderPaperQuestion(q,review)).join("");
 }
 function renderMock() {
   if (mockState === "ready") {
     return '<section class="panel" id="mock-heading"><div class="eyebrow">Original practice paper · teacher-scope aligned</div>' +
-      '<h2>November Latin mock assessment</h2><div class="grid">' +
+      '<h2>November Latin mock assessment · revised paper</h2><p class="help">One continuous unseen story in the 50-mark translation section, with varied sentence weighting and explicit grammatical checkpoints. This is scope-calibrated original practice, not a verified replica of the teacher’s paper.</p><div class="grid">' +
       MOCK.sections.map(s => '<div class="panel" style="margin:0"><h3>' + esc(s.title) +
         '</h3><p class="help">' + esc(s.description) + '</p></div>').join("") + '</div>' +
       '<div class="note warning"><strong>50-minute timed sitting.</strong> Once you begin, the timer runs continuously and submits automatically at zero. Answers are not shown until the paper finishes.</div>' +
-      '<p class="help">After submission, use the detailed marking criteria to self-mark each element (1 point per criterion), or review with a parent/teacher. This is not an official school mark scheme and there is no automated judgment of open-ended translations.</p>' +
+      '<p class="help">Suggested pacing: A · 10 min; B · 10 min; C · 30 min. After submission, use the detailed 75-point marking criteria with a parent/teacher. The grade is provisional self-marking: no automatic judgment of open-ended translations, and no school grade prediction.</p>' +
       '<div class="btnrow"><button class="btn" data-action="mock-start">Start 50-minute paper</button></div></section>';
   }
   const review = mockState === "submitted";
@@ -190,10 +190,15 @@ function render() {
     tab === "vocabulary" ? renderVocabulary() :
     tab === "grammar" ? renderGrammar() :
     tab === "practice" ? renderPractice() : renderMock();
+  if (tab === "mock" && mockState === "submitted") awardScore();
 }
 function awardScore() {
   const el = document.getElementById("score-text");
   if (el) el.textContent = awarded.size + "/75 marks awarded";
+  for (const sec of MOCK.sections) {
+    const score = document.getElementById("score-section-" + sec.id);
+    if (score) score.textContent = sec.questions.reduce((n,q)=>n+q.points.filter((point,i)=>awarded.has(q.id+"-"+i)).length,0);
+  }
 }
 tabs.forEach(button => button.addEventListener("click", () => { tab = button.dataset.tab; render(); }));
 root.addEventListener("input", event => {
