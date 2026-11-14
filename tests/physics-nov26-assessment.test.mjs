@@ -9,13 +9,19 @@ const catalog=json('content/catalog.json');
 assert.equal(bank.subject,'physics');
 assert.equal(bank.year,9);
 assert.equal(bank.groups.length,5);
+assert.equal(bank.version,'2026-11-14-school-standard-v3');
 
-const totals=[10,10,10,11,11];
+
+const totals=[13,13,13,13,13];
 const all=bank.groups.flatMap(g=>g.questions);
-assert.equal(all.length,52);
+assert.equal(all.length,65);
 assert.deepEqual(bank.groups.map(g=>g.questions.length),totals);
-assert.equal(new Set(all.map(q=>q.id)).size,52);
-assert.equal(new Set(all.map(q=>q.conceptId)).size,52);
+assert.equal(all.filter(q=>q.marks>=3).length,24,'enough 3–4 mark school-style questions');
+assert.equal(all.filter(q=>q.schoolExamStyle).length,13);
+assert.ok(!all.some(q=>/\b(?:convection|radiation|infrared)\b/i.test(q.prompt)));
+
+assert.equal(new Set(all.map(q=>q.id)).size,65);
+assert.equal(new Set(all.map(q=>q.conceptId)).size,65);
 
 const groupNames=bank.groups.map(g=>g.title);
 assert.deepEqual(groupNames,[
@@ -55,7 +61,7 @@ const file='assessment/app-v2.js',app=read(file);
 assert.match(app,/id:'physics-nov26'/);
 assert.ok(app.includes('/assessment/physics-nov26-20261113.json'));
 assert.match(app,/subject:'Physics'.*physics-nov26/);
-assert.match(app,/count:25,minutes:45/);
+assert.match(app,/count:25,minutes:60/);
 for(const g of groupNames)assert.ok(app.includes("'"+g+"':5"),'quota missing for '+g);
 assert.ok(read('assessment/index.html').includes('app-v2.js?v=20261114-physics-marking2'));
 assert.ok(read('study/physics/index.html').includes('/assessment/?subject=physics'));
