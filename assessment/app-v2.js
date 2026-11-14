@@ -220,6 +220,18 @@ function selectPhysicsSchool(questions,count,recent=[],quotas={}){
   // graph and one RP5 practical method, measurement or error question.
   // Do not use up all practical slots on fixed multi-mark questions.
   const selected=[],seen=new Set(),old=new Set(recent);
+  // Historical questions may teach the same arithmetic using identical data.
+  // Keep their original IDs/answers (including existing saved progress), but
+  // treat repeated numerical datasets as one family within a practice paper.
+  const repeatedDataset=new Map([
+    ['phys-nov26-d06','cuboid-2x3x5-density-8'],
+    ['phys-nov26-d12','cuboid-2x3x5-density-8'],
+    ['phys-nov26-d09','displacement-75g-40to65cm3'],
+    ['phys-nov26-r06','displacement-75g-40to65cm3']
+  ]);
+  const datasetFamily=q=>repeatedDataset.get(q.id);
+  const usedDatasets=new Set();
+  const recentDatasets=new Set(recent.map(id=>repeatedDataset.get(id)).filter(Boolean));
   const lastSeen=new Map(recent.map((id,i)=>[id,i]));
   const rp5Focus=new Set([
     'r01','r02','r05','r06','r09','r12','r13',
@@ -235,12 +247,17 @@ function selectPhysicsSchool(questions,count,recent=[],quotas={}){
   const take=(pool,filter)=>{
     // Shuffle equally eligible candidates and prefer least recently used.
     // This avoids repeating a required-practical item unnecessarily.
-    const options=shuffle(pool.filter(q=>!seen.has(q.conceptId||q.id)&&filter(q)));
-    options.sort((a,b)=>(old.has(a.id)?1:0)-(old.has(b.id)?1:0)
+    const options=shuffle(pool.filter(q=>!seen.has(q.conceptId||q.id)
+      &&(!datasetFamily(q)||!usedDatasets.has(datasetFamily(q)))&&filter(q)));
+    // Prefer a fresh numerical dataset as well as a fresh question ID.
+    // This works across density-calculation and RP5 groups, not just in one.
+    const stale=q=>old.has(q.id)||Boolean(datasetFamily(q)&&recentDatasets.has(datasetFamily(q)));
+    options.sort((a,b)=>(stale(a)?1:0)-(stale(b)?1:0)
       ||(lastSeen.get(a.id)??-1)-(lastSeen.get(b.id)??-1));
     const q=options[0];
     if(!q)return false;
     selected.push(q);seen.add(q.conceptId||q.id);
+    if(datasetFamily(q))usedDatasets.add(datasetFamily(q));
     return true;
   };
   for(const [topic,quota] of Object.entries(quotas)){
