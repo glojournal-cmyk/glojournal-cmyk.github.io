@@ -103,7 +103,12 @@ for(const browserType of [chromium,webkit]){
      'Pastel must cover the full row at iPad and mobile widths, not just a subject pill');
    assert.equal(new Set(subjects.map(x=>x.rowBorder)).size,3,
      'Distinct subjects must have distinct matching borders, with both French entries sharing the same colour');
-   const trackerRow=trackerItems.first();
+   const frenchDueRow=trackerItems.first();
+   await frenchDueRow.locator('summary').first().click();
+   assert.ok(await frenchDueRow.locator('a[href="/assessment/french-nov26/"]').isVisible(),
+     'French 26 November writing assignment must open its dedicated 150-word practice');
+   await frenchDueRow.locator('summary').first().click();
+   const trackerRow=trackerItems.nth(1); // 16 November Biology, with a timed in-app paper
    assert.equal(await trackerRow.getAttribute('open'),null,'Tracker details must be closed by default');
    assert.equal(await page.locator('#tracker-list .assessment-tracker-head span').count(),5,'Table has clear aligned column headers');
    for(const cls of ['tracker-subject','tracker-title','tracker-date','tracker-status']){
