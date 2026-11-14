@@ -1,5 +1,14 @@
 name: Assessment iPad Preview QA
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'assessment/index.html'
+      - 'assessment/assessment-ipad-preview-20261020.css'
+      - 'assessment/app-v2.js'
+      - 'assessment/assessment-rpg-preview-20261020.js'
+      - 'tests/assessment-ipad-preview-browser.mjs'
+      - '.github/workflows/assessment-ipad-preview-qa.yml'
   pull_request:
     paths:
       - 'assessment/index.html'
