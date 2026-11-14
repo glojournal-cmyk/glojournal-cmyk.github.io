@@ -62,9 +62,9 @@ assert.match(app,/id:'physics-nov26'/);
 assert.ok(app.includes('/assessment/physics-nov26-20261113.json'));
 assert.match(app,/subject:'Physics'.*physics-nov26/);
 assert.match(app,/count:25,minutes:60/);
-const expectedQuotas={'Particle model & changes of state':8,'Density calculations':5,'Conduction & insulation':7,'RP2 thermal insulation':3,'RP5 density':2};
+const expectedQuotas={'Particle model & changes of state':8,'Density calculations':4,'Conduction & insulation':7,'RP2 thermal insulation':3,'RP5 density':3};
 for(const g of groupNames)assert.ok(app.includes("'"+g+"':"+expectedQuotas[g]),'quota missing for '+g);
-assert.ok(read('assessment/index.html').includes('app-v2.js?v=20261114-physics-bank200-a'));
+assert.ok(read('assessment/index.html').includes('app-v2.js?v=20261114-physics-bank200-b'));
 assert.ok(read('study/physics/index.html').includes('/assessment/?subject=physics'));
 const svg=read('assessment/diagrams/physics-nov26-rp2-cooling.svg');
 for(const val of ['53.1','60.3','68.4','Temperature (°C)','Time (minutes)','Bubble wrap','Newspaper','No insulation']){
