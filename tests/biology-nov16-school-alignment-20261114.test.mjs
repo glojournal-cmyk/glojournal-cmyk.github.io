@@ -29,7 +29,7 @@ assert.doesNotMatch(app,/x\.id!=='school-biology-20261116'/);
 assert.match(app,/[Hh]ome practice target 85%/);
 assert.match(school,/id:'school-biology-20261116'/);
 assert.ok(!index.includes('Biology: first GCSE assessment · week beginning 16 November'), 'Remove redundant banner to keep all mock cards visible on iPad');
-assert.match(index,/app-v2\.js\?v=20261114-biology-411-school-qa2/);
+assert.match(index,/app-v2\.js\?v=20261114-[^" ]+/, 'Assessment app revision must have a Nov 14 cache key');
 assert.equal((guide.match(/class="question"/g)||[]).length,156,'144 core and 12 extended');
 assert.equal((guide.match(/self-mark checklist/g)||[]).length,12);
 for(const marks of [4,6])assert.ok(guide.includes(`<span>${marks} marks</span>`),`missing ${marks}-mark extended questions`);
