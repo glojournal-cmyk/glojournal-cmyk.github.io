@@ -41,7 +41,7 @@ function grantWardrobe(id){
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
 const CHEMISTRY_REVISION='20260930-chem-fullmarks3';
-const bankUrl=p=>p.id==='physics-nov26'?`${p.bank}?v=20261114-school-v2`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261010-chem-marking1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
+const bankUrl=p=>p.id==='physics-nov26'?`${p.bank}?v=20261114-physics-qa3`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261010-chem-marking1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
   'inks.svg':'Figure 2: chromatogram with ink samples A to D',
@@ -200,7 +200,8 @@ function history(){
   $('#history-list').innerHTML=state.results.length?[...state.results].reverse().map(x=>{
     const marks=Number.isFinite(x.marks)?x.marks:x.correct;
     const score=Number.isFinite(x.score)?x.score:Math.round(marks/x.total*100);
-    return `<article class="entry"><div><span class="tag">${esc(x.date)} · ${esc(x.paper)}</span><h3>${formatMarks(marks)}/${x.total} marks · ${score}/100 · ${score>=85?'Passed':'Revise and retry'}</h3>${x.questions?.length&&followupItems(x).length?`<p>${followupItems(x).length} missed or partly correct questions to revisit.</p><button class="primary" data-followup="${state.results.indexOf(x)}">Practise these weak areas</button>`:''}</div></article>`;
+    const resultLabel=x.paperId==='physics-nov26'?(score>=85?'Practice target reached':'Below practice target'):(score>=85?'Passed':'Revise and retry');
+    return `<article class="entry"><div><span class="tag">${esc(x.date)} · ${esc(x.paper)}</span><h3>${formatMarks(marks)}/${x.total} marks · ${score}/100 · ${resultLabel}</h3>${x.questions?.length&&followupItems(x).length?`<p>${followupItems(x).length} missed or partly correct questions to revisit.</p><button class="primary" data-followup="${state.results.indexOf(x)}">Practise these weak areas</button>`:''}</div></article>`;
   }).join(''):'<p class="muted">Finish a paper to see its result here.</p>';
 }
 
@@ -260,6 +261,23 @@ function selectPhysicsSchool(questions,count,recent=[],quotas={}){
   }
   if(selected.length!==count)throw Error('School paper question count mismatch');
   return shuffle(selected);
+}
+
+function physicsNov26DraftSchoolAligned(draft){
+  if(!Array.isArray(draft?.questions)||draft.questions.length!==25)return false;
+  const questions=draft.questions;
+  if(new Set(questions.map(q=>q.id)).size!==25)return false;
+  const quotas={'Particle model & changes of state':5,'Density calculations':5,'Conduction & insulation':5,'RP2 thermal insulation':5,'RP5 density':5};
+  for(const [topic,count] of Object.entries(quotas)){
+    const subset=questions.filter(q=>q.topic===topic);
+    if(subset.length!==count||subset.filter(q=>Number(q.marks)>=3).length<2)return false;
+  }
+  const has=ids=>questions.some(q=>ids.includes(q.id));
+  return questions.some(q=>q.topic==='RP2 thermal insulation'&&q.diagram)
+    &&has(['phys-nov26-i08','phys-nov26-i13'])
+    &&has(['phys-nov26-r01','phys-nov26-r02','phys-nov26-r05','phys-nov26-r12','phys-nov26-r13'])
+    &&has(['phys-nov26-r03','phys-nov26-r06','phys-nov26-r09','phys-nov26-r11'])
+    &&has(['phys-nov26-d11','phys-nov26-d13','phys-nov26-d06']);
 }
 
 function select(questions,count,recent=[],quotas=null){
@@ -488,7 +506,7 @@ function chemistryTermMatch(text,term){
    presentation (AQA-style answer marks), and keep a visible point-by-point review. */
 function physicsNov26Mark(q,value){
   const points=q.answer?.points||[];
-  const raw=String(value??'').trim().normalize('NFKC').replace(/[−–]/g,'-');
+  const raw=String(value??'').trim().normalize('NFKC').replace(/[−–]/g,'-').replace(/[’‘]/g,"'");
   if(!raw)return {credit:0,status:'Incorrect',matched:0,total:points.length||1,pointResults:points.map(()=>false)};
   // Distinguish method, substitution and result marks. A correct final value by itself
   // must not award marks that require evidence of working in the teacher's scheme.
@@ -507,7 +525,8 @@ function physicsNov26Mark(q,value){
     const explicitRules=q.answer?.methodRules?.[index];
     const patterns=explicitRules?.length?explicitRules:[...(point.patterns||[]),...(point.variants||[])];
     return clauses.some(clause=>{
-      if(!noNegation(clause)&&!point.allowNegation)return false;
+      const safeClause=q.id==='phys-nov26-d13'?clause.replace(/\b(?:not|isn't|cannot\s+be)\s+pure\s+gold\b/gi,'impure gold'):clause;
+      if(!noNegation(safeClause)&&!point.allowNegation)return false;
       const canon=clause.normalize('NFKC').replace(/[−–]/g,'-')
         .replace(/cm³/gi,'cm3').replace(/m³/gi,'m3')
         .replace(/\bg\s*cm\s*(?:\^\s*)?-\s*3\b/gi,'g/cm3')
@@ -582,6 +601,12 @@ async function start(id){
     let draft=state.drafts[id];
     if(draft?.version!==2||(id==='latin-creusa'&&draft.questions.every(q=>q.options?.length))){delete state.drafts[id];draft=null}
     if(draft&&id==='physics-nov26'){
+      const hasExistingAnswers=Object.values(draft.answers||{}).some(value=>String(value||'').trim());
+      const aligned=physicsNov26DraftSchoolAligned(draft);
+      if(!aligned&&!hasExistingAnswers){delete state.drafts[id];draft=null;save();}
+      else if(!aligned&&hasExistingAnswers){draft.legacyPhysicsSchool=true;}
+    }
+    if(draft&&id==='physics-nov26'){
       const fresh=await fetch(bankUrl(p)).then(r=>r.json());
       const byId=new Map(fresh.groups.flatMap(g=>g.questions).map(q=>[q.id,q]));
       draft.questions=draft.questions.map(q=>byId.get(q.id)||q);save();
@@ -639,7 +664,7 @@ function renderTest(p,d){
   }
   function draw(){
     const i=d.index,q=d.questions[i],answer=d.answers[i]||'';
-    $('#exam').innerHTML=`<div class="exam-top"><div><span class="tag">${esc(p.name)} · ${p.minutes} min · pass 85%</span><h2>Question ${i+1} of ${d.questions.length}</h2></div><strong id="clock" aria-label="Time remaining"></strong></div><div class="progress"><div style="width:${100*(i+1)/d.questions.length}%"></div></div>${resumed?'<p role="status" class="feedback">Resumed saved paper. Your answers and place are preserved. Check the timer before continuing.</p>':''}<p class="muted">Answers are saved. Marking and model answers appear after you submit the whole paper.</p>${p.id==='latin-verbs'?'<p class="muted">From the verb table only. Present: I carry. Imperfect: I was carrying. Perfect: I carried. I have carried and I used to carry are also accepted. Say he, she or it for the third person singular.</p>':''}${q.passage?`<div class="feedback" style="white-space:pre-line;line-height:1.7"><b>Read the extract</b><br>${esc(q.passage)}</div>`:''}<p class="question">${esc(q.prompt)}</p>${['chemistry','biology-cell-structure','biology-nov2','physics-nov26'].includes(p.id)?`<p class="muted">${questionMarks(q)} marks · ${esc(p.id==='chemistry'?chemistryStage(q):q.topic)} · Give distinct points; show your working for calculations.</p>`:''}${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}?v=${CHEMISTRY_REVISION}" alt="${esc(q.diagramAlt||DIAGRAM_ALTS[q.diagram]||'Assessment question diagram')}">`:''}${Array.isArray(q.options)&&q.options.length?`<div id="choices">${q.options.map(o=>`<button class="choice ${answer===String(o)?'chosen':''}" data-choice="${esc(o)}">${esc(o)}</button>`).join('')}</div>`:`<label>Your answer<textarea class="answer" id="response" placeholder="Write your answer here">${esc(answer)}</textarea></label>`}<div class="exam-actions"><button id="prev" ${i===0?'disabled':''}>Previous</button><button id="next" class="primary">${i===d.questions.length-1?'Submit whole paper':'Next question'}</button></div><div class="exam-actions" style="margin-top:18px"><button id="pause">${d.running?'Pause timer':'Resume timer'}</button><button id="exit">Back to assessments</button></div>`;
+    $('#exam').innerHTML=`<div class="exam-top"><div><span class="tag">${esc(p.name)} · ${p.minutes} min · ${p.id==='physics-nov26'?'Practice target: 85% (not a school grade)':'pass 85%'}</span><h2>Question ${i+1} of ${d.questions.length}</h2></div><strong id="clock" aria-label="Time remaining"></strong></div><div class="progress"><div style="width:${100*(i+1)/d.questions.length}%"></div></div>${resumed?'<p role="status" class="feedback">Resumed saved paper. Your answers and place are preserved. Check the timer before continuing.</p>':''}${p.id==='physics-nov26'&&d.legacyPhysicsSchool?'<p role="status" class="feedback">This saved paper was created before the latest school-style selection rules. Your answers have been preserved, but this paper may not include every required practical question. Start a new paper after submitting to use the revised selection.</p>':''}<p class="muted">Answers are saved. Marking and model answers appear after you submit the whole paper.</p>${p.id==='latin-verbs'?'<p class="muted">From the verb table only. Present: I carry. Imperfect: I was carrying. Perfect: I carried. I have carried and I used to carry are also accepted. Say he, she or it for the third person singular.</p>':''}${q.passage?`<div class="feedback" style="white-space:pre-line;line-height:1.7"><b>Read the extract</b><br>${esc(q.passage)}</div>`:''}<p class="question">${esc(q.prompt)}</p>${['chemistry','biology-cell-structure','biology-nov2','physics-nov26'].includes(p.id)?`<p class="muted">${questionMarks(q)} marks · ${esc(p.id==='chemistry'?chemistryStage(q):q.topic)} · Give distinct points; show your working for calculations.</p>`:''}${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}?v=${CHEMISTRY_REVISION}" alt="${esc(q.diagramAlt||DIAGRAM_ALTS[q.diagram]||'Assessment question diagram')}">`:''}${Array.isArray(q.options)&&q.options.length?`<div id="choices">${q.options.map(o=>`<button class="choice ${answer===String(o)?'chosen':''}" data-choice="${esc(o)}">${esc(o)}</button>`).join('')}</div>`:`<label>Your answer<textarea class="answer" id="response" placeholder="Write your answer here">${esc(answer)}</textarea></label>`}<div class="exam-actions"><button id="prev" ${i===0?'disabled':''}>Previous</button><button id="next" class="primary">${i===d.questions.length-1?'Submit whole paper':'Next question'}</button></div><div class="exam-actions" style="margin-top:18px"><button id="pause">${d.running?'Pause timer':'Resume timer'}</button><button id="exit">Back to assessments</button></div>`;
     $('#response')?.addEventListener('input',e=>{d.answers[i]=e.target.value;save()});
     $('#choices')?.addEventListener('click',e=>{const b=e.target.closest('[data-choice]');if(b){d.answers[i]=b.dataset.choice;persist();draw()}});
     $('#prev').onclick=()=>{d.index--;persist();draw()};
@@ -762,7 +787,7 @@ function finish(p,d){
   delete state.drafts[p.id];save();cards();
 
   const resultSummary=`${full}/${d.questions.length} correct${partial?` · ${partial} partly correct`:''} · ${formatMarks(earned)}/${totalMarks} marks`;
-  $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${resultSummary}.  ${p.id==='physics-nov26'?'The 85% threshold is a home practice target, not the school pass grade. This is an original school-slide-aligned mock, not an official school exam. ':'Pass mark: 85/100. '}Review the answers below, then start a new paper for a different selection. Missed or partly correct questions enter Previous mistakes after 2 days; successful daily corrections return after 7 days.</p>${wardrobe}${Object.keys(missed).length?'<button id="practise-weak-areas" class="primary">Practise these weak areas</button>':''}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='latin-verbs'?'<p class="muted">English follows the verb table. Present is simple (I carry), imperfect is I was carrying, perfect is I carried. I have carried and I used to carry also score. you carry is accepted for both singular and plural; the model answer shows which one it is.</p>':''}${p.id==='latin-creusa'?'<p class="muted">Comprehension marking accepts equivalent wording. Where an answer contains only some required ideas, partial credit is awarded instead of an automatic zero.</p>':''}${p.id==='chemistry'?'<p class="muted">Marks are shown on the new exam-style questions. Each distinct correct point earns a mark, including method and final-answer marks for calculations. Older short questions remain worth one mark.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
+  $('#exam').innerHTML=`<h2>${p.id==='physics-nov26'?(score>=85?'Practice target reached':'Below practice target'):(score>=85?'Passed':'Not yet passed')} · ${score}/100</h2><p>${resultSummary}.  ${p.id==='physics-nov26'?'The 85% threshold is a home practice target, not the school pass grade. This is an original school-slide-aligned mock, not an official school exam. ':'Pass mark: 85/100. '}Review the answers below, then start a new paper for a different selection. Missed or partly correct questions enter Previous mistakes after 2 days; successful daily corrections return after 7 days.</p>${wardrobe}${Object.keys(missed).length?'<button id="practise-weak-areas" class="primary">Practise these weak areas</button>':''}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='latin-verbs'?'<p class="muted">English follows the verb table. Present is simple (I carry), imperfect is I was carrying, perfect is I carried. I have carried and I used to carry also score. you carry is accepted for both singular and plural; the model answer shows which one it is.</p>':''}${p.id==='latin-creusa'?'<p class="muted">Comprehension marking accepts equivalent wording. Where an answer contains only some required ideas, partial credit is awarded instead of an automatic zero.</p>':''}${p.id==='chemistry'?'<p class="muted">Marks are shown on the new exam-style questions. Each distinct correct point earns a mark, including method and final-answer marks for calculations. Older short questions remain worth one mark.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
   $('#back-to-papers').onclick=()=>show('papers');
   const followupButton=$('#practise-weak-areas');if(followupButton)followupButton.onclick=()=>startFollowup(state.results.length-1);
 }

@@ -9,7 +9,7 @@ const catalog=json('content/catalog.json');
 assert.equal(bank.subject,'physics');
 assert.equal(bank.year,9);
 assert.equal(bank.groups.length,5);
-assert.equal(bank.version,'2026-11-14-school-standard-v3');
+assert.ok(bank.version.startsWith('2026-11-14-school-standard-v3'), 'expected school-aligned question bank version');
 
 
 const totals=[13,13,13,13,13];
@@ -63,7 +63,7 @@ assert.ok(app.includes('/assessment/physics-nov26-20261113.json'));
 assert.match(app,/subject:'Physics'.*physics-nov26/);
 assert.match(app,/count:25,minutes:60/);
 for(const g of groupNames)assert.ok(app.includes("'"+g+"':5"),'quota missing for '+g);
-assert.ok(read('assessment/index.html').includes('app-v2.js?v=20261114-physics-school-v2'));
+assert.ok(read('assessment/index.html').includes('app-v2.js?v=20261114-physics-qa3'));
 assert.ok(read('study/physics/index.html').includes('/assessment/?subject=physics'));
 const svg=read('assessment/diagrams/physics-nov26-rp2-cooling.svg');
 for(const val of ['53.1','60.3','68.4','Temperature (°C)','Time (minutes)','Bubble wrap','Newspaper','No insulation']){

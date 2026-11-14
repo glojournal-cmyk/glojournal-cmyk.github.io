@@ -2,7 +2,7 @@
   "id": "year9-physics-november-2026",
   "subject": "physics",
   "year": 9,
-  "version": "2026-11-14-school-standard-v3",
+  "version": "2026-11-14-school-standard-v3-marking-hotfix",
   "sourceNote": "Original teacher-slide-aligned Year 9 mock practice (not an official school paper): Particles, Density, Conduction ONLY, RP2 and RP5. Convection and radiation are excluded. Includes 3–4 mark linked explanation and calculation questions; marking provides step-by-step credit.",
   "groups": [
     {
@@ -1322,13 +1322,17 @@
                 "patterns": [
                   "(?=.*(?:not\\s+pure\\s+gold|impure|cannot\\s+be\\s+pure\\s+gold))(?=.*(?:16\\.1|lower|less))(?=.*(?:19\\.3|gold)).*"
                 ],
-                "allowNegation": true
+                "allowNegation": false,
+                "variants": [
+                  "(?=.*(?:isn.t|not|impure))(?=.*pure\\s+gold)(?=.*(?:16\\.1|lower|less|below))(?=.*(?:19\\.3|gold)).*"
+                ]
               }
             ],
             "methodRules": [
               [
                 "density\\s*=\\s*mass\\s*(?:\\/|÷)\\s*volume",
-                "density\\s+(?:is|equals)\\s+mass\\s+(?:\\/|÷|divided\\s+by)\\s+volume"
+                "density\\s+(?:is|equals)\\s+mass\\s+(?:\\/|÷|divided\\s+by)\\s+volume",
+                "(?:ρ|rho)\\s*=\\s*9\\.65\\s*(?:\\/|÷)\\s*0\\.6(?:0)?"
               ],
               [
                 "9\\.65\\s*(?:\\/|÷|divided\\s+by)\\s*0\\.6(?:0)?"
@@ -1337,7 +1341,8 @@
                 "\\b16\\.(?:1|08\\d*)\\s*g\\s*\\/\\s*cm3\\b"
               ],
               [
-                "(?=.*(?:not\\s+pure\\s+gold|impure|cannot\\s+be\\s+pure))(?=.*(?:16\\.1|less|lower))(?=.*(?:19\\.3|gold)).*"
+                "(?=.*(?:not\\s+pure\\s+gold|impure|cannot\\s+be\\s+pure))(?=.*(?:16\\.1|less|lower))(?=.*(?:19\\.3|gold)).*",
+                "(?=.*(?:isn.t\\s+pure\\s+gold|not\\s+pure\\s+gold|not\\s+made\\s+of\\s+pure\\s+gold|impure))(?=.*(?:16\\.1|lower|less|below))(?=.*(?:19\\.3|gold)).*"
               ]
             ],
             "markingPolicy": "step_by_step"
