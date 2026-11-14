@@ -29,6 +29,11 @@
 
 ## Academic issues actually corrected in source materials
 
+**Additional independent self-mark audit:**
+- Ran the complete published Physics model answers through the actual school-assessment marking function. A density-method answer initially earned 3/4, revealing that the subtraction-credit regex required the word 'filled' despite the equivalent phrase 'combined mass'. The accepted rubric pattern was corrected, and the point's canonical label was included among its accepted alternatives. The full independent all-subject marking QA subsequently passed.
+- **Latin narrative ownership:** `amicus Romanus` could mean a Roman friend but did not explicitly mean **the Roman man's friend**. It was corrected to `amicus Romani` (genitive of Romanus), aligning the passage with its comprehension question.
+- **Biology red blood cell:** Item `bio-cell-20261114-103` changed from an over-simple 'small size gives a short diffusion path' to a biconcave shape that increases area and shortens diffusion path; flexibility helps the cell pass narrow capillaries. The marking points were updated.
+
 **Physics:**
 - `phys-nov26-c13` — previously awarded an irrelevant third mark for choosing low-conductivity materials even though **the two walls are explicitly made of the same material**. Recalibrated the question and marks to thickness, thermal resistance/path length and temperature gradient (3 points).
 - `phys-nov26-r05` — a 4-mark liquid-density method omitted the essential **filled-cylinder mass measurement**. Model now explicitly weighs empty and full cylinder, subtracts and divides by measured liquid volume with consistent units.
@@ -53,6 +58,7 @@
 ## Reproducible QA
 
 - `tests/academic-all-today-20261114.test.mjs`: ten cross-subject regression suites on current complete banks.
+- `tests/academic-content-cross-subject-20261114.test.mjs`: independent exam marking-path test, including **model response earns full credit / clearly wrong response earns zero** for each of the 200 Physics and 144 Biology model answers.
 - `.github/workflows/academic-all-today-20261114.yml`: run cross-subject QA on subsequent relevant content edits.
 - `tests/latin-november-2026-unseen-academic-qa.test.mjs`: exact source-form whitelist and all 50 independent approved MC keys.
 - Physics dedicated tests `tests/physics-nov26-*.test.mjs`; Biology `tests/biology-nov16-school-alignment-20261114.test.mjs`; Chemistry `tests/chemistry-*.test.mjs` plus released question/marking validators.
