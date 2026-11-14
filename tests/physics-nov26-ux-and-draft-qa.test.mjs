@@ -14,7 +14,7 @@ function body(begin,end,exported){
 const grader=body('function physicsNov26Mark(q,value){','\nfunction mark(q,value){','physicsNov26Mark');
 const draftIsSchool=body('function physicsNov26DraftSchoolAligned(draft){','\nfunction select(questions,count','physicsNov26DraftSchoolAligned');
 const select=body('function shuffle(a){','\nfunction select(questions,count','selectPhysicsSchool');
-const quotas={'Particle model & changes of state':8,'Density calculations':5,'Conduction & insulation':7,'RP2 thermal insulation':3,'RP5 density':2};
+const quotas={'Particle model & changes of state':8,'Density calculations':4,'Conduction & insulation':7,'RP2 thermal insulation':3,'RP5 density':3};
 const paper=select(questions,25,[],quotas);
 assert.equal(draftIsSchool({questions:paper}),true,'new exam must pass draft validation');
 assert.equal(draftIsSchool({questions:paper.slice(0,24)}),false,'short draft is outdated');
@@ -28,8 +28,8 @@ assert.ok(code.includes("This saved paper was created before the latest school-s
 assert.ok(code.includes("p.id==='physics-nov26'?'Practice target: 85% (not a school grade)'"),'exam header labels practice');
 assert.ok(code.includes("x.paperId==='physics-nov26'?(score>=85?'Practice target reached':'Below practice target')"),'history labels home practice');
 assert.ok(code.includes("p.id==='physics-nov26'?(score>=85?'Practice target reached':'Below practice target')"),'result headings label home practice');
-assert.ok(code.includes("v=20261114-physics-bank200-a"),'bank version cache');
-assert.ok(fs.readFileSync('assessment/index.html','utf8').includes('app-v2.js?v=20261114-physics-bank200-a'),'script cache');
+assert.ok(code.includes("v=20261114-physics-bank200-b"),'bank version cache');
+assert.ok(fs.readFileSync('assessment/index.html','utf8').includes('app-v2.js?v=20261114-physics-bank200-b'),'script cache');
 const ring=point('d13');
 const correct=[
  'Density = mass/volume = 9.65/0.60 = 16.1 g/cm³, so the ring is not pure gold since 16.1 is below 19.3 g/cm³.',
