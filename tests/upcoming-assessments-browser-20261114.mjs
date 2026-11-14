@@ -46,12 +46,15 @@ for(const [name,engine,viewport] of [
   await page.goto(base+'/assessment/french-nov26/',{waitUntil:'domcontentloaded'});
   await page.locator('[data-tab="vocab"]').click();
   assert.equal(await page.locator('#vocabitems input[type="text"]').count(),15,name+': French dictation set size');
+  assert.equal(await page.locator('#vocabrefdetails').isHidden(),true,name+': French answer reference hidden before submission');
   await page.locator('#vocabitems input[type="text"]').first().fill('test answer');
   await page.locator('#vocabfinish').click();
   await page.getByText('Practice score:',{exact:false}).waitFor();
+  assert.equal(await page.locator('#vocabrefdetails').isVisible(),true,name+': reference available only after marking');
   assert.equal(await page.locator('#vocabfinish').isDisabled(),true,name+': submitted dictation must be locked');
   await page.locator('#vocabnew').click();
   assert.equal(await page.locator('#vocabfinish').isEnabled(),true,name+': new French dictation attempt must unlock');
+  assert.equal(await page.locator('#vocabrefdetails').isHidden(),true,name+': fresh attempt re-locks the answer key');
 
   await page.locator('[data-tab="grammar"]').click();
   assert.equal(await page.locator('#grammaritems textarea').count(),12,name+': full-sentence set size');
