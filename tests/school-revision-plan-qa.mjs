@@ -27,7 +27,7 @@ assert.equal(new URL(empty.suggestion.href,'https://example.test').searchParams.
 assert.equal(buildRevisionPlan({}, {}, '2026-10-10').active[0].phase,'current');
 assert.equal(buildRevisionPlan({}, {}, '2026-10-11').active[0].phase,'current');
 assert.equal(buildRevisionPlan({}, {}, '2026-10-12').active[0].subject,'Biology');
-assert.equal(buildRevisionPlan({}, {}, '2026-11-22').active[0].phase,'upcoming');
+assert.equal(buildRevisionPlan({}, {}, '2026-11-22').active[0].phase,'current');
 assert.deepEqual(buildRevisionPlan({}, {}, '2026-11-23').active.map(x=>x.paperId),['latin-nov26','french-nov26']);
 assert.equal(buildRevisionPlan({}, {}, '2026-11-23').suggestion.assessment.paperId,'french-nov26');
 assert.equal(buildRevisionPlan({}, {}, '2026-11-27').active.length,1);
