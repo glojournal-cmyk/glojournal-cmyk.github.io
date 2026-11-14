@@ -50,6 +50,16 @@ for(const [suffix,response,expected] of equivalent){
  const got=scorer(q,response);
  assert.equal(got.matched,expected,q.id+' reasonable alternative answer '+JSON.stringify(got));
 }
+const liquidDensity=questions.get('phys-nov26-r05');
+for(const response of [
+ 'I weigh the empty measuring cylinder using a balance. I pour in a known volume of liquid and weigh the full measuring cylinder. I subtract the empty mass from the full mass to find the liquid mass. I calculate density by dividing liquid mass by liquid volume.',
+ 'Mass of empty cylinder recorded. Liquid volume measured, combined cylinder and liquid mass taken. Subtract empty cylinder mass from combined mass to get liquid mass. Density is mass divided by volume.',
+ 'I weigh the empty cylinder, pour a measured liquid volume into it and weigh the full cylinder. I calculate the mass of liquid as full minus empty. Density = mass/volume.'
+]){
+ const actual=scorer(liquidDensity,response);
+ assert.equal(actual.matched,4,'RP5 valid liquid procedure must earn 4/4 '+JSON.stringify(actual));
+}
+
 const contradictions=[
  ['p02','Solid particles are not close together and are not regular. They do not vibrate around fixed positions.'],
  ['p03','Gas particles do not have spaces between them, and liquids are not close together.'],
