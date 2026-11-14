@@ -554,9 +554,52 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     .filter(t=>t?.status==='enabled'&&Number(t.enabled??t.questions??0)>=15)
     .map(t=>({...t,subject:s,year:9,topicLabel:t.title||t.topicId})));
   const unmasteredY9=taught.filter(t=>masteryStage(state.topicStats?.[t.topicId])!=='mastered');
-  const year9Pool=unmasteredY9.length?unmasteredY9:taught;
-  const year9=pick('year9-light',year9Pool,t=>!coveredTopic(state,t.topicId),(a,b)=>
-    balancedCompare(a,b,exposure.year9,exposure.flex,subjects,today));
+  // Exam-focus Daily revision, 14–26 November only. Use existing, teacher-taught
+  // Year 9 French banks: no invented question IDs, no extra Daily credits.
+  // Crucially, an already-started or previously marked 15-question task stays
+  // pinned even if another subject was assigned before this release.
+  const frenchExamWindow=today>='2026-11-14'&&today<='2026-11-26';
+  const frenchExamTopicIds=[
+    'fr-y9-20260919-unit-1-holidays-and-opinions',
+    'fr-y9-oct17-future-tense-holidays',
+    'fr-y9-u1-perfect-tense',
+    'fr-y9-20260919-unit-1-places-and-activities',
+    'fr-y9-oct17-future-tense-holidays-reading-translation',
+    'fr-y9-20260919-unit-1-weather-and-future',
+    'fr-y9-20260919-perfect-tense-and-agreement',
+    'fr-y9-oct17-future-tense-holidays-vocabulary',
+    'fr-y9-20260919-useful-language-and-connectors'
+  ];
+  const examCandidates=frenchExamWindow?frenchExamTopicIds.map(id=>
+    taught.find(t=>t.subject==='french'&&t.topicId===id&&
+      t.status==='enabled'&&Number(t.enabled??t.questions??0)>=15)).filter(Boolean):[];
+  const examRecent=new Map();
+  for(const [date,row] of Object.entries(state.dailyLog||{})){
+    const age=dayNumber(today)-dayNumber(date);
+    if(!Number.isFinite(age)||age<1||age>6)continue;
+    for(const item of row?.tasks||[]){
+      if(item?.id!=='year9-light'||!item.assignedTopic)continue;
+      examRecent.set(item.assignedTopic,(examRecent.get(item.assignedTopic)||0)+1);
+    }
+  }
+  const examRank=new Map(frenchExamTopicIds.map((id,i)=>[id,i]));
+  const examStart=((dayNumber(today)%frenchExamTopicIds.length)+frenchExamTopicIds.length)%frenchExamTopicIds.length;
+  const examCompare=(a,b)=>
+    (examRecent.get(a.topicId)||0)-(examRecent.get(b.topicId)||0)||
+    ((examRank.get(a.topicId)-examStart+frenchExamTopicIds.length)%frenchExamTopicIds.length)-
+    ((examRank.get(b.topicId)-examStart+frenchExamTopicIds.length)%frenchExamTopicIds.length);
+  const oldYear9=previous.get('year9-light');
+  const y9Started=oldYear9&&(oldYear9.done===true||Number(oldYear9.progress)>0||
+    (Array.isArray(oldYear9.verifiedCorrectIds)&&oldYear9.verifiedCorrectIds.length>0)||
+    (state.formalAttemptLog||[]).some(e=>e.day===today&&e.dailyTaskId==='year9-light'));
+  // Only a genuinely untouched out-of-scope slot may be changed.
+  if(examCandidates.length&&oldYear9&&!y9Started&&!examCandidates.some(t=>t.topicId===oldYear9.assignedTopic))
+    previous.delete('year9-light');
+  const year9Pool=examCandidates.length?examCandidates:
+    unmasteredY9.length?unmasteredY9:taught;
+  const year9=pick('year9-light',year9Pool,examCandidates.length?()=>true:
+    t=>!coveredTopic(state,t.topicId),examCandidates.length?examCompare:
+    (a,b)=>balancedCompare(a,b,exposure.year9,exposure.flex,subjects,today));
   const vocab=s=>{
     const old=previous.get(s+'-vocab')||state.daily?.find(t=>t.id===s+'-vocab');
     // The 2026-10-19 home task used to read ONLY the new ledger, so an
@@ -574,7 +617,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     ...makeUpMastery,
     task('weakness-review',weak,'weak',10,availableWeak.length?'Repair weak concepts':'Consolidation · no recorded weak topic'),
     task('due-review',due,dueMode,dueCheck?5:10,dueCheck?'Year 8 Day 2/7 recall · five questions':dueMode==='weak'?'Consolidation · nothing due today':'Due review',dueCheck),
-    task('year9-light',year9,'standard',15,'Year 9 · light daily study')];
+    task('year9-light',year9,'standard',15,examCandidates.length&&year9?.subject==='french'?'Exam focus · French holidays, perfect/future tenses & written sentence practice · 15 questions':'Year 9 · light daily study')];
 }
 
 /* Restore an older 23 October Daily Record from the user's verified earlier
