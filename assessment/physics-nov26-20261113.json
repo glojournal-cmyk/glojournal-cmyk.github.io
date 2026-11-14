@@ -2,7 +2,7 @@
   "id": "year9-physics-november-2026",
   "subject": "physics",
   "year": 9,
-  "version": "2026-11-14-school-standard-v3-marking-hotfix",
+  "version": "2026-11-14-particle-expansion-draft",
   "sourceNote": "Original teacher-slide-aligned Year 9 mock practice (not an official school paper): Particles, Density, Conduction ONLY, RP2 and RP5. Convection and radiation are excluded. Includes 3–4 mark linked explanation and calculation questions; marking provides step-by-step credit.",
   "groups": [
     {
@@ -605,6 +605,1097 @@
             "extended"
           ],
           "schoolExamStyle": true
+        },
+        {
+          "id": "phys-nov26-p14",
+          "conceptId": "phys-nov26-p14",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "A sealed gas syringe is compressed at constant temperature. What changes most directly?",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "The spaces between gas particles become smaller."
+            ]
+          },
+          "modelAnswer": "The spaces between gas particles become smaller.",
+          "options": [
+            "The spaces between gas particles become smaller.",
+            "Each gas particle shrinks.",
+            "Particles turn into liquid molecules.",
+            "The number of gas particles increases."
+          ]
+        },
+        {
+          "id": "phys-nov26-p15",
+          "conceptId": "phys-nov26-p15",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which sample is easiest to compress?",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Air in a sealed syringe."
+            ]
+          },
+          "modelAnswer": "Air in a sealed syringe.",
+          "options": [
+            "Air in a sealed syringe.",
+            "Water in a sealed syringe.",
+            "A solid metal block.",
+            "A tightly packed lump of ice."
+          ]
+        },
+        {
+          "id": "phys-nov26-p16",
+          "conceptId": "phys-nov26-p16",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "A liquid is poured into a narrower container. What happens?",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "It keeps its volume but takes the new container's shape."
+            ]
+          },
+          "modelAnswer": "It keeps its volume but takes the new container's shape.",
+          "options": [
+            "It keeps its volume but takes the new container's shape.",
+            "It keeps its original shape and volume.",
+            "Its particles spread as far apart as gas particles.",
+            "Its mass increases automatically."
+          ]
+        },
+        {
+          "id": "phys-nov26-p17",
+          "conceptId": "phys-nov26-p17",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Why does a gas fill the whole of a sealed empty container?",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Its particles move freely in different directions."
+            ]
+          },
+          "modelAnswer": "Its particles move freely in different directions.",
+          "options": [
+            "Its particles move freely in different directions.",
+            "Its particles stay in fixed places.",
+            "Its particles increase in size until the container is full.",
+            "Its particles form a regular lattice."
+          ]
+        },
+        {
+          "id": "phys-nov26-p18",
+          "conceptId": "phys-nov26-p18",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which process is the change from liquid to solid?",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Freezing."
+            ]
+          },
+          "modelAnswer": "Freezing.",
+          "options": [
+            "Freezing.",
+            "Condensation.",
+            "Melting.",
+            "Sublimation."
+          ]
+        },
+        {
+          "id": "phys-nov26-p19",
+          "conceptId": "phys-nov26-p19",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which process describes a gas becoming a liquid on a cold window?",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Condensation."
+            ]
+          },
+          "modelAnswer": "Condensation.",
+          "options": [
+            "Condensation.",
+            "Evaporation.",
+            "Freezing.",
+            "Melting."
+          ]
+        },
+        {
+          "id": "phys-nov26-p20",
+          "conceptId": "phys-nov26-p20",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "A solid changes directly into a gas. What is this called?",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Sublimation."
+            ]
+          },
+          "modelAnswer": "Sublimation.",
+          "options": [
+            "Sublimation.",
+            "Condensation.",
+            "Boiling.",
+            "Freezing."
+          ]
+        },
+        {
+          "id": "phys-nov26-p21",
+          "conceptId": "phys-nov26-p21",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Where does evaporation occur in a liquid?",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "At its surface."
+            ]
+          },
+          "modelAnswer": "At its surface.",
+          "options": [
+            "At its surface.",
+            "Only at its bottom.",
+            "Only at its boiling point.",
+            "Throughout the liquid at every depth."
+          ]
+        },
+        {
+          "id": "phys-nov26-p22",
+          "conceptId": "phys-nov26-p22",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "When can water evaporate?",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "At temperatures below its boiling point."
+            ]
+          },
+          "modelAnswer": "At temperatures below its boiling point.",
+          "options": [
+            "At temperatures below its boiling point.",
+            "Only at exactly 100°C.",
+            "Only while solid ice is melting.",
+            "Only after all water has boiled."
+          ]
+        },
+        {
+          "id": "phys-nov26-p23",
+          "conceptId": "phys-nov26-p23",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "A sample of ice changes into liquid water. Which statement is correct?",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "The molecules remain H₂O; their arrangement and movement change."
+            ]
+          },
+          "modelAnswer": "The molecules remain H₂O; their arrangement and movement change.",
+          "options": [
+            "The molecules remain H₂O; their arrangement and movement change.",
+            "H₂O molecules become oxygen molecules.",
+            "New atoms are created.",
+            "The mass must double."
+          ]
+        },
+        {
+          "id": "phys-nov26-p24",
+          "conceptId": "phys-nov26-p24",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "A sealed bottle contains 250 g of water before freezing. What is the mass of ice afterward?",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "250 g."
+            ]
+          },
+          "modelAnswer": "250 g.",
+          "options": [
+            "250 g.",
+            "125 g.",
+            "500 g.",
+            "0 g."
+          ]
+        },
+        {
+          "id": "phys-nov26-p25",
+          "conceptId": "phys-nov26-p25",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which description matches a solid?",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Particles regularly arranged, close together and vibrating in position."
+            ]
+          },
+          "modelAnswer": "Particles regularly arranged, close together and vibrating in position.",
+          "options": [
+            "Particles regularly arranged, close together and vibrating in position.",
+            "Particles far apart and free to move.",
+            "Particles close together but moving past each other freely.",
+            "Particles stationary and not vibrating."
+          ]
+        },
+        {
+          "id": "phys-nov26-p26",
+          "conceptId": "phys-nov26-p26",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which statement about liquid particles is correct?",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "They are close together but can slide past one another."
+            ]
+          },
+          "modelAnswer": "They are close together but can slide past one another.",
+          "options": [
+            "They are close together but can slide past one another.",
+            "They are far apart like a gas.",
+            "They are in a fixed regular pattern.",
+            "They stop moving at room temperature."
+          ]
+        },
+        {
+          "id": "phys-nov26-p27",
+          "conceptId": "phys-nov26-p27",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "A gas is warmed while its container can expand. Which particle change best explains expansion?",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Particles move faster and become farther apart on average."
+            ]
+          },
+          "modelAnswer": "Particles move faster and become farther apart on average.",
+          "options": [
+            "Particles move faster and become farther apart on average.",
+            "Each particle becomes much bigger.",
+            "New particles are created by warming.",
+            "The particles stop moving."
+          ]
+        },
+        {
+          "id": "phys-nov26-p28",
+          "conceptId": "phys-nov26-p28",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "Why does a solid keep its shape whereas a liquid can flow? (3 marks)",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "In a solid particles vibrate about fixed positions. In a liquid particles can move past each other. Therefore liquid can flow to take a container's shape."
+            ],
+            "points": [
+              {
+                "label": "In a solid particles vibrate about fixed positions.",
+                "alternatives": [
+                  "In a solid particles vibrate about fixed positions."
+                ],
+                "patterns": [
+                  "(?=.*(?:solid))(?=.*(?:vibrat))(?=.*(?:fixed)).*"
+                ]
+              },
+              {
+                "label": "In a liquid particles can move past each other.",
+                "alternatives": [
+                  "In a liquid particles can move past each other."
+                ],
+                "patterns": [
+                  "(?=.*(?:liquid))(?=.*(?:move))(?=.*(?:past)).*"
+                ]
+              },
+              {
+                "label": "Therefore liquid can flow to take a container's shape.",
+                "alternatives": [
+                  "Therefore liquid can flow to take a container's shape."
+                ],
+                "patterns": [
+                  "(?=.*(?:liquid))(?=.*(?:flow))(?=.*(?:shape)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "In a solid particles vibrate about fixed positions. In a liquid particles can move past each other. Therefore liquid can flow to take a container's shape."
+        },
+        {
+          "id": "phys-nov26-p29",
+          "conceptId": "phys-nov26-p29",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "Explain why a sealed syringe of air can be compressed more easily than one filled with water. (3 marks)",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Gas particles have large spaces between them. Compression reduces those spaces between gas particles. Liquid particles are close together with very little empty space."
+            ],
+            "points": [
+              {
+                "label": "Gas particles have large spaces between them.",
+                "alternatives": [
+                  "Gas particles have large spaces between them."
+                ],
+                "patterns": [
+                  "(?=.*(?:gas))(?=.*(?:spaces)).*"
+                ]
+              },
+              {
+                "label": "Compression reduces those spaces between gas particles.",
+                "alternatives": [
+                  "Compression reduces those spaces between gas particles."
+                ],
+                "patterns": [
+                  "(?=.*(?:compress))(?=.*(?:spaces)).*"
+                ]
+              },
+              {
+                "label": "Liquid particles are close together with very little empty space.",
+                "alternatives": [
+                  "Liquid particles are close together with very little empty space."
+                ],
+                "patterns": [
+                  "(?=.*(?:liquid))(?=.*(?:close))(?=.*(?:space)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Gas particles have large spaces between them. Compression reduces those spaces between gas particles. Liquid particles are close together with very little empty space."
+        },
+        {
+          "id": "phys-nov26-p30",
+          "conceptId": "phys-nov26-p30",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "Describe particle arrangement and movement in a liquid compared with a solid. (3 marks)",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Solid particles form a regular arrangement. Liquid particles are close together in an irregular arrangement. Liquid particles move past each other whereas solid particles vibrate around fixed positions."
+            ],
+            "points": [
+              {
+                "label": "Solid particles form a regular arrangement.",
+                "alternatives": [
+                  "Solid particles form a regular arrangement."
+                ],
+                "patterns": [
+                  "(?=.*(?:solid))(?=.*(?:regular)).*"
+                ]
+              },
+              {
+                "label": "Liquid particles are close together in an irregular arrangement.",
+                "alternatives": [
+                  "Liquid particles are close together in an irregular arrangement."
+                ],
+                "patterns": [
+                  "(?=.*(?:liquid))(?=.*(?:irregular)).*"
+                ]
+              },
+              {
+                "label": "Liquid particles move past each other whereas solid particles vibrate around fixed positions.",
+                "alternatives": [
+                  "Liquid particles move past each other whereas solid particles vibrate around fixed positions."
+                ],
+                "patterns": [
+                  "(?=.*(?:liquid))(?=.*(?:move))(?=.*(?:solid))(?=.*(?:vibrat)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Solid particles form a regular arrangement. Liquid particles are close together in an irregular arrangement. Liquid particles move past each other whereas solid particles vibrate around fixed positions."
+        },
+        {
+          "id": "phys-nov26-p31",
+          "conceptId": "phys-nov26-p31",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "Explain why the mass of a sealed jar stays the same after water freezes. (2 marks)",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "The number of water particles stays the same. Freezing changes their arrangement but conserves mass."
+            ],
+            "points": [
+              {
+                "label": "The number of water particles stays the same.",
+                "alternatives": [
+                  "The number of water particles stays the same."
+                ],
+                "patterns": [
+                  "(?=.*(?:number))(?=.*(?:particles))(?=.*(?:same)).*"
+                ]
+              },
+              {
+                "label": "Freezing changes their arrangement but conserves mass.",
+                "alternatives": [
+                  "Freezing changes their arrangement but conserves mass."
+                ],
+                "patterns": [
+                  "(?=.*(?:freez))(?=.*(?:mass))(?=.*(?:conserv)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "The number of water particles stays the same. Freezing changes their arrangement but conserves mass."
+        },
+        {
+          "id": "phys-nov26-p32",
+          "conceptId": "phys-nov26-p32",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "Describe two ways that evaporation differs from boiling. (2 marks)",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Evaporation occurs only at the surface. Boiling occurs throughout the liquid at its boiling point."
+            ],
+            "points": [
+              {
+                "label": "Evaporation occurs only at the surface.",
+                "alternatives": [
+                  "Evaporation occurs only at the surface."
+                ],
+                "patterns": [
+                  "(?=.*(?:evaporat))(?=.*(?:surface)).*"
+                ]
+              },
+              {
+                "label": "Boiling occurs throughout the liquid at its boiling point.",
+                "alternatives": [
+                  "Boiling occurs throughout the liquid at its boiling point."
+                ],
+                "patterns": [
+                  "(?=.*(?:boil))(?=.*(?:throughout))(?=.*(?:point)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Evaporation occurs only at the surface. Boiling occurs throughout the liquid at its boiling point."
+        },
+        {
+          "id": "phys-nov26-p33",
+          "conceptId": "phys-nov26-p33",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A gas in a sealed syringe is compressed. Explain why volume falls but the number of gas particles does not change. (3 marks)",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Gas particles are far apart to start with. Compressing reduces the empty spaces between particles. The syringe stays sealed so the number of particles remains constant."
+            ],
+            "points": [
+              {
+                "label": "Gas particles are far apart to start with.",
+                "alternatives": [
+                  "Gas particles are far apart to start with."
+                ],
+                "patterns": [
+                  "(?=.*(?:gas))(?=.*(?:far apart)).*"
+                ]
+              },
+              {
+                "label": "Compressing reduces the empty spaces between particles.",
+                "alternatives": [
+                  "Compressing reduces the empty spaces between particles."
+                ],
+                "patterns": [
+                  "(?=.*(?:compress))(?=.*(?:space)).*"
+                ]
+              },
+              {
+                "label": "The syringe stays sealed so the number of particles remains constant.",
+                "alternatives": [
+                  "The syringe stays sealed so the number of particles remains constant."
+                ],
+                "patterns": [
+                  "(?=.*(?:seal))(?=.*(?:number))(?=.*(?:constant)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Gas particles are far apart to start with. Compressing reduces the empty spaces between particles. The syringe stays sealed so the number of particles remains constant."
+        },
+        {
+          "id": "phys-nov26-p34",
+          "conceptId": "phys-nov26-p34",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "Describe how particles change when water is heated until it boils. (3 marks)",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Heating transfers energy to water particles. Water particles move more rapidly with increased energy. During boiling particles separate and form gas throughout the liquid."
+            ],
+            "points": [
+              {
+                "label": "Heating transfers energy to water particles.",
+                "alternatives": [
+                  "Heating transfers energy to water particles."
+                ],
+                "patterns": [
+                  "(?=.*(?:heat))(?=.*(?:energy))(?=.*(?:particles)).*"
+                ]
+              },
+              {
+                "label": "Water particles move more rapidly with increased energy.",
+                "alternatives": [
+                  "Water particles move more rapidly with increased energy."
+                ],
+                "patterns": [
+                  "(?=.*(?:particles))(?=.*(?:move))(?=.*(?:energy)).*"
+                ]
+              },
+              {
+                "label": "During boiling particles separate and form gas throughout the liquid.",
+                "alternatives": [
+                  "During boiling particles separate and form gas throughout the liquid."
+                ],
+                "patterns": [
+                  "(?=.*(?:boil))(?=.*(?:gas))(?=.*(?:throughout)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Heating transfers energy to water particles. Water particles move more rapidly with increased energy. During boiling particles separate and form gas throughout the liquid."
+        },
+        {
+          "id": "phys-nov26-p35",
+          "conceptId": "phys-nov26-p35",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "Explain why a gas has neither fixed shape nor fixed volume. (2 marks)",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Gas particles move freely in different directions. They spread out to fill all available space in the container."
+            ],
+            "points": [
+              {
+                "label": "Gas particles move freely in different directions.",
+                "alternatives": [
+                  "Gas particles move freely in different directions."
+                ],
+                "patterns": [
+                  "(?=.*(?:gas))(?=.*(?:freely))(?=.*(?:direction)).*"
+                ]
+              },
+              {
+                "label": "They spread out to fill all available space in the container.",
+                "alternatives": [
+                  "They spread out to fill all available space in the container."
+                ],
+                "patterns": [
+                  "(?=.*(?:fill))(?=.*(?:space))(?=.*(?:container)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Gas particles move freely in different directions. They spread out to fill all available space in the container."
+        },
+        {
+          "id": "phys-nov26-p36",
+          "conceptId": "phys-nov26-p36",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "Explain the particle model of condensation on a cold surface. (2 marks)",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Gas particles transfer energy to the cold surface and move less rapidly. The particles move closer together to form liquid."
+            ],
+            "points": [
+              {
+                "label": "Gas particles transfer energy to the cold surface and move less rapidly.",
+                "alternatives": [
+                  "Gas particles transfer energy to the cold surface and move less rapidly."
+                ],
+                "patterns": [
+                  "(?=.*(?:gas))(?=.*(?:energy))(?=.*(?:less)).*"
+                ]
+              },
+              {
+                "label": "The particles move closer together to form liquid.",
+                "alternatives": [
+                  "The particles move closer together to form liquid."
+                ],
+                "patterns": [
+                  "(?=.*(?:particles))(?=.*(?:closer))(?=.*(?:liquid)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Gas particles transfer energy to the cold surface and move less rapidly. The particles move closer together to form liquid."
+        },
+        {
+          "id": "phys-nov26-p37",
+          "conceptId": "phys-nov26-p37",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "A student says that melting ice creates a new substance. Give two reasons this is incorrect. (2 marks)",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Both ice and water contain the same H2O molecules. Melting changes only the particle arrangement and movement."
+            ],
+            "points": [
+              {
+                "label": "Both ice and water contain the same H2O molecules.",
+                "alternatives": [
+                  "Both ice and water contain the same H2O molecules."
+                ],
+                "patterns": [
+                  "(?=.*(?:ice))(?=.*(?:water))(?=.*(?:same)).*"
+                ]
+              },
+              {
+                "label": "Melting changes only the particle arrangement and movement.",
+                "alternatives": [
+                  "Melting changes only the particle arrangement and movement."
+                ],
+                "patterns": [
+                  "(?=.*(?:melt))(?=.*(?:arrangement))(?=.*(?:movement)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Both ice and water contain the same H2O molecules. Melting changes only the particle arrangement and movement."
+        },
+        {
+          "id": "phys-nov26-p38",
+          "conceptId": "phys-nov26-p38",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "A balloon filled with air is heated and expands. Explain using particles. (2 marks)",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Air particles gain energy and move faster. The moving particles spread farther apart as the balloon expands."
+            ],
+            "points": [
+              {
+                "label": "Air particles gain energy and move faster.",
+                "alternatives": [
+                  "Air particles gain energy and move faster."
+                ],
+                "patterns": [
+                  "(?=.*(?:air))(?=.*(?:energy))(?=.*(?:faster)).*"
+                ]
+              },
+              {
+                "label": "The moving particles spread farther apart as the balloon expands.",
+                "alternatives": [
+                  "The moving particles spread farther apart as the balloon expands."
+                ],
+                "patterns": [
+                  "(?=.*(?:particles))(?=.*(?:farther apart))(?=.*(?:expand)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Air particles gain energy and move faster. The moving particles spread farther apart as the balloon expands."
+        },
+        {
+          "id": "phys-nov26-p39",
+          "conceptId": "phys-nov26-p39",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "Why do liquid water particles remain closer together than particles of water vapour? (2 marks)",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Water particles in a liquid are close together. Water vapour particles are widely spaced as they move freely as a gas."
+            ],
+            "points": [
+              {
+                "label": "Water particles in a liquid are close together.",
+                "alternatives": [
+                  "Water particles in a liquid are close together."
+                ],
+                "patterns": [
+                  "(?=.*(?:liquid))(?=.*(?:close)).*"
+                ]
+              },
+              {
+                "label": "Water vapour particles are widely spaced as they move freely as a gas.",
+                "alternatives": [
+                  "Water vapour particles are widely spaced as they move freely as a gas."
+                ],
+                "patterns": [
+                  "(?=.*(?:vapour|vapor))(?=.*(?:widely))(?=.*(?:gas)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Water particles in a liquid are close together. Water vapour particles are widely spaced as they move freely as a gas."
+        },
+        {
+          "id": "phys-nov26-p40",
+          "conceptId": "phys-nov26-p40",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "A sealed container of water vapour cools and forms droplets. Explain why the mass is unchanged. (2 marks)",
+          "hint": "Use the particle model to describe what the particles do, then link that to the observation.",
+          "examGuidance": {
+            "strategy": "One independent science point per mark. Answer the precise command word.",
+            "commonError": "Confusing changes in particle spacing or motion with a change in the particles themselves."
+          },
+          "source": "Original Year 9 Physics exam-style question based on the school's November 2026 scope: particle model of matter, conduction and RP2/RP5 where relevant. Not an official school exam.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Condensation changes the arrangement of the same water particles. No particles escape the sealed container, so mass is conserved."
+            ],
+            "points": [
+              {
+                "label": "Condensation changes the arrangement of the same water particles.",
+                "alternatives": [
+                  "Condensation changes the arrangement of the same water particles."
+                ],
+                "patterns": [
+                  "(?=.*(?:condens))(?=.*(?:same))(?=.*(?:particles)).*"
+                ]
+              },
+              {
+                "label": "No particles escape the sealed container, so mass is conserved.",
+                "alternatives": [
+                  "No particles escape the sealed container, so mass is conserved."
+                ],
+                "patterns": [
+                  "(?=.*(?:seal))(?=.*(?:mass))(?=.*(?:conserv)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Condensation changes the arrangement of the same water particles. No particles escape the sealed container, so mass is conserved."
         }
       ]
     },
