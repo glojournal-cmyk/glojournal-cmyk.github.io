@@ -68,3 +68,18 @@
 ## Final academic judgement and remaining limitations
 
 The audited content is usable as **source-aligned supplementary Year 9 assessment preparation** after the changes above. It is not the teacher's official paper, may not match the school's actual depth/format, and is not externally moderated by teachers or AQA/OCR. For Latin, continue free written unseen translation and comprehension beyond MC; for Science, check any open-ended automated rubric awards against the scientific reasoning; for French, have the extended essay read by a human. iPad end-to-end runtime QA and site-wide workflows are distinct technical tests and should not be inferred from academic tests. Check latest CI/Pages status independently.
+
+## Supplemental academic corrections (follow-up review on 14 November)
+
+Further source-by-source checks of the final **200-item Physics** and **144-item Biology** banks identified points which basic answer-key and regex tests could not detect. These changes were rebased selectively on the latest main branch to preserve concurrent Latin, Biology and Physics fixes.
+
+- **Physics `phys-nov26-i12` (4 marks):** request **all three** cooling temperature falls (no insulation 26.9°C, newspaper 19.7°C, bubble wrap 11.6°C), followed by a justified best-insulator choice. Previous question wording only requested two falls yet allocated three calculation marks.
+- **Physics `phys-nov26-c02` (2 marks):** the first marking point now addresses the hot *metal handle* mechanism instead of only saying the pan conducts heat *into food*. The second point explains the low conductivity of plastic reducing energy transfer to the hand.
+- **Physics `phys-nov26-c05` (2 marks):** ordinary double glazing is explained using a trapped **air/argon gas gap**; vacuum glazing is a separate specialist design. Both scoring points and accepted model were updated together.
+- **Biology `bio-cell-20261114-135` (2 marks):** prompt now explicitly asks why the inoculating loop is **flamed and allowed to cool**, matching two distinct rubric points, rather than asking only about cooling but awarding a sterilisation mark. The static printable guide is synchronised.
+- **Biology `bio-cell-20261114-079` (3 marks):** question now asks for structural features expected *if* the smaller cell is a bacterium; cell size alone does not determine bacterial identity. The 48/1.2 = 40 calculation and scoring remain unchanged; printed guide synchronised.
+- **Chemistry `chem-nov16-2026-history-applied-01` (3 marks):** three distinct Thomson/Rutherford differences are now separately awarded: positive charge distribution, electron placement, and largely empty atomic volume. Previously the first two criteria both rewarded describing the nucleus.
+
+**Known non-blocking quality concern:** Existing Physics IDs `d06`/`d12` use the same 2×3×5 cm, 8 g/cm³ cuboid; `d09`/`r06` also reuse the same displacement scenario. The arithmetic is correct but repeated numbers reduce practice variety. These historical question IDs were left untouched to avoid silently invalidating saved answers; future question-bank additions can use genuinely different data.
+
+**Tests:** `tests/academic-all-today-20261114.test.mjs` now includes explicit checks of the six corrected items and guide consistency. Detailed dedicated subject CI is also required; no school-/awarding-body moderation has been claimed.

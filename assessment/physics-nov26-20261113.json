@@ -4059,30 +4059,32 @@
           "answer": {
             "mode": "chemistry_rubric",
             "accepted": [
-              "Metal conducts heat efficiently into food. Plastic conducts poorly so the handle is cooler."
+              "The metal pan body is a good conductor, so thermal energy would also pass quickly along an uninsulated metal handle. Plastic has low thermal conductivity, so less thermal energy travels into the user's hand."
             ],
             "points": [
               {
-                "label": "Metal conducts heat efficiently into food.",
+                "label": "The metal pan body is a good conductor, so thermal energy would also pass quickly along an uninsulated metal handle.",
                 "alternatives": [
-                  "Metal conducts heat efficiently into food."
+                  "The metal pan body is a good conductor, so thermal energy would also pass quickly along an uninsulated metal handle.",
+                  "Metal conducts energy along a metal handle, making it hot."
                 ],
                 "patterns": [
-                  "(?=.*(?:metal))(?=.*(?:conduct)).*"
+                  "(?=.*(?:metal))(?=.*(?:conduct))(?=.*(?:handle|hot)).*"
                 ]
               },
               {
-                "label": "Plastic conducts poorly so the handle is cooler.",
+                "label": "Plastic has low thermal conductivity, so less thermal energy travels into the user's hand.",
                 "alternatives": [
-                  "Plastic conducts poorly so the handle is cooler."
+                  "Plastic has low thermal conductivity, so less thermal energy travels into the user's hand.",
+                  "Plastic is a poor conductor, keeping hands cooler."
                 ],
                 "patterns": [
-                  "(?=.*(?:plastic))(?=.*(?:poorly)).*"
+                  "(?=.*(?:plastic))(?=.*(?:poor conductor|low thermal conductivity|insulat)).*"
                 ]
               }
             ]
           },
-          "modelAnswer": "Metal conducts heat efficiently into food. Plastic conducts poorly so the handle is cooler.",
+          "modelAnswer": "The metal pan body is a good conductor, so thermal energy would also pass quickly along an uninsulated metal handle. Plastic has low thermal conductivity, so less thermal energy travels into the user's hand.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
           "examGuidance": {
             "strategy": "Each distinct idea earns one mark. For calculations, show working and the correct unit.",
@@ -4180,41 +4182,42 @@
           "answer": {
             "mode": "chemistry_rubric",
             "accepted": [
-              "Two panes enclose a gap containing gas or vacuum. The gas is a poor conductor while a vacuum blocks conduction across the gap."
+              "Two panes of glass trap a gap of still air or a low-conductivity gas such as argon. The trapped gas is a poor thermal conductor, so less energy is transferred through the gap by conduction."
             ],
             "points": [
               {
-                "label": "Two panes enclose a gap containing gas or vacuum.",
+                "label": "Two panes of glass trap a gap of still air or a low-conductivity gas such as argon.",
                 "alternatives": [
-                  "Two panes enclose a gap containing gas or vacuum."
+                  "Two panes of glass trap a gap of still air or a low-conductivity gas such as argon.",
+                  "There is an air or gas-filled gap between the two panes."
                 ],
                 "patterns": [
-                  "(?=.*(?:panes))(?=.*(?:gap)).*"
+                  "(?=.*(?:panes|glass))(?=.*(?:gap|air|argon|gas)).*"
                 ],
                 "variants": [
-                  "(?=.*(?:two|glass))(?=.*(?:panes))(?=.*(?:vacuum|gap|space)).*"
+                  "(?=.*(?:two|2|double))(?=.*(?:panes|glass))(?=.*(?:vacuum)).*"
                 ]
               },
               {
-                "label": "The gas is a poor conductor while a vacuum blocks conduction across the gap.",
+                "label": "The trapped gas is a poor thermal conductor, so less energy is transferred through the gap by conduction.",
                 "alternatives": [
-                  "The gas is a poor conductor while a vacuum blocks conduction across the gap."
+                  "The trapped gas is a poor thermal conductor, so less energy is transferred through the gap by conduction.",
+                  "Air/argon has low thermal conductivity, reducing heat transfer by conduction."
                 ],
                 "patterns": [
-                  "(?=.*(?:gas))(?=.*(?:poor conductor)).*"
+                  "(?=.*(?:air|argon|gas))(?=.*(?:poor conductor|low thermal conductivity|less|reduces|slower)).*"
                 ],
                 "variants": [
-                  "(?=.*(?:vacuum|evacuat))(?=.*(?:absence of particles|no particles|stops conduction|prevents conduction)).*",
-                  "(?=.*(?:absence of particles|no particles))(?=.*(?:stops|prevents|blocks))(?=.*(?:conduction|energy transfer)).*"
+                  "(?=.*(?:absence of particles|no particles))(?=.*(?:stops|prevents|blocks|reduces))(?=.*(?:conduction|energy transfer)).*"
                 ]
               }
             ]
           },
-          "modelAnswer": "Two panes enclose a gap containing gas or vacuum. The gas is a poor conductor while a vacuum blocks conduction across the gap.",
+          "modelAnswer": "Two panes of glass trap a gap of still air or a low-conductivity gas such as argon. The trapped gas is a poor thermal conductor, so less energy is transferred through the gap by conduction.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
           "examGuidance": {
             "strategy": "Each distinct idea earns one mark. For calculations, show working and the correct unit.",
-            "commonError": "Include the physical reason, and show numbers and units."
+            "commonError": "Standard double glazing normally traps air/argon gas; specialist vacuum double glazing also reduces conduction by removing particles, and a scientifically accurate answer about either mechanism should receive credit."
           },
           "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice."
         },
@@ -6310,7 +6313,7 @@
           "difficulty": 4,
           "format": "typed_rubric",
           "marks": 4,
-          "prompt": "Use the cooling graph. All three beakers start at 80°C. After 10 minutes their temperatures are 53.1°C (no insulation), 60.3°C (newspaper) and 68.4°C (bubble wrap). Calculate two drops and justify the best insulation. (4 marks)",
+          "prompt": "Use the cooling graph. All three beakers start at 80°C. After 10 minutes their temperatures are 53.1°C (no insulation), 60.3°C (newspaper) and 68.4°C (bubble wrap). Calculate all three temperature falls, then identify and justify the best insulation. (4 marks)",
           "answer": {
             "mode": "chemistry_rubric",
             "accepted": [

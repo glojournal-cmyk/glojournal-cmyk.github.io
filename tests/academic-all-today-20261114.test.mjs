@@ -269,3 +269,42 @@ test('French: teacher dictation vocabulary, 25 valid writing models and AQA High
   assert.match(frenchHtml,/if\(p\.ao2===0\)/);
   assert.match(frenchHtml,/accents are optional/i);
 });
+
+
+test('Academic-content corrections: Chemistry distinct historical contrasts, Biology independent marks, Physics valid rubrics',()=>{
+  const history=chemById.get('chem-nov16-2026-history-applied-01');
+  assert.equal(history.marks,3);
+  assert.equal(history.markScheme.length,3);
+  assert.match(history.markScheme[0],/positive charge was spread/);
+  assert.match(history.markScheme[1],/electrons outside/);
+  assert.match(history.markScheme[2],/empty/);
+  assert.equal(history.answer.accepted[0],history.markScheme.join(' '));
+
+  const aseptic=bioById.get('bio-cell-20261114-135');
+  assert.match(aseptic.prompt,/why an inoculating loop is flamed before use/);
+  assert.match(aseptic.prompt,/why it must cool/);
+  assert.equal(aseptic.marks,2);
+  assert.equal(aseptic.answer.points.length,2);
+  assert.match(aseptic.answer.points[0].label,/sterilis/);
+  assert.match(aseptic.answer.points[1].label,/prevents it from killing/);
+  assert.ok(biologyGuide.includes(aseptic.prompt),'Biology printable guide must reflect corrected wording');
+  const evidence=bioById.get('bio-cell-20261114-079');
+  assert.match(evidence.prompt,/features you would expect if B were a bacterium/);
+  assert.ok(biologyGuide.includes(evidence.prompt),'Biology guide must reflect qualified species inference');
+
+  const graph=phyById.get('phys-nov26-i12');
+  assert.match(graph.prompt,/Calculate all three temperature falls/);
+  assert.equal(graph.answer.points.length,4);
+  assert.equal(graph.marks,4);
+  assert.doesNotMatch(phyById.get('phys-nov26-c05').modelAnswer,/vacuum/);
+  for(const id of ['phys-nov26-c02','phys-nov26-c05']){
+    const item=phyById.get(id);
+    assert.equal(item.answer.points.length,2);
+    assert.ok(item.answer.accepted.includes(item.modelAnswer));
+    for(const point of item.answer.points){
+      assert.ok(point.patterns.some(p=>new RegExp(p,'i').test(item.modelAnswer)),
+        id+' model answer must satisfy each credited rubric point');
+    }
+  }
+  assert.equal(phys.length,200,'latest expanded Physics question supply must not regress');
+});
