@@ -249,19 +249,19 @@
       "conceptId": "bio-cell-20261114-103",
       "topic": "Cell specialisation",
       "specification": "4.1.1.3",
-      "prompt": "A mature red blood cell is small, flexible and lacks a nucleus. Explain how these features help oxygen delivery.",
+      "prompt": "A mature red blood cell is biconcave, flexible and lacks a nucleus. Explain how these features help oxygen delivery.",
       "format": "typed_rubric",
       "marks": 3,
       "answer": {
         "mode": "biology_rubric",
         "accepted": [
-          "Its small size provides a short path for oxygen diffusion. Its flexibility lets it pass through narrow capillaries. Lacking a nucleus creates more space for haemoglobin."
+          "Its biconcave shape gives a large surface area and short diffusion path for oxygen. Its flexibility lets it pass through narrow capillaries. Lacking a nucleus creates more space for haemoglobin."
         ],
         "points": [
           {
-            "label": "Its small size provides a short path for oxygen diffusion.",
+            "label": "Its biconcave shape gives a large surface area and short diffusion path for oxygen.",
             "patterns": [
-              "small.{0,60}(diffus|path|oxygen)"
+              "biconcave.{0,85}(surface area|diffus|oxygen)"
             ]
           },
           {
@@ -278,9 +278,9 @@
           }
         ]
       },
-      "modelAnswer": "Its small size provides a short path for oxygen diffusion. Its flexibility lets it pass through narrow capillaries. Lacking a nucleus creates more space for haemoglobin.",
+      "modelAnswer": "Its biconcave shape gives a large surface area and short diffusion path for oxygen. Its flexibility lets it pass through narrow capillaries. Lacking a nucleus creates more space for haemoglobin.",
       "markKeywords": [
-        "Its small size provides a short path for oxygen diffusion.",
+        "Its biconcave shape gives a large surface area and short diffusion path for oxygen.",
         "Its flexibility lets it pass through narrow capillaries.",
         "Lacking a nucleus creates more space for haemoglobin."
       ],
