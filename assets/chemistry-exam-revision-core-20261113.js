@@ -133,8 +133,9 @@ export function scorePaper(bank,session){
     if(!question)throw Error('A saved exam question is missing. Try reloading the question bank.');
     const response=String(session.answers?.[id]??'');
     const category=categoryOf(question),marks=marksOf(question);
-    const pending=isRubric(question)&&(session.reviewMarks?.[id]===undefined||session.reviewMarks?.[id]===null);
-    const awarded=pending?null:isRubric(question)?Number(session.reviewMarks[id]):(isCorrect(question,response)?1:0);
+    const unanswered=!response.trim();
+    const pending=isRubric(question)&&!unanswered&&(session.reviewMarks?.[id]===undefined||session.reviewMarks?.[id]===null);
+    const awarded=unanswered?0:pending?null:isRubric(question)?Number(session.reviewMarks[id]):(isCorrect(question,response)?1:0);
     if(awarded!==null&&(!Number.isInteger(awarded)||awarded<0||awarded>marks))
       throw Error('Invalid reviewed mark for '+id);
     const correct=awarded===null?null:awarded===marks;
