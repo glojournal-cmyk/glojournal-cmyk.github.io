@@ -466,7 +466,7 @@ function physicsNov26Mark(q,value){
   if(calcFinal&&calcFinal.test(units)&&noNegation(raw)){
     return {credit:1,status:'Correct',matched:points.length,total:points.length,pointResults:points.map(()=>true)};
   }
-  const clauses=raw.split(/(?<=[.!?;])\s+|\n+/).map(s=>s.trim()).filter(Boolean);
+  const clauses=raw.split(/(?<=[.!?])\s+|\n+/).map(s=>s.trim()).filter(Boolean);
   const pointResults=points.map(p=>clauses.some(clause=>{
     if(!noNegation(clause)&&!p.allowNegation)return false;
     return [...(p.patterns||[]),...(p.variants||[])].some(pattern=>new RegExp(pattern,'i').test(clause));
