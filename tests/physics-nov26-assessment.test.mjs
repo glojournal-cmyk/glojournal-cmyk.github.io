@@ -57,7 +57,7 @@ assert.ok(app.includes('/assessment/physics-nov26-20261113.json'));
 assert.match(app,/subject:'Physics'.*physics-nov26/);
 assert.match(app,/count:25,minutes:45/);
 for(const g of groupNames)assert.ok(app.includes("'"+g+"':5"),'quota missing for '+g);
-assert.ok(read('assessment/index.html').includes('app-v2.js?v=20261113-physics-nov26'));
+assert.ok(read('assessment/index.html').includes('app-v2.js?v=20261114-physics-marking2'));
 assert.ok(read('study/physics/index.html').includes('/assessment/?subject=physics'));
 const svg=read('assessment/diagrams/physics-nov26-rp2-cooling.svg');
 for(const val of ['53.1','60.3','68.4','Temperature (°C)','Time (minutes)','Bubble wrap','Newspaper','No insulation']){

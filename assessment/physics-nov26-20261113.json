@@ -2,7 +2,7 @@
   "id": "year9-physics-november-2026",
   "subject": "physics",
   "year": 9,
-  "version": "2026-11-13",
+  "version": "2026-11-14-marking-qa2",
   "sourceNote": "Original AQA-style school test preparation using November 2026 teacher notice and supplied revision slides. Convection and radiation excluded from this dedicated exam.",
   "groups": [
     {
@@ -63,6 +63,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:close))(?=.*(?:regular)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:packed|touching))(?=.*(?:ordered|lattice)).*"
                 ]
               },
               {
@@ -72,6 +75,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:vibrat))(?=.*(?:fixed)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:oscillat|vibrat))(?=.*(?:fixed|location)).*"
                 ]
               }
             ]
@@ -108,6 +114,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:gas))(?=.*(?:spac)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:gas|gaseous))(?=.*(?:gaps|separated|far apart)).*"
                 ]
               },
               {
@@ -117,6 +126,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:liquid))(?=.*(?:close)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:liquid))(?=.*(?:almost no gaps|very few gaps|little gaps|closely packed)).*"
                 ]
               }
             ]
@@ -162,6 +174,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:mass))(?=.*(?:conserv)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:no matter|nothing|none))(?=.*(?:lost|leaves|escaped)).*"
                 ]
               }
             ]
@@ -350,6 +365,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:gas))(?=.*(?:random)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:gas|molecules))(?=.*(?:all directions|randomly)).*"
                 ]
               },
               {
@@ -1032,6 +1050,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:panes))(?=.*(?:gap)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:two|glass))(?=.*(?:panes))(?=.*(?:vacuum|gap|space)).*"
                 ]
               },
               {
@@ -1041,6 +1062,10 @@
                 ],
                 "patterns": [
                   "(?=.*(?:gas))(?=.*(?:poor conductor)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:vacuum|evacuat))(?=.*(?:absence of particles|no particles|stops conduction|prevents conduction)).*",
+                  "(?=.*(?:absence of particles|no particles))(?=.*(?:stops|prevents|blocks))(?=.*(?:conduction|energy transfer)).*"
                 ]
               }
             ]
@@ -1077,6 +1102,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:fibreglass))(?=.*(?:traps air)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:mineral wool|wool|fibreglass))(?=.*(?:air pockets|trapped air|small air)).*"
                 ]
               },
               {
@@ -1086,6 +1114,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:air))(?=.*(?:low))(?=.*(?:conduct)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:air))(?=.*(?:not good|poor|bad|low))(?=.*(?:energy|heat|conduction|transferr)).*"
                 ]
               }
             ]
@@ -1122,6 +1153,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:air))(?=.*(?:separat)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:air))(?=.*(?:widely spaced|far apart|largely separated)).*"
                 ]
               },
               {
@@ -1279,6 +1313,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:independent))(?=.*(?:insulation)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:changed|varied|altered))(?=.*(?:insulat)).*"
                 ]
               },
               {
@@ -1288,6 +1325,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:dependent))(?=.*(?:temperature)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:measured|recorded))(?=.*(?:temperature|cooling)).*"
                 ]
               }
             ]
@@ -1324,6 +1364,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:same))(?=.*(?:volume)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:same|constant|identical))(?=.*(?:amount|quantity|volume|mass))(?=.*(?:water)).*"
                 ]
               },
               {
@@ -1333,6 +1376,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:same))(?=.*(?:starting)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:same|constant|identical))(?=.*(?:initial|starting))(?=.*(?:temperature)).*"
                 ]
               }
             ]
@@ -1421,7 +1467,9 @@
             "strategy": "Each distinct idea earns one mark. For calculations, show working and the correct unit.",
             "commonError": "Include the physical reason, and show numbers and units."
           },
-          "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice."
+          "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice.",
+          "diagram": "physics-nov26-rp2-cooling.svg",
+          "diagramAlt": "Illustrative RP2 cooling-curve graph: all three beakers start at 80°C; after 10 minutes, no insulation 53.1°C, newspaper 60.3°C and bubble wrap 68.4°C."
         },
         {
           "id": "phys-nov26-i05",
@@ -1447,6 +1495,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:bubble wrap))(?=.*(?:smaller)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:bubble wrap))(?=.*(?:only drops|drops by|cools less|smaller)).*"
                 ]
               },
               {
@@ -1465,6 +1516,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:less))(?=.*(?:energy))(?=.*(?:time)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:less|lower))(?=.*(?:thermal energy|heat|energy transferred)).*"
                 ]
               }
             ]
@@ -1475,7 +1529,9 @@
             "strategy": "Each distinct idea earns one mark. For calculations, show working and the correct unit.",
             "commonError": "Include the physical reason, and show numbers and units."
           },
-          "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice."
+          "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice.",
+          "diagram": "physics-nov26-rp2-cooling.svg",
+          "diagramAlt": "Illustrative RP2 cooling-curve graph: all three beakers start at 80°C; after 10 minutes, no insulation 53.1°C, newspaper 60.3°C and bubble wrap 68.4°C."
         },
         {
           "id": "phys-nov26-i06",
@@ -1501,6 +1557,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:lids))(?=.*(?:top)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:lids?))(?=.*(?:evaporation|top|heat loss)).*"
                 ]
               },
               {
@@ -1749,7 +1808,9 @@
             "strategy": "Each distinct idea earns one mark. For calculations, show working and the correct unit.",
             "commonError": "Include the physical reason, and show numbers and units."
           },
-          "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice."
+          "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice.",
+          "diagram": "physics-nov26-rp2-cooling.svg",
+          "diagramAlt": "Illustrative RP2 cooling-curve graph: all three beakers start at 80°C; after 10 minutes, no insulation 53.1°C, newspaper 60.3°C and bubble wrap 68.4°C."
         }
       ]
     },
@@ -1843,6 +1904,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:Eureka))(?=.*(?:spout)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:fill|filled))(?=.*(?:overflow vessel|eureka can|displacement can))(?=.*(?:spout)).*"
                 ]
               },
               {
@@ -1852,6 +1916,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:rock))(?=.*(?:displaced)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:immerse|immers|submerge|lower))(?=.*(?:object|rock|stone))(?=.*(?:water|displac)).*"
                 ]
               },
               {
@@ -1897,6 +1964,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:parallax))(?=.*(?:angle)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:read|reading|view|looking))(?=.*(?:above|below|angle))(?=.*(?:error)).*"
                 ]
               },
               {
@@ -1906,6 +1976,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:eye level))(?=.*(?:meniscus)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:eyes|eye))(?=.*(?:level))(?=.*(?:meniscus)).*"
                 ]
               }
             ]
@@ -1942,6 +2015,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:tare|taring))(?=.*(?:container)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:zero|tare))(?=.*(?:balance|container|cylinder)).*"
                 ]
               },
               {
@@ -1987,6 +2063,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:volume))(?=.*(?:cylinder)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:known|given|measured))(?=.*(?:volume))(?=.*(?:cylinder)).*"
                 ]
               },
               {
@@ -2180,6 +2259,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:air bubbles))(?=.*(?:volume)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:air|bubbles|trapped air))(?=.*(?:displaces|overestimat|extra))(?=.*(?:water|volume)).*"
                 ]
               },
               {
@@ -2198,6 +2280,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:density))(?=.*(?:low)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:density))(?=.*(?:underestimated|underestimate|lower|low)).*"
                 ]
               }
             ]
@@ -2265,6 +2350,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:final))(?=.*(?:minus))(?=.*(?:initial)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:50))(?=.*(?:31))(?=.*(?:subtract|minus|-)).*"
                 ]
               },
               {
@@ -2288,5 +2376,6 @@
         }
       ]
     }
-  ]
+  ],
+  "qualityNote": "The model-answer and format checks passed; an additional marking-variant and negation regression suite is used for this bank. Automated extended-response marks remain provisional and should be reviewed against the marking points for scientifically equivalent wording."
 }

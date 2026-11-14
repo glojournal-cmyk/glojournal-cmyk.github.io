@@ -41,7 +41,7 @@ function grantWardrobe(id){
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
 const CHEMISTRY_REVISION='20260930-chem-fullmarks3';
-const bankUrl=p=>p.id==='physics-nov26'?`${p.bank}?v=20261113-1`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261010-chem-marking1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
+const bankUrl=p=>p.id==='physics-nov26'?`${p.bank}?v=20261114-marking2`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261010-chem-marking1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
   'inks.svg':'Figure 2: chromatogram with ink samples A to D',
@@ -434,11 +434,54 @@ function chemistryTermMatch(text,term){
   return needles.length>0&&needles.every(n=>hay.includes(n)||hay.some(h=>Math.min(h.length,n.length)>=4&&(h.startsWith(n)||n.startsWith(h))));
 }
 
+
+/* November Physics: mark only coherent clauses, not keywords scattered across
+   contradictory sentences. Recognise correct numeric answers independently of
+   presentation (AQA-style answer marks), and keep a visible point-by-point review. */
+function physicsNov26Mark(q,value){
+  const points=q.answer?.points||[];
+  const raw=String(value??'').trim().normalize('NFKC').replace(/[−–]/g,'-');
+  if(!raw)return {credit:0,status:'Incorrect',matched:0,total:points.length||1,pointResults:points.map(()=>false)};
+  const noNegation=s=>!/\b(?:not|never|don't|doesn't|didn't|cannot|can't|isn't|aren't|wasn't|weren't|is\s+false)\b/i.test(s.replace(/\bnot\s+good(?:\s+at)?\b/gi,''));
+  const units=raw.replace(/cm\s*\^\s*3/gi,'cm3').replace(/m\s*\^\s*3/gi,'m3')
+    .replace(/\bg\s*cm\s*(?:\^\s*)?-\s*3\b/gi,'g/cm3')
+    .replace(/\bkg\s*m\s*(?:\^\s*)?-\s*3\b/gi,'kg/m3')
+    .replace(/\bg\s+per\s+cubic\s+centimet(?:re|er)s?\b/gi,'g/cm3')
+    .replace(/\bkg\s+per\s+cubic\s+met(?:re|er)s?\b/gi,'kg/m3')
+    .replace(/\s+/g,' ');
+  const finalAnswers={
+    'phys-nov26-d02':/\b2\.7\s*g\s*\/\s*cm3\b/i,
+    'phys-nov26-d03':/\b135\s*g\b/i,
+    'phys-nov26-d04':/\b50\s*cm3\b/i,
+    'phys-nov26-d06':/\b0\.24\s*kg\b/i,
+    'phys-nov26-d08':/\b600\s*kg\s*\/\s*m3\b/i,
+    'phys-nov26-d09':/\b3\s*g\s*\/\s*cm3\b/i,
+    'phys-nov26-i04':/\b19\.7\s*(?:°\s*C|degrees?\s*C(?:elsius)?|C)\b/i,
+    'phys-nov26-i11':/\b1\.16\s*(?:°\s*C\s*\/\s*min|degrees?\s*(?:Celsius)?\s*(?:per|\/)\s*min(?:ute)?s?)\b/i,
+    'phys-nov26-r06':/\b3\s*g\s*\/\s*cm3\b/i,
+    'phys-nov26-r11':/\b19\s*cm3\b/i
+  };
+  // A correct final numerical answer with its unit earns full credit.
+  const calcFinal=finalAnswers[q.id];
+  if(calcFinal&&calcFinal.test(units)&&noNegation(raw)){
+    return {credit:1,status:'Correct',matched:points.length,total:points.length,pointResults:points.map(()=>true)};
+  }
+  const clauses=raw.split(/(?<=[.!?])\s+|\n+/).map(s=>s.trim()).filter(Boolean);
+  const pointResults=points.map(p=>clauses.some(clause=>{
+    if(!noNegation(clause)&&!p.allowNegation)return false;
+    return [...(p.patterns||[]),...(p.variants||[])].some(pattern=>new RegExp(pattern,'i').test(clause));
+  }));
+  const matched=pointResults.filter(Boolean).length;
+  const credit=points.length?matched/points.length:0;
+  return {credit,status:credit>=0.999?'Correct':credit>0?'Partly correct':'Incorrect',matched,total:points.length||1,pointResults};
+}
+
 function mark(q,value){
   if(!String(value||'').trim())return {credit:0,status:'Incorrect',matched:0,total:q.answer?.points?.length||1,pointResults:(q.answer?.points||[]).map(()=>false)};
   const mode=q.answer?.mode;
   const rule=q.answer?.normalization||{};
   const flexible=String(q.id||'').startsWith('creusa-');
+  if(String(q.id||'').startsWith('phys-nov26-')&&mode==='chemistry_rubric')return physicsNov26Mark(q,value);
 
   if(mode==='chemistry_rubric'){
     const points=q.answer.points||[];
