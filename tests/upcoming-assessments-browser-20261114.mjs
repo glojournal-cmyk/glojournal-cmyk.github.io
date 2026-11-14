@@ -27,11 +27,11 @@ for(const [name,engine,viewport] of [
   ]){
     const row=page.locator('#tracker-list .assessment-tracker-entry').filter({hasText:paperId==='chemistry-nov16'?'Formulae, equations':paperId==='latin-nov26'?'Taylor Chapters 1–3':'Assessment 1'});
     assert.equal(await row.count(),1,name+': missing unique row for '+paperId);
-    await row.locator('summary').click();
+    await row.locator('.assessment-tracker-item > summary').click();
     assert.equal(await row.locator('.assessment-tracker-actions a.primary').getAttribute('href'),href,name+': route mismatch '+paperId);
   }
   const bioRow=page.locator('.assessment-tracker-entry').filter({hasText:'AQA 4.1.1 Cell structure'});
-  await bioRow.locator('summary').click();
+  await bioRow.locator('.assessment-tracker-item > summary').click();
   await bioRow.locator('[data-tracker-paper="biology-cell-structure"]').click();
   await page.locator('#exam .question').waitFor({timeout:20000});
   assert.match(await page.locator('#exam').innerText(),/Question 1 of 24/,name+': Biology paper not launched');
