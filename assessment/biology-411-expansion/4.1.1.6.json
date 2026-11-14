@@ -1,0 +1,528 @@
+{
+  "specification": "4.1.1.6",
+  "topic": "Culturing microorganisms",
+  "questions": [
+    {
+      "id": "bio-cell-20261114-133",
+      "conceptId": "bio-cell-20261114-133",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A bacterium doubles every 15 minutes under ideal conditions. Starting from one bacterium, calculate the population after one hour and state the number of doublings.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "There are four doublings in 60 minutes. The population after four doublings is 16 bacteria."
+        ],
+        "points": [
+          {
+            "label": "There are four doublings in 60 minutes.",
+            "patterns": [
+              "(4|four).{0,25}doubl|60\\s*/\\s*15"
+            ]
+          },
+          {
+            "label": "The population after four doublings is 16 bacteria.",
+            "patterns": [
+              "\\b16\\b"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "There are four doublings in 60 minutes. The population after four doublings is 16 bacteria.",
+      "markKeywords": [
+        "There are four doublings in 60 minutes.",
+        "The population after four doublings is 16 bacteria."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-134",
+      "conceptId": "bio-cell-20261114-134",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "Explain two reasons the lid of a school agar plate should remain closed as much as possible.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Keeping the lid closed reduces entry of unwanted airborne microorganisms. It also reduces the chance that microorganisms from the culture escape."
+        ],
+        "points": [
+          {
+            "label": "Keeping the lid closed reduces entry of unwanted airborne microorganisms.",
+            "patterns": [
+              "(lid|closed).{0,75}(airborne|contamin|microorganism)"
+            ]
+          },
+          {
+            "label": "It also reduces the chance that microorganisms from the culture escape.",
+            "patterns": [
+              "(escape|spread|release).{0,60}(micro|bacter|culture)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Keeping the lid closed reduces entry of unwanted airborne microorganisms. It also reduces the chance that microorganisms from the culture escape.",
+      "markKeywords": [
+        "Keeping the lid closed reduces entry of unwanted airborne microorganisms.",
+        "It also reduces the chance that microorganisms from the culture escape."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-135",
+      "conceptId": "bio-cell-20261114-135",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A student heats an inoculating loop until it is sterile. Why should the loop cool before it touches the intended bacterial culture?",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Flaming the loop kills microorganisms already on it. Cooling prevents the hot loop killing the bacteria that are to be cultured."
+        ],
+        "points": [
+          {
+            "label": "Flaming the loop kills microorganisms already on it.",
+            "patterns": [
+              "(flam|heat|sterili).{0,65}(kill|microorganism|bacter)"
+            ]
+          },
+          {
+            "label": "Cooling prevents the hot loop killing the bacteria that are to be cultured.",
+            "patterns": [
+              "(cool|hot).{0,75}(kill|bacter|culture)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Flaming the loop kills microorganisms already on it. Cooling prevents the hot loop killing the bacteria that are to be cultured.",
+      "markKeywords": [
+        "Flaming the loop kills microorganisms already on it.",
+        "Cooling prevents the hot loop killing the bacteria that are to be cultured."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-136",
+      "conceptId": "bio-cell-20261114-136",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "Why must an agar plate be incubated at no more than 25°C in school and why should it be kept upside down?",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "A maximum of 25°C reduces the risk of growing human pathogens. Upside-down incubation prevents condensation dripping onto and spreading colonies."
+        ],
+        "points": [
+          {
+            "label": "A maximum of 25°C reduces the risk of growing human pathogens.",
+            "patterns": [
+              "\\b25\\s*(°|degree|c|celsius).{0,75}(pathogen|disease|harm|risk)"
+            ]
+          },
+          {
+            "label": "Upside-down incubation prevents condensation dripping onto and spreading colonies.",
+            "patterns": [
+              "(upside.down|invert).{0,70}(condens|water|drip|spread)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "A maximum of 25°C reduces the risk of growing human pathogens. Upside-down incubation prevents condensation dripping onto and spreading colonies.",
+      "markKeywords": [
+        "A maximum of 25°C reduces the risk of growing human pathogens.",
+        "Upside-down incubation prevents condensation dripping onto and spreading colonies."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-137",
+      "conceptId": "bio-cell-20261114-137",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "Calculate the area of a circular inhibition zone 10 mm in diameter. State its radius and area using π = 3.14.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The radius is 10 ÷ 2 = 5 mm. Area = 3.14 × 5² = 78.5 mm²."
+        ],
+        "points": [
+          {
+            "label": "The radius is 10 ÷ 2 = 5 mm.",
+            "patterns": [
+              "\\b5\\s*mm"
+            ]
+          },
+          {
+            "label": "Area = 3.14 × 5² = 78.5 mm².",
+            "patterns": [
+              "78\\.5\\s*mm\\s*(\\^?2|²|squared)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The radius is 10 ÷ 2 = 5 mm. Area = 3.14 × 5² = 78.5 mm².",
+      "markKeywords": [
+        "The radius is 10 ÷ 2 = 5 mm.",
+        "Area = 3.14 × 5² = 78.5 mm²."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-138",
+      "conceptId": "bio-cell-20261114-138",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A Petri dish is contaminated before an antibiotic test starts. Give two ways this affects the validity of the results.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Unwanted microbes can grow alongside the intended bacterial culture. The inhibition-zone results may not reflect the antibiotic effect on the intended species."
+        ],
+        "points": [
+          {
+            "label": "Unwanted microbes can grow alongside the intended bacterial culture.",
+            "patterns": [
+              "(unwanted|other|contamin).{0,70}(micro|bacter|colon)"
+            ]
+          },
+          {
+            "label": "The inhibition-zone results may not reflect the antibiotic effect on the intended species.",
+            "patterns": [
+              "(result|zone|test|comparison).{0,85}(valid|reliable|accurat|mislead|intended)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Unwanted microbes can grow alongside the intended bacterial culture. The inhibition-zone results may not reflect the antibiotic effect on the intended species.",
+      "markKeywords": [
+        "Unwanted microbes can grow alongside the intended bacterial culture.",
+        "The inhibition-zone results may not reflect the antibiotic effect on the intended species."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-139",
+      "conceptId": "bio-cell-20261114-139",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A culture starts with 50 bacteria, and each cell divides every 20 minutes. Calculate the number of doublings, the multiplication factor and the population after two hours.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "120 ÷ 20 gives six doublings. The factor is 2^6 = 64. 50 × 64 = 3200 bacteria."
+        ],
+        "points": [
+          {
+            "label": "120 ÷ 20 gives six doublings.",
+            "patterns": [
+              "(120\\s*[/÷]\\s*20|6\\s*doubl|six\\s*doubl)"
+            ]
+          },
+          {
+            "label": "The factor is 2^6 = 64.",
+            "patterns": [
+              "(2\\s*\\^\\s*6|factor.{0,40}64)"
+            ]
+          },
+          {
+            "label": "50 × 64 = 3200 bacteria.",
+            "patterns": [
+              "3,?200\\b"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "120 ÷ 20 gives six doublings. The factor is 2^6 = 64. 50 × 64 = 3200 bacteria.",
+      "markKeywords": [
+        "120 ÷ 20 gives six doublings.",
+        "The factor is 2^6 = 64.",
+        "50 × 64 = 3200 bacteria."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-140",
+      "conceptId": "bio-cell-20261114-140",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A growth table shows 100 bacteria at 0 min, 200 at 20 min, 400 at 40 min and 800 at 60 min. Identify the division time, forecast the count at 80 min and state an assumption.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The mean division time is 20 minutes. The predicted number at 80 minutes is 1600. The prediction assumes the division rate continues with sufficient nutrients."
+        ],
+        "points": [
+          {
+            "label": "The mean division time is 20 minutes.",
+            "patterns": [
+              "\\b20\\s*(min|minutes)"
+            ]
+          },
+          {
+            "label": "The predicted number at 80 minutes is 1600.",
+            "patterns": [
+              "1,?600\\b"
+            ]
+          },
+          {
+            "label": "The prediction assumes the division rate continues with sufficient nutrients.",
+            "patterns": [
+              "(assum|contin|constant|sufficient).{0,65}(rate|nutrient|temperature|division)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The mean division time is 20 minutes. The predicted number at 80 minutes is 1600. The prediction assumes the division rate continues with sufficient nutrients.",
+      "markKeywords": [
+        "The mean division time is 20 minutes.",
+        "The predicted number at 80 minutes is 1600.",
+        "The prediction assumes the division rate continues with sufficient nutrients."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-141",
+      "conceptId": "bio-cell-20261114-141",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A clear zone around antibiotic disc X measures 18 mm in diameter and around Y measures 12 mm. Calculate both radii and explain which disc inhibits growth more under identical conditions.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Disc X has radius 9 mm. Disc Y has radius 6 mm. Disc X has the larger inhibition zone, so it inhibits growth more in this test."
+        ],
+        "points": [
+          {
+            "label": "Disc X has radius 9 mm.",
+            "patterns": [
+              "\\b9\\s*mm"
+            ]
+          },
+          {
+            "label": "Disc Y has radius 6 mm.",
+            "patterns": [
+              "\\b6\\s*mm"
+            ]
+          },
+          {
+            "label": "Disc X has the larger inhibition zone, so it inhibits growth more in this test.",
+            "patterns": [
+              "\\bX\\b.{0,80}(larger|inhibit|more|better)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Disc X has radius 9 mm. Disc Y has radius 6 mm. Disc X has the larger inhibition zone, so it inhibits growth more in this test.",
+      "markKeywords": [
+        "Disc X has radius 9 mm.",
+        "Disc Y has radius 6 mm.",
+        "Disc X has the larger inhibition zone, so it inhibits growth more in this test."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-142",
+      "conceptId": "bio-cell-20261114-142",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "Students compare two antiseptics using agar plates. Name a negative control, one controlled variable and one way to improve reliability.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "A disc soaked in sterile water can act as a negative control. Keep bacterial species or incubation conditions the same. Repeat tests and calculate a mean to improve reliability."
+        ],
+        "points": [
+          {
+            "label": "A disc soaked in sterile water can act as a negative control.",
+            "patterns": [
+              "(sterile|distilled).{0,30}water"
+            ]
+          },
+          {
+            "label": "Keep bacterial species or incubation conditions the same.",
+            "patterns": [
+              "(same|constant|controlled|keep).{0,60}(species|bacter|incubat|temperature|time|disc)"
+            ]
+          },
+          {
+            "label": "Repeat tests and calculate a mean to improve reliability.",
+            "patterns": [
+              "repeat.{0,65}(mean|average|reliab)|mean.{0,55}repeat"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "A disc soaked in sterile water can act as a negative control. Keep bacterial species or incubation conditions the same. Repeat tests and calculate a mean to improve reliability.",
+      "markKeywords": [
+        "A disc soaked in sterile water can act as a negative control.",
+        "Keep bacterial species or incubation conditions the same.",
+        "Repeat tests and calculate a mean to improve reliability."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-143",
+      "conceptId": "bio-cell-20261114-143",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A student seals an agar dish completely with tape and places it at 37°C. Explain three changes needed for safe, valid school culturing.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Secure the dish with a few pieces of tape rather than fully sealing it. Incubate cultures at no more than 25°C in school. Keep the dish inverted so condensation does not drip on the colonies."
+        ],
+        "points": [
+          {
+            "label": "Secure the dish with a few pieces of tape rather than fully sealing it.",
+            "patterns": [
+              "(few|partial|some|not fully).{0,65}(tape|seal|dish)"
+            ]
+          },
+          {
+            "label": "Incubate cultures at no more than 25°C in school.",
+            "patterns": [
+              "\\b25\\s*(°|degree|c|celsius)"
+            ]
+          },
+          {
+            "label": "Keep the dish inverted so condensation does not drip on the colonies.",
+            "patterns": [
+              "(invert|upside.down).{0,70}(condens|water|drip|colon)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Secure the dish with a few pieces of tape rather than fully sealing it. Incubate cultures at no more than 25°C in school. Keep the dish inverted so condensation does not drip on the colonies.",
+      "markKeywords": [
+        "Secure the dish with a few pieces of tape rather than fully sealing it.",
+        "Incubate cultures at no more than 25°C in school.",
+        "Keep the dish inverted so condensation does not drip on the colonies."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-144",
+      "conceptId": "bio-cell-20261114-144",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A colony has a circular diameter of 14 mm. Calculate its cross-sectional area using π = 3.142, and explain how repeated readings improve confidence.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Radius = 14 ÷ 2 = 7 mm. Area = 3.142 × 7² = 154.0 mm² to one decimal place. Repeat measurements and calculate the mean to reduce random error."
+        ],
+        "points": [
+          {
+            "label": "Radius = 14 ÷ 2 = 7 mm.",
+            "patterns": [
+              "\\b7\\s*mm"
+            ]
+          },
+          {
+            "label": "Area = 3.142 × 7² = 154.0 mm² to one decimal place.",
+            "patterns": [
+              "154\\.0?\\s*mm\\s*(\\^?2|²|squared)"
+            ]
+          },
+          {
+            "label": "Repeat measurements and calculate the mean to reduce random error.",
+            "patterns": [
+              "(repeat|multiple).{0,65}(mean|average|error|reliab)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Radius = 14 ÷ 2 = 7 mm. Area = 3.142 × 7² = 154.0 mm² to one decimal place. Repeat measurements and calculate the mean to reduce random error.",
+      "markKeywords": [
+        "Radius = 14 ÷ 2 = 7 mm.",
+        "Area = 3.142 × 7² = 154.0 mm² to one decimal place.",
+        "Repeat measurements and calculate the mean to reduce random error."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    }
+  ]
+}
