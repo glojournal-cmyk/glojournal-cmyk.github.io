@@ -7,6 +7,7 @@ on:
       - 'assets/latin-vocabulary-booklet-20261023.js'
       - 'tests/latin-november-2026-exam.test.mjs'
       - 'tests/latin-november-2026-mock-interaction.test.mjs'
+      - 'tests/latin-november-2026-unseen-academic-qa.test.mjs'
       - '.github/workflows/latin-november-2026-exam-qa.yml'
   workflow_dispatch:
 permissions:
@@ -26,3 +27,4 @@ jobs:
           node --check study/latin/november-2026/unseen-passages.js
           node --test tests/latin-november-2026-exam.test.mjs
           node --test tests/latin-november-2026-mock-interaction.test.mjs
+          node --test tests/latin-november-2026-unseen-academic-qa.test.mjs
