@@ -18,16 +18,18 @@ function notice(message,error=false){
   $('status').textContent=message;
   $('status').classList.toggle('error',!!error);
 }
-function save(){
+function save(nextState=state){
   if(storageBlocked){notice(storageWarning||'Existing exam data could not be read. Nothing was overwritten.',true);return false;}
   try{
-    const content=JSON.stringify(state);
+    const content=JSON.stringify(nextState);
     localStorage.setItem(STORE_KEY,content);
     if(localStorage.getItem(STORE_KEY)!==content)throw Error('Storage verification failed');
+    // Commit new session/history/marks only after the verified disk write succeeds.
+    state=nextState;
     notice('Revision answers saved on this device.');
     return true;
   }catch{
-    notice('Unable to save on this device. Keep this page open and export a backup.',true);
+    notice('Save failed on this device. Your existing saved paper has NOT been replaced. Export a revision backup before leaving or reloading.',true);
     return false;
   }
 }
@@ -80,11 +82,12 @@ function start({scope='mixed',length=20,ids=null}={}){
   const selected=ids?ids.map(id=>bank.find(q=>q.id===id)).filter(Boolean):
     selectPaper(bank,{scope,length,previousIds:state.latest?.questionIds||[]});
   if(!selected.length){notice('There are no questions in this selection.',true);return;}
-  state.active={
+  const draft={
     id:'chem-nov16-'+Date.now(),scope:ids?'mistakes':scope,index:0,
     questionIds:selected.map(q=>q.id),answers:{},startedAt:new Date().toISOString()
   };
-  save();renderPaper();
+  if(!save({...state,active:draft}))return; // Keep an existing draft if storage is full.
+  renderPaper();
 }
 function saveAnswer(answer){
   const session=state.active;
@@ -221,11 +224,17 @@ function results(){
         select.value=session.reviewMarks?.[row.id]===undefined?'':String(session.reviewMarks[row.id]);
         select.addEventListener('change',()=>{
           if(select.value==='')return;
-          if(!session.reviewMarks)session.reviewMarks={};
-          session.reviewMarks[row.id]=Number(select.value);
-          for(const item of state.history)
-            if(item.id===session.id){item.reviewMarks={...session.reviewMarks};}
-          save();
+          const current=state.latest;
+          const oldMark=current.reviewMarks?.[row.id];
+          const reviewMarks={...(current.reviewMarks||{}),[row.id]:Number(select.value)};
+          const nextHistory=state.history.map(item=>item.id===current.id?
+            {...item,reviewMarks:{...reviewMarks}}:item);
+          const nextState={...state,latest:{...current,reviewMarks},history:nextHistory};
+          if(!save(nextState)){
+            // A failed localStorage write must never display an awarded mark.
+            select.value=oldMark===undefined?'':String(oldMark);
+            return;
+          }
           updateResultSummary();
           card.querySelector('.marker').textContent=select.value+' / '+row.marks+' marks · self-reviewed';
           card.classList.remove('pending','correct','incorrect');
@@ -248,11 +257,10 @@ function submit(){
     'Submit your revision paper? Answers cannot be changed after submission.';
   if(!window.confirm(message))return;
   scorePaper(bank,session); // Validate before abandoning the unfinished draft.
-  session.submittedAt=new Date().toISOString();
-  state.latest={...session,answers:{...session.answers}};
-  state.history=[state.latest,...state.history].slice(0,20);
-  state.active=null;
-  save();results();
+  const completed={...session,answers:{...session.answers},submittedAt:new Date().toISOString()};
+  const nextState={...state,active:null,latest:completed,history:[completed,...state.history].slice(0,20)};
+  if(!save(nextState))return; // Do not show 'submitted' until the result is really saved.
+  results();
   $('results').scrollIntoView({block:'start'});
 }
 function exportBackup(){

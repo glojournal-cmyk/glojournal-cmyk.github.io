@@ -98,7 +98,8 @@ test('standalone page and Chemistry topic directory expose the correct route',()
   assert.match(page,/id="results"/);
   assert.match(page,/id="resume"/);
   assert.match(app,/scorePaper\(bank,session\)/);
-  assert.match(app,/state\.active=null/);
+  assert.match(app,/active:null,latest:completed/);
+  assert.match(app,/if\(!save\(nextState\)\)return/,'submit must not clear draft if verified persistence fails');
   assert.ok(!app.includes('dailyLog=')&&!app.includes('setXP('));
 });
 
