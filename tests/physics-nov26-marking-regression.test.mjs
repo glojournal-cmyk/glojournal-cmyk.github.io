@@ -61,16 +61,16 @@ for(const [suffix,response] of contradictions){
  const q=questions.get('phys-nov26-'+suffix),got=scorer(q,response);
  assert.equal(got.matched,0,q.id+' must not reward explicit contradiction '+JSON.stringify(got));
 }
-for(const suffix of ['i03','i04','i05','i11']){
+for(const suffix of ['i03','i04','i05','i11','i12']){
  const q=questions.get('phys-nov26-'+suffix);
  assert.equal(q.diagram,'physics-nov26-rp2-cooling.svg',suffix+' cooling graph absent');
 }
 const svg=fs.readFileSync('assessment/diagrams/physics-nov26-rp2-cooling.svg','utf8');
 assert.match(svg,/Illustrative practice data only/);
 assert.doesNotMatch(svg,/data from supplied revision slides/);
-assert.ok(app.includes('20261114-marking2'));
+assert.ok(app.includes('20261114-school-v2'));
 
 console.log('PHYSICS_NOV26_MARKING_REGRESSION PASS',JSON.stringify({
  canonical:all.length,alternativeAnswers:equivalent.length,
- contradictionsRejected:contradictions.length,graphQuestions:4
+ contradictionsRejected:contradictions.length,graphQuestions:5
 }));

@@ -11,6 +11,7 @@ on:
       - 'content/catalog.json'
       - 'tests/physics-nov26-assessment.test.mjs'
       - 'tests/physics-nov26-marking-regression.test.mjs'
+      - 'tests/physics-nov26-school-standard-v2.test.mjs'
       - 'tests/physics-gcse-oct20-qa.mjs'
       - '.github/workflows/physics-nov26-qa.yml'
   workflow_dispatch:
@@ -26,5 +27,7 @@ jobs:
         run: node tests/physics-nov26-assessment.test.mjs
       - name: Check alternative answers and reject negated misconceptions
         run: node tests/physics-nov26-marking-regression.test.mjs
+      - name: Validate 300 mock selections, school-style marking and RP coverage
+        run: node tests/physics-nov26-school-standard-v2.test.mjs
       - name: Run existing October Physics regression
         run: node tests/physics-gcse-oct20-qa.mjs

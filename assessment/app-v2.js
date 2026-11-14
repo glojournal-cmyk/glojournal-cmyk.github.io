@@ -1,5 +1,5 @@
 const PAPERS=[
-  {id:'physics-nov26',name:'Physics · November 2026 school assessment',subtitle:'Particles, density, conduction, RP2 insulation and RP5 density · no convection or radiation',bank:'/assessment/physics-nov26-20261113.json',count:25,minutes:45,groups:{'Particle model & changes of state':5,'Density calculations':5,'Conduction & insulation':5,'RP2 thermal insulation':5,'RP5 density':5}},
+  {id:'physics-nov26',name:'Physics · November 2026 school assessment',subtitle:'Teacher-slide-aligned revision mock · 25 mixed questions · includes compulsory RP2 graph and RP5 practical · conduction only · not an official school paper',bank:'/assessment/physics-nov26-20261113.json',count:25,minutes:60,groups:{'Particle model & changes of state':5,'Density calculations':5,'Conduction & insulation':5,'RP2 thermal insulation':5,'RP5 density':5}},
   {id:'biology-nov2',name:'Biology · 2 November · Specialised cells & RP1',subtitle:'2 November 2026 · 84-question bank · specialised cells, microscopy, drawing and calculations',bank:'/assessment/biology-nov2-20261017.json',count:20,minutes:45,groups:{'Cell structures in context':2,'Specialised animal cells':4,'Specialised plant cells':3,'Microscopy practical':4,'Biological drawing':3,'Microscopy calculations':4}},
   {id:'biology-cell-structure',name:'Biology · AQA 4.1.1 Cell structure',subtitle:'AQA 4.1.1 revision bank · cell structure, microscopy and practical methods · 60 marks',bank:'/assessment/biology-cell-structure-20261003.json',count:24,minutes:45,groups:{'Eukaryotes and prokaryotes':4,'Animal and plant cells':4,'Cell specialisation':4,'Cell differentiation':4,'Microscopy':4,'Culturing microorganisms':4}},
   {id:'french',name:'French · Unit 1 vocabulary',subtitle:'Une visite en France · school test 8 Oct',bank:'/assessment/french-school-1.json',count:25,minutes:25,groups:{'Core phrases':4,'Intensifiers':3,'Descriptive adjectives':5,'Positive adjectives':5,'Pronouns':5,'Transport':3}},
@@ -41,7 +41,7 @@ function grantWardrobe(id){
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
 const CHEMISTRY_REVISION='20260930-chem-fullmarks3';
-const bankUrl=p=>p.id==='physics-nov26'?`${p.bank}?v=20261114-marking2`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261010-chem-marking1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
+const bankUrl=p=>p.id==='physics-nov26'?`${p.bank}?v=20261114-school-v2`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261010-chem-marking1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
   'inks.svg':'Figure 2: chromatogram with ink samples A to D',
@@ -82,7 +82,7 @@ function groupBlurb(group,today){
   if(group.subject==='Chemistry')return 'Assessment in the week beginning 5 October 2026; exact lesson date awaits confirmation. Revise atoms, separating mixtures, history of the periodic table and RP6 chromatography.';
   if(group.subject==='English')return `Exam ${when}. These Year 9 questions are already in Practise.`;
   if(group.subject==='Biology')return 'School assessment on 2 November: specialised cells and Required Practical 1. More AQA 4.1.1 revision papers are also available; no later school-test date is confirmed.';
-  if(group.subject==='Physics')return 'November Year 9 school scope: particle model, density, conduction ONLY, RP2 thermal insulation and RP5 density. The 25-question school paper excludes convection and radiation.';
+  if(group.subject==='Physics')return 'Teacher-slide-aligned mock, not the official school paper. Each paper includes multi-mark explanations, RP2 graph analysis and RP5 practical method; conduction only, not convection or radiation. Marking is provisional for equivalent free text.';
   if(group.exam)return today>group.exam?`Exam ${when} has passed. These questions are now in Practise.`:`Exam ${when}. These questions join Practise the next day.`;
   return 'Mixed questions from the Year 9 bank. Already in Practise.';
 }
@@ -91,7 +91,7 @@ function paperCard(p){
  return `<article class="card assessment-paper-row" data-paper-row="${esc(p.id)}">
    <div class="assessment-paper-info">
      <h3>${esc(p.name.replace(/^[^·]+·\s*/,''))}</h3>
-     <p>${p.minutes} min · ${p.count} questions · Pass 85%</p>
+     <p>${p.minutes} min · ${p.count} questions · ${p.id==='physics-nov26'?'Personal practice target 85% (not a school grade)':'Pass 85%'}</p>
    </div>
    <div class="assessment-paper-buttons">
      <button class="primary" data-paper="${esc(p.id)}">${hasDraft?'Continue':'Start'} <span aria-hidden="true">›</span></button>
@@ -214,6 +214,54 @@ function shuffle(a){
   }
   return b;
 }
+function selectPhysicsSchool(questions,count,recent=[],quotas={}){
+  // Five equal topics, two or more extended-answer questions from each where
+  // available, plus non-optional RP2 graph and RP5 method/error coverage.
+  const selected=[],seen=new Set(),old=new Set(recent);
+  const rules={
+    'Particle model & changes of state':[
+      q=>q.marks>=3
+    ],
+    'Density calculations':[
+      q=>['phys-nov26-d11','phys-nov26-d13','phys-nov26-d06'].includes(q.id)
+    ],
+    'Conduction & insulation':[
+      q=>q.marks>=3
+    ],
+    'RP2 thermal insulation':[
+      q=>!!q.diagram,
+      q=>['phys-nov26-i08','phys-nov26-i13'].includes(q.id)
+    ],
+    'RP5 density':[
+      q=>['phys-nov26-r01','phys-nov26-r02','phys-nov26-r05','phys-nov26-r12','phys-nov26-r13'].includes(q.id),
+      q=>['phys-nov26-r03','phys-nov26-r06','phys-nov26-r09','phys-nov26-r11'].includes(q.id)
+    ]
+  };
+  const take=(pool,filter)=>{
+    const options=shuffle(pool.filter(q=>!seen.has(q.conceptId||q.id)&&filter(q)));
+    const fresh=options.find(q=>!old.has(q.id));
+    const q=fresh||options[0];
+    if(!q)return false;
+    selected.push(q);seen.add(q.conceptId||q.id);
+    return true;
+  };
+  for(const [topic,quota] of Object.entries(quotas)){
+    const pool=questions.filter(q=>q.topic===topic);
+    if(pool.length<quota)throw Error('Not enough school exam questions in '+topic);
+    const before=selected.length;
+    for(const rule of rules[topic]||[]){
+      if(!take(pool,rule))throw Error('Missing required exam question type in '+topic);
+    }
+    // Retain meaningful explanations, not just recall and MC questions.
+    while(selected.filter(q=>q.topic===topic&&q.marks>=3).length<Math.min(quota,2)&&take(pool,q=>q.marks>=3)){}
+    while(selected.length-before<quota&&take(pool,q=>q.marks>=2)){}
+    while(selected.length-before<quota&&take(pool,()=>true)){}
+    if(selected.length-before!==quota)throw Error('Incomplete school exam topic allocation: '+topic);
+  }
+  if(selected.length!==count)throw Error('School paper question count mismatch');
+  return shuffle(selected);
+}
+
 function select(questions,count,recent=[],quotas=null){
   const pool=shuffle(questions),old=new Set(recent),chosen=[],concepts=new Set();
   const take=(items,n)=>{
@@ -442,40 +490,39 @@ function physicsNov26Mark(q,value){
   const points=q.answer?.points||[];
   const raw=String(value??'').trim().normalize('NFKC').replace(/[−–]/g,'-');
   if(!raw)return {credit:0,status:'Incorrect',matched:0,total:points.length||1,pointResults:points.map(()=>false)};
-  const noNegation=s=>!/\b(?:not|never|don't|doesn't|didn't|cannot|can't|isn't|aren't|wasn't|weren't|is\s+false)\b/i.test(s.replace(/\bnot\s+good(?:\s+at)?\b/gi,''));
-  const units=raw.replace(/cm\s*\^\s*3/gi,'cm3').replace(/m\s*\^\s*3/gi,'m3')
+  // Distinguish method, substitution and result marks. A correct final value by itself
+  // must not award marks that require evidence of working in the teacher's scheme.
+  const normalized=raw
+    .replace(/cm³/gi,'cm3').replace(/m³/gi,'m3')
     .replace(/\bg\s*cm\s*(?:\^\s*)?-\s*3\b/gi,'g/cm3')
     .replace(/\bkg\s*m\s*(?:\^\s*)?-\s*3\b/gi,'kg/m3')
+    .replace(/\bcm\s*\^\s*3\b/gi,'cm3').replace(/\bm\s*\^\s*3\b/gi,'m3')
     .replace(/\bg\s+per\s+cubic\s+centimet(?:re|er)s?\b/gi,'g/cm3')
     .replace(/\bkg\s+per\s+cubic\s+met(?:re|er)s?\b/gi,'kg/m3')
+    .replace(/(\d)\s*(?:degrees?\s+C(?:elsius)?|°\s*C)\s*per\s*min(?:ute)?s?\b/gi,'$1 degrees per minute')
     .replace(/\s+/g,' ');
-  const finalAnswers={
-    'phys-nov26-d02':/\b2\.7\s*g\s*\/\s*cm3\b/i,
-    'phys-nov26-d03':/\b135\s*g\b/i,
-    'phys-nov26-d04':/\b50\s*cm3\b/i,
-    'phys-nov26-d06':/\b0\.24\s*kg\b/i,
-    'phys-nov26-d08':/\b600\s*kg\s*\/\s*m3\b/i,
-    'phys-nov26-d09':/\b3\s*g\s*\/\s*cm3\b/i,
-    'phys-nov26-i04':/\b19\.7\s*(?:°\s*C|degrees?\s*C(?:elsius)?|C)\b/i,
-    'phys-nov26-i11':/\b1\.16\s*(?:°\s*C\s*\/\s*min|degrees?\s*(?:Celsius)?\s*(?:per|\/)\s*min(?:ute)?s?)\b/i,
-    'phys-nov26-r06':/\b3\s*g\s*\/\s*cm3\b/i,
-    'phys-nov26-r11':/\b19\s*cm3\b/i
-  };
-  // A correct final numerical answer with its unit earns full credit.
-  const calcFinal=finalAnswers[q.id];
-  if(calcFinal&&calcFinal.test(units)&&noNegation(raw)){
-    return {credit:1,status:'Correct',matched:points.length,total:points.length,pointResults:points.map(()=>true)};
-  }
+  const noNegation=s=>!/\b(?:not|never|don't|doesn't|didn't|cannot|can't|isn't|aren't|wasn't|weren't|is\s+false)\b/i.test(s.replace(/\bnot\s+good(?:\s+at)?\b/gi,''));
   const clauses=raw.split(/(?<=[.!?])\s+|\n+/).map(s=>s.trim()).filter(Boolean);
-  const pointResults=points.map(p=>clauses.some(clause=>{
-    if(!noNegation(clause)&&!p.allowNegation)return false;
-    return [...(p.patterns||[]),...(p.variants||[])].some(pattern=>new RegExp(pattern,'i').test(clause));
-  }));
+  const pointResults=points.map((point,index)=>{
+    const explicitRules=q.answer?.methodRules?.[index];
+    const patterns=explicitRules?.length?explicitRules:[...(point.patterns||[]),...(point.variants||[])];
+    return clauses.some(clause=>{
+      if(!noNegation(clause)&&!point.allowNegation)return false;
+      const canon=clause.normalize('NFKC').replace(/[−–]/g,'-')
+        .replace(/cm³/gi,'cm3').replace(/m³/gi,'m3')
+        .replace(/\bg\s*cm\s*(?:\^\s*)?-\s*3\b/gi,'g/cm3')
+        .replace(/\bkg\s*m\s*(?:\^\s*)?-\s*3\b/gi,'kg/m3')
+        .replace(/\bcm\s*\^\s*3\b/gi,'cm3').replace(/\bm\s*\^\s*3\b/gi,'m3')
+        .replace(/\bg\s+per\s+cubic\s+centimet(?:re|er)s?\b/gi,'g/cm3')
+        .replace(/\bkg\s+per\s+cubic\s+met(?:re|er)s?\b/gi,'kg/m3')
+        .replace(/\s+/g,' ');
+      return patterns.some(pattern=>new RegExp(pattern,'i').test(clause)||new RegExp(pattern,'i').test(canon));
+    });
+  });
   const matched=pointResults.filter(Boolean).length;
   const credit=points.length?matched/points.length:0;
   return {credit,status:credit>=0.999?'Correct':credit>0?'Partly correct':'Incorrect',matched,total:points.length||1,pointResults};
 }
-
 function mark(q,value){
   if(!String(value||'').trim())return {credit:0,status:'Incorrect',matched:0,total:q.answer?.points?.length||1,pointResults:(q.answer?.points||[]).map(()=>false)};
   const mode=q.answer?.mode;
@@ -534,6 +581,11 @@ async function start(id){
   try{
     let draft=state.drafts[id];
     if(draft?.version!==2||(id==='latin-creusa'&&draft.questions.every(q=>q.options?.length))){delete state.drafts[id];draft=null}
+    if(draft&&id==='physics-nov26'){
+      const fresh=await fetch(bankUrl(p)).then(r=>r.json());
+      const byId=new Map(fresh.groups.flatMap(g=>g.questions).map(q=>[q.id,q]));
+      draft.questions=draft.questions.map(q=>byId.get(q.id)||q);save();
+    }
     if(draft&&id==='biology-cell-structure'){
       const fresh=await fetch(bankUrl(p)).then(r=>r.json());const byId=new Map(fresh.questions.map(q=>[q.id,q]));draft.questions=draft.questions.map(q=>byId.get(q.id)||q);save();
     }
@@ -556,7 +608,7 @@ async function start(id){
         quotas={};
         bank.groups.forEach((g,i)=>{quotas[g.title]=Math.floor(p.count/bank.groups.length)+(i<p.count%bank.groups.length?1:0)});
       }
-      let selected=id==='biology-nov2'?select(valid,p.count,previous,quotas).sort((a,b)=>a.difficulty-b.difficulty):id==='biology-cell-structure'?selectBiology(valid,previous,p.groups):id==='latin-creusa'?selectCreusa(valid,previous):id==='chemistry'?selectChemistry(valid,p.count,previous,quotas):select(valid,p.count,previous,quotas);
+      let selected=id==='physics-nov26'?selectPhysicsSchool(valid,p.count,previous,quotas):id==='biology-nov2'?select(valid,p.count,previous,quotas).sort((a,b)=>a.difficulty-b.difficulty):id==='biology-cell-structure'?selectBiology(valid,previous,p.groups):id==='latin-creusa'?selectCreusa(valid,previous):id==='chemistry'?selectChemistry(valid,p.count,previous,quotas):select(valid,p.count,previous,quotas);
       if(selected.length<p.count)throw Error('Not enough questions in this bank');
       if(previous.length&&selected.map(q=>q.id).join('|')===previous.join('|'))selected=shuffle(selected);
       draft={version:2,questions:selected,answers:{},index:0,remaining:p.minutes*60,running:true,started:Date.now()};
@@ -675,7 +727,7 @@ function finish(p,d){
     if(m.credit>=0.999)full++; else if(m.credit>0)partial++;
     const correction=globalThis.LuxLearningFeedback?.buildCorrection(q,{...m,given:answer,model:showAnswer(q)},p.id.startsWith('latin')?'latin':p.id==='french'?'french':p.id.startsWith('biology')?'biology':p.id);
     const partialNote=m.credit>0&&m.credit<1?`<p class="muted"><b>Partial credit:</b> ${formatMarks(m.credit*questionMarks(q))} of ${questionMarks(q)} marks. You included ${m.matched} of ${m.total} required ideas.</p>`:'';
-    return `<article class="entry"><div><span class="tag">Question ${i+1} · ${m.status} · ${esc(q.topic||'')}</span><p>${esc(q.prompt)}</p><p><b>Your answer:</b> ${esc(answer)||'—'}</p><p><b>Model answer:</b> ${esc(showAnswer(q))}</p>${q.workedSolution?`<p><b>Working:</b> ${esc(q.workedSolution)}</p>`:''}${partialNote}${m.credit<1&&correction?.reason?`<p class="feedback"><b>Why marks were missed:</b> ${esc(correction.reason)}</p>`:''}${['chemistry_rubric','biology_rubric'].includes(q.answer?.mode)?`<div class="feedback"><b>How to earn full marks</b><p>${esc(q.examGuidance?.strategy||'Include each distinct required idea.')}</p><ol>${q.answer.points.map((point,j)=>`<li><b>${m.pointResults?.[j]?'Awarded':'Missing'} · 1 mark:</b> ${esc(m.pointLabels?.[j]||point.label)}</li>`).join('')}</ol><p><b>Common mark loss:</b> ${esc(q.examGuidance?.commonError||q.hint)}</p><p class="muted">This is an original AQA-style practice rubric. Automated marking recognises selected wording; use the checklist and model answer to review equivalent scientific explanations.</p></div>`:''}${p.id==='chemistry'||q.markKeywords?`<p><b>Marking keywords:</b> ${esc((q.markKeywords||q.answer.accepted).join(' · '))}</p><p class="muted"><b>Hint for next time:</b> ${esc(q.hint||q.feedback?.short||'Check the evidence in the question before choosing a method.')}</p>`:q.feedback?.short?`<p class="muted">${esc(q.feedback.short)}</p>`:''}</div></article>`;
+    return `<article class="entry"><div><span class="tag">Question ${i+1} · ${m.status} · ${esc(q.topic||'')}</span><p>${esc(q.prompt)}</p><p><b>Your answer:</b> ${esc(answer)||'—'}</p><p><b>Model answer:</b> ${esc(showAnswer(q))}</p>${q.workedSolution?`<p><b>Working:</b> ${esc(q.workedSolution)}</p>`:''}${partialNote}${m.credit<1&&correction?.reason?`<p class="feedback"><b>Why marks were missed:</b> ${esc(correction.reason)}</p>`:''}${['chemistry_rubric','biology_rubric'].includes(q.answer?.mode)?`<div class="feedback"><b>How to earn full marks</b><p>${esc(q.examGuidance?.strategy||'Include each distinct required idea.')}</p><ol>${q.answer.points.map((point,j)=>`<li><b>${m.pointResults?.[j]?'Awarded':'Missing'} · 1 mark:</b> ${esc(m.pointLabels?.[j]||point.label)}</li>`).join('')}</ol><p><b>Common mark loss:</b> ${esc(q.examGuidance?.commonError||q.hint)}</p><p class="muted">This is an original school-slide-aligned practice rubric (not an official marking scheme). Calculation method marks require working; automated marking can miss equivalent free-text answers, so review the checklist and model response.</p></div>`:''}${p.id==='chemistry'||q.markKeywords?`<p><b>Marking keywords:</b> ${esc((q.markKeywords||q.answer.accepted).join(' · '))}</p><p class="muted"><b>Hint for next time:</b> ${esc(q.hint||q.feedback?.short||'Check the evidence in the question before choosing a method.')}</p>`:q.feedback?.short?`<p class="muted">${esc(q.feedback.short)}</p>`:''}</div></article>`;
   });
 
   const score=['chemistry','biology-cell-structure','biology-nov2','physics-nov26'].includes(p.id)?Math.floor(earned/totalMarks*100):Math.round(earned/totalMarks*100);
@@ -710,7 +762,7 @@ function finish(p,d){
   delete state.drafts[p.id];save();cards();
 
   const resultSummary=`${full}/${d.questions.length} correct${partial?` · ${partial} partly correct`:''} · ${formatMarks(earned)}/${totalMarks} marks`;
-  $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${resultSummary}. Pass mark: 85/100. Review the answers below, then start a new paper for a different selection. Missed or partly correct questions enter Previous mistakes after 2 days; successful daily corrections return after 7 days.</p>${wardrobe}${Object.keys(missed).length?'<button id="practise-weak-areas" class="primary">Practise these weak areas</button>':''}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='latin-verbs'?'<p class="muted">English follows the verb table. Present is simple (I carry), imperfect is I was carrying, perfect is I carried. I have carried and I used to carry also score. you carry is accepted for both singular and plural; the model answer shows which one it is.</p>':''}${p.id==='latin-creusa'?'<p class="muted">Comprehension marking accepts equivalent wording. Where an answer contains only some required ideas, partial credit is awarded instead of an automatic zero.</p>':''}${p.id==='chemistry'?'<p class="muted">Marks are shown on the new exam-style questions. Each distinct correct point earns a mark, including method and final-answer marks for calculations. Older short questions remain worth one mark.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
+  $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${resultSummary}.  ${p.id==='physics-nov26'?'The 85% threshold is a home practice target, not the school pass grade. This is an original school-slide-aligned mock, not an official school exam. ':'Pass mark: 85/100. '}Review the answers below, then start a new paper for a different selection. Missed or partly correct questions enter Previous mistakes after 2 days; successful daily corrections return after 7 days.</p>${wardrobe}${Object.keys(missed).length?'<button id="practise-weak-areas" class="primary">Practise these weak areas</button>':''}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='latin-verbs'?'<p class="muted">English follows the verb table. Present is simple (I carry), imperfect is I was carrying, perfect is I carried. I have carried and I used to carry also score. you carry is accepted for both singular and plural; the model answer shows which one it is.</p>':''}${p.id==='latin-creusa'?'<p class="muted">Comprehension marking accepts equivalent wording. Where an answer contains only some required ideas, partial credit is awarded instead of an automatic zero.</p>':''}${p.id==='chemistry'?'<p class="muted">Marks are shown on the new exam-style questions. Each distinct correct point earns a mark, including method and final-answer marks for calculations. Older short questions remain worth one mark.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
   $('#back-to-papers').onclick=()=>show('papers');
   const followupButton=$('#practise-weak-areas');if(followupButton)followupButton.onclick=()=>startFollowup(state.results.length-1);
 }
