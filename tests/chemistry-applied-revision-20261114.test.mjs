@@ -85,7 +85,7 @@ test('key chemistry cases: ionic charge balance, brackets, coefficient logic and
   contains('balance',10,/2C₂H₆ \+ 7O₂ → 4CO₂ \+ 6H₂O/);
   contains('balance',15,/3\.3 g/);
   contains('balance',20,/Fe₂O₃ \+ 3CO → 2Fe \+ 3CO₂/);
-  assert.equal(8.3-5.0,3.3);
+  assert.ok(Math.abs((8.3-5.0)-3.3)<1e-9,'floating-point conservation calculation');
 });
 
 test('applied rubric papers retain marks, no duplicates, four-topic coverage and end-only grading',()=>{
