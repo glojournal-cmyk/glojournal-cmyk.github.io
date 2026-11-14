@@ -215,11 +215,19 @@ function shuffle(a){
   }
   return b;
 }
+function physicsScenarioKey(q){
+  // Keep historical question IDs and marks stable while deduplicating identical data.
+  const id=typeof q==='string'?q:q.id;
+  if(id==='phys-nov26-d06'||id==='phys-nov26-d12')return 'cuboid-2x3x5-density-8';
+  if(id==='phys-nov26-d09'||id==='phys-nov26-r06')return 'displacement-75g-40-to-65';
+  return id;
+}
 function selectPhysicsSchool(questions,count,recent=[],quotas={}){
   // All 200 bank questions must be reachable. Always include one RP2
   // graph and one RP5 practical method, measurement or error question.
   // Do not use up all practical slots on fixed multi-mark questions.
-  const selected=[],seen=new Set(),old=new Set(recent);
+  const selected=[],seen=new Set(),seenScenarios=new Set(),old=new Set(recent);
+  const lastPaperScenarios=new Set(recent.slice(-count).map(physicsScenarioKey));
   const lastSeen=new Map(recent.map((id,i)=>[id,i]));
   const rp5Focus=new Set([
     'r01','r02','r05','r06','r09','r12','r13',
@@ -235,12 +243,15 @@ function selectPhysicsSchool(questions,count,recent=[],quotas={}){
   const take=(pool,filter)=>{
     // Shuffle equally eligible candidates and prefer least recently used.
     // This avoids repeating a required-practical item unnecessarily.
-    const options=shuffle(pool.filter(q=>!seen.has(q.conceptId||q.id)&&filter(q)));
-    options.sort((a,b)=>(old.has(a.id)?1:0)-(old.has(b.id)?1:0)
+    const options=shuffle(pool.filter(q=>!seen.has(q.conceptId||q.id)
+      &&!seenScenarios.has(physicsScenarioKey(q))&&filter(q)));
+    options.sort((a,b)=>(lastPaperScenarios.has(physicsScenarioKey(a))?1:0)
+      -(lastPaperScenarios.has(physicsScenarioKey(b))?1:0)
+      ||(old.has(a.id)?1:0)-(old.has(b.id)?1:0)
       ||(lastSeen.get(a.id)??-1)-(lastSeen.get(b.id)??-1));
     const q=options[0];
     if(!q)return false;
-    selected.push(q);seen.add(q.conceptId||q.id);
+    selected.push(q);seen.add(q.conceptId||q.id);seenScenarios.add(physicsScenarioKey(q));
     return true;
   };
   for(const [topic,quota] of Object.entries(quotas)){
@@ -269,6 +280,7 @@ function physicsNov26DraftSchoolAligned(draft){
   if(!Array.isArray(draft?.questions)||draft.questions.length!==25)return false;
   const questions=draft.questions;
   if(new Set(questions.map(q=>q.id)).size!==25)return false;
+  if(new Set(questions.map(physicsScenarioKey)).size!==25)return false;
   const quotas={'Particle model & changes of state':8,'Density calculations':4,'Conduction & insulation':7,'RP2 thermal insulation':3,'RP5 density':3};
   for(const [topic,count] of Object.entries(quotas)){
     const part=questions.filter(q=>q.topic===topic);
