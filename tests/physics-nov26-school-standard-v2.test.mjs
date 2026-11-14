@@ -22,10 +22,10 @@ assert.ok(code.includes("The 85% threshold is a home practice target, not the sc
 assert.ok(!code.includes('const calcFinal='),'No final-answer full-credit shortcut allowed');
 const quotas={
  'Particle model & changes of state':8,
- 'Density calculations':5,
+ 'Density calculations':4,
  'Conduction & insulation':7,
  'RP2 thermal insulation':3,
- 'RP5 density':2
+ 'RP5 density':3
 };
 assert.equal(qs.length,200);
 assert.ok(qs.every(q=>q.subject==='physics'&&q.year===9));
