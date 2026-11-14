@@ -2,7 +2,7 @@
   "id": "year9-physics-november-2026",
   "subject": "physics",
   "year": 9,
-  "version": "2026-11-14-school-standard-v2",
+  "version": "2026-11-14-school-standard-v3",
   "sourceNote": "Original teacher-slide-aligned Year 9 mock practice (not an official school paper): Particles, Density, Conduction ONLY, RP2 and RP5. Convection and radiation are excluded. Includes 3–4 mark linked explanation and calculation questions; marking provides step-by-step credit.",
   "groups": [
     {
@@ -686,7 +686,20 @@
                   "(?=.*(?:2\\.7))(?=.*(?:g/cm³)).*"
                 ]
               }
-            ]
+            ],
+            "methodRules": [
+              [
+                "\\b(?:density|rho|ρ)\\s*=\\s*(?:mass|m)\\s*(?:\\/|÷)\\s*(?:volume|v)\\b",
+                "density\\s+(?:equals|is)\\s+mass\\s+(?:divided\\s+by|over)\\s+volume"
+              ],
+              [
+                "540\\s*(?:\\/|÷|divided\\s+by)\\s*200"
+              ],
+              [
+                "\\b2\\.7\\s*g\\s*\\/\\s*cm3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
           },
           "modelAnswer": "Density equals mass divided by volume. 540 divided by 200 equals 2.7. The density is 2.7 g/cm³.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
@@ -731,7 +744,18 @@
                   "(?=.*(?:135))(?=.*(?:g)).*"
                 ]
               }
-            ]
+            ],
+            "methodRules": [
+              [
+                "\\b(?:mass|m)\\s*=\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|multiplied\\s+by)\\s*(?:volume|v)\\b",
+                "mass\\s+equals\\s+density\\s+multiplied\\s+by\\s+volume",
+                "2\\.7\\s*(?:×|x|\\*)\\s*50"
+              ],
+              [
+                "\\b135\\s*g\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
           },
           "modelAnswer": "Mass equals density multiplied by volume. Mass is 135 g.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
@@ -776,7 +800,18 @@
                   "(?=.*(?:50))(?=.*(?:cm³)).*"
                 ]
               }
-            ]
+            ],
+            "methodRules": [
+              [
+                "\\b(?:volume|v)\\s*=\\s*(?:mass|m)\\s*(?:\\/|÷)\\s*(?:density|ρ|rho)\\b",
+                "volume\\s+equals\\s+mass\\s+divided\\s+by\\s+density",
+                "400\\s*(?:\\/|÷)\\s*8"
+              ],
+              [
+                "\\b50\\s*cm3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
           },
           "modelAnswer": "Volume equals mass divided by density. Volume is 50 cm³.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
@@ -861,7 +896,21 @@
                   "(?=.*(?:0\\.24))(?=.*(?:kg)).*"
                 ]
               }
-            ]
+            ],
+            "methodRules": [
+              [
+                "\\b30\\s*cm3\\b",
+                "2\\s*(?:×|x|\\*)\\s*3\\s*(?:×|x|\\*)\\s*5"
+              ],
+              [
+                "\\b240\\s*g\\b",
+                "8(?:\\.0)?\\s*(?:×|x|\\*)\\s*30"
+              ],
+              [
+                "\\b0\\.24(?:0)?\\s*kg\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
           },
           "modelAnswer": "Its volume is 30 cm³. Its mass is 240 g. Its mass is 0.24 kg.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
@@ -937,7 +986,18 @@
                   "(?=.*(?:600))(?=.*(?:kg/m³)).*"
                 ]
               }
-            ]
+            ],
+            "methodRules": [
+              [
+                "\\b(?:density|ρ|rho)\\s*=\\s*(?:mass|m)\\s*(?:\\/|÷)\\s*(?:volume|v)\\b",
+                "density\\s+equals\\s+mass\\s+divided\\s+by\\s+volume",
+                "1\\.2\\s*(?:\\/|÷)\\s*0\\.002"
+              ],
+              [
+                "\\b600\\s*kg\\s*\\/\\s*m3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
           },
           "modelAnswer": "Density equals mass divided by volume. Density is 600 kg/m³.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
@@ -961,7 +1021,7 @@
           "answer": {
             "mode": "chemistry_rubric",
             "accepted": [
-              "The rock volume is 25 cm³. Density is mass divided by volume. The density is 3 g/cm³."
+              "The rock volume is 25 cm³. Substitute 75 ÷ 25 into ρ = mass ÷ volume. The density is 3 g/cm³."
             ],
             "points": [
               {
@@ -974,7 +1034,7 @@
                 ]
               },
               {
-                "label": "Density is mass divided by volume.",
+                "label": "Substitute 75 ÷ 25 into ρ = mass ÷ volume.",
                 "alternatives": [
                   "Density is mass divided by volume."
                 ],
@@ -991,9 +1051,22 @@
                   "(?=.*(?:3\\s*g/cm³)).*"
                 ]
               }
-            ]
+            ],
+            "methodRules": [
+              [
+                "\\b25\\s*cm3\\b",
+                "65\\s*(?:-|minus)\\s*40"
+              ],
+              [
+                "\\b75\\s*(?:\\/|÷|divided\\s+by)\\s*25\\b"
+              ],
+              [
+                "\\b3\\s*g\\s*\\/\\s*cm3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
           },
-          "modelAnswer": "The rock volume is 25 cm³. Density is mass divided by volume. The density is 3 g/cm³.",
+          "modelAnswer": "The rock volume is 25 cm³. Substitute 75 ÷ 25 into ρ = mass ÷ volume. The density is 3 g/cm³.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
           "examGuidance": {
             "strategy": "Each distinct idea earns one mark. For calculations, show working and the correct unit.",
@@ -1076,7 +1149,20 @@
                   "(?=.*(?:floats))(?=.*(?:800))(?=.*(?:1000)).*"
                 ]
               }
-            ]
+            ],
+            "methodRules": [
+              [
+                "2\\.4\\s*(?:\\/|÷|divided\\s+by)\\s*800",
+                "volume\\s*=\\s*mass\\s*(?:\\/|÷)\\s*density"
+              ],
+              [
+                "\\b0\\.003\\s*m3\\b"
+              ],
+              [
+                "\\bfloats?\\b(?=.*(?:800|less|lower|density))(?=.*(?:1000|water))"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
           },
           "modelAnswer": "Use volume = mass divided by density, so V = 2.4 / 800. The object's volume is 0.003 m³. It floats because its density of 800 kg/m³ is lower than water's 1000 kg/m³.",
           "hint": "Show the steps needed for each marking point, with units for numerical answers.",
@@ -1146,7 +1232,25 @@
                   "(?=.*(?:0\\.24))(?=.*(?:kg)).*"
                 ]
               }
-            ]
+            ],
+            "methodRules": [
+              [
+                "2\\s*(?:×|x|\\*)\\s*3\\s*(?:×|x|\\*)\\s*5\\s*=\\s*30",
+                "\\b30\\s*cm3\\b"
+              ],
+              [
+                "mass\\s*=\\s*density\\s*(?:×|x|\\*|multiplied\\s+by)\\s*volume",
+                "mass\\s+equals\\s+density\\s+multiplied\\s+by\\s+volume"
+              ],
+              [
+                "8(?:\\.0)?\\s*(?:×|x|\\*)\\s*30",
+                "\\b240\\s*g\\b"
+              ],
+              [
+                "\\b0\\.24(?:0)?\\s*kg\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
           },
           "modelAnswer": "Its volume is 2 × 3 × 5 = 30 cm³. Mass = density × volume. Its mass is 8.0 × 30 = 240 g. Convert to 0.240 kg.",
           "hint": "Show the steps needed for each marking point, with units for numerical answers.",
@@ -1177,7 +1281,7 @@
           "answer": {
             "mode": "chemistry_rubric",
             "accepted": [
-              "Use density = mass ÷ volume. Substitute 9.65 ÷ 0.60. The ring density is approximately 16.1 g/cm³. The ring is not pure gold because 16.1 is lower than 19.3 g/cm³."
+              "Use density = mass ÷ volume. Substitute 9.65 ÷ 0.60. The ring density is approximately 16.1 g/cm³. The ring is not pure gold because 16.1 g/cm³ is below 19.3 g/cm³."
             ],
             "points": [
               {
@@ -1208,17 +1312,34 @@
                 ]
               },
               {
-                "label": "The ring is not pure gold because 16.1 is lower than 19.3 g/cm³.",
+                "label": "The ring is not pure gold because 16.1 g/cm³ is below 19.3 g/cm³.",
                 "alternatives": [
                   "The ring is not pure gold because 16.1 is lower than 19.3 g/cm³."
                 ],
                 "patterns": [
-                  "(?=.*(?:16\\.1))(?=.*(?:19\\.3))(?=.*(?:pure gold)).*"
-                ]
+                  "(?=.*(?:not\\s+pure\\s+gold|impure|cannot\\s+be\\s+pure\\s+gold))(?=.*(?:16\\.1|lower|less))(?=.*(?:19\\.3|gold)).*"
+                ],
+                "allowNegation": true
               }
-            ]
+            ],
+            "methodRules": [
+              [
+                "density\\s*=\\s*mass\\s*(?:\\/|÷)\\s*volume",
+                "density\\s+(?:is|equals)\\s+mass\\s+(?:\\/|÷|divided\\s+by)\\s+volume"
+              ],
+              [
+                "9\\.65\\s*(?:\\/|÷|divided\\s+by)\\s*0\\.6(?:0)?"
+              ],
+              [
+                "\\b16\\.(?:1|08\\d*)\\s*g\\s*\\/\\s*cm3\\b"
+              ],
+              [
+                "(?=.*(?:not\\s+pure\\s+gold|impure|cannot\\s+be\\s+pure))(?=.*(?:16\\.1|less|lower))(?=.*(?:19\\.3|gold)).*"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
           },
-          "modelAnswer": "Use density = mass ÷ volume. Substitute 9.65 ÷ 0.60. The ring density is approximately 16.1 g/cm³. The ring is not pure gold because 16.1 is lower than 19.3 g/cm³.",
+          "modelAnswer": "Use density = mass ÷ volume. Substitute 9.65 ÷ 0.60. The ring density is approximately 16.1 g/cm³. The ring is not pure gold because 16.1 g/cm³ is below 19.3 g/cm³.",
           "hint": "Show the steps needed for each marking point, with units for numerical answers.",
           "examGuidance": {
             "strategy": "Award each required scientific fact, calculation step or conclusion separately. Write distinct steps to earn each mark.",
@@ -2023,7 +2144,17 @@
                   "(?=.*(?:19\\.7))(?=.*(?:°C)).*"
                 ]
               }
-            ]
+            ],
+            "methodRules": [
+              [
+                "80\\s*(?:-|minus)\\s*60\\.3",
+                "temperature\\s+fall\\s+equals\\s+starting\\s+minus\\s+final\\s+temperature"
+              ],
+              [
+                "\\b19\\.7\\s*(?:°\\s*C|degrees?\\s*C(?:elsius)?|C)\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
           },
           "modelAnswer": "Temperature fall equals starting minus final temperature. The fall is 19.7 °C.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
@@ -2364,7 +2495,17 @@
                   "(?=.*(?:1\\.16))(?=.*(?:°C/min)).*"
                 ]
               }
-            ]
+            ],
+            "methodRules": [
+              [
+                "\\b11\\.6\\s*(?:°\\s*C|degrees?\\s*C(?:elsius)?|C)\\b",
+                "80\\s*(?:-|minus)\\s*68\\.4"
+              ],
+              [
+                "\\b1\\.16\\s*(?:°\\s*C\\s*\\/\\s*(?:min|minute)|degrees?\\s*(?:Celsius)?\\s*(?:per|\\/)\\s*min(?:ute)?s?)\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
           },
           "modelAnswer": "Temperature fall is 11.6 °C. Mean cooling rate is 1.16 °C/min.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
@@ -2429,7 +2570,22 @@
                   "(?=.*(?:bubble wrap))(?=.*(?:smallest))(?=.*(?:fall)).*"
                 ]
               }
-            ]
+            ],
+            "methodRules": [
+              [
+                "\\b26\\.9\\s*(?:°\\s*C|degrees?\\s*C(?:elsius)?|C)\\b"
+              ],
+              [
+                "\\b19\\.7\\s*(?:°\\s*C|degrees?\\s*C(?:elsius)?|C)\\b"
+              ],
+              [
+                "\\b11\\.6\\s*(?:°\\s*C|degrees?\\s*C(?:elsius)?|C)\\b"
+              ],
+              [
+                "(?=.*bubble\\s*wrap)(?=.*(?:smallest|least|lowest))(?=.*(?:drop|fall|decrease|cool)).*"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
           },
           "modelAnswer": "The no-insulation temperature fall is 26.9°C. The newspaper temperature fall is 19.7°C. The bubble-wrap temperature fall is 11.6°C. Bubble wrap insulates best because it has the smallest temperature fall over the same time.",
           "hint": "Show the steps needed for each marking point, with units for numerical answers.",
@@ -2815,7 +2971,7 @@
           "answer": {
             "mode": "chemistry_rubric",
             "accepted": [
-              "The displaced water volume is 25 cm³. Use density equals mass divided by volume. The density is 3 g/cm³."
+              "The displaced water volume is 25 cm³. Substitute 75 ÷ 25 into ρ = mass ÷ volume. The density is 3 g/cm³."
             ],
             "points": [
               {
@@ -2828,7 +2984,7 @@
                 ]
               },
               {
-                "label": "Use density equals mass divided by volume.",
+                "label": "Substitute 75 ÷ 25 into ρ = mass ÷ volume.",
                 "alternatives": [
                   "Use density equals mass divided by volume."
                 ],
@@ -2845,9 +3001,22 @@
                   "(?=.*(?:3\\s*g/cm³)).*"
                 ]
               }
-            ]
+            ],
+            "methodRules": [
+              [
+                "\\b25\\s*cm3\\b",
+                "65\\s*(?:-|minus)\\s*40"
+              ],
+              [
+                "\\b75\\s*(?:\\/|÷|divided\\s+by)\\s*25\\b"
+              ],
+              [
+                "\\b3\\s*g\\s*\\/\\s*cm3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
           },
-          "modelAnswer": "The displaced water volume is 25 cm³. Use density equals mass divided by volume. The density is 3 g/cm³.",
+          "modelAnswer": "The displaced water volume is 25 cm³. Substitute 75 ÷ 25 into ρ = mass ÷ volume. The density is 3 g/cm³.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
           "examGuidance": {
             "strategy": "Each distinct idea earns one mark. For calculations, show working and the correct unit.",
@@ -3060,7 +3229,17 @@
                   "(?=.*(?:19))(?=.*(?:cm³)).*"
                 ]
               }
-            ]
+            ],
+            "methodRules": [
+              [
+                "50\\s*(?:-|minus)\\s*31",
+                "volume\\s+equals\\s+final\\s+(?:water\\s+)?reading\\s+minus\\s+initial"
+              ],
+              [
+                "\\b19\\s*cm3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
           },
           "modelAnswer": "Volume equals final water reading minus initial reading. The volume is 19 cm³.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
@@ -3211,5 +3390,6 @@
       ]
     }
   ],
-  "qualityNote": "The model-answer and format checks passed; an additional marking-variant and negation regression suite is used for this bank. Automated extended-response marks remain provisional and should be reviewed against the marking points for scientifically equivalent wording."
+  "qualityNote": "The model-answer and format checks passed; an additional marking-variant and negation regression suite is used for this bank. Automated extended-response marks remain provisional and should be reviewed against the marking points for scientifically equivalent wording.",
+  "markingGuidance": "Method and substitution marks are distinct from final answer marks; correct final answers alone cannot receive full method credit. School-aligned practice, not the official school's marking."
 }
