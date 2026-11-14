@@ -17,6 +17,14 @@ const select=body('function shuffle(a){','\nfunction select(questions,count','se
 const quotas={'Particle model & changes of state':8,'Density calculations':4,'Conduction & insulation':7,'RP2 thermal insulation':3,'RP5 density':3};
 const paper=select(questions,25,[],quotas);
 assert.equal(draftIsSchool({questions:paper}),true,'new exam must pass draft validation');
+const sameDataDraft=paper.map(q=>({...q}));
+const densitySlots=sameDataDraft.flatMap((q,i)=>q.topic==='Density calculations'?[i]:[]);
+const first=densitySlots.find(i=>['phys-nov26-d06','phys-nov26-d12'].includes(sameDataDraft[i].id))??densitySlots[0];
+const second=densitySlots.find(i=>i!==first&&!['phys-nov26-d06','phys-nov26-d12'].includes(sameDataDraft[i].id));
+assert.ok(second!==undefined,'independent density item available to simulate a same-data draft');
+sameDataDraft[first].id='phys-nov26-d06';sameDataDraft[second].id='phys-nov26-d12';
+assert.equal(new Set(sameDataDraft.map(q=>q.id)).size,25,'duplicate scenario can still have distinct IDs');
+assert.equal(draftIsSchool({questions:sameDataDraft}),false,'reject a new draft with duplicate calculation inputs');
 assert.equal(draftIsSchool({questions:paper.slice(0,24)}),false,'short draft is outdated');
 const withoutGraph=paper.map(q=>({...q,diagram:undefined}));
 assert.equal(draftIsSchool({questions:withoutGraph}),false,'missing practical diagram must be identified');
