@@ -36,7 +36,8 @@ test('School tracker lists each November 2026 assessed subject with its accurate
  assert.match(byId['school-french-20261126'].dateLabel,/Classroom due/,'Do not claim an unconfirmed exam sitting on 26 Nov');
  const plan=revision.buildRevisionPlan({}, {},'2026-11-14');
  for(const id of upcoming.map(x=>x[0]))assert.ok(plan.active.some(a=>a.id===id),id+' must be current/upcoming on 14 Nov');
- assert.ok(plan.suggestion.href.startsWith('/assessment/'),'Plan must not send an empty-topic assessment to a blank link');
+ assert.ok(plan.suggestion.href.startsWith('/'),'Revision-plan recommendation must have a working local route');
+ for(const id of ['school-chemistry-20261116','school-latin-20261123'])assert.ok(plan.active.find(a=>a.id===id).paperHref.startsWith('/'),'Empty-topic assessment must retain its direct mock link');
 });
 
 test('All upcoming school papers are reachable from tracker and correct dedicated routes',()=>{
