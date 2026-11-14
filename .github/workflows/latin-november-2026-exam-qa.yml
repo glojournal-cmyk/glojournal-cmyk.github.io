@@ -23,5 +23,6 @@ jobs:
         run: |
           node --check study/latin/november-2026/exam.js
           node --check study/latin/november-2026/exam-data.js
+          node --check study/latin/november-2026/unseen-passages.js
           node --test tests/latin-november-2026-exam.test.mjs
           node --test tests/latin-november-2026-mock-interaction.test.mjs
