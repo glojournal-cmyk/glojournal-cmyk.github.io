@@ -229,13 +229,14 @@ function selectPhysicsSchool(questions,count,recent=[],quotas={}){
   const selected=[],seen=new Set(),seenScenarios=new Set(),old=new Set(recent);
   const lastPaperScenarios=new Set(recent.slice(-count).map(physicsScenarioKey));
   const lastSeen=new Map(recent.map((id,i)=>[id,i]));
+  const densityApplications=new Set(['d06','d11','d12','d13'].map(id=>'phys-nov26-'+id));
   const rp5Focus=new Set([
     'r01','r02','r05','r06','r09','r12','r13',
     'r27','r28','r29','r30','r33','r34','r35','r36','r39'
   ].map(s=>'phys-nov26-'+s));
   const rules={
     'Particle model & changes of state':[q=>q.marks>=3],
-    'Density calculations':[q=>['phys-nov26-d11','phys-nov26-d13','phys-nov26-d06'].includes(q.id)],
+    'Density calculations':[q=>densityApplications.has(q.id)],
     'Conduction & insulation':[q=>q.marks>=3],
     'RP2 thermal insulation':[q=>Boolean(q.diagram)],
     'RP5 density':[q=>rp5Focus.has(q.id)&&q.marks>=3]
@@ -244,7 +245,9 @@ function selectPhysicsSchool(questions,count,recent=[],quotas={}){
     // Shuffle equally eligible candidates and prefer least recently used.
     // This avoids repeating a required-practical item unnecessarily.
     const options=shuffle(pool.filter(q=>!seen.has(q.conceptId||q.id)
-      &&!seenScenarios.has(physicsScenarioKey(q))&&filter(q)));
+      &&!seenScenarios.has(physicsScenarioKey(q))
+      &&!(densityApplications.has(q.id)&&selected.some(p=>densityApplications.has(p.id)))
+      &&filter(q)));
     options.sort((a,b)=>(lastPaperScenarios.has(physicsScenarioKey(a))?1:0)
       -(lastPaperScenarios.has(physicsScenarioKey(b))?1:0)
       ||(old.has(a.id)?1:0)-(old.has(b.id)?1:0)
@@ -293,7 +296,8 @@ function physicsNov26DraftSchoolAligned(draft){
     'r28','r29','r30','r33','r34','r35','r36','r39'].map(s=>'phys-nov26-'+s);
   return questions.some(q=>q.topic==='RP2 thermal insulation'&&q.diagram)
     &&has(rp5Focus)
-    &&has(['phys-nov26-d11','phys-nov26-d13','phys-nov26-d06']);
+    &&has(['phys-nov26-d11','phys-nov26-d13','phys-nov26-d06','phys-nov26-d12'])
+    &&questions.filter(q=>['phys-nov26-d06','phys-nov26-d11','phys-nov26-d12','phys-nov26-d13'].includes(q.id)).length===1;
 }
 
 function select(questions,count,recent=[],quotas=null){
