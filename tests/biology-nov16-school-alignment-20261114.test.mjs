@@ -23,7 +23,7 @@ for(const q of bank.questions){
   assert.ok(!/4\.1\.[23]/.test(q.specification),q.id);
 }
 assert.match(app,/examWeek:'2026-11-16',ids:\['biology-cell-structure','biology-nov2'/);
-assert.match(app,/First GCSE Biology assessment: in the Biology lesson during the week beginning 16 November 2026/);
+assert.match(app,/First GCSE Biology assessment: week beginning 16 November 2026/);
 assert.match(app,/const school=SCHOOL_ASSESSMENTS\.filter\(x=>x\.id!=='school-biology-20261102'/);
 assert.doesNotMatch(app,/x\.id!=='school-biology-20261116'/);
 assert.match(app,/[Hh]ome practice target 85%/);
