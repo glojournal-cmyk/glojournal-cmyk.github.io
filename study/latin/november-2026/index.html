@@ -55,6 +55,14 @@
     .score{font-size:1.3rem;font-weight:750;color:var(--navy)}
     .sectionhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
     .count{color:var(--muted);font-size:.92rem}
+    .mc-fieldset{border:0;margin:0;padding:0;min-width:0}
+    .mc-fieldset legend{display:block;font-size:1.02rem;font-weight:650;margin:0 0 12px;line-height:1.5;color:var(--navy);width:100%}
+    .mc-choice{display:flex;align-items:flex-start;gap:11px;padding:13px 14px;border:1px solid var(--border);border-radius:10px;background:#fff;margin:9px 0;cursor:pointer;font-weight:400}
+    .mc-choice:hover{border-color:var(--sage);background:#f7f9f5}
+    .mc-choice input[type=radio]{margin:4px 2px 0 0;accent-color:var(--navy);width:18px;height:18px;flex:0 0 auto}
+    .mc-choice span{flex:1}.mc-is-correct{border-color:#b8d1bb;background:#edf4ed}
+    .mc-correct-label{display:inline-block;font-size:.83rem;color:#2e6743;margin-left:9px}
+    .mc-wrong-label{display:inline-block;font-size:.83rem;color:var(--error);margin-left:9px}
     .hidden{display:none!important}
     footer{border-top:1px solid var(--border);margin-top:50px;padding-top:20px;color:var(--muted);font-size:.82rem}
     @media(max-width:650px){.shell{padding:15px 12px 80px}.grid{grid-template-columns:1fr}.panel,.question,.exam-block{padding:17px}.tab{padding:9px 12px;font-size:.93rem}.hero{padding:25px 4px 15px}.btn{width:100%}.btnrow>.btn{width:100%}.mast{align-items:flex-start}.resultbar{position:static}}
@@ -78,11 +86,12 @@
       <button class="tab" data-tab="vocabulary" aria-selected="false">130-word vocabulary</button>
       <button class="tab" data-tab="grammar" aria-selected="false">Grammar practice</button>
       <button class="tab" data-tab="practice" aria-selected="false">Exam-style practice</button>
+      <button class="tab" data-tab="unseen" aria-selected="false">Unseen · 10 MC</button>
       <button class="tab" data-tab="mock" aria-selected="false">Full mock exam</button>
     </nav>
     <main id="app" aria-live="polite"></main>
     <footer>This exam practice is independent of Daily Tasks, mastery, MP and your existing progress. Your responses stay in this page only and are not uploaded or saved to your Scholar's Garden record. The mock and marking guidance are original home-practice materials, not an official school paper.</footer>
   </div>
-  <script type="module" src="./exam.js?v=20261114c"></script>
+  <script type="module" src="./exam.js?v=20261114d"></script>
 </body>
 </html>
