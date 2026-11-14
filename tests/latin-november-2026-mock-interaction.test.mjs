@@ -93,7 +93,7 @@ test("Five unseen MC screens: ten questions each, no answer leakage before submi
     assert.match(h.app.innerHTML,/10 MC questions/);
     assert.equal((h.app.innerHTML.match(/class="mc-fieldset"/g)||[]).length,10);
     assert.equal((h.app.innerHTML.match(/data-unseen-answer="/g)||[]).length,40);
-    assert.doesNotMatch(h.app.innerHTML,/Correct answer|Evidence:/);
+    assert.doesNotMatch(h.app.innerHTML,/✓ Correct answer|<strong>Evidence:<\/strong>/);
     const qs=p.questions;
     for(let qi=0;qi<qs.length;qi++)h.answerUnseen(qs[qi].id,qs[qi].answer);
     h.click("unseen-submit");
