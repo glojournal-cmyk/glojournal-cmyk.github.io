@@ -43,7 +43,7 @@ function appHarness(){
     click(name){handlers.click({target:{closest:()=>({dataset:{action:name}})}});},
     mark(q,i,checked){handlers.change({target:{dataset:{award:q+"-"+i},checked}});},
     tick(){timerCallback?.()},
-    text(id){return doc.getElementById(id)?.textContent}
+    text(id){return String(doc.getElementById(id)?.textContent)}
   };
 }
 test("Live UI mock: 50-minute paper conceals answers until finished",()=>{
