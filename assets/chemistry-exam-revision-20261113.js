@@ -1,4 +1,4 @@
-import {CATEGORIES,STORE_KEY,categoryOf,buildBank,selectPaper,scorePaper,validateStoredState,marksOf,isRubric} from './chemistry-exam-revision-core-20261113.js';
+import {CATEGORIES,STORE_KEY,categoryOf,buildBank,selectPaper,scorePaper,validateStoredState,marksOf,isRubric,isExamEligible} from './chemistry-exam-revision-core-20261113.js?v=20261114-c16-assessment-scope2';
 
 const $=id=>document.getElementById(id);
 const el=(tag,text,cls)=>{
@@ -287,12 +287,12 @@ $('export').addEventListener('click',exportBackup);
 $('import').addEventListener('change',importBackup);
 
 try{
-  const urls=[...([5,6,7].map(n=>'/content/topics/chem-y9-c'+n+'.json?v=20261114-exam-revision')), '/content/exam-revision/chemistry-nov16-2026-applied.json?v=20261114'];
+  const urls=[...([5,6,7].map(n=>'/content/topics/chem-y9-c'+n+'.json?v=20261114-c16-assessment-scope2')), '/content/exam-revision/chemistry-nov16-2026-applied.json?v=20261114-c16-assessment-scope2'];
   const responses=await Promise.all(urls.map(url=>fetch(url,{cache:'no-store'})));
   if(responses.some(r=>!r.ok))throw Error('One or more Chemistry topic files could not load.');
   bank=buildBank(await Promise.all(responses.map(r=>r.json())));
   load();home();
-  if(!storageBlocked)notice(bank.length+' assessment questions ready, including multi-mark explanations. Choose a topic or start a mixed paper.');
+  if(!storageBlocked)notice(bank.filter(isExamEligible).length+' school-assessment questions ready. C1.7/C1.8 extension questions will not be selected in a new paper.');
 }catch(error){
   notice('Exam Revision could not load safely: '+error.message+' Try refreshing when online.',true);
   $('setup').hidden=false;$('start').disabled=true;$('resume').disabled=true;
