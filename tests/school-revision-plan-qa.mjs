@@ -19,7 +19,7 @@ for(const exam of schoolAssessments)for(const topic of exam.revisionTopics){
   assert.ok(pack,topic.id);assert.equal(pack.subject,exam.subject.toLowerCase());assert.equal(pack.year,9);
 }
 const empty=buildRevisionPlan({}, {}, '2026-10-04');
-assert.deepEqual(empty.active.map(x=>x.subject),['Chemistry','French','Biology','Biology','French']);
+assert.deepEqual(empty.active.map(x=>x.subject),['Chemistry','French','Biology','Physics','Biology','Chemistry','Latin','French']);
 assert.equal(empty.suggestion.assessment.subject,'Chemistry');
 assert.equal(empty.suggestion.topic.state,'unchecked');
 assert.match(empty.suggestion.reason,/No topic practice/);
@@ -28,10 +28,13 @@ assert.equal(buildRevisionPlan({}, {}, '2026-10-10').active[0].phase,'current');
 assert.equal(buildRevisionPlan({}, {}, '2026-10-11').active[0].phase,'current');
 assert.equal(buildRevisionPlan({}, {}, '2026-10-12').active[0].subject,'Biology');
 assert.equal(buildRevisionPlan({}, {}, '2026-11-22').active[0].phase,'current');
-assert.deepEqual(buildRevisionPlan({}, {}, '2026-11-23').active.map(x=>x.paperId),['french-nov26']);
+assert.deepEqual(buildRevisionPlan({}, {}, '2026-11-23').active.map(x=>x.paperId),['latin-nov26','french-nov26']);
 assert.equal(buildRevisionPlan({}, {}, '2026-11-23').suggestion.assessment.paperId,'french-nov26');
-assert.equal(buildRevisionPlan({}, {}, '2026-11-27').active.length,0);
-assert.equal(buildRevisionPlan({}, {}, '2026-11-27').suggestion,null);
+assert.equal(buildRevisionPlan({}, {}, '2026-11-27').active.length,1);
+assert.equal(buildRevisionPlan({}, {}, '2026-11-27').active[0].paperId,'latin-nov26');
+assert.equal(buildRevisionPlan({}, {}, '2026-11-27').suggestion.href,'/study/latin/november-2026/');
+assert.equal(buildRevisionPlan({}, {}, '2026-11-30').active.length,0);
+assert.equal(buildRevisionPlan({}, {}, '2026-11-30').suggestion,null);
 assert.equal(londonDay(new Date('2026-10-03T23:30:00Z')),'2026-10-04');
 assert.equal(londonDay(new Date('2026-12-03T23:30:00Z')),'2026-12-03');
 const garden={topicStats:{'chem-y9-c5':{attempted:20,correct:19,state:'mastered'},'chem-y9-c4':{attempted:10,correct:6,state:'practising'}},reviews:{wrong:{topicId:'chem-y9-c3',wrong:true},corrected:{topicId:'chem-y9-c5',wrong:false},repair:{topicId:'chem-y9-c5',wrong:true,repair:true}}};
@@ -55,7 +58,7 @@ assert.equal(buildRevisionPlan({}, {hiddenSchoolAssessments:[chemistry.id]}, '20
 const custom={id:'custom',subject:'Maths',date:'2026-10-04',title:'Algebra',status:'Upcoming'};
 assert.equal(buildRevisionPlan({}, {tracker:[custom]}, '2026-10-04').active[0].title,'Algebra');
 assert.equal(buildRevisionPlan({}, {tracker:[{...custom,status:'Completed'}]}, '2026-10-04').past[0].phase,'completed');
-assert.equal(buildRevisionPlan({}, {tracker:[{...custom,date:'2026-02-31'},{...custom,subject:'<img>'}]}, '2026-10-04').active.length,5);
+assert.equal(buildRevisionPlan({}, {tracker:[{...custom,date:'2026-02-31'},{...custom,subject:'<img>'}]}, '2026-10-04').active.length,8);
 const app=fs.readFileSync('assessment/app-v2.js','utf8');
 assert.match(app,/revisionEvidence:d.questions.map/);
 assert.match(app,/get\('paper'\)/);

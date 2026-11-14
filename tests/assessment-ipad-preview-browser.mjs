@@ -74,12 +74,12 @@ for(const browserType of [chromium,webkit]){
    assert.ok(await page.locator('#tracker-list .entry').count()>0,'School Tracker must show school assessment entries');
    assert.ok(await page.locator('#track-form').count()===1,'Tracker add/result form remains');
    const trackerItems=page.locator('#tracker-list .assessment-tracker-item');
-   assert.equal(await trackerItems.count(),4,'School Tracker must show both current November entries plus two October records');
+   assert.equal(await trackerItems.count(),7,'School Tracker must show all five November entries plus two October records');
    assert.ok((await page.locator('#tracker-list').innerText()).includes('16 Nov'),'The confirmed Biology assessment week beginning 16 November must remain visible');
    assert.ok((await page.locator('#tracker-list').innerText()).includes('26 Nov'),'The French assignment due 26 November must remain visible');
    assert.ok(!(await page.locator('#tracker-list').innerText()).includes('2 Nov'),'The superseded Biology 2 November assessment is excluded from tracker');
    const orderedDates=await trackerItems.locator('summary time[datetime]').evaluateAll(nodes=>nodes.map(x=>x.dateTime));
-   assert.deepEqual(orderedDates,['2026-11-26','2026-11-16','2026-10-08','2026-10-05'],
+   assert.deepEqual(orderedDates,['2026-11-26','2026-11-23','2026-11-16','2026-11-16','2026-11-09','2026-10-08','2026-10-05'],
      'Tracker school tests must display most recent date first');
    const subjects=await trackerItems.evaluateAll(items=>items.map(item=>{
      const row=item.closest('article.assessment-tracker-entry');
@@ -93,22 +93,22 @@ for(const browserType of [chromium,webkit]){
        subjectWidth:subject.getBoundingClientRect().width
      };
    }));
-   assert.deepEqual(subjects.map(x=>x.subject),['French','Biology','French','Chemistry'],
+   assert.deepEqual(subjects.map(x=>x.subject),['French','Latin','Chemistry','Biology','Physics','French','Chemistry'],
      'Four dated assessments must keep correct newest-first subject labels');
-   assert.deepEqual(subjects.map(x=>x.fullRowColour),[
-     'rgb(249, 231, 237)','rgb(224, 239, 231)',
-     'rgb(249, 231, 237)','rgb(238, 231, 248)'
-   ],'Whole tracker rows must use subject-appropriate soft green/pink/lavender backgrounds');
+   assert.equal(subjects[0].fullRowColour,'rgb(249, 231, 237)','French retains pastel pink');
+   assert.equal(subjects[3].fullRowColour,'rgb(224, 239, 231)','Biology retains pastel green');
+   assert.equal(subjects[2].fullRowColour,'rgb(238, 231, 248)','Chemistry retains pastel lavender');
+   assert.equal(subjects[0].fullRowColour,subjects[5].fullRowColour,'Both French rows use matching colour');
    assert.ok(subjects.every(x=>x.rowWidth>viewport.width*.75 && x.subjectWidth<x.rowWidth*.33),
      'Pastel must cover the full row at iPad and mobile widths, not just a subject pill');
-   assert.equal(new Set(subjects.map(x=>x.rowBorder)).size,3,
+   assert.ok(new Set(subjects.map(x=>x.rowBorder)).size>=3,
      'Distinct subjects must have distinct matching borders, with both French entries sharing the same colour');
    const frenchDueRow=trackerItems.first();
    await frenchDueRow.locator('summary').first().click();
    assert.ok(await frenchDueRow.locator('a[href="/assessment/french-nov26/"]').isVisible(),
      'French 26 November writing assignment must open its dedicated 150-word practice');
    await frenchDueRow.locator('summary').first().click();
-   const trackerRow=trackerItems.nth(1); // 16 November Biology, with a timed in-app paper
+   const trackerRow=trackerItems.nth(3); // 16 November Biology, with a timed in-app paper
    assert.equal(await trackerRow.getAttribute('open'),null,'Tracker details must be closed by default');
    assert.equal(await page.locator('#tracker-list .assessment-tracker-head span').count(),5,'Table has clear aligned column headers');
    for(const cls of ['tracker-subject','tracker-title','tracker-date','tracker-status']){

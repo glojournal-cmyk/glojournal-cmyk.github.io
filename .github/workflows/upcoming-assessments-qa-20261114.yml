@@ -1,0 +1,69 @@
+name: November school assessment integration QA
+on:
+  pull_request:
+    paths:
+      - 'assessment/app-v2.js'
+      - 'assessment/index.html'
+      - 'assets/school-revision-data-20261004.js'
+      - 'study/latin/november-2026/**'
+      - 'study/chemistry/exam-revision/**'
+      - 'assessment/french-nov26/**'
+      - 'assessment/physics-nov26-20261113.json'
+      - 'assessment/biology-cell-structure-20261003.json'
+      - 'content/exam-revision/chemistry-school-mock-20261114.json'
+      - 'tests/upcoming-assessments-qa-20261114.test.mjs'
+      - 'tests/upcoming-assessments-browser-20261114.mjs'
+      - '.github/workflows/upcoming-assessments-qa-20261114.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'assessment/app-v2.js'
+      - 'assessment/index.html'
+      - 'assets/school-revision-data-20261004.js'
+      - 'study/latin/november-2026/**'
+      - 'study/chemistry/exam-revision/**'
+      - 'assessment/french-nov26/**'
+      - 'assessment/physics-nov26-20261113.json'
+      - 'assessment/biology-cell-structure-20261003.json'
+      - 'content/exam-revision/chemistry-school-mock-20261114.json'
+      - 'tests/upcoming-assessments-qa-20261114.test.mjs'
+      - 'tests/upcoming-assessments-browser-20261114.mjs'
+      - '.github/workflows/upcoming-assessments-qa-20261114.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  upcoming-assessments:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax and cross-subject question/marking checks
+        run: |
+          node --check assessment/app-v2.js
+          node --check assets/school-revision-data-20261004.js
+          node --check tests/upcoming-assessments-qa-20261114.test.mjs
+          node --test tests/upcoming-assessments-qa-20261114.test.mjs
+      - name: Recheck full independent Physics and Biology model-answer marking
+        run: node tests/academic-content-cross-subject-20261114.test.mjs
+      - name: Recheck Chemistry mock marking and point allocation
+        run: node --test tests/chemistry-school-mock-20261114.test.mjs
+  upcoming-assessment-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium and iPad WebKit
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium webkit
+      - name: Check upcoming assessment links and Biology exam launch on Chromium and iPad WebKit
+        run: |
+          python3 -m http.server 8777 --bind 127.0.0.1 >/tmp/november-assessment-browser.log 2>&1 &
+          QA_BASE_URL=http://127.0.0.1:8777 node tests/upcoming-assessments-browser-20261114.mjs

@@ -24,10 +24,13 @@ const tracker=fs.readFileSync('assessment/app-v2.js','utf8');
 const block=tracker.slice(tracker.indexOf('const SCHOOL_ASSESSMENTS='),tracker.indexOf('function tracker()'));
 await import('../assets/school-revision-data-20261004.js');
 const schools=new Function(block+';return SCHOOL_ASSESSMENTS;')();
-assert.equal(schools.length,5);
+assert.equal(schools.length,8);
 assert.equal(schools.find(x=>x.paperId==='french-nov26').date,'2026-11-26','new school French writing assessment is tracked');
 assert.equal(schools.find(x=>x.paperId==='biology-nov2').date,'2026-11-02');
 assert.equal(schools.find(x=>x.paperId==='biology-cell-structure').date,'2026-11-16');
+assert.equal(schools.find(x=>x.paperId==='chemistry-nov16').date,'2026-11-16');
+assert.equal(schools.find(x=>x.paperId==='latin-nov26').date,'2026-11-23');
+assert.equal(schools.find(x=>x.paperId==='physics-nov26').date,'2026-11-09');
 const schoolIds=new Set(JSON.parse(fs.readFileSync('content/school-update-20260926/delta.json','utf8')).topics.map(t=>t.topicId));
 for(const x of schools)for(const id of x.topics){
   if(x.paperId==='biology-nov2'){
