@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#173549">
+<meta name="description" content="Year 9 Chemistry Assessment 2 · three original 20-minute, 20-mark school-style mock papers.">
+<title>Chemistry Assessment 2 · School Mock · Lux et Labor</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/chemistry-exam-revision-20261113.css?v=20261114-c16-assessment-scope2">
+<style>
+.mock-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0}
+.mock-summary div{background:#fffdf8;border:1px solid #d5dfd4;border-radius:17px;padding:15px}
+.mock-summary strong{display:block;color:#173549;font:700 1.7rem Georgia,serif;margin:7px 0}
+.mock-summary span{font-size:.85rem;color:#506861}
+.mock-figure{margin:0 0 22px;max-width:840px}
+.mock-figure img,.review-figure{display:block;width:100%;max-width:840px;height:auto;border-radius:12px;border:1px solid #c8d5d0;background:#faf8f1}
+.mock-figure figcaption{color:#536865;font-size:.77rem;padding-top:6px}
+.review-figure{max-width:530px;margin:14px 0}
+.clock{font-size:1.12rem;font-weight:800;color:#205b4d;font-variant-numeric:tabular-nums}
+.clock-ended{color:#a24f38}
+#save-error[hidden],.mock-figure[hidden]{display:none}
+#save-error{margin:9px 0;padding:10px 13px;border:1px solid #dcac9e;background:#fbece6;color:#822c24;border-radius:10px}
+#time-note{font-size:.84rem;color:#526b66}
+#submit{background:#173549;color:white}
+.note{font-size:.9rem;color:#516760;max-width:800px}
+@media(max-width:600px){.mock-summary{grid-template-columns:1fr;gap:8px}.mock-summary div{padding:11px}.mock-summary strong{font-size:1.4rem}}
+@media print{.paper-actions,#clock,#time-note,.mock-summary{display:none}}
+</style></head>
+<body data-school-mock="chemistry-assessment2-20261116">
+<main class="shell">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/study/">Study</a><span>/</span><a href="/study/chemistry/">Chemistry</a><span>/</span><a href="/study/chemistry/exam-revision/">Exam Revision</a><span>/</span><strong>School Mock</strong></nav>
+<header class="hero"><p class="eyebrow">LUX ET LABOR · YEAR 9 · CHEMISTRY</p>
+<h1>Assessment 2 · School Mock</h1>
+<p class="lead">Original papers based on the announced school revision topics</p>
+<p class="hero-note">Assessment week commencing <strong>16 November 2026</strong> · Formulae, chemical equations, C1.5 history of the atom and C1.6 structure of the atom.</p></header>
+<p id="status" class="status" role="status" aria-live="polite">Loading three school mock papers…</p>
+<section id="setup" class="page" hidden aria-label="Start a mock exam">
+<div class="mock-summary"><div><span>Maximum practice time</span><strong>20 min</strong></div><div><span>Marks on each mock</span><strong>20</strong></div><div><span>Different original papers</span><strong>3</strong></div></div>
+<section class="panel">
+<h2>Choose your mock paper</h2>
+<p class="note">Each paper has 13 questions worth exactly 20 marks, includes questions from all four topics and at least two illustrated questions. This is a school-style practice design, not a copy of an official examination. The 20-mark total is based on the last school assessment; the new school's total was not provided.</p>
+<div class="controls"><label for="version">Paper version
+<select id="version"><option value="A">Mock A — core knowledge &amp; Rutherford</option><option value="B">Mock B — models, particles &amp; formulae</option><option value="C">Mock C — explanation &amp; equation applications</option></select></label></div>
+<div class="actions"><button id="start" class="primary" type="button">Start 20-minute school mock</button><button id="resume" type="button" hidden>Resume unfinished mock</button></div>
+<p class="small">No answers or scores appear during the paper. After submission, single-mark answers are checked automatically, while explanation questions must be self-marked using the exact mark points. A 20-minute timer is shown; when time ends, saved work is preserved rather than forcibly discarded.</p>
+</section>
+<section class="panel"><h2>Completed mock papers</h2><div id="history"></div></section>
+<section class="backup"><button id="export" type="button">Export mock backup</button><label class="import">Import mock backup <input id="import" type="file" accept=".json,application/json"></label><p>School Mock answers are saved separately on this device; Daily Tasks, Mastery, XP and MP are unaffected.</p></section>
+</section>
+<section id="paper" class="page" hidden aria-label="Mock paper">
+<div class="paper-top"><div><p class="eyebrow">CHEMISTRY · NO MARKS UNTIL SUBMISSION</p><h2 id="paper-title">School Mock</h2><p id="clock" class="clock" role="timer" aria-live="off">20:00 remaining</p><p id="time-note"></p></div><button id="back" class="quiet" type="button">Back to mock home</button></div>
+<div class="progress-row"><span id="position">Question 1 of 13</span><span id="answered">0 of 13 answered</span></div><progress id="progress" value="1" max="13"></progress>
+<article class="question-panel"><p id="topic" class="eyebrow">Topic</p><h3 id="question-number">Question 1</h3>
+<figure id="figure" class="mock-figure" hidden></figure><pre id="stimulus" class="stimulus" hidden></pre>
+<p id="prompt" class="prompt"></p><div id="answer-area"></div>
+<p class="small">Answers save as you type. No answer keys or marks are shown before submission.</p>
+<p id="save-error" role="alert" hidden></p></article>
+<div class="paper-actions"><button id="previous" type="button">Previous</button><button id="next" class="primary" type="button">Next question</button><button id="submit" type="button" hidden>Submit mock &amp; view marking</button><button id="paper-export" type="button">Export backup</button></div>
+</section>
+<section id="results" class="page" hidden aria-label="Mock results">
+<div class="result-top"><p class="eyebrow">ASSESSMENT 2 · END-ONLY MARKING</p><h2 id="result-title">School Mock Review</h2><p id="score" class="score">0 / 20</p><p id="result-note"></p><p class="small">Practice scores only. Award self-reviewed marks only for distinct scientific points present in the student's answer.</p></div>
+<section class="panel"><h3>Marks by topic</h3><div id="breakdown"></div></section>
+<div class="actions"><button id="new-paper" type="button">Choose another school mock</button></div>
+<section class="review-list"><h3>Answers, explanations and mark schemes</h3><div id="review"></div></section>
+</section>
+<footer class="footer">Lux et Labor — Scholar’s Garden · <a href="/study/chemistry/exam-revision/">Back to 134-question Chemistry Exam Revision</a></footer>
+</main>
+<script type="module" src="/assets/chemistry-school-mock-20261114.js?v=20261114-mock1"></script>
+</body></html>
