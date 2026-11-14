@@ -32,7 +32,7 @@ assert.match(index,/Biology: first GCSE assessment · week beginning 16 November
 assert.match(index,/app-v2\.js\?v=20261114-biology-411-school-qa1/);
 assert.equal((guide.match(/class="question"/g)||[]).length,78,'72 core and 6 extended');
 assert.equal((guide.match(/self-mark checklist/g)||[]).length,6);
-for(const marks of [4,6])assert.ok(guide.includes(`(${marks} marks)`));
+for(const marks of [4,6])assert.ok(guide.includes(`<span>${marks} marks</span>`),`missing ${marks}-mark extended questions`);
 for(const q of bank.questions){
  const normalized=q.prompt.replaceAll('&','&amp;').replaceAll('<','&lt;');
  assert.ok(guide.includes(normalized)||guide.includes(q.prompt),`revision page missing ${q.id}`);
