@@ -24,6 +24,10 @@
 
 **Key integrity:** 50/50 correct-answer texts independently approved against questions and source passages; every MC contains four distinct options and an exact extract from the Latin supporting the intended answer. Generated correct-answer slots are balanced in the source; student-facing A/B/C/D choices are reshuffled once per attempt and remain fixed throughout that attempt.
 
+## Additional independent second-pass correction (14 November)
+
+- **Island passage, unambiguous possession:** changed `amicus Romanus in insula parva habitabat` to `amicus Romani in insula parva habitabat`. The nominative adjective `Romanus` means a Roman friend and does **not** mean *Romanus's friend*; the genitive `Romani` is needed to support the question asking where Romanus's friend lived. This is within the school-listed second-declension cases and Taylor Chapters 1–3 vocabulary. The academic morphology whitelist and dedicated regression assertion were updated.
+
 ## Substantive corrections made in the live question bank
 
 - **Passage 4 (temple), construction:** made the object of the command explicit, `dominus servos templum custodire iussit`.
