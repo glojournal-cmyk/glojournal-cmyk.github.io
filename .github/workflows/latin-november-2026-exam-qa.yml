@@ -6,6 +6,7 @@ on:
       - 'study/latin/november-2026/**'
       - 'assets/latin-vocabulary-booklet-20261023.js'
       - 'tests/latin-november-2026-exam.test.mjs'
+      - 'tests/latin-november-2026-mock-interaction.test.mjs'
       - '.github/workflows/latin-november-2026-exam-qa.yml'
   workflow_dispatch:
 permissions:
@@ -23,3 +24,4 @@ jobs:
           node --check study/latin/november-2026/exam.js
           node --check study/latin/november-2026/exam-data.js
           node --test tests/latin-november-2026-exam.test.mjs
+          node --test tests/latin-november-2026-mock-interaction.test.mjs
