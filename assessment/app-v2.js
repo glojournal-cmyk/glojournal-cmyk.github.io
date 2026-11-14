@@ -525,7 +525,8 @@ function physicsNov26Mark(q,value){
     const explicitRules=q.answer?.methodRules?.[index];
     const patterns=explicitRules?.length?explicitRules:[...(point.patterns||[]),...(point.variants||[])];
     return clauses.some(clause=>{
-      if(!noNegation(clause)&&!point.allowNegation)return false;
+      const safeClause=q.id==='phys-nov26-d13'?clause.replace(/\b(?:not|isn't|cannot\s+be)\s+pure\s+gold\b/gi,'impure gold'):clause;
+      if(!noNegation(safeClause)&&!point.allowNegation)return false;
       const canon=clause.normalize('NFKC').replace(/[−–]/g,'-')
         .replace(/cm³/gi,'cm3').replace(/m³/gi,'m3')
         .replace(/\bg\s*cm\s*(?:\^\s*)?-\s*3\b/gi,'g/cm3')
