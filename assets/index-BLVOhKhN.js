@@ -10,7 +10,7 @@ import {recordRecoveryAnswer,canRecover,reconcileRecoveredTaskHistory,prepareUno
 import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-20261018.js?v=20261025-recovery-correct1";
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastery-count20-v1";
-import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261025-scorefix2&latinrotation=20261101a&latincapacity=20261107a&dailyfix=20261104-regression1&supply=20261111a&frenchExam=20261114a";
+import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261025-scorefix2&latinrotation=20261101a&latincapacity=20261107a&dailyfix=20261104-regression1&supply=20261111a&frenchExam=20261114b";
 import "./journey-navigation-20261004.js?v=20261024-latin-ipad-date2&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
