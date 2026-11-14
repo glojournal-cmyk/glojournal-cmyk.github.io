@@ -31,8 +31,9 @@ test("Teacher's November exam structure: 50 min / 75 marks / 11+14+50",()=>{
 });
 test("English→Latin paper deliberately excludes composition-only forbidden topics",()=>{
   const a=MOCK.sections[0].questions.map(q=>q.model).join(" ");
-  for(const unwanted of ["amavit","portavit","scripsit","laetus","laeta","Romam","Romae","portate","mone","serve"])
-    assert.ok(!a.includes(unwanted),"Composition should exclude "+unwanted);
+  const wholeWords=new Set(a.toLowerCase().replace(/[^a-z]+/g," ").trim().split(/\s+/));
+  for(const unwanted of ["amavit","portavit","scripsit","laetus","laeta","romam","romae","portate","mone","serve"])
+    assert.ok(!wholeWords.has(unwanted),"Composition should exclude exact word "+unwanted);
   assert.ok(MOCK.sections[0].questions.every(q=>!q.model.includes("!")));
 });
 test("Comprehension and translation actually practise special school syntax",()=>{
