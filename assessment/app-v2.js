@@ -1,7 +1,7 @@
 const PAPERS=[
   {id:'physics-nov26',name:'Physics · November 2026 school assessment',subtitle:'Teacher-slide-aligned revision mock · 25 mixed questions · includes compulsory RP2 graph and RP5 practical · conduction only · not an official school paper',bank:'/assessment/physics-nov26-20261113.json',count:25,minutes:60,groups:{'Particle model & changes of state':5,'Density calculations':5,'Conduction & insulation':5,'RP2 thermal insulation':5,'RP5 density':5}},
-  {id:'biology-nov2',name:'Biology · 2 November · Specialised cells & RP1',subtitle:'2 November 2026 · 84-question bank · specialised cells, microscopy, drawing and calculations',bank:'/assessment/biology-nov2-20261017.json',count:20,minutes:45,groups:{'Cell structures in context':2,'Specialised animal cells':4,'Specialised plant cells':3,'Microscopy practical':4,'Biological drawing':3,'Microscopy calculations':4}},
-  {id:'biology-cell-structure',name:'Biology · AQA 4.1.1 Cell structure',subtitle:'AQA 4.1.1 revision bank · cell structure, microscopy and practical methods · 60 marks',bank:'/assessment/biology-cell-structure-20261003.json',count:24,minutes:45,groups:{'Eukaryotes and prokaryotes':4,'Animal and plant cells':4,'Cell specialisation':4,'Cell differentiation':4,'Microscopy':4,'Culturing microorganisms':4}},
+  {id:'biology-nov2',name:'Biology · Extra practice · Specialised cells & RP1',subtitle:'Earlier topic-focused revision · 84 questions · not the 16 November school assessment',bank:'/assessment/biology-nov2-20261017.json',count:20,minutes:45,groups:{'Cell structures in context':2,'Specialised animal cells':4,'Specialised plant cells':3,'Microscopy practical':4,'Biological drawing':3,'Microscopy calculations':4}},
+  {id:'biology-cell-structure',name:'Biology · 16 November week · AQA 4.1.1 Cell structure',subtitle:'First GCSE Biology assessment · all six 4.1.1 sections · RP1 and RP2 · 45-minute, 60-mark practice paper',bank:'/assessment/biology-cell-structure-20261003.json',count:24,minutes:45,groups:{'Eukaryotes and prokaryotes':4,'Animal and plant cells':4,'Cell specialisation':4,'Cell differentiation':4,'Microscopy':4,'Culturing microorganisms':4}},
   {id:'french',name:'French · Unit 1 vocabulary',subtitle:'Une visite en France · school test 8 Oct',bank:'/assessment/french-school-1.json',count:25,minutes:25,groups:{'Core phrases':4,'Intensifiers':3,'Descriptive adjectives':5,'Positive adjectives':5,'Pronouns':5,'Transport':3}},
   {id:'chemistry',name:'Chemistry · school test and RP6',subtitle:'Periodic Table, separation and chromatography',bank:'/assessment/chemistry-school-1.json',count:30,minutes:45,groups:{'Periodic table':4,'Separation':4,'RP6 method':4,'RP6 errors':2,'Chromatogram':4,'Rf':9,'Solvents':1,'RP6':2}},
   {id:'latin-verbs',name:'Latin · Regular verbs',subtitle:'Tomorrow’s table · Latin → English · porto, moneo, traho, audio · present, imperfect and perfect only',bank:'/assessment/latin-verbs-1.json',count:24,minutes:25,groups:{'Present':8,'Imperfect':8,'Perfect':8}},
@@ -73,7 +73,7 @@ const EXAM_GROUPS=[
   {subject:'Chemistry',exam:'2026-10-05',ids:['chemistry']},
   {subject:'English',exam:'2026-09-30',ids:['english']},
   {subject:'French',exam:'2026-10-08',ids:['french']},
-  {subject:'Biology',exam:'',examWeek:'2026-11-02',ids:['biology-nov2','biology-cell-structure','biology-school','biology']},
+  {subject:'Biology',exam:'',examWeek:'2026-11-16',ids:['biology-cell-structure','biology-nov2','biology-school','biology']},
   {subject:'Physics',exam:'',ids:['physics-nov26','physics']}
 ];
 function groupBlurb(group,today){
@@ -81,7 +81,7 @@ function groupBlurb(group,today){
   if(group.subject==='Latin')return today>group.exam?`Exam ${when} has passed. Regular verbs and The Loss of Creusa are now in Practise.`:`Exam ${when}. Start with Regular verbs: porto, moneo, traho and audio, Latin into English, present, imperfect and perfect. Those questions, and The Loss of Creusa, join Practise the next day.`;
   if(group.subject==='Chemistry')return 'Assessment in the week beginning 5 October 2026; exact lesson date awaits confirmation. Revise atoms, separating mixtures, history of the periodic table and RP6 chromatography.';
   if(group.subject==='English')return `Exam ${when}. These Year 9 questions are already in Practise.`;
-  if(group.subject==='Biology')return 'School assessment on 2 November: specialised cells and Required Practical 1. More AQA 4.1.1 revision papers are also available; no later school-test date is confirmed.';
+  if(group.subject==='Biology')return 'First GCSE Biology assessment: in the Biology lesson during the week beginning 16 November 2026 (exact lesson date not provided). AQA 8461 section 4.1.1 only, including microscopy (RP1) and culturing microorganisms (RP2). Start with the 60-mark Cell Structure mock; the specialised-cells set is extra practice, not the confirmed assessment.';
   if(group.subject==='Physics')return 'Teacher-slide-aligned mock, not the official school paper. Each paper includes multi-mark explanations, RP2 graph analysis and RP5 practical method; conduction only, not convection or radiation. Marking is provisional for equivalent free text.';
   if(group.exam)return today>group.exam?`Exam ${when} has passed. These questions are now in Practise.`:`Exam ${when}. These questions join Practise the next day.`;
   return 'Mixed questions from the Year 9 bank. Already in Practise.';
@@ -91,7 +91,7 @@ function paperCard(p){
  return `<article class="card assessment-paper-row" data-paper-row="${esc(p.id)}">
    <div class="assessment-paper-info">
      <h3>${esc(p.name.replace(/^[^·]+·\s*/,''))}</h3>
-     <p>${p.minutes} min · ${p.count} questions · ${p.id==='physics-nov26'?'Personal practice target 85% (not a school grade)':'Pass 85%'}</p>
+     <p>${p.minutes} min · ${p.count} questions · ${['physics-nov26','biology-cell-structure','biology-nov2'].includes(p.id)?'Home practice target 85% (not a school grade)':'Pass 85%'}</p>
    </div>
    <div class="assessment-paper-buttons">
      <button class="primary" data-paper="${esc(p.id)}">${hasDraft?'Continue':'Start'} <span aria-hidden="true">›</span></button>
@@ -113,7 +113,7 @@ function cards(){
   const allPapers=group.ids.map(id=>PAPERS.find(p=>p.id===id)).filter(Boolean),query=$('#assessment-search').value.trim().toLowerCase(),kind=$('#assessment-kind').value;
   const papers=allPapers.filter(p=>(kind==='all'||(p.bank.includes('/banks/')?'mixed':'school')===kind)&&(!query||`${p.name} ${p.subtitle} ${Object.keys(p.groups||{}).join(' ')}`.toLowerCase().includes(query)));
   const root=$('#paper-list');root.className='subject-list';const today=examToday();
-  root.innerHTML=`<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="muted">Year 9 · ${papers.length} of ${allPapers.length} papers · <a href="/study/${group.subject.toLowerCase()}/">Browse notes and topic practice →</a></p><p class="when">${esc(groupBlurb(group,today))}</p><div class="cards">${papers.length?papers.map(paperCard).join(''):'<p class="muted" role="status">No matching papers. Try another keyword or paper type.</p>'}</div>${group.subject==='Biology'?'<details class="assessment-resources"><summary>Revision resources</summary><div><a href="/assessment/biology-nov2/practice/">2 November topic practice</a><a href="/assessment/biology-nov2/notes.pdf">Illustrated revision notes</a><a href="/assessment/biology-cell-structure/">Cell structure revision guide &amp; bank</a></div></details>':''}</section>`;
+  root.innerHTML=`<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="muted">Year 9 · ${papers.length} of ${allPapers.length} papers · <a href="/study/${group.subject.toLowerCase()}/">Browse notes and topic practice →</a></p><p class="when">${esc(groupBlurb(group,today))}</p><div class="cards">${papers.length?papers.map(paperCard).join(''):'<p class="muted" role="status">No matching papers. Try another keyword or paper type.</p>'}</div>${group.subject==='Biology'?'<details class="assessment-resources"><summary>Revision resources</summary><div><a href="/assessment/biology-cell-structure/">16 November: full Cell Structure revision guide + extended questions</a><a href="/assessment/biology-nov2/practice/">Extra specialised-cell and microscopy practice</a><a href="/assessment/biology-nov2/notes.pdf">Illustrated topic notes</a></div></details>':''}</section>`;
 }
 cards();
 $('#paper-list').addEventListener('click',e=>{
@@ -134,11 +134,11 @@ $('#track-form').addEventListener('submit',e=>{
 const SCHOOL_ASSESSMENTS=globalThis.LuxSchoolRevision.schoolAssessments;
 function tracker(){
   // Show only confirmed school-test dates. The older AQA paper remains under Long tests.
-  const school=SCHOOL_ASSESSMENTS.filter(x=>x.id!=='school-biology-20261116' && !(state.hiddenSchoolAssessments||[]).includes(x.id));
+  const school=SCHOOL_ASSESSMENTS.filter(x=>x.id!=='school-biology-20261102' && !(state.hiddenSchoolAssessments||[]).includes(x.id));
   // Sort newest first; undated manually recorded assessments go below dated entries.
   const entries=[...school,...state.tracker].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
   const today=examToday();
-  const titles={chemistry:'Atoms & chromatography',french:'Unit 1 vocabulary','biology-nov2':'Specialised cells & RP1'};
+  const titles={chemistry:'Atoms & chromatography',french:'Unit 1 vocabulary','biology-nov2':'Specialised cells & RP1','biology-cell-structure':'AQA 4.1.1 Cell structure'};
   const heading='<div class="assessment-tracker-head" aria-hidden="true"><span>Subject</span><span>Assessment</span><span>Date</span><span>Status</span><span></span></div>';
   $('#tracker-list').innerHTML=entries.length?heading+entries.map(x=>{
     const isSchool=school.some(s=>s.id===x.id);
@@ -787,7 +787,7 @@ function finish(p,d){
   delete state.drafts[p.id];save();cards();
 
   const resultSummary=`${full}/${d.questions.length} correct${partial?` · ${partial} partly correct`:''} · ${formatMarks(earned)}/${totalMarks} marks`;
-  $('#exam').innerHTML=`<h2>${p.id==='physics-nov26'?(score>=85?'Practice target reached':'Below practice target'):(score>=85?'Passed':'Not yet passed')} · ${score}/100</h2><p>${resultSummary}.  ${p.id==='physics-nov26'?'The 85% threshold is a home practice target, not the school pass grade. This is an original school-slide-aligned mock, not an official school exam. ':'Pass mark: 85/100. '}Review the answers below, then start a new paper for a different selection. Missed or partly correct questions enter Previous mistakes after 2 days; successful daily corrections return after 7 days.</p>${wardrobe}${Object.keys(missed).length?'<button id="practise-weak-areas" class="primary">Practise these weak areas</button>':''}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='latin-verbs'?'<p class="muted">English follows the verb table. Present is simple (I carry), imperfect is I was carrying, perfect is I carried. I have carried and I used to carry also score. you carry is accepted for both singular and plural; the model answer shows which one it is.</p>':''}${p.id==='latin-creusa'?'<p class="muted">Comprehension marking accepts equivalent wording. Where an answer contains only some required ideas, partial credit is awarded instead of an automatic zero.</p>':''}${p.id==='chemistry'?'<p class="muted">Marks are shown on the new exam-style questions. Each distinct correct point earns a mark, including method and final-answer marks for calculations. Older short questions remain worth one mark.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
+  $('#exam').innerHTML=`<h2>${p.id==='physics-nov26'?(score>=85?'Practice target reached':'Below practice target'):(score>=85?'Passed':'Not yet passed')} · ${score}/100</h2><p>${resultSummary}.  ${['physics-nov26','biology-cell-structure','biology-nov2'].includes(p.id)?'The 85% threshold is a home practice target, not the school pass grade. This is an original practice mock, not the teacher’s actual exam. ':'Pass mark: 85/100. '}Review the answers below, then start a new paper for a different selection. Missed or partly correct questions enter Previous mistakes after 2 days; successful daily corrections return after 7 days.</p>${wardrobe}${Object.keys(missed).length?'<button id="practise-weak-areas" class="primary">Practise these weak areas</button>':''}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='latin-verbs'?'<p class="muted">English follows the verb table. Present is simple (I carry), imperfect is I was carrying, perfect is I carried. I have carried and I used to carry also score. you carry is accepted for both singular and plural; the model answer shows which one it is.</p>':''}${p.id==='latin-creusa'?'<p class="muted">Comprehension marking accepts equivalent wording. Where an answer contains only some required ideas, partial credit is awarded instead of an automatic zero.</p>':''}${p.id==='chemistry'?'<p class="muted">Marks are shown on the new exam-style questions. Each distinct correct point earns a mark, including method and final-answer marks for calculations. Older short questions remain worth one mark.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
   $('#back-to-papers').onclick=()=>show('papers');
   const followupButton=$('#practise-weak-areas');if(followupButton)followupButton.onclick=()=>startFollowup(state.results.length-1);
 }
