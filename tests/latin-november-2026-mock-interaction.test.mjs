@@ -117,3 +117,23 @@ test("Unseen MC wrong answer scores zero and review stays independent from full 
   assert.match(h.app.innerHTML,/Start 50-minute paper/);
   assert.doesNotMatch(h.app.innerHTML,/data-award=/);
 });
+
+
+test("Unseen MC options shuffle without losing correct-answer identity or selection",()=>{
+  const h=appHarness();
+  h.tab("unseen");
+  const q=UNSEEN_PASSAGES[0].questions[0];
+  const extract=html=>[...html.matchAll(/name="unseen-letter-q1" value="(\d)"/g)].map(m=>Number(m[1]));
+  const first=extract(h.app.innerHTML);
+  assert.equal(first.length,4);
+  assert.deepEqual([...first].sort(),[0,1,2,3]);
+  h.tab("grammar");h.tab("unseen");
+  assert.deepEqual(extract(h.app.innerHTML),first,"Returning to an unfinished passage must not reshuffle options");
+  h.answerUnseen(q.id,q.answer);
+  h.click("unseen-submit");
+  assert.match(h.app.innerHTML,/Correct · 1\/1/);
+  assert.deepEqual(extract(h.app.innerHTML),first,"Feedback must align with displayed choices");
+  h.click("unseen-retry");
+  assert.deepEqual([...extract(h.app.innerHTML)].sort(),[0,1,2,3]);
+  assert.doesNotMatch(h.app.innerHTML,/✓ Correct answer/);
+});
