@@ -41,6 +41,45 @@ for(const [name,engine,viewport] of [
   assert.equal(await page.locator('#paper-list a[href="/study/latin/november-2026/"]').count(),1);
   await page.locator('[data-subject="Chemistry"]').click();
   assert.equal(await page.locator('#paper-list a[href="/study/chemistry/exam-revision/mock/"]').count(),1);
+  // The French route must work beyond navigation: practice submission, post-paper
+  // marking and local draft recovery in Chromium and the iPad WebKit viewport.
+  await page.goto(base+'/assessment/french-nov26/',{waitUntil:'domcontentloaded'});
+  await page.locator('[data-tab="vocab"]').click();
+  assert.equal(await page.locator('#vocabitems input[type="text"]').count(),15,name+': French dictation set size');
+  assert.equal(await page.locator('#vocabrefdetails').isHidden(),true,name+': French answer reference hidden before submission');
+  await page.locator('#vocabitems input[type="text"]').first().fill('test answer');
+  await page.locator('#vocabfinish').click();
+  await page.getByText('Practice score:',{exact:false}).waitFor();
+  assert.equal(await page.locator('#vocabrefdetails').isVisible(),true,name+': reference available only after marking');
+  assert.equal(await page.locator('#vocabfinish').isDisabled(),true,name+': submitted dictation must be locked');
+  await page.locator('#vocabnew').click();
+  assert.equal(await page.locator('#vocabfinish').isEnabled(),true,name+': new French dictation attempt must unlock');
+  assert.equal(await page.locator('#vocabrefdetails').isHidden(),true,name+': fresh attempt re-locks the answer key');
+
+  await page.locator('[data-tab="grammar"]').click();
+  assert.equal(await page.locator('#grammaritems textarea').count(),12,name+': full-sentence set size');
+  await page.locator('#grammaritems textarea').first().fill('Demain, nous visiterons Paris.');
+  await page.locator('#grammarfinish').click();
+  await page.locator('#grammarresult input[data-check]').first().check();
+  assert.match(await page.locator('#grammarcount').innerText(),/Self-checked: 1\/12/,name+': French grammar self-marking');
+
+  await page.locator('[data-tab="writing"]').click();
+  const essay='Le mois dernier je suis allée à Paris avec ma famille. Nous avons visité un musée et nous avons mangé dans un restaurant. J’ai beaucoup aimé le voyage. L’année prochaine nous irons au Canada pour découvrir une autre ville.';
+  await page.locator('#essay').fill(essay);
+  await page.locator('#essaysubmit').click();
+  assert.equal(await page.locator('#review').isVisible(),true,name+': French review should open after submission');
+  await page.locator('#bulletcoverage').selectOption('1');
+  await page.locator('#rubrics select[data-mark="ao2"]').selectOption('15');
+  assert.equal(await page.locator('#rubrics select[data-mark="ao2"]').inputValue(),'12',name+': one-bullet AO2 cap');
+  await page.locator('#rubrics select[data-mark="range"]').selectOption('4');
+  await page.locator('#rubrics select[data-mark="accuracy"]').selectOption('4');
+  assert.match(await page.locator('#score').innerText(),/Practice self-mark: 20\/25/,name+': 12+4+4 self mark');
+  await page.locator('#scoresave').click();
+  await page.reload({waitUntil:'domcontentloaded'});
+  assert.equal(await page.locator('#review').isVisible(),true,name+': completed French essay must persist on reload');
+  assert.equal(await page.locator('#essay').inputValue(),essay,name+': French essay draft must persist');
+  assert.match(await page.locator('#score').innerText(),/Practice self-mark: 20\/25/,name+': French rubric marks must persist');
+  console.log(name+': French vocabulary, grammar, essay, rubric caps and saved state PASS');
   assert.deepEqual(problems,[],name+': runtime JavaScript errors');
   console.log(name+': upcoming tracker, dedicated links and Biology timed exam PASS');
  }finally{await browser.close()}
