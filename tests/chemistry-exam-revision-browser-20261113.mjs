@@ -76,6 +76,25 @@ try{
       assert.ok(afterSubmit.pendingQuestions>0,'Assessment papers must include self-marked multi-part responses');
       assert.equal(await page.locator('.review-item').count(),10);
       assert.match(await page.locator('#result-score').innerText(),/marks confirmed/);
+      // Simulate Safari QuotaExceededError while awarding a rubric mark.
+      // A visible mark must not be credited unless localStorage verified the write.
+      await page.evaluate(key=>{
+        const original=Storage.prototype.setItem;
+        Storage.prototype.setItem=function(k,v){
+          if(k===key&&window.__examWriteBlocked)
+            throw new DOMException('Simulated storage quota error','QuotaExceededError');
+          return original.call(this,k,v);
+        };
+        window.__examWriteBlocked=true;
+      },STORE_KEY);
+      const firstPending=afterSubmit.rows.find(x=>x.pending);
+      const markControl=page.getByLabel('Award marks for question '+firstPending.id);
+      await markControl.selectOption(String(firstPending.marks));
+      assert.equal(await markControl.inputValue(),'','failed rubric mark must reset the selector');
+      assert.equal(scorePaper(bank,(await state(page)).latest).pendingQuestions,afterSubmit.pendingQuestions,
+        'failed rubric mark must not change saved results');
+      assert.match(await page.locator('#status').innerText(),/Save failed/);
+      await page.evaluate(()=>{window.__examWriteBlocked=false;});
       for(const row of afterSubmit.rows.filter(x=>x.pending)){
         await page.getByLabel('Award marks for question '+row.id).selectOption(String(row.marks));
       }
@@ -99,6 +118,13 @@ try{
       draft=await state(page);
       assert.equal(draft.active.questionIds.length,20,'History topic bank now has 22 questions');
       for(let i=0;i<19;i++)await page.click('#next');
+      const unsent=(await state(page)).active.id;
+      await page.evaluate(()=>{window.__examWriteBlocked=true;});
+      await page.click('#submit'); // Failed writes must not destroy the old draft.
+      assert.equal(await page.locator('#paper').isVisible(),true,'failed submit must remain on paper');
+      assert.equal((await state(page)).active.id,unsent,'completed draft must survive failed submit');
+      assert.match(await page.locator('#status').innerText(),/Save failed/);
+      await page.evaluate(()=>{window.__examWriteBlocked=false;});
       await page.click('#submit'); // Blank multi-mark responses must be zero, not pending.
       const empty=scorePaper(bank,(await state(page)).latest);
       assert.equal(empty.awarded,0);
@@ -106,7 +132,17 @@ try{
       assert.match(await page.locator('#result-score').innerText(),/0 \/ .* · 0%/);
       await page.click('#redo-wrong');
       assert.equal((await state(page)).active.questionIds.length,20);
-      console.log('EXAM_REVISION_BROWSER '+label+' PASS: load, start, resume, answer, end-mark, multi-mark self-review, empty submission, wrong retry, isolated storage');
+      const oldDraftId=(await state(page)).active.id;
+      await page.click('#back-setup');
+      await page.evaluate(()=>{window.__examWriteBlocked=true;});
+      await page.click('#start'); // Failure must not overwrite an existing redo draft.
+      assert.equal((await state(page)).active.id,oldDraftId);
+      assert.equal(await page.locator('#setup').isVisible(),true);
+      assert.match(await page.locator('#status').innerText(),/Save failed/);
+      await page.evaluate(()=>{window.__examWriteBlocked=false;});
+      await page.click('#resume');
+      assert.equal((await state(page)).active.id,oldDraftId);
+      console.log('EXAM_REVISION_BROWSER '+label+' PASS: load, start, resume, answer, end-mark, multi-mark self-review, quota failures, safe submission, wrong retry, isolated storage');
     }finally{await browser.close();}
   }
   assert.deepEqual(errors,[],'No browser page errors');
