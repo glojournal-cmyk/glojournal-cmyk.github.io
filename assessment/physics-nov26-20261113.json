@@ -2,7 +2,7 @@
   "id": "year9-physics-november-2026",
   "subject": "physics",
   "year": 9,
-  "version": "2026-11-14-conduction-expansion-draft",
+  "version": "2026-11-14-rp2-expansion-draft",
   "sourceNote": "Original teacher-slide-aligned Year 9 mock practice (not an official school paper): Particles, Density, Conduction ONLY, RP2 and RP5. Convection and radiation are excluded. Includes 3–4 mark linked explanation and calculation questions; marking provides step-by-step credit.",
   "groups": [
     {
@@ -6446,6 +6446,1137 @@
             "extended"
           ],
           "schoolExamStyle": true
+        },
+        {
+          "id": "phys-nov26-i14",
+          "conceptId": "phys-nov26-i14",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "A student tests wool, bubble wrap and newspaper wrapped around equal beakers. What is the independent variable?",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "The type of insulating material.",
+            "The final water temperature.",
+            "The water volume kept the same.",
+            "The interval between readings."
+          ],
+          "modelAnswer": "The type of insulating material.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "The type of insulating material."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i15",
+          "conceptId": "phys-nov26-i15",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "A student measures water temperature every minute in each beaker. What is the dependent variable?",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "Water temperature or its decrease over time.",
+            "The material wrapped around the beaker.",
+            "The room's identity.",
+            "The type of measuring cylinder."
+          ],
+          "modelAnswer": "Water temperature or its decrease over time.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Water temperature or its decrease over time."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i16",
+          "conceptId": "phys-nov26-i16",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which should be kept the same when comparing insulation around beakers?",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "The starting temperature of the water.",
+            "The insulation material.",
+            "The final temperature after ten minutes.",
+            "The size of the temperature decrease."
+          ],
+          "modelAnswer": "The starting temperature of the water.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "The starting temperature of the water."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i17",
+          "conceptId": "phys-nov26-i17",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Why use lids of the same design on each beaker?",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "To keep energy loss through the top comparable.",
+            "To raise the water's mass by different amounts.",
+            "To stop the water being heated initially.",
+            "To measure water density directly."
+          ],
+          "modelAnswer": "To keep energy loss through the top comparable.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "To keep energy loss through the top comparable."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i18",
+          "conceptId": "phys-nov26-i18",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Why include an otherwise identical beaker with no insulation?",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "It provides a control for comparing temperature decreases.",
+            "It makes the water reach absolute zero.",
+            "It measures the metal's density.",
+            "It prevents the insulated beakers cooling."
+          ],
+          "modelAnswer": "It provides a control for comparing temperature decreases.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "It provides a control for comparing temperature decreases."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i19",
+          "conceptId": "phys-nov26-i19",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which equipment is best to measure temperature during this practical?",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "A thermometer or temperature probe.",
+            "A measuring cylinder alone.",
+            "A digital balance alone.",
+            "A stopwatch alone."
+          ],
+          "modelAnswer": "A thermometer or temperature probe.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "A thermometer or temperature probe."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i20",
+          "conceptId": "phys-nov26-i20",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "For a cooling-curve graph, what belongs on the horizontal axis?",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "Time in minutes.",
+            "Temperature in degrees Celsius.",
+            "Insulation material thickness in metres.",
+            "Mass of the beaker in grams."
+          ],
+          "modelAnswer": "Time in minutes.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Time in minutes."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i21",
+          "conceptId": "phys-nov26-i21",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "For a cooling-curve graph, what belongs on the vertical axis?",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "Water temperature in °C.",
+            "Time in minutes.",
+            "Volume of water in litres.",
+            "Number of tests repeated."
+          ],
+          "modelAnswer": "Water temperature in °C.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Water temperature in °C."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i22",
+          "conceptId": "phys-nov26-i22",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "In a cooling curve, what does a steeper downward line show?",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "A faster rate of cooling.",
+            "A higher rate of heating.",
+            "An increase in the mass of water.",
+            "A smaller temperature change per minute."
+          ],
+          "modelAnswer": "A faster rate of cooling.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "A faster rate of cooling."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i23",
+          "conceptId": "phys-nov26-i23",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "After 10 minutes, bubble wrap leaves water at 68.4°C and newspaper at 60.3°C, both from 80°C. Which kept more thermal energy?",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "Bubble wrap.",
+            "Newspaper.",
+            "Both have exactly the same cooling.",
+            "Neither sample changed temperature."
+          ],
+          "modelAnswer": "Bubble wrap.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Bubble wrap."
+            ]
+          },
+          "diagram": "physics-nov26-rp2-cooling.svg",
+          "diagramAlt": "Illustrative cooling curve of no insulation, newspaper and bubble wrap, all starting at 80°C."
+        },
+        {
+          "id": "phys-nov26-i24",
+          "conceptId": "phys-nov26-i24",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "What is a main benefit of repeating each insulation test three times?",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "It makes it easier to identify anomalous readings.",
+            "It changes the physical temperature scale.",
+            "It guarantees identical readings.",
+            "It removes the need to keep controls."
+          ],
+          "modelAnswer": "It makes it easier to identify anomalous readings.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "It makes it easier to identify anomalous readings."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i25",
+          "conceptId": "phys-nov26-i25",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "A student records 19.7°C, 19.5°C and 31.0°C temperature falls under identical conditions. Which is likely anomalous?",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "31.0°C",
+            "19.7°C",
+            "19.5°C",
+            "Every measurement is equally likely anomalous without context."
+          ],
+          "modelAnswer": "31.0°C",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "31.0°C"
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i26",
+          "conceptId": "phys-nov26-i26",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "To compare two sheets of different insulating materials fairly, which feature should normally be matched?",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "Their thickness around otherwise identical beakers.",
+            "Their colour regardless of thickness.",
+            "Different starting water temperatures.",
+            "Different times before taking readings."
+          ],
+          "modelAnswer": "Their thickness around otherwise identical beakers.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Their thickness around otherwise identical beakers."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i27",
+          "conceptId": "phys-nov26-i27",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 4,
+          "prompt": "Plan a fair RP2 test comparing wool and bubble wrap around identical beakers. Give four method details. (4 marks)",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Put equal volumes of hot water in identical beakers. Begin with water at the same starting temperature. Keep insulation thickness and lids the same while changing only material. Measure temperatures after the same time and compare temperature decreases.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Put equal volumes of hot water in identical beakers. Begin with water at the same starting temperature. Keep insulation thickness and lids the same while changing only material. Measure temperatures after the same time and compare temperature decreases."
+            ],
+            "points": [
+              {
+                "label": "Put equal volumes of hot water in identical beakers.",
+                "alternatives": [
+                  "Put equal volumes of hot water in identical beakers."
+                ],
+                "patterns": [
+                  "(?=.*(?:equal))(?=.*(?:volume))(?=.*(?:beakers)).*"
+                ]
+              },
+              {
+                "label": "Begin with water at the same starting temperature.",
+                "alternatives": [
+                  "Begin with water at the same starting temperature."
+                ],
+                "patterns": [
+                  "(?=.*(?:same))(?=.*(?:starting))(?=.*(?:temperature)).*"
+                ]
+              },
+              {
+                "label": "Keep insulation thickness and lids the same while changing only material.",
+                "alternatives": [
+                  "Keep insulation thickness and lids the same while changing only material."
+                ],
+                "patterns": [
+                  "(?=.*(?:thickness))(?=.*(?:lids))(?=.*(?:material)).*"
+                ]
+              },
+              {
+                "label": "Measure temperatures after the same time and compare temperature decreases.",
+                "alternatives": [
+                  "Measure temperatures after the same time and compare temperature decreases."
+                ],
+                "patterns": [
+                  "(?=.*(?:time))(?=.*(?:temperature))(?=.*(?:compare)).*"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i28",
+          "conceptId": "phys-nov26-i28",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "Identify the independent and dependent variables and one control in a cooling experiment. (3 marks)",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "modelAnswer": "The independent variable is the insulation material. The dependent variable is the fall in water temperature. The starting temperature of the water is controlled.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "The independent variable is the insulation material. The dependent variable is the fall in water temperature. The starting temperature of the water is controlled."
+            ],
+            "points": [
+              {
+                "label": "The independent variable is the insulation material.",
+                "alternatives": [
+                  "The independent variable is the insulation material."
+                ],
+                "patterns": [
+                  "(?=.*(?:independent))(?=.*(?:insulation))(?=.*(?:material)).*"
+                ]
+              },
+              {
+                "label": "The dependent variable is the fall in water temperature.",
+                "alternatives": [
+                  "The dependent variable is the fall in water temperature."
+                ],
+                "patterns": [
+                  "(?=.*(?:dependent))(?=.*(?:temperature))(?=.*(?:fall)).*"
+                ]
+              },
+              {
+                "label": "The starting temperature of the water is controlled.",
+                "alternatives": [
+                  "The starting temperature of the water is controlled."
+                ],
+                "patterns": [
+                  "(?=.*(?:starting))(?=.*(?:temperature))(?=.*(?:control)).*"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i29",
+          "conceptId": "phys-nov26-i29",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "Explain why an uninsulated beaker is useful in RP2. (2 marks)",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "modelAnswer": "The uninsulated beaker acts as a baseline or control. It allows the temperature fall to be compared with insulated beakers.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "The uninsulated beaker acts as a baseline or control. It allows the temperature fall to be compared with insulated beakers."
+            ],
+            "points": [
+              {
+                "label": "The uninsulated beaker acts as a baseline or control.",
+                "alternatives": [
+                  "The uninsulated beaker acts as a baseline or control."
+                ],
+                "patterns": [
+                  "(?=.*(?:uninsulat))(?=.*(?:control)).*"
+                ]
+              },
+              {
+                "label": "It allows the temperature fall to be compared with insulated beakers.",
+                "alternatives": [
+                  "It allows the temperature fall to be compared with insulated beakers."
+                ],
+                "patterns": [
+                  "(?=.*(?:temperature))(?=.*(?:compar))(?=.*(?:insulat)).*"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i30",
+          "conceptId": "phys-nov26-i30",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "How can changing the thickness of insulation affect a fair comparison between two materials? (2 marks)",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Thickness also affects the conduction rate. Keeping the insulation thickness the same isolates the effect of material.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Thickness also affects the conduction rate. Keeping the insulation thickness the same isolates the effect of material."
+            ],
+            "points": [
+              {
+                "label": "Thickness also affects the conduction rate.",
+                "alternatives": [
+                  "Thickness also affects the conduction rate."
+                ],
+                "patterns": [
+                  "(?=.*(?:thickness))(?=.*(?:conduct))(?=.*(?:rate)).*"
+                ]
+              },
+              {
+                "label": "Keeping the insulation thickness the same isolates the effect of material.",
+                "alternatives": [
+                  "Keeping the insulation thickness the same isolates the effect of material."
+                ],
+                "patterns": [
+                  "(?=.*(?:same))(?=.*(?:thickness))(?=.*(?:material)).*"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i31",
+          "conceptId": "phys-nov26-i31",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "Explain why repeated cooling measurements improve reliability. (2 marks)",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Repeated tests help identify anomalous readings. A mean of consistent results reduces random error.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Repeated tests help identify anomalous readings. A mean of consistent results reduces random error."
+            ],
+            "points": [
+              {
+                "label": "Repeated tests help identify anomalous readings.",
+                "alternatives": [
+                  "Repeated tests help identify anomalous readings."
+                ],
+                "patterns": [
+                  "(?=.*(?:repeat))(?=.*(?:anomal)).*"
+                ]
+              },
+              {
+                "label": "A mean of consistent results reduces random error.",
+                "alternatives": [
+                  "A mean of consistent results reduces random error."
+                ],
+                "patterns": [
+                  "(?=.*(?:mean))(?=.*(?:random))(?=.*(?:error)).*"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i32",
+          "conceptId": "phys-nov26-i32",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "After identical cooling tests, three falls are 20°C, 22°C and 21°C. Calculate the mean temperature fall, showing working. (2 marks)",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Add and divide the three results: (20 + 22 + 21) / 3. The mean temperature fall is 21°C.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Add and divide the three results: (20 + 22 + 21) / 3. The mean temperature fall is 21°C."
+            ],
+            "points": [
+              {
+                "label": "Add and divide the three results: (20 + 22 + 21) / 3.",
+                "alternatives": [
+                  "Add and divide the three results: (20 + 22 + 21) / 3."
+                ],
+                "patterns": [
+                  "(?=.*(?:20))(?=.*(?:22))(?=.*(?:21)).*"
+                ]
+              },
+              {
+                "label": "The mean temperature fall is 21°C.",
+                "alternatives": [
+                  "The mean temperature fall is 21°C."
+                ],
+                "patterns": [
+                  "(?=.*(?:21))(?=.*(?:mean))(?=.*(?:°C|Celsius)).*"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i33",
+          "conceptId": "phys-nov26-i33",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "In 10 minutes, water cools from 80°C to 60°C. Calculate the mean rate of cooling in °C/min. (3 marks)",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "modelAnswer": "The temperature decrease is 80 - 60 = 20°C. Divide the temperature decrease by elapsed time, 20 / 10. The mean cooling rate is 2°C/min.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "The temperature decrease is 80 - 60 = 20°C. Divide the temperature decrease by elapsed time, 20 / 10. The mean cooling rate is 2°C/min."
+            ],
+            "points": [
+              {
+                "label": "The temperature decrease is 80 - 60 = 20°C.",
+                "alternatives": [
+                  "The temperature decrease is 80 - 60 = 20°C."
+                ],
+                "patterns": [
+                  "(?=.*(?:80))(?=.*(?:60))(?=.*(?:20)).*"
+                ]
+              },
+              {
+                "label": "Divide the temperature decrease by elapsed time, 20 / 10.",
+                "alternatives": [
+                  "Divide the temperature decrease by elapsed time, 20 / 10."
+                ],
+                "patterns": [
+                  "(?=.*(?:20))(?=.*(?:10))(?=.*(?:/|÷)).*"
+                ]
+              },
+              {
+                "label": "The mean cooling rate is 2°C/min.",
+                "alternatives": [
+                  "The mean cooling rate is 2°C/min."
+                ],
+                "patterns": [
+                  "(?=.*(?:2))(?=.*(?:rate))(?=.*(?:°C/min)).*"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i34",
+          "conceptId": "phys-nov26-i34",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "On the RP2 graph after 10 minutes, bubble wrap leaves water at 68.4°C and newspaper at 60.3°C. Calculate their temperature difference and identify the better insulator. (3 marks)",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Subtract the temperatures, 68.4 - 60.3. The difference is 8.1°C. Bubble wrap insulates better because it keeps the higher temperature.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Subtract the temperatures, 68.4 - 60.3. The difference is 8.1°C. Bubble wrap insulates better because it keeps the higher temperature."
+            ],
+            "points": [
+              {
+                "label": "Subtract the temperatures, 68.4 - 60.3.",
+                "alternatives": [
+                  "Subtract the temperatures, 68.4 - 60.3."
+                ],
+                "patterns": [
+                  "(?=.*(?:68\\.4))(?=.*(?:60\\.3)).*"
+                ]
+              },
+              {
+                "label": "The difference is 8.1°C.",
+                "alternatives": [
+                  "The difference is 8.1°C."
+                ],
+                "patterns": [
+                  "(?=.*(?:8\\.1))(?=.*(?:°C|Celsius)).*"
+                ]
+              },
+              {
+                "label": "Bubble wrap insulates better because it keeps the higher temperature.",
+                "alternatives": [
+                  "Bubble wrap insulates better because it keeps the higher temperature."
+                ],
+                "patterns": [
+                  "(?=.*(?:bubble wrap))(?=.*(?:better))(?=.*(?:higher)).*"
+                ]
+              }
+            ]
+          },
+          "diagram": "physics-nov26-rp2-cooling.svg",
+          "diagramAlt": "Illustrative time-temperature graph showing no insulation, newspaper and bubble wrap."
+        },
+        {
+          "id": "phys-nov26-i35",
+          "conceptId": "phys-nov26-i35",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "On the RP2 graph, bubble-wrapped water cools from 80°C to 73.6°C by 5 minutes. Calculate the temperature fall and describe the implication. (2 marks)",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "modelAnswer": "The temperature fall is 80 - 73.6 = 6.4°C. The small fall shows bubble wrap slows cooling.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "The temperature fall is 80 - 73.6 = 6.4°C. The small fall shows bubble wrap slows cooling."
+            ],
+            "points": [
+              {
+                "label": "The temperature fall is 80 - 73.6 = 6.4°C.",
+                "alternatives": [
+                  "The temperature fall is 80 - 73.6 = 6.4°C."
+                ],
+                "patterns": [
+                  "(?=.*(?:80))(?=.*(?:73\\.6))(?=.*(?:6\\.4)).*"
+                ]
+              },
+              {
+                "label": "The small fall shows bubble wrap slows cooling.",
+                "alternatives": [
+                  "The small fall shows bubble wrap slows cooling."
+                ],
+                "patterns": [
+                  "(?=.*(?:bubble wrap))(?=.*(?:slows))(?=.*(?:cool)).*"
+                ]
+              }
+            ]
+          },
+          "diagram": "physics-nov26-rp2-cooling.svg",
+          "diagramAlt": "Illustrative time-temperature graph showing no insulation, newspaper and bubble wrap."
+        },
+        {
+          "id": "phys-nov26-i36",
+          "conceptId": "phys-nov26-i36",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "Explain why the temperature should be read at the same time interval for each insulating material. (2 marks)",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "modelAnswer": "The time interval is a control variable. Equal measurement times make the temperature decreases comparable.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "The time interval is a control variable. Equal measurement times make the temperature decreases comparable."
+            ],
+            "points": [
+              {
+                "label": "The time interval is a control variable.",
+                "alternatives": [
+                  "The time interval is a control variable."
+                ],
+                "patterns": [
+                  "(?=.*(?:time))(?=.*(?:control)).*"
+                ]
+              },
+              {
+                "label": "Equal measurement times make the temperature decreases comparable.",
+                "alternatives": [
+                  "Equal measurement times make the temperature decreases comparable."
+                ],
+                "patterns": [
+                  "(?=.*(?:equal))(?=.*(?:time))(?=.*(?:compar)).*"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i37",
+          "conceptId": "phys-nov26-i37",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "A student begins one beaker at 80°C and another at 65°C. Explain why this is an unfair insulation test and how to improve it. (2 marks)",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Different starting temperatures make the comparison unfair. Start both beakers at the same temperature.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Different starting temperatures make the comparison unfair. Start both beakers at the same temperature."
+            ],
+            "points": [
+              {
+                "label": "Different starting temperatures make the comparison unfair.",
+                "alternatives": [
+                  "Different starting temperatures make the comparison unfair."
+                ],
+                "patterns": [
+                  "(?=.*(?:different))(?=.*(?:starting))(?=.*(?:temperature)).*"
+                ]
+              },
+              {
+                "label": "Start both beakers at the same temperature.",
+                "alternatives": [
+                  "Start both beakers at the same temperature."
+                ],
+                "patterns": [
+                  "(?=.*(?:same))(?=.*(?:temperature))(?=.*(?:beakers)).*"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i38",
+          "conceptId": "phys-nov26-i38",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "Give two safety precautions for an insulation practical using hot water and explain one reason. (3 marks)",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Use a heat-resistant mat under each hot beaker. Handle hot water and glassware carefully, with suitable protection. This reduces the risk of burns from the hot equipment or water.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Use a heat-resistant mat under each hot beaker. Handle hot water and glassware carefully, with suitable protection. This reduces the risk of burns from the hot equipment or water."
+            ],
+            "points": [
+              {
+                "label": "Use a heat-resistant mat under each hot beaker.",
+                "alternatives": [
+                  "Use a heat-resistant mat under each hot beaker."
+                ],
+                "patterns": [
+                  "(?=.*(?:mat))(?=.*(?:hot))(?=.*(?:beaker)).*"
+                ]
+              },
+              {
+                "label": "Handle hot water and glassware carefully, with suitable protection.",
+                "alternatives": [
+                  "Handle hot water and glassware carefully, with suitable protection."
+                ],
+                "patterns": [
+                  "(?=.*(?:handle))(?=.*(?:hot))(?=.*(?:careful)).*"
+                ]
+              },
+              {
+                "label": "This reduces the risk of burns from the hot equipment or water.",
+                "alternatives": [
+                  "This reduces the risk of burns from the hot equipment or water."
+                ],
+                "patterns": [
+                  "(?=.*(?:burns))(?=.*(?:hot))(?=.*(?:water)).*"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-i39",
+          "conceptId": "phys-nov26-i39",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "How would you use a cooling graph to identify the most effective insulator? (3 marks)",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Compare readings at the same elapsed time. Calculate each fall from the same initial temperature. Choose the smallest fall, indicating the slowest heat transfer.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Compare readings at the same elapsed time. Calculate each fall from the same initial temperature. Choose the smallest fall, indicating the slowest heat transfer."
+            ],
+            "points": [
+              {
+                "label": "Compare readings at the same elapsed time.",
+                "alternatives": [
+                  "Compare readings at the same elapsed time."
+                ],
+                "patterns": [
+                  "(?=.*(?:compare))(?=.*(?:same))(?=.*(?:time)).*"
+                ]
+              },
+              {
+                "label": "Calculate each fall from the same initial temperature.",
+                "alternatives": [
+                  "Calculate each fall from the same initial temperature."
+                ],
+                "patterns": [
+                  "(?=.*(?:fall))(?=.*(?:initial))(?=.*(?:temperature)).*"
+                ]
+              },
+              {
+                "label": "Choose the smallest fall, indicating the slowest heat transfer.",
+                "alternatives": [
+                  "Choose the smallest fall, indicating the slowest heat transfer."
+                ],
+                "patterns": [
+                  "(?=.*(?:smallest))(?=.*(?:fall))(?=.*(?:slowest)).*"
+                ]
+              }
+            ]
+          },
+          "diagram": "physics-nov26-rp2-cooling.svg",
+          "diagramAlt": "Illustrative time-temperature graph showing no insulation, newspaper and bubble wrap."
+        },
+        {
+          "id": "phys-nov26-i40",
+          "conceptId": "phys-nov26-i40",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "A cooling experiment gives different results on different days. Describe two ways to improve reproducibility. (2 marks)",
+          "hint": "Use valid controlled variables, an accurately labelled graph and quantitative evidence when asked.",
+          "examGuidance": {
+            "strategy": "Award separate marks for fair method, measurement, calculation and evidence-based conclusion.",
+            "commonError": "Comparing temperatures at different starting values or changing two independent variables together."
+          },
+          "source": "Original November Year 9 Physics RP2 thermal insulation required-practical revision question; teacher includes these as possible assessment content.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Use the same water volume, starting temperature and insulation thickness. Use a consistent thermometer and measurement times.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Use the same water volume, starting temperature and insulation thickness. Use a consistent thermometer and measurement times."
+            ],
+            "points": [
+              {
+                "label": "Use the same water volume, starting temperature and insulation thickness.",
+                "alternatives": [
+                  "Use the same water volume, starting temperature and insulation thickness."
+                ],
+                "patterns": [
+                  "(?=.*(?:same))(?=.*(?:volume))(?=.*(?:temperature))(?=.*(?:thickness)).*"
+                ]
+              },
+              {
+                "label": "Use a consistent thermometer and measurement times.",
+                "alternatives": [
+                  "Use a consistent thermometer and measurement times."
+                ],
+                "patterns": [
+                  "(?=.*(?:thermometer))(?=.*(?:time))(?=.*(?:consistent)).*"
+                ]
+              }
+            ]
+          }
         }
       ]
     },
