@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
 import {LATIN_BOOKLET_RECORDS} from "../assets/latin-vocabulary-booklet-20261023.js";
 import {SYLLABUS,GRAMMAR,PRACTICE,MOCK,validateMock} from "../study/latin/november-2026/exam-data.js";
+import {UNSEEN_PASSAGES,validateUnseens} from "../study/latin/november-2026/unseen-passages.js";
 
 const here = new URL("../study/latin/november-2026/",import.meta.url);
 const page=readFileSync(new URL("index.html",here),"utf8");
@@ -66,7 +67,8 @@ test("Static entry point and iPad-friendly controls are present",()=>{
   assert.match(page,/data-tab="vocabulary"/);
   assert.match(page,/data-tab="grammar"/);
   assert.match(page,/data-tab="mock"/);
-  assert.match(page,/exam\.js\?v=20261114c/);
+  assert.match(page,/data-tab="unseen"/);
+  assert.match(page,/exam\.js\?v=20261114d/);
   assert.match(client,/root\.addEventListener\("input"/);
   assert.match(client,/root\.addEventListener\("click"/);
 });
@@ -123,4 +125,39 @@ test("Mock scoring criteria have no duplicate IDs or empty point cells",()=>{
   assert.equal(new Set(checks).size,75);
   assert.ok(qs.every(q=>q.model&&q.prompt&&q.points.every(p=>typeof p==="string"&&p.trim().length>=10)));
   assert.ok(!MOCK.sections[0].questions.some(q=>/romam|romae|\broma\b/i.test(q.model)));
+});
+
+test("Five original unseen Latin passages each have exactly 10 source-grounded MCQs",()=>{
+  assert.equal(validateUnseens(),true);
+  assert.equal(UNSEEN_PASSAGES.length,5);
+  const ids=new Set();
+  const keys=[0,0,0,0];
+  const skills=new Set();
+  for(const passage of UNSEEN_PASSAGES){
+    assert.equal(passage.questions.length,10);
+    assert.ok(passage.passage.length>=8);
+    assert.ok(passage.passage.join(" ").trim().split(/\s+/).length>=65);
+    const source=passage.passage.join(" ");
+    for(const q of passage.questions){
+      assert.equal(q.options.length,4);
+      assert.equal(new Set(q.options).size,4,"Options must all differ");
+      assert.ok(q.answer>=0&&q.answer<=3);
+      assert.ok(source.includes(q.evidence),"Every MCQ has exact source evidence: "+q.id);
+      assert.ok(q.explanation.length>=15);
+      assert.ok(!ids.has(q.id),"Unique MC question ID "+q.id);
+      ids.add(q.id);keys[q.answer]++;skills.add(q.skill);
+    }
+  }
+  assert.equal(ids.size,50);
+  assert.deepEqual(keys,[13,13,12,12]);
+  assert.ok(skills.size>=10);
+});
+test("MC mode stays outside full 75-mark assessment and saved progress",()=>{
+  assert.match(client,/renderUnseen/);
+  assert.match(client,/unseenSubmitted/);
+  assert.match(client,/data-unseen-answer=/);
+  assert.match(client,/unseen-submit/);
+  assert.match(client,/unseen-retry/);
+  assert.doesNotMatch(client,/localStorage|indexedDB|sessionStorage/);
+  assert.deepEqual(MOCK.sections.map(s=>s.questions.reduce((n,q)=>n+q.points.length,0)),[11,14,50]);
 });
