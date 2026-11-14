@@ -2,7 +2,7 @@
   "id": "year9-physics-november-2026",
   "subject": "physics",
   "year": 9,
-  "version": "2026-11-14-rp2-expansion-draft",
+  "version": "2026-11-14-physics-expanded-200-draft",
   "sourceNote": "Original teacher-slide-aligned Year 9 mock practice (not an official school paper): Particles, Density, Conduction ONLY, RP2 and RP5. Convection and radiation are excluded. Includes 3–4 mark linked explanation and calculation questions; marking provides step-by-step credit.",
   "groups": [
     {
@@ -8301,10 +8301,1206 @@
             "extended"
           ],
           "schoolExamStyle": true
+        },
+        {
+          "id": "phys-nov26-r14",
+          "conceptId": "phys-nov26-r14",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which instrument measures a small rock's mass most accurately?",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "Digital balance.",
+            "Thermometer.",
+            "Stopwatch.",
+            "Metre ruler alone."
+          ],
+          "modelAnswer": "Digital balance.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Digital balance."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-r15",
+          "conceptId": "phys-nov26-r15",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "How can a regular cuboid's volume be calculated?",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "Length × width × height.",
+            "Mass ÷ time.",
+            "Length + width + height.",
+            "Mass × temperature."
+          ],
+          "modelAnswer": "Length × width × height.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Length × width × height."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-r16",
+          "conceptId": "phys-nov26-r16",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "For an irregular pebble, which method measures its volume?",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "Find the change in water level when it is fully submerged.",
+            "Measure its longest length only.",
+            "Use the mass displayed on a balance as the volume.",
+            "Estimate from the shape without any measurement."
+          ],
+          "modelAnswer": "Find the change in water level when it is fully submerged.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Find the change in water level when it is fully submerged."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-r17",
+          "conceptId": "phys-nov26-r17",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "What is the purpose of a Eureka (displacement) can?",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "To collect water displaced by a fully submerged object.",
+            "To weigh an object in air.",
+            "To heat water to a fixed temperature.",
+            "To measure an object's colour."
+          ],
+          "modelAnswer": "To collect water displaced by a fully submerged object.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "To collect water displaced by a fully submerged object."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-r18",
+          "conceptId": "phys-nov26-r18",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Where should you read the water level in a transparent measuring cylinder?",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "At eye level, at the bottom of the meniscus.",
+            "From above, at the top edge of the water.",
+            "From below, along the side wall.",
+            "With the cylinder tilted to one side."
+          ],
+          "modelAnswer": "At eye level, at the bottom of the meniscus.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "At eye level, at the bottom of the meniscus."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-r19",
+          "conceptId": "phys-nov26-r19",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Why must the empty measuring cylinder be weighed before adding liquid?",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "So its mass can be subtracted to find the liquid mass.",
+            "So its mass can be added twice.",
+            "So the liquid volume becomes zero.",
+            "So the density of water increases."
+          ],
+          "modelAnswer": "So its mass can be subtracted to find the liquid mass.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "So its mass can be subtracted to find the liquid mass."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-r20",
+          "conceptId": "phys-nov26-r20",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "How many cubic centimetres are in 1 millilitre?",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "1 cm³",
+            "0.001 cm³",
+            "10 cm³",
+            "1000 cm³"
+          ],
+          "modelAnswer": "1 cm³",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "1 cm³"
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-r21",
+          "conceptId": "phys-nov26-r21",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "An air bubble sticks to a stone submerged for displacement. What happens to the measured volume?",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "It is overestimated.",
+            "It becomes exactly zero.",
+            "It is definitely smaller than the stone's true volume.",
+            "It becomes independent of the water."
+          ],
+          "modelAnswer": "It is overestimated.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "It is overestimated."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-r22",
+          "conceptId": "phys-nov26-r22",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "A rock is only partly submerged. How does this affect the measured rock volume?",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "The measured volume is too small.",
+            "It is always equal to the full rock volume.",
+            "The measured volume doubles.",
+            "It measures only the rock's mass."
+          ],
+          "modelAnswer": "The measured volume is too small.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "The measured volume is too small."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-r23",
+          "conceptId": "phys-nov26-r23",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "If a measuring cylinder is read from above rather than eye level, what type of error may result?",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "Parallax error.",
+            "Radioactive decay.",
+            "A density conversion.",
+            "A state change."
+          ],
+          "modelAnswer": "Parallax error.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Parallax error."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-r24",
+          "conceptId": "phys-nov26-r24",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "In a displacement-can experiment, what should be done before lowering the stone?",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "Fill the can until water has reached the spout and excess has drained.",
+            "Leave the can half empty.",
+            "Put the cylinder on a hot plate.",
+            "Weigh only the empty measuring cylinder and stop."
+          ],
+          "modelAnswer": "Fill the can until water has reached the spout and excess has drained.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Fill the can until water has reached the spout and excess has drained."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-r25",
+          "conceptId": "phys-nov26-r25",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "A student misses some of the water overflowing from a displacement can. What is likely to happen to the calculated density?",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "It is too high because the measured volume is too low.",
+            "It is too low because the stone mass doubles.",
+            "The calculated density becomes zero.",
+            "It is unchanged for every object."
+          ],
+          "modelAnswer": "It is too high because the measured volume is too low.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "It is too high because the measured volume is too low."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-r26",
+          "conceptId": "phys-nov26-r26",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Why repeat density measurements for an irregular sample?",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "options": [
+            "To identify anomalous readings and improve reliability.",
+            "To make the actual sample denser.",
+            "To change the mass each time.",
+            "To ensure the measuring cylinder always reads zero."
+          ],
+          "modelAnswer": "To identify anomalous readings and improve reliability.",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "To identify anomalous readings and improve reliability."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-r27",
+          "conceptId": "phys-nov26-r27",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 4,
+          "prompt": "Describe how to measure the density of a rectangular wooden block. Give four stages. (4 marks)",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Measure the block's mass with a balance. Measure length, width and height with a ruler. Multiply length by width by height to obtain volume. Divide mass by volume to find density with suitable units."
+            ],
+            "points": [
+              {
+                "label": "Measure the block's mass with a balance.",
+                "alternatives": [
+                  "Measure the block's mass with a balance."
+                ],
+                "patterns": [
+                  "(?=.*(?:mass))(?=.*(?:balance)).*"
+                ]
+              },
+              {
+                "label": "Measure length, width and height with a ruler.",
+                "alternatives": [
+                  "Measure length, width and height with a ruler."
+                ],
+                "patterns": [
+                  "(?=.*(?:length))(?=.*(?:width))(?=.*(?:height))(?=.*(?:ruler)).*"
+                ]
+              },
+              {
+                "label": "Multiply length by width by height to obtain volume.",
+                "alternatives": [
+                  "Multiply length by width by height to obtain volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:multiply))(?=.*(?:length))(?=.*(?:width))(?=.*(?:height)).*"
+                ]
+              },
+              {
+                "label": "Divide mass by volume to find density with suitable units.",
+                "alternatives": [
+                  "Divide mass by volume to find density with suitable units."
+                ],
+                "patterns": [
+                  "(?=.*(?:divide))(?=.*(?:mass))(?=.*(?:volume))(?=.*(?:unit)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Measure the block's mass with a balance. Measure length, width and height with a ruler. Multiply length by width by height to obtain volume. Divide mass by volume to find density with suitable units."
+        },
+        {
+          "id": "phys-nov26-r28",
+          "conceptId": "phys-nov26-r28",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 4,
+          "prompt": "Describe how to find the density of an irregular rock using a measuring cylinder. (4 marks)",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Find the mass of the rock using a balance. Record the initial water level at eye level. Fully submerge the rock and calculate displaced volume from final minus initial reading. Calculate density as rock mass divided by displaced volume."
+            ],
+            "points": [
+              {
+                "label": "Find the mass of the rock using a balance.",
+                "alternatives": [
+                  "Find the mass of the rock using a balance."
+                ],
+                "patterns": [
+                  "(?=.*(?:mass))(?=.*(?:balance)).*"
+                ]
+              },
+              {
+                "label": "Record the initial water level at eye level.",
+                "alternatives": [
+                  "Record the initial water level at eye level."
+                ],
+                "patterns": [
+                  "(?=.*(?:initial))(?=.*(?:water))(?=.*(?:eye)).*"
+                ]
+              },
+              {
+                "label": "Fully submerge the rock and calculate displaced volume from final minus initial reading.",
+                "alternatives": [
+                  "Fully submerge the rock and calculate displaced volume from final minus initial reading."
+                ],
+                "patterns": [
+                  "(?=.*(?:submerge))(?=.*(?:final))(?=.*(?:initial)).*"
+                ]
+              },
+              {
+                "label": "Calculate density as rock mass divided by displaced volume.",
+                "alternatives": [
+                  "Calculate density as rock mass divided by displaced volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:density))(?=.*(?:mass))(?=.*(?:volume)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Find the mass of the rock using a balance. Record the initial water level at eye level. Fully submerge the rock and calculate displaced volume from final minus initial reading. Calculate density as rock mass divided by displaced volume."
+        },
+        {
+          "id": "phys-nov26-r29",
+          "conceptId": "phys-nov26-r29",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 4,
+          "prompt": "Describe how to find rock density using a Eureka can and a measuring cylinder. (4 marks)",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Measure the rock mass on a balance. Fill a Eureka can to its spout and allow excess water to drain. Submerge the rock fully and collect displaced water in a measuring cylinder. Divide the rock mass by the collected displaced volume."
+            ],
+            "points": [
+              {
+                "label": "Measure the rock mass on a balance.",
+                "alternatives": [
+                  "Measure the rock mass on a balance."
+                ],
+                "patterns": [
+                  "(?=.*(?:mass))(?=.*(?:balance)).*"
+                ]
+              },
+              {
+                "label": "Fill a Eureka can to its spout and allow excess water to drain.",
+                "alternatives": [
+                  "Fill a Eureka can to its spout and allow excess water to drain."
+                ],
+                "patterns": [
+                  "(?=.*(?:can))(?=.*(?:spout))(?=.*(?:drain)).*"
+                ]
+              },
+              {
+                "label": "Submerge the rock fully and collect displaced water in a measuring cylinder.",
+                "alternatives": [
+                  "Submerge the rock fully and collect displaced water in a measuring cylinder."
+                ],
+                "patterns": [
+                  "(?=.*(?:submerge))(?=.*(?:displaced))(?=.*(?:cylinder)).*"
+                ]
+              },
+              {
+                "label": "Divide the rock mass by the collected displaced volume.",
+                "alternatives": [
+                  "Divide the rock mass by the collected displaced volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:divide))(?=.*(?:mass))(?=.*(?:volume)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Measure the rock mass on a balance. Fill a Eureka can to its spout and allow excess water to drain. Submerge the rock fully and collect displaced water in a measuring cylinder. Divide the rock mass by the collected displaced volume."
+        },
+        {
+          "id": "phys-nov26-r30",
+          "conceptId": "phys-nov26-r30",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 4,
+          "prompt": "Explain how to measure the density of a liquid with a balance and measuring cylinder. (4 marks)",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Measure or tare the empty measuring cylinder's mass. Pour in a known volume of liquid and read at eye level. Subtract the empty mass from the mass of cylinder plus liquid. Divide liquid mass by volume to obtain density with units."
+            ],
+            "points": [
+              {
+                "label": "Measure or tare the empty measuring cylinder's mass.",
+                "alternatives": [
+                  "Measure or tare the empty measuring cylinder's mass."
+                ],
+                "patterns": [
+                  "(?=.*(?:tare|measure))(?=.*(?:empty))(?=.*(?:cylinder)).*"
+                ]
+              },
+              {
+                "label": "Pour in a known volume of liquid and read at eye level.",
+                "alternatives": [
+                  "Pour in a known volume of liquid and read at eye level."
+                ],
+                "patterns": [
+                  "(?=.*(?:volume))(?=.*(?:liquid))(?=.*(?:eye)).*"
+                ]
+              },
+              {
+                "label": "Subtract the empty mass from the mass of cylinder plus liquid.",
+                "alternatives": [
+                  "Subtract the empty mass from the mass of cylinder plus liquid."
+                ],
+                "patterns": [
+                  "(?=.*(?:subtract))(?=.*(?:empty))(?=.*(?:mass)).*"
+                ]
+              },
+              {
+                "label": "Divide liquid mass by volume to obtain density with units.",
+                "alternatives": [
+                  "Divide liquid mass by volume to obtain density with units."
+                ],
+                "patterns": [
+                  "(?=.*(?:divide))(?=.*(?:mass))(?=.*(?:volume))(?=.*(?:unit)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Measure or tare the empty measuring cylinder's mass. Pour in a known volume of liquid and read at eye level. Subtract the empty mass from the mass of cylinder plus liquid. Divide liquid mass by volume to obtain density with units."
+        },
+        {
+          "id": "phys-nov26-r31",
+          "conceptId": "phys-nov26-r31",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "Explain why the bottom of the meniscus should be read at eye level. (2 marks)",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "The bottom of the meniscus gives the water level on the scale. Reading at eye level avoids parallax error."
+            ],
+            "points": [
+              {
+                "label": "The bottom of the meniscus gives the water level on the scale.",
+                "alternatives": [
+                  "The bottom of the meniscus gives the water level on the scale."
+                ],
+                "patterns": [
+                  "(?=.*(?:bottom))(?=.*(?:meniscus))(?=.*(?:level)).*"
+                ]
+              },
+              {
+                "label": "Reading at eye level avoids parallax error.",
+                "alternatives": [
+                  "Reading at eye level avoids parallax error."
+                ],
+                "patterns": [
+                  "(?=.*(?:eye))(?=.*(?:level))(?=.*(?:parallax)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "The bottom of the meniscus gives the water level on the scale. Reading at eye level avoids parallax error."
+        },
+        {
+          "id": "phys-nov26-r32",
+          "conceptId": "phys-nov26-r32",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "A measuring cylinder shows 30 cm³ before a stone is added and 48 cm³ afterward. Find the displaced volume and explain what it represents. (2 marks)",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "The volume displaced is 48 - 30 = 18 cm³. This equals the volume of the fully submerged stone."
+            ],
+            "points": [
+              {
+                "label": "The volume displaced is 48 - 30 = 18 cm³.",
+                "alternatives": [
+                  "The volume displaced is 48 - 30 = 18 cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:48))(?=.*(?:30))(?=.*(?:18)).*"
+                ]
+              },
+              {
+                "label": "This equals the volume of the fully submerged stone.",
+                "alternatives": [
+                  "This equals the volume of the fully submerged stone."
+                ],
+                "patterns": [
+                  "(?=.*(?:volume))(?=.*(?:submerged))(?=.*(?:stone)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "The volume displaced is 48 - 30 = 18 cm³. This equals the volume of the fully submerged stone."
+        },
+        {
+          "id": "phys-nov26-r33",
+          "conceptId": "phys-nov26-r33",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "An irregular stone has mass 90 g and displaces 30 cm³ of water. Explain how to find its density and give the answer. (3 marks)",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Use density = mass divided by volume. Substitute 90 / 30. The density is 3 g/cm³."
+            ],
+            "points": [
+              {
+                "label": "Use density = mass divided by volume.",
+                "alternatives": [
+                  "Use density = mass divided by volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:density))(?=.*(?:mass))(?=.*(?:volume)).*"
+                ]
+              },
+              {
+                "label": "Substitute 90 / 30.",
+                "alternatives": [
+                  "Substitute 90 / 30."
+                ],
+                "patterns": [
+                  "(?=.*(?:90))(?=.*(?:30)).*"
+                ]
+              },
+              {
+                "label": "The density is 3 g/cm³.",
+                "alternatives": [
+                  "The density is 3 g/cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:3))(?=.*(?:g/cm³)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Use density = mass divided by volume. Substitute 90 / 30. The density is 3 g/cm³."
+        },
+        {
+          "id": "phys-nov26-r34",
+          "conceptId": "phys-nov26-r34",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "Explain the effect of trapped air bubbles on density measured by water displacement. (3 marks)",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Air bubbles displace additional water. This leads to an overestimated measured volume. The calculated density becomes too low."
+            ],
+            "points": [
+              {
+                "label": "Air bubbles displace additional water.",
+                "alternatives": [
+                  "Air bubbles displace additional water."
+                ],
+                "patterns": [
+                  "(?=.*(?:air))(?=.*(?:bubbles))(?=.*(?:water)).*"
+                ]
+              },
+              {
+                "label": "This leads to an overestimated measured volume.",
+                "alternatives": [
+                  "This leads to an overestimated measured volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:overestimat))(?=.*(?:volume)).*"
+                ]
+              },
+              {
+                "label": "The calculated density becomes too low.",
+                "alternatives": [
+                  "The calculated density becomes too low."
+                ],
+                "patterns": [
+                  "(?=.*(?:density))(?=.*(?:low)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Air bubbles displace additional water. This leads to an overestimated measured volume. The calculated density becomes too low."
+        },
+        {
+          "id": "phys-nov26-r35",
+          "conceptId": "phys-nov26-r35",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "What happens if the irregular object is only partly underwater? Explain two effects. (3 marks)",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Only part of the object displaces water. The volume of the object is underestimated. Dividing the same mass by too small a volume overestimates density."
+            ],
+            "points": [
+              {
+                "label": "Only part of the object displaces water.",
+                "alternatives": [
+                  "Only part of the object displaces water."
+                ],
+                "patterns": [
+                  "(?=.*(?:part))(?=.*(?:displace))(?=.*(?:water)).*"
+                ]
+              },
+              {
+                "label": "The volume of the object is underestimated.",
+                "alternatives": [
+                  "The volume of the object is underestimated."
+                ],
+                "patterns": [
+                  "(?=.*(?:volume))(?=.*(?:underestimat)).*"
+                ]
+              },
+              {
+                "label": "Dividing the same mass by too small a volume overestimates density.",
+                "alternatives": [
+                  "Dividing the same mass by too small a volume overestimates density."
+                ],
+                "patterns": [
+                  "(?=.*(?:mass))(?=.*(?:small))(?=.*(?:density)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Only part of the object displaces water. The volume of the object is underestimated. Dividing the same mass by too small a volume overestimates density."
+        },
+        {
+          "id": "phys-nov26-r36",
+          "conceptId": "phys-nov26-r36",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A displacement can is used but some overflow water is spilled before measuring it. Explain the resulting density error. (3 marks)",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Spilling water reduces the collected displaced-water volume. This makes the measured rock volume too small. The calculated density is too high because mass is divided by a smaller volume."
+            ],
+            "points": [
+              {
+                "label": "Spilling water reduces the collected displaced-water volume.",
+                "alternatives": [
+                  "Spilling water reduces the collected displaced-water volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:spill))(?=.*(?:water))(?=.*(?:volume)).*"
+                ]
+              },
+              {
+                "label": "This makes the measured rock volume too small.",
+                "alternatives": [
+                  "This makes the measured rock volume too small."
+                ],
+                "patterns": [
+                  "(?=.*(?:rock))(?=.*(?:volume))(?=.*(?:small)).*"
+                ]
+              },
+              {
+                "label": "The calculated density is too high because mass is divided by a smaller volume.",
+                "alternatives": [
+                  "The calculated density is too high because mass is divided by a smaller volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:density))(?=.*(?:high))(?=.*(?:mass))(?=.*(?:volume)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Spilling water reduces the collected displaced-water volume. This makes the measured rock volume too small. The calculated density is too high because mass is divided by a smaller volume."
+        },
+        {
+          "id": "phys-nov26-r37",
+          "conceptId": "phys-nov26-r37",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "Why should you zero the balance with the empty liquid container on it? (2 marks)",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Taring removes the container mass from the reading. The displayed mass therefore measures only the liquid."
+            ],
+            "points": [
+              {
+                "label": "Taring removes the container mass from the reading.",
+                "alternatives": [
+                  "Taring removes the container mass from the reading."
+                ],
+                "patterns": [
+                  "(?=.*(?:tare|taring))(?=.*(?:container))(?=.*(?:mass)).*"
+                ]
+              },
+              {
+                "label": "The displayed mass therefore measures only the liquid.",
+                "alternatives": [
+                  "The displayed mass therefore measures only the liquid."
+                ],
+                "patterns": [
+                  "(?=.*(?:mass))(?=.*(?:liquid))(?=.*(?:only)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Taring removes the container mass from the reading. The displayed mass therefore measures only the liquid."
+        },
+        {
+          "id": "phys-nov26-r38",
+          "conceptId": "phys-nov26-r38",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A student obtains three density estimates: 2.4, 2.5 and 2.6 g/cm³. Calculate the mean and explain why repeats help. (3 marks)",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Add 2.4 + 2.5 + 2.6 and divide by three. The mean density is 2.5 g/cm³. Repeating measurements helps reduce random error."
+            ],
+            "points": [
+              {
+                "label": "Add 2.4 + 2.5 + 2.6 and divide by three.",
+                "alternatives": [
+                  "Add 2.4 + 2.5 + 2.6 and divide by three."
+                ],
+                "patterns": [
+                  "(?=.*(?:2\\.4))(?=.*(?:2\\.5))(?=.*(?:2\\.6))(?=.*(?:divide)).*"
+                ]
+              },
+              {
+                "label": "The mean density is 2.5 g/cm³.",
+                "alternatives": [
+                  "The mean density is 2.5 g/cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:2\\.5))(?=.*(?:g/cm³)).*"
+                ]
+              },
+              {
+                "label": "Repeating measurements helps reduce random error.",
+                "alternatives": [
+                  "Repeating measurements helps reduce random error."
+                ],
+                "patterns": [
+                  "(?=.*(?:repeat))(?=.*(?:random))(?=.*(?:error)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Add 2.4 + 2.5 + 2.6 and divide by three. The mean density is 2.5 g/cm³. Repeating measurements helps reduce random error."
+        },
+        {
+          "id": "phys-nov26-r39",
+          "conceptId": "phys-nov26-r39",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 4,
+          "prompt": "A liquid fills a cylinder to 40 cm³. The empty cylinder is 62 g and the filled cylinder 98 g. Calculate the liquid density. (4 marks)",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Liquid mass is 98 - 62 = 36 g. Liquid volume is 40 cm³. Use density = mass divided by volume. The density is 0.9 g/cm³."
+            ],
+            "points": [
+              {
+                "label": "Liquid mass is 98 - 62 = 36 g.",
+                "alternatives": [
+                  "Liquid mass is 98 - 62 = 36 g."
+                ],
+                "patterns": [
+                  "(?=.*(?:98))(?=.*(?:62))(?=.*(?:36)).*"
+                ]
+              },
+              {
+                "label": "Liquid volume is 40 cm³.",
+                "alternatives": [
+                  "Liquid volume is 40 cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:volume))(?=.*(?:40))(?=.*(?:cm³)).*"
+                ]
+              },
+              {
+                "label": "Use density = mass divided by volume.",
+                "alternatives": [
+                  "Use density = mass divided by volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:density))(?=.*(?:mass))(?=.*(?:volume)).*"
+                ]
+              },
+              {
+                "label": "The density is 0.9 g/cm³.",
+                "alternatives": [
+                  "The density is 0.9 g/cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:0\\.9))(?=.*(?:g/cm³)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Liquid mass is 98 - 62 = 36 g. Liquid volume is 40 cm³. Use density = mass divided by volume. The density is 0.9 g/cm³."
+        },
+        {
+          "id": "phys-nov26-r40",
+          "conceptId": "phys-nov26-r40",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 2,
+          "format": "typed_rubric",
+          "marks": 2,
+          "prompt": "Explain how you would assess reliability of an irregular rock's density measurement. (2 marks)",
+          "hint": "Measure mass and volume separately, account for displacement and give density with matching units.",
+          "examGuidance": {
+            "strategy": "Earn distinct method, measurement, error-awareness and calculation marks.",
+            "commonError": "Reading the meniscus from an angle, ignoring the container mass or using the wrong water displacement."
+          },
+          "source": "Original Year 9 Physics RP5 Density practical question; school notice lists RP5 as possible assessment content.",
+          "schoolExamStyle": true,
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Repeat the mass and volume measurements and check for anomalous values. Calculate a mean from consistent measurements to reduce random error."
+            ],
+            "points": [
+              {
+                "label": "Repeat the mass and volume measurements and check for anomalous values.",
+                "alternatives": [
+                  "Repeat the mass and volume measurements and check for anomalous values."
+                ],
+                "patterns": [
+                  "(?=.*(?:repeat))(?=.*(?:mass))(?=.*(?:volume))(?=.*(?:anomal)).*"
+                ]
+              },
+              {
+                "label": "Calculate a mean from consistent measurements to reduce random error.",
+                "alternatives": [
+                  "Calculate a mean from consistent measurements to reduce random error."
+                ],
+                "patterns": [
+                  "(?=.*(?:mean))(?=.*(?:random))(?=.*(?:error)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Repeat the mass and volume measurements and check for anomalous values. Calculate a mean from consistent measurements to reduce random error."
         }
       ]
     }
   ],
   "qualityNote": "The model-answer and format checks passed; an additional marking-variant and negation regression suite is used for this bank. Automated extended-response marks remain provisional and should be reviewed against the marking points for scientifically equivalent wording.",
-  "markingGuidance": "Method and substitution marks are distinct from final answer marks; correct final answers alone cannot receive full method credit. School-aligned practice, not the official school's marking."
+  "markingGuidance": "Method and substitution marks are distinct from final answer marks; correct final answers alone cannot receive full method credit. School-aligned practice, not the official school's marking.",
+  "coverageStatement": "Original 200-question November Year 9 Physics practice bank: particle model (40), density calculations (40), conduction only (40), RP2 thermal insulation (40), RP5 density (40). Class notice says RPs may be assessed; 60-minute 25-question mock uses weighted draw."
 }
