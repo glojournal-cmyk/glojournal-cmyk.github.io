@@ -41,7 +41,7 @@ function grantWardrobe(id){
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
 const CHEMISTRY_REVISION='20260930-chem-fullmarks3';
-const bankUrl=p=>p.id==='physics-nov26'?`${p.bank}?v=20261114-physics-bank200-b`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261114-biology-411-144-v2`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
+const bankUrl=p=>p.id==='physics-nov26'?`${p.bank}?v=20261114-physics-selection-qa1`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261114-biology-411-144-v2`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
   'inks.svg':'Figure 2: chromatogram with ink samples A to D',
@@ -216,32 +216,29 @@ function shuffle(a){
   return b;
 }
 function selectPhysicsSchool(questions,count,recent=[],quotas={}){
-  // Five equal topics, two or more extended-answer questions from each where
-  // available, plus non-optional RP2 graph and RP5 method/error coverage.
+  // All 200 bank questions must be reachable. Always include one RP2
+  // graph and one RP5 practical method, measurement or error question.
+  // Do not use up all practical slots on fixed multi-mark questions.
   const selected=[],seen=new Set(),old=new Set(recent);
+  const lastSeen=new Map(recent.map((id,i)=>[id,i]));
+  const rp5Focus=new Set([
+    'r01','r02','r05','r06','r09','r12','r13',
+    'r27','r28','r29','r30','r33','r34','r35','r36','r39'
+  ].map(s=>'phys-nov26-'+s));
   const rules={
-    'Particle model & changes of state':[
-      q=>q.marks>=3
-    ],
-    'Density calculations':[
-      q=>['phys-nov26-d11','phys-nov26-d13','phys-nov26-d06'].includes(q.id)
-    ],
-    'Conduction & insulation':[
-      q=>q.marks>=3
-    ],
-    'RP2 thermal insulation':[
-      q=>!!q.diagram&&(q.answer?.mode==='choice'||q.marks>=3),
-      q=>['phys-nov26-i08','phys-nov26-i13'].includes(q.id)
-    ],
-    'RP5 density':[
-      q=>['phys-nov26-r01','phys-nov26-r02','phys-nov26-r05','phys-nov26-r12','phys-nov26-r13','phys-nov26-r27','phys-nov26-r28','phys-nov26-r29','phys-nov26-r30'].includes(q.id),
-      q=>['phys-nov26-r06','phys-nov26-r09','phys-nov26-r34','phys-nov26-r35','phys-nov26-r36'].includes(q.id)
-    ]
+    'Particle model & changes of state':[q=>q.marks>=3],
+    'Density calculations':[q=>['phys-nov26-d11','phys-nov26-d13','phys-nov26-d06'].includes(q.id)],
+    'Conduction & insulation':[q=>q.marks>=3],
+    'RP2 thermal insulation':[q=>Boolean(q.diagram)],
+    'RP5 density':[q=>rp5Focus.has(q.id)&&q.marks>=3]
   };
   const take=(pool,filter)=>{
+    // Shuffle equally eligible candidates and prefer least recently used.
+    // This avoids repeating a required-practical item unnecessarily.
     const options=shuffle(pool.filter(q=>!seen.has(q.conceptId||q.id)&&filter(q)));
-    const fresh=options.find(q=>!old.has(q.id));
-    const q=fresh||options[0];
+    options.sort((a,b)=>(old.has(a.id)?1:0)-(old.has(b.id)?1:0)
+      ||(lastSeen.get(a.id)??-1)-(lastSeen.get(b.id)??-1));
+    const q=options[0];
     if(!q)return false;
     selected.push(q);seen.add(q.conceptId||q.id);
     return true;
@@ -253,9 +250,13 @@ function selectPhysicsSchool(questions,count,recent=[],quotas={}){
     for(const rule of rules[topic]||[]){
       if(!take(pool,rule))throw Error('Missing required exam question type in '+topic);
     }
-    // Use both MC concept checks and multi-mark explanations so every part of the bank rotates.
-    while(selected.filter(q=>q.topic===topic&&q.answer?.mode==='choice').length<1&&take(pool,q=>q.answer?.mode==='choice')){}
-    while(selected.filter(q=>q.topic===topic&&q.marks>=3).length<Math.min(quota,2)&&take(pool,q=>q.marks>=3)){}
+    // Include one MC concept check per topic. Core topics have two 3+ mark
+    // questions; RP2/RP5 need one 3+ to leave room for 2-mark practice.
+    while(selected.filter(q=>q.topic===topic&&q.answer?.mode==='choice').length<1
+      &&take(pool,q=>q.answer?.mode==='choice')){}
+    const minExtended=(topic==='RP2 thermal insulation'||topic==='RP5 density')?1:2;
+    while(selected.filter(q=>q.topic===topic&&q.marks>=3).length<Math.min(quota,minExtended)
+      &&take(pool,q=>q.marks>=3)){}
     while(selected.length-before<quota&&take(pool,q=>q.marks>=2)){}
     while(selected.length-before<quota&&take(pool,()=>true)){}
     if(selected.length-before!==quota)throw Error('Incomplete school exam topic allocation: '+topic);
@@ -270,14 +271,16 @@ function physicsNov26DraftSchoolAligned(draft){
   if(new Set(questions.map(q=>q.id)).size!==25)return false;
   const quotas={'Particle model & changes of state':8,'Density calculations':4,'Conduction & insulation':7,'RP2 thermal insulation':3,'RP5 density':3};
   for(const [topic,count] of Object.entries(quotas)){
-    const subset=questions.filter(q=>q.topic===topic);
-    if(subset.length!==count||subset.filter(q=>Number(q.marks)>=3).length<2)return false;
+    const part=questions.filter(q=>q.topic===topic);
+    const minExtended=topic==='RP2 thermal insulation'||topic==='RP5 density'?1:2;
+    if(part.length!==count||part.filter(q=>q.marks>=3).length<minExtended
+      ||part.filter(q=>q.answer?.mode==='choice').length!==1)return false;
   }
   const has=ids=>questions.some(q=>ids.includes(q.id));
+  const rp5Focus=['r01','r02','r05','r06','r09','r12','r13','r27',
+    'r28','r29','r30','r33','r34','r35','r36','r39'].map(s=>'phys-nov26-'+s);
   return questions.some(q=>q.topic==='RP2 thermal insulation'&&q.diagram)
-    &&has(['phys-nov26-i08','phys-nov26-i13'])
-    &&has(['phys-nov26-r01','phys-nov26-r02','phys-nov26-r05','phys-nov26-r12','phys-nov26-r13','phys-nov26-r27','phys-nov26-r28','phys-nov26-r29','phys-nov26-r30'])
-    &&has(['phys-nov26-r06','phys-nov26-r09','phys-nov26-r34','phys-nov26-r35','phys-nov26-r36'])
+    &&has(rp5Focus)
     &&has(['phys-nov26-d11','phys-nov26-d13','phys-nov26-d06']);
 }
 
@@ -784,7 +787,9 @@ function finish(p,d){
     revisionEvidence:d.questions.map((q,i)=>({questionId:q.id,topic:q.topic||'Other',credit:marks[i].credit,marks:questionMarks(q)}))
   });
   state.reviewQueue=globalThis.LuxPracticeBridge.queueFor(state);
-  state.recent[p.id]=d.questions.map(q=>q.id);
+  state.recent[p.id]=p.id==='physics-nov26'
+    ? [...(state.recent[p.id]||[]),...d.questions.map(q=>q.id)].slice(-160)
+    : d.questions.map(q=>q.id);
   delete state.drafts[p.id];save();cards();
 
   const resultSummary=`${full}/${d.questions.length} correct${partial?` · ${partial} partly correct`:''} · ${formatMarks(earned)}/${totalMarks} marks`;

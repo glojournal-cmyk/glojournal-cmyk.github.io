@@ -54,15 +54,14 @@ for(let n=0;n<300;n++){
  for(const [topic,quota] of Object.entries(quotas)){
    const part=picked.filter(q=>q.topic===topic);
    assert.equal(part.length,quota,topic+' question quota');
-   assert.ok(part.filter(q=>q.marks>=3).length>=2,topic+' at least two extended answers');
+   assert.ok(part.filter(q=>q.marks>=3).length>=(topic==='RP2 thermal insulation'||topic==='RP5 density'?1:2),topic+' extended-answer coverage');
  }
  const ids=new Set(picked.map(q=>q.id));
  assert.ok(picked.some(q=>q.topic==='RP2 thermal insulation'&&q.diagram),'RP2 graph question on every paper');
- assert.ok([...['i08','i13']].some(id=>ids.has('phys-nov26-'+id)),'RP2 fair-test design on every paper');
- assert.ok(['r01','r02','r05','r12','r13','r27','r28','r29','r30'].some(id=>ids.has('phys-nov26-'+id)),'RP5 practical method on every paper');
- assert.ok(['r06','r09','r34','r35','r36'].some(id=>ids.has('phys-nov26-'+id)),'RP5 error/calculation on every paper');
+ assert.equal(picked.filter(q=>q.topic==='RP2 thermal insulation'&&q.answer.mode==='choice').length,1,'RP2 MC and graph coverage');
+ assert.ok(['r01','r02','r05','r06','r09','r12','r13','r27','r28','r29','r30','r33','r34','r35','r36','r39'].some(id=>ids.has('phys-nov26-'+id)),'RP5 practical method/error/calculation on every paper');
  assert.ok(['d11','d13','d06'].some(id=>ids.has('phys-nov26-'+id)),'integrated density application on every paper');
- previous=picked.map(q=>q.id);
+ previous=[...previous,...picked.map(q=>q.id)].slice(-160);
 }
 const finalOnly={
  d02:['2.7 g/cm³',1],d03:['135 g',1],d04:['50 cm³',1],

@@ -2,7 +2,7 @@
   "id": "year9-physics-november-2026",
   "subject": "physics",
   "year": 9,
-  "version": "2026-11-14-physics-bank200-v1",
+  "version": "2026-11-14-physics-bank200-v1-reachability-qa",
   "sourceNote": "Original teacher-slide-aligned Year 9 mock practice (not an official school paper): Particles, Density, Conduction ONLY, RP2 and RP5. Convection and radiation are excluded. Includes 3–4 mark linked explanation and calculation questions; marking provides step-by-step credit.",
   "groups": [
     {
@@ -7819,7 +7819,7 @@
           "answer": {
             "mode": "chemistry_rubric",
             "accepted": [
-              "Measure and record the mass of the empty measuring cylinder. Add liquid, read its volume and measure the combined mass of the cylinder and liquid. Subtract the empty-cylinder mass to obtain the liquid mass. Divide liquid mass by liquid volume to calculate density, using consistent units such as g/cm³."
+              "Measure and record the mass of the empty measuring cylinder. Add liquid, read its volume and measure the combined mass of the cylinder and liquid. Subtract the empty-cylinder mass from the combined mass to obtain the liquid mass. Divide liquid mass by liquid volume to calculate density, using consistent units such as g/cm³."
             ],
             "points": [
               {
@@ -7833,7 +7833,8 @@
                   "(?=.*(?:mass))(?=.*(?:empty))(?=.*(?:cylinder)).*"
                 ],
                 "variants": [
-                  "(?=.*(?:tare|zero))(?=.*(?:balance|cylinder)).*"
+                  "(?=.*(?:tare|zero))(?=.*(?:balance|cylinder)).*",
+                  "(?=.*(?:weigh|weighed|weight))(?=.*(?:empty))(?=.*(?:cylinder)).*"
                 ]
               },
               {
@@ -7853,7 +7854,7 @@
                   "Filled minus empty cylinder mass gives liquid mass."
                 ],
                 "patterns": [
-                  "(?=.*(?:subtract|minus|difference))(?=.*(?:empty))(?=.*(?:full|filled|liquid)).*"
+                  "(?=.*(?:subtract|minus|difference))(?=.*(?:empty|tare))(?=.*(?:full|filled|combined|liquid\\s+mass)).*"
                 ]
               },
               {
@@ -7871,7 +7872,7 @@
               }
             ]
           },
-          "modelAnswer": "Measure and record the mass of the empty measuring cylinder. Add liquid, read its volume and measure the combined mass of the cylinder and liquid. Subtract the empty-cylinder mass to obtain the liquid mass. Divide liquid mass by liquid volume to calculate density, using consistent units such as g/cm³.",
+          "modelAnswer": "Measure and record the mass of the empty measuring cylinder. Add liquid, read its volume and measure the combined mass of the cylinder and liquid. Subtract the empty-cylinder mass from the combined mass to obtain the liquid mass. Divide liquid mass by liquid volume to calculate density, using consistent units such as g/cm³.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
           "examGuidance": {
             "strategy": "Each distinct idea earns one mark. For calculations, show working and the correct unit.",

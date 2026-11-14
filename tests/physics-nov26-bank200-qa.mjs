@@ -26,8 +26,8 @@ assert.equal(qs.filter(q=>q.answer.mode==='chemistry_rubric').length,123);
 assert.ok(qs.every(q=>q.year===9&&q.subject==='physics'&&q.topic&&q.source));
 assert.ok(qs.every(q=>!/\b(convection|radiation|infrared)\b/i.test(q.prompt)),'Scope must remain conduction-only');
 assert.ok(app.includes("count:25,minutes:60,groups:{'Particle model & changes of state':8,'Density calculations':4,'Conduction & insulation':7,'RP2 thermal insulation':3,'RP5 density':3}"));
-assert.ok(app.includes("20261114-physics-bank200-b"));
-assert.ok(fs.readFileSync('assessment/index.html','utf8').includes('app-v2.js?v=20261114-physics-bank200-b'));
+assert.ok(app.includes("20261114-physics-selection-qa1"));
+assert.ok(fs.readFileSync('assessment/index.html','utf8').includes('app-v2.js?v=20261114-physics-selection-qa1'));
 for(const q of qs){
  assert.equal(q.answer.accepted.includes(q.modelAnswer),true,q.id+' model key');
  if(q.answer.mode==='choice'){
@@ -50,7 +50,7 @@ for(let n=0;n<1000;n++){
  for(const [topic,n] of Object.entries(topicCounts)){
   const subset=paper.filter(q=>q.topic===topic);
   assert.equal(subset.length,n,'weighted school scope '+topic);
-  assert.ok(subset.filter(q=>q.marks>=3).length>=2,topic+' two extended questions');
+  assert.ok(subset.filter(q=>q.marks>=3).length>=(topic==='RP2 thermal insulation'||topic==='RP5 density'?1:2),topic+' enough extended questions');
   assert.equal(subset.filter(q=>q.answer.mode==='choice').length,1,topic+' one MC');
  }
  assert.equal(aligned({questions:paper}),true,'paper must meet updated school coverage');
