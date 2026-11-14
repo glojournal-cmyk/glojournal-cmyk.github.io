@@ -442,7 +442,7 @@ function physicsNov26Mark(q,value){
   const points=q.answer?.points||[];
   const raw=String(value??'').trim().normalize('NFKC').replace(/[−–]/g,'-');
   if(!raw)return {credit:0,status:'Incorrect',matched:0,total:points.length||1,pointResults:points.map(()=>false)};
-  const noNegation=s=>!/\b(?:not|never|don't|doesn't|didn't|cannot|can't|isn't|aren't|wasn't|weren't|is\s+false)\b/i.test(s);
+  const noNegation=s=>!/\b(?:not|never|don't|doesn't|didn't|cannot|can't|isn't|aren't|wasn't|weren't|is\s+false)\b/i.test(s.replace(/\bnot\s+good(?:\s+at)?\b/gi,''));
   const units=raw.replace(/cm\s*\^\s*3/gi,'cm3').replace(/m\s*\^\s*3/gi,'m3')
     .replace(/\bg\s*cm\s*(?:\^\s*)?-\s*3\b/gi,'g/cm3')
     .replace(/\bkg\s*m\s*(?:\^\s*)?-\s*3\b/gi,'kg/m3')
