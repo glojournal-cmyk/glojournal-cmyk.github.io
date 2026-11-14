@@ -75,7 +75,7 @@ a{color:#28586b}details{margin:15px 0}summary{cursor:pointer;font-weight:700}
 <div class="inlinebar"><button class="primary" type="button" id="vocabnew">New 15-question set</button><button type="button" id="vocaball">All phrases</button><span id="vocabinfo" class="small"></span></div>
 <form id="vocabform"><div id="vocabitems"></div><div class="actions"><button type="submit" class="primary" id="vocabfinish">Finish &amp; mark</button></div></form>
 <div id="vocabresult" aria-live="polite"></div>
-<details><summary>Show full vocabulary reference (after practice)</summary><div id="vocabref"></div></details>
+<details id="vocabrefdetails" hidden><summary>Show full vocabulary reference (after practice)</summary><div id="vocabref"></div></details>
 </section>
 <section class="panel" id="grammar" role="tabpanel" hidden>
 <h2>Translate into full French sentences</h2><p>Based on the future and perfect tense work covered in the teacher's slides. Responses are not automatically marked because several accurate translations are possible. Write the whole sentence, submit, then compare carefully with the model.</p>
@@ -196,6 +196,7 @@ document.querySelectorAll("[data-tab]").forEach(function(b){b.addEventListener("
 function vocabNew(n){data.vocab={ids:shuffle(V.length).slice(0,n),answers:{},done:false};save();vocabRender()}
 function vocabRender(){if(!data.vocab||!Array.isArray(data.vocab.ids))return vocabNew(15);var q=data.vocab;
 $("vocabinfo").textContent=q.ids.length+" prompts"+(q.done?" · completed":"");
+$("vocabrefdetails").hidden=!q.done;if(!q.done)$("vocabrefdetails").open=false;
 $("vocabitems").innerHTML=q.ids.map(function(id,i){return '<div class="question"><label for="v'+id+'">'+(i+1)+'. '+esc(V[id][0])+'</label><input type="text" autocomplete="off" id="v'+id+'" data-id="'+id+'" value="'+esc(q.answers[id]||"")+'" '+(q.done?"disabled":"")+'></div>'}).join("");
 $("vocabfinish").disabled=q.done;
 if(q.done){var correct=0;var items=q.ids.map(function(id){var ok=norm(q.answers[id])===norm(V[id][1]);if(ok)correct++;return '<div class="result '+(ok?"":"error")+'"><strong>'+esc(V[id][0])+': '+(ok?"Correct":"Review")+'</strong><div>Model: '+esc(V[id][1])+'</div>'+(ok?"":'<div>Your answer: '+esc(q.answers[id]||"(blank)")+'</div>')+'</div>'}).join("");$("vocabresult").innerHTML="<h3>Practice score: "+correct+"/"+q.ids.length+"</h3>"+items}else $("vocabresult").innerHTML=""}
