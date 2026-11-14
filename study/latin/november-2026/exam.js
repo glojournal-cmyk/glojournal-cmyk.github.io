@@ -1,5 +1,5 @@
 import { LATIN_BOOKLET_RECORDS } from "/assets/latin-vocabulary-booklet-20261023.js";
-import { SYLLABUS, GRAMMAR, PRACTICE, MOCK, validateMock } from "./exam-data.js?v=20261114b";
+import { SYLLABUS, GRAMMAR, PRACTICE, MOCK, validateMock } from "./exam-data.js?v=20261114c";
 
 validateMock();
 const root = document.getElementById("app");
@@ -157,7 +157,7 @@ function renderExamSection(sec,review) {
   const passage = sec.passage ? '<div class="latinpassage" lang="la">' +
     sec.passage.map((line,i) => '<p><strong>' + (i+1) + '.</strong> ' + esc(line) + '</p>').join("") + '</div>' : "";
   return '<section class="exam-block"><div class="sectionhead"><h2>' + esc(sec.title) + '</h2><span class="pill">' + marks + ' marks</span></div>' +
-    '<p class="muted">' + esc(sec.description) + '</p>' + (review ? '<p class="help">Section score: <strong id="score-section-' + sec.id + '">0</strong> / ' + marks + ' (provisional self-mark)</p>' : '') + passage + '</section>' +
+    '<p class="muted">' + esc(sec.description) + '</p>' + (review && sec.id === 'C' ? '<div class="note"><strong>Translation fairness:</strong> Without macrons, <em>advenit</em>, <em>invenit</em> and <em>legit</em> can be present or perfect. Credit a consistent, defensible reading rather than forcing one tense.</div>' : '') + (review ? '<p class="help">Section score: <strong id="score-section-' + sec.id + '">0</strong> / ' + marks + ' (provisional self-mark)</p>' : '') + passage + '</section>' +
     sec.questions.map(q => renderPaperQuestion(q,review)).join("");
 }
 function renderMock() {
