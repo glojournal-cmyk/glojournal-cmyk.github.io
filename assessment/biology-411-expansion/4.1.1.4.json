@@ -225,7 +225,7 @@
           {
             "label": "Some structures may be reduced or lost as well as acquired.",
             "patterns": [
-              "(lose|lost|reduc|remove|fewer).{0,70}(structure|organelle|nucleus|cell)"
+              "(structure.{0,70}(lost|reduc|remove|fewer)|(?:lose|lost|reduc|remove|fewer).{0,70}(structure|organelle|nucleus|cell))"
             ]
           }
         ]
