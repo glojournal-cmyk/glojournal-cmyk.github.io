@@ -131,10 +131,10 @@ test('Chemistry main topic: 90 distinct, markable Year 9 formula/equation items'
   }
 });
 
-test('Physics: 65 questions in five explicitly teacher-taught topics',()=>{
-  assert.equal(phys.length,65);
+test('Physics: 200 questions in five teacher-referenced areas',()=>{
+  assert.equal(phys.length,200);
   assert.ok(unique(phys));
-  assert.deepEqual(physics.groups.map(g=>g.questions.length),[13,13,13,13,13]);
+  assert.deepEqual(physics.groups.map(g=>g.questions.length),[40,40,40,40,40]);
   assert.ok(physics.groups.every(g=>!/(convection|radiation)/i.test(g.title)));
   assert.ok(phys.every(q=>!/(convection|radiation)/i.test(q.prompt)),'Question outside conduction-only school scope');
   for(const q of phys){
@@ -264,4 +264,38 @@ test('French: teacher dictation vocabulary, 25 valid writing models and AQA High
   assert.match(frenchHtml,/covered<2&&p\.ao2!==undefined&&p\.ao2>12/);
   assert.match(frenchHtml,/if\(p\.ao2===0\)/);
   assert.match(frenchHtml,/accents are optional/i);
+});
+
+test('Academic QA repairs: distinct chemistry points, fair Biology aseptic marks, consistent Physics prompts',()=>{
+  const his=chemById.get('chem-nov16-2026-history-applied-01');
+  assert.equal(his.markScheme.length,3);
+  assert.match(his.markScheme[0],/charge was spread/);
+  assert.match(his.markScheme[1],/electrons outside/);
+  assert.match(his.markScheme[2],/empty/);
+  assert.ok(!his.markScheme[1].includes('no nucleus'),'Do not double-award Rutherford nucleus');
+  assert.equal(his.answer.accepted[0],his.markScheme.join(' '));
+  const cell= bioById.get('bio-cell-20261114-135');
+  assert.match(cell.prompt,/why an inoculating loop is flamed before use/);
+  assert.match(cell.prompt,/why it must cool/);
+  assert.equal(cell.marks,2);
+  assert.match(cell.answer.points[0].label,/sterilis/);
+  assert.match(cell.answer.points[1].label,/prevents it from killing/);
+  assert.match(biologyGuide,/why an inoculating loop is flamed before use/);
+  assert.match(bioById.get('bio-cell-20261114-079').prompt,/features you would expect if B were a bacterium/);
+  const graph=phyById.get('phys-nov26-i12');
+  assert.match(graph.prompt,/Calculate all three temperature falls/);
+  assert.equal(graph.answer.points.length,4);
+  assert.equal(graph.marks,4);
+  assert.match(phyById.get('phys-nov26-d30').prompt,/A sample of oil has mass/);
+  assert.doesNotMatch(phyById.get('phys-nov26-c05').modelAnswer,/vacuum/);
+  for(const id of ['phys-nov26-c02','phys-nov26-c05']){
+    const q=phyById.get(id);
+    assert.equal(q.answer.points.length,2);
+    for(const p of q.answer.points){
+      assert.ok(p.patterns.some(x=>new RegExp(x,'i').test(q.modelAnswer)),id+' mark point must recognise canonical answer');
+    }
+  }
+  for(const id of ['phys-nov26-d31','phys-nov26-d33','phys-nov26-d35','phys-nov26-d37']){
+    assert.doesNotMatch(phyById.get(id).prompt,/^A (?:alloy|industrial|iron|aluminium)\b/);
+  }
 });
