@@ -12,7 +12,7 @@ function body(begin,end,exported){
  return vm.runInNewContext(code.slice(start,stop)+'\n'+exported+';',{'Math':Math});
 }
 const grader=body('function physicsNov26Mark(q,value){','\nfunction mark(q,value){','physicsNov26Mark');
-const draftIsSchool=body('function physicsNov26DraftSchoolAligned(draft){','\nfunction select(questions,count','physicsNov26DraftSchoolAligned');
+const draftIsSchool=body('function physicsScenarioKey(q){','\nfunction select(questions,count','physicsNov26DraftSchoolAligned');
 const select=body('function shuffle(a){','\nfunction select(questions,count','selectPhysicsSchool');
 const quotas={'Particle model & changes of state':8,'Density calculations':4,'Conduction & insulation':7,'RP2 thermal insulation':3,'RP5 density':3};
 const paper=select(questions,25,[],quotas);
