@@ -93,3 +93,7 @@ This is a **rotation fix**, not a claim that the 200 questions contain 200 indep
 ### Independent UI QA discovered on the follow-up PR
 
 The Assessment iPad Preview browser workflow exposed an unrelated but real 1024×768 landscape issue: the fourth Biology paper row sat under or too close to the fixed bottom navigation. A short-landscape-specific CSS compact layout now reduces excessive top padding and intervening margins while keeping all four papers, clickable action buttons and the seven-destination nav. The browser assertion remains strict and now reports the actual measured row/nav geometry on failure. This change is to the layout only; no assessment question, marking or saved progress was changed.
+
+### Tracker QA baseline corrected, not application data removed
+
+The same iPad browser test also used an outdated fixture expecting three Tracker assessments and omitting the newly supplied 16 November Biology and 26 November French school assessments. Current `LuxSchoolRevision.schoolAssessments` contains five source dates, with only superseded Biology 2 November excluded by the app, leaving **four**: French 26 Nov, Biology 16 Nov, French 8 Oct and Chemistry 5 Oct. The UI test now checks these exact dates, subjects and pastel row colours, and exercises the Biology 16 Nov expandable paper button instead of assuming the first row is an in-app button. Actual school data, student records and app tracking behaviour are unchanged.
