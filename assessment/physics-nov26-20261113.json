@@ -2,7 +2,7 @@
   "id": "year9-physics-november-2026",
   "subject": "physics",
   "year": 9,
-  "version": "2026-11-14-particle-expansion-draft",
+  "version": "2026-11-14-density-expansion-draft",
   "sourceNote": "Original teacher-slide-aligned Year 9 mock practice (not an official school paper): Particles, Density, Conduction ONLY, RP2 and RP5. Convection and radiation are excluded. Includes 3–4 mark linked explanation and calculation questions; marking provides step-by-step credit.",
   "groups": [
     {
@@ -2452,6 +2452,1539 @@
           ],
           "schoolExamStyle": true,
           "workedSolution": "ρ = 9.65/0.60 = 16.083... ≈ 16.1 g/cm³; this is below 19.3 g/cm³, so the ring is not pure gold."
+        },
+        {
+          "id": "phys-nov26-d14",
+          "conceptId": "phys-nov26-d14",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "What is the SI unit of density?",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "kg/m³",
+          "options": [
+            "kg/m³",
+            "kg",
+            "m³",
+            "g"
+          ],
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "kg/m³"
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-d15",
+          "conceptId": "phys-nov26-d15",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which rearrangement correctly calculates mass from density and volume?",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Mass = density × volume.",
+          "options": [
+            "Mass = density × volume.",
+            "Mass = density ÷ volume.",
+            "Mass = volume ÷ density.",
+            "Mass = density + volume."
+          ],
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Mass = density × volume."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-d16",
+          "conceptId": "phys-nov26-d16",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which rearrangement correctly calculates volume?",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Volume = mass ÷ density.",
+          "options": [
+            "Volume = mass ÷ density.",
+            "Volume = mass × density.",
+            "Volume = density ÷ mass.",
+            "Volume = mass + density."
+          ],
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Volume = mass ÷ density."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-d17",
+          "conceptId": "phys-nov26-d17",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "A cube's edge length doubles. What happens to its volume?",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "It becomes eight times as large.",
+          "options": [
+            "It becomes eight times as large.",
+            "It doubles.",
+            "It becomes four times as large.",
+            "It stays the same."
+          ],
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "It becomes eight times as large."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-d18",
+          "conceptId": "phys-nov26-d18",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Two solid blocks are made of the same uniform metal, but one is twice as large. Which is true?",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Both have the same density.",
+          "options": [
+            "Both have the same density.",
+            "The larger block has half the density.",
+            "The larger block has double the density.",
+            "Density depends only on surface area."
+          ],
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Both have the same density."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-d19",
+          "conceptId": "phys-nov26-d19",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "1 cm³ of water has mass 1 g. What is its density?",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "1 g/cm³",
+          "options": [
+            "1 g/cm³",
+            "0.1 g/cm³",
+            "10 g/cm³",
+            "1000 g/cm³"
+          ],
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "1 g/cm³"
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-d20",
+          "conceptId": "phys-nov26-d20",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which object would float in water of density 1000 kg/m³?",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "An object of density 720 kg/m³.",
+          "options": [
+            "An object of density 720 kg/m³.",
+            "An object of density 1300 kg/m³.",
+            "An object of density 1800 kg/m³.",
+            "An object of density 2700 kg/m³."
+          ],
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "An object of density 720 kg/m³."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-d21",
+          "conceptId": "phys-nov26-d21",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Convert 0.85 g/cm³ into kg/m³.",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "850 kg/m³",
+          "options": [
+            "850 kg/m³",
+            "85 kg/m³",
+            "8500 kg/m³",
+            "0.00085 kg/m³"
+          ],
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "850 kg/m³"
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-d22",
+          "conceptId": "phys-nov26-d22",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 2,
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Why must mass and volume units be consistent in a density calculation?",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "To obtain a density in the chosen matching units.",
+          "options": [
+            "To obtain a density in the chosen matching units.",
+            "To make the object heavier.",
+            "To make the object occupy more volume.",
+            "To avoid measuring its mass."
+          ],
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "To obtain a density in the chosen matching units."
+            ]
+          }
+        },
+        {
+          "id": "phys-nov26-d23",
+          "conceptId": "phys-nov26-d23",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A glass pebble has mass 360 g and volume 120 cm³. Calculate its density, showing formula, substitution and units. (3 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Density = mass / volume. 360 / 120 = 3. The density is 3 g/cm³.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Density = mass / volume. 360 / 120 = 3. The density is 3 g/cm³."
+            ],
+            "points": [
+              {
+                "label": "Density = mass / volume.",
+                "alternatives": [
+                  "Density = mass / volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:Density)).*"
+                ]
+              },
+              {
+                "label": "360 / 120 = 3.",
+                "alternatives": [
+                  "360 / 120 = 3."
+                ],
+                "patterns": [
+                  "(?=.*(?:360)).*"
+                ]
+              },
+              {
+                "label": "The density is 3 g/cm³.",
+                "alternatives": [
+                  "The density is 3 g/cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
+              ],
+              [
+                "360\\s*(?:\\/|÷)\\s*120"
+              ],
+              [
+                "\\b3\\s*g\\s*\\/\\s*cm3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d24",
+          "conceptId": "phys-nov26-d24",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A wood sample has mass 42 g and volume 60 cm³. Calculate its density, showing formula, substitution and units. (3 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Density = mass / volume. 42 / 60 = 0.7. The density is 0.7 g/cm³.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Density = mass / volume. 42 / 60 = 0.7. The density is 0.7 g/cm³."
+            ],
+            "points": [
+              {
+                "label": "Density = mass / volume.",
+                "alternatives": [
+                  "Density = mass / volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:Density)).*"
+                ]
+              },
+              {
+                "label": "42 / 60 = 0.7.",
+                "alternatives": [
+                  "42 / 60 = 0.7."
+                ],
+                "patterns": [
+                  "(?=.*(?:42)).*"
+                ]
+              },
+              {
+                "label": "The density is 0.7 g/cm³.",
+                "alternatives": [
+                  "The density is 0.7 g/cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
+              ],
+              [
+                "42\\s*(?:\\/|÷)\\s*60"
+              ],
+              [
+                "\\b0\\.7\\s*g\\s*\\/\\s*cm3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d25",
+          "conceptId": "phys-nov26-d25",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A solid metal piece has mass 312 g and volume 40 cm³. Calculate its density, showing formula, substitution and units. (3 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Density = mass / volume. 312 / 40 = 7.8. The density is 7.8 g/cm³.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Density = mass / volume. 312 / 40 = 7.8. The density is 7.8 g/cm³."
+            ],
+            "points": [
+              {
+                "label": "Density = mass / volume.",
+                "alternatives": [
+                  "Density = mass / volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:Density)).*"
+                ]
+              },
+              {
+                "label": "312 / 40 = 7.8.",
+                "alternatives": [
+                  "312 / 40 = 7.8."
+                ],
+                "patterns": [
+                  "(?=.*(?:312)).*"
+                ]
+              },
+              {
+                "label": "The density is 7.8 g/cm³.",
+                "alternatives": [
+                  "The density is 7.8 g/cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
+              ],
+              [
+                "312\\s*(?:\\/|÷)\\s*40"
+              ],
+              [
+                "\\b7\\.8\\s*g\\s*\\/\\s*cm3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d26",
+          "conceptId": "phys-nov26-d26",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A stone tile has mass 285 g and volume 150 cm³. Calculate its density, showing formula, substitution and units. (3 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Density = mass / volume. 285 / 150 = 1.9. The density is 1.9 g/cm³.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Density = mass / volume. 285 / 150 = 1.9. The density is 1.9 g/cm³."
+            ],
+            "points": [
+              {
+                "label": "Density = mass / volume.",
+                "alternatives": [
+                  "Density = mass / volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:Density)).*"
+                ]
+              },
+              {
+                "label": "285 / 150 = 1.9.",
+                "alternatives": [
+                  "285 / 150 = 1.9."
+                ],
+                "patterns": [
+                  "(?=.*(?:285)).*"
+                ]
+              },
+              {
+                "label": "The density is 1.9 g/cm³.",
+                "alternatives": [
+                  "The density is 1.9 g/cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
+              ],
+              [
+                "285\\s*(?:\\/|÷)\\s*150"
+              ],
+              [
+                "\\b1\\.9\\s*g\\s*\\/\\s*cm3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d27",
+          "conceptId": "phys-nov26-d27",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A plastic block has mass 96 g and volume 160 cm³. Calculate its density, showing formula, substitution and units. (3 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Density = mass / volume. 96 / 160 = 0.6. The density is 0.6 g/cm³.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Density = mass / volume. 96 / 160 = 0.6. The density is 0.6 g/cm³."
+            ],
+            "points": [
+              {
+                "label": "Density = mass / volume.",
+                "alternatives": [
+                  "Density = mass / volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:Density)).*"
+                ]
+              },
+              {
+                "label": "96 / 160 = 0.6.",
+                "alternatives": [
+                  "96 / 160 = 0.6."
+                ],
+                "patterns": [
+                  "(?=.*(?:96)).*"
+                ]
+              },
+              {
+                "label": "The density is 0.6 g/cm³.",
+                "alternatives": [
+                  "The density is 0.6 g/cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
+              ],
+              [
+                "96\\s*(?:\\/|÷)\\s*160"
+              ],
+              [
+                "\\b0\\.6\\s*g\\s*\\/\\s*cm3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d28",
+          "conceptId": "phys-nov26-d28",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A foam panel has mass 0.36 kg and volume 0.003 m³. Calculate its density, showing formula, substitution and units. (3 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Density = mass / volume. 0.36 / 0.003 = 120. The density is 120 kg/m³.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Density = mass / volume. 0.36 / 0.003 = 120. The density is 120 kg/m³."
+            ],
+            "points": [
+              {
+                "label": "Density = mass / volume.",
+                "alternatives": [
+                  "Density = mass / volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:Density)).*"
+                ]
+              },
+              {
+                "label": "0.36 / 0.003 = 120.",
+                "alternatives": [
+                  "0.36 / 0.003 = 120."
+                ],
+                "patterns": [
+                  "(?=.*(?:0.36)).*"
+                ]
+              },
+              {
+                "label": "The density is 120 kg/m³.",
+                "alternatives": [
+                  "The density is 120 kg/m³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
+              ],
+              [
+                "0\\.36\\s*(?:\\/|÷)\\s*0\\.003"
+              ],
+              [
+                "\\b120\\s*kg\\s*\\/\\s*m3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d29",
+          "conceptId": "phys-nov26-d29",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A mineral sample has mass 1.44 kg and volume 0.0012 m³. Calculate its density, showing formula, substitution and units. (3 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Density = mass / volume. 1.44 / 0.0012 = 1200. The density is 1200 kg/m³.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Density = mass / volume. 1.44 / 0.0012 = 1200. The density is 1200 kg/m³."
+            ],
+            "points": [
+              {
+                "label": "Density = mass / volume.",
+                "alternatives": [
+                  "Density = mass / volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:Density)).*"
+                ]
+              },
+              {
+                "label": "1.44 / 0.0012 = 1200.",
+                "alternatives": [
+                  "1.44 / 0.0012 = 1200."
+                ],
+                "patterns": [
+                  "(?=.*(?:1.44)).*"
+                ]
+              },
+              {
+                "label": "The density is 1200 kg/m³.",
+                "alternatives": [
+                  "The density is 1200 kg/m³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
+              ],
+              [
+                "1\\.44\\s*(?:\\/|÷)\\s*0\\.0012"
+              ],
+              [
+                "\\b1200\\s*kg\\s*\\/\\s*m3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d30",
+          "conceptId": "phys-nov26-d30",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A oil-filled container (liquid only) has mass 0.96 kg and volume 0.0012 m³. Calculate its density, showing formula, substitution and units. (3 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Density = mass / volume. 0.96 / 0.0012 = 800. The density is 800 kg/m³.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Density = mass / volume. 0.96 / 0.0012 = 800. The density is 800 kg/m³."
+            ],
+            "points": [
+              {
+                "label": "Density = mass / volume.",
+                "alternatives": [
+                  "Density = mass / volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:Density)).*"
+                ]
+              },
+              {
+                "label": "0.96 / 0.0012 = 800.",
+                "alternatives": [
+                  "0.96 / 0.0012 = 800."
+                ],
+                "patterns": [
+                  "(?=.*(?:0.96)).*"
+                ]
+              },
+              {
+                "label": "The density is 800 kg/m³.",
+                "alternatives": [
+                  "The density is 800 kg/m³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
+              ],
+              [
+                "0\\.96\\s*(?:\\/|÷)\\s*0\\.0012"
+              ],
+              [
+                "\\b800\\s*kg\\s*\\/\\s*m3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d31",
+          "conceptId": "phys-nov26-d31",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A alloy cuboid has density 2.5 g/cm³ and volume 24 cm³. Calculate its mass, showing your working and units. (3 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Mass = density × volume. 2.5 × 24 = 60. The mass is 60 g.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Mass = density × volume. 2.5 × 24 = 60. The mass is 60 g."
+            ],
+            "points": [
+              {
+                "label": "Mass = density × volume.",
+                "alternatives": [
+                  "Mass = density × volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:Mass)).*"
+                ]
+              },
+              {
+                "label": "2.5 × 24 = 60.",
+                "alternatives": [
+                  "2.5 × 24 = 60."
+                ],
+                "patterns": [
+                  "(?=.*(?:2.5)).*"
+                ]
+              },
+              {
+                "label": "The mass is 60 g.",
+                "alternatives": [
+                  "The mass is 60 g."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|multiplied\\s+by)\\s*(?:volume|v)"
+              ],
+              [
+                "2\\.5\\s*(?:×|x|\\*|\\/|÷)\\s*24"
+              ],
+              [
+                "\\b60\\s*g\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d32",
+          "conceptId": "phys-nov26-d32",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A small wooden block has density 0.8 g/cm³ and volume 150 cm³. Calculate its mass, showing your working and units. (3 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Mass = density × volume. 0.8 × 150 = 120. The mass is 120 g.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Mass = density × volume. 0.8 × 150 = 120. The mass is 120 g."
+            ],
+            "points": [
+              {
+                "label": "Mass = density × volume.",
+                "alternatives": [
+                  "Mass = density × volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:Mass)).*"
+                ]
+              },
+              {
+                "label": "0.8 × 150 = 120.",
+                "alternatives": [
+                  "0.8 × 150 = 120."
+                ],
+                "patterns": [
+                  "(?=.*(?:0.8)).*"
+                ]
+              },
+              {
+                "label": "The mass is 120 g.",
+                "alternatives": [
+                  "The mass is 120 g."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|multiplied\\s+by)\\s*(?:volume|v)"
+              ],
+              [
+                "0\\.8\\s*(?:×|x|\\*|\\/|÷)\\s*150"
+              ],
+              [
+                "\\b120\\s*g\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d33",
+          "conceptId": "phys-nov26-d33",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A industrial concrete sample has density 2400 kg/m³ and volume 0.015 m³. Calculate its mass, showing your working and units. (3 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Mass = density × volume. 2400 × 0.015 = 36. The mass is 36 kg.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Mass = density × volume. 2400 × 0.015 = 36. The mass is 36 kg."
+            ],
+            "points": [
+              {
+                "label": "Mass = density × volume.",
+                "alternatives": [
+                  "Mass = density × volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:Mass)).*"
+                ]
+              },
+              {
+                "label": "2400 × 0.015 = 36.",
+                "alternatives": [
+                  "2400 × 0.015 = 36."
+                ],
+                "patterns": [
+                  "(?=.*(?:2400)).*"
+                ]
+              },
+              {
+                "label": "The mass is 36 kg.",
+                "alternatives": [
+                  "The mass is 36 kg."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|multiplied\\s+by)\\s*(?:volume|v)"
+              ],
+              [
+                "2400\\s*(?:×|x|\\*|\\/|÷)\\s*0\\.015"
+              ],
+              [
+                "\\b36\\s*kg\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d34",
+          "conceptId": "phys-nov26-d34",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A plastic cube has density 1.4 g/cm³ and volume 75 cm³. Calculate its mass, showing your working and units. (3 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Mass = density × volume. 1.4 × 75 = 105. The mass is 105 g.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Mass = density × volume. 1.4 × 75 = 105. The mass is 105 g."
+            ],
+            "points": [
+              {
+                "label": "Mass = density × volume.",
+                "alternatives": [
+                  "Mass = density × volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:Mass)).*"
+                ]
+              },
+              {
+                "label": "1.4 × 75 = 105.",
+                "alternatives": [
+                  "1.4 × 75 = 105."
+                ],
+                "patterns": [
+                  "(?=.*(?:1.4)).*"
+                ]
+              },
+              {
+                "label": "The mass is 105 g.",
+                "alternatives": [
+                  "The mass is 105 g."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|multiplied\\s+by)\\s*(?:volume|v)"
+              ],
+              [
+                "1\\.4\\s*(?:×|x|\\*|\\/|÷)\\s*75"
+              ],
+              [
+                "\\b105\\s*g\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d35",
+          "conceptId": "phys-nov26-d35",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A iron piece has mass 126 g and density 7 g/cm³. Calculate its volume, showing working and units. (3 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Volume = mass / density. 126 / 7 = 18. The volume is 18 cm³.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Volume = mass / density. 126 / 7 = 18. The volume is 18 cm³."
+            ],
+            "points": [
+              {
+                "label": "Volume = mass / density.",
+                "alternatives": [
+                  "Volume = mass / density."
+                ],
+                "patterns": [
+                  "(?=.*(?:Volume)).*"
+                ]
+              },
+              {
+                "label": "126 / 7 = 18.",
+                "alternatives": [
+                  "126 / 7 = 18."
+                ],
+                "patterns": [
+                  "(?=.*(?:126)).*"
+                ]
+              },
+              {
+                "label": "The volume is 18 cm³.",
+                "alternatives": [
+                  "The volume is 18 cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "(?:volume|v)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:density|ρ|rho)"
+              ],
+              [
+                "126\\s*(?:×|x|\\*|\\/|÷)\\s*7"
+              ],
+              [
+                "\\b18\\s*cm3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d36",
+          "conceptId": "phys-nov26-d36",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A sealed fluid sample has mass 675 kg and density 750 kg/m³. Calculate its volume, showing working and units. (3 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Volume = mass / density. 675 / 750 = 0.9. The volume is 0.9 m³.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Volume = mass / density. 675 / 750 = 0.9. The volume is 0.9 m³."
+            ],
+            "points": [
+              {
+                "label": "Volume = mass / density.",
+                "alternatives": [
+                  "Volume = mass / density."
+                ],
+                "patterns": [
+                  "(?=.*(?:Volume)).*"
+                ]
+              },
+              {
+                "label": "675 / 750 = 0.9.",
+                "alternatives": [
+                  "675 / 750 = 0.9."
+                ],
+                "patterns": [
+                  "(?=.*(?:675)).*"
+                ]
+              },
+              {
+                "label": "The volume is 0.9 m³.",
+                "alternatives": [
+                  "The volume is 0.9 m³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "(?:volume|v)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:density|ρ|rho)"
+              ],
+              [
+                "675\\s*(?:×|x|\\*|\\/|÷)\\s*750"
+              ],
+              [
+                "\\b0\\.9\\s*m3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d37",
+          "conceptId": "phys-nov26-d37",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A aluminium section has mass 54 g and density 2.7 g/cm³. Calculate its volume, showing working and units. (3 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "Volume = mass / density. 54 / 2.7 = 20. The volume is 20 cm³.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Volume = mass / density. 54 / 2.7 = 20. The volume is 20 cm³."
+            ],
+            "points": [
+              {
+                "label": "Volume = mass / density.",
+                "alternatives": [
+                  "Volume = mass / density."
+                ],
+                "patterns": [
+                  "(?=.*(?:Volume)).*"
+                ]
+              },
+              {
+                "label": "54 / 2.7 = 20.",
+                "alternatives": [
+                  "54 / 2.7 = 20."
+                ],
+                "patterns": [
+                  "(?=.*(?:54)).*"
+                ]
+              },
+              {
+                "label": "The volume is 20 cm³.",
+                "alternatives": [
+                  "The volume is 20 cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "(?:volume|v)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:density|ρ|rho)"
+              ],
+              [
+                "54\\s*(?:×|x|\\*|\\/|÷)\\s*2\\.7"
+              ],
+              [
+                "\\b20\\s*cm3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d38",
+          "conceptId": "phys-nov26-d38",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 4,
+          "prompt": "A stone has mass 110 g. Water rises from 34 cm³ to 54 cm³ when it is submerged. Calculate the stone's density, showing each stage. (4 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "The displaced volume is 54 - 34 = 20 cm³. Use density = mass / volume. Substitute 110 / 20. The density is 5.5 g/cm³.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "The displaced volume is 54 - 34 = 20 cm³. Use density = mass / volume. Substitute 110 / 20. The density is 5.5 g/cm³."
+            ],
+            "points": [
+              {
+                "label": "The displaced volume is 54 - 34 = 20 cm³.",
+                "alternatives": [
+                  "The displaced volume is 54 - 34 = 20 cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              },
+              {
+                "label": "Use density = mass / volume.",
+                "alternatives": [
+                  "Use density = mass / volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:Use)).*"
+                ]
+              },
+              {
+                "label": "Substitute 110 / 20.",
+                "alternatives": [
+                  "Substitute 110 / 20."
+                ],
+                "patterns": [
+                  "(?=.*(?:Substitute)).*"
+                ]
+              },
+              {
+                "label": "The density is 5.5 g/cm³.",
+                "alternatives": [
+                  "The density is 5.5 g/cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "54\\s*(?:-|minus)\\s*34",
+                "\\b20\\s*cm3\\b"
+              ],
+              [
+                "density\\s*=\\s*mass\\s*(?:\\/|÷)\\s*volume"
+              ],
+              [
+                "110\\s*(?:\\/|÷)\\s*20"
+              ],
+              [
+                "\\b5\\.5\\s*g\\s*\\/\\s*cm3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d39",
+          "conceptId": "phys-nov26-d39",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 4,
+          "prompt": "A 4 cm × 4 cm × 4 cm cube has mass 256 g. Find its volume and density with the correct unit. (4 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "The cube volume is 4 × 4 × 4 = 64 cm³. Use density = mass / volume. Substitute 256 / 64. The density is 4 g/cm³.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "The cube volume is 4 × 4 × 4 = 64 cm³. Use density = mass / volume. Substitute 256 / 64. The density is 4 g/cm³."
+            ],
+            "points": [
+              {
+                "label": "The cube volume is 4 × 4 × 4 = 64 cm³.",
+                "alternatives": [
+                  "The cube volume is 4 × 4 × 4 = 64 cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              },
+              {
+                "label": "Use density = mass / volume.",
+                "alternatives": [
+                  "Use density = mass / volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:Use)).*"
+                ]
+              },
+              {
+                "label": "Substitute 256 / 64.",
+                "alternatives": [
+                  "Substitute 256 / 64."
+                ],
+                "patterns": [
+                  "(?=.*(?:Substitute)).*"
+                ]
+              },
+              {
+                "label": "The density is 4 g/cm³.",
+                "alternatives": [
+                  "The density is 4 g/cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "4\\s*(?:×|x|\\*)\\s*4\\s*(?:×|x|\\*)\\s*4",
+                "\\b64\\s*cm3\\b"
+              ],
+              [
+                "density\\s*=\\s*mass\\s*(?:\\/|÷)\\s*volume"
+              ],
+              [
+                "256\\s*(?:\\/|÷)\\s*64"
+              ],
+              [
+                "\\b4\\s*g\\s*\\/\\s*cm3\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
+        },
+        {
+          "id": "phys-nov26-d40",
+          "conceptId": "phys-nov26-d40",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 4,
+          "prompt": "A rectangular brick is 3 cm × 4 cm × 6 cm and has density 2.5 g/cm³. Work out its mass in grams with steps. (4 marks)",
+          "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
+          "examGuidance": {
+            "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
+            "commonError": "Missing unit, wrong conversion, wrong rearrangement or omitted working."
+          },
+          "source": "Original teacher-scope Year 9 AQA-style Physics density revision. Not an official school question.",
+          "schoolExamStyle": true,
+          "modelAnswer": "The volume is 3 × 4 × 6 = 72 cm³. Use mass = density × volume. Substitute 2.5 × 72. The mass is 180 g.",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "The volume is 3 × 4 × 6 = 72 cm³. Use mass = density × volume. Substitute 2.5 × 72. The mass is 180 g."
+            ],
+            "points": [
+              {
+                "label": "The volume is 3 × 4 × 6 = 72 cm³.",
+                "alternatives": [
+                  "The volume is 3 × 4 × 6 = 72 cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              },
+              {
+                "label": "Use mass = density × volume.",
+                "alternatives": [
+                  "Use mass = density × volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:Use)).*"
+                ]
+              },
+              {
+                "label": "Substitute 2.5 × 72.",
+                "alternatives": [
+                  "Substitute 2.5 × 72."
+                ],
+                "patterns": [
+                  "(?=.*(?:Substitute)).*"
+                ]
+              },
+              {
+                "label": "The mass is 180 g.",
+                "alternatives": [
+                  "The mass is 180 g."
+                ],
+                "patterns": [
+                  "(?=.*(?:The)).*"
+                ]
+              }
+            ],
+            "methodRules": [
+              [
+                "3\\s*(?:×|x|\\*)\\s*4\\s*(?:×|x|\\*)\\s*6",
+                "\\b72\\s*cm3\\b"
+              ],
+              [
+                "mass\\s*=\\s*density\\s*(?:×|x|\\*|multiplied\\s+by)\\s*volume"
+              ],
+              [
+                "2\\.5\\s*(?:×|x|\\*)\\s*72"
+              ],
+              [
+                "\\b180\\s*g\\b"
+              ]
+            ],
+            "markingPolicy": "step_by_step"
+          }
         }
       ]
     },
