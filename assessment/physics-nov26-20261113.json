@@ -1064,7 +1064,8 @@
                   "(?=.*(?:gas))(?=.*(?:poor conductor)).*"
                 ],
                 "variants": [
-                  "(?=.*(?:vacuum|evacuat))(?=.*(?:absence of particles|no particles|stops conduction|prevents conduction)).*"
+                  "(?=.*(?:vacuum|evacuat))(?=.*(?:absence of particles|no particles|stops conduction|prevents conduction)).*",
+                  "(?=.*(?:absence of particles|no particles))(?=.*(?:stops|prevents|blocks))(?=.*(?:conduction|energy transfer)).*"
                 ]
               }
             ]
@@ -1466,7 +1467,9 @@
             "strategy": "Each distinct idea earns one mark. For calculations, show working and the correct unit.",
             "commonError": "Include the physical reason, and show numbers and units."
           },
-          "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice."
+          "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice.",
+          "diagram": "physics-nov26-rp2-cooling.svg",
+          "diagramAlt": "Illustrative RP2 cooling-curve graph: all three beakers start at 80°C; after 10 minutes, no insulation 53.1°C, newspaper 60.3°C and bubble wrap 68.4°C."
         },
         {
           "id": "phys-nov26-i05",
@@ -1526,7 +1529,9 @@
             "strategy": "Each distinct idea earns one mark. For calculations, show working and the correct unit.",
             "commonError": "Include the physical reason, and show numbers and units."
           },
-          "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice."
+          "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice.",
+          "diagram": "physics-nov26-rp2-cooling.svg",
+          "diagramAlt": "Illustrative RP2 cooling-curve graph: all three beakers start at 80°C; after 10 minutes, no insulation 53.1°C, newspaper 60.3°C and bubble wrap 68.4°C."
         },
         {
           "id": "phys-nov26-i06",
@@ -1803,7 +1808,9 @@
             "strategy": "Each distinct idea earns one mark. For calculations, show working and the correct unit.",
             "commonError": "Include the physical reason, and show numbers and units."
           },
-          "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice."
+          "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice.",
+          "diagram": "physics-nov26-rp2-cooling.svg",
+          "diagramAlt": "Illustrative RP2 cooling-curve graph: all three beakers start at 80°C; after 10 minutes, no insulation 53.1°C, newspaper 60.3°C and bubble wrap 68.4°C."
         }
       ]
     },
