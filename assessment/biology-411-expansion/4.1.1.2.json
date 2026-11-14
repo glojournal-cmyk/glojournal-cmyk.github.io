@@ -1,0 +1,528 @@
+{
+  "specification": "4.1.1.2",
+  "topic": "Animal and plant cells",
+  "questions": [
+    {
+      "id": "bio-cell-20261114-085",
+      "conceptId": "bio-cell-20261114-085",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "A student says a cell wall and a cell membrane do the same job. Explain one distinct function of each structure.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The cell wall strengthens and supports the plant cell. The cell membrane controls which substances enter or leave the cell."
+        ],
+        "points": [
+          {
+            "label": "The cell wall strengthens and supports the plant cell.",
+            "patterns": [
+              "cell wall.{0,55}(strength|support|rigid)"
+            ]
+          },
+          {
+            "label": "The cell membrane controls which substances enter or leave the cell.",
+            "patterns": [
+              "cell membrane.{0,70}(control|regulat).{0,50}(enter|leave|movement|substance)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The cell wall strengthens and supports the plant cell. The cell membrane controls which substances enter or leave the cell.",
+      "markKeywords": [
+        "The cell wall strengthens and supports the plant cell.",
+        "The cell membrane controls which substances enter or leave the cell."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-086",
+      "conceptId": "bio-cell-20261114-086",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "State the main function of mitochondria and explain why actively moving cells need them.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Mitochondria are the main sites of aerobic respiration. Respiration transfers energy for cell activity or movement."
+        ],
+        "points": [
+          {
+            "label": "Mitochondria are the main sites of aerobic respiration.",
+            "patterns": [
+              "mitochondri.{0,55}(aerobic|respir)"
+            ]
+          },
+          {
+            "label": "Respiration transfers energy for cell activity or movement.",
+            "patterns": [
+              "(energy|atp).{0,65}(activit|move|movement|work)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Mitochondria are the main sites of aerobic respiration. Respiration transfers energy for cell activity or movement.",
+      "markKeywords": [
+        "Mitochondria are the main sites of aerobic respiration.",
+        "Respiration transfers energy for cell activity or movement."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-087",
+      "conceptId": "bio-cell-20261114-087",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "A leaf cell contains chloroplasts while a root cell usually does not. Explain this difference using two facts.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Leaf cells receive light to photosynthesise. Root cells are normally underground without enough light for photosynthesis."
+        ],
+        "points": [
+          {
+            "label": "Leaf cells receive light to photosynthesise.",
+            "patterns": [
+              "(leaf|leaves).{0,65}(light|photosynth)"
+            ]
+          },
+          {
+            "label": "Root cells are normally underground without enough light for photosynthesis.",
+            "patterns": [
+              "(root|underground).{0,70}(little|no|lack|insufficient|dark)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Leaf cells receive light to photosynthesise. Root cells are normally underground without enough light for photosynthesis.",
+      "markKeywords": [
+        "Leaf cells receive light to photosynthesise.",
+        "Root cells are normally underground without enough light for photosynthesis."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-088",
+      "conceptId": "bio-cell-20261114-088",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "Why is the large permanent vacuole important in a plant cell? Give two linked points.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The vacuole contains a liquid called cell sap. The filled vacuole maintains turgor and helps support the plant cell."
+        ],
+        "points": [
+          {
+            "label": "The vacuole contains a liquid called cell sap.",
+            "patterns": [
+              "vacuole.{0,55}cell sap"
+            ]
+          },
+          {
+            "label": "The filled vacuole maintains turgor and helps support the plant cell.",
+            "patterns": [
+              "(vacuole|turgor).{0,65}(turgor|support|rigid|firm)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The vacuole contains a liquid called cell sap. The filled vacuole maintains turgor and helps support the plant cell.",
+      "markKeywords": [
+        "The vacuole contains a liquid called cell sap.",
+        "The filled vacuole maintains turgor and helps support the plant cell."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-089",
+      "conceptId": "bio-cell-20261114-089",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "Name a structure for protein synthesis and another for controlling the activities of an animal cell.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Ribosomes are the sites of protein synthesis. The nucleus controls cell activities."
+        ],
+        "points": [
+          {
+            "label": "Ribosomes are the sites of protein synthesis.",
+            "patterns": [
+              "ribosome.{0,55}(protein|synth)"
+            ]
+          },
+          {
+            "label": "The nucleus controls cell activities.",
+            "patterns": [
+              "nucleus.{0,55}(control|activit|regulat)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Ribosomes are the sites of protein synthesis. The nucleus controls cell activities.",
+      "markKeywords": [
+        "Ribosomes are the sites of protein synthesis.",
+        "The nucleus controls cell activities."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-090",
+      "conceptId": "bio-cell-20261114-090",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "Explain two reasons why an alga containing chloroplasts and a cellulose cell wall is described as a eukaryote rather than a bacterium.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Its genetic material is enclosed in a nucleus. It contains membrane-bound chloroplasts for photosynthesis."
+        ],
+        "points": [
+          {
+            "label": "Its genetic material is enclosed in a nucleus.",
+            "patterns": [
+              "(dna|genetic|nucleus).{0,65}nucleus"
+            ]
+          },
+          {
+            "label": "It contains membrane-bound chloroplasts for photosynthesis.",
+            "patterns": [
+              "chloroplast.{0,55}(photosynth|light|membrane)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Its genetic material is enclosed in a nucleus. It contains membrane-bound chloroplasts for photosynthesis.",
+      "markKeywords": [
+        "Its genetic material is enclosed in a nucleus.",
+        "It contains membrane-bound chloroplasts for photosynthesis."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-091",
+      "conceptId": "bio-cell-20261114-091",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "A student examines a leaf cell, a muscle cell and a bacterial cell. Identify one structure found in all three and explain two contrasting sub-cellular features.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "All three have cytoplasm. A leaf cell contains chloroplasts but a muscle cell does not. A bacterial cell does not have a membrane-bound nucleus."
+        ],
+        "points": [
+          {
+            "label": "All three have cytoplasm.",
+            "patterns": [
+              "(all|three|each).{0,40}cytoplasm"
+            ]
+          },
+          {
+            "label": "A leaf cell contains chloroplasts but a muscle cell does not.",
+            "patterns": [
+              "(leaf|plant).{0,55}chloroplast"
+            ]
+          },
+          {
+            "label": "A bacterial cell does not have a membrane-bound nucleus.",
+            "patterns": [
+              "(bacter|prokary).{0,65}(not|without|no|lack).{0,30}nucleus"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "All three have cytoplasm. A leaf cell contains chloroplasts but a muscle cell does not. A bacterial cell does not have a membrane-bound nucleus.",
+      "markKeywords": [
+        "All three have cytoplasm.",
+        "A leaf cell contains chloroplasts but a muscle cell does not.",
+        "A bacterial cell does not have a membrane-bound nucleus."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-092",
+      "conceptId": "bio-cell-20261114-092",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "A plant cell becomes limp after losing water. Explain the role of its wall and vacuole in supporting the cell.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The cellulose cell wall offers structural strength. Water in the vacuole helps maintain turgor pressure. Loss of water reduces turgor, so the cell becomes less firm."
+        ],
+        "points": [
+          {
+            "label": "The cellulose cell wall offers structural strength.",
+            "patterns": [
+              "(cell wall|cellulose).{0,60}(support|strength)"
+            ]
+          },
+          {
+            "label": "Water in the vacuole helps maintain turgor pressure.",
+            "patterns": [
+              "(vacuole|cell sap).{0,60}(turgor|pressure)"
+            ]
+          },
+          {
+            "label": "Loss of water reduces turgor, so the cell becomes less firm.",
+            "patterns": [
+              "(loss|loses|lost|reduces).{0,65}(turgor|pressure|firm|limp)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The cellulose cell wall offers structural strength. Water in the vacuole helps maintain turgor pressure. Loss of water reduces turgor, so the cell becomes less firm.",
+      "markKeywords": [
+        "The cellulose cell wall offers structural strength.",
+        "Water in the vacuole helps maintain turgor pressure.",
+        "Loss of water reduces turgor, so the cell becomes less firm."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-093",
+      "conceptId": "bio-cell-20261114-093",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "A gland cell is making and secreting many proteins. Predict two useful organelles and explain why each is needed.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Many ribosomes make protein molecules. Many mitochondria carry out aerobic respiration. Energy from respiration supports the work of making and secreting proteins."
+        ],
+        "points": [
+          {
+            "label": "Many ribosomes make protein molecules.",
+            "patterns": [
+              "ribosome.{0,55}(protein|make|synth)"
+            ]
+          },
+          {
+            "label": "Many mitochondria carry out aerobic respiration.",
+            "patterns": [
+              "mitochondri.{0,55}(respir|energy)"
+            ]
+          },
+          {
+            "label": "Energy from respiration supports the work of making and secreting proteins.",
+            "patterns": [
+              "energy.{0,75}(secre|produc|making|protein)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Many ribosomes make protein molecules. Many mitochondria carry out aerobic respiration. Energy from respiration supports the work of making and secreting proteins.",
+      "markKeywords": [
+        "Many ribosomes make protein molecules.",
+        "Many mitochondria carry out aerobic respiration.",
+        "Energy from respiration supports the work of making and secreting proteins."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-094",
+      "conceptId": "bio-cell-20261114-094",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "Explain why the nucleus, membrane and cytoplasm are each essential parts of a typical animal cell.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The nucleus contains DNA and controls the cell. The cell membrane controls entry and exit of substances. The cytoplasm is where many chemical reactions occur."
+        ],
+        "points": [
+          {
+            "label": "The nucleus contains DNA and controls the cell.",
+            "patterns": [
+              "nucleus.{0,60}(dna|control|genetic)"
+            ]
+          },
+          {
+            "label": "The cell membrane controls entry and exit of substances.",
+            "patterns": [
+              "cell membrane.{0,70}(enter|exit|leave|movement|substance)"
+            ]
+          },
+          {
+            "label": "The cytoplasm is where many chemical reactions occur.",
+            "patterns": [
+              "cytoplasm.{0,75}(chemical|reaction)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The nucleus contains DNA and controls the cell. The cell membrane controls entry and exit of substances. The cytoplasm is where many chemical reactions occur.",
+      "markKeywords": [
+        "The nucleus contains DNA and controls the cell.",
+        "The cell membrane controls entry and exit of substances.",
+        "The cytoplasm is where many chemical reactions occur."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-095",
+      "conceptId": "bio-cell-20261114-095",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "A student draws a green plant cell but labels the permanent vacuole as the nucleus. Give three clues to tell these structures apart.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The permanent vacuole is a large fluid-filled space. The nucleus contains DNA or genetic material. The vacuole helps maintain turgor while the nucleus controls the cell."
+        ],
+        "points": [
+          {
+            "label": "The permanent vacuole is a large fluid-filled space.",
+            "patterns": [
+              "vacuole.{0,65}(large|fluid|cell sap)"
+            ]
+          },
+          {
+            "label": "The nucleus contains DNA or genetic material.",
+            "patterns": [
+              "nucleus.{0,65}(dna|genetic)"
+            ]
+          },
+          {
+            "label": "The vacuole helps maintain turgor while the nucleus controls the cell.",
+            "patterns": [
+              "(vacuole|turgor).{0,85}(nucleus|control|turgor)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The permanent vacuole is a large fluid-filled space. The nucleus contains DNA or genetic material. The vacuole helps maintain turgor while the nucleus controls the cell.",
+      "markKeywords": [
+        "The permanent vacuole is a large fluid-filled space.",
+        "The nucleus contains DNA or genetic material.",
+        "The vacuole helps maintain turgor while the nucleus controls the cell."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-096",
+      "conceptId": "bio-cell-20261114-096",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "An examiner provides images of animal and plant cells. Give three features that identify a photosynthetic plant cell and state a function in each answer.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Chloroplasts absorb light for photosynthesis. The cellulose wall strengthens and supports the cell. A large permanent vacuole maintains turgor or stores cell sap."
+        ],
+        "points": [
+          {
+            "label": "Chloroplasts absorb light for photosynthesis.",
+            "patterns": [
+              "chloroplast.{0,70}(light|photosynth)"
+            ]
+          },
+          {
+            "label": "The cellulose wall strengthens and supports the cell.",
+            "patterns": [
+              "(cell wall|cellulose).{0,70}(strength|support)"
+            ]
+          },
+          {
+            "label": "A large permanent vacuole maintains turgor or stores cell sap.",
+            "patterns": [
+              "vacuole.{0,65}(turgor|cell sap|support)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Chloroplasts absorb light for photosynthesis. The cellulose wall strengthens and supports the cell. A large permanent vacuole maintains turgor or stores cell sap.",
+      "markKeywords": [
+        "Chloroplasts absorb light for photosynthesis.",
+        "The cellulose wall strengthens and supports the cell.",
+        "A large permanent vacuole maintains turgor or stores cell sap."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    }
+  ]
+}
