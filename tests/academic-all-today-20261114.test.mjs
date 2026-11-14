@@ -127,14 +127,18 @@ test('Chemistry main topic: 90 distinct, markable Year 9 formula/equation items'
     }else if(q.answer.mode==='mark_points'){
       assert.ok(q.answer.markPoints?.length>0,q.id);
       assert.equal(q.answer.totalMarks,q.answer.markPoints.length,q.id);
+    }else if(q.answer.mode==='pair_map'){
+      assert.equal(q.answer.pairs.length,4,q.id);
+      assert.equal(new Set(q.answer.pairs.map(p=>p.left)).size,4,q.id);
+      assert.equal(new Set(q.answer.pairs.map(p=>p.right)).size,4,q.id);
     }else assert.ok(q.answer.accepted?.length,q.id);
   }
 });
 
 test('Physics: 65 questions in five explicitly teacher-taught topics',()=>{
-  assert.equal(phys.length,65);
+  assert.equal(phys.length,200);
   assert.ok(unique(phys));
-  assert.deepEqual(physics.groups.map(g=>g.questions.length),[13,13,13,13,13]);
+  assert.deepEqual(physics.groups.map(g=>g.questions.length),[40,40,40,40,40]);
   assert.ok(physics.groups.every(g=>!/(convection|radiation)/i.test(g.title)));
   assert.ok(phys.every(q=>!/(convection|radiation)/i.test(q.prompt)),'Question outside conduction-only school scope');
   for(const q of phys){
@@ -227,7 +231,7 @@ test('French: teacher dictation vocabulary, 25 valid writing models and AQA High
   const prompts=(new Function('return '+frenchHtml.match(/var P=(\[[\s\S]*?\]);\s*var D=/)[1]))();
   assert.equal(v.length,49);assert.equal(new Set(v.map(x=>x[1])).size,49);
   assert.equal(g.length,25);assert.equal(prompts.length,4);
-  const must=['cher','chère','c\\u0027était','néanmoins','pendant lequel','que je n\\u0027ai pas aimé','nous irons','il a plu','rendre visite à','à bientôt'];
+  const must=['cher','chère',"c'était",'néanmoins','pendant lequel',"que je n'ai pas aimé",'nous irons','il a plu','rendre visite à','à bientôt'];
   for(const term of must)assert.ok(v.some(x=>x[1]===term),'Missing school dictation '+term);
   const checkedModels=[
     'Demain, nous visiterons un monument célèbre à Paris.',
