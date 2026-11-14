@@ -7850,7 +7850,7 @@
                   "Filled minus empty cylinder mass gives liquid mass."
                 ],
                 "patterns": [
-                  "(?=.*(?:subtract|minus|difference))(?=.*(?:empty))(?=.*(?:full|filled)).*"
+                  "(?=.*(?:subtract|minus|difference))(?=.*(?:empty))(?=.*(?:full|filled|liquid)).*"
                 ]
               },
               {
