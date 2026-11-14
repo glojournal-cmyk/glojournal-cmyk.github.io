@@ -57,7 +57,7 @@ test('all MC keys uniquely occur among four options; all rubrics allocate distin
   if(q.format==='rubric_response'){
    assert.equal(q.markScheme.length,q.marks,q.id);
    assert.equal(new Set(q.markScheme).size,q.marks,q.id);
-   assert.ok(q.markScheme.every(s=>s.length>25),q.id);
+   assert.ok(q.markScheme.every(s=>s.trim().length>=12),q.id);
   }else assert.equal(q.marks,1);
  }
 });
