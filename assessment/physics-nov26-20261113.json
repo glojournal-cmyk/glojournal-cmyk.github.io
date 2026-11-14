@@ -690,7 +690,8 @@
             "methodRules": [
               [
                 "\\b(?:density|rho|ρ)\\s*=\\s*(?:mass|m)\\s*(?:\\/|÷)\\s*(?:volume|v)\\b",
-                "density\\s+(?:equals|is)\\s+mass\\s+(?:divided\\s+by|over)\\s+volume"
+                "density\\s+(?:equals|is)\\s+mass\\s+(?:divided\\s+by|over)\\s+volume",
+                "\\b(?:rho|ρ)\\s*=\\s*540\\s*(?:\\/|÷)\\s*200\\b"
               ],
               [
                 "540\\s*(?:\\/|÷|divided\\s+by)\\s*200"
@@ -2499,7 +2500,8 @@
             "methodRules": [
               [
                 "\\b11\\.6\\s*(?:°\\s*C|degrees?\\s*C(?:elsius)?|C)\\b",
-                "80\\s*(?:-|minus)\\s*68\\.4"
+                "80\\s*(?:-|minus)\\s*68\\.4",
+                "\\b11\\.6\\s*(?:\\/|÷)\\s*10\\b"
               ],
               [
                 "\\b1\\.16\\s*(?:°\\s*C\\s*\\/\\s*(?:min|minute)|degrees?\\s*(?:Celsius)?\\s*(?:per|\\/)\\s*min(?:ute)?s?)\\b"
