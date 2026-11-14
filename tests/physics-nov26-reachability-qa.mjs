@@ -11,6 +11,13 @@ assert.ok(start>=0&&end>start,'production selection functions exist');
 const source=app.slice(start,end);
 const select=vm.runInNewContext(source+'\nselectPhysicsSchool;');
 const aligned=vm.runInNewContext(source+'\nphysicsNov26DraftSchoolAligned;');
+const sameData=new Map([
+ ['phys-nov26-d06','cuboid-2x3x5-density-8'],
+ ['phys-nov26-d12','cuboid-2x3x5-density-8'],
+ ['phys-nov26-d09','displacement-75g-40-to-65'],
+ ['phys-nov26-r06','displacement-75g-40-to-65']
+]);
+const scenarioKey=id=>sameData.get(id)||id;
 const quotas={
  'Particle model & changes of state':8,
  'Density calculations':4,
@@ -25,7 +32,7 @@ assert.equal(questions.length,200);
 assert.equal(new Set(questions.map(q=>q.id)).size,200);
 assert.ok(app.includes("state.recent[p.id]=p.id==='physics-nov26'"),'Physics-specific recent history');
 assert.ok(app.includes("[...(state.recent[p.id]||[]),...d.questions.map(q=>q.id)].slice(-160)"),'bounded 160-item history');
-let history=[],lastPaper=[],lastOverlap=0,maxOverlap=0;
+let history=[],lastPaper=[],lastScenarios=[],lastOverlap=0,maxOverlap=0;
 const counts=new Map(questions.map(q=>[q.id,0]));
 const simulations=5000;
 for(let n=0;n<simulations;n++){
@@ -33,6 +40,10 @@ for(let n=0;n<simulations;n++){
  const ids=paper.map(q=>q.id);
  assert.equal(paper.length,25,'paper contains 25 items');
  assert.equal(new Set(ids).size,25,'unique question IDs');
+ const scenarios=ids.map(scenarioKey);
+ assert.equal(new Set(scenarios).size,25,'no two questions with identical calculation inputs in one mock');
+ assert.equal(scenarios.filter(key=>lastScenarios.includes(key)).length,0,
+  'avoid same numeric scenario across immediately consecutive mocks');
  assert.equal(aligned({questions:paper}),true,'every paper has valid practical coverage');
  assert.equal(paper.filter(q=>q.answer.mode==='choice').length,5,'five MC per paper');
  for(const [topic,quantity] of Object.entries(quotas)){
@@ -51,7 +62,7 @@ for(let n=0;n<simulations;n++){
  assert.equal(overlap,0,'previous-paper items must not repeat immediately');
  for(const id of ids)counts.set(id,counts.get(id)+1);
  history=[...history,...ids].slice(-160);
- lastPaper=ids;
+ lastPaper=ids;lastScenarios=scenarios;
 }
 const never=questions.filter(q=>counts.get(q.id)===0);
 assert.deepEqual(never.map(q=>q.id),[],'all 200 questions must actually be selectable');
