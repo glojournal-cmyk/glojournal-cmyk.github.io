@@ -506,7 +506,7 @@ function chemistryTermMatch(text,term){
    presentation (AQA-style answer marks), and keep a visible point-by-point review. */
 function physicsNov26Mark(q,value){
   const points=q.answer?.points||[];
-  const raw=String(value??'').trim().normalize('NFKC').replace(/[−–]/g,'-');
+  const raw=String(value??'').trim().normalize('NFKC').replace(/[−–]/g,'-').replace(/[’‘]/g,"'");
   if(!raw)return {credit:0,status:'Incorrect',matched:0,total:points.length||1,pointResults:points.map(()=>false)};
   // Distinguish method, substitution and result marks. A correct final value by itself
   // must not award marks that require evidence of working in the teacher's scheme.
