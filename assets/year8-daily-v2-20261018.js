@@ -570,9 +570,22 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     'fr-y9-oct17-future-tense-holidays-vocabulary',
     'fr-y9-20260919-useful-language-and-connectors'
   ];
+  // Avoid selecting obviously depleted banks using actual previously marked
+  // question IDs (never visits, XP, or a guessed score). The catalog total is
+  // only a cautious estimate; live question selection still decides supply.
+  const examUsedIds=new Map();
+  for(const answer of state.formalAttemptLog||[]){
+    if(answer?.subject!=='french'||Number(answer.year)!==9||
+       answer.correct!==true||answer.formal===false||
+       !answer.topicId||!answer.questionId)continue;
+    if(!examUsedIds.has(answer.topicId))examUsedIds.set(answer.topicId,new Set());
+    examUsedIds.get(answer.topicId).add(String(answer.questionId).split('@')[0]);
+  }
   const examCandidates=frenchExamWindow?frenchExamTopicIds.map(id=>
     taught.find(t=>t.subject==='french'&&t.topicId===id&&
-      t.status==='enabled'&&Number(t.enabled??t.questions??0)>=15)).filter(Boolean):[];
+      t.status==='enabled'&&Number(t.enabled??t.questions??0)>=15))
+    .filter(t=>t&&Number(t.enabled??t.questions??0)-
+      (examUsedIds.get(t.topicId)?.size||0)>=15):[];
   const examRecent=new Map();
   for(const [date,row] of Object.entries(state.dailyLog||{})){
     const age=dayNumber(today)-dayNumber(date);
