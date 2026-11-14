@@ -1,0 +1,534 @@
+{
+  "specification": "4.1.1.3",
+  "topic": "Cell specialisation",
+  "questions": [
+    {
+      "id": "bio-cell-20261114-097",
+      "conceptId": "bio-cell-20261114-097",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Explain why a red blood cell has a biconcave shape and contains haemoglobin.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Its biconcave shape provides a large surface area for oxygen exchange. Haemoglobin binds and transports oxygen."
+        ],
+        "points": [
+          {
+            "label": "Its biconcave shape provides a large surface area for oxygen exchange.",
+            "patterns": [
+              "biconcave.{0,65}(surface area|oxygen|diffus)"
+            ]
+          },
+          {
+            "label": "Haemoglobin binds and transports oxygen.",
+            "patterns": [
+              "(?:haemoglobin|hemoglobin).{0,55}(oxygen|bind|transport|carry)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Its biconcave shape provides a large surface area for oxygen exchange. Haemoglobin binds and transports oxygen.",
+      "markKeywords": [
+        "Its biconcave shape provides a large surface area for oxygen exchange.",
+        "Haemoglobin binds and transports oxygen."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-098",
+      "conceptId": "bio-cell-20261114-098",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "A sperm cell contains an acrosome and a flagellum. Explain the function of both.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The acrosome contains enzymes that help penetrate the egg's outer layers. The flagellum or tail propels the sperm towards the egg."
+        ],
+        "points": [
+          {
+            "label": "The acrosome contains enzymes that help penetrate the egg's outer layers.",
+            "patterns": [
+              "acrosome.{0,70}(enzyme|egg|penetrat|digest)"
+            ]
+          },
+          {
+            "label": "The flagellum or tail propels the sperm towards the egg.",
+            "patterns": [
+              "(flagellum|tail).{0,55}(propel|swim|move)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The acrosome contains enzymes that help penetrate the egg's outer layers. The flagellum or tail propels the sperm towards the egg.",
+      "markKeywords": [
+        "The acrosome contains enzymes that help penetrate the egg's outer layers.",
+        "The flagellum or tail propels the sperm towards the egg."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3.",
+      "diagram": "specialised-20261003.webp",
+      "diagramAlt": "Schematic specialised cells A (sperm), B (root hair) and C (nerve cell)."
+    },
+    {
+      "id": "bio-cell-20261114-099",
+      "conceptId": "bio-cell-20261114-099",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Explain why a neuron benefits from an insulating myelin sheath and an axon.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The myelin sheath insulates the axon and helps impulses travel efficiently. A long axon transmits electrical impulses over long distances."
+        ],
+        "points": [
+          {
+            "label": "The myelin sheath insulates the axon and helps impulses travel efficiently.",
+            "patterns": [
+              "myelin.{0,55}(insulat|impulse|speed)"
+            ]
+          },
+          {
+            "label": "A long axon transmits electrical impulses over long distances.",
+            "patterns": [
+              "axon.{0,75}(impulse|long|distance)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The myelin sheath insulates the axon and helps impulses travel efficiently. A long axon transmits electrical impulses over long distances.",
+      "markKeywords": [
+        "The myelin sheath insulates the axon and helps impulses travel efficiently.",
+        "A long axon transmits electrical impulses over long distances."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-100",
+      "conceptId": "bio-cell-20261114-100",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "What enables xylem vessels to avoid collapse and carry water in an uninterrupted column?",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Lignin strengthens the xylem walls and prevents collapse. Hollow vessels with absent end walls form a continuous tube for water."
+        ],
+        "points": [
+          {
+            "label": "Lignin strengthens the xylem walls and prevents collapse.",
+            "patterns": [
+              "lignin.{0,65}(strength|collaps|support)"
+            ]
+          },
+          {
+            "label": "Hollow vessels with absent end walls form a continuous tube for water.",
+            "patterns": [
+              "(hollow|end wall|continuous).{0,65}(water|flow|tube)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Lignin strengthens the xylem walls and prevents collapse. Hollow vessels with absent end walls form a continuous tube for water.",
+      "markKeywords": [
+        "Lignin strengthens the xylem walls and prevents collapse.",
+        "Hollow vessels with absent end walls form a continuous tube for water."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-101",
+      "conceptId": "bio-cell-20261114-101",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Why do companion cells have many mitochondria and sieve tube elements have pores?",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Mitochondria in companion cells supply energy for transporting sugars. Pores in sieve plates allow sugar-rich sap to move between sieve tube elements."
+        ],
+        "points": [
+          {
+            "label": "Mitochondria in companion cells supply energy for transporting sugars.",
+            "patterns": [
+              "companion.{0,80}(mitochondri|energy)"
+            ]
+          },
+          {
+            "label": "Pores in sieve plates allow sugar-rich sap to move between sieve tube elements.",
+            "patterns": [
+              "(pore|sieve plate).{0,70}(sap|sugar|flow|pass)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Mitochondria in companion cells supply energy for transporting sugars. Pores in sieve plates allow sugar-rich sap to move between sieve tube elements.",
+      "markKeywords": [
+        "Mitochondria in companion cells supply energy for transporting sugars.",
+        "Pores in sieve plates allow sugar-rich sap to move between sieve tube elements."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-102",
+      "conceptId": "bio-cell-20261114-102",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Give two linked reasons a root hair cell absorbs mineral ions efficiently.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The root hair extension increases surface area for absorption. Many mitochondria release energy for the active uptake of mineral ions."
+        ],
+        "points": [
+          {
+            "label": "The root hair extension increases surface area for absorption.",
+            "patterns": [
+              "(root hair|extension).{0,70}surface area"
+            ]
+          },
+          {
+            "label": "Many mitochondria release energy for the active uptake of mineral ions.",
+            "patterns": [
+              "mitochondri.{0,75}(energy|uptake|mineral)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The root hair extension increases surface area for absorption. Many mitochondria release energy for the active uptake of mineral ions.",
+      "markKeywords": [
+        "The root hair extension increases surface area for absorption.",
+        "Many mitochondria release energy for the active uptake of mineral ions."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-103",
+      "conceptId": "bio-cell-20261114-103",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "A mature red blood cell is small, flexible and lacks a nucleus. Explain how these features help oxygen delivery.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Its small size provides a short path for oxygen diffusion. Its flexibility lets it pass through narrow capillaries. Lacking a nucleus creates more space for haemoglobin."
+        ],
+        "points": [
+          {
+            "label": "Its small size provides a short path for oxygen diffusion.",
+            "patterns": [
+              "small.{0,60}(diffus|path|oxygen)"
+            ]
+          },
+          {
+            "label": "Its flexibility lets it pass through narrow capillaries.",
+            "patterns": [
+              "flexib.{0,75}(capillar|narrow|vessel)"
+            ]
+          },
+          {
+            "label": "Lacking a nucleus creates more space for haemoglobin.",
+            "patterns": [
+              "(no|without|lack).{0,30}nucleus.{0,65}(?:haemoglobin|hemoglobin)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Its small size provides a short path for oxygen diffusion. Its flexibility lets it pass through narrow capillaries. Lacking a nucleus creates more space for haemoglobin.",
+      "markKeywords": [
+        "Its small size provides a short path for oxygen diffusion.",
+        "Its flexibility lets it pass through narrow capillaries.",
+        "Lacking a nucleus creates more space for haemoglobin."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-104",
+      "conceptId": "bio-cell-20261114-104",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "A sperm cell has a streamlined head, an acrosome and many mitochondria. Link all three adaptations to fertilisation.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The streamlined head reduces resistance as the sperm swims. Acrosome enzymes help penetrate the egg's protective layers. Mitochondria release energy for movement towards the egg."
+        ],
+        "points": [
+          {
+            "label": "The streamlined head reduces resistance as the sperm swims.",
+            "patterns": [
+              "streamlin.{0,75}(resistan|swim|move)"
+            ]
+          },
+          {
+            "label": "Acrosome enzymes help penetrate the egg's protective layers.",
+            "patterns": [
+              "acrosome.{0,75}(enzyme|egg|penetrat)"
+            ]
+          },
+          {
+            "label": "Mitochondria release energy for movement towards the egg.",
+            "patterns": [
+              "mitochondri.{0,80}(energy|movement|swim)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The streamlined head reduces resistance as the sperm swims. Acrosome enzymes help penetrate the egg's protective layers. Mitochondria release energy for movement towards the egg.",
+      "markKeywords": [
+        "The streamlined head reduces resistance as the sperm swims.",
+        "Acrosome enzymes help penetrate the egg's protective layers.",
+        "Mitochondria release energy for movement towards the egg."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-105",
+      "conceptId": "bio-cell-20261114-105",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Compare how root hair cells and xylem vessels are adapted for water uptake and transport.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Root hair extensions provide a large surface area for absorbing water. Hollow xylem vessels provide an open channel for water flow. Lignified xylem walls prevent the vessels collapsing under tension."
+        ],
+        "points": [
+          {
+            "label": "Root hair extensions provide a large surface area for absorbing water.",
+            "patterns": [
+              "(root hair|extension).{0,65}(surface area|absorb)"
+            ]
+          },
+          {
+            "label": "Hollow xylem vessels provide an open channel for water flow.",
+            "patterns": [
+              "xylem.{0,70}(hollow|channel|tube)"
+            ]
+          },
+          {
+            "label": "Lignified xylem walls prevent the vessels collapsing under tension.",
+            "patterns": [
+              "(lignin|lignif).{0,65}(collaps|strength|support)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Root hair extensions provide a large surface area for absorbing water. Hollow xylem vessels provide an open channel for water flow. Lignified xylem walls prevent the vessels collapsing under tension.",
+      "markKeywords": [
+        "Root hair extensions provide a large surface area for absorbing water.",
+        "Hollow xylem vessels provide an open channel for water flow.",
+        "Lignified xylem walls prevent the vessels collapsing under tension."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3.",
+      "diagram": "specialised-20261003.webp",
+      "diagramAlt": "Schematic specialised cells A (sperm), B (root hair) and C (nerve cell)."
+    },
+    {
+      "id": "bio-cell-20261114-106",
+      "conceptId": "bio-cell-20261114-106",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "A muscle cell has sliding protein filaments, glycogen and many mitochondria. Explain the benefit of each.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Protein filaments slide to produce contraction. Glycogen stores glucose that can be used in respiration. Mitochondria release energy for repeated muscle contraction."
+        ],
+        "points": [
+          {
+            "label": "Protein filaments slide to produce contraction.",
+            "patterns": [
+              "(filament|protein).{0,55}contract"
+            ]
+          },
+          {
+            "label": "Glycogen stores glucose that can be used in respiration.",
+            "patterns": [
+              "glycogen.{0,65}(glucose|respir)"
+            ]
+          },
+          {
+            "label": "Mitochondria release energy for repeated muscle contraction.",
+            "patterns": [
+              "mitochondri.{0,80}(energy|contract)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Protein filaments slide to produce contraction. Glycogen stores glucose that can be used in respiration. Mitochondria release energy for repeated muscle contraction.",
+      "markKeywords": [
+        "Protein filaments slide to produce contraction.",
+        "Glycogen stores glucose that can be used in respiration.",
+        "Mitochondria release energy for repeated muscle contraction."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-107",
+      "conceptId": "bio-cell-20261114-107",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "A vascular bundle contains xylem and phloem. Give one function of each and one feature of phloem that supports it.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Xylem transports water and dissolved mineral ions. Phloem transports dissolved sugars around the plant. Companion cells supply energy needed for sugar transport."
+        ],
+        "points": [
+          {
+            "label": "Xylem transports water and dissolved mineral ions.",
+            "patterns": [
+              "xylem.{0,75}(water|mineral)"
+            ]
+          },
+          {
+            "label": "Phloem transports dissolved sugars around the plant.",
+            "patterns": [
+              "phloem.{0,75}(sugar|food|transloc)"
+            ]
+          },
+          {
+            "label": "Companion cells supply energy needed for sugar transport.",
+            "patterns": [
+              "companion.{0,65}(energy|mitochondri)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Xylem transports water and dissolved mineral ions. Phloem transports dissolved sugars around the plant. Companion cells supply energy needed for sugar transport.",
+      "markKeywords": [
+        "Xylem transports water and dissolved mineral ions.",
+        "Phloem transports dissolved sugars around the plant.",
+        "Companion cells supply energy needed for sugar transport."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-108",
+      "conceptId": "bio-cell-20261114-108",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "A specialised cell has many branches, a long projection and numerous mitochondria. Identify it and explain two features.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The cell is a nerve cell or neurone. The long axon carries impulses over long distances. Branched dendrites form connections with many other cells."
+        ],
+        "points": [
+          {
+            "label": "The cell is a nerve cell or neurone.",
+            "patterns": [
+              "(nerve|neuron|neurone)"
+            ]
+          },
+          {
+            "label": "The long axon carries impulses over long distances.",
+            "patterns": [
+              "(axon|projection).{0,75}(impulse|distance|long)"
+            ]
+          },
+          {
+            "label": "Branched dendrites form connections with many other cells.",
+            "patterns": [
+              "(branch|dendrit).{0,65}(connect|cell)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The cell is a nerve cell or neurone. The long axon carries impulses over long distances. Branched dendrites form connections with many other cells.",
+      "markKeywords": [
+        "The cell is a nerve cell or neurone.",
+        "The long axon carries impulses over long distances.",
+        "Branched dendrites form connections with many other cells."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3.",
+      "diagram": "specialised-20261003.webp",
+      "diagramAlt": "Schematic specialised cells A (sperm), B (root hair) and C (nerve cell)."
+    }
+  ]
+}

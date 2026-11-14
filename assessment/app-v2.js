@@ -41,7 +41,7 @@ function grantWardrobe(id){
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
 const CHEMISTRY_REVISION='20260930-chem-fullmarks3';
-const bankUrl=p=>p.id==='physics-nov26'?`${p.bank}?v=20261114-physics-qa3`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261010-chem-marking1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
+const bankUrl=p=>p.id==='physics-nov26'?`${p.bank}?v=20261114-physics-qa3`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261114-biology-411-144-v2`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
   'inks.svg':'Figure 2: chromatogram with ink samples A to D',
@@ -81,7 +81,7 @@ function groupBlurb(group,today){
   if(group.subject==='Latin')return today>group.exam?`Exam ${when} has passed. Regular verbs and The Loss of Creusa are now in Practise.`:`Exam ${when}. Start with Regular verbs: porto, moneo, traho and audio, Latin into English, present, imperfect and perfect. Those questions, and The Loss of Creusa, join Practise the next day.`;
   if(group.subject==='Chemistry')return 'Assessment in the week beginning 5 October 2026; exact lesson date awaits confirmation. Revise atoms, separating mixtures, history of the periodic table and RP6 chromatography.';
   if(group.subject==='English')return `Exam ${when}. These Year 9 questions are already in Practise.`;
-  if(group.subject==='Biology')return 'First GCSE Biology assessment: in the Biology lesson during the week beginning 16 November 2026 (exact lesson date not provided). AQA 8461 section 4.1.1 only, including microscopy (RP1) and culturing microorganisms (RP2). Start with the 60-mark Cell Structure mock; the specialised-cells set is extra practice, not the confirmed assessment.';
+  if(group.subject==='Biology')return 'First GCSE Biology assessment: week beginning 16 November 2026 (during Biology lesson; exact day TBC). Scope: AQA 8461 4.1.1 only, including microscopy RP1 and culturing RP2. Start with the 60-mark Cell Structure mock.';
   if(group.subject==='Physics')return 'Teacher-slide-aligned mock, not the official school paper. Each paper includes multi-mark explanations, RP2 graph analysis and RP5 practical method; conduction only, not convection or radiation. Marking is provisional for equivalent free text.';
   if(group.exam)return today>group.exam?`Exam ${when} has passed. These questions are now in Practise.`:`Exam ${when}. These questions join Practise the next day.`;
   return 'Mixed questions from the Year 9 bank. Already in Practise.';

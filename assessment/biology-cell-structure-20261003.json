@@ -3,7 +3,7 @@
   "subject": "biology",
   "title": "AQA 4.1.1 Cell structure",
   "assessmentWeek": "2026-11-16",
-  "sourceNote": "Original practice, based on the supplied Tiffin Girls’ School lessons and AQA Biology 8461 specification 4.1.1. This is not the teacher’s actual test or an official AQA paper.",
+  "sourceNote": "Original GCSE AQA-style practice aligned to supplied Tiffin Girls' School Year 9 Biology 4.1.1 slides/handouts (cell size, cells, specialisation, differentiation, microscopy RP1, bacterial growth and aseptic technique RP2) plus AQA 8461 specification. Not an official AQA or teacher examination paper. Automated open-response marking is provisional: review equivalent answers.",
   "sourceUrl": "https://www.aqa.org.uk/subjects/biology/gcse/biology-8461/specification/subject-content/cell-biology",
   "questions": [
     {
@@ -3258,6 +3258,3157 @@
         "commonError": "A larger clear zone supports inhibition under test conditions, not a guaranteed treatment recommendation."
       },
       "transferGroup": "bio-cell-antibiotic-evidence"
+    },
+    {
+      "id": "bio-cell-20261114-073",
+      "conceptId": "bio-cell-20261114-073",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "A 15 µm animal cell is compared with a 1.5 µm bacterium. Calculate the ratio of their widths and state the order-of-magnitude difference.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "15 ÷ 1.5 = 10, so the size ratio is 10:1. The animal cell is one order of magnitude larger."
+        ],
+        "points": [
+          {
+            "label": "15 ÷ 1.5 = 10, so the size ratio is 10:1.",
+            "patterns": [
+              "\\b10\\s*(:\\s*1|times|to\\s*1)?\\b"
+            ]
+          },
+          {
+            "label": "The animal cell is one order of magnitude larger.",
+            "patterns": [
+              "(one|1)\\s+order"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "15 ÷ 1.5 = 10, so the size ratio is 10:1. The animal cell is one order of magnitude larger.",
+      "markKeywords": [
+        "15 ÷ 1.5 = 10, so the size ratio is 10:1.",
+        "The animal cell is one order of magnitude larger."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-074",
+      "conceptId": "bio-cell-20261114-074",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "A microscope image shows a single DNA loop in the cytoplasm. Give the cell type and one reason for your choice.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "This cell is prokaryotic. The DNA is in the cytoplasm rather than enclosed in a nucleus."
+        ],
+        "points": [
+          {
+            "label": "This cell is prokaryotic.",
+            "patterns": [
+              "prokaryot|bacter"
+            ]
+          },
+          {
+            "label": "The DNA is in the cytoplasm rather than enclosed in a nucleus.",
+            "patterns": [
+              "(dna|genetic|loop).{0,65}cytoplasm"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "This cell is prokaryotic. The DNA is in the cytoplasm rather than enclosed in a nucleus.",
+      "markKeywords": [
+        "This cell is prokaryotic.",
+        "The DNA is in the cytoplasm rather than enclosed in a nucleus."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-075",
+      "conceptId": "bio-cell-20261114-075",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "A bacterium has a main DNA loop and a plasmid. State two ways the plasmid differs from the main DNA loop.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The plasmid is a small ring of DNA. It is separate from the main bacterial DNA loop."
+        ],
+        "points": [
+          {
+            "label": "The plasmid is a small ring of DNA.",
+            "patterns": [
+              "plasmid.{0,50}(small|ring)"
+            ]
+          },
+          {
+            "label": "It is separate from the main bacterial DNA loop.",
+            "patterns": [
+              "(separate|additional|extra).{0,50}(main|loop|dna)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The plasmid is a small ring of DNA. It is separate from the main bacterial DNA loop.",
+      "markKeywords": [
+        "The plasmid is a small ring of DNA.",
+        "It is separate from the main bacterial DNA loop."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-076",
+      "conceptId": "bio-cell-20261114-076",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Convert the width of an 800 nm bacterium into micrometres and millimetres.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "800 nanometres equals 0.8 micrometres. 800 nanometres equals 0.0008 mm."
+        ],
+        "points": [
+          {
+            "label": "800 nanometres equals 0.8 micrometres.",
+            "patterns": [
+              "0\\.8\\s*(µm|μm|um|micromet)"
+            ]
+          },
+          {
+            "label": "800 nanometres equals 0.0008 mm.",
+            "patterns": [
+              "0\\.0008\\s*mm"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "800 nanometres equals 0.8 micrometres. 800 nanometres equals 0.0008 mm.",
+      "markKeywords": [
+        "800 nanometres equals 0.8 micrometres.",
+        "800 nanometres equals 0.0008 mm."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-077",
+      "conceptId": "bio-cell-20261114-077",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Give two structures found in a typical animal cell and a typical bacterial cell.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Both cell types contain ribosomes. Both cell types have a cell membrane."
+        ],
+        "points": [
+          {
+            "label": "Both cell types contain ribosomes.",
+            "patterns": [
+              "ribosome"
+            ]
+          },
+          {
+            "label": "Both cell types have a cell membrane.",
+            "patterns": [
+              "cell membrane"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Both cell types contain ribosomes. Both cell types have a cell membrane.",
+      "markKeywords": [
+        "Both cell types contain ribosomes.",
+        "Both cell types have a cell membrane."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-078",
+      "conceptId": "bio-cell-20261114-078",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Convert a 5 µm cell width into nanometres and metres in standard form.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The width is 5000 nanometres. The width is 5 × 10^-6 metres."
+        ],
+        "points": [
+          {
+            "label": "The width is 5000 nanometres.",
+            "patterns": [
+              "5,?000\\s*(nm|nanomet)"
+            ]
+          },
+          {
+            "label": "The width is 5 × 10^-6 metres.",
+            "patterns": [
+              "5\\s*[x×*]\\s*10\\s*\\^?\\s*-6\\s*m"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The width is 5000 nanometres. The width is 5 × 10^-6 metres.",
+      "markKeywords": [
+        "The width is 5000 nanometres.",
+        "The width is 5 × 10^-6 metres."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-079",
+      "conceptId": "bio-cell-20261114-079",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Cell A is 48 µm and cell B is 1.2 µm wide. Calculate how many times wider A is, then give two reasons B could be a bacterium.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Cell A is 40 times as wide as B. A bacterium has genetic material without a membrane-bound nucleus. A bacterium has a main circular loop of DNA."
+        ],
+        "points": [
+          {
+            "label": "Cell A is 40 times as wide as B.",
+            "patterns": [
+              "\\b40\\b"
+            ]
+          },
+          {
+            "label": "A bacterium has genetic material without a membrane-bound nucleus.",
+            "patterns": [
+              "(no|without|lack|not).{0,45}nucleus"
+            ]
+          },
+          {
+            "label": "A bacterium has a main circular loop of DNA.",
+            "patterns": [
+              "(circular|loop).{0,35}dna|dna.{0,35}(circular|loop)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Cell A is 40 times as wide as B. A bacterium has genetic material without a membrane-bound nucleus. A bacterium has a main circular loop of DNA.",
+      "markKeywords": [
+        "Cell A is 40 times as wide as B.",
+        "A bacterium has genetic material without a membrane-bound nucleus.",
+        "A bacterium has a main circular loop of DNA."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-080",
+      "conceptId": "bio-cell-20261114-080",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "A student claims that every cell without chloroplasts must be bacterial. Correct this using three facts.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Many animal cells lack chloroplasts. Animal cells have a nucleus. Bacterial cells are identified by genetic material that is not enclosed in a nucleus."
+        ],
+        "points": [
+          {
+            "label": "Many animal cells lack chloroplasts.",
+            "patterns": [
+              "animal.{0,45}(lack|without|no|do not have)"
+            ]
+          },
+          {
+            "label": "Animal cells have a nucleus.",
+            "patterns": [
+              "animal.{0,40}nucleus"
+            ]
+          },
+          {
+            "label": "Bacterial cells are identified by genetic material that is not enclosed in a nucleus.",
+            "patterns": [
+              "(bacter|prokary).{0,75}(no|without|not|lack).{0,30}nucleus"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Many animal cells lack chloroplasts. Animal cells have a nucleus. Bacterial cells are identified by genetic material that is not enclosed in a nucleus.",
+      "markKeywords": [
+        "Many animal cells lack chloroplasts.",
+        "Animal cells have a nucleus.",
+        "Bacterial cells are identified by genetic material that is not enclosed in a nucleus."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question.",
+      "diagram": "cells-20261003.webp",
+      "diagramAlt": "Schematic animal, plant and bacterial cells (not to scale)."
+    },
+    {
+      "id": "bio-cell-20261114-081",
+      "conceptId": "bio-cell-20261114-081",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "A cell is 0.0000025 m across. Express this width in micrometres, nanometres and standard form in metres.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The width is 2.5 micrometres. The width is 2500 nanometres. The width is 2.5 × 10^-6 metres."
+        ],
+        "points": [
+          {
+            "label": "The width is 2.5 micrometres.",
+            "patterns": [
+              "2\\.5\\s*(µm|μm|um|micromet)"
+            ]
+          },
+          {
+            "label": "The width is 2500 nanometres.",
+            "patterns": [
+              "2,?500\\s*(nm|nanomet)"
+            ]
+          },
+          {
+            "label": "The width is 2.5 × 10^-6 metres.",
+            "patterns": [
+              "2\\.5\\s*[x×*]\\s*10\\s*\\^?\\s*-6\\s*m"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The width is 2.5 micrometres. The width is 2500 nanometres. The width is 2.5 × 10^-6 metres.",
+      "markKeywords": [
+        "The width is 2.5 micrometres.",
+        "The width is 2500 nanometres.",
+        "The width is 2.5 × 10^-6 metres."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-082",
+      "conceptId": "bio-cell-20261114-082",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Compare the cell walls of an ordinary green plant cell and a bacterial cell, using three scientific statements.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The plant cell wall contains cellulose. The bacterial wall is not made of cellulose. Both cell walls provide strength or support."
+        ],
+        "points": [
+          {
+            "label": "The plant cell wall contains cellulose.",
+            "patterns": [
+              "(plant|cell wall).{0,50}cellulose"
+            ]
+          },
+          {
+            "label": "The bacterial wall is not made of cellulose.",
+            "patterns": [
+              "bacter.{0,50}(not|no|without|different).{0,30}cellulose"
+            ]
+          },
+          {
+            "label": "Both cell walls provide strength or support.",
+            "patterns": [
+              "(both|walls|cell wall).{0,55}(support|strength)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The plant cell wall contains cellulose. The bacterial wall is not made of cellulose. Both cell walls provide strength or support.",
+      "markKeywords": [
+        "The plant cell wall contains cellulose.",
+        "The bacterial wall is not made of cellulose.",
+        "Both cell walls provide strength or support."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-083",
+      "conceptId": "bio-cell-20261114-083",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "A bacterium divides into daughter cells. Describe three facts about the genetic material that each daughter cell normally inherits.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Each daughter receives a copy of the main DNA loop. The main DNA molecule is circular. Plasmid copies can also be inherited if the bacterium contains plasmids."
+        ],
+        "points": [
+          {
+            "label": "Each daughter receives a copy of the main DNA loop.",
+            "patterns": [
+              "(daughter|each).{0,75}(dna|loop)"
+            ]
+          },
+          {
+            "label": "The main DNA molecule is circular.",
+            "patterns": [
+              "(circular|ring).{0,30}(dna|loop)|dna.{0,30}circular"
+            ]
+          },
+          {
+            "label": "Plasmid copies can also be inherited if the bacterium contains plasmids.",
+            "patterns": [
+              "plasmid.{0,60}(cop|inherit|pass)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Each daughter receives a copy of the main DNA loop. The main DNA molecule is circular. Plasmid copies can also be inherited if the bacterium contains plasmids.",
+      "markKeywords": [
+        "Each daughter receives a copy of the main DNA loop.",
+        "The main DNA molecule is circular.",
+        "Plasmid copies can also be inherited if the bacterium contains plasmids."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-084",
+      "conceptId": "bio-cell-20261114-084",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Explain the meaning of prokaryotic, then state two features shared by bacteria and eukaryotic cells.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Prokaryotic means genetic material is not enclosed inside a nucleus. Both have a cell membrane. Both have cytoplasm."
+        ],
+        "points": [
+          {
+            "label": "Prokaryotic means genetic material is not enclosed inside a nucleus.",
+            "patterns": [
+              "(prokaryot|bacter).{0,75}(not|no|without).{0,35}nucleus"
+            ]
+          },
+          {
+            "label": "Both have a cell membrane.",
+            "patterns": [
+              "cell membrane"
+            ]
+          },
+          {
+            "label": "Both have cytoplasm.",
+            "patterns": [
+              "cytoplasm"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Prokaryotic means genetic material is not enclosed inside a nucleus. Both have a cell membrane. Both have cytoplasm.",
+      "markKeywords": [
+        "Prokaryotic means genetic material is not enclosed inside a nucleus.",
+        "Both have a cell membrane.",
+        "Both have cytoplasm."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-085",
+      "conceptId": "bio-cell-20261114-085",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "A student says a cell wall and a cell membrane do the same job. Explain one distinct function of each structure.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The cell wall strengthens and supports the plant cell. The cell membrane controls which substances enter or leave the cell."
+        ],
+        "points": [
+          {
+            "label": "The cell wall strengthens and supports the plant cell.",
+            "patterns": [
+              "cell wall.{0,55}(strength|support|rigid)"
+            ]
+          },
+          {
+            "label": "The cell membrane controls which substances enter or leave the cell.",
+            "patterns": [
+              "cell membrane.{0,70}(control|regulat).{0,50}(enter|leave|movement|substance)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The cell wall strengthens and supports the plant cell. The cell membrane controls which substances enter or leave the cell.",
+      "markKeywords": [
+        "The cell wall strengthens and supports the plant cell.",
+        "The cell membrane controls which substances enter or leave the cell."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-086",
+      "conceptId": "bio-cell-20261114-086",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "State the main function of mitochondria and explain why actively moving cells need them.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Mitochondria are the main sites of aerobic respiration. Respiration transfers energy for cell activity or movement."
+        ],
+        "points": [
+          {
+            "label": "Mitochondria are the main sites of aerobic respiration.",
+            "patterns": [
+              "mitochondri.{0,55}(aerobic|respir)"
+            ]
+          },
+          {
+            "label": "Respiration transfers energy for cell activity or movement.",
+            "patterns": [
+              "(energy|atp).{0,65}(activit|move|movement|work)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Mitochondria are the main sites of aerobic respiration. Respiration transfers energy for cell activity or movement.",
+      "markKeywords": [
+        "Mitochondria are the main sites of aerobic respiration.",
+        "Respiration transfers energy for cell activity or movement."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-087",
+      "conceptId": "bio-cell-20261114-087",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "A leaf cell contains chloroplasts while a root cell usually does not. Explain this difference using two facts.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Leaf cells receive light to photosynthesise. Root cells are normally underground without enough light for photosynthesis."
+        ],
+        "points": [
+          {
+            "label": "Leaf cells receive light to photosynthesise.",
+            "patterns": [
+              "(leaf|leaves).{0,65}(light|photosynth)"
+            ]
+          },
+          {
+            "label": "Root cells are normally underground without enough light for photosynthesis.",
+            "patterns": [
+              "(root|underground).{0,70}(little|no|lack|insufficient|dark)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Leaf cells receive light to photosynthesise. Root cells are normally underground without enough light for photosynthesis.",
+      "markKeywords": [
+        "Leaf cells receive light to photosynthesise.",
+        "Root cells are normally underground without enough light for photosynthesis."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-088",
+      "conceptId": "bio-cell-20261114-088",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "Why is the large permanent vacuole important in a plant cell? Give two linked points.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The vacuole contains a liquid called cell sap. The filled vacuole maintains turgor and helps support the plant cell."
+        ],
+        "points": [
+          {
+            "label": "The vacuole contains a liquid called cell sap.",
+            "patterns": [
+              "vacuole.{0,55}cell sap"
+            ]
+          },
+          {
+            "label": "The filled vacuole maintains turgor and helps support the plant cell.",
+            "patterns": [
+              "(vacuole|turgor).{0,65}(turgor|support|rigid|firm)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The vacuole contains a liquid called cell sap. The filled vacuole maintains turgor and helps support the plant cell.",
+      "markKeywords": [
+        "The vacuole contains a liquid called cell sap.",
+        "The filled vacuole maintains turgor and helps support the plant cell."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-089",
+      "conceptId": "bio-cell-20261114-089",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "Name a structure for protein synthesis and another for controlling the activities of an animal cell.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Ribosomes are the sites of protein synthesis. The nucleus controls cell activities."
+        ],
+        "points": [
+          {
+            "label": "Ribosomes are the sites of protein synthesis.",
+            "patterns": [
+              "ribosome.{0,55}(protein|synth)"
+            ]
+          },
+          {
+            "label": "The nucleus controls cell activities.",
+            "patterns": [
+              "nucleus.{0,55}(control|activit|regulat)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Ribosomes are the sites of protein synthesis. The nucleus controls cell activities.",
+      "markKeywords": [
+        "Ribosomes are the sites of protein synthesis.",
+        "The nucleus controls cell activities."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-090",
+      "conceptId": "bio-cell-20261114-090",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "Explain two reasons why an alga containing chloroplasts and a cellulose cell wall is described as a eukaryote rather than a bacterium.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Its genetic material is enclosed in a nucleus. It contains membrane-bound chloroplasts for photosynthesis."
+        ],
+        "points": [
+          {
+            "label": "Its genetic material is enclosed in a nucleus.",
+            "patterns": [
+              "(dna|genetic|nucleus).{0,65}nucleus"
+            ]
+          },
+          {
+            "label": "It contains membrane-bound chloroplasts for photosynthesis.",
+            "patterns": [
+              "chloroplast.{0,55}(photosynth|light|membrane)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Its genetic material is enclosed in a nucleus. It contains membrane-bound chloroplasts for photosynthesis.",
+      "markKeywords": [
+        "Its genetic material is enclosed in a nucleus.",
+        "It contains membrane-bound chloroplasts for photosynthesis."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-091",
+      "conceptId": "bio-cell-20261114-091",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "A student examines a leaf cell, a muscle cell and a bacterial cell. Identify one structure found in all three and explain two contrasting sub-cellular features.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "All three have cytoplasm. A leaf cell contains chloroplasts but a muscle cell does not. A bacterial cell does not have a membrane-bound nucleus."
+        ],
+        "points": [
+          {
+            "label": "All three have cytoplasm.",
+            "patterns": [
+              "(all|three|each).{0,40}cytoplasm"
+            ]
+          },
+          {
+            "label": "A leaf cell contains chloroplasts but a muscle cell does not.",
+            "patterns": [
+              "(leaf|plant).{0,55}chloroplast"
+            ]
+          },
+          {
+            "label": "A bacterial cell does not have a membrane-bound nucleus.",
+            "patterns": [
+              "(bacter|prokary).{0,65}(not|without|no|lack).{0,30}nucleus"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "All three have cytoplasm. A leaf cell contains chloroplasts but a muscle cell does not. A bacterial cell does not have a membrane-bound nucleus.",
+      "markKeywords": [
+        "All three have cytoplasm.",
+        "A leaf cell contains chloroplasts but a muscle cell does not.",
+        "A bacterial cell does not have a membrane-bound nucleus."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question.",
+      "diagram": "cells-20261003.webp",
+      "diagramAlt": "Schematic animal, plant and bacterial cells (not to scale)."
+    },
+    {
+      "id": "bio-cell-20261114-092",
+      "conceptId": "bio-cell-20261114-092",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "A plant cell becomes limp after losing water. Explain the role of its wall and vacuole in supporting the cell.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The cellulose cell wall offers structural strength. Water in the vacuole helps maintain turgor pressure. Loss of water reduces turgor, so the cell becomes less firm."
+        ],
+        "points": [
+          {
+            "label": "The cellulose cell wall offers structural strength.",
+            "patterns": [
+              "(cell wall|cellulose).{0,60}(support|strength)"
+            ]
+          },
+          {
+            "label": "Water in the vacuole helps maintain turgor pressure.",
+            "patterns": [
+              "(vacuole|cell sap).{0,60}(turgor|pressure)"
+            ]
+          },
+          {
+            "label": "Loss of water reduces turgor, so the cell becomes less firm.",
+            "patterns": [
+              "(loss|loses|lost|reduces).{0,65}(turgor|pressure|firm|limp)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The cellulose cell wall offers structural strength. Water in the vacuole helps maintain turgor pressure. Loss of water reduces turgor, so the cell becomes less firm.",
+      "markKeywords": [
+        "The cellulose cell wall offers structural strength.",
+        "Water in the vacuole helps maintain turgor pressure.",
+        "Loss of water reduces turgor, so the cell becomes less firm."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-093",
+      "conceptId": "bio-cell-20261114-093",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "A gland cell is making and secreting many proteins. Predict two useful organelles and explain why each is needed.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Many ribosomes make protein molecules. Many mitochondria carry out aerobic respiration. Energy from respiration supports the work of making and secreting proteins."
+        ],
+        "points": [
+          {
+            "label": "Many ribosomes make protein molecules.",
+            "patterns": [
+              "ribosome.{0,55}(protein|make|synth)"
+            ]
+          },
+          {
+            "label": "Many mitochondria carry out aerobic respiration.",
+            "patterns": [
+              "mitochondri.{0,55}(respir|energy)"
+            ]
+          },
+          {
+            "label": "Energy from respiration supports the work of making and secreting proteins.",
+            "patterns": [
+              "energy.{0,75}(secre|produc|making|protein)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Many ribosomes make protein molecules. Many mitochondria carry out aerobic respiration. Energy from respiration supports the work of making and secreting proteins.",
+      "markKeywords": [
+        "Many ribosomes make protein molecules.",
+        "Many mitochondria carry out aerobic respiration.",
+        "Energy from respiration supports the work of making and secreting proteins."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-094",
+      "conceptId": "bio-cell-20261114-094",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "Explain why the nucleus, membrane and cytoplasm are each essential parts of a typical animal cell.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The nucleus contains DNA and controls the cell. The cell membrane controls entry and exit of substances. The cytoplasm is where many chemical reactions occur."
+        ],
+        "points": [
+          {
+            "label": "The nucleus contains DNA and controls the cell.",
+            "patterns": [
+              "nucleus.{0,60}(dna|control|genetic)"
+            ]
+          },
+          {
+            "label": "The cell membrane controls entry and exit of substances.",
+            "patterns": [
+              "cell membrane.{0,70}(enter|exit|leave|movement|substance)"
+            ]
+          },
+          {
+            "label": "The cytoplasm is where many chemical reactions occur.",
+            "patterns": [
+              "cytoplasm.{0,75}(chemical|reaction)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The nucleus contains DNA and controls the cell. The cell membrane controls entry and exit of substances. The cytoplasm is where many chemical reactions occur.",
+      "markKeywords": [
+        "The nucleus contains DNA and controls the cell.",
+        "The cell membrane controls entry and exit of substances.",
+        "The cytoplasm is where many chemical reactions occur."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-095",
+      "conceptId": "bio-cell-20261114-095",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "A student draws a green plant cell but labels the permanent vacuole as the nucleus. Give three clues to tell these structures apart.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The permanent vacuole is a large fluid-filled space. The nucleus contains DNA or genetic material. The vacuole helps maintain turgor while the nucleus controls the cell."
+        ],
+        "points": [
+          {
+            "label": "The permanent vacuole is a large fluid-filled space.",
+            "patterns": [
+              "vacuole.{0,65}(large|fluid|cell sap)"
+            ]
+          },
+          {
+            "label": "The nucleus contains DNA or genetic material.",
+            "patterns": [
+              "nucleus.{0,65}(dna|genetic)"
+            ]
+          },
+          {
+            "label": "The vacuole helps maintain turgor while the nucleus controls the cell.",
+            "patterns": [
+              "(vacuole|turgor).{0,85}(nucleus|control|turgor)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The permanent vacuole is a large fluid-filled space. The nucleus contains DNA or genetic material. The vacuole helps maintain turgor while the nucleus controls the cell.",
+      "markKeywords": [
+        "The permanent vacuole is a large fluid-filled space.",
+        "The nucleus contains DNA or genetic material.",
+        "The vacuole helps maintain turgor while the nucleus controls the cell."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-096",
+      "conceptId": "bio-cell-20261114-096",
+      "topic": "Animal and plant cells",
+      "specification": "4.1.1.2",
+      "prompt": "An examiner provides images of animal and plant cells. Give three features that identify a photosynthetic plant cell and state a function in each answer.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Chloroplasts absorb light for photosynthesis. The cellulose wall strengthens and supports the cell. A large permanent vacuole maintains turgor or stores cell sap."
+        ],
+        "points": [
+          {
+            "label": "Chloroplasts absorb light for photosynthesis.",
+            "patterns": [
+              "chloroplast.{0,70}(light|photosynth)"
+            ]
+          },
+          {
+            "label": "The cellulose wall strengthens and supports the cell.",
+            "patterns": [
+              "(cell wall|cellulose).{0,70}(strength|support)"
+            ]
+          },
+          {
+            "label": "A large permanent vacuole maintains turgor or stores cell sap.",
+            "patterns": [
+              "vacuole.{0,65}(turgor|cell sap|support)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Chloroplasts absorb light for photosynthesis. The cellulose wall strengthens and supports the cell. A large permanent vacuole maintains turgor or stores cell sap.",
+      "markKeywords": [
+        "Chloroplasts absorb light for photosynthesis.",
+        "The cellulose wall strengthens and supports the cell.",
+        "A large permanent vacuole maintains turgor or stores cell sap."
+      ],
+      "hint": "Name the structure and connect it to its precise function.",
+      "examGuidance": {
+        "strategy": "Use structure → biological function; award one mark per distinct correct point.",
+        "commonError": "Confusing membranes with walls, or the nucleus with the vacuole."
+      },
+      "source": "Original GCSE-style question based on school cell slides and AQA 8461 §4.1.1.2; not an official exam question.",
+      "diagram": "cells-20261003.webp",
+      "diagramAlt": "Schematic animal, plant and bacterial cells (not to scale)."
+    },
+    {
+      "id": "bio-cell-20261114-097",
+      "conceptId": "bio-cell-20261114-097",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Explain why a red blood cell has a biconcave shape and contains haemoglobin.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Its biconcave shape provides a large surface area for oxygen exchange. Haemoglobin binds and transports oxygen."
+        ],
+        "points": [
+          {
+            "label": "Its biconcave shape provides a large surface area for oxygen exchange.",
+            "patterns": [
+              "biconcave.{0,65}(surface area|oxygen|diffus)"
+            ]
+          },
+          {
+            "label": "Haemoglobin binds and transports oxygen.",
+            "patterns": [
+              "(?:haemoglobin|hemoglobin).{0,55}(oxygen|bind|transport|carry)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Its biconcave shape provides a large surface area for oxygen exchange. Haemoglobin binds and transports oxygen.",
+      "markKeywords": [
+        "Its biconcave shape provides a large surface area for oxygen exchange.",
+        "Haemoglobin binds and transports oxygen."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-098",
+      "conceptId": "bio-cell-20261114-098",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "A sperm cell contains an acrosome and a flagellum. Explain the function of both.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The acrosome contains enzymes that help penetrate the egg's outer layers. The flagellum or tail propels the sperm towards the egg."
+        ],
+        "points": [
+          {
+            "label": "The acrosome contains enzymes that help penetrate the egg's outer layers.",
+            "patterns": [
+              "acrosome.{0,70}(enzyme|egg|penetrat|digest)"
+            ]
+          },
+          {
+            "label": "The flagellum or tail propels the sperm towards the egg.",
+            "patterns": [
+              "(flagellum|tail).{0,55}(propel|swim|move)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The acrosome contains enzymes that help penetrate the egg's outer layers. The flagellum or tail propels the sperm towards the egg.",
+      "markKeywords": [
+        "The acrosome contains enzymes that help penetrate the egg's outer layers.",
+        "The flagellum or tail propels the sperm towards the egg."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3.",
+      "diagram": "specialised-20261003.webp",
+      "diagramAlt": "Schematic specialised cells A (sperm), B (root hair) and C (nerve cell)."
+    },
+    {
+      "id": "bio-cell-20261114-099",
+      "conceptId": "bio-cell-20261114-099",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Explain why a neuron benefits from an insulating myelin sheath and an axon.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The myelin sheath insulates the axon and helps impulses travel efficiently. A long axon transmits electrical impulses over long distances."
+        ],
+        "points": [
+          {
+            "label": "The myelin sheath insulates the axon and helps impulses travel efficiently.",
+            "patterns": [
+              "myelin.{0,55}(insulat|impulse|speed)"
+            ]
+          },
+          {
+            "label": "A long axon transmits electrical impulses over long distances.",
+            "patterns": [
+              "axon.{0,75}(impulse|long|distance)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The myelin sheath insulates the axon and helps impulses travel efficiently. A long axon transmits electrical impulses over long distances.",
+      "markKeywords": [
+        "The myelin sheath insulates the axon and helps impulses travel efficiently.",
+        "A long axon transmits electrical impulses over long distances."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-100",
+      "conceptId": "bio-cell-20261114-100",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "What enables xylem vessels to avoid collapse and carry water in an uninterrupted column?",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Lignin strengthens the xylem walls and prevents collapse. Hollow vessels with absent end walls form a continuous tube for water."
+        ],
+        "points": [
+          {
+            "label": "Lignin strengthens the xylem walls and prevents collapse.",
+            "patterns": [
+              "lignin.{0,65}(strength|collaps|support)"
+            ]
+          },
+          {
+            "label": "Hollow vessels with absent end walls form a continuous tube for water.",
+            "patterns": [
+              "(hollow|end wall|continuous).{0,65}(water|flow|tube)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Lignin strengthens the xylem walls and prevents collapse. Hollow vessels with absent end walls form a continuous tube for water.",
+      "markKeywords": [
+        "Lignin strengthens the xylem walls and prevents collapse.",
+        "Hollow vessels with absent end walls form a continuous tube for water."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-101",
+      "conceptId": "bio-cell-20261114-101",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Why do companion cells have many mitochondria and sieve tube elements have pores?",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Mitochondria in companion cells supply energy for transporting sugars. Pores in sieve plates allow sugar-rich sap to move between sieve tube elements."
+        ],
+        "points": [
+          {
+            "label": "Mitochondria in companion cells supply energy for transporting sugars.",
+            "patterns": [
+              "companion.{0,80}(mitochondri|energy)"
+            ]
+          },
+          {
+            "label": "Pores in sieve plates allow sugar-rich sap to move between sieve tube elements.",
+            "patterns": [
+              "(pore|sieve plate).{0,70}(sap|sugar|flow|pass)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Mitochondria in companion cells supply energy for transporting sugars. Pores in sieve plates allow sugar-rich sap to move between sieve tube elements.",
+      "markKeywords": [
+        "Mitochondria in companion cells supply energy for transporting sugars.",
+        "Pores in sieve plates allow sugar-rich sap to move between sieve tube elements."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-102",
+      "conceptId": "bio-cell-20261114-102",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Give two linked reasons a root hair cell absorbs mineral ions efficiently.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The root hair extension increases surface area for absorption. Many mitochondria release energy for the active uptake of mineral ions."
+        ],
+        "points": [
+          {
+            "label": "The root hair extension increases surface area for absorption.",
+            "patterns": [
+              "(root hair|extension).{0,70}surface area"
+            ]
+          },
+          {
+            "label": "Many mitochondria release energy for the active uptake of mineral ions.",
+            "patterns": [
+              "mitochondri.{0,75}(energy|uptake|mineral)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The root hair extension increases surface area for absorption. Many mitochondria release energy for the active uptake of mineral ions.",
+      "markKeywords": [
+        "The root hair extension increases surface area for absorption.",
+        "Many mitochondria release energy for the active uptake of mineral ions."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-103",
+      "conceptId": "bio-cell-20261114-103",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "A mature red blood cell is small, flexible and lacks a nucleus. Explain how these features help oxygen delivery.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Its small size provides a short path for oxygen diffusion. Its flexibility lets it pass through narrow capillaries. Lacking a nucleus creates more space for haemoglobin."
+        ],
+        "points": [
+          {
+            "label": "Its small size provides a short path for oxygen diffusion.",
+            "patterns": [
+              "small.{0,60}(diffus|path|oxygen)"
+            ]
+          },
+          {
+            "label": "Its flexibility lets it pass through narrow capillaries.",
+            "patterns": [
+              "flexib.{0,75}(capillar|narrow|vessel)"
+            ]
+          },
+          {
+            "label": "Lacking a nucleus creates more space for haemoglobin.",
+            "patterns": [
+              "(no|without|lack).{0,30}nucleus.{0,65}(?:haemoglobin|hemoglobin)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Its small size provides a short path for oxygen diffusion. Its flexibility lets it pass through narrow capillaries. Lacking a nucleus creates more space for haemoglobin.",
+      "markKeywords": [
+        "Its small size provides a short path for oxygen diffusion.",
+        "Its flexibility lets it pass through narrow capillaries.",
+        "Lacking a nucleus creates more space for haemoglobin."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-104",
+      "conceptId": "bio-cell-20261114-104",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "A sperm cell has a streamlined head, an acrosome and many mitochondria. Link all three adaptations to fertilisation.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The streamlined head reduces resistance as the sperm swims. Acrosome enzymes help penetrate the egg's protective layers. Mitochondria release energy for movement towards the egg."
+        ],
+        "points": [
+          {
+            "label": "The streamlined head reduces resistance as the sperm swims.",
+            "patterns": [
+              "streamlin.{0,75}(resistan|swim|move)"
+            ]
+          },
+          {
+            "label": "Acrosome enzymes help penetrate the egg's protective layers.",
+            "patterns": [
+              "acrosome.{0,75}(enzyme|egg|penetrat)"
+            ]
+          },
+          {
+            "label": "Mitochondria release energy for movement towards the egg.",
+            "patterns": [
+              "mitochondri.{0,80}(energy|movement|swim)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The streamlined head reduces resistance as the sperm swims. Acrosome enzymes help penetrate the egg's protective layers. Mitochondria release energy for movement towards the egg.",
+      "markKeywords": [
+        "The streamlined head reduces resistance as the sperm swims.",
+        "Acrosome enzymes help penetrate the egg's protective layers.",
+        "Mitochondria release energy for movement towards the egg."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-105",
+      "conceptId": "bio-cell-20261114-105",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "Compare how root hair cells and xylem vessels are adapted for water uptake and transport.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Root hair extensions provide a large surface area for absorbing water. Hollow xylem vessels provide an open channel for water flow. Lignified xylem walls prevent the vessels collapsing under tension."
+        ],
+        "points": [
+          {
+            "label": "Root hair extensions provide a large surface area for absorbing water.",
+            "patterns": [
+              "(root hair|extension).{0,65}(surface area|absorb)"
+            ]
+          },
+          {
+            "label": "Hollow xylem vessels provide an open channel for water flow.",
+            "patterns": [
+              "xylem.{0,70}(hollow|channel|tube)"
+            ]
+          },
+          {
+            "label": "Lignified xylem walls prevent the vessels collapsing under tension.",
+            "patterns": [
+              "(lignin|lignif).{0,65}(collaps|strength|support)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Root hair extensions provide a large surface area for absorbing water. Hollow xylem vessels provide an open channel for water flow. Lignified xylem walls prevent the vessels collapsing under tension.",
+      "markKeywords": [
+        "Root hair extensions provide a large surface area for absorbing water.",
+        "Hollow xylem vessels provide an open channel for water flow.",
+        "Lignified xylem walls prevent the vessels collapsing under tension."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3.",
+      "diagram": "specialised-20261003.webp",
+      "diagramAlt": "Schematic specialised cells A (sperm), B (root hair) and C (nerve cell)."
+    },
+    {
+      "id": "bio-cell-20261114-106",
+      "conceptId": "bio-cell-20261114-106",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "A muscle cell has sliding protein filaments, glycogen and many mitochondria. Explain the benefit of each.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Protein filaments slide to produce contraction. Glycogen stores glucose that can be used in respiration. Mitochondria release energy for repeated muscle contraction."
+        ],
+        "points": [
+          {
+            "label": "Protein filaments slide to produce contraction.",
+            "patterns": [
+              "(filament|protein).{0,55}contract"
+            ]
+          },
+          {
+            "label": "Glycogen stores glucose that can be used in respiration.",
+            "patterns": [
+              "glycogen.{0,65}(glucose|respir)"
+            ]
+          },
+          {
+            "label": "Mitochondria release energy for repeated muscle contraction.",
+            "patterns": [
+              "mitochondri.{0,80}(energy|contract)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Protein filaments slide to produce contraction. Glycogen stores glucose that can be used in respiration. Mitochondria release energy for repeated muscle contraction.",
+      "markKeywords": [
+        "Protein filaments slide to produce contraction.",
+        "Glycogen stores glucose that can be used in respiration.",
+        "Mitochondria release energy for repeated muscle contraction."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-107",
+      "conceptId": "bio-cell-20261114-107",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "A vascular bundle contains xylem and phloem. Give one function of each and one feature of phloem that supports it.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Xylem transports water and dissolved mineral ions. Phloem transports dissolved sugars around the plant. Companion cells supply energy needed for sugar transport."
+        ],
+        "points": [
+          {
+            "label": "Xylem transports water and dissolved mineral ions.",
+            "patterns": [
+              "xylem.{0,75}(water|mineral)"
+            ]
+          },
+          {
+            "label": "Phloem transports dissolved sugars around the plant.",
+            "patterns": [
+              "phloem.{0,75}(sugar|food|transloc)"
+            ]
+          },
+          {
+            "label": "Companion cells supply energy needed for sugar transport.",
+            "patterns": [
+              "companion.{0,65}(energy|mitochondri)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Xylem transports water and dissolved mineral ions. Phloem transports dissolved sugars around the plant. Companion cells supply energy needed for sugar transport.",
+      "markKeywords": [
+        "Xylem transports water and dissolved mineral ions.",
+        "Phloem transports dissolved sugars around the plant.",
+        "Companion cells supply energy needed for sugar transport."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3."
+    },
+    {
+      "id": "bio-cell-20261114-108",
+      "conceptId": "bio-cell-20261114-108",
+      "topic": "Cell specialisation",
+      "specification": "4.1.1.3",
+      "prompt": "A specialised cell has many branches, a long projection and numerous mitochondria. Identify it and explain two features.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The cell is a nerve cell or neurone. The long axon carries impulses over long distances. Branched dendrites form connections with many other cells."
+        ],
+        "points": [
+          {
+            "label": "The cell is a nerve cell or neurone.",
+            "patterns": [
+              "(nerve|neuron|neurone)"
+            ]
+          },
+          {
+            "label": "The long axon carries impulses over long distances.",
+            "patterns": [
+              "(axon|projection).{0,75}(impulse|distance|long)"
+            ]
+          },
+          {
+            "label": "Branched dendrites form connections with many other cells.",
+            "patterns": [
+              "(branch|dendrit).{0,65}(connect|cell)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The cell is a nerve cell or neurone. The long axon carries impulses over long distances. Branched dendrites form connections with many other cells.",
+      "markKeywords": [
+        "The cell is a nerve cell or neurone.",
+        "The long axon carries impulses over long distances.",
+        "Branched dendrites form connections with many other cells."
+      ],
+      "hint": "Write feature → effect → biological job.",
+      "examGuidance": {
+        "strategy": "Award each distinct structure-function explanation once, not the same point twice.",
+        "commonError": "A feature alone, without linking it to the benefit, may be insufficient."
+      },
+      "source": "Original GCSE-style question aligned to supplied specialised-cell worksheets and AQA Biology 8461 §4.1.1.3.",
+      "diagram": "specialised-20261003.webp",
+      "diagramAlt": "Schematic specialised cells A (sperm), B (root hair) and C (nerve cell)."
+    },
+    {
+      "id": "bio-cell-20261114-109",
+      "conceptId": "bio-cell-20261114-109",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A newly formed animal cell develops several specialised structures as the animal grows. Name this process and state its purpose.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The process is cell differentiation. Differentiation produces cells suited to carrying out particular functions."
+        ],
+        "points": [
+          {
+            "label": "The process is cell differentiation.",
+            "patterns": [
+              "differentiat"
+            ]
+          },
+          {
+            "label": "Differentiation produces cells suited to carrying out particular functions.",
+            "patterns": [
+              "(specialis|specializ|function|job)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The process is cell differentiation. Differentiation produces cells suited to carrying out particular functions.",
+      "markKeywords": [
+        "The process is cell differentiation.",
+        "Differentiation produces cells suited to carrying out particular functions."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-110",
+      "conceptId": "bio-cell-20261114-110",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A seedling continues producing new types of cells at its root tip. Give two facts that help explain this.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Many plant cells retain the ability to differentiate throughout life. New plant cells can develop specialised structures for particular roles."
+        ],
+        "points": [
+          {
+            "label": "Many plant cells retain the ability to differentiate throughout life.",
+            "patterns": [
+              "plant.{0,75}(throughout|life|retain|continue)"
+            ]
+          },
+          {
+            "label": "New plant cells can develop specialised structures for particular roles.",
+            "patterns": [
+              "(new|plant|cell).{0,75}(specialis|specializ|structure|function)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Many plant cells retain the ability to differentiate throughout life. New plant cells can develop specialised structures for particular roles.",
+      "markKeywords": [
+        "Many plant cells retain the ability to differentiate throughout life.",
+        "New plant cells can develop specialised structures for particular roles."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-111",
+      "conceptId": "bio-cell-20261114-111",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Explain how cell division and cell differentiation differ in what they achieve.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Cell division increases the number of cells. Cell differentiation makes cells specialised for particular tasks."
+        ],
+        "points": [
+          {
+            "label": "Cell division increases the number of cells.",
+            "patterns": [
+              "division.{0,60}(number|more|new)"
+            ]
+          },
+          {
+            "label": "Cell differentiation makes cells specialised for particular tasks.",
+            "patterns": [
+              "differentiat.{0,75}(specialis|specializ|function|task|role)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Cell division increases the number of cells. Cell differentiation makes cells specialised for particular tasks.",
+      "markKeywords": [
+        "Cell division increases the number of cells.",
+        "Cell differentiation makes cells specialised for particular tasks."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-112",
+      "conceptId": "bio-cell-20261114-112",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Why is replacing damaged cells a major reason for cell division in a fully grown animal? Give two linked points.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Mature animals use cell division mainly for repair and replacement. Division supplies new cells to replace lost or damaged cells."
+        ],
+        "points": [
+          {
+            "label": "Mature animals use cell division mainly for repair and replacement.",
+            "patterns": [
+              "(mature|adult).{0,75}(repair|replac|division)"
+            ]
+          },
+          {
+            "label": "Division supplies new cells to replace lost or damaged cells.",
+            "patterns": [
+              "(new|replacement).{0,75}(damag|lost|worn|repair|replac)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Mature animals use cell division mainly for repair and replacement. Division supplies new cells to replace lost or damaged cells.",
+      "markKeywords": [
+        "Mature animals use cell division mainly for repair and replacement.",
+        "Division supplies new cells to replace lost or damaged cells."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-113",
+      "conceptId": "bio-cell-20261114-113",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A developing nerve cell grows a long axon. Identify the process and its functional benefit.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The change occurs during cell differentiation. The axon allows impulses to be carried over long distances."
+        ],
+        "points": [
+          {
+            "label": "The change occurs during cell differentiation.",
+            "patterns": [
+              "differentiat"
+            ]
+          },
+          {
+            "label": "The axon allows impulses to be carried over long distances.",
+            "patterns": [
+              "axon.{0,75}(impulse|long|distance)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The change occurs during cell differentiation. The axon allows impulses to be carried over long distances.",
+      "markKeywords": [
+        "The change occurs during cell differentiation.",
+        "The axon allows impulses to be carried over long distances."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-114",
+      "conceptId": "bio-cell-20261114-114",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Why is it incorrect to say that a differentiated cell always has more organelles than before?",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Differentiation changes which sub-cellular structures are suited to a specific function. Some structures may be reduced or lost as well as acquired."
+        ],
+        "points": [
+          {
+            "label": "Differentiation changes which sub-cellular structures are suited to a specific function.",
+            "patterns": [
+              "(differentiat|specialis|specializ).{0,75}(structure|organelle|function)"
+            ]
+          },
+          {
+            "label": "Some structures may be reduced or lost as well as acquired.",
+            "patterns": [
+              "(structure.{0,70}(lost|reduc|remove|fewer)|(?:lose|lost|reduc|remove|fewer).{0,70}(structure|organelle|nucleus|cell))"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Differentiation changes which sub-cellular structures are suited to a specific function. Some structures may be reduced or lost as well as acquired.",
+      "markKeywords": [
+        "Differentiation changes which sub-cellular structures are suited to a specific function.",
+        "Some structures may be reduced or lost as well as acquired."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-115",
+      "conceptId": "bio-cell-20261114-115",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A young animal contains generalised cells, but its adult body contains muscle, nerve and red blood cells. Explain three observations.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Many animal cells differentiate early in development. Different types develop distinct structures to carry out their functions. For example, muscle cells develop features that enable contraction."
+        ],
+        "points": [
+          {
+            "label": "Many animal cells differentiate early in development.",
+            "patterns": [
+              "animal.{0,70}(early|develop)"
+            ]
+          },
+          {
+            "label": "Different types develop distinct structures to carry out their functions.",
+            "patterns": [
+              "(different|distinct).{0,65}(structure|function|specialis|specializ)"
+            ]
+          },
+          {
+            "label": "For example, muscle cells develop features that enable contraction.",
+            "patterns": [
+              "muscle.{0,65}(contract|mitochondri|filament)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Many animal cells differentiate early in development. Different types develop distinct structures to carry out their functions. For example, muscle cells develop features that enable contraction.",
+      "markKeywords": [
+        "Many animal cells differentiate early in development.",
+        "Different types develop distinct structures to carry out their functions.",
+        "For example, muscle cells develop features that enable contraction."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-116",
+      "conceptId": "bio-cell-20261114-116",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A student claims that plants stop making specialised cells after they reach their adult height. Challenge this claim with three points.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Many plant cells retain their ability to differentiate throughout life. The roots or shoots can continue growing new tissues. The new cells can specialise for functions such as transporting water."
+        ],
+        "points": [
+          {
+            "label": "Many plant cells retain their ability to differentiate throughout life.",
+            "patterns": [
+              "plant.{0,75}(throughout|life|retain)"
+            ]
+          },
+          {
+            "label": "The roots or shoots can continue growing new tissues.",
+            "patterns": [
+              "(root|shoot).{0,70}(grow|new|tissue)"
+            ]
+          },
+          {
+            "label": "The new cells can specialise for functions such as transporting water.",
+            "patterns": [
+              "(specialis|specializ|new cells|tissue).{0,75}(water|transport|function)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Many plant cells retain their ability to differentiate throughout life. The roots or shoots can continue growing new tissues. The new cells can specialise for functions such as transporting water.",
+      "markKeywords": [
+        "Many plant cells retain their ability to differentiate throughout life.",
+        "The roots or shoots can continue growing new tissues.",
+        "The new cells can specialise for functions such as transporting water."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-117",
+      "conceptId": "bio-cell-20261114-117",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A newly produced plant cell becomes part of a xylem vessel. Explain three changes or outcomes of this specialisation.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The cell undergoes differentiation to a specialised xylem cell. The mature xylem cell develops strengthened lignified walls. The resulting hollow vessel conducts water efficiently."
+        ],
+        "points": [
+          {
+            "label": "The cell undergoes differentiation to a specialised xylem cell.",
+            "patterns": [
+              "(differentiat|specialis|specializ).{0,75}xylem|xylem.{0,75}(differentiat|specialis|specializ)"
+            ]
+          },
+          {
+            "label": "The mature xylem cell develops strengthened lignified walls.",
+            "patterns": [
+              "(lignin|lignif).{0,65}(wall|strength)"
+            ]
+          },
+          {
+            "label": "The resulting hollow vessel conducts water efficiently.",
+            "patterns": [
+              "(hollow|tube|vessel).{0,65}(water|transport|flow)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The cell undergoes differentiation to a specialised xylem cell. The mature xylem cell develops strengthened lignified walls. The resulting hollow vessel conducts water efficiently.",
+      "markKeywords": [
+        "The cell undergoes differentiation to a specialised xylem cell.",
+        "The mature xylem cell develops strengthened lignified walls.",
+        "The resulting hollow vessel conducts water efficiently."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-118",
+      "conceptId": "bio-cell-20261114-118",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Explain why animal cells differentiate and why cell division continues in mature animals.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Differentiation produces cells with different functions. Division produces new cells. In mature animals, this division mainly repairs or replaces damaged cells."
+        ],
+        "points": [
+          {
+            "label": "Differentiation produces cells with different functions.",
+            "patterns": [
+              "differentiat.{0,65}(different|specialis|specializ|function)"
+            ]
+          },
+          {
+            "label": "Division produces new cells.",
+            "patterns": [
+              "division.{0,55}(new|more|number)"
+            ]
+          },
+          {
+            "label": "In mature animals, this division mainly repairs or replaces damaged cells.",
+            "patterns": [
+              "(adult|mature).{0,75}(repair|replac)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Differentiation produces cells with different functions. Division produces new cells. In mature animals, this division mainly repairs or replaces damaged cells.",
+      "markKeywords": [
+        "Differentiation produces cells with different functions.",
+        "Division produces new cells.",
+        "In mature animals, this division mainly repairs or replaces damaged cells."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-119",
+      "conceptId": "bio-cell-20261114-119",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "A plant cell develops a large vacuole while it is differentiating. Explain what process is happening and why the new structure may matter.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The cell is becoming specialised by differentiation. The large vacuole contains cell sap. The full vacuole helps maintain turgor and supports the cell."
+        ],
+        "points": [
+          {
+            "label": "The cell is becoming specialised by differentiation.",
+            "patterns": [
+              "(differentiat|specialis|specializ)"
+            ]
+          },
+          {
+            "label": "The large vacuole contains cell sap.",
+            "patterns": [
+              "vacuole.{0,65}(sap|fluid)"
+            ]
+          },
+          {
+            "label": "The full vacuole helps maintain turgor and supports the cell.",
+            "patterns": [
+              "vacuole.{0,70}(turgor|support|firm)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The cell is becoming specialised by differentiation. The large vacuole contains cell sap. The full vacuole helps maintain turgor and supports the cell.",
+      "markKeywords": [
+        "The cell is becoming specialised by differentiation.",
+        "The large vacuole contains cell sap.",
+        "The full vacuole helps maintain turgor and supports the cell."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-120",
+      "conceptId": "bio-cell-20261114-120",
+      "topic": "Cell differentiation",
+      "specification": "4.1.1.4",
+      "prompt": "Three pupils describe development: 'cells grow larger', 'cells increase in number', and 'cells become specialised'. Identify which involves differentiation and explain the other two descriptions.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Cells becoming specialised is differentiation. An increase in cell number is caused by cell division. A cell getting larger is growth rather than necessarily differentiation."
+        ],
+        "points": [
+          {
+            "label": "Cells becoming specialised is differentiation.",
+            "patterns": [
+              "(specialis|specializ).{0,45}differentiat|differentiat.{0,45}(specialis|specializ)"
+            ]
+          },
+          {
+            "label": "An increase in cell number is caused by cell division.",
+            "patterns": [
+              "(number|increase).{0,60}division|division.{0,60}(number|increase)"
+            ]
+          },
+          {
+            "label": "A cell getting larger is growth rather than necessarily differentiation.",
+            "patterns": [
+              "(larger|size|grow|growth).{0,65}(differentiat|specialis|specializ|not|instead)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Cells becoming specialised is differentiation. An increase in cell number is caused by cell division. A cell getting larger is growth rather than necessarily differentiation.",
+      "markKeywords": [
+        "Cells becoming specialised is differentiation.",
+        "An increase in cell number is caused by cell division.",
+        "A cell getting larger is growth rather than necessarily differentiation."
+      ],
+      "hint": "Keep cell differentiation separate from division or mere growth.",
+      "examGuidance": {
+        "strategy": "Distinguish growth, division and differentiation; link acquired cell features to functions.",
+        "commonError": "More cells is division, whereas specialised cells result from differentiation."
+      },
+      "source": "Original GCSE-style question aligned to supplied school cell differentiation lessons and AQA Biology 8461 §4.1.1.4."
+    },
+    {
+      "id": "bio-cell-20261114-121",
+      "conceptId": "bio-cell-20261114-121",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "A light microscope uses a ×10 eyepiece and a ×40 objective. Calculate the total magnification and say what is multiplied.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Total magnification = 10 × 40 = ×400. Eyepiece magnification is multiplied by objective magnification."
+        ],
+        "points": [
+          {
+            "label": "Total magnification = 10 × 40 = ×400.",
+            "patterns": [
+              "(10\\s*[x×*]\\s*40|400)"
+            ]
+          },
+          {
+            "label": "Eyepiece magnification is multiplied by objective magnification.",
+            "patterns": [
+              "eyepiece.{0,55}objective|objective.{0,55}eyepiece"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Total magnification = 10 × 40 = ×400. Eyepiece magnification is multiplied by objective magnification.",
+      "markKeywords": [
+        "Total magnification = 10 × 40 = ×400.",
+        "Eyepiece magnification is multiplied by objective magnification."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-122",
+      "conceptId": "bio-cell-20261114-122",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "An object measures 25 µm across and its image is 15 mm across. Convert the image size to micrometres and calculate the magnification.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "15 mm equals 15000 µm. Magnification is 15000 ÷ 25 = ×600."
+        ],
+        "points": [
+          {
+            "label": "15 mm equals 15000 µm.",
+            "patterns": [
+              "15,?000\\s*(µm|μm|um|micromet)"
+            ]
+          },
+          {
+            "label": "Magnification is 15000 ÷ 25 = ×600.",
+            "patterns": [
+              "\\b600\\b"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "15 mm equals 15000 µm. Magnification is 15000 ÷ 25 = ×600.",
+      "markKeywords": [
+        "15 mm equals 15000 µm.",
+        "Magnification is 15000 ÷ 25 = ×600."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-123",
+      "conceptId": "bio-cell-20261114-123",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "A pupil observes an onion cell but the image is dim and unclear. Suggest two separate changes to improve the view.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Adjust the light or diaphragm to increase suitable illumination. Use the fine-focus knob to sharpen the image."
+        ],
+        "points": [
+          {
+            "label": "Adjust the light or diaphragm to increase suitable illumination.",
+            "patterns": [
+              "(light|lamp|diaphragm|illuminat)"
+            ]
+          },
+          {
+            "label": "Use the fine-focus knob to sharpen the image.",
+            "patterns": [
+              "fine.{0,35}(focus|knob)|focus.{0,30}(fine|sharp)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Adjust the light or diaphragm to increase suitable illumination. Use the fine-focus knob to sharpen the image.",
+      "markKeywords": [
+        "Adjust the light or diaphragm to increase suitable illumination.",
+        "Use the fine-focus knob to sharpen the image."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5.",
+      "diagram": "microscopy-20261003.webp",
+      "diagramAlt": "Schematic light-microscope view of onion bulb epidermal cells."
+    },
+    {
+      "id": "bio-cell-20261114-124",
+      "conceptId": "bio-cell-20261114-124",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "Explain why an electron microscope can show ribosomes more clearly than a light microscope.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Electron microscopes have greater resolving power. Higher resolution allows smaller structures to be distinguished."
+        ],
+        "points": [
+          {
+            "label": "Electron microscopes have greater resolving power.",
+            "patterns": [
+              "(electron|microscope).{0,60}(resolution|resolving)"
+            ]
+          },
+          {
+            "label": "Higher resolution allows smaller structures to be distinguished.",
+            "patterns": [
+              "(higher|better|greater).{0,60}(detail|small|structures|resolve|distinguish)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Electron microscopes have greater resolving power. Higher resolution allows smaller structures to be distinguished.",
+      "markKeywords": [
+        "Electron microscopes have greater resolving power.",
+        "Higher resolution allows smaller structures to be distinguished."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-125",
+      "conceptId": "bio-cell-20261114-125",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "State two rules for a clear GCSE biological drawing after using a microscope.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Use a sharp pencil to draw single clear outlines without shading. Label using straight, non-crossing lines."
+        ],
+        "points": [
+          {
+            "label": "Use a sharp pencil to draw single clear outlines without shading.",
+            "patterns": [
+              "(single|clear|outline|no shading).{0,55}(line|shading|pencil)|no shading"
+            ]
+          },
+          {
+            "label": "Label using straight, non-crossing lines.",
+            "patterns": [
+              "(straight|non.crossing|not cross).{0,45}(line|label)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Use a sharp pencil to draw single clear outlines without shading. Label using straight, non-crossing lines.",
+      "markKeywords": [
+        "Use a sharp pencil to draw single clear outlines without shading.",
+        "Label using straight, non-crossing lines."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-126",
+      "conceptId": "bio-cell-20261114-126",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "Explain why a coverslip should be lowered at an angle and why the specimen may be stained.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Lower the coverslip at an angle to avoid trapping air bubbles. A stain increases contrast so cell structures are easier to distinguish."
+        ],
+        "points": [
+          {
+            "label": "Lower the coverslip at an angle to avoid trapping air bubbles.",
+            "patterns": [
+              "coverslip.{0,75}(angle|air|bubble)"
+            ]
+          },
+          {
+            "label": "A stain increases contrast so cell structures are easier to distinguish.",
+            "patterns": [
+              "stain.{0,75}(contrast|visible|see|distinguish)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Lower the coverslip at an angle to avoid trapping air bubbles. A stain increases contrast so cell structures are easier to distinguish.",
+      "markKeywords": [
+        "Lower the coverslip at an angle to avoid trapping air bubbles.",
+        "A stain increases contrast so cell structures are easier to distinguish."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5.",
+      "diagram": "microscopy-20261003.webp",
+      "diagramAlt": "Schematic light-microscope view of onion bulb epidermal cells."
+    },
+    {
+      "id": "bio-cell-20261114-127",
+      "conceptId": "bio-cell-20261114-127",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "An image of a cell measures 9 mm at magnification ×300. Calculate the true cell width in millimetres, micrometres and show your method.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Actual size = 9 mm ÷ 300. The actual width is 0.03 mm. The actual width is 30 µm."
+        ],
+        "points": [
+          {
+            "label": "Actual size = 9 mm ÷ 300.",
+            "patterns": [
+              "9\\s*mm\\s*(/|÷|divided by)\\s*300|9\\s*/\\s*300"
+            ]
+          },
+          {
+            "label": "The actual width is 0.03 mm.",
+            "patterns": [
+              "0\\.03\\s*mm"
+            ]
+          },
+          {
+            "label": "The actual width is 30 µm.",
+            "patterns": [
+              "\\b30\\s*(µm|μm|um|micromet)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Actual size = 9 mm ÷ 300. The actual width is 0.03 mm. The actual width is 30 µm.",
+      "markKeywords": [
+        "Actual size = 9 mm ÷ 300.",
+        "The actual width is 0.03 mm.",
+        "The actual width is 30 µm."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-128",
+      "conceptId": "bio-cell-20261114-128",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "A specimen spans 6 mm in a photograph but is actually 2 µm wide. State the unit conversion, calculate magnification and explain why the units must match.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "6 mm equals 6000 micrometres. Magnification = 6000 ÷ 2 = ×3000. Image size and actual size must use the same units when finding a ratio."
+        ],
+        "points": [
+          {
+            "label": "6 mm equals 6000 micrometres.",
+            "patterns": [
+              "6,?000\\s*(µm|μm|um|micromet)"
+            ]
+          },
+          {
+            "label": "Magnification = 6000 ÷ 2 = ×3000.",
+            "patterns": [
+              "3,?000\\b"
+            ]
+          },
+          {
+            "label": "Image size and actual size must use the same units when finding a ratio.",
+            "patterns": [
+              "same.{0,65}(unit|measurement)|unit.{0,65}(same|match)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "6 mm equals 6000 micrometres. Magnification = 6000 ÷ 2 = ×3000. Image size and actual size must use the same units when finding a ratio.",
+      "markKeywords": [
+        "6 mm equals 6000 micrometres.",
+        "Magnification = 6000 ÷ 2 = ×3000.",
+        "Image size and actual size must use the same units when finding a ratio."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-129",
+      "conceptId": "bio-cell-20261114-129",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "At low power the field diameter is 1.2 mm. Four equal cells fit across this diameter. Estimate the width of one cell in micrometres with working.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "1.2 mm equals 1200 µm. One cell width is 1200 ÷ 4. The estimated cell width is 300 µm."
+        ],
+        "points": [
+          {
+            "label": "1.2 mm equals 1200 µm.",
+            "patterns": [
+              "1,?200\\s*(µm|μm|um|micromet)"
+            ]
+          },
+          {
+            "label": "One cell width is 1200 ÷ 4.",
+            "patterns": [
+              "1,?200\\s*(/|÷|divided by)\\s*4"
+            ]
+          },
+          {
+            "label": "The estimated cell width is 300 µm.",
+            "patterns": [
+              "\\b300\\s*(µm|μm|um|micromet)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "1.2 mm equals 1200 µm. One cell width is 1200 ÷ 4. The estimated cell width is 300 µm.",
+      "markKeywords": [
+        "1.2 mm equals 1200 µm.",
+        "One cell width is 1200 ÷ 4.",
+        "The estimated cell width is 300 µm."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-130",
+      "conceptId": "bio-cell-20261114-130",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "Describe three steps that reduce common errors when preparing an onion epidermis slide for Required Practical 1.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Peel a thin single cell layer and place it flat on a slide. Add iodine stain or another suitable stain. Lower the coverslip carefully at an angle to prevent air bubbles."
+        ],
+        "points": [
+          {
+            "label": "Peel a thin single cell layer and place it flat on a slide.",
+            "patterns": [
+              "(thin|single).{0,45}(layer|onion|epidermis)"
+            ]
+          },
+          {
+            "label": "Add iodine stain or another suitable stain.",
+            "patterns": [
+              "(iodine|stain)"
+            ]
+          },
+          {
+            "label": "Lower the coverslip carefully at an angle to prevent air bubbles.",
+            "patterns": [
+              "coverslip.{0,70}(angle|bubble)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Peel a thin single cell layer and place it flat on a slide. Add iodine stain or another suitable stain. Lower the coverslip carefully at an angle to prevent air bubbles.",
+      "markKeywords": [
+        "Peel a thin single cell layer and place it flat on a slide.",
+        "Add iodine stain or another suitable stain.",
+        "Lower the coverslip carefully at an angle to prevent air bubbles."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5.",
+      "diagram": "microscopy-20261003.webp",
+      "diagramAlt": "Schematic light-microscope view of onion bulb epidermal cells."
+    },
+    {
+      "id": "bio-cell-20261114-131",
+      "conceptId": "bio-cell-20261114-131",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "A teacher rescales a cell photograph from 20 mm wide to 40 mm wide. Explain how this affects a printed magnification value and a scale bar.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The photograph has doubled in printed size. A printed magnification number becomes incorrect if it is not updated. A scale bar enlarges with the photograph and remains proportional."
+        ],
+        "points": [
+          {
+            "label": "The photograph has doubled in printed size.",
+            "patterns": [
+              "(double|twice|two times|2 times).{0,70}(size|image|photograph)|image.{0,65}(double|twice)"
+            ]
+          },
+          {
+            "label": "A printed magnification number becomes incorrect if it is not updated.",
+            "patterns": [
+              "magnification.{0,80}(incorrect|wrong|change|update|double|not)"
+            ]
+          },
+          {
+            "label": "A scale bar enlarges with the photograph and remains proportional.",
+            "patterns": [
+              "scale bar.{0,70}(enlarge|resize|proport|double|grow)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The photograph has doubled in printed size. A printed magnification number becomes incorrect if it is not updated. A scale bar enlarges with the photograph and remains proportional.",
+      "markKeywords": [
+        "The photograph has doubled in printed size.",
+        "A printed magnification number becomes incorrect if it is not updated.",
+        "A scale bar enlarges with the photograph and remains proportional."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-132",
+      "conceptId": "bio-cell-20261114-132",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "A bacterium appears 8 mm wide in a micrograph at ×4000. Calculate its actual width in mm, µm and nm.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Actual width is 8 ÷ 4000 = 0.002 mm. 0.002 mm equals 2 µm. 2 µm equals 2000 nm."
+        ],
+        "points": [
+          {
+            "label": "Actual width is 8 ÷ 4000 = 0.002 mm.",
+            "patterns": [
+              "0\\.002\\s*mm"
+            ]
+          },
+          {
+            "label": "0.002 mm equals 2 µm.",
+            "patterns": [
+              "\\b2\\s*(µm|μm|um|micromet)"
+            ]
+          },
+          {
+            "label": "2 µm equals 2000 nm.",
+            "patterns": [
+              "2,?000\\s*(nm|nanomet)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Actual width is 8 ÷ 4000 = 0.002 mm. 0.002 mm equals 2 µm. 2 µm equals 2000 nm.",
+      "markKeywords": [
+        "Actual width is 8 ÷ 4000 = 0.002 mm.",
+        "0.002 mm equals 2 µm.",
+        "2 µm equals 2000 nm."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-133",
+      "conceptId": "bio-cell-20261114-133",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A bacterium doubles every 15 minutes under ideal conditions. Starting from one bacterium, calculate the population after one hour and state the number of doublings.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "There are four doublings in 60 minutes. The population after four doublings is 16 bacteria."
+        ],
+        "points": [
+          {
+            "label": "There are four doublings in 60 minutes.",
+            "patterns": [
+              "(4|four).{0,25}doubl|60\\s*/\\s*15"
+            ]
+          },
+          {
+            "label": "The population after four doublings is 16 bacteria.",
+            "patterns": [
+              "\\b16\\b"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "There are four doublings in 60 minutes. The population after four doublings is 16 bacteria.",
+      "markKeywords": [
+        "There are four doublings in 60 minutes.",
+        "The population after four doublings is 16 bacteria."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-134",
+      "conceptId": "bio-cell-20261114-134",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "Explain two reasons the lid of a school agar plate should remain closed as much as possible.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Keeping the lid closed reduces entry of unwanted airborne microorganisms. It also reduces the chance that microorganisms from the culture escape."
+        ],
+        "points": [
+          {
+            "label": "Keeping the lid closed reduces entry of unwanted airborne microorganisms.",
+            "patterns": [
+              "(lid|closed).{0,75}(airborne|contamin|microorganism)"
+            ]
+          },
+          {
+            "label": "It also reduces the chance that microorganisms from the culture escape.",
+            "patterns": [
+              "(microorganism|microbe|bacter).{0,85}(escape|spread|release)|(?:escape|spread|release).{0,65}(micro|bacter|culture)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Keeping the lid closed reduces entry of unwanted airborne microorganisms. It also reduces the chance that microorganisms from the culture escape.",
+      "markKeywords": [
+        "Keeping the lid closed reduces entry of unwanted airborne microorganisms.",
+        "It also reduces the chance that microorganisms from the culture escape."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-135",
+      "conceptId": "bio-cell-20261114-135",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A student heats an inoculating loop until it is sterile. Why should the loop cool before it touches the intended bacterial culture?",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Flaming the loop kills microorganisms already on it. Cooling prevents the hot loop killing the bacteria that are to be cultured."
+        ],
+        "points": [
+          {
+            "label": "Flaming the loop kills microorganisms already on it.",
+            "patterns": [
+              "(flam|heat|sterili).{0,65}(kill|microorganism|bacter)"
+            ]
+          },
+          {
+            "label": "Cooling prevents the hot loop killing the bacteria that are to be cultured.",
+            "patterns": [
+              "(cool|hot).{0,75}(kill|bacter|culture)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Flaming the loop kills microorganisms already on it. Cooling prevents the hot loop killing the bacteria that are to be cultured.",
+      "markKeywords": [
+        "Flaming the loop kills microorganisms already on it.",
+        "Cooling prevents the hot loop killing the bacteria that are to be cultured."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-136",
+      "conceptId": "bio-cell-20261114-136",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "Why must an agar plate be incubated at no more than 25°C in school and why should it be kept upside down?",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "A maximum of 25°C reduces the risk of growing human pathogens. Upside-down incubation prevents condensation dripping onto and spreading colonies."
+        ],
+        "points": [
+          {
+            "label": "A maximum of 25°C reduces the risk of growing human pathogens.",
+            "patterns": [
+              "\\b25\\s*(°|degree|c|celsius).{0,75}(pathogen|disease|harm|risk)"
+            ]
+          },
+          {
+            "label": "Upside-down incubation prevents condensation dripping onto and spreading colonies.",
+            "patterns": [
+              "(upside.down|invert).{0,70}(condens|water|drip|spread)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "A maximum of 25°C reduces the risk of growing human pathogens. Upside-down incubation prevents condensation dripping onto and spreading colonies.",
+      "markKeywords": [
+        "A maximum of 25°C reduces the risk of growing human pathogens.",
+        "Upside-down incubation prevents condensation dripping onto and spreading colonies."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-137",
+      "conceptId": "bio-cell-20261114-137",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "Calculate the area of a circular inhibition zone 10 mm in diameter. State its radius and area using π = 3.14.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The radius is 10 ÷ 2 = 5 mm. Area = 3.14 × 5² = 78.5 mm²."
+        ],
+        "points": [
+          {
+            "label": "The radius is 10 ÷ 2 = 5 mm.",
+            "patterns": [
+              "\\b5\\s*mm"
+            ]
+          },
+          {
+            "label": "Area = 3.14 × 5² = 78.5 mm².",
+            "patterns": [
+              "78\\.5\\s*mm\\s*(\\^?2|²|squared)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The radius is 10 ÷ 2 = 5 mm. Area = 3.14 × 5² = 78.5 mm².",
+      "markKeywords": [
+        "The radius is 10 ÷ 2 = 5 mm.",
+        "Area = 3.14 × 5² = 78.5 mm²."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-138",
+      "conceptId": "bio-cell-20261114-138",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A Petri dish is contaminated before an antibiotic test starts. Give two ways this affects the validity of the results.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Unwanted microbes can grow alongside the intended bacterial culture. Contamination can make the antibiotic inhibition-zone results misleading for the intended species."
+        ],
+        "points": [
+          {
+            "label": "Unwanted microbes can grow alongside the intended bacterial culture.",
+            "patterns": [
+              "(unwanted|other|contamin).{0,70}(micro|bacter|colon)"
+            ]
+          },
+          {
+            "label": "Contamination can make the antibiotic inhibition-zone results misleading for the intended species.",
+            "patterns": [
+              "(contamin|inhibition.zone|result).{0,95}(mislead|unreliab|inaccurat|intended)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Unwanted microbes can grow alongside the intended bacterial culture. Contamination can make the antibiotic inhibition-zone results misleading for the intended species.",
+      "markKeywords": [
+        "Unwanted microbes can grow alongside the intended bacterial culture.",
+        "Contamination can make the antibiotic inhibition-zone results misleading for the intended species."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-139",
+      "conceptId": "bio-cell-20261114-139",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A culture starts with 50 bacteria, and each cell divides every 20 minutes. Calculate the number of doublings, the multiplication factor and the population after two hours.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "120 ÷ 20 gives six doublings. The factor is 2^6 = 64. 50 × 64 = 3200 bacteria."
+        ],
+        "points": [
+          {
+            "label": "120 ÷ 20 gives six doublings.",
+            "patterns": [
+              "(120\\s*[/÷]\\s*20|6\\s*doubl|six\\s*doubl)"
+            ]
+          },
+          {
+            "label": "The factor is 2^6 = 64.",
+            "patterns": [
+              "(2\\s*\\^\\s*6|factor.{0,40}64)"
+            ]
+          },
+          {
+            "label": "50 × 64 = 3200 bacteria.",
+            "patterns": [
+              "3,?200\\b"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "120 ÷ 20 gives six doublings. The factor is 2^6 = 64. 50 × 64 = 3200 bacteria.",
+      "markKeywords": [
+        "120 ÷ 20 gives six doublings.",
+        "The factor is 2^6 = 64.",
+        "50 × 64 = 3200 bacteria."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-140",
+      "conceptId": "bio-cell-20261114-140",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A growth table shows 100 bacteria at 0 min, 200 at 20 min, 400 at 40 min and 800 at 60 min. Identify the division time, forecast the count at 80 min and state an assumption.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The mean division time is 20 minutes. The predicted number at 80 minutes is 1600. The prediction assumes the division rate continues with sufficient nutrients."
+        ],
+        "points": [
+          {
+            "label": "The mean division time is 20 minutes.",
+            "patterns": [
+              "\\b20\\s*(min|minutes)"
+            ]
+          },
+          {
+            "label": "The predicted number at 80 minutes is 1600.",
+            "patterns": [
+              "1,?600\\b"
+            ]
+          },
+          {
+            "label": "The prediction assumes the division rate continues with sufficient nutrients.",
+            "patterns": [
+              "(assum|contin|constant|sufficient).{0,65}(rate|nutrient|temperature|division)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The mean division time is 20 minutes. The predicted number at 80 minutes is 1600. The prediction assumes the division rate continues with sufficient nutrients.",
+      "markKeywords": [
+        "The mean division time is 20 minutes.",
+        "The predicted number at 80 minutes is 1600.",
+        "The prediction assumes the division rate continues with sufficient nutrients."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-141",
+      "conceptId": "bio-cell-20261114-141",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A clear zone around antibiotic disc X measures 18 mm in diameter and around Y measures 12 mm. Calculate both radii and explain which disc inhibits growth more under identical conditions.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Disc X has radius 9 mm. Disc Y has radius 6 mm. Disc X has the larger inhibition zone, so it inhibits growth more in this test."
+        ],
+        "points": [
+          {
+            "label": "Disc X has radius 9 mm.",
+            "patterns": [
+              "\\b9\\s*mm"
+            ]
+          },
+          {
+            "label": "Disc Y has radius 6 mm.",
+            "patterns": [
+              "\\b6\\s*mm"
+            ]
+          },
+          {
+            "label": "Disc X has the larger inhibition zone, so it inhibits growth more in this test.",
+            "patterns": [
+              "\\bX\\b.{0,80}(larger|inhibit|more|better)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Disc X has radius 9 mm. Disc Y has radius 6 mm. Disc X has the larger inhibition zone, so it inhibits growth more in this test.",
+      "markKeywords": [
+        "Disc X has radius 9 mm.",
+        "Disc Y has radius 6 mm.",
+        "Disc X has the larger inhibition zone, so it inhibits growth more in this test."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-142",
+      "conceptId": "bio-cell-20261114-142",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "Students compare two antiseptics using agar plates. Name a negative control, one controlled variable and one way to improve reliability.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "A disc soaked in sterile water can act as a negative control. Keep bacterial species or incubation conditions the same. Repeat tests and calculate a mean to improve reliability."
+        ],
+        "points": [
+          {
+            "label": "A disc soaked in sterile water can act as a negative control.",
+            "patterns": [
+              "(sterile|distilled).{0,30}water"
+            ]
+          },
+          {
+            "label": "Keep bacterial species or incubation conditions the same.",
+            "patterns": [
+              "(same|constant|controlled|keep).{0,60}(species|bacter|incubat|temperature|time|disc)"
+            ]
+          },
+          {
+            "label": "Repeat tests and calculate a mean to improve reliability.",
+            "patterns": [
+              "repeat.{0,65}(mean|average|reliab)|mean.{0,55}repeat"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "A disc soaked in sterile water can act as a negative control. Keep bacterial species or incubation conditions the same. Repeat tests and calculate a mean to improve reliability.",
+      "markKeywords": [
+        "A disc soaked in sterile water can act as a negative control.",
+        "Keep bacterial species or incubation conditions the same.",
+        "Repeat tests and calculate a mean to improve reliability."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-143",
+      "conceptId": "bio-cell-20261114-143",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A student seals an agar dish completely with tape and places it at 37°C. Explain three changes needed for safe, valid school culturing.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Secure the dish with a few pieces of tape rather than fully sealing it. Incubate cultures at no more than 25°C in school. Incubating plates upside down prevents condensation dripping onto colonies."
+        ],
+        "points": [
+          {
+            "label": "Secure the dish with a few pieces of tape rather than fully sealing it.",
+            "patterns": [
+              "(few|partial|some|not fully).{0,65}(tape|seal|dish)"
+            ]
+          },
+          {
+            "label": "Incubate cultures at no more than 25°C in school.",
+            "patterns": [
+              "\\b25\\s*(°|degree|c|celsius)"
+            ]
+          },
+          {
+            "label": "Incubating plates upside down prevents condensation dripping onto colonies.",
+            "patterns": [
+              "(upside.down|invert).{0,85}(condens|water|drip|colon|prevent)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Secure the dish with a few pieces of tape rather than fully sealing it. Incubate cultures at no more than 25°C in school. Incubating plates upside down prevents condensation dripping onto colonies.",
+      "markKeywords": [
+        "Secure the dish with a few pieces of tape rather than fully sealing it.",
+        "Incubate cultures at no more than 25°C in school.",
+        "Incubating plates upside down prevents condensation dripping onto colonies."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
+    },
+    {
+      "id": "bio-cell-20261114-144",
+      "conceptId": "bio-cell-20261114-144",
+      "topic": "Culturing microorganisms",
+      "specification": "4.1.1.6",
+      "prompt": "A colony has a circular diameter of 14 mm. Calculate its cross-sectional area using π = 3.142, and explain how repeated readings improve confidence.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Radius = 14 ÷ 2 = 7 mm. Area = 3.142 × 7² = 154.0 mm² to one decimal place. Repeat measurements and calculate the mean to reduce random error."
+        ],
+        "points": [
+          {
+            "label": "Radius = 14 ÷ 2 = 7 mm.",
+            "patterns": [
+              "\\b7\\s*mm"
+            ]
+          },
+          {
+            "label": "Area = 3.142 × 7² = 154.0 mm² to one decimal place.",
+            "patterns": [
+              "154\\.0?\\s*mm\\s*(\\^?2|²|squared)"
+            ]
+          },
+          {
+            "label": "Repeat measurements and calculate the mean to reduce random error.",
+            "patterns": [
+              "(repeat|multiple).{0,65}(mean|average|error|reliab)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Radius = 14 ÷ 2 = 7 mm. Area = 3.142 × 7² = 154.0 mm² to one decimal place. Repeat measurements and calculate the mean to reduce random error.",
+      "markKeywords": [
+        "Radius = 14 ÷ 2 = 7 mm.",
+        "Area = 3.142 × 7² = 154.0 mm² to one decimal place.",
+        "Repeat measurements and calculate the mean to reduce random error."
+      ],
+      "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
+      "examGuidance": {
+        "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
+        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+      },
+      "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
     }
-  ]
+  ],
+  "version": "20261114-144-core-school-expanded"
 }

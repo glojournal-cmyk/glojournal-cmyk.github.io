@@ -65,9 +65,9 @@ for(const browserType of [chromium,webkit]){
    await page.locator('#subject-bar [data-subject="Latin"]').click();
    assert.ok(await page.locator('#paper-list [data-paper="latin-verbs"]').count()===1,'Latin papers remain accessible');
    await page.locator('#subject-bar [data-subject="Biology"]').click();
-   assert.ok((await page.locator('#paper-list').innerText()).includes('2 November'),'Biology school date is correct');
+   assert.ok((await page.locator('#paper-list').innerText()).includes('16 November'),'Biology first school assessment is in the week beginning 16 November');
    assert.equal(await page.locator('#paper-list .assessment-paper-row').count(),4,'Every Biology assessment remains a compact single row');
-   assert.ok(!(await page.locator('#paper-list').innerText()).includes('16 November'),'Outdated 16 November school date should not appear');
+   assert.equal(await page.locator('#paper-list [data-paper]').first().getAttribute('data-paper'),'biology-cell-structure','Current 4.1.1 mock must be listed before earlier topic-only practice');
    if(viewport.width===1024)await page.screenshot({path:'test-results/assessment-'+browserType.name()+'-1024-home.png'});
    await page.locator('.tabs button[data-tab="tracker"]').click();
    await page.locator('#tracker-list .entry').first().waitFor();

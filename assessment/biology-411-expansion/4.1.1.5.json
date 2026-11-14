@@ -1,0 +1,534 @@
+{
+  "specification": "4.1.1.5",
+  "topic": "Microscopy",
+  "questions": [
+    {
+      "id": "bio-cell-20261114-121",
+      "conceptId": "bio-cell-20261114-121",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "A light microscope uses a ×10 eyepiece and a ×40 objective. Calculate the total magnification and say what is multiplied.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Total magnification = 10 × 40 = ×400. Eyepiece magnification is multiplied by objective magnification."
+        ],
+        "points": [
+          {
+            "label": "Total magnification = 10 × 40 = ×400.",
+            "patterns": [
+              "(10\\s*[x×*]\\s*40|400)"
+            ]
+          },
+          {
+            "label": "Eyepiece magnification is multiplied by objective magnification.",
+            "patterns": [
+              "eyepiece.{0,55}objective|objective.{0,55}eyepiece"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Total magnification = 10 × 40 = ×400. Eyepiece magnification is multiplied by objective magnification.",
+      "markKeywords": [
+        "Total magnification = 10 × 40 = ×400.",
+        "Eyepiece magnification is multiplied by objective magnification."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-122",
+      "conceptId": "bio-cell-20261114-122",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "An object measures 25 µm across and its image is 15 mm across. Convert the image size to micrometres and calculate the magnification.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "15 mm equals 15000 µm. Magnification is 15000 ÷ 25 = ×600."
+        ],
+        "points": [
+          {
+            "label": "15 mm equals 15000 µm.",
+            "patterns": [
+              "15,?000\\s*(µm|μm|um|micromet)"
+            ]
+          },
+          {
+            "label": "Magnification is 15000 ÷ 25 = ×600.",
+            "patterns": [
+              "\\b600\\b"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "15 mm equals 15000 µm. Magnification is 15000 ÷ 25 = ×600.",
+      "markKeywords": [
+        "15 mm equals 15000 µm.",
+        "Magnification is 15000 ÷ 25 = ×600."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-123",
+      "conceptId": "bio-cell-20261114-123",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "A pupil observes an onion cell but the image is dim and unclear. Suggest two separate changes to improve the view.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Adjust the light or diaphragm to increase suitable illumination. Use the fine-focus knob to sharpen the image."
+        ],
+        "points": [
+          {
+            "label": "Adjust the light or diaphragm to increase suitable illumination.",
+            "patterns": [
+              "(light|lamp|diaphragm|illuminat)"
+            ]
+          },
+          {
+            "label": "Use the fine-focus knob to sharpen the image.",
+            "patterns": [
+              "fine.{0,35}(focus|knob)|focus.{0,30}(fine|sharp)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Adjust the light or diaphragm to increase suitable illumination. Use the fine-focus knob to sharpen the image.",
+      "markKeywords": [
+        "Adjust the light or diaphragm to increase suitable illumination.",
+        "Use the fine-focus knob to sharpen the image."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5.",
+      "diagram": "microscopy-20261003.webp",
+      "diagramAlt": "Schematic light-microscope view of onion bulb epidermal cells."
+    },
+    {
+      "id": "bio-cell-20261114-124",
+      "conceptId": "bio-cell-20261114-124",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "Explain why an electron microscope can show ribosomes more clearly than a light microscope.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Electron microscopes have greater resolving power. Higher resolution allows smaller structures to be distinguished."
+        ],
+        "points": [
+          {
+            "label": "Electron microscopes have greater resolving power.",
+            "patterns": [
+              "(electron|microscope).{0,60}(resolution|resolving)"
+            ]
+          },
+          {
+            "label": "Higher resolution allows smaller structures to be distinguished.",
+            "patterns": [
+              "(higher|better|greater).{0,60}(detail|small|structures|resolve|distinguish)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Electron microscopes have greater resolving power. Higher resolution allows smaller structures to be distinguished.",
+      "markKeywords": [
+        "Electron microscopes have greater resolving power.",
+        "Higher resolution allows smaller structures to be distinguished."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-125",
+      "conceptId": "bio-cell-20261114-125",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "State two rules for a clear GCSE biological drawing after using a microscope.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Use a sharp pencil to draw single clear outlines without shading. Label using straight, non-crossing lines."
+        ],
+        "points": [
+          {
+            "label": "Use a sharp pencil to draw single clear outlines without shading.",
+            "patterns": [
+              "(single|clear|outline|no shading).{0,55}(line|shading|pencil)|no shading"
+            ]
+          },
+          {
+            "label": "Label using straight, non-crossing lines.",
+            "patterns": [
+              "(straight|non.crossing|not cross).{0,45}(line|label)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Use a sharp pencil to draw single clear outlines without shading. Label using straight, non-crossing lines.",
+      "markKeywords": [
+        "Use a sharp pencil to draw single clear outlines without shading.",
+        "Label using straight, non-crossing lines."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-126",
+      "conceptId": "bio-cell-20261114-126",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "Explain why a coverslip should be lowered at an angle and why the specimen may be stained.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Lower the coverslip at an angle to avoid trapping air bubbles. A stain increases contrast so cell structures are easier to distinguish."
+        ],
+        "points": [
+          {
+            "label": "Lower the coverslip at an angle to avoid trapping air bubbles.",
+            "patterns": [
+              "coverslip.{0,75}(angle|air|bubble)"
+            ]
+          },
+          {
+            "label": "A stain increases contrast so cell structures are easier to distinguish.",
+            "patterns": [
+              "stain.{0,75}(contrast|visible|see|distinguish)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Lower the coverslip at an angle to avoid trapping air bubbles. A stain increases contrast so cell structures are easier to distinguish.",
+      "markKeywords": [
+        "Lower the coverslip at an angle to avoid trapping air bubbles.",
+        "A stain increases contrast so cell structures are easier to distinguish."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5.",
+      "diagram": "microscopy-20261003.webp",
+      "diagramAlt": "Schematic light-microscope view of onion bulb epidermal cells."
+    },
+    {
+      "id": "bio-cell-20261114-127",
+      "conceptId": "bio-cell-20261114-127",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "An image of a cell measures 9 mm at magnification ×300. Calculate the true cell width in millimetres, micrometres and show your method.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Actual size = 9 mm ÷ 300. The actual width is 0.03 mm. The actual width is 30 µm."
+        ],
+        "points": [
+          {
+            "label": "Actual size = 9 mm ÷ 300.",
+            "patterns": [
+              "9\\s*mm\\s*(/|÷|divided by)\\s*300|9\\s*/\\s*300"
+            ]
+          },
+          {
+            "label": "The actual width is 0.03 mm.",
+            "patterns": [
+              "0\\.03\\s*mm"
+            ]
+          },
+          {
+            "label": "The actual width is 30 µm.",
+            "patterns": [
+              "\\b30\\s*(µm|μm|um|micromet)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Actual size = 9 mm ÷ 300. The actual width is 0.03 mm. The actual width is 30 µm.",
+      "markKeywords": [
+        "Actual size = 9 mm ÷ 300.",
+        "The actual width is 0.03 mm.",
+        "The actual width is 30 µm."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-128",
+      "conceptId": "bio-cell-20261114-128",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "A specimen spans 6 mm in a photograph but is actually 2 µm wide. State the unit conversion, calculate magnification and explain why the units must match.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "6 mm equals 6000 micrometres. Magnification = 6000 ÷ 2 = ×3000. Image size and actual size must use the same units when finding a ratio."
+        ],
+        "points": [
+          {
+            "label": "6 mm equals 6000 micrometres.",
+            "patterns": [
+              "6,?000\\s*(µm|μm|um|micromet)"
+            ]
+          },
+          {
+            "label": "Magnification = 6000 ÷ 2 = ×3000.",
+            "patterns": [
+              "3,?000\\b"
+            ]
+          },
+          {
+            "label": "Image size and actual size must use the same units when finding a ratio.",
+            "patterns": [
+              "same.{0,65}(unit|measurement)|unit.{0,65}(same|match)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "6 mm equals 6000 micrometres. Magnification = 6000 ÷ 2 = ×3000. Image size and actual size must use the same units when finding a ratio.",
+      "markKeywords": [
+        "6 mm equals 6000 micrometres.",
+        "Magnification = 6000 ÷ 2 = ×3000.",
+        "Image size and actual size must use the same units when finding a ratio."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-129",
+      "conceptId": "bio-cell-20261114-129",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "At low power the field diameter is 1.2 mm. Four equal cells fit across this diameter. Estimate the width of one cell in micrometres with working.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "1.2 mm equals 1200 µm. One cell width is 1200 ÷ 4. The estimated cell width is 300 µm."
+        ],
+        "points": [
+          {
+            "label": "1.2 mm equals 1200 µm.",
+            "patterns": [
+              "1,?200\\s*(µm|μm|um|micromet)"
+            ]
+          },
+          {
+            "label": "One cell width is 1200 ÷ 4.",
+            "patterns": [
+              "1,?200\\s*(/|÷|divided by)\\s*4"
+            ]
+          },
+          {
+            "label": "The estimated cell width is 300 µm.",
+            "patterns": [
+              "\\b300\\s*(µm|μm|um|micromet)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "1.2 mm equals 1200 µm. One cell width is 1200 ÷ 4. The estimated cell width is 300 µm.",
+      "markKeywords": [
+        "1.2 mm equals 1200 µm.",
+        "One cell width is 1200 ÷ 4.",
+        "The estimated cell width is 300 µm."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-130",
+      "conceptId": "bio-cell-20261114-130",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "Describe three steps that reduce common errors when preparing an onion epidermis slide for Required Practical 1.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Peel a thin single cell layer and place it flat on a slide. Add iodine stain or another suitable stain. Lower the coverslip carefully at an angle to prevent air bubbles."
+        ],
+        "points": [
+          {
+            "label": "Peel a thin single cell layer and place it flat on a slide.",
+            "patterns": [
+              "(thin|single).{0,45}(layer|onion|epidermis)"
+            ]
+          },
+          {
+            "label": "Add iodine stain or another suitable stain.",
+            "patterns": [
+              "(iodine|stain)"
+            ]
+          },
+          {
+            "label": "Lower the coverslip carefully at an angle to prevent air bubbles.",
+            "patterns": [
+              "coverslip.{0,70}(angle|bubble)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Peel a thin single cell layer and place it flat on a slide. Add iodine stain or another suitable stain. Lower the coverslip carefully at an angle to prevent air bubbles.",
+      "markKeywords": [
+        "Peel a thin single cell layer and place it flat on a slide.",
+        "Add iodine stain or another suitable stain.",
+        "Lower the coverslip carefully at an angle to prevent air bubbles."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5.",
+      "diagram": "microscopy-20261003.webp",
+      "diagramAlt": "Schematic light-microscope view of onion bulb epidermal cells."
+    },
+    {
+      "id": "bio-cell-20261114-131",
+      "conceptId": "bio-cell-20261114-131",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "A teacher rescales a cell photograph from 20 mm wide to 40 mm wide. Explain how this affects a printed magnification value and a scale bar.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The photograph has doubled in printed size. A printed magnification number becomes incorrect if it is not updated. A scale bar enlarges with the photograph and remains proportional."
+        ],
+        "points": [
+          {
+            "label": "The photograph has doubled in printed size.",
+            "patterns": [
+              "(double|twice|two times|2 times).{0,70}(size|image|photograph)|image.{0,65}(double|twice)"
+            ]
+          },
+          {
+            "label": "A printed magnification number becomes incorrect if it is not updated.",
+            "patterns": [
+              "magnification.{0,80}(incorrect|wrong|change|update|double|not)"
+            ]
+          },
+          {
+            "label": "A scale bar enlarges with the photograph and remains proportional.",
+            "patterns": [
+              "scale bar.{0,70}(enlarge|resize|proport|double|grow)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The photograph has doubled in printed size. A printed magnification number becomes incorrect if it is not updated. A scale bar enlarges with the photograph and remains proportional.",
+      "markKeywords": [
+        "The photograph has doubled in printed size.",
+        "A printed magnification number becomes incorrect if it is not updated.",
+        "A scale bar enlarges with the photograph and remains proportional."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    },
+    {
+      "id": "bio-cell-20261114-132",
+      "conceptId": "bio-cell-20261114-132",
+      "topic": "Microscopy",
+      "specification": "4.1.1.5",
+      "prompt": "A bacterium appears 8 mm wide in a micrograph at ×4000. Calculate its actual width in mm, µm and nm.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Actual width is 8 ÷ 4000 = 0.002 mm. 0.002 mm equals 2 µm. 2 µm equals 2000 nm."
+        ],
+        "points": [
+          {
+            "label": "Actual width is 8 ÷ 4000 = 0.002 mm.",
+            "patterns": [
+              "0\\.002\\s*mm"
+            ]
+          },
+          {
+            "label": "0.002 mm equals 2 µm.",
+            "patterns": [
+              "\\b2\\s*(µm|μm|um|micromet)"
+            ]
+          },
+          {
+            "label": "2 µm equals 2000 nm.",
+            "patterns": [
+              "2,?000\\s*(nm|nanomet)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Actual width is 8 ÷ 4000 = 0.002 mm. 0.002 mm equals 2 µm. 2 µm equals 2000 nm.",
+      "markKeywords": [
+        "Actual width is 8 ÷ 4000 = 0.002 mm.",
+        "0.002 mm equals 2 µm.",
+        "2 µm equals 2000 nm."
+      ],
+      "hint": "For calculations, show conversions and numerical steps. For practical methods, explain why each step matters.",
+      "examGuidance": {
+        "strategy": "Give one creditworthy step or reason per mark; use consistent units for magnification.",
+        "commonError": "Do not confuse × eyepiece/objective magnification with image-size calculations."
+      },
+      "source": "Original GCSE-style question aligned to school Required Practical 1 slides and AQA Biology 8461 §4.1.1.5."
+    }
+  ]
+}

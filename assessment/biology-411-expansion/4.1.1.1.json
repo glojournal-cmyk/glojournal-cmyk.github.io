@@ -1,0 +1,530 @@
+{
+  "specification": "4.1.1.1",
+  "topic": "Eukaryotes and prokaryotes",
+  "questions": [
+    {
+      "id": "bio-cell-20261114-073",
+      "conceptId": "bio-cell-20261114-073",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "A 15 µm animal cell is compared with a 1.5 µm bacterium. Calculate the ratio of their widths and state the order-of-magnitude difference.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "15 ÷ 1.5 = 10, so the size ratio is 10:1. The animal cell is one order of magnitude larger."
+        ],
+        "points": [
+          {
+            "label": "15 ÷ 1.5 = 10, so the size ratio is 10:1.",
+            "patterns": [
+              "\\b10\\s*(:\\s*1|times|to\\s*1)?\\b"
+            ]
+          },
+          {
+            "label": "The animal cell is one order of magnitude larger.",
+            "patterns": [
+              "(one|1)\\s+order"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "15 ÷ 1.5 = 10, so the size ratio is 10:1. The animal cell is one order of magnitude larger.",
+      "markKeywords": [
+        "15 ÷ 1.5 = 10, so the size ratio is 10:1.",
+        "The animal cell is one order of magnitude larger."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-074",
+      "conceptId": "bio-cell-20261114-074",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "A microscope image shows a single DNA loop in the cytoplasm. Give the cell type and one reason for your choice.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "This cell is prokaryotic. The DNA is in the cytoplasm rather than enclosed in a nucleus."
+        ],
+        "points": [
+          {
+            "label": "This cell is prokaryotic.",
+            "patterns": [
+              "prokaryot|bacter"
+            ]
+          },
+          {
+            "label": "The DNA is in the cytoplasm rather than enclosed in a nucleus.",
+            "patterns": [
+              "(dna|genetic|loop).{0,65}cytoplasm"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "This cell is prokaryotic. The DNA is in the cytoplasm rather than enclosed in a nucleus.",
+      "markKeywords": [
+        "This cell is prokaryotic.",
+        "The DNA is in the cytoplasm rather than enclosed in a nucleus."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-075",
+      "conceptId": "bio-cell-20261114-075",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "A bacterium has a main DNA loop and a plasmid. State two ways the plasmid differs from the main DNA loop.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The plasmid is a small ring of DNA. It is separate from the main bacterial DNA loop."
+        ],
+        "points": [
+          {
+            "label": "The plasmid is a small ring of DNA.",
+            "patterns": [
+              "plasmid.{0,50}(small|ring)"
+            ]
+          },
+          {
+            "label": "It is separate from the main bacterial DNA loop.",
+            "patterns": [
+              "(separate|additional|extra).{0,50}(main|loop|dna)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The plasmid is a small ring of DNA. It is separate from the main bacterial DNA loop.",
+      "markKeywords": [
+        "The plasmid is a small ring of DNA.",
+        "It is separate from the main bacterial DNA loop."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-076",
+      "conceptId": "bio-cell-20261114-076",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Convert the width of an 800 nm bacterium into micrometres and millimetres.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "800 nanometres equals 0.8 micrometres. 800 nanometres equals 0.0008 mm."
+        ],
+        "points": [
+          {
+            "label": "800 nanometres equals 0.8 micrometres.",
+            "patterns": [
+              "0\\.8\\s*(µm|μm|um|micromet)"
+            ]
+          },
+          {
+            "label": "800 nanometres equals 0.0008 mm.",
+            "patterns": [
+              "0\\.0008\\s*mm"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "800 nanometres equals 0.8 micrometres. 800 nanometres equals 0.0008 mm.",
+      "markKeywords": [
+        "800 nanometres equals 0.8 micrometres.",
+        "800 nanometres equals 0.0008 mm."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-077",
+      "conceptId": "bio-cell-20261114-077",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Give two structures found in a typical animal cell and a typical bacterial cell.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Both cell types contain ribosomes. Both cell types have a cell membrane."
+        ],
+        "points": [
+          {
+            "label": "Both cell types contain ribosomes.",
+            "patterns": [
+              "ribosome"
+            ]
+          },
+          {
+            "label": "Both cell types have a cell membrane.",
+            "patterns": [
+              "cell membrane"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Both cell types contain ribosomes. Both cell types have a cell membrane.",
+      "markKeywords": [
+        "Both cell types contain ribosomes.",
+        "Both cell types have a cell membrane."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-078",
+      "conceptId": "bio-cell-20261114-078",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Convert a 5 µm cell width into nanometres and metres in standard form.",
+      "format": "typed_rubric",
+      "marks": 2,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The width is 5000 nanometres. The width is 5 × 10^-6 metres."
+        ],
+        "points": [
+          {
+            "label": "The width is 5000 nanometres.",
+            "patterns": [
+              "5,?000\\s*(nm|nanomet)"
+            ]
+          },
+          {
+            "label": "The width is 5 × 10^-6 metres.",
+            "patterns": [
+              "5\\s*[x×*]\\s*10\\s*\\^?\\s*-6\\s*m"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The width is 5000 nanometres. The width is 5 × 10^-6 metres.",
+      "markKeywords": [
+        "The width is 5000 nanometres.",
+        "The width is 5 × 10^-6 metres."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-079",
+      "conceptId": "bio-cell-20261114-079",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Cell A is 48 µm and cell B is 1.2 µm wide. Calculate how many times wider A is, then give two reasons B could be a bacterium.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Cell A is 40 times as wide as B. A bacterium has genetic material without a membrane-bound nucleus. A bacterium has a main circular loop of DNA."
+        ],
+        "points": [
+          {
+            "label": "Cell A is 40 times as wide as B.",
+            "patterns": [
+              "\\b40\\b"
+            ]
+          },
+          {
+            "label": "A bacterium has genetic material without a membrane-bound nucleus.",
+            "patterns": [
+              "(no|without|lack|not).{0,45}nucleus"
+            ]
+          },
+          {
+            "label": "A bacterium has a main circular loop of DNA.",
+            "patterns": [
+              "(circular|loop).{0,35}dna|dna.{0,35}(circular|loop)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Cell A is 40 times as wide as B. A bacterium has genetic material without a membrane-bound nucleus. A bacterium has a main circular loop of DNA.",
+      "markKeywords": [
+        "Cell A is 40 times as wide as B.",
+        "A bacterium has genetic material without a membrane-bound nucleus.",
+        "A bacterium has a main circular loop of DNA."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-080",
+      "conceptId": "bio-cell-20261114-080",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "A student claims that every cell without chloroplasts must be bacterial. Correct this using three facts.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Many animal cells lack chloroplasts. Animal cells have a nucleus. Bacterial cells are identified by genetic material that is not enclosed in a nucleus."
+        ],
+        "points": [
+          {
+            "label": "Many animal cells lack chloroplasts.",
+            "patterns": [
+              "animal.{0,45}(lack|without|no|do not have)"
+            ]
+          },
+          {
+            "label": "Animal cells have a nucleus.",
+            "patterns": [
+              "animal.{0,40}nucleus"
+            ]
+          },
+          {
+            "label": "Bacterial cells are identified by genetic material that is not enclosed in a nucleus.",
+            "patterns": [
+              "(bacter|prokary).{0,75}(no|without|not|lack).{0,30}nucleus"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Many animal cells lack chloroplasts. Animal cells have a nucleus. Bacterial cells are identified by genetic material that is not enclosed in a nucleus.",
+      "markKeywords": [
+        "Many animal cells lack chloroplasts.",
+        "Animal cells have a nucleus.",
+        "Bacterial cells are identified by genetic material that is not enclosed in a nucleus."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question.",
+      "diagram": "cells-20261003.webp",
+      "diagramAlt": "Schematic animal, plant and bacterial cells (not to scale)."
+    },
+    {
+      "id": "bio-cell-20261114-081",
+      "conceptId": "bio-cell-20261114-081",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "A cell is 0.0000025 m across. Express this width in micrometres, nanometres and standard form in metres.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The width is 2.5 micrometres. The width is 2500 nanometres. The width is 2.5 × 10^-6 metres."
+        ],
+        "points": [
+          {
+            "label": "The width is 2.5 micrometres.",
+            "patterns": [
+              "2\\.5\\s*(µm|μm|um|micromet)"
+            ]
+          },
+          {
+            "label": "The width is 2500 nanometres.",
+            "patterns": [
+              "2,?500\\s*(nm|nanomet)"
+            ]
+          },
+          {
+            "label": "The width is 2.5 × 10^-6 metres.",
+            "patterns": [
+              "2\\.5\\s*[x×*]\\s*10\\s*\\^?\\s*-6\\s*m"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The width is 2.5 micrometres. The width is 2500 nanometres. The width is 2.5 × 10^-6 metres.",
+      "markKeywords": [
+        "The width is 2.5 micrometres.",
+        "The width is 2500 nanometres.",
+        "The width is 2.5 × 10^-6 metres."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-082",
+      "conceptId": "bio-cell-20261114-082",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Compare the cell walls of an ordinary green plant cell and a bacterial cell, using three scientific statements.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "The plant cell wall contains cellulose. The bacterial wall is not made of cellulose. Both cell walls provide strength or support."
+        ],
+        "points": [
+          {
+            "label": "The plant cell wall contains cellulose.",
+            "patterns": [
+              "(plant|cell wall).{0,50}cellulose"
+            ]
+          },
+          {
+            "label": "The bacterial wall is not made of cellulose.",
+            "patterns": [
+              "bacter.{0,50}(not|no|without|different).{0,30}cellulose"
+            ]
+          },
+          {
+            "label": "Both cell walls provide strength or support.",
+            "patterns": [
+              "(both|walls|cell wall).{0,55}(support|strength)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "The plant cell wall contains cellulose. The bacterial wall is not made of cellulose. Both cell walls provide strength or support.",
+      "markKeywords": [
+        "The plant cell wall contains cellulose.",
+        "The bacterial wall is not made of cellulose.",
+        "Both cell walls provide strength or support."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-083",
+      "conceptId": "bio-cell-20261114-083",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "A bacterium divides into daughter cells. Describe three facts about the genetic material that each daughter cell normally inherits.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Each daughter receives a copy of the main DNA loop. The main DNA molecule is circular. Plasmid copies can also be inherited if the bacterium contains plasmids."
+        ],
+        "points": [
+          {
+            "label": "Each daughter receives a copy of the main DNA loop.",
+            "patterns": [
+              "(daughter|each).{0,75}(dna|loop)"
+            ]
+          },
+          {
+            "label": "The main DNA molecule is circular.",
+            "patterns": [
+              "(circular|ring).{0,30}(dna|loop)|dna.{0,30}circular"
+            ]
+          },
+          {
+            "label": "Plasmid copies can also be inherited if the bacterium contains plasmids.",
+            "patterns": [
+              "plasmid.{0,60}(cop|inherit|pass)"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Each daughter receives a copy of the main DNA loop. The main DNA molecule is circular. Plasmid copies can also be inherited if the bacterium contains plasmids.",
+      "markKeywords": [
+        "Each daughter receives a copy of the main DNA loop.",
+        "The main DNA molecule is circular.",
+        "Plasmid copies can also be inherited if the bacterium contains plasmids."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    },
+    {
+      "id": "bio-cell-20261114-084",
+      "conceptId": "bio-cell-20261114-084",
+      "topic": "Eukaryotes and prokaryotes",
+      "specification": "4.1.1.1",
+      "prompt": "Explain the meaning of prokaryotic, then state two features shared by bacteria and eukaryotic cells.",
+      "format": "typed_rubric",
+      "marks": 3,
+      "answer": {
+        "mode": "biology_rubric",
+        "accepted": [
+          "Prokaryotic means genetic material is not enclosed inside a nucleus. Both have a cell membrane. Both have cytoplasm."
+        ],
+        "points": [
+          {
+            "label": "Prokaryotic means genetic material is not enclosed inside a nucleus.",
+            "patterns": [
+              "(prokaryot|bacter).{0,75}(not|no|without).{0,35}nucleus"
+            ]
+          },
+          {
+            "label": "Both have a cell membrane.",
+            "patterns": [
+              "cell membrane"
+            ]
+          },
+          {
+            "label": "Both have cytoplasm.",
+            "patterns": [
+              "cytoplasm"
+            ]
+          }
+        ]
+      },
+      "modelAnswer": "Prokaryotic means genetic material is not enclosed inside a nucleus. Both have a cell membrane. Both have cytoplasm.",
+      "markKeywords": [
+        "Prokaryotic means genetic material is not enclosed inside a nucleus.",
+        "Both have a cell membrane.",
+        "Both have cytoplasm."
+      ],
+      "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
+      "examGuidance": {
+        "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
+        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+      },
+      "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
+    }
+  ]
+}
