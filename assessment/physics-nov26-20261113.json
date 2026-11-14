@@ -689,7 +689,7 @@
             ],
             "methodRules": [
               [
-                "\\b(?:density|rho|ρ)\\s*=\\s*(?:mass|m)\\s*(?:\\/|÷)\\s*(?:volume|v)\\b",
+                "(?:rho|ρ)\\s*=\\s*540\\s*(?:\\/|÷)\\s*200\\b",
                 "density\\s+(?:equals|is)\\s+mass\\s+(?:divided\\s+by|over)\\s+volume",
                 "\\b(?:rho|ρ)\\s*=\\s*540\\s*(?:\\/|÷)\\s*200\\b"
               ],
