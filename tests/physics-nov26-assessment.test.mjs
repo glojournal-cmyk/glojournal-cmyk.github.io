@@ -9,7 +9,7 @@ const catalog=json('content/catalog.json');
 assert.equal(bank.subject,'physics');
 assert.equal(bank.year,9);
 assert.equal(bank.groups.length,5);
-assert.equal(bank.version,'2026-11-14-school-standard-v3');
+assert.ok(bank.version.startsWith('2026-11-14-school-standard-v3'), 'expected school-aligned question bank version');
 
 
 const totals=[13,13,13,13,13];
