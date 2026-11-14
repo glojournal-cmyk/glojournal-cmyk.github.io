@@ -41,7 +41,7 @@ function grantWardrobe(id){
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
 const CHEMISTRY_REVISION='20260930-chem-fullmarks3';
-const bankUrl=p=>p.id==='physics-nov26'?`${p.bank}?v=20261114-marking2`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261010-chem-marking1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
+const bankUrl=p=>p.id==='physics-nov26'?`${p.bank}?v=20261114-school-v2`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261010-chem-marking1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
   'inks.svg':'Figure 2: chromatogram with ink samples A to D',
@@ -91,7 +91,7 @@ function paperCard(p){
  return `<article class="card assessment-paper-row" data-paper-row="${esc(p.id)}">
    <div class="assessment-paper-info">
      <h3>${esc(p.name.replace(/^[^·]+·\s*/,''))}</h3>
-     <p>${p.minutes} min · ${p.count} questions · Pass 85%</p>
+     <p>${p.minutes} min · ${p.count} questions · ${p.id==='physics-nov26'?'Personal practice target 85% (not a school grade)':'Pass 85%'}</p>
    </div>
    <div class="assessment-paper-buttons">
      <button class="primary" data-paper="${esc(p.id)}">${hasDraft?'Continue':'Start'} <span aria-hidden="true">›</span></button>
@@ -762,7 +762,7 @@ function finish(p,d){
   delete state.drafts[p.id];save();cards();
 
   const resultSummary=`${full}/${d.questions.length} correct${partial?` · ${partial} partly correct`:''} · ${formatMarks(earned)}/${totalMarks} marks`;
-  $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${resultSummary}. Pass mark: 85/100. Review the answers below, then start a new paper for a different selection. Missed or partly correct questions enter Previous mistakes after 2 days; successful daily corrections return after 7 days.</p>${wardrobe}${Object.keys(missed).length?'<button id="practise-weak-areas" class="primary">Practise these weak areas</button>':''}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='latin-verbs'?'<p class="muted">English follows the verb table. Present is simple (I carry), imperfect is I was carrying, perfect is I carried. I have carried and I used to carry also score. you carry is accepted for both singular and plural; the model answer shows which one it is.</p>':''}${p.id==='latin-creusa'?'<p class="muted">Comprehension marking accepts equivalent wording. Where an answer contains only some required ideas, partial credit is awarded instead of an automatic zero.</p>':''}${p.id==='chemistry'?'<p class="muted">Marks are shown on the new exam-style questions. Each distinct correct point earns a mark, including method and final-answer marks for calculations. Older short questions remain worth one mark.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
+  $('#exam').innerHTML=`<h2>${score>=85?'Passed':'Not yet passed'} · ${score}/100</h2><p>${resultSummary}.  ${p.id==='physics-nov26'?'The 85% threshold is a home practice target, not the school pass grade. This is an original school-slide-aligned mock, not an official school exam. ':'Pass mark: 85/100. '}Review the answers below, then start a new paper for a different selection. Missed or partly correct questions enter Previous mistakes after 2 days; successful daily corrections return after 7 days.</p>${wardrobe}${Object.keys(missed).length?'<button id="practise-weak-areas" class="primary">Practise these weak areas</button>':''}${focus?`<p class="feedback"><b>Revise next:</b> ${focus}</p>`:''}${p.id==='latin-verbs'?'<p class="muted">English follows the verb table. Present is simple (I carry), imperfect is I was carrying, perfect is I carried. I have carried and I used to carry also score. you carry is accepted for both singular and plural; the model answer shows which one it is.</p>':''}${p.id==='latin-creusa'?'<p class="muted">Comprehension marking accepts equivalent wording. Where an answer contains only some required ideas, partial credit is awarded instead of an automatic zero.</p>':''}${p.id==='chemistry'?'<p class="muted">Marks are shown on the new exam-style questions. Each distinct correct point earns a mark, including method and final-answer marks for calculations. Older short questions remain worth one mark.</p>':''}<button id="back-to-papers" class="primary">New paper</button><a class="primary" href="/scholar" style="display:inline-block;margin-left:8px;text-decoration:none">Wardrobe</a><div class="entries">${rows.join('')}</div>`;
   $('#back-to-papers').onclick=()=>show('papers');
   const followupButton=$('#practise-weak-areas');if(followupButton)followupButton.onclick=()=>startFollowup(state.results.length-1);
 }
