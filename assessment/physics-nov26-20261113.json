@@ -1037,7 +1037,8 @@
               {
                 "label": "Substitute 75 ÷ 25 into ρ = mass ÷ volume.",
                 "alternatives": [
-                  "Density is mass divided by volume."
+                  "Density is mass divided by volume.",
+                  "Substitute 75 ÷ 25 into ρ = mass ÷ volume."
                 ],
                 "patterns": [
                   "(?=.*(?:density))(?=.*(?:mass))(?=.*(?:volume)).*"
@@ -1315,7 +1316,8 @@
               {
                 "label": "The ring is not pure gold because 16.1 g/cm³ is below 19.3 g/cm³.",
                 "alternatives": [
-                  "The ring is not pure gold because 16.1 is lower than 19.3 g/cm³."
+                  "The ring is not pure gold because 16.1 is lower than 19.3 g/cm³.",
+                  "The ring is not pure gold because 16.1 g/cm³ is below 19.3 g/cm³."
                 ],
                 "patterns": [
                   "(?=.*(?:not\\s+pure\\s+gold|impure|cannot\\s+be\\s+pure\\s+gold))(?=.*(?:16\\.1|lower|less))(?=.*(?:19\\.3|gold)).*"
@@ -2988,7 +2990,8 @@
               {
                 "label": "Substitute 75 ÷ 25 into ρ = mass ÷ volume.",
                 "alternatives": [
-                  "Use density equals mass divided by volume."
+                  "Use density equals mass divided by volume.",
+                  "Substitute 75 ÷ 25 into ρ = mass ÷ volume."
                 ],
                 "patterns": [
                   "(?=.*(?:density))(?=.*(?:mass))(?=.*(?:volume)).*"
