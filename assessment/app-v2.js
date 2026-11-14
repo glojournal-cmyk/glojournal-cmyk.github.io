@@ -69,20 +69,21 @@ document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',
 function examToday(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
 function examWhen(exam){if(!exam)return '';const [y,m,day]=exam.split('-').map(Number);return new Date(y,m-1,day).toLocaleDateString('en-GB',{day:'numeric',month:'long'})}
 const EXAM_GROUPS=[
-  {subject:'Latin',exam:'2026-09-28',ids:['latin-verbs','latin-conjugations','latin-creusa','latin']},
-  {subject:'Chemistry',exam:'2026-10-05',ids:['chemistry']},
+  {subject:'Latin',exam:'2026-11-23',examWeek:'2026-11-23',ids:['latin-verbs','latin-conjugations','latin-creusa','latin']},
+  {subject:'Chemistry',exam:'2026-11-16',examWeek:'2026-11-16',ids:['chemistry']},
   {subject:'English',exam:'2026-09-30',ids:['english']},
-  {subject:'French',exam:'2026-10-08',ids:['french']},
+  {subject:'French',exam:'2026-11-26',ids:['french']},
   {subject:'Biology',exam:'',examWeek:'2026-11-16',ids:['biology-cell-structure','biology-nov2','biology-school','biology']},
-  {subject:'Physics',exam:'',ids:['physics-nov26','physics']}
+  {subject:'Physics',exam:'',examWeek:'2026-11-09',ids:['physics-nov26','physics']}
 ];
 function groupBlurb(group,today){
   const when=group.exam?examWhen(group.exam):'';
-  if(group.subject==='Latin')return today>group.exam?`Exam ${when} has passed. Regular verbs and The Loss of Creusa are now in Practise.`:`Exam ${when}. Start with Regular verbs: porto, moneo, traho and audio, Latin into English, present, imperfect and perfect. Those questions, and The Loss of Creusa, join Practise the next day.`;
-  if(group.subject==='Chemistry')return 'Assessment in the week beginning 5 October 2026; exact lesson date awaits confirmation. Revise atoms, separating mixtures, history of the periodic table and RP6 chromatography.';
+  if(group.subject==='Latin')return 'Week beginning 23 November 2026: Taylor Chapters 1–3. Use the 50-minute 75-mark Latin written mock and unseen passages; older verb practice below is supplementary.';
+  if(group.subject==='Chemistry')return 'Assessment 2 in the week beginning 16 November 2026: C1.5, C1.6, formulae and balancing equations. Use the 20-minute school mock; the October chromatography paper below is supplementary.';
   if(group.subject==='English')return `Exam ${when}. These Year 9 questions are already in Practise.`;
   if(group.subject==='Biology')return 'First GCSE Biology assessment: week beginning 16 November 2026 (during Biology lesson; exact day TBC). Scope: AQA 8461 4.1.1 only, including microscopy RP1 and culturing RP2. Start with the 60-mark Cell Structure mock.';
-  if(group.subject==='Physics')return 'Teacher-slide-aligned mock, not the official school paper. Each paper includes multi-mark explanations, RP2 graph analysis and RP5 practical method; conduction only, not convection or radiation. Marking is provisional for equivalent free text.';
+  if(group.subject==='Physics')return 'School test week beginning 9 November 2026: particle model and conduction only, with RP2 graphs and RP5 density methods. No convection or radiation. Open-ended marking is provisional.';
+  if(group.subject==='French')return '26 November 2026 classroom due date: Higher-style 150-word holiday writing. Use the dedicated writing mock; older October vocabulary practice below is supplementary.';
   if(group.exam)return today>group.exam?`Exam ${when} has passed. These questions are now in Practise.`:`Exam ${when}. These questions join Practise the next day.`;
   return 'Mixed questions from the Year 9 bank. Already in Practise.';
 }
@@ -113,7 +114,12 @@ function cards(){
   const allPapers=group.ids.map(id=>PAPERS.find(p=>p.id===id)).filter(Boolean),query=$('#assessment-search').value.trim().toLowerCase(),kind=$('#assessment-kind').value;
   const papers=allPapers.filter(p=>(kind==='all'||(p.bank.includes('/banks/')?'mixed':'school')===kind)&&(!query||`${p.name} ${p.subtitle} ${Object.keys(p.groups||{}).join(' ')}`.toLowerCase().includes(query)));
   const root=$('#paper-list');root.className='subject-list';const today=examToday();
-  root.innerHTML=`<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="muted">Year 9 · ${papers.length} of ${allPapers.length} papers · <a href="/study/${group.subject.toLowerCase()}/">Browse notes and topic practice →</a></p><p class="when">${esc(groupBlurb(group,today))}</p><div class="cards">${papers.length?papers.map(paperCard).join(''):'<p class="muted" role="status">No matching papers. Try another keyword or paper type.</p>'}</div>${group.subject==='Biology'?'<details class="assessment-resources"><summary>Revision resources</summary><div><a href="/assessment/biology-cell-structure/">16 November: full Cell Structure revision guide + extended questions</a><a href="/assessment/biology-nov2/practice/">Extra specialised-cell and microscopy practice</a><a href="/assessment/biology-nov2/notes.pdf">Illustrated topic notes</a></div></details>':''}</section>`;
+  const dedicatedLinks={
+    Latin:'<p class="feedback"><a href="/study/latin/november-2026/"><b>November: 75-mark written Latin mock and five unseen passages →</b></a></p>',
+    Chemistry:'<p class="feedback"><a href="/study/chemistry/exam-revision/mock/"><b>November 16: Chemistry Assessment 2 school mock →</b></a></p>',
+    French:'<p class="feedback"><a href="/assessment/french-nov26/"><b>November 26: French Higher-style writing mock →</b></a></p>'
+  };
+  root.innerHTML=`<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="muted">Year 9 · ${papers.length} of ${allPapers.length} papers · <a href="/study/${group.subject.toLowerCase()}/">Browse notes and topic practice →</a></p><p class="when">${esc(groupBlurb(group,today))}</p>${dedicatedLinks[group.subject]||''}<div class="cards">${papers.length?papers.map(paperCard).join(''):'<p class="muted" role="status">No matching papers. Try another keyword or paper type.</p>'}</div>${group.subject==='Biology'?'<details class="assessment-resources"><summary>Revision resources</summary><div><a href="/assessment/biology-cell-structure/">16 November: full Cell Structure revision guide + extended questions</a><a href="/assessment/biology-nov2/practice/">Extra specialised-cell and microscopy practice</a><a href="/assessment/biology-nov2/notes.pdf">Illustrated topic notes</a></div></details>':''}</section>`;
 }
 cards();
 $('#paper-list').addEventListener('click',e=>{
@@ -148,7 +154,9 @@ function tracker(){
     const shortDate=parts.length===3&&parts.every(Number.isFinite)?
       new Date(parts[0],parts[1]-1,parts[2]).toLocaleDateString('en-GB',{day:'numeric',month:'short'}):x.dateLabel||x.date||'Date TBC';
     const date=x.dateKind==='week'?`w/c ${shortDate}`:shortDate;
-    const status=x.score?x.score:x.status||(x.date&&x.date>=today?'Upcoming':'Not recorded');
+    const end=x.dateKind==='week'&&parts.length===3&&parts.every(Number.isFinite)
+      ?new Date(Date.UTC(parts[0],parts[1]-1,parts[2]+6)).toISOString().slice(0,10):x.date;
+    const status=x.score?x.score:x.status||(x.date&&today<=end?(today>=x.date?'This week':'Upcoming'):'Not recorded');
     const shortTitle=isSchool?(titles[x.paperId]||x.title):x.title;
     const topicLinks=x.paperId==='biology-nov2'?
       '<a href="/assessment/biology-nov2/practice/">2 November topic practice</a><a href="/assessment/biology-nov2/notes.pdf">Illustrated revision notes</a>':
@@ -159,7 +167,14 @@ function tracker(){
       }).join('');
     const hasGuide=x.subject==='Biology'&&x.paperId!=='biology-nov2';
     const resources=topicLinks||hasGuide?`<details class="assessment-tracker-resources"><summary>Notes &amp; topic practice</summary><div class="assessment-tracker-resource-list">${topicLinks}${hasGuide?'<a href="/assessment/biology-cell-structure/">Cell structure revision guide</a>':''}</div></details>`:'';
-    const paperButton=isSchool&&x.paperId?(x.paperId==="french-nov26"?'<a class="primary" href="/assessment/french-nov26/">Open 150-word Higher-style writing mock</a>':`<button class="primary" data-tracker-paper="${esc(x.paperId)}">${state.drafts[x.paperId]?.version===2?'Continue practice paper':'Start practice paper'}</button>`):'';
+    const dedicated={
+      'french-nov26':['/assessment/french-nov26/','Open 150-word writing mock'],
+      'latin-nov26':['/study/latin/november-2026/','Open 75-mark Latin written mock'],
+      'chemistry-nov16':['/study/chemistry/exam-revision/mock/','Open 20-minute Chemistry school mock']
+    }[x.paperId];
+    const paperButton=isSchool&&x.paperId?(dedicated
+      ?`<a class="primary" href="${dedicated[0]}">${dedicated[1]}</a>`
+      :`<button class="primary" data-tracker-paper="${esc(x.paperId)}">${state.drafts[x.paperId]?.version===2?'Continue practice paper':'Start practice paper'}</button>`):'';
     return `<article class="entry assessment-tracker-entry tracker-row-${esc(String(x.subject||"Other").toLowerCase().replace(/[^a-z0-9-]/g,"-"))}">
       <details class="assessment-tracker-item">
         <summary aria-label="${esc(`${x.subject}, ${x.title}, ${date}, ${status}. Show details`)}">
@@ -747,7 +762,8 @@ function drawFollowup(id){
    button.disabled=true;button.textContent='Finding a matching concept…';
    try{
     const paper=PAPERS.find(p=>p.id===state.results[Number(id)]?.paperId);
-    const bank=paper?(await (await fetch(bankUrl(paper))).json()).questions:state.results[Number(id)]?.questions||[];
+    const source=paper?await (await fetch(bankUrl(paper))).json():null;
+     const bank=source?(Array.isArray(source.questions)?source.questions:(source.groups||[]).flatMap(group=>group.questions||[])):state.results[Number(id)]?.questions||[];
     const source=bank.find(item=>item.id===q.id)||q;
     const variant=globalThis.LuxLearningFeedback.selectTransferQuestion(source,bank,draft.questions.map(item=>item.id));
     if(!variant){button.textContent='No unused variant is available. Explain the rule, then continue.';return;}
