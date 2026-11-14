@@ -17,6 +17,13 @@ const paperName=scope=>scope==='mixed'?'Mixed assessment':scope==='mistakes'?'Mi
 function notice(message,error=false){
   $('status').textContent=message;
   $('status').classList.toggle('error',!!error);
+  // A long examination scrolls well below the hero. Surface save failures
+  // beside the answer box so iPad learners cannot miss the warning.
+  const inline=$('paper-save-status');
+  if(inline){
+    inline.textContent=error?message:'';
+    inline.hidden=!error;
+  }
 }
 function save(nextState=state){
   if(storageBlocked){notice(storageWarning||'Existing exam data could not be read. Nothing was overwritten.',true);return false;}
@@ -61,8 +68,7 @@ function history(){
     const left=el('span',String(paper.submittedAt||'').slice(0,10)+' · '+paperName(paper.scope)+' · '+summary);
     const open=el('button','Review paper');open.type='button';
     open.addEventListener('click',()=>{
-      state.latest=paper;
-      save();
+      if(!save({...state,latest:paper}))return;
       results();
     });
     row.append(left,open);root.append(row);
@@ -98,8 +104,12 @@ function saveAnswer(answer){
 }
 function navigate(change){
   if(!state.active)return;
-  state.active.index=Math.max(0,Math.min(state.active.questionIds.length-1,state.active.index+change));
-  save();renderPaper();
+  const index=Math.max(0,Math.min(state.active.questionIds.length-1,state.active.index+change));
+  if(index===state.active.index)return;
+  // Never move away from an answer whose last draft write could not be verified.
+  // Keep the in-memory answer available for a backup export or retry.
+  if(!save({...state,active:{...state.active,index}}))return;
+  renderPaper();
   $('question-number').scrollIntoView({block:'nearest'});
 }
 function renderPaper(){
@@ -292,6 +302,7 @@ $('next').addEventListener('click',()=>navigate(1));
 $('submit').addEventListener('click',submit);
 $('new-paper').addEventListener('click',home);
 $('export').addEventListener('click',exportBackup);
+$('paper-export').addEventListener('click',exportBackup);
 $('import').addEventListener('change',importBackup);
 
 try{
