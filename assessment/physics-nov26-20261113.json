@@ -4193,6 +4193,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:panes|glass))(?=.*(?:gap|air|argon|gas)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:two|2|double))(?=.*(?:panes|glass))(?=.*(?:vacuum)).*"
                 ]
               },
               {
@@ -4203,6 +4206,9 @@
                 ],
                 "patterns": [
                   "(?=.*(?:air|argon|gas))(?=.*(?:poor conductor|low thermal conductivity|less|reduces|slower)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:absence of particles|no particles))(?=.*(?:stops|prevents|blocks|reduces))(?=.*(?:conduction|energy transfer)).*"
                 ]
               }
             ]
@@ -4211,7 +4217,7 @@
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
           "examGuidance": {
             "strategy": "Each distinct idea earns one mark. For calculations, show working and the correct unit.",
-            "commonError": "Ordinary double glazing normally has a sealed gas/air gap; a vacuum is a separate specialist glazing design, not the standard explanation."
+            "commonError": "Standard double glazing normally traps air/argon gas; specialist vacuum double glazing also reduces conduction by removing particles, and a scientifically accurate answer about either mechanism should receive credit."
           },
           "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice."
         },
