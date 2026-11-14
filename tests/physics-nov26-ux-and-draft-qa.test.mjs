@@ -20,7 +20,7 @@ assert.equal(draftIsSchool({questions:paper}),true,'new exam must pass draft val
 assert.equal(draftIsSchool({questions:paper.slice(0,24)}),false,'short draft is outdated');
 const withoutGraph=paper.map(q=>({...q,diagram:undefined}));
 assert.equal(draftIsSchool({questions:withoutGraph}),false,'missing practical diagram must be identified');
-const withoutRP5=paper.map(q=>({...q,id:['phys-nov26-r01','phys-nov26-r02','phys-nov26-r05','phys-nov26-r12','phys-nov26-r13'].includes(q.id)?'old-'+q.id:q.id}));
+const withoutRP5=paper.map(q=>({...q,id:['phys-nov26-r01','phys-nov26-r02','phys-nov26-r05','phys-nov26-r12','phys-nov26-r13','phys-nov26-r27','phys-nov26-r28','phys-nov26-r29','phys-nov26-r30'].includes(q.id)?'old-'+q.id:q.id}));
 assert.equal(draftIsSchool({questions:withoutRP5}),false,'legacy RP5 method must be identified');
 assert.ok(code.includes("if(!aligned&&!hasExistingAnswers){delete state.drafts[id];draft=null;save();}"),'outdated unanswered papers must be replaced');
 assert.ok(code.includes("else if(!aligned&&hasExistingAnswers){draft.legacyPhysicsSchool=true;}"),'student answers must be preserved');
