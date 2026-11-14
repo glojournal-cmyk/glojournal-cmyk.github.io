@@ -1322,7 +1322,7 @@
                 "patterns": [
                   "(?=.*(?:not\\s+pure\\s+gold|impure|cannot\\s+be\\s+pure\\s+gold))(?=.*(?:16\\.1|lower|less))(?=.*(?:19\\.3|gold)).*"
                 ],
-                "allowNegation": true,
+                "allowNegation": false,
                 "variants": [
                   "(?=.*(?:isn.t|not|impure))(?=.*pure\\s+gold)(?=.*(?:16\\.1|lower|less|below))(?=.*(?:19\\.3|gold)).*"
                 ]
