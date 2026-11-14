@@ -25,7 +25,7 @@
           {
             "label": "Haemoglobin binds and transports oxygen.",
             "patterns": [
-              "haemoglobin.{0,55}(oxygen|bind|transport|carry)"
+              "(?:haemoglobin|hemoglobin).{0,55}(oxygen|bind|transport|carry)"
             ]
           }
         ]
@@ -273,7 +273,7 @@
           {
             "label": "Lacking a nucleus creates more space for haemoglobin.",
             "patterns": [
-              "(no|without|lack).{0,30}nucleus.{0,65}haemoglobin"
+              "(no|without|lack).{0,30}nucleus.{0,65}(?:haemoglobin|hemoglobin)"
             ]
           }
         ]
