@@ -1,5 +1,5 @@
 const PAPERS=[
-  {id:'physics-nov26',name:'Physics · November 2026 school assessment',subtitle:'Teacher-slide-aligned revision mock · 25 mixed questions · includes compulsory RP2 graph and RP5 practical · conduction only · not an official school paper',bank:'/assessment/physics-nov26-20261113.json',count:25,minutes:60,groups:{'Particle model & changes of state':5,'Density calculations':5,'Conduction & insulation':5,'RP2 thermal insulation':5,'RP5 density':5}},
+  {id:'physics-nov26',name:'Physics · November 2026 school assessment',subtitle:'School-scope mock · 200-question bank · 25 questions per paper · emphasis on particles and conduction · RP2/RP5 may be assessed',bank:'/assessment/physics-nov26-20261113.json',count:25,minutes:60,groups:{'Particle model & changes of state':8,'Density calculations':5,'Conduction & insulation':7,'RP2 thermal insulation':3,'RP5 density':2}},
   {id:'biology-nov2',name:'Biology · Extra practice · Specialised cells & RP1',subtitle:'Earlier topic-focused revision · 84 questions · not the 16 November school assessment',bank:'/assessment/biology-nov2-20261017.json',count:20,minutes:45,groups:{'Cell structures in context':2,'Specialised animal cells':4,'Specialised plant cells':3,'Microscopy practical':4,'Biological drawing':3,'Microscopy calculations':4}},
   {id:'biology-cell-structure',name:'Biology · 16 November week · AQA 4.1.1 Cell structure',subtitle:'First GCSE Biology assessment · all six 4.1.1 sections · RP1 and RP2 · 45-minute, 60-mark practice paper',bank:'/assessment/biology-cell-structure-20261003.json',count:24,minutes:45,groups:{'Eukaryotes and prokaryotes':4,'Animal and plant cells':4,'Cell specialisation':4,'Cell differentiation':4,'Microscopy':4,'Culturing microorganisms':4}},
   {id:'french',name:'French · Unit 1 vocabulary',subtitle:'Une visite en France · school test 8 Oct',bank:'/assessment/french-school-1.json',count:25,minutes:25,groups:{'Core phrases':4,'Intensifiers':3,'Descriptive adjectives':5,'Positive adjectives':5,'Pronouns':5,'Transport':3}},
@@ -41,7 +41,7 @@ function grantWardrobe(id){
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
 const CHEMISTRY_REVISION='20260930-chem-fullmarks3';
-const bankUrl=p=>p.id==='physics-nov26'?`${p.bank}?v=20261114-physics-qa3`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261010-chem-marking1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
+const bankUrl=p=>p.id==='physics-nov26'?`${p.bank}?v=20261114-physics-bank200-a`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261010-chem-marking1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
   'inks.svg':'Figure 2: chromatogram with ink samples A to D',
@@ -234,8 +234,8 @@ function selectPhysicsSchool(questions,count,recent=[],quotas={}){
       q=>['phys-nov26-i08','phys-nov26-i13'].includes(q.id)
     ],
     'RP5 density':[
-      q=>['phys-nov26-r01','phys-nov26-r02','phys-nov26-r05','phys-nov26-r12','phys-nov26-r13'].includes(q.id),
-      q=>['phys-nov26-r03','phys-nov26-r06','phys-nov26-r09','phys-nov26-r11'].includes(q.id)
+      q=>['phys-nov26-r01','phys-nov26-r02','phys-nov26-r05','phys-nov26-r12','phys-nov26-r13','phys-nov26-r27','phys-nov26-r28','phys-nov26-r29','phys-nov26-r30'].includes(q.id),
+      q=>['phys-nov26-r06','phys-nov26-r09','phys-nov26-r34','phys-nov26-r35','phys-nov26-r36'].includes(q.id)
     ]
   };
   const take=(pool,filter)=>{
@@ -267,7 +267,7 @@ function physicsNov26DraftSchoolAligned(draft){
   if(!Array.isArray(draft?.questions)||draft.questions.length!==25)return false;
   const questions=draft.questions;
   if(new Set(questions.map(q=>q.id)).size!==25)return false;
-  const quotas={'Particle model & changes of state':5,'Density calculations':5,'Conduction & insulation':5,'RP2 thermal insulation':5,'RP5 density':5};
+  const quotas={'Particle model & changes of state':8,'Density calculations':5,'Conduction & insulation':7,'RP2 thermal insulation':3,'RP5 density':2};
   for(const [topic,count] of Object.entries(quotas)){
     const subset=questions.filter(q=>q.topic===topic);
     if(subset.length!==count||subset.filter(q=>Number(q.marks)>=3).length<2)return false;
@@ -275,8 +275,8 @@ function physicsNov26DraftSchoolAligned(draft){
   const has=ids=>questions.some(q=>ids.includes(q.id));
   return questions.some(q=>q.topic==='RP2 thermal insulation'&&q.diagram)
     &&has(['phys-nov26-i08','phys-nov26-i13'])
-    &&has(['phys-nov26-r01','phys-nov26-r02','phys-nov26-r05','phys-nov26-r12','phys-nov26-r13'])
-    &&has(['phys-nov26-r03','phys-nov26-r06','phys-nov26-r09','phys-nov26-r11'])
+    &&has(['phys-nov26-r01','phys-nov26-r02','phys-nov26-r05','phys-nov26-r12','phys-nov26-r13','phys-nov26-r27','phys-nov26-r28','phys-nov26-r29','phys-nov26-r30'])
+    &&has(['phys-nov26-r06','phys-nov26-r09','phys-nov26-r34','phys-nov26-r35','phys-nov26-r36'])
     &&has(['phys-nov26-d11','phys-nov26-d13','phys-nov26-d06']);
 }
 
