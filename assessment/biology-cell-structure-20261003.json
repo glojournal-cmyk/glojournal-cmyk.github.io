@@ -3504,7 +3504,7 @@
       "conceptId": "bio-cell-20261114-079",
       "topic": "Eukaryotes and prokaryotes",
       "specification": "4.1.1.1",
-      "prompt": "Cell A is 48 µm and cell B is 1.2 µm wide. Calculate how many times wider A is, then give two reasons B could be a bacterium.",
+      "prompt": "Cell A is 48 µm wide and cell B is 1.2 µm wide. Calculate how many times wider A is. Then state two features you would expect if B were a bacterium.",
       "format": "typed_rubric",
       "marks": 3,
       "answer": {
@@ -3542,7 +3542,7 @@
       "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
       "examGuidance": {
         "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
-        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+        "commonError": "Size alone cannot prove that B is bacterial; give two typical prokaryotic structural features."
       },
       "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
     },
@@ -5972,38 +5972,38 @@
       "conceptId": "bio-cell-20261114-135",
       "topic": "Culturing microorganisms",
       "specification": "4.1.1.6",
-      "prompt": "A student heats an inoculating loop until it is sterile. Why should the loop cool before it touches the intended bacterial culture?",
+      "prompt": "Explain why an inoculating loop is flamed before use and why it must cool before touching the intended bacterial culture. (2 marks)",
       "format": "typed_rubric",
       "marks": 2,
       "answer": {
         "mode": "biology_rubric",
         "accepted": [
-          "Flaming the loop kills microorganisms already on it. Cooling prevents the hot loop killing the bacteria that are to be cultured."
+          "Heating the inoculating loop in a flame sterilises it by killing unwanted microorganisms. Allowing the hot loop to cool prevents it from killing the bacteria being transferred or cultured."
         ],
         "points": [
           {
-            "label": "Flaming the loop kills microorganisms already on it.",
+            "label": "Heating the inoculating loop in a flame sterilises it by killing unwanted microorganisms.",
             "patterns": [
-              "(flam|heat|sterili).{0,65}(kill|microorganism|bacter)"
+              "(?=.*(?:flam|heat|sterilis))(?=.*(?:kill|microorganism|bacter|contamin)).*"
             ]
           },
           {
-            "label": "Cooling prevents the hot loop killing the bacteria that are to be cultured.",
+            "label": "Allowing the hot loop to cool prevents it from killing the bacteria being transferred or cultured.",
             "patterns": [
-              "(cool|hot).{0,75}(kill|bacter|culture)"
+              "(?=.*(?:cool))(?=.*(?:kill|damage|surviv|living|intended|culture)).*"
             ]
           }
         ]
       },
-      "modelAnswer": "Flaming the loop kills microorganisms already on it. Cooling prevents the hot loop killing the bacteria that are to be cultured.",
+      "modelAnswer": "Heating the inoculating loop in a flame sterilises it by killing unwanted microorganisms. Allowing the hot loop to cool prevents it from killing the bacteria being transferred or cultured.",
       "markKeywords": [
-        "Flaming the loop kills microorganisms already on it.",
-        "Cooling prevents the hot loop killing the bacteria that are to be cultured."
+        "Heating the inoculating loop in a flame sterilises it by killing unwanted microorganisms.",
+        "Allowing the hot loop to cool prevents it from killing the bacteria being transferred or cultured."
       ],
       "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
       "examGuidance": {
         "strategy": "Award one mark per valid mathematical step, safety precaution or evidence-based conclusion.",
-        "commonError": "Do not confuse diameter with radius or assume clinical effectiveness from a single inhibition zone."
+        "commonError": "Do not stop at 'cool for safety': explain that a hot loop would kill the bacteria being cultured."
       },
       "source": "Original GCSE-style practice based on school aseptic-technique method sheet, bacterial cell lesson and AQA Biology 8461 §4.1.1.6."
     },
