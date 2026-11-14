@@ -947,3 +947,29 @@ body.lux-shell-on:has(#exam:not(.hidden)) #exam :is(a,button,textarea,select,inp
    grid-template-columns:minmax(0,1fr)!important;
  }
 }
+
+
+/* 14 Nov 2026 iPad landscape QA: retain the fixed academy wordmark, tabs,
+   filters and all four genuine Biology papers without letting the bottom nav
+   cover the final row. This is layout-only: no marking or saved progress edits. */
+@media (min-width:900px) and (max-height:820px) and (orientation:landscape){
+  body.lux-shell-on.assessment-rpg-scene main{
+    padding-top:64px;
+  }
+  body.lux-shell-on.assessment-rpg-scene:has(#papers:not(.hidden)) .intro{
+    display:none;
+  }
+  body.lux-shell-on.assessment-rpg-scene #papers.panel{
+    padding-top:9px;
+    padding-bottom:10px;
+  }
+  body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-row{
+    min-height:56px;
+    max-height:65px;
+    padding-top:6px;
+    padding-bottom:6px;
+  }
+  body.lux-shell-on.assessment-rpg-scene .subject-block .cards{
+    gap:5px;
+  }
+}
