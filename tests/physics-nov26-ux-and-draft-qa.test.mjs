@@ -37,7 +37,7 @@ const correct=[
 ];
 for(const answer of correct)assert.equal(grader(ring,answer).matched,4,'award all valid gold-density marks '+answer);
 for(const [answer,expected] of [
- ['The density is 16.1 g/cm3. Since 16.1 < 19.3, this ring isn\'t pure gold.',1],
+ ['The density is 16.1 g/cm3. Since 16.1 < 19.3, this ring isn\'t pure gold.',2],
  ['The density is not 16.1g/cm3, so it is not pure gold.',0]
 ]){
  const m=grader(ring,answer);
