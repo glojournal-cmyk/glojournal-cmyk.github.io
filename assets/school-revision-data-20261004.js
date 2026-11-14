@@ -23,6 +23,24 @@
       scope:'150-word French letter about a past holiday in a French-speaking country or town · GCSE Higher style · 25 marks',
       notes:'Classroom due date is 26 November; the actual in-class sitting date has not been separately confirmed. Teacher: revise Unit 1 vocabulary, dictation vocabulary, writing frame, perfect tense and future tenses. Dedicated mock: /assessment/french-nov26/ . Original two-bullet AQA Higher-style practice, self-mark AO2 15 and AO3 10.',
       revisionTopics:[topic('fr-y9-20260919-unit-1-holidays-and-opinions','Holidays and opinions',['Unit 1 holidays and opinions']),topic('fr-y9-oct17-future-tense-holidays','Future tense and holidays',['Futur simple']),topic('fr-y9-u1-perfect-tense','Perfect tense',['Passé composé']),topic('fr-y9-a2-postcard-practice','Letter and postcard writing',['Extended writing'])]},
+    {id:'school-physics-20261109', subject:'Physics', date:'2026-11-09', dateKind:'week',
+      dateLabel:'Week beginning 9 November 2026 · exact lesson date not confirmed',
+      title:'Particle model of matter and conduction', paperId:'physics-nov26',
+      scope:'Particle model, density calculations, heat transfer by conduction only; insulation RP2 and density RP5',
+      notes:'Teacher-slide-aligned 25-question practice with a rotating 200-question bank. No convection or radiation. Marks are provisional for free-text equivalents.',
+      revisionTopics:[]},
+    {id:'school-chemistry-20261116', subject:'Chemistry', date:'2026-11-16', dateKind:'week',
+      dateLabel:'Week beginning 16 November 2026 · during the Chemistry lesson',
+      title:'Assessment 2 · Formulae, equations and atomic structure', paperId:'chemistry-nov16',
+      scope:'Formulae · balancing chemical equations · C1.5 history of the atom · C1.6 atomic structure',
+      notes:'Three independent 20-minute, 20-mark school-style mocks (A, B, C), each with 13 questions, diagrams and end-only marking. Longer written responses use self-review against distinct mark points. School assessment mark total is not confirmed.',
+      revisionTopics:[]},
+    {id:'school-latin-20261123', subject:'Latin', date:'2026-11-23', dateKind:'week',
+      dateLabel:'Week beginning 23 November 2026 · exact lesson date not confirmed',
+      title:'November Assessment · Taylor Chapters 1–3', paperId:'latin-nov26',
+      scope:'Prescribed Taylor Ch.1–3 vocabulary and grammar · translation, comprehension and language analysis',
+      notes:'Teacher-aligned 50-minute 75-mark written mock: Sections A/B/C = 11/14/50 marks. Five additional unseen passages ×10 multiple-choice questions for supplementary practice; not a substitute for written translation.',
+      revisionTopics:[]},
     {id:'school-biology-20261116', subject:'Biology', date:'2026-11-16', dateKind:'week',
       dateLabel:'Week beginning 16 November 2026 · exact lesson date to be confirmed',
       title:'First GCSE Biology assessment · AQA 4.1.1 Cell structure', paperId:'biology-cell-structure',
@@ -48,7 +66,12 @@
     if(!subjects.has(subject)||!topic)return '/assessment/?tab=tracker';
     return '/study/'+subject.toLowerCase()+'/'+action+'?year=9&topic='+encodeURIComponent(topic)+(action==='practise'?'&mode=standard':'');
   }
-  function paperHref(paperId) {return '/assessment/?paper='+encodeURIComponent(paperId)+'&v=20261010-chem-marking1';}
+  function paperHref(paperId) {
+    const dedicated={'french-nov26':'/assessment/french-nov26/',
+      'latin-nov26':'/study/latin/november-2026/',
+      'chemistry-nov16':'/study/chemistry/exam-revision/mock/'};
+    return dedicated[paperId]||'/assessment/?paper='+encodeURIComponent(paperId)+'&v=20261010-chem-marking1';
+  }
   function buildRevisionPlan(garden={},assessment={},today=londonDay(),topicLearning={}) {
     if(!validDay(today))today=londonDay();
     const hidden=new Set(Array.isArray(assessment.hiddenSchoolAssessments)?assessment.hiddenSchoolAssessments:[]);
@@ -86,7 +109,7 @@
     const next=active.find(x=>x.focus)||active[0]||null;
     const suggestion=next?{assessment:next,topic:next.focus,
       reason:next.focus?.state==='needs-review'?'Your saved answers show this topic needs another try.':next.focus?.state==='unchecked'?'No topic practice is recorded yet. Check the basics first.':next.focus?.state==='mastered'?'The topic is mastered in app practice. Check the whole range with a timed paper.':next.focus?'Build confidence with an independent set of questions.':'Open the tracker to review the teacher’s range.',
-      href:next.focus?.state==='mastered'?next.paperHref:next.focus?.practiceHref||'/assessment/?tab=tracker'}:null;
+      href:next.focus?.state==='mastered'?next.paperHref:next.focus?.practiceHref||next.paperHref}:null;
     return {today,active,past,suggestion};
   }
   globalThis.LuxSchoolRevision={schoolAssessments,londonDay,buildRevisionPlan,topicHref,paperHref};
