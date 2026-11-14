@@ -60,7 +60,7 @@ for(let n=0;n<300;n++){
  assert.ok(picked.some(q=>q.topic==='RP2 thermal insulation'&&q.diagram),'RP2 graph question on every paper');
  assert.equal(picked.filter(q=>q.topic==='RP2 thermal insulation'&&q.answer.mode==='choice').length,1,'RP2 MC and graph coverage');
  assert.ok(['r01','r02','r05','r06','r09','r12','r13','r27','r28','r29','r30','r33','r34','r35','r36','r39'].some(id=>ids.has('phys-nov26-'+id)),'RP5 practical method/error/calculation on every paper');
- assert.ok(['d11','d13','d06'].some(id=>ids.has('phys-nov26-'+id)),'integrated density application on every paper');
+ assert.ok(['d11','d13','d06','d12'].some(id=>ids.has('phys-nov26-'+id)),'integrated density application on every paper');
  previous=[...previous,...picked.map(q=>q.id)].slice(-160);
 }
 const finalOnly={
