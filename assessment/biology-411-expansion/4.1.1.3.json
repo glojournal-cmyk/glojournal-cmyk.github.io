@@ -365,7 +365,7 @@
           {
             "label": "Lignified xylem walls prevent the vessels collapsing under tension.",
             "patterns": [
-              "lignin.{0,65}(collapse|strength|support)"
+              "(lignin|lignif).{0,65}(collaps|strength|support)"
             ]
           }
         ]
