@@ -3694,45 +3694,45 @@
       "conceptId": "bio-cell-20261114-083",
       "topic": "Eukaryotes and prokaryotes",
       "specification": "4.1.1.1",
-      "prompt": "A bacterium divides into daughter cells. Describe three facts about the genetic material that each daughter cell normally inherits.",
+      "prompt": "A bacterium contains a main circular DNA loop and may contain plasmids. It reproduces by binary fission. Explain three accurate facts about the DNA passed to the daughter cells.",
       "format": "typed_rubric",
       "marks": 3,
       "answer": {
         "mode": "biology_rubric",
         "accepted": [
-          "Each daughter receives a copy of the main DNA loop. The main DNA molecule is circular. Plasmid copies can also be inherited if the bacterium contains plasmids."
+          "The main bacterial DNA loop is replicated before cell division. Each daughter cell normally inherits a copy of the main circular DNA loop. If plasmids are present, plasmid copies may also be inherited; plasmid inheritance is not guaranteed for every daughter cell."
         ],
         "points": [
           {
-            "label": "Each daughter receives a copy of the main DNA loop.",
+            "label": "The main bacterial DNA loop is replicated before cell division.",
             "patterns": [
-              "(daughter|each).{0,75}(dna|loop)"
+              "(?=.*(?:dna|loop))(?=.*(?:replicat|copied|copies|duplicate)).*"
             ]
           },
           {
-            "label": "The main DNA molecule is circular.",
+            "label": "Each daughter cell normally inherits a copy of the main circular DNA loop.",
             "patterns": [
-              "(circular|ring).{0,30}(dna|loop)|dna.{0,30}circular"
+              "(?=.*(?:daughter|each))(?=.*(?:loop|dna))(?=.*(?:cop|inherit|receiv)).*"
             ]
           },
           {
-            "label": "Plasmid copies can also be inherited if the bacterium contains plasmids.",
+            "label": "If plasmids are present, plasmid copies may also be inherited; plasmid inheritance is not guaranteed for every daughter cell.",
             "patterns": [
-              "plasmid.{0,60}(cop|inherit|pass)"
+              "(?=.*(?:plasmid))(?=.*(?:may|can|might|sometimes|not always|not guaranteed)).*"
             ]
           }
         ]
       },
-      "modelAnswer": "Each daughter receives a copy of the main DNA loop. The main DNA molecule is circular. Plasmid copies can also be inherited if the bacterium contains plasmids.",
+      "modelAnswer": "The main bacterial DNA loop is replicated before cell division. Each daughter cell normally inherits a copy of the main circular DNA loop. If plasmids are present, plasmid copies may also be inherited; plasmid inheritance is not guaranteed for every daughter cell.",
       "markKeywords": [
-        "Each daughter receives a copy of the main DNA loop.",
-        "The main DNA molecule is circular.",
-        "Plasmid copies can also be inherited if the bacterium contains plasmids."
+        "The main bacterial DNA loop is replicated before cell division.",
+        "Each daughter cell normally inherits a copy of the main circular DNA loop.",
+        "If plasmids are present, plasmid copies may also be inherited; plasmid inheritance is not guaranteed for every daughter cell."
       ],
       "hint": "Use the correct structure and its function; show units and steps for numerical questions.",
       "examGuidance": {
         "strategy": "Award one mark per distinct correct scientific point; check units, evidence and working.",
-        "commonError": "Do not confuse a plasmid with the main DNA loop or confuse µm with nm."
+        "commonError": "Do not claim that every daughter cell is guaranteed to inherit each plasmid; the main DNA loop and plasmids are distinct."
       },
       "source": "Original exam-style question derived from supplied school notes and AQA Biology 8461 §4.1.1.1; not an official exam question."
     },
