@@ -20,6 +20,7 @@ for(let k=0;k<200;k++){
  if(recent.length)overlap.push(p.filter(q=>recent.includes(q.id)).length);
  recent=p.map(q=>q.id);
 }
+assert(overlap.every(n=>n===0),'consecutive Biology mocks must not reuse questions when the 144-question bank provides alternatives');
 const sperm=bank.questions[24];assert.equal(sandbox.mark(sperm,'The tail propels the sperm towards the egg.').credit,0.5);
 assert.equal(sandbox.mark(sperm,'The tail does not propel the sperm. Mitochondria do not release energy for movement.').credit,0);
 assert.equal(sandbox.mark(bank.questions[62],'30 degrees C.').credit,0);
