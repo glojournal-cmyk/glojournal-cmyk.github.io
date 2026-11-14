@@ -764,8 +764,8 @@ function drawFollowup(id){
     const paper=PAPERS.find(p=>p.id===state.results[Number(id)]?.paperId);
     const source=paper?await (await fetch(bankUrl(paper))).json():null;
      const bank=source?(Array.isArray(source.questions)?source.questions:(source.groups||[]).flatMap(group=>group.questions||[])):state.results[Number(id)]?.questions||[];
-    const source=bank.find(item=>item.id===q.id)||q;
-    const variant=globalThis.LuxLearningFeedback.selectTransferQuestion(source,bank,draft.questions.map(item=>item.id));
+    const matchingQuestion=bank.find(item=>item.id===q.id)||q;
+    const variant=globalThis.LuxLearningFeedback.selectTransferQuestion(matchingQuestion,bank,draft.questions.map(item=>item.id));
     if(!variant){button.textContent='No unused variant is available. Explain the rule, then continue.';return;}
     const next=draft.index+1;
     for(const key of ['answers','checked'])for(const index of Object.keys(draft[key]).map(Number).sort((a,b)=>b-a))if(index>=next){draft[key][index+1]=draft[key][index];delete draft[key][index];}
