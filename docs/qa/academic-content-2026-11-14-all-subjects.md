@@ -1,0 +1,39 @@
+# 14 November 2026 — Cross-subject academic-content audit
+
+**Scope:** All academic question and answer content changed in the 14 November 2026 UTC/London (GMT) commit window, compared to the last 13 November commit (`397d98e`). Includes subsequent 200-item Physics expansion through `203d3dd`. This report is independent of deployment or app-interaction QA.
+
+**Method:** Read the actual question banks, source passages, model answers and rubric criteria. Check topic boundaries and assessment format against the source descriptions within the project and primary AQA/OCR published specifications; independently recalculate displayed science numerical answers; check answer-key integrity, model-answer credit, mark points, unique IDs, passage evidence and repeated scenarios. Extend regression tests to retain these corrections. This is *not* moderation by Tiffin Girls' School, AQA or OCR.
+
+| Subject | Content inspected | Academic QA outcome and limits |
+|---|---|---|
+| Latin | 5 unseen passages, 50 MC questions with original Latin text/evidence, November mock 11+14+50=75 marks, 74 grammar prompts, Taylor Chapters 1–3 130-headword index | Narrative-level reading and key-versus-passage review: no independently confirmed incorrect MC answer in the 50. Questions use in-scope grammar including imperatives, vocatives, cases, city forms, duration, present/imperfect/perfect. Reviewed English translation options and section credit structure; school mock is original practice, not an OCR past paper. Some equivalent translations still require human judgement. |
+| Physics | 200 questions across five groups, 40 each: particle model, density, conduction, thermal insulation RP2 and density RP5 | Rechecked 18 independent new density arithmetic cases from the published 200-bank QA plus original calculations and graph data. Rubric points, model-answer matching, negation safeguards and exam-picking safeguards are covered by dedicated `physics-nov26-bank200-qa.mjs`. **Corrected** the misleading two-versus-three cooling calculations in a four-mark question; clarified saucepan/handle conduction and ordinary double-glazing mechanism; clarified oil-only mass and several article errors. Two older pairs reuse identical numeric scenarios; their saved historical IDs are retained, rather than silently changing attempted answers. |
+| Biology | 144 core questions (24 per AQA 4.1.1 subsection), including 72 newly dated 14 Nov; six source packs mirror the 72, rather than adding another 72 unique questions | Manually reviewed new and existing prompts/model explanations across all six subsections; checked the numerical microscopy, bacterial growth, zone area and ratio values. **Corrected** a 2-mark aseptic-loop question to explicitly ask for the two distinct points (sterilising and cooling) and a size-comparison stem that wrongly implied bacterial identity followed solely from size. Changes synchronised to the printable guide. Rubric regex remains an aid; equivalent free-text answers need review. |
+| Chemistry | 88 applied question objects, 62 original November one-mark items and a 16-ID exclusions list: 134 *eligible* November-paper questions; all 150 are kept for historical paper compatibility | Confirmed scope classifier restricts new papers to C1.5 atomic-model history, C1.6 atomic structure, formulae and equation balancing. Independently checked conservation of atoms and ionic charge on added items, using supplied model statements and previous scientific regressions. **Corrected** a 3-mark Thomson/Rutherford question so charge distribution, electron location and empty-space structure are three distinct markable points rather than two descriptions of having a nucleus. Written explanations use post-submission self-review. |
+| French | November 26 writing preparation: 49 dictation vocab entries, 25 translation-model sentences and 4 original 150-word essay prompts | Compared AQA 8652 Higher Paper 4 Question 3 structure: 2 compulsory bullets, approximately 150 words, 25 marks, AO2 15 + AO3 range 5 + accuracy 5. Self-marked language avoids false mechanical essay grades; one-bullet AO2 cap is tested. Accent tolerance applies to practice dictation only, not a claim that accents do not matter in real writing. |
+
+## Confirmed corrections in this QA wave
+
+1. **Physics `phys-nov26-i12`:** formerly instructed "calculate two drops" but awarded three distinct temperature-drop marks plus one conclusion. Now explicitly asks all three drops and a justified choice.
+2. **Physics `phys-nov26-c02`:** replace the mark about metal "conducting into food" (not a direct reason for a plastic handle) with the reason an exposed metal handle heats quickly; award the second mark for plastic's low conductivity.
+3. **Physics `phys-nov26-c05`:** standard double glazing contains a still gas/air gap; remove the confusing suggestion that ordinary glazing has a vacuum, which belongs to specialist vacuum glazing.
+4. **Physics `phys-nov26-d30`, `d31`, `d33`, `d35`, `d37`:** clarify whether oil mass excludes the container and correct wording without altering numerical answer keys.
+5. **Biology `bio-cell-20261114-135`:** explicitly ask why an inoculation loop is flamed *and* cooled. Keep two genuinely independent rubric points and update the print guide.
+6. **Biology `bio-cell-20261114-079`:** word the question as expected bacterial features; size data by itself does not prove cell type. Preserve 40:1 calculation and marks.
+7. **Chemistry `chem-nov16-2026-history-applied-01`:** replace repeated nucleus contrast with three non-overlapping Thomson-versus-Rutherford criteria.
+8. **Cross-subject QA:** amend outdated Physics count from 65 to 200 and require proof of these academic corrections. The 200-question expansion was merged after the original 65-question QA tests, and must not be dismissed as a defect simply because the legacy count differs.
+
+## Boundaries and unresolved risks
+
+- **School-specific assessment exactness is not fully certifiable.** The repo records teacher topics/dates and supplied-material descriptions, but the exact teacher test papers and marking grids are not independently reproduced in this review. AQA/OCR specifications support coverage, not a guarantee that a school question will appear. Some Physics RP2/RP5 skills may be broader than the teacher's shorter notice, so treat them as useful practice until a teacher-specific paper blueprint is available.
+- **Language and written sciences need human moderation.** A plausible explanation written in different words may deserve a mark despite not matching keyword/regex expectations; an answer with appropriate keywords may be scientifically incorrect if it negates or misuses them. Don't label provisional automated marks as final school grades.
+- **Question variation:** `phys-nov26-d06/d12` reuse the same 2×3×5 cm, 8 g/cm³ cuboid; `d09/r06` reuse the same 75 g water-displacement data. They are correct but redundant. Because these are public stored question IDs, numerical values have not been silently rewritten in this QA wave.
+- This report concerns **academic content** only. CI and GitHub Pages publication status must be checked separately after the changes are merged.
+
+## Reference specifications
+
+- [AQA GCSE Biology 8461 — Cell Biology, 4.1.1](https://www.aqa.org.uk/subjects/biology/gcse/biology-8461/specification/subject-content/cell-biology)
+- [AQA GCSE Physics 8463 — Required Practical 2 and 5](https://www.aqa.org.uk/subjects/physics/gcse/physics-8463/specification/practical-assessment)
+- [AQA GCSE French 8652 — Scheme of Assessment and Writing Question 3](https://www.aqa.org.uk/subjects/french/gcse/french-8652/specification/scheme-of-assessment)
+- [OCR GCSE Latin J282 — Language component](https://www.ocr.org.uk/qualifications/gcse/latin-j282-from-2016/specification-at-a-glance/)
+
