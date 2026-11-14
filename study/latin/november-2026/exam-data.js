@@ -86,86 +86,208 @@ export const GRAMMAR = [
   ["Special syntax","Why is 'in horto' ablative?","location","'In the garden': position uses ablative."],
   ["Special syntax","Why is 'in hortum' accusative?","movement","'Into the garden': movement uses accusative."]
 ];
+// Mock V2 (2026-11-14): a sustained, original unseen narrative and calibrated partial-credit rubric.
+// School guide supplies duration, marks and scope but does NOT provide a past paper or official point rubric.
+// Each independently identifiable criterion is worth one provisional self-assessment mark.
 const A = [
-  {id:"A1",prompt:"The girl carries the letter.",model:"puella epistulam portat.",points:[
-    "puella and epistulam: correct subject and accusative object",
-    "portat: present third-person singular of porto"]},
-  {id:"A2",prompt:"The slaves were working in the garden.",model:"servi in horto laborabant.",points:[
-    "servi: correct nominative plural subject",
-    "in horto laborabant: location in ablative, third-person plural imperfect"]},
-  {id:"A3",prompt:"We can see the temple.",model:"templum videre possumus.",points:[
-    "templum: correct accusative object",
-    "videre possumus: infinitive plus first-person plural of possum"]},
-  {id:"A4",prompt:"The boy is giving water to the slave-girl.",model:"puer aquam ancillae dat.",points:[
-    "puer and aquam: subject and accusative object",
-    "ancillae dat: correct dative recipient and present verb"]},
-  {id:"A5",prompt:"The messenger was warning the boys about danger.",model:"nuntius pueros de periculo monebat.",points:[
-    "nuntius and pueros: correct subject and plural accusative object",
-    "de periculo: de followed by the ablative",
-    "monebat: third-person singular imperfect"]}
+  {
+    id:"A1", prompt:"The messenger was carrying a letter to the house.",
+    model:"nuntius epistulam ad villam portabat.",
+    points:[
+      "nuntius — correct nominative singular subject (messenger)",
+      "epistulam — correct accusative singular direct object (a letter)",
+      "ad villam portabat — correct destination (ad + accusative) and imperfect 3rd singular 'was carrying'"
+    ]
+  },
+  {
+    id:"A2", prompt:"The slave-girls can prepare food for the master.",
+    model:"ancillae cibum domino parare possunt.",
+    points:[
+      "ancillae cibum — slave-girls as plural subject and food as accusative object",
+      "domino — dative singular 'for the master'",
+      "parare possunt — correct infinitive with 3rd-person plural present of possum"
+    ]
+  },
+  {
+    id:"A3", prompt:"The boys were working in the garden, but the slave was sitting in the shop.",
+    model:"pueri in horto laborabant, sed servus in taberna sedebat.",
+    points:[
+      "pueri laborabant — 'the boys were working', nominative plural and imperfect plural",
+      "in horto — 'in the garden', in + ablative singular",
+      "sed servus in taberna sedebat — correct contrasting clause: slave, in the shop, was sitting (imperfect singular)"
+    ]
+  },
+  {
+    id:"A4", prompt:"We were writing letters in the temple.",
+    model:"epistulas in templo scribebamus.",
+    points:[
+      "epistulas in templo — letters as accusative plural and location in + ablative",
+      "scribebamus — imperfect 1st-person plural 'we were writing'"
+    ]
+  }
 ];
+
 const B_PASSAGE = [
-  "Romae domina et puella in villa habitabant.",
-  "domina puellam ad forum mittebat.",
-  "puella per vias ambulabat et servum bonum videbat.",
-  "servus epistulam portabat sed dominam invenire non poterat.",
-  "puella servum ad villam duxit.",
-  "domina laeta erat et epistulam legebat.",
-  "deinde nuntius ad portam advenit.",
-  "nuntius dominam de periculo monebat.",
-  "domina servos vocavit et servi portas custodiebant."
+  "Romae domina cum servo et puella in villa habitabat.",
+  "domina servum ad forum misit; servus pecuniam portabat.",
+  "in foro servus nuntium vidit.",
+  "nuntius per vias festinabat et periculum timebat.",
+  "‘in via equus magnus est. pueri periculum timent!’ inquit nuntius.",
+  "servus pueros in via quaesivit sed non invenit.",
+  "puella nuntium audivit et ad portam cucurrit.",
+  "puella pueros ad villam duxit.",
+  "in villa pueri manebant et domina laeta erat."
 ];
 const B = [
-  {id:"B1",prompt:"Where were the mistress and the girl living? Give two details.",model:"In Rome, in a house/villa.",points:["Romae = in/at Rome","in villa = in a house/villa"]},
-  {id:"B2",prompt:"Who sent the girl, and where?",model:"The mistress sent the girl to the forum/marketplace.",points:["the mistress (domina)","to the forum/marketplace (ad forum)"]},
-  {id:"B3",prompt:"Whom did the girl see, and what was he carrying?",model:"A good slave, carrying a letter.",points:["a good slave (servum bonum)","a letter (epistulam)"]},
-  {id:"B4",prompt:"What could the slave not do, and who helped him?",model:"He could not find the mistress; the girl helped by leading him to the villa.",points:["could not find the mistress","the girl led him to the villa"]},
-  {id:"B5",prompt:"Give two details about the mistress when the slave arrived.",model:"She was happy and was reading the letter.",points:["she was happy (laeta erat)","she was reading the letter (epistulam legebat)"]},
-  {id:"B6",prompt:"Who arrived at the gate, and what did that person warn about?",model:"A messenger, warning the mistress about danger.",points:["a messenger (nuntius)","danger (de periculo)"]},
-  {id:"B7",prompt:"What did the mistress do, and what did the slaves then do?",model:"She called the slaves, and they guarded the gates.",points:["she summoned/called the slaves","the slaves guarded the gates"]}
+  {id:"B1",prompt:"Where was the mistress living, and with whom? (2 marks)",model:"In Rome, with a slave and a girl.",points:[
+    "In/at Rome (Romae) — 1 mark",
+    "With a slave and a girl (cum servo et puella) — 1 mark"
+  ]},
+  {id:"B2",prompt:"Where did the mistress send the slave, and what did he take? (2 marks)",model:"To the forum/marketplace; he took money.",points:[
+    "To the forum or marketplace (ad forum) — 1 mark",
+    "Money (pecuniam) — 1 mark"
+  ]},
+  {id:"B3",prompt:"Give two details which show that the messenger was anxious. (2 marks)",model:"He was hurrying through the streets and was afraid of danger.",points:[
+    "He was hurrying through the streets (per vias festinabat) — 1 mark",
+    "He was afraid of danger (periculum timebat) — 1 mark"
+  ]},
+  {id:"B4",prompt:"What two facts did the messenger report? (2 marks)",model:"A large horse was in the road, and the boys were afraid of danger.",points:[
+    "There was a large horse in the road (in via equus magnus est) — 1 mark",
+    "The boys were afraid of danger (pueri periculum timent) — 1 mark"
+  ]},
+  {id:"B5",prompt:"What did the slave do after hearing about the boys, and with what result? (2 marks)",model:"He searched for the boys in the street but did not find them.",points:[
+    "Searched for the boys in the street/streets (pueros in via quaesivit) — 1 mark",
+    "Did not find them (sed non invenit) — 1 mark"
+  ]},
+  {id:"B6",prompt:"How did the girl respond to the news? Give two actions. (2 marks)",model:"She heard the messenger and ran to the gate.",points:[
+    "She heard the messenger (nuntium audivit) — 1 mark",
+    "She ran to the gate (ad portam cucurrit) — 1 mark"
+  ]},
+  {id:"B7",prompt:"How did the episode end for the boys? Give two details. (2 marks)",model:"The girl led the boys to the villa and the boys stayed there.",points:[
+    "The girl led the boys to the house/villa (pueros ad villam duxit) — 1 mark",
+    "The boys stayed in the house/villa (in villa pueri manebant) — 1 mark"
+  ]}
 ];
+
 const C_LINES = [
-  {latin:"multi nautae in insula parva habitabant et cibum parabant.",
-   model:"Many sailors were living on a small island and were preparing food.",
-   points:["multi nautae = many sailors","in insula = on an island","parva = small, agreeing with insula","habitabant = were living","cibum parabant = were preparing food"]},
-  {latin:"subito nuntius ad portam festinavit et nautas de periculo monuit.",
-   model:"Suddenly a messenger hurried to the gate and warned the sailors about danger.",
-   points:["subito = suddenly","nuntius = a messenger","ad portam festinavit = hurried to the gate","nautas = the sailors (object)","de periculo monuit = warned about danger"]},
-  {latin:"nautae irati erant sed dominum bonum audire debebant.",
-   model:"The sailors were angry, but they ought to listen to the good master.",
-   points:["nautae = the sailors","irati = angry (masculine plural)","erant = were","sed dominum bonum = but the good master (object)","audire debebant = ought/needed to listen"]},
-  {latin:"dominus servos vocavit et quinque pueros ad templum misit.",
-   model:"The master called the slaves and sent five boys to the temple.",
-   points:["dominus = the master","servos vocavit = called the slaves","et = and","quinque pueros = five boys (object)","ad templum misit = sent to the temple"]},
-  {latin:"pueri magnum equum in via viderunt et statim cucurrerunt.",
-   model:"The boys saw a large horse in the road and immediately ran.",
-   points:["pueri = the boys","magnum equum = a large horse (object)","in via = on/in the road","viderunt = saw","statim cucurrerunt = ran immediately"]},
-  {latin:"servi multas horas in agris laborabant; puellae aquam portabant.",
-   model:"The slaves were working in the fields for many hours; the girls were carrying water.",
-   points:["servi = the slaves","multas horas = for many hours (duration accusative)","in agris = in the fields","laborabant = were working","puellae aquam portabant = girls were carrying water"]},
-  {latin:"deinde puella laeta epistulam ad dominam portavit.",
-   model:"Then the happy girl carried a letter to the mistress.",
-   points:["deinde = then","puella = girl","laeta = happy, agreeing with puella","epistulam portavit = carried a letter","ad dominam = to the mistress"]},
-  {latin:"domina epistulam scripsit et nuntium Romam misit.",
-   model:"The mistress wrote a letter and sent a messenger to Rome.",
-   points:["domina = the mistress","epistulam = a letter (object)","scripsit = wrote","nuntium misit = sent a messenger","Romam = to Rome, without a preposition"]},
-  {latin:"nuntius Romae amicos invenit et consilium dedit.",
-   model:"The messenger found friends in Rome and gave advice.",
-   points:["nuntius = the messenger","Romae = in/at Rome","amicos = friends (object)","invenit = found","consilium dedit = gave advice/a plan"]},
-  {latin:"tandem amici Roma discesserunt et ad insulam navigaverunt.",
-   model:"At last the friends left Rome and sailed to the island.",
-   points:["tandem = at last/finally","amici = the friends","Roma discesserunt = departed from Rome (no preposition)","ad insulam = to/towards the island","navigaverunt = sailed"]}
+  {
+    latin:"Romae domina cum puella et servis in villa habitabat; servi in horto multas horas laborabant.",
+    model:"In Rome a mistress lived in a house with a girl and slaves; the slaves worked in the garden for many hours.",
+    points:[
+      "Romae — in/at Rome (special city form, no preposition)",
+      "domina ... habitabat — the mistress lived/was living (imperfect singular)",
+      "cum puella et servis — with a girl and slaves (cum + ablative)",
+      "in villa — in the house/villa (location, ablative)",
+      "servi in horto — the slaves in the garden (correct plural subject and location)",
+      "multas horas laborabant — worked/were working for many hours (accusative of duration; imperfect plural)"
+    ]
+  },
+  {
+    latin:"subito nuntius ad villam advenit et dominam de periculo monuit; domina nuntium audivit sed periculum timebat.",
+    model:"Suddenly a messenger arrived at the house and warned the mistress about danger; the mistress heard the messenger but was afraid of danger.",
+    points:[
+      "subito — suddenly",
+      "nuntius ... advenit — a messenger arrived (perfect singular)",
+      "ad villam — to/at the house (ad + accusative of direction)",
+      "dominam de periculo monuit — warned the mistress about danger (perfect; correct object and de + ablative)",
+      "domina nuntium audivit — the mistress heard the messenger (perfect singular)",
+      "sed periculum timebat — but was afraid of danger (imperfect singular)"
+    ]
+  },
+  {
+    latin:"domina consilium paravit: servos vocavit et cibum vinumque portare iussit; puella epistulam scripsit.",
+    model:"The mistress prepared a plan: she called the slaves and ordered them to carry food and wine; the girl wrote a letter.",
+    points:[
+      "domina consilium paravit — mistress prepared a plan (perfect)",
+      "servos vocavit — she called the slaves (accusative plural; perfect)",
+      "portare iussit — ordered them to carry (iubeo + infinitive, perfect)",
+      "cibum — food as the object being carried",
+      "vinumque — and wine (-que enclitic means 'and')",
+      "puella epistulam scripsit — the girl wrote a letter (perfect)"
+    ]
+  },
+  {
+    latin:"servi cibum et vinum portabant, sed puella servos ad portam ducere non poterat.",
+    model:"The slaves were carrying food and wine, but the girl could not lead the slaves to the gate.",
+    points:[
+      "servi — the slaves as plural subject",
+      "cibum et vinum — food and wine as objects",
+      "portabant — were carrying (imperfect plural)",
+      "sed puella ... non poterat — but the girl could not/was unable (imperfect of possum)",
+      "servos ad portam ducere — lead the slaves to the gate (infinitive with correct accusative object and destination)"
+    ]
+  },
+  {
+    latin:"puella nuntium per vias quaesivit; tandem nuntium in foro invenit et ad portam cucurrit.",
+    model:"The girl searched for the messenger through the streets; at last she found him in the marketplace and ran to the gate.",
+    points:[
+      "puella nuntium quaesivit — the girl searched for the messenger (perfect)",
+      "per vias — through/along the streets (per + accusative plural)",
+      "tandem — at last/finally",
+      "nuntium in foro invenit — found the messenger in the forum/marketplace (perfect; location in + ablative)",
+      "ad portam cucurrit — ran to the gate (perfect of curro)"
+    ]
+  },
+  {
+    latin:"domina cum servis et puella Roma discessit; nautae periculum timebant sed ad insulam navigaverunt.",
+    model:"The mistress left Rome with the slaves and the girl; the sailors were afraid of danger but sailed towards the island.",
+    points:[
+      "domina — the mistress as subject",
+      "cum servis et puella — with the slaves and the girl (cum + ablative)",
+      "Roma discessit — left/departed from Rome (no preposition for city of origin; perfect)",
+      "nautae — the sailors (plural subject)",
+      "periculum timebant — feared danger/were afraid of danger (imperfect plural)",
+      "sed ad insulam navigaverunt — but sailed towards/to the island (perfect plural, ad + accusative)"
+    ]
+  },
+  {
+    latin:"in insula puella laeta erat, sed servi pecuniam non habebant; domina servum ad tabernam misit.",
+    model:"On the island the girl was happy, but the slaves had no money; the mistress sent a slave to the shop.",
+    points:[
+      "in insula — on the island (in + ablative)",
+      "puella laeta — the happy girl/the girl was happy (feminine adjective agreement)",
+      "erat — was (imperfect of sum), with correct connection to 'happy'",
+      "sed servi — but the slaves (plural subject)",
+      "pecuniam non habebant — did not have any money (imperfect plural, correct negation)",
+      "domina servum ad tabernam misit — mistress sent a slave to the shop (perfect; ad + accusative)"
+    ]
+  },
+  {
+    latin:"servus in taberna cibum invenit; nautae in villa manebant et puella per vias ambulabat.",
+    model:"The slave found food in the shop; the sailors stayed in the house and the girl was walking through the streets.",
+    points:[
+      "servus cibum invenit — the slave found food (perfect)",
+      "in taberna — in the shop (ablative of location)",
+      "nautae in villa — the sailors in the house/villa",
+      "manebant — were staying/remained (imperfect plural)",
+      "puella per vias ambulabat — the girl was walking through the streets (imperfect; per + accusative)"
+    ]
+  },
+  {
+    latin:"tandem domina epistulam legit, consilium bonum habebat et servis pecuniam dedit.",
+    model:"At last the mistress read the letter, had a good plan, and gave money to the slaves.",
+    points:[
+      "tandem — at last/finally",
+      "domina epistulam legit — the mistress read the letter (perfect singular)",
+      "consilium bonum — a good plan (neuter adjective agreement)",
+      "habebat — had/was holding (imperfect singular)",
+      "et servis pecuniam dedit — and gave money to the slaves (dative recipient, accusative object, perfect)"
+    ]
+  }
 ];
-export const MOCK = {
+export const MOCK = Object.freeze({
+  version:"2026-11-14.2",
+  title:"November Latin · Full Mock (recalibrated)",
   durationMinutes:50,
   totalMarks:75,
+  guidance:"Original, scope-aligned school-style practice; the teacher provided no official paper or scoring grid. These 1-mark checkpoints support provisional self-marking, not an official predicted grade.",
   sections:[
-    {id:"A",title:"A · English into Latin",description:"11 marks · five sentences; no perfect, adjectives, imperatives/vocative or city rules.",questions:A},
-    {id:"B",title:"B · Reading comprehension",description:"14 marks · answer in English using the passage.",passage:B_PASSAGE,questions:B},
-    {id:"C",title:"C · Latin passage translation",description:"50 marks · translate each Latin sentence into natural, accurate English.",passage:C_LINES.map(x=>x.latin),questions:C_LINES.map((x,i)=>({id:"C"+(i+1),prompt:"Translate sentence "+(i+1)+".",latin:x.latin,model:x.model,points:x.points}))}
+    {id:"A",title:"A · English into Latin",description:"11 marks · four original sentences. Present/imperfect, nouns, prepositions and possum + infinitive; no perfect, adjectives, imperatives/vocative or city-name rules.",questions:A},
+    {id:"B",title:"B · Reading comprehension",description:"14 marks · one continuous Latin passage. Answer in English; seven linked questions on details, action, sequence and evidence.",passage:B_PASSAGE,questions:B},
+    {id:"C",title:"C · Latin passage translation",description:"50 marks · one sustained unseen story divided into nine answer spaces. Translate precisely, including cases, tense, agreement, infinitives, city forms and duration.",passage:C_LINES.map(x=>x.latin),questions:C_LINES.map((x,i)=>({id:"C"+(i+1),prompt:"Translate passage segment "+(i+1)+".",latin:x.latin,model:x.model,points:x.points}))}
   ]
-};
-// Separate from the mock: fresh, untimed original practice items.
+});
+
 export const PRACTICE = [
   {group:"English → Latin",items:[
     ["The woman was walking through the garden.","femina per hortum ambulabat.","per + accusative; imperfect 3rd singular."],
