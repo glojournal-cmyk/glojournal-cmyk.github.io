@@ -958,8 +958,11 @@ body.lux-shell-on:has(#exam:not(.hidden)) #exam :is(a,button,textarea,select,inp
  body.lux-shell-on.assessment-rpg-scene #subject-bar.subject-bar{padding:0 0 4px}
  body.lux-shell-on.assessment-rpg-scene #assessment-filters.assessment-filters{margin:4px 0 5px;gap:6px}
  body.lux-shell-on.assessment-rpg-scene .subject-block>.when{margin:3px 0!important;padding:5px 9px}
- body.lux-shell-on.assessment-rpg-scene .subject-block .cards{gap:5px;margin-top:5px!important}
+ body.lux-shell-on.assessment-rpg-scene .subject-block .cards{gap:4px;margin-top:4px!important}
  body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-row{
-  min-height:55px;max-height:59px;padding:5px 12px
+  min-height:50px;max-height:52px;padding:3px 12px
+ }
+ body.lux-shell-on.assessment-rpg-scene #paper-list .assessment-paper-buttons button.primary{
+  min-height:40px;padding:6px 11px
  }
 }
