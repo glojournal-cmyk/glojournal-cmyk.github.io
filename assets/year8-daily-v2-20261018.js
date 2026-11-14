@@ -583,7 +583,7 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     }
   }
   const examRank=new Map(frenchExamTopicIds.map((id,i)=>[id,i]));
-  const examStart=((dayNumber(today)%frenchExamTopicIds.length)+frenchExamTopicIds.length)%frenchExamTopicIds.length;
+  const examStart=(((dayNumber(today)-dayNumber('2026-11-14'))%frenchExamTopicIds.length)+frenchExamTopicIds.length)%frenchExamTopicIds.length;
   const examCompare=(a,b)=>
     (examRecent.get(a.topicId)||0)-(examRecent.get(b.topicId)||0)||
     ((examRank.get(a.topicId)-examStart+frenchExamTopicIds.length)%frenchExamTopicIds.length)-
