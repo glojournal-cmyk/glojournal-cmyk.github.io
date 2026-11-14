@@ -34,6 +34,8 @@ jobs:
         with: {node-version: 22}
       - run: npm install --no-save playwright
       - run: npx playwright install --with-deps chromium webkit
+      - name: Test Chemistry Assessment 2 mock on Chromium and iPad WebKit
+        run: node tests/chemistry-school-mock-browser-20261114.mjs
       - name: Check Garden Academy iPad map and original watering flow
         run: node tests/garden-academy-preview-browser.mjs
       - name: Save Garden iPad approval screenshots (best effort)
