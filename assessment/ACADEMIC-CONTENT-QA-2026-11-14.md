@@ -83,3 +83,9 @@ Further source-by-source checks of the final **200-item Physics** and **144-item
 **Known non-blocking quality concern:** Existing Physics IDs `d06`/`d12` use the same 2×3×5 cm, 8 g/cm³ cuboid; `d09`/`r06` also reuse the same displacement scenario. The arithmetic is correct but repeated numbers reduce practice variety. These historical question IDs were left untouched to avoid silently invalidating saved answers; future question-bank additions can use genuinely different data.
 
 **Tests:** `tests/academic-all-today-20261114.test.mjs` now includes explicit checks of the six corrected items and guide consistency. Detailed dedicated subject CI is also required; no school-/awarding-body moderation has been claimed.
+
+## Follow-up: repeated Physics numerical datasets (14 November)
+
+The two historical pairs `d06`/`d12` (2 × 3 × 5 cm cuboid at 8 g/cm³) and `d09`/`r06` (75 g stone displacing 40→65 cm³) are individually mathematically correct but repeat the **same numerical exercise**. The assessment draw now treats each pair as a shared data family, so the two members cannot appear in the same 25-question school-practice paper, even across the Density and RP5 topic quotas. A previously seen family is also treated as recently used when choosing later papers, without changing any original question ID, answer key or 200-item bank. This preserves saved answer compatibility. The 5,000-draw reachability regression additionally guards against same-paper reused datasets and checks that every question remains selectable.
+
+This is a **rotation fix**, not a claim that the 200 questions contain 200 independent calculation scenarios. More genuinely different contexts and data would require separate new, reviewed questions.
