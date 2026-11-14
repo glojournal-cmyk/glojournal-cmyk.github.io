@@ -66,7 +66,7 @@ test("Static entry point and iPad-friendly controls are present",()=>{
   assert.match(page,/data-tab="vocabulary"/);
   assert.match(page,/data-tab="grammar"/);
   assert.match(page,/data-tab="mock"/);
-  assert.match(page,/exam\.js\?v=20261114b/);
+  assert.match(page,/exam\.js\?v=20261114c/);
   assert.match(client,/root\.addEventListener\("input"/);
   assert.match(client,/root\.addEventListener\("click"/);
 });
