@@ -40,6 +40,10 @@ for(let n=0;n<simulations;n++){
  for(const [first,second] of repeatedDatasetPairs)
    assert.ok(!(ids.includes(first)&&ids.includes(second)),
      'same numerical data must not appear twice in a paper: '+first+' and '+second);
+ for(const [first,second] of repeatedDatasetPairs)
+   assert.ok(!(lastPaper.some(id=>id===first||id===second)
+     &&ids.some(id=>id===first||id===second)),
+     'repeat numerical dataset across consecutive papers: '+first+' and '+second);
  assert.equal(aligned({questions:paper}),true,'every paper has valid practical coverage');
  assert.equal(paper.filter(q=>q.answer.mode==='choice').length,5,'five MC per paper');
  for(const [topic,quantity] of Object.entries(quotas)){
