@@ -1928,43 +1928,43 @@
           "difficulty": 3,
           "format": "typed_rubric",
           "marks": 3,
-          "prompt": "Two brick walls have the same surface area and material but thicknesses of 10 cm and 20 cm. Predict which loses energy more rapidly and explain two relevant factors. (3 marks)",
+          "prompt": "Two brick walls have the same material, surface area and temperature difference, but thicknesses of 10 cm and 20 cm. Which transfers thermal energy faster by conduction? Explain using wall thickness and temperature gradient. (3 marks)",
           "answer": {
             "mode": "chemistry_rubric",
             "accepted": [
-              "The thinner 10 cm wall loses energy more rapidly by conduction. Increasing wall thickness increases the distance energy must travel. Low thermal conductivity materials slow the rate of energy transfer."
+              "The 10 cm wall transfers thermal energy faster by conduction. Its shorter conduction path provides less thermal resistance than the 20 cm wall. With the same temperature difference, the thinner wall has a steeper temperature gradient, so the conduction rate is higher."
             ],
             "points": [
               {
-                "label": "The thinner 10 cm wall loses energy more rapidly by conduction.",
+                "label": "The 10 cm (thinner) wall transfers energy faster.",
                 "alternatives": [
-                  "The thinner 10 cm wall loses energy more rapidly by conduction."
+                  "The 10 cm (thinner) wall transfers energy faster."
                 ],
                 "patterns": [
-                  "(?=.*(?:10))(?=.*(?:wall))(?=.*(?:rapid)).*"
+                  "(?=.*(?:10\\s*cm|thinner))(?=.*(?:faster|fast|higher|greater)).*"
                 ]
               },
               {
-                "label": "Increasing wall thickness increases the distance energy must travel.",
+                "label": "The thinner wall presents a shorter conduction path and less thermal resistance.",
                 "alternatives": [
-                  "Increasing wall thickness increases the distance energy must travel."
+                  "The thinner wall presents a shorter conduction path and less thermal resistance."
                 ],
                 "patterns": [
-                  "(?=.*(?:thickness))(?=.*(?:distance)).*"
+                  "(?=.*(?:shorter|less|lower))(?=.*(?:path|distance|resistance)).*"
                 ]
               },
               {
-                "label": "Low thermal conductivity materials slow the rate of energy transfer.",
+                "label": "At the same temperature difference, a thinner wall has a steeper temperature gradient, increasing conduction rate.",
                 "alternatives": [
-                  "Low thermal conductivity materials slow the rate of energy transfer."
+                  "At the same temperature difference, a thinner wall has a steeper temperature gradient, increasing conduction rate."
                 ],
                 "patterns": [
-                  "(?=.*(?:low))(?=.*(?:conductivity))(?=.*(?:slow)).*"
+                  "(?=.*(?:temperature))(?=.*(?:gradient|steeper)).*"
                 ]
               }
             ]
           },
-          "modelAnswer": "The thinner 10 cm wall loses energy more rapidly by conduction. Increasing wall thickness increases the distance energy must travel. Low thermal conductivity materials slow the rate of energy transfer.",
+          "modelAnswer": "The 10 cm wall transfers thermal energy faster by conduction. Its shorter conduction path provides less thermal resistance than the 20 cm wall. With the same temperature difference, the thinner wall has a steeper temperature gradient, so the conduction rate is higher.",
           "hint": "Show the steps needed for each marking point, with units for numerical answers.",
           "examGuidance": {
             "strategy": "Award each required scientific fact, calculation step or conclusion separately. Write distinct steps to earn each mark.",
@@ -2914,51 +2914,55 @@
           "answer": {
             "mode": "chemistry_rubric",
             "accepted": [
-              "Read a known liquid volume in a measuring cylinder. Measure the mass of the empty cylinder. Subtract empty mass from the filled mass. Divide liquid mass by liquid volume."
+              "Measure and record the mass of the empty measuring cylinder. Add liquid, read its volume and measure the combined mass of the cylinder and liquid. Subtract the empty-cylinder mass to obtain the liquid mass. Divide liquid mass by liquid volume to calculate density, using consistent units such as g/cm³."
             ],
             "points": [
               {
-                "label": "Read a known liquid volume in a measuring cylinder.",
+                "label": "Measure and record the mass of the empty measuring cylinder, or tare the balance.",
                 "alternatives": [
-                  "Read a known liquid volume in a measuring cylinder."
+                  "Measure the empty measuring cylinder mass.",
+                  "Tare the balance with the empty cylinder."
                 ],
                 "patterns": [
-                  "(?=.*(?:volume))(?=.*(?:cylinder)).*"
+                  "(?=.*(?:mass))(?=.*(?:empty))(?=.*(?:cylinder)).*"
                 ],
                 "variants": [
-                  "(?=.*(?:known|given|measured))(?=.*(?:volume))(?=.*(?:cylinder)).*"
+                  "(?=.*(?:tare|zero))(?=.*(?:balance|cylinder)).*"
                 ]
               },
               {
-                "label": "Measure the mass of the empty cylinder.",
+                "label": "Add liquid, measure its volume and the mass of the filled cylinder.",
                 "alternatives": [
-                  "Measure the mass of the empty cylinder."
+                  "Read the known volume and weigh the cylinder plus liquid."
                 ],
                 "patterns": [
-                  "(?=.*(?:empty))(?=.*(?:mass)).*"
+                  "(?=.*(?:volume))(?=.*(?:mass|weigh))(?=.*(?:filled|full|liquid)).*"
                 ]
               },
               {
-                "label": "Subtract empty mass from the filled mass.",
+                "label": "Subtract the empty-container mass from the filled-container mass to obtain liquid mass.",
                 "alternatives": [
-                  "Subtract empty mass from the filled mass."
+                  "Filled minus empty cylinder mass gives liquid mass."
                 ],
                 "patterns": [
-                  "(?=.*(?:subtract))(?=.*(?:mass)).*"
+                  "(?=.*(?:subtract|minus|difference))(?=.*(?:empty))(?=.*(?:full|filled)).*"
                 ]
               },
               {
-                "label": "Divide liquid mass by liquid volume.",
+                "label": "Calculate density by dividing the liquid mass by its volume with matching units.",
                 "alternatives": [
-                  "Divide liquid mass by liquid volume."
+                  "Density equals liquid mass divided by liquid volume."
                 ],
                 "patterns": [
-                  "(?=.*(?:divide))(?=.*(?:mass))(?=.*(?:volume)).*"
+                  "(?=.*(?:density|rho|ρ))(?=.*(?:mass))(?=.*(?:volume)).*"
+                ],
+                "variants": [
+                  "(?=.*(?:mass))(?=.*(?:volume))(?=.*(?:divide|/|÷)).*"
                 ]
               }
             ]
           },
-          "modelAnswer": "Read a known liquid volume in a measuring cylinder. Measure the mass of the empty cylinder. Subtract empty mass from the filled mass. Divide liquid mass by liquid volume.",
+          "modelAnswer": "Measure and record the mass of the empty measuring cylinder. Add liquid, read its volume and measure the combined mass of the cylinder and liquid. Subtract the empty-cylinder mass to obtain the liquid mass. Divide liquid mass by liquid volume to calculate density, using consistent units such as g/cm³.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
           "examGuidance": {
             "strategy": "Each distinct idea earns one mark. For calculations, show working and the correct unit.",
