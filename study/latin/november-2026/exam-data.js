@@ -187,7 +187,7 @@ const C_LINES = [
     model:"Suddenly a messenger arrived at the house and warned the mistress about danger; the mistress heard the messenger but was afraid of danger.",
     points:[
       "subito — suddenly",
-      "nuntius ... advenit — a messenger arrived (perfect singular)",
+      "nuntius ... advenit — a messenger arrived (also accept 'arrives' as present, if the narrative reading remains coherent)",
       "ad villam — to/at the house (ad + accusative of direction)",
       "dominam de periculo monuit — warned the mistress about danger (perfect; correct object and de + ablative)",
       "domina nuntium audivit — the mistress heard the messenger (perfect singular)",
@@ -224,7 +224,7 @@ const C_LINES = [
       "puella nuntium quaesivit — the girl searched for the messenger (perfect)",
       "per vias — through/along the streets (per + accusative plural)",
       "tandem — at last/finally",
-      "nuntium in foro invenit — found the messenger in the forum/marketplace (perfect; location in + ablative)",
+      "nuntium in foro invenit — found/finds the messenger in the forum/marketplace (present/perfect ambiguity without macrons; in + ablative)",
       "ad portam cucurrit — ran to the gate (perfect of curro)"
     ]
   },
@@ -268,7 +268,7 @@ const C_LINES = [
     model:"At last the mistress read the letter, had a good plan, and sent a slave to Rome.",
     points:[
       "tandem — at last/finally",
-      "domina epistulam legit — the mistress read the letter (perfect singular)",
+      "domina epistulam legit — mistress read/reads the letter (unmarked present/perfect form; credit a coherent reading)",
       "consilium bonum — a good plan (neuter adjective agreement)",
       "habebat — had/was holding (imperfect singular)",
       "et servum Romam misit — and sent a slave to Rome (accusative object, destination to a city without a preposition, perfect)"
@@ -280,7 +280,7 @@ export const MOCK = Object.freeze({
   title:"November Latin · Full Mock (recalibrated)",
   durationMinutes:50,
   totalMarks:75,
-  guidance:"Original, scope-aligned school-style practice; the teacher provided no official paper or scoring grid. These 1-mark checkpoints support provisional self-marking, not an official predicted grade.",
+  guidance:"Original, scope-aligned school-style practice; the teacher provided no official paper or scoring grid. These 1-mark checkpoints support provisional self-marking, not an official predicted grade. Without macrons, advenit, invenit and legit may be read as present or perfect; accept a consistent grammatically defensible translation.",
   sections:[
     {id:"A",title:"A · English into Latin",description:"11 marks · four original sentences. Present/imperfect, nouns, prepositions and possum + infinitive; no perfect, adjectives, imperatives/vocative or city-name rules.",questions:A},
     {id:"B",title:"B · Reading comprehension",description:"14 marks · one continuous Latin passage. Answer in English; seven linked questions on details, action, sequence and evidence.",passage:B_PASSAGE,questions:B},
