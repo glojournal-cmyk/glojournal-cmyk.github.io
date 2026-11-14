@@ -1,6 +1,6 @@
 import { LATIN_BOOKLET_RECORDS } from "/assets/latin-vocabulary-booklet-20261023.js";
 import { SYLLABUS, GRAMMAR, PRACTICE, MOCK, validateMock } from "./exam-data.js?v=20261114c";
-import { UNSEEN_PASSAGES, validateUnseens } from "./unseen-passages.js?v=20261114b";
+import { UNSEEN_PASSAGES, validateUnseens } from "./unseen-passages.js?v=20261114c";
 
 validateMock();
 validateUnseens();
