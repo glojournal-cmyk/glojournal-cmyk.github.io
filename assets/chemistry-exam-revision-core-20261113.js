@@ -75,7 +75,10 @@ function equationSide(side){
     if(!m)return null;
     const coefficient=Number(m[1]||1);
     if(!Number.isSafeInteger(coefficient)||coefficient<1)return null;
-    output.set(m[2],(output.get(m[2])||0)+coefficient);
+    // A complete balanced equation must use one coefficient per chemical species.
+    // Writing the same species twice (Na + Na) must not bypass coefficient marking.
+    if(output.has(m[2]))return null;
+    output.set(m[2],coefficient);
   }
   return [...output.entries()].sort(([a],[b])=>a.localeCompare(b));
 }
