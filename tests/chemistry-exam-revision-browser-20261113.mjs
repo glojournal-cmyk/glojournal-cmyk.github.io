@@ -52,7 +52,25 @@ try{
       }else{
         await page.locator('#answer-area input[type="text"]').fill(firstQuestion.answer.accepted[0]);
       }
+      // A failed iPad draft write must not advance the visible question.
+      // The learner can export the in-memory paper without leaving the answer.
+      await page.evaluate(key=>{
+        const original=Storage.prototype.setItem;
+        Storage.prototype.setItem=function(k,v){
+          if(k===key&&window.__examWriteBlocked)
+            throw new DOMException('Simulated storage quota error','QuotaExceededError');
+          return original.call(this,k,v);
+        };
+        window.__examWriteBlocked=true;
+      },STORE_KEY);
       await page.click('#next');
+      assert.match(await page.locator('#position').innerText(),/Question 1/);
+      assert.equal((await state(page)).active.index,0,'failed save must not advance saved question position');
+      assert.match(await page.locator('#paper-save-status').innerText(),/Save failed/);
+      assert.equal(await page.locator('#paper-export').isVisible(),true,'backup export is reachable while answering');
+      await page.evaluate(()=>{window.__examWriteBlocked=false;});
+      await page.click('#next');
+      assert.match(await page.locator('#position').innerText(),/Question 2/);
       await page.reload();
       await page.locator('#resume').waitFor({state:'visible'});
       assert.match(await page.locator('#resume').innerText(),/1 of 10 answered/);
