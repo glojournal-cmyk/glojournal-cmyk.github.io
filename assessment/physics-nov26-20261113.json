@@ -3220,7 +3220,7 @@
           "difficulty": 3,
           "format": "typed_rubric",
           "marks": 3,
-          "prompt": "A oil-filled container (liquid only) has mass 0.96 kg and volume 0.0012 m³. Calculate its density, showing formula, substitution and units. (3 marks)",
+          "prompt": "A sample of oil has mass 0.96 kg and volume 0.0012 m³. Calculate its density, showing formula, substitution and units. (3 marks)",
           "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
           "examGuidance": {
             "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
@@ -3287,7 +3287,7 @@
           "difficulty": 3,
           "format": "typed_rubric",
           "marks": 3,
-          "prompt": "A alloy cuboid has density 2.5 g/cm³ and volume 24 cm³. Calculate its mass, showing your working and units. (3 marks)",
+          "prompt": "An alloy cuboid has density 2.5 g/cm³ and volume 24 cm³. Calculate its mass, showing your working and units. (3 marks)",
           "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
           "examGuidance": {
             "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
@@ -3421,7 +3421,7 @@
           "difficulty": 3,
           "format": "typed_rubric",
           "marks": 3,
-          "prompt": "A industrial concrete sample has density 2400 kg/m³ and volume 0.015 m³. Calculate its mass, showing your working and units. (3 marks)",
+          "prompt": "An industrial concrete sample has density 2400 kg/m³ and volume 0.015 m³. Calculate its mass, showing your working and units. (3 marks)",
           "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
           "examGuidance": {
             "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
@@ -3555,7 +3555,7 @@
           "difficulty": 3,
           "format": "typed_rubric",
           "marks": 3,
-          "prompt": "A iron piece has mass 126 g and density 7 g/cm³. Calculate its volume, showing working and units. (3 marks)",
+          "prompt": "An iron piece has mass 126 g and density 7 g/cm³. Calculate its volume, showing working and units. (3 marks)",
           "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
           "examGuidance": {
             "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
@@ -3689,7 +3689,7 @@
           "difficulty": 3,
           "format": "typed_rubric",
           "marks": 3,
-          "prompt": "A aluminium section has mass 54 g and density 2.7 g/cm³. Calculate its volume, showing working and units. (3 marks)",
+          "prompt": "An aluminium section has mass 54 g and density 2.7 g/cm³. Calculate its volume, showing working and units. (3 marks)",
           "hint": "For calculations, show the correct equation, numerical substitution and final answer with appropriate units.",
           "examGuidance": {
             "strategy": "Numerical method and final-answer marks are independent; a correct final number alone is not the whole solution.",
@@ -4059,30 +4059,30 @@
           "answer": {
             "mode": "chemistry_rubric",
             "accepted": [
-              "Metal conducts heat efficiently into food. Plastic conducts poorly so the handle is cooler."
+              "The metal pan body is a good conductor, so thermal energy would also pass quickly along an uninsulated metal handle. Plastic has low thermal conductivity, so less thermal energy travels into the user's hand."
             ],
             "points": [
               {
-                "label": "Metal conducts heat efficiently into food.",
+                "label": "The metal pan body is a good conductor, so thermal energy would also pass quickly along an uninsulated metal handle.",
                 "alternatives": [
-                  "Metal conducts heat efficiently into food."
+                  "Metal conducts energy along a metal handle, making it hot."
                 ],
                 "patterns": [
-                  "(?=.*(?:metal))(?=.*(?:conduct)).*"
+                  "(?=.*(?:metal))(?=.*(?:conduct))(?=.*(?:handle|hot)).*"
                 ]
               },
               {
-                "label": "Plastic conducts poorly so the handle is cooler.",
+                "label": "Plastic has low thermal conductivity, so less thermal energy travels into the user's hand.",
                 "alternatives": [
-                  "Plastic conducts poorly so the handle is cooler."
+                  "Plastic is a poor conductor, keeping hands cooler."
                 ],
                 "patterns": [
-                  "(?=.*(?:plastic))(?=.*(?:poorly)).*"
+                  "(?=.*(?:plastic))(?=.*(?:poor conductor|low thermal conductivity|insulat)).*"
                 ]
               }
             ]
           },
-          "modelAnswer": "Metal conducts heat efficiently into food. Plastic conducts poorly so the handle is cooler.",
+          "modelAnswer": "The metal pan body is a good conductor, so thermal energy would also pass quickly along an uninsulated metal handle. Plastic has low thermal conductivity, so less thermal energy travels into the user's hand.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
           "examGuidance": {
             "strategy": "Each distinct idea earns one mark. For calculations, show working and the correct unit.",
@@ -4180,41 +4180,34 @@
           "answer": {
             "mode": "chemistry_rubric",
             "accepted": [
-              "Two panes enclose a gap containing gas or vacuum. The gas is a poor conductor while a vacuum blocks conduction across the gap."
+              "Two panes of glass trap a gap of still air or a low-conductivity gas such as argon. The trapped gas is a poor thermal conductor, so less energy is transferred through the gap by conduction."
             ],
             "points": [
               {
-                "label": "Two panes enclose a gap containing gas or vacuum.",
+                "label": "Two panes of glass trap a gap of still air or a low-conductivity gas such as argon.",
                 "alternatives": [
-                  "Two panes enclose a gap containing gas or vacuum."
+                  "There is an air or gas-filled gap between the two panes."
                 ],
                 "patterns": [
-                  "(?=.*(?:panes))(?=.*(?:gap)).*"
-                ],
-                "variants": [
-                  "(?=.*(?:two|glass))(?=.*(?:panes))(?=.*(?:vacuum|gap|space)).*"
+                  "(?=.*(?:panes|glass))(?=.*(?:gap|air|argon|gas)).*"
                 ]
               },
               {
-                "label": "The gas is a poor conductor while a vacuum blocks conduction across the gap.",
+                "label": "The trapped gas is a poor thermal conductor, so less energy is transferred through the gap by conduction.",
                 "alternatives": [
-                  "The gas is a poor conductor while a vacuum blocks conduction across the gap."
+                  "Air/argon has low thermal conductivity, reducing heat transfer by conduction."
                 ],
                 "patterns": [
-                  "(?=.*(?:gas))(?=.*(?:poor conductor)).*"
-                ],
-                "variants": [
-                  "(?=.*(?:vacuum|evacuat))(?=.*(?:absence of particles|no particles|stops conduction|prevents conduction)).*",
-                  "(?=.*(?:absence of particles|no particles))(?=.*(?:stops|prevents|blocks))(?=.*(?:conduction|energy transfer)).*"
+                  "(?=.*(?:air|argon|gas))(?=.*(?:poor conductor|low thermal conductivity|less|reduces|slower)).*"
                 ]
               }
             ]
           },
-          "modelAnswer": "Two panes enclose a gap containing gas or vacuum. The gas is a poor conductor while a vacuum blocks conduction across the gap.",
+          "modelAnswer": "Two panes of glass trap a gap of still air or a low-conductivity gas such as argon. The trapped gas is a poor thermal conductor, so less energy is transferred through the gap by conduction.",
           "hint": "Recall the relevant method or particle explanation before writing your answer.",
           "examGuidance": {
             "strategy": "Each distinct idea earns one mark. For calculations, show working and the correct unit.",
-            "commonError": "Include the physical reason, and show numbers and units."
+            "commonError": "Ordinary double glazing normally has a sealed gas/air gap; a vacuum is a separate specialist glazing design, not the standard explanation."
           },
           "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice."
         },
@@ -6310,7 +6303,7 @@
           "difficulty": 4,
           "format": "typed_rubric",
           "marks": 4,
-          "prompt": "Use the cooling graph. All three beakers start at 80°C. After 10 minutes their temperatures are 53.1°C (no insulation), 60.3°C (newspaper) and 68.4°C (bubble wrap). Calculate two drops and justify the best insulation. (4 marks)",
+          "prompt": "Use the cooling graph. All three beakers start at 80°C. After 10 minutes their temperatures are 53.1°C (no insulation), 60.3°C (newspaper) and 68.4°C (bubble wrap). Calculate all three temperature falls, then identify and justify the best insulation. (4 marks)",
           "answer": {
             "mode": "chemistry_rubric",
             "accepted": [
