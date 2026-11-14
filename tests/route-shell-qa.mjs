@@ -24,7 +24,7 @@ for(const file of html){
   // The November Latin exam has its own independent module and must not create a duplicate student-store instance.
   if(rel==="study/latin/november-2026/index.html" && !src.includes('type="module" src="./exam.js?v='))
     failures.push({type:"standalone-latin-exam-entrypoint-missing",file:rel});
-  if(rel==="study/chemistry/exam-revision/index.html" && !src.includes('type="module" src="/assets/chemistry-exam-revision-20261113.js"'))
+  if(rel==="study/chemistry/exam-revision/index.html" && !/type="module" src="\/assets\/chemistry-exam-revision-20261113\.js\?v=[^"]+"/.test(src))
     failures.push({type:"standalone-chemistry-exam-entrypoint-missing",file:rel});
   const mainRefs=[...src.matchAll(/\/assets\/index-BLVOhKhN\.js(?:\?v=([^&"'<> ]+))?/g)].map(m=>({ref:m[0],version:m[1]||null}));
   if(!standalone&&mainRefs.some(x=>!x.version))failures.push({type:"unversioned-main-module",file:rel,refs:mainRefs.map(x=>x.ref)});
