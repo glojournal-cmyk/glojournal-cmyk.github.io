@@ -1,0 +1,39 @@
+name: 14 November cross-subject academic content QA
+on:
+  pull_request:
+    paths:
+      - 'study/latin/november-2026/**'
+      - 'assessment/biology-cell-structure-20261003.json'
+      - 'assessment/biology-cell-structure/**'
+      - 'assessment/biology-411-expansion/**'
+      - 'assessment/physics-nov26-20261113.json'
+      - 'content/exam-revision/chemistry-nov16-2026-applied.json'
+      - 'content/topics/chem-y9-c7.json'
+      - 'assessment/french-nov26/index.html'
+      - 'tests/academic-content-cross-subject-20261114.test.mjs'
+      - '.github/workflows/academic-content-qa-20261114.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tests/academic-content-cross-subject-20261114.test.mjs'
+      - 'study/latin/november-2026/**'
+      - 'assessment/biology-cell-structure-20261003.json'
+      - 'assessment/physics-nov26-20261113.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  academic-sources-and-answers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify 14 November school-scope sources, 50 Latin MC keys, 144 Biology rubrics, 200 Physics answers, Chemistry answers and French AQA marking constraints
+        run: node tests/academic-content-cross-subject-20261114.test.mjs
+      - name: Verify Latin unseen vocabulary and all fifty independent answer keys
+        run: node --test tests/latin-november-2026-unseen-academic-qa.test.mjs
+      - name: Verify Biology marking and 200 random balanced mocks
+        run: node tests/biology-cell-structure-qa.cjs

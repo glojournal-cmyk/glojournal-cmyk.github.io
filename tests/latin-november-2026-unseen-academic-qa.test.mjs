@@ -31,7 +31,7 @@ const IN_SCOPE_FORMS={
   porto:"porta portabant portare portavit", possum:"poterat",
   puella:"puella puellae puellam puellas", puer:"puer pueri pueris",
   quaero:"quaerebat quaerere quaesivit", roma:"roma romae romam",
-  romanus:"romano romanum romanus", saluto:"salutavit",
+  romanus:"romani romano romanum romanus", saluto:"salutavit",
   scribo:"scripsit", sed:"sed", servus:"serve servi servis servo servos servum servus",
   statim:"statim", stultus:"stultus", subito:"subito",
   sum:"erant erat est", taberna:"tabernam", tandem:"tandem",
@@ -111,6 +111,8 @@ test("Grammar and evidence: no unfair ambiguous Roman-case or iubeo readings",()
   assert.match(text.letter,/in villam cucurrit/);
   assert.match(text.horse,/servos equum quaerere iussit/);
   assert.match(text.island,/Romae/);
+  assert.match(text.island,/amicus Romani in insula parva habitabat/,"Romanus’s friend requires the genitive Romani");
+  assert.doesNotMatch(text.island,/amicus Romanus in insula parva habitabat/,"Nominative Romanus wrongly implies a Roman friend");
   assert.match(text.island,/Romam misit/);
   assert.match(text.island,/Roma discessit/);
   assert.match(text.island,/multas horas navigabant/);
