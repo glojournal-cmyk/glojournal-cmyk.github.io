@@ -1,0 +1,1098 @@
+{
+  "version": "2026-11-14-assessment2-schoolmock-1",
+  "schoolDate": "2026-11-16",
+  "durationMinutes": 20,
+  "marksPerPaper": 20,
+  "description": "Original school-style practice papers, not official Tiffin Girls' examination material.",
+  "papers": [
+    {
+      "id": "A",
+      "title": "School Mock A",
+      "questions": [
+        {
+          "id": "chem-nov16-2026-history-schoolmock-a-01",
+          "conceptId": "chem-nov16-2026-history-schoolmock-a-01-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "history",
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which labelled path in the diagram gives the clearest evidence for a small, dense nucleus?",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "C — rare backward scattering"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: C — rare backward scattering"
+            ]
+          },
+          "options": [
+            "A — straight through",
+            "B — slight deflection",
+            "C — rare backward scattering",
+            "All three prove that atoms are solid"
+          ],
+          "figure": {
+            "src": "/content/diagrams/chem-nov16-alpha-scattering-20261114.svg",
+            "alt": "Schematic alpha scattering: path A passes through, B bends, C is scattered backwards."
+          }
+        },
+        {
+          "id": "chem-nov16-2026-history-schoolmock-a-02",
+          "conceptId": "chem-nov16-2026-history-schoolmock-a-02-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "history",
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which scientist proposed the plum-pudding model following the discovery of the electron?",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "J. J. Thomson"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: J. J. Thomson"
+            ]
+          },
+          "options": [
+            "John Dalton",
+            "J. J. Thomson",
+            "James Chadwick",
+            "Niels Bohr"
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-history-schoolmock-a-03",
+          "conceptId": "chem-nov16-2026-history-schoolmock-a-03-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "history",
+          "format": "rubric_response",
+          "marks": 2,
+          "prompt": "Give TWO differences between Thomson's plum-pudding model and Rutherford's nuclear model.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "Thomson described positive charge spread throughout the atom; Rutherford located it in a small central nucleus. Thomson's model did not recognise the atom as mostly empty space; Rutherford's model did."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Thomson described positive charge spread throughout the atom; Rutherford located it in a small central nucleus.",
+              "Thomson's model did not recognise the atom as mostly empty space; Rutherford's model did."
+            ]
+          },
+          "markScheme": [
+            "Thomson described positive charge spread throughout the atom; Rutherford located it in a small central nucleus.",
+            "Thomson's model did not recognise the atom as mostly empty space; Rutherford's model did."
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-calc-schoolmock-a-04",
+          "conceptId": "chem-nov16-2026-calc-schoolmock-a-04-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "atomic",
+          "format": "typed_short",
+          "marks": 1,
+          "prompt": "An atom of magnesium-24 has atomic number 12. How many neutrons does it contain?",
+          "answer": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "12"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: 12"
+            ]
+          }
+        },
+        {
+          "id": "chem-nov16-2026-calc-schoolmock-a-05",
+          "conceptId": "chem-nov16-2026-calc-schoolmock-a-05-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "atomic",
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which subatomic particle has a relative charge of −1?",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Electron"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: Electron"
+            ]
+          },
+          "options": [
+            "Proton",
+            "Neutron",
+            "Electron",
+            "Nucleus"
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-calc-schoolmock-a-06",
+          "conceptId": "chem-nov16-2026-calc-schoolmock-a-06-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "atomic",
+          "format": "rubric_response",
+          "marks": 3,
+          "prompt": "Use the Atom X diagram. State (i) its atomic number, (ii) its mass number and (iii) why it is neutral.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "Atomic number = 8 because there are eight protons. Mass number = 17 because 8 protons + 9 neutrons = 17. The atom is neutral because it has eight electrons to balance eight protons."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Atomic number = 8 because there are eight protons.",
+              "Mass number = 17 because 8 protons + 9 neutrons = 17.",
+              "The atom is neutral because it has eight electrons to balance eight protons."
+            ]
+          },
+          "markScheme": [
+            "Atomic number = 8 because there are eight protons.",
+            "Mass number = 17 because 8 protons + 9 neutrons = 17.",
+            "The atom is neutral because it has eight electrons to balance eight protons."
+          ],
+          "figure": {
+            "src": "/content/diagrams/chem-nov16-atom-x-20261114.svg",
+            "alt": "Schematic atom X with nucleus labelled eight protons and nine neutrons, surrounded by eight electrons."
+          }
+        },
+        {
+          "id": "chem-nov16-2026-formula-schoolmock-a-07",
+          "conceptId": "chem-nov16-2026-formula-schoolmock-a-07-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "formula",
+          "format": "typed_short",
+          "marks": 1,
+          "prompt": "Write the formula of calcium chloride from Ca²⁺ and Cl⁻ ions.",
+          "answer": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "CaCl2"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: CaCl2"
+            ]
+          }
+        },
+        {
+          "id": "chem-nov16-2026-formula-schoolmock-a-08",
+          "conceptId": "chem-nov16-2026-formula-schoolmock-a-08-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "formula",
+          "format": "rubric_response",
+          "marks": 2,
+          "prompt": "Magnesium ions are Mg²⁺ and nitride ions are N³⁻. Give the formula of magnesium nitride and explain how charges balance.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "Correct formula: Mg₃N₂ (or Mg3N2). Three Mg²⁺ ions give +6 and two N³⁻ ions give −6, giving total charge zero."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct formula: Mg₃N₂ (or Mg3N2).",
+              "Three Mg²⁺ ions give +6 and two N³⁻ ions give −6, giving total charge zero."
+            ]
+          },
+          "markScheme": [
+            "Correct formula: Mg₃N₂ (or Mg3N2).",
+            "Three Mg²⁺ ions give +6 and two N³⁻ ions give −6, giving total charge zero."
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-formula-schoolmock-a-09",
+          "conceptId": "chem-nov16-2026-formula-schoolmock-a-09-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "formula",
+          "format": "rubric_response",
+          "marks": 2,
+          "prompt": "For Ca(OH)₂, state the number of (i) oxygen atoms and (ii) hydrogen atoms in one formula unit.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "There are 2 oxygen atoms. There are 2 hydrogen atoms."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "There are 2 oxygen atoms.",
+              "There are 2 hydrogen atoms."
+            ]
+          },
+          "markScheme": [
+            "There are 2 oxygen atoms.",
+            "There are 2 hydrogen atoms."
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-balance-schoolmock-a-10",
+          "conceptId": "chem-nov16-2026-balance-schoolmock-a-10-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "balance",
+          "format": "typed_short",
+          "marks": 1,
+          "prompt": "Balance the complete equation using the smallest whole-number coefficients: H₂ + O₂ → H₂O.",
+          "answer": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "2H2 + O2 -> 2H2O"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: 2H2 + O2 -> 2H2O"
+            ]
+          }
+        },
+        {
+          "id": "chem-nov16-2026-balance-schoolmock-a-11",
+          "conceptId": "chem-nov16-2026-balance-schoolmock-a-11-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "balance",
+          "format": "typed_short",
+          "marks": 1,
+          "prompt": "Balance the complete equation using the smallest whole-number coefficients: Mg + O₂ → MgO.",
+          "answer": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "2Mg + O2 -> 2MgO"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: 2Mg + O2 -> 2MgO"
+            ]
+          }
+        },
+        {
+          "id": "chem-nov16-2026-balance-schoolmock-a-12",
+          "conceptId": "chem-nov16-2026-balance-schoolmock-a-12-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "balance",
+          "format": "rubric_response",
+          "marks": 2,
+          "prompt": "Show that 2H₂ + O₂ → 2H₂O is balanced by counting hydrogen and oxygen atoms on both sides.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "Hydrogen atoms: 4 on the reactant side and 4 on the product side. Oxygen atoms: 2 on the reactant side and 2 on the product side, so atoms are conserved."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Hydrogen atoms: 4 on the reactant side and 4 on the product side.",
+              "Oxygen atoms: 2 on the reactant side and 2 on the product side, so atoms are conserved."
+            ]
+          },
+          "markScheme": [
+            "Hydrogen atoms: 4 on the reactant side and 4 on the product side.",
+            "Oxygen atoms: 2 on the reactant side and 2 on the product side, so atoms are conserved."
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-balance-schoolmock-a-13",
+          "conceptId": "chem-nov16-2026-balance-schoolmock-a-13-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "balance",
+          "format": "rubric_response",
+          "marks": 2,
+          "prompt": "Word equation: sodium + chlorine → sodium chloride. Write its balanced symbol equation and explain the coefficient of NaCl.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "Balanced equation: 2Na + Cl₂ → 2NaCl. There must be 2NaCl to conserve the two chlorine atoms in Cl₂ (and therefore 2 sodium atoms on the left)."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Balanced equation: 2Na + Cl₂ → 2NaCl.",
+              "There must be 2NaCl to conserve the two chlorine atoms in Cl₂ (and therefore 2 sodium atoms on the left)."
+            ]
+          },
+          "markScheme": [
+            "Balanced equation: 2Na + Cl₂ → 2NaCl.",
+            "There must be 2NaCl to conserve the two chlorine atoms in Cl₂ (and therefore 2 sodium atoms on the left)."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "title": "School Mock B",
+      "questions": [
+        {
+          "id": "chem-nov16-2026-history-schoolmock-b-14",
+          "conceptId": "chem-nov16-2026-history-schoolmock-b-14-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "history",
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "The diagram compares model A with model B. Which is Thomson's plum-pudding model?",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Model A"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: Model A"
+            ]
+          },
+          "options": [
+            "Model A",
+            "Model B",
+            "Both models",
+            "Neither model"
+          ],
+          "figure": {
+            "src": "/content/diagrams/chem-nov16-atomic-models-20261114.svg",
+            "alt": "Two atomic model diagrams: A has negative electrons embedded in a positive sphere; B has a tiny central positive nucleus and surrounding electrons."
+          }
+        },
+        {
+          "id": "chem-nov16-2026-history-schoolmock-b-15",
+          "conceptId": "chem-nov16-2026-history-schoolmock-b-15-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "history",
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which scientist discovered the neutron in 1932?",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "James Chadwick"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: James Chadwick"
+            ]
+          },
+          "options": [
+            "John Dalton",
+            "Ernest Rutherford",
+            "James Chadwick",
+            "Niels Bohr"
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-history-schoolmock-b-16",
+          "conceptId": "chem-nov16-2026-history-schoolmock-b-16-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "history",
+          "format": "rubric_response",
+          "marks": 2,
+          "prompt": "In Rutherford's experiment, most alpha particles passed straight through the gold foil, but a few bounced back. Explain BOTH observations.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "Most passed through because the atom is mainly empty space. A very small number scattered backwards because they approached a tiny, dense, positively charged nucleus and were strongly repelled."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Most passed through because the atom is mainly empty space.",
+              "A very small number scattered backwards because they approached a tiny, dense, positively charged nucleus and were strongly repelled."
+            ]
+          },
+          "markScheme": [
+            "Most passed through because the atom is mainly empty space.",
+            "A very small number scattered backwards because they approached a tiny, dense, positively charged nucleus and were strongly repelled."
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-calc-schoolmock-b-17",
+          "conceptId": "chem-nov16-2026-calc-schoolmock-b-17-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "atomic",
+          "format": "typed_short",
+          "marks": 1,
+          "prompt": "A neutral chlorine-37 atom has atomic number 17. Calculate its neutron number.",
+          "answer": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "20"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: 20"
+            ]
+          }
+        },
+        {
+          "id": "chem-nov16-2026-calc-schoolmock-b-18",
+          "conceptId": "chem-nov16-2026-calc-schoolmock-b-18-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "atomic",
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "A neutral atom contains 13 protons. How many electrons does it contain?",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "13"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: 13"
+            ]
+          },
+          "options": [
+            "10",
+            "13",
+            "14",
+            "26"
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-calc-schoolmock-b-19",
+          "conceptId": "chem-nov16-2026-calc-schoolmock-b-19-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "atomic",
+          "format": "rubric_response",
+          "marks": 3,
+          "prompt": "Use the Atom X diagram to state its proton number, neutron number and electron number.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "Proton number = 8. Neutron number = 9. Electron number = 8."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Proton number = 8.",
+              "Neutron number = 9.",
+              "Electron number = 8."
+            ]
+          },
+          "markScheme": [
+            "Proton number = 8.",
+            "Neutron number = 9.",
+            "Electron number = 8."
+          ],
+          "figure": {
+            "src": "/content/diagrams/chem-nov16-atom-x-20261114.svg",
+            "alt": "Schematic atom X with nucleus labelled eight protons and nine neutrons, surrounded by eight electrons."
+          }
+        },
+        {
+          "id": "chem-nov16-2026-formula-schoolmock-b-20",
+          "conceptId": "chem-nov16-2026-formula-schoolmock-b-20-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "formula",
+          "format": "typed_short",
+          "marks": 1,
+          "prompt": "Give the simplest formula of aluminium oxide from Al³⁺ and O²⁻.",
+          "answer": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "Al2O3"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: Al2O3"
+            ]
+          }
+        },
+        {
+          "id": "chem-nov16-2026-formula-schoolmock-b-21",
+          "conceptId": "chem-nov16-2026-formula-schoolmock-b-21-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "formula",
+          "format": "rubric_response",
+          "marks": 2,
+          "prompt": "Magnesium hydroxide contains Mg²⁺ and OH⁻. Write its formula and explain why brackets are necessary.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "Correct formula: Mg(OH)₂ (or Mg(OH)2). Two whole hydroxide groups are needed to balance the Mg²⁺ charge; brackets apply the 2 to both O and H."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct formula: Mg(OH)₂ (or Mg(OH)2).",
+              "Two whole hydroxide groups are needed to balance the Mg²⁺ charge; brackets apply the 2 to both O and H."
+            ]
+          },
+          "markScheme": [
+            "Correct formula: Mg(OH)₂ (or Mg(OH)2).",
+            "Two whole hydroxide groups are needed to balance the Mg²⁺ charge; brackets apply the 2 to both O and H."
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-formula-schoolmock-b-22",
+          "conceptId": "chem-nov16-2026-formula-schoolmock-b-22-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "formula",
+          "format": "rubric_response",
+          "marks": 2,
+          "prompt": "For 3CO₂, calculate the total number of carbon atoms and the total number of oxygen atoms.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "There are 3 carbon atoms. There are 6 oxygen atoms."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "There are 3 carbon atoms.",
+              "There are 6 oxygen atoms."
+            ]
+          },
+          "markScheme": [
+            "There are 3 carbon atoms.",
+            "There are 6 oxygen atoms."
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-balance-schoolmock-b-23",
+          "conceptId": "chem-nov16-2026-balance-schoolmock-b-23-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "balance",
+          "format": "typed_short",
+          "marks": 1,
+          "prompt": "Balance the complete equation: Na + Cl₂ → NaCl.",
+          "answer": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "2Na + Cl2 -> 2NaCl"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: 2Na + Cl2 -> 2NaCl"
+            ]
+          }
+        },
+        {
+          "id": "chem-nov16-2026-balance-schoolmock-b-24",
+          "conceptId": "chem-nov16-2026-balance-schoolmock-b-24-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "balance",
+          "format": "typed_short",
+          "marks": 1,
+          "prompt": "Balance the complete equation: Fe + O₂ → Fe₂O₃.",
+          "answer": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "4Fe + 3O2 -> 2Fe2O3"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: 4Fe + 3O2 -> 2Fe2O3"
+            ]
+          }
+        },
+        {
+          "id": "chem-nov16-2026-balance-schoolmock-b-25",
+          "conceptId": "chem-nov16-2026-balance-schoolmock-b-25-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "balance",
+          "format": "rubric_response",
+          "marks": 2,
+          "prompt": "Word equation: magnesium + hydrochloric acid → magnesium chloride + hydrogen. Write the complete balanced symbol equation and explain the coefficient 2.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "Balanced equation: Mg + 2HCl → MgCl₂ + H₂. The coefficient 2 before HCl supplies two Cl atoms for MgCl₂ and two H atoms for H₂."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Balanced equation: Mg + 2HCl → MgCl₂ + H₂.",
+              "The coefficient 2 before HCl supplies two Cl atoms for MgCl₂ and two H atoms for H₂."
+            ]
+          },
+          "markScheme": [
+            "Balanced equation: Mg + 2HCl → MgCl₂ + H₂.",
+            "The coefficient 2 before HCl supplies two Cl atoms for MgCl₂ and two H atoms for H₂."
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-balance-schoolmock-b-26",
+          "conceptId": "chem-nov16-2026-balance-schoolmock-b-26-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "balance",
+          "format": "rubric_response",
+          "marks": 2,
+          "prompt": "A student rewrites N₂ + H₂ → NH₃ as N₂ + H₂ → N₂H₃ to balance it. Explain the error and write the correct balanced equation.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "Changing subscripts changes the chemical identity of the substances; use coefficients only. Correct balanced equation: N₂ + 3H₂ → 2NH₃."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Changing subscripts changes the chemical identity of the substances; use coefficients only.",
+              "Correct balanced equation: N₂ + 3H₂ → 2NH₃."
+            ]
+          },
+          "markScheme": [
+            "Changing subscripts changes the chemical identity of the substances; use coefficients only.",
+            "Correct balanced equation: N₂ + 3H₂ → 2NH₃."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "title": "School Mock C",
+      "questions": [
+        {
+          "id": "chem-nov16-2026-history-schoolmock-c-27",
+          "conceptId": "chem-nov16-2026-history-schoolmock-c-27-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "history",
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which Rutherford observation most strongly contradicted Thomson's positive-charge-spread-throughout-atom model?",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "A few alpha particles were deflected backwards"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: A few alpha particles were deflected backwards"
+            ]
+          },
+          "options": [
+            "All alpha particles stopped",
+            "A few alpha particles were deflected backwards",
+            "Gold foil dissolved",
+            "Electrons moved between metal atoms"
+          ],
+          "figure": {
+            "src": "/content/diagrams/chem-nov16-alpha-scattering-20261114.svg",
+            "alt": "Schematic alpha scattering: path A passes through, B bends, C is scattered backwards."
+          }
+        },
+        {
+          "id": "chem-nov16-2026-history-schoolmock-c-28",
+          "conceptId": "chem-nov16-2026-history-schoolmock-c-28-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "history",
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "What improvement did Bohr make to Rutherford's atomic model?",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Electrons occupy specific energy levels"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: Electrons occupy specific energy levels"
+            ]
+          },
+          "options": [
+            "Atoms are indivisible solid spheres",
+            "Positive charge is spread evenly",
+            "Electrons occupy specific energy levels",
+            "All atoms have the same mass"
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-history-schoolmock-c-29",
+          "conceptId": "chem-nov16-2026-history-schoolmock-c-29-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "history",
+          "format": "rubric_response",
+          "marks": 2,
+          "prompt": "Explain why scientists accepted Rutherford's nuclear model instead of simply retaining Thomson's model.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "Gold-foil scattering produced a few unexpectedly large deflections that the plum-pudding model could not explain. A small, dense, positively charged nucleus with mostly empty space explained the observed scattering."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Gold-foil scattering produced a few unexpectedly large deflections that the plum-pudding model could not explain.",
+              "A small, dense, positively charged nucleus with mostly empty space explained the observed scattering."
+            ]
+          },
+          "markScheme": [
+            "Gold-foil scattering produced a few unexpectedly large deflections that the plum-pudding model could not explain.",
+            "A small, dense, positively charged nucleus with mostly empty space explained the observed scattering."
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-calc-schoolmock-c-30",
+          "conceptId": "chem-nov16-2026-calc-schoolmock-c-30-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "atomic",
+          "format": "typed_short",
+          "marks": 1,
+          "prompt": "A neutral potassium-39 atom has atomic number 19. How many neutrons does it have?",
+          "answer": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "20"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: 20"
+            ]
+          }
+        },
+        {
+          "id": "chem-nov16-2026-calc-schoolmock-c-31",
+          "conceptId": "chem-nov16-2026-calc-schoolmock-c-31-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "atomic",
+          "format": "mc_single",
+          "marks": 1,
+          "prompt": "Which subatomic particle has a much smaller relative mass than a proton?",
+          "answer": {
+            "mode": "choice",
+            "accepted": [
+              "Electron"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: Electron"
+            ]
+          },
+          "options": [
+            "Proton",
+            "Neutron",
+            "Electron",
+            "They are all equal"
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-calc-schoolmock-c-32",
+          "conceptId": "chem-nov16-2026-calc-schoolmock-c-32-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "atomic",
+          "format": "rubric_response",
+          "marks": 3,
+          "prompt": "Atom X has eight protons and nine neutrons, as shown. Calculate (i) its atomic number, (ii) its mass number and (iii) the number of electrons in the neutral atom.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "Atomic number = 8. Mass number = 8 + 9 = 17. A neutral atom has 8 electrons to balance its 8 protons."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Atomic number = 8.",
+              "Mass number = 8 + 9 = 17.",
+              "A neutral atom has 8 electrons to balance its 8 protons."
+            ]
+          },
+          "markScheme": [
+            "Atomic number = 8.",
+            "Mass number = 8 + 9 = 17.",
+            "A neutral atom has 8 electrons to balance its 8 protons."
+          ],
+          "figure": {
+            "src": "/content/diagrams/chem-nov16-atom-x-20261114.svg",
+            "alt": "Schematic atom X with nucleus labelled eight protons and nine neutrons, surrounded by eight electrons."
+          }
+        },
+        {
+          "id": "chem-nov16-2026-formula-schoolmock-c-33",
+          "conceptId": "chem-nov16-2026-formula-schoolmock-c-33-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "formula",
+          "format": "typed_short",
+          "marks": 1,
+          "prompt": "Write the chemical formula of sodium carbonate, using Na⁺ and CO₃²⁻.",
+          "answer": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "Na2CO3"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: Na2CO3"
+            ]
+          }
+        },
+        {
+          "id": "chem-nov16-2026-formula-schoolmock-c-34",
+          "conceptId": "chem-nov16-2026-formula-schoolmock-c-34-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "formula",
+          "format": "rubric_response",
+          "marks": 2,
+          "prompt": "In 2Fe₂O₃, how many iron atoms and oxygen atoms are represented altogether?",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "4 iron atoms (2 × 2). 6 oxygen atoms (2 × 3)."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "4 iron atoms (2 × 2).",
+              "6 oxygen atoms (2 × 3)."
+            ]
+          },
+          "markScheme": [
+            "4 iron atoms (2 × 2).",
+            "6 oxygen atoms (2 × 3)."
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-formula-schoolmock-c-35",
+          "conceptId": "chem-nov16-2026-formula-schoolmock-c-35-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "formula",
+          "format": "rubric_response",
+          "marks": 2,
+          "prompt": "Write the formula of aluminium hydroxide, using Al³⁺ and OH⁻, and explain the ion ratio.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "Correct formula: Al(OH)₃ (or Al(OH)3). One Al³⁺ needs three OH⁻ ions to give an overall charge of zero."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct formula: Al(OH)₃ (or Al(OH)3).",
+              "One Al³⁺ needs three OH⁻ ions to give an overall charge of zero."
+            ]
+          },
+          "markScheme": [
+            "Correct formula: Al(OH)₃ (or Al(OH)3).",
+            "One Al³⁺ needs three OH⁻ ions to give an overall charge of zero."
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-balance-schoolmock-c-36",
+          "conceptId": "chem-nov16-2026-balance-schoolmock-c-36-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "balance",
+          "format": "typed_short",
+          "marks": 1,
+          "prompt": "Balance the equation using the smallest whole-number coefficients: Ca + O₂ → CaO.",
+          "answer": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "2Ca + O2 -> 2CaO"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: 2Ca + O2 -> 2CaO"
+            ]
+          }
+        },
+        {
+          "id": "chem-nov16-2026-balance-schoolmock-c-37",
+          "conceptId": "chem-nov16-2026-balance-schoolmock-c-37-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "balance",
+          "format": "typed_short",
+          "marks": 1,
+          "prompt": "Write the balanced equation for carbon burning completely in oxygen to make carbon dioxide.",
+          "answer": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "C + O2 -> CO2"
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Correct answer: C + O2 -> CO2"
+            ]
+          }
+        },
+        {
+          "id": "chem-nov16-2026-balance-schoolmock-c-38",
+          "conceptId": "chem-nov16-2026-balance-schoolmock-c-38-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "balance",
+          "format": "rubric_response",
+          "marks": 2,
+          "prompt": "Balance C₃H₈ + O₂ → CO₂ + H₂O. Give the complete equation and state the number of oxygen atoms on each side.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "Balanced equation: C₃H₈ + 5O₂ → 3CO₂ + 4H₂O. There are 10 oxygen atoms on the reactant side and 10 on the product side."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Balanced equation: C₃H₈ + 5O₂ → 3CO₂ + 4H₂O.",
+              "There are 10 oxygen atoms on the reactant side and 10 on the product side."
+            ]
+          },
+          "markScheme": [
+            "Balanced equation: C₃H₈ + 5O₂ → 3CO₂ + 4H₂O.",
+            "There are 10 oxygen atoms on the reactant side and 10 on the product side."
+          ]
+        },
+        {
+          "id": "chem-nov16-2026-balance-schoolmock-c-39",
+          "conceptId": "chem-nov16-2026-balance-schoolmock-c-39-concept",
+          "subject": "chemistry",
+          "year": 9,
+          "status": "enabled",
+          "topicSkill": "balance",
+          "format": "rubric_response",
+          "marks": 2,
+          "prompt": "Word equation: aluminium + chlorine → aluminium chloride. Write the balanced symbol equation and explain why the coefficients 2, 3, 2 are needed.",
+          "answer": {
+            "mode": "self_review_rubric",
+            "accepted": [
+              "Balanced equation: 2Al + 3Cl₂ → 2AlCl₃. Both sides contain 2 aluminium atoms and 6 chlorine atoms."
+            ]
+          },
+          "feedback": {
+            "short": "See the marking explanation after submission.",
+            "steps": [
+              "Balanced equation: 2Al + 3Cl₂ → 2AlCl₃.",
+              "Both sides contain 2 aluminium atoms and 6 chlorine atoms."
+            ]
+          },
+          "markScheme": [
+            "Balanced equation: 2Al + 3Cl₂ → 2AlCl₃.",
+            "Both sides contain 2 aluminium atoms and 6 chlorine atoms."
+          ]
+        }
+      ]
+    }
+  ]
+}

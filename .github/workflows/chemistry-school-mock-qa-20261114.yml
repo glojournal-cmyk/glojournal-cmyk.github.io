@@ -1,0 +1,38 @@
+name: Chemistry Assessment 2 School Mock QA
+on:
+  push:
+    branches:
+      - main
+      - fix/chemistry-assessment2-20min-mock-20261114
+    paths:
+      - 'assets/chemistry-school-mock-20261114.js'
+      - 'assets/chemistry-school-mock-core-20261114.js'
+      - 'content/exam-revision/chemistry-school-mock-20261114.json'
+      - 'content/diagrams/chem-nov16-*'
+      - 'study/chemistry/exam-revision/**'
+      - 'tests/chemistry-school-mock-20261114.test.mjs'
+      - '.github/workflows/chemistry-school-mock-qa-20261114.yml'
+  pull_request:
+    paths:
+      - 'assets/chemistry-school-mock-*'
+      - 'content/exam-revision/chemistry-school-mock-*'
+      - 'content/diagrams/chem-nov16-*'
+      - 'study/chemistry/exam-revision/**'
+      - 'tests/chemistry-school-mock-20261114.test.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate mock code and exactly 20-mark papers
+        run: |
+          node --check assets/chemistry-school-mock-core-20261114.js
+          node --check assets/chemistry-school-mock-20261114.js
+          node --check tests/chemistry-school-mock-20261114.test.mjs
+          node --test tests/chemistry-school-mock-20261114.test.mjs
