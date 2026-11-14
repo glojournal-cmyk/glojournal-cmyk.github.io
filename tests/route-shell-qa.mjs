@@ -22,7 +22,7 @@ for(const file of html){
   const standalone=standaloneShells.has(rel);
   if(!standalone&&!src.includes(mainModule))failures.push({type:"missing-main-module",file:rel});
   // The November Latin exam has its own independent module and must not create a duplicate student-store instance.
-  if(rel==="study/latin/november-2026/index.html" && !src.includes('type="module" src="./exam.js?v=20261113a"'))
+  if(rel==="study/latin/november-2026/index.html" && !src.includes('type="module" src="./exam.js?v='))
     failures.push({type:"standalone-latin-exam-entrypoint-missing",file:rel});
   if(rel==="study/chemistry/exam-revision/index.html" && !src.includes('type="module" src="/assets/chemistry-exam-revision-20261113.js"'))
     failures.push({type:"standalone-chemistry-exam-entrypoint-missing",file:rel});
