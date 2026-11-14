@@ -17,7 +17,7 @@ for(const [name,engine,viewport] of [
   const tracker=await page.locator('#tracker-list').innerText();
   for(const entry of ['Assessment 2 · Formulae, equations and atomic structure',
       'November Assessment · Taylor Chapters 1–3',
-      'First GCSE Biology assessment','Devoirs: Assessment 1','Particle model of matter and conduction']){
+      'AQA 4.1.1 Cell structure','Devoirs: Assessment 1','Particle model of matter and conduction']){
     assert.ok(tracker.includes(entry),name+': school tracker missing '+entry);
   }
   for(const [paperId,href] of [
@@ -25,12 +25,12 @@ for(const [name,engine,viewport] of [
      ['latin-nov26','/study/latin/november-2026/'],
      ['french-nov26','/assessment/french-nov26/']
   ]){
-    const row=page.locator('#tracker-list .assessment-tracker-entry').filter({has:page.locator('summary strong')}).filter({hasText:paperId==='chemistry-nov16'?'Formulae, equations':paperId==='latin-nov26'?'Taylor Chapters 1–3':'Assessment 1'});
+    const row=page.locator('#tracker-list .assessment-tracker-entry').filter({hasText:paperId==='chemistry-nov16'?'Formulae, equations':paperId==='latin-nov26'?'Taylor Chapters 1–3':'Assessment 1'});
     assert.equal(await row.count(),1,name+': missing unique row for '+paperId);
     await row.locator('summary').click();
     assert.equal(await row.locator('.assessment-tracker-actions a.primary').getAttribute('href'),href,name+': route mismatch '+paperId);
   }
-  const bioRow=page.locator('.assessment-tracker-entry').filter({hasText:'First GCSE Biology assessment'});
+  const bioRow=page.locator('.assessment-tracker-entry').filter({hasText:'AQA 4.1.1 Cell structure'});
   await bioRow.locator('summary').click();
   await bioRow.locator('[data-tracker-paper="biology-cell-structure"]').click();
   await page.locator('#exam .question').waitFor({timeout:20000});
