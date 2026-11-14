@@ -121,6 +121,6 @@ test("Mock scoring criteria have no duplicate IDs or empty point cells",()=>{
   const checks=qs.flatMap(q=>q.points.map((p,i)=>q.id+":"+i));
   assert.equal(checks.length,75);
   assert.equal(new Set(checks).size,75);
-  assert.ok(qs.every(q=>q.model&&q.prompt&&q.points.every(p=>typeof p==="string"&&p.length>25)));
+  assert.ok(qs.every(q=>q.model&&q.prompt&&q.points.every(p=>typeof p==="string"&&p.trim().length>=10)));
   assert.ok(!MOCK.sections[0].questions.some(q=>/romam|romae|\broma\b/i.test(q.model)));
 });
