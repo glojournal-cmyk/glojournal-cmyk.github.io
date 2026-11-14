@@ -231,7 +231,9 @@ function selectPhysicsSchool(questions,count,recent=[],quotas={}){
   ]);
   const datasetFamily=q=>repeatedDataset.get(q.id);
   const usedDatasets=new Set();
-  const recentDatasets=new Set(recent.map(id=>repeatedDataset.get(id)).filter(Boolean));
+  // Only the immediately previous paper is hard-prioritised by numerical data;
+  // a 160-item family exclusion would starve the more advanced d12 question.
+  const recentDatasets=new Set(recent.slice(-25).map(id=>repeatedDataset.get(id)).filter(Boolean));
   const lastSeen=new Map(recent.map((id,i)=>[id,i]));
   const rp5Focus=new Set([
     'r01','r02','r05','r06','r09','r12','r13',
