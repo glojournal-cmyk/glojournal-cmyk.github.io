@@ -42,6 +42,8 @@ for(let n=0;n<simulations;n++){
  assert.equal(new Set(ids).size,25,'unique question IDs');
  const scenarios=ids.map(scenarioKey);
  assert.equal(new Set(scenarios).size,25,'no two questions with identical calculation inputs in one mock');
+ assert.equal(paper.filter(q=>['phys-nov26-d06','phys-nov26-d11','phys-nov26-d12','phys-nov26-d13'].includes(q.id)).length,1,
+  'rotate exactly one integrated density application per paper');
  assert.equal(scenarios.filter(key=>lastScenarios.includes(key)).length,0,
   'avoid same numeric scenario across immediately consecutive mocks');
  assert.equal(aligned({questions:paper}),true,'every paper has valid practical coverage');
@@ -55,7 +57,7 @@ for(let n=0;n<simulations;n++){
  }
  assert.ok(paper.some(q=>q.topic==='RP2 thermal insulation'&&q.diagram),'RP2 graph');
  assert.ok(paper.some(q=>focus.includes(q.id)),'RP5 practical method or evaluation');
- assert.ok(paper.some(q=>['phys-nov26-d11','phys-nov26-d13','phys-nov26-d06'].includes(q.id)),
+ assert.ok(paper.some(q=>['phys-nov26-d11','phys-nov26-d13','phys-nov26-d06','phys-nov26-d12'].includes(q.id)),
    'integrated density application');
  const overlap=ids.filter(id=>lastPaper.includes(id)).length;
  maxOverlap=Math.max(maxOverlap,overlap);lastOverlap+=overlap;
