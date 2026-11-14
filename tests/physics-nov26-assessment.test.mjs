@@ -16,7 +16,7 @@ const totals=[40,40,40,40,40];
 const all=bank.groups.flatMap(g=>g.questions);
 assert.equal(all.length,200);
 assert.deepEqual(bank.groups.map(g=>g.questions.length),totals);
-assert.equal(all.filter(q=>q.marks>=3).length,24,'enough 3–4 mark school-style questions');
+assert.ok(all.filter(q=>q.marks>=3).length>=70,'enough 3–4 mark school-style questions');
 assert.equal(all.filter(q=>q.schoolExamStyle).length,148);
 assert.ok(!all.some(q=>/\b(?:convection|radiation|infrared)\b/i.test(q.prompt)));
 
