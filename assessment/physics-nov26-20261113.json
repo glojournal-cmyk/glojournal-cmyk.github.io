@@ -2,8 +2,8 @@
   "id": "year9-physics-november-2026",
   "subject": "physics",
   "year": 9,
-  "version": "2026-11-14-marking-qa2",
-  "sourceNote": "Original AQA-style school test preparation using November 2026 teacher notice and supplied revision slides. Convection and radiation excluded from this dedicated exam.",
+  "version": "2026-11-14-school-standard-v2",
+  "sourceNote": "Original teacher-slide-aligned Year 9 mock practice (not an official school paper): Particles, Density, Conduction ONLY, RP2 and RP5. Convection and radiation are excluded. Includes 3–4 mark linked explanation and calculation questions; marking provides step-by-step credit.",
   "groups": [
     {
       "title": "Particle model & changes of state",
@@ -419,6 +419,192 @@
             "They stop moving.",
             "Their number doubles."
           ]
+        },
+        {
+          "id": "phys-nov26-p11",
+          "conceptId": "phys-nov26-p11",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 4,
+          "prompt": "Compare the arrangement and movement of particles in a solid, liquid and gas. Give four distinct differences. (4 marks)",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "In a solid particles are close together in a regular arrangement and vibrate at fixed positions. In a liquid particles are close together but irregularly arranged. Liquid particles move past each other, allowing flow. In a gas particles are far apart and move quickly in random directions."
+            ],
+            "points": [
+              {
+                "label": "In a solid particles are close together in a regular arrangement and vibrate at fixed positions.",
+                "alternatives": [
+                  "In a solid particles are close together in a regular arrangement and vibrate at fixed positions."
+                ],
+                "patterns": [
+                  "(?=.*(?:solid))(?=.*(?:regular))(?=.*(?:vibrat)).*"
+                ]
+              },
+              {
+                "label": "In a liquid particles are close together but irregularly arranged.",
+                "alternatives": [
+                  "In a liquid particles are close together but irregularly arranged."
+                ],
+                "patterns": [
+                  "(?=.*(?:liquid))(?=.*(?:close))(?=.*(?:irregular)).*"
+                ]
+              },
+              {
+                "label": "Liquid particles move past each other, allowing flow.",
+                "alternatives": [
+                  "Liquid particles move past each other, allowing flow."
+                ],
+                "patterns": [
+                  "(?=.*(?:liquid))(?=.*(?:move))(?=.*(?:past)).*"
+                ]
+              },
+              {
+                "label": "In a gas particles are far apart and move quickly in random directions.",
+                "alternatives": [
+                  "In a gas particles are far apart and move quickly in random directions."
+                ],
+                "patterns": [
+                  "(?=.*(?:gas))(?=.*(?:far apart))(?=.*(?:random)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "In a solid particles are close together in a regular arrangement and vibrate at fixed positions. In a liquid particles are close together but irregularly arranged. Liquid particles move past each other, allowing flow. In a gas particles are far apart and move quickly in random directions.",
+          "hint": "Show the steps needed for each marking point, with units for numerical answers.",
+          "examGuidance": {
+            "strategy": "Award each required scientific fact, calculation step or conclusion separately. Write distinct steps to earn each mark.",
+            "commonError": "An unsupported final answer alone is not enough for method marks."
+          },
+          "source": "Original school-aligned practice based on 9 November Year 9 Physics revision lesson and AQA Physics 8463 RP2/RP5 skill descriptions.",
+          "coverageTags": [
+            "particle-comparison",
+            "extended"
+          ],
+          "schoolExamStyle": true
+        },
+        {
+          "id": "phys-nov26-p12",
+          "conceptId": "phys-nov26-p12",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A sealed balloon is compressed so its volume decreases. Explain what happens to particle spacing and to the mass of the gas. (3 marks)",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "The gas particles move closer together as the volume decreases. Gas particles can be compressed because there are spaces between them. The mass remains constant because the sealed balloon contains the same number of particles."
+            ],
+            "points": [
+              {
+                "label": "The gas particles move closer together as the volume decreases.",
+                "alternatives": [
+                  "The gas particles move closer together as the volume decreases."
+                ],
+                "patterns": [
+                  "(?=.*(?:particles))(?=.*(?:closer))(?=.*(?:volume)).*"
+                ]
+              },
+              {
+                "label": "Gas particles can be compressed because there are spaces between them.",
+                "alternatives": [
+                  "Gas particles can be compressed because there are spaces between them."
+                ],
+                "patterns": [
+                  "(?=.*(?:gas))(?=.*(?:spaces))(?=.*(?:compress)).*"
+                ]
+              },
+              {
+                "label": "The mass remains constant because the sealed balloon contains the same number of particles.",
+                "alternatives": [
+                  "The mass remains constant because the sealed balloon contains the same number of particles."
+                ],
+                "patterns": [
+                  "(?=.*(?:mass))(?=.*(?:constant))(?=.*(?:number)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "The gas particles move closer together as the volume decreases. Gas particles can be compressed because there are spaces between them. The mass remains constant because the sealed balloon contains the same number of particles.",
+          "hint": "Show the steps needed for each marking point, with units for numerical answers.",
+          "examGuidance": {
+            "strategy": "Award each required scientific fact, calculation step or conclusion separately. Write distinct steps to earn each mark.",
+            "commonError": "An unsupported final answer alone is not enough for method marks."
+          },
+          "source": "Original school-aligned practice based on 9 November Year 9 Physics revision lesson and AQA Physics 8463 RP2/RP5 skill descriptions.",
+          "coverageTags": [
+            "particle-application",
+            "extended"
+          ],
+          "schoolExamStyle": true
+        },
+        {
+          "id": "phys-nov26-p13",
+          "conceptId": "phys-nov26-p13",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Particle model & changes of state",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "Two sealed jars each contain 50 g of water. One freezes; the other remains liquid. Compare the particles and the masses after freezing. (3 marks)",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "In ice, particles form an ordered arrangement and vibrate in fixed positions. In the liquid, particles can move past each other. Both jars still contain 50 g because a change of state conserves mass."
+            ],
+            "points": [
+              {
+                "label": "In ice, particles form an ordered arrangement and vibrate in fixed positions.",
+                "alternatives": [
+                  "In ice, particles form an ordered arrangement and vibrate in fixed positions."
+                ],
+                "patterns": [
+                  "(?=.*(?:ice))(?=.*(?:ordered))(?=.*(?:vibrat)).*"
+                ]
+              },
+              {
+                "label": "In the liquid, particles can move past each other.",
+                "alternatives": [
+                  "In the liquid, particles can move past each other."
+                ],
+                "patterns": [
+                  "(?=.*(?:liquid))(?=.*(?:move))(?=.*(?:past)).*"
+                ]
+              },
+              {
+                "label": "Both jars still contain 50 g because a change of state conserves mass.",
+                "alternatives": [
+                  "Both jars still contain 50 g because a change of state conserves mass."
+                ],
+                "patterns": [
+                  "(?=.*(?:50))(?=.*(?:conserv))(?=.*(?:mass)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "In ice, particles form an ordered arrangement and vibrate in fixed positions. In the liquid, particles can move past each other. Both jars still contain 50 g because a change of state conserves mass.",
+          "hint": "Show the steps needed for each marking point, with units for numerical answers.",
+          "examGuidance": {
+            "strategy": "Award each required scientific fact, calculation step or conclusion separately. Write distinct steps to earn each mark.",
+            "commonError": "An unsupported final answer alone is not enough for method marks."
+          },
+          "source": "Original school-aligned practice based on 9 November Year 9 Physics revision lesson and AQA Physics 8463 RP2/RP5 skill descriptions.",
+          "coverageTags": [
+            "state-application",
+            "extended"
+          ],
+          "schoolExamStyle": true
         }
       ]
     },
@@ -845,6 +1031,207 @@
             "12 g/cm³",
             "24 g/cm³"
           ]
+        },
+        {
+          "id": "phys-nov26-d11",
+          "conceptId": "phys-nov26-d11",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 4,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "An object has mass 2.4 kg and density 800 kg/m³. Calculate its volume and decide whether it floats in water of density 1000 kg/m³. Show your working. (3 marks)",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Use volume = mass divided by density, so V = 2.4 / 800. The object's volume is 0.003 m³. It floats because its density of 800 kg/m³ is lower than water's 1000 kg/m³."
+            ],
+            "points": [
+              {
+                "label": "Use volume = mass divided by density, so V = 2.4 / 800.",
+                "alternatives": [
+                  "Use volume = mass divided by density, so V = 2.4 / 800."
+                ],
+                "patterns": [
+                  "(?=.*(?:2\\.4))(?=.*(?:800)).*"
+                ]
+              },
+              {
+                "label": "The object's volume is 0.003 m³.",
+                "alternatives": [
+                  "The object's volume is 0.003 m³."
+                ],
+                "patterns": [
+                  "(?=.*(?:0\\.003))(?=.*(?:m3|m³)).*"
+                ]
+              },
+              {
+                "label": "It floats because its density of 800 kg/m³ is lower than water's 1000 kg/m³.",
+                "alternatives": [
+                  "It floats because its density of 800 kg/m³ is lower than water's 1000 kg/m³."
+                ],
+                "patterns": [
+                  "(?=.*(?:floats))(?=.*(?:800))(?=.*(?:1000)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Use volume = mass divided by density, so V = 2.4 / 800. The object's volume is 0.003 m³. It floats because its density of 800 kg/m³ is lower than water's 1000 kg/m³.",
+          "hint": "Show the steps needed for each marking point, with units for numerical answers.",
+          "examGuidance": {
+            "strategy": "Award each required scientific fact, calculation step or conclusion separately. Write distinct steps to earn each mark.",
+            "commonError": "An unsupported final answer alone is not enough for method marks."
+          },
+          "source": "Original school-aligned practice based on 9 November Year 9 Physics revision lesson and AQA Physics 8463 RP2/RP5 skill descriptions.",
+          "coverageTags": [
+            "density-calc",
+            "density-float",
+            "extended"
+          ],
+          "schoolExamStyle": true,
+          "workedSolution": "V = m/ρ = 2.4/800 = 0.003 m³. 800 kg/m³ < 1000 kg/m³, so the object floats."
+        },
+        {
+          "id": "phys-nov26-d12",
+          "conceptId": "phys-nov26-d12",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 4,
+          "format": "typed_rubric",
+          "marks": 4,
+          "prompt": "A cuboid measuring 2 cm × 3 cm × 5 cm has density 8.0 g/cm³. Calculate the mass in kg, showing all steps. (4 marks)",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Its volume is 2 × 3 × 5 = 30 cm³. Mass = density × volume. Its mass is 8.0 × 30 = 240 g. Convert to 0.240 kg."
+            ],
+            "points": [
+              {
+                "label": "Its volume is 2 × 3 × 5 = 30 cm³.",
+                "alternatives": [
+                  "Its volume is 2 × 3 × 5 = 30 cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:2))(?=.*(?:3))(?=.*(?:5))(?=.*(?:30)).*"
+                ]
+              },
+              {
+                "label": "Mass = density × volume.",
+                "alternatives": [
+                  "Mass = density × volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:mass))(?=.*(?:density))(?=.*(?:volume)).*"
+                ]
+              },
+              {
+                "label": "Its mass is 8.0 × 30 = 240 g.",
+                "alternatives": [
+                  "Its mass is 8.0 × 30 = 240 g."
+                ],
+                "patterns": [
+                  "(?=.*(?:8))(?=.*(?:30))(?=.*(?:240)).*"
+                ]
+              },
+              {
+                "label": "Convert to 0.240 kg.",
+                "alternatives": [
+                  "Convert to 0.240 kg."
+                ],
+                "patterns": [
+                  "(?=.*(?:0\\.24))(?=.*(?:kg)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Its volume is 2 × 3 × 5 = 30 cm³. Mass = density × volume. Its mass is 8.0 × 30 = 240 g. Convert to 0.240 kg.",
+          "hint": "Show the steps needed for each marking point, with units for numerical answers.",
+          "examGuidance": {
+            "strategy": "Award each required scientific fact, calculation step or conclusion separately. Write distinct steps to earn each mark.",
+            "commonError": "An unsupported final answer alone is not enough for method marks."
+          },
+          "source": "Original school-aligned practice based on 9 November Year 9 Physics revision lesson and AQA Physics 8463 RP2/RP5 skill descriptions.",
+          "coverageTags": [
+            "density-calc",
+            "unit-conversion",
+            "extended"
+          ],
+          "schoolExamStyle": true,
+          "workedSolution": "V = 2×3×5 = 30 cm³. m = 8×30 = 240 g = 0.240 kg."
+        },
+        {
+          "id": "phys-nov26-d13",
+          "conceptId": "phys-nov26-d13",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Density calculations",
+          "difficulty": 4,
+          "format": "typed_rubric",
+          "marks": 4,
+          "prompt": "A ring has mass 9.65 g and volume 0.60 cm³. Pure gold is 19.3 g/cm³. Calculate the ring density and decide whether it is pure gold. (4 marks)",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Use density = mass ÷ volume. Substitute 9.65 ÷ 0.60. The ring density is approximately 16.1 g/cm³. The ring is not pure gold because 16.1 is lower than 19.3 g/cm³."
+            ],
+            "points": [
+              {
+                "label": "Use density = mass ÷ volume.",
+                "alternatives": [
+                  "Use density = mass ÷ volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:density))(?=.*(?:mass))(?=.*(?:volume)).*"
+                ]
+              },
+              {
+                "label": "Substitute 9.65 ÷ 0.60.",
+                "alternatives": [
+                  "Substitute 9.65 ÷ 0.60."
+                ],
+                "patterns": [
+                  "(?=.*(?:9\\.65))(?=.*(?:0\\.6)).*"
+                ]
+              },
+              {
+                "label": "The ring density is approximately 16.1 g/cm³.",
+                "alternatives": [
+                  "The ring density is approximately 16.1 g/cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:16\\.1))(?=.*(?:g/cm3|g/cm³)).*"
+                ]
+              },
+              {
+                "label": "The ring is not pure gold because 16.1 is lower than 19.3 g/cm³.",
+                "alternatives": [
+                  "The ring is not pure gold because 16.1 is lower than 19.3 g/cm³."
+                ],
+                "patterns": [
+                  "(?=.*(?:16\\.1))(?=.*(?:19\\.3))(?=.*(?:pure gold)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Use density = mass ÷ volume. Substitute 9.65 ÷ 0.60. The ring density is approximately 16.1 g/cm³. The ring is not pure gold because 16.1 is lower than 19.3 g/cm³.",
+          "hint": "Show the steps needed for each marking point, with units for numerical answers.",
+          "examGuidance": {
+            "strategy": "Award each required scientific fact, calculation step or conclusion separately. Write distinct steps to earn each mark.",
+            "commonError": "An unsupported final answer alone is not enough for method marks."
+          },
+          "source": "Original school-aligned practice based on 9 November Year 9 Physics revision lesson and AQA Physics 8463 RP2/RP5 skill descriptions.",
+          "coverageTags": [
+            "density-calc",
+            "density-inference",
+            "extended"
+          ],
+          "schoolExamStyle": true,
+          "workedSolution": "ρ = 9.65/0.60 = 16.083... ≈ 16.1 g/cm³; this is below 19.3 g/cm³, so the ring is not pure gold."
         }
       ]
     },
@@ -1283,6 +1670,183 @@
             "There can be no transfer through solids.",
             "Always vertically upwards."
           ]
+        },
+        {
+          "id": "phys-nov26-c11",
+          "conceptId": "phys-nov26-c11",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Conduction & insulation",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "Explain why bubble wrap can slow heat loss through a cup wall using the particle model and conduction. (3 marks)",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Bubble wrap traps air pockets. Air particles are far apart and collide less often. Consequently thermal energy transfers slowly through the trapped air by conduction."
+            ],
+            "points": [
+              {
+                "label": "Bubble wrap traps air pockets.",
+                "alternatives": [
+                  "Bubble wrap traps air pockets."
+                ],
+                "patterns": [
+                  "(?=.*(?:bubble wrap))(?=.*(?:trap))(?=.*(?:air)).*"
+                ]
+              },
+              {
+                "label": "Air particles are far apart and collide less often.",
+                "alternatives": [
+                  "Air particles are far apart and collide less often."
+                ],
+                "patterns": [
+                  "(?=.*(?:air))(?=.*(?:far apart))(?=.*(?:collid)).*"
+                ]
+              },
+              {
+                "label": "Consequently thermal energy transfers slowly through the trapped air by conduction.",
+                "alternatives": [
+                  "Consequently thermal energy transfers slowly through the trapped air by conduction."
+                ],
+                "patterns": [
+                  "(?=.*(?:energy))(?=.*(?:slow))(?=.*(?:conduct)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Bubble wrap traps air pockets. Air particles are far apart and collide less often. Consequently thermal energy transfers slowly through the trapped air by conduction.",
+          "hint": "Show the steps needed for each marking point, with units for numerical answers.",
+          "examGuidance": {
+            "strategy": "Award each required scientific fact, calculation step or conclusion separately. Write distinct steps to earn each mark.",
+            "commonError": "An unsupported final answer alone is not enough for method marks."
+          },
+          "source": "Original school-aligned practice based on 9 November Year 9 Physics revision lesson and AQA Physics 8463 RP2/RP5 skill descriptions.",
+          "coverageTags": [
+            "conduction-particle",
+            "extended"
+          ],
+          "schoolExamStyle": true
+        },
+        {
+          "id": "phys-nov26-c12",
+          "conceptId": "phys-nov26-c12",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Conduction & insulation",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "A metal spoon and a plastic spoon are placed in the same hot drink. Explain which handle warms first and why. (3 marks)",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "The metal spoon's handle warms sooner. Vibrations pass thermal energy between neighbouring particles in the solid. Free electrons in metal carry energy rapidly, unlike plastic."
+            ],
+            "points": [
+              {
+                "label": "The metal spoon's handle warms sooner.",
+                "alternatives": [
+                  "The metal spoon's handle warms sooner."
+                ],
+                "patterns": [
+                  "(?=.*(?:metal))(?=.*(?:sooner)).*"
+                ]
+              },
+              {
+                "label": "Vibrations pass thermal energy between neighbouring particles in the solid.",
+                "alternatives": [
+                  "Vibrations pass thermal energy between neighbouring particles in the solid."
+                ],
+                "patterns": [
+                  "(?=.*(?:vibrat))(?=.*(?:energy))(?=.*(?:neighbour)).*"
+                ]
+              },
+              {
+                "label": "Free electrons in metal carry energy rapidly, unlike plastic.",
+                "alternatives": [
+                  "Free electrons in metal carry energy rapidly, unlike plastic."
+                ],
+                "patterns": [
+                  "(?=.*(?:electrons))(?=.*(?:metal))(?=.*(?:energy)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "The metal spoon's handle warms sooner. Vibrations pass thermal energy between neighbouring particles in the solid. Free electrons in metal carry energy rapidly, unlike plastic.",
+          "hint": "Show the steps needed for each marking point, with units for numerical answers.",
+          "examGuidance": {
+            "strategy": "Award each required scientific fact, calculation step or conclusion separately. Write distinct steps to earn each mark.",
+            "commonError": "An unsupported final answer alone is not enough for method marks."
+          },
+          "source": "Original school-aligned practice based on 9 November Year 9 Physics revision lesson and AQA Physics 8463 RP2/RP5 skill descriptions.",
+          "coverageTags": [
+            "conduction-application",
+            "extended"
+          ],
+          "schoolExamStyle": true
+        },
+        {
+          "id": "phys-nov26-c13",
+          "conceptId": "phys-nov26-c13",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "Conduction & insulation",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "Two brick walls have the same surface area and material but thicknesses of 10 cm and 20 cm. Predict which loses energy more rapidly and explain two relevant factors. (3 marks)",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "The thinner 10 cm wall loses energy more rapidly by conduction. Increasing wall thickness increases the distance energy must travel. Low thermal conductivity materials slow the rate of energy transfer."
+            ],
+            "points": [
+              {
+                "label": "The thinner 10 cm wall loses energy more rapidly by conduction.",
+                "alternatives": [
+                  "The thinner 10 cm wall loses energy more rapidly by conduction."
+                ],
+                "patterns": [
+                  "(?=.*(?:10))(?=.*(?:wall))(?=.*(?:rapid)).*"
+                ]
+              },
+              {
+                "label": "Increasing wall thickness increases the distance energy must travel.",
+                "alternatives": [
+                  "Increasing wall thickness increases the distance energy must travel."
+                ],
+                "patterns": [
+                  "(?=.*(?:thickness))(?=.*(?:distance)).*"
+                ]
+              },
+              {
+                "label": "Low thermal conductivity materials slow the rate of energy transfer.",
+                "alternatives": [
+                  "Low thermal conductivity materials slow the rate of energy transfer."
+                ],
+                "patterns": [
+                  "(?=.*(?:low))(?=.*(?:conductivity))(?=.*(?:slow)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "The thinner 10 cm wall loses energy more rapidly by conduction. Increasing wall thickness increases the distance energy must travel. Low thermal conductivity materials slow the rate of energy transfer.",
+          "hint": "Show the steps needed for each marking point, with units for numerical answers.",
+          "examGuidance": {
+            "strategy": "Award each required scientific fact, calculation step or conclusion separately. Write distinct steps to earn each mark.",
+            "commonError": "An unsupported final answer alone is not enough for method marks."
+          },
+          "source": "Original school-aligned practice based on 9 November Year 9 Physics revision lesson and AQA Physics 8463 RP2/RP5 skill descriptions.",
+          "coverageTags": [
+            "conduction-application",
+            "extended"
+          ],
+          "schoolExamStyle": true
         }
       ]
     },
@@ -1811,6 +2375,138 @@
           "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice.",
           "diagram": "physics-nov26-rp2-cooling.svg",
           "diagramAlt": "Illustrative RP2 cooling-curve graph: all three beakers start at 80°C; after 10 minutes, no insulation 53.1°C, newspaper 60.3°C and bubble wrap 68.4°C."
+        },
+        {
+          "id": "phys-nov26-i12",
+          "conceptId": "phys-nov26-i12",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 4,
+          "format": "typed_rubric",
+          "marks": 4,
+          "prompt": "Use the cooling graph. All three beakers start at 80°C. After 10 minutes their temperatures are 53.1°C (no insulation), 60.3°C (newspaper) and 68.4°C (bubble wrap). Calculate two drops and justify the best insulation. (4 marks)",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "The no-insulation temperature fall is 26.9°C. The newspaper temperature fall is 19.7°C. The bubble-wrap temperature fall is 11.6°C. Bubble wrap insulates best because it has the smallest temperature fall over the same time."
+            ],
+            "points": [
+              {
+                "label": "The no-insulation temperature fall is 26.9°C.",
+                "alternatives": [
+                  "The no-insulation temperature fall is 26.9°C."
+                ],
+                "patterns": [
+                  "(?=.*(?:26\\.9))(?=.*(?:°C|Celsius)).*"
+                ]
+              },
+              {
+                "label": "The newspaper temperature fall is 19.7°C.",
+                "alternatives": [
+                  "The newspaper temperature fall is 19.7°C."
+                ],
+                "patterns": [
+                  "(?=.*(?:19\\.7))(?=.*(?:°C|Celsius)).*"
+                ]
+              },
+              {
+                "label": "The bubble-wrap temperature fall is 11.6°C.",
+                "alternatives": [
+                  "The bubble-wrap temperature fall is 11.6°C."
+                ],
+                "patterns": [
+                  "(?=.*(?:11\\.6))(?=.*(?:°C|Celsius)).*"
+                ]
+              },
+              {
+                "label": "Bubble wrap insulates best because it has the smallest temperature fall over the same time.",
+                "alternatives": [
+                  "Bubble wrap insulates best because it has the smallest temperature fall over the same time."
+                ],
+                "patterns": [
+                  "(?=.*(?:bubble wrap))(?=.*(?:smallest))(?=.*(?:fall)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "The no-insulation temperature fall is 26.9°C. The newspaper temperature fall is 19.7°C. The bubble-wrap temperature fall is 11.6°C. Bubble wrap insulates best because it has the smallest temperature fall over the same time.",
+          "hint": "Show the steps needed for each marking point, with units for numerical answers.",
+          "examGuidance": {
+            "strategy": "Award each required scientific fact, calculation step or conclusion separately. Write distinct steps to earn each mark.",
+            "commonError": "An unsupported final answer alone is not enough for method marks."
+          },
+          "source": "Original school-aligned practice based on 9 November Year 9 Physics revision lesson and AQA Physics 8463 RP2/RP5 skill descriptions.",
+          "coverageTags": [
+            "rp2-graph",
+            "rp2-data",
+            "extended"
+          ],
+          "schoolExamStyle": true,
+          "diagram": "physics-nov26-rp2-cooling.svg",
+          "diagramAlt": "Illustrative three-line cooling graph for no insulation, newspaper and bubble wrap; starting temperatures 80°C and at 10 minutes 53.1°C, 60.3°C and 68.4°C.",
+          "workedSolution": "No insulation: 80−53.1 = 26.9°C; newspaper: 80−60.3 = 19.7°C; bubble wrap: 80−68.4 = 11.6°C. Smallest fall = best insulator."
+        },
+        {
+          "id": "phys-nov26-i13",
+          "conceptId": "phys-nov26-i13",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP2 thermal insulation",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 3,
+          "prompt": "Plan how to improve reliability when comparing two insulation materials and explain which result should be compared. (3 marks)",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Keep the starting temperature and water volume the same in both beakers. Repeat each condition and calculate a mean temperature decrease. Compare mean temperature falls after the same fixed time to decide the better insulator."
+            ],
+            "points": [
+              {
+                "label": "Keep the starting temperature and water volume the same in both beakers.",
+                "alternatives": [
+                  "Keep the starting temperature and water volume the same in both beakers."
+                ],
+                "patterns": [
+                  "(?=.*(?:starting))(?=.*(?:temperature))(?=.*(?:volume)).*"
+                ]
+              },
+              {
+                "label": "Repeat each condition and calculate a mean temperature decrease.",
+                "alternatives": [
+                  "Repeat each condition and calculate a mean temperature decrease."
+                ],
+                "patterns": [
+                  "(?=.*(?:repeat))(?=.*(?:mean))(?=.*(?:temperature)).*"
+                ]
+              },
+              {
+                "label": "Compare mean temperature falls after the same fixed time to decide the better insulator.",
+                "alternatives": [
+                  "Compare mean temperature falls after the same fixed time to decide the better insulator."
+                ],
+                "patterns": [
+                  "(?=.*(?:mean))(?=.*(?:same))(?=.*(?:time)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Keep the starting temperature and water volume the same in both beakers. Repeat each condition and calculate a mean temperature decrease. Compare mean temperature falls after the same fixed time to decide the better insulator.",
+          "hint": "Show the steps needed for each marking point, with units for numerical answers.",
+          "examGuidance": {
+            "strategy": "Award each required scientific fact, calculation step or conclusion separately. Write distinct steps to earn each mark.",
+            "commonError": "An unsupported final answer alone is not enough for method marks."
+          },
+          "source": "Original school-aligned practice based on 9 November Year 9 Physics revision lesson and AQA Physics 8463 RP2/RP5 skill descriptions.",
+          "coverageTags": [
+            "rp2-method",
+            "rp2-evaluation",
+            "extended"
+          ],
+          "schoolExamStyle": true
         }
       ]
     },
@@ -2373,6 +3069,144 @@
             "commonError": "Include the physical reason, and show numbers and units."
           },
           "source": "School revision notice (9 November 2026) and uploaded Year 9 Physics revision slides; original AQA-style practice."
+        },
+        {
+          "id": "phys-nov26-r12",
+          "conceptId": "phys-nov26-r12",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 4,
+          "prompt": "Describe how to determine the density of an irregular stone using a displacement can, including the equipment and calculation. (4 marks)",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Measure the stone's mass using a balance. Fill a displacement (Eureka) can to the spout, then lower the stone fully. Collect displaced water and measure its volume using a measuring cylinder. Calculate density as stone mass divided by displaced volume."
+            ],
+            "points": [
+              {
+                "label": "Measure the stone's mass using a balance.",
+                "alternatives": [
+                  "Measure the stone's mass using a balance."
+                ],
+                "patterns": [
+                  "(?=.*(?:mass))(?=.*(?:balance)).*"
+                ]
+              },
+              {
+                "label": "Fill a displacement (Eureka) can to the spout, then lower the stone fully.",
+                "alternatives": [
+                  "Fill a displacement (Eureka) can to the spout, then lower the stone fully."
+                ],
+                "patterns": [
+                  "(?=.*(?:can))(?=.*(?:spout))(?=.*(?:stone)).*"
+                ]
+              },
+              {
+                "label": "Collect displaced water and measure its volume using a measuring cylinder.",
+                "alternatives": [
+                  "Collect displaced water and measure its volume using a measuring cylinder."
+                ],
+                "patterns": [
+                  "(?=.*(?:water))(?=.*(?:volume))(?=.*(?:cylinder)).*"
+                ]
+              },
+              {
+                "label": "Calculate density as stone mass divided by displaced volume.",
+                "alternatives": [
+                  "Calculate density as stone mass divided by displaced volume."
+                ],
+                "patterns": [
+                  "(?=.*(?:density))(?=.*(?:mass))(?=.*(?:volume)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Measure the stone's mass using a balance. Fill a displacement (Eureka) can to the spout, then lower the stone fully. Collect displaced water and measure its volume using a measuring cylinder. Calculate density as stone mass divided by displaced volume.",
+          "hint": "Show the steps needed for each marking point, with units for numerical answers.",
+          "examGuidance": {
+            "strategy": "Award each required scientific fact, calculation step or conclusion separately. Write distinct steps to earn each mark.",
+            "commonError": "An unsupported final answer alone is not enough for method marks."
+          },
+          "source": "Original school-aligned practice based on 9 November Year 9 Physics revision lesson and AQA Physics 8463 RP2/RP5 skill descriptions.",
+          "coverageTags": [
+            "rp5-method",
+            "rp5-eureka",
+            "extended"
+          ],
+          "schoolExamStyle": true
+        },
+        {
+          "id": "phys-nov26-r13",
+          "conceptId": "phys-nov26-r13",
+          "assessmentId": "physics-nov26",
+          "subject": "physics",
+          "year": 9,
+          "topic": "RP5 density",
+          "difficulty": 3,
+          "format": "typed_rubric",
+          "marks": 4,
+          "prompt": "Describe the method for measuring the density of a liquid using a measuring cylinder and balance. (4 marks)",
+          "answer": {
+            "mode": "chemistry_rubric",
+            "accepted": [
+              "Record the mass of the empty cylinder or tare the balance. Measure a known volume of liquid in the measuring cylinder. Determine the liquid mass by subtracting the empty-cylinder mass from the full-cylinder mass. Divide liquid mass by liquid volume and give matching units."
+            ],
+            "points": [
+              {
+                "label": "Record the mass of the empty cylinder or tare the balance.",
+                "alternatives": [
+                  "Record the mass of the empty cylinder or tare the balance."
+                ],
+                "patterns": [
+                  "(?=.*(?:mass))(?=.*(?:empty|tare))(?=.*(?:cylinder|balance)).*"
+                ]
+              },
+              {
+                "label": "Measure a known volume of liquid in the measuring cylinder.",
+                "alternatives": [
+                  "Measure a known volume of liquid in the measuring cylinder."
+                ],
+                "patterns": [
+                  "(?=.*(?:volume))(?=.*(?:liquid))(?=.*(?:cylinder)).*"
+                ]
+              },
+              {
+                "label": "Determine the liquid mass by subtracting the empty-cylinder mass from the full-cylinder mass.",
+                "alternatives": [
+                  "Determine the liquid mass by subtracting the empty-cylinder mass from the full-cylinder mass."
+                ],
+                "patterns": [
+                  "(?=.*(?:subtract))(?=.*(?:empty))(?=.*(?:full)).*"
+                ]
+              },
+              {
+                "label": "Divide liquid mass by liquid volume and give matching units.",
+                "alternatives": [
+                  "Divide liquid mass by liquid volume and give matching units."
+                ],
+                "patterns": [
+                  "(?=.*(?:mass))(?=.*(?:volume))(?=.*(?:unit)).*"
+                ]
+              }
+            ]
+          },
+          "modelAnswer": "Record the mass of the empty cylinder or tare the balance. Measure a known volume of liquid in the measuring cylinder. Determine the liquid mass by subtracting the empty-cylinder mass from the full-cylinder mass. Divide liquid mass by liquid volume and give matching units.",
+          "hint": "Show the steps needed for each marking point, with units for numerical answers.",
+          "examGuidance": {
+            "strategy": "Award each required scientific fact, calculation step or conclusion separately. Write distinct steps to earn each mark.",
+            "commonError": "An unsupported final answer alone is not enough for method marks."
+          },
+          "source": "Original school-aligned practice based on 9 November Year 9 Physics revision lesson and AQA Physics 8463 RP2/RP5 skill descriptions.",
+          "coverageTags": [
+            "rp5-method",
+            "rp5-liquid",
+            "extended"
+          ],
+          "schoolExamStyle": true
         }
       ]
     }
