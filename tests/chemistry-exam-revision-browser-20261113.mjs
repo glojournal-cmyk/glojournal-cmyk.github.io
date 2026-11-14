@@ -19,6 +19,7 @@ const server=createServer((req,res)=>{
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const bank=buildBank([...([5,6,7].map(n=>JSON.parse(fs.readFileSync('content/topics/chem-y9-c'+n+'.json','utf8')))),JSON.parse(fs.readFileSync('content/exam-revision/chemistry-nov16-2026-applied.json','utf8'))]);
+assert.equal(bank.length,150,'legacy C1.7/C1.8 items retained for saved-result compatibility');
 const byId=new Map(bank.map(q=>[q.id,q]));
 const errors=[];
 async function state(page){return page.evaluate(key=>JSON.parse(localStorage.getItem(key)),STORE_KEY);}
@@ -36,7 +37,7 @@ try{
       await page.goto(base+'/study/chemistry/exam-revision/');
       await page.locator('#start').waitFor({state:'visible'});
       await page.evaluate(()=>localStorage.setItem('scholar-progression-qa-guard','unchanged'));
-      assert.match(await page.locator('#status').innerText(),/134 assessment questions ready/);
+      assert.match(await page.locator('#status').innerText(),/134 school-assessment questions ready/);
       await page.selectOption('#scope','mixed');
       await page.selectOption('#length','10');
       await page.click('#start');
@@ -83,6 +84,11 @@ try{
       assert.equal(graded.percentage,100,'Every mark scheme point was awarded');
       assert.match(await page.locator('#result-score').innerText(),/100%/);
       assert.equal(await page.locator('#redo-wrong').isVisible(),false);
+      await page.reload();
+      await page.locator('#history').waitFor({state:'visible'});
+      await page.getByRole('button',{name:'Review paper'}).first().click();
+      assert.match(await page.locator('#result-score').innerText(),/100%/,
+        'All rubric marks must survive a page reload and review-history reopening');
       assert.equal((await state(page)).active,null);
       assert.equal(await page.evaluate(()=>localStorage.getItem('scholar-progression-qa-guard')),'unchanged');
       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),label+' has horizontal overflow');

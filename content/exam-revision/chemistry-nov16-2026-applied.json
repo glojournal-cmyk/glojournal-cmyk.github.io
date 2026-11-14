@@ -2568,6 +2568,610 @@
       "sourceScope": "teacher-notice-2026-11-09",
       "ordinary": true,
       "preview": false
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-01",
+      "conceptId": "chem-nov16-2026-calc-scope-01-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 1,
+      "marks": 3,
+      "prompt": "A neutral argon-40 atom has atomic number 18. Calculate its number of protons, neutrons and electrons.",
+      "stimulus": null,
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "An argon atom has 18 protons because its atomic number is 18. The number of neutrons is 40 − 18 = 22, using mass number minus atomic number. The neutral argon atom has 18 electrons, equal to the number of protons."
+        ]
+      },
+      "markScheme": [
+        "An argon atom has 18 protons because its atomic number is 18.",
+        "The number of neutrons is 40 − 18 = 22, using mass number minus atomic number.",
+        "The neutral argon atom has 18 electrons, equal to the number of protons."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "An argon atom has 18 protons because its atomic number is 18.",
+          "The number of neutrons is 40 − 18 = 22, using mass number minus atomic number.",
+          "The neutral argon atom has 18 electrons, equal to the number of protons."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-02",
+      "conceptId": "chem-nov16-2026-calc-scope-02-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 1,
+      "marks": 3,
+      "prompt": "A neutral neon-20 atom has atomic number 10. State its proton, neutron and electron numbers with reasons.",
+      "stimulus": null,
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "Atomic number 10 means there are 10 protons in its nucleus. The mass number 20 means there are 20 − 10 = 10 neutrons. The neutral atom has 10 electrons because positive and negative charges cancel."
+        ]
+      },
+      "markScheme": [
+        "Atomic number 10 means there are 10 protons in its nucleus.",
+        "The mass number 20 means there are 20 − 10 = 10 neutrons.",
+        "The neutral atom has 10 electrons because positive and negative charges cancel."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "Atomic number 10 means there are 10 protons in its nucleus.",
+          "The mass number 20 means there are 20 − 10 = 10 neutrons.",
+          "The neutral atom has 10 electrons because positive and negative charges cancel."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-03",
+      "conceptId": "chem-nov16-2026-calc-scope-03-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 1,
+      "marks": 3,
+      "prompt": "A neutral sulfur-32 atom has atomic number 16. Determine the numbers of each subatomic particle.",
+      "stimulus": null,
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "There are 16 protons, which is the atomic number. There are 32 − 16 = 16 neutrons in the nucleus. There are 16 electrons, because a neutral atom has equal numbers of electrons and protons."
+        ]
+      },
+      "markScheme": [
+        "There are 16 protons, which is the atomic number.",
+        "There are 32 − 16 = 16 neutrons in the nucleus.",
+        "There are 16 electrons, because a neutral atom has equal numbers of electrons and protons."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "There are 16 protons, which is the atomic number.",
+          "There are 32 − 16 = 16 neutrons in the nucleus.",
+          "There are 16 electrons, because a neutral atom has equal numbers of electrons and protons."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-04",
+      "conceptId": "chem-nov16-2026-calc-scope-04-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Give the relative charge and relative mass of a proton and a neutron.",
+      "stimulus": null,
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "A proton has relative charge +1 and relative mass approximately 1. A neutron has relative charge 0 and relative mass approximately 1."
+        ]
+      },
+      "markScheme": [
+        "A proton has relative charge +1 and relative mass approximately 1.",
+        "A neutron has relative charge 0 and relative mass approximately 1."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "A proton has relative charge +1 and relative mass approximately 1.",
+          "A neutron has relative charge 0 and relative mass approximately 1."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-05",
+      "conceptId": "chem-nov16-2026-calc-scope-05-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 2,
+      "marks": 3,
+      "prompt": "State the location and the relative charge of each subatomic particle: proton, neutron and electron.",
+      "stimulus": null,
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "Protons are located in the nucleus and have relative charge +1. Neutrons are in the nucleus and have no relative charge (0). Electrons are outside the nucleus and have relative charge −1."
+        ]
+      },
+      "markScheme": [
+        "Protons are located in the nucleus and have relative charge +1.",
+        "Neutrons are in the nucleus and have no relative charge (0).",
+        "Electrons are outside the nucleus and have relative charge −1."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "Protons are located in the nucleus and have relative charge +1.",
+          "Neutrons are in the nucleus and have no relative charge (0).",
+          "Electrons are outside the nucleus and have relative charge −1."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-06",
+      "conceptId": "chem-nov16-2026-calc-scope-06-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Explain why a normal atom has no overall electrical charge.",
+      "stimulus": null,
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "Protons carry a relative positive charge of +1, while electrons carry −1. A neutral atom has equal numbers of protons and electrons, so their charges cancel."
+        ]
+      },
+      "markScheme": [
+        "Protons carry a relative positive charge of +1, while electrons carry −1.",
+        "A neutral atom has equal numbers of protons and electrons, so their charges cancel."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "Protons carry a relative positive charge of +1, while electrons carry −1.",
+          "A neutral atom has equal numbers of protons and electrons, so their charges cancel."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-07",
+      "conceptId": "chem-nov16-2026-calc-scope-07-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 2,
+      "marks": 3,
+      "prompt": "A neutral cobalt-59 atom has atomic number 27. Calculate its numbers of protons, neutrons and electrons.",
+      "stimulus": null,
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "The atomic number 27 gives 27 protons in cobalt. The mass number 59 gives 59 − 27 = 32 neutrons. The neutral atom has 27 electrons, equal to the number of protons."
+        ]
+      },
+      "markScheme": [
+        "The atomic number 27 gives 27 protons in cobalt.",
+        "The mass number 59 gives 59 − 27 = 32 neutrons.",
+        "The neutral atom has 27 electrons, equal to the number of protons."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "The atomic number 27 gives 27 protons in cobalt.",
+          "The mass number 59 gives 59 − 27 = 32 neutrons.",
+          "The neutral atom has 27 electrons, equal to the number of protons."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-08",
+      "conceptId": "chem-nov16-2026-calc-scope-08-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 2,
+      "marks": 3,
+      "prompt": "Explain why nearly all the mass of an atom is in the nucleus, rather than in the electrons.",
+      "stimulus": null,
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "The nucleus contains protons, which have a relative mass of about 1. The nucleus also contains neutrons, with a relative mass of about 1. Electrons outside the nucleus have a much smaller mass, so contribute negligibly to total atomic mass."
+        ]
+      },
+      "markScheme": [
+        "The nucleus contains protons, which have a relative mass of about 1.",
+        "The nucleus also contains neutrons, with a relative mass of about 1.",
+        "Electrons outside the nucleus have a much smaller mass, so contribute negligibly to total atomic mass."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "The nucleus contains protons, which have a relative mass of about 1.",
+          "The nucleus also contains neutrons, with a relative mass of about 1.",
+          "Electrons outside the nucleus have a much smaller mass, so contribute negligibly to total atomic mass."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-09",
+      "conceptId": "chem-nov16-2026-calc-scope-09-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Identify the two particles in the nucleus and explain why the nucleus is positively charged.",
+      "stimulus": null,
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "The nucleus contains protons and neutrons, both of which contribute most of the atom's mass. Protons have positive charge and neutrons are neutral, so the nucleus has an overall positive charge."
+        ]
+      },
+      "markScheme": [
+        "The nucleus contains protons and neutrons, both of which contribute most of the atom's mass.",
+        "Protons have positive charge and neutrons are neutral, so the nucleus has an overall positive charge."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "The nucleus contains protons and neutrons, both of which contribute most of the atom's mass.",
+          "Protons have positive charge and neutrons are neutral, so the nucleus has an overall positive charge."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-10",
+      "conceptId": "chem-nov16-2026-calc-scope-10-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 2,
+      "marks": 3,
+      "prompt": "Use the particle description to identify the element, find its mass number and explain whether the atom is neutral.",
+      "stimulus": {
+        "text": "PARTICLE DATA: Nucleus has 8 protons and 9 neutrons; outside the nucleus there are 8 electrons."
+      },
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "Eight protons means atomic number 8, so the element is oxygen. The mass number is 8 + 9 = 17, the sum of protons and neutrons. The atom is neutral because it has 8 electrons balancing its 8 protons."
+        ]
+      },
+      "markScheme": [
+        "Eight protons means atomic number 8, so the element is oxygen.",
+        "The mass number is 8 + 9 = 17, the sum of protons and neutrons.",
+        "The atom is neutral because it has 8 electrons balancing its 8 protons."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "Eight protons means atomic number 8, so the element is oxygen.",
+          "The mass number is 8 + 9 = 17, the sum of protons and neutrons.",
+          "The atom is neutral because it has 8 electrons balancing its 8 protons."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-11",
+      "conceptId": "chem-nov16-2026-calc-scope-11-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Explain why electrons are not included when calculating an atom's mass number.",
+      "stimulus": null,
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "Mass number counts protons and neutrons in the nucleus only. An electron has negligible relative mass compared with a proton or neutron."
+        ]
+      },
+      "markScheme": [
+        "Mass number counts protons and neutrons in the nucleus only.",
+        "An electron has negligible relative mass compared with a proton or neutron."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "Mass number counts protons and neutrons in the nucleus only.",
+          "An electron has negligible relative mass compared with a proton or neutron."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-12",
+      "conceptId": "chem-nov16-2026-calc-scope-12-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 1,
+      "marks": 2,
+      "prompt": "Explain the difference between atomic number and mass number.",
+      "stimulus": null,
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "Atomic number is the number of protons in an atom's nucleus. Mass number is the total number of protons plus neutrons in the nucleus."
+        ]
+      },
+      "markScheme": [
+        "Atomic number is the number of protons in an atom's nucleus.",
+        "Mass number is the total number of protons plus neutrons in the nucleus."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "Atomic number is the number of protons in an atom's nucleus.",
+          "Mass number is the total number of protons plus neutrons in the nucleus."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-13",
+      "conceptId": "chem-nov16-2026-calc-scope-13-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 2,
+      "marks": 3,
+      "prompt": "A neutral atom has 6 protons, 6 neutrons and 6 electrons. Identify the element, calculate its mass number and explain its charge.",
+      "stimulus": null,
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "Six protons give atomic number 6, meaning the element is carbon. Six protons plus six neutrons give mass number 12. Six positive protons and six negative electrons cancel, leaving no overall charge."
+        ]
+      },
+      "markScheme": [
+        "Six protons give atomic number 6, meaning the element is carbon.",
+        "Six protons plus six neutrons give mass number 12.",
+        "Six positive protons and six negative electrons cancel, leaving no overall charge."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "Six protons give atomic number 6, meaning the element is carbon.",
+          "Six protons plus six neutrons give mass number 12.",
+          "Six positive protons and six negative electrons cancel, leaving no overall charge."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-14",
+      "conceptId": "chem-nov16-2026-calc-scope-14-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 2,
+      "marks": 3,
+      "prompt": "An atom has atomic number 17 and mass number 37. It is electrically neutral. Work out protons, neutrons and electrons.",
+      "stimulus": null,
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "Atomic number 17 means the atom has 17 protons. Mass number 37 minus 17 protons leaves 20 neutrons. The neutral atom has 17 electrons to balance the 17 positive protons."
+        ]
+      },
+      "markScheme": [
+        "Atomic number 17 means the atom has 17 protons.",
+        "Mass number 37 minus 17 protons leaves 20 neutrons.",
+        "The neutral atom has 17 electrons to balance the 17 positive protons."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "Atomic number 17 means the atom has 17 protons.",
+          "Mass number 37 minus 17 protons leaves 20 neutrons.",
+          "The neutral atom has 17 electrons to balance the 17 positive protons."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-15",
+      "conceptId": "chem-nov16-2026-calc-scope-15-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 1,
+      "marks": 3,
+      "prompt": "A neutral sodium atom contains 11 protons and 12 neutrons. Give its atomic number, mass number and electron number.",
+      "stimulus": null,
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "The atomic number is 11 because there are 11 protons. The mass number is 23, calculated as 11 protons plus 12 neutrons. The neutral sodium atom has 11 electrons to balance 11 protons."
+        ]
+      },
+      "markScheme": [
+        "The atomic number is 11 because there are 11 protons.",
+        "The mass number is 23, calculated as 11 protons plus 12 neutrons.",
+        "The neutral sodium atom has 11 electrons to balance 11 protons."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "The atomic number is 11 because there are 11 protons.",
+          "The mass number is 23, calculated as 11 protons plus 12 neutrons.",
+          "The neutral sodium atom has 11 electrons to balance 11 protons."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
+    },
+    {
+      "id": "chem-nov16-2026-calc-scope-16",
+      "conceptId": "chem-nov16-2026-calc-scope-16-concept",
+      "subject": "chemistry",
+      "year": 9,
+      "status": "enabled",
+      "topicSkill": "calc",
+      "format": "rubric_response",
+      "difficulty": 3,
+      "marks": 3,
+      "prompt": "A typical atom has a radius of about 0.1 nm, with a nucleus roughly 10,000 times smaller in radius. Explain what this tells you about its structure.",
+      "stimulus": null,
+      "answer": {
+        "mode": "self_review_rubric",
+        "accepted": [
+          "The nucleus is extremely small compared with the size of the whole atom. Nearly all of the atom's volume is empty space between the nucleus and surrounding electrons. The nucleus is dense and contains most of the atom's mass despite its small size."
+        ]
+      },
+      "markScheme": [
+        "The nucleus is extremely small compared with the size of the whole atom.",
+        "Nearly all of the atom's volume is empty space between the nucleus and surrounding electrons.",
+        "The nucleus is dense and contains most of the atom's mass despite its small size."
+      ],
+      "feedback": {
+        "short": "Compare your response with the specific marking points after submitting.",
+        "steps": [
+          "The nucleus is extremely small compared with the size of the whole atom.",
+          "Nearly all of the atom's volume is empty space between the nucleus and surrounding electrons.",
+          "The nucleus is dense and contains most of the atom's mass despite its small size."
+        ],
+        "commonError": "Award one mark for each distinct correct scientific point."
+      },
+      "sourceScope": "teacher-notice-2026-11-09-c1.6",
+      "ordinary": true,
+      "preview": false,
+      "assessmentScope": "C1.6 Structure of the atom"
     }
-  ]
+  ],
+  "assessmentExclusions": [
+    "chem-y9-c5-nov16-2026-calc-07",
+    "chem-y9-c5-nov16-2026-calc-08",
+    "chem-y9-c5-nov16-2026-calc-09",
+    "chem-y9-c5-nov16-2026-calc-10",
+    "chem-nov16-2026-calc-applied-03",
+    "chem-nov16-2026-calc-applied-04",
+    "chem-nov16-2026-calc-applied-05",
+    "chem-nov16-2026-calc-applied-06",
+    "chem-nov16-2026-calc-applied-07",
+    "chem-nov16-2026-calc-applied-08",
+    "chem-nov16-2026-calc-applied-10",
+    "chem-nov16-2026-calc-applied-11",
+    "chem-nov16-2026-calc-applied-12",
+    "chem-nov16-2026-calc-applied-13",
+    "chem-nov16-2026-calc-applied-15",
+    "chem-nov16-2026-calc-applied-16"
+  ],
+  "assessmentIncludedCount": 134,
+  "teacherScopeNote": "The school notice includes only C1.5 History, C1.6 Structure of the atom, chemical formulae and balancing equations. Original C1.7 isotopes/ions and C1.8 electronic-configuration questions are retained for saved history but not selected in new school-assessment papers."
 }

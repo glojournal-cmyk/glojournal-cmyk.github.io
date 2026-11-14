@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {buildBank,categoryOf,selectPaper,scorePaper,marksOf} from '../assets/chemistry-exam-revision-core-20261113.js';
+import {buildBank,categoryOf,selectPaper,scorePaper,marksOf,isExamEligible} from '../assets/chemistry-exam-revision-core-20261113.js';
 
 const relative=p=>new URL('../'+p,import.meta.url);
 const load=p=>JSON.parse(fs.readFileSync(relative(p),'utf8'));
@@ -12,11 +12,14 @@ const source=new Map(bank.map(q=>[q.id,q]));
 const counts=group=>extra.questions.filter(q=>q.topicSkill===group);
 const seeded=()=>{let s=931;return()=>{s=(Math.imul(s,1664525)+1013904223)>>>0;return s/2**32;}};
 
-test('teacher notice scope: four topics only, 72 additional applied questions, 134 total',()=>{
-  assert.equal(extra.questions.length,72);
-  assert.equal(bank.length,134);
+test('teacher notice scope: 134 eligible questions, 16 retained historical extensions',()=>{
+  assert.equal(extra.questions.length,88);
+  assert.equal(extra.assessmentExclusions.length,16);
+  assert.equal(bank.filter(isExamEligible).length,134);
+  assert.equal(bank.filter(q=>!isExamEligible(q)).length,16);
+  assert.equal(bank.length,150);
   assert.deepEqual(Object.fromEntries(['history','calc','formula','balance'].map(k=>[k,counts(k).length])),
-    {history:14,calc:18,formula:18,balance:22});
+    {history:14,calc:34,formula:18,balance:22});
   assert.deepEqual(extra.scope,['C1.5 History of the atom','C1.6 Atomic structure','chemical formulae','balancing equations']);
   assert.equal(new Set(bank.map(q=>q.id)).size,bank.length);
   for(const q of extra.questions){
@@ -30,12 +33,12 @@ test('teacher notice scope: four topics only, 72 additional applied questions, 1
   }
 });
 
-test('67 constructed responses have complete 2–6-point rubrics, 5 one-mark objective items',()=>{
+test('83 constructed responses have complete 2–6-point rubrics, 5 one-mark objective items',()=>{
   const rubric=extra.questions.filter(q=>q.format==='rubric_response');
   const objective=extra.questions.filter(q=>q.format!=='rubric_response');
-  assert.equal(rubric.length,67);
+  assert.equal(rubric.length,83);
   assert.equal(objective.length,5);
-  assert.equal(extra.questions.reduce((n,q)=>n+marksOf(q),0),192);
+  assert.equal(extra.questions.reduce((n,q)=>n+marksOf(q),0),235);
   for(const q of rubric){
     assert.ok(q.marks>=2&&q.marks<=6);
     assert.equal(q.markScheme.length,q.marks,'rubric and marks differ '+q.id);
@@ -123,4 +126,21 @@ test('school-paper response types include 6-mark investigation, data interpretat
  assert.match(text,/balance/i);
  assert.ok(extra.questions.some(q=>q.marks===6),'no extended explanatory answer');
  assert.ok(extra.questions.filter(q=>q.stimulus?.text).length>=3,'no scenario or observation prompts');
+});
+
+test('sixteen replacement C1.6 tasks stay within atomic structure, masses, charges and neutrality',()=>{
+  const revised=extra.questions.filter(q=>q.id.includes('-calc-scope-'));
+  assert.equal(revised.length,16);
+  const combined=revised.map(q=>q.prompt).join(' ');
+  assert.match(combined,/subatomic/);
+  assert.match(combined,/atomic number/);
+  assert.match(combined,/mass number/);
+  assert.match(combined,/relative charge/);
+  assert.match(combined,/nucleus/);
+  for(const q of revised){
+    assert.ok(bank.find(x=>x.id===q.id&&isExamEligible(x)),'replacement missing from assessed pool');
+    assert.doesNotMatch(q.prompt,/isotopes|electron arrangement|electron shell|ion forms|relative atomic mass of/i,q.id);
+    assert.ok(q.marks>=2&&q.markScheme.length===q.marks);
+    assert.ok(q.markScheme.every(text=>text.length>=25));
+  }
 });

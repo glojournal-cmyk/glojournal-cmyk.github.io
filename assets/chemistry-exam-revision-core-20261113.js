@@ -21,7 +21,16 @@ export function categoryOf(question){
 export function buildBank(documents){
   if(!Array.isArray(documents)||documents.length!==4)throw Error('Three topic banks and the extended revision bank are required.');
   const all=documents.flatMap(doc=>Array.isArray(doc?.questions)?doc.questions:[]);
-  const questions=all.filter(q=>categoryOf(q));
+  const omissions=documents[3]?.assessmentExclusions;
+  if(!Array.isArray(omissions)||omissions.length!==16||new Set(omissions).size!==16)
+    throw Error('The assessed C1.6 scope exclusion manifest is missing or invalid.');
+  const excluded=new Set(omissions);
+  // Keep excluded historical questions readable for previous saved results.
+  // Do not silently redefine the meaning of a previously answered question ID.
+  const questions=all.filter(q=>categoryOf(q)).map(q=>({...q,examEligible:!excluded.has(q.id)}));
+  if(questions.filter(q=>excluded.has(q.id)).length!==excluded.size||
+    questions.some(q=>!q.examEligible&&categoryOf(q)!=='atomic'))
+    throw Error('The exam exclusion list refers to missing or unexpected questions.');
   const ids=new Set();
   const counts={history:0,atomic:0,formula:0,balance:0};
   for(const q of questions){
@@ -29,13 +38,14 @@ export function buildBank(documents){
     if(ids.has(q.id)||!q.answer?.accepted?.length||!q.prompt||!q.feedback?.steps?.length||!Number.isInteger(q.marks??1)||((q.marks??1)<1)||((q.marks??1)>6)||
        (q.format==='rubric_response'&&(!Array.isArray(q.markScheme)||q.markScheme.length!==q.marks)))
       throw Error('An exam question is incomplete or duplicated: '+q.id);
-    ids.add(q.id);counts[kind]++;
+    ids.add(q.id);if(q.examEligible)counts[kind]++;
   }
   for(const category of CATEGORIES)
     if(counts[category.id]!==expectedCounts[category.id])
       throw Error('Exam question supply for '+category.short+' is incomplete ('+counts[category.id]+'/'+category.count+').');
   return questions;
 }
+export const isExamEligible=question=>!!question&&categoryOf(question)!==null&&question.examEligible!==false;
 function shuffled(values,rng=Math.random){
   const list=values.slice();
   for(let i=list.length-1;i>0;i--){
@@ -65,19 +75,20 @@ function pickBalancedFormats(pool,total,previousIds,rng){
 export function selectPaper(bank,{scope='mixed',length=20,previousIds=[],rng=Math.random}={}){
   if(!Array.isArray(bank)||!bank.length)throw Error('Exam questions have not loaded.');
   if(!['mixed',...CATEGORIES.map(x=>x.id)].includes(scope))throw Error('Unknown revision scope.');
+  const eligible=bank.filter(isExamEligible);
   const requested=Math.max(1,Math.floor(Number(length)||20));
   if(scope!=='mixed'){
-    const pool=bank.filter(q=>categoryOf(q)===scope);
+    const pool=eligible.filter(q=>categoryOf(q)===scope);
     return pickBalancedFormats(pool,Math.min(requested,pool.length),previousIds,rng);
   }
-  const count=Math.min(requested,bank.length);
+  const count=Math.min(requested,eligible.length);
   if(count<4)throw Error('A mixed paper needs at least four questions.');
   const categoryOrder=shuffled(CATEGORIES,rng);
   const allocations=Object.fromEntries(CATEGORIES.map(x=>[x.id,0]));
   for(let i=0;i<count;i++)allocations[categoryOrder[i%CATEGORIES.length].id]++;
   const selected=[];
   for(const c of CATEGORIES)
-    selected.push(...pickBalancedFormats(bank.filter(q=>categoryOf(q)===c.id),allocations[c.id],previousIds,rng));
+    selected.push(...pickBalancedFormats(eligible.filter(q=>categoryOf(q)===c.id),allocations[c.id],previousIds,rng));
   return shuffled(selected,rng);
 }
 export const marksOf=question=>question?.marks??1;
