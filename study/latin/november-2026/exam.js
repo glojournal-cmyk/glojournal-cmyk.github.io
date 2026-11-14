@@ -1,7 +1,9 @@
 import { LATIN_BOOKLET_RECORDS } from "/assets/latin-vocabulary-booklet-20261023.js";
 import { SYLLABUS, GRAMMAR, PRACTICE, MOCK, validateMock } from "./exam-data.js?v=20261114c";
+import { UNSEEN_PASSAGES, validateUnseens } from "./unseen-passages.js?v=20261114a";
 
 validateMock();
+validateUnseens();
 const root = document.getElementById("app");
 const tabs = [...document.querySelectorAll("[data-tab]")];
 const words = LATIN_BOOKLET_RECORDS.filter(row => [1, 2, 3].includes(Number(row.chapter)));
@@ -26,6 +28,8 @@ let wordShown = false, wordAnswer = "";
 const wordKnown = new Set(), wordMissed = new Set();
 let grammarGroup = "All topics", grammarIndex = 0, grammarShown = false, grammarAnswer = "";
 let practiceGroup = "English → Latin", practiceIndex = 0, practiceShown = false, practiceAnswer = "";
+let unseenIndex = 0, unseenSubmitted = false;
+const unseenAnswers = Object.create(null);
 let mockState = "ready", deadline = 0, ticker = null;
 const responses = {}, awarded = new Set();
 
@@ -99,6 +103,48 @@ function renderPractice() {
       '<div class="btnrow"><button class="btn" data-action="practice-next">Next practice question</button></div>' :
       '<div class="btnrow"><button class="btn" data-action="practice-reveal">Reveal model answer</button></div>') +
     '</section>';
+}
+function renderUnseen() {
+  const p=UNSEEN_PASSAGES[unseenIndex];
+  const complete=p.questions.filter(q=>Number.isInteger(unseenAnswers[q.id])).length;
+  const review=unseenSubmitted;
+  const earned=review ? p.questions.reduce((n,q)=>n+(unseenAnswers[q.id]===q.answer ? 1:0),0) : 0;
+  const header='<section class="panel"><div class="eyebrow">Five original unseen passages · 10 questions each</div>' +
+    '<h2>Unseen reading · Multiple Choice</h2>' +
+    '<p class="help">School Year 9 Taylor Chapters 1–3, with GCSE-style comprehension skills adapted to MC format. Each passage has exactly 10 questions (1 mark each). Correct answers and explanations are hidden until you finish.</p>' +
+    '<label for="unseen-passage">Choose passage</label><select id="unseen-passage">'+
+      UNSEEN_PASSAGES.map((item,i)=>'<option value="'+i+'"'+(i===unseenIndex?' selected':'')+'>'+esc((i+1)+'. '+item.title+' · '+item.difficulty)+'</option>').join("")+'</select>' +
+    '<div class="facts"><span class="pill">'+esc(p.difficulty)+'</span><span class="pill">10 MC questions</span><span class="pill">'+esc(p.context)+'</span></div>' +
+    '<div class="note">'+(review ? '<strong>Marked:</strong> '+earned+'/10 · '+Math.round(earned*10)+'%. See the correct choices and explanations below.' :
+    '<strong>Progress:</strong> <span id="unseen-progress">'+complete+'/10 selected</span>. Read the entire passage before choosing answers. You may change any choice until you submit.')+'</div></section>';
+  const passage='<section class="exam-block"><h2>'+esc(p.title)+'</h2><p class="help">Read the unseen Latin. No dictionary is needed for the intended chapter vocabulary.</p>'+
+    '<div class="latinpassage" lang="la">'+p.passage.map((line,i)=>'<p><strong>'+(i+1)+'.</strong> '+esc(line)+'</p>').join("")+'</div></section>';
+  const questions=p.questions.map((q,i)=>{
+    const selected=unseenAnswers[q.id];
+    const options=q.options.map((option,j)=>{
+      const checked=selected===j;
+      const status=review && j===q.answer?' <strong class="mc-correct-label">✓ Correct answer</strong>':
+        review && checked && j!==q.answer?' <strong class="mc-wrong-label">Your answer</strong>':'';
+      return '<label class="mc-choice'+(review && j===q.answer?' mc-is-correct':'')+'">'+
+        '<input type="radio" name="unseen-'+esc(q.id)+'" value="'+j+'" data-unseen-answer="'+esc(q.id)+'"'+(checked?' checked':'')+(review?' disabled':'')+'>'+
+        '<span><strong>'+("ABCD"[j])+'.</strong> '+esc(option)+status+'</span></label>';
+    }).join("");
+    const feedback=review?'<div class="model"><strong>'+(selected===q.answer?'Correct · 1/1':'Review · 0/1')+'</strong>'+
+      '<p><strong>Evidence:</strong> <span lang="la">'+esc(q.evidence)+'</span></p><p>'+esc(q.explanation)+'</p>'+
+      '<p class="help">Skill: '+esc(q.skill)+'</p></div>':'';
+    return '<article class="question"><div class="sectionhead"><h3>Question '+(i+1)+' <span class="count">(1 mark)</span></h3></div>'+
+      '<fieldset class="mc-fieldset"><legend class="prompt">'+esc(q.prompt)+'</legend>'+options+'</fieldset>'+feedback+'</article>';
+  }).join("");
+  const actions=review?'<div class="panel"><h3>Passage completed: '+earned+'/10</h3>'+
+    '<div class="btnrow"><button class="btn" data-action="unseen-retry">Try this passage again</button>'+
+    '<button class="btn secondary" data-action="unseen-next">Next unseen passage</button></div></div>':
+    '<div class="panel"><p class="help">Submit when ready. Unanswered questions receive zero, and explanations are only shown after submission.</p>'+
+    '<div class="btnrow"><button class="btn" data-action="unseen-submit">Finish passage & mark /10</button></div></div>';
+  return header+passage+questions+actions;
+}
+function resetUnseen(){
+  unseenSubmitted=false;
+  for(const q of UNSEEN_PASSAGES[unseenIndex].questions)delete unseenAnswers[q.id];
 }
 function countdown() {
   return Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
@@ -189,7 +235,8 @@ function render() {
   root.innerHTML = tab === "overview" ? renderOverview() :
     tab === "vocabulary" ? renderVocabulary() :
     tab === "grammar" ? renderGrammar() :
-    tab === "practice" ? renderPractice() : renderMock();
+    tab === "practice" ? renderPractice() :
+    tab === "unseen" ? renderUnseen() : renderMock();
   if (tab === "mock" && mockState === "submitted") awardScore();
 }
 function awardScore() {
@@ -214,6 +261,13 @@ root.addEventListener("change", event => {
   if (el.id === "word-direction") { wordDirection = el.value; resetVocab(); render(); }
   if (el.id === "grammar-group") { grammarGroup = el.value; grammarIndex = 0; grammarAnswer = ""; grammarShown = false; render(); }
   if (el.id === "practice-group") { practiceGroup = el.value; practiceIndex = 0; practiceAnswer = ""; practiceShown = false; render(); }
+  if (el.id === "unseen-passage") { unseenIndex = Number(el.value); unseenSubmitted = false; render(); }
+  if (el.dataset.unseenAnswer && !unseenSubmitted) {
+    unseenAnswers[el.dataset.unseenAnswer]=Number(el.value);
+    // Preserve all radio selections and typing focus; update count without resetting DOM.
+    const progress=document.getElementById("unseen-progress");
+    if(progress) progress.textContent=UNSEEN_PASSAGES[unseenIndex].questions.filter(q=>Number.isInteger(unseenAnswers[q.id])).length+"/10 selected";
+  }
   if (el.dataset.award && mockState === "submitted") {
     if (el.checked) awarded.add(el.dataset.award); else awarded.delete(el.dataset.award);
     awardScore();
@@ -244,6 +298,14 @@ root.addEventListener("click", event => {
     practiceIndex = (practiceIndex + 1) % PRACTICE.find(item => item.group === practiceGroup).items.length;
     practiceShown = false; practiceAnswer = ""; render();
   }
+  if (action === "unseen-submit" && !unseenSubmitted) {
+    const set=UNSEEN_PASSAGES[unseenIndex];
+    const unanswered=set.questions.filter(q=>!Number.isInteger(unseenAnswers[q.id])).length;
+    if(unanswered && !window.confirm("You have "+unanswered+" unanswered question(s). Submit anyway?"))return;
+    unseenSubmitted=true;render();
+  }
+  if (action === "unseen-retry") {resetUnseen();render();}
+  if (action === "unseen-next") {unseenIndex=(unseenIndex+1)%UNSEEN_PASSAGES.length;unseenSubmitted=false;render();}
   if (action === "mock-start") startMock();
   if (action === "mock-submit") submitMock(false);
   if (action === "mock-reset") {
