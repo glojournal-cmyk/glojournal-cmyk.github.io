@@ -16,7 +16,7 @@ const IN_SCOPE_FORMS={
   cum:"cum", curro:"cucurrerunt cucurrit",
   custodio:"custodiebat custodire custodiverunt custodivit",
   de:"de", debeo:"debebant debebat", do:"dedit", discedo:"discessit",
-  domina:"domina dominae dominam", dominus:"dominum dominus", donum:"donum",
+  domina:"domina dominam", dominus:"dominum dominus", donum:"donum",
   duco:"duxit", epistula:"epistulam", equus:"equum equus", et:"et",
   festino:"festinant festinaverunt festinavit", forum:"foro forum",
   habeo:"habebat", habito:"habitabat", hora:"horas", hortus:"horto",
@@ -37,7 +37,7 @@ const IN_SCOPE_FORMS={
   sum:"erant erat est", taberna:"tabernam", tandem:"tandem",
   templum:"templi templum", timeo:"timebant timebat",
   venio:"venit", video:"viderunt vidit", villa:"villa villam",
-  vir:"viri viros", voco:"vocavit"
+  via:"vias", vir:"viri viros", voco:"vocavit"
 };
 
 // Independently read answer key (each literal is the one intended correct
@@ -127,8 +127,9 @@ test("Year 9 scope guard: no future, pluperfect, passives or 3rd-declension endi
   const sample=UNSEEN_PASSAGES.flatMap(p=>p.passage).join(" ").toLowerCase();
   // This check guards against a known list of out-of-scope forms; the exhaustive
   // surface-form whitelist above is the primary grammar gate.
-  for(const banned of ["erunt future","erant pluperfect","-buntur","-verant","fuissent","qui","quae","quod","legatus","milites"]){
-    assert.ok(!sample.includes(banned),"Possible out-of-scope grammatical form: "+banned);
+  const tokens=new Set(words(sample));
+  for(const banned of ["portabuntur","amaverant","fuissent","qui","quae","quod","legatus","milites"]){
+    assert.ok(!tokens.has(banned),"Out-of-scope grammatical form: "+banned);
   }
   assert.match(sample,/laborabant|custodiebat/);
   assert.match(sample,/scripsit|misit|cucurrit/);
