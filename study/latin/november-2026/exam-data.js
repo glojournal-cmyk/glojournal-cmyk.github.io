@@ -264,14 +264,14 @@ const C_LINES = [
     ]
   },
   {
-    latin:"tandem domina epistulam legit, consilium bonum habebat et servis pecuniam dedit.",
-    model:"At last the mistress read the letter, had a good plan, and gave money to the slaves.",
+    latin:"tandem domina epistulam legit, consilium bonum habebat et servum Romam misit.",
+    model:"At last the mistress read the letter, had a good plan, and sent a slave to Rome.",
     points:[
       "tandem — at last/finally",
       "domina epistulam legit — the mistress read the letter (perfect singular)",
       "consilium bonum — a good plan (neuter adjective agreement)",
       "habebat — had/was holding (imperfect singular)",
-      "et servis pecuniam dedit — and gave money to the slaves (dative recipient, accusative object, perfect)"
+      "et servum Romam misit — and sent a slave to Rome (accusative object, destination to a city without a preposition, perfect)"
     ]
   }
 ];
