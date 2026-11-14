@@ -65,7 +65,7 @@
           {
             "label": "It also reduces the chance that microorganisms from the culture escape.",
             "patterns": [
-              "(escape|spread|release).{0,60}(micro|bacter|culture)"
+              "(microorganism|microbe|bacter).{0,85}(escape|spread|release)|(?:escape|spread|release).{0,65}(micro|bacter|culture)"
             ]
           }
         ]
@@ -213,7 +213,7 @@
       "answer": {
         "mode": "biology_rubric",
         "accepted": [
-          "Unwanted microbes can grow alongside the intended bacterial culture. The inhibition-zone results may not reflect the antibiotic effect on the intended species."
+          "Unwanted microbes can grow alongside the intended bacterial culture. Contamination can make the antibiotic inhibition-zone results misleading for the intended species."
         ],
         "points": [
           {
@@ -223,17 +223,17 @@
             ]
           },
           {
-            "label": "The inhibition-zone results may not reflect the antibiotic effect on the intended species.",
+            "label": "Contamination can make the antibiotic inhibition-zone results misleading for the intended species.",
             "patterns": [
-              "(result|zone|test|comparison).{0,85}(valid|reliable|accurat|mislead|intended)"
+              "(contamin|inhibition.zone|result).{0,95}(mislead|unreliab|inaccurat|intended)"
             ]
           }
         ]
       },
-      "modelAnswer": "Unwanted microbes can grow alongside the intended bacterial culture. The inhibition-zone results may not reflect the antibiotic effect on the intended species.",
+      "modelAnswer": "Unwanted microbes can grow alongside the intended bacterial culture. Contamination can make the antibiotic inhibition-zone results misleading for the intended species.",
       "markKeywords": [
         "Unwanted microbes can grow alongside the intended bacterial culture.",
-        "The inhibition-zone results may not reflect the antibiotic effect on the intended species."
+        "Contamination can make the antibiotic inhibition-zone results misleading for the intended species."
       ],
       "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
       "examGuidance": {
@@ -441,7 +441,7 @@
       "answer": {
         "mode": "biology_rubric",
         "accepted": [
-          "Secure the dish with a few pieces of tape rather than fully sealing it. Incubate cultures at no more than 25°C in school. Keep the dish inverted so condensation does not drip on the colonies."
+          "Secure the dish with a few pieces of tape rather than fully sealing it. Incubate cultures at no more than 25°C in school. Incubating plates upside down prevents condensation dripping onto colonies."
         ],
         "points": [
           {
@@ -457,18 +457,18 @@
             ]
           },
           {
-            "label": "Keep the dish inverted so condensation does not drip on the colonies.",
+            "label": "Incubating plates upside down prevents condensation dripping onto colonies.",
             "patterns": [
-              "(invert|upside.down).{0,70}(condens|water|drip|colon)"
+              "(upside.down|invert).{0,85}(condens|water|drip|colon|prevent)"
             ]
           }
         ]
       },
-      "modelAnswer": "Secure the dish with a few pieces of tape rather than fully sealing it. Incubate cultures at no more than 25°C in school. Keep the dish inverted so condensation does not drip on the colonies.",
+      "modelAnswer": "Secure the dish with a few pieces of tape rather than fully sealing it. Incubate cultures at no more than 25°C in school. Incubating plates upside down prevents condensation dripping onto colonies.",
       "markKeywords": [
         "Secure the dish with a few pieces of tape rather than fully sealing it.",
         "Incubate cultures at no more than 25°C in school.",
-        "Keep the dish inverted so condensation does not drip on the colonies."
+        "Incubating plates upside down prevents condensation dripping onto colonies."
       ],
       "hint": "For growth, show doublings. For practical questions, explain control and safety; for clear zones use radius not diameter.",
       "examGuidance": {
