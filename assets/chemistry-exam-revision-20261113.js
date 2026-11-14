@@ -302,6 +302,7 @@ $('next').addEventListener('click',()=>navigate(1));
 $('submit').addEventListener('click',submit);
 $('new-paper').addEventListener('click',home);
 $('export').addEventListener('click',exportBackup);
+$('paper-export').addEventListener('click',exportBackup);
 $('import').addEventListener('change',importBackup);
 
 try{
