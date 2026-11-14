@@ -1,0 +1,30 @@
+name: November 14 Academic Content QA (all subjects)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assessment/physics-nov26-20261113.json'
+      - 'assessment/biology-cell-structure-20261003.json'
+      - 'assessment/biology-cell-structure/index.html'
+      - 'assessment/french-nov26/index.html'
+      - 'content/exam-revision/chemistry-nov16-2026-applied.json'
+      - 'content/topics/chem-y9-c7.json'
+      - 'study/latin/november-2026/**'
+      - 'assets/latin-vocabulary-booklet-20261023.js'
+      - 'tests/academic-all-today-20261114.test.mjs'
+      - '.github/workflows/academic-all-today-20261114.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  academic-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate content, scopes, answer keys and mathematical marking
+        run: |
+          node --check tests/academic-all-today-20261114.test.mjs
+          node --test tests/academic-all-today-20261114.test.mjs
