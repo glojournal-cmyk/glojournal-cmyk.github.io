@@ -973,3 +973,35 @@ body.lux-shell-on:has(#exam:not(.hidden)) #exam :is(a,button,textarea,select,inp
     gap:5px;
   }
 }
+
+
+/* 15 Nov 2026 — Assessment result accessibility hotfix.
+   Timed questions use ivory-on-navy, but scored answer cards are LIGHT.
+   Do not let the dark-page text rules bleed into their light surfaces.
+   Retain the intended ivory text within nested navy feedback panels. */
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .entries > article.entry {
+  background:#fffefa!important;
+  color:#1c3346!important;
+  border:1px solid #bda16a!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .entries > article.entry > div > .tag {
+  color:#654718!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .entries > article.entry > div > p:not(.feedback),
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .entries > article.entry > div > p.muted:not(.feedback) {
+  color:#273f50!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .entries > article.entry > div > p:not(.feedback) b,
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .entries > article.entry > div > p:not(.feedback) strong {
+  color:#102b3e!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .entries > article.entry > div > a {
+  color:#15556a!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .entries > article.entry .feedback,
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .entries > article.entry .feedback :is(p,li,b,strong) {
+  color:#f7ecdd!important;
+}
+body.lux-shell-on:has(#exam:not(.hidden)) #exam .entries > article.entry .feedback p.muted {
+  color:#dce6e7!important;
+}
