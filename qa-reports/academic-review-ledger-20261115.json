@@ -18,6 +18,22 @@
         "markingFairness": true,
         "explanationQuality": true
       }
+    },
+    {
+      "file": "assessment/physics-nov26-20261113.json",
+      "id": "phys-nov26-p03",
+      "fingerprint": "e7bf0dd1201d508a4467f2046f730b70113d5d8cb148d717e026b13a7183f264",
+      "reviewer": "ChatGPT source-led academic cross-check (not a school teacher/exam-board moderator)",
+      "reviewDate": "2026-11-15",
+      "sourceReference": "User-uploaded Tiffin Girls Year 9 Physics Revision: Particles, Density and Conduction, slides 6 and 9 (solid/liquid/gas arrangement and compression); bank original question phys-nov26-p03.",
+      "reviewNotes": "Independently checked teacher slide model: gas particles far apart, with substantial empty space; liquid particles close/touching with little empty space. Confirmed two distinct marks are scientifically defensible. Tightened the first point to require a large gas gap, added targeted false-answer rejection (gas has no/small gaps, gas particles touching) and improved acceptable liquid wording (touching, tightly packed). A CI regression initially rejected an accurate mixed clause about gas and liquid, so the guard was narrowed to gas claims. Verified by dedicated real-scorer QA including seven correct/incorrect/partially correct responses, plus full-model and existing alternative-answer checks. This is a single-item review, not evidence that all 200 Physics questions were independently reviewed.",
+      "checks": {
+        "curriculumFit": true,
+        "scientificOrLinguisticAccuracy": true,
+        "answerAndReasonableAlternatives": true,
+        "markingFairness": true,
+        "explanationQuality": true
+      }
     }
   ]
 }
