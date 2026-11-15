@@ -160,3 +160,19 @@ test('C1.7/C1.8 questions are NEVER selected for new school papers but remain re
   assert.equal(historical.total,2);
   assert.equal(validateStoredState({version:1,active:legacy,history:[],latest:null},questions).active,legacy);
 });
+
+
+test('Rutherford question has two independent observations and non-duplicated mark points',()=>{
+ const q=questions.find(x=>x.id==='chem-nov16-2026-history-applied-02');
+ assert.ok(q);
+ assert.equal(q.marks,2);
+ assert.match(q.prompt,/most alpha particles passed straight through/i);
+ assert.match(q.prompt,/very large angles/i);
+ assert.match(q.stimulus.text,/9,950/);
+ assert.match(q.stimulus.text,/8 were scattered/);
+ assert.equal(q.markScheme.length,2);
+ assert.match(q.markScheme[0],/empty space/i);
+ assert.match(q.markScheme[1],/dense, positively charged nucleus/i);
+ assert.notEqual(q.markScheme[0],q.markScheme[1]);
+ assert.deepEqual(q.feedback.steps,q.markScheme);
+});
