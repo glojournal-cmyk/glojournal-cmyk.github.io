@@ -6,7 +6,7 @@ const bank=JSON.parse(fs.readFileSync('assessment/physics-nov26-20261113.json','
 const all=bank.groups.flatMap(g=>g.questions);
 const questions=new Map(all.map(q=>[q.id,q]));
 const app=fs.readFileSync('assessment/app-v2.js','utf8');
-const start=app.indexOf('function physicsNov26Mark(q,value){');
+const start=app.indexOf('function physicsUnitCanon(')>=0?app.indexOf('function physicsUnitCanon('):app.indexOf('function physicsNov26Mark(q,value){');
 const end=app.indexOf('\nfunction mark(q,value){',start);
 assert.ok(start>0&&end>start,'independent scorer exists in live assessment script');
 const scorer=vm.runInNewContext(app.slice(start,end)+'\nphysicsNov26Mark;');
@@ -27,6 +27,14 @@ for(const q of all){
   }
 }
 
+// The live scorer now delegates worded units to physicsUnitCanon; the QA must load
+// that helper too, so it tests the real scoring function rather than a broken extract.
+const symbolic=questions.get('phys-nov26-d02');
+assert(symbolic);
+assert.equal(scorer(symbolic,'Density equals mass divided by volume. 540 divided by 200 equals 2.7. The density is 2.7 grams per cubic centimetre.').matched,3,
+ 'worded density units must retain all three marks');
+assert.equal(scorer(symbolic,'ρ = m/V. 540 ÷ 200 = 2.7. The density is 2.7 g/cm³.').matched,3,
+ 'a correct symbolic GCSE equation ρ=m/V must earn its method mark');
 const equivalent=[
  ['p02','The particles are tightly packed in an ordered lattice and oscillate about their fixed locations.',2],
  ['p03','There are big gaps among gas molecules but almost no gaps among liquid molecules.',2],
