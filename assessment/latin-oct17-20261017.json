@@ -697,7 +697,8 @@
           "I can",
           "I am able",
           "can",
-          "be able"
+          "be able",
+          "am able"
         ],
         "mode": "exact",
         "allowLatinWordOrder": false
@@ -1032,7 +1033,8 @@
         "accepted": [
           "ground",
           "land",
-          "country"
+          "country",
+          "earth"
         ],
         "mode": "exact",
         "allowLatinWordOrder": false
@@ -2268,7 +2270,8 @@
       "answer": {
         "accepted": [
           "house",
-          "country villa"
+          "country villa",
+          "villa"
         ],
         "mode": "exact",
         "allowLatinWordOrder": false
@@ -3217,7 +3220,9 @@
       "answer": {
         "accepted": [
           "have",
-          "I have"
+          "I have",
+          "hold",
+          "I hold"
         ],
         "mode": "exact",
         "allowLatinWordOrder": false
@@ -3258,7 +3263,8 @@
           "he says",
           "she says",
           "he said",
-          "she said"
+          "she said",
+          "he/she says"
         ],
         "mode": "exact",
         "allowLatinWordOrder": false
@@ -3708,7 +3714,8 @@
           "fear",
           "be afraid",
           "I fear",
-          "I be afraid"
+          "I am afraid",
+          "am afraid"
         ],
         "mode": "exact",
         "allowLatinWordOrder": false
@@ -4001,8 +4008,7 @@
       "answer": {
         "accepted": [
           "to",
-          "towards",
-          "at"
+          "towards"
         ],
         "mode": "exact",
         "allowLatinWordOrder": false
@@ -4149,7 +4155,9 @@
       "answer": {
         "accepted": [
           "into",
-          "onto"
+          "onto",
+          "in",
+          "on"
         ],
         "mode": "exact",
         "allowLatinWordOrder": false

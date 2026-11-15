@@ -2,7 +2,7 @@
    Latin Creusa accepts equivalent wording and partial credit fairly.
    Chemistry is marked by scientific ideas / keywords rather than model-answer wording. */
 (function(){
-  const VERSION='20261003-chem-semantic1';
+  const VERSION='20261115-chem-sign-particle1';
   window.__ASSESSMENT_MARKING_VERSION=VERSION;
 
   const originalMark=mark;
@@ -96,7 +96,44 @@
       .replace(/[’‘]/g,"'")
       .replace(/[^a-z0-9'.+-]+/g,' ')
       .split(/\s+/).filter(Boolean)
+      .map(w=>w.replace(/^\.+|\.+$/g,''))
       .map(chemCanon).filter(w=>w&&!CHEM_STOP.has(w));
+  }
+
+  function chemistryParticles(text){
+    const found=new Set();
+    for(const match of String(text||'').toLowerCase().matchAll(/\b(protons?|neutrons?|electrons?)\b/g)){
+      const word=match[1];
+      found.add(word.startsWith('proton')?'proton':word.startsWith('neutron')?'neutron':'electron');
+    }
+    return found;
+  }
+
+  // "12 protons" must not satisfy a bare "12" or "12 neutrons".
+  // A later bare 35 in "17 protons + 18 neutrons = 35" still counts.
+  function chemistryNumberIsUnlabelled(clause,number){
+    const words=String(clause||'').toLowerCase().replace(/[=/+−–-]/g,' barrier ').match(/[a-z0-9.]+/g)||[];
+    const particle=w=>/^(protons?|neutrons?|electrons?)$/.test(w);
+    let bare=false;
+    for(let i=0;i<words.length;i++){
+      if(words[i].replace(/^\.+|\.+$/g,'')!==String(number))continue;
+      if(!particle(words[i-1]||'')&&!particle(words[i+1]||''))bare=true;
+    }
+    return bare;
+  }
+
+  function chemistryExactIdea(response,term){
+    const clauses=String(response||'').split(/(?<!\d)\.(?!\d)|[!?;\n]+/).map(s=>s.trim()).filter(Boolean);
+    const scopes=clauses.length?clauses:[String(response||'')];
+    const termParticles=chemistryParticles(term);
+    const termNumbers=[...String(term).matchAll(/\d+(?:\.\d+)?/g)].map(m=>m[0]);
+    return scopes.some(clause=>{
+      if(!chemistryIdeaMatch(clause,term))return false;
+      const extra=[...chemistryParticles(clause)].filter(p=>!termParticles.has(p));
+      if(!extra.length)return true;
+      if(!termNumbers.length||termParticles.size)return false;
+      return termNumbers.every(n=>chemistryNumberIsUnlabelled(clause,n));
+    });
   }
 
   // Ignore a term explicitly denied by the student; do not match across clauses.
@@ -176,7 +213,7 @@
     if(mode==='exact_or_equivalent'){
       if(base?.credit>=0.999)return base;
       const candidates=[...(q.answer?.accepted||[]),...(q.markKeywords||[])].filter(Boolean);
-      const ok=candidates.some(term=>chemistryIdeaMatch(response,term));
+      const ok=candidates.some(term=>chemistryExactIdea(response,term));
       if(ok)return {credit:1,status:'Correct',matched:1,total:1};
     }
     return base;

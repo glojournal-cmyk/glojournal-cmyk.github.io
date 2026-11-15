@@ -26,13 +26,15 @@
   if(examGroup)examGroup.exam='2026-10-05';
 
   const norm={ignoreCase:true,ignoreExtraWhitespace:true,ignoreTerminalPunctuation:true,ignorePunctuationForScore:true};
+  // Relative charges must keep + and -. Stripping punctuation makes +1 and -1 identical.
+  const signedNorm={ignoreCase:true,ignoreExtraWhitespace:true,ignoreTerminalPunctuation:true,ignorePunctuationForScore:false};
   const base=(id,prompt,concept,difficulty=1)=>({
     id:`chem-atoms-${id}`,topic:'Atoms',prompt,diagram:null,conceptId:`chem-atoms-${concept}`,
     difficulty,contentTier:'school_aqa_style'
   });
   const choice=(id,prompt,options,accepted,concept,hint,difficulty=1)=>({
     ...base(id,prompt,concept,difficulty),format:'mc_single',options,
-    answer:{mode:'choice',accepted:[accepted],normalization:norm},
+    answer:{mode:'choice',accepted:[accepted],normalization:/[+-]/.test(String(accepted)+options.join(''))?signedNorm:norm},
     feedback:{short:accepted},markKeywords:[accepted],hint
   });
   const exact=(id,prompt,accepted,concept,hint,difficulty=1,model='')=>({
@@ -64,7 +66,7 @@
     choice('07','What is the approximate relative mass of a neutron?',['1','0','1/1840','2'],'1','neutron-mass','Neutrons have almost the same mass as protons.'),
     choice('08','Which best describes the mass of an electron compared with a proton?',['very small, about 1/1840 of a proton','the same as a proton','about twice a proton','exactly zero'],'very small, about 1/1840 of a proton','electron-mass','Electron mass is tiny, but not literally zero.'),
     exact('09','What does the atomic number of an element tell you?',['the number of protons','number of protons','proton number'],'atomic-number','Atomic number identifies the element because it equals proton number.',1,'The atomic number is the number of protons in the nucleus.'),
-    exact('10','What does the mass number of an atom tell you?',['the total number of protons and neutrons','number of protons plus neutrons','protons + neutrons'],'mass-number','Electrons are not included in mass number.',1,'Mass number = number of protons + number of neutrons.'),
+    exact('10','What does the mass number of an atom tell you?',['the total number of protons and neutrons','number of protons plus neutrons','protons plus neutrons','protons + neutrons'],'mass-number','Electrons are not included in mass number.',1,'Mass number = number of protons + number of neutrons.'),
     exact('11','A neutral sodium atom has atomic number 11. How many protons does it contain?',['11','11 protons'],'na-protons','Atomic number equals number of protons.'),
     exact('12','A neutral magnesium atom has atomic number 12. How many electrons does it contain?',['12','12 electrons'],'mg-electrons','In a neutral atom, electrons equal protons.'),
     exact('13','An atom has mass number 23 and atomic number 11. How many neutrons does it contain?',['12','12 neutrons'],'neutrons-23-11','Neutrons = mass number − atomic number.',2,'23 − 11 = 12 neutrons.'),
