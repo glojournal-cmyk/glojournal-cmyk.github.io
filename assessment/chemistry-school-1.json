@@ -43,8 +43,8 @@
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "atomic mass"
-        ],
+          "atomic mass",
+      "atomic weight"],
         "normalization": {
           "ignoreCase": true,
           "ignoreExtraWhitespace": true,
@@ -1491,8 +1491,9 @@
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "atomic number"
-        ],
+          "atomic number",
+      "proton number",
+      "number of protons"],
         "normalization": {
           "ignoreCase": true,
           "ignoreExtraWhitespace": true,
@@ -9208,14 +9209,20 @@
       "answer": {
         "mode": "chemistry_rubric",
         "accepted": [
-          "Increasing atomic number."
-        ],
+          "Increasing atomic number.",
+      "atomic number",
+      "proton number",
+      "number of protons",
+      "increasing proton number"],
         "points": [
           {
             "label": "Increasing atomic number",
             "alternatives": [
               "increasing atomic number",
-              "increasing proton number"
+              "increasing proton number",
+              "atomic number",
+              "proton number",
+              "number of protons"
             ]
           }
         ],
@@ -9226,7 +9233,10 @@
         "markPointAlternatives": [
           [
             "increasing atomic number",
-            "increasing proton number"
+            "increasing proton number",
+            "atomic number",
+            "proton number",
+            "number of protons"
           ]
         ],
         "totalMarks": 1

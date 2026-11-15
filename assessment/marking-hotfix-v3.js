@@ -2,7 +2,7 @@
    Latin Creusa accepts equivalent wording and partial credit fairly.
    Chemistry is marked by scientific ideas / keywords rather than model-answer wording. */
 (function(){
-  const VERSION='20261115-chem-sign-particle1';
+  const VERSION='20261115-chem-keyword1';
   window.__ASSESSMENT_MARKING_VERSION=VERSION;
 
   const originalMark=mark;
@@ -67,6 +67,7 @@
     [/^(evaporate|evaporates|evaporated|evaporating|evaporation)$/,'evaporate'],
     [/^(condense|condenses|condensed|condensing|condensation)$/,'condense'],
     [/^(filter|filters|filtered|filtering|filtration)$/,'filter'],
+    [/^(crystallise|crystallize|crystallised|crystallized|crystallising|crystallizing|crystallisation|crystallization)$/,'crystallise'],
     [/^(separate|separates|separated|separating|separation)$/,'separate'],
     [/^(measure|measures|measured|measuring|measurement|measurements)$/,'measure'],
     [/^(repeat|repeats|repeated|repeating|repetition)$/,'repeat'],
@@ -128,6 +129,7 @@
     const termParticles=chemistryParticles(term);
     const termNumbers=[...String(term).matchAll(/\d+(?:\.\d+)?/g)].map(m=>m[0]);
     return scopes.some(clause=>{
+      if(/^\s*[+-]?(?:\d+\.\d+|\.\d+)\s*$/.test(String(term))&&/\b(?:mm|cm|nm|µm|μm|um|metres?|meters?)\b/i.test(clause))return false;
       if(!chemistryIdeaMatch(clause,term))return false;
       const extra=[...chemistryParticles(clause)].filter(p=>!termParticles.has(p));
       if(!extra.length)return true;
@@ -157,12 +159,30 @@
     if(chemistryNegatesTerm(text,term))return false;
     return needles.every(n=>hay.includes(n)||hay.some(h=>{
       if(n.length<4||h.length<4)return false;
+      const short=Math.min(h.length,n.length), long=Math.max(h.length,n.length);
+      // "crystal" is not the method "crystallisation".
+      if(short/long<0.72)return false;
       return h.startsWith(n)||n.startsWith(h);
     }));
   }
 
   function isChemistry(q){
     return /^chem[-_]/i.test(String(q?.id||''))||/^chem[-_]/i.test(String(q?.conceptId||''));
+  }
+
+  // ".60" is the same Rf as "0.60". Do not treat 60, or 0.60 mm, as that value.
+  function chemistrySameNumber(response, term){
+    const parse=(value, stripUnit)=>{
+      let text=String(value||'').trim().toLowerCase().replace(/[−–]/g,'-').replace(/[.!?]+$/,'');
+      if(stripUnit)text=text.replace(/\s*(?:mm|cm)\b/,'');
+      text=text.replace(/\s+/g,'');
+      if(!/^[+-]?(?:\d+\.\d+|\d+|\.\d+)$/.test(text))return null;
+      const number=Number(text);
+      return Number.isFinite(number)?number:null;
+    };
+    const decimal=/\d\.\d/.test(String(term));
+    const got=parse(response, !decimal), expected=parse(term, !decimal);
+    return got!=null&&expected!=null&&Math.abs(got-expected)<1e-9;
   }
 
   function chemistryFallback(q,value,base){
@@ -212,8 +232,9 @@
 
     if(mode==='exact_or_equivalent'){
       if(base?.credit>=0.999)return base;
-      const candidates=[...(q.answer?.accepted||[]),...(q.markKeywords||[])].filter(Boolean);
-      const ok=candidates.some(term=>chemistryExactIdea(response,term));
+      // markKeywords are revision hints, not extra full-mark answers.
+      const candidates=[...(q.answer?.accepted||[])].filter(Boolean);
+      const ok=candidates.some(term=>chemistryExactIdea(response,term)||chemistrySameNumber(response,term));
       if(ok)return {credit:1,status:'Correct',matched:1,total:1};
     }
     return base;
