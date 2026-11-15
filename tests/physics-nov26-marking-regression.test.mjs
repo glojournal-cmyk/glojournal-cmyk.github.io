@@ -50,6 +50,22 @@ for(const [suffix,response,expected] of equivalent){
  const got=scorer(q,response);
  assert.equal(got.matched,expected,q.id+' reasonable alternative answer '+JSON.stringify(got));
 }
+// Source: Year 9 teacher revision slides, particle model pp. 6 and 9.
+// Regression: 'no spaces' previously matched the loose gas + 'spac' keywords.
+const gasLiquid=questions.get('phys-nov26-p03');
+for(const [response,expected] of [
+  ['Gas particles have no spaces between them. Liquid particles are close together.',1],
+  ['Gas particles have only small gaps. Liquid particles are touching.',1],
+  ['Gas particles are close together with no gaps. Liquid particles have large gaps.',0],
+  ['Gas particles are far apart. Liquid particles are close together.',2],
+  ['Gas particles have large spaces between them. Liquid particles are touching.',2],
+  ['There are big gaps among gas molecules but almost no gaps among liquid molecules.',2],
+  ['Gas particles are widely spaced. Liquid particles are tightly packed.',2]
+]){
+  const actual=scorer(gasLiquid,response);
+  assert.equal(actual.matched,expected,'Gas/liquid reasoning must be marked by physics, not keyword appearance: '+JSON.stringify({response,actual}));
+}
+
 const liquidDensity=questions.get('phys-nov26-r05');
 for(const response of [
  'I weigh the empty measuring cylinder using a balance. I pour in a known volume of liquid and weigh the full measuring cylinder. I subtract the empty mass from the full mass to find the liquid mass. I calculate density by dividing liquid mass by liquid volume.',
