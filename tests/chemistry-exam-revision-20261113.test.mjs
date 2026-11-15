@@ -39,7 +39,7 @@ test('mixed 10, 20 and 24-question papers cover all four topics without duplicat
   assert.equal(selectPaper(questions,{scope:'balance',length:20}).length,20);
 });
 
-test('all 106 official key variants accepted; wrong formulas, equations and option text rejected',()=>{
+test('all 110 objective answer strings accepted; wrong formulas, equations and option text rejected',()=>{
   let checked=0;
   for(const q of questions.filter(q=>q.format!=='rubric_response')){
     for(const answer of q.answer.accepted){
@@ -48,7 +48,7 @@ test('all 106 official key variants accepted; wrong formulas, equations and opti
     }
     assert.equal(isCorrect(q,''),false,q.id);
   }
-  assert.equal(checked,111);
+  assert.equal(checked,110);
   const formula=questions.find(q=>q.id.includes('-formula-02'));
   const balance=questions.find(q=>q.id.includes('-balance-01'));
   const history=questions.find(q=>q.id.includes('-history-01'));
