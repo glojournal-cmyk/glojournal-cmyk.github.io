@@ -31,5 +31,21 @@ assert.equal(sandbox.mark(bank.questions[2],'Ribosomes, ribosomes.').credit,0.5)
 assert.equal(sandbox.mark(bank.questions[58],'Cell walls and cytoplasm. Mitochondria are too small to resolve.').credit,1);
 assert.equal(sandbox.mark(bank.questions[23],'It is a specialised animal cell. It has no mitochondria or ribosomes.').credit,1);
 assert.equal(sandbox.mark(bank.questions[20],'Ribosomes and mitochondria. Mitochondria release energy needed for protein production.').credit,1);
+// Red blood cell semantic marking regression — linked to Year 9 4.1.1.3 revision.
+// Mere appearance of 'biconcave', 'surface area' or 'haemoglobin' must not reward
+// the opposite scientific claim.
+const rbc=bank.questions.find(q=>q.id==='bio-cell-20261114-103');
+assert(rbc,'missing red blood cell question');
+for(const [response,marks] of [
+  ['Its biconcave shape creates a large surface area and a short diffusion path for oxygen. Flexible red cells squeeze into narrow capillaries. Without a nucleus there is more space for haemoglobin.',3],
+  ['Biconcave shape reduces surface area. Its flexibility helps it pass through narrow capillaries. No nucleus means no haemoglobin.',1],
+  ['Biconcave shape gives a smaller surface area. Flexibility prevents passage through capillaries. No nucleus means no haemoglobin.',0],
+  ['Biconcave cells have a greater surface area for oxygen diffusion. The flexible cells squeeze through tiny capillaries. Lacking a nucleus allows more haemoglobin to be stored.',3],
+  ['Its biconcave shape gives a large surface area. Lack of a nucleus creates extra room for haemoglobin.',2]
+]){
+  const marked=sandbox.mark(rbc,response);
+  assert.equal(marked.matched,marks,'Red blood cell scientific accuracy: '+JSON.stringify({response,marked}));
+}
+
 console.log(JSON.stringify({questions:144,modelsPassed:144-failures.length,balancedPapers:200,marks:60,overlapMin:Math.min(...overlap),overlapMax:Math.max(...overlap),partialCredit:true,negation:true},null,2));
 if(failures.length)process.exit(1);

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "policy": "A recorded review is evidence of a specific independent source/content check, not teacher or awarding-body certification.",
+  "instructions": "For each newly added or changed JSON question, independently check scope, correctness, variants, marking and explanation; record the exact source and details. Never auto-fill reviews to make CI green.",
+  "reviews": [
+    {
+      "file": "assessment/physics-nov26-20261113.json",
+      "id": "phys-nov26-p02",
+      "fingerprint": "27045cbb687a6693a649639e4c2df99a27f2298221da73e1ef731ce49b99d185",
+      "reviewer": "ChatGPT source-led academic cross-check (not a teacher/exam-board moderator)",
+      "reviewDate": "2026-11-15",
+      "sourceReference": "AQA GCSE Physics 8463 §4.3 Particle model of matter: https://www.aqa.org.uk/subjects/physics/gcse/physics-8463/specification/subject-content/particle-model-of-matter ; Science Department states-of-matter guide: https://www.sciencedepartment.co.uk/templates/gcsetemplate.php?pagename=particlemodel",
+      "reviewNotes": "Reviewed prompt, canonical answer, both marking points, positive variants and plausible incorrect arrangements. In the GCSE particle model, solids have closely packed particles in a regular arrangement vibrating at fixed positions; liquids are irregular. The previous unbounded regular/ordered regex inadvertently recognised 'irregular' and 'disordered' as correct. Boundaries now reject them while accepting close/closely/packed and regular/regularly/ordered/orderly/lattice. Live scorer regression checks 1/2 for wrong arrangement plus correct vibration, 2/2 for equivalent correct responses. Independent school teacher moderation is not claimed.",
+      "checks": {
+        "curriculumFit": true,
+        "scientificOrLinguisticAccuracy": true,
+        "answerAndReasonableAlternatives": true,
+        "markingFairness": true,
+        "explanationQuality": true
+      }
+    },
+    {
+      "file": "assessment/physics-nov26-20261113.json",
+      "id": "phys-nov26-p03",
+      "fingerprint": "e7bf0dd1201d508a4467f2046f730b70113d5d8cb148d717e026b13a7183f264",
+      "reviewer": "ChatGPT source-led academic cross-check (not a school teacher/exam-board moderator)",
+      "reviewDate": "2026-11-15",
+      "sourceReference": "User-uploaded Tiffin Girls Year 9 Physics Revision: Particles, Density and Conduction, slides 6 and 9 (solid/liquid/gas arrangement and compression); bank original question phys-nov26-p03.",
+      "reviewNotes": "Independently checked teacher slide model: gas particles far apart, with substantial empty space; liquid particles close/touching with little empty space. Confirmed two distinct marks are scientifically defensible. Tightened the first point to require a large gas gap, added targeted false-answer rejection (gas has no/small gaps, gas particles touching) and improved acceptable liquid wording (touching, tightly packed). A CI regression initially rejected an accurate mixed clause about gas and liquid, so the guard was narrowed to gas claims. Verified by dedicated real-scorer QA including seven correct/incorrect/partially correct responses, plus full-model and existing alternative-answer checks. This is a single-item review, not evidence that all 200 Physics questions were independently reviewed.",
+      "checks": {
+        "curriculumFit": true,
+        "scientificOrLinguisticAccuracy": true,
+        "answerAndReasonableAlternatives": true,
+        "markingFairness": true,
+        "explanationQuality": true
+      }
+    },
+    {
+      "file": "assessment/biology-cell-structure-20261003.json",
+      "id": "bio-cell-20261114-103",
+      "fingerprint": "f43a1758ba1660b2997418fc4c77f7909f09e22f9967167a345a491df8ea5e0b",
+      "reviewer": "ChatGPT source-led review (not school/awarding-body moderation)",
+      "reviewDate": "2026-11-15",
+      "sourceReference": "Biology_Cell_Structure_Revision_Guide.pdf (provided project material, specialised cells section); AQA GCSE Biology 8461 §4.1.1.3 specialist-cell structure/function skill https://www.aqa.org.uk/subjects/biology/gcse/biology-8461/specification/subject-content/cell-biology ; RBC expressly named in AQA §4.2.2.3 Blood: https://www.aqa.org.uk/subjects/biology/gcse/biology-8461/specification/subject-content/organisation",
+      "reviewNotes": "Checked the submitted red blood cell adaptation question and three distinct mark points against project revision material and the AQA syllabus. Valid RBC features: biconcave shape increases surface area/shortens diffusion path, flexibility permits narrow capillary passage, no nucleus creates space for haemoglobin. Corrected overbroad lexical patterns that previously rewarded the opposite meanings ('smaller surface area', 'no nucleus means no haemoglobin', and 'flexibility prevents passage'). Added full, partial, invalid and alternative wording regression cases to the actual assessment scoring engine. AQA names RBC in 4.2.2.3 Blood rather than 4.1.1.3; here it is only a school-revision example applying the general 4.1.1.3 specialist-cell reasoning skill, not an official named 4.1.1.3 topic. Future school-specific coverage check needed before claiming exact paper scope; one reviewed question only.",
+      "checks": {
+        "curriculumFit": true,
+        "scientificOrLinguisticAccuracy": true,
+        "answerAndReasonableAlternatives": true,
+        "markingFairness": true,
+        "explanationQuality": true
+      }
+    },
+    {
+      "file": "assessment/physics-nov26-20261113.json",
+      "id": "phys-nov26-d02",
+      "fingerprint": "696db6291efb35efe1336692bc84e6e08733ce4dff6ddaeb6f0b9e11dac2ed4a",
+      "reviewer": "ChatGPT source-led Academic QA (not teacher or exam-board approval)",
+      "reviewDate": "2026-11-15",
+      "sourceReference": "User-uploaded Tiffin Girls Year 9 Physics Revision (1).pptx, slides 11–12: Density = mass ÷ volume, ρ = m/V and 540 g / 200 cm³ = 2.7 g/cm³.",
+      "reviewNotes": "Checked the exact school-taught formula and worked example. The 3-mark question requires formula/method, numerical substitution and correctly unit-labelled result. Former method regex marked numerical substitutions and worded 'density equals mass divided by volume', but could reject a separate correct symbolic ρ = m/V or density = mass/volume. Added a targeted symbolic pattern to the methodRules without broadening incorrect numerical answer acceptance. Evaluated the actual live physics scorer: full scientific symbolic working 3/3; symbolic equation alone 1/3; density = mass/volume plus substitution/result 3/3; original existing equivalent-answer test still preserved. This independently reviewed question does not establish validation of the entire physics bank.",
+      "checks": {
+        "curriculumFit": true,
+        "scientificOrLinguisticAccuracy": true,
+        "answerAndReasonableAlternatives": true,
+        "markingFairness": true,
+        "explanationQuality": true
+      }
+    }
+  ]
+}

@@ -6,7 +6,7 @@ const bank=JSON.parse(fs.readFileSync('assessment/physics-nov26-20261113.json','
 const all=bank.groups.flatMap(g=>g.questions);
 const questions=new Map(all.map(q=>[q.id,q]));
 const app=fs.readFileSync('assessment/app-v2.js','utf8');
-const start=app.indexOf('function physicsNov26Mark(q,value){');
+const start=app.indexOf('function physicsUnitCanon(')>=0?app.indexOf('function physicsUnitCanon('):app.indexOf('function physicsNov26Mark(q,value){');
 const end=app.indexOf('\nfunction mark(q,value){',start);
 assert.ok(start>0&&end>start,'independent scorer exists in live assessment script');
 const scorer=vm.runInNewContext(app.slice(start,end)+'\nphysicsNov26Mark;');
@@ -27,6 +27,19 @@ for(const q of all){
   }
 }
 
+// The live scorer now delegates worded units to physicsUnitCanon; the QA must load
+// that helper too, so it tests the real scoring function rather than a broken extract.
+const symbolic=questions.get('phys-nov26-d02');
+assert(symbolic);
+assert.equal(scorer(symbolic,'Density equals mass divided by volume. 540 divided by 200 equals 2.7. The density is 2.7 grams per cubic centimetre.').matched,3,
+ 'worded density units must retain all three marks');
+assert.equal(scorer(symbolic,'ρ = m/V. 540 ÷ 200 = 2.7. The density is 2.7 g/cm³.').matched,3,
+ 'a correct symbolic GCSE equation ρ=m/V must earn its method mark');
+// Academic marking changes must invalidate iPad/PWA cached banks and script URLs.
+const assessmentHTML=fs.readFileSync('assessment/index.html','utf8');
+assert.match(app,/physics-nov26[^\n]*20261115-academic-marking-qa1/);
+assert.match(app,/biology-cell-structure[^\n]*20261115-academic-marking-qa1/);
+assert.match(assessmentHTML,/app-v2\.js\?[^"']*academicQa=20261115-academic-marking-qa1/);
 const equivalent=[
  ['p02','The particles are tightly packed in an ordered lattice and oscillate about their fixed locations.',2],
  ['p03','There are big gaps among gas molecules but almost no gaps among liquid molecules.',2],
@@ -50,6 +63,22 @@ for(const [suffix,response,expected] of equivalent){
  const got=scorer(q,response);
  assert.equal(got.matched,expected,q.id+' reasonable alternative answer '+JSON.stringify(got));
 }
+// Source: Year 9 teacher revision slides, particle model pp. 6 and 9.
+// Regression: 'no spaces' previously matched the loose gas + 'spac' keywords.
+const gasLiquid=questions.get('phys-nov26-p03');
+for(const [response,expected] of [
+  ['Gas particles have no spaces between them. Liquid particles are close together.',1],
+  ['Gas particles have only small gaps. Liquid particles are touching.',1],
+  ['Gas particles are close together with no gaps. Liquid particles have large gaps.',0],
+  ['Gas particles are far apart. Liquid particles are close together.',2],
+  ['Gas particles have large spaces between them. Liquid particles are touching.',2],
+  ['There are big gaps among gas molecules but almost no gaps among liquid molecules.',2],
+  ['Gas particles are widely spaced. Liquid particles are tightly packed.',2]
+]){
+  const actual=scorer(gasLiquid,response);
+  assert.equal(actual.matched,expected,'Gas/liquid reasoning must be marked by physics, not keyword appearance: '+JSON.stringify({response,actual}));
+}
+
 const liquidDensity=questions.get('phys-nov26-r05');
 for(const response of [
  'I weigh the empty measuring cylinder using a balance. I pour in a known volume of liquid and weigh the full measuring cylinder. I subtract the empty mass from the full mass to find the liquid mass. I calculate density by dividing liquid mass by liquid volume.',
@@ -59,6 +88,27 @@ for(const response of [
  const actual=scorer(liquidDensity,response);
  assert.equal(actual.matched,4,'RP5 valid liquid procedure must earn 4/4 '+JSON.stringify(actual));
 }
+
+// Academic false-positive regression: "irregular" contains the substring "regular";
+// "disordered" similarly contains "ordered". Both are wrong for GCSE solid model.
+const solid=questions.get('phys-nov26-p02');
+assert.ok(solid,'missing solid particle question');
+assert.equal(
+  scorer(solid,'Solid particles are close together in an irregular arrangement. Particles vibrate about fixed positions.').matched,
+  1,'A wrong irregular arrangement must not earn the arrangement mark'
+);
+assert.equal(
+  scorer(solid,'Particles are tightly packed in a disordered arrangement. They vibrate in fixed positions.').matched,
+  1,'A wrong disordered arrangement must not earn the arrangement mark'
+);
+assert.equal(
+  scorer(solid,'Particles are packed together in an orderly arrangement. They vibrate in fixed positions.').matched,
+  2,'A scientifically correct orderly arrangement must get full credit'
+);
+assert.equal(
+  scorer(solid,'Solid particles are closely packed in a regular pattern, vibrating around fixed positions.').matched,
+  2,'A scientifically equivalent regular pattern must get full credit'
+);
 
 const contradictions=[
  ['p02','Solid particles are not close together and are not regular. They do not vibrate around fixed positions.'],
@@ -78,7 +128,7 @@ for(const suffix of ['i03','i04','i05','i11','i12']){
 const svg=fs.readFileSync('assessment/diagrams/physics-nov26-rp2-cooling.svg','utf8');
 assert.match(svg,/Illustrative practice data only/);
 assert.doesNotMatch(svg,/data from supplied revision slides/);
-assert.ok(app.includes('20261114-physics-selection-qa1'));
+assert.ok(app.includes('20261115-academic-marking-qa1'), 'the versioned Physics/Biology bank URLs must refresh after reviewed marking changes');
 
 console.log('PHYSICS_NOV26_MARKING_REGRESSION PASS',JSON.stringify({
  canonical:all.length,alternativeAnswers:equivalent.length,
