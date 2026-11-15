@@ -22,17 +22,33 @@ for(const q of bank.questions){
 }
 for(const q of numbers){
   const {value,unit}=q.answer.numeric;
+  // Distinguish method, final answer, and unit; a bare number must not earn method credit.
+  const finalOnlyMarks=unit?2:1;
   for(const alias of unit==='µm'?['µm','μm','um','micrometres','micrometers']:unit?[unit,'millimetres']:['','times']){
-    assert.equal(grade(q,`${value}${alias}`).credit,1,`${q.id}: ${alias}`);
+    const answer=`${value} ${alias}`;
+    assert.equal(grade(q,answer).matched,finalOnlyMarks,`${q.id}: ${alias} (no method evidence)`);
   }
   assert.equal(grade(q,`${value*7+1} ${unit}`).credit,0,'wrong final number: '+q.id);
   if(unit){
-    assert.equal(grade(q,String(value)).matched,q.marks-1,'missing unit should lose unit point: '+q.id);
+    assert.equal(grade(q,String(value)).matched,1,'correct result without unit/method: '+q.id);
     const wrongUnit=unit==='µm'?'mm':'µm';
     assert(grade(q,`${value} ${wrongUnit}`).credit<1,'wrong unit accepted: '+q.id);
   }
-  assert.equal(grade(q,`My final answer is ${value} ${unit}.`).credit,1,q.id);
+  assert.equal(grade(q,`My final answer is ${value} ${unit}.`).matched,finalOnlyMarks,
+    'the final answer must not automatically receive method marks: '+q.id);
+  assert.equal(grade(q,q.modelAnswer).matched,q.marks,'full working must earn all marks: '+q.id);
 }
+// Live Biology microscope scoring: the pupil earns method, result, and unit independently.
+const microscope=bank.questions.find(q=>q.id==='bio-nov2-20261017-061');
+assert(microscope);
+assert.equal(grade(microscope,'40').matched,1,'correct final number alone = 1/2');
+assert.equal(grade(microscope,'10 × 4 = 40').matched,2,'working + correct final = 2/2');
+assert.equal(grade(microscope,'10 × 4').matched,1,'method alone = 1/2');
+const cellSize=bank.questions.find(q=>q.id==='bio-nov2-20261017-069');
+assert(cellSize);
+assert.equal(grade(cellSize,'5 µm').matched,2,'result+unit alone = 2/3');
+assert.equal(grade(cellSize,'5').matched,1,'result only = 1/3');
+assert.equal(grade(cellSize,cellSize.modelAnswer).matched,3,'method+result+unit = 3/3');
 const q=fragment=>bank.questions.find(q=>q.prompt.includes(fragment));
 assert.equal(grade(q('two structures present'),'Chloroplasts / cell wall').credit,1);
 assert.equal(grade(q('two structures present'),'chloroplasts, chloroplasts').matched,1);
