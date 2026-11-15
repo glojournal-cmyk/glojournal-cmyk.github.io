@@ -41,7 +41,7 @@ function grantWardrobe(id){
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
 const CHEMISTRY_REVISION='20260930-chem-fullmarks3';
-const bankUrl=p=>p.id==='latin-conjugations'?`${p.bank}?v=20261115-latin-clarity-qa1`:p.id==='physics'?`${p.bank}?v=20261115-all-assessment-qa2`:p.id==='biology'?`${p.bank}?v=20261115-bio-stem-unique1`:p.id==='physics-nov26'?`${p.bank}?v=20261115-academic-marking-qa1`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261115-academic-marking-qa1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:p.id==='latin'?`${p.bank}?v=20261115-suus1`:`${p.bank}?v=20261010-chem-marking1`;
+const bankUrl=p=>p.id==='latin-conjugations'?`${p.bank}?v=20261115-latin-clarity-qa1`:p.id==='physics'?`${p.bank}?v=20261115-phys-distractor1`:p.id==='english'?`${p.bank}?v=20261115-eng-othello-satire1`:p.id==='biology'?`${p.bank}?v=20261115-bio-stem-unique1`:p.id==='physics-nov26'?`${p.bank}?v=20261115-academic-marking-qa1`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261115-academic-marking-qa1`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:p.id==='latin'?`${p.bank}?v=20261115-suus1`:`${p.bank}?v=20261010-chem-marking1`;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
   'inks.svg':'Figure 2: chromatogram with ink samples A to D',
@@ -574,8 +574,7 @@ function physicsNov26Mark(q,value){
     return clauses.some(clause=>{
       const safeClause=q.id==='phys-nov26-d13'?clause.replace(/\b(?:not|isn't|cannot\s+be)\s+pure\s+gold\b/gi,'impure gold'):clause;
       if(!noNegation(safeClause)&&!point.allowNegation)return false;
-      // Each scientific misconception is excluded before checking positive keywords.
-      // e.g. 'gas has no spaces' must never earn the gas-gap mark.
+      // Reject scientific misconceptions before any positive keyword credit.
       if((point.rejectPatterns||[]).some(pattern=>new RegExp(pattern,'i').test(safeClause)))return false;
       const canon=physicsUnitCanon(clause);
       return patterns.some(pattern=>new RegExp(pattern,'i').test(clause)||new RegExp(pattern,'i').test(canon));
