@@ -105,7 +105,7 @@
           {
             "label": "Both have a cell membrane.",
             "patterns": [
-              "cell membrane"
+              "(?:cell(?:-surface| surface)?|plasma) membrane"
             ]
           },
           {
@@ -124,7 +124,7 @@
             "options": [
               {
                 "label": "Cell membrane.",
-                "pattern": "cell membrane"
+                "pattern": "(?:cell(?:-surface| surface)?|plasma) membrane"
               },
               {
                 "label": "Cytoplasm.",
@@ -167,7 +167,7 @@
           {
             "label": "Bacteria contain DNA.",
             "patterns": [
-              "(contain|have|possess).{0,15}DNA"
+              "(?<!\\bnot\\s)(?:contain|have|possess)(?!\\s+(?:no|not)\\b).{0,15}DNA"
             ]
           },
           {
@@ -3188,7 +3188,7 @@
           {
             "label": "Keep antibiotic concentration / disc size / incubation time / bacterial species constant.",
             "patterns": [
-              "(constant|same|control).{0,50}(concentration|disc|time|species|temperature|agar|volume|bacter)|keep.{0,50}(same|constant)"
+              "(constant|same|control).{0,80}(concentration|disc|time|species|temperature|agar|volume|bacter)|(keep|kept).{0,120}(same|constant)|(concentration|disc|incubation time|time|species|temperature|agar|volume|bacter).{0,60}(constant|the same|same)"
             ]
           },
           {
@@ -3442,7 +3442,7 @@
           {
             "label": "Both cell types have a cell membrane.",
             "patterns": [
-              "cell membrane"
+              "(?:cell(?:-surface| surface)?|plasma) membrane"
             ]
           }
         ]
@@ -3759,7 +3759,7 @@
           {
             "label": "Both have a cell membrane.",
             "patterns": [
-              "cell membrane"
+              "(?:cell(?:-surface| surface)?|plasma) membrane"
             ]
           },
           {
@@ -3806,7 +3806,7 @@
           {
             "label": "The cell membrane controls which substances enter or leave the cell.",
             "patterns": [
-              "cell membrane.{0,70}(control|regulat).{0,50}(enter|leave|movement|substance)"
+              "(?:cell(?:-surface| surface)?|plasma) membrane.{0,70}(control|regulat).{0,50}(enter|leave|movement|substance)"
             ]
           }
         ]
@@ -4189,7 +4189,7 @@
           {
             "label": "The cell membrane controls entry and exit of substances.",
             "patterns": [
-              "cell membrane.{0,70}(enter|exit|leave|movement|substance)"
+              "(?:cell(?:-surface| surface)?|plasma) membrane.{0,70}(enter|exit|leave|movement|substance)"
             ]
           },
           {
