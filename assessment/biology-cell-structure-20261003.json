@@ -173,7 +173,7 @@
           {
             "label": "The DNA is free in the cytoplasm.",
             "patterns": [
-              "DNA.{0,50}cytoplasm|cytoplasm.{0,30}DNA"
+              "DNA.{0,120}cytoplasm|cytoplasm.{0,80}DNA|free.{0,25}cytoplasm"
             ]
           }
         ]
@@ -254,7 +254,7 @@
           {
             "label": "In metres this is 2 x 10^-6 m.",
             "patterns": [
-              "2\\s*[x×*]\\s*10\\s*\\^?\\s*-6"
+              "2\\s*(?:[x×*]|times)\\s*10(?:\\s*(?:\\^\\s*)?-6|\\s*to the (?:power(?: of)?\\s*)?-6|\\s*⁻⁶)"
             ]
           }
         ]
@@ -2175,7 +2175,7 @@
           {
             "label": "Magnification is how many times larger the image is than the object.",
             "patterns": [
-              "(magnification.{0,70}(times|larger)|image.{0,35}object)"
+              "(magnification.{0,80}(times|larger|bigger)|image.{0,40}(object|real))"
             ]
           },
           {
@@ -3482,7 +3482,7 @@
           {
             "label": "The width is 5 × 10^-6 metres.",
             "patterns": [
-              "5\\s*[x×*]\\s*10\\s*\\^?\\s*-6\\s*m"
+              "5\\s*(?:[x×*]|times)\\s*10(?:\\s*(?:\\^\\s*)?-6|\\s*to the (?:power(?: of)?\\s*)?-6|\\s*⁻⁶)\\s*m"
             ]
           }
         ]
@@ -3624,7 +3624,7 @@
           {
             "label": "The width is 2.5 × 10^-6 metres.",
             "patterns": [
-              "2\\.5\\s*[x×*]\\s*10\\s*\\^?\\s*-6\\s*m"
+              "2\\.5\\s*(?:[x×*]|times)\\s*10(?:\\s*(?:\\^\\s*)?-6|\\s*to the (?:power(?: of)?\\s*)?-6|\\s*⁻⁶)\\s*m"
             ]
           }
         ]
