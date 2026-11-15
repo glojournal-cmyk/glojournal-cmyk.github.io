@@ -159,3 +159,20 @@ test('the original 134 eligible revision questions are unchanged and school mock
  assert.match(mockJs,/if\(!store\(/);
  assert.ok(!mockJs.includes('setXP(')&&!mockJs.includes('dailyLog='));
 });
+
+
+test('QA 15 Nov: independently locate all eight Atom X electrons on the correct shells',()=>{
+ const source=fs.readFileSync(new URL('content/diagrams/chem-nov16-atom-x-20261114.svg',root),'utf8');
+ assert.match(source,/8 protons/);
+ assert.match(source,/9 neutrons/);
+ assert.match(source,/<circle cx="418" cy="176" r="72"/);
+ assert.match(source,/<circle cx="418" cy="176" r="114"/);
+ const dots=[...source.matchAll(/<circle cx="(\d+)" cy="(\d+)" r="9" fill="#1e5771"/g)]
+  .map(m=>({x:Number(m[1]),y:Number(m[2])}));
+ assert.equal(dots.length,8,'diagram must visibly contain exactly eight electrons');
+ const inner=dots.filter(({x,y})=>Math.abs(Math.hypot(x-418,y-176)-72)<1.1);
+ const outer=dots.filter(({x,y})=>Math.abs(Math.hypot(x-418,y-176)-114)<1.1);
+ assert.equal(inner.length,2,'oxygen-17 atom has two electrons in the first shell');
+ assert.equal(outer.length,6,'oxygen-17 atom has six electrons in the second shell');
+ assert.equal(new Set(dots.map(({x,y})=>x+','+y)).size,8,'no overlapping electrons');
+});
