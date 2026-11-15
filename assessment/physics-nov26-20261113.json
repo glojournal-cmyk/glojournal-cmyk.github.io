@@ -119,7 +119,7 @@
                   "(?=.*\\b(?:gas|gaseous)\\b)(?=.*\\b(?:far|widely)\\b)(?=.*\\b(?:apart|spaced|separated)\\b).*"
                 ],
                 "rejectPatterns": [
-                  "\\b(?:gas|gaseous)\\b.{0,85}\\b(?:no|zero|little|few|small|tiny)\\s+(?:empty\\s+)?(?:spaces?|gaps?)\\b",
+                  "\\b(?:gas|gaseous)\\b.{0,65}\\b(?:have|has|contain|contains)\\s+(?:only\\s+)?(?:almost\\s+)?(?:no|zero|little|few|small|tiny)\\s+(?:empty\\s+)?(?:spaces?|gaps?)\\b",
                   "\\b(?:gas|gaseous)\\b.{0,85}\\b(?:touching|closely\\s+packed|close\\s+together)\\b"
                 ]
               },
