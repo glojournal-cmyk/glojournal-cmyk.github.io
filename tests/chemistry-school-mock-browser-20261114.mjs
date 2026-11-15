@@ -79,7 +79,27 @@ try{
    await page.selectOption('#version','C');
    await page.click('#start');
    assert.match(await page.locator('#paper-title').innerText(),/School Mock C/);
-   console.log(label+' Chemistry School Mock: end-to-end PASS');
+   // A timed school-style paper must not allow an additional answer after
+   // 20 minutes, including after the pupil leaves and resumes on iPad.
+   await page.evaluate(key=>{
+     const record=JSON.parse(localStorage.getItem(key));
+     record.active.startedAt=new Date(Date.now()-21*60*1000).toISOString();
+     localStorage.setItem(key,JSON.stringify(record));
+   },storeKey);
+   await page.reload();
+   await page.locator('#resume').waitFor({state:'visible'});
+   await page.click('#resume');
+   assert.match(await page.locator('#clock').innerText(),/00:00/);
+   assert.ok(await page.locator('#answer-area input').first().isDisabled(),'Expired mock answer input must be locked');
+   assert.ok(await page.locator('#submit').isVisible(),'Timed-out mock can still be submitted');
+   assert.match(await page.locator('#time-note').innerText(),/saved answers are preserved/);
+   await page.click('#submit');
+   await page.locator('#results').waitFor({state:'visible'});
+   const afterTimeout=await saved(page);
+   assert.equal(afterTimeout.active,null);
+   assert.equal(afterTimeout.history.length,2);
+   assert.equal(await page.evaluate(()=>localStorage.getItem('mock-qa-main-progress-guard')),'unchanged');
+   console.log(label+' Chemistry School Mock: end-to-end PASS (including 20-minute lock)');
   }finally{await browser.close();}
  }
  assert.deepEqual(errors,[]);
