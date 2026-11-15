@@ -5,7 +5,7 @@ import vm from 'node:vm';
 const bank=JSON.parse(fs.readFileSync('assessment/physics-nov26-20261113.json','utf8'));
 const app=fs.readFileSync('assessment/app-v2.js','utf8');
 const qs=bank.groups.flatMap(g=>g.questions),byId=new Map(qs.map(q=>[q.id,q]));
-const scorerStart=app.indexOf('function physicsNov26Mark(q,value){');
+const scorerStart=app.indexOf('function physicsUnitCanon(')>=0?app.indexOf('function physicsUnitCanon('):app.indexOf('function physicsNov26Mark(q,value){');
 const scorerEnd=app.indexOf('\nfunction mark(q,value){',scorerStart);
 assert.ok(scorerStart>=0&&scorerEnd>scorerStart);
 const score=vm.runInNewContext(app.slice(scorerStart,scorerEnd)+'\nphysicsNov26Mark;');

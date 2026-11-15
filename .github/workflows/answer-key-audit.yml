@@ -2,6 +2,12 @@ name: answer-key audit
 on:
   push:
     branches: [main]
+  pull_request:
+    paths:
+      - 'assessment/biology-nov2-20261017.json'
+      - 'assessment/biology-nov2-marking-20261017.js'
+      - 'tests/biology-nov2-qa.mjs'
+      - '.github/workflows/answer-key-audit.yml'
   workflow_dispatch:
 jobs:
   audit:
