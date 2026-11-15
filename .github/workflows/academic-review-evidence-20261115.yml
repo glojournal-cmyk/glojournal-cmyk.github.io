@@ -1,0 +1,60 @@
+name: Academic review evidence — changed JSON question banks
+
+on:
+  pull_request:
+    paths:
+      - 'assessment/**/*.json'
+      - 'content/topics/**/*.json'
+      - 'content/exam-revision/**/*.json'
+      - 'content/exam-practice/**/*.json'
+      - 'study/**/*.json'
+      - 'scripts/academic-review-evidence-gate-20261115.mjs'
+      - 'tests/academic-review-evidence-gate-20261115.test.mjs'
+      - 'qa-reports/academic-review-ledger-20261115.json'
+      - '.github/workflows/academic-review-evidence-20261115.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'assessment/**/*.json'
+      - 'content/topics/**/*.json'
+      - 'content/exam-revision/**/*.json'
+      - 'content/exam-practice/**/*.json'
+      - 'study/**/*.json'
+      - 'scripts/academic-review-evidence-gate-20261115.mjs'
+      - 'tests/academic-review-evidence-gate-20261115.test.mjs'
+      - 'qa-reports/academic-review-ledger-20261115.json'
+      - '.github/workflows/academic-review-evidence-20261115.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  evidence-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: QA mechanism unit tests (technical only)
+        run: node --test tests/academic-review-evidence-gate-20261115.test.mjs
+      - name: Changed question content must have independently recorded review evidence
+        env:
+          QA_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          if [ -z "$QA_BASE_SHA" ] || [ "$QA_BASE_SHA" = "0000000000000000000000000000000000000000" ]; then
+            QA_BASE_SHA="$(git rev-parse HEAD^)"
+          fi
+          export QA_BASE_SHA
+          node scripts/academic-review-evidence-gate-20261115.mjs
+      - name: Preserve inspectable academic review evidence report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: academic-review-evidence
+          path: test-results/academic-review-evidence-20261115.json
+          if-no-files-found: warn
