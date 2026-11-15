@@ -57,27 +57,27 @@
       "format": "rubric_response",
       "difficulty": 2,
       "marks": 2,
-      "prompt": "In a gold-foil experiment, nearly all alpha particles went straight through. Explain what this tells us about an atom.",
+      "prompt": "In the gold-foil experiment, most alpha particles passed straight through the foil, while a tiny fraction were scattered through very large angles. Explain TWO conclusions about atomic structure from these observations.",
       "stimulus": {
-        "text": "OBSERVATION: 9,950 of 10,000 alpha particles travel through the foil with little or no change in direction."
+        "text": "OBSERVATIONS: Of 10,000 alpha particles, 9,950 passed through with little or no change in direction; 8 were scattered through very large angles."
       },
       "answer": {
         "mode": "self_review_rubric",
         "accepted": [
-          "Most of an atom is empty space. The nucleus occupies only a very small fraction of the atom's volume."
+          "Most of the atom is empty space, explaining why nearly all alpha particles passed through. A very small, dense, positively charged nucleus can strongly repel the few alpha particles passing close to it, causing the rare large deflections."
         ]
       },
       "markScheme": [
-        "Most of an atom is empty space.",
-        "The nucleus occupies only a very small fraction of the atom's volume."
+        "Most alpha particles passed through because the atom is mostly empty space.",
+        "Rare very large deflections show that the atom contains a very small, dense, positively charged nucleus which repels the positively charged alpha particles."
       ],
       "feedback": {
         "short": "Compare your response with the mark scheme after submitting.",
         "steps": [
-          "Most of an atom is empty space.",
-          "The nucleus occupies only a very small fraction of the atom's volume."
+          "Most alpha particles passed through because the atom is mostly empty space.",
+          "Rare very large deflections show that the atom contains a very small, dense, positively charged nucleus which repels the positively charged alpha particles."
         ],
-        "commonError": "Award only points explicitly demonstrated in the answer."
+        "commonError": "Award two DIFFERENT conclusions: (1) mostly empty space and (2) tiny, dense, positively charged nucleus. Do not give two marks for repeating the same empty-space argument."
       },
       "sourceScope": "teacher-notice-2026-11-09",
       "ordinary": true,
