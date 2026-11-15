@@ -147,7 +147,9 @@
     }
     const mode=q.answer?.mode;
 
-    if(mode==='choice')return base;
+    // Fixed-option exam questions must never use fuzzy prose/keyword fallback.
+    // Otherwise distractors sharing numbers or terms with the model can score.
+    if(mode==='choice'||(Array.isArray(q.options)&&q.options.length))return base;
 
     if(mode==='chemistry_rubric'){
       const points=q.answer?.points||[];
