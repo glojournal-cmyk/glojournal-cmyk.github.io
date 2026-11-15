@@ -562,6 +562,9 @@ function physicsNov26Mark(q,value){
     return clauses.some(clause=>{
       const safeClause=q.id==='phys-nov26-d13'?clause.replace(/\b(?:not|isn't|cannot\s+be)\s+pure\s+gold\b/gi,'impure gold'):clause;
       if(!noNegation(safeClause)&&!point.allowNegation)return false;
+      // A marking point may state disallowed misconceptions. Evaluate these before
+      // positive keywords so 'gas has no spaces' cannot earn the gas-gap mark.
+      if((point.rejectPatterns||[]).some(pattern=>new RegExp(pattern,'i').test(safeClause)))return false;
       const canon=clause.normalize('NFKC').replace(/[−–]/g,'-')
         .replace(/cm³/gi,'cm3').replace(/m³/gi,'m3')
         .replace(/\bg\s*cm\s*(?:\^\s*)?-\s*3\b/gi,'g/cm3')

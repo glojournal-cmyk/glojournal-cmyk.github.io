@@ -4568,19 +4568,33 @@
           {
             "label": "Its biconcave shape gives a large surface area and short diffusion path for oxygen.",
             "patterns": [
-              "biconcave.{0,85}(surface area|diffus|oxygen)"
+              "(?=.*\\bbiconcave\\b)(?=.*\\b(?:(?:large|larger|greater|high|higher|big|bigger|increas\\w*)\\b.{0,26}\\bsurface\\s+area\\b|(?:short|shorter)\\b.{0,22}\\bdiffusion\\s+(?:path|distance)\\b)).*"
+            ],
+            "rejectPatterns": [
+              "\\bbiconcave\\b.{0,95}\\b(?:decreas\\w*|reduc\\w*|small\\w*|less|low\\w*)\\s+(?:the\\s+)?(?:surface\\s+area|area\\s+to\\s+volume)\\b",
+              "\\bbiconcave\\b.{0,95}\\b(?:longer|increas\\w*|larger)\\s+(?:the\\s+)?diffusion\\s+(?:path|distance)\\b"
             ]
           },
           {
             "label": "Its flexibility lets it pass through narrow capillaries.",
             "patterns": [
               "flexib.{0,75}(capillar|narrow|vessel)"
+            ],
+            "rejectPatterns": [
+              "\\bflexib\\w*\\b.{0,85}\\b(?:prevent\\w*|stop\\w*|block\\w*)\\s+(?:it\\s+from\\s+|them\\s+from\\s+|the\\s+cell\\s+from\\s+)?(?:pass\\w*|squeez\\w*|fit\\w*|mov\\w*|travel\\w*)",
+              "\\bflexib\\w*\\b.{0,85}\\b(?:cannot|unable\\s+to|too\\s+large\\s+to|fail\\w*\\s+to)\\s+(?:pass\\w*|squeez\\w*|fit\\w*|mov\\w*)"
             ]
           },
           {
             "label": "Lacking a nucleus creates more space for haemoglobin.",
             "patterns": [
-              "(no|without|lack).{0,30}nucleus.{0,65}(?:haemoglobin|hemoglobin)"
+              "(?=.*\\b(?:no\\s+(?:a\\s+)?nucleus|without\\s+(?:a\\s+)?nucleus|lack(?:s|ing)?\\s+(?:of\\s+)?(?:a\\s+)?nucleus)\\b)(?=.*\\b(?:haemoglobin|hemoglobin)\\b)(?=.*\\b(?:more|extra|greater|increased|additional)\\s+(?:space|room|haemoglobin|hemoglobin|amount|capacity)\\b).*"
+            ],
+            "variants": [
+              "(?=.*\\b(?:no\\s+(?:a\\s+)?nucleus|without\\s+(?:a\\s+)?nucleus|lack(?:s|ing)?\\s+(?:of\\s+)?(?:a\\s+)?nucleus)\\b)(?=.*\\b(?:room|space)\\s+for\\s+(?:more\\s+)?(?:haemoglobin|hemoglobin)\\b).*"
+            ],
+            "rejectPatterns": [
+              "\\b(?:no|without|lack\\w*)\\b.{0,22}\\bnucleus\\b.{0,80}\\b(?:no|less|lower|reduced|decreased)\\s+(?:haemoglobin|hemoglobin)\\b"
             ]
           }
         ]
