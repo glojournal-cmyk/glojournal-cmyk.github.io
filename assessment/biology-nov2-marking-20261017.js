@@ -75,8 +75,8 @@
         points.forEach((p,i)=>{
           if(p.numericResult)pointResults[i]=correct;
           else if(p.numericUnit)pointResults[i]=correct&&last.unit===expected;
-          // A correct final answer implies a correct method; wrong units still lose the unit mark.
-          else if(correct)pointResults[i]=true;
+          // Method marks stay on the working patterns above. A correct final
+          // number must not award method, and a missing unit still loses the unit mark.
         });
       }
     }

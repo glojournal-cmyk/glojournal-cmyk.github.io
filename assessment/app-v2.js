@@ -539,21 +539,33 @@ function chemistryTermMatch(text,term){
 /* November Physics: mark only coherent clauses, not keywords scattered across
    contradictory sentences. Recognise correct numeric answers independently of
    presentation (AQA-style answer marks), and keep a visible point-by-point review. */
+function physicsUnitCanon(s){
+  return String(s).normalize('NFKC').replace(/[−–]/g,'-')
+    .replace(/cm³/gi,'cm3').replace(/m³/gi,'m3')
+    .replace(/\bcu(?:bic)?\.?\s*centimet(?:re|er)s?\b/gi,'cm3')
+    .replace(/\bcentimet(?:re|er)s?\s+cubed\b/gi,'cm3')
+    .replace(/\bcm\s+cubed\b/gi,'cm3')
+    .replace(/\bcu(?:bic)?\.?\s*met(?:re|er)s?\b/gi,'m3')
+    .replace(/\bmet(?:re|er)s?\s+cubed\b/gi,'m3')
+    .replace(/\bkilogram(?:me)?s?\s*(?:\/|per)\s*(?:cu(?:bic)?\.?\s*met(?:re|er)s?|m3|m\s*\^\s*3|m³)\b/gi,'kg/m3')
+    .replace(/\bgram(?:me)?s?\s*(?:\/|per)\s*(?:cu(?:bic)?\.?\s*centimet(?:re|er)s?|cm3|cm\s*\^\s*3|cm³)\b/gi,'g/cm3')
+    .replace(/\bkg\s*(?:\/|per)\s*(?:cu(?:bic)?\.?\s*met(?:re|er)s?|m3|m\s*\^\s*3|m³)\b/gi,'kg/m3')
+    .replace(/\bg\s*(?:\/|per)\s*(?:cu(?:bic)?\.?\s*centimet(?:re|er)s?|cm3|cm\s*\^\s*3|cm³)\b/gi,'g/cm3')
+    .replace(/\bg\s*cm\s*(?:\^\s*)?-\s*3\b/gi,'g/cm3')
+    .replace(/\bkg\s*m\s*(?:\^\s*)?-\s*3\b/gi,'kg/m3')
+    .replace(/\bcm\s*\^\s*3\b/gi,'cm3').replace(/\bm\s*\^\s*3\b/gi,'m3')
+    .replace(/\bkilogram(?:me)?s?\b/gi,'kg')
+    .replace(/\bgram(?:me)?s?\b/gi,'g')
+    .replace(/(\d)\s*(?:degrees?\s+C(?:elsius)?|°\s*C)\s*per\s*min(?:ute)?s?\b/gi,'$1 degrees per minute')
+    .replace(/\s+/g,' ');
+}
 function physicsNov26Mark(q,value){
   const points=q.answer?.points||[];
   const raw=String(value??'').trim().normalize('NFKC').replace(/[−–]/g,'-').replace(/[’‘]/g,"'");
   if(!raw)return {credit:0,status:'Incorrect',matched:0,total:points.length||1,pointResults:points.map(()=>false)};
   // Distinguish method, substitution and result marks. A correct final value by itself
   // must not award marks that require evidence of working in the teacher's scheme.
-  const normalized=raw
-    .replace(/cm³/gi,'cm3').replace(/m³/gi,'m3')
-    .replace(/\bg\s*cm\s*(?:\^\s*)?-\s*3\b/gi,'g/cm3')
-    .replace(/\bkg\s*m\s*(?:\^\s*)?-\s*3\b/gi,'kg/m3')
-    .replace(/\bcm\s*\^\s*3\b/gi,'cm3').replace(/\bm\s*\^\s*3\b/gi,'m3')
-    .replace(/\bg\s+per\s+cubic\s+centimet(?:re|er)s?\b/gi,'g/cm3')
-    .replace(/\bkg\s+per\s+cubic\s+met(?:re|er)s?\b/gi,'kg/m3')
-    .replace(/(\d)\s*(?:degrees?\s+C(?:elsius)?|°\s*C)\s*per\s*min(?:ute)?s?\b/gi,'$1 degrees per minute')
-    .replace(/\s+/g,' ');
+  // Worded units (cubic centimetres, grams, kilograms) are the same units as cm3, g and kg.
   const noNegation=s=>!/\b(?:not|never|don't|doesn't|didn't|cannot|can't|isn't|aren't|wasn't|weren't|is\s+false)\b/i.test(s.replace(/\bnot\s+good(?:\s+at)?\b/gi,''));
   const clauses=raw.split(/(?<=[.!?])\s+|\n+/).map(s=>s.trim()).filter(Boolean);
   const pointResults=points.map((point,index)=>{
@@ -562,14 +574,7 @@ function physicsNov26Mark(q,value){
     return clauses.some(clause=>{
       const safeClause=q.id==='phys-nov26-d13'?clause.replace(/\b(?:not|isn't|cannot\s+be)\s+pure\s+gold\b/gi,'impure gold'):clause;
       if(!noNegation(safeClause)&&!point.allowNegation)return false;
-      const canon=clause.normalize('NFKC').replace(/[−–]/g,'-')
-        .replace(/cm³/gi,'cm3').replace(/m³/gi,'m3')
-        .replace(/\bg\s*cm\s*(?:\^\s*)?-\s*3\b/gi,'g/cm3')
-        .replace(/\bkg\s*m\s*(?:\^\s*)?-\s*3\b/gi,'kg/m3')
-        .replace(/\bcm\s*\^\s*3\b/gi,'cm3').replace(/\bm\s*\^\s*3\b/gi,'m3')
-        .replace(/\bg\s+per\s+cubic\s+centimet(?:re|er)s?\b/gi,'g/cm3')
-        .replace(/\bkg\s+per\s+cubic\s+met(?:re|er)s?\b/gi,'kg/m3')
-        .replace(/\s+/g,' ');
+      const canon=physicsUnitCanon(clause);
       return patterns.some(pattern=>new RegExp(pattern,'i').test(clause)||new RegExp(pattern,'i').test(canon));
     });
   });
