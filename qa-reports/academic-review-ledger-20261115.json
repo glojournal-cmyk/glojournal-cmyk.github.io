@@ -50,6 +50,22 @@
         "markingFairness": true,
         "explanationQuality": true
       }
+    },
+    {
+      "file": "assessment/physics-nov26-20261113.json",
+      "id": "phys-nov26-d02",
+      "fingerprint": "696db6291efb35efe1336692bc84e6e08733ce4dff6ddaeb6f0b9e11dac2ed4a",
+      "reviewer": "ChatGPT source-led Academic QA (not teacher or exam-board approval)",
+      "reviewDate": "2026-11-15",
+      "sourceReference": "User-uploaded Tiffin Girls Year 9 Physics Revision (1).pptx, slides 11–12: Density = mass ÷ volume, ρ = m/V and 540 g / 200 cm³ = 2.7 g/cm³.",
+      "reviewNotes": "Checked the exact school-taught formula and worked example. The 3-mark question requires formula/method, numerical substitution and correctly unit-labelled result. Former method regex marked numerical substitutions and worded 'density equals mass divided by volume', but could reject a separate correct symbolic ρ = m/V or density = mass/volume. Added a targeted symbolic pattern to the methodRules without broadening incorrect numerical answer acceptance. Evaluated the actual live physics scorer: full scientific symbolic working 3/3; symbolic equation alone 1/3; density = mass/volume plus substitution/result 3/3; original existing equivalent-answer test still preserved. This independently reviewed question does not establish validation of the entire physics bank.",
+      "checks": {
+        "curriculumFit": true,
+        "scientificOrLinguisticAccuracy": true,
+        "answerAndReasonableAlternatives": true,
+        "markingFairness": true,
+        "explanationQuality": true
+      }
     }
   ]
 }
