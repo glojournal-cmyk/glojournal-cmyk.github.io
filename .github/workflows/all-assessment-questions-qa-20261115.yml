@@ -8,6 +8,7 @@ on:
       - 'study/latin/november-2026/**'
       - 'study/chemistry/exam-revision/**'
       - 'tests/assessment-full-bank-integrity-20261115.test.mjs'
+      - 'tests/all-assessment-papers-browser-20261115.mjs'
       - 'tests/upcoming-assessments-qa-20261114.test.mjs'
       - 'tests/assessment-model-qa.mjs'
       - '.github/workflows/all-assessment-questions-qa-20261115.yml'
@@ -17,6 +18,7 @@ on:
       - 'content/exam-revision/**'
       - 'study/latin/november-2026/**'
       - 'tests/assessment-full-bank-integrity-20261115.test.mjs'
+      - 'tests/all-assessment-papers-browser-20261115.mjs'
       - '.github/workflows/all-assessment-questions-qa-20261115.yml'
   workflow_dispatch:
 permissions:
@@ -55,3 +57,19 @@ jobs:
           name: assessment-question-integrity-report
           path: test-results/assessment-full-bank-integrity-20261115.json
           if-no-files-found: warn
+  all-paper-ipad-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install browser test runner
+        run: npm install --no-save playwright
+      - name: Install Chromium and iPad WebKit
+        run: npx playwright install --with-deps chromium webkit
+      - name: Test all 13 timed Assessments on Chromium and iPad WebKit
+        run: |
+          python3 -m http.server 8777 --bind 127.0.0.1 >/tmp/all-assessments-browser-qa.log 2>&1 &
+          QA_BASE_URL=http://127.0.0.1:8777 node tests/all-assessment-papers-browser-20261115.mjs
