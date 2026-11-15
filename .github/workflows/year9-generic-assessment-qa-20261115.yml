@@ -1,0 +1,36 @@
+name: Year 9 general assessment question clarity QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assessment/banks/physics.json'
+      - 'assessment/banks/biology.json'
+      - 'assessment/app-v2.js'
+      - 'assessment/index.html'
+      - 'tests/year9-assessment-description-20261115.test.mjs'
+      - '.github/workflows/year9-generic-assessment-qa-20261115.yml'
+  pull_request:
+    paths:
+      - 'assessment/banks/physics.json'
+      - 'assessment/banks/biology.json'
+      - 'assessment/app-v2.js'
+      - 'assessment/index.html'
+      - 'tests/year9-assessment-description-20261115.test.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  year9-assessment-question-clarity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check assessment runtime JavaScript syntax
+        run: node --check assessment/app-v2.js
+      - name: Check 322 Year 9 Physics and Biology question stems and legacy draft recovery
+        run: node tests/year9-assessment-description-20261115.test.mjs
+      - name: Check assessment bank model answers against live marking functions
+        run: node tests/assessment-model-qa.mjs
