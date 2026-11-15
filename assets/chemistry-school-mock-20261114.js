@@ -9,6 +9,9 @@ function store(next){if(blocked)return false;try{const v=JSON.stringify(next);lo
   record=next;notice('Answers saved on this device.');return true;
 }catch{notice('Save failed. Your earlier answers have NOT been overwritten. Export a backup before leaving.',true);return false;}}
 function count(s){return s.questionIds.filter(id=>String(s.answers[id]||'').trim()).length;}
+// The school's assessment has a maximum of 20 minutes. Expired drafts stay
+// readable and submit-able, but can no longer receive new or edited answers.
+function expired(session){return remainingSeconds(session.startedAt)===0;}
 function setup(){show('setup');$('start').disabled=blocked;$('resume').hidden=!record.active;$('resume').disabled=blocked;
   if(record.active)$('resume').textContent='Resume Mock '+record.active.paperId+' · '+count(record.active)+'/13 answered';
   const root=$('history');root.replaceChildren();
@@ -25,6 +28,7 @@ function begin(){if(blocked||!bank)return;if(record.active&&!confirm('Replace yo
 }
 function question(s){return bank.questions.find(q=>q.id===s.questionIds[s.index]);}
 function updateAnswer(answer){const s=record.active;if(!s)return;
+  if(expired(s)){render();return;}
   const answers={...s.answers,[s.questionIds[s.index]]:String(answer).slice(0,2000)};
   if(store({...record,active:{...s,answers}}))$('answered').textContent=count(record.active)+' of 13 answered';
 }
@@ -34,7 +38,13 @@ function move(n){const s=record.active;if(!s)return;const index=Math.max(0,Math.
 function tick(){if(!record.active||$('paper').hidden)return;const secs=remainingSeconds(record.active.startedAt),mm=String(Math.floor(secs/60)).padStart(2,'0'),ss=String(secs%60).padStart(2,'0');
   $('clock').textContent=secs?mm+':'+ss+' remaining':'00:00 · time limit reached';
   $('clock').classList.toggle('clock-ended',secs===0);
-  $('time-note').textContent=secs?'Timer continues if you leave and resume the paper.':'20 minutes have elapsed. Submit when ready; saved answers are not deleted.';}
+  $('time-note').textContent=secs?'Timer continues if you leave and resume the paper.':'20 minutes have elapsed. Answers are now locked. Submit to view marking; your saved answers are preserved.';
+  if(!secs){
+    for(const field of $('answer-area').querySelectorAll('input,textarea'))field.disabled=true;
+    $('submit').hidden=false;
+    $('submit').textContent='Submit timed mock & view marking';
+  }
+}
 function render(){const s=record.active;if(!s){setup();return;}const q=question(s);if(!q){notice('A saved question is missing.',true);return;}
   show('paper');$('paper-title').textContent='School Mock '+s.paperId+' · 20 marks';
   $('position').textContent='Question '+(s.index+1)+' of 13';$('answered').textContent=count(s)+' of 13 answered';
@@ -55,7 +65,8 @@ function render(){const s=record.active;if(!s){setup();return;}const q=question(
     input.value=saved;input.autocomplete='off';input.spellcheck=false;input.maxLength=2000;input.setAttribute('aria-label','Your answer');
     input.placeholder=q.format==='rubric_response'?'Explain and show your working.':'Type your formula, number or equation.';
     input.oninput=()=>updateAnswer(input.value);label.append(input);root.append(label);}
-  $('previous').disabled=s.index===0;$('next').hidden=s.index===12;$('submit').hidden=s.index!==12;tick();
+  $('previous').disabled=s.index===0;$('next').hidden=s.index===12;$('submit').hidden=s.index!==12;
+  $('submit').textContent='Submit mock & view marking';tick();
 }
 function submit(){const s=record.active;if(!s)return;const blanks=13-count(s);
   if(!confirm(blanks?blanks+' answers are blank and will get 0 marks. Submit anyway?':'Submit this mock and reveal the marking scheme?'))return;
