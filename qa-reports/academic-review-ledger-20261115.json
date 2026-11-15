@@ -2,5 +2,22 @@
   "schemaVersion": 1,
   "policy": "A recorded review is evidence of a specific independent source/content check, not teacher or awarding-body certification.",
   "instructions": "For each newly added or changed JSON question, independently check scope, correctness, variants, marking and explanation; record the exact source and details. Never auto-fill reviews to make CI green.",
-  "reviews": []
+  "reviews": [
+    {
+      "file": "assessment/physics-nov26-20261113.json",
+      "id": "phys-nov26-p02",
+      "fingerprint": "27045cbb687a6693a649639e4c2df99a27f2298221da73e1ef731ce49b99d185",
+      "reviewer": "ChatGPT source-led academic cross-check (not a teacher/exam-board moderator)",
+      "reviewDate": "2026-11-15",
+      "sourceReference": "AQA GCSE Physics 8463 §4.3 Particle model of matter: https://www.aqa.org.uk/subjects/physics/gcse/physics-8463/specification/subject-content/particle-model-of-matter ; Science Department states-of-matter guide: https://www.sciencedepartment.co.uk/templates/gcsetemplate.php?pagename=particlemodel",
+      "reviewNotes": "Reviewed prompt, canonical answer, both marking points, positive variants and plausible incorrect arrangements. In the GCSE particle model, solids have closely packed particles in a regular arrangement vibrating at fixed positions; liquids are irregular. The previous unbounded regular/ordered regex inadvertently recognised 'irregular' and 'disordered' as correct. Boundaries now reject them while accepting close/closely/packed and regular/regularly/ordered/orderly/lattice. Live scorer regression checks 1/2 for wrong arrangement plus correct vibration, 2/2 for equivalent correct responses. Independent school teacher moderation is not claimed.",
+      "checks": {
+        "curriculumFit": true,
+        "scientificOrLinguisticAccuracy": true,
+        "answerAndReasonableAlternatives": true,
+        "markingFairness": true,
+        "explanationQuality": true
+      }
+    }
+  ]
 }
