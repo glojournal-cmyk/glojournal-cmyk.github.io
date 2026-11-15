@@ -26,6 +26,8 @@ const ctx=vm.createContext({Math,Set,String,Object,RegExp,Number,window:{},state
 vm.runInContext(main.slice(main.indexOf('function normal('),main.indexOf('async function start(')),ctx);
 vm.runInContext(fs.readFileSync(base+'marking-hotfix-v3.js','utf8'),ctx);
 vm.runInContext(fs.readFileSync(base+'biology-marking-20261003.js','utf8'),ctx);
+// November 2 uses a separate bank-specific grader which loads last in production.
+vm.runInContext(fs.readFileSync(base+'biology-nov2-marking-20261017.js','utf8'),ctx);
 const mark=ctx.mark;
 function verify(q,file,{standalone=false}={}){
  add(hasText(q.id),file,q,'no ID');
