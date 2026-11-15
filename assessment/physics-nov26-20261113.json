@@ -62,10 +62,10 @@
                   "Solid particles are close together in a regular arrangement."
                 ],
                 "patterns": [
-                  "(?=.*(?:close))(?=.*(?:regular)).*"
+                  "(?=.*\\b(?:close|closely|packed|touching)\\b)(?=.*\\b(?:regular|regularly|ordered|orderly|lattice)\\b).*"
                 ],
                 "variants": [
-                  "(?=.*(?:packed|touching))(?=.*(?:ordered|lattice)).*"
+                  "(?=.*\\b(?:packed|touching)\\b)(?=.*\\b(?:ordered|orderly|lattice|regular|regularly)\\b).*"
                 ]
               },
               {
