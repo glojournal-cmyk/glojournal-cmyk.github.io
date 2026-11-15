@@ -40,5 +40,5 @@ assert.match(app,/delete draft\.answers\[i\];repaired\+\+/,'unfair choices must 
 assert.match(app,/draft\.remaining=p\.minutes\*60/,'repaired draft timer must restart');
 assert.match(app,/\.map\(completeDescriptionQuestion\)/,'newly loaded old cached banks must also be repaired');
 const html=fs.readFileSync('assessment/index.html','utf8');
-assert.ok(html.includes('genericFix=20261115-description-v1'),'iPad script cache must be busted');
+assert.match(html,/app-v2\\.js\\?[^"']*genericFix=20261115-/,'iPad script cache must be busted');
 console.log('YEAR9_GENERIC_ASSESSMENT_DESCRIPTION_QA_PASS',JSON.stringify({questions:checked,banks:cases.map(c=>c.name),savedDrafts:'guarded',timer:'reset'}));
