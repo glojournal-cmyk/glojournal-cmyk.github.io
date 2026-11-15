@@ -40,7 +40,7 @@ function grantWardrobe(id){
 }
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
-const CHEMISTRY_REVISION='20261115-chem-rf-fraction1';
+const CHEMISTRY_REVISION='20261115-chem-figure1';
 const bankUrl=p=>p.id==='latin-conjugations'?`${p.bank}?v=20261115-latin-clarity-qa1`:p.id==='physics'?`${p.bank}?v=20261115-phys-insulation1`:p.id==='english'?`${p.bank}?v=20261115-eng-equivalent2`:p.id==='biology'?`${p.bank}?v=20261115-bio-stem-unique1`:p.id==='physics-nov26'?`${p.bank}?v=20261115-phys-operator1`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261115-bio-cell-wording2`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:p.id==='latin'?`${p.bank}?v=20261115-suus1`:`${p.bank}?v=20261010-chem-marking1`;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
@@ -682,7 +682,7 @@ async function start(id){
     if(draft&&id==='chemistry'&&!Object.keys(draft.answers||{}).length&&draft.questions.some(q=>!q.conceptId)){
       delete state.drafts[id];draft=null;save();
     }
-    if(draft&&id==='chemistry'&&draft.questions.some(q=>!q.markKeywords?.length)){
+    if(draft&&id==='chemistry'){
       const fresh=await fetch(bankUrl(p)).then(r=>r.json());
       const byId=new Map(fresh.questions.map(q=>[q.id,q]));
       draft.questions=draft.questions.map(q=>byId.get(q.id)||q);save();

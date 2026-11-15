@@ -1162,7 +1162,7 @@
       },
       "markKeywords": [
         "50 mm",
-        "from 5 to 55"
+        "0 to 50 mm"
       ],
       "hint": "Subtract the start-line reading from the front reading.",
       "conceptId": "chem-rp6-solvent-front-distance"
@@ -1192,7 +1192,7 @@
       },
       "markKeywords": [
         "30 mm",
-        "from 5 to 35"
+        "0 to 30 mm"
       ],
       "hint": "Measure to the centre of the spot, from the start line.",
       "conceptId": "chem-rp6-dye-travel-distance"
@@ -1230,7 +1230,7 @@
     {
       "id": "chem-school-1-40",
       "topic": "Rf",
-      "prompt": "Figure 3: Which reference dye matches an Rf of 0.60?",
+      "prompt": "Figure 3 gives the blue dye an Rf of 0.60. A reference table for the same solvent lists red 0.20, green 0.60 and yellow 0.80. Which reference dye matches the blue spot?",
       "format": "typed_exact",
       "options": null,
       "diagram": "rf.svg",
@@ -2670,7 +2670,8 @@
         "Fast red",
         "Erythrosine"
       ],
-      "diagram": null,
+      "diagram": "school-rf-b-20260927.svg",
+      "diagramAlt": "Reference table: Ponceau 4R Rf 0.91, Carmoisine Rf 0.61, Fast red Rf 0.43, Erythrosine Rf 0.27.",
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
@@ -2702,7 +2703,8 @@
         "It is necessarily a pure mixture.",
         "No comparison is possible in the same solvent."
       ],
-      "diagram": null,
+      "diagram": "school-rf-a-20260927.svg",
+      "diagramAlt": "Reference table: Ponceau 4R Rf 0.90, Carmoisine Rf 0.65, Fast red Rf 0.40, Erythrosine Rf 0.28.",
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
@@ -8379,13 +8381,13 @@
           {
             "label": "Method: Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50.",
             "patterns": [
-              "(?:40\\s*(?:÷|/|divided by)\\s*80|\\(?\\s*52\\s*[-−]\\s*12\\s*\\)?\\s*(?:÷|/)\\s*\\(?\\s*92\\s*[-−]\\s*12)"
+              "(?:40\\s*(?:÷|/|divided by)\\s*80|\\(?\\s*52\\s*[-−]\\s*12\\s*\\)?\\s*(?:÷|/)\\s*\\(?\\s*92\\s*[-−]\\s*12|(?=.*52\\s*[-−]\\s*12)(?=.*92\\s*[-−]\\s*12))"
             ]
           },
           {
             "label": "correct final answer with no unit",
             "patterns": [
-              "(?:^|=|answer\\s*:?\\s*)\\s*0?\\.50*\\s*[.!]?\\s*$"
+              "(?:^|=|(?:answer|rf)\\s+is\\s+|answer\\s*:?\\s*|\\bis\\s+|\\bequals\\s+)\\s*0?\\.50*\\s*[.!]?\\s*$"
             ]
           }
         ],
@@ -8461,7 +8463,7 @@
           {
             "label": "correct final answer with no unit",
             "patterns": [
-              "(?:^|=|answer\\s*:?\\s*)\\s*0?\\.450*\\s*[.!]?\\s*$"
+              "(?:^|=|(?:answer|rf)\\s+is\\s+|answer\\s*:?\\s*|\\bis\\s+|\\bequals\\s+)\\s*0?\\.450*\\s*[.!]?\\s*$"
             ]
           }
         ],
@@ -8537,7 +8539,7 @@
           {
             "label": "correct final answer in mm",
             "patterns": [
-              "(?:^|=|answer\\s*:?\\s*)\\s*70(?:\\.0+)?\\s*mm\\s*[.!]?\\s*$"
+              "(?:^|=|(?:answer|rf)\\s+is\\s+|answer\\s*:?\\s*|\\bis\\s+|\\bequals\\s+)\\s*70(?:\\.0+)?\\s*mm\\s*[.!]?\\s*$"
             ]
           }
         ],
@@ -8617,7 +8619,7 @@
           {
             "label": "correct final answer in mm",
             "patterns": [
-              "(?:^|=|answer\\s*:?\\s*)\\s*41(?:\\.0+)?\\s*mm\\s*[.!]?\\s*$"
+              "(?:^|=|(?:answer|rf)\\s+is\\s+|answer\\s*:?\\s*|\\bis\\s+|\\bequals\\s+)\\s*41(?:\\.0+)?\\s*mm\\s*[.!]?\\s*$"
             ]
           }
         ],
@@ -8697,7 +8699,7 @@
           {
             "label": "correct final answer with no unit",
             "patterns": [
-              "(?:^|=|answer\\s*:?\\s*)\\s*0?\\.420*\\s*[.!]?\\s*$"
+              "(?:^|=|(?:answer|rf)\\s+is\\s+|answer\\s*:?\\s*|\\bis\\s+|\\bequals\\s+)\\s*0?\\.420*\\s*[.!]?\\s*$"
             ]
           }
         ],
@@ -8773,7 +8775,7 @@
           {
             "label": "correct final answer with no unit",
             "patterns": [
-              "(?:^|=|answer\\s*:?\\s*)\\s*0?\\.350*\\s*[.!]?\\s*$"
+              "(?:^|=|(?:answer|rf)\\s+is\\s+|answer\\s*:?\\s*|\\bis\\s+|\\bequals\\s+)\\s*0?\\.350*\\s*[.!]?\\s*$"
             ]
           }
         ],
@@ -8849,7 +8851,7 @@
           {
             "label": "correct final answer in mm",
             "patterns": [
-              "(?:^|=|answer\\s*:?\\s*)\\s*36(?:\\.0+)?\\s*mm\\s*[.!]?\\s*$"
+              "(?:^|=|(?:answer|rf)\\s+is\\s+|answer\\s*:?\\s*|\\bis\\s+|\\bequals\\s+)\\s*36(?:\\.0+)?\\s*mm\\s*[.!]?\\s*$"
             ]
           }
         ],
@@ -8929,7 +8931,7 @@
           {
             "label": "correct final answer with no unit",
             "patterns": [
-              "(?:^|=|answer\\s*:?\\s*)\\s*0?\\.450*\\s*[.!]?\\s*$"
+              "(?:^|=|(?:answer|rf)\\s+is\\s+|answer\\s*:?\\s*|\\bis\\s+|\\bequals\\s+)\\s*0?\\.450*\\s*[.!]?\\s*$"
             ]
           }
         ],
@@ -9005,7 +9007,7 @@
           {
             "label": "correct final answer in mm",
             "patterns": [
-              "(?:^|=|answer\\s*:?\\s*)\\s*60(?:\\.0+)?\\s*mm\\s*[.!]?\\s*$"
+              "(?:^|=|(?:answer|rf)\\s+is\\s+|answer\\s*:?\\s*|\\bis\\s+|\\bequals\\s+)\\s*60(?:\\.0+)?\\s*mm\\s*[.!]?\\s*$"
             ]
           }
         ],
@@ -9085,7 +9087,7 @@
           {
             "label": "correct final answer with no unit",
             "patterns": [
-              "(?:^|=|answer\\s*:?\\s*)\\s*0?\\.450*\\s*[.!]?\\s*$"
+              "(?:^|=|(?:answer|rf)\\s+is\\s+|answer\\s*:?\\s*|\\bis\\s+|\\bequals\\s+)\\s*0?\\.450*\\s*[.!]?\\s*$"
             ]
           }
         ],
@@ -9864,7 +9866,7 @@
             "label": "Rf = 0.40 with no unit",
             "alternatives": [],
             "patterns": [
-              "(?:^|=|answer\\s*:?\\s*)\\s*0?\\.40*\\s*[.!]?\\s*$"
+              "(?:^|=|(?:answer|rf)\\s+is\\s+|answer\\s*:?\\s*|\\bis\\s+|\\bequals\\s+)\\s*0?\\.40*\\s*[.!]?\\s*$"
             ]
           }
         ],
