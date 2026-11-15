@@ -41,7 +41,7 @@ function grantWardrobe(id){
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
 const CHEMISTRY_REVISION='20260930-chem-fullmarks3';
-const bankUrl=p=>(p.id==='physics'||p.id==='biology')?`${p.bank}?v=20261115-generic-description-qa1`:p.id==='physics-nov26'?`${p.bank}?v=20261114-physics-selection-qa1`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261114-biology-411-144-v2`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
+const bankUrl=p=>p.id==='latin-conjugations'?`${p.bank}?v=20261115-latin-clarity-qa1`:(p.id==='physics'||p.id==='biology')?`${p.bank}?v=20261115-all-assessment-qa2`:p.id==='physics-nov26'?`${p.bank}?v=20261114-physics-selection-qa1`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261114-biology-411-144-v2`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
   'inks.svg':'Figure 2: chromatogram with ink samples A to D',
@@ -658,6 +658,13 @@ async function start(id){
       const aligned=physicsNov26DraftSchoolAligned(draft);
       if(!aligned&&!hasExistingAnswers){delete state.drafts[id];draft=null;save();}
       else if(!aligned&&hasExistingAnswers){draft.legacyPhysicsSchool=true;}
+    }
+    if(draft&&id==='latin-conjugations'){
+      const res=await fetch(bankUrl(p));if(!res.ok)throw Error('Question bank unavailable');
+      const fresh=await res.json(),byId=new Map(fresh.questions.map(q=>[q.id,q]));
+      draft.questions=draft.questions.map(q=>byId.get(q.id)||q);
+      // Keep answered questions and timing intact while updating visible instructions.
+      save();
     }
     if(draft&&id==='physics-nov26'){
       const fresh=await fetch(bankUrl(p)).then(r=>r.json());
