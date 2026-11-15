@@ -436,7 +436,8 @@ if (!window.__luxRpgLiveHome) {
     const rail = make('aside','rpg-rail-live');
     const panel = make('section','rpg-quests-live'); panel.setAttribute('aria-label',"Today's quests");
     panel.append(make('p','rpg-kicker-live','SCHOOL'));
-    task(panel,{title:'Biology · cell structure test',progress:'2 Nov',target:'',href:'/assessment/'},'▣');
+    task(panel,{title:'Chemistry · Assessment 2 school mock',progress:'16 Nov · 20 min',target:'',href:'/study/chemistry/exam-revision/mock/'},'▣');
+    task(panel,{title:'Biology · cell structure assessment',progress:'w/c 16 Nov',target:'',href:'/assessment/?tab=tracker'},'▣');
     task(panel,{title:'Assessment papers & notes',progress:'Open',target:'',href:'/assessment/'},'▣');
     panel.append(make('p','rpg-kicker-live',`RAISE YOUR SCHOLAR · ${progress.ready ? progress.count : '–'}/${progress.total || 10}`));
     panel.append(make('h1',null,"Today's quests"));
