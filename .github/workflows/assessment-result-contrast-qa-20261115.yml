@@ -1,0 +1,36 @@
+name: Assessment Result Readability — iPad Contrast QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assessment/assessment-ipad-preview-20261020.css'
+      - 'assessment/index.html'
+      - 'assessment/app-v2.js'
+      - 'tests/assessment-results-contrast-ipad-20261115.mjs'
+      - '.github/workflows/assessment-result-contrast-qa-20261115.yml'
+  pull_request:
+    paths:
+      - 'assessment/assessment-ipad-preview-20261020.css'
+      - 'assessment/index.html'
+      - 'assessment/app-v2.js'
+      - 'tests/assessment-results-contrast-ipad-20261115.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  result-contrast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Playwright
+        run: npm install --no-save playwright
+      - name: Install Chromium and iPad WebKit
+        run: npx playwright install --with-deps chromium webkit
+      - name: Verify readable Physics results at iPad portrait and landscape sizes
+        run: |
+          python3 -m http.server 8777 --bind 127.0.0.1 >/tmp/assessment-contrast-server.log 2>&1 &
+          QA_BASE_URL=http://127.0.0.1:8777 node tests/assessment-results-contrast-ipad-20261115.mjs
