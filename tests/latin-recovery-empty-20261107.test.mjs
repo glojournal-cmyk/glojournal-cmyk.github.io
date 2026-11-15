@@ -81,7 +81,7 @@ test('review Recovery stays restricted to its original assigned review pool',()=
 test('live iPad Latin Practice loader brings additional Year 8 banks only to dated Recovery',()=>{
  const js=readFileSync('assets/study._subject.practise-y8fix-20260920.js','utf8');
  assert.ok(js.includes('dailyLocked&&dailyParams.has(\'recover\')&&assignment&&N===8&&e===\'latin\''));
- assert.ok(js.includes('latinRecoveryYear8Sources(I,pinnedTopic,s.getState()?.seenCorrect,8)'));
+ assert.ok(js.includes('latinRecoveryYear8Sources(I,pinnedTopic,s.getState()?.seenCorrect,12)'));
  assert.ok(js.includes('...fallbacks.filter(t=>!known.has(t.topicId))'));
  assert.ok(js.includes('recovery-question-diversity-20261025.js?v=20261110-science-recovery1'));
 });
