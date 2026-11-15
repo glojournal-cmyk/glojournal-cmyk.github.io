@@ -4193,7 +4193,11 @@
             "label": "gaps for undiscovered elements",
             "alternatives": [
               "gaps for undiscovered elements",
-              "spaces for undiscovered elements"
+              "spaces for undiscovered elements",
+              "gaps not discovered",
+              "spaces not discovered",
+              "gaps not found",
+              "spaces not found"
             ]
           },
           {
@@ -4777,7 +4781,8 @@
             "label": "more than one element chemically combined",
             "alternatives": [
               "more than one element chemically combined",
-              "two elements chemically combined"
+              "two elements chemically combined",
+              "elements chemically joined"
             ]
           },
           {
@@ -4956,7 +4961,11 @@
           {
             "label": "gaps for undiscovered elements",
             "alternatives": [
-              "gaps for undiscovered elements"
+              "gaps for undiscovered elements",
+              "gaps not discovered",
+              "spaces not discovered",
+              "gaps not found",
+              "spaces not found"
             ]
           },
           {
@@ -5123,7 +5132,8 @@
           {
             "label": "filter sand residue",
             "alternatives": [
-              "filter sand residue"
+              "filter sand residue",
+              "filter sand"
             ]
           },
           {
@@ -5395,7 +5405,8 @@
             "label": "water escapes vapour",
             "alternatives": [
               "water escapes vapour",
-              "water evaporates escapes"
+              "water evaporates escapes",
+              "water evaporates lost"
             ]
           },
           {
@@ -7043,7 +7054,8 @@
             "label": "distance not accurate",
             "alternatives": [
               "distance not accurate",
-              "cannot measure accurately"
+              "cannot measure front",
+              "cannot measure distance"
             ]
           }
         ],
@@ -7059,7 +7071,8 @@
             "front disappears"
           ],
           [
-            "cannot measure accurately"
+            "cannot measure front",
+            "cannot measure distance"
           ]
         ],
         "totalMarks": 3
@@ -7128,8 +7141,7 @@
             "label": "spots missing",
             "alternatives": [
               "spots missing",
-              "no separated spots",
-              "cannot analyse sample"
+              "no separated spots"
             ]
           }
         ],
@@ -7143,8 +7155,7 @@
             "sample washes off"
           ],
           [
-            "no separated spots",
-            "cannot analyse sample"
+            "no separated spots"
           ]
         ],
         "totalMarks": 2
@@ -7942,11 +7953,15 @@
           {
             "label": "ethanol flammable",
             "alternatives": [
-              "ethanol flammable"
+              "ethanol flammable",
+              "ethanol catches fire",
+              "ethanol catch fire"
             ],
             "rejectPatterns": [
               "ethanol\\s+(?:is\\s+)?not\\s+flammable",
-              "ethanol\\s+(?:is\\s+)?non[- ]flammable"
+              "ethanol\\s+(?:is\\s+)?non[- ]flammable",
+              "ethanol\\s+(?:does\\s+)?not\\s+catch",
+              "ethanol\\s+doesn.?t\\s+catch"
             ]
           },
           {
@@ -7955,6 +7970,10 @@
               "away naked flames",
               "no Bunsen heating",
               "do not use flame"
+            ],
+            "patterns": [
+              "do not (?:heat|use).{0,40}bunsen",
+              "not heat.{0,30}bunsen"
             ]
           }
         ],
@@ -9370,7 +9389,11 @@
           {
             "label": "Gap represents an undiscovered element",
             "alternatives": [
-              "gap undiscovered element"
+              "gap undiscovered element",
+              "gap not discovered",
+              "space not discovered",
+              "gap not found",
+              "space not found"
             ]
           },
           {
@@ -9659,7 +9682,9 @@
             "label": "Condenser turns water vapour into liquid water",
             "alternatives": [
               "water vapour condenses liquid",
-              "water vapor condenses liquid"
+              "water vapor condenses liquid",
+              "steam turns liquid",
+              "condenser cools steam"
             ]
           }
         ],
@@ -9940,7 +9965,9 @@
             "label": "At least three components",
             "alternatives": [
               "at least three components",
-              "at least 3 components"
+              "at least 3 components",
+              "at least three dyes",
+              "at least three spots"
             ]
           },
           {
