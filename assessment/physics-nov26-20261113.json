@@ -62,10 +62,10 @@
                   "Solid particles are close together in a regular arrangement."
                 ],
                 "patterns": [
-                  "(?=.*(?:close))(?=.*(?:regular)).*"
+                  "(?=.*\\b(?:close|closely|packed|touching)\\b)(?=.*\\b(?:regular|regularly|ordered|orderly|lattice)\\b).*"
                 ],
                 "variants": [
-                  "(?=.*(?:packed|touching))(?=.*(?:ordered|lattice)).*"
+                  "(?=.*\\b(?:packed|touching)\\b)(?=.*\\b(?:ordered|orderly|lattice|regular|regularly)\\b).*"
                 ]
               },
               {
@@ -113,10 +113,14 @@
                   "Gas particles have large spaces between them."
                 ],
                 "patterns": [
-                  "(?=.*(?:gas))(?=.*(?:spac)).*"
+                  "(?=.*\\b(?:gas|gaseous)\\b)(?=.*\\b(?:large|big|lots?\\s+of|plenty\\s+of|wide|far\\s+apart|widely\\s+(?:spaced|separated))\\b)(?=.*\\b(?:spaces?|gaps?|apart|spaced|separated)\\b).*"
                 ],
                 "variants": [
-                  "(?=.*(?:gas|gaseous))(?=.*(?:gaps|separated|far apart)).*"
+                  "(?=.*\\b(?:gas|gaseous)\\b)(?=.*\\b(?:far|widely)\\b)(?=.*\\b(?:apart|spaced|separated)\\b).*"
+                ],
+                "rejectPatterns": [
+                  "\\b(?:gas|gaseous)\\b.{0,65}\\b(?:have|has|contain|contains)\\s+(?:only\\s+)?(?:almost\\s+)?(?:no|zero|little|few|small|tiny)\\s+(?:empty\\s+)?(?:spaces?|gaps?)\\b",
+                  "\\b(?:gas|gaseous)\\b.{0,85}\\b(?:touching|closely\\s+packed|close\\s+together)\\b"
                 ]
               },
               {
@@ -128,7 +132,10 @@
                   "(?=.*(?:liquid))(?=.*(?:close)).*"
                 ],
                 "variants": [
-                  "(?=.*(?:liquid))(?=.*(?:almost no gaps|very few gaps|little gaps|closely packed)).*"
+                  "(?=.*\\b(?:liquid|liquids)\\b)(?=.*\\b(?:touching|closely\\s+packed|packed\\s+tightly|tightly\\s+packed|almost\\s+no\\s+gaps|very\\s+few\\s+gaps|little\\s+(?:empty\\s+)?space)\\b).*"
+                ],
+                "rejectPatterns": [
+                  "\\b(?:liquid|liquids)\\b.{0,85}\\b(?:far\\s+apart|large\\s+gaps|big\\s+gaps)\\b"
                 ]
               }
             ]
