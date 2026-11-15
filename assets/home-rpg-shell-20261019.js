@@ -71,8 +71,8 @@ if (!window.__luxRpgShell) {
     const rail = el("div", "rpg-rail");
     const quest = el("section", "rpg-quest");
     quest.append(el("p", "rpg-kicker", "School"));
-    quest.append(taskLink("/assessment/", "Biology · specialised cells", "2 Nov"));
-    quest.append(taskLink("/assessment/", "Biology · cell structure", "16 Nov"));
+    quest.append(taskLink("/study/chemistry/exam-revision/mock/", "Chemistry · Assessment 2 school mock", "16 Nov · 20 min"));
+    quest.append(taskLink("/assessment/?tab=tracker", "Biology · cell structure assessment", "w/c 16 Nov"));
     const rows = model.rows || [];
     const done = rows.filter((row) => row.done).length;
     quest.append(el("p", "rpg-kicker", `Raise your scholar · ${done}/${rows.length || 10}`));
