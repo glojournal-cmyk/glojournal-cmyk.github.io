@@ -43,7 +43,7 @@ function render(){const s=record.active;if(!s){setup();return;}const q=question(
   $('topic').textContent=categories[cat];$('question-number').textContent='Question '+(s.index+1)+' · '+q.marks+' mark'+(q.marks===1?'':'s');
   $('prompt').textContent=q.prompt;
   const figure=$('figure');figure.replaceChildren();figure.hidden=!q.figure;
-  if(q.figure){const img=el('img');img.src=q.figure.src;img.alt=q.figure.alt;img.loading='eager';
+  if(q.figure){const img=el('img');img.src=q.figure.src+'?v=20261115-atomx-academic-qa1';img.alt=q.figure.alt;img.loading='eager';
     figure.append(img,el('figcaption','Schematic diagram; not to scale.'));}
   const stim=$('stimulus');stim.textContent=q.stimulus?.text||'';stim.hidden=!stim.textContent;
   const root=$('answer-area');root.replaceChildren();const saved=s.answers[q.id]||'';
@@ -76,7 +76,7 @@ function results(){if(!record.latest){setup();return;}show('results');
   for(const row of getMockScore(bank,record.latest).rows){
     const q=row.question,card=el('article',null,'review-item '+(row.pending?'pending':row.correct?'correct':'incorrect'));
     card.append(el('span',row.pending?'Written answer · self-mark required':row.awarded+' / '+q.marks+' mark(s)','marker'),el('h4',q.prompt));
-    if(q.figure){const img=el('img',null,'review-figure');img.src=q.figure.src;img.alt=q.figure.alt;card.append(img);}
+    if(q.figure){const img=el('img',null,'review-figure');img.src=q.figure.src+'?v=20261115-atomx-academic-qa1';img.alt=q.figure.alt;card.append(img);}
     const given=el('p',null,'your-answer');given.append(el('strong','Your answer: '),document.createTextNode(row.response||'Not answered'));
     const solution=el('p',null,'model');solution.append(el('strong','Model answer: '),document.createTextNode(q.answer.accepted[0]));
     card.append(given,solution);
