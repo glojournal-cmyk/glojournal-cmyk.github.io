@@ -45,7 +45,7 @@
     }
     document.getElementById('nov2-start').addEventListener('click',start);
   }
-  fetch('/assessment/biology-nov2-20261017.json?v=1').then(r=>{if(!r.ok)throw Error('Question bank unavailable');return r.json()}).then(data=>{
+  fetch('/assessment/biology-nov2-20261017.json?v=20261115-bio-nov2-wording1').then(r=>{if(!r.ok)throw Error('Question bank unavailable');return r.json()}).then(data=>{
     bank=data.questions;
     if(!Array.isArray(bank)||!bank.length)throw Error('Empty question bank');
     if(state.ids.some(id=>!bank.some(q=>q.id===id))){state.ids=[];state.index=0;state.answers={};save();}
