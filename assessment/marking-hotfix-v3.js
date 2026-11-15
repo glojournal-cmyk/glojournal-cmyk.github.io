@@ -2,7 +2,7 @@
    Latin Creusa accepts equivalent wording and partial credit fairly.
    Chemistry is marked by scientific ideas / keywords rather than model-answer wording. */
 (function(){
-  const VERSION='20261115-chem-keyword1';
+  const VERSION='20261115-chem-rf-fraction1';
   window.__ASSESSMENT_MARKING_VERSION=VERSION;
 
   const originalMark=mark;
@@ -129,6 +129,8 @@
     const termParticles=chemistryParticles(term);
     const termNumbers=[...String(term).matchAll(/\d+(?:\.\d+)?/g)].map(m=>m[0]);
     return scopes.some(clause=>{
+      // "distillation" names simple distillation here, not fractional distillation.
+      if(/\bdistill/i.test(term)&&!/fraction/i.test(term)&&/fraction/i.test(clause))return false;
       if(/^\s*[+-]?(?:\d+\.\d+|\.\d+)\s*$/.test(String(term))&&/\b(?:mm|cm|nm|µm|μm|um|metres?|meters?)\b/i.test(clause))return false;
       if(!chemistryIdeaMatch(clause,term))return false;
       const extra=[...chemistryParticles(clause)].filter(p=>!termParticles.has(p));
@@ -182,7 +184,13 @@
     };
     const decimal=/\d\.\d/.test(String(term));
     const got=parse(response, !decimal), expected=parse(term, !decimal);
-    return got!=null&&expected!=null&&Math.abs(got-expected)<1e-9;
+    if(got!=null&&expected!=null&&Math.abs(got-expected)<1e-9)return true;
+    if(!decimal||expected==null)return false;
+    const frac=String(response||'').trim().match(/^([0-9]+(?:\.[0-9]+)?)\s*\/\s*([0-9]+(?:\.[0-9]+)?)$/);
+    if(!frac)return false;
+    const den=Number(frac[2]);
+    if(!den)return false;
+    return Math.abs((Number(frac[1])/den)-expected)<1e-9;
   }
 
   function chemistryFallback(q,value,base){
