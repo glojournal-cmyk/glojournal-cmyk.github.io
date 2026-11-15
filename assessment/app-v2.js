@@ -41,7 +41,7 @@ function grantWardrobe(id){
 
 const KEY='lux-assessment-v1', $=s=>document.querySelector(s);
 const CHEMISTRY_REVISION='20260930-chem-fullmarks3';
-const bankUrl=p=>p.id==='physics-nov26'?`${p.bank}?v=20261114-physics-selection-qa1`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261114-biology-411-144-v2`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
+const bankUrl=p=>(p.id==='physics'||p.id==='biology')?`${p.bank}?v=20261115-generic-description-qa1`:p.id==='physics-nov26'?`${p.bank}?v=20261114-physics-selection-qa1`:p.id==='biology-nov2'?`${p.bank}?v=20261017-1`:p.id==='biology-cell-structure'?`${p.bank}?v=20261114-biology-411-144-v2`:p.id==='chemistry'?`${p.bank}?v=${CHEMISTRY_REVISION}`:`${p.bank}?v=20261010-chem-marking1`;
 const DIAGRAM_ALTS={
   'setup.svg':'Figure 1: chromatography beaker, paper, start line and sample spots',
   'inks.svg':'Figure 2: chromatogram with ink samples A to D',
@@ -629,6 +629,24 @@ function mark(q,value){
 }
 function correct(q,value){return mark(q,value).credit>=0.999}
 
+function completeDescriptionQuestion(q){
+  // Older Year 9 concept banks and saved iPad drafts left the actual clue
+  // in feedback.short rather than the visible prompt. Never render that stem.
+  const stem=String(q?.prompt||'').trim();
+  const physics='Which physics term or rule best matches this description?';
+  const biology='Which biological term best matches this description?';
+  if(stem!==physics&&stem!==biology)return q;
+  let description=String(q?.feedback?.short||'').trim();
+  if(!description)throw Error('Question has no description: '+String(q?.id||'unknown'));
+  if(String(q?.answer?.accepted?.[0]||'')==='boiling')
+    description=description.replace(/\bboiling point\b/gi,'temperature at which the change of state occurs');
+  if(String(q?.answer?.accepted?.[0]||'')==='stem cell')
+    description=description.replace(/\bstem cells\b/gi,'undifferentiated cells');
+  const prefix=stem===physics?'Which physics term or rule best matches the following description? ':'Which biological term best matches the following description? ';
+  description=description[0].toUpperCase()+description.slice(1).replace(/[.\s]+$/,'')+'.';
+  return {...q,prompt:prefix+description};
+}
+
 async function start(id){
   const p=PAPERS.find(x=>x.id===id);if(!p)return;
   show('exam');$('#exam').innerHTML='<h2>Preparing a new paper…</h2>';
@@ -657,10 +675,24 @@ async function start(id){
       const byId=new Map(fresh.questions.map(q=>[q.id,q]));
       draft.questions=draft.questions.map(q=>byId.get(q.id)||q);save();
     }
+    if(draft&&['physics','biology'].includes(id)){
+      let repaired=0;
+      draft.questions=draft.questions.map((q,i)=>{
+        const complete=completeDescriptionQuestion(q);
+        if(complete!==q){delete draft.answers[i];repaired++;}
+        return complete;
+      });
+      if(repaired){
+        // Unanswerable saved choices were not a fair test. Restart the timer
+        // without losing the selected questions or previously saved history.
+        draft.index=0;draft.remaining=p.minutes*60;draft.running=true;
+        draft.repairedDescriptionCount=repaired;save();
+      }
+    }
     if(!draft){
       const res=await fetch(bankUrl(p));if(!res.ok)throw Error('Question bank unavailable');
       const bank=await res.json();
-      const pool=bank.groups?bank.groups.flatMap(g=>g.questions):bank.questions;
+      const pool=(bank.groups?bank.groups.flatMap(g=>g.questions):bank.questions).map(completeDescriptionQuestion);
       const valid=pool.filter(q=>q.prompt&&q.answer?.accepted?.length&&['choice','exact_or_equivalent','keywords','chemistry_rubric','biology_rubric'].includes(q.answer.mode));
       const previous=state.recent[id]||[];
       let quotas=p.groups;
@@ -699,7 +731,7 @@ function renderTest(p,d){
   }
   function draw(){
     const i=d.index,q=d.questions[i],answer=d.answers[i]||'';
-    $('#exam').innerHTML=`<div class="exam-top"><div><span class="tag">${esc(p.name)} · ${p.minutes} min · ${p.id==='physics-nov26'?'Practice target: 85% (not a school grade)':'pass 85%'}</span><h2>Question ${i+1} of ${d.questions.length}</h2></div><strong id="clock" aria-label="Time remaining"></strong></div><div class="progress"><div style="width:${100*(i+1)/d.questions.length}%"></div></div>${resumed?'<p role="status" class="feedback">Resumed saved paper. Your answers and place are preserved. Check the timer before continuing.</p>':''}${p.id==='physics-nov26'&&d.legacyPhysicsSchool?'<p role="status" class="feedback">This saved paper was created before the latest school-style selection rules. Your answers have been preserved, but this paper may not include every required practical question. Start a new paper after submitting to use the revised selection.</p>':''}<p class="muted">Answers are saved. Marking and model answers appear after you submit the whole paper.</p>${p.id==='latin-verbs'?'<p class="muted">From the verb table only. Present: I carry. Imperfect: I was carrying. Perfect: I carried. I have carried and I used to carry are also accepted. Say he, she or it for the third person singular.</p>':''}${q.passage?`<div class="feedback" style="white-space:pre-line;line-height:1.7"><b>Read the extract</b><br>${esc(q.passage)}</div>`:''}<p class="question">${esc(q.prompt)}</p>${['chemistry','biology-cell-structure','biology-nov2','physics-nov26'].includes(p.id)?`<p class="muted">${questionMarks(q)} marks · ${esc(p.id==='chemistry'?chemistryStage(q):q.topic)} · Give distinct points; show your working for calculations.</p>`:''}${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}?v=${CHEMISTRY_REVISION}" alt="${esc(q.diagramAlt||DIAGRAM_ALTS[q.diagram]||'Assessment question diagram')}">`:''}${Array.isArray(q.options)&&q.options.length?`<div id="choices">${q.options.map(o=>`<button class="choice ${answer===String(o)?'chosen':''}" data-choice="${esc(o)}">${esc(o)}</button>`).join('')}</div>`:`<label>Your answer<textarea class="answer" id="response" placeholder="Write your answer here">${esc(answer)}</textarea></label>`}<div class="exam-actions"><button id="prev" ${i===0?'disabled':''}>Previous</button><button id="next" class="primary">${i===d.questions.length-1?'Submit whole paper':'Next question'}</button></div><div class="exam-actions" style="margin-top:18px"><button id="pause">${d.running?'Pause timer':'Resume timer'}</button><button id="exit">Back to assessments</button></div>`;
+    $('#exam').innerHTML=`<div class="exam-top"><div><span class="tag">${esc(p.name)} · ${p.minutes} min · ${p.id==='physics-nov26'?'Practice target: 85% (not a school grade)':'pass 85%'}</span><h2>Question ${i+1} of ${d.questions.length}</h2></div><strong id="clock" aria-label="Time remaining"></strong></div><div class="progress"><div style="width:${100*(i+1)/d.questions.length}%"></div></div>${d.repairedDescriptionCount?`<p role="status" class="feedback">We repaired ${d.repairedDescriptionCount} incomplete questions in this saved paper. Answers to those unanswerable questions were cleared, and the full timer was restored. Please answer them again.</p>`:''}${resumed?'<p role="status" class="feedback">Resumed saved paper. Your answers and place are preserved. Check the timer before continuing.</p>':''}${p.id==='physics-nov26'&&d.legacyPhysicsSchool?'<p role="status" class="feedback">This saved paper was created before the latest school-style selection rules. Your answers have been preserved, but this paper may not include every required practical question. Start a new paper after submitting to use the revised selection.</p>':''}<p class="muted">Answers are saved. Marking and model answers appear after you submit the whole paper.</p>${p.id==='latin-verbs'?'<p class="muted">From the verb table only. Present: I carry. Imperfect: I was carrying. Perfect: I carried. I have carried and I used to carry are also accepted. Say he, she or it for the third person singular.</p>':''}${q.passage?`<div class="feedback" style="white-space:pre-line;line-height:1.7"><b>Read the extract</b><br>${esc(q.passage)}</div>`:''}<p class="question">${esc(q.prompt)}</p>${['chemistry','biology-cell-structure','biology-nov2','physics-nov26'].includes(p.id)?`<p class="muted">${questionMarks(q)} marks · ${esc(p.id==='chemistry'?chemistryStage(q):q.topic)} · Give distinct points; show your working for calculations.</p>`:''}${q.diagram?`<img class="assessment-diagram" src="/assessment/diagrams/${esc(q.diagram)}?v=${CHEMISTRY_REVISION}" alt="${esc(q.diagramAlt||DIAGRAM_ALTS[q.diagram]||'Assessment question diagram')}">`:''}${Array.isArray(q.options)&&q.options.length?`<div id="choices">${q.options.map(o=>`<button class="choice ${answer===String(o)?'chosen':''}" data-choice="${esc(o)}">${esc(o)}</button>`).join('')}</div>`:`<label>Your answer<textarea class="answer" id="response" placeholder="Write your answer here">${esc(answer)}</textarea></label>`}<div class="exam-actions"><button id="prev" ${i===0?'disabled':''}>Previous</button><button id="next" class="primary">${i===d.questions.length-1?'Submit whole paper':'Next question'}</button></div><div class="exam-actions" style="margin-top:18px"><button id="pause">${d.running?'Pause timer':'Resume timer'}</button><button id="exit">Back to assessments</button></div>`;
     $('#response')?.addEventListener('input',e=>{d.answers[i]=e.target.value;save()});
     $('#choices')?.addEventListener('click',e=>{const b=e.target.closest('[data-choice]');if(b){d.answers[i]=b.dataset.choice;persist();draw()}});
     $('#prev').onclick=()=>{d.index--;persist();draw()};
