@@ -35,6 +35,11 @@ assert.equal(scorer(symbolic,'Density equals mass divided by volume. 540 divided
  'worded density units must retain all three marks');
 assert.equal(scorer(symbolic,'ρ = m/V. 540 ÷ 200 = 2.7. The density is 2.7 g/cm³.').matched,3,
  'a correct symbolic GCSE equation ρ=m/V must earn its method mark');
+// Academic marking changes must invalidate iPad/PWA cached banks and script URLs.
+const assessmentHTML=fs.readFileSync('assessment/index.html','utf8');
+assert.match(app,/physics-nov26[^\n]*20261115-academic-marking-qa1/);
+assert.match(app,/biology-cell-structure[^\n]*20261115-academic-marking-qa1/);
+assert.match(assessmentHTML,/app-v2\.js\?[^"']*academicQa=20261115-academic-marking-qa1/);
 const equivalent=[
  ['p02','The particles are tightly packed in an ordered lattice and oscillate about their fixed locations.',2],
  ['p03','There are big gaps among gas molecules but almost no gaps among liquid molecules.',2],
