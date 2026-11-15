@@ -8,6 +8,7 @@ on:
       - 'assessment/app-v2.js'
       - 'assessment/index.html'
       - 'tests/year9-assessment-description-20261115.test.mjs'
+      - 'tests/year9-assessment-description-browser-20261115.mjs'
       - '.github/workflows/year9-generic-assessment-qa-20261115.yml'
   pull_request:
     paths:
@@ -16,6 +17,7 @@ on:
       - 'assessment/app-v2.js'
       - 'assessment/index.html'
       - 'tests/year9-assessment-description-20261115.test.mjs'
+      - 'tests/year9-assessment-description-browser-20261115.mjs'
   workflow_dispatch:
 permissions:
   contents: read
@@ -34,3 +36,19 @@ jobs:
         run: node tests/year9-assessment-description-20261115.test.mjs
       - name: Check assessment bank model answers against live marking functions
         run: node tests/assessment-model-qa.mjs
+  ipad-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install browser test runner
+        run: npm install --no-save playwright
+      - name: Install Chromium and iPad WebKit
+        run: npx playwright install --with-deps chromium webkit
+      - name: Run real assessment UI, 30-question drafts, and fresh papers on Chromium and iPad
+        run: |
+          python3 -m http.server 8777 --bind 127.0.0.1 >/tmp/year9-assessment-http.log 2>&1 &
+          QA_BASE_URL=http://127.0.0.1:8777 node tests/year9-assessment-description-browser-20261115.mjs
