@@ -18,6 +18,8 @@ on:
       - "assets/quest-recovery-20261011.js"
       - "qa/recovery-consistency.test.mjs"
       - "assets/recovery-question-diversity-20261025.js"
+      - "assets/latin-recovery-topic-pool-20261107.js"
+      - "tests/latin-recovery-extended-20261115.test.mjs"
       - "tests/recovery-question-diversity-20261025.test.mjs"
       - "tests/recovery-correct-count-20261025.test.mjs"
       - "tests/recovery-empty-french-20261030.test.mjs"
@@ -36,6 +38,8 @@ on:
       - "assets/durable-study-evidence-20261018.js"
       - "qa/recovery-consistency.test.mjs"
       - "assets/recovery-question-diversity-20261025.js"
+      - "assets/latin-recovery-topic-pool-20261107.js"
+      - "tests/latin-recovery-extended-20261115.test.mjs"
       - "tests/recovery-question-diversity-20261025.test.mjs"
       - "tests/recovery-correct-count-20261025.test.mjs"
       - "tests/recovery-empty-french-20261030.test.mjs"
@@ -55,4 +59,4 @@ jobs:
       - name: Check dated Recovery and historical Daily Records
         run: |
           node qa/recovery-consistency.test.mjs
-          node --test tests/recovery-correct-count-20261025.test.mjs tests/recovery-question-diversity-20261025.test.mjs tests/recovery-empty-french-20261030.test.mjs
+          node --test tests/recovery-correct-count-20261025.test.mjs tests/recovery-question-diversity-20261025.test.mjs tests/recovery-empty-french-20261030.test.mjs tests/latin-recovery-extended-20261115.test.mjs tests/latin-recovery-empty-20261107.test.mjs
