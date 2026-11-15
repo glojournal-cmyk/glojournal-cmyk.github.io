@@ -324,7 +324,7 @@
           "id": "bio-y9-b10-intestinal-glucose-uptake-3f0e8e16c6-mc-term",
           "conceptId": "bio-y9-b10-intestinal-glucose-uptake-3f0e8e16c6-concept",
           "topic": "Active transport",
-          "prompt": "Which biological term best matches the following description? Active transport that can absorb glucose when gut concentration is lower than blood concentration.",
+          "prompt": "Which biological term best matches the following description? The gut example in which glucose is absorbed into the blood even though the concentration in the gut is lower than in the blood.",
           "options": [
             "intestinal glucose uptake",
             "against the concentration gradient",
@@ -339,7 +339,7 @@
             "normalization": {}
           },
           "feedback": {
-            "short": "active transport that can absorb glucose when gut concentration is lower than blood concentration"
+            "short": "the gut example in which glucose is absorbed into the blood even though the concentration in the gut is lower than in the blood"
           }
         },
         {
@@ -368,9 +368,9 @@
           "id": "bio-y9-b10-diffusion-direction-fa9085dae4-mc-term",
           "conceptId": "bio-y9-b10-diffusion-direction-fa9085dae4-concept",
           "topic": "Active transport",
-          "prompt": "Which biological term best matches the following description? Net particle movement from higher to lower concentration without respiration energy.",
+          "prompt": "Which biological term best matches the following description? The net movement of particles from a region of higher concentration to a region of lower concentration, without energy from respiration.",
           "options": [
-            "diffusion direction",
+            "diffusion",
             "osmosis restriction",
             "root-hair mineral uptake",
             "active transport"
@@ -378,12 +378,12 @@
           "answer": {
             "mode": "choice",
             "accepted": [
-              "diffusion direction"
+              "diffusion"
             ],
             "normalization": {}
           },
           "feedback": {
-            "short": "net particle movement from higher to lower concentration without respiration energy"
+            "short": "the net movement of particles from a region of higher concentration to a region of lower concentration, without energy from respiration"
           }
         },
         {
@@ -434,9 +434,9 @@
           "id": "bio-y9-b10-osmosis-restriction-8681ae3acf-mc-term",
           "conceptId": "bio-y9-b10-osmosis-restriction-8681ae3acf-concept",
           "topic": "Active transport",
-          "prompt": "Which biological term best matches the following description? Movement of water only through a partially permeable membrane.",
+          "prompt": "Which biological term best matches the following description? Movement of water through a partially permeable membrane that does not use energy from respiration.",
           "options": [
-            "osmosis restriction",
+            "osmosis",
             "diffusion direction",
             "intestinal glucose uptake",
             "active transport"
@@ -444,12 +444,12 @@
           "answer": {
             "mode": "choice",
             "accepted": [
-              "osmosis restriction"
+              "osmosis"
             ],
             "normalization": {}
           },
           "feedback": {
-            "short": "movement of water only through a partially permeable membrane"
+            "short": "movement of water through a partially permeable membrane that does not use energy from respiration"
           }
         },
         {
@@ -480,7 +480,7 @@
           "topic": "Active transport",
           "prompt": "Which biological term best matches the following description? Accumulating a substance where its concentration is already higher inside a cell than outside.",
           "options": [
-            "active-transport need",
+            "osmosis",
             "diffusion direction",
             "respiration energy",
             "active transport"
@@ -488,7 +488,7 @@
           "answer": {
             "mode": "choice",
             "accepted": [
-              "active-transport need"
+              "active transport"
             ],
             "normalization": {}
           },
@@ -594,7 +594,7 @@
           "id": "bio-y9-b11-yeast-anaerobic-equation-46eb563265-mc-term",
           "conceptId": "bio-y9-b11-yeast-anaerobic-equation-46eb563265-concept",
           "topic": "Aerobic and anaerobic respiration",
-          "prompt": "Which biological term best matches the following description? Glucose produces ethanol and carbon dioxide.",
+          "prompt": "Which biological term best matches the following description? The word equation for anaerobic respiration in yeast: glucose produces ethanol and carbon dioxide.",
           "options": [
             "yeast anaerobic equation",
             "respiration for temperature",
@@ -609,7 +609,7 @@
             "normalization": {}
           },
           "feedback": {
-            "short": "glucose produces ethanol and carbon dioxide"
+            "short": "the word equation for anaerobic respiration in yeast: glucose produces ethanol and carbon dioxide"
           }
         },
         {
@@ -2402,7 +2402,7 @@
           "id": "bio-y9-b4-brief-lid-opening-91a8271c6d-mc-term",
           "conceptId": "bio-y9-b4-brief-lid-opening-91a8271c6d-concept",
           "topic": "Culturing microorganisms and aseptic technique — Required Practical 2",
-          "prompt": "Which biological term best matches the following description? A technique reducing contamination from microorganisms in the air.",
+          "prompt": "Which biological term best matches the following description? Lifting a Petri dish lid for only a short time so fewer airborne microorganisms can land on the agar.",
           "options": [
             "aseptic technique",
             "uncontaminated culture",
@@ -2417,7 +2417,7 @@
             "normalization": {}
           },
           "feedback": {
-            "short": "a technique reducing contamination from microorganisms in the air"
+            "short": "lifting a Petri dish lid for only a short time so fewer airborne microorganisms can land on the agar"
           }
         },
         {
@@ -3196,7 +3196,7 @@
           "id": "bio-y9-b8-shorter-diffusion-distance-01313894f3-mc-term",
           "conceptId": "bio-y9-b8-shorter-diffusion-distance-01313894f3-concept",
           "topic": "Diffusion",
-          "prompt": "Which biological term best matches the following description? An exchange-surface feature increasing diffusion rate.",
+          "prompt": "Which biological term best matches the following description? A thin exchange surface, so particles travel a shorter distance and the rate of diffusion is higher.",
           "options": [
             "higher temperature",
             "effective blood supply",
@@ -3211,14 +3211,14 @@
             "normalization": {}
           },
           "feedback": {
-            "short": "an exchange-surface feature increasing diffusion rate"
+            "short": "a thin exchange surface, so particles travel a shorter distance and the rate of diffusion is higher"
           }
         },
         {
           "id": "bio-y9-b8-concentration-gradient-d75da05342-mc-term",
           "conceptId": "bio-y9-b8-concentration-gradient-d75da05342-concept",
           "topic": "Diffusion",
-          "prompt": "Which biological term best matches the following description? A difference in concentration between two regions.",
+          "prompt": "Which biological term best matches the following description? The name for a difference in concentration between two regions, whether that difference is steep or small.",
           "options": [
             "concentration gradient",
             "larger concentration gradient",
@@ -3233,7 +3233,7 @@
             "normalization": {}
           },
           "feedback": {
-            "short": "a difference in concentration between two regions"
+            "short": "the name for a difference in concentration between two regions, whether that difference is steep or small"
           }
         },
         {
@@ -3262,7 +3262,7 @@
           "id": "bio-y9-b8-larger-concentration-gradient-8c7bcc865c-mc-term",
           "conceptId": "bio-y9-b8-larger-concentration-gradient-8c7bcc865c-concept",
           "topic": "Diffusion",
-          "prompt": "Which biological term best matches the following description? A factor that increases diffusion rate.",
+          "prompt": "Which biological term best matches the following description? A steeper difference in concentration between two regions, which increases the rate of diffusion.",
           "options": [
             "concentration gradient",
             "larger concentration gradient",
@@ -3277,7 +3277,7 @@
             "normalization": {}
           },
           "feedback": {
-            "short": "a factor that increases diffusion rate"
+            "short": "a steeper difference in concentration between two regions, which increases the rate of diffusion"
           }
         },
         {
