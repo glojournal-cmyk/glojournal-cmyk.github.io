@@ -1,0 +1,57 @@
+name: All Assessments — question, answer and marking QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assessment/**'
+      - 'content/exam-revision/**'
+      - 'study/latin/november-2026/**'
+      - 'study/chemistry/exam-revision/**'
+      - 'tests/assessment-full-bank-integrity-20261115.test.mjs'
+      - 'tests/upcoming-assessments-qa-20261114.test.mjs'
+      - 'tests/assessment-model-qa.mjs'
+      - '.github/workflows/all-assessment-questions-qa-20261115.yml'
+  pull_request:
+    paths:
+      - 'assessment/**'
+      - 'content/exam-revision/**'
+      - 'study/latin/november-2026/**'
+      - 'tests/assessment-full-bank-integrity-20261115.test.mjs'
+      - '.github/workflows/all-assessment-questions-qa-20261115.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  full-assessment-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check Assessment JavaScript syntax
+        run: node --check assessment/app-v2.js
+      - name: Check every one of the 1,805 assessment bank questions plus school mocks
+        run: node tests/assessment-full-bank-integrity-20261115.test.mjs
+      - name: Test exact model-answer and blank-score behaviours across normal assessments
+        run: node tests/assessment-model-qa.mjs
+      - name: Test all upcoming dedicated school assessments and links
+        run: node --test tests/upcoming-assessments-qa-20261114.test.mjs
+      - name: Re-run cross-subject academic content and marking regression
+        run: node tests/academic-all-today-20261114.test.mjs
+      - name: Run advanced Physics paper selection and scientific marking QA
+        run: node tests/physics-nov26-school-standard-v2.test.mjs
+      - name: Verify Chemistry 20-minute school mock answer and method marks
+        run: node tests/chemistry-school-mock-20261114.test.mjs
+      - name: Verify Biology school 4.1.1 topic and marks distribution
+        run: node tests/biology-nov16-school-alignment-20261114.test.mjs
+      - name: Verify Latin 50-minute written school mock
+        run: node tests/latin-november-2026-exam.test.mjs
+      - name: Upload complete question-by-question issue report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: assessment-question-integrity-report
+          path: test-results/assessment-full-bank-integrity-20261115.json
+          if-no-files-found: warn
