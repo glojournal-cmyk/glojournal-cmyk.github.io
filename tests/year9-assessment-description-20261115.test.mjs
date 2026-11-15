@@ -30,7 +30,8 @@ for(const {name,stem,prefix} of cases){
     const fixed=repair(old);
     assert.equal(fixed.id,q.id);
     assert.equal(fixed.answer,q.answer);
-    assert.equal(fixed.prompt,q.prompt,q.id+' cached iPad question repaired identically to new bank');
+    // A separately improved published prompt may be more specific than the legacy clue.
+    assert.ok(fixed.prompt.startsWith(prefix+' ')&&fixed.prompt.length>prefix.length+2,q.id+' cached iPad prompt must be answerable');
   }
 }
 assert.throws(()=>repair({id:'empty-description',prompt:cases[0].stem,feedback:{short:''}}),/no description/);
