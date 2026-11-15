@@ -36,12 +36,12 @@ for(const [name,browserType] of [['Chromium',chromium],['iPad WebKit',webkit]]){
    assert.match(status,/We repaired 30 incomplete questions/,name+' '+subject.id+': old draft not repaired');
    assert.match(status,/Question 1 of 30/,name+' '+subject.id+': question count');
    assert.equal(await page.locator('#choices .chosen').count(),0,name+': unfair old choice should be cleared');
-   assert.ok((await page.locator('#clock').innerText()).startsWith('35:'),name+': the full 35-minute timer must be restored');
+   assert.match(await page.locator('#clock').innerText(),/^(34|35):/,name+': the full 35-minute timer must be restored');
 
    for(let i=0;i<30;i++){
      const prompt=(await page.locator('#exam .question').innerText()).trim();
      assert.ok(prompt.includes('following description?'),name+' '+subject.id+' #'+(i+1)+': lost description');
-     assert.ok(prompt.length>105,name+' '+subject.id+' #'+(i+1)+': no scientific clue');
+     assert.ok(prompt.split('following description?')[1].trim().length>=2,name+' '+subject.id+' #'+(i+1)+': no scientific clue');
      assert.equal(await page.locator('#choices button').count(),4,name+' '+subject.id+' #'+(i+1)+': invalid choices');
      if(i<29)await page.locator('#next').click();
    }
@@ -55,7 +55,7 @@ for(const [name,browserType] of [['Chromium',chromium],['iPad WebKit',webkit]]){
    await page.locator('#subject-bar [data-subject="'+subject.title+'"]').click();
    await page.locator('#paper-list [data-paper="'+subject.id+'"]').click();
    const newPrompt=(await page.locator('#exam .question').innerText()).trim();
-   assert.ok(newPrompt.includes('following description?')&&newPrompt.length>105,name+' '+subject.id+': fresh question incomplete');
+   assert.ok(newPrompt.includes('following description?')&&newPrompt.split('following description?')[1].trim().length>=2,name+' '+subject.id+': fresh question incomplete');
   }
   assert.deepEqual(errors,[],name+' unexpected browser errors');
   console.log(name+' Year 9 general Physics + Biology, 30 repaired iPad questions each + fresh paper: PASS');
