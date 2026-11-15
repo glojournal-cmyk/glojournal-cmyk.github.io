@@ -6,7 +6,7 @@ const bank=JSON.parse(fs.readFileSync('assessment/physics-nov26-20261113.json','
 const all=bank.groups.flatMap(g=>g.questions);
 const questions=new Map(all.map(q=>[q.id,q]));
 const app=fs.readFileSync('assessment/app-v2.js','utf8');
-const start=app.indexOf('function physicsNov26Mark(q,value){');
+const start=app.indexOf('function physicsUnitCanon(s){');
 const end=app.indexOf('\nfunction mark(q,value){',start);
 assert.ok(start>0&&end>start,'independent scorer exists in live assessment script');
 const scorer=vm.runInNewContext(app.slice(start,end)+'\nphysicsNov26Mark;');
@@ -78,7 +78,32 @@ for(const suffix of ['i03','i04','i05','i11','i12']){
 const svg=fs.readFileSync('assessment/diagrams/physics-nov26-rp2-cooling.svg','utf8');
 assert.match(svg,/Illustrative practice data only/);
 assert.doesNotMatch(svg,/data from supplied revision slides/);
-assert.ok(app.includes('20261114-physics-selection-qa1'));
+assert.ok(app.includes('20261115-phys-operator1'));
+
+const operatorCases=[
+ ['d23','Density = mass divided by volume.\n360 divided by 120 = 3 g/cm³.',3],
+ ['d31','Mass = density multiplied by volume.\n2.5 times 24 = 60 g.',3],
+ ['d35','Volume = mass divided by density.\n126 divided by 7 = 18 cm³.',3],
+ ['d35','126 times 7 = 18 cm³.',1],
+ ['d38','54 - 34 = 20 cm³.\nDensity = mass divided by volume.\n110 divided by 20 = 5.5 g/cm³.',4],
+ ['d38','Density = mass times volume.\n110 times 20 = 5.5 g/cm³.',1],
+ ['d13','density = mass divided by volume.\n9.65 divided by 0.60 = 16.1 g/cm³.\n16.1 is lower than 19.3 so it is not pure gold.',4],
+ ['d12','2 times 3 times 5 = 30.\nMass = density times volume.\n8 multiplied by 30 = 240 g.\n0.24 kg.',4],
+ ['d40','3 times 4 times 6 = 72 cm³.\nMass = density times volume.\n2.5 times 72 = 180 g.',4],
+ ['d03','m = density times volume.\n2.7 multiplied by 50 = 135 g.',2],
+ ['d06','2 times 3 times 5 = 30 cm³.\n8 times 30 = 240 g.\n0.24 kg.',3]
+];
+for(const [suffix,response,expected] of operatorCases){
+ const q=questions.get('phys-nov26-'+suffix);
+ const got=scorer(q,response);
+ assert.equal(got.matched,expected,q.id+' operator wording '+JSON.stringify(got)+' :: '+response);
+}
+const wrongDivide=scorer(questions.get('phys-nov26-d31'),'Mass = density multiplied by volume.\n2.5 / 24 = 60 g.');
+assert.deepEqual(wrongDivide.pointResults,[true,false,true],'wrong division must not take the mass substitution mark');
+const wrongTimes=scorer(questions.get('phys-nov26-d35'),'126 times 7 = 18 cm³.');
+assert.deepEqual(wrongTimes.pointResults,[false,false,true],'wrong multiplication must not take the volume substitution mark');
+const densityTimes=scorer(questions.get('phys-nov26-d38'),'Density = mass times volume.\n110 times 20 = 5.5 g/cm³.');
+assert.deepEqual(densityTimes.pointResults,[false,false,false,true],'a times formula is not density = mass/volume');
 
 console.log('PHYSICS_NOV26_MARKING_REGRESSION PASS',JSON.stringify({
  canonical:all.length,alternativeAnswers:equivalent.length,

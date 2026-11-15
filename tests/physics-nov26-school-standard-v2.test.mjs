@@ -6,7 +6,7 @@ const bank=JSON.parse(fs.readFileSync('assessment/physics-nov26-20261113.json','
 const qs=bank.groups.flatMap(g=>g.questions);
 const byId=new Map(qs.map(q=>[q.id,q]));
 const code=fs.readFileSync('assessment/app-v2.js','utf8');
-const scorerStart=code.indexOf('function physicsNov26Mark(q,value){');
+const scorerStart=code.indexOf('function physicsUnitCanon(s){');
 const scorerEnd=code.indexOf('\nfunction mark(q,value){',scorerStart);
 assert.ok(scorerStart>=0&&scorerEnd>scorerStart,'find production Physics scorer');
 const scorer=vm.runInNewContext(code.slice(scorerStart,scorerEnd)+'\nphysicsNov26Mark;');

@@ -1780,9 +1780,9 @@
             ],
             "methodRules": [
               [
-                "(?:rho|ρ)\\s*=\\s*540\\s*(?:\\/|÷)\\s*200\\b",
+                "(?:rho|ρ)\\s*=\\s*540\\s*(?:\\/|÷|divided\\s+by)\\s*200\\b",
                 "density\\s+(?:equals|is)\\s+mass\\s+(?:divided\\s+by|over)\\s+volume",
-                "\\b(?:rho|ρ)\\s*=\\s*540\\s*(?:\\/|÷)\\s*200\\b"
+                "\\b(?:rho|ρ)\\s*=\\s*540\\s*(?:\\/|÷|divided\\s+by)\\s*200\\b"
               ],
               [
                 "540\\s*(?:\\/|÷|divided\\s+by)\\s*200"
@@ -1839,9 +1839,9 @@
             ],
             "methodRules": [
               [
-                "\\b(?:mass|m)\\s*=\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|multiplied\\s+by)\\s*(?:volume|v)\\b",
+                "\\b(?:mass|m)\\s*=\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*(?:volume|v)\\b",
                 "mass\\s+equals\\s+density\\s+multiplied\\s+by\\s+volume",
-                "2\\.7\\s*(?:×|x|\\*)\\s*50"
+                "2\\.7\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*50"
               ],
               [
                 "\\b135\\s*g\\b"
@@ -1895,9 +1895,9 @@
             ],
             "methodRules": [
               [
-                "\\b(?:volume|v)\\s*=\\s*(?:mass|m)\\s*(?:\\/|÷)\\s*(?:density|ρ|rho)\\b",
+                "\\b(?:volume|v)\\s*=\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:density|ρ|rho)\\b",
                 "volume\\s+equals\\s+mass\\s+divided\\s+by\\s+density",
-                "400\\s*(?:\\/|÷)\\s*8"
+                "400\\s*(?:\\/|÷|divided\\s+by)\\s*8"
               ],
               [
                 "\\b50\\s*cm3\\b"
@@ -1992,11 +1992,11 @@
             "methodRules": [
               [
                 "\\b30\\s*cm3\\b",
-                "2\\s*(?:×|x|\\*)\\s*3\\s*(?:×|x|\\*)\\s*5"
+                "2\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*3\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*5"
               ],
               [
                 "\\b240\\s*g\\b",
-                "8(?:\\.0)?\\s*(?:×|x|\\*)\\s*30"
+                "8(?:\\.0)?\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*30"
               ],
               [
                 "\\b0\\.24(?:0)?\\s*kg\\b"
@@ -2081,9 +2081,9 @@
             ],
             "methodRules": [
               [
-                "\\b(?:density|ρ|rho)\\s*=\\s*(?:mass|m)\\s*(?:\\/|÷)\\s*(?:volume|v)\\b",
+                "\\b(?:density|ρ|rho)\\s*=\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)\\b",
                 "density\\s+equals\\s+mass\\s+divided\\s+by\\s+volume",
-                "1\\.2\\s*(?:\\/|÷)\\s*0\\.002"
+                "1\\.2\\s*(?:\\/|÷|divided\\s+by)\\s*0\\.002"
               ],
               [
                 "\\b600\\s*kg\\s*\\/\\s*m3\\b"
@@ -2246,7 +2246,7 @@
             "methodRules": [
               [
                 "2\\.4\\s*(?:\\/|÷|divided\\s+by)\\s*800",
-                "volume\\s*=\\s*mass\\s*(?:\\/|÷)\\s*density"
+                "volume\\s*=\\s*mass\\s*(?:\\/|÷|divided\\s+by)\\s*density"
               ],
               [
                 "\\b0\\.003\\s*m3\\b"
@@ -2328,15 +2328,15 @@
             ],
             "methodRules": [
               [
-                "2\\s*(?:×|x|\\*)\\s*3\\s*(?:×|x|\\*)\\s*5\\s*=\\s*30",
+                "2\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*3\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*5\\s*=\\s*30",
                 "\\b30\\s*cm3\\b"
               ],
               [
-                "mass\\s*=\\s*density\\s*(?:×|x|\\*|multiplied\\s+by)\\s*volume",
+                "mass\\s*=\\s*density\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*volume",
                 "mass\\s+equals\\s+density\\s+multiplied\\s+by\\s+volume"
               ],
               [
-                "8(?:\\.0)?\\s*(?:×|x|\\*)\\s*30",
+                "8(?:\\.0)?\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*30",
                 "\\b240\\s*g\\b"
               ],
               [
@@ -2421,9 +2421,9 @@
             ],
             "methodRules": [
               [
-                "density\\s*=\\s*mass\\s*(?:\\/|÷)\\s*volume",
+                "density\\s*=\\s*mass\\s*(?:\\/|÷|divided\\s+by)\\s*volume",
                 "density\\s+(?:is|equals)\\s+mass\\s+(?:\\/|÷|divided\\s+by)\\s+volume",
-                "(?:ρ|rho)\\s*=\\s*9\\.65\\s*(?:\\/|÷)\\s*0\\.6(?:0)?"
+                "(?:ρ|rho)\\s*=\\s*9\\.65\\s*(?:\\/|÷|divided\\s+by)\\s*0\\.6(?:0)?"
               ],
               [
                 "9\\.65\\s*(?:\\/|÷|divided\\s+by)\\s*0\\.6(?:0)?"
@@ -2799,7 +2799,7 @@
                 "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
               ],
               [
-                "360\\s*(?:\\/|÷)\\s*120"
+                "360\\s*(?:\\/|÷|divided\\s+by)\\s*120"
               ],
               [
                 "\\b3\\s*g\\s*\\/\\s*cm3\\b"
@@ -2866,7 +2866,7 @@
                 "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
               ],
               [
-                "42\\s*(?:\\/|÷)\\s*60"
+                "42\\s*(?:\\/|÷|divided\\s+by)\\s*60"
               ],
               [
                 "\\b0\\.7\\s*g\\s*\\/\\s*cm3\\b"
@@ -2933,7 +2933,7 @@
                 "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
               ],
               [
-                "312\\s*(?:\\/|÷)\\s*40"
+                "312\\s*(?:\\/|÷|divided\\s+by)\\s*40"
               ],
               [
                 "\\b7\\.8\\s*g\\s*\\/\\s*cm3\\b"
@@ -3000,7 +3000,7 @@
                 "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
               ],
               [
-                "285\\s*(?:\\/|÷)\\s*150"
+                "285\\s*(?:\\/|÷|divided\\s+by)\\s*150"
               ],
               [
                 "\\b1\\.9\\s*g\\s*\\/\\s*cm3\\b"
@@ -3067,7 +3067,7 @@
                 "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
               ],
               [
-                "96\\s*(?:\\/|÷)\\s*160"
+                "96\\s*(?:\\/|÷|divided\\s+by)\\s*160"
               ],
               [
                 "\\b0\\.6\\s*g\\s*\\/\\s*cm3\\b"
@@ -3134,7 +3134,7 @@
                 "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
               ],
               [
-                "0\\.36\\s*(?:\\/|÷)\\s*0\\.003"
+                "0\\.36\\s*(?:\\/|÷|divided\\s+by)\\s*0\\.003"
               ],
               [
                 "\\b120\\s*kg\\s*\\/\\s*m3\\b"
@@ -3201,7 +3201,7 @@
                 "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
               ],
               [
-                "1\\.44\\s*(?:\\/|÷)\\s*0\\.0012"
+                "1\\.44\\s*(?:\\/|÷|divided\\s+by)\\s*0\\.0012"
               ],
               [
                 "\\b1200\\s*kg\\s*\\/\\s*m3\\b"
@@ -3268,7 +3268,7 @@
                 "(?:density|rho|ρ)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)"
               ],
               [
-                "0\\.96\\s*(?:\\/|÷)\\s*0\\.0012"
+                "0\\.96\\s*(?:\\/|÷|divided\\s+by)\\s*0\\.0012"
               ],
               [
                 "\\b800\\s*kg\\s*\\/\\s*m3\\b"
@@ -3332,10 +3332,10 @@
             ],
             "methodRules": [
               [
-                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|multiplied\\s+by)\\s*(?:volume|v)"
+                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*(?:volume|v)"
               ],
               [
-                "2\\.5\\s*(?:×|x|\\*|\\/|÷)\\s*24"
+                "2\\.5\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*24"
               ],
               [
                 "\\b60\\s*g\\b"
@@ -3399,10 +3399,10 @@
             ],
             "methodRules": [
               [
-                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|multiplied\\s+by)\\s*(?:volume|v)"
+                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*(?:volume|v)"
               ],
               [
-                "0\\.8\\s*(?:×|x|\\*|\\/|÷)\\s*150"
+                "0\\.8\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*150"
               ],
               [
                 "\\b120\\s*g\\b"
@@ -3466,10 +3466,10 @@
             ],
             "methodRules": [
               [
-                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|multiplied\\s+by)\\s*(?:volume|v)"
+                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*(?:volume|v)"
               ],
               [
-                "2400\\s*(?:×|x|\\*|\\/|÷)\\s*0\\.015"
+                "2400\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*0\\.015"
               ],
               [
                 "\\b36\\s*kg\\b"
@@ -3533,10 +3533,10 @@
             ],
             "methodRules": [
               [
-                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|multiplied\\s+by)\\s*(?:volume|v)"
+                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*(?:volume|v)"
               ],
               [
-                "1\\.4\\s*(?:×|x|\\*|\\/|÷)\\s*75"
+                "1\\.4\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*75"
               ],
               [
                 "\\b105\\s*g\\b"
@@ -3603,7 +3603,7 @@
                 "(?:volume|v)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:density|ρ|rho)"
               ],
               [
-                "126\\s*(?:×|x|\\*|\\/|÷)\\s*7"
+                "126\\s*(?:\\/|÷|divided\\s+by)\\s*7"
               ],
               [
                 "\\b18\\s*cm3\\b"
@@ -3670,7 +3670,7 @@
                 "(?:volume|v)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:density|ρ|rho)"
               ],
               [
-                "675\\s*(?:×|x|\\*|\\/|÷)\\s*750"
+                "675\\s*(?:\\/|÷|divided\\s+by)\\s*750"
               ],
               [
                 "\\b0\\.9\\s*m3\\b"
@@ -3737,7 +3737,7 @@
                 "(?:volume|v)\\s*(?:=|is|equals)\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:density|ρ|rho)"
               ],
               [
-                "54\\s*(?:×|x|\\*|\\/|÷)\\s*2\\.7"
+                "54\\s*(?:\\/|÷|divided\\s+by)\\s*2\\.7"
               ],
               [
                 "\\b20\\s*cm3\\b"
@@ -3814,10 +3814,10 @@
                 "\\b20\\s*cm3\\b"
               ],
               [
-                "density\\s*=\\s*mass\\s*(?:\\/|÷)\\s*volume"
+                "density\\s*=\\s*mass\\s*(?:\\/|÷|divided\\s+by)\\s*volume"
               ],
               [
-                "110\\s*(?:\\/|÷)\\s*20"
+                "110\\s*(?:\\/|÷|divided\\s+by)\\s*20"
               ],
               [
                 "\\b5\\.5\\s*g\\s*\\/\\s*cm3\\b"
@@ -3890,14 +3890,14 @@
             ],
             "methodRules": [
               [
-                "4\\s*(?:×|x|\\*)\\s*4\\s*(?:×|x|\\*)\\s*4",
+                "4\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*4\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*4",
                 "\\b64\\s*cm3\\b"
               ],
               [
-                "density\\s*=\\s*mass\\s*(?:\\/|÷)\\s*volume"
+                "density\\s*=\\s*mass\\s*(?:\\/|÷|divided\\s+by)\\s*volume"
               ],
               [
-                "256\\s*(?:\\/|÷)\\s*64"
+                "256\\s*(?:\\/|÷|divided\\s+by)\\s*64"
               ],
               [
                 "\\b4\\s*g\\s*\\/\\s*cm3\\b"
@@ -3970,14 +3970,14 @@
             ],
             "methodRules": [
               [
-                "3\\s*(?:×|x|\\*)\\s*4\\s*(?:×|x|\\*)\\s*6",
+                "3\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*4\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*6",
                 "\\b72\\s*cm3\\b"
               ],
               [
-                "mass\\s*=\\s*density\\s*(?:×|x|\\*|multiplied\\s+by)\\s*volume"
+                "mass\\s*=\\s*density\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*volume"
               ],
               [
-                "2\\.5\\s*(?:×|x|\\*)\\s*72"
+                "2\\.5\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*72"
               ],
               [
                 "\\b180\\s*g\\b"
@@ -6285,7 +6285,7 @@
               [
                 "\\b11\\.6\\s*(?:°\\s*C|degrees?\\s*C(?:elsius)?|C)\\b",
                 "80\\s*(?:-|minus)\\s*68\\.4",
-                "\\b11\\.6\\s*(?:\\/|÷)\\s*10\\b"
+                "\\b11\\.6\\s*(?:\\/|÷|divided\\s+by)\\s*10\\b"
               ],
               [
                 "\\b1\\.16\\s*(?:°\\s*C\\s*\\/\\s*(?:min|minute)|degrees?\\s*(?:Celsius)?\\s*(?:per|\\/)\\s*min(?:ute)?s?)\\b"
