@@ -91,7 +91,7 @@ function paperCard(p){
  const hasDraft=state.drafts[p.id]?.version===2;
  return `<article class="card assessment-paper-row" data-paper-row="${esc(p.id)}">
    <div class="assessment-paper-info">
-     <h3>${esc(p.name.replace(/^[^·]+·\s*/,''))}</h3>
+     <h3>${esc(p.id==='chemistry'?'October 5 · Past Chemistry assessment':p.name.replace(/^[^·]+·\s*/,''))}</h3>
      <p>${p.minutes} min · ${p.count} questions · ${p.id==='physics-nov26'?'200 rotating questions in bank · practice target 85% (not a school grade)':(['biology-cell-structure','biology-nov2'].includes(p.id)?'Home practice target 85% (not a school grade)':'Pass 85%')}</p>
    </div>
    <div class="assessment-paper-buttons">
@@ -116,10 +116,10 @@ function cards(){
   const root=$('#paper-list');root.className='subject-list';const today=examToday();
   const dedicatedLinks={
     Latin:'<p class="feedback"><a href="/study/latin/november-2026/"><b>November: 75-mark written Latin mock and five unseen passages →</b></a></p>',
-    Chemistry:'<p class="feedback"><a href="/study/chemistry/exam-revision/mock/"><b>November 16: Chemistry Assessment 2 school mock →</b></a></p>',
+    Chemistry:'<div class="chem-nov16-entry" role="group" aria-label="Upcoming Chemistry Assessment 2"><div class="chem-nov16-info"><strong>ASSESSMENT 2 · WEEK OF 16 NOVEMBER</strong><span>Formulae · Equations · C1.5 History · C1.6 Atomic Structure</span><small>20-minute school-style practice · 3 different mock papers</small></div><div class="chem-nov16-actions"><a class="chem-nov16-start" href="/study/chemistry/exam-revision/mock/">Start 20-minute Mock →</a><a class="chem-nov16-revise" href="/study/chemistry/exam-revision/">Revise 134 questions →</a></div></div>',
     French:'<p class="feedback"><a href="/assessment/french-nov26/"><b>November 26: French Higher-style writing mock →</b></a></p>'
   };
-  root.innerHTML=`<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="muted">Year 9 · ${papers.length} of ${allPapers.length} papers · <a href="/study/${group.subject.toLowerCase()}/">Browse notes and topic practice →</a></p><p class="when">${esc(groupBlurb(group,today))}</p>${dedicatedLinks[group.subject]||''}<div class="cards">${papers.length?papers.map(paperCard).join(''):'<p class="muted" role="status">No matching papers. Try another keyword or paper type.</p>'}</div>${group.subject==='Biology'?'<details class="assessment-resources"><summary>Revision resources</summary><div><a href="/assessment/biology-cell-structure/">16 November: full Cell Structure revision guide + extended questions</a><a href="/assessment/biology-nov2/practice/">Extra specialised-cell and microscopy practice</a><a href="/assessment/biology-nov2/notes.pdf">Illustrated topic notes</a></div></details>':''}</section>`;
+  root.innerHTML=`<section class="subject-block"><h2>${esc(group.subject)}</h2><p class="muted">Year 9 · ${group.subject==='Chemistry'?'Current November mock + October past paper':papers.length+' of '+allPapers.length+' papers'} · <a href="/study/${group.subject.toLowerCase()}/">Browse notes and topic practice →</a></p><p class="when">${esc(groupBlurb(group,today))}</p>${dedicatedLinks[group.subject]||''}<div class="cards">${papers.length?papers.map(paperCard).join(''):'<p class="muted" role="status">No matching papers. Try another keyword or paper type.</p>'}</div>${group.subject==='Biology'?'<details class="assessment-resources"><summary>Revision resources</summary><div><a href="/assessment/biology-cell-structure/">16 November: full Cell Structure revision guide + extended questions</a><a href="/assessment/biology-nov2/practice/">Extra specialised-cell and microscopy practice</a><a href="/assessment/biology-nov2/notes.pdf">Illustrated topic notes</a></div></details>':''}</section>`;
 }
 cards();
 $('#paper-list').addEventListener('click',e=>{
