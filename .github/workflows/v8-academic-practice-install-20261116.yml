@@ -1,0 +1,81 @@
+name: V8 Academic Practice Topic Integration
+on:
+  push:
+    branches:
+      - academic-v8-20261116
+    paths:
+      - "v8-source/**"
+      - ".github/workflows/v8-academic-practice-install-20261116.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: academic-v8-install-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout live app repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install constrained source decoder
+        run: python -m pip install "brotli>=1.1,<2"
+      - name: Extract versioned installer source and study UI
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .v8-integration
+          base64 --decode v8-source/v8-installer.tar.gz.b64.txt | tar -xz -C .v8-integration
+          python - <<'PY'
+          import base64,brotli,pathlib,json
+          txt=pathlib.Path('v8-source/v8-rules-738.br.b64.txt').read_text()
+          obj=json.loads(brotli.decompress(base64.b64decode(txt)))
+          assert obj['schema']=='lux.marking.practice.v8' and len(obj['rules'])==738
+          target=pathlib.Path('.v8-integration/scholar-marking-v8/bank.json')
+          target.write_text(json.dumps(obj,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
+          print('V8 source safely decoded:',len(obj['rules']))
+          PY
+      - name: Apply V8 to original topic files without replacing progress
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-reports
+          python .v8-integration/install_v8_into_site.py . --apply --report qa-reports/v8-topic-integration-20261116.json
+      - name: Run independent post-install acceptance checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          python .v8-integration/tests/v8_production_acceptance.py .
+          node --check scholar-marking-v8/engine.mjs
+          node --check scholar-marking-v8/app.mjs
+          node --check assets/v8-focused-entry-20261116.js
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path('qa-reports/v8-topic-integration-20261116.json')
+          r=json.loads(p.read_text())
+          assert r['source_rules']==738 and r['v8_topic_rules']==738
+          assert r['destination_topics']==82 and r['moved_questions']==32
+          assert r['review_only_excluded']==22
+          assert r['new_native_questions'] in (0,10)
+          print('Integration audit:',r['source_rules'],'rules,',r['destination_topics'],'topics,',r['new_native_questions'],'native new.')
+          PY
+      - name: Commit tested installed topic data to integration branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/topics content/catalog.json scholar-marking-v8 assets/v8-focused-entry-20261116.js study/index.html index.html qa-reports/v8-topic-integration-20261116.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Install 738 V8 practice rules into 82 topics and 10 safe Daily candidates"
+            git push origin HEAD:${{ github.ref_name }}
+          else
+            echo "Already installed, no content changes"
+          fi
