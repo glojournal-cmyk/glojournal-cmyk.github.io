@@ -24,7 +24,7 @@ function forbid(source,label,token){if(source.includes(token)) failures.push({ty
 const rootSource=fs.readFileSync("index.html","utf8");
 const runtimeVersion=rootSource.match(/\/assets\/index-BLVOhKhN\.js\?v=([^"'<> ]+)/)?.[1];
 if(!runtimeVersion)failures.push({type:"root-runtime-unversioned"});
-const standaloneShells=new Set(["study/maths/index.html","study/maths/learn/index.html","study/maths/practise/index.html","study/maths/progress/index.html","assessment/latin-oct17/practice/index.html","progress/weekly/index.html","pet/index.html","assessment/index.html","assessment/biology-cell-structure/index.html","assessment/biology-nov2/practice/index.html","preview/index.html","study/biology/school-notes/index.html","study/physics/mastery/index.html","notes/index.html","study/exam-practice/index.html","study/chemistry/exam-revision/index.html","study/chemistry/exam-revision/mock/index.html","assessment/french-nov26/index.html","study/latin/november-2026/index.html","rescue.html","emergency-backup.html","cloud-backup.html","encrypted-backup-restore.html","import-progress.html","restore-snow-owl.html","restore-snow-owl-level.html","mp-reallocation.html","saving-audit.html","content/practice-guides/french-future-tense.html"]);
+const standaloneShells=new Set(["study/maths/index.html","study/maths/learn/index.html","study/maths/practise/index.html","study/maths/progress/index.html","assessment/latin-oct17/practice/index.html","progress/weekly/index.html","pet/index.html","assessment/index.html","assessment/biology-cell-structure/index.html","assessment/biology-nov2/practice/index.html","preview/index.html","study/biology/school-notes/index.html","study/physics/mastery/index.html","notes/index.html","study/exam-practice/index.html","study/chemistry/exam-revision/index.html","study/chemistry/exam-revision/mock/index.html","assessment/french-nov26/index.html","study/latin/november-2026/index.html","rescue.html","scholar-marking-v8/index.html","emergency-backup.html","cloud-backup.html","encrypted-backup-restore.html","import-progress.html","restore-snow-owl.html","restore-snow-owl-level.html","mp-reallocation.html","saving-audit.html","content/practice-guides/french-future-tense.html"]);
 const files=walk(root);
 const fileSet=new Set(files.map(rel));
 const html=files.filter(p=>p.endsWith(".html"));
@@ -37,6 +37,7 @@ for(const file of html){
   const missing=[...new Set(refs)].filter(x=>!fileSet.has(x.slice(1))&&!fileSet.has(x.slice(1).replace(/\/?$/,"/index.html")));
   if(missing.length) failures.push({type:"missing-local-ref",file:r,missing});
   if(r!=="emergency-backup.html"&&r!=="content/practice-guides/french-future-tense.html"&&(!src.includes('name="viewport"')||!src.includes("viewport-fit=cover"))) failures.push({type:"mobile-viewport",file:r});
+  if(r==="scholar-marking-v8/index.html" && !src.includes('type="module" src="app.mjs"')) failures.push({type:"standalone-v8-app-entry",file:r});
   if(!standaloneShells.has(r)){
     if(!src.includes(`/assets/index-BLVOhKhN.js?v=${runtimeVersion}`)) failures.push({type:"main-runtime-version",file:r});
   }
