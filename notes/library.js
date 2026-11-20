@@ -15,8 +15,10 @@
    return el;
  };
  const mb=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB';
- const isSiteNote=n=>n.delivery==='site'&&typeof n.url==='string'&&
-   /^\/notes\/pdf\/year9\/latin\/Year9_Latin_Vocabulary_Chapter_[1-6]\.pdf$/.test(n.url);
+ const isSiteNote=n=>n.delivery==='site'&&typeof n.url==='string'&&(
+   /^\/notes\/pdf\/year9\/latin\/Year9_Latin_Vocabulary_Chapter_[1-6]\.pdf$/.test(n.url) ||
+   n.url==='/notes/year9-latin-key-revision-20261120/'
+ );
  const isAvailable=n=>isSiteNote(n)||(workerReady&&available.has(n.key));
  // Confirmed uploaded by the parent's R2 screenshot, but the reader has not
  // confirmed the PDF response. Keep these accessible without labelling them ready.
@@ -43,9 +45,9 @@
    const n=notes.filter(isAvailable).length;
    const siteCount=notes.filter(isSiteNote).length;
    $('status').textContent=workerReady
-     ? n+' / '+notes.length+' Notes available · Cloudflare + site PDFs'
+     ? n+' / '+notes.length+' Notes available · Cloudflare + site resources'
      : siteCount
-       ? siteCount+' chapter PDFs available · Checking other cloud notes'
+       ? siteCount+' on-site notes available · Checking other cloud notes'
        : 'Notes catalog loaded · Checking Cloudflare availability';
    $('status').classList.toggle('offline',!workerReady&&!siteCount);
  }
@@ -89,17 +91,18 @@
  function noteRow(note){
    const ready=isAvailable(note);
    const uploaded=isUploadedNote(note);
+   const format=note.format==='HTML'?'HTML':'PDF';
    const btn=node('button','note-row'+(ready?' ready':uploaded?' uploaded':' unavailable'));
    btn.type='button';btn.disabled=!isOpenable(note);
    const label=(note.topicLabel?note.topicLabel+' — ':'')+(note.displayTitle||note.title);
-   btn.setAttribute('aria-label',label+' — '+(ready?'Read PDF':uploaded?'Open uploaded PDF; reader not yet verified':'Awaiting upload'));
+   btn.setAttribute('aria-label',label+' — '+(ready?'Read '+format:uploaded?'Open uploaded PDF; reader not yet verified':'Awaiting upload'));
    btn.append(node('span','row-icon','▤'));
    const main=node('span','row-main');
    if(note.topicLabel)main.append(node('span','row-topic',note.topicLabel));
    main.append(node('span','row-name',note.displayTitle||note.title));
    const sizeLabel=(note.approximateSize?'about ':'')+mb(note.sizeBytes);
-   main.append(node('span','row-meta','PDF · '+sizeLabel+(uploaded&&!ready?' · R2 upload shown, reader not verified':'')));
-   btn.append(main,node('span','row-action',ready?'Read PDF →':uploaded?'Open PDF →':workerReady?'Awaiting upload':'Unavailable'));
+   main.append(node('span','row-meta',format+' · '+sizeLabel+(uploaded&&!ready?' · R2 upload shown, reader not verified':'')));
+   btn.append(main,node('span','row-action',ready?'Read '+format+' →':uploaded?'Open PDF →':workerReady?'Awaiting upload':'Unavailable'));
    if(isOpenable(note))btn.addEventListener('click',()=>openDoc(note));
    return btn;
  }
@@ -193,7 +196,7 @@
  cleanRoute();
  (async()=>{
    try{
-     const response=await fetch('/notes/catalog.json?v=20261023-topicnames1',{cache:'no-cache'});
+     const response=await fetch('/notes/catalog.json?v=20261120-latin10notes1',{cache:'no-cache'});
      if(!response.ok)throw Error('Notes index HTTP '+response.status);
      const manifest=await response.json();
      notes=Array.isArray(manifest.notes)?manifest.notes.filter(n=>n&&n.id&&n.key&&n.title&&n.subject&&n.period):[];
