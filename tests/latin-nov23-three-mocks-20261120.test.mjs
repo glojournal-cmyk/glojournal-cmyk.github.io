@@ -36,7 +36,7 @@ test("Student interface delays answer keys and does not touch Daily, MP, or stor
  const app=read("study/latin/november-2026/nov23/app.js");
  assert.match(page,/Three Mock Papers/);
  assert.match(page,/Week commencing 23 November 2026/);
- assert.match(page,/answers and mark scheme stay hidden until submission/i);
+ assert.match(page,/Model answers appear/i);
  assert.match(app,/submitted\?'<div class="model">/);
  assert.match(app,/data-action="submit"/);
  assert.match(app,/s\.status="submitted"/);
