@@ -6,6 +6,7 @@ on:
       - 'study/latin/november-2026/**'
       - 'assets/latin-vocabulary-booklet-20261023.js'
       - 'tests/latin-november-2026-exam.test.mjs'
+      - 'tests/latin-nov23-three-mocks-20261120.test.mjs'
       - 'tests/latin-november-2026-mock-interaction.test.mjs'
       - 'tests/latin-november-2026-unseen-academic-qa.test.mjs'
       - '.github/workflows/latin-november-2026-exam-qa.yml'
@@ -25,6 +26,9 @@ jobs:
           node --check study/latin/november-2026/exam.js
           node --check study/latin/november-2026/exam-data.js
           node --check study/latin/november-2026/unseen-passages.js
+          node --check study/latin/november-2026/nov23-papers.js
+          node --check study/latin/november-2026/nov23/app.js
           node --test tests/latin-november-2026-exam.test.mjs
           node --test tests/latin-november-2026-mock-interaction.test.mjs
           node --test tests/latin-november-2026-unseen-academic-qa.test.mjs
+          node --test tests/latin-nov23-three-mocks-20261120.test.mjs
