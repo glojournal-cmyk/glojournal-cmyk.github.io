@@ -1,3 +1,4 @@
+import {isFoodTestsQaHeld,FOOD_TESTS_QA_TOPIC} from './food-tests-qa-credit-gate-20261122.js';
 // Reconcile a completed, *marked* Daily quiz with its exact assigned task.
 // A perfect quiz score / XP toast alone is not evidence of a Daily completion.
 // This is a fallback for Safari/store write ordering; the normal formal journal
@@ -12,7 +13,7 @@ const supported = new Set([
 export function verifiedQuizSlots(questions,answers){
  const buckets=new Map(),ordered=[];
  for(const q of questions||[]){
-  if(!q?.id||q.formal===false||q._repair)continue;
+  if(!q?.id||q.formal===false||q._repair||isFoodTestsQaHeld(q))continue;
   const id=String(q.id),slot={id,question:q,correct:null},group=buckets.get(id)||[];
   group.push(slot);buckets.set(id,group);ordered.push(slot);
  }
@@ -36,6 +37,8 @@ export function reconcileDailySession(state,receipt={}) {
   const task=state.daily.find(t=>t.id===taskId&&t.planDate===day);
   if(!task||!task.assignedTopic||task.assignedSubject!==subject||Number(task.assignedYear)!==Number(year))
     return unchanged('wrong-assignment');
+  // Preserve historical records; hold new Food Tests credit until independent QA.
+  if(task.assignedTopic===FOOD_TESTS_QA_TOPIC)return {...unchanged('academic-qa-hold'),progress:progressOf(task),target:Number(task.target)||0};
   // A retry may carry an older Safari receipt. Never award a "missing tenth"
   // when that receipt explicitly belongs to a different day, assignment,
   // subject or scoring mode. Missing optional legacy fields are tolerated.
@@ -63,7 +66,7 @@ export function reconcileDailySession(state,receipt={}) {
   // question has a stale/missing topicId. Free practice cannot reach here.
   const scienceTask=['biology','chemistry','physics'].includes(subject);
   const eligible=new Set(questions.filter(q=>q?.id&&q.formal!==false&&
-    !q._repair&&(q.topicId===task.assignedTopic||scienceTask)).map(q=>String(q.id)));
+    !q._repair&&!isFoodTestsQaHeld(q)&&(q.topicId===task.assignedTopic||scienceTask)).map(q=>String(q.id)));
   // Count a marked answer per visible quiz slot; repeated question IDs can
   // legitimately occupy separate slots, but duplicate receipts cannot.
   const remaining=new Map();
@@ -120,7 +123,7 @@ export function reconcileDailySession(state,receipt={}) {
     if(event?.day!==day||event?.dailyTaskId!==taskId||
        event?.subject!==subject||Number(event?.year)!==Number(year)||
        event?.correct!==true||event?.repair||event?.formal===false||
-       event?.recoveryFor||!event.questionId)continue;
+       event?.recoveryFor||!event.questionId||isFoodTestsQaHeld(event.questionId))continue;
     if(event.topicId!==task.assignedTopic&&
        !(scienceTask&&event.topicId))continue;
     creditedIds.add(String(event.questionId));
@@ -136,7 +139,7 @@ export function reconcileDailySession(state,receipt={}) {
     Number(task.assignedYear)===Number(year)&&
     task.assignedTopic===expected.searchParams.get('topic')&&
     expected.searchParams.get('mode')===mode?task.verifiedCorrectIds:[];
-  for(const id of trustedOldIds)if(id)creditedIds.add(String(id));
+  for(const id of trustedOldIds)if(id&&!isFoodTestsQaHeld(id))creditedIds.add(String(id));
   const trustedOldSlots=task.verifiedCorrectAssignment===verifiedKey?
     Math.max(0,Number(task.verifiedCorrectSlots)||0):0;
   verifiedSlotCount=Math.max(verifiedSlotCount,trustedOldSlots);
@@ -158,10 +161,10 @@ export function reconcileDailySession(state,receipt={}) {
   }
   const sessionCorrect=new Set();
   for(const answer of answers||[]){
-    if(answer?.correct===true&&answer.questionId&&!answer.repair&&answer.formal!==false)
+    if(answer?.correct===true&&answer.questionId&&!answer.repair&&answer.formal!==false&&!isFoodTestsQaHeld(answer.questionId))
       sessionCorrect.add(String(answer.questionId));
   }
-  const oldIds=trustedOldIds.map(String).filter(Boolean);
+  const oldIds=trustedOldIds.map(String).filter(id=>id&&!isFoodTestsQaHeld(id));
   const journalIds=[...creditedIds].map(String);
   const absorbed=task.verifiedCorrectIdsAbsorbed===true&&task.verifiedCorrectAssignment===verifiedKey;
   let creditIds,progress,nextAbsorbed=absorbed;

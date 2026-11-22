@@ -6208,5 +6208,26 @@
       "nodeExecuted": false,
       "academicApproved": 0
     }
+  },
+  "formalCreditSafeguard": {
+    "baseCommit": "0ff43c211118ac6870b3c57b0b2efbb87103b2ef",
+    "date": "2026-11-22",
+    "questionCount": 143,
+    "approved": 0,
+    "scope": "All Bio Year 8 Food Tests topic questions, including MC, typed, matching and mark_points",
+    "mode": "QA branch fail-closed: student may practise but no new Daily, XP/MP or Mastery formal credit",
+    "gate": "assets/food-tests-qa-credit-gate-20261122.js",
+    "draft": "qa/food-tests-structured-mark-points-draft-20261122.json",
+    "draftMarkPoints": 52,
+    "runner": "tests/food-tests-qa-credit-hold-20261122.test.mjs",
+    "workflow": ".github/workflows/food-tests-qa-automatic-20261122.yml",
+    "nodeExecuted": false,
+    "workflowVerified": false,
+    "limitations": [
+      "QA branch is not deployed; live main still has its original scoring behavior.",
+      "Existing saved progress is preserved and not rewritten.",
+      "52 draft structured items have no reviewed concept options and cannot earn credit.",
+      "No 143/143 Academic QA completion; all independent reviewers pending."
+    ]
   }
 }

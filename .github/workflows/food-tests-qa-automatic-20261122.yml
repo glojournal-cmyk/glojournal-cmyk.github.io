@@ -1,0 +1,64 @@
+name: Food Tests QA - automatic Node checks (no deploy)
+on:
+  push:
+    branches:
+      - qa/p0-eligibility-2e556ff
+    paths:
+      - 'assets/food-tests-*'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'assets/daily-session-credit-20261021.js'
+      - 'assets/daily-completed-session-receipts-20261024.js'
+      - 'assets/mastery-v2-20261018.js'
+      - 'tests/food-tests-*'
+      - 'qa/food-tests-*'
+      - 'qa/academic-qa-bio-y8-food-tests-items.json'
+      - 'content/topics/bio-y8-food-tests.json'
+      - '.github/workflows/food-tests-qa-automatic-20261122.yml'
+  pull_request:
+    paths:
+      - 'assets/food-tests-*'
+      - 'tests/food-tests-*'
+      - 'content/topics/bio-y8-food-tests.json'
+      - '.github/workflows/food-tests-qa-automatic-20261122.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: food-tests-qa-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  no-credit-and-regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax checks
+        run: |
+          node --check assets/food-tests-qa-credit-gate-20261122.js
+          node --check assets/food-tests-structured-concept-checks-20261122.js
+          node --check assets/quiz-session-y8fix-20260920.js
+          node --check assets/quiz-session-rWAnuDVj.js
+          node --check assets/daily-session-credit-20261021.js
+          node --check assets/daily-completed-session-receipts-20261024.js
+          node --check assets/mastery-v2-20261018.js
+      - name: No unapproved Food Tests Daily, MP or Mastery credit
+        run: node --test tests/food-tests-qa-credit-hold-20261122.test.mjs
+      - name: Existing practice scoring regression
+        run: |
+          node tests/food-tests-round1-batch-acceptance.mjs
+          node tests/food-tests-six-guarded-acceptance.mjs
+          node tests/food-tests-remaining-37-acceptance.mjs
+          node tests/food-tests-four-confirmed-overcredit-acceptance.mjs
+      - name: Unseen wording diagnostic - never automatically approved
+        run: node tests/food-tests-37-unseen-diagnostic.mjs --write
+      - name: Upload QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: food-tests-qa-heldout-evidence
+          path: qa/food-tests-37-unseen-node-result.json
+          if-no-files-found: ignore

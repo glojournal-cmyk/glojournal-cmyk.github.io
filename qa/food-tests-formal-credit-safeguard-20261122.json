@@ -1,0 +1,34 @@
+{
+  "kind": "Food Tests formal credit safety implementation on QA branch",
+  "base": "0ff43c211118ac6870b3c57b0b2efbb87103b2ef",
+  "counts": {
+    "questions": 143,
+    "approved": 0,
+    "existingFormats": {
+      "mc_single": 73,
+      "typed_exact": 9,
+      "mark_points": 52,
+      "matching": 3,
+      "typed_short": 6
+    },
+    "structuredMarkPointsDrafts": 52
+  },
+  "gate": "assets/food-tests-qa-credit-gate-20261122.js",
+  "protectedPaths": [
+    "assets/quiz-session-y8fix-20260920.js",
+    "assets/quiz-session-rWAnuDVj.js",
+    "assets/daily-session-credit-20261021.js",
+    "assets/daily-completed-session-receipts-20261024.js",
+    "assets/mastery-v2-20261018.js"
+  ],
+  "workflow": ".github/workflows/food-tests-qa-automatic-20261122.yml",
+  "status": "pending automated Node and independent academic QA",
+  "decisions": [
+    "Prose grading remains for practice feedback only for Food Tests, explicitly marked provisional.",
+    "No new Food Tests formal Daily, XP/MP, or Mastery credit, even if a stored answer says correct.",
+    "Daily locked-topic receipts and Safari immediate receipts must refuse unapproved proofs.",
+    "Historical progress is left untouched.",
+    "52 mark-point items have a non-credit-bearing deterministic concept-choice draft; options still need independent authoring and QA.",
+    "No merges, approvals or deploys."
+  ]
+}
