@@ -1,0 +1,21 @@
+{
+  "kind": "food-tests-four-confirmed-overcredit-node-result",
+  "qaCommit": "c7cb6ca57a345efdb4cc21d67bbec1d605b57f7d",
+  "main": "2e556ffcb48f6c7346b3b663f8058f57271b643d",
+  "command": "node tests/food-tests-four-confirmed-overcredit-acceptance.mjs",
+  "exitCode": 0,
+  "bundles": [
+    "assets/quiz-session-y8fix-20260920.js",
+    "assets/quiz-session-rWAnuDVj.js"
+  ],
+  "historical455": "455/455 each, imported before the new checks",
+  "newWrongVariants": "8/8",
+  "heldOutOriginalExpected": "44/74, because the fixture still expects 0 for the four-negative false conclusion and the scorer still gives 1/2",
+  "heldOutWithAllNegativeExpected1": "45/74",
+  "remainingUnseenCorrectUndermarks": 29,
+  "falseConclusionUnseenAfterFourFixes": "37/37 once the all-negative expectation is 1",
+  "allNegative": "1/2 unchanged",
+  "questionBankEdited": false,
+  "paraphraseWhitelistAdded": false,
+  "approved": 0
+}
