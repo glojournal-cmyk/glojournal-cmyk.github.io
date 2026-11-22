@@ -33,7 +33,7 @@ for(const token of [
 for(const token of [
   'excludeGeneralDaily:!!Y._dailyYear8',
   'yearOverride:sessionYear',
-  'c&&!Y._repair&&c!==`study-session`&&c!==`languages-standard`&&!(sessionYear===9&&[`y8-standard-b`,`due-review`].includes(c))&&![`y8-practise`,`y8-mastery`].includes(c)&&E(c,1)'
+  'c&&!Y._repair&&c!==`study-session`&&c!==`languages-standard`&&c!==`maths-daily`&&!(sessionYear===9&&[`y8-standard-b`,`due-review`].includes(c))&&![`y8-practise`,`y8-mastery`].includes(c)&&E(c,1)'
 ]) requireToken(quiz,"quiz",token);
 
 for(const token of [
