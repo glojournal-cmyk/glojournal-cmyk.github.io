@@ -1,0 +1,22 @@
+{
+  "kind": "food-tests-six-guarded-node-result",
+  "qaCommit": "f805e39961b1a5f2b701cef7de382888fbe6c4fd",
+  "main": "2e556ffcb48f6c7346b3b663f8058f57271b643d",
+  "command": "node tests/food-tests-six-guarded-acceptance.mjs",
+  "exitCode": 0,
+  "bundles": [
+    "assets/quiz-session-y8fix-20260920.js",
+    "assets/quiz-session-rWAnuDVj.js"
+  ],
+  "dispatch": "function B calls scoreFoodTestsGuarded for biology mark_points ids in the six-item list",
+  "curated": "49/49",
+  "suite51": {
+    "before": "148/196",
+    "after": "159/196"
+  },
+  "overCreditOnPreviousContradictions": 0,
+  "remainingParaphraseMismatches": 37,
+  "unaffectedQuestionScoreChanges": 0,
+  "questionBankEdited": false,
+  "approved": 0
+}
