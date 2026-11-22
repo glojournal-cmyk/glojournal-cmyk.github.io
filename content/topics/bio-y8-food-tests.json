@@ -959,14 +959,14 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mc_single",
-      "prompt": "Which scientific term matches this description: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol?",
+      "prompt": "Which scientific term matches this description: a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating?",
       "difficulty": 1,
       "status": "enabled",
       "options": [
-        "lipid",
-        "biotic factor",
+        "Bunsen burner",
         "water bath",
-        "validity"
+        "test-tube rack",
+        "heatproof mat"
       ],
       "answer": {
         "mode": "choice",
@@ -975,18 +975,18 @@
         ]
       },
       "stimulus": {
-        "text": "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "text": "a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating"
       },
       "feedback": {
-        "short": "water bath: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+        "short": "water bath: a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating.",
         "steps": [
           "Read the command word.",
           "Retrieve the scientific term and its defining feature.",
-          "Check the precise source statement: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+          "Check the precise source statement: a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating.",
           "Identify the defining feature before comparing the options. Select the one option that satisfies every part of the prompt."
         ],
         "commonError": "Using an everyday description without the defining scientific feature.",
-        "remember": "water bath = a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "remember": "water bath = a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating"
       },
       "task": {
         "label": "CHOOSE THE ANSWER",
@@ -1001,7 +1001,7 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "typed_exact",
-      "prompt": "Name the scientific term: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+      "prompt": "Name the scientific term: a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating.",
       "difficulty": 1,
       "status": "enabled",
       "options": null,
@@ -1012,18 +1012,18 @@
         ]
       },
       "stimulus": {
-        "text": "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "text": "a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating"
       },
       "feedback": {
-        "short": "water bath: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+        "short": "water bath: a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating.",
         "steps": [
           "Read the command word.",
           "Retrieve the scientific term and its defining feature.",
-          "Check the precise source statement: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+          "Check the precise source statement: a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating.",
           "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail."
         ],
         "commonError": "Using an everyday description without the defining scientific feature.",
-        "remember": "water bath = a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "remember": "water bath = a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating"
       },
       "task": {
         "label": "TYPE THE ANSWER",
@@ -1045,23 +1045,23 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+          "a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating"
         ],
-        "modelAnswer": "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "modelAnswer": "a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating"
       },
       "stimulus": {
         "text": "water bath"
       },
       "feedback": {
-        "short": "water bath: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+        "short": "water bath: a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating.",
         "steps": [
           "Read the command word.",
           "Retrieve the scientific term and its defining feature.",
-          "Check the precise source statement: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+          "Check the precise source statement: a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "Using an everyday description without the defining scientific feature.",
-        "remember": "water bath = a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "remember": "water bath = a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating"
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -1306,29 +1306,28 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mark_points",
-      "prompt": "Explain why ethanol must be heated in a water bath rather than over a naked flame.",
+      "prompt": "Explain why the ethanol emulsion test must be carried out away from naked flames, and why heating is unnecessary.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "ethanol is highly flammable",
-          "a water bath avoids direct ignition / is safer"
+          "ethanol is highly flammable, so it must be kept away from naked flames",
+          "the sample is shaken with ethanol and then water is added; heating is not needed"
         ],
         "totalMarks": 2
       },
       "stimulus": {},
       "feedback": {
-        "short": "ethanol is highly flammable; a water bath avoids direct ignition / is safer",
+        "short": "Ethanol is highly flammable and must be kept away from naked flames. The emulsion test uses ethanol followed by water; no heating is needed.",
         "steps": [
-          "ethanol is highly flammable",
-          "a water bath avoids direct ignition / is safer",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: ethanol is highly flammable; a water bath avoids direct ignition / is safer"
+          "Ethanol is highly flammable: avoid naked flames and other ignition sources.",
+          "Shake the food sample with ethanol, then add water; a cloudy white emulsion indicates lipid. Heating is not required.",
+          "Award each separate scientific mark point once."
         ],
-        "commonError": "Answering generally without covering every requested part or mark point.",
-        "remember": "ethanol is highly flammable; a water bath avoids direct ignition / is safer"
+        "commonError": "Confusing heating the Benedict's reducing-sugar test with the unheated ethanol emulsion test.",
+        "remember": "Ethanol emulsion test: shake with ethanol, then add water; look for a cloudy white emulsion. Keep ethanol away from naked flames; do not heat."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
