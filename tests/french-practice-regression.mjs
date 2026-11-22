@@ -139,6 +139,8 @@ test('a Food Tests answer stays unmarked while iPad draft save is pending, then 
  button(tree,q.answer.accepted[0]).props.onClick();
  tree=runner.render(()=>ctx.H(props));
  assert.ok(textOf(tree).includes('Practice saved. Not a formal mark.'));
+ assert.equal(textOf(tree).includes(q.feedback.short),false,'held pupil must not see the model explanation');
+ assert.equal(textOf(tree).includes(q.feedback.remember),false,'held pupil must not see the memorisation answer');
  assert.equal(/Correct answer|Not quite\.|\bCorrect!\b|\bWrong\b/.test(textOf(tree)),false);
  assert.equal(flatten(tree).some(n=>n?.type==='details'&&textOf(n).includes('Answer & explanation')),false);
  assert.equal(calls.some(x=>x[0]==='award'||x[0]==='daily'),false,
@@ -173,7 +175,9 @@ test('a failed Food Tests iPad save leaves answers visible and never shows a suc
  vm.runInContext(quiz.slice(quiz.indexOf('function re('),quiz.indexOf('function ie(')),ctx);
  const props={title:'Food Tests',subject:'biology',items:[q],size:1,backHref:'/study/biology',resumeMode:'standard'};
  let tree=runner.render(()=>ctx.H(props));
- button(tree,q.answer.accepted[0]).props.onClick();
+ const incorrect=q.options.find(option=>!q.answer.accepted.includes(option));
+ assert.ok(incorrect);
+ button(tree,incorrect).props.onClick();
  tree=runner.render(()=>ctx.H(props));
  button(tree,'Finish').props.onClick();
  await new Promise(resolve=>setImmediate(resolve));
