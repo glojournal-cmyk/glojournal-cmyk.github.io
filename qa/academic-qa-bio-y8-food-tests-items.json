@@ -6000,7 +6000,7 @@
       "contradictionOvercredit": 6,
       "affectedQuestions": 43
     },
-    "nodeExecuted": false,
+    "nodeExecuted": true,
     "approved": 0,
     "sixItemGuarded": {
       "module": "assets/food-tests-six-guarded-rubric-20261122.js",
@@ -6010,8 +6010,10 @@
       "full196PostFix": 159,
       "full196Failures": 37,
       "other45Changed": 0,
-      "nodeExecuted": false,
-      "approved": 0
+      "nodeExecuted": true,
+      "approved": 0,
+      "nodeEvidence": "qa/food-tests-six-guarded-node-result.json",
+      "nodeExitCode": 0
     },
     "remaining37": {
       "baseCommit": "aafdea300dc8026f64020675af4670439720d9e7",
@@ -6026,8 +6028,10 @@
         "adversarial": "148/148",
         "total": "455/455"
       },
-      "nodeExecuted": false,
-      "academicApproved": 0
+      "nodeExecuted": true,
+      "academicApproved": 0,
+      "nodeEvidence": "qa/food-tests-remaining-37-node-result.json",
+      "nodeExitCode": 0
     },
     "heldOut37": {
       "fixture": "qa/food-tests-37-unseen-probes.json",
@@ -6117,6 +6121,7 @@
       "nodeExecuted": false,
       "approval": 0,
       "independentAcademicReview": "pending"
-    }
+    },
+    "nodeEvidence": "qa/food-tests-51-markpoints-node-result.json"
   }
 }
