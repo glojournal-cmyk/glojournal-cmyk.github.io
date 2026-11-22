@@ -7,7 +7,7 @@
     "permission-to-deploy-a-credit-gate"
   ],
   "approvalEvidenceMeaning": "none means no per-question academic approval record is stored here. It does not mean the question was judged wrong, and it must not be used to disable the existing bank.",
-  "fingerprint": "sha256 of JSON {format,prompt,stimulus,options,answer}. feedbackSha256 is separate.",
+  "fingerprint": "sha256 of JSON {format,prompt,stimulus,options,answer,taskLabel,taskInstruction}. Status, preview and formalField are stored separately and are not part of this hash. feedbackSha256 is also separate.",
   "questions": 16361,
   "distinctQuestionIds": 16361,
   "approvalEvidence": {
@@ -18,13 +18,16 @@
     "regression-covered": 68
   },
   "liveDaily": {
-    "default-year8-pool": 9419,
-    "outside-default-pool": 6942
+    "default-year8-enabled-candidate": 8583,
+    "outside-default-pool": 6942,
+    "default-year8-disabled": 836
   },
   "formalField": {
     "absent": 16225,
     "present": 136
   },
   "defaultYear8PoolQuestions": 9419,
+  "defaultYear8EnabledCandidates": 8583,
+  "defaultYear8Disabled": 836,
   "defaultYear8PoolTopics": 111
 }

@@ -12,19 +12,42 @@
     "assets/daily-curriculum-20261004.js curriculumTopics(subject, 8, getTopicCatalog, learning)",
     "getTopicCatalog is core function EC: content/catalog.json topics for that subject and year",
     "A Year 8 topic enters the default pool only when status is enabled, enabled questions are at least 15, and formats contain an independent recall format.",
-    "Opening the locked route loads the topic with core function TC: fetch /content/topics/${topicId}.json, then merge content/school-update-20260926/delta.json when that topic id is present.",
+    "Opening the locked route loads the topic with core function TC, then filters with AC (exported as lt, imported as h) using includePreview true. AC removes status disabled. It does not remove preview when includePreview is true.",
+    "selectProgressionQuestions does not itself test status disabled. The disabled exclusion happens in AC, before that call, on both practise bundles.",
+    "default-year8-enabled-candidate means the topic is in the default pool and the question status is enabled. It is not the set a single Daily session will serve: freshness, reservations and mode still apply.",
     "Year 9 curriculumTopics requires learning[topicId] === true. With an empty learning map, no Year 9 topic is in the default Daily pool."
   ],
   "defaultYear8": {
     "topics": 111,
-    "questions": 9419,
-    "bySubject": {
+    "fileQuestions": 9419,
+    "enabledCandidates": 8583,
+    "disabled": 836,
+    "enabledBySubject": {
       "biology": 1063,
       "chemistry": 298,
-      "french": 5437,
+      "french": 4601,
       "latin": 2156,
       "physics": 465
-    }
+    },
+    "disabledBySubject": {
+      "french": 836
+    },
+    "catalogQuestions": 9309,
+    "catalogEnabled": 8473,
+    "catalogDisabled": 836,
+    "catalogDrift": [
+      {
+        "topicId": "bio-y8-food-tests",
+        "subject": "biology",
+        "catalogQuestions": 33,
+        "fileQuestions": 143,
+        "catalogEnabled": 33,
+        "fileEnabled": 143,
+        "catalogDisabled": 0,
+        "fileDisabled": 0
+      }
+    ],
+    "meaning": "fileQuestions is every question inside a default-pool topic file. enabledCandidates are those with status enabled. AC drops status disabled before selectProgressionQuestions. enabledCandidates is still not a simulated Daily sitting."
   },
   "excludedYear8": {
     "topics": 46,
