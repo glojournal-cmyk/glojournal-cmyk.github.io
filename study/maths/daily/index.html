@@ -18,7 +18,7 @@ button:disabled{opacity:.55;cursor:not-allowed}.choices{display:grid;gap:10px;ma
 #qa-question[hidden],#qa-worked[hidden],#qa-preview[hidden],#qa-next[hidden]{display:none}
 #qa-worked{padding:14px 20px;border-radius:10px;background:#f5f3e9}
 #qa-next{margin-top:18px;background:#193b49;color:white;border-color:#193b49}
-#qa-formula,#qa-choices{visibility:hidden}
+#qa-formula,#qa-choices{visibility:hidden}math{font-size:1.13em;max-width:100%;vertical-align:middle}#qa-choices math{white-space:normal}
 #qa-formula.ready,#qa-choices.ready{visibility:visible}
 #qa-message{min-height:2em}
 small{color:#5a6268}.progress{font-size:14px;font-weight:700;color:#514b6f;margin-bottom:10px}
@@ -32,7 +32,7 @@ small{color:#5a6268}.progress{font-size:14px;font-weight:700;color:#514b6f;margi
 <section id="qa-preview" hidden aria-label="Isolated reviewer preview">
 <hr>
 <h2>Reviewer-only sample · 10 original question IDs</h2>
-<p><strong>QA preview only.</strong> This page never connects to the Scholar store and never writes learner progress, XP or MP. MathJax is loaded online; loss of the formula renderer blocks the preview rather than displaying raw LaTeX.</p>
+<p><strong>QA preview only.</strong> This page never connects to the Scholar store and never writes learner progress, XP or MP. Formulas use native MathML, with no CDN or online dependency. An unsupported formula blocks the preview instead of showing raw TeX.</p>
 <p id="qa-message" role="status">Checking formula renderer…</p>
 <div id="qa-question" hidden>
 <div class="progress" id="qa-position"></div>
@@ -46,6 +46,5 @@ small{color:#5a6268}.progress{font-size:14px;font-weight:700;color:#514b6f;margi
 <button id="qa-next" type="button" hidden>Next QA question</button>
 </div>
 </section></main>
-<script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},startup:{typeset:false}};</script>
 <script type="module" src="/assets/math-study/daily-v31-qa-preview.js"></script>
 </body></html>
