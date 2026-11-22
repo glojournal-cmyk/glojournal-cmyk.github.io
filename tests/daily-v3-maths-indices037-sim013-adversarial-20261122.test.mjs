@@ -25,6 +25,12 @@ test('source is pinned; all three candidate records are quarantined and full Aâ€
   assert.equal(pack[gate],false,gate);
  }
  assert.equal(pack.entries.length,3);
+ assert.equal(new Set(pack.entries.map(e=>e.candidateVersionId)).size,3);
+ assert.equal(pack.entries.filter(e=>e.questionId==='LUX-MATH-Y9-SIMULTANEOUS-013').length,2);
+ assert.match(pack.prohibition,/NEVER import/);
+ assert.equal(pack.entries.filter(e=>e.scope==='PROPOSED_REPLACEMENT_FOR_GRADE_UPLIFT'&&
+    e.importInstruction==='MUST_ASSIGN_NEW_CANONICAL_ID_AND_INDEPENDENT_SOURCE_SHA_BEFORE_IMPORT').length,1);
+ assert.ok(pack.entries.every(e=>e.independentApproval==='NOT_GRANTED'));
  assert.deepEqual(pack.entries.map(e=>e.scope),
  ['ORIGINAL_STEM_OPTION_REPAIR','ORIGINAL_STEM_OPTION_REPAIR','PROPOSED_REPLACEMENT_FOR_GRADE_UPLIFT']);
  for(const entry of pack.entries){
