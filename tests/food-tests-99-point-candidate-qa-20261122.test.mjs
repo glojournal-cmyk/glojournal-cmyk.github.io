@@ -37,14 +37,15 @@ test('The 52 candidates retain all 99 source mark points and exact source concep
    assert.equal(part.approved,false);
    assert.equal(part.academicReview,'pending');
    assert.equal(part.distractorReview,'pending');
-   assert.ok(part.stem.startsWith(item.sourcePrompt),'No source question in stem');
-   assert.ok(part.stem.includes('independent mark point'));
+   assert.ok(part.stem.includes('?'), part.pointId);
+   assert.ok(!part.stem.includes('independent mark point'));
+   assert.equal(new Set(item.parts.map(p=>p.stem)).size,item.parts.length);
    assert.equal(part.options.length,4);
    assert.equal(new Set(part.options.map(o=>o.id)).size,4);
    assert.equal(new Set(part.options.map(o=>o.text.toLowerCase().trim())).size,4);
-   assert.equal(part.options.filter(o=>o.text===part.concept).length,1);
-   assert.equal(part.options.find(o=>o.id===part.correctOptionId)?.text,part.concept);
-   assert.ok(part.options.every(o=>typeof o.text==='string'&&o.text.length>=15));
+   assert.equal(part.options.filter(o=>o.text===part.keyedAnswer).length,1);
+   assert.equal(part.options.find(o=>o.id===part.correctOptionId)?.text,part.keyedAnswer);
+   assert.ok(part.options.every(o=>typeof o.text==='string'&&o.text.trim().length>0));
   }
  }
 });
@@ -70,5 +71,37 @@ test('Structural validation never grants formal bank credit even when local appr
   const result=scoreConceptChoices(forged,answers);
   assert.equal(result.score,forged.totalMarks);
   assert.equal(result.formalCreditEligible,false);
+ }
+});
+
+test('Each option affects only its own point in the isolated scorer',()=>{
+ for(const item of candidate.items){
+  const fixture={...item,academicReview:'approved',parts:item.parts.map(p=>({...p,approved:true}))};
+  for(const part of fixture.parts){
+   for(const option of part.options){
+    const result=scoreConceptChoices(fixture,{[part.pointId]:option.id});
+    assert.equal(result.score,Number(option.id===part.correctOptionId),option.id);
+    assert.equal(result.formalCreditEligible,false);
+   }
+  }
+ }
+});
+
+test('The review register accounts for all remaining bank IDs and the 16 outcome patterns',()=>{
+ const register=read('qa/food-tests-other-91-review-20261122.json');
+ const sources=[...candidate.items.map(i=>i.sourceId),...register.items.map(i=>i.id)];
+ assert.equal(register.items.length,91);
+ assert.equal(sources.length,143);
+ assert.deepEqual(new Set(sources),new Set(bankById.keys()));
+ const exemplars=register.items.filter(i=>i.disposition==='review-one-exemplar');
+ assert.equal(new Set(exemplars.map(i=>i.scienceKey)).size,16);
+ const repeats=register.items.filter(i=>i.equivalentTo);
+ assert.equal(repeats.length,48);
+ for(const row of register.items){
+  assert.equal(row.formalCreditEligible,false);
+  if(row.proposedPrompt){
+   assert.deepEqual(bankById.get(row.id).answer.accepted,[row.scienceKey]);
+   if(row.equivalentTo) assert.ok(exemplars.some(e=>e.id===row.equivalentTo && e.scienceKey===row.scienceKey));
+  }
  }
 });
