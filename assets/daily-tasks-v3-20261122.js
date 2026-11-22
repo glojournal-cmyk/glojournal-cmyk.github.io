@@ -53,9 +53,14 @@ export function languageEvidence(state,day,taskId='languages-standard'){
       e?.day===day&&e.dailyTaskId===taskId&&e.subject===subject&&
       e.formal!==false&&e.repair!==true&&e.recoveryFor==null&&e.questionId&&typeof e.correct==='boolean');
     const unique=new Map();
+    const split=(state.daily||[]).find(t=>t.id===taskId&&t.planDate===day)?.languageSplit?.[subject];
+    const concepts=split?.approvedConceptByQuestion||{};
     for(const e of journal){
       const id=String(e.questionId).split('@')[0];
-      unique.set(id,Boolean(e.correct)||unique.get(id)===true);
+      // An opposite translation or alternate form is the SAME concept.
+      const concept=concepts[id]||id;
+      if(split&&!Object.hasOwn(concepts,id))continue; // not assigned/approved
+      unique.set(concept,Boolean(e.correct)||unique.get(concept)===true);
     }
     result[subject]={attempts:unique.size,correct:Math.min(5,[...unique.values()].filter(Boolean).length)};
   }
@@ -132,7 +137,8 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
     target:10,progress:0,done:false,xp:15,
     languageSplit:Object.fromEntries(['latin','french'].map(s=>[s,{
       subject:s,topicId:languagePicks[s].topicId,year:8,target:5,
-      approvedQuestionIds:languagePicks[s].concepts.flatMap(g=>g.ids)
+      approvedQuestionIds:distinctApprovedConcepts(languagePicks[s],state).slice(0,5).map(g=>g.ids[0]),
+      approvedConceptByQuestion:Object.fromEntries(distinctApprovedConcepts(languagePicks[s],state).slice(0,5).map(g=>[g.ids[0],g.conceptId]))
     }])),
     href:'/study/languages/standard/?latin='+encodeURIComponent(languagePicks.latin.topicId)+
       '&french='+encodeURIComponent(languagePicks.french.topicId)
@@ -144,7 +150,8 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
     href:'/study/'+stdB.subject+'/practise?daily=1&locked=1&year=9&mode=standard&task=y8-standard-b&topic='+encodeURIComponent(stdB.topicId),
     target:10,progress:0,xp:15,assignedSubject:stdB.subject,
     assignedTopic:stdB.topicId,assignedLabel:stdB.title||stdB.topicId,assignedYear:9,
-    approvedQuestionIds:stdB.concepts.flatMap(g=>g.ids)
+    approvedQuestionIds:distinctApprovedConcepts(stdB,state).slice(0,10).map(g=>g.ids[0]),
+    approvedConceptByQuestion:Object.fromEntries(distinctApprovedConcepts(stdB,state).slice(0,10).map(g=>[g.ids[0],g.conceptId]))
   },day):blocked('y8-standard-b','Standard B · Year 9',10,9,
     'Year 9 question supply: fewer than ten independently approved taught concepts. No Year 8 substitution.',day);
   const maths=mathsEvidence(mathAttempts,day);
