@@ -1,0 +1,162 @@
+{
+  "kind": "food-tests-ethanol-marking-acceptance-result",
+  "ran": "node tests/food-tests-ethanol-marking-acceptance.mjs",
+  "qaCommit": "e25caeccb03572e088e908506dd2a7ae6dbc223e",
+  "scorer": "assets/quiz-session-y8fix-20260920.js unchanged from 2e556ff",
+  "topic": "QA-branch revised bio-y8-app-ethanol-safety, no markPointAlternatives",
+  "passed": 6,
+  "total": 12,
+  "exitCode": 1,
+  "approval": "none",
+  "not": [
+    "markPointAlternatives experiment",
+    "permission to edit the question",
+    "academic approval"
+  ],
+  "results": [
+    {
+      "name": "correct: plain-language fire risk + procedure",
+      "expected": 2,
+      "actual": 0,
+      "total": 2,
+      "ok": false,
+      "pointResults": [
+        false,
+        false
+      ],
+      "pass": false
+    },
+    {
+      "name": "correct: scientific risk + procedure",
+      "expected": 2,
+      "actual": 1,
+      "total": 2,
+      "ok": false,
+      "pointResults": [
+        true,
+        false
+      ],
+      "pass": false
+    },
+    {
+      "name": "correct: equivalent mixing instruction",
+      "expected": 2,
+      "actual": 1,
+      "total": 2,
+      "ok": false,
+      "pointResults": [
+        true,
+        false
+      ],
+      "pass": false
+    },
+    {
+      "name": "correct: ignition paraphrase",
+      "expected": 2,
+      "actual": 0,
+      "total": 2,
+      "ok": false,
+      "pointResults": [
+        false,
+        false
+      ],
+      "pass": false
+    },
+    {
+      "name": "partial: safety alone",
+      "expected": 1,
+      "actual": 1,
+      "total": 2,
+      "ok": false,
+      "pointResults": [
+        true,
+        false
+      ],
+      "pass": true
+    },
+    {
+      "name": "partial: procedure alone",
+      "expected": 1,
+      "actual": 0,
+      "total": 2,
+      "ok": false,
+      "pointResults": [
+        false,
+        false
+      ],
+      "pass": false
+    },
+    {
+      "name": "wrong: heat ethanol over flame",
+      "expected": 0,
+      "actual": 0,
+      "total": 2,
+      "ok": false,
+      "pointResults": [
+        false,
+        false
+      ],
+      "pass": true
+    },
+    {
+      "name": "partial: correctly states danger but proposes flame",
+      "expected": 1,
+      "actual": 1,
+      "total": 2,
+      "ok": false,
+      "pointResults": [
+        true,
+        false
+      ],
+      "pass": true
+    },
+    {
+      "name": "partial: correctly states danger but reverses procedure",
+      "expected": 1,
+      "actual": 1,
+      "total": 2,
+      "ok": false,
+      "pointResults": [
+        true,
+        false
+      ],
+      "pass": true
+    },
+    {
+      "name": "partial: says ethanol flammable but only adds water",
+      "expected": 1,
+      "actual": 1,
+      "total": 2,
+      "ok": false,
+      "pointResults": [
+        true,
+        false
+      ],
+      "pass": true
+    },
+    {
+      "name": "partial: safety correct but says without shaking",
+      "expected": 1,
+      "actual": 2,
+      "total": 2,
+      "ok": true,
+      "pointResults": [
+        true,
+        true
+      ],
+      "pass": false
+    },
+    {
+      "name": "wrong: reversed order without safety explanation",
+      "expected": 0,
+      "actual": 0,
+      "total": 2,
+      "ok": false,
+      "pointResults": [
+        false,
+        false
+      ],
+      "pass": true
+    }
+  ]
+}
