@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {auditMathsV31Pack,stageMathsV31Question,V31_SOURCE_SHA256} from '../assets/daily-maths-v31-intake-gate-20261122.js';
+import {auditMathsV31Pack,stageMathsV31Question,V31_SOURCE_SHA256,V31_EDITORIAL_CANDIDATE_SHA256} from '../assets/daily-maths-v31-intake-gate-20261122.js';
 import {validateMathQuestion} from '../assets/daily-tasks-v3-20261122.js';
 const sample=()=>({
   id:'LUX-MATH-Y9-INDICES-001',subject:'maths',year:9,
@@ -67,4 +67,18 @@ test('A signed-looking record cannot bypass the independent raw-bank digest or s
  const fake={version:'3.1-independent-maths-second-pass',questionCount:200,
    questions:Array.from({length:200},(_,i)=>({...q,id:'sample-'+i}))};
  assert.ok(auditMathsV31Pack(fake).issues.includes('independently-verified-raw-bank-sha-required'));
+});
+
+test('V3.1.1 two-edit candidate uses its own independently checked raw SHA and is still blocked without teaching/grade signoff',()=>{
+ const q=sample();
+ const pack={version:'3.1.1-editorial-candidate-not-approved',questionCount:200,
+   questions:Array.from({length:200},(_,i)=>({...q,id:'review-only-'+i}))};
+ const correctlyHashed=auditMathsV31Pack(pack,{},{
+   verifiedSourceSha256:V31_EDITORIAL_CANDIDATE_SHA256});
+ assert.equal(correctlyHashed.sourceSHA256Expected,V31_EDITORIAL_CANDIDATE_SHA256);
+ assert.ok(!correctlyHashed.issues.includes('independently-verified-raw-bank-sha-required'));
+ assert.equal(correctlyHashed.eligible,0);
+ const badHash=auditMathsV31Pack(pack,{},{
+   verifiedSourceSha256:V31_SOURCE_SHA256});
+ assert.ok(badHash.issues.includes('independently-verified-raw-bank-sha-required'));
 });
