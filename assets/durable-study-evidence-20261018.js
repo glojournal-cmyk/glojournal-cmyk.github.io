@@ -11,7 +11,10 @@ const key=e=>String(e.attemptId||[e.at,e.subject,e.questionId,e.dailyTaskId||"",
 const FALLBACK="lux-marked-answer-fallback-v1";
 const FIELD_NAMES=["at","day","attemptId","questionId","correct","subject","year",
  "topicId","formal","repair","format","mode","dailyTaskId","dailyVocab",
- "vocabConcept","recoveryFor"];
+ "vocabConcept","recoveryFor",
+ // Preserve Maths first-A-F-attempt and assistance flags even when IndexedDB
+ // is unavailable and Safari falls back to its compact local answer journal.
+ "selectedOptionId","assisted","hintUsed","scaffolded"];
 function fallbackRead(){
  try{
   const rows=JSON.parse(localStorage.getItem(FALLBACK)||"[]");
