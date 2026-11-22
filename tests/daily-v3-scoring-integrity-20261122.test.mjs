@@ -72,6 +72,53 @@ test('Languages only counts five approved original-question concepts in EACH cor
  assert.equal(languageEvidence(s,day).completed,true);
  assert.equal(buildDailyV3(s,legacy()).find(x=>x.id==='languages-standard').progress,10);
 });
+test('BLOCKED Languages Standard cannot be turned into 10/10 by tagged but unapproved formal answers',()=>{
+ const initial=buildDailyV3(base(),legacy(),{
+   ...V3_APPROVED,languageGrammar:{latin:[],french:[]}
+ });
+ const denied=initial.find(t=>t.id==='languages-standard');
+ assert.equal(denied.supplyBlocked,true);
+ const forged=['latin','french'].flatMap(subject=>Array.from({length:5},(_,i)=>({
+   day,year:8,subject,topicId:'fictional-topic',
+   dailyTaskId:'languages-standard',questionId:'unapproved-'+subject+'-'+i,
+   correct:true,formal:true,repair:false
+ })));
+ const state={...base(),daily:initial,formalAttemptLog:forged};
+ const result=languageEvidence(state,day);
+ assert.deepEqual(result,{latin:{attempts:0,correct:0},
+   french:{attempts:0,correct:0},progress:0,completed:false});
+ const rebuilt=buildDailyV3(state,legacy(),{
+   ...V3_APPROVED,languageGrammar:{latin:[],french:[]}
+ }).find(t=>t.id==='languages-standard');
+ assert.equal(rebuilt.supplyBlocked,true);
+ assert.equal(rebuilt.progress,0);
+ assert.equal(rebuilt.done,false);
+});
+test('missing or incomplete saved Language 5+5 concept assignments cannot count unassigned replay events',()=>{
+ const plan=buildDailyV3(base(),legacy()),task=plan.find(t=>t.id==='languages-standard');
+ assert.equal(task.supplyBlocked,undefined);
+ const events=['latin','french'].flatMap(subject=>
+   task.languageSplit[subject].approvedQuestionIds.map(id=>({
+     day,year:8,subject,topicId:task.languageSplit[subject].topicId,
+     dailyTaskId:'languages-standard',questionId:id,correct:true,formal:true
+   })));
+ assert.equal(languageEvidence({...base(),daily:plan,formalAttemptLog:events},day).completed,true);
+ for(const corrupted of [
+   {...task,supplyBlocked:true},
+   {...task,languageSplit:null},
+   {...task,languageSplit:{...task.languageSplit,latin:{...task.languageSplit.latin,
+       approvedConceptByQuestion:{}}}},
+   {...task,languageSplit:{...task.languageSplit,french:{...task.languageSplit.french,
+       approvedQuestionIds:task.languageSplit.french.approvedQuestionIds.slice(0,4)}}},
+   {...task,dailyV3:false},
+   {...task,planDate:'2026-11-22'}
+ ]){
+   const changed=plan.map(t=>t.id===task.id?corrupted:t);
+   const e=languageEvidence({...base(),daily:changed,formalAttemptLog:events},day);
+   assert.equal(e.progress,0,JSON.stringify(corrupted?.languageSplit?.latin?.approvedQuestionIds));
+   assert.equal(e.completed,false);
+ }
+});
 test('V3 planner never changes original XP, MP, streak, Mastery, Recovery, seenCorrect or completed historic Daily receipt',()=>{
  const seed=base(),copy=JSON.stringify(seed);
  const first=buildDailyV3(seed,legacy());
