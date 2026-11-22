@@ -46,6 +46,19 @@ The error models use source coefficients, not arbitrary labels. The wrong result
 
 **Across all 40 questions: 107 numeric error-path matches; 85 numeric wrong choices without a modeled operation; eight visually unresolved source values. Thirty-seven of forty originals have at least one reproducible wrong-operation candidate. Independent wrong-answer pedagogy signoff = ZERO.**
 
+## Required action for every original Standard Form question — entire 40/40 topic
+
+The separate [40-original-question Academic QA disposition register](../qa-staging/math-v311-standard-form40-academic-disposition-all-originals-20261122.json) now records **every original Q41–80** with source ID, old grade label, original A–F key, independent numeric answer, which letters have reproducible erroneous-operation calculations, which are numerically wrong but unmodelled, and which original options remain unverified from PDF layout. Every row explicitly remains **ineligible for Daily credit and unapproved for GCSE Grade 7+ / exact TGS Autumn taught scope**.
+
+| Formal correction queue | Original question ranges | Source question count |
+|---|---|---:|
+| Upgrade routine computation to distinct, independently benchmarked Grade 7+ demands | Q45–56, Q65–72 | **20** |
+| Rewrite implausible density context or repetitive/identical answer families | Q41–44, Q57–60, Q73–76 | **12** |
+| Quarantine exact school Spring percentage timing and visual fraction integrity | Q61–64, Q77–80 | **8** |
+| **Original 40 Academic QA approved** | None | **0** |
+
+The already staged density/source repair versions and four transfer-loss replacement versions are not approvals; their original correct values **must not** be silently overwritten. Year 9 Autumn Standard Form **cannot** be stocked with all five topic counts until each published candidate has a separate independent exam-grade proof, exact class taught evidence and reliable source ID/version.
+
 ## Student-learning quality and concrete source repairs
 
 1. **Q41–44 original densities:** independently computed at 300, 400, 500, 600 g/cm³. These can be arithmetically valid but are not scientifically plausible ordinary bulk densities. The four [source-specific staged repairs](../qa-staging/math-v311-standard-form-density-7-repairs-20261122.json) include much more plausible ranges, but still need all teaching/Grade7+ and exam calibration gates; never overwrite source records in place.
