@@ -26,8 +26,11 @@ export function verifyMathDailyAssignment(task,questions,day){
    issues.push('inactive-or-unapproved-dated-assignment');
  const allowed=Array.isArray(task?.approvedQuestionIds)?task.approvedQuestionIds:[];
  const answers=task?.approvedCorrectOptionByQuestion||{};
+ const pinnedFamilies=task?.approvedConceptByQuestion||{};
  if(!Array.isArray(allowed)||allowed.length!==10||new Set(allowed).size!==10||
-    Object.keys(answers).length!==10||!allowed.every(id=>CHOICES.includes(answers[id])))
+    Object.keys(answers).length!==10||!allowed.every(id=>CHOICES.includes(answers[id]))||
+    Object.keys(pinnedFamilies).length!==10||
+    !allowed.every(id=>text(pinnedFamilies[id])))
    issues.push('missing-pinned-ten-ID-key-map');
  const bank=new Map();
  for(const q of Array.isArray(questions)?questions:[]){
@@ -36,7 +39,7 @@ export function verifyMathDailyAssignment(task,questions,day){
  }
  const selected=allowed.map(id=>bank.get(id));
  if(selected.some(q=>!q))issues.push('pinned-question-missing-from-approved-bank');
- const topics={},bands={},concepts=new Set();
+ const topics={},bands={},concepts=new Set(),families=new Set();
  for(const q of selected){
   if(!q)continue;
   topics[q.topicId]=(topics[q.topicId]||0)+1;
@@ -48,12 +51,17 @@ export function verifyMathDailyAssignment(task,questions,day){
   if(!text(q.templateId)||concepts.has(q.templateId))
     issues.push('duplicate-template-concept:'+q.id);
   concepts.add(q.templateId);
+  if(!text(q.conceptFamilyId)||families.has(q.conceptFamilyId)||
+     pinnedFamilies[q.id]!==q.conceptFamilyId)
+    issues.push('missing-or-duplicate-reviewed-semantic-concept:'+q.id);
+  families.add(q.conceptFamilyId);
   if(!Array.isArray(q.options)||q.options.length!==6||
      !CHOICES.every(c=>q.options.filter(o=>o?.id===c&&text(o?.latex||o?.text)).length===1))
     issues.push('unrenderable-or-incomplete-six-options:'+q.id);
   if(answers[q.id]!==q.correctOptionId)
     issues.push('pinned-marking-key-mismatch:'+q.id);
   if(!text(q.sourceRef)||!text(q.qaReviewer)||!text(q.mathsChecker)||
+     !text(q.conceptFamilyEvidence)||!text(q.conceptFamilyReviewer)||
      !q.options?.filter(o=>o.id!==q.correctOptionId).every(o=>text(o.misconception)))
     issues.push('pedagogical-signoff-or-distractor-rationale-missing:'+q.id);
  }
@@ -86,6 +94,6 @@ export function makeVerifiedMathsSubmission({day,task,approvedQuestions,question
    selectedOptionId,correct:selectedOptionId===question.correctOptionId,
    formal:true,repair:false,assisted:false,hintUsed:false,
    scaffolded:false,recoveryFor:null,
-   templateId:question.templateId
+   templateId:question.templateId,conceptFamilyId:question.conceptFamilyId
  }};
 }
