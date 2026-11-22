@@ -116,6 +116,7 @@ export function validateMathQuestion(q){
   if(new Set(options.map(x=>canonical(x?.text))).size!==6||options.some(x=>!canonical(x?.text)))issues.push('duplicate-or-empty-options');
   if(!options.some(x=>x?.id===q?.correctOptionId)||options.filter(x=>x?.id===q?.correctOptionId).length!==1)issues.push('unique-correct-id-required');
   if(new Set(options.map(x=>x?.id)).size!==6)issues.push('duplicate-option-ids');
+  if(!['A','B','C','D','E','F'].every(id=>options.some(x=>x?.id===id)))issues.push('option-IDs-must-be-A-F');
   if(options.some(x=>!String(x?.misconception||'').trim()&&x?.id!==q?.correctOptionId))issues.push('distractor-rationale-required');
   if(!Array.isArray(q?.workedSolution)||q.workedSolution.length<2||q.workedSolution.some(x=>!String(x).trim()))issues.push('worked-solution-required');
   if(!String(q?.sourceRef||'').trim()||!String(q?.qaReviewer||'').trim())issues.push('qa-provenance-required');
@@ -125,15 +126,20 @@ export function mathsEvidence(attempts=[],day,task=null){
   // Production V3 always supplies the immutable 10-question assignment.
   // Two-argument mode is retained only for legacy isolated validator tests.
   const accepted=task?new Set(task.approvedQuestionIds||[]):null;
+  const correctIds=task?.approvedCorrectOptionByQuestion||{};
   if(task&&(!validDate(day)||task.supplyBlocked===true||task.planDate!==day||
-     accepted.size!==10||Number(task.assignedYear)!==9))
-    return {submitted:0,correct:0,completed:false,targetMet:false};
+     accepted.size!==10||Object.keys(correctIds).length!==10||
+     Number(task.assignedYear)!==9))
+    return {submitted:0,correct:0,attemptFinished:false,completed:false,targetMet:false};
   const seen=new Map();
   for(const a of attempts){
     if(a?.day!==day||!a.questionId||!validDate(day)||typeof a.correct!=='boolean'||
        !(a.submittedAt||a.at))continue;
     const id=String(a.questionId).split('@')[0];
-    if(task&&(!accepted.has(id)||a.dailyTaskId!=='maths-daily'||a.subject!=='maths'||
+    if(task&&(!accepted.has(id)||!Object.hasOwn(correctIds,id)||
+       !['A','B','C','D','E','F'].includes(a.selectedOptionId)||
+       a.correct!==(a.selectedOptionId===correctIds[id])||
+       a.dailyTaskId!=='maths-daily'||a.subject!=='maths'||
        Number(a.year)!==9||a.formal!==true||a.repair===true||a.hintUsed===true||
        a.scaffolded===true||a.assisted===true||a.recoveryFor))continue;
     // First formally submitted unassisted answer wins. Repeats cannot rewrite
@@ -243,6 +249,7 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
     href:'/study/maths/daily/',xp:15,assignedSubject:'maths',assignedYear:9,
     approvedQuestionIds:selectedMath.map(q=>q.id),
     approvedConceptByQuestion:Object.fromEntries(selectedMath.map(q=>[q.id,q.templateId||q.conceptId])),
+    approvedCorrectOptionByQuestion:Object.fromEntries(selectedMath.map(q=>[q.id,q.correctOptionId])),
   },day):null;
   const maths=mathsEvidence(mathAttempts,day,mathsAssignment||{supplyBlocked:true});
   const mathsTask=mathsAssignment?
