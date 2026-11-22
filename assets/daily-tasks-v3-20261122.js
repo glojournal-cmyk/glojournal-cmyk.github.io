@@ -80,6 +80,32 @@ export function v3ScopedQuestionEvidence(state,task,day){
 
 export function languageEvidence(state,day,taskId='languages-standard'){
   const result={latin:{attempts:0,correct:0},french:{attempts:0,correct:0}};
+  // Never infer language assignment from a question's self-reported
+  // dailyTaskId. Blocked or missing 5+5 Academic QA supply MUST stay 0/10
+  // even if a restored/browser replay journal contains matching labels.
+  const assigned=(Array.isArray(state?.daily)?state.daily:[]).find(t=>
+    t?.id===taskId&&t?.planDate===day);
+  const parts=assigned?.languageSplit;
+  const pinnedIds=new Set(),pinnedConcepts=new Set();
+  const approved=taskId==='languages-standard'&&assigned?.dailyV3===true&&
+    assigned?.supplyBlocked!==true&&Number(assigned?.target)===10&&
+    ['latin','french'].every(subject=>{
+      const part=parts?.[subject],ids=part?.approvedQuestionIds,
+        concepts=part?.approvedConceptByQuestion;
+      if(part?.subject!==subject||Number(part?.year)!==8||
+         !part?.topicId||Number(part?.target)!==5||
+         !Array.isArray(ids)||ids.length!==5||new Set(ids).size!==5||
+         !concepts||Object.keys(concepts).length!==5)return false;
+      for(const id of ids){
+        const concept=concepts[id];
+        if(typeof id!=='string'||!id||
+           typeof concept!=='string'||!concept||
+           pinnedIds.has(id)||pinnedConcepts.has(concept))return false;
+        pinnedIds.add(id);pinnedConcepts.add(concept);
+      }
+      return true;
+    });
+  if(!approved)return {...result,progress:0,completed:false};
   const elsewhere=new Set((state.formalAttemptLog||[]).filter(e=>
     e?.day===day&&e?.dailyTaskId&&e.dailyTaskId!==taskId&&
     e.formal!==false&&e.repair!==true&&!e.recoveryFor&&e.questionId)
@@ -91,13 +117,14 @@ export function languageEvidence(state,day,taskId='languages-standard'){
       e.assisted!==true&&e.hintUsed!==true&&e.scaffolded!==true&&
       e.questionId&&typeof e.correct==='boolean');
     const unique=new Map();
-    const split=(state.daily||[]).find(t=>t.id===taskId&&t.planDate===day)?.languageSplit?.[subject];
-    const concepts=split?.approvedConceptByQuestion||{};
+    const split=parts[subject],concepts=split.approvedConceptByQuestion;
     for(const e of journal){
       const id=String(e.questionId).split('@')[0];
-      // An opposite translation or alternate form is the SAME concept.
-      const concept=concepts[id]||id;
-      if(elsewhere.has(id)||split&&(!Object.hasOwn(concepts,id)||e.topicId!==split.topicId))continue; // no cross-task or unapproved credit
+      // No unsigned, unassigned or wrong-topic answer can mint a Daily
+      // concept; reverse translation is still reserved under ONE concept.
+      if(elsewhere.has(id)||!Object.hasOwn(concepts,id)||
+         e.topicId!==split.topicId)continue;
+      const concept=concepts[id];
       unique.set(concept,Boolean(e.correct)||unique.get(concept)===true);
     }
     result[subject]={attempts:unique.size,correct:Math.min(5,[...unique.values()].filter(Boolean).length)};
