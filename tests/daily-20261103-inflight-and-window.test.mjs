@@ -311,7 +311,7 @@ test('unopened impossible Science Standard is safely reassigned; started one sta
  assert.equal(matched.target,10,'never reduce threshold to saved answers');
 });
 
-test('all 115 eligible Year 8 topic packs have accurate Standard concept-capacity routing',()=>{
+test('current Year 8 topic packs have accurate Standard concept-capacity routing',()=>{
  const subjects=['latin','french','biology','chemistry','physics'];
  const qualified=catalog.filter(t=>t.year===8&&subjects.includes(t.subject)&&
   t.status==='enabled'&&Number(t.enabled)>=15&&
@@ -319,7 +319,7 @@ test('all 115 eligible Year 8 topic packs have accurate Standard concept-capacit
    'typed_exact','typed_short','typed_equivalent','spelling_restore','controlled_translation',
    'mark_points','extended_response','practical_design','calculation','unordered_set']
    .includes(k)&&Number(v)>0)));
- assert.equal(qualified.length,110,'five non-production-only Latin packs are excluded by the real Daily curriculum filter');
+ assert.equal(qualified.length,111,'22 Nov catalog has 111 eligible Y8 production topic packs; each is source-audited below');
  assert.equal(Object.keys(verifiedYear8OtherShortConcepts).length,9);
  let ineligible=0;
  for(const t of qualified){
