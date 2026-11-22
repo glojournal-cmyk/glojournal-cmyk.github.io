@@ -142,46 +142,73 @@ test('actual legacy recordAttempt must block Maths Daily BEFORE core XP or any p
  assert.deepEqual(normal('free-maths',true,'maths',{}),{passedThrough:true});
 });
 
-test('generic bumpDaily and legacy QuizSession cannot increase evidence-owned Maths progress',()=>{
+test('generic bumpDaily and legacy QuizSession cannot credit V3 evidence-owned tasks',()=>{
  const wrapper=readFileSync('assets/index-BLVOhKhN.js','utf8');
  const quiz=readFileSync('assets/quiz-session-rWAnuDVj.js','utf8');
- const start=wrapper.indexOf('function patchedBumpDaily(taskId, increment=1) {');
- const end=wrapper.indexOf('\nstore.setState({',start);
- assert.ok(start>=0&&end>start,'explicit Maths bumpDaily safeguard installed');
+ const helperStart=wrapper.indexOf('function v3EvidenceOwnedTask(task) {');
+ const helperEnd=wrapper.indexOf('\nfunction patchedAward(',helperStart);
+ const bumpStart=wrapper.indexOf('function patchedBumpDaily(taskId, increment=1) {');
+ const bumpEnd=wrapper.indexOf('\nstore.setState({',bumpStart);
+ assert.ok(helperStart>=0&&helperEnd>helperStart&&bumpStart>helperEnd&&bumpEnd>bumpStart);
  const calls=[];
- const code=wrapper.slice(start,end)+'\nreturn patchedBumpDaily;';
- const bump=new Function('originalBumpDaily',code)((id,n)=>{calls.push([id,n]);return 'legacy';});
- assert.equal(bump('maths-daily',1),null);
- assert.deepEqual(calls,[],'Maths Daily must never enter generic counter');
+ const state={daily:[
+   {id:'maths-daily',assignedYear:9,dailyV3:true},
+   {id:'languages-standard',assignedYear:8,dailyV3:true},
+   {id:'y8-standard-b',assignedYear:9,dailyV3:true},
+   {id:'due-review',assignedYear:9,dailyV3:true},
+   {id:'y8-standard-a',assignedYear:8,dailyV3:true}
+ ]};
+ const store={getState:()=>state};
+ const code=wrapper.slice(helperStart,helperEnd)+'\n'+wrapper.slice(bumpStart,bumpEnd)+
+   '\nreturn patchedBumpDaily;';
+ const bump=new Function('originalBumpDaily','store',code)(
+   (id,n)=>{calls.push([id,n]);return 'legacy';},store);
+ for(const id of ['maths-daily','languages-standard','y8-standard-b','due-review']){
+   assert.equal(bump(id,1),null,'generic Daily bypass must block '+id);
+ }
+ assert.deepEqual(calls,[],'no signed V3 task enters the old generic counter');
  assert.equal(bump('y8-standard-a',1),'legacy');
- assert.deepEqual(calls,[['y8-standard-a',1]],'other genuine Study counters remain active');
- assert.ok(quiz.includes('c!==`maths-daily`'),
-   'legacy QuizSession must not direct-credit Maths');
- assert.ok(wrapper.includes('(task.id!=="maths-daily"||task.done===true)'),
-   'Daily Complete award reconciliation requires explicit Maths 9/10 pass');
+ state.daily.find(t=>t.id==='y8-standard-b').assignedYear=8;
+ state.daily.find(t=>t.id==='due-review').assignedYear=8;
+ assert.equal(bump('y8-standard-b',1),'legacy','Year 8 Standard B remains operational');
+ assert.equal(bump('due-review',1),'legacy','Year 8 Due Review remains operational');
+ assert.deepEqual(calls,[['y8-standard-a',1],['y8-standard-b',1],['due-review',1]]);
+ for(const token of ['c!==`maths-daily`','c!==`languages-standard`',
+   'sessionYear===9&&[`y8-standard-b`,`due-review`]']){
+   assert.ok(quiz.includes(token),'legacy quiz bypass: '+token);
+ }
+ assert.ok(wrapper.includes('(!v3EvidenceOwnedTask(task)||task.done===true)'),
+   'all evidence-owned tasks must actually pass before full-day completion');
 });
 
-test('overall Daily Complete XP cannot be claimed from failed Maths 8/10 or blocked supply',()=>{
+test('overall Daily Complete XP requires a verified pass of every evidence-owned V3 card',()=>{
  const wrapper=readFileSync('assets/index-BLVOhKhN.js','utf8');
- const start=wrapper.indexOf('function patchedAward(kind, options = {}) {');
- const next=wrapper.indexOf('  if (options?.amount != null || !(kind in STUDY_REWARD_XP))',start);
- assert.ok(start>=0&&next>start);
- const prefix=wrapper.slice(start,next);
- let calls=0;
- const state={daily:[{id:'maths-daily',dailyV3:true,
-   progress:10,target:10,done:false}],dailyCompleteAwarded:{[day]:true}};
- const store={getState:()=>state,setState:patch=>Object.assign(state,patch)};
- const code=prefix+'\nreturn {passedThrough:true};\n}\nreturn patchedAward;';
- const award=new Function('store','todayKey',code)(store,()=>day);
- const refused=award('daily_complete',{detail:'All daily tasks'});
- assert.equal(refused.awarded,0);
- assert.equal(state.dailyCompleteAwarded[day],undefined,
-   'incorrectly pre-flagged Daily completion must remain recoverable');
- state.daily[0].done=true;
- assert.deepEqual(award('daily_complete',{detail:'All daily tasks'}),{passedThrough:true},
-   'once Maths 9/10 is actually passed, normal reward route may proceed');
+ const helperStart=wrapper.indexOf('function v3EvidenceOwnedTask(task) {');
+ const helperEnd=wrapper.indexOf('\nfunction patchedAward(',helperStart);
+ const awardStart=wrapper.indexOf('function patchedAward(kind, options = {}) {');
+ const awardEnd=wrapper.indexOf('  if (options?.amount != null || !(kind in STUDY_REWARD_XP))',awardStart);
+ assert.ok(helperStart>=0&&helperEnd>helperStart&&awardStart>=0&&awardEnd>awardStart);
+ const code=wrapper.slice(helperStart,helperEnd)+'\n'+wrapper.slice(awardStart,awardEnd)+
+   '\nreturn {passedThrough:true};\n}\nreturn patchedAward;';
+ const tasks=[
+   {id:'maths-daily',assignedYear:9,dailyV3:true},
+   {id:'languages-standard',assignedYear:8,dailyV3:true},
+   {id:'y8-standard-b',assignedYear:9,dailyV3:true},
+   {id:'due-review',assignedYear:9,dailyV3:true}
+ ];
+ for(const task of tasks){
+   const state={daily:[{...task,progress:10,target:10,done:false}],
+     dailyCompleteAwarded:{[day]:true}};
+   const store={getState:()=>state,setState:patch=>Object.assign(state,patch)};
+   const award=new Function('store','todayKey',code)(store,()=>day);
+   assert.equal(award('daily_complete',{}).awarded,0,'unpassed '+task.id);
+   assert.equal(state.dailyCompleteAwarded[day],undefined,
+     'unearned receipt must not consume the genuine later completion for '+task.id);
+   state.daily[0].done=true;
+   assert.deepEqual(award('daily_complete',{}),{passedThrough:true},
+     'normal reward path remains after actual pass: '+task.id);
+ }
 });
-
 test('actual Scholar recordAttempt wrapper persists the A-F selected answer and assistance/recovery flags',()=>{
  const wrapper=readFileSync('assets/index-BLVOhKhN.js','utf8');
  const idx=wrapper.indexOf('  const evidenceEntry={');
