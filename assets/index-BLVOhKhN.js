@@ -2751,6 +2751,14 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     topicId: resolved.topicId || null, topicTitle: resolved.topicTitle || meta.topicTitle || resolved.topicId || "General practice",
     formal: meta.formal !== false, repair: !!meta.repair,
     format: meta.format || null, mode: meta.progressionMode || null,
+    // Future Maths V3 answer evidence MUST retain the actual selected A-F
+    // choice, rather than accepting a caller's bare correct:true assertion.
+    // Preserve assisted/hint/scaffold flags so neither Daily nor Mastery
+    // can incorrectly award unassisted credit after a save/reload.
+    selectedOptionId: ['A','B','C','D','E','F'].includes(meta.selectedOptionId)
+      ? meta.selectedOptionId : null,
+    assisted: meta.assisted===true, hintUsed: meta.hintUsed===true,
+    scaffolded: meta.scaffolded===true,
     // Give the mastery evidence gate the real assigned set size.
     // Free practice and previously started Daily sets stay on the old 15.
     masteryTarget: ['mastery','year8long'].includes(meta.progressionMode)
