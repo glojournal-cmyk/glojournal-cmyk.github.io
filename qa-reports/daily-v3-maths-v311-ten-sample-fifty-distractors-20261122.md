@@ -68,5 +68,7 @@
 4. **Poor context**: `STANDARD_FORM-017` still requires correction to unrealistic physical density 300 g/cm³, independent of distractor quality.
 5. **Curriculum quarantine**: `GRAPHS-039` is Spring perpendicular bisector and must not qualify for Autumn Daily credit absent proof it was already taught.
 
+**Staged source-specific repair for `REARRANGING-023`:** The original A/C/E/F near-miss rational choices remain unexplained *in the original bank*. A separate **not-approved QA candidate** now replaces all five wrong choices with independently reconstructed algebra errors: omit the outer `+1`, move `6z` with wrong sign, distribute `6(y−1)` as `6y−1`, collect `4x` with a plus sign, or use `z=y+1`. Correct choice **D** remains `x=(11−6y)/(y−5)`, with exclusions `x≠−6`, `y≠5`. Candidate alternatives were independently recomputed at `y=2,7,9`; both source bank and original 50-option screening table remain unchanged until external academic signoff.
+
 ## Release gate
 No sample earns `academicQA=approved`; the original published reviewer sample still has outdated `(1z−4)x` for `REARRANGING-023` while the separate V3.1.1 editorial source repairs it. Complete five **actual, not speculative** misconception rationales for each item, validate target grade against full AQA Higher demand and verify school-taught subskills. Original source and Live bank remain unchanged, and draft PR #306 remains unmerged.
