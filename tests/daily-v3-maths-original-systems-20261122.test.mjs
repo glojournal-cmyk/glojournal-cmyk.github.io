@@ -14,9 +14,9 @@ test('Source-grounded exact equations manifest: original system solutions and un
   const allIDs = [];
   for (const group of groups) {
     assert.ok(group.ids.length >= 2);
-    assert.ok(group.ids.every(x => /^LUX-MATH-Y9-SIMULTANEOUS-\\d{3}$/.test(x)));
+    assert.ok(group.ids.every(x => /^LUX-MATH-Y9-SIMULTANEOUS-\d{3}$/.test(x)));
     allIDs.push(...group.ids);
-    const m = group.sameSystemKey.match(/^(-?\\d+)x([+-]\\d+)y=(-?\\d+)__(-?\\d+)x([+-]\\d+)y=(-?\\d+)$/);
+    const m = group.sameSystemKey.match(/^(-?\d+)x([+-]\d+)y=(-?\d+)__(-?\d+)x([+-]\d+)y=(-?\d+)$/);
     assert.ok(m, 'This exact mathematical source signature is parseable');
     const nums=m.slice(1).map(Number),[x,y]=group.xy;
     assert.equal(nums[0]*x + nums[1]*y,nums[2]);
