@@ -10,6 +10,20 @@
 
 [See full evidence and independent test](daily-v3-maths-1200-option-layout-and-indices40-review-20261122.md).
 
+## Standard Form second-pass completed as a full 40-question batch (Q41–80)
+
+Following the preliminary 200/200 **source answer** audit, Standard Form now has an additional 240-choice **line-preserving scientific-notation numeric review** and a full **200-wrong-option source arithmetic operation comparison**, rather than a four-question sample. Strict parsing reads **216** source scientific-notation snippets and **16** plain one-line numbers, mathematically matches all **40** correct original choices and confirms **192** source wrong choices differ numerically from the correct result. **Eight** original relative-percentage fractions stay formatting-ambiguous: Q61 B/C/D/E, Q63 E/F, Q64 E/F. An initial erroneous newline-stripping parser had misreported only four; this was corrected before CI signoff.
+
+**107/200 wrong options** have at least one **mathematically reproducible source-specific erroneous operation** (NOT independently teacher-endorsed misconception plausibility); **85/200** are numerically wrong but have no demonstrated wrong operation from the reviewed set; **8/200** are visually unresolved. **37/40** source questions have at least one such arithmetic candidate route. Source quality dispositions: **20 need harder/nonroutine stems**, **12 need context or duplicate rewrites**, **8 quarantined for exact taught percentage scope**. **0/40 independent Grade7+ or teacher Academic QA passes**.
+
+- [Full 40-question review and risk report](daily-v3-maths-standard-form40-240-choice-batch-and-repair-audit-20261122.md)
+- [Strict original 240-option numeric QA](../qa-staging/math-v311-standard-form40-source-240-option-numeric-review-20261122.json)
+- [200 distractor wrong-operation arithmetic candidates](../qa-staging/math-v311-standard-form40-original-200-distractor-operation-candidates-20261122.json)
+- [All 40 original source decisions](../qa-staging/math-v311-standard-form40-academic-disposition-all-originals-20261122.json)
+- [Independent executable source regression](../tests/daily-v3-maths-standard-form40-240-options-107-operations-20261122.test.mjs); code CI passed [Run #45068149297](https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/45068149297) **147/147 + 59/59 + 37/37**.
+
+No source items or existing QA-only redrafts were imported; origin key letter and historical progress were not changed. Source maths, source-option interpretation, independent difficulty, curriculum scope, distractor pedagogy and app/device safety remain **separate signoff gates**.
+
 ## 1. Batch processing — all five subjects completed in this pass
 
 The original user-uploaded 74-page **Lux_Maths_Y9_V3_All_200_Student.pdf**, 39-page **Lux_Maths_Y9_V3_All_200_Answers.pdf**, and **Lux_Maths_V3_1_Formal_Academic_QA_Register_20261122.csv** were reopened and all 200 numbered original questions, six original A–F option *labels* per question, and source answer letters rechecked. Reconstructing the actual formatted option expressions requires the separate follow-up visual QA noted above. Five source-preserving packs were created, each including exact PDF-extracted question content, original worked solution, source page, original answer letter, topic, template, preliminary curriculum and grade risk and all release HOLD flags.
