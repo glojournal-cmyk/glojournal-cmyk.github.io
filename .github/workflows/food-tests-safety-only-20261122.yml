@@ -16,6 +16,7 @@ on:
       - 'tests/food-tests-safety-only-20261122.test.mjs'
       - 'tests/daily-mastered-loop-20261023.test.mjs'
       - 'tests/daily-ten-to-six-ipad-regression-20261025.test.mjs'
+      - 'tests/mastery-v2-qa.mjs'
       - '.github/workflows/food-tests-safety-only-20261122.yml'
   pull_request:
     paths:
@@ -31,6 +32,7 @@ on:
       - 'tests/food-tests-safety-only-20261122.test.mjs'
       - 'tests/daily-mastered-loop-20261023.test.mjs'
       - 'tests/daily-ten-to-six-ipad-regression-20261025.test.mjs'
+      - 'tests/mastery-v2-qa.mjs'
       - '.github/workflows/food-tests-safety-only-20261122.yml'
   workflow_dispatch:
 permissions:
@@ -58,9 +60,12 @@ jobs:
           node --check tests/food-tests-safety-only-20261122.test.mjs
           node --check tests/daily-mastered-loop-20261023.test.mjs
           node --check tests/daily-ten-to-six-ipad-regression-20261025.test.mjs
+          node --check tests/mastery-v2-qa.mjs
       - name: Academic hold and unmarked practice-only regression
         run: node --test tests/food-tests-safety-only-20261122.test.mjs
       - name: Mastery two-slot 20-question regression without QA-held banks
         run: node --test tests/daily-mastered-loop-20261023.test.mjs
       - name: Keep historical credit while rejecting new Food Tests receipts
         run: node --test tests/daily-ten-to-six-ipad-regression-20261025.test.mjs
+      - name: Verify independent Mastery supply without any held Food Tests bank
+        run: node --test tests/mastery-v2-qa.mjs
