@@ -32,6 +32,8 @@ export function mathsV31SignoffIssues(question,signoff={}){
    issues.push('teacher-taught-subskill-unverified');
  if(signoff.gradeIndependentlyCalibrated!==true||!filled(signoff.gradeBenchmark))
    issues.push('higher-grade-independently-uncalibrated');
+ if(!filled(signoff.conceptFamilyId)||!filled(signoff.conceptFamilyEvidence)||!filled(signoff.conceptFamilyReviewer))
+   issues.push('independent-cross-template-concept-review-required');
  if(signoff.workedSolutionProofChecked!==true||!filled(signoff.mathsChecker))
    issues.push('worked-solution-independent-check-required');
  if(!filled(signoff.pedagogyReviewer)||signoff.distractorRationales==null)
@@ -81,7 +83,13 @@ export function stageMathsV31Question(question,signoff={}){
   grade:V31_BANDS[question?.difficultyTarget]||'unverified',
   gradeLabel:question?.difficultyTarget,
   difficultyTarget:question?.difficultyTarget, // required by the real 4/4/2 selector
-  templateId:question?.templateId,conceptId:question?.templateId,
+  templateId:question?.templateId,
+  // Semantic equivalence across DIFFERENT template IDs must be signed by a
+  // real reviewer; never accept the author's template label as proof.
+  conceptId:eligible?signoff.conceptFamilyId:null,
+  conceptFamilyId:eligible?signoff.conceptFamilyId:null,
+  conceptFamilyEvidence:eligible?signoff.conceptFamilyEvidence:'',
+  conceptFamilyReviewer:eligible?signoff.conceptFamilyReviewer:'',
   stemLatex:question?.stem,answerLatex:question?.correctAnswerLatex,
   format:'mc_single',correctOptionId:question?.correctOptionId,
   // .text satisfies the legacy metadata validator ONLY; actual UI MUST use
