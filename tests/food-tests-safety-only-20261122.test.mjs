@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
 import {
   FOOD_TESTS_QA_HOLD_IDS, FOOD_TESTS_QA_TOPIC,
@@ -248,4 +249,41 @@ test('both quiz routes must await persisted practice before showing a saved resu
   assert.ok(failed.includes('setDraftError(true)')&&failed.includes('return;'),
    'failed save must leave the question visible and allow retry');
  }
+});
+
+test('actual iPad practice-drafts store keeps unmarked completion after a simulated browser restart',async()=>{
+ // Execute the real production draft-storage IIFE with IndexedDB unavailable,
+ // as on Safari private/restricted devices. localStorage fallback must verify.
+ const src=read('assets/practice-drafts-20261004.js');
+ const localRows=new Map(),sessionRows=new Map();
+ const store=rows=>({
+   getItem:k=>rows.has(k)?rows.get(k):null,
+   setItem:(k,v)=>{rows.set(k,String(v));},
+   removeItem:k=>{rows.delete(k);}
+ });
+ const local=store(localRows),session=store(sessionRows);
+ const open=()=>{
+  const sandbox={localStorage:local,sessionStorage:session,URL,Intl,Date,
+    Promise,setTimeout,clearTimeout,console};
+  vm.runInNewContext(src,sandbox,{filename:'practice-drafts-20261004.js'});
+  return sandbox.LuxPracticeDrafts;
+ };
+ const first=open(),key='food-tests-held-completion-20261122';
+ const payload={base:[topicQ[0]],rr:[],j:0,N:'iodine solution',G:{
+    practiceOnly:true,ok:false,model:'Practice saved. Not a formal mark.'
+   },sessionLog:[{questionId:topicQ[0].id,formal:false,correct:false}],
+   ce:false,unmarkedCompleted:true,href:'/study/biology/practise?topic=bio-y8-food-tests',title:'Food Tests'};
+ assert.equal(await saveHeldPracticeCompletion(first,key,payload,2500),true);
+ assert.equal(first.read(key)?.unmarkedCompleted,true,'record must be retrievable immediately');
+ const before=localRows.get('lux-practice-drafts-v1');
+ assert.ok(before&&before.includes('unmarkedCompleted'),'verified fallback must contain completed practice');
+ const restored=open().read(key);
+ assert.equal(restored?.unmarkedCompleted,true,'new app instance must reopen unmarked completion');
+ assert.equal(restored?.ce,false,'destructive draft-clear flag must be absent');
+ assert.equal(restored?.sessionLog?.[0]?.formal,false,'history remains explicitly ungraded');
+ assert.equal(restored?.base?.[0]?.id,topicQ[0].id);
+ assert.equal(await saveHeldPracticeCompletion(first,key,{...payload,ce:true}),false,
+   'helper must refuse legacy ce:true which would DELETE the saved draft');
+ assert.equal(localRows.get('lux-practice-drafts-v1'),before,
+   'rejected destructive completion must leave storage byte-for-byte unchanged');
 });
