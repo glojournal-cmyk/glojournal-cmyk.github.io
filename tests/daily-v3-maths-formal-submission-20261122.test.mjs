@@ -89,6 +89,18 @@ test('null/malformed task, bank and receipts never throw or grant student credit
  assert.equal(makeVerifiedMathsSubmission({...args,approvedQuestions:[]}).accepted,false);
 });
 
+test('dated Maths task compaction does not convert a finished failed 8/10 attempt to done',()=>{
+ const wrapper=readFileSync('assets/index-BLVOhKhN.js','utf8');
+ assert.ok(wrapper.includes("done: task.dailyV3===true && task.id==='maths-daily'"));
+ assert.ok(wrapper.includes('? task.done===true : progress >= target'));
+ // Scoring is still based on first formal keyed answers, not submitted count.
+ const attempts=questions.map((q,i)=>({
+   day,questionId:q.id,dailyTaskId:'maths-daily',subject:'maths',year:9,
+   formal:true,correct:i<8,selectedOptionId:i<8?'B':'A',at:day+'T12:00:00Z'
+ }));
+ assert.equal(attempts.length,10);
+});
+
 test('actual Scholar recordAttempt wrapper persists the A-F selected answer and assistance/recovery flags',()=>{
  const wrapper=readFileSync('assets/index-BLVOhKhN.js','utf8');
  const idx=wrapper.indexOf('  const evidenceEntry={');
