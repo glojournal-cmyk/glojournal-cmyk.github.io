@@ -24,7 +24,7 @@ for(const file of html){
   // The 20 Nov Latin notes are a standalone, self-contained ten-page reading edition.
   // Do not inject the Scholar app bundle: it would initialise an unrelated learner store.
   if(rel==="notes/year9-latin-key-revision-20261120/index.html"){
-    const pages=[...src.matchAll(/<article id="page-(\\d+)"/g)].map(m=>Number(m[1]));
+    const pages=[...src.matchAll(/<article id="page-(\d+)"/g)].map(m=>Number(m[1]));
     if(JSON.stringify(pages)!==JSON.stringify(Array.from({length:10},(_,i)=>i+1))||
        !src.includes('<main>')||!src.includes('10-page Key Revision Notes'))
       failures.push({type:"latin-reading-edition-incomplete",file:rel,pages});
