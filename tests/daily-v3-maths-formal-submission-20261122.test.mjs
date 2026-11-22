@@ -10,6 +10,9 @@ const questions=grades.map((grade,i)=>({
  id:'qa-validated-'+i,year:9,subject:'maths',topicId:topics[Math.floor(i/2)],
  difficultyTarget:grade,academicQA:'approved',taughtVerified:true,
  mathDailyEnabled:true,renderRequired:true,templateId:'independent-concept-'+i,
+ conceptFamilyId:'independent-concept-'+i,
+ conceptFamilyEvidence:'synthetic semantic family evidence',
+ conceptFamilyReviewer:'synthetic reviewer',
  correctOptionId:'B',sourceRef:'synthetic teacher handout',
  qaReviewer:'synthetic independent academic QA',mathsChecker:'synthetic calculus checker',
  options:['A','B','C','D','E','F'].map(x=>({id:x,latex:String(x.charCodeAt(0)),misconception:x==='B'?'':'synthetic error mechanism'}))
@@ -17,6 +20,7 @@ const questions=grades.map((grade,i)=>({
 const task={id:'maths-daily',planDate:day,dailyV3:true,supplyBlocked:false,
   assignedSubject:'maths',assignedYear:9,
   approvedQuestionIds:questions.map(q=>q.id),
+  approvedConceptByQuestion:Object.fromEntries(questions.map(q=>[q.id,q.conceptFamilyId])), 
   approvedCorrectOptionByQuestion:Object.fromEntries(questions.map(q=>[q.id,q.correctOptionId]))};
 const args={day,task,approvedQuestions:questions,questionId:questions[0].id,
   selectedOptionId:'A',submittedAt:'2026-11-23T12:00:00.000Z'};
@@ -73,6 +77,12 @@ test('source self-reported maths correctness never substitutes for reviewer/teac
  const wrongKey={...task,approvedCorrectOptionByQuestion:{...task.approvedCorrectOptionByQuestion,[questions[0].id]:'A'}};
  assert.equal(verifyMathDailyAssignment(wrongKey,questions,day).valid,false);
 });
+test('different template labels cannot mint a second mark for an equivalent semantic concept',()=>{
+ const duplicate=questions.map((q,i)=>i===1?{...q,conceptFamilyId:questions[0].conceptFamilyId}:q);
+ const t={...task,approvedConceptByQuestion:Object.fromEntries(duplicate.map(q=>[q.id,q.conceptFamilyId]))};
+ assert.equal(verifyMathDailyAssignment(t,duplicate,day).valid,false);
+});
+
 test('null/malformed task, bank and receipts never throw or grant student credit',()=>{
  assert.equal(verifyMathDailyAssignment(null,null,day).valid,false);
  assert.equal(makeVerifiedMathsSubmission({}).accepted,false);
