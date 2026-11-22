@@ -1,0 +1,417 @@
+{
+  "kind": "academic-marking-manually-authored-probes",
+  "sourceCommit": "8c3dd3576566a849c52549c96e8008cf2593d3fd",
+  "topic": "bio-y8-food-tests",
+  "excluded": "bio-y8-app-ethanol-safety",
+  "disclaimer": "Fixtures are hypotheses for independent academic QA, not approvals. Negative controls should score 0; paraphrase answers should achieve all available mark points. First literal markPoint is a valid but incomplete partial answer for 2/3-point questions.",
+  "rows": [
+    {
+      "questionId": "bio-y8-food-tests-iodine-solution-explain",
+      "marks": 1,
+      "paraphraseFull": "Iodine solution is used to find out whether starch is present.",
+      "paraphraseExpected": 1,
+      "contradiction": "Iodine solution is the test reagent for protein.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-benedict-s-solution-explain",
+      "marks": 1,
+      "paraphraseFull": "Benedict's reagent tests for reducing sugars and is warmed in a water bath.",
+      "paraphraseExpected": 1,
+      "contradiction": "Benedict's reagent is used cold to test for fats.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-biuret-solution-explain",
+      "marks": 1,
+      "paraphraseFull": "Biuret reagent checks if a sample contains proteins.",
+      "paraphraseExpected": 1,
+      "contradiction": "Biuret solution detects starch in food.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-ethanol-emulsion-test-explain",
+      "marks": 1,
+      "paraphraseFull": "Shake the sample with ethanol, add water afterwards, and check for lipids.",
+      "paraphraseExpected": 1,
+      "contradiction": "Heat the food in ethanol and then add iodine to detect fats.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-blue-black-explain",
+      "marks": 1,
+      "paraphraseFull": "Iodine turns blue-black when starch is present.",
+      "paraphraseExpected": 1,
+      "contradiction": "Blue-black indicates a positive test for protein with Biuret.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-brick-red-explain",
+      "marks": 1,
+      "paraphraseFull": "A brick-red precipitate is a strong positive Benedict's test for reducing sugars after warming.",
+      "paraphraseExpected": 1,
+      "contradiction": "Brick-red means no reducing sugar was detected by Benedict's test.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-lilac-or-purple-explain",
+      "marks": 1,
+      "paraphraseFull": "If proteins are present, the Biuret mixture changes to purple.",
+      "paraphraseExpected": 1,
+      "contradiction": "Purple colour in Benedict's test indicates starch.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-cloudy-white-emulsion-explain",
+      "marks": 1,
+      "paraphraseFull": "A milky emulsion shows fats are present after the ethanol test.",
+      "paraphraseExpected": 1,
+      "contradiction": "A cloudy white emulsion in the ethanol test proves protein is present.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-water-bath-explain",
+      "marks": 2,
+      "paraphraseFull": "Benedict's reducing-sugar mixture is warmed in a hot-water bath; ethanol is not heated during the emulsion test.",
+      "paraphraseExpected": 2,
+      "contradiction": "Water baths are needed to heat ethanol in the emulsion test; Benedict's is used cold.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-app-benedicts-method",
+      "marks": 3,
+      "paraphraseFull": "Mix Benedict's reagent with the extract, place the tube in a hot-water bath, and a positive sugar test turns green, yellow, orange or brick-red.",
+      "paraphraseExpected": 3,
+      "contradiction": "Do not heat Benedict's solution; a positive reducing-sugar test stays blue.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-sample-separation",
+      "marks": 2,
+      "paraphraseFull": "Use a fresh portion for each test because leftover reagents could contaminate the other reaction.",
+      "paraphraseExpected": 2,
+      "contradiction": "Use one portion for both tests because mixing reagents cannot affect results.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-iodine-repeat",
+      "marks": 2,
+      "paraphraseFull": "Repeat the iodine test on fresh food portions and keep sample and iodine volumes identical.",
+      "paraphraseExpected": 2,
+      "contradiction": "Use a different amount of iodine each time and do the test only once.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-benedict-no-heat",
+      "marks": 2,
+      "paraphraseFull": "Without warming Benedict's mixture, sugar might be present even though the solution stays blue, so heat it in a water bath.",
+      "paraphraseExpected": 2,
+      "contradiction": "If Benedict's reagent stays blue while cold, there can be no reducing sugars.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-negative-sugar",
+      "marks": 2,
+      "paraphraseFull": "The heated Benedict's reagent stayed blue, which indicates reducing sugar was not detected.",
+      "paraphraseExpected": 2,
+      "contradiction": "The heated Benedict's reagent turned orange; this proves no sugars are present.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-positive-sugar",
+      "marks": 2,
+      "paraphraseFull": "The solution changed from blue to orange after warming, demonstrating reducing sugar in the food.",
+      "paraphraseExpected": 2,
+      "contradiction": "The blue-to-orange change shows that no reducing sugar is in the sample.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-biuret-control",
+      "marks": 2,
+      "paraphraseFull": "Use plain distilled water as the negative control: it should remain blue, revealing any contamination.",
+      "paraphraseExpected": 2,
+      "contradiction": "Use protein solution as the negative control because it should turn purple.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-iodine-control",
+      "marks": 2,
+      "paraphraseFull": "A starch solution is a positive control and should make iodine change to blue-black.",
+      "paraphraseExpected": 2,
+      "contradiction": "Use pure water as the positive iodine control; iodine stays orange.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-repeatability",
+      "marks": 2,
+      "paraphraseFull": "Keep food-extract quantity the same and hold the samples at the same water-bath temperature.",
+      "paraphraseExpected": 2,
+      "contradiction": "Change both the sample size and bath temperature between trials.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-cross-contamination",
+      "marks": 2,
+      "paraphraseFull": "Using an unwashed pipette can carry chemicals between samples and lead to false positives.",
+      "paraphraseExpected": 2,
+      "contradiction": "A dirty pipette cannot transfer any chemicals, so results cannot be affected.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages",
+      "marks": 2,
+      "paraphraseFull": "Mix the sample with ethanol first, add water afterwards, then look for a milky suspension.",
+      "paraphraseExpected": 2,
+      "contradiction": "Warm ethanol over a Bunsen burner, then add Benedict's solution to check for lipids.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-ethanol-ventilation",
+      "marks": 2,
+      "paraphraseFull": "Keep away from flames as ethanol ignites easily; protect eyes with safety glasses.",
+      "paraphraseExpected": 2,
+      "contradiction": "Work beside a flame without goggles because ethanol and its vapour are not flammable.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-benedict-hot-tube",
+      "marks": 2,
+      "paraphraseFull": "The glass can burn skin and the hot liquid could splash at classmates, so use a holder and point it away.",
+      "paraphraseExpected": 2,
+      "contradiction": "A hot test tube cannot burn anyone and the liquid cannot splash.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-protein-extraction",
+      "marks": 2,
+      "paraphraseFull": "Crushing increases exposed food material; mixing with water makes an extract suitable for Biuret testing.",
+      "paraphraseExpected": 2,
+      "contradiction": "Keep the solid whole and completely dry because Biuret testing requires no extract.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-starch-extraction",
+      "marks": 2,
+      "paraphraseFull": "Grinding potato frees starch and allows more iodine to reach the starch.",
+      "paraphraseExpected": 2,
+      "contradiction": "Crushing potato stops iodine from touching the starch.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-fair-amount",
+      "marks": 2,
+      "paraphraseFull": "Use equal bread masses to control sample quantity, so comparing iodine colours is fair.",
+      "paraphraseExpected": 2,
+      "contradiction": "Use very different bread masses to make the iodine comparison fairer.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-fair-reagent",
+      "marks": 2,
+      "paraphraseFull": "Benedict's reagent volume must be held constant, otherwise differences might be caused by how much reagent was added.",
+      "paraphraseExpected": 2,
+      "contradiction": "Changing Benedict's reagent volume cannot affect the fairness of a comparison.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "marks": 2,
+      "paraphraseFull": "Brick-red indicates more reducing sugar than a green result, although the colours are only approximate rather than exact concentrations.",
+      "paraphraseExpected": 2,
+      "contradiction": "Green is a more concentrated reducing sugar result than brick-red and the colours measure exact amounts.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-cloudy-not-protein",
+      "marks": 2,
+      "paraphraseFull": "A milky ethanol result signals fat, whereas a protein claim requires a separate Biuret test.",
+      "paraphraseExpected": 2,
+      "contradiction": "White cloudiness in the ethanol test directly confirms protein.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-starch-vs-glucose",
+      "marks": 2,
+      "paraphraseFull": "The iodine test reveals starch, but the warmed Benedict's test gives no evidence of reducing sugar.",
+      "paraphraseExpected": 2,
+      "contradiction": "The iodine positive means there is no starch and the negative Benedict's proves sugar is present.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-sugar-vs-starch",
+      "marks": 2,
+      "paraphraseFull": "Benedict's detected reducing sugar; the orange-brown iodine result means no starch was found.",
+      "paraphraseExpected": 2,
+      "contradiction": "The positive Benedict's test rules out sugars while iodine proves starch.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-biuret-vs-sugar",
+      "marks": 2,
+      "paraphraseFull": "Protein was found using Biuret, but Benedict's remained negative for reducing sugar.",
+      "paraphraseExpected": 2,
+      "contradiction": "Purple Biuret shows that protein is absent and blue Benedict's shows sugar is present.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-lipid-vs-starch",
+      "marks": 2,
+      "paraphraseFull": "A fat was detected by the cloudy ethanol emulsion, but the iodine result did not detect starch.",
+      "paraphraseExpected": 2,
+      "contradiction": "The milky emulsion rules out lipids and orange-brown iodine confirms starch.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-all-negative",
+      "marks": 2,
+      "paraphraseFull": "These tests did not detect any of the four tested nutrient groups, but that does not show the sample has no nutrients whatsoever.",
+      "paraphraseExpected": 2,
+      "contradiction": "Four negative food tests prove every type of nutrient is absent.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-retest-ethanol",
+      "marks": 2,
+      "paraphraseFull": "Cloudiness before adding water could come from dirty apparatus, and the lipid test has to follow ethanol then water.",
+      "paraphraseExpected": 2,
+      "contradiction": "Premature cloudiness proves fat is present and means the procedure does not need to be repeated.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-glassware",
+      "marks": 2,
+      "paraphraseFull": "Label each tube to avoid mix-ups, and wash them to prevent chemicals contaminating the samples.",
+      "paraphraseExpected": 2,
+      "contradiction": "Labels are unnecessary and a dirty test tube cannot contaminate food.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-eyes",
+      "marks": 2,
+      "paraphraseFull": "Goggles shield eyes from chemical droplets; careful pipetting helps avoid splashes.",
+      "paraphraseExpected": 2,
+      "contradiction": "Remove goggles and pipette forcefully towards your face to prevent accidents.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-heat-variable",
+      "marks": 2,
+      "paraphraseFull": "Different warming durations are an uncontrolled variable and could cause the colour difference independently of sugar levels.",
+      "paraphraseExpected": 2,
+      "contradiction": "Different heating times cannot affect the test, so the comparison remains fair.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-no-taste",
+      "marks": 2,
+      "paraphraseFull": "Unknown extracts could be hazardous or contaminated, so tasting lab chemicals could be unsafe.",
+      "paraphraseExpected": 2,
+      "contradiction": "It is safe to taste unknown food extracts in the lab even when mixed with reagents.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-recording",
+      "marks": 2,
+      "paraphraseFull": "Write down the reagent name and the colour seen, then record whether the test was positive.",
+      "paraphraseExpected": 2,
+      "contradiction": "Only record the student's name; do not write any observations.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-inference",
+      "marks": 2,
+      "paraphraseFull": "Detecting sugar and protein does not establish that a snack is healthy, because nutrient amounts and overall diet also matter.",
+      "paraphraseExpected": 2,
+      "contradiction": "Any food containing protein and sugar must be healthy regardless of its quantities.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-weak-blueblack",
+      "marks": 2,
+      "paraphraseFull": "Repeat using clean apparatus and compare with known starch-positive and starch-negative controls.",
+      "paraphraseExpected": 2,
+      "contradiction": "Report the result without repeating, controls or clean equipment.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "marks": 2,
+      "paraphraseFull": "A hot-water bath heats more uniformly and reduces the risk of a test tube overheating or splashing.",
+      "paraphraseExpected": 2,
+      "contradiction": "Heat Benedict's mixture directly with the flame because this is safer and more even than water.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-test-plan",
+      "marks": 2,
+      "paraphraseFull": "Add iodine to check for starch: a blue-black colour is positive; perform the ethanol emulsion test for fat, looking for a milky white layer.",
+      "paraphraseExpected": 2,
+      "contradiction": "Test starch with Biuret and fat with Benedict's; blue-black is not relevant.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "marks": 2,
+      "paraphraseFull": "Purple Biuret indicates protein while absence of milky emulsion suggests no lipid detected.",
+      "paraphraseExpected": 2,
+      "contradiction": "Purple Biuret proves protein is absent and a clear emulsion confirms fat.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-result-not-proof",
+      "marks": 2,
+      "paraphraseFull": "The blue Benedict's result found no reducing sugar, and tasting sweet is not evidence of a reducing sugar.",
+      "paraphraseExpected": 2,
+      "contradiction": "A sweet taste proves reducing sugars are present even when heated Benedict's is blue.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-wrong-reagent",
+      "marks": 2,
+      "paraphraseFull": "Iodine detects starch rather than protein; use Biuret reagent for protein.",
+      "paraphraseExpected": 2,
+      "contradiction": "Iodine specifically detects protein, while Biuret detects starch.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-uncertain-emulsion",
+      "marks": 2,
+      "paraphraseFull": "A cloudy negative control suggests reagent contamination, so repeat with fresh reagents and washed apparatus.",
+      "paraphraseExpected": 2,
+      "contradiction": "If the water control is cloudy, the food sample is definitely positive for lipid and no retest is needed.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-iodine-no-heat",
+      "marks": 2,
+      "paraphraseFull": "Heating is unnecessary for starch testing: put iodine on the food and see whether it changes to blue-black.",
+      "paraphraseExpected": 2,
+      "contradiction": "You must boil iodine with the sample to detect starch.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-safe-bunsen",
+      "marks": 2,
+      "paraphraseFull": "Alcohol vapour catches fire easily, and an open Bunsen flame could ignite it.",
+      "paraphraseExpected": 2,
+      "contradiction": "Leave the Bunsen burner burning since ethanol fumes cannot ignite.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-unknown-analysis",
+      "marks": 3,
+      "paraphraseFull": "The sample contains starch and protein, but the ethanol test did not detect fat.",
+      "paraphraseExpected": 3,
+      "contradiction": "There is no starch, no protein, and definitely lots of lipids.",
+      "contradictionExpected": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-sugar-analysis",
+      "marks": 3,
+      "paraphraseFull": "There is reducing sugar, while neither starch nor protein was found.",
+      "paraphraseExpected": 3,
+      "contradiction": "There are no reducing sugars but starch and protein are definitely present.",
+      "contradictionExpected": 0
+    }
+  ]
+}
