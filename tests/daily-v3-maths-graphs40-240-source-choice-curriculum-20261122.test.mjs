@@ -55,6 +55,19 @@ test('Strict unaltered source Graphs parser proves 127 readable integer strings,
  }
  assert.deepEqual([n,amb,keyYes,keyAmb,bad,badAmb],[127,113,23,17,104,96]);
 });
+test('Independent source reading corrects four omitted perpendicular-gradient taught-scope warnings on Graphs Q153–156',()=>{
+ const flagged=audit.sourceQuestionDecisions.filter(x=>x.newlyFlaggedMissingPerpendicularTaughtEvidence);
+ assert.deepEqual(flagged.map(x=>x.originalQ),[153,154,155,156]);
+ for(const q of flagged){
+  assert.ok(q.schoolScopeWarnings.includes('PERPENDICULAR_SEGMENT_AB_GRADIENT_EXACT_TGS_CLASSROOM_TAUGHT_EVIDENCE_PENDING'));
+  assert.equal(q.actualAutumnTaughtConfirmed,undefined);
+  assert.equal(q.independentGrade7PlusApproved,false);
+  assert.equal(q.studentCreditAllowed,false);
+ }
+ assert.equal(audit.summary.originalSourceMathScopeWarnings,28);
+ assert.equal(audit.summary.combinedMathQuestionScopeWarnings,32);
+});
+
 test('All four higher-labelled source bisector variants return precisely 7, still unverified Spring skill and full release hold',()=>{
  const q=math.questions.filter(x=>x.number>=157);
  assert.equal(q.length,4);
