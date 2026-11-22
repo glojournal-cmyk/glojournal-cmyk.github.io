@@ -10,7 +10,7 @@ const date=x=>typeof x==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x);
 // UTC ISO dates can differ from the local task day around BST midnight;
 // startsWith(day) wrongly rejects those answers and accepts fake timestamps.
 const submittedOnSchoolDay=(stamp,day)=>{
- if(!text(stamp)||!/^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]{1,3})?(?:Z|[+-][0-9]{2}:[0-9]{2})$/.test(stamp))return false;
+ if(!text(stamp)||!/^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\.[0-9]{1,3})?(?:Z|[+-][0-9]{2}:[0-9]{2})$/.test(stamp))return false;
  const instant=Date.parse(stamp);
  if(!Number.isFinite(instant))return false;
  const parts=Object.fromEntries(new Intl.DateTimeFormat('en-GB',{
