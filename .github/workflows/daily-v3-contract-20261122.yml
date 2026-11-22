@@ -7,6 +7,7 @@ on:
       - 'assets/daily-vocab-20261003.js'
       - 'assets/index-BLVOhKhN.js'
       - 'tests/daily-v3-contract-20261122.test.mjs'
+      - 'scripts/daily-v3-bank-audit-20261122.mjs'
       - '.github/workflows/daily-v3-contract-20261122.yml'
   pull_request:
     paths:
@@ -34,3 +35,11 @@ jobs:
           node --check tests/daily-v3-contract-20261122.test.mjs
       - name: Unit tests - Daily V3 contract
         run: node --test tests/daily-v3-contract-20261122.test.mjs
+      - name: Read-only Year 8/9 concept supply inventory
+        run: node scripts/daily-v3-bank-audit-20261122.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: daily-v3-source-inventory
+          path: test-results/daily-v3-bank-audit-20261122.json
+          retention-days: 14
