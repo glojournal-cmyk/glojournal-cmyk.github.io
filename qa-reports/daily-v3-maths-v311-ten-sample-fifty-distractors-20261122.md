@@ -43,7 +43,7 @@
 | `INDICES-037` | A | `0` | **POSSIBLE** | Evaluate n²−2n for n=2 instead of n²−n |
 | `INDICES-037` | B | `5/2` | **UNEXPLAINED** | No specific error in exponent-equating or final evaluation has yet been derived |
 | `INDICES-037` | C | `4` | **TRACEABLE** | Use n² and omit subtraction of n when n=2 |
-| `INDICES-037` | D | `-3` | **RED_FLAG** | For real n, n²−n≥−1/4; -3 cannot be the requested expression for any real n. Suggest test a genuine sign mistake n²+n=6 as candidate replacement, not silently edit source |
+| `INDICES-037` | D | `-3` | **RED_FLAG** | For real n, n²−n≥−1/4; -3 is outside the expression's range, but MC wrong options can be impossible. Red flag here is the missing traceable student error. Candidate n²+n=6 (n=2) still needs signoff; never silently edit source |
 | `INDICES-037` | E | `1` | **POSSIBLE** | Evaluate n−1 rather than n²−n for n=2 |
 | `SIMULTANEOUS-013` | A | `6` | **UNEXPLAINED** | Copies a coefficient from the second equation; not a demonstrated no-solution misconception |
 | `SIMULTANEOUS-013` | B | `5` | **UNEXPLAINED** | Nearby value 5 without reconstructed parallel-line reasoning |
@@ -63,7 +63,7 @@
 
 ## Actual corrective actions
 1. **Strong candidate**: `STANDARD_FORM-011` has **five different, traceable** wrong-answer calculations (no sharing; exponent ×10; add instead of subtract; ignore waste; exponent ÷10). Retain original choices pending individual grade-7 demand and taught confirmation.
-2. **Critical option**: `INDICES-037` choice D `−3` is mathematically impossible for `n²−n` with real `n`; a source-specific candidate is `6` from wrongly substituting `n²+n` when n=2. **Do not modify the canonical 200-bank JSON** until the proposed distractor is independently marked, raw SHA updated and all six options reverified.
+2. **Critical option**: `INDICES-037` choice D `−3` cannot equal `n²−n` for real `n` (minimum `−1/4`); that **does not alone make it a defective MC distractor**, since wrong choices are supposed to be wrong. Its pedagogical issue is that no specific student error producing `−3` has been reconstructed. Candidate `6` follows the explicit mistake `n²+n` with n=2 and needs independent review. **Do not modify the canonical 200-bank JSON** until the proposed distractor is independently marked, raw SHA updated and all six options reverified.
 3. **Unclear/weak options**: `GRAPHS-028` has three unmotivated near-miss choices; `REARRANGING-023` includes several shifts of numerator constants without traceable working; `STANDARD_FORM-017` has 500 and 900 without a demonstrated one-step error; `SIMULTANEOUS-023` 27 and 29/2 are untraceable.
 4. **Poor context**: `STANDARD_FORM-017` still requires correction to unrealistic physical density 300 g/cm³, independent of distractor quality.
 5. **Curriculum quarantine**: `GRAPHS-039` is Spring perpendicular bisector and must not qualify for Autumn Daily credit absent proof it was already taught.
