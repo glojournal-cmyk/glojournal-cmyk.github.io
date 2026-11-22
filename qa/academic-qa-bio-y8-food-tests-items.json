@@ -338,6 +338,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -374,6 +379,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -438,6 +456,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -474,6 +497,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -634,6 +670,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -670,6 +711,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -734,6 +788,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -770,6 +829,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -971,6 +1043,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 2,
+            "mismatches": 0,
+            "underCredit": 0,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -2790,6 +2875,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -2826,6 +2916,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -2854,6 +2957,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P0",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -2890,6 +2998,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 0,
+            "mismatches": 2,
+            "underCredit": 1,
+            "overCreditCandidate": 1
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -2918,6 +3039,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "Structured item-specific marking added; broader Academic QA required before approval."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -2954,6 +3080,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -2982,6 +3121,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "Structured item-specific marking added; broader Academic QA required before approval."
+        },
+        {
+          "severity": "P0",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -3018,6 +3162,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 0,
+            "overCreditCandidate": 1
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -3046,6 +3203,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "Structured item-specific marking added; broader Academic QA required before approval."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -3082,6 +3244,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -3179,6 +3354,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -3215,6 +3395,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -3277,6 +3470,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -3313,6 +3511,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -3377,6 +3588,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 2,
+            "mismatches": 0,
+            "underCredit": 0,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -3439,6 +3663,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -3475,6 +3704,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -3503,6 +3745,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -3539,6 +3786,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -3567,6 +3827,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P0",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -3603,6 +3868,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 0,
+            "mismatches": 2,
+            "underCredit": 1,
+            "overCreditCandidate": 1
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -3700,6 +3978,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -3736,6 +4019,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -3864,6 +4160,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 2,
+            "mismatches": 0,
+            "underCredit": 0,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -3892,6 +4201,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "Structured item-specific marking added; broader Academic QA required before approval."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -3928,6 +4242,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -3992,6 +4319,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 2,
+            "mismatches": 0,
+            "underCredit": 0,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -4020,6 +4360,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "Structured item-specific marking added; broader Academic QA required before approval."
+        },
+        {
+          "severity": "P0",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -4056,6 +4401,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 0,
+            "mismatches": 2,
+            "underCredit": 1,
+            "overCreditCandidate": 1
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -4084,6 +4442,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "Structured item-specific marking added; broader Academic QA required before approval."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -4120,6 +4483,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -4148,6 +4524,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "Structured item-specific marking added; broader Academic QA required before approval."
+        },
+        {
+          "severity": "P0",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -4184,6 +4565,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 0,
+            "mismatches": 2,
+            "underCredit": 1,
+            "overCreditCandidate": 1
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -4212,6 +4606,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "Structured item-specific marking added; broader Academic QA required before approval."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -4248,6 +4647,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -4276,6 +4688,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -4312,6 +4729,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -4340,6 +4770,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -4376,6 +4811,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -4404,6 +4852,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -4440,6 +4893,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -4468,6 +4934,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -4504,6 +4975,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -4532,6 +5016,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -4568,6 +5057,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -4596,6 +5098,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -4632,6 +5139,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -4696,6 +5216,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 2,
+            "mismatches": 0,
+            "underCredit": 0,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -4896,6 +5429,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "Structured item-specific marking added; broader Academic QA required before approval."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -4932,6 +5470,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -4996,6 +5547,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 2,
+            "mismatches": 0,
+            "underCredit": 0,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -5058,6 +5622,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "Structured item-specific marking added; broader Academic QA required before approval."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -5094,6 +5663,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -5158,6 +5740,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 2,
+            "mismatches": 0,
+            "underCredit": 0,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -5186,6 +5781,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "Structured item-specific marking added; broader Academic QA required before approval."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -5222,6 +5822,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -5250,6 +5863,11 @@
           "severity": "P1",
           "status": "candidate-revision-awaiting-independent-review",
           "issue": "Structured item-specific marking added; broader Academic QA required before approval."
+        },
+        {
+          "severity": "P1",
+          "status": "held-out-candidate-defect",
+          "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
         }
       ],
       "testEvidence": [
@@ -5286,6 +5904,19 @@
           },
           "status": "QA branch candidate only; new Node and independent academic QA pending",
           "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
+        },
+        {
+          "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+          "type": "hold-out paraphrase plus scientifically wrong conclusion",
+          "observedPreflight": {
+            "cases": 2,
+            "matches": 1,
+            "mismatches": 1,
+            "underCredit": 1,
+            "overCreditCandidate": 0
+          },
+          "source": "qa/food-tests-37-unseen-preflight.json",
+          "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -5355,7 +5986,7 @@
     }
   ],
   "markingCounterexamples": "tests/food-tests-marking-counterexamples.mjs",
-  "testStatus": "37 Food Tests under-credit candidate repairs (20 bounded, 17 structured) tested in both B-entrypoint preflights: 455/455 each. Independent Node/Academic QA and iPad PWA still pending. 0 approvals.",
+  "testStatus": "455/455 existing Node accepted, but 74 new held-out QA probes: 40/74 match (29 provisional under-credit, 5 provisional over-credit). All 143 remain pending. No merge/deploy.",
   "markingDiagnostic": {
     "fixture": "qa/food-tests-51-markpoints-probes.json",
     "report": "qa/food-tests-51-markpoints-preflight.json",
@@ -5397,6 +6028,95 @@
       },
       "nodeExecuted": false,
       "academicApproved": 0
+    },
+    "heldOut37": {
+      "fixture": "qa/food-tests-37-unseen-probes.json",
+      "preflight": "qa/food-tests-37-unseen-preflight.json",
+      "runner": "tests/food-tests-37-unseen-diagnostic.mjs",
+      "summary": {
+        "questions": 37,
+        "cases": 74,
+        "matches": 40,
+        "mismatches": 34,
+        "byKind": {
+          "full-paraphrase-unseen": {
+            "total": 37,
+            "matches": 8,
+            "mismatches": 29
+          },
+          "false-conclusion-unseen": {
+            "total": 37,
+            "matches": 32,
+            "mismatches": 5
+          }
+        },
+        "byRubric": {
+          "bounded": {
+            "total": 40,
+            "matches": 20,
+            "mismatches": 20
+          },
+          "structured": {
+            "total": 34,
+            "matches": 20,
+            "mismatches": 14
+          }
+        },
+        "distinctFailedQuestions": 30,
+        "overcreditCandidates": [
+          "bio-y8-food-tests-application-20261025-iodine-repeat",
+          "bio-y8-food-tests-application-20261025-negative-sugar",
+          "bio-y8-food-tests-application-20261025-starch-extraction",
+          "bio-y8-food-tests-application-20261025-biuret-vs-sugar",
+          "bio-y8-food-tests-application-20261025-all-negative"
+        ],
+        "undermarkCandidates": [
+          "bio-y8-food-tests-ethanol-emulsion-test-explain",
+          "bio-y8-food-tests-blue-black-explain",
+          "bio-y8-food-tests-lilac-or-purple-explain",
+          "bio-y8-food-tests-cloudy-white-emulsion-explain",
+          "bio-y8-food-tests-application-20261025-sample-separation",
+          "bio-y8-food-tests-application-20261025-iodine-repeat",
+          "bio-y8-food-tests-application-20261025-benedict-no-heat",
+          "bio-y8-food-tests-application-20261025-positive-sugar",
+          "bio-y8-food-tests-application-20261025-iodine-control",
+          "bio-y8-food-tests-application-20261025-cross-contamination",
+          "bio-y8-food-tests-application-20261025-benedict-hot-tube",
+          "bio-y8-food-tests-application-20261025-protein-extraction",
+          "bio-y8-food-tests-application-20261025-starch-extraction",
+          "bio-y8-food-tests-application-20261025-fair-reagent",
+          "bio-y8-food-tests-application-20261025-starch-vs-glucose",
+          "bio-y8-food-tests-application-20261025-biuret-vs-sugar",
+          "bio-y8-food-tests-application-20261025-lipid-vs-starch",
+          "bio-y8-food-tests-application-20261025-all-negative",
+          "bio-y8-food-tests-application-20261025-retest-ethanol",
+          "bio-y8-food-tests-application-20261025-glassware",
+          "bio-y8-food-tests-application-20261025-eyes",
+          "bio-y8-food-tests-application-20261025-heat-variable",
+          "bio-y8-food-tests-application-20261025-no-taste",
+          "bio-y8-food-tests-application-20261025-recording",
+          "bio-y8-food-tests-application-20261025-inference",
+          "bio-y8-food-tests-application-20261025-result-not-proof",
+          "bio-y8-food-tests-application-20261025-iodine-no-heat",
+          "bio-y8-food-tests-application-20261025-unknown-analysis",
+          "bio-y8-food-tests-application-20261025-sugar-analysis"
+        ],
+        "bundles": {
+          "assets/quiz-session-y8fix-20260920.js": {
+            "cases": 74,
+            "matches": 40,
+            "mismatches": 34
+          },
+          "assets/quiz-session-rWAnuDVj.js": {
+            "cases": 74,
+            "matches": 40,
+            "mismatches": 34
+          }
+        }
+      },
+      "nodeExecuted": false,
+      "approval": 0,
+      "independentAcademicReview": "pending"
     }
   }
 }
