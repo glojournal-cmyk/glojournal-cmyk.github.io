@@ -52,8 +52,21 @@ export function chooseApprovedTopic(entries,state,year,subject,count,reserved=ne
 // All counted answers must be dated, assigned, formal, unassisted and match
 // the EXACT approved question-to-concept mapping.
 export function v3ScopedQuestionEvidence(state,task,day){
-  const allowed=new Set(task?.approvedQuestionIds||[]);
-  const concepts=task?.approvedConceptByQuestion||{};
+  // Only an active, exact Year 9 signed ten-question assignment may count.
+  // A blocked/stale/partially restored card must never credit tagged replay
+  // answers, even if its old approvedQuestionIds survived a partial save.
+  const none={attempts:0,correct:0,completed:false};
+  const ids=task?.approvedQuestionIds,concepts=task?.approvedConceptByQuestion||{};
+  if(!task||task.supplyBlocked===true||task.dailyV3!==true||
+     task.planDate!==day||Number(task.assignedYear)!==9||
+     !['y8-standard-b','due-review'].includes(task.id)||
+     !task.assignedTopic||!task.assignedSubject||
+     !Array.isArray(ids)||ids.length!==10||new Set(ids).size!==10||
+     Object.keys(concepts).length!==10||
+     new Set(ids.map(id=>concepts[id])).size!==10||
+     ids.some(id=>typeof id!=='string'||!id||
+       typeof concepts[id]!=='string'||!concepts[id]))return none;
+  const allowed=new Set(ids);
   // Same-day cross-task reservation: an assessed question cannot be counted
   // in another Daily task, even when it appears under a different task ID.
   const elsewhere=new Set((state.formalAttemptLog||[]).filter(e=>
