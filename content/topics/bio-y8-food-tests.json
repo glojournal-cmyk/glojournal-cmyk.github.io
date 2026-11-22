@@ -104,8 +104,12 @@
         "markPointEvidence": [
           {
             "all": [
-              "\\biodine\\b",
-              "\\bstarch\\b"
+              "\\bstarch\\b",
+              "\\b(?:test\\w*|detect\\w*|reagent)\\b"
+            ],
+            "notAnywhere": [
+              "\\bbenedict\\w*\\b[^.!?;\\n]*\\bstarch\\b",
+              "\\bbiuret\\b[^.!?;\\n]*\\bstarch\\b"
             ]
           }
         ],
@@ -356,8 +360,12 @@
         "markPointEvidence": [
           {
             "all": [
-              "\\bbiuret\\b",
-              "\\bprotein\\b"
+              "\\bprotein\\b",
+              "\\b(?:test\\w*|detect\\w*|reagent|positive)\\b"
+            ],
+            "notAnywhere": [
+              "\\biodine\\b[^.!?;\\n]*\\bprotein\\b",
+              "\\bbenedict\\w*\\b[^.!?;\\n]*\\bprotein\\b"
             ]
           }
         ],
