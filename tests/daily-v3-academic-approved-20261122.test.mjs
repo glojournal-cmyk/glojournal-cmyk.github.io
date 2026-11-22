@@ -74,13 +74,13 @@ test('Real Language 5+5 per-subject completed receipt is isolated from old Latin
  const plan=buildDailyV3(state(),syntheticLegacy());
  const split=plan.find(t=>t.id==='languages-standard').languageSplit;
  const oldHistory=Array.from({length:10},(_,i)=>({day,dailyTaskId:'latin-standard',subject:'latin',questionId:'prior-'+i,correct:true,formal:true}));
- const latin=split.latin.approvedQuestionIds.map(id=>({day,dailyTaskId:'languages-standard',subject:'latin',questionId:id,correct:true,formal:true}));
+ const latin=split.latin.approvedQuestionIds.map(id=>({day,dailyTaskId:'languages-standard',subject:'latin',year:8,topicId:split.latin.topicId,questionId:id,correct:true,formal:true}));
  let s=state({daily:plan,formalAttemptLog:[...oldHistory,...latin]});
  let result=languageEvidence(s,day);
  assert.equal(result.progress,5);
  assert.equal(result.completed,false);
  assert.equal(result.french.correct,0);
- const french=split.french.approvedQuestionIds.map(id=>({day,dailyTaskId:'languages-standard',subject:'french',questionId:id,correct:true,formal:true}));
+ const french=split.french.approvedQuestionIds.map(id=>({day,dailyTaskId:'languages-standard',subject:'french',year:8,topicId:split.french.topicId,questionId:id,correct:true,formal:true}));
  s.formalAttemptLog.push(...french);
  result=languageEvidence(s,day);
  assert.equal(result.completed,true);
@@ -92,8 +92,8 @@ test('One subject cannot take the other subject’s marked ID, nor extra out-of-
  const plan=buildDailyV3(state(),syntheticLegacy());
  const split=plan.find(t=>t.id==='languages-standard').languageSplit;
  const extra=[
-   ...split.latin.approvedQuestionIds.map(id=>({day,dailyTaskId:'languages-standard',subject:'french',questionId:id,correct:true,formal:true})),
-   ...Array.from({length:8},(_,i)=>({day,dailyTaskId:'languages-standard',subject:'latin',questionId:'unapproved-'+i,correct:true,formal:true}))
+   ...split.latin.approvedQuestionIds.map(id=>({day,dailyTaskId:'languages-standard',subject:'french',year:8,topicId:split.french.topicId,questionId:id,correct:true,formal:true})),
+   ...Array.from({length:8},(_,i)=>({day,dailyTaskId:'languages-standard',subject:'latin',year:8,topicId:split.latin.topicId,questionId:'unapproved-'+i,correct:true,formal:true}))
  ];
  const result=languageEvidence(state({daily:plan,formalAttemptLog:extra}),day);
  assert.equal(result.progress,0);
