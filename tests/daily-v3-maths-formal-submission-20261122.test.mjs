@@ -108,6 +108,40 @@ test('dated Maths task compaction does not convert a finished failed 8/10 attemp
  assert.equal(mathsEvidence(ninth,day,task).completed,true);
 });
 
+test('actual legacy recordAttempt must block Maths Daily BEFORE core XP or any persistence side-effect',()=>{
+ const wrapper=readFileSync('assets/index-BLVOhKhN.js','utf8');
+ const start=wrapper.indexOf('function patchedRecordAttempt(questionId, correct, subject, meta = {}) {');
+ assert.ok(start>=0,'legacy wrapper must exist');
+ const firstStateRead=wrapper.indexOf('  const before = store.getState();',start);
+ const firstCore=wrapper.indexOf('  const result = originalRecordAttempt(',start);
+ assert.ok(firstStateRead>start&&firstCore>firstStateRead,
+   'the block must run before the first store read or XP-awarding core');
+ const prefix=wrapper.slice(start,firstStateRead);
+ assert.match(prefix,/maths-daily-requires-durable-verified-submission/);
+ assert.match(prefix,/awarded:0,xp:0,mp:0/);
+ // Execute the exact pre-XP function prefix against both route and metadata.
+ // No Scholar store is provided, so any unsafe fallthrough would be exposed.
+ const make=window=>new Function('window',prefix+
+   '\nreturn {passedThrough:true};\n}\nreturn patchedRecordAttempt;')(window);
+ const normal=make({location:{search:'?task=y8-standard-a'}});
+ const mathsRoute=make({location:{search:'?task=maths-daily'}});
+ const noWindow=make(undefined);
+ for(const result of [
+  mathsRoute('math-question',true,'maths',{}),
+  normal('math-question',true,'maths',{progressionTask:'maths-daily'}),
+  normal('math-question',true,'maths',{dailyTaskId:'maths-daily'}),
+  noWindow('math-question',true,'maths',{progressionTask:'maths-daily'})
+ ]){
+  assert.equal(result.blocked,true);
+  assert.equal(result.awarded,0);
+  assert.equal(result.xp,0);
+  assert.equal(result.mp,0);
+ }
+ assert.deepEqual(normal('other-question',true,'physics',{progressionTask:'y8-standard-a'}),
+   {passedThrough:true});
+ assert.deepEqual(normal('free-maths',true,'maths',{}),{passedThrough:true});
+});
+
 test('actual Scholar recordAttempt wrapper persists the A-F selected answer and assistance/recovery flags',()=>{
  const wrapper=readFileSync('assets/index-BLVOhKhN.js','utf8');
  const idx=wrapper.indexOf('  const evidenceEntry={');
