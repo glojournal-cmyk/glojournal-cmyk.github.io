@@ -1,4 +1,5 @@
 // Daily Tasks V3 contract and safety gates. No learner state is mutated here.
+import {V3_ACADEMIC_WHITELIST} from './daily-v3-approved-content-20261122.js';
 // Academic QA manifests start EMPTY. Absence of verification blocks supply;
 // it must never be interpreted as permission to select arbitrary catalog items.
 export const V3_START_DATE = '2026-11-23';
@@ -9,15 +10,15 @@ export const V3_TASK_SPEC = Object.freeze([
   ['due-review',10],['year9-light',15]
 ]);
 export const V3_TARGET = V3_TASK_SPEC.reduce((sum,[,n])=>sum+n,0);
+// Whitelist approves ONLY the 40 explicit question IDs, never the rest of a bank.
 export const V3_APPROVED = Object.freeze({
-  // Approval requires taught-source match + independent question-by-question
-  // Academic QA. Each list must name the distinct approved concept groups.
-  languageGrammar:{latin:[],french:[]},
-  year9Standard:[],
+  languageGrammar:{latin:V3_ACADEMIC_WHITELIST.latin,french:V3_ACADEMIC_WHITELIST.french},
+  year9Standard:V3_ACADEMIC_WHITELIST.y9,
   year9Due:[],
   year9Vocabulary:{latin:[],french:[]},
-  maths:[] // supplied later; NEVER auto-generate filler
+  maths:[] // separately supplied; never fabricate filler
 });
+
 const dayOf=x=>String(x||'').slice(0,10);
 const validDate=x=>/^\d{4}-\d{2}-\d{2}$/.test(x);
 const canonical=x=>String(x??'').normalize('NFKC').trim().replace(/\s+/g,' ').toLowerCase();
