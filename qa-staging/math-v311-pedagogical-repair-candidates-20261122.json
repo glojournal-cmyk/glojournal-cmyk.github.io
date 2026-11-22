@@ -1,0 +1,104 @@
+{
+  "status": "QA_STAGING_NOT_ACADEMIC_APPROVED",
+  "sourceVersion": "3.1.1-candidate-worked-editorial",
+  "sourceReference": {
+    "path": "qa-staging/math-v31-original-sample10.json",
+    "githubBlobSha": "2638a3b0ea387189ef2a278e21803219164986a2"
+  },
+  "applyToCanonicalBank": false,
+  "academicQAGate": "BLOCKED",
+  "studentCredit": false,
+  "patches": [
+    {
+      "questionId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "kind": "PEDAGOGY_CONTEXT_AND_DISTRACTORS",
+      "originalCorrectOptionId": "C",
+      "originalDifficultyTarget": "G8",
+      "originalSourceStem": "A sample contains $2\\times 10^{11}$ particles, each of mass $3\\times 10^{-7}$ g. A filter removes $25\\%$ of the total mass. The remainder occupies $1.5\\times 10^{2}$ cm$^3$. Find its density in g/cm$^3$ in standard form.",
+      "replacement": {
+        "stem": "A hypothetical material contains $2\\times 10^{11}$ particles, each of mass $3\\times 10^{-10}$ g. A filter removes $25\\%$ of the total mass. The remainder occupies $1.5\\times 10^{2}$ cm$^3$. Find its density in g/cm$^3$ in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "3\\times 10^{0}",
+            "misconception": "Divide the retained 45 g by 15 cm³ instead of 150 cm³ (volume scale ×10 error): 3 g/cm³."
+          },
+          {
+            "id": "B",
+            "latex": "2\\times 10^{-1}",
+            "misconception": "Keep 50% of the starting 60 g rather than 75%: 30/150=0.2 g/cm³."
+          },
+          {
+            "id": "C",
+            "latex": "3\\times 10^{-1}",
+            "misconception": null
+          },
+          {
+            "id": "D",
+            "latex": "1\\times 10^{-1}",
+            "misconception": "Keep 25% rather than remove 25%: (0.25×60)/150=0.1 g/cm³."
+          },
+          {
+            "id": "E",
+            "latex": "4.5\\times 10^{-1}",
+            "misconception": "Drop the 1.5 coefficient in 1.5×10² cm³, divide 45 g by 100 cm³: 0.45 g/cm³."
+          },
+          {
+            "id": "F",
+            "latex": "4\\times 10^{-1}",
+            "misconception": "Ignore filtering and use the full 60 g: 60/150=0.4 g/cm³."
+          }
+        ],
+        "workedSolutionSteps": [
+          "Total mass $=(2\\times 10^{11})(3\\times 10^{-10})=6\\times10^{1}$ g. After removing $25\\%$, retain $75\\%$: $0.75\\times60=45$ g.",
+          "Density $=\\dfrac{45}{1.5\\times10^{2}}=\\dfrac{45}{150}=3\\times 10^{-1}$ g/cm$^3$."
+        ]
+      },
+      "verification": {
+        "sixDistinctValues": true,
+        "correctOptionId": "C",
+        "answerValueGramsPerCm3": 0.3,
+        "computedChoices": {
+          "A": 3,
+          "B": 0.2,
+          "C": 0.30000000000000004,
+          "D": 0.1,
+          "E": 0.45,
+          "F": 0.4
+        },
+        "wrongChoiceErrorMechanisms": "five explicitly recalculated candidate mistake paths"
+      },
+      "notes": "Mathematics and five candidate wrong paths directly checked. Original 200 raw source is unchanged; independent academic and teacher review still required."
+    },
+    {
+      "questionId": "LUX-MATH-Y9-REARRANGING-023",
+      "kind": "DOMAIN_AND_EDITORIAL_WORKED_STEPS_ONLY",
+      "originalCorrectOptionId": "D",
+      "originalDifficultyTarget": "G8",
+      "originalWorkedSolutionSteps": [
+        "Set $z=y-1$, giving $z(x+6)=4x+5$.",
+        "Collect $x$: $(1z-4)x=5-6z$, then replace $z=y-1$ to obtain $x=- \\frac{6 y - 11}{y - 5}$."
+      ],
+      "replacement": {
+        "workedSolutionSteps": [
+          "Domain: the original denominator requires $x\\ne-6$. Put $z=y-1$ and multiply both sides by $x+6$: $z(x+6)=4x+5$.",
+          "Collect $x$: $(z-4)x=5-6z$. Since $z=4$ would give the impossible statement $24=5$, $y\\ne5$. Thus $x=\\dfrac{11-6y}{y-5}=-\\dfrac{6y-11}{y-5}$."
+        ]
+      },
+      "verification": {
+        "testValuesForX": [
+          -5,
+          -3,
+          0,
+          1,
+          7,
+          10
+        ],
+        "inverseChecksPassed": 6,
+        "forbiddenX": -6,
+        "forbiddenY": 5
+      },
+      "notes": "Do not change source stem/options/answer. Teacher taught rational formula depth, difficulty, iPad maths rendering still unverified."
+    }
+  ]
+}
