@@ -155,10 +155,31 @@ test('generic bumpDaily and legacy QuizSession cannot increase evidence-owned Ma
  assert.deepEqual(calls,[],'Maths Daily must never enter generic counter');
  assert.equal(bump('y8-standard-a',1),'legacy');
  assert.deepEqual(calls,[['y8-standard-a',1]],'other genuine Study counters remain active');
- assert.ok(quiz.includes('c!==\`maths-daily\`')||quiz.includes('c!=='+String.fromCharCode(96)+'maths-daily'+String.fromCharCode(96)),
+ assert.ok(quiz.includes('c!==`maths-daily`'),
    'legacy QuizSession must not direct-credit Maths');
  assert.ok(wrapper.includes('(task.id!=="maths-daily"||task.done===true)'),
    'Daily Complete award reconciliation requires explicit Maths 9/10 pass');
+});
+
+test('overall Daily Complete XP cannot be claimed from failed Maths 8/10 or blocked supply',()=>{
+ const wrapper=readFileSync('assets/index-BLVOhKhN.js','utf8');
+ const start=wrapper.indexOf('function patchedAward(kind, options = {}) {');
+ const next=wrapper.indexOf('  if (options?.amount != null || !(kind in STUDY_REWARD_XP))',start);
+ assert.ok(start>=0&&next>start);
+ const prefix=wrapper.slice(start,next);
+ let calls=0;
+ const state={daily:[{id:'maths-daily',dailyV3:true,
+   progress:10,target:10,done:false}],dailyCompleteAwarded:{[day]:true}};
+ const store={getState:()=>state,setState:patch=>Object.assign(state,patch)};
+ const code=prefix+'\nreturn {passedThrough:true};\n}\nreturn patchedAward;';
+ const award=new Function('store','todayKey',code)(store,()=>day);
+ const refused=award('daily_complete',{detail:'All daily tasks'});
+ assert.equal(refused.awarded,0);
+ assert.equal(state.dailyCompleteAwarded[day],undefined,
+   'incorrectly pre-flagged Daily completion must remain recoverable');
+ state.daily[0].done=true;
+ assert.deepEqual(award('daily_complete',{detail:'All daily tasks'}),{passedThrough:true},
+   'once Maths 9/10 is actually passed, normal reward route may proceed');
 });
 
 test('actual Scholar recordAttempt wrapper persists the A-F selected answer and assistance/recovery flags',()=>{
