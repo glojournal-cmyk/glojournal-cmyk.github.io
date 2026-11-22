@@ -17,11 +17,16 @@ catalog.push(...[
  ['latin','la-y8-nouns-and-dictionary-entries'],
  ['latin','la-y8-nouns-with-genitives'],
  ['french','fr-y8-s02-weather-activities-and-opinions'],
- ['biology','bio-y8-food-tests'],
+ ['french','fr-y8-s03-home-family-and-descriptions'],
+ ['french','fr-y8-s07-passe-compose'],
+ ['french','fr-y8-s25-classroom-objects'],
+ ['latin','la-y8-core-verbs'],
  ['chemistry','chem-y8-working-scientifically']
 ].map(([subject,topicId])=>({subject,year:8,topicId,title:topicId,
   status:'enabled',enabled:80,formats:{typed_short:30}})));
 const get=(subject,year)=>catalog.filter(t=>t.subject===subject&&t.year===year);
+// Food Tests has 0/143 academic approvals and is not an eligible Mastery source.
+assert.equal(catalog.some(t=>t.topicId==='bio-y8-food-tests'),false);
 
 test('legacy coverage and mastered status survive; a new round advances separately',()=>{
   const legacy={attempted:30,correct:16,state:'mastered'};
