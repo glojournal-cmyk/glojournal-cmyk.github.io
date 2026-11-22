@@ -194,7 +194,11 @@ test('overall Daily Complete XP requires a verified pass of every evidence-owned
    {id:'maths-daily',assignedYear:9,dailyV3:true},
    {id:'languages-standard',assignedYear:8,dailyV3:true},
    {id:'y8-standard-b',assignedYear:9,dailyV3:true},
-   {id:'due-review',assignedYear:9,dailyV3:true}
+   {id:'due-review',assignedYear:9,dailyV3:true},
+   // A partially restored V3-only card without a V3 marker is still not
+   // permitted to claim a full-day award merely from raw progress.
+   {id:'maths-daily',assignedYear:9},
+   {id:'languages-standard',assignedYear:8}
  ];
  for(const task of tasks){
    const state={daily:[{...task,progress:10,target:10,done:false}],
