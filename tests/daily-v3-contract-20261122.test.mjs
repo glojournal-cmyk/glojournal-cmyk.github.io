@@ -21,7 +21,7 @@ const topic=(subject,year,topicId,concepts)=>({
   concepts:Array.from({length:concepts},(_,i)=>({conceptId:topicId+'-'+i,ids:[topicId+'-q'+i]}))
 });
 const makeMath=(id,grade='7')=>({
-  id,topic:'indices',grade,academicQA:'approved',taughtVerified:true,
+  id,topic:'indices',grade,templateId:'unique-template-'+id,academicQA:'approved',taughtVerified:true,
   sourceRef:'teacher-confirmed-index-law-source',qaReviewer:'independent-reviewer',
   options:Array.from({length:6},(_,i)=>({id:'abcdef'[i],text:String(i+1),
     ...(i?{misconception:'confuses law '+i}:{})})),
@@ -127,7 +127,13 @@ test('Maths plan requires genuine 4/4/2 band supply, never lower-level filler',(
   assert.equal(buildDailyV3(state(),old(),{...V3_APPROVED,maths:few})
     .find(t=>t.id==='maths-daily').supplyBlocked,true);
   assert.equal(buildDailyV3(state(),old(),{...V3_APPROVED,maths:enough})
-    .find(t=>t.id==='maths-daily').supplyBlocked,undefined);
+    .find(t=>t.id==='maths-daily').supplyBlocked,true,
+    'Passing metadata alone cannot launch a non-existent iPad Maths player');
+  const routed=buildDailyV3(state(),old(),{...V3_APPROVED,maths:enough,mathsRuntimeReady:true})
+    .find(t=>t.id==='maths-daily');
+  assert.equal(routed.supplyBlocked,undefined);
+  assert.equal(routed.approvedQuestionIds.length,10);
+  assert.equal(new Set(Object.values(routed.approvedConceptByQuestion)).size,10);
 });
 test('Maths only counts unique submitted question IDs and distinguishes 9/10 target',()=>{
   const attempts=Array.from({length:10},(_,i)=>({
@@ -189,4 +195,39 @@ test('when all separately reviewed Year 9 topics are depleted, Standard B flags 
   assert.equal(b.assignedYear,9);
   assert.equal(b.progress,0);
   assert.equal(b.supplyBlocked,true);
+});
+
+test('unapproved Maths card is never completed by arbitrary ten marked submissions',()=>{
+ const initial=buildDailyV3(state(),old());
+ const fake=Array.from({length:10},(_,i)=>({
+   questionId:'fabricated-'+i,day,subject:'maths',year:9,
+   dailyTaskId:'maths-daily',correct:true,formal:true,submittedAt:day+'T12:00:00Z'
+ }));
+ const reb=buildDailyV3(state({daily:initial}),old(),V3_APPROVED,{mathAttempts:fake});
+ const card=reb.find(x=>x.id==='maths-daily');
+ assert.equal(card.supplyBlocked,true);
+ assert.equal(card.progress,0);
+ assert.equal(card.done,false);
+});
+test('Maths task credit is scoped to ten pinned, unassisted, first submitted formal answers',()=>{
+ const questions=[
+   ...Array.from({length:4},(_,i)=>makeMath('v7-'+i,'7')),
+   ...Array.from({length:4},(_,i)=>makeMath('v8-'+i,'8')),
+   ...Array.from({length:2},(_,i)=>makeMath('v89-'+i,'8-9'))
+ ];
+ const original=buildDailyV3(state(),old(),{...V3_APPROVED,maths:questions,mathsRuntimeReady:true});
+ const task=original.find(x=>x.id==='maths-daily');
+ const attempts=task.approvedQuestionIds.map((questionId,i)=>({
+   questionId,day,subject:'maths',year:9,dailyTaskId:'maths-daily',
+   correct:i!==0,formal:true,submittedAt:day+'T12:00:00Z'
+ }));
+ const scoped=mathsEvidence([...attempts,
+    {...attempts[0],correct:true},{...attempts[1],questionId:'not-assigned',correct:true},
+    {...attempts[2],repair:true,questionId:attempts[2].questionId},
+    {...attempts[3],hintUsed:true,questionId:attempts[3].questionId}],day,task);
+ assert.equal(scoped.submitted,10);
+ assert.equal(scoped.correct,9);
+ assert.equal(scoped.completed,true);
+ assert.equal(scoped.targetMet,true);
+ assert.equal(mathsEvidence(attempts.slice(0,9),day,task).completed,false);
 });
