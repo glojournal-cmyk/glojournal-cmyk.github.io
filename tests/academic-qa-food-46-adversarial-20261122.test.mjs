@@ -106,3 +106,39 @@ test('598 original/source-topic inaccurate science statements cannot score throu
   }
  }
 });
+
+
+test('fair amount: name the controlled mass and its causal effect as distinct marks',()=>{
+ const q=byId.get('bio-y8-food-tests-application-20261025-fair-amount');
+ assert.ok(q);
+ assert.match(q.prompt,/identify the variable.*kept constant/i);
+ assert.deepEqual(q.answer.markPoints,[
+  'keep the mass of each bread sample the same',
+  'unequal sample masses can affect the iodine result'
+ ]);
+ const cases=[
+  ['Keep the bread samples the same mass',1],
+  ['Masses unequal might change the iodine result so we cannot compare starch fairly',1],
+  ['If the sample masses differ the iodine result may be misleading',1],
+  ['Make it a fair test',0],
+  ['Keep the mass of each bread sample the same; unequal sample masses can affect the iodine result',2]
+ ];
+ for(const [answer,points] of cases){
+  const result=B(q,answer,'biology',{});
+  assert.equal(result.score,points,'Fair-sample mark split: '+JSON.stringify({answer,result}));
+ }
+});
+
+test('missing source-reviewed food evidence never earns semantic or exact-alternative credit',()=>{
+ const q=byId.get('bio-y8-food-tests-application-20261025-fair-amount');
+ const corrupt=JSON.parse(JSON.stringify(q));
+ delete corrupt.answer.markPointEvidence;
+ const model=corrupt.answer.markPoints.join('; ');
+ assert.equal(B(corrupt,model,'biology',{}).score,0,
+  'Food Tests future unreviewed mark-point item must remain fail-closed');
+ assert.equal(B(corrupt,corrupt.answer.markPointAlternatives[1][1],'biology',{}).score,0,
+  'Exact approved alternatives cannot bypass missing source evidence');
+ const differentTopic={...corrupt,topicId:'bio-y8-other-topic'};
+ assert.equal(B(differentTopic,model,'biology',{}).score,2,
+  'Unrelated Biology mark-point exercise must not be silently blocked');
+});
