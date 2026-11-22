@@ -13,7 +13,7 @@ const cases = [
   ["past participle shaken, water was then added", "The food sample was shaken with ethanol. Water was then added. Ethanol is flammable.", 2],
   ["after expresses the correct order", "Ethanol is flammable. Add water after shaking the sample with ethanol.", 2],
   ["non-flammable contradicts safety", "Ethanol is non-flammable. Shake the sample with ethanol then add water.", 1],
-  ["isn't flammable contradicts safety", "Ethanol isn't flammable. Shake the sample with ethanol then add water.", 1],
+  ["will not catch fire is still a denial", "The ethanol will not catch fire. Shake the sample with ethanol, then add water.", 1],
 ];
 const results = cases.map(([name, answer, expected]) => {
   const got = score(answer);
