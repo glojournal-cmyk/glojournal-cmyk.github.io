@@ -1,6 +1,7 @@
 // Daily Tasks V3 contract and safety gates. No learner state is mutated here.
 import {V3_ACADEMIC_WHITELIST} from './daily-v3-approved-content-20261122.js';
 import {selectMathsV31Daily} from './math-study/daily-v31-selector.js';
+import {mathsOriginalGradeDemandDecision} from './math-study/math-v311-grade-demand-gate.js';
 // Academic QA manifests start EMPTY. Absence of verification blocks supply;
 // it must never be interpreted as permission to select arbitrary catalog items.
 export const V3_START_DATE = '2026-11-23';
@@ -158,6 +159,8 @@ export function validateMathQuestion(q){
   if(!['indices','standard-form','changing-subject','straight-line-graphs','simultaneous-equations'].includes(q?.topic))issues.push('topic-unverified');
   if(!['7','8','8-9'].includes(String(q?.grade)))issues.push('invalid-grade');
   if(q?.academicQA!=='approved'||q?.taughtVerified!==true)issues.push('not-academic-qa-approved');
+  const gradeDemand=mathsOriginalGradeDemandDecision(q);
+  if(!gradeDemand.ok)issues.push(gradeDemand.reason);
   if(!String(q?.conceptFamilyId||'').trim()||
      !String(q?.conceptFamilyEvidence||'').trim()||
      !String(q?.conceptFamilyReviewer||'').trim())
