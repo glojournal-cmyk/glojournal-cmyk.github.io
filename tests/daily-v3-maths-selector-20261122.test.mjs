@@ -8,6 +8,7 @@ const fixture=topics.flatMap((topicId,t)=>grades.flatMap((difficultyTarget,k)=>
  Array.from({length:4},(_,v)=>({
   id:'test-math-'+t+'-'+k+'-'+v,subject:'maths',year:9,topicId,
   difficultyTarget,templateId:'test-template-'+t+'-'+k,
+  conceptFamilyId:'test-template-'+t+'-'+k,
   academicQA:'approved',taughtVerified:true,mathDailyEnabled:true,renderRequired:true,
   qaSourceStatus:'MATH_VERIFIED_WITH_INDEPENDENT_PEDAGOGICAL_SIGNOFF',
   options:['A','B','C','D','E','F'].map(id=>({id,text:id}))
@@ -51,6 +52,20 @@ test('twenty days consume exactly 200 unique fresh questions and avoid adjacent 
  const exhausted=selectMathsV31Daily({approvedQuestions:fixture,day:'2026-12-13',history});
  assert.equal(exhausted.ready,false);
  assert.equal(exhausted.questions.length,0);
+});
+
+test('Missing semantic concept family cannot be selected as Maths Daily supply',()=>{
+ const unreviewed=fixture.map(q=>({...q,conceptFamilyId:null}));
+ assert.equal(selectMathsV31Daily({approvedQuestions:unreviewed,day:'2026-11-23'}).ready,false);
+});
+
+test('Different source template IDs cannot masquerade as different Maths concepts',()=>{
+ const picked=selectMathsV31Daily({approvedQuestions:fixture,day:'2026-11-23'});
+ assert.equal(picked.ready,true);
+ const [a,b]=picked.questions.slice(0,2);
+ const sameFamily=picked.questions.map(q=>q.id===b.id?{...q,conceptFamilyId:a.conceptFamilyId}:q);
+ const result=selectMathsV31Daily({approvedQuestions:sameFamily,day:'2026-11-23'});
+ assert.equal(result.ready,false,'there are only nine semantic concepts despite ten template IDs');
 });
 
 test('one already-used ID is not recycled to make artificial ten without independent fresh replacements',()=>{
