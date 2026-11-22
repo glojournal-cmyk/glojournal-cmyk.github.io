@@ -1,3 +1,4 @@
+import {mathsOriginalGradeDemandDecision} from './math-study/math-v311-grade-demand-gate.js';
 // Math V3.1 intake adapter. REVIEW ONLY: it never marks the 200-item upload approved.
 // Copyright (c) Lux et Labor — 22 November 2026
 // Converting fields must never silently manufacture taught/grade/QA evidence.
@@ -32,6 +33,13 @@ export function mathsV31SignoffIssues(question,signoff={}){
    issues.push('teacher-taught-subskill-unverified');
  if(signoff.gradeIndependentlyCalibrated!==true||!filled(signoff.gradeBenchmark))
    issues.push('higher-grade-independently-uncalibrated');
+ // Independent grade-review evidence cannot bypass an original-family source hold.
+ const demand=mathsOriginalGradeDemandDecision({...question,
+   gradeDemandQA:signoff.gradeDemandQA,
+   independentGradeCalibrated:signoff.gradeIndependentlyCalibrated,
+   gradeDemandBenchmark:signoff.gradeBenchmark,
+   gradeDemandReviewer:signoff.gradeDemandReviewer});
+ if(!demand.ok)issues.push(demand.reason);
  if(!filled(signoff.conceptFamilyId)||!filled(signoff.conceptFamilyEvidence)||!filled(signoff.conceptFamilyReviewer))
    issues.push('independent-cross-template-concept-review-required');
  if(signoff.workedSolutionProofChecked!==true||!filled(signoff.mathsChecker))
@@ -97,6 +105,10 @@ export function stageMathsV31Question(question,signoff={}){
   options:choices.map(o=>({id:o.id,latex:o.latex,text:o.latex,
    misconception:signoff.distractorRationales?.[o.id]||''})),
   workedSolution:question?.workedSolutionSteps||[],
+  gradeDemandQA:eligible?signoff.gradeDemandQA:null,
+  independentGradeCalibrated:eligible&&signoff.gradeIndependentlyCalibrated===true,
+  gradeDemandBenchmark:eligible?signoff.gradeBenchmark:'',
+  gradeDemandReviewer:eligible?signoff.gradeDemandReviewer:'',
   academicQA:eligible?'approved':'pending',
   taughtVerified:eligible,
   sourceRef:signoff.teacherEvidence||'',
