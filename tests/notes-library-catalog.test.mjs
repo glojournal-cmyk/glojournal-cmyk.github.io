@@ -4,11 +4,15 @@ import { readFileSync } from 'node:fs';
 const root = new URL('../',import.meta.url);
 const read = p => readFileSync(new URL(p,root),'utf8');
 const catalog=JSON.parse(read('notes/catalog.json'));
-test('96 unique, dated, expected PDF references',()=>{
- assert.equal(catalog.notes.length,96);
- assert.equal(new Set(catalog.notes.map(n=>n.key)).size,96);
- assert.equal(catalog.notes.reduce((sum,n)=>sum+n.sizeBytes,0),706594613);
- for(const n of catalog.notes){
+const pdfNotes=catalog.notes.filter(n=>String(n.filename||'').toLowerCase().endsWith('.pdf'));
+const readingEditions=catalog.notes.filter(n=>n.format==='HTML');
+test('96 original PDF notes remain present alongside one separate HTML reading edition',()=>{
+ assert.equal(pdfNotes.length,96);
+ assert.equal(readingEditions.length,1);
+ assert.equal(catalog.notes.length,97);
+ assert.equal(new Set(catalog.notes.map(n=>n.key)).size,97);
+ assert.equal(pdfNotes.reduce((sum,n)=>sum+n.sizeBytes,0),706594613);
+ for(const n of pdfNotes){
   assert.match(n.filename,/\.pdf$/i);
   assert.match(n.key,/^(summer|year9)\/(latin|french|biology|chemistry|english|maths|mixed)\//);
   assert.equal(n.status,n.delivery==='site'?'ready':'pending');
@@ -91,7 +95,7 @@ test('original ImageGen photo banners replace vector placeholders in Design C wi
 });
 
 test('six Year 9 Latin vocabulary image PDFs have dedicated chapter buttons and same-site reader paths',()=>{
- const latin=catalog.notes.filter(n=>n.period==='year9'&&n.subject==='latin'&&n.delivery==='site');
+ const latin=pdfNotes.filter(n=>n.period==='year9'&&n.subject==='latin'&&n.delivery==='site');
  assert.equal(latin.length,6);
  for(let i=1;i<=6;i++){
   const note=latin.find(n=>n.title==='Latin Vocabulary — Chapter '+i);
@@ -147,10 +151,27 @@ test('Year 9 Maths Topic 5 and 2 Nov Biology illustrated PDF notes have exact up
  assert.equal(biology[0].subject,'biology');
 });
 
+test('standalone Latin reading edition is HTML, never misrepresented as a PDF upload',()=>{
+ const [edition]=readingEditions;
+ assert.ok(edition);
+ assert.equal(edition.key,'year9/latin/Year_9_Latin_10_Page_Key_Revision_Notes_Reading_Edition.html');
+ assert.equal(edition.sourceFilename,'Year_9_Latin_10_Page_Key_Revision_Notes(1).pdf');
+ assert.equal(edition.url,'/notes/year9-latin-key-revision-20261120/');
+ assert.equal(edition.delivery,'site');
+ assert.equal(edition.status,'ready');
+ assert.equal(edition.period,'year9');
+ assert.equal(edition.subject,'latin');
+ assert.equal(edition.validation.sourcePages,10);
+ assert.equal(edition.validation.binaryPdfUploaded,false);
+ assert.equal(edition.topicGroup,'Test Revision');
+ const html=read('notes/year9-latin-key-revision-20261120/index.html');
+ assert.match(html,/10-page Key Revision Notes/);
+ assert.match(read('notes/library.js'),/n\.url==='\/notes\/year9-latin-key-revision-20261120\/'/);
+});
 
-test('all 96 PDF Notes have meaningful topic labels while preserving original R2 object keys',()=>{
- assert.equal(catalog.notes.length,96);
- for(const n of catalog.notes){
+test('all 96 PDF Notes retain meaningful topic labels and original R2 keys',()=>{
+ assert.equal(pdfNotes.length,96);
+ for(const n of pdfNotes){
   assert.equal(typeof n.topicLabel,'string');
   assert.equal(typeof n.displayTitle,'string');
   assert.equal(typeof n.topicGroup,'string');
