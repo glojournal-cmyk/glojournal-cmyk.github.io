@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#173940"><meta name="robots" content="noindex,nofollow">
+<title>Maths Daily · Academic QA hold · Scholar's Garden</title>
+<link rel="icon" href="/favicon.svg">
+<style>
+:root{color-scheme:light;font-family:Arial,Helvetica,sans-serif;background:#f5f0e5;color:#1f3540}
+*{box-sizing:border-box}body{margin:0;min-height:100dvh}
+main{max-width:880px;margin:24px auto;padding:20px}
+h1{font:700 clamp(23px,4vw,36px)/1.2 Georgia,serif;color:#213e49}
+p{line-height:1.6}.paper{padding:clamp(20px,4vw,36px);background:white;border:1px solid #dac9aa;border-radius:20px;box-shadow:0 6px 28px #2d271017}
+.flag{font-weight:700;letter-spacing:.06em;color:#864f27}
+a{color:#1a5871}button{font:inherit;cursor:pointer;border-radius:11px;border:2px solid #bdac8b;padding:12px 16px;background:#fff;text-align:left;min-height:52px}
+button:focus-visible,a:focus-visible{outline:3px solid #1f7eac;outline-offset:3px}
+button:disabled{opacity:.55;cursor:not-allowed}.choices{display:grid;gap:10px;margin:16px 0}
+.choice[aria-pressed=true]{background:#e8f1ff;border-color:#317baf}
+#qa-question[hidden],#qa-worked[hidden],#qa-preview[hidden],#qa-next[hidden]{display:none}
+#qa-worked{padding:14px 20px;border-radius:10px;background:#f5f3e9}
+#qa-next{margin-top:18px;background:#193b49;color:white;border-color:#193b49}
+#qa-formula,#qa-choices{visibility:hidden}
+#qa-formula.ready,#qa-choices.ready{visibility:visible}
+#qa-message{min-height:2em}
+small{color:#5a6268}.progress{font-size:14px;font-weight:700;color:#514b6f;margin-bottom:10px}
+@media(max-width:600px){main{margin:10px auto;padding:10px}.paper{padding:16px}.choices{gap:7px}}
+</style></head><body><main class="paper">
+<a href="/study/maths/">← Back to Maths Study</a>
+<h1>Maths Daily · Year 9</h1>
+<p class="flag" role="status">ACADEMIC QA HOLD — NOT AVAILABLE FOR DAILY CREDIT</p>
+<p>Maths V3.1 contains 200 questions with mathematical answer-key checks, but teaching-scope, GCSE grade, distractor quality and iPad grading have not been signed off. Until then, no question in this module may award Daily, Mastery, XP, MP or Recovery credit.</p>
+<p><a href="/study/maths/practise/">Use existing independent Maths Study instead</a>.</p>
+<section id="qa-preview" hidden aria-label="Isolated reviewer preview">
+<hr>
+<h2>Reviewer-only sample · 10 original question IDs</h2>
+<p><strong>QA preview only.</strong> This page never connects to the Scholar store and never writes learner progress, XP or MP. MathJax is loaded online; loss of the formula renderer blocks the preview rather than displaying raw LaTeX.</p>
+<p id="qa-message" role="status">Checking formula renderer…</p>
+<div id="qa-question" hidden>
+<div class="progress" id="qa-position"></div>
+<p id="qa-identifier"></p>
+<div id="qa-formula" aria-label="Question formula"></div>
+<div id="qa-choices" class="choices" role="group" aria-label="Six answer options"></div>
+<div id="qa-worked" hidden aria-live="polite">
+<strong id="qa-result"></strong>
+<ol id="qa-solution"></ol>
+</div>
+<button id="qa-next" type="button" hidden>Next QA question</button>
+</div>
+</section></main>
+<script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},startup:{typeset:false}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script type="module" src="/assets/math-study/daily-v31-qa-preview.js"></script>
+</body></html>
